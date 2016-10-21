@@ -72,6 +72,7 @@ $sidebar-color: rgb(245, 245, 245);
 
     &:hover {
       background-color: darken($sidebar-color, 10);
+      color: $teal;
     }
 
     &:active {
@@ -100,4 +101,8 @@ $sidebar-color: rgb(245, 245, 245);
   @media (max-width: $tablet-width - 50px) {
     flex-direction: column;
   }
+}
+
+.hidden{
+  display: none;
 }
