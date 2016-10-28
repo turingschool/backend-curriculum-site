@@ -5,6 +5,6 @@ $(document).ready(function(){
 function toggleMenuItems() {
   $(".click-to-expand").on("click", function(e){
     e.preventDefault
-    $(this).next().toggle()
+    $(this).siblings().toggle()
   })
 }
