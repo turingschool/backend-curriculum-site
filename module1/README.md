@@ -175,9 +175,9 @@ Students will be able to:
 
 ## Promotion Criteria
 
-#Additional Resources
+# Additional Resources
 
-###Lessons
+### Lessons
 
 * [Getting Started with Exercism](http://exercism.io)
 * Throwdown
