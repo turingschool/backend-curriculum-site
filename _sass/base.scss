@@ -28,6 +28,10 @@ img {
   max-width: 100%;
 }
 
+.hidden{
+  display: none;
+}
+
 a {
   border-bottom: 3px solid lighten($medium-gray, 20);
   color: darken($teal, 30);
