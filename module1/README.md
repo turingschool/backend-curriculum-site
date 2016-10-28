@@ -7,6 +7,7 @@ subheading: Object Oriented Programming with Ruby
 [Goals, Beginnings, and Proficiencies](lessons/mod_1_goals)
 
 ## Scope & Sequence
+
 * [__Mod 1 Calendar__](https://calendar.google.com/calendar/embed?src=casimircreative.com_59k8msrrc2ddhcv787vubvp0s4%40group.calendar.google.com&ctz=America/Denver)
 * [__Mod 1 Homework Assignments__](https://github.com/turingschool/homework/blob/master/module-1-homework)
 * [__Portfolio Template__](https://raw.githubusercontent.com/turingschool/portfolios/master/template.markdown)
@@ -14,6 +15,7 @@ subheading: Object Oriented Programming with Ruby
 
 ## Mod-Long Practice Exercises
 Exercises you'll want to use throughout module. Specific assignments listed on the [__Mod 1 Homework Assignments__](https://github.com/turingschool/homework/blob/master/module-1-homework) markdown.
+
 * [Drills](lessons/drills) ([Video](https://vimeo.com/160162922))
 * [Exercisms](http://exercism.io/)
 * [Mythical Creatures](https://github.com/turingschool/ruby-exercises/blob/master/mythical-creatures/)
@@ -23,6 +25,7 @@ Exercises you'll want to use throughout module. Specific assignments listed on t
 ### Week 1:
 
 #### Projects and Exercises
+
 * [Mythical Creatures](https://github.com/turingschool/ruby-exercises/blob/master/mythical-creatures/)
 * [SuperFizz](https://github.com/turingschool/challenges/blob/master/super_fizz.markdown)
 * [Enumerable Exercises](https://github.com/turingschool/enums-exercises)
@@ -54,12 +57,14 @@ Exercises you'll want to use throughout module. Specific assignments listed on t
 ### Week 2:
 
 #### Projects and Exercises
+
 * [Mastermind](projects/mastermind)
 * [Flashcards](projects/flashcards)
 * [Date Night](projects/date_night)
 * [Jungle Beats](projects/jungle_beat)
 
 #### Lessons
+
 * [How Testing Works / Intro to TDD](lessons/how_testing_works)
 * Spiraling Design & Tests
 * [Choose Your Own Adventure Intro to Git](lessons/choose_your_own_adventure_intro_to_git)
@@ -77,6 +82,7 @@ Exercises you'll want to use throughout module. Specific assignments listed on t
   * [Class Recording: Working with files](https://vimeo.com/162134025)
 
 #### Other Relevant Links
+
 * [GitHub SSH Key Setup](https://help.github.com/articles/generating-an-ssh-key/)
 * [Level 2 OR 3 of Choose Your Own Adventure Git](lessons/choose_your_own_adventure_intro_to_git#level-2---intermediate-overview-and-command-line-practice)
 * [Peter Cooper Object Model Video](https://github.com/turingschool/challenges/blob/master/object_model_intro.markdown)
@@ -84,12 +90,14 @@ Exercises you'll want to use throughout module. Specific assignments listed on t
 ### Week 3:
 
 #### Projects and Exercises
+
 * [Battleship](projects/battleship)
 * [Complete Me](projects/complete_me)
 * [Nightwriter](projects/night_writer)
 * [Enigma](projects/enigma)
 
 #### Lessons
+
 * [Testing Strategies](lessons/testing_strategies_and_encapsulation) ([Video](https://vimeo.com/161526035))
 * [Call Stacks & Method Flow](lessons/stacks_methods_and_program_flow) ([Video](https://vimeo.com/155902102))
 * [Pairing Patterns](lessons/pairing_patterns)
@@ -98,6 +106,7 @@ Exercises you'll want to use throughout module. Specific assignments listed on t
 * [Top-Down vs. Bottom-Up Design Approaches (Video)](https://vimeo.com/162079511)
 
 #### Other Relevant Links
+
 * [Pair Programming Reading and Questions](https://github.com/turingschool/challenges/blob/master/pair_programming_reading.markdown)
 * [Character Count - Pair Exercise](https://github.com/turingschool/challenges/blob/master/character_count.markdown)
 * [Dynamics: Drive](https://github.com/turingschool/dynamics/blob/master/drive.markdown)
@@ -105,11 +114,13 @@ Exercises you'll want to use throughout module. Specific assignments listed on t
 ### Week 4:
 
 #### Projects and Exercises
+
 * [HTTP Yeah You Know Me](projects/http_yeah_you_know_me)
 * [Hyde](projects/hyde/index)
 * [Event Manager](projects/eventmanager)
 
 #### Lessons
+
 * [Git & GitHub for Pairs](lessons/git_and_github_for_pairs)
 * Mid-Module Diagnostic
 * [Ruby load path and require](lessons/load_path_and_require)
@@ -118,15 +129,18 @@ Exercises you'll want to use throughout module. Specific assignments listed on t
 * [Boolean Logic and Code Paths](lessons/boolean_logic) ([Video](https://vimeo.com/156637050))
 
 #### Other Relevant Links
+
 * [Refactoring Patterns Reading](https://github.com/turingschool/challenges/blob/master/refactoring_patterns_reading.markdown)
 
 ### Week 5:
 
 #### Projects
+
 * [Headcount](projects/headcount)
 * [Black Thursday](projects/black_thursday)
 
 #### Lessons
+
 * [Practicing Remote Pairing](lessons/remote_pairing)
 * DTR
 * [Decomposing Headcount](lessons/decomposing_headcount)
@@ -137,15 +151,18 @@ Exercises you'll want to use throughout module. Specific assignments listed on t
 * [Advanced Enumerables](lessons/advanced_enumerables)
 
 #### Other Relevant Links
+
 * [POODR Parts 1, 2, and 3](lessons/performance_of_code)
 
 ### Week 6:
 
 #### Projects
+
 * [Black Thursday](projects/black_thursday)
 * [Headcount](projects/headcount)
 
 #### Lessons
+
 * [Binary, Octal, and Hex](lessons/number_systems)
 * [How Computers & Electronics Work](lessons/how_computers_work)
 * [Higher Order Ruby](lessons/higher_order_ruby) ([Video](https://vimeo.com/158113154)))
