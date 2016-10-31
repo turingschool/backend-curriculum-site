@@ -32,7 +32,7 @@ Students will be able to:
 
 #### Week 1
 
-* [Rails Engine](lessons/projects/rails_engine) Kickoff
+* [Rails Engine](projects/rails_engine) Kickoff
 * [JSON Fundamentals](lessons/json_fundementals)
 * [Building an API](lessons/building_an_api)
 * [Customizing JSON in your API](lessons/customizing_json_in_your_api)

@@ -1,4 +1,5 @@
 ---
+layout: page
 title: Event Bubbling and Delegation
 length: 90
 tags: javascript, dom, browser, events
