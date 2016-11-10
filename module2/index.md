@@ -6,6 +6,13 @@ subheading: Web Applications with Ruby
 
 ## Module 2 Scope and Sequence
 
+* [__Mod 2 Calendar__](https://www.google.com/calendar/embed?src=casimircreative.com_59k8msrrc2ddhcv787vubvp0s4%40group.calendar.google.com&ctz=America/Denver)
+* [__Mod 2 Homework Assignments__](https://github.com/turingschool/homework/blob/master/module-2-homework.markdown)
+* [__Portfolio Template__](https://raw.githubusercontent.com/turingschool/portfolios/master/template.markdown)
+* [__Mod 1 Portfolio Requirements__](https://github.com/turingschool/portfolios#module-2)
+
+Find professional development curriculum [__here__](https://github.com/turingschool/professional_skills)
+
 #### Overview
 
 In module 2, we expand upon fundamental ruby skills by building database-backed web applications in Sinatra and Rails. Through group projects, we explore best practices in agile project management and collaboration. By the end of this module, students will be comfortable creating basic Rails web applications.
@@ -25,9 +32,7 @@ By the end of this module, students will be able to:
 * employ effective communication in order to facilitate collaboration.
 * apply best practices in project management and Git workflow.
 
-Find the homework [__here__](https://github.com/turingschool/homework/blob/master/module-2-homework.markdown)
 
-Find professional development curriculum [__here__](https://github.com/turingschool/professional_skills)
 
 #### Week 1
 
