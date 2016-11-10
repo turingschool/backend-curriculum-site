@@ -12,6 +12,10 @@ This site is built with Jekyll. Find the docs [here](https://jekyllrb.com/docs/u
 * To start the server run `jekyll serve`.
 * Navigate to `localhost:4000` to see the site
 
+* make changes on the `gh-pages` branch.
+* you can push changes to production by pushing the `gh-pages` branch to github. `git push origin gh-pages`.
+* The changes may take a minute or two to be recognized on production. Please make sure you review your changes on production.
+
 ## Structure of the site and where to find the most important things:
 
 You will find a module specific directory. eg `module1` and within each directory you will find a directory for `lessons` and `projects`. All files within this site can be written as either markdown or html. To link to each you just need to write the relative path to each file without the file extension. For example `lessons/lesson_on_stuff`.
