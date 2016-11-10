@@ -68,7 +68,7 @@ By the end of the module students will be able to:
 #### Week 6
 
 * The Final
-* [The Plan]()
+* [The Plan](projects/the-plan)
 * The History of Programming
 * Professional Development: Open Career Workshop
 
