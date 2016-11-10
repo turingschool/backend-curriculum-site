@@ -28,4 +28,4 @@ layout: page
 
 The `navigation.html` file is where you will find the sidebar for the site.
 
-The `today.html` file is where you will find the basic html page for today, and each file for today will live within the `today` directory.
+The `today.html` file is where you will find the basic html page for today, and each file for the specific day will live within the `today` directory.
