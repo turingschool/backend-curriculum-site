@@ -9,7 +9,7 @@ subheading: Web Applications with Ruby
 * [__Mod 2 Calendar__](https://www.google.com/calendar/embed?src=casimircreative.com_59k8msrrc2ddhcv787vubvp0s4%40group.calendar.google.com&ctz=America/Denver)
 * [__Mod 2 Homework Assignments__](https://github.com/turingschool/homework/blob/master/module-2-homework.markdown)
 * [__Portfolio Template__](https://raw.githubusercontent.com/turingschool/portfolios/master/template.markdown)
-* [__Mod 1 Portfolio Requirements__](https://github.com/turingschool/portfolios#module-2)
+* [__Mod 2 Portfolio Requirements__](https://github.com/turingschool/portfolios#module-2)
 
 Find professional development curriculum [__here__](/professional_development)
 
@@ -100,7 +100,7 @@ By the end of this module, students will be able to:
 * [Callbacks, and Scopes](https://github.com/turingschool-examples/turing-scholarbot)
 
 #### Optional (Time Permitting)
-* [Rails Mini-Project Peer extention and review exercise](lessons/mini-project-gem-implementation)
+* [Rails Mini-Project Peer extension and review exercise](lessons/mini-project-gem-implementation)
 * Mini-Project show and tell
 
 #### Week 6
