@@ -26,6 +26,9 @@
 ul.outlines a {
     width: 18%;
     text-align: center;
+  @media screen and (max-width: $phone-width) {
+    width: 90%;
+  }
 }
 
 .outline {
