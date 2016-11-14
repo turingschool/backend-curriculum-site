@@ -1,4 +1,7 @@
-# Prework: If you Have a Week
+---
+title: Turing School Prework
+subheading: If You Have A Week
+---
 
 ### Daily Tasks:
 
@@ -27,7 +30,7 @@
       <td>Post your reflections in a new gist and email the link to <a href = "mailto:mike@turing.io">
       mike@turing.io</a>.
       </td>
-      <td>30-45 minutes per article</td> 
+      <td>30-45 minutes per article</td>
     </tr>
 
   </tbody>
@@ -50,7 +53,7 @@
     <tr>
       <td><strong>Task D- Set up your environment (Visual Studio Code, Ruby, etc.)</strong><br><br>
       <strong>If you are a Mac user:</strong> Watch <a href="https://vimeo.com/154607937">this screencast</a> or read <a href="https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/environment_setup.markdown">this post</a> to guide you. The screencast and the post cover the same information.<br><br>
-            <strong>If you are a Windows user:</strong> Ruby is trickier to set up on Windows machines. In addition, the commands you'll be using on a Mac while at Turing will be different. In order to get started on a Windows machine, you'll complete the prework using the [Cloud9](https://c9.io/) online IDE by following the instructions below: 
+            <strong>If you are a Windows user:</strong> Ruby is trickier to set up on Windows machines. In addition, the commands you'll be using on a Mac while at Turing will be different. In order to get started on a Windows machine, you'll complete the prework using the [Cloud9](https://c9.io/) online IDE by following the instructions below:
 
 <li>Click "Try it Now"</li>
 <li>Fill in username, email, and password</li>
@@ -107,7 +110,7 @@
       <th>Time Frame</th>
     </tr>
     <tr>
-      <td><strong>Task E-</strong> Read AND start these exercises 
+      <td><strong>Task E-</strong> Read AND start these exercises
       https://www.codecademy.com/learn/learn-the-command-line <br>For today:<br>
         <ul>
           <li>Unit 2: Viewing and Changing the File System</li>
@@ -186,7 +189,7 @@
       <th>Time Frame</th>
     </tr>
     <tr>
-      <td><strong>Task E</strong>- Read AND do these exercises 
+      <td><strong>Task E</strong>- Read AND do these exercises
       https://www.codecademy.com/learn/learn-the-command-line
       <br>For today:<br>
         <ul>

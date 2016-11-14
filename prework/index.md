@@ -1,8 +1,6 @@
 ---
 title: Turing School Prework
 subheading: Back End Engineering
-length: 2
-tags: javascript, jquery, canvas, svg, mocha, testing
 ---
 
 ## What to do if I have >=Month to prepare...

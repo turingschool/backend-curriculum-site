@@ -1,4 +1,8 @@
-# Prework: If you Have a Month
+---
+title: Turing School Prework
+subheading: If You Have A Month
+---
+
 Welcome to Turing! Your pre-work is broken up into a few different sections. Start off with the first week's suggested schedule. Once you've completed everything in the first week's schedule, move on to the Next Steps. If you still have time and would like to learn more, you may move on to the Extend Your Learning section. Before coming to Turing, please remember to complete Task G, the Pre-Work Reflection.
 
 # Priorities:
@@ -32,7 +36,7 @@ Welcome to Turing! Your pre-work is broken up into a few different sections. Sta
       <td>Post your reflections in a new gist and email the link to <a href = "mailto:mike@turing.io">
       mike@turing.io</a>.
       </td>
-      <td>30-45 minutes per article</td> 
+      <td>30-45 minutes per article</td>
     </tr>
 
   </tbody>
@@ -55,7 +59,7 @@ Welcome to Turing! Your pre-work is broken up into a few different sections. Sta
     <tr>
       <td><strong>Task D- Set up your environment (VS Code, Ruby, etc.)</strong><br><br>
       <strong>If you are a Mac user:</strong> Watch <a href="https://vimeo.com/154607937">this screencast</a> or read <a href="https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/environment_setup.markdown">this post</a> to guide you. The screencast and the post cover the same information.<br><br>
-      <strong>If you are a Windows user:</strong> Ruby is trickier to set up on Windows machines. In addition, the commands you'll be using on a Mac while at Turing will be different. In order to get started on a Windows machine, you'll complete the prework using the [Cloud9](https://c9.io/) online IDE by following the instructions below: 
+      <strong>If you are a Windows user:</strong> Ruby is trickier to set up on Windows machines. In addition, the commands you'll be using on a Mac while at Turing will be different. In order to get started on a Windows machine, you'll complete the prework using the [Cloud9](https://c9.io/) online IDE by following the instructions below:
 
 <li>Click "Try it Now"</li>
 <li>Fill in username, email, and password</li>
@@ -66,7 +70,7 @@ Welcome to Turing! Your pre-work is broken up into a few different sections. Sta
 <li>Don't fill in or select anything else; just click "Create workspace" at the bottom</li>
 <li>Wait for your workspace to load </li>
 <li>The navy blue box at the bottom is your command line (referred to as "Terminal" in some reference materials). The sidebar on the left-hand side is your file tree. The area in the middle is your text editor. </li>
-      
+
       </td>
       <td>Respond to the following questions in your Gist:<br>
       <ul>
