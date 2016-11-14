@@ -156,4 +156,4 @@ As you complete each section, respond to the related questions below (mostly tak
 
 ### Resources to save
 
-[Resources](/resources-to-save)
+[Resources](./resources-to-save)
