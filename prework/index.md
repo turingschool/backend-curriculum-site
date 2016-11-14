@@ -9,7 +9,7 @@ subheading: Back End Engineering
 
 ## What to do if I have <=Week to prepare...
 
-[Here you will find our one month or more prework](./prework-week)
+[Here you will find our one week prework](./prework-week)
 
 ## What Kind Of Things Do I Need To Do?
 
