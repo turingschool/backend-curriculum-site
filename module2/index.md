@@ -11,7 +11,7 @@ subheading: Web Applications with Ruby
 * [__Portfolio Template__](https://raw.githubusercontent.com/turingschool/portfolios/master/template.markdown)
 * [__Mod 1 Portfolio Requirements__](https://github.com/turingschool/portfolios#module-2)
 
-Find professional development curriculum [__here__](https://github.com/turingschool/professional_skills)
+Find professional development curriculum [__here__](/professional_development)
 
 #### Overview
 
