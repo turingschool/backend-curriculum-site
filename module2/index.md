@@ -6,10 +6,10 @@ subheading: Web Applications with Ruby
 
 ## Module 2 Scope and Sequence
 
-* [__Mod 2 Calendar__](https://www.google.com/calendar/embed?src=casimircreative.com_59k8msrrc2ddhcv787vubvp0s4%40group.calendar.google.com&ctz=America/Denver)
+* [__Mod 2 Calendar__](https://calendar.google.com/calendar/embed?src=casimircreative.com_rps2hg1nfqjih4rcl3gl6s4lpk@group.calendar.google.com&ctz=America/Denver)
 * [__Mod 2 Homework Assignments__](https://github.com/turingschool/homework/blob/master/module-2-homework.markdown)
 * [__Portfolio Template__](https://raw.githubusercontent.com/turingschool/portfolios/master/template.markdown)
-* [__Mod 1 Portfolio Requirements__](https://github.com/turingschool/portfolios#module-2)
+* [__Mod 2 Portfolio Requirements__](https://github.com/turingschool/portfolios#module-2)
 
 Find professional development curriculum [__here__](https://github.com/turingschool/professional_skills)
 
