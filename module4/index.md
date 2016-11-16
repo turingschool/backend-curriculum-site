@@ -23,10 +23,28 @@ By the end of the module students will be able to:
 
 #### Week 1
 
+* Project kickoff
+* [JavaScript without a browser]()
+* [Workflow and Communication]()
+* [Intro to OO JavaScript]()
+* [Professional Code Environments]()
+* [Debugging JavaScript](./debugging_javascript)
+* [Characterization and Acceptance Testing]()
+* [Professional Development]()
+* [Revisiting OAuth]()
+* [Enumerables in JavaScript]()
+* Internal Demos and Brainstorming sessions
 
 
 #### Week 2
 
+* [Extracting Compenents and Services]()
+* [Isolating Dependencies with Wrappers]()
+* [Linked Lists in JavaScript]()
+* [Testing in a World of Services]()
+* [Pub/Sub]()
+* [Binary Search Trees]()
+* Sprint 1 Demos and Evaluations
 
 #### Week 3
 
