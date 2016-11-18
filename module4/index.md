@@ -48,15 +48,19 @@ By the end of the module students will be able to:
 
 #### Week 3
 
+TBD
 
 #### Week 4
 
+TBD
 
 #### Week 5
 
-
+TBD
 
 #### Week 6
+
+TBD
 
 -------
 
