@@ -41,17 +41,18 @@ By the end of this module, students will be able to:
 * [How the Web Works](lessons/how_the_web_works)
 * [Passing Data With Sinatra](https://github.com/case-eee/shopping)
 * [CRUD in Sinatra](lessons/intro_to_crud_redux)
-* [Professional Development: Finding Opportunities](https://github.com/turingschool/professional_skills/blob/master/finding_opportunities.md)
-* [Model Testing in Sinatra](lessons/model_testing_in_sinatra_with_films)
-* [Feature Testing with Capybara in Sinatra for Films](lessons/feature_testing_in_sinatra_with_films)
+* [ActiveRecord Exploration](https://github.com/case-eee/intro-to-ar)
 * [Intro to ActiveRecord with Sinatra](lessons/intro_to_active_record_in_sinatra)
+* [Professional Development: Finding Opportunities](https://github.com/turingschool/professional_skills/blob/master/module_two/finding_opportunities.md)
+* [Model Testing in Sinatra](lessons/model_testing_in_sinatra_with_films)
 * [Intro to Project Management](lessons/intro_to_project_management)
+* [Collaborative Communication](https://github.com/turingschool/professional_skills/blob/master/module_two/collaborative_communication.md)
 * [Rush Hour Kickoff](https://github.com/turingschool/curriculum/blob/master/source/projects/rush_hour.md)
-* [Database Design & Modeling](lessons/visualising_and_implementing_database_relationships)
+* [Database Visualization & Relationships](lessons/visualising_and_implementing_database_relationships)
 
 #### Week 2
 
-* [Feature Testing with Capybara in Sinatra](lessons/feature_testing_in_sinatra_with_capybara)
+* [Feature Testing with Capybara in Sinatra for Films](lessons/feature_testing_in_sinatra_with_films)
 * Rush Hour Evaluations
 * [ActiveRecord Obstacle Course](lessons/active_record_obstacle_course)
 * [REST, Controllers, and Routing in Rails](lessons/rest_routing_and_controllers_in_rails)
