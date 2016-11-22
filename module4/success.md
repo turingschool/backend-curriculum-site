@@ -1,7 +1,6 @@
 ---
 layout: page
 title: Module 4 Success
-subheading: Professional Application Development
 ---
 
 Success in B4 means that students demonstrate proficiency and comfort with the following concepts:
