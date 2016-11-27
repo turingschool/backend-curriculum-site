@@ -16,3 +16,20 @@ ul.module-quick-links {
   font-weight: 100;
   display: flex;
 }
+
+table th, td, tr {
+  border: 1px solid $light-gray;
+  padding: 10px;
+}
+
+table {
+  box-shadow: inset 0 0 1em $light-gray, 0 0 1em $medium-gray;
+}
+
+#module-list {
+  align-content: center;
+}
+
+.title {
+  text-align: center;
+}

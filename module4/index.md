@@ -8,9 +8,7 @@ subheading: Professional Application Development
 
 ### Purpose
 
-Module 4 is the capstone: a demonstration of the best of what students are capable of. It prepares them for the workplace by emulating the patterns and processes that they’ll use. It should prepare them for their career by helping them set goals and direction without dictating every step of the journey.
-
-Module 4 builds upon the skills learned to prepare students for the real world of software through a deeper understanding of choices and tradeoffs. Students dive into JavaScript by exploring object-oriented practices and frameworks, work on larger applications, extract components and services, and refine their professional processes.
+Module 4 is the capstone: a demonstration of the best of what students are capable of. It prepares them for the workplace by emulating the patterns and processes that they’ll use. It should prepare them for their career by helping them set goals and direction without dictating every step of the journey. 
 
 ### Defining Success
 

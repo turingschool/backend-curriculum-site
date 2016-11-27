@@ -6,12 +6,12 @@ subheading: Web Applications with Ruby
 
 ## Module 2 Scope and Sequence
 
-* [__Mod 2 Calendar__](https://www.google.com/calendar/embed?src=casimircreative.com_59k8msrrc2ddhcv787vubvp0s4%40group.calendar.google.com&ctz=America/Denver)
+* [__Mod 2 Calendar__](https://calendar.google.com/calendar/embed?src=casimircreative.com_rps2hg1nfqjih4rcl3gl6s4lpk@group.calendar.google.com&ctz=America/Denver)
 * [__Mod 2 Homework Assignments__](https://github.com/turingschool/homework/blob/master/module-2-homework.markdown)
 * [__Portfolio Template__](https://raw.githubusercontent.com/turingschool/portfolios/master/template.markdown)
-* [__Mod 1 Portfolio Requirements__](https://github.com/turingschool/portfolios#module-2)
+* [__Mod 2 Portfolio Requirements__](https://github.com/turingschool/portfolios#module-2)
 
-Find professional development curriculum [__here__](https://github.com/turingschool/professional_skills)
+Find professional development curriculum [__here__](/professional_development)
 
 #### Overview
 
@@ -41,17 +41,18 @@ By the end of this module, students will be able to:
 * [How the Web Works](lessons/how_the_web_works)
 * [Passing Data With Sinatra](https://github.com/case-eee/shopping)
 * [CRUD in Sinatra](lessons/intro_to_crud_redux)
-* [Professional Development: Finding Opportunities](https://github.com/turingschool/professional_skills/blob/master/finding_opportunities.md)
-* [Model Testing in Sinatra](lessons/model_testing_in_sinatra_with_films)
-* [Feature Testing with Capybara in Sinatra for Films](lessons/feature_testing_in_sinatra_with_films)
+* [ActiveRecord Exploration](https://github.com/case-eee/intro-to-ar)
 * [Intro to ActiveRecord with Sinatra](lessons/intro_to_active_record_in_sinatra)
+* [Professional Development: Finding Opportunities](https://github.com/turingschool/professional_skills/blob/master/module_two/finding_opportunities.md)
+* [Model Testing in Sinatra](lessons/model_testing_in_sinatra_with_films)
 * [Intro to Project Management](lessons/intro_to_project_management)
+* [Collaborative Communication](https://github.com/turingschool/professional_skills/blob/master/module_two/collaborative_communication.md)
 * [Rush Hour Kickoff](https://github.com/turingschool/curriculum/blob/master/source/projects/rush_hour.md)
-* [Database Design & Modeling](lessons/visualising_and_implementing_database_relationships)
+* [Database Visualization & Relationships](lessons/visualising_and_implementing_database_relationships)
 
 #### Week 2
 
-* [Feature Testing with Capybara in Sinatra](lessons/feature_testing_in_sinatra_with_capybara)
+* [Feature Testing with Capybara in Sinatra for Films](lessons/feature_testing_in_sinatra_with_films)
 * Rush Hour Evaluations
 * [ActiveRecord Obstacle Course](lessons/active_record_obstacle_course)
 * [REST, Controllers, and Routing in Rails](lessons/rest_routing_and_controllers_in_rails)
@@ -100,7 +101,7 @@ By the end of this module, students will be able to:
 * [Callbacks, and Scopes](https://github.com/turingschool-examples/turing-scholarbot)
 
 #### Optional (Time Permitting)
-* [Rails Mini-Project Peer extention and review exercise](lessons/mini-project-gem-implementation)
+* [Rails Mini-Project Peer extension and review exercise](lessons/mini-project-gem-implementation)
 * Mini-Project show and tell
 
 #### Week 6
