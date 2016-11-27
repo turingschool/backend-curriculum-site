@@ -9,7 +9,7 @@ subheading: Object Oriented Programming with Ruby
 ## Scope & Sequence
 
 * [__Mod 1 Calendar__](https://calendar.google.com/calendar/embed?src=casimircreative.com_59k8msrrc2ddhcv787vubvp0s4%40group.calendar.google.com&ctz=America/Denver)
-* [__Mod 1 Homework Assignments__](https://github.com/turingschool/homework/blob/master/module-1-homework)
+* [__Mod 1 Homework Assignments__](https://github.com/turingschool/homework/blob/master/module-1-homework.markdown)
 * [__Portfolio Template__](https://raw.githubusercontent.com/turingschool/portfolios/master/template.markdown)
 * [__Mod 1 Portfolio Requirements__](https://github.com/turingschool/portfolios#module-1)
 
@@ -37,14 +37,14 @@ Exercises you'll want to use throughout module. Specific assignments listed on t
 * [Success at Turing](lessons/success_at_turing)
 * [Strings and Integers](lessons/strings_and_integers)
 * [Flow Control (Foxtrot)](lessons/flow_control) ([Video](https://www.youtube.com/watch?v=iZkQWR9_RpY))
-* [Introducing Arrays](lessons/arrays_and_hashes) ([Video](https://www.youtube.com/watch?v=nlwU1YtQ9SU))
+* [Introducing Arrays](lessons/arrays) ([Video](https://www.youtube.com/watch?v=nlwU1YtQ9SU))
 * [Problems, Solutions, and Algorithms](lessons/problems_solutions_algorithms)
 * [Exploring `.each` and Exercises](lessons/primer_on_each)
 * [Core Types (Foxtrot)](https://github.com/turingschool/ruby-exercises/tree/master/core-types)
 * [How Testing Works / Intro to TDD (Echo)](lessons/how_testing_works)
 * [Essential Enumerables](lessons/enumerable_methods) [Video 1](https://vimeo.com/160173522), [Video 2](https://vimeo.com/160176913), [Video 3](https://vimeo.com/160180017), [Video 4](https://vimeo.com/160182678)
-* [Introducing Hashes](lessons/arrays_and_hashes) ([Video](https://www.youtube.com/watch?v=xgLtxPvJlqE))
-* [Objects, Classes, and Instances](module1/lessons/classes_instances_methods) ([Video](https://www.twitch.tv/worace/v/56378715))
+* [Introducing Hashes](lessons/hashes) ([Video](https://www.youtube.com/watch?v=xgLtxPvJlqE))
+* [Objects, Classes, and Instances](lessons/classes_instances_methods) ([Video](https://www.twitch.tv/worace/v/56378715))
 
 #### Other Relevant Links
 * [Terminal and Editor](https://github.com/turingschool/curriculum/blob/master/source/academy/workshops/terminal_and_editor.markdown)
@@ -75,8 +75,8 @@ Exercises you'll want to use throughout module. Specific assignments listed on t
 * How linked lists work (Foxtrot)
 * How Binary Search Trees Work (Echo)
 * [Dynamics](https://github.com/turingschool/dynamics)
-* [Pattern Generator](https://github.com/turingschool/challenges/blob/master/pattern_generator)
-* [Cryptographer](https://github.com/turingschool/challenges/blob/master/cryptographer)
+* [Pattern Generator](https://github.com/turingschool/challenges/blob/master/pattern_generator.markdown)
+* [Cryptographer](https://github.com/turingschool/challenges/blob/master/cryptographer.markdown)
 * [Working with Files](lessons/working_with_files)
   * [Video: Basic File IO in Ruby](https://vimeo.com/130322465)
   * [Class Recording: Working with files](https://vimeo.com/162134025)
@@ -142,7 +142,7 @@ Exercises you'll want to use throughout module. Specific assignments listed on t
 #### Lessons
 
 * [Practicing Remote Pairing](lessons/remote_pairing)
-* DTR
+* [DTR](https://docs.google.com/document/d/1zMtgWhODQuP3KBNhrg6PtmPUkw0DIskqgggeyEzYZi4/edit)
 * [Decomposing Headcount](lessons/decomposing_headcount)
 * [Performance of Code](lessons/performance_of_code)
 * [Profiling and Optimizing Black Thursday](https://vimeo.com/158380111)
