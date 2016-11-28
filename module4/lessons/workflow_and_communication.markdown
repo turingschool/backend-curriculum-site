@@ -148,7 +148,17 @@ Then I [observe an outcome]
 
 #### Story Practice
 
-* TODO
+Let's practice a bit of story writing.
+
+*Imagine* we've prototyped a small to-do list app. It's working great, but it is built just for a single user. Our Project Owner has indicated that we should push towards supporting multiple users each with their own unique experience within the system.
+
+The PO tells you:
+
+**"We need to add user login so each person has their own to-do list"**
+
+Sounds doable, but there are actually several stories here. The first step is to ask clarifying questions. *Let's practice some clarifying questions now. What do you need to know to write a story?*
+
+Based on those questions we'll generate the seeds of a few stories, break ourselves into pairs, and write up a good story following the above template.
 
 #### Estimating a Story
 
