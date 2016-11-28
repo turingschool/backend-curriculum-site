@@ -2,6 +2,7 @@
 layout: page
 title: Module 4
 subheading: Professional Application Development
+---
 
 
 ## Module 4 Scope and Sequence
