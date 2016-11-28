@@ -2,13 +2,13 @@
 layout: page
 title: Module 4
 subheading: Professional Application Development
----
+
 
 ## Module 4 Scope and Sequence
 
 ### Purpose
 
-Module 4 is the capstone: a demonstration of the best of what students are capable of. It prepares them for the workplace by emulating the patterns and processes that they’ll use. It should prepare them for their career by helping them set goals and direction without dictating every step of the journey. 
+Module 4 is the capstone: a demonstration of the best of what students are capable of. It prepares them for the workplace by emulating the patterns and processes that they’ll use. It should prepare them for their career by helping them set goals and direction without dictating every step of the journey.
 
 ### Defining Success
 
