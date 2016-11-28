@@ -1,6 +1,7 @@
 ---
 layout: page
-title: Advanced Database Topics: Views, Replication and Clustering
+title: Advanced Database Topics
+subheading: Views, Replication and Clustering
 length: 180
 tags: postgres, database, clustering, replication, sql, active record
 status: draft
