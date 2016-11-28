@@ -24,7 +24,7 @@ By the end of this lesson, you will know/be able to:
 
 Assuming we want to create full CRUD functionality in our Sinatra app for users accessing our site through a browser, there are seven routes that we will need to define. Let's make a chart together.
 
-(Here's a [completed chart](https://www.dropbox.com/s/vx3ocfsusjdrgfw/crud_in_sinatra.pdf?dl=0), but don't open it until you're finished!)
+(Here's a [completed chart](https://www.dropbox.com/s/qfh9zmca7i7r3u4/CRUD%20%26%20Sinatra.jpg?dl=0), but don't open it until you're finished!)
 
 ### CRUD Homework Recap
 
