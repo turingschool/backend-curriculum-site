@@ -35,9 +35,8 @@ There are surely existing materials somewhere, but the idea here is to make sure
 ### Workflow & Communication
 
 * Staff: Jeff
-* Status: Needs Planning
-
-Put together a set of expectations of how the project teams will communicate: standups, stories, project management, etc
+* Status: Draft Ready
+* [Lesson Plan](lessons/workflow_and_communication)
 
 ### Object-Oriented JavaScript
 
