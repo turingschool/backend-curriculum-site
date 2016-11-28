@@ -44,6 +44,9 @@ $sidebar-color: rgb(245, 245, 245);
     @media (max-width: $tablet-width) {
       text-align: center;
     }
+    &.click-to-expand {
+      cursor: pointer;
+    }
   }
 
   ul, ol {
