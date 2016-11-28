@@ -20,22 +20,11 @@ Put together a set of expectations of how the project teams will communicate: st
 
 ### Schedule
 
-* 15 Minutes: Micro-DTR
-* 25 Minutes: How Capstones Work
+* 30 Minutes: How Capstones Work
 * 20 Minutes: Writing Stories
 * 30 Minutes: Pivotal Tracker
 
-### Micro-DTR (15 Minutes)
-
-Let's start in your new project groups discussing the following questions:
-
-* As an individual, how do you define "success" for this module?
-* What strengths do you bring to the group?
-* What weaknesses are you looking to improve?
-* What topics / areas of focus are you most exited about?
-* What, from a technical or logistical perspective, are you most concerned about this module?
-
-### How Capstones Work (25 Minutes)
+### How Capstones Work (30 Minutes)
 
 Ready for a six-week project? Let's discuss how things will actually work.
 
