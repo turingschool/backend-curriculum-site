@@ -11,31 +11,25 @@ Put together a set of expectations of how the project teams will communicate: st
 
 ## Learning & Completion Goals
 
+* Student understands the key team roles in the capstone projects
+* Student understands the expected workflow for turning story concepts into deployed features
+* Student understands which tool is for communicating with which parts of the team
+* Student is familiar with a template for good stories
+* Student is able to write a story following the template
+* Student is able to use a point system for estimating stories
 * Student is setup with a Pivotal Tracker account
 * Student is familiar with the basic workflow of using Tracker
-* Student is familiar with a template for good stories
-* Student is able to use a point system for estimating stories
+* Student is familiar with the meanings of each Tracker state
 
 ## Session Plan
 
 ### Schedule
 
-* 15 Minutes: Micro-DTR
-* 25 Minutes: How Capstones Work
+* 30 Minutes: How Capstones Work
 * 20 Minutes: Writing Stories
 * 30 Minutes: Pivotal Tracker
 
-### Micro-DTR (15 Minutes)
-
-Let's start in your new project groups discussing the following questions:
-
-* As an individual, how do you define "success" for this module?
-* What strengths do you bring to the group?
-* What weaknesses are you looking to improve?
-* What topics / areas of focus are you most exited about?
-* What, from a technical or logistical perspective, are you most concerned about this module?
-
-### How Capstones Work (25 Minutes)
+### How Capstones Work (30 Minutes)
 
 Ready for a six-week project? Let's discuss how things will actually work.
 
@@ -159,7 +153,17 @@ Then I [observe an outcome]
 
 #### Story Practice
 
-* TODO
+Let's practice a bit of story writing.
+
+*Imagine* we've prototyped a small to-do list app. It's working great, but it is built just for a single user. Our Project Owner has indicated that we should push towards supporting multiple users each with their own unique experience within the system.
+
+The PO tells you:
+
+**"We need to add user login so each person has their own to-do list"**
+
+Sounds doable, but there are actually several stories here. The first step is to ask clarifying questions. *Let's practice some clarifying questions now. What do you need to know to write a story?*
+
+Based on those questions we'll generate the seeds of a few stories, break ourselves into pairs, and write up a good story following the above template.
 
 #### Estimating a Story
 
