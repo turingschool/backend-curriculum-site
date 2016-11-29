@@ -252,7 +252,7 @@ Let's start by creating a new Rails project. If you are creating an api only Rai
 Read [section 3 of the docs](http://edgeguides.rubyonrails.org/api_app.html) to see how an api-only rails project is configured.
 
 ```sh
-$ rails _5.0_ new building_internal_apis -T -d postgresql --api
+$ rails new building_internal_apis -T -d postgresql --api
 $ cd building_internal_apis
 $ bundle
 $ bundle exec rake db:create
