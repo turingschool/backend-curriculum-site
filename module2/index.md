@@ -40,7 +40,7 @@ By the end of this module, students will be able to:
 * [Intro to Bootstrap](lessons/introduction_to_bootstrap_v2)
 * [How the Web Works](lessons/how_the_web_works)
 * [Passing Data With Sinatra](https://github.com/case-eee/shopping)
-* [CRUD in Sinatra](lessons/intro_to_crud_redux)
+* [CRUD in Sinatra](lessons/crud-intro-sinatra)
 * [ActiveRecord Exploration](https://github.com/case-eee/intro-to-ar)
 * [Intro to ActiveRecord with Sinatra](lessons/intro_to_active_record_in_sinatra)
 * [Professional Development: Finding Opportunities](https://github.com/turingschool/professional_skills/blob/master/module_two/finding_opportunities.md)
