@@ -1,4 +1,7 @@
-#Turing School Professional Development
+---
+title: Turing School Professional Development
+layout: page
+---
 
 ![Scope & Sequence](images/pd_scope_and_sequence.png)
 

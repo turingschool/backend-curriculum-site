@@ -6,26 +6,26 @@ layout: page
 
 [Slides for this lesson](https://docs.google.com/presentation/d/1f0cDlu4u5ZnM0WjpCpPfBcCJ9n3qRknqYjaqh8DdJVs/edit?usp=sharing)
 
-###Objectives: 
+### Objectives:
 
 * Understand and recognize the three triggers of feedback
 * Define and understand the 3 different kinds of feedback
 * Describe the process of how to navigate a feedback conversation
 * Write out and deliver thoughtful feedback for your project partner
 
-###Deliverable
+### Deliverable
 Feedback for and from your project partners in your end-of-module portfolio
 
-###Opening
+### Opening
 Think about the last time you received feedback  
 
 * What emotions did you experience when hearing the feedback?
 * How useful was the feedback you received?
 
-###Three Triggers
-Read [Chapter One from Thanks for the Feedback](files/Thanks For the Feedback_Ch 1.pdf)
+### Three Triggers
+Read [Chapter One from Thanks for the Feedback](../files/Thanks For the Feedback_Ch 1.pdf)
 
-Discuss: 
+Discuss:
 
 * What are you taking away from this chapter?
 * Which of these triggers resonates the most with you?
@@ -33,12 +33,12 @@ Discuss:
 * Is there value in thinking about feedback triggers?
 * How does looking at feedback through this lens relate to your growth at Turing?
 
-Write: 
+Write:
 
 * What next steps will you take to be more aware of your triggers when receiving feedback?
 
 
-###Three Types of Feedback
+### Three Types of Feedback
 * Appreciation (Meaning) -- thanks, I see your hard work
 	* Relationship and human connection
 	* Motivation
@@ -53,8 +53,9 @@ Write:
 	* Aligns expectations and informs decision making
 	* Also the LOUDEST
 
-###Crafting Feedback
+### Crafting Feedback
 Follow this formula:
+
 * **Open:** Define the purpose of the conversation
 	* *What kind of feedback are we discussing?*
 	* *What does the giver want to give me?*
@@ -66,26 +67,26 @@ Follow this formula:
 	* Problem-solving
 * **Close:** Clarify commitments, action steps, and follow-up
 
-###Open by Getting Aligned
+### Open by Getting Aligned
 * What do you need?
 * What does your partner need to tell you?
 
-* Examples: 
+* Examples:
 	* You: “I’d like to hear what I did well in this aspect: __________.”
 	* You: “I’d like to hear about what I could do better in terms of my communication skills with partners.”
 	* Partner: “I want you to hear that you made a lot of improvements in building tests.”
 	* Partner: “I want to suggest that you ask your next partner more questions when you don’t understand something so that communication can be more open.”
 
-###Pair & Share
+### Pair & Share
 Meet with your partner and discuss your Opening
 * What do you need to hear from your partner? Include both appreciation and coaching
 * What does your partner need to tell you?
 
-###Body: Four Skills to Practice 
+### Body: Four Skills to Practice
 * Listening:
 	* Asking clarifying questions -- both to the giver and to yourself
 	* Ask yourself: what’s right? Why might they see this situation differently?
-	* Beware of your internal voice -- are you being triggered? 
+	* Beware of your internal voice -- are you being triggered?
 	* Paraphrasing what you hear:
 		* “What I’m hearing you say is that I could work on this…”
 	* Acknowledging the other person’s feelings -- it’s hard to give feedback
@@ -100,7 +101,7 @@ Meet with your partner and discuss your Opening
 * Process Moves: Diagnose, Describe, Propose
 Managing a conversation
 
-	*What do you notice about this example?* 
+	*What do you notice about this example?*
 
 	“We’re both making arguments, trying to persuade the other, but I don’t think either of us is listening to, or fully understanding, the other. I know I’m not doing a good enough job of trying to understand what your concerns are. So tell me more about why this is so important to you.”
 
@@ -116,18 +117,19 @@ Create possibilities for how the feedback could be used. How can you acknowledge
 	* Generate options that address your needs as well as the feedback giver’s
 	* Note: This is not a final determination on the feedback but rather a way to move forward
 
-###Closing: Make Commitments
-What will an action plan look like from this conversation? 
+### Closing: Make Commitments
+What will an action plan look like from this conversation?
 
-###Writing the Feedback
+### Writing the Feedback
 You'll be delivering Appreciation & Coaching. Evaluation will come from your instructors.
 
-* Appreciation: What did you see your partner do that brought added value to your project? 
-* Coaching: What advice do you have for your partner on improvement? 
+* Appreciation: What did you see your partner do that brought added value to your project?
+* Coaching: What advice do you have for your partner on improvement?
 
-**Example of feedback:** 
-Thank you for your contributions, especially in styling of several of our pages in the last few days. The site presentation looks much better as a result. Thank you also for checking in with me before you began working on a new item. I know that you didn’t always feel strong with some of the more complex aspects of our project, and I think that may have caused you to communicate with me less. I feel like there were several times during the project where either you had a missing DB migration or merge conflicts due to working off a branch with a head far behind our current dev_branch. I would suggest that you communicate with your future pairs more often to help avoid these issues. Committing and submitting PR's more often, even if it means smaller steps, would also help resolve merge conflicts along the way rather than letting them build into massive problems that take away from project time. In the last two days of the project, I feel like your contributions improved tremendously, and I very much appreciated the work you did.
+#### Example of feedback:
 
-###Follow-Up:
+> Thank you for your contributions, especially in styling of several of our pages in the last few days. The site presentation looks much better as a result. Thank you also for checking in with me before you began working on a new item. I know that you didn’t always feel strong with some of the more complex aspects of our project, and I think that may have caused you to communicate with me less. I feel like there were several times during the project where either you had a missing DB migration or merge conflicts due to working off a branch with a head far behind our current dev_branch. I would suggest that you communicate with your future pairs more often to help avoid these issues. Committing and submitting PR's more often, even if it means smaller steps, would also help resolve merge conflicts along the way rather than letting them build into massive problems that take away from project time. In the last two days of the project, I feel like your contributions improved tremendously, and I very much appreciated the work you did.
+
+### Follow-Up:
 * Deliver your feedback to your partner during your retro by following open-body-close
-* In Module 2, you’ll receive Feedback II in which we’ll discuss how to improve in giving more specific feedback and how to be aware of our blind spots and wrong-spotting feedback. 
+* In Module 2, you’ll receive Feedback II in which we’ll discuss how to improve in giving more specific feedback and how to be aware of our blind spots and wrong-spotting feedback.

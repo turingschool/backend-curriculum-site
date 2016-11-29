@@ -4,29 +4,29 @@ subheading: Define the Relationship and Hold Each Other Accountable
 layout: page
 ---
 
-
 Pairing with other programmers is an essential agile practice, and building your pairing skills will help you be successful in projects at Turing and in the workplace. Learning to pair is about establishing a relationship with the person you’re working with. This starts with breaking down communication barriers and building trust within the working relationship. This session covers how to DTR (Define the Relationship), strategies for upholding expectations with your partner(s), how to have difficult conversations when group members break expectations, and how to give each other feedback.
 
 Refer to the [Learning to Pair slides](https://docs.google.com/presentation/d/1_ZfOvYNMeOQeks4CBioyMZy3mm_5pWdyX6Tp9Ej4OLw/edit?usp=sharing) for this lesson.
 
-##Learning Objectives:
+## Learning Objectives:
 
 * Understand what DTR is and how to hold a DTR conversation
 * Define your own expectations in a working relationship
 * Apply strategies to hold your partners accountable
 * Demonstrate how to address broken expectations
 
-##Deliverable:
+## Deliverable:
 
 * Include a DTR memo in your portfolio for at least one project
 
-##Defining the Relationship (DTR)
+## Defining the Relationship (DTR)
 DTR refers to a conversation each student has with group partner(s) before launching into a project. During this conversation, group members set expectations for how to work together. Use this [DTR Guiding Questions & Memo template](https://docs.google.com/document/d/1zMtgWhODQuP3KBNhrg6PtmPUkw0DIskqgggeyEzYZi4/edit?usp=sharing) to guide the conversation.
 
 Establishing a relationship with your mentor should also include a DTR. Here’s a cheatsheet for planning that conversation.
 
 Take time to define your expectations:
-###Examples:
+
+### Examples:
 * Define your strengths -- what do you bring to the table?
 * How do you want to collaborate with someone else?
 * How do you approach problems?
@@ -37,7 +37,7 @@ Take time to define your expectations:
 * Come up with additional questions that you want to ask your partner
 
 
-###Holding Each Other Accountable
+### Holding Each Other Accountable
 * Memo: Documenting your DTR in a memo will provide you with a record of what you discussed to reference as the project goes on. Make it into a gist so that everyone from the group has it.
 * Stand Up: Start each work session discussing what you are each working on that day and what goals you hope to accomplish at the end of the work session.
 * Retro: Hold regular retros to discuss what’s going well, what’s not going well, and what you should change as a group to make your project and team more successful.
@@ -45,7 +45,7 @@ Take time to define your expectations:
 * Re-DTR: In longer projects, review and readjust expectations midway through the project.
 
 
-###Compromising with each others’ expectations
+### Compromising with each others’ expectations
 * Remember lessons from Improv:
 	* “No” means that you’re pushing your own agenda
 	* “Yes” means that you’re expecting your partner to do all the work of defining expectations (even if you don’t agree with these expectations)
@@ -59,7 +59,7 @@ Take time to define your expectations:
 	* Beware of the "Developer's Ego" -- learning to ask questions is an important skill for the workplace.
 * Bottom line: Paired project code is owned by the entire team. There is no room (and no time, considering your tight deadlines) for egos -- you are here to support each other.
 
-###Addressing Broken Expectations
+### Addressing Broken Expectations
 When a partner is not following through on expectations, the first step is to work on yourself:
 
 * How are you reacting?
@@ -80,7 +80,7 @@ When a partner is not following through on expectations, the first step is to wo
 			* Motivation (deadlines, grades, etc.)
 			* Ability (What is structurally holding you back? Do you need a better organizational system? Trello, waffle.io, etc.)
 
-###Facilitating the Conversation
+### Facilitating the Conversation
 Now that you’ve identified a motivation behind your partner’s behavior, how do you conduct a conversation to change that behavior?
 
 * **Establish safety**: you’re about to address something sensitive with another person and he/she may feel threatened in one way or another.
@@ -112,7 +112,7 @@ Now that you’ve identified a motivation behind your partner’s behavior, how 
 		* Create action steps:
 			* Re-DTR: who will do what and when?
 
-###Practice
+### Practice
 
 **Scenario:** During DTR, Partner A and Partner B decided that you would have an end of day retro to debrief how the worktime went. But at the end of the first day, Partner A left abruptly right after Wrap Up and didn’t meet with Partner B to retro on the tasks. Then in day two, Partner A doesn’t have a task finished that was promised to be done. Partner B is worried about time and how to proceed when Partner A seems unreliable.
 * What assumptions need to be addressed?
