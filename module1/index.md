@@ -24,6 +24,7 @@ A student who graduates from this module will be able to do the following.
 * Critique code in a specific, actionable, and kind way
 * Demonstrate how to use GitHub for projects
 * Explain how and why software is executed on a computer
+* Speak fluently about technical topics
 
 
 ## Curriculum
