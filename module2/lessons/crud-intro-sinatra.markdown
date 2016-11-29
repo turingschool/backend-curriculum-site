@@ -9,16 +9,16 @@ tags: crud, sinatra
 By the end of this lesson, you will know/be able to:
 
 * define CRUD in the programming sense of the word
-* add functionality to complete the *U*pdate and *D*elete functionality of CRUD for a Sinatra app
+* understand functionality to of *U*pdate and *D*elete of CRUD for a Sinatra app
 * divide responsibilities between the controller, views, and models
 
 ### Warm Up
 
-* What does CRUD stand for and why is it important?
-* What CRUD functionality are we missing in TaskManager?
-* How would you write a raw SQL statement to update a task's title and description for task with id 6?
-* What does MVC stand for? Create a diagram of the MVC pattern.
-* What part of the MVC does `task_manager_app.rb` represent in our current TaskManager app? What about `task.rb`?
+We'll go through the questions answered last night for homework [here](https://gist.github.com/case-eee/1f066fa3be100f8f18f4d31f521a3da4).
+
+### MVC Overview
+
+We'll talk about MVC and diagram what this looks like on the board.
 
 ### CRUD Overview
 
@@ -34,6 +34,8 @@ Assuming we want to create full CRUD functionality in our Sinatra app for users 
 ### Worktime
 
 #### Robot World
+
+You'll be working in pairs for this challenge. 
 
 Fork [this repository](https://github.com/turingschool-examples/robot-world) and CRUD out a robot. This app should be a directory of robots. A robot has a name, city, state, and department. Users should be able to enter a robot (create), see a list of all of the robots, see each robot individually (read), edit a robot (update), and delete a robot (delete).
 
