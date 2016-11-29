@@ -1,4 +1,8 @@
-#SCAMPER
+---
+title: SCAMPER
+layout: page
+---
+
 
 *(exercise adapted from the Ignite phase of the Disciplined Dreaming framework)*
 

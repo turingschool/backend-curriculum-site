@@ -1,4 +1,8 @@
-# Finding New Opportunities
+---
+title:  Finding New Opportunities
+layout: page
+---
+
 
 ## Learning Competencies
 - Research companies and people to create a list of opportunities

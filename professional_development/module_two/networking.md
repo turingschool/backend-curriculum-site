@@ -1,4 +1,8 @@
-# Networking
+---
+title:  Networking
+layout: page
+---
+
 
 Reference [Networking slide deck](https://github.com/turingschool/professional_skills/blob/master/files/networking.pdf) for a refresher
 

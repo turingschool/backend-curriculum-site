@@ -1,4 +1,8 @@
-#  Module One
+---
+title:   Module One
+layout: page
+---
+
 
 ![Mod 1 Scope & Sequence](../images/Mod%201%20Scope%20%26%20Sequence.png)
 

@@ -1,4 +1,8 @@
-# 10 Ways to Strike Sparks of Creativity
+---
+title:  10 Ways to Strike Sparks of Creativity
+layout: page
+---
+
 
 
 *(modified from the Ignite phase of the Disciplined Dreaming framework for creativity)*

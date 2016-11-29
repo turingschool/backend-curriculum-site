@@ -1,4 +1,8 @@
-# Personal Branding Part I
+---
+title:  Personal Branding Part I
+layout: page
+---
+
 Learning how to tell your story based on the channel you’re using to communicate is important for successfully conveying how you’ll contribute to a team and the tech community. Think about how you’d like to contribute your prior experience and career to the tech community. How would you like to use your skills as a software developer? In this workshop we’ll talk through how the resume, LinkedIn, Twitter, and Github all contribute to telling your story and will support your job search. 
 
 Reference [Personal Branding Part I Slide Deck](https://github.com/turingschool/professional_skills/blob/master/files/personal-branding.pdf

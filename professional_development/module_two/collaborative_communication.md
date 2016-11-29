@@ -1,4 +1,8 @@
-#Collaborative Communication 
+---
+title: Collaborative Communication 
+layout: page
+---
+
 
 This session follows the BEE M2 project management lesson and precedes the Rush Hour project kickoff. 
 
