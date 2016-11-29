@@ -1,16 +1,21 @@
-# Personal Branding Part I
-Learning how to tell your story based on the channel you’re using to communicate is important for successfully conveying how you’ll contribute to a team and the tech community. Think about how you’d like to contribute your prior experience and career to the tech community. How would you like to use your skills as a software developer? In this workshop we’ll talk through how the resume, LinkedIn, Twitter, and Github all contribute to telling your story and will support your job search. 
+---
+title:  Personal Branding Part I
+layout: page
+---
 
-Reference [Personal Branding Part I Slide Deck](https://github.com/turingschool/professional_skills/blob/master/files/personal-branding.pdf
-) for refresher
+Learning how to tell your story based on the channel you’re using to communicate is important for successfully conveying how you’ll contribute to a team and the tech community. Think about how you’d like to contribute your prior experience and career to the tech community. How would you like to use your skills as a software developer? In this workshop we’ll talk through how the resume, LinkedIn, Twitter, and Github all contribute to telling your story and will support your job search.
+
+Reference [Personal Branding Part I Slide Deck](../files/personal-branding.pdf) for refresher
 
 ## Deliverables
+
 - Working resume
 - LinkedIn profile
 - Twitter Account
 - GitHub Profile
 
 ### Resume Learning Competencies
+
 - Reorganize your resume to lead with technical skills and experience
 - Analyze what experiences are most useful in demonstrating transferable and applicable skills for an entry level tech role
 - Produce a resume with clear and concise language aligned with current tech industry standards
@@ -23,7 +28,7 @@ Take a look at a few examples before getting started:
  - Don't be afraid to think outside of the box...Check out this [epic resume.](http://www.rleonardi.com/interactive-resume/)
 
 ### Layouts
-You can choose to set up a traditional resume use a template like this [traditional resume](visualcv.com/www/google-docs-resume-templates/), but you may want to personalize the style with a layout on [creddle.io](http://creddle.io).
+You can choose to set up a traditional resume use a template like this [traditional resume](http://visualcv.com/www/google-docs-resume-templates/), but you may want to personalize the style with a layout on [creddle.io](http://creddle.io).
 
 ### Content Inclusion
 - Add a __Header:__ Name, phone number, email, GitHub, LinkedIn, personal site (These should all be linked text, not the long URL strings)
@@ -56,14 +61,15 @@ Exchange resumes with (2) peers. Share written feedback that you can refer back 
 - Tell your story effectively
 
 ### Content Update
-- Edit your Headline to represent what you want to be known for rather than dependent on your most recent working title. Consider "Software Developer" "Web Developer" or you can combine your past experiences with new skills like "Software Developer | Former Educator"
+
+- Edit your Headline to represent what you want to be known for rather than dependent on your most recent working title. Consider "Software Developer" "Web Developer" or you can combine your past experiences with new skills like "Software Developer \| Former Educator"
 - Identify your location with the zip code of the location of your number one location choice so that you show up in searches where you're looking for opportunities.
 - Edit your vanity URL using your first and last name. Don't use numbers in your vanity URL -- numbers can open you up to potential age discrimination.
 - Add your past experiences. Descriptions should demonstrate transferable skills. These descriptions should be in a paragraph, anecdotal form rather than bullet points.
 - Place the education section below experience. Include Turing School of Software & Design under Education to help other alums connect with you now and in the future.
 - Move skills section to the bottom of the profile. These will help recruiters find you in searches.
 - Add a summary that tells your story from a high level answering the following questions: Who are you (as a developer, teammate, individual, etc.), how'd you get here (why software development, why now, etc.), what's next? (what are your  long term ambitions/goals). Include your email in the summary so those who aren't able to directly connect can still contact you. Remember, to wrap up the summary with a call to action.
-- Add your connections to build a network of at least 50 connections (but always aim for 500+ quality connections). Don't forget to add Turing staff: 
+- Add your connections to build a network of at least 50 connections (but always aim for 500+ quality connections). Don't forget to add Turing staff:
 <table>
   <tr>
   <th colspan="5">Connect With Turing Staff</th>
@@ -97,8 +103,7 @@ Exchange resumes with (2) peers. Share written feedback that you can refer back 
     </tr>
 </table>
 
-
--Engage with your connections by liking, commenting on, and/or sharing their updates.
+- Engage with your connections by liking, commenting on, and/or sharing their updates.
 
 ### Twitter Learning Competencies
 - Display your brand visually and through written content
@@ -108,7 +113,7 @@ Exchange resumes with (2) peers. Share written feedback that you can refer back 
 - Include a headshot of **_you_**
 - Include your personal website link, email, and mini, high-level bio introduction
 - Consider what your profile says about you to someon that has never met you
- 
+
 ### Converse
 - Search for topics interesting to you ("webdev", "edtech", "diversity in tech")
 - Consider how you would approach a conversation at a party. Listen, observe, then evaluate when is appropriate to interject with your opinion, perspective, knowledge.

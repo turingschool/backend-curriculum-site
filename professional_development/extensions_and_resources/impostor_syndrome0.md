@@ -1,4 +1,8 @@
-# Combatting Impostor Syndrome
+---
+title:  Combatting Impostor Syndrome
+layout: page
+---
+
 
 ## What is Impostor Syndrome?
 

@@ -33,3 +33,13 @@ layout: page
 The `navigation.html` file is where you will find the sidebar for the site.
 
 The `today.html` file is where you will find the basic html page for today, and each file for the specific day will live within the `today` directory.
+
+## Some handy tips for editing/creating content
+
+- Relative links
+- Do I need an extension in my link? (yes for files, no for markdowns)
+- index not readme
+- Things that Github renders differently than the portal
+  - Put a space after your `#` in headers
+  - Put a new line after your headers
+  - Replace any `|` with `\|` unless you're really trying to do a table
