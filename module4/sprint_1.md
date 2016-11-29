@@ -48,7 +48,7 @@ There is an existing lesson plan to be reviewed.
 ### Professional Code Environments
 
 * Staff: Jeff
-* Status: Needs Planning
+* Status: Draft Ready
 * [Lesson Plan](lessons/professional_code_environments)
 
 ### Debugging JavaScript
