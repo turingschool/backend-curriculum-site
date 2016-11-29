@@ -237,7 +237,7 @@ Do what I did to `Order`, but on `Item` now.
 
 ### Intro
 
-- Built in to Rails 4+
+- Built in to Rails 4+ (still needs to be gem installed)
 - Uses Rails views
 - What does DSL mean?
 
@@ -245,10 +245,7 @@ Do what I did to `Order`, but on `Item` now.
 
 Let's use Jbuilder to create JSON views for `Order`.
 
-First, add and commit your serializers work and
-
-- Create your controller
-  - `rails g controller api/v1/orders index show`
+First, add and commit your serializers work and checkout a `jbuilder` branch.
 
 - Add views
   - (/views/api/v1/orders)
@@ -267,11 +264,11 @@ Our final product should look something like this:
 # controllers/api/v1/orders_controller.rb
 class Api::V1::OrdersController < ApplicationController
   def index
-    render json: Order.all
+    @orders = Order.all
   end
 
   def show
-    render json: Order.find(params[:id])
+    @order = Order.find(params[:id])
   end
 end
 ```
@@ -293,6 +290,10 @@ json.items @order.items do |item|
 end
 ```
 
+To see this, make sure the endpoint you make a `GET` request to is post-pended with `.json`.
+
+For example, `localhost:3000/api/v1/orders.json`
+
 ### Lab
 
 Do what I did to `Order`, but on `Item` now.
@@ -303,12 +304,6 @@ Do what I did to `Order`, but on `Item` now.
   - `num_orders`
 - A relationship
   - `orders`
-
-<!-- ### Extras -->
-
-<!-- `rails g jbuilder api/v1/items name description orders --model-name=item` -->
-
-<!-- Hypermedia: That `_links` thing in some APIs. How do you do that? -->
 
 ## Comparison
 
