@@ -133,4 +133,5 @@ an array of all the objects in its prototype chain.
 Let's see how we would use some of these techniques in practice.
 To look at this, we'll work through this tutorial from Mozilla:
 
-https://github.com/mdn/advanced-js-fundamentals-ck/blob/gh-pages/tutorials/03-object-oriented-javascript/01-introduction-to-object-oriented-javascript.md
+[Advanced JS Tutorial](https://github.com/mdn/advanced-js-fundamentals-ck/blob/gh-pages/tutorials/03-object-oriented-javascript/01-introduction-to-object-oriented-javascript.md
+)

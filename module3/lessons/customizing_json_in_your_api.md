@@ -45,7 +45,7 @@ We're going to start where we left off in the internal API testing lesson. We wa
 ```
 rails g model order order_number
 rails g model order_item order:references item:references item_price:integer quantity:integer
-rails db:migrate
+bundle exec rake db:migrate
 ```
 
 Add relationships to your models:
@@ -66,7 +66,7 @@ And whip together a quick seed file:
 10.times do
   Item.create!(
     name: Faker::Commerce.product_name,
-    description: Faker::Lorem.paragraph,
+    price: Faker::Number.digit,
   )
 end
 
@@ -90,30 +90,39 @@ And seed
 bundle exec rake db:seed
 ```
 
+Create your controller
+
+  - `rails g controller api/v1/orders index show`
+  - Set `index` and `show` methods to render appropriate json
+
 ## Responses
 
 > What's he building in there? -Tom Waits
 
+What does our JSON currently output as?
+
 JSON responses should contain the following keys from the following endpoints:
 
 **api/v1/items**
+
 ```javascript
 [
   {
     "id": 1,
     "name": "Hammer",
-    "description": "When it is this time, you stop."
+    "price": 11
   },
   {...}
 ]
 ```
 
 **api/v1/items/:id**
+
 ```javascript
 {
   "id": 1,
   "name": "Hammer",
-  "description": "When it is this time, you stop."
+  "price": 11
   "num_orders": 5,
   "orders": [
     {"order_number": "12345ABC"},
@@ -123,6 +132,7 @@ JSON responses should contain the following keys from the following endpoints:
 ```
 
 **api/v1/orders**
+
 ```javascript
 [
   {
@@ -134,6 +144,7 @@ JSON responses should contain the following keys from the following endpoints:
 ```
 
 **api/v1/orders/:id**
+
 ```javascript
 {
   "id": 1,
@@ -142,7 +153,8 @@ JSON responses should contain the following keys from the following endpoints:
   "items": [
     {
       "id": 1
-      "name": "Hammer"
+      "name": "Hammer",
+      "price": 11
     },
     {...}
   ]
@@ -166,10 +178,6 @@ JSON responses should contain the following keys from the following endpoints:
 We're going to create a serializer for `Order`.
 
 First, let's checkout a new branch called `json_serializers`.
-
-- Create your controller
-  - `rails g controller api/v1/orders index show`
-  - Set `index` and `show` methods to render appropriate json
 
 - Create your serializer
   - `rails g serializer order`
@@ -215,7 +223,7 @@ end
 Do what I did to `Order`, but on `Item` now.
 
 - Some existing fields
-  - `id`, `name`, `description`
+  - `id`, `name`, `price`
 - Some custom fields
   - `num_orders`
 - A relationship
@@ -290,7 +298,7 @@ end
 Do what I did to `Order`, but on `Item` now.
 
 - Some existing fields
-  - `id`, `name`, `description`
+  - `id`, `name`, `price`
 - Some custom fields
   - `num_orders`
 - A relationship
