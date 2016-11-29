@@ -7,6 +7,8 @@ layout: page
 * [SuperFizz](https://github.com/turingschool/challenges/blob/master/super_fizz.markdown)
 * [Enumerable Exercises](https://github.com/turingschool/enums-exercises)
 * [Core Types Exercises](https://github.com/turingschool/ruby-exercises/tree/master/core-types)
+* [Credit Check](https://github.com/turingschool/challenges/blob/master/credit_check.markdown)
+* [Sorting Suite](https://github.com/turingschool/curriculum/blob/master/source/projects/sorting_suite.markdown)
 
 ## Lessons
 * [Environment Setup](lessons/environment_setup) ([Video](https://vimeo.com/154607937))

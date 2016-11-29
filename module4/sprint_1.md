@@ -48,9 +48,8 @@ There is an existing lesson plan to be reviewed.
 ### Professional Code Environments
 
 * Staff: Jeff
-* Status: Needs Planning
-
-Recapping what goes into a local dev environment, staging, production. PaaS vs VPS.
+* Status: Draft Ready
+* [Lesson Plan](lessons/professional_code_environments)
 
 ### Debugging JavaScript
 
@@ -141,7 +140,7 @@ Nate’s done this before, so it should be ready to go.
 * Schedule any PSkills sessions that are not covered
 * Make a work plan to develop the lesson plans as needed
 * Decide on the role of “homework” outside of project work
-* Finalize thinking about “Art” vs “Practice” and whether that language will be used with * students
+* Finalize thinking about “Art” vs “Practice” and whether that language will be used with students
 * Schedule an inception meeting with each project team
 * Recruit/assign mentors to each project
 * Communicate mentor expectations/parameters to the teams and mentors

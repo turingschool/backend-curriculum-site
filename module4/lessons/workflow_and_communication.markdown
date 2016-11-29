@@ -11,10 +11,15 @@ Put together a set of expectations of how the project teams will communicate: st
 
 ## Learning & Completion Goals
 
+* Student understands the key team roles in the capstone projects
+* Student understands the expected workflow for turning story concepts into deployed features
+* Student understands which tool is for communicating with which parts of the team
+* Student is familiar with a template for good stories
+* Student is able to write a story following the template
+* Student is able to use a point system for estimating stories
 * Student is setup with a Pivotal Tracker account
 * Student is familiar with the basic workflow of using Tracker
-* Student is familiar with a template for good stories
-* Student is able to use a point system for estimating stories
+* Student is familiar with the meanings of each Tracker state
 
 ## Session Plan
 
