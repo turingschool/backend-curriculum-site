@@ -9,7 +9,7 @@ This site is built with Jekyll. Find the docs [here](https://jekyllrb.com/docs/u
 * Clone the repo `git clone git@github.com:turingschool/backend-curriculum-site.git`
 * run `bundle install`
 * You can now begin to edit the website.
-* To start the server run `jekyll serve`.
+* To start the server run `jekyll serve --incremental`.
 * Navigate to `localhost:4000` to see the site
 
 * make changes on the `gh-pages` branch.
@@ -22,7 +22,7 @@ You will find a module specific directory. eg `module1` and within each director
 
 Additionally each new file will need a header:
 
-```markdown
+```yaml
 ---
 title: Name of lesson
 subheading: lesson is about stuff
