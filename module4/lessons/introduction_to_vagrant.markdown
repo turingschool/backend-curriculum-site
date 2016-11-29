@@ -29,7 +29,7 @@ Let's build a development-ready environment including the following:
 
 VirtualBox is an application for running virtual machines. It's free and available for every major platform. You can [learn more about it](https://www.virtualbox.org/), or jump straight to the download page here:
 
-https://www.virtualbox.org/wiki/Downloads
+<https://www.virtualbox.org/wiki/Downloads>
 
 Look under "VirtualBox platform packages" for the binary distribution appropriate for your platform. **Run the installer and follow the instructions**.
 
@@ -37,7 +37,7 @@ Look under "VirtualBox platform packages" for the binary distribution appropriat
 
 Vagrant is a system for easily managing and interacting with VirtualBox-based virtual machines. Using vagrant we can do everything from the command line and rarely if ever need to open the actual VirtualBox application. You can [learn more on the Vagrant website](http://vagrantup.com).
 
-First, download the appropriate binary (matching your primary OS) from http://www.vagrantup.com/downloads.html and run the installer. The following steps in this tutorial are based on the [Vagrant Getting Started Guide](https://www.vagrantup.com/docs/getting-started/) which can be a good secondary reference.
+First, download the appropriate binary (matching your primary OS) from <http://www.vagrantup.com/downloads.html> and run the installer. The following steps in this tutorial are based on the [Vagrant Getting Started Guide](https://www.vagrantup.com/docs/getting-started/) which can be a good secondary reference.
 
 #### Setting Up Ubuntu
 
@@ -65,7 +65,7 @@ $ vagrant up
 
 When you run `up` it'll try and boot that image, see that it's not available on the local system, then fetch an image of Ubuntu 12.04 "Precise Pangolin". Once downloaded and setup, it'll be started.
 
-Other operating system "boxes" can be found at https://vagrantcloud.com/discover/featured .
+Other operating system "boxes" can be found at <https://vagrantcloud.com/discover/featured> .
 
 #### Entering the Virtual Machine
 
@@ -88,7 +88,7 @@ The folder that you used to store the vagrant configuration is *automatically* s
 * You can create a file `~/projects/vagrant_example/README.md` using your host OS and any editor
 * Within the VM's SSH session, you can interact with that file, like `cat /vagrant/README.md`
 
-Check out http://docs.vagrantup.com/v2/synced-folders/ for more complex folder synching, but this setup will be good enough for now.
+Check out <http://docs.vagrantup.com/v2/synced-folders/> for more complex folder synching, but this setup will be good enough for now.
 
 ### Git
 
@@ -306,7 +306,7 @@ Maximum connections set to 1024
 Listening on 0.0.0.0:3000, CTRL+C to stop
 ```
 
-Then, in your host operating system, open http://localhost:3000 in a browser. You should see the *Welcome aboard* page -- you're done!
+Then, in your host operating system, open <http://localhost:3000> in a browser. You should see the *Welcome aboard* page -- you're done!
 
 ## Cloning
 
