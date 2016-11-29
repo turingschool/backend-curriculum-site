@@ -7,17 +7,18 @@ layout: page
 [Slides for this lesson](https://docs.google.com/presentation/d/1BtFtpS_OWhQp9AJbXc9woI5ql8sD-etxwnFc-4rixEI/edit?usp=sharing)
 
 
-###Objectives:
+### Objectives:
+
 * Decide on a structure for your Scale Up blog post
 * Identify effective techniques from a tech blog post
 * Gather feedback for how to make your blog post clear
 * Utilize tools for revising your blog post
 
 
-###Deliverable:
+### Deliverable:
 Blog post on the features you choose to implement or research in Scale Up
 
-###Opening:
+### Opening:
 One of your requirements for the Scale Up project is to write a blog post. The blog post is actually a very important part of your Scale Up project because this is the place where you express all the things you’ve learned to people who don’t know you but should. *People who should know what kickass developers you’ve become.* *People who should hire you.*
 
 Why are you writing this?
@@ -29,7 +30,7 @@ Why are you writing this?
 Write for non-developers:
 Strike a balance between talking like an industry insider and explaining your concepts in very simple language.
 
-###Template It Out: Decide What Your Post Is
+### Template It Out: Decide What Your Post Is
 Start with a template to help define your intent in writing *(adapted from emptysqua.re/blog post “Resources for Writing About Programming” by A. Jesse Jiryu Davis)*
 
 **Story:**
@@ -103,7 +104,7 @@ Write a review of a game that inspired your game time project. What are some pro
 Now that you have a template, let’s talk about language
 
 
-###Seeing this in the real world
+### Seeing this in the real world
 Check out posts from any of these blogs:
 
 * [Google Developers Blog](https://developers.googleblog.com/)
@@ -126,11 +127,11 @@ Think about:
 * What can you apply to your own post?
 
 
-###Free Write
+### Free Write
 Decide on a structure for your blog post and think about your audience. Start on a draft based on what you’ve done so far in your project
 
 
-###Kill Your Darlings -- Peer Review
+### Kill Your Darlings -- Peer Review
 Kill Your Darlings refers to a revision technique -- *you need to be willing to let go of some of your favorite ideas if they don’t work for the overall message.*
 
 **Pair up:**

@@ -1,23 +1,25 @@
 ---
 title: Flower Exercise Follow-Up
-subheading: Overcoming Job Searching Impostor’s Syndrome 
+subheading: Overcoming Job Searching Impostor’s Syndrome
 layout: page
 ---
 
 
 [Slides for this lesson](https://github.com/turingschool/professional_skills/blob/master/files/m4_flower_exercise_follow_up.pdf)
 
-###Objectives
+### Objectives
+
 * Identify your top 3 priorities in your first dev job.
 * Identify areas where you might place barriers on yourself in terms of the job search.
 * Devise an action plan to overcome those barriers.
 * Create a job search support group within your cohort -- you are each other’s best support system and allies in this search.
 
-###Deliverables
+### Deliverables
+
 * 1 paragraph describing your top 3 priorities in your first dev job and why
 * 1-2 paragraphs describing your perceived barriers and the action steps you will take to overcome them
 
-###Opening
+### Opening
 
 **Debrief Flower Exercise:** Write, Pair, Share
 
@@ -31,7 +33,7 @@ Pair up with someone else and discuss these 3 things as well as anything else yo
 
 Now that you have a more clear picture of what you want in your job search, we will examine other forces that sometimes affect our job search.
 
-###(Perceived) Barriers to your Job Search
+### (Perceived) Barriers to your Job Search
 We can sometimes talk ourselves out of opportunities because we don’t think we deserve them, and we create our own barriers to success.
 
 * Examples of barriers:
@@ -49,7 +51,7 @@ What are some barriers you might carry with you? Think about these areas:
 
 Discuss and synthesize the trends that come up.
 
-###Taking Action
+### Taking Action
 How do we overcome those barriers? Brainstorm ideas on how to turn a barrier into something actionable and positive.
 
 **Fear-Planning:** What’s the worst that could happen based on these fears? What will you do?
@@ -66,7 +68,7 @@ How do we overcome those barriers? Brainstorm ideas on how to turn a barrier int
 Using barriers you’ve identified for yourself, create your own action plan on steps you can take to overcome those barriers
 
 
-###Job Search Support System
+### Job Search Support System
 In your cohort, you are each other’s best resources in the job search.
 What does it mean to support each other in the job search?
 What can this look like?
@@ -79,7 +81,7 @@ What can this look like?
 
 Decide what your cohort’s job search support will look like.
 
-###Debrief
-What is a takeaway for you from this session?
-What concerns do you still have?
-How can you help each other with those concerns?
+### Debrief
+- What is a takeaway for you from this session?
+- What concerns do you still have?
+- How can you help each other with those concerns?
