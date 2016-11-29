@@ -5,10 +5,13 @@ url: "http://backend.turing.io/"
 baseurl: ''
 permalink: /:title
 
-markdown: kramdown
+markdown: redcarpet
 kramdown:
   input: GFM
   syntax_highlighter: rouge
+
+redcarpet:
+  extensions: ["tables", "autolink", "strikethrough", "with_toc_data", "fenced_code_blocks"]
 
 exclude: [
   'Gemfile',
