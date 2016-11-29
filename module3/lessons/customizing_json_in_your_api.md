@@ -90,13 +90,21 @@ And seed
 bundle exec rake db:seed
 ```
 
+Create your controller
+
+  - `rails g controller api/v1/orders index show`
+  - Set `index` and `show` methods to render appropriate json
+
 ## Responses
 
 > What's he building in there? -Tom Waits
 
+What does our JSON currently output as?
+
 JSON responses should contain the following keys from the following endpoints:
 
 **api/v1/items**
+
 ```javascript
 [
   {
@@ -109,6 +117,7 @@ JSON responses should contain the following keys from the following endpoints:
 ```
 
 **api/v1/items/:id**
+
 ```javascript
 {
   "id": 1,
@@ -123,6 +132,7 @@ JSON responses should contain the following keys from the following endpoints:
 ```
 
 **api/v1/orders**
+
 ```javascript
 [
   {
@@ -134,6 +144,7 @@ JSON responses should contain the following keys from the following endpoints:
 ```
 
 **api/v1/orders/:id**
+
 ```javascript
 {
   "id": 1,
@@ -167,10 +178,6 @@ JSON responses should contain the following keys from the following endpoints:
 We're going to create a serializer for `Order`.
 
 First, let's checkout a new branch called `json_serializers`.
-
-- Create your controller
-  - `rails g controller api/v1/orders index show`
-  - Set `index` and `show` methods to render appropriate json
 
 - Create your serializer
   - `rails g serializer order`
