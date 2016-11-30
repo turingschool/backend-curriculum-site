@@ -51,48 +51,48 @@ You can find the [index of lessons used for the old B4 plan here](former_index).
 * Job Hunting
 * Project Worktime and Scope Setting Meetings
 * [Debugging Javascript](/debugging_node)
-* [Characterization & Acceptance Testing](/)
+* Characterization & Acceptance Testing
 * [Flower Exercise](../professional_development/module_four/flower_exercise_follow_up)
 * Project Worktime
-* [Oauth Revisited](/)
-* [JavaScript Enumerables and Array Prototype](/)
+* Oauth Revisited
+* JavaScript Enumerables and Array Prototype
 * Internal Demos and Brainstorming
 * Scope Setting
 * TIP
 
 #### Week 2
 
-* [Extracting Components and Services](/)
+* Extracting Components and Services
 * [Negotiations](../professional_development/module_four/negotiations)
-* [Isolating Dependancies with Wrappers](/)
-* [Testing in a World of Services](/)
+* Isolating Dependancies with Wrappers
+* Testing in a World of Services
 * [Working with Environments and Initializers](/lessons/environment_settings)
-* [Pub/Sub](/)
+* Pub/Sub
 * Demos and Evaluations
 * Scope and Scheduling
 * TIP
 
 #### Week 3
 
-* [SQL Deep Dive](/)
-* [JQuery and the DOM](/)
-* [Implementing Search with REST](/)
-* [AJAX and JSON](/)
-* [Continuous Integration and Deployment](/)
-* [WebSockets](/)
+* SQL Deep Dive
+* JQuery and the DOM
+* Implementing Search with REST
+* AJAX and JSON
+* Continuous Integration and Deployment
+* WebSockets
 * Demos and planning
 * TIP
 
 
 #### Week 4
 
-* [Building a Tiny Service](/)
+* Building a Tiny Service
 * Mid Module Diagnostic
-* [Database Performance and Scaling](/)
-* [Getting Started with Express](/)
-* [Contributing to OpenSource](/)
-* [Documenting Your Work](/)
-* [Express Part Duex](/)
+* Database Performance and Scaling
+* Getting Started with Express
+* Contributing to OpenSource
+* Documenting Your Work
+* Express Part Duex
 * [Blog Writing and Peer Review](../professional_development/module_four/writing_a_blog_post_and_peer_review)
 * Demos and Planning
 
