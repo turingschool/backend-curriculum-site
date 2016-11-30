@@ -374,10 +374,12 @@ Film.find_by(title: "The Lion King").update_attributes(genre_id: 1)
 ```
 
 The better way to associate data is to do it upon creation:
+
 ```ruby
 animation = Genre.find_by(name: "Animation")
 animation.films.create(title: "The Lion King", year: 1994, box_office_sales: 422783777)
 ```
+
 This will create a new `Film` record and place whatever animation's `id` is in the `genre_id` field in the film.
 
 ### Updating our View
