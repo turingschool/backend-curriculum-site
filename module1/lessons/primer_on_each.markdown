@@ -52,13 +52,17 @@ search for elements or  an element.
 * it returns the original collection
 
 #### What is the syntax for writing enumerable methods?
+
 Multi-Line
+
 ```ruby
 array.each do |item|
   item.do_something
 end
 ```
+
 Single-Line
+
 ```ruby
 array.each { |item| item.do_something }
 ```
@@ -75,7 +79,9 @@ array.each do |name|
   puts name.upcase
 end
 ```
+
 This can also be written:
+
 ```ruby
 array = ["alice", "bob", "eve"]
 
