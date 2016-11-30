@@ -57,14 +57,16 @@ We're going to use `pry` to explore enumerables.
 
 #### Syntax
 
-Multi-Line
+Multi-Line  
+
 ```ruby
 array.each do |item|
   item.do_something
 end
 ```
 
-Single-Line
+Single-Line  
+
 ```ruby
 array.each { |item| item.do_something }
 ```
@@ -80,7 +82,9 @@ array.each do |name|
   puts name.upcase
 end
 ```
+
 This can also be written:
+
 ```ruby
 array = ["alice", "bob", "eve"]
 

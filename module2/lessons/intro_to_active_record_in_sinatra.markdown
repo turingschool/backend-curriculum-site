@@ -17,19 +17,42 @@ tags: activerecord, migrations, sinatra
 
 We'll use this [ActiveRecord Skeleton Repo](https://github.com/turingschool-examples/active-record-sinatra) for today's lesson. We're going to create an application that displays films and each film's related genre (you'll also build on this application with your homework). Fork it to your Github account, clone it down, and run `bundle install`.
 
-### Review 
+### Warm Up 
 
 Answer these questions with a partner:
 
 * What do you know about ActiveRecord?
-* Draw the diagram of an ORM
-* Name two ActiveRecord methods you explored this weekend and each method's return value.
+* Take a look at your Task model in TaskManager and your Robot model in RobotWorld. What's similar? What's different?
+* Name two ActiveRecord methods you explored this morning.
 
-Resources:
+## Introduction to ActiveRecord
 
-[What is ActiveRecord?](http://guides.rubyonrails.org/active_record_basics.html#what-is-active-record-questionmark)
+### Relational Databases
+Database systems are helpful when handling massive datasets by helping to optimize complicated queries. Relational databases make it easy to relate tables to one another. 
+
+For example, if we have a table of songs and artists, and a song belongs to one artist, we'll need to keep track of how these pieces of data relate to one another. There's no easy way to query a YAML file for this info.
+
+### Object Relational Mappers
+“An ORM framework is written in an object oriented language (like Ruby, Python, PHP etc.) and wrapped around a relational database. The object classes are mapped to the data tables in the database and the object instances are mapped to rows in those tables.”
+
+(from sitepoint.com)
+
+![400% ORM Diagram](http://wiki.expertiza.ncsu.edu/images/2/2c/ORM_Flowchart.jpg)
+
+## Ruby ORM's
+* ActiveRecord (lots)
+* DataMapper (a few)
+* Sequel (pretty much none)
  
-[ORM Diagram](http://wiki.expertiza.ncsu.edu/images/2/2c/ORM_Flowchart.jpg)
+### Why do we need an ORM?
+
+We want to wrap our data in Ruby objects so we can easily manipuate them. If we didn't wrap them in Ruby objects, we'd simply have strings in arrays and other simple data types. This wouldn't be very easy to work with or manage.
+
+### How does a database map to a Ruby class?
+
+* the table represents the collection of instances
+* a row represents one specific instance
+* the columns represent the attributes of an instance
 
 ### Inspecting the Setup
 
@@ -197,7 +220,7 @@ class CreateFilms < ActiveRecord::Migration
   def change
     create_table :films do |t|
       t.text    :title
-      t.date    :year
+      t.integer :year
       t.integer :box_office_sales
 
       t.timestamps null: false
@@ -215,7 +238,7 @@ ActiveRecord::Schema.define(version: 20160217022804) do
 
   create_table "films", force: :cascade do |t|
     t.text     "title"
-    t.date     "year"
+    t.integer  "year"
     t.integer  "box_office_sales"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -295,7 +318,7 @@ ActiveRecord::Schema.define(version: 20160217022905) do
 
   create_table "films", force: :cascade do |t|
     t.text     "title"
-    t.date     "year"
+    t.integer     "year"
     t.integer  "box_office_sales"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -409,3 +432,6 @@ Below are a few tutorials that walk through creating a Postgres-Sinatra applicat
 * [Designing With Class: Sinatra + PostgreSQL + Heroku](http://mherman.org/blog/2013/06/08/designing-with-class-sinatra-plus-postgresql-plus-heroku/#.VOIsu1PF9h6)
 * [Sinatra: Building an ActiveRecord and Postgres application](http://www.millwoodonline.co.uk/blog/sinatra-activerecord-postgres-application)
 * [making-a-simple-database-driven-website-with-sinatra-and-heroku](https://samuelstern.wordpress.com/2012/11/28/making-a-simple-database-driven-website-with-sinatra-and-heroku/)
+* [What is ActiveRecord?](http://guides.rubyonrails.org/active_record_basics.html#what-is-active-record-questionmark)
+* [ORM Diagram](http://wiki.expertiza.ncsu.edu/images/2/2c/ORM_Flowchart.jpg)
+
