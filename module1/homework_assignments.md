@@ -10,6 +10,7 @@ layout: page
 * Echo: [SuperFizz](https://github.com/turingschool/challenges/blob/master/super_fizz.markdown)  
 * Foxtrot: [Working with Strings and Integers](https://github.com/turingschool/challenges/blob/master/working_with_strings_and_integers.markdown)  
 * [Professional Development Deliverables](https://gist.github.com/icorson3/85e6f2a5c4999514d9317e1baa1bf9b1)
+* Read the following [article](https://backchannel.com/at-harvey-mudd-college-the-ratio-of-women-in-cs-increased-from-10-to-40-in-5-years-4bb72e909fbd#.ockew3egl) and spend 5-10 minutes writing a reaction to it.
 
 ### 1.2
 * [Eloquent Ruby Chapters 3 & 4](https://drive.google.com/file/d/0B4C6lfVKu-E7WjRhNnRKa0k4NHc/view)
