@@ -6,13 +6,31 @@ subheading: Professional Rails Applications
 
 ### Module 3 Scope and Sequence
 
-### Overview
+### Purpose
 
-In Module 3, we will look beyond the basics of building Rails web applications with the intent of taking a business need and turning it into working software. Students will be comfortable using agile processes to work on legacy code, integrate third party APIs, produce APIs, build Rails applications that consume and process data beyond basic CRUD functionality, and improve the performance of their app through AJAX, caching and background workers.
+In Module 3, we will look beyond the basics of building Rails web applications with the intent of taking a business need and turning it into working software. Students will be comfortable using agile processes to integrate third party APIs, produce APIs, build Rails applications that consume and process data beyond basic CRUD functionality, and improve the performance of their app through AJAX, caching, and background workers.
 
-### Goals
+### Success
 
-Students will be able to:
+Success in B3 means that students demonstrate proficiency and comfort with the following concepts:
+
+#### Professional skills
+
+* Project Management
+  * How to communicate with product owners with regard to missing deadlines (finish this) 
+  * Begin learning the process by which business requirements are turned into acceptance requirements
+  * Introduce how acceptance requirements are turned into stories and feature requirements
+  * How stories are estimated
+  * How pull requests are used to organize discussion about features
+  * How project management tools are used to communicate across technical teams and stakeholders/clients
+* Interpersonal Skills (Allison + Lia)
+Asking high quality questions of people or StackOverflow
+Effective collaboration techniques for remote teams
+Effective communication around code, explaining what it does and why
+(forthcoming)
+* Employment Skills (Lia)
+(forthcoming)
+
 
 * interpret a business need and develop a solid product using agile processes.
 * contrast the different approaches between working on greenfield and brownfield projects.
