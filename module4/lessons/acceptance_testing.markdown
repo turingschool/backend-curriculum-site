@@ -10,13 +10,30 @@ title: Acceptance Testing
 * Students can translate a story into an executable acceptance test
 * Students can describe the different perspectives of an acceptance/feature tester versus a unit-tester/implementer
 
+Mastery Expectation: HIGH. By the end of this lesson, students should feel completely confident in the definitions and expectations of topics covered here.
+
 ## Plan
 
-* 45 Minutes - Review key ideas and terms below
-* 30 Minutes - Translating stories to executable code
-* 15 Minutes - Share out the results
+### Lecture/Discussion (45 Minutes)
 
-## Lesson
+Walk through the tutorial/discussion below to highlight key points and answer questions.
+
+### Group Activity (30 Minutes)
+
+In your project groups:
+
+1. Pick a single story from your project tracker
+2. Individually sketch out an acceptance test using capybara syntax
+3. Compare/contrast your sketched test implementation to look for differences and similarities
+4. Together brainstorm features tests so you have one feature test per group member
+5. Each take one unique feature test and sketch and implementation
+6. If you have time, review each other's sketches
+
+### Group Review (15 Minutes)
+
+We have one or two individuals show off what they and their group wrote. We look out for any questions or misunderstandings.
+
+## Tutorial
 
 Let's recap and dive a little deeper into testing. We use the terms "acceptance tests" and "feature tests" to mean almost the same thing -- with a nuanced difference.
 
