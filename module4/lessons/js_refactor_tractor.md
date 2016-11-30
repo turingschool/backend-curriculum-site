@@ -1,6 +1,7 @@
 ---
 layout: page
-title: Refactor Tractor: Game Time and Ideabox
+title: Refactor Tractor
+subheading: Game Time and Ideabox
 length: 90
 tags: javascript, refactoring, jquery
 ---

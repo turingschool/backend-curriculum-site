@@ -1,6 +1,7 @@
 ---
 layout: page
-title: Function Contexts in Javascript: this, bind, and call/apply
+title: Function Contexts in Javascript
+subheading: this, bind, and call/apply
 tags: javascript fundamentals
 length: 90
 ---

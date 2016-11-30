@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Looking for:
+title: Looking for
 subheading: A React Front-End
 length: 180
 tags: performance, workers, sidekiq, rails

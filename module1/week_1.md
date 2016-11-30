@@ -25,6 +25,7 @@ layout: page
 * [Objects, Classes, and Instances](lessons/classes_instances_methods) ([Video](https://www.twitch.tv/worace/v/56378715))
 
 ## Other Relevant Links
+* [Homework Calendar](homework_assignments)
 * [Terminal and Editor](https://github.com/turingschool/curriculum/blob/master/source/academy/workshops/terminal_and_editor.markdown)
 * [Working with Strings and Integers](https://github.com/turingschool/challenges/blob/master/working_with_strings_and_integers.markdown)
 * [Eloquent Ruby Ch 3 & 4 Reading](https://github.com/turingschool/challenges/blob/master/eloquent_ruby_arrays_and_strings.markdown)

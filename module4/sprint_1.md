@@ -58,12 +58,11 @@ There is an existing lesson plan to be reviewed.
 
 I believe there are existing materials, but they’re browser-centric. Can they be bent to non-browser usage?
 
-### Characterization & Acceptance Testing
+### Acceptance Testing
 
 * Staff: Jeff
-* Status: Needs Review
-
-There are existing materials in the JSL services tutorial sequence, but will need to pull out the relevant parts and look for any version/update issues
+* Status: Draft Ready
+* [Lesson Plan](lessons/acceptance_testing)
 
 ### PS: Flower Exercise Follow-Up
 

@@ -1,4 +1,8 @@
-# Finding New Opportunities
+---
+title:  Finding New Opportunities
+layout: page
+---
+
 
 ## Learning Competencies
 - Research companies and people to create a list of opportunities
@@ -7,9 +11,9 @@
 
 ## Summary
 
-Looking for jobs on sites like monster.com, Indeed, and other career listing sites can be discouraging and ineffective. Let’s talk about how to find a job without relying on your resume or job postings. 
+Looking for jobs on sites like monster.com, Indeed, and other career listing sites can be discouraging and ineffective. Let’s talk about how to find a job without relying on your resume or job postings.
 
-- Check out the [Finding New Opportunities's](https://github.com/turingschool/professional_skills/blob/master/files/finding-opportunities.pdf) and [Cold Outreach](https://github.com/turingschool/professional_skills/blob/master/files/Cold%20Outreach.pdf) slide deck for more research support.
+- Check out the [Finding New Opportunities's](../files/finding-opportunities.pdf) and [Cold Outreach](../files/Cold%20Outreach.pdf) slide deck for more research support.
 
 ## Objectives
 
@@ -17,7 +21,7 @@ Focus on finding companies and people you'd like to work with or for, don't get 
 
 ## Meetup Differently
 
-Meetup is traditionally used to find local networking groups. However, it can also be used to find companies you would like to work with. 
+Meetup is traditionally used to find local networking groups. However, it can also be used to find companies you would like to work with.
 
 ### Your Turn
 
@@ -33,12 +37,12 @@ It's not enough to just have a profile and hope employers find you. Use LinkedIn
 ### Your Turn
 
 - Navigate to [LinkedIn.com](http://linkedin.com)
-- Use the "Advanced Search" tool to find people based on skillset, location, and industry. 
+- Use the "Advanced Search" tool to find people based on skillset, location, and industry.
 - In "Keywords" type in the skills or focus you want to be working in (i.e. JavaScript, ruby, digital nomad, edtech, fintech etc.)
 - In "Location" type in the area you'd like to be working it, whether it is where you're located or not.
-- In "Industry" select "computer software" 
+- In "Industry" select "computer software"
 - Select search
-- Of those profiles that return, look at their profiles to see the list of companies they've worked for throughout their experience. 
+- Of those profiles that return, look at their profiles to see the list of companies they've worked for throughout their experience.
 - Add those companies of interest to your company tracker, include the person(s) you believe you could build a relationship with at those companies.
 
 
@@ -89,7 +93,7 @@ Keep this information somewhere to stay organized as you reach out to companies 
 - [How to Use Google Search More Effectively](http://mashable.com/2011/11/24/google-search-infographic/)
 - [Boolean Black Belt-Sourcing/Recruiting](http://booleanblackbelt.com/)
 
-###Additional sites... 
+### Additional sites... 
 To find opportunities, but remember applying blind is less effective than finding someone. Use these sites to find companies hiring, then go back through the steps listed above before applying to positions.
 
 - [Github’s Job Board](https://jobs.github.com/)

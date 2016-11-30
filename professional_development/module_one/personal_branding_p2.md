@@ -1,7 +1,11 @@
-# Personal Branding Part II
+---
+title:  Personal Branding Part II
+layout: page
+---
+
 Dig deeper into your story and let people get to know you as a developer, contributor to the tech industry, and individual member of society. Showcase your technical skills, transferable skills, and ability to make a difference on a dev team.
 
-Reference [Personal Branding Part II slide deck](https://github.com/turingschool/professional_skills/blob/master/files/personal-branding-p2.pdf) for refresher
+Reference [Personal Branding Part II slide deck](../files/personal-branding-p2.pdf) for refresher
 
 ## Deliverables
 - Website copy
@@ -20,17 +24,14 @@ Consider what story you want to tell? Are you demonstrating how your previous ex
 	- Your projects
 	- Demonstrate transferable skills
 	- Links to your social media sites: LinkedIn, GitHub, Twitter, etc.
-	
+
 - Introduce yourself:
 	- Dive deeper into the summary you used on your LinkedIn. Be sure it answers the following questions:
 		- Who are you? As a developer, contributor to the tech industry, teammate, career changer, community member, human being
 		- How did you get here? Why Software Development? Why Now?
 		- What's next? What are your ambitions or long term goals? How do you want to contribute to the tech industry?
-		
+
 - Showcase your projects and skills
 	- Build your site from scratch
 	- Include links to your code source
 	- Include links to engage with your end product
-	
-
-
