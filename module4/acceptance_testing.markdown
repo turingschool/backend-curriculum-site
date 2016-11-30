@@ -3,6 +3,21 @@ layout: page
 title: Acceptance Testing
 ---
 
+## Learning Goals
+
+* Students can explain the concept of acceptance testing
+* Students can explain feature testing and how it relates to acceptance testing
+* Students can translate a story into an executable acceptance test
+* Students can describe the different perspectives of an acceptance/feature tester versus a unit-tester/implementer
+
+## Plan
+
+* 45 Minutes - Review key ideas and terms below
+* 30 Minutes - Translating stories to executable code
+* 15 Minutes - Share out the results
+
+## Lesson
+
 Let's recap and dive a little deeper into testing. We use the terms "acceptance tests" and "feature tests" to mean almost the same thing -- with a nuanced difference.
 
 ### Acceptance Tests Emulate End Users
@@ -84,7 +99,9 @@ When I enter a title
 Then I am redirected to the article page
 ```
 
-Implemented in Capybara:
+Seems pretty much the same? The detail about being redirected is key -- a typical user doesn't care whether their browser is redirected or not. They just want to see the content they expect. This test is starting to move towards characterizing the implemention.
+
+Turing this ides into executable code:
 
 ```ruby
 def test_an_authenticated_user_creates_an_article
@@ -112,7 +129,7 @@ Then I am returned to the form
   and I see an error message that a body is required
 ```
 
-Implemented with Capybara:
+This requirement might get overlooked by the product owner, but as a responsible developer I need to be thinking about what happens when things go wrong. Implemented with Capybara:
 
 ```ruby
 def test_an_authenticated_user_creates_an_article
@@ -158,9 +175,9 @@ end
 
 ### Maintaining the Veil
 
-The goal of both acceptance and feature tests is to know very little about how your application is setup internally. If the tests need some data to be in the app, the test needs to create that data first.
+Both acceptance and feature tests should know very little about how your application is setup internally. If the tests need data to exist before they can demonstrate functionality then the test needs to create that data first.
 
-But that can be a real pain, not to mention slow. Imagine you're writing a suite of tests focused on the admin functionality in your application. If you keep your suite conceptually pure, then **every test** needs to:
+But that can be a real pain, not to mention slow. Imagine you're writing a suite of tests focused on the admin functionality in your application. If you keep your suite conceptually pure, then **every test** needs to start with:
 
 * Register a new user
 * Confirm a user
@@ -170,7 +187,7 @@ Each of those happens *before* you get to the meat of the test. You could easily
 
 #### Making Compromises
 
-When you do these kinds of tests you'll have to make compromises. But you want to *encapsulate* those cheats so you can pull them out later if needed.
+When you write these kinds of tests you'll have to make compromises. But you want to *encapsulate* those cheats so you can easily change them later.
 
 In the examples above, we used this method:
 
