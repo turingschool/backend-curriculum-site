@@ -1,4 +1,8 @@
-# Project Management & Organization
+---
+title:  Project Management & Organization
+layout: page
+---
+
 
 ## Recommended Apps for Effective Project & Time Management:
 

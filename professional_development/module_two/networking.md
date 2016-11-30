@@ -1,6 +1,9 @@
-# Networking
+---
+title:  Networking
+layout: page
+---
 
-Reference [Networking slide deck](https://github.com/turingschool/professional_skills/blob/master/files/networking.pdf) for a refresher
+Reference [Networking slide deck](../files/networking.pdf) for a refresher
 
 ## Learning Competencies:
 
@@ -15,7 +18,7 @@ We talk about the importance of telling your story for your personal brand colla
 	- Who are you? As a developer, teammate, career changer, individual
 	- How did you get here? Why software development? Why Turing School? Why now?
 	- What’s next? What will you be working on after Turing School? Is there a particular industry/tech stack/project you would like to be working with?
-	
+
 - Practice talking about your experience, new technical skills, and how you'd like to give back to the tech industry with peers; solicit feedback
 - Research meetups and other tech events/hackathons/workshops to participate in or join to meet other developers in the local market
 
