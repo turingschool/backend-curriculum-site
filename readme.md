@@ -9,7 +9,7 @@ This site is built with Jekyll. Find the docs [here](https://jekyllrb.com/docs/u
 * Clone the repo `git clone git@github.com:turingschool/backend-curriculum-site.git`
 * run `bundle install`
 * You can now begin to edit the website.
-* To start the server run `jekyll serve`.
+* To start the server run `jekyll serve --incremental`.
 * Navigate to `localhost:4000` to see the site
 
 * make changes on the `gh-pages` branch.
@@ -20,9 +20,17 @@ This site is built with Jekyll. Find the docs [here](https://jekyllrb.com/docs/u
 
 You will find a module specific directory. eg `module1` and within each directory you will find a directory for `lessons` and `projects`. All files within this site can be written as either markdown or html. To link to each you just need to write the relative path to each file without the file extension. For example `lessons/lesson_on_stuff`.
 
-Additionally each new file will need a header:
+The `navigation.html` file is where you will find the sidebar for the site.
 
-```markdown
+The `today.html` file is where you will find the basic html page for today, and each file for the specific day will live within the `today` directory.
+
+## Some handy tips for editing/creating content
+
+### Headers in your markdown files
+
+Put something like this at the top of all your markdown files:
+
+```yaml
 ---
 title: Name of lesson
 subheading: lesson is about stuff
@@ -30,6 +38,25 @@ layout: page
 ---
 ```
 
-The `navigation.html` file is where you will find the sidebar for the site.
+- `subheading` is optional
+- `layout` is basically always going to be `page`
 
-The `today.html` file is where you will find the basic html page for today, and each file for the specific day will live within the `today` directory.
+### Index.md instead of Readme.md
+
+The system we're using to translate from github to backend.turing.io uses index files instead of readme files. Where you would have created a file called `readme.md`, just use `index.md` instead
+
+### Links and Paths
+
+When linking to a markdown file, drop the `.md` in your link. Instead of linking to `learning_to_pair.md`, just use `learning_to_pair`. Other files, like PDFs and PNGs, keep the original extension.
+
+#### Absolute vs Relative paths
+
+Since you're editing on github, and viewing at backend.turing.io, you'll probably want to use *relative* links instead of *absolute* links. I found a primer on the difference. It's in the context of HTML instead of Markdown, but should basically explain the concept: http://www.boogiejack.com/server_paths.html
+
+### Your markdown will behave differently
+
+Github uses a slightly different system for translating from Markdown than the engine we use for backend.turing.io. Here's some things that I had to change to get things to look right on the site, even if it looks right on Github.
+
+- Put a space after your `#`'s in headers
+- Put a blank line between your headers and any content below
+- Replace any `|` with `\|` unless you're really trying to do a table

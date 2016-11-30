@@ -36,3 +36,35 @@ The course and class sessions are centered around the three sprints of the proje
 ### Addendum
 
 You can find the [index of lessons used for the old B4 plan here](former_index).
+
+
+### Weekly Breakdown:
+
+#### Week 1
+
+* Mod 4 Kickoff and Norming
+* Project Kickoff
+* [Javascript Without A Browser](/lessons/javascript_without_a_browser)
+* [Workflow and Communication](/lessons/workflow_and_communication)
+* [Intro to Object Oriented Javascript](/lessons/object_oriented_javascript)
+* [Professional Code Environments](/lessons/professional_code_environments)
+* Job Hunting
+* Project Worktime and Scope Setting Meetings
+* [Debugging Javascript](/debugging_node)
+* [Characterization & Acceptance Testing](/)
+* [Flower Exercise](../professional_development/module_four/flower_exercise_follow_up)
+* Project Worktime
+* [Oauth Revisited](/)
+* [JavaScript Enumerables and Array Prototype](/)
+* Internal Demos and Brainstorming
+* Scope Setting
+* Team Retro Weekly Outcomes
+* Q&A
+
+#### Week 2
+
+* [Extracting Components and Services](/)
+
+#### Week 3
+
+#### Week 4

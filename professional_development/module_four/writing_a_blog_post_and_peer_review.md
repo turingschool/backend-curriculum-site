@@ -1,20 +1,25 @@
-#Scale Up: Writing a Blog Post & Peer Review
+---
+title: Writing a Blog Post & Peer Review
+layout: page
+---
+
 
 [Slides for this lesson](https://docs.google.com/presentation/d/1BtFtpS_OWhQp9AJbXc9woI5ql8sD-etxwnFc-4rixEI/edit?usp=sharing)
 
 
-###Objectives:
+### Objectives:
+
 * Decide on a structure for your Scale Up blog post
 * Identify effective techniques from a tech blog post
 * Gather feedback for how to make your blog post clear
 * Utilize tools for revising your blog post
 
 
-###Deliverable:
+### Deliverable:
 Blog post on the features you choose to implement or research in Scale Up
 
-###Opening:
-One of your requirements for the Scale Up project is to write a blog post. The blog post is actually a very important part of your Scale Up project because this is the place where you express all the things you’ve learned to people who don’t know you but should. *People who should know what kickass developers you’ve become.* *People who should hire you.* 
+### Opening:
+One of your requirements for the Scale Up project is to write a blog post. The blog post is actually a very important part of your Scale Up project because this is the place where you express all the things you’ve learned to people who don’t know you but should. *People who should know what kickass developers you’ve become.* *People who should hire you.*
 
 Why are you writing this?
 
@@ -23,12 +28,12 @@ Why are you writing this?
 * To show yourself off -- why? Because, again, you’re a kickass developer and the world deserves to know it. And, you’re looking for a job. This is great since many people want to hire kickass developers
 
 Write for non-developers:
-Strike a balance between talking like an industry insider and explaining your concepts in very simple language. 
+Strike a balance between talking like an industry insider and explaining your concepts in very simple language.
 
-###Template It Out: Decide What Your Post Is
+### Template It Out: Decide What Your Post Is
 Start with a template to help define your intent in writing *(adapted from emptysqua.re/blog post “Resources for Writing About Programming” by A. Jesse Jiryu Davis)*
 
-**Story:** 
+**Story:**
 
 "I'm going to tell you a story about [blank], how it taught me [blank], and led to [blank]. First this happened, then that happened. And that's the story of [blank]."
 
@@ -38,17 +43,17 @@ Examples:
 * I went to a conference and heard these talks. I met these certain people and learned something.
 * I did this activity using this technology and here’s what happened.
 
-Practice this: 
+Practice this:
 
 * Use the story template to describe how you learned to ride a bike.
 
 
-**Opinion:** 
+**Opinion:**
 
 Structure:
 
-1. Thesis 
-2. Evidence to support Thesis 
+1. Thesis
+2. Evidence to support Thesis
 3. Response to likely objections
 4. Restate Thesis
 
@@ -69,9 +74,9 @@ How-Tos must be motivated by something. Begin by telling your reader when and wh
 
 Hint: Any time you solve a problem, write about how you did it!
 
-Practice this: 
+Practice this:
 
-How could you use the how-to template to walk through how to make coffee? 
+How could you use the how-to template to walk through how to make coffee?
 
 
 **How Something Works:**
@@ -83,7 +88,7 @@ When you’re trying to figure out how something works for a project or just som
 
 Practice this:
 
-How could you use this to describe how a typewriter works? 
+How could you use this to describe how a typewriter works?
 
 **Review:**
 
@@ -91,7 +96,7 @@ Use reviews to describe and analyze instead of evaluating. It’s tempting to ev
 
 “I read, saw, played, or used [blank]. This is what it is. This is what my experience was like. [Blank] has these strengths and weaknesses. In conclusion, it’s best when using these certain criteria to evaluate it.”
 
-Practice this: 
+Practice this:
 
 Write a review of a game that inspired your game time project. What are some pros and cons of how that game is built and its user experience? Under what conditions are you evaluating it?
 
@@ -99,7 +104,7 @@ Write a review of a game that inspired your game time project. What are some pro
 Now that you have a template, let’s talk about language
 
 
-###Seeing this in the real world
+### Seeing this in the real world
 Check out posts from any of these blogs:
 
 * [Google Developers Blog](https://developers.googleblog.com/)
@@ -118,24 +123,24 @@ Think about:
 * What are your takeaways?
 * Was anything unclear? If so, what?
 * What did you learn?
-* How would you describe the writing in this post? 
-* What can you apply to your own post? 
+* How would you describe the writing in this post?
+* What can you apply to your own post?
 
 
-###Free Write
+### Free Write
 Decide on a structure for your blog post and think about your audience. Start on a draft based on what you’ve done so far in your project
 
 
-###Kill Your Darlings -- Peer Review 
+### Kill Your Darlings -- Peer Review
 Kill Your Darlings refers to a revision technique -- *you need to be willing to let go of some of your favorite ideas if they don’t work for the overall message.*
 
-**Pair up:** 
+**Pair up:**
 
 Share what you’re doing in your project by explaining it to a classmate in your own words, your own voice
 Your partner should think about:
 
-* What questions do you have? 
-* What do you still want to know? 
+* What questions do you have?
+* What do you still want to know?
 * What should be added to this post?
 
 Take notes!
@@ -150,4 +155,4 @@ As you work on your post and complete revisions, here are some tools:
 * [Start draft on Medium](https://help.medium.com/hc/en-us/articles/214874698-Drafts)
 * [Share with partners](https://help.medium.com/hc/en-us/articles/215564177-Share-a-draft)
 * [Notes section](https://help.medium.com/hc/en-us/articles/214035868)
-* Treat the revision process like the code review process -- utilize systems (pull requests) to communicate with your peers and improve your post before finalizing the draft! 
+* Treat the revision process like the code review process -- utilize systems (pull requests) to communicate with your peers and improve your post before finalizing the draft!

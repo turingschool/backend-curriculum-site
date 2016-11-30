@@ -1,6 +1,7 @@
 ---
 layout: page
-title: Unit Testing JavaScript: An Overview
+title: Unit Testing JavaScript
+subheading: An Overview
 length: 90
 tags: javascript, testing, unit testing, tdd
 status: Draft

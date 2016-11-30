@@ -1,4 +1,8 @@
-# Communication Skills
+---
+title:  Communication Skills
+layout: page
+---
+
 
 * [Identifying your Communication Style](http://www.forbes.com/sites/markmurphy/2015/08/06/which-of-these-4-communication-styles-are-you/#3e59fbd41ecb)
 * Tips for Improving your Listening Skills

@@ -1,4 +1,8 @@
-#Innovative Problem-Solving PROtocol
+---
+title: Innovative Problem-Solving PROtocol
+layout: page
+---
+
 
 [Slides for this lesson](https://docs.google.com/presentation/d/1OXjiySa7pawElUtpQozGMO6DgPQnZO6VO8-aIqaVs28/edit?usp=sharing)
 

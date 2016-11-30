@@ -1,7 +1,11 @@
-# Negotiations
+---
+title:  Negotiations
+layout: page
+---
+
 For some reason we live in a world that is afraid to talk openly about money. That changes for you today. In this session we'll have an open discussion about averages our alums are currently making in full-time junior developer jobs, apprenticeships, internships, and contract/freelance opportunities.
 
-Reference the [Negotiations slide deck](https://github.com/turingschool/professional_skills/blob/master/files/negotiations.pdf) for a refresher
+Reference the [Negotiations slide deck](../files/negotiations.pdf) for a refresher
 
 ## Learning Competencies
 - Evaluate offer package for more than solely the salary amount
@@ -11,7 +15,7 @@ Reference the [Negotiations slide deck](https://github.com/turingschool/professi
 
 
 ## Get all of the Facts
-- If asked, *"What are your salary expectations"*, do not put a number on the table -- you can't offer and negotiate for yourself. Instead, say: *"I would love to hear what you're offering for this position so I can have more context for the conversation."* 
+- If asked, *"What are your salary expectations"*, do not put a number on the table -- you can't offer and negotiate for yourself. Instead, say: *"I would love to hear what you're offering for this position so I can have more context for the conversation."*
 - When you receive an offer, do not accept on the spot. You don't even have to negotiate on the spot. Say, *"thank you so much for this opportunity! I need to take some time to review the offer (you can say with your partner, mentor, etc. if you don't feel comfortable leaving it open ended). Could you send me the offer in writing so I can review it?"*
 - Always negotiate in person or via phone, **never through email.**
 - If you are in other interviews, let those companies know you've received an offer letter, but that you're most interested in an opportunity with their company. Then ask if they could let you know a timeline for making a hiring decision so you can let the other company know when you could make your decision by. (Always do this verbally -- never through email.)
@@ -21,7 +25,3 @@ Reference the [Negotiations slide deck](https://github.com/turingschool/professi
 - Consider all pieces of the offer, is there more value in negotiating another part of the offer than salary?
 - In negotiating it may be helpful to say, *"I was hoping to make **X** how can we close the gap on this?"*
 - If the company is unable to meet your counter offer, this is okay, it is good practice to always negotiate. Consider asking for a three - six month review to re-evaluate compensation.
-
-
-
-

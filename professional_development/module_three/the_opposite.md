@@ -1,4 +1,8 @@
-#The Opposite
+---
+title: The Opposite
+layout: page
+---
+
 
 *(exercise adapted from the Ignite step of the Disciplined Dreaming framework)*
 

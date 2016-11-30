@@ -85,6 +85,7 @@ There are [Josh's slides](https://www.dropbox.com/s/iya4p2i6wvp83tu/how_the_web_
   - Header
   - Response Code
   - Body
+
 ```html
   HTTP/1.0 200 OK
   Date: Fri, 31 Dec 1999 23:59:59 GMT
@@ -97,6 +98,7 @@ There are [Josh's slides](https://www.dropbox.com/s/iya4p2i6wvp83tu/how_the_web_
   </body>
   </html>
 ```
+
 ### Resources
 [Request Protocols](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)
 [IP Addresses](http://en.wikipedia.org/wiki/IPv4#Addressing)

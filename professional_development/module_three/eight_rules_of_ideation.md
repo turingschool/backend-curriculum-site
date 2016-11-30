@@ -1,4 +1,8 @@
-#8 Rules of Ideation
+---
+title: 8 Rules of Ideation
+layout: page
+---
+
 
 (*adapted from the Ignite step of the Disciplined Dreaming Framework*)
 
