@@ -127,37 +127,37 @@ Let's go through a more concrete example all together.
 First, create and navigate into an empty directory to simulate a new project
 we might be working on:
 
-{% terminal %}
-$ mkdir intro_git && cd intro_git
-{% endterminal %}
+```
+mkdir intro_git && cd intro_git
+```
 
 Next, let's create an empty file to simulate some code changes we
 might have made:
 
-{% terminal %}
-$ touch Readme.md
-{% endterminal %}
+```
+touch Readme.md
+```
 
 Now we need to tell git to create a new, empty "repository" within the directory:
 
-{% terminal %}
-$ git init
-{% endterminal %}
+```
+git init
+```
 
 We sometimes use the terms `repository` and `directory` interchangeably in the context of git, but technically they are separate things. The directory contains all our working files, as well as the hidden files used by git to track all of our work. The repository is composed of files and directories within the hidden `.git` directory where git does its magic.
 
 Now that we have a repository and git knows to track this directory, let's check our commit history:
 
-{% terminal %}
-$ git log
-{% endterminal %}
+```
+git log
+```
 
 It shows we currently have no commits. Let's also check git `status`.
 
 
-{% terminal %}
-$ git status
-{% endterminal %}
+```
+git status
+```
 
 The `status` command shows us git's perspective on the current state of our repository. We'll see changes in 3 possible states here:
 
@@ -167,15 +167,15 @@ The `status` command shows us git's perspective on the current state of our repo
 
 Our `Readme.md` file will be showing as Unstaged at this point, so let's add it:
 
-{% terminal %}
-$ git add Readme.md
-{% endterminal %}
+```
+git add Readme.md
+```
 
 We can verify the `add` worked by using the status command again:
 
-{% terminal %}
-$ git status
-{% endterminal %}
+```
+git status
+```
 
 We'll now see that `Readme.md` (and the changes we made to it) have moved to the "staging" area -- they are ready to be committed.
 
@@ -183,9 +183,9 @@ Finally, let's make a commit!
 
 We use the `git commit` command for this. One key component of every commit is a "message" describing what the commit does. We can provide this message from the command line using the `-m` flag, like so:
 
-{% terminal %}
-$ git commit -m "initial commit -- added Readme"
-{% endterminal %}
+```
+git commit -m "initial commit -- added Readme"
+```
 
 Run `git status` one more time. Since we committed all of our changes,
 our working directory is now "clean".
@@ -238,9 +238,9 @@ We can create a repository via the GitHub web interface, but fortunately there's
 
 Let's install it using homebrew:
 
-{% terminal %}
-$ brew install hub
-{% endterminal %}
+```
+brew install hub
+```
 
 Hub provides a command-line interface to streamline many of the common interactions we have with GitHub. It uses GitHub's API to do things like creating repositories, opening issues, etc.
 
@@ -248,17 +248,17 @@ You can read more about the commands available in Hub's [documentation](https://
 
 Hub will help us create a relationship to our remote repository. Before we do that, though, let's check whether we currently have any remote relationships defined.
 
-{% terminal %}
-$ git remote -v
-{% endterminal %}
+```
+git remote -v
+```
 
 We should see no results when we run this command. Now let's add the relationship.
 
 Make sure you're in the `intro_git` directory we created earlier, and create a new (GitHub) repository to host this content online. Use Hub's `create` command:
 
-{% terminal %}
-$ hub create
-{% endterminal %}
+```
+hub create
+```
 
 If this is your first time using Hub, you'll be prompted for your github username and password. After that, hub will do 2 things:
 
@@ -278,15 +278,15 @@ Thanks to hub, we have a remote available to push to. We'll do this with the `gi
 
 So we can push our code so far like so:
 
-{% terminal %}
-$ git push origin master
-{% endterminal %}
+```
+git push origin master
+```
 
 Now let's use Hub to go to our repo page on github and view our changes:
 
-{% terminal %}
-$ hub browse
-{% endterminal %}
+```
+hub browse
+```
 
 ### Check for Understanding
 Write on the following questions to synthesize what's been covered.
