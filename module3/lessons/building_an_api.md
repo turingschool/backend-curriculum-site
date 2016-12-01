@@ -341,13 +341,13 @@ Notice that not only was the Item model created, but a factory was created for t
 
 Now let's migrate!
 
-```sh
+{% terminal %}
 $ bundle exec rake db:migrate
 == 20160229180616 CreateItems: migrating ======================================
 -- create_table(:items)
    -> 0.0412s
 == 20160229180616 CreateItems: migrated (0.0413s) =============================
-```
+{% endterminal %}
 
 Before we run our test again, let's take a look at the Item Factory that was generated for us.
 
