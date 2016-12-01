@@ -3,10 +3,10 @@ title: Week 2
 layout: page
 ---
 ## Projects and Exercises
-* [Mastermind](projects/mastermind)
-* [Flashcards](projects/flashcards)
-* [Date Night](projects/date_night)
-* [Jungle Beats](projects/jungle_beat)
+* [Mastermind](https://github.com/turingschool/curriculum/blob/master/source/projects/mastermind.markdown)
+* [Flashcards](https://github.com/turingschool/curriculum/blob/master/source/projects/flashcards.markdown)
+* [Date Night](https://github.com/turingschool/curriculum/blob/master/source/projects/date_night.markdown)
+* [Jungle Beats](https://github.com/turingschool/curriculum/blob/master/source/projects/jungle_beat.markdown)
 
 ## Lessons
 * [How Testing Works / Intro to TDD](lessons/how_testing_works)
