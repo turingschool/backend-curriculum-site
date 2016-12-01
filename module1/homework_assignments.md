@@ -10,22 +10,23 @@ layout: page
 * Echo: [SuperFizz](https://github.com/turingschool/challenges/blob/master/super_fizz.markdown)  
 * Foxtrot: [Working with Strings and Integers](https://github.com/turingschool/challenges/blob/master/working_with_strings_and_integers.markdown)  
 * [Professional Development Deliverables](https://gist.github.com/icorson3/85e6f2a5c4999514d9317e1baa1bf9b1)
-* Read the following [article](https://backchannel.com/at-harvey-mudd-college-the-ratio-of-women-in-cs-increased-from-10-to-40-in-5-years-4bb72e909fbd#.ockew3egl) and spend 5-10 minutes writing a reaction to it.
+
 
 ### 1.2
 * [Eloquent Ruby Chapters 3 & 4](https://drive.google.com/file/d/0B4C6lfVKu-E7WjRhNnRKa0k4NHc/view)
 * [Eloquent Ruby Arrays and Strings](https://github.com/turingschool/challenges/blob/master/eloquent_ruby_arrays_and_strings.markdown)
 
 ### 1.3
-* [Enums Exercises (Map, Find, Select)](https://gist.github.com/mikedao/b4249d3ae07b6c31a4b7#file-enums_homework_part_1-md)
+* Read the following [article](https://backchannel.com/at-harvey-mudd-college-the-ratio-of-women-in-cs-increased-from-10-to-40-in-5-years-4bb72e909fbd#.ockew3egl) and spend 5-10 minutes writing a reaction to it.
+
 
 ### 1.4
-* [Intro to TDD](https://github.com/turingschool/curriculum/blob/master/source/topics/testing/intro-to-tdd.markdown)
-
+* [Enums Exercises (Map, Find, Select)](https://gist.github.com/mikedao/b4249d3ae07b6c31a4b7#file-enums_homework_part_1-md)
+* Read the following [article](http://www.newyorker.com/business/currency/silicon-valley-has-an-empathy-vacuum) and spend 5-10 minutes writing a reaction to it.
 
 ### 1.5 (weekend)
 * Foxtrot: [Chapters 1,2,3,6,7 from Chris Pine's Learn to Program](https://pine.fm/LearnToProgram/)
-
+* [Intro to TDD](https://github.com/turingschool/curriculum/blob/master/source/topics/testing/intro-to-tdd.markdown)
 
 ## WEEK 2
 ### 2.1
