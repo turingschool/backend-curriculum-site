@@ -55,7 +55,7 @@ You can find the [index of lessons used for the old B4 plan here](former_index).
 * [Flower Exercise](../professional_development/module_four/flower_exercise_follow_up)
 * Project Worktime
 * Oauth Revisited
-* JavaScript Enumerables and Array Prototype
+* [JavaScript Enumerables and Array Prototype](/lessons/array_prototype_methods)
 * Internal Demos and Brainstorming
 * Scope Setting
 * TIP
