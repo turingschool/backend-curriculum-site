@@ -17,12 +17,12 @@ layout: page
 * [Eloquent Ruby Arrays and Strings](https://github.com/turingschool/challenges/blob/master/eloquent_ruby_arrays_and_strings.markdown)
 
 ### 1.3
-* Read the following [article](https://backchannel.com/at-harvey-mudd-college-the-ratio-of-women-in-cs-increased-from-10-to-40-in-5-years-4bb72e909fbd#.ockew3egl) and spend 5-10 minutes writing a reaction to it.
+* Read the following [article](https://backchannel.com/at-harvey-mudd-college-the-ratio-of-women-in-cs-increased-from-10-to-40-in-5-years-4bb72e909fbd#.ockew3egl) and spend 5-10 minutes writing a reaction to it. DM Mike with a link to your gist.
 
 
 ### 1.4
 * [Enums Exercises (Map, Find, Select)](https://gist.github.com/mikedao/b4249d3ae07b6c31a4b7#file-enums_homework_part_1-md)
-* Read the following [article](http://www.newyorker.com/business/currency/silicon-valley-has-an-empathy-vacuum) and spend 5-10 minutes writing a reaction to it.
+* Read the following [article](http://www.newyorker.com/business/currency/silicon-valley-has-an-empathy-vacuum) and spend 5-10 minutes writing a reaction to it. DM Mike with a link to your gist.
 * Do up to Challenge 2 in the [Collections Challenges](https://github.com/turingschool/challenges/blob/master/collections.markdown#2-state-capitals)
 
 
