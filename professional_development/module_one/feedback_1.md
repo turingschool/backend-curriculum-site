@@ -136,8 +136,9 @@ Make a plan for how to solicit feedback from:
 * Mentor(s)
 * Instructors
 * Peers
-
-How does that look different depending on your relationship? How can you facilitate this conversation to be really specific about what you need? How can this plan help you circumvent possible triggers? 
+* How does that plan look different depending on your relationship? 
+* How can you facilitate this conversation to be really specific about what you need? 
+* How can this plan help you circumvent possible triggers? 
 
 Make a plan for how to give feedback:
 
