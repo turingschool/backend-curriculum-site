@@ -136,6 +136,7 @@ You'll be delivering Appreciation & Coaching to pair partners. Evaluation will c
 * Mentor(s)
 * Instructors
 * Peers
+
 How does that look different depending on your relationship? How can you facilitate this conversation to be really specific about what you need? How can this plan help you circumvent possible triggers? 
 
 2. Make a plan for how to give feedback:
