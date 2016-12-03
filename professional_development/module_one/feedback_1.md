@@ -140,6 +140,7 @@ You'll be delivering Appreciation & Coaching to pair partners. Evaluation will c
 How does that look different depending on your relationship? How can you facilitate this conversation to be really specific about what you need? How can this plan help you circumvent possible triggers? 
 
 2. Make a plan for how to give feedback:
+
 * What do you want to work on in terms of giving meaningful feedback? How will you do that?
 * What reservations do you have about giving feedback? What action steps can you take to build comfort with giving feedback? 
 
