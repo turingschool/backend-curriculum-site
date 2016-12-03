@@ -121,7 +121,7 @@ Create possibilities for how the feedback could be used. How can you acknowledge
 What will an action plan look like from this conversation?
 
 ### Writing the Feedback
-You'll be delivering Appreciation & Coaching. Evaluation will come from your instructors.
+You'll be delivering Appreciation & Coaching to pair partners. Evaluation will come from your instructors.
 
 * Appreciation: What did you see your partner do that brought added value to your project?
 * Coaching: What advice do you have for your partner on improvement?
@@ -130,6 +130,18 @@ You'll be delivering Appreciation & Coaching. Evaluation will come from your ins
 
 > Thank you for your contributions, especially in styling of several of our pages in the last few days. The site presentation looks much better as a result. Thank you also for checking in with me before you began working on a new item. I know that you didn’t always feel strong with some of the more complex aspects of our project, and I think that may have caused you to communicate with me less. I feel like there were several times during the project where either you had a missing DB migration or merge conflicts due to working off a branch with a head far behind our current dev_branch. I would suggest that you communicate with your future pairs more often to help avoid these issues. Committing and submitting PR's more often, even if it means smaller steps, would also help resolve merge conflicts along the way rather than letting them build into massive problems that take away from project time. In the last two days of the project, I feel like your contributions improved tremendously, and I very much appreciated the work you did.
 
+#### Personal Reflections 
+1. Make a plan for how to solicit feedback from: 
+
+* Mentor(s)
+* Instructors
+* Peers
+How does that look different depending on your relationship? How can you facilitate this conversation to be really specific about what you need? How can this plan help you circumvent possible triggers? 
+
+2. Make a plan for how to give feedback:
+* What do you want to work on in terms of giving meaningful feedback? How will you do that?
+* What reservations do you have about giving feedback? What action steps can you take to build comfort with giving feedback? 
+
 ### Follow-Up:
-* Deliver your feedback to your partner during your retro by following open-body-close
+* Deliver your feedback to your partner during your project retros by following open-body-close
 * In Module 2, you’ll receive Feedback II in which we’ll discuss how to improve in giving more specific feedback and how to be aware of our blind spots and wrong-spotting feedback.
