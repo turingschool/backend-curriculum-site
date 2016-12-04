@@ -81,7 +81,7 @@ __Applying for a Passport__
 
 Think about the steps it takes to obtain a [passport](https://travel.state.gov/content/passports/en/passports/applyinperson.html).
 You can't just sign a form and be on your way.
-You have to fill out a form, provide proof of citizen ship, provide a form of identification,
+You have to fill out a form, provide proof of citizenship, provide a form of identification,
 AND provide a photo.
 
 OAuth is very similar in that it also asks you to provide multiple forms of identification.
@@ -112,7 +112,7 @@ in the params
 5. We now take the code and send a POST request to
 https://github.com/login/oauth/access_token and include the code in the params
 6. Github gives us the access token and now we can use it to get information
-from the api about the user.
+from the API about the user.
 
 
 ## Workshop -- Implementing OAuth with Github
@@ -141,22 +141,22 @@ To register a new application, follow these steps:
 5. Fill in `Application Name` with any name you want.
 6. Fill in `Homepage URL` with: `http://localhost:3000`
 7. Fill in `Authorization callback URL` with
-http://localhost:3000/auth/github/callback **(Make sure you use `http` and NOT
+`http://localhost:3000/auth/github/callback` **(Make sure you use `http` and not
 `https`)**
 8. Click on `Register application`
 9. The page should refresh and show you your application information. Save this
-page so we can reference the client_id and client_secret.
+page so we can reference the `client_id` and `client_secret`.
 
 ### Step 2 - Creating a new Rails app
 
 ```rb
-$ rails new oauth_workshop -T --database=postgresql
+$ rails new oauth_workshop -T -d postgresql
 $ cd oauth_workshop
 $ bundle
-$ rake db:{create,migrate}
+$ bundle exec rake db:create
 ```
 
-Let's add the gems we will need. We want to use Faraday for sending our http
+Let's add the gems we will need. We want to use Faraday for sending our HTTP
 requests to Github, and we also want to use Pry for debugging.
 
 
@@ -166,7 +166,8 @@ requests to Github, and we also want to use Pry for debugging.
 gem 'faraday'
 
 group :development, :test do
-  gem 'pry' end
+  gem 'pry'
+end
 ```
 
 Bundle!
@@ -189,14 +190,7 @@ $ mkdir app/views/home
 $ touch app/views/home/index.html.erb
 ```
 
-**app/views/home/index.html.erb**
-
-```rb
-<%= link_to, "Login"
-"https://github.com/login/oauth/authorize?client_id=fdb1c95ec35cc43313e9&scope=repo" %>
-```
-
-Before we visit this page, we need to setup a route and update our controller:
+Let's set up our root application route, HomeController and view.
 
 **config/routes.rb**
 
@@ -215,7 +209,14 @@ class HomeController < ApplicationController
 end
 ```
 
-Spin up that server, visit localhost in an incognito window (this prevents us from having to constantly clear our cookies throughout the tutorial), and let's visit click on "Login" (Make sure you are signed
+**app/views/home/index.html.erb**
+
+```rb
+<%= link_to "Login"
+"https://github.com/login/oauth/authorize?client_id=#{your_client_id}&scope=repo" %>
+```
+
+Spin up that server, visit localhost in an incognito window (this prevents us from having to constantly clear our cookies throughout the tutorial), and let's visit click on `Login` (Make sure you are signed
 out of Github)
 
 You should see that you have been redirected to the Github site, and have been
@@ -232,6 +233,7 @@ also see that there is a code in the params. We don't have this route in our
 app, so let's get that setup.
 
 **config/routes.rb**
+
 ```rb
 Rails.application.routes.draw do
   root "home#index"
@@ -260,10 +262,10 @@ end
 So far we have mostly proved that we are who we said we are
 by logging into Github. But Github wants one more check, and to do this we need
 to send back the code they gave us when we logged in by sending a POST request
-to https://github.com/oauth/access_token. Let's take a look at the info we are
+to `https://github.com/oauth/access_token`. Let's take a look at the info we are
 getting back in our sessions#create method.
 
-Add a binding.pry within our sessions#create method.
+Add a `binding.pry` within our sessions#create method.
 
 **app/controllers/sessions_controller.rb**
 
@@ -273,9 +275,7 @@ def create
 end
 ```
 
-Let's try to log back in now. Make sure you have signed out of Github, and also
-cleared your cookies on your browser so you don't automatically get logged in
-to Github.
+Let's try that callback again. Refresh our page with the routing error and we should be stopped by our debugger.
 
 In your pry session, type in `params` and you should see something like this:
 
@@ -284,9 +284,12 @@ In your pry session, type in `params` and you should see something like this:
 => <ActionController::Parameters {"code"=>"430c3d0bd82c664b9652", "controller"=>"sessions", "action"=>"create"} permitted: false>
 ```
 
-We can see that Github is giving us the code (Your code should be different). Now let's use this code and
-send a POST request to github. Remember that according to Github [docs](https://developer.github.com/v3/oauth/#2-github-redirects-back-to-your-site) we need to also include our client_id and the client_secret. Let's also add a binding.pry to the end of
-our method so we can see what we are getting back
+We can see that Github is giving us the code (Your code should be different).
+
+Let's use this code and send a POST request to Github. Remember that according to Github [docs](https://developer.github.com/v3/oauth/#2-github-redirects-back-to-your-site) we need to also include our `client_id` and the `client_secret`.
+
+
+Let's also add a `binding.pry` to the end of our method so we can see what we are getting back
 
 **app/controllers/sessions_controller.rb**
 
@@ -304,7 +307,7 @@ your cookies if you aren't using an incognito window.
 
 Within pry, type in `@response` and we should see the whole response.
 What we actually want is the response body, so let's type in `@response.body` and
-we get the access token we need in order to hit the api and get back user data.
+we get the access token we need in order to hit the API and get back user data.
 Notice that we do need to parse out that token. Let's take a trip to Rubyville.
 There are many ways we can parse out the string, but for now let's use split so
 we get an array of words, and then use the index to grab the access token.
@@ -398,7 +401,7 @@ def create
 end
 ```
 
-Now we have a hash of the users data, and we can now create a user in our
+Now we have a hash of the user's data, and we can now create a user in our
 database so we can use their information every time they log in. We want to think about
 the data that we are always going to need when they login. We are going to want to keep
 three pieces of data.
@@ -411,14 +414,14 @@ endpoints for the user.
 
 ### Step 5 - Save user to database
 
-In order to create a User, we need to create a migration.
+In order to create a user, we need to create a migration.
 
 ```sh
 $ rails g model User uid username token
 $ rake db:migrate
 ```
 
-Now that we have a User model, we want to find or create our user. Let's find the user
+Now that we have a `User` model, we want to find or create our user. Let's find the user
 by their id that comes through in the auth hash. If we don't find the user in the db,
 we can create the user. We can do this with the ActiveRecord method `find_or_create_by`.
 Once we find the user, we save their data into the db.
@@ -436,14 +439,14 @@ def create
  > user          = User.find_or_create_by(uid: auth["id"])
  > user.username = auth["login"]
  > user.uid      = auth["id"]
- > user.token    = auth["token"]
+ > user.token    = token
  > user.save
  > binding.pry
 end
 ```
 
 Let's login again so we can hit our pry. Type in `user`. We saved our first user! Huzzah! Now let's implement a current user in our application controller so
-that we have access to this user in our views. First, let's save the users id to a session variable.
+that we have access to this user in our views. First, let's save the user's `id` to a session variable.
 
 **app/controllers/sessions_controller.rb**
 
@@ -458,7 +461,7 @@ def create
    user          = User.find_or_create_by(uid: auth["id"])
    user.username = auth["login"]
    user.uid      = auth["id"]
-   user.token    = auth["token"]
+   user.token    = token
    user.save
 
  > session[:user_id] = user.id
@@ -466,7 +469,7 @@ end
 ```
 
 Now let's create a helper method called `current_user` in our application controller
-and find our user with the `session[:user_id]`
+and find our user with the `session[:user_id]`.
 
 **app/controllers/application_controller.rb**
 
@@ -481,7 +484,7 @@ class ApplicationController < ActionController::because
   end
 ```
 
-Next, let's user our current user and display it's information in a dashboard view.
+Next, let's user our current user and display its information in a dashboard view.
 
 **config/routes.rb**
 
@@ -515,11 +518,11 @@ $ touch app/views/dashboard/index.html.erb
 
 **app/views/dashboard/index.html.erb**
 
-```
-HEY, LOOK AT YOU ALL LOGGED IN, <%= current_user.usernmae %>
+```rb
+HEY, LOOK AT YOU ALL LOGGED IN, <%= current_user.username %>
 ```
 
-Lastly, let's update our SessionsController to redirect to the dashboard page once we have our user.
+Lastly, let's update our `SessionsController` to redirect to the dashboard page once we have our user.
 
 **app/controllers/sessions_controller.rb**
 
@@ -539,15 +542,15 @@ def create
 
   session[:user_id] = user.id
 
-> redirect_to dashboard_path
+> redirect_to dashboard_index_path
 end
 ```
 
 Let's log back in to our app. We should now see that we have landed on the dashboard page. HOORAY!
 
-### STEP 6 (OPTIONAL) - Hitting the api to access uesr data
+### STEP 6 (OPTIONAL) - Hitting the API to access uesr data
 
-For kicks and giggles, let's add another binding.pry in our sessions#create and see how we can use the token to access
+For kicks and giggles, let's add another `binding.pry` in our sessions#create and see how we can use the token to access
 the users repos.
 
 ```rb
@@ -556,12 +559,12 @@ def create
    Faraday.post("https://github.com/login/oauth/access_token?client_id=&client_secret=&code=#{params["code"]}")
    token = @response.body.split(/\W+/)[1]
    oauth_response = Faraday.get("https://api.github.com/user?access_token=#{token}")
-   auth = JSON.parse(oauth_response)
+   auth = JSON.parse(oauth_response.body)
 
    user          = User.find_or_create_by(uid: auth["id"])
    user.username = auth["login"]
    user.uid      = auth["id"]
-   user.token    = auth["token"]
+   user.token    = token
    user.save
 
   session[:user_id] = user.id
@@ -579,7 +582,7 @@ Log back in to your app so we can hit the pry. Let's start by sending a GET requ
 
 If you look at the `response.body`, you can see that we get a message `Require authentication`. We need to
 send the access_token with our request. So it's a good thing we saved that token to our user. Let's try sending the request again
-but this time let's include the access_token.
+but this time let's include the `access_token`.
 
 ```sh
 [2] pry(#<SessionsController>)> response = Faraday.get("https://api.github.com/user/repos?access_token=#{user.token}")
@@ -589,7 +592,7 @@ but this time let's include the access_token.
 Now you should be able to see hash that contains all of your repos.
 
 
-## WORKSHOP - Implement twitter oauth with the twitter gem
+## WORKSHOP - Implement Twitter oauth with the Twitter gem
 
 Now that you understand how oauth works behind the scenes, implementing oauth with a gem should seem a lot easier.
 See if you can implement oauth in a rails app with the going through this [tutorial](https://github.com/turingschool/lesson_plans/blob/master/ruby_03-professional_rails_applications/archive/getting_started_with_oauth.md#user-content-workshop----implementing-oauth-with-twitter)[twitter gem](https://github.com/arunagw/omniauth-twitter)
