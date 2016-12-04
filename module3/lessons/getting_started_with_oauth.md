@@ -141,7 +141,7 @@ To register a new application, follow these steps:
 5. Fill in `Application Name` with any name you want.
 6. Fill in `Homepage URL` with: `http://localhost:3000`
 7. Fill in `Authorization callback URL` with
-http://localhost:3000/auth/github/callback **(Make sure you use `http` and not
+`http://localhost:3000/auth/github/callback` **(Make sure you use `http` and not
 `https`)**
 8. Click on `Register application`
 9. The page should refresh and show you your application information. Save this
@@ -153,7 +153,7 @@ page so we can reference the `client_id` and `client_secret`.
 $ rails new oauth_workshop -T -d postgresql
 $ cd oauth_workshop
 $ bundle
-$ rake db:{create,migrate}
+$ bundle exec rake db:create
 ```
 
 Let's add the gems we will need. We want to use Faraday for sending our HTTP
@@ -190,14 +190,7 @@ $ mkdir app/views/home
 $ touch app/views/home/index.html.erb
 ```
 
-**app/views/home/index.html.erb**
-
-```rb
-<%= link_to, "Login"
-"https://github.com/login/oauth/authorize?client_id=fdb1c95ec35cc43313e9&scope=repo" %>
-```
-
-Before we visit this page, we need to setup a route and update our controller:
+Let's set up our root application route, HomeController and view.
 
 **config/routes.rb**
 
@@ -214,6 +207,13 @@ class HomeController < ApplicationController
   def index
   end
 end
+```
+
+**app/views/home/index.html.erb**
+
+```rb
+<%= link_to "Login"
+"https://github.com/login/oauth/authorize?client_id=#{your_client_id}&scope=repo" %>
 ```
 
 Spin up that server, visit localhost in an incognito window (this prevents us from having to constantly clear our cookies throughout the tutorial), and let's visit click on `Login` (Make sure you are signed
@@ -275,9 +275,7 @@ def create
 end
 ```
 
-Let's try to log back in now. Make sure you have signed out of Github, and also
-cleared your cookies on your browser so you don't automatically get logged in
-to Github.
+Let's try that callback again. Refresh our page with the routing error and we should be stopped by our debugger.
 
 In your pry session, type in `params` and you should see something like this:
 
@@ -286,9 +284,12 @@ In your pry session, type in `params` and you should see something like this:
 => <ActionController::Parameters {"code"=>"430c3d0bd82c664b9652", "controller"=>"sessions", "action"=>"create"} permitted: false>
 ```
 
-We can see that Github is giving us the code (Your code should be different). Now let's use this code and
-send a POST request to github. Remember that according to Github [docs](https://developer.github.com/v3/oauth/#2-github-redirects-back-to-your-site) we need to also include our `client_id` and the `client_secret`. Let's also add a `binding.pry` to the end of
-our method so we can see what we are getting back
+We can see that Github is giving us the code (Your code should be different).
+
+Let's use this code and send a POST request to Github. Remember that according to Github [docs](https://developer.github.com/v3/oauth/#2-github-redirects-back-to-your-site) we need to also include our `client_id` and the `client_secret`.
+
+
+Let's also add a `binding.pry` to the end of our method so we can see what we are getting back
 
 **app/controllers/sessions_controller.rb**
 
@@ -438,7 +439,7 @@ def create
  > user          = User.find_or_create_by(uid: auth["id"])
  > user.username = auth["login"]
  > user.uid      = auth["id"]
- > user.token    = auth["token"]
+ > user.token    = token
  > user.save
  > binding.pry
 end
@@ -460,7 +461,7 @@ def create
    user          = User.find_or_create_by(uid: auth["id"])
    user.username = auth["login"]
    user.uid      = auth["id"]
-   user.token    = auth["token"]
+   user.token    = token
    user.save
 
  > session[:user_id] = user.id
@@ -517,8 +518,8 @@ $ touch app/views/dashboard/index.html.erb
 
 **app/views/dashboard/index.html.erb**
 
-```
-HEY, LOOK AT YOU ALL LOGGED IN, <%= current_user.usernmae %>
+```rb
+HEY, LOOK AT YOU ALL LOGGED IN, <%= current_user.username %>
 ```
 
 Lastly, let's update our `SessionsController` to redirect to the dashboard page once we have our user.
@@ -541,7 +542,7 @@ def create
 
   session[:user_id] = user.id
 
-> redirect_to dashboard_path
+> redirect_to dashboard_index_path
 end
 ```
 
@@ -558,12 +559,12 @@ def create
    Faraday.post("https://github.com/login/oauth/access_token?client_id=&client_secret=&code=#{params["code"]}")
    token = @response.body.split(/\W+/)[1]
    oauth_response = Faraday.get("https://api.github.com/user?access_token=#{token}")
-   auth = JSON.parse(oauth_response)
+   auth = JSON.parse(oauth_response.body)
 
    user          = User.find_or_create_by(uid: auth["id"])
    user.username = auth["login"]
    user.uid      = auth["id"]
-   user.token    = auth["token"]
+   user.token    = token
    user.save
 
   session[:user_id] = user.id
