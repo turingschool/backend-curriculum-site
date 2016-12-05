@@ -182,7 +182,7 @@ You now have two options - you can try the following on your own or you can work
 
 Let's create a `films` table and a corresponding `Film` model!
 
-A `Film` will have a title (text), year (date), and box_office_sales (integer).
+A `Film` will have a title (text), year (integer), and box_office_sales (integer).
 
 - Create a migration file. 
 - Write code in that file to create the correct table (films) with the necessary fields (see above).
@@ -374,10 +374,12 @@ Film.find_by(title: "The Lion King").update_attributes(genre_id: 1)
 ```
 
 The better way to associate data is to do it upon creation:
+
 ```ruby
 animation = Genre.find_by(name: "Animation")
 animation.films.create(title: "The Lion King", year: 1994, box_office_sales: 422783777)
 ```
+
 This will create a new `Film` record and place whatever animation's `id` is in the `genre_id` field in the film.
 
 ### Updating our View

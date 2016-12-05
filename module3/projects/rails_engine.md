@@ -272,7 +272,7 @@ Assume the dates provided match the format of a standard ActiveRecord timestamp.
 * `GET /api/v1/merchants/:id/revenue` returns the total revenue for that merchant across all transactions
 * `GET /api/v1/merchants/:id/revenue?date=x` returns the total revenue for that merchant for a specific invoice date `x`
 * `GET /api/v1/merchants/:id/favorite_customer` returns the customer who has conducted the most total number of successful transactions.
-* **BOSS LEVEL:** `GET /api/v1/merchants/:id/customers_with_pending_invoices` returns a collection of customers which have pending (unpaid) invoices. A pending invoice has no transactions with a result of `success`. This can mean all transactions are `failed` or no transactions at all. Postgres has an `EXCEPT` operator that might be useful. `ActiveRecord` also has a `find_by_sql` that might help.
+* **BOSS MODE:** `GET /api/v1/merchants/:id/customers_with_pending_invoices` returns a collection of customers which have pending (unpaid) invoices. A pending invoice has no transactions with a result of `success`. This means all transactions are `failed`. Postgres has an `EXCEPT` operator that might be useful. `ActiveRecord` also has a `find_by_sql` that might help.
 
 _NOTE_: Failed charges should never be counted in revenue totals or statistics.
 

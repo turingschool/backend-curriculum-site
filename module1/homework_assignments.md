@@ -3,29 +3,35 @@ title: Homework Assignments
 layout: page
 ---
 
+* Unless otherwise noted, all homework is due the next day. 
+
 ## WEEK 1
 
 ### 1.1
 * [Listing Files, Working with Files, and Working with Directories Sections from “Unix Essentials”](https://github.com/turingschool/curriculum/blob/master/source/academy/workshops/terminal_and_editor.markdown)  
 * Echo: [SuperFizz](https://github.com/turingschool/challenges/blob/master/super_fizz.markdown)  
 * Foxtrot: [Working with Strings and Integers](https://github.com/turingschool/challenges/blob/master/working_with_strings_and_integers.markdown)  
-* [Professional Development Deliverables](https://gist.github.com/icorson3/85e6f2a5c4999514d9317e1baa1bf9b1)
-* Read the following [article](https://backchannel.com/at-harvey-mudd-college-the-ratio-of-women-in-cs-increased-from-10-to-40-in-5-years-4bb72e909fbd#.ockew3egl) and spend 5-10 minutes writing a reaction to it.
+* [Professional Development Deliverables](https://gist.github.com/icorson3/85e6f2a5c4999514d9317e1baa1bf9b1) (Peer Reviews Due Thursday/To Meg by Friday midnight)
+
 
 ### 1.2
 * [Eloquent Ruby Chapters 3 & 4](https://drive.google.com/file/d/0B4C6lfVKu-E7WjRhNnRKa0k4NHc/view)
 * [Eloquent Ruby Arrays and Strings](https://github.com/turingschool/challenges/blob/master/eloquent_ruby_arrays_and_strings.markdown)
 
 ### 1.3
-* [Enums Exercises (Map, Find, Select)](https://gist.github.com/mikedao/b4249d3ae07b6c31a4b7#file-enums_homework_part_1-md)
+* Read the following [article](https://backchannel.com/at-harvey-mudd-college-the-ratio-of-women-in-cs-increased-from-10-to-40-in-5-years-4bb72e909fbd#.ockew3egl) and spend 5-10 minutes writing a reaction to it. DM Mike with a link to your gist.
+
 
 ### 1.4
-* [Intro to TDD](https://github.com/turingschool/curriculum/blob/master/source/topics/testing/intro-to-tdd.markdown)
+* [Enums Exercises (Map, Find, Select)](https://gist.github.com/mikedao/b4249d3ae07b6c31a4b7#file-enums_homework_part_1-md)
+* Read the following [article](http://www.newyorker.com/business/currency/silicon-valley-has-an-empathy-vacuum) and spend 5-10 minutes writing a reaction to it. DM Mike with a link to your gist.
+* Do up to Challenge 2 in the [Collections Challenges](https://github.com/turingschool/challenges/blob/master/collections.markdown#2-state-capitals)
 
 
 ### 1.5 (weekend)
 * Foxtrot: [Chapters 1,2,3,6,7 from Chris Pine's Learn to Program](https://pine.fm/LearnToProgram/)
-
+* [Intro to TDD](https://github.com/turingschool/curriculum/blob/master/source/topics/testing/intro-to-tdd.markdown)
+* Update portfolio with reflections from Friday's Gear Up session and any project evaluations received this week. See the portfolio requirements and the associated repository [here]((https://github.com/turingschool/portfolios)).
 
 ## WEEK 2
 ### 2.1
@@ -38,6 +44,9 @@ layout: page
 ### 2.4
 * [Copy with Ruby](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/working_with_files.markdown#exercise---ruby-copy)
 
+### 2.5 (weekend)
+* Update portfolio with reflections from Friday's Gear Up session and any project evaluations received this week. See the portfolio requirements and the associated repository [here]((https://github.com/turingschool/portfolios)).
+
 ## WEEK 3
 ### 3.1
 * [Pair Programming Reading](https://github.com/turingschool/challenges/blob/master/pair_programming_reading.markdown)
@@ -49,6 +58,9 @@ layout: page
 * [GitHub Flow: Issues with Git-flow](http://scottchacon.com/2011/08/31/github-flow.html)
 * [GitHub Guides: Understanding the GitHub Flow](https://guides.github.com/introduction/flow/index.html)
 
+### 3.5 (weekend)
+* Update portfolio with reflections from Friday's Gear Up session and any project evaluations received this week. See the portfolio requirements and the associated repository [here]((https://github.com/turingschool/portfolios)).
+
 ## WEEK 4
 ### 4.2
 * [Refactoring Patterns Reading](https://github.com/turingschool/challenges/blob/master/refactoring_patterns_reading.markdown)
@@ -59,6 +71,9 @@ layout: page
 ### 4.4 (weekend)
 * [EventManager](https://github.com/turingschool/curriculum/blob/master/source/projects/eventmanager.markdown)
 
+### 4.5 (weekend)
+* Update portfolio with reflections from Friday's Gear Up session and any project evaluations received this week. See the portfolio requirements and the associated repository [here]((https://github.com/turingschool/portfolios)).
+
 ## WEEK 5
 ### 5.2
 * [POODR Part 1](https://github.com/turingschool/challenges/blob/master/poodr.markdown)
@@ -68,3 +83,6 @@ layout: page
 
 ### 5.4
 * [POODR Part 3](https://github.com/turingschool/challenges/blob/master/poodr.markdown)
+
+### 5.5 (weekend)
+* Update portfolio with reflections from Friday's Gear Up session and any project evaluations received this week. See the portfolio requirements and the associated repository [here]((https://github.com/turingschool/portfolios)).
