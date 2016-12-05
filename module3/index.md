@@ -20,6 +20,12 @@ This module consists of four projects, two team projects and two personal
 projects. [Find more details about the projects themselves
 here.](projects_overview)
 
+### Professional Development Deliverables
+
+In order to make your job search as successful as possible, we require a few
+Professional Development deliverables. [Find more details about the deliverables
+here.](pd_deliverables)
+
 
 #### Week 1
 
