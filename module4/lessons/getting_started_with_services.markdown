@@ -73,7 +73,7 @@ Why do we adhere so closely to all of these design principles at a micro level (
 but then turn around and build monolithic applications that absorb every responsibility we can
 think of?
 
-This is the problem that a service architecture attempts to solve.
+This is the problem that a service architecture attempts to attack.
 
 ### Definitions and Concepts
 
@@ -82,7 +82,7 @@ This is the problem that a service architecture attempts to solve.
 
 Remember that as a software __unit__, the service will need to:
 
-* __1)__ do some chunk of useful work
+* __1)__ Do some chunk of useful work
 * __2)__ Receive information about what work needs to be done
 * __3)__ Communicate information about the work that it did
 
