@@ -13,39 +13,13 @@ In Module 3, we will look beyond the basics of building Rails web applications w
 ### Success
 
 Success in B3 means that students demonstrate proficiency and comfort with the following concepts:
+Students who successfully complete Module 4 will have demonstrated mastery of Professional Skills and Core Technical Skills. [These skills are broken down in detail here](success).
 
-#### Professional skills
+### Projects
 
-* Project Management
-  * How to communicate with product owners with regard to missing deadlines (finish this) 
-  * Begin learning the process by which business requirements are turned into acceptance requirements
-  * Introduce how acceptance requirements are turned into stories and feature requirements
-  * How stories are estimated
-  * How pull requests are used to organize discussion about features
-  * How project management tools are used to communicate across technical teams and stakeholders/clients
-* Interpersonal Skills (Allison + Lia)
-Asking high quality questions of people or StackOverflow
-Effective collaboration techniques for remote teams
-Effective communication around code, explaining what it does and why
-(forthcoming)
-* Employment Skills (Lia)
-(forthcoming)
-
-
-* interpret a business need and develop a solid product using agile processes.
-* contrast the different approaches between working on greenfield and brownfield projects.
-* describe how multitenancy changes design in Rails.
-* construct a Rails app using multitenancy authorization.
-* use jQuery to traverse and manipulate the DOM.
-* critique previous projects for fundamental security flaws and understand how to prevent them.
-* develop and test secure internal APIs using Rails.
-* consume external APIs and test the consumption.
-* describe what happens when an email is sent.
-* modify elements of the DOM using AJAX calls within a Rails app.
-* explain when to use caching strategies to improve performance in Rails.
-* explain the scenarios that would benefit from using background workers in Rails.
-* Continue to develop [professional skills](lessons/https://gist.github.com/anonymous/79b0a5b97847a6cdb57caf1f4abad508)
-
+This module consists of four projects, two team projects and two personal
+projects. [Find more details about the projects themselves
+here.](projects_overview)
 
 
 #### Week 1
@@ -61,16 +35,22 @@ Effective communication around code, explaining what it does and why
 * [Getting Started with OAuth](lessons/getting_started_with_oauth)
 * [APIcurious](projects/apicurious) Kickoff
 * [Consuming APIs](lessons/testing_against_third_party_apis)
+* Professional Development: Networking
+* VCR Testing
 * APIcurious Evaluations
+* POROs in Rails
+* Self-Directed Project Ideation & Prep
 
 #### Week 3
 
-* The Pivot Kickoff
-* [Understanding Multitenancy](lessons/understanding_multitenancy)
+* Cloney Island Kickoff
 * [Seeding Data Efficiently](lessons/seeding_data_efficiently)
+* [Understanding Multitenancy](lessons/understanding_multitenancy)
 * [Multitenancy Authorization](lessons/multitenancy_authorization)
+* Mock Assessment
 * Professional Development: [Job Search Strategy Planning](https://github.com/turingschool/professional_skills/blob/master/job_search_strategy.md)
-* Friday Session: Re-DTR
+* Cloney Island Re-DTR
+* Mock Assessment Roadshow
 
 #### Week 4
 
@@ -78,9 +58,8 @@ Effective communication around code, explaining what it does and why
 * [Fundamental Rails Security](lessons/fundamental_rails_security)
 * [Sending Email](lessons/sending_email_sendgrid)
 * Self-Directed Project Intro
-* Self-Directed Project Ideation & Prep
-* Pivot Evaluations
-* Friday Session: TBD
+* Cloney Island Evaluations
+* Assessment Preparation Assignment
 
 #### Week 5
 
@@ -96,13 +75,3 @@ Effective communication around code, explaining what it does and why
 * [Getting Started with Workers](lessons/intro_to_background_workers)
 * Portfolio Reviews
 
-
-#### Staff Tasks
-
-* Update Today: Unassigned
-* Project checkins: Unassigned
-* One-on-one schedules: Unassigned
-* Make project groups: Unassigned
-* Create shared document for project notes: Unassigned
-* Create Weekly Survey: Josh M.
-* Update Portfolio expectations: Josh M.
