@@ -87,38 +87,32 @@ AND provide a photo.
 OAuth is very similar in that it also asks you to provide multiple forms of identification.
 Simply signing into the app isn't enough.
 
-__Github OAuth Skit Time__
-
-Watch your instructors shows off their amazing acting skills in a skit
-demonstrating how OAuth works
-
 __Talk through the steps__
 
 You can also visit the Github docs [here](https://developer.github.com/v3/oauth/) to see the steps you need to take.
 
 1. User needs to go to the github authentication site and ask for what they want.
 We do this by redirecting our user to:
-https://github.com/login/oauth/authorize and including in the params the
+`https://github.com/login/oauth/authorize` and including in the params the
 following:
-   * client_id: given to us when we registered our app on github
-   * redirect_uri: we used https://localhost:3000/auth/github/callback when we
+   * `client_id`: given to us when we registered our app on github
+   * `redirect_uri`: we used `https://localhost:3000/auth/github/callback` when we
    registered
-   * scope: list of scopes are found [here](https://developer.github.com/v3/oauth/#scopes)
-2. User needs to get authorized by signing into github and confirming they are
+   * `scope`: list of scopes are found [here](https://developer.github.com/v3/oauth/#scopes)
+2. User needs to get authorized by signing into Github and confirming they are
 who they say they are
 3. Once the user is signed in, they need to authorize the application to use the Github data.
-4. Github sends a request to our redirect_uri we provided, and includes a code
+4. Github sends a request to our `redirect_uri` we provided, and includes a code
 in the params
 5. We now take the code and send a POST request to
-https://github.com/login/oauth/access_token and include the code in the params
-6. Github gives us the access token and now we can use it to get information
+`https://github.com/login/oauth/access_token` and include the code in the params
+6. Github gives us an `access_token` associated with that user and we can use it to get information
 from the API about the user.
-
 
 ## Workshop -- Implementing OAuth with Github
 
 Let's get some practice with handrolling OAuth by implementing it in a simple
-rails project. While there are gems we can use for OAuth, handrolling will
+Rails project. While there are gems we can use for OAuth, handrolling will
 allow us to understand what is going on behind the scenes.
 
 Note: We are going to be implementing all of the code in the Sessions Controller #create method.
@@ -134,7 +128,7 @@ users on our behalf.
 
 To register a new application, follow these steps:
 
-1. Go to www.github.com and login
+1. Go to [www.github.com](www.github.com) and login
 2. Go to your settings
 3. Under `Developer settings`, click on `OAuth applications`
 4. Click on `Register a new application`
@@ -474,7 +468,7 @@ and find our user with the `session[:user_id]`.
 **app/controllers/application_controller.rb**
 
 ```rb
-class ApplicationController < ActionController::because
+class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   helper_method :current_user
