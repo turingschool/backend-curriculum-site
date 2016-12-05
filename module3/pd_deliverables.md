@@ -5,8 +5,8 @@ title: Module 3 PD Deliverables
 
 ### Professional Development Deliverables
 
-_ALL DELIVERABLES SHOULD BE EMAILED TO MSTEWART@TURING.IO BY SPECIFIED
-DUE DATE__
+**ALL DELIVERABLES SHOULD BE EMAILED TO MSTEWART@TURING.IO BY SPECIFIED
+DUE DATE**
 
 #### Job Search Strategies
 
@@ -18,7 +18,7 @@ goals
 * weekly/monthly/module mentor pairing goals
 * weekly/monthly/module hour goals for company research
 
-Due date <em>12/16/17</em>
+Due date **12/16/17**
 
 #### Networking (makeup class)
 
