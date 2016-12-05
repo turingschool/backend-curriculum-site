@@ -85,12 +85,17 @@ Pull together components from the existing Array Prototype less, Lodash lesson, 
 
 ## Instructional Sessions - Week 2
 
-### Extracting Components & Services
+### Getting Started with Services
 
 * Staff: Jeff
-* Status: Light Planning
+* Status: Draft Ready
+* [Lesson Plan](lessons/getting_started_with_services)
 
-Extract materials from larger JSL tutorials. Consider assigning parts as homework.
+### Extracting a Proxy Service
+
+* Staff: Jeff
+* Status: Sketch
+* [Lesson Plan](lessons/extracting_a_proxy_service)
 
 ### Isolating Dependencies with Wrappers
 
