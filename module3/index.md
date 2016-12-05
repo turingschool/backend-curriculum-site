@@ -12,7 +12,6 @@ In Module 3, we will look beyond the basics of building Rails web applications w
 
 ### Success
 
-Success in B3 means that students demonstrate proficiency and comfort with the following concepts:
 Students who successfully complete Module 4 will have demonstrated mastery of Professional Skills and Core Technical Skills. [These skills are broken down in detail here](success).
 
 ### Projects
