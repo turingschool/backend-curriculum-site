@@ -94,15 +94,14 @@ Pull together components from the existing Array Prototype less, Lodash lesson, 
 ### Extracting a Proxy Service
 
 * Staff: Jeff
-* Status: Sketch
+* Status: Draft Ready
 * [Lesson Plan](lessons/extracting_a_proxy_service)
 
 ### Isolating Dependencies with Wrappers
 
 * Staff: Jeff
-* Status: Light Planning
-
-Extract materials from larger JSL tutorials. Consider assigning parts as homework.
+* Status: Draft Ready
+* [Lesson Plan](lessons/writing_a_wrapper_gem)
 
 ### PS: Negotiating
 
