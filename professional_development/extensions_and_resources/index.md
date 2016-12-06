@@ -14,7 +14,7 @@ To aid in your professional growth for Turing and the workplace, this folder is 
 ## Agency
 The agency mindset is about taking initiative...
 
-* [Project Management & Organizational Resources](https://github.com/turingschool/professional_skills/blob/master/extensions_and_resources/project_management_resources.md)
+* [Project Management & Organizational Resources](project_management_resources)
 
 ## Empathy
 
@@ -22,9 +22,9 @@ The agency mindset is about taking initiative...
 
 ## Grit
 
-* [Combatting Impostor Syndrome](https://github.com/turingschool/professional_skills/blob/master/extensions_and_resources/impostor_syndrome.md)
+* [Combatting Impostor Syndrome](impostor_syndrome)
 
 ## Growth
 
-* [Communication Skills](https://github.com/turingschool/professional_skills/blob/master/extensions_and_resources/communication_skills.md)
-* [Remote Communication](https://github.com/turingschool/professional_skills/blob/master/extensions_and_resources/remote_communication.md)
+* [Communication Skills](communication_skills)
+* [Remote Communication](remote_communication)

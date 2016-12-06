@@ -1,5 +1,5 @@
 ---
-title:   Module One
+title: Module One
 layout: page
 ---
 

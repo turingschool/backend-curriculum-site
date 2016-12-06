@@ -15,4 +15,4 @@ Throughout each module, you’ll have workshops with the Community Affairs Manag
 * [Module Three](module_three)
 * [Module Four](module_four)
 * [Extensions & Resources](extensions_and_resources)
-* [StrengthsFinder (optional)](https://github.com/turingschool/professional_skills/tree/master/strengths_finder)
+* [StrengthsFinder (optional)](strengths_finder)
