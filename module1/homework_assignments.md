@@ -3,14 +3,14 @@ title: Homework Assignments
 layout: page
 ---
 
-* Unless otherwise noted, all homework is due the next day. 
+* Unless otherwise noted, all homework is due the next day.
 
 ## WEEK 1
 
 ### 1.1
-* [Listing Files, Working with Files, and Working with Directories Sections from “Unix Essentials”](https://github.com/turingschool/curriculum/blob/master/source/academy/workshops/terminal_and_editor.markdown)  
-* Echo: [SuperFizz](https://github.com/turingschool/challenges/blob/master/super_fizz.markdown)  
-* Foxtrot: [Working with Strings and Integers](https://github.com/turingschool/challenges/blob/master/working_with_strings_and_integers.markdown)  
+* [Listing Files, Working with Files, and Working with Directories Sections from “Unix Essentials”](https://github.com/turingschool/curriculum/blob/master/source/academy/workshops/terminal_and_editor.markdown)
+* Echo: [SuperFizz](https://github.com/turingschool/challenges/blob/master/super_fizz.markdown)
+* Foxtrot: [Working with Strings and Integers](https://github.com/turingschool/challenges/blob/master/working_with_strings_and_integers.markdown)
 * [Professional Development Deliverables](https://gist.github.com/icorson3/85e6f2a5c4999514d9317e1baa1bf9b1) (Peer Reviews Due Thursday/To Meg by Friday midnight)
 
 
@@ -35,8 +35,11 @@ layout: page
 
 ## WEEK 2
 ### 2.1
-* [Github SSH Key Setup](https://help.github.com/articles/generating-an-ssh-key/)  
+* [Github SSH Key Setup](https://help.github.com/articles/generating-an-ssh-key/)
 * [Choose level 2 OR level 3 from CYA Git](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/choose_your_own_adventure_intro_to_git.markdown#level-2---intermediate-overview-and-command-line-practice)
+
+### 2.2
+* [My Year in Startup Hell](http://fortune.com/disrupted-excerpt-hubspot-startup-dan-lyons/) Read this article, write a reaction and DM Mike with a link to your gist. Due 9am on Wednesday.
 
 ### 2.3
 * Foxtrot: Watch Working with Files video
