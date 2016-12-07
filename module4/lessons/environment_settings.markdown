@@ -102,7 +102,9 @@ As we mentioned earlier, these variables are local to the terminal session, so t
 
 If you want these environment variables to persist you can declare them in various places. These could include `.bash_profile`, `.bashrc`, `.profile`. Let's look into them.
 
-When I open my `.bash_profile` I see amoung other things, `export PATH=/my/specific/path`. Anything I declare in these file will be available in any session and will persist until changed either temporarily or permanantly.
+When I open my `.bash_profile` I see among other things, `export PATH=/my/specific/path`. Anything I declare in these file will be available in any session and will persist until changed either temporarily or permanently.
+
+Go ahead and set a variable in your profile. `export EXAMPLE_VAR="hello1234567"`. Now if you open up a new terminal session and investigate the environment variables you will see $EXAMPLE_VAR in every new terminal session, not just the local session.
 
 #### Pragmatically, Why?
 
