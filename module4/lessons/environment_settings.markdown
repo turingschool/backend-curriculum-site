@@ -75,9 +75,33 @@ example: `export RANDOMVARIABLENAME="HellowWOWOWOWVariable"`
 
 To unset or remove a temporary environment variable you can use the `unset` command followed by the Shell variable name you want to unset. `unset $RANDOMVARIABLENAME`.
 
+We can manipulate these variables in Ruby too. In any ruby program we can access the environment variables with `ENV`. `ENV` is an Object in ruby and you can interact with it just like a hash with strings as keys. `ENV["key"] = "Value"`.
+
+Let's play in IRB for a minute. Open an IRB session in your terminal with the command `irb`.
+
+```ruby
+irb(main):001:0>
+`loop{ sleep 5; puts "The variable HOME is #{ENV['HOME']}" }`
+```
+
+In this example we are looking at the environment variable HOME. We can see that this is the same variable that we looked at through our terminal without ruby.
+
+Now let's try an experiment.
+
+```ruby
+irb(main):001:0> ENV["MARKER"]
+=> nil
+```
+
+We can see it's currently `nil`. Now go ahead and export a value for the variable `MARKER`. Whatever value you want. Now, go back into an `irb` session and look at what the variable's value is. You can see that this variable now exists. Open irb again and look up the environment variable MARKER. It should have the val.
+
+As we mentioned earlier, these variables are local to the terminal session, so they are temporary. We can see this by opening a second terminal window. If you get into `irb` in this session and query the `MARKER` variable then you will see it is once again nil. When you flip back to the original session it is not
+
 #### Pragmatically, Why?
 
 What might we use this for? Let's get into the mindset of a Rails Developer. If I want to run a bunch of commands in a different environment, say `staging` or `production`, we can set a temporary env variable in the current Shell session so we don't have to manually declare the name of the environment every time we run a rails command.
+
+You may want to store sensitive data, api keys, and
 
 ### Part 2: Rails
 
@@ -149,6 +173,13 @@ These files within `/config/environments` are where we specify the per environme
 
 Another place to take notice of environments is with out GEMFILE. We define `groups` for the gems we include and these groups correspond to the specific environment we're running the application in.
 
+Let's do an experiment here to prove this.
+
+
+Open a rails application. Open up the `/config/environments` directories. Inside of the `development.rb` file set an env variable. Something like `ENV["PROOF"] = ====DEVELOPMENT====` and then open the `production.rb` file and set the same variable to something different, `ENV["PROOF"] = ====PRODUCTION====`. Now open the `environment.rb`  file and print the environment variable.
+
+Now we can see what we've been talking about in action. First, start the server with `rails s`. Remmeber the default setting is for this to be the development environment. You should see the varaible value you set in the `developmnet.rb` file print in the terminal. Now, if you start the server in the production environment you should see the other value for that variable printed in the server.
+
 #### Database.yml
 
 Other than the environment configuration file, it's important to look into the `database.yml` file when we talk about environments.
@@ -204,3 +235,19 @@ There are other [database configurations](http://edgeguides.rubyonrails.org/conf
 
 
 ### Part 3: Heroku
+
+Heroku provides us a server to host our application. A server is a machine much like our laptops that runs an operating system. The server has environment variables just like our machines.
+
+You can access a bash session on a heroku server, just like our terminal sessions. To open this simply run `heroku run bash` on any app you have hosted on heroku.
+
+Once the bash session is open you can then look at the environment variables just like you would on your machine. `env`, `printenv`, `echo $VARIABLE`,.
+
+```terminal
+$ heroku run bash
+~$ env
+# you will see all your env variables here
+```
+
+Heroku provides us an easy way to access, set, and unset all our environment variables. The command to do this is `config`.
+
+Running `heroku config` will give you a list of all the environment variables that you have set. Heroku calls these Config Vars. You can add one with the command `heroku config:set key=valueofkey123`. Using the `config:set` command will also overwrite a key that was already there by the same name. And you can remove one with the unset `heroku config:unset key`.
