@@ -5,13 +5,16 @@ title: Ruby Object Model
 
 
 # Ruby Object Model
+
 ## Learning Goals
+
 * Use tools to map out relationship between Ruby classes and modules
 * Define `binding` and describe how Ruby uses bindings to manage use methods defined in superclasses.
 * Describe how Singleton methods and class work
 * Describe the syntax for distinguishing local variables, instance variables, class variables, and constants.
 
 ## Investigative Methods
+
 These three methods can help you investigate the relationships between classes and modules. All methods are run on the class (i.e. `String`, `Hash`)
 
 * `.ancestors`: returns a list of modules included/prepended in mod (including mod itself). See [docs](https://ruby-doc.org/core-2.3.1/Module.html#method-i-ancestors).
