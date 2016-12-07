@@ -251,3 +251,16 @@ $ heroku run bash
 Heroku provides us an easy way to access, set, and unset all our environment variables. The command to do this is `config`.
 
 Running `heroku config` will give you a list of all the environment variables that you have set. Heroku calls these Config Vars. You can add one with the command `heroku config:set key=valueofkey123`. Using the `config:set` command will also overwrite a key that was already there by the same name. And you can remove one with the unset `heroku config:unset key`.
+
+A hypothetical example of something we could use environment variables for in production, besides for API keys, could be this:
+
+  Say we have a homepage with many many dynamic assets (images, products, descriptions, maybe even videos). This works great for clients that have enough bandwidth to handle loading all these assets. However some users may not be able to handle loading all this making for an unpleasant UX. One way we could potentially solve this UX problem would be to store information about the users bandwidth in an environment variable and look at that variable to decide whether or not to load the asset heavy homepage or a different version of the homepage that is static and does not have all the assets to load.
+
+  Our view could, hypothetically look something like this:
+
+    ```erb
+    if(ENV["BANDWIDTH_THRESHOLD?"])
+      <%= render partial :dynamic_asset_heavy_home %>
+    else
+      <%= render partial :static_low_asset_home %>
+    ```
