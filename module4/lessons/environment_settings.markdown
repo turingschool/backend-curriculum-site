@@ -97,6 +97,13 @@ We can see it's currently `nil`. Now go ahead and export a value for the variabl
 
 As we mentioned earlier, these variables are local to the terminal session, so they are temporary. We can see this by opening a second terminal window. If you get into `irb` in this session and query the `MARKER` variable then you will see it is once again nil. When you flip back to the original session it is not
 
+
+#### Setting Permanent Variables
+
+If you want these environment variables to persist you can declare them in various places. These could include `.bash_profile`, `.bashrc`, `.profile`. Let's look into them.
+
+When I open my `.bash_profile` I see amoung other things, `export PATH=/my/specific/path`. Anything I declare in these file will be available in any session and will persist until changed either temporarily or permanantly.
+
 #### Pragmatically, Why?
 
 What might we use this for? Let's get into the mindset of a Rails Developer. If I want to run a bunch of commands in a different environment, say `staging` or `production`, we can set a temporary env variable in the current Shell session so we don't have to manually declare the name of the environment every time we run a rails command.
@@ -242,7 +249,7 @@ You can access a bash session on a heroku server, just like our terminal session
 
 Once the bash session is open you can then look at the environment variables just like you would on your machine. `env`, `printenv`, `echo $VARIABLE`,.
 
-```terminal
+```
 $ heroku run bash
 ~$ env
 # you will see all your env variables here
@@ -258,9 +265,10 @@ A hypothetical example of something we could use environment variables for in pr
 
   Our view could, hypothetically look something like this:
 
-    ```erb
-    if(ENV["BANDWIDTH_THRESHOLD?"])
-      <%= render partial :dynamic_asset_heavy_home %>
-    else
-      <%= render partial :static_low_asset_home %>
-    ```
+```erb
+if(ENV["BANDWIDTH_THRESHOLD?"])
+  <%= render partial :dynamic_asset_heavy_home %>
+else
+  <%= render partial :static_low_asset_home %>
+end
+```
