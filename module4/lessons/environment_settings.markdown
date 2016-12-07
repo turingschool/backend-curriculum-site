@@ -2,7 +2,7 @@
 layout: page
 title: Environment Settings
 length: 90
-tags: workflow, professional skills
+tags: rails, heroku, environment, configuration
 ---
 
 ## Learning & Completion Goals
@@ -156,7 +156,7 @@ Other than the environment configuration file, it's important to look into the `
 If you open up a `database.yml` you will see something similar to this:
 
 
-```yml
+```yaml
 default: &default
   adapter: postgresql
   encoding: unicode
@@ -180,13 +180,27 @@ production:
 
 ```
 
-You should take note that the far left of this file are the keys `development`, `test`, `production` and underneath these are some other key values. What is happening here is that this file is deciding which set of configurations to use based on the environment we're running the application in. In the above example, the `development` environment is set up to use a database called `exploration_development` and the line `<<: #default` is including the default settings in the `development` database configuration. The postgresql databases name that we see in these configurations as `database:` has a naming convention in Rails as the name of the app followed by the name of the environment. So, the name of this app is `exploration`.
+You should take note that the far left of this file are the keys `development`, `test`, `production` and underneath these are some other key values.
+
+
+```yaml
+development:
+  <<: *default
+  database: exploration_development
+```
+What is happening here is that this file is deciding which set of configurations to use based on the environment we're running the application in. In the above example, the `development` environment is set up to use a database called `exploration_development` and the line `<<: #default` is including the default settings in the `development` database configuration. The postgresql databases name that we see in these configurations as `database:` has a naming convention in Rails as the name of the app followed by the name of the environment. The name of this app is `exploration`.
+
+```yaml
+production:
+  <<: *default
+  database: exploration_production
+  username: exploration
+  password: <%= ENV['EXPLORATION_DATABASE_PASSWORD'] %>
+```
 
 The `production` configurations have a little more going on. We see in addition to the default configs we also have the database name configured to be `exploration_production`, and there is also a `username` and `password` configuration.
 
-There are other [database configurations](http://edgeguides.rubyonrails.org/configuring.html#configuring-a-database) you can set to customize your database in Rails. 
+There are other [database configurations](http://edgeguides.rubyonrails.org/configuring.html#configuring-a-database) you can set to customize your database in Rails.
 
 
 ### Part 3: Heroku
-
-*Note: setting env variable can happen on the fly. no need to re deploy. use-case: ecommerce site front page with dynamic content. Could have some env variable something like 'low bandwidth true -> make sure you render static plain site'*
