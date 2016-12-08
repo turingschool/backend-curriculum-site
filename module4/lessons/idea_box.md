@@ -20,10 +20,8 @@ inconspicuous communication between client and server.
 For this project, we'll be increasingly thinking about the "server" and "client"
 as separate entities. We'll be using:
 
-* A Rails application to manage data related to our ideas and serve
-  initial UI templates (or just `public/index.html`)
-* JavaScript (with jQuery) to manage client-side interactions and communicate
-  asynchronously with the server
+* A Rails application is set up to manage data related to our ideas. [Here is the API App](git@github.com:turingschool-examples/idea_box_2.0.git)
+* JavaScript (with jQuery) and basic HTML to manage client-side interactions and communicate asynchronously with the server
 
 In order to get more experience doing DOM manipulations and AJAX event handling on our own,
 we will _not_ be using client-side frameworks (Ember, Angular, React, etc.).
@@ -32,9 +30,7 @@ Your entire application will consist of one HTML page or template. You will not 
 
 All of your AJAX functionality will be triggered by jQuery.
 
-### Data Model
-
-(5 points total.)
+### Data Model - Set up in the Rails API
 
 We'll be primarily working with _Idea_ objects.
 
@@ -51,7 +47,7 @@ We'll be primarily working with _Idea_ objects.
 On the application's root, the user should:
 
 * See a list of all existing ideas, including the title, body, and quality for each idea.
-* Idea bodies longer than 100 characters should be truncated to the nearest word.
+* Idea Body.
 * Ideas should appear in descending chronological order (with the most recently created
   idea at the top).
 
