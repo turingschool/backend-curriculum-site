@@ -3,8 +3,8 @@ title: Week 2
 layout: page
 ---
 ## Projects and Exercises
-* [Mastermind](https://github.com/turingschool/curriculum/blob/master/source/projects/mastermind.markdown)
-* [Flashcards](https://github.com/turingschool/curriculum/blob/master/source/projects/flashcards.markdown)
+* [Enigma](https://github.com/turingschool/curriculum/blob/master/source/projects/enigma.markdown)
+* [Complete Me](https://github.com/turingschool/curriculum/blob/master/source/projects/complete_me.markdown)
 * [Date Night](https://github.com/turingschool/curriculum/blob/master/source/projects/date_night.markdown)
 * [Jungle Beats](https://github.com/turingschool/curriculum/blob/master/source/projects/jungle_beat.markdown)
 
