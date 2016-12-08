@@ -66,7 +66,7 @@ You can find the [index of lessons used for the old B4 plan here](former_index).
 * [Negotiations](../professional_development/module_four/negotiations)
 * Isolating Dependancies with Wrappers
 * Testing in a World of Services
-* [Working with Environments and Initializers](/lessons/environment_settings)
+* [Working with Environments and Initializers](./lessons/environment_settings)
 * Pub/Sub
 * Demos and Evaluations
 * Scope and Scheduling
