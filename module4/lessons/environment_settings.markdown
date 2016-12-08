@@ -35,7 +35,7 @@ What are environment variables? Environment (`ENV` or `env`) variables are name=
 
 Let's explore a few commands to help us investigate the environment variables.
 
-You can see the values of your variables by running the command ,`env` in your terminal. The command `printenv` will show you the same output. Another command you can use to investigate the environment is `set`. The `set` command will return to you all env functions and their values too and this can be a little verbose. You can run `set \ less` to see the output without all the functions. All three of these commands generally give you the same output.
+You can see the values of your variables by running the command ,`env` in your terminal. The command `printenv` will show you the same output. Another command you can use to investigate the environment is `set`. The `set` command will return to you all env functions and their values too and this can be a little verbose. You can run `set | less` to see the output without all the functions. All three of these commands generally give you the same output.
 
 Spend a minute or two investigating these commands:
 
@@ -49,7 +49,7 @@ These command allow us to see all the environment variables. If you want to inve
 
 #### Setting and Unsetting Temporary Variables
 
-Now that we know how to investigate current environment variables, we can look at declaring new, or overriding existing variables temporarily. The `HOME` varaible is a common env variable we should all have. It declares what is the root of your machine. Mine for example is `/Users/Carmer`. If I navigate to my machines home or root ( `cd` or `cd ~`), I will be taken to `/User/Carmer`. You can temporarily override this, and any variable in the command line.
+Now that we know how to investigate current environment variables, we can look at declaring new, or overriding existing variables temporarily. The `HOME` variable is a common env variable we should all have. It declares what is the root of your machine. Mine for example is `/Users/Carmer`. If I navigate to my machines home or root ( `cd` or `cd ~`), I will be taken to `/User/Carmer`. You can temporarily override this, and any variable in the command line.
 
 Setting variables is done with the `export` command. If we want to override the `HOME` variable, we can do that with the command `export HOME=/Path/I/Want/To/NavigateTo`. I'll temporarily change mine to the desktop `/Users/Carmer/Desktop`.
 
@@ -81,21 +81,30 @@ Let's play in IRB for a minute. Open an IRB session in your terminal with the co
 
 ```ruby
 irb(main):001:0>
-`loop{ sleep 5; puts "The variable HOME is #{ENV['HOME']}" }`
+`loop{ sleep 3; puts "The variable HOME is #{ENV['HOME']}" }`
 ```
 
 In this example we are looking at the environment variable HOME. We can see that this is the same variable that we looked at through our terminal without ruby.
 
-Now let's try an experiment.
+Now let's try an experiment. Open `irb` and run the following:
 
 ```ruby
 irb(main):001:0> ENV["MARKER"]
 => nil
 ```
 
-We can see it's currently `nil`. Now go ahead and export a value for the variable `MARKER`. Whatever value you want. Now, go back into an `irb` session and look at what the variable's value is. You can see that this variable now exists. Open irb again and look up the environment variable MARKER. It should have the val.
+We can see MARKER is currently `nil`. Now go ahead and export a value for the variable `MARKER`. Whatever value you want. Now, go back into an `irb` session and look at what the variable's value is. You can see that this variable now exists. Open irb again and look up the environment variable MARKER. It should have the val.
 
 As we mentioned earlier, these variables are local to the terminal session, so they are temporary. We can see this by opening a second terminal window. If you get into `irb` in this session and query the `MARKER` variable then you will see it is once again nil. When you flip back to the original session it is not
+
+
+#### Setting Permanent Variables
+
+If you want these environment variables to persist you can declare them in various places. These could include `.bash_profile`, `.bashrc`, `.profile`. Let's look into them.
+
+When I open my `.bash_profile` I see among other things, `export PATH=/my/specific/path`. Anything I declare in these file will be available in any session and will persist until changed either temporarily or permanently.
+
+Go ahead and set a variable in your profile. `export EXAMPLE_VAR="hello1234567"`. Now if you open up a new terminal session and investigate the environment variables you will see $EXAMPLE_VAR in every new terminal session, not just the local session.
 
 #### Pragmatically, Why?
 
@@ -242,7 +251,7 @@ You can access a bash session on a heroku server, just like our terminal session
 
 Once the bash session is open you can then look at the environment variables just like you would on your machine. `env`, `printenv`, `echo $VARIABLE`,.
 
-```terminal
+```
 $ heroku run bash
 ~$ env
 # you will see all your env variables here
@@ -258,9 +267,10 @@ A hypothetical example of something we could use environment variables for in pr
 
   Our view could, hypothetically look something like this:
 
-    ```erb
-    if(ENV["BANDWIDTH_THRESHOLD?"])
-      <%= render partial :dynamic_asset_heavy_home %>
-    else
-      <%= render partial :static_low_asset_home %>
-    ```
+```erb
+if(ENV["BANDWIDTH_THRESHOLD?"])
+  <%= render partial :dynamic_asset_heavy_home %>
+else
+  <%= render partial :static_low_asset_home %>
+end
+```
