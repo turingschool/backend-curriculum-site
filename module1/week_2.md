@@ -14,7 +14,7 @@ layout: page
 * [Choose Your Own Adventure Intro to Git](lessons/choose_your_own_adventure_intro_to_git)
 * [How Git Works / Basic Git Workflow](lessons/intro_to_git) ([Video](https://vimeo.com/160822771))
 * [Debugging Techniques](lessons/debugging_redux)
-* [Ruby Object Model](lessons/ruby_object_model1) ([Video](https://vimeo.com/160952993))
+* [Ruby Object Model](lessons/ruby_object_model_alt) ([Video](https://vimeo.com/160952993))
 * Understanding Enigma (Foxtrot)
 * How linked lists work (Foxtrot)
 * How Binary Search Trees Work (Echo)
