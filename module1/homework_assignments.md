@@ -50,6 +50,7 @@ layout: page
 
 ### 2.5 (weekend)
 * Update portfolio with reflections from Friday's Gear Up session and any project evaluations received this week. See the portfolio requirements and the associated repository [here](https://github.com/turingschool/portfolios)
+* [Cheating in Computer Science](http://ubiquity.acm.org/article.cfm?id=1865908) Read this article, write a reaction and DM Mike with a link to your gist. Due 9am on Monday.
 
 ## WEEK 3
 
