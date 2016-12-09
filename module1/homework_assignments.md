@@ -31,7 +31,7 @@ layout: page
 ### 1.5 (weekend)
 * Foxtrot: [Chapters 1,2,3,6,7 from Chris Pine's Learn to Program](https://pine.fm/LearnToProgram/)
 * [Intro to TDD](https://github.com/turingschool/curriculum/blob/master/source/topics/testing/intro-to-tdd.markdown)
-* Update portfolio with reflections from Friday's Gear Up session and any project evaluations received this week. See the portfolio requirements and the associated repository [here]((https://github.com/turingschool/portfolios)).
+* Update portfolio with reflections from Friday's Gear Up session and any project evaluations received this week. See the portfolio requirements and the associated repository [here](https://github.com/turingschool/portfolios)
 
 ## WEEK 2
 
@@ -49,7 +49,7 @@ layout: page
 * [Copy with Ruby](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/working_with_files.markdown#exercise---ruby-copy)
 
 ### 2.5 (weekend)
-* Update portfolio with reflections from Friday's Gear Up session and any project evaluations received this week. See the portfolio requirements and the associated repository [here](https://github.com/turingschool/portfolios).
+* Update portfolio with reflections from Friday's Gear Up session and any project evaluations received this week. See the portfolio requirements and the associated repository [here](https://github.com/turingschool/portfolios)
 
 ## WEEK 3
 
@@ -59,12 +59,15 @@ layout: page
 ### 3.2
 * [CS50: Call Stack Video](https://www.youtube.com/watch?v=beqqGIdabrE)
 
+### 3.3
+* [Reading for Professional Development](lessons/feedback.pdf)
+
 ### 3.4
 * [GitHub Flow: Issues with Git-flow](http://scottchacon.com/2011/08/31/github-flow.html)
 * [GitHub Guides: Understanding the GitHub Flow](https://guides.github.com/introduction/flow/index.html)
 
 ### 3.5 (weekend)
-* Update portfolio with reflections from Friday's Gear Up session and any project evaluations received this week. See the portfolio requirements and the associated repository [here]((https://github.com/turingschool/portfolios)).
+* Update portfolio with reflections from Friday's Gear Up session and any project evaluations received this week. See the portfolio requirements and the associated repository [here](https://github.com/turingschool/portfolios)
 
 ## WEEK 4
 
@@ -78,7 +81,7 @@ layout: page
 * [EventManager](https://github.com/turingschool/curriculum/blob/master/source/projects/eventmanager.markdown)
 
 ### 4.5 (weekend)
-* Update portfolio with reflections from Friday's Gear Up session and any project evaluations received this week. See the portfolio requirements and the associated repository [here]((https://github.com/turingschool/portfolios)).
+* Update portfolio with reflections from Friday's Gear Up session and any project evaluations received this week. See the portfolio requirements and the associated repository [here](https://github.com/turingschool/portfolios).
 
 ## WEEK 5
 
@@ -92,4 +95,4 @@ layout: page
 * [POODR Part 3](https://github.com/turingschool/challenges/blob/master/poodr.markdown)
 
 ### 5.5 (weekend)
-* Update portfolio with reflections from Friday's Gear Up session and any project evaluations received this week. See the portfolio requirements and the associated repository [here]((https://github.com/turingschool/portfolios)).
+* Update portfolio with reflections from Friday's Gear Up session and any project evaluations received this week. See the portfolio requirements and the associated repository [here](https://github.com/turingschool/portfolios).
