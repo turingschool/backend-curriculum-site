@@ -49,7 +49,7 @@ layout: page
 * [Copy with Ruby](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/working_with_files.markdown#exercise---ruby-copy)
 
 ### 2.5 (weekend)
-* Update portfolio with reflections from Friday's Gear Up session and any project evaluations received this week. See the portfolio requirements and the associated repository [here]((https://github.com/turingschool/portfolios)).
+* Update portfolio with reflections from Friday's Gear Up session and any project evaluations received this week. See the portfolio requirements and the associated repository [here](https://github.com/turingschool/portfolios).
 
 ## WEEK 3
 
