@@ -34,6 +34,7 @@ layout: page
 * Update portfolio with reflections from Friday's Gear Up session and any project evaluations received this week. See the portfolio requirements and the associated repository [here]((https://github.com/turingschool/portfolios)).
 
 ## WEEK 2
+
 ### 2.1
 * [Github SSH Key Setup](https://help.github.com/articles/generating-an-ssh-key/)
 * [Choose level 2 OR level 3 from CYA Git](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/choose_your_own_adventure_intro_to_git.markdown#level-2---intermediate-overview-and-command-line-practice)
@@ -51,6 +52,7 @@ layout: page
 * Update portfolio with reflections from Friday's Gear Up session and any project evaluations received this week. See the portfolio requirements and the associated repository [here]((https://github.com/turingschool/portfolios)).
 
 ## WEEK 3
+
 ### 3.1
 * [Pair Programming Reading](https://github.com/turingschool/challenges/blob/master/pair_programming_reading.markdown)
 
@@ -65,6 +67,7 @@ layout: page
 * Update portfolio with reflections from Friday's Gear Up session and any project evaluations received this week. See the portfolio requirements and the associated repository [here]((https://github.com/turingschool/portfolios)).
 
 ## WEEK 4
+
 ### 4.2
 * [Refactoring Patterns Reading](https://github.com/turingschool/challenges/blob/master/refactoring_patterns_reading.markdown)
 
@@ -78,6 +81,7 @@ layout: page
 * Update portfolio with reflections from Friday's Gear Up session and any project evaluations received this week. See the portfolio requirements and the associated repository [here]((https://github.com/turingschool/portfolios)).
 
 ## WEEK 5
+
 ### 5.2
 * [POODR Part 1](https://github.com/turingschool/challenges/blob/master/poodr.markdown)
 
