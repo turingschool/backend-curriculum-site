@@ -16,6 +16,11 @@ you'll build a well-documented API to both internally consume and protect for
 external consumption. Your platform will be built to handle multiple types of
 users (guests, registered users & admins).
 
+Note: This project is not intended for you to clone an entire site in two weeks.
+You will only be taking some functionality of the sites you choose, and cloning
+ONLY those parts. In some cases, you might even be adding functionality that
+the real site doesn't have.
+
 The project requirements are listed below:
 
 *   [Learning Goals](#learning-goals)
@@ -78,15 +83,6 @@ with `git remote add origin git://new_repo_url`
 
 Once the team leader has done this, the other team members can fork the new
 repo.
-
-### Tagging the Start Point
-
-We want to be able to easily compare the change between the start of the
-project and the end. For that purpose, create a tag in the repo and push it to
-GitHub:
-
-*   `$ git tag -a <project_name>_v1`
-*   `$ git push --tags`
 
 ### Project Management Tool
 

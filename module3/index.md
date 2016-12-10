@@ -48,7 +48,7 @@ here.](pd_deliverables)
 
 #### Week 3
 
-* Cloney Island Kickoff
+* [Cloney Island](projects/cloney_island) Kickoff
 * [Seeding Data Efficiently](lessons/seeding_data_efficiently)
 * [Understanding Multitenancy](lessons/understanding_multitenancy)
 * [Multitenancy Authorization](lessons/multitenancy_authorization)
