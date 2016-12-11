@@ -13,14 +13,6 @@ status: draft
 * How to use Faker
 * How to set up relationships
 
-## Structure
-
-* 10 - Live Code: Building an Inefficient Seed File
-* 10 - Lecture: Why Seeding Efficiently Matters
-* 5 - Break
-* 60 - Live Code: Improving the seed file with loops
-* 90 - Code: Implement seeding strategies on The Pivot
-
 ## Live Code: Building an Inefficient Seed File
 
 Clone down the following repo.
