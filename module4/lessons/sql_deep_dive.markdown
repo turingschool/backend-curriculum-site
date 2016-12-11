@@ -1,9 +1,11 @@
 ---
 layout: page
-title: Intermediate SQL
-length: 90 minutes
+title: SQL Deep Dive
+length: 180 minutes
 tags: SQL
 ---
+
+## Overview
 
 ### Goals
 
@@ -15,36 +17,58 @@ By the end of this lesson, you will know/be able to:
 
 ### Structure
 
-### Lecture (tutorial)
+* Practicing SELECT, INSERT, COUNT with WHERE, LIMIT, and ORDER
+
+## Class Time
+
+### Setup
+
+#### Checking PostgreSQL
+
+From your terminal, let's create a database and open it:
+
+```
+$ createdb food
+$ psql food
+```
+
+Within that database let's make a table:
+
+```
+CREATE TABLE fruits(id SERIAL, name VARCHAR, seed_count int);
+```
+
+Then insert a bit of data:
+
+```
+INSERT INTO fruits (name, seed_count)
+VALUES ('apple', 6),
+       ('orange', 14),
+       ('avocado', 1);
+```
+
+And finally run a SELECT:
+
+```
+SELECT * from fruits;
+```
+
+If you see the three fruits you inserted then you're good to go!
+
+#### Loading the Sample Data
+
+#### Testing with the Data
+
+### Part 1: Practicing with SQL
+
+### Part 2: Searching with and without Indices
+
+### Part 3: Using Inner Joins
+
+### Part 4: SQL Views
 
 #### Setup
 
-From your terminal, run `psql`.
-
-If you get an error that says something like `Database username "YOUR_NAME" does not exist.` you will need to create a database that shares the username. Run `createdb "YOUR_NAME"` and re-run `psql`.
-
-Create a database to use as a playground:
-`CREATE DATABASE intermediate_sql;`
-
-Close the current connection and connect to the DB we just created.
-`\c intermediate_sql;`
-
-Create an items table:
-`CREATE TABLE items(id SERIAL, name TEXT, revenue INT, course TEXT);`
-
-From above: What does `SERIAL` do?
-
-Run `SELECT * FROM items;` to make sure it was successful.
-
-Let's insert some data:
-
-```sql
-INSERT INTO items (name, revenue, course)
-VALUES ('lobster mac n cheese', 1200, 'side'),
-       ('veggie lasagna', 1000, 'main'),
-       ('striped bass', 500, 'main'),
-       ('arugula salad', 1100, 'salad');
-```
 
 #### Aggregate Functions
 
