@@ -7,13 +7,15 @@ tags: SQL
 
 ## Overview
 
-### Goals
+### Learning Goals
 
-By the end of this lesson, you will know/be able to:
-
-* Understand INNER JOINS and OUTER JOINS
-* Understand Aggregate Functions
-* Introduce Subqueries
+* Student has refreshed their understanding of SELECT statements in SQL
+* Student has deepened their understanding of foreign key relationships
+* Student uses COUNT functions in SQL
+* Student understands the purpose and trade-offs with SQL indicies
+* Student can create a single-column index on a table
+* Student can explain the concept of an INNER JOIN
+* Student can design and execute an INNER JOIN across two tables
 
 ### Structure
 
@@ -53,345 +55,152 @@ And finally run a SELECT:
 SELECT * from fruits;
 ```
 
-If you see the three fruits you inserted then you're good to go!
+If you see the three fruits you inserted then you're good to go. Go ahead and exit `psql` with the command `\q`.
 
 #### Loading the Sample Data
 
+For the bulk of this tutorial we want to focus on working with existing data. We've setup a sample database for you to use. Create a folder named `sql_deep_dive` in your terminal and get the DB:
+
+```
+$ mkdir sql_deep_dive
+$ cd sql_deep_dive
+$ curl TODO-DATABASE-URL
+$ psql imdb < imdb_data.pgsql
+```
+
 #### Testing with the Data
+
+Then connect to the database and run a sample query:
+
+```
+$ psql imdb
+psql> select * from movies where id=100 limit 1;
+100|The Hobbit: An Unexpected Journey |182|303001229|http://www.imdb.com/title/tt0903624/?ref_=fn_tt_tt_1|PG-13|180000000|2012|English|1|2016-12-11 20:52:25.675416|2016-12-11 20:52:25.675416
+```
+
+If you get a movie record like that then you're ready to go!
 
 ### Part 1: Practicing with SQL
 
+Let's start with a series of challenges. Work with your partner to solve the following questions. Record both the queries you used to get the answer and the answer itself.
+
+Solve the *EASY* and *MEDIUM* questions of each section before trying any of the *HARD* questions.
+
+#### Round 1: Using SELECT
+
+* Easy: Which movie in our database had the largest gross revenue?
+* Medium: Which movie released in 2012 had the largest gross revenue?
+* Hard: For films that we have both the budget and gross, what were the top three flops of 2012 (ie: lowest profit)?
+
+#### Round 2: Using COUNT
+
+* Easy: How many movies have a known budget (ie: not null or zero)?
+* Medium: How many movies in our database were released in 2012?
+* Hard: How many movies in 2012 had a budget over $100M?
+
+#### Round 3: Connecting Data Across Tables
+
+* Easy: How many roles does Rosario Dawson have in our database?
+* Medium: What movies did Justin Lin direct?
+* Hard: What movies did Daniel Glover appear in?
+
 ### Part 2: Searching with and without Indices
+
+Let's whiteboard and discuss the following:
+
+* Finding records by the primary key
+* Quick recap of foreign keys
+* Finding records by the foreign key
+* Primary uniqueness => quick stop, foreign repeats => long search
+* An *index* on a column makes lookups faster
+* An index increases memory usage and makes inserts slower
+
+#### In `psql`
+
+```
+imdb=# \timing
+imdb=# SELECT COUNT(*) from roles WHERE actor_id=158;
+```
+
+* Note how long it took to execute the query.
+* Think about how many rows of the `roles` table had to be looked through
+
+#### Creating & Testing the Index
+
+```
+imdb=# CREATE INDEX roles_actor_id_index on roles (actor_id);
+imdb=# SELECT COUNT(*) from roles WHERE actor_id=158;
+```
+
+* What do you observe about the difference in execution speed?
+* Skeptical that there's some kind of caching going on? Try the same query looking for id `534` which has even more roles
+
+#### Experiment In Pairs
+
+Go through this process again with the movies table and it's relationship to directors.
+
+* Find how many movies were directed by Steven Spielberg and note the query time
+* Create an index on the relevant column
+* Re-run your query. What percentage speed-up did you observe?
 
 ### Part 3: Using Inner Joins
 
-### Part 4: SQL Views
+Now it gets a little trickier. Preview the idea of JOINS with [this article](https://blog.codinghorror.com/a-visual-explanation-of-sql-joins/).
 
-#### Setup
+Let's whiteboard and discuss the following:
 
+* Selecting data without a join
+* Selecting related data in a second query
+* Joining based on a foreign key
 
-#### Aggregate Functions
+We'll use these queries:
+
+```
+imdb=# select * from directors where name='Justin Lin';
+imdb=# select * from movies where director_id=42;
+imdb=# select * from movies INNER JOIN directors ON movies.director_id=directors.id where directors.name='Justin Lin';
+imdb=# select title, year, name from movies INNER JOIN directors ON movies.director_id=directors.id where directors.name='Justin Lin';
+```
+
+Then take it a step further
+
+```
+imdb=# select * from actors where name='Rosario Dawson';
+imdb=# select * from roles INNER JOIN actors ON roles.actor_id=actors.id WHERE actors.name='Rosario Dawson';
+imdb=# select * from movies INNER JOIN roles ON movies.id=roles.movie_id INNER JOIN actors ON roles.actor_id=actors.id WHERE actors.name='Rosario Dawson';
+imdb=# select movies.title, movies.year, actors.name from movies INNER JOIN roles ON movies.id=roles.movie_id INNER JOIN actors ON roles.actor_id=actors.id WHERE actors.name='Rosario Dawson';
+```
+
+And one more degree to the search:
+
+```
+imdb=# select movies.title, movies.year, actors.name from movies INNER JOIN roles ON movies.id=roles.movie_id INNER JOIN actors ON roles.actor_id=actors.id WHERE movies.title like 'Fast%';
+```
+
+#### Experiment in Pairs
+
+Make sure you do this iteratively, building up a little at a time.
+
+Write a query that returns this data:
+
+```
+title     | year |       name       
+---------------+------+------------------
+Spider-Man 3  | 2007 | Sam Raimi
+Spider-Man 2  | 2004 | Sam Raimi
+Spider-Man    | 2002 | Sam Raimi
+Spider        | 2002 | David Cronenberg
+Spider-Man 3  | 2007 | Sam Raimi
+```
+
+### Part 4: Grab Bag
+
+Here are some other things worth investigating:
 
 * `SELECT sum(column_name) FROM table_name; `
 * `SELECT avg(column_name) FROM table_name; `
 * `SELECT max(column_name) FROM table_name; `
 * `SELECT min(column_name) FROM table_name;`
 * `SELECT count(column_name) FROM table_name; `
-
-##### Write queries for the following:
-
-1. What's the total revenue for all items?
-1. What's the average revenue for all items?
-1. What's the minimum revenue for all items?
-1. What's the maximum revenue for all items?
-1. What the count for items with a name?
-
-Let's create an item that has all NULL values:
-`INSERT into items (name, revenue, course) VALUES (NULL, NULL, NULL);`
-
-Typically you `count` records in a table by counting on the `id` column, like `SELECT COUNT(id) FROM items;`. However, it's not necessary for a table to have an `id` column. What else can you pass to `count` and still get `5` as your result?
-
-#### Building on Aggregate Functions
-
-Now, combine multiple functions by returning both the minimum and maximum value from the revenue column:
-`SELECT max(revenue), min(revenue) from items;`
-
-How can we get the revenue based on the course?
-
-`SELECT course, sum(revenue) FROM items GROUP BY course;`
-
-##### Write queries for the following:
-
-1. Return all `main` courses. Hint: What ActiveRecord method would you use to get this?
-1. Return only the names of the `main` courses.
-1. Return the min and max value for the `main` courses.
-1. What's the total revenue for all `main` courses?
-
-#### INNER JOINS
-
-Now to the fun stuff. If you're a visual learner, you'll probably want to keep [this article](https://blog.codinghorror.com/a-visual-explanation-of-sql-joins/) as you explore the concepts below. We're going to need multiple tables and to ensure we are on the same page, let's drop our table and populate our database with new data to experiment with.
-
-`DROP TABLE items;`
-
-Create some tables...
-
-```sql
-CREATE TABLE seasons(id SERIAL, name TEXT);
-CREATE TABLE items(id SERIAL, name TEXT, revenue INT, season_id INT);
-CREATE TABLE categories(id SERIAL, name TEXT);
-CREATE TABLE item_categories(item_id INT, category_id INT);
-```
-
-Insert some data...
-
-```sql
-INSERT INTO seasons (name)
-VALUES ('summer'),
-       ('autumn'),
-       ('winter'),
-       ('spring');
-```
-
-```sql
-INSERT INTO items (name, revenue, season_id)
-VALUES ('lobster mac n cheese', 1200, 3),
-       ('veggie lasagna', 1000, 1),
-       ('striped bass', 500, 1),
-       ('burger', 2000, 1),
-       ('grilled cheese', 800, 4),
-       ('hot dog', 1000, 1),
-       ('arugula salad', 1100, 2);
-```
-
-```sql
-INSERT INTO categories (name)
-VALUES ('side'),
-       ('dinner'),
-       ('lunch'),
-       ('vegetarian');
-```
-
-```sql
-INSERT INTO item_categories (item_id, category_id)
-VALUES (1, 1),
-       (2, 2),
-       (2, 4),
-       (3, 2),
-       (4, 3),
-       (5, 3),
-       (5, 4),
-       (7, 1),
-       (7, 2),
-       (7, 3),
-       (7, 4);
-```
-
-For our first query, we are going to grab each item and its season using an `INNER JOIN`.
-
-```sql
-SELECT * FROM items
-INNER JOIN seasons
-ON items.season_id = seasons.id;
-```
-
-```sql
-id |         name         | revenue | season_id | id |  name
----+----------------------+---------+-----------+----+--------
- 1 | lobster mac n cheese |    1200 |         3 |  3 | winter
- 2 | veggie lasagna       |    1000 |         1 |  1 | summer
- 3 | striped bass         |     500 |         1 |  1 | summer
- 4 | burger               |    2000 |         1 |  1 | summer
- 5 | grilled cheese       |     800 |         4 |  4 | spring
- 6 | hot dog              |    1000 |         1 |  1 | summer
- 7 | arugula salad        |    1100 |         2 |  2 | autumn
-(7 rows)
-```
-
-This is useful, but we probably don't need all of the information from both tables.
-
-* Can you get it to display only the name for the item and the name for the season?
-* Having two columns with the same name is confusing. Can you customize each heading using `AS`?
-
-It should look like this:
-
-```sql
-item_name            | season_name
----------------------+-------------
-burger               | summer
-veggie lasagna       | summer
-striped bass         | summer
-hot dog              | summer
-arugula salad        | autumn
-lobster mac n cheese | winter
-grilled cheese       | spring
-(7 rows)
-```
-
-Now let's combine multiple `INNER JOIN`s to pull data from three tables `items`, `categories` and `item_categories`.
-
-* Write a query that pulls all the category names for `arugula salad`.
-  Hint: Use multiple `INNER JOIN`s and a `WHERE` clause.
-
-Can you get your return value to look like this?
-
-```sql
-name          |    name
---------------+------------
-arugula salad | side
-arugula salad | dinner
-arugula salad | lunch
-arugula salad | vegetarian
-(4 rows)
-```
-
-Can you change the column headings?
-
-```sql
-item_name     | category_name
---------------+---------------
-arugula salad | side
-arugula salad | dinner
-arugula salad | lunch
-arugula salad | vegetarian
-(4 rows)
-```
-
-#### OUTER JOINS
-
-To illustrate a LEFT OUTER JOIN we'll add a few records without a `season_id`.
-
-```sql
-INSERT INTO items (name, revenue, season_id)
-VALUES ('italian beef', 600, NULL),
-       ('cole slaw', 150, NULL),
-       ('ice cream sandwich', 700, NULL);
-```
-
-Notice the result when we run an INNER JOIN on items and seasons.
-
-```sql
-SELECT i.name items, s.name seasons
-FROM items i
-INNER JOIN seasons s
-ON i.season_id = s.id;
-```
-
-_Bonus: This query uses aliases for items (`i`) and seasons (`s`) to make it cleaner. Notice that it's not necessary to use `AS` to name the column headings._
-
-```sql
-items                | seasons
----------------------+---------
-hot dog              | summer
-veggie lasagna       | summer
-striped bass         | summer
-burger               | summer
-arugula salad        | autumn
-lobster mac n cheese | winter
-grilled cheese       | spring
-(7 rows)
-```
-
-We don't see any of the new items that have `NULL` values for `season_id`.
-
-A `LEFT OUTER JOIN` will return _all_ records from the left table (items) and return matching records from the right table (seasons). Update the previous query and the return value and you should see something like this:
-
-```sql
-SELECT *
-FROM items i
-LEFT OUTER JOIN seasons s
-ON i.season_id = s.id;
-```
-
-```sql
-id  |         name        | revenue | season_id | id |  name
-----+---------------------+---------+-----------+----+--------
- 6 | hot dog              |    1000 |         1 |  1 | summer
- 2 | veggie lasagna       |    1000 |         1 |  1 | summer
- 3 | striped bass         |     500 |         1 |  1 | summer
- 4 | burger               |    2000 |         1 |  1 | summer
- 7 | arugula salad        |    1100 |         2 |  2 | autumn
- 1 | lobster mac n cheese |    1200 |         3 |  3 | winter
- 5 | grilled cheese       |     800 |         4 |  4 | spring
- 8 | italian beef         |     600 |           |    |
- 9 | cole slaw            |     150 |           |    |
-10 | ice cream sandwich   |     700 |           |    |
-(10 rows)
-```
-
-What do you think a `RIGHT OUTER JOIN` will do?
-
-* Write a query to test your guess.
-* Insert data into the right table that will not get returned on an `INNER JOIN`.
-
-### Subqueries
-
-Sometimes you want to run a query based on the result of another query. Enter subqueries. Let's say I want to return all items with above average revenue. Two things need to happen:
-
-1. Calculate the average revenue.
-1. Write a `WHERE` clause that returns the items that have a revenue
-greater than that average.
-
-Maybe something like this:
-`SELECT * FROM items WHERE revenue > AVG(revenue);`
-
-Good try, but that didn't work.
-
-Subqueries need to be wrapped in parentheses. We can build more complex queries by using the result of another query. Try using the following structure:
-
-```sql
-SELECT * FROM items
-WHERE revenue > (Insert your query that calculates the avg inside these parentheses);
-```
-
-The result should look like so...
-
-```sql
-id |         name         | revenue | season_id
-----+----------------------+---------+-----------
- 1 | lobster mac n cheese |    1200 |         3
- 2 | veggie lasagna       |    1000 |         1
- 4 | burger               |    2000 |         1
- 6 | hot dog              |    1000 |         1
- 7 | arugula salad        |    1100 |         2
-(5 rows)
-```
-
-
-1. Without looking at the previous solution, write a `WHERE` clause that returns the items that have a revenue less than the average revenue.
-
-### Additional Challenges
-
-* Write a query that returns the sum of all items that have a category of dinner.
-* Write a query that returns the sum of all items for each category. The end result should look like this:
-```sql
-name       | sum
------------+------
-dinner     | 2600
-vegetarian | 2900
-lunch      | 3900
-side       | 2300
-(4 rows)
-```
-* Take a look at your RailsEngine project. Take a look at you methods for handling business logic. Use the `to_sql` method to see what SQL ActiveRecord is generating. What things are things more clear? What things are still unclear?
-
-### Possible Solutions
-
-Some of these apply directly to challenges above. Most of them will need to be modified to acheive the challenge.
-
-
-```sql
-SELECT count(*) FROM items;
-```
-
-```sql
-SELECT * FROM items WHERE course = 'main';
-SELECT name FROM items WHERE course = 'main';
-SELECT max(revenue), min(revenue) from items WHERE course = 'main';
-SELECT sum(revenue) from items WHERE course = 'main';
-```
-
-```sql
-SELECT * FROM items
-WHERE revenue >
-(SELECT AVG(revenue) FROM items);
-```
-
-```sql
-SELECT SUM(i.revenue)
-FROM items i
-INNER JOIN item_categories ic
-ON i.id = ic.item_id
-INNER JOIN categories c
-ON c.id = ic.category_id
-WHERE c.name = 'dinner';
-```
-
-```sql
-SELECT c.name, SUM(i.revenue)
-FROM categories c
-INNER JOIN item_categories ic
-ON c.id = ic.category_id
-INNER JOIN items i
-ON i.id = ic.item_id
-GROUP BY c.name;
-```
+* Subqueries
+* Aliases with `AS`
