@@ -31,13 +31,13 @@ Any code that we add to `seeds.rb` will be executed when we run â€˜rake db:seedâ
 
 ### Iteration 1: Creating Records
 
-1. Create one user
+1.  Create one user
 
   ```ruby
   User.create!(name: "Chad Clancey", email: "cclancey@example.com")
   ```
 
-1. Create four users
+2.  Create four users
 
   ```ruby
   User.create!(name: "Lauren", email: "lauren@example.com")
@@ -46,7 +46,7 @@ Any code that we add to `seeds.rb` will be executed when we run â€˜rake db:seedâ
   User.create!(name: "Chaz", email: "chaz@example.com")
   ```
 
-1. Create an item
+3.  Create an item
 
   ```ruby
   Item.create!(
@@ -56,9 +56,9 @@ Any code that we add to `seeds.rb` will be executed when we run â€˜rake db:seedâ
     )
   ```
 
-1. Create four items
+4. Create four items
 
-  ```ruby
+```ruby
   Item.create!(
     name: "Red Panda 1",
     description: "Small arboreal mammal native to the eastern Himalayas and southwestern China ",
@@ -82,7 +82,7 @@ Any code that we add to `seeds.rb` will be executed when we run â€˜rake db:seedâ
     description: "Small arboreal mammal native to the eastern Himalayas and southwestern China ",
     image_url: "http://robohash.org/4.png?set=set2&bgset=bg1&size=200x200"
   )
-  ```
+```
 
 What are the downsides to this approach?
 
@@ -145,7 +145,7 @@ end
   item = Item.create!(
     name: Faker::Commerce.product_name,
     description: Faker::Lorem.paragraph,
-    image_url: "http://robohash.org/#{i}.png?set=set2&bgset=bg1&size=200x200"
+    image_url: Faker::Avatar.image
     )
   puts "Item #{i}: #{item.name} created!"
 end
@@ -187,7 +187,7 @@ class Seed
       item = Item.create!(
         name: Faker::Commerce.product_name,
         description: Faker::Lorem.paragraph,
-        image_url: "http://robohash.org/#{i}.png?set=set2&bgset=bg1&size=200x200"
+        image_url: Faker::Avatar.image
         )
       puts "Item #{i}: #{item.name} created!"
     end
