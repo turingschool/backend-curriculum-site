@@ -71,7 +71,7 @@ Like all projects, individual team members are expected to:
 You'll build a new project assigned by the instructors. This is sometimes
 called "greenfield" development, because you are starting from scratch.
 
-### Beginning The Mystery project
+### Beginning Cloney Island
 
 Once you've explored the project requirements, the team leader will:
 
@@ -112,7 +112,7 @@ to **exactly** follow the stories as they've been developed with your customer.
 A 95% implementation is wrong.
 
 If you want to deviate from the story as it's written, you need to discuss that
- with your client and get approval to change the story *first*.
+ with your client and get approval to change the story _first_.
 
 ### User Stories
 
@@ -122,14 +122,14 @@ User stories follow this pattern:
 
 Examples:
 
-```
+```md
 As an admin
 When I click on dashboard
 Then I should be on "/dashboard"
 And I should see all users listed
 ```
 
-```
+```md
 As a guest user
 When I visit "/signup"
 And I fill in `Email` with "chad007@example.com"
@@ -171,14 +171,14 @@ Check this [guide](https://help.github.com/articles/closing-issues-via-commit-me
 
 Your app should implement the following features:
 
-*   Extensive documentation of your API. Some students have used [swagger.io](http://swagger.io/getting-started/) but it's not required.
 *   Two-factor authentication using SMS confirmation via [Twilio's REST API](https://www.twilio.com/docs/api/rest).
-    *   Gotcha: Use of the Twilio gem is not allowed.
+    *   Gotcha: Use of the Twilio gem is not allowed. All commnunication with Twilio's API must be done over `HTTP`.
 *   Users must be able to "comment" in some capacity.
     *   This may be in the form of a "review" depending on your app's domain.
-    *   There should be an API that supports CRUD functionality.
-*   Your API must be authenticated for external use.
+    *   You must consume internal API endpoints that support CRUD functionality of comments/reviews.
+*   Your API for comments/reviews must be authenticated for external use.
     *   External users must be provided an API key that they use to make requests to your API.
+*   Extensive documentation of your API. Some students have used [swagger.io](http://swagger.io/getting-started/) for this, but it's not required.
 
 You are to create a platform that can handle multiple, simultaneous user needs.
 
@@ -336,7 +336,7 @@ We want you to be able to discuss your app with non-technical parties as well as
 
 #### What should be done
 
-The scope of this project is more fluid than prior projects. Your client will want to go over your plan for the project. Bring wireframes and detailed user stories (ie waffle cards). Don't underestimate the value of a good plan.
+The scope of this project is more fluid than prior projects. Your client will want to go over your plan for the project. Bring wireframes and detailed user stories (i.e. waffle cards). Don't underestimate the value of a good plan.
 
 (You should also have a rough schema sketched out, but you will not be reviewing this with your client.)
 
