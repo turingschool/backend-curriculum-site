@@ -28,7 +28,7 @@ Work for the first 15 minutes on your own to:
 * Get the server running locally on port 3000
 * Visit the "endpoints" to display an individual tweet and an individual poster in your broswer
 * Read the README for the Faraday gem
-* Load Pry, require Faraday, and use it to make the same two requests to your local server
+* Load your console, require Faraday, and use it to make the same two requests to your local server
 
 If you complete those tasks:
 
