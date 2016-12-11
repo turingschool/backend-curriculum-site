@@ -36,6 +36,7 @@ Any code that we add to `seeds.rb` will be executed when we run â€˜rake db:seedâ
   ```ruby
   User.create!(name: "Chad Clancey", email: "cclancey@example.com")
   ```
+
 1. Create four users
 
   ```ruby
@@ -44,6 +45,7 @@ Any code that we add to `seeds.rb` will be executed when we run â€˜rake db:seedâ
   User.create!(name: "Sally", email: "sally@example.com")
   User.create!(name: "Chaz", email: "chaz@example.com")
   ```
+
 1. Create an item
 
   ```ruby
@@ -53,6 +55,7 @@ Any code that we add to `seeds.rb` will be executed when we run â€˜rake db:seedâ
     image_url: "http://robohash.org/1.png?set=set2&bgset=bg1&size=200x200"
     )
   ```
+
 1. Create four items
 
   ```ruby
@@ -86,11 +89,10 @@ What are the downsides to this approach?
 ## Lecture: Why Seeding Data Efficiently Matters
 
 * Setting up each record by hand takes too much initial time
-* This Approach Makes Maintenance difficult (each migration creates work)
-* The nightmare seed file -- we've probably all seen the 300+ line seed file
+* The nightmare seed file -- we've probably all seen or will see the 300+ line seed file
 * Problems of seeding generally stem from doing too much manual / hard-coded
   work
-* We should treat our seed file as just another piece of code
+* We should treat our seed file as just another piece of code (OO)
 * Use methods as abstractions for common operations
 * Use libraries to generate data we need (often randomized data to simulate real users)
 * Use Rails / ActiveRecord idioms to pre-fill relationships in a straightforward way
@@ -160,7 +162,7 @@ Many would stop here. We're going to go one step further and make our seed file 
 Our final seed file should look something like this:
 
 ```ruby
-db/seeds.rb
+# db/seeds.rb
 
 class Seed
   def self.start
@@ -213,8 +215,3 @@ end
 
 Seed.start
 ```
-
-### Possible Improvements
-
-* Sketch out more of the code in this lesson plan
-* Cover populator gem for seeding large datasets?
