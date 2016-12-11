@@ -74,9 +74,9 @@ browsing a list of items)
 1. How can we include and capture store/tenant information from our URLs?
 2. What extra work will we need to do in our controllers to account for this?
 
-## Workshop -- Adding Multitenant Stores to Storedom
+## Code Along -- Adding Multitenant Stores to Storedom
 
-For this workshop, you will work through the process of adding a concept
+For this, we will work through the process of adding a concept
 of separate stores to the storedom project, and scoping items and orders so
 that they are attached to specific stores.
 
@@ -100,12 +100,146 @@ __Objectives:__
 2. Need a way to view our stores in the app (at least an index / show)
 3. Need a way to associate an item with a store (Q: what shape does this relationship take)
 4. Need a way to view an item within the app _with contextual info about what store it's associated with_.
-5. Need a way to prevent accessing the items in the wrong store (redirect? 404?)
+5. Need a way to prevent accessing the items in the wrong store.
 
-__Open Questions__
+#### Step 1: Routes
 
-* What should we show when viewing a store? A list of stores?
-* What other records need to be associated with a single store?
+Right now, we have routes leading straight to items and orders view pages.
+
+Our end goal is to see items and orders by store, so we'll want to modify these routes to be namespaced by `stores`.
+
+We also want to route to different stores by their `slug`.
+
+> A `slug` is a piece of the URL's path that is typically a hyphenated version of the title or main piece of a webpage you're on.
+
+We'll also change the root of our application to `stores#index` as a jumping point for our browsing users.
+
+```rb
+root `stores#index`
+
+namespace :stores, as: :store, path: ':store' do
+  resources :items, only: [:index, :show]
+end
+```
+
+#### Step 2: Controllers
+
+Our root path is looking for a `StoresController` within `app/`.
+
+Our namespaced routes are looking for a corresponding `Stores::ItemsController` within `app/stores/`.
+
+#### Step 3: Models
+
+We need a `stores` table in our database. Each store (for now) will have a `name` and `slug`. We're going to create the slug based on the store's name - not meant for a user to create by hand.
+
+```rb
+rails g model store name slug
+```
+
+> What type of relationship to `Item` and `Store` have?
+
+To reflect this, we'll want to add a `store_id` column to the `items` table.
+
+```rb
+rails g migration AddStoreToItem store:references
+```
+
+Let's head back to the `Store` model to configure.
+
+```rb
+has_many :items
+
+validates :name, uniqueness: true
+validates :slug, uniqueness: true
+
+# callback to execute once uniqueness is verified
+before_validation :generate_slug
+
+def generate_slug
+  self.slug = name.parameterize
+end
+```
+
+Take a moment to play around with `parameterize` (a Rails helper) in your `rails console`.
+
+On the flip-side, we need to add our `belongs_to` macro on the `Item` model.
+
+```rb
+belongs_to :store
+```
+
+On your own, create at least 4 stores in your `rails console` and add at least 2 items to each.
+
+#### Step 4: Views
+
+__`stores#index`__
+
+Starting with our `stores#index` view, let's loop through each store.
+
+To do so, we'll need access to all stores in the view.
+
+Let's also add a link to each store. We'll want to leverage the slug in our URL to determine which store we're viewing.
+
+```rb
+<%= link_to 'Visit Store', store_items_path(store: store.slug)
+```
+
+__`stores/items#index`__
+
+We're linking to the `stores/items#index` view from the root of our app. Let's grab all items associated with the store in our slug and loop through those in the view.
+
+How can we make this better?
+
+A `current_store` helper, similar to the common `current_user` helper.
+
+We can set up a `Stores::StoresController` to act like an `ApplicationController` scoped just for our stores.
+
+```rb
+# stores/stores_controller.rb
+class StoresController < ApplicationController
+  helper_method :current_store
+
+  def current_store
+    @current_store ||= Store.find_by(slug: params[:store])
+  end
+end
+```
+
+Now we can utilize the `current_store` helper in our `stores/items/index.html.erb` view.
+
+Discuss with your neighbor the benefits of this scoped `Stores::StoresController` and other applications this structure could be useful for.
+
+#### Step 5: Store Not Found
+
+What error do we see if we visit a store page via a slug that does not exist?
+
+We can add another callback to our `Stores::StoresController` that checks to see if our `current_store` exists and redirects back to our root if it doesn't.
+
+```rb
+before_action :store_not_found
+
+def store_not_found
+  redirect_to root_path unless current_store
+end
+```
+
+#### Step 6: Modify Navbar
+
+We can replace our `users`, `orders`, and `items` with a conditional `items` link for items in our store if a `current_store` exists.
+
+```rb
+link_to “Items”, store_items_path(store: @current_store.slug)
+```
+
+### Your Turn
+
+Go through the same procedure for the "orders" model:
+
+* Modify your DB schema and AR relationships to associate an order with a given store
+* Create a namespaced route for the orders within a store
+* Add a stores/order controller and a view that lists the orders that belong to that store
+* Add an order to the store via the console and verify that it works
+* Add an orders url in the navbar to access these orders only when a store is present
 
 ### Takeaways
 
@@ -142,16 +276,6 @@ Prefix Verb URI  Pattern                     Controller#Action
 store_items GET  /:store/items(.:format)     store/items#index
 store_item  GET  /:store/items/:id(.:format) store/items#show
 ```
-
-### Your Turn
-
-Go through the same procedure for the "orders" model:
-
-* Modify your DB schema and AR relationships to associate an order with a given store
-* Create a namespaced route for the orders within a store
-* Add a stores/order controller and a view that lists the orders that belong to that store
-* Add an order to the store via the console and verify that it works
-* Add an orders url in the navbar to access these orders only when a store is present
 
 ## Supporting Materials
 
