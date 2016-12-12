@@ -100,7 +100,7 @@ Solve the *EASY* and *MEDIUM* questions of each section before trying any of the
 
 * Easy: How many roles does Rosario Dawson have in our database?
 * Medium: What movies did Justin Lin direct?
-* Hard: What movies did Daniel Glover appear in?
+* Hard: What movies did Donald Glover appear in?
 
 ### Part 2: Searching with and without Indices
 
