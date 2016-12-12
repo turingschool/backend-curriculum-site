@@ -16,10 +16,10 @@ you'll build a well-documented API to both internally consume and protect for
 external consumption. Your platform will be built to handle multiple types of
 users (guests, registered users & admins).
 
-Note: This project is not intended for you to clone an entire site in two weeks.
+**Note:** This project is not intended for you to clone an entire site in two weeks.
 You will only be taking some functionality of the sites you choose, and cloning
 ONLY those parts. In some cases, you might even be adding functionality that
-the real site doesn't have.
+the real site doesn't have. We use the example sites to provide ideas for features.
 
 The project requirements are listed below:
 
@@ -171,8 +171,9 @@ Check this [guide](https://help.github.com/articles/closing-issues-via-commit-me
 
 Your app should implement the following features:
 
-*   Two-factor authentication using SMS confirmation via [Twilio's REST API](https://www.twilio.com/docs/api/rest).
-    *   Gotcha: Use of the Twilio gem is not allowed. All commnunication with Twilio's API must be done over `HTTP`.
+*   Two-factor authentication using SMS confirmation via [Twilio's REST API](https://www.twilio.com/docs/api/rest) for a user to reset their password. Phone number should be a required field for a user when they sign up.
+    * Mild: Use the Twilio gem.
+    * Spicy: Don't use the gem and hand roll your own HTTP wrapper around Twilio's REST API without the use of external tools except a Ruby HTTP library.
 *   Users must be able to "comment" in some capacity.
     *   This may be in the form of a "review" depending on your app's domain.
     *   You must consume internal API endpoints that support CRUD functionality of comments/reviews.
@@ -184,7 +185,7 @@ You are to create a platform that can handle multiple, simultaneous user needs.
 
 Each user on the platform should have:
 
-*   A unique URL pattern [http://example.com/<user_name>](http://example.com/<user_name>)
+*   A unique URL pattern `http://example.com/username`
 *   Unique administrators
 
 Your app should be able to handle the following users:
@@ -208,7 +209,7 @@ As a registered user, I should be able to:
 
 As a platform admin, I should be able to:
 
-*   Take a user offline / online, including all content associated with them but without removing any of the data from the database.
+*   Take a user offline / online, including all content associated with them but without removing the user or any of their data from the database.
 *   delete postings/content.
 
 ##  <a name="project-prompts"></a> Project Prompts
