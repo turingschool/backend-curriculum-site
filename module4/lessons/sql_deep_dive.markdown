@@ -12,14 +12,10 @@ tags: SQL
 * Student has refreshed their understanding of SELECT statements in SQL
 * Student has deepened their understanding of foreign key relationships
 * Student uses COUNT functions in SQL
-* Student understands the purpose and trade-offs with SQL indicies
+* Student understands the purpose and trade-offs with SQL indices
 * Student can create a single-column index on a table
 * Student can explain the concept of an INNER JOIN
 * Student can design and execute an INNER JOIN across two tables
-
-### Structure
-
-* Practicing SELECT, INSERT, COUNT with WHERE, LIMIT, and ORDER
 
 ## Class Time
 
@@ -64,8 +60,10 @@ For the bulk of this tutorial we want to focus on working with existing data. We
 ```
 $ mkdir sql_deep_dive
 $ cd sql_deep_dive
-$ curl TODO-DATABASE-URL
-$ psql imdb < imdb_data.pgsql
+$ brew install wget
+$ wget http://cl.ly/1f0C1k1k3u3E/download/imdb.pgsql
+$ createdb imdb
+$ psql imdb < imdb.pgsql
 ```
 
 #### Testing with the Data
@@ -177,7 +175,7 @@ And one more degree to the search:
 imdb=# select movies.title, movies.year, actors.name from movies INNER JOIN roles ON movies.id=roles.movie_id INNER JOIN actors ON roles.actor_id=actors.id WHERE movies.title like 'Fast%';
 ```
 
-#### Experiment in Pairs
+#### First Experiment in Pairs
 
 Make sure you do this iteratively, building up a little at a time.
 
@@ -192,6 +190,14 @@ Spider-Man    | 2002 | Sam Raimi
 Spider        | 2002 | David Cronenberg
 Spider-Man 3  | 2007 | Sam Raimi
 ```
+
+#### Big Finish
+
+* How many films was Morgan Freeman in?
+* What was his highest-grossing movie?
+* How many films was he the lead (`rank` of `1` in roles)?
+
+*Mega Challenge*: What director did Morgan Freeman work with the most?
 
 ### Part 4: Grab Bag
 
