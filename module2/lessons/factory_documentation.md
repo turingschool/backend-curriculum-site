@@ -49,7 +49,7 @@ Create a Factory for `race` that returns 2015 as the year. Also, in the second t
 
 In the application that you've cloned, take a look at the `spec/models/car_spec.rb` and `spec/models/car_fg/spec.rb` files. While our `:race` factory was so simple as to not be useful, here we can see how Factory Girl can actually save us work.
 
-## With a Partner: Create a `owner_with_cars` Factory (20 minutes)
+## With a Partner: Create an `owner_with_cars` Factory (20 minutes)
 
 Using the documentation availabile [here](http://www.rubydoc.info/gems/factory_girl/file/GETTING_STARTED.md), create a factory called `:owner_with_cars` that creates an owner with 3 cars by default. Use this factory to make the remaining skipped test pass
 
