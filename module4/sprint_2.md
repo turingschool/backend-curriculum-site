@@ -25,5 +25,5 @@ title: B4 Sprint 2
 ### SQL Deep Dive
 
 * Staff: Jeff
-* Status: Outline
+* Status: Draft Ready
 * [Lesson Plan](lessons/sql_deep_dive)
