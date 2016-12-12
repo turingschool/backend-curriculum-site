@@ -128,7 +128,7 @@ rails g model store name slug
 To reflect this, we'll want to add a `store_id` column to the `items` table.
 
 ```rb
-rails g migration AddStoreToItem store:references
+rails g migration AddStoreToItems store:references
 ```
 
 Let's head back to the `Store` model to configure.
