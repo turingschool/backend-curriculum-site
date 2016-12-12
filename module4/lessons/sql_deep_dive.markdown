@@ -61,9 +61,9 @@ For the bulk of this tutorial we want to focus on working with existing data. We
 $ mkdir sql_deep_dive
 $ cd sql_deep_dive
 $ brew install wget
-$ wget https://cl.ly/1o0u1Z0K3G28/download/imdb.pgsql
+$ wget https://cl.ly/2k1q0J070W2S/download/imdb.pgsql
 $ createdb imdb
-$ psql imdb < imdb.pgsql
+$ pg_restore -d imdb --role=$whoami imdb.pgsql
 ```
 
 #### Testing with the Data
