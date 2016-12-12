@@ -61,7 +61,7 @@ For the bulk of this tutorial we want to focus on working with existing data. We
 $ mkdir sql_deep_dive
 $ cd sql_deep_dive
 $ brew install wget
-$ wget http://cl.ly/1f0C1k1k3u3E/download/imdb.pgsql
+$ wget https://cl.ly/1o0u1Z0K3G28/download/imdb.pgsql
 $ createdb imdb
 $ psql imdb < imdb.pgsql
 ```
