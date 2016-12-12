@@ -118,35 +118,39 @@ If you want to deviate from the story as it's written, you need to discuss that
 
 User stories follow this pattern:
 
-*As a <user>, when I <do something>, I <expect something>.*
+```md
+As a `USER`
+When I `DO SOMETHING`
+Then I `EXPECT SOMETHING`
+```
 
 Examples:
 
 ```md
 As an admin
 When I click on dashboard
-Then I should be on "/dashboard"
+Then I should be on "/admin/dashboard"
 And I should see all users listed
 ```
 
 ```md
 As a guest user
-When I visit "/signup"
-And I fill in `Email` with "chad007@example.com"
-And I fill in `Password` with "password"
-And I fill in `Password Confirmation` with "password"
-And I fill in `Phone Number` with "<A REAL PHONE NUMBER>"
+When I visit "/password-reset"
+And I fill in `Email` with "lauren@example.com"
 And I click `Submit`
 
-Then my account should be created but inactive
-And I should be redirected to "/confirmation"
+Then I should be redirected to "/password-confirmation"
 And I should see instructions to enter my confirmation code
 And I should have received a text message with a confirmation code
 
 When I enter the confirmation code
+And I fill in `Password` with `password`
+And I fill in `Password Confirmation` with `password`
 And I click "Submit"
 Then I should be redirected to "/dashboard"
-And my account should be active
+And I should be logged in
+And my old password should no longer work for logging in
+And my new password should work after logging out and logging back in
 ```
 
 ### Working with Git
@@ -372,6 +376,8 @@ Your client will review the work you've done so far at a high level. Then it's u
 By this point, you should be near done with basic functionality, and ready to talk about extensions for your app.
 
 ## <a name="evaluation"></a> Evaluation
+
+Each group is required to do a self assessment using the rubric below and bring it to your evaluation.
 
 You'll be graded on each of the criteria below with a score of (1) well below
 expectations, (2) below expectations, (3) as expected, (4) better than expected.
