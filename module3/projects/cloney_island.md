@@ -302,7 +302,7 @@ others share with them.
 
 ### Photosharing (Flickr)
 
-Do you have photos you want to share with the world? Maybe some photos
+The year is 2001. You have photos you want to share with the world. Maybe some photos
 you don't want to share with your mom, but want to share with your friends?
 Let's create a platform that allows users to share photos with certain groups of
 people or share some for public consumption.
@@ -319,6 +319,22 @@ people or share some for public consumption.
 
 *   Create slideshow pages from users' photo buckets.
 *   Users can resize images before downloading.
+
+### Crowdfunding (Kickstarter)
+
+Users have ideas and dreams but need funding to make them happen. Allow them to upload a pitch and users can pledge a set amount to help reach a funding goal.
+
+* User roles include: guest, registered, project owners, project funders, admin
+* Guests can view projects
+* Registered users can start projects
+* A project can have more than one user as owners/requesters
+* Registered users can fund projects
+* A progress bar that shows what percentage funding is at
+
+#### Possible Extensions
+
+* Limited tiers for funding amounts with different incentives/rewards
+* Video uploading
 
 ## <a name="base-data"></a> Base Data
 
