@@ -25,28 +25,28 @@ Any code that we add to `seeds.rb` will be executed when we run â€˜rake db:seedâ
 
 1.  Create one user
 
-  ```ruby
-  User.create!(name: "Chad Clancey", email: "cclancey@example.com")
-  ```
+```ruby
+User.create!(name: "Chad Clancey", email: "cclancey@example.com")
+```
 
 2.  Create four users
 
-  ```ruby
-  User.create!(name: "Lauren", email: "lauren@example.com")
-  User.create!(name: "Josh", email: "josh@example.com")
-  User.create!(name: "Sally", email: "sally@example.com")
-  User.create!(name: "Chaz", email: "chaz@example.com")
-  ```
+```ruby
+User.create!(name: "Lauren", email: "lauren@example.com")
+User.create!(name: "Josh", email: "josh@example.com")
+User.create!(name: "Sally", email: "sally@example.com")
+User.create!(name: "Chaz", email: "chaz@example.com")
+```
 
 3.  Create an item
 
-  ```ruby
-  Item.create!(
-    name: "Red Panda",
-    description: "Small arboreal mammal native to the eastern Himalayas and southwestern China ",
-    image_url: "http://robohash.org/1.png?set=set2&bgset=bg1&size=200x200"
-    )
-  ```
+```ruby
+Item.create!(
+  name: "Red Panda",
+  description: "Small arboreal mammal native to the eastern Himalayas and southwestern China ",
+  image_url: "http://robohash.org/1.png?set=set2&bgset=bg1&size=200x200"
+  )
+```
 
 4. Create four items
 
