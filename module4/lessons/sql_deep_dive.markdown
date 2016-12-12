@@ -63,7 +63,7 @@ $ cd sql_deep_dive
 $ brew install wget
 $ wget https://cl.ly/2k1q0J070W2S/download/imdb.pgsql
 $ createdb imdb
-$ pg_restore -d imdb --role=$whoami imdb.pgsql
+$ psql imdb < imdb.pgsql
 ```
 
 #### Testing with the Data
