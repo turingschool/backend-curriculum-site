@@ -9,9 +9,19 @@ tags: factories, factory_girl, rails, testing, tdd, documentation
 * Understand what Factory Girl does
 * Use Factory Girl documentation to set up factories in an existing product
 
-## Lecture
+## Warmup (10 minutes)
 
-### Factory Girl Overview (10 minutes)
+Visit the following [link](https://github.com/s-espinosa/bike-share/blob/testing_sample/spec/models/example_spec.rb).
+
+* Describe what's happening in the setup in non-technical language.
+
+## Introducing Factory Girl (5 minutes)
+
+Is there a better way to do this? Factory Girl could help us out.
+
+Clone the project [here](https://github.com/s-espinosa/guaranty_bank_500) and let's take a look at the spec folder.
+
+### Overview
 
 A factory is an object whose job it is to create other objects. What's the purpose of Factory Girl? Check out [this StackOverflow answer](http://stackoverflow.com/questions/5183975/factory-girl-whats-the-purpose).
 
@@ -20,62 +30,35 @@ It comes with some fancy tricks to allow you to set default parameters, override
 You can use it in your test as follows:
 
 ```ruby
-payload         = create(:payload)
-invalid_payload = create(:payload, url_id: nil)
-three_payloads  = create_list(:payload, 3)
+station         = create(:station)
+invalid_station = create(:station, city_id: nil)
+three_stations  = create_list(:station, 3)
 ```
 
-Isn't that great? Let's see if we can add Factory Girl to our Blogger project and use it to do some testing.
+## Testing Guaranty Bank 500 (15 minutes)
 
-### Installing RSpec & Capybara (10 minutes)
+The application that you've cloned is meant to eventually track cars, owners, drivers, and their races. Currently, functionality has been built to allow users to create Owners, Cars, and Drivers, as well as calculating the average maximum speed for a collection of cars.
 
-Before we get started, I'm betting if you followed the Blogger tutorial that you still are only using minitest in your project. Let's see if we can figure out how to add RSpec.
+We also have some basic testing. Let's see how we can use Factory Girl to create information for our tests. Currently there are two skipped tests. Let's start with the test for a race.
 
-Follow along while I add RSpec and Capybara to my project.
+### Code Along: Create a `:race` Factory (10 minutes)
 
-Google for RSpec and Rails. Add it to a sample Blogger app.
+Create a Factory for `race` that returns 2015 as the year. Also, in the second test in that file, find a way to use the same Factory, but specifying a different year.
 
-Ask class to Google for Capybara and Rails. Add it to a sample Blogger app.
+### Discuss: `:car` Factory (5 minutes)
 
-In both cases, model how to find information specific to the application being created.
+In the application that you've cloned, take a look at the `spec/models/car_spec.rb` and `spec/models/car_fg/spec.rb` files. While our `:race` factory was so simple as to not be useful, here we can see how Factory Girl can actually save us work.
 
-### Finding Factory Girl Docs (15 minutes)
+## With a Partner: Create a `owner_with_cars` Factory (20 minutes)
 
-Take five minutes to see what information you can find about getting Factory Girl installed in your Rails project.
+Using the documentation availabile [here](http://www.rubydoc.info/gems/factory_girl/file/GETTING_STARTED.md), create a factory called `:owner_with_cars` that creates an owner with 3 cars by default. Use this factory to make the remaining skipped test pass
 
-Take five minutes to share with a partner.
+## Share (10 minutes)
 
-Five minutes large group share.
+## Additional Time
 
-### Getting Factory Girl Installed (25 minutes)
-
-With the remaining time, see if you can install Factory Girl in your project and create a factory that will make the following test pass.
-
-**Tip**: In order to get this test to pass I had to remove the `app/assets/stylesheets/screen.css` file from my project.
-
-```ruby
-# spec/features/user_can_see_articles_spec.rb
-require_relative '../rails_helper'
-
-RSpec.describe "When a user visits '/'" do
-  it "they see a list of articles" do
-    create_list(:article, 2)
-
-    visit '/'
-
-    expect(page).to have_content("Article 1")
-    expect(page).to have_content("Article 2")
-  end
-end
-```
-
-If you are able to get that test to pass, see if you can create another factory/test to see that all tags show up on the tags index.
-
-#### Other Tips
-
-* To get multiple factories with slightly different attributes, look at Factory Girl's ability to `sequence`.
-* If you're following directions with a `support` folder, be sure that you check the instructions to see how items in that folder are getting required.
-* If your test isn't recognizing `factory` as a method, be sure that you've checked to see that you are wrapping your methods appropriately. Do a search for the specific error that you're getting for more details.
+* Implement a `#max_car_speed` method on driver that finds the maximum speed of all of the cars they drive.
+* Test this using Factory Girl by creating a `:driver_with_cars` Factory
 
 ### Further Reading
 
