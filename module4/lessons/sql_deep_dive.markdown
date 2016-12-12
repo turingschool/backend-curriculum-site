@@ -197,7 +197,10 @@ Spider-Man 3  | 2007 | Sam Raimi
 * What was his highest-grossing movie?
 * How many films was he the lead (`rank` of `1` in roles)?
 
-*Mega Challenge*: What director did Morgan Freeman work with the most?
+#### Extra Challenges
+
+* What director did Morgan Freeman work with the most?
+* What are the titles of the dramas he appeared in?
 
 ### Part 4: Grab Bag
 
