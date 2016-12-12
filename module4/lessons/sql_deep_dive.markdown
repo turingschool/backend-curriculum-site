@@ -179,7 +179,7 @@ imdb=# select movies.title, movies.year, actors.name from movies INNER JOIN role
 
 Make sure you do this iteratively, building up a little at a time.
 
-Write a query that returns this data:
+Write a query that returns this data about movies and directors:
 
 ```
 title     | year |       name       
