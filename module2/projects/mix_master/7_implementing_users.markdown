@@ -9,15 +9,15 @@ tags: rails, many-to-many, one-to-many, rspec, testing
 
 ### Iterations:
 
-* [1 Getting Started](1_getting_started)
-* [2 Implementing artists](2_implementing_artists)
-* [3 Implementing songs](3_implementing_songs)
-* [3.1 Optional Additional Song Features](3_optional_additional_song_features)
-* [4 Implementing Playlists](4_implementing_playlists)
-* [5 Refactoring](5_refactoring)
-* [6 Controller Tests](6_controller_tests)
-* [7 Implementing users](7_implementing_users)
-* [7.1 Extensions](wip-image-upload)
+* [1 Getting Started](1_getting_started.markdown)
+* [2 Implementing artists](2_implementing_artists.markdown)
+* [3 Implementing songs](3_implementing_songs.markdown)
+* [3.1 Optional Additional Song Features](3_optional_additional_song_features.markdown)
+* [4 Implementing Playlists](4_implementing_playlists.markdown)
+* [5 Refactoring](5_refactoring.markdown)
+* [6 Controller Tests](6_controller_tests.markdown)
+* [7 Implementing users](7_implementing_users.markdown)
+* [7.1 Extensions](wip-image-upload.markdown)
 
 Here's our situation: want this app to be a multi-user platform where each user has their own collection of playlists. There are three parts to making this happen:
 
