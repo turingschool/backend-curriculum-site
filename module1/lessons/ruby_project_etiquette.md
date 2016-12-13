@@ -115,28 +115,26 @@ Set up the following code in `lib/hello.rb` and `test/hello_test.rb` files. Expe
 
 ```ruby
 class Hello
-	def greet
-		“Hello, World!”
-	end
-
+  def greet
+    “Hello, World!”
+  end
 end
 ```
 
 ```ruby
-require ‘minitest/autorun’
+require "minitest/autorun"
 
 class HelloTest < Minitest::Test
-	def test_it_greets
-		hello = Hello.new
-		assert_equal “Hello, World!”, hello.greet
-	end
-
+  def test_it_greets
+    hello = Hello.new
+    assert_equal “Hello, World!”, hello.greet
+  end
 end
 ```
 
- | running file from project directory | running file from test directory
-require | |
-require_relative | |
+**require type** | running file from project directory | running file from test directory
+`require` | |
+`require_relative` | |
 
 #### Load Path Crash Course
 How does Ruby know where we look when we `require` something? Why is it we say `require "minitest"` but `require "./lib/enigma"` when obviously the `minitest` file is not sitting in the root of our project.
@@ -169,7 +167,7 @@ Open a `irb` session and type in `$LOAD_PATH`. You should get a response of some
  "/Users/your_username/.rvm/rubies/ruby-2.3.0/lib/ruby/vendor_ruby",
  "/Users/your_username/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0",
  "/Users/your_username/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/x86_64-darwin15"]
- ```
+```
 
 The default `$LOAD_PATH` will contain Ruby itself, files in the standard library (hence we can `require "date"` without a path), **as well as our current directory**. This is why `require`, by default, works relative to the place from which you code is *being run*, and thus why we should try to stick with the habit of running code from project root
 
