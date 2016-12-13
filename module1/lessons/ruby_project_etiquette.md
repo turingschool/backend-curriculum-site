@@ -98,10 +98,12 @@ It tends to be more common within the community. Programmers get workedup about 
 Here's a quick overview of _how_ `require` and `require_relative` work.
 
 `require_relative` attempts to require a second file using a path *relative to* the file that is requiring it.
+
 * Does NOT matter where you run the test from (searches for path relative to the file the requirement is in)
 * As directory structure gets more complex, navigating relative to the file you require come can become convoluted (`require_relative '../../../lib/enigma'`).
 
 `require` attempts to require a second file *relative to* the place from which the first file is **being run** -- that is, relative to whatever place you are sitting when you type `ruby file_one.rb`
+
 * DOES matter where you run the test from
 * Rails assumes we're running from the main project directory.
 * require tends to behave more consistently in complex scenarios and project structures (`require './lib/enigma'`)
@@ -109,7 +111,30 @@ Here's a quick overview of _how_ `require` and `require_relative` work.
 * require is designed to cooperate with ruby's $LOAD_PATH
 
 ##### Check for Understanding
-What is the difference between the `../` and the `./` path prefix? Which works better with `require` and how does that make your file requirement more resilient?
+Set up the following code in `lib/hello.rb` and `test/hello_test.rb` files. Experiment with which path formats you can get working in each scenario in the table below.
+
+```ruby
+class Hello
+  def greet
+    “Hello, World!”
+  end
+end
+```
+
+```ruby
+require "minitest/autorun"
+
+class HelloTest < Minitest::Test
+  def test_it_greets
+    hello = Hello.new
+    assert_equal “Hello, World!”, hello.greet
+  end
+end
+```
+
+**require type** | running file from project directory | running file from test directory
+`require` | |
+`require_relative` | |
 
 #### Load Path Crash Course
 How does Ruby know where we look when we `require` something? Why is it we say `require "minitest"` but `require "./lib/enigma"` when obviously the `minitest` file is not sitting in the root of our project.
@@ -118,7 +143,8 @@ How does Ruby know where we look when we `require` something? Why is it we say `
 $LOAD_PATH is an internal structure (actually an `Array`) that Ruby uses to keep track of where it can look to find files it needs (or we ask it to look for).
 
 Open a `irb` session and type in `$LOAD_PATH`. You should get a response of something like this:
-``` ruby
+
+```ruby
 ["/Users/your_username/.rvm/gems/ruby-2.3.0@global/gems/did_you_mean-1.0.0/lib",
  "/Users/your_username/.rvm/gems/ruby-2.3.0@global/gems/executable-hooks-1.3.2/lib",
  "/Users/your_username/.rvm/gems/ruby-2.3.0@global/extensions/x86_64-darwin-15/2.3.0/executable-hooks-1.3.2",
@@ -141,7 +167,7 @@ Open a `irb` session and type in `$LOAD_PATH`. You should get a response of some
  "/Users/your_username/.rvm/rubies/ruby-2.3.0/lib/ruby/vendor_ruby",
  "/Users/your_username/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0",
  "/Users/your_username/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/x86_64-darwin15"]
- ```
+```
 
 The default `$LOAD_PATH` will contain Ruby itself, files in the standard library (hence we can `require "date"` without a path), **as well as our current directory**. This is why `require`, by default, works relative to the place from which you code is *being run*, and thus why we should try to stick with the habit of running code from project root
 
@@ -161,7 +187,7 @@ Describe why the exercise above worked.
 ##### Extension
 If you finish early, scan this article from Joshua Paling on [Load Path](http://joshuapaling.com/blog/2015/03/22/ruby-load-path.html).
 
-### Rakefiles and Test Runners
+## Rakefiles and Test Runners
 
 * Unix origins, building projects, and `make`
 * Problem: want a standardized command that you can run in every project
@@ -228,17 +254,18 @@ gem "minitest"
 
 ```ruby
 require "faraday"
-Faraday.get('https://www.google.com').body
+puts Faraday.get('http://www.warnerbros.com/archive/spacejam/movie/jam.htm').body
 ```
 
 4. Create an empty `Gemfile` in the directory
 5. Use GOOGLE to determine what to add to the gemfile to install the `faraday` gem
-6. Then use `bundle` to install this gem and see that your code works
+6. Then use `bundle` to install this gem
+7. Run your file to see that your code works and how Faraday helps you read webpages
 
 #### Summary
 Review objectives from beginning of session.
 
-### Homework
+### Recommended Homework
 
 Tonight:
 

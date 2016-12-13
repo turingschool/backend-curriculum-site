@@ -22,13 +22,8 @@ title: B4 Sprint 2
 
 ## Instructional Sessions - Week 1
 
-### Pending
+### SQL Deep Dive
 
-* Staff: Pending
-* Status: Pending
-
-Pending.
-
-## Preparation To-Dos
-
-* Make a plan :)
+* Staff: Jeff
+* Status: Draft Ready
+* [Lesson Plan](lessons/sql_deep_dive)

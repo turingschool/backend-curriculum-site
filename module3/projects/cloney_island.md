@@ -16,6 +16,11 @@ you'll build a well-documented API to both internally consume and protect for
 external consumption. Your platform will be built to handle multiple types of
 users (guests, registered users & admins).
 
+**Note:** This project is not intended for you to clone an entire site in two weeks.
+You will only be taking some functionality of the sites you choose, and cloning
+ONLY those parts. In some cases, you might even be adding functionality that
+the real site doesn't have. We use the example sites to provide ideas for features.
+
 The project requirements are listed below:
 
 *   [Learning Goals](#learning-goals)
@@ -66,7 +71,7 @@ Like all projects, individual team members are expected to:
 You'll build a new project assigned by the instructors. This is sometimes
 called "greenfield" development, because you are starting from scratch.
 
-### Beginning The Mystery project
+### Beginning Cloney Island
 
 Once you've explored the project requirements, the team leader will:
 
@@ -78,15 +83,6 @@ with `git remote add origin git://new_repo_url`
 
 Once the team leader has done this, the other team members can fork the new
 repo.
-
-### Tagging the Start Point
-
-We want to be able to easily compare the change between the start of the
-project and the end. For that purpose, create a tag in the repo and push it to
-GitHub:
-
-*   `$ git tag -a <project_name>_v1`
-*   `$ git push --tags`
 
 ### Project Management Tool
 
@@ -116,41 +112,45 @@ to **exactly** follow the stories as they've been developed with your customer.
 A 95% implementation is wrong.
 
 If you want to deviate from the story as it's written, you need to discuss that
- with your client and get approval to change the story *first*.
+ with your client and get approval to change the story _first_.
 
 ### User Stories
 
 User stories follow this pattern:
 
-*As a <user>, when I <do something>, I <expect something>.*
+```md
+As a `USER`
+When I `DO SOMETHING`
+Then I `EXPECT SOMETHING`
+```
 
 Examples:
 
-```
+```md
 As an admin
 When I click on dashboard
-Then I should be on "/dashboard"
+Then I should be on "/admin/dashboard"
 And I should see all users listed
 ```
 
-```
+```md
 As a guest user
-When I visit "/signup"
-And I fill in `Email` with "chad007@example.com"
-And I fill in `Password` with "password"
-And I fill in `Password Confirmation` with "password"
-And I fill in `Phone Number` with "<A REAL PHONE NUMBER>"
+When I visit "/password-reset"
+And I fill in `Email` with "lauren@example.com"
 And I click `Submit`
 
-Then my account should be created but inactive
-And I should be redirected to "/confirmation"
+Then I should be redirected to "/password-confirmation"
 And I should see instructions to enter my confirmation code
 And I should have received a text message with a confirmation code
 
 When I enter the confirmation code
+And I fill in `Password` with `password`
+And I fill in `Password Confirmation` with `password`
 And I click "Submit"
 Then I should be redirected to "/dashboard"
-And my account should be active
+And I should be logged in
+And my old password should no longer work for logging in
+And my new password should work after logging out and logging back in
 ```
 
 ### Working with Git
@@ -175,20 +175,21 @@ Check this [guide](https://help.github.com/articles/closing-issues-via-commit-me
 
 Your app should implement the following features:
 
-*   Extensive documentation of your API. Some students have used [swagger.io](http://swagger.io/getting-started/) but it's not required.
-*   Two-factor authentication using SMS confirmation via [Twilio's REST API](https://www.twilio.com/docs/api/rest).
-    *   Gotcha: Use of the Twilio gem is not allowed.
+*   Two-factor authentication using SMS confirmation via [Twilio's REST API](https://www.twilio.com/docs/api/rest) for a user to reset their password. Phone number should be a required field for a user when they sign up.
+    * Mild: Use the Twilio gem.
+    * Spicy: Don't use the gem and hand roll your own HTTP wrapper around Twilio's REST API without the use of external tools except a Ruby HTTP library.
 *   Users must be able to "comment" in some capacity.
     *   This may be in the form of a "review" depending on your app's domain.
-    *   There should be an API that supports CRUD functionality.
-*   Your API must be authenticated for external use.
+    *   You must consume internal API endpoints that support CRUD functionality of comments/reviews.
+*   Your API for comments/reviews must be authenticated for external use.
     *   External users must be provided an API key that they use to make requests to your API.
+*   Extensive documentation of your API. Some students have used [swagger.io](http://swagger.io/getting-started/) for this, but it's not required.
 
 You are to create a platform that can handle multiple, simultaneous user needs.
 
 Each user on the platform should have:
 
-*   A unique URL pattern [http://example.com/<user_name>](http://example.com/<user_name>)
+*   A unique URL pattern `http://example.com/username`
 *   Unique administrators
 
 Your app should be able to handle the following users:
@@ -212,7 +213,7 @@ As a registered user, I should be able to:
 
 As a platform admin, I should be able to:
 
-*   Take a user offline / online, including all content associated with them but without removing any of the data from the database.
+*   Take a user offline / online, including all content associated with them but without removing the user or any of their data from the database.
 *   delete postings/content.
 
 ##  <a name="project-prompts"></a> Project Prompts
@@ -301,7 +302,7 @@ others share with them.
 
 ### Photosharing (Flickr)
 
-Do you have photos you want to share with the world? Maybe some photos
+The year is 2001. You have photos you want to share with the world. Maybe some photos
 you don't want to share with your mom, but want to share with your friends?
 Let's create a platform that allows users to share photos with certain groups of
 people or share some for public consumption.
@@ -318,6 +319,22 @@ people or share some for public consumption.
 
 *   Create slideshow pages from users' photo buckets.
 *   Users can resize images before downloading.
+
+### Crowdfunding (Kickstarter)
+
+Users have ideas and dreams but need funding to make them happen. Allow them to upload a pitch and users can pledge a set amount to help reach a funding goal.
+
+* User roles include: guest, registered, project owners, project funders, admin
+* Guests can view projects
+* Registered users can start projects
+* A project can have more than one user as owners/requesters
+* Registered users can fund projects
+* A progress bar that shows what percentage funding is at
+
+#### Possible Extensions
+
+* Limited tiers for funding amounts with different incentives/rewards
+* Video uploading
 
 ## <a name="base-data"></a> Base Data
 
@@ -340,7 +357,7 @@ We want you to be able to discuss your app with non-technical parties as well as
 
 #### What should be done
 
-The scope of this project is more fluid than prior projects. Your client will want to go over your plan for the project. Bring wireframes and detailed user stories (ie waffle cards). Don't underestimate the value of a good plan.
+The scope of this project is more fluid than prior projects. Your client will want to go over your plan for the project. Bring wireframes and detailed user stories (i.e. waffle cards). Don't underestimate the value of a good plan.
 
 (You should also have a rough schema sketched out, but you will not be reviewing this with your client.)
 
@@ -375,6 +392,8 @@ Your client will review the work you've done so far at a high level. Then it's u
 By this point, you should be near done with basic functionality, and ready to talk about extensions for your app.
 
 ## <a name="evaluation"></a> Evaluation
+
+Each group is required to do a self assessment using the rubric below and bring it to your evaluation.
 
 You'll be graded on each of the criteria below with a score of (1) well below
 expectations, (2) below expectations, (3) as expected, (4) better than expected.

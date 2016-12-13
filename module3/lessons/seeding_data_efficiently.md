@@ -13,14 +13,6 @@ status: draft
 * How to use Faker
 * How to set up relationships
 
-## Structure
-
-* 10 - Live Code: Building an Inefficient Seed File
-* 10 - Lecture: Why Seeding Efficiently Matters
-* 5 - Break
-* 60 - Live Code: Improving the seed file with loops
-* 90 - Code: Implement seeding strategies on The Pivot
-
 ## Live Code: Building an Inefficient Seed File
 
 Clone down the following repo.
@@ -31,31 +23,34 @@ Any code that we add to `seeds.rb` will be executed when we run â€˜rake db:seedâ
 
 ### Iteration 1: Creating Records
 
-1. Create one user
+1.  Create one user
 
-  ```ruby
-  User.create!(name: "Chad Clancey", email: "cclancey@example.com")
-  ```
-1. Create four users
+```ruby
+User.create!(name: "Chad Clancey", email: "cclancey@example.com")
+```
 
-  ```ruby
-  User.create!(name: "Lauren", email: "lauren@example.com")
-  User.create!(name: "Josh", email: "josh@example.com")
-  User.create!(name: "Sally", email: "sally@example.com")
-  User.create!(name: "Chaz", email: "chaz@example.com")
-  ```
-1. Create an item
+2.  Create four users
 
-  ```ruby
-  Item.create!(
-    name: "Red Panda",
-    description: "Small arboreal mammal native to the eastern Himalayas and southwestern China ",
-    image_url: "http://robohash.org/1.png?set=set2&bgset=bg1&size=200x200"
-    )
-  ```
-1. Create four items
+```ruby
+User.create!(name: "Lauren", email: "lauren@example.com")
+User.create!(name: "Josh", email: "josh@example.com")
+User.create!(name: "Sally", email: "sally@example.com")
+User.create!(name: "Chaz", email: "chaz@example.com")
+```
 
-  ```ruby
+3.  Create an item
+
+```ruby
+Item.create!(
+  name: "Red Panda",
+  description: "Small arboreal mammal native to the eastern Himalayas and southwestern China ",
+  image_url: "http://robohash.org/1.png?set=set2&bgset=bg1&size=200x200"
+  )
+```
+
+4. Create four items
+
+```ruby
   Item.create!(
     name: "Red Panda 1",
     description: "Small arboreal mammal native to the eastern Himalayas and southwestern China ",
@@ -79,18 +74,17 @@ Any code that we add to `seeds.rb` will be executed when we run â€˜rake db:seedâ
     description: "Small arboreal mammal native to the eastern Himalayas and southwestern China ",
     image_url: "http://robohash.org/4.png?set=set2&bgset=bg1&size=200x200"
   )
-  ```
+```
 
 What are the downsides to this approach?
 
 ## Lecture: Why Seeding Data Efficiently Matters
 
 * Setting up each record by hand takes too much initial time
-* This Approach Makes Maintenance difficult (each migration creates work)
-* The nightmare seed file -- we've probably all seen the 300+ line seed file
+* The nightmare seed file -- we've probably all seen or will see the 300+ line seed file
 * Problems of seeding generally stem from doing too much manual / hard-coded
   work
-* We should treat our seed file as just another piece of code
+* We should treat our seed file as just another piece of code (OO)
 * Use methods as abstractions for common operations
 * Use libraries to generate data we need (often randomized data to simulate real users)
 * Use Rails / ActiveRecord idioms to pre-fill relationships in a straightforward way
@@ -143,7 +137,7 @@ end
   item = Item.create!(
     name: Faker::Commerce.product_name,
     description: Faker::Lorem.paragraph,
-    image_url: "http://robohash.org/#{i}.png?set=set2&bgset=bg1&size=200x200"
+    image_url: Faker::Avatar.image
     )
   puts "Item #{i}: #{item.name} created!"
 end
@@ -160,7 +154,7 @@ Many would stop here. We're going to go one step further and make our seed file 
 Our final seed file should look something like this:
 
 ```ruby
-db/seeds.rb
+# db/seeds.rb
 
 class Seed
   def self.start
@@ -185,7 +179,7 @@ class Seed
       item = Item.create!(
         name: Faker::Commerce.product_name,
         description: Faker::Lorem.paragraph,
-        image_url: "http://robohash.org/#{i}.png?set=set2&bgset=bg1&size=200x200"
+        image_url: Faker::Avatar.image
         )
       puts "Item #{i}: #{item.name} created!"
     end
@@ -213,8 +207,3 @@ end
 
 Seed.start
 ```
-
-### Possible Improvements
-
-* Sketch out more of the code in this lesson plan
-* Cover populator gem for seeding large datasets?

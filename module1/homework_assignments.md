@@ -56,6 +56,7 @@ layout: page
 
 ### 3.1
 * [Pair Programming Reading](https://github.com/turingschool/challenges/blob/master/pair_programming_reading.markdown)
+* Read Nightingale's "Some Garbage I Used to Believe About Equality" and reflect in 2-3 paragraphs. Proposed reflection questions and link to article [here](https://github.com/turingschool/gear-up/blob/master/m1_weekly_readings/some_garbage_i_used_to_believe_about_equality.markdown). Due Friday (3.5). 
 
 ### 3.2
 * [CS50: Call Stack Video](https://www.youtube.com/watch?v=beqqGIdabrE)
