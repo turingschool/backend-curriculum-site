@@ -254,17 +254,18 @@ gem "minitest"
 
 ```ruby
 require "faraday"
-Faraday.get('https://www.google.com').body
+puts Faraday.get('http://www.warnerbros.com/archive/spacejam/movie/jam.htm').body
 ```
 
 4. Create an empty `Gemfile` in the directory
 5. Use GOOGLE to determine what to add to the gemfile to install the `faraday` gem
-6. Then use `bundle` to install this gem and see that your code works
+6. Then use `bundle` to install this gem
+7. Run your file to see that your code works and how Faraday helps you read webpages
 
 #### Summary
 Review objectives from beginning of session.
 
-### Homework
+### Recommended Homework
 
 Tonight:
 
