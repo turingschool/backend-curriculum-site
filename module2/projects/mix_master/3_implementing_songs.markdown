@@ -9,15 +9,15 @@ tags: rails, many-to-many, one-to-many, rspec, testing
 
 ### Iterations:
 
-* [1 Getting Started](1_getting_started)
-* [2 Implementing artists](2_implementing_artists)
-* [3 Implementing songs](3_implementing_songs)
-* [3.1 Optional Additional Song Features](3_optional_additional_song_features)
-* [4 Implementing Playlists](4_implementing_playlists)
-* [5 Refactoring](5_refactoring)
-* [6 Controller Tests](6_controller_tests)
-* [7 Implementing users](7_implementing_users)
-* [7.1 Extensions](wip-image-upload)
+* [1 Getting Started](1_getting_started.markdown)
+* [2 Implementing artists](2_implementing_artists.markdown)
+* [3 Implementing songs](3_implementing_songs.markdown)
+* [3.1 Optional Additional Song Features](3_optional_additional_song_features.markdown)
+* [4 Implementing Playlists](4_implementing_playlists.markdown)
+* [5 Refactoring](5_refactoring.markdown)
+* [6 Controller Tests](6_controller_tests.markdown)
+* [7 Implementing users](7_implementing_users.markdown)
+* [7.1 Extensions](wip-image-upload.markdown)
 
 
 
@@ -443,6 +443,6 @@ If you've messed things up, you can clone down the [3_song-functionality branch]
 
 ### Choose Your Own Adventure!
 
-#### Click here for [Mix Master Optional Song Features](/ruby_02-web_applications_with_ruby/mix_master/3_optional_additional_song_features.markdown) (recommended, but not necessary)
+#### Click here for [Mix Master Optional Song Features](3_optional_additional_song_features.markdown) (recommended, but not necessary)
 
-#### Click here for [Mix Master Part 4: Implementing Playlists](/ruby_02-web_applications_with_ruby/mix_master/4_implementing_playlists.markdown)
+#### Click here for [Mix Master Part 4: Implementing Playlists](4_implementing_playlists.markdown)
