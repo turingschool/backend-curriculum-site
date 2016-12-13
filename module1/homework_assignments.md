@@ -59,6 +59,7 @@ layout: page
 
 ### 3.2
 * [CS50: Call Stack Video](https://www.youtube.com/watch?v=beqqGIdabrE)
+* Enums Exercises (sort_by, all?, any?, none?, one?). Find the repo [here](https://github.com/turingschool/enums-exercises)
 
 ### 3.3
 * [Reading for Professional Development](lessons/feedback.pdf)
