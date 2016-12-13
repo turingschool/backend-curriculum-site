@@ -98,10 +98,12 @@ It tends to be more common within the community. Programmers get workedup about 
 Here's a quick overview of _how_ `require` and `require_relative` work.
 
 `require_relative` attempts to require a second file using a path *relative to* the file that is requiring it.
+
 * Does NOT matter where you run the test from (searches for path relative to the file the requirement is in)
 * As directory structure gets more complex, navigating relative to the file you require come can become convoluted (`require_relative '../../../lib/enigma'`).
 
 `require` attempts to require a second file *relative to* the place from which the first file is **being run** -- that is, relative to whatever place you are sitting when you type `ruby file_one.rb`
+
 * DOES matter where you run the test from
 * Rails assumes we're running from the main project directory.
 * require tends to behave more consistently in complex scenarios and project structures (`require './lib/enigma'`)
@@ -118,7 +120,8 @@ How does Ruby know where we look when we `require` something? Why is it we say `
 $LOAD_PATH is an internal structure (actually an `Array`) that Ruby uses to keep track of where it can look to find files it needs (or we ask it to look for).
 
 Open a `irb` session and type in `$LOAD_PATH`. You should get a response of something like this:
-``` ruby
+
+```ruby
 ["/Users/your_username/.rvm/gems/ruby-2.3.0@global/gems/did_you_mean-1.0.0/lib",
  "/Users/your_username/.rvm/gems/ruby-2.3.0@global/gems/executable-hooks-1.3.2/lib",
  "/Users/your_username/.rvm/gems/ruby-2.3.0@global/extensions/x86_64-darwin-15/2.3.0/executable-hooks-1.3.2",
