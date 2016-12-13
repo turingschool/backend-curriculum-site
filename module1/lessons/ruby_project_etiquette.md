@@ -111,7 +111,32 @@ Here's a quick overview of _how_ `require` and `require_relative` work.
 * require is designed to cooperate with ruby's $LOAD_PATH
 
 ##### Check for Understanding
-What is the difference between the `../` and the `./` path prefix? Which works better with `require` and how does that make your file requirement more resilient?
+Set up the following code in `lib/hello.rb` and `test/hello_test.rb` files. Experiment with which path formats you can get working in each scenario in the table below.
+
+```ruby
+class Hello
+	def greet
+		“Hello, World!”
+	end
+
+end
+```
+
+```ruby
+require ‘minitest/autorun’
+
+class HelloTest < Minitest::Test
+	def test_it_greets
+		hello = Hello.new
+		assert_equal “Hello, World!”, hello.greet
+	end
+
+end
+```
+
+ | running file from project directory | running file from test directory
+require | |
+require_relative | |
 
 #### Load Path Crash Course
 How does Ruby know where we look when we `require` something? Why is it we say `require "minitest"` but `require "./lib/enigma"` when obviously the `minitest` file is not sitting in the root of our project.
