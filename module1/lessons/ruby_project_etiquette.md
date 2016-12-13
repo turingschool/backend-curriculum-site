@@ -164,7 +164,7 @@ Describe why the exercise above worked.
 ##### Extension
 If you finish early, scan this article from Joshua Paling on [Load Path](http://joshuapaling.com/blog/2015/03/22/ruby-load-path.html).
 
-### Rakefiles and Test Runners
+## Rakefiles and Test Runners
 
 * Unix origins, building projects, and `make`
 * Problem: want a standardized command that you can run in every project
