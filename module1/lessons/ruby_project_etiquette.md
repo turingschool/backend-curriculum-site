@@ -178,8 +178,9 @@ Your OS has a similar construct called `PATH` which it uses to find executable c
 1. Create a ruby file called `print_stuff.rb` in the directory `/tmp` on your machine (thus `/tmp/print_stuff.rb`)
 2. In that file define a simple method that prints a line of text. Call it `print_stuff`
 3. Go to your **Home Directory** (`cd ~`) and open a pry or IRB session
-4. Use ruby to ADD the path `/tmp` to your load path (remember, `$LOAD_PATH` is just an array so you can use normal Ruby array methods on it)
-5. Verify that you can require your file `print_stuff` without adding any path information to the require statement
+4. Try to require `print_stuff` in irb/pry with `$ require 'print_stuff'`. You will get an error.
+5. Use ruby to ADD the path `./tmp` to your load path (remember, `$LOAD_PATH` is just an array so you can use normal Ruby array methods on it)
+6. Try to require `print_stuff` again using the command in 4 (above). It will return true.
 
 ##### Check for Understanding
 Describe why the exercise above worked.
