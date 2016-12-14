@@ -11,6 +11,7 @@ By the end of this lesson, you will know/be able to:
 
 * Explain when you would want to use a background worker
 * Be able to implement a basic background process
+* What ActiveJob is and how it is similar to ActiveRecord
 
 
 #### Intro
@@ -155,8 +156,7 @@ include the `Sidekiq::Worker` module, so let's set up our worker like
 so:
 
 ```ruby
-class WorkinItEmailWorker
-  include Sidekiq::Worker
+class WorkinItEmailWorker < ActiveJob::Base
 end
 ```
 
@@ -174,9 +174,7 @@ the worker to do its job:
 Given these constraints, it might look something like:
 
 ```ruby
-class WorkinItEmailWorker
-  include Sidekiq::Worker
-
+class WorkinItEmailWorker < ActiveJob::Base
   def perform(email, thought)
     UserNotifier.send_randomness_email(email, thought).deliver_now
   end
@@ -211,7 +209,7 @@ the line that was sending the email with this line to
 queue our job instead:
 
 ```ruby
-WorkinItEmailWorker.perform_async(params[:mailers][:email], params[:mailers][:thought])
+WorkinItEmailWorker.perform(params[:mailers][:email], params[:mailers][:thought])
 ```
 
 Remember -- the arguments passed in to the `.perform_async` method here
