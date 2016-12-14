@@ -27,3 +27,9 @@ title: B4 Sprint 2
 * Staff: Jeff
 * Status: Draft Ready
 * [Lesson Plan](lessons/sql_deep_dive)
+
+### Continuous Integration & Continuous Deployment
+
+* Staff: Jeff
+* Status: Outline
+* [Lesson Plan](lessons/ci_and_cd)
