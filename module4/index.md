@@ -75,7 +75,7 @@ You can find the [index of lessons used for the old B4 plan here](former_index).
 #### Week 3
 
 * SQL Deep Dive
-* JQuery and the DOM
+* [JQuery and the DOM](./lessons/idea_box)
 * Implementing Search with REST
 * AJAX and JSON
 * Continuous Integration and Deployment

@@ -146,7 +146,7 @@ These two mindsets have to work independently. Mindset 1 cannot deal with the de
 
 [TestPyramid](http://martinfowler.com/bliki/TestPyramid.html)
 
-![TestPyramid](http://martinfowler.com/bliki/images/testPyramid/pyramid.png)
+![TestPyramid](http://martinfowler.com/bliki/images/testPyramid/test-pyramid.png)
 
 * Acceptance
 * Feature
