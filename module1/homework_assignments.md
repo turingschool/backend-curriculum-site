@@ -56,7 +56,7 @@ layout: page
 
 ### 3.1
 * [Pair Programming Reading](https://github.com/turingschool/challenges/blob/master/pair_programming_reading.markdown)
-* Read Nightingale's "Some Garbage I Used to Believe About Equality" and reflect in 2-3 paragraphs. Proposed reflection questions and link to article [here](https://github.com/turingschool/gear-up/blob/master/m1_weekly_readings/some_garbage_i_used_to_believe_about_equality.markdown). Due Friday (3.5). 
+* Read Nightingale's "Some Garbage I Used to Believe About Equality" and reflect in 2-3 paragraphs. Proposed reflection questions and link to article [here](https://github.com/turingschool/gear-up/blob/master/m1_weekly_readings/some_garbage_i_used_to_believe_about_equality.markdown). Due Friday (3.5).
 
 ### 3.2
 * [CS50: Call Stack Video](https://www.youtube.com/watch?v=beqqGIdabrE)
@@ -68,6 +68,7 @@ layout: page
 ### 3.4
 * [GitHub Flow: Issues with Git-flow](http://scottchacon.com/2011/08/31/github-flow.html)
 * [GitHub Guides: Understanding the GitHub Flow](https://guides.github.com/introduction/flow/index.html)
+* To prepare for tomorrow's Gear Up tomorrow, read this article, [Are You An Introvert Or An Extrovert? What It Means For Your Career"](http://bit.ly/2gKuaZg), and take 5 minutes to reflect on where you fall on the spectrum of extrovert and introvert.
 
 ### 3.5 (weekend)
 * Update portfolio with reflections from Friday's Gear Up session and any project evaluations received this week. See the portfolio requirements and the associated repository [here](https://github.com/turingschool/portfolios)
