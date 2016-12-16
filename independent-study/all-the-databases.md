@@ -195,6 +195,22 @@ Map and Reduce are commonly used together when querying a document store DB. You
 - Schemas are not as straight forward. There's some amount of trial and error when doing queries, and queries can break if a document gets added that doesn't conform.
 
 
+### No(t)SQL
+
+[A decent cheat sheet for common things](https://blog.codecentric.de/files/2012/12/MongoDB-CheatSheet-v1_0.pdf)
+
+#### Insert
+
+`db.collectionName.insert({some: {javascript: object}})`
+
+`db.users.insert({name: "Nate Allen", email: "nate@turing.io"})`
+
+#### Find
+
+`db.collectionName.find({someKey: someValue})`
+
+`db.users.find({name: "Nate Allen"})`
+
 ### Getting Started
 
 `brew install mongodb`
@@ -202,8 +218,6 @@ Map and Reduce are commonly used together when querying a document store DB. You
 Then follow the instructions to start a server
 
 For a really simple GUI, try [robomongo](https://lmgtfy.com/?q=robomongo)
-
-[A decent cheat sheet for common things](https://blog.codecentric.de/files/2012/12/MongoDB-CheatSheet-v1_0.pdf)
 
 ### Exercises
 
