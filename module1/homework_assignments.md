@@ -71,6 +71,7 @@ layout: page
 
 ### 3.5 (weekend)
 * Update portfolio with reflections from Friday's Gear Up session and any project evaluations received this week. See the portfolio requirements and the associated repository [here](https://github.com/turingschool/portfolios)
+* Write feedback for your partner from last week's project and send to your instructor point person. 
 
 ## WEEK 4
 
