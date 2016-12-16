@@ -221,6 +221,13 @@ I wrote a javascript to fill a collection with TV shows and episodes. To give yo
 - Getting started if you need it: <https://www.youtube.com/watch?v=dawwpoMrOtw>
 - Build a site with Node/Express/Mongo: <https://www.youtube.com/watch?v=Do_Hsb_Hs3c>
 
+### In code
+
+- [Ruby Mongo Driver Gem](https://rubygems.org/gems/mongo/versions/2.3.0)
+- [Ruby Mongoid mapper](https://docs.mongodb.com/ruby-driver/master/mongoid/#ruby-mongoid-tutorial)
+- [Mongodb on NPM](https://www.npmjs.com/package/mongodb)
+- [Mongoose document mapper](http://mongoosejs.com/)
+
 # Graph Databases
 
 ### Engines
