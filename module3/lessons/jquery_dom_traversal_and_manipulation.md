@@ -323,7 +323,15 @@ As pairs, try to work through the following prompts. We'll do the first one toge
 
 ## Form Challenge
 
-Let's clone down [this simple form](https://github.com/turingschool-examples/jquery-form-challenge). Right now, it doesn't work and needs to be wired up.
+Let's clone down [this simple form](https://github.com/turingschool-examples/jquery-form-challenge).
+
+```bash
+git clone git@github.com:turingschool-examples/jquery-form-challenge.git
+cd jquery-form-challenge
+open index.html
+```
+
+Right now, it doesn't work and needs to be wired up.
 
 1.  First, how could we select all `input`s?
 2.  How could we use jQuery to fill in the value for the `.link-title`?
