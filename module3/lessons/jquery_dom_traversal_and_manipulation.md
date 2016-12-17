@@ -125,7 +125,7 @@ For more details and information about other ways to dig into your js, check out
 
 ## Intro to the DOM
 
-DOM stands for Document Object Model. The browser uses it to represent everything on the page. It's an "object model" because it is made of objects. Each element is an object. If you wanted to, you could directly translate the DOM to a javascript object.
+DOM stands for Document Object Model. The browser uses it to represent everything on the page. It's an "object model" because it is made of objects. Each element is an object. If you wanted to, you could directly translate the DOM to a JavaScript object.
 
 The DOM is hierarchical. If you have a tag wrapping another tag, then the inner object is a child of the outer object, which is the parent.
 
@@ -137,7 +137,7 @@ The DOM is hierarchical. If you have a tag wrapping another tag, then the inner 
 
 ```
 
-The browser creates the DOM by reading from HTML, but from then on, javascript controls any changes to the DOM.
+The browser creates the DOM by reading from HTML, but from then on, JavaScript controls any changes to the DOM.
 
 ```
 HTML --> DOM <--> JS
@@ -155,7 +155,7 @@ That said, let's review some of the different ways we can find an element on pag
 * `$('#heading')`, selects the element with a given id.
 * `$('.important')`, selects all of the elements with a given class.
 
-You can also use multiple selectors in the same statement:
+You can also use multiple selectors in the same statement using commas:
 
 * `$('p, #heading, .important')`, selects everything listed above.
 
@@ -258,8 +258,6 @@ $('.federalist').toggleClass('red');
 * Add the class of `yellow` to the term column of the table.
 * Take all the whig presidents and give them a purple background and white text.
 
-(This should take 10 minutes.)
-
 ## Lecture, Part Three: Filtering and Traversal
 
 Let's talk about a few [DOM traversal methods](http://api.jquery.com/category/traversing/tree-traversal/).
@@ -292,7 +290,6 @@ Let's take a look at some approaches of adding/changing content in the DOM.
 
 * Find all of the presidents who died in office (hint: they have a `died` class on their `tr`).
 * Append `<span class="died">(Died)<span>` to the the `term` column of presidents who have `.died`.
-* **Bonus**: Add a radio button before the number in each row.
 
 ## Lecture, Part Five: Simple Event Binding
 
@@ -323,20 +320,18 @@ As pairs, try to work through the following prompts. We'll do the first one toge
 * Add an event handler to all of the checkboxes that when the box is checked, adds the `yellow` class to the parent `tr`.
 * Add an event handler that adds the `red` class to a `td` element when it's clicked on.
 * Modify the event handler above to remove the `red` class when it is clicked a second time.
-* **Bonus**: Add a new `div` to the page, every time a checkbox is checked, add that president's name to the `div`.
-* **Bonus 2**: Remove that president's name when the box is unchecked.
 
-## Exercise, Part Six
+## Form Challenge
 
-Let's take a look at [this simple form](http://output.jsbin.com/jezomug/1). Right now, it doesn't work. I'm going to need your help to wire this up.
+Let's clone down [this simple form](https://github.com/turingschool-examples/jquery-form-challenge). Right now, it doesn't work and needs to be wired up.
 
-1.  First, how could I select all `input`s?
-2.  How could I use jQuery to fill in the value for the `.link-title`?
-3.  How could I use jQuery to fill in the value for the `.link-url`?
-4.  How could I click the submit button from my console?
+1.  First, how could we select all `input`s?
+2.  How could we use jQuery to fill in the value for the `.link-title`?
+3.  How could we use jQuery to fill in the value for the `.link-url`?
+4.  How could we click the submit button from our console?
 
 Let's hop out of the console and actually edit the JS now.
 
-5.  Capture the `on submit` event for the submit button?
-6.  On submit, let's get the value of the inputs?
+5.  Capture the `click` event for the submit button
+6.  On submit, let's get the value of the inputs
 7.  Now let's append those values under `My Links`
