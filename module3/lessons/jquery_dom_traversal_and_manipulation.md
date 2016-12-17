@@ -16,28 +16,112 @@ status: draft
 * Add event listeners to elements currently in the DOM
 * Understand that adding an event listener will not effect elements you add to the DOM in the future
 
-## Structure
+## Getting Up to Speed with JavaScript
 
-* 9:05 - 5 - Intro
-* 9:15 - 10 - Lecture 1: Selectors
-* 9:25 - 10 - Exercise 1: Basic Selectors with the President
-* 9:30 - 5 - Exercise Review
-* 9:35 - 5 - Break
-* 9:50 - 15 - Lecture 2: Manipulating CSS
-* 10:00 - 10 - Exercise 2: Painting the Presidents
-* 10:05 - 5 - Exercise Review
-* 10:10 - 5 - Break
-* 10:25 - 15 - Lecture 3: Filtering and Traversal
-* 10:40 - 15 - Exercise 3: One-Term Presidents
-* 10:45 - 5 - Exercise Review
-* 10:55 - 10 - Break
-* 11:05 - 10 - Lecture 4: Appending to the DOM
-* 11:20 - 15 - Exercise 4: Dead Presidents
-* 11:25 - 5 - Exercise Review
-* 11:30 - 5 - Break
-* 11:40 - 10 - Lecture 5: Events
-* 11:55 - 15 - Exercise 5: Event Responder
-* 12:00 - 5 - Exercise Review: Wrap Up
+### Syntax, Variables and Functions
+
+#### Syntax
+
+All declarations in JavaScript must end with a semicolon (`;`).
+
+Camel case is prefered over snake case.
+
+Comments are made with `//`.
+
+#### Variables
+
+JS variables MUST be declared using `var`.
+
+```js
+var isSnowing = true;
+```
+
+Redefining variables does not require the `var` keyword.
+
+Variables can be _declared_ without being _defined_.
+
+```js
+var yetToBeDefined;
+yetToBeDefined;
+// => undefined
+yetToBeDefined = true;
+yetToBeDefined;
+// => true
+```
+
+#### Functions
+
+Functions will follow the following general structure:
+
+```js
+var doSomething = function(thing) {
+  return thing;
+};
+```
+
+Functions are called with its variable name and parens. Without parens, the function will not execute.
+
+```js
+doSomething("test");
+// => "test"
+```
+
+Return values in JavaScript MUST be explicitly stated with the `return` keyword, otherwise they will return undefined.
+
+### Debugging in Javascript
+
+Debugging JavaScript is a different beast than debugging Ruby. Because JS is run entirely in the browser, the technique for troubleshooting broken code is more complicated than `binding.pry`. Luckily, modern browsers are aware of this and give us a collection of options for digging into your code.
+
+#### 1. Developer Tools
+One of the first things you should familiarize yourself with when working with JavaScript (or HTML...or CSS...) are the dev tools. You can find a cool tutorial to dive deeper with  [Code School's Discover-DevTools Tutorial.](http://discover-devtools.codeschool.com/) (Chapters 3 & 4 are particularly helpful)
+
+To open developer tools in Chrome:
+-   Mac: `Cmd` + `Opt` + `i` (or `Cmd` + `Opt` + `j`)
+-   (or) Right click on the browser window and select `inspect`
+-   (or) Select `View` in the navbar, then `Developer`, then `Developer Tools`
+
+When working with JavaScript, it is useful to keep your console open at all times to watch for errors and anything you've told your code to print out. Bringing us to...
+
+#### 2. console.log()
+`console.log()` is to JS what `puts` is to Ruby. This line of code will print whatever is provided as an argument to the console.
+
+Given the following function called `printStuff()`, adding console.log() will print the value of `myVariable` to the console.
+```
+var printStuff = function(){
+  var myVariable = 5 + 5
+  console.log(myVariable);
+}
+
+printStuff()
+=> 10
+```
+
+If you're confused about what a variable or function is returning, throw `console.log()` into your code or directly into the `console` in your browser to confirm/deny suspicions.
+
+#### 3. Debugging In the Console
+
+Debugger is the `pry` of JS. Stick `debugger;` within a function to pause the browser from running the script when it hits a particular part of your code.
+
+```
+// index.js
+$('#search-ideas').on('keyup', function() {
+  var currentInput = this.value.toLowerCase();
+
+  $ideas.each(function (index, idea) {
+    var $idea = $(idea);
+    var $ideaContent = $idea.find('.content').text().toLowerCase();
+    debugger;
+    if ($ideacontent.indexOf(currentInput) >= 0) {
+      $idea.show();
+    } else {
+      $idea.hide();
+    }
+  });
+```
+
+In the browser, if we open up the dev tools, navigate to the console and try to search for something.  The program will freeze on the line `debugger`. This lets us type stuff into our `console` to see what's going on.
+
+For more details and information about other ways to dig into your js, check out the [Chrome Documentation](https://developer.chrome.com/devtools/docs/javascript-debugging).
 
 ## Intro to the DOM
 
