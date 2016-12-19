@@ -88,7 +88,7 @@ You can find the [index of lessons used for the old B4 plan here](former_index).
 
 * Building a Tiny Service
 * Mid Module Diagnostic
-* Database Performance and Scaling
+* [JS Websockets with socket.io](/lessons/websockets_workshop)
 * Getting Started with Express
 * Contributing to OpenSource
 * Documenting Your Work
