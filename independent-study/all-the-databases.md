@@ -195,6 +195,22 @@ Map and Reduce are commonly used together when querying a document store DB. You
 - Schemas are not as straight forward. There's some amount of trial and error when doing queries, and queries can break if a document gets added that doesn't conform.
 
 
+### No(t)SQL
+
+[A decent cheat sheet for common things](https://blog.codecentric.de/files/2012/12/MongoDB-CheatSheet-v1_0.pdf)
+
+#### Insert
+
+`db.collectionName.insert({some: {javascript: object}})`
+
+`db.users.insert({name: "Nate Allen", email: "nate@turing.io"})`
+
+#### Find
+
+`db.collectionName.find({someKey: someValue})`
+
+`db.users.find({name: "Nate Allen"})`
+
 ### Getting Started
 
 `brew install mongodb`
@@ -202,8 +218,6 @@ Map and Reduce are commonly used together when querying a document store DB. You
 Then follow the instructions to start a server
 
 For a really simple GUI, try [robomongo](https://lmgtfy.com/?q=robomongo)
-
-[A decent cheat sheet for common things](https://blog.codecentric.de/files/2012/12/MongoDB-CheatSheet-v1_0.pdf)
 
 ### Exercises
 
@@ -220,6 +234,13 @@ I wrote a javascript to fill a collection with TV shows and episodes. To give yo
 - [A kind of wordy tutorial.](https://blog.codecentric.de/en/2012/12/mongodb-tutorial/) Good for a deep dive.
 - Getting started if you need it: <https://www.youtube.com/watch?v=dawwpoMrOtw>
 - Build a site with Node/Express/Mongo: <https://www.youtube.com/watch?v=Do_Hsb_Hs3c>
+
+### In code
+
+- [Ruby Mongo Driver Gem](https://rubygems.org/gems/mongo/versions/2.3.0)
+- [Ruby Mongoid mapper](https://docs.mongodb.com/ruby-driver/master/mongoid/#ruby-mongoid-tutorial)
+- [Mongodb on NPM](https://www.npmjs.com/package/mongodb)
+- [Mongoose document mapper](http://mongoosejs.com/)
 
 # Graph Databases
 
