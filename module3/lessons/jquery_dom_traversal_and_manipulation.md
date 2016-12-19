@@ -86,6 +86,7 @@ When working with JavaScript, it is useful to keep your console open at all time
 `console.log()` is to JS what `puts` is to Ruby. This line of code will print whatever is provided as an argument to the console.
 
 Given the following function called `printStuff()`, adding console.log() will print the value of `myVariable` to the console.
+
 ```
 var printStuff = function(){
   var myVariable = 5 + 5
