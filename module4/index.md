@@ -76,10 +76,8 @@ You can find the [index of lessons used for the old B4 plan here](former_index).
 
 * SQL Deep Dive
 * [JQuery and the DOM](./lessons/idea_box)
-* Implementing Search with REST
 * AJAX and JSON
 * Continuous Integration and Deployment
-* WebSockets
 * Demos and planning
 * TIP
 
@@ -88,8 +86,9 @@ You can find the [index of lessons used for the old B4 plan here](former_index).
 
 * Building a Tiny Service
 * Mid Module Diagnostic
+* WebSockets
 * [JS Websockets with socket.io](./lessons/websockets_workshop)
-* Getting Started with Express
+* [Getting Started with Express](./lessons/express-train)
 * Contributing to OpenSource
 * Documenting Your Work
 * Express Part Duex
