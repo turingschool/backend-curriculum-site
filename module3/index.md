@@ -39,9 +39,9 @@ here.](pd_deliverables)
 
 * [Getting Started with OAuth](lessons/getting_started_with_oauth)
 * [APIcurious](projects/apicurious) Kickoff
-* [Consuming APIs](lessons/testing_against_third_party_apis)
+* [Consuming APIs](lessons/consuming_an_api)
 * Professional Development: Networking
-* VCR Testing
+* [VCR Testing](lessons/testing_against_third_party_apis)
 * APIcurious Evaluations
 * POROs in Rails
 * Self-Directed Project Ideation & Prep
