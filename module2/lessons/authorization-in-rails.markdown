@@ -51,7 +51,7 @@ describe "Admin visits categories index page" do
 	  admin = User.create(email: "penelope@penelope.com",
                         password: "boom",
                         role: 1)
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(:user)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(:admin)
       visit admin_categories_path
       expect(page).to have_content("Admin Categories")
     end
@@ -224,7 +224,7 @@ In our `admin_categories_spec.rb` file let's add the following:
                        password: "password",
                        role: 0)
 
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(:user)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(:admin)
     visit admin_categories_path
     expect(page).to_not have_content("Admin Categories")
     expect(page).to have_content("The page you were looking for doesn't exist.")
