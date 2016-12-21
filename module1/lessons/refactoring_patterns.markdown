@@ -60,6 +60,7 @@ Let's start by discussing Refactoring at a high level:
 Describe the three common refactoring patterns (move method, extract class, hide delegate) and in what scenarios they should be used. Post your answers to Slack.
 
 ## Choosing the Appropriate Refactoring Tactic
+
 ### Individual Work
 Identify 1 scenario suited to each type of refactor (3 total). Use [past M1 projects](https://github.com/turingschool/ruby-submissions/tree/master/1606-b) for inspiration. Post responses on the Google sheet posted in Slack.
 
