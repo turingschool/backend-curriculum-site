@@ -14,7 +14,6 @@ At the end of the assignment - you will need to submit your own 'Plan' - by usin
 
 If you would prefer your plan not be a public document, create it as a private gist and DM it to your instructor.
 
-## Assignments (complete 2)
 
 ### Goals Assignment (required)
 
@@ -25,6 +24,22 @@ But after that break, you'll need to fish your laptop out of the river and get b
 The pace of development life will 'hopefully' never be as intense again as it was at Turing - but if you don't keep learning, your development chops will atrophy.
 
 [complete this assignment](assignments/goals.markdown)
+
+
+### Informational Interviews (required)
+
+Now that you're 'on your own', you'll want to start networking in a low-stress, low pressure sorta way. Informational interviews are a good way to do this. We covered this stuff in our PD sessions. You are required to get 3 informational interviews by the end of your first 7 weeks off.
+
+If it were me I would assign myself due dates like:
+
+End of week 2 - one informational interview
+End of week 3 - two additional informational interviews
+End of week 4 - three additional informational interviews
+
+That way you can have a little leeway should you not get an interview one week. These interviews should not be terribly hard to get since they are only informational.
+
+
+## Assignments (complete 2)
 
 ### The 'Side Hustle' Assignment
 
