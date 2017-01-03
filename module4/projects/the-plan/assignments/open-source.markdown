@@ -16,8 +16,9 @@ During our last sprint we'd like to solidify your place as contributors to the w
 ## Expectations
 
 * Work solo or in pairs (not with a person in your primary project)
-* Submit one sizable/difficult or two smaller/moderate pull requests that are worth merging
 * Reproduce and confirm or contradict one bug report
+* Submit one sizable/difficult or two smaller/moderate code-centric pull requests that are worth merging
+* Submit one documentation patch (README, CONTRIBUTING, code documentation, etc)
 * Write a single blog post that explains the whole process
 * Have the blog post in your M4 portfolio (Individual Work)
 
@@ -27,10 +28,10 @@ During our last sprint we'd like to solidify your place as contributors to the w
 
 What's your goal in the work? Some ideas:
 
-- I want to practice high-performance Ruby
-- I want to help a non-profit that I believe in
-- I want a potential employer/fancy person to notice me
-- I would like to experiment with a new language/framework
+* I want to practice high-performance Ruby
+* I want to help a non-profit that I believe in
+* I want a potential employer/fancy person to notice me
+* I would like to experiment with a new language/framework
 
 ### Pair or Solo?
 
