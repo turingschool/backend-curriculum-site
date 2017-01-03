@@ -51,7 +51,7 @@ A student who graduates from this module will be able to do the following.
   </a>
   <a href="week_5">
     <li class="outline">
-      Week
+      Week 5
     </li>
   </a>
   <a href="week_6">
