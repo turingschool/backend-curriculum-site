@@ -135,13 +135,13 @@ Ultimately, a crude visualization of the structure might look like this:
 Because the requirements for this project are lengthy and complex, we've broken
 them into Iterations in their own files:
 
-* [Iteration 0](https://backend.turing.io/module1/projects/headcount_iterations/iteration_0.markdown) - District Kindergarten Data Access
-* [Iteration 1](headcount_iterations/iteration_1.markdown) - District Kindergarten Relationships & Analysis
-* [Iteration 2](headcount/iteration_2.markdown) - Remaining Enrollment Access & Analysis: High School Graduation
-* [Iteration 3](headcount/iteration_3.markdown) - Data Access & Relationships: Statewide Testing
-* [Iteration 4](headcount/iteration_4.markdown) - Data Access & Relationships: Economic Profile
-* [Iteration 5](headcount/iteration_5.markdown) - Analysis: Statewide Testing
-* [Iteration 6](headcount/iteration_6.markdown) - Analysis: Economic Profile
+* [Iteration 0](http://backend.turing.io/module1/projects/headcount_iterations/iteration_0) - District Kindergarten Data Access
+* [Iteration 1](http://backend.turing.io/module1/projects/headcount_iterations/iteration_1) - District Kindergarten Relationships & Analysis
+* [Iteration 2](http://backend.turing.io/module1/projects/headcount_iterations/iteration_2) - Remaining Enrollment Access & Analysis: High School Graduation
+* [Iteration 3](http://backend.turing.io/module1/projects/headcount_iterations/iteration_3) - Data Access & Relationships: Statewide Testing
+* [Iteration 4](http://backend.turing.io/module1/projects/headcount_iterations/iteration_4) - Data Access & Relationships: Economic Profile
+* [Iteration 5](http://backend.turing.io/module1/projects/headcount_iterations/iteration_5) - Analysis: Statewide Testing
+* [Iteration 6](http://backend.turing.io/module1/projects/headcount_iterations/iteration_6) - Analysis: Economic Profile
 * Iteration 7 - Total Enrollment (coming soon)
 * Iteration 8 - Special Education, Remediation, and Dropout Rates (coming soon)
 
