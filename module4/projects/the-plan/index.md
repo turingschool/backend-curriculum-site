@@ -38,6 +38,9 @@ End of week 4 - three additional informational interviews
 
 That way you can have a little leeway should you not get an interview one week. These interviews should not be terribly hard to get since they are only informational.
 
+### Blog Post (required)
+
+Keep fresh on things and keep your voice active in the community. This blogpost will be either the open-source contribution post, or a technical post (whichever you did not do for the portfolio in mod4). 
 
 ## Assignments (complete 2)
 
