@@ -44,14 +44,17 @@ Your first idea will probably be a bad one. This afternoon, put together three p
 Each pitch should be like this:
 
 ```
-Project: VCR
-Why: I use VCR regularly in projects, am interested in HTTP details, and would like to dig in deeper.
-What: I found a feature request at http://github.com/vcr/vcr/issues/1 that sounds approachable. It asks for VCR requests to add support for the X-AUTH header.
-I Need: to dig into VCR and get the dev setup running locally. I need to read about X-AUTH to understand more about how it's used and the format.
-When I'm Done: In the original GitHub issue it sounds like the developers are in favor of the feature, so I think I can get this accepted for the next version of the library.
+## Contributing to VCR
+
+* Why: I use VCR regularly in projects, am interested in HTTP details, and would like to dig in deeper.
+* What: I found a feature request at http://github.com/vcr/vcr/issues/1 that sounds approachable. It asks for VCR requests to add support for the X-AUTH header.
+* I Need: to dig into VCR and get the dev setup running locally. I need to read about X-AUTH to understand more about how it's used and the format.
+* When I'm Done: In the original GitHub issue it sounds like the developers are in favor of the feature, so I think I can get this accepted for the next version of the library.
 ```
 
-*Post your three pitches in a Gist and put the link in your cohort channel by 8AM tomorrow.* You're encouraged to look at each other's for ideas, inspiration, and collaboration opportunities.
+**Post your three pitches in a Gist and put the link in your cohort channel by 8AM tomorrow.**
+
+You're encouraged to look at each other's for ideas, inspiration, and collaboration opportunities.
 
 ### Finding Projects
 
@@ -71,13 +74,16 @@ And here are a few concrete ideas:
 
 * [Faker Gem](https://github.com/stympy/faker)
 * [VCR Gem](https://github.com/vcr/vcr)
+* [Figaro](https://github.com/laserlemon/figaro)
+* [Slack-Ruby-Client](https://github.com/slack-ruby/slack-ruby-client)
 * [Adding to / Improving Ruby's Documentation](http://documenting-ruby.org/) (harder than you think)
 
 ### Finding an Issue/Idea
 
-* Fixing and Refactoring is generally better than adding new functionality when you first start contributing to a repo.
+* You're *not* expected to be dreaming up new features
+* Fixing and refactoring are generally better than adding new functionality when you first start contributing to a repo
+* Read through the posted Issues and you'll likely find feature requests/ideas. Take note of any tags used by the repo maintainers
 * Non-Code contributions are always appreciated - documentation is hard. Update the README with any set up instructions that you went through that weren't in it already, make spelling and grammar fixes.
-
 
 ### Protocol Notes
 
