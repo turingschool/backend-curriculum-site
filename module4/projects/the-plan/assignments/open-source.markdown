@@ -76,6 +76,9 @@ And here are a few concrete ideas:
 * [VCR Gem](https://github.com/vcr/vcr)
 * [Figaro](https://github.com/laserlemon/figaro)
 * [Slack-Ruby-Client](https://github.com/slack-ruby/slack-ruby-client)
+* [Faraday](https://github.com/lostisland/faraday)
+* [Launchy](https://github.com/copiousfreetime/launchy)
+* [MrSpec](https://github.com/JoshCheek/mrspec)
 * [Adding to / Improving Ruby's Documentation](http://documenting-ruby.org/) (harder than you think)
 
 ### Finding an Issue/Idea
