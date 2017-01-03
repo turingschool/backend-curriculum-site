@@ -64,7 +64,7 @@ end
 
 ### Creating a Backpack and Adding a Flash Message
 
-Run the test and it complains about not having a capture button. Let's make a button and talk about what the path should be. Inside of views/items/index.html.erb:
+Run the test and it complains about not having a add item button. Let's make a button and talk about what the path should be. Inside of views/items/index.html.erb:
 
 ```erb
   <%= button_to "Add Item", backpacks_path, class: "btn btn-danger" %>
@@ -95,7 +95,7 @@ Does it work? Start up your server and click the "Add Item" button. Does it redi
 When you run the test, it fails on line 16, which is looking for the content "You now have 1 Rollerball Pen." This should be a flash message, but right now we don't know which item was added when we click the "Add Item" button. How do we pass an Item ID to the create action? Let's modify our button:
 
 ```erb
-  <%= button_to "Capture", backpacks_path(item_id: item.id), class: "btn btn-danger" %>
+  <%= button_to "Add Item", backpacks_path(item_id: item.id), class: "btn btn-danger" %>
 ```
 
 We can pass key/value pairs in our path helpers to pass extra data as string query params!
@@ -104,9 +104,8 @@ And modify our `create` action in the controller:
 
 ```ruby
 class BackpacksController < ApplicationController
-  include ActionView::Helpers::TextHelper
   def create
-    pokemon = Pokemon.find(params[:pokemon_id])
+    item = Item.find(params[:item_id])
     flash[:notice] = "You now have 1 #{item.name)}."
     redirect_to root_path
   end
@@ -148,7 +147,6 @@ RSpec.feature "When a user adds items to their backpack", type: :feature do
   scenario "the message correctly increments for multiple items" do
     visit root_path
     click_button "Add Item"
-
     expect(page).to have_content("You now have 1 Rollerball Pen.")
     click_button "Add Item"
 
@@ -173,7 +171,7 @@ Let's go back into the BackpacksController:
 ```ruby
 class BackpacksController < ApplicationController
   def create
-    pokemon = Pokemon.find(params[:pokemon_id])
+    item = Item.find(params[:item_id])
     backpack = session[:backpack] || {}
     backpack[item.id.to_s] ||= 0
     backpack[item.id.to_s] += 1
@@ -290,7 +288,7 @@ If we run our test now, we'll see that we have not included "Backpack: 0" in our
 
 Sure enough, that gets us to a new error where now our test is looking for "Backpack: 1" and not finding it on our page (because we're still displaying "Backpack: 0" since it's hard coded).
 
-I could potentially pass in a count specifically to use in that slot, but it's starting to feel like I'm doing a lot with this backpack. More than should probably just be handled in the controller. What I *really*, more than anything want to do here is to have some sort of an object that I can call `#total` on to get the number of objects in the backpack. I don't have a model to use, but that doesn't stop me from creating a `Backpack` PORO. The question becomes where to start and what to refactor.
+We could potentially pass in a count specifically to use in that slot, but it's starting to feel like I'm doing a lot with this backpack. More than should probably just be handled in the controller. What I *really*, more than anything want to do here is to have some sort of an object that I can call `#total` on to get the number of objects in the backpack. I don't have a model to use, but that doesn't stop me from creating a `Backpack` PORO. The question becomes where to start and what to refactor.
 
 Since we're thinking of implementing this here in the view, let's start there with how we'd *like* this object to behave. Change the new line that we added to the view to the following:
 
@@ -319,11 +317,11 @@ In our controller, let's go ahead and add the instance variable `@backpack`. Let
   end
 ```
 
-New failing test telling us that we haven't defined `.new`. At this point, we're going to have to create our PORO, so let's dip down into a model test.
+New failing test telling us that we don't have a Backpack class. At this point, we're going to have to create our PORO, so let's dip down into a model test.
 
 ### Creating Our Backpack PORO
 
-Create a `spec/models` folder, and a new test for our Backpack class: `spec/models/backpack_spec.rb`. We'll still want the information that we pass to this new model to be stored in the session as a hash, so let's assume that we initialize our Backpack with that info. Within our new test file, add the following:
+Create a `spec/models` folder, and a new test for our Backpack class: `spec/models/backpack_spec.rb`. Within our new test file, add the following:
 
 ```ruby
 require 'rails_helper'
@@ -365,7 +363,7 @@ Unfortunately, our feature tests still don't pass for us.
        undefined method `values' for nil:NilClass`
 ```
 
-We're trying to call `#values` on our initial contents, but the first time that we render our `index` our session hasn't been set, so `initial_contents` evaluates to `nil`. Let's fix that by adding a guard to ensure that `@contents` is always defined as a hash. In your Backpack class:
+We're trying to call `#values` on our initial contents, but the first time that we render our `index` our session hasn't been set, so `initial_contents` evaluates to `nil`. Let's fix that by adding some code to ensure that `@contents` is always defined as a hash. In your Backpack class:
 
 ```ruby
 class Backpack
@@ -426,7 +424,7 @@ end
 
 We're still letting the controller handle getting and setting the session, but we're putting our PORO in charge of managing the hash that we're storing there: both 1) adding items to it, and 2) reporting on how many of a particular item we have.
 
-Since we've added this method to our controller, we now have a missing method error when we run our test. Let's add both methods to our model test to see that they do what we expect them to.
+Since we've added these methods to our controller, we now have a missing method error when we run our test. Let's add both methods to our model test to see that they do what we expect them to.
 
 ```ruby
 require 'rails_helper'
