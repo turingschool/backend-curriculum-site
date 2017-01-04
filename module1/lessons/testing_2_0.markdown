@@ -39,12 +39,14 @@ Working with your project partner, create a fixture folder in Headcount and crea
 
 ### Test Doubles to the Rescue
 * **Stubs** provide canned answers to calls made during the test.
+
 ```
 object = mock()  
 object.stubs(:stubbed_method).returns(1, 2)  
 object.stubbed_method # => 1  
 object.stubbed_method # => 2
 ```
+
 * **Stubs** Especially helpful to fake state of secondary objects that are auxilary to our test.
 * **Stubs** allow you to imitate _state_.
 
