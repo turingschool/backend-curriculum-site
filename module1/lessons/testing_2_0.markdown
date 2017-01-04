@@ -39,7 +39,7 @@ Working with your project partner, create a fixture folder in Headcount and crea
 
 ### Test Doubles to the Rescue
 * **Stubs** provide canned answers to calls made during the test.
-```ruby
+```
 object = mock()
 object.stubs(:stubbed_method).returns(1, 2)
 object.stubbed_method # => 1
