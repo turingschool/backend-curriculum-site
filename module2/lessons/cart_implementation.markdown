@@ -308,7 +308,7 @@ Run our test, and we've broken everything.
 
 That's o.k. We can fix this.
 
-In our controller, let's go ahead and add the instance variable `@backpack`. Let's also assume that we'll need to pass it the contents currently sitting in our session to make it work.
+In our ItemsController, let's go ahead and add the instance variable `@backpack`. Let's also assume that we'll need to pass it the contents currently sitting in our session to make it work.
 
 ```ruby
   def index
