@@ -21,7 +21,9 @@ title: Testing 2.0
 * System Under Test (SUT) or Object Under Test
 
 ## Fixtures
+
 ### Basics
+
 * Create smaller copies of files you'll use in production
 * How many lines of data should your fixture include? No hard number. Include the **bare minimum** data you need to test functionality.
 * Save to `fixtures` folder in your `test` folder
@@ -47,7 +49,8 @@ object.stubbed_method # => 2
 * **Stubs** allow you to imitate _state_.
 
 * **Mocks** allow you to define what calls a method you're testing should make. Mocking libraries include extensive list of expectations to verify what you expect to happens happens. Allows you to imitate _behavior_.
-```ruby
+
+```
 object = mock()
 object.expects(:expected_method).at_least_once
 
@@ -73,7 +76,7 @@ With your partners, teach back the difference between stubs and mocks. Check the
 We'll be using mocha for these exercises.
   * Run `gem install mocha` from command line
   * Require in your file or test_helper
-```ruby
+```
 require 'rubygems'
 gem 'mocha'
 require 'mocha/mini_test'
