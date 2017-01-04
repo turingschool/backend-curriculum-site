@@ -19,6 +19,8 @@ tags: git, github, workflow, collaboration
 
 ## Lecture
 
+Slides available [here](http://backend.turing.io/module2/slides/git_workflows/git_workflows.md).
+
 ### Git Workflow in Teams
 
 When working on a team, it’s important to have a workflow. The details of the workflow will vary from team to team and company to company, but it's important that you have a workflow.
