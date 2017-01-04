@@ -46,7 +46,7 @@ This will mimick the cart-order lifecycle. Items represent items that you would 
 require 'rails_helper'
 
 RSpec.feature "When a user adds items to their backpack", type: :feature do
-  before(:all) do
+  before(:each) do
     Item.create!(
       name: "Rollerball Pen",
       image_url: "/images/rollerball_pen.jpeg"
@@ -130,7 +130,7 @@ Let's update our test to check and see.
 require 'rails_helper'
 
 RSpec.feature "When a user adds items to their backpack", type: :feature do
-  before(:all) do
+  before(:each) do
     Item.create!(
       name: "Rollerball Pen",
       image_url: "/images/rollerball_pen.jpeg"
@@ -221,7 +221,7 @@ First, let's update our feature test.
 require 'rails_helper'
 
 RSpec.feature "When a user adds items to their backpack", type: :feature do
-  before(:all) do
+  before(:each) do
     Item.create!(
       name: "Rollerball Pen",
       image_url: "/images/rollerball_pen.jpeg"
