@@ -4,11 +4,10 @@ title: Testing 2.0
 ---
 
 ## Learning Goals
-* What are some of the challenges with unit testing?
-* What is a fixture and when should you use one?
-* What is stubbing? How do you stub in Ruby with Minitest? When should you do it?
-* What is mocking? How do you mock in Ruby with Minitest? When should you do it?
-* What’s the difference between behavior and state testing?
+* Understand what a fixture is and how to create one
+* Understand what stubbing is, how to stub in Ruby with Minitest, when to use it
+* Understand what mocking is, how to mock in Ruby with Minitest, and when to use it
+* What’s the difference between behavior and state testing
 
 ## Background Concepts
 * Test Doubles(dummy, fake, stub, spies, mocks). Further reading:
@@ -21,29 +20,14 @@ title: Testing 2.0
 	* Teardown
 * System Under Test (SUT) or Object Under Test
 
-## Setup
-Clone this repo: `https://github.com/bethsebian/stub_and_mock`
-
 ## Fixtures
 ### Basics
 * Create smaller copies of files you'll use in production
 * How many lines of data should your fixture include? No hard number. Include the **bare minimum** data you need to test functionality.
 * Save to `fixtures` folder in your `test` folder
 
-### Example
-* `cd` into the `fixtures_example` directory
-
-```ruby
-def test_it_loads_dropout_data_when_initialized_alt_fixture
-    data_repository = DataRepository.new("./test/fixtures/race_and_ethnicity_dropout_rates.csv")
-
-    assert_instance_of DistrictData, data_repository.data.last
-    assert_equal 0.0, data_repository.data.last.percentage
-end
-```
-
-### Check for understanding
-Create alternative implementation of `test_it_loads_enrollment_data_when_initialized` using a fixture
+### Exercise
+Working with your project partner, create a fixture folder in Headcount and create fixtures of 3 files listed in the spec.
 
 ## Mocking versus Stubbing
 
@@ -60,7 +44,7 @@ object.stubbed_method # => 1
 object.stubbed_method # => 2
 ```
 * **Stubs** Especially helpful to fake state of secondary objects that are auxilary to our test.
-* **Stubs** Allows you to imitate _state_.
+* **Stubs** allow you to imitate _state_.
 
 * **Mocks** allow you to define what calls a method you're testing should make. Mocking libraries include extensive list of expectations to verify what you expect to happens happens. Allows you to imitate _behavior_.
 ```ruby
@@ -82,6 +66,9 @@ object.expects(:expected_method).at_most_once
 * **Mocks** allows you to verify _behavior_.
 * More examples: http://www.rubydoc.info/github/floehopper/mocha/Mocha/Expectation
 
+### Check for Understanding
+With your partners, teach back the difference between stubs and mocks. Check the [mocha docs](https://github.com/freerange/mocha) for more details/
+
 ### Setup: Mocking and Stubbing Libraries
 We'll be using mocha for these exercises.
   * Run `gem install mocha` from command line
@@ -97,12 +84,12 @@ require 'mocha/mini_test'
 * Instead of creating a new instance, we just stub it and dictate what state and behavior we want that secondary object to hold.
 * It allows us to imitate the _state_ and _state-dependent behavior_ of an actual object.
 * Use cases
-  * Testing across classes (example: View/Document)
+  * Testing across classes
   * Isolating a method within a class (example: Order Shipping Costs)
 * State, state, state
 
 ### Check for Understanding: Stubs
-Creating an alternate version of the color test using stubs.
+Working independently, find an opportunity to use stubbing in your last project. Get the test passing.
 
 ### Mocks
 * Mocks allow us to test whether the SUT exercises the behavior (especially on other objects) we want it to exercise.
