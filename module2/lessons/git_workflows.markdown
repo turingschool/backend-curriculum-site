@@ -10,42 +10,16 @@ tags: git, github, workflow, collaboration
 * Learn to use GitHub's tools to review and discuss code
 * Use a variety of techniques to create, track, and manage issues, bugs, and features
 
-## Ace Ventura Git Detective
+## Warmup
 
-Learning to search git for specific info is incredibly useful when you are working on large projects.
+* What are your top 5 Git commands?
+* Do you have a preferred Git/GitHub workflow?
+* Do you have a sequence of commands you run when committing/pushing?
+* Does anything make you nervous about Git? If so, what?
 
-1. Clone down [bundler](https://github.com/bundler/bundler).
-2. Katrina Owen has one commit in the project. Find it.
-3. What change was made?
+## Lecture
 
-#### Hints
-
-Use your Google skills!!
-
-## Github efficiency techniques
-
-As developers, we often use github as much as some of our other
-development tools (editors, command-line-tools, etc). It's worth
-investing a little time in getting familiar with the interface so you
-can navigate it more efficiently.
-
-* Github has a number of useful keyboard shortcuts to help you navigate through a repository. Use the `?` key to see all of the shortcuts available on a given page.
-* On a repository view the `t` command brings up a "fuzzy find" UI for
-finding files easily.
-* The `history` view for a given file allows you to see what commits
-touched that file and in what order
-* The `blame` view lets you see who last touched a given line in a file.
-* When viewing a file, the `y` key lets you get the "canonical url" to
-that file, which can be useful to link to the current state of a file
-even if it changes in the future.
-* Clicking line-numbers of a file in the file-view allows you to link to
-a specific line or range of lines of that file. Useful for calling a
-teammate's attention to a specific chunk of code.
-
-Create a new gist. In this gist I want you to sumarize what github shorcuts you have available on different pages.
-Pull up all the github shortcuts (hint: ?). In your gist include the shortcut, a description of what it does, and a practical example of when you may use that shortcut.
-
-## Git Workflow in Teams
+### Git Workflow in Teams
 
 When working on a team, it’s important to have a workflow. The details of the workflow will vary from team to team and company to company, but it's important that you have a workflow.
 
@@ -68,7 +42,14 @@ When your feature is complete, don't just merge it into master—submit a pull r
 
 You can find an alternative guide [here](https://gist.github.com/case-eee/22906249d7a2acead8a897813b7a9675).
 
-## Github & Code Reviews
+### Better Commit Messages
+
+* What makes a good commit message?
+* When should you commit?
+* When should you delete branches?
+* A few fun git commands
+
+### Github & Code Reviews
 
 Having your code reviewed gives you confidence that your code is clear, that it runs on someone else's machine, and that it's not accidentally causing an error somewhere else in the application. It's also an opportunity to allow a mentor to review the code you're writing and give you advice.
 
@@ -81,18 +62,48 @@ Tools for conducting a code review:
 
 __WIP Pull Request:__ A pull request isn’t the final word. You can always add to it based on feedback, so it can be a useful collaboration tool for code that's still "under development." Many teams will call this a "WIP" PR and sometimes will mark it with a special label (to make sure it doesn't accidentally get merged).
 
-## Practice & Discussion
+## Exercises
 
-* What makes a good commit message?
-* When should you commit?
-* When should you delete branches?
-* A few fun git commands
+### Ace Ventura Git Detective
 
-## Extra Practice:
+Learning to search git for specific info is incredibly useful when you are working on large projects.
+
+1. Clone down [bundler](https://github.com/bundler/bundler).
+2. Katrina Owen has one commit in the project. Find it.
+3. What change was made?
+
+#### Hints
+
+Use your Google skills!!
+
+### Github Efficiency Techniques
+
+As developers, we often use github as much as some of our other
+development tools (editors, command-line-tools, etc). It's worth
+investing a little time in getting familiar with the interface so you
+can navigate it more efficiently.
+
+* Github has a number of useful keyboard shortcuts to help you navigate through a repository. Use the `?` key to see all of the shortcuts available on a given page.
+* On a repository view the `t` command brings up a "fuzzy find" UI for
+finding files easily.
+* The `history` view for a given file allows you to see what commits
+touched that file and in what order
+* The `blame` view lets you see who last touched a given line in a file.
+* When viewing a file, the `y` key lets you get the "canonical url" to
+that file, which can be useful to link to the current state of a file
+even if it changes in the future.
+* Clicking line-numbers of a file in the file-view allows you to link to
+a specific line or range of lines of that file. Useful for calling a
+teammate's attention to a specific chunk of code.
+
+Create a new gist. In this gist I want you to sumarize what github shorcuts you have available on different pages.
+Pull up all the github shortcuts (hint: ?). In your gist include the shortcut, a description of what it does, and a practical example of when you may use that shortcut.
+
+### Practice Pushing and Reviewing Code
 
 Clone down [this repo](https://github.com/turingschool-examples/git-practice) and follow the directions.
 
-## [Optional] Activity: Conflict Resolution
+### Practice Resolving Conflicts
 
 In pairs assign one person the role of `Person 1` and the other `Person 2`.
 
@@ -163,6 +174,6 @@ Person 1 Adds a line!
 
 * [Usefull git commands](http://zackperdue.com/tutorials/super-useful-need-to-know-git-commands)
 * [Minimum Viable Git Best Practices for Small Teams](https://blog.hartleybrody.com/git-small-teams/)
-* [The small team workflow](https://github.com/janosgyerik/git-workflows-book/blob/small-team-workflow/chapter05.md)
+* [Waffle Automatic Workflow](https://github.com/waffleio/waffle.io/wiki/Recommended-Workflow-Using-Pull-Requests-&-Automatic-Work-Tracking) shows how you can use naming conventions to move cards across your board.
 * [Git Tutorial](https://www.atlassian.com/git/tutorials/merging-vs-rebasing/) is a great tutorial about the details of rebaseing vs merging.
 * [This post is about the golden rule of rebaseing](https://medium.freecodecamp.com/git-rebase-and-the-golden-rule-explained-70715eccc372#.3nkd2p6c8)
