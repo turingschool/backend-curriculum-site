@@ -11,10 +11,11 @@ tags: class methods, scopes, callbacks
 * Use callbacks to your advantage.
 * Use previous knowledge of class methods with Active Record.
 * Use scopes for basic filtering.
-* Understand the differences, advantages and disadvantages to both
-scopes and class methods.
+* Understand the differences, advantages and disadvantages to both scopes and class methods.
 
 ## Repository
+
+If you'd like to code along, go ahead and do the following:
 
 * `git clone -b starting_point https://github.com/Carmer/kitty_castle.git`
 * We will start on the `starting_point` branch for this lesson
@@ -49,8 +50,8 @@ class ReservationsController < ApplicationController
 end
   ```
 
-  * This action is doing entirely too much. You're sanitizing the card number, sending an email if successful, updating the current_kitty.
-  * This gets messy if we need to add additional behaviors. So we can refactor...
+  * This `create` action is doing entirely too much. We're sanitizing the card number, sending an email if successful, and then updating the current_kitty.
+  * This gets messy if we need to add additional behaviors. So we can refactor using callbacks like so...
 
 ```ruby
 class Reservation < ActiveRecord::Base
@@ -74,39 +75,34 @@ class Reservation < ActiveRecord::Base
 end
 ```
 
-This refactor can be seen on the `refactor_controller` branch
+This refactor can be seen on the `refactor_controller` branch.
 
 * Meet `before_save` and `after_create`
-* We just pull a TON of things out of the controller.
+* We just pulled a TON of things out of the controller and into the model.
 * This is pretty good, but we can do better.
 * The danger here is that the Reservation class knows entirely too much about other classes.
-* This is dangerous because if you make a mistake somewhere, and say there's
-a problem with something of the Kitty class, the Reservation class isn't really the first place a person would go look.
+* This is dangerous because if you make a mistake somewhere, and say there's a problem with something of the Kitty class, the Reservation class isn't really the first place a person would go look.
 
 
 * As a change of pace, before we correct this, we're going to take a slight detour.
+* These are some additional callbacks with their order of operations:
 
 1. before_validation
 2. after_validation
 3. before_save
-4. before_create
-WRITE TO THE DATABASE
+4. before_create ***WRITE TO THE DATABASE happens here***
 5. after_create
 6. after_save
+7. before_update
+8. after_update
+9. before_destroy
+10. after_destroy
 
-before_update
-after_update
-
-before_destroy
-after_destroy
-
-* These are some additional callbacks with their order of operations.
-* Note: before_save gets called when we update and when we create.
-* before_create only gets called before a create.
+* Note: `before_save` gets called when we update and when we create, but `before_create` only gets called before a create.
 
 * So, our previous problem.
-* We keep this up, and we get a pretty unwieldy Reservation class that touches way too many other things.
-* We should use a PORO instead.
+* If we keep this up, and we get a pretty unwieldy Reservation class that touches way too many other things.
+* We should use a PORO instead:
 
 ```ruby
 class ReservationCompletion
@@ -138,23 +134,19 @@ This refactor can be seen on the `refactor_to_poro` branch.
 * `after callbacks` are often code smells. That's why we fixed it.
 * Callbacks that can trigger callbacks in other classes are Bad News catBears.
 
-* Let's practice using callbacks in our app.
+* We encourage you to see if you can use a callback in your Little Shop app (only if it makes sense - don't force it!).
 
 
 ## Class Methods
 
-* We can use class methods to do some filtering, and pushing logic down the
-stack.
-* We want to put the top three most expensive items in our index view.
-* How can we get the information we need?
-* Logic doesn't belong in the view.
-* It doesn't belong in the controller either.
+* We can use class methods to do some filtering, and pushing logic down the stack.
+* If we want to put the top three most expensive items in our index view, how can we get the information we need?
+* Logic doesn't belong in the view. It doesn't belong in the controller either.
 * There's one last place it can go. The model.
 
 ## Scopes
 
-* Scopes allow you to define and chain query criteria in a declarative and
-reusable manner.
+* Scopes allow you to define and chain query criteria in a declarative and reusable manner.
 * Scopes take lambdas.
 * A lambda is a function without a name.
 * We won't go into lambdas right now, but at the bottom of the page, there are resources where you can learn more about lambdas.
@@ -169,7 +161,7 @@ class Reservation < ActiveRecord::Base
 end
 ```
 
-* They can take arguments.
+* They can also take arguments.
 
 ```ruby
 class Reservation < ActiveRecord::Base
@@ -181,20 +173,18 @@ class Reservation < ActiveRecord::Base
 end
 ```
 
-* Let's convert our code into a scope.
-
 ## Scopes vs Class Methods
 * These look eerily similar.
 * But there are key differences.
 * Scopes can always be chained.
 * Class methods can be chained only if they return an object that can be chained.
 * Scopes automatically work on has_many relationships.
-* You can set up a default scope.
+* You can set up a default scope (this can be dangerous though).
 
 
 ### Referring back to what we did
 
-You can see all the work we did at github.com/carmer/kitty_castle on 5 different branches. `git clone https://github.com/Carmer/kitty_castle.git`
+You can see all the work we did at `github.com/carmer/kitty_castle` on 5 different branches. `git clone https://github.com/Carmer/kitty_castle.git`
 
 1. `git checkout starting_point` is our base starting point for this work
 2. `git checkout refactor_controller` is our first iteration of refactoring the logic out of the controller
