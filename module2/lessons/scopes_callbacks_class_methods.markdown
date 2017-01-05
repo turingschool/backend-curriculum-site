@@ -21,7 +21,9 @@ If you'd like to code along, go ahead and do the following:
 * We will start on the `starting_point` branch for this lesson
 
 ## Callbacks and POROs.
+
 * This is our problem.
+
 
 ```ruby
 class ReservationsController < ApplicationController
@@ -50,8 +52,10 @@ class ReservationsController < ApplicationController
 end
   ```
 
-  * This `create` action is doing entirely too much. We're sanitizing the card number, sending an email if successful, and then updating the current_kitty.
-  * This gets messy if we need to add additional behaviors. So we can refactor using callbacks like so...
+
+* This `create` action is doing entirely too much. We're sanitizing the card number, sending an email if successful, and then updating the current_kitty.
+* This gets messy if we need to add additional behaviors. So we can refactor using callbacks like so...
+
 
 ```ruby
 class Reservation < ActiveRecord::Base
