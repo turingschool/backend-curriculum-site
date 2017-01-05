@@ -50,7 +50,7 @@ class ReservationsController < ApplicationController
     params.require(:reservation).permit(:credit_card_number, :kitty_id, :castle_id, :start_date, :end_date )
   end
 end
-  ```
+```
 
 
 * This `create` action is doing entirely too much. We're sanitizing the card number, sending an email if successful, and then updating the current_kitty.
