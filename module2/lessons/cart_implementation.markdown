@@ -46,7 +46,7 @@ This will mimick the cart-order lifecycle. Items represent items that you would 
 require 'rails_helper'
 
 RSpec.feature "When a user adds items to their backpack", type: :feature do
-  before(:all) do
+  before(:each) do
     Item.create!(
       name: "Rollerball Pen",
       image_url: "/images/rollerball_pen.jpeg"
@@ -130,7 +130,7 @@ Let's update our test to check and see.
 require 'rails_helper'
 
 RSpec.feature "When a user adds items to their backpack", type: :feature do
-  before(:all) do
+  before(:each) do
     Item.create!(
       name: "Rollerball Pen",
       image_url: "/images/rollerball_pen.jpeg"
@@ -198,7 +198,7 @@ class BackpacksController < ApplicationController
   include ActionView::Helpers::TextHelper
 
   def create
-    pokemon = Pokemon.find(params[:pokemon_id])
+    item = Item.find(params[:item_id])
     backpack = session[:backpack] || {}
     backpack[item.id.to_s] ||= 0
     backpack[item.id.to_s] += 1
@@ -221,7 +221,7 @@ First, let's update our feature test.
 require 'rails_helper'
 
 RSpec.feature "When a user adds items to their backpack", type: :feature do
-  before(:all) do
+  before(:each) do
     Item.create!(
       name: "Rollerball Pen",
       image_url: "/images/rollerball_pen.jpeg"
@@ -308,7 +308,7 @@ Run our test, and we've broken everything.
 
 That's o.k. We can fix this.
 
-In our controller, let's go ahead and add the instance variable `@backpack`. Let's also assume that we'll need to pass it the contents currently sitting in our session to make it work.
+In our ItemsController, let's go ahead and add the instance variable `@backpack`. Let's also assume that we'll need to pass it the contents currently sitting in our session to make it work.
 
 ```ruby
   def index

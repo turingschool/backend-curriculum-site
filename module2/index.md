@@ -98,17 +98,18 @@ By the end of this module, students will be able to:
 * [Git Workflow](lessons/git_workflows)
 * [Intro to the Asset Pipeline](lessons/intro_to_the_asset_pipeline)
 * [Pushing Logic Down the Stack](http://tutorials.jumpstartlab.com/topics/architecture/pushing_logic_down_the_stack.html)
-* [Callbacks, and Scopes](https://github.com/turingschool-examples/turing-scholarbot)
+* [Callbacks, and Scopes](lessons/scopes_callbacks_class_methods.markdown)
 
 #### Optional (Time Permitting)
 * [Rails Mini-Project Peer extension and review exercise](lessons/mini-project-gem-implementation)
 * Mini-Project show and tell
+* [JavaScript, Part I](lessons/introduction_to_javascript)
+* [Intro to jQuery and Filtering with jQuery](lessons/introduction_to_jquery)
 
 #### Week 6
 
-* [JavaScript, Part I](lessons/introduction_to_javascript)
+* Intermediate SQL
 * Little Shop of Orders Work Time
-* [Intro to jQuery and Filtering with jQuery](lessons/introduction_to_jquery)
 * [Professional Development: Networking](https://github.com/turingschool/professional_skills/blob/master/networking.md)
 * Module 2 Assessments
 * Little Shop of Orders Evaluations
