@@ -80,7 +80,7 @@ rake db:setup
 Additionally, go ahead and add the Selenium gem to your Gemfile:
 
 ```
-gem 'selenium-webdriver'
+gem 'selenium-webdriver', '~> 2.53.4'
 ```
 
 ### 2. Using Selenium for a Test
