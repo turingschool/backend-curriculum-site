@@ -11,9 +11,30 @@ At the end of module 3, you became a 'real developer' - so when you think about 
 
 Focus on real ways you can demonstrate your learning and motivate yourself to keep at it.
 
-### Identify
+To get started, here are 2 goals you will want to schedule for the next 6 weeks:
+
+
+1. #### Informational Interviews
+
+      Now that you're 'on your own', you'll want to start networking in a low-stress, low pressure sorta way. Informational interviews are a good way to do this. We covered this stuff in our PD sessions. You are required to get 3 informational interviews by the end of your first 7 weeks off.
+
+      If it were me I would assign myself due dates like:
+
+      End of week 2 - one informational interview
+      End of week 3 - two additional informational interviews
+      End of week 4 - three additional informational interviews
+
+      That way you can have a little leeway should you not get an interview one week. These interviews should not be terribly hard to get since they are only informational.
+
+1. #### Blog Post
+
+      Keep fresh on things and keep your voice active in the community. This blogpost will be either the open-source contribution post, or a technical post (whichever you did not do for the portfolio in mod4).
+
+
+### Next, Identify Personal Goals:
 
 List three individual learning goals that you would like to accomplish over the next year.
+
 
 ### Define
 
