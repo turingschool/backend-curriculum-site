@@ -69,7 +69,6 @@ Complete the [Dangerous Denver Code Assignment](assignments/dangerous-denver.mar
 
 What we've asked you to do in Module 4 is:
   - Learn a new language
-  - Become better at using that language than many people who get paid to write it
   - Work with ambiguity
   - Do all of the above while not burning out after ~5 months of going really hard
 
