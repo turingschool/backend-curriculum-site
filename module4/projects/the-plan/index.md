@@ -59,12 +59,6 @@ For a community of people who stereotypically like to work in a dark room, alone
 
 [complete this assignment](assignments/community-involvement.markdown)
 
-### The 'YOLO LITERALLY ALL I WANT TO DO IS CODE' assignment
-
-Maybe you don't _like_ planning for your future, maybe you just like to code and not write things, maybe you don't want us creeping on your future plans, man. It's cool. I get it.
-
-Complete the [Dangerous Denver Code Assignment](assignments/dangerous-denver.markdown)
-
 ## In Summation
 
 What we've asked you to do in Module 4 is:
