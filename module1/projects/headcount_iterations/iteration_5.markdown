@@ -64,5 +64,3 @@ ha.top_statewide_test_year_over_year_growth(grade: 8, :weighting => {:math => 0.
 ```
 
 The weights *must* add up to 1.
-
-### [TODO: Add another area of analysis for this iteration]
