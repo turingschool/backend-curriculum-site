@@ -29,6 +29,7 @@ here.](pd_deliverables)
 
 #### Week 1
 
+* [Intro to Mod 3](lessons/intro_mod_three)
 * [Rails Engine](projects/rails_engine) Kickoff
 * [JSON Fundamentals](lessons/json_fundementals)
 * [Building an API](lessons/building_an_api)
