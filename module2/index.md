@@ -57,7 +57,7 @@ By the end of this module, students will be able to:
 * [Feature Testing with Capybara in Sinatra for Films](lessons/feature_testing_in_sinatra_with_films)
 * Rush Hour Evaluations
 * [ActiveRecord Obstacle Course](lessons/active_record_obstacle_course)
-* [Feedback is Great](slides/difficult_conversations/difficult_conversations)
+* [Feedback is Great](slides/difficult_conversations/diff-convos)
 * [REST, Controllers, and Routing in Rails](lessons/rest_routing_and_controllers_in_rails)
 * [Rails: Migrations, Databases, Relationships, and Models](lessons/models_databases_relationships)
 * [Blogger Tutorial](http://tutorials.jumpstartlab.com/projects/blogger.html)
