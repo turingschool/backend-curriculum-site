@@ -14,6 +14,11 @@ Write a program which can imitate a Customer Service Representative who's phone 
 * The first time you say `GOODBYE!` they say `ANYTHING ELSE I CAN HELP WITH?`
 * The second time you say `GOODBYE!` they say `THANK YOU FOR CALLING!` and the program
 exits.
+* To run the program, you would enter in your command line:
+```
+ruby bad_connection.rb
+```
+
 
 ## Example
 
