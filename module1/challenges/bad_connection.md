@@ -4,7 +4,7 @@ This small challenge is adapted from Chris Pine's "Learn to Program".
 
 ## Premise
 
-Write a program which can imitate a Customer Service Representative who's phone connection is bad with these rules:
+Write a program which can imitate a Customer Service Representative whose phone connection is bad with these rules:
 
 * If you don't input anything (just hit enter) they respond with `HELLO?!`
 * If you ask a question with any lower-case letters, they respond with
