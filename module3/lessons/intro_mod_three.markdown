@@ -24,7 +24,7 @@ Taken from [Quora](https://www.quora.com/Whats-the-best-way-to-ask-questions-as-
 > 6. I am a fan of pair programming, give it a try if you haven't already.  You may find that its a path to accelerated learning and better software.
 
 
-One thing I'd add is for number 2 on the list, writing out your question can serve a similar purpose. Using Slack can be great because other students can benefit from reading through the discussion.
+One thing I'd add is for number 2 ([Rubber Ducking](http://wiki.c2.com/?RubberDucking)) on the list, writing out your question can serve a similar purpose. Using Slack can be great because other students can benefit from reading through the discussion.
 
 Be mindful not to post something like "I'm trying to build X but it's not working." A better question will involve what you tried and what leads you to believe it's not working. Do you have an error message? Share it. What have you tried? Are you following a tutorial or using a specific gem? The more specific your question the more likely you are to receive a response. The other magical thing that tends to happen is that sometimes the process of breaking it down in a way that someone else can understand will actually be enough for you to solve the problem on your own.
 
