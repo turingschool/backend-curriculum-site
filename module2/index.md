@@ -6,6 +6,8 @@ subheading: Web Applications with Ruby
 
 ## Module 2 Scope and Sequence
 
+<iframe src="https://calendar.google.com/calendar/embed?mode=week&src=casimircreative.com_rps2hg1nfqjih4rcl3gl6s4lpk%40group.calendar.google.com&ctz=America/Denver" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+
 * [__Mod 2 Calendar__](https://calendar.google.com/calendar/embed?src=casimircreative.com_rps2hg1nfqjih4rcl3gl6s4lpk@group.calendar.google.com&ctz=America/Denver)
 * [__Mod 2 Homework Assignments__](https://github.com/turingschool/homework/blob/master/module-2-homework.markdown)
 * [__Portfolio Template__](https://raw.githubusercontent.com/turingschool/portfolios/master/template.markdown)
@@ -55,6 +57,7 @@ By the end of this module, students will be able to:
 * [Feature Testing with Capybara in Sinatra for Films](lessons/feature_testing_in_sinatra_with_films)
 * Rush Hour Evaluations
 * [ActiveRecord Obstacle Course](lessons/active_record_obstacle_course)
+* [Feedback is Great](slides/difficult_conversations/diff-convos)
 * [REST, Controllers, and Routing in Rails](lessons/rest_routing_and_controllers_in_rails)
 * [Rails: Migrations, Databases, Relationships, and Models](lessons/models_databases_relationships)
 * [Blogger Tutorial](http://tutorials.jumpstartlab.com/projects/blogger.html)
@@ -98,17 +101,18 @@ By the end of this module, students will be able to:
 * [Git Workflow](lessons/git_workflows)
 * [Intro to the Asset Pipeline](lessons/intro_to_the_asset_pipeline)
 * [Pushing Logic Down the Stack](http://tutorials.jumpstartlab.com/topics/architecture/pushing_logic_down_the_stack.html)
-* [Callbacks, and Scopes](https://github.com/turingschool-examples/turing-scholarbot)
+* [Callbacks, and Scopes](lessons/scopes_callbacks_class_methods.markdown)
 
 #### Optional (Time Permitting)
 * [Rails Mini-Project Peer extension and review exercise](lessons/mini-project-gem-implementation)
 * Mini-Project show and tell
+* [JavaScript, Part I](lessons/introduction_to_javascript)
+* [Intro to jQuery and Filtering with jQuery](lessons/introduction_to_jquery)
 
 #### Week 6
 
-* [JavaScript, Part I](lessons/introduction_to_javascript)
+* Intermediate SQL
 * Little Shop of Orders Work Time
-* [Intro to jQuery and Filtering with jQuery](lessons/introduction_to_jquery)
 * [Professional Development: Networking](https://github.com/turingschool/professional_skills/blob/master/networking.md)
 * Module 2 Assessments
 * Little Shop of Orders Evaluations

@@ -13,67 +13,38 @@ tags: ruby, computer science, logic
 * Be able to trace the paths through a chunk of code
 * Be able to use compound logic to flatten nested `if` statements
 
-## Structure
+## Why?
+Why is it helpful to have a working understanding of boolean logic? Flattening `if` statements
 
-* 25 - Lecture
-* 5 - Break
-* 45 - Activities
-* 5 - Break
-* 10 - Wrap Up
+## Truthy and falsey values
+Which of these are truthy and which are falsey?
 
-## Lecture
+* 1.0
+* "hello"
+* nil
+* 0
+* false
+* true
+* "false"
 
-* AND/OR/NOT in Ruby and beyond
-* Expressions and precedence with parentheses
-* Truth Tables
-* Short-Circuit Evaluation
-* Conditions are branches which lead to code paths
-* Flattening `if` statements
+## AND/OR/NOT and Truth Tables
+We'll use a truth table and an `irb` session to clarify how these rules work.
 
-As logical examples we'll use:
+## Taking it to the next level
+
+### Expressions and precedence with parentheses
+Create Truth Table for this expression using the boolean values `A`, `B`, and `C`:
 
 * `(A || B) && (A || C)`
 * `(A || !B) || (!A || C)`
 * `((A && B) && C) || (B && !A)`
+* `((A && B) && !C) || ((A && C) && !B)`
 
-And for a code path we'll use this code:
+### Short-Circuit evaluation
+[Short-Circuit Evaluation](https://en.wikipedia.org/wiki/Short-circuit_evaluation)
 
-```ruby
-if fruit.round?
-  if fruit.color == "red"
-    puts "apple"
-  elsif fruit.color == "orange"
-    puts "orange"
-  end
-else
-  if fruit.large?
-    if fruit.green?
-      if fruit.tasty?
-        puts "watermelon"
-      else
-        puts "honeydew"
-      end
-    else
-      puts "cantelope"
-    end
-  else
-    puts "grapes"
-  end
-end
-```
 
-## Activities
-
-### 1. Compound Expression Truth-Table
-
-Create Truth Table for this expression using the boolean values `A`, `B`, and `C`:
-
-`((A && B) && !C) || ((A && C) && !B)`
-
-### Diagramming Execution Paths
-
-Consider the following code:
-
+### Activity 1: Vehicle
 ```ruby
 class Vehicle
   attr_reader :model, :four_wheel, :big_back_wheels
@@ -134,13 +105,16 @@ elsif vehicle.pickup?
 end
 
 ```
-
-* How many unique execution paths are there through the block of code starting with `if vehicle.car?` statement? 
+* How many unique execution paths are there through the block of code starting with `if vehicle.car?` statement?
 * Chart out the conditions which would lead to these paths (consider a truth table).
 
-### Reshaping Logic
+
+### Activity 2: Flattening if statements
 
 Take the code from the previous exercise. Let's try to refactor it. Start by flattening it down. Can you simplify the logic to reduce the number of paths? How few can you get it down to? Compare your results with a peer.
+
+Convert the nested if/else statements to flatter boolean expressions.
+
 
 ## Wrapup
 

@@ -11,7 +11,7 @@ By the end of this lesson, you will know/be able to:
 
 * Explain when you would want to use a background worker
 * Be able to implement a basic background process
-
+* What ActiveJob is and how it is similar to ActiveRecord
 
 #### Intro
 
@@ -46,6 +46,10 @@ rails s
 
 Workin-it is a simple app that takes an email and a random thought to generate an email with a giphy about your thought. Start the server `rails s` and you should be able to view the app at `http://localhost:3000` which has form inputs for an email address and a thought. When you submit that form you should feel the pain of a slow page load.
 
+Why?
+
+Checkout our `UserNotifier` mailer. A 5 second delay has been hard-coded in to simulate a real-life delay.
+
 ### 2: Mailcatcher for Local Email Processing
 
 In order to see the emails that the application outputs, lets
@@ -66,7 +70,7 @@ config.action_mailer.delivery_method = :smtp
 config.action_mailer.smtp_settings = { address: 'localhost', port: 1025 }
 ```
 
-You'll also need to update the `smtp_settings` with your own account info.
+You'd need to update the `smtp_settings` with your own account info in production.
 
 Now test that the application is working by entering an email address
 and any thought you may have right now. You should
@@ -81,12 +85,12 @@ Notice that for this process takes a very long time. What we have here is a perf
 * Operation requires relatively little data as inputs (email address
   and random thought).
 
-Sidekiq and Resque are the 2 most popular queuing libraries for ruby.
+Sidekiq and Resque are the 2 most popular queuing libraries for Ruby.
 For this application, we'll use Sidekiq.
 
 ### 3: Dependency -- Redis
 
-Like Resque, Sidekiq uses Redis to store queued jobs, so first make
+Like Resque, Sidekiq uses Redis as a database to store queued jobs, so first make
 sure you have redis installed and running.
 
 Run `redis-server`
@@ -94,7 +98,7 @@ Run `redis-server`
 If you don't already have redis, install it with homebrew:
 
 ```
-brew install redis
+brew update && brew install redis
 ```
 
 Then run `redis-server`.
@@ -109,9 +113,15 @@ $ redis-cli
 127.0.0.1:6379>
 ```
 
-### 4: Sidekiq Setup
+The need for running our Redis server now is similar to how Postgres must be running in order for ActiveRecord to interact with our database.
 
-Now we can add the sidekiq gem to our Gemfile:
+### 4: ActiveJob and Sidekiq Setup
+
+Sidekiq is the adapter we'll be using with Rails' ActiveJob. ActiveJob was introduced in Rails 4.2 as a way of interacting with these background worker adapters more easily.
+
+A worker class inheriting from `ActiveJob::Base` will have access to job enqueing methods, as well as many callbacks. Those can be seen [here](http://edgeguides.rubyonrails.org/active_job_basics.html).
+
+We can add the sidekiq gem to our Gemfile:
 
 ```
 gem 'sidekiq'
@@ -141,30 +151,44 @@ You should get the fancy Sidekiq ASCII logo in your terminal:
          sss
 ```
 
+We also need to configure ActiveJob to use sidekiq as its adapter:
+
+```ruby
+# config/application.rb
+class Application < Rails::Application
+  #
+  config.active_job.queue_adapter = :sidekiq
+end
+```
+
 ### 5: Making a Job
 
 Now we have sidekiq running with our application, but so far it doesn't
 do anything for us. Let's create a worker to handle our Workin-it email.
 
-Sidekiq's convention is to store worker classes under the `app/workers` directory,
-so create a file at `app/workers/gif_email_worker.rb` to contain
-our email worker.
+ActiveJob looks for jobs in the `app/jobs` directory. These job files will typically end in `_job` as to avoid namespace collisions.
 
-In order to make use of the various methods sidekiq provides, we need to
-include the `Sidekiq::Worker` module, so let's set up our worker like
-so:
+Rails 4.2 introduced a generator for these jobs:
 
 ```ruby
-class WorkinItEmailWorker
-  include Sidekiq::Worker
+rails generate job example
+```
+
+The above will create `ExampleJob` saved to the `app/jobs` directory.
+
+We know that we want a job for sending emails, so let's create an `EmailJob`.
+
+```ruby
+class EmailJob < ActiveJob::Base
 end
 ```
 
 ### 6: Defining Job Operations
 
-Within a Sidekiq worker, the instance method `#perform` is what gets
-called whenever a job appears for our worker to do. Let's think about
-what needs to go in here and about what inputs are required for
+Within a Sidekiq job, the instance method `#perform` is what gets
+called whenever a job appears for our worker to do. Other methods can live within the job class, but `#perform` is what will be invoked when running the worker.
+
+Let's think about what needs to go in here and about what inputs are required for
 the worker to do its job:
 
 * Needs to take in the email address and thought (since these
@@ -174,14 +198,23 @@ the worker to do its job:
 Given these constraints, it might look something like:
 
 ```ruby
-class WorkinItEmailWorker
-  include Sidekiq::Worker
-
+class EmailJob < ActiveJob::Base
   def perform(email, thought)
     UserNotifier.send_randomness_email(email, thought).deliver_now
   end
 end
 ```
+
+If you went the generate route for creating `EmailJob`, you may see something that looks like:
+
+```ruby
+queue_as :default
+```
+
+This helper allows us to designate which workers queue our job should run on (should we have multiple workers).
+
+By default, ActionMailer jobs run on the `mailers` queue. Changing `default` to something like `urgent` would redirect these jobs.
+
 
 ### 7: Queueing Jobs -- Sidekiq::Worker.perform_async
 
@@ -190,19 +223,16 @@ our background process is invoked. Now we just need to actually
 invoke it.
 
 With Sidekiq, we dispatch a job for a worker to do later by
-calling the class method `.perform_async` on our worker and
+calling ActiveJob's class method `.perform_later` on our worker and
 providing it whatever arguments are needed for the job.
 
-Under the hood, the `perform_async` method writes data into
+Under the hood, the `.perform_later` method writes data into
 Redis indicating the type of job which needs to be done
 and the data associated with it. The workers (in a separate
 process) are monitoring the queue so that whenever new jobs
 appear, they can spring into action and do them!
 
-This works out to our advantage thanks to the low
-latency of Redis as a data store. The "write" to Redis is
-extremely fast (often fractions of a milliseconds), so
-we effectively exchange a slow action (sending an email and making an api call) for an extremely fast one.
+These workers can also perform jobs syncronously if needed. In that case, the method `.perform_now` would be used.
 
 But enough chit-chat, let's see what it looks like to actually
 queue the job. Recall that we were previously sending the
@@ -211,12 +241,33 @@ the line that was sending the email with this line to
 queue our job instead:
 
 ```ruby
-WorkinItEmailWorker.perform_async(params[:mailers][:email], params[:mailers][:thought])
+EmailJob.perform_later(params[:mailers][:email], params[:mailers][:thought])
 ```
 
-Remember -- the arguments passed in to the `.perform_async` method here
+Remember -- the arguments passed in to the `.perform_later` method here
 will eventually be handed to your worker's `#perform` method, so make
 sure they match up.
+
+Let's try this out now - hopefully that painful delay is no more!
+
+### 8: Sidekiq Dashboard
+
+Sidekiq and Resque provide dashboards for us to monitor our local job queues.
+
+They both run using Sinatra, so to enable them, we need to add Sinatra to our Gemfile:
+
+```ruby
+gem 'sinatra', '>= 1.3.0', :require => nil
+```
+
+Then, in our routes file, we'll need to mount the Sidekiq dashboard:
+
+```ruby
+require 'sidekiq/web'
+mount Sidekiq::Web => '/sidekiq'
+```
+
+Now you can navigate to `http://localhost:3000/sidekiq/`. This dashboard is very useful for testing out jobs and recieving confirmation that everything is queued according to plan.
 
 #### The Closing: ~5 min
 
@@ -231,7 +282,6 @@ sure they match up.
 ### Repository
 
 * [Work-it Repo](https://github.com/turingschool-examples/work-it/tree/master/app)
-
 
 ### Outside Resources / Further Reading
 
