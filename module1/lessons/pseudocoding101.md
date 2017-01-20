@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Pseudocoding101
+title: Pseudocoding 101
 length: 30
 tags: ruby, pseudocode
 ---
