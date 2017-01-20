@@ -42,11 +42,11 @@ Students must earn a score of `3` or greater in *each* category of the final ass
 
 ### Feedback & Community
 
-As stewards of the larger Turing community, Module 4 students are expected to *complete at least one of the following*:
+As stewards of the larger Turing community, Module 4 students are expected to **complete at least two** of the following:
 
 * lead or co-lead a Friday Spike session
 * deliver any session at a meetup or conference
-* pair three times with students in lower modules
+* pair three or more times with students in lower modules
 * contribute in a meaningful way to the project of a student/team *not* in your module
 
 ## Skill Proficiencies
