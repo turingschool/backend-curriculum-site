@@ -26,7 +26,9 @@ Students must earn a score of `3` or greater in *each* category of the final ass
 
 *Expected*: Students, as a pair, document the results of their project from Weeks 1 & 2.
 
-*Expected*: Students, as a project team, are responsible for delivering all scheduled feature cards by the end of Sprint 2 (Week 5).
+*Expected*: Students, as a project team, are responsible for delivering all scheduled feature cards *in the primary project* by the end of Sprint 2 (Week 5).
+
+*Expected*: Students are responsible for delivering all feature cards assigned to them *in the team's side project/service* by the end of Sprint 2 (Week 5).
 
 ### Professional Skills
 
