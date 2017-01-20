@@ -12,7 +12,7 @@ layout: page
 * Echo: [SuperFizz](https://github.com/turingschool/challenges/blob/master/super_fizz.markdown)
 * Foxtrot: [Working with Strings and Integers](https://github.com/turingschool/challenges/blob/master/working_with_strings_and_integers.markdown)
 * [Professional Development Deliverables](https://gist.github.com/icorson3/85e6f2a5c4999514d9317e1baa1bf9b1) (Peer Reviews Due Thursday/To Meg by Friday midnight)
-
+* [Pseudocoding Practice](./student_homework/pseudocoding_homework)
 
 ### 1.2
 * [Eloquent Ruby Chapters 3 & 4](https://drive.google.com/file/d/0B4C6lfVKu-E7WjRhNnRKa0k4NHc/view)
@@ -72,7 +72,7 @@ layout: page
 
 ### 3.5 (weekend)
 * Update portfolio with reflections from Friday's Gear Up session and any project evaluations received this week. See the portfolio requirements and the associated repository [here](https://github.com/turingschool/portfolios)
-* Write feedback for your partner from last week's project and send to your instructor point person. 
+* Write feedback for your partner from last week's project and send to your instructor point person.
 
 ## WEEK 4
 
