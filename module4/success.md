@@ -39,6 +39,7 @@ Students must earn a score of `3` or greater in *each* category of the final ass
 * Have their portfolio up and approved (including the resume, copy, and three projects)
 * Have adequate documentation for each of their portfolio projects
 * Participate in at least one practice technical interview or one actual external interview
+* Complete "[The Plan](http://backend.turing.io/module4/projects/the-plan/)", which details steps you'll take to grow in the 6-12 months after Turing
 
 ### Feedback & Community
 
@@ -101,7 +102,6 @@ Academic success in B4 means that students demonstrate proficiency and comfort w
 
 * Students write instructions with basic data types like strings, integers, and floats
 * Students use basic array functions to store and retrieve data
-* Students use a library to execute collection functionality (ex: lodash)
 * Students create and use anonymous functions
 * Students create and use named functions
 * Students create and use functions with optional parameters
@@ -125,11 +125,18 @@ Academic success in B4 means that students demonstrate proficiency and comfort w
 
 ### JavaScript Libraries
 
-* (forthcoming)
+* Students know appropriate uses of LoDash or Underscore to extend JavaScript's enumerables
+* Students can configure a build tool like WebPack
+* Students can use Mocha and Chai for unit testing
+* Students can write integration tests using Selenium based libraries
+* Students can build basic services or applications using the Express framework
+* Students can interact with SQL databases using Knex
 
 ### React
 
-* (forthcoming)
+* Students can turn existing jQuery/JS functionality into a React component
+* Students understand how to pass data and maintain state between components
+* Students can use AJAX to set and modify state across components
 
 ### PostgreSQL & SQL
 
