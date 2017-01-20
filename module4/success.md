@@ -3,7 +3,53 @@ layout: page
 title: Module 4 Success
 ---
 
-Success in B4 means that students demonstrate proficiency and comfort with the following concepts:
+## Graduation Requirements
+
+In order to graduate from Module 4, students must complete each of the following:
+
+### Final Assessment
+
+Students must earn a score of `3` or greater in *each* category of the final assessment rubric.
+
+### Independent Work
+
+*Expected*: Independent work for M4 will consist primarily of contributing to Open Source in Weeks 5 & 6:
+
+* Reproduce and confirm or contradict one bug report
+* Submit one sizable/difficult or two smaller/moderate code-centric pull requests that are worth merging
+* Submit one documentation patch (README, CONTRIBUTING, code documentation, etc)
+* Write a single blog post that explains the whole process
+
+*Optional*: Students are encouraged to include the results of their in-class work and tutorials.
+
+### Group Work
+
+*Expected*: Students, as a pair, document the results of their project from Weeks 1 & 2.
+
+*Expected*: Students, as a project team, are responsible for delivering all scheduled feature cards by the end of Sprint 2 (Week 5).
+
+### Professional Skills
+
+*Expected*: Students are to begin their job hunt and submit evidence of:
+
+* At least 6 "cold outreach" contacts
+* Have their resume approved by the Employment Coordinator
+* Have their portfolio up and approved (including the resume, copy, and three projects)
+* Have adequate documentation for each of their portfolio projects
+* Participate in at least one practice technical interview or one actual external interview
+
+### Feedback & Community
+
+As stewards of the larger Turing community, Module 4 students are expected to *complete at least one of the following*:
+
+* lead or co-lead a Friday Spike session
+* deliver any session at a meetup or conference
+* pair three times with students in lower modules
+* contribute in a meaningful way to the project of a student/team *not* in your module
+
+## Skill Proficiencies
+
+Academic success in B4 means that students demonstrate proficiency and comfort with the following concepts:
 
 ## Professional Skills
 
