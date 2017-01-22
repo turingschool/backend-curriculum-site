@@ -1,8 +1,19 @@
 ---
 layout: page
 title: Quantified Self
-subheading: A calorie tracker
+subheading: A calorie tracker project for the fourth module
 ---
+
+## Intro
+
+Pearson's Law:
+
+> "That which is measured improves. That which is measured and reported improves exponentially." - Karl Pearson
+
+Technology has enabled us to measure more, and shorten the period between measurement and reporting. Sensors are cheaper and smaller, computers are everywhere, and we can access data from anywhere. People who have recognized this, and applied it to themselves are part of a movement called "Quantified Self."
+
+We are going to be building a simple calorie tracker. Something to measure your calories in and your calories out.
+
 
 ## Learning Goals
 
@@ -29,15 +40,6 @@ subheading: A calorie tracker
 - Persist data to a backend
 - Merge changes that have happened while you were offline (extension)
 - Write unit and integration tests
-
-## Intro
-
-Pearson's Law:
-> "That which is measured improves. That which is measured and reported improves exponentially." - Karl Pearson
-
-Technology has enabled us to measure more, and shorten the period between measurement and reporting. Sensors are cheaper and smaller, computers are everywhere, and we can access data from anywhere. People who have recognized this, and applied it to themselves are part of a movement call "Quantified Self."
-
-We are going to be building a simple calorie tracker. Something to measure your calories in and your calories out.
 
 ### Requirements overview
 
