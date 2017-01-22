@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Intro to Git & Github
+title: Getting Started with Git
 length: 180
 tags: git, github
 ---
