@@ -11,6 +11,23 @@ subheading: Professional Application Development
 
 Module 4 is the capstone: a demonstration of the best of what students are capable of. It prepares them for the workplace by emulating the patterns and processes that they’ll use. It should prepare them for their career by helping them set goals and direction without dictating every step of the journey.
 
+### Broad Learning Goals
+
+- Give students confidence to adapt to new technologies and teams
+  - Students will test and build an application in a new language
+  - Students will understand and practice working in an Agile workflow on a team
+  - Students will apply the concepts previously learned in new contexts
+  - Students will be working in "brownfield development" situations
+- Students should be able to provide value in technical conversations and decisions
+  - Students will be able to evaluate choices that they make in designing software and understand the tradeoffs
+  - Students will understand and be able to speak to the basics of software architecture
+- Students should be able to differentiate with respect to career goals
+  - Students will be able to define their skills in context of the web application pipeline
+- Students will polish their professional skills and apply them to the job hunt
+  - Students will be able to balance and prioritize their time and energy
+  - Students will keep up with the professional development curriculum
+
+
 ### Defining Success
 
 Students who successfully complete Module 4 will have demonstrated mastery of Professional Skills, Core Technical Skills, and a set of Elective Technical skills. [These skills are broken down in detail here](success).
