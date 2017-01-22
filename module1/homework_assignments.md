@@ -32,6 +32,8 @@ layout: page
 * Foxtrot: [Chapters 1,2,3,6,7 from Chris Pine's Learn to Program](https://pine.fm/LearnToProgram/)
 * [Intro to TDD](https://github.com/turingschool/curriculum/blob/master/source/topics/testing/intro-to-tdd.markdown)
 * Update portfolio with reflections from Friday's Gear Up session and any project evaluations received this week. See the portfolio requirements and the associated repository [here](https://github.com/turingschool/portfolios)
+* [Continue to work on Credit Check](./challenges/credit_check)
+
 
 ## WEEK 2
 

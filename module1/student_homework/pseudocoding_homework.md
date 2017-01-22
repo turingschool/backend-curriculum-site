@@ -13,4 +13,4 @@ In class we explored pseudocoding and why we might use it. The homework assignme
 3. What's the (next-)most trivial possible case? (Identify the next small-picture goal)
 4. *How* do we achieve this goal? (Sketch an algorithm using pseudocode)
 
-Create a gist with answers and tag your instructor point person in your gist.
+Create a folder in your module1 directory called "homework". Create a ruby file in the homework folder called "pseudocode.rb". Put your pseudocode in this file. 
