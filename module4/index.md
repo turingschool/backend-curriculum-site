@@ -15,15 +15,13 @@ Module 4 is the capstone: a demonstration of the best of what students are capab
 
 Students who successfully complete Module 4 will have demonstrated mastery of Professional Skills, Core Technical Skills, and a set of Elective Technical skills. [These skills are broken down in detail here](success).
 
+We have enumerated a [list of commitments](commitments) for students and instructors throughout the module. This is in addition to the regular expectations we introduced a couple innings ago, and I can't find right now. Standby.
+
 ### Projects
 
-The module is primarily oriented around six-week team projects. [Find more details about the projects themselves here](projects_overview).
+Your first project is [Quantified Self](projects/quantified-self). It's a pair project lasting two weeks, and will thus overlap for one week with your main project.
 
-For the November 16-January 17 inning, students work in the following groups:
-
-* Monocle: Susi Irwin & Brendan Dillon & Dan Broadbent & Ryan David Workman & Nate Anderson
-* Enroll: Sonia Gupta & Brian Heim & David Davydov & Jean Joeris & Raphael Barbo
-* Census: Bryan Goss & Calaway & Jesse Spevack & Jasmin Hudacsek
+The module is primarily oriented around five-week team projects. [Find more details about the projects themselves here](projects_overview).
 
 ### Course Plan
 
