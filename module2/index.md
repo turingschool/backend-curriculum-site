@@ -39,6 +39,7 @@ By the end of this module, students will be able to:
 #### Week 1
 
 * [Intro to Sinatra](lessons/introduction_to_sinatra)
+* [HTML/CSS Basics](slides/html_css_basics/html_css_basics)
 * [Intro to Bootstrap](lessons/introduction_to_bootstrap_v2)
 * [How the Web Works](lessons/how_the_web_works)
 * [Passing Data With Sinatra](https://github.com/case-eee/shopping)
