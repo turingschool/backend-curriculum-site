@@ -11,10 +11,10 @@ Fill in how you would grade yourself from 1-4 in the following categories this m
 | Section | Category | Score |
 | - | ----- | - |
 | A | **End-of-Module Assessment** | X |
-| B | **Individual Work & Projects** | X |
-| C | **Group Work & Projects** | X |
-| D | **Professional Skills** | X |
-| E | **Feedback & Community Participation** | X |
+| B | **Individual Projects** | X |
+| C | **Group Projects** | X |
+| D | **Professional Development** | X |
+| E | **Community** | X |
 
 #### Notes
 
@@ -44,7 +44,7 @@ This section does not need to be populated (and template text should therefore b
 * Note 2
 
 
-## B: Individual Work & Projects
+## B: Individual Projects
 
 | CATEGORY | PROJ 1 (replace) | PROJ 2 (replace) | PROJECT 3 (replace) |
 | - | - | - | - |
@@ -64,7 +64,7 @@ This section does not need to be populated (and template text should therefore b
 * Note 2 (if applicable)
 
 
-## C: Group Work & Projects
+## C: Group Projects
 
 | CATEGORY | PROJECT 1 | PROJECT 2 |
 | - | - | - | - |
@@ -94,6 +94,7 @@ This section does not need to be populated (and template text should therefore b
 ### Pair Feedback
 
 Feedback from partner projects.
+
 * Project 1 (First Last): lorem ipsem
 * Project 2 (First Last): lorem ipsem
 
