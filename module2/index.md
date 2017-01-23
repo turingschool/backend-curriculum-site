@@ -42,41 +42,43 @@ By the end of this module, students will be able to:
 * [HTML/CSS Basics](slides/html_css_basics/html_css_basics)
 * [Intro to Bootstrap](lessons/introduction_to_bootstrap_v2)
 * [How the Web Works](lessons/how_the_web_works)
-* [Passing Data With Sinatra](https://github.com/case-eee/shopping)
 * [CRUD in Sinatra](lessons/crud-intro-sinatra)
-* [ActiveRecord Exploration](https://github.com/case-eee/intro-to-ar)
+* [Passing Data With Sinatra](https://github.com/turingschool/shopping)
+* [Database Visualization & Relationships](lessons/visualising_and_implementing_database_relationships)
+* [ActiveRecord Intro and Exploration](https://github.com/turingschool/intro-to-ar)
 * [Intro to ActiveRecord with Sinatra](lessons/intro_to_active_record_in_sinatra)
-* [Professional Development: Finding Opportunities](https://github.com/turingschool/professional_skills/blob/master/module_two/finding_opportunities.md)
+* [Professional Development: Flower Exercise](../professional_development/module_two/flower_exercise)
 * [Model Testing in Sinatra](lessons/model_testing_in_sinatra_with_films)
 * [Intro to Project Management](lessons/intro_to_project_management)
-* [Collaborative Communication](https://github.com/turingschool/professional_skills/blob/master/module_two/collaborative_communication.md)
-* [Rush Hour Kickoff](https://github.com/turingschool/curriculum/blob/master/source/projects/rush_hour.md)
-* [Database Visualization & Relationships](lessons/visualising_and_implementing_database_relationships)
+* [BikeShare Kickoff]()
+* [Feature Testing with Capybara in Sinatra for Films](lessons/feature_testing_in_sinatra_with_films)
 
 #### Week 2
 
-* [Feature Testing with Capybara in Sinatra for Films](lessons/feature_testing_in_sinatra_with_films)
-* Rush Hour Evaluations
-* [ActiveRecord Obstacle Course](lessons/active_record_obstacle_course)
+* [Intermediate Sql]()
+* [ERD's](lessons/entity-relationship-diagramming)
+* [ActiveRecord Associations]()
 * [Feedback is Great](slides/difficult_conversations/diff-convos)
+* [ActiveRecord Obstacle Course](lessons/active_record_obstacle_course)
 * [REST, Controllers, and Routing in Rails](lessons/rest_routing_and_controllers_in_rails)
 * [Rails: Migrations, Databases, Relationships, and Models](lessons/models_databases_relationships)
 * [Blogger Tutorial](http://tutorials.jumpstartlab.com/projects/blogger.html)
-* Rush Hour Work Time & Check-ins
 
 #### Week 3
 
-* [Relationship Implementation and Exercises](https://github.com/turingschool-examples/relationship_practice_exercises)
+* [Revisiting the ActiveRecord Obstacle Course](lessons/active_record_obstacle_course)
+* [Factory Girl](lessons/factory_documentation)
+* [Migrations and Relationships in Rails](lessons/migrations-databases-relationships)
 * [Rails Basics Challenge](lessons/models_databases_relationships_routes_controllers_oh_my)
 * [Route Helpers](lessons/route_helpers)
-* [Factory Girl](lessons/factory_documentation)
 * [Form Helpers](lessons/form_helpers_rails)
 * [BookShelf](lessons/forms_primer)
 * [Mix Master Kick-off](projects/mix_master/1_getting_started)
 * [Ruby Pairing](https://github.com/turingschool/challenges/blob/master/flatten.markdown)
-* [Revisiting the ActiveRecord Obstacle Course](lessons/active_record_obstacle_course)
+* [Nested Routes]()
 * [MixMaster Q&A](projects/mix_master/1_getting_started)
-* [Job Tracker Project](https://github.com/case-eee/job-tracker)
+* [Relationship Implementation and Exercises](https://github.com/turingschool-examples/relationship_practice_exercises)
+* [Job Tracker Project](https://github.com/turingschool/job-tracker)
 
 #### Week 4
 
@@ -84,22 +86,22 @@ By the end of this module, students will be able to:
 * CRUD Sprint
 * [Authentication](lessons/authentication)
 * Authentication Work Time
-* Professional Development: Cold Outreach
-* [Advanced Routing in Rails](lessons/advanced_routing_rails)
+* Mid-Module Assessments
 * [Authorization](lessons/authorization-in-rails)
 * Authorization Work Time
 * [Exploring Apis](lessons/exploring_apis)
 * Mid-Module Assessments
-* [Advanced Associations & Polymorphic Relationships](lessons/advanced_associations)
-* [Git Workflow](lessons/small_team_git_workflow)
-* [Rails Mini-Project](projects/mini-project)
+* [Advanced Routing in Rails](lessons/advanced_routing_rails)
 * [Rails Views Tips & Tricks](lessons/rails_views_tips_and_techniques)
+* [Rails Mini-Project](projects/mini-project)
 
 #### Week 5
 
+* [Mini-Project Demos](lessons/mini-project-gem-implementation)
 * [Cart & Order Lifecycles](lessons/cart_implementation)
 * [LittleShop of Orders kickoff](projects/little_shop)
 * [Git Workflow](lessons/git_workflows)
+* [Git Workflow](lessons/small_team_git_workflow)
 * [Intro to the Asset Pipeline](lessons/intro_to_the_asset_pipeline)
 * [Pushing Logic Down the Stack](http://tutorials.jumpstartlab.com/topics/architecture/pushing_logic_down_the_stack.html)
 * [Callbacks, and Scopes](lessons/scopes_callbacks_class_methods.markdown)
@@ -114,7 +116,7 @@ By the end of this module, students will be able to:
 
 * Intermediate SQL
 * Little Shop of Orders Work Time
-* [Professional Development: Networking](https://github.com/turingschool/professional_skills/blob/master/networking.md)
+* [Professional Development: Flower Excersise part II Story Telling](https://github.com/turingschool/professional_skills/blob/master/networking.md)
 * Module 2 Assessments
 * Little Shop of Orders Evaluations
 * Portfolio Reviews
