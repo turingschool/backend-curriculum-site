@@ -1,6 +1,5 @@
-# M1 Graduation Requirements
-
-To advance to BE M2, M1 students will need to successfully complete the following five activities in week 6.
+# M1 Backend Pentathlon
+To advance to M2, M1 students will need to demonstrate competency in individual projects, pair projects, professional development and community engagement. M1 students will also need to successfully complete the following five activities in week 6.
 
 
 ## Written Diagnostic
