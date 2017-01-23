@@ -2,6 +2,7 @@
 title: Week 2
 layout: page
 ---
+
 ## Projects and Exercises
 * [Enigma](https://github.com/turingschool/curriculum/blob/master/source/projects/enigma.markdown)
 * [Complete Me](https://github.com/turingschool/curriculum/blob/master/source/projects/complete_me.markdown)

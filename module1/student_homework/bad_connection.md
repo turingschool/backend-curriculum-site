@@ -1,3 +1,8 @@
+---
+title: Bad Connection
+tags: projects
+---
+
 # Bad Connection
 
 This small challenge is adapted from Chris Pine's "Learn to Program".
