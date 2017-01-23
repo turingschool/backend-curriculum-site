@@ -20,8 +20,8 @@ Fill in how you would grade yourself from 1-4 in the following categories this m
 
 This section does not need to be populated (and template text should therefore be removed) if no scores warrant explanation.
 
-* Note 1 (if applicable)
-* Note 1 (if applicable)
+*   Note 1 (if applicable)
+*   Note 2 (if applicable)
 
 ------------------------------------------------
 
@@ -38,10 +38,8 @@ This section does not need to be populated (and template text should therefore b
 
 #### Assessor Comments
 
-(if applicable)
-
-* Note 1
-* Note 2
+*   Note 1 (if applicable)
+*   Note 2 (if applicable)
 
 
 ## B: Individual Projects
@@ -60,8 +58,8 @@ This section does not need to be populated (and template text should therefore b
 
 This section does not need to be populated (and template text should therefore be removed) if no scores warrant explanation.
 
-* Note 1 (if applicable)
-* Note 2 (if applicable)
+*   Note 1 (if applicable)
+*   Note 2 (if applicable)
 
 
 ## C: Group Projects
@@ -81,8 +79,8 @@ This section does not need to be populated (and template text should therefore b
 
 This section does not need to be populated (and template text should therefore be removed) if no scores warrant explanation.
 
-* Note 1 (if applicable)
-* Note 2 (if applicable)
+*   Note 1 (if applicable)
+*   Note 2 (if applicable)
 
 
 ## D: Professional Development
@@ -95,13 +93,13 @@ This section does not need to be populated (and template text should therefore b
 
 Feedback from partner projects.
 
-* Project 1 (First Last): lorem ipsem
-* Project 2 (First Last): lorem ipsem
+*   Project 1 (First Last): lorem ipsum
+*   Project 2 (First Last): lorem ipsum
 
 ### Job Prep
 
-* Resume with a summary statement and placeholder for projects and skills to be obtained during Turing: [link](http://example.com)
-* LinkedIn profile with a summary, descriptions under experience, and Turing under education: [Link](http://example.com)
+*   Resume with a summary statement and placeholder for projects and skills to be obtained during Turing: [link](http://example.com)
+*   LinkedIn profile with a summary, descriptions under experience, and Turing under education: [Link](http://example.com)
 
 
 
@@ -128,8 +126,8 @@ Feedback from partner projects.
 
 ## Final Review
 
-* Note 1
-* Note 2
+*   Note 1
+*   Note 2
 
 ### Outcome
 
