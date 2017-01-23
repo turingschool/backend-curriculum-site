@@ -19,6 +19,7 @@ Fill in how you would grade yourself from 1-4 in the following categories this m
 #### Notes
 
 This section does not need to be populated (and template text should therefore be removed) if no scores warrant explanation.
+
 * Note 1 (if applicable)
 * Note 1 (if applicable)
 
@@ -35,6 +36,13 @@ This section does not need to be populated (and template text should therefore b
 | **Collaboration** | X |
 | **Enumerable & Collections** | X |
 
+#### Assessor Comments
+
+(if applicable)
+
+* Note 1
+* Note 2
+
 
 ## B: Individual Work & Projects
 
@@ -47,6 +55,14 @@ This section does not need to be populated (and template text should therefore b
 | **Encapsulation/Breaking Logic into Components** | X | X | X |
 | **Fundamental Ruby & Style** | X | X | X |
 | **Loop or Recursion** | X | X | X |
+
+#### Notes
+
+This section does not need to be populated (and template text should therefore be removed) if no scores warrant explanation.
+
+* Note 1 (if applicable)
+* Note 2 (if applicable)
+
 
 ## C: Group Work & Projects
 
@@ -61,14 +77,12 @@ This section does not need to be populated (and template text should therefore b
 | **Loop or Recursion** | X | X |
 | **Teamwork** | X | X |
 
-### Assessor Comments
+#### Notes
 
-* Project 1
-  * Note 1
-  * Note 2
-* Project 2
-  * Note 1
-  * Note 2
+This section does not need to be populated (and template text should therefore be removed) if no scores warrant explanation.
+
+* Note 1 (if applicable)
+* Note 2 (if applicable)
 
 
 ## D: Professional Development
