@@ -5,15 +5,11 @@ length: 30
 tags: git, github
 ---
 
-## Prework (the Night Before)
-
-Set up your ssh keys on github according to [these instructions](https://help.github.com/articles/generating-ssh-keys/)
-
 ## Standards
 
 After this lesson, students should be able to:
 
--  Access their remote GitHub account via the command line
+-  Configure their local git to access their remote GitHub account via the command line
 
 ## Introduction to Git
 
@@ -108,3 +104,11 @@ Are you sure you want to continue connecting (yes/no)?
 ```bash
 Hi YourUsername! You\'ve succesfully authenticated, but GitHub does not provide shell access.
 ```
+
+## Extensions
+
+If you've verified the above is complete, please work through the following:
+
+-   Customize your terminal - colors/themes, default directory, aliases, etc.
+-   Customize your Slack profile (name and/or profile picture help your team identify you)
+-   Add your GitHub username/profile link to your Slack profile
