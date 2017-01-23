@@ -145,14 +145,13 @@ GET /api/v1/merchants/find?parameters
 
 ##### Request Parameters
 
----
+
 | parameter  | description                          |
 |------------|--------------------------------------|
 | id         | search based on the primary key      |
 | name       | search based on the name attribute   |
 | created_at | search based on created_at timestamp |
 | updated_at | search based on updated_at timestamp |
----
 
 ##### JSON Output
 
