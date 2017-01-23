@@ -68,7 +68,7 @@ A student who graduates from this module will be able to do the following.
       Week 1
     </li>
   </a>
-  <a href="week_2">
+  <!-- <a href="week_2">
     <li class="outline">
       Week 2
     </li>
@@ -92,17 +92,15 @@ A student who graduates from this module will be able to do the following.
     <li class="outline">
       Week 6
     </li>
-  </a>
+  </a> -->
 </ul>
 
 ## Important Links
-* [__Homework Assignments__](homework_assignments)
 * [__Portfolio Requirements__](https://github.com/turingschool/portfolios)
 * [__Professional Development Curriculum__](/professional_development)
 
 ## Practice Exercises
-Exercises you'll want to use throughout module for enrichment and extra practice. Some of these exercises are assigned as homework per [Mod 1 Homework Assignments](homework_assignments).
+Exercises you'll want to use throughout module for enrichment and extra practice.
 
-* [Drills](lessons/drills) ([Video](https://vimeo.com/160162922))
 * [Mythical Creatures](https://github.com/turingschool/ruby-exercises/blob/master/mythical-creatures/)
 * [Exercisms](http://exercism.io/)
