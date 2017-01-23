@@ -116,7 +116,7 @@ By the end of this module, students will be able to:
 
 * Intermediate SQL
 * Little Shop of Orders Work Time
-* [Professional Development: Flower Excersise part II Story Telling](https://github.com/turingschool/professional_skills/blob/master/networking.md)
+* [Professional Development: Flower Exercise part II Story Telling](../professional_development/module_two/flower/exercise)
 * Module 2 Assessments
 * Little Shop of Orders Evaluations
 * Portfolio Reviews
