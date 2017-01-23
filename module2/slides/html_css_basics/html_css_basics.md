@@ -183,6 +183,8 @@ With a partner
 
 Implement a simple wireframe.
 
+Other examples available [here](https://github.com/s-espinosa/basic_html_css_comp).
+
 ---
 
 # Implement Your Wireframe
