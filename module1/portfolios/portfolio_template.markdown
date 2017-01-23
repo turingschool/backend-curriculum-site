@@ -29,6 +29,8 @@ This section does not need to be populated (and template text should therefore b
 
 | Category | Score |
 | ----- | - |
+| **Written Diagnostic** | PASS/FAIL |
+| **Timed Exercise** | PASS/FAIL |
 | **Ruby Syntax & API** | X |
 | **Completion and Progress** | X |
 | **Testing** | X |
