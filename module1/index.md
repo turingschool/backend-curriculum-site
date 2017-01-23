@@ -96,7 +96,7 @@ A student who graduates from this module will be able to do the following.
 
 ## Important Links
 
-*   [Calendar](http://bit.ly/2k6ksyH)
+*   [__Calendar__](http://bit.ly/2k6ksyH)
 *   [__Portfolio Requirements__](https://github.com/turingschool/portfolios)
 *   [__Professional Development Curriculum__](/professional_development)
 
