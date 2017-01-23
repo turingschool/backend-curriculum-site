@@ -15,17 +15,17 @@ layout: page
 ### 1.2
 * [Eloquent Ruby Chapters 3 & 4](https://drive.google.com/file/d/0B4C6lfVKu-E7WjRhNnRKa0k4NHc/view)
 * [Eloquent Ruby Arrays and Strings](https://github.com/turingschool/challenges/blob/master/eloquent_ruby_arrays_and_strings.markdown)
-* [Bad Connection](./challenges/bad_connection)
+* [Bad Connection](./projects/bad_connection)
 
 ### 1.3
 * Read the following [article](https://backchannel.com/at-harvey-mudd-college-the-ratio-of-women-in-cs-increased-from-10-to-40-in-5-years-4bb72e909fbd#.ockew3egl) and spend 5-10 minutes writing a reaction to it. DM Mike with a link to your gist.
 
-* [SuperFizz](https://github.com/turingschool/challenges/blob/master/super_fizz.markdown)
+* [SuperFizz](./projects/super_fizz)
 
 ### 1.4
 * [Enums Exercises (Map, Find, Select)](https://gist.github.com/mikedao/b4249d3ae07b6c31a4b7#file-enums_homework_part_1-md)
 * Read the following [article](http://www.newyorker.com/business/currency/silicon-valley-has-an-empathy-vacuum) and spend 5-10 minutes writing a reaction to it. DM Mike with a link to your gist.
-* [Credit Check](./challenges/credit_check)
+* [Credit Check](./projects/credit_check)
 
 
 ### 1.5 (weekend)

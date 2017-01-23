@@ -1,6 +1,6 @@
 ---
 title: Bad Connection
-tags: challenges
+tags: projects
 ---
 
 # Bad Connection
