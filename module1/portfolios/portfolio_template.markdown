@@ -1,10 +1,12 @@
 # First Last - MX Portfolio
+
 ## Areas of Emphasis
+
 (insert description here)
 
 ## Self-Assessment Scores
 
-Fill in how you would grade yourself from 1-4 in the following categories this module:
+Fill in how you would grade yourself from 1-4 in the following categories this module.
 
 | Section | Category | Score |
 | - | ----- | - |
@@ -13,6 +15,12 @@ Fill in how you would grade yourself from 1-4 in the following categories this m
 | C | **Group Work & Projects** | X |
 | D | **Professional Skills** | X |
 | E | **Feedback & Community Participation** | X |
+
+#### Notes
+
+This section does not need to be populated (and template text should therefore be removed) if no scores warrant explanation.
+* Note 1 (if applicable)
+* Note 1 (if applicable)
 
 ------------------------------------------------
 
@@ -30,7 +38,7 @@ Fill in how you would grade yourself from 1-4 in the following categories this m
 
 ## B: Individual Work & Projects
 
-| CATEGORY | PROJECT 1 | PROJECT 2 | PROJECT 3 |
+| CATEGORY | PROJ 1 (replace) | PROJ 2 (replace) | PROJECT 3 (replace) |
 | - | - | - | - |
 | **Project Spec** | [link](http://example.com) | [link](http://example.com) | [link](http://example.com) |
 | **Github** | [link](http://example.com) | [link](http://example.com) | [link](http://example.com) |
@@ -70,6 +78,7 @@ Fill in how you would grade yourself from 1-4 in the following categories this m
 [Link](http://example.com) to DTR Memo from 1 paired project.
 
 ### Pair Feedback
+
 Feedback from partner projects.
 * Project 1 (First Last): lorem ipsem
 * Project 2 (First Last): lorem ipsem
@@ -101,6 +110,7 @@ Feedback from partner projects.
 (insert description of how you've contributed to the Turing community)
 
 -------------------------------------------------------------
+
 ## Final Review
 
 * Note 1
@@ -108,4 +118,4 @@ Feedback from partner projects.
 
 ### Outcome
 
-PROMOTED, RETAINED, DISMISSED, PROVISIONAL
+(PROMOTED, RETAINED, DISMISSED, PROVISIONAL)
