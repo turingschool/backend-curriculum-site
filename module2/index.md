@@ -50,7 +50,7 @@ By the end of this module, students will be able to:
 * [Professional Development: Flower Exercise](../professional_development/module_two/flower_exercise)
 * [Model Testing in Sinatra](lessons/model_testing_in_sinatra_with_films)
 * [Intro to Project Management](lessons/intro_to_project_management)
-* [BikeShare Kickoff]()
+* [BikeShare Kickoff](https://github.com/turingschool/bike-share)
 * [Feature Testing with Capybara in Sinatra for Films](lessons/feature_testing_in_sinatra_with_films)
 
 #### Week 2
