@@ -98,7 +98,7 @@ A student who graduates from this module will be able to do the following.
 
 *   [__Calendar__](http://bit.ly/2k6ksyH)
 *   [__Portfolio Requirements__](https://github.com/turingschool/portfolios)
-*   [M1 Graduation Requirements](http://backend.turing.io/module1/portfolios/backend_m1_graduation_expectations)
+*   [__M1 Graduation Requirements__](http://backend.turing.io/module1/portfolios/backend_m1_graduation_expectations)
 *   [__Professional Development Curriculum__](/professional_development)
 
 ## Practice Exercises
