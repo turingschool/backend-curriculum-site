@@ -34,14 +34,14 @@ We'll step through using some of the fundamental Array methods, including:
 As we go, we'll work with an IRB session.
 
 -   Create a new file in your module 1 folder called ```intro_to_arrays.rb```. In this file, you can take notes and recreate what we have used in our pry session to refer to.
--   In our pry session let's create some data:
+-   In our irb session let's create some data:
 
     ```ruby
     name_1 = "Ilana"
     name_2 = "Beth"
     name_3 = "Lauren"
     ```
--   Now that we have more than one name, we need a way to collection this data. Let's set a variable name "data" to an empty array.
+-   Now that we have more than one name, we need a way to collect this data or create a collection. Let's set a variable named "data" to an empty array.
 
     ```ruby
       name_1 = "Ilana"
@@ -60,7 +60,7 @@ As we go, we'll work with an IRB session.
     data << name_1
     ```
 
--   "shovel" or push
+      "shovel" or push
 
     ```ruby
     data.push(name_1)
