@@ -4,6 +4,10 @@
 * Individual Assessment: Passing Score (All 3's) required
   * Your submitted portfolio should include **self-assessment** scores.
   * Use the [rubric](https://github.com/turingschool/portfolios/blob/master/rubric.markdown) to determine your proper scores.
+* Final Assessments
+  * Include scores and applicable notes for your written diagnostic.
+  * Include scores and applicable notes for your paired assessment.
+  * Include scores and applicable notes for your timed exercise.
 * Individual Projects
   * Include scores for all individual projects.
 * Group Projects: All paired projects
@@ -51,7 +55,7 @@ If you were completing Module 4 in Cohort 1410 on August 31, 2015 and your name 
 
 ## Outcomes
 
-Portfolio evaluations have four possible outcomes. 
+Portfolio evaluations have four possible outcomes.
 
 * *PROMOTED* - your portfolio demonstrates a successful fulfillment of expectations
 and you may move on to the next module or graduate

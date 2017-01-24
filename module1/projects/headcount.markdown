@@ -17,6 +17,10 @@ Starting with the CSV data we will:
 
 ## Project Overview
 
+The learning goals covered by this project will become foundational understanding throughout upcoming modules at Turing.
+
+Most importantly, this project guides you through building from scratch an Object Relational Mapping tool (ORM) to communicate with and manipulate the data stored in various CSV files. These CSV files imitate a database. Thusly, this way of understanding and working with data will carry on through your learning of web applications.
+
 ### Learning Goals
 
 * Use tests to drive both the design and implementation of code
