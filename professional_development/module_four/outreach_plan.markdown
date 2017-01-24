@@ -31,7 +31,7 @@ Relevant to your job hunt:
 
 For the **Professional Skills** component of your portfolio, students are to begin their job hunt and submit evidence of:
 
-* At least 6 "cold outreach" contacts
+* At least 6 "cold outreach" contacts (though 12 would be smart)
 * Have their resume approved by the Employment Coordinator
 * Have their portfolio up and approved (including the resume, copy, images, and three projects)
 * Have adequate documentation for each of their portfolio projects
