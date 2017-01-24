@@ -13,10 +13,6 @@ By the end of this lesson, you will know/be able to:
 * Know the use cases for local storage vs. session storage
 * Have a process for researching a new topic
 
-## Repository
-
-* [Link to Example Repo](https://github.com/turingschool-examples/client-side-storage)
-
 ## High Scores Feature
 
 Let's say you got hired by a client to create a little game using JavaScript, HTML and maybe a little bit of CSS for a client's marketing campaign. They plan to have a laptop set up at a booth at a trade show, and allow people visiting the booth to play a game.
