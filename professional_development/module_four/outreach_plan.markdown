@@ -44,7 +44,7 @@ Note that at least B4 students will also complete "[The Plan](http://backend.tur
 All submissions should be emailed to Meg Stewart (mstewart@turing.io).
 
 * Double-check that your GitHub and LinkedIn have your proper name (properly capitalized please) and the same headshot image
-* Resume submitted by 4pm Friday 1/27 and revised/approved by Friday 2/10
+* Resume submitted by 4pm Friday 1/27 and revised/approved by Friday 2/03
 * Portfolio with three complete projects and resume up by 6pm Wednesday 2/1
 * First two "cold outreach" contacts documented by 4pm Friday 2/3
 
