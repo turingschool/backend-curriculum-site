@@ -1,7 +1,7 @@
 ---
 title: Arrays
 length: 60
-tags: ruby, arrays, data structures
+tags: ruby, arrays, names structures
 ---
 
 # Introduction to Arrays
@@ -14,7 +14,7 @@ tags: ruby, arrays, data structures
 
 ### What is a data structure?
 
--   A data structure is a particular way of organizing data so that it can be used efficiently
+-   A data structure is a particular way of organizing names so that it can be used efficiently
 
 ### What is an array?
 
@@ -34,95 +34,95 @@ We'll step through using some of the fundamental Array methods, including:
 As we go, we'll work with an IRB session.
 
 -   Create a new file in your module 1 folder called ```intro_to_arrays.rb```. In this file, you can take notes and recreate what we have used in our pry session to refer to.
--   In our irb session let's create some data:
+-   In our irb session let's create some names:
 
     ```ruby
     name_1 = "Ilana"
     name_2 = "Beth"
     name_3 = "Lauren"
     ```
--   Now that we have more than one name, we need a way to collect this data or create a collection. Let's set a variable named "data" to an empty array.
+-   Now that we have more than one name, we need a way to collect this data or create a collection. Let's set a variable named "names" to an empty array.
 
     ```ruby
       name_1 = "Ilana"
       name_2 = "Beth"
       name_3 = "Lauren"
-      data = []
+      names = []
     ```
 
     *This is how we represent an empty array in ruby*
 
--   Count is a built-in ruby method. If our data array is empty, what would be expected to be returned from ```data.count```?
+-   Count is a built-in ruby method. If our names array is empty, what would be expected to be returned from ```names.count```?
 
 -   How do we get information into the empty array?
 
     ```ruby
-    data << name_1
+    names << name_1
     ```
 
       "shovel" or push
 
     ```ruby
-    data.push(name_1)
+    names.push(name_1)
     ```
 
     This will always add to the end of the array.
 
-    If we call ```data.count``` now, what do we expect to get?
+    If we call ```names.count``` now, what do we expect to get?
 
-    *Try it:* Let's shovel all our names into our data array.
+    *Try it:* Let's shovel all our names into our names array.
 
 -   Just like a string, we can access each item by index/position.
 
     ```ruby
-      data[0]
+      names[0]
     ```
 
 -   We can also explicitly set the index of an item:
 
     ```ruby
-      data[0] = "Jeff"
+      names[0] = "Jeff"
     ```
 
-    What will this do to our original ```data```?
+    What will this do to our original ```names```?
 
 -   We also have other ways to access positions within the array:
 
     ```ruby
-      data.first
-      data.last
+      names.first
+      names.last
     ```
 
 -   What if we want to add an item to the **beginning** of the array?
 
     ```ruby
       name_4 = "Louisa"
-      data.unshift(name_4)
+      names.unshift(name_4)
     ```
 
 -   We can also pick a specific position to insert the item into:
 
     ```ruby
-      data.insert(2, "Horace")
+      names.insert(2, "Horace")
     ```
-    Now what does our data array show?
+    Now what does our names array show?
 
 -   *Try It:* Using ruby docs, what method might we use to remove the last element of the array? What about the first element?
 
--   There are also a lot of other methods that we can call on an array. What do we think ```data.shuffle``` will do?
+-   There are also a lot of other methods that we can call on an array. What do we think ```names.shuffle``` will do?
 
 -   At this point, it is reasonable to wonder, how could we only get certain information from the array. Let's say that we only want to retrieve the first letter of each name. Now we have to go one by one through the array (what else is this called?) and return only the first letter of the name. How do we do that?
 
-    Our data array already has names in it. Let's continue to use that. We need to make a new array that will hold our new collection of first letters.
+    Our names array already has names in it. Let's continue to use that. We need to make a new array that will hold our new collection of first letters.
 
     ```ruby
-      certain_names = []
-      data.each do |name|
-        certain_names << name[0]
+      first_initial = []
+      names.each do |name|
+        first_initial << name[0]
       end
     ```
 
-    What happens when we call ```certain_names```? What about ```data```?
+    What happens when we call ```first_initial```? What about ```names```?
 
 Got it? Here are the important concepts you've seen:
 
@@ -131,6 +131,6 @@ Got it? Here are the important concepts you've seen:
 *   You can add an element to the end of an array with `<<` or `.push`
 *   You can remove an element from the end of an array with `.pop`
 *   You can add an element to the front of an array with `.unshift`.
-*   The `insert` method takes two arguments: first is the position where you want to insert the data, the second is the data to be inserted
+*   The `insert` method takes two arguments: first is the position where you want to insert the names, the second is the names to be inserted
 *   `shuffle` returns a copy of your array with the elements randomly jumbled up
 *   `each` is an *enumerable* method which takes a block parameter and runs that block once for *each* element in the collection.
