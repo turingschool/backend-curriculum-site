@@ -62,7 +62,7 @@ By the end of this module, students will be able to:
 * [ActiveRecord Obstacle Course](lessons/active_record_obstacle_course)
 * [REST, Controllers, and Routing in Rails](lessons/rest_routing_and_controllers_in_rails)
 * [Rails: Migrations, Databases, Relationships, and Models](lessons/models_databases_relationships)
-* [Blogger Tutorial]()
+* [Blogger Tutorial](projects/blogger)
 
 #### Week 3
 
