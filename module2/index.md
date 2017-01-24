@@ -9,7 +9,7 @@ subheading: Web Applications with Ruby
 <iframe src="https://calendar.google.com/calendar/embed?mode=week&src=casimircreative.com_rps2hg1nfqjih4rcl3gl6s4lpk%40group.calendar.google.com&ctz=America/Denver" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
 
 * [__Mod 2 Calendar__](https://calendar.google.com/calendar/embed?src=casimircreative.com_rps2hg1nfqjih4rcl3gl6s4lpk@group.calendar.google.com&ctz=America/Denver)
-* [__Mod 2 Homework Assignments__](https://github.com/turingschool/homework/blob/master/module-2-homework.markdown)
+* [__Mod 2 Homework Assignments__](homework)
 * [__Portfolio Template__](https://raw.githubusercontent.com/turingschool/portfolios/master/template.markdown)
 * [__Mod 2 Portfolio Requirements__](https://github.com/turingschool/portfolios#module-2)
 
