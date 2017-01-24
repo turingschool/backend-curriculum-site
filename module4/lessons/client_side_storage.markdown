@@ -13,10 +13,6 @@ By the end of this lesson, you will know/be able to:
 * Know the use cases for local storage vs. session storage
 * Have a process for researching a new topic
 
-## Repository
-
-* [Link to Example Repo](https://github.com/turingschool-examples/client-side-storage)
-
 ## High Scores Feature
 
 Let's say you got hired by a client to create a little game using JavaScript, HTML and maybe a little bit of CSS for a client's marketing campaign. They plan to have a laptop set up at a booth at a trade show, and allow people visiting the booth to play a game.
@@ -27,13 +23,12 @@ Your first reaction to this request might be to `rails g migration UserHighScore
 
 ### Discovering storage options
 
-- Take 5 minutes, and write up what you know, and don't know, about browser based storage
+- Take 5 minutes, and write up what you know, what you can assume, and what you don't know, about browser based storage
 - Discuss with the person next to you
 - Share with the class
-- Take 5 minutes and come up with different ways to discover the things you don't know
+- Take 5 minutes and come up with different ways to confirm your assumptions and discover the things you don't know
 - Discuss your answers with the person next to you
 - Share with the class
-
 
 ### Let's Store Some Data
 
