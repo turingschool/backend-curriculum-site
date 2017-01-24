@@ -23,13 +23,12 @@ Your first reaction to this request might be to `rails g migration UserHighScore
 
 ### Discovering storage options
 
-- Take 5 minutes, and write up what you know, and don't know, about browser based storage
+- Take 5 minutes, and write up what you know, what you can assume, and what you don't know, about browser based storage
 - Discuss with the person next to you
 - Share with the class
-- Take 5 minutes and come up with different ways to discover the things you don't know
+- Take 5 minutes and come up with different ways to confirm your assumptions and discover the things you don't know
 - Discuss your answers with the person next to you
 - Share with the class
-
 
 ### Let's Store Some Data
 
