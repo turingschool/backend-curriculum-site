@@ -1,3 +1,9 @@
+---
+layout: page
+title: Module 2
+subheading: Homework
+---
+
 ## Week 1
 
 ##### Ongoing
