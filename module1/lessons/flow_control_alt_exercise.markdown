@@ -16,7 +16,7 @@ Let's practice manipulating some of Ruby's Flow Control mechanisms while working
 
 ### Assignment
 
-Spend 20 minutes working on the first challenge. Implement the solution twice, using 2 of the following looping tools:
+Spend 20 minutes working on the first challenge in the exercise. Implement the solution twice, using 2 of the following looping tools:
 
 * `each`
 * `for` loop
