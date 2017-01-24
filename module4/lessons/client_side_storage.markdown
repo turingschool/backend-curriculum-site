@@ -39,6 +39,7 @@ Git clone this [Example Repo](https://github.com/turingschool-examples/client-si
 You'll notice that the app generates a high score when a button is clicked.
 
 Using localStorage or sessionStorage, update the application so that:
+
   - The high scores persist when the users page is refreshed
   - The user can enter their name with their high score
   - The user can clear all high scores by clicking a button
