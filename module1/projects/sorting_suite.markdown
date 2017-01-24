@@ -346,41 +346,34 @@ SortingSuite::InsertionSort.new(array).sort.object_id == array.object_id
 => true
 ```
 
+## Evaluation Rubric
 
-## Rubric
+The project will be assessed with the following guidelines:
 
-This rubric works like so: In order to get a given score,
-you must satisfy not only its description,
-but also the requirements of all the scores beneath it.
-ie if you did not satisfy the requirements of 2,
-then you are not eligible for a 3, even if you satisfied it.
+### 1. Fundamental Ruby & Style
 
-### Functional Expectations
+* 4:  Application demonstrates excellent knowledge of Ruby syntax, style, and refactoring
+* 3:  Application shows strong effort towards organization, content, and refactoring
+* 2:  Application runs but the code has long methods, unnecessary or poorly named variables, and needs significant refactoring
+* 1:  Application generates syntax error or crashes during execution
 
-* 4: All three sort classes work as expected with 2 or more extensions.
-* 3: All three sort classes work as expected
-* 2: Two sort classes work as expected
-* 1: Zero or one sort classes work as expected
+### 2. Test-Driven Development
 
-### Testing
+* 4: Application is broken into components which are well tested in both isolation and integration
+* 3: Application is well tested but does not balance isolation and integration tests, using only the data necessary to test the functionality
+* 2: Application makes some use of tests, but the coverage is insufficient
+* 1: Application does not demonstrate strong use of TDD
 
-* 4: Tests are clearly written with names that accurately describe the behavior. Edge cases
-such as empty arrays, reversed arrays, etc are also tested.
-* 3: Tests cover functionality and demonstrate some escalation of complexity across the examples.
-* 2: Sorting suites pass all the examples
-* 1: All tests pass and can be ran together with a single command
+### 3. Encapsulation / Breaking Logic into Components
 
-### Ruby Style
+* 4: Application is expertly divided into logical components each with a clear, single responsibility
+* 3: Application effectively breaks logical components apart but breaks the principle of SRP
+* 2: Application shows some effort to break logic into components, but the divisions are inconsistent or unclear
+* 1: Application logic shows poor decomposition with too much logic mashed together
 
-* 4: Any given chunk of code can be understood at a single level of abstraction
-* 3: Code is a readable and effective implementation of the algorithm. Has fewer than 4 "what on earth is this?" lines of code.
-* 2: Code runs effectively but has large issues with readbility (long methods, confusing
-method or variable names, etc)
-* 1: There are syntax errors or crashes during execution
+### 4. Functional Expectations
 
-### Organization
-
-* 4: Version control maintains the codebase
-* 3: Each sorter class has it's own file in the proper directory and it's own test in the test directory
-* 2: A file/directory structure provides basic organization via lib/ and spec/ or /test
-* 1: Components work together properly
+* 4: Application meets all requirements, and implements one extension properly.
+* 3: Application meets all requirements as laid out per the specification.
+* 2: Application runs, but does not work properly, or does not meet specifications.
+* 1: Application does not run, crashes on start.
