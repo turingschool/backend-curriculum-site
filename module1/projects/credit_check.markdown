@@ -33,7 +33,7 @@ We use the algorithm to calculate the correct checksum digit:
 Account identifier:    7   9   9   2   7   3   9   8   7   1   x
 2x every other digit:  7   18  9   4   7   6   9   16  7   2   x
 Summed digits over 10: 7   9   9   4   7   6   9   7   7   2   x
-Results summed:        7   9   9   4   7   6   9   7   7   2` = 67
+Results summed:        7   9   9   4   7   6   9   7   7   2 = 67
 ```
 
 With the result of `67`, we take the ones digit (`7`) and subtract it from `10`: `10 - 7 = 3`. Thus `3` is the check digit.
