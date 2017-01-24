@@ -57,7 +57,7 @@ By the end of this module, students will be able to:
 
 * [Intermediate Sql]()
 * [ERD's](lessons/entity-relationship-diagramming)
-* [ActiveRecord Associations]()
+* [ActiveRecord Associations](lessons/activerecord_associations)
 * [Feedback is Great](slides/difficult_conversations/diff-convos)
 * [ActiveRecord Obstacle Course](lessons/active_record_obstacle_course)
 * [REST, Controllers, and Routing in Rails](lessons/rest_routing_and_controllers_in_rails)
@@ -75,7 +75,7 @@ By the end of this module, students will be able to:
 * [BookShelf](lessons/forms_primer)
 * [Mix Master Kick-off](projects/mix_master/1_getting_started)
 * [Ruby Pairing](https://github.com/turingschool/challenges/blob/master/flatten.markdown)
-* [Nested Routes]()
+* [Nested Routes](lessons/advanced_routing_rails)
 * [MixMaster Q&A](projects/mix_master/1_getting_started)
 * [Relationship Implementation and Exercises](https://github.com/turingschool-examples/relationship_practice_exercises)
 * [Job Tracker Project](https://github.com/turingschool/job-tracker)
@@ -103,10 +103,10 @@ By the end of this module, students will be able to:
 * [Git Workflow](lessons/git_workflows)
 * [Git Workflow](lessons/small_team_git_workflow)
 * [Intro to the Asset Pipeline](lessons/intro_to_the_asset_pipeline)
-* [Pushing Logic Down the Stack](http://tutorials.jumpstartlab.com/topics/architecture/pushing_logic_down_the_stack.html)
 * [Callbacks, and Scopes](lessons/scopes_callbacks_class_methods.markdown)
 
 #### Optional (Time Permitting)
+* [Pushing Logic Down the Stack](http://tutorials.jumpstartlab.com/topics/architecture/pushing_logic_down_the_stack.html)
 * [Rails Mini-Project Peer extension and review exercise](lessons/mini-project-gem-implementation)
 * Mini-Project show and tell
 * [JavaScript, Part I](lessons/introduction_to_javascript)
