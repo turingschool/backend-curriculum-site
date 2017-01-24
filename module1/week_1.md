@@ -10,7 +10,7 @@ layout: page
 * [Intro to Git](lessons/intro_to_git)
 * [Strings and Integers](lessons/strings_and_integers)
 * [Pseudocode](lessons/pseudocoding101)
-* [Introducing Arrays](lessons/arrays) ([Video](https://www.youtube.com/watch?v=nlwU1YtQ9SU))
+* [Introducing Arrays](lessons/arrays_101) ([Video](https://www.youtube.com/watch?v=nlwU1YtQ9SU))
 * [Flow Control (Foxtrot)](lessons/flow_control) ([Video](https://www.youtube.com/watch?v=iZkQWR9_RpY))
 * [Exploring `.each` and Exercises](lessons/primer_on_each)
 * [Core Types (Foxtrot)](https://github.com/turingschool/ruby-exercises/tree/master/core-types)
