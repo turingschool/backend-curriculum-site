@@ -18,9 +18,14 @@ Relevant to your job hunt:
 ## Big Picture
 
 * 71 days
+* Your job is not posted
 * You get you a job
-* A tree in the forest
-* First impressions => Only impressions
+* You get your friends a job
+* "A tree in the forest" preparation
+* First impressions => only impressions
+* Work your advantages
+* Skill vs Hustle
+* Discipline + Hustle + Skill = Job
 
 ## Expectations & Deliverables
 
@@ -48,4 +53,50 @@ All submissions should be emailed to Meg Stewart (mstewart@turing.io).
 * Third two "cold outreach" contacts by 4pm Friday 2/17
 * Actual or practice interview by 4pm Friday 2/27
 
-## Make a Plan
+## How to Reach Out
+
+### Who?
+
+* Monocle dataset
+* Researching projects on GitHub
+* Finding individuals on GitHub
+* Look for community builders (events, sponsors, etc)
+* Mining Meetup
+* Mailing lists are still a thing
+* Slack and even IRC
+
+#### Put the **COLD** in Outreach
+
+* No Turing/gSchool/HA alumni
+* Prefer to avoid companies where alums are working
+* Someone you've met but not worked with is OK
+
+Where are alumni already working? Here is a quick list (but not exhaustive) of companies that you should skip:
+
+8th Light, Active Network, AdHawk, Advantage Integrated, Agilion, Allstate, American Thrombosis and Hemotosis Network, Aurigae, Blue Apron, Bonobos, Brandfolder, CA Technologies, Captain U, CareZone, Cirro, Coders Workshop, Cognizant Quick Left, CustomInk, DHR.net, Democracy Works, Digital Ocean, DispatchHealth, Ello, Equal Opportunity Schools, FanDuel Inc, Gitlab, Glassbreakers, GoSpotCheck, Gramercy Tech, Granicus, Guild Education, Harry Fox Agency (aka SESAC/Rumblefish), Huron, Impekable, Influx Data, Inquicker, Inspirato, Instacart, Invoca, Kite, Muve Health, NextRequest, Optum, Oracle, Politech, Procore, Real Geeks, Rumblefish, Shopify, Splice, Stitch Fix, TEKSystems, Tack Mobile, Tendril, Trelora, United Health Group, Vermont Public Radio, Vulk Coop, Wazee Digital, WellMatch/Aetna, Welltok Inc, Western Union, Wombat Security, eGauge Systems, iCentris, iTrellis
+
+If you'd like to check any other company, feel free to DM Meg.
+
+### How?
+
+* <=30 minutes for research & writing
+* Twitter ok, Email is great
+* Don't apologize
+* Shorter is better
+* Make a clear request
+* Add time bounding
+* Easy to say yes
+* Limit your expectations
+* Ask for money you get advice, ask for advice you get money
+
+### Email?
+
+* Review the GitHub ninja technique
+* Guessing/researching the company email format
+* Don't bother with InMail
+
+## Wrapup
+
+* Review your expectations
+* Questions
+* What if you did two RIGHT NOW?
