@@ -9,11 +9,11 @@ How you schedule, manage, and communicate about your work is more important than
 
 ## Learning & Completion Goals
 
-* Student understands the expected workflow for turning story concepts into deployed features
-* Student understands which tool is for communicating with which parts of the team
+* Student understands the expected workflow for turning ideas/requirements into work-ready stories
 * Student is familiar with a template for good stories
 * Student is able to write a story following the template
 * Student is able to use a point system for estimating stories
+* Student is able to decompose a complex story into a simpler one
 
 ## Session Plan
 

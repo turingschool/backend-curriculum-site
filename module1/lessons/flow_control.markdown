@@ -19,51 +19,58 @@ tags: fundamentals, computer science
 * use an `else` statement to create an alternative path
 * combine if, elsif, and else to create multiple branches
 
-## Discussion
+## Looping
 
-### Looping
+### Discussion
 
 A loop is a set of instructions that is executed repeatedly until some condition is met. This condition may be a certain number of times that the loop is executed, or it may be a question that returns a true/false answer.
 
-Examples:
+#### Examples:
 
 - While looking for a parking spot at a crowded sporting event, a car continues to drive up and down the rows until an empty spot is found. (Loop that executes until a question returns true or false)
 - After baking cookies, you pull the cookie sheet out of the oven which holds 24 cookies. One by one, you remove each of the cookies from the sheet and place them on a cooling rack. (Set of instructions that executes 24 times)
 
-*Try it*: What are some other examples of looping in the real world?
+#### Discuss with a Partner:
 
-* `while`
+What are some other examples of looping in the real world?
+
+### `while`, `until`, `times`
+
+Let's look at three of the more popular loops Ruby offers.
+
+What are some differences you notice among them?
+
+#### `while`
 
 ```ruby
-while condition (boolean)
-  # code to execute
+while condition
+ # code to execute
 end
 ```
 
-* `until`
+#### `until`
 
 ```ruby
-until condition (boolean)
-  # code to execute
+until condition
+  # code to execute if above condition evaluates to true
 end
 ```
 
-* `times`
-
+#### `times`
 
 ```ruby
 5.times do
-  # code to execute
+  # code to execute if above condition evaluates to true
 end
 ```
 
 ```ruby
 5.times do |number|
-  # code to execute
+ # code to execute
 end
 ```
 
-### Branching
+### Conditional Branching
 
 In programming, branching refers to a choice that is made depending on whether or not a condition is true or false. Think of branching as "choose your own adventure".
 
@@ -77,7 +84,7 @@ Examples:
 * `if`
 
 ```ruby
-if condition (boolean)
+if condition
   # code to execute
 end
 ```
@@ -85,7 +92,7 @@ end
 * `else`
 
 ```ruby
-if condition (boolean)
+if condition
   # code to execute if true
 else
   # code to execute if false
@@ -95,9 +102,9 @@ end
 * `elsif`
 
 ```ruby
-if condition (boolean)
+if condition
   # code to execute if above condition evaluates to true
-elsif condition (boolean)
+elsif condition
   # code to execute if above condition evaluates to true
 else
   # code to execute if both evaluate to false
@@ -106,7 +113,7 @@ end
 
 ## Exercises
 
-Before gettign started, you'll need a few tools to work with user input and output.
+Before getting started, you'll need a few tools to work with user input and output.
 
 * How do we tell Ruby to print text to the screen?
 * How do we tell Ruby to bring in text from the user?
@@ -117,7 +124,7 @@ Write a simple Ruby program which prompts the user to enter a message, then prin
 
 ```
 Type your message:
-(user types "pizza" and presses enter)
+# (user types "pizza" and presses enter)
 pizza
 ```
 
@@ -189,6 +196,6 @@ You win!
 
 The secret number and the guesses are both random numbers 0 through 10.
 
-## Alt Lesson Plan
+## Extensions
 
-For a less directed version of this lesson focused more around independent exercise (good for echo or mod 1 repeaters), try [this](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/flow_control_alt_exercise.markdown)
+If you flew through the above, try [this](flow_control_alt_exercise.markdown).
