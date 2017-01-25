@@ -41,7 +41,7 @@ By the end of this module, students will be able to:
 * [Intro to Sinatra](lessons/introduction_to_sinatra)
 * [HTML/CSS Basics](slides/html_css_basics/html_css_basics)
 * [Intro to Bootstrap](lessons/introduction_to_bootstrap_v2)
-* [How the Web Works](lessons/how_the_web_works)
+* [How the Web Works](slides/how_the_web_works/slides)
 * [CRUD in Sinatra](lessons/crud-intro-sinatra)
 * [Passing Data With Sinatra](https://github.com/turingschool/shopping)
 * [Database Visualization & Relationships](lessons/visualising_and_implementing_database_relationships)
