@@ -20,7 +20,7 @@ By the end of this lesson, you will know/be able to:
 
 ### Check for Understanding
 
-Fork the [cfu_crud_in_sinatra.markdown](https://gist.github.com/Carmer/2c616bc4d840f02b5ca7879082facdbf) gist and click the edit button. 
+Fork the [cfu_crud_in_sinatra.markdown](https://gist.github.com/Carmer/2c616bc4d840f02b5ca7879082facdbf) gist and click the edit button.
 
 ### Video
 
@@ -169,11 +169,11 @@ Create your own Sinatra app from scratch. This app should be a directory of robo
 
 ##### Extensions for either project:
 
-* Can you use [HAML](http://haml.info/) for your html templates instead of ERB?
+* Use [Faker gem](https://github.com/stympy/faker) to get dynimac content in your app
 * Can you use a [partial](http://www.sinatrarb.com/faq.html#partials) in your views?
+* Can you use [HAML](http://haml.info/) for your html templates instead of ERB?
 * Can you use the Pony gem to [send an email](http://www.sinatrarb.com/faq.html#email) from your Sinatra app?
 * Can you protect your app using [HTTP Basic Auth](http://www.sinatrarb.com/faq.html#auth)?
-* Use [Faker gem](https://github.com/stympy/faker) to get dynimac content in your app
 
 ### Other Resources:
 

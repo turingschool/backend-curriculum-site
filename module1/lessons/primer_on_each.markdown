@@ -34,26 +34,29 @@ Now you can use it like this...
 ```
 favorite_things = ["Trapper Keeper", "Netscape Navigator", "Troll Doll"]
 binding.pry
+""
 ```
+
+> Note:  Notice that empty string following `binding.pry`? Pry bindings can never be the last line of code in a script. They are meant to pause your code while it's running. This empty string is a way of making pry think you're not at the end of your script.
 
 We're going to use your debugger to explore `.each` and on the challenges below.
 
-Let's use [this gist](https://gist.github.com/jmejia/04924190362f64fc49ab) as a guide.
+<!-- Let's use [this gist](https://gist.github.com/jmejia/04924190362f64fc49ab) as a guide. -->
 
 #### What are enumerable methods?
 
-* methods that can be used on arrays and hashes to go through each element or
-search for elements or  an element.
+Enumerables are methods that can be used on collections (arrays and hashes) to iterate over each element.
+These can be used to make something based on the original collection, change the original collection, or search for elements or an element within that collection.
 
 #### What is .each?
 
-* .each is the base for enumerable methods.
-* it allows you to traverse a collection
-* it returns the original collection
+* `.each` is the base for enumerable methods
+* it allows you to traverse a collection and access each of its elements
+* it **returns the original collection**
 
 #### What is the syntax for writing enumerable methods?
 
-Multi-Line
+##### Multi-Line
 
 ```ruby
 array.each do |item|
@@ -61,7 +64,7 @@ array.each do |item|
 end
 ```
 
-Single-Line
+##### Single-Line
 
 ```ruby
 array.each { |item| item.do_something }
@@ -73,19 +76,19 @@ Let's say we have an array of words, and we want to print out to the screen
 each word in the array, but in all capitalized letters.
 
 ```ruby
-array = ["alice", "bob", "eve"]
+array = ["alice", "bob", "eva"]
 
 array.each do |name|
-  puts name.upcase
+  puts name.capitalize
 end
 ```
 
 This can also be written:
 
 ```ruby
-array = ["alice", "bob", "eve"]
+array = ["alice", "bob", "eva"]
 
-array.each { |name| puts name.upcase }
+array.each { |name| puts name.capitalize }
 ```
 
 What do you think each of these returns?
@@ -95,17 +98,18 @@ and what a bit of code returns.
 
 #### Exercises
 
-Use your debugger to work through the following...
+Use your debugger to work through the following.
 
-* If you had an array of numbers, e.g. [1,2,3,4], how do you print out the
+We'll start with the first two together.
+
+* If you had an array of numbers, `[1,2,3,4,5,6]`, how do you print out the
 doubles of each number? Triples?
 * If you had the same array, how would you only print out the even numbers?
 What about the odd numbers?
-* How could you create a new array which contains each number multipled by 2?
-* Given an array of first and last names, e.g. ["Alice Smith", "Bob Evans",
-"Roy Rogers"],  how would you print out the full names line by line?
-* How would you print out only the first name?
-* How would you print out only the last name?
+* If you had the same array, how could you create a new array which contains each number multipled by 2?
+* Given an array of first and last names, e.g. `["Ilana Corson", "Lauren Fazah", "Beth Sebian"]`, how would you print out only first names?
+* How would you print out only last names?
 * How could you print out only the initials?
 * How can you print out the last name and how many characters are in it?
 * How can you create an integer which represents the total number of characters in all the names?
+* Say you had an array of nested arrays: `[['Ilana', 'Corson'], ['Lauren', 'Fazah'], ['Beth', 'Sebian']]`. Each nested array has two elements, a first name and a last name. How would you print out each nested array's full name?
