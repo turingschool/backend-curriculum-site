@@ -13,9 +13,8 @@ Iterate through the numbers 0 through 1000 and for each one print out exactly on
 
 *   Run the file, using the command:
 
-    ```ruby
-    ruby super_fizz.rb
-    ```
+    `ruby super_fizz.rb`
+
 *   If it's evenly divisible by 3, 5, and 7 print `SuperFizzBuzz`
 *   If it's evenly divisible by 3 and 7 print `SuperFizz`
 *   If it's evenly divisible by 5 and 7 print `SuperBuzz`
