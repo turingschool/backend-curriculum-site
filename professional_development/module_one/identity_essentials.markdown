@@ -77,10 +77,77 @@ You're done with GitHub!
 
 ### Setup LinkedIn
 
+You don't have to like LinkedIn, but you do have to use it. Many developers complain that all they get from LinkedIn is "recruiter spam" which translates to "people knocking down your door with job offers." That perhaps the most privileged of problems and one you should invite into your life.
+
+* Login and go to your profile page
+* Click the "Edit Your Public Profile" link
+* Make sure your standard name is setup
+* Make sure your photo is your *standard* headshot photo
+* Backfill your education and work experience if you haven't added that before
+
+Then, for your current position under "Experience", you want to add something along these lines:
+
+* Title: Front-End Engineering Student
+* Company: Turing School of Software & Design
+* Location: Denver, CO
+* I currently work here
+
+You can tweak the description as you see fit, but here are some ideas:
+
+```
+Turing students invest over 1500 hours across seven months in becoming job-ready software developers. In the Front-End Engineering program we begin by building skills in HTML, CSS, and Design Fundamentals. We continue by laying a solid foundation in core JavaScript, then progress into React. In the final quarter students build backend applications with Node and SQL. In total, FEE graduates have the skills to turn design comps into working applications.
+```
+
+Or a back-end take:
+
+```
+Turing students invest over 1500 hours across seven months in becoming job-ready software developers. In the Back-End Engineering program we begin by building skills in object-oriented programming and design. We continue by building full-stack Rails applications, then moving into providing and consuming APIs.  In the final quarter students layer on the fundamentals of JavaScript, build with React, while mixing in other production techniques like message queues, continuous integration, and agile project management. In total, BEE graduates have the skills to turn HTML and CSS templates into production-ready applications.
+```
+
+Revisions/suggestions/pull requests on those are welcome.
+
+Save that and you're done with LinkedIn.
+
 ### Setup StackOverflow
+
+We want to get better at question asking and answering. There's a big world out there outside of Turing, and a lot of the Q&A activity happens on StackOverflow.
+
+Getting your StackOverflow setup is probably the easiest of the three:
+
+* Create an account
+* Edit your profile
+* Set your standard head shot
+* Set your display name to your standard name
+* Put Denver in your location
+* For title, use "Student at Turing School"
+* About Me is optional
+* Add your twitter username if you have one
+* Add your GitHub user name
+* "Career" Section: "school", "Student", "Turing School of Software & Design"
+* Save your profile
+
+You'd be surprised how many employers look at your StackOverflow account. Maybe you decide to integrate the *answering* of questions into your daily or weekly routines?
 
 ## Optional Tasks
 
+The above are necessary, the below are if-you-feel-like-it but useful.
+
 ### Setup Twitter
 
+Twitter is where the public dialog of the programming community happens. It's a great way to keep track of what issues people are talking about, new releases, etc.
+
+A rich twitter experience typically means following 500-1500 accounts. You don't need to read every tweet.
+
+[Here's a list-in-progress of a few people you might want to check out](https://twitter.com/j3/lists/starter-set).
+
+Setup your account with your proper name and that same standard headshot photo. In your bio say something like "Front-End Engineering student at @turingschool".
+
 ### Setup Medium
+
+Every developer at some point has the temptation to write their own blog engine. The foolish ones do it.
+
+Please don't be that person. Just use Medium. Signup for an account. When you've written 20 articles and feel the platform is "holding you back," then you can go try some other tool. But don't let tool obsession become an excuse to avoid actually writing a few blog posts.
+
+If you had a medium page with six solid articles by the time you start job hunting it'll be a significant asset for you.
+
+Make sure it's got that right name, headshot, and bio.
