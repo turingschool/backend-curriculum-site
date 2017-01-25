@@ -3,6 +3,12 @@ title:  Outreach Plan
 layout: page
 ---
 
+## To-Do for Next Time
+
+* Split out the goals and expectations into Monday's 30 minute session
+* Expand a bit on the outreach techniques / specific tools
+* Build a paired writing exercise so that each student has one cold email sent by the time they leave this session
+
 ## 2017 Achievements
 
 [You can find the full set here.](https://github.com/turingschool/outcomes/blob/master/achievements/2017-year-end.markdown)
