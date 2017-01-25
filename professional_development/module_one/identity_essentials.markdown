@@ -82,15 +82,24 @@ You don't have to like LinkedIn, but you do have to use it. Many developers comp
 * Login and go to your profile page
 * Click the "Edit Your Public Profile" link
 * Make sure your standard name is setup
-* Make sure your photo is your *standard* headshot photo
+* Make sure your photo is your standard headshot photo
+* Set a title along the lines of "Software Developer" or "Front-End Developer"
 * Backfill your education and work experience if you haven't added that before
 
-Then, for your current position under "Experience", you want to add something along these lines:
+Lia suggests that:
 
-* Title: Front-End Engineering Student
-* Company: Turing School of Software & Design
+* Consider a title like "Software Developer | Former Graphic Designer" to emphasize 
+* If you're looking to move to a certain location for work, consider using that as your LinkedIn location to get noticed by recruiters there
+* Add a "Summary": this is your opportunity to tell your story and call out that you're a career changer. which makes a big impact on recruiters. The first 100 characters show up on the recruiter view, if they aren't caught by it they don’t click through
+
+#### Turing Education
+
+Then add Turing under education. You want to add something along these lines:
+
+* School: Turing School of Software & Design
+* Field of Study: "Back-End Engineering" or "Front-End Engineering"
+* Time period: 2017-2017
 * Location: Denver, CO
-* I currently work here
 
 You can tweak the description as you see fit, but here are some ideas:
 
