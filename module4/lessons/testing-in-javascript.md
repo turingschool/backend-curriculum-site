@@ -425,5 +425,6 @@ These are just a few of the functions you can use, but probably the most common 
 
 ### Notes for working with selenium
 
+- I've been visiting a production link for proof of concept, but usually you'll want to run your tests on your dev server. Don't forget to run your dev server in another tab before you run your tests.
 - When googling, make don't google "selenium" or even "selenium javascript". You'll just get stuff in other languages. Put "webdriverjs" in your search query.
 - You might be missing something like a Database Cleaner. You can [use selenium to execute](https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/index_exports_WebDriver.html#executeScript) `localStorage.clear()`, maybe in your `beforeEach()`.
