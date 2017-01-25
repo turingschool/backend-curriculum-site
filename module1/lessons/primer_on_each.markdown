@@ -23,15 +23,17 @@ Debuggers are great to see what your code is actually doing. The most common deb
 First, install it from the command line.
 `gem install pry`
 
+Then, let's create an `exploring_each.rb` file within your classwork directory.
+
 You need to require it at the top of your Ruby file.
 
-```
+```ruby
 require "pry"
 ```
 
 Now you can use it like this...
 
-```
+```ruby
 favorite_things = ["Trapper Keeper", "Netscape Navigator", "Troll Doll"]
 binding.pry
 ""
