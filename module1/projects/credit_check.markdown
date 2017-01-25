@@ -33,7 +33,7 @@ We use the algorithm to calculate the correct checksum digit:
 Account identifier:    7   9   9   2   7   3   9   8   7   1   x
 2x every other digit:  7   18  9   4   7   6   9   16  7   2   x
 Summed digits over 10: 7   9   9   4   7   6   9   7   7   2   x
-Results summed:        7   9   9   4   7   6   9   7   7   2` = 67
+Results summed:        7   9   9   4   7   6   9   7   7   2 = 67
 ```
 
 With the result of `67`, we take the ones digit (`7`) and subtract it from `10`: `10 - 7 = 3`. Thus `3` is the check digit.
@@ -105,3 +105,28 @@ If helpful, you can use the following sample data:
 ## Extensions
 
 * Can you make it work for American Express numbers? 342804633855673 is valid but 342801633855673 is invalid.
+
+## Evaluation Rubric
+
+The project will be assessed with the following guidelines:
+
+### 1. Fundamental Ruby & Style
+
+* 4:  Application demonstrates excellent knowledge of Ruby syntax, style, and refactoring
+* 3:  Application shows strong effort towards organization, content, and refactoring
+* 2:  Application runs but the code has long methods, unnecessary or poorly named variables, and needs significant refactoring
+* 1:  Application generates syntax error or crashes during execution
+
+### 2. Encapsulation / Breaking Logic into Components
+
+* 4: Application is expertly divided into logical components each with a clear, single responsibility
+* 3: Application effectively breaks logical components apart but breaks the principle of SRP
+* 2: Application shows some effort to break logic into components, but the divisions are inconsistent or unclear
+* 1: Application logic shows poor decomposition with too much logic mashed together
+
+### 3. Functional Expectations
+
+* 4: Application meets all requirements, and implements one extension properly.
+* 3: Application meets all requirements as laid out per the specification.
+* 2: Application runs, but does not work properly, or does not meet specifications.
+* 1: Application does not run, crashes on start.

@@ -9,7 +9,7 @@ subheading: Web Applications with Ruby
 <iframe src="https://calendar.google.com/calendar/embed?mode=week&src=casimircreative.com_rps2hg1nfqjih4rcl3gl6s4lpk%40group.calendar.google.com&ctz=America/Denver" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
 
 * [__Mod 2 Calendar__](https://calendar.google.com/calendar/embed?src=casimircreative.com_rps2hg1nfqjih4rcl3gl6s4lpk@group.calendar.google.com&ctz=America/Denver)
-* [__Mod 2 Homework Assignments__](https://github.com/turingschool/homework/blob/master/module-2-homework.markdown)
+* [__Mod 2 Homework Assignments__](homework)
 * [__Portfolio Template__](https://raw.githubusercontent.com/turingschool/portfolios/master/template.markdown)
 * [__Mod 2 Portfolio Requirements__](https://github.com/turingschool/portfolios#module-2)
 
@@ -41,7 +41,7 @@ By the end of this module, students will be able to:
 * [Intro to Sinatra](lessons/introduction_to_sinatra)
 * [HTML/CSS Basics](slides/html_css_basics/html_css_basics)
 * [Intro to Bootstrap](lessons/introduction_to_bootstrap_v2)
-* [How the Web Works](lessons/how_the_web_works)
+* [How the Web Works](slides/how_the_web_works/slides)
 * [CRUD in Sinatra](lessons/crud-intro-sinatra)
 * [Passing Data With Sinatra](https://github.com/turingschool/shopping)
 * [Database Visualization & Relationships](lessons/visualising_and_implementing_database_relationships)
@@ -57,12 +57,12 @@ By the end of this module, students will be able to:
 
 * [Intermediate Sql]()
 * [ERD's](lessons/entity-relationship-diagramming)
-* [ActiveRecord Associations]()
+* [ActiveRecord Associations](lessons/activerecord_associations)
 * [Feedback is Great](slides/difficult_conversations/diff-convos)
 * [ActiveRecord Obstacle Course](lessons/active_record_obstacle_course)
 * [REST, Controllers, and Routing in Rails](lessons/rest_routing_and_controllers_in_rails)
 * [Rails: Migrations, Databases, Relationships, and Models](lessons/models_databases_relationships)
-* [Blogger Tutorial](http://tutorials.jumpstartlab.com/projects/blogger.html)
+* [Blogger Tutorial](projects/blogger)
 
 #### Week 3
 
@@ -75,7 +75,7 @@ By the end of this module, students will be able to:
 * [BookShelf](lessons/forms_primer)
 * [Mix Master Kick-off](projects/mix_master/1_getting_started)
 * [Ruby Pairing](https://github.com/turingschool/challenges/blob/master/flatten.markdown)
-* [Nested Routes]()
+* [Nested Routes](lessons/advanced_routing_rails)
 * [MixMaster Q&A](projects/mix_master/1_getting_started)
 * [Relationship Implementation and Exercises](https://github.com/turingschool-examples/relationship_practice_exercises)
 * [Job Tracker Project](https://github.com/turingschool/job-tracker)
@@ -103,10 +103,10 @@ By the end of this module, students will be able to:
 * [Git Workflow](lessons/git_workflows)
 * [Git Workflow](lessons/small_team_git_workflow)
 * [Intro to the Asset Pipeline](lessons/intro_to_the_asset_pipeline)
-* [Pushing Logic Down the Stack](http://tutorials.jumpstartlab.com/topics/architecture/pushing_logic_down_the_stack.html)
 * [Callbacks, and Scopes](lessons/scopes_callbacks_class_methods.markdown)
 
 #### Optional (Time Permitting)
+* [Pushing Logic Down the Stack](http://tutorials.jumpstartlab.com/topics/architecture/pushing_logic_down_the_stack.html)
 * [Rails Mini-Project Peer extension and review exercise](lessons/mini-project-gem-implementation)
 * Mini-Project show and tell
 * [JavaScript, Part I](lessons/introduction_to_javascript)

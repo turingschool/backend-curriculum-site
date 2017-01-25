@@ -387,21 +387,19 @@ To demonstrate this functionality, additionally add a new GET endpoint `/sleepy`
 
 The project will be assessed with the following rubric:
 
-### 1. Overall Functionality
-
-* 4: Application implements all five iterations and at least one extension
-* 3: Application implements iterations 0 - 4
-* 2: Application implements iterations 0 - 3
-* 1: Application implements through interation 2 or less
-
-**Echo/Foxtrot Note:** Requirements listed are for *Foxtrot* pairs -- Echo requirements are shifted by 1 additional iteration -- So a 3 for Echo requires completing Iterations 0-5
-
-### 2. Fundamental Ruby & Style
+### 1. Fundamental Ruby & Style
 
 * 4:  Application demonstrates excellent knowledge of Ruby syntax, style, and refactoring
-* 3:  Application shows some effort toward organization but still has 6 or fewer long methods (> 8 lines) and needs some refactoring.
-* 2:  Application runs but the code has many long methods (>8 lines) and needs significant refactoring
+* 3:  Application shows strong effort towards organization, content, and refactoring
+* 2:  Application runs but the code has long methods, unnecessary or poorly named variables, and needs significant refactoring
 * 1:  Application generates syntax error or crashes during execution
+
+### 2. Encapsulation / Breaking Logic into Components
+
+* 4: Application is expertly divided into logical components each with a clear, single responsibility
+* 3: Application effectively breaks logical components apart but breaks the principle of SRP
+* 2: Application shows some effort to break logic into components, but the divisions are inconsistent or unclear
+* 1: Application logic shows poor decomposition with too much logic mashed together
 
 ### 3. Test-Driven Development
 
@@ -410,12 +408,14 @@ The project will be assessed with the following rubric:
 * 2: Application uses tests to exercise core functionality but leaves many common edge cases untested.
 * 1: Application does not demonstrate strong use of TDD
 
-### 4. Breaking Logic into Components
+### 4. Functional Expectations
 
-* 4: Application effectively breaks logical components apart with clear intent and usage
-* 3: Application has multiple components with defined responsibilities but there is some leaking of responsibilities
-* 2: Application has some logical components but divisions of responsibility are inconsistent or unclear and/or there is a "God" object taking too much responsibility
-* 1: Application logic shows poor decomposition with too much logic mashed together
+* 4: Application implements all five iterations and at least one extension
+* 3: Application implements iterations 0 - 4
+* 2: Application implements iterations 0 - 3
+* 1: Application implements through interation 2 or less
+
+**Echo/Foxtrot Note:** Requirements listed are for *Foxtrot* pairs -- Echo requirements are shifted by 1 additional iteration -- So a 3 for Echo requires completing Iterations 0-5
 
 ## Addendum Content
 
