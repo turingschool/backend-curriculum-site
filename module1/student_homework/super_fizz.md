@@ -12,6 +12,7 @@ really shocking part is that some people fail it! This is an extension of the *F
 Iterate through the numbers 0 through 1000 and for each one print out exactly one thing. These rules are in descending priority:
 
 *   Run the file, using the command:
+
     ```ruby
     ruby super_fizz.rb
     ```
