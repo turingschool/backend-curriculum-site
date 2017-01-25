@@ -55,8 +55,8 @@ We also need to add a few gems. We are going to add [Faraday](https://github.com
 * Webmock is a library for stubbing and setting expectations on HTTP requests in Ruby
 * Figaro is simple, Heroku friendly and makes it easy to hide your secret configs in a Rails app
 
-**Gemfile**
 ```
+# Gemfile
 ....
 
 gem 'faraday'
@@ -79,8 +79,8 @@ $ bundle exec figaro install
 
 We also need to configure webmock and VCR in our `test/test_helper.rb`. At the top of the file, we require 'minitest/pride', 'webmock/test_unit' and 'vcr'. We also add a VCR configuration block to `ActiveSupport::TestCase` where we declare where it should look for cassettes (more on cassettes below).
 
-**test/test_helper.rb**
 ```rb
+# test/test_helper.rb
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
@@ -113,8 +113,8 @@ $ touch test/services/sunlight_service_test.rb
 
 In `test/services/sunlight_service_test.rb`, add the following:
 
-**test/services/sunlight_service_test.rb**
 ```rb
+# test/services/sunlight_service_test.rb
 require './test/test_helper'
 
 class SunlightServiceTest < ActiveSupport::TestCase
@@ -133,8 +133,8 @@ Let's add a first test; `#legislators`. The purpose of the `legislators` method 
 
 On the first line of the test we are declaring which VCR cassette we should use for this test. A **cassette** is a recorded response. All of our cassettes will be stored in `test/cassettes` (as declared in the VCR configs in the test_helper). If VCR cannot find a cassette named `sunlight_service#legislators` it will make the call and save the response. If the cassette already exists, it will read the existing cassette.
 
-**test/services/sunlight_service_test.rb**
 ```rb
+# test/services/sunlight_service_test.rb
 test '#legislators' do
   VCR.use_cassette('sunlight_service#legislators') do
     legislators = service.legislators(gender: 'F')
@@ -149,8 +149,8 @@ end
 
 If we run the tests, `rake test`, the errors asks us to create the SunglightService class.
 
-**app/services/sunlight_service.rb**
 ```rb
+# app/services/sunlight_service.rb
 class SunlightService
 end
 ```
@@ -171,8 +171,8 @@ You can run that URL in the browser, replacing the last bit with your own API ke
 
 Before we continue, hop over to the [Sunlight Foundation website](https://sunlightfoundation.com/api/) and create your API keys. When you have your key (you need to verify your email to get it), we need to add it as an environment variable in our Rails application.
 
-**config/application.yml**
 ```yml
+# config/application.yml
 development:
   SUNLIGHT_KEY: <YOUR API KEY>
 
@@ -188,8 +188,8 @@ Great! We have a test and we have API keys. Now we can write the request to the 
 
 if we run our test, it tells us that we don't have the method `legislators`. Before we go any further, let's create a connection to the Sunlight API using Faraday. In the `initialize` method we are creating a new connection with the base url. We also set the our API key as a param. In the legislators method we are just putting a `pry` for now.
 
-**app/services/sunlight_service.rb**
 ```rb
+# app/services/sunlight_service.rb
 attr_reader :connection
 
 def initialize
@@ -229,8 +229,8 @@ Ok. We know how to make the API call. We get data (JSON) back. To make better se
 
 First, let's add a private method `parse` that can parse our responses.
 
-**app/services/sunlight_service.rb**
 ```rb
+# app/services/sunlight_service.rb
 private
 
 def parse(response)
@@ -240,8 +240,8 @@ end
 
 Then, let's build out the `legislators` method. Here, we are passing the response to our `parse` method, and from that return value we are accessing the values under the `results` key. I highly recommend putting a pry in this method and look at the response and see why we are accessing the `results` key.
 
-**app/services/sunlight_service.rb**
 ```rb
+# app/services/sunlight_service.rb
 def legislators(criteria)
   parse(connection.get('legislators', criteria))[:results]
 end
@@ -285,8 +285,8 @@ $ touch test/models/legislator_test.rb
 
 Cool, now let's add the test. We are using VCR here as well, and instead of accessing the SunlightService directly, we want to call a method on the Legislator to get Legislator objects back instead of just an array of hashes.
 
-**test/models/legislator_test.rb
 ```rb
+# test/models/legislator_test.rb
 require './test/test_helper'
 
 class LegislatorTest < ActiveSupport::TestCase
@@ -310,16 +310,16 @@ The test tells us to add the model.
 $ touch app/models/legislator.rb
 ```
 
-**app/models/legislator.rb**
 ```rb
+# app/models/legislator.rb
 class Legislator
 end
 ```
 
 And add the method...
 
-**app/models/legislator.rb**
 ```rb
+# app/models/legislator.rb
 class Legislator
 
   def self.find_by(criteria)
@@ -351,8 +351,8 @@ First, let's make the class inherit from OpenStruct. This enables us to call `Le
 
 Then, we need to create an instance of the SunlightService so we can trigger API requests from this model.
 
-**app/models/legislator.rb**
 ```rb
+# app/models/legislator.rb
 class Legislator < OpenStruct
   attr_reader :service
 
@@ -367,8 +367,8 @@ end
 
 Great! If we run our tests, nothing has changed. Now we need to use `service` to fetch all the legislators matching the given criteria, then map over the array of hashes we get back and create a `Legislator` object for each hash.
 
-**app/models/legislator.rb**
 ```rb
+# app/models/legislator.rb
 def self.find_by(params)
   service.legislators(params).map { |legislator| Legislator.new(legislator) }
 end
@@ -386,8 +386,8 @@ $ Committee.find_by({chamber: 'senate'}) #=> [<Committee>, <Committee>, <Committ
 
 As you can see, the `committee_test.rb` is very similar to `legislator_test.rb`.
 
-**test/models/committee_test.rb**
 ```rb
+# test/models/committee_test.rb
 require './test/test_helper'
 
 class CommiteeTest < ActiveSupport::TestCase
