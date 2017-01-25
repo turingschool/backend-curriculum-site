@@ -25,11 +25,11 @@ subheading: Homework
   * Add basic styling to your Robot World. Timebox this!
 
 ##### Day 3
-  * Continue practicing with ActiveRecord [here](https://github.com/turingschool/challenges/blob/master/active_record_and_database_design.markdown).
+  * Continue practicing with ActiveRecord [here](activerecord_and_database_practice).
   * Prep for tomorrow's Collaborative Communication session by reading these two (very short) articles:
     * [Ask Questions Instead of Giving Directions](resources/ask_questions.pdf)
     * [Mitigate Fault](resources/mitigate_fault.pdf)
-  * [Optional, but Highly Suggested] Work through the [Routing Playground](https://github.com/s-espinosa/routing_playground) to learn more about Sinatra routes.
+  * [Optional, but Highly Suggested] Work through the [Routing Playground](https://github.com/turingschool/routing_playground) to learn more about Sinatra routes.
 
 ##### Day 4
   * Research Capybara (a tool we'll be using tomorrow). The following resources are a good start:
