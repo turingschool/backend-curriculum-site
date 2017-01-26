@@ -65,14 +65,13 @@ Open the file in your text editor so we can work on it.
 
 Let's add some very basic code:
 
-```
+```ruby
   x = 10
   puts "x is #{x}"
   x += 20
   puts "x is #{x}"
 ```
 
-[diff](https://github.com/worace/scope-examples/commit/99bd90b6421369aebe941e318f8fc2eaaaa3def5)
 
 Before running the file, state briefly in your head what output you
 expect to see. Then run the file (`ruby global_scope.rb`) and see if
@@ -93,7 +92,7 @@ them in the global scope as well, just as we defined the local variable
 
 Let's add some lines to the bottom of `global_scope.rb`:
 
-```
+```ruby
   def print_doubled_value(x)
     puts "double the value #{x} is #{x * 2}"
   end
@@ -101,7 +100,6 @@ Let's add some lines to the bottom of `global_scope.rb`:
   print_doubled_value(x)
 ```
 
-[diff](https://github.com/worace/scope-examples/commit/f56f9de91d717e0ba0b3d3033060fc85c589b7ac)
 
 Again, consider what you expect this code to do, and then run it.
 
@@ -110,12 +108,11 @@ behave.
 
 Let's add another example using the new `print_doubled_value` method:
 
-```
+```ruby
   y = 27
   print_doubled_value(y)
 ```
 
-[diff](https://github.com/worace/scope-examples/commit/e32ef8a58454a1dcde2ee8fe81f07a0096c5fef1)
 
 Does this code behave as you expect? Consider the 2 uses of the variable
 `x` in our current example — we have a variable called `x` in the top
@@ -142,7 +139,7 @@ definitions.
 Enough theory, let's look at another example. Redefine
 `print_doubled_value` and call it like so:
 
-```
+```ruby
 def print_doubled_value(x)
   orig = x
   x = x * 2
@@ -154,7 +151,6 @@ print_doubled_value(x)
 puts "outer x is still: #{x}"
 ```
 
-[diff](https://github.com/worace/scope-examples/commit/7fb472bd5257e3fc2e360201eeab1145069a96a9)
 
 What output do you expect from this code? Think especially about the
 output about "inner" and "outer" values of x:
@@ -176,7 +172,7 @@ within the method have no effect on the outer variable.
 Let's consider another example. Add a new `combine_variables` method to
 your file:
 
-```
+```ruby
 a = 4
 b = 12
 def combine_variables(x)
@@ -186,20 +182,19 @@ end
 combine_variables(a)
 ```
 
-[diff](https://github.com/worace/scope-examples/commit/93c89cb3b11b45032638669c420308544f6aa37c)
 
 How does this code match your expectations?
 
 We might have expected some output like:
 
-```
+```ruby
 inner x is: 4
 and outer b is: 12
 ```
 
 But what actually happens? We should get an error similar to:
 
-```
+```ruby
 global_scope.rb:29:in `combine_variables': undefined local variable or method `b' for main:Object (NameError)
 	from global_scope.rb:31:in `<main>'
 ```
@@ -218,7 +213,7 @@ a note: method's __can't__ access local variables in their parent scope.
 So what can methods access? Let's replace the code from our last
 iteration with a new version which actually works:
 
-```
+```ruby
 def combine_variables(x)
   puts "inner x is: #{x}"
   puts "and outer b is: #{b}"
@@ -231,7 +226,7 @@ end
 a = 4
 combine_variables(a)
 ```
-[diff](https://github.com/worace/scope-examples/commit/ab96fbdb5842489391f0b6cd582fdb20d8d7b75d)
+
 
 Why does this version work when the other did not?
 
@@ -246,7 +241,7 @@ precedence.
 
 Let's modify our `combine_variables` method to look like so:
 
-```
+```ruby
 def combine_variables(x)
   puts "inner x is: #{x}"
   puts "and outer b is: #{b}"
@@ -255,7 +250,6 @@ def combine_variables(x)
 end
 ```
 
-[diff](https://github.com/worace/scope-examples/commit/408fa7e3d0028a0423357354596f78a393ee3a5c)
 
 What happens to `b` during the course of this method? We can see that at
 first it refers to the method `b`; after we create a new local variable
@@ -265,11 +259,10 @@ When trying to determine what value a variable refers to, a method will
 always look first for a local variable, and only if one is not found
 will it attempt to look for another method of that name.
 
-
 #### Check for Understanding
 
 * When a variable is defined outside of any classes, what scope would we say that it is in?
-* Why are local variables when defined in a method, no accessible to other scopes?
+* Why are local variables when defined in a method, not accessible to other scopes?
 * When are methods siblings? What does being a sibling allow them to do?
 
 #### Step 4: What about blocks?
@@ -281,7 +274,7 @@ only things that can create scopes.
 Another common way that we create new scopes in ruby is by using blocks.
 You've seen blocks many times by now, especially when using enumerables:
 
-```
+```ruby
 [1,2,3].each { |num| puts "num is #{num}" }
 num is 1
 num is 2
@@ -299,20 +292,19 @@ Let's find out. Add some more code to the bottom of our `global_scopes.rb` file:
 (this file is starting to get a bit messy, but such is the price of
 learning)
 
-```
-creatures = ["IndustrialRaverMonkey", "DwarvenAngel", "TeethDeer"]
-hero = "Dwemthy"
+```ruby
+ingredients = ["flour", "water", "yeast", "salt"]
+method = "measure"
 
-def battling_technique
-  ["heroically", "clumsily", "cleverly"].sample
+def unit
+  ["teaspoon", "cup", "pinch"].sample
 end
 
-creatures.each do |c|
-  puts "#{hero} battles #{c} #{battling_technique}"
+ingredients.each do |ingredient|
+  puts "#{method} one #{unit} #{ingredient}"
 end
 ```
 
-[diff](https://github.com/worace/scope-examples/commit/565a23d6c6a87649a0aeed38d99841be8aa83ed4)
 
 There are quite a few pieces in play here — 2 local variables, a method,
 and a block variable! What output do you think it will produce?
@@ -331,28 +323,28 @@ example. More code!
 
 #### Step 5: Blocks with overlapping inner/outer variables
 
-```
-new_creatures = ["IntrepidDecomposedCyclist", "Dragon"]
-villain = "AssistantViceTentacleAndOmbudsman"
-hero = "who knows"
+```ruby
+new_ingredients = ["banana", "chocolate chips"]
+temperature = 375
+method = "bake"
 
-new_creatures.each do |villain|
-  hero = "Dwemthy"
-  puts "this time the villain is #{villain} and the hero is #{hero}"
+new_ingredients.each do |ingredient|
+  method = "mix"
+  puts "#{method} the #{ingredient} at #{temperature} degrees"
 end
-```
 
-[diff](https://github.com/worace/scope-examples/commit/2b6505e840553e683daac0d6b8abc9c536d73160)
+puts method
+```
 
 What happens to our variables each time the block is executed?
-Especially of interest in this example are the `villain` and `hero`
+Especially of interest in this example are the `temperature` and `method`
 variables.
 
-In this case we see that the block variable `villain` "shadows" the
+In this case we see that the block variable `temperature` "shadows" the
 outer variable of the same name within the block. But what happens to
-`villain` after the block is done?
+`temperature` after the block is done?
 
-And what about `hero`? How does it change during the execution of the
+And what about `method`? How does it change during the execution of the
 block?
 
 The ability of blocks to refer to surrounding local variables is
@@ -362,7 +354,8 @@ accidentally modifying the wrong thing.
 
 #### Check for Understanding
 
-* What is a closure? How do blocks handle variable naming collisions?
+* What is a closure?
+* How do blocks handle variable naming collisions?
 * What is the danger in blocks being able to access surrounding local variables?
 
 ## Part 2: Classes and Objects
@@ -374,15 +367,13 @@ to scopes within objects.
 
 Create a new file called `object_scopes.rb` and add some code to it:
 
-```
+```ruby
 class PizzaOven
 end
 
 oven = PizzaOven.new
 puts "cookin pizza in the oven: #{oven}"
 ```
-
-[diff](https://github.com/worace/scope-examples/commit/c084df3520a4e58b6743ec7ac4458710aa93568b)
 
 By now we're hopefully getting somewhat comfortable with defining
 classes and creating objects, so we can probably predict what output
@@ -393,16 +384,14 @@ cookin pizza in the oven: #<PizzaOven:0x007fe7da9de418>
 ```
 
 We've just created a new instance of the `PizzaOven` class and output a
-description of it by "interpolating" it into a string. By the way —
-where does this strange ` #<PizzaOven:0x007fe7da9de418>` output come
-from?
+description of it by "interpolating" it into a string.
 
 #### Step 2: Classes can have methods too
 
 As we've seen, we can add methods to this class. Let's cook some 'za.
 Add a `cook` method to our PizzaOven class so our file reads like this:
 
-```
+```ruby
 class PizzaOven
   def cook
     puts "cookin pizza in the oven: #{oven}"
@@ -412,8 +401,6 @@ end
 oven = PizzaOven.new
 oven.cook
 ```
-
-[diff](https://github.com/worace/scope-examples/commit/3b00fd75c01a84561c6491fdcdec151b07cba4a9)
 
 What's going to happen when we run this? We'd probably like to see the
 same output as before (`cookin pizza in the oven: #<PizzaOven:0x007fe7da9de418>`).
@@ -431,7 +418,7 @@ called `self`.
 Let's tweak our `cook` method to use `self` so we can still output the
 info about our oven:
 
-```
+```ruby
 class PizzaOven
   def cook
     puts "cookin pizza in the oven: #{self}"
@@ -442,21 +429,18 @@ oven = PizzaOven.new
 oven.cook
 ```
 
-[diff](https://github.com/worace/scope-examples/commit/03aaae77046ceb6ae4e2d27299522752f57c8dc3)
-
 In ruby, the method `self` will always refer to the _current object_;
 that is, the object inside of which your code is currently executing.
 
 In our case, we have created a class `PizzaOven`, defined an _instance
-variable_ `cook`, and called that method on an instance of `PizzaOven`.
+method_ `cook`, and called that method on an instance of `PizzaOven`.
 At the moment when we hit the `puts` statement inside of the cook
 method, `self`, then, will refer to the _current_ `PizzaOven` — the
 specific oven on which the `cook` method was called.
 
-
 #### Check for Understanding
 
-* What happens when we simply try to puts an object?
+* What do we see when we simply try to puts an object?
 * How can an instance of a class refer to itself?
 * What is an instance method?
 
@@ -465,10 +449,10 @@ specific oven on which the `cook` method was called.
 Let's look at adding some more methods to our class, this time using
 arguments to customize the behavior.
 
-Let's add a `temperature` and `crust_type` method and have cook use them
+Let's add a `temp` and `crust_type` method and have cook use them
 to determine what we're cooking:
 
-```
+```ruby
 class PizzaOven
   def cook(temp, crust_type)
     puts "mmm, mmm. cookin #{crust_type} pizza in the oven at #{temp}"
@@ -479,7 +463,7 @@ class PizzaOven
   end
 
   def crust_type
-    "New Haven Style"
+    "New York Style"
   end
 end
 
@@ -487,15 +471,14 @@ oven = PizzaOven.new
 oven.cook("100 degrees F", "Digiorno")
 ```
 
-[diff](https://github.com/worace/scope-examples/commit/8da19dadabb04b354409bb0eb42169bdb28d5ac9)
-
 Did this produce the output you expected?
 
-We might have expected to see `mmm, mmm. cookin New Haven Style pizza in the oven at 400 degrees F`
+We might have expected to see `mmm, mmm. cookin New York Style pizza in the oven at 400 degrees F`
 — after all, our `PizzaOven` has a `temp` method ("400 degrees F") and
 `crust_type` method ("New Haven Style").
 
 But remember that method arguments exist only as local variables defined within the scope of the method.
+
 Even if a method's arguments happen to have the same name as another
 method on the same object (in this case an instance of `PizzaOven`), the
 two definitions are completely independent of one another.
@@ -505,16 +488,14 @@ two definitions are completely independent of one another.
 Consider another example. Change the code at the bottom of your file to
 read:
 
-```
+```ruby
 oven.cook(oven.temp, oven.crust_type)
 ```
-
-[diff](https://github.com/worace/scope-examples/commit/327ab68aaf940b69290a728abdbbedc6be625ee8)
 
 Output:
 
 ```
-mmm, mmm. cookin New Haven Style pizza in the oven at 400 degrees F
+mmm, mmm. cookin New York pizza in the oven at 400 degrees F
 ```
 
 Tasty.
@@ -534,11 +515,10 @@ To hopefully drive home the lack of connection between the 2 sides of
 calling a method (values being input vs. values being consumed), let's
 tweak our code once more:
 
-```
+```ruby
 oven.cook(oven.crust_type, oven.temp)
 ```
 
-[diff](https://github.com/worace/scope-examples/commit/adf91fc0d22d1ffc18d16b5a04533cb815db1cef)
 
 What will this code output? Our values are backwards! Again, the `oven.crust_type` and `oven.temp`
 which we are passing __in__ to the method are evaluated in a completely
@@ -554,7 +534,7 @@ argument in most cases, but still accept a method whenever necessary.
 
 Let's add some defaults for our `cook` method:
 
-```
+```ruby
 class PizzaOven
   def cook(temp = "425 F", crust_type = "Deep Dish")
     puts "mmm, mmm. cookin #{crust_type} pizza in the oven at #{temp}"
@@ -574,19 +554,16 @@ oven.cook
 oven.cook(oven.temp, oven.crust_type)
 ```
 
-[diff](https://github.com/worace/scope-examples/commit/a52eac0c32428b2235f7bc417282f5e21e19c4ca)
-
 How does the `cook` method behave differently between these 2
 invocations? Notice that the default arguments only get applied in the
 case that no argument is provided. Since we first called `cook` with no
 arguments, ruby will pull in the "defaults" of `425 F` for `temp` and
 `Deep Dish` for `crust_type`.
 
-
 #### Check for Understanding
 
 * Does it matter what we name our arguments? Why?
-* How do we use default argument values?
+* How do we use default argument values versus methods of the same name?
 
 #### Step 7: Other methods can be used as default values
 
@@ -598,7 +575,7 @@ We could actually use other methods as the default arguments if we so desired.
 
 Let's change our code to read like so:
 
-```
+```ruby
 class PizzaOven
   def cook(temp = temp, crust_type = crust_type)
     puts "mmm, mmm. cookin #{crust_type} pizza in the oven at #{temp}"
@@ -618,8 +595,6 @@ oven.cook
 oven.cook(oven.temp, oven.crust_type)
 ```
 
-[diff](https://github.com/worace/scope-examples/commit/812ccf0f5a94f02f78fa6f2535570f4fae8e6185)
-
 __WAT__?
 
 What will we see when we run this? In fact, it will produce the same
@@ -638,7 +613,7 @@ For the left, we're creating a new local variable -- pretty much always.
 For the right, we're __looking__ for a value named `temp`, and to find
 it we'll follow the same "lookup chain" we mentioned before — look for a
 local variable called `temp`; if it doesn't exist, continue up the chain
-and look for an instance method called `temp. In this case we'll find
+and look for an instance method called `temp`. In this case we'll find
 one (instance variable `temp`) and use it!
 
 
