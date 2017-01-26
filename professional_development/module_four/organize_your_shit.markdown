@@ -53,7 +53,7 @@ The *goal* of using a calendar is for it to be your *external brain* responsible
 
 Google Calendar is pretty good and perhaps the most ubiquitous. If you don't have a strong preference for something else, use it.
 
-Once you have an account setup, open the [F4 Calendar]() or [B4 Calendar](), click the `[+] Google Calendar` icon in the bottom right, and add it to your Google Calendar.
+Once you have an account setup, open the [F4 Calendar](https://calendar.google.com/calendar/embed?src=casimircreative.com_pe92inv861hml159vg7qh8vpls%40group.calendar.google.com&ctz=America/Denver) or [B4 Calendar](https://calendar.google.com/calendar/embed?src=casimircreative.com_r9jfiq9f37h6rdt2s8ssofss4k@group.calendar.google.com&ctz=America/Denver), click the `[+] Google Calendar` icon in the bottom right, and add it to your Google Calendar.
 
 Now you'll generally know when your class commitments and work times are. Notice that Wednesday afternoon work time that's consistently in place -- a great time to schedule phone calls and interviews.
 
