@@ -37,7 +37,7 @@
 * Create a `spec` directory
 * Create a `spec/spec_helper.rb` file
 * Create a `spec/models` directory
-* Create a `spec/models/film_spec.rb` file
+* Create a `spec/models/horse_spec.rb` file
 
 ---
 
@@ -55,13 +55,13 @@ require File.expand_path('../../config/environment.rb', __FILE__)
 ```
 require_relative '../spec_helper'
 
-RSpec.describe "Film" do
-  describe ".total_sales" do
-    it "returns total sales for all films" do
-      Film.create(title: "Film1", year: 2012, box_office_sales: 3)
-      Film.create(title: "Film2", year: 2013, box_office_sales: 2)
+RSpec.describe Horse do
+  describe ".total_winnings" do
+    it "returns total winnings for all horses" do
+      Horse.create(name: "Phil", age: 22, total_winnings: 3)
+      Horse.create(name: "Penelope", age: 24, total_winnings: 4)
 
-      expect(Film.total_sales).to eq(5)
+      expect(Horse.total_winnings).to eq(7)
     end
   end
 end
@@ -70,6 +70,8 @@ end
 ---
 
 # Update Spec Helper
+
+On the first line:
 
 ```
 ENV['RACK_ENV'] = 'test'
@@ -112,19 +114,19 @@ end
 # Testing validations
 
 ```
-it "is invalid without a title" do
-  film = Film.new(year: 2012, box_office_sales: 3)
+it "is invalid without a name" do
+  horse = Horse.new(age: 22, total_winnings: 14)
 
-  expect(film).to_not be_valid
+  expect(horse).to_not be_valid
 end
 ```
 
 ---
 
-# In the `Film` model
+# In the `Horse` model
 
 ```
-validates :title, presence: true
+validates :name, presence: true
 ```
 
 ---
