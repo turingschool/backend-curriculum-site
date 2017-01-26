@@ -425,7 +425,7 @@ If you have a `has_many` relationship on a model, it is **not** necessary to hav
 
 ### Homework
 
-[Click here](homework/activerecord_and_database_practice)
+[Click here](./homework/activerecord_and_database_practice)
 
 ### Additional Resources
 
