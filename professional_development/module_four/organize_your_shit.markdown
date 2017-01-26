@@ -41,11 +41,11 @@ If you approach the job hunt casually these will be your results.
 
 *Discipline* means letting go. Letting go of what your brain is bad at. Letting it do what it's meant to -- and using other systems for their job.
 
-### Problems to Solve
+## Problems to Solve
 
 You've been here in the nest of Turing for months. We've told you what to do, when to do it, and whether or not it's done correctly. Now you're entering uncertainty and you need to fly on your own.
 
-#### Time Commitments
+### Your Commitment-Brain
 
 You need a calendar. You need to use it. Multiple times per day. A calendar system needs to be accessible from multiple devices (your phone, computer, etc) and able to import/subscribe to outside data sources.
 
@@ -53,7 +53,7 @@ The *goal* of using a calendar is for it to be your *external brain* responsible
 
 Google Calendar is pretty good and perhaps the most ubiquitous. If you don't have a strong preference for something else, use it.
 
-Once you have an account setup, open the [F4 Calendar]() or [B4 Calendar](), click the `[+] Google Calendar` icon in the bottom right, and add it to your Google Calendar.
+Once you have an account setup, open the [F4 Calendar](https://calendar.google.com/calendar/embed?src=casimircreative.com_pe92inv861hml159vg7qh8vpls%40group.calendar.google.com&ctz=America/Denver) or [B4 Calendar](https://calendar.google.com/calendar/embed?src=casimircreative.com_r9jfiq9f37h6rdt2s8ssofss4k@group.calendar.google.com&ctz=America/Denver), click the `[+] Google Calendar` icon in the bottom right, and add it to your Google Calendar.
 
 Now you'll generally know when your class commitments and work times are. Notice that Wednesday afternoon work time that's consistently in place -- a great time to schedule phone calls and interviews.
 
@@ -65,7 +65,7 @@ And what about the *job hunt*? Decide *when* you're going to do the work. Is it 
 
 **Right now** put down some recurring, reserved time to work on finding a job.
 
-### Timer
+### Your Timing-Brain
 
 Remember pomodoros? The "pomodoro technique" probably just means "25 minutes on, 5 off" to you.
 
@@ -79,11 +79,11 @@ By purposefully controlling your attention, keeping it at a sustainable pace wit
 
 Pick a timer. Right now. [This app seems fine](https://itunes.apple.com/us/app/pomodoro-timer-focus-on-your/id872515009?mt=12). There are web apps and mobile apps. Pick something and stick with it.
 
-When you're working your timer is running. When it stops you stop. Before you begin work you decide on a timebox for how long it's allowed to go. When that time is over the activity is over.
+Before you begin work you decide on a timebox for how long it's allowed to go. When that time is over the activity is over. When you're working your timer is running. *When it stops, you stop*.
 
 #### Fuck Notifications
 
-We're in an epidemic. Your attention is valuable, like $$$ valuable, and other people want to control it. Your attention is the prerequisite for work and fun. **Don't spread it around.**
+We're witnessing a world rip itself apart though the manipulation of attention. Your attention is valuable, like $$$ valuable, and other people want to control it. Your attention is the prerequisite for work and fun. **Don't spread it around.**
 
 Open your MacOS System Preferences then the Notification panel. Turn on "Do Not Disturb" from "12:01 AM" to "11:59 PM". Also check the next two boxes.
 
@@ -93,7 +93,7 @@ Go into your GitHub profile. Turn off the incessant email notifications unless y
 
 Please, please, please turn off your Slack notifications. If you must, allow notifications for DMs. That's it. *If you're getting notifications when messages are posted into a channel you are throwing your attention in the garbage can*.
 
-### Data Notes
+### Your Data-Brain
 
 You finally have meetings. Maybe interviews. Code challenges. You write questions before an interview.
 
@@ -105,7 +105,7 @@ You're a nerd so you're thinking about git. A git repo is fine. But it's really 
 
 You'll always think you'll remember. What did you talk about? Who did you talk with? What was their last name again? Where was their LinkedIn profile? Did they say that had kids? We into Elixir? **Dump the data out of your thinking-brain into your data-brain: Evernote.**
 
-### Daily Habits & One-Off To-Dos
+### Your Task-Brain
 
 Last piece of the puzzle, you need a place to track both the things you do once and those you do on an interval.
 
