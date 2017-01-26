@@ -89,7 +89,7 @@ You don't have to like LinkedIn, but you do have to use it. Many developers comp
 
 Lia suggests that:
 
-* Consider a title like "Software Developer | Former Graphic Designer" to emphasize
+* Consider a title like "Software Developer \| Former Graphic Designer" to emphasize
 * If you're looking to move to a certain location for work, consider using that as your LinkedIn location to get noticed by recruiters there
 * Add a "Summary": this is your opportunity to tell your story and call out that you're a career changer. which makes a big impact on recruiters. The first 100 characters show up on the recruiter view, if they aren't caught by it they don’t click through
 
