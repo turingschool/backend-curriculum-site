@@ -37,7 +37,7 @@ We take one for you for a reason. If I look at this headshot I need to easily be
 
 #### Standard Name
 
-Government name? Common name? The most important thing is that it's *consistent*. You're not a Brazilian football star, so you probably need both a first and last name. Please capitalize the first letters unless there's a cultural reason not to. I would use "Jeff Casimir" not "Jeffrey Casimir" or "JSizzle" :)
+Government name, what your mama calls you, common name (so, Geoff instead of Geoffrey. Not "Shorty" or "Stinky")? It doesn't really matter as long as it's *consistent*. You're not a Brazilian football star, so you probably need both a first and last name. Please capitalize the first letters unless there's a cultural reason not to.
 
 #### Professional Email
 
@@ -63,6 +63,7 @@ GitHub is the root of the worldwide programmers network. You've got an account, 
 * Write a bio along the lines of "Front-End Engineering Student"
 * For company just write "@turingschool"
 * Location is "Denver, CO"
+* Swap out the default github avatar with your standard headshot photo
 * Might as well click the "Available for hire" checkbox :)
 
 Save that and move to the `Emails` tab:
@@ -77,7 +78,7 @@ You're done with GitHub!
 
 ### Setup LinkedIn
 
-You don't have to like LinkedIn, but you do have to use it. Many developers complain that all they get from LinkedIn is "recruiter spam" which translates to "people knocking down your door with job offers." That perhaps the most privileged of problems and one you should invite into your life.
+You don't have to like LinkedIn, but you do have to use it. Many developers complain that all they get from LinkedIn is "recruiter spam" which translates to "people knocking down your door with job offers." That is perhaps the most privileged of problems and one you should invite into your life.
 
 * Login and go to your profile page
 * Click the "Edit Your Public Profile" link
