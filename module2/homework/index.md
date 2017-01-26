@@ -36,7 +36,7 @@ subheading: Homework
     * [The Basics of Capybara and Improving your Tests](https://www.sitepoint.com/basics-capybara-improving-tests/)
     * [Capybara (software) - Wikipedia](https://en.wikipedia.org/wiki/Capybara_(software))
     * [Testing your App with Capybara](https://github.com/teamcapybara/capybara)
-  * [DTR for Bike Share](https://gist.github.com/case-eee/38e212c799c563f58766128b5057858a). One group member should send link to forked gist to Casey.
+  * [DTR for Bike Share](https://gist.github.com/Carmer/85b9e0569af607d14f6e14b696b5e131). One group member should send link to forked gist to Andrew and Sal.
 
 ##### Day 5 & Weekend
   * Answer the Module 2/Week One Recap [questions](https://github.com/turingschool/checks-for-understanding/blob/master/module-2/backend/week_one.md).
