@@ -40,7 +40,7 @@ subheading: Homework
 
 ##### Day 5 & Weekend
   * Answer the Module 2/Week One Recap [questions](https://github.com/turingschool/checks-for-understanding/blob/master/module-2/backend/week_one.md).
-  * Sign up for a [lightning talk](https://github.com/turingschool/lightning-talks) (if you haven't already!)
+  * Sign up for a [lightning talk](https://docs.google.com/spreadsheets/d/1derEJ1nvvCW6G268Y8iQFVDjoyfpE4KH2UyNzfvqyIs/edit#gid=0) (if you haven't already!)
   * [Watch Sharif Ramadan's intro to 1NF, 2NF and 3NF databases. They're only about 4 minutes each.](https://www.youtube.com/watch?v=K7vzLrGCV50&list=PLQ9AAKW8HuJ5m0rmHKL88ZyjOIKejvrj0)
   * Suggested:
     * Read the [Learn SQL the Hard Way](http://sql.learncodethehardway.org/book/) book.
