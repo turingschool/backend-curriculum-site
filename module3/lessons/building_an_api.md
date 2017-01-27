@@ -42,22 +42,17 @@ tags: apis, testing, requests, rails
 ### API vs Web App
 
 Where is the real "value" in an average web app?
-* Ultimately many web apps are just a layer on top of putting data
-into a database and taking it out again
-* APIs are a tool for exposing this data more directly than we do
-in a typical (HTML) user interface
+
+* Ultimately many web apps are just a layer on top of putting data into a database and taking it out again
+* APIs are a tool for exposing this data more directly than we do in a typical (HTML) user interface
 * What's differentiates an API from a UI -- Machine readability
 
 ### Terminology
 
-* "Internal" API -- In this context we say this to mean an API within
-our own application, i.e. an API we are _providing_
-* This is in contrast to a "3rd party" API that we might consume from
-another entity such as twitter or instagram
-* Sometimes people say "internal API" to refer to an API that is reserved for
-internal use only (for example in a service-oriented architecture)
-* They might also have an "external" API hosted in the same application, which
-could be intended for use by other consumers outside of the organization
+* "Internal" API -- In this context we say this to mean an API within our own application, i.e. an API we are _providing_
+* This is in contrast to a "3rd party" API that we might consume from another entity such as twitter or instagram
+* Sometimes people say "internal API" to refer to an API that is reserved for internal use only (for example in a service-oriented architecture)
+* They might also have an "external" API hosted in the same application, which could be intended for use by other consumers outside of the organization
 
 ### Topics
 
@@ -326,7 +321,11 @@ end
 
 Let's make the test pass!
 
-The first error that we should receive is `Failure/Error: create_list(:item, 3) ArgumentError: Factory not registered: item`
+The first error that we should receive is 
+
+```sh
+Failure/Error: create_list(:item, 3) ArgumentError: Factory not registered: item
+```
 
 This is because we have not created a factory yet. The easiest way to create a factory is to generate the model.
 
@@ -388,16 +387,18 @@ This is because we haven't created our controller yet so let's create it! Keep i
 $ mkdir -p app/controllers/api/v1
 $ touch app/controllers/api/v1/items_controller.rb
 ```
+We can add the following to the controller we just made:
 
-**app/controllers/api/v1/items_controller.rb**
 ```rb
+# app/controllers/api/v1/items_controller.rb
 class Api::V1::ItemsController < ApplicationController
 end
 ```
+
 If we were to run our tests again, we should get the same error because we haven't setup the routing.
 
-**config/routes.rb**
 ```rb
+# config/routes.rb
   namespace :api do
     namespace :v1 do
       resources :items, only: [:index]
@@ -407,8 +408,8 @@ If we were to run our tests again, we should get the same error because we haven
 
 Also, add the action in the controller:
 
-**app/controllers/api/v1/items_controller.rb**
 ```rb
+# app/controllers/api/v1/items_controller.rb
 class Api::V1::ItemsController < ApplicationController
 
   def index
@@ -422,9 +423,9 @@ will respond with `Status 204 No Content`. Since it's a `2xx` status code, it is
 
 Now lets see if we can actually get some data.
 
-**spec/requests/api/v1/items_request_spec.rb**
 
 ```rb
+# spec/requests/api/v1/items_request_spec.rb
 require 'rails_helper'
 
 describe "Items API" do
@@ -445,8 +446,8 @@ This just means that we need open and closing braces for it to actually be JSON.
 
 Well that makes sense. We aren't actually rendering anything yet. Let's render some JSON from our controller.
 
-**app/controllers/api/v1/items_controller.rb**
 ```rb
+# app/controllers/api/v1/items_controller.rb
 class Api::V1::ItemsController < ApplicationController
 
   def index
@@ -464,9 +465,8 @@ If you just type `response` you can take a look at the entire response object. W
 
 The data we got back is json, and we need to parse it to get a Ruby object. Try entering `JSON.parse(response.body)`. As you see, the data looks a lot more like Ruby after we parse it. Now that we have a Ruby object, we can make assertions about it.
 
-
-**spec/requests/api/v1/items_request_spec.rb**
 ```rb
+# spec/requests/api/v1/items_request_spec.rb
 require 'rails_helper'
 
 describe "Items API" do
@@ -492,8 +492,8 @@ Now we are going to test drive the `/api/v1/items/:id` endpoint. From the `show`
 
 First, let's write the test. As you can see, we have added a key `id` in the request:
 
-**spec/requests/api/v1/items_request_spec.rb**
 ```rb
+# spec/requests/api/v1/items_request_spec.rb
   it "can get one item by its id" do
     id = create(:item).id
 
@@ -513,8 +513,8 @@ Run the tests and the first error we get is: `ActionController::RoutingError: No
 
 Let's update our routes.
 
-**config/routes.rb**
 ```rb
+# config/routes.rb
 namespace :api do
   namespace :v1 do
     resources :items, only: [:index, :show]
@@ -537,13 +537,12 @@ Run the tests and... we should have two passing tests.
 ### 4. Implement Api::V1::ItemsController#create
 
 Let's start with the test. Since we are creating a new item, we need to pass data for the new item via the HTTP request.
-We can do this easily by adding the params as a key-value pair. Also note that we swapped out the `get` in the request for a `post`
-since we are creating data.
+We can do this easily by adding the params as a key-value pair. Also note that we swapped out the `get` in the request for a `post` since we are creating data.
 
 Also note that we aren't parsing the response to access the last item we created, we can simply query for the last Item record created.
 
-**spec/requests/api/v1/items_request_spec.rb**
 ```rb
+# spec/requests/api/v1/items_request_spec.rb
 it "can create a new item" do
   item_params = { name: "Saw", description: "I want to play a game" }
 
@@ -559,8 +558,9 @@ end
 Run the test and you should get `ActionController::RoutingError:No route matches [POST] "/api/v1/items"`
 
 First, we need to add the route and the action.
-**config/routes.rb**
+
 ```rb
+# config/routes.rb
 namespace :api do
   namespace :v1 do
     resources :items, only: [:index, :show, :create]
@@ -568,19 +568,18 @@ namespace :api do
 end
 ```
 
-**app/controllers/api/v1/items_controller.rb**
 ```rb
+# app/controllers/api/v1/items_controller.rb
 def create
 end
 ```
 
-Run the tests... and the test fails. You should get `NoMethodError: undefined method 'name' for nil:NilClass`. That's because we aren't
-actually creating anything yet.
+Run the tests... and the test fails. You should get `NoMethodError: undefined method 'name' for nil:NilClass`. That's because we aren't actually creating anything yet.
 
 We are going to create an item with the incoming params. Let's take advantage of all the niceties Rails gives us and use strong params.
 
-**app/controllers/api/v1/items_controller.rb**
 ```rb
+# app/controllers/api/v1/items_controller.rb
 def create
   render json: Item.create(item_params)
 end
@@ -600,8 +599,8 @@ Like before, let's add a test.
 
 This test looks very similar to the previous one we wrote. Note that we aren't making assertions about the response, instead we are accessing the item we updated from the database to make sure it actually updated the record.
 
-**spec/requests/api/v1/items_request_spec.rb**
 ```rb
+# spec/requests/api/v1/items_request_spec.rb
 it "can update an existing item" do
   id = create(:item).id
   previous_name = Item.last.name
@@ -619,8 +618,8 @@ end
 Try to test drive the implementation before looking at the code below.
 ---
 
-**config/routes.rb**
 ```rb
+# config/routes.rb
 namespace :api do
   namespace :v1 do
     resources :items, only: [:index, :show, :create, :update]
@@ -628,8 +627,8 @@ namespace :api do
 end
 ```
 
-**app/controllers/api/v1/items_controller.rb**
 ```rb
+# app/controllers/api/v1/items_controller.rb
 def update
   render json: Item.update(params[:id], item_params)
 end
@@ -641,8 +640,8 @@ Ok, last endpoint to test and implement: destroy!
 
 In this test, the last line in this test is refuting the existence of the item we created at the top of this test.
 
-**spec/requests/api/v1/items_request_spec.rb**
 ```rb
+# spec/requests/api/v1/items_request_spec.rb
 it "can destroy an item" do
   item = create(:item)
 
@@ -672,8 +671,8 @@ end
 Make the test pass.
 ---
 
-**config/routes.rb**
 ```rb
+# config/routes.rb
 namespace :api do
   namespace :v1 do
     resources :items, except: [:new, :edit]
@@ -681,8 +680,8 @@ namespace :api do
 end
 ```
 
-**app/controllers/api/v1/items_controller.rb**
 ```rb
+# app/controllers/api/v1/items_controller.rb
 def destroy
   Item.delete(params[:id])
 end

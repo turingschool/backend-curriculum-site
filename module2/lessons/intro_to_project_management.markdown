@@ -53,7 +53,7 @@ Share - be sure to highlight:
 
 ### Git Workflow
 
-Discuss Casey's [Git Workflow for Teams](https://gist.github.com/case-eee/22906249d7a2acead8a897813b7a9675)
+Discuss [Git Workflow for Teams](git_workflow_for_teams)
 
 ### Additional Resources
 

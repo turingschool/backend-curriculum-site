@@ -25,22 +25,22 @@ subheading: Homework
   * Add basic styling to your Robot World. Timebox this!
 
 ##### Day 3
-  * Continue practicing with ActiveRecord [here](https://github.com/turingschool/challenges/blob/master/active_record_and_database_design.markdown).
+  * Continue practicing with ActiveRecord [here](activerecord_and_database_practice).
   * Prep for tomorrow's Collaborative Communication session by reading these two (very short) articles:
     * [Ask Questions Instead of Giving Directions](resources/ask_questions.pdf)
     * [Mitigate Fault](resources/mitigate_fault.pdf)
-  * [Optional, but Highly Suggested] Work through the [Routing Playground](https://github.com/s-espinosa/routing_playground) to learn more about Sinatra routes.
+  * [Optional, but Highly Suggested] Work through the [Routing Playground](https://github.com/turingschool/routing_playground) to learn more about Sinatra routes.
 
 ##### Day 4
   * Research Capybara (a tool we'll be using tomorrow). The following resources are a good start:
     * [The Basics of Capybara and Improving your Tests](https://www.sitepoint.com/basics-capybara-improving-tests/)
     * [Capybara (software) - Wikipedia](https://en.wikipedia.org/wiki/Capybara_(software))
     * [Testing your App with Capybara](https://github.com/teamcapybara/capybara)
-  * [DTR for Bike Share](https://gist.github.com/case-eee/38e212c799c563f58766128b5057858a). One group member should send link to forked gist to Casey.
+  * [DTR for Bike Share](https://gist.github.com/Carmer/85b9e0569af607d14f6e14b696b5e131). One group member should send link to forked gist to Andrew and Sal.
 
 ##### Day 5 & Weekend
   * Answer the Module 2/Week One Recap [questions](https://github.com/turingschool/checks-for-understanding/blob/master/module-2/backend/week_one.md).
-  * Sign up for a [lightning talk](https://github.com/turingschool/lightning-talks) (if you haven't already!)
+  * Sign up for a [lightning talk](https://docs.google.com/spreadsheets/d/1derEJ1nvvCW6G268Y8iQFVDjoyfpE4KH2UyNzfvqyIs/edit#gid=0) (if you haven't already!)
   * [Watch Sharif Ramadan's intro to 1NF, 2NF and 3NF databases. They're only about 4 minutes each.](https://www.youtube.com/watch?v=K7vzLrGCV50&list=PLQ9AAKW8HuJ5m0rmHKL88ZyjOIKejvrj0)
   * Suggested:
     * Read the [Learn SQL the Hard Way](http://sql.learncodethehardway.org/book/) book.

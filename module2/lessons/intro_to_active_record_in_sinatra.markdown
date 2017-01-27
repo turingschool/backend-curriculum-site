@@ -17,7 +17,7 @@ tags: activerecord, migrations, sinatra
 
 We'll use this [ActiveRecord Skeleton Repo](https://github.com/turingschool-examples/active-record-sinatra) for today's lesson. We're going to create an application that displays films and each film's related genre (you'll also build on this application with your homework). Fork it to your Github account, clone it down, and run `bundle install`.
 
-### Warm Up 
+### Warm Up
 
 Answer these questions with a partner:
 
@@ -28,7 +28,7 @@ Answer these questions with a partner:
 ## Introduction to ActiveRecord
 
 ### Relational Databases
-Database systems are helpful when handling massive datasets by helping to optimize complicated queries. Relational databases make it easy to relate tables to one another. 
+Database systems are helpful when handling massive datasets by helping to optimize complicated queries. Relational databases make it easy to relate tables to one another.
 
 For example, if we have a table of songs and artists, and a song belongs to one artist, we'll need to keep track of how these pieces of data relate to one another. There's no easy way to query a YAML file for this info.
 
@@ -43,7 +43,7 @@ For example, if we have a table of songs and artists, and a song belongs to one 
 * ActiveRecord (lots)
 * DataMapper (a few)
 * Sequel (pretty much none)
- 
+
 ### Why do we need an ORM?
 
 We want to wrap our data in Ruby objects so we can easily manipuate them. If we didn't wrap them in Ruby objects, we'd simply have strings in arrays and other simple data types. This wouldn't be very easy to work with or manage.
@@ -56,7 +56,7 @@ We want to wrap our data in Ruby objects so we can easily manipuate them. If we 
 
 ### Inspecting the Setup
 
-Let's examine each of these new files: 
+Let's examine each of these new files:
 
 * `Gemfile`
 * `Rakefile` (find the included rake tasks [here](https://github.com/janko-m/sinatra-activerecord))
@@ -65,11 +65,11 @@ Let's examine each of these new files:
 * `config/database.yml`
 
 ### Creating the database
-If you look in the `db` folder, you'll notice that we don't have any database files. In order to create our database, we need to run `rake db:create`. After running this command, you'll see an empty sqlite file now inside the `db` folder. 
+If you look in the `db` folder, you'll notice that we don't have any database files. In order to create our database, we need to run `rake db:create`. After running this command, you'll see an empty sqlite file now inside the `db` folder.
 
 ### Creating the Genres Table
 
-Before we can actually create a table, we need to generate a migration file. 
+Before we can actually create a table, we need to generate a migration file.
 
 Review: What's a migration?
 
@@ -88,7 +88,7 @@ class CreateGenres < ActiveRecord::Migration
   end
 end
 
-``` 
+```
 
 We'll want to use `ActiveRecord`'s `create_table` method to specify what we want to name this table and what fields it will include.
 
@@ -98,7 +98,7 @@ class CreateGenres < ActiveRecord::Migration
   def change
     create_table :genres do |t|
       t.string :name
-      
+
       t.timestamps null: false
     end
   end
@@ -118,7 +118,7 @@ ActiveRecord::Schema.define(version: 20160217022804) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-  
+
 end
 ```
 
@@ -149,7 +149,7 @@ drama = Genre.create(name: "Drama")
 romance = Genre.create(name: "Romance")
 ```
 
-In the controller: 
+In the controller:
 
 ```ruby
 class FilmFile < Sinatra::Base
@@ -178,13 +178,13 @@ Shuffle/Shuffle/Pop as a big group.
 
 ### Creating the Films Table
 
-You now have two options - you can try the following on your own or you can work with whomever is sitting next to you. 
+You now have two options - you can try the following on your own or you can work with whomever is sitting next to you.
 
 Let's create a `films` table and a corresponding `Film` model!
 
 A `Film` will have a title (text), year (integer), and box_office_sales (integer).
 
-- Create a migration file. 
+- Create a migration file.
 - Write code in that file to create the correct table (films) with the necessary fields (see above).
 - Run your migrations.
 - Inspect `schema.rb` to ensure your table was created as intended.
@@ -272,7 +272,7 @@ Film.create(title: "Star Wars: Episode I - The Phantom Menace", year: 1999, box_
 Film.create(title: "The Lion King", year: 1994, box_office_sales: 422783777)
 ```
 
-In the controller: 
+In the controller:
 
 ```ruby
 class FilmFile < Sinatra::Base
@@ -289,7 +289,7 @@ Run `shotgun` from the command line. Visit `localhost:9393/films` and see your f
 
 Let's assume that a film belongs to a genre, and a genre has many films. How will we connect these two tables?
 
-If a genre has many films, then we'll add a foreign key on the film. 
+If a genre has many films, then we'll add a foreign key on the film.
 
 We'll need to add a `genre_id` column to the `films` table. An individual `Film` will always have a reference to one `Genre` via the `genre_id` field.
 
@@ -344,7 +344,7 @@ end
 
 This will allow us to call the method `films` on an instance of `Genre`. Behind the scenes, it will go through the `films` table and find all films where the `genre_id` attribute is the same as the primary key `id` of the genre it's being called on.
 
-Curious about how this is implemented? Check out [this blog post](http://callahanchris.github.io/blog/2014/10/08/behind-the-scenes-of-the-has-many-active-record-association/). 
+Curious about how this is implemented? Check out [this blog post](http://callahanchris.github.io/blog/2014/10/08/behind-the-scenes-of-the-has-many-active-record-association/).
 
 Let's test it out:
 
@@ -367,7 +367,7 @@ animation.films << Film.find_by(title: "The Lion King")
 ...and so on
 ```
 
-Another way to do this would be: 
+Another way to do this would be:
 
 ```ruby
 Film.find_by(title: "The Lion King").update_attributes(genre_id: 1)
@@ -399,9 +399,9 @@ Let's update our `genres/index.erb` view to show all the films in each genre:
 </div>
 ```
 
-Ideally, we would not be iterating through a collection inside of another iteration through a collection. We would want to pull this out to a partial and render that partial within the loop. For now though, let's leave it. 
+Ideally, we would not be iterating through a collection inside of another iteration through a collection. We would want to pull this out to a partial and render that partial within the loop. For now though, let's leave it.
 
-Run `shotgun` from the command line, then navigate to `localhost:9393/genres`. You should see the films sorted by genre. 
+Run `shotgun` from the command line, then navigate to `localhost:9393/genres`. You should see the films sorted by genre.
 
 ### A Film's Relationship with Genre
 
@@ -425,7 +425,7 @@ If you have a `has_many` relationship on a model, it is **not** necessary to hav
 
 ### Homework
 
-[Click here](https://github.com/turingschool/challenges/blob/master/active_record_and_database_design.markdown)
+[Click here](./homework/activerecord_and_database_practice)
 
 ### Additional Resources
 
@@ -436,4 +436,3 @@ Below are a few tutorials that walk through creating a Postgres-Sinatra applicat
 * [making-a-simple-database-driven-website-with-sinatra-and-heroku](https://samuelstern.wordpress.com/2012/11/28/making-a-simple-database-driven-website-with-sinatra-and-heroku/)
 * [What is ActiveRecord?](http://guides.rubyonrails.org/active_record_basics.html#what-is-active-record-questionmark)
 * [ORM Diagram](http://wiki.expertiza.ncsu.edu/images/2/2c/ORM_Flowchart.jpg)
-
