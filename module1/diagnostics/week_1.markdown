@@ -29,7 +29,8 @@ Create a gist and answer the following questions.
 *   Name 3 ways to retrieve `4` from this array: `[4,3,5]`
 *   How would you print each word from this list (`["hello", "goodbye", "cactus"]`) to terminal within this output:
 
-```The word is "hello".
+```
+The word is "hello".
 The word is "goodbye".
 The word is "cactus".
 ```
@@ -42,6 +43,10 @@ The word is "cactus".
 
 ## Enumerables (`.each`)
 
+*   What is the purpose of an enumerable?
+*   What are the two different ways that you can represent a block?
+*   Given this array ` ["Beth", "Lauren", "Ilana"]`. How would you create a new array of just the first initials of each name?
+
 
 ## Classes and instance methods
 *   When you're defining a class, how do you store _attributes_?
@@ -50,3 +55,6 @@ The word is "cactus".
 
 
 ## Methods, arguments and scopes
+
+*   Describe the scope that methods create. Are variables created in that scope accessible elsewhere?
+*   What does the method scope have access to?
