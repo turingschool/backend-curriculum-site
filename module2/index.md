@@ -51,7 +51,7 @@ By the end of this module, students will be able to:
 * [Model Testing in Sinatra](lessons/model_testing_in_sinatra_with_horses)
 * [Intro to Project Management](lessons/intro_to_project_management)
 * [BikeShare Kickoff](https://github.com/turingschool/bike-share)
-* [Feature Testing with Capybara in Sinatra for Films](lessons/feature_testing_in_sinatra_with_films)
+* [Feature Testing with Capybara in Sinatra for Horses](lessons/feature_testing_in_sinatra_with_horses)
 
 #### Week 2
 

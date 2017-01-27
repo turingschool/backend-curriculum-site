@@ -5,20 +5,24 @@ layout: page
 ---
 
 # Flower Exercise
+
 ## Helping you Find the Best Fit
 
 What is important to you? What goals do you have for yourself? What kind of services do you want to provide? Where do you see your career going? Utilizing a job-hunting strategy that has an 86% success rate, you’ll complete a self-inventory to answer those questions and more in this session adapted from [What Color is Your Parachute](http://www.jobhuntersbible.com/) by Richard N. Bolles
 
 Reference the [Flower Exercise slides](https://docs.google.com/presentation/d/1V97AE_y9BQLhcQ7sC03JbeI-p6OcL_dfqTFKxvXyNRY/edit?usp=sharing)
 
-##Learning Objectives:
+## Learning Objectives:
+
 * Describe yourself in 6 different ways to potential interviewers
 * Describe in detail the kind of position you’re looking for
 
-##Deliverable:
+## Deliverable:
+
 **[Complete the Flower Exercise 1-pager and upload it to your end of module portfolio](https://github.com/turingschool/professional_skills/blob/master/files/Career%20Unit%20-%20The%20Flower%20Diagram.pdf)**
 
-###You’re not a Role
+### You’re not a Role
+
 When people have asked you what you do in the past, what have you said? “I was a construction worker.” “I was a marketing manager.” “I was a teacher.” Sound familiar? These kind of declarations lock you into a role; but you’re not a role, you’re a person with many skills and many experiences.
 
 Instead, try saying “I’m a person who…”
@@ -29,7 +33,8 @@ Instead, try saying “I’m a person who…”
 
 In this session, you’ll explore who you are from 7 different angles to discover what you want as you start looking for a job. **Because you are not just a software developer now, you are a person who has very specific skills, talents, experience, and goals that make you so much more than a software developer.**
 
-###The Seven Petals
+### The Seven Petals
+
 I am a person who…has 7 sides to me:
 
 1. Describe who you are in terms of what you know (favorite knowledges and/or fields of interest)
@@ -53,7 +58,8 @@ All 7 aspects are important for your job search; Why?
 * If a job only matches 1 or 2 “petals,” it will not be fulfilling to you because it will only allow you to express one or two sides of yourself
 * This picture is the most complete of you and defining these aspects will lead you to your dream job
 
-###Tools
+### Tools
+
 Complete [these worksheets](https://docs.google.com/document/d/1pLe95AA3y8rxnU-MDnyAVeoqWCxE9__KMDhmPgcd_7c/edit?usp=sharing) to fulfill the brainstorming stages of the Flower Exercise
 
 * Petal #1: Favorite Knowledges And/Or Fields of Interest
