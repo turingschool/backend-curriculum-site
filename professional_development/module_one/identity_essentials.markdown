@@ -148,7 +148,7 @@ Twitter is where the public dialog of the programming community happens. It's a 
 
 A rich twitter experience typically means following 500-1500 accounts. You don't need to read every tweet.
 
-[Here's a list-in-progress of a few people you might want to check out](https://twitter.com/j3/lists/starter-set).
+[Here's a list-in-progress of a few people you might want to check out](https://twitter.com/j3/lists/starter-set/members).
 
 Setup your account with your proper name and that same standard headshot photo. In your bio say something like "Front-End Engineering student at @turingschool".
 
