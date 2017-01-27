@@ -45,7 +45,7 @@ The word is "cactus".
 
 *   What is the purpose of an enumerable?
 *   What are the two different ways that you can represent a block?
-*   Given this array ` ["Beth", "Lauren", "Ilana"]`. How would you create a new array of just the first initials of each name?
+*   Given this array `["Beth", "Lauren", "Ilana"]`. How would you create a new array of just the first initials of each name?
 
 
 ## Classes and instance methods
