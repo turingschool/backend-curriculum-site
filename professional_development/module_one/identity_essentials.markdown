@@ -89,7 +89,7 @@ You don't have to like LinkedIn, but you do have to use it. Many developers comp
 
 Lia suggests that:
 
-* Consider a title like "Software Developer | Former Graphic Designer" to emphasize
+* Consider a title like "Software Developer \| Former Graphic Designer" to emphasize certain parts of your background
 * If you're looking to move to a certain location for work, consider using that as your LinkedIn location to get noticed by recruiters there
 * Add a "Summary": this is your opportunity to tell your story and call out that you're a career changer. which makes a big impact on recruiters. The first 100 characters show up on the recruiter view, if they aren't caught by it they don’t click through
 
@@ -148,7 +148,7 @@ Twitter is where the public dialog of the programming community happens. It's a 
 
 A rich twitter experience typically means following 500-1500 accounts. You don't need to read every tweet.
 
-[Here's a list-in-progress of a few people you might want to check out](https://twitter.com/j3/lists/starter-set).
+[Here's a list-in-progress of a few people you might want to check out](https://twitter.com/j3/lists/starter-set/members).
 
 Setup your account with your proper name and that same standard headshot photo. In your bio say something like "Front-End Engineering student at @turingschool".
 

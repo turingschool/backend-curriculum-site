@@ -93,6 +93,8 @@ Go into your GitHub profile. Turn off the incessant email notifications unless y
 
 Please, please, please turn off your Slack notifications. If you must, allow notifications for DMs. That's it. *If you're getting notifications when messages are posted into a channel you are throwing your attention in the garbage can*.
 
+Consider cutting down noise in your email inbox by [using a mass-unsubscribe tool like Unroll.me](https://unroll.me/).
+
 ### Your Data-Brain
 
 You finally have meetings. Maybe interviews. Code challenges. You write questions before an interview.
