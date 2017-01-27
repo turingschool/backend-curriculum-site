@@ -7,14 +7,19 @@ Create a gist and answer the following questions.
 *   What's the difference between a float and integer?
 *   What's are the similarities and differences between BigNum and FixNum?
 *   What will `4.0 / 2` return?
-*   How can you grab the substring “ell” from “hello”?
 *   What will `1.5.to_i.to_f` return?
-*   Give an example of string concatenation and string interpolation.
-*   Give examples of three variable names: a "valid name" (it will work) that goes against Ruby style, an "invalid" name (it will trigger an error), and a valid and stylistically conventional name.
 *   What part of this expression (`"hi" *  5`?) is "syntactic sugar"? What does that mean?
 *   What will `10 % 3` return?
 *   What will `5 == 10/2` return?
 *   How can you write 5 to the 2nd power?
+
+
+## Strings
+
+*   How can you grab the substring “ell” from “hello”?
+*   Give an example of string concatenation and string interpolation.
+*   Give examples of three variable names: a "valid name" (it will work) that goes against Ruby style, an "invalid" name (it will trigger an error), and a valid and stylistically conventional name.
+
 
 ## Arrays
 
