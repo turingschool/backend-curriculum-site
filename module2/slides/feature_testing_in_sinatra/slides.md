@@ -8,7 +8,7 @@
 
 * What are we testing so far in our Horses app?
 * What aren't we testing?
-* Assuming that our tests will have some setup, execution, assertions, and teardown, what might be included in each phase?
+* Remember your integration testing from M1? What might an integration test for a website try to test?
 
 ---
 
@@ -79,6 +79,25 @@
 * within("**CSS**") {**Expectations or Actions**}
 
 Highlighted item are intended to change based on the actual example.
+
+---
+
+# In Code
+
+```ruby
+describe "When a user visits a horses show page" do
+  it "they should see information about the horse" do
+    horse = Horse.create(name: "Justin")
+
+    visit "/horses/#{horse.id}"
+
+    within "#description" do
+      expect(page).to have_content("Justin")
+    end
+  end
+end
+
+```
 
 ---
 
