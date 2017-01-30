@@ -176,39 +176,47 @@ end
 
 *   Because the longest word that we would like to make is "SuperFizzBuzz", it seems we should first start by checking if our number is divisible by 7. This would allow "Super" to be the first word in our string.
 
+*   We also want to start our class with an empty string.
+
 ```ruby
-def check_number
-  output = ""
-  divisible_by_7(output)
-end
+class SuperFizz
+attr_reader :num, :output
+  def initialize(num)
+    @num = num
+    @output = ""
+  end
+
+  def check_number
+    divisible_by_7
+  end
 ```
 
 *   We have created an empty string to hold our output and now we are going to carry that empty string with us into the `divisible_by_7` method.
 
 ```ruby
-def divisible_by_7(output)
+def divisible_by_7
   if num % 7 == 0
     output << "Super"
   end
-  divisible_by_3(output)
+  divisible_by_3
 end
 ```
 
 *   We have now started to create a chain of methods that will check each other. Since in the word "SuperFizzBuzz", "Fizz" is next, we are going to check if the number is divisible by 3. We want to carry our output with us as well, which will have the word "Super" in it if the number is divisible by 7.
 
 ```ruby
-def divisible_by_3(output)
+def divisible_by_3
   if num % 3 == 0
     output << "Fizz"
   end
-  divisible_by_5(output)
+  divisible_by_5
 end
 ```
 
 *   We also check if our number is divisible by 5 so that "Buzz" will be the last word in the string.
 
 ```ruby
-def divisible_by_5(output)
+def divisible_by_5
   if num % 5 == 0
      output << "Buzz"
   end
@@ -224,14 +232,14 @@ end
 *   Lastly, we can refactor a little bit and pull out the second if statement.
 
 ```ruby
-def divisible_by_5(output)
+def divisible_by_5
   if num % 5 == 0
      output << "Buzz"
   end
-  check_the_output(output)
+  check_the_output
 end
 
-def check_the_output(output)
+def check_the_output
   if output.empty?
     puts num
   else
@@ -244,38 +252,38 @@ end
 
 ```ruby
 class SuperFizz
-attr_reader :num
+attr_reader :num, :output
   def initialize(num)
     @num = num
+    @output = ""
   end
 
   def check_number
-    output = ""
-    divisible_by_7(output)
+    divisible_by_7
   end
 
-  def divisible_by_7(output)
+  def divisible_by_7
     if num % 7 == 0
       output << "Super"
     end
-    divisible_by_3(output)
+    divisible_by_3
   end
 
-  def divisible_by_3(output)
+  def divisible_by_3
     if num % 3 == 0
       output << "Fizz"
     end
-    divisible_by_5(output)
+    divisible_by_5
   end
 
-  def divisible_by_5(output)
+  def divisible_by_5
     if num % 5 == 0
        output << "Buzz"
     end
-    check_the_output(output)
+    check_the_output
   end
 
-  def check_the_output(output)
+  def check_the_output
     if output.empty?
       puts num
     else
