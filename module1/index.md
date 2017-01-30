@@ -67,12 +67,12 @@ A student who graduates from this module will be able to do the following.
       Week 1
     </li>
   </a>
-  <!-- <a href="week_2">
+  <a href="week_2">
     <li class="outline">
       Week 2
     </li>
   </a>
-  <a href="week_3">
+  <!-- <a href="week_3">
     <li class="outline">
       Week 3
     </li>
@@ -92,7 +92,7 @@ A student who graduates from this module will be able to do the following.
       Week 6
     </li>
   </a> -->
-</ul>
+</ul> 
 
 ## Important Links
 
