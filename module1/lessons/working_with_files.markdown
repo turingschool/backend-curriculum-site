@@ -35,18 +35,52 @@ Spend 5 minutes answering the following questions:
 ### Basics - Reading an Existing File
 
 * Using `cat`
-* Using Ruby from Pry or IRB
+
+```
+cat <filename>
+```
+
+* Using Ruby from Pry or IRB, `File.open()`
+
+```ruby
+File.open(<filename>, "r")
+```
 
 ### Basics - Creating an Empty File
 
 * Using `touch`
-* Using Ruby and `FileUtils.touch` or `File.write("path", "")`
+
+```
+touch <filename>
+```
+
+* Using Ruby and `File.open()`
+
+```ruby
+File.open(<filename>, "w")
+```
 
 ### Basics - Writing Data to a File
 
 * Using `echo`
-* Using `curl`
-* Using Ruby and `File.write`
+
+```
+echo "test" >filename
+```
+
+* Using `cat`
+
+```
+cat >filename
+CTRL+D
+```
+
+* Using Ruby and `File.write()`
+
+```ruby
+new_file = File.open(<filename>, "r")
+new_file.write("text")
+```
 
 ## Command-line Arguments and `ARGV`
 
@@ -55,13 +89,7 @@ interact with the system environment.
 
 Another common interaction involves reading **"Command Line Arguments"**
 
-Examples you've seen before:
-
-* `ls -l`
-* `git commit -m`
-* `ruby -v`
-
-__Discussion: Reading Arguments from a Ruby Program__
+### Reading Arguments from a Ruby Program
 
 * `ARGV` - a special array
 * Arguments are provided as strings
@@ -69,23 +97,31 @@ __Discussion: Reading Arguments from a Ruby Program__
 * `ARGV` is a "constant" and is globally accessible from anywhere
 in a ruby program
 
-### Exercise - Ruby copy
+### Exercise
 
-Now that you know the basics of working with files and command-line
-arguments, you have all you need to implement a simple ruby
-file copy utility.
+Work with a partner next to you to do the following:
 
-Create a short ruby file, `copy.rb` which takes 2 file names
-as command line arguments, and copies the contents of the first file
-into the second one.
-
-I would like to use the program like this:
+Use `cat` to create a `quiet_quotes.txt` from the command line and paste the following into it:
 
 ```
-echo "pizza" > pizza1.txt
-ruby copy.rb pizza1.txt pizza2.txt
-cat pizza2.txt
-pizza
+Bob Ross Quotes
+“We don't make mistakes, just happy little accidents.”
+“Talent is a pursued interest. Anything that you're willing to practice, you can do.”
+“There's nothing wrong with having a tree as a friend.”
+“I guess I’m a little weird. I like to talk to trees and animals. That’s okay though; I have more fun than most people.”
+“All you need to paint is a few tools, a little instruction, and a vision in your mind.”
+“The secret to doing anything is believing that you can do it. Anything that you believe you can do strong enough, you can do. Anything. As long as you believe.”
+“I started painting as a hobby when I was little. I didn't know I had any talent. I believe talent is just a pursued interest. Anybody can do what I do.”
+“Mix up a little more shadow color here, then we can put us a little shadow right in there. See how you can move things around? You have unlimited power on this canvas -- can literally, literally move mountains”
+“Let's build a happy little cloud. Let's build some happy little trees.”
+```
+
+Using `ARGV`, write a Ruby script that will take in the above text and print out an all caps version to `loud_quotes.txt`.
+
+The program must be executed from the command line like so:
+
+```
+ruby <filename.rb> quiet_quotes.txt loud_quotes.txt
 ```
 
 ### Video
