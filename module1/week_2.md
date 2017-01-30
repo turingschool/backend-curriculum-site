@@ -17,8 +17,8 @@ layout: page
 
 ## Projects and Exercises
 *   [Flashcards](projects/flashcards)
-*   [Complete Me](projects/complete_me)
 *   [Date Night](projects/date_night)
+*   [Complete Me](projects/complete_me)
 
 ## Resources
 
