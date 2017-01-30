@@ -139,7 +139,7 @@ attr_reader :num
     @num = num
   end
 
-  def check_number
+  def divisible_by_what
     if num % 3 == 0 && num % 5 == 0 && num % 7 == 0
       puts "SuperFizzBuzz"
     elsif num % 3 == 0 && num % 7 == 0
@@ -161,7 +161,7 @@ attr_reader :num
 end
 
 superfizz = SuperFizz.new(87687687)
-superfizz.check_number
+superfizz.divisible_by_what
 ```
 
 *   By creating an `attr_reader`, we have allowed ourselves access to a method named `num` that holds the number we passed in when we created a new instance of `SuperFizz.new`
@@ -186,23 +186,15 @@ attr_reader :num, :output
     @output = ""
   end
 
-  def check_number
-    divisible_by_7
+  def divisible_by_what
+    if num % 7 == 0
+      output << "Super"
+    end
+    divisible_by_3
   end
 ```
 
-*   We have created an empty string to hold our output and now we are going to carry that empty string with us into the `divisible_by_7` method.
-
-```ruby
-def divisible_by_7
-  if num % 7 == 0
-    output << "Super"
-  end
-  divisible_by_3
-end
-```
-
-*   We have now started to create a chain of methods that will check each other. Since in the word "SuperFizzBuzz", "Fizz" is next, we are going to check if the number is divisible by 3. We want to carry our output with us as well, which will have the word "Super" in it if the number is divisible by 7.
+*   We have now started to create a chain of methods that will check each other. Since in the word "SuperFizzBuzz", "Fizz" is next, we are going to check if the number is divisible by 3. Our output will have the word "Super" in it if the number is divisible by 7.
 
 ```ruby
 def divisible_by_3
@@ -258,11 +250,7 @@ attr_reader :num, :output
     @output = ""
   end
 
-  def check_number
-    divisible_by_7
-  end
-
-  def divisible_by_7
+  def divisible_by_what
     if num % 7 == 0
       output << "Super"
     end
@@ -293,7 +281,7 @@ attr_reader :num, :output
 end
 
 superfizz = SuperFizz.new(87687687)
-superfizz.check_number
+superfizz.divisible_by_what
 ```
 
 *   We have now created a dynamic object that can do more than one thing. If we wanted to create more methods for superfizz, that is also possible.
@@ -301,6 +289,6 @@ superfizz.check_number
 ```ruby
 1000.times do |num|
   superfizz = SuperFizz.new(num)
-  superfizz.check_number
+  superfizz.divisible_by_what
 end
 ```
