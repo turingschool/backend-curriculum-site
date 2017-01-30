@@ -9,6 +9,7 @@ An ERD representing the real world information is then converted to tables in th
 ### Purpose of Using ERD
 
 Designing ERDs for an application is the first step towards designing a database for the application.  In general, the first stage of designing a database involves the following three steps:
+
 * 1.) design the ERD.
 * 2.) convert the ERD into tables.
 * 3.) normalize each table to 1NF, 2NF or 3NF as befitting that table.
