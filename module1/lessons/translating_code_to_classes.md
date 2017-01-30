@@ -297,3 +297,10 @@ superfizz.check_number
 ```
 
 *   We have now created a dynamic object that can do more than one thing. If we wanted to create more methods for superfizz, that is also possible.
+
+```ruby
+1000.times do |num|
+  superfizz = SuperFizz.new(num)
+  superfizz.check_number
+end
+```
