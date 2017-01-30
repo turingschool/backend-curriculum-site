@@ -7,7 +7,7 @@ layout: page
 *   [Translating Code to Classes](lessons/translating_code_to_classes)
 *   [Debugging Techniques](lessons/debugging_redux)
 ([Video](https://vimeo.com/160952993))
-*   [Intro to TDD](lessons/intro_to_tdd_and_pairing)
+*   [Intro to TDD](http://tutorials.jumpstartlab.com/topics/testing/intro-to-tdd.html)
 *   [Working with Files](lessons/working_with_files)
 *   [Video: Basic File IO in Ruby](https://vimeo.com/130322465)
 *   [Class Recording: Working with files](https://vimeo.com/162134025)
