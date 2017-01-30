@@ -21,7 +21,7 @@ Effective communication around code, explaining what it does and why
 * Employment Skills (Lia)
 (forthcoming)
 
-  * Continue to develop [professional skills](lessons/https://gist.github.com/anonymous/79b0a5b97847a6cdb57caf1f4abad508)
+  * Continue to develop [professional skills](https://gist.github.com/anonymous/79b0a5b97847a6cdb57caf1f4abad508)
 
 #### Technical Skills
 
