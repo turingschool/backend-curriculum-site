@@ -27,7 +27,7 @@ There have been many to walk this road before you. There are several who have th
 skills but the job hunt takes forever. The consequences are real:
 
 1. Lost income/savings
-2. Depression
+2. Depression (see Greg Bauges' [Devs & Depression](https://www.youtube.com/watch?v=Z6x9wmlFz_c))
 3. Self-induced isolation from peers and Turing community
 4. Mediocre final job if/when it comes together
 
