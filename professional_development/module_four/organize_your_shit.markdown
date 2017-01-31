@@ -3,15 +3,15 @@ title:  Organize Your Shit
 layout: page
 ---
 
+*Precheck*: Before you dive into this, you should carefully complete the [Identity Essentials](backend.turing.io/professional_development/module_one/identity_essentials) tutorial.
+
 Your success in both job hunting and succeeding on in that job will boil down to:
 
 **Discipline** + **Hustle** + **Skill**
 
-Your *skills* have grown and continue to grow during Mod 4. That's easy.
-
-*Hustle* comes easily for some and is difficult for others. We'll continue to talk about that.
-
-But today we're focused on *discipline*.
+* Your *skills* have grown and continue to grow as you near graduation. That's easy.
+* *Hustle* comes easily for some and is difficult for others. We'll continue to talk about that.
+* But today we're focused on *discipline*.
 
 ## On Discipline
 
@@ -39,7 +39,7 @@ If you approach the job hunt casually these will be your results.
 
 [Kathy Sierra](http://seriouspony.com/blog/2013/7/24/your-app-makes-me-fat) argues that by sapping our cognitive resources, our tools can make us dumb and fat.
 
-*Discipline* means letting go. Letting go of what your brain is bad at. Letting it do what it's meant to -- and using other systems for their job.
+*Discipline* means letting go. Letting go of what your brain is bad at. Letting it do what it's meant to -- and using other systems to solve the mundane problems.
 
 ## Problems to Solve
 
@@ -53,15 +53,26 @@ The *goal* of using a calendar is for it to be your *external brain* responsible
 
 Google Calendar is pretty good and perhaps the most ubiquitous. If you don't have a strong preference for something else, use it.
 
-Once you have an account setup, open the [F4 Calendar](https://calendar.google.com/calendar/embed?src=casimircreative.com_pe92inv861hml159vg7qh8vpls%40group.calendar.google.com&ctz=America/Denver) or [B4 Calendar](https://calendar.google.com/calendar/embed?src=casimircreative.com_r9jfiq9f37h6rdt2s8ssofss4k@group.calendar.google.com&ctz=America/Denver), click the `[+] Google Calendar` icon in the bottom right, and add it to your Google Calendar.
+Once you have an account setup, open your module calendar in a browser, click the `[+] Google Calendar` icon in the bottom right, and add it to your Google Calendar.
 
-Now you'll generally know when your class commitments and work times are. Notice that Wednesday afternoon work time that's consistently in place -- a great time to schedule phone calls and interviews.
+* Backend Calendars:
+  [B1 ](https://www.google.com/calendar/embed?src=casimircreative.com_59k8msrrc2ddhcv787vubvp0s4%40group.calendar.google.com&ctz=America/Denver),
+  [B2 ](https://www.google.com/calendar/embed?src=casimircreative.com_rps2hg1nfqjih4rcl3gl6s4lpk%40group.calendar.google.com&ctz=America/Denver),
+  [B3 ](https://www.google.com/calendar/embed?src=casimircreative.com_e9k9b6n7bok174ilmqbfdr0sc4%40group.calendar.google.com&ctz=America/Denver),
+  [B4 ](https://www.google.com/calendar/embed?src=casimircreative.com_r9jfiq9f37h6rdt2s8ssofss4k%40group.calendar.google.com&ctz=America/Denver)
+* Frontend Calendars:
+  [F1 ](https://calendar.google.com/calendar/embed?src=casimircreative.com_m6bndqol81h6jdlnpo0a6raot0%40group.calendar.google.com&ctz=America/Denver),
+  [F2 ](https://calendar.google.com/calendar/embed?src=Y2FzaW1pcmNyZWF0aXZlLmNvbV9jamlmZm9xdnRhanE0M241bW4yOTBjcDc0NEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t),
+  [F3 ](https://calendar.google.com/calendar/embed?src=casimircreative.com_krb9p35ck35m4uoji5d2715844%40group.calendar.google.com&ctz=America/Denver),
+  [F4 ](https://calendar.google.com/calendar/embed?src=casimircreative.com_pe92inv861hml159vg7qh8vpls%40group.calendar.google.com&ctz=America/Denver)
 
-What else do you need to have on your regular calendar? Everything. Do you workout at certain times? Call your mom? Attend a posse meetup? Take time to meditate? Add them to the calendar.
+Now you'll generally know when your class commitments and work times are. Notice that work times in the afternoons -- a great time to schedule phone calls and interviews.
 
-**Take the extra moment to setup appropriate repeat settings so recurring commitments are automatically there.** If your have to *remember* to add regular events then you're wasting your cognitive resources.
+What else do you need to have on your regular calendar? **Everything.** Do you workout at certain times? Call your mom? Attend a posse meetup? Take time to meditate? Add them to the calendar.
 
-And what about the *job hunt*? Decide *when* you're going to do the work. Is it every day 8:00-8:30? Tuesday and Thursday 7-9pm? While you're working through Mod 4 it should probably be 4-6 hours/week. After you graduate it should be 60 hours/week.
+**Take the extra moment to setup appropriate *repeat* settings so recurring commitments are automatically there.** If your have to *remember* to add regular events then you're wasting your cognitive resources.
+
+And what about the *job hunt*? Decide *when* you're going to do the work. Is it every day 8:00-8:30? Tuesday and Thursday 7-9pm? If you're in Mod 3 it should probably be 2-4 hours/week. Mod 4 it should probably be closer to 4-6 hours/week. After you graduate it should be 60 hours/week.
 
 **Right now** put down some recurring, reserved time to work on finding a job.
 
@@ -131,6 +142,8 @@ At this point you're probably thinking "I don't need all that" or "that's not fo
 
 **Get all this in place ASAP.** Use it. Encourage your pairs to use it. If this is "community-driven education," then why approach this difficult phase alone? Check-in with each other. Setup regular job work times. Even if you're just sitting next to each other. Hold each other accountable for the big things and the little things, like managing you attention.
 
-You have about 60 days to get a job offer and hit our goal. Here's a wager:
+Help us hit our big hiring goals for 2017 but, more importantly, get yourself an awesome job.
+
+*Lastly, here's a wager*:
 
 If you get to 30-days out from graduation, you've done what we've asked in ProSkills, you've used the techniques and tools I've laid out here regularly, and you *still* don't have at least one job offer, I'll buy you lunch and we'll brainstorm/investigate what's going wrong.
