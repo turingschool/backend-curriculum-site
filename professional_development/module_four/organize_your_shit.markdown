@@ -3,7 +3,7 @@ title:  Organize Your Shit
 layout: page
 ---
 
-*Precheck*: Before you dive into this, you should carefully complete the [Identity Essentials](backend.turing.io/professional_development/module_one/identity_essentials) tutorial.
+*Precheck*: Before you dive into this, you should carefully complete the [Identity Essentials](http://backend.turing.io/professional_development/module_one/identity_essentials) tutorial.
 
 Your success in both job hunting and succeeding on in that job will boil down to:
 
