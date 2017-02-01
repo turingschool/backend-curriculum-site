@@ -108,7 +108,7 @@ Graphical Representation:
 
 #### ER Diagram:
 
-![ERD-figure9](images/ERD-figure9.png)
+![ERD-figure9](imagivees/ERD-figure9.png)
 
 A: (a1, a2)	&&     B: (b1, b2, b3, c1, c2, a1)
 
