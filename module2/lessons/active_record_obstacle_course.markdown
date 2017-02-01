@@ -14,7 +14,7 @@ tags: activerecord, rails
 
 1. Clone Storedom and checkout the `activerecord-obstacle-course` branch
 
-  `git clone -b activerecord-obstacle-course https://github.com/turingschool-examples/storedom.git`
+  * `git clone -b activerecord-obstacle-course https://github.com/turingschool-examples/storedom.git`
 
 2. `bundle update`
 
@@ -33,9 +33,11 @@ tags: activerecord, rails
     * Leave the Ruby as is or comment it out -- Don't erase.
 
       ```ruby
+
       # -----------------------------
       # A section with some Ruby code
       # -----------------------------
+
       ```
 
     * Write a refactored implementation using ActiveRecord. Assign to the same variables as above.
