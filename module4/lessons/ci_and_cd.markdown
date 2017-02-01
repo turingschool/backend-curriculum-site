@@ -30,6 +30,7 @@ title: Continuous Integration and Continuous Deployment
 * [Netflix](http://techblog.netflix.com/2015/11/global-continuous-delivery-with.html)
 * CI tools doing deployment
 * In more complex / non-Heroku hosting situations
+* Elevating "infrastructure" to a first-class concern
 
 ## Tooling & Resources to Explore
 
