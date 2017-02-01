@@ -14,7 +14,7 @@ tags: activerecord, rails
 
 1. Clone Storedom and checkout the `activerecord-obstacle-course` branch
 
-  * `git clone -b activerecord-obstacle-course https://github.com/turingschool-examples/storedom.git`
+    * `git clone -b activerecord-obstacle-course https://github.com/turingschool-examples/storedom.git`
 
 2. `bundle update`
 
