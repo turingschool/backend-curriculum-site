@@ -13,9 +13,9 @@ status: draft
 * How to use Faker
 * How to set up relationships
 
-## Live Code: Building an Inefficient Seed File
+## Setup: Building an Inefficient Seed File
 
-Clone down the following repo.
+If you'd like to code with this read through (not a requirement though), clone down the following repo.
 
 `git clone -b seeding_data https://github.com/turingschool-examples/storedom.git seeding_data`
 
@@ -76,15 +76,14 @@ Item.create!(
   )
 ```
 
-What are the downsides to this approach?
+Take a second and think about the downsides to this approach?
 
-## Lecture: Why Seeding Data Efficiently Matters
+## Why Seeding Data Efficiently Matters
 
-* Setting up each record by hand takes too much initial time
-* The nightmare seed file -- we've probably all seen or will see the 300+ line seed file
-* Problems of seeding generally stem from doing too much manual / hard-coded
-  work
-* We should treat our seed file as just another piece of code (OO)
+* Setting up each record by hand takes quite a bit of time that could be used doing something else
+* You've might have already seen or will see at some point in the future the 300+ line seed file
+* Problems of seeding generally stem from doing too much manual / hard-coded work
+* We should treat our seed file as just another piece of code (aka make it Object Oriented)
 * Use methods as abstractions for common operations
 * Use libraries to generate data we need (often randomized data to simulate real users)
 * Use Rails / ActiveRecord idioms to pre-fill relationships in a straightforward way
@@ -188,7 +187,7 @@ class Seed
   def generate_orders
     100.times do |i|
       user  = User.find(Random.new.rand(1..50))
-      order = Order.create!(user_id: user.id)
+      order = user.orders.create!()
       add_items(order)
       puts "Order #{i}: Order for #{user.name} created!"
     end
@@ -207,3 +206,7 @@ end
 
 Seed.start
 ```
+
+## Going Forward
+
+We challenge you to follow best OO practices in your seed file and to use the above as an example! 
