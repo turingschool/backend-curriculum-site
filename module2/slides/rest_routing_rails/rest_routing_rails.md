@@ -2,6 +2,10 @@
 
 ---
 
+# Goal: Explore a new Rails project and tie it to our experience in Sinatra.
+
+---
+
 # Warmup
 
 * What is the purpose of the controller in your Sinatra app?
@@ -13,25 +17,40 @@
 
 # `rails new`
 
-* What does `rails new` give us?
-* Flags
+From the terminal, run `rails new first_project`
+
+* Optional flags
     * `-T`
+    * `--database=postgresql`
     * `--skip-spring`
     * `--skip-turbolinks`
-    * `--database=postgresql`
+
+---
+
+# Activity
+
+* Explore your new directory.
+* What looks familar from your time working in Sinatra?
 
 ---
 
 # Routes
 
-* `get '/tasks', to: 'tasks#index'`
-* `rake routes`
+In your `/config/routes.rb` file, add the following line:
+
+`get '/tasks', to: 'tasks#index'`
+
+Run the following line from your command line:
+
+`rake routes`
 
 ---
 
 # Controllers
 
-* `touch/app/controllers/tasks_controller.rb`
+`touch/app/controllers/tasks_controller.rb`
+
+In a `/app/controllers/tasks_controller.rb` file:
 
 ```
 class TasksController < ApplicationController
@@ -41,7 +60,7 @@ class TasksController < ApplicationController
 end
 ```
 
-* `rails server`
+From the command line: `rails server`
 
 ---
 
@@ -67,3 +86,13 @@ end
 root 'tasks#index'
 ```
 
+---
+
+# Takeaways
+
+* New commands!
+    * `rails new project_name`
+    * `rake routes`
+    * `rails server`
+* Rails uses MVC, but also uses a routes file
+* In Rails we have multiple controllers
