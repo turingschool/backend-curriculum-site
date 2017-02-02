@@ -19,6 +19,7 @@ layout: page
 *   [Flashcards](projects/flashcards)
 *   [Date Night](projects/date_night)
 *   [Complete Me](projects/complete_me)
+*   [NightWriter](projects/night_writer)
 
 ## Resources
 
