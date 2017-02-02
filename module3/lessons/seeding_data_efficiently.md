@@ -23,13 +23,13 @@ Any code that we add to `seeds.rb` will be executed when we run â€˜rake db:seedâ
 
 ### Iteration 1: Creating Records
 
-1.  Create one user
+#### Create one user
 
 ```ruby
 User.create!(name: "Chad Clancey", email: "cclancey@example.com")
 ```
 
-2.  Create four users
+#### Create four users
 
 ```ruby
 User.create!(name: "Lauren", email: "lauren@example.com")
@@ -38,7 +38,7 @@ User.create!(name: "Sally", email: "sally@example.com")
 User.create!(name: "Chaz", email: "chaz@example.com")
 ```
 
-3.  Create an item
+#### Create an item
 
 ```ruby
 Item.create!(
@@ -48,7 +48,7 @@ Item.create!(
   )
 ```
 
-4. Create four items
+#### Create four items
 
 ```ruby
   Item.create!(
