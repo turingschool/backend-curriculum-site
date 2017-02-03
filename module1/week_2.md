@@ -14,6 +14,7 @@ layout: page
 *   [How Testing Works](lessons/how_testing_works)
 *   [Introduction to Hashes](lessons/hashes)
 *   [Beginner Enumerables](lessons/beginner_enumerables)
+*   [Academic Integrity](lessons/academic_integrity)
 
 ## Projects and Exercises
 *   [Flashcards](projects/flashcards)
