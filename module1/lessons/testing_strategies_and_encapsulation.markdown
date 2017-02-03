@@ -15,36 +15,27 @@ length: 90
 * Be able to name and explain the four key types of tests
 * Be able to explain and apply the "two-mindset approach" to TDD
 
-## Structure
-
-* Lecture 1 - 25 minutes
-* Work 1 - 20 minutes
-* Lecture 2 - 25 minutes
-* Work 2 - 20 minutes
-* Closing
-
 ## Lecture 1
 
 ### Introduction
 
-* TDD takes 18 months before it feels natural.
 * There are two pieces to testing - validation and design.
-* Validation - Does the software do what it is supposed to do?
-* Design - Documents what the code does. Helps determine what software should
-do and how you know it works.
+  * Validation - Does the software do what it is supposed to do?
+  * Design - Documents what the code does. Helps determine what software should do and how you know it works.
 
 ### Why Don't People Like Testing?
 
 * Tests don't run like normal code.
-* Extra things and DSLs to learn.
+* Extra things associated with DSL (domain-specific language) to learn.
 * Testing feels like a different method of execution, it's a different paradigm.
 * Testing compels you to make hard decisions early, and up front.
-* This is scary because you are making decisions in a context you don't understand.
+  * This is scary because you are making decisions in a context you don't understand.
 * Testing (especially in the context of TDD) is a discipline tool -- forces you to a) be **specific** about what you are trying to do and b) stay **focused** on that objective
 
 ### Testing Process -- Isolating Functionality
 
 * What makes a test easy to write? What makes it hard?
+  * Being specific with the behavior you're testing makes writing the test easier.
 * Can we identify the input?
 * Can we identify the output?
 * The "interface"
@@ -59,7 +50,7 @@ do and how you know it works.
 * Ask questions and illustrate design _first_ -- now it's more obvious and can help
 us drive the design
 
-## Work 1 - Questions & Decisions
+## Workshop - Questions & Decisions
 
 Let's think about *the questions that lead to decisions*. Pair up with another student for one of the following short exercises.
 
@@ -73,21 +64,21 @@ For each question, describe:
 
 Questions can be a mix of the **conceptual**, like:
 
-    Question: Should we try to handle all the tags at once or one at a time? If the latter, which one should be first?
-    Why do we need to answer this now: We need to know which part of the solution to start our implementation with.
+    **Question**: Should we try to handle all the tags at once or one at a time? If the latter, which one should be first?
+    **Why we need to answer this now**: We need to know which part of the solution to start our implementation with.
 
 And the more **specific**:
 
-    Question: What will the class be named?
-    Why do we need to answer this now: I can't write a first test without instantiating an object and need the classname to call `.new` on it.
+    **Question**: What will the class be named?
+    **Why we need to answer this now**: I can't write a first test without instantiating an object and need the classname to call `.new` on it.
 
     Question: Where should we put our first file?
-    Why do we need to answer this now: We can't write code until we have a file to put it in.
+    **Why we need to answer this now**: We can't write code until we have a file to put it in.
 
 As a pair you should be able to come up with at least 10 questions.
 
     Question: ...
-    Why do we need to answer this now: ...
+    **Why we need to answer this now**: ...
 
 
 ### Choice 1 -- Markdown Parser:
@@ -117,7 +108,7 @@ As a pair you should be able to come up with at least 10 questions.
 
 ### 2-Mindset Approach
 
-### General discipline / process Discussion
+### General Discipline / Process Discussion
 
 * Why is it especially hard to get started on a development project?
 * What is the point of a development process or technique (not a code technique but a workflow / process one)?
@@ -148,16 +139,16 @@ These two mindsets have to work independently. Mindset 1 cannot deal with the de
 
 ![TestPyramid](http://martinfowler.com/bliki/images/testPyramid/test-pyramid.png)
 
-* Acceptance
+* Unit
 * Feature
 * Integration
-* Unit
+* Acceptance
 
 *Unit Test* - tests one component in isolation.
 
-*Integration Test* - tests multiple interdependencies or coordinating components.
-
 *Feature Test* - a single feature as experienced by a user.
+
+*Integration Test* - tests multiple interdependencies or coordinating components.
 
 *Acceptance Test* - a collection of user functionalities that delivers business value.
 
@@ -168,7 +159,7 @@ Feature tests to verify the behavior of your application as it wil eventually be
 In Module 1, on the other hand, we will rely much more heavily on **Unit** and **Integration** tests -- and it's very
 important to have a good mix of both!
 
-## Work 2
+## Workshop
 
 Let's think about *a hierarchy of tests*. Pair up with another student for this exercise. Given this technical problem:
 
@@ -201,10 +192,10 @@ If you'd like to see a full project spec for this, [check out Night Writer](http
 ### Closing -- TDD Workflow Recap
 
 * What are you trying to build? Why?
-  * You would be will well-served to write a sentence on what you are building and why.
+  * You would be well-served to write a sentence on what you are building and why.
 * How will you know when it works?
   * Acceptance tests are written by the stakeholder and are the last test to pass.
-* What's the smallest/simplest representation of the input?
+* What's the smallest/simplest representation of the input? Take, for example, this representation of a sorting algorithm:
   * [ ] => [ ]
   * [1] => [1]
   * [1,5] => [1,5]
