@@ -44,11 +44,7 @@ length: 90
 ### The Essence of Testing -- Asking Questions
 
 * Programming can be conceptually draining
-* Have to make lots of small decisions
-* Easy to let these decisions become implicit or arbitrary
-* Testing is valuable because it forces us to make more of these decisions explicit
-* Ask questions and illustrate design _first_ -- now it's more obvious and can help
-us drive the design
+* TDD is a discipline that forces us to answer "What am I trying to do?" with the "how" behind it.
 
 ## Workshop - Questions & Decisions
 
@@ -81,7 +77,7 @@ As a pair you should be able to come up with at least 10 questions.
     **Why we need to answer this now**: ...
 
 
-### Choice 1 -- Markdown Parser:
+### Markdown Parser:
 
     We're writing a markdown parser that can take in a line of markdown and output a line of HTML. For instance:
 
@@ -93,16 +89,6 @@ As a pair you should be able to come up with at least 10 questions.
         This is <em>a sample</em> with some <strong>emphasis</strong>.
       </p>
 
-### Choice 2 -- Braille Converter:
-
-    We're writing a program that can convert a letter of ASCII-ized Braille text into the equivalent latin-alphabet character.
-
-    For example:
-    0.
-    00
-    ..
-
-    Should become "h"
 
 ## Lecture 2 - Types of Tests
 
@@ -177,17 +163,11 @@ As a pair you should be able to come up with at least four tests for each level.
 
 **Note** -- Don't be afraid to identify additional, *smaller* components that might exist in your system. For example you might identify a component to help split your document into separate tokens, etc etc. This kind of brainstorming is very helpful at the outset of a project, even if all of the components you imagine don't end up making it into the final design.
 
-### Choice 1 - Chisel
+### Markdown Parser
 
     You're writing a whole Markdown processor which takes in complete Markdown files and outputs full HTML files.
 
 If you'd like to see a full project spec for this, [check out Chisel](https://github.com/turingschool/curriculum/blob/master/source/projects/chisel.markdown).
-
-### Choice 2 - Nightwriter
-
-    You're writing a whole Braille-text to Latin Alphabet converter which can read from a file of ASCII-ized braille characters and output a file of Latin Text.
-
-If you'd like to see a full project spec for this, [check out Night Writer](https://github.com/turingschool/curriculum/blob/master/source/projects/night_writer.markdown).
 
 ### Closing -- TDD Workflow Recap
 
@@ -203,6 +183,6 @@ If you'd like to see a full project spec for this, [check out Night Writer](http
   * [1,5,6] => [1,5,6]
   * [6,5,1] => [1,5,6]
 * What is the start state / input?
-* What are the processes / steps?
+* What are the processes / steps?te
 * Are the results correct?
 * What's the next most difficult input?
