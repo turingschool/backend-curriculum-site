@@ -35,9 +35,9 @@ Let's diagram and explore these roles and idea:
 * Sitting in the queue
 * Client
 * Client Connection / Handle
-* Polling
+* Polling vs Push
 * Retrieving a message
-* Timeout / what goes wrong
+* Timeout / Repeat / Problems
 
 ## In Practice
 
@@ -71,7 +71,7 @@ connection.start
 # Establish a "channel" on that connection
 channel = connection.create_channel
 
-# Create a "queue" named "sample.counter"
+# Create two "queue" instances
 queue_1   = channel.queue("sample.counter_1")
 queue_2   = channel.queue("sample.counter_2")
 
@@ -97,15 +97,13 @@ connection.close
 
 ## Paired Exercise
 
-Let's put these ideas into practice by writing two sets of programs.
-
-For these exercises one member of the pair is "P1" and the other member is "P2".
+Let's put these ideas into practice by writing two sets of programs. For these exercises one member of the pair is "P1" and the other member is "P2".
 
 First, start a RabbitMQ instance on P1's machine.
 
 ### A Simple Number Game
 
-### On P1's Machine
+#### On P1's Machine
 
 Work together on P1's machine to write a program that:
 
@@ -117,11 +115,12 @@ When a message is published to the `"messages.for.p1"` queue:
 
 * Print a line `"Got: X"` where X is the number in the message
 * Publish a message to `"messages.for.p2"` with the content of `X` squared
+* Sleep for a few seconds: `sleep (2 + rand(3))`
 * Increment a counter
 
 Write a loop such that the program does not terminate until the counter reaches 10.
 
-### On P2's Machine
+#### On P2's Machine
 
 Work together on P2's machine to write a program that:
 
@@ -133,9 +132,16 @@ When a message is published to the `"messages.for.p2"` queue:
 
 * Print a line `"Got: X"` where X is the number in the message
 * Publish a message to `"messages.for.p1"` with the content of `X` squared
+* Sleep for a few seconds: `sleep (2 + rand(3))`
 * Increment a counter
 
 Write a loop such that the program does not terminate until the counter reaches 10.
+
+#### Observations & Considerations
+
+* What happens when you start P1 then P2?
+* What happens when you start P2 without starting P1?
+* How would this setup be different if the message queue was on a third machine instead of on P1?
 
 ### A Better Application
 
@@ -143,7 +149,7 @@ Now that you've got the workflow, let's make something that better illustrates t
 
 #### P1 as the Publisher
 
-Revise the P1 program so that it:
+Use your original P1 program as a guide to implement a program that:
 
 * Establishes a queue named `"email.confirmation"`
 * Pushes each element of this array as an individual JSON-ified message into the queue:
@@ -154,15 +160,20 @@ Revise the P1 program so that it:
   {:name => "Nate", :email => "nate@turing.io", :order_total => "27.10"},
   {:name => "Mike", :email => "mike@turing.io", :order_total => "125.00"},
   {:name => "Lia", :email => "lia@turing.io", :order_total => "3.99"},
-  {:name => "Jorge", :email => "jorge@turing.io", :order_total => "249.99"}
+  {:name => "Jorge", :email => "jorge@turing.io", :order_total => "249.99"},
+  {:name => "Andrew", :email => "andrew@turing.io", :order_total => "12.00"},
+  {:name => "Sal", :email => "sal@turing.io", :order_total => "1.99"},
+  {:name => "Lauren", :email => "lauren@turing.io", :order_total => "199.99"},
+  {:name => "Meeka", :email => "meeka@turing.io", :order_total => "19.99"},
+  {:name => "Brenna", :email => "brenna@turing.io", :order_total => "79.99"}
 ]
 ```
 
-It's not necessary, but consider adding a sleep after each message is queued if you're running P2's program at the same time.
+Add a longer sleep between each queue message: `sleep (2 + rand(15))`
 
 #### P2 as the Emailer
 
-Revise the P2 program so that it:
+Use your original P2 program as a guide to implement a program that:
 
 * Still connects to P1's RabbitMQ
 * Subscribes to the queue `"email.confirmation"`
@@ -186,6 +197,8 @@ loop do
   printf "."
 end
 ```
+
+Use `ctrl-c` when you want the program to end.
 
 #### The Experiments
 
