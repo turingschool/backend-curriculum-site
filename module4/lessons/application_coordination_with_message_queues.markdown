@@ -108,7 +108,7 @@ First, start a RabbitMQ instance on P1's machine.
 Work together on P1's machine to write a program that:
 
 * Creates a queue named `"messages.for.p2"`
-* Pushes a message on to the queue with just the content `"2"`
+* Publishes a message on to the queue with just the content `"2"`
 * Subscribes to a queue named `"messages.for.p1"`
 
 When a message is published to the `"messages.for.p1"` queue:
@@ -152,7 +152,7 @@ Now that you've got the workflow, let's make something that better illustrates t
 Use your original P1 program as a guide to implement a program that:
 
 * Establishes a queue named `"email.confirmation"`
-* Pushes each element of this array as an individual JSON-ified message into the queue:
+* Publishes each element of this array as an individual JSON-ified message into the queue:
 
 ```
 [
