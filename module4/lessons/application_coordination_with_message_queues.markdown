@@ -211,3 +211,9 @@ Think about / discuss:
 * Reviewing the big-picture
 * Recap the learning goals
 * Questions
+
+## Addendum
+
+* [Bunny's GitHub page](https://github.com/ruby-amqp/bunny)
+* For another take on how to consume messages from RabbitMQ, check out [Sneakers](https://github.com/jondot/sneakers)
+* Check out [this blog post from Adam Niedzielski for another walk-through ](http://blog.sundaycoding.com/blog/2015/03/22/using-message-queue-in-rails/)
