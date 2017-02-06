@@ -9,9 +9,15 @@ Your portfolio is how you demonstrate the depth and breadth of your skill master
 
 ### End of Module Assessment
 
+Students must earn a 3 or greater on *each* segment of the End of Module Assessment rubric.
+
 ### Individual Work
 
+(forthcoming)
+
 ### Group Work
+
+(forthcoming)
 
 ### Professional Skills
 
@@ -24,6 +30,8 @@ The Professional Skills segment is made up of several pieces:
 * Following up on the *Job Search Action Plan*, submit to [Meg](mailto:mstewart@turing.io) a plan following the supplied template by the end of Week 5
 
 ### Community & Feedback
+
+(forthcoming)
 
 ## Skill Expectations
 
