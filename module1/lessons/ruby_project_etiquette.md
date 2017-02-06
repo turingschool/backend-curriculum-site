@@ -17,9 +17,6 @@ In this session we're going to go over some common best practices for organizing
 ### Introduction
 
 * Why conventions?
-* "Bike Shedding": Importance of avoiding trivial distractions
-* "Toilet Paper on Your Shoe": Don't want to give impression we don't know what we're doing
-* Project / Library conventions vs. "App" conventions (which you'll see in later modules)
 
 #### Reflection
 

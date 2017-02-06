@@ -126,15 +126,15 @@ These two mindsets have to work independently. Mindset 1 cannot deal with the de
 ![TestPyramid](http://martinfowler.com/bliki/images/testPyramid/test-pyramid.png)
 
 * Unit
-* Feature
 * Integration
+* Feature
 * Acceptance
 
 *Unit Test* - tests one component in isolation.
 
-*Feature Test* - a single feature as experienced by a user.
-
 *Integration Test* - tests multiple interdependencies or coordinating components.
+
+*Feature Test* - a single feature as experienced by a user.
 
 *Acceptance Test* - a collection of user functionalities that delivers business value.
 
