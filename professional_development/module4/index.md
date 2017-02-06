@@ -18,5 +18,9 @@ Using your completed Flower Exercise, you will pull your top three priorities fo
 ### Negotiations
 So few people negotiate comfortably or even try. Negotiation is an important part in growing your career. Let’s talk about how to negotiate with confidence and respect to ensure you’re appropriately advocating for your value.
 
+### Finding Opportunities
+Looking for jobs on sites like Monster.com, Indeed, and other career listing sites can be discouraging and ineffective. Let’s talk about how to find a job without relying on your resume or job postings.
+
+
 ### Writing a Blog Post & Peer Review
 The final back end project is Scale Up in which you can explore new technologies and contribute code to different projects. It is a project designed to help you solidify what you know and explore new interests. Writing about what you learn is a best practice in communicating what you know as a dev and broadening your audience in the tech. community. In this session, we'll dive into strategies for writing an effective blog post and revision techniques to use as you review each other's posts.

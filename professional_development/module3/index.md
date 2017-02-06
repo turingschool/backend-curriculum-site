@@ -13,14 +13,20 @@ This module is all about application. Continue to dive into your own story -- wh
 * [Innovative Problem-Solving](https://github.com/turingschool/professional_skills/blob/master/module_three/innovative_problem-solving.md)
 * [Interviewing]()
 
-### Flower Exercise
-In this session, we’ll discuss 7 different aspects of your personality, goals, and preferences using a tried and true method from *What Color is Your Parachute?* a premier job-searching handbook. By looking inward at each of these “petals” of yourself, you will be able to define what is important to you in the job search to find a job that is the right fit for you. 
 
 ### Job Search Strategies
-It’s easy to procrastinate the job search. In order to keep it on track, it is important to build out a realistic strategy and timeline for how you will conduct your search. 
+It’s easy to procrastinate the job search. In order to keep it on track, it is important to build out a realistic strategy and timeline for how you will conduct your search.
 
 ### Innovative Problem-Solving
-Does the idea of creativity intimidate you? Do personal projects feel daunting? In this session, we’ll sprint through a step-by-step framework designed to cultivate ideas to solve problems. This framework will lead us to a pitch for your personal project. 
+Does the idea of creativity intimidate you? Do personal projects feel daunting? In this session, we’ll sprint through a step-by-step framework designed to cultivate ideas to solve problems. This framework will lead us to a pitch for your personal project.
 
 ### Interviewing
-The interview process for a Software Developer role is a bit different than a traditional interview. It’s essential to know when to say you don’t know how to do something, feel comfortable whiteboarding upon request, and be confident in your skills and abilities. In this workshop, we'll prep you for that and more in a Q & A practice session with a mentor. 
+The interview process for a Software Developer role is a bit different than a traditional interview. It’s essential to know when to say you don’t know how to do something, feel comfortable whiteboarding upon request, and be confident in your skills and abilities. In this workshop, we'll prep you for that and more in a Q & A practice session with a mentor.
+
+### Cold Outreach
+
+Use your knowledge of the industry from research you conducted in Finding Opportunities to begin building relationships with potential connections in the tech. industry.
+
+### Networking
+
+Few people like the idea of networking; however, building relationships with people will impact the success of a healthy job search. Learn how to build the right relationships, what networking looks like for an introvert vs. an extrovert, and how to take turn a conversation into an interview.
