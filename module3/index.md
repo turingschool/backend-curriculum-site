@@ -13,20 +13,13 @@ In Module 3, we will look beyond the basics of building Rails web applications w
 ### Success
 
 Students who successfully complete Module 4 will have demonstrated mastery of Professional Skills and Core Technical Skills.
-[These skills are broken down in detail here](success).
+[These skills are broken down in detail here along with Portfolio Expectations demonstrating those skills](success).
 
 ### Projects
 
 This module consists of four projects, two team projects and two personal
 projects. [Find more details about the projects themselves
 here.](projects_overview)
-
-### Professional Development Deliverables
-
-In order to make your job search as successful as possible, we require a few
-Professional Development deliverables. [Find more details about the deliverables
-here.](pd_deliverables)
-
 
 #### Week 1
 
@@ -81,4 +74,3 @@ here.](pd_deliverables)
 * [Caching Strategies in Rails](lessons/caching_in_rails)
 * [Getting Started with Workers](lessons/intro_to_background_workers)
 * Portfolio Reviews
-
