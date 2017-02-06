@@ -83,4 +83,4 @@ With a partner, implement the schema that we discussed.
 
 ### Homework
 
-Then this afternoon/evening complete the [Rails Basics Challenge](https://github.com/turingschool/challenges/blob/master/models_databases_relationships_routes_controllers_oh_my.markdown)
+Then this afternoon/evening complete the [Rails Basics Challenge](/rails_basics_challenge))
