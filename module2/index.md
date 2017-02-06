@@ -66,9 +66,9 @@ By the end of this module, students will be able to:
 
 #### Week 3
 
+* [Rails: Migrations, Databases, Relationships, and Models](lessons/models_databases_relationships)
 * [Revisiting the ActiveRecord Obstacle Course](lessons/active_record_obstacle_course)
 * [Factory Girl](lessons/factory_documentation)
-* [Rails: Migrations, Databases, Relationships, and Models](lessons/models_databases_relationships)
 * [Rails Basics Challenge](lessons/models_databases_relationships_routes_controllers_oh_my)
 * [Route Helpers](lessons/route_helpers)
 * [Form Helpers](lessons/form_helpers_rails)
