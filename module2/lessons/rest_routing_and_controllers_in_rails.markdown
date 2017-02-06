@@ -8,13 +8,9 @@ tags: rest, routing, controllers, routes
 
 Read [this article](http://www.theodinproject.com/ruby-on-rails/routing).
 
-## Warmup
+## Slides
 
-With a partner, discuss the following questions:
-
-1) What is the purpose of the "controller" in a Sinatra application?
-
-2) Rails separates routes from controllers (unlike Sinatra). What might this division look like?
+Slides available [here](../slides/rest_routing_rails/rest_routing_rails.md)
 
 ## Learning Goals
 

@@ -14,11 +14,13 @@ layout: page
 *   [How Testing Works](lessons/how_testing_works)
 *   [Introduction to Hashes](lessons/hashes)
 *   [Beginner Enumerables](lessons/beginner_enumerables)
+*   [Academic Integrity](lessons/academic_integrity)
 
 ## Projects and Exercises
 *   [Flashcards](projects/flashcards)
 *   [Date Night](projects/date_night)
 *   [Complete Me](projects/complete_me)
+*   [NightWriter](projects/night_writer)
 
 ## Resources
 

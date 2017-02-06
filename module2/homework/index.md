@@ -70,6 +70,7 @@ subheading: Homework
   * Complete [Blogger](../projects/blogger)
   * Complete Challenge 1 & 2 from [Schema Practice](https://gist.github.com/rwarbelow/80417edbcc42578cb56a).
   * Answer the Week Two Recap [questions](https://github.com/turingschool/checks-for-understanding/blob/master/module-2/backend/week_two.md).
+  * Finish preparing and sending feedback to your Bike Share group members. Be sure to include both encouraging feedback and feedback that will encourage growth.
 
 ## Week 3
 
