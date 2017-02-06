@@ -45,6 +45,8 @@ Similar to our Sinatra apps using ActiveRecord, we're able to create a migration
 1. Edit `horse.rb` to give us the relationship to stables.
 1. `rails c`: Can we find our stable if we have an instance of horse? Great!
 
+For a spicier challenge - add model tests to each model.
+
 #### Drafting a Schema (15 minutes)
 
 What would happen if we added riders to our application? How would they be related to horses?
