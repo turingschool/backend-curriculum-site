@@ -46,7 +46,7 @@ Let's diagram and explore these roles and idea:
 ```
 $ brew install rabbitmq
 $ gem install bunny
-$ rabbitmq-server
+$ /usr/local/sbin/rabbitmq-server
 ```
 
 In another tab:
@@ -102,6 +102,41 @@ Let's put these ideas into practice by writing two sets of programs. For these e
 First, start a RabbitMQ instance on P1's machine.
 
 ### A Simple Number Game
+
+#### Setup for Remote Connections
+
+So far we've been connecting to RabbitMQ on localhost (the local machine). Using the default port on localhost we were able to connect like this:
+
+```
+connection = Bunny.new
+```
+
+Now we want to connect from other computers. RabbitMQ has some quirk/bug on OS X that currently keeps it from listening on multiple network addresses. So let's have it listen on P1's external IP address.
+
+On P1's machine:
+
+* go to the tab where the rabbitMQ server is running
+* `ctrl-c` to stop it
+* create a user account with these instructions at the terminal:
+
+```
+$ rabbitmqctl add_user user user
+$ rabbitmqctl set_permissions -p / user ".*" ".*" ".*"
+$ rabbitmqctl set_user_tags user administrator
+```
+
+* run the instruction `ipconfig getifaddr en0` to get P1's IP address (you'll need it later)
+* start it again with this instruction:
+
+```
+RABBITMQ_NODE_IP_ADDRESS=10.1.0.100 rabbitmq-server
+```
+
+Where you replace the `10.1.0.100` with the IP address you found above. Now RabbitMQ should be listening on that external address. When either P1 or P2 initialize Bunny, now, do it like this (and replace the IP address):
+
+```
+connection = Bunny.new("amqp://user:user@10.1.0.100:5672")
+```
 
 #### On P1's Machine
 
