@@ -15,6 +15,14 @@ Your portfolio is how you demonstrate the depth and breadth of your skill master
 
 ### Professional Skills
 
+The Professional Skills segment is made up of several pieces:
+
+* Following up on the [*Organize Your Shit*](backend.turing.io/professional_development/module_four/organize_your_shit) session, ensure that your GitHub, LinkedIn, and StackOverflow accounts are properly setup
+* Following up on the *Flower Exercise* session, submit a gist or uploaded graphic organizer of the flower exercise to [Allison](mailto:allison@turing.io) by the end of Week 5
+* Following up on the *Portfolio Tips & Tricks* tutorial, notify [Meg](mailto:mstewart@turing.io) that your portfolio is complete with your name, photo, description, three projects, and resume by the end of Week 5
+* Following the *Finding Opportunities* session, add [Meg](mailto:mstewart@turing.io) as a collaborator to your Trello board with 10 companies by the end of Week 5.
+* Following up on the *Job Search Action Plan*, submit to [Meg](mailto:mstewart@turing.io) a plan following the supplied template by the end of Week 5
+
 ### Community & Feedback
 
 ## Skill Expectations
