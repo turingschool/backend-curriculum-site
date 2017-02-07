@@ -34,7 +34,7 @@ Students must earn a score of `3` or greater in *each* category of the final ass
 
 *Expected*: Students are to begin their job hunt and submit evidence of:
 
-* Summaries of at least 6 "cold outreach" emails 
+* Summaries of at least 6 "cold outreach" emails. Use the guidelines here (link forthcoming) from Meg for your summaries.
 * Resume approved by Meg. *This should have already been approved and is not needed in your portfolio*
 * Have their portfolio up and approved (including the resume, copy, and three projects). *This should have already been approved and is not needed in your portfolio*
 * Have adequate documentation for each of their portfolio projects
