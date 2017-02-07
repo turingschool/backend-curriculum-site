@@ -35,7 +35,7 @@ Students must earn a score of `3` or greater in *each* category of the final ass
 
 The Professional Skills segment is made up of several pieces, most of which are to be submitted by 9AM on Monday of Week 6 thought it is suggested that you send them earlier if possible.
 
-* Summaries of at least 6 "cold outreach" contacts [submitted via email to Meg](mailto:mstewart@turing.io) on Tuesday 02/21. You are asked to complete two by the end of week 3, two by the end of week 4, and two by the end of week 5 with a summary of all contacts submitted to Meg on 02/21 and including the following information- [guidelines](https://github.com/turingschool/professional_skills/blob/master/module_four/outreach_deliverable_guidelines.md)
+* Summaries of at least 6 "cold outreach" contacts [submitted via email to Meg](mailto:mstewart@turing.io) on Tuesday 02/21. You are asked to complete two by the end of week 3, two by the end of week 4, and two by the end of week 5 with a summary of all contacts submitted to Meg on 02/21 and including the following information-> [guidelines](https://github.com/turingschool/professional_skills/blob/master/module_four/outreach_deliverable_guidelines.md)
 
 The remainder of professional development material is as follows:
 
