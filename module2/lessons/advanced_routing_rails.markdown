@@ -53,7 +53,7 @@ What can we do?
 	# config/routes.rb
 
 	scope :admin do
-	  resources :cats
+	 resources :cats
 	end
 ```
 
@@ -83,7 +83,7 @@ We want both `/admin/cats` and `/cats` to be handled by our controllers in diffe
 
 ```ruby
 	scope :admin, module: :admin do
-		resources :cats
+	 resources :cats
 	end
 ```
 
@@ -99,9 +99,9 @@ By using `module`, Rails looks for our controller in a different place.
 
 	# app/controllers/admin/cats_controller.rb
 	class Admin::CatsController < ApplicationController
-		def index
-			@cats = Cat.all
-		end
+ 	 def index
+	  @cats = Cat.all
+	 end
 	end
 
 ```
@@ -126,7 +126,7 @@ As you may have noticed, we don't have any path helpers that are specific to thi
 
 ```ruby
 	scope :admin, module: :admin, as: :admin do
-		resources :cats
+	 resources :cats
 	end
 ```
 
@@ -149,12 +149,12 @@ Namespace **=** scope + module + as
 
 ```ruby
 	namespace :admin do
-		resources :cats
+	 resources :cats
 	end
 
 
 	scope :admin, module: :admin, as: :admin do
-		resources :cats
+	 resources :cats
 	end
 ```
 
@@ -173,11 +173,11 @@ Let's say we have these relationships:
 
 ```ruby
 	class Cat < ActiveRecord::Base
-		has_many :votes
+	 has_many :votes
 	end
 
 	class Vote < ActiveRecord::Base
-		belongs_to :cat
+	 belongs_to :cat
 	end
 
 ```
@@ -186,7 +186,7 @@ My `config/routes.rb` might look like the following:
 
 ```ruby
 	resources :cats do
-		resources :votes
+	 resources :votes
 	end
 ```
 
@@ -200,9 +200,9 @@ If you only want one route with a specific ending, you can use `member`:
 
 ```ruby
 	resources :cats do
-		member do
-		  post :votes
-		end
+	 member do
+	  post :votes
+	 end
 	end
 
 	# post '/cats/:id/votes'
