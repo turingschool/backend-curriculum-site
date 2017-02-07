@@ -34,11 +34,11 @@ Students must earn a score of `3` or greater in *each* category of the final ass
 
 *Expected*: Students are to begin their job hunt and submit evidence of:
 
-* At least 6 "cold outreach" contacts
-* Have their resume approved by the Employment Coordinator
-* Have their portfolio up and approved (including the resume, copy, and three projects)
+* Summaries of at least 6 "cold outreach" emails 
+* Resume approved by Meg. *This should have already been approved and is not needed in your portfolio*
+* Have their portfolio up and approved (including the resume, copy, and three projects). *This should have already been approved and is not needed in your portfolio*
 * Have adequate documentation for each of their portfolio projects
-* Participate in at least one practice technical interview or one actual external interview
+* Participate in at least one practice technical interview or one actual external interview. Include the company, interviewer's name, and their title in your portfolio. 
 * Complete "[The Plan](http://backend.turing.io/module4/projects/the-plan/)", which details steps you'll take to grow in the 6-12 months after Turing
 
 ### Feedback & Community
