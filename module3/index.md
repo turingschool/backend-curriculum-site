@@ -10,23 +10,16 @@ subheading: Professional Rails Applications
 
 In Module 3, we will look beyond the basics of building Rails web applications with the intent of taking a business need and turning it into working software. Students will be comfortable using agile processes to integrate third party APIs, produce APIs, build Rails applications that consume and process data beyond basic CRUD functionality, and improve the performance of their app through AJAX, caching, and background workers.
 
-### Success
+### Success: Portfolio & Skill Expectations
 
 Students who successfully complete Module 4 will have demonstrated mastery of Professional Skills and Core Technical Skills.
-[These skills are broken down in detail here](success).
+[These skills are broken down in detail here along with Portfolio Expectations demonstrating those skills](success).
 
 ### Projects
 
 This module consists of four projects, two team projects and two personal
 projects. [Find more details about the projects themselves
 here.](projects_overview)
-
-### Professional Development Deliverables
-
-In order to make your job search as successful as possible, we require a few
-Professional Development deliverables. [Find more details about the deliverables
-here.](pd_deliverables)
-
 
 #### Week 1
 
@@ -81,4 +74,3 @@ here.](pd_deliverables)
 * [Caching Strategies in Rails](lessons/caching_in_rails)
 * [Getting Started with Workers](lessons/intro_to_background_workers)
 * Portfolio Reviews
-
