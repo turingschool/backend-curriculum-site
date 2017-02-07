@@ -1,8 +1,8 @@
 ---
 layout: page
-title: Forms Primer
+title: BookShelf
 tags: forms, rails
-subheading: Bookshelf
+subheading: CRUD in Rails
 ---
 
 ## Learning Goals
