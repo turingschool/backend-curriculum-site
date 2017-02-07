@@ -21,13 +21,18 @@ Students must earn a 3 or greater on *each* segment of the End of Module Assessm
 
 ### Professional Skills
 
-The Professional Skills segment is made up of several pieces, all of which are to be submitted by 9AM on Monday of Week 6. It's suggested that you send them earlier if possible.
+The Professional Skills segment is made up of several pieces, all of which should be included in your portfolio. However, all of these pieces are due prior to the portfolio. See below:
 
-* Flower Exercise is due as a graphic organizer or gist in your portfolio; however, you need to have it complete at the **beginning of Week 5**
+Due by 9am on Tuesday 2/21 (week 5):
+
+* Add [Meg](mailto:mstewart@turing.io) as a collaborator to your Trello board tracking 10 companies. *Make updates on any feedback she provides prior to your M3 portfolio review.* 
+* Notify [Meg](mailto:mstewart@turing.io) that your portfolio is complete with your name, photo, description, three projects, and resume. *Make updates on any feedback she provides prior to your M3 portfolio review.*
+* Flower Exercise. Send this as a gist or uploaded PDF to [Allison](mailto:allison@turing.io)
+
+Due by 9am Monday 2/27 (week 6):
+
+* Submit to [Meg](mailto:mstewart@turing.io) an outline of your job search approach for Module 4 following the supplied template. *Make updates on any feedback she provides prior to your M3 portfolio review.*
 * Following up on the [*Organize Your Shit*](backend.turing.io/professional_development/module_four/organize_your_shit) session, ensure that your GitHub, LinkedIn, and StackOverflow accounts are properly setup by linking to them in your Census account
-* Following up on the *Portfolio Tips & Tricks* tutorial, notify [Meg](mailto:mstewart@turing.io) that your portfolio is complete with your name, photo, description, three projects, and resume
-* Following the *Finding Opportunities* session, add [Meg](mailto:mstewart@turing.io) as a collaborator to your Trello board with 10 companies
-* Following up on the *Job Search Action Plan* & *Flower Exercise Follow-Up*, submit to [Meg](mailto:mstewart@turing.io) a plan following the supplied template
 
 ### Community & Feedback
 
