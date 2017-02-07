@@ -50,11 +50,11 @@ What can we do?
 
 
 ```ruby
-# config/routes.rb
+	# config/routes.rb
 
-scope :admin do
-	resources :cats
-end
+	scope :admin do
+		resources :cats
+	end
 ```
 
 Adding `scope` to our routes gives us the following when we run `rake routes`:
@@ -82,9 +82,9 @@ We want both `/admin/cats` and `/cats` to be handled by our controllers in diffe
 ### Scope and Module
 
 ```ruby
-scope :admin, module: :admin do
-	resources :cats
-end
+	scope :admin, module: :admin do
+		resources :cats
+	end
 ```
 
 If we have `scope` with `module` in our routes, we will get the following `rake routes` output:
@@ -95,14 +95,14 @@ If we have `scope` with `module` in our routes, we will get the following `rake 
 By using `module`, Rails looks for our controller in a different place.
 
 ```ruby
-# When we hit "http://localhost3000/admin/cats"
+	# When we hit "http://localhost3000/admin/cats"
 
-# app/controllers/admin/cats_controller.rb
-class Admin::CatsController < ApplicationController
-	def index
-		@cats = Cat.all
+	# app/controllers/admin/cats_controller.rb
+	class Admin::CatsController < ApplicationController
+		def index
+			@cats = Cat.all
+		end
 	end
-end
 
 ```
 
@@ -125,9 +125,9 @@ As you may have noticed, we don't have any path helpers that are specific to thi
 ### Scope and Module and As
 
 ```ruby
-scope :admin, module: :admin, as: :admin do
-	resources :cats
-end
+	scope :admin, module: :admin, as: :admin do
+		resources :cats
+	end
 ```
 
 This produces the following when we run `rake routes`:
@@ -148,14 +148,14 @@ As you may have expected, this seems like a lot of work for something that's use
 Namespace **=** scope + module + as
 
 ```ruby
-namespace :admin do
-	resources :cats
-end
+	namespace :admin do
+		resources :cats
+	end
 
 
-scope :admin, module: :admin, as: :admin do
-	resources :cats
-end
+	scope :admin, module: :admin, as: :admin do
+		resources :cats
+	end
 ```
 
 ### Why should we use `namespace`, `scope`, `module`, or `as`?
@@ -172,22 +172,22 @@ Can you imagine what happens when you have 400 lines in your routes file?!
 Let's say we have these relationships:
 
 ```ruby
-class Cat < ActiveRecord::Base
-	has_many :votes
-end
+	class Cat < ActiveRecord::Base
+		has_many :votes
+	end
 
-class Vote < ActiveRecord::Base
-	belongs_to :cat
-end
+	class Vote < ActiveRecord::Base
+		belongs_to :cat
+	end
 
 ```
 
 My `config/routes.rb` might look like the following:
 
 ```ruby
-resources :cats do
-	resources :votes
-end
+	resources :cats do
+		resources :votes
+	end
 ```
 
 ### Recap
@@ -199,13 +199,13 @@ What's the difference between using **namespace** and **nested resources**?
 If you only want one route with a specific ending, you can use `member`:
 
 ```ruby
-resources :cats do
-	member do
-	  post :votes
+	resources :cats do
+		member do
+		  post :votes
+		end
 	end
-end
 
-# post '/cats/:id/votes'
+	# post '/cats/:id/votes'
 
 ```
 
