@@ -27,7 +27,7 @@ Due by 9am on Tuesday 2/21 (week 5):
 
 * Add [Meg](mailto:mstewart@turing.io) as a collaborator to your Trello board tracking 10 companies. *Make updates on any feedback she provides prior to your M3 portfolio review.* 
 * Notify [Meg](mailto:mstewart@turing.io) that your portfolio is complete with your name, photo, description, three projects, and resume. *Make updates on any feedback she provides prior to your M3 portfolio review.*
-* Flower Exercise. Send this as a gist or uploaded PDF to [Allison](mailto:allison@turing.io)
+* Flower Exercise. Send this as a gist or uploaded PDF to [Allison](mailto:allison@turing.io). This also needs to be included in your portfolio. 
 
 Due by 9am Monday 2/27 (week 6):
 
