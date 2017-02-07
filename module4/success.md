@@ -19,6 +19,7 @@ Students must earn a score of `3` or greater in *each* category of the final ass
 * Submit one sizable/difficult or two smaller/moderate code-centric pull requests that are worth merging
 * Submit one documentation patch (README, CONTRIBUTING, code documentation, etc)
 * Write a single blog post that explains the whole process
+* Complete "[The Plan](http://backend.turing.io/module4/projects/the-plan/)", which details steps you'll take to grow in the 6-12 months after Turing
 
 *Optional*: Students are encouraged to include the results of their in-class work and tutorials.
 
@@ -32,14 +33,14 @@ Students must earn a score of `3` or greater in *each* category of the final ass
 
 ### Professional Skills
 
-*Expected*: Students are to begin their job hunt and submit evidence of:
+The Professional Skills segment is made up of several pieces, all of which are to be submitted by 9AM on Monday of Week 6. It's suggested that you send them earlier if possible.
 
-* Summaries of at least 6 "cold outreach" emails 
-* Resume approved by Meg. *This should have already been approved and is not needed in your portfolio*
-* Have their portfolio up and approved (including the resume, copy, and three projects). *This should have already been approved and is not needed in your portfolio*
-* Have adequate documentation for each of their portfolio projects
-* Participate in at least one practice technical interview or one actual external interview. Include the company, interviewer's name, and their title in your portfolio. 
-* Complete "[The Plan](http://backend.turing.io/module4/projects/the-plan/)", which details steps you'll take to grow in the 6-12 months after Turing
+Students are to begin their job hunt and submit evidence of:
+
+* Summaries of at least 6 "cold outreach" contacts [submitted via email to Meg](mailto:mstewart@turing.io). While not due until the deadline, we're recommending that you complete two by the end of week 3, two by the end of week 4, and two by the end of week 5. Submit summaries/notes as you hit those checkpoints.
+* Following up on the [*Organize Your Shit*](backend.turing.io/professional_development/module_four/organize_your_shit) session, ensure that your GitHub, LinkedIn, and StackOverflow accounts are properly setup by linking to them in your Census account. We will run an automated check on these and send you a follow up if needed. No submission is necessary beyond putting the info in your Census account.
+* Following up on the *Portfolio Tips & Tricks* tutorial, notify [Meg via email](mailto:mstewart@turing.io) that your portfolio is complete with your name, photo, description, three projects, and resume.
+* Participate in at least one practice technical interview or one actual external interview. [Email Meg](mailto:mstewart@turing.io) a summary with the company, interviewer's name, and their title.
 
 ### Feedback & Community
 
