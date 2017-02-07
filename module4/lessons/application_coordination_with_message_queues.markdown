@@ -99,57 +99,45 @@ connection.close
 
 Let's put these ideas into practice by writing two sets of programs. For these exercises one member of the pair is "P1" and the other member is "P2".
 
-First, start a RabbitMQ instance on P1's machine.
-
 ### A Simple Number Game
 
-#### Setup for Remote Connections
+#### Queue Setup
 
-So far we've been connecting to RabbitMQ on localhost (the local machine). Using the default port on localhost we were able to connect like this:
+It turns out that it's difficult to get RabbitMQ running on OSX to allow other machines to connect to it. You're allowed to connect via localhost (ie: from the same machine), but not from a remote host.
+
+VPS to the rescue! We've setup a remote RabbitMQ server for you. We were previously able to connect like this:
 
 ```
 connection = Bunny.new
 ```
 
-Now we want to connect from other computers. RabbitMQ has some quirk/bug on OS X that currently keeps it from listening on multiple network addresses. So let's have it listen on P1's external IP address.
-
-On P1's machine:
-
-* go to the tab where the rabbitMQ server is running
-* `ctrl-c` to stop it
-* create a user account with these instructions at the terminal:
+Now we'll connect like this:
 
 ```
-$ rabbitmqctl add_user user user
-$ rabbitmqctl set_permissions -p / user ".*" ".*" ".*"
-$ rabbitmqctl set_user_tags user administrator
+connection = Bunny.new(
+  :host => "experiments.turing.io",
+  :port => "5672",
+  :user => "student",
+  :pass => "password"
+)
 ```
 
-* run the instruction `ipconfig getifaddr en0` to get P1's IP address (you'll need it later)
-* start it again with this instruction:
+Where the correct `"password"` will be shared with you via Slack.
 
-```
-RABBITMQ_NODE_IP_ADDRESS=10.1.0.100 rabbitmq-server
-```
-
-Where you replace the `10.1.0.100` with the IP address you found above. Now RabbitMQ should be listening on that external address. When either P1 or P2 initialize Bunny, now, do it like this (and replace the IP address):
-
-```
-connection = Bunny.new("amqp://user:user@10.1.0.100:5672")
-```
+*We'll go around the room and determine pair numbers. Your pair's number should be used as a prefix in the queue names below. Replace the `Z` with your pair number.*
 
 #### On P1's Machine
 
 Work together on P1's machine to write a program that:
 
-* Creates a queue named `"messages.for.p2"`
+* Creates a queue named `"Z.messages.for.p2"`
 * Publishes a message on to the queue with just the content `"2"`
-* Subscribes to a queue named `"messages.for.p1"`
+* Subscribes to a queue named `"Z.messages.for.p1"`
 
-When a message is published to the `"messages.for.p1"` queue:
+When a message is published to the `"Z.messages.for.p1"` queue:
 
 * Print a line `"Got: X"` where X is the number in the message
-* Publish a message to `"messages.for.p2"` with the content of `X` squared
+* Publish a message to `"Z.messages.for.p2"` with the content of `X` squared
 * Sleep for a few seconds: `sleep (2 + rand(3))`
 * Increment a counter
 
@@ -159,14 +147,13 @@ Write a loop such that the program does not terminate until the counter reaches 
 
 Work together on P2's machine to write a program that:
 
-* Connects to the RabbitMQ running on P1's machine (*hint: find P1's local IP address*)
-* Creates a queue named `"messages.for.p1"`
-* Subscribes to a queue named `"messages.for.p2"`
+* Creates a queue named `"Z.messages.for.p1"`
+* Subscribes to a queue named `"Z.messages.for.p2"`
 
-When a message is published to the `"messages.for.p2"` queue:
+When a message is published to the `"Z.messages.for.p2"` queue:
 
 * Print a line `"Got: X"` where X is the number in the message
-* Publish a message to `"messages.for.p1"` with the content of `X` squared
+* Publish a message to `"Z.messages.for.p1"` with the content of `X` squared
 * Sleep for a few seconds: `sleep (2 + rand(3))`
 * Increment a counter
 
@@ -176,7 +163,6 @@ Write a loop such that the program does not terminate until the counter reaches 
 
 * What happens when you start P1 then P2?
 * What happens when you start P2 without starting P1?
-* How would this setup be different if the message queue was on a third machine instead of on P1?
 
 ### A Better Application
 
@@ -186,7 +172,7 @@ Now that you've got the workflow, let's make something that better illustrates t
 
 Use your original P1 program as a guide to implement a program that:
 
-* Establishes a queue named `"email.confirmation"`
+* Establishes a queue named `"Z.email.confirmation"`
 * Publishes each element of this array as an individual JSON-ified message into the queue:
 
 ```
@@ -210,10 +196,10 @@ Add a longer sleep between each queue message: `sleep (2 + rand(15))`
 
 Use your original P2 program as a guide to implement a program that:
 
-* Still connects to P1's RabbitMQ
-* Subscribes to the queue `"email.confirmation"`
+* Still connects to the remote RabbitMQ
+* Subscribes to the queue `"Z.email.confirmation"`
 
-Whenever a message is received, parse it from JSON into a Ruby has and output a string like this:
+Whenever a message is received, parse it from JSON into a Ruby hash and output a string like this:
 
 ```
 To: Jeff
@@ -265,3 +251,38 @@ Think about / discuss:
 * [Bunny's GitHub page](https://github.com/ruby-amqp/bunny)
 * For another take on how to consume messages from RabbitMQ, check out [Sneakers](https://github.com/jondot/sneakers)
 * Check out [this blog post from Adam Niedzielski for another walk-through ](http://blog.sundaycoding.com/blog/2015/03/22/using-message-queue-in-rails/)
+
+### Setting up RabbitMQ Locally for Remote Connections
+
+So far we've been connecting to RabbitMQ on localhost (the local machine). Using the default port on localhost we were able to connect like this:
+
+```
+connection = Bunny.new
+```
+
+Now we want to connect from other computers. RabbitMQ has some quirk/bug on OS X that currently keeps it from listening on multiple network addresses. So let's have it listen on P1's external IP address.
+
+On P1's machine:
+
+* go to the tab where the rabbitMQ server is running
+* `ctrl-c` to stop it
+* create a user account with these instructions at the terminal:
+
+```
+$ rabbitmqctl add_user user user
+$ rabbitmqctl set_permissions -p / user ".*" ".*" ".*"
+$ rabbitmqctl set_user_tags user administrator
+```
+
+* run the instruction `ipconfig getifaddr en0` to get P1's IP address (you'll need it later)
+* start it again with this instruction:
+
+```
+RABBITMQ_NODE_IP_ADDRESS=10.1.0.100 rabbitmq-server
+```
+
+Where you replace the `10.1.0.100` with the IP address you found above. Now RabbitMQ should be listening on that external address. When either P1 or P2 initialize Bunny, now, do it like this (and replace the IP address):
+
+```
+connection = Bunny.new("amqp://user:user@10.1.0.100:5672")
+```
