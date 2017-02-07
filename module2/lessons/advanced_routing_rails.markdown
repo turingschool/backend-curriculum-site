@@ -53,7 +53,7 @@ What can we do?
 	# config/routes.rb
 
 	scope :admin do
-		resources :cats
+	  resources :cats
 	end
 ```
 
