@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Working with Services: RepFinder
+title: Working with Services
 length: 120
 tags: ruby, apis, services
 ---
@@ -95,7 +95,7 @@ Build three separate programs that use RabbitMQ as a message queue between them.
 
 ### Extension
 
-The Fetcher is our slowest component: 
+The Fetcher is our slowest component:
 
 * Use the unix `time` utility to see how long the run takes
 * Reconfigure your app to spin up three Fetcher instances all using the same queues * Time the program runtime now
