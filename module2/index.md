@@ -61,14 +61,14 @@ By the end of this module, students will be able to:
 * [Feedback is Great](slides/difficult_conversations/diff-convos)
 * [ActiveRecord Obstacle Course](lessons/active_record_obstacle_course)
 * [REST, Controllers, and Routing in Rails](lessons/rest_routing_and_controllers_in_rails)
-* [Rails: Migrations, Databases, Relationships, and Models](lessons/models_databases_relationships)
+* [Migrations and Relationships in Rails](lessons/migrations-databases-relationships)
 * [Blogger Tutorial](projects/blogger)
 
 #### Week 3
 
+* [Rails: Migrations, Databases, Relationships, and Models](lessons/models_databases_relationships)
 * [Revisiting the ActiveRecord Obstacle Course](lessons/active_record_obstacle_course)
 * [Factory Girl](lessons/factory_documentation)
-* [Migrations and Relationships in Rails](lessons/migrations-databases-relationships)
 * [Rails Basics Challenge](lessons/models_databases_relationships_routes_controllers_oh_my)
 * [Route Helpers](lessons/route_helpers)
 * [Form Helpers](lessons/form_helpers_rails)

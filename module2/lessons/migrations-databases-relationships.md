@@ -33,11 +33,9 @@ During and after the lesson you want to be able to answer the questions below. S
 
 ### Starter Exercise
 
-Imagine we're going to build a replacement for iTunes. It's well overdue!
+Imagine we're going to build a blogging site. It's well overdue!
 
 What might the database schema look like? Let's emphasize figuring out the entities (aka tables), but also figure out some of the key data columns.
-
-When you're done you'll likely have at least eight tables.
 
 ### Types of Relationships
 
@@ -96,7 +94,7 @@ Let's discuss:
 
 Let's do:
 
-1. First, we'll create a model: `rails generate model Author first_name:text last_name:text`. The model generator creates a model, a migration, and two files related to testing.
+1. First, we'll create a migration and a model: `rails generate migration CreateAuthor first_name:text last_name:text`. The migration generator creates a migration and if we follow the working convention for rails the migration will be prepolulated.
 
 Let's look at the migration inside of `db/migrate`:
 
@@ -112,19 +110,17 @@ class CreateAuthors < ActiveRecord::Migration
   end
 end
 ```
-
-Let's look at the model `author.rb`:
+Now create a model file. `touch app/models/author.rb`
+Inside `author.rb` add the code that hooks up out model to ActiveRecord.
 
 ```
 class Author < ActiveRecord::Base
 end
 ```
 
-It also creates a model test and a fixtures file to use for testing. More on this in a future lesson.
+You can also use `rails generate model Author first_name:text last_name:text`
 
-**In your gist**:
-
-* What files are created by typing `rails g model ...`?
+The model generator creates a model, a migration, and two files related to testing.
 
 *Notes:*
 
@@ -134,7 +130,7 @@ It also creates a model test and a fixtures file to use for testing. More on thi
 
 * `rails generate model Something` will generate a model and a migration
 * `rails generate model Something name:string age:integer` will generate model and migration with those attributes
-* Change vs. Up/Down
+* Change vs. Up/Down. [More info here](http://edgeguides.rubyonrails.org/active_record_migrations.html)
 * Common methods: `add_column`, `create_table` (automatically will generate a primary key), `remove_column`, `drop_table` (these methods take arguments)
 * common column types: boolean, string, text, integer, date, datetime
 * setting up relationships in a migration using id columns
@@ -146,11 +142,6 @@ It also creates a model test and a fixtures file to use for testing. More on thi
 * `rake db:rollback` or `rake db:rollback STEP=2` to reverse migrations
 * `rake db:drop` and `rake db:create` to wipe out database and recreate it
 * click [here](http://guides.rubyonrails.org/migrations.html) for more on migrations
-
-**In your gist**:
-
-* What's the difference between typing `rails g model ...` and `rails g migration ...`?
-* Imagine that the `items` table has a category called `quantity`. What command would you type if you wanted to get rid of the `quantity` attribute?
 
 #### What is ActiveRecord?
 
@@ -170,11 +161,6 @@ It also creates a model test and a fixtures file to use for testing. More on thi
 * example ActiveRecord instance methods: `update`, `destroy`, `save`, `attribute?`, `new_record?`
 * you don't need to use `initialize` method
 * click [here](http://guides.rubyonrails.org/active_record_basics.html) for more on ActiveRecord basics
-
-**In your gist**:
-
-* Imagine that you have a table `students`. What is the ActiveRecord query that would return all students with the first name of `Richard`?
-* How would you update the student record with ID 4 to have a new phone number of "101-222-3333"?
 
 ### Associations
 
@@ -196,7 +182,3 @@ It also creates a model test and a fixtures file to use for testing. More on thi
 * join tables: `has_many :things` and `has_many :things, through: :other_things` - this is a method with an argument
 * order matters
 * click [here](http://guides.rubyonrails.org/association_basics.html) for more associations
-
-### Work Time
-
-[Rails Basics Challenge](https://github.com/turingschool/challenges/blob/master/models_databases_relationships_routes_controllers_oh_my.markdown)

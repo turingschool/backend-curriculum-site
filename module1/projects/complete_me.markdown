@@ -100,7 +100,7 @@ completion.count
 => 235886
 
 completion.suggest("piz")
-=> ["pizza", "pizzeria", "pizzicato", "pizzle", "pize"]
+=> ["pize", "pizza", "pizzeria", "pizzicato", "pizzle"]
 ```
 
 ### Usage Weighting
@@ -131,12 +131,13 @@ dictionary = File.read("/usr/share/dict/words")
 completion.populate(dictionary)
 
 completion.suggest("piz")
-=> ["pizza", "pizzeria", "pizzicato"]
+=> ["pize", "pizza", "pizzeria", "pizzicato", "pizzle", ...]
 
 completion.select("piz", "pizzeria")
 
 completion.suggest("piz")
-=> ["pizzeria", "pizza", "pizzicato", "pizzle", "pize"]
+=> ["pizzeria", "pize", "pizza", "pizzicato", "pizzle", ...]
+
 ```
 
 ## Spec Harness
@@ -193,10 +194,10 @@ completion.select("pi", "pizza")
 completion.select("pi", "pizzicato")
 
 completion.suggest("piz")
-=> ["pizzeria", "pizza", "pizzicato", "pizzle", "pize"]
+=> ["pizzeria", "pize", "pizza", "pizzicato", "pizzle", ...]
 
 completion.suggest("pi")
-=> ["pizza", "pizzicato","pizzeria", "pizzle", "pize"]
+=> ["pizza", "pizzicato", "pize", "pizzeria", "pizzle", ...]
 ```
 
 In this example, against the substring "piz" we choose

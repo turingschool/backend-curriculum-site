@@ -5,7 +5,7 @@ title: Project Etiquette
 
 ## Ruby Project Etiquette: How to Mind Your P's and Q's in a Ruby Project
 
-In this session we're going to go over some common best practices for organizing and managing code in our Ruby projects. By the end of the lesson, you should be comfortable with the following tasks.  
+In this session we're going to go over some common best practices for organizing and managing code in our Ruby projects. By the end of the lesson, you should be comfortable with the following tasks.
 
 * File naming conventions
 * Directory structure conventions
@@ -15,12 +15,11 @@ In this session we're going to go over some common best practices for organizing
 * How to build a gemfile and why you'd want to
 
 ### Introduction
+
 * Why conventions?
-* "Bike Shedding": Importance of avoiding trivial distractions
-* "Toilet Paper on Your Shoe": Don't want to give impression we don't know what we're doing
-* Project / Library conventions vs. "App" conventions (which you'll see in later modules)
 
 #### Reflection
+
 Why should you care about Ruby convention?
 
 ### Directory and File Organization
@@ -95,6 +94,7 @@ It tends to be more common within the community. Programmers get workedup about 
 
 
 ##### `require` vs. `require_relative`
+
 Here's a quick overview of _how_ `require` and `require_relative` work.
 
 `require_relative` attempts to require a second file using a path *relative to* the file that is requiring it.
@@ -111,6 +111,7 @@ Here's a quick overview of _how_ `require` and `require_relative` work.
 * require is designed to cooperate with ruby's $LOAD_PATH
 
 ##### Check for Understanding
+
 Set up the following code in `lib/hello.rb` and `test/hello_test.rb` files. Experiment with which path formats you can get working in each scenario in the table below.
 
 ```ruby
@@ -137,12 +138,14 @@ end
 `require_relative` | |
 
 #### Load Path Crash Course
+
 How does Ruby know where we look when we `require` something? Why is it we say `require "minitest"` but `require "./lib/enigma"` when obviously the `minitest` file is not sitting in the root of our project.
 
 ##### What is the `$LOAD_PATH`
+
 $LOAD_PATH is an internal structure (actually an `Array`) that Ruby uses to keep track of where it can look to find files it needs (or we ask it to look for).
 
-Open a `irb` session and type in `$LOAD_PATH`. You should get a response of something like this:
+Open a `pry` or `irb` session and type in `$LOAD_PATH`. You should get a response of something like this:
 
 ```ruby
 ["/Users/your_username/.rvm/gems/ruby-2.3.0@global/gems/did_you_mean-1.0.0/lib",
@@ -183,9 +186,11 @@ Your OS has a similar construct called `PATH` which it uses to find executable c
 6. Try to require `print_stuff` again using the command in 4 (above). It will return true.
 
 ##### Check for Understanding
-Describe why the exercise above worked.
+
+Describe to a neighbor why the exercise above worked.
 
 ##### Extension
+
 If you finish early, scan this article from Joshua Paling on [Load Path](http://joshuapaling.com/blog/2015/03/22/ruby-load-path.html).
 
 ## Rakefiles and Test Runners
@@ -199,6 +204,7 @@ If you finish early, scan this article from Joshua Paling on [Load Path](http://
 * `Rakefile` is a special file that lives in the root of your project and defines these tasks
 
 #### Using Rake to Build a Task
+
 Code along with your instructor to build your first rake task.
 
 ```ruby
@@ -209,8 +215,9 @@ end
 
 This task would then be run from the command line using `rake pizza` (from the **project root** -- noticing a pattern?)
 
-#### Building a Testing Rake Task
-On your own, build your first testing rake task. Our objective is to be able to go into the root directory of your project, type `rake`, and run our test suite (all of your tests) with that one command.
+#### Building a [Testing Rake Task](http://rake.rubyforge.org/classes/Rake/TestTask.html)
+
+Let's build our first [testing rake task](http://rake.rubyforge.org/classes/Rake/TestTask.html). Our objective is to be able to go into the root directory of your project, type `rake`, and run our test suite (all of your tests) with that one command.
 
 ```ruby
 require "rake"
@@ -226,11 +233,11 @@ task default: :test # <------ important
 ```
 
 ##### Exercise
+
 Use your knowledge of Ruby's object model and blocks to make sense of the rake TestTask above.
 
-## Gemfiles and Bundler
+## Further Insight: Gemfiles and Bundler
 
-* Not super important for now but we'll cover it briefly
 * A "Gem" is a packaged up piece of ruby code designed to be shared with others (i.e. a library)
 * [RubyGems](https://rubygems.org/) is the community-run repository and website where gems can be published so other users can download them
 * [Bundler](http://bundler.io/) is the popular dependency manager rubyists use to download and manage gems
@@ -264,6 +271,7 @@ puts Faraday.get('http://www.warnerbros.com/archive/spacejam/movie/jam.htm').bod
 7. Run your file to see that your code works and how Faraday helps you read webpages
 
 #### Summary
+
 Review objectives from beginning of session.
 
 ### Recommended Homework
@@ -271,4 +279,4 @@ Review objectives from beginning of session.
 Tonight:
 
 1. Update your current project to follow these conventions
-2. Update one previous project (jungle beats, BST, etc) to also follow these conventions
+2. Update one previous project (Credit Check, Flashcards, Complete Me, Date Night) to also follow these conventions
