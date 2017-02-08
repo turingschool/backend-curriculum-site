@@ -27,3 +27,5 @@ Using both unit and integration tests (predominantly unit tests), drive yourself
 If you achieve this during our class time, do your best to revist your source code and make refactors to keep your code as DRY (Don't Repeat Yourself) and SRP (Single Responsibility Principle)-abiding as possible.
 
 Remember, red, green, refactor, repeat.
+
+> You may refer back to your first Credit Check solution, but refrain from copying any code from there to use in this solution. 
