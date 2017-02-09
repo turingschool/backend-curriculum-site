@@ -56,9 +56,9 @@ As stewards of the larger Turing community, Module 4 students are expected to **
 
 Academic success in B4 means that students demonstrate proficiency and comfort with the concepts below. The expected mastery level can be understood with the following scale:
 
-* Mastery: student is able to explain and implement the concept independently or with light reference
-* Functional: student recognizes when to use the concept and can implement it with the support of documentation and/or a collaborator
-* Familiarity: student can recognize and describe the concept when needed/appropriate, but is not able to implement the technology/technique
+* **Mastery**: student is able to explain and implement the concept independently or with light reference
+* **Functional**: student recognizes when to use the concept and can implement it with the support of documentation and/or a collaborator
+* **Familiarity**: student can recognize and describe the concept when needed/appropriate, but is not able to implement the technology/technique
 
 ## Professional Skills
 
