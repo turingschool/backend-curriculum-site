@@ -121,14 +121,13 @@ Academic success in B4 means that students demonstrate proficiency and comfort w
 * Students fetch and inject content without refreshing the page (ex: AJAX) *(functional)*
 * Students implement a real-time technology to update page content without user action (ex: websockets, pusher) *(familiarity)*
 
-### Node
+### Node & Express
 
-* Students implement a stand-alone service with Node ()
-* Students read and write to a data store from Node
-* Students use the node package system to manage dependencies
-* Students can build basic services or applications using the Express framework
-* Students can interact with SQL databases using Knex
-
+* Students implement a stand-alone service with Node *(familiarity)*
+* Students read and write to a data store from Node *(familiarity)*
+* Students use the node package system to manage dependencies *(functional)*
+* Students can build basic services or applications using the Express framework *(familiarity)*
+* Students can interact with SQL databases using Knex *(familiarity)*
 
 ### JavaScript Libraries
 
