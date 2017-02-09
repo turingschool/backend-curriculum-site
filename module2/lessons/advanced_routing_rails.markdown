@@ -21,7 +21,7 @@ subheading: Web Applications with Ruby
 
 How confident are you that you can create all 8 prefixes/http-verbs/uri-patterns/controller&actions that Rails gives you when you have the following?
 
-```
+```ruby
 # config/routes.rb
 
 resources :cats
@@ -49,12 +49,12 @@ What can we do?
 ### Scope
 
 
-```
-# config/routes.rb
+```ruby
+	# config/routes.rb
 
-scope :admin do
-	resources :cats
-end
+	scope :admin do
+	 resources :cats
+	end
 ```
 
 Adding `scope` to our routes gives us the following when we run `rake routes`:
@@ -81,10 +81,10 @@ We want both `/admin/cats` and `/cats` to be handled by our controllers in diffe
 
 ### Scope and Module
 
-```
-scope :admin, module: :admin do
-	resources :cats
-end
+```ruby
+	scope :admin, module: :admin do
+	 resources :cats
+	end
 ```
 
 If we have `scope` with `module` in our routes, we will get the following `rake routes` output:
@@ -94,15 +94,15 @@ If we have `scope` with `module` in our routes, we will get the following `rake 
 
 By using `module`, Rails looks for our controller in a different place.
 
-```
-# When we hit "http://localhost3000/admin/cats"
+```ruby
+	# When we hit "http://localhost3000/admin/cats"
 
-# app/controllers/admin/cats_controller.rb
-class Admin::CatsController < ApplicationController
-	def index
-		@cats = Cat.all
+	# app/controllers/admin/cats_controller.rb
+	class Admin::CatsController < ApplicationController
+ 	 def index
+	  @cats = Cat.all
+	 end
 	end
-end
 
 ```
 
@@ -124,10 +124,10 @@ As you may have noticed, we don't have any path helpers that are specific to thi
 
 ### Scope and Module and As
 
-```
-scope :admin, module: :admin, as: :admin do
-	resources :cats
-end
+```ruby
+	scope :admin, module: :admin, as: :admin do
+	 resources :cats
+	end
 ```
 
 This produces the following when we run `rake routes`:
@@ -147,15 +147,15 @@ As you may have expected, this seems like a lot of work for something that's use
 
 Namespace **=** scope + module + as
 
-```
-namespace :admin do
-	resources :cats
-end
+```ruby
+	namespace :admin do
+	 resources :cats
+	end
 
 
-scope :admin, module: :admin, as: :admin do
-	resources :cats
-end
+	scope :admin, module: :admin, as: :admin do
+	 resources :cats
+	end
 ```
 
 ### Why should we use `namespace`, `scope`, `module`, or `as`?
@@ -171,23 +171,23 @@ Can you imagine what happens when you have 400 lines in your routes file?!
 
 Let's say we have these relationships:
 
-```
-class Cat < ActiveRecord::Base
-	has_many :votes
-end
+```ruby
+	class Cat < ActiveRecord::Base
+	 has_many :votes
+	end
 
-class Vote < ActiveRecord::Base
-	belongs_to :cat
-end
+	class Vote < ActiveRecord::Base
+	 belongs_to :cat
+	end
 
 ```
 
 My `config/routes.rb` might look like the following:
 
-```
-resources :cats do
-	resources :votes
-end
+```ruby
+	resources :cats do
+	 resources :votes
+	end
 ```
 
 ### Recap
@@ -198,14 +198,14 @@ What's the difference between using **namespace** and **nested resources**?
 
 If you only want one route with a specific ending, you can use `member`:
 
-```
-resources :cats do
-	member do
+```ruby
+	resources :cats do
+	 member do
 	  post :votes
+	 end
 	end
-end
 
-# post '/cats/:id/votes'
+	# post '/cats/:id/votes'
 
 ```
 

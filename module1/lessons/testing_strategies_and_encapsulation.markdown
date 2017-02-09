@@ -90,7 +90,7 @@ As a pair you should be able to come up with at least 10 questions.
       </p>
 
 
-## Lecture 2 - Types of Tests
+## Lecture - Mindsets and Types of Tests
 
 ### 2-Mindset Approach
 
@@ -140,7 +140,7 @@ These two mindsets have to work independently. Mindset 1 cannot deal with the de
 
 Feature and Acceptance Tests are customer-centric while Unit and Integration Tests are programmer-centric.
 Especially when you move into web development projects in later modules you'll rely more heavily on Acceptance and
-Feature tests to verify the behavior of your application as it wil eventually be experienced by a user.
+Feature tests to verify the behavior of your application as it will eventually be experienced by a user.
 
 In Module 1, on the other hand, we will rely much more heavily on **Unit** and **Integration** tests -- and it's very
 important to have a good mix of both!

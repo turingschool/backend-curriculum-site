@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Intermediate Enumerables
-length: 90
+length: 60
 tags: enumerables,max, min, max_by, min_by, sort_by
 ---
 
@@ -239,3 +239,14 @@ end
 ```
 
 This would return false.
+
+## For Homework:
+
+In the [enums-exercises](https://github.com/turingschool/enums-exercises) complete the following pattern and regular tests:
+
+-   all?
+-   any?
+-   none?
+-   one?
+-   sort_by
+-   find_using_max_by

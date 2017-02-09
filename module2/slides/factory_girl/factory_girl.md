@@ -3,6 +3,14 @@
 
 ---
 
+# Goals
+
+* Overview of Factory Girl
+* Write code based on existing code
+* Use docs to write new code
+
+---
+
 # Warmup
 
 Visit the link in the lesson plan:
@@ -42,14 +50,6 @@ three_stations  = create_list(:station, 3)
 
 ---
 
-# Other Things You Can Use
-
-* Specify certain values by passing an additional argument:
-* Create single instances using a `create` method:
-* Create a single instance with specific attributes
-
----
-
 # Practice Together
 
 * Open the `/spec/factories.rb` file.
@@ -61,7 +61,7 @@ three_stations  = create_list(:station, 3)
 
 ---
 
-# Car Facatory
+# Car Factory
 
 * With a Partner: Create an `owner_with_cars` Factory
     * Creates an owner with 3 cars by default

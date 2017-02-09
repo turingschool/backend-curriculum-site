@@ -85,4 +85,4 @@ With a partner, implement the schema that we discussed.
 
 ### Homework
 
-Then this afternoon/evening complete the [Rails Basics Challenge](/rails_basics_challenge))
+Then this afternoon/evening complete the [Rails Basics Challenge](./rails_basics_challenge))

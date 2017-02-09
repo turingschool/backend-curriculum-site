@@ -89,7 +89,6 @@ subheading: Homework
 ##### Day 4
   * Work on Project.
   * Complete Challenge #5 from [Schema Practice](https://gist.github.com/rwarbelow/80417edbcc42578cb56a).
-  * If you have not already, add ten companies to job tracker, include: point of contact, github profile, linkedin, twitter, personal site *due date 12/16/16*
 
 #### Weekend
   * Continue working on Project.
@@ -110,12 +109,10 @@ subheading: Homework
 
 * Work on Rails MiniProject
 * Extension: Experimenting with APIs: Work through [this tutorial and workshop](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/exploring_apis.markdown) which will prepare you for extensions in your Rails Mini-Project and Little Shop.
-* Send the email that you crafted in the Cold Outreach class on Tuesday to cold outreach contact; email mstewart@turing.io, sal@turing.io, and casey@turing.io with who, title, and company by due date *due date 12/21/16*
 
-##### Day 4 & Winter Break
+##### Day 4
 * Work on Rails MiniProject
 * Write a technical blog post (post it on your personal blog or medium)
-* Five new cold outreach emails sent; email mstewart@turing.io, sal@turing.io, and casey@turing.io who, title, and company by due date *due date 12/30/16*
 
 ## Week 5
 
@@ -127,7 +124,6 @@ subheading: Homework
 
 ##### Day 3
   * [Little Shop](https://github.com/turingschool/curriculum/blob/master/source/projects/little_shop.markdown)
-  * Five new cold outreach emails sent; email mstewart@turing.io, sal@turing.io, and casey@turing.io who, title, and company by due date *due date 1/6/17*
 
 ##### Day 4 & Weekend
   * [Little Shop](https://github.com/turingschool/curriculum/blob/master/source/projects/little_shop.markdown)
@@ -148,7 +144,6 @@ subheading: Homework
 
 ##### Day 5 & Intermission
   * Enjoy your intermission week!
-  * Attend two networking events and have three sentence overview of what was attended and experience ready to submit at Mod3 portfolio review *due date 1/23/17*
 
 ##### Optional Intermediate SQL
   * Revisit the [notes](https://github.com/turingschool/lesson_plans/blob/master/ruby_03-professional_rails_applications/intermediate_sql.md) from class.
