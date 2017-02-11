@@ -7,9 +7,9 @@ layout: page
 *   [Event Manager](projects/eventmanager)
 
 ## Lessons
-*   [Refactoring Patterns](lessons/refactoring_patterns) ([Video](https://vimeo.com/162569190))
-*   [Working with Ruby Modules](lessons/introduction_to_modules) ([Video](https://vimeo.com/156589719))
-*   [Boolean Logic and Code Paths](lessons/boolean_logic) ([Video](https://vimeo.com/156637050))
+*   [Refactoring Patterns](lessons/refactoring_patterns)
+*   [Working with Ruby Modules](lessons/introduction_to_modules)
+*   [Boolean Logic and Code Paths](lessons/boolean_logic) 
 *   [Object Relational Model](lessons/ruby_object_model_alt)
 
 ## Other Relevant Links
