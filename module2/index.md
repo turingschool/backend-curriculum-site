@@ -83,7 +83,6 @@ By the end of this module, students will be able to:
 #### Week 4
 
 * [Sessions, Cookies, and Flashes](lessons/sessions_cookies_flashes)
-* CRUD Sprint
 * [Authentication](lessons/authentication)
 * Authentication Work Time
 * Mid-Module Assessments
