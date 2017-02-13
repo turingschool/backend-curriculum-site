@@ -9,10 +9,10 @@ In this project you'll use Ruby to build an implementation of the classic game M
 
 ### Learning Goals / Areas of Focus
 
-* Apply principles of flow control across multiple methods
-* Practice breaking a program into logical components
-* Learn to implement a REPL interface
-* Apply Enumerable techniques in a real context
+*   Apply principles of flow control across multiple methods
+*   Practice breaking a program into logical components
+*   Learn to implement a REPL interface
+*   Apply Enumerable techniques in a real context
 
 
 ## Base Expectations
@@ -21,8 +21,8 @@ You are to build a playable game of Mastermind that runs in a REPL interface.
 
 ### Starting a Game
 
-* The player starts the game by running `ruby mastermind.rb`
-* Then they see:
+*   The player starts the game by running `ruby mastermind.rb`
+*   Then they see:
 
 ```
 Welcome to MASTERMIND
@@ -31,10 +31,10 @@ Would you like to (p)lay, read the (i)nstructions, or (q)uit?
 >
 ```
 
-* If they enter `p` or `play` then they enter the *game flow* described below.
-* If they enter `i` or `instructions` they should be presented with a short explanation of how
+*   If they enter `p` or `play` then they enter the *game flow* described below.
+*   If they enter `i` or `instructions` they should be presented with a short explanation of how
 the game is played.
-* If they enter `q` or `quit` then the game should exit
+*   If they enter `q` or `quit` then the game should exit
 
 ### Game Flow
 
@@ -48,13 +48,13 @@ What's your guess?
 
 They can then enter a guess in the form `rrgb`
 
-* Guesses are case insensitive
-* If it's `'q'` or `'quit'` then exit the game
-* If it's `'c'` or `'cheat'` then print out the current secret code
-* If it's fewer than four letters, tell them it's too short
-* If it's longer than four letters, tell them it's too long
-* If they guess the secret sequence, enter the *end game* flow below
-* Otherwise give them feedback on the guess like this:
+*   Guesses are case insensitive
+*   If it's `'q'` or `'quit'` then exit the game
+*   If it's `'c'` or `'cheat'` then print out the current secret code
+*   If it's fewer than four letters, tell them it's too short
+*   If it's longer than four letters, tell them it's too long
+*   If they guess the secret sequence, enter the *end game*   flow below
+*   Otherwise give them feedback on the guess like this:
 
 ```
 'RRGB' has 3 of the correct elements with 2 in the correct positions
@@ -87,9 +87,9 @@ following extensions:
 When the user is getting ready to start a game, ask them what difficulty
 level they'd like to play with the following adaptations:
 
-* Beginner = 4 characters, 4 colors
-* Intermediate = 6 characters, 5 colors
-* Advanced = 8 characters, 6 colors
+*   Beginner = 4 characters, 4 colors
+*   Intermediate = 6 characters, 5 colors
+*   Advanced = 8 characters, 6 colors
 
 ### Record Tracking & Top 10
 
@@ -125,11 +125,11 @@ from their terminal without directly executing Ruby.
 
 ### Other Ideas
 
-* Add a `history` instruction to the gameplay which can be called before entering a guess and it'll display
+*   Add a `history` instruction to the gameplay which can be called before entering a guess and it'll display
 all previous guesses and results in a compact form
-* Visual Interface - add colors and ASCII graphics to make a more compelling
+*   Visual Interface - add colors and ASCII graphics to make a more compelling
 visual experience
-* Two-Player Mode - Add a game mode where players alternate guesses and whoever
+*   Two-Player Mode - Add a game mode where players alternate guesses and whoever
 gets the sequence right first wins. Consider having their guesses hidden.
 
 ## Evaluation Rubric
@@ -138,42 +138,42 @@ The project will be assessed with the following rubric:
 
 ### 1. Fundamental Ruby & Style
 
-* 4:  Application demonstrates excellent knowledge of Ruby syntax, style, and refactoring
-* 3:  Application shows strong effort towards organization, content, and refactoring
-* 2:  Application runs but the code has long methods, unnecessary or poorly named variables, and needs significant refactoring
-* 1:  Application generates syntax error or crashes during execution
+*   4:  Application demonstrates excellent knowledge of Ruby syntax, style, and refactoring
+*   3:  Application shows strong effort towards organization, content, and refactoring
+*   2:  Application runs but the code has long methods, unnecessary or poorly named variables, and needs significant refactoring
+*   1:  Application generates syntax error or crashes during execution
 
 ### 2. Enumerable & Collections
 
-* 4: Application consistently makes use of the best-choice Enumerable methods
-* 3: Application demonstrates comfortable use of appropriate Enumerable methods
-* 2: Application demonstrates functional knowledge of Enumerable but only uses the most basic techniques
-* 1: Application demonstrates deficiencies with Enumerable and struggles with collections
+*   4: Application consistently makes use of the best-choice Enumerable methods
+*   3: Application demonstrates comfortable use of appropriate Enumerable methods
+*   2: Application demonstrates functional knowledge of Enumerable but only uses the most basic techniques
+*   1: Application demonstrates deficiencies with Enumerable and struggles with collections
 
 ### 3. Test-Driven Development
 
-* 4: Application is broken into components which are well tested in both isolation and integration
-* 3: Application is well tested but does not balance isolation and integration tests, using only the data necessary to test the functionality
-* 2: Application makes some use of tests, but the coverage is insufficient
-* 1: Application does not demonstrate strong use of TDD
+*   4: Application is broken into components which are well tested in both isolation and integration
+*   3: Application is well tested but does not balance isolation and integration tests, using only the data necessary to test the functionality
+*   2: Application makes some use of tests, but the coverage is insufficient
+*   1: Application does not demonstrate strong use of TDD
 
 ### 4. Encapsulation / Breaking Logic into Components
 
-* 4: Application is expertly divided into logical components each with a clear, single responsibility
-* 3: Application effectively breaks logical components apart but breaks the principle of SRP
-* 2: Application shows some effort to break logic into components, but the divisions are inconsistent or unclear
-* 1: Application logic shows poor decomposition with too much logic mashed together
+*   4: Application is expertly divided into logical components each with a clear, single responsibility
+*   3: Application effectively breaks logical components apart but breaks the principle of SRP
+*   2: Application shows some effort to break logic into components, but the divisions are inconsistent or unclear
+*   1: Application logic shows poor decomposition with too much logic mashed together
 
 ### 5. Functional Expectations
 
-* 4: Application meets all requirements, and implements one extension properly.
-* 3: Application meets all requirements as laid out per the specification.
-* 2: Application runs, but does not work properly, or does not meet specifications.
-* 1: Application does not run, crashes on start.
+*   4: Application meets all requirements, and implements one extension properly.
+*   3: Application meets all requirements as laid out per the specification.
+*   2: Application runs, but does not work properly, or does not meet specifications.
+*   1: Application does not run, crashes on start.
 
 ### 6. REPL Interface and Game Functionality
 
-* 4: Application's REPL goes above and beyond expectations and application includes one or more extensions
-* 3: Application's REPL is clear and pleasant to use and application fulfills base expectations from the project spec
-* 2: Application's REPL has inconsistencies and/or there are errors in base gameplay
-* 1: Application's REPL has several issues or application fails to run
+*   4: Application's REPL goes above and beyond expectations and application includes one or more extensions
+*   3: Application's REPL is clear and pleasant to use and application fulfills base expectations from the project spec
+*   2: Application's REPL has inconsistencies and/or there are errors in base gameplay
+*   1: Application's REPL has several issues or application fails to run
