@@ -18,8 +18,6 @@
   * Feedback
     * Self-solicited from pair project 1 partner (paragraph)
     * Self-solicited from pair project 1 partner (paragraph)
-  * Link to resume with a summary statement and placeholder for projects and skills to be obtained during Turing
-  * Link to LinkedIn profile with a summary, descriptions under experience, and Turing under education
 * Community
   * A recap of reflections from each Gear Up (paragraph)
   * Summary of how you've contributed to the community
