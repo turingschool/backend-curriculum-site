@@ -8,7 +8,6 @@ tags: authentication, rails, bcrypt
 
 By the end of this workshop, you will know/be able to:
 
-* explain security concerns related to authenticating users
 * create a structure to allow guests to register for an account
 * store passwords as the output of the BCrypt hashing function
 * create a structure to allow users to log in
@@ -33,10 +32,6 @@ By the end of this workshop, you will know/be able to:
 ### Lecture
 
 * [Slides](https://www.dropbox.com/sh/k8jsy5i9wgwk52x/AADpCVwnRuZThsmTVfFU2i3na?dl=0)
-
-### Code-Along
-
-* In progress...
 
 ### Resources
 
