@@ -16,8 +16,7 @@
 * Professional Development:
   * [DTR Memo](https://docs.google.com/document/d/1zMtgWhODQuP3KBNhrg6PtmPUkw0DIskqgggeyEzYZi4/edit?usp=sharing) from 1 paired project
   * Feedback
-    * Self-solicited from pair project 1 partner (paragraph)
-    * Self-solicited from pair project 1 partner (paragraph)
+    * Self-solicited from pair project partners (paragraph each)
 * Community
   * A recap of reflections from each Gear Up (paragraph)
   * Summary of how you've contributed to the community
