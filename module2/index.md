@@ -83,12 +83,11 @@ By the end of this module, students will be able to:
 #### Week 4
 
 * [Sessions, Cookies, and Flashes](lessons/sessions_cookies_flashes)
-* CRUD Sprint
 * [Authentication](lessons/authentication)
-* Authentication Work Time
 * Mid-Module Assessments
+* Authentication
+* Mini-Project kickoff
 * [Authorization](lessons/authorization-in-rails)
-* Authorization Work Time
 * [Exploring Apis](lessons/exploring_apis)
 * Mid-Module Assessments
 * [Advanced Routing in Rails](lessons/advanced_routing_rails)
