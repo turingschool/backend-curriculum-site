@@ -13,20 +13,6 @@ tags: ruby, refactoring, tdd
 *   define and apply the Extract Class refactoring pattern
 *   define and apply the Hide Delegate refactoring pattern
 
-## Structure
-
-*   5 - Warmup
-*   20 - Key Points
-*   5 - Check for Understanding
-*   5 - Break
-*   25 - Choosing the Appropriate Refactoring Tactic (15 min individual work, 10 min group work)
-*   5 - Break
-*   15 - First Refactoring Station (Groups)
-*   15 - Second Refactoring Station (Groups)
-*   5 - Break
-*   15 - Third Refactoring Station (Groups)
-*   5 - Wrap Up and transition into Enigma Exercises
-
 ## Warmup
 
 Attempt to answer these five questions:
@@ -40,21 +26,23 @@ Attempt to answer these five questions:
 Let's start by discussing Refactoring at a high level:
 
 *   The "Red-Green-Refactor" loop
-*   "Refactoring" brought into the mainstream by Martin Fowler's
-"Refactoring: Improving the Design of Existing Code" in 1999
+
+    1.  Red - Create a unit test that fails.
+    2.  Green - Write code to make the unit test pass.
+    3.  Refactor - Clean up the messiness.
+
+
 *   Changing the internals of code without changing the external behavior
-*   "I'm paid to write features, not refactor."
 *   The concept of technical debt and awkward analogies to personal debt
 *   Software patterns are common solutions to common problems
 *   Refactoring patterns are common *transformations*  , not *improvements*  .
-*   Look for resiliency to change
-*   There are commonly *pairs*   of patterns around the same idea
 *   Jay Fields revised Fowler's book for Ruby:
 [Refactoring: Ruby Edition](http://www.amazon.com/Refactoring-Edition-Addison-Wesley-Professional-Series/dp/0321984137)
 *   Three common refactoring patterns
-*   Move Method
-*   Extract Class
-*   Hide Delegate
+
+    1.  Move Method
+    2.  Extract Class
+    3.  Hide Delegate
 
 ### Check for Understanding
 Describe the three common refactoring patterns (move method, extract class, hide delegate) and in what scenarios they should be used. Post your answers to Slack.

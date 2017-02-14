@@ -8,8 +8,8 @@ layout: page
 
 ## Lessons
 *   [Refactoring Patterns](lessons/refactoring_patterns)
-*   [Working with Ruby Modules](lessons/introduction_to_modules)
 *   [Boolean Logic and Code Paths](lessons/boolean_logic) 
+*   [Working with Ruby Modules](lessons/introduction_to_modules)
 *   [Object Relational Model](lessons/ruby_object_model_alt)
 
 ## Other Relevant Links
