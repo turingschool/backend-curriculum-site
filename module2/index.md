@@ -83,7 +83,7 @@ By the end of this module, students will be able to:
 #### Week 4
 
 * [Sessions, Cookies, and Flashes](lessons/sessions_cookies_flashes)
-* [Authentication Work Time](lessons/authentication)
+* [Authentication](lessons/authentication)
 * Mid-Module Assessments
 * Authentication
 * Mini-Project kickoff
