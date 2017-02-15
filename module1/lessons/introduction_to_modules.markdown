@@ -17,7 +17,6 @@ tags: ruby, modules, oop
 * 25 - Namespacing
 * 25 - Mixins
 
-
 ### Introduction
 
 We're going to learn about Modules, a simple tool that will teach us to do two completely different things in Ruby - namespacing and mixins. They are pretty awesome.
@@ -29,9 +28,6 @@ Spend the first five minutes writing answers to the following questions:
 1. What do you know about modules already? If little, what would you guess modules are all about?
 2. Golf and basketball both use a ball. But if you're on a basketball court and ask for "the ball", no one is going to
 throw you a golf ball. Why? If you were as dumb as a computer, why would a golf ball be an acceptable response?
-3. You've learned about the object model and method lookups. What would the impact be of injecting an
-additional ancestor into a class' lookup chain?
-
 
 ### Namespacing
 
@@ -114,7 +110,6 @@ And that should let us make a Slytherin student that can speak.
 So now you try.
 
 ```ruby
-
 class Car
   def start
     puts "Engine on!"
