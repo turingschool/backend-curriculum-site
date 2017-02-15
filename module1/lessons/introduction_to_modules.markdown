@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Introduction to Modules
-length: 90
+length: 60
 tags: ruby, modules, oop
 ---
 
@@ -18,17 +18,9 @@ tags: ruby, modules, oop
 * 25 - Mixins
 
 
-### Hook
+### Introduction
 
-We're going to learn one simple tool that will teach us to do two
-completely different things in Ruby. They are pretty awesome.
-
-
-### Opening
-
-This class is going to cover ruby modules, and how they are used to
-create namespaces, and provide us with mixins.
-
+We're going to learn about Modules, a simple tool that will teach us to do two completely different things in Ruby - namespacing and mixins. They are pretty awesome.
 
 ### Warm Up
 
@@ -42,6 +34,8 @@ additional ancestor into a class' lookup chain?
 
 
 ### Namespacing
+
+Namespacing works for both classes and modules. We'll be implementing it with modules today.
 
 Let's look at some code.
 
@@ -77,8 +71,8 @@ But what if we want a Slytherin student?
 We have to use namespacing, and so we wrap each in a module like so:
 
 ```ruby
-module Slytherin
-  class Student
+module Student
+  class Slytherin
     def cast_spell
       puts "Expelliarmus!"
     end
@@ -87,10 +81,8 @@ module Slytherin
       puts "I'm a Slytherin, and am AWESOME."
     end
   end
-end
 
-module Hufflepuff
-  class Student
+  class Hufflepuff
     def cast_spell
       puts "Expelliarmus!"
     end
@@ -106,15 +98,18 @@ This is how we would instantiate with modules and then call the appropriate
 method:
 
 ```ruby
-
-student = Slytherin::Student.new
+student = Student::Slytherin.new
 student.speak
 ```
+
+Have we seen a double colon like that before?
 
 The double colon is a scope resolution operator. It allows you to access items
 in modules, or class level items in classes.
 
 And that should let us make a Slytherin student that can speak.
+
+### Exercise: Namespacing
 
 So now you try.
 
@@ -142,11 +137,11 @@ end
 ```
 
 * Start with the code above
-* Wrap the first `Car` with a module to create a `AWD::Car`
-* Wrap the second `Car` with a module to create a `RWD::Car`
-* Create an instance of `RWD::Car` and prove that you can access both
+* Wrap the first `Car` with a module to create a `Car::AWD`
+* Wrap the second `Car` with a module to create a `Car::RWD`
+* Create an instance of `Car::RWD` and prove that you can access both
 the expected methods
-* Create an instance of `AWD::Car` and prove that you can access both
+* Create an instance of `Car::AWD` and prove that you can access both
 the expected methods
 
 ### Functional Programming
@@ -180,7 +175,7 @@ back and forth. OOP sends it in variables and objects. Functional
 programming passes functions back and forth and lets the recipient add to
 it.
 
-That's enough theory, let's look at some code.
+<!-- That's enough theory, let's look at some code.
 
 ```ruby
 module Pythagorean
@@ -201,18 +196,11 @@ An easy triangle to use for testing purposes is `a = 3`, `b = 4`, `c = 5`.
 If you find this approach to programming interesting, you might check out [Gary Bernhart's "Boundaries" Talk](https://www.destroyallsoftware.com/talks/boundaries).
 
 What are some other possible uses for this? How might you have used this in a previous project?
-
+ -->
 
 ### Mixins
 
-A mix-in is an ice cream dessert that has other ingredients mixed into it,
-like crushed candy bars, on order. The mix-in you'll most recognize
-is the McFlurry from McDonalds. They put ice cream in a cup, add in
-crushed Oreos, and mix it.
-
-Unfortunately that's the wrong mixin.
-
-A little bit about mixins. A few talking points.
+A little bit about mixins.
 
 * Ruby, like other OOP languages, uses inheritance.
 * Module mixins are inheritance by a different name.
@@ -224,65 +212,74 @@ A little bit about mixins. A few talking points.
 Let's look at an example.
 
 ```ruby
-
-class BrokenWand
-  def accio(thing)
+class GrubhubOrder
+  def confirmation(thing)
     puts "You got #{thing}."
   end
 
-  def powerful_spell
-    puts "You just snapped your wand in half."
+  def review
+    puts "Please rate your order within 30 days."
   end
 
+  def delivery
+    puts "Your food will arrive in 45-60 minutes."
+  end
 end
 
-class ElderWand
-  def accio(thing)
+class AmazonOrder
+  def confirmation(thing)
     puts "You got #{thing}."
   end
 
-  def powerful_spell
-    puts "BANG"
+  def review
+    puts "Please rate your order within 30 days."
+  end
+
+  def delivery
+    puts "Your order will arrive in 2 business days."
   end
 end
 ```
 
 What's wrong with this code?
 
-
 Well there's repetition in there, and one of the hallmarks of
-good programming is DRY, which stands for don't repeat yourself.
+good programming is DRY, which stands for **don't repeat yourself**.
 
 So let's pull that out.
 
 
 ```ruby
-
-module BasicSpell
-  def accio(thing)
+module OnlineOrder
+  def confirmation(thing)
     puts "You got #{thing}."
   end
-end
 
-class BrokenWand
-  include BasicSpell
-
-  def powerful_spell
-    puts "You just snapped your wand in half."
+  def review
+    puts "Please rate your order within 30 days."
   end
-
 end
 
-class ElderWand
-  include BasicSpell
+class Amazon
+  include OnlineOrder
 
-  def powerful_spell
-    puts "BANG"
+  def delivery
+    puts "Your order will arrive in 2 business days."
+  end
+end
+
+class Grubhub
+  include OnlineOrder
+
+  def delivery
+    puts "Your food will arrive in 45-60 minutes."
   end
 end
 ```
 
-And now we just treat it as if the method was included.
+And now we just treat it as if the `confirmation` and `review` methods were included in our other classes.
+
+#### Exercise: Module Mixins
 
 Now it's your turn.
 
@@ -320,11 +317,13 @@ end
 
 Together let's create a `HasEngine` module to extract the `start` and `stop` methods.
 
-Take the code from the discussion and implement a `HasAirConditioning` module that is mixed into both classes. Instances
-of either class should be able to turn the AC on (`Chilly air coming your way!`) or off (`Temp is fine in here`).
+### Further Practice
 
+Take the code from the discussion and implement a `HasAirConditioning` module that is mixed into both classes.
 
-Additional Reading.
+Instances of either class should be able to turn the AC on (`Chilly air coming your way!`) or off (`Temp is fine in here.`).
+
+### Additional Reading
 
 * [Include vs Extend in Ruby](http://www.railstips.org/blog/archives/2009/05/15/include-vs-extend-in-ruby/) from John Nunemaker
 * [Modules](http://ruby-doc.com/docs/ProgrammingRuby/html/tut_modules.html) in Programming Ruby / RubyDoc
