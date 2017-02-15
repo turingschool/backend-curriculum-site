@@ -9,30 +9,22 @@ Let's walk through this process now to make sure we have what we need.
 
 Here are the basics we're going to go over:
 
-* A text editor. Developers need to work with text in a different way than
+*   A text editor. Developers need to work with text in a different way than
 your average MS Word user. We'll want a text editor designed for software
 development.
-* A system "Terminal" for interacting with our machine from the command
+*   A system "Terminal" for interacting with our machine from the command
 line. Fortunately OS X already ships with one.
-* OS X "Command Line Tools" -- these are some system dependencies needed for
+*   OS X "Command Line Tools" -- these are some system dependencies needed for
 some of the tools we will use.
-* HomeBrew -- This is a "package manager" for installing other developer-related
+*   HomeBrew -- This is a "package manager" for installing other developer-related
 programs. You can think of it as the "App Store for nerds."
-* Git (An application for handling "version control" of our software projects)
-* The Ruby programming language -- version 2.2 in particular -- as well as a Ruby "Version Manager" to allow
+*   Git (An application for handling "version control" of our software projects)
+*   The Ruby programming language -- version 2.4 in particular -- as well as a Ruby "Version Manager" to allow
 us to install other versions as needed
 
 ### Text Editor
 
-If you don't already have a favorite text editor, we recommend using [Visual Studio Code](https://code.visualstudio.com/
-).
-
-#### Setting Up Terminal Access for Visual Studio Code
-
-One of the things you'll do frequently is open an entire folder (like when working on a project) in your text editor. Let's get that setup:
-
-Visit this [link](https://code.visualstudio.com/docs/setup/osx) and follow the instructions within.
-
+If you don't already have a favorite text editor, we recommend using [Atom](https://atom.io/).
 
 ### Terminal
 
@@ -47,7 +39,17 @@ For example, when we run `ruby`, we are running that program from the terminal.
 
 To launch the terminal, open Spotlight using `Command-Spacebar`, type "terminal", then enter.
 
-If this is all new for you, see [Terminal and Editor](https://github.com/turingschool/curriculum/blob/master/source/academy/workshops/terminal_and_editor.markdown)
+If this is all new for you, see [Terminal and Editor](./terminal_and_editor)
+
+#### Setting Up Terminal Access for Atom
+
+One of the things you'll do frequently is open an entire folder (like when working on a project) in your text editor. Let's get that setup:
+
+Here are a bunch of [videos](https://www.youtube.com/watch?v=WWwBQQOGllo&list=PLYzJdSdNWNqwNWlxz7bvu-lOYR0CFWQ4I) about setting up Atom.
+
+To confirm that atom is working from your command line, enter `atom .` in your terminal. If it is setup correctly, the atom editor will automatically open. If it does not open atom and an error occurs instead, try entering this in the command line:
+`ln -s /Applications/Atom.app/Contents/Resources/app/atom.sh /usr/local/bin/atom`
+and try the first command (`atom .`) again.
 
 ### XCode & Command Line Tools
 
@@ -58,9 +60,9 @@ want to have available.
 
 You'll want to install it before attempting to install anything else.
 
-1. Install XCode from the Apple App Store
-2. Open the application after installing and agree to the SLA terms
-3. Open `terminal` and run `xcode-select --install`, enter your user password
+1.  Install XCode from the Apple App Store
+2.  Open the application after installing and agree to the SLA terms
+3.  Open `terminal` and run `xcode-select --install`, enter your user password
 
 Now you should have the underlying tools we need to move forward.
 
@@ -189,7 +191,7 @@ It should give you a version number rather than an error message.
 ### Ruby
 
 Now that we have RVM installed, we're going to use it to install a specific
-version of Ruby: Ruby 2.3.0.
+version of Ruby: Ruby 2.3.0
 
 If you need another version it'll be same procedure, just replace "2.3.0" in the instructions with whichever version you want.
 
@@ -229,11 +231,11 @@ $ mkdir turing
 
 __A few notes:__
 
-* `cd` stands for "change directory", and moves us to a specific place on the filesystem,
+*   `cd` stands for "change directory", and moves us to a specific place on the filesystem,
 similar to using the GUI Finder to browse directories on the machine
-* `~` is a shortcut for our "home directory". It will be in a place like
+*   `~` is a shortcut for our "home directory". It will be in a place like
 `/Users/<your-user-name>`
-* `mkdir` stands for "make directory", and it allows us to create new folders on the machine
+*   `mkdir` stands for "make directory", and it allows us to create new folders on the machine
 
 At this point, we want to enter the directory we have created, and then we will
 create ourselves a directory for the first module. We call this new directory
