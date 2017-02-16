@@ -4,10 +4,10 @@ This exercise is intended to help you assess your progress with the concepts and
 
 For these questions, write a short description or snippet of code that meets the requirement. In cases where the question mentions a "given" data value, use the variable given to refer to it (instead of re-writing the information).
 
-1.  Give one difference between Modules and Classes.
+##### 1. Give one difference between Modules and Classes.
 
 
-2.  Defining Modules
+##### 2.  Defining Modules
 
 First, create a module `Doughy` which defines a method `has_carbs?` that always returns true. Then, given the following Pizza class, update Pizza to use your new Doughy module to gain the defined `has_carbs?` behavior.
 
@@ -19,19 +19,19 @@ class Pizza
 end
 ```
 
-3. What are two benefits modules provide us in Ruby? Elaborate on each.
+##### 3. What are two benefits modules provide us in Ruby? Elaborate on each.
 
 
-4. What values in Ruby evaluate as "falsy"?
+##### 4. What values in Ruby evaluate as "falsy"?
 
 
-5. Give 3 examples of "truthy" values in Ruby.
+##### 5. Give 3 examples of "truthy" values in Ruby.
 
 
-6.  List 3 HTTP Verbs
+##### 6.  List 3 HTTP Verbs
 
 
-7.  HTTP Parsing: given the following HTTP Request, identify the following:
+##### 7.  HTTP Parsing: given the following HTTP Request, identify the following:
 
 *   HTTP Verb
 *   Request Path
@@ -52,7 +52,7 @@ Accept-Language: en-US,en;q=0.8
 What is the full request URL?
 
 
-8.  Git and Branches: give a git command to accomplish each of the following:
+##### 8.  Git and Branches: give a git command to accomplish each of the following:
 
 *   Switch to an existing branch iteration-1
 *   Create a new branch iteration-2
@@ -60,7 +60,7 @@ What is the full request URL?
 *   Merge a branch iteration-1 into a branch master (assume you are not on master to begin with)
 
 
-9.  Load Paths and Requires
+##### 9.  Load Paths and Requires
 
 Given a project with the following directory structure, give 2 ways that we could require file_one from file_two.
 
@@ -72,7 +72,7 @@ Given a project with the following directory structure, give 2 ways that we coul
 ```
 
 
-10.  Refactoring: given the following snippet of code, show 2 refactorings you might make to improve the design of this code.
+##### 10.  Refactoring: given the following snippet of code, show 2 refactorings you might make to improve the design of this code.
 
 ```
 class Encryptor
