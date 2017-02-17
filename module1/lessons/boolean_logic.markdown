@@ -6,17 +6,19 @@ tags: ruby, computer science, logic
 
 ## Learning Goals
 
+* Understand falsy vs truthy in Ruby
 * Understand the key logic operators AND, OR, and NOT
 * Be able to combine operations into a logic expression
 * Be able to use a truth table to illustrate a logical expression
-* Understand short-circuit evaluation of logical statements
 * Be able to trace the paths through a chunk of code
 * Be able to use compound logic to flatten nested `if` statements
 
 ## Why?
+
 Why is it helpful to have a working understanding of boolean logic? Flattening `if` statements
 
 ## Truthy and falsey values
+
 Which of these are truthy and which are falsey?
 
 * 1.0
@@ -28,23 +30,61 @@ Which of these are truthy and which are falsey?
 * "false"
 
 ## AND/OR/NOT and Truth Tables
-We'll use a truth table and an `irb` session to clarify how these rules work.
 
-## Taking it to the next level
+We'll use a truth table and an `pry` session to clarify how these rules work.
 
-### Expressions and precedence with parentheses
-Create Truth Table for this expression using the boolean values `A`, `B`, and `C`:
+| `a` | `b` | `a && b` | <code>a &#124;&#124; b</code> | `!a` |
+| :---: | :---: | :---: | :---: | :---: |
+| true | true | true | true | false |
+| true | false | false | true | false |
+| false | true | false | true | true |
+| false | false | false | false | true |
+
+## Fist of Five: Smaller Group Breakouts
+
+Those feeling a "5" with logic so far, break out together, glance over the following parens section, then move onto Activity B. You'll work through this outside of the classroom individually - we'll regroup 15 minutes before the end of class to share solutions.
+
+For the rest of us, we'll work through the rest of the lesson as a class.
+
+### Expressions and Precedence with Parentheses
+
+Let's pop this into pry without hitting 'enter':
+
+```ruby
+false && false || true
+```
+
+What do you expect it to return? `true`? `false`? It seems to depend on the order Ruby executes in. What if the order you want Ruby executes this in to be different from its default?
+
+Enter, parens.
+
+Let's revisit that last expression in `pry`, but let's add some parentheses.
+
+```ruby
+false && (false || true)
+```
+
+Turn to your neighbor and discuss what order you believe Ruby is evaluating our boolean expressions in.
+
+### More Complex Truth Tables
+
+On your own, evaluate the following by creating a truth table for three boolean values (`A`, `B`, and `C`) and using it to solve the following expressions:
 
 * `(A || B) && (A || C)`
 * `(A || !B) || (!A || C)`
 * `((A && B) && C) || (B && !A)`
 * `((A && B) && !C) || ((A && C) && !B)`
 
-### Short-Circuit evaluation
-[Short-Circuit Evaluation](https://en.wikipedia.org/wiki/Short-circuit_evaluation)
+<!-- ### Quick Aside: Short-Circuit Evaluation
 
+[Short-Circuit Evaluation](https://en.wikipedia.org/wiki/Short-circuit_evaluation) is used by many programming languages (including Ruby) to shortcut-eval an expression based on its first value and operator. Only if the result of the operation cannot be determined by that does it look at the second value.
 
-### Activity 1: Vehicle
+For example, `false && x # => false` without needing to know what `x` equals.
+
+-->
+
+### Activity 1.a: Vehicle
+
 ```ruby
 class Vehicle
   attr_reader :model, :four_wheel, :big_back_wheels
@@ -80,7 +120,7 @@ vehicle = Vehicle.new("pickup", true, true)
 
 if vehicle.car?
   if vehicle.four_wheel_drive? || !vehicle.four_wheel_drive?
-    puts "Vehicle has four wheels"
+    puts "Vehicle has four wheels "
     if vehicle.four_wheel_drive?
       puts "with four wheel drive"
     else
@@ -88,34 +128,32 @@ if vehicle.car?
     end
   end
 elsif vehicle.tractor?
-  puts "Vehicle has four wheels"
+  puts "Vehicle has four wheels "
   if vehicle.big_back_wheels?
     puts "with big wheels in the back"
   end
 elsif vehicle.pickup?
-  puts "Vehicle has four wheels"
+  puts "Vehicle has four wheels "
   if vehicle.four_wheel_drive?
     puts "with four wheel drive"
   else
     puts "with two wheel drive"
   end
   if vehicle.big_back_wheels?
-    puts "With big wheels in the back"
+    puts "with big wheels in the back"
   end
 end
-
 ```
+
 * How many unique execution paths are there through the block of code starting with `if vehicle.car?` statement?
 * Chart out the conditions which would lead to these paths (consider a truth table).
 
-
-### Activity 2: Flattening if statements
+### Activity 1.b: Flattening `if` statements
 
 Take the code from the previous exercise. Let's try to refactor it. Start by flattening it down. Can you simplify the logic to reduce the number of paths? How few can you get it down to? Compare your results with a peer.
 
 Convert the nested if/else statements to flatter boolean expressions.
 
-
 ## Wrapup
 
-Last let's get together to recap and answer questions.
+Last, let's get together to recap and answer questions.

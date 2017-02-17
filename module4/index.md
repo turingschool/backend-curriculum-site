@@ -40,7 +40,17 @@ Your first project is [Quantified Self](projects/quantified-self). It's a pair p
 
 The module is primarily oriented around five-week team projects. [Find more details about the projects themselves here](projects_overview).
 
+Secondary projects are added to your main capstone projects. You'll get the requirements in tracker, but [here is an overview for the projects as a whole.](projects/secondary)
+
+### Assessment - 1608
+
+You will be given a mock assessment in Week 4. [You can see the assessment here](https://gist.github.com/neight-allen/15b1273e067e359892d686123d0bb585)
+
+The mock assessment gist also includes a section covering the topics that will be on the final that are not on the mock.
+
 ### Course Plan
+
+***THIS IS OLD***
 
 The course and class sessions are centered around the three sprints of the projects:
 
@@ -50,7 +60,7 @@ The course and class sessions are centered around the three sprints of the proje
 
 ### Addendum
 
-You can find the [index of lessons used for the old B4 plan here](former_index).
+You can find the [index of lessons used for the old B4 plan here](https://github.com/turingschool/lesson_plans/tree/master/ruby_04-apis_and_scalability).
 
 
 ### Weekly Breakdown:
@@ -59,38 +69,33 @@ You can find the [index of lessons used for the old B4 plan here](former_index).
 
 * Mod 4 Kickoff and Norming
 * Project Kickoff
-* [Javascript Without A Browser](/lessons/javascript_without_a_browser)
-* [Workflow and Communication](/lessons/workflow_and_communication)
-* [Intro to Object Oriented Javascript](/lessons/object_oriented_javascript)
-* [Professional Code Environments](/lessons/professional_code_environments)
-* Job Hunting
-* Project Worktime and Scope Setting Meetings
-* [Debugging Javascript](/debugging_node)
-* Characterization & Acceptance Testing
-* [Flower Exercise](../professional_development/module_four/flower_exercise_follow_up)
-* Project Worktime
-* Oauth Revisited
-* [JavaScript Enumerables and Array Prototype](/lessons/array_prototype_methods)
-* Internal Demos and Brainstorming
-* Scope Setting
+* [Tracker and Git Workflow](./lessons/workflow_and_communication)
+* [Professional Code Environments](./lessons/professional_code_environments)
+* [Debugging Javscript](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/debugging_javascript.markdown)
+* [JS Build Tools](./lessons/javascript-build-tools)
+* [Event Bubbling and Delegation](./lessons/event-bubbling-and-delegation)
+* [Testing in Javascript](./lessons/testing-in-javascript)
+* [Client side storage](./lessons/client_side_storage)
+* [Organize your shit](https://github.com/turingschool/backend-curriculum-site/blob/121ca8262c3d6076fd5f833a79b337dc0b312b58/professional_development/module_four/organize_your_shit.markdown)
 * TIP
 
 #### Week 2
 
-* Extracting Components and Services
+* [Javascript Without a Browser](./lessons/javascript_without_a_browser)
+* [Intro to Express](http://frontend.turing.io/lessons/getting-started-with-node-and-express.html)
 * [Negotiations](../professional_development/module_four/negotiations)
-* Isolating Dependancies with Wrappers
-* Testing in a World of Services
-* [Working with Environments and Initializers](./lessons/environment_settings)
-* Pub/Sub
+* [Continuous Integration and Continuous Deployment](./lessons/ci_and_cd)
 * Demos and Evaluations
 * Scope and Scheduling
 * TIP
 
 #### Week 3
 
-* SQL Deep Dive
+* [Intro to Object Oriented Javascript](/lessons/object_oriented_javascript)
+* [JavaScript Enumerables and Array Prototype](/lessons/array_prototype_methods)
 * [JQuery and the DOM](./lessons/idea_box)
+* [Working with Services](./lessons/working_with_services)
+* [Application coordination with Message Queues](./lessons/application_coordination_with_message_queues)
 * AJAX and JSON
 * Continuous Integration and Deployment
 * Demos and planning
@@ -103,15 +108,17 @@ You can find the [index of lessons used for the old B4 plan here](former_index).
 * Mid Module Diagnostic
 * WebSockets
 * [JS Websockets with socket.io](./lessons/websockets_workshop)
-* [Getting Started with Express](./lessons/express-train)
 * Contributing to OpenSource
 * Documenting Your Work
 * Express Part Duex
 * [Blog Writing and Peer Review](../professional_development/module_four/writing_a_blog_post_and_peer_review)
 * Demos and Planning
+* Extracting Components and Services
+* Isolating Dependancies with Wrappers
 
 #### Week 5
-tbd
+* [Working with Environments and Initializers](./lessons/environment_settings)
+* SQL Deep Dive
 
 #### Week 6
 tbd
