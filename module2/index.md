@@ -99,8 +99,7 @@ By the end of this module, students will be able to:
 * [Mini-Project Demos](lessons/mini-project-gem-implementation)
 * [Cart & Order Lifecycles](lessons/cart_implementation)
 * [LittleShop of Orders kickoff](projects/little_shop)
-* [Git Workflow](lessons/git_workflows)
-* [Git Workflow](lessons/small_team_git_workflow)
+* [Git Workflow](lessons/git-groups)
 * [Intro to the Asset Pipeline](lessons/intro_to_the_asset_pipeline)
 * [Callbacks, and Scopes](lessons/scopes_callbacks_class_methods.markdown)
 
