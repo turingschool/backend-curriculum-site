@@ -8,12 +8,12 @@ data by district.
 
 To complete the iteration, we'll need to achieve the following:
 
-1. Provide a top-level interface to query for information by District
+1.  Provide a top-level interface to query for information by District
 name
-2. Create basic domain objects for the District and Enrollment data
-3. Construct appropriate relationships between Districts and underlying
+2.  Create basic domain objects for the District and Enrollment data
+3.  Construct appropriate relationships between Districts and underlying
 Enrollment data
-4. Use these domain objects to answer some basic analytical questions
+4.  Use these domain objects to answer some basic analytical questions
 about enrollment by district.
 
 ![Iteration 0](http://i.imgur.com/hKqZTWG.png)
