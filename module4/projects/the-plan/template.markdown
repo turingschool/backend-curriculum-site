@@ -1,3 +1,9 @@
+---
+layout: page
+title: The Plan Template
+---
+
+Copy this into a gist that you will link in your portfolio
 
 ```markdown
 # Name:
@@ -10,5 +16,5 @@
 
 ### Submitted Assignments
 
-Link to or paste in **two** completed assignments below.
+Link to or paste in your goals assignment and **two** completed assignments below.
 ```
