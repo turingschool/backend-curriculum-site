@@ -16,5 +16,5 @@ Copy this into a gist that you will link in your portfolio
 
 ### Submitted Assignments
 
-Link to or paste in your goals assignment and **two** completed assignments below.
+Link to or paste in your goals assignment and **two** other assignments below.
 ```
