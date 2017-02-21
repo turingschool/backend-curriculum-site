@@ -3,7 +3,7 @@ layout: page
 title: The Plan Template
 ---
 
-Copy this into a gist that you will link in your portfolio
+Copy this into a gist, fill it out with your work, and link to it from your portfolio
 
 ```markdown
 # Name:
