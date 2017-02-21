@@ -59,6 +59,7 @@ The extensions listed below are a non-exhaustive list of extension ideas.
 * product and category search
 * credit card processing with Stripe or Paypal
 * phone or text message order confirmation
+* Implementing Authorization with an outside provider (OAuth)
 
 ## Evaluation Process
 
