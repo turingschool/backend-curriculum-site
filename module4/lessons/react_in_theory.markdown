@@ -34,8 +34,9 @@ In pairs, discuss how you would go about managing state in a regular JavaScript 
 * In our application, how would we keep track of which templates that has been viewed?
 
 Additional resources for this section:
-- https://facebook.github.io/react/docs/getting-started.html
-- https://facebook.github.io/react/blog/2013/06/05/why-react.html
+
+- <https://facebook.github.io/react/docs/getting-started.html>
+- <https://facebook.github.io/react/blog/2013/06/05/why-react.html>
 
 ## How does React interact with the DOM?
 ---

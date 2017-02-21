@@ -199,7 +199,7 @@ picked up by react and translated into a component)
 * provide the props by giving a hash of arguments
 
 It turns out to be a pretty handy way to define components.
-Using `react-rails`, we define oure components in the appropriate
+Using `react-rails`, we define our components in the appropriate
 `.js.jsx` files in our components directory. Then we can render
 them into our templates using the `react_component` helper.
 
