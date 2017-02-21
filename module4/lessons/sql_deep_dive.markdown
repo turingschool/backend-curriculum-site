@@ -213,3 +213,9 @@ Here are some other things worth investigating:
 * `SELECT count(column_name) FROM table_name; `
 * Subqueries
 * Aliases with `AS`
+
+#### Exercises
+
+* What's the difference between the average profit of a Spiderman movie versus a Batman movie?
+* Over her career, how much total profit has Meryl Streep generated?
+* What's the percentage chance that a movie with Adam Sandler is profitable?

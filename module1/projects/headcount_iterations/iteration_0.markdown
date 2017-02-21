@@ -8,12 +8,12 @@ data by district.
 
 To complete the iteration, we'll need to achieve the following:
 
-1. Provide a top-level interface to query for information by District
+1.  Provide a top-level interface to query for information by District
 name
-2. Create basic domain objects for the District and Enrollment data
-3. Construct appropriate relationships between Districts and underlying
+2.  Create basic domain objects for the District and Enrollment data
+3.  Construct appropriate relationships between Districts and underlying
 Enrollment data
-4. Use these domain objects to answer some basic analytical questions
+4.  Use these domain objects to answer some basic analytical questions
 about enrollment by district.
 
 ![Iteration 0](http://i.imgur.com/hKqZTWG.png)
@@ -25,8 +25,8 @@ about enrollment by district.
 The `DistrictRepository` is responsible for holding and searching our `District`
 instances. It offers the following methods:
 
-* `find_by_name` - returns either `nil` or an instance of `District` having done a *case insensitive* search
-* `find_all_matching` - returns either `[]` or one or more matches which contain the supplied name fragment, *case insensitive*
+*   `find_by_name` - returns either `nil` or an instance of `District` having done a *case insensitive* search
+*   `find_all_matching` - returns either `[]` or one or more matches which contain the supplied name fragment, *case insensitive*
 
 There is no one data file that contains just the districts. The data must be extracted from one of the other files. Let's use `Kindergartners in full-day program.csv` so the instance is created and used like this:
 

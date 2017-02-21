@@ -61,7 +61,7 @@ Below is GitHub's workflow. Most teams will do something similar. Step 6 can var
 3. Commit to that branch locally frequently. We do this so we have regular checkpoints we can always go back to incase something goes wrong or breaks and we need to go back to the last known working code.
 4. Regularly push your work to the same named branch on the remote server (most likely the __origin__ remote)
 5. Open a [WIP] pull request so your code can be reviewed and commented on along the way.
-6. When you need feedback or help, or you think the branch is ready for merging, tag your reviewer or team in a comment with their github username (@username) asking them to review the PR. (ex: @carmer please review this branch for master)
+6. When you need feedback or help, or you think the branch is ready for merging, tag your reviewer or team in a comment with their github username (@username) asking them to review the PR. (ex: @carmer please review this branch for the following: ...)
 7. After someone else has reviewed and signed off on the feature, it can be merged to master. This is usually done by the reviewer.
 8. Once it is merged and pushed to ‘master’, you can and should deploy immediately. Anything on master should be deployable.
 

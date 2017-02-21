@@ -2,43 +2,46 @@
 layout: page
 title: Testing 2.0
 ---
+Learning Goals
+---------------
+*   Understand what a fixture is and how to create one
+*   Understand what stubbing is, how to stub in Ruby with Minitest, when to use it
+*   Understand what mocking is, how to mock in Ruby with Minitest, and when to use it
+*   What’s the difference between behavior and state testing
 
-## Learning Goals
-* Understand what a fixture is and how to create one
-* Understand what stubbing is, how to stub in Ruby with Minitest, when to use it
-* Understand what mocking is, how to mock in Ruby with Minitest, and when to use it
-* What’s the difference between behavior and state testing
+Background Concepts
+-------
+*   Test Doubles(dummy, fake, stub, spies, mocks). Further reading:
+  - Basic: Martin Fowler: link [here](http://www.martinfowler.com/bliki/TestDouble.html)
+  - Advanced: Gerard Meszaros link [here](http://xunitpatterns.com/Test%20Double.html)
+*   Four-phase testing
+  1.  Setup - sometimes in test, sometimes separate method
+  2.  Exercise
+	3.  Verify
+	4.  Teardown
+*   System Under Test (SUT) or Object Under Test
 
-## Background Concepts
-* Test Doubles(dummy, fake, stub, spies, mocks). Further reading:
-  - Basic: Martin Fowler: http://www.martinfowler.com/bliki/TestDouble.html
-  - Advanced: Gerard Meszaros http://xunitpatterns.com/Test%20Double.html
-* Four-phase testing
-	* Setup - sometimes in test, sometimes separate method
-	* Exercise
-	* Verify
-	* Teardown
-* System Under Test (SUT) or Object Under Test
-
-## Fixtures
+Fixtures
+---------
 
 ### Basics
 
-* Create smaller copies of files you'll use in production
-* How many lines of data should your fixture include? No hard number. Include the **bare minimum** data you need to test functionality.
+*   Create smaller copies of files you'll use in production
+*   How many lines of data should your fixture include? No hard number. Include the **bare minimum** data you need to test functionality.
 * Save to `fixtures` folder in your `test` folder
 
 ### Exercise
 Working with your project partner, create a fixture folder in Headcount and create fixtures of 3 files listed in the spec.
 
-## Mocking versus Stubbing
+Mocking versus Stubbing
+-------------
 
 ### What’s the problem we’re trying to correct?
   * Order/Warehouse example
   * Always asking the question: What’s the system under test (SUT)?
 
 ### Test Doubles to the Rescue
-* **Stubs** provide canned answers to calls made during the test.
+*  **Stubs** provide canned answers to calls made during the test.
 
 ```
 object = mock()  
@@ -89,14 +92,15 @@ require 'mocha/mini_test'
 * Instead of creating a new instance, we just stub it and dictate what state and behavior we want that secondary object to hold.
 * It allows us to imitate the _state_ and _state-dependent behavior_ of an actual object.
 * Use cases
-  * Testing across classes
-  * Isolating a method within a class (example: Order Shipping Costs)
+  1.  Testing across classes
+  2.  Isolating a method within a class (example: Order Shipping Costs)
 * State, state, state
 
 ### Check for Understanding: Stubs
 Working independently, find an opportunity to use stubbing in your last project. Get the test passing.
 
 ### Mocks
+
 * Mocks allow us to test whether the SUT exercises the behavior (especially on other objects) we want it to exercise.
 ```ruby
 class DelegatorOfThings
@@ -117,12 +121,13 @@ class DelegatorOfThingTest < Minitest::Test
 	end
 end
 ```
-* Example: `mock_example` ("enterprise")
+*   Example: `mock_example` ("enterprise")
 
 ### Check for Understanding: Mocks
 Create an alternate version of the zap test using mocking.
 
-## The Ultimate CfU
+The Ultimate CfU
+-----------
 * How will you know you're writing a test that might be appropriate for stubbing or mocking?
 * What's the difference between testing doubles that rely on state versus behavior?
 * How many lines of data should you include in your fixture files?
