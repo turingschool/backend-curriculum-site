@@ -65,7 +65,7 @@ se = SalesEngine.from_csv({
   :merchants => "./data/merchants.csv",
   :invoices => "./data/invoices.csv"
 })
-merchant = se.merchants.find_by_id(10)
+merchant = se.merchants.find_by_id(12334159)
 merchant.invoices
 # => [<invoice>, <invoice>, <invoice>]
 invoice = se.invoices.find_by_id(20)
@@ -81,8 +81,8 @@ Assume we're created `sa` as a `SalesAnalyst` instance:
 ### How many invoices does the average merchant have?
 
 ```ruby
-sa.average_invoices_per_merchant # => 8.5
-sa.average_invoices_per_merchant_standard_deviation # => 1.2
+sa.average_invoices_per_merchant # => 10.49
+sa.average_invoices_per_merchant_standard_deviation # => 3.29
 ```
 
 ### Who are our top performing merchants?
@@ -114,7 +114,7 @@ sa.top_days_by_invoice_count # => ["Sunday", "Saturday"]
 What percentage of invoices are `shipped` vs `pending` vs `returned`? (takes symbol as argument)
 
 ```ruby
-sa.invoice_status(:pending) # => 5.25
-sa.invoice_status(:shipped) # => 93.75
-sa.invoice_status(:returned) # => 1.00
+sa.invoice_status(:pending) # => 29.55
+sa.invoice_status(:shipped) # => 56.95
+sa.invoice_status(:returned) # => 13.5
 ```
