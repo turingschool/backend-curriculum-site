@@ -24,6 +24,7 @@ Project implementation may **not** use:
 
 ### Getting Started
 
+1. Fork and fill out [expectations gist](https://gist.github.com/Carmer/85b9e0569af607d14f6e14b696b5e131) with your team. 
 1. One team member creates a repository with the name of your online ordering platform
 2. Add the other team members and your instructor(s) as collaborators
 3. Add your project to Waffle.io
@@ -59,6 +60,7 @@ The extensions listed below are a non-exhaustive list of extension ideas.
 * product and category search
 * credit card processing with Stripe or Paypal
 * phone or text message order confirmation
+* Implementing Authorization with an outside provider (OAuth)
 
 ## Evaluation Process
 

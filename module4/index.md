@@ -40,6 +40,8 @@ Your first project is [Quantified Self](projects/quantified-self). It's a pair p
 
 The module is primarily oriented around five-week team projects. [Find more details about the projects themselves here](projects_overview).
 
+Secondary projects are added to your main capstone projects. You'll get the requirements in tracker, but [here is an overview for the projects as a whole.](projects/secondary)
+
 ### Assessment - 1608
 
 You will be given a mock assessment in Week 4. [You can see the assessment here](https://gist.github.com/neight-allen/15b1273e067e359892d686123d0bb585)

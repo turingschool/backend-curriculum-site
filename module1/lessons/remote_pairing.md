@@ -5,7 +5,8 @@ length: 90
 tags: pairing, screenhero, remote
 ---
 
-# Remote Pairing
+Remote Pairing
+=============
 
 Pairing is fairly straightforward when you're side-by-side with
 your pair. But sometimes you'll want to collaborate remotely --
@@ -20,14 +21,16 @@ workflow over a standard side-by-side one.
 In this session, we're going to practice pairing "remotely" while
 both you and your pair are in the building
 
-## Exercises
+Exercises
+-----------
 
 For this session we'll use [these exercises](https://github.com/turingschool/challenges/blob/master/fundamental_logic_gates.markdown)
 on fundamental logic gates. You and your pair will be working together
 to implement Ruby simulations of some fundamental computer hardware
 concepts.
 
-## Setup
+Setup
+--------
 
 If you have not already, install [Screenhero](https://screenhero.com/).
 Screenhero is a remote screen-sharing application that let's you and a
@@ -49,7 +52,8 @@ Additionally, Screenhero includes a slack integration that makes it
 easy to initiate a session. From the slack app, type `/hero @username`
 to initiate a screenhero session with another user.
 
-## Sessions
+Sessions
+----------
 
 Spend the next ~90 minutes working through the challenges outlined
 in the [exercise](https://github.com/turingschool/challenges/blob/master/fundamental_logic_gates.markdown).

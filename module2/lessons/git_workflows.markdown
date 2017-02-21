@@ -10,18 +10,14 @@ tags: git, github, workflow, collaboration
 * Learn to use GitHub's tools to review and discuss code
 * Use a variety of techniques to create, track, and manage issues, bugs, and features
 
-## Warmup
+## Warmup(5-min)
 
 * What are your top 5 Git commands?
 * Do you have a preferred Git/GitHub workflow?
 * Do you have a sequence of commands you run when committing/pushing?
 * Does anything make you nervous about Git? If so, what?
 
-## Lecture
-
-Slides available [here](http://backend.turing.io/module2/slides/git_workflows/git_workflows.md).
-
-### Git Workflow in Teams
+### Git Workflow in Teams(20-min)
 
 When working on a team, it’s important to have a workflow. The details of the workflow will vary from team to team and company to company, but it's important that you have a workflow.
 
@@ -40,18 +36,28 @@ It's useful to think of branches like Ruby methods: they should be small, have d
 
 When your feature is complete, don't just merge it into master—submit a pull request and let someone from your team review your code.
 
-[Here is a detialed step-by-step checklist for workflow, by Erinna Chen](https://gist.github.com/erinnachen/1f802734671d9db5c452)
+#### (5-min Break)
+
+#### For practice: (40-min)
+
+With your partner follow the specified steps above and do the following:
+
+1.) Clone [storedom](https://github.com/turingschool-examples/storedom.git).
+1.) Add feature to create a new user.
+    * Migration
+    * BCrypt
+    * View
+    * Controller etc.
+
+__Make sure you are following the above process__
+
+Then, when finished, trade PRs with another set of students in the group, tag them in the PR, and make inline comments and code suggestions. Have a "code conversation".
+
+[Here is a detailed step-by-step checklist for workflow, by Erinna Chen](https://gist.github.com/erinnachen/1f802734671d9db5c452)
 
 You can find an alternative guide [here](https://gist.github.com/case-eee/22906249d7a2acead8a897813b7a9675).
 
-### Better Commit Messages
-
-* What makes a good commit message?
-* When should you commit?
-* When should you delete branches?
-* A few fun git commands
-
-### Github & Code Reviews
+#### For additional information about Github & Code Reviews:
 
 Having your code reviewed gives you confidence that your code is clear, that it runs on someone else's machine, and that it's not accidentally causing an error somewhere else in the application. It's also an opportunity to allow a mentor to review the code you're writing and give you advice.
 
@@ -63,6 +69,23 @@ Tools for conducting a code review:
 * Discussion in Github Issues and Waffle.io
 
 __WIP Pull Request:__ A pull request isn’t the final word. You can always add to it based on feedback, so it can be a useful collaboration tool for code that's still "under development." Many teams will call this a "WIP" PR and sometimes will mark it with a special label (to make sure it doesn't accidentally get merged).
+
+[PR tutorial!](https://yangsu.github.io/pull-request-tutorial/)
+
+### 5 min break
+
+### Better Commit Messages (25 min)
+
+Read [this article](https://chris.beams.io/posts/git-commit/) and answer the following questions with your partner:
+
+* What makes a good commit message?
+* When should you commit?
+* When should you delete branches?
+* A few fun git commands
+
+### Research and Knowledge Transfer(remainder of the time ~ 80min)
+
+Choose 2 of the additional exercises and 2 of the additional resources from the following list and go through each with your partner. At the end of each exercise and resource, review the topic and disseminate the information with your pair.
 
 ## Exercises
 
@@ -98,7 +121,7 @@ even if it changes in the future.
 a specific line or range of lines of that file. Useful for calling a
 teammate's attention to a specific chunk of code.
 
-Create a new gist. In this gist I want you to sumarize what github shorcuts you have available on different pages.
+Create a new gist. In this gist I want you to summarize what github shortcuts you have available on different pages.
 Pull up all the github shortcuts (hint: ?). In your gist include the shortcut, a description of what it does, and a practical example of when you may use that shortcut.
 
 ### Practice Pushing and Reviewing Code
