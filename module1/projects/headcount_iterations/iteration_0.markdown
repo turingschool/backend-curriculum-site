@@ -25,8 +25,8 @@ about enrollment by district.
 The `DistrictRepository` is responsible for holding and searching our `District`
 instances. It offers the following methods:
 
-* `find_by_name` - returns either `nil` or an instance of `District` having done a *case insensitive* search
-* `find_all_matching` - returns either `[]` or one or more matches which contain the supplied name fragment, *case insensitive*
+*   `find_by_name` - returns either `nil` or an instance of `District` having done a *case insensitive* search
+*   `find_all_matching` - returns either `[]` or one or more matches which contain the supplied name fragment, *case insensitive*
 
 There is no one data file that contains just the districts. The data must be extracted from one of the other files. Let's use `Kindergartners in full-day program.csv` so the instance is created and used like this:
 

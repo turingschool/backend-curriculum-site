@@ -18,10 +18,10 @@ se = SalesEngine.from_csv({
   :items     => "./data/items.csv",
   :merchants => "./data/merchants.csv",
 })
-merchant = se.merchants.find_by_id(10)
+merchant = se.merchants.find_by_id(12334112)
 merchant.items
 # => [<item>, <item>, <item>]
-item = se.items.find_by_id(20)
+item = se.items.find_by_id(263395237)
 item.merchant
 # => <merchant>
 ```
@@ -87,7 +87,7 @@ sa.merchants_with_high_item_count # => [merchant, merchant, merchant]
 Are these merchants selling commodity or luxury goods? Let's find the average price of a merchant's items (by supplying the merchant ID):
 
 ```ruby
-sa.average_item_price_for_merchant(6) # => BigDecimal
+sa.average_item_price_for_merchant(12334159) # => BigDecimal
 ```
 
 Then we can sum all of the averages and find the average price across all merchants (this implies that each merchant's average has equal weight in the calculation):
