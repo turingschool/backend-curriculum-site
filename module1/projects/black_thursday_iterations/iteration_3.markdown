@@ -187,7 +187,7 @@ transaction.invoice # => invoice
 And if we started with a merchant we could find the customers who've purchased one or more items at their store:
 
 ```ruby
-merchant = se.merchants.find_by_id(10)
+merchant = se.merchants.find_by_id(12335938)
 merchant.customers # => [customer, customer, customer]
 ```
 
