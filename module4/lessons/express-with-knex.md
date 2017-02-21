@@ -299,19 +299,16 @@ And the implementation:
 
 ```js
 app.post('/api/v1/monsters', (request, response) => {
-  const { monster } = request.body
+  const monster = request.body.monster;
 
-  database('monsters').insert(monster)
-    .then(function() {
-      database('monsters').select()
-        .then(function(monsters) {
-          response.status(201).json(monsters);
-        })
-        .catch(function(error) {
-          console.error('somethings wrong with db')
-        })
+  database('monsters').returning('*').insert(monster)
+    .then(function(new_monster) {
+      response.status(201).json(new_monster);
     })
-})
+    .catch(function(error) {
+      console.error(error)
+    })
+});
 ```
 
 ### Your turn (10 minutes)
