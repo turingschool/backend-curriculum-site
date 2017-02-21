@@ -2,15 +2,16 @@
 layout: page
 title: Testing 2.0
 ---
-Learning Goals
----------------
+
+## Learning Goals
+
 *   Understand what a fixture is and how to create one
 *   Understand what stubbing is, how to stub in Ruby with Minitest, when to use it
 *   Understand what mocking is, how to mock in Ruby with Minitest, and when to use it
 *   What’s the difference between behavior and state testing
 
-Background Concepts
--------
+## Background Concepts
+
 *   Test Doubles(dummy, fake, stub, spies, mocks). Further reading:
   - Basic: Martin Fowler: link [here](http://www.martinfowler.com/bliki/TestDouble.html)
   - Advanced: Gerard Meszaros link [here](http://xunitpatterns.com/Test%20Double.html)
@@ -21,8 +22,7 @@ Background Concepts
 	4.  Teardown
 *   System Under Test (SUT) or Object Under Test
 
-Fixtures
----------
+## Fixtures
 
 ### Basics
 
@@ -30,32 +30,31 @@ Fixtures
 *   How many lines of data should your fixture include? No hard number. Include the **bare minimum** data you need to test functionality.
 * Save to `fixtures` folder in your `test` folder
 
-### Exercise
-Working with your project partner, create a fixture folder in Headcount and create fixtures of 3 files listed in the spec.
-
-Mocking versus Stubbing
--------------
+## Mocking versus Stubbing
 
 ### What’s the problem we’re trying to correct?
+
   * Order/Warehouse example
   * Always asking the question: What’s the system under test (SUT)?
 
 ### Test Doubles to the Rescue
+
 *  **Stubs** provide canned answers to calls made during the test.
 
-```
-object = mock()  
-object.stubs(:stubbed_method).returns(1, 2)  
-object.stubbed_method # => 1  
+```ruby
+object = mock()
+object.stubs(:stubbed_method).returns(1, 2)
+object.stubbed_method # => 1
 object.stubbed_method # => 2
 ```
 
 * **Stubs** Especially helpful to fake state of secondary objects that are auxilary to our test.
+
 * **Stubs** allow you to imitate _state_.
 
 * **Mocks** allow you to define what calls a method you're testing should make. Mocking libraries include extensive list of expectations to verify what you expect to happens happens. Allows you to imitate _behavior_.
 
-```
+```ruby
 object = mock()
 object.expects(:expected_method).at_least_once
 
@@ -70,25 +69,31 @@ object = mock()
 object.expects(:expected_method).at_most_once
 2.times { object.expected_method } #=> fails
 ```
+
 * **Mocks** especially helpful to test whether SUT is behaving on secondary objects as you expect.
 * **Mocks** allows you to verify _behavior_.
 * More examples: http://www.rubydoc.info/github/floehopper/mocha/Mocha/Expectation
 
 ### Check for Understanding
+
 With your partners, teach back the difference between stubs and mocks. Check the [mocha docs](https://github.com/freerange/mocha) for more details/
 
 ### Setup: Mocking and Stubbing Libraries
+
 We'll be using mocha for these exercises.
   * Run `gem install mocha` from command line
   * Require in your file or test_helper
-```
+
+```ruby
 require 'rubygems'
 gem 'mocha'
 require 'mocha/mini_test'
 ```
+
 * Another common library is [flexmock](https://github.com/jimweirich/flexmock)
 
 ### Stubs
+
 * Instead of creating a new instance, we just stub it and dictate what state and behavior we want that secondary object to hold.
 * It allows us to imitate the _state_ and _state-dependent behavior_ of an actual object.
 * Use cases
@@ -97,11 +102,13 @@ require 'mocha/mini_test'
 * State, state, state
 
 ### Check for Understanding: Stubs
+
 Working independently, find an opportunity to use stubbing in your last project. Get the test passing.
 
 ### Mocks
 
 * Mocks allow us to test whether the SUT exercises the behavior (especially on other objects) we want it to exercise.
+
 ```ruby
 class DelegatorOfThings
 	def delegate_the_things(doer_of_things)
@@ -121,13 +128,15 @@ class DelegatorOfThingTest < Minitest::Test
 	end
 end
 ```
+
 *   Example: `mock_example` ("enterprise")
 
 ### Check for Understanding: Mocks
+
 Create an alternate version of the zap test using mocking.
 
-The Ultimate CfU
------------
+## The Ultimate CFU
+
 * How will you know you're writing a test that might be appropriate for stubbing or mocking?
 * What's the difference between testing doubles that rely on state versus behavior?
 * How many lines of data should you include in your fixture files?
