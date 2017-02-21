@@ -29,7 +29,8 @@ Below is GitHub's workflow. Most teams will do something similar. Step 6 can var
 4. Regularly push your work to the same named branch on the remote server (most likely the __origin__ remote)
 5. Open a [WIP] pull request so your code can be reviewed and commented on along the way.
 6. When you need feedback or help, or you think the branch is ready for merging, tag your reviewer or team in a comment with their github username (@username) asking them to review the PR. (ex: @carmer please review this branch for master)
-7. After someone else has reviewed and signed off on the feature, it can be merged to master. This is usually done by the reviewer.
+7. After someone else has reviewed and
+ signed off on the feature, it can be merged to master. This is usually done by the reviewer.
 8. Once it is merged and pushed to ‘master’, you can and should deploy immediately. Anything on master should be deployable.
 
 It's useful to think of branches like Ruby methods: they should be small, have descriptive names and implement a single feature. Use branches for the small features that you can implement quickly.
@@ -197,8 +198,8 @@ Person 1 Adds a line!
 
 ## Additional Resources
 
+* [This post is about the golden rule of rebaseing](https://medium.freecodecamp.com/git-rebase-and-the-golden-rule-explained-70715eccc372#.3nkd2p6c8)
 * [Usefull git commands](http://zackperdue.com/tutorials/super-useful-need-to-know-git-commands)
 * [Minimum Viable Git Best Practices for Small Teams](https://blog.hartleybrody.com/git-small-teams/)
 * [Waffle Automatic Workflow](https://github.com/waffleio/waffle.io/wiki/Recommended-Workflow-Using-Pull-Requests-&-Automatic-Work-Tracking) shows how you can use naming conventions to move cards across your board.
 * [Git Tutorial](https://www.atlassian.com/git/tutorials/merging-vs-rebasing/) is a great tutorial about the details of rebaseing vs merging.
-* [This post is about the golden rule of rebaseing](https://medium.freecodecamp.com/git-rebase-and-the-golden-rule-explained-70715eccc372#.3nkd2p6c8)
