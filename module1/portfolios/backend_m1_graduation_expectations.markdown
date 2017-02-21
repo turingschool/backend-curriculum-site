@@ -12,7 +12,7 @@ Students will have 90 minutes to complete a written diagnostic. Questions will c
 Students will pair with an assessor for 45 minutes. They will be assigned a baseline assignment and are expected to make meaningful progress on an extension. Students must demonstrate comfort with test-driven development, Ruby convention, and object-oriented programming.
 
 
-## Timed Exercise
+## Timed Independent Assessment
 
 Students will have 2 hours to complete a timed exercise. Outside documentation is allowed, but students should not consult other students or mentors during this exercise.
 
