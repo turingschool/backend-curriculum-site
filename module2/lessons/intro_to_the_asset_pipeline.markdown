@@ -49,7 +49,7 @@ Start a gist with these questions:
 
 #### Running Production Challenge
 
-[Backpacking](https://github.com/s-espinosa/backpacking) looks fine when running in development mode (`rails s`). But our challenge now is to get it running locally using the production environment (`RAILS_ENV=production rails s`) AND for our assets to look the same. Follow the errors (if you can find them...)
+[Backpacking](https://github.com/turingschool/backpacking) looks fine when running in development mode (`rails s`). But our challenge now is to get it running locally using the production environment (`RAILS_ENV=production rails s`) AND for our assets to look the same. Follow the errors (if you can find them...)
 
 * How can we see the errors?
 * `rake secret`
