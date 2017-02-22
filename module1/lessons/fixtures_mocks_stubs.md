@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Testing 2.0
+title: Fixtures, Mocks and Stubs
 ---
 
 ## Learning Goals
