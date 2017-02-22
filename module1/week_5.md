@@ -11,6 +11,7 @@ layout: page
 *   [Fixtures, Mocks and Stubs](lessons/fixtures_mocks_stubs.md) ([Video](https://vimeo.com/157333800))
 *   [Advanced Enumerables](lessons/advanced_enumerables)
 *   [Profiling and Optimizing Black Thursday](https://vimeo.com/158380111)
+*   [Object Relational Mapping](lessons/object_relational_mapping)
 
 ## Other Relevant Links
 *   [POODR Parts 1, 2, and 3](lessons/performance_of_code)
