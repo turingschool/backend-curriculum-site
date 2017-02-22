@@ -10,9 +10,9 @@ Today we are going to do things a little different. We are going to self-select 
 
 Roughly how you should evaluate which group you should be in:
 
-3.) I'm not feeling super great but I know what git is.
-2.) I can use git locally. But I'm not feeling great about.
-1.) I'm making PRs reviewing code and feeling good about git.
+1. I'm not feeling super great but I know what git is.
+2. I can use git locally. But I'm not feeling great about.
+3. I'm making PRs reviewing code and feeling good about git.
 
 
 ## Group 1
