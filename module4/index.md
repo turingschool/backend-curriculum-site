@@ -36,11 +36,11 @@ We have enumerated a [list of commitments](commitments) for students and instruc
 
 ### Projects
 
-Your first project is [Quantified Self](projects/quantified-self). It's a pair project lasting two weeks, and will thus overlap for one week with your main project.
+Your first project is [Quantified Self](./projects/quantified-self). It's a pair project lasting two weeks, and will thus overlap for one week with your main project.
 
 The module is primarily oriented around five-week team projects. [Find more details about the projects themselves here](projects_overview).
 
-Secondary projects are added to your main capstone projects. You'll get the requirements in tracker, but [here is an overview for the projects as a whole.](projects/secondary)
+Secondary projects are added to your main capstone projects. You'll get the requirements in tracker, but [here is an overview for the projects as a whole.](./projects/secondary)
 
 ### Assessment - 1608
 

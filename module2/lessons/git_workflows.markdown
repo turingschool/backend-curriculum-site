@@ -17,28 +17,31 @@ tags: git, github, workflow, collaboration
 * Do you have a sequence of commands you run when committing/pushing?
 * Does anything make you nervous about Git? If so, what?
 
-### Git Workflow in Teams(20-min)
+### Git Workflow in Teams(45 min + 5 min pomodoro)
 
 When working on a team, it’s important to have a workflow. The details of the workflow will vary from team to team and company to company, but it's important that you have a workflow.
 
 Below is GitHub's workflow. Most teams will do something similar. Step 6 can vary.
 
 1. Anything in the master branch is deployable
-2. To work on something new, create a descriptively named branch off of the up to date  master branch (ie: new-oauth2-scopes)
+2. To work on something new, create a descriptively named branch off of the up to date  master branch (ie: new-oauth-scopes)
 3. Commit to that branch locally frequently. We do this so we have regular checkpoints we can always go back to incase something goes wrong or breaks and we need to go back to the last known working code.
 4. Regularly push your work to the same named branch on the remote server (most likely the __origin__ remote)
 5. Open a [WIP] pull request so your code can be reviewed and commented on along the way.
-6. When you need feedback or help, or you think the branch is ready for merging, tag your reviewer or team in a comment with their github username (@username) asking them to review the PR. (ex: @carmer please review this branch for master)
-7. After someone else has reviewed and signed off on the feature, it can be merged to master. This is usually done by the reviewer.
+6. When you need feedback or help, or you think the branch is ready for merging, tag your reviewer or team in a comment with their github username (@username) asking them to review the PR. (ex: @carmer please review x, y z in this branch)
+7. After someone else has reviewed and
+ signed off on the feature, it can be merged to master. This is usually done by the reviewer.
 8. Once it is merged and pushed to ‘master’, you can and should deploy immediately. Anything on master should be deployable.
 
 It's useful to think of branches like Ruby methods: they should be small, have descriptive names and implement a single feature. Use branches for the small features that you can implement quickly.
 
 When your feature is complete, don't just merge it into master—submit a pull request and let someone from your team review your code.
 
-#### (5-min Break)
+[Here is a detailed step-by-step checklist for workflow, by Erinna Chen](https://gist.github.com/erinnachen/1f802734671d9db5c452)
 
-#### For practice: (40-min)
+You can find an alternative guide [here](https://gist.github.com/case-eee/22906249d7a2acead8a897813b7a9675).
+
+#### For practice:
 
 With your partner follow the specified steps above and do the following:
 
@@ -47,15 +50,12 @@ With your partner follow the specified steps above and do the following:
     * Migration
     * BCrypt
     * View
-    * Controller etc.
+    * Controller
+    * etc.
 
-__Make sure you are following the above process__
+__Make sure you are following one of the workflow processes above__
 
 Then, when finished, trade PRs with another set of students in the group, tag them in the PR, and make inline comments and code suggestions. Have a "code conversation".
-
-[Here is a detailed step-by-step checklist for workflow, by Erinna Chen](https://gist.github.com/erinnachen/1f802734671d9db5c452)
-
-You can find an alternative guide [here](https://gist.github.com/case-eee/22906249d7a2acead8a897813b7a9675).
 
 #### For additional information about Github & Code Reviews:
 
@@ -83,9 +83,17 @@ Read [this article](https://chris.beams.io/posts/git-commit/) and answer the fol
 * When should you delete branches?
 * A few fun git commands
 
-### Research and Knowledge Transfer(remainder of the time ~ 80min)
+### 5 min break
 
-Choose 2 of the additional exercises and 2 of the additional resources from the following list and go through each with your partner. At the end of each exercise and resource, review the topic and disseminate the information with your pair.
+### Research and Knowledge Transfer(remainder of the time ~ 90 min)
+
+Choose additional exercises and additional resources from the following list and go through each with your partner. At the end of each exercise and resource, review the topic and disseminate the information with your pair.
+
+Be sure to to take pomodoros to stay efficient and stay on task.
+
+Have fun!
+
+PS. feel free to pull from different additional resources on the web!
 
 ## Exercises
 
@@ -197,8 +205,8 @@ Person 1 Adds a line!
 
 ## Additional Resources
 
+* [This post is about the golden rule of rebaseing](https://medium.freecodecamp.com/git-rebase-and-the-golden-rule-explained-70715eccc372#.3nkd2p6c8)
 * [Usefull git commands](http://zackperdue.com/tutorials/super-useful-need-to-know-git-commands)
 * [Minimum Viable Git Best Practices for Small Teams](https://blog.hartleybrody.com/git-small-teams/)
 * [Waffle Automatic Workflow](https://github.com/waffleio/waffle.io/wiki/Recommended-Workflow-Using-Pull-Requests-&-Automatic-Work-Tracking) shows how you can use naming conventions to move cards across your board.
 * [Git Tutorial](https://www.atlassian.com/git/tutorials/merging-vs-rebasing/) is a great tutorial about the details of rebaseing vs merging.
-* [This post is about the golden rule of rebaseing](https://medium.freecodecamp.com/git-rebase-and-the-golden-rule-explained-70715eccc372#.3nkd2p6c8)

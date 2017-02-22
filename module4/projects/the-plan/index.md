@@ -10,7 +10,7 @@ The goal of this assignment is to prepare you mentally for the change and to giv
 
 ## Deliverables
 
-At the end of the assignment - you will need to submit your own 'Plan' - by creating a gist using this [template](template.markdown). Describe in your plan your intent to complete at least **2** of the assignments - and the goals assignment I and the others are your choice. Include them in your submission.
+At the end of the assignment - you will need to submit your own 'Plan' - by creating a gist using this [template](template.markdown). Describe your plan by completing the goals assignment and at least **2** of the other assignments. Include them all in your submission.
 
 If you would prefer your plan not be a public document, create it as a private gist and DM it to your instructor.
 
@@ -25,7 +25,7 @@ The pace of development life will 'hopefully' never be as intense again as it wa
 
 [complete this assignment](assignments/goals.markdown)
 
-## Assignments (complete 2)
+## Other Assignments (complete 2)
 
 ### The 'Side Hustle' Assignment
 
@@ -53,7 +53,7 @@ One of the best ways to get noticed, make friends, influence people, make things
 
 [complete this assignment](assignments/open-source.markdown)
 
-## The 'Community Involvement' Assignment
+### The 'Community Involvement' Assignment
 
 For a community of people who stereotypically like to work in a dark room, alone, hitting keyboard keys - community involvement sure is a big deal in the world of development.
 

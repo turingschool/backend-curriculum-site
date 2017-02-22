@@ -41,8 +41,8 @@ In addition, we expect you to:
   * Use the tooling most comfortable to you (Editor/IDE, testing framework, support tools like Guard, etc)
 * As you work, you *should not*:
   * Copy code snippets
-  * Seek live support from individuals
-  * Excessively review implementations on old projects, google, and/or notes
+  * Seek live support from individuals other than your instructors
+  * Excessively review implementations on old projects
 
 #### Note about the commit expectation:
 
