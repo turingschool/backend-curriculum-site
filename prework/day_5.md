@@ -3,7 +3,8 @@ title: Day 5 - Practice with Atom and Terminal
 subheading: Back End Engineering
 ---
 
-## Creating a New Directory/File For Practice
+Creating a New Directory/File For Practice
+-------------------
 
 1.  Change directories (`cd`) into the `1module` directory.
 2.  Create a new directory called "prework_practice". (`mkdir prework_practice`)
@@ -14,6 +15,7 @@ subheading: Back End Engineering
 ### Exercise 1
 
 -   In the `exercise_practice.rb` file, create a new string and print it:
+
     ```ruby
     puts "Turing"
     ```
@@ -28,6 +30,7 @@ subheading: Back End Engineering
     5.  Assign "Turing" to a variable.
 
 -   Try it out:
+
     ```ruby
     puts "Turing"
 
@@ -49,18 +52,20 @@ subheading: Back End Engineering
     ```
 
 -   The output of your terminal will be:
+
     ```terminal
-    "Turing"
-    "T"
+    Turing
+    T
     6
-    "TURING"
-    "Turig"
-    "Turing"
+    TURING
+    Turig
+    Turing
     ```
 
 ### Exercise 2
 
--   In the `exercise_practice.rb` file, and add the following code:
+-   In the `exercise_practice.rb` file, add the following code:
+
     ```ruby
     puts "What is your first name?"
 
@@ -90,8 +95,11 @@ subheading: Back End Engineering
 ### Exercise 3
 
 -   In the `exercise_practice.rb` file, create a new array of animals:
+
     ```ruby
     animals = ["dog", "cat", "penguin", "armadillo"]
+
+    puts animals
     ```
 
 -   Run the file. (`ruby exercise_practice.rb`)
@@ -100,3 +108,54 @@ subheading: Back End Engineering
     1.  What does `animals.length` return?
     2.  What does `animals[0]` return?
     3.  What does `animals.empty?` return?
+    4.  What are two different ruby commands that add to the `animals `?
+    5.  What ruby command is used to remove the last element from the array?
+
+
+-   Try it out:
+
+    ```ruby
+    animals = ["dog", "cat", "penguin", "armadillo"]
+
+    puts animals
+
+    answer_1 = animals.length
+    puts answer_1
+
+    answer_2 = animals[0]
+    puts answer_2
+
+    answer_3 = animals.empty?
+    puts answer_3
+
+    # answer 4
+    animals.push("hippo")
+    # OR
+    # animals << "hippo"
+    puts animals
+
+    # answer 5
+    animals.pop
+    puts animal
+    ```
+
+-   The output of your terminal will be:
+
+    ```terminal
+    dog
+    cat
+    penguin
+    armadillo
+    4
+    dog
+    false
+    dog
+    cat
+    penguin
+    armadillo
+    hippo
+    dog
+    cat
+    penguin
+    armadillo
+    ```
