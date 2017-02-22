@@ -54,6 +54,9 @@ Start a gist with these questions:
 * How can we see the errors?
 * `rake secret`
 * export MY_KEY=something123
+* *Maybe Database Issues with role:
+  * createuser -s -r backpack (this "backpack" comes from the database.yaml file. Its the username of the database)
+* config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 * What command can you run to precompile your assets locally? why do you *not* need to do this on Heroku?
 * Why would you need to run `rake assets:clobber`?
 * When is there an `assets` directory inside the `public` folder?
