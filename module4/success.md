@@ -19,7 +19,6 @@ Students must earn a score of `3` or greater in *each* category of the final ass
 * Submit one sizable/difficult or two smaller/moderate code-centric pull requests that are worth merging
 * Submit one documentation patch (README, CONTRIBUTING, code documentation, etc)
 * Write a single blog post that explains the whole process
-* Complete "[The Plan](http://backend.turing.io/module4/projects/the-plan/)", which details steps you'll take to grow in the 6-12 months after Turing
 
 *Optional*: Students are encouraged to include the results of their in-class work and tutorials.
 
