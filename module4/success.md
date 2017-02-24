@@ -19,7 +19,6 @@ Students must earn a score of `3` or greater in *each* category of the final ass
 * Submit one sizable/difficult or two smaller/moderate code-centric pull requests that are worth merging
 * Submit one documentation patch (README, CONTRIBUTING, code documentation, etc)
 * Write a single blog post that explains the whole process
-* Complete "[The Plan](http://backend.turing.io/module4/projects/the-plan/)", which details steps you'll take to grow in the 6-12 months after Turing
 
 *Optional*: Students are encouraged to include the results of their in-class work and tutorials.
 
@@ -41,7 +40,6 @@ The remainder of professional development material is as follows:
 
 * Following up on the *Organize Your Shit* session, ensure that your GitHub, LinkedIn, and StackOverflow accounts are properly setup by linking to them in your Census account. We will run an automated check on these and send you a follow up if needed. No submission is necessary beyond putting the info in your Census account.
 * Following up on the *Portfolio Tips & Tricks* tutorial, notify [Meg via email](mailto:mstewart@turing.io) that your portfolio is complete with your name, photo, description, three projects, and resume.
-* Participate in at least one practice technical interview or one actual external interview. [Email Meg](mailto:mstewart@turing.io) a summary with the company, interviewer's name, and their title.
 
 ### Feedback & Community
 
