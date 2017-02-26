@@ -3,8 +3,8 @@ title: Turing School Prework - Game
 subheading: Back End Engineering
 ---
 
-## Create a Game!
-
+Create a Game!
+----------------
 Now that you have had some practice with Ruby, let's continue to practice using our editor and terminal together.
 
 ### Setup
@@ -18,6 +18,26 @@ Now that you have had some practice with Ruby, let's continue to practice using 
     ```
 
 -   If all is set up correctly, running `ruby guessing_game.rb` from your command line (while in the `prework_game` directory) will print the line "I have generated a random number for you to guess, what is your guess?" in your terminal.
+
+### Before You Begin
+
+-   Try pseudocoding the problem.
+-   What is pseudocoding?
+    -   Pseudocode is an informal high-level description of the operating principle of a computer program or other algorithm.
+    -   As programmers, we use comments (`#`) in our editor to pseudocode.
+
+        ```ruby
+        # When I start the program, it prints "I have generated a random number for you to guess, what is your guess?"
+        # A random number is generated (set to a variable?)
+        ```
+-   A generalized process for solving technical problems:
+    1.  How will you know when the problem is solved? (Identify the big-picture goal)
+    2.  How do you want to use the software? (Identify the “interface”)
+    3.  What’s the (next-)most trivial possible case? (Identify the next small-picture goal)
+    4.  How do we achieve this goal? (Sketch an algorithm using pseudocode)
+    5.  Implement it (do programming)
+    6.  Is the whole problem (from step 1) solved? If not, return to 3.
+-   <a href='https://www.vikingcodeschool.com/software-engineering-basics/what-is-pseudo-coding' target='blank'>This</a> description and the examples within, are helpful in understanding why pseudocoding is a very important process.
 
 ### Instructions
 
