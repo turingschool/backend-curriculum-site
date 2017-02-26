@@ -31,3 +31,9 @@ Now that you have had some practice with Ruby, let's continue to practice using 
     ```ruby
     puts "The secret number is divisible by 5."
     ```
+
+### Some Hints:
+
+-   Wondering how to get the user's input? See <a href='https://learnrubythehardway.org/book/ex11.html' target='blank'>here</a> for more information.
+-   Wondering how to continually ask for input? Check out information about loops <a href='https://www.tutorialspoint.com/ruby/ruby_loops.htm' target='blank'>here.</a>
+-   Most everything is searchable on the internet so try to think of some key words to search for and add the word `ruby` after, to see results.
