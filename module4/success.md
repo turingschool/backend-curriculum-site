@@ -60,98 +60,68 @@ Academic success in B4 means that students demonstrate proficiency and comfort w
 
 ## Professional Skills
 
-### Project Management
+### Agile Processes
 
-* The process by which business requirements are turned into acceptance requirements *(mastery)*
-* How acceptance requirements are turned into stories and feature requirements *(mastery)*
-* How stories are estimated and workload/schedule determined *(mastery)*
-* How pull requests are used to organize discussion about features *(mastery)*
-* How code review is used to ensure a uniformity of style, increase quality, and share knowledge *(functional)*
-* How project management tools are used to communicate across technical teams and stakeholders/clients *(functional)*
+* Students use an agile process to turn acceptance requirements into deployed software *(mastery)*
+* Students estimate complexity of user stories *(functional)*
+* Students translate acceptance requirements into user stories that are ready for work *(mastery)*
+* Students verify acceptance requirements using automated testing *(mastery)*
 
-### Open Source
+### Technical Communication
 
-* Students are able to create pull requests *(mastery)*
-* Students are able to use PRs for ongoing conversation in a logical/professional manner *(functional)*
-
-### Interpersonal Skills
-
-* Asking high quality questions of people or StackOverflow *(functional)*
-* Effective collaboration techniques for remote teams *(familiarity)*
-* Effective communication around code, explaining what it does and why *(mastery)*
+* Students formulate questions by synthesizing what was expected vs what was observed *(mastery)*
+* Students explain intent and execution of their code *(mastery)*
+* Students document intent and usage of their code for effective collaboration *(functional)*
+* Students use pull requests to organize discussion about features *(functional)*
+* Students implement feedback from a code review to improve quality *(functional)*
+* Students provide feedback in the form of a code review to improve quality and share knowledge *(familiarity)*
 
 ## Core Technical Skills
 
-### Architecture
+### Architecting for Scalability
 
-* How applications are divided into components and domains of responsibilities to facilitate multi-developer teams *(functional)*
-* How components of responsibility can be extracted to their own applications/services *(functional)*
-* How outside service can be abstracted to provide flexibility *(functional)*
-
-### Ruby
-
-* Students are able to make excellent use of Ruby at least as well as a Module 1 graduate *(mastery)*
-* Students are able to mix Ruby fundamentals into web applications to do things like: create POROs wrapping external services / data sources, build a Ruby gem *(functional)*
-
-### Rails
-
-* Students are able to make use of outside data sources / services from a Rails application *(mastery)*
-* Students are able to make use of initializers and environment variables to control the configuration of an application *(functional)*
-* Students practice using a user authentication system based on an external OAuth provider *(mastery)*
-* Students practice implementing/modifying an organized user authorization system (like cancancan) *(functional)*
+* Students divide applications into components and domains of responsibilities to facilitate multi-developer teams *(functional)*
+* Students abstract external dependencies and services to provide flexibility *(familiarity)*
+* Students integrate outside data sources (Files, APIs, databases) *(functional)*
+* Students communicate across applications via message queues *(familiarity)*
+* Students build applications that execute in development, test, CI and production environments *(functional)*
+* Students securely apply authentication and authorization patterns *(functional)*
+* Students apply cacheing patterns to improve application performance *(familiarity)*
 
 ### JavaScript Essentials
 
-* Students write instructions with basic data types like strings, integers, and floats *(mastery)*
-* Students use basic array functions to store and retrieve data *(mastery)*
-* Students create and use anonymous functions *(mastery)*
-* Students create and use named functions *(mastery)*
+* Students apply knowledge of Ruby collections to JavaScript arrays *(mastery)*
 * Students create and use functions with parameters *(mastery)*
-* Students organize functions into objects *(functional)*
-* Students create instances of objects both with and without constructors *(functional)*
+* Students apply SOLID patterns to JavaScript functions *(mastery)*
+* Students organize functions into classes and objects *(functional)*
 * Students make effective use of `this` in multiple contexts *(functional)*
+* Students differentiate between JavaScript written in ES5 and ES6 *(mastery)*
+* Students translate between JavaScript written in ES5 and ES6 *(familiarity)*
+* Students unit test JavaScript *(functional)*
 
 ### JavaScript in the Browser
 
-* Students use jQuery to attach code to events including document-ready and click *(mastery)*
-* Students search the DOM using CSS-style selectors *(mastery)*
-* Students read and manipulate page content via JavaScript *(functional)*
-* Students fetch and inject content without refreshing the page (ex: AJAX) *(functional)*
-* Students implement a real-time technology to update page content without user action (ex: websockets, pusher) *(familiarity)*
+* Students use event listeners to attach code to event-element combinations including document-ready and element-click *(functional)*
+* Students write precise CSS-style selectors in multiple contexts like DOM manipulation and integration testing *(mastery)*
+* Students read form content and manipulate page content via JavaScript *(functional)*
+* Students integrate outside data sources in the browser (AJAX, local storage) *(functional)*
+* Students use integration testing to verify JavaScript functionality *(functional)*
 
 ### Node & Express
 
-* Students implement a stand-alone service with Node *(familiarity)*
-* Students read and write to a data store from Node *(familiarity)*
-* Students use the node package system to manage dependencies *(functional)*
-* Students can build basic services or applications using the Express framework *(familiarity)*
-* Students can interact with SQL databases using Knex *(familiarity)*
+* Students implement a stand-alone application with Node and Express *(functional)*
+* Students interact with SQL databases using Knex *(functional)*
+* Students render views from an Express application *(familiarity)*
 
-### JavaScript Libraries
+### JavaScript Tools and Libraries
 
-* Students know appropriate uses of LoDash or Underscore to extend JavaScript's enumerables *(functional)*
-* Students can use a build tool like WebPack *(functional)*
-* Students can use a library for unit testing *(functional)*
-* Students can write integration tests using Selenium-based libraries *(familiarity)*
-
-### React
-
-* Students can turn existing jQuery/JS functionality into a React component *(functional)*
-* Students understand how to pass data and maintain state between components *(functional)*
-* Students can use AJAX to set and modify state across components *(functional)*
+* Students use the Node Package Manager to manage dependencies *(functional)*
+* Students use LoDash or Underscore enumerables to extend JavaScript *(functional)*
+* Students use WebPack as a build tool for organizing their code into modules *(functional)*
 
 ### PostgreSQL & SQL
 
 * Students write basic SQL statements without the assistance of an ORM *(functional)*
 * Students intelligently structure/normalize data so as to maintain reasonable performance as the data size increases *(functional)*
-* Students use the CLI to review the status of their database (ex: list databases, tables, table structure) *(familiarity)*
-* Students use the CLI to execute SQL instructions *(familiarity)*
-* Students diagnose and improve the performance of slow queries *(familiarity)*
-* Students explain the appropriate use of and implement indices *(familiarity)*
-
-### Message Queues & Key-Value Stores
-
-* Students use a message queue to communicate between processes *(familiarity)*
-* Students use a key-value store to cache or store data *(functional)*
-* Students can describe both pub-sub and message queue architectures *(functional)*
-* Students use a MQ or KVS from at least two programming contexts (ie: Ruby, Rails, Node, JS) *(familiarity)*
+* Students use the CLI to understand the structure and data of their database (ex: list databases, tables, table structure) *(familiarity)*
+* Students implement indexes to address slow queries *(familiarity)*
