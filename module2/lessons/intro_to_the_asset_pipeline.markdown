@@ -49,11 +49,14 @@ Start a gist with these questions:
 
 #### Running Production Challenge
 
-[Backpacking](https://github.com/s-espinosa/backpacking) looks fine when running in development mode (`rails s`). But our challenge now is to get it running locally using the production environment (`RAILS_ENV=production rails s`) AND for our assets to look the same. Follow the errors (if you can find them...)
+[Backpacking](https://github.com/turingschool/backpacking) looks fine when running in development mode (`rails s`). But our challenge now is to get it running locally using the production environment (`RAILS_ENV=production rails s`) AND for our assets to look the same. Follow the errors (if you can find them...)
 
 * How can we see the errors?
 * `rake secret`
 * export MY_KEY=something123
+* *You may have database issues with role:
+  * `createuser -s -r backpack` (this "backpack" comes from the database.yaml file. Its the username of the database)
+* config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 * What command can you run to precompile your assets locally? why do you *not* need to do this on Heroku?
 * Why would you need to run `rake assets:clobber`?
 * When is there an `assets` directory inside the `public` folder?

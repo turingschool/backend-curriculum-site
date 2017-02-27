@@ -15,6 +15,8 @@ In Module 3, we will look beyond the basics of building Rails web applications w
 Students who successfully complete Module 4 will have demonstrated mastery of Professional Skills and Core Technical Skills.
 [These skills are broken down in detail here along with Portfolio Expectations demonstrating those skills](success).
 
+For a sense of where your abilities should be by the end of the module, take a look at the [Practice Assessment](lessons/practice_assessment). This will be worked on during week 5 but will give you a sense of the core concepts covered during the module.
+
 ### Projects
 
 This module consists of four projects, two team projects and two personal
@@ -47,6 +49,7 @@ here.](projects_overview)
 * [Seeding Data Efficiently](lessons/seeding_data_efficiently)
 * [Understanding Multitenancy](lessons/understanding_multitenancy)
 * [Multitenancy Authorization](lessons/multitenancy_authorization)
+* [Sending Email](lessons/sending_email_sendgrid)
 * Mock Assessment
 * Professional Development: [Job Search Strategy Planning](https://github.com/turingschool/professional_skills/blob/master/job_search_strategy.md)
 * Cloney Island Re-DTR
@@ -57,9 +60,9 @@ here.](projects_overview)
 * [jQuery DOM Traversal and Manipulation](lessons/jquery_dom_traversal_and_manipulation)
 * [Fundamental Rails Security](lessons/fundamental_rails_security)
 * [Sending Email](lessons/sending_email_sendgrid)
-* Self-Directed Project Intro
+* [Self-Directed Project Intro](projects/self_directed_project)
 * Cloney Island Evaluations
-* Assessment Preparation Assignment
+* [Practice Assessment](lessons/practice_assessment)
 
 #### Week 5
 
@@ -67,7 +70,7 @@ here.](projects_overview)
 * [Understanding the Asset Pipeline](lessons/understanding_the_asset_pipeline)
 * [Caching Strategies in Rails](lessons/caching_in_rails)
 * Professional Development: Interviewing
-* Friday Session: Talkin' 'bout Jobs
+* [Assessment](lessons/assessment)
 
 #### Week 6
 
