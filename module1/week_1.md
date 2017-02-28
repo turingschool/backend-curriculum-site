@@ -13,7 +13,7 @@ layout: page
 * [Introducing Arrays](lessons/arrays_101) ([Video](https://www.youtube.com/watch?v=nlwU1YtQ9SU))
 * [Flow Control (Foxtrot)](lessons/flow_control) ([Video](https://www.youtube.com/watch?v=iZkQWR9_RpY))
 * [Exploring `.each` and Exercises](lessons/primer_on_each)
-* [Core Types (Foxtrot)](https://github.com/turingschool/ruby-exercises/tree/master/core-types)
+<!-- * [Core Types (Foxtrot)](https://github.com/turingschool/ruby-exercises/tree/master/core-types) -->
 * [Classes and Instance Methods](lessons/classes_instances_methods) ([Video](https://www.twitch.tv/worace/v/56378715))
 * [Methods, Arguments, Scopes](lessons/methods_arguments_and_scopes.markdown)
 
