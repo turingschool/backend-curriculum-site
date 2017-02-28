@@ -119,6 +119,7 @@ Start the server, ssh in, and start the Rails app:
 ```
 $ vagrant up
 $ vagrant ssh
+$ git clone https://github.com/JumpstartLab/platform_validator.git
 $ cd platform_validator
 $ rails server
 ```
