@@ -65,6 +65,11 @@ Now it gets really cool. Because a VM is essentially a file, you can treat it li
 
 Let's create a copy of the virtual machine and run *two* instances at once -- effectively two different servers running the same application.
 
+### Stopping
+
+* `ctrl-c` your running Rails app
+* run `sudo shutdown now` to shutdown the VM and exit automatically
+
 ### Creating the Image
 
 Start within the same folder as the `Vagrantfile` and:
