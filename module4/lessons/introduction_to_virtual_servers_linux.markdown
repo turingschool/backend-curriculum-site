@@ -1,16 +1,8 @@
 ---
 layout: page
-title: Introduction to Virtual Servers - Linux Setup
+title: Part 2: Getting Linux Operational
 tags: workflow, environment
 ---
-
-#### Goals
-
-Vagrant is a neat tool for experimenting with Virtualization. A virtualized environment:
-
-* has it's own operating system
-* runs on top of the primary operating system
-* exists as a data file or "image" in the primary file system
 
 Let's build a development-ready environment including the following:
 
@@ -134,7 +126,7 @@ The RVM tool has an awesome tool for installing all the various compilers and pa
 $ rvm requirements
 ```
 
-#### Ruby 2.2
+#### Ruby
 
 You can see all the Rubies available through RVM with this command:
 
@@ -142,10 +134,10 @@ You can see all the Rubies available through RVM with this command:
 $ rvm list known
 ```
 
-Then install both Ruby 2.2:
+Then install Ruby 2.1:
 
 ```
-$ rvm install 2.2
+$ rvm install 2.1
 ```
 
 It'll take awhile to compile/install.
@@ -155,7 +147,7 @@ It'll take awhile to compile/install.
 Run this to set your default Ruby:
 
 ```
-$ rvm use 2.2 --default
+$ rvm use 2.1 --default
 ```
 
 And verify it:

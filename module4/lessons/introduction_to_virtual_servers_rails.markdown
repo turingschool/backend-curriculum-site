@@ -1,14 +1,20 @@
 ---
 layout: page
-title: Introduction to Virtual Servers - Rails Setup
+title: Part 3: Serving an Application & Cloning the Image
 tags: workflow, environment
 ---
 
-Let's clone and run a sample Rails application to make sure everything is setup correctly.
+Now that our virtual server, operating system, and required tooling are setup, let's deploy a Rails application.
+
+## Deploy a Rails Application
+
+For this exercise you can use any project you're comfortable with. We'll use a small sample project  called `platform_validator`, but you're welcome to substitute in any one of your projects and follow all the same steps.
+
+Note that this project uses Ruby 2.1. If the project you use needs a different version of Ruby, install it with RVM like you did before in Part 2.
 
 ### Clone the Project
 
-You can clone a project of your own and go through the same steps, or use this small sample project:
+Within your virtual server:
 
 ```
 $ cd /vagrant
@@ -53,9 +59,11 @@ Listening on 0.0.0.0:3000, CTRL+C to stop
 
 Then, in your host operating system, open <http://localhost:3000> in a browser. You should see the *Welcome aboard* page -- you're done!
 
-## Cloning
+## Cloning the Virtual Machine
 
 Now it gets really cool. Because a VM is essentially a file, you can treat it like a file: copy it, back it up, share it, version it, etc.
+
+Let's create a copy of the virtual machine and run *two* instances at once -- effectively two different servers running the same application.
 
 ### Creating the Image
 
@@ -79,19 +87,48 @@ $ vagrant box add package.box --name rails_box
 
 That will "download" the box file to the local Vagrant install's set of known boxes.
 
-### Provision and Start the Box
+### Provision the Box
 
 Now move to the project directory where the `Vagrantfile` and your application code will live. Then:
 
 ```
 $ vagrant init rails_box
-$ vagrant up
 ```
 
-It'll clone the box then boot. Now you can `vagrant ssh` and you're ready to go!
+### Setup the Network
 
-### Double Down
+The box you create will have the same settings as the original. But let's set it up so the network ports don't overlap.
 
-Open another terminal tab, switch to the directory of your first `Vagrantfile` then `vagrant up` and `vagrant ssh`. Now each of your two tabs is running unique copies of the same VM.
+Open the `Vagrantfile` of this new copy in a text editor and modify line 22 so it looks like this:
 
-Confirm that they're unique by creating a database in one VM and proving that it *isn't* present in the other VM.
+```
+config.vm.network "forwarded_port", guest: 3000, host: 3001
+```
+
+So that way port 3001 on our MacOS will map to port 3000 of the image.
+
+### Boot & Access
+
+Start the server, ssh in, and start the Rails app:
+
+```
+$ vagrant up
+$ vagrant ssh
+$ cd platform_validator
+$ rails server
+```
+
+### Double Vision
+
+Open another terminal tab, switch to the directory of your first `Vagrantfile` then do the same:
+
+```
+$ vagrant up
+$ vagrant ssh
+$ cd platform_validator
+$ rails server
+```
+
+Now each of your two tabs is running unique copies of the same VM with the same app.
+
+Visit `http://localhost:3000` and `http://localhost:3001` in different tabs -- each one running on a different server.
