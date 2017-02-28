@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Part 3: Serving an Application & Cloning the Image
+title: Part 3 - Serving an Application & Cloning the Image
 tags: workflow, environment
 ---
 

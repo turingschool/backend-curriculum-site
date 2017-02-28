@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Part 2: Getting Linux Operational
+title: Part 2 - Getting Linux Operational
 tags: workflow, environment
 ---
 
