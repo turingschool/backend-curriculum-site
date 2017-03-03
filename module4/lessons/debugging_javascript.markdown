@@ -19,9 +19,9 @@ Client-side JavaScript has a lot of ways it can go horribly, horribly wrong. For
 
 Luckily, browsers give us some excellent tools for debugging client-side JavaScript.
 
-1. [Basic Introduction to Developer Tools](debugging-javascript/basic-intro-dev-tools.markdown)
-2. [The Console Tab](debugging-javascript/using-the-console.markdown)
-3. [The Console API](debugging-javascript/the-console-api.markdown)
+1. [Basic Introduction to Developer Tools](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/debugging-javascript/basic-intro-dev-tools.markdown)
+2. [The Console Tab](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/debugging-javascript/using-the-console.markdown)
+3. [The Console API](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/debugging-javascript/the-console-api.markdown)
 4. [The Elements Tab](debugging-javascript/elements-tab.markdown)
 5. [The Sources Tab](debugging-javascript/sources-tab.markdown)
 6. [Using the Network Tab](debugging-javascript/network-tab.markdown)
