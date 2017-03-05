@@ -6,7 +6,7 @@ subheading: Success
 
 ## Graduation Requirements
 
-In order to graduate from Module 4, students must complete each of the following:
+In order to graduate from Module 2, students must complete each of the following:
 
 ### Final Assessment
 
@@ -34,55 +34,61 @@ Module 2 is heavily weighted by non-graded work. Students are expected to partic
 
 These works include:
 
-TaskManager, Blogger, Mix-Master, Mini-Project, JobTracker, Checks For Understanding etc.
+TaskManager, Blogger, Mix-Master, Mini-Project, JobTracker, Checks For Understanding, Other homeworks, and any other assigned but not evaluated materials.
 
 ## Skills and Topics
 
 The following list includes everything you will see on the mod module evaluation. You will **not** need to build, input or write **all** of the following because some may already be in place on the project. You should be familiar enough with the following list to at least speak about and identify each of the following in a Rails project:
 
-* Understanding and interpreting Rails Errors
-* Model Testing
+1. Understanding and interpreting Errors and Error Messages
+1. Model Testing
   * RSpec syntax
   * data preparation/manipulation
   * validation testing
   * relationship testing
   * reading errors
-* Feature Testing
+1. Feature Testing
   * RSpec syntax
   * Big picture - What needs to be tested here?
-  * Data preparation
+  * Data preparation - least necessary data to represent functionality
   * Feature Exercise (visiting, clicking around, interacting as a user would interact)
   * Expectation syntax/methods
   * Capybara methods
     * `within` `find` `visit` `page` `current_path` `have_content` `click_on` and more
-* Database planning, Rails Migrations and Relationships
+1. SQL
+  * Writing basic sql select statements
+  * Writing insertion statements
+1. Database planning, Migrations and Relationships
+  * Clearly articulate a relational database structure ( one-to-one, one-to-many, many-to-many)
+  * Write an ERD for Teams, Players, Coaches, Games
   * What tables and models do we need and what migrations do we need to get there?
     * Rails CLI generator commands
   * What methods do we need for relationships (has_many, belongs_to, through)
-  * What methods do we get when we set up relationships
+  * What methods do we get when we set up relationships?
   * Presence and Uniqueness Validations
-* Views
+1. Views
   * Enough HTML to create headers, paragraphs, tables, and lists in a view.
   * How to use erb tags in a view to display information.
   * How to iterate over a collection of ActiveRecord objects in a view.
   * How to create a form in a view using Ruby, including a form using nested resources.
-* Controllers
+1. Controllers
   * How to prepare data for your views.
   * How to use strong params.
   * Refactoring best practice for MVC ( fat models skinny controllers )
-* Routes
-  * :only
-  * :except
+1. Routes
+* 7 Restful routes - verb path combinations - for a resource
   * How to create routes using `resources`
   * How to handwrite a route
-  * 7 Restful routes - verb path combinations - for a resource
   * route_helpers (ex. `edit_item_path(item)`)
-* ActiveRecord
+  * `:only` `:except`
+1. ActiveRecord
   * ActiveRecord query methods - differences between `find` `find_by` and `where`
   * Difference between class and instance methods
   * Calculation methods
   * Knowing where and when to include an instance method for an ActiveRecord model
   * What methods do we need for relationships (has_many, belongs_to, through)
   * What methods do we get when we set up relationships
-  * Presence and Uniqueness Validations
-  * Use AR relationship methods within ActiceRecord instance methods
+  * Validations - Presence, Uniqueness
+  * Use AR relationship methods within ActiceRecord/Model instance methods
+  * Use AR relationship methods within ActiceRecord/Model class methods
+  * Scopes
