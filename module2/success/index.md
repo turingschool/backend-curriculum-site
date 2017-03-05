@@ -40,7 +40,33 @@ TaskManager, Blogger, Mix-Master, Mini-Project, JobTracker, Checks For Understan
 
 The following list includes everything you will see on the mod module evaluation. You will **not** need to build, input or write **all** of the following because some may already be in place on the project. You should be familiar enough with the following list to at least speak about and identify each of the following in a Rails project:
 
-1. Understanding and interpreting Errors and Error Messages
+1. Understanding and interpret Errors and Error Messages
+1. Diagram and explain the MVC model and and HTTP request - Response cycle
+1. HTML/CSS
+  * Understand basic html tags/elements/nodes including but not limited to:
+    * `<div></div>`s
+    * Headers `<h1></h1>`, `<h2></h2>` ... `<h6></h6>` etc
+    * Lists `<ul></ul>`, `<ol></ol>`, `<li></li>`
+    * Tables: `<table></table>`, `<th></th>`, `<td></td>`, `<tr></tr>`
+    * Paragraphs: `<p></p>`
+    * Forms: `<form action'/path_to_submit' method='put'></form>`
+      * Why do we need forms?
+      * The name attribute represents what value comes through to params.
+      * The value attribute represents what the the content of the form field is.
+    * The innate verbs associated with specific tags:
+      * link -> `get`
+      * button -> `post`
+      * form ->  `put`
+  * Add classes and ids to html tags/elements/nodes
+  * Send params through url: `'example.com/things?param1=valueOfP1&param2[nested1]=value-of-nested1&param2[nested2]=nested-value-2'`
+  * Explain hierarchy/ancestry of HTML
+  * Target specific HMTL content with css selectors:
+    * `.class_name`
+    * `#name_of_id`
+    * `div`
+    * `div p`
+    * `div.with_this_class_name`
+    * `tr#with_id_named_this`
 1. Model Testing
   * RSpec syntax
   * data preparation/manipulation
@@ -72,23 +98,29 @@ The following list includes everything you will see on the mod module evaluation
   * How to iterate over a collection of ActiveRecord objects in a view.
   * How to create a form in a view using Ruby, including a form using nested resources.
 1. Controllers
+  * Inspect and understand params. Where they come from and what they contain.
   * How to prepare data for your views.
   * How to use strong params.
   * Refactoring best practice for MVC ( fat models skinny controllers )
 1. Routes
-* 7 Restful routes - verb path combinations - for a resource
+  * 7 Restful routes - verb path combinations - for a resource
   * How to create routes using `resources`
   * How to handwrite a route
   * route_helpers (ex. `edit_item_path(item)`)
+  * Explain what each column of the `rake routes` output represents and allows the developer to do.
   * `:only` `:except`
+  * Route modifiers: `:module`, `:path`, `:scope`
+  * `namespace` and nested `resources`
 1. ActiveRecord
   * ActiveRecord query methods - differences between `find` `find_by` and `where`
   * Difference between class and instance methods
   * Calculation methods
+  * Creating associated records with AR. Connecting records with AR methods
+  * Understand how AR `create` and a `new` instance + `save` are related
   * Knowing where and when to include an instance method for an ActiveRecord model
   * What methods do we need for relationships (has_many, belongs_to, through)
   * What methods do we get when we set up relationships
   * Validations - Presence, Uniqueness
-  * Use AR relationship methods within ActiceRecord/Model instance methods
-  * Use AR relationship methods within ActiceRecord/Model class methods
+  * Use AR relationship methods within ActiveRecord/Model instance methods
+  * Use AR relationship methods within ActiveRecord/Model class methods
   * Scopes
