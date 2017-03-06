@@ -50,7 +50,7 @@ TaskManager, Blogger, Mix-Master, Mini-Project, JobTracker, Checks For Understan
 
 ------
 
-## Skills and Topics
+## <center>Skills and Topics</center>
 
 The following list includes everything you will see throughout the module. You should be familiar enough with the following list to at least speak about and identify each of the following in a project codebase:
 
@@ -109,7 +109,7 @@ The following list includes everything you will see throughout the module. You s
     * Tables `<table></table>`, `<th></th>`, `<td></td>`, `<tr></tr>`
     * Paragraphs `<p></p>`
   * Add classes and ids to html tags/elements/nodes
-  * Send params through url: `http://example.com/things?param1=valueOfP1&param2[nested1]=value-of-nested1&param2[nested2]=nested-value-2` 
+  * Send params through url: `http://example.com/things?param1=valueOfP1&param2[nested1]=value-of-nested1&param2[nested2]=nested-value-2`
   * Target specific HMTL content with css selectors:
     * `.class_name`
     * `#name_of_id`
