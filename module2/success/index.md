@@ -54,7 +54,12 @@ TaskManager, Blogger, Mix-Master, Mini-Project, JobTracker, Checks For Understan
 
 The following list includes everything you will see on the mod module evaluation. You will **not** need to build, input or write **all** of the following because some may already be in place on the project. You should be familiar enough with the following list to at least speak about and identify each of the following in a Rails project:
 
-1. #### Understanding and interpret Errors and Error Messages
+1. #### Understanding and interpret errors and error messages
+  * Where in your code is there error?
+  * What was the code trying to accomplish when it failed?
+  * What caused ti to fail?
+  * Using a debugging tool like pry or byebug to sort through the error
+  * "puts driven development"
 1. #### Diagram and explain the MVC model and and HTTP request - Response cycle
 1. #### HTTP Fundamentals
   * 7 HTTP Verbs
@@ -83,14 +88,15 @@ The following list includes everything you will see on the mod module evaluation
     * Lists `<ul></ul>`, `<ol></ol>`, `<li></li>`
     * Tables `<table></table>`, `<th></th>`, `<td></td>`, `<tr></tr>`
     * Paragraphs `<p></p>`
-    * Forms `<form action'/path_to_submit' method='put'></form>`
+    * Forms `<form action='/path_to_submit' method='put'></form>`
       * Why do we need forms?
       * The name attribute represents what value comes through to params.
       * The value attribute represents what the the content of the form field is.
     * The innate verbs associated with specific tags:
-      * link -> `get`
-      * button -> `post`
-      * form ->  `put`
+      * link: `get`
+      * button: `post`
+      * form:  `put`
+
   * Add classes and ids to html tags/elements/nodes
   * Send params through url: `'example.com/things?param1=valueOfP1&param2[nested1]=value-of-nested1&param2[nested2]=nested-value-2'`
   * Explain hierarchy/ancestry of HTML
