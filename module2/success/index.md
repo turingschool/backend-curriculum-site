@@ -128,8 +128,8 @@ The following list includes everything you will see throughout the module. You s
   * RSpec syntax
   * Capybara methods
     * `within`, `find`, `visit`, `page`, `current_path`, `have_content`, `click_on` and more
-  * Big picture - What needs to be tested here?
-  * Data preparation - least necessary data to represent functionality
+  * Big picture. What needs to be tested here?
+  * Data preparation. Least necessary data to represent functionality
   * Feature Exercise (visiting, clicking around, interacting as a user would interact)
   * Expectation syntax/methods
 1. #### SQL
@@ -142,11 +142,12 @@ The following list includes everything you will see throughout the module. You s
   * .schema
 1. #### Database Planning, Migrations and Relationships
   * Design database schemas to represent relationships between objects
-  * Clearly articulate a relational database structure ( one-to-one, one-to-many, many-to-many)
+  * Clearly articulate a relational database structure
+  * one-to-one, one-to-many, many-to-many relationships
   * Write an ERD for Teams, Players, Coaches, Games
   * What tables and models do we need and what migrations do we need to get there?
     * Rails CLI generator commands
-  * What methods do we need for relationships (has_many, belongs_to, through)
+  * What methods do we need for relationships. has_many, belongs_to, through
   * What methods do we get when we set up relationships?
   * Presence and Uniqueness Validations
 1. #### Views
