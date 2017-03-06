@@ -8,7 +8,6 @@ subheading: Success
 
 In order to graduate from Module 2, students must complete each of the following:
 
--------
 
 ### Final Assessment
 
