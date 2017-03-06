@@ -4,6 +4,11 @@ title: Module 3
 subheading: Professional Rails Applications
 ---
 
+
+<iframe src="https://calendar.google.com/calendar/embed?src=casimircreative.com_e9k9b6n7bok174ilmqbfdr0sc4%40group.calendar.google.com&ctz=America/Denver" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+
+
+
 ### Module 3 Scope and Sequence
 
 ### Purpose
