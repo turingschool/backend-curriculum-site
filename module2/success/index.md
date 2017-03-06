@@ -80,7 +80,7 @@ The following list includes everything you will see on the mod module evaluation
   * Feature Exercise (visiting, clicking around, interacting as a user would interact)
   * Expectation syntax/methods
   * Capybara methods
-    * `within` `find` `visit` `page` `current_path` `have_content` `click_on` and more
+    * `within`, `find`, `visit`, `page`, `current_path`, `have_content`, `click_on` and more
 1. SQL
   * Writing basic sql select statements
   * Writing insertion statements
