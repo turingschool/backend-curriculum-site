@@ -8,12 +8,15 @@ subheading: Web Applications with Ruby
 
 <iframe src="https://calendar.google.com/calendar/embed?mode=week&src=casimircreative.com_rps2hg1nfqjih4rcl3gl6s4lpk%40group.calendar.google.com&ctz=America/Denver" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
 
-* [__Mod 2 Calendar__](https://calendar.google.com/calendar/embed?src=casimircreative.com_rps2hg1nfqjih4rcl3gl6s4lpk@group.calendar.google.com&ctz=America/Denver)
 * [__Mod 2 Homework Assignments__](homework)
 * [__Portfolio Template__](https://raw.githubusercontent.com/turingschool/portfolios/master/template.markdown)
 * [__Mod 2 Portfolio Requirements__](https://github.com/turingschool/portfolios#module-2)
 
 Find professional development curriculum [__here__](/professional_development)
+
+### [Success in Module 2](./success)
+
+[A detailed index of the information covered in module 2.](./success)
 
 #### Overview
 
@@ -22,19 +25,6 @@ In module 2, we expand upon fundamental ruby skills by building database-backed 
 #### Big Goals
 
 By the end of this module, students will be able to:
-
-* describe the HTTP request/response cycle.
-* explain what happens when a client visits a website.
-* design and build web applications using Sinatra.
-* design and build web applications using Rails.
-* illustrate and explain the MVC model.
-* write and use robust tests at multiple levels.
-* design database schemas to represent relationships between objects .
-* understand basic SQL statements.
-* employ effective communication in order to facilitate collaboration.
-* apply best practices in project management and Git workflow.
-
-
 
 #### Week 1
 

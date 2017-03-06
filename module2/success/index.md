@@ -54,15 +54,23 @@ TaskManager, Blogger, Mix-Master, Mini-Project, JobTracker, Checks For Understan
 
 The following list includes everything you will see throughout the module. You should be familiar enough with the following list to at least speak about and identify each of the following in a project codebase:
 
+1. Project Management & Professional Skills
+  * Employ effective communication in order to facilitate collaboration.
+  * Apply best practices in project management and Git workflow.
+  * Effectively contribute to group projects
+  * Apply good communication practices with pairs, groups, teams etc
+  * Consistent punctuality to all obligations, meetings, check-ins etc
 1. #### Understanding and interpret errors and error messages
   * Where in your code is there error?
   * What was the code trying to accomplish when it failed?
-  * What caused ti to fail?
+  * What caused it to fail?
   * Using a debugging tool like pry or byebug to sort through the error
   * "puts driven development"
 1. #### Diagram and explain the MVC model and and HTTP request - Response cycle
 1. #### HTTP Fundamentals
   * 7 HTTP Verbs
+  * Describe the HTTP request/response cycle
+  * Explain what happens when a client visits a website
   * Request
     * URI/URL
     * Headers
@@ -130,6 +138,7 @@ The following list includes everything you will see throughout the module. You s
   * Order
   * .schema
 1. #### Database planning, Migrations and Relationships
+  * Design database schemas to represent relationships between objects
   * Clearly articulate a relational database structure ( one-to-one, one-to-many, many-to-many)
   * Write an ERD for Teams, Players, Coaches, Games
   * What tables and models do we need and what migrations do we need to get there?
