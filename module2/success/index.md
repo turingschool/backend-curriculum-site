@@ -208,11 +208,11 @@ The following list includes everything you will see throughout the module. You s
   - Use AR relationship methods within ActiveRecord/Model instance methods
   - Use AR relationship methods within ActiveRecord/Model class methods
   - Scopes
-1. Authentication
+1. #### Authentication
   - BCrypt
   - Hashing Algorithms
   - has_secure_password
-1. Authorization
+1. #### Authorization
   - before_action
   - Roles
   - Controller Inheritance
