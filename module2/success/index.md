@@ -128,6 +128,14 @@ The following list includes everything you will see throughout the module. You s
   * RSpec syntax
   * Capybara methods
     * `within`, `find`, `visit`, `page`, `current_path`, `have_content`, `click_on` and more
+    * Target specific HMTL content with css selectors:
+      * `.class_name`
+      * `#name_of_id`
+      * `div`
+      * `div p`
+      * `div.with_this_class_name`
+      * `tr#with_id_named_this`
+      * `ul li:nth-child(3)`
   * Big picture. What needs to be tested here?
   * Data preparation. Least necessary data to represent functionality
   * Feature Exercise (visiting, clicking around, interacting as a user would interact)
