@@ -115,15 +115,20 @@ The following list includes everything you will see throughout the module. You s
   * reading errors
 1. #### Feature Testing
   * RSpec syntax
+  * Capybara methods
+    * `within`, `find`, `visit`, `page`, `current_path`, `have_content`, `click_on` and more
   * Big picture - What needs to be tested here?
   * Data preparation - least necessary data to represent functionality
   * Feature Exercise (visiting, clicking around, interacting as a user would interact)
   * Expectation syntax/methods
-  * Capybara methods
-    * `within`, `find`, `visit`, `page`, `current_path`, `have_content`, `click_on` and more
 1. #### SQL
   * Writing basic sql select statements
   * Writing insertion statements
+  * Calculation statements
+  * Joins
+  * Group
+  * Order
+  * .schema
 1. #### Database planning, Migrations and Relationships
   * Clearly articulate a relational database structure ( one-to-one, one-to-many, many-to-many)
   * Write an ERD for Teams, Players, Coaches, Games
