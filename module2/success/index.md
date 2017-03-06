@@ -51,6 +51,15 @@ TaskManager, Blogger, Mix-Master, Mini-Project, JobTracker, Checks For Understan
 
 ## <center>Skills and Topics</center>
 
+### Skill Proficiencies
+
+Academic success in B4 means that students demonstrate proficiency and comfort with the concepts below. The expected mastery level can be understood with the following scale:
+
+* **Mastery**: student is able to explain and implement the concept independently or with light reference
+* **Functional**: student recognizes when to use the concept and can implement it with the support of documentation and/or a collaborator
+* **Familiarity**: student can recognize and describe the concept when needed/appropriate, but is not able to implement the technology/technique
+
+
 The following list includes everything you will see throughout the module. You should be familiar enough with the following list to at least speak about and identify each of the following in a project codebase:
 
 1. #### Project Management & Professional Skills
