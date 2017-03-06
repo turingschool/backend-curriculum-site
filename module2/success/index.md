@@ -164,7 +164,7 @@ The following list includes everything you will see throughout the module. You s
   * Inspect and understand params. Where they come from and what they contain.
   * How to prepare data for your views.
   * How to use strong params.
-  * Refactoring best practice for MVC ( fat models skinny controllers )
+  * Refactoring best practice for MVC. Fat models, skinny controllers
   * Strong Params
 1. Models
   * ActiveRecord Model vs PORO
@@ -173,17 +173,18 @@ The following list includes everything you will see throughout the module. You s
   * Scopes
   * Instance Methods
   * ActiveRecord Methods
+  * Refactoring best practice for MVC. Fat models, skinny controllers
 1. #### Routes
   * 7 Restful routes - verb path combinations - for a resource
   * How to create routes using `resources`
   * How to handwrite a route
-  * route_helpers (ex. `edit_item_path(item)`)
+  * route_helpers ex. `edit_item_path(item)`
   * Explain what each column of the `rake routes` output represents and allows the developer to do.
   * `:only` `:except`
   * Route modifiers: `:module`, `:path`, `:scope`
   * `namespace` and nested `resources`
 1. #### ActiveRecord
-  * ActiveRecord query methods - differences between `find` `find_by` and `where`
+  * ActiveRecord query methods. Differences between `find` `find_by` and `where`
   * Difference between class and instance methods
   * Calculation methods
   * Creating associated records with AR. Connecting records with AR methods
