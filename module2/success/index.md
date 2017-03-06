@@ -108,7 +108,7 @@ The following list includes everything you will see throughout the module. You s
     : Paragraphs `<p></p>`
     : Headers `<h1></h1>`, `<h2></h2>` ... `<h6></h6>` etc
     : Lists `<ul></ul>`, `<ol></ol>`, `<li></li>`
-    : Tables `<table></table>`, `<th></th>`, `<td></td>`, `<tr></tr>`
+    : Tables `<table></table>`, `<tr></tr>`, `<th></th>`, `<td></td>`
   - Add classes and ids to html tags/elements/nodes
   - Send params through url: `http://example.com/things?param1=valueOfP1&param2[nested1]=value-of-nested1&param2[nested2]=nested-value-2`
   - Target specific HMTL content with css selectors:
