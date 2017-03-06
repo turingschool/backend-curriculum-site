@@ -88,22 +88,22 @@ The following list includes everything you will see throughout the module. You s
     valid request
   - Body
   - State Transfer
-    : - Sessions
-    : - Cookies
-    : - Flashes
+  - Sessions
+  - Cookies
+  - Flashes
   - 7 HTTP Verbs
   - Describe the HTTP request/response cycle
   - Explain what happens when a client visits a website
 1. #### HTML/CSS
   - Understand basic html tags/elements/nodes including but not limited to:
   - Forms `<form action='/path_to_submit' method='put'></form>`
-    * Why do we need forms?
-    * The name attribute represents what value comes through to params.
-    * The value attribute represents what the the content of the form field is.
+  - Why do we need forms?
+  - The name attribute represents what value comes through to params.
+  - The value attribute represents what the the content of the form field is.
   - The innate verbs associated with specific tags
-    * link: `get`
-    * button: `post`
-    * form:  `put`
+  - link: `get`
+  - button: `post`
+  - form:  `put`
   - Divs `<div></div>`
   - Paragraphs `<p></p>`
   - Headers `<h1></h1>`, `<h2></h2>` ... `<h6></h6>` etc
