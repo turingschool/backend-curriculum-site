@@ -59,6 +59,8 @@ The following list includes everything you will see throughout the module. You s
   * Effectively contribute to group projects
   * Apply good communication practices with pairs, groups, teams etc
   * Consistent punctuality to all obligations, meetings, check-ins etc
+  * Wireframe project ideas
+  * Write detailed user stories using the Gherkin Model
 1. #### Understanding and interpret errors and error messages
   * Where in your code is there error?
   * What was the code trying to accomplish when it failed?
@@ -159,9 +161,11 @@ The following list includes everything you will see throughout the module. You s
   * What methods do we get when we set up relationships?
   * Presence and Uniqueness Validations
 1. #### Views
-  * Enough HTML to create headers, paragraphs, tables, and lists in a view.
+  * Know enough HTML to create headers, paragraphs, tables, and lists in a view
+  * Craft wireframes for
+  * How to iterate over a collection of ActiveRecord objects in a view
   * How to use erb tags in a view to display information.
-  * How to iterate over a collection of ActiveRecord objects in a view.
+  * Difference between `<%= %>` and `<% %>`
   * How to create a form in a view using Ruby, including a form using nested resources.
 1. #### Controllers
   * Inheritance
