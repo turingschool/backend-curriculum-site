@@ -39,7 +39,7 @@ Students are expected to contribute during the Professional Development session 
 
 -------
 
-### Non-Graded work
+### Non-Graded Work
 
 Module 2 is heavily weighted by non-graded work. Students are expected to participate in and deliver work that is not evaluated. If a student consistently ignores or does not finish the non-graded work in module 2 they may not complete the module or may be asked to complete work they did not finish before moving forward with the program.
 
