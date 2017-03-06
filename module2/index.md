@@ -4,8 +4,6 @@ title: Module 2
 subheading: Web Applications with Ruby
 ---
 
-## Module 2 Scope and Sequence
-
 <iframe src="https://calendar.google.com/calendar/embed?mode=week&src=casimircreative.com_rps2hg1nfqjih4rcl3gl6s4lpk%40group.calendar.google.com&ctz=America/Denver" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
 
 * [__Mod 2 Homework Assignments__](homework)
@@ -13,15 +11,16 @@ subheading: Web Applications with Ruby
 * [__Mod 2 Portfolio Requirements__](https://github.com/turingschool/portfolios#module-2)
 * [__Professional development curriculum__](/professional_development)
 
-### [What Does Success in Module 2 Look Like?](./success)
 
-#### Overview
+### Overview
 
 In module 2, we expand upon fundamental ruby skills by building database-backed web applications in Sinatra and Rails. Through group projects, we explore best practices in agile project management and collaboration. By the end of this module, students will be comfortable creating basic Rails web applications.
 
-#### Big Goals
+#### [What Does Success in Module 2 Look Like?](./success)
 
-By the end of this module, students will be able to:
+-------
+
+### Module 2 Scope and Sequence
 
 #### Week 1
 
@@ -40,6 +39,8 @@ By the end of this module, students will be able to:
 * [BikeShare Kickoff](https://github.com/turingschool/bike-share)
 * [Feature Testing with Capybara in Sinatra for Horses](lessons/feature_testing_in_sinatra_with_horses)
 
+-------
+
 #### Week 2
 
 * [Intermediate Sql]()
@@ -50,6 +51,8 @@ By the end of this module, students will be able to:
 * [REST, Controllers, and Routing in Rails](lessons/rest_routing_and_controllers_in_rails)
 * [Migrations and Relationships in Rails](lessons/migrations-databases-relationships)
 * [Blogger Tutorial](projects/blogger)
+
+-------
 
 #### Week 3
 
@@ -67,6 +70,8 @@ By the end of this module, students will be able to:
 * [Relationship Implementation and Exercises](https://github.com/turingschool-examples/relationship_practice_exercises)
 * [Job Tracker Project](https://github.com/turingschool/job-tracker)
 
+-------
+
 #### Week 4
 
 * [Sessions, Cookies, and Flashes](lessons/sessions_cookies_flashes)
@@ -81,8 +86,11 @@ By the end of this module, students will be able to:
 * [Rails Views Tips & Tricks](lessons/rails_views_tips_and_techniques)
 * [Rails Mini-Project](projects/mini-project)
 
+-------
+
 #### Week 5
 
+* [Rails Mini-Project Peer extension and review exercise](lessons/mini-project-gem-implementation)
 * [Mini-Project Demos](lessons/mini-project-gem-implementation)
 * [Cart & Order Lifecycles](lessons/cart_implementation)
 * [LittleShop of Orders kickoff](projects/little_shop)
@@ -90,12 +98,7 @@ By the end of this module, students will be able to:
 * [Intro to the Asset Pipeline](lessons/intro_to_the_asset_pipeline)
 * [Callbacks, and Scopes](lessons/scopes_callbacks_class_methods.markdown)
 
-#### Optional (Time Permitting)
-* [Pushing Logic Down the Stack](http://tutorials.jumpstartlab.com/topics/architecture/pushing_logic_down_the_stack.html)
-* [Rails Mini-Project Peer extension and review exercise](lessons/mini-project-gem-implementation)
-* Mini-Project show and tell
-* [JavaScript, Part I](lessons/introduction_to_javascript)
-* [Intro to jQuery and Filtering with jQuery](lessons/introduction_to_jquery)
+-------
 
 #### Week 6
 
