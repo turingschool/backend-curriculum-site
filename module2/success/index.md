@@ -8,25 +8,37 @@ subheading: Success
 
 In order to graduate from Module 2, students must complete each of the following:
 
+-------
+
 ### Final Assessment
 
 Students must earn a score of 3 or greater in each category of the final assessment rubric.
+
+-------
 
 ### Group Work
 
 Students are expected to be a contributing team member in both of their group project in module 2, and receive 3s or upward sloping trend in a lower score on the first project.
 
+-------
+
 ### Blog Post
 
 Write a minimum of 1 technical blog post about a topic of your choice and post it to medium, or your personal blog site.
+
+-------
 
 ### Community Involvement
 
 In addition to Gear Up and Posses, there are various way to contribute to the community. Students are expected to contribute in a way that most suites themselves and relay the contribution to Instructors during their portfolio review.
 
+-------
+
 ### Professional Development
 
 Students are expected to contribute during the Professional Development session and deliver deliverables from that session.
+
+-------
 
 ### Non-Graded work
 
@@ -36,20 +48,42 @@ These works include:
 
 TaskManager, Blogger, Mix-Master, Mini-Project, JobTracker, Checks For Understanding, Other homeworks, and any other assigned but not evaluated materials.
 
+------
+
 ## Skills and Topics
 
 The following list includes everything you will see on the mod module evaluation. You will **not** need to build, input or write **all** of the following because some may already be in place on the project. You should be familiar enough with the following list to at least speak about and identify each of the following in a Rails project:
 
-1. Understanding and interpret Errors and Error Messages
+1. #### Understanding and interpret Errors and Error Messages
 1. Diagram and explain the MVC model and and HTTP request - Response cycle
+1. HTTP Fundamentals
+  * 7 HTTP Verbs
+  * Request
+    * URI/URL
+    * Headers
+    * Body
+  * Response
+    * Redirect / Render
+    * Status Codes
+      * What the common codes represent: `200`, `302`, `404`, `500` etc.
+      * 1xx: Informational - Request received, continuing process
+      * 2xx: Success - The action was successfully received,
+        understood, and accepted
+      * 3xx: Redirection - Further action must be taken in order to
+        complete the request
+      * 4xx: Client Error - The request contains bad syntax or cannot
+        be fulfilled
+      * 5xx: Server Error - The server failed to fulfill an apparently
+        valid request
+    * Body
 1. HTML/CSS
   * Understand basic html tags/elements/nodes including but not limited to:
-    * `<div></div>`s
+    * Divs `<div></div>`
     * Headers `<h1></h1>`, `<h2></h2>` ... `<h6></h6>` etc
     * Lists `<ul></ul>`, `<ol></ol>`, `<li></li>`
-    * Tables: `<table></table>`, `<th></th>`, `<td></td>`, `<tr></tr>`
-    * Paragraphs: `<p></p>`
-    * Forms: `<form action'/path_to_submit' method='put'></form>`
+    * Tables `<table></table>`, `<th></th>`, `<td></td>`, `<tr></tr>`
+    * Paragraphs `<p></p>`
+    * Forms `<form action'/path_to_submit' method='put'></form>`
       * Why do we need forms?
       * The name attribute represents what value comes through to params.
       * The value attribute represents what the the content of the form field is.
