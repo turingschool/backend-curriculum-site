@@ -70,55 +70,55 @@ The following list includes everything you will see throughout the module. You s
 1. #### Diagram and explain the MVC model and and HTTP Request - Response cycle
 1. #### HTTP Fundamentals
   - Request
-    1. URI/URL
-    1. Headers
-    1. Body
+    : URI/URL
+    : Headers
+    : Body
   - Response
-    1. Redirect / Render
-    1. Status Codes
-    1. What the common codes represent: `200`, `302`, `404`, `500` etc.
-    1. 1xx: Informational - Request received, continuing process
-    1. 2xx: Success - The action was successfully received,
+    : Redirect / Render
+    : Status Codes
+    : What the common codes represent: `200`, `302`, `404`, `500` etc.
+    : 1xx: Informational - Request received, continuing process
+    : 2xx: Success - The action was successfully received,
       understood, and accepted
-    1. 3xx: Redirection - Further action must be taken in order to
+    : 3xx: Redirection - Further action must be taken in order to
       complete the request
-    1. 4xx: Client Error - The request contains bad syntax or cannot
+    : 4xx: Client Error - The request contains bad syntax or cannot
       be fulfilled
-    1. 5xx: Server Error - The server failed to fulfill an apparently
+    : 5xx: Server Error - The server failed to fulfill an apparently
       valid request
-    1. Body
+    : Body
   - State Transfer
-    1. Sessions
-    1. Cookies
-    1. Flashes
+    : Sessions
+    : Cookies
+    : Flashes
   - 7 HTTP Verbs
   - Describe the HTTP request/response cycle
   - Explain what happens when a client visits a website
 1. #### HTML/CSS
   - Understand basic html tags/elements/nodes including but not limited to:
-    1. Forms `<form action='/path_to_submit' method='put'></form>`
+    : Forms `<form action='/path_to_submit' method='put'></form>`
       * Why do we need forms?
       * The name attribute represents what value comes through to params.
       * The value attribute represents what the the content of the form field is.
-    1. The innate verbs associated with specific tags:
+    : The innate verbs associated with specific tags:
       * link: `get`
       * button: `post`
       * form:  `put`
-    1. Divs `<div></div>`
-    1. Paragraphs `<p></p>`
-    1. Headers `<h1></h1>`, `<h2></h2>` ... `<h6></h6>` etc
-    1. Lists `<ul></ul>`, `<ol></ol>`, `<li></li>`
-    1. Tables `<table></table>`, `<th></th>`, `<td></td>`, `<tr></tr>`
+    : Divs `<div></div>`
+    : Paragraphs `<p></p>`
+    : Headers `<h1></h1>`, `<h2></h2>` ... `<h6></h6>` etc
+    : Lists `<ul></ul>`, `<ol></ol>`, `<li></li>`
+    : Tables `<table></table>`, `<th></th>`, `<td></td>`, `<tr></tr>`
   - Add classes and ids to html tags/elements/nodes
   - Send params through url: `http://example.com/things?param1=valueOfP1&param2[nested1]=value-of-nested1&param2[nested2]=nested-value-2`
   - Target specific HMTL content with css selectors:
-    1. `.class_name`
-    1. `#name_of_id`
-    1. `div`
-    1. `div p`
-    1. `div.with_this_class_name`
-    1. `tr#with_id_named_this`
-    1. `ul li:nth-child(3)`
+    : `.class_name`
+    : `#name_of_id`
+    : `div`
+    : `div p`
+    : `div.with_this_class_name`
+    : `tr#with_id_named_this`
+    : `ul li:nth-child(3)`
   - Explain hierarchy/ancestry of HTML
 1. #### Model Testing
   - RSpec syntax
@@ -129,15 +129,15 @@ The following list includes everything you will see throughout the module. You s
 1. #### Feature Testing
   - RSpec syntax
   - Capybara methods
-    1. `within`, `find`, `visit`, `page`, `current_path`, `have_content`, `click_on` and more
-    1. Target specific HMTL content with css selectors:
-      - `.class_name`
-      - `#name_of_id`
-      - `div`
-      - `div p`
-      - `div.with_this_class_name`
-      - `tr#with_id_named_this`
-      - `ul li:nth-child(3)`
+    : `within`, `find`, `visit`, `page`, `current_path`, `have_content`, `click_on` and more
+  - Target specific HMTL content with css selectors:
+    : `.class_name`
+    : `#name_of_id`
+    : `div`
+    : `div p`
+    : `div.with_this_class_name`
+    : `tr#with_id_named_this`
+    : `ul li:nth-child(3)`
   - Big picture. What needs to be tested here?
   - Data preparation. Least necessary data to represent functionality
   - Feature Exercise (visiting, clicking around, interacting as a user would interact)
@@ -156,7 +156,7 @@ The following list includes everything you will see throughout the module. You s
   - one-to-one, one-to-many, many-to-many relationships
   - Write an ERD for Teams, Players, Coaches, Games
   - What tables and models do we need and what migrations do we need to get there?
-    1. Rails CLI generator commands
+  - Rails CLI generator commands
   - What methods do we need for relationships. has_many, belongs_to, through
   - What methods do we get when we set up relationships?
   - Presence and Uniqueness Validations
