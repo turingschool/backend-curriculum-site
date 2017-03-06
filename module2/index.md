@@ -11,12 +11,9 @@ subheading: Web Applications with Ruby
 * [__Mod 2 Homework Assignments__](homework)
 * [__Portfolio Template__](https://raw.githubusercontent.com/turingschool/portfolios/master/template.markdown)
 * [__Mod 2 Portfolio Requirements__](https://github.com/turingschool/portfolios#module-2)
+* [__Professional development curriculum__](/professional_development)
 
-Find professional development curriculum [__here__](/professional_development)
-
-### [Success in Module 2](./success)
-
-[A detailed index of the information covered in module 2.](./success)
+### [What Does Success in Module 2 Look Like?](./success)
 
 #### Overview
 
