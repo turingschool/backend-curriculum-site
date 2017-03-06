@@ -5,7 +5,7 @@ subheading: Professional Rails Applications
 ---
 
 
-<iframe src="https://calendar.google.com/calendar/embed?src=casimircreative.com_e9k9b6n7bok174ilmqbfdr0sc4%40group.calendar.google.com&ctz=America/Denver" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+<iframe src="https://calendar.google.com/calendar/embed?mode=WEEK&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;ctz=America%2FDenver" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
 
 
 
