@@ -54,6 +54,7 @@ TaskManager, Blogger, Mix-Master, Mini-Project, JobTracker, Checks For Understan
 The following list includes everything you will see throughout the module. You should be familiar enough with the following list to at least speak about and identify each of the following in a project codebase:
 
 1. #### Project Management & Professional Skills
+  - [Career Development Curriculum](https://github.com/turingschool/career-development-curriculum/tree/master/module_two)
   - Employ effective communication in order to facilitate collaboration.
   - Apply best practices in project management and Git workflow.
   - Effectively contribute to group projects
