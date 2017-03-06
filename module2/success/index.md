@@ -62,20 +62,19 @@ The following list includes everything you will see on the mod module evaluation
     * URI/URL
     * Headers
     * Body
-    
   * Response
     * Redirect / Render
     * Status Codes
-      * What the common codes represent: `200`, `302`, `404`, `500` etc.
-      * 1xx: Informational - Request received, continuing process
-      * 2xx: Success - The action was successfully received,
-        understood, and accepted
-      * 3xx: Redirection - Further action must be taken in order to
-        complete the request
-      * 4xx: Client Error - The request contains bad syntax or cannot
-        be fulfilled
-      * 5xx: Server Error - The server failed to fulfill an apparently
-        valid request
+    * What the common codes represent: `200`, `302`, `404`, `500` etc.
+    * 1xx: Informational - Request received, continuing process
+    * 2xx: Success - The action was successfully received,
+      understood, and accepted
+    * 3xx: Redirection - Further action must be taken in order to
+      complete the request
+    * 4xx: Client Error - The request contains bad syntax or cannot
+      be fulfilled
+    * 5xx: Server Error - The server failed to fulfill an apparently
+      valid request
     * Body
 1. #### HTML/CSS
   * Understand basic html tags/elements/nodes including but not limited to:
