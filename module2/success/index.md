@@ -4,7 +4,7 @@ title: Module 2
 subheading: Success
 ---
 
-## Graduation Requirements
+## <center>Graduation Requirements</center>
 
 In order to graduate from Module 2, students must complete each of the following:
 
