@@ -70,55 +70,55 @@ The following list includes everything you will see throughout the module. You s
 1. #### Diagram and explain the MVC model and and HTTP Request - Response cycle
 1. #### HTTP Fundamentals
   - Request
-    : URI/URL
-    : Headers
-    : Body
+  - URI/URL
+  - Headers
+  - Body
   - Response
-    : Redirect / Render
-    : Status Codes
-    : What the common codes represent: `200`, `302`, `404`, `500` etc.
-    : 1xx: Informational - Request received, continuing process
-    : 2xx: Success - The action was successfully received,
-      understood, and accepted
-    : 3xx: Redirection - Further action must be taken in order to
-      complete the request
-    : 4xx: Client Error - The request contains bad syntax or cannot
-      be fulfilled
-    : 5xx: Server Error - The server failed to fulfill an apparently
-      valid request
-    : Body
+  - Redirect / Render
+  - Status Codes
+  - What the common codes represent: `200`, `302`, `404`, `500` etc.
+  - 1xx: Informational - Request received, continuing process
+  - 2xx: Success - The action was successfully received,
+    understood, and accepted
+  - 3xx: Redirection - Further action must be taken in order to
+    complete the request
+  - 4xx: Client Error - The request contains bad syntax or cannot
+    be fulfilled
+  - 5xx: Server Error - The server failed to fulfill an apparently
+    valid request
+  - Body
   - State Transfer
-    : Sessions
-    : Cookies
-    : Flashes
+    : - Sessions
+    : - Cookies
+    : - Flashes
   - 7 HTTP Verbs
   - Describe the HTTP request/response cycle
   - Explain what happens when a client visits a website
 1. #### HTML/CSS
   - Understand basic html tags/elements/nodes including but not limited to:
-    : Forms `<form action='/path_to_submit' method='put'></form>`
-      * Why do we need forms?
-      * The name attribute represents what value comes through to params.
-      * The value attribute represents what the the content of the form field is.
-    : The innate verbs associated with specific tags:
-      * link: `get`
-      * button: `post`
-      * form:  `put`
-    : Divs `<div></div>`
-    : Paragraphs `<p></p>`
-    : Headers `<h1></h1>`, `<h2></h2>` ... `<h6></h6>` etc
-    : Lists `<ul></ul>`, `<ol></ol>`, `<li></li>`
-    : Tables `<table></table>`, `<tr></tr>`, `<th></th>`, `<td></td>`
+  - Forms `<form action='/path_to_submit' method='put'></form>`
+    * Why do we need forms?
+    * The name attribute represents what value comes through to params.
+    * The value attribute represents what the the content of the form field is.
+  - The innate verbs associated with specific tags
+    * link: `get`
+    * button: `post`
+    * form:  `put`
+  - Divs `<div></div>`
+  - Paragraphs `<p></p>`
+  - Headers `<h1></h1>`, `<h2></h2>` ... `<h6></h6>` etc
+  - Lists `<ul></ul>`, `<ol></ol>`, `<li></li>`
+  - Tables `<table></table>`, `<tr></tr>`, `<th></th>`, `<td></td>`
   - Add classes and ids to html tags/elements/nodes
   - Send params through url: `http://example.com/things?param1=valueOfP1&param2[nested1]=value-of-nested1&param2[nested2]=nested-value-2`
   - Target specific HMTL content with css selectors:
-    : `.class_name`
-    : `#name_of_id`
-    : `div`
-    : `div p`
-    : `div.with_this_class_name`
-    : `tr#with_id_named_this`
-    : `ul li:nth-child(3)`
+  - `.class_name`
+  - `#name_of_id`
+  - `div`
+  - `div p`
+  - `div.with_this_class_name`
+  - `tr#with_id_named_this`
+  - `ul li:nth-child(3)`
   - Explain hierarchy/ancestry of HTML
 1. #### Model Testing
   - RSpec syntax
@@ -129,15 +129,15 @@ The following list includes everything you will see throughout the module. You s
 1. #### Feature Testing
   - RSpec syntax
   - Capybara methods
-    : `within`, `find`, `visit`, `page`, `current_path`, `have_content`, `click_on` and more
+  - `within`, `find`, `visit`, `page`, `current_path`, `have_content`, `click_on` and more
   - Target specific HMTL content with css selectors:
-    : `.class_name`
-    : `#name_of_id`
-    : `div`
-    : `div p`
-    : `div.with_this_class_name`
-    : `tr#with_id_named_this`
-    : `ul li:nth-child(3)`
+  - `.class_name`
+  - `#name_of_id`
+  - `div`
+  - `div p`
+  - `div.with_this_class_name`
+  - `tr#with_id_named_this`
+  - `ul li:nth-child(3)`
   - Big picture. What needs to be tested here?
   - Data preparation. Least necessary data to represent functionality
   - Feature Exercise (visiting, clicking around, interacting as a user would interact)
