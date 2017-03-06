@@ -68,9 +68,6 @@ The following list includes everything you will see throughout the module. You s
   * "puts driven development"
 1. #### Diagram and explain the MVC model and and HTTP Request - Response cycle
 1. #### HTTP Fundamentals
-  * 7 HTTP Verbs
-  * Describe the HTTP request/response cycle
-  * Explain what happens when a client visits a website
   * Request
     * URI/URL
     * Headers
@@ -89,6 +86,13 @@ The following list includes everything you will see throughout the module. You s
     * 5xx: Server Error - The server failed to fulfill an apparently
       valid request
     * Body
+  * State Transfer
+    * Sessions
+    * Cookies
+    * Flashes
+  * 7 HTTP Verbs
+  * Describe the HTTP request/response cycle
+  * Explain what happens when a client visits a website
 1. #### HTML/CSS
   * Understand basic html tags/elements/nodes including but not limited to:
     * Forms `<form action='/path_to_submit' method='put'></form>`
@@ -105,7 +109,7 @@ The following list includes everything you will see throughout the module. You s
     * Tables `<table></table>`, `<th></th>`, `<td></td>`, `<tr></tr>`
     * Paragraphs `<p></p>`
   * Add classes and ids to html tags/elements/nodes
-  * Send params through url: `'example.com/things?param1=valueOfP1&param2[nested1]=value-of-nested1&param2[nested2]=nested-value-2'`
+  * Send params through url: `http://example.com/things?param1=valueOfP1&param2[nested1]=value-of-nested1&param2[nested2]=nested-value-2` 
   * Target specific HMTL content with css selectors:
     * `.class_name`
     * `#name_of_id`
@@ -137,7 +141,7 @@ The following list includes everything you will see throughout the module. You s
   * Group
   * Order
   * .schema
-1. #### Database planning, Migrations and Relationships
+1. #### Database Planning, Migrations and Relationships
   * Design database schemas to represent relationships between objects
   * Clearly articulate a relational database structure ( one-to-one, one-to-many, many-to-many)
   * Write an ERD for Teams, Players, Coaches, Games
@@ -152,10 +156,23 @@ The following list includes everything you will see throughout the module. You s
   * How to iterate over a collection of ActiveRecord objects in a view.
   * How to create a form in a view using Ruby, including a form using nested resources.
 1. #### Controllers
+  * Inheritance
+  * ApplicationController
+  * `helper_method`
+  * CRUD actions: `index`, `show`, `new`, `create`, `edit`, `update`, `destroy`
+  * Custom actions from routes
   * Inspect and understand params. Where they come from and what they contain.
   * How to prepare data for your views.
   * How to use strong params.
   * Refactoring best practice for MVC ( fat models skinny controllers )
+  * Strong Params
+1. Models
+  * ActiveRecord Model vs PORO
+  * Inheritance
+  * Class Methods
+  * Scopes
+  * Instance Methods
+  * ActiveRecord Methods
 1. #### Routes
   * 7 Restful routes - verb path combinations - for a resource
   * How to create routes using `resources`
@@ -178,3 +195,11 @@ The following list includes everything you will see throughout the module. You s
   * Use AR relationship methods within ActiveRecord/Model instance methods
   * Use AR relationship methods within ActiveRecord/Model class methods
   * Scopes
+1. Authentication
+  * BCrypt
+  * Hashing Algorithms
+  * has_secure_password
+1. Authorization
+  * before_action
+  * Roles
+  * Controller Inheritance
