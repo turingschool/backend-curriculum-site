@@ -66,7 +66,7 @@ The following list includes everything you will see throughout the module. You s
   * What caused it to fail?
   * Using a debugging tool like pry or byebug to sort through the error
   * "puts driven development"
-1. #### Diagram and explain the MVC model and and HTTP request - Response cycle
+1. #### Diagram and explain the MVC model and and HTTP Request - Response cycle
 1. #### HTTP Fundamentals
   * 7 HTTP Verbs
   * Describe the HTTP request/response cycle
