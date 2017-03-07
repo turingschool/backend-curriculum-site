@@ -22,13 +22,13 @@ This tutorial targets Rails 4.0.0, and may need slight adaptations for other ver
 
 From the command line, switch to the folder that will store your projects. For instance, I use `/Users/jcasimir/projects/`. Within that folder, run the following command:
 
+_Note_: You may have to install this specific version of rails by running `gem install rails -v 4.0.0` before generating your new rails project.
+
 ```
 $ rails _4.0.0_ new blogger
 ```
 
-Use `cd blogger` to change into the directory, then open it in your text editor. If you're using Sublime Text you can do that with `subl .`.
-
-_Note_: You may have to install this specific version of rails by running `gem install rails -v 4.0.0` before generating your new rails project.
+Use `cd blogger` to change into the directory, then open it in your text editor. If you're using Sublime Text you can do that with `atom .`.
 
 ### Project Tour
 
@@ -86,7 +86,7 @@ Our blog will be centered around "articles," so we'll need a table in the databa
 $ rails generate model Article
 ```
 
-Note that we use `rails` here but we used `bin/rails` previously. With `rails`, RubyGems will activate the latest version of the rails executable it can find in PATH. This is fine as long as you use this version of Rails in your project. If you have a project which uses an older version of Rails and you run `rails`, you can run into problems when trying to run code that's changed in the latest Rails version. `bin/rails` fixes this problem by making sure your environment uses the versions specified in your project's Gemfile.
+**Note** that we use `rails` here but we used `bin/rails` previously. With `rails`, RubyGems will activate the latest version of the rails executable it can find in PATH. This is fine as long as you use this version of Rails in your project. If you have a project which uses an older version of Rails and you run `rails`, you can run into problems when trying to run code that's changed in the latest Rails version. `bin/rails` fixes this problem by making sure your environment uses the versions specified in your project's Gemfile.
 
 We're running the `generate` script, telling it to create a `model`, and naming that model `Article`. From that information, Rails creates the following files:
 
@@ -102,6 +102,8 @@ With those files in place we can start developing!
 Rails uses migration files to perform modifications to the database. Almost any modification you can make to a DB can be done through a migration. The killer feature about Rails migrations is that they're generally database agnostic. When developing applications developers might use SQLite3 as we are in this tutorial, but in production we'll use PostgreSQL. Many others choose MySQL. It doesn't matter -- the same migrations will work on all of them!  This is an example of how Rails takes some of the painful work off your hands. You write your migrations once, then run them against almost any database.
 
 #### Migration?
+
+**Important!**
 
 What is a migration?  Let's open `db/migrate/(some_time_stamp)_create_articles.rb` and take a look. First you'll notice that the filename begins with a mish-mash of numbers which is a timestamp of when the migration was created. Migrations need to be ordered, so the timestamp serves to keep them in chronological order. Inside the file, you'll see just the method `change`.
 
@@ -125,8 +127,8 @@ Add those into your `change` like this:
 ```ruby
 def change
   create_table :articles do |t|
-    t.string :title
-    t.text :body
+    t.string :title # create a column in the table with a string datatype and a column name of title ie. articles.title
+    t.text :body # create a column in the table with a text datatype and a column name of body ie articles.body
 
     t.timestamps
   end
@@ -138,6 +140,8 @@ end
 What is that `t.timestamps` doing there? It will create two columns inside our table named `created_at` and `updated_at`. Rails will manage these columns for us. When an article is created its `created_at` and `updated_at` are automatically set. Each time we make a change to the article, the `updated_at` will automatically be updated.
 
 #### Running the Migration
+
+**Important!**
 
 Save that migration file, switch over to your terminal, and run this command:
 
@@ -178,11 +182,16 @@ $ Time.now
 $ Article.all
 $ Article.new
 ```
+
+**Important!**
+
 The first line was just to demonstrate that you can run normal Ruby, just like `irb`, within your `console`. The second line referenced the `Article` model and called the `all` class method which returns an array of all articles in the database -- so far an empty array. The third line created a new article object. You can see that this new object had attributes `id`, `title`, `body`, `created_at`, and `updated_at`.
 
 Type `exit` to quit the Rails console.
 
 ### Looking at the Model
+
+**Important!**
 
 All the code for the `Article` model is in the file `app/models/article.rb`, so let's open that now.
 
@@ -218,6 +227,8 @@ end
 This line tells Rails that we have a resource named `articles` and the router should expect requests to follow the *RESTful* model of web interaction (REpresentational State Transfer). The details don't matter right now, but when you make a request like `http://localhost:3000/articles/`, the router will understand you're looking for a listing of the articles, and `http://localhost:3000/articles/new` means you're trying to create a new article.
 
 #### Looking at the Routing Table
+
+**Important!**
 
 Dealing with routes is commonly very challenging for new Rails programmers. There's a great tool that can make it easier on you. To get a list of the routes in your application, go to a command prompt and run `rake routes`. You'll get a listing like this:
 
@@ -299,9 +310,9 @@ What is that "at" sign doing on the front of `@articles`?  That marks this varia
 
 A normal Ruby instance variable is available to all methods within an instance.
 
-In Rails' controllers, there's a *hack* which allows instance variables to be automatically transferred from the controller to the object which renders the view template. So any data we want available in the view template should be promoted to an instance variable by adding a `@` to the beginning.
+<!-- In Rails' controllers, there's a *hack* which allows instance variables to be automatically transferred from the controller to the object which renders the view template. So any data we want available in the view template should be promoted to an instance variable by adding a `@` to the beginning.
 
-There are ways to accomplish the same goals without instance variables, but they're not widely used. Check out the [Decent Exposure](https://github.com/voxdolo/decent_exposure) gem to learn more.
+There are ways to accomplish the same goals without instance variables, but they're not widely used. Check out the [Decent Exposure](https://github.com/voxdolo/decent_exposure) gem to learn more. -->
 
 ### Creating the Template
 
