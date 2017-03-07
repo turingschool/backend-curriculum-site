@@ -25,6 +25,7 @@ In module 2, we expand upon fundamental ruby skills by building database-backed 
 #### Week 1
 
 * [Intro to Sinatra](lessons/introduction_to_sinatra)
+* [What is Git?](lessons/)
 * [HTML/CSS Basics](slides/html_css_basics/html_css_basics)
 * [Intro to Bootstrap](lessons/introduction_to_bootstrap_v2)
 * [How the Web Works](slides/how_the_web_works/slides)
