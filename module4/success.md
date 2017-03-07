@@ -30,16 +30,15 @@ Students must earn a score of `3` or greater in *each* category of the final ass
 
 *Expected*: Students are responsible for delivering all feature cards assigned to them *in the team's side project/service* by the end of Sprint 2 (Week 5).
 
-### Professional Skills
+### Career Development
 
-The Professional Skills segment is made up of several pieces, most of which are to be submitted by 9AM on Monday of Week 6 thought it is suggested that you send them earlier if possible.
+The Career Development segment is made up of several pieces, most of which are to be submitted by 9AM on Monday of Week 6 thought it is suggested that you send them earlier if possible. Unless otherwise noted, all deliverables should be submitted in the [Career Development deliverables submissions folder](https://github.com/turingschool/career-development-curriculum/tree/master/deliverable_submissions).
 
-* Summaries of at least 6 "cold outreach" contacts [submitted via email to Meg](mailto:mstewart@turing.io) on Tuesday 02/21. You are asked to complete two by the end of week 2, two by the end of week 3, and two by the end of week 4 with a summary of all contacts submitted to Meg on 02/21 and including the following information-> [guidelines](https://github.com/turingschool/professional_skills/blob/master/module_four/outreach_deliverable_guidelines.md)
-
-The remainder of professional development material is as follows:
-
-* Following up on the *Organize Your Shit* session, ensure that your GitHub, LinkedIn, and StackOverflow accounts are properly setup by linking to them in your Census account. We will run an automated check on these and send you a follow up if needed. No submission is necessary beyond putting the info in your Census account.
-* Following up on the *Portfolio Tips & Tricks* tutorial, notify [Meg via email](mailto:mstewart@turing.io) that your portfolio is complete with your name, photo, description, three projects, and resume.
+* Summaries of at least 6 "cold outreach" contacts. You are asked to complete two by the end of week 2, two by the end of week 3, and two by the end of week 4 with a summary of all contacts submitted to Meg on on **Monday of week 5** and following these [guidelines](https://github.com/turingschool/career-development-curriculum/blob/master/module_four/cold_outreach_deliverable_guidelines.md)
+* Provide a link to your completed Turing portfolio, complete with your name, photo, description, three projects, and resume
+* Documentation of practice interview participation -- *guidelines are forthcoming*. Check with Allison if you have questions
+* Completed action plan for the job search -- *template is forthcoming*. Check with Allison if you have questions
+* Ensure that your GitHub, LinkedIn, and StackOverflow accounts are properly setup by linking to them in your Census account. We will run an automated check on these and send you a follow up if needed. No submission is necessary beyond putting the info in your Census account
 
 ### Feedback & Community
 
