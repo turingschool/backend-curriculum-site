@@ -105,6 +105,10 @@ header {
   width: 80%;
 }
 
+@media screen and (max-width: 750px) {
+  .content: 100%;
+}
+
 .underline {
   text-decoration: underline;
 }
