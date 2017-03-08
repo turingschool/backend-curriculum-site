@@ -4,20 +4,21 @@ title: SQL Deep Dive
 length: 180 minutes
 tags: SQL
 ---
-
-## Overview
+Overview
+------------
 
 ### Learning Goals
 
-* Student has refreshed their understanding of SELECT statements in SQL
-* Student has deepened their understanding of foreign key relationships
-* Student uses COUNT functions in SQL
-* Student understands the purpose and trade-offs with SQL indices
-* Student can create a single-column index on a table
-* Student can explain the concept of an INNER JOIN
-* Student can design and execute an INNER JOIN across two tables
+*   Student has refreshed their understanding of SELECT statements in SQL
+*   Student has deepened their understanding of foreign key relationships
+*   Student uses COUNT functions in SQL
+*   Student understands the purpose and trade-offs with SQL indices
+*   Student can create a single-column index on a table
+*   Student can explain the concept of an INNER JOIN
+*   Student can design and execute an INNER JOIN across two tables
 
-## Class Time
+Class Time
+------
 
 ### Setup
 
@@ -86,32 +87,32 @@ Solve the *EASY* and *MEDIUM* questions of each section before trying any of the
 
 #### Round 1: Using SELECT
 
-* Easy: Which movie in our database had the largest gross revenue?
-* Medium: Which movie released in 2012 had the largest gross revenue?
-* Hard: For films that we have both the budget and gross, what were the top three flops of 2012 (ie: lowest profit)?
+*   Easy: Which movie in our database had the largest gross revenue?
+*   Medium: Which movie released in 2012 had the largest gross revenue?
+*   Hard: For films that we have both the budget and gross, what were the top three flops of 2012 (ie: lowest profit)?
 
 #### Round 2: Using COUNT
 
-* Easy: How many movies have a known budget (ie: not null or zero)?
-* Medium: How many movies in our database were released in 2012?
-* Hard: How many movies in 2012 had a budget over $100M?
+*   Easy: How many movies have a known budget (ie: not null or zero)?
+*   Medium: How many movies in our database were released in 2012?
+*   Hard: How many movies in 2012 had a budget over $100M?
 
 #### Round 3: Connecting Data Across Tables
 
-* Easy: How many roles does Rosario Dawson have in our database?
-* Medium: What movies did Justin Lin direct?
-* Hard: What movies did Donald Glover appear in?
+*   Easy: How many roles does Rosario Dawson have in our database?
+*   Medium: What movies did Justin Lin direct?
+*   Hard: What movies did Donald Glover appear in?
 
 ### Part 2: Searching with and without Indices
 
 Let's whiteboard and discuss the following:
 
-* Finding records by the primary key
-* Quick recap of foreign keys
-* Finding records by the foreign key
-* Primary uniqueness => quick stop, foreign repeats => long search
-* An *index* on a column makes lookups faster
-* An index increases memory usage and makes inserts slower
+*   Finding records by the primary key
+*   Quick recap of foreign keys
+*   Finding records by the foreign key
+*   Primary uniqueness => quick stop, foreign repeats => long search
+*   An *index* on a column makes lookups faster
+*   An index increases memory usage and makes inserts slower
 
 #### In `psql`
 
@@ -120,8 +121,8 @@ imdb=# \timing
 imdb=# SELECT COUNT(*) from roles WHERE actor_id=158;
 ```
 
-* Note how long it took to execute the query.
-* Think about how many rows of the `roles` table had to be looked through
+*   Note how long it took to execute the query.
+*   Think about how many rows of the `roles` table had to be looked through
 
 #### Creating & Testing the Index
 
@@ -130,16 +131,16 @@ imdb=# CREATE INDEX roles_actor_id_index on roles (actor_id);
 imdb=# SELECT COUNT(*) from roles WHERE actor_id=158;
 ```
 
-* What do you observe about the difference in execution speed?
-* Skeptical that there's some kind of caching going on? Try the same query looking for id `534` which has even more roles
+*   What do you observe about the difference in execution speed?
+*   Skeptical that there's some kind of caching going on? Try the same query looking for id `534` which has even more roles
 
 #### Experiment In Pairs
 
 Go through this process again with the movies table and it's relationship to directors.
 
-* Find how many movies were directed by Steven Spielberg and note the query time
-* Create an index on the relevant column
-* Re-run your query. What percentage speed-up did you observe?
+*   Find how many movies were directed by Steven Spielberg and note the query time
+*   Create an index on the relevant column
+*   Re-run your query. What percentage speed-up did you observe?
 
 ### Part 3: Using Inner Joins
 
@@ -147,9 +148,9 @@ Now it gets a little trickier. Preview the idea of JOINS with [this article](htt
 
 Let's whiteboard and discuss the following:
 
-* Selecting data without a join
-* Selecting related data in a second query
-* Joining based on a foreign key
+*   Selecting data without a join
+*   Selecting related data in a second query
+*   Joining based on a foreign key
 
 We'll use these queries:
 
@@ -193,29 +194,29 @@ Spider-Man 3  | 2007 | Sam Raimi
 
 #### Big Finish
 
-* How many films was Morgan Freeman in?
-* What was his highest-grossing movie?
-* How many films was he the lead (`rank` of `1` in roles)?
+*   How many films was Morgan Freeman in?
+*   What was his highest-grossing movie?
+*   How many films was he the lead (`rank` of `1` in roles)?
 
 #### Extra Challenges
 
-* What director did Morgan Freeman work with the most?
-* What are the titles of the dramas he appeared in?
+*   What director did Morgan Freeman work with the most?
+*   What are the titles of the dramas he appeared in?
 
 ### Part 4: Grab Bag
 
 Here are some other things worth investigating:
 
-* `SELECT sum(column_name) FROM table_name; `
-* `SELECT avg(column_name) FROM table_name; `
-* `SELECT max(column_name) FROM table_name; `
-* `SELECT min(column_name) FROM table_name;`
-* `SELECT count(column_name) FROM table_name; `
-* Subqueries
-* Aliases with `AS`
+*   `SELECT sum(column_name) FROM table_name; `
+*   `SELECT avg(column_name) FROM table_name; `
+*   `SELECT max(column_name) FROM table_name; `
+*   `SELECT min(column_name) FROM table_name;`
+*   `SELECT count(column_name) FROM table_name; `
+*   Subqueries
+*   Aliases with `AS`
 
 #### Exercises
 
-* What's the difference between the average profit of a Spiderman movie versus a Batman movie?
-* Over her career, how much total profit has Meryl Streep generated?
-* What's the percentage chance that a movie with Adam Sandler is profitable?
+*   What's the difference between the average profit of a Spiderman movie versus a Batman movie?
+*   Over her career, how much total profit has Meryl Streep generated?
+*   What's the percentage chance that a movie with Adam Sandler is profitable?

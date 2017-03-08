@@ -5,17 +5,18 @@ length: 180
 tags: javascript, front-end framework, react
 ---
 
-## Background
+Background
+--------------
 
 ### Overview -- Front-End Application History
 
-* Beginning: Basic Jquery scripting; mostly static HTML
+*   Beginning: Basic Jquery scripting; mostly static HTML
 with small bits of dynamism on top of them
-* Mostly ad-hoc / isolated interactions with the server
-* __Problems:__ Browser applications becoming more and more
+*   Mostly ad-hoc / isolated interactions with the server
+*   __Problems:__ Browser applications becoming more and more
 complex; numerous DOM Elements dependent on dynamic
 data coming from servers or other sources
-* __Frameworks:__ Like many technical problems, the open source community
+*   __Frameworks:__ Like many technical problems, the open source community
 decided to solve this with more robust and sophisticated
 libraries
 
@@ -25,15 +26,15 @@ As front-end frameworks have proliferated, lots of different
 ideas and approaches have been attempted, and we can
 place them across a few interesting continua:
 
-* small libraries vs. large frameworks
-* View and Interaction only vs. Data and Persistence management
-* View/Data combination vs. View/Data separation
+*   small libraries vs. large frameworks
+*   View and Interaction only vs. Data and Persistence management
+*   View/Data combination vs. View/Data separation
 
 __Discussion: Where do the major frameworks fit on these gradients?__
 
-* Backbone
-* Ember
-* Angular
+*   Backbone
+*   Ember
+*   Angular
 
 ### React's Take
 
@@ -67,10 +68,10 @@ html which is associated with it and toggle it on.
 And this is not to say that front-end developers are incompetent --
 there are many reasons for doing things this way:
 
-* it's relatively intuitive
-* for much of the web's history, the amount of interactive elements
+*   it's relatively intuitive
+*   for much of the web's history, the amount of interactive elements
 we've dealt with on a page were small and easy to track
-* It minimizes expensive DOM re-renders (more on this in a moment)
+*   It minimizes expensive DOM re-renders (more on this in a moment)
 
 ### So what's the alternative?
 
@@ -84,14 +85,14 @@ re-draw everything.
 
 Consider the benefits of this approach:
 
-* Conceptually simpler: rendered scene is simply a product
+*   Conceptually simpler: rendered scene is simply a product
 of all the existing information about the world's state
-* Conceptually consistent: every re-render follows the same process
+*   Conceptually consistent: every re-render follows the same process
 (initial render is no different than subsequent updates)
 
 But also consider the costs:
 
-* More computationally intensive (more rendering being done); likely
+*   More computationally intensive (more rendering being done); likely
 to run into performance issues
 
 ### What does it mean for web development
@@ -147,15 +148,16 @@ of UI programming is ultimately what makes React so interesting.
 
 ### Other things to like about React
 
-* __Lightweight__ -- does a specific thing and does it pretty well
-* __Very modular__ -- easy to drop in for a small portion
+*   __Lightweight__ -- does a specific thing and does it pretty well
+*   __Very modular__ -- easy to drop in for a small portion
 of your UI without having to "rewrite the whole thing in React"
-* __Easy to learn__ -- As we will see shortly, there's honestly
+*   __Easy to learn__ -- As we will see shortly, there's honestly
 not that much to it. Learn the basics for setting up components
 as well as a few core lifecycle methods, and you're ready to start
 building your own UI.
 
-## Example -- Adding React to an Existing Rails Project
+Example -- Adding React to an Existing Rails Project
+------------------
 
 Enough with the discussion! Let's try it out. For this tutorial,
 we'll be taking our beloved [Blogger](https://github.com/JumpstartLab/blogger_advanced)
@@ -258,12 +260,12 @@ the data and behavior behind portions of our UI.
 Fortunately, components are also quite simple. They consist
 of 3 things:
 
-1. A `render` function, which must return a single React element
+1.  A `render` function, which must return a single React element
 (this could be a simple DOM element like a "div", or another custom component of our own creation)
-2. Properties, or `props`, which represent static data which will
+2.  Properties, or `props`, which represent static data which will
 not change for the lifetime of the component. In our example, we're passing `null`,
 since we don't (yet) have any meaningful data to associate with the component.
-3. State, which represents mutable data which is expected to change
+3.  State, which represents mutable data which is expected to change
 over the lifetime of the component. We'll address this shortly.
 
 Components can also implement and use a collection of additional
@@ -282,9 +284,9 @@ which behave somewhat like "classes" within the system.
 
 `React.createElement` accepts 3 arguments:
 
-1. The type of component to be created
-2. the `props` value for the new component (optional)
-3. the children for the new component (optional - also accepts
+1.  The type of component to be created
+2.  the `props` value for the new component (optional)
+3.  the children for the new component (optional - also accepts
 multiple children, which will be nested appropriately)
 
 __Question:__ In our example we use `createElement` twice.
@@ -306,12 +308,12 @@ using `this.props` (it is simply a property of the current
 component). Get some practice working with `props` by
 trying the following:
 
-* Observe the current props of our `Hello` component by
+*   Observe the current props of our `Hello` component by
 logging it from within the `render` method
-* Pass a new JS object containing your name (e.g. `{name: "Pizza Man"}`)
+*   Pass a new JS object containing your name (e.g. `{name: "Pizza Man"}`)
 as the `props` value when we create an element based on our
 `Hello` component (remember `React.createElement` creates elements)
-* Use the name property of the object you provided to update your
+*   Use the name property of the object you provided to update your
 component so it renders "Hello, <your name>" instead of "Hello World"
 
 ### Step 4 -- A Real Component
@@ -427,9 +429,9 @@ Similar to `props`, state is a property of the component,
 and can be accessed using `this.state` within component
 methods. Try the following experiments:
 
-* Use `console.log` within your render method to observe the value
+*   Use `console.log` within your render method to observe the value
 of the component's `state`
-* Use `state` within the render method to _conditionally_
+*   Use `state` within the render method to _conditionally_
 render a different button if the `isLiked` value is `true`
 vs if it is `false`. (For now simply changing the text is good)
 
@@ -465,9 +467,9 @@ __Instructor Demo -- Setting DOM properties via `props`__
 In our case, `onClick` is exactly what we'd like. We will
 do 2 things:
 
-1. define a handler function within the component to handle
+1.  define a handler function within the component to handle
 any clicks
-2. Attach this handler function as an `onClick` prop of our
+2.  Attach this handler function as an `onClick` prop of our
 element
 
 Update your article component like so:
@@ -524,11 +526,11 @@ on top of it.
 
 With that in mind, we'd like to make a few changes:
 
-1. Add a new column to store the "liked" property
+1.  Add a new column to store the "liked" property
 of an article (this will require a migration)
-2. Somehow feed the information about whether an article
+2.  Somehow feed the information about whether an article
 has been liked into the DOM
-3. Use this real information as the initial `isLiked` value
+3.  Use this real information as the initial `isLiked` value
 of our `LikeArticle` components
 
 __1. Migration__
@@ -631,9 +633,9 @@ updated the corresponding article?
 
 Let's consider the pieces we'll need:
 
-1. React component needs to send data to the server
+1.  React component needs to send data to the server
 when it's clicked (probably via ajax)
-2. Rails app needs to handle these incoming requests
+2.  Rails app needs to handle these incoming requests
 and update the corresponding article (probably a new
 route and controller)
 
@@ -659,13 +661,13 @@ Now that you have the article's ID available, see if you
 can send the appropriate updates to the server using
 AJAX. Here are a few guidelines.
 
-* Let's assume that we'll use the path `/articles/:id/likes`
+*   Let's assume that we'll use the path `/articles/:id/likes`
 for liking and unliking
-* Use a POST request for liking (creating a like) and a
+*   Use a POST request for liking (creating a like) and a
 DELETE request for un-liking (destroying a like)
-* This request should happen during the `clickHandler`
+*   This request should happen during the `clickHandler`
 we defined earlier
-* _After_ the request completes (i.e. in its callback),
+*   _After_ the request completes (i.e. in its callback),
 we'll need to update the component's `state` to
 reflect the new `isLiked` value.
 
@@ -679,13 +681,13 @@ But currently, all that happens is it receives a 404. Our
 server doesn't yet know how to handle these requests.
 Let's see if we can wire up this portion.
 
-1. Add new routes, nested under `articles`, for creating
+1.  Add new routes, nested under `articles`, for creating
 and destroying "likes"
-2. Add a new `LikesController`
-3. In the `LikesController`, handle the `create` action
+2.  Add a new `LikesController`
+3.  In the `LikesController`, handle the `create` action
 by finding the appropriate article and setting its `liked` value
 to `true`, then rendering a JSON response of the article
-4. Similarly, handle the `destroy` action by setting the
+4.  Similarly, handle the `destroy` action by setting the
 article's `liked` value to `false`
 
 __Step 7 - final implementation__
@@ -764,7 +766,8 @@ end
 <div class="like-article" data-article-id="<%= article.id %>" data-initial-is-liked="<%= article.liked %>"></div>
 ```
 
-## Other Topics
+Other Topics
+---------------
 
 ### Lifecycle functions
 
@@ -776,5 +779,5 @@ end
 
 ### Addenda
 
-* Other systems -- Glimmer (others?)
-* Downsides -- animations (others?)
+*   Other systems -- Glimmer (others?)
+*   Downsides -- animations (others?)
