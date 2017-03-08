@@ -64,24 +64,24 @@ The following list includes everything you will see throughout the module. You s
 
 1. #### Project Management & Professional Skills
   - [Career Development Curriculum](https://github.com/turingschool/career-development-curriculum/tree/master/module_two)
-  - Employ effective communication in order to facilitate collaboration.
-  - Apply best practices in project management and Git workflow.
-  - Effectively contribute to group projects
-  - Apply good communication practices with pairs, groups, teams etc
-  - Consistent punctuality to all obligations, meetings, check-ins etc
-  - Wireframe project ideas
-  - Write detailed user stories using the Gherkin Model
+  - Employ effective communication in order to facilitate collaboration. (Functional)
+  - Apply best practices in project management and Git workflow. (Functional)
+  - Effectively contribute to group projects (Functional)
+  - Apply good communication practices with pairs, groups, teams etc (Functional)
+  - Consistent punctuality to all obligations, meetings, check-ins etc (Mastery)
+  - Wireframe project ideas (Functional)
+  - Write detailed user stories using the Gherkin Model(Mastery)
 1. #### Understanding and interpret errors and error messages
-  - Where in your code is there error?
-  - What was the code trying to accomplish when it failed?
-  - What caused it to fail?
-  - Using a debugging tool like pry or byebug to sort through the error
-  - "puts driven development"
+  - Where in your code is there error? (Functional)
+  - What was the code trying to accomplish when it failed? (Functional)
+  - What caused it to fail? (Functional)
+  - Using a debugging tool like pry or byebug to sort through the error (Functional)
+  - "puts driven development" (Functional)
 1. #### Diagram and explain the MVC model and and HTTP Request - Response cycle
 1. #### HTTP Fundamentals
-  - Request
-  - URI/URL
-  - Headers
+  - Request (Functional)
+  - URI/URL (Functional)
+  - Headers (Familiarity)
   - Body
   - Response
   - Redirect / Render
