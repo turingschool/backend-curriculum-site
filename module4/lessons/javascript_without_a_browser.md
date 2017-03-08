@@ -4,22 +4,23 @@ title: JavaScript Outside of the Browser
 subheading: with node.js
 ---
 
-## Javascript Does It's Thing
+Javascript Does It's Thing
+------------------
 
 Traditionally JavaScript is executed client-side, or in the browser on the consumers own computer. This is made possible by a browsers JavaScript Engine. Firefox's engine is called SpiderMonkey, and Chrome's is called V8.
 
 ### Let's look at V8:
 
-* First version released with first version of chrome in 2008
-* Compiles JS to native machine code
-* Designed to be modular
-  * Chrome
-  * Opera
-  * Vivaldi
-  * Couchbase
-  * MongoDB
-  * Electron
-  * node.js
+*   First version released with first version of chrome in 2008
+*   Compiles JS to native machine code
+*   Designed to be modular
+    *   Chrome
+    *   Opera
+    *   Vivaldi
+    *   Couchbase
+    *   MongoDB
+    *   Electron
+    *   node.js
 
 ### Today, We'll look into node.js. What is it?
 
@@ -27,10 +28,10 @@ According to [nodejs.org](nodejs.org) node, in it's most basic form, "is a JavaS
 
 What makes node so powerful and desirable?
 
-* event-driven
-* non-blocking
-* lightweight and efficient
-* allows the user of websockets  - realtime 2 way connections between client and server.
+*   event-driven
+*   non-blocking
+*   lightweight and efficient
+*   allows the user of websockets  - realtime 2 way connections between client and server.
 
 #### aside: NPM
 
@@ -38,8 +39,8 @@ NPM (Node Package Manger) allows for organization of outside packages much like 
 
 ### Installing Node:
 
-* Jump over to [https://nodejs.org/en/](https://nodejs.org/en/) and download node.
-* Done
+*   Jump over to [https://nodejs.org/en/](https://nodejs.org/en/) and download node.
+*   Done
 
 When you download node - you also get npm
 
@@ -51,7 +52,7 @@ Basic Examples:
 
 The first example we're going to look at is our basic HelloWorld.
 
-* Navigate to a location that you want to put these examples.
+*   Navigate to a location that you want to put these examples.
 
 ```terminal
 mkdir node-sandbox
@@ -113,10 +114,11 @@ $ node add.js
 4
 ```
 
-## Pair Up!
+Pair Up!
+----------
 
 ### Let's work on a few challenges:
 
-* [Character Count](https://github.com/turingschool/challenges/blob/master/character_count.markdown)
-* [fibonacci](https://github.com/turingschool/challenges/blob/master/fibber.markdown)
-* [99 Bottles](https://github.com/turingschool/challenges/blob/master/99_bottles.markdown)
+*   [Character Count](https://github.com/turingschool/challenges/blob/master/character_count.markdown)
+*   [fibonacci](https://github.com/turingschool/challenges/blob/master/fibber.markdown)
+*   [99 Bottles](https://github.com/turingschool/challenges/blob/master/99_bottles.markdown)

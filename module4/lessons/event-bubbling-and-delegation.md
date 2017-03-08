@@ -5,12 +5,14 @@ length: 90
 tags: javascript, dom, browser, events
 ---
 
-## Learning Goals
+Learning Goals
+-----------
 
-* Understand event bubbling
-* Learn to use event bubbling to set event listeners
+*   Understand event bubbling
+*   Learn to use event bubbling to set event listeners
 
-## Event Basics
+Event Basics
+-------
 
 Events are happening all the time in the browser. When the browser has finished loading the page, an event is fired. Every time the user moves their mouse, hovers over an element, clicks or taps, submits a form, presses down on a key or takes their finger off that key — an event is fired. Some of these events are very easy to spot when they occur (e.g. the user clicks on a hyperlink), but many go by completely unnoticed.
 
@@ -18,7 +20,8 @@ It is, however, possible for us to use JavaScript to set up listeners for events
 
 For a review of how to set event listeners, please refer to the [DOM Manipulation with JavaScript Lesson](http://frontend.turing.io/lessons/dom-manipulation-with-javascript.html)
 
-## Event Bubbling
+Event Bubbling
+------------
 
 Now we've talked about the very basics of events, let's turn our attention to event bubbling, which refers to the ability of events set on DOM nodes to "bubble up" and also apply to children of those nodes. We'll start with a quick experiment.
 
@@ -35,11 +38,11 @@ Visit the [this page][codepen] and fork the CodePen.
 
 [codepen]: http://codepen.io/team/turing/pen/ZOvkVo
 
-* Add a click event to the button, that logs the element that was clicked on using `this`.
-* Move the event listener to the `.parent` element. What is the result when you click on the button?
-* Move the event listener from the first step to the `.grandparent` element.
-  * What is the result when you click on the button?
-  * What is is the result when you click the `.parent` element?
+*   Add a click event to the button, that logs the element that was clicked on using `this`.
+*   Move the event listener to the `.parent` element. What is the result when you click on the button?
+*   Move the event listener from the first step to the `.grandparent` element.
+    *   What is the result when you click on the button?
+    *   What is is the result when you click the `.parent` element?
 
 ### Discussion
 
@@ -92,7 +95,8 @@ document.querySelector('#click-me').addEventListener('click', function (event) {
 
 Modify the code above to log the event itself (as opposed to the `target` property on the event). What other properties on the event object look particularly useful?
 
-## Adding and Removing Event Listeners
+Adding and Removing Event Listeners
+----------------
 
 A common obstacle that many JavaScript developers struggle with is understanding the timing in which they bind event listeners to DOM nodes. When we add event listeners to DOM nodes, we're only adding them to the nodes that are currently on the page. We are _not_ adding listeners to nodes that may be added to the page in the future.
 
@@ -103,9 +107,9 @@ A common obstacle that many JavaScript developers struggle with is understanding
 
 You should see three buttons labeled "Click me!" as well as a button for adding new buttons to the page.
 
-1. Click each of the "Click me!" buttons and verify that each one fires an `alert` notifying you that the button has in fact been clicked.
-2. Add an additional button using the "Add a new button below." button.
-3. Click on your new button and observe the results.
+1.  Click each of the "Click me!" buttons and verify that each one fires an `alert` notifying you that the button has in fact been clicked.
+2.  Add an additional button using the "Add a new button below." button.
+3.  Click on your new button and observe the results.
 
 What did you notice?
 
@@ -115,19 +119,20 @@ The event listeners are only bound to the buttons that were present when the pag
 
 Can you modify the function that adds new buttons so that it adds an event listener to the element before appending it to the page?
 
-## Event Delegation
+Event Delegation
+------------------
 
 Setting event listeners on specific newly created DOM nodes is one way to set event listeners. However, if you're not careful, you may end up setting multiple listeners on the same node.
 
 Also, You can cause a [memory leak](http://javascript.crockford.com/memory/leak.html) if an event listeners are not unbound from an element when it is removed from the DOM.
 
-Rather than manage the addition and removal of event listeners, there is a methodology you can use called ***event delegation***.
+Rather than manage the addition and removal of event listeners, there is a methodology you can use called ___event delegation__*.
 
-In ***event delegation***, we take advantage of the fact that events bubble in the event loops by setting an event listener on one parent. This event listener analyzes bubbled events to find a match in its child elements.
+In ___event delegation__*, we take advantage of the fact that events bubble in the event loops by setting an event listener on one parent. This event listener analyzes bubbled events to find a match in its child elements.
 
 <p data-height="300" data-theme-id="23788" data-slug-hash="AXVgOj" data-default-tab="js,result" data-user="turing" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/team/turing/pen/AXVgOj/">event-delegation</a> by Turing School of Software and Design (<a href="http://codepen.io/turing">@turing</a>) on <a href="http://codepen.io">CodePen</a>.</p>
 <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
 
 ### Pair Practice
 
-- jQuery has an easy way to do event delegation with the 'on' function. For the piano example above and see if you can do the same thing with [jQuery](https://learn.jquery.com/events/event-delegation/).
+-   jQuery has an easy way to do event delegation with the 'on' function. For the piano example above and see if you can do the same thing with [jQuery](https://learn.jquery.com/events/event-delegation/).

@@ -4,32 +4,35 @@ title: Testing in Javascript
 tags: Unit and Integration testing libraries
 ---
 
-## Goals
+Goals
+----------
 
-- Can write unit tests in javascript
-- Can write integration tests in javascript
+-   Can write unit tests in javascript
+-   Can write integration tests in javascript
 
-## Libraries covered
+Libraries covered
+---------
+    - [Mocha](https://mochajs.org/) - A test runner
+    - [Chai](http://chaijs.com/) - An assertion library
+    - [Selenium](https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/webdriver_exports_WebDriver.html) - Browser automation and inspection
+    - [Webpack](https://webpack.github.io/) - Build tool for asset management
 
-  - [Mocha](https://mochajs.org/) - A test runner
-  - [Chai](http://chaijs.com/) - An assertion library
-  - [Selenium](https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/webdriver_exports_WebDriver.html) - Browser automation and inspection
-  - [Webpack](https://webpack.github.io/) - Build tool for asset management
+Test Type Review
+-----------
 
-## Test Type Review
+-   Why test at all?
+-   What are the different types of tests?
+-   Why would we use one over the other?
 
-- Why test at all?
-- What are the different types of tests?
-- Why would we use one over the other?
-
-## Mocha - the test runner
+Mocha - the test runner
+-------------
 
 Mocha has one job, to run your tests. It doesn't even do assertions. We'll get to that in a minute.
 
 To install mocha for use in your terminal, run:
 
 ```bash
-npm install mocha -g
+  npm install mocha -g
 ```
 
 The `-g` installs a package globally, and for use on the command line. So let's write some mocha tests.
@@ -37,9 +40,9 @@ The `-g` installs a package globally, and for use on the command line. So let's 
 Mocha gives you a few functions right off the bat. You might recognize them if you're used to using RSpec:
 
 ```js
-describe()
-context()
-it()
+  describe()
+  context()
+  it()
 ```
 
 They're used similarly to RSpec. The biggest different how you pass a block to the function. Since there isn't a `do...end` in JavaScript, we pass a "callback" function:
@@ -58,9 +61,9 @@ For future reference: If you're familiar with ES6 [Arrow Functions](https://deve
 
 Save the above text in a file named `test.js`. Then run
 
-```
-mocha test.js
-```
+  ```
+    mocha test.js
+  ```
 
 You should see something like
 
@@ -85,9 +88,9 @@ it("can assert true", function(){
 
 A couple things to note about the test above:
 
-1. `describe()` and `context()` are not necessary. Typically, you'll want at least a `describe()` block to tell us what it is you're testing, but can omit context if you don't think it's necessary.
-2. `assert` is a "node module". It doesn't come pre-loaded, so we have to require it. In node, as opposed to Ruby, you have to capture the return value of a `require`.
-3. Like RSpec, I can have an optional message as part of my assertion which will be displayed if the assertion fails. If `true` is somehow false, something has seriously gone wrong.
+1.  `describe()` and `context()` are not necessary. Typically, you'll want at least a `describe()` block to tell us what it is you're testing, but can omit context if you don't think it's necessary.
+2.  `assert` is a "node module". It doesn't come pre-loaded, so we have to require it. In node, as opposed to Ruby, you have to capture the return value of a `require`.
+3.  Like RSpec, I can have an optional message as part of my assertion which will be displayed if the assertion fails. If `true` is somehow false, something has seriously gone wrong.
 
 Node's built in `assert` module isn't very fully featured. A popular assertion library for JavaScript is called [Chai](http://chaijs.com/). This is what we're going to use. You can install it by typing the following in your terminal.
 
@@ -143,19 +146,19 @@ Equality in JavaScript is funky. `1 == true` but not `1 === true`. `'3' == 3` bu
 `deepEqual` is used for arrays and objects. In the deep underpinnings of JavaScript, each time you define an array, it's a different array. So `[1,2,3,4] == [1,2,3,4]` will always return false. `deepEqual` will compare each value in an array, or each key/value pair in an object. Let's add the following to our sandbox:
 
 ```js
+    it("can compare two arrays that contain the same values", function(){
+      var actualArray = [1,2,3,4];
+      assert.deepEqual(actualArray, [1,2,3,4]);
+    })
 
-it("can compare two arrays that contain the same values", function(){
-  var actualArray = [1,2,3,4];
-  assert.deepEqual(actualArray, [1,2,3,4]);
-})
-
-it("can compare two objects that contain the same key/value pairs", function(){
-  var actualObject = {name: "Nate", module: 4};
-  assert.deepEqual(actualObject, {name: "Nate", module: 4});
-})
+    it("can compare two objects that contain the same key/value pairs", function(){
+      var actualObject = {name: "Nate", module: 4};
+      assert.deepEqual(actualObject, {name: "Nate", module: 4});
+    })
 ```
 
-## Putting it together in Webpack
+Putting it together in Webpack
+---------------------
 
 This has been a good introduction to Mocha and Chai on their own, but you'll be using them in conjunction with Webpack. Let's see how that works.
 
@@ -271,11 +274,11 @@ it would not be available in your test file. Only things that are exported are a
 
 ### A few more useful mocha features
 
-- Just like RSpec, and even Minitest, Mocha supports `before()`, `beforeEach()`, `after()` and `afterEach()` inside of a `describe()` or `context()`.
-- If you'd like to skip a test, you can mark it as pending by changing `it()` to `xit()`.
+-   Just like RSpec, and even Minitest, Mocha supports `before()`, `beforeEach()`, `after()` and `afterEach()` inside of a `describe()` or `context()`.
+-   If you'd like to skip a test, you can mark it as pending by changing `it()` to `xit()`.
 
-
-## Let's integrate
+Let's integrate
+-------------
 
 What about when we want to test user interactions with the application. We're going to bring in a new tool called [Selenium](https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/webdriver_exports_WebDriver.html).
 
@@ -361,9 +364,9 @@ var test      = require('selenium-webdriver/testing');
 // ...
 ```
 
-- You should recognize that we're using Chai's assertions again.
-- `webdriver` is really where the magic happens. We're going to be calling a lot from this object.
-- `test` kind of replaces Mocha for us. We use selenium's `test` object because it handles asynchronous code better, but it's still technically running within Mocha.
+-   You should recognize that we're using Chai's assertions again.
+-   `webdriver` is really where the magic happens. We're going to be calling a lot from this object.
+-   `test` kind of replaces Mocha for us. We use selenium's `test` object because it handles asynchronous code better, but it's still technically running within Mocha.
 
 Moving on:
 
@@ -375,22 +378,20 @@ test.describe('testing ideabox', function() {
 // ...
 ```
 
-- Since we're using selenium's test runner, we have to preface our `describe()` and `it()` with `test`.
-- We're setting up a variable `driver` for the whole block
-- The default timeout is 2000 milliseconds, which we'll run out of quickly with all the browsing we're going to be doing.
+
+-   Since we're using selenium's test runner, we have to preface our `describe()` and `it()` with `test`.
+-   We're setting up a variable `driver` for the whole block
+-   The default timeout is 2000 milliseconds, which we'll run out of quickly with all the browsing we're going to be doing.
 
 ```js
-
-test.beforeEach(function() {
-  driver = new webdriver.Builder()
+  test.beforeEach(function() {
+    driver = new webdriver.Builder()
     .forBrowser('chrome')
-    .build();
-})
-
-test.afterEach(function() {
-  driver.quit();
-})
-
+    build();
+  });
+  test.afterEach(function() {
+    driver.quit();
+  });
 ```
 
 Here we're starting Chrome before each test, and quitting it after each test. I've found this gives me the most consistent test results.
@@ -425,6 +426,6 @@ These are just a few of the functions you can use, but probably the most common 
 
 ### Notes for working with selenium
 
-- I've been visiting a production link for proof of concept, but usually you'll want to run your tests on your dev server. Don't forget to run your dev server in another tab before you run your tests.
-- When googling, make don't google "selenium" or even "selenium javascript". You'll just get stuff in other languages. Put "webdriverjs" in your search query.
-- You might be missing something like a Database Cleaner. You can [use selenium to execute](https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/index_exports_WebDriver.html#executeScript) `localStorage.clear()`, maybe in your `beforeEach()`.
+-   I've been visiting a production link for proof of concept, but usually you'll want to run your tests on your dev server. Don't forget to run your dev server in another tab before you run your tests.
+-   When googling, make don't google "selenium" or even "selenium javascript". You'll just get stuff in other languages. Put "webdriverjs" in your search query.
+-   You might be missing something like a Database Cleaner. You can [use selenium to execute](https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/index_exports_WebDriver.html#executeScript) `localStorage.clear()`, maybe in your `beforeEach()`.
