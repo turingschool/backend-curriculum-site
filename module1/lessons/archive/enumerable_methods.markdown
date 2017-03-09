@@ -82,7 +82,7 @@ array.method { |item| item.do_something }
 * group_by
 
 #### Reading documentation for enumerable methods
-[Here](http://ruby-doc.org/core-2.1.2/Enumerable.html) is the documentation for the Enumerable mixin.
+[Here](http://ruby-doc.org/core-2.3.1/Enumerable.html) is the documentation for the Enumerable mixin.
 
 ## In Pairs
 

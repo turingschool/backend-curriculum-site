@@ -27,7 +27,7 @@ To use Enumerable, a class needs to define its own `each` method, all Enumerable
 Here are a set categories, turn each one into a comment,
 and place each enumerable method beneath the given category with a description of what it does and an example to illustrate it.
 When we are done, we will have a cheatsheet we can refer back to, and it will be runnable with Seeing Is Believing.
-If, after several tries, you don't have any good idea how to use it, you can look at [the documentation](http://ruby-doc.org/core-2.2.2/Enumerable.html)
+If, after several tries, you don't have any good idea how to use it, you can look at [the documentation](http://ruby-doc.org/core-2.3.1/Enumerable.html)
 
 * Enumerable methods that iterate over a collection
 * Enumerable methods that filter a collection
