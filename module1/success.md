@@ -63,3 +63,15 @@ A student who graduates from this module will be able to do the following.
 *   Demonstrate version control proficiency by adding, committing, merging and pushing code changes, as well as switching branches and retrieving earlier commit history
 *   Fork, clone, fetch, and making pull requests to facilitate collaboration
 *   Describe differences between local versus remote repositories
+
+#### Career Development
+
+Below are Career Development goals for Module 1 students. For more details, view the [Module One Career Development](https://github.com/turingschool/career-development-curriculum/tree/master/module_one) page.
+
+*   Cultivate Self-Awareness
+*   Understand one's key strengths
+*   Know how to learn, including how to learn through struggle
+*   Ownership over one's learning
+*   Communicate effectively with partners through the entire pairing process from setting expectations to giving feedback
+*   Express one's own story and strengths
+*   Manage stress effectively
