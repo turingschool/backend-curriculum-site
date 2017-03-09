@@ -29,7 +29,7 @@ Specific instances:
 * Steve's cubby
 * Mike's cubby
 
-#### Type of object: Refrigerator
+#### Type of object: Fridge
 
 Specific objects:
 
@@ -42,7 +42,7 @@ In the cases above, what we called "type of object" is called a `Class`, and wha
 
 ### Classes and Objects in Code
 
-In irb, let's make a few new instances of a String:
+In pry, let's make a few new instances of a String:
 
 ```ruby
 a = String.new
@@ -59,11 +59,11 @@ We can say that `String` is the class, and `a` and `b` are instances of that cla
 
 String (like Array, Hash, etc.) are built-in classes in Ruby. We didn't have to define those classes; they already existed. These are useful, but we are limited in what we can do with the built-in classes.
 
-Ruby does not have classes like `Cubby` or `Refrigerator`. Let's go ahead and define those classes. Make a new file called `classes_and_instances_playground.rb`.
+Ruby does not have classes like `Cubby` or `Fridge`. Let's go ahead and define those classes. Make a new file called `classes_and_instances_playground.rb`.
 
 The syntax for define a class, at its most bare-bones level, is this:
 
-```
+```ruby
 class NameOfClass
 end
 ```
@@ -71,16 +71,16 @@ end
 Notice that `class` is lowercase while `NameOfClass` is CamelCased.
 
 ```ruby
-class Refrigerator
+class Fridge
 end
 
-refrigerator_1  = Refrigerator.new
+refrigerator_1  = Fridge.new
 p "Number 1: #{refrigerator_1}"
 
-refrigerator_2   = Refrigerator.new
+refrigerator_2   = Fridge.new
 p "Number 2: #{refrigerator_2}"
 
-refrigerator_3 = Refrigerator.new
+refrigerator_3 = Fridge.new
 p "Number 3: #{refrigerator_3}"
 ```
 
@@ -93,16 +93,16 @@ $ gem install pry
 ```
 
 ```ruby
-class Refrigerator
+class Fridge
 end
 
-refrigerator_1  = Refrigerator.new
+refrigerator_1  = Fridge.new
 p "Number 1: #{refrigerator_1}"
 
-refrigerator_2   = Refrigerator.new
+refrigerator_2   = Fridge.new
 p "Number 2: #{refrigerator_2}"
 
-refrigerator_3 = Refrigerator.new
+refrigerator_3 = Fridge.new
 p "Number 3: #{refrigerator_3}"
 
 require 'pry'; binding.pry
@@ -129,10 +129,10 @@ What are the attributes (states) that may vary among refrigerators?
 
 ### Attributes in Code
 
-Let's go back to our playground file and add some attributes to the `Refrigerator` class:
+Let's go back to our playground file and add some attributes to the `Fridge` class:
 
 ```ruby
-class Refrigerator
+class Fridge
   def initialize(brand, color, temperature, plugged_in, contents)
     @brand       = brand
     @color       = color
@@ -142,13 +142,13 @@ class Refrigerator
   end
 end
 
-refrigerator_1  = Refrigerator.new("Maytag", "white", 36, true, ["leftover pizza", "yogurt", "soylent"])
+refrigerator_1  = Fridge.new("Maytag", "white", 36, true, ["leftover pizza", "yogurt", "soylent"])
 p "Number 1: #{refrigerator_1}"
 
-refrigerator_2   = Refrigerator.new("", "black", 40, true, [])
+refrigerator_2   = Fridge.new("", "black", 40, true, [])
 p "Number 2: #{refrigerator_2}"
 
-refrigerator_3 = Refrigerator.new("", "black", 33, false, ["celery"])
+refrigerator_3 = Fridge.new("", "black", 33, false, ["celery"])
 p "Number 3: #{refrigerator_3}"
 
 require 'pry'; binding.pry
@@ -170,14 +170,14 @@ refrigerator.brand
 What happens? Why? Let's look at the error message:
 
 ```
-NoMethodError: undefined method `brand' for #<Refrigerator:0x007f8d42132c58>
+NoMethodError: undefined method `brand' for #<Fridge:0x007f8d42132c58>
 from (pry):4:in `<main>'
 ```
 
-This error tells us exactly what we need to do: define a method `brand` for the `Refrigerator`.
+This error tells us exactly what we need to do: define a method `brand` for the `Fridge`.
 
 ```ruby
-class Refrigerator
+class Fridge
   def initialize(brand, color, temperature, plugged_in, contents)
     @brand       = brand
     @color       = color
@@ -190,20 +190,20 @@ class Refrigerator
   end
 end
 
-refrigerator_1  = Refrigerator.new("Maytag", "white", 36, true, ["leftover pizza", "yogurt", "soylent"])
+refrigerator_1  = Fridge.new("Maytag", "white", 36, true, ["leftover pizza", "yogurt", "soylent"])
 p "Number 1: #{refrigerator_1}"
 
-refrigerator_2   = Refrigerator.new("", "black", 40, true, [])
+refrigerator_2   = Fridge.new("", "black", 40, true, [])
 p "Number 2: #{refrigerator_2}"
 
-refrigerator_3 = Refrigerator.new("", "black", 33, false, ["celery"])
+refrigerator_3 = Fridge.new("", "black", 33, false, ["celery"])
 p "Number 3: #{refrigerator_3}"
 
 require 'pry'; binding.pry
 puts "-------"
 ```
 
-Run the file and try it again. This time, we get nil back. Why?
+Run the file and try it again. This time, we get `nil` back. Why?
 
 ### Return Values
 
@@ -233,7 +233,7 @@ end
 What should the `brand` method return?
 
 ```ruby
-class Refrigerator
+class Fridge
   def initialize(brand, color, temperature, plugged_in, contents)
     @brand       = brand
     @color       = color
@@ -247,13 +247,13 @@ class Refrigerator
   end
 end
 
-refrigerator_1  = Refrigerator.new("Maytag", "white", 36, true, ["leftover pizza", "yogurt", "soylent"])
+refrigerator_1  = Fridge.new("Maytag", "white", 36, true, ["leftover pizza", "yogurt", "soylent"])
 p "Number 1: #{refrigerator_1}"
 
-refrigerator_2   = Refrigerator.new("", "black", 40, true, [])
+refrigerator_2   = Fridge.new("", "black", 40, true, [])
 p "Number 2: #{refrigerator_2}"
 
-refrigerator_3 = Refrigerator.new("", "black", 33, false, ["celery"])
+refrigerator_3 = Fridge.new("", "black", 33, false, ["celery"])
 p "Number 3: #{refrigerator_3}"
 
 require 'pry'; binding.pry
@@ -269,7 +269,7 @@ Now let's try calling `refrigerator_1.brand`. It works! This is called a `getter
 Ruby gives us a built-in way to provide these same getter methods but without having to define each of these methods separately. We'll use `attr_reader` to do this:
 
 ```ruby
-class Refrigerator
+class Fridge
   attr_reader :brand,
               :color,
               :temperature,
@@ -284,13 +284,13 @@ class Refrigerator
   end
 end
 
-refrigerator_1  = Refrigerator.new("Maytag", "white", 36, true, ["leftover pizza", "yogurt", "soylent"])
+refrigerator_1  = Fridge.new("Maytag", "white", 36, true, ["leftover pizza", "yogurt", "soylent"])
 p "Number 1: #{refrigerator_1}"
 
-refrigerator_2   = Refrigerator.new("", "black", 40, true, [])
+refrigerator_2   = Fridge.new("", "black", 40, true, [])
 p "Number 2: #{refrigerator_2}"
 
-refrigerator_3 = Refrigerator.new("", "black", 33, false, ["celery"])
+refrigerator_3 = Fridge.new("", "black", 33, false, ["celery"])
 p "Number 3: #{refrigerator_3}"
 
 require 'pry'; binding.pry
@@ -310,7 +310,7 @@ Let's say we want to be able to return the temperature in Celsius. Let's define 
 So we'll need to use the `@temperature` instance variable in order to insert that for `F` in the equation.
 
 ```ruby
-class Refrigerator
+class Fridge
   attr_reader :brand,
               :color,
               :temperature,
@@ -329,13 +329,13 @@ class Refrigerator
   end
 end
 
-refrigerator_1  = Refrigerator.new("Maytag", "white", 36, true, ["leftover pizza", "yogurt", "soylent"])
+refrigerator_1  = Fridge.new("Maytag", "white", 36, true, ["leftover pizza", "yogurt", "soylent"])
 p "Number 1: #{refrigerator_1}"
 
-refrigerator_2   = Refrigerator.new("", "black", 40, true, [])
+refrigerator_2   = Fridge.new("", "black", 40, true, [])
 p "Number 2: #{refrigerator_2}"
 
-refrigerator_3 = Refrigerator.new("", "black", 33, false, ["celery"])
+refrigerator_3 = Fridge.new("", "black", 33, false, ["celery"])
 p "Number 3: #{refrigerator_3}"
 
 require 'pry'; binding.pry
@@ -365,7 +365,7 @@ These methods allow different values to be passed in depending on what value is 
 In our refrigerator class:
 
 ```ruby
-class Refrigerator
+class Fridge
   attr_reader :brand,
               :color,
               :temperature,
@@ -388,13 +388,13 @@ class Refrigerator
   end
 end
 
-refrigerator_1  = Refrigerator.new("Maytag", "white", 36, true, ["leftover pizza", "yogurt", "soylent"])
+refrigerator_1  = Fridge.new("Maytag", "white", 36, true, ["leftover pizza", "yogurt", "soylent"])
 p "Number 1: #{refrigerator_1}"
 
-refrigerator_2   = Refrigerator.new("", "black", 40, true, [])
+refrigerator_2   = Fridge.new("", "black", 40, true, [])
 p "Number 2: #{refrigerator_2}"
 
-refrigerator_3 = Refrigerator.new("", "black", 33, false, ["celery"])
+refrigerator_3 = Fridge.new("", "black", 33, false, ["celery"])
 p "Number 3: #{refrigerator_3}"
 
 require 'pry'; binding.pry
@@ -409,19 +409,19 @@ Now that we've seen how to pass in arguments, let's figure out how we can change
 
 ```ruby
 refrigerator_1.color = "red"
-=> #<Refrigerator:0x007fe30a2e8bd8 @brand="Maytag", @color="red", @temperature=36, @plugged_in=true, @contents=["leftover pizza", "yogurt", "soylent"]>
+=> #<Fridge:0x007fe30a2e8bd8 @brand="Maytag", @color="red", @temperature=36, @plugged_in=true, @contents=["leftover pizza", "yogurt", "soylent"]>
 ```
 
 Right now when we try this, we get an error:
 
 ```
-undefined method `color= for #<Refrigerator:0x007fe30a2e8bd8>'
+undefined method `color= for #<Fridge:0x007fe30a2e8bd8>'
 ```
 
 Let's define that `setter` method:
 
 ```ruby
-class Refrigerator
+class Fridge
   attr_reader :brand,
               :color,
               :temperature,
@@ -448,13 +448,13 @@ class Refrigerator
   end
 end
 
-refrigerator_1  = Refrigerator.new("Maytag", "white", 36, true, ["leftover pizza", "yogurt", "soylent"])
+refrigerator_1  = Fridge.new("Maytag", "white", 36, true, ["leftover pizza", "yogurt", "soylent"])
 p "Number 1: #{refrigerator_1}"
 
-refrigerator_2   = Refrigerator.new("", "black", 40, true, [])
+refrigerator_2   = Fridge.new("", "black", 40, true, [])
 p "Number 2: #{refrigerator_2}"
 
-refrigerator_3 = Refrigerator.new("", "black", 33, false, ["celery"])
+refrigerator_3 = Fridge.new("", "black", 33, false, ["celery"])
 p "Number 3: #{refrigerator_3}"
 
 require 'pry'; binding.pry
@@ -465,7 +465,7 @@ Like using `attr_reader` to simplify getter methods, we can use `attr_writer` fo
 
 
 ```ruby
-class Refrigerator
+class Fridge
   attr_reader :brand,
               :color,
               :temperature,
@@ -490,13 +490,13 @@ class Refrigerator
   end
 end
 
-refrigerator_1  = Refrigerator.new("Maytag", "white", 36, true, ["leftover pizza", "yogurt", "soylent"])
+refrigerator_1  = Fridge.new("Maytag", "white", 36, true, ["leftover pizza", "yogurt", "soylent"])
 p "Number 1: #{refrigerator_1}"
 
-refrigerator_2   = Refrigerator.new("", "black", 40, true, [])
+refrigerator_2   = Fridge.new("", "black", 40, true, [])
 p "Number 2: #{refrigerator_2}"
 
-refrigerator_3 = Refrigerator.new("", "black", 33, false, ["celery"])
+refrigerator_3 = Fridge.new("", "black", 33, false, ["celery"])
 p "Number 3: #{refrigerator_3}"
 
 require 'pry'; binding.pry
@@ -506,7 +506,7 @@ puts "-------"
 Even better, if we want both a getter and a setter for an attribute, we can use `attr_accessor`:
 
 ```ruby
-class Refrigerator
+class Fridge
   attr_reader :brand,
               :temperature,
               :contents
@@ -530,13 +530,13 @@ class Refrigerator
   end
 end
 
-refrigerator_1  = Refrigerator.new("Maytag", "white", 36, true, ["leftover pizza", "yogurt", "soylent"])
+refrigerator_1  = Fridge.new("Maytag", "white", 36, true, ["leftover pizza", "yogurt", "soylent"])
 p "Number 1: #{refrigerator_1}"
 
-refrigerator_2   = Refrigerator.new("", "black", 40, true, [])
+refrigerator_2   = Fridge.new("", "black", 40, true, [])
 p "Number 2: #{refrigerator_2}"
 
-refrigerator_3 = Refrigerator.new("", "black", 33, false, ["celery"])
+refrigerator_3 = Fridge.new("", "black", 33, false, ["celery"])
 p "Number 3: #{refrigerator_3}"
 
 require 'pry'; binding.pry
@@ -570,9 +570,3 @@ It builds on bubble sort, but you don't have to understand the algorithm to foll
 It only plays with swapping representations, not changing behaviour.
 We'll take a piece of toplevel procedural code and turn it into a beautilful namespaced object,
 and then back again.
-
-## Homework
-
-* Complete Bob
-* Over the weekend, complete `command-query` exercises and `mythical-creatures` exercises
-* Optional: `objects-and-methods` exercises
