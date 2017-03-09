@@ -5,11 +5,13 @@ length: 30
 tags: git, github
 ---
 
-## Standards
+## Goals
 
 After this lesson, students should be able to:
 
 -  Configure their local git to access their remote GitHub account via the command line
+-  Configure global .gitignore files
+-  Personalize Slack profiles with GitHub information
 
 ## Introduction to Git
 
@@ -22,7 +24,6 @@ After this lesson, students should be able to:
 * Git's philosophy: never lose anything
 
 ### Preliminary `gitconfig` Setup
-
 
 First, let's install `git` via `brew`:
 
@@ -105,10 +106,101 @@ Are you sure you want to continue connecting (yes/no)?
 Hi YourUsername! You\'ve succesfully authenticated, but GitHub does not provide shell access.
 ```
 
-## Extensions
+## Global `.gitignore`
+
+From Terminal run:
+
+```
+touch ~/.gitignore
+git config --global core.excludesfile ~/.gitignore
+```
+
+Then open `~/.gitignore` with your text editor and paste and save the following:
+
+```ruby
+# Created by https://www.gitignore.io/api/macos,ruby,rails,git,osx
+
+### Git ###
+*.orig
+
+### macOS ###
+*.DS_Store
+.AppleDouble
+.LSOverride
+
+### Rails ###
+*.rbc
+capybara-*.html
+.rspec
+/log
+/tmp
+/db/*.sqlite3
+/db/*.sqlite3-journal
+/public/system
+/coverage/
+/spec/tmp
+**.orig
+rerun.txt
+pickle-email-*.html
+.env
+
+## Environment normalization:
+/.bundle
+/vendor/bundle
+
+# these should all be checked in to normalize the environment:
+# Gemfile.lock, .ruby-version, .ruby-gemset
+
+# unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
+.rvmrc
+
+# if using bower-rails ignore default bower_components path bower.json files
+/vendor/assets/bower_components
+*.bowerrc
+bower.json
+
+# Ignore pow environment settings
+.powenv
+
+# Ignore Byebug command history file.
+.byebug_history
+
+### Ruby ###
+*.gem
+/.config
+/InstalledFiles
+/pkg/
+/spec/reports/
+/spec/examples.txt
+/test/tmp/
+/test/version_tmp/
+/tmp/
+
+## Documentation cache and generated files:
+/.yardoc/
+/_yardoc/
+/doc/
+/rdoc/
+
+## Environment normalization:
+/.bundle/
+/lib/bundler/man/
+
+# for a library or gem, you might want to ignore these files since the code is
+# intended to run in multiple environments; otherwise, check them in:
+# Gemfile.lock
+# .ruby-version
+# .ruby-gemset
+
+# unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
+
+# End of https://www.gitignore.io/api/macos,ruby,rails,git,osx
+```
+
+## Slack and Further Customizations
 
 If you've verified the above is complete, please work through the following:
 
--   Customize your terminal - colors/themes, default directory, aliases, etc.
 -   Customize your Slack profile (name and/or profile picture help your team identify you)
 -   Add your GitHub username/profile link to your Slack profile
+-   Customize your terminal - colors/themes, default directory, aliases, etc.
