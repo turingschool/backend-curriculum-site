@@ -287,19 +287,19 @@ _NOTE_: All revenues should be reported as a float with two decimal places.
 
 * `GET /api/v1/customers/:id/favorite_merchant` returns a merchant where the customer has conducted the most successful transactions
 
-## Check-in and Milestones
+## Milestones & Feedback
 
-You will meet with an instructor in the middle of the project project. The goal of that check-in, and roughly what should be completed before the check-in is listed below.
+#### Milestones
 
-- 20-30 minutes
+The organization of this project spec is by feature type. However, much of the unfamiliar or more difficult work is in the business intelligence portion of the project. To the degree possible instructors encourage you to use an agile approach to completing this assignment. Furthermore, we encourage you review the work and develop estimated milestones before you begin. **Any good set of milestones will allow for some slippage before the project is due.**
 
-#### What should be done
-
-Your Record Endpoints should be completed, and you should be working on your Relationship Endpoints. You're on a good path if you have all of Wednesday to work on Business Intelligence Endpoints.
+There is an Advanced ActiveRecord class scheduled for Wednesday. We *highly* encourage you to have attempted some of the business intelligence queries before that class.
 
 #### What to expect from instructors
 
-Instructors will go over whatever technical, planning or other challenges you're having. They also may give you feedback, or suggest a different path than the one you're on.
+There will not be formal check-ins for this projects. Instructors will generally be available during scheduled work time to discuss issues absent other commitments. Students should also view this as an opportunity to practice discussing code on GitHub, and instructors will prefer reviewing PRs to discussing code on Slack.
+
+In their reviews, instructors will go over whatever technical, planning or other challenges you're having. They also may give you feedback, or suggest a different path than the one you're on.
 
 ## <a name="evaluation"></a> Evaluation
 
