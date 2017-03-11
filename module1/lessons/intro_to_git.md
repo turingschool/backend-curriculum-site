@@ -118,54 +118,65 @@ git config --global core.excludesfile ~/.gitignore
 Then open `~/.gitignore` with your text editor and paste and save the following:
 
 ```ruby
-# Created by https://www.gitignore.io/api/macos,ruby,rails,git,osx
-
-### Git ###
+# Git #
+########
 *.orig
 
-### macOS ###
+# macOS #
+#########
 *.DS_Store
+.DS_Store?
 .AppleDouble
 .LSOverride
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
 
-### Rails ###
+# Ignore Spring Files #
+#######################
+/spring/*.pid
+
+# Ignore RubyMine Files #
+#######################
+.idea/
+
+# Rails #
+#########
 *.rbc
 capybara-*.html
 .rspec
-/log
-/tmp
-/db/*.sqlite3
-/db/*.sqlite3-journal
 /public/system
-/coverage/
+*/coverage/
 /spec/tmp
 **.orig
 rerun.txt
 pickle-email-*.html
 .env
 
-## Environment normalization:
+# Logs and Databases #
+######################
+*.log
+*.sql
+*.sqlite
+/log
+/tmp
+/db/*.sqlite3
+/db/*.sqlite3-journal
+
+# Environment normalization #
+#############################
 /.bundle
 /vendor/bundle
-
-# these should all be checked in to normalize the environment:
-# Gemfile.lock, .ruby-version, .ruby-gemset
-
-# unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
-.rvmrc
+.powenv
 
 # if using bower-rails ignore default bower_components path bower.json files
 /vendor/assets/bower_components
 *.bowerrc
 bower.json
 
-# Ignore pow environment settings
-.powenv
-
-# Ignore Byebug command history file.
-.byebug_history
-
-### Ruby ###
+# Ruby #
+########
 *.gem
 /.config
 /InstalledFiles
@@ -175,26 +186,42 @@ bower.json
 /test/tmp/
 /test/version_tmp/
 /tmp/
+.rvmrc
 
-## Documentation cache and generated files:
+# Ignore Byebug command history file.
+.byebug_history
+
+# Documentation cache and generated files #
+###########################################
 /.yardoc/
 /_yardoc/
 /doc/
 /rdoc/
 
-## Environment normalization:
+# Environment normalization #
+#############################
 /.bundle/
 /lib/bundler/man/
 
-# for a library or gem, you might want to ignore these files since the code is
-# intended to run in multiple environments; otherwise, check them in:
-# Gemfile.lock
-# .ruby-version
-# .ruby-gemset
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
 
-# unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
-
-# End of https://www.gitignore.io/api/macos,ruby,rails,git,osx
+# Packages #
+############
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
 ```
 
 ## Slack and Further Customizations
