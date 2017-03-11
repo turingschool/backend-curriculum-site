@@ -98,7 +98,7 @@ A `method` in Ruby can be thought of as a message that's being sent to an object
 
 The method is `.upcase`, the object it's being called on is "hello, world", and the return value is "HELLO, WORLD". Like the above example, most methods you'll see use what we call "dot notation" where there is a dot between the object and the method.
 
-Let's open up some Ruby documentation: [String](http://ruby-doc.org/core-2.2.3/String.html). Take a look on the left-hand side underneath "Methods". We'll walk through the two below to start:
+Let's open up some Ruby documentation: [String](http://ruby-doc.org/core-2.3.1/String.html). Take a look on the left-hand side underneath "Methods". We'll walk through the two below to start:
 
 ```
 capitalize
@@ -271,7 +271,7 @@ We can also (somewhat) combine strings and integers. Try these:
 
 ### Introducing Number Methods
 
-All of the arithmetic operations that you tried above are actually methods. Let's look at the documentation for [Integer](http://ruby-doc.org/core-2.2.3/Integer.html#method-i-gcd) and [Float](http://ruby-doc.org/core-2.2.3/Float.html).
+All of the arithmetic operations that you tried above are actually methods. Let's look at the documentation for [Integer](http://ruby-doc.org/core-2.3.1/Integer.html#method-i-gcd) and [Float](http://ruby-doc.org/core-2.3.1/Float.html).
 
 ```
 round

@@ -20,13 +20,14 @@ What are some cases where you might not want to render an entire page and only s
 
 **Basic Narrative**: When designing a service or an API, you need a machine-readable way to transmit data. Typically, machine-readable formats have been just that—machine-readable. JSON strikes a balance between being machine-readable, but also human-readable. Because it's also more lightweight (read: less characters) it's typically faster because it requires less bandwidth to transmit.
 
-Before diving deep into what JSON is, let's take a look at it [here](https://birdeck-api.herokuapp.com/).
+Before diving deep into what JSON is, let's take a look at it [here](http://congress.api.sunlightfoundation.com/legislators/locate?zip=80229&apikey=e179a6973728c4dd3fb1204283aaccb5) or [here](https://birdeck-api.herokuapp.com/). What do you notice?
 
 ### What is JSON?
 
 * JSON stands for "JavaScript Object Notation"
 * It's a subset of the object syntax in JavaScript. All JSON is valid JavaScript, but not all JavaScript objects are valid JSON (functions, non-string keys, etc.)
-* It maps easily onto the data structures used by most programming languages (numbers, strings, booleans, nulls, arrays and hashes/dictionaries)
+* It maps easily onto the data structures used by most programming languages (numbers, strings, booleans, nulls, arrays and hashes/dictionaries)  
+* It is a string
 * It looks and acts similarly like Ruby's hash syntax
 * It's lightweight and easy for humans to read and write
 * Most programming languages have a library for reading and writing JSON structures
@@ -35,9 +36,9 @@ Before diving deep into what JSON is, let's take a look at it [here](https://bir
 
 JSON is commonly used by APIs to send data back and forth when you don't need/want to render a full web page.
 
-### Writing JSON
+### Analyzing JSON  
 
-JSON data structures are typically either a object (similar to a hash for the purposes of this discussion) or an array of objects or other values.
+JSON data structures are typically either an object (similar to a hash for the purposes of this discussion) or an array of objects or other values.
 
 JSON objects follow some rules:
 
@@ -74,7 +75,10 @@ var person = '{
 
 #### Lint Your JSON
 
-If you find yourself writing JSON (we'll do this when we get to AJAX), [JSONLint](http://jsonlint.com/) is a great way to validate and troubleshoot your JSON formatting.
+If you find yourself writing JSON (we'll do this when we get to AJAX), [JSONLint](http://jsonlint.com/) is a great way to validate and troubleshoot your JSON formatting. 
+
+#### Try it!  
+Hop into the JSONlinter and make yourself an object like above.  
 
 ### Where you'll find JSON
 
@@ -84,9 +88,7 @@ If you find yourself writing JSON (we'll do this when we get to AJAX), [JSONLint
 
 ### JSON versus XML
 
-Let's look at some data in JSON and XML.
-
-https://gist.github.com/stevekinney/210a7fb9c9b3c0be2e53
+Let's look at some data in [JSON and XML](https://gist.github.com/stevekinney/210a7fb9c9b3c0be2e53).
 
 Any differences you notice?
 
@@ -128,14 +130,16 @@ require 'json'
 
 my_hash = { hello: "goodbye" }
 puts JSON.generate(my_hash) #=> "{"hello":"goodbye"}"
-puts  {hello: "goodbye" }.to_json #=> "{"hello":"goodbye"}"
+puts  my_hash.to_json #=> "{"hello":"goodbye"}"
 ```
 
 ```rb
 require 'json'
 
 person = "{\"name\":\"Jennifer Johnson\",\"street\":\"641 Pine St.\",\"phone\":true,\"age\":50,\"pets\":[\"cat\",\"dog\",\"fish\"]}"
-puts JSON.parse(person) #=> {"name"=>"Jennifer Johnson", "street"=>"641 Pine St.", "phone"=>true, "age"=>50, "pets"=>["cat", "dog", "fish"]}
+parsed_person = JSON.parse(person) #=> {"name"=>"Jennifer Johnson", "street"=>"641 Pine St.", "phone"=>true, "age"=>50, "pets"=>["cat", "dog", "fish"]}
+puts parsed_person
+puts parsed_person['pets']
 ```
 
 ### Wrap Up

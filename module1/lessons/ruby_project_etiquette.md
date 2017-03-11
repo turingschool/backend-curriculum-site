@@ -32,11 +32,12 @@ Why should you care about Ruby convention?
 
 #### Directory Structure
 
-In a standard Ruby project, we tend to organize code into 3 subdirectories:
+In a standard Ruby project, we tend to organize code into 4 subdirectories:
 
 1. `lib` for source code
 2. `test` for test files
-3. `bin` for any "executable" files (you may not have encountered any of these yet; if you don't have them, leave `bin` out)
+3. `data` for data-related files (.txt, .csv, etc)
+4. `bin` for any "executable" files (you may not have encountered any of these yet; if you don't have them, leave `bin` out)
 
 Additionally, it's common for test files and source files to match relatively 1-to-1. Thus a class called `RotationGenerator` will generally be found in the source file at `lib/rotation_generator.rb` and will have a corresponding test file at `test/rotation_generator_test.rb`.
 

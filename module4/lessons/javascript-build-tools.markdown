@@ -5,22 +5,26 @@ length: 60 mins
 tags: javascript, gulp, webpack, grunt
 ---
 
-# Intro to JavaScript Build Tools
+Intro to JavaScript Build Tools
+===============
 
-## Goals
+Goals
+--------------
 
 By the end of this lesson, you will know/be able to:
 
-* Have an understanding of what client side build tools are
-* Have a basic understanding of what Webpack is and what it does for us
+*   Have an understanding of what client side build tools are
+*   Have a basic understanding of what Webpack is and what it does for us
 
-## Code Along - Setting Up Webpack
+Code Along - Setting Up Webpack
+-----------------
 
 We were provided a really cool and helpful [starter-kit for webpack](https://github.com/turingschool-examples/game-time-starter-kit). What we'll do now is walk through actually rebuilding a version of that starter kit, so we can understand the tool!
 
 If you get stuck at any point, go back and reference the [starter-kit for webpack](https://github.com/turingschool-examples/game-time-starter-kit) for hints!
 
-## Install Some Command Line Tools
+Install Some Command Line Tools
+--------------
 
 Let's install some command line tools.
 We'll also use local versions of these packages,
@@ -36,7 +40,7 @@ on your file system.
 
 You'll be able to run these tools with the `webpack`, `webpack-dev-server`, and `mocha` command respectively.
 
-## Creating your first Webpack project
+Creating your first Webpack project
 
 First, create a directory for your project:
 
@@ -46,7 +50,8 @@ cd webpack-walkthrough
 git init
 ```
 
-## Setting Up npm
+Setting Up npm
+-----
 
 At this point, we have a very simple project. Basically, we have a folder.
 Let's initialize `npm` and then install some dependencies.
@@ -60,11 +65,11 @@ npm init
 You'll be guided through a command-line setup "wizard", prompting
 you for some info on your project such as its:
 
-* Name
-* Author
-* Version
-* Description
-* License, etc.
+*   Name
+*   Author
+*   Version
+*   Description
+*   License, etc.
 
 For most of these items you can use the default option
 by pressing `Enter`.
@@ -77,17 +82,17 @@ npm install --save-dev webpack webpack-dev-server mocha mocha-loader chai
 
 We installed a few development dependencies:
 
-* [Webpack](http://webpack.github.io/)
-* [Webpack Development Server](http://webpack.github.io/docs/webpack-dev-server.html)
-* [Mocha](https://mochajs.org/)
-* A Webpack loader for Mocha
-* [Chai](http://chaijs.com/)
+*   [Webpack](http://webpack.github.io/)
+*   [Webpack Development Server](http://webpack.github.io/docs/webpack-dev-server.html)
+*   [Mocha](https://mochajs.org/)
+*   A Webpack loader for Mocha
+*   [Chai](http://chaijs.com/)
 
 ### Recommended: sane `.gitignore` defaults
 
-* [NPM](https://www.npmjs.com/) vs. [Bundler](http://bundler.io/) dependency storage
-* Git strategy -- keeping diffs meaningful and project churn low
-* Git problems caused by versioning dependencies or other frequently
+*   [NPM](https://www.npmjs.com/) vs. [Bundler](http://bundler.io/) dependency storage
+*   Git strategy -- keeping diffs meaningful and project churn low
+*   Git problems caused by versioning dependencies or other frequently
   changing files
 
 For these reasons, it's often helpful to start with
@@ -120,7 +125,8 @@ To install the dependencies:
 npm install
 ```
 
-## Filling out the Project
+Filling out the Project
+-----------
 
 Next, let's create some empty files and folders for our future code:
 
@@ -142,15 +148,16 @@ package.json
 README.md
 ```
 
-## Setting Up Our HTML
+Setting Up Our HTML
+---------------
 
 __Discussion: Application Entry Points__
 
-* What is needed to trigger an application to "run" in its
+*   What is needed to trigger an application to "run" in its
 most standard configuration?
-* How do we run a rails project? Its test suite?
-* System executables vs. Code files
-* What is the "executable" for a browser-based app?
+*   How do we run a rails project? Its test suite?
+*   System executables vs. Code files
+*   What is the "executable" for a browser-based app?
 
 You'll want an HTML page that loads up each of your bundles
 in the browser.
@@ -211,7 +218,8 @@ __test.html__
 Note that these pages won't work yet, since the bundles themselves
 have not yet been built.
 
-## Setting Up Webpack
+Setting Up Webpack
+----------------
 
 [Webpack](https://webpack.github.io/) is a module bundler.
 Think of it as the Asset Pipeline, but _way_ better and without Rails.
@@ -249,7 +257,8 @@ development server that will reload our changes with `webpack-dev-server`.
 
 Let's fire up `webpack-dev-server` and head over to `http://localhost:8080/`.
 
-## Our First Test
+Our First Test
+-------------
 
 In `test/index.js`, let's write our first test:
 
@@ -272,12 +281,12 @@ pull them all together.
 
 __Your Turn -- additional test files__
 
-* Create 2 additional test files in your `test` directory
-* To each one, add a basic example test similar to the one we
+*   Create 2 additional test files in your `test` directory
+*   To each one, add a basic example test similar to the one we
 added to `test/index.js`. Make sure your tests have different
 names so we can tell them apart.
-* Require your 2 new files from `index.js`
-* Refresh your `test.html` file and make sure all 3 tests appear
+*   Require your 2 new files from `index.js`
+*   Refresh your `test.html` file and make sure all 3 tests appear
 (the original one plus the 2 you added)
 
 ### A Quick Word on Testing Environments
@@ -296,9 +305,10 @@ You can run `mocha` to run your test suite on the command line, but any tests th
 
 __Your Turn__
 
-* Try running your tests from the command line using the `mocha` command
+*   Try running your tests from the command line using the `mocha` command
 
-## Additional Loaders
+Additional Loaders
+--------------
 
 Like the Asset Pipeline in Rails, Webpack can transpile assets during the build process. An example of this is if we want to write in SCSS. The browser can only run CSS, so we have to convert our assets for the browser.
 
@@ -338,17 +348,17 @@ SCSS files with `require('style.scss')`.
 
 __Your Turn: Using SCSS__
 
-* Create a new scss stylesheet file and add some styling to it:
+*   Create a new scss stylesheet file and add some styling to it:
 ```
 $color: #F00;
 body { background-color: $color; }
 ```
-* In your `index.js`, require this file
-* load your main page and see if your styles are present
+*   In your `index.js`, require this file
+*   load your main page and see if your styles are present
 
 Keep in mind:
 
-* Requiring files is path-relative to the file you are requiring _from_
+*   Requiring files is path-relative to the file you are requiring _from_
 (i.e. if you want to require a file in your project root into `lib/index.js`,
 you'll need to step up one directory level to access it)
 
@@ -423,4 +433,4 @@ Practice using the ES6 `let` feature in one of your tests.
 Make sure it still runs. (Recall that `let` works similarly to `var`, but
 has stricter rules around where the new variable will be in scope).
 
-[Babel]: http://babeljs.io
+[Babel](http://babeljs.io)

@@ -5,7 +5,7 @@ title: Contributing to Open Source
 
 ## Learning Goals
 
-* Students understand who contributes to open source
+*   Students understand who contributes to open source
 * Students understand why they should contribute to open source
 * Students understand the "short tail" of open source
 

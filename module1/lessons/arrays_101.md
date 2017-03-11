@@ -37,22 +37,23 @@ As we go, we'll work with an IRB session.
 -   In our irb session let's create some names:
 
     ```ruby
-    name_1 = "Ilana"
-    name_2 = "Beth"
+    name_1 = "Josh"
+    name_2 = "Mike"
     name_3 = "Lauren"
     ```
 -   Now that we have more than one name, we need a way to collect this data or create a collection. Let's set a variable named "names" to an empty array.
 
     ```ruby
-      name_1 = "Ilana"
-      name_2 = "Beth"
+      name_1 = "Josh"
+      name_2 = "Mike"
       name_3 = "Lauren"
+
       names = []
     ```
 
     *This is how we represent an empty array in ruby*
 
--   Count is a built-in ruby method. If our names array is empty, what would be expected to be returned from ```names.count```?
+-   `.count` is a built-in ruby method. If our names array is empty, what would be expected to be returned from ```names.count```?
 
 -   How do we get information into the empty array?
 
@@ -67,6 +68,8 @@ As we go, we'll work with an IRB session.
     ```
 
     This will always add to the end of the array.
+
+    > What are the differences between `<<` and `.push`, if any? Let's check the Ruby docs to find an answer.
 
     If we call ```names.count``` now, what do we expect to get?
 
@@ -103,7 +106,7 @@ As we go, we'll work with an IRB session.
 -   We can also pick a specific position to insert the item into:
 
     ```ruby
-      names.insert(2, "Horace")
+      names.insert(2, "Sally")
     ```
     Now what does our names array show?
 
@@ -111,7 +114,7 @@ As we go, we'll work with an IRB session.
 
 -   There are also a lot of other methods that we can call on an array. What do we think ```names.shuffle``` will do?
 
--   At this point, it is reasonable to wonder, how could we only get certain information from the array. Let's say that we only want to retrieve the first letter of each name. Now we have to go one by one through the array (what else is this called?) and return only the first letter of the name. How do we do that?
+-   At this point, it is reasonable to wonder how we could only get certain information from the array. Let's say that we only want to retrieve the first letter of each name. Now we have to go one by one through the array (what else is this called?) and return only the first letter of the name. How do we do that?
 
     Our names array already has names in it. Let's continue to use that. We need to make a new array that will hold our new collection of first letters.
 

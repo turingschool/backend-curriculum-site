@@ -1,4 +1,6 @@
 $(document).ready(function(){
+  $(".click-to-expand").siblings().hide()
+
   toggleMenuItems();
 })
 
