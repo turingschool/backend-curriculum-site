@@ -5,11 +5,13 @@ length: 30
 tags: git, github
 ---
 
-## Standards
+## Goals
 
 After this lesson, students should be able to:
 
 -  Configure their local git to access their remote GitHub account via the command line
+-  Configure global .gitignore files
+-  Personalize Slack profiles with GitHub information
 
 ## Introduction to Git
 
@@ -22,7 +24,6 @@ After this lesson, students should be able to:
 * Git's philosophy: never lose anything
 
 ### Preliminary `gitconfig` Setup
-
 
 First, let's install `git` via `brew`:
 
@@ -105,10 +106,128 @@ Are you sure you want to continue connecting (yes/no)?
 Hi YourUsername! You\'ve succesfully authenticated, but GitHub does not provide shell access.
 ```
 
-## Extensions
+## Global `.gitignore`
+
+From Terminal run:
+
+```
+touch ~/.gitignore
+git config --global core.excludesfile ~/.gitignore
+```
+
+Then open `~/.gitignore` with your text editor and paste and save the following:
+
+```ruby
+# Git #
+########
+*.orig
+
+# macOS #
+#########
+*.DS_Store
+.DS_Store?
+.AppleDouble
+.LSOverride
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Ignore Spring Files #
+#######################
+/spring/*.pid
+
+# Ignore RubyMine Files #
+#######################
+.idea/
+
+# Rails #
+#########
+*.rbc
+capybara-*.html
+.rspec
+/public/system
+*/coverage/
+/spec/tmp
+**.orig
+rerun.txt
+pickle-email-*.html
+.env
+
+# Logs and Databases #
+######################
+*.log
+*.sql
+*.sqlite
+/log
+/tmp
+/db/*.sqlite3
+/db/*.sqlite3-journal
+
+# Environment normalization #
+#############################
+/.bundle
+/vendor/bundle
+.powenv
+
+# if using bower-rails ignore default bower_components path bower.json files
+/vendor/assets/bower_components
+*.bowerrc
+bower.json
+
+# Ruby #
+########
+*.gem
+/.config
+/InstalledFiles
+/pkg/
+/spec/reports/
+/spec/examples.txt
+/test/tmp/
+/test/version_tmp/
+/tmp/
+.rvmrc
+
+# Ignore Byebug command history file.
+.byebug_history
+
+# Documentation cache and generated files #
+###########################################
+/.yardoc/
+/_yardoc/
+/doc/
+/rdoc/
+
+# Environment normalization #
+#############################
+/.bundle/
+/lib/bundler/man/
+
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Packages #
+############
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+```
+
+## Slack and Further Customizations
 
 If you've verified the above is complete, please work through the following:
 
--   Customize your terminal - colors/themes, default directory, aliases, etc.
 -   Customize your Slack profile (name and/or profile picture help your team identify you)
 -   Add your GitHub username/profile link to your Slack profile
+-   Customize your terminal - colors/themes, default directory, aliases, etc.

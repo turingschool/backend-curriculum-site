@@ -29,7 +29,7 @@ Students must earn a score of `3` or greater in *each* category of the [final as
 
 ### Professional Skills
 
-Students will be required to submit their deliverables as a pull request to the [Career Development Curriculum Repository](https://github.com/turingschool/career-development-curriculum/tree/master/deliverable_submissions)
+The professional skills curriculum is available [here](https://github.com/turingschool/career-development-curriculum/tree/master/module_three). Students will be required to submit their deliverables as a pull request to the [Career Development Curriculum Repository](https://github.com/turingschool/career-development-curriculum/tree/master/deliverable_submissions)
 
 Meg Stewart will review these deilverables, provide feedback, and alert the M3 instructional team of any deficiencies prior to portfolio reviews. Please provide a brief description of the career development work that you completed in your portfolios.
 

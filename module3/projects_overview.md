@@ -7,19 +7,15 @@ title: Module 3 Projects
 
 #### RailsEngine - Rails Internal API
 
-The goal of RailsEngine is to use Rails and ActiveRecord to build a JSON API
-which esposes the SalesEngine data schema. This is a pair project.
+The goal of RailsEngine is to use Rails and ActiveRecord to build a JSON API which uses the SalesEngine data schema. This is a pair project.
 
 #### Apicurious - Consuming a Third-Party API
 
-The goal of Apicurious is to be able to consume data from a third-party API
-such as twitter or github. This is an individual ungraded project.
+The goal of Apicurious is to be able to consume data from a third-party API such as twitter or github. This is an individual ungraded project.
 
 #### Cloney Island
 
-The goal of Cloney Island is to be able to take all the skills you have
-learned thus far, and apply to them a multi-tenant application. This is a team
-project consisting of 3-4 team members.
+The goal of Cloney Island is to be able to take all the skills you have learned thus far, and apply to them a multi-tenant application. This is a team project consisting of 3-4 team members.
 
 #### Self-Directed Personal Project
 

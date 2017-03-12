@@ -12,236 +12,43 @@ tags: apis, testing, requests, rails
 * Use request specs to cover an internal API
 * Feel comfortable writing request specs that deal with different HTTP verbs (GET, POST, PUT, DELETE)
 
-## Structure
+## Warmup
 
-### Block 1: 25 minutes
+* What is an API in the context of web development?
+* Why might we decide to expose information in a database we control through an API?
+* Why might we create an API *not* to be consumed by others?
+* What do we need to test in an API?
+* How will our tests be different from feature tests we have implemented in the past?
 
-* 5  - Conceptual discussion
-* 10 - Intro to Factory Girl
-* 5  - Application setup
-* 5  - Break
+## Overview
 
-### Block 2: 35 minutes
+* Review of New Tools
+* RSpec & Factory Girl Setup
+* Creating Our First Test and Factory
+* Api::V1::ItemsController#index
+* Api::V1::ItemsController#show
+* Api::V1::ItemsController#create
+* Api::V1::ItemsController#update
+* Api::V1::ItemsController#destroy
 
-* 10 - Implement the #index request spec
-* 5  - Implement the #index API endpoint
-* 10 - Workshop 1: Implementing the #show request spec
-* 5  - Demo: How to implement the #show request spec
-* 5  - Break
+[Slides](../slides/building_an_internal_api)
 
-### Block 3: 30 minutes
+## New Tools
 
-* 5  - Implement the #create request spec
-* 5  - Implement the #create API endpoint
-* 10 - Workshop 2: Implementing the #update request spec
-* 5  - Demo: How to implement the #update request spec
-* 5  - Recap
+### Testing
 
-## Discussion
+* `get 'api/v1/items'`: submits a get request to your application
+* `response`: captures the response to a given request
+* `JSON.parse(response)`: parses a JSON response
 
-### API vs Web App
+### Controller
 
-Where is the real "value" in an average web app?
-
-* Ultimately many web apps are just a layer on top of putting data into a database and taking it out again
-* APIs are a tool for exposing this data more directly than we do in a typical (HTML) user interface
-* What's differentiates an API from a UI -- Machine readability
-
-### Terminology
-
-* "Internal" API -- In this context we say this to mean an API within our own application, i.e. an API we are _providing_
-* This is in contrast to a "3rd party" API that we might consume from another entity such as twitter or instagram
-* Sometimes people say "internal API" to refer to an API that is reserved for internal use only (for example in a service-oriented architecture)
-* They might also have an "external" API hosted in the same application, which could be intended for use by other consumers outside of the organization
-
-### Topics
-
-* Good news -- testing an API is often simpler than testing a more complicated UI involving HTML (and possibly JS)
-* Generally when testing an API we are able to treat it in a more "functional" way -- that is, data in, data out
-* Request specs can often be a good fit for this, although we can use full-blown integration/feature tests as well
-* What are we looking for? Given the proper inputs (query parameters, headers) our application should provide the proper data (JSON, XML, etc.)
-* Looking for edge cases -- what about bad inputs? Bad request headers? Authentication failures?
-* Recall the main point about APIs -- they are designed to be machine readable rather than human readable. For this reason we will often care more about response codes with an API
-* Proper response code handling can be very useful to automated clients, since they can use this information to take correct action in response
-
-### Controller Specs vs Request Specs
-
-* A controller spec tests the controller actions `get :index`
-* A request spec tests the http request that is sent to our app `get "/api/v1/items"`
-* We want to replicate the way a user would be accessing our data, thus the request specs.
-
-## Factory Girl mini-lesson
-
-### Why Factory Girl?
-
-You've got to create dummy data anyway. We could use before(:each) or even before(:all) to create objects for our tests. We could also use fixtures since it comes with Rails, but both these options don't provide us an easy way to customize our data. We want to make our lives easy, so Factory Girl it is! Factory Girl is a fixtures replacement with a straightforward and easy definition syntax. With Factory Girl, you a re able to create a factory(ies), which is an object whose job it is to create other objects.
-
-### Factory  files
-
-Factory Girl gives us the ability to create factories. Factories are defined in ruby files, and enable you to create other objects.
-
-Consider this test:
-
-```ruby
-describe "A Test" do
-  it "tests somethings" do
-    item = Item.create(name: "Some Item", description: "Some Description")
-
-    expect(Item.last.id).to eq(item.id)
-  end
-end
-```
-
-With only one test, it might not seem daunting to explicitly create an object. But what happens when you need to create this object for multiple tests? Sure, you could create a before(:each) block, but then what happens when you need to customize the object and say, give it a different name. Or maybe you want to create multiple objects for only a specific test. You could end up with something like this:
-
-```ruby
-describe "A Test" do
-  before(:each) do
-    item = Item.create(name: "Some Item", description: "Some Description")
-  end
-
-  it "tests somethings" do
-    expect(Item.last.id).to eq(item.id)
-  end
-
-  it "tests something again" do
-    item2 = Item.create(name: "Another Item", description: "Another Item Description")
-
-    expect(item.name).to_not eq(item2.name)
-  end
-end
-```
-
-With Factory Girl we could create an Item Factory and refactor our code to look like this:
-
-```ruby
-describe "A Test" do
-  it "tests somethings" do
-    item = create(:item)
-    expect(Item.last.id).to eq(item.id)
-
-    item2 = create(:item, name: "Another Item", description: "Another Item")
-    expect(item.name).to_not eq(item2.name)
-  end
-end
-```
-
-### Setting up Factory Girl
-
-In your Gemfile:
-
-```ruby
-gem "factory_girl_rails"
-```
-
-```sh
-$ bundle
-$ mkdir spec/support/factory_girl.rb
-```
-
-Inside of the factory_girl.rb file:
-
-```ruby
-RSpec.configure do |config|
-  config.include FactoryGirl::Syntax::Methods
-end
-```
-
-Now your rails app is configured to generate factories anytime you create a model. The factories will be generated in `spec/factories`. Additionally, if you want to manually create a factory, you can create a file in the `spec/factories` folder or create an all encompassing factory file `spec/factories.rb`, though this isn't recommended if you plan on having a large list of factories.
-
-Here is an example factory that would automatically be generated for an Item model that has the attributes of name(type: text) and description(type: string):
-
-```ruby
-FactoryGirl.define do
-  factory :item do
-    name "MyText"
-    description "MyString"
-  end
-end
-```
-
-Note that the default name for the attributes is `My` and the data type of that attribute. You can change these values to reflect whatever your heart desires.
-
-#### Factory Girl Usage
-
-Let's continue to use this factory as an example.
-
-```ruby
-FactoryGirl.define do
-  factory :item do
-    name "MyText"
-    description "MyString"
-  end
-end
-```
-
-With this factory we are now able to do the following things:
-
-```ruby
-#Item that is created but not saved to the database:
-item = build(:item)
-
-# Saved item:
-item = create(:item)
-```
-
-We can also override attributes in factories like so:
-
-```ruby
-# override one attribute
-item = create(:item, name: "Renamed Item")
-
-# override all attributes
-item = create(:item, name: "Renamed Item", description: "Renamed Description")
-```
-
-**Building or Creating Multiple Records**
-
-```ruby
-built_items = build_list(:item, 30)
-created_items = create_list(:item, 30)
-```
-
-**Associations**
-
-We can also have Factory Girl create factories with associations. Let's say we have users, and items belong to a user.
-
-```ruby
-FactoryGirl.define do
-  factory :user do
-    name: 'bieber'
-  end
-
-  factory :item do
-    name: "item"
-    description: "description"
-    user
-  end
-end
-```
-
-Now when you create an item, a user will be associated with that item.
-
-Go forth and conquer.
-
-
-## Workshops
-
-### Workshop 1: Implementing the #show controller test
-
-* Can you implement a controller test that sends a request to the show action in the items controller?
-* You need to make sure that the response is successful.
-* You also need to make sure that the content that you are expecting is there.
-
-### Workshop 2: Implementing the #update controller test
-
-* Can you implement a request spec that sends a request to the update action in the items controller?
-* You need to make sure that the response is successful.
-* You also need to make sure that the content that you are expecting is there.
+* `render`: tells your controller what to render as a response
+* `json: Item.all`: hash argument for render - converts Item.all to valid JSON
 
 ## Procedure
 
-### 0. Setup
+### 0. RSpec & Factory Girl Setup
 
 Let's start by creating a new Rails project. If you are creating an api only Rails project, you can append `--api` to your rails new line in the command line.
 Read [section 3 of the docs](http://edgeguides.rubyonrails.org/api_app.html) to see how an api-only rails project is configured.
@@ -284,8 +91,7 @@ Inside of the rails_helper.rb file:
 require 'support/factory_girl'
 ```
 
-
-### 1. TDD, Yeah you know me.
+### 1. Creating Our First Test
 
 Now that our configuration is set up, we can start test driving our code. First, let's set up the test file.
 In true TDD form, we need to create the structure of the test folders ourselves. Even though we are going to be creating controller files for
@@ -312,16 +118,18 @@ describe "Items API" do
   it "sends a list of items" do
     create_list(:item, 3)
 
-    get '/api/v1/items
+    get '/api/v1/items'
 
     expect(response).to be_success
   end
 end
 ```
 
+### 2. Creating Our First Model, Migration, and Factory
+
 Let's make the test pass!
 
-The first error that we should receive is 
+The first error that we should receive is
 
 ```sh
 Failure/Error: create_list(:item, 3) ArgumentError: Factory not registered: item
@@ -375,7 +183,7 @@ FactoryGirl.define do
 end
 ```
 
-### 2. Implement Api::V1::ItemsController#index
+### 3. Api::V1::ItemsController#index
 
 We're TDD'ing so let's run our tests again.
 
@@ -387,6 +195,7 @@ This is because we haven't created our controller yet so let's create it! Keep i
 $ mkdir -p app/controllers/api/v1
 $ touch app/controllers/api/v1/items_controller.rb
 ```
+
 We can add the following to the controller we just made:
 
 ```rb
@@ -423,7 +232,6 @@ will respond with `Status 204 No Content`. Since it's a `2xx` status code, it is
 
 Now lets see if we can actually get some data.
 
-
 ```rb
 # spec/requests/api/v1/items_request_spec.rb
 require 'rails_helper'
@@ -432,7 +240,7 @@ describe "Items API" do
   it "sends a list of items" do
      create_list(:item, 3)
 
-      get '/api/v1/items
+      get '/api/v1/items'
 
       expect(response).to be_success
 
@@ -486,7 +294,7 @@ end
 
 Run your tests again and they should still be passing.
 
-### 3. Implement ItemsController#show test
+### 4. ItemsController#show
 
 Now we are going to test drive the `/api/v1/items/:id` endpoint. From the `show` action, we want to return a single item.
 
@@ -534,7 +342,7 @@ end
 
 Run the tests and... we should have two passing tests.
 
-### 4. Implement Api::V1::ItemsController#create
+### 5. ItemsController#create
 
 Let's start with the test. Since we are creating a new item, we need to pass data for the new item via the HTTP request.
 We can do this easily by adding the params as a key-value pair. Also note that we swapped out the `get` in the request for a `post` since we are creating data.
@@ -593,7 +401,7 @@ private
 
 Run the tests and we should have 3 passing tests.
 
-### 5. Implement Api::V1::ItemsController#update
+### 6. Api::V1::ItemsController#update
 
 Like before, let's add a test.
 
@@ -634,7 +442,7 @@ def update
 end
 ```
 
-### 6. Implement Api::V1::ItemsController#destroy
+### 7. Api::V1::ItemsController#destroy
 
 Ok, last endpoint to test and implement: destroy!
 
