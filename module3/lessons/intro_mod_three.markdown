@@ -2,7 +2,7 @@
 
 ## Introductions
 
-Josh, Sally, and Casey will introduce themselves and share their story.
+Sal and Ali will introduce themselves and share their story.
 
 ## Expectations
 
@@ -34,7 +34,4 @@ The best developers ask good questions. How well do you execute [Stack Overflow'
 
 * Room setup:
   * Keep the top of the cubbies clear.
-  * Waiting on taller legs for standing desks.
-  * Students can set up the pairing stations.
   * We want to designate input 1 for instructors so it's easy for guest lecturers to get set up. Please avoid changing HDMI inputs.
-  * Remove stickers from your chair and desk.
