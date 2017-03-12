@@ -26,8 +26,8 @@ You are going to build a simple calorie tracker.
 
 ## Challenges
 
+- Figure your life out without a back end
 - Be able to organize your JS across different files
-- Store stuff in local storage, without any kind of database
 - Handle events
 - Handle events on DOM elements that didn't exist at load
 - Manage state via jQuery
@@ -57,20 +57,23 @@ Your requirements for the application are detailed in the cards you've imported 
 - View calorie calculations in diary
 - View different days
 - Data persists across refreshes
+- EXTENSION: Build an admin panel to manage data
 
 ### Getting your project started
 
 - Follow the instructions on the [Quantified Self Starter Kit](https://github.com/turingschool-examples/quantified-self-starter-kit) to get your codebase going
 - Create a new project, or have one created for you. Not sure yet.
-- Import [this CSV](quantified-self-tracker-stories.csv) to your project to get all the cards in there. Import is found under settings.
+- Import [this CSV](./quantified-self-tracker-stories.csv) to your project to get all the cards in there. Import is found under settings.
+- If you'd like to attempt the extension, import [this other CSV](./quantified-self-extension-stories.csv).
 
-### Important notes about expectations
+### Expectations
 
 - Allowed libraries are jQuery, lodash/underscore, and moment.
 - Logic like sorting, filtering, local storage and validation should be done without using another library
 - `<table>`s are ok for the actual tables. Try not to use them for the layout.
 - All elements from the mockup should be represented in your app, even if the styling or layout is different.  Unless it is mentioned specifically in the user stories, colors and other styling are up to you. I'll be just fine if it looks exactly like the mockup though.
 - Details, Details, Details!!! If it's in the user stories, I'm looking for it in your app. And ask before you add any functionality. Additional functionality in the evaluation is usually just grounds for a stern look, but if you "improve" functionality and don't ask about it, it's considered incorrect.
+- SOLID is mentioned in the rubric. You've been applying SOLID in Ruby, without really knowing it, and they apply to all programming languages. Just google it.
 
 ### Tips for success
 
@@ -99,9 +102,9 @@ You will be subjectively graded by an instructor on the following criteria:
 - 2: More functionality implemented than tested or only uses one test type
 - 1: Team fails to effectively test the application.
 
-### HTML/CSS/UI
+### HTML/UI
 
-- 4: Team used CSS preprocessor and put some effort into styling. HTML features unique IDs, classes for DOM traversal, and data namespace attributes
+- 4: Team put some effort into styling. HTML features unique IDs, classes and data attributes for DOM traversal.
 - 3: Application is not confusing to use. HTML classes and IDs are kebab case.
 - 2: HTML is greatly lacking in standards compliance. UI is confusing or very buggy.
 - 1: Application is unusable
@@ -109,7 +112,7 @@ You will be subjectively graded by an instructor on the following criteria:
 ### JS syntax and Style
 
 - 4: Javascript features explicit DOM traversal (not using closest), demonstrates great OOP concepts, and uses named and anonymous functions when appropriate
-- 3: Uses classes as modules. DRY code where appropriate. Attention payed to indentation and naming.
+- 3: Code logically divided into files. Developer can show examples of some SOLID concepts. Attention payed to indentation and naming.
 - 2: Javascript is noticeably lacking in the above concepts.
 - 1: Team has not applied any style concepts from class or from Ruby background
 
@@ -122,7 +125,7 @@ You will be subjectively graded by an instructor on the following criteria:
 
 ### Project Management
 
-- 4: Team is using a project management tool and updating their progress daily. User stories are clearly written.
+- 4: Team is using a project management tool and updating their progress daily. Team is approving each other's  work. Team is documenting conversations and conclusions on relevant cards.
 - 3: Team is using a project management tool to keep their project organized. Nearly every card has been turned into user stories.
 - 2: Team is using a project management tool but didn't update the progress frequently. Many cards have no changes made to them
 - 1: Team failed to use a project management tool to track its progress.

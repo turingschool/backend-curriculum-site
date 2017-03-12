@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Quantified Self
-subheading: A calorie tracker project for the fourth module
+title: Quantified Self Back End
+subheading: Quantified Self Grows Up
 ---
 
 ## Intro
@@ -10,7 +10,7 @@ Local storage is used in the real world, mostly for offline functionality, and s
 
 ## Learning Goals
 
-- Student will experience API implementation in something other than Ruby/Rails
+- Student will experience service implementation in something other than Ruby/Rails
 - Student will write JavaScript on the back end in Node
 - Student will design, build and test a service using a Express, a simple framework for Node
 - Student will use SQL for all database communication
@@ -18,13 +18,22 @@ Local storage is used in the real world, mostly for offline functionality, and s
 ## Challenges
 
 - Breaking down large requirements into stories
-- Replacing Local Storage with an API
+- Replacing one source of truth with another (Local Storage with an API), without changing functionality
 - Using SQL for all database communication
 - Dealing with development and production environments between two codebases
 
 ## Requirements
 
-Build a service in Node that will store all of the Quantified Self data. The service will serve and consume JSON. Remove all instances of local storage from your application. Replace them with AJAX calls to your new service. Besides some slight delay, user experience should not change.
+1. Build a service in Node that will store all of the Quantified Self data.The service will serve and consume JSON.
+2. Remove all instances of local storage from your application. Replace them with AJAX calls to your new service.
+3. Document a plan in the form of a schema, API docs and user stories.
+
+Besides some slight HTTP request/response delay, functionality and user experience should not change.
+
+## Expectations
+
+- These requirements are sparse. That's partially because it's a pretty straight forward request, and partially because I want you to practice breaking down a big problem into smaller tasks.
+- Use whatever you've used in the past for schema, documentation and user stories. Or something new you've been wanting to try out. These things are graded on completion. Probably want to agree on format in your DTR.
 
 ## Rubric
 
