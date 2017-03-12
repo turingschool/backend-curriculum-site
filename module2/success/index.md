@@ -86,147 +86,144 @@ The following list includes everything you will see throughout the module. You s
   - Request (Functional)
   - URI/URL (Functional)
   - Headers (Familiarity)
-  - Body
-  - Response
-  - Redirect / Render
-  - Status Codes
-  - What the common codes represent: `200`, `302`, `404`, `500` etc.
-  - 1xx: Informational - Request received, continuing process
+  - Body (Familiarity)
+  - Response (Functional)
+  - Redirect / Render (Mastery)
+  - Status Codes (Functional)
+  - What the common codes represent: `200`, `302`, `404`, `500` etc. (Functional)
+  - 1xx: Informational - Request received, continuing process (Functional)
   - 2xx: Success - The action was successfully received,
-    understood, and accepted
+    understood, and accepted (Functional)
   - 3xx: Redirection - Further action must be taken in order to
-    complete the request
+    complete the request (Functional)
   - 4xx: Client Error - The request contains bad syntax or cannot
-    be fulfilled
+    be fulfilled (Functional)
   - 5xx: Server Error - The server failed to fulfill an apparently
-    valid request
-  - Body
-  - State Transfer
-  - Sessions
-  - Cookies
-  - Flashes
-  - 7 HTTP Verbs
-  - Describe the HTTP request/response cycle
-  - Explain what happens when a client visits a website
+    valid request (Functional)
+  - State Transfer (Familiarity)
+  - Sessions (Functional)
+  - Cookies (Functional)
+  - Flashes (Mastery)
+  - 7 HTTP Verbs (Mastery)
+  - Describe the HTTP request/response cycle (Mastery)
+  - Explain what happens when a client visits a website (Functional)
 1. #### HTML/CSS
   - Understand basic html tags/elements/nodes including but not limited to:
-  - Forms `<form action='/path_to_submit' method='put'></form>`
-  - Why do we need forms?
-  - The name attribute represents what value comes through to params.
-  - The value attribute represents what the the content of the form field is.
-  - The innate verbs associated with specific tags
-  - link: `get`
-  - button: `post`
-  - form:  `put`
-  - Divs `<div></div>`
-  - Paragraphs `<p></p>`
-  - Headers `<h1></h1>`, `<h2></h2>` ... `<h6></h6>` etc
-  - Lists `<ul></ul>`, `<ol></ol>`, `<li></li>`
-  - Tables `<table></table>`, `<tr></tr>`, `<th></th>`, `<td></td>`
-  - Add classes and ids to html tags/elements/nodes
-  - Send params through url: `http://example.com/things?param1=valueOfP1&param2[nested1]=value-of-nested1&param2[nested2]=nested-value-2`
-  - Target specific HMTL content with css selectors:
-  - `.class_name`
-  - `#name_of_id`
-  - `div`
-  - `div p`
-  - `div.with_this_class_name`
-  - `tr#with_id_named_this`
-  - `ul li:nth-child(3)`
-  - Explain hierarchy/ancestry of HTML
+  - Forms `<form action='/path_to_submit' method='put'></form>` (Functional)
+  - Why do we need forms? (Mastery)
+  - The name attribute represents what value comes through to params. (Mastery)
+  - The value attribute represents what the the content of the form field is. (Mastery)
+  - The innate verbs associated with specific tags. link: `get` (Mastery), button: `post` (Mastery), form: `put` (Mastery)
+  - Divs `<div></div>` (Mastery)
+  - Paragraphs `<p></p>` (Mastery)
+  - Headers `<h1></h1>`, `<h2></h2>` ... `<h6></h6>` etc (Mastery)
+  - Lists `<ul></ul>`, `<ol></ol>`, `<li></li>` (Mastery)
+  - Tables `<table></table>`, `<tr></tr>`, `<th></th>`, `<td></td>` (Mastery)
+  - Add classes and ids to html tags/elements/nodes (Mastery)
+  - Send params through url: `http://example.com/things?param1=valueOfP1&param2[nested1]=value-of-nested1&param2[nested2]=nested-value-2`  (Mastery)
+  - Target specific HMTL content with css selectors: (Mastery)
+  - `.class_name` (Mastery)
+  - `#name_of_id` (Mastery)
+  - `div` (Mastery)
+  - `div p` (Mastery)
+  - `div.with_this_class_name` (Mastery)
+  - `tr#with_id_named_this` (Mastery)
+  - `ul li:nth-child(3)` (Functioanl)
+  - Explain hierarchy/ancestry of HTML (Functional)
 1. #### Model Testing
-  - RSpec syntax
-  - data preparation/manipulation
-  - validation testing
-  - relationship testing
-  - reading errors
+  - Basic RSpec syntax (Mastery)
+  - data preparation/manipulation (Mastery)
+  - validation testing (Mastery)
+  - relationship testing (Mastery)
+  - reading errors (Mastery)
 1. #### Feature Testing
-  - RSpec syntax
-  - Capybara methods
-  - `within`, `find`, `visit`, `page`, `current_path`, `have_content`, `click_on` and more
+  - Basic RSpec syntax (Mastery)
+  - Capybara methods (Functional)
+  - `within`, `find`, `visit`, `page`, `current_path`, `have_content`, `click_on` and more (Mastery)
   - Target specific HMTL content with css selectors:
-  - `.class_name`
-  - `#name_of_id`
-  - `div`
-  - `div p`
-  - `div.with_this_class_name`
-  - `tr#with_id_named_this`
-  - `ul li:nth-child(3)`
-  - Big picture. What needs to be tested here?
-  - Data preparation. Least necessary data to represent functionality
-  - Feature Exercise (visiting, clicking around, interacting as a user would interact)
-  - Expectation syntax/methods
+  - `.class_name` (Mastery)
+  - `#name_of_id` (Mastery)
+  - `div` (Mastery)
+  - `div p` (Mastery)
+  - `div.with_this_class_name` (Mastery)
+  - `tr#with_id_named_this` (Mastery)
+  - `ul li:nth-child(3)` (Functional)
+  - Big picture. What needs to be tested here? (Functional)
+  - Data preparation. Least necessary data to represent functionality (Functional)
+  - Feature Exercise (visiting, clicking around, interacting as a user would interact) (Functional)
+  - Expectation syntax/methods (Functional)
 1. #### SQL
-  - Writing basic sql select statements
-  - Writing insertion statements
-  - Calculation statements
-  - Joins
-  - Group
-  - Order
-  - .schema
+  - Writing basic sql select statements (Mastery)
+  - Writing insertion statements (Functional)
+  - Calculation statements (Functional)
+  - Joins (Familiarity)
+  - Group (Familiarity)
+  - Order (Familiarity)
+  - .schema (Familiarity)
 1. #### Database Planning, Migrations and Relationships
-  - Design database schemas to represent relationships between objects
-  - Clearly articulate a relational database structure
-  - one-to-one, one-to-many, many-to-many relationships
-  - Write an ERD for Teams, Players, Coaches, Games
-  - What tables and models do we need and what migrations do we need to get there?
-  - Rails CLI generator commands
-  - What methods do we need for relationships. has_many, belongs_to, through
-  - What methods do we get when we set up relationships?
-  - Presence and Uniqueness Validations
+  - Design database schemas to represent relationships between objects (Functional)
+  - Clearly articulate a relational database structure (Functional)
+  - one-to-one, one-to-many, many-to-many relationships (Mastery)
+  - Write an ERD for Teams, Players, Coaches, Games (Mastery)
+  - What tables and models do we need and what migrations do we need to get the above schema in our db? (Mastery)
+  - Rails CLI generator commands (Functional)
+  - What methods do we need for relationships. has_many, belongs_to, through (Mastery)
+  - What methods do we get when we set up relationships? (Mastery)
+  - Presence and Uniqueness Validations (Mastery)
 1. #### Views
-  - Know enough HTML to create headers, paragraphs, tables, and lists in a view
-  - Craft wireframes for
-  - How to iterate over a collection of ActiveRecord objects in a view
-  - How to use erb tags in a view to display information.
-  - Difference between `<%= %>` and `<% %>`
-  - How to create a form in a view using Ruby, including a form using nested resources.
+  - Know enough HTML to create headers, paragraphs, tables, and lists in a view (Mastery)
+  - Craft wireframes for view (Functional)
+  - How to iterate over a collection of ActiveRecord objects in a view (Mastery)
+  - How to use erb tags in a view to display information. (Mastery)
+  - Difference between `<%= %>` and `<% %>` (Mastery)
+  - How to create a form in a view using Rails, including a form using nested resources. (Mastery / Functional)
+  - Template a view (Mastery)
+  - Make a partial (Functional)
 1. #### Controllers
-  - Inheritance
-  - ApplicationController
-  - `helper_method`
-  - CRUD actions: `index`, `show`, `new`, `create`, `edit`, `update`, `destroy`
-  - Custom actions from routes
-  - Inspect and understand params. Where they come from and what they contain.
-  - How to prepare data for your views.
-  - How to use strong params.
-  - Refactoring best practice for MVC. Fat models, skinny controllers
-  - Strong Params
+  - Inheritance (Functional)
+  - ApplicationController (Functional)
+  - `helper_method` (Mastery)
+  - CRUD actions: `index`, `show`, `new`, `create`, `edit`, `update`, `destroy` (Mastery)
+  - Custom actions from routes (Functional)
+  - Inspect and understand params. Where they come from and what they contain. (Mastery)
+  - How to prepare data for your views. (Mastery)
+  - How to use strong params. (Mastery)
+  - Refactoring best practice for MVC. Fat models, skinny controllers (Mastery)
 1. Models
-  - ActiveRecord Model vs PORO
-  - Inheritance
-  - Class Methods
-  - Scopes
-  - Instance Methods
-  - ActiveRecord Methods
-  - Refactoring best practice for MVC. Fat models, skinny controllers
+  - ActiveRecord Model vs PORO (Functional)
+  - Inheritance (Mastery)
+  - Class Methods (Mastery)
+  - Scopes (Functional)
+  - Instance Methods (Mastery)
+  - ActiveRecord Methods (Mastery/Functional)
+  - Refactoring best practice for MVC. Fat models, skinny controllers (Mastery)
 1. #### Routes
-  - 7 Restful routes - verb path combinations - for a resource
-  - How to create routes using `resources`
-  - How to handwrite a route
-  - route_helpers ex. `edit_item_path(item)`
-  - Explain what each column of the `rake routes` output represents and allows the developer to do.
-  - `:only` `:except`
-  - Route modifiers: `:module`, `:path`, `:scope`
-  - `namespace` and nested `resources`
+  - 7 Restful routes - verb path combinations - for a resource (Mastery)
+  - How to create routes using `resources` (Mastery)
+  - How to handwrite a route (Mastery)
+  - route_helpers ex. `edit_item_path(item)` (Mastery)
+  - Explain what each column of the `rake routes` output represents and allows the developer to do. (Mastery)
+  - `:only` `:except` (Mastery)
+  - Route modifiers: `:module`, `:path`, `:scope` (Functional)
+  - `namespace` and nested `resources` (Highly Functional)
 1. #### ActiveRecord
-  - ActiveRecord query methods. Differences between `find` `find_by` and `where`
-  - Difference between class and instance methods
-  - Calculation methods
-  - Creating associated records with AR. Connecting records with AR methods
-  - Understand how AR `create` and a `new` instance + `save` are related
-  - Knowing where and when to include an instance method for an ActiveRecord model
-  - What methods do we need for relationships (has_many, belongs_to, through)
-  - What methods do we get when we set up relationships
-  - Validations - Presence, Uniqueness
-  - Use AR relationship methods within ActiveRecord/Model instance methods
-  - Use AR relationship methods within ActiveRecord/Model class methods
-  - Scopes
+  - ActiveRecord query methods. Differences between `find` `find_by` and `where` (Mastery)
+  - Difference between class and instance methods (Mastery)
+  - Calculation methods (Functional)
+  - Creating associated records with AR. Connecting records with AR relationships & methods (Mastery)
+  - Understand how AR `create` and a `new` instance + `save` are related (Mastery)
+  - Knowing where and when to write an instance method for an ActiveRecord model (Mastery)
+  - What methods do we need for relationships (has_many, belongs_to, through) (Mastery)
+  - What methods do we get when we set up relationships (Mastery)
+  - Validations - Presence, Uniqueness (Mastery)
+  - Use AR relationship methods within ActiveRecord/Model instance methods (Mastery)
+  - Use AR relationship methods within ActiveRecord/Model class methods (Mastery)
+  - Scopes (Functional)
 1. #### Authentication
-  - BCrypt
-  - Hashing Algorithms
-  - has_secure_password
+  - BCrypt (Functional)
+  - Hashing Algorithms (Familiarity)
+  - has_secure_password (Functional)
 1. #### Authorization
-  - before_action
-  - Roles
-  - Controller Inheritance
+  - before_action (Mastery)
+  - Roles (Functional)
+  - Controller Inheritance (Functional)
