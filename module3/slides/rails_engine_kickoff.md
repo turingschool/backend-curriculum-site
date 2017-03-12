@@ -18,7 +18,7 @@
 
 * Build Single-Responsibility controllers.
 * Provide a well-designed and versioned API.
-* Use controller tests to drive your design.
+* Use request tests to drive your design.
 * Use Ruby and ActiveRecord to perform more complicated business intelligence.
 
 ---
