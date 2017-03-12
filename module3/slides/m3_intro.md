@@ -88,4 +88,3 @@
 # Success
 
 * Review success document
-* Start portfolio
