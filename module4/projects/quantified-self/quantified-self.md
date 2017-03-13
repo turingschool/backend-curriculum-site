@@ -61,7 +61,7 @@ Your requirements for the application are detailed in the cards you've imported 
 
 ### Getting your project started
 
-- Follow the instructions on the [Quantified Self Starter Kit](https://github.com/turingschool-examples/quantified-self-starter-kit) to get your codebase going
+- Follow the instructions on the [Quantified Self Starter Kit](https://github.com/turingschool-examples/quantified-self-os) to get your codebase going
 - Create a new project, or have one created for you. Not sure yet.
 - Import [this CSV](./quantified-self-tracker-stories.csv) to your project to get all the cards in there. Import is found under settings.
 - If you'd like to attempt the extension, import [this other CSV](./quantified-self-extension-stories.csv).
