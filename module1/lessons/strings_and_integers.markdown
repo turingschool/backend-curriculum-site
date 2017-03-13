@@ -5,19 +5,6 @@ tags: basics, strings, Ruby in 100 Minutes
 length: 90
 ---
 
-## Learning Goals
-
-* define "string"
-* define "integer"
-* define "float"
-* assign values to variables using proper naming conventions
-* use string concatenation with literal strings and variables
-* use string interpolation with variables
-* call key methods on strings
-* call key methods on integers and floats
-* read Ruby documentation
-
-
 ### Strings
 
 What is a string?

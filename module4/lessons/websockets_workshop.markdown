@@ -4,10 +4,10 @@ title: Working with WebSockets
 subheading: JavaScript WebSockets
 ---
 
-
 In this tutorial, we'll be building a little, real-time application using WebSockets. The application is called "Ask the Audience". Basically, an instructor or someone else can pose a question to the class and the class can vote from one of four options.
 
-## Getting Your New Project Off the Ground
+Getting Your New Project Off the Ground
+--------------
 
 First things first, let's make a new directory for our project and `cd` into it.
 
@@ -38,14 +38,15 @@ npm install --save express socket.io lodash
 
 You're ready to get started.
 
-## Setting Up Your Server
+Setting Up Your Server
+-------------
 
 We'll be using Express to create a simple web server.
 It will have three main jobs:
 
-1. Serve static assets
-2. Host our incoming Socket.io `ws://` connections
-3. Route any request for `/` to `/index.html`
+1.  Serve static assets
+2.  Host our incoming Socket.io `ws://` connections
+3.  Route any request for `/` to `/index.html`
 
 Recall that Express is a Node library for running basic
 HTTP servers.
@@ -193,7 +194,9 @@ Check it out by visiting `http://localhost:3000/`.
 You may want to add something to your `index.html` file
 so you can see the changes taking effect.
 
-## Setting Up Socket.io
+Setting Up Socket.io
+--------------
+
 
 Socket.io is a popular Node library for working with websockets,
 and we'll be using it for this purpose in our application.
@@ -253,7 +256,8 @@ the provided `socket.io` client-side Javascript,
 and sourcing a `client.js` file where we'll keep all of our
 own client side code.
 
-## Communication Between the Client and Server
+Communication Between the Client and Server
+----------------
 
 We have to initiate a WebSocket connection from the client. Let's establish a connection from `client.js`.
 
@@ -383,8 +387,8 @@ io.on('connection', function (socket) {
 
 To review:
 
-* `socket.emit` emits to a single client
-* `io.sockets.emit` emits to all connected clients
+*   `socket.emit` emits to a single client
+*   `io.sockets.emit` emits to all connected clients
 
 Alright, so now we need to receive that message on the client-side. Let's make another simple DOM node to store our status message.
 
@@ -555,7 +559,8 @@ socket.on('voteCount', function (votes) {
 ```
 Open up a few tabs and cast some votes. Verify that the updated tally is correctly logging to the console.
 
-## Your Turn
+Your Turn
+--------------
 
 This is where I leave you, padawan.
 
@@ -563,14 +568,14 @@ Right now, we're logging to the console. But we're not updating our interface. I
 
 ### Basic Functionality
 
-* Render the current tally of votes in the DOM.
-* Emit a event to the user's individual socket that lets them know when their vote has been cast (and what vote they cast).
-* Update the DOM to show the user what vote they have currently cast (based on the previous step).
+*   Render the current tally of votes in the DOM.
+*   Emit a event to the user's individual socket that lets them know when their vote has been cast (and what vote they cast).
+*   Update the DOM to show the user what vote they have currently cast (based on the previous step).
 
 ### User Experience
 
-* Can you create an interface that is pleasant to use?
-* Can you visualize the votes that have been cast?
+*   Can you create an interface that is pleasant to use?
+*   Can you visualize the votes that have been cast?
 
 ### Deployment
 
@@ -642,6 +647,6 @@ describe('undefined routes', function(){
 [Socket.IO Client](https://github.com/socketio/socket.io-client)
 
 Some blogs/resources:
-- [Testing SocketIO](http://liamkaufman.com/blog/2012/01/28/testing-socketio-with-mocha-should-and-socketio-client/)
-- [Testing Socketio Apps](https://dzone.com/articles/testing-socketio-apps)
-- [An Example on Github](https://github.com/liamks/Testing-Socket.IO)
+-   [Testing SocketIO](http://liamkaufman.com/blog/2012/01/28/testing-socketio-with-mocha-should-and-socketio-client/)
+-   [Testing Socketio Apps](https://dzone.com/articles/testing-socketio-apps)
+-   [An Example on Github](https://github.com/liamks/Testing-Socket.IO)

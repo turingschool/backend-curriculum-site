@@ -3,9 +3,7 @@ layout: page
 title: Dev Environment Setup
 ---
 
-Before we can do much programming, we need to make sure our machines
-are properly configured with a functional Development environment.
-Let's walk through this process now to make sure we have what we need.
+Before we can do much programming, we need to make sure our machines are properly configured with a functional development environment. Let's walk through this process now to make sure we have what we need.
 
 Here are the basics we're going to go over:
 
@@ -28,14 +26,11 @@ If you don't already have a favorite text editor, we recommend using [Atom](http
 
 ### Terminal
 
-The terminal is a textual interface to your computer. Before Graphical User
-Interfaces were invented, this was the only way one could interact with a computer.
+The terminal is a textual interface to your computer. Before Graphical User Interfaces were invented, this was the only way one could interact with a computer.
 
-Nowadays, developers still prefer this interface due to its power, flexibility,
-and speed.
+Nowadays, developers still prefer this interface due to its power, flexibility, and speed.
 
-A Terminal allows you to navigate around folders (called directories) and run programs.
-For example, when we run `ruby`, we are running that program from the terminal.
+A Terminal allows you to navigate around folders (called directories) and run programs. For example, when we run `ruby`, we are running that program from the terminal.
 
 To launch the terminal, open Spotlight using `Command-Spacebar`, type "terminal", then enter.
 
@@ -47,16 +42,11 @@ One of the things you'll do frequently is open an entire folder (like when worki
 
 Here are a bunch of [videos](https://www.youtube.com/watch?v=WWwBQQOGllo&list=PLYzJdSdNWNqwNWlxz7bvu-lOYR0CFWQ4I) about setting up Atom.
 
-To confirm that atom is working from your command line, enter `atom .` in your terminal. If it is setup correctly, the atom editor will automatically open. If it does not open atom and an error occurs instead, try entering this in the command line:
-`ln -s /Applications/Atom.app/Contents/Resources/app/atom.sh /usr/local/bin/atom`
-and try the first command (`atom .`) again.
+To confirm that atom is working from your command line, enter `atom .` in your terminal. If it is setup correctly, the atom editor will automatically open. If it does not open atom and an error occurs instead, try entering this in the command line: `ln -s /Applications/Atom.app/Contents/Resources/app/atom.sh /usr/local/bin/atom` and try the first command (`atom .`) again.
 
 ### XCode & Command Line Tools
 
-XCode is a huge suite of development tools published by Apple. If we wanted to develop
-software for the Apple Ecosystem (iPhone apps, Mac OS Apps, etc), we would use XCode as our editor.
-But even if we aren't working in this ecosystem, XCode provides some system dependencies that we'll
-want to have available.
+XCode is a huge suite of development tools published by Apple. If we wanted to develop software for the Apple Ecosystem (iPhone apps, Mac OS Apps, etc), we would use XCode as our editor. But even if we aren't working in this ecosystem, XCode provides some system dependencies that we'll want to have available.
 
 You'll want to install it before attempting to install anything else.
 
@@ -68,9 +58,7 @@ Now you should have the underlying tools we need to move forward.
 
 ### Homebrew
 
-[Homebrew](http://brew.sh) is a package management system that makes it easy
-to install hundreds of open source projects and compile them from source
-for maximum performance on your machine.
+[Homebrew](http://brew.sh) is a package management system that makes it easy to install hundreds of open source projects and compile them from source for maximum performance on your machine.
 
 Open the Terminal then run the homebrew installation script:
 
@@ -103,28 +91,19 @@ Now run `brew doctor` again and the warning should be gone.
 
 __Aside: `PATH`:__
 
-Your `PATH` is a system configuration
-property which tells your computer which places to look for underlying programs
-when you want to run a command.
+Your `PATH` is a system configuration property which tells your computer which places to look for underlying programs when you want to run a command.
 
-For example, when we type `ruby` at the command line to run a ruby program, our `PATH`
-will help the system know where on the system to find ruby. By adding this directory
-to our `PATH`, we're telling the system how to find the various applications we will
-install using Homebrew
+For example, when we type `ruby` at the command line to run a ruby program, our `PATH` will help the system know where on the system to find ruby. By adding this directory to our `PATH`, we're telling the system how to find the various applications we will install using Homebrew.
 
 __Aside: `~/.bash_profile`__
 
-When we use our terminal, we're actually using a program called a "Shell" to interact
-with the underlying Operating System. Specifically, we're using a shell called [Bash](https://en.wikipedia.org/wiki/Bash_(Unix_shell)).
+When we use our terminal, we're actually using a program called a "Shell" to interact with the underlying Operating System. Specifically, we're using a shell called [Bash](https://en.wikipedia.org/wiki/Bash_(Unix_shell)).
 
-The file `~/.bash_profile` contains settings and commands to help us configure the shell,
-so when we have a bit of configuration code such as setting our `PATH`, it often goes
-in our `~/.bash_profile`.
+The file `~/.bash_profile` contains settings and commands to help us configure the shell, so when we have a bit of configuration code such as setting our `PATH`, it often goes in our `~/.bash_profile`.
 
 ### Git
 
-[Git](http://git-scm.com/) is the version control system of choice in the Ruby community.
-XCode installed an older version of Git for you, but let's update it.
+[Git](http://git-scm.com/) is the version control system of choice in the Ruby community. XCode installed an older version of Git for you, but let's update it.
 
 ```shell
 brew install git
@@ -134,15 +113,11 @@ brew install git
 
 #### Configuring Git
 
-If you haven't used git before (don't worry, we'll be covering its usage in future classes),
-we'll want to configure it with some basic information about us.
+If you haven't used git before (don't worry, we'll be covering its usage in future classes), we'll want to configure it with some basic information about us.
 
-We can tell git to configure itself using the `git config` command from our terminal.
-Additionally, we're setting "global" configurations for git, so we'll use the `--global` flag
-when we provide it with a new piece of configuration.
+We can tell git to configure itself using the `git config` command from our terminal. Additionally, we're setting "global" configurations for git, so we'll use the `--global` flag when we provide it with a new piece of configuration.
 
-Tell git your Name and Email address by using the following commands, substituting your
-own name and email:
+Tell git your Name and Email address by using the following commands, substituting your own name and email:
 
 ```
 git config --global user.name "John Doe"
@@ -151,16 +126,12 @@ git config --global user.email johndoe@example.com
 
 ### [RVM](http://rvm.io)
 
-As the Ruby language has evolved over the years, new versions have been
-released containing new features and various upgrades. The first version,
-released in 1995, was 0.95, and as of this writing we're at 2.2.3.
+As the Ruby language has evolved over the years, new versions have been released containing new features and various upgrades. The first version, released in 1995, was 0.95, and as of this writing we're at 2.2.3.
 
 To some extent programs written for one version of Ruby will run just fine on another version,
-but sometimes you'll encounter incompatibilities, such that a program needs
-to be run with a specific version of Ruby.
+but sometimes you'll encounter incompatibilities, such that a program needs to be run with a specific version of Ruby.
 
-For this reason, we'd like to be able to install and manage multiple versions on our system.
-This is precisely the job RVM handles.
+For this reason, we'd like to be able to install and manage multiple versions on our system. This is precisely the job RVM handles.
 
 #### Installation
 
@@ -190,8 +161,7 @@ It should give you a version number rather than an error message.
 
 ### Ruby
 
-Now that we have RVM installed, we're going to use it to install a specific
-version of Ruby: Ruby 2.3.0
+Now that we have RVM installed, we're going to use it to install a specific version of Ruby: Ruby 2.3.0
 
 If you need another version it'll be same procedure, just replace "2.3.0" in the instructions with whichever version you want.
 
@@ -221,8 +191,7 @@ It'll figure out what needs to be installed and install it. If prompted for your
 
 ### Folder Structure
 
-Now, let's create a folder structure to store all of your code. We can start by
-moving to our home folder, and then creating a Turing folder.
+Now, let's create a folder structure to store all of your code. We can start by moving to our home folder, and then creating a Turing folder.
 
 ```
 $ cd ~
@@ -231,27 +200,21 @@ $ mkdir turing
 
 __A few notes:__
 
-*   `cd` stands for "change directory", and moves us to a specific place on the filesystem,
-similar to using the GUI Finder to browse directories on the machine
-*   `~` is a shortcut for our "home directory". It will be in a place like
-`/Users/<your-user-name>`
+*   `cd` stands for "change directory", and moves us to a specific place on the filesystem, similar to using the GUI Finder to browse directories on the machine
+*   `~` is a shortcut for our "home directory". It will be in a place like `/Users/<your-user-name>`
 *   `mkdir` stands for "make directory", and it allows us to create new folders on the machine
 
-At this point, we want to enter the directory we have created, and then we will
-create ourselves a directory for the first module. We call this new directory
-1module, so we can use tab complete more easily.
+At this point, we want to enter the directory we have created, and then we will create ourselves a directory for the first module. We call this new directory 1module, so we can use tab complete more easily.
 
 ```
 cd turing
 mkdir 1module
 ```
 
-Now that this is complete, you can now get to your first module folder from
-anywhere through the terminal by typing:
+Now that this is complete, you can now get to your first module folder from anywhere through the terminal by typing:
 
 ```
 cd ~/turing/1module
 ```
 
-__Try It:__ Move to your home directory using `cd ~`. Then use `cd` to navigate back
-to your `1module` directory.
+__Try It:__ Move to your home directory using `cd ~`. Then use `cd` to navigate back to your `1module` directory.

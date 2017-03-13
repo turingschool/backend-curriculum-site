@@ -12,11 +12,11 @@ tags: fundamental javascript
 In this session, we'll be looking at a collection of JS Array prototype functions
 that deal with iterating and manipulating Arrays. The functions we'll examine are:
 
-* `forEach()`
-* `map()`
-* `filter()`
-* `reduce()`
-* `sort()`
+*   `forEach()`
+*   `map()`
+*   `filter()`
+*   `reduce()`
+*   `sort()`
 
 The capabilities provided by these functions are somewhat analogous to the
 capability provided by the `Enumerable` module in Ruby.

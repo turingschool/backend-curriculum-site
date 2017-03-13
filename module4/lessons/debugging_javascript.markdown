@@ -19,14 +19,14 @@ Client-side JavaScript has a lot of ways it can go horribly, horribly wrong. For
 
 Luckily, browsers give us some excellent tools for debugging client-side JavaScript.
 
-1. [Basic Introduction to Developer Tools](debugging-javascript/basic-intro-dev-tools.markdown)
-2. [The Console Tab](debugging-javascript/using-the-console.markdown)
-3. [The Console API](debugging-javascript/the-console-api.markdown)
-4. [The Elements Tab](debugging-javascript/elements-tab.markdown)
-5. [The Sources Tab](debugging-javascript/sources-tab.markdown)
-6. [Using the Network Tab](debugging-javascript/network-tab.markdown)
-7. [Responsive Mode](debugging-javascript/responsive-mode.markdown)
-8. [Debugging Non Client-side Code](debugging-javascript/non-client-side.markdown)
+1. [Basic Introduction to Developer Tools](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/debugging-javascript/basic-intro-dev-tools.markdown)
+2. [The Console Tab](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/debugging-javascript/using-the-console.markdown)
+3. [The Console API](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/debugging-javascript/the-console-api.markdown)
+4. [The Elements Tab](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/debugging-javascript/elements-tab.markdown)
+5. [The Sources Tab](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/debugging-javascript/sources-tab.markdown)
+6. [Using the Network Tab](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/debugging-javascript/network-tab.markdown)
+7. [Responsive Mode](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/debugging-javascript/responsive-mode.markdown)
+8. [Debugging Non Client-side Code](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/debugging-javascript/non-client-side.markdown)
 
 ### Other Resources
 - https://developer.chrome.com/devtools/docs/javascript-debugging

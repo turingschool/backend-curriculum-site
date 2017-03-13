@@ -67,12 +67,12 @@ sa = SalesAnalyst.new
 sa.items_bought_in_year(customer_id, year) #=> [item]
 ```
 
-Return all items that were purchased most if there are several with the same quantity:
+Return item(s) that customer bought in largest cumulative quantity. If there are several items with the same highest quantity, return all items:
 
 ```rb
 sa = SalesAnalyst.new
 
-sa.most_recently_bought_items(customer_id) #=> [item, item, item]
+sa.highest_volume_items(customer_id) #=> [item] or [item, item, item]
 ```
 
 Find customers with unpaid invoices:

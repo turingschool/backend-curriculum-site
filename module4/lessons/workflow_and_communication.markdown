@@ -5,58 +5,60 @@ length: 90
 tags: workflow, professional skills
 ---
 
-## Learning & Completion Goals
+Learning & Completion Goals
+------------------
 
-* Student understands the expected workflow for turning stories into deployed features
-* Student is setup with a Pivotal Tracker account
-* Student is familiar with the basic workflow of using Tracker
-* Student is familiar with the meanings of each Tracker state
-* Student understands the roles of development, staging, and production
+*   Student understands the expected workflow for turning stories into deployed features
+*   Student is setup with a Pivotal Tracker account
+*   Student is familiar with the basic workflow of using Tracker
+*   Student is familiar with the meanings of each Tracker state
+*   Student understands the roles of development, staging, and production
 
-## Session Plan
+Session Plan
+------------
 
 ### Workflow (10 Minutes)
 
 In the previous lesson we explored how business requirements turn into work-ready 1-point stories. Today we'll continue the flow:
 
-* A member or pair of the Dev Team (Worker) begins work on the story [Tracker]
-* Worker writes acceptance criteria/tests
-* Worker implements the feature
-* Worker submits a pull request (PR) [GitHub]
-* DT and/or Mentor reviews the pull request for technical expectations [GitHub]
-* Worker merges the PR [GitHub]
-* Worker deploys the feature to staging
-* Worker tests the feature in staging
-* Worker notifies the PO that the feature is ready to test [Tracker]
-* PO tests and approves the feature [Tracker]
-* Worker deploys the feature to production
-* Worker notifies users of the new feature [Slack / Email]
-* Worker solicits user feedback on the new feature
-* Worker watches for user feedback or bug reports and, if needed, uses them to create new stories [Tracker]
+*   A member or pair of the Dev Team (Worker) begins work on the story Tracker
+*   Worker writes acceptance criteria/tests
+*   Worker implements the feature
+*   Worker submits a pull request (PR)
+*   DT and/or Mentor reviews the pull request for technical expectations [
+*   Worker merges the PR
+*   Worker deploys the feature to staging
+*   Worker tests the feature in staging
+*   Worker notifies the PO that the feature is ready to test
+*   PO tests and approves the feature
+*   Worker deploys the feature to production
+*   Worker notifies users of the new feature
+*   Worker solicits user feedback on the new feature
+*   Worker watches for user feedback or bug reports and, if needed, uses them to create new stories
 
 ### Communication (10 Minutes)
 
 *Tracker* is the core of our communication, home for:
 
-* Durable communication between the PO and the dev team
-* Definitions of what is to be done
-* Scheduling of when it will be done
-* Tracking of what feature is at what stage of completion
-* Particpants: PO, TL, DT
+*   Durable communication between the PO and the dev team
+*   Definitions of what is to be done
+*   Scheduling of when it will be done
+*   Tracking of what feature is at what stage of completion
+*   Particpants: PO, TL, DT
 
 *GitHub* is for:
 
-* Technical communication among the dev team, mentors, and technical lead
-* Organization of code
-* Technical documentation
-* Particpants: TL, DT, Mentors
+*   Technical communication among the dev team, mentors, and technical lead
+*   Organization of code
+*   Technical documentation
+*   Particpants: TL, DT, Mentors
 
 *Slack* is for:
 
-* Non-durable communication
-* Scheduling people, meetings
-* Sharing of files, documents, etc
-* Particpants: PO, TL, DT, Mentors
+*   Non-durable communication
+*   Scheduling people, meetings
+*   Sharing of files, documents, etc
+*   Particpants: PO, TL, DT, Mentors
 
 ### Environments (10 Minutes)
 
@@ -170,24 +172,25 @@ If the PO approves of the feature then it should be deployed to master and, like
 
 #### References
 
-For a similar but more advanced version of this workflow, see: http://reinh.com/blog/2009/03/02/a-git-workflow-for-agile-teams.html
+For a similar but more advanced version of this workflow, see [here]( http://reinh.com/blog/2009/03/02/a-git-workflow-for-agile-teams.html)
 
 ### Practice with Tracker (15 Minutes)
 
 Use your current project Tracker to go through this sequence:
 
-* Create a new Feature card with a made-up story (in the "Description" box) and save it
-* Add an estimate
-* Add a question for the PO in a comment
-* Set yourself as the owner of the story
-* Start the card, imagining that you being development
-* Role-play by adding comments to the story as you move the card through each state (ie: "Completed the feature and pushed to GitHub" then taking the appropriate action)
-* Once it's all done, delete the card
+*   Create a new Feature card with a made-up story (in the "Description" box) and save it
+*   Add an estimate
+*   Add a question for the PO in a comment
+*   Set yourself as the owner of the story
+*   Start the card, imagining that you being development
+*   Role-play by adding comments to the story as you move the card through each state (ie: "Completed the feature and pushed to GitHub" then taking the appropriate action)
+*   Once it's all done, delete the card
 
 Then, *repeat* the process with a Bug card.
 
 Finally, *repeat* the process with a Chore card.
 
-## Wrap
+Wrap
+-----------
 
 You're ready to start working with Tracker!

@@ -5,27 +5,30 @@ length: 90
 tags: rails, caching, performance, redis
 ---
 
-# Caching Data
+Caching Data
+==============
 
+Learning Goals
+----------------
 
-## Learning Goals
+*   Discuss differences between Fragment/Template Caching and Data Caching
+*   Understand how data caching can used to speed up slow computations
+*   Practice using Redis to store cached data
 
-* Discuss differences between Fragment/Template Caching and Data Caching
-* Understand how data caching can used to speed up slow computations
-* Practice using Redis to store cached data
+Structure
+--------------
 
-## Structure
+*   Discussion: Data Caching Concepts
+*   Tutorial: [http://tutorials.jumpstartlab.com/topics/performance/caching_data.html](http://tutorials.jumpstartlab.com/topics/performance/caching_data.html)
 
-* Discussion: Data Caching Concepts
-* Tutorial: [http://tutorials.jumpstartlab.com/topics/performance/caching_data.html](http://tutorials.jumpstartlab.com/topics/performance/caching_data.html)
-
-## Discussion
+Discussion
+-------------
 
 When adding caching to web applications, we can think of 2 general approaches available:
 
-* Cache the "end result" of a request, thus speeding things up by skipping whatever
+*   Cache the "end result" of a request, thus speeding things up by skipping whatever
   computations would have been required to generate the result.
-* Cache the results of the individual computations needed to generate the response, thus
+*   Cache the results of the individual computations needed to generate the response, thus
   making it fast to re-generate when needed.
 
 __Fragment Caching -- Approach A__
@@ -50,10 +53,10 @@ the required data is readily available.
 In order to get a better idea of which situations are well-suited to data caching, let's
 think about some of the downsides of Fragment Caching:
 
-* Not very granular (have to grab a whole swath of markup and whatever data is included with it)
-* Not applicable to other contexts (sharing data between API and HTML endpoints; sharing data between
+*   Not very granular (have to grab a whole swath of markup and whatever data is included with it)
+*   Not applicable to other contexts (sharing data between API and HTML endpoints; sharing data between
   web responses and offline tasks)
-* Difficult to "set" data from other contexts (e.g. pre-generating cached data)
+*   Difficult to "set" data from other contexts (e.g. pre-generating cached data)
 
 The big advantage data caching gives us over caching markup is granularity and specificity.
 With data caching its easy to isolate slow actions to the smallest possible context, and then
@@ -85,12 +88,13 @@ data cache (perhaps even from multiple languages or application frameworks).
 In general we want to be writing the simplest data possible into our caches.
 This means:
 
-* Basic data types are best -- integers and strings
-* If you need to cache a more complex data structure,
+*   Basic data types are best -- integers and strings
+*   If you need to cache a more complex data structure,
   consider serializing it to JSON and storing the string
   representation
 
-## Your Turn -- Data Caching Tutorial
+Your Turn -- Data Caching Tutorial
+-----------------
 
 Now that we've discussed some of the larger concepts behind caching data,
 try it yourself with the [Caching Data Tutorial](http://tutorials.jumpstartlab.com/topics/performance/caching_data.html). This tutorial takes us through using Redis as a data cache
