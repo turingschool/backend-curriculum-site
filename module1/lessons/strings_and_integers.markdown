@@ -20,7 +20,7 @@ It is important to note that strings can also be really long! They can also
 contain a paragraph or more of text!
 
 
-```Ruby
+```
 "here is a string"
 "1234567"
 "***** THIS IS ANOTHER STRING YAY *****"
@@ -43,10 +43,10 @@ hello, world!
 Let's write a program where we print out strings. First, we’ll need to make a
 file and save it as `strings.rb`.
 
-```ruby
+```
 print "here is a string"
 print "1234567"
-print "**** this is another strong ****"
+print "**** this is another string ****"
 ```
 
 Now, to run this program, type `ruby strings.rb` from the command line.
@@ -54,7 +54,7 @@ Now, to run this program, type `ruby strings.rb` from the command line.
 Using `print` does not add a line between each string. If we want to do that,
 we can use `puts`.
 
-```ruby
+```
 print "here is a string"
 print "1234567"
 print "**** this is another string ****"
@@ -77,7 +77,7 @@ mike@turing.io
 
 Try it, type the following examples in, and determine what they do.
 
-```ruby
+```
 "hello, world"[0]
 "Turing"[0..1]
 "ruby"[2]
@@ -96,7 +96,7 @@ Here, we will get back the letter "h".
 
 Try the following and determine what they do:
 
-```ruby
+```
 "hello, world"[0..4]
 "Turing"[0..1]
 "ruby"[1..-1]
@@ -127,7 +127,7 @@ A `method` in Ruby can be thought of as a message that's being sent to an
 object. The message is received, and something is returned where it was called.
 Here's a simple example:
 
-```ruby
+```
 "hello, world".upcase
 ```
 
@@ -154,7 +154,7 @@ This is called “dot notation” and the terminology is “call the bark method
 
 Strings also have methods. Here are some common ones:
 
-```ruby
+```
 message = "Hello, World!"
 
 puts message.capitalize
@@ -174,7 +174,7 @@ a way of creating a name for a piece of data.
 
 First, we'll assign the string "mary" to the variable `student`:
 
-```ruby
+```
 student = "Mary"
 ```
 
@@ -182,7 +182,7 @@ Let's say that we want to create a string that says "Welcome to class, Mary."
 There are two ways to do this. We'll start with concatenation first, which joins
 strings together with the plus sign:
 
-```ruby
+```
 "Welcome to class, " + student + "."
 ```
 
@@ -203,7 +203,7 @@ use the interpolation marker #{}. Inside those brackets we can put any variables
 or Ruby code which will be evaluated, converted to a string, and output in that
 spot of the outer string. Our previous example could be rewritten like this:
 
-```ruby
+```
 "Welcome to class, #{student}."
 ```
 
@@ -229,7 +229,7 @@ require you to "declare" a variable before you assign a value to it. Ruby
 variables are automatically created when you assign a value to them. Let’s try
 an example:
 
-```ruby
+```
 x = 10
 x
 ```
@@ -240,7 +240,7 @@ In English we read left-to-right, so it’s natural to read code left to right.
 But when evaluating an assignment using the single equals (=), Ruby actually
 evaluates the right side first. Take the following example:
 
-```ruby
+```
 b = 10 + 5
 ```
 
@@ -248,7 +248,7 @@ The 10 + 5 is evaluated first, and the result is given the name b.
 
 *Try it*: What is c at the end of this? Why?
 
-```ruby
+```
 c = 15
 c = "hello"
 c
@@ -298,7 +298,7 @@ Numeric data comes in two types: Integers and Floats. Integers are whole numbers
 (no decimals) and are either of the class Fixnum or Bignum. Floats are numbers
 that have decimal places.
 
-```ruby
+```
 123456789.class
 1_000_000_000_000_000_000_000.class
 5.6.class
@@ -308,7 +308,7 @@ that have decimal places.
 *Try it*: Predict the return value before trying these in IRB. Which of these
 work? Which of these do something you didn't expect?
 
-```ruby
+```
 3 + 4
 2 * 4
 2 ** 5
@@ -328,7 +328,7 @@ work? Which of these do something you didn't expect?
 
 We can also (somewhat) combine strings and integers. Try these:
 
-```ruby
+```
 "hi" * 5
 5 * "hi"
 ```
