@@ -17,12 +17,12 @@ some of the tools we will use.
 *   HomeBrew -- This is a "package manager" for installing other developer-related
 programs. You can think of it as the "App Store for nerds."
 *   Git (An application for handling "version control" of our software projects)
-*   The Ruby programming language -- version 2.4 in particular -- as well as a Ruby "Version Manager" to allow
+*   The Ruby programming language, as well as a Ruby "Version Manager" to allow
 us to install other versions as needed
 
 ### Text Editor
 
-If you don't already have a favorite text editor, we recommend using [Atom](https://atom.io/).
+If you don't already have a favorite text editor, we recommend using [VSCode](https://code.visualstudio.com/download).
 
 ### Terminal
 
@@ -126,7 +126,7 @@ git config --global user.email johndoe@example.com
 
 ### [RVM](http://rvm.io)
 
-As the Ruby language has evolved over the years, new versions have been released containing new features and various upgrades. The first version, released in 1995, was 0.95, and as of this writing we're at 2.2.3.
+As the Ruby language has evolved over the years, new versions have been released containing new features and various upgrades. The first version, released in 1995, was 0.95, and as of this writing we're at 2.4.
 
 To some extent programs written for one version of Ruby will run just fine on another version,
 but sometimes you'll encounter incompatibilities, such that a program needs to be run with a specific version of Ruby.
@@ -161,14 +161,14 @@ It should give you a version number rather than an error message.
 
 ### Ruby
 
-Now that we have RVM installed, we're going to use it to install a specific version of Ruby: Ruby 2.3.0
+Now that we have RVM installed, we're going to use it to install a specific version of Ruby: Ruby 2.3.1
 
-If you need another version it'll be same procedure, just replace "2.3.0" in the instructions with whichever version you want.
+If you need another version it'll be same procedure, just replace "2.3.1" in the instructions with whichever version you want.
 
 Install it with:
 
 ```shell
-rvm install 2.3.0
+rvm install 2.3.1
 ```
 
 #### Setting the Default Version
@@ -176,7 +176,7 @@ rvm install 2.3.0
 You can tell rvm which Ruby version you want to use by default:
 
 ```shell
-rvm use 2.3.0 --default
+rvm use 2.3.1 --default
 ```
 
 #### Requirements
@@ -218,3 +218,13 @@ cd ~/turing/1module
 ```
 
 __Try It:__ Move to your home directory using `cd ~`. Then use `cd` to navigate back to your `1module` directory.
+
+Once we get exposed to more projects, homework, etc, our ultimate 1module folder setup will look like this:
+
+```
+1module/  (no git)
+    - homework/ (git)
+    - classroom_exercises/ (git)
+    - morning_exercises/ (git)
+    - project_name/ (git)
+```
