@@ -25,7 +25,7 @@ Students who successfully complete Module 4 will have demonstrated mastery of Pr
 
 Your first project is [Quantified Self](./projects/quantified-self/quantified-self). It's an all front-end pair project for the first week.
 
-Your second project is an extension of your first week. You'll build the back-end and wire it up to the front end.
+Your [second project](./projects/quantified-self/quantified-self-back-end is an extension of your first week. You'll build the back-end and wire it up to the front end.
 
 The next three weeks will be spent working on your capstone projects. We're still working out details 
 
