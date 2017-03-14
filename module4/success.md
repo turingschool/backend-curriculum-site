@@ -109,7 +109,7 @@ Academic success in B4 means that students demonstrate proficiency and comfort w
 ### Node & Express
 
 * Students implement a stand-alone application with Node and Express *(functional)*
-* Students interact with SQL databases using Knex *(functional)*
+* Students interact with SQL databases by writing raw SQL *(functional)*
 * Students render views from an Express application *(familiarity)*
 
 ### JavaScript Tools and Libraries

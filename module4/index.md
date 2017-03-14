@@ -23,9 +23,11 @@ Students who successfully complete Module 4 will have demonstrated mastery of Pr
 
 ### Projects
 
-Your first project is [Quantified Self](./projects/quantified-self). It's a pair project lasting two weeks, and will thus overlap for one week with your main project.
+Your first project is [Quantified Self](./projects/quantified-self/quantified-self). It's an all front-end pair project for the first week.
 
-Secondary projects are added to your main capstone projects. You'll get the requirements in tracker, but [here is an overview for the projects as a whole.](./projects/secondary)
+Your [second project](./projects/quantified-self/quantified-self-back-end is an extension of your first week. You'll build the back-end and wire it up to the front end.
+
+The next three weeks will be spent working on your capstone projects. We're still working out details 
 
 ### Weekly Breakdown:
 

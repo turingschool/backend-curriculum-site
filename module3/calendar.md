@@ -12,7 +12,7 @@ title: Module 3 Calendar
 * [JSON Fundamentals](lessons/json_fundementals)
 * [Building an API](lessons/building_an_api)
 * [Customizing JSON in your API](lessons/customizing_json_in_your_api)
-* [Advanced ActiveRecord](lessons/advanced_active_record)
+* [Advanced ActiveRecord](slides/advanced_activerecord)
 * Friday Session: Rails Engine Evaluations
 
 ### Week 2
