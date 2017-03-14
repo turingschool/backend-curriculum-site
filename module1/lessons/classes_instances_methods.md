@@ -25,8 +25,8 @@ tags: ruby, object-oriented programming
 
 Specific instances:
 
-* Horace's cubby
-* Steve's cubby
+* Lauren's cubby
+* Josh's cubby
 * Mike's cubby
 
 #### Type of object: Fridge
