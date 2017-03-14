@@ -31,6 +31,7 @@ In module 2, we expand upon fundamental ruby skills by building database-backed 
 * [How the Web Works](slides/how_the_web_works/slides)
 * [CRUD in Sinatra](lessons/crud-intro-sinatra)
 * [Passing Data With Sinatra](https://github.com/turingschool/shopping)
+* [CRUD WORKTIME](http://backend.turing.io/module2/lessons/crud-intro-sinatra) - Bottom of the lesson plan.
 * [Database Visualization & Relationships](lessons/visualising_and_implementing_database_relationships)
 * [ActiveRecord Exploration](https://github.com/turingschool/intro-to-ar)
 * [Intro to ActiveRecord with Sinatra](lessons/intro_to_active_record_in_sinatra)
