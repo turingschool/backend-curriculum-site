@@ -115,9 +115,7 @@ What did you notice?
 
 The event listeners are only bound to the buttons that were present when the page code was first loaded. The buttons we added later were not around when we added the listeners.
 
-### Pair Practice
-
-Can you modify the function that adds new buttons so that it adds an event listener to the element before appending it to the page?
+**What could we do to fix this?**
 
 Event Delegation
 ------------------
@@ -130,9 +128,8 @@ Rather than manage the addition and removal of event listeners, there is a metho
 
 In ___event delegation__*, we take advantage of the fact that events bubble in the event loops by setting an event listener on one parent. This event listener analyzes bubbled events to find a match in its child elements.
 
-<p data-height="300" data-theme-id="23788" data-slug-hash="AXVgOj" data-default-tab="js,result" data-user="turing" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/team/turing/pen/AXVgOj/">event-delegation</a> by Turing School of Software and Design (<a href="http://codepen.io/turing">@turing</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+Let's check out the first iteration of Quantified Self and see where event delegation would be helpful!
 
 ### Pair Practice
 
--   jQuery has an easy way to do event delegation with the 'on' function. For the piano example above and see if you can do the same thing with [jQuery](https://learn.jquery.com/events/event-delegation/).
+-   jQuery has an easy way to do event delegation with the 'on' function. Check out your QS project to make sure you're using event delegation. If you aren't, do some refactoring!
