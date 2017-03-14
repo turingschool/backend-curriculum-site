@@ -19,5 +19,8 @@
     <script>
       Reveal.initialize();
     </script>
+    {% if jekyll.environment == 'production' %}
+    {% include analytics.html %}
+    {% endif %} 
   </body>
 </html>
