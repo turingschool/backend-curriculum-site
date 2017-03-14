@@ -24,6 +24,9 @@
       </section>
     </div>
     <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+    {% if jekyll.environment == 'production' %}
+    {% include analytics.html %}
+    {% endif %}
     <script>
     /**
     * Function that tracks a click on an outbound link in Analytics.
@@ -38,8 +41,5 @@
        });
     }
     </script>
-    {% if jekyll.environment == 'production' %}
-    {% include analytics.html %}
-    {% endif %}
   </body>
 </html>

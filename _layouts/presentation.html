@@ -19,6 +19,9 @@
     <script>
       Reveal.initialize();
     </script>
+    {% if jekyll.environment == 'production' %}
+    {% include analytics.html %}
+    {% endif %}
     <script>
     /**
     * Function that tracks a click on an outbound link in Analytics.
@@ -33,8 +36,5 @@
        });
     }
     </script>
-    {% if jekyll.environment == 'production' %}
-    {% include analytics.html %}
-    {% endif %}
   </body>
 </html>
