@@ -4,10 +4,21 @@
 
 # Warmup
 
-* What's the difference between `.where`, and `.find_by`?
-* When would you use `.joins`?
-* What's the difference between a scope and a default scope?
-* Have you found an opportunity to use a scope in Rails Engine?
+* Given our current schema, what SQL would find the top 5 most expensive invoices with successful transactions?
+
+---
+
+# SQL Is Fun
+
+```sql
+SELECT invoices.*, sum(invoice_items.quantity * invoice_items.unit_price) AS revenue FROM invoices
+JOIN invoice_items ON invoices.id = invoice_items.invoice_id
+JOIN transactions ON transactions.invoice_id = invoices.id
+WHERE transactions.result = 'success'
+GROUP BY invoices.id
+ORDER BY revenue DESC
+LIMIT 5;
+```
 
 ---
 
@@ -102,6 +113,30 @@ end
 
 ---
 
+# Select
+
+```ruby
+# On Merchant
+def self.no_dates
+  select(:id, :name)
+end
+```
+
+---
+
+# Select (So what?)
+
+```ruby
+# On Merchant
+def self.merchant_plus_invoices
+  joins(:invoices)
+    .select('merchants.id, name, count(invoices.id) AS count_of_invoices')
+    .group('merchants.id')
+end
+```
+
+---
+
 # Putting it All Together
 
 * Invoices with the highest total cost
@@ -129,6 +164,19 @@ def self.expensive_invoices
     .group(:id)
     .order("sum(quantity * unit_price)")
     .limit(5)
+end
+```
+
+---
+
+# Find By SQL
+
+```ruby
+# On the invoice model
+def self.successful_invoices
+  find_by_sql("SELECT invoices.*, transactions.id AS transaction_id FROM invoices
+               JOIN transactions ON transactions.invoice_id = invoices.id
+               WHERE transactions.result = 'success'")
 end
 ```
 
