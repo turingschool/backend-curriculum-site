@@ -40,6 +40,7 @@ The next three weeks will be spent working on your capstone projects. We're stil
 *   [Event Bubbling and Delegation](./lessons/event-bubbling-and-delegation)
 *   Cold Outreach
 *   [Testing in JavaScript](./lessons/testing-in-javascript)
+*   [Contributing to Open Source Kick Off](./lessons/contributing_to_open_source)
 
 <h4 id="week_2">Week 2</h4>
 *   [Javascript Without a Browser](./lessons/javascript_without_a_browser)
@@ -64,7 +65,6 @@ The next three weeks will be spent working on your capstone projects. We're stil
 
 <h4 id="week_4">Week 4</h4>
 *   [Application Coordination with Message Queues](./lessons/application_coordination_with_message_queues)
-*   [Contributing to Open Source](./lessons/contributing_to_open_source)
 *   Interview Prep
 *   Mid Module Assessment
 *   [React 1](./lessons/intro_to_react)
