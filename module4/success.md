@@ -13,7 +13,7 @@ Students must earn a score of `3` or greater in *each* category of the final ass
 
 ### Independent Work
 
-*Expected*: Independent work for M4 will consist primarily of contributing to external Open Source in Weeks 5 & 6:
+*Expected*: Independent work for M4 will consist primarily of contributing to external Open Source in Weeks 2 - 6:
 
 * Reproduce and confirm or contradict one bug report
 * Submit one sizable/difficult or two smaller/moderate code-centric pull requests that are worth merging
