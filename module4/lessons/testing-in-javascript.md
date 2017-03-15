@@ -4,6 +4,9 @@ title: Testing in Javascript
 tags: Unit and Integration testing libraries
 ---
 
+[//]: (For Instructors:)
+[//]: (There is an old version of this lesson that uses webpack. Just peek at the Git history)
+
 Goals
 ----------
 
@@ -12,30 +15,32 @@ Goals
 
 Libraries covered
 ---------
-    - [Mocha](https://mochajs.org/) - A test runner
-    - [Chai](http://chaijs.com/) - An assertion library
-    - [Selenium](https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/webdriver_exports_WebDriver.html) - Browser automation and inspection
-    - [Webpack](https://webpack.github.io/) - Build tool for asset management
+
+- [Mocha](https://mochajs.org/) - A test runner
+- [Chai](http://chaijs.com/) - An assertion library
+- [mocha-phantomjs](https://github.com/nathanboktae/mocha-phantomjs) - A way to run Mocha tests in the headless browser, PhantomJS
+- [jQuery](https://api.jquery.com/) - We'll use it for interacting with our DOM
 
 Test Type Review
 -----------
 
--   Why test at all?
--   What are the different types of tests?
--   Why would we use one over the other?
+- Why test at all?
+- What are the different types of tests?
+- Why would we use one over the other?
+
+Our Starter Repo
+-------------
+
+To get us started, clone down a fresh copy of the [Quantified Self Starter Kit](https://github.com/turingschool-examples/quantified-self-os). To clone it into a folder named for this lesson use this command:
+
+```
+$ git clone https://github.com/turingschool-examples/quantified-self-os.git testing-in-javascript
+```
 
 Mocha - the test runner
 -------------
 
 Mocha has one job, to run your tests. It doesn't even do assertions. We'll get to that in a minute.
-
-To install mocha for use in your terminal, run:
-
-```bash
-  npm install mocha -g
-```
-
-The `-g` installs a package globally, and for use on the command line. So let's write some mocha tests.
 
 Mocha gives you a few functions right off the bat. You might recognize them if you're used to using RSpec:
 
@@ -59,11 +64,11 @@ describe("Something that I'm describing", function(){
 
 For future reference: If you're familiar with ES6 [Arrow Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions), these will make your callbacks slightly less verbose. I'm not going to bother with them for this lesson.
 
-Save the above text in a file named `test.js`. Then run
+Save the above text in a file named `test/test.js`. Add your new test file to `test/test-template.html`. Then run:
 
-  ```
-    mocha test.js
-  ```
+```
+$ open test/test-template.html
+```
 
 You should see something like
 
@@ -76,46 +81,25 @@ Something that I'm describing
 1 passing (8ms)
 ```
 
-The test passes, because there aren't any assertions that fail. Although Mocha doesn't handle assertions, it's built on Node, which does have some [built in simple assertions](https://nodejs.org/api/assert.html). Here's a simple test using built in Node based assertions:
+As a quick note: `describe()` and `context()` are not necessary. Typically, you'll want at least a `describe()` block to tell us what it is you're testing, but can omit context if you don't think it's necessary.
 
-```js
-assert = require('assert');
-
-it("can assert true", function(){
-  assert(true, 'TRUE IS FALSE! UP IS DOWN! DAY IS NIGHT!');
-});
-```
-
-A couple things to note about the test above:
-
-1.  `describe()` and `context()` are not necessary. Typically, you'll want at least a `describe()` block to tell us what it is you're testing, but can omit context if you don't think it's necessary.
-2.  `assert` is a "node module". It doesn't come pre-loaded, so we have to require it. In node, as opposed to Ruby, you have to capture the return value of a `require`.
-3.  Like RSpec, I can have an optional message as part of my assertion which will be displayed if the assertion fails. If `true` is somehow false, something has seriously gone wrong.
-
-Node's built in `assert` module isn't very fully featured. A popular assertion library for JavaScript is called [Chai](http://chaijs.com/). This is what we're going to use. You can install it by typing the following in your terminal.
-
-
-```
-curl http://chaijs.com/chai.js -o chai.js
-```
-
-This just downloads the latest version of `chai.js` to your current folder. In the future, you'll just want to add it to your NPM package file, but this gets us up and running without a lot of fuss.
+A popular assertion library for JavaScript is called [Chai](http://chaijs.com/). This is what we're going to use. It's already been added to the test template.
 
 Modify your `test.js` to the following:
 
 ```js
-assert = require('./chai').assert;
-
 it("can assert true", function(){
   assert(true, 'TRUE IS FALSE! UP IS DOWN! DAY IS NIGHT!');
 });
 ```
 
-And `mocha test.js` should return the same output as when we were using Node's assertion library. Let's try out a few more of Chai's assertions.
+Like RSpec and minitest, I can have an optional message as part of my assertion which will be displayed if the assertion fails. If `true` is somehow false, something has seriously gone wrong.
+
+When you refresh your test page, you should see the test pass.
+
+Let's try out a few more of Chai's assertions.
 
 ```js
-assert = require('./chai').assert;
-
 describe("Chai Assertions Sandbox", function(){
   it("can assert true", function(){
     assert(true);
@@ -157,69 +141,12 @@ Equality in JavaScript is funky. `1 == true` but not `1 === true`. `'3' == 3` bu
     })
 ```
 
-Putting it together in Webpack
----------------------
+Unit testing
+--------------------
 
-This has been a good introduction to Mocha and Chai on their own, but you'll be using them in conjunction with Webpack. Let's see how that works.
-
-Start by cloning a fresh copy of the Quantified Self Starter Kit:
-
-```bash
-git clone https://github.com/turingschool-examples/quantified-self-starter-kit testing-in-javascript
-```
-
-Mocha is already installed globally, and and Chai is included in the package.json file. if you run `npm install`, it will install Chai, and all the other necessary packages, into a `node_modules` folder.
-
-Let's copy all of our tests from our sandbox into `test/index.js`, with one small change. Since we're loading Chai from `node_modules` instead of as a local file, we'll require it slightly differently. Here's the whole sandbox with the modified require:
+For our purposes, unit testing is verifying that a function will return a certain value given certain inputs. Unit tests are great for functions that perform logic for you, but don't involve user interaction directly. Here's an example:
 
 ```js
-assert = require('chai').assert;
-
-describe("Chai Assertions Sandbox", function(){
-  it("can assert true", function(){
-    assert(true, 'TRUE IS FALSE! UP IS DOWN! DAY IS NIGHT!');
-  });
-
-  it("can assert 1 is 1", function(){
-    assert.equal(1, 1);
-  });
-
-  it("can assert 2 is not 3", function(){
-    assert.notEqual(2, 3);
-  });
-
-  it("can assert that something is a given data type", function(){
-    assert.isNumber(42);
-    assert.isObject({answer: 42});
-    assert.isArray([1,2,3,4]);
-    var thingIHaventDefined;
-    assert.isUndefined(thingIHaventDefined);
-  });
-
-  it("can compare that two arrays contain the same values", function(){
-    var actualArray = [1,2,3,4];
-    assert.deepEqual(actualArray, [1,2,3,4]);
-  })
-
-  it("can compare that two objects contain the same key/value pairs", function(){
-    var actualObject = {name: "Nate", module: 4};
-    assert.deepEqual(actualObject, {name: "Nate", module: 4});
-  })
-});
-```
-
-Now we can run our tests using `npm test`. By default, mocha runs all javascript files in the `test/` folder. You should get the same out put as before.
-
-### Testing our own modules
-
-When using Webpack, you typically organize your code into "modules". Each js file under `/lib` has to contain some kind of `module.exports` for you to be able to access that code from another file. Whatever you set `module.exports` to will be the return value when you `require` that file. Let's test drive a very simple module to see this in action.
-
-Let's start with a test for a function that simply returns the square of a number you pass it. Create a new file `test/square-test.js`:
-
-```js
-assert = require('chai').assert;
-square = require('../lib/square');
-
 describe("We can square a number", function(){
   it("returns 4 when I pass it 2", function(){
     assert.equal(square(2), 4);
@@ -227,55 +154,102 @@ describe("We can square a number", function(){
 });
 ```
 
-Now create a `lib/square.js` file, and try to get this test to pass.
+We're testing that when I pass the function `square()` a value of `2`, then I get a return value of `4`. Since we're using TDD, we don't yet have an implementation of `square()`, so we need to build one. We could define `square()` in the test file itself, but that doesn't make it very portable.
 
-**The answer is below. See if you can use TDD to get the above to pass**
+Let's create `lib/square.js`. Then we can reference that file in our test HTML by adding this to our `<head>`:
 
-```
-I
-
-am
-
-an
-
-annoyingly
-
-large
-
-section
-
-of
-
-the
-
-page
+```HTML
+<script src="../lib/square.js"></script>
 ```
 
-So you should have filled in `lib/square.js` with something like:
-
-
-```js
-
-module.exports = function(n) {
-  return n*n;
-};
-
-```
-
-If you had simply defined the function `square()` like:
-
-```js
-function square(n) {
-  return n*n;
-}
-```
-
-it would not be available in your test file. Only things that are exported are available.
+Now, make the test pass.
 
 ### A few more useful mocha features
 
 -   Just like RSpec, and even Minitest, Mocha supports `before()`, `beforeEach()`, `after()` and `afterEach()` inside of a `describe()` or `context()`.
 -   If you'd like to skip a test, you can mark it as pending by changing `it()` to `xit()`.
+
+Let's integrate
+-------------
+
+So, what do we need to do to successfully automate our integration tests?
+
+### Break it down
+
+- Create our setup conditions
+- Access the page that has our features
+- Interact with the page that has our features
+- Determine the current state of things
+- Be able to compare the actual state of things with our expected state of things
+- Clean up any changes that were made
+
+Here's the tools we're going to use for each of these:
+
+- **mocha (before and beforeEach)**: Create our setup conditions
+- **an iframe**: Access the page that has our features
+- **jQuery (.click, .trigger)**: Interact with the page that has our features
+- **jQuery (.html, .text, .attr, etc)**: Determine the current state of things
+- **chai (assert)**: Be able to compare the actual state of things with our expected state of things
+- **mocha (after and afterEach)**: Clean up any changes that were made
+
+### Build it up
+
+```js
+describe('#create-form', function() {
+  var $;
+
+  before(function(){
+    $ = document.getElementById("foods-frame").contentWindow.$;
+  })
+
+  beforeEach(function() {
+    //Clear out all the things
+    $('#food-list tbody').html('');
+    $('#create-form input').val('');
+    $('.validation-error').html('');
+  });
+
+  context('validations', function() {
+
+    it('will tell me if I fail to enter a name', function() {
+      $('#calories-field input').val('35');
+      $('#add-food').click();
+      var nameValidationContent = $("#name-field .validation-error").text();
+      assert.equal(nameValidationContent, "Please Enter a Name");
+    });
+
+    it('will tell me if I fail to enter calories', function() {
+      $('#name-field input').val('Banana');
+      $('#add-food').click();
+      var caloriesValidationContent = $("#calories-field .validation-error").text();
+      assert.equal(caloriesValidationContent, "Please Enter Calories");
+    });
+
+    it('will be nice to me if I do everything correctly', function() {
+      $('#name-field input').val('Banana');
+      $('#calories-field input').val('35');
+      $('#add-food').click();
+
+      var nameValidationContent = $("#name-field .validation-error").text();
+      assert.equal(nameValidationContent, "");
+
+      var caloriesValidationContent = $("#calories-field .validation-error").text();
+      assert.equal(caloriesValidationContent, "");
+    });
+
+  });
+});
+```
+
+How are we using each of the parts in the breakdown in the test above?
+
+Now try writing another test for this user story: 
+
+
+### Some hints as you continue
+
+- Using jQuery, there's nothing as nice as `.fill`. We have to trigger each keydown and pass in the key you're pressing. I recommend writing a function that will take a string, and fire a keydown for each character in the string. I think this [StackOverflow answer](http://stackoverflow.com/a/832121/4075893) spells out the details pretty well
+- The code in the `before` function gives you access to jQuery on the page you're testing, but you may need to do similar stuff to get access to other things, like `localStorage`.
 
 Let's integrate
 -------------
