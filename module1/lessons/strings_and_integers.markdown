@@ -1,5 +1,4 @@
 ---
-layout: page
 title: Strings and Integers
 tags: basics, strings, Ruby in 100 Minutes
 length: 90
@@ -19,7 +18,7 @@ length: 90
 
 ## Intro
 
-There are several different types of objects in Ruby. Today, we'll focus on Strings and Integers. We'll also talk about variables, which are not a data type but instead a structure used to store references to data.
+There are several different types of objects in Ruby. Today, we'll focus on Strings and Integers. We'll also talk about variables, which are not a data type but instead a structure used to store references to data. 
 
 ## Strings
 
@@ -27,11 +26,11 @@ There are several different types of objects in Ruby. Today, we'll focus on Stri
 
 Programming strings are used to store collections of letters and numbers. That could be a single letter like "a", a word like "hi", or a sentence like "Hello my friends."
 
-A Ruby string is defined as a quote (") followed by zero or more letters, numbers, or symbols and followed by a closing quote of the same type ("). Quotes can either be single (') or double (").
+A Ruby string is defined as a quote (") followed by zero or more letters, numbers, or symbols and followed by a closing quote of the same type ("). Quotes can either be single (') or double ("). 
 
 The shortest possible string is called the empty string: "". It’s not uncommon for a single string to contain paragraphs or even pages of text.
 
-In Ruby, strings are objects.
+In Ruby, strings are objects. 
 
 ### Practice
 
@@ -57,7 +56,7 @@ Which of the following are valid strings? Why?
 "lunch"[-1]
 ```
 
-We can pull out specific parts of a string. For example, I may want to know only the first letter of a string. In programming, we start with the position 0 and count up from there.
+We can pull out specific parts of a string. For example, I may want to know only the first letter of a string. In programming, we start with the position 0 and count up from there. 
 
 I can access the first letter of a string using this notation:
 
@@ -82,7 +81,7 @@ We use this notation to pull out substrings. For example, I may want to get back
 "hello, world"[0..4]
 ```
 
-In Ruby, `..` indicates an inclusive range. The above example means give me back all of the characters at positions 0, 1, 2, 3, and 4.
+In Ruby, `..` indicates an inclusive range. The above example means give me back all of the characters at positions 0, 1, 2, 3, and 4. 
 
 Ruby interprets negative positions to count back from the end of the string. So in "Hi", the "i" is in position -1 and the "H" is in position -2.
 
@@ -96,16 +95,16 @@ A `method` in Ruby can be thought of as a message that's being sent to an object
 "hello, world".upcase
 ```
 
-The method is `.upcase`, the object it's being called on is "hello, world", and the return value is "HELLO, WORLD". Like the above example, most methods you'll see use what we call "dot notation" where there is a dot between the object and the method.
+The method is `.upcase`, the object it's being called on is "hello, world", and the return value is "HELLO, WORLD". Like the above example, most methods you'll see use what we call "dot notation" where there is a dot between the object and the method. 
 
-Let's open up some Ruby documentation: [String](http://ruby-doc.org/core-2.3.1/String.html). Take a look on the left-hand side underneath "Methods". We'll walk through the two below to start:
+Let's open up some Ruby documentation: [String](http://ruby-doc.org/core-2.2.3/String.html). Take a look on the left-hand side underneath "Methods". We'll walk through the two below to start:
 
 ```
 capitalize
 center
 ```
 
-*Try it*: Find the following methods and their documentation, then experiment with them in IRB and jot down your own definition of what the method does. *You may need/want to Google other definitions or examples for some*.
+*Try it*: Find the following methods and their documentation, then experiment with them in IRB and jot down your own definition of what the method does. *You may need/want to Google other definitions or examples for some*. 
 
 ```
 delete
@@ -151,11 +150,11 @@ Let's say that we want to create a string that says "Welcome to class, Mary." Th
 "Welcome to class, " + student + "."
 ```
 
-Try it out in IRB.
+Try it out in IRB. 
 
-*Try it*: Create two more of your own examples of string concatenation using a variable.
+*Try it*: Create two more of your own examples of string concatenation using a variable. 
 
-Note that the `+` is also a string method. It does not use dot notation.
+Note that the `+` is also a string method. It does not use dot notation. 
 
 ### String Interpolation
 
@@ -169,11 +168,11 @@ String interpolation only works on a double-quoted string. Within the string we 
 
 If you compare the output you’ll see that they give the exact same results. The interpolation style tends to be fewer characters to type and fewer open/close quotes and plus signs to forget. String interpolation is preferred and more common. You should take note of the fact that string interpolation **will only work inside of double-quoted strings**. This would not work: `'Welcome to class, #{student}.'`
 
-*Try it*: Create two more examples of your own using string interpolation and a variable.
+*Try it*: Create two more examples of your own using string interpolation and a variable. 
 
 ## Variables
 
-Now that we've talked about basic variable assignment, let's get into some of the more detailed rules.
+Now that we've talked about basic variable assignment, let's get into some of the more detailed rules. 
 
 In some languages you need to specify what type of data (like a number, word, etc) can go in a certain variable. Ruby, however, has a flexible type system where any variable can hold any kind of data. Additionally, some languages require you to "declare" a variable before you assign a value to it. Ruby variables are automatically created when you assign a value to them. Let’s try an example:
 
@@ -233,7 +232,7 @@ A few examples of bad Ruby variable names include:
 
 ## Integers
 
-Numeric data comes in two types: Integers and Floats. Integers are whole numbers (no decimals) and are either of the class Fixnum or Bignum. Floats are numbers that have decimal places.
+Numeric data comes in two types: Integers and Floats. Integers are whole numbers (no decimals) and are either of the class Fixnum or Bignum. Floats are numbers that have decimal places. 
 
 ```ruby
 123456789.class
@@ -242,7 +241,7 @@ Numeric data comes in two types: Integers and Floats. Integers are whole numbers
 1.239.class
 ```
 
-*Try it*: Predict the return value before trying these in IRB. Which of these work? Which of these do something you didn't expect?
+*Try it*: Predict the return value before trying these in IRB. Which of these work? Which of these do something you didn't expect? 
 
 ```ruby
 3 + 4
@@ -271,7 +270,7 @@ We can also (somewhat) combine strings and integers. Try these:
 
 ### Introducing Number Methods
 
-All of the arithmetic operations that you tried above are actually methods. Let's look at the documentation for [Integer](http://ruby-doc.org/core-2.3.1/Integer.html#method-i-gcd) and [Float](http://ruby-doc.org/core-2.3.1/Float.html).
+All of the arithmetic operations that you tried above are actually methods. Let's look at the documentation for [Integer](http://ruby-doc.org/core-2.2.3/Integer.html#method-i-gcd) and [Float](http://ruby-doc.org/core-2.2.3/Float.html). 
 
 ```
 round
@@ -313,4 +312,4 @@ Today, you accomplished the following:
 
 ## Homework
 
-Complete the [Working with Strings and Integers](https://github.com/turingschool/challenges/blob/master/working_with_strings_and_integers.markdown) challenge.
+Complete the [Working with Strings and Integers](https://github.com/turingschool/challenges/blob/master/working_with_strings_and_integers.markdown) challenge. 

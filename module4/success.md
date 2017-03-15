@@ -13,7 +13,7 @@ Students must earn a score of `3` or greater in *each* category of the final ass
 
 ### Independent Work
 
-*Expected*: Independent work for M4 will consist primarily of contributing to external Open Source in Weeks 5 & 6:
+*Expected*: Independent work for M4 will consist primarily of contributing to external Open Source in Weeks 2 - 6:
 
 * Reproduce and confirm or contradict one bug report
 * Submit one sizable/difficult or two smaller/moderate code-centric pull requests that are worth merging
@@ -36,7 +36,7 @@ The Career Development segment is made up of several pieces, most of which are t
 
 * Summaries of at least 6 "cold outreach" contacts. You are asked to complete two by the end of week 2, two by the end of week 3, and two by the end of week 4 with a summary of all contacts submitted on **Monday of week 5** and following these [guidelines](https://github.com/turingschool/career-development-curriculum/blob/master/module_four/cold_outreach_deliverable_guidelines.md)
 * Provide a link to your completed Turing portfolio, complete with your name, photo, description, 3 projects, and resume
-* Documentation of practice interview participation -- *guidelines are forthcoming*. Check with Allison if you have questions
+* Documentation of practice interview participation using these [guidelines](https://github.com/turingschool/career-development-curriculum/blob/master/module_four/interview_practice_reflection_guidelines.md). 
 * Completed action plan for the post-grad job search -- *template is forthcoming*. Check with Allison if you have questions
 * Ensure that your GitHub, LinkedIn, and StackOverflow accounts are properly setup by linking to them in your Census account. We will run an automated check on these and send you a follow up if needed. No submission is necessary beyond putting the info in your Census account
 
@@ -44,6 +44,7 @@ The Career Development segment is made up of several pieces, most of which are t
 
 As stewards of the larger Turing community, Module 4 students are expected to **complete at least two** of the following:
 
+* lead or co-lead the week 5 Gear Up session for lower modules
 * lead or co-lead a Friday Spike session
 * deliver any session at a meetup or conference
 * pair three or more times with students in lower modules

@@ -3,33 +3,7 @@ layout: page
 title: Contributing to Open Source
 ---
 
-## Learning Goals
-
-*   Students understand who contributes to open source
-* Students understand why they should contribute to open source
-* Students understand the "short tail" of open source
-
-## Lesson
-
-### Part 1: Understanding the Open Source Ecosystem
-
-You've been using open-source for months, but let's explore a bit of the history:
-
-* The origins of "OSS" terminology and culture in [1998](https://en.wikipedia.org/wiki/Open-source_software_movement#Brief_history)
-* [Open Sources: Voices from the Revolution (1999)](http://www.oreilly.com/openbook/opensources/book/)
-* Open Source in the "Before GitHub" era: floppies, CDs, FTP, CVS/SVN, Apt, and SourceForge
-* The world's largest software project curses us with Git
-* Rails nerds build GitHub
-
-And what it means for us today:
-
-* Goals of Open Source
-* What Open Source won't do for you
-* Licenses
-* Protocols
-* Your Goals
-
-### Part 2: Your Expectations, Project Selection, and Protocol
+## Part 1: Your Expectations, Project Selection, and Protocol
 
 #### OSS Project Expectations
 
@@ -78,16 +52,9 @@ Once you've selected a project:
   * push the changes to your remote branch
   * tag the person who requested the changes to review them.
 
-### Part 3: Research & Pitches
+## Part 2: Research & Pitches
 
 It's time to find a project and write up three pitches.
-
-#### Finding an Issue/Idea
-
-* You're *not* expected to be dreaming up new features
-* Fixing and refactoring are generally better than adding new functionality when you first start contributing to a repo
-* Read through the posted Issues and you'll likely find feature requests/ideas. Take note of any tags used by the repo maintainers
-* Non-Code contributions are always appreciated - documentation is hard. Update the README with any set up instructions that you went through that weren't in it already, make spelling and grammar fixes.
 
 #### Finding a Project
 
@@ -113,11 +80,18 @@ And here are a few concrete ideas:
 * [MrSpec](https://github.com/JoshCheek/mrspec)
 * [Adding to / Improving Ruby's Documentation](http://documenting-ruby.org/) (harder than you think)
 
+#### Finding an Issue/Idea
+
+* You're *not* expected to be dreaming up new features
+* Fixing and refactoring are generally better than adding new functionality when you first start contributing to a repo
+* Read through the posted Issues and you'll likely find feature requests/ideas. Take note of any tags used by the repo maintainers
+* Non-Code contributions are always appreciated - documentation is hard. Update the README with any set up instructions that you went through that weren't in it already, make spelling and grammar fixes.
+
 #### Project Pitches
 
-Your first idea will probably be a bad one. Put together three pitches and we'll help you pick the best one.
+Put together three pitches and we'll help you pick the best one.
 
-Each pitch should be like this:
+Each pitch should contain the following information:
 
 ```
 ## Contributing to VCR
@@ -128,6 +102,11 @@ Each pitch should be like this:
 * When I'm Done: In the original GitHub issue it sounds like the developers are in favor of the feature, so I think I can get this accepted for the next version of the library.
 ```
 
-**Post your three pitches in a Gist and put the link in your cohort channel by 8AM tomorrow.**
+**You're expected to DM Ilana, Nate, and Casey a link to your three pitches by 9 AM Monday morning**
 
-You're encouraged to look at each other's for ideas, inspiration, and collaboration opportunities.
+You're encouraged to talk with each other for ideas, inspiration, and collaboration opportunities.
+
+## Additional Resources
+* Reading: The origins of "OSS" terminology and culture in [1998](https://en.wikipedia.org/wiki/Open-source_software_movement#Brief_history)
+* Book: [Open Sources: Voices from the Revolution (1999)](http://www.oreilly.com/openbook/opensources/book/)
+
