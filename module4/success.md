@@ -44,6 +44,7 @@ The Career Development segment is made up of several pieces, most of which are t
 
 As stewards of the larger Turing community, Module 4 students are expected to **complete at least two** of the following:
 
+* lead or co-lead the week 5 Gear Up session for lower modules
 * lead or co-lead a Friday Spike session
 * deliver any session at a meetup or conference
 * pair three or more times with students in lower modules
