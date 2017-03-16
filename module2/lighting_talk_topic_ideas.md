@@ -44,7 +44,8 @@ You can make a pitch to do a topic of your choice. The topic must be in the real
 * @media / responsive design
 * Fluid
 
+### Helpful Links
 
-http://frontend.turing.io/independent-study/css-performance-and-organization.html
+* [Front end css info](http://frontend.turing.io/independent-)study/css-performance-and-organization.html
 
-http://frontend.turing.io/independent-study/image-handling.html
+* [Front end Image Handling](http://frontend.turing.io/independent-study/image-handling.html)
