@@ -62,7 +62,7 @@ require 'rspec'
 require File.expand_path('../../config/environment.rb', __FILE__)
 ```
 
-### Testing the `.total_sales` Method
+### Testing the `.total_winnings` Method
 
 Let's write our first model test. In `spec/models/horse_spec.rb`:
 
@@ -87,7 +87,7 @@ Did we get what we expected? No? What's going on here? It looks like the total t
 
 Run it one more time to check. Notice that the actual value that we're getting increased? So, not only are we not testing with only the data we're providing in the test, but on top of that, every time we run the test we're adding new horses to our development database.
 
-This is not the behaviour we want. We're polluting the database that we're using when we browse the site locally. Wouldn't it be better if we could run our test suite without making these changes?
+This is not the behavior we want. We're polluting the database that we're using when we browse the site locally. Wouldn't it be better if we could run our test suite without making these changes?
 
 We're going to set an environment variable in our spec helper file and then use that variable to determine which database to use. In `spec_helper.rb` add the following **above** all the `require` lines:
 
