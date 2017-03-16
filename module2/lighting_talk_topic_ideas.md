@@ -1,5 +1,4 @@
-* ---
-layout: page
+---
 title: Module 2
 subheading: HTML/CSS Topics for Lighting Talks
 ---
