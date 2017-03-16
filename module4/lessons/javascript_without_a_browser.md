@@ -13,25 +13,10 @@ Traditionally JavaScript is executed client-side, or in the browser on the consu
 
 *   First version released with first version of chrome in 2008
 *   Compiles JS to native machine code
-*   Designed to be modular
-    *   Chrome
-    *   Opera
-    *   Vivaldi
-    *   Couchbase
-    *   MongoDB
-    *   Electron
-    *   node.js
 
 ### Today, We'll look into node.js. What is it?
 
 According to [nodejs.org](nodejs.org) node, in it's most basic form, "is a JavaScript runtime built on Chrome's V8 JavaScript engine."
-
-What makes node so powerful and desirable?
-
-*   event-driven
-*   non-blocking
-*   lightweight and efficient
-*   allows the user of websockets  - realtime 2 way connections between client and server.
 
 #### aside: NPM
 
@@ -121,4 +106,3 @@ Pair Up!
 
 *   [Character Count](https://github.com/turingschool/challenges/blob/master/character_count.markdown)
 *   [fibonacci](https://github.com/turingschool/challenges/blob/master/fibber.markdown)
-*   [99 Bottles](https://github.com/turingschool/challenges/blob/master/99_bottles.markdown)
