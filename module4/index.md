@@ -41,6 +41,7 @@ The next three weeks will be spent working on your capstone projects. We're stil
 *   Cold Outreach
 *   [Testing in JavaScript](./lessons/testing-in-javascript)
 *   [Contributing to Open Source Kick Off](./lessons/contributing_to_open_source)
+*   [Practice Technical Challenge](https://gist.github.com/case-eee/51d96bce7922b6d8be5b003af1944952)
 
 <h4 id="week_2">Week 2</h4>
 *   [Javascript Without a Browser](./lessons/javascript_without_a_browser)
