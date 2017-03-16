@@ -37,13 +37,13 @@ subheading: Homework
     * [The Basics of Capybara and Improving your Tests](https://www.sitepoint.com/basics-capybara-improving-tests/)
     * [Capybara (software) - Wikipedia](https://en.wikipedia.org/wiki/Capybara_(software))
     * [Testing your App with Capybara](https://github.com/teamcapybara/capybara)
-  * [DTR for Bike Share](https://gist.github.com/Carmer/85b9e0569af607d14f6e14b696b5e131). One group member should send link to forked gist to Andrew and Sal.
+  * [DTR for Bike Share](https://gist.github.com/Carmer/85b9e0569af607d14f6e14b696b5e131). One group member should send link to forked gist to Andrew and Beth.
 
 ##### Day 5 & Weekend
   * Answer the Module 2/Week One Recap [questions](https://github.com/turingschool/checks-for-understanding/blob/master/module-2/backend/week_one.md).
   * Sign up for a [lightning talk](https://docs.google.com/spreadsheets/d/1derEJ1nvvCW6G268Y8iQFVDjoyfpE4KH2UyNzfvqyIs/edit#gid=0) (if you haven't already!)
-  * Write your first feature tests from today's lesson on your Horse repo, push that branch to github, make a pull request and tag Sal (@bethsebian) and Andrew (@carmer) to review the tests.
-  * As you write your first tests for Bike Share, make a pull request, tag Sal (@bethsebian) and Andrew (@carmer) to review the tests.
+  * Write your first feature tests from today's lesson on your Horse repo, push that branch to github, make a pull request and tag Beth (@bethsebian) and Andrew (@carmer) to review the tests.
+  * As you write your first tests for Bike Share, make a pull request, tag Beth (@bethsebian) and Andrew (@carmer) to review the tests.
   * [Watch Sharif Ramadan's intro to 1NF, 2NF and 3NF databases. They're only about 4 minutes each.](https://www.youtube. com/watch?v=K7vzLrGCV50&list=PLQ9AAKW8HuJ5m0rmHKL88ZyjOIKejvrj0)
   * Suggested:
     * Read the [Learn SQL the Hard Way](http://sql.learncodethehardway.org/book/) book.
