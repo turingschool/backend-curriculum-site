@@ -17,10 +17,9 @@ layout: page
 *   [Academic Integrity](lessons/academic_integrity)
 
 ## Projects and Exercises
-*   [Flashcards](projects/flashcards)
+*   [Jungle Beat](projects/jungle_beat)
 *   [Date Night](projects/date_night)
-*   [Complete Me](projects/complete_me)
-*   [NightWriter](projects/night_writer)
+*   [Enigma](projects/enigma)
 
 ## Resources
 
