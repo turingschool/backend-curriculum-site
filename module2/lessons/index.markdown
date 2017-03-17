@@ -16,7 +16,7 @@
 <!-- * [Professional Development: Flower Exercise](../professional_development/module_two/flower_exercise) -->
 * [Model Testing in Sinatra](model_testing_in_sinatra_with_horses)
 * [Intro to Project Management](intro_to_project_management)
-* [Collaborative Communication]()
+* Collaborative Communication
 * [BikeShare Kickoff](https://github.com/turingschool/bike-share)
 * [Feature Testing](feature_testing_in_sinatra_with_horses)
 
@@ -26,14 +26,14 @@
 
 <!-- * [Intermediate Sql]() -->
 * Week 1 review and Q&A
-* [ERD's](lessons/entity-relationship-diagramming)
+* [ERD's](entity-relationship-diagramming)
 * Bike Share Checkins
-* [ActiveRecord Associations](lessons/activerecord_associations)
-* [Feedback II]()
-* [Rails Exploration]()
-* [REST, Controllers, and Routing in Rails](lessons/rest_routing_and_controllers_in_rails)
-* [Migrations and Relationships in Rails](lessons/migrations-databases-relationships)
-* [Blogger Tutorial](projects/blogger)
+* [ActiveRecord Associations](activerecord_associations)
+* Feedback II
+* Rails Exploration
+* [REST, Controllers, and Routing in Rails](rest_routing_and_controllers_in_rails)
+* [Migrations and Relationships in Rails](migrations-databases-relationships)
+* [Blogger Tutorial](http://backend.turing.io/module2/projects/blogger)
 
 -------
 
