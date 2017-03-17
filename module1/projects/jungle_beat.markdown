@@ -62,14 +62,14 @@ The point of this process is to help us focus on small pieces at a time without 
 
 ### Iteration Base Expectations
 
-* [Iteration 0](../jungle_beat_iterations/iteration_0.html) - Node Basics
-* [Iteration 1](../jungle_beat_iterations/iteration_1.html) - Append, All and Count (Single Node)
-* [Iteration 2](../jungle_beat_iterations/iteration_2.html) - Append, All and Count (Multiple Nodes)
-* [Iteration 3](../jungle_beat_iterations/iteration_3.html) - Insert and Prepend
-* [Iteration 4](../jungle_beat_iterations/iteration_4.html) - Find, Pop, and Includes?
-* [Iteration 5](../jungle_beat_iterations/iteration_5.html) - Creating a Linked List Wrapper
-* [Iteration 6](../jungle_beat_iterations/iteration_6.html) - Playing Beats
-* [Extensions](../jungle_beat_iterations/extensions.html) - Validating Beats, Speed & Voice
+* [Iteration 0](jungle_beat_iterations/iteration_0) - Node Basics
+* [Iteration 1](jungle_beat_iterations/iteration_1) - Append, All and Count (Single Node)
+* [Iteration 2](jungle_beat_iterations/iteration_2) - Append, All and Count (Multiple Nodes)
+* [Iteration 3](jungle_beat_iterations/iteration_3) - Insert and Prepend
+* [Iteration 4](jungle_beat_iterations/iteration_4) - Find, Pop, and Includes?
+* [Iteration 5](jungle_beat_iterations/iteration_5) - Creating a Linked List Wrapper
+* [Iteration 6](jungle_beat_iterations/iteration_6) - Playing Beats
+* [Extensions](jungle_beat_iterations/extensions) - Validating Beats, Speed & Voice
 
 ## Tips
 
