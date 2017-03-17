@@ -2,23 +2,23 @@
 
 ## Week 1
 
-* [Intro to Sinatra](lessons/introduction_to_sinatra)
-* [What is Git?](lessons/what_is_git)
-* [HTML/CSS Basics](slides/html_css_basics/html_css_basics)
+* [Intro to Sinatra](introduction_to_sinatra)
+* [What is Git?](what_is_git)
+* [HTML/CSS Basics](http://backend.turing.io/module2/slides/html_css_basics/html_css_basics)
 <!-- * [Intro to Bootstrap](lessons/introduction_to_bootstrap_v2) -->
-* [How the Web Works](slides/how_the_web_works/slides)
-* [CRUD in Sinatra](lessons/crud-intro-sinatra)
+* [How the Web Works](http://backend.turing.io/module2/slides/how_the_web_works/slides)
+* [CRUD in Sinatra](crud-intro-sinatra)
 * [Passing Data With Sinatra](https://github.com/turingschool/shopping)
-* [CRUD WORKTIME](http://backend.turing.io/module2/lessons/crud-intro-sinatra) - Bottom of the lesson plan.
-* [Database Visualization & Relationships](lessons/visualising_and_implementing_database_relationships)
+* [CRUD WORKTIME](crud-intro-sinatra) - Bottom of the lesson plan.
+* [Database Visualization & Relationships](visualising_and_implementing_database_relationships)
 * [ActiveRecord Exploration](https://github.com/turingschool/intro-to-ar)
-* [Intro to ActiveRecord with Sinatra](lessons/intro_to_active_record_in_sinatra)
+* [Intro to ActiveRecord with Sinatra](intro_to_active_record_in_sinatra)
 <!-- * [Professional Development: Flower Exercise](../professional_development/module_two/flower_exercise) -->
-* [Model Testing in Sinatra](lessons/model_testing_in_sinatra_with_horses)
-* [Intro to Project Management](lessons/intro_to_project_management)
+* [Model Testing in Sinatra](model_testing_in_sinatra_with_horses)
+* [Intro to Project Management](intro_to_project_management)
 * [Collaborative Communication]()
 * [BikeShare Kickoff](https://github.com/turingschool/bike-share)
-* [Feature Testing](lessons/feature_testing_in_sinatra_with_horses)
+* [Feature Testing](feature_testing_in_sinatra_with_horses)
 
 -------
 
