@@ -4,8 +4,8 @@ layout: page
 ---
 ## Projects and Exercises
 
-* [Night Writer](projects/night_writer)
-* [HTTP Yeah You Know Me](projects/http_yeah_you_know_me)
+* [Enigma](projects/enigma)
+* [Battleship](projects/battleship)
 
 ## Lessons
 
@@ -13,7 +13,7 @@ layout: page
 * [Pairing Patterns](lessons/pairing_patterns)
 * [Project Etiquette](lessons/ruby_project_etiquette) ([Video](http://vimeo.com/161695195))
 * [Enumerables, Part Deux](lessons/intermediate_enumerables) [Video 1](https://vimeo.com/161675625), [Video 2](https://vimeo.com/161677741), [Video 3](https://vimeo.com/161678930), [Video 4](https://vimeo.com/161680127)
-* [Credit Check Recheck](lessons/credit_check_recheck) 
+* [Credit Check Recheck](lessons/credit_check_recheck)
 
 ## Other Relevant Links
 

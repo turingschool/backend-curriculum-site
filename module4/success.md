@@ -13,7 +13,7 @@ Students must earn a score of `3` or greater in *each* category of the final ass
 
 ### Independent Work
 
-*Expected*: Independent work for M4 will consist primarily of contributing to external Open Source in Weeks 5 & 6:
+*Expected*: Independent work for M4 will consist primarily of contributing to external Open Source in Weeks 2 - 6:
 
 * Reproduce and confirm or contradict one bug report
 * Submit one sizable/difficult or two smaller/moderate code-centric pull requests that are worth merging
@@ -44,6 +44,7 @@ The Career Development segment is made up of several pieces, most of which are t
 
 As stewards of the larger Turing community, Module 4 students are expected to **complete at least two** of the following:
 
+* lead or co-lead the week 5 Gear Up session for lower modules
 * lead or co-lead a Friday Spike session
 * deliver any session at a meetup or conference
 * pair three or more times with students in lower modules

@@ -34,12 +34,14 @@ The next three weeks will be spent working on your capstone projects. We're stil
 <h4 id="week_1">Week 1</h4>
 *   State of Turing
 *   Mod 4 Kickoff and Norming
-*   Project Kickoff: [Quantified Self](./projects/quantified-self)
+*   Project Kickoff: [Quantified Self](./projects/quantified-self/quantified-self)
 *   Professional Skills Expectations
 *   [Client Side Storage](./lessons/client_side_storage)
 *   [Event Bubbling and Delegation](./lessons/event-bubbling-and-delegation)
 *   Cold Outreach
 *   [Testing in JavaScript](./lessons/testing-in-javascript)
+*   [Contributing to Open Source Kick Off](./lessons/contributing_to_open_source)
+*   [Practice Technical Challenge](https://gist.github.com/case-eee/51d96bce7922b6d8be5b003af1944952)
 
 <h4 id="week_2">Week 2</h4>
 *   [Javascript Without a Browser](./lessons/javascript_without_a_browser)
@@ -64,7 +66,6 @@ The next three weeks will be spent working on your capstone projects. We're stil
 
 <h4 id="week_4">Week 4</h4>
 *   [Application Coordination with Message Queues](./lessons/application_coordination_with_message_queues)
-*   [Contributing to Open Source](./lessons/contributing_to_open_source)
 *   Interview Prep
 *   Mid Module Assessment
 *   [React 1](./lessons/intro_to_react)

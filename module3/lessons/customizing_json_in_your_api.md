@@ -18,7 +18,13 @@ tags: json, javascript, rails, ruby, api
 - Why do we version?
 - In routes
   - Default format of JSON
-- In app folder
+- In app folder  
+
+## Warmup  
+- What would be some situations where you don't want to expose, in json, all the information for a specific record? 
+- What tools/gems are out there to help you with this? 
+  - Split class 5min research Jbuilder/Active Model Serializer
+  - Share out 
 
 ## Lecture
 
@@ -40,12 +46,26 @@ Let's take a look at the last two ways to customize the JSON that gets sent to t
 
 ## Setup
 
-We're going to start where we left off in the internal API testing lesson. We want to work with objects that have related models, so let's add an orders model:
+We're going to start where we left off in the internal API testing lesson.   
+
+```
+git clone https://github.com/s-espinosa/building_internal_apis/tree/building_api_complete  
+bundle  
+git checkout -b setup  
+```
+
+We want to work with objects that have related models, so let's add an orders model:
 
 ```
 rails g model order order_number
 rails g model order_item order:references item:references item_price:integer quantity:integer
 bundle exec rake db:migrate
+```
+
+Add Faker Gem
+``` 
+gem faker 
+bundle
 ```
 
 Add relationships to your models:
@@ -100,6 +120,8 @@ Create your controller
 > What's he building in there? -Tom Waits
 
 What does our JSON currently output as?
+
+What do we want out JSON to output?  
 
 JSON responses should contain the following keys from the following endpoints:
 

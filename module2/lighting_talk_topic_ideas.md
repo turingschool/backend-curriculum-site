@@ -1,8 +1,13 @@
-* ---
-layout: page
+---
 title: Module 2
 subheading: HTML/CSS Topics for Lighting Talks
 ---
+
+### Your Own Topic
+
+You can make a pitch to do a topic of your choice. The topic must be in the realm of html/css/sass. Propose your topic to Andrew and Beth before you move forward with the planning of the talk.
+
+### Suggested Topics
 
 * History of HTML
 * History of CSS
@@ -39,7 +44,8 @@ subheading: HTML/CSS Topics for Lighting Talks
 * @media / responsive design
 * Fluid
 
+### Helpful Links
 
-http://frontend.turing.io/independent-study/css-performance-and-organization.html
+* [Front end css info](http://frontend.turing.io/independent-)study/css-performance-and-organization.html
 
-http://frontend.turing.io/independent-study/image-handling.html
+* [Front end Image Handling](http://frontend.turing.io/independent-study/image-handling.html)

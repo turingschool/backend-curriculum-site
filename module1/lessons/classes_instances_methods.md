@@ -75,35 +75,31 @@ class Fridge
 end
 
 refrigerator_1  = Fridge.new
-p "Number 1: #{refrigerator_1}"
+puts "Number 1: #{refrigerator_1}"
 
 refrigerator_2   = Fridge.new
-p "Number 2: #{refrigerator_2}"
+puts "Number 2: #{refrigerator_2}"
 
 refrigerator_3 = Fridge.new
-p "Number 3: #{refrigerator_3}"
+puts "Number 3: #{refrigerator_3}"
 ```
 
-Remember, `p` is the combination of `puts` and `inspect` (like `puts steve.inspect`). Let's run the file `ruby classes_and_instances_playground.rb` and see what happens.
+Let's run the file `ruby classes_and_instances_playground.rb` and see what happens.
 
-Sometimes it's helpful to be able pause your file and look around. We can do this by installing the gem "pry" and then pausing execution:
-
-```
-$ gem install pry
-```
+Sometimes it's helpful to be able pause your file and look around. Let's throw `pry` in there to do so.
 
 ```ruby
 class Fridge
 end
 
 refrigerator_1  = Fridge.new
-p "Number 1: #{refrigerator_1}"
+puts "Number 1: #{refrigerator_1}"
 
 refrigerator_2   = Fridge.new
-p "Number 2: #{refrigerator_2}"
+puts "Number 2: #{refrigerator_2}"
 
 refrigerator_3 = Fridge.new
-p "Number 3: #{refrigerator_3}"
+puts "Number 3: #{refrigerator_3}"
 
 require 'pry'; binding.pry
 puts "-------"
@@ -143,13 +139,13 @@ class Fridge
 end
 
 refrigerator_1  = Fridge.new("Maytag", "white", 36, true, ["leftover pizza", "yogurt", "soylent"])
-p "Number 1: #{refrigerator_1}"
+puts "Number 1: #{refrigerator_1}"
 
 refrigerator_2   = Fridge.new("", "black", 40, true, [])
-p "Number 2: #{refrigerator_2}"
+puts "Number 2: #{refrigerator_2}"
 
 refrigerator_3 = Fridge.new("", "black", 33, false, ["celery"])
-p "Number 3: #{refrigerator_3}"
+puts "Number 3: #{refrigerator_3}"
 
 require 'pry'; binding.pry
 puts "-------"
@@ -191,13 +187,13 @@ class Fridge
 end
 
 refrigerator_1  = Fridge.new("Maytag", "white", 36, true, ["leftover pizza", "yogurt", "soylent"])
-p "Number 1: #{refrigerator_1}"
+puts "Number 1: #{refrigerator_1}"
 
 refrigerator_2   = Fridge.new("", "black", 40, true, [])
-p "Number 2: #{refrigerator_2}"
+puts "Number 2: #{refrigerator_2}"
 
 refrigerator_3 = Fridge.new("", "black", 33, false, ["celery"])
-p "Number 3: #{refrigerator_3}"
+puts "Number 3: #{refrigerator_3}"
 
 require 'pry'; binding.pry
 puts "-------"
@@ -248,13 +244,13 @@ class Fridge
 end
 
 refrigerator_1  = Fridge.new("Maytag", "white", 36, true, ["leftover pizza", "yogurt", "soylent"])
-p "Number 1: #{refrigerator_1}"
+puts "Number 1: #{refrigerator_1}"
 
 refrigerator_2   = Fridge.new("", "black", 40, true, [])
-p "Number 2: #{refrigerator_2}"
+puts "Number 2: #{refrigerator_2}"
 
 refrigerator_3 = Fridge.new("", "black", 33, false, ["celery"])
-p "Number 3: #{refrigerator_3}"
+puts "Number 3: #{refrigerator_3}"
 
 require 'pry'; binding.pry
 puts "-------"
@@ -285,13 +281,13 @@ class Fridge
 end
 
 refrigerator_1  = Fridge.new("Maytag", "white", 36, true, ["leftover pizza", "yogurt", "soylent"])
-p "Number 1: #{refrigerator_1}"
+puts "Number 1: #{refrigerator_1}"
 
 refrigerator_2   = Fridge.new("", "black", 40, true, [])
-p "Number 2: #{refrigerator_2}"
+puts "Number 2: #{refrigerator_2}"
 
 refrigerator_3 = Fridge.new("", "black", 33, false, ["celery"])
-p "Number 3: #{refrigerator_3}"
+puts "Number 3: #{refrigerator_3}"
 
 require 'pry'; binding.pry
 puts "-------"
@@ -330,13 +326,13 @@ class Fridge
 end
 
 refrigerator_1  = Fridge.new("Maytag", "white", 36, true, ["leftover pizza", "yogurt", "soylent"])
-p "Number 1: #{refrigerator_1}"
+puts "Number 1: #{refrigerator_1}"
 
 refrigerator_2   = Fridge.new("", "black", 40, true, [])
-p "Number 2: #{refrigerator_2}"
+puts "Number 2: #{refrigerator_2}"
 
 refrigerator_3 = Fridge.new("", "black", 33, false, ["celery"])
-p "Number 3: #{refrigerator_3}"
+puts "Number 3: #{refrigerator_3}"
 
 require 'pry'; binding.pry
 puts "-------"
@@ -389,13 +385,13 @@ class Fridge
 end
 
 refrigerator_1  = Fridge.new("Maytag", "white", 36, true, ["leftover pizza", "yogurt", "soylent"])
-p "Number 1: #{refrigerator_1}"
+puts "Number 1: #{refrigerator_1}"
 
 refrigerator_2   = Fridge.new("", "black", 40, true, [])
-p "Number 2: #{refrigerator_2}"
+puts "Number 2: #{refrigerator_2}"
 
 refrigerator_3 = Fridge.new("", "black", 33, false, ["celery"])
-p "Number 3: #{refrigerator_3}"
+puts "Number 3: #{refrigerator_3}"
 
 require 'pry'; binding.pry
 puts "-------"
@@ -449,13 +445,13 @@ class Fridge
 end
 
 refrigerator_1  = Fridge.new("Maytag", "white", 36, true, ["leftover pizza", "yogurt", "soylent"])
-p "Number 1: #{refrigerator_1}"
+puts "Number 1: #{refrigerator_1}"
 
 refrigerator_2   = Fridge.new("", "black", 40, true, [])
-p "Number 2: #{refrigerator_2}"
+puts "Number 2: #{refrigerator_2}"
 
 refrigerator_3 = Fridge.new("", "black", 33, false, ["celery"])
-p "Number 3: #{refrigerator_3}"
+puts "Number 3: #{refrigerator_3}"
 
 require 'pry'; binding.pry
 puts "-------"
@@ -491,13 +487,13 @@ class Fridge
 end
 
 refrigerator_1  = Fridge.new("Maytag", "white", 36, true, ["leftover pizza", "yogurt", "soylent"])
-p "Number 1: #{refrigerator_1}"
+puts "Number 1: #{refrigerator_1}"
 
 refrigerator_2   = Fridge.new("", "black", 40, true, [])
-p "Number 2: #{refrigerator_2}"
+puts "Number 2: #{refrigerator_2}"
 
 refrigerator_3 = Fridge.new("", "black", 33, false, ["celery"])
-p "Number 3: #{refrigerator_3}"
+puts "Number 3: #{refrigerator_3}"
 
 require 'pry'; binding.pry
 puts "-------"
@@ -531,13 +527,13 @@ class Fridge
 end
 
 refrigerator_1  = Fridge.new("Maytag", "white", 36, true, ["leftover pizza", "yogurt", "soylent"])
-p "Number 1: #{refrigerator_1}"
+puts "Number 1: #{refrigerator_1}"
 
 refrigerator_2   = Fridge.new("", "black", 40, true, [])
-p "Number 2: #{refrigerator_2}"
+puts "Number 2: #{refrigerator_2}"
 
 refrigerator_3 = Fridge.new("", "black", 33, false, ["celery"])
-p "Number 3: #{refrigerator_3}"
+puts "Number 3: #{refrigerator_3}"
 
 require 'pry'; binding.pry
 puts "-------"
