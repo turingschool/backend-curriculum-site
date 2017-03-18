@@ -34,7 +34,7 @@ The next three weeks will be spent working on your capstone projects. We're stil
 <h4 id="week_1">Week 1</h4>
 *   State of Turing
 *   Mod 4 Kickoff and Norming
-*   Project Kickoff: [Quantified Self](./projects/quantified-self)
+*   Project Kickoff: [Quantified Self](./projects/quantified-self/quantified-self)
 *   Professional Skills Expectations
 *   [Client Side Storage](./lessons/client_side_storage)
 *   [Event Bubbling and Delegation](./lessons/event-bubbling-and-delegation)
