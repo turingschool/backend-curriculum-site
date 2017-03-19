@@ -23,7 +23,7 @@ tags: ruby
 
 * Tying into our warm-up, which of these implementations would you rather work with? (they do the same thing)
 
-```ruby
+```
 1000.times{|n|if(n%3==0)&&(n%5==0)&&(n%7==0);puts"SuperFizzBuzz";elsif(n%3==0)&&(n%7==0);puts"SuperFizz";elsif(n%5==0)&&(n%7==0);puts"SuperBuzz";elsif(n%3==0)&&(n%5==0);puts"FizzBuzz";elsif(n%3==0);puts"Fizz";elsif(n%5==0);puts"Buzz";elsif(n%7==0);puts"Super";else;puts(n);end}
 ```
 
