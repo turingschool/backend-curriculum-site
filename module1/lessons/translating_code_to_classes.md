@@ -8,6 +8,13 @@ tags: ruby
 
 *   Take existing code and turn it into a class with methods.
 
+## Warm-up
+
+**Turn-and-Talk:** Let's talk about newspapers (yes, they still exist). Newspapers and other print media are forms of communication. When it comes to good communication for a newspaper, it's not good enough to simply print the news. Imagine a newspaper where all of the text is the same size and there are no pictures. The information contained is roughly the same but most people wouldn't be drawn to reading it. With a partner sitting next to you discuss the following questions:
+
+* Assuming you don't read every word of a newspaper, how do you decide what to read?
+* Our code is also a form of communication. It's communication with future developers and future you (at some point you will get frustrated about some code and ask "who wrote this?" only to find it was you). How can we apply the techniques of newspapers to make our code better?
+
 ## SuperFizz
 
 *   Lets create a new file in our `classroom_exercises` folder, called `translating_code_to_classes.rb`
@@ -170,7 +177,10 @@ fizz_buzz       = SuperFizz.new(15).run
 fizz            = SuperFizz.new(3).run
 buzz            = SuperFizz.new(5).run
 supper          = SuperFizz.new(7).run # bad variable name but super is taken in Ruby ;)
+flat            = SuperFizz.new(8).run
 ```
+
+(**Note:** We added several checks at the end of the file above so we can make sure that our changes don't break functionality.)
 
 *   By creating an `attr_reader`, we have allowed ourselves access to a method named `num` that holds the number we passed in when we created a new instance of `SuperFizz.new`
 
@@ -219,7 +229,7 @@ super_buzz      = SuperFizz.new(35).run
 fizz_buzz       = SuperFizz.new(15).run
 fizz            = SuperFizz.new(3).run
 buzz            = SuperFizz.new(5).run
-supper          = SuperFizz.new(7).run # bad variable name but super is taken in Ruby ;)
+supper          = SuperFizz.new(7).run
 flat            = SuperFizz.new(8).run
 
 puts super_fizz_buzz
@@ -272,21 +282,7 @@ class SuperFizz
   end
 end
 
-super_fizz_buzz = SuperFizz.new(105).run
-super_fizz      = SuperFizz.new(21).run
-super_buzz      = SuperFizz.new(35).run
-fizz_buzz       = SuperFizz.new(15).run
-fizz            = SuperFizz.new(3).run
-buzz            = SuperFizz.new(5).run
-supper          = SuperFizz.new(7).run # bad variable name but super is taken in Ruby ;)
-
-puts super_fizz_buzz
-puts super_fizz
-puts super_buzz
-puts fizz_buzz
-puts fizz
-puts buzz
-puts supper
+# (Additional code omitted)
 ```
 
 Great. Things are moving in the right direction but there's still room for improvement. Do you see the pattern emerging in our conditionals (`if` statements)?
@@ -329,6 +325,8 @@ end
 ```
 
 This makes our code more clear and removes repetition. A guideline set out by Sandy Metz in Practical Object Oriented Design in Ruby is to try to limit methods to 5 lines. Let's see if we can do that.
+
+**Rabbit Hole (not essential):** We could also use `+=` to add to our strings. What's the difference between `+=` and `<<` for strings in Ruby?
 
 Let's break out the checks against each number into a separate methods.
 
@@ -378,6 +376,8 @@ class SuperFizz
   end
 end
 ```
+
+**Rabbit Hole (not essential):** This [styleguide on Github](https://github.com/bbatsov/ruby-style-guide#visibility) says not to leave all methods public. Which of these methods should be `private`? 
 
 One last change... The `if` statements here are now quite simple. We can write these to be one line like so:
 
