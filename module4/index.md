@@ -25,7 +25,7 @@ Students who successfully complete Module 4 will have demonstrated mastery of Pr
 
 Your first project is [Quantified Self](./projects/quantified-self/quantified-self). It's an all front-end pair project for the first week.
 
-Your [second project](./projects/quantified-self/quantified-self-back-end is an extension of your first week. You'll build the back-end and wire it up to the front end.
+Your [second project](https://github.com/turingschool/backend-curriculum-site/blob/gh-pages/module4/projects/quantified-self/quantified-self-back-end.md) is an extension of your first week. You'll build the back-end and wire it up to the front end.
 
 The next three weeks will be spent working on your capstone projects. We're still working out details 
 
@@ -46,7 +46,7 @@ The next three weeks will be spent working on your capstone projects. We're stil
 <h4 id="week_2">Week 2</h4>
 *   [Javascript Without a Browser](./lessons/javascript_without_a_browser)
 *   [Fundamentals of Express](./lessons/fundamentals_of_express)
-*   Project Kickoff: [Quantified Self](./projects/quantified-self)
+*   Project Kickoff: [Quantified Self](https://github.com/turingschool/backend-curriculum-site/blob/gh-pages/module4/projects/quantified-self/quantified-self-back-end.md)
 *   SQL in Node
 *   All the AJAX
 *   Interview Prep
