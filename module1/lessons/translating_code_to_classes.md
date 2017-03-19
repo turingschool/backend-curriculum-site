@@ -20,7 +20,12 @@ tags: ruby
 *   Lets create a new file in our `classroom_exercises` folder, called `translating_code_to_classes.rb`
 
 *   Last week we worked with `superfizz.rb`. Now we are going to take that code and turn it into a class with methods.
-*   We will be working with this code:
+
+* Tying into our warm-up, which of these implementations would you rather work with? (they do the same thing)
+
+```ruby
+1000.times{|n|if(n%3==0)&&(n%5==0)&&(n%7==0);puts"SuperFizzBuzz";elsif(n%3==0)&&(n%7==0);puts"SuperFizz";elsif(n%5==0)&&(n%7==0);puts"SuperBuzz";elsif(n%3==0)&&(n%5==0);puts"FizzBuzz";elsif(n%3==0);puts"Fizz";elsif(n%5==0);puts"Buzz";elsif(n%7==0);puts"Super";else;puts(n);end}
+```
 
 ```ruby
 1000.times do |num|
@@ -43,6 +48,8 @@ tags: ruby
   end
 end
 ```
+
+We'll use the second implementation.
 
 ## Creating a class
 
@@ -377,7 +384,7 @@ class SuperFizz
 end
 ```
 
-**Rabbit Hole (not essential):** This [styleguide on Github](https://github.com/bbatsov/ruby-style-guide#visibility) says not to leave all methods public. Which of these methods should be `private`? 
+**Rabbit Hole (not essential):** This [styleguide on Github](https://github.com/bbatsov/ruby-style-guide#visibility) says not to leave all methods public. Which of these methods should be `private`?
 
 One last change... The `if` statements here are now quite simple. We can write these to be one line like so:
 
