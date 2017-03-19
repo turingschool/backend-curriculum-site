@@ -10,7 +10,7 @@ tags: ruby
 
 ## SuperFizz
 
-*   Lets create a new file in our `classwork` folder, called `translating_code_to_classes.rb`
+*   Lets create a new file in our `classroom_exercises` folder, called `translating_code_to_classes.rb`
 
 *   Last week we worked with `superfizz.rb`. Now we are going to take that code and turn it into a class with methods.
 *   We will be working with this code:
@@ -73,6 +73,8 @@ SuperFizz.new
 
 *   Let's remove the ```1000.times do``` so we can control our number.
 
+* Before looking at the solution below, how would you make it dynamic?
+
 ```ruby
 class SuperFizz
   if num % 3 == 0 && num % 5 == 0 && num % 7 == 0
@@ -134,12 +136,13 @@ SuperFizz.new(87687687)
 
 ```ruby
 class SuperFizz
-attr_reader :num
+  attr_reader :num
+
   def initialize(num)
     @num = num
   end
 
-  def divisible_by_what
+  def run
     if num % 3 == 0 && num % 5 == 0 && num % 7 == 0
       puts "SuperFizzBuzz"
     elsif num % 3 == 0 && num % 7 == 0
@@ -160,8 +163,13 @@ attr_reader :num
   end
 end
 
-superfizz = SuperFizz.new(87687687)
-superfizz.divisible_by_what
+super_fizz_buzz = SuperFizz.new(105).run
+super_fizz      = SuperFizz.new(21).run
+super_buzz      = SuperFizz.new(35).run
+fizz_buzz       = SuperFizz.new(15).run
+fizz            = SuperFizz.new(3).run
+buzz            = SuperFizz.new(5).run
+supper          = SuperFizz.new(7).run # bad variable name but super is taken in Ruby ;)
 ```
 
 *   By creating an `attr_reader`, we have allowed ourselves access to a method named `num` that holds the number we passed in when we created a new instance of `SuperFizz.new`
@@ -172,123 +180,251 @@ def num
 end
 ```
 
+**Food for thought:** What is the return value of the `run` method above? Another way to ask the sane question: If we assigned the run method to a local variable (`return_value = superfizz.run`) what would `return_value` return?
+
+We should change the method so it returns an actual value. If we want to see output, we will need to move the `puts` statement to the bottom of the file.
+
+```ruby
+class SuperFizz
+  attr_reader :num
+
+  def initialize(num)
+    @num = num
+  end
+
+  def run
+    if num % 3 == 0 && num % 5 == 0 && num % 7 == 0
+      "SuperFizzBuzz"
+    elsif num % 3 == 0 && num % 7 == 0
+       "SuperFizz"
+    elsif num % 5 == 0 && num % 7 == 0
+      "SuperBuzz"
+    elsif num % 3 == 0 && num % 5 == 0
+      "FizzBuzz"
+    elsif num % 3 == 0
+      "Fizz"
+    elsif num % 5 == 0
+      "Buzz"
+    elsif num % 7 == 0
+      "Super"
+    else
+      num
+    end
+  end
+end
+
+super_fizz_buzz = SuperFizz.new(105).run
+super_fizz      = SuperFizz.new(21).run
+super_buzz      = SuperFizz.new(35).run
+fizz_buzz       = SuperFizz.new(15).run
+fizz            = SuperFizz.new(3).run
+buzz            = SuperFizz.new(5).run
+supper          = SuperFizz.new(7).run # bad variable name but super is taken in Ruby ;)
+flat            = SuperFizz.new(8).run
+
+puts super_fizz_buzz
+puts super_fizz
+puts super_buzz
+puts fizz_buzz
+puts fizz
+puts buzz
+puts supper
+puts flat
+```
+
 *   There is quite a bit of repetition in here, let's clean some of that up. Maybe we can check each number to see if it is divisible by 3, 5, or 7 and then create a string based on the results.
+
+*   Let's start our class with an empty string named `result` to store our generated word.
 
 *   Because the longest word that we would like to make is "SuperFizzBuzz", it seems we should first start by checking if our number is divisible by 7. This would allow "Super" to be the first word in our string.
 
-*   We also want to start our class with an empty string.
+* We can use the same logic for determining which number to check against next... since numbers evenly divisible by 3 should return "Fizz", we should do that second.
+
+* Now we can check against the number 5 and return "Buzz" if `num` is evenly divisible.
 
 ```ruby
 class SuperFizz
-attr_reader :num, :output
+  attr_reader :num, :result
+
   def initialize(num)
     @num = num
-    @output = ""
+    @result = ""
   end
 
-  def divisible_by_what
+  def run
     if num % 7 == 0
-      output << "Super"
+      result << "Super"
     end
-    divisible_by_3
-  end
-```
 
-*   We have now started to create a chain of methods that will check each other. Since in the word "SuperFizzBuzz", "Fizz" is next, we are going to check if the number is divisible by 3. Our output will have the word "Super" in it if the number is divisible by 7.
-
-```ruby
-def divisible_by_3
-  if num % 3 == 0
-    output << "Fizz"
-  end
-  divisible_by_5
-end
-```
-
-*   We also check if our number is divisible by 5 so that "Buzz" will be the last word in the string.
-
-```ruby
-def divisible_by_5
-  if num % 5 == 0
-     output << "Buzz"
-  end
-
-  if output.empty?
-    puts num
-  else
-    puts output
-  end
-end
-```
-
-*   Lastly, we can refactor a little bit and pull out the second if statement.
-
-```ruby
-def divisible_by_5
-  if num % 5 == 0
-     output << "Buzz"
-  end
-  check_the_output
-end
-
-def check_the_output
-  if output.empty?
-    puts num
-  else
-    puts output
-  end
-end
-```
-
-*   Our file should now look like this:
-
-```ruby
-class SuperFizz
-attr_reader :num, :output
-  def initialize(num)
-    @num = num
-    @output = ""
-  end
-
-  def divisible_by_what
-    if num % 7 == 0
-      output << "Super"
-    end
-    divisible_by_3
-  end
-
-  def divisible_by_3
     if num % 3 == 0
-      output << "Fizz"
+      result << "Fizz"
     end
-    divisible_by_5
-  end
 
-  def divisible_by_5
     if num % 5 == 0
-       output << "Buzz"
+      result << "Buzz"
     end
-    check_the_output
-  end
 
-  def check_the_output
-    if output.empty?
-      puts num
-    else
-      puts output
+    if result.empty?
+      result << num.to_s
     end
+
+    result
   end
 end
 
-superfizz = SuperFizz.new(87687687)
-superfizz.divisible_by_what
+super_fizz_buzz = SuperFizz.new(105).run
+super_fizz      = SuperFizz.new(21).run
+super_buzz      = SuperFizz.new(35).run
+fizz_buzz       = SuperFizz.new(15).run
+fizz            = SuperFizz.new(3).run
+buzz            = SuperFizz.new(5).run
+supper          = SuperFizz.new(7).run # bad variable name but super is taken in Ruby ;)
+
+puts super_fizz_buzz
+puts super_fizz
+puts super_buzz
+puts fizz_buzz
+puts fizz
+puts buzz
+puts supper
 ```
 
-*   We have now created a dynamic object that can do more than one thing. If we wanted to create more methods for superfizz, that is also possible.
+Great. Things are moving in the right direction but there's still room for improvement. Do you see the pattern emerging in our conditionals (`if` statements)?
+
+Try this out:
+
+```ruby
+class SuperFizz
+  attr_reader :num, :result
+
+  def initialize(num)
+    @num = num
+    @result = ""
+  end
+
+  def run
+    if divisible_by?(7)
+      result << "Super"
+    end
+
+    if divisible_by?(3)
+      result << "Fizz"
+    end
+
+    if divisible_by?(5)
+      result << "Buzz"
+    end
+
+    if result.empty?
+      result << num.to_s
+    end
+
+    result
+  end
+
+  def divisible_by?(amount)
+    num % amount == 0
+  end
+end
+```
+
+This makes our code more clear and removes repetition. A guideline set out by Sandy Metz in Practical Object Oriented Design in Ruby is to try to limit methods to 5 lines. Let's see if we can do that.
+
+Let's break out the checks against each number into a separate methods.
+
+```ruby
+class SuperFizz
+  attr_reader :num, :result
+
+  def initialize(num)
+    @num = num
+    @result = ""
+  end
+
+  def run
+    divide_by_7
+    divide_by_3
+    divide_by_5
+    validate_result
+    result
+  end
+
+  def divide_by_7
+    if divisible_by?(7)
+      result << "Super"
+    end
+  end
+
+  def divide_by_3
+    if divisible_by?(3)
+      result << "Fizz"
+    end
+  end
+
+  def divide_by_5
+    if divisible_by?(5)
+      result << "Buzz"
+    end
+  end
+
+  def validate_result
+    if result.empty?
+      result << num.to_s
+    end
+  end
+
+  def divisible_by?(amount)
+    num % amount == 0
+  end
+end
+```
+
+One last change... The `if` statements here are now quite simple. We can write these to be one line like so:
+
+```ruby
+class SuperFizz
+  attr_reader :num, :result
+
+  def initialize(num)
+    @num = num
+    @result = ""
+  end
+
+  def run
+    divide_by_7
+    divide_by_3
+    divide_by_5
+    validate_result
+    result
+  end
+
+  def divide_by_7
+    result << "Super" if divisible_by?(7)
+  end
+
+  def divide_by_3
+    result << "Fizz" if divisible_by?(3)
+  end
+
+  def divide_by_5
+    result << "Buzz" if divisible_by?(5)
+  end
+
+  def validate_result
+    result << num.to_s if result.empty?
+  end
+
+  def divisible_by?(amount)
+    num % amount == 0
+  end
+end
+```
+
+*   We have now created a dynamic object that can do more than one thing. If we wanted to create more methods for SuperFizz, that is also possible and we could likely reuse some of the existing logic.
 
 ```ruby
 1000.times do |num|
   superfizz = SuperFizz.new(num)
-  superfizz.divisible_by_what
+  puts superfizz.run
 end
 ```
