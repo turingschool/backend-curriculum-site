@@ -662,7 +662,49 @@ describe('Server', () => {
 });
 ```
 
-**Note: we could/should probably stop and do some refactoring here. We're going to keep making progress though. There is a section at the end about refactoring your tests if you'd like to check it out later.**
+### Refactoring your tests with fixtures
+
+I don't _love_ how much room `validTrain` is taking up and I suspect it has some friends waiting in the wings. So, I'm going to move it out to a separate file.
+
+```
+touch test/fixtures.js
+```
+
+I'll export each one individually in `test/fixures.js`. (Granted, I only have one, right now.)
+
+```js
+exports.validTrain = {
+  name: 'Z line',
+  times: [ '1:00', '2:00', '3:00', '4:00' ]
+};
+
+```
+
+I'll require `test/fixtures.js` in `test/server-test.js`.
+
+```js
+const fixtures = require('./fixtures');
+```
+
+And, finally, I'll update my test to reflect my new approach.
+
+```js
+it('should receive and store data', (done) => {
+  var payload = { train: fixtures.validTrain };
+
+  this.request.post('/trains', { form: payload }, (error, response) => {
+    if (error) { done(error); }
+
+    var trainCount = Object.keys(app.locals.trains).length;
+
+    assert.equal(trainCount, 1, `Expected 1 trains, found ${trainCount}`);
+
+    done();
+  });
+});
+```
+
+Don't forget to run your tests again to make sure you haven't messed anything up.
 
 ## Dynamic Routes and Individual Trains
 
@@ -733,47 +775,17 @@ We're making the request, but right now, we're only sending the status code. We'
 Uncaught AssertionError: "OK" does not include "undefined".
 ```
 
-So, let's render a page like we did with the `/` route. We'll need another jade file for this.
-
-```
-touch views/train.jade
-```
-
-Let's start by adding the following to `views/train.jade`:
-
-```jade
-doctype html
-html(lang="en")
-  head
-    title= title
-  body
-    h1= title
-    h1= train.name
-```
-
-The big difference from `views/index.jade` is that we're also including `train.name`, which might be helpful for when we try to make this test pass.
-
-Just making a template is not enough. We need to render the template as well. Let's adjust our route in `server.js` accordingly.
+Rather than create a template, let's return the raw data. Let's adjust our route in `server.js` accordingly.
 
 ```js
 app.get('/trains/:id', (request, response) => {
   var train = app.locals.trains[request.params.id];
 
-  response.render('train', { train: train });
+  response.send({ train: train });
 });
 ```
+We fetch the train from our little data store, then we create an plain JS object by passing in the `train` from our data store name-spaced under `train` so that it doesn't conflict with the application's title and whatnot.
 
-We fetch the train from our little data store, then we render the `train.jade` template passing in the `train` from our data store name-spaced under `train` so that it doesn't conflict with the application's title and whatnot.
-
-### Your Turn
-
-Can you write a test for displaying each of the times on the page? As a helpful hint, here is an example of Jade's syntax for iterating over an array of values:
-
-```jade
-ul
-  each val in [1, 2, 3, 4, 5]
-    li= val
-```
 
 ## Testing Redirection
 
@@ -1007,48 +1019,4 @@ html(lang="en")
 ```
 
 We'll run our tests one more time and make sure that everything works as it should.
-
-### Refactoring your tests with fixtures
-
-I don't _love_ how much room `validTrain` is taking up and I suspect it has some friends waiting in the wings. So, I'm going to move it out to a separate file.
-
-```
-touch test/fixtures.js
-```
-
-I'll export each one individually in `test/fixures.js`. (Granted, I only have one, right now.)
-
-```js
-exports.validTrain = {
-  name: 'Z line',
-  times: [ '1:00', '2:00', '3:00', '4:00' ]
-};
-
-```
-
-I'll require `test/fixtures.js` in `test/server-test.js`.
-
-```js
-const fixtures = require('./fixtures');
-```
-
-And, finally, I'll update my test to reflect my new approach.
-
-```js
-it('should receive and store data', (done) => {
-  var payload = { train: fixtures.validTrain };
-
-  this.request.post('/trains', { form: payload }, (error, response) => {
-    if (error) { done(error); }
-
-    var trainCount = Object.keys(app.locals.trains).length;
-
-    assert.equal(trainCount, 1, `Expected 1 trains, found ${trainCount}`);
-
-    done();
-  });
-});
-```
-
-Don't forget to run your tests again to make sure you haven't messed anything up.
 
