@@ -39,8 +39,6 @@ You'll work with an instructor to define more explicitly the requirements for yo
 * Mimic the interface functionality of one online service from the list below.
 * Consume an external API to get real data and interact with a third-party service.
 
-The authoritative project requirements will be created and maintained in collaboration with your client through meetings and your project management tool. This means that the requirements for you could differ significantly from other projects.
-
 ## <a name="available-apis"></a> Available APIs
 
 To start, you need to select an API to work with. We've selected the following list of applications for their well-documented public APIs, and relatively straightforward UI's.
