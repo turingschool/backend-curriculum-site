@@ -45,7 +45,7 @@ The next three weeks will be spent working on your capstone projects. We're stil
 
 <h4 id="week_2">Week 2</h4>
 *   [Javascript Without a Browser](./lessons/javascript_without_a_browser)
-*   [Fundamentals of Express](./lessons/fundamentals_of_express)
+*   [Fundamentals of Express](./lessons/building_and_testing_with_express)
 *   Project Kickoff: [Quantified Self](https://github.com/turingschool/backend-curriculum-site/blob/gh-pages/module4/projects/quantified-self/quantified-self-back-end.md)
 *   SQL in Node
 *   All the AJAX
