@@ -38,6 +38,7 @@ You'll work with an instructor to define more explicitly the requirements for yo
 * Use an Omniauth authentication library for authenticating users with the 3rd-party service.
 * Mimic the interface functionality of one online service from the list below.
 * Consume an external API to get real data and interact with a third-party service.
+* Do *NOT* use a gem to communicate with the external API (Omniauth is OK)
 
 ## <a name="available-apis"></a> Available APIs
 
