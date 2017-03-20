@@ -19,7 +19,8 @@ The project requirements are listed below:
 * [Learning Goals](#learning-goals)
 * [Technical Expectations](#technical-expectations)
 * [Available APIs](#available-apis)
-* [Check-ins](#check-ins-and-milestones)
+* [Milestones](#milestones)
+* [What to Expect](#what-to-expect)
 * [Evaluation](#evaluation)
 
 ## <a name="learning-goals"></a> Learning Goals
@@ -37,9 +38,6 @@ You'll work with an instructor to define more explicitly the requirements for yo
 * Use an Omniauth authentication library for authenticating users with the 3rd-party service.
 * Mimic the interface functionality of one online service from the list below.
 * Consume an external API to get real data and interact with a third-party service.
-* Do *NOT* use a gem to communicate with the external API (Omniauth is OK)
-
-The authoritative project requirements will be created and maintained in collaboration with your client through meetings and your project management tool. This means that the requirements for you could differ significantly from other projects.
 
 ## <a name="available-apis"></a> Available APIs
 
@@ -64,29 +62,6 @@ Build a basic version of the Github profile / feed UI. As a user, I should be ab
 * View a list of "@mentions" that I was included in
 * Create a new repository
 
-### Foursquare/Swarm
-
-Build a basic check-in and venue browser. As a user, I should be able to:
-
-* Authenticate with my Foursquare/Swarm account
-* See my basic user information (Name, photo, number of check-ins, social media accounts, and whatever else you want)
-* See the score and venue of my most recent check-ins
-* Click on a check-in to see a venue "show" page
-* Have a page to search for venues by location. Each result should link to the venue show page
-* Search for a venue by location AND category
-
-**Venue Show Page**
-* See Basic info, like name, address/location, category, and hours
-* See foursquare stats, like number of check-ins, who is the mayor
-* See the last 5 check-ins for this location
-* See 5 tips for this location
-
-**Extensions:**
-
-* Mayor or tips on a venue show page links to a profile for that user
-* Allow me to add a tip for a venue
-* Use the 'multi' endpoint to combine all of the venue show page requests into one request
-
 ### Reddit
 
 *Reddit can be a scary place. Tread lightly.*
@@ -109,71 +84,17 @@ Build a basic subreddit browser. As a user, I should be able to:
 * Be able to view and send private messages
 * Create a new subreddit
 
+## <a name="milestones"></a> Milestones
 
-### Tumblr
+By **Tuesday afternoon** you should have oAuth implemented. Using the token you receive from authentication, you should be able to make requests to the API at least using Postman or curl. Ideally you will be able to make a request from your application and display *some information* on a page by Tuesday evening/Wednesday morning even if the code has not yet been refactored into a service. This will leave you with Wednesday and Thursday to refactor and implement the required functionality.
 
-*Tumblr uses oauth 1.0 for requests on behalf of the user. Things like creating new posts. This version of oAuth requires you to "sign" your requests, which can be kind of a hassle if you aren't using a gem to help. Other studens have written code to sign requests, but it burns a lot of time. You're welcome to try to use [this oauth gem](https://github.com/oauth-xx/oauth-ruby) to help you, but I would only use Tumblr if you're looking for a bit of a challenge in the extensions*
+By **Wednesday morning** begin thinking about if you'd like to receive a grade for this project or not.
 
-Build a basic version of the Tumblr UI. As a user, I should be able to:
+## <a name="what-to-expect"></a> What to expect from instructors
 
-* Authenticate with my Tumblr account
-* See my basic profile information (username, profile pic)
-* View a list of recent posts from my feed
-* View embedded photo or video content for the posts
-* Favorite a post
-* Reblog a post
+Instructors will work to review pull requests for code quality and limited debugging. As we start to move forward in Mod 3, we continue to encourage you to rely upon available documentation to implement functionality, even if you are uncomfortable with how the code is working. If you do run into a problem where you are unable to implement some functionality after exhausting your resources, please submit a [WIP] pull request *with an explicit question* so that instructors can view the code in context.
 
-**Extensions:**
-
-* Create a post (perhaps starting with just text posts and moving on to more complicated types)
-* Generate a permalink for a post
-* Follow a user whose post was reblogged into my feed
-
-### Instagram
-
-*Instagram sandboxes all new API applications, and you have to ask other users to join your sandbox for their data to show up. This can make it kind of frustrating to get up and running quickly. But if you'd really like to, you can still use Instagram*
-
-Build a basic version of the Instagram (web) UI. As a user, I should be able to:
-
-* Authenticate with my Instagram account
-* See my basic profile information (username, profile pic)
-* View a list of recent posts from my feed
-* View photos for each post
-* View comments for each post
-* View like count for each post
-
-Extensions:
-
-* Infinite Scroll to view more photos
-* See trending posts
-* Show pictures that match a hashtag
-* Search for a user
-
-
-## Check-in and Milestones
-
-You will meet with an instructor in the middle of the project project. The goal of that check-in, and roughly what should be completed before the check-in is listed below.
-
-- 15-20 minutes
-
-#### What should be done
-
-You should have oAuth implemented. Using the token you receive from authentication, you should be able to make requests to the API, at least using Postman or curl, and possibly using a service.
-
-If you're using an API not listed above, think about the scope of your application. What would you like to build before evaluation?
-
-Think about whether you would like to take a grade for the project. A grade can only help you and not hurt you.
-
-
-#### What to expect from instructors
-
-It's basically up to you what's covered in the check-in. Your instructor will answer questions you have about making requests to the API, reading the API docs, or organizing your code.
-
-If you've chosen an API not listed above, your instructor will help you determine a scope for your project. If you're still not able to authenticate or make requests for this API, your instructor will help you get started on another API.
-
-Your instructor should ask if you're planning on taking a grade, but you can change your mind before evaluation if you like.
-
-## Evaluation
+## <a name="evaluation"></a> Evaluation
 
 You'll be graded on each of the criteria below with a score of (1) well below
 expectations, (2) below expectations, (3) as expected, (4) better than expected.
