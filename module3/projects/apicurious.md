@@ -94,7 +94,7 @@ By **Wednesday morning** begin thinking about if you'd like to receive a grade f
 
 ## <a name="what-to-expect"></a> What to expect from instructors
 
-Instructors will work to review pull requests for code quality and limited debugging. As we start to move forward in Mod 3, we continue to encourage you to rely upon available documentation to implement functionality, even if you are uncomfortable with how the code is working. If you do run into a problem where you are unable to implement some functionality after exhausting your resources, please submit a [WIP] pull request so that instructors can view the code in context.
+Instructors will work to review pull requests for code quality and limited debugging. As we start to move forward in Mod 3, we continue to encourage you to rely upon available documentation to implement functionality, even if you are uncomfortable with how the code is working. If you do run into a problem where you are unable to implement some functionality after exhausting your resources, please submit a [WIP] pull request *with an explicit question* so that instructors can view the code in context.
 
 ## <a name="evaluation"></a> Evaluation
 
