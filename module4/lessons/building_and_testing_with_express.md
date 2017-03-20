@@ -1,6 +1,6 @@
 # Building and Unit Testing an Express Application
 
-[Here](https://github.com/turingschool-examples/express-train) is a finished example of this app. You do not need to clone this to get started but it does provide a good reference if you want to check it out.
+[Here](https://github.com/turingschool-examples/express-train) is a finished example of this app (with the additional section at the bottom). You do not need to clone this to get started but it does provide a good reference if you want to check it out.
 
 ## Getting Started
 
@@ -21,13 +21,17 @@ mkdir express-train
 cd express-train
 ```
 
-Let's get our `package.json` off to a good start as well.
+Let's get our `package.json` off to a good start as well. What's a `package.json` file you ask? 
+
+A `package.json` file contains meta data about your app or module. Most importantly, it includes the list of dependencies to install from npm when running `npm install` . It's similar to a Gemfile in the Ruby world.
+
+From our command line, let's run:
 
 ```
 npm init
 ```
 
-This is how I chose to answer my questions, but you're an adult and you can make your own decisions.
+Let's go through the questions together.
 
 ```
 name: (express-train)
@@ -36,8 +40,8 @@ description: A place for train info
 entry point: (index.js) server.js
 test command: mocha
 git repository: https://github.com/turingschool-examples/express-train
-keywords: express, train, mocha
-author: Andrew Carmer
+keywords: express, mocha
+author: Casey Cumbow
 license: (ISC) MIT
 ```
 
@@ -48,7 +52,7 @@ npm i express --save
 npm i mocha --save-dev
 ```
 
-In our `package.json`, we set the entry point to `server.js`. We'll need to create that file.
+In our `package.json`, we set the entry point to `server.js` so we'll need to create that file.
 
 ```
 touch server.js
@@ -156,7 +160,7 @@ after(() => {
 });
 ```
 
-Okay, so what's going on here? Well, before we run our server tests, we're going to tell the server to listen on port 9876. Recall that for asynchronous test maneuvers, we can use `done()` to let Mocha know when we're ready to move on.
+Okay, so what's going on here? Well, before we run our server tests, we're going to tell the server to listen on port 9876. For asynchronous test maneuvers, we can use `done()` to let Mocha know when we're ready to move on.
 
 In Node, it's common for callback functions to take an error object as their first parameter if anything went wrong so that you can deal with it. So, if there is an error, then we'll end with that error. Otherwise, we'll move on.
 
@@ -247,7 +251,7 @@ Change the port in the `before` hook to another number. Run the test suite and w
 
 Another problem with this test is that we hard-coded in the port and the server. First off, this is tedious. Secondly, if we did want to read the port from an environment variable or something like that, this wouldn't work. But most importantly: this is tedious.
 
-Request allows us to set defaults. `request.defaults()` will return a wrapped version of Request with some of the parameters already applied. (Take a moment and fondly recall [closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures) and [currying](http://www.sitepoint.com/currying-in-functional-javascript/) in JavaScript.)
+Request allows us to set defaults. `request.defaults()` will return a wrapped version of Request with some of the parameters already applied. (Take a moment and note [closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures) and [currying](http://www.sitepoint.com/currying-in-functional-javascript/) in JavaScript.)
 
 In this suite, we're always going to be hitting our test server. So, let's set those as defaults in the `before` hook.
 
@@ -306,7 +310,7 @@ it('should have a body with the name of the application', (done) => {
 });
 ```
 
-As in other test runners—like Minitest in Ruby—`assert` takes a second argument that allows you to provide a custom error message. If you don't like the error message, you have no one but yourself to blame.
+As in other test runners—like Minitest in Ruby — `assert` takes a second argument that allows you to provide a custom error message. If you don't like the error message, you have no one but yourself to blame.
 
 If we run the test, we'll see that it fails. Our error message should look something like the following.
 
@@ -330,154 +334,7 @@ app.get('/', (request, response) => {
 
 Run your tests and verify that they pass.
 
-## Serving Static Assets
-
-You could serve raw HTML files. That will work and it might be the right approach for your projects. But, in the name of education, let's talk about how to use views with your Express application.
-
-Right now, we're sending snippets of text using `response.send()`.
-
-Let's serve some static files. First, we'll create a `static` directory. (This is not special, you could call it anything you want.) We'll also add an `index.html`.
-
-```
-mkdir static
-touch static/index.html
-```
-
-In `static/index.html`, we'll add the following:
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Express Train</title>
-  </head>
-  <body>
-    <h1>Express Train</h1>
-  </body>
-</html>
-```
-
-We can send an entire file using `response.sendFile()` and passing in the location of the file we're looking to send. For example, let's say we had an `index.html` inside of the `static` directory.
-
-```js
-// (Require express and other libraries…)
-
-const path = require('path');
-
-// (Set up our application properties and whatnot…)
-
-app.get('/', (request, response) => {
-  response.sendFile(path.join(__dirname, '/static/index.html'));
-});
-```
-
-Run your tests. They should be passing.
-
-Having a directory for static assets is incredibly useful because we'll probably want to serve fun stuff like CSS and client-side JavaScript one day.
-
-```js
-app.use(express.static('static'));
-```
-
-By default, `express.static` serves everything in the `static` directory from the root. While Express will automatically serve index.html as '/' we'll be explicit to get in the habit.
-
-At this moment, your `server.js` should look something like the code sample below and your tests should be passing.
-
-```js
-const express = require('express');
-const app = express();
-
-const path = require('path');
-
-app.use(express.static('static'));
-
-app.set('port', process.env.PORT || 3000);
-app.locals.title = 'Express Train';
-
-app.get('/', (request, response) => {
-  response.sendFile(path.join(__dirname, '/static/index.html'));
-});
-
-if (!module.parent) {
-  app.listen(app.get('port'), () => {
-    console.log(`${app.locals.title} is running on ${app.get('port')}.`);
-  });
-}
-
-module.exports = app;
-```
-
-### Rendering views
-
-We did have a small regression when we went from sending some arbitrary text with `response.send()` to sending a full HTML file with `response.sendFile()`. We're no longer dynamically inserting the title of the application in the response. It's hard-coded in that HTML file. Whoops.
-
-There really isn't a way to get around this. Our HTML is a static asset. It's static. We're going to need something more dynamic.
-
-There are a number of view template languages out there for Node.
-
-- [EJS (Embedded JavaScript)](http://www.embeddedjs.com/)
-- [Jade](http://jade-lang.com/)
-- [Handlebars](http://handlebarsjs.com/)
-
-It's worth stopping for a few moments and exploring the options above. It's ultimately a matter of taste. Go ahead, I'll wait.
-
-For a while, Jade came packaged with Express, so we'll use that. It's also fairly easy to set up. This is a lesson on working with and testing Express, not template languages. Let's install it.
-
-```
-npm install jade --save
-```
-
-Next, we'll tell Express that this is the template language that we're using.
-
-```js
-// (Require express and other libraries…)
-
-// (Set up our application properties and whatnot…)
-
-app.set('view engine', 'jade');
-```
-
-By default, Express will look for views in a `views` directory. Let's go ahead and create one as well an initial `index.jade` file.
-
-```
-mkdir views
-touch views/index.jade
-rm static/index.html
-```
-
-For now, we'll convert the contents of `static/index.html` to `views/index.jade`. It will look like this:
-
-```jade
-doctype html
-html(lang="en")
-  head
-    title "Express Train"
-  body
-    h1 "Express Train"
-```
-
-We'll need to get acquainted with another method on the `response` object — the `response.render()` method.
-
-Modify your route accordingly:
-
-```js
-app.get('/', (request, response) => {
-  response.render('index');
-});
-```
-
-Run you're tests and verify that everything passes. It should. But, we're not out of the woods yet. We need to modify `views/index.jade` to use the values we pass in. Let's modify `views/index.jade` to do just that.
-
-```jade
-doctype html
-html(lang="en")
-  head
-    title= title
-  body
-    h1= title
-```
-
-We'll run our tests one more time and make sure that everything works as it should.
+**Note - we could serve static files OR render views as a response to our request. For now, we're going to move on though to keep making progress. You can follow along with these sections at the end of this lesson.**
 
 ## Unit Testing a Post Request
 
@@ -485,7 +342,7 @@ So far, we've covered how to unit test a `GET` request, but, what about sending 
 
 First, we'll need somewhere to put this information when it's received. In a production application, you'd likely use some kind of data storage. In an attempt to stay on topic. We'll sidestep that for now and just store everything in memory.
 
-This means that if our server crashes for any reason, we'll lose everything. Honestly, we don't have anything of value at this point—so, whatever.
+This means that if our server crashes for any reason, we'll lose everything. Honestly, we don't have anything of value at this point - so no big deal.
 
 In `server.js`, we'll set up a plain-old JavaScript object that will play the proud role of a key-value store.
 
@@ -805,49 +662,7 @@ describe('Server', () => {
 });
 ```
 
-### Some Quick Refactoring
-
-I don't _love_ how much room `validTrain` is taking up and I suspect it has some friends waiting in the wings. So, I'm going to move it out to a separate file.
-
-```
-touch test/fixtures.js
-```
-
-I'll export each one individually in `test/fixures.js`. (Granted, I only have one, right now.)
-
-```js
-exports.validTrain = {
-  name: 'Z line',
-  times: [ '1:00', '2:00', '3:00', '4:00' ]
-};
-
-```
-
-I'll require `test/fixtures.js` in `test/server-test.js`.
-
-```js
-const fixtures = require('./fixtures');
-```
-
-And, finally, I'll update my test to reflect my new approach.
-
-```js
-it('should receive and store data', (done) => {
-  var payload = { train: fixtures.validTrain };
-
-  this.request.post('/trains', { form: payload }, (error, response) => {
-    if (error) { done(error); }
-
-    var trainCount = Object.keys(app.locals.trains).length;
-
-    assert.equal(trainCount, 1, `Expected 1 trains, found ${trainCount}`);
-
-    done();
-  });
-});
-```
-
-Go ahead and run your tests again to make sure you haven't messed anything up.
+**Note: we could/should probably stop and do some refactoring here. We're going to keep making progress though. There is a section at the end about refactoring your tests if you'd like to check it out later.**
 
 ## Dynamic Routes and Individual Trains
 
@@ -1043,3 +858,197 @@ There are frameworks and tools built on top of Express that make it easier to bu
 We didn't touch integration testing. Right now, all of our tests that check for content get the HTTP response as a giant string of text and see if a given substring is in there. There is no concept of DOM traversal or querying at this time.
 
 If we wanted that, we'd have to look at something like [Phantom.js](http://phantomjs.org/) or [Nightmare](http://www.nightmarejs.org/).
+
+## Serving Static Assets
+
+You could serve raw HTML files. That will work and it might be the right approach for your projects. But, in the name of education, let's talk about how to use views with your Express application.
+
+Right now, we're sending snippets of text using `response.send()`.
+
+Let's serve some static files. First, we'll create a `static` directory. (This is not special, you could call it anything you want.) We'll also add an `index.html`.
+
+```
+mkdir static
+touch static/index.html
+```
+
+In `static/index.html`, we'll add the following:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Express Train</title>
+  </head>
+  <body>
+    <h1>Express Train</h1>
+  </body>
+</html>
+```
+
+We can send an entire file using `response.sendFile()` and passing in the location of the file we're looking to send. For example, let's say we had an `index.html` inside of the `static` directory.
+
+```js
+// (Require express and other libraries…)
+
+const path = require('path');
+
+// (Set up our application properties and whatnot…)
+
+app.get('/', (request, response) => {
+  response.sendFile(path.join(__dirname, '/static/index.html'));
+});
+```
+
+Run your tests. They should be passing.
+
+Having a directory for static assets is incredibly useful because we'll probably want to serve fun stuff like CSS and client-side JavaScript one day.
+
+```js
+app.use(express.static('static'));
+```
+
+By default, `express.static` serves everything in the `static` directory from the root. While Express will automatically serve index.html as '/' we'll be explicit to get in the habit.
+
+At this moment, your `server.js` should look something like the code sample below and your tests should be passing.
+
+```js
+const express = require('express');
+const app = express();
+
+const path = require('path');
+
+app.use(express.static('static'));
+
+app.set('port', process.env.PORT || 3000);
+app.locals.title = 'Express Train';
+
+app.get('/', (request, response) => {
+  response.sendFile(path.join(__dirname, '/static/index.html'));
+});
+
+if (!module.parent) {
+  app.listen(app.get('port'), () => {
+    console.log(`${app.locals.title} is running on ${app.get('port')}.`);
+  });
+}
+
+module.exports = app;
+```
+
+### Rendering views
+
+We did have a small regression when we went from sending some arbitrary text with `response.send()` to sending a full HTML file with `response.sendFile()`. We're no longer dynamically inserting the title of the application in the response. It's hard-coded in that HTML file. Whoops.
+
+There really isn't a way to get around this. Our HTML is a static asset. It's static. We're going to need something more dynamic.
+
+There are a number of view template languages out there for Node.
+
+- [EJS (Embedded JavaScript)](http://www.embeddedjs.com/)
+- [Jade](http://jade-lang.com/)
+- [Handlebars](http://handlebarsjs.com/)
+
+It's worth stopping for a few moments and exploring the options above. It's ultimately a matter of taste. Go ahead, I'll wait.
+
+For a while, Jade came packaged with Express, so we'll use that. It's also fairly easy to set up. This is a lesson on working with and testing Express, not template languages. Let's install it.
+
+```
+npm install jade --save
+```
+
+Next, we'll tell Express that this is the template language that we're using.
+
+```js
+// (Require express and other libraries…)
+
+// (Set up our application properties and whatnot…)
+
+app.set('view engine', 'jade');
+```
+
+By default, Express will look for views in a `views` directory. Let's go ahead and create one as well an initial `index.jade` file.
+
+```
+mkdir views
+touch views/index.jade
+rm static/index.html
+```
+
+For now, we'll convert the contents of `static/index.html` to `views/index.jade`. It will look like this:
+
+```jade
+doctype html
+html(lang="en")
+  head
+    title "Express Train"
+  body
+    h1 "Express Train"
+```
+
+We'll need to get acquainted with another method on the `response` object — the `response.render()` method.
+
+Modify your route accordingly:
+
+```js
+app.get('/', (request, response) => {
+  response.render('index');
+});
+```
+
+Run you're tests and verify that everything passes. It should. But, we're not out of the woods yet. We need to modify `views/index.jade` to use the values we pass in. Let's modify `views/index.jade` to do just that.
+
+```jade
+doctype html
+html(lang="en")
+  head
+    title= title
+  body
+    h1= title
+```
+
+We'll run our tests one more time and make sure that everything works as it should.
+
+### Refactoring your tests with fixtures
+
+I don't _love_ how much room `validTrain` is taking up and I suspect it has some friends waiting in the wings. So, I'm going to move it out to a separate file.
+
+```
+touch test/fixtures.js
+```
+
+I'll export each one individually in `test/fixures.js`. (Granted, I only have one, right now.)
+
+```js
+exports.validTrain = {
+  name: 'Z line',
+  times: [ '1:00', '2:00', '3:00', '4:00' ]
+};
+
+```
+
+I'll require `test/fixtures.js` in `test/server-test.js`.
+
+```js
+const fixtures = require('./fixtures');
+```
+
+And, finally, I'll update my test to reflect my new approach.
+
+```js
+it('should receive and store data', (done) => {
+  var payload = { train: fixtures.validTrain };
+
+  this.request.post('/trains', { form: payload }, (error, response) => {
+    if (error) { done(error); }
+
+    var trainCount = Object.keys(app.locals.trains).length;
+
+    assert.equal(trainCount, 1, `Expected 1 trains, found ${trainCount}`);
+
+    done();
+  });
+});
+```
+
+Don't forget to run your tests again to make sure you haven't messed anything up.
+
