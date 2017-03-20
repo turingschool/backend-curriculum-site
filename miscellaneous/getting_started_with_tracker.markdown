@@ -13,11 +13,11 @@ While tools like Pivotal Tracker and Jira can be used in different ways in diffe
 
 ### Learning Goals
 
+* Learners are familiar with a project naming pattern to keep things organized
 * Learners are familiar with the visual layout of Tracker
 * Learners can explain the four types of tracker cards: feature, bug, chore, and release
 * Learners can assign point estimates to a feature
 * Learners are familiar with a recommended progression of features
-* Learners are familiar with a project naming pattern to keep things organized
 
 ## Exploring Tracker
 
@@ -176,3 +176,13 @@ If the PO finds a problem, they click "REJECT" and add a comment explaining the 
 If the PO finds additional functionality that should be implemented, they create a new feature card (rather than modifying this one).
 
 If a problem is found after the story is accepted the PO should create a BUG card, not modify this feature.``
+
+## Estimation Refresher
+
+Each feature story should have an estimate. As a quick refresher, here's how we understand the point scale:
+
+*   3 Points - A vague idea or technology we don't understand
+*   2 Points - A concept that we understand, but it's too big to start work on (needs to be subdivided)
+*   1 Point - A story that is understood and ready for work
+
+A good 1-point story represents less than a half day of work.
