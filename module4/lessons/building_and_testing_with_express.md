@@ -11,7 +11,7 @@ By the end of this lesson, you will:
 An example repository of the completed example can be found [here](https://github.com/turingschool-examples/secret-box).
 
 ## What is Express?
-Express is a small framework built on top of the web server functionality provided by Node.js. It helps to simplify organize the server-side functionality of your application by providing abstractions over the more confusing parts of Node.js, and adding helpful utilities and features.
+Express is a small framework built on top of the web server functionality provided by Node.js. It helps to simplify and organize the server-side functionality of your application by providing abstractions over the more confusing parts of Node.js, and adding helpful utilities and features.
 
 ## Why do we use Express?
 Think about how and why we use jQuery on the front-end. Vanilla JavaScript can be verbose and difficult to read. jQuery came along to give developers a nicer-looking syntax to perform the same operations. It was a library built to abstract the trickier parts of JavaScript and make them easier to write and work with. Express was built for very similar reasons.
@@ -305,7 +305,7 @@ Awesome. Now, let's write a test verifying the content of the page located at `/
 
 ```js
 app.set('port', process.env.PORT || 3000);
-app.locals.title = 'Express Train';
+app.locals.title = 'Secret Box';
 ```
 
 If we stored them as local variables, then they would have been trapped in that modules closure. But, as properties on the application, we can access them other places—like our tests and our views.
@@ -545,7 +545,7 @@ app.post('/api/secrets', (request, response) => {
 })
 ```
 
-Cool - our post method is defined. Let's write another test to build out the functionality we'd like. We want tot send data to this post route and save it to our `app.locals.secrets` for now (eventually we'll save it to a database).
+Cool - our post method is defined. Let's write another test to build out the functionality we'd like. We want to send data to this post route and save it to our `app.locals.secrets` for now (eventually we'll save it to a database).
 
 ```js
     it('should receive and store data', (done) => {
