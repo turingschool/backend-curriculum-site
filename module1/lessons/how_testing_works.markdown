@@ -37,6 +37,11 @@ Let's say I'm building a model to represent a house. What testing assertions cou
 - Do the walls create rooms?
 - Does it have a kitchen? a bedroom? a bathroom? a living room?
 
+Where do our tests live?
+- Tests will all live in their own `test` directory
+- Source code all lives in a siblibg `lib` directory
+- Test files should reflect the class it's testing with `_test` appended to the file name
+
 #### Practice
 
 Work with a partner. What testing questions could you ask to verify that the following models have been created appropriately?
