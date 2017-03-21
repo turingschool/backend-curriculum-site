@@ -1,5 +1,3 @@
-### Additional Resources
-
 # Building and Unit Testing an Express Application
 
 [Here](https://github.com/turingschool-examples/express-train) is a finished example of this app (with the additional section at the bottom). You do not need to clone this to get started but it does provide a good reference if you want to check it out.
