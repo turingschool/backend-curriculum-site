@@ -7,7 +7,13 @@ tags: apis, testing, controller tests, rails
 
 ## Consuming an API
 
-### Workshops
+### Warmup
+
+* What are the advantages to OAuth?
+* Why bother consuming an API? What does it offer us?
+* Did you write any code you weren't happy with yesterday after we kicked off the project? Where?
+
+### Workshop
 
 We are going to use the Sunlight API to retrieve all legislators and committees that match a criteria - and we are going to test it using VCR.
 
