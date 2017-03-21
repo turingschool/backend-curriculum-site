@@ -1,144 +1,353 @@
 ---
-title: Consuming Apis
-length: 180
-tags: API, json, HTTP client, faraday, hurley, HTTParty, Postman
+layout: page
+title: Consuming an API
+length: 90
+tags: apis, testing, controller tests, rails
 ---
 
-### Goals
+## Consuming an API
 
-By the end of this lesson, you will know/be able to:
+### Workshops
 
-* Explain what an API is and what an external API provides to us
-* Know why we need APIs
-* Set up an HTTP client for an API
-* Create an application that consumes an API
-* Access JSON data returned from an API
+We are going to use the Sunlight API to retrieve all legislators and committees that match a criteria - and we are going to test it using VCR.
 
-### Structure
+#### 0. Setup
 
-* 10 mins - API Discussion and Clarification
-* 15 mins - Exploring the external API
-* 5  mins - Break
-* 25 mins - Create API consuming app - Service
-* 5 mins - Break
-* 25 mins - Continue with our app - Service/Models
-* 5 mins - Break
-* 25 mins - Continue with our app - Models/Controllers
-* 15 mins - Break
-* 25 mins - Continue with our app - Controllers/views
-* 5 mins - Break
-* 20 mins - Finish up and review
+First, let's create a new Rails project.
 
-## Warmup
+```sh
+$ rails new testing_3rd_party_apis --skip-spring --skip-turbolinks -T --database=postgresql
+$ cd testing_3rd_party_apis
+```
 
-## Discussion - What is an API?
+Add to your Gemfile:
 
-* What does API stand for?
-* What are some common use cases and examples of APIs
-* Any experience with APIs?
-* Commonalities between APIs? Differences?
-* Are there _better_ APIs out there?
+```ruby
+group :development, :test do
+  gem 'rspec-rails'
+end
+```
 
-## Discussion - APIs: Variety is the Spice of Life
+```sh
+$ bundle
+$ rails g rspec:install
+$ bundle exec rake db:create
+```
 
-One of the problems with working with APIs is that there are very few consistent
-generalizations or assumptions that can be made.
+We also need to add a few gems. We are going to add: [Faraday](https://github.com/lostisland/faraday), [Figaro](https://github.com/laserlemon/figaro).
 
-As an exercise, let's consider some of the things that make it (relatively)
-easy for us, as Rubyists, to read code written by other Rubyists:
+* Faraday is an HTTP client library that provides an easy-to-use interface to make requests
+* Figaro is simple, Heroku friendly and makes it easy to hide your secret configs in a Rails app
 
-* Common idioms for expressing ourselves
-* Common language features for structuring our code (classes, OOP, method practices)
-* Common set of tools for designing projects
-* Common style practices (capitalization, underscores, spelling, predicate methods, etc)
-* Shared community best practices -- `SOLID`, Sandi Metz' rules, conference talks, ruby books, etc etc
+```
+# Gemfile
+....
 
-In short, when working within the ruby community, we have a lot of shared practices
-and ideas that help us write "unsurprising" code that will hopefully be easily intelligble
-to a future reader, especially one versed in the same community idioms as we are.
+gem 'faraday'
+gem 'figaro'
 
-Why bring this up? Because we are about to make our first forays into the realm of
-public APIs, which is, comparatively the Wild Wild West.
+```
 
-Let's consider some of the reasons why we might find relative non-conformity within
-this corner of the tech world:
+Bundle your gems to install the new dependencies. To configure Figaro, we run `bundle exec figaro install`. Now we can add our secrets to `config/application.yml` which is already added to the `.gitignore`.
 
-* Huge cross-section of language and community backgrounds (power of HTTP is its accessibility
-from any platform)
-* Very little shared design principles. Even around the ideas of REST there are differing interpretations
-and implementations
-* Lack of standardization around request/response formats, status codes, etc. etc.
-* Tremendous variation in quality of documentation (often very little...)
+```sh
+$ bundle exec figaro install
+      create  config/application.yml
+      append  .gitignore
+```
 
-In short, there's a good chance that no 2 APIs you will encounter are alike.
+#### 1. Preparing a service
 
-A handful of community projects such as [Swagger](http://swagger.io/) and [json:api](http://jsonapi.org/)
-have attempted to address this, but even these are fragmented and not well adopted.
+We are going to create a Sunlight service in our application that can communicate with the Sunlight API. Let's create the services folder and a service file:
 
-([See Relevant XKCD](https://xkcd.com/927/))
+```sh
+$ mkdir app/services
+$ touch app/services/sunlight_service.rb
+$ mkdir spec/services
+$ touch spec/services/sunlight_service_test.rb
+```
 
-So why should we venture into this cesspool of non-conforming inter-process communication?
+In `test/services/sunlight_service_test.rb`, add the following:
 
-Because APIs let us do cool stuff. And fortunately HTTP with JSON (or even XML) is a relatively
-easy to understand format.
+```rb
+# test/services/sunlight_service_spec.rb
+require 'rails_helper'
 
-With a little careful experimentation and probing, we can generally figure out what we need to do.
-But it's good to have a sense of what to expect so that when we run into issues we won't be surprised and
-will know what to do.
+describe SunlightService do
+  attr_reader :service
 
-## Discussion API Spectrum of Quality
+  before(:each) do
+    @service = SunlightService.new
+  end
+end
+```
 
-You can never really know what to expect from an API, but here are a few general predictors
+At the top, we require the `rails_helper`. We also add a method that will create a new instance of the SunlightService (yet to be built) and add an attr_reader so we can easily reference it throughout the program.
 
-* The larger the platform, the better. The top names in the social media space (twitter, foursquare,
-facebook, instagram, etc) will generally have better public APIs since more people use them.
-* The newer the better. Unsurprisingly an API that was implemented in the early 2000's will
-often feel dated or clunky
-* The more "RESTful" the better. This is hard to predict until you start digging in,
-but the more Resource-oriented an API is, the more natural it will feel to use. You can often
-"guess" a resource or endpoint and be relatively close
+Let's add a first test; `#legislators`. The purpose of the `legislators` method is to return all legislators that match a certain criteria. In this case, we are querying for all the female legislators. In `services/sunlight_service.rb` we need to make a call to the Sunlight API and ask for all female legislators.
 
-## Let Us Explore!
+```rb
+# spec/services/sunlight_service_spec.rb
+describe '#legislators' do
+  it 'finds all female legislators' do
+    legislators = @service.legislators(gender: "F")
+    legislator  = legislators.first
 
-* my-chaimz.herokuapp.com
-* Postman
-* Bearer token authentication
-* api url structure
-* .json
-* If you want to see how an api is built - `git clone git@github.com:neight-allen/my_chaims.git`
+    expect(legislators.count).to eq(20)
+    expect(legislator[:first_name]).to eq('Liz')
+    expect(legislator[:last_name]).to eq('Cheney')
+  end
+end
+```
 
+If we run `rspec` the errors ask us to create the SunglightService class.
 
-## Let Us Build!
-* `rails new curating_chaims`
-* First - The Service
-  * What is a service? [Check out Ben Lewis' Post on Services](https://blog.engineyard.com/2014/keeping-your-rails-controllers-dry-with-services)
-  * Faraday
-* Then - The Model
-* Finally our Controllers and Views
+```rb
+# app/services/sunlight_service.rb
+class SunlightService
+end
+```
 
-### A diagram
+#### 2. Exploring the API
 
-I ended up drawing a diagram something like this on the board to help understand why we are organizing the code the way we are.
+The API call we need to make in order to make the test pass is the following:
 
-![How Models Work](http://i.imgur.com/FVg9ODy.png?1)
+```
+http://congress.api.sunlightfoundation.com/legislators?gender=F
+```
 
-### Video
+You can run that URL in the browser, replacing the last bit with your own API key.
 
-* [Oct 2015 - Consuming and API](https://vimeo.com/143957483)
+* `http://congress.api.sunlightfoundation.com/` is the base url
+* `legislators` is the endpoint
+* `?gender=F` are the params we are sending
 
-### Repository
+#### 3. Fetching legislators
 
-* [My-Chaims API repo](https://github.com/neight-allen/my_chaims)
-* [Example of Final Curating Chaims Api Consuming App](https://github.com/Carmer/chaims_consumption_practice) - Uses an old version of the API that doesn't authenticate
-* [1511 curating chaims](https://github.com/neight-allen/chaimz_curator) - Uses HTTParty
-* [1602 curating chaims](https://github.com/neight-allen/chaimz-curator) - Uses Faraday
+If we run our test, it tells us that we don't have the method `legislators`. Before we go any further, let's create a connection to the Sunlight API using Faraday. In the `initialize` method we are creating a new connection with the base url. We also set the our API key as a param. In the legislators method we are just putting a `pry` for now.
 
+```rb
+# app/services/sunlight_service.rb
+attr_reader :connection
 
-### Resources
+def initialize
+  @connection = Faraday.new('http://congress.api.sunlightfoundation.com')
+end
 
-* [JSON API](http://jsonapi.org/)
-* [Government Data API](https://api.data.gov/)
-* [World Bank API](http://data.worldbank.org/developers?display=)
-* [YouTube data API](https://developers.google.com/youtube/v3/?hl=en)
-* [Programmable Web](http://www.programmableweb.com/)
-* [MashApe](https://www.mashape.com/)
+def legislators(criteria)
+  require 'pry'; binding.pry
+end
+```
+
+If we run our tests and are caught by the pry, we can see what `connection` looks like. It's a Faraday instance and you should be able to find the params we just set. In the [Faraday docs](https://github.com/lostisland/faraday#usage) we see that it's pretty easy to make `get` requests.
+
+```rb
+# GET http://sushi.com/nigiri/sake.json
+response = conn.get '/nigiri/sake.json'
+
+# GET http://sushi.com/nigiri?name=Maguro
+# and if we want to send additonal params
+conn.get '/nigiri', { :name => 'Maguro' }
+```
+
+Now try to make a `get` request in the pry session.
+
+```
+[5] pry(#<SunlightService>)> connection.get('legislators', criteria)
+```
+
+In the body, we get a bunch of JSON back, and if you compare the values in the body with the JSON you get with the JSON you get from making the call in the browser you'll see it's the same.
+
+```
+http://congress.api.sunlightfoundation.com/legislators?gender=F
+```
+
+Ok. We know how to make the API call. We get data (JSON) back. To make better sense of it, we need to parse it.
+
+First, let's add a private method `parse` that can parse our responses.
+
+```rb
+# app/services/sunlight_service.rb
+private
+
+def parse(response)
+  JSON.parse(response.body, symbolize_names: true)
+end
+```
+
+Then, let's build out the `legislators` method. Here, we are passing the response to our `parse` method, and from that return value we are accessing the values under the `results` key. I highly recommend putting a pry in this method and look at the response and see why we are accessing the `results` key.
+
+```rb
+# app/services/sunlight_service.rb
+def legislators(criteria)
+  parse(connection.get('legislators', criteria))[:results]
+end
+```
+
+Run your tests... and we should have one passing test.
+
+#### 4. Fetching committees
+
+The process of fetching committees is fairly similar to how we fetched legislators. Let's start with a test:
+
+```rb
+
+# spec/services/sunlight_service_spec.rb
+describe '#committees' do
+  it 'can find a list of committees by chamber' do
+    committees = service.committees(chamber: 'senate')
+    committee  = committees.first
+
+    expect(committees.count).to eq(20)
+    expect(committee[:name]).to eq('Federal Spending Oversight and Emergency Management')
+  end
+end
+```
+
+Get the test passing by adding the `committees` method.
+
+#### 5. Creating a Legislator model
+
+We want to implement the following behavior:
+
+```
+$ Legislator.find_by({gender: 'F'}) #=> [<Legislator>, <Legislator>, <Legislator>, <Legislator>...]
+```
+
+Right now, we don't even have a Legislator model! Before we add the model, let's add a test file.
+
+```sh
+$ mkdir spec/models
+$ touch spec/models/legislator_spec.rb
+```
+
+Cool, now let's add the test. Instead of accessing the SunlightService directly, we want to call a method on the Legislator to get Legislator objects back instead of just an array of hashes.
+
+```rb
+# spec/models/legislator_spec.rb
+require 'rails_helper'
+
+describe Legislator do
+  describe '#find_by' do
+    it 'finds legislators by gender' do
+      legislators = Legislator.find_by(gender: 'F')
+      legislator  = legislators.first
+
+      expect(legislators.count).to eq(20)
+      expect(legislator.class).to eq(Legislator)
+      expect(legislator.first_name).to eq("Liz")
+      expect(legislator.last_name).to eq("Cheney")
+    end
+  end
+end
+```
+
+The test tells us to add the model.
+
+```sh
+$ touch app/models/legislator.rb
+```
+
+```rb
+# app/models/legislator.rb
+class Legislator
+end
+```
+
+And add the method...
+
+```rb
+# app/models/legislator.rb
+class Legislator
+
+  def self.find_by(criteria)
+  end
+
+end
+```
+
+This is dynamic data we are getting from a 3rd party API and there's no need to store it in our database - we don't want to be in charge of data that we can easliy query for. But we still want to return Legislator objects from the `Legislator#find_by` method. To achieve this, we can use [OpenStruct](http://ruby-doc.org/stdlib-2.0.0/libdoc/ostruct/rdoc/OpenStruct.html).
+
+OpenStruct is a data structure very similar to a hash but we can define methods on the instance. For example:
+
+```sh
+[1] pry(main)> require 'ostruct'
+=> true
+[2] pry(main)> person = OpenStruct.new
+=> #<OpenStruct>
+[3] pry(main)> person.name = "Lovisa"
+=> "Lovisa"
+[4] pry(main)> person.age = 24
+=> 24
+[5] pry(main)> person
+=> #<OpenStruct name="Lovisa", age=24>
+[6] pry(main)> person.class
+=> OpenStruct
+```
+
+First, let's make the class inherit from OpenStruct. This enables us to call `Legislator.new({name: "Lovisa"})`, which will return a `Legislator` object with one property set; `name: "Lovisa"`.
+
+Then, we need to create an instance of the SunlightService so we can trigger API requests from this model.
+
+```rb
+# app/models/legislator.rb
+class Legislator < OpenStruct
+  attr_reader :service
+
+  def self.service
+    @service ||= SunlightService.new
+  end
+
+  def self.find_by(criteria)
+  end
+end
+```
+
+Great! If we run our tests, nothing has changed. Now we need to use `service` to fetch all the legislators matching the given criteria, then map over the array of hashes we get back and create a `Legislator` object for each hash.
+
+```rb
+# app/models/legislator.rb
+def self.find_by(criteria)
+  service.legislators(criteria).map do |legislator|
+    Legislator.new(legislator)
+  end
+end
+```
+
+Run the tests... and it should all be passing.
+
+#### 6. Creating a Committee model
+
+Similar to legislators, we want to be able to query for committees matching a given criteria and get `Committee` objects back.
+
+```
+$ Committee.find_by(chamber: 'senate') #=> [<Committee>, <Committee>, <Committee>, <Committee>...]
+```
+
+As you can see, the `committee_spec.rb` is very similar to `legislator_test.rb`.
+
+```rb
+# spec/models/committee_spec.rb
+require 'rails_helper'
+
+describe Committee do
+  describe '#find_by' do
+    it "returns committees by chamber" do
+      committees = Committee.find_by(chamber: 'senate')
+      committee  = committees.first
+
+      expect(committees.count).to eq(20)
+      expect(committee.class).to eq(Committee)
+      expect(committee.name).to eq('Federal Spending Oversight and Emergency Management')
+    end
+  end
+end
+```
+
+Make the test pass - if you get stuck, reference the `Legislator` model.
+
+### Materials
+
+* [Alternative Lesson Plan](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/mocking_apis_v2.markdown)
+* [Code-a-Long Notes](https://www.dropbox.com/s/3afogbj3qwuptj8/Turing%20-%20Testing%20an%20External%20API%20%28Notes%29.pages?dl=0)
+* [Alternative Code-a-Long](https://www.dropbox.com/s/3x1vfhu9wdx2juj/Turing%20-%20Revisiting%20Testing%20an%20External%20API.pages?dl=0)
