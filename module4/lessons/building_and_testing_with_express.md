@@ -408,6 +408,49 @@ app.get('/api/secrets/:id', (request, response) => {
 })
 ```
 
+It appears we're successfully making this work - let's add a test though to ensure the correct functionality. 
+
+First, we'll verify that it returns a 404 when we ask for a secret that doesn't exist.
+
+```js
+  describe('GET /api/secrets/:id', () => {
+    beforeEach(() => {
+      app.locals.secrets = {
+        wowowow: 'I am a banana'
+      }
+    })
+    it('should return a 404 if the resource is not found', (done) => {
+      this.request.get('/api/secrets/bahaha', (error, response) => {
+        if (error) { done(error) }
+        assert.equal(response.statusCode, 404)
+        done()
+      })
+    })
+   })
+
+```
+
+Next, let's verify that we're returning the correct data. 
+
+```js
+		it('should have the id and message from the resource', (done) => {
+      const id = 'wowowow'
+		  const message = app.locals.secrets['wowowow'];
+
+      this.request.get('/api/secrets/wowowow', (error, response) => {
+		    if (error) { done(error); }
+		    assert(response.body.includes(id),
+		           `"${response.body}" does not include "${id}".`);
+		    assert(response.body.includes(message),
+		           `"${response.body}" does not include "${message}".`);
+		    done();
+		  });
+		});
+
+```
+
+**Note: since we aren't fully TDDing this app, let's make sure we're testing the correct pieces of info. Be sure to make your tests above fail by changing something in your code before moving on.**
+
 ### Sending Data With Our Post Request
 
 It would be cool if we could store secrets in addition to just being able to retreive the prepopulated ones.
