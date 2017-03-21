@@ -68,6 +68,7 @@ Let's go ahead and install some dependencies that we'll need to get things rolli
 mkdir secret-box
 npm init --yes
 npm i express --save
+npm i mocha --save-dev
 ```
 
 We'll get a basic server running using some code I stole from [the Express documentation](http://expressjs.com/starter/hello-world.html) and modified slightly to fit my tastes.
@@ -89,6 +90,262 @@ app.listen(app.get('port'), () => {
 ```
 
 Fire up the server using `node server.js` and visit `http://localhost:3000/` to enjoy in the fruits of your copy and pasting labor.
+
+## Unit Testing Our Server
+
+Alright, we have a server and we can test it by visiting the page manually. But, testing by hand gets old pretty fast. It would be nice if we could have some kind of automated testing, right? Yea, I agree. We are going to need to make some modifications to your existing little application, though.
+
+As it stands, whenever `server.js` is run, it fires up the web server. Generally speaking, this is what we want if we're just running `node server.js`. But it's not necessarily what we want if we're trying to grab it from our tests to poke at it.
+
+In that scenario, we _do not_ want it to just start up all on it's own.
+
+What we need to do is to add some introspection and see if our application is being run directly or being required from another file. We can do this by modifying our server slightly.
+
+```js
+if (!module.parent) {
+  app.listen(app.get('port'), () => {
+    console.log(`${app.locals.title} is running on ${app.get('port')}.`);
+  });
+}
+```
+
+> **A Quick Note for Rubyists**: You may have seen something similar in Ruby using `if __FILE__ == $0`. Ruby is comparing the current file location to the name of the file being run. If they are the same, then its the file being run, if it's different, then the current file is being required by another file.
+
+If `server.js` is being run directly, then it has no parent and we should fire up the server. But, if it's being required, then the file requiring `server.js` is its parent and we should not spin up the server automatically.
+
+The other thing we need to do is to export the application.
+
+```js
+module.exports = app;
+```
+
+### Spinning Up Our Test Server
+
+Enough about modules and their parents. Let's get our tests set up.
+
+```
+mkdir test
+touch test/server-test.js
+```
+
+Let's run `mocha` now to make sure everything is gravy.
+
+```
+npm test
+```
+
+You're free to use Chai or any assertion library that suits your fancy, but I'm going to use Node's built-in assertion library. I'll go ahead and require that along with our application.
+
+```js
+// test/server-test.js
+const assert = require('assert');
+const app = require('../server');
+```
+
+Just to keep our spirits up, let's start with the simplest possible test.
+
+```js
+const assert = require('assert');
+const app = require('../server');
+
+describe('Server', () => {
+
+  it('should exist', () => {
+    assert(app);
+  });
+
+});
+```
+
+Now, we'll want to start our server up before we run our tests. I don't want to worry about my testing version trying to use the same port as my development server. So, I'll pick another port that makes me happy. (You might also consider reading a port from a environment variable or passing one in as a command line argument. I decided not to in the name of not adding too much complexity to this tutorial.)
+
+```js
+before(done => {
+  this.port = 9876;
+  this.server = app.listen(this.port, (err, result) => {
+    if (err) { return done(err); }
+    done();
+  });
+});
+
+after(() => {
+  this.server.close();
+});
+```
+
+Okay, so what's going on here? Well, before we run our server tests, we're going to tell the server to listen on port 9876. For asynchronous test maneuvers, we can use `done()` to let Mocha know when we're ready to move on.
+
+In Node, it's common for callback functions to take an error object as their first parameter if anything went wrong so that you can deal with it. So, if there is an error, then we'll end with that error. Otherwise, we'll move on.
+
+`app.listen` returns an instance of `http.Server` that we'll store in `this.server` so that we can close it in the `after` hook.
+
+Let's go ahead and run our tests using `npm test` to make sure nothing has broken.
+
+### Making Requests To Our Server
+
+Now that we have our server running in our tests. We can make requests to it. We could totally do this using the built-in `http` module but that's pretty low-level. Let's use a library called [Request](https://github.com/request/request) instead.
+
+```
+npm i request --save-dev
+```
+
+> **Quick Note for Rubyists**: If you're familiar with Ruby, Request is a lot like Hurley or Faraday.
+
+We're saving it to our development dependencies but you could also use Request to make requests against external APIs. In that case it would go into our regular dependencies—using `--save` instead of `--save-dev`.
+
+In `test/server-test.js`, we'll require Request.
+
+```js
+const request = require('request');
+```
+
+Alright, we've set everything up. Now, we can write our first test. Our app is pretty simple. So, let's start by making sure that we have a `/` endpoint and that it returns a 200 response.
+
+Nested in our `describe('Server')` section, we'll add a `describe('GET /')` section as well. Our test suite will look something like this:
+
+```js
+const assert = require('assert');
+const request = require('request');
+const app = require('../server');
+
+describe('Server', () => {
+
+  before((done) => {
+    this.port = 9876;
+    this.server = app.listen(this.port, (err, result) => {
+      if (err) { return done(err); }
+      done();
+    });
+  });
+
+  after(() => {
+    this.server.close();
+  });
+
+  it('should exist', () => {
+    assert(app);
+  });
+
+  describe('GET /', () => {
+    // Our tests will go here.
+  });
+
+});
+```
+
+Now, we'll write a test that will send a request to the `/` endpoint on our server and verify that we did in fact receive a 200.
+
+```js
+it('should return a 200', (done) => {
+  request.get('http://localhost:9876', (error, response) => {
+    assert.equal(response.statusCode, 200);
+    done();
+  });
+});
+```
+
+Again, it's a Node convention to pass any errors as the first argument—and Request is going to go ahead and follow that convention. We can improve the quality of the error messages we get from our test suite if we catch that error.
+
+```js
+it('should return a 200', (done) => {
+  request.get('http://localhost:9876', (error, response) => {
+    if (error) { done(error); }
+    assert.equal(response.statusCode, 200);
+    done();
+  });
+});
+```
+
+#### Quick Experiment
+
+Change the port in the `before` hook to another number. Run the test suite and watch it fail. Now, comment out the error handling we just added and watch it fail. Pay attention to the differences between the two error messages. With the error handling, we get back an error describing what happened when we sent a `GET` request to the server. Without it, we get an error about reading a property off `undefined`. The latter is kind of okay in this exact case, but hopefully you can use your imagination to figure out how it could be less helpful in other contexts.
+
+### Request Defaults
+
+Another problem with this test is that we hard-coded in the port and the server. First off, this is tedious. Secondly, if we did want to read the port from an environment variable or something like that, this wouldn't work. But most importantly: this is tedious.
+
+Request allows us to set defaults. `request.defaults()` will return a wrapped version of Request with some of the parameters already applied. (Take a moment and note [closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures) and [currying](http://www.sitepoint.com/currying-in-functional-javascript/) in JavaScript.)
+
+In this suite, we're always going to be hitting our test server. So, let's set those as defaults in the `before` hook.
+
+```js
+before((done) => {
+  this.port = 9876;
+
+  this.server = app.listen(this.port, (err, result) => {
+    if (err) { return done(err); }
+    done();
+  });
+
+  this.request = request.defaults({
+    baseUrl: 'http://localhost:9876/'
+  });
+});
+```
+
+We're storing our special, wrapped version of Request in a shared property called `this.request`. Now, we can update our test to use our wrapped version.
+
+```js
+it('should return a 200', (done) => {
+  this.request.get('/', (error, response) => {
+    if (error) { done(error); }
+    assert.equal(response.statusCode, 200);
+    done();
+  });
+});
+```
+
+Awesome. Now, let's write a test verifying the content of the page located at `/`. You may or may not have noticed that we stored a few things as properties on our application instead of local variables in `server.js`.
+
+```js
+app.set('port', process.env.PORT || 3000);
+app.locals.title = 'Express Train';
+```
+
+If we stored them as local variables, then they would have been trapped in that modules closure. But, as properties on the application, we can access them other places—like our tests and our views.
+
+We used `app.set()` to set the port. Conversely, we can use `app.get()` to fetch the properties. `app.locals` and `app.get()` have a lot in common, the former is primarily for things we want to share in our templates and/or tests and the latter is for configuration details.
+
+Right now, our `/` endpoint just says "Hello World!". That's neat. Let's use a little old fashioned TDD to change that to display the name of our application.
+
+Our test will look something like this:
+
+```js
+it('should have a body with the name of the application', (done) => {
+  var title = app.locals.title;
+
+  this.request.get('/', (error, response) => {
+    if (error) { done(error); }
+    assert(response.body.includes(title),
+           `"${response.body}" does not include "${title}".`);
+    done();
+  });
+});
+```
+
+As in other test runners—like Minitest in Ruby — `assert` takes a second argument that allows you to provide a custom error message. If you don't like the error message, you have no one but yourself to blame.
+
+If we run the test, we'll see that it fails. Our error message should look something like the following.
+
+```
+1) Server / should have a body with the name of the application:
+
+    Uncaught AssertionError: "It\'s a secret to everyone." does not include "Secret Box".
+    + expected - actual
+
+    -false
+    +true
+```
+
+So, let's go ahead and make this test pass. We'll modify `server.js` to respond with the name of the application instead of "Hello World!".
+
+```js
+app.get('/', (request, response) => {
+  response.send(app.locals.title);
+});
+```
+
+Run your tests and verify that they pass.
 
 ### Making a Dynamic Route
 
