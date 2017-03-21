@@ -2,6 +2,12 @@
 
 We'll be using this starter [repository](https://github.com/turingschool-examples/sinatra-active-record-skeleton) to work through the following exercises.
 
+## Self-Eval Statements
+
+*   I feel _very_ comfortable creating has_many and belongs_to associations
+*   I feel _very_ comfortable modifying tables and models to accommodate new data
+*   I feel pretty confident that I can make a joins table if I need to
+
 ## Step 1 - Tables
 
 ### Timing
