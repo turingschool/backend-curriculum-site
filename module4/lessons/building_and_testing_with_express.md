@@ -27,11 +27,11 @@ While Node.js provides us with all of the functionality we need for our back-end
 ## Request Flow
 When we are just using Node.js, the flow of a single request might look like this:
 
-![node only][node-only-flow]
+![node only][https://github.com/turingschool/front-end-curriculum/blob/gh-pages/assets/images/lessons/express/node-only-flow.png]
 
 When we add Express, there a couple of additional steps added to the flow of a request:
 
-![express flow][express-flow]
+![express flow][https://github.com/turingschool/front-end-curriculum/blob/gh-pages/assets/images/lessons/express/express-flow.png]
 
 While the Express flow might look more complex, it actually makes the developer's job a lot easier. In this flow, the developer is only responsible for the 'Middleware' part of the process. This replaces the single request handler function that you would write without Express. Writing middlware for Express is a lot easier to write and more maintainable because of the 'Express' step that abstracts the complex logic for us.
 
