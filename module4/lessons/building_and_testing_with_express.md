@@ -27,16 +27,16 @@ While Node.js provides us with all of the functionality we need for our back-end
 ## Request Flow
 When we are just using Node.js, the flow of a single request might look like this:
 
-![node only][https://github.com/turingschool/front-end-curriculum/blob/gh-pages/assets/images/lessons/express/node-only-flow.png]
+![node only][node-only-flow]
 
 When we add Express, there a couple of additional steps added to the flow of a request:
 
-![express flow][https://github.com/turingschool/front-end-curriculum/blob/gh-pages/assets/images/lessons/express/express-flow.png]
+![express flow][express-flow]
 
 While the Express flow might look more complex, it actually makes the developer's job a lot easier. In this flow, the developer is only responsible for the 'Middleware' part of the process. This replaces the single request handler function that you would write without Express. Writing middlware for Express is a lot easier to write and more maintainable because of the 'Express' step that abstracts the complex logic for us.
 
-[node-only-flow]: /assets/images/lessons/express/node-only-flow.png
-[express-flow]: /assets/images/lessons/express/express-flow.png
+[node-only-flow]: https://github.com/turingschool/front-end-curriculum/blob/gh-pages/assets/images/lessons/express/node-only-flow.png
+[express-flow]: https://github.com/turingschool/front-end-curriculum/blob/gh-pages/assets/images/lessons/express/express-flow.png
 
 ## Routing & Middleware
 Earlier we mentioned that with plain Node.js, you would create a single function to handle requests. This single function can get large and unwieldy as your application grows in complexity. Express middlware allows you to break this single function into many smaller functions that only handle one thing at a time.
