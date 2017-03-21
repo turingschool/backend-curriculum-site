@@ -66,7 +66,7 @@ Let's go ahead and install some dependencies that we'll need to get things rolli
 
 ```
 mkdir secret-box
-npm init --yes
+npm init
 npm i express --save
 npm i mocha --save-dev
 ```
@@ -74,6 +74,7 @@ npm i mocha --save-dev
 We'll get a basic server running using some code I stole from [the Express documentation](http://expressjs.com/starter/hello-world.html) and modified slightly to fit my tastes.
 
 ```js
+// server.js
 const express = require('express')
 const app = express()
 
@@ -134,18 +135,18 @@ Let's run `mocha` now to make sure everything is gravy.
 npm test
 ```
 
-You're free to use Chai or any assertion library that suits your fancy, but I'm going to use Node's built-in assertion library. I'll go ahead and require that along with our application.
+We'll go ahead and use Chai as our assertion library - let's not forget to add it via `npm i chai --save-dev`. I'll go ahead and require that along with our application.
 
 ```js
 // test/server-test.js
-const assert = require('assert');
+const assert = require('chai').assert;
 const app = require('../server');
 ```
 
 Just to keep our spirits up, let's start with the simplest possible test.
 
 ```js
-const assert = require('assert');
+const assert = require('chai').assert;
 const app = require('../server');
 
 describe('Server', () => {
@@ -306,7 +307,7 @@ If we stored them as local variables, then they would have been trapped in that 
 
 We used `app.set()` to set the port. Conversely, we can use `app.get()` to fetch the properties. `app.locals` and `app.get()` have a lot in common, the former is primarily for things we want to share in our templates and/or tests and the latter is for configuration details.
 
-Right now, our `/` endpoint just says "Hello World!". That's neat. Let's use a little old fashioned TDD to change that to display the name of our application.
+Right now, our `/` endpoint just says "It's a secret to everyone". That's neat. Let's use a little old fashioned TDD to change that to display the name of our application.
 
 Our test will look something like this:
 
@@ -330,7 +331,7 @@ If we run the test, we'll see that it fails. Our error message should look somet
 ```
 1) Server / should have a body with the name of the application:
 
-    Uncaught AssertionError: "It\'s a secret to everyone." does not include "Secret Box".
+    Uncaught AssertionError: "It's a secret to everyone." does not include "Secret Box".
     + expected - actual
 
     -false
@@ -388,7 +389,7 @@ Here is the feature we want to implement: when a user has the correct secret, we
 
 ```js
 app.get('/api/secrets/:id', (request, response) => {
-  const { id } = request.params
+  const id = request.params.id
   const message = app.locals.secrets[id]
   response.json({ id, message })
 })
@@ -398,7 +399,7 @@ Let's go ahead and take this for a spin. It kind of works. If they give us the r
 
 ```js
 app.get('/api/secrets/:id', (request, response) => {
-  const { id } = request.params
+  const id = request.params.id
   const message = app.locals.secrets[id]
 
   if (!message) { return response.sendStatus(404)  }
@@ -445,7 +446,7 @@ app.locals.secrets = {
 }
 
 app.get('/', (request, response) => {
-  response.send('Hello World!')
+  response.send(app.locals.title)
 })
 
 app.get('/api/secrets', (request, response) => {
@@ -456,7 +457,7 @@ app.get('/api/secrets', (request, response) => {
 
 
 app.get('/api/secrets/:id', (request, response) => {
-  const { id } = request.params
+  const id = request.params.id
   const message = app.locals.secrets[id]
 
   if (!message) { return response.sendStatus(404)  }
@@ -476,7 +477,7 @@ We'll use our super secure method of generating random IDs.
 ```js
 app.post('/api/secrets', (request, response) => {
   const id = Date.now()
-  const { message } = request.body
+  const message = request.body
 
   app.locals.secrets[id] = message
 
@@ -503,7 +504,7 @@ Status codes are especially important when handling errors for a request. Let's 
 
 ```js
 app.post('/api/secrets', (request, response) => {
-  const { message } = request.body
+  const message = request.body
   const id = Date.now()
 
   if (!message) {
@@ -549,7 +550,7 @@ Finally, let's replace `Date.now()` in our `POST` action.
 
 ```js
 app.post('/api/secrets', (request, response) => {
-  const { message } = request.body
+  const message = request.body
   const id = md5(message)
 
   if (!message) {
