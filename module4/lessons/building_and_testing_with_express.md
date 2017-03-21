@@ -69,7 +69,12 @@ mkdir secret-box
 npm init
 npm i express --save
 npm i mocha --save-dev
+npm i chai --save-dev
 ```
+
+FYI - running `npm init` builds our `package.json` file. What's `package.json`?
+
+A `package.json` file contains meta data about your app or module. Most importantly, it includes the list of dependencies to install from npm when running `npm install` . It's similar to a Gemfile in the Ruby world.
 
 We'll get a basic server running using some code I stole from [the Express documentation](http://expressjs.com/starter/hello-world.html) and modified slightly to fit my tastes.
 
@@ -654,8 +659,19 @@ app.post('/api/secrets', (request, response) => {
   }
 })
 ```
+## Conclusion
 
-You've built your first Express app!! Things we did not cover: put and delete actions.
+You've built your first Express app!!!
+
+So, we went super deep in testing a few very small pieces of an Express application.
+
+Hopefully, you noticed the following:
+
+- Express applications aren't anything special, you can pass them around and require them just like any other object in JavaScript.
+- Doing stuff by hand can be hard. Typically, we're used to having large frameworks like Rails abstract a lot of stuff away from us. It's definitely a trade off and there is no right answer. We worked pretty hard on this application, but we don't really have much in the way of validation or any abstractions around fetching and persisting models.
+- Asynchronous code can be hard, but it has some powerful advantages. For example, Mocha is able to run multiple tests simultaneously while we wait for a given request to come back. This means as our application grows, the test suite will likely be faster than a similar sized Ruby code base.
+
+There are frameworks and tools built on top of Express that make it easier to build complicated applications. If this is something you're interested in, check out [Endpoints](http://endpointsjs.com/).
 
 If you'd like another tutorial walk through of using Express, check out the [Express Train](https://github.com/turingschool/backend-curriculum-site/blob/gh-pages/module4/lessons/express_tutorial.md)
 
