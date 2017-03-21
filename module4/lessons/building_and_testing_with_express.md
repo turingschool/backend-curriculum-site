@@ -515,12 +515,58 @@ app.listen(app.get('port'), () => {
 
 ### Creating a POST Route
 
-We'll use our super secure method of generating random IDs.
+Before we create a post route, let's write a test. We'll check to see that the post route exists.
+
+```js
+  describe('POST /api/secrets', () => {
+    beforeEach(() => {
+      app.locals.secrets = {}
+    })
+    it('should not return 404', (done) => {
+      this.request.post('/api/secrets', (error, response) => {
+        if (error) { done(error) }
+        assert.notEqual(response.statusCode, 404)
+        done()
+      })
+    })
+  })
+
+```
+Next, do as little as possible to make this test pass, which maybe something like the following:
+
+```js
+app.post('/api/secrets', (request, response) => {
+  response.status(201).end()
+})
+```
+
+Cool - our post method is defined. Let's write another test to build out the functionality we'd like. We want tot send data to this post route and save it to our `app.locals.secrets` for now (eventually we'll save it to a database).
+
+```js
+    it('should receive and store data', (done) => {
+      const message = {
+        message: 'I like pineapples!'
+      };
+
+      this.request.post('/api/secrets', { form: message }, (error, response) => {
+        if (error) { done(error); }
+
+        const secretCount  = Object.keys(app.locals.secrets).length;
+
+        assert.equal(secretCount, 1, `Expected 1 secret, found ${secretCount}`);
+
+        done();
+      });
+    });
+
+```
+
+Next, we'll use our super secure method of generating random IDs.
 
 ```js
 app.post('/api/secrets', (request, response) => {
   const id = Date.now()
-  const message = request.body
+  const message = request.body.message
 
   app.locals.secrets[id] = message
 
@@ -547,7 +593,7 @@ Status codes are especially important when handling errors for a request. Let's 
 
 ```js
 app.post('/api/secrets', (request, response) => {
-  const message = request.body
+  const message = request.body.message
   const id = Date.now()
 
   if (!message) {
@@ -589,24 +635,29 @@ Now, in our `server.js`, we can require the module.
 const md5 = require('md5')
 ```
 
-Finally, let's replace `Date.now()` in our `POST` action.
+Finally, let's replace `Date.now()` in our `POST` action, we'll need to make sure `message` is defined before using `md5` though. 
 
 ```js
 app.post('/api/secrets', (request, response) => {
-  const message = request.body
+  const message = request.body.message
   const id = md5(message)
 
   if (!message) {
     return response.status(422).send({
       error: 'No message property provided'
     })
+  } else {
+    const id = md5(message)
+    app.locals.secrets[id] = message
+    response.status(201).json({ id, message })
+
   }
-
-  app.locals.secrets[id] = message
-
-  response.status(201).json({ id, message })
 })
 ```
+
+You've built your first Express app!! Things we did not cover: put and delete actions.
+
+If you'd like another tutorial walk through of using Express, check out the [Express Train](https://github.com/turingschool/backend-curriculum-site/blob/gh-pages/module4/lessons/express_tutorial.md)
 
 
 
