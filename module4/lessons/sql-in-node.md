@@ -18,9 +18,9 @@ git clone https://github.com/turingschool-examples/intro-to-express.git
 
 By the end of this lesson, you will:
 
-* Understand how to execute raw SQL in node
-* Understand how to use promises to retrieve data from postgres in node
-* Understand how to made code organization decisions without a framework
+*   Understand how to execute raw SQL in node
+*   Understand how to use promises to retrieve data from postgres in node
+*   Understand how to made code organization decisions without a framework
 
 You wouldn't want to immediately jump to writing raw SQL in any production application, but being able to write SQL is a must on the job. Whether it's for queries that are too complex for whatever ORM or library you're using, or it's using SQL to interact with the database directly.
 
@@ -28,28 +28,28 @@ You wouldn't want to immediately jump to writing raw SQL in any production appli
 
 What we have after the previous lesson:
 
-- Namespaced API
-- RESTful API
-- Serves JSON
-- Consumes JSON
-- Full test coverage
-- Persists data (as long as you don't restart the server)
+-   Namespaced API
+-   RESTful API
+-   Serves JSON
+-   Consumes JSON
+-   Full test coverage
+-   Persists data (as long as you don't restart the server)
 
 What we want after this lesson:
 
-- Data that persists to a database
-- Migrations for our data
-- Seeds for our data
-- An app that will deploy to Heroku
-- Separate test, development and production environments
-- A model like module that can be used in controllers and tests
-- A controller like module to clean up our server.js
+-   Data that persists to a database
+-   Migrations for our data
+-   Seeds for our data
+-   An app that will deploy to Heroku
+-   Separate test, development and production environments
+-   A model like module that can be used in controllers and tests
+-   A controller like module to clean up our server.js
 
 What you'll be left to do on your own:
 
-- Put the *UD* in *CRUD*
-- Serve multiple resources
-- Any additional refactoring and DRYing out you'd like to do (you could refactor all day)
+-   Put the *UD* in *CRUD*
+-   Serve multiple resources
+-   Any additional refactoring and DRYing out you'd like to do (you could refactor all day)
 
 ## Some housekeeping
 
@@ -195,7 +195,7 @@ But, why is `Promise` passed in as a second argument? Knex is expecting that the
 Seeds are some default data. This will be useful when we first start developing our application. To create our seed files, type the following in your terminal
 
 ```
-knex seeds:make secrets
+knex seed:make secrets
 ```
 
 This will create a `secrets.js` in the `seeds/dev` folder. They'll contain the default seed template:
@@ -270,9 +270,9 @@ process.exit();
 
 This is just enough code to get connected to postgres. A couple notes:
 
-1. We want to know if we're in a development, testing, or production environment. If we don't know, we'll assume we're in development.
-2. Based on that environment, we'll fetch the database configuration from `knexfile.js` for whatever environment we're in.
-3. `process.exit()` just tells node that we're done.
+1.  We want to know if we're in a development, testing, or production environment. If we don't know, we'll assume we're in development.
+2.  Based on that environment, we'll fetch the database configuration from `knexfile.js` for whatever environment we're in.
+3.  `process.exit()` just tells node that we're done.
 
 Go ahead and run this just to make sure your configuration is good, and you don't get any errors.
 
@@ -317,9 +317,9 @@ We've chained our promises above to ensure that the new record gets created befo
 
 Let's rewrite our test for `/api/secrets/:id`
 
-- We need to add our database require statements to the top.
-- We need to modify our `beforeEach` to manipulate the database instead of `app.locals`.
-- Let's clear out the database when we're done.
+-   We need to add our database require statements to the top.
+-   We need to modify our `beforeEach` to manipulate the database instead of `app.locals`.
+-   Let's clear out the database when we're done.
 
 ```js
 beforeEach((done) => {
@@ -337,8 +337,8 @@ afterEach((done) => {
 
 And the test itself:
 
-1. Let's make the assertions more explicit. We're building a JSON API after all.
-1. We're using integer ids instead of string ids.
+1.  Let's make the assertions more explicit. We're building a JSON API after all.
+2.  We're using integer ids instead of string ids.
 
 ```js
 it('should return 404 if resource is not found', (done) => {
@@ -442,9 +442,9 @@ Then we'll go over a working implementation.
 
 Hey! You built:
 
-- a RESTful API in Node
-- that uses postgres
-- and works in your 3 main environments
+-   a RESTful API in Node
+-   that uses postgres
+-   and works in your 3 main environments
 
 Not too shabby! And you've got the knowledge to add all the routes and tables you like. But, things may start getting out of control soon. How big should your `server.js` really be anyway?
 
@@ -452,9 +452,9 @@ Not too shabby! And you've got the knowledge to add all the routes and tables yo
 
 Let's do some refactoring. Right now our implementation has a couple problems:
 
-- Our code is hard to read.
-- Our methods are doing too much, in tests and in server.js
-- We're repeating ourselves with this SQL
+-   Our code is hard to read.
+-   Our methods are doing too much, in tests and in server.js
+-   We're repeating ourselves with this SQL
 
 We don't need a framework to have well organized code!! Let's create some folders and some modules!
 
@@ -462,9 +462,9 @@ We don't need a framework to have well organized code!! Let's create some folder
 
 Take 3 minutes to answer the following questions with a partner:
 
-- What that we have written should live in a model?
-- How could you extract that code in to a function or functions?
-- If you had to extract this code to another file, what questions would you have?
+-   What that we have written should live in a model?
+-   How could you extract that code in to a function or functions?
+-   If you had to extract this code to another file, what questions would you have?
 
 Let's start by extracting SQL out of our test hooks (`beforeEach` & `afterEach`). We'll just create some global functions at the top of our application to start.
 
@@ -547,9 +547,9 @@ afterEach((done) => {
 
 ### Your Turn
 
-- Can you extract the rest of the SQL from your tests and `server.js`?
-- Can you use promise chaining to extract the `rows` property from in model?
-- Can you do the same to extract a single resource for your `.find` method?
+-   Can you extract the rest of the SQL from your tests and `server.js`?
+-   Can you use promise chaining to extract the `rows` property from in model?
+-   Can you do the same to extract a single resource for your `.find` method?
 
 ## Faux Controller
 
@@ -557,9 +557,9 @@ Our `server.js` is getting bulky. Could we get it to behave more like a `routes.
 
 Take 3 minutes and discuss with a partner:
 
-- What code from our `server.js` looks like it might belong in a controller?
-- How could you extract that code in to a function or functions?
-- If you had to extract this code to another file, what questions would you have?
+-   What code from our `server.js` looks like it might belong in a controller?
+-   How could you extract that code in to a function or functions?
+-   If you had to extract this code to another file, what questions would you have?
 
 ### Your Turn
 
@@ -571,7 +571,7 @@ Most databases and their counterpart APIs have more than one resource. And there
 
 Some things to consider:
 
-- Although they aren't necessary, postgres (and most relational databases) have explicit foreign key designations. If you're gonna do it right, these should be added to your migrations.
-- Don't try to build `has_many` and `belongs_to`. Not right off the bat at least.
-- Feel free to play around with `JOIN` statements in your spike file to remember how they work.
-- We haven't been using classes, so there's no instance of a `Secret`. Only functions. It's like a class with only class methods. Ultimately, classes are the way to go, but could you serve related resources with only functions?
+-   Although they aren't necessary, postgres (and most relational databases) have explicit foreign key designations. If you're gonna do it right, these should be added to your migrations.
+-   Don't try to build `has_many` and `belongs_to`. Not right off the bat at least.
+-   Feel free to play around with `JOIN` statements in your spike file to remember how they work.
+-   We haven't been using classes, so there's no instance of a `Secret`. Only functions. It's like a class with only class methods. Ultimately, classes are the way to go, but could you serve related resources with only functions?
