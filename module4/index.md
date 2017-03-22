@@ -27,7 +27,7 @@ Your first project is [Quantified Self](./projects/quantified-self/quantified-se
 
 Your [second project](https://github.com/turingschool/backend-curriculum-site/blob/gh-pages/module4/projects/quantified-self/quantified-self-back-end.md) is an extension of your first week. You'll build the back-end and wire it up to the front end.
 
-The next three weeks will be spent working on your capstone projects. We're still working out details 
+The next three weeks will be spent working on your capstone projects. We're still working out details
 
 ### Weekly Breakdown:
 
@@ -46,8 +46,8 @@ The next three weeks will be spent working on your capstone projects. We're stil
 <h4 id="week_2">Week 2</h4>
 *   [Javascript Without a Browser](./lessons/javascript_without_a_browser)
 *   [Fundamentals of Express](./lessons/building_and_testing_with_express)
-*   Project Kickoff: [Quantified Self](https://github.com/turingschool/backend-curriculum-site/blob/gh-pages/module4/projects/quantified-self/quantified-self-back-end.md)
-*   SQL in Node
+*   Project Kickoff: [Quantified Self](./projects/quantified-self/quantified-self-back-end)
+*   [SQL in Node](./lessons/sql-in-node)
 *   All the AJAX
 *   Interview Prep
 *   [SQL Deep Dive](./lessons/sql_deep_dive)
