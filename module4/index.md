@@ -27,7 +27,7 @@ Your first project is [Quantified Self](./projects/quantified-self/quantified-se
 
 Your [second project](https://github.com/turingschool/backend-curriculum-site/blob/gh-pages/module4/projects/quantified-self/quantified-self-back-end.md) is an extension of your first week. You'll build the back-end and wire it up to the front end.
 
-The next three weeks will be spent working on your capstone projects. We're still working out details
+The next three weeks will be spent working on your [capstone projects](capstone-project-overview).
 
 ### Weekly Breakdown:
 
@@ -50,22 +50,23 @@ The next three weeks will be spent working on your capstone projects. We're stil
 *   [SQL in Node](./lessons/sql-in-node)
 *   All the AJAX
 *   Interview Prep
+*   [Object Oriented JavaScript](./lessons/intro-to-oojs)
 *   [SQL Deep Dive](./lessons/sql_deep_dive)
-*   [Tracker and Git Workflow](./lessons/workflow_and_communication)
 
 <h4 id="week_3">Week 3</h4>
+*   [Tracker and Git Workflow](./lessons/workflow_and_communication)
 *   Documenting for Collaboration
 *   [Agile Stories](./lessons/agile_stories)
 *   [Professional Code Environments](./lessons/professional_code_environments)
-*   [Object Oriented JavaScript](./lessons/object_oriented_javascript)
-*   [JS Build Tools](./lessons/javascript-build-tools)
-*   Webpack in Rails
+*   Accessibility Best Practices
 *   Negotiations
 *   [Agile and Other Buzzwords](./lessons/agile_and_other_buzzwords)
 *   What's this ECMA Script BS?
+*   [Application Coordination with Message Queues](./lessons/application_coordination_with_message_queues)
 
 <h4 id="week_4">Week 4</h4>
-*   [Application Coordination with Message Queues](./lessons/application_coordination_with_message_queues)
+*   [JS Build Tools](./lessons/javascript-build-tools)
+*   Webpack in Rails
 *   Interview Prep
 *   Mid Module Assessment
 *   [React 1](./lessons/intro_to_react)
