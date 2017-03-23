@@ -14,11 +14,6 @@ On Thursday of each sprint, we'll use this rubric to evaluate and give feedback 
 
 ### 2. Completion & Pace
 
-* 4: Team is on track to complete all stories and has tracked/completed chores and/or laid out future stories.
-* 3: Team is on track to complete all the user stories and requirements set by the client in timely manner.
-* 2: Team is on track to complete a subset of user stories after an approved cutting of the work scope.
-* 1: Team is not on track to complete the agreed-upon stories.
-
 * 4: Team is proactive in understanding scope and is able to commit to stories before starting the sprint
 * 3: Team is able to set and update expectations so that there are no surprises on the last day of the sprint
 * 2: Team does not have agreed upon stories completed at the end of the sprint, but has a plan to get them done
