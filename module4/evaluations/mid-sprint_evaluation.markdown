@@ -1,16 +1,16 @@
 ---
 layout: page
-title: Mid-Sprint Evaluation
+title: End of Sprint Evaluation
 ---
 
-On the middle Thursday of each sprint we'll use the below rubric to evaluate and give feedback on your project progress.
+On Thursday of each sprint, we'll use this rubric to evaluate and give feedback on your project progress.
 
 ### 1. Project Management
 
-* 4: Team is using a project management tool and updating their progress daily.
-* 3: Team is using a project management tool to keep their project organized.
-* 2: Team is using a project management tool but didn't update the progress frequently.
-* 1: Team failed to use a project management tool to track its progress.
+* 4: Tracker also documents feature related discussions
+* 3: Team is using well formatted user stories and moving cards through each status in realtime
+* 2: Team has used Tracker as a respository of information
+* 1: Tracker shows little to no use
 
 ### 2. Completion & Pace
 
@@ -19,23 +19,28 @@ On the middle Thursday of each sprint we'll use the below rubric to evaluate and
 * 2: Team is on track to complete a subset of user stories after an approved cutting of the work scope.
 * 1: Team is not on track to complete the agreed-upon stories.
 
+* 4: Team is proactive in understanding scope and is able to commit to stories before starting the sprint
+* 3: Team is able to set and update expectations so that there are no surprises on the last day of the sprint
+* 2: Team does not have agreed upon stories completed at the end of the sprint, but has a plan to get them done
+* 1: Team 
+
 ### 3. Implementation Quality
 
 * 4: Project demonstrates exceptionally well factored code.
-* 3: Project demonstrates solid code quality and MVC principles.
-* 2: Project demonstrates some gaps in code quality and/or application of MVC principles.
+* 3: Project exhibits maintainable well divided code. Developers are able to speak to architecture and implementation decisions.
+* 2: Project demonstrates some gaps in code quality and/or developers cannot defend their decisions.
 * 1: Project demonstrates poor factoring and/or understanding of MVC.
 
 ### 4. Application of Techniques
 
-* 4: Project has implemented two or more major techniques from the previous two weeks of academic classes.
-* 3: Project has implemented one major technique from the previous two weeks of academic classes.
-* 2: Project has a implementation in progress of one major technique from the previous two weeks of classes.
-* 1: Project has a plan to implement a technique from academic classes.
+* 4: Project has implemented two or more major techniques that were new this week.
+* 3: Project has implemented one major technique that was new this week.
+* 2: Project has a implementation in progress of one major technique that has not been previously attempted.
+* 1: Project does not implement new techniques.
 
 ### 5. Documentation
 
-* 4: Project features excellent documentation showing how to develop the application including a screencast or tutorial
-* 3: Project features excellent documentation showing how to develop the application
+* 4: Project also features a screencast, tutorial or other wow factor
+* 3: Project features easy to navigate documentation showing how to setup and contribute to the application
 * 2: Project features barebones documentation showing how to get the dev environment up and running
 * 1: Project has insufficient documentation
