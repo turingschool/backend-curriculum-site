@@ -26,7 +26,7 @@ subheading: Professional Rails Applications
 * [Using Figaro](lessons/using_figaro)
 * [Consuming APIs](lessons/consuming_an_api)
 * [VCR Testing](lessons/testing_against_third_party_apis)
-* POROs in Rails
+* [Decorators and Presenters](slides/decorators_and_presenters.md)
 * APIcurious Evaluations
 
 #### Week 3
