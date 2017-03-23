@@ -8,6 +8,7 @@
 
 ## Warm Up
 * What are the main components of Object Oriented Programming?
+* How have you worked to make your JavaScript object-oriented thus far?
 * What's your favorite part of OOP?
 * What's your least favorite part of OOP?
 
