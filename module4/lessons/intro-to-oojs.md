@@ -192,3 +192,9 @@ However, there are also some major differences:
 ## Your turn: Quick Exercise
 
 Can you add a second method called `sayGoodbye` that enables each dog to bid farewell?
+
+## Closing
+
+What three things can you do to update your QS code to make it more object oriented?
+
+_I challenge you to find an hour or two this weekend to refactor some of your QS code to make it more object oriented!_
