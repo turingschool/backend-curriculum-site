@@ -30,7 +30,7 @@
 * Bike Share Checkins
 * [ActiveRecord Associations](activerecord_associations)
 * Feedback II
-* Rails Exploration
+* [Rails Exploration](https://www.youtube.com/watch?v=GY7Ps8fqGdc) * NOTE This video uses MySQL and we will use Postgresql
 * [REST, Controllers, and Routing in Rails](rest_routing_and_controllers_in_rails)
 * [Migrations and Relationships in Rails](migrations-databases-relationships)
 * [Blogger Tutorial](http://backend.turing.io/module2/projects/blogger)

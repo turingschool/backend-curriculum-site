@@ -166,7 +166,7 @@ edit_task GET    /tasks/:id/edit(.:format) tasks#edit
           PATCH  /tasks/:id(.:format)      tasks#update
           PUT    /tasks/:id(.:format)      tasks#update
           DELETE /tasks/:id(.:format)      tasks#destroy
-
+```
 
 Any methods with `/:id/` require an id to be passed into the URL. Remember this when we talk about route helpers tomorrow :)
 
