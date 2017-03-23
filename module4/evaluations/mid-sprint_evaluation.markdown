@@ -32,3 +32,10 @@ On the middle Thursday of each sprint we'll use the below rubric to evaluate and
 * 3: Project has implemented one major technique from the previous two weeks of academic classes.
 * 2: Project has a implementation in progress of one major technique from the previous two weeks of classes.
 * 1: Project has a plan to implement a technique from academic classes.
+
+### 5. Documentation
+
+* 4: Project features excellent documentation showing how to develop the application including a screencast or tutorial
+* 3: Project features excellent documentation showing how to develop the application
+* 2: Project features barebones documentation showing how to get the dev environment up and running
+* 1: Project has insufficient documentation

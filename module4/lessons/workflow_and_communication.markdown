@@ -80,65 +80,7 @@ Approved features are deployed to production where they're accessible to live us
 
 ### Getting Started with Tracker (45 Minutes)
 
-Pivotal Tracker is a heavy tool that will take some practice.
-
-Get started by working your way through this [Quick Start](https://www.pivotaltracker.com/help/articles/quick_start/)
-
-#### Card Types
-
-##### Feature
-
-A feature is the primary card type. We use a card to represent a single story. A card of this type can be estimated. Completing the card adds to the team's velocity.
-
-##### Bug
-
-A bug card is used to track bugs that are found in features already deployed. These cards are not estimated and do not count towards velocity.
-
-If a bug is going to take more than an hour or two to solve, it may deserve to be upgraded to a proper story.
-
-##### Chore
-
-Chores are tasks that needs to be completed but do not directly deliver business value. For instance, a team/project might need to "Setup PostgreSQL accounts on the production server". That's a chore. They are not estimated and don't contribute to velocity.
-
-##### Release
-
-These are checkpoints. We'll use at least one release at the end of each sprint. Your PO may choose to add mid-sprint release points to gauge progress.
-
-#### Story States
-
-Story cards in Tracker go through several stages: "Not Yet Started", "Started", "Finished", "Delivered", "Accepted", and/or "Rejected".
-
-Here are the transitions that each story card should progress through for your project.
-
-#### Clicking "Start" => "In Progress"
-
-The order that cards appear in a Tracker project indicates their priority as determined by the product manager and/or project manager. No cards should be in progress unless *all* cards of higher priority are completed or also in progress.
-
-When you're ready to begin a story you click its `START` button which changes it's status to *In Progress*
-
-Any Tracker story card being worked on should be marked as in-progress by one of the members of the pair (or the solo dev) working on it. This lets other developers know not to duplicate the work going in to that card's feature.
-
-#### Clicking "Finish" => Finished
-
-When the card is done, mark it as finished. If there are other tightly-related cards that make sense to deliver all together, begin working on another card. But if this card stands alone or completes the thread, move on to the following steps.
-
-#### Clicking "Deliver" => Delivered
-
-Put cards into this state when a pull request has been made that contains the commits implementing its story. The one PR might encompass multiple cards, so they all get "Delivered" at once.
-
-If the code is satisfactory it is merged.
-
-#### Clicking "Accept" => Accepted or "Reject" => Rejected
-
-The work has been completed and merged. That branch gets deployed to the staging environment. The Project Owner is notified that the story is ready for evaluation.
-
-**Only the Product Owner decides to Accept/Reject a card.**
-
-If the PO finds the feature to meet the expectations of the story, they click "Accept". Once accepted, the card is frozen and the status should *never* be changed. The code is ready to be deployed to production.
-
-If the PO finds a problem, they click "Reject" to turn it to "Rejected" at which point the cycle can be restarted by the developers.
-
-If a problem is found after the card is rejected (at any point in the future), create a Bug Card rather than altering the accepted story.
+See [Getting Started with Tracker](/miscellaneous/getting_started_with_tracker) lesson.
 
 ### GitHub Workflow
 

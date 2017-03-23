@@ -25,16 +25,16 @@ Students who successfully complete Module 4 will have demonstrated mastery of Pr
 
 Your first project is [Quantified Self](./projects/quantified-self/quantified-self). It's an all front-end pair project for the first week.
 
-Your [second project](./projects/quantified-self/quantified-self-back-end is an extension of your first week. You'll build the back-end and wire it up to the front end.
+Your [second project](https://github.com/turingschool/backend-curriculum-site/blob/gh-pages/module4/projects/quantified-self/quantified-self-back-end.md) is an extension of your first week. You'll build the back-end and wire it up to the front end.
 
-The next three weeks will be spent working on your capstone projects. We're still working out details 
+The next three weeks will be spent working on your capstone projects. We're still working out details
 
 ### Weekly Breakdown:
 
 <h4 id="week_1">Week 1</h4>
 *   State of Turing
 *   Mod 4 Kickoff and Norming
-*   Project Kickoff: [Quantified Self](./projects/quantified-self)
+*   Project Kickoff: [Quantified Self](./projects/quantified-self/quantified-self)
 *   Professional Skills Expectations
 *   [Client Side Storage](./lessons/client_side_storage)
 *   [Event Bubbling and Delegation](./lessons/event-bubbling-and-delegation)
@@ -45,9 +45,9 @@ The next three weeks will be spent working on your capstone projects. We're stil
 
 <h4 id="week_2">Week 2</h4>
 *   [Javascript Without a Browser](./lessons/javascript_without_a_browser)
-*   [Fundamentals of Express](./lessons/fundamentals_of_express)
-*   Project Kickoff: [Quantified Self](./projects/quantified-self)
-*   SQL in Node
+*   [Fundamentals of Express](./lessons/building_and_testing_with_express)
+*   Project Kickoff: [Quantified Self](./projects/quantified-self/quantified-self-back-end)
+*   [SQL in Node](./lessons/sql-in-node)
 *   All the AJAX
 *   Interview Prep
 *   [SQL Deep Dive](./lessons/sql_deep_dive)

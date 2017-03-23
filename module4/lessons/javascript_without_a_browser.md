@@ -13,25 +13,10 @@ Traditionally JavaScript is executed client-side, or in the browser on the consu
 
 *   First version released with first version of chrome in 2008
 *   Compiles JS to native machine code
-*   Designed to be modular
-    *   Chrome
-    *   Opera
-    *   Vivaldi
-    *   Couchbase
-    *   MongoDB
-    *   Electron
-    *   node.js
 
 ### Today, We'll look into node.js. What is it?
 
 According to [nodejs.org](nodejs.org) node, in it's most basic form, "is a JavaScript runtime built on Chrome's V8 JavaScript engine."
-
-What makes node so powerful and desirable?
-
-*   event-driven
-*   non-blocking
-*   lightweight and efficient
-*   allows the user of websockets  - realtime 2 way connections between client and server.
 
 #### aside: NPM
 
@@ -117,8 +102,63 @@ $ node add.js
 Pair Up!
 ----------
 
+### Test that Node!
+
+Let's test our JavaScript file!
+
+Export the function from the `add.js` file.
+
+```js
+function add(a, b) {
+  return a + b
+}
+
+module.exports = add
+```
+
+We also need to create a test file. Let's make a new test directoy `mkdir test` and inside of that directory `touch test/add-test.js`.
+
+We will also need a few npm packages for this.
+
+`npm i mocha`
+
+`npm i chai`
+
+Let's setup our `add-test.js` file.
+
+```js
+const assert = require('chai').assert
+```
+
+This will allow us to use the `chai` library.
+
+Next, let's add the module that we exported from `add.js`.
+
+```js
+const assert = require('chai').assert
+const add = require('../add')
+```
+
+In the above snippet, we are using the constant that has the same name as our exported function and finding the file via its file path.
+
+Now we are ready to write a test!
+
+```js
+const assert = require('chai').assert
+const add = require('../add')
+
+describe('add functionality', function() {
+  context('add function', function(){
+    it('it can add two numbers', function(){
+      assert.equal(addNumbers(7,8), 15)
+    })
+  })
+})
+```
+
+To run the tests, type `mocha test/add-test.js`. If all is set up correctly, we should have a passing test!
+
 ### Let's work on a few challenges:
 
 *   [Character Count](https://github.com/turingschool/challenges/blob/master/character_count.markdown)
 *   [fibonacci](https://github.com/turingschool/challenges/blob/master/fibber.markdown)
-*   [99 Bottles](https://github.com/turingschool/challenges/blob/master/99_bottles.markdown)
