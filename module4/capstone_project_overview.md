@@ -1,6 +1,8 @@
-# Capstone Project
+Capstone Project
+==============
 
-## Learning Goals
+Learning Goals
+------------
 *   Students use an agile process to turn acceptance requirements into deployed software *(mastery)*
 *   Students estimate complexity of user stories *(functional)*
 *   Students translate acceptance requirements into user stories that are ready to be worked on *(mastery)*
@@ -12,11 +14,13 @@
 *   Students apply accessibility best practices when building their applications *(functional)*
 *   Students explore and implement new concepts learned in class this module or on their own *(mastery)*
 
-## Overview
+Overview
+------------
 
 The Capstone Project will last three weeks and will consist of students working in teams of 4+ students. Teams may choose to work on existing Turing internal projects listed [here](http://backend.turing.io/module4/projects_overview) or they can choose to take a team member's existing personal project and build on it.
 
-## Roles
+Roles
+------------
 *   Each group will assign the following roles:
 
 	1.  Project Manager
@@ -25,7 +29,8 @@ The Capstone Project will last three weeks and will consist of students working 
 
 *   An instructor will be assigned to each group and act as the Technical Lead
 
-## Structure of each week
+Structure of each week
+------------
 
 Each team should work together to plan daily stand-up's. Let your Technical Lead know when these stand-up's will take place so they can attend as needed.
 
@@ -47,46 +52,53 @@ During weeks 4 and 5, all classes (except for PD classes) are optional unless ot
 *   [FEE Module 3](https://calendar.google.com/calendar/embed?src=casimircreative.com_krb9p35ck35m4uoji5d2715844%40group.calendar.google.com&ctz=America/Denver)
 *   [FEE Module 4](https://calendar.google.com/calendar/embed?src=casimircreative.com_pe92inv861hml159vg7qh8vpls%40group.calendar.google.com&ctz=America/Denver)
 
-## Rubric
+Rubric
+------------
 
 On the Thursday of each sprint (each week) we'll use the below rubric to evaluate and give feedback on your project progress.
 
-### 1. Project Management
+#1. Project Management
+------------
 
 *   4: Team is using a project management tool and updating their progress daily.
 *   3: Team is using a project management tool to keep their project organized.
 *   2: Team is using a project management tool but didn't update the progress frequently.
 *   1: Team failed to use a project management tool to track its progress.
 
-### 2. Completion & Pace
+#2. Completion & Pace
+------------
 
 *   4: Team is on track to complete all stories and has tracked/completed chores and/or laid out future stories.
 *   3: Team is on track to complete all the user stories and requirements set by the client in timely manner.
 *   2: Team is on track to complete a subset of user stories after an approved cutting of the work scope.
 *   1: Team is not on track to complete the agreed-upon stories.
 
-### 3. Implementation Quality
+#3. Implementation Quality
+------------
 
 *   4: Project demonstrates exceptionally well factored code.
 *   3: Project demonstrates solid code quality and MVC principles.
 *   2: Project demonstrates some gaps in code quality and/or application of MVC principles.
 *   1: Project demonstrates poor factoring and/or understanding of MVC.
 
-### 4. Application of Techniques
+#4. Application of Techniques
+------------
 
 *   4: Project has implemented two or more major techniques from the previous two weeks of academic classes.
 *   3: Project has implemented one major technique from the previous two weeks of academic classes.
 *   2: Project has a implementation in progress of one major technique from the previous two weeks of classes.
 *   1: Project has a plan to implement a technique from academic classes.
 
-### 5. Documentation
+#5. Documentation
+------------
 
 *   4: Project features excellent documentation showing how to develop the application including a screencast or tutorial
 *   3: Project features excellent documentation showing how to develop the application
 *   2: Project features barebones documentation showing how to get the dev environment up and running
 *   1: Project has insufficient documentation
 
-### 6. Accessibility
+#6. Accessibility
+------------
 
 *   4: Team has expertly implemented features to follow accessibility best practices.
 *   3: Team has implemented code to increase accessibility.

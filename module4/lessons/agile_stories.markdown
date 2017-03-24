@@ -9,11 +9,11 @@ How you schedule, manage, and communicate about your work is more important than
 
 Learning & Completion Goals
 
-*   Student understands the expected workflow for turning ideas/requirements into work-ready stories
-*   Student is familiar with a template for good stories
-*   Student is able to write a story following the template
-*   Student is able to use a point system for estimating stories
-*   Student is able to decompose a complex story into a simpler one
+*   Student understands the expected workflow for turning ideas/requirements into work-ready stories.
+*   Student is familiar with a template for good stories.
+*   Student is able to write a story following the template.
+*   Student is able to use a point system for estimating stories.
+*   Student is able to decompose a complex story into a simpler one.
 
 Session Plan
 
@@ -115,12 +115,15 @@ Let's start with some ideas that translate well to single stories.
 
 Start on your own and draft one story for *each* of the following:
 
-*   Checking the box for a to-do moves it to the completed list
-*   The top of the todo list has a count of the number to todos which updates when I add a new one
-*   I can filter the todos by typing in a text box which live filters down to just the todos that have the matching text
+*   Users can complete a task and it moves somewhere else.
+*   User knows how many items are on the to-do list.
+*   Search my to-do's.
 *   Clicking trash on a to-do pops up a confirm/cancel dialog
+*   What else does the team need to know to make a successful MVP?
 
 Then we'll turn to a pair and compare our results.
+
+As a group, let's brainstorm questions to increase clarity for user stories.
 
 ### Estimating Stories
 

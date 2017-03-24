@@ -54,9 +54,8 @@ The next three weeks will be spent working on your [capstone projects](capstone-
 *   [SQL Deep Dive](./lessons/sql_deep_dive)
 
 <h4 id="week_3">Week 3</h4>
-*   [Tracker and Git Workflow](./lessons/workflow_and_communication)
 *   Documenting for Collaboration
-*   [Agile Stories](./lessons/agile_stories)
+*   [Agile Stories & Pivotal Tracker](./lessons/getting_started_with_tracker)
 *   [Professional Code Environments](./lessons/professional_code_environments)
 *   Accessibility Best Practices
 *   Negotiations
