@@ -7,10 +7,11 @@
 * Students make effective use of `this` in multiple contexts *(functional)*
 
 ## Warm Up
+
 * What are the main components of Object Oriented Programming?
+* What's one way to create a new object in JavaScript?
 * How have you worked to make your JavaScript object-oriented thus far?
-* What's your favorite part of OOP?
-* What's your least favorite part of OOP?
+* What do you like/dislike about OOP?
 
 ## Introduction
 
