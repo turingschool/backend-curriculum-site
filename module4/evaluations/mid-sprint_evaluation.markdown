@@ -17,7 +17,7 @@ On Thursday of each sprint, we'll use this rubric to evaluate and give feedback 
 * 4: Team is proactive in understanding scope and is able to commit to stories before starting the sprint
 * 3: Team is able to set and update expectations so that there are no surprises on the last day of the sprint
 * 2: Team does not have agreed upon stories completed at the end of the sprint, but has a plan to get them done
-* 1: Team 
+* 1: Team does not have agreed upon stories completed, and has no plan to complete them
 
 ### 3. Implementation Quality
 
