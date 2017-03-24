@@ -4,13 +4,13 @@ This exercise is intended to help you assess your progress with the concepts and
 
 For these questions, write a short snippet of code that meets the requirement. In cases where the question mentions a "given" data value, use the variable `given` to refer to it (instead of re-writing the information).
 
-Use single (\`) and triple backticks (\`\`\`) to container code snippets.  
+Use single (\`) and triple backticks (\`\`\`) to container code snippets.
 
 1.  Define a class called `PizzaOven` which has a method `cook_pizza` which returns the string `"mmm 'za"`.
 
 2.  Define a class called `Student` which is instantiated with a "name" value and which has a method `name` that returns this value
 
-3.  Given an array of the numbers `[1,2,3,4,5]`, find the sum of the doubles of all the numbers
+3.  Given an array of the numbers `[1,2,3,4,5]`, how would you create a new array of all elements doubled? How would you return an array of all odd elements?
 
 4.  Give the command to create a new Git repository in a directory on your machine
 
