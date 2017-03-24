@@ -55,7 +55,7 @@ The next three weeks will be spent working on your [capstone projects](capstone-
 
 <h4 id="week_3">Week 3</h4>
 *   Documenting for Collaboration
-*   [Agile Stories & Pivotal Tracker](./lessons/getting_started_with_tracker)
+*   [Agile Stories](./lessons/agile_stories) & [Pivotal Tracker](./lessons/getting_started_with_tracker)
 *   [Professional Code Environments](./lessons/professional_code_environments)
 *   Accessibility Best Practices
 *   Negotiations
