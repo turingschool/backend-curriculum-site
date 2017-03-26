@@ -17,7 +17,12 @@ status: draft
 
 Clone down the following repo:
 
-`git clone -b seeding_data https://github.com/turingschool-examples/storedom.git seeding_data`
+```
+git clone -b seeding_data https://github.com/turingschool-examples/storedom.git seeding_data  
+bundle - you may need to bundle update  
+rake db:create  
+rake db:migrate  
+```
 
 Typically in a Rails app, you'll seed the database by using the rake task 'rake db:seed', which runs the ruby file 'db/seeds.rb'.
 
