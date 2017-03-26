@@ -15,13 +15,16 @@ status: draft
 
 ## Setup: Building an Inefficient Seed File
 
-If you'd like to code with this read through (not a requirement though), clone down the following repo.
+Clone down the following repo:
 
 `git clone -b seeding_data https://github.com/turingschool-examples/storedom.git seeding_data`
 
-Any code that we add to `seeds.rb` will be executed when we run ‘rake db:seed’
+Typically in a Rails app, you'll seed the database by using the rake task 'rake db:seed', which runs the ruby file 'db/seeds.rb'.
 
-### Iteration 1: Creating Records
+### Iteration 1: Creating Records  
+Create some data:  
+  4 users w/ name and email  
+  4 items w/ name, description, and image_url   
 
 #### Create one user
 
@@ -76,12 +79,12 @@ Item.create!(
   )
 ```
 
-Take a second and think about the downsides to this approach?
+What are the downsides to this approach?
 
 ## Why Seeding Data Efficiently Matters
 
 * Setting up each record by hand takes quite a bit of time that could be used doing something else
-* You've might have already seen or will see at some point in the future the 300+ line seed file
+* You might have already seen or will see at some point in the future the 300+ line seed file
 * Problems of seeding generally stem from doing too much manual / hard-coded work
 * We should treat our seed file as just another piece of code (aka make it Object Oriented)
 * Use methods as abstractions for common operations
