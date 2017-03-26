@@ -19,7 +19,7 @@ length: 90
 
 ### Introduction
 
-* There are two pieces to testing - validation and design.
+* There are two benefits to testing - validation and design.
   * Validation - Does the software do what it is supposed to do?
   * Design - Documents what the code does. Helps determine what software should do and how you know it works.
 
@@ -39,7 +39,6 @@ length: 90
 * Can we identify the input?
 * Can we identify the output?
 * The "interface"
-* How do we characterize the transformation from input to output?
 
 ### The Essence of Testing -- Asking Questions
 
@@ -182,7 +181,6 @@ If you'd like to see a full project spec for this, [check out Chisel](https://gi
   * [5,1] => [1,5]
   * [1,5,6] => [1,5,6]
   * [6,5,1] => [1,5,6]
-* What is the start state / input?
-* What are the processes / steps?te
+* What is the input needed by the program?
+* What are the processes / steps needed to be taken?
 * Are the results correct?
-* What's the next most difficult input?

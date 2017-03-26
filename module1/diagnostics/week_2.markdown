@@ -1,4 +1,4 @@
-# Week 2 and 3 Diagnostic
+# Week 2 Diagnostic
 
 This exercise is intended to help you assess your progress with the concepts and techniques we've covered during the week.
 
