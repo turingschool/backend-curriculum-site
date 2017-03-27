@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Professional Code Environments
-length: 90
+length: 105
 tags: workflow, professional skills
 ---
 
@@ -54,11 +54,11 @@ So, we created another environment that we call *Staging*. This environment is m
 
 There is yet another environment that is common on modern development teams: *Continuous Integration*. It exists to run our tests, report back with success or failure, and in some cases, take additional action.
 
-### Modern Environments
+## Modern Environments
 
 So let's synthesize this into some features of our modern environments
 
-#### Development
+### Development
 
 A dev environment...
 
@@ -68,7 +68,7 @@ A dev environment...
 *   usually is juggling multiple projects
 *   typically just setup once per project
 
-#### Staging
+### Staging
 
 A staging environment...
 
@@ -78,7 +78,7 @@ A staging environment...
 *   Is typically dedicated to one project
 *   Ideally setup/teardown is very easy
 
-#### Production
+### Production
 
 A production environment...
 
@@ -88,23 +88,25 @@ A production environment...
 *   is commonly scaled to `n` instances
 *   ideally setup/teardown is automated, or at least very well documented
 
-#### Continuous Integration
+### Continuous Integration [WIP]
 
 CI can span environments in some situations (always run your tests before you push, run your tests in staging, in a separate tool, etc)
 
 Continuous integration is another environment to consider.
 
-* What are the things that need to be the same in CI?
-* What are the things that are usually ok to not worry about?
+*   What are the things that need to be the same in CI?
+*   What are the things that are usually ok to not worry about?
 
-### Configuration
+## Configuration
 
-#### Stuff that's the same
+### Stuff that's the same
 
 We want to ensure across our that we have:
 
 *   Consistent versions of ruby/node
 *   The same packages/gems installed
+
+### Stuff that's different
 
 There are also things that we intentionally want different between our environments. The most common example is external data sources and services:
 
@@ -115,13 +117,13 @@ There are also things that we intentionally want different between our environme
 
 To address these differences, we usually use **Environment Variables**. These are *variables* that differ between *environments*. They're used across languages and platforms to set configuration. They allow the same logic and code to interact with different sources.
 
+### Synthesis/reflection
+
 *   Why might we need differing configurations?
 *   Where do we configure things in Rails?
 *   Where have we configured things in Node?
 
-* Where do we configure things?
-
-### Some practice [WIP]
+## Some practice [WIP]
 
 Options:
 
@@ -130,7 +132,7 @@ Options:
 * Set up CI in an old/new project
 * Set up CD in an old/new project
 
-### Some next level things to be aware of:
+## Some next level things to be aware of
 
 A couple more concepts you're liable to run into on the job or in job descriptions:
 
