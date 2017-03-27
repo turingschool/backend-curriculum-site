@@ -1,5 +1,5 @@
 ---
-title: Accessibility Best Practices 
+title: Accessibility Best Practices
 ---
 
 Context
@@ -68,7 +68,7 @@ Visual
 
 ### Experiment 1
 
-First, read through [this article]((http://bleacherreport.com/articles/2662974-nfl-players-pay-tribute-with-usa-themed-cleats-on-911-anniversary?utm_source=cnn.com&utm_medium=referral&utm_campaign=editorial)) from CNN.com.
+First, read through [this article](http://bleacherreport.com/articles/2662974-nfl-players-pay-tribute-with-usa-themed-cleats-on-911-anniversary?utm_source=cnn.com&utm_medium=referral&utm_campaign=editorial) from CNN.com.
 
 Once you've done that try going through the article with your eyes closed using the `chrome vox` extension installed.
 
@@ -90,9 +90,9 @@ Navigation Tip: Some websites do not allow `I want to see like the colour blind`
 
 ### Discussion
 
-1) What was the biggest difference between both experiences?
-2) What was the most frustrating thing for you?
-3) Could you get the screen reader to read the whole article for you?
+1.  What was the biggest difference between both experiences?
+2.  What was the most frustrating thing for you?
+3.  Could you get the screen reader to read the whole article for you?
 
 #### Code tip!
 
@@ -111,11 +111,11 @@ Watch this video from Dinosaur.js [here](https://www.youtube.com/watch?v=hKIQkgP
 
 ### Experiment
 
-Go to [auto-traders](http://www.autotrader.com/) website and tab around.
+Go to [Auto Traders](http://www.autotrader.com/) website and tab around.
 
-	1) What was your experience like tabbing around?
-	2) How was the focus?
-	3) Did you tab into the dropdown field?
+1.  What was your experience like tabbing around?
+2.  How was the focus?
+3.  Did you tab into the dropdown field?
 
 #### Go Further
 
@@ -125,9 +125,9 @@ If you're tired of reading, watch this [video](https://youtu.be/rvG7L-gsSuo) ins
 
 ### Discussion
 
-1) Do you see a benefit to using `tabindex`?
+1.  Do you see a benefit to using `tabindex`?
 
-2) What did you notice about the Auto Trader website while only using tab interaction?
+2.  What did you notice about the Auto Trader website while only using tab interaction?
 
 #### Code Tip
 
@@ -158,9 +158,9 @@ Checkout this [document](http://geon.github.io/programming/2016/03/03/dsxyliea) 
 
 ### Discussion
 
-1) What steps can we take to consider people with cognitive issues?
+1.  What steps can we take to consider people with cognitive issues?
 
-2) Can you think of any website you know that would be difficult to use for someone with cognitive issues?
+2.  Can you think of any website you know that would be difficult to use for someone with cognitive issues?
 
 #### Code Tip
 
