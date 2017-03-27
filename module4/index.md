@@ -54,11 +54,10 @@ The next three weeks will be spent working on your [capstone projects](capstone-
 *   [SQL Deep Dive](./lessons/sql_deep_dive)
 
 <h4 id="week_3">Week 3</h4>
-*   [Tracker and Git Workflow](./lessons/workflow_and_communication)
-*   Documenting for Collaboration
-*   [Agile Stories](./lessons/agile_stories)
+*   [Documenting for Collaboration](./lessons/archive/how_to_write_a_great_readme)
+*   [Introduction to Professional Workflow](./lessons/getting_started_with_tracker)
 *   [Professional Code Environments](./lessons/professional_code_environments)
-*   Accessibility Best Practices
+*   [Accessibility Best Practices](./lessons/accessibility_best_practices)
 *   Negotiations
 *   [Agile and Other Buzzwords](./lessons/agile_and_other_buzzwords)
 *   What's this ECMA Script BS?

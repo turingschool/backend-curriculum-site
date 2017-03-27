@@ -12,7 +12,7 @@ In this project you'll create a simple blog system and learn the basics of Ruby 
 * Views with forms, partials, and helpers
 * RESTful design
 * Adding gems for extra features
-
+lig
 This tutorial is open source. If you notice errors, typos, or have questions/suggestions, please [submit them to the project on GitHub](https://github.com/turingschool/curriculum/blob/master/source/projects/blogger_reformat.md).
 
 ## I0: Up and Running
@@ -1562,7 +1562,7 @@ Processing by ArticlesController#update as HTML
 Unpermitted parameters: tag_list
 ```
 
-Unpermitted parameters? Oh yeah! Strong Parameters has done its job, saving us from parameters we don't want. But in this case, we _do_ want that parameter. Open up your `app/helpers/articles_helper.rb` and fix the `article_params` method:
+Unpermitted parameters? Oh yeah! Strong Parameters has done its job, saving us from parameters we don't want. But in this case, we _do_ want that parameter. Open up your `app/controllers/articles_controller.rb` and fix the `article_params` method:
 
 ```ruby
   def article_params

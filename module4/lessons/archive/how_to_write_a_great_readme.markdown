@@ -3,10 +3,6 @@ layout: page
 title: How to Write a Great README
 ---
 
-## Why
-
-We publish open source because we want people to use it, we want people to be impressed by it, or both. The first thing they're going to do is check out the README. It's our chance to make a first impression -- done wrong it'll be the only impression.
-
 ## Learning Goals
 
 * Student has reviewed recommended practices and exemplars of strong READMEs
@@ -15,12 +11,21 @@ We publish open source because we want people to use it, we want people to be im
 
 Mastery Expectation: HIGH. By the end of this lesson, students should feel completely confident in the skills listed here.
 
+## Why
+
+We publish open source because we want people to use it, we want people to be impressed by it, or both. The first thing they're going to do is check out the README. It's our chance to make a first impression -- done wrong it'll be the only impression.
+
+## Warm Up
+* When you're using other tools for the first time, what's been frustrating?
+* What documentation have you seen that impressed you? Frustrated you?
+* What makes a good pull request?
+
 ## Structural Plan
 
-* Research (8 min) & Collaborate (8 min)
-* Coalesce (12 min)
-* Practice (25 min)
-* Review (7 min)
+* Research (5 min) & Collaborate (5 min)
+* Group Share (12 min)
+* Practice (15 min)
+* Closing (3 min)
 
 ## Research (16 min)
 
@@ -28,8 +33,8 @@ Today we'll use a jigsaw technique to explore the topic of READMEs.
 
 * Break into six groups
 * Each group will explore one resource
-* Read/explore **on your own for 8 minutes** using the guiding questions below
-* Discuss your findings **with your group for another 8 minutes**
+* Read/explore **on your own for 5 minutes** using the guiding questions below
+* Discuss your findings **with your group for another 5 minutes**
 * Draw a set of key observations to share with the whole class
 
 ### Resources
@@ -50,7 +55,7 @@ Today we'll use a jigsaw technique to explore the topic of READMEs.
 
 If you or your group finish early, browse [these "awesome" READMEs and see if they comply with the recommendations you found](https://github.com/matiassingers/awesome-readme).
 
-## Coalesce (12 min)
+## Group Share (12 min)
 
 Let's bring our findings together through group discussion and posting findings on the white board. We'll pay particular attention to these anchor ideas:
 
@@ -60,10 +65,13 @@ Let's bring our findings together through group discussion and posting findings 
 * Format
 * Extras
 
-## Practice (25 min)
+## Practice (15 min)
 
-It's time to put it into practice. Get together with your pair on your current project. Draft an amazing README, even if it includes features/descriptions you haven't yet built but will have when the project is delivered.
+It's time to put it into practice. Get together with your pair for Quantified Self. Draft an amazing README, even if it includes features/descriptions you haven't yet built but will have when the project is delivered.
 
-## Review (5 min)
+If you feel that your Quantified Self README is already amazing, look back at a previous project and improve that README.
 
-Let's recap our learning goals and answer any questions.
+## Closing (3 min)
+
+* What key points are you going to keep in mind when writing a solid README?
+* After today's class, do you think you'll go back and update README's for your previous projects?
