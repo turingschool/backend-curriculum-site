@@ -17,12 +17,12 @@ We publish open source because we want people to use it, we want people to be im
 
 ## Warm Up
 * When you're using other tools for the first time, what's been frustrating?
-* What documentation have you seen that you impressed with?
-* What documentation have you used that frustrated you?
+* What documentation have you seen that impressed you? Frustrated you?
+* What makes a good pull request?
 
 ## Structural Plan
 
-* Research (8 min) & Collaborate (8 min)
+* Research (5 min) & Collaborate (5 min)
 * Group Share (12 min)
 * Practice (15 min)
 * Closing (3 min)
@@ -33,8 +33,8 @@ Today we'll use a jigsaw technique to explore the topic of READMEs.
 
 * Break into six groups
 * Each group will explore one resource
-* Read/explore **on your own for 8 minutes** using the guiding questions below
-* Discuss your findings **with your group for another 8 minutes**
+* Read/explore **on your own for 5 minutes** using the guiding questions below
+* Discuss your findings **with your group for another 5 minutes**
 * Draw a set of key observations to share with the whole class
 
 ### Resources
@@ -68,6 +68,8 @@ Let's bring our findings together through group discussion and posting findings 
 ## Practice (15 min)
 
 It's time to put it into practice. Get together with your pair for Quantified Self. Draft an amazing README, even if it includes features/descriptions you haven't yet built but will have when the project is delivered.
+
+If you feel that your Quantified Self README is already amazing, look back at a previous project and improve that README.
 
 ## Closing (3 min)
 
