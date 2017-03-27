@@ -13,6 +13,10 @@ By the end of this lesson, you will know/be able to:
 * Implement multi-tenancy at the controller level.
 * Design a database for a mutli-tenant application.
 
+# Slides
+
+* Available [here](../slides/understanding_multitenancy)
+
 ## Discussion -- What is Multitenancy?
 
 #### Development as a metaphor for development
