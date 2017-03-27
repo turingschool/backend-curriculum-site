@@ -57,7 +57,7 @@ The next three weeks will be spent working on your [capstone projects](capstone-
 *   [Documenting for Collaboration](./lessons/archive/how_to_write_a_great_readme)
 *   [Agile Stories](./lessons/agile_stories) & [Pivotal Tracker](./lessons/getting_started_with_tracker)
 *   [Professional Code Environments](./lessons/professional_code_environments)
-*   Accessibility Best Practices
+*   [Accessibility Best Practices](./lessons/accessibility_best_practices)
 *   Negotiations
 *   [Agile and Other Buzzwords](./lessons/agile_and_other_buzzwords)
 *   What's this ECMA Script BS?
