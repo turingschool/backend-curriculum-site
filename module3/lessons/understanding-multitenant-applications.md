@@ -14,19 +14,15 @@ By the end of this lesson, you will know/be able to:
 * Implement multi-tenancy at the controller level.
 * Design a database scheme for a multi-tenant application.
 
-### Structure
+### Warmup
 
-* 10 - Conversation: High Level Multi-tenancy
-* 15 - App Setup
-* 5  - Break
-* 25 - Setting up routes and controllers for Multi-tenancy
-* 5  - Break
-* 25 - Database level Multi-tenancy
-* 5  - Break
-* 20 - Workshop 1
-* 5  - Questions
+* Write a description of the store you built for Little Shop.
+* How is this different from a place like Etsy or eBay?
+* What about sites that aren't stores? What about Reddit, GitHub, or Airbnb?
 
-## Multi-tenancy. What is it? and why do we need it?
+### Overview
+
+#### Multi-tenancy. What is it? and why do we need it?
 
 * First there was a store.
 * Then there was a marketplace.
@@ -34,40 +30,16 @@ By the end of this lesson, you will know/be able to:
 * Basically a single instance of the software is deployed vs. many instances.
 * Single maintained large dataset that breaks down into smaller datasets for each customer/owner.
 
-## Issues/Concerns of a Multi-tanant site.
+#### Issues/Concerns of a Multi-tanant site.
 
 * Authentication.
 * Authorization - Scoping by role.
   * keeping one store from accessing and changing data from a different store.
 * Database design and relationships.
 
-## Multi-tenant Routing
+### Code Along
 
-* A single store software platform. What we've seen so far:
-  * `/items`
-  * '/items/:id' --> `/items/12`
-* We need nested data for stores. We need a way to represent data for specific stores / tenants. What will our routes look like?
-* What we need for multi-tenancy:
-  * `/:store_name/items`
-  * `/:store_name/items/:id` --> `/:store_name/items/12`
-
-#### How?
-
-* Namespacing in the router.
-
-## Multi-tenancy Controllers. Whos is whos?
-
-* Implementing multi-tenancy means we need to scope controllers to account for different user roles.
-* ItemsController vs Store::ItemsController
-
-#### How?
-
-* Namespacing in the router.
-
-
-## So now what? Let's do it.
-
-Let's work through making the storedom repo, currently a single store platform, a multi-tenant platform.
+With a partner, attempt to implement the following functionality below. We will share out after each piece of functionality is implemented.
 
 ```
 git clone https://github.com/turingschool-examples/storedom.git multitenancy
@@ -75,16 +47,84 @@ cd multitenancy
 bundle && bundle exec rake db:drop db:setup
 ```
 
-### What do we want to accomplish?
+#### Goals
 
-1. We need to model our store.
-2. We need to view our stores in the app (at least an index / show)
-3. We need a way to associate an item with a store.
-5. We need to establish the correct relationship between stores and their items.
-6. We need a way to view an item within the app _and know which store it actually belongs to_.
-7. We need to prevent access to items in the wrong store.
+* Persist stores to the database
+* View stores in the app (index and show)
+* Associate item with a store
+* View an item with info about its store
+* Prevent accessing items in the wrong store
 
 
+#### Database Updates
+
+* Add `stores` table
+* Add relationship between `items` and `stores`
+
+#### Model Updates
+
+* Add Store model
+* Add uniqueness validations for name and slug
+* Add relationships between Store and Item
+
+#### Route and Controller Updates
+
+* Add route to view store
+* Add `StoresController`
+* Add `index` and `show` actions to `StoresController`
+
+#### Views
+
+* Add show
+* Add index
+
+#### Create a Store
+
+* `rails c`
+* `rails s`
+
+#### Save a Store's Slug
+
+* Use a callback to set the store's slug
+
+I don't completely expect that you will have memorized how to create a callback at this point. See if you can find resources online that will allow you to implement this functionality.
+
+#### Update Controller
+
+* Change the controller to find a store using its slug
+
+#### Add Items
+
+* How would we refactor if we wanted a view to show items only for a particular store?
+* What would the route look like?
+* What if we wanted to keep our view for all items, but also have a view for only items associated with a store?
+
+#### Change Route
+
+* What if we wanted to have the same functionality, but delete the `/stores` part of our route?
+
+Similar to the callbacks section, see if you can find any resources online that will allow you to implement this before looking below.
+
+#### Revised Routes
+
+```rb
+namespace :store, path: ':store', as: :store do
+  resources :items, only: [:index, :show]
+end
+```
+
+```rb
+# Stores::ItemsController
+def index
+  @store = Store.find(params[:store])
+  @items = @store.items
+end
+```
+
+#### Takeaways
+
+* Multitenancy will generally lead to new relationships between resources
+* Nested routes can help us work with related resources
 
 ### Video
 
