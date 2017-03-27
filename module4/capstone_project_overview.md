@@ -40,7 +40,9 @@ At 3PM on Thursday, each team will spend 3 minutes demoing their project to the 
 
 After the demos, each team will meet with their Technical Lead who will evaluate their progress via the rubric below.
 
-During class on Friday, each Technical Lead will meet with the Product Owner of each team to walk through the next set of stories. The Product Owner is responsible for brainstorming what these stories are with their team. The Technical Lead is responsible for helping guide the Product Owner and estimate how long each story will take. The Product Owner is responsible for communicating to the Technical Lead throughout each sprint if the team is not going at a pace to finish the set of stories by the end of the sprint.
+During class on Friday, each Technical Lead will meet with the Product Owner of each team to walk through the next set of stories. The Product Owner is responsible for brainstorming what these stories are with their team. The Technical Lead is responsible for helping guide the Product Owner and estimate how long each story will take. 
+
+The Project Manager is responsible for communicating to the Technical Lead throughout each sprint if the team is not going at a pace to finish the set of stories by the end of the sprint.
 
 During weeks 4 and 5, all classes (except for PD classes) are optional unless otherwise stated, depending on the team you choose. Feel free to audit classes in other modules and programs:
 
