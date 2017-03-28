@@ -160,11 +160,14 @@ If you want to dive deep into solutions to environment problems, dig into the ma
 
 ## Some practice
 
-Let's try to implement some of these things in an old project.
+### We do
 
-Options:
+Let's try to implement some of these things in an old project. Cloney island is perfect. It has just about every trick you know so far. Let's try to rework it
 
-*    Identify something from a past project that should be made into configuration
-*    Identify things in your upcoming project that should be configuration instead of hard coded
-*    Set up CI in an old/new project
-*    Set up CD in an old/new project
+*    Identify something that we can make into configuration. Something we want to differ between environments.
+*    Set up CI with Travis CI
+*    Set up CD from Github to Heroku (if we have time)
+
+### You do
+
+You've got the information and the tools. Try adding new environments to an old project on your own, or implement it on your current project.
