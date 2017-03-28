@@ -27,7 +27,7 @@ Your first project is [Quantified Self](./projects/quantified-self/quantified-se
 
 Your [second project](https://github.com/turingschool/backend-curriculum-site/blob/gh-pages/module4/projects/quantified-self/quantified-self-back-end.md) is an extension of your first week. You'll build the back-end and wire it up to the front end.
 
-The next three weeks will be spent working on your [capstone projects](capstone-project-overview).
+The next three weeks will be spent working on your [capstone projects](capstone_project_overview).
 
 ### Weekly Breakdown:
 
@@ -55,7 +55,7 @@ The next three weeks will be spent working on your [capstone projects](capstone-
 
 <h4 id="week_3">Week 3</h4>
 *   [Documenting for Collaboration](./lessons/archive/how_to_write_a_great_readme)
-*   [Introduction to Professional Workflow](./lessons/getting_started_with_tracker)
+*   [Introduction to Professional Workflow](./lessons/intro_to_professional_workflow)
 *   [Professional Code Environments](./lessons/professional_code_environments)
 *   [Accessibility Best Practices](./lessons/accessibility_best_practices)
 *   Negotiations
