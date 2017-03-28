@@ -27,7 +27,7 @@ Your first project is [Quantified Self](./projects/quantified-self/quantified-se
 
 Your [second project](https://github.com/turingschool/backend-curriculum-site/blob/gh-pages/module4/projects/quantified-self/quantified-self-back-end.md) is an extension of your first week. You'll build the back-end and wire it up to the front end.
 
-The next three weeks will be spent working on your [capstone projects](capstone-project-overview).
+The next three weeks will be spent working on your [capstone projects](capstone_project_overview).
 
 ### Weekly Breakdown:
 
@@ -55,12 +55,12 @@ The next three weeks will be spent working on your [capstone projects](capstone-
 
 <h4 id="week_3">Week 3</h4>
 *   [Documenting for Collaboration](./lessons/archive/how_to_write_a_great_readme)
-*   [Introduction to Professional Workflow](./lessons/getting_started_with_tracker)
+*   [Introduction to Professional Workflow](./lessons/intro_to_professional_workflow)
 *   [Professional Code Environments](./lessons/professional_code_environments)
 *   [Accessibility Best Practices](./lessons/accessibility_best_practices)
 *   Negotiations
 *   [Agile and Other Buzzwords](./lessons/agile_and_other_buzzwords)
-*   What's this ECMA Script BS?
+*   [ES5 vs ES6](./lessons/es5_vs_es6)
 *   [Application Coordination with Message Queues](./lessons/application_coordination_with_message_queues)
 
 <h4 id="week_4">Week 4</h4>
@@ -82,4 +82,7 @@ The next three weeks will be spent working on your [capstone projects](capstone-
 <h4 id="week_6">Week 6</h4>
 *   Let's Get SASSy
 *   [Web Sockets](./lessons/websockets_workshop)
-*   Elastic Search  
+*   Final Assessment
+*   Interview Prep
+*   Open Source Demos
+*   Turing Stories
