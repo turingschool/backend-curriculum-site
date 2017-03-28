@@ -42,17 +42,21 @@ A development environment is something you can access easily from wherever you d
 Some problems with our two environment solution:
 
 *   Just because it worked on my machine, doesn't mean it will work on others
-  *   You have to ensure that your software versions are the same between environments
-  *   Development environments are often not even running the same OS
-  *   Although rare, hardware can sometimes change how software behaves
+    *   You have to ensure that your software versions are the same between environments
+    *   Development environments are often not even running the same OS
+    *   Although rare, hardware can sometimes change how software behaves
 
 ### Stage 2: Three environments [WIP]
 
 So, we created another environment that we call *Staging*. This environment is meant to execute our code in an environment as close as possible to production, without actually disrupting production.
 
+Your Staging environment will basically be a copy of production. Whatever setup you do in production, you'll do the same in staging. With a few exceptions we'll get into.
+
 ### Stage 3: Four environments [WIP]
 
 There is yet another environment that is common on modern development teams: *Continuous Integration*. It exists to run our tests, report back with success or failure, and in some cases, take additional action.
+
+We all know to run our tests before we push, or after we merge, or before we deploy, but a continuous integration environment ensures that tests are run. We can't forget. You can even add CI tools to your production deployment process, such that any commit that doesn't pass its tests will be rejected.
 
 ## Modern Environments
 
@@ -66,17 +70,18 @@ A dev environment...
 *   is likely *not* hardware similar
 *   needs to be reproducible across dev team machines
 *   usually is juggling multiple projects
-*   typically just setup once per project
+*   is typically just setup once per project, but by many people
 
 ### Staging
 
 A staging environment...
 
-*   Should be hardware and software identical to production
-*   Uses production-like data
-*   Has to consider privacy
-*   Is typically dedicated to one project
-*   Ideally setup/teardown is very easy
+*   should be hardware and software identical to production
+*   uses production-like data
+*   has to consider privacy
+*   is typically dedicated to one project
+*   ideally setup/teardown is very easy
+*   is usually accessible by most or all developers
 
 ### Production
 
@@ -87,15 +92,28 @@ A production environment...
 *   is typically dedicated to one project
 *   is commonly scaled to `n` instances
 *   ideally setup/teardown is automated, or at least very well documented
+*   typically has access restricted to only senior members
 
-### Continuous Integration [WIP]
+### Continuous Integration
 
-CI can span environments in some situations (always run your tests before you push, run your tests in staging, in a separate tool, etc)
+Continuous integration is another environment to consider. CI can span environments in some situations (always run your tests before you push, run your tests in staging, in a separate tool, etc)
 
-Continuous integration is another environment to consider.
+A continuous integration environment...
 
-*   What are the things that need to be the same in CI?
-*   What are the things that are usually ok to not worry about?
+*   needs the same software as your production environment
+*   usually connected to your version control
+*   often connected to production for deployment
+*   should be accessible by the whole development team
+*   needs whatever data is needed by the test suite
+
+
+### Check for understanding
+
+*   What is a staging server?
+*   What advantages does a staging server give us?
+*   What is continuous integration?
+*   How does continuous integration make our lives easier?
+*   Bonus: You've lived this long without either of these environments. How would you get the same advantages with just your development and production environments.
 
 ## Configuration
 
@@ -123,20 +141,11 @@ To address these differences, we usually use **Environment Variables**. These ar
 *   Where do we configure things in Rails?
 *   Where have we configured things in Node?
 
-## Some practice [WIP]
-
-Options:
-
-* Identify something from a past project that should be made into configuration
-* Identify things in your upcoming project that should be configuration instead of hard coded
-* Set up CI in an old/new project
-* Set up CD in an old/new project
-
 ## Some next level things to be aware of
 
-A couple more concepts you're liable to run into on the job or in job descriptions:
+Before we dive into some practice, here's a couple more concepts you're liable to run into on the job or in job descriptions, and how they relate:
 
-***Continous Deployment***
+***Continuous Deployment***
 
 The idea of deploying to production as often as you push code. Usually in tandem with CI, so you know your tests all pass before you deploy. There are tools out there to help with this.
 
@@ -147,3 +156,15 @@ A tool for ensuring all of your environments are effectively the same. You actua
 ***The 12 factor app***
 
 If you want to dive deep into solutions to environment problems, dig into the manifesto at <https://12factor.net>. The `rails-12factor` gem was started to make Rails more consistent with this document.
+
+
+## Some practice
+
+Let's try to implement some of these things in an old project.
+
+Options:
+
+*    Identify something from a past project that should be made into configuration
+*    Identify things in your upcoming project that should be configuration instead of hard coded
+*    Set up CI in an old/new project
+*    Set up CD in an old/new project
