@@ -183,7 +183,7 @@ Refresher: What's special about prototypes?
 
 ## Independent Practice
 
-Let's convert some code! You'll be working with the code that lives [here](). It's current written in ES5. Fork the gist and work to convert this code into ES6.
+Let's convert some code! You'll be working with the code that lives [here](https://gist.github.com/case-eee/7e87e60fd6b8cadd0a46fc8872017614). It's currently written in ES5. Fork the gist and work to convert this code into ES6. To test your code, run it in your console or using node.
 
 ## Closing
 
