@@ -46,13 +46,13 @@ Some problems with our two environment solution:
     *   Development environments are often not even running the same OS
     *   Although rare, hardware can sometimes change how software behaves
 
-### Stage 2: Three environments [WIP]
+### Stage 2: Three environments
 
 So, we created another environment that we call *Staging*. This environment is meant to execute our code in an environment as close as possible to production, without actually disrupting production.
 
 Your Staging environment will basically be a copy of production. Whatever setup you do in production, you'll do the same in staging. With a few exceptions we'll get into.
 
-### Stage 3: Four environments [WIP]
+### Stage 3: Four environments
 
 There is yet another environment that is common on modern development teams: *Continuous Integration*. It exists to run our tests, report back with success or failure, and in some cases, take additional action.
 
