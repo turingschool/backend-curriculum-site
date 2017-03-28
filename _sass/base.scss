@@ -50,7 +50,7 @@ blockquote {
   border-left: 5px solid lighten($medium-gray, 20);
   p {
     font-family: Georgia, serif;
-    // font-size: 2em;
+    font-size: 2em;
     margin-bottom: 0.5em;
   }
   footer {
@@ -61,7 +61,7 @@ blockquote {
     font-size: 1.5em;
     font-style: italic;
     &::before {
-      content: '— '
+      content: '— ';
     }
   }
 }
@@ -101,11 +101,11 @@ header {
   }
 }
 
-.content {
-  width: 80%;
-}
+// .content {
+//   width: 80%;
+// }
 
-@media screen and (max-width: 750px) {
+@media (max-width: $tablet-width) {
   .content: 100%;
 }
 
