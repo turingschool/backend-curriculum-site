@@ -49,6 +49,7 @@
 * [Crutial Conversations]()
 * [Mix Master Kick-off](http://backend.turing.io/module2/projects/mix_master/1_getting_started)
 <!-- * [Ruby Pairing](https://github.com/turingschool/challenges/blob/master/flatten.markdown) -->
+* [SQL Practice](sql)
 * [Nested Routes](advanced_routing_rails)
 * [Factory Girl](factory_documentation)
 * [MixMaster Q&A](http://backend.turing.io/module2/projects/mix_master/1_getting_started)
