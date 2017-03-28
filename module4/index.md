@@ -60,7 +60,7 @@ The next three weeks will be spent working on your [capstone projects](capstone_
 *   [Accessibility Best Practices](./lessons/accessibility_best_practices)
 *   Negotiations
 *   [Agile and Other Buzzwords](./lessons/agile_and_other_buzzwords)
-*   What's this ECMA Script BS?
+*   [ES5 vs ES6](./lessons/es5_vs_es6)
 *   [Application Coordination with Message Queues](./lessons/application_coordination_with_message_queues)
 
 <h4 id="week_4">Week 4</h4>
@@ -82,4 +82,7 @@ The next three weeks will be spent working on your [capstone projects](capstone_
 <h4 id="week_6">Week 6</h4>
 *   Let's Get SASSy
 *   [Web Sockets](./lessons/websockets_workshop)
-*   Elastic Search  
+*   Final Assessment
+*   Interview Prep
+*   Open Source Demos
+*   Turing Stories
