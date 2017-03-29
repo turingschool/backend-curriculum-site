@@ -149,6 +149,23 @@ brew install rbenv
 rbenv init
 ```
 
+The output from your shell will be something similar to:
+
+```shell
+# Load rbenv automatically by appending
+# the following to ~/.bash_profile:
+
+eval "$(rbenv init -)"
+```
+
+This means that you will need to add the above line (beginning with `eval`) to the bottom of your bash profile.
+
+To open your bash profile, type:
+
+```shell
+atom ~/.bash_profile
+```
+
 Check if it got installed correctly by checking the version.
 
 ```
@@ -176,7 +193,7 @@ rbenv install 2.3.1
 You can tell rbenv which Ruby version you want to use by default:
 
 ```shell
-rbenv use 2.3.1 --default
+rbenv global 2.3.1
 ```
 
 ### Folder Structure
