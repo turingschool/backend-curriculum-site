@@ -9,7 +9,7 @@ Here are the available workshops. (They are meant to be done in secession):
 
 1. [Fundamental SQL](http://tutorials.jumpstartlab.com/topics/sql/fundamental_sql.html)
 1. [SQL by repetition](http://sql-by-repetition.herokuapp.com/)
-1. [https://github.com/turingschool/lesson_plans/blob/master/ruby_03-professional_rails_applications/intermediate_sql.md](Intermediate SQL)
+1. [Intermediate SQL](https://github.com/turingschool/lesson_plans/blob/master/ruby_03-professional_rails_applications/intermediate_sql.md)
 
 These are all self guided and are strait forward to get up and running. As always your instructor will be around for guidance and help if you need it. Remember, if you come with a question, be sure to tell the instructor the context and what you have done so far to try to solve your problem. Good luck!
 
