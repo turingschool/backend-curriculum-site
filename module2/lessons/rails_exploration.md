@@ -4,10 +4,6 @@ title: Advanced Routing in Rails
 subheading: Web Applications with Ruby
 ---
 
-
-
-
-
 0:50 Installing Rails
 1:43 Rails principles (DRY, Conv over Config)
 2:22 MVC
