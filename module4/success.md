@@ -28,8 +28,6 @@ Students must earn a score of `3` or greater in *each* category of the final ass
 
 *Expected*: Students, as a project team, are responsible for delivering all scheduled feature cards *in the primary project* by the end of Sprint 2 (Week 5).
 
-*Expected*: Students are responsible for delivering all feature cards assigned to them *in the team's side project/service* by the end of Sprint 2 (Week 5).
-
 ### Career Development
 
 The Career Development segment is made up of several pieces, most of which are to be submitted by **9AM on Monday of Week 6** unless otherwise noted though it is suggested that you send them earlier if possible. All deliverables except for your Census account check should be submitted in the [Career Development deliverables submissions folder](https://github.com/turingschool/career-development-curriculum/tree/master/deliverable_submissions).
