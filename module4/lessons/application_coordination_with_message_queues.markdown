@@ -4,30 +4,26 @@ title: Application Coordination with Message Queues
 sidebar: true
 ---
 
-Why
-----------
+## Why
 
 As applications grow in complexity it's common to break out child applications, often called "services" or "workers." Message queues provide a language-agnostic, asynchronous way for applications to speak with each other.
 
-Learning Goals
---------------
+### Learning Goals
 
-*   Student is able to run a message queue engine
-*   Student can explain the lifespan of a message
-*   Student can add messages to a queue
-*   Student can read messages from a queue
-*   Student can perform work based on a queue message
+* Student is able to run a message queue engine
+* Student can explain the lifespan of a message
+* Student can add messages to a queue
+* Student can read messages from a queue
+* Student can perform work based on a queue message
 
-Structure
------------
+## Structure
 
-*   Theory - 15 Minutes
-*   In Practice - 30 Minutes
-*   Paired Exercise - 30 Minutes
-*   Recap - 10 Minutes
+* Theory - 45 Minutes
+* Solo Practice - 45 Minutes
+* Paired Practice - 45 Minutes
+* Recap
 
-Theory
-----------
+## Part 1: Theory
 
 Let's diagram and explore these roles and idea:
 
@@ -43,28 +39,24 @@ Let's diagram and explore these roles and idea:
 *   Retrieving a message
 *   Timeout / Repeat / Problems
 
-In Practice
-----------
+## Part 2: Solo Practice
 
 ### Setup
 
+(TODO: Revise)
 ```
 $ brew install rabbitmq
-$ gem install bunny
-$ /usr/local/sbin/rabbitmq-server
-```
-
-In another tab:
-
-```
-$ rabbitmq-plugins enable rabbitmq_management
-$ open http://localhost:15672/
 ```
 
 Login with `guest` / `guest`.
 
-### A Two-Queue Example
+### First Steps with One Queue
 
+(TODO: Write)
+
+### Next Level with Two Queues
+
+(TODO: Revise)
 ```
 require 'bunny'
 require 'pry'
@@ -100,8 +92,11 @@ sleep 10
 connection.close
 ```
 
-Paired Exercise
--------------
+### Challenge
+
+( TODO: write a challenge )
+
+## Part 3: Paired Exercise
 
 Let's put these ideas into practice by writing two sets of programs. For these exercises one member of the pair is "P1" and the other member is "P2".
 
@@ -109,28 +104,7 @@ Let's put these ideas into practice by writing two sets of programs. For these e
 
 #### Queue Setup
 
-It turns out that it's difficult to get RabbitMQ running on OSX to allow other machines to connect to it. You're allowed to connect via localhost (ie: from the same machine), but not from a remote host.
-
-VPS to the rescue! We've setup a remote RabbitMQ server for you. We were previously able to connect like this:
-
-```
-connection = Bunny.new
-```
-
-Now we'll connect like this:
-
-```
-connection = Bunny.new(
-  :host => "experiments.turing.io",
-  :port => "5672",
-  :user => "student",
-  :pass => "password"
-)
-```
-
-Where the correct `"password"` will be shared with you via Slack.
-
-*We'll go around the room and determine pair numbers. Your pair's number should be used as a prefix in the queue names below. Replace the `Z` with your pair number.*
+(TODO: Revise?)
 
 #### On P1's Machine
 
@@ -177,6 +151,8 @@ Now that you've got the workflow, let's make something that better illustrates t
 #### P1 as the Publisher
 
 Use your original P1 program as a guide to implement a program that:
+
+(TODO: Revise)
 
 *   Establishes a queue named `"Z.email.confirmation"`
 *   Publishes each element of this array as an individual JSON-ified message into the queue:
@@ -262,19 +238,75 @@ Imagine we are building the Briefcase application to display job-seekers' portfo
 
 Tada!
 
-Recap
-----------
+## Recap
 
 *   Reviewing the big-picture
 *   Recap the learning goals
 *   Questions
 
-Addendum
----------
+## Addendum
+
+This lesson was originally written to make use of RabbitMQ. It's a great tool that just involves a little more setup work than Redis. Below you can find lots of info about RabbitMQ:
+
+### External Resources
 
 *   [Bunny's GitHub page](https://github.com/ruby-amqp/bunny)
 *   For another take on how to consume messages from RabbitMQ, check out [Sneakers](https://github.com/jondot/sneakers)
 *   Check out [this blog post from Adam Niedzielski for another walk-through](http://blog.sundaycoding.com/blog/2015/03/22/using-message-queue-in-rails/)
+
+### Setup
+
+```
+$ brew install rabbitmq
+$ gem install bunny
+$ /usr/local/sbin/rabbitmq-server
+```
+
+In another tab:
+
+```
+$ rabbitmq-plugins enable rabbitmq_management
+$ open http://localhost:15672/
+```
+
+Login with `guest` / `guest`.
+
+### Two Queues
+
+```
+require 'bunny'
+require 'pry'
+
+# Connect to the RabbitMQ Instance
+connection = Bunny.new
+connection.start
+
+# Establish a "channel" on that connection
+channel = connection.create_channel
+
+# Create two "queue" instances
+queue_1   = channel.queue("sample.counter_1")
+queue_2   = channel.queue("sample.counter_2")
+
+queue_1.subscribe do |delivery_info, metadata, payload|
+  puts "Q1: #{payload}"
+  sleep rand*2
+end
+
+queue_2.subscribe do |delivery_info, metadata, payload|
+  puts "Q2: #{payload}"
+  sleep rand*2
+end
+
+5.times do |i|
+  queue_1.publish(i.to_s)
+  queue_2.publish(i.to_s)
+end
+
+sleep 10
+
+connection.close
+```
 
 ### Setting up RabbitMQ Locally for Remote Connections
 
