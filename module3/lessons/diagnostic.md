@@ -5,7 +5,7 @@ length: 90
 tags: json, javascript, rails, ruby, api
 ---
 
-This diagnostic is individual and you will be working on it for 1.5 hours. It's advisable to familiarize yourself with the recommended resources (details below) before the assessment.
+This diagnostic is individual and you will be working on it for 2 hours. It's advisable to familiarize yourself with the recommended resources (details below) before the assessment.
 
 **IMPORTANT:** _Run through the Setup section below **prior to** the diagnostic._
 
@@ -49,7 +49,7 @@ In addition, we expect you to:
 
 #### Note about the commit expectation:
 
-To better follow your progress over the 1.5 hours we expect that you commit every 15 minutes regardless of where you're at. Try to be as descriptive as possible in your commit messages and sum up briefly how you spent the time. Be sure to commit anything you may want to talk about later. For example: You get the first implementation working but want to refactor. If you don't commit the first implementation and don't finish the refactor there is no record of your initial solution.
+To better follow your progress over the 2 hours we expect that you commit every 15 minutes regardless of where you're at. Try to be as descriptive as possible in your commit messages and sum up briefly how you spent the time. Be sure to commit anything you may want to talk about later. For example: You get the first implementation working but want to refactor. If you don't commit the first implementation and don't finish the refactor there is no record of your initial solution.
 
 ## Setup
 
@@ -69,7 +69,7 @@ $ git remote add upstream git@github.com:YOUR-GITHUB-USERNAME/module_3_diagnosti
 
 If you prefer to work with RSpec, please remove the `test/` directory and [set up RSpec](https://github.com/rspec/rspec-rails) in your project before the assessment.
 
-**The night before the assessment you will be asked to get keys for the API you will be working with.**
+**The morning of the assessment you will be asked to get keys for the API you will be working with.**
 
 Once you have your project ready to go, commit and push to your remote repo to confirm everything is set up correctly using something similar to the following:
 
