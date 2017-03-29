@@ -238,7 +238,7 @@ const path = require('path');
 module.exports = {
   entry: {
     main: "./lib/index.js",
-    test: "mocha!./test/index.js"
+    test: "mocha-loader!./test/index.js"
   },
   output: {
     path: __dirname,
@@ -278,6 +278,13 @@ __Note:__ You can require additional test files by using `require('other-test-fi
 As your project becomes more complicated, you'll probably want to keep your
 actual tests broken up into separate files, and simply use `test/index.js` to
 pull them all together.
+
+**Keep in mind:**
+
+*   Requiring files is path-relative to the file you are requiring _from_
+(i.e. if you want to require a file in your project root into `lib/index.js`,
+you'll need to step up one directory level to access it)
+
 
 __Your Turn -- additional test files__
 
@@ -355,12 +362,6 @@ body { background-color: $color; }
 ```
 *   In your `index.js`, require this file
 *   load your main page and see if your styles are present
-
-Keep in mind:
-
-*   Requiring files is path-relative to the file you are requiring _from_
-(i.e. if you want to require a file in your project root into `lib/index.js`,
-you'll need to step up one directory level to access it)
 
 As an added bonus, we can also tell Webpack to resolve the file extensions on our behalf.
 
