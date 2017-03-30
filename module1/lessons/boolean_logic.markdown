@@ -36,7 +36,7 @@ When you've answered the questions above, which of these are truthy and which ar
 
 ## AND/OR/NOT and Truth Tables
 
-A truth table is a mathematical table used in logic. In the truth table below the first two columns (`a` and `b`) are our _input variables_. Our table should cover all of the different possible combinations input variables. There are four different combinations for our two input variables (`a` and `b`). These are represented as rows. The remaining columns show all of the possible results of the different Ruby operators for a given row. So the first row says if `a` is `true` and `b` is `true` then `a && b` is `true`, <code>a &#124;&#124; b</code> is `true`, and `!a` is `false`.
+A truth table is a mathematical table used in logic. In the truth table below the first two columns (`a` and `b`) are our _input variables_. Our table should cover all of the different possible combinations of input variables. There are four different combinations for our two input variables (`a` and `b`). These are represented as rows. The remaining columns show all of the possible results of three Ruby operators for a given row. So the first row says if `a` is `true` and `b` is `true` then `a && b` is `true`, <code>a &#124;&#124; b</code> is `true`, and `!a` is `false`.
 
 Use a `pry` session to clarify how these three Ruby operators work. For each row, set `a` and `b` to their values and experiment with the Ruby operators.
 
