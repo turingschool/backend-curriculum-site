@@ -15,11 +15,16 @@ tags: ruby, computer science, logic
 
 ## Why?
 
-Why is it helpful to have a working understanding of boolean logic? Flattening `if` statements
+Why is it helpful to have a working understanding of boolean logic? It can help us flatten `if` statements and reduce the number of lines in our code. We are also going to encounter this frequently in our jobs. A lack in understanding can introduce bugs into our code bases.
 
 ## Truthy and falsey values
 
-Which of these are truthy and which are falsey?
+First, start by doing some research.
+
+* How many falsey values are there in Ruby?
+* What is truthy in Ruby?
+
+When you've answered the questions above, which of these are truthy and which are falsey?
 
 * 1.0
 * "hello"
@@ -31,7 +36,20 @@ Which of these are truthy and which are falsey?
 
 ## AND/OR/NOT and Truth Tables
 
-We'll use a truth table and an `pry` session to clarify how these rules work.
+A truth table is a mathematical table used in logic. In the truth table below the first two columns (`a` and `b`) are our _input variables_. Our table should cover all of the different possible combinations of input variables. There are four different combinations for our two input variables (`a` and `b`). These are represented as rows. The remaining columns show all of the possible results of three Ruby operators for a given row. So the first row says if `a` is `true` and `b` is `true` then `a && b` is `true`, <code>a &#124;&#124; b</code> is `true`, and `!a` is `false`.
+
+Use a `pry` session to clarify how these three Ruby operators work. For each row, set `a` and `b` to their values and experiment with the Ruby operators.
+
+**Example:**
+
+```ruby
+[1] pry(main)> a = true
+=> true
+[2] pry(main)> b = true
+=> true
+[3] pry(main)> a && b
+=> true
+```
 
 | `a` | `b` | `a && b` | <code>a &#124;&#124; b</code> | `!a` |
 | :---: | :---: | :---: | :---: | :---: |
@@ -41,6 +59,8 @@ We'll use a truth table and an `pry` session to clarify how these rules work.
 | false | false | false | false | true |
 
 ## Fist of Five: Smaller Group Breakouts
+
+**If not teaching as a class, skip to "Expressions and Precedence with Parentheses".**
 
 Those feeling a "5" with logic so far, break out together, glance over the following parens section, then move onto Activity B. You'll work through this outside of the classroom individually - we'll regroup 15 minutes before the end of class to share solutions.
 
@@ -68,7 +88,7 @@ Turn to your neighbor and discuss what order you believe Ruby is evaluating our 
 
 ### More Complex Truth Tables
 
-On your own, evaluate the following by creating a truth table for three boolean values (`A`, `B`, and `C`) and using it to solve the following expressions:
+Evaluate the following by creating a truth table for three boolean values (`A`, `B`, and `C`) and using it to solve the following expressions:
 
 * `(A || B) && (A || C)`
 * `(A || !B) || (!A || C)`
