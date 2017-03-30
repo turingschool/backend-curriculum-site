@@ -18,9 +18,9 @@ As applications grow in complexity it's common to break out child applications, 
 
 ## Structure
 
-* Theory - 35 Minutes
-* Solo Practice - 35 Minutes
-* Paired Practice - 85 Minutes
+* Theory - 40 Minutes
+* Solo Practice - 40 Minutes
+* Paired Practice - 75 Minutes
 * Recap - 5 Minutes
 
 ## Part 1: Theory
@@ -70,7 +70,12 @@ require 'bunny'
 require 'pry'
 
 # Connect to the RabbitMQ Instance
-connection = Bunny.new # Add more connection info here
+connection = Bunny.new(
+  :host => "experiments.turing.io",
+  :port => "5672",
+  :user => "replace with correct account",
+  :pass => "replace with correct password"
+)
 connection.start
 
 # Establish a "channel" on that connection
@@ -83,15 +88,17 @@ queue   = channel.queue("XYZ.counter")
 n = 10
 puts "Publishing #{n} Messages to the Queue"
 n.times do |i|
-  queue.publish("This is message #{i}")
+  queue.publish("This is message #{i} published at #{Time.now.strftime('%H:%M:%S.%L')}")
+  sleep 0.2
 end
 puts "Publishing complete"
 
-sleep 10
+sleep 5
 
 puts "Starting the Queue Subscription"
+puts "Starting the Queue Subscription"
 queue.subscribe do |delivery_info, metadata, payload|
-  puts "Found Message: #{payload}"
+  puts "Found message at #{Time.now.strftime('%H:%M:%S.%L')}: [#{payload}]"
   sleep 1
 end
 puts "Queue Subscription Processed"
