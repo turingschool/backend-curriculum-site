@@ -19,9 +19,11 @@ As applications grow in complexity it's common to break out child applications, 
 ## Structure
 
 * Theory - 40 Minutes
+* Break ~ 10 Minutes
 * Solo Practice - 40 Minutes
-* Paired Practice - 75 Minutes
-* Recap - 5 Minutes
+* Break ~ 10 Minutes
+* Paired Practice - 60 Minutes
+* Recap ~ 5 Minutes
 
 ## Part 1: Theory
 
@@ -65,7 +67,7 @@ Queues are "free" -- so we'll just each create our own queues on the server.
 
 Let's start with a small demo program to illustrate some of the functionality:
 
-```
+```ruby
 require 'bunny'
 require 'pry'
 
@@ -153,11 +155,11 @@ Write a ruby program that:
 * Publishes a message every two seconds while the program is running
 * Formats the messages in JSON like below:
 
-```
+```json
 {"order_id":12,"quantity":24}
 ```
 
-Where the *quantity* is a random number between 2 and 36.
+Where the *quantity* is a random number between 2 and 36 and *order_id* just increments linearly.
 
 ### Warehouse Aggregator
 
@@ -189,6 +191,17 @@ The trick here is the `\r` which *returns* the cursor back to the beginning of t
 
 Can you update your aggregator to update a single line rather than scrolling as results come in?
 
+### Extra Challenge
+
+Could you add another layer? Create another queue so messages don't overlap.
+
+* When the Warehouse Aggregator gets enough orders to add a pallet, it publishes a message for the Pallet Puller
+* The Pallet Puller sees the new pallet message like this:
+
+```
+Fetch daily pallet 4, requested at 08:10:21.614
+```
+
 ## Recap
 
 *   Reviewing the big-picture
@@ -207,7 +220,7 @@ Some additional resources related to RabbitMQ and message queues:
 
 Here's a little sample app that runs cross-publishes to two queues in one program.
 
-```
+```ruby
 require 'bunny'
 require 'pry'
 
