@@ -10,11 +10,11 @@ As applications grow in complexity it's common to break out child applications, 
 
 ### Learning Goals
 
-* Student is able to run a message queue engine
 * Student can explain the lifespan of a message
 * Student can add messages to a queue
 * Student can read messages from a queue
 * Student can perform work based on a queue message
+* Student can describe how/why work is extracted out into a secondary application
 
 ## Structure
 
