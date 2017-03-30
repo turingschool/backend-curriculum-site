@@ -18,11 +18,11 @@ As applications grow in complexity it's common to break out child applications, 
 
 ## Structure
 
-* Theory - 40 Minutes
-* Break ~ 10 Minutes
+* Theory - 55 Minutes
+* Break ~ 5 Minutes
 * Solo Practice - 40 Minutes
 * Break ~ 10 Minutes
-* Paired Practice - 60 Minutes
+* Paired Practice - 50 Minutes
 * Recap ~ 5 Minutes
 
 ## Part 1: Theory
@@ -66,6 +66,14 @@ Queues are "free" -- so we'll just each create our own queues on the server.
 ### Organizing Your Code
 
 To complete the exercises below you'll want to create a folder to hold your work and individual Ruby files for each section. We won't be using tests since we're just experimenting.
+
+### Setup Bunny
+
+We'll use the Bunny library to connect to and interact with RabbitMQ. Install it at your terminal:
+
+```
+$ gem install bunny
+```
 
 ### First Steps with One Queue
 
