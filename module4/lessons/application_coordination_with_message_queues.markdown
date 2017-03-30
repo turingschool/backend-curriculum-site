@@ -63,9 +63,13 @@ Queues are "free" -- so we'll just each create our own queues on the server.
 
 **In the below code snippets, you'll see queue names like `XYZ.counter_1`. Replace the `XYZ` with your first and last name in lowercase without punctuation, like `alanturing.counter_1`.**
 
+### Organizing Your Code
+
+To complete the exercises below you'll want to create a folder to hold your work and individual Ruby files for each section. We won't be using tests since we're just experimenting.
+
 ### First Steps with One Queue
 
-Let's start with a small demo program to illustrate some of the functionality:
+Let's start with a small demo program to illustrate some of the functionality. Put this whole snippet into its own file so you can easily change it and run it from the terminal.
 
 ```ruby
 require 'bunny'
@@ -112,6 +116,8 @@ puts "Queue Subscription Processed"
 
 connection.close
 ```
+
+It should run without error. Then continue with the questions below:
 
 #### Essential Understandings
 
