@@ -22,7 +22,7 @@ us to install other versions as needed
 
 ### Text Editor
 
-If you don't already have a favorite text editor, we recommend using [VSCode](https://code.visualstudio.com/download).
+If you don't already have a favorite text editor, we recommend using [Atom](https://atom.io/).
 
 ### Terminal
 
@@ -40,7 +40,7 @@ If this is all new for you, see [Terminal and Editor](./terminal_and_editor)
 
 One of the things you'll do frequently is open an entire folder (like when working on a project) in your text editor. Let's get that setup:
 
-Here are a bunch of [videos](https://www.youtube.com/watch?v=WWwBQQOGllo&list=PLYzJdSdNWNqwNWlxz7bvu-lOYR0CFWQ4I) about setting up Atom.
+Open up Atom and in the menu bar, drop down the `Atom` menu. Within that, click on `Install Shell Commands` and now atom should be enable from your command line.
 
 To confirm that atom is working from your command line, enter `atom .` in your terminal. If it is setup correctly, the atom editor will automatically open. If it does not open atom and an error occurs instead, try entering this in the command line: `ln -s /Applications/Atom.app/Contents/Resources/app/atom.sh /usr/local/bin/atom` and try the first command (`atom .`) again.
 
@@ -124,70 +124,79 @@ git config --global user.name "John Doe"
 git config --global user.email johndoe@example.com
 ```
 
-### [RVM](http://rvm.io)
+### [rbenv](https://github.com/rbenv/rbenv#homebrew-on-mac-os-x)
 
 As the Ruby language has evolved over the years, new versions have been released containing new features and various upgrades. The first version, released in 1995, was 0.95, and as of this writing we're at 2.4.
 
 To some extent programs written for one version of Ruby will run just fine on another version,
 but sometimes you'll encounter incompatibilities, such that a program needs to be run with a specific version of Ruby.
 
-For this reason, we'd like to be able to install and manage multiple versions on our system. This is precisely the job RVM handles.
+For this reason, we'd like to be able to install and manage multiple versions on our system. This is precisely the job rbenv handles.
 
 #### Installation
 
-Similar to Homebrew, RVM provides a script to get everything installed. Run this in your Terminal:
+Similar to Homebrew, rbenv provides a script to get everything installed. Run this in your Terminal:
 
 ```shell
-curl -L https://get.rvm.io | bash -s stable
+brew install rbenv
 ```
-
-#### Loading / Post-Install
-
-Look for the line in the output from the RVM installation that starts with
 
 ```shell
-To start using RVM you need to run `source ...`
+rbenv init
 ```
 
-Copy the command inside of the backticks (don't include the backticks), paste it into your terminal window, and hit enter.
+The output from your shell will be something similar to:
+
+```shell
+# Load rbenv automatically by appending
+# the following to ~/.bash_profile:
+
+eval "$(rbenv init -)"
+```
+
+This means that you will need to add the above line (beginning with `eval`) to the bottom of your bash profile.
+
+To open your bash profile, type:
+
+```shell
+atom ~/.bash_profile
+```
 
 Check if it got installed correctly by checking the version.
 
 ```
-rvm --version
+rbenv --version
 ```
 
 It should give you a version number rather than an error message.
 
+More information about rbenv can be found [here](https://github.com/rbenv/rbenv#homebrew-on-mac-os-x)
+
 ### Ruby
 
-Now that we have RVM installed, we're going to use it to install a specific version of Ruby: Ruby 2.3.1
+Now that we have rbenv installed, we're going to use it to install a specific version of Ruby: Ruby 2.3.1
 
 If you need another version it'll be same procedure, just replace "2.3.1" in the instructions with whichever version you want.
 
 Install it with:
 
 ```shell
-rvm install 2.3.1
+rbenv install 2.3.1
 ```
 
 #### Setting the Default Version
 
-You can tell rvm which Ruby version you want to use by default:
+You can tell rbenv which Ruby version you want to use by default:
 
 ```shell
-rvm use 2.3.1 --default
+rbenv global 2.3.1
 ```
 
-#### Requirements
-
-There are *several* additional libraries that gems will often rely on. RVM makes installing those easy, too. Run this command:
+To reload your shell, do the following:
 
 ```shell
-rvm requirements
+rbenv rehash
 ```
-
-It'll figure out what needs to be installed and install it. If prompted for your password, use your computer login password.
 
 ### Folder Structure
 
