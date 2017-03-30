@@ -19,7 +19,12 @@ Why is it helpful to have a working understanding of boolean logic? It can help 
 
 ## Truthy and falsey values
 
-Which of these are truthy and which are falsey?
+First, start by doing some research.
+
+* How many falsey values are there in Ruby?
+* What is truthy in Ruby?
+
+When you've answered the questions above, which of these are truthy and which are falsey?
 
 * 1.0
 * "hello"
