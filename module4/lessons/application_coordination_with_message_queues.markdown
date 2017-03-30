@@ -20,9 +20,9 @@ As applications grow in complexity it's common to break out child applications, 
 
 * Theory - 55 Minutes
 * Break ~ 5 Minutes
-* Solo Practice - 40 Minutes
+* Solo Practice - 30 Minutes
 * Break ~ 10 Minutes
-* Paired Practice - 50 Minutes
+* Paired Practice - 55 Minutes
 * Recap ~ 5 Minutes
 
 ## Part 1: Theory
@@ -40,6 +40,27 @@ Let's diagram and explore these roles and idea:
 *   Polling vs Push
 *   Retrieving a message
 *   Timeout / Repeat / Problems
+
+### Demonstrating Your Understanding
+
+Let's model the message lifecycle in the physical space:
+
+* Pair Up
+* Establish a physical space for a queue
+* Person on the right is the publisher
+* Person on the left is the subscriber
+* Publisher builds messages on scraps of paper
+* Publisher puts them on to the queue one at a time
+* Subscriber watches the queue
+* Subscriber reads "Got the message: " followed by the message
+
+What happens when two pairs combine so there's one publisher and three subscribers?
+
+* How many total work cycles happen?
+* What's the effective work time?
+* Does each subscriber do the same amount of work?
+* What if there is no subscriber?
+* What if I'm subscribed and the publisher goes to get coffee?
 
 ## Part 2: Solo Practice
 
@@ -147,7 +168,8 @@ Uncomment the four lines toward the end and re-run:
 If you have time in the work period, try these:
 
 1. What happens if you move the `subscribe` chunk up above the message publishing?
-2. What if you increase `n` to `50` and add a `sleep 0.5` inside the `n.times do` block? What does the output tell you?
+2. Can you break the code into two separate files, one responsible for publishing and one responsible for subscribing?
+3. What if you increase `n` to `50` and add a `sleep 0.5` inside the `n.times do` block? What does the output tell you?
 
 You can find the API documentation for [Bunny's `Queue` class here](http://reference.rubybunny.info/Bunny/Queue.html).
 
@@ -218,9 +240,10 @@ Fetch daily pallet 4, requested at 08:10:21.614
 
 ## Recap
 
-*   Reviewing the big-picture
-*   Recap the learning goals
-*   Questions
+* How would the warehouse program work differently if we had multiple instances of the warehouse subscription? What about multiple instances of the publishing application?
+* Recap the learning goals
+* Reviewing the big-picture message lifecycle
+* Questions
 
 ## Addendum
 
