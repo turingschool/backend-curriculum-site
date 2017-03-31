@@ -29,11 +29,12 @@ We will be using Selenium WebDriver along with Capybara in our Ruby on Rails pro
 
 ## Getting Started With Selenium
 
-#### First - Setup
+### Selenium Setup
 
 __Setup__
 
 The only machine dependency for using Selenium is to have Firefox 46 installed.
+
 If you don't have this, then go download it [here](https://www.softexia.com/windows/web-browsers/firefox-46). If you do have it, make sure it on version 46. Selenium does not work with all versions of Firefox, so make sure that you are using Firefox 46 or else IT WILL NOT WORK. If you already have firefox and it's on a version more recent than 46, the easiest way to downgrade is to uninstall firefox then install version 46.
 
 __Important Note__
@@ -178,7 +179,9 @@ For this post request we are expecting the return value of the comment post - `n
 </div>
 ```
 
-We are going to make a partial to return from the post request so the AJAX call can just render that partial. You see it the postComment function above code as `newCommentMarkup`.
+We are going to return the partial of this code from the post request so the AJAX call can just render that partial. You see it the postComment function above code as `newCommentMarkup`.
+
+Note - a partial already exists. How can we update the current `articles/show` template to leverage this partial?
 
 So, we'll change the comments controller create action to handle this for us:
 
