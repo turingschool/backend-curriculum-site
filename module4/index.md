@@ -68,6 +68,7 @@ The next three weeks will be spent working on your [capstone projects](capstone_
 *   Mid Module Assessment
 *   [React 1](./lessons/intro_to_react)
 *   [React 2](./lessons/intro_to_react_part_2)
+*   Algorithm Time
 
 <h4 id="week_5">Week 5</h4>
 *   Basics of Security
@@ -78,6 +79,7 @@ The next three weeks will be spent working on your [capstone projects](capstone_
 *   Job Search and Beyond
 *   Refactor Tractor
 *   Technical Interview Challenge
+*   B4/F2 Algorithm Time
 
 <h4 id="week_6">Week 6</h4>
 *   Let's Get SASSy
