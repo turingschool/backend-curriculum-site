@@ -79,31 +79,31 @@ This refactor can be seen on the `refactor_controller` branch
 * This is dangerous because if you make a mistake somewhere, and say there's
 a problem with something of the Kitty class, the Reservation class isn't really the first place a person would go look.
 
-Creating an Object
-  before_validation
-  after_validation
-  before_save
-  around_save
-  before_create
-  around_create
-  after_create
-  after_save
-  after_commit/after_rollback
-Updating an Object
-  before_validation
-  after_validation
-  before_save
-  around_save
-  before_update
-  around_update
-  after_update
-  after_save
-  after_commit/after_rollback
-Destroying an Object
-  before_destroy
-  around_destroy
-  after_destroy
-  after_commit/after_rollback
+1. Creating an Object
+  * before_validation
+  * after_validation
+  * before_save
+  * around_save
+  * before_create
+  * around_create
+  * after_create
+  * after_save
+  * after_commit/after_rollback
+1. Updating an Object
+  * before_validation
+  * after_validation
+  * before_save
+  * around_save
+  * before_update
+  * around_update
+  * after_update
+  * after_save
+  * after_commit/after_rollback
+1. Destroying an Object
+  * before_destroy
+  * around_destroy
+  * after_destroy
+  * after_commit/after_rollback
 
 * These are some additional callbacks with their order of operations.
 * Note: before_save gets called when we update and when we create.
@@ -145,7 +145,7 @@ This refactor can be seen on the `refactor_to_poro` branch.
 
 * Let's practice using callbacks in our app.
 
-<!-- 
+<!--
 ## Class Methods
 
 * We can use class methods to do some filtering, and pushing logic down the
