@@ -18,7 +18,7 @@ This afternoon, use these new skills to start adding the following features to a
 
 ### Setting Expectations
 
-Use [this question guide](https://gist.github.com/rwarbelow/0fed3529495a814eabb1) to establish group norms.
+Use [this question guide](https://gist.github.com/rwarbelow/0fed3529495a814eabb1) to establish group norms if you're working with someone else.
 
 ### Project Options
 
