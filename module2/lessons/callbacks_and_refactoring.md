@@ -1,7 +1,6 @@
 ---
 title: Callbacks and Refactoring
-length: 90
-tags: class methods, scopes, callbacks
+subheading: POROs and Callbacks o my!
 ---
 
 ## Goals
@@ -9,10 +8,7 @@ tags: class methods, scopes, callbacks
 * Understand how callbacks work.
 * Start to understand how to implement a PORO in place of a complicated scope.
 * Use callbacks to your advantage.
-* Use previous knowledge of class methods with Active Record.
-* Use scopes for basic filtering.
-* Understand the differences, advantages and disadvantages to both
-scopes and class methods.
+* Use POROS to refactor controllers
 
 ## Repository
 
@@ -83,22 +79,31 @@ This refactor can be seen on the `refactor_controller` branch
 * This is dangerous because if you make a mistake somewhere, and say there's
 a problem with something of the Kitty class, the Reservation class isn't really the first place a person would go look.
 
-
-* As a change of pace, before we correct this, we're going to take a slight detour.
-
-1. before_validation
-2. after_validation
-3. before_save
-4. before_create
-WRITE TO THE DATABASE
-5. after_create
-6. after_save
-
-before_update
-after_update
-
-before_destroy
-after_destroy
+Creating an Object
+  before_validation
+  after_validation
+  before_save
+  around_save
+  before_create
+  around_create
+  after_create
+  after_save
+  after_commit/after_rollback
+Updating an Object
+  before_validation
+  after_validation
+  before_save
+  around_save
+  before_update
+  around_update
+  after_update
+  after_save
+  after_commit/after_rollback
+Destroying an Object
+  before_destroy
+  around_destroy
+  after_destroy
+  after_commit/after_rollback
 
 * These are some additional callbacks with their order of operations.
 * Note: before_save gets called when we update and when we create.
@@ -140,7 +145,7 @@ This refactor can be seen on the `refactor_to_poro` branch.
 
 * Let's practice using callbacks in our app.
 
-
+<!-- 
 ## Class Methods
 
 * We can use class methods to do some filtering, and pushing logic down the
@@ -201,7 +206,7 @@ You can see all the work we did at github.com/carmer/kitty_castle on 5 different
 3. `git checkout refactor_reservation_to_poro` is our second iteration of refactoring logic our of the controller
 4. `git checkout scopes` has our work of putting scopes into the project
 5. `git checkout class_methods` has our work of putting class_methods into the project
-
+ -->
 
 ## Other Resources:
 
