@@ -64,20 +64,22 @@ The next three weeks will be spent working on your [capstone projects](capstone_
 *   [Application Coordination with Message Queues](./lessons/application_coordination_with_message_queues)
 
 <h4 id="week_4">Week 4</h4>
-*   [JS Build Tools](./lessons/javascript-build-tools)
-*   Webpack in Rails
-*   Interview Prep
+*   [Testing JS with Selenium](./lessons/intro_to_testing_with_selenium)
 *   Mid Module Assessment
 *   [React 1](./lessons/intro_to_react)
 *   [React 2](./lessons/intro_to_react_part_2)
+*   Algorithm Time
 
 <h4 id="week_5">Week 5</h4>
 *   Basics of Security
 *   [Caching](./lessons/caching_data)
+*   [JS Build Tools](./lessons/javascript-build-tools)
+*   Webpack in Rails
 *   [Enumerables in JavaScript](./lessons/array_prototype_methods)
 *   Job Search and Beyond
 *   Refactor Tractor
 *   Technical Interview Challenge
+*   B4/F2 Algorithm Time
 
 <h4 id="week_6">Week 6</h4>
 *   Let's Get SASSy
