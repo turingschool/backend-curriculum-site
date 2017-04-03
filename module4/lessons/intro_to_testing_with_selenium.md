@@ -6,17 +6,19 @@
 
 ## Overview
 
-Want to test your DOM but you have some JavaScript dynamically manipulating the DOM, or some AJAX calls? Enter Selenium.
+Want to test your DOM but you have some JavaScript dynamically manipulating the DOM, or some AJAX calls? 
+
+Enter Selenium.
 
 ## What is Selenium?
 
-This lesson is all about learning to use Selenium WebDriver. WebDriver is a tool that will allow you to run tests on features that use JavaScript to make AJAX calls and dynamic content manipulation in the DOM.
+This lesson is designed to be an introduction to using Selenium WebDriver. WebDriver is a tool that will allow you to run tests on features that use JavaScript to make AJAX calls and dynamic content manipulation in the DOM.
 
-Basically - testing with Selenium allows us to test complex user interactions. We are not limited to basic `fill_in` `click` follow the request to the next page and see what's there. Selenium allows us model not just traditional user actions, but more complex ones like interacting with dropdowns, changing windows in the browser, dealing with AJAX calls, navigation handling etc.  
+Basically - testing with Selenium allows us to test complex user interactions. We are not limited to basic `fill_in` and `click` to follow the request to the next page and see what's there. Selenium allows us model not just traditional user actions, but more complex ones like interacting with dropdowns, changing windows in the browser, dealing with AJAX calls, navigation handling etc.  
 
-Selenium suite is a full scale testing suite that is composed of 4 basic components - Selenium IDE, Selenium RC, WebDriver, Selenium Grid. We will only focus on WebDriver - "a tool for automating web application testing, and in particular to verify that they work as expected. It aims to provide a friendly API that's easy to explore and understand..." [Here are the WebDriver docs](http://www.seleniumhq.org/docs/03_webdriver.jsp) if you want to read more about WebDriver.
+The Selenium suite is a full scale testing suite that is composed of 4 basic components - Selenium IDE, Selenium RC, WebDriver, Selenium Grid. We will only focus on WebDriver - "a tool for automating web application testing, and in particular to verify that they work as expected. It aims to provide a friendly API that's easy to explore and understand..." [Here are the WebDriver docs](http://www.seleniumhq.org/docs/03_webdriver.jsp) if you want to read more about WebDriver.
 
-Selenium WebDriver fairly platform agnostic. You can use it with any of these languages:
+Selenium WebDriver is fairly platform agnostic. You can use it with any of these languages:
 
 * Java
 * C#
@@ -25,7 +27,7 @@ Selenium WebDriver fairly platform agnostic. You can use it with any of these la
 * Perl
 * Ruby
 
-We will be using Selenium WebDriver along with Capybara in our Ruby on Rails projects.
+We will be using Selenium WebDriver along with Capybara to fully test our Ruby on Rails applications.
 
 ## Getting Started With Selenium
 
@@ -35,11 +37,11 @@ __Setup__
 
 The only machine dependency for using Selenium is to have Firefox 46 installed.
 
-If you don't have this, then go download it [here](https://www.softexia.com/windows/web-browsers/firefox-46). If you do have it, make sure it on version 46. Selenium does not work with all versions of Firefox, so make sure that you are using Firefox 46 or else IT WILL NOT WORK. If you already have firefox and it's on a version more recent than 46, the easiest way to downgrade is to uninstall firefox then install version 46.
+If you don't have this, then go download it [here](https://www.softexia.com/windows/web-browsers/firefox-46). If you do have it, make sure it is on version 46. Selenium does not work with all versions of Firefox, so make sure that you are using Firefox 46 or else IT WILL NOT WORK. If you already have fFrefox and it's on a version more recent than 46, the easiest way to downgrade is to uninstall Firefox then install version 46.
 
 __Important Note__
 
-When in firefox - make sure it does not automatically update firefox.
+When in Firefox - make sure it does not automatically update.
 
 - Firefox
   - preferences
@@ -67,7 +69,7 @@ bundle
 rake db:setup
 ```
 
-Additionally, go ahead and add the Selenium gem to your Gemfile:
+Additionally, go ahead and add the Selenium WebDriver gem to your Gemfile:
 
 ```
 gem 'selenium-webdriver', '~> 2.53.4'
@@ -75,7 +77,7 @@ gem 'selenium-webdriver', '~> 2.53.4'
 
 ### 2. Using Selenium for a Test
 
-The feature we'd like to add is an AJAX-based comment submission. Currently users can submit comments by submitting the form from an Article page, let's first check that out. Launch your server and check out the functionality of submitting a new comment on an individual article page.
+The feature we'd like to add is an AJAX-based comment submission. Currently users can submit comments by submitting the form from an individual Article page so let's first check that out. Launch your server and check out the functionality of submitting a new comment on an individual article page.
 
 Now let's see if we can make this work without a full page reload.
 
@@ -107,7 +109,7 @@ end
 
 Once this is in place, run your tests.
 
-* A new firefox browser window will open automatically and execute your test.
+* A new Firefox browser window will open automatically and execute your test.
 * __If you have issues with your test suit not finding the Article. You may be running into an issue with DB threading. You can solve this by using the feature to create a new article instead of a factory/fabricator__
   * If you do need to refactor to create the article with the feature - try to refactor the test using the features RSpec provides. Something like this:
 
@@ -157,9 +159,12 @@ function postComment() {
            }
        }
 
-       $.post("/comments",
-              commentData,
-              function(newCommentMarkup) {
+       $.ajax({
+              url: "/comments",
+              method: "POST",
+              data: commentData
+              })
+              .done(function(newCommentMarkup) {
                   $("#comments").append(newCommentMarkup);
                   $("#comment_author_name").val("");
                   $("#comment_body").val("");
@@ -167,7 +172,7 @@ function postComment() {
    }
 ```
 
-For this post request we are expecting the return value of the comment post - `newCommentMarkup` in the `comments.js` file above - to be a template of the comment. If you look into the article show page file where all the comments are displayed you'll see the template for the comment shown:
+For this post request we are expecting the return value of the comment post - `newCommentMarkup` in the `comments.js` file above - to be a template of the comment. If you look into the article show page file where all the comments are displayed you'll see the template for the comment:
 
 ```erb
 <div class='comment'>
@@ -179,7 +184,7 @@ For this post request we are expecting the return value of the comment post - `n
 </div>
 ```
 
-We are going to return the partial of this code from the post request so the AJAX call can just render that partial. You see it the postComment function above code as `newCommentMarkup`.
+We are going to return the partial of this code from the post request so the AJAX call can just render that partial. You see it the `postComment` function above code as `newCommentMarkup`.
 
 Note - a partial already exists. How can we update the current `articles/show` template to leverage this partial?
 
@@ -226,7 +231,7 @@ Run the tests again and everything should still pass.
 
 ### 5. Independent Practice
 
-As you can see the feature tests is exactly the same as if you did not have JavaScript in place. So, now write tests and implement the features in JavaScript for the following features:
+As you can see the feature test above is exactly the same as if you did not have JavaScript in place. So, now write tests and implement the following features in JavaScript:
 
 * Write a test and implement the functionality to click a button and hide (not delete) a particular article from the articles index page.
 * Write a test and implement the feature in JavaScript to delete an article from the articles index page.
