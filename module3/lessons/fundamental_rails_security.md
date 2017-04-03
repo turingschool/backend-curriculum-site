@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Multitenancy Authorization
+title: Fundamental Rails Security
 length: 180
 tags: rails, pivot, security
 ---
@@ -12,6 +12,10 @@ tags: rails, pivot, security
   * Privilege escalation
   * Mass Assignment
   * Cross-site Scripting
+
+## Slides
+
+Available [here](../slides/fundamental_rails_security)
 
 ## Structure
 
@@ -52,7 +56,7 @@ tags: rails, pivot, security
   3. Run the server and navigate to http://localhost:3000/categories/2
   4. Visit the admin page at /admin
   5. In the "Product Management" section, go to the "Grub" tab and find "Rations"
-  6. Edit the name to be Rations<script>alert("BOOM!")</script>
+  6. Edit the name to be Rations&lt;script&rt;alert("BOOM!")&lt;/script&rt;
   7. Visit/refresh http://localhost:3000/categories/1 and you should see a JavaScript alert box saying "BOOM!"
   8. Workshop 2
 3. Install Brakeman
