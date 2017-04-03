@@ -246,7 +246,7 @@ flash[:message] =  "Successfully removed #{link_to @item.name, @item} from your 
 
 * Visit the admin page at /admin
 * In the "Product Management" section, go to the "Grub" tab and find "Rations"
-* Edit the name to be Rations<script>alert("BOOM!")</script>
+* Edit the name to be Rations&lt;script&rt;alert("BOOM!")&lt;/script&rt;
 * Visit/refresh http://localhost:3000/categories/1 and you should see a JavaScript alert box saying "BOOM!"
 
 ---
