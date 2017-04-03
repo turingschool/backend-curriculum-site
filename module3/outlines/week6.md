@@ -7,11 +7,11 @@ layout: page
 
 ### Classes
 
-* [Caching Strategies in Rails](lessons/caching_in_rails)
-* [Getting Started with Workers](lessons/intro_to_background_workers)
+* [Caching Strategies in Rails](../lessons/caching_in_rails)
+* [Getting Started with Workers](../lessons/intro_to_background_workers)
 * Personal Project Evaluations
 * Portfolio Reviews
 
 ### Projects
 
-* [Self-Directed Project Intro](projects/self_directed_project) (continued)
+* [Self-Directed Project Intro](../projects/self_directed_project) (continued)

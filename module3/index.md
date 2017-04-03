@@ -11,22 +11,22 @@ subheading: Professional Rails Applications
 #### Weekly Outlines
 
   <ul class="outlines">
-    <a href="outlines/week_1">
+    <a href="outlines/week1">
       <li class="outline">Week 1</li>
     </a>
-    <a href="outlines/week_2">
+    <a href="outlines/week2">
       <li class="outline">Week 2</li>
     </a>
-    <a href="outlines/week_3">
+    <a href="outlines/week3">
       <li class="outline">Week 3</li>
     </a>
-    <a href="outlines/week_4">
+    <a href="outlines/week4">
       <li class="outline">Week 4</li>
     </a>
-    <a href="outlines/week_5">
+    <a href="outlines/week5">
       <li class="outline">Week 5</li>
     </a>
-    <a href="outlines/week_6">
+    <a href="outlines/week6">
       <li class="outline">Week 6</li>
     </a>
   </ul>
