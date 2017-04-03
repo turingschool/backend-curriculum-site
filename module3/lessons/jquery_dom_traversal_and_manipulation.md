@@ -283,13 +283,18 @@ Play around with this on your own for a bit.
 
 ## Exercise, Part One: The Presidents
 
-For this exercise, we're going to play with [a table of the Presidents of the United States of America](https://gist.github.com/neight-allen/a49b8caa02d127a3a3fcf409eea3ed14).
+For this exercise, we're going to play with [a table of the Presidents of the United States of America](https://github.com/turingschool-examples/presidents-jquery-lesson).
 
 ```
-git clone https://gist.github.com/a49b8caa02d127a3a3fcf409eea3ed14.git jquery_lesson
+git clone https://github.com/turingschool-examples/presidents-jquery-lesson.git jquery_lesson
+
+cd jquery_lesson
+
+open index.html
 ```
 
 Let's try out a few things, just to get our hands dirty. We'll use the console in the Chrome developer tools to validate our work.
+
 
 * Select each `tr` element.
 * Select all of the elements with the class of `name`.
@@ -298,6 +303,10 @@ Let's try out a few things, just to get our hands dirty. We'll use the console i
 * Select all of the `td` elements with the class of `number` that appear in a row of a `tr` with the class of `whig`.
 
 (This should take about five minutes total.)
+
+![presidents of the usa][presidents]
+
+[presidents]: /assets/images/lessons/jquery/presidents.jpg
 
 ## Lecture, Part Two: Manipulating CSS
 
