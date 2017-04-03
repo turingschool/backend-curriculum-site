@@ -16,6 +16,11 @@ status: draft
 * Add event listeners to elements currently in the DOM
 * Understand that adding an event listener will not effect elements you add to the DOM in the future
 
+![js logo][js-logo]
+
+[js-logo]: /assets/images/lessons/jquery/js-logo.png
+
+
 ## Getting Up to Speed with JavaScript
 
 ### Syntax, Variables and Functions
