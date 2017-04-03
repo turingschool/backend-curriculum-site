@@ -80,7 +80,7 @@ This refactor can be seen on the `refactor_controller` branch
 a problem with something of the Kitty class, the Reservation class isn't really the first place a person would go look.
 
 1. Creating an Object
-  * before_validation
+  * before_validation`
   * after_validation
   * before_save
   * around_save

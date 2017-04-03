@@ -100,12 +100,13 @@ subheading: Homework
 
 ##### Day 1
 
-* Finish the Authenication/Authorization Workshop.
+* Finish the Authentication/Authorization Workshop.
 * Push your Job Tracker application to Heroku! If you're not sure how to do this, look back at the Mix Master project.
 * Watch [this video](https://vimeo.com/134451454) on authentication to prep yourself for tomorrows lesson.
 
 ##### Day 2
-* Work on Rails MiniProject
+
+*
 
 ##### Day 3
 
