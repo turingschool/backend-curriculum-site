@@ -215,6 +215,35 @@ HTML --> DOM <--> JS
 
 ---
 
+## Lecture, Introduction
+
+### The Power of JavaScript
+
+As mentioned before, you can use JavaScript to create a script, run a server, interact with a database, etc. But if you already have Ruby & Rails, you'll do these things with Ruby for the most part (at least on the server side). 
+
+The thing you'll really want to use JavaScript to do is manipulate the DOM. JS will give you the powers to change a page without refreshing it, react to user interaction, automatically size things, etc.
+
+### jQuery vs Vanilla JavaScript
+
+When you use the methods that JavaScript has out of the box, you'll often hear this refered to as using `vanilla JS`. There is an excellent [cheatsheet](https://gist.github.com/thegitfather/9c9f1a927cd57df14a59c268f118ce86) that has all of these methods.
+
+The problem is that many of these methods are confusing or hard to work with.
+
+Why is this? JavaScript is run on the browser and for that reason, the maintainers or the language have no control over forcing users to update their browsers. This is the problem that JavaScript has had for it's entire life. Basically, once you add something to JavaScript, you have to support it basically forever.
+
+So changes to JavaScript the language move _very_ slowly. And there are methods in JavaScript that are legacy and kind of broken, but still exist. And a ton of quirks.
+
+For that reason, libraries like [jQuery](https://jquery.com/) exist and are used heavily.
+
+jQuery is a library that wraps all of the DOM manipulation in JavaScript in friendly syntax and safeguards against browser incopatability. Under the hood, it’s just JavaScript. It’s used on about 78% of the top million web pages, so it’s worth while getting comfortable with it.
+
+Anything you can do in jQuery, you can do in vanilla JavaScript (with more lines of code, usually).
+
+![jquery logo][jquery]
+
+[jquery]: /assets/images/lessons/jquery/jquery.png
+
+---
 
 ## Lecture, Part One: Selectors
 
