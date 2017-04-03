@@ -9,13 +9,7 @@ tags: ruby, modules, oop
 
 * understand that modules fill various roles in Ruby.
 * understand what a namespace is and how to create one with a module.
-* use a module to create a mixin to be DRY. (Don't Repeat Yourself)
-
-### Structure
-
-* 5 - Warmup
-* 25 - Namespacing
-* 25 - Mixins
+* use a module to create a mixin to be DRY (Don't Repeat Yourself)
 
 ### Introduction
 
