@@ -20,28 +20,49 @@ status: draft
 
 [js-logo]: /assets/images/lessons/jquery/js-logo.png
 
+---
 
 ## Getting Up to Speed with JavaScript
+
+JavaScript was created to make the web more dynamic. It is an object-oriented scripting language made to run inside a host environment like a web browser and provide programatic control over the objects of that environment. For example, when you click a button and you want something about the webpage to change, you will use JavaScript.
+
+JavaScript can be _client-side_ and _server-side_, meaning that it can be used to control user-facing interfaces as well as handle the server-side extensions that connect with a database.
+
+It’s a highly versatile and flexible language, and has become the most commonly used language of the web.
+
+Today we'll be talking about using JavaScript and the jQuery library to manipulate the DOM in a rails application.
 
 ### Syntax, Variables and Functions
 
 #### Syntax
 
-All declarations in JavaScript must end with a semicolon (`;`).
+Each statement in JavaScript ends with a semicolon (`;`). 
 
-Camel case is prefered over snake case.
+JS has automatic semicolon insertion, so technically you can omit them most of the time and your code will still work. Use them anyway, at least for the first year you work with JavaScript.
+
+Camel case `camelCase` is prefered over snake case `snake_case`.
 
 Comments are made with `//`.
 
 #### Variables
 
-JS variables MUST be declared using `var`.
+JS variables MUST be declared/created using `var`.
 
 ```js
 var isSnowing = true;
 ```
 
-Redefining variables does not require the `var` keyword.
+_Note: if you work in es6, you can also use `let` or `const`._
+
+If you redefine a variables, you will not use the `var` keyword.
+
+```js
+var isSnowing = true;
+
+// looks out window
+
+isSnowing = false;
+```
 
 Variables can be _declared_ without being _defined_.
 
@@ -56,6 +77,8 @@ yetToBeDefined;
 
 #### Functions
 
+Functions are a way to group statements together to perform a specific task. Functions are reusable blocks of code. To create a function, you must give it a name and then write the statements required for the function to achieve its task inside the function’s curly braces
+
 Functions will follow the following general structure:
 
 ```js
@@ -64,18 +87,44 @@ var doSomething = function(thing) {
 };
 ```
 
-Functions are called with its variable name and parens. Without parens, the function will not execute.
+or 
+
+```js
+function doSomething(thing) {
+  return thing;
+};
+```
+
+_Note: the first example creates an unnamed function and then assigns it to a variable. Called a `function expression`. The second example is a `function declaration` - at the time you create a function you declare a name for it. This allows you to leverage a concept called `hoisting` in JavaScript. Because of the way JS is interpreted, the second function is available to use anywhere in your code. You can think of it as being 'hoisted' to the top of the file. Read more [here](http://adripofjavascript.com/blog/drips/variable-and-function-hoisting)_
+
+A function is called/invoked/run by using the parens:
 
 ```js
 doSomething("test");
 // => "test"
 ```
 
-Return values in JavaScript MUST be explicitly stated with the `return` keyword, otherwise they will return undefined.
+Something that is really powerful about JavaScript is that functions can be passed around.
+
+If a function is called without parens, it is a reference to a function.
+
+```js
+  doSomething // will not run
+```
+
+Unlike ruby, if you want your function to return something other than undefined, you must explicitly use `return`. When a function hits a `return`, it will immediately stop there and return whatever follows the `return` statement.
+
+![hilarious semicolon reference][semicolons]
+
+[semicolons]: /assets/images/lessons/jquery/semicolons.png
+
+---
 
 ### Debugging in Javascript
 
-Debugging JavaScript is a different beast than debugging Ruby. Because JS is run entirely in the browser, the technique for troubleshooting broken code is more complicated than `binding.pry`. Luckily, modern browsers are aware of this and give us a collection of options for digging into your code.
+Debugging client-side and server-side JavaScript is a different beast than debugging Ruby. 
+
+Because client-side JS is run entirely in the browser, the technique for troubleshooting broken code is more complicated than `binding.pry`. Luckily, modern browsers are aware of this and give us a collection of options for digging into your code.
 
 #### 1. Developer Tools
 One of the first things you should familiarize yourself with when working with JavaScript (or HTML...or CSS...) are the dev tools. You can find a cool tutorial to dive deeper with  [Code School's Discover-DevTools Tutorial.](http://discover-devtools.codeschool.com/) (Chapters 3 & 4 are particularly helpful)
@@ -106,7 +155,7 @@ If you're confused about what a variable or function is returning, throw `consol
 
 #### 3. Debugging In the Console
 
-Debugger is the `pry` of JS. Stick `debugger;` within a function to pause the browser from running the script when it hits a particular part of your code.
+`debugger` is the `pry` of JS. Stick `debugger;` within a function to pause the browser from running the script when it hits a particular part of your code.
 
 ```
 // index.js
@@ -125,9 +174,17 @@ $('#search-ideas').on('keyup', function() {
   });
 ```
 
+***Warning***: A `debugger` statment will not trigger unless your inspector tools in the browser are open. This is meant to not interrupt a users experience if a developer accidently commits and deploys a `debugger` statement.
+
 In the browser, if we open up the dev tools, navigate to the console and try to search for something.  The program will freeze on the line `debugger`. This lets us type stuff into our `console` to see what's going on.
 
-For more details and information about other ways to dig into your js, check out the [Chrome Documentation](https://developer.chrome.com/devtools/docs/javascript-debugging).
+For a more indepth lesson on working with DevTools - check out [advanced debugging](http://frontend.turing.io/lessons/debugging-with-devtools.html) or the [Chrome Documentation](https://developer.chrome.com/devtools/docs/javascript-debugging).
+
+![dev tools][dev-tools]
+
+[dev-tools]: /assets/images/lessons/jquery/dev-tools.jpg
+
+---
 
 ## Intro to the DOM
 
@@ -148,6 +205,16 @@ The browser creates the DOM by reading from HTML, but from then on, JavaScript c
 ```
 HTML --> DOM <--> JS
 ```
+
+
+![DOM][dom]
+
+[dom]: /assets/images/lessons/jquery/dom.png
+
+<cite> By Birger Eriksson - Own work, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=18034500 </cite>
+
+---
+
 
 ## Lecture, Part One: Selectors
 
