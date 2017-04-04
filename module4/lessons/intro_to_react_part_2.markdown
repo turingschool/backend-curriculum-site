@@ -28,3 +28,27 @@ Learning Goals
     We do
     You do with some help
     You do without me
+
+Review
+-------
+
+Yesterday, we introduced some concepts, and built some React
+
+-   What were the new concepts we covered?
+-   How would you define them?
+-   What is still fuzzy about React
+
+Quantified Self in React
+-----------
+
+Let's return to our week 1 project, [Quantified Self](../projects/quantified-self/quantified-self).
+
+Instead of using `localstorage`, I've built an API to store our data. You can access it at: <https://quantified-api.herokuapp.com>. I'll draw the schema on the board so you can more easily work with the API
+
+### User Stories >> Components
+
+Let's say we wanted to build the foods table for our Manage Foods page. Let's not worry about creating the foods yet, just displaying the foods. Here's the relevant user story:
+
+-   I should see a table of all my foods, with Name, Calories and a delete icon for each food
+
+Together, let's break this down into components, props and state on the whiteboard
