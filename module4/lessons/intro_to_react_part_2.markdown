@@ -43,7 +43,7 @@ Quantified Self in React
 
 Let's return to our week 1 project, [Quantified Self](../projects/quantified-self/quantified-self).
 
-Instead of using `localstorage`, I've built an API to store our data. You can access it at: <https://quantified-api.herokuapp.com>. I'll draw the schema on the board so you can more easily work with the API
+Instead of using `localstorage`, I've built an API to store our data. You can access it at: <https://quantified-api.herokuapp.com/>. I'll draw the schema on the board so you can more easily work with the API
 
 ### User Stories >> Components
 
