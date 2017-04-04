@@ -5,6 +5,12 @@ length: 180
 tags: javascript, front-end framework, react
 ---
 
+Learning Goals
+----------
+
+- Students can define basic React vocabulary (Component, JSX, Prop, State)
+- Students are able to create and use React components with heavy guidance from samples and documentation
+
 Background
 --------------
 
@@ -503,6 +509,20 @@ e.g.
   }
 ```
 
+## Reflection/Wrap up
+
+Define the following React terms in your own words:
+
+- JSX
+- Component
+- Prop
+- State
+
+And reflect on a few things:
+
+- How is React different from the front-end development you've done?
+- What surprised you about React?
+- What do you still need to learn to be an effective developer of React applications?
 
 ##### Resources/Additional Learning Materials
 [Developing with Webpack](http://survivejs.com/webpack/developing-with-webpack/)
