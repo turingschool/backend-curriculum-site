@@ -8,9 +8,8 @@ layout: page
 
 ## Lessons
 *   [Refactoring Patterns](lessons/refactoring_patterns)
-*   [Boolean Logic and Code Paths](lessons/boolean_logic) 
+*   [Boolean Logic and Code Paths](lessons/boolean_logic)
 *   [Working with Ruby Modules](lessons/introduction_to_modules)
-*   [Object Relational Model](lessons/ruby_object_model_alt)
 
 ## Other Relevant Links
 *   [Refactoring Patterns Reading](https://github.com/turingschool/challenges/blob/master/refactoring_patterns_reading.markdown)
