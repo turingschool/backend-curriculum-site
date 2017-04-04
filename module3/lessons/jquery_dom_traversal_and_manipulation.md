@@ -285,14 +285,16 @@ Play around with this on your own for a bit.
 
 ## Exercise, Part One: The Presidents
 
-For this exercise, we're going to play with [a table of the Presidents of the United States of America](https://github.com/turingschool-examples/presidents-jquery-lesson).
+For this exercise, we're going to play with [a table of the Presidents of the United States of America](https://github.com/turingschool-examples/jquery-playgrounds).
+
+You can either work from the repo or visit a [hosted version on github pages](https://turingschool-examples.github.io/jquery-playgrounds/presidents.html)
 
 ```
-git clone https://github.com/turingschool-examples/presidents-jquery-lesson.git jquery_lesson
+git clone https://github.com/turingschool-examples/jquery-playgrounds.git jquery_playgrounds
 
-cd jquery_lesson
+cd jquery_playgrounds
 
-open index.html
+open presidents.html
 ```
 
 Let's try out a few things, just to get our hands dirty. We'll use the console in the Chrome developer tools to validate our work.
@@ -404,7 +406,13 @@ Let's take a look at some approaches of adding/changing content in the DOM.
 * Find all of the presidents who died in office (hint: they have a `died` class on their `tr`).
 * Append `<span class="died">(Died)<span>` to the the `term` column of presidents who have `.died`.
 
-## Lecture, Part Five: Simple Event Binding
+## Lecture, Part Five: Now in Rails
+
+Curious about how this all works with Rails? 
+
+Check out [the presidents example in Rails](https://github.com/turingschool-examples/presidents-jquery-rails)
+
+## Lecture, Part Six: Simple Event Binding
 
 ### Event Driven Programming
 
