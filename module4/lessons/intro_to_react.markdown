@@ -180,15 +180,16 @@ Let's break this up so we can develop individual components
 
 Install the [react dev tools]( https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en). It will give you additional information about your react application in the chrome dev tools.
 
-Then do some terminal stuff:
+Then we're going to use a tool from Facebook called [Create React App](https://github.com/facebookincubator/create-react-app). It configures webpack and babel for us, so we don't need to worry about them. We're here to learn React, right?
 
-`npm install -g create-react-app`
+Some terminal commands:
 
-`create-react-app awesome-counter`
-
-`cd awesome-counter`
-
-`npm start`
+```
+npm install -g create-react-app
+create-react-app awesome-counter
+cd awesome-counter
+npm start
+```
 
 Now open your browser and enter the url
 
@@ -236,15 +237,13 @@ ReactDOM is React's object for interacting with the DOM and you can see we creat
 
 ### Time to Make a New Component!
 
-Let's start by creating the template for the Like / Dislike button.
-
-Above our App class declaration lets create an ActionButton class
+Let's start by creating the template for the Like / Dislike button. Create an ActionButton class Above our App class declaration in `index.js`:
 
 ```
 class ActionButton extends Component {
   render() {
     return (
-      <button className="actionButton">
+      <button className="action-button">
         Submit
       </button>
     )
@@ -258,20 +257,21 @@ class App extends Component {
 }
 ```
 
-Let's add it to our app. Replace everything in
+Let's add the new component to our App component. Replace everything inside the App div
+
 ```
 <div className="App">
   ...
 </div>
 ```
-with
+
+with the `ActionButton` component
+
 ```
 <ActionButton />
 ```
 
-Great we have our button!
-
-If you haven't already, download the React Dev Tools extension. Open up the console, click on the React tab, Expand the `<App>` component and you'll see we have our `<ActionButton />` component. Take a minute to dig in and see what comes up in our sidebar.
+Head back to your browser. Great we have our button! Open up the console, click on the React tab, Expand the `<App>` component and you'll see we have our `<ActionButton />` component. Take a minute to dig in and see what comes up in our sidebar.
 
 ```
 Props
@@ -347,10 +347,25 @@ class App extends Component {
 }
 ```
 
-### Build out our View (15-20 minutes)
-I want you to create a new Component called LikesCounter. This Component should have two Action Buttons one for Like and one for Dislike. You will also need an element to hold your number of "Likes".
+### Check for understanding
 
-When you click Like or Dislike I want you to alert which one was clicked
+Something kind of funny is happening. Let's review some concepts, and then discuss why we're passing a "handle click function" as a prop.
+
+- What is an event handler?
+- When have you used them in the past?
+- What data type is an event handler?
+
+### Discussion
+
+Components in React can pass information down to their children, but there isn't really a way for children to pass data back up to the parent. This is because the parent knows about the child (because it's in the render function), but the child doesn't have any way to access the parent.
+
+One way to solve this would be for the parent to pass itself as a prop to the child. However, the convention the react community (and Ember community before them) has landed on is passing _Event Handlers_ down.
+
+Since the handler is defined as a method of the parent component, it has access to everything that the parent component has access to. As long as the child component uses the handler that was passed down, the parent is the one who is actually handling the action. It's a roundabout way of passing data back up to the parent without knowing anything about the parent.
+
+### Build out our View (15-20 minutes)
+
+I want you to create a new Component called LikesCounter. This Component should have two Action Buttons one with the text "Like" and one with "Dislike". When you click Like or Dislike I want you to alert which one was clicked. Build this component in a new file, `LikesCounter.jsx`
 
 After you create your LikesCounter, replace the ActionButton in your App with a LikesCounter.
 
@@ -361,9 +376,10 @@ Error in ./src/LikesCounter.jsx
 Syntax error: Adjacent JSX elements must be wrapped in an enclosing tag
 ```
 
-This is an **important note**. React components can only render one element, which simply means that you have to structure your JSX so that everything is contained within a single element.
+This is an **important note**. React components can only render one _root level_ element, which simply means that you have to structure your JSX so that everything is contained within a single element.
 
 ### Props vs State
+
 So now that we have our HTML page looking pretty fly, its time to add behavior to the buttons. Think about what we're trying to accomplish here:
 
 When the page loads, we want the initial value of Likes to be 0. Then when we click "Like" We want to add 1 to the value of Likes, and remove 1 when we click "Dislike".
@@ -466,8 +482,6 @@ handleDislikeClick () {
 ```
 
 This is where the magic of React comes in. We are essentially throwing out the old information and replacing it with fresh, up-to-date information.
-
-Think about how the phrase "Events Up, Data Down" applies to React.
 
 Switch over to your browser and open your React dev tools. What happens when you click a button?
 
