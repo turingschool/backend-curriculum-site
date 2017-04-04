@@ -3,14 +3,12 @@ title: Week 5
 layout: page
 ---
 ## Projects
-*   [Black Thursday](projects/black_thursday)
+*   [Headcount](projects/headcount)
 
 ## Lessons
 *   [DTR](https://docs.google.com/document/d/1zMtgWhODQuP3KBNhrg6PtmPUkw0DIskqgggeyEzYZi4/edit)
-*   [Practicing Remote Pairing](lessons/remote_pairing)
 *   [Fixtures, Mocks and Stubs](lessons/fixtures_mocks_stubs.md) ([Video](https://vimeo.com/157333800))
 *   [Advanced Enumerables](lessons/advanced_enumerables)
-*   [Profiling and Optimizing Black Thursday](https://vimeo.com/158380111)
 *   [Object Relational Mapping](lessons/object_relational_mapping)
 
 ## Other Relevant Links
