@@ -45,7 +45,7 @@ Let's return to our week 1 project, [Quantified Self](../projects/quantified-sel
 
 Instead of using `localstorage`, I've built an API to store our data. You can access it at: <https://quantified-api.herokuapp.com/>. I'll draw the schema on the board so you can more easily work with the API
 
-### User Stories >> Components
+### User Stories to Components
 
 Let's say we wanted to build the foods table for our Manage Foods page. Let's not worry about creating the foods yet, just displaying the foods. Here's the relevant user story:
 
