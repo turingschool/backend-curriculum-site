@@ -239,6 +239,8 @@ jQuery is a library that wraps all of the DOM manipulation in JavaScript in frie
 
 Anything you can do in jQuery, you can do in vanilla JavaScript (with more lines of code, usually).
 
+John Resig, the creator of jQuery, released an annotated version of the original source code of jQuery. It's [absolutely worth reading through](http://genius.it/5088474/ejohn.org/files/jquery-original.html)
+
 ![jquery logo][jquery]
 
 [jquery]: /assets/images/lessons/jquery/jquery.png
