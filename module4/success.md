@@ -20,13 +20,17 @@ Students must earn a score of `3` or greater in *each* category of the final ass
 * Submit one documentation patch (README, CONTRIBUTING, code documentation, etc)
 * Write a single blog post that explains the whole process
 
+*Expected*: Students, if they worked independently in Week 2, document the feedback from their instructor for their work.
+
 *Optional*: Students are encouraged to include the results of their in-class work and tutorials.
 
 ### Group Work
 
-*Expected*: Students, as a pair, document the results of their project from Weeks 1 & 2.
+*Expected*: Students, as a pair, document the results of their project from Week 1.
 
-*Expected*: Students, as a project team, are responsible for delivering all scheduled feature cards *in the primary project* by the end of Sprint 2 (Week 5).
+*Expected*: Students, if they worked in a pair in Week 2, document the feedback from their instructor for.
+
+*Expected*: Students, as a project team, are responsible for delivering all scheduled feature cards *in the primary project* by the end of Sprint 3 (Week 5).
 
 ### Career Development
 
@@ -34,9 +38,12 @@ The Career Development segment is made up of several pieces, most of which are t
 
 * Summaries of at least 6 "cold outreach" contacts. You are asked to complete two by the end of week 2, two by the end of week 3, and two by the end of week 4 with a summary of all contacts submitted on **Monday of week 5** and following these [guidelines](https://github.com/turingschool/career-development-curriculum/blob/master/module_four/cold_outreach_deliverable_guidelines.md)
 * Provide a link to your completed Turing portfolio, complete with your name, photo, description, 3 projects, and resume
-* Documentation of practice interview participation using these [guidelines](https://github.com/turingschool/career-development-curriculum/blob/master/module_four/interview_practice_reflection_guidelines.md). 
-* Completed action plan for the post-grad job search -- *template is forthcoming*. Check with Allison if you have questions
+* Documentation of practice interview participation using these [guidelines](https://github.com/turingschool/career-development-curriculum/blob/master/module_four/interview_practice_reflection_guidelines.md).
 * Ensure that your GitHub, LinkedIn, and StackOverflow accounts are properly setup by linking to them in your Census account. We will run an automated check on these and send you a follow up if needed. No submission is necessary beyond putting the info in your Census account
+
+Not required for your portfolio or graduation, but is required for continued job support:
+
+* Completed action plan for the post-grad job search -- *template is forthcoming*. Check with Allison if you have questions.
 
 ### Feedback & Community
 
@@ -48,6 +55,35 @@ As stewards of the larger Turing community, Module 4 students are expected to **
 * pair three or more times with students in lower modules
 * contribute in a meaningful way to the project of a student/team *not* in your module
 
+OR
+
+* Facilitate a Gear-up session that you've designed with other Mod 4 students
+
+When documenting your community contribution, say a few words about the experience.
+
+### Portfolio
+
+To document all of the work you've done this module, include each of the items above in your portfolio, which is due on Thursday of Week 6.
+
+### Turing Story Presentation
+
+On Thursday of Week 6, you'll present the story of your journey at Turing to your classmates and staff.
+
+Your presentation...
+
+- should be about 4 minutes
+- should include the time leading up to Turing
+- should include your time at Turing
+- should include the trajectory you're on as you start your new career
+- should include thoughtful reflection and describe how you've grown and changed
+- can include a slide deck, or any other visual aids you'd like
+
+After you present, instructors will ask you a couple questions, mostly to dig into things we found interesting about your story. There's not specific answers we'll be looking for.
+
+If you're unsure how to cover your time at Turing, a common pattern is to simply talk about each module. Talk about your favorite project, or what the biggest takeaway was for you, or just a fun story from that module.
+
+You're required to present, but there's no grade. As long as you get up and speak, you've met the requirement.
+
 ## Skill Proficiencies
 
 Academic success in B4 means that students demonstrate proficiency and comfort with the concepts below. The expected mastery level can be understood with the following scale:
@@ -55,6 +91,8 @@ Academic success in B4 means that students demonstrate proficiency and comfort w
 * **Mastery**: student is able to explain and implement the concept independently or with light reference
 * **Functional**: student recognizes when to use the concept and can implement it with the support of documentation and/or a collaborator
 * **Familiarity**: student can recognize and describe the concept when needed/appropriate, but is not able to implement the technology/technique
+
+Each of the following skills is covered in the curriculum, and most are covered by an assessment or project rubric.
 
 ## Professional Skills
 
