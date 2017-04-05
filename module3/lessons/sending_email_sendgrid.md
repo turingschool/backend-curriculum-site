@@ -160,7 +160,6 @@ Heroku makes it really easy to setup Sendgrid through an add on. In order to do 
 ```sh
 $ heroku create
 $ git push heroku master
-$ heroku run rake db:create
 $ heroku run rake db:migrate
 ```
 
