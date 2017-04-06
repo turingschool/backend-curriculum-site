@@ -15,7 +15,7 @@ tags: ruby, refactoring, tdd
 
 ## Warmup
 
-Attempt to answer these five questions:
+Attempt to answer these questions:
 
 1.  Why do we refactor?
 2.  What's the difference between "refactoring" and "changing shit"?
@@ -50,9 +50,11 @@ Describe the three common refactoring patterns (move method, extract class, hide
 ## Choosing the Appropriate Refactoring Tactic
 
 ### Individual Work
-Identify 1 scenario suited to each type of refactor (3 total). Use [past M1 projects](https://github.com/turingschool/ruby-submissions/tree/master/1610-b) for inspiration. Post responses on the Google sheet posted in Slack.
+
+Looking at your past projects, identify 1 scenario suited to each type of refactor (3 total).
 
 ### Group Work
+
 In groups of 3, assign one tactic to each person in your group and one-by-one have each member teach-back their tactic and the matching scenario they picked. Each member should explain to the group:
   1. What the tactic is,
   2. When to use the tactic, and

@@ -17,7 +17,7 @@ tags: ruby, refactoring, tdd
 * Read the Hide Delegate section from 181 to 184
 * *Carefully* re-read the code sections on 183 and 184
 * Read/discuss the Key Ideas below
-* Try refactoring the Example Scenario below using Extract Class
+* Try refactoring the Example Scenario below using Hide Delegate
 * You're welcome to discuss / compare solutions with others
 * If you finish early, read the Remove Middleman pattern (185-186)
 
@@ -32,25 +32,4 @@ and is not about agriculture
 
 ## Example Scenario
 
-```ruby
-class Plane
-  attr_reader :engines
-
-  def initialize
-    @engines = Array.new(4){ Engine.new }
-  end
-end
-
-class Engine
-  def start
-    @running = true
-  end
-
-  def running?
-    !!@running
-  end
-end
-
-dusty = Plane.new
-dusty.engines.each{|e| e.start}
-```
+[Hide Delegate](https://github.com/turingschool-examples/refactoring_patterns/blob/master/test/station_3_hide_delegate_test.rb)

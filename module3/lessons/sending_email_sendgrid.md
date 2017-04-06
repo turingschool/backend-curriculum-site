@@ -27,7 +27,11 @@ What we'd like our app to do:
 1. Allow us to sign up / log in
 2. Allow us to enter a friend's email address
 3. Send that friend a passive-aggressive email notifying them that
-   "You've changed".
+   "You've changed".  
+   
+## Researching with the Docs  
+* [What is SMTP?](http://whatismyipaddress.com/smtp)
+* [Action Mailer](http://guides.rubyonrails.org/action_mailer_basics.html)  
 
 ## Sending Email locally with the mailcatcher
 
@@ -43,10 +47,36 @@ $ cd youve_changed
 $ bundle
 $ rake db:{create,migrate}
 ```
+### Rails Setup  
+Run your server to see what we've already got in our repo
+```
+rails s
+```  
+Inspect the Form/Input field, where does this route to? 
+Make sure the route is the routes file:
+
+```rb
+post '/notification' => 'notification#create'
+```
+
+Next we'll make a new controller that will call our mailer. Create a controller called NotificationController. The form asks for a post route so we'll need a create action where we will call our mailer.
+
+```rb
+
+# app/controllers/notification_controller.rb
+
+class NotificationController < ApplicationController
+  def create
+    FriendNotifier.inform(current_user, params[:email]).deliver_now
+    flash[:notice] = "Successfully told your friend that they've changed."
+    redirect_to root_url
+  end
+end
+```
 
 ### Creating the Mailer
 
-Our next step will be to create the Friend mailer to passive-aggressively inform your friends that they've changed.
+Our next step will be to create the Friend mailer to passive-aggressively inform our friends that they've changed.
 
 ```shell
 rails g mailer FriendNotifier
@@ -65,7 +95,9 @@ class FriendNotifier < ApplicationMailer
 end
 ```
 
-Next we'll make the views that will determine the body of the email that is send.
+Next we'll make the views that will determine the body of the email that is send. Similar to controllers, any instance variables in your mailer method will be available in your mailer view.  
+
+When you generated your mailer, two layouts were added to app/views/layouts - mailer.html.erb and mailer.text.erb.  Take a look at these files, what are they doing? Why do we get both an HTML and txt layout?
 
 In app/views/friend_notifier create two files, inform.html.erb and inform.text.erb
 
@@ -75,27 +107,6 @@ Depending on the person's email client you're sending the email to, it will rend
 # inform.html.erb and inform.text.erb
 
 Your "friend" <%= @user.name.capitalize %> wanted to let you know that you've changed. Tell someone else that they've changed. It's your duty.
-```
-
-Next we'll make a new controller that will call our mailer. Create a controller called NotificationController
-
-```rb
-
-# app/controllers/notification_controller.rb
-
-class NotificationController < ApplicationController
-  def create
-    FriendNotifier.inform(current_user, params[:email]).deliver_now
-    flash[:notice] = "Successfully told your friend that they've changed."
-    redirect_to root_url
-  end
-end
-```
-
-We'll also make sure we put that route into the routes file:
-
-```rb
-post '/notification' => 'notification#create'
 ```
 
 Let's also change the default address the email gets sent from:
@@ -110,6 +121,8 @@ end
 ```
 
 ### Configuring Mailcatcher
+
+Take a moment to see what you can figure out from the [MailCatcher](https://mailcatcher.me/) docs.
 
 Mailcatcher allows you to test sending email. It is a simple SMTP server that receives emails, and it gives you a web interface that allows you to inspect outgoing emails. Mailcatcher does not allow the emails to actually go out, and so you are able to test that emails send, without having to worry about that email being flooded with emails.
 
@@ -147,7 +160,6 @@ Heroku makes it really easy to setup Sendgrid through an add on. In order to do 
 ```sh
 $ heroku create
 $ git push heroku master
-$ heroku run rake db:create
 $ heroku run rake db:migrate
 ```
 
