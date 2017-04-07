@@ -11,21 +11,15 @@ By the end of this lesson, you will know/be able to:
 *   Make all CRUD functionality AJAX calls.
 *   Access APIs through all client side JavaScript.
 *   Dynamically change content on a webpage without reloading the page.
-*   Explain the difference between client-side and server-side.
+*   Explain the difference between client-side and server-side.  
 
-#### Why AJAX?
+## JavaScript Refresh  
+Talk with a partner about the following:  
 
-*   UX and User Perception
-*   Client Side interactions - voting, polling, rating, interact with HTML elements, auto-complete, nearly instantaneous loading
-
-## AJAX Discussion
-
--   What does AJAX stand for?
--   Explaining asynchronous vs synchronous
--   What is it used for? Where is it used?
--   Client vs. Server
-
-## JavaScript Refresh
+* How do you set a variable?  
+* How do you access the developer tools in your browser?  
+* What are two debugging tools?  
+  (Think, what is similar to puts and pry?) 
 
 ### Variables
 
@@ -86,6 +80,23 @@ In the browser, if we open up the dev tools, navigate to the console and try to 
 *NOTE - The console must be open for debugger to catch, otherwise the app will look normal and you won't get any error messages - if you get stuck, refresh your page while the console is open and go from there.*
 
 For more details and information about other ways to dig into your js, check out the [Chrome Documentation](https://developer.chrome.com/devtools/docs/javascript-debugging).
+
+#### Why AJAX?
+
+Currently, if you have updated information to display on your webpage, what do you do?  
+What are the pros/cons of this strategy?   
+
+## AJAX Research  
+Use these resources to find the following answers:  
+[W3Schools on AJAX](https://www.w3schools.com/xml/ajax_intro.asp)  
+[Benefits of AJAX](http://www.seguetech.com/ajax-technology/)  
+[AJAX Library Comparisons](http://andrewhfarmer.com/ajax-libraries/) 
+
+-   What does AJAX stand for?
+-   Explaining asynchronous vs synchronous
+-   What is it used for? Where is it used?
+-   Client vs. Server side rendering  
+-   
 
 ## AJAX CRUD
 
@@ -167,7 +178,9 @@ You know the drill - let's delete a post by ID. Feel free to discuss approach ag
 
 ## Wrap Up
 
-Refresh on using this within Rails and practical applications of AJAX within self-directed projects.
+Where would you use AJAX as a tool within a Rails Context?  
+What are some use cases for AJAX vs a page refresh?  
+What are three keys you might include an AJAX Post request? 
 
 ### Additional Resources
 
