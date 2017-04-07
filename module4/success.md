@@ -63,7 +63,7 @@ When documenting your community contribution, say a few words about the experien
 
 ### Portfolio
 
-To document all of the work you've done this module, include each of the items above in your portfolio, which is due on Thursday of Week 6.
+To document all of the work you've done this module, include each of the items above (except the Career Development portion) in your portfolio, which is due on Thursday of Week 6.
 
 ### Turing Story Presentation
 
