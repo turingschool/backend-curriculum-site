@@ -11,7 +11,7 @@ layout: page
 * Job Search Strategies
 * [Working with AJAX](../lessons/getting_started_with_ajax)
 * [Assessment](../lessons/assessment)
-* [Optimization Dojo](../lessons/caching_in_rails)
+* [Performance Dojo](../lessons/performance_dojo)
 
 ### Projects
 
