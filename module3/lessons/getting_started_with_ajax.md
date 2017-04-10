@@ -23,8 +23,7 @@ Talk with a partner about the following:
 
 ### Variables
 
-Variables are declared with `var <variableName>` in `camelCase`. You may sometimes see `let` or `const` instead of `var` thanks to ECMAScript - don't worry about this.
-Once a variable is declared
+Variables are declared with `var <variableName>` in `camelCase`. You may sometimes see `let` or `const` instead of `var` thanks to ES6.  
 
 ### Debugging in Javascript
 
@@ -83,8 +82,9 @@ For more details and information about other ways to dig into your js, check out
 
 ### Functions  
 
-There are multiple types of functions in JavaScript. In ES5(aka Vanilla JS) there are function expressions and function declarations.  
-function expression (where an anonymous function is saved to a variable, can only be called after it is set to a variable)
+There are multiple types of functions in JavaScript.  
+In ES5(aka Vanilla JS) there are function expressions and function declarations.  
+function expression (where an anonymous function is saved to a variable, can only be called after it is set to a variable)  
 ```
 var myFunction = function(param) {
   do a thing with the param;
