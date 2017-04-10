@@ -6,7 +6,7 @@ title: Interview Prep Overview
 # Activities
 
 * [Reverse Without Reverse]()
-* [Mock Interviews](activities/mock_interviews)
+* [Mock Interviews](activities/mock_interview)
 * [Violations](activities/violations)
 * [How Databases Work](activities/databases)
 * How to Talk While Coding
