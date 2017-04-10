@@ -16,6 +16,11 @@ By the end of this lesson, you will know/be able to:
 *   Understand the purpose of client side build tools
 *   Understand what Webpack is and what it does for us
 
+Warm Up
+--------------
+
+Read this [article](https://x-team.com/blog/webpack-can-absolute-beginners/) for an overview of Webpack.
+
 What is Webpack?
 --------------
 
