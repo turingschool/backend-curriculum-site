@@ -13,8 +13,21 @@ Goals
 
 By the end of this lesson, you will know/be able to:
 
-*   Understand of what client side build tools are
+*   Understand the purpose of client side build tools
 *   Understand what Webpack is and what it does for us
+
+What is Webpack?
+--------------
+
+[Webpack](https://webpack.github.io/) is a module bundler. Think of it as the Asset Pipeline, but _way_ better and without Rails.
+
+If you remember, in Quantified Self, your `html` code may have looked like this:
+
+![Imgur](http://i.imgur.com/Fr5xoLk.png)
+
+With a semi-simple application like Quantified Self, you may need to add script tags for each individual JavaScript or CSS file. Imagine what this would be like if we continued to add complexity to Quantified Self. This will most likely get messy - it already is looking pretty messy! Enter: Webpack.
+
+Webpack is going to allow us to load a single JS file. This is one of the major benefits of Webpack (or another frontend build tool) -- it will package all of our JS files and their dependencies into a single bundle that we can load.
 
 Install Some Command Line Tools
 --------------
@@ -168,7 +181,7 @@ The important part is the third line from the bottom:
 <script src="main.bundle.js"></script>
 ```
 
-This is the line that loads up your bundle. Notice that we only have to load a single JS file. This is one of the major benefits of Webpack (or another frontend build tool) -- it will package all of our JS files and their dependencies into a single bundle that we can load.
+This is the line that loads up your bundle. Notice that we only have to load a single JS file. This is one of the major benefits of Webpack (or another frontend build tools) -- it will package all of our JS files and their dependencies into a single bundle that we can load.
 
 Since the `index.html` file is the entry point for our application, we're loading in the "main" bundle.
 
@@ -193,14 +206,6 @@ Note that these pages won't work yet, since the bundles themselves have not yet 
 
 Setting Up Webpack
 ----------------
-
-[Webpack](https://webpack.github.io/) is a module bundler. Think of it as the Asset Pipeline, but _way_ better and without Rails.
-
-If you remember, in Quantified Self, your `html` code may have looked like this:
-
-![Imgur](http://i.imgur.com/Fr5xoLk.png)
-
-With a semi-simple application like Quantified Self, you may need to add script tags for each individual JavaScript or CSS file. Imagine what this would be like if we continued to add complexity to Quantified Self. This will most likely get messy - it already is looking pretty messy! Enter: Webpack.
 
 We installed Webpack it earlier, but let's add a configuration file:
 
