@@ -1,0 +1,546 @@
+violation_id,inspection_id,violation_category,violation_date,violation_date_closed,violation_type
+204851,261019,Garbage and Refuse,2012-01-03 00:00:00,2012-02-02 00:00:00,Refuse Accumulation
+204852,261019,Unsanitary Conditions,2012-01-03 00:00:00,2012-02-02 00:00:00,"Unsanitary conditions, not specified"
+204853,261023,Garbage and Refuse,2012-01-03 00:00:00,2012-01-17 00:00:00,Refuse Accumulation
+204854,261023,Garbage and Refuse,2012-01-03 00:00:00,2012-01-17 00:00:00,Refuse Accumulation
+204858,261029,Garbage and Refuse,2012-01-03 00:00:00,2012-03-12 00:00:00,Refuse Accumulation
+204859,261029,Animals and Pests,2012-01-03 00:00:00,2012-03-12 00:00:00,"Animals and Pests, not specified"
+207746,264687,Animals and Pests,2012-02-08 00:00:00,2012-04-02 00:00:00,"Animals and Pests, not specified"
+205869,262387,Garbage and Refuse,2012-01-13 00:00:00,2012-01-17 00:00:00,Refuse Accumulation
+207417,264347,Garbage and Refuse,2012-01-11 00:00:00,2012-01-13 00:00:00,Refuse Accumulation
+205555,261851,Building Conditions,2012-01-12 00:00:00,2012-01-27 00:00:00,Inadequate Pest Exclusion
+205556,261852,Garbage and Refuse,2012-01-10 00:00:00,2012-01-17 00:00:00,Refuse Accumulation
+205319,261562,Animals and Pests,2012-01-09 00:00:00,2012-02-06 00:00:00,Animal Feces
+205320,261563,Garbage and Refuse,2012-01-09 00:00:00,,Refuse Accumulation
+205333,261572,Unsanitary Conditions,2012-01-10 00:00:00,2012-02-13 00:00:00,"Unsanitary conditions, not specified"
+205457,261676,Garbage and Refuse,2012-01-10 00:00:00,2012-01-11 00:00:00,Refuse Accumulation
+205505,261769,Unsanitary Conditions,2012-01-12 00:00:00,2012-07-11 00:00:00,"Unsanitary conditions, not specified"
+205506,261769,Animals and Pests,2012-01-12 00:00:00,2012-07-11 00:00:00,"Rodents, not specified"
+207159,263995,Vegetation,2012-02-01 00:00:00,2012-03-16 00:00:00,Overgrown Vegetation
+207160,263995,Garbage and Refuse,2012-02-01 00:00:00,2012-03-16 00:00:00,Refuse Accumulation
+207276,264177,Unsanitary Conditions,2012-02-06 00:00:00,2012-03-21 00:00:00,"Unsanitary conditions, not specified"
+207337,264235,Animals and Pests,2012-02-02 00:00:00,2012-02-02 00:00:00,"Insects, not specified"
+206863,263567,Unsanitary Conditions,2012-01-27 00:00:00,,"Unsanitary conditions, not specified"
+206883,263605,Garbage and Refuse,2012-01-31 00:00:00,2012-02-21 00:00:00,Refuse Accumulation
+208485,265585,Animals and Pests,2012-02-21 00:00:00,2012-03-06 00:00:00,Animal Feces
+208486,265587,Animals and Pests,2012-02-22 00:00:00,2012-03-16 00:00:00,Animal Feces
+208487,265587,Animals and Pests,2012-02-22 00:00:00,2012-03-16 00:00:00,"Animals and Pests, not specified"
+208488,265609,Building Conditions,2012-02-17 00:00:00,2012-03-07 00:00:00,Inadequate Pest Exclusion
+208588,265691,Animals and Pests,2012-02-22 00:00:00,2012-04-06 00:00:00,"Rodents, not specified"
+208589,265692,Animals and Pests,2012-02-22 00:00:00,,"Animals and Pests, not specified"
+208590,265694,Animals and Pests,2012-02-22 00:00:00,2012-03-26 00:00:00,"Animals and Pests, not specified"
+208600,265709,Garbage and Refuse,2012-02-22 00:00:00,,Refuse Accumulation
+207418,264347,Unsanitary Conditions,2012-01-11 00:00:00,2012-01-13 00:00:00,"Unsanitary conditions, not specified"
+207419,264347,Animals and Pests,2012-01-11 00:00:00,2012-01-13 00:00:00,Animal Feces
+207490,264406,Chemical Hazards,2012-02-08 00:00:00,2012-04-09 00:00:00,Lead Hazard
+207491,264408,Chemical Hazards,2012-02-08 00:00:00,2012-06-01 00:00:00,Lead Hazard
+207492,264408,Vegetation,2012-02-08 00:00:00,2012-04-13 00:00:00,Overgrown Vegetation
+207610,264491,Chemical Hazards,2012-02-08 00:00:00,2012-02-20 00:00:00,Lead Hazard
+208709,265817,Unsanitary Conditions,2012-02-23 00:00:00,2012-02-27 00:00:00,"Unsanitary conditions, not specified"
+208375,265430,Garbage and Refuse,2012-02-17 00:00:00,2012-04-12 00:00:00,Refuse Accumulation
+208376,265430,Garbage and Refuse,2012-02-17 00:00:00,2012-04-12 00:00:00,Refuse Accumulation
+208377,265430,Unsanitary Conditions,2012-02-17 00:00:00,2012-04-12 00:00:00,"Unsanitary conditions, not specified"
+208003,265049,Garbage and Refuse,2012-02-14 00:00:00,2012-03-19 00:00:00,Refuse Accumulation
+208004,265049,Garbage and Refuse,2012-02-14 00:00:00,2012-03-19 00:00:00,Refuse Accumulation
+208005,265050,Garbage and Refuse,2012-02-14 00:00:00,2012-02-23 00:00:00,Refuse Accumulation
+208006,265050,Vegetation,2012-02-14 00:00:00,2012-02-23 00:00:00,Overgrown Vegetation
+208007,265050,Garbage and Refuse,2012-02-14 00:00:00,2012-02-23 00:00:00,Abandoned Vehicle
+208266,265284,Garbage and Refuse,2012-02-15 00:00:00,,Refuse Accumulation
+208267,265288,Garbage and Refuse,2012-02-15 00:00:00,2012-03-02 00:00:00,Refuse Accumulation
+208268,265295,Animals and Pests,2012-02-15 00:00:00,,Animal Feces
+208651,265782,Animals and Pests,2012-02-23 00:00:00,2012-03-08 00:00:00,"Rodents, not specified"
+209039,266178,Chemical Hazards,2012-02-28 00:00:00,2012-04-24 00:00:00,Lead Hazard
+209113,266257,Unsanitary Conditions,2012-02-24 00:00:00,2012-05-08 00:00:00,"Unsanitary conditions, not specified"
+209325,266485,Unsanitary Conditions,2012-02-23 00:00:00,2012-11-02 00:00:00,"Unsanitary conditions, not specified"
+209326,266485,Animals and Pests,2012-02-23 00:00:00,2012-11-02 00:00:00,"Insects, not specified"
+209332,266505,Garbage and Refuse,2012-02-28 00:00:00,2012-03-01 00:00:00,Abandoned Vehicle
+212302,269928,Garbage and Refuse,2012-04-03 00:00:00,2012-04-17 00:00:00,Refuse Accumulation
+212303,269928,Vegetation,2012-04-03 00:00:00,2012-04-17 00:00:00,Overgrown Vegetation
+212304,269928,Garbage and Refuse,2012-04-03 00:00:00,2012-04-17 00:00:00,Refuse Accumulation
+212305,269929,Animals and Pests,2012-04-03 00:00:00,2012-04-12 00:00:00,Animal Feces
+212306,269929,Animals and Pests,2012-04-03 00:00:00,2012-04-12 00:00:00,"Animals, Prohibited number"
+212307,269933,Vegetation,2012-04-03 00:00:00,2012-05-14 00:00:00,Overgrown Vegetation
+212308,269934,Garbage and Refuse,2012-04-03 00:00:00,2012-05-17 00:00:00,Refuse Accumulation
+212309,269934,Garbage and Refuse,2012-04-03 00:00:00,2012-05-17 00:00:00,Refuse Accumulation
+212366,269986,Animals and Pests,2012-04-04 00:00:00,2012-04-30 00:00:00,"Rodents, not specified"
+212367,269988,Animals and Pests,2012-04-04 00:00:00,2012-04-12 00:00:00,"Animals and Pests, not specified"
+212368,269990,Vegetation,2012-04-04 00:00:00,2012-06-28 00:00:00,Overgrown Vegetation
+210718,268269,Garbage and Refuse,2012-03-19 00:00:00,2012-03-21 00:00:00,Refuse Accumulation
+210719,268269,Garbage and Refuse,2012-03-19 00:00:00,2012-03-21 00:00:00,Refuse Accumulation
+210926,268469,Unsanitary Conditions,2012-03-20 00:00:00,,"Unsanitary conditions, not specified"
+209427,266566,Animals and Pests,2012-02-22 00:00:00,2012-04-12 00:00:00,"Insects, not specified"
+209428,266566,Animals and Pests,2012-02-22 00:00:00,2012-04-12 00:00:00,"Animals and Pests, not specified"
+209438,266627,Animals and Pests,2012-02-24 00:00:00,2012-03-13 00:00:00,"Insects, not specified"
+210065,267423,Animals and Pests,2012-03-08 00:00:00,,"Animals and Pests, not specified"
+209460,266657,Vegetation,2012-03-02 00:00:00,,Overgrown Vegetation
+209461,266657,Garbage and Refuse,2012-03-02 00:00:00,,Refuse Accumulation
+209852,267223,Animals and Pests,2012-03-06 00:00:00,2012-04-20 00:00:00,Animal Feces
+209853,267223,Animals and Pests,2012-03-06 00:00:00,2012-04-20 00:00:00,"Animals and Pests, not specified"
+210320,267728,Vegetation,2012-03-13 00:00:00,2012-04-16 00:00:00,Overgrown Vegetation
+210321,267742,Chemical Hazards,2012-03-13 00:00:00,2012-06-11 00:00:00,Lead Hazard
+210326,267746,Animals and Pests,2012-03-13 00:00:00,2012-05-31 00:00:00,"Rodents, not specified"
+212021,269548,Vegetation,2012-03-27 00:00:00,2012-05-23 00:00:00,Overgrown Vegetation
+212022,269549,Chemical Hazards,2012-03-27 00:00:00,2012-05-03 00:00:00,Lead Hazard
+212023,269550,Garbage and Refuse,2012-03-27 00:00:00,2012-07-24 00:00:00,Refuse Accumulation
+212024,269550,Chemical Hazards,2012-03-27 00:00:00,2012-07-24 00:00:00,Lead Hazard
+212055,269565,Building Conditions,2012-03-30 00:00:00,2012-04-03 00:00:00,Mold or Mildew
+213137,271052,Vegetation,2012-04-17 00:00:00,2012-04-30 00:00:00,Overgrown Vegetation
+213148,271133,Animals and Pests,2012-04-17 00:00:00,2012-04-26 00:00:00,"Insects, not specified"
+213171,271180,Building Conditions,2012-04-18 00:00:00,2012-05-01 00:00:00,Mold or Mildew
+213217,271238,Animals and Pests,2012-04-19 00:00:00,2012-07-09 00:00:00,"Insects, not specified"
+213218,271245,Animals and Pests,2012-04-18 00:00:00,2012-04-30 00:00:00,Animal Feces
+213219,271246,Garbage and Refuse,2012-04-18 00:00:00,2012-07-02 00:00:00,Refuse Accumulation
+210398,267850,Animals and Pests,2012-03-14 00:00:00,2012-03-28 00:00:00,"Rodents, not specified"
+212892,270707,Biohazards,2012-04-13 00:00:00,2012-04-18 00:00:00,Human Feces
+214166,272923,Animals and Pests,2012-05-08 00:00:00,2012-05-08 00:00:00,Animal Feces
+214177,272964,Garbage and Refuse,2012-05-08 00:00:00,2012-12-06 00:00:00,Refuse Accumulation
+211789,269337,Vegetation,2012-03-28 00:00:00,2012-08-29 00:00:00,Overgrown Vegetation
+211313,268795,Vegetation,2012-03-22 00:00:00,2012-04-10 00:00:00,Overgrown Vegetation
+211314,268804,Vegetation,2012-03-22 00:00:00,,Overgrown Vegetation
+211315,268804,Garbage and Refuse,2012-03-22 00:00:00,,Refuse Accumulation
+214351,273183,Building Conditions,2012-05-01 00:00:00,2012-04-17 00:00:00,Mold or Mildew
+211420,268891,Unsanitary Conditions,2012-03-19 00:00:00,2012-07-26 00:00:00,"Unsanitary conditions, not specified"
+211421,268922,Chemical Hazards,2012-03-22 00:00:00,2012-06-18 00:00:00,Lead Hazard
+211431,268944,Vegetation,2012-03-23 00:00:00,2012-06-07 00:00:00,Overgrown Vegetation
+211538,269050,Unsanitary Conditions,2012-03-26 00:00:00,2012-04-09 00:00:00,"Unsanitary conditions, not specified"
+211539,269051,Garbage and Refuse,2012-03-26 00:00:00,2012-04-23 00:00:00,Refuse Accumulation
+212101,269669,Vegetation,2012-03-29 00:00:00,,Overgrown Vegetation
+212140,269750,Animals and Pests,2012-03-30 00:00:00,2012-06-07 00:00:00,"Rodents, not specified"
+212194,269829,Animals and Pests,2012-03-27 00:00:00,2012-06-27 00:00:00,"Insects, not specified"
+212219,269857,Garbage and Refuse,2012-04-03 00:00:00,2012-05-01 00:00:00,Refuse Accumulation
+212220,269857,Building Conditions,2012-04-03 00:00:00,2012-05-01 00:00:00,Inadequate Pest Exclusion
+212221,269858,Garbage and Refuse,2012-04-03 00:00:00,2012-04-18 00:00:00,Refuse Accumulation
+212222,269859,Garbage and Refuse,2012-04-03 00:00:00,2012-04-06 00:00:00,Refuse Accumulation
+212426,270061,Unsanitary Conditions,2012-04-03 00:00:00,2012-05-22 00:00:00,"Unsanitary conditions, not specified"
+212427,270061,Building Conditions,2012-04-03 00:00:00,2012-04-17 00:00:00,Mold or Mildew
+212600,270264,Animals and Pests,2012-04-09 00:00:00,2012-04-27 00:00:00,"Rodents, not specified"
+214990,274144,Animals and Pests,2012-05-22 00:00:00,2012-06-26 00:00:00,"Insects, not specified"
+214991,274141,Unsanitary Conditions,2012-05-16 00:00:00,2013-02-26 00:00:00,"Unsanitary conditions, not specified"
+214992,274141,Animals and Pests,2012-05-16 00:00:00,2013-02-26 00:00:00,"Insects, not specified"
+214993,274141,Animals and Pests,2012-05-16 00:00:00,2013-02-26 00:00:00,"Animals and Pests, not specified"
+213220,271246,Animals and Pests,2012-04-18 00:00:00,2012-07-02 00:00:00,"Animals and Pests, not specified"
+213229,271261,Chemical Hazards,2012-04-19 00:00:00,2012-06-01 00:00:00,Lead Hazard
+213230,271261,Garbage and Refuse,2012-04-19 00:00:00,2012-06-01 00:00:00,Refuse Accumulation
+213373,271498,Unsanitary Conditions,2012-04-20 00:00:00,2012-06-29 00:00:00,"Unsanitary conditions, not specified"
+213374,271498,Building Conditions,2012-04-20 00:00:00,2012-06-29 00:00:00,Mold or Mildew
+213375,271499,Building Conditions,2012-04-20 00:00:00,2012-06-22 00:00:00,Mold or Mildew
+213493,271684,Animals and Pests,2012-04-04 00:00:00,2012-04-16 00:00:00,Animal Feces
+213494,271693,Animals and Pests,2012-04-24 00:00:00,2012-05-16 00:00:00,"Insects, not specified"
+213502,271703,Garbage and Refuse,2012-04-24 00:00:00,2012-05-17 00:00:00,Refuse Accumulation
+213535,271747,Animals and Pests,2012-04-25 00:00:00,2012-05-08 00:00:00,"Rodents, not specified"
+213550,271785,Garbage and Refuse,2012-04-13 00:00:00,2012-04-25 00:00:00,Refuse Accumulation
+213551,271785,Vegetation,2012-04-13 00:00:00,2012-04-25 00:00:00,Overgrown Vegetation
+213566,271799,Vegetation,2012-04-13 00:00:00,2012-04-23 00:00:00,Overgrown Vegetation
+213682,272010,Animals and Pests,2012-04-27 00:00:00,2012-06-25 00:00:00,Animal Feces
+213740,272159,Building Conditions,2012-03-06 00:00:00,2012-04-24 00:00:00,Mold or Mildew
+213741,272159,Animals and Pests,2012-03-06 00:00:00,2012-04-24 00:00:00,"Animals and Pests, not specified"
+213742,272159,Animals and Pests,2012-03-06 00:00:00,2013-02-26 00:00:00,"Insects, not specified"
+213792,272235,Animals and Pests,2012-04-30 00:00:00,2012-05-21 00:00:00,"Animals and Pests, not specified"
+213857,272356,Unsanitary Conditions,2012-05-01 00:00:00,2012-06-19 00:00:00,"Unsanitary conditions, not specified"
+213898,272435,Animals and Pests,2012-05-02 00:00:00,2012-05-08 00:00:00,"Insects, not specified"
+213979,272584,Vegetation,2012-05-02 00:00:00,2012-07-05 00:00:00,Overgrown Vegetation
+214046,272705,Animals and Pests,2012-05-03 00:00:00,2012-07-06 00:00:00,Animal Feces
+214047,272708,Animals and Pests,2012-05-04 00:00:00,2012-06-08 00:00:00,"Insects, not specified"
+216165,275904,Garbage and Refuse,2012-06-01 00:00:00,2012-06-28 00:00:00,Refuse Accumulation
+216166,275904,Unsanitary Conditions,2012-06-01 00:00:00,2012-06-28 00:00:00,"Unsanitary conditions, not specified"
+214485,273396,Garbage and Refuse,2012-05-14 00:00:00,2012-05-23 00:00:00,Refuse Accumulation
+214486,273396,Animals and Pests,2012-05-14 00:00:00,2012-05-23 00:00:00,Animal Feces
+214492,273436,Unsanitary Conditions,2012-05-11 00:00:00,2012-08-10 00:00:00,"Unsanitary conditions, not specified"
+214547,273514,Animals and Pests,2012-05-14 00:00:00,2012-09-19 00:00:00,"Insects, not specified"
+215139,274473,Vegetation,2012-05-23 00:00:00,2012-06-27 00:00:00,Overgrown Vegetation
+214588,273593,Vegetation,2012-05-15 00:00:00,2012-06-12 00:00:00,Overgrown Vegetation
+214625,273644,Unsanitary Conditions,2012-04-18 00:00:00,,"Unsanitary conditions, not specified"
+214702,273794,Garbage and Refuse,2012-05-17 00:00:00,2012-06-01 00:00:00,Abandoned Vehicle
+215360,274692,Vegetation,2012-05-24 00:00:00,2012-06-06 00:00:00,Overgrown Vegetation
+215361,274693,Vegetation,2012-05-24 00:00:00,2012-06-18 00:00:00,Overgrown Vegetation
+215437,274739,Vegetation,2012-05-16 00:00:00,2012-06-26 00:00:00,Overgrown Vegetation
+217010,277153,Chemical Hazards,2012-06-14 00:00:00,2012-10-16 00:00:00,Lead Hazard
+217011,277153,Building Conditions,2012-06-14 00:00:00,2012-10-16 00:00:00,Inadequate Ventilation
+215962,275520,Garbage and Refuse,2012-05-31 00:00:00,2012-06-15 00:00:00,Refuse Accumulation
+216023,275641,Building Conditions,2012-05-23 00:00:00,2012-05-29 00:00:00,Mold or Mildew
+216054,275681,Vegetation,2012-06-04 00:00:00,,Overgrown Vegetation
+216055,275681,Animals and Pests,2012-06-04 00:00:00,,"Rodents, not specified"
+216091,275799,Vegetation,2012-06-05 00:00:00,,Overgrown Vegetation
+216092,275799,Animals and Pests,2012-06-05 00:00:00,,"Animals and Pests, not specified"
+216093,275801,Garbage and Refuse,2012-06-05 00:00:00,,Refuse Accumulation
+216135,275846,Vegetation,2012-06-05 00:00:00,2012-06-19 00:00:00,Overgrown Vegetation
+216443,276296,Garbage and Refuse,2012-06-08 00:00:00,2012-06-11 00:00:00,Refuse Accumulation
+216444,276298,Vegetation,2012-06-08 00:00:00,2012-06-27 00:00:00,Overgrown Vegetation
+216494,276426,Unsanitary Conditions,2012-06-05 00:00:00,2012-08-01 00:00:00,"Unsanitary conditions, not specified"
+216495,276426,Animals and Pests,2012-06-05 00:00:00,2012-08-01 00:00:00,"Animals and Pests, not specified"
+216496,276426,Unsanitary Conditions,2012-06-05 00:00:00,2012-08-01 00:00:00,"Unsanitary conditions, not specified"
+216663,276601,Vegetation,2012-06-12 00:00:00,2012-06-21 00:00:00,Overgrown Vegetation
+216668,276612,Vegetation,2012-06-12 00:00:00,2012-06-25 00:00:00,Overgrown Vegetation
+216796,276756,Animals and Pests,2012-06-13 00:00:00,2012-06-22 00:00:00,"Rodents, not specified"
+216913,276930,Animals and Pests,2012-06-14 00:00:00,2012-08-30 00:00:00,Animal Feces
+217041,277255,Unsanitary Conditions,2012-06-12 00:00:00,2012-07-10 00:00:00,"Unsanitary conditions, not specified"
+217042,277255,Unsanitary Conditions,2012-06-12 00:00:00,2012-07-10 00:00:00,"Unsanitary conditions, not specified"
+217043,277255,Animals and Pests,2012-06-12 00:00:00,2012-07-10 00:00:00,"Animals and Pests, not specified"
+217057,277273,Vegetation,2012-06-18 00:00:00,2012-06-25 00:00:00,Overgrown Vegetation
+217058,277274,Vegetation,2012-06-18 00:00:00,2012-07-09 00:00:00,Overgrown Vegetation
+217060,277276,Vegetation,2012-06-18 00:00:00,2012-07-24 00:00:00,Overgrown Vegetation
+217061,277276,Garbage and Refuse,2012-06-18 00:00:00,2012-07-24 00:00:00,Refuse Accumulation
+217087,277300,Garbage and Refuse,2012-06-15 00:00:00,2012-12-07 00:00:00,Refuse Accumulation
+217176,277410,Animals and Pests,2012-06-19 00:00:00,2012-08-07 00:00:00,"Insects, not specified"
+217212,277478,Vegetation,2012-06-19 00:00:00,2012-09-19 00:00:00,Overgrown Vegetation
+217213,277478,Unsanitary Conditions,2012-06-19 00:00:00,2012-09-19 00:00:00,"Unsanitary conditions, not specified"
+217218,277485,Vegetation,2012-06-19 00:00:00,2012-07-17 00:00:00,Overgrown Vegetation
+217277,277544,Garbage and Refuse,2012-06-19 00:00:00,2012-07-05 00:00:00,Refuse Accumulation
+217398,277686,Animals and Pests,2012-06-21 00:00:00,,Animal Feces
+217419,277707,Chemical Hazards,2012-06-14 00:00:00,2012-08-21 00:00:00,Lead Hazard
+219873,281169,Vegetation,2012-07-27 00:00:00,2012-11-01 00:00:00,Overgrown Vegetation
+219874,281164,Garbage and Refuse,2012-07-27 00:00:00,,Refuse Accumulation
+219875,281164,Animals and Pests,2012-07-27 00:00:00,,"Insects, not specified"
+219876,281164,Animals and Pests,2012-07-27 00:00:00,,"Rodents, not specified"
+219895,281184,Garbage and Refuse,2012-07-27 00:00:00,,Refuse Accumulation
+219896,281184,Animals and Pests,2012-07-27 00:00:00,,"Insects, not specified"
+219897,281184,Unsanitary Conditions,2012-07-27 00:00:00,,"Unsanitary conditions, not specified"
+219898,281192,Garbage and Refuse,2012-07-27 00:00:00,,Refuse Accumulation
+219900,281192,Animals and Pests,2012-07-27 00:00:00,,"Insects, not specified"
+219901,281192,Animals and Pests,2012-07-27 00:00:00,,"Rodents, not specified"
+219289,280528,Garbage and Refuse,2012-07-05 00:00:00,2012-07-17 00:00:00,Refuse Accumulation
+217556,277955,Unsanitary Conditions,2012-06-15 00:00:00,,"Unsanitary conditions, not specified"
+217557,277955,Unsanitary Conditions,2012-06-15 00:00:00,,"Unsanitary conditions, not specified"
+217951,278472,Garbage and Refuse,2012-06-28 00:00:00,,Refuse Accumulation
+217952,278476,Garbage and Refuse,2012-06-28 00:00:00,2013-01-09 00:00:00,Refuse Accumulation
+218082,278688,Vegetation,2012-06-05 00:00:00,2012-07-11 00:00:00,Overgrown Vegetation
+218135,278848,Chemical Hazards,2012-06-28 00:00:00,2012-08-31 00:00:00,Lead Hazard
+218136,278849,Chemical Hazards,2012-06-28 00:00:00,2012-10-29 00:00:00,Lead Hazard
+218137,278849,Garbage and Refuse,2012-06-28 00:00:00,2012-10-29 00:00:00,Refuse Accumulation
+218138,278852,Chemical Hazards,2012-06-28 00:00:00,2012-10-23 00:00:00,Lead Hazard
+218139,278852,Animals and Pests,2012-06-28 00:00:00,2012-10-23 00:00:00,"Animals and Pests, not specified"
+217542,277943,Garbage and Refuse,2012-06-25 00:00:00,2012-10-16 00:00:00,Abandoned Vehicle
+217608,278036,Unsanitary Conditions,2012-06-20 00:00:00,2012-08-16 00:00:00,"Unsanitary conditions, not specified"
+217609,278036,Animals and Pests,2012-06-20 00:00:00,2012-08-16 00:00:00,"Insects, not specified"
+217616,278042,Garbage and Refuse,2012-06-19 00:00:00,,Refuse Accumulation
+217617,278042,Animals and Pests,2012-06-19 00:00:00,,"Animals and Pests, not specified"
+217626,278049,Unsanitary Conditions,2012-06-19 00:00:00,,"Unsanitary conditions, not specified"
+219431,280696,Vegetation,2012-07-26 00:00:00,,Overgrown Vegetation
+219450,280751,Vegetation,2012-07-26 00:00:00,2012-08-30 00:00:00,Overgrown Vegetation
+218206,279011,Building Conditions,2012-07-05 00:00:00,2012-07-17 00:00:00,Mold or Mildew
+218207,279011,Animals and Pests,2012-07-05 00:00:00,2012-07-17 00:00:00,"Insects, not specified"
+218247,279053,Garbage and Refuse,2012-07-05 00:00:00,2012-07-06 00:00:00,Refuse Accumulation
+218275,279097,Animals and Pests,2012-07-06 00:00:00,2012-08-17 00:00:00,Animal Feces
+218277,279099,Animals and Pests,2012-07-06 00:00:00,2012-07-20 00:00:00,"Rodents, not specified"
+218278,279100,Animals and Pests,2012-07-06 00:00:00,,Animal Feces
+218283,279107,Vegetation,2012-07-05 00:00:00,2012-07-25 00:00:00,Overgrown Vegetation
+218284,279107,Garbage and Refuse,2012-07-05 00:00:00,2012-07-25 00:00:00,Refuse Accumulation
+218285,279108,Garbage and Refuse,2012-07-05 00:00:00,2012-07-10 00:00:00,Abandoned Vehicle
+218298,279110,Garbage and Refuse,2012-07-05 00:00:00,2012-07-05 00:00:00,Refuse Accumulation
+218299,279132,Garbage and Refuse,2012-07-05 00:00:00,,Abandoned Vehicle
+218300,279133,Garbage and Refuse,2012-07-05 00:00:00,2012-07-10 00:00:00,Abandoned Vehicle
+218301,279134,Garbage and Refuse,2012-07-05 00:00:00,2012-08-23 00:00:00,Abandoned Vehicle
+218302,279136,Animals and Pests,2012-07-06 00:00:00,,Animal Feces
+218303,279136,Animals and Pests,2012-07-06 00:00:00,,"Animals and Pests, not specified"
+219634,280984,Animals and Pests,2012-07-31 00:00:00,2012-09-27 00:00:00,"Animals and Pests, not specified"
+219639,280991,Animals and Pests,2012-07-31 00:00:00,,Animal Feces
+219644,280994,Vegetation,2012-07-31 00:00:00,2013-03-14 00:00:00,Overgrown Vegetation
+217847,278346,Animals and Pests,2012-06-27 00:00:00,2012-07-23 00:00:00,"Insects, not specified"
+217864,278370,Unsanitary Conditions,2012-06-21 00:00:00,2012-07-24 00:00:00,"Unsanitary conditions, not specified"
+217865,278370,Building Conditions,2012-06-21 00:00:00,2012-07-24 00:00:00,Mold or Mildew
+217866,278370,Animals and Pests,2012-06-21 00:00:00,2012-07-24 00:00:00,"Animals and Pests, not specified"
+217867,278370,Animals and Pests,2012-06-21 00:00:00,2012-07-24 00:00:00,"Insects, not specified"
+217868,278370,Animals and Pests,2012-06-21 00:00:00,2012-07-24 00:00:00,"Rodents, not specified"
+217869,278370,Unsanitary Conditions,2012-06-21 00:00:00,2012-07-24 00:00:00,"Unsanitary conditions, not specified"
+217914,278427,Garbage and Refuse,2012-06-26 00:00:00,2012-07-10 00:00:00,Refuse Accumulation
+218163,278922,Chemical Hazards,2012-07-03 00:00:00,2013-01-09 00:00:00,Lead Hazard
+219171,280325,Building Conditions,2012-07-23 00:00:00,2012-10-09 00:00:00,Mold or Mildew
+219481,280783,Unsanitary Conditions,2012-07-12 00:00:00,2012-08-21 00:00:00,"Unsanitary conditions, not specified"
+219218,280414,Vegetation,2012-07-24 00:00:00,2012-09-20 00:00:00,Overgrown Vegetation
+219232,280462,Vegetation,2012-07-24 00:00:00,2012-08-07 00:00:00,Overgrown Vegetation
+219235,280468,Vegetation,2012-07-23 00:00:00,2012-08-14 00:00:00,Overgrown Vegetation
+219236,280468,Vegetation,2012-07-23 00:00:00,2012-08-14 00:00:00,Poison Ivy or Poison Oak
+218337,279215,Animals and Pests,2012-07-09 00:00:00,,Animal Feces
+218338,279217,Garbage and Refuse,2012-07-09 00:00:00,2012-07-09 00:00:00,Refuse Accumulation
+220588,282422,Animals and Pests,2012-08-16 00:00:00,2013-01-02 00:00:00,"Animals and Pests, not specified"
+220589,282423,Animals and Pests,2012-08-16 00:00:00,2012-08-16 00:00:00,"Animals and Pests, not specified"
+220607,282429,Animals and Pests,2012-08-16 00:00:00,2012-08-16 00:00:00,"Animals and Pests, not specified"
+219567,280907,Animals and Pests,2012-07-27 00:00:00,2012-09-14 00:00:00,"Animals and Pests, not specified"
+219568,280909,Animals and Pests,2012-07-27 00:00:00,2012-08-13 00:00:00,"Rodents, not specified"
+219586,280947,Animals and Pests,2012-07-26 00:00:00,2012-10-30 00:00:00,"Animals and Pests, not specified"
+221472,283505,Garbage and Refuse,2012-08-22 00:00:00,2012-09-18 00:00:00,Refuse Accumulation
+221474,283500,Garbage and Refuse,2012-08-16 00:00:00,,Refuse Accumulation
+221475,283515,Animals and Pests,2012-08-29 00:00:00,2012-08-31 00:00:00,"Insects, not specified"
+218409,279356,Animals and Pests,2012-07-06 00:00:00,2012-07-25 00:00:00,"Animals and Pests, not specified"
+218411,279387,Animals and Pests,2012-07-10 00:00:00,2012-07-23 00:00:00,Animal Feces
+218445,279442,Vegetation,2012-07-10 00:00:00,2012-07-27 00:00:00,Overgrown Vegetation
+218446,279443,Garbage and Refuse,2012-07-10 00:00:00,2012-07-24 00:00:00,Abandoned Vehicle
+218593,279644,Garbage and Refuse,2012-07-12 00:00:00,2012-08-23 00:00:00,Abandoned Vehicle
+218598,279649,Vegetation,2012-07-12 00:00:00,2012-08-13 00:00:00,Overgrown Vegetation
+218599,279654,Vegetation,2012-07-12 00:00:00,2012-09-25 00:00:00,Overgrown Vegetation
+218642,279721,Vegetation,2012-07-12 00:00:00,2012-07-30 00:00:00,Overgrown Vegetation
+218643,279721,Garbage and Refuse,2012-07-12 00:00:00,2012-07-30 00:00:00,Refuse Accumulation
+218753,279930,Vegetation,2012-07-16 00:00:00,2012-08-23 00:00:00,Overgrown Vegetation
+218754,279932,Garbage and Refuse,2012-07-16 00:00:00,2012-07-26 00:00:00,Refuse Accumulation
+218755,279932,Garbage and Refuse,2012-07-16 00:00:00,2012-07-26 00:00:00,Refuse Accumulation
+218756,279933,Garbage and Refuse,2012-07-16 00:00:00,2012-07-26 00:00:00,Refuse Accumulation
+218757,279933,Garbage and Refuse,2012-07-16 00:00:00,2012-07-26 00:00:00,Refuse Accumulation
+218765,279945,Vegetation,2012-07-13 00:00:00,2012-09-10 00:00:00,Overgrown Vegetation
+218990,280109,Animals and Pests,2012-07-19 00:00:00,,"Rodents, not specified"
+220505,282276,Garbage and Refuse,2012-08-14 00:00:00,2012-10-04 00:00:00,Abandoned Vehicle
+221148,283114,Animals and Pests,2012-08-23 00:00:00,2012-08-23 00:00:00,"Insects, not specified"
+221160,283138,Animals and Pests,2012-08-23 00:00:00,2012-08-23 00:00:00,"Insects, not specified"
+223181,285834,Garbage and Refuse,2012-09-10 00:00:00,2012-11-02 00:00:00,Refuse Accumulation
+223202,285886,Vegetation,2012-09-20 00:00:00,2012-10-16 00:00:00,Overgrown Vegetation
+223203,285886,Garbage and Refuse,2012-09-20 00:00:00,2012-10-16 00:00:00,Refuse Accumulation
+219980,281301,Animals and Pests,2012-08-03 00:00:00,,Animal Feces
+219981,281305,Garbage and Refuse,2012-08-03 00:00:00,2012-08-03 00:00:00,Refuse Accumulation
+220006,281335,Animals and Pests,2012-08-03 00:00:00,2012-08-24 00:00:00,"Animals and Pests, not specified"
+220104,281529,Garbage and Refuse,2012-06-28 00:00:00,2012-07-30 00:00:00,Abandoned Vehicle
+220175,281650,Garbage and Refuse,2012-08-08 00:00:00,,Refuse Accumulation
+220180,281688,Animals and Pests,2012-08-08 00:00:00,2012-08-24 00:00:00,Animal Feces
+220370,282013,Animals and Pests,2012-08-13 00:00:00,2012-08-13 00:00:00,Animal Feces
+220788,282644,Garbage and Refuse,2012-08-17 00:00:00,2012-09-11 00:00:00,Refuse Accumulation
+220822,282712,Animals and Pests,2012-08-20 00:00:00,2012-08-27 00:00:00,"Rodents, not specified"
+221018,283020,Garbage and Refuse,2012-07-10 00:00:00,2012-07-24 00:00:00,Refuse Accumulation
+221019,283020,Garbage and Refuse,2012-07-10 00:00:00,2012-07-24 00:00:00,Refuse Accumulation
+221245,283229,Animals and Pests,2012-08-24 00:00:00,2012-08-27 00:00:00,"Insects, not specified"
+221312,283339,Animals and Pests,2012-08-24 00:00:00,2012-09-13 00:00:00,Animal Feces
+221409,283423,Garbage and Refuse,2012-08-27 00:00:00,2012-09-14 00:00:00,Refuse Accumulation
+221410,283423,Vegetation,2012-08-27 00:00:00,2012-09-14 00:00:00,Overgrown Vegetation
+221411,283426,Garbage and Refuse,2012-08-27 00:00:00,,Abandoned Vehicle
+221425,283452,Animals and Pests,2012-08-24 00:00:00,2012-12-19 00:00:00,"Insects, not specified"
+221426,283452,Animals and Pests,2012-08-24 00:00:00,2012-10-12 00:00:00,"Rodents, not specified"
+221427,283452,Animals and Pests,2012-08-24 00:00:00,2012-10-12 00:00:00,"Animals and Pests, not specified"
+222111,284417,Animals and Pests,2012-09-10 00:00:00,2012-09-10 00:00:00,"Animals and Pests, not specified"
+222170,284471,Animals and Pests,2012-09-10 00:00:00,,"Insects, not specified"
+222171,284471,Animals and Pests,2012-09-10 00:00:00,,"Rodents, not specified"
+222550,284955,Animals and Pests,2012-09-14 00:00:00,2012-09-28 00:00:00,Animal Feces
+222555,284978,Animals and Pests,2012-09-14 00:00:00,2012-09-17 00:00:00,"Animals and Pests, not specified"
+222557,284980,Animals and Pests,2012-09-14 00:00:00,,"Animals and Pests, not specified"
+222558,284982,Animals and Pests,2012-09-14 00:00:00,2012-09-17 00:00:00,"Animals and Pests, not specified"
+223121,285766,Unsanitary Conditions,2012-09-19 00:00:00,,"Unsanitary conditions, not specified"
+223162,285828,Animals and Pests,2012-09-21 00:00:00,,"Animals and Pests, not specified"
+223259,285964,Unsanitary Conditions,2012-09-11 00:00:00,2012-09-28 00:00:00,"Unsanitary conditions, not specified"
+223260,285964,Building Conditions,2012-09-11 00:00:00,2012-09-28 00:00:00,Mold or Mildew
+223261,285964,Unsanitary Conditions,2012-09-11 00:00:00,2012-09-28 00:00:00,"Unsanitary conditions, not specified"
+223262,285966,Unsanitary Conditions,2012-09-11 00:00:00,2012-10-12 00:00:00,"Unsanitary conditions, not specified"
+223263,285966,Animals and Pests,2012-09-11 00:00:00,2012-10-12 00:00:00,"Animals and Pests, not specified"
+223264,285966,Unsanitary Conditions,2012-09-11 00:00:00,2012-10-12 00:00:00,"Unsanitary conditions, not specified"
+223265,285966,Building Conditions,2012-09-11 00:00:00,2012-10-12 00:00:00,Mold or Mildew
+223274,285966,Unsanitary Conditions,2012-09-11 00:00:00,2012-10-12 00:00:00,"Unsanitary conditions, not specified"
+223347,286025,Vegetation,2012-09-24 00:00:00,2012-11-01 00:00:00,Overgrown Vegetation
+221611,283667,Animals and Pests,2012-08-30 00:00:00,2012-08-30 00:00:00,Animal Feces
+221621,283695,Garbage and Refuse,2012-08-30 00:00:00,2012-09-17 00:00:00,Refuse Accumulation
+221700,283838,Animals and Pests,2012-08-31 00:00:00,2012-08-31 00:00:00,"Insects, not specified"
+221742,283897,Animals and Pests,2012-08-21 00:00:00,,"Animals and Pests, not specified"
+221766,283931,Vegetation,2012-09-04 00:00:00,2012-09-18 00:00:00,Overgrown Vegetation
+221773,283943,Garbage and Refuse,2012-08-29 00:00:00,2012-10-18 00:00:00,Refuse Accumulation
+221774,283943,Garbage and Refuse,2012-08-29 00:00:00,2012-10-18 00:00:00,Refuse Accumulation
+221775,283944,Garbage and Refuse,2012-09-04 00:00:00,2012-10-09 00:00:00,Refuse Accumulation
+221776,283944,Animals and Pests,2012-09-04 00:00:00,2012-10-09 00:00:00,"Animals and Pests, not specified"
+221777,283954,Garbage and Refuse,2012-07-19 00:00:00,2012-08-29 00:00:00,Refuse Accumulation
+221919,284128,Vegetation,2012-09-05 00:00:00,2012-09-12 00:00:00,Overgrown Vegetation
+221933,284135,Garbage and Refuse,2012-09-05 00:00:00,2012-10-04 00:00:00,Refuse Accumulation
+221957,284161,Unsanitary Conditions,2012-08-28 00:00:00,,"Unsanitary conditions, not specified"
+221958,284161,Building Conditions,2012-08-28 00:00:00,,Mold or Mildew
+222040,284300,Animals and Pests,2012-09-07 00:00:00,2012-09-07 00:00:00,"Insects, not specified"
+222069,284359,Animals and Pests,2012-08-28 00:00:00,2012-11-02 00:00:00,"Insects, not specified"
+222427,284811,Garbage and Refuse,2012-08-28 00:00:00,2012-09-12 00:00:00,Refuse Accumulation
+222734,285228,Animals and Pests,2012-09-17 00:00:00,2012-09-28 00:00:00,"Animals and Pests, not specified"
+222735,285228,Building Conditions,2012-09-17 00:00:00,2012-09-28 00:00:00,Mold or Mildew
+222759,285249,Vegetation,2012-07-26 00:00:00,2012-09-12 00:00:00,Overgrown Vegetation
+222859,285380,Animals and Pests,2012-09-14 00:00:00,2012-09-24 00:00:00,Animal Feces
+222867,285406,Garbage and Refuse,2012-09-18 00:00:00,2012-09-18 00:00:00,Refuse Accumulation
+222869,285410,Animals and Pests,2012-09-06 00:00:00,2012-10-02 00:00:00,Animal Feces
+222879,285427,Animals and Pests,2012-09-13 00:00:00,2012-09-28 00:00:00,"Rodents, not specified"
+222888,285451,Garbage and Refuse,2012-08-21 00:00:00,2012-11-08 00:00:00,Refuse Accumulation
+222889,285451,Unsanitary Conditions,2012-08-21 00:00:00,2012-11-08 00:00:00,"Unsanitary conditions, not specified"
+222890,285451,Animals and Pests,2012-08-21 00:00:00,2012-11-08 00:00:00,Animal Feces
+222902,285456,Garbage and Refuse,2012-09-14 00:00:00,2012-10-17 00:00:00,Refuse Accumulation
+222903,285456,Garbage and Refuse,2012-09-14 00:00:00,2012-10-17 00:00:00,Refuse Accumulation
+222904,285456,Unsanitary Conditions,2012-09-14 00:00:00,2012-10-17 00:00:00,"Unsanitary conditions, not specified"
+223118,285766,Garbage and Refuse,2012-09-19 00:00:00,,Refuse Accumulation
+223119,285766,Garbage and Refuse,2012-09-19 00:00:00,,Refuse Accumulation
+223120,285766,Vegetation,2012-09-19 00:00:00,,Overgrown Vegetation
+223424,286182,Vegetation,2012-09-25 00:00:00,2013-01-04 00:00:00,Overgrown Vegetation
+223472,286232,Unsanitary Conditions,2012-09-14 00:00:00,2012-11-02 00:00:00,"Unsanitary conditions, not specified"
+223473,286232,Unsanitary Conditions,2012-09-14 00:00:00,2012-11-02 00:00:00,"Unsanitary conditions, not specified"
+223474,286232,Unsanitary Conditions,2012-09-14 00:00:00,2012-11-02 00:00:00,"Unsanitary conditions, not specified"
+223475,286232,Unsanitary Conditions,2012-09-14 00:00:00,2012-11-02 00:00:00,"Unsanitary conditions, not specified"
+223476,286232,Unsanitary Conditions,2012-09-14 00:00:00,2012-11-02 00:00:00,"Unsanitary conditions, not specified"
+223477,286232,Animals and Pests,2012-09-14 00:00:00,2012-11-02 00:00:00,"Insects, not specified"
+223497,286264,Animals and Pests,2012-09-26 00:00:00,2012-10-02 00:00:00,"Animals, Prohibited number"
+223624,286477,Vegetation,2012-09-27 00:00:00,,Overgrown Vegetation
+223651,286490,Animals and Pests,2012-09-27 00:00:00,2012-10-10 00:00:00,Standing Water
+223666,286509,Animals and Pests,2012-09-26 00:00:00,2012-11-09 00:00:00,"Animals and Pests, not specified"
+223701,286547,Garbage and Refuse,2012-09-24 00:00:00,2012-09-27 00:00:00,Refuse Accumulation
+223717,286568,Animals and Pests,2012-09-24 00:00:00,2012-10-11 00:00:00,"Rodents, not specified"
+224230,287446,Building Conditions,2012-10-09 00:00:00,2012-10-16 00:00:00,Inadequate Pest Exclusion
+224239,287492,Unsanitary Conditions,2012-10-04 00:00:00,2013-03-22 00:00:00,"Unsanitary conditions, not specified"
+225308,289023,Animals and Pests,2012-10-18 00:00:00,2012-11-07 00:00:00,Bed Bugs
+225347,289096,Building Conditions,2012-10-17 00:00:00,,Inadequate Pest Exclusion
+226231,290414,Building Conditions,2012-10-17 00:00:00,2012-11-08 00:00:00,Inadequate or Improper Kitchen Facilities
+226235,290415,Animals and Pests,2012-10-17 00:00:00,2013-01-11 00:00:00,Cockroaches
+226236,290415,Animals and Pests,2012-10-17 00:00:00,2013-01-11 00:00:00,Mice
+228150,292633,Unsanitary Conditions,2012-11-14 00:00:00,,Unsanitary Floors or Walls
+228153,292660,Unsanitary Conditions,2012-11-14 00:00:00,,Unsanitary Floors or Walls
+228154,292660,Garbage and Refuse,2012-11-14 00:00:00,,Refuse Accumulation
+228157,292692,Garbage and Refuse,2012-11-26 00:00:00,2013-01-09 00:00:00,Refuse Accumulation
+223939,286997,Unsanitary Conditions,2012-09-25 00:00:00,2012-10-11 00:00:00,"Unsanitary conditions, not specified"
+223951,287025,Biohazards,2012-09-28 00:00:00,2012-11-14 00:00:00,Human Feces
+223959,287049,Animals and Pests,2012-08-27 00:00:00,2012-10-02 00:00:00,Animal Feces
+223961,287053,Garbage and Refuse,2012-10-02 00:00:00,2012-10-29 00:00:00,Refuse Accumulation
+223962,287053,Animals and Pests,2012-10-02 00:00:00,2012-10-29 00:00:00,Animal Feces
+223963,287053,Animals and Pests,2012-10-02 00:00:00,2012-10-29 00:00:00,"Insects, not specified"
+223977,287063,Animals and Pests,2012-10-02 00:00:00,2012-10-23 00:00:00,"Rodents, not specified"
+223765,286702,Garbage and Refuse,2012-09-28 00:00:00,2012-10-05 00:00:00,Refuse Accumulation
+223799,286787,Building Conditions,2012-09-19 00:00:00,2012-10-05 00:00:00,Mold or Mildew
+223802,286791,Unsanitary Conditions,2012-09-19 00:00:00,2012-10-23 00:00:00,"Unsanitary conditions, not specified"
+223803,286791,Unsanitary Conditions,2012-09-19 00:00:00,2012-10-23 00:00:00,"Unsanitary conditions, not specified"
+223804,286791,Building Conditions,2012-09-19 00:00:00,2012-10-23 00:00:00,Mold or Mildew
+223807,286793,Unsanitary Conditions,2012-09-19 00:00:00,2012-10-23 00:00:00,"Unsanitary conditions, not specified"
+223808,286793,Unsanitary Conditions,2012-09-19 00:00:00,2012-10-23 00:00:00,"Unsanitary conditions, not specified"
+223809,286793,Unsanitary Conditions,2012-09-19 00:00:00,2012-10-23 00:00:00,"Unsanitary conditions, not specified"
+223813,286799,Animals and Pests,2012-09-19 00:00:00,2012-09-19 00:00:00,"Animals and Pests, not specified"
+223814,286803,Unsanitary Conditions,2012-09-19 00:00:00,2013-03-22 00:00:00,"Unsanitary conditions, not specified"
+223815,286804,Unsanitary Conditions,2012-09-19 00:00:00,2013-03-22 00:00:00,"Unsanitary conditions, not specified"
+223816,286807,Unsanitary Conditions,2012-09-20 00:00:00,,"Unsanitary conditions, not specified"
+223817,286807,Building Conditions,2012-09-20 00:00:00,,Mold or Mildew
+223818,286807,Unsanitary Conditions,2012-09-20 00:00:00,,"Unsanitary conditions, not specified"
+223819,286807,Unsanitary Conditions,2012-09-20 00:00:00,,"Unsanitary conditions, not specified"
+223820,286807,Unsanitary Conditions,2012-09-20 00:00:00,,"Unsanitary conditions, not specified"
+223821,286808,Unsanitary Conditions,2012-09-20 00:00:00,2012-10-11 00:00:00,"Unsanitary conditions, not specified"
+224124,287163,Garbage and Refuse,2012-10-03 00:00:00,2012-10-12 00:00:00,Refuse Accumulation
+224129,287210,Garbage and Refuse,2012-10-03 00:00:00,2012-10-15 00:00:00,Refuse Accumulation
+224130,287212,Animals and Pests,2012-10-03 00:00:00,2012-10-11 00:00:00,"Rodents, not specified"
+224183,287243,Animals and Pests,2012-10-03 00:00:00,2012-12-04 00:00:00,"Rodents, not specified"
+225007,288626,Unsanitary Conditions,2012-09-20 00:00:00,2012-09-26 00:00:00,"Unsanitary conditions, not specified"
+225040,288655,Unsanitary Conditions,2012-10-03 00:00:00,2012-10-16 00:00:00,"Unsanitary conditions, not specified"
+224381,287743,Building Conditions,2012-08-28 00:00:00,2012-11-07 00:00:00,Inadequate Pest Exclusion
+224401,287808,Animals and Pests,2012-10-09 00:00:00,2012-10-26 00:00:00,Animal Feces
+224402,287808,Animals and Pests,2012-10-09 00:00:00,2012-10-26 00:00:00,Dogs
+225773,289755,Animals and Pests,2012-10-25 00:00:00,,Mice
+225774,289755,Animals and Pests,2012-10-25 00:00:00,,Standing Water
+225775,289755,Garbage and Refuse,2012-10-25 00:00:00,,Refuse Accumulation
+225776,289756,Vegetation,2012-10-25 00:00:00,2012-10-30 00:00:00,Overgrown Vegetation
+225821,289830,Garbage and Refuse,2012-10-25 00:00:00,2012-12-12 00:00:00,Refuse Accumulation
+225836,289849,Unsanitary Conditions,2012-10-25 00:00:00,2012-10-31 00:00:00,"Unsanitary conditions, not specified"
+225879,289908,Building Conditions,2012-10-17 00:00:00,2012-11-08 00:00:00,"Damaged or defective walls, floors or ceilings"
+225880,289908,Unsanitary Conditions,2012-10-17 00:00:00,2012-11-08 00:00:00,Unsanitary Floors or Walls
+225905,289962,Vegetation,2012-10-26 00:00:00,2013-01-07 00:00:00,Overgrown Vegetation
+224854,288325,Animals and Pests,2012-10-15 00:00:00,2012-10-15 00:00:00,Mosquitos
+225101,288775,Building Conditions,2012-10-02 00:00:00,,"Damaged or defective walls, floors or ceilings"
+226068,290124,Unsanitary Conditions,2012-10-26 00:00:00,2012-12-04 00:00:00,"Unsanitary conditions, not specified"
+225457,289258,Vegetation,2012-10-19 00:00:00,2012-11-30 00:00:00,Overgrown Vegetation
+225546,289358,Animals and Pests,2012-10-22 00:00:00,2012-11-14 00:00:00,"Animals and Pests, not specified"
+225581,289425,Animals and Pests,2012-10-18 00:00:00,,"Rodents, not specified"
+225600,289473,Animals and Pests,2012-10-22 00:00:00,,Mice
+226016,290070,Animals and Pests,2012-10-23 00:00:00,2013-01-18 00:00:00,Cockroaches
+226017,290070,Building Conditions,2012-10-23 00:00:00,2013-01-18 00:00:00,"Damaged or defective walls, floors or ceilings"
+226018,290070,Building Conditions,2012-10-23 00:00:00,2013-01-18 00:00:00,Non-functioning Smoke Detector
+226249,290435,Building Conditions,2012-10-17 00:00:00,2013-01-03 00:00:00,"Damaged or defective walls, floors or ceilings"
+226250,290442,Animals and Pests,2012-10-24 00:00:00,,Mice
+226251,290443,Building Conditions,2012-10-24 00:00:00,2012-11-08 00:00:00,Building Dampness or Water Intrusion
+229279,294140,Animals and Pests,2012-12-13 00:00:00,2013-01-09 00:00:00,"Rodents, not specified"
+227068,291386,Animals and Pests,2012-11-13 00:00:00,2012-11-19 00:00:00,"Rodents, not specified"
+227083,291420,Animals and Pests,2012-11-13 00:00:00,2012-12-07 00:00:00,Cockroaches
+227104,291474,Unsanitary Conditions,2012-11-08 00:00:00,2012-12-03 00:00:00,"Unsanitary conditions, not specified"
+227152,291525,Building Conditions,2012-11-14 00:00:00,,Barrier to Emergency Ingress or Egress
+227153,291525,Building Conditions,2012-11-14 00:00:00,,Inoperable Windows
+227164,291531,Chemical Hazards,2012-11-14 00:00:00,2013-01-16 00:00:00,Lead Hazard
+227168,291531,Unsanitary Conditions,2012-11-14 00:00:00,2013-01-16 00:00:00,"Unsanitary conditions, not specified"
+229130,293964,Animals and Pests,2012-11-05 00:00:00,2012-12-11 00:00:00,Animal Feces
+229131,293964,Animals and Pests,2012-11-05 00:00:00,2012-12-11 00:00:00,Mice
+229132,293964,Animals and Pests,2012-11-05 00:00:00,2012-12-11 00:00:00,Rats
+229133,293964,Building Conditions,2012-11-05 00:00:00,2012-12-11 00:00:00,Mold or Mildew
+229134,293964,Garbage and Refuse,2012-11-05 00:00:00,2012-12-11 00:00:00,Refuse Not Properly Stored
+229174,294027,Garbage and Refuse,2012-12-12 00:00:00,2013-12-23 00:00:00,Refuse Accumulation
+228273,292847,Building Conditions,2012-11-30 00:00:00,2012-12-17 00:00:00,Mold or Mildew
+228348,292970,Building Conditions,2012-11-27 00:00:00,2012-12-06 00:00:00,Inadequate Pest Exclusion
+228349,292975,Vegetation,2012-11-30 00:00:00,2012-12-18 00:00:00,Overgrown Vegetation
+228391,293176,Vegetation,2012-08-14 00:00:00,2012-08-28 00:00:00,Overgrown Vegetation
+226297,290479,Building Conditions,2012-10-23 00:00:00,,Mold or Mildew
+226332,290518,Animals and Pests,2012-11-01 00:00:00,,Pidgeons
+226345,290556,Unsanitary Conditions,2012-11-01 00:00:00,,Unsanitary Public Areas
+226346,290557,Building Conditions,2012-11-01 00:00:00,2012-11-19 00:00:00,Barrier to Emergency Ingress or Egress
+226347,290557,Unsanitary Conditions,2012-11-01 00:00:00,2012-11-19 00:00:00,"Unsanitary conditions, not specified"
+226393,290588,Unsanitary Conditions,2012-10-31 00:00:00,2012-11-16 00:00:00,"Unsanitary conditions, not specified"
+226445,290669,Garbage and Refuse,2012-11-02 00:00:00,2012-11-09 00:00:00,Refuse Accumulation
+226446,290669,Garbage and Refuse,2012-11-02 00:00:00,2012-11-09 00:00:00,Refuse Not Properly Stored
+226532,290798,Animals and Pests,2012-11-05 00:00:00,2012-12-17 00:00:00,Flies
+226776,290975,Animals and Pests,2012-11-07 00:00:00,2013-01-08 00:00:00,Bed Bugs
+226863,291066,Vegetation,2012-11-07 00:00:00,2012-12-19 00:00:00,Overgrown Vegetation
+226975,291231,Unsanitary Conditions,2012-11-07 00:00:00,2012-11-28 00:00:00,"Unsanitary conditions, not specified"
+227017,291267,Building Conditions,2012-11-07 00:00:00,2012-12-10 00:00:00,Inadequate Pest Exclusion
+227018,291270,Unsanitary Conditions,2012-11-07 00:00:00,2012-11-26 00:00:00,Unsanitary Public Areas
+227019,291271,Unsanitary Conditions,2012-11-07 00:00:00,2012-11-28 00:00:00,"Unsanitary conditions, not specified"
+227020,291278,Building Conditions,2012-11-02 00:00:00,2012-11-20 00:00:00,Mold or Mildew
+227021,291289,Building Conditions,2012-11-09 00:00:00,,Mold or Mildew
+227022,291290,Building Conditions,2012-11-09 00:00:00,,Mold or Mildew
+227274,291681,Building Conditions,2012-11-14 00:00:00,,Inadequate Pest Exclusion
+227611,292075,Animals and Pests,2012-11-20 00:00:00,2012-11-29 00:00:00,Animal Feces
+227612,292075,Animals and Pests,2012-11-20 00:00:00,2012-11-29 00:00:00,Animal Urine
+227677,292135,Garbage and Refuse,2012-11-21 00:00:00,2012-12-10 00:00:00,Refuse Not Properly Stored
+227988,292448,Garbage and Refuse,2012-11-27 00:00:00,2013-01-14 00:00:00,Refuse Accumulation
+228003,292465,Animals and Pests,2012-11-28 00:00:00,2013-02-27 00:00:00,Bed Bugs
+228027,292492,Building Conditions,2012-11-26 00:00:00,2012-12-19 00:00:00,Non-functioning Smoke Detector
+228028,292492,Garbage and Refuse,2012-11-26 00:00:00,2012-12-19 00:00:00,Refuse Accumulation
+228404,293194,Vegetation,2012-12-05 00:00:00,,Overgrown Vegetation
+228436,293215,Vegetation,2012-12-05 00:00:00,,Overgrown Vegetation
+228437,293219,Animals and Pests,2012-09-26 00:00:00,2012-11-13 00:00:00,Mice
+228457,293239,Garbage and Refuse,2012-12-05 00:00:00,2012-12-13 00:00:00,Refuse Not Properly Stored
+228466,293261,Garbage and Refuse,2012-11-21 00:00:00,,Refuse Accumulation
+228480,293290,Chemical Hazards,2012-12-06 00:00:00,,Lead Hazard
+228520,293337,Building Conditions,2012-11-19 00:00:00,2013-01-28 00:00:00,"Damaged or defective walls, floors or ceilings"
+228113,292568,Unsanitary Conditions,2012-11-13 00:00:00,,Unsanitary Floors or Walls
+228117,292568,Building Conditions,2012-11-13 00:00:00,,Non-functioning Smoke Detector
+228610,293407,Animals and Pests,2012-12-04 00:00:00,2012-12-20 00:00:00,Rats
+228672,293460,Animals and Pests,2012-11-20 00:00:00,,Cockroaches
+228684,293473,Building Conditions,2012-12-07 00:00:00,2012-12-17 00:00:00,Mold or Mildew
+229835,294771,Animals and Pests,2012-12-19 00:00:00,,Mice
+229836,294772,Animals and Pests,2012-12-19 00:00:00,,Rats
+229903,294827,Animals and Pests,2012-12-20 00:00:00,2012-12-27 00:00:00,Animal Feces
+230162,295258,Animals and Pests,2012-12-28 00:00:00,,Bed Bugs
+229948,294926,Building Conditions,2012-07-25 00:00:00,,Building Dampness or Water Intrusion
+229949,294926,Building Conditions,2012-07-25 00:00:00,,"Damaged or defective walls, floors or ceilings"
+229950,294926,Building Conditions,2012-07-25 00:00:00,,Inadequate Heating
+229951,294926,Building Conditions,2012-07-25 00:00:00,,Inadequate Lighting
+229952,294926,Building Conditions,2012-07-25 00:00:00,,Inoperable Windows
+229953,294926,Building Conditions,2012-07-25 00:00:00,,Mold or Mildew
+229954,294926,Garbage and Refuse,2012-07-25 00:00:00,,Improper Refuse Storage
+229955,294926,Garbage and Refuse,2012-07-25 00:00:00,,Refuse Accumulation
+229996,294957,Animals and Pests,2012-12-21 00:00:00,2012-12-21 00:00:00,Animal Feces
+229997,294957,Garbage and Refuse,2012-12-21 00:00:00,2012-12-21 00:00:00,Refuse Accumulation
+230007,294979,Garbage and Refuse,2012-11-29 00:00:00,2012-12-11 00:00:00,Refuse Not Properly Stored
+230008,294979,Garbage and Refuse,2012-11-29 00:00:00,2012-12-11 00:00:00,Refuse Not Properly Stored
+230026,295046,Animals and Pests,2012-12-24 00:00:00,,Rats
+230027,295047,Animals and Pests,2012-12-24 00:00:00,,Mice
+230050,295087,Animals and Pests,2012-12-26 00:00:00,,Mice
+228909,293763,Unsanitary Conditions,2012-12-10 00:00:00,2012-12-10 00:00:00,"Unsanitary conditions, not specified"
+228910,293763,Biohazards,2012-12-10 00:00:00,2012-12-10 00:00:00,Human Urine
+228911,293763,Unsanitary Conditions,2012-12-10 00:00:00,2012-12-10 00:00:00,"Unsanitary conditions, not specified"
+228912,293763,Biohazards,2012-12-10 00:00:00,2012-12-10 00:00:00,Human Feces
+228913,293763,Biohazards,2012-12-10 00:00:00,2012-12-10 00:00:00,Sewage Hazard
+228914,293763,Unsanitary Conditions,2012-12-10 00:00:00,2012-12-10 00:00:00,"Unsanitary conditions, not specified"
+229347,294214,Animals and Pests,2012-12-12 00:00:00,,Standing Water
+229348,294214,Garbage and Refuse,2012-12-12 00:00:00,,Refuse Accumulation
+229356,294229,Animals and Pests,2012-12-12 00:00:00,,Bed Bugs
+229431,294353,Biohazards,2012-12-17 00:00:00,,Sewage Hazard
+229487,294396,Air Pollutants and Odors,2012-12-05 00:00:00,,Nuisance Odors
+229488,294396,Animals and Pests,2012-12-05 00:00:00,,Mice
+229489,294396,Building Conditions,2012-12-05 00:00:00,,"Damaged or defective walls, floors or ceilings"
+229490,294396,Garbage and Refuse,2012-12-05 00:00:00,,Refuse Accumulation
+229491,294396,Unsanitary Conditions,2012-12-05 00:00:00,,Unsanitary Floors or Walls
+229496,294396,Animals and Pests,2012-12-05 00:00:00,,Cockroaches
+229638,294505,Animals and Pests,2012-12-11 00:00:00,2013-02-26 00:00:00,Bed Bugs
+229667,294566,Building Conditions,2012-12-18 00:00:00,,Mold or Mildew
+229670,294568,Biohazards,2012-12-18 00:00:00,2013-01-28 00:00:00,Human Feces
+229677,294575,Garbage and Refuse,2012-12-12 00:00:00,2013-03-01 00:00:00,Refuse Accumulation
+229817,294758,Animals and Pests,2012-12-18 00:00:00,,Rats
+230394,295549,Air Pollutants and Odors,2012-12-19 00:00:00,2013-01-16 00:00:00,Nuisance Odors
+230395,295549,Animals and Pests,2012-12-19 00:00:00,2013-01-16 00:00:00,Bed Bugs
+230396,295549,Animals and Pests,2012-12-19 00:00:00,2013-01-16 00:00:00,Flies
+230397,295549,Building Conditions,2012-12-19 00:00:00,2013-01-16 00:00:00,Inadequate Pest Exclusion
+230398,295549,Building Conditions,2012-12-19 00:00:00,2013-01-16 00:00:00,Inadequate Ventilation
+230399,295549,Building Conditions,2012-12-19 00:00:00,2013-01-16 00:00:00,Mold or Mildew
+230400,295549,Building Conditions,2012-12-19 00:00:00,2013-01-16 00:00:00,Non-functioning Smoke Detector
+230401,295549,Garbage and Refuse,2012-12-19 00:00:00,2013-03-07 00:00:00,Refuse Accumulation
+230402,295549,Unsanitary Conditions,2012-12-19 00:00:00,2013-01-16 00:00:00,Unsanitary Floors or Walls
+230403,295549,Unsanitary Conditions,2012-12-19 00:00:00,2013-01-16 00:00:00,Unsanitary Toilets or Bathrooms
+230404,295549,Animals and Pests,2012-12-19 00:00:00,2013-01-16 00:00:00,Cockroaches
+230524,295677,Animals and Pests,2012-12-20 00:00:00,2013-01-23 00:00:00,Mice
+230525,295677,Retail Food,2012-12-20 00:00:00,2013-01-23 00:00:00,Moderate risk food holding temperature
+230543,295705,Building Conditions,2012-12-26 00:00:00,2013-01-31 00:00:00,No or inadequate hot or cold water
+230544,295705,Building Conditions,2012-12-26 00:00:00,2013-01-31 00:00:00,Non-functioning Smoke Detector
+232528,298128,Animals and Pests,2012-11-01 00:00:00,2012-11-15 00:00:00,Cockroaches
