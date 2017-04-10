@@ -13,30 +13,19 @@ Goals
 
 By the end of this lesson, you will know/be able to:
 
-*   Have an understanding of what client side build tools are
-*   Have a basic understanding of what Webpack is and what it does for us
-
-Code Along - Setting Up Webpack
------------------
-
-We were provided a really cool and helpful [starter-kit for webpack](https://github.com/turingschool-examples/game-time-starter-kit). What we'll do now is walk through actually rebuilding a version of that starter kit, so we can understand the tool!
-
-If you get stuck at any point, go back and reference the [starter-kit for webpack](https://github.com/turingschool-examples/game-time-starter-kit) for hints!
+*   Understand of what client side build tools are
+*   Understand what Webpack is and what it does for us
 
 Install Some Command Line Tools
 --------------
 
-Let's install some command line tools.
-We'll also use local versions of these packages,
-but the in order to use global commands, we'll need to install them globally as well.
+Before we get started, let's install some command line tools. We'll also use local versions of these packages, but the in order to use global commands, we'll need to install them globally as well.
 
 ```
 npm install -g webpack webpack-dev-server mocha
 ```
 
-This will install [Webpack](http://webpack.github.io/) and [Mocha](https://mochajs.org/)
-command line tools globally -- hence the `-g` flag --
-on your file system.
+This will install [Webpack](http://webpack.github.io/) and [Mocha](https://mochajs.org/) command line tools globally -- hence the `-g` flag -- on your file system.
 
 You'll be able to run these tools with the `webpack`, `webpack-dev-server`, and `mocha` command respectively.
 
@@ -53,8 +42,7 @@ git init
 Setting Up npm
 -----
 
-At this point, we have a very simple project. Basically, we have a folder.
-Let's initialize `npm` and then install some dependencies.
+At this point, we have a very simple project. Basically, we have a folder. Let's initialize `npm` and then install some dependencies.
 
 First, create your project with:
 
@@ -62,8 +50,7 @@ First, create your project with:
 npm init
 ```
 
-You'll be guided through a command-line setup "wizard", prompting
-you for some info on your project such as its:
+You'll be guided through a command-line setup "wizard", prompting you for some info on your project such as its:
 
 *   Name
 *   Author
@@ -71,8 +58,7 @@ you for some info on your project such as its:
 *   Description
 *   License, etc.
 
-For most of these items you can use the default option
-by pressing `Enter`.
+For most of these items you can use the default option by pressing `Enter`.
 
 Finally, install our libary dependencies with `npm install`:
 
@@ -95,10 +81,8 @@ We installed a few development dependencies:
 *   Git problems caused by versioning dependencies or other frequently
   changing files
 
-For these reasons, it's often helpful to start with
-a `.gitignore` file which includes "sane defaults" for NPM projects.
-One example is provided on github, and we can easily include
-it in our newly created project by pulling the file down with
+For these reasons, it's often helpful to start with a `.gitignore` file which includes "sane defaults" for NPM projects.
+One example is provided on github, and we can easily include it in our newly created project by pulling the file down with
 `curl`:
 
 ```
@@ -153,18 +137,13 @@ Setting Up Our HTML
 
 __Discussion: Application Entry Points__
 
-*   What is needed to trigger an application to "run" in its
-most standard configuration?
-*   How do we run a rails project? Its test suite?
-*   System executables vs. Code files
-*   What is the "executable" for a browser-based app?
+*   What is needed to trigger an application to "run" in its most standard configuration?
+*   How do we run a rails project? It's test suite?
 
-You'll want an HTML page that loads up each of your bundles
-in the browser.
+You'll want an HTML page that loads up each of your bundles in the browser.
 
-We'll create two HTML files: `touch index.html test.html`
-These will provide entry points to our application and test suite,
-respectively
+We'll create two HTML files: `touch index.html test.html` 
+These will provide entry points to our application and test suite, respectively
 
 Below is an example of the basic structure you can use:
 
@@ -189,16 +168,11 @@ The important part is the third line from the bottom:
 <script src="main.bundle.js"></script>
 ```
 
-This is the line that loads up your bundle. Notice that we only have to load a single
-JS file. This is one of the major benefits of Webpack (or another frontend build tool)
--- it will package all of our JS files and their dependencies into a single bundle that we can
-load.
+This is the line that loads up your bundle. Notice that we only have to load a single JS file. This is one of the major benefits of Webpack (or another frontend build tool) -- it will package all of our JS files and their dependencies into a single bundle that we can load.
 
-Since the `index.html` file is the entry point for our application, we're loading
-in the "main" bundle.
+Since the `index.html` file is the entry point for our application, we're loading in the "main" bundle.
 
-For our `test.html` file, we'll have almost the same thing, except
-we'll load in the test bundle:
+For our `test.html` file, we'll have almost the same thing, except we'll load in the test bundle:
 
 __test.html__
 
@@ -215,16 +189,19 @@ __test.html__
 </html>
 ```
 
-Note that these pages won't work yet, since the bundles themselves
-have not yet been built.
+Note that these pages won't work yet, since the bundles themselves have not yet been built.
 
 Setting Up Webpack
 ----------------
 
-[Webpack](https://webpack.github.io/) is a module bundler.
-Think of it as the Asset Pipeline, but _way_ better and without Rails.
+[Webpack](https://webpack.github.io/) is a module bundler. Think of it as the Asset Pipeline, but _way_ better and without Rails.
 
-We installed it earlier, but let's add a configuration file:
+If you remember, in Quantified Self, your `html` code may have looked like this:
+
+![Imgur](http://i.imgur.com/Fr5xoLk.png)
+
+
+We installed Webpack it earlier, but let's add a configuration file:
 
 ```
 touch webpack.config.js
@@ -247,13 +224,9 @@ module.exports = {
 }
 ```
 
-In the above configuration, we're telling Webpack that we'd like it
-to build two different bundles: our main application and our test suite
-(these are the 2 distinct bundles we referenced from our 2 entry point
-html files).
+In the above configuration, we're telling Webpack that we'd like it to build two different bundles: our main application and our test suite (these are the 2 distinct bundles we referenced from our 2 entry point `html` files).
 
-We can build the files once with `webpack` or we can set up a
-development server that will reload our changes with `webpack-dev-server`.
+We can build the files once with `webpack` or we can set up a development server that will reload our changes with `webpack-dev-server`.
 
 Let's fire up `webpack-dev-server` and head over to `http://localhost:8080/`.
 
@@ -274,17 +247,12 @@ describe('our test bundle', function () {
 
 Visit `http://localhost:8080/test.html` to confirm that it works.
 
-__Note:__ You can require additional test files by using `require('other-test-file')`.
-As your project becomes more complicated, you'll probably want to keep your
-actual tests broken up into separate files, and simply use `test/index.js` to
+__Note:__ You can require additional test files by using `require('other-test-file')`. As your project becomes more complicated, you'll probably want to keep your actual tests broken up into separate files, and simply use `test/index.js` to
 pull them all together.
 
 **Keep in mind:**
 
-*   Requiring files is path-relative to the file you are requiring _from_
-(i.e. if you want to require a file in your project root into `lib/index.js`,
-you'll need to step up one directory level to access it)
-
+*   Requiring files is path-relative to the file you are requiring _from_ (i.e. if you want to require a file in your project root into `lib/index.js`, you'll need to step up one directory level to access it)
 
 __Your Turn -- additional test files__
 
@@ -298,13 +266,10 @@ names so we can tell them apart.
 
 ### A Quick Word on Testing Environments
 
-You have two ways of running JavaScript: the browser and Node.js.
-Most of the time, they're pretty much the same. Node uses Chrome's V8 JavaScript engine,
-so the javascript runtime you're getting with Node is actually the same one as you
+You have two ways of running JavaScript: the browser and Node.js. Most of the time, they're pretty much the same. Node uses Chrome's V8 JavaScript engine, so the javascript runtime you're getting with Node is actually the same one as you
 get with Chrome.
 
-However, one major difference is that your browser, being designed for working with
-webpages, knows about the DOM, while Node.js does not (because it's not a web browser).
+However, one major difference is that your browser, being designed for working with webpages, knows about the DOM, while Node.js does not (because it's not a web browser).
 
 You can run `mocha` to run your test suite on the command line, but any tests that involve the DOM will not work from the command line. For those, you'll have to run them in your browser or use something like [Phantom.js][] to run them from the command line.
 
@@ -350,8 +315,7 @@ module.exports = {
 }
 ```
 
-We can now require a CSS file with `require('style.css')` or a
-SCSS files with `require('style.scss')`.
+We can now require a CSS file with `require('style.css')` or a SCSS files with `require('style.scss')`.
 
 __Your Turn: Using SCSS__
 
