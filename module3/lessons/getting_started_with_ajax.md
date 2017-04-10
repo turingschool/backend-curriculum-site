@@ -196,7 +196,7 @@ $(document).ready(function(){
    ```
    $(find posts div).html('')   
    ``` 
-or maybe 
+  or maybe 
    ```
    $(find your thing to clear).val('')
    ```
