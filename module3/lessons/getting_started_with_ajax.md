@@ -79,7 +79,23 @@ In the browser, if we open up the dev tools, navigate to the console and try to 
 
 *NOTE - The console must be open for debugger to catch, otherwise the app will look normal and you won't get any error messages - if you get stuck, refresh your page while the console is open and go from there.*
 
-For more details and information about other ways to dig into your js, check out the [Chrome Documentation](https://developer.chrome.com/devtools/docs/javascript-debugging).
+For more details and information about other ways to dig into your js, check out the [Chrome Documentation](https://developer.chrome.com/devtools/docs/javascript-debugging).  
+
+## Functions  
+
+There are multiple types of functions in JavaScript. In ES5(aka Vanilla JS) there are function expressions and function declarations.  
+function expression (where an anonymous function is saved to a variable, can only be called after it is set to a variable)
+```
+var myFunction = function(param) {
+  do a thing with the param;
+};
+```  
+function declaration (a function with a name, can be called form anywhere)  
+```
+function myFunction(param) {
+  do a thing with the param;
+};
+```
 
 #### Why AJAX?
 
@@ -171,20 +187,23 @@ $(document).ready(function(){
   })
   ```
 * Manage what you want to happen if the request is successful and if it fails  
+  ```
+  .done().fail();
+  ```
 * Clear currently listed posts  
-```
- $(find posts div).html('')
-``` 
+   ```
+   $(find posts div).html('')   
+   ``` 
 or maybe 
-```
-$(find your thing to clear).val('')
-```
+   ```
+   $(find your thing to clear).val('')
+   ```
 * Reprint all posts to the page    
-```
-for (var i = 0; i < data.length; i++) {
-  $('#latest-posts').append('<p class="post">' + data[i].description + '</p>');
-}
-```
+   ```
+   for (var i = 0; i < data.length; i++) {
+     $('#latest-posts').append('<p class="post">' + data[i].description + '</p>');
+   }
+   ```
 ### AJAX - `GET` SHOW Workshop
 
 On your own, try getting a post by ID.  
