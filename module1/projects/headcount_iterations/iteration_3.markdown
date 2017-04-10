@@ -7,7 +7,7 @@
 The `StatewideTestRepository` is responsible for holding and searching our `StatewideTest`
 instances. It offers the following methods:
 
-* `find_by_name` - returns either `nil` or an instance of `StatewideTest` having done a *case insensitive* search
+* `#find_by_name` - returns either `nil` or an instance of `StatewideTest` having done a *case insensitive* search
 
 The `StatewideTest` instances are built using these data files:
 
@@ -38,7 +38,7 @@ str = str.find_by_name("ACADEMY 20")
 
 An instance of this class contains *all* the data from the files above for a single district and offers the following methods:
 
-### `.proficient_by_grade(grade)`
+### `#proficient_by_grade(grade)`
 
 This method takes one parameter:
 
@@ -62,7 +62,7 @@ statewide_test.proficient_by_grade(3)
    }
 ```
 
-### `.proficient_by_race_or_ethnicity(race)`
+### `#proficient_by_race_or_ethnicity(race)`
 
 This method takes one parameter:
 
@@ -84,7 +84,7 @@ statewide_test.proficient_by_race_or_ethnicity(:asian)
    }
 ```
 
-### `.proficient_for_subject_by_grade_in_year(subject, grade, year)`
+### `#proficient_for_subject_by_grade_in_year(subject, grade, year)`
 
 This method takes three parameters:
 
@@ -102,7 +102,7 @@ The method returns a truncated three-digit floating point number representing a 
 statewide_test.proficient_for_subject_by_grade_in_year(:math, 3, 2008) # => 0.857
 ```
 
-### `.proficient_for_subject_by_race_in_year(subject, race, year)`
+### `#proficient_for_subject_by_race_in_year(subject, race, year)`
 
 This method take three parameters:
 

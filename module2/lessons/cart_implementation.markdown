@@ -505,7 +505,7 @@ Let's say that you wanted users to be able to click on "View Backpack" (similar 
 What about allowing users to save their backpack items as a package? You might approach it something like this:
 
 ```erb
-  Backpack: <%= @backpack.total %>
+  Backpack: <%= @backpack.total_count %>
   <%= button_to "Save Package", packages_path %>
 ```
 

@@ -22,7 +22,7 @@ enrollment = er.find_by_name("ACADEMY 20")
 
 Then on that `Enrollment` instance let's add the following data access methods:
 
-### `.graduation_rate_by_year`
+### `#graduation_rate_by_year`
 
 This method returns a hash with years as keys and a truncated three-digit floating point number representing a percentage.
 
@@ -38,7 +38,7 @@ enrollment.graduation_rate_by_year
      }
 ```
 
-### `.graduation_rate_in_year(year)`
+### `#graduation_rate_in_year(year)`
 
 This method takes one parameter:
 
@@ -74,7 +74,7 @@ If this result is close to `1`, then we'd infer that the *kindergarten variation
 
 ### Does Kindergarten participation predict high school graduation?
 
-Let's consider the `kindergarten_participation_against_high_school_graduation` and set a correlation window between `0.6` and `1.5`. If the result is in that range then we'll say that they are correlated. For a single district:
+Let's consider the `#kindergarten_participation_against_high_school_graduation` and set a correlation window between `0.6` and `1.5`. If the result is in that range then we'll say that they are correlated. For a single district:
 
 ```ruby
 ha.kindergarten_participation_correlates_with_high_school_graduation(for: 'ACADEMY 20')

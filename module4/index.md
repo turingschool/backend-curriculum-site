@@ -75,11 +75,11 @@ The next three weeks will be spent working on your [capstone projects](capstone_
 *   [Caching](./lessons/caching_data)
 *   [JS Build Tools](./lessons/javascript-build-tools)
 *   [Webpack in Rails](./lessons/webpack-in-rails)
-*   [Enumerables in JavaScript](./lessons/array_prototype_methods)
 *   Job Search and Beyond
-*   Refactor Tractor
+*   [Refactor Tractor](./lessons/js_refactor_tractor)
 *   Technical Interview Challenge
 *   B4/F2 Algorithm Time
+*   [Enumerables in JavaScript](./lessons/array_prototype_methods)
 
 <h4 id="week_6">Week 6</h4>
 *   Let's Get SASSy

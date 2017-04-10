@@ -25,8 +25,8 @@ about enrollment by district.
 The `DistrictRepository` is responsible for holding and searching our `District`
 instances. It offers the following methods:
 
-*   `find_by_name` - returns either `nil` or an instance of `District` having done a *case insensitive* search
-*   `find_all_matching` - returns either `[]` or one or more matches which contain the supplied name fragment, *case insensitive*
+*   `#find_by_name` - returns either `nil` or an instance of `District` having done a *case insensitive* search
+*   `#find_all_matching` - returns either `[]` or one or more matches which contain the supplied name fragment, *case insensitive*
 
 There is no one data file that contains just the districts. The data must be extracted from one of the other files. Let's use `Kindergartners in full-day program.csv` so the instance is created and used like this:
 
@@ -45,7 +45,7 @@ district = dr.find_by_name("ACADEMY 20")
 
 The `District` is the key concept in our data hierarchy. It starts with just one method:
 
-* `name` - returns the upcased string name of the district
+* `#name` - returns the upcased string name of the district
 
 We create an instance like this:
 
@@ -58,7 +58,7 @@ d = District.new({:name => "ACADEMY 20"})
 The `EnrollmentRepository` is responsible for holding and searching our `Enrollment`
 instances. It offers the following methods:
 
-* `find_by_name` - returns either `nil` or an instance of `Enrollment` having done a *case insensitive* search
+* `#find_by_name` - returns either `nil` or an instance of `Enrollment` having done a *case insensitive* search
 
 For iteration 0, the instance of this object represents one line of data from the file `Kindergartners in full-day program.csv`. It's initialized and used like this:
 
@@ -83,7 +83,7 @@ e = Enrollment.new({:name => "ACADEMY 20", :kindergarten_participation => {2010 
 
 An instance of this class offers the following methods:
 
-#### `.kindergarten_participation_by_year`
+#### `#kindergarten_participation_by_year`
 
 This method returns a hash with years as keys and a truncated three-digit floating point number representing a percentage for all years present in the dataset.
 
@@ -97,7 +97,7 @@ enrollment.kindergarten_participation_by_year
    }
 ```
 
-#### `.kindergarten_participation_in_year(year)`
+#### `#kindergarten_participation_in_year(year)`
 
 This method takes one parameter:
 
