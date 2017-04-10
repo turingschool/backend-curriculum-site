@@ -71,7 +71,7 @@ The next three weeks will be spent working on your [capstone projects](capstone_
 *   Algorithm Time
 
 <h4 id="week_5">Week 5</h4>
-*   Basics of Security
+*   [Basics of Security](./lessons/web_application_security)
 *   [Caching](./lessons/caching_data)
 *   [JS Build Tools](./lessons/javascript-build-tools)
 *   Webpack in Rails
