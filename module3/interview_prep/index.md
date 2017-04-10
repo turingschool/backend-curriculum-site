@@ -13,7 +13,7 @@ title: Interview Prep Overview
 * Etiquette/Answering Tough Questions
 * Buzzwords
 * Mock Interviews for Specific Companies
-* Big O || Benchmarking
+* Big O OR Benchmarking
 
 # Resources
 
