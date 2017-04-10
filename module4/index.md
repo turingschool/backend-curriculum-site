@@ -74,7 +74,7 @@ The next three weeks will be spent working on your [capstone projects](capstone_
 *   [Basics of Security](./lessons/web_application_security)
 *   [Caching](./lessons/caching_data)
 *   [JS Build Tools](./lessons/javascript-build-tools)
-*   Webpack in Rails
+*   [Webpack in Rails](./lessons/webpack-in-rails)
 *   [Enumerables in JavaScript](./lessons/array_prototype_methods)
 *   Job Search and Beyond
 *   Refactor Tractor
