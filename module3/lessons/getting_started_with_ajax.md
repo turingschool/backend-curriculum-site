@@ -235,7 +235,7 @@ You know the drill - let's delete a post by ID. Feel free to discuss approach ag
 
 Where would you use AJAX as a tool within a Rails Context?  
 What are some use cases for AJAX vs a page refresh?  
-What are three keys you might include an AJAX Post request? 
+What are three keys you might include in an AJAX Post request? 
 
 ### Additional Resources
 
