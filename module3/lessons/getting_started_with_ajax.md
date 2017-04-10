@@ -84,13 +84,15 @@ For more details and information about other ways to dig into your js, check out
 
 There are multiple types of functions in JavaScript.  
 In ES5(aka Vanilla JS) there are function expressions and function declarations.  
-function expression (where an anonymous function is saved to a variable, can only be called after it is set to a variable)  
+function expression  
+(where an anonymous function is saved to a variable, can only be called after it is set to a variable)  
 ```
 var myFunction = function(param) {
   do a thing with the param;
 };
 ```  
-function declaration (a function with a name, can be called form anywhere)  
+function declaration  
+(a function with a name, can be called form anywhere)  
 ```
 function myFunction(param) {
   do a thing with the param;
