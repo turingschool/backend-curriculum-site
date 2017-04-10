@@ -200,6 +200,7 @@ If you remember, in Quantified Self, your `html` code may have looked like this:
 
 ![Imgur](http://i.imgur.com/Fr5xoLk.png)
 
+With a semi-simple application like Quantified Self, you may need to add script tags for each individual JavaScript or CSS file. Imagine what this would be like if we continued to add complexity to Quantified Self. This will most likely get messy - it already is looking pretty messy! Enter: Webpack.
 
 We installed Webpack it earlier, but let's add a configuration file:
 
