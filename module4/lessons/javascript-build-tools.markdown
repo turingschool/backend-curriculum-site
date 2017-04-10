@@ -263,27 +263,13 @@ pull them all together.
 __Your Turn -- additional test files__
 
 *   Create 2 additional test files in your `test` directory
-*   To each one, add a basic example test similar to the one we
-added to `test/index.js`. Make sure your tests have different
-names so we can tell them apart.
+*   To each one, add a basic example test similar to the one we added to `test/index.js`. Make sure your tests have different names so we can tell them apart.
 *   Require your 2 new files from `index.js`
-*   Refresh your `test.html` file and make sure all 3 tests appear
-(the original one plus the 2 you added)
+*   Refresh your `test.html` file and make sure all 3 tests appear (the original one plus the 2 you added)
 
-### A Quick Word on Testing Environments
+__Your Turn -- additional JS files__
 
-You have two ways of running JavaScript: the browser and Node.js. Most of the time, they're pretty much the same. Node uses Chrome's V8 JavaScript engine, so the javascript runtime you're getting with Node is actually the same one as you
-get with Chrome.
-
-However, one major difference is that your browser, being designed for working with webpages, knows about the DOM, while Node.js does not (because it's not a web browser).
-
-You can run `mocha` to run your test suite on the command line, but any tests that involve the DOM will not work from the command line. For those, you'll have to run them in your browser or use something like [Phantom.js][] to run them from the command line.
-
-[Phantom.js]: http://phantomjs.org
-
-__Your Turn__
-
-*   Try running your tests from the command line using the `mocha` command
+* Create 2 additional JS files in your `lib` directory. See if you can get them to load using webpack (remember you'll need to require them)
 
 Additional Loaders
 --------------
@@ -314,14 +300,14 @@ module.exports = {
   },
   module: {
     loaders: [
-      { test: /\.css$/, loader: "style!css" },
-      { test: /\.scss$/, loader: "style!css!sass" }
+      { test: /\.css$/, loader: "style-loader!css-loader" },
+      { test: /\.scss$/, loader: "style-loader!css-loader!sass" }
     ]
   }
 }
 ```
 
-We can now require a CSS file with `require('style.css')` or a SCSS files with `require('style.scss')`.
+We can now require a CSS file with `require('my-file-name.css')` or a SCSS files with `require('my-file-name.scss')`.
 
 __Your Turn: Using SCSS__
 
@@ -349,12 +335,12 @@ module.exports = {
   },
   module: {
     loaders: [
-      { test: /\.css$/, loader: "style!css" },
-      { test: /\.scss$/, loader: "style!css!sass" }
+      { test: /\.css$/, loader: "style-loader!css-loader" },
+      { test: /\.scss$/, loader: "style-loader!css-loader!sass" }
     ]
   },
   resolve: {
-    extensions: ['', '.js', '.json', '.scss', 'css']
+    extensions: ['.js', '.json', '.scss', 'css']
   }
 }
 ```
@@ -386,12 +372,12 @@ module.exports = {
   module: {
     loaders: [
       { test: /\.js$/, exclude: '/node_modules/', loader: 'babel-loader' },
-      { test: /\.css$/, loader: "style!css" },
-      { test: /\.scss$/, loader: "style!css!sass" }
+      { test: /\.css$/, loader: "style-loader!css-loader" },
+      { test: /\.scss$/, loader: "style-loader!css-loader!sass" }
     ]
   },
   resolve: {
-    extensions: ['', '.js', '.json', '.scss', '.css']
+    extensions: ['.js', '.json', '.scss', 'css']
   }
 }
 ```
@@ -400,8 +386,6 @@ Notice that we exclude our `node_modules` folder. We want to process all files t
 
 __Your Turn__
 
-Practice using the ES6 `let` feature in one of your tests.
-Make sure it still runs. (Recall that `let` works similarly to `var`, but
-has stricter rules around where the new variable will be in scope).
+Practice using the ES6 `let` feature in one of your tests. Make sure it still runs. (Recall that `let` works similarly to `var`, but has stricter rules around where the new variable will be in scope).
 
 [Babel](http://babeljs.io)
