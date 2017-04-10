@@ -25,7 +25,7 @@ tags: gem, pagination, rails tools, rails, mailer, bootstrap, code climate, cont
 
 Reading more and more code allows you to practice comprehending things faster. The more you read code, particularly code you did not write, the better you will be at understanding code. Today we are going to practice reading code that others wrote, and reviewing that code. There are many good blog posts about what to look for when reviewing code, and other techniques and tactics to help.
 
-We are going to spend ~25 minutes on each persons code reviewing and refactoring things along the way. The goal for this session should be to better familiarize yourself with the new codebase and to practice reviewing code.
+We are going to spend ~15 minutes on each persons code reviewing and refactoring things along the way. The goal for this session should be to better familiarize yourself with the new codebase and to practice reviewing code. Imagine the app you're reading. 
 
 One blog post I like about reviewing code is [Kevin London's post: Code Review Best Practices](https://www.kevinlondon.com/2015/05/05/code-review-best-practices.html). Kevin lays our a nice and solid base for things to do and look for in code review sessions. Some particular things he points out that I would like you to keep in mind for this session are:
 

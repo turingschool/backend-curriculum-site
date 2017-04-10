@@ -9,7 +9,7 @@
 The `EconomicProfileRepository` is responsible for holding and searching our `EconomicProfile`
 instances. It offers the following methods:
 
-* `find_by_name` - returns either `nil` or an instance of `EconomicProfile` having done a *case insensitive* search
+* `#find_by_name` - returns either `nil` or an instance of `EconomicProfile` having done a *case insensitive* search
 
 The `EconomicProfile` instances are built using these data files:
 
@@ -51,7 +51,7 @@ economic_profile = EconomicProfile.new(data)
 
 And it would offer the following methods:
 
-### `.median_household_income_in_year(year)`
+### `#median_household_income_in_year(year)`
 
 This method takes one parameter:
 
@@ -73,7 +73,7 @@ economic_profile.median_household_income_in_year(2009)
 => 55000
 ```
 
-### `.median_household_income_average`
+### `#median_household_income_average`
 
 This method takes no parameters. It returns an integer averaging the known median household incomes.
 
@@ -86,7 +86,7 @@ economic_profile.median_household_income_average
 => 55000
 ```
 
-### `.children_in_poverty_in_year(year)`
+### `#children_in_poverty_in_year(year)`
 
 This method takes one parameter:
 
@@ -103,7 +103,7 @@ economic_profile.children_in_poverty_in_year(2012)
 => 0.184
 ```
 
-### `.free_or_reduced_price_lunch_percentage_in_year(year)`
+### `#free_or_reduced_price_lunch_percentage_in_year(year)`
 
 This method takes one parameter:
 
@@ -120,7 +120,7 @@ economic_profile.free_or_reduced_price_lunch_percentage_in_year(2014)
 => 0.023
 ```
 
-### `.free_or_reduced_price_lunch_number_in_year(year)`
+### `#free_or_reduced_price_lunch_number_in_year(year)`
 
 This method takes one parameter:
 
@@ -138,7 +138,7 @@ economic_profile.free_or_reduced_price_lunch_number_in_year(2014)
 => 100
 ```
 
-### `.title_i_in_year(year)`
+### `#title_i_in_year(year)`
 
 This method takes one parameter:
 
@@ -161,4 +161,4 @@ economic_profile.title_i_in_year(2015)
 
 We'll add another relationship:
 
-* `economic_profile` - returns an instance of `EconomicProfile`
+* `#economic_profile` - returns an instance of `EconomicProfile`
