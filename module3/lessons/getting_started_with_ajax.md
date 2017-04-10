@@ -97,7 +97,7 @@ function myFunction(param) {
 };
 ```
 
-#### Why AJAX?
+## Why AJAX?
 
 Currently, if you have updated information to display on your webpage, what do you do?  
 What are the pros/cons of this strategy?   
