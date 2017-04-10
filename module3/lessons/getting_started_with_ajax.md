@@ -124,6 +124,8 @@ git clone git@github.com:turingschool-examples/birdeck.git birdeck_client
 cd birdeck_client
 open index.html
 ```
+What do you see on the page in the browser? Check out the raw HTML in index.html to see how it correlates. What do you have in birdeck.js? What is $(document).ready(); and why do we use it? What is event.preventDefault(); doing? 
+
 
 ### AJAX - `GET` Index Code Along
 
@@ -131,8 +133,8 @@ open index.html
 
 ```
 GET http://localhost:3000/api/v1/posts
-```
-
+```  
+Back in our code:  
 ```js
 // birdeck_client/assets/javascripts/birdeck.js
 var API = 'http://localhost:3000';
@@ -147,7 +149,7 @@ $(document).ready(function(){
         $('#latest-posts').append('<p class="post">' + data[i].description + '</p>');
       }
     }).fail(function(error){
-      console.error(err);
+      console.error(error);
     });
   };
 
@@ -156,21 +158,53 @@ $(document).ready(function(){
 });
 ```
 
-2.  Let's modify our app to refresh posts when clicking the "Fetch Posts" buton.
+2.  Let's modify our app to refresh posts when clicking the "Fetch Posts" buton.  
+* Create an EventListener for the fetch button  
+  ```
+  $(thing you clicked).on('click', callbackFunctionThatImplementsReaction);  
+  ```
+* Upon click fetch posts through the api  
+  ```
+  $.ajax({
+    url: yourURL,
+    method: 'HTTP VERB'
+  })
+  ```
+* Manage what you want to happen if the request is successful and if it fails  
+* Clear currently listed posts  
+```
+ $(find posts div).html('')
+``` 
+or maybe 
+```
+$(find your thing to clear).val('')
+```
+* Reprint all posts to the page    
+```
+for (var i = 0; i < data.length; i++) {
+  $('#latest-posts').append('<p class="post">' + data[i].description + '</p>');
+}
+```
+### AJAX - `GET` SHOW Workshop
 
-### AJAX - SHOW Workshop
-
-On your own, try getting a post by ID (aka, hitting a `show` endpoint).
+On your own, try getting a post by ID.  
+* Create an EventListener for the show-form  
+* Fetch post by id through the 'show' endpoint  
+ * Find the id from your input field using jQuery
+* Append the post to the latest posts (Do you want to clear the currently listed posts?)  
+* Can you clear the values from the input fields?
 
 ### AJAX - POST Code Along
 
-Let's set up our app to send an AJAX POST request to create a new post and update our feed with this new post all with one click of the "Create Post" button.
+Let's set up our app to send an AJAX POST request to create a new post and update our feed with this new post all with one click of the "Create Post" button.  
+
+What steps will you need to take? 
 
 ### AJAX - PUT Workshop
 
 First, with your neighbor, discuss strategies for accomplishing this. Remember, you'll need to make sure you're collecting the ID and updated description of the post to be updated.
 
-Then, on your own, implement a form to update a post by ID. On submit of this form, you should be using AJAX to PUT this update, as well as get an updated posts feed.
+Then, on your own update a post by ID. On submit of this form, you should be using AJAX to PUT this update, as well as get an updated posts feed.
 
 ### AJAX - DELETE Workshop
 
