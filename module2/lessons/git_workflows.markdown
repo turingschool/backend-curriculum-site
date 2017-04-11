@@ -10,14 +10,14 @@ tags: git, github, workflow, collaboration
 * Learn to use GitHub's tools to review and discuss code
 * Use a variety of techniques to create, track, and manage issues, bugs, and features
 
-## Warmup(5-min)
+## Warmup
 
 * What are your top 5 Git commands?
 * Do you have a preferred Git/GitHub workflow?
 * Do you have a sequence of commands you run when committing/pushing?
 * Does anything make you nervous about Git? If so, what?
 
-### Git Workflow in Teams(45 min + 5 min pomodoro)
+### Git Workflow in Teams
 
 When working on a team, it’s important to have a workflow. The details of the workflow will vary from team to team and company to company, but it's important that you have a workflow.
 
@@ -74,7 +74,7 @@ __WIP Pull Request:__ A pull request isn’t the final word. You can always add 
 
 ### 5 min break
 
-### Better Commit Messages (25 min)
+### Better Commit Messages
 
 Read [this article](https://chris.beams.io/posts/git-commit/) and answer the following questions with your partner:
 
@@ -85,7 +85,7 @@ Read [this article](https://chris.beams.io/posts/git-commit/) and answer the fol
 
 ### 5 min break
 
-### Research and Knowledge Transfer(remainder of the time ~ 90 min)
+### Research and Knowledge Transfer
 
 Choose additional exercises and additional resources from the following list and go through each with your partner. At the end of each exercise and resource, review the topic and disseminate the information with your pair.
 

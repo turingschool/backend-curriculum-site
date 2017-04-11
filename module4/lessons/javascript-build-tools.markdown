@@ -279,9 +279,9 @@ __Your Turn -- additional JS files__
 Additional Loaders
 --------------
 
-Like the Asset Pipeline in Rails, Webpack can transpile assets during the build process. An example of this is if we want to write in SCSS. The browser can only run CSS, so we have to convert our assets for the browser.
+Like the Asset Pipeline in Rails, Webpack can transpile assets during the build process. An example of this is if we want to write in SCSS. The browser can only run CSS, so we have to convert our assets for the browser. 
 
-Webpack handles this using _loaders_. There are many loaders on npm. We'll discuss just a few of them.
+Webpack handles this using _loaders_. There are many loaders on npm. We'll discuss just a few of them. Loaders allow you to preprocess files as you require or load them. Loaders can transform files from a different language like CoffeeScript to JavaScript or SCSS to CSS.
 
 The first step is to download and install the dependencies for the loaders you'd like to use.
 
@@ -312,7 +312,7 @@ module.exports = {
 }
 ```
 
-We can now require a CSS file with `require('my-file-name.css')` or a SCSS files with `require('my-file-name.scss')`.
+Here, "test" is a regular expression that tests what kind of files to run through the loader specified. Above, we're declaring that any files ending in `css` or `scss` will be run through the loader specified. You might be wondering what the bangs are within the loader section - those are just separating which loaders we want to use. We can now require a CSS file with `require('my-file-name.css')` or a SCSS files with `require('my-file-name.scss')`.
 
 __Your Turn: Using SCSS__
 
