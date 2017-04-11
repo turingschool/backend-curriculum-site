@@ -259,8 +259,6 @@ Maybe then, since you did the calculation in JavaScript, you rely on pulling in 
 
 What could go wrong?
 
-[yeezy](http://g.recordit.co/l1xVMiCft7.gif)
-
 __Discussion Points__
 * Did any of the above examples surprise you?
 * How often do you think developers make these kinds of 'mistakes' in production code?
@@ -628,7 +626,7 @@ Then we will shift concepts and go around again.
 - [Low Hanging Refactoring Fruit](#low-hanging-refactoring-fruit)
 - [More Complex JavaScript Code Issues to Look Out For](#more-complex-javascript-code-issues-to-look-out-for)
 - [Breaking the Law of Demeter](#breaking-the-law-of-demeter)
-- [Callback Hell](#callback-hell) (should probably use ideabox)
+- [Callback Hell](#callback-hell)
 - [Single Responsibility Principle && Code that Does Too Much](#single-responsibility-principle--code-that-does-too-much)
 - [If If If Else If Else Else If Else](#if-if-if-else-if-else-else-if-else-)
 - [Breaking Up Functions](#breaking-up-functions)
