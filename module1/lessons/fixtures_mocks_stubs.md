@@ -74,7 +74,9 @@ class BobTest < Minitest::Test
 end
 ```
 
+```
 > Want to see approximately how long your tests take to run? Use the `-v` flag when running your tests and Minitest will be more verbose.
+```
 
 Once this is running, let's speed things up with a `bob_elements_truncated.csv` fixture.
 
@@ -160,9 +162,13 @@ A stub is a fake method added to or overriding an existing method on an object. 
 
 So why would we use a stub over an expectation? Stubs take precedence. From the Mocha docs:
 
+```
 > if you create an expectation and then a stub for the same method, the stub will always override the expectation and the expectation will never be met.
+
 > if you create a stub and then an expectation for the same method, the expectation will match, and when it stops matching the stub will be used instead, possibly masking test failures.
+
 > if you create different expectations for the same method, they will be invoked in the opposite order than that in which they were specified, rather than the same order
+```
 
 #### A First Stub
 
