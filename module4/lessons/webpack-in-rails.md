@@ -1,5 +1,5 @@
 ---
-title: Accessibility Best Practices
+title: Webpack in Rails
 subheading: Everything in it's right place
 ---
 
