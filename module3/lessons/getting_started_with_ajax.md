@@ -104,7 +104,7 @@ function myFunction(param) {
 Currently, if you have updated information to display on your webpage, what do you do?  
 What are the pros/cons of this strategy?   
 
-## AJAX Research  
+### AJAX Research  
 Use these resources to find the following answers:  
 [W3Schools on AJAX](https://www.w3schools.com/xml/ajax_intro.asp)  
 [Benefits of AJAX](http://www.seguetech.com/ajax-technology/)  
@@ -114,7 +114,9 @@ Use these resources to find the following answers:
 -   Explaining asynchronous vs synchronous
 -   What is it used for? Where is it used?
 -   Client vs. Server side rendering  
--   
+
+-*   UX and User Perception
+-*   Client Side interactions - voting, polling, rating, interact with HTML elements, auto-complete, nearly instantaneous loading
 
 ## AJAX CRUD
 
