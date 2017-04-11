@@ -631,8 +631,6 @@ Then we will shift concepts and go around again.
 - [If If If Else If Else Else If Else](#if-if-if-else-if-else-else-if-else-)
 - [Breaking Up Functions](#breaking-up-functions)
 - [Passing Too Many Arguments to a Function](#passing-too-many-arguments-to-a-function)
-- [Dead Code Among the Living](#dead-code-among-the-living)
-- [Vanilla DOM manipulation + jQuery](#vanilla-dom-manipulation--jquery)
 
 #### Overview
 
