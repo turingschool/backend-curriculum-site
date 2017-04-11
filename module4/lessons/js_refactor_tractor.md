@@ -234,62 +234,6 @@ Instead, we should consider caching - storing the reference to the object in a v
   $myHeader.show();
 ```
 
-#### Array Iteration
-
-`for in` loops should not be used to iterate over arrays.
-
-Why?
-
-1. The `for in` loop is twenty times slower than a normal `for` loop.
-2. This is the big one: The `for in` loop enumerates all the properties that are on the prototype chain.
-
-Imagine this scenario:
-
-```js
-Array.prototype.strangePet = 'snake';
-
-var myPets = ['dog', 'dog', 'rock'];
-for(var i in myPets){
-  console.log(i); // 0, 1, 2, strangePet
-  console.log(myPets[i]); // 'dog', 'dog', 'rock', 'snake'
-  // You will see 'snake' show up in your list of pets
-}
-```
-
-Does this ever happen in the real world?
-
-One of my favorite bugs ever was in an old JavaScript project I worked on caused by a `for in` loop.
-
-Early in the project's history, someone had added some code to the Array object to monkey patch in some Array methods not available in Internet Explorer. It would add a new method on the prototype but only if the user was accessing the site with an early IE.
-
-Then, someone else decided to add some click tracking that would catch an array of data on certain clicks. It would iterate through an array - call any methods in the array and record any data.
-
-Two years later, no one knew why one section of the website had never worked in Internet Explorer 8.
-
-The reason? The click tracking code looked something like this:
-
-```js
-  for(var i in myArray){
-    // if i is an method, call that method
-    // else track the info
-  }
-```
-
-Because they had added a monkey patch to Array, and because the `for in` loop iterates over all properties on a prototype chain... they were accessing the monkey patched method and calling it when they didn't mean to be calling the method and things blew up.
-
-I spent way too long in an Internet Explorer emulator trying to figure out what was going on with that bug than I'd like to admit.
-
-Avoid this fate by using classic `for` loops on arrays.
-
-```js
-for(var i = 0; i < myArray.length; i++) {
-  //
-}
-```
-
-You can see the correct way of array iteration being used [here](https://github.com/mcschatz/breakout/blob/cd05e17be5bf83b2b79554f880f8d98038dca41d/lib/game.js#L49)
-
-
 #### Cross-Site Scripting (XSS) Attack Vulnerability
 Cross-site Scripting is when malicious scripts are inserted into the client-side code of a web site or application. You are vulnerable to this kind of attack when you use unvalidated or unencoded user input directly in your site.
 
@@ -315,7 +259,7 @@ Maybe then, since you did the calculation in JavaScript, you rely on pulling in 
 
 What could go wrong?
 
-![yeezy](http://g.recordit.co/l1xVMiCft7.gif)
+[yeezy](http://g.recordit.co/l1xVMiCft7.gif)
 
 __Discussion Points__
 * Did any of the above examples surprise you?
