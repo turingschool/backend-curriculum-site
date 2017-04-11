@@ -297,7 +297,7 @@ const path = require('path');
 module.exports = {
   entry: {
     main: "./lib/index.js",
-    test: "mocha!./test/index.js"
+    test: "mocha-loader!./test/index.js"
   },
   output: {
     path: __dirname,
@@ -306,7 +306,7 @@ module.exports = {
   module: {
     loaders: [
       { test: /\.css$/, loader: "style-loader!css-loader" },
-      { test: /\.scss$/, loader: "style-loader!css-loader!sass" }
+      { test: /\.scss$/, loader: "style-loader!css-loader!sass-loader" }
     ]
   }
 }
@@ -332,7 +332,7 @@ const path = require('path');
 module.exports = {
   entry: {
     main: "./lib/index.js",
-    test: "mocha!./test/index.js"
+    test: "mocha-loader!./test/index.js"
   },
   output: {
     path: __dirname,
@@ -341,11 +341,11 @@ module.exports = {
   module: {
     loaders: [
       { test: /\.css$/, loader: "style-loader!css-loader" },
-      { test: /\.scss$/, loader: "style-loader!css-loader!sass" }
+      { test: /\.scss$/, loader: "style-loader!css-loader!sass-loader" }
     ]
   },
   resolve: {
-    extensions: ['.js', '.json', '.scss', 'css']
+    extensions: ['.js', '.json', '.scss', '.css']
   }
 }
 ```
@@ -368,7 +368,7 @@ const path = require('path');
 module.exports = {
   entry: {
     main: "./lib/index.js",
-    test: "mocha!./test/index.js"
+    test: "mocha-loader!./test/index.js"
   },
   output: {
     path: __dirname,
@@ -378,11 +378,11 @@ module.exports = {
     loaders: [
       { test: /\.js$/, exclude: '/node_modules/', loader: 'babel-loader' },
       { test: /\.css$/, loader: "style-loader!css-loader" },
-      { test: /\.scss$/, loader: "style-loader!css-loader!sass" }
+      { test: /\.scss$/, loader: "style-loader!css-loader!sass-loader" }
     ]
   },
   resolve: {
-    extensions: ['.js', '.json', '.scss', 'css']
+    extensions: ['.js', '.json', '.scss', '.css']
   }
 }
 ```
