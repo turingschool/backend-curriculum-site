@@ -673,7 +673,7 @@ you may want in order to break up the responsiblity of your functions.
 
 ## Your Turn
 
-Your mission now is to spend time in [this](https://github.com/icorson3/1603-gametime) doing some refactoring or researching and adding more code smells examples to this tutorial.
+Your mission now is to spend time in [this](https://github.com/nickpisciotta/game-time) doing some refactoring or researching and adding more code smells examples to this tutorial.
 
 ### Pair work
 
