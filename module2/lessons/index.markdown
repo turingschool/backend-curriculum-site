@@ -81,7 +81,7 @@
 * [LittleShop of Orders kickoff](http://backend.turing.io/module2/projects/little_shop)
 * [Git Workflow](git-groups)
 * [Intro to the Asset Pipeline](intro_to_the_asset_pipeline)
-* [Callbacks, and Scopes](scopes_callbacks_class_methods.markdown)
+* [Callbacks, and Refactoring](callbacks_and_refactoring.md)
 
 -------
 
