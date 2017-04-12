@@ -59,3 +59,4 @@ title: Interview Prep Overview
 * [Khan Academy](https://www.khanacademy.org/computing/computer-science/algorithms/asymptotic-notation/a/big-o-notation)
 * [Justin Abrahms Blog Post](https://justin.abrah.ms/computer-science/big-o-notation-explained.html)
 * [Derek Banas Video](https://www.youtube.com/watch?v=V6mKVRU1evU)
+* [StackOverflow Phone Book Example] (http://stackoverflow.com/questions/2307283/what-does-olog-n-mean-exactly)

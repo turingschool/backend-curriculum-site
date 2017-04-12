@@ -1,5 +1,5 @@
 ---
-title: Accessibility Best Practices
+title: Webpack in Rails
 subheading: Everything in it's right place
 ---
 
@@ -46,6 +46,15 @@ DHH and the Rails team have been working on a gem that will let you organize you
 
 This is pretty new stuff, and will continue to evolve before it's wide release in Rails 5.1, but I was so excited that I wrote this lesson plan that will probably never be useful again.
 
+### Quick note about yarn
+
+Yarn is Facebook's replacement for npm. It's like faster and hotter and stuff. Moving on....
+
+Code Along
+------------
+
+Let's start a new rails project, and add some modular javascript to it.
+
 ### Setup
 
 Add the `webpacker` gem to your Gemfile. They recommend pulling directly from github since this gem is being worked on heavily right now:
@@ -61,7 +70,7 @@ bundle
 rails webpacker:install
 ```
 
-This is going to install a `config/webpack` folder (which we'll get so some of) and a new `app/javascript` folder.
+This is going to install a `config/webpack` folder (which we'll get so some of) and a new `app/javascript` folder. For now, let's just disable the dev server. We don't need two servers running.
 
 The last step is to load the "pack file" in the head of your layout
 
@@ -94,11 +103,18 @@ Really, you shouldn't have to do anything different. The build phase of webpack 
 
 You should be able to use all the same integration test features you're used to, like selenium or poltergeist. I haven't tested this extensively, and there may be edge cases, but selenium is mostly edge cases already.
 
+You can also unit test your JavaScript from the `app/javascript` folder. They won't automatically run when you run rspec, but if you write a clever rake file, you should be able to get them to run together.
+
 ### Documentation
 
 You've added additional steps that most Rails developers don't know about. Don't forget to add them so collaborators can setup and maintain your application, including running `yarn` along with `bundler` when you first clone down.
 
-Code Along
-------------
+Next steps
+-------------
 
-Let's start a new rails project, and add some modular javascript to it.
+Check out the [webpacker readme](https://github.com/rails/webpacker) for more tricks.
+
+-   You can preinstall react, angular or vue.js
+-   You can use Foreman to run both `rails s` and `webpack-watcher` with one command
+-   You can use ERB in your modules for linking to asset pipeline images, or using environment variables
+-   

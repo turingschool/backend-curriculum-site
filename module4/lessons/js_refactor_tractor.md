@@ -190,7 +190,7 @@ snake = 'snek';
 // This defines a variable called `snake` in the global scope
 ```
 
-This can cause some pretty gnarly bugs. [Try running the code below is jsbin](http://jsbin.com/fukuqupalo/edit?js,console).
+This can cause some pretty gnarly bugs. [Try running the code below on jsbin](http://jsbin.com/fukuqupalo/edit?js,console).
 
 ```js
 for(var i = 0; i < 5; i++) {
@@ -234,62 +234,6 @@ Instead, we should consider caching - storing the reference to the object in a v
   $myHeader.show();
 ```
 
-#### Array Iteration
-
-`for in` loops should not be used to iterate over arrays.
-
-Why?
-
-1. The `for in` loop is twenty times slower than a normal `for` loop.
-2. This is the big one: The `for in` loop enumerates all the properties that are on the prototype chain.
-
-Imagine this scenario:
-
-```js
-Array.prototype.strangePet = 'snake';
-
-var myPets = ['dog', 'dog', 'rock'];
-for(var i in myPets){
-  console.log(i); // 0, 1, 2, strangePet
-  console.log(myPets[i]); // 'dog', 'dog', 'rock', 'snake'
-  // You will see 'snake' show up in your list of pets
-}
-```
-
-Does this ever happen in the real world?
-
-One of my favorite bugs ever was in an old JavaScript project I worked on caused by a `for in` loop.
-
-Early in the project's history, someone had added some code to the Array object to monkey patch in some Array methods not available in Internet Explorer. It would add a new method on the prototype but only if the user was accessing the site with an early IE.
-
-Then, someone else decided to add some click tracking that would catch an array of data on certain clicks. It would iterate through an array - call any methods in the array and record any data.
-
-Two years later, no one knew why one section of the website had never worked in Internet Explorer 8.
-
-The reason? The click tracking code looked something like this:
-
-```js
-  for(var i in myArray){
-    // if i is an method, call that method
-    // else track the info
-  }
-```
-
-Because they had added a monkey patch to Array, and because the `for in` loop iterates over all properties on a prototype chain... they were accessing the monkey patched method and calling it when they didn't mean to be calling the method and things blew up.
-
-I spent way too long in an Internet Explorer emulator trying to figure out what was going on with that bug than I'd like to admit.
-
-Avoid this fate by using classic `for` loops on arrays.
-
-```js
-for(var i = 0; i < myArray.length; i++) {
-  //
-}
-```
-
-You can see the correct way of array iteration being used [here](https://github.com/mcschatz/breakout/blob/cd05e17be5bf83b2b79554f880f8d98038dca41d/lib/game.js#L49)
-
-
 #### Cross-Site Scripting (XSS) Attack Vulnerability
 Cross-site Scripting is when malicious scripts are inserted into the client-side code of a web site or application. You are vulnerable to this kind of attack when you use unvalidated or unencoded user input directly in your site.
 
@@ -314,8 +258,6 @@ Maybe you then run a sale that takes 10% off of the price and you do your calcul
 Maybe then, since you did the calculation in JavaScript, you rely on pulling in the t-shirt's price from the DOM when someone purchases it.
 
 What could go wrong?
-
-![yeezy](http://g.recordit.co/l1xVMiCft7.gif)
 
 __Discussion Points__
 * Did any of the above examples surprise you?
@@ -393,7 +335,7 @@ function onProcess3(err, data) {
 
 * `Promises approach` includes using methods such as `.then`, `.catch` and other error
   handling approachs.
-* `ES6 generators` includes a "Pause and Execute" approach. It is definetely worth reading the blog [here](https://medium.com/@adamkijensen/til-es6-generators-39196f7f5283#.3xf1s11bu)
+* `ES6 generators` includes a "Pause and Execute" approach. It is definitely worth reading the blog [here](https://medium.com/@adamkijensen/til-es6-generators-39196f7f5283#.3xf1s11bu)
 * Use an external library such as [highland.js](http://highlandjs.org/) or [async](https://github.com/caolan/async)
 
 #### Single Responsibility Principle && Code That Does Too Much
@@ -497,7 +439,7 @@ inputWords = input.split();
 deviceActions[inputWords[0]](inputWords[1])
 ```
 
-##### 2. Use an object (aka hash aka dictionary)
+#### Use an object (aka hash aka dictionary)
 
 This was used somewhat in the previous example, but let's take a look at the classic fizzbuzz, or as exercism.io implements it, [raindrops](http://exercism.io/exercises/javascript/raindrops/readme). The gist of the problem is to output different words based on whether an integer is divisible by 3, 5, 7, or any combination thereof.
 
@@ -559,7 +501,7 @@ For this example, the three isolated `if`s with the trick of appending a single 
 ```
 So now a dozen-ish if statements are down to one. Is this the best solution for this problem? Maybe not. But the hash method can be a useful refactoring tool.
 
-##### 3. Recursion
+#### Recursion
 
 Sometimes a hopelessly complex `if/else` branching sequence can be solved with some light recursion. Think about the [binary search tree](https://en.wikipedia.org/wiki/Binary_search_tree). To do an in-order traversal of a tree, you could use an algorithm like the one below. This is bad enough in pseudocode, so let's leave JavaScript out of it for the moment.
 
@@ -601,7 +543,7 @@ We have all been there, you're on the one yard line... that function is almost c
 
 We will be going into the most common solution to this problem: putting the variables into an object.
 
-#####1. Quick and dirty hash
+##### Quick and dirty hash
 
 ```js
       case "inGame":
@@ -635,7 +577,7 @@ becomes
 ```
  This can get messy if your variables are too varied.
 
-#####2. Break objects into more logical components
+##### Break objects into more logical components
 
 ```js
    let Game = {game: game, gameSize: gameSize}
@@ -656,7 +598,7 @@ becomes
 
 While this approach created more arguments, they're more logically broken out.
 
-#####3. Rethink the structure of your code.
+##### Rethink the structure of your code.
 If breaking your arguments into logical objects does not make sense, or there are simply too many arguments
 you may want in order to break up the responsiblity of your functions.
 
@@ -671,36 +613,24 @@ you may want in order to break up the responsiblity of your functions.
           requestAnimationFrame(tick);
 ```
 
-## Additional Code Smells
-
-#### Dead Code Among the Living
-
-#### Vanilla DOM manipulation + jQuery
-
 ## Your Turn
 
-Some of the code examples from the above lesson came directly from Game Time and Ideabox projects.
-
-Your mission now is to spend time in your projects doing some refactoring or researching and adding more code smells examples to this tutorial.
+Your mission now is to spend time in [this](https://github.com/nickpisciotta/game-time) doing some refactoring or researching and adding more code smells examples to this tutorial.
 
 ### Pair work
 
-Your pair will be assigned one of the following refactor strategies and concepts. Choose one partner's ideabox or gametime. Spend 15 minutes understanding and applying it. Then we will come back together as a group, and you should share your understanding of your concept, and how you applied it.
+Your pair will be assigned one of the following refactor strategies and concepts. Use the above repo. Spend 15 minutes understanding and applying it. Then we will come back together as a group, and you should share your understanding of your concept, and how you applied it.
 
 Then we will shift concepts and go around again.
 
 - [Low Hanging Refactoring Fruit](#low-hanging-refactoring-fruit)
 - [More Complex JavaScript Code Issues to Look Out For](#more-complex-javascript-code-issues-to-look-out-for)
 - [Breaking the Law of Demeter](#breaking-the-law-of-demeter)
-- [Callback Hell](#callback-hell) (should probably use ideabox)
+- [Callback Hell](#callback-hell)
 - [Single Responsibility Principle && Code that Does Too Much](#single-responsibility-principle--code-that-does-too-much)
 - [If If If Else If Else Else If Else](#if-if-if-else-if-else-else-if-else-)
 - [Breaking Up Functions](#breaking-up-functions)
 - [Passing Too Many Arguments to a Function](#passing-too-many-arguments-to-a-function)
-- [Dead Code Among the Living](#dead-code-among-the-living)
-- [Vanilla DOM manipulation + jQuery](#vanilla-dom-manipulation--jquery)
-
-### Homework
 
 #### Overview
 
@@ -710,12 +640,12 @@ Then we will shift concepts and go around again.
 2. Each person will each need to submit a pull request (2 PRs total)
 
 3. Options for what you work on are:
-	- Fixing a 'code smell' in a Gametime or Ideabox project
+	- Fixing a 'code smell' in the above repo.
     - Adding a description of another JavaScript or general 'code smell' to look out for to this tutorial.
 
 #### Details
 
-1. Dig into your IdeaBox and Game Time projects and try to identify issues or places for refactoring - OR - choose a code smell to add to this tutorial - OR - propose and implement a better organization of all of the content we've collected over the innings.
+1. Dig into the above repo and try to identify issues or places for refactoring - OR - choose a code smell to add to this tutorial - OR - propose and implement a better organization of all of the content we've collected over the innings.
 2. Create a [Github Issue](https://help.github.com/articles/creating-an-issue/) for the proposed fix or documentation topic.
 - Comment or assign yourself to an issue to 'claim it' when you start work on a fix.
   - Why?: This is how you know that you're not duplicating work that someone else is doing on the project.
@@ -724,9 +654,7 @@ Then we will shift concepts and go around again.
 - [Use the following template as the body of your Pull Request(s)](https://gist.github.com/rrgayhart/c64f0966a36a9c47b227)
 - In the PR:
   - Tag ***one*** instructor:
-
-    - Mod 2: @joshuajhun || @rrgayhart || @Tman22 .
-    - Mod 4: @carmer || @neight-allen
+    - Mod 4: @icorson3 || @neight-allen || @case-eee
   - If: you paired with your Refactoring Buddy
      - Tag a member of another refactor team to review the PR
   - Else:
