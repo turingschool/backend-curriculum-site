@@ -10,7 +10,7 @@
 Watch the videos below on indexing in Databases.
 
 * [Indexing Part 1](https://www.youtube.com/watch?v=zDzu6vka0rQ)
-* [Indexing Part 2](https://www.youtube.com/watch?v=zDzu6vka0rQ)
+* [Indexing Part 2](https://www.youtube.com/watch?v=WmJuhKLQMA4&t=1s)
 
 ## Executing a Query
 
