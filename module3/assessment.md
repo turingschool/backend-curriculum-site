@@ -1,3 +1,8 @@
+---
+layout: page
+title: Module 3 Assessment
+---
+
 # Module 3 Assessment
 
 In this assessment you will:
