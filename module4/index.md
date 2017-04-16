@@ -82,7 +82,7 @@ The next three weeks will be spent working on your [capstone projects](capstone_
 *   [Enumerables in JavaScript](./lessons/array_prototype_methods)
 
 <h4 id="week_6">Week 6</h4>
-*   Let's Get SASSy
+*   [Let's Get SASSy](./lessons/sassy)
 *   [Web Sockets](./lessons/websockets_workshop)
 *   Final Assessment
 *   Interview Prep
