@@ -178,9 +178,46 @@ A variable can be created for the `text-decoration`.
 
 What about multiple arguments for something like a border? Take 5 minutes to do some self discovery and see if you can put a solid brown 3px border around each blob.
 
+### Mixins
+
+There is advanced capabilities but we are going to talk about a simple way to create what I would call, a function or method in SASS. It can encompass multiple attributes that might be common together.
+
+Do some research on mixins for 5 minutes and see if there is some refactoring that we can do in the `scss` file.
+
+```css
+$underlined: underline;
+$brown-border: 3px solid brown;
+
+@mixin text_components {
+  text : {
+    align: center;
+    decoration: $underlined;
+  }
+  border: $brown-border;
+}
+
+.square {
+  height: 500px;
+  width: 500px;
+  background-color: #672e6d;
+  .blob_1 {
+    font : {
+      size: 40px;
+      family: cursive;
+    }
+    @include text_components;
+  }
+  .blob_2 {
+    font-size: 90px;
+    @include text_components;
+  }
+}
+```
+
 ### Recap:
 
 -   Compiling
 -   Variables
 -   Nesting
+-   Mixins 
 -   [SASS Resource](http://sass-lang.com/)
