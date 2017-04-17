@@ -214,10 +214,58 @@ $brown-border: 3px solid brown;
 }
 ```
 
+A mixin can also take an argument:
+
+```css
+$underlined: underline;
+$brown-border: 3px solid brown;
+
+@mixin text_components($underlined) {
+  text : {
+    align: center;
+    decoration: $underlined;
+  }
+  border: $brown-border;
+}
+
+.square {
+  height: 500px;
+  width: 500px;
+  background-color: #672e6d;
+  .blob_1 {
+    font : {
+      size: 40px;
+      family: cursive;
+    }
+    @include text_components($underlined);
+  }
+  .blob_2 {
+    font-size: 90px;
+    @include text_components($underlined: line-through);
+  }
+}
+```
+
+What happens when we compile and open `index.html`? Why?
+
+In the example above, `Blob 2`, `$underlined` is set to `line-through`. We can pass in default arguments to our mixins and change those values!
+
+Multiple arguments can be passed into a mixin.
+
+What will the following code compile to do in Blob 1?
+
+```css
+@include text_components($underlined, $brown-border: 5px dashed green);
+```
+
+Define a new mixin of your choice to implement.  
+
 ### Recap:
+
+When could this have been useful in the past?
 
 -   Compiling
 -   Variables
 -   Nesting
--   Mixins 
+-   Mixins
 -   [SASS Resource](http://sass-lang.com/)
