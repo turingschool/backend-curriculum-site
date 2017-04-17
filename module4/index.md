@@ -23,63 +23,56 @@ Students who successfully complete Module 4 will have demonstrated mastery of Pr
 
 ### Projects
 
-Your first project is [Quantified Self](./projects/quantified-self/quantified-self). It's an all front-end pair project for the first week.
+Your first project is [Quantified Self](./projects/quantified-self/quantified-self). You'll start by building a back-end API to serve and persist your data. Then you'll build the front end to interact with the data. You'll use node and the express framework to build your API, and a heavy dose of jQuery to build out your front-end behavior.
 
-Your [second project](https://github.com/turingschool/backend-curriculum-site/blob/gh-pages/module4/projects/quantified-self/quantified-self-back-end.md) is an extension of your first week. You'll build the back-end and wire it up to the front end.
-
-The next three weeks will be spent working on your [capstone projects](capstone_project_overview).
+Weeks 4&5 will be spent working on your [capstone projects](capstone_project_overview).
 
 ### Weekly Breakdown:
 
 <h4 id="week_1">Week 1</h4>
 *   State of Turing
 *   Mod 4 Kickoff and Norming
+*   Intermission Retro
+*   Asynchronous JavaScript
 *   Project Kickoff: [Quantified Self](./projects/quantified-self/quantified-self)
-*   Professional Skills Expectations
-*   [Client Side Storage](./lessons/client_side_storage)
-*   [Event Bubbling and Delegation](./lessons/event-bubbling-and-delegation)
-*   Cold Outreach
-*   [Testing in JavaScript](./lessons/testing-in-javascript)
+*   [Fundamentals of Express](./lessons/building_and_testing_with_express)
 *   [Contributing to Open Source Kick Off](./lessons/contributing_to_open_source)
-*   [Practice Technical Challenge](https://gist.github.com/case-eee/51d96bce7922b6d8be5b003af1944952)
+
 
 <h4 id="week_2">Week 2</h4>
-*   [Javascript Without a Browser](./lessons/javascript_without_a_browser)
-*   [Fundamentals of Express](./lessons/building_and_testing_with_express)
-*   Project Kickoff: [Quantified Self](./projects/quantified-self/quantified-self-back-end)
 *   [SQL in Node](./lessons/sql-in-node)
-*   All the AJAX
+*   [Webpack and NPM]()
+*   [Event Bubbling and Delegation](./lessons/event-bubbling-and-delegation)
+*   [Testing in JavaScript](./lessons/testing-in-javascript)
+*   [Persisting and retrieving data with AJAX]()
 *   Interview Prep
-*   [Object Oriented JavaScript](./lessons/intro-to-oojs)
-*   [SQL Deep Dive](./lessons/sql_deep_dive)
 
 <h4 id="week_3">Week 3</h4>
+*   [Object Oriented JavaScript](./lessons/intro-to-oojs)
+*   [Unit Testing Workshop](https://github.com/turingschool-examples/unit-testing-client-side-storage/blob/master/README.md)
+*   [History of JavaScript]()
+*   [ES5 vs ES6](./lessons/es5_vs_es6)
+*   Negotiations
+*   [Refactor Tractor](./lessons/js_refactor_tractor)
+*   [Testing JS with Selenium](./lessons/intro_to_testing_with_selenium)
+*   [Agile and Other Buzzwords](./lessons/agile_and_other_buzzwords)
+
+<h4 id="week_4">Week 4</h4>
 *   [Documenting for Collaboration](./lessons/archive/how_to_write_a_great_readme)
 *   [Introduction to Professional Workflow](./lessons/intro_to_professional_workflow)
 *   [Professional Code Environments](./lessons/professional_code_environments)
 *   [Accessibility Best Practices](./lessons/accessibility_best_practices)
-*   Negotiations
-*   [Agile and Other Buzzwords](./lessons/agile_and_other_buzzwords)
-*   [ES5 vs ES6](./lessons/es5_vs_es6)
-*   [Application Coordination with Message Queues](./lessons/application_coordination_with_message_queues)
-
-<h4 id="week_4">Week 4</h4>
-*   [Testing JS with Selenium](./lessons/intro_to_testing_with_selenium)
-*   Mid Module Assessment
-*   [React 1](./lessons/intro_to_react)
-*   [React 2](./lessons/intro_to_react_part_2)
+*   [Basics of Security](./lessons/web_application_security)
+*   Final Assessment Part 1
 *   Algorithm Time
 
 <h4 id="week_5">Week 5</h4>
-*   [Basics of Security](./lessons/web_application_security)
-*   [Caching](./lessons/caching_data)
-*   [JS Build Tools](./lessons/javascript-build-tools)
-*   [Webpack in Rails](./lessons/webpack-in-rails)
+*   [React 1](./lessons/intro_to_react)
+*   [React 2](./lessons/intro_to_react_part_2)
+*   [Application Coordination with Message Queues](./lessons/application_coordination_with_message_queues)
 *   Job Search and Beyond
-*   [Refactor Tractor](./lessons/js_refactor_tractor)
 *   Technical Interview Challenge
 *   B4/F2 Algorithm Time
-*   [Enumerables in JavaScript](./lessons/array_prototype_methods)
 
 <h4 id="week_6">Week 6</h4>
 *   [Let's Get SASSy](./lessons/sassy)
