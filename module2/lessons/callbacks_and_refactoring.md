@@ -5,9 +5,10 @@ subheading: POROs and Callbacks o my!
 
 ## Goals
 
-* Understand how callbacks work.
-* Start to understand how to implement a PORO in place of a complicated scope.
-* Use callbacks to your advantage.
+* Understand how callbacks work
+* Know some common callbacks
+* Start to understand how to implement a PORO
+* Use callbacks to your advantage
 * Use POROS to refactor controllers
 
 ## Repository
@@ -73,18 +74,19 @@ end
 This refactor can be seen on the `refactor_controller` branch
 
 * Meet `before_save` and `after_create`
-* We just pull a TON of things out of the controller.
-* This is pretty good, but we can do better.
-* The danger here is that the Reservation class knows entirely too much about other classes.
-* This is dangerous because if you make a mistake somewhere, and say there's
-a problem with something of the Kitty class, the Reservation class isn't really the first place a person would go look.
+  * What are callbacks?
+  * Callbacks in real life? Take 3 minutes to brainstorm with a partner.
+
+
+#### Rails/Active Record Callbacks:
+
 
 1. Creating an Object
   * before_validation`
   * after_validation
   * before_save
   * around_save
-  * before_create
+  * before_create **__Note: before_create only gets called before a create.__**
   * around_create
   * after_create
   * after_save
@@ -92,7 +94,7 @@ a problem with something of the Kitty class, the Reservation class isn't really 
 1. Updating an Object
   * before_validation
   * after_validation
-  * before_save
+  * before_save **__Note: before_save gets called when we update and when we create.__**
   * around_save
   * before_update
   * around_update
@@ -106,44 +108,71 @@ a problem with something of the Kitty class, the Reservation class isn't really 
   * after_commit/after_rollback
 
 * These are some additional callbacks with their order of operations.
-* Note: before_save gets called when we update and when we create.
-* before_create only gets called before a create.
 
-* So, our previous problem.
-* We keep this up, and we get a pretty unwieldy Reservation class that touches way too many other things.
+
+
+
+
+
+#### Good but not best...
+
+* We just pulled a TON of things out of the controller.
+* This is pretty good, but we can do better.
+* The danger here is that the Reservation class knows *__entirely too much__* about other classes.
+* This is dangerous because if you make a mistake somewhere, and say there's
+a problem with something of the Kitty class, the Reservation class isn't really the first place a person would go look.
+
+* If we keep this up, and we get a pretty unwieldy Reservation class that touches way too many other things and has too many responsibilities
 * We should use a PORO instead.
 
 ```ruby
-class ReservationCompletion
-  attr_accessor :reservation
-
-  def initialize(reservation)
-    @reservation = reservation
-  end
-
+class ReservationsController < ApplicationController
   def create
-     send_reservation_confirmation
-     set_kitty_to_active
-   end
+    @reservation = Reservation.new(reservation_params)
 
-  def send_reservation_confirmation
-    ReservationMailer.reservation_confirmation(kitty).deliver
+
+    if @reservation.save
+      ReservationCompletion.create(@reservation)
+      flash[:notice] = "Reservation was created."
+      redirect_to current_kitty
+    else
+      render :new
+    end
   end
 
-  def set_kitty_to_active
-    reservation.kitty.update_attributes(status: “active”)
+  private
+
+  def reservation_params
+    params.require(:reservation).permit(:credit_card_number, :kitty_id, :castle_id, :start_date, :end_date )
   end
 end
 ```
 
-This refactor can be seen on the `refactor_to_poro` branch.
+```ruby
+class ReservationCompletion
+
+  def self.create(reservation)
+     send_reservation_confirmation(reservation)
+     set_kitty_to_active(reservation)
+  end
+
+  def self.send_reservation_confirmation(reservation)
+    ReservationMailer.reservation_confirmation(reservation.kitty, reservation.castle).deliver
+  end
+
+  def self.set_kitty_to_active(reservation)
+    reservation.kitty.update_attributes(status: “active”)
+  end
+end
+
+```
+
+This refactor can be seen on the `refactor_reservation_to_poro` branch.
 
 * Here, we've moved all logic in reservation completion to a single place.
 * You should only use a callback when it deals with the model instance you're currently working with.
 * `after callbacks` are often code smells. That's why we fixed it.
-* Callbacks that can trigger callbacks in other classes are Bad News catBears.
-
-* Let's practice using callbacks in our app.
+* Callbacks that can trigger callbacks in other classes are Bad News [cat]Bears.
 
 <!--
 ## Class Methods
