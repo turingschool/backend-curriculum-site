@@ -316,6 +316,8 @@ We have also adjusted the following information to capture the custom borders of
 
 ### Recap:
 
+Couldn't get it to work? See the solutions branch [here](https://github.com/turingschool-examples/sass_playground/tree/solutions-check-point-1).
+
 When could this have been useful in the past?
 
 -   Compiling
