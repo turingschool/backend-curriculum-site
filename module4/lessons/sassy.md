@@ -252,15 +252,71 @@ In the example above, `Blob 2`, `$underlined` is set to `line-through`. We can p
 
 Multiple arguments can be passed into a mixin.
 
-What will the following code compile to do in Blob 1?
+What will the following code compile to do in Blob 2?
 
 ```css
 @include text_components($underlined, $brown-border: 5px dashed green);
 ```
 
+What problems did you run into?
+
 Define a new mixin of your choice to implement.  
 
+### Mixins with Dynamic Values
+
+Another way that we could use a mixin is in a more dynamic way. In the above example, we used variables that we had already had created. How do we create a more dynamic mixin?
+
+Take 3 minutes to see if you can build a dynamic `border-styling` mixin that will take 3 arguments: radius, style and color. Give Blob 1 a border radius of 9px, style of dotted and a color of blue. Try this without changing the `text-components` mixin and then after that, try with changing it.
+
+Run into any problems?
+
+```css
+@mixin border-styling($radius, $style, $color) {
+  border: $radius $style $color
+}
+```
+
+If we want to use that within the `text-components` mixin, it would look something like this:
+
+```css
+@mixin text_components($underlined) {
+  text : {
+    align: center;
+    decoration: $underlined;
+  }
+  @include border-styling($radius: 3px, $style: solid, $color: brown);
+}
+```
+
+Notice that we removed `$brown-border` from the mixin and instead defined defaults for my `text_components` mixin border.
+
+We have also adjusted the following information to capture the custom borders of both blobs:
+
+```css
+.square {
+  height: 500px;
+  width: 500px;
+  background-color: #672e6d;
+  .blob_1 {
+    font : {
+      size: 40px;
+      family: cursive;
+    }
+    @include text_components($underlined);
+    @include border-styling($radius: 9px, $style: dotted, $color: blue);
+  }
+  .blob_2 {
+    font-size: 90px;
+    @include text_components($underlined: line-through);
+    @include border-styling($radius: 5px, $style: dashed, $color: green);
+
+  }
+}
+```
+
 ### Recap:
+
+Couldn't get it to work? See the solutions branch [here](https://github.com/turingschool-examples/sass_playground/tree/solutions-check-point-1).
 
 When could this have been useful in the past?
 
