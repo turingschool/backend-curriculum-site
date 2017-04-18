@@ -76,7 +76,7 @@ Now test that the application is working by entering an email address
 and any thought you may have right now. You should
 see an email in the mailcatcher UI with the thought-giphy.
 
-Notice that for this process takes a very long time. What we have here is a perfect candidate for a background process:
+Notice that this process takes a very long time. What we have here is a perfect candidate for a background process:
 
 * Operation is slow
 * User's interaction with the process is already asynchronous (submit
