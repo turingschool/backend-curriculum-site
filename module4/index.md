@@ -33,6 +33,7 @@ Weeks 4&5 will be spent working on your [capstone projects](capstone_project_ove
 *   State of Turing
 *   Mod 4 Kickoff and Norming
 *   Intermission Retro
+*   Advanced JS Fundamentals
 *   Asynchronous JavaScript
 *   Project Kickoff: [Quantified Self](./projects/quantified-self/quantified-self)
 *   [Fundamentals of Express](./lessons/building_and_testing_with_express)
