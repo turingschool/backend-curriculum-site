@@ -9,11 +9,8 @@ title: Interview Prep Overview
 * [Mock Interviews](activities/mock_interview)
 * [Violations](activities/violations)
 * [How Databases Work](activities/databases)
-* How to Talk While Coding
-* Etiquette/Answering Tough Questions
-* Buzzwords
-* Mock Interviews for Specific Companies
-* Big O OR Benchmarking
+* [Transferrable Skils](activities/transferable_skills)
+* [Buzzwords](activities/buzzwords)
 
 # Resources
 

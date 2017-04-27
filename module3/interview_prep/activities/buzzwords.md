@@ -1,4 +1,7 @@
 # Buzzwords
+
+Take one of the following terms (ensuring that all terms are covered and there's as little duplication as possible). Research the term to see what you can find online. Share.
+
 * JS
     * Node
     * Express
