@@ -106,7 +106,7 @@ end
 
 ```ruby
 # on the Invoice model
-def self.successful_inovices
+def self.successful_invoices
   joins(:transactions).merge(Transaction.success)
 end
 ```
