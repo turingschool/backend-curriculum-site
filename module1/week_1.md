@@ -17,6 +17,7 @@ layout: page
 
 ## Homework
 
+* [Working With Strings & Integers](https://github.com/turingschool/challenges/blob/master/working_with_strings_and_integers.markdown)
 * [Pseudocoding](student_homework/pseudocoding_homework.md)
 * [Bad Connection](student_homework/bad_connection.md)
 * [SuperFizz](student_homework/super_fizz.md)
