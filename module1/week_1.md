@@ -12,7 +12,6 @@ layout: page
 * [Introducing Arrays](lessons/arrays_101) ([Video](https://www.youtube.com/watch?v=nlwU1YtQ9SU))
 * [Flow Control](lessons/flow_control) ([Video](https://www.youtube.com/watch?v=iZkQWR9_RpY))
 * [Exploring `.each` and Exercises](lessons/primer_on_each)
-* [Sorting Suite](projects/sorting_suite.markdown)
 * [Methods, Arguments, Scopes](lessons/methods_arguments_and_scopes.markdown)
 * [Classes and Instance Methods](lessons/classes_instances_methods)
 
@@ -26,6 +25,7 @@ layout: page
 ## Projects
 
 * [Credit Check](projects/credit_check.markdown)
+* [Sorting Suite](projects/sorting_suite.markdown)
 
 ## Exercises and Other Relevant Links
 
