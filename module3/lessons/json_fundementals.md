@@ -1,16 +1,15 @@
 ---
 title: JSON Fundamentals
-length: 60-75
+length: 30-
 tags: json, javascript
 status: draft
 ---
 
 ## Learning Goals
 
-* Understand that JSON is a subset of JavaScript and what makes a valid JSON data structure
-* Compare JSON to XML and discuss its advantages and disadvantages
+* Understand what makes a valid JSON data structure
 * Learn how to parse and create JSON in Ruby and JavaScript
-* Understand that JSON can be used as an alternative to XML in AJAX requests
+* Compare JSON to XML and discuss its advantages and disadvantages
 
 ## Lecture
 
@@ -20,17 +19,17 @@ What are some cases where you might not want to render an entire page and only s
 
 **Basic Narrative**: When designing a service or an API, you need a machine-readable way to transmit data. Typically, machine-readable formats have been just that—machine-readable. JSON strikes a balance between being machine-readable, but also human-readable. Because it's also more lightweight (read: less characters) it's typically faster because it requires less bandwidth to transmit.
 
-Before diving deep into what JSON is, let's take a look at it [here](http://congress.api.sunlightfoundation.com/legislators/locate?zip=80229&apikey=e179a6973728c4dd3fb1204283aaccb5) or [here](https://birdeck-api.herokuapp.com/). What do you notice?
+Before diving deep into what JSON is, let's take a look at it [here](http://congress.api.sunlightfoundation.com/legislators/locate?zip=80229&apikey=e179a6973728c4dd3fb1204283aaccb5) or [here](https://birdeck-api.herokuapp.com/api/v1/posts/2). What do you notice?
 
 ### What is JSON?
 
 * JSON stands for "JavaScript Object Notation"
-* It's a subset of the object syntax in JavaScript. All JSON is valid JavaScript, but not all JavaScript objects are valid JSON (functions, non-string keys, etc.)
-* It maps easily onto the data structures used by most programming languages (numbers, strings, booleans, nulls, arrays and hashes/dictionaries)  
 * It is a string
+* It maps easily onto the data structures used by most programming languages (numbers, strings, booleans, nulls, arrays and hashes/dictionaries)  
 * It looks and acts similarly like Ruby's hash syntax
 * It's lightweight and easy for humans to read and write
 * Most programming languages have a library for reading and writing JSON structures
+* It's a subset of the object syntax in JavaScript. All JSON is valid JavaScript, but not all JavaScript objects are valid JSON (functions, non-string keys, etc.)
 
 **tl;dr**: JSON strikes a balance between being human readable and machine readable.
 
@@ -38,7 +37,7 @@ JSON is commonly used by APIs to send data back and forth when you don't need/wa
 
 ### Analyzing JSON  
 
-JSON data structures are typically either an object (similar to a hash for the purposes of this discussion) or an array of objects or other values.
+JSON data structures are typically either an object (similar to a hash) or an array of objects or other values.
 
 JSON objects follow some rules:
 
@@ -57,7 +56,7 @@ You also have a few types of values available in a JSON structure:
 #### Example
 
 ```
-var person = '{
+person = '{
   "name":"Jennifer Johnson",
   "street":"641 Pine St.",
   "phone":true,
@@ -65,6 +64,8 @@ var person = '{
   "pets":["cat","dog","fish"]
 }'
 ```
+
+This is valid JSON in a Ruby context.
 
 #### Some Common Mistakes
 
@@ -75,7 +76,7 @@ var person = '{
 
 #### Lint Your JSON
 
-If you find yourself writing JSON (we'll do this when we get to AJAX), [JSONLint](http://jsonlint.com/) is a great way to validate and troubleshoot your JSON formatting. 
+If you find yourself writing JSON (we'll do this when we get to AJAX), [JSONLint](http://jsonlint.com/) is a great way to validate and troubleshoot your JSON formatting.
 
 #### Try it!  
 Hop into the JSONlinter and make yourself an object like above.  
@@ -86,6 +87,31 @@ Hop into the JSONlinter and make yourself an object like above.
 * Node's `package.json` and Bower's `bower.json` dependency manifests
 * Sending data back and forth to your app through AJAX requests; building DOM with on the client with data from the server
 
+### JSON and Ruby
+
+Requiring the `json` library gives you `JSON.parse` and  `JSON.generate`. It also adds a `.to_json` method to most objects.
+
+The `json` library is part of the standard library these days, so there is no need to require it in your `Gemfile`.
+
+Let's play around with it in our `pry` consoles.
+
+```rb
+require 'json'
+
+my_hash = { hello: "goodbye" }
+puts JSON.generate(my_hash) #=> "{"hello":"goodbye"}"
+puts  my_hash.to_json #=> "{"hello":"goodbye"}"
+```
+
+```rb
+require 'json'
+
+person = '{"name":"Jennifer Johnson","street":"641 Pine St.","phone":true,"age":50,"pets":["cat","dog","fish"]}'
+parsed_person = JSON.parse(person) #=> {"name"=>"Jennifer Johnson", "street"=>"641 Pine St.", "phone"=>true, "age"=>50, "pets"=>["cat", "dog", "fish"]}
+puts parsed_person
+puts parsed_person['pets']
+```
+
 ### JSON versus XML
 
 Let's look at some data in [JSON and XML](https://gist.github.com/stevekinney/210a7fb9c9b3c0be2e53).
@@ -94,6 +120,19 @@ Any differences you notice?
 
 *  XML slightly resembles HTML (both are markup languages)
 *  JSON has less overhead, therefore making it faster in many cases
+
+### Wrap Up
+
+* What are some reasons you'd want to use JSON in your application?
+* At its core, what is JSON?
+* What are some places you've seen JSON?
+* What are some of the gotchas working with JSON?
+
+## Supporting Materials
+
+* [Slides](https://www.dropbox.com/s/j3waahelo4q3f2e/Turing%20-%20JSON%20Fundamentals.key?dl=0)
+
+## Additional Resources
 
 ### JSON and JavaScript
 
@@ -116,42 +155,6 @@ These methods are relatively straight-forward.
 `stringify` will take a JavaScript object and—umm—_stringify_ it.
 
 `JSON.parse` is fairly strict. If there is an error in your JSON, it will throw an error (usually not a particularly helpful one). If you're getting some cryptic errors, toss your JSON into [JSONLint](http://jsonlint.com/) and make sure your JSON is malformed in some way before you spend too much time scratching your head trying to figure out what's wrong.
-
-### JSON and Ruby
-
-Requiring the `json` library gives you `JSON.parse` and  `JSON.generate`. It also adds a `.to_json` method to most objects.
-
-The `json` library is part of the standard library these days, so there is no need to require it in your `Gemfile`.
-
-Let's play around with it in our `pry` consoles.
-
-```rb
-require 'json'
-
-my_hash = { hello: "goodbye" }
-puts JSON.generate(my_hash) #=> "{"hello":"goodbye"}"
-puts  my_hash.to_json #=> "{"hello":"goodbye"}"
-```
-
-```rb
-require 'json'
-
-person = "{\"name\":\"Jennifer Johnson\",\"street\":\"641 Pine St.\",\"phone\":true,\"age\":50,\"pets\":[\"cat\",\"dog\",\"fish\"]}"
-parsed_person = JSON.parse(person) #=> {"name"=>"Jennifer Johnson", "street"=>"641 Pine St.", "phone"=>true, "age"=>50, "pets"=>["cat", "dog", "fish"]}
-puts parsed_person
-puts parsed_person['pets']
-```
-
-### Wrap Up
-
-* What are some reasons you'd want to use JSON in your application?
-* At its core, what is JSON?
-* What are some places you've seen JSON?
-* What are some of the gotchas working with JSON?
-
-## Supporting Materials
-
-* [Slides](https://www.dropbox.com/s/j3waahelo4q3f2e/Turing%20-%20JSON%20Fundamentals.key?dl=0)
 
 ## Corrections & Improvements for Next Time
 
