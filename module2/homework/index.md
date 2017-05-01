@@ -19,7 +19,7 @@ subheading: Homework
   * [Spin up basic Rack Server](./rack)
   * Read the "What is Rack" section (just the first one) in this [article](http://rubylearning.com/blog/2013/04/02/whats-rack/).
   * Read [What is 'Rack' in Ruby/Rails?](http://blog.gauravchande.com/what-is-rack-in-ruby-rails)
-  * **OPTIONAL** Dive deep into [how the web works](https://gist.github.com/Carmer/1ac51aa7418c6bd4b1d19e22fa0e03a8) to prep for tomorrow's class. This might seem like a lot at first, but it shouldn't take you more than 30-45 minutes.
+  * **OPTIONAL ** Dive deep into [how the web works](https://gist.github.com/Carmer/1ac51aa7418c6bd4b1d19e22fa0e03a8). This might seem like a lot at first, but it shouldn't take you more than 30-45 minutes.
 
 
 ##### Day 2
