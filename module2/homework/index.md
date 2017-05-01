@@ -15,14 +15,15 @@ subheading: Homework
 
 ##### Day 1
   * Finish adding functionality to TaskManager by following this [tutorial](https://gist.github.com/case-eee/06c54aae5b414dfc010f485827c9d1db).
-  * Dive deep into [how the web works](https://gist.github.com/Carmer/1ac51aa7418c6bd4b1d19e22fa0e03a8) to prep for tomorrow's class. This might seem like a lot at first, but it shouldn't take you more than 30-45 minutes.
+  * Answer the questions [here](https://gist.github.com/case-eee/1f066fa3be100f8f18f4d31f521a3da4)
   * [Spin up basic Rack Server](./rack)
   * Read the "What is Rack" section (just the first one) in this [article](http://rubylearning.com/blog/2013/04/02/whats-rack/).
   * Read [What is 'Rack' in Ruby/Rails?](http://blog.gauravchande.com/what-is-rack-in-ruby-rails)
+  * **OPTIONAL** Dive deep into [how the web works](https://gist.github.com/Carmer/1ac51aa7418c6bd4b1d19e22fa0e03a8) to prep for tomorrow's class. This might seem like a lot at first, but it shouldn't take you more than 30-45 minutes.
 
 
 ##### Day 2
-  * CRUD Robot World. Instructions are found [here](https://github.com/turingschool-examples/robot-world).
+  * Finish CRUD Robot World. Instructions are found [here](https://github.com/turingschool-examples/robot-world).
   * Add basic styling to your Robot World. Timebox this!
 
 ##### Day 3
