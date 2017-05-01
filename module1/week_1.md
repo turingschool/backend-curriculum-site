@@ -12,6 +12,7 @@ layout: page
 * [Introducing Arrays](lessons/arrays_101) ([Video](https://www.youtube.com/watch?v=nlwU1YtQ9SU))
 * [Flow Control](lessons/flow_control) ([Video](https://www.youtube.com/watch?v=iZkQWR9_RpY))
 * [Exploring `.each` and Exercises](lessons/primer_on_each)
+* [Core Types Exercises](https://github.com/turingschool/ruby-exercises/tree/master/core-types)
 * [Methods, Arguments, Scopes](lessons/methods_arguments_and_scopes.markdown)
 * [Classes and Instance Methods](lessons/classes_instances_methods)
 
@@ -21,16 +22,14 @@ layout: page
 * [Pseudocoding](student_homework/pseudocoding_homework.md)
 * [Bad Connection](student_homework/bad_connection.md)
 * [SuperFizz](student_homework/super_fizz.md)
+* [Sorting Suite](projects/sorting_suite.markdown)
 
 ## Projects
 
 * [Credit Check](projects/credit_check.markdown)
-* [Sorting Suite](projects/sorting_suite.markdown)
 
 ## Exercises and Other Relevant Links
 
-* [Enumerable Exercises](https://github.com/turingschool/enums-exercises)
-* [Core Types Exercises](https://github.com/turingschool/ruby-exercises/tree/master/core-types)
 * [Environment Setup](lessons/environment_setup) ([Video](https://vimeo.com/154607937))
 * [Terminal and Editor](https://github.com/turingschool/curriculum/blob/master/source/academy/workshops/terminal_and_editor.markdown)
 * [Working with Strings and Integers](https://github.com/turingschool/challenges/blob/master/working_with_strings_and_integers.markdown)

@@ -17,9 +17,11 @@ layout: page
 *   [Academic Integrity](lessons/academic_integrity)
 
 ## Projects and Exercises
-*   [Jungle Beat](projects/jungle_beat)
-*   [Date Night](projects/date_night)
-*   [Enigma](projects/enigma)
+
+* [Enumerable Exercises](https://github.com/turingschool/enums-exercises)
+* [Jungle Beat](projects/jungle_beat)
+* [Date Night](projects/date_night)
+* [Enigma](projects/enigma)
 
 ## Resources
 
