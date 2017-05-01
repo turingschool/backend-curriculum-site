@@ -19,7 +19,7 @@ subheading: Homework
   * [Spin up basic Rack Server](./rack)
   * Read the "What is Rack" section (just the first one) in this [article](http://rubylearning.com/blog/2013/04/02/whats-rack/).
   * Read [What is 'Rack' in Ruby/Rails?](http://blog.gauravchande.com/what-is-rack-in-ruby-rails)
-  * **OPTIONAL** Dive deep into [how the web works](https://gist.github.com/Carmer/1ac51aa7418c6bd4b1d19e22fa0e03a8) to prep for tomorrow's class. This might seem like a lot at first, but it shouldn't take you more than 30-45 minutes.
+  * **OPTIONAL ** Dive deep into [how the web works](https://gist.github.com/Carmer/1ac51aa7418c6bd4b1d19e22fa0e03a8). This might seem like a lot at first, but it shouldn't take you more than 30-45 minutes.
 
 
 ##### Day 2
@@ -38,14 +38,14 @@ subheading: Homework
     * [The Basics of Capybara and Improving your Tests](https://www.sitepoint.com/basics-capybara-improving-tests/)
     * [Capybara (software) - Wikipedia](https://en.wikipedia.org/wiki/Capybara_(software))
     * [Testing your App with Capybara](https://github.com/teamcapybara/capybara)
-  * [DTR for Bike Share](https://gist.github.com/Carmer/85b9e0569af607d14f6e14b696b5e131). One group member should send link to forked gist to Andrew and Beth.
+  * [DTR for Bike Share](https://gist.github.com/Carmer/85b9e0569af607d14f6e14b696b5e131). One group member should send link to forked gist to Lauren and Beth.
 
 ##### Day 5 & Weekend
   * Answer the Module 2/Week One Recap [questions](https://github.com/turingschool/checks-for-understanding/blob/master/module-2/backend/week_one.md).
   * Sign up for a [lightning talk](https://docs.google.com/spreadsheets/d/1841jEUkYOjujI12En_rLZ0OtWCnLcpNM0s077FE2Tso/edit#gid=0)
     * [Lighting Talk Topics](../lighting_talk_topic_ideas.md)
-  * Write your first feature tests from today's lesson on your Horse repo, push that branch to github, make a pull request and tag Beth (@bethsebian) and Andrew (@carmer) to review the tests.
-  * As you write your first tests for Bike Share, make a pull request, tag Beth (@bethsebian) and Andrew (@carmer) to review the tests.
+  * Write your first feature tests from today's lesson on your Horse repo, push that branch to github, make a pull request and tag Beth (@bethsebian), Lauren (@laurenfazah), and Schutte (@tmikeschu) to review the tests.
+  * As you write your first tests for Bike Share, make a pull request, tag Beth, Lauren, and Schutte to review the tests.
   * [Watch Sharif Ramadan's intro to 1NF, 2NF and 3NF databases. They're only about 4 minutes each.](https://www.youtube. com/watch?v=K7vzLrGCV50&list=PLQ9AAKW8HuJ5m0rmHKL88ZyjOIKejvrj0)
   * Suggested:
     * Read the [Learn SQL the Hard Way](http://sql.learncodethehardway.org/book/) book.
