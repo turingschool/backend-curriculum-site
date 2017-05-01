@@ -11,7 +11,7 @@ In order to graduate from Module 4, students must complete each of the following
 
 Students must earn a score of `3` or greater in *each* category of the final assessment rubric.
 
-Assessment requirements will be provided on the first day of the module.
+Assessment requirements will be provided on the first week of the module.
 
 ### Independent Work
 
