@@ -43,7 +43,7 @@ Academic success in B4 means that students demonstrate proficiency and comfort w
 
 The following list includes everything you will see throughout the module. You should be familiar enough with the following list to at least speak about and identify each of the following in a project codebase:
 
-1. #### Project Management & Professional Skills
+#### Project Management & Professional Skills
 
   - [Career Development Curriculum](https://github.com/turingschool/career-development-curriculum/tree/master/module_two)
   - Employ effective communication in order to facilitate collaboration. (Functional)
@@ -54,16 +54,16 @@ The following list includes everything you will see throughout the module. You s
   - Wireframe project ideas (Functional)
   - Write detailed user stories using the Gherkin Model(Mastery)
 
-1. #### Understanding and interpreting errors and error messages
+#### Understanding and interpreting errors and error messages
 
   - Where in your code is there error? (Functional)
   - What was the code trying to accomplish when it failed? (Functional)
   - What caused it to fail? (Functional)
   - Using a debugging tool like `pry` or `byebug` to sort through the error vs `puts` driven development" (Functional)
 
-1. #### Diagram and explain the MVC model
+#### Diagram and explain the MVC model
 
-1. #### HTTP Fundamentals
+#### HTTP Fundamentals
 
   - Request (Functional)
   - URI/URL (Functional)
@@ -80,7 +80,7 @@ The following list includes everything you will see throughout the module. You s
   - Describe the HTTP request/response cycle (Mastery)
   - Explain what happens when a client visits a website (Functional)
 
-1. #### HTML/CSS
+#### HTML/CSS
 
   - Understand basic HTML tags/elements/nodes including but not limited to:
     - Forms `<forms></forms>`
@@ -95,20 +95,20 @@ The following list includes everything you will see throughout the module. You s
   - Target specific HMTL content with CSS selectors (Mastery)
   - Explain hierarchy/ancestry of HTML (Functional)
 
-1. #### Model Testing
+#### Model Testing
 
   - Basic RSpec syntax (Mastery)
   - data preparation/manipulation (Mastery)
   - validation testing (Mastery)
   - relationship testing (Mastery)
 
-1. #### Feature Testing
+#### Feature Testing
 
   - Basic RSpec syntax (Mastery)
   - Capybara methods (Functional)
     - `within`, `find`, `visit`, `page`, `current_path`, `have_content`, `click_on` and more (Mastery)
 
-1. #### SQL
+#### SQL
 
   - Writing basic SQL select statements (Mastery)
     - Inserts (Functional)
@@ -118,7 +118,7 @@ The following list includes everything you will see throughout the module. You s
     - Group (Familiarity)
     - .schema (Familiarity)
 
-1. #### Database Planning, Migrations and Relationships
+#### Database Planning, Migrations and Relationships
 
   - Design database schemas to represent relationships between objects (Functional)
   - Clearly articulate a relational database structure (Functional)
@@ -127,7 +127,7 @@ The following list includes everything you will see throughout the module. You s
   - What methods do we get when we set up relationships? (Mastery)
   - Presence and Uniqueness Validations (Mastery)
 
-1. #### Views
+#### Views
 
   - Template a view (Mastery)
   - Craft wireframes (Functional)
@@ -137,7 +137,7 @@ The following list includes everything you will see throughout the module. You s
   - How to create a form in a view using Rails, including a form using nested resources. (Mastery / Functional)
   - Make a partial (Functional)
 
-1. #### Controllers
+#### Controllers
 
   - Inheritance (Functional)
   - ApplicationController (Functional)
@@ -148,7 +148,7 @@ The following list includes everything you will see throughout the module. You s
   - How to prepare data for your views. (Mastery)
   - Refactoring best practice for MVC. Fat models, skinny controllers (Mastery)
 
-1. #### Models
+#### Models
 
   - ActiveRecord Model vs PORO (Functional)
   - Inheritance (Mastery)
@@ -157,7 +157,7 @@ The following list includes everything you will see throughout the module. You s
   - Scopes (Functional)
   - Refactoring best practice for MVC. Fat models, skinny controllers (Mastery)
 
-1. #### Routes
+#### Routes
 
   - 7 Restful routes - verb path combinations - for a resource (Mastery)
   - How to create routes using `resources` (Mastery)
@@ -168,20 +168,20 @@ The following list includes everything you will see throughout the module. You s
   - Route modifiers: `:module`, `:path`, `:scope` (Functional)
   - `namespace` and nested `resources` (Highly Functional)
 
-1. #### ActiveRecord
+#### ActiveRecord
 
   - ActiveRecord query methods. Differences between `find` `find_by` and `where` (Mastery)
   - Understand how AR `create` and a `new` instance + `save` are related (Mastery)
   - Methods associated with AR relationships (Mastery)
   - Validations - Presence, Uniqueness (Mastery)
 
-1. #### Authentication
+#### Authentication
 
   - BCrypt (Functional)
   - Hashing Algorithms (Familiarity)
   - has_secure_password (Functional)
 
-1. #### Authorization
+#### Authorization
 
   - before_action (Mastery)
   - Roles (Functional)
