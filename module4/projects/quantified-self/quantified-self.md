@@ -16,13 +16,22 @@ You are going to build a simple calorie tracker.
 
 ## Learning Goals
 
-- Basics of Javascript
-- jQuery based DOM traversal
-- jQuery based Event handling
-- AJAX calls to connect to a JS backend
-- Building an API in Node
-- Using pivotal tracker to manage a project with multiple developers
-- Using a production git workflow
+* Students apply knowledge of Ruby collections to JavaScript arrays
+* Students create and use functions with parameters
+* Students apply SOLID patterns to JavaScript functions
+* Students organize functions into classes and objects
+* Students make effective use of this in multiple contexts
+* Students unit test JavaScript
+* Students use event listeners to attach code to event-element combinations including document-ready and element-click
+* Students write precise CSS-style selectors in multiple contexts like DOM manipulation and integration testing
+* Students read form content and manipulate DOM via JavaScript
+* Students integrate outside data sources in the browser (AJAX, local storage)
+* Students use integration testing to verify JavaScript functionality
+* Students implement a stand-alone web service with Node and Express
+* Students interact with SQL databases by writing raw SQL
+* Students use pull requests to organize discussion about features
+* Students implement feedback from a code review to improve quality
+* Students use an agile process to turn acceptance requirements into deployed software
 
 ## Challenges
 
