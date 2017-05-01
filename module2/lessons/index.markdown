@@ -26,7 +26,7 @@ title: Module 2 Scope and Sequence
 
 <!-- * [Intermediate Sql]() -->
 * Week 1 review and Q&A
-* [ERD's](entity-relationship-diagramming)
+<!-- * [ERD's](entity-relationship-diagramming) -->
 * Bike Share Checkins
 * [ActiveRecord Associations](activerecord_associations)
 * Feedback II
