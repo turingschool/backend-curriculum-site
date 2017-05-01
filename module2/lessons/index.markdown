@@ -1,13 +1,15 @@
-# Module 2 Scope and Sequence
+---
+title: Module 2 Scope and Sequence
+---
 
 ## Week 1
 
 * [Intro to Sinatra](introduction_to_sinatra)
 * [HTML/CSS Basics](http://backend.turing.io/module2/slides/html_css_basics/html_css_basics)
 * [How the Web Works](http://backend.turing.io/module2/slides/how_the_web_works/slides)
-* [CRUD in Sinatra](crud_sinatra_synthesis)
+* [CRUD in Sinatra Synthesis](crud_sinatra_synthesis)
 * [Passing Data With Sinatra](https://github.com/turingschool/shopping)
-* [CRUD WORKTIME](robot_world_crud_sinatra)
+* [Robot World CRUD Sinatra Practice](robot_world_crud_sinatra)
 * [Database Visualization & Relationships](visualising_and_implementing_database_relationships)
 * [ActiveRecord Exploration](https://github.com/turingschool/intro-to-ar)
 * [Intro to ActiveRecord with Sinatra](intro_to_active_record_in_sinatra)

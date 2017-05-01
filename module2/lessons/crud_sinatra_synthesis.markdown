@@ -1,6 +1,6 @@
 ---
 title: CRUD in Sinatra Synthesis
-length: 120
+length: 60
 tags: crud, sinatra
 ---
 

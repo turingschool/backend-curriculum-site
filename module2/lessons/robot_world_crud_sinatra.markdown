@@ -1,4 +1,8 @@
-## Robot World - CRUD in Sinatra Practice
+---
+title: Robot World - CRUD in Sinatra Practice
+length: 120
+tags: crud, sinatra
+---
 
 You'll be working in pairs for this challenge.
 
