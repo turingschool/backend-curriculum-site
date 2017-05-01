@@ -16,18 +16,19 @@ You are going to build a simple calorie tracker.
 
 ## Learning Goals
 
-- Walk in a Front-End Engineer's shoes
 - Basics of Javascript
 - jQuery based DOM traversal
 - jQuery based Event handling
-- jQuery based State management
+- AJAX calls to connect to a JS backend
+- Building an API in Node
 - Using pivotal tracker to manage a project with multiple developers
 - Using a production git workflow
 
 ## Challenges
 
-- Figure your life out without a back end
+- Create a full-stack JS application
 - Be able to organize your JS across different files
+- Make AJAX calls to connect your frontend with your backend
 - Handle events
 - Handle events on DOM elements that didn't exist at load
 - Manage state via jQuery
@@ -37,7 +38,7 @@ You are going to build a simple calorie tracker.
 
 ### Requirements overview
 
-Your requirements for the application are detailed in the cards you've imported to pivotal, but here's an overview of what you're doing.
+Your requirements for the application are detailed in the cards you've imported to pivotal (you can also find them [here](https://github.com/turingschool/backend-curriculum-site/blob/gh-pages/module4/projects/quantified-self/quantified-self-tracker-stories.csv)), but here's an overview of what you're doing.
 
 #### Layouts
 
@@ -49,7 +50,7 @@ Your requirements for the application are detailed in the cards you've imported 
 
 ![quantified-self-diary.png](quantified-self-diary.png)
 
-#### Broad features
+#### Broad Front End features
 
 - CRUD foods
 - Add a food to Diary (meal/day combo)
@@ -59,21 +60,26 @@ Your requirements for the application are detailed in the cards you've imported 
 - Data persists across refreshes
 - EXTENSION: Build an admin panel to manage data
 
+#### Broad Back End features
+- Build a service in Node that will store all of the Quantified Self data. The service will serve and consume JSON.
+- Document a plan in the form of a schema, API docs and user stories.
+
 ### Getting your project started
 
 - Follow the instructions on the [Quantified Self Starter Kit](https://github.com/turingschool-examples/quantified-self-os) to get your codebase going
-- Create a new project, or have one created for you. Not sure yet.
+- Accept the Pivotal Tracker invitation and use this as your Project Management tool.
 - Import [this CSV](./quantified-self-tracker-stories.csv) to your project to get all the cards in there. Import is found under settings.
-- If you'd like to attempt the extension, import [this other CSV](./quantified-self-extension-stories.csv).
+- If you'd like to attempt the extensions, import [this other CSV](./quantified-self-extension-stories.csv).
 
 ### Expectations
 
+- Use whatever you've used in the past for schema, documentation and user stories. Or something new you've been wanting to try out. These things are graded on completion. Probably want to agree on format in your DTR.
 - Allowed libraries are jQuery, lodash/underscore, and moment.
 - Logic like sorting, filtering, local storage and validation should be done without using another library
 - `<table>`s are ok for the actual tables. Try not to use them for the layout.
 - All elements from the mockup should be represented in your app, even if the styling or layout is different.  Unless it is mentioned specifically in the user stories, colors and other styling are up to you. I'll be just fine if it looks exactly like the mockup though.
-- Details, Details, Details!!! If it's in the user stories, I'm looking for it in your app. And ask before you add any functionality. Additional functionality in the evaluation is usually just grounds for a stern look, but if you "improve" functionality and don't ask about it, it's considered incorrect.
-- SOLID is mentioned in the rubric. You've been applying SOLID in Ruby, without really knowing it, and they apply to all programming languages. Just google it.
+- Details, Details, Details!!! If it's in the user stories, we're looking for it in your app. And ask before you add any additional functionality. Additional functionality in the evaluation is usually just grounds for a stern look, but if you "improve" functionality and don't ask about it, it's considered incorrect.
+- SOLID is mentioned in the rubric. You've been applying SOLID in Ruby, without really knowing it, and they apply to all programming languages. You can learn more about it [here](https://scotch.io/bar-talk/s-o-l-i-d-the-first-five-principles-of-object-oriented-design).
 
 ### Tips for success
 
@@ -94,6 +100,13 @@ You will be subjectively graded by an instructor on the following criteria:
 - 3: Application implements all functionality as defined, but some bugs or strange behavior where features intersect
 - 2: Application is missing required functionality, deviates significantly from the spec, or serious bugs prevent features from being usable
 - 1: Application is missing a significant portion of functionality
+
+### Planning and Design
+
+- 4: Team created visual schema, API documentation and user stories, before writing tests. API adheres to REST standard.
+- 3: Team created either a schema or API docs to facilitate implementation of a service.
+- 2: Team has some notes on how to implement their service, but someone else couldn't implement it.
+- 1: Team did not design their service.
 
 ### Testing
 
@@ -136,3 +149,28 @@ Adhering to any of these additional specifications will allow you to increase on
 
 - All functionality is part of a class, written using ES6
 - No Libraries (except for testing). All JavaScript functionality is your own.
+- Complete either of the two backend focused extensions below. 
+
+#### Sources of Truth
+
+Local Storage is often used for "offline" functionality. When the user is having trouble connecting to the internet, the application will continue to function. When a connection is re-established, the local changes are uploaded to the server. Likewise, if changes are made on one client, they should be downloaded to another client
+
+Use Local Storage and AJAX to meet the following requirements:
+
+1. If I'm disconnected from the internet, I can continue to use the application.
+1. When I make a change while disconnected from the internet, that change will be uploaded to the server when I reconnect
+2. If I make a change one computer, those changes should propagate to any other clients through the server
+
+You will probably need to use a concept called `service workers`
+
+#### Mircroservices
+
+Instead of building a single service, build a series of microservices. Each microservice is a separate codebase and application that represents a single table in your schema. These applications communicate with each other via HTTP. Since they all live in the same datacenter, this is not much of a performance problem.
+
+The architecture would look something like this:
+
+![microservices-challenge](./microservices-challenge.png)
+
+If you attempt this challenge, your planning and design should include your microservices architecture.
+
+As to why you might want to do this, watch [Chad Fowler's Rocky Mountain Ruby 2015 talk](https://www.youtube.com/watch?v=-UKEPd2ipEk)
