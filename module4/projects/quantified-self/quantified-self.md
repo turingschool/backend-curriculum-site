@@ -62,6 +62,7 @@ Your requirements for the application are detailed in the cards you've imported 
 
 #### Broad Back End features
 - Build a service in Node that will store all of the Quantified Self data. The service will serve and consume JSON.
+- Use SQL for all database communication
 - Document a plan in the form of a schema, API docs and user stories.
 
 ### Getting your project started
