@@ -2,12 +2,12 @@
 
 ---
 
-# Warmup
+## Warmup
 
 * What is the purpose of HTML?
 * What is the purpose of CSS?
 * What are some HTML tags you learned over break? Anything interesting?
-* What is the purpose of a `class` in CSS? an `id`?
+* What is the purpose of a `class` in HTML/CSS? an `id`?
 * Any other interesting ways to select things using CSS?
 
 ---
@@ -16,7 +16,7 @@
 
 ---
 
-# HTML Skeleton
+## HTML Skeleton
 
 ```html
 <!DOCTYPE html>
@@ -31,31 +31,37 @@
 
 ---
 
-# <head></head>
+## <head></head>
 
 ```html
-<title>Some Title</title>
-<link rel="stylesheet" type="text/css" href="css/main.css">
+<head>
+  <title>Some Title</title>
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
 ```
 
 ---
 
-# <body></body>
+## <body></body>
 
 ```html
-<h1></h1>
-<p></p>
-<img src="img/image1.png">
-<a href="http://www.google.com">Google</a>
-<ul>
-  <li>Item 1</li>
-  <li>Item 2</li>
-</ul>
+<body>
+  <h1></h1>
+  <p></p>
+  <img src="img/image1.png">
+  <a href="http://www.google.com">Google</a>
+  <ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+  </ul>
+</body>
 ```
 
 ---
 
-# Semantic Tags
+## Semantic Tags
+
+
 
 ```html
 <header>
@@ -66,35 +72,32 @@
 <aside>
 <section>
 ```
-Plus some others...
-
 ---
 
-# Non-Semantic Tags
+## [Less]-Semantic Tags
 
 ```html
 <div>
 <span>
 ```
-
 ---
 
 # CSS
 
 ---
 
-# Selectors
+## Selectors
 
 ```css
 p {
-  background-color: #00F;
-  color: #FFF;
+  background-color: blue;
+  color: #FFFFFF;
 }
 ```
 
 ---
 
-# Class Selectors
+## Class Selectors
 
 ```css
 .some-class {
@@ -104,7 +107,7 @@ p {
 
 ---
 
-# ID Selectors
+## ID Selectors
 
 ```css
 #some-id {
@@ -114,24 +117,24 @@ p {
 
 ---
 
-# Box Model
+## Box Model
 
 ![inline](box-model.png)
 
 ---
 
-# Display Property
+## Display Property
 
 * *Block* will take up as much horizontal space as possible.
 * *Inline* will allow text to wrap around an element.
     * Accepts margin and padding.
     * Will ignore width and height.
 * *Inline-Block* like _inline_, but will respect width and height.
-* *None* will hide an element.
+* *None* will remove an element from the DOM (Document Object Model).
 
 ---
 
-# Floats
+## Floats
 
 ```css
 h1 {
@@ -147,76 +150,88 @@ h1 {
 
 ---
 
-# Clearfix
+## Wireframing
 
-```css
-.clearfix:after {
-  content: ' ';
-  display: table;
-  clear: both;
-}
-```
+Wireframes, from a developer's vantage point, should be minimal. Looking at a wireframe, one should be able to gather the basic structure of the site. Specific fonts, images, or copy (text), shouldn't be a concern.
 
----
+## Exercise: Wireframe: With a Partner
 
-# Detour: Lorem Ipsum
-
-* Hipster
-* Bacon
-* Beer
-* Seinfeld
-* Ulysses
-
----
-
-# Wireframing
-
-With a partner
+### Part 1:
 
 * Think of a type of site (store, personal, news, review, blog).
 * Brainstorm content that would be displayed on the front page.
 * Create a wireframe for that site.
 
----
+### Part 2:
 
-# Code Along
+* See if you can create the basic layout for the site you wireframed with HTML/CSS
 
-Implement a simple wireframe.
-
-Other examples available [here](https://github.com/s-espinosa/basic_html_css_comp).
+## Other CSS Wizardry
 
 ---
 
-# Implement Your Wireframe
-
-With a partner
-
-* See if you can create the basic layout for the site you wireframed.
-
----
-
-# Other CSS Wizardry
-
----
-
-# Pseudo-Classes
+## Pseudo-Classes
 
 * `:hover`
 * `:nth-child(2)`
-* `:nth-of-type(2)`
+
+```css
+h1:hover {
+  opacity: .5;
+}
+```
 
 ---
 
-# Spaces, Commas, and Dots
+## Advanced CSS Selectors
 
-* *Period With No Space*: Apply to elements that have both selectors.
-* *Comma*: Apply elements that have either selector.
-* *Space*: Child elements.
+```html
+<body>
+  <p class="red dog"></p>
+  <p class="red cat"></p>
+  <div class="red">
+    <p class="inner">
+      <a href="#" class="more inner"></a>
+    </p>
+  </div>
+</body>
+```
+
+* *Chained classes*: Apply to elements that have all classes.
+
+```css
+.red.dog {
+  /*would only apply to <p> with both red and dog classes*/
+}
+```
+
+* *Comma*: Apply to elements that have either selector.
+
+```css
+.cat, .dog {
+  /* would apply to anything with class of cat or dog */
+}
+```
+
+* *Space*: Child elements (direct or indirect).
+
+```css
+.red .inner {
+  /* would apply to <p>, <a> children of <div class="red"> */
+}
+```
+
 * *>*: Direct children.
 
+```css
+.red > .inner {
+  /* would only apply to <p class="inner"> child of <div> */
+}
+```
+
 ---
 
-# Additional Wireframes
+## Additional Wireframes
 
 With the time remaining:
 
