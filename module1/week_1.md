@@ -37,6 +37,11 @@ layout: page
 * [String and Integer Riddles](https://github.com/turingschool/challenges/blob/master/string-and-integer-riddles.markdown)
 * [Strings the Hard Way](https://github.com/turingschool/challenges/blob/master/strings_the_hard_way.markdown)
 
+## Slides
+
+* [Welcome to M1](slides/welcome_to_M1)
+* [Strings & Integers](slides/strings_and_integers)
+
 
 <!-- ## OLD:
 * [Core Types (Foxtrot)](https://github.com/turingschool/ruby-exercises/tree/master/core-types)
