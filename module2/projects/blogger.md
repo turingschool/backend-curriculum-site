@@ -1549,6 +1549,8 @@ rails new blogger
 
 If you feel awesome about and comfortable with what we've done so far, feel free to move on.
 
+Note: Iterations 0-2 were updated to reflect Rails 5.1.0, if you run into inconsistencies between the tutorial and your development (e.g., different error messages or behavior), it could be due to version differences.
+
 ## I3: Tagging
 
 In this iteration we'll add the ability to tag articles for organization and navigation.
