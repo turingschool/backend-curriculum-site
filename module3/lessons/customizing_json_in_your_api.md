@@ -21,10 +21,10 @@ tags: json, javascript, rails, ruby, api
 - In app folder  
 
 ## Warmup  
-- What would be some situations where you don't want to expose, in json, all the information for a specific record? 
-- What tools/gems are out there to help you with this? 
+- What would be some situations where you don't want to expose, in json, all the information for a specific record?
+- What tools/gems are out there to help you with this?
   - Split class 5min research Jbuilder/Active Model Serializer
-  - Share out 
+  - Share out
 
 ## Lecture
 
@@ -49,8 +49,9 @@ Let's take a look at the last two ways to customize the JSON that gets sent to t
 We're going to start where we left off in the internal API testing lesson.   
 
 ```
-git clone https://github.com/s-espinosa/building_internal_apis/tree/building_api_complete  
+git clone https://github.com/s-espinosa/building_internal_apis.git  
 bundle  
+git checkout building_api_complete
 git checkout -b setup  
 ```
 
@@ -63,8 +64,8 @@ bundle exec rake db:migrate
 ```
 
 Add Faker Gem
-``` 
-gem faker 
+```
+gem faker
 bundle
 ```
 
@@ -86,7 +87,7 @@ And whip together a quick seed file:
 10.times do
   Item.create!(
     name: Faker::Commerce.product_name,
-    price: Faker::Number.digit,
+    description: Faker::ChuckNorris.fact,
   )
 end
 
@@ -113,6 +114,7 @@ bundle exec rake db:seed
 Create your controller
 
   - `rails g controller api/v1/orders index show`
+  - Create routes.
   - Set `index` and `show` methods to render appropriate json
 
 ## Responses
@@ -194,6 +196,7 @@ JSON responses should contain the following keys from the following endpoints:
 - Install with a gem: `gem 'active_model_serializers', '~> 0.10.0'`
 - Uses model syntax
 - Modifies [`.as_json`](http://api.rubyonrails.org/classes/ActiveModel/Serializers/JSON.html#method-i-as_json), which happens in the background of [`respond_with`](http://edgeapi.rubyonrails.org/classes/ActionController/Responder.html)
+- Serializers describe which attributes and relationships should be serialized.
 
 ### Code Along
 
@@ -245,7 +248,7 @@ end
 Do what I did to `Order`, but on `Item` now.
 
 - Some existing fields
-  - `id`, `name`, `price`
+  - `id`, `name`, `description`
 - Some custom fields
   - `num_orders`
 - A relationship
@@ -267,7 +270,10 @@ Do what I did to `Order`, but on `Item` now.
 
 Let's use Jbuilder to create JSON views for `Order`.
 
-First, add and commit your serializers work and checkout a `jbuilder` branch.
+First, add and commit your serializers work, go back to the `setup` branch and checkout a `jbuilder` branch.
+
+- Uncomment `gem 'jbuilder', '~> 2.5'` in the Gemfile
+
 
 - Add views
   - (/views/api/v1/orders)
@@ -321,7 +327,7 @@ For example, `localhost:3000/api/v1/orders.json`
 Do what I did to `Order`, but on `Item` now.
 
 - Some existing fields
-  - `id`, `name`, `price`
+  - `id`, `name`, `description`
 - Some custom fields
   - `num_orders`
 - A relationship
