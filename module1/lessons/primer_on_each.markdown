@@ -36,10 +36,7 @@ Now you can use it like this...
 ```ruby
 favorite_things = ["Trapper Keeper", "Netscape Navigator", "Troll Doll"]
 binding.pry
-""
 ```
-
-> Note:  Notice that empty string following `binding.pry`? Pry bindings can never be the last line of code in a script. They are meant to pause your code while it's running. This empty string is a way of making pry think you're not at the end of your script.
 
 We're going to use your debugger to explore `.each` and on the challenges below.
 
