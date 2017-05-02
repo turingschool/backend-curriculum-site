@@ -77,7 +77,7 @@ Your requirements for the application are detailed in the cards you're going to 
 
 ### Getting your project started
 
-- You're going to create to separate code bases to complete this project. You'll have a code base for your front end and a separate code base for your back end. You may run into some errors when trying to communicate between the two code bases (most likely CORS problems), but we'll address this in class.
+- You're going to create two separate code bases to complete this project. You'll have a code base for your front end and a separate code base for your back end. You may run into some errors when trying to communicate between the two code bases (most likely CORS problems), but we'll address this in class.
 - We're going to start with building the back end. For this code base, you'll be starting a new repository from scratch.
 - Accept your email invitation from Pivotal Tracker and use this as your Project Management tool.
 - Import [this CSV](./quantified-self-tracker-stories.csv) to your project to get all the cards in there. Import is found under settings.
