@@ -41,7 +41,7 @@ layout: page
 
 * [Welcome to M1](slides/welcome_to_M1)
 * [Strings & Integers](slides/strings_and_integers)
-* [Primer on Each](sldies/primer_on_each)
+* [Primer on Each](slides/primer_on_each)
 
 
 <!-- ## OLD:
