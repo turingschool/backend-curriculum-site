@@ -47,15 +47,15 @@ You are going to build a simple calorie tracker.
 
 ### Requirements overview
 
-Your requirements for the application are detailed in the cards you've imported to pivotal (you can also find them [here](https://github.com/turingschool/backend-curriculum-site/blob/gh-pages/module4/projects/quantified-self/quantified-self-tracker-stories.csv)), but here's an overview of what you're doing.
+Your requirements for the application are detailed in the cards you're going to import to Pivotal Tracker (you can also find them [here](https://github.com/turingschool/backend-curriculum-site/blob/gh-pages/module4/projects/quantified-self/quantified-self-tracker-stories.csv)), but here's an visual of what you're doing.
 
 #### Layouts
 
-**Manage Foods**
+### **Manage Foods**
 
 ![quantifed-self-resource-management.png](quantified-self-resource-management.png)
 
-**Main Diary**
+### **Main Diary**
 
 ![quantified-self-diary.png](quantified-self-diary.png)
 
@@ -70,16 +70,19 @@ Your requirements for the application are detailed in the cards you've imported 
 - EXTENSION: Build an admin panel to manage data
 
 #### Broad Back End features
-- Build a service in Node that will store all of the Quantified Self data. The service will serve and consume JSON.
+- Build a service in Node that will store all of the Quantified Self data
+- The service will serve and consume JSON
 - Use SQL for all database communication
 - Document a plan in the form of a schema, API docs and user stories.
 
 ### Getting your project started
 
-- Follow the instructions on the [Quantified Self Starter Kit](https://github.com/turingschool-examples/quantified-self-os) to get your codebase going
-- Accept the Pivotal Tracker invitation and use this as your Project Management tool.
+- You're going to create to separate code bases to complete this project. You'll have a code base for your front end and a separate code base for your back end. You may run into some errors when trying to communicate between the two code bases (most likely CORS problems), but we'll address this in class.
+- We're going to start with building the back end. For this code base, you'll be starting a new repository from scratch.
+- Accept your email invitation from Pivotal Tracker and use this as your Project Management tool.
 - Import [this CSV](./quantified-self-tracker-stories.csv) to your project to get all the cards in there. Import is found under settings.
 - If you'd like to attempt the extensions, import [this other CSV](./quantified-self-extension-stories.csv).
+- When you start to work on the front end, you'll want to follow the instructions on the [Quantified Self Starter Kit](https://github.com/turingschool-examples/quantified-self-starter-kit) to get your codebase going.
 
 ### Expectations
 
