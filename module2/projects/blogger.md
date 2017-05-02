@@ -23,24 +23,60 @@ Part of the reason Ruby on Rails became popular quickly is that it takes a lot o
 
 First we need to make sure everything is set up and installed. See the [Environment Setup](http://tutorials.jumpstartlab.com/topics/environment/environment.html) page for instructions on setting up and verifying your Ruby and Rails environment.
 
-This tutorial targets Rails 4.0.0, and may need slight adaptations for other versions. Let us know if you run into something strange!
-
 From the command line, switch to the folder that will store your projects. For instance, I use `/Users/jcasimir/projects/`. Within that folder, run the following command:
 
-_Note_: You may have to install this specific version of rails by running `gem install rails -v 4.0.0` before generating your new rails project.
-
 ```
-$ rails _4.0.0_ new blogger
+$ rails new blogger
 ```
 
-Use `cd blogger` to change into the directory, then open it in your text editor. If you're using Sublime Text you can do that with `atom .`.
+Use `cd blogger` to change into the directory, then open it in your text editor.
+
+With Rails 5, your project comes with a `.git` repository out of the box. If you type `git status`, you should see something like this:
+
+```
+On branch master
+
+Initial commit
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	.gitignore
+	Gemfile
+	Gemfile.lock
+	README.md
+	Rakefile
+	app/
+	bin/
+	config.ru
+	config/
+	db/
+	lib/
+	log/
+	package.json
+	public/
+	test/
+	tmp/
+	vendor/
+
+nothing added to commit but untracked files present (use "git add" to track)
+```
+
+Let's start our project off right with some diligent git workflow.
+
+```
+git add .
+git commit -m "Initial commit"
+```
+
+If you check your git status again, you should find a clean working tree.
 
 ### Project Tour
 
 The generator has created a Rails application for you. Let's figure out what's in there. Looking at the project root, we have these folders:
 
 * `app` - This is where 98% of your effort will go. It contains subfolders which will hold most of the code you write including Models, Controllers, Views, Helpers, JavaScript, etc.
-* `bin` - This is where your app's executables are stored: `bundle`, `rails`, `rake`, and `spring`.
+* `bin` - This is where your app's executables are stored: `bundle`, `rails`, `rake`, `spring`, and, something a lot of people are excited about for Rails 5, `yarn`.
 * `config` - Control the environment settings for your application. It also includes the `initializers` subfolder which holds items to be run on startup.
 * `db` - Will eventually have a `migrations` subfolder where your migrations, used to structure the database, will be stored. When using SQLite3, as is the Rails default, the database file will also be stored in this folder.
 * `lib` - This folder is to store code you control that is reusable outside the project.
@@ -62,13 +98,15 @@ Let's start up the server. From your project directory:
 
 ```
 $ bin/rails server
-=> Booting WEBrick
-=> Rails 4.0.0 application starting in development on http://0.0.0.0:3000
-=> Call with -d to detach
-=> Ctrl-C to shutdown server
-[2012-01-07 11:16:52] INFO  WEBrick 1.3.1
-[2012-01-07 11:16:52] INFO  ruby 1.9.3 (2011-10-30) [x86_64-darwin11.2.0]
-[2012-01-07 11:16:52] INFO  WEBrick::HTTPServer#start: pid=36790 port=3000
+=> Booting Puma
+=> Rails 5.1.0 application starting in development on http://localhost:3000
+=> Run `rails server -h` for more startup options
+Puma starting in single mode...
+* Version 3.8.2 (ruby 2.2.6-p396), codename: Sassy Salamander
+* Min threads: 5, max threads: 5
+* Environment: development
+* Listening on tcp://0.0.0.0:3000
+Use Ctrl-C to stop
 ```
 
 You're ready to go!
@@ -77,7 +115,7 @@ You're ready to go!
 
 Open any web browser and enter the address `http://0.0.0.0:3000`. You can also use `http://localhost:3000` or `http://127.0.0.1:3000` -- they are all "loopback" addresses that point to your machine.
 
-You'll see the Rails' "Welcome Aboard" page. Click the "About your application’s environment" link and you should see the versions of various gems. As long as there's no big ugly error message, you're good to go.
+You'll see the Rails' "Welcome Aboard" page. As long as there's no big ugly error message, you're good to go.
 
 #### Getting an Error?
 
@@ -85,7 +123,17 @@ If you see an error here, it's most likely related to the database. You are prob
 
 ### Creating the Article Model
 
-Our blog will be centered around "articles," so we'll need a table in the database to store all the articles and a model to allow our Rails app to work with that data. We'll use one of Rails' generators to create the required files. Switch to your terminal and enter the following:
+Our blog will be centered around "articles," so we'll need a table in the database to store all the articles and a model to allow our Rails app to work with that data. 
+
+Whenever you find yourself ready to add functionality or features to your app,you should automatically think: *Time for a new working branch!*. Don't worry if that's not automatic yet, it soon will be. We are moving into the M(odel) part of MVC, so let's "checkout" a branch for implementing our Article model:
+
+```
+git checkout -b article-model
+```
+
+With `checkout` we create a new branch (`-b` for branch) off of the `master` branch called `article-model` and move directly into it. Let's get our Model on now.
+
+We'll use one of Rails' generators to create the required files. Switch to your terminal and enter the following:
 
 ```
 $ rails generate model Article
@@ -116,6 +164,9 @@ Migrations used to have two methods, `up` and `down`. The `up` was used to make 
 
 We write `change` migrations just like we used to write `up`, but Rails will figure out the undo operations for us automatically.
 
+You may often find yourself thinking *"Thank you, Rails. Thank you."* This is
+totall normal.
+
 #### Modifying `change`
 
 Inside the `change` method you'll see the generator has placed a call to the `create_table` method, passed the symbol `:articles` as a parameter, and created a block with the variable `t` referencing the table that's created.
@@ -125,7 +176,7 @@ We call methods on `t` to create columns in the `articles` table. What kind of f
 * `title` (a string)
 * `body` (a "text")
 
-That's it! You might be wondering, what is a "text" type?  This is an example of relying on the Rails database adapters to make the right call. For some DBs, large text fields are stored as `varchar`, while others like Postgres use a `text` type. The database adapter will figure out the best choice for us depending on the configured database -- we don't have to worry about it.
+That's it! You might be wondering, what is a "text" type?  This is an example of relying on the Rails database adapters to make the right call. For some DBs, large text fields are stored as `varchar`, while others like Postgres use a `text` type. The database adapter will figure out the best choice for us depending on the configured database -- we don't have to worry about it. The "string" type is similar, just shorter. You can think generally think of the former as multi-line and the latter as single-line/in-line.
 
 Add those into your `change` like this:
 
@@ -204,7 +255,7 @@ Not very impressive, right?  There are no attributes defined inside the model, s
 
 You'll recognize most of them from your migration file, but what about `id`?  Every table you create with a migration will automatically have an `id` column which serves as the table's primary key. When you want to find a specific article, you'll look it up in the articles table by its unique ID number. Rails and the database work together to make sure that these IDs are unique, usually using a special column type in the DB called "serial".
 
-In your console, try entering `Article.all` again. Do you see the blank article that we created with the `Article.new` command?  No?  The console doesn't change values in the database until we explicitly call the `.save` method on an object. Let's create a sample article and you'll see how it works. Enter each of the following lines one at a time:
+In your console (BONUS: you can run `bin/rails c`, `c` being short for `console`), try entering `Article.all` again. Do you see the blank article that we created with the `Article.new` command?  No?  The console doesn't change values in the database until we explicitly call the `.save` method on an object. Let's create a sample article and you'll see how it works. Enter each of the following lines one at a time:
 
 ```
 $ article = Article.new
@@ -215,13 +266,42 @@ $ Article.all
 ```
 Now you'll see that the `Article.all` command gave you back an array holding the one article we created and saved. Go ahead and **create 3 more sample articles**.
 
+This is a great start for our Article model, let's conclude our working branch
+and merge to master:
+
+Part 1 - Commit:
+
+```
+git add .
+git commit -m "Add article model, tests, and migration"
+```
+
+Part 2 - Merge:
+
+```
+git checkout master
+git merge article-model
+```
+
+And to keep things nice and tidy:
+
+```
+git branch -d article-model
+```
+
 ### Setting up the Router
 
 We've created a few articles through the console, but we really don't have a web application until we have a web interface. Let's get that started. We said that Rails uses an "MVC" architecture and we've worked with the Model, now we need a Controller and View.
 
+Let's start off with a controller branch:
+
+```
+git checkout -b articles-controller
+```
+
 When a Rails server gets a request from a web browser it first goes to the _router_. The router decides what the request is trying to do, what resources it is trying to interact with. The router dissects a request based on the address it is requesting and other HTTP parameters (like the request type of GET or PUT). Let's open the router's configuration file, `config/routes.rb`.
 
-Inside this file you'll see a LOT of comments that show you different options for routing requests. Let's remove everything _except_ the first line (`Rails::Application.routes.draw do`) and the final `end`. Then, in between those two lines, add `resources :articles` so your file looks like this:
+Rails used to fill this file with TONS of comments, but they take it easier on us now with just one. Let's still get rid of it and make our whole file look like this:
 
 ```ruby
 Rails::Application.routes.draw do
@@ -277,6 +357,9 @@ We're going to use another Rails generator but your terminal has the console cur
 $ bin/rails generate controller articles
 ```
 
+Remember, models are singular (e.g., Article), and controllers are plural (e.g.,
+articles).
+
 The output shows that the generator created several files/folders for you:
 
 * `app/controllers/articles_controller.rb` : The controller file itself
@@ -324,12 +407,21 @@ There are ways to accomplish the same goals without instance variables, but they
 Now refresh your browser. The error message changed, but you've still got an error, right?
 
 ```
-Template is missing
+ActionController::UnknownFormat in ArticlesController#index
 
-Missing template articles/index, application/index with {:locale=>[:en], :formats=>[:html], :handlers=>[:erb, :builder, :raw, :ruby, :jbuilder, :coffee]}. Searched in: * "/Users/you/projects/blogger/app/views"
+ArticlesController#index is missing a template for this request format and variant. request.formats: ["text/html"]...
 ```
 
 The error message is pretty helpful here. It tells us that the app is looking for a (view) template in `app/views/articles/` but it can't find one named `index.erb`. Rails has *assumed* that our `index` action in the controller should have a corresponding `index.erb` view template in the views folder. We didn't have to put any code in the controller to tell it what view we wanted, Rails just figures it out.
+
+To get some helpful git reps, let's commit our changes and checkout a branch from our current
+`articles-controller` branch to add the view.
+
+```
+git add .
+git commit -m "Set up /articles route and action"
+git checkout -b article-index-view
+```
 
 In your editor, find the folder `app/views/articles` and, in that folder, create a file named `index.html.erb`.
 
@@ -361,9 +453,32 @@ ERB is a templating language that allows us to mix Ruby into our HTML. There are
 
 Save the file and refresh your web browser. You should see a listing of the articles you created in the console. We've got the start of a web application!
 
+Let's commit our changes and head back into our controller and merge our new index view.
+
+```
+git add .
+git commit -m "Add articles index template"
+git checkout articles-controller
+git merge articles-index-view
+```
+
+Because we developed the view in a branch off the `articles-controllers` branch, we merge into `articles-controller` and not `master`.
+
+Let's double check our `/articles` path one more time in the browser to make sure our merge links the controller and the view correctly. Once that's squared away, let's merge `articles-controller` to `master`:
+
+```
+git checkout master
+git merge articles-controller
+git branch -d articles-controller
+```
+
+Nice job! With our basic MVC structure in place, let's polish our application.
+
 ### Adding Navigation to the Index
 
 Right now our article list is very plain, let's add some links.
+
+No code snippet this time. Checkout a new branch from master. The name should describe the feature you're working on. In this case, something like `index-navigation-links` gets the job done.
 
 #### Looking at the Routing Table
 
