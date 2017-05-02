@@ -79,9 +79,9 @@ In our view, `edit.erb`:
 </form>
 ```
 
-One quick note about the form: you'll notice that there's a hidden field with a value of `PUT`. Normally, HTML forms only allow `GET` or `POST` requests (see more information [here](http://www.w3schools.com/tags/att_form_method.asp)). 
+One quick note about the form: you'll notice that there's a hidden field with a value of `PUT`. Normally, HTML forms only allow `GET` or `POST` requests (see more information [here](http://www.w3schools.com/tags/att_form_method.asp)).
 
-We're going to want this form to access a route in our controller (that we'll create momentarily) using `PUT` to be consistent with conventions about the HTTP verb that is used when updating a resource (take a quick look at [this table](http://www.restapitutorial.com/lessons/httpmethods.html) if this is new information). 
+We're going to want this form to access a route in our controller (that we'll create momentarily) using `PUT` to be consistent with conventions about the HTTP verb that is used when updating a resource (take a quick look at [this table](http://www.restapitutorial.com/lessons/httpmethods.html) if this is new information).
 
 HTML won't allow us to use `method='put'` in our `form` tag, but passing it as a hidden value gives our controller the information it needs to route the request correctly.
 
@@ -164,7 +164,7 @@ Want a better error page? What about a layout to connect your stylesheet? Check 
 
 ### Extensions:
 
-* Add an avatar for each robot. Use [http://robohash.org/](http://robohash.org/) for pictures. 
+* Add an avatar for each robot. Use [http://robohash.org/](http://robohash.org/) for pictures.
 * Add a dashboard that shows statistical data: a breakdown of how many robots and number of robots in each department/city/state.
 * Can you use [HAML](http://haml.info/) for your html templates instead of ERB?
 * Can you use a [partial](http://www.sinatrarb.com/faq.html#partials) in your views?

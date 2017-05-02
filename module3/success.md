@@ -15,17 +15,11 @@ Students must earn a score of `3` or greater in *each* category of the [final as
 
 *Expected*: During M3 students will be required to complete API Curious as an independent project. Full requirements for that project can be found [here](projects/apicurious).
 
-*Expected*: Students will be required to complete a personal project during weeks 5 and 6 of this module. It will be up to them to determine if they wish to complete that project independently. It is also included below under "Group Work", and students should include it in their portfolio submission in the appropriate section.
-
-*Optional*: Students are encouraged to include the results of their in-class work and tutorials.
-
 ### Group Work
 
 *Expected*: Students, as a pair, document the results of their [Rales Engine](projects/rails_engine) project.
 
-*Expected*: Students, as a group, document the results of their [Cloney Island](projects/cloney_island) project.
-
-*Expected*: Students will be required to complete a personal project during weeks 5 and 6 of this module. It will be up to them to determine if they wish to complete that project independently. It is also included above under "Independent Work", and students should include it in their portfolio submission in the appropriate section.
+*Expected*: Students, as a group, document the results of both sprints of their [Cloney Island](projects/cloney_island) project.
 
 ### Professional Skills
 
@@ -35,7 +29,7 @@ Meg Stewart will review these deilverables, provide feedback, and alert the M3 i
 
 ### Feedback & Community
 
-As stewards of the larger Turing community, Module 4 students are expected to **complete at least one** of the following:
+As stewards of the larger Turing community, Module 3 students are expected to **complete at least one** of the following:
 
 * lead or co-lead a Friday Spike session
 * provide substantial contributions to a posse project that is deployed during the course of this module
@@ -44,7 +38,7 @@ As stewards of the larger Turing community, Module 4 students are expected to **
 
 ## Skill Proficiencies
 
-Academic success in B4 means that students demonstrate proficiency and comfort with the concepts below. The expected mastery level can be understood with the following scale:
+Academic success in B3 means that students demonstrate proficiency and comfort with the concepts below. The expected mastery level can be understood with the following scale:
 
 * **Mastery**: student is able to explain and implement the concept independently or with light reference
 * **Functional**: student recognizes when to use the concept and can implement it with the support of documentation and/or a collaborator
@@ -57,7 +51,6 @@ Academic success in B4 means that students demonstrate proficiency and comfort w
 * Students communicate with product owners with regard to missing deadlines *(functional)*
 * Students understand the process by which business requirements are turned into acceptance requirements *(familiar)*
 * Students introduce how acceptance requirements are turned into stories and feature requirements *(functional)*
-* Students estimate complexity of user stories *(familiarity)*
 * Students use pull requests to organize discussion about features *(mastery)*
 * Students utilize project management tools to communicate across technical teams and stakeholders/clients *(familiarity)*
 
@@ -77,7 +70,8 @@ Academic success in B4 means that students demonstrate proficiency and comfort w
 * Students find resources online or in print to help them learn new technologies *(mastery)*
 * Students read documentation and implement strategies described *(mastery)*
 * Students utilize mentors and other community members to identify and discuss the merits of various implementations *(functional)*
-* Students are aware of web frameworks, libraries, and tools that could potentially compliment or replace the Rails applications they have been building *(familiarity)*
+* Students ask meaningful questions *(mastery)*
+  * Example: Don't ask "How do I get this to work?" Instead, mention what has been tried, what happened, what was expected with a goal of understanding where you have made a wrong assumption.
 
 ### Agile Processes
 
@@ -108,7 +102,7 @@ Academic success in B4 means that students demonstrate proficiency and comfort w
 
 ### JavaScript in the Browser
 
-* Students are able to use jQuery to traverse and manipulate the DOM *(familiarity)*
+* Students are able to use jQuery to traverse and manipulate the DOM *(functional)*
 * Students are able to modify elements of the DOM using AJAX calls within a Rails app *(familiarity)*
 
 ### PostgreSQL & SQL

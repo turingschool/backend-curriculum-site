@@ -23,9 +23,9 @@ Students who successfully complete Module 4 will have demonstrated mastery of Pr
 
 ### Projects
 
-Your first project is [Quantified Self](./projects/quantified-self/quantified-self). You'll start by building a back-end API to serve and persist your data. Then you'll build the front end to interact with the data. You'll use node and the express framework to build your API, and a heavy dose of jQuery to build out your front-end behavior.
+Your first project is Quantified Self. You'll start by building a back-end API to serve and persist your data. Then you'll build the front end to interact with the data. You'll use node and the express framework to build your API, and a heavy dose of jQuery to build out your front-end behavior.
 
-Weeks 4&5 will be spent working on your [capstone projects](capstone_project_overview).
+Weeks 4&5 will be spent working on your capstone projects.
 
 ### Weekly Breakdown:
 
@@ -35,7 +35,7 @@ Weeks 4&5 will be spent working on your [capstone projects](capstone_project_ove
 *   Intermission Retro
 *   Advanced JS Fundamentals
 *   Asynchronous JavaScript
-*   Project Kickoff: [Quantified Self](./projects/quantified-self/quantified-self)
+*   Project Kickoff: Quantified Self
 *   [Fundamentals of Express](./lessons/building_and_testing_with_express)
 *   [Contributing to Open Source Kick Off](./lessons/contributing_to_open_source)
 
