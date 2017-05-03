@@ -3,7 +3,7 @@
 Sorting algorithms are one of the common domains for studying Computer Science data structures and algorithms. They give us an opportunity to focus on algorithms of various complexity all solving a relatively simple problem.
 
 In this project, you are challenged to implement *three*
-fundamental sorting algorithms. Your final submission should include at least these six files:
+fundamental sorting algorithms. Your final submission should include at least these three files:
 
 * `bubble_sort.rb`
 * `insertion_sort.rb`
