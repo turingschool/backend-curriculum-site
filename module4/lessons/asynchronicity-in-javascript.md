@@ -10,7 +10,7 @@ layout: page
 
 ## Intro
 
-### When does asynchronicity appear?
+### When will I use this stuff?
 
 The concepts we're going to talk about happen most often in the following situations:
 
@@ -22,12 +22,12 @@ The concepts we're going to talk about happen most often in the following situat
 
 Let's watch these things. They're going to create more questions than answers, but we've got the rest of class to cover answers.
 
-- https://www.youtube.com/watch?v=YxWMxJONp7E
-- https://www.youtube.com/watch?v=y8xPMYwQ0U8
+- [What is Asynchronous JavaScript?](https://www.youtube.com/watch?v=YxWMxJONp7E)
+- [What is Async JavaScript?](https://www.youtube.com/watch?v=y8xPMYwQ0U8)
 
 ### Some Slides
 
-If you really want a copy, you can get it here: https://drive.google.com/open?id=0Bx6JZxtPBe_FYUktSTY5LWlVOTg
+If you really want a copy of the slides, you can [get the keynote here]( https://drive.google.com/open?id=0Bx6JZxtPBe_FYUktSTY5LWlVOTg)
 
 ## How JS implements asynchronicity
 
@@ -64,15 +64,14 @@ Discuss the following with the person next to you:
 
 - What are some instances where you would pass a function?
 - What is the syntax for passing a function?
-- What is the syntax for passing a function as opposed to invoking a function?
 - What is the syntax for invoking a function?
 - When passing a function as a parameter, how are the arguments of the passed function used?
 
 ### Callbacks
 
-We often refer to functions that are being passed as parameters as "callback functions" or just "callbacks". Specifically, a callback is a function that is being passed as a parameter, and will be "called" (invoked) upon some later event.
+We often refer to function parameters as "callback functions" or just "callbacks". Specifically, a callback is a function that is being passed as a parameter, and will be "called" (invoked) upon some later event.
 
-#### When does you callback need a parameter
+#### When does your callback need a parameter?
 
 ![https://cdn.meme.am/cache/instances/folder555/23597555.jpg](https://cdn.meme.am/cache/instances/folder555/23597555.jpg)
 
@@ -87,7 +86,7 @@ The docs!! If you're using someone else's function that takes a callback, you're
 You've seen callbacks before in enumerables, but also in event listeners. Take this example:
 
 ```js
-$("#my-button").on('click', function(){
+$("#my-button").on('click', function() {
   alert("You clicked my button!");
 })
 ```
@@ -95,17 +94,17 @@ $("#my-button").on('click', function(){
 You've probably seen a click event handled in just this way before. You pass a function to be executed later upon a 'click' event. I want to frame this in a slightly different way to help you understand how JavaScript interprets this. I'm going to write the same thing in without jQuery to help illustrate.
 
 ```js
-document.getElementById('my-button').addEventListener('click', function(){
+document.getElementById('my-button').addEventListener('click', function() {
   alert("You clicked by button!");
 })
 ```
 
 The method `addEventListener()` does a better job of telling you what's actually happening. When writing asynchronous JavaScript, it can sometimes feel like your code is being run out of order. JavaScript is still being read from top to bottom. When it gets to the `addEventListener()`, it does just that. It adds a listener to the element, and it moves on to it's next instruction. It's not that javascript comes back to this code later. You packed it up and sent it off. Your callback function now exists all alone, waiting to be invoked by the browser upon a 'click' event.
 
-`setTimeout()` is another function that takes a callback. It is also tied to an event, but that event happens to be "some number of milliseconds passed".
+`setTimeout()` is another function that takes a callback. It's an easy way to play around with asynchronicity. It is also tied to an event, but that event happens to be "some number of milliseconds passed".
 
 ```js
-setTimeout(function(){
+setTimeout(function() {
   alert("At least 1 second has passed");
 }, 1000);
 ```
@@ -121,7 +120,7 @@ Promises solve the same problem as callbacks. They're all about executing code u
 
 Let's take this callback example and refactor it to use promises.
 
-<https://repl.it/Hcsi>
+<https://repl.it/Hcsi/2>
 
 #### Promise Chaining
 
@@ -129,7 +128,7 @@ Each `.then()` returns another instance of `Promise`. Which means you can chain 
 
 Another refactor example would be to use our `then()`s to keep things in order. Like if you had one AJAX call that had information you needed for a second call, which has information you need for a third call:
 
-<https://repl.it/HcuB>
+<https://repl.it/HcuB/2>
 
 #### Error handling
 
@@ -175,7 +174,7 @@ console.log(balloon);
 
 ## Speaking asynchronously
 
-Talk through the following code snippets with your partner. Alternate taking the lead in answering the following questions:
+Talk through the following code snippets with your partner. Answer the following questions:
 
 - What is happening on each line?
 - What are some of today's new concepts that are being used in the snippet?
@@ -183,6 +182,7 @@ Talk through the following code snippets with your partner. Alternate taking the
 
 ### In Pairs
 
+Alternate who takes the lead in answering the questions for the following 4 snippets:
 
 1.
   ```js
@@ -218,8 +218,8 @@ Talk through the following code snippets with your partner. Alternate taking the
 4.
   ```js
   var randomMerchantRevenue;
-  $.get("/api/v1/merchants/random.json", function(merchant){
-    $.get("/api/v1/merchants/" + merchant.id + "/revenue.json", function(revenue){
+  $.get("/api/v1/merchants/random.json", function(merchant) {
+    $.get("/api/v1/merchants/" + merchant.id + "/revenue.json", function(revenue) {
       randomMerchantRevenue = revenue.total_revenue;
     })
   })
