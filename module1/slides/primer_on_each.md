@@ -4,7 +4,7 @@
 
 # Warmup
 
-* In your pre-work, did you ever have to redo a script that wasn't working?
+* In your homework, did you ever have to redo a script that wasn't working?
 * How did you know what to change?
 
 ---
