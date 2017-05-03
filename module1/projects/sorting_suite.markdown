@@ -6,11 +6,8 @@ In this project, you are challenged to implement *three*
 fundamental sorting algorithms. Your final submission should include at least these six files:
 
 * `bubble_sort.rb`
-* `bubble_sort_test.rb`
 * `insertion_sort.rb`
-* `insertion_sort_test.rb`
 * `merge_sort.rb`
-* `merge_sort_test.rb`
 
 ## 1. Bubble Sort
 
