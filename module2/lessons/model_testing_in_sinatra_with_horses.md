@@ -8,7 +8,7 @@ tags: rails, models, tdd, validations, scopes
 
 ## Repository
 
-* [ActiveRecord Sinatra: Intro and Homework Complete](https://github.com/turingschool/intro-to-ar/tree/crud_complete): This branch is the result of completing the ActiveRecord work described [here](https://github.com/turingschool/intro-to-ar), and the homework [here](http://backend.turing.io/module2/homework/activerecord_and_database_practice). At this point, students should have their own copy of this assignment, and should not have to clone this down.
+<!-- * [ActiveRecord Sinatra: Intro and Homework Complete](https://github.com/turingschool/intro-to-ar/tree/crud_complete): This branch is the result of completing the ActiveRecord work described [here](https://github.com/turingschool/intro-to-ar), and the homework [here](http://backend.turing.io/module2/homework/activerecord_and_database_practice). At this point, students should have their own copy of this assignment, and should not have to clone this down. -->
 
 To clone and checkout the remote `crud_complete` branch:
 
