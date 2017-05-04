@@ -31,10 +31,10 @@ Meg Stewart will review these deilverables, provide feedback, and alert the M3 i
 
 As stewards of the larger Turing community, Module 3 students are expected to **complete at least one** of the following:
 
-* lead or co-lead a Friday Spike session
-* provide substantial contributions to a posse project that is deployed during the course of this module
-* pair three or more times with students in lower modules
-* contribute in a meaningful way to the project of a student/team *not* in your module
+* lead or co-lead a Friday Spike session (submit through [Turing Fridays App](https://turing-fridays.firebaseapp.com/))
+* give a lightning talk ([Sign up form](https://goo.gl/forms/23ck1EwpGQyFAAvy2))
+* open source contribution
+* write a blog post
 
 ## Skill Proficiencies
 
