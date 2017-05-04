@@ -553,6 +553,14 @@ Use the technique mentioned above to add the CSS class `new_article` to your "Cr
 
 Refresh your browser and each sample article title should be a link. If you click the link, you'll get an error as we haven't implemented the `show` method yet. Similarly, the new article link will lead you to a dead end. Let's tackle the `show` next.
 
+Based on our branch name, we have completed the intended functionality. Let's:  
+
+* Commit these changes
+* Checkout to master
+* Merge our `index-navigation-links` branch
+* Delete `index-navigation-links`
+* Checkout a new branch for adding functionality for the SHOW action
+
 ### Creating the SHOW Action
 
 Click the title link for one of your sample articles and you'll get the "Unknown Action" error we saw before. Remember how we moved forward?
@@ -565,7 +573,7 @@ def show
 end
 ```
 
-Refresh the browser and you'll get the "Template is Missing" error. Let's pause here before creating the view template.
+Refresh the browser and you'll get the `ActionController::UnknownFormat in ArticlesController#show` error. Let's pause here before creating the view template.
 
 #### A Bit on Parameters
 
@@ -583,7 +591,7 @@ Within that hash we can find the `:id` from the URL by accessing the key `params
 
 #### Back to the Template
 
-Refresh your browser and we still have the "Template is Missing" error. Create the file `app/views/articles/show.html.erb` and add this code:
+Refresh your browser and we still have the same missing template error. Create the file `app/views/articles/show.html.erb` and add this code:
 
 ```erb
 <h1><%= @article.title %></h1>
@@ -593,31 +601,28 @@ Refresh your browser and we still have the "Template is Missing" error. Create t
 
 Refresh your browser and your article should show up along with a link back to the index. We can now navigate from the index to a show page and back.
 
+Time to commit. Bite-sized commits like this are best-practice, and a great
+habit to start early. Commit, checkout to master, merge this branch, and delete
+it.
+
 ### Styling
+
+First, checkout a new branch for styling.
 
 This is not a CSS project, so to make it a bit more fun we've prepared a CSS file you can drop in. It should match up with all the example HTML in the tutorial.
 
-Download the file from http://tutorials.jumpstartlab.com/assets/blogger/screen.css and place it in your `app/assets/stylesheets/` folder. It will be automatically picked up by your project.
+Download this [file](http://tutorials.jumpstartlab.com/assets/blogger/screen.css) and place it in your `app/assets/stylesheets/` folder. It will be automatically picked up by your project.
 
-#### Saving Your Work On GitHub
-
-Now that we have completed our first feature, it's a great time to start thinking about how to save our project.
-
-If you have not already installed git, please follow the instructions on installation [here](http://tutorials.jumpstartlab.com/topics/environment/environment.html).
-
-Git tracks changes in code throughout time, and is a great tool once you have started working collaboratively.  First you need to create a [GitHub account](https://github.com/signup/free).
-
-Next, [create a repository](https://github.com/new) for the project and on the command line do;
+Here is a fun snippet that will do all that from the command line:
 
 ```
-$ git init
-$ git add .
-$ git commit -m "first blogger commit"
-$ git remote add origin https://github.com/your_github_username/your_repository_name.git
-$ git push -u origin master
+curl http://tutorials.jumpstartlab.com/assets/blogger/screen.css -o app/assets/stylesheets/screen.css
 ```
 
-Congratulations! You have pushed the code to your GitHub repository. At any time in the future you can backtrack to this commit and refer to your project in this state.  We'll cover this in further detail later on.
+`curl` is a command line tool used to access server data. We get the data from
+`http://tutorials.jumpstartlab.com/assets/blogger/screen.css` and output it (`-o`) to `app/assets/stylesheets`.
+
+Commit, checkout to master, merge, delete.
 
 ## I1: Form-based Workflow
 
@@ -629,7 +634,9 @@ Previously, we set up the `resources :articles` route in `routes.rb`, and that t
 
 Then you'll see an "Unknown Action" error. The router went looking for an action named `new` inside the `ArticlesController` and didn't find it.
 
-First let's create that action. Open `app/controllers/articles_controller.rb` and add this method, making sure it's _inside_ the `ArticlesController` class, but _outside_ the existing `index` and `show` methods:
+Check out a branch for adding create functionality to our app.
+
+Now, let's create that action. Open `app/controllers/articles_controller.rb` and add this method, making sure it's _inside_ the `ArticlesController` class, but _outside_ the existing `index` and `show` methods:
 
 ```ruby
 def new
@@ -639,7 +646,7 @@ end
 
 #### Starting the Template
 
-With that defined, refresh your browser and you should get the "Template is Missing" error.
+With that defined, refresh your browser and you should get the "ActionController::UnknownFormat in ArticlesController#new" error.
 
 Create a new file `app/views/articles/new.html.erb` with these contents:
 
@@ -692,9 +699,11 @@ Showing /Users/you/projects/blogger/app/views/articles/new.html.erb where line #
 First argument in form cannot contain nil or be empty
 ```
 
-Huh? We didn't call a method `model_name`?
+What's happening here is that we're passing `@article` to `form_for`. Since we haven't created an `@article` in this action, the variable just holds `nil`. The `form_for` method calls `model_name` on `nil`, generating the error above.
 
-We didn't *explicitly*, but the `model_name` method is called by `form_for`. What's happening here is that we're passing `@article` to `form_for`. Since we haven't created an `@article` in this action, the variable just holds `nil`. The `form_for` method calls `model_name` on `nil`, generating the error above.
+In your browser, note the black console window in the bottom of the screen. It's
+like a pry session with all your `rails console` abilities as well. Try playing
+around with your `Article` model, or just some plain old Ruby stuff.
 
 #### Setting up for Reflection
 
@@ -723,7 +732,15 @@ def create
 end
 ```
 
-Refresh the page and you'll get the "Template is Missing" error.
+If you refresh and try to submit, you should see absolutely nothing happen. If
+you open your developer console with `command-option-j`, you should see:
+
+```
+XHR Loaded (articles - 204 No Content - 85.57199999631848ms - 555B)
+```
+
+This is a fancy way to say your POST request did absolutely nothing, which
+matches the amount of code in our `#create` action: absolutely nothing.
 
 #### We Don't Always Need Templates
 
@@ -771,6 +788,8 @@ What are all those? We see the `{` and `}` on the outside, representing a `Hash`
 * `commit` : This key holds the text of the button they clicked. From the server side, clicking a "Save" or "Cancel" button looks exactly the same except for this parameter.
 * `action` : Which controller action is being activated for this request
 * `controller` : Which controller class is being activated for this request
+
+You can also inspect `params` interactively in that nifty console below.
 
 #### Pulling Out Form Data
 
