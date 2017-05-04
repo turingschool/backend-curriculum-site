@@ -8,7 +8,6 @@ tags: Project Management, Group Lifecycle, Agile, Waterfall, Workflow, Git, Team
 
 * Understand the common roles of a team in a professional setting
 * Discuss possible arrangements for working in groups at Turing
-* __Understand the importance of taking a front to back approach to projects__ (Why not start by creating all of your migrations up front?)
 
 ## Warmup (5 minutes)
 
@@ -19,8 +18,8 @@ tags: Project Management, Group Lifecycle, Agile, Waterfall, Workflow, Git, Team
 
 ### Stages of the Group Lifecycle( ~5 min )
 
-* [Watch this quick video as a class](https://www.youtube.com/watch?v=OhSI6oBQmQA&list=PLbu6naAjG_K93h0wjyn1b1EHQl1Q2pH_y)
-* [Put this pdf up to reference during discussion](http://salvos.org.au/scribe/sites/2020/files/Resources/Transitions/HANDOUT_-_Tuckmans_Team_Development_Model.pdf)
+* [VIDEO: Stages of Team Development](https://www.youtube.com/watch?v=OhSI6oBQmQA&list=PLbu6naAjG_K93h0wjyn1b1EHQl1Q2pH_y)
+* [PDF reference from Video](http://salvos.org.au/scribe/sites/2020/files/Resources/Transitions/HANDOUT_-_Tuckmans_Team_Development_Model.pdf)
 
 ### Discussion( ~20 min )
 
@@ -38,18 +37,18 @@ Share - be sure to highlight:
 
 ### Waterfall vs Agile
 
-[Use this picture to drive discussion](http://www.agilenutshell.com/assets/how-is-agile-different/continuous-activities.png)
+[GRAPHIC: Waterfall vs. Agile](http://www.agilenutshell.com/assets/how-is-agile-different/continuous-activities.png)
 
 * Discuss differences between these approaches.
 * How would this apply to a project you've completed here at Turing?
 * How might this apply to a Sinatra project?
 
-### Waffle
+### [Waffle](http://waffle.io)
 
-* Show how to convert the requirements of the project to stories/issues on Waffle (e.g. Average GPA - average_gpa returns the average GPA for all students)
+* Show how to convert the requirements of the project to stories/issues on Waffle (e.g. Average GPA - `average_gpa` returns the average GPA for all students)
 * Let the stories drive development, even copy and paste the story into the tests
-* Use waffle to track tasks to be completed
-* Use waffle to keep you focused (i.e. avoid rabbit holes)
+* Use Waffle to track tasks to be completed
+* Use Waffle to keep you focused (i.e. avoid rabbit holes)
 
 ### Git Workflow
 

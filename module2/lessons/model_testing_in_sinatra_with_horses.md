@@ -8,11 +8,11 @@ tags: rails, models, tdd, validations, scopes
 
 ## Repository
 
-* [ActiveRecord Sinatra: Intro and Homework Complete](https://github.com/turingschool/intro-to-ar/tree/crud_complete): This branch is the result of completing the ActiveRecord work described [here](https://github.com/turingschool/intro-to-ar), and the homework [here](http://backend.turing.io/module2/homework/activerecord_and_database_practice). At this point, students should have their own copy of this assignment, and should not have to clone this down.
+<!-- * [ActiveRecord Sinatra: Intro and Homework Complete](https://github.com/turingschool/intro-to-ar/tree/crud_complete): This branch is the result of completing the ActiveRecord work described [here](https://github.com/turingschool/intro-to-ar), and the homework [here](http://backend.turing.io/module2/homework/activerecord_and_database_practice). At this point, students should have their own copy of this assignment, and should not have to clone this down. -->
 
 To clone and checkout the remote `crud_complete` branch:
 
-`git clone -b crud_complete git@github.com:turingschool/intro-to-ar.git`
+`git clone -b crud_complete git@github.com:turingschool/intro-to-ar.git model_testing`
 
 ## Warmup
 
@@ -22,7 +22,7 @@ Read [this](https://robots.thoughtbot.com/four-phase-test) Thoughtbot article ab
 
 We'll be using RSpec for this lesson.
 
-* Slightly different than Mini-Test, but not by much.
+* Slightly different than Minitest, but not by much.
     * `describe` blocks
     * nested `describe` blocks
     * `it` blocks
@@ -70,7 +70,7 @@ Let's write our first model test. In `spec/models/horse_spec.rb`:
 require_relative '../spec_helper'
 
 RSpec.describe Horse do
-  describe "#total_winnings" do
+  describe ".total_winnings" do
     it "returns total winnings for all horses" do
       Horse.create(name: "Phil", age: 22, total_winnings: 3)
       Horse.create(name: "Penelope", age: 24, total_winnings: 4)
@@ -107,7 +107,7 @@ This should both create and run the migrations for a test database (you should b
 
 Run the test again. Failing test! Damn.
 
-What's happening here? Before we were saving new films to our development database every time we ran our test suite. Now we're doing the same thing to our test database. What we'd like to do is to clear out our database after each test. We could create these methods in each one of our tests, but there's a tool that will help us here: [Database Cleaner](https://github.com/DatabaseCleaner/database_cleaner).
+What's happening here? Before we were saving new horses to our development database every time we ran our test suite. Now we're doing the same thing to our test database. What we'd like to do is to clear out our database after each test. We could create these methods in each one of our tests, but there's a tool that will help us here: [Database Cleaner](https://github.com/DatabaseCleaner/database_cleaner).
 
 In the test/development section of your Gemfile add the following line:
 
@@ -141,20 +141,22 @@ One thing we haven't really worried about up to this point was whether or not a 
 Add the following test to your `horse_spec` within the main `describe` block, but outside of your existing `describe '.total_winnings'` block.
 
 ```ruby
+describe "validations" do
   it "is invalid without a name" do
     horse = Horse.new(age: 22, total_winnings: 14)
 
     expect(horse).to_not be_valid
   end
+end
 ```
 
-Run your test suite from the command line with `rspec` and look for the new failure. The heart of this error is telling us that it expected `.valid?` to return false when called on our new film, and instead got true.
+Run your test suite from the command line with `rspec` and look for the new failure. The heart of this error is telling us that it expected `.valid?` to return false when called on our new horse, and instead got true.
 
 Great! It seems like this is testing what we want, but how can we actually make this pass?
 
 ### Writing Validations
 
-ActiveRecord actually helps us out here. Go into the `app/models/film.rb` model and add the following line:
+ActiveRecord actually helps us out here. Go into the `app/models/horse.rb` model and add the following line:
 
 ```ruby
   validates :name, presence: true

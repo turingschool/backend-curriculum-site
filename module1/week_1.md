@@ -43,6 +43,7 @@ layout: page
 * [Strings & Integers](slides/strings_and_integers)
 * [Primer on Each](slides/primer_on_each)
 * [Credit Check Kick Off](slides/credit_check)
+* [Classes & Instance Methods](slides/classes_instances_methods.md)
 
 
 <!-- ## OLD:

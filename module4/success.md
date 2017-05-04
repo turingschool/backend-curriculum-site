@@ -40,19 +40,9 @@ Not required for your portfolio or graduation, but is required for continued job
 
 ### Feedback & Community
 
-As stewards of the larger Turing community, Module 4 students are expected to **complete at least two** of the following:
+As stewards of the larger Turing community, Module 4 students are expected to facilitate a Gear-up session that they've designed with other Mod 4 students.
 
-*   lead or co-lead the week 5 Gear Up session for lower modules
-*   lead or co-lead a Friday Spike session
-*   deliver any session at a meetup or conference
-*   pair three or more times with students in lower modules
-*   contribute in a meaningful way to the project of a student/team *not* in your module
-
-OR
-
-*   Facilitate a Gear-up session that you've designed with other Mod 4 students
-
-When documenting your community contribution, say a few words about the experience.
+When documenting your community contribution, say a few words about the facilitation experience.
 
 ### Portfolio
 
