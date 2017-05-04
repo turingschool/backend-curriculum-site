@@ -16,7 +16,11 @@ During our session, we'll cover the following topics:
 
 <!-- [Slides](http://m2b-slides.herokuapp.com/m2b/feature_testing_with_capybara_in_sinatra.html#/) -->
 
+## Repository
 
+To clone and checkout the remote `model_complete` branch:
+
+`git clone -b model_complete git@github.com:turingschool/intro-to-ar.git feature_testing`
 
 ## Warmup
 
@@ -63,7 +67,7 @@ Then [expected result]
 * Logging into an account
 * Viewing only the Horses associated with a specific Jockey
 
-## Capybara
+## [Capybara](https://github.com/teamcapybara/capybara)
 
 Capybara is a test framework that allows you to feature test any RACK-based app.
 
@@ -74,8 +78,8 @@ It provides a DSL to help you query and interact with the DOM.
 ```ruby
 visit(path)
 expect(page).to have_content("content")
-expect(page).to have_css('.css')
-within('.class') {
+expect(page).to have_css("css_selector")
+within("css_selector") {
   # Assertions here
 }
 save_and_open_page
@@ -84,11 +88,11 @@ save_and_open_page
 #### Form- and Button-Specific Methods
 
 ```ruby
-fill_in(identifier, with: content)
-click_link(identifier)
-click_button(identifier)
-click_link_or_button(identifier)
-click_on(identifier)
+fill_in("name_of_field", with: content)
+click_link("css_selector")
+click_button("css_selector")
+click_link_or_button("css_selector")
+click_on("css_selector")
 expect(current_path).to eq('/')
 ```
 
