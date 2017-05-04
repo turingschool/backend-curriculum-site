@@ -63,7 +63,7 @@ Then [expected result]
 * Logging into an account
 * Viewing only the Horses associated with a specific Jockey
 
-## Capybara
+## [Capybara](https://github.com/teamcapybara/capybara)
 
 Capybara is a test framework that allows you to feature test any RACK-based app.
 
