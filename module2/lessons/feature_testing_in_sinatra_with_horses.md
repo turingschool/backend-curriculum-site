@@ -16,7 +16,11 @@ During our session, we'll cover the following topics:
 
 <!-- [Slides](http://m2b-slides.herokuapp.com/m2b/feature_testing_with_capybara_in_sinatra.html#/) -->
 
+## Repository
 
+To clone and checkout the remote `model_complete` branch:
+
+`git clone -b model_complete git@github.com:turingschool/intro-to-ar.git feature_testing`
 
 ## Warmup
 
