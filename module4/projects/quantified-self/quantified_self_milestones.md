@@ -5,8 +5,8 @@
 * Read through project requirements
 * DTR
 * Setup Pivotal Tracker with user stories
-* Create database schema to deepen understanding of what you're building 
-* Create the API for the resources you'll eventually store in your database using Node/Express
+* Create database schema and API documentation
+* Create and test the API for AT LEAST one resource (probably food).
 
 ### Friday, May 5th
 
@@ -15,11 +15,13 @@
 ### Monday, May, 8th
 
 * Connect your API with a database (setup migrations, etc.)
-* Finish building out the API
+* Finish building out the remaining API resources
+* Deploy your API
 
 ### Tuesday, May 9th
 
-* Begin working on the front end of the application 
+* Divide up the stories in Pivotal Tracker over the next week. Plan to have functionality done by Tuesday to leave room for refactoring.
+* Begin working on the front end of the application
 
 ### Wednesday, May 10th
 

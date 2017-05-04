@@ -41,13 +41,12 @@ You are going to build a simple calorie tracker.
 - Handle events
 - Handle events on DOM elements that didn't exist at load
 - Manage state via jQuery
-  - Handle multiple changes on single event
-  - Render local storage to DOM
+- Handle multiple DOM and data changes on single event
 - Write unit and integration tests in Javascript
 
 ### Requirements overview
 
-Your requirements for the application are detailed in the cards you're going to import to Pivotal Tracker (you can also find them [here](https://github.com/turingschool/backend-curriculum-site/blob/gh-pages/module4/projects/quantified-self/quantified-self-tracker-stories.csv)), but here's an visual of what you're doing.
+Your requirements for the application are detailed in the cards you're going to import to Pivotal Tracker (you can also find them [here](/quantified-self-tracker-stories.csv)), but here's an visual of what you're doing:
 
 #### Layouts
 
@@ -70,6 +69,7 @@ Your requirements for the application are detailed in the cards you're going to 
 - EXTENSION: Build an admin panel to manage data
 
 #### Broad Back End features
+
 - Build a service in Node that will store all of the Quantified Self data
 - The service will serve and consume JSON
 - Use SQL for all database communication
@@ -83,16 +83,18 @@ Your requirements for the application are detailed in the cards you're going to 
 - Import [this CSV](./quantified-self-tracker-stories.csv) to your project to get all the cards in there. Import is found under settings.
 - If you'd like to attempt the extensions, import [this other CSV](./quantified-self-extension-stories.csv).
 - When you start to work on the front end, you'll want to follow the instructions on the [Quantified Self Starter Kit](https://github.com/turingschool-examples/quantified-self-starter-kit) to get your codebase going.
+- To help you track your progress, we've created a [Quantified Self Milestones](./quantified_self_milestones) document.
 
 ### Expectations
 
 - Use whatever you've used in the past for schema, documentation and user stories. Or something new you've been wanting to try out. These things are graded on completion. Probably want to agree on format in your DTR.
 - Allowed libraries are jQuery, lodash/underscore, and moment.
-- Logic like sorting, filtering, local storage and validation should be done without using another library
+- Logic like sorting, filtering, local storage and validation should be done without using another library. These are great opportunities to abstract logic for unit tests.
 - `<table>`s are ok for the actual tables. Try not to use them for the layout.
 - All elements from the mockup should be represented in your app, even if the styling or layout is different.  Unless it is mentioned specifically in the user stories, colors and other styling are up to you. I'll be just fine if it looks exactly like the mockup though.
 - Details, Details, Details!!! If it's in the user stories, we're looking for it in your app. And ask before you add any additional functionality. Additional functionality in the evaluation is usually just grounds for a stern look, but if you "improve" functionality and don't ask about it, it's considered incorrect.
 - SOLID is mentioned in the rubric. You've been applying SOLID in Ruby, without really knowing it, and they apply to all programming languages. You can learn more about it [here](https://scotch.io/bar-talk/s-o-l-i-d-the-first-five-principles-of-object-oriented-design).
+- This is a 2 week project without any scheduled instructor check ins. We expect that you'll be tagging instructors in PRs on github wherever you'd like feedback. We also expect that if you feel like your team is falling behind, that you'll reach out for extra support.
 
 ### Tips for success
 
@@ -124,7 +126,7 @@ You will be subjectively graded by an instructor on the following criteria:
 ### Testing
 
 - 4: All functionality is covered by tests. Appropriate mix of unit and integration tests. Sad path testing in both unit and integration tests.
-- 3: All functionality is covered by tests. Appropriate mix of unit and integration tests.
+- 3: All functionality is covered by tests. Unit tests wherever logic can be separated from interface.
 - 2: More functionality implemented than tested or only uses one test type
 - 1: Team fails to effectively test the application.
 
@@ -152,7 +154,7 @@ You will be subjectively graded by an instructor on the following criteria:
 ### Project Management
 
 - 4: Team is using a project management tool and updating their progress daily. Team is approving each other's  work. Team is documenting conversations and conclusions on relevant cards.
-- 3: Team is using a project management tool to keep their project organized. Nearly every card has been turned into user stories.
+- 3: Team is using a project management tool to keep their project organized.
 - 2: Team is using a project management tool but didn't update the progress frequently. Many cards have no changes made to them
 - 1: Team failed to use a project management tool to track its progress.
 
@@ -164,7 +166,7 @@ Adhering to any of these additional specifications will allow you to increase on
 - No Libraries (except for testing). All JavaScript functionality is your own.
 - Complete either of the two backend focused extensions below.
 
-#### Sources of Truth
+#### Multiple Sources of Truth
 
 Local Storage is often used for "offline" functionality. When the user is having trouble connecting to the internet, the application will continue to function. When a connection is re-established, the local changes are uploaded to the server. Likewise, if changes are made on one client, they should be downloaded to another client
 
@@ -172,7 +174,7 @@ Use Local Storage and AJAX to meet the following requirements:
 
 1. If I'm disconnected from the internet, I can continue to use the application.
 1. When I make a change while disconnected from the internet, that change will be uploaded to the server when I reconnect
-2. If I make a change one computer, those changes should propagate to any other clients through the server
+2. If I make a change on one computer, those changes should propagate to any other clients through the server. You do not need realtime functionality. These changes can occur after a refresh.
 
 You will probably need to use a concept called `service workers`
 
