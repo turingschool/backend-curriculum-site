@@ -5,6 +5,7 @@
 * Read through project requirements
 * DTR
 * Setup Pivotal Tracker with user stories
+* Create database schema to deepen understanding of what you're building 
 * Create the API for the resources you'll eventually store in your database using Node/Express
 
 ### Friday, May 5th
