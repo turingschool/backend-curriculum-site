@@ -35,7 +35,7 @@ You are going to build a simple calorie tracker.
 
 ## Challenges
 
-- Create a full-stack JS application
+- Create a full-stack JS application across two codebases
 - Be able to organize your JS across different files
 - Make AJAX calls to connect your frontend with your backend
 - Handle events
@@ -162,7 +162,7 @@ Adhering to any of these additional specifications will allow you to increase on
 
 - All functionality is part of a class, written using ES6
 - No Libraries (except for testing). All JavaScript functionality is your own.
-- Complete either of the two backend focused extensions below. 
+- Complete either of the two backend focused extensions below.
 
 #### Sources of Truth
 
