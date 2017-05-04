@@ -50,4 +50,4 @@
 
 ### Thursday, May 18th
 
-Evaluations will happen in the AM via Github.
+* Evaluations will happen in the AM via Github.
