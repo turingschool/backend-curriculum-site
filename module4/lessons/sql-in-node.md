@@ -11,7 +11,7 @@ We're going to start from the end of the [Building and Testing with Express less
 If you need it, you can clone this repo, which represents the completed lesson:
 
 ```
-git clone https://github.com/turingschool-examples/intro-to-express.git
+git clone https://github.com/turingschool-examples/1611-express-lesson-codez
 ```
 
 ## Learning Goals
