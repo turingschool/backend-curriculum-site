@@ -18,12 +18,12 @@ We'll be using this starter [repository](https://github.com/turingschool-example
 
 ### Work
 
-We're going to start building a board game tracking application. A board game has a name, description, and year. Each board is added by a user, so a user can add many board games. Each board game will also have a category (for example, family, adult, card, etc.). A category simply has a name.
+We're going to start building a `BoardGame` tracking application. A `BoardGame` has a `name`, `description`, and `year`. Each board is added by a user, so a user can add many `BoardGames`. Each `BoardGame` will also have a `Category` (for example, `family`, `adult`, `card`, etc.). A `Category` simply has a `name`.
 
 Draw the database schema to model this application description. Be sure to follow naming conventions and to put the foreign key in the correct table. When you're done, check with an instructor or your neighbor to ensure you're on the right track.
 
-*   **Baseline:** A board game will belong to one user at a time and one category at a time.  
-*   **Spicy:** A board can belong to multiple users, and a user can have multiple board games. Also, a board game can belong to multiple categories, and each category will have multiple associated board games.
+*   **Baseline:** A `BoardGame` will belong to one user at a time and one `Category` at a time.
+*   **Spicy:** A `BoardGame` can belong to multiple users, and a user can have multiple `BoardGames`. Also, a `BoardGame` can belong to multiple categories, and each `Category` will have multiple associated `BoardGames`.
 
 Once your schema looks good, go ahead and create some migrations to setup your database.
 
@@ -37,7 +37,7 @@ Once your schema looks good, go ahead and create some migrations to setup your d
 
 ### Work
 
-What models do you need? How does a model relate to a database?
+What models do you need? How does a model relate to your database?
 
 Setup your models (don't forget to follow naming conventions!).
 
@@ -53,12 +53,12 @@ Setup your models (don't forget to follow naming conventions!).
 
 ### Work
 
-Given that you have the correct relationship created on the database level, we can now create our relationships on the model level. How does a user relate to a game? How does a game relate to a category? Work through each relationship and add the correct association to the correct model.
+Given that you have the correct relationship created on the database level, we can now create our relationships on the model level. How does a user relate to a `BoardGame`? How does a `BoardGame` relate to a `Category`? Work through each relationship and add the correct association to the correct model.
 
-*   **Spicy:** You'll also want to add validations to ensure that all categories have a name, all board games have users and categories.
+*   **Spicy:** You'll also want to add validations to ensure that all `Categories` have a `name`, all `BoardGames` have `users` and `categories`.
 *   **Finish Early?:** Write tests
 
-## Step 4 - Does it work?
+## Step 4 - Does it Work?
 
 ### Timing
 
@@ -70,9 +70,8 @@ Given that you have the correct relationship created on the database level, we c
 
 How do we know if our models and our database tables are associated correctly? Let's hop into `tux`, create some data, and practice calling the methods we've written (our association methods)!
 
-
 ## Done?
 
 *   If you did the baseline with no joins tables, pair with someone who did the joins table and get one up and running in your code.
-*   What if we wanted a user to be able to review a board game? What tables, models, and associations would we need to create to add this feature?
+*   What if we wanted a user to be able to review a `BoardGame`? What tables, models, and associations would we need to create to add this feature?
 *   Read about polymorphic associations [here](http://guides.rubyonrails.org/association_basics.html#polymorphic-associations). They are pretty neat!
