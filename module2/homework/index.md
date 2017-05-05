@@ -65,6 +65,7 @@ subheading: Homework
 
 ##### Day 3
   * Continue working on Bike Share
+  * Read [this article](http://www.theodinproject.com/ruby-on-rails/routing) on Rails routing.
 
 ##### Day 4
   * Complete the [routes and controllers](https://github.com/turingschool/challenges/blob/master/routes_controllers_rails.markdown) homework.
