@@ -102,11 +102,10 @@ Each pitch should contain the following information:
 * When I'm Done: In the original GitHub issue it sounds like the developers are in favor of the feature, so I think I can get this accepted for the next version of the library.
 ```
 
-**You're expected to DM Ilana, Nate, and Casey a link to your three pitches by 9 AM Monday morning**
+**You're expected to DM Nate and Casey a link to your three pitches by 9 AM Monday morning**
 
 You're encouraged to talk with each other for ideas, inspiration, and collaboration opportunities.
 
 ## Additional Resources
 * Reading: The origins of "OSS" terminology and culture in [1998](https://en.wikipedia.org/wiki/Open-source_software_movement#Brief_history)
 * Book: [Open Sources: Voices from the Revolution (1999)](http://www.oreilly.com/openbook/opensources/book/)
-

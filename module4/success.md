@@ -15,7 +15,7 @@ Assessment requirements will be provided on the first week of the module.
 
 ### Independent Work
 
-*Expected*: Students will [contribute to external Open Source](../lessons/contributing_to_open_source) in Weeks 2 - 6 as a side project.
+*Expected*: Students will [contribute to external Open Source](./lessons/contributing_to_open_source) in Weeks 2 - 6 as a side project.
 
 *Optional*: Students are encouraged to include the results of their in-class work and tutorials.
 
