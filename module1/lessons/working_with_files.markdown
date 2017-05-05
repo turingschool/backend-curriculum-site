@@ -34,13 +34,15 @@ Spend 5 minutes answering the following questions:
 
 ### Basics - Reading an Existing File
 
-* Using `cat`
+* Using `cat` in your terminal  
+   Prints out the contents of your file.
 
 ```
 cat <filename>
 ```
 
-* Using Ruby from Pry or IRB, `File.open()`
+* Using Ruby from Pry or IRB, `File.open()`   
+   Creates a Ruby File object that is "readable."
 
 ```ruby
 File.open(<filename>, "r")
@@ -48,13 +50,15 @@ File.open(<filename>, "r")
 
 ### Basics - Creating an Empty File
 
-* Using `touch`
+* Using `touch` from the command line
+   Creates a file.
 
 ```
 touch <filename>
 ```
 
-* Using Ruby and `File.open()`
+* Using Ruby and `File.open()`  
+    Creates a Ruby File object that is "writable."
 
 ```ruby
 File.open(<filename>, "w")
@@ -62,23 +66,23 @@ File.open(<filename>, "w")
 
 ### Basics - Writing Data to a File
 
-* Using `echo`
+* Using `echo` to add content from the command line
 
 ```
 echo "test" >filename
 ```
 
-* Using `cat`
+* Using `cat` to add content from the command line
 
 ```
 cat >filename
 CTRL+D
 ```
 
-* Using Ruby and `File.write()`
+* Using Ruby and `File.write()` in Pry, IRB, or your Ruby file.
 
 ```ruby
-new_file = File.open(<filename>, "r")
+new_file = File.open(<filename>, "w")
 new_file.write("text")
 ```
 
@@ -92,10 +96,21 @@ Another common interaction involves reading **"Command Line Arguments"**
 ### Reading Arguments from a Ruby Program
 
 * `ARGV` - a special array
-* Arguments are provided as strings
-* Arguments are separated by spaces
+* Arguments are provided as strings in the ARGV array
+* Arguments are separated by spaces in the commmand line
 * `ARGV` is a "constant" and is globally accessible from anywhere
 in a ruby program
+
+From the command line:
+```
+ruby colors.rb red.txt blue.txt
+```
+In your file:
+```
+ARGV == ["red.txt", "blue.txt"]
+ARGV[0] == "red.txt"
+ARGV[1] == "blue.txt"
+```
 
 ### Exercise
 
