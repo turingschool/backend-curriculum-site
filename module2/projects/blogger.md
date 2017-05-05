@@ -71,6 +71,17 @@ git commit -m "Initial commit"
 
 If you check your git status again, you should find a clean working tree.
 
+Run `git remote -v`. You should get nothing back, because we only have a local `.git` repository. Let's connect this to a repo on GitHub. Go to your account, add a new repository, and follow the instructions that look something like this:
+
+```
+git remote add origin git@github.com:<USERNAME>/<REPO_NAME>.git
+git push -u origin master
+```
+
+The `-u` flag remembers the origin/branch connection, and allows you to simply type `git push` from now on.
+
+Refresh your GitHub repo, and checkout your shiny new Rails app.
+
 ### Project Tour
 
 The generator has created a Rails application for you. Let's figure out what's in there. Looking at the project root, we have these folders:
@@ -281,9 +292,10 @@ Part 2 - Merge:
 ```
 git checkout master
 git merge article-model
+git push
 ```
 
-And to keep things nice and tidy:
+To keep things nice and tidy:
 
 ```
 git branch -d article-model
@@ -469,6 +481,7 @@ Let's double check our `/articles` path one more time in the browser to make sur
 ```
 git checkout master
 git merge articles-controller
+git push
 git branch -d articles-controller
 ```
 
@@ -558,6 +571,7 @@ Based on our branch name, we have completed the intended functionality. Let's:
 * Commit these changes
 * Checkout to master
 * Merge our `index-navigation-links` branch
+* Push our master branch
 * Delete `index-navigation-links`
 * Checkout a new branch for adding functionality for the SHOW action
 
@@ -602,8 +616,8 @@ Refresh your browser and we still have the same missing template error. Create t
 Refresh your browser and your article should show up along with a link back to the index. We can now navigate from the index to a show page and back.
 
 Time to commit. Bite-sized commits like this are best-practice, and a great
-habit to start early. Commit, checkout to master, merge this branch, and delete
-it.
+habit to start early. Commit, checkout to master, merge this branch, push
+master, and delete the old working branch.
 
 ### Styling
 
@@ -622,7 +636,7 @@ curl http://tutorials.jumpstartlab.com/assets/blogger/screen.css -o app/assets/s
 `curl` is a command line tool used to access server data. We get the data from
 `http://tutorials.jumpstartlab.com/assets/blogger/screen.css` and output it (`-o`) to `app/assets/stylesheets`.
 
-Commit, checkout to master, merge, delete.
+Commit, checkout to master, merge, push, delete.
 
 ## I1: Form-based Workflow
 
@@ -732,8 +746,7 @@ def create
 end
 ```
 
-If you refresh and try to submit, you should see absolutely nothing happen. If
-you open your developer console with `command-option-j`, you should see:
+If you refresh and try to submit, you should see absolutely nothing happen. If you open your developer console with `command-option-j`, you should see:
 
 ```
 XHR Loaded (articles - 204 No Content - 85.57199999631848ms - 555B)
@@ -769,8 +782,7 @@ Refresh/resubmit the page in your browser.
 
 The page will say "RuntimeError".
 
-Below the error information is the request information. We are interested
-in the parameters (I've inserted line breaks for readability):
+Below the error information is the request information. We are interested in the parameters (I've inserted line breaks for readability):
 
 ```
 {"utf8"=>"✔", "authenticity_token"=>"UDbJdVIJjK+qim3m3N9qtZZKgSI0053S7N8OkoCmDjA=",
@@ -851,12 +863,9 @@ end
 
 Test and you'll find that it... blows up! What gives?
 
-For security reasons, it's not a good idea to blindly save parameters
-sent into us via the params hash. Luckily, Rails gives us a feature
-to deal with this situation: Strong Parameters.
+For security reasons, it's not a good idea to blindly save parameters sent into us via the params hash. Luckily, Rails gives us a feature to deal with this situation: Strong Parameters.
 
-It works like this: You use two new methods, `require` and `permit`.
-They help you declare which attributes you'd like to accept. Add the below code to the bottom of your `articles_controller.rb`.
+It works like this: You use two new methods, `require` and `permit`.  They help you declare which attributes you'd like to accept. Add the below code to the bottom of your `articles_controller.rb`.
 
 ```ruby
 private
@@ -895,8 +904,9 @@ class ArticlesController < ApplicationController
 end
 ```
 
-We can then re-use this method any other time we want to make an
-`Article`.
+We can then re-use this method any other time we want to make an `Article`.
+
+**Git time**. Commit, checkout, merge, push, delete Look at the header directly below, make a new branch based on that header.
 
 ### Deleting Articles
 
@@ -917,6 +927,8 @@ The helper method for the destroy-triggering route is `article_path`. It needs t
 ```erb
 <%= link_to "delete", article_path(@article) %>
 ```
+
+Add that to `app/views/articles/show.html.erb`.
 
 Go to your browser, load the show page, click the link, and observe what happens.
 
@@ -949,7 +961,7 @@ Rails' solution to this problem is to *fake* a `DELETE` verb. In your view templ
 <%= link_to "delete", article_path(@article), method: :delete %>
 ```
 
-Through some JavaScript tricks, Rails can now pretend that clicking this link triggers a `DELETE`. Try it in your browser.
+Through some JavaScript tricks, Rails can now pretend that clicking this link triggers a `DELETE`. Try it in your browser, and say hello to your old friend, "Unknown Action" error.
 
 #### The `destroy` Action
 
@@ -973,7 +985,11 @@ data: {confirm: "Really delete the article?"}
 
 This will pop up a JavaScript dialog when the link is clicked. The Cancel button will stop the request, while the OK button will submit it for deletion.
 
+Delete functionality is implemented! Now go be a Git boss and wrap up this branch.
+
 ### Creating an Edit Action & View
+
+If you haven't already, checkout a new branch for edit functionality.
 
 Sometimes we don't want to destroy an entire object, we just want to make some changes. We need an edit workflow.
 
@@ -996,6 +1012,37 @@ The router is expecting to find an action in `ArticlesController` named `edit`, 
 ```ruby
 def edit
   @article = Article.find(params[:id])
+end
+```
+
+Wait, that looks an awful lot like how we set `@article` in our `delete` action. Let's DRY up this with a `before_action`:
+
+```ruby
+class ArticlesController < ApplicationController
+  before_action :set_article, only: [:destroy, :edit]
+
+  ...
+
+  private
+  
+  ...
+
+  def set_article
+    @article = Article.find(params[:id])  
+  end
+end
+```
+
+This runs the `set_article` method before `destroy` and `edit`, as specified by the `only:` key. With this, `@article` is available within the scopes of th `destroy` and `edit` actions. We can now remove the lines in `destroy` and `edit` that set `@article`, leaving something like this:
+
+```ruby
+def destroy
+  @article.destroy
+
+  redirect_to articles_path
+end
+
+def edit
 end
 ```
 
@@ -1048,7 +1095,7 @@ Now go back to the `_form.html.erb` and paste the code from your clipboard.
 
 #### Writing the Edit Template
 
-Then look at your `edit.html.erb` file. You already have an H1 header, so add the line which renders the partial.
+Then look at your `edit.html.erb` file. Add an H1 header and the line which renders the partial.
 
 #### Testing the Partial
 
@@ -1056,11 +1103,18 @@ Go back to your articles list and try creating a new article -- it should work j
 
 #### Implementing Update
 
-The router is looking for an action named `update`. Just like the `new` action sends its form data to the `create` action, the `edit` action sends its form data to the `update` action. In fact, within our `articles_controller.rb`, the `update` method will look very similar to `create`:
+The router is looking for an action named `update`. Just like the `new` action sends its form data to the `create` action, the `edit` action sends its form data to the `update` action. In fact, within our `articles_controller.rb`, the `update` method will look very similar to `create`.
+
+First, since we'll need to find an article by `id`, let's add `update` to our `before_action`:
+
+```ruby
+before_action :set_article, only: [:destroy, :edit, :update]
+```
+
+With `@article` set:
 
 ```ruby
 def update
-  @article = Article.find(params[:id])
   @article.update(article_params)
 
   redirect_to article_path(@article)
@@ -1069,8 +1123,7 @@ end
 
 The only new bit here is the `update` method. It's very similar to `Article.new` where you can pass in the hash of form data. It changes the values in the object to match the values submitted with the form. One difference from `new` is that `update` automatically saves the changes.
 
-We use the same `article_params` method as before so that we only
-update the attributes we're allowed to.
+We use the same `article_params` method as before so that we only update the attributes we're allowed to.
 
 Now try editing and saving some of your articles.
 
@@ -1086,7 +1139,6 @@ Let's look first at the `update` method we just worked on. It currently looks li
 
 ```ruby
 def update
-  @article = Article.find(params[:id])
   @article.update(article_params)
 
   redirect_to article_path(@article)
@@ -1168,6 +1220,9 @@ root to: 'articles#index'
 
 Now visit `http://localhost:3000` and you should see your article list.
 
+With flash message, partials, and a root default, we got a little beyond the scope of our branch, and I'm okay with that. We didn't really add anything new of substance, just made things nicer. If you think  we should have committed before adding flash messages, or even adding a partial, I respect that. Do your thing next time.
+
+**Commit, checkout, merge, push, delete.**
 
 #### Another Save to GitHub.
 
