@@ -38,6 +38,7 @@ Weeks 4&5 will be spent working on your capstone projects.
 *   Project Kickoff: Quantified Self
 *   [Fundamentals of Express](./lessons/building_and_testing_with_express)
 *   [Contributing to Open Source Kick Off](./lessons/contributing_to_open_source)
+*   [Week One CFU](https://github.com/turingschool/checks-for-understanding/blob/master/module-4/backend/week_one.md)
 
 
 <h4 id="week_2">Week 2</h4>
