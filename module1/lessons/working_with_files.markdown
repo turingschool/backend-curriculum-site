@@ -50,7 +50,7 @@ File.open(<filename>, "r")
 
 ### Basics - Creating an Empty File
 
-* Using `touch` from the command line
+* Using `touch` from the command line  
    Creates a file.
 
 ```
