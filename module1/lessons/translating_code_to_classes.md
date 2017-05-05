@@ -113,7 +113,7 @@ end
 SuperFizz.new(100)
 ```
 
-*   If we run our file now, it doesn't like that. Why? Because now it is expecting SuperFizz to define a variable named `num` but we have not. We are now passing in `num` so how do we deal with that?
+*   If we run our file now, it doesn't like that. Why? Because now it is expecting SuperFizz to define a variable named `num` but we have not defined one. We are now passing in `num` so how do we deal with that?
 
 *   By initializing our class, we have created a place that is looked to first for default information.
 
@@ -197,7 +197,7 @@ def num
 end
 ```
 
-**Food for thought:** What is the return value of the `run` method above? Another way to ask the sane question: If we assigned the run method to a local variable (`return_value = superfizz.run`) what would `return_value` return?
+**Food for thought:** What is the return value of the `run` method above? Another way to ask the same question: If we assigned the run method to a local variable (`return_value = superfizz.run`) what would `return_value` return?
 
 We should change the method so it returns an actual value. If we want to see output, we will need to move the `puts` statement to the bottom of the file.
 
@@ -333,9 +333,9 @@ end
 
 This makes our code more clear and removes repetition. A guideline set out by Sandy Metz in Practical Object Oriented Design in Ruby is to try to limit methods to 5 lines. Let's see if we can do that.
 
-**Rabbit Hole (not essential):** We could also use `+=` to add to our strings. What's the difference between `+=` and `<<` for strings in Ruby?
+**Rabbit Hole (not essential):** We could also use `+=` to add to our strings to the variable. What's the difference between `+=` and `<<` for strings in Ruby?
 
-Let's break out the checks against each number into a separate methods.
+Let's break out the checks against each number into separate methods.
 
 ```ruby
 class SuperFizz
