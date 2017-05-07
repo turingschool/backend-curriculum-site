@@ -46,7 +46,7 @@ subheading: Homework
     * [Lighting Talk Topics](../lighting_talk_topic_ideas.md)
   * Write your first feature tests from today's lesson on your Horse repo, push that branch to github, make a pull request and tag Beth (@bethsebian), Lauren (@laurenfazah), and Schutte (@tmikeschu) to review the tests.
   * As you write your first tests for Bike Share, make a pull request, tag Beth, Lauren, and Schutte to review the tests.
-  * [Watch Sharif Ramadan's intro to 1NF, 2NF and 3NF databases. They're only about 4 minutes each.](https://www.youtube. com/watch?v=K7vzLrGCV50&list=PLQ9AAKW8HuJ5m0rmHKL88ZyjOIKejvrj0)
+  * [Watch Sharif Ramadan's intro to 1NF, 2NF and 3NF databases. They're only about 4 minutes each.](https://www.youtube.com/watch?v=K7vzLrGCV50&list=PLQ9AAKW8HuJ5m0rmHKL88ZyjOIKejvrj0)
   * Suggested:
     * Read the [Learn SQL the Hard Way](http://sql.learncodethehardway.org/book/) book.
     * [DevShed - An Introduction to Database Normalization](http://www.devshed.com/c/a/mysql/an-introduction-to-database-normalization/)
