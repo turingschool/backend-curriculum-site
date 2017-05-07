@@ -42,7 +42,7 @@ subheading: Homework
 
 ##### Day 5 & Weekend
   * Answer the Module 2/Week One Recap [questions](https://github.com/turingschool/checks-for-understanding/blob/master/module-2/backend/week_one.md).
-  * Sign up for a [lightning talk](https://docs.google.com/spreadsheets/d/1841jEUkYOjujI12En_rLZ0OtWCnLcpNM0s077FE2Tso/edit#gid=0)
+  * Sign up for a [lightning talk](https://docs.google.com/spreadsheets/d/19UlqHwvL1eVLreQsUAgyS1v-E2fIushx82OJafwnL5s/edit#gid=0)
     * [Lighting Talk Topics](../lighting_talk_topic_ideas.md)
   * Write your first feature tests from today's lesson on your Horse repo, push that branch to github, make a pull request and tag Beth (@bethsebian), Lauren (@laurenfazah), and Schutte (@tmikeschu) to review the tests.
   * As you write your first tests for Bike Share, make a pull request, tag Beth, Lauren, and Schutte to review the tests.
