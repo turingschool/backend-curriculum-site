@@ -805,9 +805,7 @@ You can also inspect `params` interactively in that nifty console below.
 
 #### Pulling Out Form Data
 
-Now that we've seen the structure, we can access the form data to mimic the way
-we created sample objects in the console. In the `create` action, remove the
-`fail` instruction and, instead, try this:
+Now that we've seen the structure, we can access the form data to mimic the way we created sample objects in the console. In the `create` action, remove the `fail` instruction and, instead, try this:
 
 ```ruby
 def create
@@ -1224,30 +1222,20 @@ With flash message, partials, and a root default, we got a little beyond the sco
 
 **Commit, checkout, merge, push, delete.**
 
-#### Another Save to GitHub.
-
-The form-based workflow is complete, and it is common to commit and push changes after each feature. Go ahead and add/commit/push it up to GitHub:
-
-```
-$ git add -A
-$ git commit -m "form-based workflow feature completed"
-$ git push
-```
-
 If you are not happy with the code changes you have implemented in this iteration, you don't have to throw the whole project away and restart it.  You can use Git's reset command to roll back to your first commit, and retry this iteration from there.  To do so, in your terminal, type in:
 
 ```
 $ git log
-commit 15384dbc144d4cb99dc335ecb1d4608c29c46371
+commit <SOME BIG SHA KEY>
 Author: your_name your_email
 Date:   Thu Apr 11 11:02:57 2013 -0600
     first blogger commit
-$ git reset --hard 15384dbc144d4cb99dc335ecb1d4608c29c46371
+$ git reset --hard <SOME BIG SHA KEY>
 ```
 
 ## I2: Adding Comments
 
-Most blogs allow the reader to interact with the content by posting comments. Let's add some simple comment functionality.
+Most blogs allow the reader to interact with the content by posting comments. Let's add some simple comment functionality. Don't forget to checkout a new branch.
 
 ### Designing the Comment Model
 
@@ -1276,10 +1264,12 @@ t.string :author_name
 t.text :body
 t.references :article, index: true, foreign_key: true
 
-t.timestamps null: false
+t.timestamps
 ```
 
-Once that's complete, go to your terminal and run the migration:
+You might see some Rails projects pre-5.0.0 that have `t.timestamps null: false`. This is now the default option, which prevents null values from being saved for either `created_at` or `updated_at`.
+
+Once you've taken a look at your generated migration task, go to your terminal and run the migration:
 
 ```
 $ bin/rake db:migrate
@@ -1287,21 +1277,11 @@ $ bin/rake db:migrate
 
 ### Relationships
 
-The power of SQL databases is the ability to express relationships between
-elements of data. We can join together the information about an order with the
-information about a customer. Or in our case here, join together an article in
-the `articles` table with its comments in the `comments` table. We do this by
-using foreign keys.
+The power of SQL databases is the ability to express relationships between elements of data. We can join together the information about an order with the information about a customer. Or in our case here, join together an article in the `articles` table with its comments in the `comments` table. We do this by using foreign keys.
 
-Foreign keys are a way of marking one-to-one and one-to-many relationships. An
-article might have zero, five, or one hundred comments. But a comment only
-belongs to one article. These objects have a one-to-many relationship -- one
-article connects to many comments.
+Foreign keys are a way of marking one-to-one and one-to-many relationships. An article might have zero, five, or one hundred comments. But a comment only belongs to one article. These objects have a one-to-many relationship -- one article connects to many comments.
 
-Part of the big deal with Rails is that it makes working with these
-relationships very easy. When we created the migration for comments we started
-with a `references` field named `article`. The Rails convention for a
-one-to-many relationship:
+Part of the big deal with Rails is that it makes working with these relationships very easy. When we created the migration for comments we started with a `references` field named `article`. The Rails convention for a one-to-many relationship:
 
 * the objects on the "many" end should have a foreign key referencing the "one" object.
 * that foreign key should be titled with the name of the "one" object, then an underscore, then "id".
@@ -1502,6 +1482,8 @@ def create
   redirect_to article_path(@comment.article)
 end
 
+private
+
 def comment_params
   params.require(:comment).permit(:author_name, :body)
 end
@@ -1553,19 +1535,19 @@ You can use it in your `_comment.html.erb` partial like this:
 <p>Posted <%= distance_of_time_in_words(comment.article.created_at, comment.created_at) %> later</p>
 ```
 
-With that, you're done with I2!
+With that, you're done with I2!  Now that the comments feature has been added, git your gitflow going.
 
+## PAUSE
 
-#### Time to Save to GitHub Again!
-
-Now that the comments feature has been added push it up to GitHub:
+How did you feel about those first three iterations? If you feel shaky at all, spike this project and do it all over again. That's right, head to your terminal and:
 
 ```
-$ git add .
-$ git commit -m "finish blog comments feature"
-$ git push
+cd ..
+rm -rf blogger
+rails new blogger
 ```
 
+If you feel awesome about and comfortable with what we've done so far, feel free to move on.
 
 ## I3: Tagging
 
