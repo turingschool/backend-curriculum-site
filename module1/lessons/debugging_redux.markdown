@@ -15,7 +15,6 @@ tags: pry, ag, debugging
 To start, we need to make sure we have the appropriate tooling installed.
 
 * [pry](https://github.com/pry/pry) - `gem install pry`
-* [ag](https://github.com/ggreer/the_silver_searcher) - `brew install ag`
 
 
 ## Lesson
@@ -25,9 +24,9 @@ To start, we need to make sure we have the appropriate tooling installed.
 What do you think are some of the methods or tools that we have that we can use
 in order to get feedback from our code?
 
-* TDD
 * Pry
 * Puts Driven Development
+* TDD
 
 We want to pace our progress with the feedback that we are getting from our
 code.  It is critically important that we let our feedback where we are going
@@ -199,4 +198,4 @@ bugs, and get your creatures back to passing.
 
 ### Addenda / More Material
 
-* http://tutorials.jumpstartlab.com/topics/debugging/debugging.html
+* [JumpstartLab Lesson](http://tutorials.jumpstartlab.com/topics/debugging/debugging.html)

@@ -33,11 +33,11 @@ Slides available [here](../slides/rest_routing_rails/rest_routing_rails.md)
 
 * a pattern for creating combinations of HTTP verbs and URIs to access resources
 
-```
+```ruby
 get /users
 put /users/:id
 get /users/new
-...etc...
+# ...etc...
 ```
 
 ### What is a "resource"?
@@ -49,9 +49,11 @@ get /users/new
 * search result
 * a session
 
+Often, there will be a one-to-one(-to-one) between a resource's routes, controller and model.
+
 ## HTTP Verb Overview
 
-* The HTTP verb (get, post, delete, put, patch) changes the action a request is routed to.
+* The HTTP verb (GET, POST, DELETE, PUT, PATCH) changes the action a request is routed to.
 * HTTP verb + path = controller + action
 
 **get**: retrieve a resource from a url
@@ -62,13 +64,13 @@ get /users/new
 
 **put**: update an entire resource
 
-**patch** (new in Rails 4): update part of a resource
+**patch**: update part of a resource
 
 ## Routes + Controllers in Rails
 
 "Convention over configuration"
 
-```
+```bash
 $ rails new routes-controllers-example
 $ cd routes-controllers-example
 ```
