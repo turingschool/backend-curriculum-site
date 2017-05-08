@@ -26,3 +26,7 @@ layout: page
 ## Resources
 
 *   [DTR Memo](https://docs.google.com/document/d/1zMtgWhODQuP3KBNhrg6PtmPUkw0DIskqgggeyEzYZi4/edit)
+
+## Slides
+
+* [Debugging Techniques](slides/debugging)
