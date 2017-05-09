@@ -5,73 +5,116 @@ title: Module 1 Success
 
 ## Module 1 Learning Goals
 
+Academic success in BEM1 means that students demonstrate proficiency and comfort with the concepts below. The expected mastery level can be understood with the following scale:
+
+* **Mastery**: student is able to explain and implement the concept independently or with light reference
+* **Functional**: student recognizes when to use the concept and can implement it with the support of documentation and/or a collaborator
+* **Familiarity**: student can recognize and describe the concept when needed/appropriate, but is not able to implement the technology/technique
+
 A student who graduates from this module will be able to do the following.
 
-#### Develop Proficiency in Ruby
 
-*   Explain how basic data structures work and implement them in Ruby
-*   Identify and apply best choice methods for strings, integers, collections
-*   Consistently identify best-choice enumerables for interacting with collections
-*   Use boolean operators, if/else statements, and loops to manage control flow
-*   Use Ruby docs and other online documentation to identify best-choice methods and approaches
-*   Speak clearly and accurately about OOP, language mechanics, and correctly name the elements of Ruby syntax
-*   Define Application Program Interface (API), explain the difference between public versus private methods, and describe their meaning in the context of Ruby applications
 
-#### Object-Relational Mapping (ORM)
+### Ruby Syntax & Style
 
-*   Students can define ORM and implement the technique to develop a complex application
-*   Students can import and export data to .csv and .txt files
+#### Mastery
 
-#### Testing
+* Identify and apply best choice methods for strings, integers, collections
+* Consistently identify best-choice enumerables for interacting with collections
+* Use if/else statements, loops, conditional statements, and boolean operators to manage control flow
+* Use Ruby docs and other online documentation to identify best-choice methods and approaches
 
-*   Understand and describe why we test software
-*   Understand and describe tests they did not write
-*   Write unit and integration software tests
-*   Translate specification requirements to tests that will drive design
+#### Functional
 
-#### Application Complexity
+* Import and export data to .csv and .txt files
+* Speak clearly and accurately about OOP, language mechanics, and correctly name the elements of Ruby syntax
+* Explain the difference between public and private methods
+* Explain the difference between class and instance methods
 
-*   Students can develop complex algorithms and implement them in Ruby
-*   Translate abstract requirements into programmable concepts using whiteboarding and pseudocode
-*   Decompose complex technical challenges into a series of smaller challenges
 
-#### Debugging
 
-*   Master debugging tools, mainly pry
-*   Print to console to verify code behavior
-*   Use pry or irb console sessions to test code tactics and address bugs
-*   Demonstrate ability to choose appropriate debugging tactic to solve problems
+### Breaking Logic Into Components
 
-#### Collaboration
+#### Mastery
 
-*   Co-develop strategies to deal with logistics surrounding pair project work
-*   Articulate personal and learning needs in a constructive, clear manner
-*   Advocate for and co-create team dynamics that balance the learning goals of all team members
-*   Resolve conflict when necessary during problematic team dynamics or project direction
-*   Develop feedback (written and verbal) that is specific, actionable, and kind
+* Translate abstract requirements into programmable concepts using whiteboarding and pseudocode
+* Decompose complex technical challenges into a series of smaller challenges
+* Develop complex algorithms and implement them in Ruby
 
-#### Desktop Environment
+#### Functional
 
-*   Navigate machine to write, run, and test programs
-*   Move between programs without relying on mouse
-*   Make use of keyboard shortcuts to minimize distractions
-*   Understand and explain how CLI, text editor and browser interact
+* Translate specification requirements to tests that will drive design
 
-#### Version Control
 
-*   Understand git’s version control, both via the command line and through GitHub
-*   Demonstrate version control proficiency by adding, committing, merging and pushing code changes, as well as switching branches and retrieving earlier commit history
-*   Fork, clone, fetch, and making pull requests to facilitate collaboration
-*   Describe differences between local versus remote repositories
 
-#### Career Development
+### Debugging
 
-Below are Career Development goals for Module 1 students. For more details, view the [Module One Career Development](https://github.com/turingschool/career-development-curriculum/tree/master/module_one) page.
+* Use debugging tools (e.g. `pry`) to help investigate assumptions and verify code behavior
+* Print to console to verify code behavior
+* Use pry or irb console sessions to test code tactics and address bugs
+* Demonstrate ability to choose appropriate debugging tactic to solve problems
 
-*   Cultivate Self-Awareness
-*   Understand one's key strengths
-*   Know how to learn, including how to learn through struggle
-*   Ownership over one's learning
-*   Communicate effectively with partners through the entire pairing process from setting expectations to giving feedback
-*   Express one's own story and strengths
-*   Manage stress effectively
+
+
+### Test Driven Development
+
+#### Mastery
+
+* Understand and describe why we test software
+* Understand and describe tests they did not write
+* Write unit and integration tests
+
+
+
+### Version Control
+
+#### Mastery
+
+* Describe differences between local versus remote repositories
+
+#### Functional
+
+* Understand git’s version control, both via the command line and through GitHub
+* Demonstrate version control proficiency by adding, committing, merging and pushing code changes, as well as switching branches and retrieving earlier commit history
+* Fork, clone, fetch, and making pull requests to facilitate collaboration
+
+
+
+### Desktop Environment
+
+#### Mastery
+
+* Navigate machine to write, run, and test programs
+* Understand and explain how CLI, text editor and browser interact
+
+#### Functional
+
+* Move between programs without relying on mouse
+* Make use of keyboard shortcuts to minimize distractions
+
+
+
+### Collaboration
+
+#### Mastery
+
+* Co-develop strategies to deal with logistics surrounding pair project work
+* Resolve conflict when necessary during problematic team dynamics or project direction
+* Develop feedback (written and verbal) that is specific, actionable, and kind
+
+#### Functional
+
+* Articulate personal and learning needs in a constructive, clear manner
+* Advocate for and co-create team dynamics that balance the learning goals of all team members
+
+
+
+### Career Development (Additional Details: [Module One Career Development](https://github.com/turingschool/career-development-curriculum/tree/master/module_one))
+
+* Cultivate Self-Awareness
+* Understand one's key strengths
+* Know how to learn, including how to learn through struggle
+* Ownership over one's learning
+* Communicate effectively with partners through the entire pairing process from setting expectations to giving feedback
+* Express one's own story and strengths
+* Manage stress effectively

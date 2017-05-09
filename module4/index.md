@@ -43,7 +43,8 @@ Weeks 4&5 will be spent working on your capstone projects.
 
 <h4 id="week_2">Week 2</h4>
 *   [SQL in Node](./lessons/sql-in-node)
-*   [Webpack and NPM]()
+*   [Webpack and NPM](./lessons/webpack-demystified)
+*   [Debugging in the Browser](http://frontend.turing.io/lessons/debugging-with-devtools.html)
 *   [Event Bubbling and Delegation](./lessons/event-bubbling-and-delegation)
 *   [Testing in JavaScript](./lessons/testing-in-javascript)
 *   [Persisting and retrieving data with AJAX]()

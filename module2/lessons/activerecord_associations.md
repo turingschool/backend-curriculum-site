@@ -18,12 +18,12 @@ We'll be using this starter [repository](https://github.com/turingschool-example
 
 ### Work
 
-We're going to start building a `BoardGame` tracking application. A `BoardGame` has a `name`, `description`, and `year`. Each board is added by a user, so a user can add many `BoardGames`. Each `BoardGame` will also have a `Category` (for example, `family`, `adult`, `card`, etc.). A `Category` simply has a `name`.
+We're going to start building a `BoardGame` tracking application. A `BoardGame` has a `name`, `description`, and `year`. Each board is added by a `User`, so a `User` can add many `board_games`. Each `BoardGame` will also have a `Category` (for example, `family`, `adult`, `card`, etc.). A `Category` simply has a `name`.
 
 Draw the database schema to model this application description. Be sure to follow naming conventions and to put the foreign key in the correct table. When you're done, check with an instructor or your neighbor to ensure you're on the right track.
 
-*   **Baseline:** A `BoardGame` will belong to one user at a time and one `Category` at a time.
-*   **Spicy:** A `BoardGame` can belong to multiple users, and a user can have multiple `BoardGames`. Also, a `BoardGame` can belong to multiple categories, and each `Category` will have multiple associated `BoardGames`.
+*   **Baseline:** A `BoardGame` will belong to one `User` at a time and will have one `Category` at a time.
+*   **Spicy:** A `BoardGame` can belong to multiple users, and a user can have multiple `board_games`. Also, a `BoardGame` can belong to multiple `categories`, and each `Category` will have multiple associated `board_games`.
 
 Once your schema looks good, go ahead and create some migrations to setup your database.
 
@@ -73,5 +73,5 @@ How do we know if our models and our database tables are associated correctly? L
 ## Done?
 
 *   If you did the baseline with no joins tables, pair with someone who did the joins table and get one up and running in your code.
-*   What if we wanted a user to be able to review a `BoardGame`? What tables, models, and associations would we need to create to add this feature?
+*   What if we wanted a user to be able to review a `BoardGame`? What tables, models, and associations would we need to create to add this review feature?
 *   Read about polymorphic associations [here](http://guides.rubyonrails.org/association_basics.html#polymorphic-associations). They are pretty neat!
