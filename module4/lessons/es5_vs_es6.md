@@ -18,13 +18,13 @@ subheading: Guided Tutorial
 
 ## Structure
 
-| 5 | Warm Up |
+| 5  | Warm Up  |
 | 20 | Overview |
-| 5 | Pomodoro |
-| 25 | Examples |
-| 5 | Pomodoro |
+| 5  | Pomodoro |
+| 25 | Examples (fist to five after each) |
+| 5  | Pomodoro |
 | 50 | Independent Practice |
-| 10 | Review |
+| 10 | Review   |
 
 ## Warm Up
 * What do you know so far about ES6?
@@ -70,7 +70,7 @@ Other than that, semi-colons are a style choice. Be consistent.
 
 ### Declarations  with `var`, `let`, and `const`
 
-JavaScript can exhibit some strange behavior sometimes, especially in regards to variable assignment. In ES6, using you should generally not use `var`. Instead, start with `const`. This will through a linting error if you try to reassign it. If you decide this is behavior you want, change your original 'const' to 'let'. Check out this great [video](https://www.youtube.com/watch?v=sjyJBL5fkp8) for a more thorough and entertaining breakdown.
+JavaScript can exhibit some strange behavior sometimes, especially in regards to variable assignment. In ES6, you should generally not use `var`. Instead, start with `const`. This will throw a linting error if you try to reassign it. If you decide this is behavior you want, change your original 'const' to 'let'. Check out this great [video](https://www.youtube.com/watch?v=sjyJBL5fkp8) for a more thorough and entertaining breakdown.
 
 Recap: always start with `const`, and only change to `let` if the variable should indeed be mutable.
 
@@ -253,7 +253,7 @@ Let's convert some code! You'll be working with the code that lives [here](https
 
 ## Closing
 
-* Review learning goals
+* Review learning goals (pull sticks)
   * Style regarding semi-colons
   * `var` vs. `let` and `const`
   * Template literals and string interpolation
