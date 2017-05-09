@@ -18,11 +18,11 @@ We'll be using this starter [repository](https://github.com/turingschool-example
 
 ### Work
 
-We're going to start building a `BoardGame` tracking application. A `BoardGame` has a `name`, `description`, and `year`. Each board is added by a `User`, so a `User` can add many `board_games`. Each `BoardGame` will also have a `Category` (for example, `family`, `adult`, `card`, etc.). A `Category` simply has a `name`.
+We're going to start building a `BoardGame` tracking application. A `BoardGame` has a `name`, `description`, and `year`. Each board is added by a user, so a user can add many `BoardGames`. Each `BoardGame` will also belong to a `Category` (for example, `family`, `adult`, `card`, etc.). A `Category` simply has a `name`.
 
 Draw the database schema to model this application description. Be sure to follow naming conventions and to put the foreign key in the correct table. When you're done, check with an instructor or your neighbor to ensure you're on the right track.
 
-*   **Baseline:** A `BoardGame` will belong to one `User` at a time and will have one `Category` at a time.
+*   **Baseline:** A `BoardGame` will belong to one `User` at a time and belong to one `Category` at a time.
 *   **Spicy:** A `BoardGame` can belong to multiple users, and a user can have multiple `board_games`. Also, a `BoardGame` can belong to multiple `categories`, and each `Category` will have multiple associated `board_games`.
 
 Once your schema looks good, go ahead and create some migrations to setup your database.
