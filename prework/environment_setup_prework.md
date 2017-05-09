@@ -24,6 +24,12 @@ us to install other versions as needed
 
 If you don't already have a favorite text editor, we recommend using [Atom](https://atom.io/).
 
+Atom is a program where we edit code - it is a text editor with many great features that makes editing code more enjoyable compared to a simple text editor. Atom is commonly used in the software development industry, and we use it throughout your time at Turing.
+
+### Browser
+
+Similarly, if you don't already have a favorite browser, we recommend using [Google Chrome](https://www.google.com/chrome/). Google Chrome is a web browser that is great for general internet perusing, but web developers like it because it has very useful developer tools (the console), which we will touch on in the prework and use extensively during class.
+
 ### Terminal
 
 The terminal is a textual interface to your computer. Before Graphical User Interfaces were invented, this was the only way one could interact with a computer.
@@ -40,9 +46,11 @@ If this is all new for you, see [Terminal and Editor](./terminal_and_editor)
 
 One of the things you'll do frequently is open an entire folder (like when working on a project) in your text editor. Let's get that setup:
 
-Here are a bunch of [videos](https://www.youtube.com/watch?v=WWwBQQOGllo&list=PLYzJdSdNWNqwNWlxz7bvu-lOYR0CFWQ4I) about setting up Atom.
+Open up Atom and in the menu bar, drop down the `Atom` menu. Within that, click on `Install Shell Commands` and now atom should be enable from your command line.
 
 To confirm that atom is working from your command line, enter `atom .` in your terminal. If it is setup correctly, the atom editor will automatically open. If it does not open atom and an error occurs instead, try entering this in the command line: `ln -s /Applications/Atom.app/Contents/Resources/app/atom.sh /usr/local/bin/atom` and try the first command (`atom .`) again.
+
+Atom also offers a number of different options and packages that you can customize to your liking. [This](https://www.youtube.com/watch?v=WWwBQQOGllo&list=PLYzJdSdNWNqwNWlxz7bvu-lOYR0CFWQ4I) series of videos will walk you through many of them if you'd like to dive deeper.
 
 ### XCode & Command Line Tools
 
@@ -50,7 +58,7 @@ XCode is a huge suite of development tools published by Apple. If we wanted to d
 
 You'll want to install it before attempting to install anything else.
 
-1.  Install XCode from the Apple App Store
+1.  Install XCode from the Apple App Store (this will probably take a little while to finish)
 2.  Open the application after installing and agree to the SLA terms
 3.  Open `terminal` and run `xcode-select --install`, enter your user password
 
@@ -196,6 +204,12 @@ You can tell rbenv which Ruby version you want to use by default:
 rbenv global 2.3.1
 ```
 
+To reload your shell, do the following:
+
+```shell
+rbenv rehash
+```
+
 ### Folder Structure
 
 Now, let's create a folder structure to store all of your code. We can start by moving to our home folder, and then creating a Turing folder.
@@ -233,5 +247,9 @@ Once we get exposed to more projects, homework, etc, our ultimate 1module folder
     - homework/ (git)
     - classroom_exercises/ (git)
     - morning_exercises/ (git)
-    - project_name/ (git)
+    - projects/ (no git)
+        - project_name_1/ (git)
+        - project_name_2/ (git)
+        - project_name_3/ (git)
+        - etc.
 ```
