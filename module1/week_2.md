@@ -30,3 +30,4 @@ layout: page
 ## Slides
 
 * [Debugging Techniques](slides/debugging)
+* [Beginner Enumerables](slides/beginner_enumerables)
