@@ -25,3 +25,7 @@ layout: page
 
 * [DTR Memo](https://docs.google.com/document/d/1zMtgWhODQuP3KBNhrg6PtmPUkw0DIskqgggeyEzYZi4/edit)
 * [Ruby Object Model Video](https://vimeo.com/160952993)
+
+## Slides
+
+* [Debugging Techniques](slides/debugging)
