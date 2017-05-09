@@ -50,7 +50,7 @@ Some guiding questions:
 
 Clone [this repo](https://github.com/turingschool-examples/sinatra-form-styling) and follow the instructions in the README.
 
-### Together - 15 minutes
+### Together - 25 minutes
 
 Using your fresh flexbox skills, let's code along and style the index page to look something like the images in the README.
 
@@ -64,11 +64,10 @@ Using your fresh flexbox skills, let's code along and style the index page to lo
   * Access and manipulate CSS from the Chrome Developer Tools.
   * Maximize the utility of semantic HTML tags with DRY CSS styling.
 
-* Take a minute to think about an opportunity for which you could use flexbox
-  styling
-  * Three people share out (1 minute) 
-
 ## Corrections & Improvements for Next Time
+
+* Make sure navbar is displayed
+* Define expectations for navbar
 
 ## Resources
 
