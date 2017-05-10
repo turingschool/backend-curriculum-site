@@ -3,7 +3,7 @@ layout: page
 title: Jungle Beat
 ---
 
-# Iteration 2 - Append, Prepend and Insert (Multiple Nodes)
+# Iteration 2 - Append, All/To String and Insert (Multiple Nodes)
 
 Now that we can insert the first element of our list (i.e. the Head), let's focus on supporting these operations for multiple elements in the list.
 
