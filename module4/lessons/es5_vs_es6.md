@@ -156,8 +156,10 @@ const greeter = () => console.log("Hey!")
 An important thing to keep in mind is the scope of `this` when using arrow functions. In ES5, if we wanted to persist the value of `this` within a function, we'd need to save it as a variable then use it within the function like so:
 
 ```js
+this.sendData = function () { ... };
+
 var _this = this
-$('.btn').click(function(event){
+$('.btn').click(function (event) {
   _this.sendData();
 });
 ```
@@ -165,6 +167,8 @@ $('.btn').click(function(event){
 In ES6, `this` does not mutate. `this` will have the same value as the context of the function.
 
 ```js
+this.sendData = () => { ... }
+
 $('.btn').click(event => {
   this.sendData()
 })
@@ -191,6 +195,7 @@ function addNumbers (x, y, z) {
         z = 42;
     }
     return x + y + z;
+    // return x + (y || 7) + (z || 42) would also work, but is a little clunky
 };
 
 addNumbers(1) === 50;
@@ -216,12 +221,17 @@ We talked about constructor functions recently. If you all remember, we name our
 ```js
 function Shape (id, x, y) {
     this.id = id;
-    this.move(x, y);
+    this.x = x || 0;
+    this.y = y || 0;
 };
 
 Shape.prototype.move = function (x, y) {
     this.x = x;
     this.y = y;
+};
+
+Shape.prototype.currentPosition = function () {
+    return [this.x, this.y];
 };
 
 ```
@@ -230,14 +240,19 @@ ES6 gives us some fancy syntactic sugar to make this feel more similar to other 
 
 ```js
 class Shape {
-    constructor (id, x, y) {
+    constructor (id, x = 0, y = 0) {
         this.id = id
-        this.move(x, y)
+        this.x = x
+        this.y = y
     }
 
     move (x, y) {
         this.x = x
         this.y = y
+    }
+
+    currentPosition () {
+        return [this.x, this.y]
     }
 }
 
