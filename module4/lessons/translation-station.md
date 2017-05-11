@@ -156,4 +156,48 @@ Firstly, there's a good overview at <https://enable-cors.org>. CORS works by add
 
 There are several uses of this header, as well as some other headers you can use. I don't really care if you're CORS experts. Instead of going into the weeds with CORS options, let me just recommend a package and a gem that will allow you to easily configure these headers.
 
-- [Express CORS Middleware](https://github.com/expressjs/cors)
+- [Express CORS Middleware package](https://github.com/expressjs/cors)
+- [Rack CORS gem](https://github.com/cyu/rack-cors)
+
+Let's spend a minute getting CORS set up in your Express API.
+
+## Transport and Translate
+
+The client to server (AJAX) and server to server (Faraday) communication we've discussed is just one form of what I call "Transport and Translate". In fact, an obnoxious amount of what we spend our time doing is moving data from one place to another, or changing the format or presentation of said data.
+
+### Transport
+
+Let's list out some of the ways we've moved our data around before:
+
+- Getting data out of a database into memory
+- Reading a file into memory
+- Storing data in session (from memory)
+
+What are some other sources and destinations for data?
+
+### Translate
+
+Let's list out some of the ways we've translated data from one form to another
+
+- Parsing JSON into an object or hash
+- Mapping an objects into a table row
+- Converting an array of hashes to rows of a CSV
+
+What other format translations have you done?
+
+### Breaking it down
+
+You're often performing multiple rounds transport and translate. Here's a few steps involved in serving data from an API.
+
+1. Transport JSON from API via HTTP
+2. Parse JSON into hash
+3. Convert hash into class instance
+4. Send instance to view
+5. Render instance to HTML
+6. Send HTML via HTTP
+
+Can you think about the steps involved in Quantified self? Write out the steps to go from a food record in the database, to a rendered table row of HTML on the screen.
+
+## Closing thoughts
+
+I should have some of these. What do you think? What are your thoughts?
