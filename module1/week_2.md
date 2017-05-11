@@ -4,6 +4,7 @@ layout: page
 ---
 
 ## Lessons
+
 * [Translating Code to Classes](lessons/translating_code_to_classes)
 * [Debugging Techniques](lessons/debugging_redux)
 * [Intro to TDD](http://tutorials.jumpstartlab.com/topics/testing/intro-to-tdd.html)
@@ -16,6 +17,8 @@ layout: page
 
 * [Jungle Beat](projects/jungle_beat)
 * [Date Night](projects/date_night)
+* [Complete Me](projects/complete_me)
+* [Night Writer](projects/night_writer)
 
 ## Exercises and Other Relevant Links
 

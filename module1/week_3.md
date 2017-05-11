@@ -2,10 +2,6 @@
 title: Week 3
 layout: page
 ---
-## Projects and Exercises
-
-* [Enigma](projects/enigma)
-* [Battleship](projects/battleship)
 
 ## Lessons
 
@@ -14,6 +10,12 @@ layout: page
 * [Project Etiquette](lessons/ruby_project_etiquette) ([Video](http://vimeo.com/161695195))
 * [Enumerables, Part Deux](lessons/intermediate_enumerables) [Video 1](https://vimeo.com/161675625), [Video 2](https://vimeo.com/161677741), [Video 3](https://vimeo.com/161678930), [Video 4](https://vimeo.com/161680127)
 * [Credit Check Recheck](lessons/credit_check_recheck)
+
+## Projects and Exercises
+
+* [Complete Me](projects/complete_me)
+* [Night Writer](projects/night_writer)
+* [Battleship](projects/battleship)
 
 ## Other Relevant Links
 
