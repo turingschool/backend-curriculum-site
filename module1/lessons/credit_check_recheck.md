@@ -10,7 +10,17 @@ Credit Check once more!
 
 By now, we should have a solid understanding of the algorithmic requirements behind solving Credit Check in Ruby.
 
-Let's take our comfort with our solutions, toss them to the side, and start fresh by test-driving the development towards our solution.
+Let's take our comfort with our solutions, toss them to the side, and start fresh by test-driving the development towards our solution.   
+
+## Learning Goals  
+* Follow your errors to create next steps when developing  
+* Write an algorithm using classes and methods
+
+## WarmUp  
+* Why do we TDD?  
+* What are the pros/cons of using tests to drive your development?  
+* What do you find particularly challenging about implementing TDD?   
+* What are the differences between unit and integration tests?  
 
 ## Setup
 
@@ -28,4 +38,8 @@ If you achieve this during our class time, do your best to revist your source co
 
 Remember, red, green, refactor, repeat.
 
-> You may refer back to your first Credit Check solution, but refrain from copying any code from there to use in this solution. 
+> You may refer back to your first Credit Check solution, but refrain from copying any code from there to use in this solution.   
+
+## Closing  
+* What are some common error messages and what do they lead you to implement in your code?  
+* Do you find the red, green, refactor pattern helpful? Why or why not? 
