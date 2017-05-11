@@ -61,6 +61,39 @@ Share.
 
 Resource outlining how to create a migration from the command line [here](http://guides.rubyonrails.org/active_record_migrations.html#creating-a-migration). Be careful, the docs point out that you can create a join table with some special properties using AR shortcuts. Don't do it. Instead, let's create our join table with references. More information on why not to use has_and_belongs_to_many [here](http://blog.flatironschool.com/why-you-dont-need-has-and-belongs-to-many/).
 
+### Models
+
+#### Demonstration with Article model
+
+* inheriting from ActiveRecord::Base -- additional class methods and instance methods
+* naming of database tables (snake_case) vs. models (CamelCase)
+* example ActiveRecord class methods: `all`, `count`, `find`, `find_by`, `where`
+* example ActiveRecord instance methods: `update`, `destroy`, `save`, `attribute?`, `new_record?`
+* you don't need to use `initialize` method
+* click [here](http://guides.rubyonrails.org/active_record_basics.html) for more on ActiveRecord basics
+
+### Associations
+
+#### Demonstration of One-to-Many Relationships at the Model Level: Article/Author
+
+* ActiveRecord Associations:
+* has_many - this is a method
+* belongs_to - this is a method
+
+### Many-to-Many
+
+#### Many-to-Many at the Database Level: articles, tags, and article_tags tables
+
+* need three tables
+* join table holds foreign keys for each of the other two tables
+
+#### Many-to-Many at the Model Level: Article/Tag/ArticleTag models
+
+* join tables: `has_many :things` and `has_many :things, through: :other_things` - this is a method with an argument
+* order matters
+* click [here](http://guides.rubyonrails.org/association_basics.html) for more associations
+
+
 ### Etsy
 
 #### Draft Schema for Etsy (15 minutes)
