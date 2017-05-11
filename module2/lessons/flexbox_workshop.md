@@ -34,26 +34,25 @@ Group share out (1 minute).
 
 [Slides!](https://drive.google.com/file/d/0B_OioFZBJZ12aTJSdHRYRGZwTTQ/view?usp=sharing)
 
-## Flexendar
+## Flex Forms
 
 ## Art Time
 
-Take five minutes to draw a simple calendar in your note book. Annotate and
-label your calendar with pertinent information you observe. 
+Take five minutes to draw a basic web application form (e.g., create a new thing) in your note book. Annotate and label your form with pertinent information you observe. 
 
 Some guiding questions:
+
 * How many columns? 
 * How many rows? 
 * Does every "cell" have data? What "type"?
 
 ## Code Time
 
-Clone [this repo](https://github.com/tmikeschu/flexendar), `cd` into it, and
-run `open calendar.html`. Behold the beauty.
+Clone [this repo](https://github.com/turingschool-examples/sinatra-form-styling) and follow the instructions in the README.
 
-### Together - 15 minutes
+### Together - 25 minutes
 
-Using your fresh flexbox skills, let's code along and style the calendar to look something like the image in the README.
+Using your fresh flexbox skills, let's code along and style the index page to look something like the images in the README.
 
 ## Wrap-Up
 
@@ -65,15 +64,14 @@ Using your fresh flexbox skills, let's code along and style the calendar to look
   * Access and manipulate CSS from the Chrome Developer Tools.
   * Maximize the utility of semantic HTML tags with DRY CSS styling.
 
-* Take a minute to think about an opportunity for which you could use flexbox
-  styling
-  * Three people share out (1 minute) 
-
 ## Corrections & Improvements for Next Time
+
+* Make sure navbar is displayed
+* Define expectations for navbar
 
 ## Resources
 
 * [A Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
 * [Slides](https://drive.google.com/file/d/0B_OioFZBJZ12aTJSdHRYRGZwTTQ/view?usp=sharing)
-
+* [Another challenge: flex calendar](https://github.com/tmikeschu/flexendar)
 

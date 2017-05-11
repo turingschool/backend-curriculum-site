@@ -23,24 +23,71 @@ Part of the reason Ruby on Rails became popular quickly is that it takes a lot o
 
 First we need to make sure everything is set up and installed. See the [Environment Setup](http://tutorials.jumpstartlab.com/topics/environment/environment.html) page for instructions on setting up and verifying your Ruby and Rails environment.
 
-This tutorial targets Rails 4.0.0, and may need slight adaptations for other versions. Let us know if you run into something strange!
-
 From the command line, switch to the folder that will store your projects. For instance, I use `/Users/jcasimir/projects/`. Within that folder, run the following command:
 
-_Note_: You may have to install this specific version of rails by running `gem install rails -v 4.0.0` before generating your new rails project.
-
 ```
-$ rails _4.0.0_ new blogger
+$ rails new blogger
 ```
 
-Use `cd blogger` to change into the directory, then open it in your text editor. If you're using Sublime Text you can do that with `atom .`.
+Use `cd blogger` to change into the directory, then open it in your text editor.
+
+With Rails 5, your project comes with a `.git` repository out of the box. If you type `git status`, you should see something like this:
+
+```
+On branch master
+
+Initial commit
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	.gitignore
+	Gemfile
+	Gemfile.lock
+	README.md
+	Rakefile
+	app/
+	bin/
+	config.ru
+	config/
+	db/
+	lib/
+	log/
+	package.json
+	public/
+	test/
+	tmp/
+	vendor/
+
+nothing added to commit but untracked files present (use "git add" to track)
+```
+
+Let's start our project off right with some diligent git workflow.
+
+```
+git add .
+git commit -m "Initial commit"
+```
+
+If you check your git status again, you should find a clean working tree.
+
+Run `git remote -v`. You should get nothing back, because we only have a local `.git` repository. Let's connect this to a repo on GitHub. Go to your account, add a new repository, and follow the instructions that look something like this:
+
+```
+git remote add origin git@github.com:<USERNAME>/<REPO_NAME>.git
+git push -u origin master
+```
+
+The `-u` flag remembers the origin/branch connection, and allows you to simply type `git push` from now on.
+
+Refresh your GitHub repo, and checkout your shiny new Rails app.
 
 ### Project Tour
 
 The generator has created a Rails application for you. Let's figure out what's in there. Looking at the project root, we have these folders:
 
 * `app` - This is where 98% of your effort will go. It contains subfolders which will hold most of the code you write including Models, Controllers, Views, Helpers, JavaScript, etc.
-* `bin` - This is where your app's executables are stored: `bundle`, `rails`, `rake`, and `spring`.
+* `bin` - This is where your app's executables are stored: `bundle`, `rails`, `rake`, `spring`, and, something a lot of people are excited about for Rails 5, `yarn`.
 * `config` - Control the environment settings for your application. It also includes the `initializers` subfolder which holds items to be run on startup.
 * `db` - Will eventually have a `migrations` subfolder where your migrations, used to structure the database, will be stored. When using SQLite3, as is the Rails default, the database file will also be stored in this folder.
 * `lib` - This folder is to store code you control that is reusable outside the project.
@@ -62,13 +109,15 @@ Let's start up the server. From your project directory:
 
 ```
 $ bin/rails server
-=> Booting WEBrick
-=> Rails 4.0.0 application starting in development on http://0.0.0.0:3000
-=> Call with -d to detach
-=> Ctrl-C to shutdown server
-[2012-01-07 11:16:52] INFO  WEBrick 1.3.1
-[2012-01-07 11:16:52] INFO  ruby 1.9.3 (2011-10-30) [x86_64-darwin11.2.0]
-[2012-01-07 11:16:52] INFO  WEBrick::HTTPServer#start: pid=36790 port=3000
+=> Booting Puma
+=> Rails 5.1.0 application starting in development on http://localhost:3000
+=> Run `rails server -h` for more startup options
+Puma starting in single mode...
+* Version 3.8.2 (ruby 2.2.6-p396), codename: Sassy Salamander
+* Min threads: 5, max threads: 5
+* Environment: development
+* Listening on tcp://0.0.0.0:3000
+Use Ctrl-C to stop
 ```
 
 You're ready to go!
@@ -77,7 +126,7 @@ You're ready to go!
 
 Open any web browser and enter the address `http://0.0.0.0:3000`. You can also use `http://localhost:3000` or `http://127.0.0.1:3000` -- they are all "loopback" addresses that point to your machine.
 
-You'll see the Rails' "Welcome Aboard" page. Click the "About your application’s environment" link and you should see the versions of various gems. As long as there's no big ugly error message, you're good to go.
+You'll see the Rails' "Welcome Aboard" page. As long as there's no big ugly error message, you're good to go.
 
 #### Getting an Error?
 
@@ -85,7 +134,17 @@ If you see an error here, it's most likely related to the database. You are prob
 
 ### Creating the Article Model
 
-Our blog will be centered around "articles," so we'll need a table in the database to store all the articles and a model to allow our Rails app to work with that data. We'll use one of Rails' generators to create the required files. Switch to your terminal and enter the following:
+Our blog will be centered around "articles," so we'll need a table in the database to store all the articles and a model to allow our Rails app to work with that data. 
+
+Whenever you find yourself ready to add functionality or features to your app,you should automatically think: *Time for a new working branch!*. Don't worry if that's not automatic yet, it soon will be. We are moving into the M(odel) part of MVC, so let's "checkout" a branch for implementing our Article model:
+
+```
+git checkout -b article-model
+```
+
+With `checkout` we create a new branch (`-b` for branch) off of the `master` branch called `article-model` and move directly into it. Let's get our Model on now.
+
+We'll use one of Rails' generators to create the required files. Switch to your terminal and enter the following:
 
 ```
 $ rails generate model Article
@@ -116,6 +175,9 @@ Migrations used to have two methods, `up` and `down`. The `up` was used to make 
 
 We write `change` migrations just like we used to write `up`, but Rails will figure out the undo operations for us automatically.
 
+You may often find yourself thinking *"Thank you, Rails. Thank you."* This is
+totall normal.
+
 #### Modifying `change`
 
 Inside the `change` method you'll see the generator has placed a call to the `create_table` method, passed the symbol `:articles` as a parameter, and created a block with the variable `t` referencing the table that's created.
@@ -125,7 +187,7 @@ We call methods on `t` to create columns in the `articles` table. What kind of f
 * `title` (a string)
 * `body` (a "text")
 
-That's it! You might be wondering, what is a "text" type?  This is an example of relying on the Rails database adapters to make the right call. For some DBs, large text fields are stored as `varchar`, while others like Postgres use a `text` type. The database adapter will figure out the best choice for us depending on the configured database -- we don't have to worry about it.
+That's it! You might be wondering, what is a "text" type?  This is an example of relying on the Rails database adapters to make the right call. For some DBs, large text fields are stored as `varchar`, while others like Postgres use a `text` type. The database adapter will figure out the best choice for us depending on the configured database -- we don't have to worry about it. The "string" type is similar, just shorter. You can think generally think of the former as multi-line and the latter as single-line/in-line.
 
 Add those into your `change` like this:
 
@@ -204,7 +266,7 @@ Not very impressive, right?  There are no attributes defined inside the model, s
 
 You'll recognize most of them from your migration file, but what about `id`?  Every table you create with a migration will automatically have an `id` column which serves as the table's primary key. When you want to find a specific article, you'll look it up in the articles table by its unique ID number. Rails and the database work together to make sure that these IDs are unique, usually using a special column type in the DB called "serial".
 
-In your console, try entering `Article.all` again. Do you see the blank article that we created with the `Article.new` command?  No?  The console doesn't change values in the database until we explicitly call the `.save` method on an object. Let's create a sample article and you'll see how it works. Enter each of the following lines one at a time:
+In your console (BONUS: you can run `bin/rails c`, `c` being short for `console`), try entering `Article.all` again. Do you see the blank article that we created with the `Article.new` command?  No?  The console doesn't change values in the database until we explicitly call the `.save` method on an object. Let's create a sample article and you'll see how it works. Enter each of the following lines one at a time:
 
 ```
 $ article = Article.new
@@ -215,13 +277,43 @@ $ Article.all
 ```
 Now you'll see that the `Article.all` command gave you back an array holding the one article we created and saved. Go ahead and **create 3 more sample articles**.
 
+This is a great start for our Article model, let's conclude our working branch
+and merge to master:
+
+Part 1 - Commit:
+
+```
+git add .
+git commit -m "Add article model, tests, and migration"
+```
+
+Part 2 - Merge:
+
+```
+git checkout master
+git merge article-model
+git push
+```
+
+To keep things nice and tidy:
+
+```
+git branch -d article-model
+```
+
 ### Setting up the Router
 
 We've created a few articles through the console, but we really don't have a web application until we have a web interface. Let's get that started. We said that Rails uses an "MVC" architecture and we've worked with the Model, now we need a Controller and View.
 
+Let's start off with a controller branch:
+
+```
+git checkout -b articles-controller
+```
+
 When a Rails server gets a request from a web browser it first goes to the _router_. The router decides what the request is trying to do, what resources it is trying to interact with. The router dissects a request based on the address it is requesting and other HTTP parameters (like the request type of GET or PUT). Let's open the router's configuration file, `config/routes.rb`.
 
-Inside this file you'll see a LOT of comments that show you different options for routing requests. Let's remove everything _except_ the first line (`Rails::Application.routes.draw do`) and the final `end`. Then, in between those two lines, add `resources :articles` so your file looks like this:
+Rails used to fill this file with TONS of comments, but they take it easier on us now with just one. Let's still get rid of it and make our whole file look like this:
 
 ```ruby
 Rails::Application.routes.draw do
@@ -277,6 +369,9 @@ We're going to use another Rails generator but your terminal has the console cur
 $ bin/rails generate controller articles
 ```
 
+Remember, models are singular (e.g., Article), and controllers are plural (e.g.,
+articles).
+
 The output shows that the generator created several files/folders for you:
 
 * `app/controllers/articles_controller.rb` : The controller file itself
@@ -324,12 +419,21 @@ There are ways to accomplish the same goals without instance variables, but they
 Now refresh your browser. The error message changed, but you've still got an error, right?
 
 ```
-Template is missing
+ActionController::UnknownFormat in ArticlesController#index
 
-Missing template articles/index, application/index with {:locale=>[:en], :formats=>[:html], :handlers=>[:erb, :builder, :raw, :ruby, :jbuilder, :coffee]}. Searched in: * "/Users/you/projects/blogger/app/views"
+ArticlesController#index is missing a template for this request format and variant. request.formats: ["text/html"]...
 ```
 
 The error message is pretty helpful here. It tells us that the app is looking for a (view) template in `app/views/articles/` but it can't find one named `index.erb`. Rails has *assumed* that our `index` action in the controller should have a corresponding `index.erb` view template in the views folder. We didn't have to put any code in the controller to tell it what view we wanted, Rails just figures it out.
+
+To get some helpful git reps, let's commit our changes and checkout a branch from our current
+`articles-controller` branch to add the view.
+
+```
+git add .
+git commit -m "Set up /articles route and action"
+git checkout -b article-index-view
+```
 
 In your editor, find the folder `app/views/articles` and, in that folder, create a file named `index.html.erb`.
 
@@ -361,9 +465,33 @@ ERB is a templating language that allows us to mix Ruby into our HTML. There are
 
 Save the file and refresh your web browser. You should see a listing of the articles you created in the console. We've got the start of a web application!
 
+Let's commit our changes and head back into our controller and merge our new index view.
+
+```
+git add .
+git commit -m "Add articles index template"
+git checkout articles-controller
+git merge articles-index-view
+```
+
+Because we developed the view in a branch off the `articles-controllers` branch, we merge into `articles-controller` and not `master`.
+
+Let's double check our `/articles` path one more time in the browser to make sure our merge links the controller and the view correctly. Once that's squared away, let's merge `articles-controller` to `master`:
+
+```
+git checkout master
+git merge articles-controller
+git push
+git branch -d articles-controller
+```
+
+Nice job! With our basic MVC structure in place, let's polish our application.
+
 ### Adding Navigation to the Index
 
 Right now our article list is very plain, let's add some links.
+
+No code snippet this time. Checkout a new branch from master. The name should describe the feature you're working on. In this case, something like `index-navigation-links` gets the job done.
 
 #### Looking at the Routing Table
 
@@ -438,6 +566,15 @@ Use the technique mentioned above to add the CSS class `new_article` to your "Cr
 
 Refresh your browser and each sample article title should be a link. If you click the link, you'll get an error as we haven't implemented the `show` method yet. Similarly, the new article link will lead you to a dead end. Let's tackle the `show` next.
 
+Based on our branch name, we have completed the intended functionality. Let's:  
+
+* Commit these changes
+* Checkout to master
+* Merge our `index-navigation-links` branch
+* Push our master branch
+* Delete `index-navigation-links`
+* Checkout a new branch for adding functionality for the SHOW action
+
 ### Creating the SHOW Action
 
 Click the title link for one of your sample articles and you'll get the "Unknown Action" error we saw before. Remember how we moved forward?
@@ -450,7 +587,7 @@ def show
 end
 ```
 
-Refresh the browser and you'll get the "Template is Missing" error. Let's pause here before creating the view template.
+Refresh the browser and you'll get the `ActionController::UnknownFormat in ArticlesController#show` error. Let's pause here before creating the view template.
 
 #### A Bit on Parameters
 
@@ -468,7 +605,7 @@ Within that hash we can find the `:id` from the URL by accessing the key `params
 
 #### Back to the Template
 
-Refresh your browser and we still have the "Template is Missing" error. Create the file `app/views/articles/show.html.erb` and add this code:
+Refresh your browser and we still have the same missing template error. Create the file `app/views/articles/show.html.erb` and add this code:
 
 ```erb
 <h1><%= @article.title %></h1>
@@ -478,31 +615,28 @@ Refresh your browser and we still have the "Template is Missing" error. Create t
 
 Refresh your browser and your article should show up along with a link back to the index. We can now navigate from the index to a show page and back.
 
+Time to commit. Bite-sized commits like this are best-practice, and a great
+habit to start early. Commit, checkout to master, merge this branch, push
+master, and delete the old working branch.
+
 ### Styling
+
+First, checkout a new branch for styling.
 
 This is not a CSS project, so to make it a bit more fun we've prepared a CSS file you can drop in. It should match up with all the example HTML in the tutorial.
 
-Download the file from http://tutorials.jumpstartlab.com/assets/blogger/screen.css and place it in your `app/assets/stylesheets/` folder. It will be automatically picked up by your project.
+Download this [file](http://tutorials.jumpstartlab.com/assets/blogger/screen.css) and place it in your `app/assets/stylesheets/` folder. It will be automatically picked up by your project.
 
-#### Saving Your Work On GitHub
-
-Now that we have completed our first feature, it's a great time to start thinking about how to save our project.
-
-If you have not already installed git, please follow the instructions on installation [here](http://tutorials.jumpstartlab.com/topics/environment/environment.html).
-
-Git tracks changes in code throughout time, and is a great tool once you have started working collaboratively.  First you need to create a [GitHub account](https://github.com/signup/free).
-
-Next, [create a repository](https://github.com/new) for the project and on the command line do;
+Here is a fun snippet that will do all that from the command line:
 
 ```
-$ git init
-$ git add .
-$ git commit -m "first blogger commit"
-$ git remote add origin https://github.com/your_github_username/your_repository_name.git
-$ git push -u origin master
+curl http://tutorials.jumpstartlab.com/assets/blogger/screen.css -o app/assets/stylesheets/screen.css
 ```
 
-Congratulations! You have pushed the code to your GitHub repository. At any time in the future you can backtrack to this commit and refer to your project in this state.  We'll cover this in further detail later on.
+`curl` is a command line tool used to access server data. We get the data from
+`http://tutorials.jumpstartlab.com/assets/blogger/screen.css` and output it (`-o`) to `app/assets/stylesheets`.
+
+Commit, checkout to master, merge, push, delete.
 
 ## I1: Form-based Workflow
 
@@ -514,7 +648,9 @@ Previously, we set up the `resources :articles` route in `routes.rb`, and that t
 
 Then you'll see an "Unknown Action" error. The router went looking for an action named `new` inside the `ArticlesController` and didn't find it.
 
-First let's create that action. Open `app/controllers/articles_controller.rb` and add this method, making sure it's _inside_ the `ArticlesController` class, but _outside_ the existing `index` and `show` methods:
+Check out a branch for adding create functionality to our app.
+
+Now, let's create that action. Open `app/controllers/articles_controller.rb` and add this method, making sure it's _inside_ the `ArticlesController` class, but _outside_ the existing `index` and `show` methods:
 
 ```ruby
 def new
@@ -524,7 +660,7 @@ end
 
 #### Starting the Template
 
-With that defined, refresh your browser and you should get the "Template is Missing" error.
+With that defined, refresh your browser and you should get the "ActionController::UnknownFormat in ArticlesController#new" error.
 
 Create a new file `app/views/articles/new.html.erb` with these contents:
 
@@ -577,9 +713,11 @@ Showing /Users/you/projects/blogger/app/views/articles/new.html.erb where line #
 First argument in form cannot contain nil or be empty
 ```
 
-Huh? We didn't call a method `model_name`?
+What's happening here is that we're passing `@article` to `form_for`. Since we haven't created an `@article` in this action, the variable just holds `nil`. The `form_for` method calls `model_name` on `nil`, generating the error above.
 
-We didn't *explicitly*, but the `model_name` method is called by `form_for`. What's happening here is that we're passing `@article` to `form_for`. Since we haven't created an `@article` in this action, the variable just holds `nil`. The `form_for` method calls `model_name` on `nil`, generating the error above.
+In your browser, note the black console window in the bottom of the screen. It's
+like a pry session with all your `rails console` abilities as well. Try playing
+around with your `Article` model, or just some plain old Ruby stuff.
 
 #### Setting up for Reflection
 
@@ -608,7 +746,14 @@ def create
 end
 ```
 
-Refresh the page and you'll get the "Template is Missing" error.
+If you refresh and try to submit, you should see absolutely nothing happen. If you open your developer console with `command-option-j`, you should see:
+
+```
+XHR Loaded (articles - 204 No Content - 85.57199999631848ms - 555B)
+```
+
+This is a fancy way to say your POST request did absolutely nothing, which
+matches the amount of code in our `#create` action: absolutely nothing.
 
 #### We Don't Always Need Templates
 
@@ -637,8 +782,7 @@ Refresh/resubmit the page in your browser.
 
 The page will say "RuntimeError".
 
-Below the error information is the request information. We are interested
-in the parameters (I've inserted line breaks for readability):
+Below the error information is the request information. We are interested in the parameters (I've inserted line breaks for readability):
 
 ```
 {"utf8"=>"✔", "authenticity_token"=>"UDbJdVIJjK+qim3m3N9qtZZKgSI0053S7N8OkoCmDjA=",
@@ -657,11 +801,11 @@ What are all those? We see the `{` and `}` on the outside, representing a `Hash`
 * `action` : Which controller action is being activated for this request
 * `controller` : Which controller class is being activated for this request
 
+You can also inspect `params` interactively in that nifty console below.
+
 #### Pulling Out Form Data
 
-Now that we've seen the structure, we can access the form data to mimic the way
-we created sample objects in the console. In the `create` action, remove the
-`fail` instruction and, instead, try this:
+Now that we've seen the structure, we can access the form data to mimic the way we created sample objects in the console. In the `create` action, remove the `fail` instruction and, instead, try this:
 
 ```ruby
 def create
@@ -717,12 +861,9 @@ end
 
 Test and you'll find that it... blows up! What gives?
 
-For security reasons, it's not a good idea to blindly save parameters
-sent into us via the params hash. Luckily, Rails gives us a feature
-to deal with this situation: Strong Parameters.
+For security reasons, it's not a good idea to blindly save parameters sent into us via the params hash. Luckily, Rails gives us a feature to deal with this situation: Strong Parameters.
 
-It works like this: You use two new methods, `require` and `permit`.
-They help you declare which attributes you'd like to accept. Add the below code to the bottom of your `articles_controller.rb`.
+It works like this: You use two new methods, `require` and `permit`.  They help you declare which attributes you'd like to accept. Add the below code to the bottom of your `articles_controller.rb`.
 
 ```ruby
 private
@@ -761,8 +902,9 @@ class ArticlesController < ApplicationController
 end
 ```
 
-We can then re-use this method any other time we want to make an
-`Article`.
+We can then re-use this method any other time we want to make an `Article`.
+
+**Git time**. Commit, checkout, merge, push, delete Look at the header directly below, make a new branch based on that header.
 
 ### Deleting Articles
 
@@ -783,6 +925,8 @@ The helper method for the destroy-triggering route is `article_path`. It needs t
 ```erb
 <%= link_to "delete", article_path(@article) %>
 ```
+
+Add that to `app/views/articles/show.html.erb`.
 
 Go to your browser, load the show page, click the link, and observe what happens.
 
@@ -815,7 +959,7 @@ Rails' solution to this problem is to *fake* a `DELETE` verb. In your view templ
 <%= link_to "delete", article_path(@article), method: :delete %>
 ```
 
-Through some JavaScript tricks, Rails can now pretend that clicking this link triggers a `DELETE`. Try it in your browser.
+Through some JavaScript tricks, Rails can now pretend that clicking this link triggers a `DELETE`. Try it in your browser, and say hello to your old friend, "Unknown Action" error.
 
 #### The `destroy` Action
 
@@ -839,7 +983,11 @@ data: {confirm: "Really delete the article?"}
 
 This will pop up a JavaScript dialog when the link is clicked. The Cancel button will stop the request, while the OK button will submit it for deletion.
 
+Delete functionality is implemented! Now go be a Git boss and wrap up this branch.
+
 ### Creating an Edit Action & View
+
+If you haven't already, checkout a new branch for edit functionality.
 
 Sometimes we don't want to destroy an entire object, we just want to make some changes. We need an edit workflow.
 
@@ -862,6 +1010,37 @@ The router is expecting to find an action in `ArticlesController` named `edit`, 
 ```ruby
 def edit
   @article = Article.find(params[:id])
+end
+```
+
+Wait, that looks an awful lot like how we set `@article` in our `delete` action. Let's DRY up this with a `before_action`:
+
+```ruby
+class ArticlesController < ApplicationController
+  before_action :set_article, only: [:destroy, :edit]
+
+  ...
+
+  private
+  
+  ...
+
+  def set_article
+    @article = Article.find(params[:id])  
+  end
+end
+```
+
+This runs the `set_article` method before `destroy` and `edit`, as specified by the `only:` key. With this, `@article` is available within the scopes of th `destroy` and `edit` actions. We can now remove the lines in `destroy` and `edit` that set `@article`, leaving something like this:
+
+```ruby
+def destroy
+  @article.destroy
+
+  redirect_to articles_path
+end
+
+def edit
 end
 ```
 
@@ -914,7 +1093,7 @@ Now go back to the `_form.html.erb` and paste the code from your clipboard.
 
 #### Writing the Edit Template
 
-Then look at your `edit.html.erb` file. You already have an H1 header, so add the line which renders the partial.
+Then look at your `edit.html.erb` file. Add an H1 header and the line which renders the partial.
 
 #### Testing the Partial
 
@@ -922,11 +1101,18 @@ Go back to your articles list and try creating a new article -- it should work j
 
 #### Implementing Update
 
-The router is looking for an action named `update`. Just like the `new` action sends its form data to the `create` action, the `edit` action sends its form data to the `update` action. In fact, within our `articles_controller.rb`, the `update` method will look very similar to `create`:
+The router is looking for an action named `update`. Just like the `new` action sends its form data to the `create` action, the `edit` action sends its form data to the `update` action. In fact, within our `articles_controller.rb`, the `update` method will look very similar to `create`.
+
+First, since we'll need to find an article by `id`, let's add `update` to our `before_action`:
+
+```ruby
+before_action :set_article, only: [:destroy, :edit, :update]
+```
+
+With `@article` set:
 
 ```ruby
 def update
-  @article = Article.find(params[:id])
   @article.update(article_params)
 
   redirect_to article_path(@article)
@@ -935,8 +1121,7 @@ end
 
 The only new bit here is the `update` method. It's very similar to `Article.new` where you can pass in the hash of form data. It changes the values in the object to match the values submitted with the form. One difference from `new` is that `update` automatically saves the changes.
 
-We use the same `article_params` method as before so that we only
-update the attributes we're allowed to.
+We use the same `article_params` method as before so that we only update the attributes we're allowed to.
 
 Now try editing and saving some of your articles.
 
@@ -952,7 +1137,6 @@ Let's look first at the `update` method we just worked on. It currently looks li
 
 ```ruby
 def update
-  @article = Article.find(params[:id])
   @article.update(article_params)
 
   redirect_to article_path(@article)
@@ -1034,31 +1218,24 @@ root to: 'articles#index'
 
 Now visit `http://localhost:3000` and you should see your article list.
 
+With flash message, partials, and a root default, we got a little beyond the scope of our branch, and I'm okay with that. We didn't really add anything new of substance, just made things nicer. If you think  we should have committed before adding flash messages, or even adding a partial, I respect that. Do your thing next time.
 
-#### Another Save to GitHub.
-
-The form-based workflow is complete, and it is common to commit and push changes after each feature. Go ahead and add/commit/push it up to GitHub:
-
-```
-$ git add -A
-$ git commit -m "form-based workflow feature completed"
-$ git push
-```
+**Commit, checkout, merge, push, delete.**
 
 If you are not happy with the code changes you have implemented in this iteration, you don't have to throw the whole project away and restart it.  You can use Git's reset command to roll back to your first commit, and retry this iteration from there.  To do so, in your terminal, type in:
 
 ```
 $ git log
-commit 15384dbc144d4cb99dc335ecb1d4608c29c46371
+commit <SOME BIG SHA KEY>
 Author: your_name your_email
 Date:   Thu Apr 11 11:02:57 2013 -0600
     first blogger commit
-$ git reset --hard 15384dbc144d4cb99dc335ecb1d4608c29c46371
+$ git reset --hard <SOME BIG SHA KEY>
 ```
 
 ## I2: Adding Comments
 
-Most blogs allow the reader to interact with the content by posting comments. Let's add some simple comment functionality.
+Most blogs allow the reader to interact with the content by posting comments. Let's add some simple comment functionality. Don't forget to checkout a new branch.
 
 ### Designing the Comment Model
 
@@ -1087,10 +1264,12 @@ t.string :author_name
 t.text :body
 t.references :article, index: true, foreign_key: true
 
-t.timestamps null: false
+t.timestamps
 ```
 
-Once that's complete, go to your terminal and run the migration:
+You might see some Rails projects pre-5.0.0 that have `t.timestamps null: false`. This is now the default option, which prevents null values from being saved for either `created_at` or `updated_at`.
+
+Once you've taken a look at your generated migration task, go to your terminal and run the migration:
 
 ```
 $ bin/rake db:migrate
@@ -1098,21 +1277,11 @@ $ bin/rake db:migrate
 
 ### Relationships
 
-The power of SQL databases is the ability to express relationships between
-elements of data. We can join together the information about an order with the
-information about a customer. Or in our case here, join together an article in
-the `articles` table with its comments in the `comments` table. We do this by
-using foreign keys.
+The power of SQL databases is the ability to express relationships between elements of data. We can join together the information about an order with the information about a customer. Or in our case here, join together an article in the `articles` table with its comments in the `comments` table. We do this by using foreign keys.
 
-Foreign keys are a way of marking one-to-one and one-to-many relationships. An
-article might have zero, five, or one hundred comments. But a comment only
-belongs to one article. These objects have a one-to-many relationship -- one
-article connects to many comments.
+Foreign keys are a way of marking one-to-one and one-to-many relationships. An article might have zero, five, or one hundred comments. But a comment only belongs to one article. These objects have a one-to-many relationship -- one article connects to many comments.
 
-Part of the big deal with Rails is that it makes working with these
-relationships very easy. When we created the migration for comments we started
-with a `references` field named `article`. The Rails convention for a
-one-to-many relationship:
+Part of the big deal with Rails is that it makes working with these relationships very easy. When we created the migration for comments we started with a `references` field named `article`. The Rails convention for a one-to-many relationship:
 
 * the objects on the "many" end should have a foreign key referencing the "one" object.
 * that foreign key should be titled with the name of the "one" object, then an underscore, then "id".
@@ -1313,6 +1482,8 @@ def create
   redirect_to article_path(@comment.article)
 end
 
+private
+
 def comment_params
   params.require(:comment).permit(:author_name, :body)
 end
@@ -1364,19 +1535,21 @@ You can use it in your `_comment.html.erb` partial like this:
 <p>Posted <%= distance_of_time_in_words(comment.article.created_at, comment.created_at) %> later</p>
 ```
 
-With that, you're done with I2!
+With that, you're done with I2!  Now that the comments feature has been added, git your gitflow going.
 
+## PAUSE
 
-#### Time to Save to GitHub Again!
-
-Now that the comments feature has been added push it up to GitHub:
+How did you feel about those first three iterations? If you feel shaky at all, spike this project and do it all over again. That's right, head to your terminal and:
 
 ```
-$ git add .
-$ git commit -m "finish blog comments feature"
-$ git push
+cd ..
+rm -rf blogger
+rails new blogger
 ```
 
+If you feel awesome about and comfortable with what we've done so far, feel free to move on.
+
+Note: Iterations 0-2 were updated to reflect Rails 5.1.0, if you run into inconsistencies between the tutorial and your development (e.g., different error messages or behavior), it could be due to version differences.
 
 ## I3: Tagging
 
