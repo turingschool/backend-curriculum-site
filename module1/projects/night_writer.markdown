@@ -211,8 +211,8 @@ The project will be assessed with the following rubric:
 
 * 4: Application is broken into components which are well tested in both isolation and integration using appropriate data
 * 3: Application is well tested but does not balance isolation and integration tests, using only the data necessary to test the functionality
-* 2: Application makes some use of tests, but the coverage is insufficient
-* 1: Application does not demonstrate strong use of TDD
+* 2: Application makes use of tests, but the coverage is insufficient
+* 1: Application does not demonstrate use of TDD, or an insufficient number of tests.
 
 ### 3. Encapsulation / Breaking Logic into Components
 
