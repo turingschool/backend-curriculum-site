@@ -47,7 +47,7 @@ Weeks 4&5 will be spent working on your capstone projects.
 *   [Debugging in the Browser](http://frontend.turing.io/lessons/debugging-with-devtools.html)
 *   [Event Bubbling and Delegation](./lessons/event-bubbling-and-delegation)
 *   [Testing in JavaScript](./lessons/testing-in-javascript)
-*   [Persisting and retrieving data with AJAX]()
+*   [Persisting and retrieving data with AJAX](./lessons/translation-station)
 *   Interview Prep
 
 <h4 id="week_3">Week 3</h4>
