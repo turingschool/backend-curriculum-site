@@ -122,9 +122,10 @@ def send_post(body)
   response.body
 end
 
-post_json = make_json(post_data)
-created_post_json = send_post(post_json)
-
+new_post_json = make_json(post_data)
+created_post_json = send_post(new_post_json)
+created_post = parse_json(created_post_json)
+render_post(created_post)
 ```
 
 I realize that `post` means both the record we're creating, and the HTTP verb used to send data to the server, but stick with me.
@@ -170,8 +171,8 @@ The client to server (AJAX) and server to server (Faraday) communication we've d
 Let's list out some of the ways we've moved our data around before:
 
 - Getting data out of a database into memory
-- Reading a file into memory
-- Storing data in session (from memory)
+- Extracting data from an HTML form
+- Storing data in session
 
 What are some other sources and destinations for data?
 
@@ -180,7 +181,7 @@ What are some other sources and destinations for data?
 Let's list out some of the ways we've translated data from one form to another
 
 - Parsing JSON into an object or hash
-- Mapping an objects into a table row
+- Mapping an objects into a table row in HTML
 - Converting an array of hashes to rows of a CSV
 
 What other format translations have you done?
