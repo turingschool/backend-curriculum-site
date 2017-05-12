@@ -6,20 +6,7 @@ tags: migrations, databases, relationships, rails, migrations, activerecord
 
 # Models, Databases, and Relationships
 
-## Goals
-
-* describe one-to-one, one-to-many, and many-to-many database relationships
-* explain the difference between dev, test, and production environments in Rails
-* create a Rails migration that creates a table or modifies a table
-* set up relationships in a Rails migration with foreign key fields
-* migrate the database and rollback migrations
-* explain purpose of an ORM (like ActiveRecord)
-* use and explain common ActiveRecord class and instance methods
-* set up relationships between models using ActiveRecord
-
-## Lesson
-
-Imagine we're going to build a bookshelf site for books and authors. It's well overdue!
+Imagine we're going to build a bookshelf site for books, authors and genres. It's well overdue!
 
 What might the database schema look like? Let's emphasize figuring out the entities (aka tables), but also figure out some of the key data columns.
 
