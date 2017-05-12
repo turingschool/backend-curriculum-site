@@ -43,9 +43,11 @@ tags: ruby, git, workflow
   (`touch filename.rb`)
 * Add content to file  
 * Commit and push  
-  (`git add .`    
+  (`git status`
+   `git add .`  
+   ` git status`
    `git commit -m "Add a message"`   
-   `git push origin branchname`)  
+   `git push origin master`)
 * Add collaborator on github  
 * Collaborator accepts invitation through email  
 * Collaborator clones repo  
@@ -53,9 +55,11 @@ tags: ruby, git, workflow
 * Collaborator cds into cloned repo  
 * Collaborator changes current line of file  
 * Collaborator commits and pushes to master  
-  (`git add .`  
+  (`git status`
+   `git add .`  
+   ` git status`
    `git commit -m "Add a message"`   
-   `git push origin master`)  
+   `git push origin master`)
 
 ### Merge Conflict Work Flow  
 * Orinal makes a change to the line in the file  
@@ -66,7 +70,9 @@ tags: ruby, git, workflow
   (choose which version of the code you'd like to keep    
    delete the code you do not want)  
 * Original commits changes  
-  (`git add .`   
+  (`git status`
+   `git add .`  
+   ` git status`
    `git commit -m "Add a message"`   
    `git push origin master`)
 * Original pushes resolution to master  
@@ -101,4 +107,5 @@ Talk with partner
 * What is a merge conflict? How might you resolve a merge conflict? 
 
 ### Additional Resources  
-[Git - the Simple Guide](http://rogerdudler.github.io/git-guide/)
+[Git - the Simple Guide](http://rogerdudler.github.io/git-guide/)  
+[Pro Git](https://git-scm.com/book/en/v2)
