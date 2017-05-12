@@ -25,10 +25,16 @@ tags: ruby, git, workflow
 
 ## Modeling Workflow
 
-### Git Flow for Pairs 101  
-* Initialize repo locally  
-* Create a repo on GitHub  
-* Add remote to local  
+### Git Flow for Pairs 101   
+* Make a directory and CD into it  
+* Check that repo is not already inited (git status) 
+* Initialize repo locally  (git init)
+* Create a repo on GitHub  (repositories/new)
+* Add remote to local (git remote add origin) 
+* Check successful addition (git remote -v)  
+* Check git status  
+* Make a file  
+* Add content to file  
 * Commit and push  
 * Add collaborator  
 * Collaborator clones repo  
