@@ -49,6 +49,7 @@ Weeks 4&5 will be spent working on your capstone projects.
 *   [Testing in JavaScript](./lessons/testing-in-javascript)
 *   [Persisting and retrieving data with AJAX](./lessons/translation-station)
 *   Interview Prep
+*   [Week Two CFU](https://github.com/turingschool/checks-for-understanding/blob/master/module-4/backend/week_two.md)
 
 <h4 id="week_3">Week 3</h4>
 *   [Object Oriented JavaScript](./lessons/intro-to-oojs)
