@@ -27,26 +27,45 @@ tags: ruby, git, workflow
 
 ### Git Flow for Pairs 101   
 * Make a directory and CD into it  
-* Check that repo is not already inited (git status) 
-* Initialize repo locally  (git init)
-* Create a repo on GitHub  (repositories/new)
-* Add remote to local (git remote add origin) 
-* Check successful addition (git remote -v)  
+* Check that repo is not already inited   
+  (git status) 
+* Initialize repo locally    
+  (git init)
+* Create a repo on GitHub  
+  (repositories/new)
+* Add remote to local 
+  (git remote add origin) 
+* Check successful addition  
+  (git remote -v)  
 * Check git status  
+  (git status)
 * Make a file  
+  (touch filename.rb)
 * Add content to file  
 * Commit and push  
-* Add collaborator  
+  (git add .  
+   git commit -m "Add a message"   
+   git push origin branchname)
+* Add collaborator on github  
+* Collaborator accepts invitation through email  
 * Collaborator clones repo  
-* Collaborator pulls from new repo  
+* Collaborator cds into cloned repo  
 * Collaborator changes current line of file  
-* Collaborator commits and pushes to master   
+* Collaborator commits and pushes to master  
+  (git add .  
+   git commit -m "Add a message"   
+   git push origin master)
 
-### Merge Conflict Work Flow      
-* Original pulls from master w/ present merge conflict    
-* Original resolves merge conflict
+### Merge Conflict Work Flow  
+* Orinal makes a change to the line in the file  
+* Original commits changes
+* Original pulls from master w/ Collaborator's changes  
+* Original resolves merge conflict  
+  (choose which version of the code you'd like to keep  
+   delete the code you do not want)
 * Original commits changes  
 * Original pushes resolution to master  
+  (git push origin master)  
 
 ### Optional: Work flow with branches  
 * Collaborator pulls from master  
