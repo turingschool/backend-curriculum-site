@@ -11,7 +11,8 @@ layout: page
 * [Working with Files](lessons/working_with_files) ([Class Recording](https://vimeo.com/162134025)) ([Related Video](https://vimeo.com/130322465))
 * [How Testing Works](lessons/how_testing_works)
 * [Introduction to Hashes](lessons/hashes)
-* [Beginner Enumerables](lessons/beginner_enumerables)
+* [Beginner Enumerables](lessons/beginner_enumerables)  
+* [Git for Pairs](lessons/git_for_pairs)
 
 ## Projects
 

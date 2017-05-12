@@ -12,8 +12,8 @@ In this project you'll create a simple blog system and learn the basics of Ruby 
 * Views with forms, partials, and helpers
 * RESTful design
 * Adding gems for extra features
-lig
-This tutorial is open source. If you notice errors, typos, or have questions/suggestions, please [submit them to the project on GitHub](https://github.com/turingschool/curriculum/blob/master/source/projects/blogger_reformat.md).
+
+This tutorial is open source. If you notice errors, typos, or have questions/suggestions, please [submit them to the project on GitHub](https://github.com/turingschool/backend-curriculum-site/blob/gh-pages/module2/projects/blogger.md).
 
 ## I0: Up and Running
 

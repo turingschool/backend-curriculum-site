@@ -1,3 +1,10 @@
+---
+layout: page
+title: Object Oriented Javascript
+length: 206
+tags: javascript, object oriented programming, prototypes
+---
+
 # An Introduction to Object-Oriented JavaScript
 
 ## Learning Goals
@@ -59,7 +66,7 @@ You may have noticed that we're using `this` in our function and that it isn't b
 * Using the `call()` method (e.g. `someFunction.call()`).
 * Using the `apply()` method (e.g. `someFunction.apply()`).
 
-When we are writing object-oriented JavaScript, we have a fourth way of invoking a function: the `new` keyword. The `new` keyword invokes the function _as a constructor_, which causes it to behave in a fundamentally different way. 
+When we are writing object-oriented JavaScript, we have a fourth way of invoking a function: the `new` keyword. The `new` keyword invokes the function _as a constructor_, which causes it to behave in a fundamentally different way.
 
 When we use the `new` keyword to call our function as a constructor, a few things happen under the scenes:
 
@@ -82,7 +89,7 @@ function Dog(name) {
 }
 ```
 
-What is `Dog.prototype` and where does it come from? Functions are objects and all functions in JavaScript have a `prototype` property. 
+What is `Dog.prototype` and where does it come from? Functions are objects and all functions in JavaScript have a `prototype` property.
 
 This property is set to an empty object — `{}` — by default.
 
@@ -114,9 +121,9 @@ fido.legs; // 4
 fido.toString(); // [object Object]
 ```
 
-When we call `fido.legs` in the example above, JavaScript checks `fido` to see if it has a `legs` property. It does, so JavaScript returns the value, `4`. In the next line, we call `toString()`. 
+When we call `fido.legs` in the example above, JavaScript checks `fido` to see if it has a `legs` property. It does, so JavaScript returns the value, `4`. In the next line, we call `toString()`.
 
-Well, `fido` doesn't have a `toString` property, so we check `fido`'s prototype, which is `Dog.prototype`. That's an empty object, so it certainly doesn't have that property. 
+Well, `fido` doesn't have a `toString` property, so we check `fido`'s prototype, which is `Dog.prototype`. That's an empty object, so it certainly doesn't have that property.
 
 Eventually, we work our way up to `Object.prototype`, which has a to `toString` property set to a built-in function. JavaScript calls the `toString()` method that it found up the chain, which returns `[object Object]`.
 
@@ -176,6 +183,65 @@ fido.sayHello(); // Hello, my name is Fido.
 spot.sayHello(); // Hello, my name is Spot.
 ```
 
+Here is the same implementation in ES6 syntax:
+
+```js
+class Dog {
+  constructor (name) {
+    this.name = name
+  }
+
+  sayHello () {
+    return `Hello, my name is ${this.name}.`
+  }
+}
+
+const fido = new Dog('Fido')
+const spot = new Dog('Spot')
+
+fido.sayHello() // Hello, my name is Fido.
+spot.sayHello() // Hello, my name is Spot.
+```
+
+Don't let the `class` keyword fool you **too** much. It still compiles down to a `Dog.prototype` object, it's just wrapped in a container more familiar to other OO lanuages.
+
+### A jQuery Example
+
+You are now familiar with the classic `$(document).ready(() => ... )` setup, which tells the browser to wait for the DOM to load before running your scripts.  Perhaps you've also ended up with a big ol' list of functions in and out of this `ready` block, not really organized in any object-oriented way.
+
+A potential solution for organizing your jQuery setup looks like this:
+
+```js
+// some higher-level .js file
+$(document).ready(() => {
+  new EventHandler()
+})
+```
+
+```js
+// in a separate "eventHandler.js" file:
+
+// ES5
+function EventHandler() {
+  $("button").on("click", this.doSomething) // this is "listening" upon its construction
+}
+
+EventHandler.prototype.doSomething = function() {
+  console.log("Handled!")
+}
+
+// ES6
+class EventHandler {
+  constructor() {
+    $("button").on("click", this.doSomething.bind(this))
+  }
+
+  doSomething() {
+    console.log("Handled!")
+  }
+}
+```
+
 # Prototypes vs. Classes
 
 This is a topic that has been hashed out to great length on the internet. In some ways there are a lot of similarities between classes in a language like ruby and prototypes in a language like javascript:
@@ -186,7 +252,7 @@ This is a topic that has been hashed out to great length on the internet. In som
 
 However, there are also some major differences:
 
-* Prototypes don't really provide a mechanism for encapsulation of state, which is one of the major principles of most OO languages. 
+* Prototypes don't really provide a mechanism for encapsulation of state, which is one of the major principles of most OO languages.
 * Javascript doesn't provide an OO-style mechanism for "private" functions (although we can achieve something similar with closures).
 * Prototypes don't distinguish between their own methods and the methods provided to their children (i.e. class methods vs. instance methods).
 
