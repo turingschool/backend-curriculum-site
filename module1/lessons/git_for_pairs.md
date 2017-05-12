@@ -64,16 +64,26 @@ tags: ruby, git, workflow
   (choose which version of the code you'd like to keep  
    delete the code you do not want)
 * Original commits changes  
+  (git add .  
+   git commit -m "Add a message"   
+   git push origin master)
 * Original pushes resolution to master  
   (git push origin master)  
 
 ### Optional: Work flow with branches  
 * Collaborator pulls from master  
-* Collaborator creates new branch 
+* Collaborator creates new branch  
+  (git checkout -b new_branch_name)  
+* Check which branch you're on  
+  (atom: bottom right of window  
+   git: `git branch`)
 * Collaborator adds content on new branch  
 * Collaborator commits and pushes branch  
+* Collaborator reviews files pushed 
 * Collaborator puts in a PR  
 * Original merges branch to master  
+* Original pulls down from master  
+* Collaborator pulls down from master  
 
 ## Closing  
 Talk with partner
