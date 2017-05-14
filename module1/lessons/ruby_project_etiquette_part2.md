@@ -8,6 +8,7 @@ title: Project Etiquette Part 2
 In this session we're going to go over some common best practices for organizing and managing code in our Ruby projects. By the end of the lesson, you should be comfortable with the following tasks.
 
 * How to build a gemfile and why you'd want to
+* What `$LOAD_PATH` is and how it helps you
 
 ## Warmup
 
