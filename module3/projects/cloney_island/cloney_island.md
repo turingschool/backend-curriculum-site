@@ -123,7 +123,51 @@ Your group will be assigned one of the following applications to clone. Each lin
 * [StackOverflow](prompts/so)
 * [Thumbtack](prompts/thumbtack)
 
-## <a name="rubric"></a> Evaluation Rubric
+## Sprint 1 - Individual Evaluation
+
+Each member of your team will commit to a story that demonstrates understanding of core concepts covered at Turing so far while also taking on a technical challenge that is outside of your comfort zone. The story will be determined with your instructor. At the end of the first sprint, each group will meet with their product owner and each member will demo their story.
+
+**Client Expectations**
+
+* Student delivered user story agreed upon with client.
+  * 4: Better than expected
+  * 3: As expected
+  * 2: Below expectations
+  * 1: Well below expectations
+
+**Test Quality**
+
+* Story is well-tested (Above 90% and the most valuable pieces of the app are covered). If you were paying for someone to build this for you, would you be satisfied with the tests that are written?
+    * 4: Better than expected
+    * 3: As expected
+    * 2: Below expectations
+    * 1: Well below expectations
+
+**Code Quality**
+
+* Project demonstrates well-factored code and a solid grasp of MVC principles.
+    * 4: Better than expected
+    * 3: As expected
+    * 2: Below expectations
+    * 1: Well below expectations
+
+**Student Evaluation**
+
+Each group member will evaluate each member of the group anonymously based on the criteria below. Students will receive the average score combined from all group members.
+
+* Communication
+  * 4: Group member did all the things mentioned in the bullet point below, but also was a catalyst for communication with the whole group.
+  * 3: Group member communicated clearly when they would and wouldn't be available well ahead of time. It was clear what they were working on and what the status was.
+  * 2: Group member would communicate when they would or wouldn't be available, but not until the last minute, or they would miss deadlines and not notify the group until the last minute.
+  * 1: It was unclear what the group member was working on, or they would fail to notify the team when they weren't going to meet a commitment.
+
+* Group member contributed code (quantity and quality)...
+  * 4: above expectations.
+  * 3: as expected.
+  * 2: below expectations.
+  * 1: well below expectations
+
+## <a name="rubric"></a> Sprint 2 - Final Evaluation Rubric
 
 Each group is required to do a self assessment using the rubric below and bring it to your evaluation.
 
