@@ -15,6 +15,8 @@ length: 90
 * Be able to name and explain the four key types of tests
 * Be able to explain and apply the "two-mindset approach" to TDD
 
+[Slides](../slides/testing_strategies)
+
 ## Lecture 1
 
 ### Introduction
