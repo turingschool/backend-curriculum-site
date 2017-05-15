@@ -1,31 +1,8 @@
 ---
 layout: page
-title: BookShelf
+title: BookShelf Forms Practice
 tags: forms, rails
-subheading: CRUD in Rails
 ---
-
-## Learning Goals
-
-* be able to explain why we use/need forms
-* understand the role of `form_for`
-* be able to explain the "POST-redirect-GET" pattern
-* be able to construct a basic form with the help of documentation/references
-* be aware of alternate form builders
-* practice building a small CRUD application with a form
-
-## Theory
-
-* why do we have forms?
-* how does the request/response cycle work with a form?
-* what is the "POST-redirect-GET" pattern and why does it matter?
-* we display forms with both `new` and `edit`
-* the magical purposes of `form_for`
-* see the [`form_for` API documentation](http://api.rubyonrails.org/classes/ActionView/Helpers/FormHelper.html)
-* basic form helpers
-* why forms will be the death of your enthusiasm
-* [simple_form](https://github.com/plataformatec/simple_form) and [formtastic](https://www.ruby-toolbox.com/projects/formtastic)
-* you can love builders but you have to live without them
 
 ## Practice
 
@@ -40,7 +17,7 @@ $ rake db:migrate
 
 Let's add a few books from the console:
 
-```
+```bash
 $ rails c
 Book.create(title: "The Lord of the Rings", price: 100.00, quantity: 10)
 Book.create(title: "The Catcher and the Rye", price: 15.99, quantity: 10)
@@ -62,7 +39,7 @@ end
 
 Run `$ rake routes` and look at the output:
 
-```
+```bash
     Prefix Verb   URI Pattern                    Controller#Action
      books GET    /books(.:format)               books#index
            POST   /books(.:format)               books#create
@@ -76,7 +53,7 @@ Run `$ rake routes` and look at the output:
 
 Create a controller for Books:
 
-```
+```bash
 $ touch app/controllers/books_controller.rb
 ```
 
@@ -95,7 +72,7 @@ end
 
 Create a view:
 
-```
+```bash
 $ mkdir app/views/books
 $ touch app/views/books/index.html.erb
 ```

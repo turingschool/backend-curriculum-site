@@ -50,27 +50,21 @@ $ rails -v
 Rails 4.2.6
 ```
 
-This tutorial is written using Rails 4.2.6, but it should be applicable to any similar version. If you aren't using Rails 4.2.6, we highly encourage you to install it.
+This tutorial is written using Rails 4.2.6, but it should be applicable to any similar version (including 5+).
 
 You can install a new version of Rails using the following command:
-
-```
-$ gem install rails --version=4.2.6
-```
 
 Create a new Rails project:
 
 ```
-$ rails new mix_master -d postgresql --skip-test-unit --skip-turbolinks --skip-spring -T -v 4.2.6
+$ rails new mix_master -d postgresql --skip-turbolinks --skip-spring -T
 ```
 
 What do these things do?
 
 * `-d postgresql` will give us a Rails project that already has Postgresql configured
-* `--skip-test-unit` will tell rails to **not** generate the `test` directory and the default Test::Unit framework
 * `--skip-turbolinks` and `--skip-spring` will generate a project without turbolinks and spring, both of which can cause some annoying behavior
 * `-T` will not create MiniTest files for you by default (MiniTest comes with Rails by default)
-* `-v 4.2.6` will create your Rails project using the 4.2.6 version of Rails
 
 ### Using RSpec in Rails
 
@@ -149,7 +143,6 @@ gem 'rails_12factor', group: :production
 ```
 
 From the documentation: "This gem enables serving assets in production and setting your logger to standard out, both of which are required to run a Rails 4 application on a twelve-factor provider." Before you continue, I recommend reading the "Rails 4 Logging" and "Rails 4 Serve Static Assets" sections of the [`rails_12factor README`](https://github.com/heroku/rails_12factor) so that you can get a better understanding of exactly what this gem provides.
-
 
 Remember to `bundle`.
 
