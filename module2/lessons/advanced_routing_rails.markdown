@@ -19,7 +19,7 @@ subheading: Web Applications with Ruby
 
 ## Review
 
-How confident are you that you can create all 8 prefixes/http-verbs/uri-patterns/controller&actions that Rails gives you when you have the following?
+How confident are you that you can create all 8 prefixes, http-verbs, URI-patterns, and controller actions that Rails gives you when you have the following?
 
 ```ruby
 # config/routes.rb
@@ -27,31 +27,38 @@ How confident are you that you can create all 8 prefixes/http-verbs/uri-patterns
 resources :cats
 ```
 
+## Setup
 
-### Resources will give us the following:
+Let's create an app for CRUDding some cats. Yes, it sounds weird. Yes, it is weird. Weird is good.
+
+```bash
+rails new cats -T -d=postgresql
+```
+
+### Resource Routes Recap:
+
+Let's add some resource routes to our `routes.rb` for `cats`.
+
 ![Resources Cats](http://i.imgur.com/efXfyNW.png)
 
 ### Example:
 
 Let's say we have:
-- cats
-- admin
+- `cats`
+- `administrators`
 
 We want a way to distinguish your routes so an admin has additional functionality/control over your application.
 
+For example, say we want `http://localhost:3000/admin/cats` to show `edit`/`delete` buttons for each individual cat and only admins can get here.
 
-Let's say we want `http://localhost:3000/admin/cats` to show edit/delete buttons for each individual cat (and only admin's can get here).
-
-We also want `http://localhost:3000/cats` to show a list of cats (and anyone visiting our application can get here)
+We also want `http://localhost:3000/cats` to show a list of cats (and anyone visiting our application can get here).
 
 What can we do?
 
 ### Scope
 
-
 ```ruby
 	# config/routes.rb
-
 	scope :admin do
 	 resources :cats
 	end
@@ -61,19 +68,7 @@ Adding `scope` to our routes gives us the following when we run `rake routes`:
 
 ![Scope 150%](http://i.imgur.com/O10zMLa.png)
 
-
-### Workshop
-
-Using the follow [practice repository](https://github.com/case-eee/horse-example), add a route so a user can hit `/admin/horses` and see all the horses.
-
-
-### Recap
-
-* What did you add to your `routes.rb`?
-* Can anyone spot potential problems?
-
-
-### Problems with **scope**
+### Potential Problems with **scope**
 
 We're going to need a way to **differentiate** our controllers. We want what we already have (the url prefix) **AND** a separate controller to encapsulate the different functionality.
 
@@ -88,7 +83,6 @@ We want both `/admin/cats` and `/cats` to be handled by our controllers in diffe
 ```
 
 If we have `scope` with `module` in our routes, we will get the following `rake routes` output:
-
 
 ![Scope-Module 150%](http://i.imgur.com/GvKOhiv.png)
 
@@ -106,23 +100,19 @@ By using `module`, Rails looks for our controller in a different place.
 
 ```
 
+What does that `::` (scope resolution operator) remind us of?
+
 **Note:** Where do you think Rails will look for this view template? It will look in the `views/admin/cats` folder.
 
-
-### Workshop
-
-* Add a route so a user can hit `/admin/horses` and see all the horses with links on each horse to edit and delete the specific horse
-* Add a route so a user can hit `/horses` and see all the horses
-
 ### Recap
-* What did you add to your routes?
-* Any questions?
+
+* What have we done so far to our routes?
+* What did `module` change for us?
 * Do you notice anything missing when you run `rake routes`?
 
 As you may have noticed, we don't have any path helpers that are specific to this "special" `admin` prefix. Again, Rails can help us out with this.
 
-
-### Scope and Module and As
+### `scope`, `module` and `as`
 
 ```ruby
 	scope :admin, module: :admin, as: :admin do
@@ -130,8 +120,7 @@ As you may have noticed, we don't have any path helpers that are specific to thi
 	end
 ```
 
-This produces the following when we run `rake routes`:
-
+Let's run `rake routes` once again!
 
 ![Scope-Module-As 150%](http://i.imgur.com/eY5o0wx.png)
 
@@ -145,14 +134,19 @@ As you may have expected, this seems like a lot of work for something that's use
 
 ### Namespace
 
-Namespace **=** scope + module + as
+`namespace` **=** `scope` + `module` + `as`
+
+_Rad!_
 
 ```ruby
 	namespace :admin do
 	 resources :cats
 	end
+```
 
+vs
 
+```ruby
 	scope :admin, module: :admin, as: :admin do
 	 resources :cats
 	end
@@ -164,58 +158,45 @@ Namespace **=** scope + module + as
 * organization
 * specificity
 
+Can you imagine what happens when you have 400 lines in your routes file?! You'll be thankful these route blocks exist for organization alone.
 
-Can you imagine what happens when you have 400 lines in your routes file?!
+### Nested Resources
 
-### Nested Resources  
-
-Let's say we have these relationships:
+Imagine we have these relationships:
 
 ```ruby
+	class Owner < ActiveRecord::Base
+	 has_many :cats
+	end
+
 	class Cat < ActiveRecord::Base
-	 has_many :votes
-	end
-
-	class Vote < ActiveRecord::Base
-	 belongs_to :cat
+	 belongs_to :owner
 	end
 
 ```
 
-My `config/routes.rb` might look like the following:
+Let's set up our resource routes as follows:
 
 ```ruby
-	resources :cats do
-	 resources :votes
-	end
+resources :owners do
+ resources :cats
+end
 ```
+
+Run `rake routes` now. Why might we want this setup for our routes?
 
 ### Recap
-What's the difference between using **namespace** and **nested resources**?
 
+Turn and talk to your neighbor and discuss:
 
-### Member
-
-If you only want one route with a specific ending, you can use `member`:
-
-```ruby
-	resources :cats do
-	 member do
-	  post :votes
-	 end
-	end
-
-	# post '/cats/:id/votes'
-
-```
-
-### Time permitting
-Practice with these advanced routing concepts with the following [repository](https://github.com/case-eee/lesson-example)
+*   What are differences between using **namespace** and **nested resources**?
+*   What are use cases for one or the other? Could you think of use cases for both?
 
 ### Closing
+
 Can you answer these questions?
 
 - Why do we namespace things?
-- What is the difference between Namespacing and Scoping?
+- What is the difference between namespacing and scoping?
 - When would we use one over the other?
-- In what case should you use Nested Resources?
+- When should you use nested resources?
