@@ -67,6 +67,7 @@ Your requirements for the application are detailed in the cards you're going to 
 - View different days
 - Data persists across refreshes
 - EXTENSION: Build an admin panel to manage data
+- EXTENSION: Add offline functionality
 
 #### Broad Back End features
 
@@ -126,8 +127,8 @@ You will be subjectively graded by an instructor on the following criteria:
 ### Testing
 
 - 4: All functionality is covered by tests. Appropriate mix of unit and integration tests. Sad path testing in both unit and integration tests.
-- 3: All functionality is covered by tests. Unit tests wherever logic can be separated from interface.
-- 2: More functionality implemented than tested or only uses one test type
+- 3: All back-end functionality is covered by tests. Front-end uses unit tests wherever logic can be separated from interface and network requests.
+- 2: More back-end functionality implemented than tested and/or very little front-end testing
 - 1: Team fails to effectively test the application.
 
 ### HTML/UI
