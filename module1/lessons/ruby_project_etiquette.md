@@ -10,17 +10,14 @@ In this session we're going to go over some common best practices for organizing
 * File naming conventions
 * Directory structure conventions
 * Difference between `require` and `require_relative`
-* What `$LOAD_PATH` is and how it helps you
 * How to build a rakefile and why you'd want to
-* How to build a gemfile and why you'd want to
 
-### Introduction
+Slides available [here](../slides/ruby_etiquette)
 
-* Why conventions?
+### Warmup
 
-#### Reflection
-
-Why should you care about Ruby convention?
+* How have you been organizing your projects so far?
+* What are the advantages of following conventions in project organization?
 
 ### Directory and File Organization
 
@@ -72,6 +69,24 @@ end
 ### Require Statements
 Require statements often trip us up, but there are some straightforward guidelines we can follow that make things much more reliable.
 
+##### `require` vs. `require_relative`
+
+Here's a quick overview of _how_ `require` and `require_relative` work.
+
+`require_relative` attempts to require a second file using a path relative to *the file* that is requiring it.
+
+* Does NOT matter where you run the test from (searches for path relative to the file the requirement is in)
+* As directory structure gets more complex, navigating relative to the file you require come can become convoluted (`require_relative '../../../lib/enigma'`).
+
+`require` attempts to require a second file relative to *the place* from which the first file is **being run** -- that is, relative to whatever place you are sitting when you type `ruby file_one.rb`
+
+* DOES matter where you run the test from
+* require tends to behave more consistently in complex scenarios and project structures (`require './lib/enigma'`)
+* require is also what we'll use for external gems and libraries. This is because...
+* require is designed to cooperate with ruby's $LOAD_PATH
+* Rails assumes we're running from the main project directory.
+
+
 #### Err on the Side of `require`
 
 Consider a project with the following structure.
@@ -84,32 +99,22 @@ Consider a project with the following structure.
     ├── enigma_test.rb
 ```
 
-If we were running our test files from `$ project/test`, we could use either use either `require_relative '../lib/enigma'` or `require './lib/enigma'`. To run our tests from `$ project`, however, only the `require './lib/enigma'` will work. It's better to get in the habit of requiring files using `require` and a path relative to the project root, from which you're presumably running your code.
+Generally within the Ruby community it is assumed that you will be running your test files from the `project/` directory *and not from within the `/test` directory*.
 
 **Avoid the temptation to navigate into go into test or lib directories through terminal to run code (i.e. `test$ ruby enigma_test`). Use `enigma$ ruby test/enigma_test.rb` instead.**
 
 ##### Why do we prefer `require`?
 
-It tends to be more common within the community. Programmers get workedup about weird things and sometimes it's best to just go with the flow
+Assuming the directory structure above, `enigma_test.rb` could include either of the following lines (remember you can leave `.rb` off when you are requiring a file):
 
+`require './lib/enigma'`
+`require_relative '../lib/enigma'`
 
+If you are running your test files from within the `project` directory, both of these will work the same. If you move down into the `project/test` directory, the first would then be unable to find the `enigma.rb` file. So why would we use something that might break depending on where we execute our code? Well, there are tradeoffs.
 
-##### `require` vs. `require_relative`
+What seems more brittle in this case is likely actually more resilient to future changes. Remember the example above: if our application and test suite grow, we may decide that we want to include subdirectories for our tests. If we use `require_relative` that means that we have to add a `../` to each and every one of our tests. If we use `require` we can simply move our files to a new subdirectory and continue to run our tests from the `project` directory as we have been doing.
 
-Here's a quick overview of _how_ `require` and `require_relative` work.
-
-`require_relative` attempts to require a second file using a path *relative to* the file that is requiring it.
-
-* Does NOT matter where you run the test from (searches for path relative to the file the requirement is in)
-* As directory structure gets more complex, navigating relative to the file you require come can become convoluted (`require_relative '../../../lib/enigma'`).
-
-`require` attempts to require a second file *relative to* the place from which the first file is **being run** -- that is, relative to whatever place you are sitting when you type `ruby file_one.rb`
-
-* DOES matter where you run the test from
-* Rails assumes we're running from the main project directory.
-* require tends to behave more consistently in complex scenarios and project structures (`require './lib/enigma'`)
-* require is also what we'll use for external gems and libraries. This is because...
-* require is designed to cooperate with ruby's $LOAD_PATH
+Additionally, using require tends to be more common within the community. Programmers get workedup about weird things and sometimes it's best to just go with the flow
 
 ##### Check for Understanding
 
@@ -137,62 +142,6 @@ end
 **require type** | running file from project directory | running file from test directory
 `require` | |
 `require_relative` | |
-
-#### Load Path Crash Course
-
-How does Ruby know where we look when we `require` something? Why is it we say `require "minitest"` but `require "./lib/enigma"` when obviously the `minitest` file is not sitting in the root of our project.
-
-##### What is the `$LOAD_PATH`
-
-$LOAD_PATH is an internal structure (actually an `Array`) that Ruby uses to keep track of where it can look to find files it needs (or we ask it to look for).
-
-Open a `pry` or `irb` session and type in `$LOAD_PATH`. You should get a response of something like this:
-
-```ruby
-["/Users/your_username/.rvm/gems/ruby-2.3.0@global/gems/did_you_mean-1.0.0/lib",
- "/Users/your_username/.rvm/gems/ruby-2.3.0@global/gems/executable-hooks-1.3.2/lib",
- "/Users/your_username/.rvm/gems/ruby-2.3.0@global/extensions/x86_64-darwin-15/2.3.0/executable-hooks-1.3.2",
- "/Users/your_username/.rvm/gems/ruby-2.3.0@global/gems/bundler-unload-1.0.2/lib",
- "/Users/your_username/.rvm/gems/ruby-2.3.0@global/gems/rubygems-bundler-1.4.4/lib",
- "/Users/your_username/.rvm/gems/ruby-2.3.0@global/gems/bundler-1.12.5/lib",
- "/Users/your_username/.rvm/gems/ruby-2.3.0/gems/slop-3.6.0/lib",
- "/Users/your_username/.rvm/gems/ruby-2.3.0/gems/method_source-0.8.2/lib",
- "/Users/your_username/.rvm/gems/ruby-2.3.0/gems/pry-0.10.4/lib",
- "/Users/your_username/.rvm/gems/ruby-2.3.0/gems/coderay-1.1.1/lib",
- "/Users/your_username/.rvm/gems/ruby-2.3.0/gems/byebug-9.0.5/lib",
- "/Users/your_username/.rvm/gems/ruby-2.3.0/extensions/x86_64-darwin-15/2.3.0/byebug-9.0.5",
- "/Users/your_username/.rvm/gems/ruby-2.3.0/gems/pry-byebug-3.4.0/lib",
- "/Users/your_username/.rvm/gems/ruby-2.3.0/gems/pry-rails-0.3.4/lib",
- "/Users/your_username/.rvm/rubies/ruby-2.3.0/lib/ruby/site_ruby/2.3.0",
- "/Users/your_username/.rvm/rubies/ruby-2.3.0/lib/ruby/site_ruby/2.3.0/x86_64-darwin15",
- "/Users/your_username/.rvm/rubies/ruby-2.3.0/lib/ruby/site_ruby",
- "/Users/your_username/.rvm/rubies/ruby-2.3.0/lib/ruby/vendor_ruby/2.3.0",
- "/Users/your_username/.rvm/rubies/ruby-2.3.0/lib/ruby/vendor_ruby/2.3.0/x86_64-darwin15",
- "/Users/your_username/.rvm/rubies/ruby-2.3.0/lib/ruby/vendor_ruby",
- "/Users/your_username/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0",
- "/Users/your_username/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/x86_64-darwin15"]
-```
-
-The default `$LOAD_PATH` will contain Ruby itself, files in the standard library (hence we can `require "date"` without a path), **as well as our current directory**. This is why `require`, by default, works relative to the place from which you code is *being run*, and thus why we should try to stick with the habit of running code from project root
-
-Your OS has a similar construct called `PATH` which it uses to find executable commands. Check it out by running `echo $PATH` at your terminal. This is how it knows what to execute when we type a simple command like `git`
-
-##### Exercise: Messing with Load Path
-
-1. Create a ruby file called `print_stuff.rb` in the directory `/tmp` on your machine (thus `/tmp/print_stuff.rb`)
-2. In that file define a simple method that prints a line of text. Call it `print_stuff`
-3. Go to your **Home Directory** (`cd ~`) and open a pry or IRB session
-4. Try to require `print_stuff` in irb/pry with `$ require 'print_stuff'`. You will get an error.
-5. Use ruby to ADD the path `./tmp` to your load path (remember, `$LOAD_PATH` is just an array so you can use normal Ruby array methods on it)
-6. Try to require `print_stuff` again using the command in 4 (above). It will return true.
-
-##### Check for Understanding
-
-Describe to a neighbor why the exercise above worked.
-
-##### Extension
-
-If you finish early, scan this article from Joshua Paling on [Load Path](http://joshuapaling.com/blog/2015/03/22/ruby-load-path.html).
 
 ## Rakefiles and Test Runners
 
@@ -236,40 +185,6 @@ task default: :test # <------ important
 ##### Exercise
 
 Use your knowledge of Ruby's object model and blocks to make sense of the rake TestTask above.
-
-## Further Insight: Gemfiles and Bundler
-
-* A "Gem" is a packaged up piece of ruby code designed to be shared with others (i.e. a library)
-* [RubyGems](https://rubygems.org/) is the community-run repository and website where gems can be published so other users can download them
-* [Bundler](http://bundler.io/) is the popular dependency manager rubyists use to download and manage gems
-* Similar to a `Rakefile`, a `Gemfile` lives at the **root of your project** and contains a list of the gems that project *depends on*
-
-**Sample Gemfile:**
-
-```ruby
-source "https://rubygems.org"
-
-gem "minitest"
-```
-
-* To install the dependencies listed in this file you would run `bundle` (**Can you guess from where?**)
-* Running bundle will also create a special file called `Gemfile.lock` in your project root. You should commit both of these files to source control
-
-#### Exercise - Making A Gemfile
-
-1. Create a new blank directory on your machine
-2. Create an empty file called `http_requests.rb`
-3. In the file, enter the following code to make a request using the Faraday gem:
-
-```ruby
-require "faraday"
-puts Faraday.get('http://www.warnerbros.com/archive/spacejam/movie/jam.htm').body
-```
-
-4. Create an empty `Gemfile` in the directory
-5. Use GOOGLE to determine what to add to the gemfile to install the `faraday` gem
-6. Then use `bundle` to install this gem
-7. Run your file to see that your code works and how Faraday helps you read webpages
 
 #### Summary
 
