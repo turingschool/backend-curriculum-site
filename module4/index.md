@@ -46,7 +46,7 @@ Weeks 4&5 will be spent working on your capstone projects.
 *   [Webpack and NPM](./lessons/webpack-demystified)
 *   [Debugging in the Browser](http://frontend.turing.io/lessons/debugging-with-devtools.html)
 *   [Event Bubbling and Delegation](./lessons/event-bubbling-and-delegation)
-*   [Testing in JavaScript](./lessons/testing-in-javascript)
+*   [ES5 vs ES6](./lessons/es5_vs_es6)
 *   [Persisting and retrieving data with AJAX](./lessons/translation-station)
 *   Interview Prep
 *   [Week Two CFU](https://github.com/turingschool/checks-for-understanding/blob/master/module-4/backend/week_two.md)
@@ -54,20 +54,22 @@ Weeks 4&5 will be spent working on your capstone projects.
 <h4 id="week_3">Week 3</h4>
 *   [Object Oriented JavaScript](./lessons/intro-to-oojs)
 *   [Unit Testing Workshop](https://github.com/turingschool-examples/unit-testing-client-side-storage/blob/master/README.md)
+*   [Testing in JavaScript](./lessons/testing-in-javascript)
+*   Interview Prep 
 *   [History of JavaScript]()
-*   [ES5 vs ES6](./lessons/es5_vs_es6)
-*   Negotiations
 *   [Refactor Tractor](./lessons/js_refactor_tractor)
+*   Negotiations
 *   [Testing JS with Selenium](./lessons/intro_to_testing_with_selenium)
-*   [Agile and Other Buzzwords](./lessons/agile_and_other_buzzwords)
+*   [Rails Challenge](https://gist.github.com/case-eee/e6662baaee43e317109c64d089d2cad5)
 
 <h4 id="week_4">Week 4</h4>
+*   Final Assessment Part 1
 *   [Documenting for Collaboration](./lessons/archive/how_to_write_a_great_readme)
+*   [Agile and Other Buzzwords](./lessons/agile_and_other_buzzwords)
 *   [Introduction to Professional Workflow](./lessons/intro_to_professional_workflow)
 *   [Professional Code Environments](./lessons/professional_code_environments)
 *   [Accessibility Best Practices](./lessons/accessibility_best_practices)
 *   [Basics of Security](./lessons/web_application_security)
-*   Final Assessment Part 1
 *   Algorithm Time
 
 <h4 id="week_5">Week 5</h4>
