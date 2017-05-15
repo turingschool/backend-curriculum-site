@@ -1,7 +1,6 @@
 ---
 layout: page
-title: Forms in Rails!
-subheading: let's learn some forms
+title: Forms in Rails
 ---
 
 ## Learning Goals
