@@ -8,8 +8,8 @@ Goals
 ----------
 
 -   Understand the value of integration tests
--   Comfortable writing integration tests using with help from the internet
--   Can incorporate integration tests into a webpack based environment 
+-   Write integration tests using outside resources with comfort
+-   Incorporate integration tests into a webpack based environment 
 
 Libraries covered
 ---------
@@ -105,6 +105,7 @@ This just visits a page in selenium.
 #### driver.findElement()
 
 My preference is to use css selectors to select elements.  `driver.findElement({css: '#id-name'})`
+You may also select an element by id. `driver.findElement({css: 'id-name'})`
 
 #### click() 
 
@@ -124,19 +125,20 @@ driver.findElement({id: 'ideaname'}).getText().then(function(textValue) {
 
 This is how you get some information about your elements. Because of some decisions made by the selenium team, basically everything is a promise. This means instead of returning values, these functions return promises, and the only way to get the values is to call `then()` on them, and name the variable for the value in the anonymous function parameters. But once you get the pattern, it's pretty straight forward.
 
-
 These are just a few of the functions you can use, but probably the most common ones. There are a lot more [in the docs](https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/index_exports_WebDriver.html). The docs seem intimidating at first, but stick with them. They're consistent and have little snippets throughout.
 
 #### Search idea feature
 
-Write an integration test that can search for the idea titled "Yo dude", by typing in only the letter "y" in the search field.
+With your pair, write an integration test that can search for the idea titled "Yo dude", by typing in only the letter "y" in the search field.  Please use the Given, When, Then syntax to write your story first.  Then line by line write the code.
 
 #### Integrating with webpack
 
-So far we've been running our tests using the npm script `npm test`.  Anyone notice anything interesting about the output of our tests?
+So far we've been running our tests using the npm script `npm test`.  Anyone notice all the unit tests output in their console?  We need to write an npm script just for unit tests, and just for integration tests.  Please pair with your partner to create these scripts.
 
 CFU
 -------------
+
+* For 5 minutes answer these questions in a blank text file.
 
 -  What is an integration test?
 -  Why are integration tests valuable?
