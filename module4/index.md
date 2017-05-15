@@ -53,7 +53,7 @@ Weeks 4&5 will be spent working on your capstone projects.
 
 <h4 id="week_3">Week 3</h4>
 *   [Object Oriented JavaScript](./lessons/intro-to-oojs)
-*   [Unit Testing Workshop](https://github.com/turingschool-examples/unit-testing-client-side-storage/blob/master/README.md)
+*   [Unit Testing Workshop](./lessons/unit-testing-client-side-code)
 *   [History of JavaScript]()
 *   [ES5 vs ES6](./lessons/es5_vs_es6)
 *   Negotiations
