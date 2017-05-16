@@ -138,12 +138,9 @@ So far we've been running our tests using the npm script `npm test`.  Anyone not
 CFU
 -------------
 
-* For 5 minutes answer these questions in a blank text file.
+* Take 5 minutes to answer this question in a blank text file. 
 
--  What is an integration test?
--  Why are integration tests valuable?
--  Why do we want integration tests to make up a small percentage of our tests?
--  What do the Given, When, and Then repersent in a test?
+-  What is the difference between unit and integration tests?  What percentage of unit tests do you want vs integration tests and why?
 
 ### Notes for working with selenium
 
