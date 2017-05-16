@@ -20,13 +20,13 @@ By the end of this tutorial, you will know/be able to:
 * model many-to-many data relationships
 * use factories to create objects to use in tests
 
-Depending on if/when the rest of the tutorial gets written, you may also know/be able to:
+<!-- Depending on if/when the rest of the tutorial gets written, you may also know/be able to:
 
 * use partials and helpers to tidy up views
 * model one-to-one data relationships
 * use polymorphic associations to associate an object with one of several other models
 * implement authentication using Twitter OAuth
-* write controller and view specs
+* write controller and view specs -->
 
 ### Iterations:
 
