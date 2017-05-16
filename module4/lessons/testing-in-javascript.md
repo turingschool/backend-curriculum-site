@@ -96,7 +96,7 @@ Here we're starting Chrome before each test, and quitting it after each test. I'
 
 The feature I want is to add an idea title and description, to my list of ideas.  We are going to use Jhun's ideabox site at [Jhun's Ideabox](http://idea-box-jhun.herokuapp.com/)
 Now lets write our feature story using the Given, When, Then syntax. The product manager who is often the person creating feature stories to add value to the business,
-asks you to allow a user to add create a new idea with a description for ideabox.
+asks you to allow a user to create a new idea with a description for ideabox.
 
 #### driver.get(url)
 
