@@ -56,7 +56,7 @@ Weeks 4&5 will be spent working on your capstone projects.
 *   [Unit Testing Workshop](./lessons/unit-testing-client-side-code)
 *   [Testing in JavaScript](./lessons/testing-in-javascript)
 *   Interview Prep
-*   [History of JavaScript]()
+*   [History of JavaScript](https://drive.google.com/open?id=0Bx6JZxtPBe_FVjk0dU1DekRGc00)
 *   [Refactor Tractor](./lessons/js_refactor_tractor)
 *   Negotiations
 *   [Testing JS with Selenium](./lessons/intro_to_testing_with_selenium)
