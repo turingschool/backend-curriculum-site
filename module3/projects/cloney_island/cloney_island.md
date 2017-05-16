@@ -47,7 +47,6 @@ You will name a team leader that will:
 * Seek clarification from the client when a user story is not clear.
 * Make sure that all the team members are on track and collaborating following an agreed upon [Git workflow](supporting_docs/git).
 * Create a new Rails project on GitHub and invite team members and instructors as collaborators.
-* Create a [Waffle](https://waffle.io) board to track project progress, and add an 'Implemented' column.
 
 Like all projects, individual team members are expected to:
 
@@ -59,7 +58,7 @@ Like all projects, individual team members are expected to:
 
 Project requirements will be developed by your instructors acting as clients over the course of three check-ins (described in greater detail [here](supporting_docs/check-ins)). During these check-ins, you will work with your client to identify their business needs, and afterwards you will transform these requirements into user stories. To the degree that there is any ambiguity or misunderstanding of client requests, you will be responsible for using these check-ins to course correct. We also recommend that you work to use these check-ins manage client expectations. For the purpose of this project, assume that your client does not have any programming experience.
 
-High level cards associated with client requested features should be labeled as such so that they are easily identifiable on Waffle. When you believe you have completed a feature, you will move the card associated with that issue to "Implemented." Your client may then move that card to "Done" if they are able to verify that it is working on the production site. The stories as written and prioritized in your project management tool will be the authoritative project requirements. They may go against and likely go beyond the general requirements outlined below.
+High level cards associated with client requested features should be labeled as such so that they are easily identifiable on your project management tool. When you believe you have completed a feature, move it into the correct state. Depending on your client, they may require that they accept that card and verify that it is working on the production site before they accept it (work this out with your product owner). The stories as written and prioritized in your project management tool will be the authoritative project requirements. They may go against and likely go beyond the general requirements outlined below.
 
 As the stories clearly define the client's expectations, your application needs to **exactly** follow the stories as they've been developed with your customer. A 95% implementation is wrong. If you want to deviate from the story as it's written, you need to discuss that with your client and get approval to change the story _before implementing on the production site_.
 
@@ -165,7 +164,13 @@ Each group member will evaluate each member of the group anonymously based on th
   * 4: above expectations.
   * 3: as expected.
   * 2: below expectations.
-  * 1: well below expectations
+  * 1: well below expectations.
+
+* I would like to work with this group member professionally.
+  * 4: Absolutely. I will likely seek them out in the future with the hopes of working with them again.
+  * 3: Yes, I think I would enjoy working with them.
+  * 2: I would prefer not to.
+  * 1: I would actively avoid working with them again.
 
 ## <a name="rubric"></a> Sprint 2 - Final Evaluation Rubric
 
