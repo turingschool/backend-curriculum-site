@@ -98,21 +98,6 @@ $ rails generate rspec:install
 
 This created a [`.rspec` file](https://www.relishapp.com/rspec/rspec-core/v/2-0/docs/configuration/read-command-line-configuration-options-from-files), a [`spec` directory](https://www.relishapp.com/rspec/rspec-rails/docs/directory-structure) (this is equivalent to the `test` directory if we were using Test::Unit), and [two helper files](https://relishapp.com/rspec/rspec-rails/docs/upgrade).
 
-### Using Unicorn instead of WEBrick
-
-By default, Rails uses the Webrick server which is slow. Let's use Unicorn instead. In your Gemfile, uncomment this line:
-
-```ruby
-gem 'unicorn'
-```
-
-Then run `bundle`. To start up the server:
-
-```
-# Use Unicorn as the app server
-$ unicorn
-```
-
 ### Git Setup
 
 Initialize your project as a Git repository:
