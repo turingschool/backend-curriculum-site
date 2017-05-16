@@ -105,7 +105,7 @@ This just visits a page in selenium.
 #### driver.findElement()
 
 My preference is to use css selectors to select elements.  `driver.findElement({css: '#id-name'})`
-You may also select an element by id. `driver.findElement({css: 'id-name'})`
+You may also select an element by id. `driver.findElement({id: 'id-name'})`
 
 #### click() 
 
