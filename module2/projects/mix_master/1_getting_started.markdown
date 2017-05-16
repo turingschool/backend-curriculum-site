@@ -121,16 +121,6 @@ If you don’t already have one, you’ll need to create a [Heroku account](http
 
 Heroku requires applications to use a PostgresSQL database and not a Sqlite database. Good thing we generated our Rails project with a Postgres database! Some people may choose to use Sqlite locally when running in test and development and PostgresSQL only on Heroku. This configuration is indeed possible; however, it's important to remember that these databases have slightly different behaviors, so something that works with Sqlite may not work with Postgres, and vice versa.
 
-Debugging in production on Heroku is difficult without error logging, so we'll add the [`rails_12factor`](https://github.com/heroku/rails_12factor) gem to our Gemfile (make sure it's not in `test` or `development` groups - we want this for production):
-
-```ruby
-gem 'rails_12factor'
-```
-
-From the documentation: "This gem enables serving assets in production and setting your logger to standard out, both of which are required to run a Rails 4 application on a twelve-factor provider." Before you continue, I recommend reading the "Rails 4 Logging" and "Rails 4 Serve Static Assets" sections of the [`rails_12factor README`](https://github.com/heroku/rails_12factor) so that you can get a better understanding of exactly what this gem provides.
-
-Remember to `bundle`.
-
 Now, let's ship to Heroku! This next command will only work if you installed the Heroku Toolbelt.
 
 ```
