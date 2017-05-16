@@ -94,7 +94,3 @@ Create the model, views, controller, routes, and migrations necessary for `index
 Run `rails c` to create some new songs, and see if they display appropriately on your pages.
 
 Create link helpers to create links between the two views.
-
-### For CodeAlong time this afternoon:
-
-We will be building BookShelf. It is an app that we will use for some homework assignments and other lessons. You can find the directions and [tutorial here](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/forms_and_route_helpers_in_rails.markdown)

@@ -18,12 +18,6 @@ title: Forms in Rails
 * `rails server`
 * **Get familiar with the app.** What functionality is there?
 
-## Route Helpers
-
-### Exercise: Clean Up Hardcoded Routes
-
-In your `views/books/index.html.erb`, we have a few "hardcoded" routes. Can you use route helpers to clean these up?
-
 ### Exercise: `form_for`
 
 * Check out `views/books/new.html.erb`.
