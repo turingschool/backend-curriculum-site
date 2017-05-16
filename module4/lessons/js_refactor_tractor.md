@@ -10,19 +10,9 @@ tags: javascript, refactoring, jquery
 ## Learning Goals
 * Understanding the general goal of refactoring
 * Red, Green, Refactor Workflow
-* Familiarity with common mistakes and avoiding bad practices in JavaScript code
-* An overview of and practice with creating Github issues and submitting and reviewing Pull Requests
+* Become familiar with common mistakes and avoid bad practices in JavaScript code
 
-## Structure
-* 25 - Warm Up and Discussion
-* 5 - Break
-* 15 - Pair work
-* 10 - Share with the group
-* 5 - Break
-* 25 - Pair work
-* 10 - Share with the group
-
-## Warmup and Discussion
+## Warmup
 __What Is Refactoring and Why Do It?__
 
 "Refactoring is the process of changing a software system in such a way that it does not alter the external behavior of the code yet improves its internal structure."
@@ -38,10 +28,10 @@ Refactoring is not exactly 'bug fixing', not exactly 'just rearranging code' and
 
 For that reason, even though this lesson is called 'Refactor Tractor' not everything in it is exactly refactoring. We will be covering learning to recognize common subtle bugs and code smells in JavaScript code. We will also be covering how to fix those bugs and communicating your fixes through Github.
 
-__Discussion Points__
+__Take a few minutes and reflect on the following questions:__
 * What percentage of your time coding do you feel like you spend 'refactoring' what you've written?
 * Books, articles or talks that help understanding writing cleaner code?
-* What would the difference be between 'refactoring' and 'reworking'.
+* What would the difference be between 'refactoring' and 'reworking'?
 
 ## Red, Green, Refactor
   'Red > Green > Refactor' is a short term used to explain the typical TDD work flow. The idea is that, when you're test driving software development, you go through the following steps:
@@ -71,12 +61,6 @@ __Discussion Points__
 
   In a less eloquent quote than the one provided by Martin Fowler, 'you can't polish a turd if you don't first have the turd'.
 
-__Discussion Points__
-* Why bother refactoring if it's already green?
-* Exercism.io and Nitpicking
-* What's an example of working in a `red > green > refactor` style without testing, per se.
-
-
 ## Low Hanging Refactoring Fruit
 
 __aka The 'Oops I Left That In There' Code__
@@ -86,7 +70,7 @@ __aka The 'Oops I Left That In There' Code__
   debugger;
 ```
 
-I mean, first of all, that's a big security issue... second of all, that's just lazy, man.
+I mean, first of all, that's a big security issue... second of all, that's just lazy.
 
 #### Commented out code.
 ```js
@@ -178,7 +162,7 @@ This is how the interpreter will parse the code - which will change what the cod
 
 #### Accidental Global Variables
 
-Forgetting a `var` can cause major problems in your code.
+Forgetting a `var` or `let`/`const` can cause major problems in your code.
 
 To review:
 
@@ -208,7 +192,7 @@ function methodThatAccidentlyCreatesAGlobalVariable(){
 
 The `methodThatAccidentlyCreatesAGlobalVariable()` creates a global `i` variable. The initial `for` loop will only run once.
 
-__Discussion Points__
+__Reflect__
 * What do you use to review code before you commit it?
 * What do you use to catch these basic issues?
 
@@ -259,7 +243,7 @@ Maybe then, since you did the calculation in JavaScript, you rely on pulling in 
 
 What could go wrong?
 
-__Discussion Points__
+__Reflect__
 * Did any of the above examples surprise you?
 * How often do you think developers make these kinds of 'mistakes' in production code?
 * How, other than memorizing flash cards, can you prevent potential bugs that you don't know are possible?
@@ -615,53 +599,7 @@ you may want in order to break up the responsiblity of your functions.
 
 ## Your Turn
 
-Your mission now is to spend time in [this](https://github.com/nickpisciotta/game-time) doing some refactoring or researching and adding more code smells examples to this tutorial.
-
-### Pair work
-
-Your pair will be assigned one of the following refactor strategies and concepts. Use the above repo. Spend 15 minutes understanding and applying it. Then we will come back together as a group, and you should share your understanding of your concept, and how you applied it.
-
-Then we will shift concepts and go around again.
-
-- [Low Hanging Refactoring Fruit](#low-hanging-refactoring-fruit)
-- [More Complex JavaScript Code Issues to Look Out For](#more-complex-javascript-code-issues-to-look-out-for)
-- [Breaking the Law of Demeter](#breaking-the-law-of-demeter)
-- [Callback Hell](#callback-hell)
-- [Single Responsibility Principle && Code that Does Too Much](#single-responsibility-principle--code-that-does-too-much)
-- [If If If Else If Else Else If Else](#if-if-if-else-if-else-else-if-else-)
-- [Breaking Up Functions](#breaking-up-functions)
-- [Passing Too Many Arguments to a Function](#passing-too-many-arguments-to-a-function)
-
-#### Overview
-
-1. Find your refactoring buddy & decide how you want to work
-	- You can pair with them or choose to work independently if you prefer working solo. Either way, come up with a plan, man.
-
-2. Each person will each need to submit a pull request (2 PRs total)
-
-3. Options for what you work on are:
-	- Fixing a 'code smell' in the above repo.
-    - Adding a description of another JavaScript or general 'code smell' to look out for to this tutorial.
-
-#### Details
-
-1. Dig into the above repo and try to identify issues or places for refactoring - OR - choose a code smell to add to this tutorial - OR - propose and implement a better organization of all of the content we've collected over the innings.
-2. Create a [Github Issue](https://help.github.com/articles/creating-an-issue/) for the proposed fix or documentation topic.
-- Comment or assign yourself to an issue to 'claim it' when you start work on a fix.
-  - Why?: This is how you know that you're not duplicating work that someone else is doing on the project.
-- Check out a branch and make the fix.
-- You will need to submit Pull Requests for any refactors or documentation you make.
-- [Use the following template as the body of your Pull Request(s)](https://gist.github.com/rrgayhart/c64f0966a36a9c47b227)
-- In the PR:
-  - Tag ***one*** instructor:
-    - Mod 4: @icorson3 || @neight-allen || @case-eee
-  - If: you paired with your Refactoring Buddy
-     - Tag a member of another refactor team to review the PR
-  - Else:
-     - Tag your Refactoring Buddy to review the PR
-- Review any PRs you have been tagged on.
-  - Comment inline on the code or documentation changes. If you like something someone did, let them know. If you have concerns about the change, let them know (nicely). If you have questions, ask them. If you think the PR is good to merge, let them know with a thumbs up or a ship emoji or just regular old words.
-- Respond to any comments on your PRs.
+Your mission now is to spend time refactoring your project.
 
 __A Note on Refactoring__
 
