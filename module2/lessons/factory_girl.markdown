@@ -2,7 +2,7 @@
 title: Factory Girl in Rails
 length: 90
 tags: factories, factory_girl, rails, testing, tdd
---
+---
 
 ## Goals
 

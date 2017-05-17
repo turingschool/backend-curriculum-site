@@ -52,7 +52,7 @@ title: Module 2 Scope and Sequence
 <!-- * [Ruby Pairing](https://github.com/turingschool/challenges/blob/master/flatten.markdown) -->
 * [SQL Practice](sql)
 * [Nested Routes](advanced_routing_rails)
-* [Factory Girl](factory_documentation)
+* [Factory Girl](factory_girl)
 * [MixMaster Q&A](http://backend.turing.io/module2/projects/mix_master/1_getting_started)
 * [Relationship Implementation and Exercises](https://github.com/turingschool-examples/relationship_practice_exercises)
 * [Job Tracker Project](https://github.com/turingschool/job-tracker)
