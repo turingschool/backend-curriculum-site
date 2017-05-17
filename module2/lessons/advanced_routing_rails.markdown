@@ -1,23 +1,16 @@
 ---
 layout: page
 title: Advanced Routing in Rails
-subheading: Web Applications with Ruby
 ---
-
-## Warm Up
-
-* What do you **know** about routing in Rails so far?
-* Is there anything you know you don't know?
-
 
 ## Learning Goals
 
-- Why/when do we use namespace in our routes?
+- Why/when do we namespace our routes?
 - What is the difference between Namespacing and Scoping?
 - When would we use one over the other?
 - In what case should you use Nested Resources?
 
-## Review
+## Warm Up
 
 How confident are you that you can create all 8 prefixes, http-verbs, URI-patterns, and controller actions that Rails gives you when you have the following?
 
@@ -41,9 +34,10 @@ Let's add some resource routes to our `routes.rb` for `cats`.
 
 ![Resources Cats](http://i.imgur.com/efXfyNW.png)
 
-### Example:
+### Distinguishing Routes
 
 Let's say we have:
+
 - `cats`
 - `administrators`
 
