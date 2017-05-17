@@ -43,3 +43,4 @@ Remember, red, green, refactor, repeat.
 ## Closing  
 * What are some common error messages and what do they lead you to implement in your code?  
 * Do you find the red, green, refactor pattern helpful? Why or why not? 
+* How do you feel about Test Driven Development?
