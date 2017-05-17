@@ -7,7 +7,7 @@ This workshop is centered around relational databases. The goal of this workshop
 
 Here are the available workshops. (They are meant to be done in secession):
 
-1. [Fundamental SQL](http://tutorials.jumpstartlab.com/topics/sql/fundamental_sql.html)
+1. [Fundamental SQL](http://tutorials.jumpstartlab.com/topics/sql/fundamental_sql.html) (review from intermission work)
 1. [SQL by repetition](http://sql-by-repetition.herokuapp.com/)
 1. [Intermediate SQL](https://github.com/turingschool/lesson_plans/blob/master/ruby_03-professional_rails_applications/intermediate_sql.md)
 
