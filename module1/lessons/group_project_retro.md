@@ -18,7 +18,7 @@ Identify 3 things that didn't go well. Why do you think these were unsuccessful?
 
 ### Reflection Break Down 
 **Personal Reflection**  
-20 min
+20 min  
 In a notebook or on your computer reflect upon your experience of group during this last project.  
 Aim to spend about 5min on each of the above questions.  
 
@@ -35,7 +35,7 @@ With your partner from your project, find a space to reflect and discuss the exp
 Keep in mind the principles of **clear, actionable,** and **kind**.
 
 ### WrapUp  
-5min
+5min  
 A signifcant portion of your professional life will be spent utilizing skills of communication and collaboration.  
 With today's conversation in mind, what are some things about yourself that you need to be aware of that will impact your success in future collaborative environments?  
 
