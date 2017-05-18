@@ -17,7 +17,7 @@ Learning Goals
 Overview
 ------------
 
-The Capstone Project will last three weeks and will consist of students working in teams of 4+ students. Teams may choose to work on existing Turing internal projects listed [here](http://backend.turing.io/module4/projects_overview) or they can choose to take a team member's existing personal project and build on it.
+The Capstone Project will last two weeks and will consist of students working in teams of 4+ students. Teams will be formed based on interest in an existing Turing internal projects listed [here](http://backend.turing.io/module4/projects_overview) or the cohort's existing personal projects.
 
 Roles
 ------------
@@ -34,17 +34,17 @@ Structure of each week
 
 Each team should work together to plan daily stand-up's. Let your Technical Lead know when these stand-up's will take place so they can attend as needed.
 
-Every Monday afternoon, the Product Owner will talk with their team about the set of user stories to be implemented for that sprint. The sprint will start Monday and end Thursday at 3 PM.
+Every Tuesday afternoon, the Product Owner will talk with their team about the set of user stories to be implemented for that sprint. The sprint will start Tuesday and end Friday at 10 AM.
 
-At 3PM on Thursday, each team will spend 3 minutes demoing their project to the entire class. A different team member will present at the end of each sprint.
+At the culmunation of the project (Friday of Week 5), each team will spend 5 minutes demoing their project to the entire class. All team members should present a piece of the project.
 
 After the demos, each team will meet with their Technical Lead who will evaluate their progress via the rubric below.
 
-During class on Friday, each Technical Lead will meet with the Product Owner of each team to walk through the next set of stories. The Product Owner is responsible for brainstorming what these stories are with their team. The Technical Lead is responsible for helping guide the Product Owner and estimate how long each story will take. 
+During the first day of each sprint, each Technical Lead will meet with the Product Owner of each team to walk through the next set of stories. The Product Owner is responsible for brainstorming what these stories are with their team. The Technical Lead is responsible for helping guide the Product Owner and estimate how long each story will take. 
 
 The Project Manager is responsible for communicating to the Technical Lead throughout each sprint if the team is not going at a pace to finish the set of stories by the end of the sprint.
 
-During weeks 4 and 5, all classes (except for PD classes) are optional unless otherwise stated, depending on the team you choose. Feel free to audit classes in other modules and programs:
+All classes (except for PD classes) scheduled during week 5 and Friday of week 4 are optional unless otherwise stated, depending on the team you choose. Feel free to audit classes in other modules and programs:
 
 *   [BEE Module 1](https://www.google.com/calendar/embed?src=casimircreative.com_59k8msrrc2ddhcv787vubvp0s4%40group.calendar.google.com&ctz=America/Denver)
 *   [BEE Module 2](https://www.google.com/calendar/embed?src=casimircreative.com_rps2hg1nfqjih4rcl3gl6s4lpk%40group.calendar.google.com&ctz=America/Denver)
@@ -57,7 +57,7 @@ During weeks 4 and 5, all classes (except for PD classes) are optional unless ot
 Rubric
 ------------
 
-On the Thursday of each sprint (each week) we'll use the below rubric to evaluate and give feedback on your project progress.
+On the Friday of each sprint (each week) we'll use the below rubric to evaluate and give feedback on your project progress. The first Friday, we'll go through the rubric but it will be a "trial" evaluation. The second Friday will be the scores that you'll put in your portfolio.
 
 ### 1. Project Management
 
