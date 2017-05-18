@@ -18,9 +18,10 @@
   `git commit -m "Add message"`
 
 ### Submit Your Work
+#### In Terminal  
 5) Push  
   `git push origin master`  
-#### Back on GitHub  
+#### On GitHub  
 6) Make a Pull Request  
   Mid page, click **Pull request**  
   Click green **Create Pull Request** button  
