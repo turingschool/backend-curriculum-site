@@ -20,12 +20,12 @@
 **Personal Reflection**  
 20 min  
 In a notebook or on your computer reflect upon your experience of group during this last project.  
-Aim to spend about 5min on each of the above questions.  
+Aim to spend about 10 min on each of the above sections.  
 
 **Mixed Groups of 4**  
-30 min  
+20 min  
 In a group of 4, consisting of cohort-mates **not** in your project group, discuss the above questions.  
-You may want to find a quiet space for this conversation, but please return to your classroom before the 35min is up.  
+You may want to find a quiet space for this conversation, but please return to your classroom before the 20min is up.  
 Remember this is a space for productive conversation to work through your experience of your group from this project.  
 This is a time for active listening and support.  
   
@@ -34,7 +34,7 @@ This is a time for active listening and support.
 With your partner from your project, find a space to reflect and discuss the experience of working together on this project. Use the questions above to guide your conversation, but feel free to let the conversation go where it needs to go. Keep in mind the principles of **specific, actionable,** and **kind**.
 
 ### WrapUp  
-5min  
+5 min  
 A signifcant portion of your professional life will be spent utilizing skills of communication and collaboration.  
 With today's conversation in mind, what are some things about yourself that you need to be aware of that will impact your success in future collaborative environments?  
 
