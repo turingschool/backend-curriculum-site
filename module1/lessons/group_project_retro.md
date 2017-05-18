@@ -31,8 +31,7 @@ This is a time for active listening and support.
   
 **Partner**  
 20 min  
-With your partner from your project, find a space to reflect and discuss the experience of working together on this project. Use the questions above to guide your conversation, but feel free to let the conversation go where it needs to go.  
-Keep in mind the principles of **clear, actionable,** and **kind**.
+With your partner from your project, find a space to reflect and discuss the experience of working together on this project. Use the questions above to guide your conversation, but feel free to let the conversation go where it needs to go. Keep in mind the principles of **specific, actionable,** and **kind**.
 
 ### WrapUp  
 5min  
