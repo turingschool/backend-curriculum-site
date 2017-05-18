@@ -6,15 +6,15 @@
 * Identify action steps for improving communication and collaboration  
 
 #### Project Retro Questions
-Identify 3 things went well. Why do you think these were successful?
-* Describe your role
-* Describe your partner’s role
-* Describe what actions/mindsets were critical to these successes
+* Identify 3 things went well. Why do you think these were successful?
+  * Describe your role
+  * Describe your partner’s role
+  * Describe what actions/mindsets were critical to these successes
 
-Identify 3 things that didn't go well. Why do you think these were unsuccessful?
-* Describe your role
-* Describe your partner’s role
-* Describe what changes/actions would improve the dynamic  
+* Identify 3 things that didn't go well. Why do you think these were unsuccessful?
+  * Describe your role
+  * Describe your partner’s role
+  * Describe what changes/actions would improve the dynamic  
 
 ### Reflection Break Down 
 **Personal Reflection**  
