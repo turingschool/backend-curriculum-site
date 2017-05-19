@@ -61,21 +61,22 @@ Weeks 4&5 will be spent working on your capstone projects.
 *   Negotiations
 *   [Testing JS with Selenium](./lessons/intro_to_testing_with_selenium)
 *   [Rails Challenge](https://gist.github.com/case-eee/e6662baaee43e317109c64d089d2cad5)
+*   No CFU's this week. Be sure you complete the Rails Challenge.
 
 <h4 id="week_4">Week 4</h4>
 *   Final Assessment Part 1
+*   [Introduction to Professional Workflow](./lessons/intro_to_professional_workflow)
+*   [Accessibility Best Practices](./lessons/accessibility_best_practices)
 *   [Documenting for Collaboration](./lessons/archive/how_to_write_a_great_readme)
 *   [Agile and Other Buzzwords](./lessons/agile_and_other_buzzwords)
-*   [Introduction to Professional Workflow](./lessons/intro_to_professional_workflow)
-*   [Professional Code Environments](./lessons/professional_code_environments)
-*   [Accessibility Best Practices](./lessons/accessibility_best_practices)
 *   [Basics of Security](./lessons/web_application_security)
-*   Algorithm Time
+*   [Professional Code Environments](./lessons/professional_code_environments)
+*   [Introduction to React]() - Optional
 
 <h4 id="week_5">Week 5</h4>
-*   [React 1](./lessons/intro_to_react)
-*   [React 2](./lessons/intro_to_react_part_2)
-*   [Application Coordination with Message Queues](./lessons/application_coordination_with_message_queues)
+*   [Grocery List in React]() - Optional
+*   Algorithm/Interview Prep Time - Optional
+*   [Application Coordination with Message Queues](./lessons/application_coordination_with_message_queues) - Optional
 *   Job Search and Beyond
 *   Technical Interview Challenge
 *   B4/F2 Algorithm Time
