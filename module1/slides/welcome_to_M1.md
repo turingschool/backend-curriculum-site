@@ -97,9 +97,16 @@ Gradual release of responsibility
     * Deciding what to tackle
     * Deciding when you're done
     * Deciding how to supplement our instruction
+* Embrace your own agency in any situation
 * Practice a growth mindset
 * Maintain a bias toward action
 * Find a way to ask questions
+
+---
+
+# Typical Day at Turing
+
+![inline](fixed_it.png)
 
 ---
 
