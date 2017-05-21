@@ -5,13 +5,14 @@ layout: page
 
 ## Lessons
 
-* [Refactoring Patterns](lessons/refactoring_patterns)
-* [Boolean Logic and Code Paths](lessons/boolean_logic)
+* [Testing Strategies Continued](slides/testing_strategies_3)
 * [Working with Ruby Modules](lessons/introduction_to_modules)
+* [Refactoring Patterns](lessons/refactoring_patterns)
 
 ## Projects and Exercises
 
 * [Battleship](projects/battleship)
 
 ## Other Relevant Links
+* [Boolean Logic and Code Paths](lessons/boolean_logic)
 * [Refactoring Patterns Reading](https://github.com/turingschool/challenges/blob/master/refactoring_patterns_reading.markdown)
