@@ -1,11 +1,11 @@
 ---
 layout: page
 title: Introduction to Modules
-length: 60
+length: 90
 tags: ruby, modules, oop
 ---
 
-### Goals
+### Learning Goals
 
 * understand that modules fill various roles in Ruby.
 * understand what a namespace is and how to create one with a module.
@@ -21,14 +21,15 @@ Spend the first five minutes writing answers to the following questions:
 
 1. What do you know about modules already? If little, what would you guess modules are all about?
 2. Golf and basketball both use a ball. But if you're on a basketball court and ask for "the ball", no one is going to
-throw you a golf ball. Why? If you were as dumb as a computer, why would a golf ball be an acceptable response?
+  throw you a golf ball. Why? If you were as dumb as a computer, why would a golf ball be an acceptable response? If you asked   what color is the ball? How do you know what the answer is vs the computer?  
 
 ### Namespacing
 
 Namespacing works for both classes and modules. We'll be implementing it with modules today.
 
-Let's look at some code.
-
+Let's look at some code.  
+Student Type 1  
+`touch student_1.rb`  
 ```ruby
 class Student
   def cast_spell
@@ -39,7 +40,10 @@ class Student
     puts "I'm a Slytherin! I'm ambitious and awesome!"
   end
 end
-
+```
+Student Type 2  
+`touch student_2.rb`
+```ruby
 class Student
   def cast_spell
     puts "Expelliarmus!"
@@ -50,16 +54,30 @@ class Student
   end
 end
 ```
+Hop into `pry` and play around a bit.
+```ruby
+require "./student_1.rb"
+=> true
+require "./student_2.rb"  
+=> true  
+slyth = Student.new  
+huff = Student.new  
+```
+Turn & Talk:  
+What is the same/different about these two students?  We have 2 Student classes.
 
-If we have this in our file, and we instantiate a new Student and
-we try to call the speak method, what happens?
+Agree/Disagree:  
+If I make them speak, what will I get? Why?
+```ruby
+stu_1.speak
+??  
+stu_2.speak  
+??  
+```
 
-Well it will always, unfortunately, be a Hufflepuff.
-
-But what if we want a Slytherin student?
-
-We have to use namespacing, and so we wrap each in a module like so:
-
+We can use namespacing, where we wrap each Student in a module like so:  
+A Slytherin Student:    
+`student_1.rb`
 ```ruby
 module Student
   class Slytherin
@@ -71,7 +89,12 @@ module Student
       puts "I'm a Slytherin, and am AWESOME."
     end
   end
-
+end 
+```  
+A Hufflepuff student:  
+`student_2.rb`    
+```ruby
+module Student
   class Hufflepuff
     def cast_spell
       puts "Expelliarmus!"
@@ -85,24 +108,31 @@ end
 ```
 
 This is how we would instantiate with modules and then call the appropriate
-method:
+method:  
+`pry`  
 
 ```ruby
-student = Student::Slytherin.new
-student.speak
+require "./student_1.rb"
+=> true
+require "./student_2.rb"  
+=> true  
+slyth = Student::Slytherin.new  
+huff = Student::Hufflepuff.new  
 ```
+Agree/Disagree:  
+When I call slyth.speak what will I get vs huff.speak? Why?  
 
-Have we seen a double colon like that before?
+Turn & Talk:  
+Have we seen a double colon like that before? What have you seen it do?  
 
 The double colon is a scope resolution operator. It allows you to access items
 in modules, or class level items in classes.
 
-And that should let us make a Slytherin student that can speak.
-
 ### Exercise: Namespacing
 
-So now you try.
-
+So now you try.  
+Make a Car Class:   
+`touch car_1.rb`  
 ```ruby
 class Car
   def start
@@ -113,7 +143,10 @@ class Car
     puts "All wheels go!"
   end
 end
-
+``` 
+Make a second Car Class:    
+`touch car_2.rb`  
+```ruby
 class Car
   def start
     puts "Engine on!"
@@ -129,14 +162,14 @@ end
 * Wrap the first `Car` with a module to create a `Car::AWD`
 * Wrap the second `Car` with a module to create a `Car::RWD`
 * Create an instance of `Car::RWD` and prove that you can access both
-the expected methods
+  the expected methods
 * Create an instance of `Car::AWD` and prove that you can access both
-the expected methods
+  the expected methods
 
 ### Functional Programming
 
-Next we are going to talk about functional programming. So what's the
-difference between that and object oriented programming? It's a
+Next we are going to talk about Functional Programming(FP). So what's the
+difference between that and Object Oriented Programming(OOP)? It's a
 complicated answer.
 
 If we're trying to keep things simple, and we are, what we've been doing
@@ -149,20 +182,23 @@ information.
 
 This is stuff we know.
 
-So the mystery lies in functional programming. The good thing about OOP
+So the mystery lies in Functional Programming. The good thing about OOP
 is that it lets us make these concrete mental models in our head. Let's go
-back to Mythical Creatures. In that exercise we had a centaur class.
+back to Mythical Creatures. In that exercise we had a Centaur Class.
 That centaur had a name and a breed, and it had methods like run and
 shoot.
 
-Functional programming is different. It looks at things as a chain of
+Functional Programming is different. It looks at things as a chain of
 equations or functions, and you hook them together like Voltron, and this
 leads you to a solution. It's very mathematical in nature.
 
 The main difference is that in both paradigms, infomration is being sent
 back and forth. OOP sends it in variables and objects. Functional
-programming passes functions back and forth and lets the recipient add to
+Programming passes functions back and forth and lets the recipient add to
 it.
+ 
+Turn & Talk:  
+How might you use a Functional Approach to programming? Have you come across/written any methods that work this way?  
 
 <!-- That's enough theory, let's look at some code.
 
@@ -191,15 +227,22 @@ What are some other possible uses for this? How might you have used this in a pr
 
 A little bit about mixins.
 
-* Ruby, like other OOP languages, uses inheritance.
+* Ruby, like other OOP languages, uses inheritance.  
+Agree/Disagree:  
+What do you think inheritance is in Ruby?  
+
 * Module mixins are inheritance by a different name.
-* How it works is that theyre added to the lookup chain.
-* You can share them across classes.
+* How it works is that they(modules) are added to the lookup chain.  
+Agree/Disagree:  
+What is "the lookup" chain? What happens?  
+* You can share them across classes.  
+Agree/Disagree:  
+Why might this be helpful? When would you use it?    
 * Or you can use them with a single class to organize better.
-* Doing that may be a terrible idea.
+  * Doing that may be a terrible idea.
 
-Let's look at an example.
-
+Let's look at an example.  
+`touch grubhub_order.rb`  
 ```ruby
 class GrubhubOrder
   def confirmation(thing)
@@ -214,7 +257,9 @@ class GrubhubOrder
     puts "Your food will arrive in 45-60 minutes."
   end
 end
-
+```
+`touch amazon_order.rb`  
+```ruby
 class AmazonOrder
   def confirmation(thing)
     puts "You got #{thing}."
@@ -229,15 +274,27 @@ class AmazonOrder
   end
 end
 ```
-
-What's wrong with this code?
+`pry`  
+```ruby
+require "./amazon_order.rb"
+=> true  
+require "./grubhub_order.rb"  
+=> true  
+amazon = AmazonOrder.new  
+grub   = GrubHubOrder.new  
+amazon.delivery  
+grub.delivery  
+amazon.review  
+grub.review  
+```    
+Turn & Talk:   
+How can we use modules to make this code better?    
 
 Well there's repetition in there, and one of the hallmarks of
 good programming is DRY, which stands for **don't repeat yourself**.
 
-So let's pull that out.
-
-
+Let's extract the duplication.  
+`touch online_order.rb`   
 ```ruby
 module OnlineOrder
   def confirmation(thing)
@@ -247,16 +304,22 @@ module OnlineOrder
   def review
     puts "Please rate your order within 30 days."
   end
-end
-
+end  
+```  
+In `amazon_order.rb`  
+```ruby
+require "./online_order"
 class Amazon
   include OnlineOrder
 
   def delivery
     puts "Your order will arrive in 2 business days."
   end
-end
-
+end 
+```  
+In `grubhub_order.rb`  
+```ruby
+require "./online_order"
 class Grubhub
   include OnlineOrder
 
@@ -264,7 +327,24 @@ class Grubhub
     puts "Your food will arrive in 45-60 minutes."
   end
 end
-```
+```    
+Agree/Disagree:  
+What will happen when we hop into Pry?  
+`pry`  
+```ruby
+require "./amazon_order.rb"
+=> true  
+require "./grubhub_order.rb"
+=> true  
+amazon = AmazonOrder.new  
+grub = GrubhubOrder.new  
+amazon.delivery
+grub.delivery  
+amazon.review  
+amazon.review  
+```  
+Turn & Talk:  
+What just happend there?  
 
 And now we just treat it as if the `confirmation` and `review` methods were included in our other classes.
 
@@ -273,7 +353,6 @@ And now we just treat it as if the `confirmation` and `review` methods were incl
 Now it's your turn.
 
 Consider the following code:
-
 ```ruby
 class Camry
   def start
@@ -288,7 +367,9 @@ class Camry
     puts "Back wheels go!"
   end
 end
+```
 
+```ruby
 class Jeep
   def start
     puts "Engine on!"
@@ -304,16 +385,27 @@ class Jeep
 end
 ```
 
-Together let's create a `HasEngine` module to extract the `start` and `stop` methods.
+Together with a partner create an `Engine` module to extract the `start` and `stop` methods.   
 
 ### Further Practice
 
-Take the code from the discussion and implement a `HasAirConditioning` module that is mixed into both classes.
+Take the code from the discussion and implement a `AirConditioning` module that is mixed into both classes.
 
 Instances of either class should be able to turn the AC on (`Chilly air coming your way!`) or off (`Temp is fine in here.`).
 
-### Additional Reading
+### WrapUp  
+* What are two types of Ruby Modules?  
+* For each type, what are some use cases?   
+* What would be pros/cons of each type?  
 
+### Additional Reading
+Module Resources:  
 * [Include vs Extend in Ruby](http://www.railstips.org/blog/archives/2009/05/15/include-vs-extend-in-ruby/) from John Nunemaker
 * [Modules](http://ruby-doc.com/docs/ProgrammingRuby/html/tut_modules.html) in Programming Ruby / RubyDoc
 * [Ruby Class, Module, and Mixin](http://matt.aimonetti.net/posts/2012/07/30/ruby-class-module-mixins/) by Matt Aimonetti
+
+Intro to Functional Programming(FP) Resources:  
+* [Clojure for the Brave and True](http://www.braveclojure.com/)  
+* [The Rise and Fall of Functional Programming](https://medium.com/javascript-scene/the-rise-and-fall-and-rise-of-functional-   programming-composable-software-c2d91b424c8c)  
+* Deep Dive into Functional Programming (FP):   
+* [SICP](https://github.com/sarabander/sicp-pdf)  
