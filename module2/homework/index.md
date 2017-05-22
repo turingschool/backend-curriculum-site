@@ -102,6 +102,7 @@ subheading: Homework
 
 ##### Day 1
 
+* Read this [primer](https://www.bu.edu/tech/about/security-resources/bestpractice/auth/) on authentication and authorization.
 * Job Tracker
 * Push your Job Tracker application to Heroku! If you're not sure how to do this, look back at the Mix Master project.
 
