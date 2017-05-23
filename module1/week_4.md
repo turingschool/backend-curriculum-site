@@ -14,5 +14,4 @@ layout: page
 * [Battleship](projects/battleship)
 
 ## Other Relevant Links
-* [Boolean Logic and Code Paths](lessons/boolean_logic)
 * [Refactoring Patterns Reading](https://github.com/turingschool/challenges/blob/master/refactoring_patterns_reading.markdown)

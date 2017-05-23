@@ -9,10 +9,14 @@ layout: page
 * [Pairing Patterns](lessons/pairing_patterns)
 * [Project Etiquette](lessons/ruby_project_etiquette) ([Video](http://vimeo.com/161695195))
 * [Enumerables, Part Deux](lessons/intermediate_enumerables) [Video 1](https://vimeo.com/161675625), [Video 2](https://vimeo.com/161677741), [Video 3](https://vimeo.com/161678930), [Video 4](https://vimeo.com/161680127)
-* [Credit Check Recheck](lessons/credit_check_recheck)  
+* [Credit Check Recheck](lessons/credit_check_recheck)
 * [Group Project Retro](lessons/group_project_retro)
 
-## Projects and Exercises
+## Exercises
+
+* Self Directed: [Boolean Logic and Code Paths](lessons/boolean_logic)
+
+## Projects
 
 * [Complete Me](projects/complete_me)
 * [Night Writer](projects/night_writer)

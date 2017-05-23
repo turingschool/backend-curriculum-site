@@ -31,6 +31,12 @@
 * Take input in the form of arguments
 * Provide output in the form of return values
 
+```ruby
+cw = CaseWorker.new
+cw.cases
+# => []
+```
+
 ---
 
 # Steps to Test an Instance Method
