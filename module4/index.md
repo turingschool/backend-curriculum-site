@@ -71,7 +71,7 @@ Weeks 4&5 will be spent working on your capstone projects.
 *   [Agile and Other Buzzwords](./lessons/agile_and_other_buzzwords)
 *   [Basics of Security](./lessons/web_application_security)
 *   [Professional Code Environments](./lessons/professional_code_environments)
-*   [Introduction to React]() - Optional
+*   [Introduction to React](https://docs.google.com/presentation/d/1hyNKmT0enmcKb01SUWb5-1Qxn_EXZOAc1HL2rEDuAgg/edit?usp=sharing) - Optional
 
 <h4 id="week_5">Week 5</h4>
 *   [Grocery List in React]() - Optional
