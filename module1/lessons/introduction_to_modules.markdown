@@ -69,9 +69,9 @@ What is the same/different about these two students?  We have 2 Student classes.
 Agree/Disagree:  
 If I make them speak, what will I get? Why?
 ```ruby
-stu_1.speak
+slyth.speak
 ??  
-stu_2.speak  
+huff.speak  
 ??  
 ```
 
@@ -120,7 +120,13 @@ slyth = Student::Slytherin.new
 huff = Student::Hufflepuff.new  
 ```
 Agree/Disagree:  
-When I call slyth.speak what will I get vs huff.speak? Why?  
+When I call slyth.speak what will I get vs huff.speak? Why?   
+```ruby 
+slyth.speak  
+??  
+huff.speak  
+??  
+```
 
 Turn & Talk:  
 Have we seen a double colon like that before? What have you seen it do?  
