@@ -65,7 +65,7 @@ Don't be too worried about the new terrain of authentication. All of these found
 
 1. Take five minutes to chat with your neighbor about main take-aways and main questions.
 2. Each group shares one take-away and one question.
-3. Locate each take-away and quesiton in the diagram flow.
+3. Locate each take-away and question in the diagram flow.
 
 ## Lecture
 
@@ -75,7 +75,7 @@ Don't be too worried about the new terrain of authentication. All of these found
 
 Sticks are coming out. No one is safe.
 
-Think of bcrypt authentication in Rails as a hash, with broad concepts as keys and implementations as values. What values could the follow keys have?
+Think of BCrypt authentication in Rails as some abstract hash, with broad concepts as keys and implementations as values. What values could the following keys have?
 
 * `:gem`
 * `:helper_method`
