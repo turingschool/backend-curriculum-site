@@ -17,7 +17,7 @@ Learning Goals
 Overview
 ------------
 
-The Capstone Project will last two weeks and will consist of students working in teams of 4+ students. Teams will be formed based on interest in an existing Turing internal projects listed [here](http://backend.turing.io/module4/projects_overview) or the cohort's existing personal projects.
+The Capstone Project will last two weeks and will consist of students working in teams of 3-4 students. Teams will be formed based on interest in an existing Turing internal projects or the cohort's existing personal projects listed [here](https://gist.github.com/BobGu/8e1aa089c9fafc99c0c557dfcbbf9080).
 
 Roles
 ------------
