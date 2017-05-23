@@ -18,12 +18,12 @@ By the end of this workshop, you will know/be able to:
 
 | - | - |
 | 25 | Diagram && FUNdamentals |
-| 5 | Pom |
+| 5 | POM |
 | 60 | Worktime |
 | 25 | Share Out && Review |
-| 5 | Pom |
+| 5 | POM |
 | 25 | Slides |
-| 5 | Pom |
+| 5 | POM |
 | 25 | QA && Closing |
 
 ## Diagram && FUNdamentals
