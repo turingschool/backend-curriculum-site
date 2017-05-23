@@ -122,7 +122,7 @@ In a perfect world, here's how an idea turns into production code:
 
 *   Product Owner (PO) discusses the business needs with Dev Team (DT), in person or on Slack
 *   DT drafts and estimates a story or multiple stories, sends to Product Owner for feedback/approval
-*   PO approves and schedules the story]
+*   PO approves and schedules the story
 
 At that point, the story is ready to be worked on. In a follow up lesson we'll review the workflow after this point.
 
