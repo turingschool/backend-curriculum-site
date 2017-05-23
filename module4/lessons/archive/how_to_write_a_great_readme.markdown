@@ -31,7 +31,7 @@ We publish open source because we want people to use it, we want people to be im
 
 Today we'll use a jigsaw technique to explore the topic of READMEs.
 
-* Break into six groups
+* Break into five groups of three
 * Each group will explore one resource
 * Read/explore **on your own for 5 minutes** using the guiding questions below
 * Discuss your findings **with your group for another 5 minutes**
@@ -57,13 +57,7 @@ If you or your group finish early, browse [these "awesome" READMEs and see if th
 
 ## Group Share (12 min)
 
-Let's bring our findings together through group discussion and posting findings on the white board. We'll pay particular attention to these anchor ideas:
-
-* Audience
-* Language
-* Content
-* Format
-* Extras
+Let's bring our findings together through group discussion and posting findings on the white board. 
 
 ## Practice (15 min)
 
