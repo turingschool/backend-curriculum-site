@@ -54,11 +54,11 @@ the game is played.
 
 When the player decides to start a game, the computer player should place
 their ships. The baseline computer should simply use random placements,
-but stil obey these constraints:
+but still obey these constraints:
 
 #### Validating Ship Coordinates
 
-Note that their are certain restrictions on where a ship can be placed.
+Note that there are certain restrictions on where a ship can be placed.
 Specifically:
 
 * Ships cannot wrap around the board
@@ -126,7 +126,7 @@ D
 
 ### Player Shot Sequence
 
-Once the ships are laid out the game starts with the Player Shoots Sequence.
+Once the ships are laid out the game starts with the Player Shot Sequence.
 
 1. Display the map from the current player's point of view
 2. Prompt the player for a position on which to fire
@@ -136,7 +136,7 @@ Once the ships are laid out the game starts with the Player Shoots Sequence.
 
 Display a map using the format described above. On the map, include
 information about the current player's previous shots. For every
-shot that landed a hit, mark that position with an `H`, and fore very
+shot that landed a hit, mark that position with an `H`, and for every
 shot that missed, mark that position with an `M`.
 
 So, on the first turn, a player's grid will look empty. But as the game
@@ -198,7 +198,7 @@ Then, return to the Player Shot Sequence.
 
 ### End Game Sequence
 
-When either the player or computer wins the game...
+When either the player or computer win the game...
 
 * Output a sorry or congratulations message
 * Output how many shots it took the winner to sink the opponent's ships
@@ -212,7 +212,7 @@ following extensions:
 ### Difficulty Levels
 
 When the user is getting ready to start a game, ask them what difficulty
-level they'd like to play with the following adaptations:
+level they'd like to play, with the following adaptations:
 
 * Beginner = 4x4 grid, 2-unit boat, 3-unit boat
 * Intermediate = 8x8 grid, 2-unit boat, 3-unit boat, 4-unit boat
