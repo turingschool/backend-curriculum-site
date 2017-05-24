@@ -6,9 +6,7 @@ tags: activerecord, rails
 
 ## Goals
 
-* Practice using ActiveRecord for problems beginners commonly us Ruby to solve
-* Practice finding and reading ActiveRecord documentation
-* Gain an understanding of `joins` and `includes`
+We've gotten fairly familiar with ActiveRecord's most common methods. Let's make sure we don't get rusty with those other less-frequently used methods.
 
 ## Instructions
 
