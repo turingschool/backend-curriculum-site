@@ -35,10 +35,13 @@
 
 `$ git checkout -b branch_name`
 
+Do work.
+
 ---
 
 # Pull Requests
 
+* Check to see that your code can be merged
 * Ask a teammate to review code
 * Ask a teammate to merge your changes to the `master` branch
 
@@ -46,7 +49,19 @@
 
 # Submitting a pull request
 
-`$ git push origin branch_name`
+```
+$ git checkout master
+$ git pull origin master
+$ git checkout branch_name
+$ git merge master
+$ git push origin branch_name
+```
+
+*More later. Might result in merge conflict.*
+
+---
+
+# Submitting a pull request (continued)
 
 On GitHub:
 
