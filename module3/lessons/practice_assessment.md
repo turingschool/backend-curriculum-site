@@ -50,6 +50,7 @@ The forecast should include date (weekday, month and day), high and low temps (F
 -   Routes should render JSON or an HTTP status code depending on their purpose.
 -   These routes should be namespaced under `/api/v1/`.
 -   Request specs should be driving the creation of these routes.
+- Make sure `create`, `update`, and `destroy` work through Postman
 
 ## Evaluation Criteria
 
