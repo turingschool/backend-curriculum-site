@@ -504,6 +504,13 @@ Then delete the following line from both your ItemsController and BackpacksContr
 
 Double check to see that our tests are still passing, and we should be in good shape!
 
+## Checkin and Review
+
+* Why fuss with all of this PORO business?
+* "Where" does PORO data live?
+* How do I add a flash message to a view?
+* How did we use `before_action` to refactor our controllers?
+
 ## You want more?
 
 #### Showing the cart
