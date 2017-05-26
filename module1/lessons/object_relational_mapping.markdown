@@ -1,20 +1,57 @@
 # Object Relational Mapping (ORM)  
 
 ## Learning Goals  
+* discuss a variety of options for large scale data storage  
+* explain what is an ORM and why is it useful?  
+*   
+
+## Structure  
+5 min - Warm Up  
+20 min - Some Data Storage Options  
+5 min - Break  
+20 min - ORM  
+5 min - Wrap Up
+
 ## Vocabulary  
-## Warm Up  
+* Comma Separated Values (CSV)
+* Object Relational Map (ORM)  
+* Ruby Object  
+
+## Warm Up   
+
 ## Some Data Storage Options  
 #### Hashes  
-#### CSV Comma Separated Values  
-#### Relational Database (w/ tables)  
+It might be stored as a mix of hashes and arrays such as:  
 ```
-| Teachers|
+{"teachers" => [{id: 2, first_name: "Ali", last_name: "Schlereth", module: 1},  
+                {id: 5, first_name: "Mike", last_name: "Dao", module: 1},  
+                {id: 1, first_name: "Sal", last_name: "Espinosa", module: 1},  
+                {id: 6, first_name: "Lauren", last_name: "Fazah", module: 2}]
+}
+```  
+
+#### CSV Comma Separated Values  
+It might be in a CSV where information is organized using commas such as:  
+```
+id,first_name,last_name,module  
+ 2,Ali,Schlereth,1  
+ 5,Mike,Dao,1  
+ 1,Sal,Espinosa,1  
+ 6,Lauren,Fazah,2
+```  
+
+#### Relational Database (w/ tables)  
+It might be in a Relational Database which uses tables such as:  
+```
+| Teachers|  
+----------
 |id | first_name | last_name | module |  
  2    Ali          Schlereth   1  
  5    Mike         Dao         1  
  1    Sal          Espinosa    1  
  6    Lauren       Fazah       2
-```
+```  
+
 #### Array of Ruby Objects   
 It might be an array of Ruby Objects such as:  
 ```
@@ -25,18 +62,23 @@ It might be an array of Ruby Objects such as:
 ```
 
 ### Independent Practice  
-Write the Ruby that you would use to make these Teacher objects.  
+Write the Ruby code that you would use to make these Teacher objects.  
+**Break**
 
-## What is ORM
+### Turn & Talk  
+Consider the scenario where some data comes from one type of data structure while other infomration comes from another data structure. How would that impact your application? What are some thoughts on how to make it easier for your application to navigate this different information?  
 
-Object Relational Mapping (ORM) is a technique for managing and interacting with data that come from incompatible data sources. Sometimes referred to as "_an_" ORM, thus "Object Relational Mapper."
+## ORM 
+### What is ORM
 
-## Where You're Likely to See ORM
+Object Relational Mapping (ORM) is a technique for managing and interacting with data that come from incompatible data sources. Sometimes referred to as "_an_" ORM, thus "Object Relational Mapper." 
 
-Rails applications use an ORM framework called Active Record to manage this mapping process. Once your applications incorporate the use of formal databases, frameworks like Active Record allow you to dictate the loading of data into your system using (in this case) Ruby  objects. We refer to ActiveRecord as an Object Relational Mapper, and the details of how you get your Ruby class to map to the database and what's in that Ruby class will depend on what ORM you're using.
+### Where You're Likely to See ORM
+
+Rails applications use an ORM framework called Active Record to manage this mapping process. Once your applications incorporate the use of formal databases, frameworks like Active Record allow you to dictate the loading of data into your system using (in this case) Ruby objects. We refer to Active Record as an Object Relational Mapper. The details of how you get your Ruby class to map to the database and what's in that Ruby class will depend on what ORM you're using.
 
 A Ruby Object like Item would align with a corresponding database table. In Rails, we will call these classes "models."
-
+Active Record Model:  
 ```
 class Item
   def initialize(id, name, description, unit_price, created_at, updated_at, merchant_id)
@@ -49,7 +91,13 @@ class Item
     @merchant_id = merchant_id
   end
 end
-```
+```  
+Relational Database Table:  
+| Items |
+--------
+| id | name | description | unit_price | created_at | updated_at | merchant_id |
+
+Or, the same table headers organized differently  
 
 | Items |
 | --- |
@@ -63,8 +111,14 @@ end
 
 In Rails applications, the process for defining new tables and models is slightly different than is called for in simple Ruby applications, but the underlying concept of using objects to organize and interact with data persists.
 
+#### Independent Practice  
+In your notebook, write a pro/con table for using an ORM.  
+
 ## Advantages
 
 *   Allows you to extract data from disparate sources and interact with using consistent tactics (OOP).
 *   Wraps data from disparate sources in one consistent object model, objects are easy to deal with
-*   Maintenance: if/when your data source changes, you only need to make updates in one location
+*   Maintenance: if/when your data source changes, you only need to make updates in one location  
+
+## Wrap Up  
+
