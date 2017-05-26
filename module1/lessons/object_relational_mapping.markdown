@@ -7,13 +7,22 @@
 #### Hashes  
 #### CSV Comma Separated Values  
 #### Relational Database (w/ tables)  
-
+```
+| Teachers|
+|id | first_name | last_name | module |  
+ 2    Ali          Schlereth   1  
+ 5    Mike         Dao         1  
+ 1    Sal          Espinosa    1  
+ 6    Lauren       Fazah       2
+```
 #### Array of Ruby Objects   
 It might be an array of Ruby Objects such as:  
+```
 [#<Teacher:0x007fc543b7ca90 @first_name="Ali", @id=2, @last_name="Schlereth", @mod=1>,  
  #<Teacher:0x007fc544540590 @first_name="Mike", @id=5, @last_name="Dao", @mod=1>,  
  #<Teacher:0x007fc544661758 @first_name="Sal", @id=1, @last_name="Espinosa", @mod=1>,  
  #<Teacher:0x007fc54479b6a0 @first_name="Lauren", @id=6, @last_name="Fazah", @mod=2>]  
+```
 
 ### Independent Practice  
 Write the Ruby that you would use to make these Teacher objects.  
