@@ -72,6 +72,7 @@ Weeks 4&5 will be spent working on your capstone projects.
 *   [Basics of Security](./lessons/web_application_security)
 *   [Professional Code Environments](./lessons/professional_code_environments)
 *   [Introduction to React](https://docs.google.com/presentation/d/1hyNKmT0enmcKb01SUWb5-1Qxn_EXZOAc1HL2rEDuAgg/edit?usp=sharing) - Optional
+*   [Week 4 CFU's](https://github.com/turingschool/checks-for-understanding/blob/master/module-4/backend/week_four.md)
 
 <h4 id="week_5">Week 5</h4>
 *   [Grocery List in React]() - Optional
