@@ -1,4 +1,9 @@
-# Object Relational Mapping (ORM)  
+---
+title: Object Relational Mapping (ORM)
+length: 60
+tags: ruby, ORM, data structures
+---  
+
 
 ## Learning Goals  
 * discuss a variety of options for large scale data storage  
@@ -17,7 +22,9 @@
 * Object Relational Map (ORM)  
 * Ruby Object  
 
-## Warm Up   
+## Warm Up  
+* What do you know about large scale data storage?  
+* How have you stored data in your previous Ruby programs?  
 
 ## Some Data Storage Options  
 #### Hashes  
@@ -62,7 +69,8 @@ It might be an array of Ruby Objects such as:
 ```
 
 ### Independent Practice  
-Write the Ruby code that you would use to make these Teacher objects.  
+Write the Ruby code that you would use to make these Teacher objects.    
+
 **Break**
 
 ### Turn & Talk  
@@ -111,14 +119,16 @@ Or, the same table headers organized differently
 
 In Rails applications, the process for defining new tables and models is slightly different than is called for in simple Ruby applications, but the underlying concept of using objects to organize and interact with data persists.
 
-#### Independent Practice  
+### Independent Practice  
 In your notebook, write a pro/con table for using an ORM.  
 
 ## Advantages
 
 *   Allows you to extract data from disparate sources and interact with using consistent tactics (OOP).
 *   Wraps data from disparate sources in one consistent object model, objects are easy to deal with
-*   Maintenance: if/when your data source changes, you only need to make updates in one location  
+*   Maintenance: if/when your data source changes, you only need to make updates in one location   
 
 ## Wrap Up  
-
+* What is an ORM, where might you use one?     
+* What are some types of large scale data storage? What are some pros/cons of each?  
+* Why would you want your application to use Ruby Objects over another type of data storage?
