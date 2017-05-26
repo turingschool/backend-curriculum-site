@@ -101,10 +101,11 @@ class Item
 end
 ```  
 Relational Database Table:  
-| Items |
---------
+```
+| Items |  
+---------
 | id | name | description | unit_price | created_at | updated_at | merchant_id |
-
+```
 Or, the same table headers organized differently  
 
 | Items |
@@ -122,7 +123,7 @@ In Rails applications, the process for defining new tables and models is slightl
 ### Independent Practice  
 In your notebook, write a pro/con table for using an ORM.  
 
-## Advantages
+#### Advantages
 
 *   Allows you to extract data from disparate sources and interact with using consistent tactics (OOP).
 *   Wraps data from disparate sources in one consistent object model, objects are easy to deal with
