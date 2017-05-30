@@ -13,6 +13,7 @@ tags: cart, order
 
 ## Structure
 
+* Warm Up
 * Code-along
 
 ## Video
@@ -22,6 +23,12 @@ tags: cart, order
 ## Repository
 
 * [BackPacking](https://github.com/turingschool-examples/backpacking/tree/rails-5-ruby-2-4)
+
+## Warm Up
+
+  * How do we make a class in Ruby?
+  * How do we make an instance of a class?
+  * Where does plain old Ruby data (like a class instance) "live"?
 
 ## Intro
 
