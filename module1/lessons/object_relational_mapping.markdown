@@ -8,7 +8,7 @@ tags: ruby, ORM, data structures
 ## Learning Goals  
 * discuss a variety of options for large scale data storage  
 * explain what is an ORM and why is it useful?  
-*   
+* evaluate pros/cons of strategies for navigating your data structure    
 
 ## Structure  
 5 min - Warm Up  
@@ -129,7 +129,35 @@ In your notebook, write a pro/con table for using an ORM.
 *   Wraps data from disparate sources in one consistent object model, objects are easy to deal with
 *   Maintenance: if/when your data source changes, you only need to make updates in one location   
 
+## Navigating Your Data Structure  
+In an ORM we might need to get something like Merchant.all which returns to us an array of merchant objects.  
+* Where would this live? Why?  
+You might also need to find all the items that belong to a merchant.  
+Let's pause and take a moment to draw out how our classes relate to one another:  
+```
+                          SalesEngine 
+       _______________________|____________________________
+       |             |                 |                  |
+  MerchantRepo   ItemRepo       InvoiceItemsRepo     InvoicesRepo
+       |            |                  |                  | 
+   Merchant       Item            InvoiceItem          Invoice
+
+```
+**Turn & Talk**
+If we need to know about all the items for a merchant, what are some options for how to create these relationships?  Brainstorm at least 2 ways to hold on to these connections in our application.   
+
+#### Common Strategies:
+*  Horizontal Knowledge  
+*  Vertical Knowledge  
+
+**Share & Record**
+*  What are some of the pros/cons of each of these strategies?  
+*  How does SRP(Single Responsiblity Principle) impact this list?  
+*  What happens to our code base once we add on each new thing?  How will the diagram be impacted when we add customer            information into the mix?  
+*  What happens if the structure/attributes of an Invoice changes? How will that impact each relationship strategy?  
+
 ## Wrap Up  
 * What is an ORM, where might you use one?     
-* What are some types of large scale data storage? What are some pros/cons of each?  
-* Why would you want your application to use Ruby Objects over another type of data storage?
+* What are some types of large scale data storage? What are some pros/cons of each? When would you want to use each?     
+* Which method of data storage do you think will be the most useful in a Ruby Application? Why?  
+* What are the costs/benefits of traversing vertically verses auto-loading? Which do you think you'd prefer to use in your project?  
