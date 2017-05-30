@@ -12,9 +12,10 @@ tags: ruby, ORM, data structures
 
 ## Structure  
 5 min - Warm Up  
-20 min - Some Data Storage Options  
+10 min - Some Data Storage Options  
+15 min - ORM
 5 min - Break  
-20 min - ORM  
+20 min - Navigating Your Data Structure  
 5 min - Wrap Up
 
 ## Vocabulary  
@@ -71,9 +72,7 @@ It might be an array of Ruby Objects such as:
 ### Independent Practice  
 Write the Ruby code that you would use to make these Teacher objects.    
 
-**Break**
-
-### Turn & Talk  
+#### Turn & Talk  
 Consider the scenario where some data comes from one type of data structure while other infomration comes from another data structure. How would that impact your application? What are some thoughts on how to make it easier for your application to navigate this different information?  
 
 ## ORM 
@@ -129,9 +128,12 @@ In your notebook, write a pro/con table for using an ORM.
 *   Wraps data from disparate sources in one consistent object model, objects are easy to deal with
 *   Maintenance: if/when your data source changes, you only need to make updates in one location   
 
+** break **
+
 ## Navigating Your Data Structure  
 In an ORM we might need to get something like Merchant.all which returns to us an array of merchant objects.  
 * Where would this live? Why?  
+
 You might also need to find all the items that belong to a merchant.  
 Let's pause and take a moment to draw out how our classes relate to one another:  
 ```
@@ -143,7 +145,7 @@ Let's pause and take a moment to draw out how our classes relate to one another:
    Merchant       Item            InvoiceItem          Invoice
 
 ```
-**Turn & Talk**
+#### Turn & Talk  
 If we need to know about all the items for a merchant, what are some options for how to create these relationships?  Brainstorm at least 2 ways to hold on to these connections in our application.   
 
 #### Common Strategies:
