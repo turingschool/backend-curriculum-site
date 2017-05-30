@@ -116,7 +116,7 @@ And modify our `create` action in the controller:
 class BackpacksController < ApplicationController
   def create
     item = Item.find(params[:item_id])
-    flash[:notice] = "You now have 1 #{item.name)}."
+    flash[:notice] = "You now have 1 #{item.name}."
     redirect_to root_path
   end
 end
@@ -185,7 +185,7 @@ class BackpacksController < ApplicationController
     item = Item.find_by(id: id)
     session[:backpack] ||= {}
     session[:backpack][id] = (session[:backpack][id] || 0) + 1
-    flash[:notice] = "You now have #{session[:backpack][id]} #{@item.name)}."
+    flash[:notice] = "You now have #{session[:backpack][id]} #{@item.name}."
     redirect_to root_path
   end
 end
