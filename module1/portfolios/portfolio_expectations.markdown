@@ -13,10 +13,6 @@
 * Group Projects: All paired projects
   * Include scores for all individual projects.
   * A passing final project is required.
-* Professional Development:
-  * [DTR Memo](https://docs.google.com/document/d/1zMtgWhODQuP3KBNhrg6PtmPUkw0DIskqgggeyEzYZi4/edit?usp=sharing) from 1 paired project
-  * Feedback
-    * Self-solicited from pair project partners (paragraph each)
 * Community
   * A recap of reflections from each Gear Up (paragraph)
   * Summary of how you've contributed to the community
