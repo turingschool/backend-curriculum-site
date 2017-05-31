@@ -11,6 +11,7 @@ By the end of this lesson, you will know/be able to:
 
 * Explain the purpose of the asset pipeline
 * Run your app in a production environment locally
+* Be comfortable using `figaro` to set environment variables
 
 <!-- * Find the slides [here](https://www.dropbox.com/s/910ifbqmy22l7ua/intro-asset-pipeline.pdf?dl=0)! -->
 
