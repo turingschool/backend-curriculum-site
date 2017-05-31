@@ -27,6 +27,7 @@ Work with a neighbor to research and answer these questions. Create a new gist t
 
 * What does it mean to **precompile** files? What does this have to do with Coffeescript and Sass files? Does it only have to do with Coffeescript and Sass files?
 * What does it mean to **minify** files? Why would we want to minify files?
+* What does [Sprockets](https://github.com/rails/sprockets) do and how does it fit into the precompile / minify puzzle?
 
 Clone down, set up and start up the server for [Catch 'em All](https://github.com/turingschool-examples/rails_asset_pipeline_scavenger_hunt) (`rails s`) and navigate to [http://localhost:3000/assets/application.js](http://localhost:3000/assets/application.js). Then open up the code for `application.js` in your text editor.
 
@@ -70,9 +71,11 @@ With the `figaro` gem, we can run
 bundle exec figaro install
 ```
 
-which will give us `config/application.yml`. There, let's set that variable to `true`.
+which will give us `config/application.yml`. This file will allow us to set variables environment-wide. This file is also `.gitignore`d, so it's safe to keep sensitive information there, including API keys.
 
-We then want to precompile our assets (yes, by hand). Why do you *not* need to do this on Heroku?
+Let's set an environment variable for `RAILS_SERVE_STATIC_FILES` to `true`.
+
+We then want to manually precompile. Why do you *not* need to do this on Heroku?
 
 ```bash
 rake assets:precompile
@@ -80,11 +83,13 @@ rake assets:precompile
 
 Check out your Rails' `public` folder. Anything different now?
 
-As an aside, it's worth researching `rake assets:clobber`
+> Know that `rake assets:precompile` generates an `assets` directory that does not update when changes are made to your codebase. Know that `rake assets:clobber` will remove that directory of precompiled assets so that you can regenerate.
 
 ## Coding Links to Assets
 
-Check out the section on **Coding Links to Assets** [here](http://guides.rubyonrails.org/asset_pipeline.html). Why do we want to be sure we're properly using the following tags?
+Check out the section on **Coding Links to Assets** [here](http://guides.rubyonrails.org/asset_pipeline.html).
+
+In your gist from earlier, research and answer why we'd want to be sure we're properly using the following tags:
 
 ```
 <%= stylesheet_link_tag "application" %>
