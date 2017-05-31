@@ -13,7 +13,7 @@ tags: ruby, ORM, data structures
 ## Structure  
 5 min - Warm Up  
 10 min - Some Data Storage Options  
-15 min - ORM
+15 min - ORM  
 5 min - Break  
 20 min - Navigating Your Data Structure  
 5 min - Wrap Up
