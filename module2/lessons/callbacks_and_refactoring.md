@@ -13,10 +13,11 @@ subheading: POROs and Callbacks o my!
 
 ## Repository
 
-* `git clone -b starting_point https://github.com/Carmer/kitty_castle.git`
+* `git clone -b starting_point git@github.com:turingschool-examples/kitty_castle.git`
 * We will start on the `starting_point` branch for this lesson
 
 ## Callbacks and POROs.
+
 * This is our problem.
 
 ```ruby
@@ -44,9 +45,9 @@ class ReservationsController < ApplicationController
     params.require(:reservation).permit(:credit_card_number, :kitty_id, :castle_id, :start_date, :end_date )
   end
 end
-  ```
+```
 
-  * This action is doing entirely too much. You're sanitizing the card number, sending an email if successful, updating the current_kitty.
+  * This action is doing entirely too much. You're sanitizing the card number, sending an email if successful, updating the `current_kitty`.
   * This gets messy if we need to add additional behaviors. So we can refactor...
 
 ```ruby
@@ -73,57 +74,47 @@ end
 
 This refactor can be seen on the `refactor_controller` branch
 
-* Meet `before_save` and `after_create`
-  * What are callbacks?
-  * Callbacks in real life? Take 3 minutes to brainstorm with a partner.
+## Rails/Active Record Callbacks:
 
-
-#### Rails/Active Record Callbacks:
-
+What are callbacks?
 
 1. Creating an Object
-  * before_validation`
-  * after_validation
-  * before_save
-  * around_save
-  * before_create **__Note: before_create only gets called before a create.__**
-  * around_create
-  * after_create
-  * after_save
-  * after_commit/after_rollback
+  * `before_validation`
+  * `after_validation`
+  * `before_save`
+  * `around_save`
+  * `before_create` **__Note: before_create only gets called before a create.__**
+  * `around_create`
+  * `after_create`
+  * `after_save`
+  * `after_commit`/`after_rollback`
 1. Updating an Object
-  * before_validation
-  * after_validation
-  * before_save **__Note: before_save gets called when we update and when we create.__**
-  * around_save
-  * before_update
-  * around_update
-  * after_update
-  * after_save
-  * after_commit/after_rollback
+  * `before_validation`
+  * `after_validation`
+  * `before_save` **__Note: before_save gets called when we update and when we create.__**
+  * `around_save`
+  * `before_update`
+  * `around_update`
+  * `after_update`
+  * `after_save`
+  * `after_commit`/`after_rollback`
 1. Destroying an Object
-  * before_destroy
-  * around_destroy
-  * after_destroy
-  * after_commit/after_rollback
+  * `before_destroy`
+  * `around_destroy`
+  * `after_destroy`
+  * `after_commit`/`after_rollback`
 
-* These are some additional callbacks with their order of operations.
+#### Helpful, but not the best...
 
+We just pulled a TON of things out of the controller. This is pretty good, but we can do better.
 
+The danger here is that the `Reservation` class knows *__entirely too much__* about other classes. Think single responsibility!
 
+This is dangerous - say there's a problem with somewhere with the `Kitty` class, the `Reservation` class isn't really the first place a developer would go look to troubleshoot.
 
+If we keep this up, and we get a pretty unwieldy `Reservation` class that touches way too many other things and has too many responsibilities.
 
-
-#### Good but not best...
-
-* We just pulled a TON of things out of the controller.
-* This is pretty good, but we can do better.
-* The danger here is that the Reservation class knows *__entirely too much__* about other classes.
-* This is dangerous because if you make a mistake somewhere, and say there's
-a problem with something of the Kitty class, the Reservation class isn't really the first place a person would go look.
-
-* If we keep this up, and we get a pretty unwieldy Reservation class that touches way too many other things and has too many responsibilities
-* We should use a PORO instead.
+We should use a PORO instead.
 
 ```ruby
 class ReservationsController < ApplicationController
@@ -164,28 +155,19 @@ class ReservationCompletion
     reservation.kitty.update_attributes(status: “active”)
   end
 end
-
 ```
 
 This refactor can be seen on the `refactor_reservation_to_poro` branch.
 
 * Here, we've moved all logic in reservation completion to a single place.
-* You should only use a callback when it deals with the model instance you're currently working with.
-* `after callbacks` are often code smells. That's why we fixed it.
-* Callbacks that can trigger callbacks in other classes are Bad News [cat]Bears.
 
-<!--
-## Class Methods
+You should only use a callback when it deals with the model instance you're currently working with.
 
-* We can use class methods to do some filtering, and pushing logic down the
-stack.
-* We want to put the top three most expensive items in our index view.
-* How can we get the information we need?
-* Logic doesn't belong in the view.
-* It doesn't belong in the controller either.
-* There's one last place it can go. The model.
+`after callbacks` are often code smells, hence why we fixed it.
 
-## Scopes
+Callbacks that can trigger callbacks in other classes are Bad News Bears. Again, think of the _pain_ that could cause to troubleshoot
+
+## Want More? Research Scopes
 
 * Scopes allow you to define and chain query criteria in a declarative and
 reusable manner.
@@ -218,24 +200,22 @@ end
 * Let's convert our code into a scope.
 
 ## Scopes vs Class Methods
-* These look eerily similar.
-* But there are key differences.
+
+* These look eerily similar in usage, but there are key differences.
 * Scopes can always be chained.
 * Class methods can be chained only if they return an object that can be chained.
 * Scopes automatically work on has_many relationships.
 * You can set up a default scope.
 
+### Recap
 
-### Referring back to what we did
+You can see all the work we did on 5 different branches.
 
-You can see all the work we did at github.com/carmer/kitty_castle on 5 different branches. `git clone https://github.com/Carmer/kitty_castle.git`
-
-1. `git checkout starting_point` is our base starting point for this work
-2. `git checkout refactor_controller` is our first iteration of refactoring the logic out of the controller
-3. `git checkout refactor_reservation_to_poro` is our second iteration of refactoring logic our of the controller
-4. `git checkout scopes` has our work of putting scopes into the project
-5. `git checkout class_methods` has our work of putting class_methods into the project
- -->
+1. branch `starting_point` is our base starting point for this work
+2. branch `refactor_controller` is our first iteration of refactoring the logic out of the controller
+3. branch `refactor_reservation_to_poro` is our second iteration of refactoring logic our of the controller
+4. branch `scopes` has our work of putting scopes into the project
+5. branch `class_methods` has our work of putting class_methods into the project
 
 ## Other Resources:
 
