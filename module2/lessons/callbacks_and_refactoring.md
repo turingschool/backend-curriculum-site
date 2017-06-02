@@ -1,6 +1,5 @@
 ---
 title: Callbacks and Refactoring
-subheading: POROs and Callbacks o my!
 ---
 
 ## Goals
@@ -94,8 +93,6 @@ Often, there is information worth storing in your database that isn't worth aski
 This could be the full name of a user, the total price of an order, the URL slug of a blog post, etc.
 
 How can we turn our guest's first and last names into a callback?
-
-With `after_save`, of course!
 
 ### Workshop: Full Name
 
