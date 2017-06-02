@@ -163,12 +163,12 @@ The project will be assessed with the following guidelines:
 * 2:  Application runs but the code has long methods, unnecessary or poorly named variables, and needs significant refactoring
 * 1:  Application generates syntax error or crashes during execution
 
-### 2. Enumerable & Collections
+### 2. Breaking Logic into Components
 
-* 4: Application consistently makes use of the best-choice Enumerable methods
-* 3: Application demonstrates comfortable use of appropriate Enumerable methods
-* 2: Application demonstrates functional knowledge of Enumerable but only uses the most basic techniques
-* 1: Application demonstrates deficiencies with Enumerable and struggles with collections
+* 4: Application is expertly divided into logical components each with a clear, single responsibility
+* 3: Application effectively breaks logical components apart but breaks the principle of SRP
+* 2: Application shows some effort to break logic into components, but the divisions are inconsistent or unclear
+* 1: Application logic shows poor decomposition with too much logic mashed together
 
 ### 3. Test-Driven Development
 
@@ -177,21 +177,14 @@ The project will be assessed with the following guidelines:
 * 2: Application makes some use of tests, but the coverage is insufficient
 * 1: Application does not demonstrate strong use of TDD
 
-### 4. Encapsulation / Breaking Logic into Components
-
-* 4: Application is expertly divided into logical components each with a clear, single responsibility
-* 3: Application effectively breaks logical components apart but breaks the principle of SRP
-* 2: Application shows some effort to break logic into components, but the divisions are inconsistent or unclear
-* 1: Application logic shows poor decomposition with too much logic mashed together
-
-### 5. Functional Expectations
+### 4. Functional Expectations
 
 * 4: Application fulfills all expectations of Iterations 0 - 6 *as well as* one additional, comparable Iteration of your own design.
 * 3: Application fulfills expectations of Iterations 0 - 4 *as well as* one of Iterations 5 or 6
 * 2: Application has some missing functionality but no crashes
 * 1: Application crashes during normal usage
 
-### 6. Code Sanitation
+### 5. Code Sanitation
 
 The output from `rake sanitation:all` shows...
 
