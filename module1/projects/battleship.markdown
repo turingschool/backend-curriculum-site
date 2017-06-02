@@ -252,12 +252,12 @@ The project will be assessed with the following rubric:
 * 2:  Application runs but the code has long methods, unnecessary or poorly named variables, and needs significant refactoring
 * 1:  Application generates syntax error or crashes during execution
 
-### 2. Enumerable & Collections
+### 2. Breaking Logic into Components
 
-* 4: Application consistently makes use of the best-choice Enumerable methods
-* 3: Application demonstrates comfortable use of several Enumerable techniques
-* 2: Application demonstrates functional knowledge of Enumerable but only uses the most basic techniques
-* 1: Application demonstrates deficiencies with Enumerable and struggles with collections
+* 4: Application is expertly divided into logical components such that individual pieces could be reused or replaced without difficulty
+* 3: Application effectively breaks logical components apart with clear intent and usage
+* 2: Application shows some effort to break logic into components, but the divisions are inconsistent or unclear
+* 1: Application logic shows poor decomposition with too much logic mashed together
 
 ### 3. Test-Driven Development
 
@@ -266,14 +266,7 @@ The project will be assessed with the following rubric:
 * 2: Application makes some use of tests, but the coverage is insufficient
 * 1: Application does not demonstrate strong use of TDD
 
-### 4. Encapsulation / Breaking Logic into Components
-
-* 4: Application is expertly divided into logical components such that individual pieces could be reused or replaced without difficulty
-* 3: Application effectively breaks logical components apart with clear intent and usage
-* 2: Application shows some effort to break logic into components, but the divisions are inconsistent or unclear
-* 1: Application logic shows poor decomposition with too much logic mashed together
-
-### 5. Functional Expectations
+### 4. Functional Expectations
 
 * 4: Application meets all requirements, and implements one extension properly.
 * 3: Application meets all requirements as laid out per the specification.
