@@ -7,83 +7,64 @@ subheading: POROs and Callbacks o my!
 
 * Understand how callbacks work
 * Know some common callbacks
-* Start to understand how to implement a PORO
 * Use callbacks to your advantage
-* Use POROS to refactor controllers
 
-## Repository
+## Setup
 
-* `git clone -b starting_point git@github.com:turingschool-examples/kitty_castle.git`
-* We will start on the `starting_point` branch for this lesson
+* `git clone git@github.com:turingschool-examples/hotel_callbackfornia.git`
 
-## Callbacks and POROs.
+## Too Much Logic in Controller
 
-* This is our problem.
+Check out the `create` action in the `ReservationsController`.
+
+What here might be considered outside the scope of logic a controller action should handle?
 
 ```ruby
-class ReservationsController < ApplicationController
-  def create
-    credit_card = reservation_params[:credit_card_number]
-    credit_card = credit_card.gsub(/-|\s/,'')
-    reservation_params[:credit_card_number] = credit_card
+def create
+  @reservation = Reservation.new(reservation_params)
 
-    @reservation = Reservation.new(reservation_params)
-
-    if @reservation.save
-      flash[:notice] = "Reservation was created."
-      ReservationMailer.reservation_confirmation(@reservation.kitty).deliver
-      @reservation.kitty.update_attributes(status: “active”)
-      redirect_to current_kitty
-    else
-      render :new
-    end
-  end
-
-  private
-
-  def reservation_params
-    params.require(:reservation).permit(:credit_card_number, :kitty_id, :castle_id, :start_date, :end_date )
+  if @reservation.save
+    @reservation.room.booked!
+    redirect_to guest_reservations_path(current_guest)
+  else
+    redirect_to hotel_room_path(@reservation.room.hotel, @reservation.room)
   end
 end
 ```
 
-  * This action is doing entirely too much. You're sanitizing the card number, sending an email if successful, updating the `current_kitty`.
-  * This gets messy if we need to add additional behaviors. So we can refactor...
+Should our reservation save, we're then updating the reservation's room's status to `booked` before we redirect our user.
+
+Let's see if we can extract this.
+
+## Callbacks in Models
 
 ```ruby
-class Reservation < ActiveRecord::Base
-  before_validation :sanitize_credit_card
-  after_create :send_reservation_confirmation
-  after_save :set_kitty_to_active
+class Reservation < ApplicationRecord
+  belongs_to :room
+  belongs_to :guest
+
+  after_save :book_room
 
   private
 
-  def sanitize_credit_card
-    credit_card.gsub(/-|\s/,'')
-  end
-
-  def send_reservation_confirmation
-    ReservationMailer.reservation_confirmation(kitty).deliver
-  end
-
-  def set_kitty_to_active
-    kitty.update_attributes(status: “active”)
+  def book_room
+    self.room.booked!
   end
 end
 ```
 
-This refactor can be seen on the `refactor_controller` branch
+## [Rails/ActiveRecord Callbacks](http://api.rubyonrails.org/classes/ActiveRecord/Callbacks.html)
 
-## Rails/Active Record Callbacks:
+What are [callbacks](http://api.rubyonrails.org/classes/ActiveRecord/Callbacks.html)?
 
-What are callbacks?
+Pick of a few below that sound useful to you. Let's take a few minutes to research those.
 
 1. Creating an Object
   * `before_validation`
   * `after_validation`
   * `before_save`
   * `around_save`
-  * `before_create` **__Note: before_create only gets called before a create.__**
+  * `before_create`
   * `around_create`
   * `after_create`
   * `after_save`
@@ -104,77 +85,38 @@ What are callbacks?
   * `after_destroy`
   * `after_commit`/`after_rollback`
 
-#### Helpful, but not the best...
+## Where Else Could We Use a Callback?
 
-We just pulled a TON of things out of the controller. This is pretty good, but we can do better.
+Check out our seedfile and take a look at how we're creating guests. What information are we requiring? Is anything missing here that is reflected in our schema?
 
-The danger here is that the `Reservation` class knows *__entirely too much__* about other classes. Think single responsibility!
+Often, there is information worth storing in your database that isn't worth asking your user to provide.
 
-This is dangerous - say there's a problem with somewhere with the `Kitty` class, the `Reservation` class isn't really the first place a developer would go look to troubleshoot.
+This could be the full name of a user, the total price of an order, the URL slug of a blog post, etc.
 
-If we keep this up, and we get a pretty unwieldy `Reservation` class that touches way too many other things and has too many responsibilities.
+How can we turn our guest's first and last names into a callback?
 
-We should use a PORO instead.
+With `after_save`, of course!
 
-```ruby
-class ReservationsController < ApplicationController
-  def create
-    @reservation = Reservation.new(reservation_params)
+### Workshop: Full Name
 
+See if you can use a callback to create a guest's full name. Test this callback's functionality in your Rails Console.
 
-    if @reservation.save
-      ReservationCompletion.create(@reservation)
-      flash[:notice] = "Reservation was created."
-      redirect_to current_kitty
-    else
-      render :new
-    end
-  end
+## Callbacks Are Often Code Smells
 
-  private
+Callbacks are super powerful, but why should we use them with care?
 
-  def reservation_params
-    params.require(:reservation).permit(:credit_card_number, :kitty_id, :castle_id, :start_date, :end_date )
-  end
-end
-```
+Let's break up into 4 groups to research this.
 
-```ruby
-class ReservationCompletion
-
-  def self.create(reservation)
-     send_reservation_confirmation(reservation)
-     set_kitty_to_active(reservation)
-  end
-
-  def self.send_reservation_confirmation(reservation)
-    ReservationMailer.reservation_confirmation(reservation.kitty, reservation.castle).deliver
-  end
-
-  def self.set_kitty_to_active(reservation)
-    reservation.kitty.update_attributes(status: “active”)
-  end
-end
-```
-
-This refactor can be seen on the `refactor_reservation_to_poro` branch.
-
-* Here, we've moved all logic in reservation completion to a single place.
-
-You should only use a callback when it deals with the model instance you're currently working with.
-
-`after callbacks` are often code smells, hence why we fixed it.
-
-Callbacks that can trigger callbacks in other classes are Bad News Bears. Again, think of the _pain_ that could cause to troubleshoot
+Try to be diligent with your research and come to your own conclusions. This practice will come in handy when navigating opinionated developers in your career.
 
 ## Want More? Research Scopes
 
-* Scopes allow you to define and chain query criteria in a declarative and
+Scopes allow you to define and chain query criteria in a declarative and
 reusable manner.
-* Scopes take lambdas.
-* A lambda is a function without a name.
-* We won't go into lambdas right now, but at the bottom of the page, there are resources where you can learn more about lambdas.
-* Here's some examples.
+
+Scopes take lambdas - a lambda is a function without a name.
+
+Here are some examples.
 
 ```ruby
 class Reservation < ActiveRecord::Base
@@ -185,7 +127,7 @@ class Reservation < ActiveRecord::Base
 end
 ```
 
-* They can take arguments.
+They can also take arguments.
 
 ```ruby
 class Reservation < ActiveRecord::Base
@@ -197,8 +139,6 @@ class Reservation < ActiveRecord::Base
 end
 ```
 
-* Let's convert our code into a scope.
-
 ## Scopes vs Class Methods
 
 * These look eerily similar in usage, but there are key differences.
@@ -206,20 +146,3 @@ end
 * Class methods can be chained only if they return an object that can be chained.
 * Scopes automatically work on has_many relationships.
 * You can set up a default scope.
-
-### Recap
-
-You can see all the work we did on 5 different branches.
-
-1. branch `starting_point` is our base starting point for this work
-2. branch `refactor_controller` is our first iteration of refactoring the logic out of the controller
-3. branch `refactor_reservation_to_poro` is our second iteration of refactoring logic our of the controller
-4. branch `scopes` has our work of putting scopes into the project
-5. branch `class_methods` has our work of putting class_methods into the project
-
-## Other Resources:
-
-* https://rubymonk.com/learning/books/1-ruby-primer/chapters/34-lambdas-and-blocks-in-ruby/lessons/77-lambdas-in-ruby
-* https://rubymonk.com/learning/books/4-ruby-primer-ascent/chapters/18-blocks/lessons/64-blocks-procs-lambdas
-* http://www.reactive.io/tips/2008/12/21/understanding-ruby-blocks-procs-and-lambdas/
-* [Where to Put POROs](http://vrybas.github.io/blog/2014/08/15/a-way-to-organize-poros-in-rails/)
