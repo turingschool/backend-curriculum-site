@@ -9,8 +9,8 @@ HTML and CSS deserve to be as DRY as your Ruby is. This is difficult to achieve 
 
 ### HTML - Templating Libraries
 
-Ideally - especially for large sites - HTML is used with a **templating library** (erb, handlebars, jade).
-This allows you to access to variables, ability to loop over elements, and eliminate most needs for hard-coding/repeated code.
+Ideally - especially for large sites - HTML is used with a **templating library** (erb, haml, shandlebars, jade).
+This allows you to access to variables, the ability to loop over elements, and eliminate most need for hard-coded/repeated code.
 
 ### CSS - Preprocessors / Frameworks
 
@@ -18,6 +18,17 @@ Sass, Less, etc are all at your disposal to up your CSS game. If given the choic
 
 The implementation of Sass we're most familiar with, thanks to Rails, is SCSS.
 SCSS allows us to use raw CSS syntax while also mixing in variables, functions, and modularity where we please. Take advantage of this!
+
+## SCSS Setup in Rails
+
+[`sass-rails`](https://github.com/rails/sass-rails) ships with Rails 5 projects. If you need to add it manually:
+
+```ruby
+# Gemfile
+gem 'sass-rails'
+```
+
+This should provide for you an `application.scss` within `app/assets/stylesheets`
 
 ## HTML Organization
 
@@ -94,7 +105,7 @@ Right off the bat, create a `base.scss` partial that can hold all base styles fo
 
 I'd highly recommend saving theme colors to variables and importing fonts and saving them to variables within this partial to start.
 
-```css
+```scss
 /* assets/stylesheets/base.scss */
 
 @import url('https://fonts.googleapis.com/css?family=Lora|Muli');
@@ -102,7 +113,7 @@ I'd highly recommend saving theme colors to variables and importing fonts and sa
 $font-serif: 'Lora', serif;
 $font-sans: 'Muli', sans-serif;
 
-$light:#fff;
+$light: #fff;
 $dark: #000;
 $accent: #64609a;
 ```
@@ -111,13 +122,13 @@ $accent: #64609a;
 
 If all of our sections of the site we're building are sharing consistency among element names, consistency is assumed among styling for these elements.
 
-Perhaps each `h2` has the same font-family, font-size, and color as each other.
+Perhaps each `h2` have the same `font-family`, `font-size`, and `color`.
 
-Perhaps each `section` has 30px of top and bottom padding.
+Perhaps each `section` has 30px of top and bottom `padding`.
 
-Perhaps every-other `section` has an accent background-color.
+Perhaps every-other `section` has an accent `background-color`.
 
-We can gather all of this into a SCSS partial.
+We can gather all of this into an SCSS partial.
 
 ```css
 /* assets/stylesheets/skeleton.scss */
@@ -139,7 +150,7 @@ section {
 Take another look at the HTML markup above. A very simple transalation of that markup into organized SCSS would be to make a separate stylesheet for each section.
 This would allow me to, at any moment, easily find and update the styles associated with a specific section.
 
-```css
+```scss
 /* assets/stylesheets/sections/_header.scss */
 
 header {
@@ -148,7 +159,7 @@ header {
 }
 ```
 
-```css
+```scss
 /* assets/stylesheets/sections/_about.scss */
 
 .about {
@@ -159,7 +170,7 @@ header {
 }
 ```
 
-```css
+```scss
 /* assets/stylesheets/sections/_customers.scss */
 
 .customers {
@@ -191,7 +202,7 @@ Consider the following possibly global components you'd have sprinkled across yo
 
 Creating a separate SCSS partial for each of these makes our code immensely more modular. So modular, in fact, that you could reuse these partials among other sites you build with a simple drag/drop and aligning of element/class names.
 
-```css
+```scss
 /* assets/stylesheets/components/_buttons.scss */
 
 .button {
@@ -204,7 +215,7 @@ Creating a separate SCSS partial for each of these makes our code immensely more
 }
 ```
 
-#### See What Feels Right for your Site
+#### See What Feels Right for Your Site
 
 This cascade of partials may not be immediately implementable for your site. You may even think of another way of organizing your styles. However, with the above, you'll have:
 
@@ -220,11 +231,13 @@ A general rule of thumb is **import in order of least specific to most specific*
 
 With our above examples, our `application.scss` would look something like:
 
-```css
+```scss
 /* assets/stylesheets/application.scss */
 
 @import 'base';
 @import 'skeleton';
+@import 'colors';
+@import 'typography';
 
 @import 'components/buttons';
 
@@ -239,5 +252,5 @@ With our above examples, our `application.scss` would look something like:
 ### Other Suggestions
 
 * Create separate stylesheets for **typography** (all things related to fonts on your page), **colors**, etc.
-* Save common settings like borders, margin sizes, line-heights to variables in base.scss
+* Save common settings like `border`, `margin`, and `line-height` to variables in base.scss
 * Read the [Sass docs](http://sass-lang.com/guide) :D
