@@ -39,7 +39,7 @@ The project will be assessed with the following guidelines:
 
 ### 6. Debugging
 <!-- (only relevant for pairing) -->
-* 4: Student uses pry, `puts`, and error messages to ruthlessly get feedback from the system, and can use this feedback to fix errors.
+* 4: Student uses pry, `puts`, and error messages to get feedback from the system, and can use this feedback to fix errors.
 * 3: Student uses debugging tools like pry, or `puts`, but may need some help to identify issues.
 * 2: Student uses debugging tools only when prompted on multiple occassions.
 * 1: Student does not demonstrate that they are able to use debugging tools even when prompted.
@@ -51,4 +51,13 @@ The output from `rake sanitation:all` shows...
 * 4: Zero complaints
 * 3: Five or fewer complaints
 * 2: Six to ten complaints
-* 1: More than ten complaints
+* 1: More than ten complaints  
+
+### 8. Version Control  
+<!--  (doesn't apply to all projects, but a good spot for project-specific rubric requirements) -->  
+* 4: Student demonstrates strong git workflow, utilizing pull requests for communication and feedback  
+* 3: Student utilizess git workflow essentials on an ongoing basis to track project progress both locally and remotely
+* 2: Student adds and commits infrequently and pushes project to GitHub  
+* 1: Student makes an initial commit and pushes project to GitHub  
+
+
