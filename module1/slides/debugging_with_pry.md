@@ -1,10 +1,10 @@
-# Debugging & Each
+# Debugging with Pry
 
 ---
 
 # Warmup
 
-* In your pre-work, did you ever have to redo a script that wasn't working?
+* In your homework, did you ever have to redo a script that wasn't working?
 * How did you know what to change?
 
 ---
@@ -31,7 +31,7 @@ gem install pry
 # ~/turing/1module/classroom_exercises/exploring_each.rb
 require 'pry'
 
-favorite_things = ["Trapper Keeper", "Netscape Navigator", "Troll Doll"]
+favorite_things = ["whiskers", "packages", "strings"]
 binding.pry
 ```
 
@@ -70,7 +70,7 @@ Draft pseudocode that explains how to display each of your favorite things align
 # Check the docs!
 require 'pry'
 
-favorite_things = ["Trapper Keeper", "Netscape Navigator", "Troll Doll"]
+favorite_things = ["whiskers", "packages", "strings"]
 
 favorite_things.each do |thing|
   binding.pry
@@ -85,7 +85,7 @@ end
 # ~/turing/1module/classroom_exercises/exploring_each.rb
 require 'pry'
 
-favorite_things = ["Trapper Keeper", "Netscape Navigator", "Troll Doll"]
+favorite_things = ["whiskers", "packages", "strings"]
 
 favorite_things.each do |thing|
   formatted_thing = thing.rjust(40)
@@ -120,7 +120,6 @@ favorite_things.each { puts thing.rjust(40) }
 * `#each` is a method that you can call on an instance of an array
 * What does `#each` **return**?
 * Try it
-
 
 ---
 
