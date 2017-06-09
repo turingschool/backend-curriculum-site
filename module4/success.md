@@ -32,7 +32,7 @@ The Career Development segment is made up of several pieces, most of which are t
 *   Summaries of at least 6 "cold outreach" contacts. You are asked to submit the summaries by **Monday of week 5** and follow these [guidelines](https://github.com/turingschool/career-development-curriculum/blob/master/module_four/cold_outreach_deliverable_guidelines.md)
 *   Add two projects to your Turing portfolio and add a link to your Turing portfolio.
 *   Document practice interview participation using these [guidelines](https://github.com/turingschool/career-development-curriculum/blob/master/module_four/interview_practice_reflection_guidelines.md).
-*   Completed action plan for the post-grad job search [here](https://github.com/turingschool/career-development-curriculum/blob/master/module_four/post_grad_plan.md).
+*   Complete action plan for the post-grad job search [here](https://github.com/turingschool/career-development-curriculum/blob/master/module_four/post_grad_plan.md).
 
 ### Feedback & Community
 
