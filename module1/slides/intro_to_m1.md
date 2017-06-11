@@ -6,7 +6,7 @@
 
 * What were you doing before Turing?
 * How did you hear about Turing?
-* What made you decide to bite the bullet and come to Turing?
+* What made you decide to come to Turing?
 
 ---
 
@@ -40,34 +40,32 @@ Gradual release of responsibility
 
 # M1 Concepts (M1 Success)
 
-* Career Development
-* Ruby Proficiency
-* Testing
+* Ruby Syntax & Style
+* Breaking Logic Into Components
 * Debugging
-* Collaboration
+* Test Driven Development
 * Version Control
-* Application Complexity
 * Desktop Environment
-* ORM
+* Collaboration
+* Career Development
 
 ---
 
 # Portfolios
 
-* End of Module Assessment
-* Individual Work & Projects
-* Group Work & Projects
-* Professional Skills
-* Community Participation
+* Areas of Emphasis
+* Projects
+* Community
+* Self-Assessment
 
 ---
 
-# End of Module Assessment
+# End of Module Pentathlon
 
-* Written Diagnostic
-* Pairing Assessment
-* Timed Independent Assessment
-* Final (Pair) Project
+* Paired Assessment
+* Independent Assessment
+* Written Assessment
+* Final Project
 * Portfolio
 
 ---
@@ -76,9 +74,9 @@ Gradual release of responsibility
 
 * Credit Check
 * Jungle Beats/Date Night
-* Complete Me/Night Writer (Paired)
-* HTTP Yeah You Know Me
-* Black Thursday
+* Complete Me/Enigma (paired)
+* Battleship
+* Black Thursday (paired)
 
 ---
 
@@ -110,7 +108,7 @@ Gradual release of responsibility
 
 ---
 
-# Community
+# Community (New Pair)
 
 * What will make you feel welcome?
 * What will make you feel valued?
@@ -122,9 +120,4 @@ Gradual release of responsibility
 
 ---
 
-# Prework Review
-
-* What did you find most surprising in the prework?
-* What did you find most challenging in the prework?
-* What did you find most rewarding in the prework?
-
+# Pair and Share Pre-Work Games
