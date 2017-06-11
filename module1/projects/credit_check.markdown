@@ -55,7 +55,7 @@ Since the summed results modulo 10 is zero, the account number is valid accordin
 
 ## Assignment
 
-Fork [this](https://github.com/turingschool-examples/credit_check) repository, and write a program that implements the Luhn algorithm to validate a credit card number.
+Fork [this](https://github.com/turingschool-examples/credit_check) repository, clone your new repository, and write a program that implements the Luhn algorithm to validate a credit card number.
 
 Start with this template and save it as `credit_check.rb` in your `lib` directory:
 
@@ -78,9 +78,19 @@ If helpful, you can use the following sample data:
 * *Valid*: 5541808923795240, 4024007136512380, 6011797668867828
 * *Invalid*: 5541801923795240, 4024007106512380, 6011797668868728
 
-## Extensions
+### Extensions
 
 * Can you make it work for American Express numbers? 342804633855673 is valid but 342801633855673 is invalid.
+
+### Submission
+
+Use `git` to commit your solution and push to your repository.
+
+Once you have committed and pushed, create a pull request to the Turing School Examples repository. Instructors will comment on your pull request to give you feedback on your code.
+
+More information on committing changes in `git` can be found [here](http://dont-be-afraid-to-commit.readthedocs.io/en/latest/git/commandlinegit.html), and [here](http://gitref.org/basic/). Note: for this exercise, you will not need to check out a branch. The commands you will need are `git add`, `git commit -m "Put your commit message here"`, and `git push origin master`. These guides cover many more commands. This will be a good opportunity for you to read online documentation to pull out only the information you need.
+
+More information on submitting a pull request in GitHub is available [here](https://help.github.com/articles/creating-a-pull-request-from-a-fork/). One note: if you view your repository up to a few minutes after you have pushed your changes, there will be a button to create a new pull request on the front page that will automatically select the upstream repository for you. [This video] shows this at around the 5:35 mark.
 
 ## Evaluation Rubric
 
