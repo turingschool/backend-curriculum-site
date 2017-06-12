@@ -23,20 +23,16 @@ Assessment requirements will be provided on the first week of the module.
 
 *Expected*: Students, as a pair, document the results of their Quantified Self project.
 
-*Expected*: Students, as a project team, are responsible for passing rubric scores by the end of SWAP Sprint 2 (Week 5).
+*Expected*: Students, as a project team, are responsible for passing rubric scores by the end of Personal Project Sprint 2 (Week 5).
 
 ### Career Development
 
 The Career Development segment is made up of several pieces, most of which are to be submitted by **9AM on Monday of Week 6** unless otherwise noted though it is suggested that you send them earlier if possible. All deliverables except for your Census account check should be submitted in the [Career Development deliverables submissions folder](https://github.com/turingschool/career-development-curriculum/tree/master/deliverable_submissions).
 
-*   Summaries of at least 6 "cold outreach" contacts. You are asked to complete two by the end of week 2, two by the end of week 3, and two by the end of week 4 with a summary of all contacts submitted on **Monday of week 5** and following these [guidelines](https://github.com/turingschool/career-development-curriculum/blob/master/module_four/cold_outreach_deliverable_guidelines.md)
-*   Provide a link to your completed Turing portfolio, complete with your name, photo, description, 3 projects, and resume
-*   Documentation of practice interview participation using these [guidelines](https://github.com/turingschool/career-development-curriculum/blob/master/module_four/interview_practice_reflection_guidelines.md).
-*   Ensure that your GitHub, LinkedIn, and StackOverflow accounts are properly setup by linking to them in your Census account. We will run an automated check on these and send you a follow up if needed. No submission is necessary beyond putting the info in your Census account
-
-Not required for your portfolio or graduation, but is required for continued job support:
-
-*   Completed action plan for the post-grad job search -- *template is forthcoming*. Check with Allison if you have questions.
+*   Summaries of at least 6 "cold outreach" contacts. You are asked to submit the summaries by **Monday of week 5** and follow these [guidelines](https://github.com/turingschool/career-development-curriculum/blob/master/module_four/cold_outreach_deliverable_guidelines.md)
+*   Add two projects to your Turing portfolio and add a link to your Turing portfolio.
+*   Document practice interview participation using these [guidelines](https://github.com/turingschool/career-development-curriculum/blob/master/module_four/interview_practice_reflection_guidelines.md).
+*   Complete action plan for the post-grad job search [here](https://github.com/turingschool/career-development-curriculum/blob/master/module_four/post_grad_plan.md).
 
 ### Feedback & Community
 
