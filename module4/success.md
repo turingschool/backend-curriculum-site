@@ -23,7 +23,7 @@ Assessment requirements will be provided on the first week of the module.
 
 *Expected*: Students, as a pair, document the results of their Quantified Self project.
 
-*Expected*: Students, as a project team, are responsible for passing rubric scores by the end of Personal Project Sprint 2 (Week 5).
+*Expected*: Students, as a project team, are responsible for passing rubric scores by the end of their Capstone Project Sprint 2 (Week 5).
 
 ### Career Development
 
