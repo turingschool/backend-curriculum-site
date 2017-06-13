@@ -163,10 +163,3 @@ The project will be assessed with the following rubric:
 *   3: Application meets all requirements as laid out per the specification.
 *   2: Application runs, but does not work properly, or does not meet specifications.
 *   1: Application does not run, crashes on start.
-
-### 6. REPL Interface and Game Functionality
-
-*   4: Application's REPL goes above and beyond expectations and application includes one or more extensions
-*   3: Application's REPL is clear and pleasant to use and application fulfills base expectations from the project spec
-*   2: Application's REPL has inconsistencies and/or there are errors in base gameplay
-*   1: Application's REPL has several issues or application fails to run

@@ -413,9 +413,17 @@ The project will be assessed with the following rubric:
 * 4: Application implements all five iterations and at least one extension
 * 3: Application implements iterations 0 - 4
 * 2: Application implements iterations 0 - 3
-* 1: Application implements through interation 2 or less
+* 1: Application implements through interation 2 or less  
 
-**Echo/Foxtrot Note:** Requirements listed are for *Foxtrot* pairs -- Echo requirements are shifted by 1 additional iteration -- So a 3 for Echo requires completing Iterations 0-5
+**Echo/Foxtrot Note:** Requirements listed are for *Foxtrot* pairs -- Echo requirements are shifted by 1 additional iteration -- So a 3 for Echo requires completing Iterations 0-5  
+
+### 5. Version Control  
+ 
+* 4: Student demonstrates strong git workflow, commits frequently to document progress, uses commits to identify added functionality, and utilizes pull requests for communication and feedback  
+* 3: Student utilizes git workflow essentials, committing frequently to document progress
+* 2: Student adds and commits infrequently and pushes project to GitHub  
+* 1: Student makes an initial commit and pushes project to GitHub  
+
 
 ## Addendum Content
 
