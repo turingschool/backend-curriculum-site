@@ -31,6 +31,7 @@ Weeks 4&5 will be spent working on your capstone projects.
 
 <h4 id="week_1">Week 1</h4>
 *   State of Turing
+*   [Introduction to Professional Workflow](./lessons/intro_to_professional_workflow)
 *   Mod 4 Kickoff and Norming
 *   [Intermission Retro](./lessons/intermission-retro)
 *   [Advanced JS Fundamentals](./lessons/advanced-js-fundamentals)
@@ -65,7 +66,6 @@ Weeks 4&5 will be spent working on your capstone projects.
 
 <h4 id="week_4">Week 4</h4>
 *   Final Assessment Part 1
-*   [Introduction to Professional Workflow](./lessons/intro_to_professional_workflow)
 *   [Accessibility Best Practices](./lessons/accessibility_best_practices)
 *   [Documenting for Collaboration](./lessons/archive/how_to_write_a_great_readme)
 *   [Agile and Other Buzzwords](./lessons/agile_and_other_buzzwords)

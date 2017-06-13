@@ -5,20 +5,32 @@ length: 30
 tags: workflow, professional skills
 ---
 
+### Learning Goals
+
+*   Learners are familiar with the visual layout of Pivotal Tracker.
+*   Learners can explain the five types of tracker cards: feature, epic, bug, chore, and release.
+*   Learners understand how to assign points and estimate a feature.
+*   Learners are familiar with a recommended progression of features.
+*   Understand roles and responsibilities.
+
+Structure
+-----------
+
+|-|-|
+| 5| Overview and Warmup |
+|20| Exploring Tracker |
+| 5| Pomodoro |
+|25| Exploring Continued |
+| 5| Pomodoro |
+|20| Applied Practice |
+| 5| Review |
+
 Why
 -------
 
 Professional software teams use tools to organize their development. While simple tools Trello or Waffle can work in small teams with simple structures, larger teams use larger tools. These larger tools are particularly appropriate when we have multiple parties involved including developers, project managers, product owners, Q/A, etc.
 
 While tools like Pivotal Tracker and Jira can be used in different ways in different organizations, let's explore a mainstream way to use Pivotal Tracker.
-
-### Learning Goals
-
-*   Learners are familiar with the visual layout of Pivotal Tracker.
-*   Learners can explain the four types of tracker cards: feature, bug, chore, and release.
-*   Learners understand how to assign points and estimate a feature.
-*   Learners are familiar with a recommended progression of features.
-*   Understand roles and responsibilities.
 
 Exploring Tracker
 ------------
@@ -67,7 +79,7 @@ Here are a few things to observe:
 *   *Current Iteration / Backlog* - this is where we keep the prioritized cards we're working on now or in the near future.
 *   *Icebox* - this is where we keep cards for the future and ideas we don't want to forget about. They are not ready to work on. Once it has a good estimate, it can move into current iteration/backlog .
 *   *Velocity* - Right next to the backlog title is a velocity that estimates how many points our team is delivering per week.
-*   *Members* - Up the the top tab bar, note that Members is where we control who has access to this project.
+*   *Members* - The last link on the top left nav bar, note that Members is where we control who has access to this project.
 
 ### Roles & Responsibilities
 
@@ -150,6 +162,14 @@ And I click Save
 Then my teammates see the card in their project views
 ```
 
+### Epic
+
+Epics are made to help organize large themes of functionality. In other words, a bunch of small, related stories make up an epic. 
+
+For example, we might group all stories related to user authentication under an epic card titled "User Authentication". Labels tied to epics are colored purple, whereas regular labels are green. Epics allow teammates to assess and understand the state of a project based on broader themes and categories.
+
+*Practice*: Create a User Authentication epic and designate a `LINKED LABEL` for it (e.g., "authentication"). Add two feature cards related to logging in and out and add the "authentication" label to them. Explore the epic once these features are written.
+
 ### Bug
 
 A bug card is used to track bugs that are found in features already deployed.
@@ -158,13 +178,11 @@ A bug card is used to track bugs that are found in features already deployed.
 *   Bugs do not carry estimates.
 *   Bugs do not affect velocity.
 
-If a bug is going to take more than two hours to solve it may deserve to be upgraded to a feature.
-
 *Practice*: Create a bug card with the title "Debug why new account emails are sent properly in staging but not production"
 
 ### Chore
 
-Chores are tasks that needs to be completed but do not directly deliver business value. For instance, a team/project might need to "Setup PostgreSQL accounts on the production server". That's a chore. They are not estimated and don't contribute to velocity.
+Chores are tasks that need to be completed but do not directly deliver business value. For instance, a team/project might need to "Setup PostgreSQL accounts on the production server". That's a chore. They are not estimated and don't contribute to velocity.
 
 *Practice*: Create a chore card with the title "Setup email provider account keys for production server instance"
 
@@ -247,7 +265,6 @@ Start on your own and draft one story for *each* of the following:
 *   User knows how many items are on the to-do list.
 *   Search my to-do's.
 *   Clicking trash on a to-do pops up a confirm/cancel dialog
-*   What else does the team need to know to make a successful MVP?
 
 Then we'll turn to a pair and compare our results.
 
@@ -262,7 +279,7 @@ Each feature story should have an estimate. As a quick refresher, here's how we 
 *   2 Points - A concept that we understand, but it's too big to start work on (needs to be subdivided)
 *   1 Point - A story that is understood and ready for work
 
-A good 1-point story represents less than a half day of work.
+A good 1-point story represents less than a half day of work. Additionally, think of the points as relative. A 2-point story is 2 times as challenging as a 1-point story, and a 3-point story is 3 times as challenging.
 
 #### Decomposing Stories
 
@@ -277,7 +294,7 @@ Then I see only my own todos
 
 This is way too big to start work on! It'll be in-progress for days.
 
-With your pair, work on drafting at least four 1-point stories that add up to this 2-point story.
+With your pair, work on drafting at least four 1-point stories that deliver the same functionality as this 2-point story.
 
 #### Big-Picture Thinking
 
@@ -286,3 +303,18 @@ Imagine that you get into a meeting with the PO and they tell you *"Oh, by the w
 On your own take five minutes to draft at least three 2-point stories about building the todo list's API.
 
 Trade a two-point story with your pair and spend five minutes drafting at least three 1-point stories from theirs.
+
+Review
+-------
+
+Explain/describe the following:
+
+* feature
+* epic
+* bug
+* chore
+* release
+* assigning points
+* progression/timeline of a feature
+* business roles
+
