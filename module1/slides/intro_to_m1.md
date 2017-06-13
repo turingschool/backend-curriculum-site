@@ -51,12 +51,21 @@ Gradual release of responsibility
 
 ---
 
-# Portfolios
+# Projects
 
-* Areas of Emphasis
-* Projects
-* Community
-* Self-Assessment
+* Credit Check
+* Jungle Beats/Date Night
+* Complete Me/Enigma (paired)
+* Battleship
+* Black Thursday (paired)
+
+---
+
+# Lightning Talks
+
+* Five minutes
+* Topic of your choice
+* Sign up for a day to present
 
 ---
 
@@ -70,13 +79,12 @@ Gradual release of responsibility
 
 ---
 
-# Projects
+# Portfolios
 
-* Credit Check
-* Jungle Beats/Date Night
-* Complete Me/Enigma (paired)
-* Battleship
-* Black Thursday (paired)
+* Areas of Emphasis
+* Projects
+* Community
+* Self-Assessment
 
 ---
 
