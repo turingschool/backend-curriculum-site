@@ -50,14 +50,13 @@ In Module 1, students will learn to use Ruby and object-oriented programming to 
 ## Important Links
 
 *   [__Calendar__](http://bit.ly/2k6ksyH)
-*   [__Portfolio Requirements__](https://github.com/turingschool/portfolios)
-*   [__M1 Graduation Requirements__](http://backend.turing.io/module1/portfolios/backend_m1_graduation_expectations)
+*   [__Portfolio Requirements__](portfolios)
+*   [__Pentathlon Description__](pentathlon)
 *   [__Professional Development Curriculum__](/professional_development)
-*   [__Module 1 Success__](success)
 
-## Defining Success
+## Success in Mod 1
 
-Students who successfully complete Module 1 will have demonstrated proficiency in Ruby, Object Relational Mapping, Testing, Application Complexity, Debugging, Collaboration, Version Control, and command of their desktop envoronment. [These skills are broken down in detail here](success).
+Students who successfully complete Module 1 will have demonstrated proficiency in Ruby Syntax & Style, Breaking Logic Into Components, Debugging, Test Driven Development, Version Control, their Desktop Environment, and Collaboration, as well as completed all Career Development requirements. [These skills are broken down in detail here](success).
 
 ## Practice Exercises
 
