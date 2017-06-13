@@ -13,21 +13,9 @@ layout: page
 * [Introducing Arrays](lessons/arrays_101) ([Video](https://www.youtube.com/watch?v=nlwU1YtQ9SU))
 * [Intro to Classes](lessons/intro_to_classes)
 * [Debugging with Pry](lessons/debugging_with_pry)
-* [Beginner Enumerables](lessons/beginner_enumerables)  
+* [Beginner Enumerables](lessons/beginner_enumerables)
 * [Classes & Instance Methods](lessons/classes_and_instance_methods)
 * [Methods, Arguments, & Scopes](lessons/methods_arguments_and_scopes.markdown)
-
-
-
-
-
-
-
-
-* [Pseudocode](lessons/pseudocoding101)
-* [Exploring `.each` and Exercises](lessons/primer_on_each)
-* [Core Types Exercises](https://github.com/turingschool/ruby-exercises/tree/master/core-types)
-* [Classes and Instance Methods](lessons/classes_instances_methods)
 
 ## Homework
 
@@ -49,10 +37,6 @@ layout: page
 * [Eloquent Ruby Ch 3 & 4 Reading](https://github.com/turingschool/challenges/blob/master/eloquent_ruby_arrays_and_strings.markdown)
 * [String and Integer Riddles](https://github.com/turingschool/challenges/blob/master/string-and-integer-riddles.markdown)
 * [Strings the Hard Way](https://github.com/turingschool/challenges/blob/master/strings_the_hard_way.markdown)
-
-## Slides
-
-
 
 <!-- ## OLD:
 * [Core Types (Foxtrot)](https://github.com/turingschool/ruby-exercises/tree/master/core-types)
