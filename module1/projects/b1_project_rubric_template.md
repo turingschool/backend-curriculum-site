@@ -55,9 +55,7 @@ The output from `rake sanitation:all` shows...
 
 ### 8. Version Control  
 <!--  (doesn't apply to all projects, but a good spot for project-specific rubric requirements) -->  
-* 4: Student demonstrates strong git workflow, utilizing pull requests for communication and feedback  
-* 3: Student utilizess git workflow essentials on an ongoing basis to track project progress both locally and remotely
+* 4: Student demonstrates strong git workflow, commits frequently to document progress, uses commits to identify added functionality, and utilizes pull requests for communication and feedback  
+* 3: Student utilizes git workflow essentials, committing frequently to document progress
 * 2: Student adds and commits infrequently and pushes project to GitHub  
 * 1: Student makes an initial commit and pushes project to GitHub  
-
-
