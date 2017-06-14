@@ -68,6 +68,17 @@ end
 
 In the above method, we define a **parameter** temperature and **return** a float rounded to two decimal places. How do we know what is being returned in the method above? Ruby always returns the last line run in a method.
 
+We could add lines above the last line if we wanted, and, as long as they didn't change the `temperature` variable, the method would still return the same value:
+
+```ruby
+def convert_to_celsius(temperature)
+  1+1
+  ["piglet", "kitten", "baby gorilla"]
+  99
+  ((temperature - 32) * 5.0 / 9.0).round(2)
+end
+```
+
 If we save this method in a file, we can then call it multiple times with different **arguments**.
 
 ```ruby
