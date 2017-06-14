@@ -28,6 +28,8 @@ layout: page
 ## Projects
 
 * [Credit Check](projects/credit_check.markdown) ([slides](slides/credit_check))
+* [Jungle Beat](projects/jungle_beat)
+* [Date Night](projects/date_night) ([slides](slides/date_night))
 
 ## Exercises and Other Relevant Links
 
