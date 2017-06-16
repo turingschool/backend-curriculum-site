@@ -8,6 +8,7 @@ layout: page
 * [Testing Strategies Continued](slides/testing_strategies_3)
 * [Working with Ruby Modules](lessons/introduction_to_modules)
 * [Refactoring Patterns](lessons/refactoring_patterns)
+* [Git with Branches](slides/git_branching)
 
 ## Projects and Exercises
 

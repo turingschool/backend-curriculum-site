@@ -30,7 +30,6 @@ title: Module 2 Scope and Sequence
 * [Rails Exploration](https://github.com/turingschool/ruby-submissions/blob/master/1701-b/2module/exploration/sinatra_v_rails.markdown)
 * [REST, Controllers, and Routing in Rails](rest_routing_and_controllers_in_rails)
 * [Migrations and Relationships in Rails](models_migrations_databases)
-)
 * [Blogger Tutorial](http://backend.turing.io/module2/projects/blogger)
 
 -------
@@ -76,9 +75,9 @@ title: Module 2 Scope and Sequence
 
 ## Week 6
 
-* Intermediate SQL
-* Portfolio Worktime
+* [HTML/CSS Best Practices](html_css_best_practices)
 * Little Shop of Orders Work Time
+* Portfolio Worktime
 * Module 2 Assessments
 * Little Shop of Orders Evaluations
 * Portfolio Reviews

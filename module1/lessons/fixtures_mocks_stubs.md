@@ -10,6 +10,8 @@ title: Fixtures, Mocks and Stubs
 *   Understand what a fixture is and how to create one
 *   What’s the difference between behavior and state testing
 
+Slides [here](../slides/fixtures_mocks_stubs)
+
 ## Test Helper: A Preface
 
 Tired of writing all those `require` statements at the top of each file? Let's start thinking of our test files in a more DRY fashion.
@@ -46,10 +48,8 @@ class Bob
   def final_episode
     episode = {}
 
-    episodes = CSV.foreach(@filename, headers: true) do |row|
-
+    CSV.foreach(@filename, headers: true) do |row|
       episode["EPISODE"] = row["EPISODE"]
-
     end
 
     episode["EPISODE"]
@@ -63,13 +63,13 @@ require './lib/bob'
 
 class BobTest < Minitest::Test
   def test_it_exists
-    assert_instance_of Bob, Bob.new
+    assert_instance_of Bob, Bob.new('./data/bob_elements.csv')
   end
 
   def test_pointless_iteration
     bob = Bob.new('./data/bob_elements.csv')
 
-    assert_equal "S01E02", bob.final_episode
+    assert_equal "S31E13", bob.final_episode
   end
 end
 ```
@@ -88,7 +88,7 @@ To get access to methods that create mocks and stubs, we'll need to install and 
 gem install mocha
 ```
 
-Once that's set, require `mocha` in your test_helper.rb.
+Once that's set, require `mocha/mini_test` in your test_helper.rb.
 
 ### Mocks
 

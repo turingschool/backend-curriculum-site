@@ -7,11 +7,13 @@ tags: cart, order
 ## Goals
 
 * represent a cart using a PORO in Rails
+  * Start thinking about opportunities for using POROs to extract logic from the controller.
 * use a `flash` to send messages to the view
 * load an object to be used throughout the app using a `before_action` in the ApplicationController
 
 ## Structure
 
+* Warm Up
 * Code-along
 
 ## Video
@@ -20,7 +22,13 @@ tags: cart, order
 
 ## Repository
 
-* [BackPacking](https://github.com/s-espinosa/backpacking)
+* [BackPacking](https://github.com/turingschool-examples/backpacking/tree/rails-5-ruby-2-4)
+
+## Warm Up
+
+  * How do we make a class in Ruby?
+  * How do we make an instance of a class?
+  * Where does plain old Ruby data (like a class instance) "live"?
 
 ## Intro
 
@@ -30,8 +38,10 @@ This will mimick the cart-order lifecycle. Items represent items that you would 
 
 ## Code-Along
 
-* `git clone https://github.com/s-espinosa/backpacking`
-* `rake db:create db:migrate db:seed`
+* `git clone -b rails-5-ruby-2-4 https://github.com/turingschool-examples/backpacking`
+* `cd backpacking/`
+* `bundle install`
+* `rake db:{create,migrate,seed}`
 * `rails s`
 * navigate to `http://localhost:3000`
 
@@ -45,7 +55,7 @@ This will mimick the cart-order lifecycle. Items represent items that you would 
 ```ruby
 require 'rails_helper'
 
-RSpec.feature "When a user adds items to their backpack", type: :feature do
+RSpec.feature "When a user adds items to their backpack" do
   before(:each) do
     Item.create!(
       name: "Rollerball Pen",
@@ -106,7 +116,7 @@ And modify our `create` action in the controller:
 class BackpacksController < ApplicationController
   def create
     item = Item.find(params[:item_id])
-    flash[:notice] = "You now have 1 #{item.name)}."
+    flash[:notice] = "You now have 1 #{item.name}."
     redirect_to root_path
   end
 end
@@ -129,7 +139,7 @@ Let's update our test to check and see.
 ```ruby
 require 'rails_helper'
 
-RSpec.feature "When a user adds items to their backpack", type: :feature do
+RSpec.feature "When a user adds items to their backpack" do
   before(:each) do
     Item.create!(
       name: "Rollerball Pen",
@@ -171,12 +181,11 @@ Let's go back into the BackpacksController:
 ```ruby
 class BackpacksController < ApplicationController
   def create
-    item = Item.find(params[:item_id])
-    backpack = session[:backpack] || {}
-    backpack[item.id.to_s] ||= 0
-    backpack[item.id.to_s] += 1
-    session[:backpack] = backpack
-    flash[:notice] = "You now have #{backpack[item.id.to_s]} #{item.name)}."
+    id   = params[:item_id].to_s
+    item = Item.find_by(id: id)
+    session[:backpack] ||= {}
+    session[:backpack][id] = (session[:backpack][id] || 0) + 1
+    flash[:notice] = "You now have #{session[:backpack][id]} #{@item.name}."
     redirect_to root_path
   end
 end
@@ -198,12 +207,11 @@ class BackpacksController < ApplicationController
   include ActionView::Helpers::TextHelper
 
   def create
-    item = Item.find(params[:item_id])
-    backpack = session[:backpack] || {}
-    backpack[item.id.to_s] ||= 0
-    backpack[item.id.to_s] += 1
-    session[:backpack] = backpack
-    flash[:notice] = "You now have #{pluralize(backpack[item.id.to_s], item.name)}."
+    id   = params[:item_id].to_s
+    item = Item.find_by(id: id)
+    session[:backpack] ||= {}
+    session[:backpack][id] = (session[:backpack][id] || 0) + 1
+    flash[:notice] = "You now have #{pluralize(session[:backpack][id], @item.name)}."
     redirect_to root_path
   end
 end
@@ -220,7 +228,7 @@ First, let's update our feature test.
 ```ruby
 require 'rails_helper'
 
-RSpec.feature "When a user adds items to their backpack", type: :feature do
+RSpec.feature "When a user adds items to their backpack" do
   before(:each) do
     Item.create!(
       name: "Rollerball Pen",
@@ -326,11 +334,13 @@ Create a `spec/models` folder, and a new test for our Backpack class: `spec/mode
 ```ruby
 require 'rails_helper'
 
-RSpec.describe Backpack, type: :model do
-  it "can calculate the total number of items it holds" do
-    backpack = Backpack.new({"1" => 2, "2" => 3})
+RSpec.describe Backpack do
+  subject { Backpack.new({"1" => 2, "2" => 3}) }
 
-    expect(backpack.total_count).to eq(5)
+  describe "#total_count" do
+    it "can calculate the total number of items it holds" do
+      expect(subject.total_count).to eq(5)
+    end
   end
 end
 ```
@@ -390,12 +400,11 @@ class BackpacksController < ApplicationController
   include ActionView::Helpers::TextHelper
 
   def create
-    item = Item.find(params[:item_id])
-    backpack = session[:backpack] || {}
-    backpack[item.id.to_s] ||= 0
-    backpack[item.id.to_s] += 1
-    session[:backpack] = backpack
-    flash[:notice] = "You now have #{pluralize(backpack[item.id.to_s], item.name)}."
+    id   = params[:item_id].to_s
+    item = Item.find_by(id: id)
+    session[:backpack] ||= {}
+    session[:backpack][id] = (session[:backpack][id] || 0) + 1
+    flash[:notice] = "You now have #{pluralize(session[:backpack][id], @item.name)}."
     redirect_to root_path
   end
 end
@@ -424,31 +433,34 @@ end
 
 We're still letting the controller handle getting and setting the session, but we're putting our PORO in charge of managing the hash that we're storing there: both 1) adding items to it, and 2) reporting on how many of a particular item we have.
 
-Since we've added these methods to our controller, we now have a missing method error when we run our test. Let's add both methods to our model test to see that they do what we expect them to.
+Since we've added these methods to our controller, we now have a missing method error when we run our test. Let's add both methods to our model test to see that they do what we expect them to. The `subject` syntax is a nice RSpec feature to use if you're using a similar setup in many tests. In this case, we abstract the logic for creating a `Backpack` instance, and can call that return value with `subject`. I like how this reads, but feel free to forego this pattern if you don't like it as much.
 
 ```ruby
 require 'rails_helper'
 
-RSpec.describe Backpack, type: :model do
-  it "can calculate the total number of items it holds" do
-    backpack = Backpack.new({"1" => 2, "2" => 3})
+RSpec.describe Backpack do
+  subject { Backpack.new({"1" => 2, "2" => 3}) }
 
-    expect(backpack.total_count).to eq(5)
+  describe "#total_count" do
+    it "calculates the total number of items it holds" do
+      expect(subject.total_count).to eq(5)
+    end
   end
 
-  it "can add an item to its contents" do
-    backpack = Backpack.new({"1" => 1})
+  describe "#add_item" do
+    it "adds an item to its contents" do
+      subject.add_item(1)
+      subject.add_item(2)
 
-    backpack.add_item(1)
-    backpack.add_item(2)
-
-    expect(backpack.contents).to eq({"1" => 2, "2" => 1})
+      expect(subject.contents).to eq({"1" => 3, "2" => 4})
+    end
   end
 
-  it "can report on how many of a particular item it has" do
-    backpack = Backpack.new({"1" => 3, "2" => 1})
-
-    expect(backpack.count_of(1)).to eq(3)
+  describe "#count_of" do
+    it "reports how many of a particular item" do
+      expect(subject.count_of(1)).to eq(2)
+      expect(subject.count_of(2)).to eq(3)
+    end
   end
 end
 ```
@@ -456,13 +468,20 @@ end
 In order to get these tests to pass, add the following two methods to our Backpack PORO.
 
 ```ruby
-def add_item(item_id)
-  contents[item_id.to_s] ||= 0
-  contents[item_id.to_s] += 1
+def add_item(id)
+  contents[id.to_s] = (contents[id.to_s] || 0) + 1
 end
 
-def count_of(item_id)
-  contents[item_id.to_s]
+def count_of(id)
+  contents[id.to_s]
+end
+```
+
+What if we ask for the count of a non-existant item?  Add `expect(subject.count_of(0)).to eq(0)` to your test for the `count_of` method. What's the matter, got `nil`? Let's **coerce** `nil` values to `0` with `#to_i`.
+
+```
+def count_of(id)
+  contents[id.to_s].to_i
 end
 ```
 
@@ -478,9 +497,11 @@ In ApplicationController, add the following:
 before_action :set_backpack
 
 def set_backpack
-  @backpack = Backpack.new(session[:backpack])
+  @backpack ||= Backpack.new(session[:backpack])
 end
 ```
+
+If for some reason we access the backpack more than once in a given request/response cycle, the backpack object is memoized with `||=`.
 
 Then delete the following line from both your ItemsController and BackpacksController:
 
@@ -489,6 +510,13 @@ Then delete the following line from both your ItemsController and BackpacksContr
 ```
 
 Double check to see that our tests are still passing, and we should be in good shape!
+
+## Checkin and Review
+
+* Why fuss with all of this PORO business?
+* "Where" does PORO data live?
+* How do I add a flash message to a view?
+* How did we use `before_action` to refactor our controllers?
 
 ## You want more?
 
@@ -521,7 +549,7 @@ Make a Packages Controller:
 class PackagesController < ApplicationController
   include ActionView::Helpers::TextHelper
   def create
-    # the four lines below probably would be best delegated to a GameCreator PORO
+    # the four lines below probably would be best delegated to a PackageCreator PORO
     package = Package.new(user_name: "Rachel")
     backpack.contents.each do |item_id, quantity|
       package.items.new(item_id: item_id, quantity: quantity)

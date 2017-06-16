@@ -131,7 +131,6 @@ puts "Publishing complete"
 sleep 5
 
 puts "Starting the Queue Subscription"
-puts "Starting the Queue Subscription"
 queue.subscribe do |delivery_info, metadata, payload|
   puts "Found message at #{Time.now.strftime('%H:%M:%S.%L')}: [#{payload}]"
   sleep 1
@@ -143,6 +142,7 @@ puts "Queue Subscription Processed"
 #  sleep 1
 # end
 
+sleep 1
 connection.close
 ```
 

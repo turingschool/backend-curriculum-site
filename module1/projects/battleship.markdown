@@ -54,11 +54,11 @@ the game is played.
 
 When the player decides to start a game, the computer player should place
 their ships. The baseline computer should simply use random placements,
-but stil obey these constraints:
+but still obey these constraints:
 
 #### Validating Ship Coordinates
 
-Note that their are certain restrictions on where a ship can be placed.
+Note that there are certain restrictions on where a ship can be placed.
 Specifically:
 
 * Ships cannot wrap around the board
@@ -126,7 +126,7 @@ D
 
 ### Player Shot Sequence
 
-Once the ships are laid out the game starts with the Player Shoots Sequence.
+Once the ships are laid out the game starts with the Player Shot Sequence.
 
 1. Display the map from the current player's point of view
 2. Prompt the player for a position on which to fire
@@ -136,7 +136,7 @@ Once the ships are laid out the game starts with the Player Shoots Sequence.
 
 Display a map using the format described above. On the map, include
 information about the current player's previous shots. For every
-shot that landed a hit, mark that position with an `H`, and fore very
+shot that landed a hit, mark that position with an `H`, and for every
 shot that missed, mark that position with an `M`.
 
 So, on the first turn, a player's grid will look empty. But as the game
@@ -198,7 +198,7 @@ Then, return to the Player Shot Sequence.
 
 ### End Game Sequence
 
-When either the player or computer wins the game...
+When either the player or computer win the game...
 
 * Output a sorry or congratulations message
 * Output how many shots it took the winner to sink the opponent's ships
@@ -212,7 +212,7 @@ following extensions:
 ### Difficulty Levels
 
 When the user is getting ready to start a game, ask them what difficulty
-level they'd like to play with the following adaptations:
+level they'd like to play, with the following adaptations:
 
 * Beginner = 4x4 grid, 2-unit boat, 3-unit boat
 * Intermediate = 8x8 grid, 2-unit boat, 3-unit boat, 4-unit boat
@@ -245,19 +245,19 @@ Wrap your code into a Ruby gem and publish it on Rubygems.org with a name like
 
 The project will be assessed with the following rubric:
 
-### 1. Fundamental Ruby & Style
+### 1. Ruby Sytnax & Style
 
 * 4:  Application demonstrates excellent knowledge of Ruby syntax, style, and refactoring
 * 3:  Application shows strong effort towards organization, content, and refactoring
 * 2:  Application runs but the code has long methods, unnecessary or poorly named variables, and needs significant refactoring
 * 1:  Application generates syntax error or crashes during execution
 
-### 2. Enumerable & Collections
+### 2. Breaking Logic into Components
 
-* 4: Application consistently makes use of the best-choice Enumerable methods
-* 3: Application demonstrates comfortable use of several Enumerable techniques
-* 2: Application demonstrates functional knowledge of Enumerable but only uses the most basic techniques
-* 1: Application demonstrates deficiencies with Enumerable and struggles with collections
+* 4: Application is expertly divided into logical components each with a clear, single responsibility
+* 3: Application effectively breaks logical components apart but breaks the principle of SRP
+* 2: Application shows some effort to break logic into components, but the divisions are inconsistent or unclear
+* 1: Application logic shows poor decomposition with too much logic mashed together
 
 ### 3. Test-Driven Development
 
@@ -266,23 +266,16 @@ The project will be assessed with the following rubric:
 * 2: Application makes some use of tests, but the coverage is insufficient
 * 1: Application does not demonstrate strong use of TDD
 
-### 4. Encapsulation / Breaking Logic into Components
-
-* 4: Application is expertly divided into logical components such that individual pieces could be reused or replaced without difficulty
-* 3: Application effectively breaks logical components apart with clear intent and usage
-* 2: Application shows some effort to break logic into components, but the divisions are inconsistent or unclear
-* 1: Application logic shows poor decomposition with too much logic mashed together
-
-### 5. Functional Expectations
+### 4. Functional Expectations
 
 * 4: Application meets all requirements, and implements one extension properly.
 * 3: Application meets all requirements as laid out per the specification.
 * 2: Application runs, but does not work properly, or does not meet specifications.
 * 1: Application does not run, crashes on start.
 
-### 6. REPL Interface
-
-* 4: Application's REPL goes above and beyond expectations to improve the gameplay
-* 3: Application's REPL is clear and pleasant to use
-* 2: Application's REPL has some inconsistencies or rough edges
-* 1: Application's REPL has enough problems as to make play difficult
+### 5. Version Control  
+ 
+* 4: Student demonstrates strong git workflow, commits frequently to document progress, uses commits to identify added functionality, and utilizes pull requests for communication and feedback  
+* 3: Student utilizes git workflow essentials, committing frequently to document progress
+* 2: Student adds and commits infrequently and pushes project to GitHub  
+* 1: Student makes an initial commit and pushes project to GitHub  

@@ -387,14 +387,14 @@ To demonstrate this functionality, additionally add a new GET endpoint `/sleepy`
 
 The project will be assessed with the following rubric:
 
-### 1. Fundamental Ruby & Style
+### 1. Ruby Syntax & Style
 
 * 4:  Application demonstrates excellent knowledge of Ruby syntax, style, and refactoring
 * 3:  Application shows strong effort towards organization, content, and refactoring
 * 2:  Application runs but the code has long methods, unnecessary or poorly named variables, and needs significant refactoring
 * 1:  Application generates syntax error or crashes during execution
 
-### 2. Encapsulation / Breaking Logic into Components
+### 2. Breaking Logic into Components
 
 * 4: Application is expertly divided into logical components each with a clear, single responsibility
 * 3: Application effectively breaks logical components apart but breaks the principle of SRP
@@ -413,9 +413,17 @@ The project will be assessed with the following rubric:
 * 4: Application implements all five iterations and at least one extension
 * 3: Application implements iterations 0 - 4
 * 2: Application implements iterations 0 - 3
-* 1: Application implements through interation 2 or less
+* 1: Application implements through interation 2 or less  
 
-**Echo/Foxtrot Note:** Requirements listed are for *Foxtrot* pairs -- Echo requirements are shifted by 1 additional iteration -- So a 3 for Echo requires completing Iterations 0-5
+**Echo/Foxtrot Note:** Requirements listed are for *Foxtrot* pairs -- Echo requirements are shifted by 1 additional iteration -- So a 3 for Echo requires completing Iterations 0-5  
+
+### 5. Version Control  
+ 
+* 4: Student demonstrates strong git workflow, commits frequently to document progress, uses commits to identify added functionality, and utilizes pull requests for communication and feedback  
+* 3: Student utilizes git workflow essentials, committing frequently to document progress
+* 2: Student adds and commits infrequently and pushes project to GitHub  
+* 1: Student makes an initial commit and pushes project to GitHub  
+
 
 ## Addendum Content
 
