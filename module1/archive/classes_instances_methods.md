@@ -15,6 +15,8 @@ tags: ruby, object-oriented programming
 * define methods with and without methods
 * use arguments within methods
 
+[slides](slides/classes_instances_methods.md)
+
 ## Lecture
 
 ### Classes and Objects in Real Life

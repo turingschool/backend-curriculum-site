@@ -6,8 +6,13 @@ In this project, you are challenged to implement *three*
 fundamental sorting algorithms. Your final submission should include at least these three files:
 
 * `bubble_sort.rb`
+* `bubble_sort_test.rb`
 * `insertion_sort.rb`
+* `insertion_sort_test.rb`
 * `merge_sort.rb`
+* `merge_sort_test.rb`
+
+Use the [starter repo](https://github.com/turingschool-examples/sorting_suite) to complete and submit your work for review.
 
 ## 1. Bubble Sort
 

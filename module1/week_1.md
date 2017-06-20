@@ -5,16 +5,17 @@ layout: page
 
 ## Lessons
 
-* [Success at Turing](lessons/success_at_turing)
+* [Intro to M1](slides/intro_to_m1)
 * [Intro to Git](lessons/intro_to_git)
 * [Strings and Integers](lessons/strings_and_integers)
-* [Pseudocode](lessons/pseudocoding101)
-* [Introducing Arrays](lessons/arrays_101) ([Video](https://www.youtube.com/watch?v=nlwU1YtQ9SU))
+* [Intro to Methods](lessons/intro_to_methods)
 * [Flow Control](lessons/flow_control) ([Video](https://www.youtube.com/watch?v=iZkQWR9_RpY))
-* [Exploring `.each` and Exercises](lessons/primer_on_each)
-* [Core Types Exercises](https://github.com/turingschool/ruby-exercises/tree/master/core-types)
-* [Methods, Arguments, Scopes](lessons/methods_arguments_and_scopes.markdown)
-* [Classes and Instance Methods](lessons/classes_instances_methods)
+* [Introducing Arrays](lessons/arrays_101) ([Video](https://www.youtube.com/watch?v=nlwU1YtQ9SU))
+* [Intro to Classes](lessons/intro_to_classes)
+* [Debugging with Pry](lessons/debugging_with_pry)
+* [Beginner Enumerables](lessons/beginner_enumerables)
+* [Intro to OOP](lessons/intro_to_oop)
+* [Methods, Arguments, Blocks & Scopes](lessons/intro_to_scope)
 
 ## Homework
 
@@ -26,7 +27,9 @@ layout: page
 
 ## Projects
 
-* [Credit Check](projects/credit_check.markdown)
+* [Credit Check](projects/credit_check.markdown) ([slides](slides/credit_check))
+* [Jungle Beat](projects/jungle_beat)
+* [Date Night](projects/date_night) ([slides](slides/date_night))
 
 ## Exercises and Other Relevant Links
 
@@ -36,15 +39,6 @@ layout: page
 * [Eloquent Ruby Ch 3 & 4 Reading](https://github.com/turingschool/challenges/blob/master/eloquent_ruby_arrays_and_strings.markdown)
 * [String and Integer Riddles](https://github.com/turingschool/challenges/blob/master/string-and-integer-riddles.markdown)
 * [Strings the Hard Way](https://github.com/turingschool/challenges/blob/master/strings_the_hard_way.markdown)
-
-## Slides
-
-* [Welcome to M1](slides/welcome_to_M1)
-* [Strings & Integers](slides/strings_and_integers)
-* [Primer on Each](slides/primer_on_each)
-* [Credit Check Kick Off](slides/credit_check)
-* [Classes & Instance Methods](slides/classes_instances_methods.md)
-
 
 <!-- ## OLD:
 * [Core Types (Foxtrot)](https://github.com/turingschool/ruby-exercises/tree/master/core-types)
