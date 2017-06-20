@@ -11,6 +11,7 @@ tags: ruby, methods
 * Explain why we use methods
 * Define methods that take arguments
 * Define methods that do not take arguments
+* Define a class with instance methods
 
 ## Warmup
 
@@ -22,10 +23,10 @@ tags: ruby, methods
 
 ### Defining Methods without Parameters
 
-Assume that we want to create a simple program to convert Fahrenheit to Celsius. One way that we could do this would be to create a file called `temperature_converter.rb`, include the following line of code, and then run `ruby temperature_converter.rb` from the command line.
+Assume that we want to create a simple program to convert Fahrenheit to Celsius. One way that we could do this would be to create a file called `converter.rb`, include the following line of code, and then run `ruby converter.rb` from the command line.
 
 ```ruby
-# temperature_converter.rb
+# converter.rb
 puts `Welcome to Converter!`
 ```
 
@@ -33,7 +34,7 @@ A method allows us to reuse that same snippet of code. We define a method using 
 No assume that we want to make it so that we can reuse this code. We could define a method `print_welcome` that would allow us to print this statement many times.
 
 ```ruby
-# temperature_converter.rb
+# converter.rb
 def print_welcome
   puts 'Welcome to Converter!'
 end
@@ -82,7 +83,7 @@ end
 If we save this method in a file, we can then call it multiple times with different **arguments**.
 
 ```ruby
-# temperature_converter.rb
+# converter.rb
 
 def print_welcome
   puts 'Welcome to Converter!'
@@ -98,7 +99,7 @@ convert_to_celsius(35)
 convert_to_celsius(100)
 ```
 
-Once you have saved the code above, run it using the command `ruby temperature_converter.rb` in your terminal. Be sure you are in the same directory as the `temperature_converter.rb` file.
+Once you have saved the code above, run it using the command `ruby converter.rb` in your terminal. Be sure you are in the same directory as the `converter.rb` file.
 
 What happens? Is it what you expected? Why or why not?
 
@@ -107,7 +108,7 @@ It may look like nothing happened, but in the background this program ran and di
 Let's change the program so that we can see some output.
 
 ```ruby
-# temperature_converter.rb
+# converter.rb
 
 def print_welcome
   puts 'Welcome to Converter!'
@@ -133,10 +134,10 @@ In the code snippet above we define a method `convert_to_celsius` that uses the 
 
 ### Calling Methods from Other Methods
 
-We can also call methods from within other methods. Let's add a function that takes a number and then prints a more robust message.
+We can also call methods from within other methods that are in the same scope. Let's add a function that takes a number and then prints a more robust message.
 
 ```ruby
-# temperature_converter.rb
+# converter.rb
 
 def print_welcome
   puts 'Welcome to Converter!'
@@ -168,10 +169,10 @@ Once you've completed that, see if you can determine what the `print_converted` 
 
 One of the advantages of using methods is that we can build methods that operate at higher levels of abstraction than other methods. In some ways, this is like a pyramid where higher level methods rely on lower level methods to take care of the details.
 
-If we look at our `temperature_converter.rb` file, what we really want to do is take three numbers, print a welcome, and then print a message for each of those numbers. We can create a method that does exactly that. Bundling these more detailed methods into more abstract methods can help us to create more complex programs.
+If we look at our `converter.rb` file, what we really want to do is take three numbers, print a welcome, and then print a message for each of those numbers. We can create a method that does exactly that. Bundling these more detailed methods into more abstract methods can help us to create more complex programs.
 
 ```ruby
-# temperature_converter.rb
+# converter.rb
 
 def convert(first, second, third)
   print_welcome
@@ -199,8 +200,57 @@ convert(12, 45, 65)
 
 With a partner, create a method that provides similar functionality for `doubler.rb`. If you finish that, see if you can change your method so that it accepts an array as an argument and prints a message for each element of the array.
 
+### Basic Classes
+
+It looks like we have a nice small set of methods that hang together to provide some functionality. Let's do just a little bit more work to wrap these methods together. We'll do that by creating a class to wrap these methods.
+
+The general pattern for creating a class is as follows:
+
+```ruby
+class NameOfClass
+  # stuff
+end
+```
+
+Let's do it.
+
+```ruby
+# converter.rb
+
+class Converter
+  def convert(first, second, third)
+    print_welcome
+    print_converted(first)
+    print_converted(second)
+    print_converted(third)
+  end
+
+  def print_welcome
+    puts 'Welcome to Converter!'
+  end
+
+  def convert_to_celsius(temperature)
+    ((temperature - 32) * 5.0 / 9.0).round(2)
+  end
+
+  def print_converted(temperature)
+    converted = convert_to_celsius(temperature)
+    puts "#{temperature} degrees Fahrenheit is equal to #{converted} degrees Celsius"
+  end
+end
+
+converter = Converter.new
+converter.convert(32, 35, 100)
+converter.convert(12, 45, 65)
+```
+
+Notice that when wrap these methods in a class we need to create a new **instance** of the class on which to call these methods. We sometimes say that the instance is the **receiver**, that we're sending messages to it, and that it is responding to those messages.
+
+With your partner, wrap your existing methods in a `Doubler` class and adjust your code so that the output when you run `ruby doubler.rb` is the same as it was before.
+
 ## Summary
 
 * How do we define methods in Ruby?
 * What is the difference in how we define a method that takes arguments from one that does not?
 * Why do we use methods?
+* How do we define a simple class in Ruby?
