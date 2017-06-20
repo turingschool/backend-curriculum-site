@@ -15,7 +15,7 @@ layout: page
 * [Debugging with Pry](lessons/debugging_with_pry)
 * [Beginner Enumerables](lessons/beginner_enumerables)
 * [Intro to OOP](lessons/intro_to_oop)
-* [Methods, Arguments, & Scopes](lessons/methods_arguments_and_scopes.markdown)
+* [Methods, Arguments, Blocks & Scopes](lessons/intro_to_scope)
 
 ## Homework
 
