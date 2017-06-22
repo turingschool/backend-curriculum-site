@@ -258,7 +258,7 @@ $ bundle
 $ bundle exec rake db:create
 ```
 
-Add `gem 'rspec-rails` to your Gemfile.
+Add `gem 'rspec-rails'` to your Gemfile.
 
 ```sh
 $ bundle
