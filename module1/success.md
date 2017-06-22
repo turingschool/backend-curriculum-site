@@ -109,7 +109,7 @@ A student who graduates from this module will be able to do the following.
 
 
 
-### Career Development (Additional Details: [Module One Career Development](https://github.com/turingschool/career-development-curriculum/tree/master/module_one))
+### Career Development (Additional Details
 
 * Cultivate Self-Awareness
 * Understand one's key strengths

@@ -24,7 +24,7 @@ tags: procs, lambdas, ruby, enumerables
 
 * How do you know when you see a "block" of code in Ruby?
 * In your own words, what is a block?
-* What is the DRY principle important?
+* Why is the DRY principle important?
 
 ## Brief Overview
 
@@ -53,7 +53,7 @@ method(:adder) #=> #<Method: Object#adder>
 method(:adder).call(10,1) #=> 11
 ```
 
-When we call `adder` on its own, it appears that `.call` happens under the hood. That `.call` is the message that Procs and lambdas need to hear before they actually execute their isntructions. If a set of instructions doesn't execute right when it is mentioned, like a regular method or block (`{...}` and `do ... end`), we can save it assign it to a variable and pass it around just like any other object.
+When we call `adder` on its own, it appears that `.call` happens under the hood. That `.call` is the message that Procs and lambdas need to hear before they actually execute their instructions. If a set of instructions doesn't execute right when it is mentioned, like a regular method or block (`{...}` and `do ... end`), we can save it assign it to a variable and pass it around just like any other object.
 
 In review, Procs and lambdas are the Ruby way to store methods as objects. Let's see it in action.
 

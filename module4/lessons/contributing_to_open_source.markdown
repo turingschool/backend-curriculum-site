@@ -7,7 +7,7 @@ title: Contributing to Open Source
 
 #### OSS Project Expectations
 
-You've published a lot of code but it's time to become real contributors. You will work solo to contribute to a single public open-source project by doing all of the following:
+You've published a lot of code but it's time to become real contributors. You will work solo to contribute to a single public open-source project by doing **all** of the following:
 
 1. Reproduce and confirm or contradict one bug report
 2. Submit one sizable/difficult or two smaller/moderate code-centric pull requests that are worth merging
@@ -102,7 +102,7 @@ Each pitch should contain the following information:
 * When I'm Done: In the original GitHub issue it sounds like the developers are in favor of the feature, so I think I can get this accepted for the next version of the library.
 ```
 
-**You're expected to DM Nate and Casey a link to your three pitches by 9 AM Monday morning**
+**You're expected to create a PR updating your individual markdown file [here](https://github.com/turingschool/ruby-submissions/tree/master/1701-b/4module/open_source_proposals) to submit your proposals by 9 AM day one of week two.**
 
 You're encouraged to talk with each other for ideas, inspiration, and collaboration opportunities.
 
