@@ -18,6 +18,7 @@ It's here. This lesson requires a little bit of reworking if we wanted to upgrad
 ### Part 1: Big Picture
 
 #### The Purpose of Build Tools
+
 Let's say you're building a game in JavaScript and you're new to this whole coding thing. Then let's say that your HTML file looks like this:  
 
 ```
