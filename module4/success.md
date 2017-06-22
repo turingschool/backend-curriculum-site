@@ -98,7 +98,7 @@ Each of the following skills is covered in the curriculum, and most are covered 
 * Students divide applications into components and domains of responsibilities to facilitate multi-developer teams *(functional)*
 * Students abstract external dependencies and services to provide flexibility *(familiarity)*
 * Students integrate outside data sources (Files, APIs, databases) *(functional)*
-* Students communicate across applications *(familiarity)*
+* Students coordinate data and events across applications *(functional)*
 * Students build applications that execute in development, test, CI and production environments *(functional)*
 * Students securely apply authentication and authorization patterns *(functional)*
 * Students apply cacheing patterns to improve application performance *(familiarity)*
@@ -107,7 +107,7 @@ Each of the following skills is covered in the curriculum, and most are covered 
 
 * Students apply knowledge of Ruby collections to JavaScript arrays *(mastery)*
 * Students create and use functions with parameters *(mastery)*
-* Students apply SOLID patterns to JavaScript functions *(mastery)*
+* Students apply good development patterns, like DRY and separation of concerns, to JavaScript functions *(mastery)*
 * Students organize functions into classes and objects *(functional)*
 * Students make effective use of `this` in multiple contexts *(functional)*
 * Students differentiate between JavaScript written in ES5 and ES6 *(mastery)*
@@ -122,19 +122,13 @@ Each of the following skills is covered in the curriculum, and most are covered 
 * Students integrate outside data sources in the browser (AJAX, local storage) *(functional)*
 * Students use integration testing to verify JavaScript functionality *(functional)*
 
-### Node & Express
-
-* Students implement a stand-alone web service with Node and Express *(functional)*
-* Students interact with SQL databases by writing raw SQL *(functional)*
-* Students render views from an Express application *(familiarity)*
-
 ### JavaScript Tools and Libraries
 
+* Students implement a stand-alone web service with Node and Express *(functional)*
 * Students use the Node Package Manager to manage dependencies *(functional)*
 * Students use WebPack as a build tool for organizing their code into modules *(functional)*
 
 ### PostgreSQL & SQL
 
 * Students write basic SQL statements without the assistance of an ORM *(functional)*
-* Students intelligently structure/normalize data so as to maintain reasonable performance as the data size increases *(functional)*
 * Students use the CLI to understand the structure and data of their database (ex: list databases, tables, table structure) *(familiarity)*
