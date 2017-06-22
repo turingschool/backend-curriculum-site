@@ -5,13 +5,13 @@ length: 30
 tags: git, github
 ---
 
-## Goals
+## Learning Goals
 
-After this lesson, students should be able to:
-
--  Configure their local git to access their remote GitHub account via the command line
--  Configure global .gitignore files
--  Personalize Slack profiles with GitHub information
+After this lesson, students should be able to:  
+-  Explain that git is local and github is remote  
+-  Configure their local git to access their remote GitHub account via the command line  
+-  Configure global .gitignore files  
+-  Personalize Slack profiles with GitHub information  
 
 ## Introduction to Git
 
@@ -52,13 +52,13 @@ You can also double check what values are currently set by running `git config -
 
 ## Github
 
-Github is a platform for hosting git repositories online. Before github, developers or companies configured and ran their own independent git servers, and things were much more fragmented. Now Github has become the de facto community standard for hosting and sharing repositories.
+GitHub is a platform for hosting git repositories online. Before GitHub, developers or companies configured and ran their own independent git servers, and things were much more fragmented. Now GitHub has become the de facto community standard for hosting and sharing repositories.
 
-You certainly don't need Github to use git, but its popularity and dominance, especially within the open source community, have made the 2 somewhat synonymous for many users.
+You certainly don't need GitHub to use git, but its popularity and dominance, especially within the open source community, have intertwined the 2 for many users.
 
 As you progress through becoming a more practiced git user, don't forget that these 2 are really distinct things -- `git` provides the core technology for tracking and managing source control changes, while `GitHub` provides a shared location for hosting git projects.
 
-Currently, our local git configurations knows of our GitHub credentials - GitHub needs to know where we'll be pushing or code from. To do this, we'll generate an SSH key that they'll each know of.
+Currently, our local git configurations knows of our GitHub credentials - GitHub needs to know where we'll be pushing our code from. To do this, we'll generate an SSH key that they'll each know of.
 
 -   Generate a new key by running
 
@@ -67,7 +67,7 @@ ssh-keygen -t rsa -C "you@example.com"
 ```
 
 When you're prompted to "Enter a file in which to save the key," press Enter. This accepts the default file location.
-You may enter a secure passphrase if you'd like, but it's not necessary. To move ahead, continue pressing "enter".
+You may enter a secure passphrase if you'd like, but it's not necessary. To move athead, continue pressing "Enter".
 
 -   Add this new key to your system by running:
 
