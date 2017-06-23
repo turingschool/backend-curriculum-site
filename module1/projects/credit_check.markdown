@@ -2,7 +2,7 @@
 
 Let's write a program that can detect mistakes in a credit card number.
 
-## Luhn Algorithm
+## Background: Luhn Algorithm
 
 The Luhn algorithm is a check-summing algorithm best known for checking the validity of credit card numbers.
 
@@ -55,9 +55,9 @@ Since the summed results modulo 10 is zero, the account number is valid accordin
 
 ## Assignment
 
-Write a program that implements the Luhn algorithm to validate a credit card number.
+Fork [this](https://github.com/turingschool-examples/credit_check) repository, clone your new repository, and write a program that implements the Luhn algorithm to validate a credit card number.
 
-Start with this template and save it as `credit_check.rb`:
+Start with this template and save it as `credit_check.rb` in your `lib` directory:
 
 ```ruby
 card_number = "4929735477250543"
@@ -71,30 +71,6 @@ valid = false
 ## If it is invalid, print "The number is invalid!"
 ```
 
-### Hints
-
-* You don't need any kind of loops, iteration, or arrays
-* You don't need to write any methods or create classes
-* You don't need automated tests
-* You can pull a character out of a string using `my_string[X]` where `X` is a numeric position number
-* You can convert a string to an integer by calling `.to_i` (ex: `"4".to_i`)
-
-The purpose of these hints:
-
-> @paddington: so was the whole don’t use arrays or loops things a misdirection, or optional?
-
--- Student
-
-> Optional. Would probably seem tricky if you read it as "don't use arrays or loops" and then saw me use arrays and loops. However, it was intended to bolster students who were intimidated by loops "You don't need" (to worry about all that shit). As with everything in life, there is no truth, only tradeoffs. So what are the tradeoffs there?
->
-> If you don't use loops and arrays, then an entire domain of complexity goes away (how to work with them as collections), and you can write out each step by itself. So if the amount of unknowns is large for you, then this is a good way to remove a big unknown, scaling the problem down to something you're more likely to succeed at. It will also be much easier to see how one of these digits changes as it flows through the program.
->
-> If you do use loops and arrays, then you can do a step one time instead of 16 times (ie instead of calling `to_i`  on 16 different digits, you only have to call it on the current digit. This means you have to write way less code, and if you ever discover that you need to make a change, you only have to do it in the one place rather than in 16 places. It also lets you think in certain higher level abstractions like  "I have digits as strings, but I want them as integers", an idea that the mathematicians call `map` (the same way a map tells you how to get from where you are to where you want to be, the `map` enumerable tells you how to get from an array of one thing (numbers in strings) to an array of another thing (integers).
->
-> As you develop the skill of thinking in these higher level terms, such abstractions become invaluable, and it is inhibiting to manually unroll a loop, but if those patterns of thought are under-developed, then such abstractions are opaque and out of reach. So the best approach is a function of which tradeoffs best balance all the considerations. (e
-Â
--- @paddington
-
 ### Sample Data
 
 If helpful, you can use the following sample data:
@@ -102,9 +78,19 @@ If helpful, you can use the following sample data:
 * *Valid*: 5541808923795240, 4024007136512380, 6011797668867828
 * *Invalid*: 5541801923795240, 4024007106512380, 6011797668868728
 
-## Extensions
+### Extensions
 
 * Can you make it work for American Express numbers? 342804633855673 is valid but 342801633855673 is invalid.
+
+### Submission
+
+Use `git` to commit your solution and push to your repository.
+
+Once you have committed and pushed, create a pull request to the Turing School Examples repository. Instructors will comment on your pull request to give you feedback on your code.
+
+More information on committing changes in `git` can be found [here](http://dont-be-afraid-to-commit.readthedocs.io/en/latest/git/commandlinegit.html), and [here](http://gitref.org/basic/). Note: for this exercise, you will not need to check out a branch. The commands you will need are `git add`, `git commit -m "Put your commit message here"`, and `git push origin master`. These guides cover many more commands. This will be a good opportunity for you to read online documentation to pull out only the information you need.
+
+More information on submitting a pull request in GitHub is available [here](https://help.github.com/articles/creating-a-pull-request-from-a-fork/). One note: if you view your repository up to a few minutes after you have pushed your changes, there will be a button to create a new pull request on the front page that will automatically select the upstream repository for you. [This video] shows this at around the 5:35 mark.
 
 ## Evaluation Rubric
 

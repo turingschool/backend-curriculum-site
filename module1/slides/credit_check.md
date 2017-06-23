@@ -4,8 +4,8 @@
 
 # Evaluation
 
-1. Fundamental Ruby & Style
-1. Encapsulation / Breaking Logic into Components
+1. Ruby Syntax & Style
+1. Breaking Logic into Components
 1. Functional Expectations
 
 ---
@@ -81,14 +81,4 @@ valid = false
 * Can you make it work for American Express numbers?
     * 342804633855673 is valid
     * 342801633855673 is invalid.
-
----
-
-# Hints
-
-* You don’t need any kind of loops, iteration, or arrays
-* You don’t need to write any methods or create classes
-* You don’t need automated tests
-* You can pull a character out of a string using `my_string[X]` where X is a numeric position number
-* You can convert a string to an integer by calling `#to_i` (ex: `"4".to_i`)
 
