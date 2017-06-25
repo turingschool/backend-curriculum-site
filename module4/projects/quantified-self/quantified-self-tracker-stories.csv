@@ -20,9 +20,7 @@ Remaining calories in meal tables,"View Diary,index.html",Feature,unscheduled,"E
 Remaining calories less than zero,"View Diary,index.html",Feature,unscheduled,"If Remaining Calories is less than zero, it should be colored Red"
 Remaining calories more than zero,"View Diary,index.html",Feature,unscheduled,"If Remaining Calories is greater than or equal to zero, it should be colored Green"
 Totals table,"View Diary,index.html",Feature,unscheduled,"There is a Totals table for all meals, with Goal Calories, Calories Consumed and Remaining calories"
-Syling Remaining Calories in Totals table,"View Diary,index.html",Feature,unscheduled,Remaining Calories should follow the same color rules as Remaining Calories in a meal table
-Changing diary to previous day,"View Diary,index.html",Feature,unscheduled,"When I click on the link for the previous day, the date changes, and the data in the meal tables and exercises table update to reflect that day's diary"
-Changing diary to next day,"View Diary,index.html",Feature,unscheduled,"When I click on the link for the next day, the date changes, and the data in the meal tables and exercises table update to reflect that day's diary"
+Styling Remaining Calories in Totals table,"View Diary,index.html",Feature,unscheduled,Remaining Calories should follow the same color rules as Remaining Calories in a meal table
 Foods table in diary,"View Diary,index.html",Feature,unscheduled,"I should see a table of foods I have created under a Foods header. Each food has a Name, Calories and a checkbox"
 Create New food from diary,"View Diary,index.html",Feature,unscheduled,"If I click on the ""Create New"" button under the Foods header, I should be redirected to ""foods.html"""
 Search for food by name,"View Diary,index.html",Feature,unscheduled,"When I type into the ""Search by Name"" box above the Foods table, the table will only display foods that match the typed text, case insensitive. List of foods should update with each change to the search box."
