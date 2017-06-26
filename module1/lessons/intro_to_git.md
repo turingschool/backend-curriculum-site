@@ -67,7 +67,7 @@ ssh-keygen -t rsa -C "you@example.com"
 ```
 
 When you're prompted to "Enter a file in which to save the key," press Enter. This accepts the default file location.
-You may enter a secure passphrase if you'd like, but it's not necessary. To move athead, continue pressing "Enter".
+You may enter a secure passphrase if you'd like, but it's not necessary. To move ahead, continue pressing "Enter".
 
 -   Add this new key to your system by running:
 
@@ -115,7 +115,7 @@ touch ~/.gitignore
 git config --global core.excludesfile ~/.gitignore
 ```
 
-Then open `~/.gitignore` with your text editor and paste and save the following:
+Then open `~/.gitignore` with your text editor, paste, and save the following:
 
 ```ruby
 # Git #
