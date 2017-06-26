@@ -110,7 +110,8 @@ Are you sure you want to continue connecting (yes/no)?
 => Hi YourUsername! You\'ve succesfully authenticated, but GitHub does not provide shell access.
 ```
 
-## Global `.gitignore`
+## Global `.gitignore`  
+GitIgnore is a dot file used for making sure that certain types of files and directories do not get pushed up to GitHub. This may include any code with sensitive information that you do not wish to be public, or files and directories that do not need to be included with your shared public repository. There are a number of things below that just become noise as they contain many files but do not add anything for collaboration sake.  
 
 From Terminal run:
 
@@ -119,7 +120,7 @@ $ touch ~/.gitignore
 $ git config --global core.excludesfile ~/.gitignore
 ```
 
-Then open `~/.gitignore` with your text editor, paste, and save the following:
+Then open `~/.gitignore` with your text editor(i.e. atom ~/.gitignore), paste, and save the following:
 
 ```ruby
 # Git #
