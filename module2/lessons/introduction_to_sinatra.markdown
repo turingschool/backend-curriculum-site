@@ -103,7 +103,7 @@ Most likely with one of the following:
 Try these two things: 
 
 1) Add a new route and view so that the user can successfully visit "localhost:9393/easteregg" and see a new view of your choice. 
-1) Add a new route so that the user can go to "localhost:9393/showmethetasks" and be redirected to all of the tasks. NOTE: You should not have to create a new view, nor should you use the `erb` method. 
+2) Add a new route so that the user can go to "localhost:9393/showmethetasks" and be redirected to all of the tasks. NOTE: You should not have to create a new view, nor should you use the `erb` method. 
 
 Let's also quickly talk about why the 2nd path isn't a good idea. 
 
@@ -122,7 +122,7 @@ get '/tasks' do
 end
 ```
 
-1) Go to your `index.erb` view and remove the `@` from `@tasks`. It should now just say `tasks.each do...`. Does it work? Can you think of pros and cons for this versus the way we originally had it? 
+2) Go to your `index.erb` view and remove the `@` from `@tasks`. It should now just say `tasks.each do...`. Does it work? Can you think of pros and cons for this versus the way we originally had it? 
 
 ### Notes: Locals vs. Instance Variables
 
@@ -165,8 +165,8 @@ Spin up the server, then refresh `/tasks`.
 With a partner, discuss these questions: 
 
 1) Did this experiment work? What can you assume about the type of data a route needs to return? *Not a trick question :)* Once you've tried it out, take out `"Hello, world!"` and uncomment `erb :index`. 
-1) Once you've determined the type of data that needs to be returned, discuss what you think must be happening step-by-step when `erb :index` is called in your controller. 
-1) Check out a popular alternative to ERB: [HAML](http://haml.info/) and look at the box that compares erb to haml. What might be the pros and cons of using HAML instead of ERB? 
+2) Once you've determined the type of data that needs to be returned, discuss what you think must be happening step-by-step when `erb :index` is called in your controller. 
+3) Check out a popular alternative to ERB: [HAML](http://haml.info/) and look at the box that compares erb to haml. What might be the pros and cons of using HAML instead of ERB? 
 
 Want to go into depth with ERB? Read [this article](http://www.stuartellis.name/articles/erb/) on your own time. 
 
@@ -195,8 +195,8 @@ Then navigate to this URL: `localhost:9393/tasks?location=Denver&institution=Tur
 With a partner, discuss these questions:
 
 1) Where did these params come from, and what can you assume about the rules concerning params in a URL? 
-1) How are spaces represented in a URL? 
-1) Modify your `index.erb` to dynamically display the location from the URL. For example, if I visit the URL with `location=Denver`, then the top of my tasks page should say "You are located in Denver" and then show all of the tasks. Try changing the URL's location parameter a few times to make sure it's dynamic. 
+2) How are spaces represented in a URL? 
+3) Modify your `index.erb` to dynamically display the location from the URL. For example, if I visit the URL with `location=Denver`, then the top of my tasks page should say "You are located in Denver" and then show all of the tasks. Try changing the URL's location parameter a few times to make sure it's dynamic. 
 
 ### Notes: URL Query Params
 
@@ -271,9 +271,9 @@ end
 ```
 
 1) Navigate to `/tasks/marshmallow`. Go back to the terminal. What do you expect to see when you type `params`? Go ahead and test it out. Then exit out of pry. 
-1) Change `get '/tasks/:id'` to `get '/tasks/:name'`. Navigate to `/tasks/marshmallow`. What do you need to type into pry in order to get "marshmallow" back? 
-1) With a partner, share your observations from these two experiments. What worked? What failed? What can you assume about the `:something` notation in a route? 
-1) Put everything back to the way it was (see above code snippet for help, or test your own understanding by doing it by yourself). 
+2) Change `get '/tasks/:id'` to `get '/tasks/:name'`. Navigate to `/tasks/marshmallow`. What do you need to type into pry in order to get "marshmallow" back? 
+3) With a partner, share your observations from these two experiments. What worked? What failed? What can you assume about the `:something` notation in a route? 
+4) Put everything back to the way it was (see above code snippet for help, or test your own understanding by doing it by yourself). 
 
 ### Notes: Dynamic Parameters
 
