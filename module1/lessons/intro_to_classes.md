@@ -50,7 +50,7 @@ class Converter
 end
 ```
 
-Wrapping these methods in a class changed the way we will interact them and provided some organization. We've provided an indication to our future selves and to others who might work with this code that these methods are related.
+Wrapping these methods in a class changed the way we will interact with them and provided some organization. We've provided an indication to our future selves and to others who might work with this code that these methods are related.
 
 One of the primary functions of a class is to create new instances of that class. Putting these methods inside of this class means that we will now need to call them on an instance of that class. They are now **instance methods**.
 
@@ -75,7 +75,7 @@ The output from `puts "This is our converter: " + converter` is the way that Rub
 
 ### Behavior & State
 
-Thus far we've only used classes as a place to collect instance methods (methods that we call on a specific instance of the class). Sometimes we say that these methods define the *behavior* of these instances. But why bother creating multiple instances if they all have exactly the same behavior? That's where *state* comes in. State refers to the specific attributes of an instance of a class. Applying this to our `Classroom` example, a specific classroom might have a width *attribute*. It's width would be considered to be part of its *state*.
+Thus far we've only used classes as a place to collect instance methods (methods that we call on a specific instance of the class). Sometimes we say that these methods define the *behavior* of these instances. But why bother creating multiple instances if they all have exactly the same behavior? That's where *state* comes in. State refers to the specific attributes of an instance of a class. Applying this to a `Classroom` example, a specific classroom might have a width *attribute*. It's width would be considered to be part of its *state*.
 
 #### Adding State to Our Classes
 
@@ -94,7 +94,7 @@ class Classroom
 end
 ```
 
-Those variables beginning with `@` are **instance variables** they can  have a unique value for each **instance** that we create. That's great. That means that we can now create multiple classroom instances that have different lengths/widths/heights.
+Those variables beginning with `@` are **instance variables** they can have a unique value for each **instance** that we create. That's great. That means that we can now create multiple classroom instances that have different lengths/widths/heights.
 
 How do we use this new Classroom class? Let's create a runner file!
 
