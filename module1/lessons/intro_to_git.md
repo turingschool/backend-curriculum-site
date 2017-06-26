@@ -32,7 +32,7 @@ After this lesson, students should be able to:
 First, let's install `git` via `brew`:
 
 ```shell
-brew install git
+$ brew install git
 ==> Downloading http://git-core.googlecode.com/files/git-1.8.3.4.tar.gz
 ########################################################### 100.0%
 ```
@@ -42,14 +42,14 @@ Git stores a special configuration file at `~/.gitconfig`
 -   Let's colorize git in the command line
 
 ```bash
-git config --global color.ui true
+$ git config --global color.ui true
 ```
 
 -  And set up our GitHub credentials:
 
 ```bash
-git config --global user.email "you@example.com"
-git config --global user.name "YourUsername"
+$ git config --global user.email "you@example.com"
+$ git config --global user.name "YourUsername"
 ```
 
 You can also double check what values are currently set by running `git config -l` at the command line
@@ -67,7 +67,7 @@ Currently, our local git configurations knows of our GitHub credentials - GitHub
 -   Generate a new key by running
 
 ```bash
-ssh-keygen -t rsa -C "you@example.com"
+$ ssh-keygen -t rsa -C "you@example.com"
 ```
 
 When you're prompted to "Enter a file in which to save the key," press Enter. This accepts the default file location.
@@ -76,13 +76,13 @@ You may enter a secure passphrase if you'd like, but it's not necessary. To move
 -   Add this new key to your system by running:
 
 ```bash
-ssh-add ~/.ssh/id_rsa
+$ ssh-add ~/.ssh/id_rsa
 ```
 
 -   Copy the new key to your clipboard (shortcut for OSX below):
 
 ```bash
-  pbcopy < ~/.ssh/id_rsa.pub
+$ pbcopy < ~/.ssh/id_rsa.pub
 ```
 
 -   Let's tell GitHub about this key.
@@ -93,13 +93,13 @@ and paste in the whole SSH key.
 -   To test that our key is configured, type the following into the command line:
 
 ```bash
-ssh -T git@github.com
+$ ssh -T git@github.com
 ```
 
 -   If you get this prompt, type 'yes':
 
 ```bash
-The authenticity of host 'github.com (xxx.xxx.xxx.xxx)'... can\'t be established.
+=> The authenticity of host 'github.com (xxx.xxx.xxx.xxx)'... can\'t be established.
 RSA key fingerprint is XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX.
 Are you sure you want to continue connecting (yes/no)?
 ```
@@ -107,7 +107,7 @@ Are you sure you want to continue connecting (yes/no)?
 -   If everything's working, you'll see the the following:
 
 ```bash
-Hi YourUsername! You\'ve succesfully authenticated, but GitHub does not provide shell access.
+=> Hi YourUsername! You\'ve succesfully authenticated, but GitHub does not provide shell access.
 ```
 
 ## Global `.gitignore`
@@ -115,8 +115,8 @@ Hi YourUsername! You\'ve succesfully authenticated, but GitHub does not provide 
 From Terminal run:
 
 ```
-touch ~/.gitignore
-git config --global core.excludesfile ~/.gitignore
+$ touch ~/.gitignore
+$ git config --global core.excludesfile ~/.gitignore
 ```
 
 Then open `~/.gitignore` with your text editor, paste, and save the following:
