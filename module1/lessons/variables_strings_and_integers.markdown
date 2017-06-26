@@ -27,7 +27,7 @@ length: 60 - 90
 5min  - WarmUp  
 15min - Variables  
 15min - Integers  
-15min - Strings
+15min - Strings  
 5min  - WrapUp
 
 ## Warm Up  
