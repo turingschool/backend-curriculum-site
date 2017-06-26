@@ -42,7 +42,7 @@ When documenting your community contribution, say a few words about the facilita
 
 ### Portfolio
 
-To document all of the work you've done this module, follow the guidelines stated in the B4 portfolio template. A Pull Requested submitting your portfolio is due Wednesday of Week 6.
+To document all of the work you've done this module, follow the guidelines stated in the B4 portfolio template [here](https://github.com/turingschool/portfolios/tree/master/templates). A Pull Requested submitting your portfolio is due Wednesday of Week 6.
 
 ### Turing Story Presentation
 
