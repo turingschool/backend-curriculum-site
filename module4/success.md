@@ -27,9 +27,9 @@ Assessment requirements will be provided on the first week of the module.
 
 ### Career Development
 
-The Career Development segment is made up of several pieces, most of which are to be submitted by **9AM on Monday of Week 6** unless otherwise noted though it is suggested that you send them earlier if possible. All deliverables except for your Census account check should be submitted in the [Career Development deliverables submissions folder](https://github.com/turingschool/career-development-curriculum/tree/master/deliverable_submissions).
+The Career Development segment is made up of several pieces, all of which are to be submitted by **9AM on Monday of Week 5** unless otherwise noted though it is suggested that you send them earlier if possible. All deliverables except for your Census account check should be submitted in the [Career Development deliverables submissions folder](https://github.com/turingschool/career-development-curriculum/tree/master/deliverable_submissions).
 
-*   Summaries of at least 6 "cold outreach" contacts. You are asked to submit the summaries by **Monday of week 5** and follow these [guidelines](https://github.com/turingschool/career-development-curriculum/blob/master/module_four/cold_outreach_deliverable_guidelines.md)
+*   Cold Outreach & Networking: For this deliverable, you have 3 options to choose from - you can find them listed [here](https://github.com/turingschool/career-development-curriculum/blob/master/module_four/cold_outreach_ii.md). To fulfill the deliverable requirement, you only need to submit documentation of 1 option although you're absolutely encouraged to do more than one. 
 *   Add two projects to your Turing portfolio and add a link to your Turing portfolio.
 *   Document practice interview participation using these [guidelines](https://github.com/turingschool/career-development-curriculum/blob/master/module_four/interview_practice_reflection_guidelines.md).
 *   Complete action plan for the post-grad job search [here](https://github.com/turingschool/career-development-curriculum/blob/master/module_four/post_grad_plan.md).
@@ -42,7 +42,7 @@ When documenting your community contribution, say a few words about the facilita
 
 ### Portfolio
 
-To document all of the work you've done this module, include each of the items above (except the Career Development portion) in your portfolio, which is due on Thursday of Week 6.
+To document all of the work you've done this module, follow the guidelines stated in the B4 portfolio template. A Pull Requested submitting your portfolio is due Wednesday of Week 6.
 
 ### Turing Story Presentation
 
