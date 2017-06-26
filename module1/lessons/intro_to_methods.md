@@ -31,7 +31,7 @@ puts `Welcome to Converter!`
 ```
 
 A method allows us to reuse that same snippet of code. We define a method using the keyword `def`, followed by the name of the method, some set of instructions, followed by the keyword `end`
-No assume that we want to make it so that we can reuse this code. We could define a method `print_welcome` that would allow us to print this statement many times.
+Now assume that we want to make it so that we can reuse this code. We could define a method `print_welcome` that would allow us to print this statement many times.
 
 ```ruby
 # converter.rb
@@ -244,7 +244,7 @@ converter.convert(32, 35, 100)
 converter.convert(12, 45, 65)
 ```
 
-Notice that when wrap these methods in a class we need to create a new **instance** of the class on which to call these methods. We sometimes say that the instance is the **receiver**, that we're sending messages to it, and that it is responding to those messages.
+Notice that when we wrap these methods in a class we need to create a new **instance** of the class on which to call these methods. We sometimes say that the instance is the **receiver**, that we're sending messages to it, and that it is responding to those messages.
 
 With your partner, wrap your existing methods in a `Doubler` class and adjust your code so that the output when you run `ruby doubler.rb` is the same as it was before.
 
