@@ -13,6 +13,10 @@ After this lesson, students should be able to:
 -  Configure global .gitignore files  
 -  Personalize Slack profiles with GitHub information  
 
+## Warm Up  
+* Has anyone heard of git before?  Thumbs Up/Down have you used it all durin pre-work?  
+* What do you know about GitHub? How have you used it so far?  
+
 ## Introduction to Git
 
 ### What is Git?
@@ -230,4 +234,9 @@ If you've verified the above is complete, please work through the following:
 
 -   Customize your Slack profile (name and/or profile picture help your team identify you)
 -   Add your GitHub username/profile link to your Slack profile
--   Customize your terminal - colors/themes, default directory, aliases, etc.
+-   Customize your terminal - colors/themes, default directory, aliases, etc.  
+
+## Wrap Up  
+* What is git? Why do we use it?  
+* What is GitHub? Why is it helpful?  
+* What types of things go in a .gitignore?  
