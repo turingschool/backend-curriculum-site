@@ -14,7 +14,7 @@ After this lesson, students should be able to:
 -  Personalize Slack profiles with GitHub information  
 
 ## Warm Up  
-* Has anyone heard of git before?  Thumbs Up/Down have you used it all durin pre-work?  
+* Has anyone heard of git before?  Thumbs Up/Down have you used it all during pre-work?  
 * What do you know about GitHub? How have you used it so far?  
 
 ## Introduction to Git
