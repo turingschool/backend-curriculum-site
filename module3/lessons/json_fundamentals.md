@@ -7,6 +7,9 @@ status: draft
 
 ## Learning Goals
 
+
+![SAD JSON](https://s-media-cache-ak0.pinimg.com/originals/32/7b/89/327b89ed22ccd2f75dfb9dd1241d830a.jpg)
+
 * Understand what makes a valid JSON data structure
 * Learn how to parse and create JSON in Ruby and JavaScript
 * Compare JSON to XML and discuss its advantages and disadvantages
