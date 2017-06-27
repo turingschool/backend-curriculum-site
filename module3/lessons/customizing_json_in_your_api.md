@@ -187,6 +187,8 @@ JSON responses should contain the following keys from the following endpoints:
 
 ## Using ActiveModel Serializers to modify `as_json`
 
+![Cereal JASON](https://s-media-cache-ak0.pinimg.com/originals/5d/87/7e/5d877ee8747db10896b3ea8bd41f14b7.jpg)
+
 [Active Model Serializer Docs][am_serializer_guide]
 
 [am_serializer_guide]: https://github.com/rails-api/active_model_serializers/tree/master/docs
@@ -255,6 +257,8 @@ Do what I did to `Order`, but on `Item` now.
   - `orders`
 
 ## Using jbuilder to build JSON views
+
+![Builder JASON](https://s-media-cache-ak0.pinimg.com/736x/6f/66/04/6f6604ef438db98480436046ebf61191--jason-voorhees-horror-movies.jpg)
 
 [jbuilder docs][jbuilder_readme]
 
