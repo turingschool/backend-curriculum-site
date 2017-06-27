@@ -13,6 +13,8 @@ In this project you'll use Ruby on Rails to build an online commerce platform to
 * Design a system of models which use one-to-one, one-to-many, and many-to-many relationships
 * Practice mixing HTML, CSS, and templates to create an inviting and usable User Interface
 * Differentiate responsibilities between components of the Rails stack
+* Write an articulate README documenting features and functionalities of application
+* Deploy an application to Heroku
 * Build a logical user-flow that moves across multiple controllers and models
 * Practice an agile workflow and improve communication skills working within a team
 
@@ -24,12 +26,10 @@ Project implementation may **not** use:
 
 ### Getting Started
 
-1. Fork and fill out [expectations gist](https://gist.github.com/Carmer/85b9e0569af607d14f6e14b696b5e131) with your team. 
-1. One team member creates a repository with the name of your online ordering platform
-2. Add the other team members and your instructor(s) as collaborators
-3. Add your project to Waffle.io
-4. Configure [Hound](https://houndci.com/) for style guide violations
-5. Use [waffle.io](http://waffle.io) to write and track user stories
+1. Fork and fill out [expectations gist](https://gist.github.com/Carmer/85b9e0569af607d14f6e14b696b5e131) with your team.
+2. One team member creates a repository with the name of your online ordering platform
+3. Add the other team members and your instructor(s) as collaborators
+4. Add your project to [waffle.io](http://waffle.io) to write and track user stories
 
 ## Base Expectations
 
@@ -69,10 +69,10 @@ following criteria:
 
 ### 1. Feature Completeness
 
-* 4: All features are correctly implemented along with two extensions
-* 3: All features defined in the assignment are correctly implemented
-* 2: There are one or two features missing or incorrectly implemented
-* 1: There are bugs/crashes in the features present
+* 4: All features are correctly implemented along with two extensions and project is depoyed
+* 3: All features defined in the assignment are correctly implemented and project is deployed
+* 2: There are one or two features missing or incorrectly implemented and/or project is not fully deployed
+* 1: There are bugs/crashes in the features present and/or project is not deployed
 
 ### 2. Views
 

@@ -57,13 +57,11 @@ If you or your group finish early, browse [these "awesome" READMEs and see if th
 
 ## Group Share (12 min)
 
-Let's bring our findings together through group discussion and posting findings on the white board. 
+Let's bring our findings together through group discussion and post findings on the white board.
 
 ## Practice (15 min)
 
-It's time to put it into practice. Get together with your pair for Quantified Self. Draft an amazing README, even if it includes features/descriptions you haven't yet built but will have when the project is delivered.
-
-If you feel that your Quantified Self README is already amazing, look back at a previous project and improve that README.
+It's time to put it into practice. Get together with your group for Little Shop. Draft an amazing README, even if it includes features/descriptions you haven't yet built, but will have when the project is delivered.
 
 ## Closing (3 min)
 
