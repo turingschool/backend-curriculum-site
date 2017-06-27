@@ -70,7 +70,7 @@ Weeks 4&5 will be spent working on your capstone projects.
 *   [Accessibility Best Practices](./lessons/accessibility_best_practices)
 *   [Documenting for Collaboration](./lessons/archive/how_to_write_a_great_readme)
 *   [Agile and Other Buzzwords](./lessons/agile_and_other_buzzwords)
-*   [Application Coordination with Message Queues](./lessons/application_coordination_with_message_queues) - Optional
+*   [Application Coordination with Message Queues](./lessons/application_coordination_with_message_queues) 
 *   [Professional Code Environments](./lessons/professional_code_environments)
 *   [Basics of Security](./lessons/web_application_security)
 *   Capstone Project Retro and Check-In
