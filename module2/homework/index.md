@@ -10,7 +10,7 @@ subheading: Homework
   * Finding CSS/HTML challenging still? Checkout out this [tutorial](https://github.com/turingschool-examples/introductory-static-site)
   * Reverse-engineer one of your favorite websites to practice your HTML/CSS skills.
   * [CSS Zen Garden](http://www.csszengarden.com/)
-  * Experiment with [Bootstrap](http://getbootstrap.com/).
+  * Keep experimenting with [Bootstrap](http://getbootstrap.com/).
 
 
 ##### Day 1
@@ -42,10 +42,9 @@ subheading: Homework
 
 ##### Day 5 & Weekend
   * Answer the Module 2/Week One Recap [questions](https://github.com/turingschool/checks-for-understanding/blob/master/module-2/backend/week_one.md).
-  * Sign up for a [lightning talk](https://docs.google.com/spreadsheets/d/19UlqHwvL1eVLreQsUAgyS1v-E2fIushx82OJafwnL5s/edit#gid=0)
+  * Sign up for a [lightning talk](https://docs.google.com/spreadsheets/d/16EeEfxJZ9-dxQdPmfZyh3GVuvIh1lD9Hr3qgFjdmToA/edit?usp=sharing)
     * [Lighting Talk Topics](../lighting_talk_topic_ideas.md)
-  * Write your first feature tests from today's lesson on your Horse repo, push that branch to github, make a pull request and tag Mike (@mike), Lauren (@laurenfazah), and Rachel (@rachel) to review the tests.
-  * As you write your first tests for Bike Share, make a pull request, tag Mike, Lauren, and Rachel to review the tests.
+  * As you write your first tests for Bike Share, make a pull request and tag your instructors to review the tests.
   * [Watch Sharif Ramadan's intro to 1NF, 2NF and 3NF databases. They're only about 4 minutes each.](https://www.youtube.com/watch?v=K7vzLrGCV50&list=PLQ9AAKW8HuJ5m0rmHKL88ZyjOIKejvrj0)
   * Suggested:
     * Read the [Learn SQL the Hard Way](http://sql.learncodethehardway.org/book/) book.
@@ -109,19 +108,23 @@ subheading: Homework
 ##### Day 2
 
 * Finish and review authentication workshop.
-* If you have time, spike your authentication repo and do it all over again.
+* If you have time, `rm -rf` your authentication repo and do it all over again.
 
 ##### Day 3
 
+* Work on Rails MiniProject
 * Extension: Experimenting with APIs: Work through [this tutorial and workshop](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/exploring_apis.markdown) which will prepare you for extensions in your Rails Mini-Project and Little Shop.
 * Finish the Authenication/Authorization Workshop.
 
 ##### Day 4
-* Write a technical blog post (post it on your personal blog or medium)
-* Watch [this](https://vimeo.com/135210007) video in preparation for Tuesday. ProTip: Watch a tutorial on 1.5 speed (top left of the video)
+* Work on Rails MiniProject
+* Write a technical blog post (post it on your personal blog or Medium)
+* Watch [this](https://vimeo.com/135210007) video in preparation for Tuesday. ProTip: Watch on 1.5x speed (top left of the video)
+
+##### Day 5
+* Work on Rails MiniProject
 
 ## Week 5
-* Work on Rails MiniProject
 
 ##### Day 1
   * [Little Shop](https://github.com/turingschool/curriculum/blob/master/source/projects/little_shop.markdown)
