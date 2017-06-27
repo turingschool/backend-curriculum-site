@@ -13,6 +13,10 @@ tags: ruby, methods
 * Define methods that do not take arguments
 * Define a class with instance methods
 
+## Slides
+
+Available [here](../slides/intro_to_methods)
+
 ## Warmup
 
 * What do you know about methods from your prework?
@@ -27,7 +31,7 @@ Assume that we want to create a simple program to convert Fahrenheit to Celsius.
 
 ```ruby
 # converter.rb
-puts `Welcome to Converter!`
+puts 'Welcome to Converter!'
 ```
 
 A method allows us to reuse that same snippet of code. We define a method using the keyword `def`, followed by the name of the method, some set of instructions, followed by the keyword `end`
@@ -158,10 +162,7 @@ print_converted(35)
 print_converted(100)
 ```
 
-With a partner, add two methods in your `doubler.rb` file:
-
-1. `double` which accepts an argument and returns its double, and.
-1. `print_double` which accepts an argument and prints a phrase in the form `3 doubled is 6`
+With a partner, add another method to your `doubler.rb` file `print_double` which accepts an argument and prints a phrase in the form `3 doubled is 6`
 
 Once you've completed that, see if you can determine what the `print_converted` or your `print_double` method **returns**. Why might that be?
 
@@ -254,3 +255,4 @@ With your partner, wrap your existing methods in a `Doubler` class and adjust yo
 * What is the difference in how we define a method that takes arguments from one that does not?
 * Why do we use methods?
 * How do we define a simple class in Ruby?
+
