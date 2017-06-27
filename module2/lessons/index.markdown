@@ -58,6 +58,7 @@ title: Module 2 Scope and Sequence
 
 ## Week 5
 
+* [How to Write a Great README](how_to_write_a_great_readme)
 * [Cart & Order Lifecycles](cart_implementation)
 * [Little Shop of Orders Kickoff](http://backend.turing.io/module2/projects/little_shop)
 * [Intro to the Asset Pipeline](intro_to_the_asset_pipeline)
