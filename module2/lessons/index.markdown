@@ -15,7 +15,6 @@ title: Module 2 Scope and Sequence
 * [Intro to ActiveRecord with Sinatra](intro_to_active_record_in_sinatra)
 * [Model Testing in Sinatra](model_testing_in_sinatra_with_horses)
 * [Intro to Project Management](intro_to_project_management)
-* Collaborative Communication
 * [BikeShare Kickoff](https://github.com/turingschool/bike-share)
 * [Feature Testing](feature_testing_in_sinatra_with_horses)
 
@@ -23,10 +22,7 @@ title: Module 2 Scope and Sequence
 
 ## Week 2
 
-* Week 1 Review and Q&A
-* Bike Share Checkins
 * [ActiveRecord Associations](activerecord_associations)
-* Feedback II
 * [Rails Exploration](https://github.com/turingschool/ruby-submissions/blob/master/1701-b/2module/exploration/sinatra_v_rails.markdown)
 * [REST, Controllers, and Routing in Rails](rest_routing_and_controllers_in_rails)
 * [Migrations and Relationships in Rails](models_migrations_databases)
@@ -41,7 +37,6 @@ title: Module 2 Scope and Sequence
 * Forms in Rails
   * [Form Helpers](form_helpers_rails)
   * [BookShelf](forms_primer)
-* Crucial Conversations
 * [Mix Master Kick-off](http://backend.turing.io/module2/projects/mix_master/1_getting_started)
 * [SQL Practice](sql)
 * [Nested Routes](advanced_routing_rails)
@@ -54,7 +49,6 @@ title: Module 2 Scope and Sequence
 
 ## Week 4
 
-* Mid-Module Assessments
 * [Sessions, Cookies, and Flashes](sessions_cookies_flashes)
 * [Authentication](authentication)
 * [Authorization](authorization-in-rails)
@@ -64,8 +58,6 @@ title: Module 2 Scope and Sequence
 
 ## Week 5
 
-* [Rails Mini-Project Peer extension and review exercise](mini-project-gem-implementation)
-* Mini-Project Demos
 * [Cart & Order Lifecycles](cart_implementation)
 * [Little Shop of Orders Kickoff](http://backend.turing.io/module2/projects/little_shop)
 * [Intro to the Asset Pipeline](intro_to_the_asset_pipeline)
@@ -76,8 +68,3 @@ title: Module 2 Scope and Sequence
 ## Week 6
 
 * [HTML/CSS Best Practices](html_css_best_practices)
-* Little Shop of Orders Work Time
-* Portfolio Worktime
-* Module 2 Assessments
-* Little Shop of Orders Evaluations
-* Portfolio Reviews
