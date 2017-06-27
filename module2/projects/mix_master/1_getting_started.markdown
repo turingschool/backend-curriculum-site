@@ -47,23 +47,18 @@ Check that you have Rails installed. From your terminal, type:
 
 ```
 $ rails -v
-Rails 4.2.6
+Rails 5.1.1
 ```
-
-This tutorial is written using Rails 4.2.6, but it should be applicable to any similar version (including 5+).
-
-You can install a new version of Rails using the following command:
 
 Create a new Rails project:
 
 ```
-$ rails new mix_master -d postgresql --skip-turbolinks --skip-spring -T
+$ rails new mix_master -d postgresql -T
 ```
 
 What do these things do?
 
 * `-d postgresql` will give us a Rails project that already has Postgresql configured
-* `--skip-turbolinks` and `--skip-spring` will generate a project without turbolinks and spring, both of which can cause some annoying behavior
 * `-T` will not create MiniTest files for you by default (MiniTest comes with Rails by default)
 
 ### Using RSpec in Rails
@@ -100,7 +95,7 @@ This created a [`.rspec` file](https://www.relishapp.com/rspec/rspec-core/v/2-0/
 
 ### Git Setup
 
-Initialize your project as a Git repository. If you're on Rails 5, it likely already did this for you.
+Make sure your project is git initialized. If you're on Rails 5+, this should be done automatically for you. If not:
 
 ```
 $ git init
@@ -110,7 +105,7 @@ Then add and commit:
 
 ```
 $ git add .
-$ git commit -m 'initial commit'
+$ git commit -m 'Initial commit.'
 ```
 
 ### Shipping to Heroku

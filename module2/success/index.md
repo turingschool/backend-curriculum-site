@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Module 2 Sucess
+title: Module 2 Success
 ---
 
 ## Graduation Requirements

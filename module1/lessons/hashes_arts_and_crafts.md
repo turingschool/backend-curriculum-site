@@ -33,7 +33,7 @@ You'll need these supplies:
 1. 1 Black Velvet Bag
 2. 5 Beads
 3. 6 Bead Labels  
-   You'll need the following labels: pink, white, brown, red, yellow, warm
+   You'll need the following labels: blue, green, purple, red, orange, warm  
 
 ### Intro - Hash Properties
 
@@ -62,17 +62,17 @@ Follow along with the instructor as you walk through the following operations:
 
 1. Create a new hash `data = {}` or 'data = Hash.new`
    * Write data on your paper, this is your variable assigned to the hash we are making. Put your bag on your paper, this is your hash.  
-2. Assign the key `pink`: `data["pink"] = Bead.new`
-   * Using your pink tag, attach it to a bead. Put the bead into the bag leaving the pink tag/key hanging out.   
-3. Read the value: `data["pink"]`
-   * Pull the 'pink' tag. Pink is your key, bead is your value.
-4. Store a second pair: `data["white"] = Bead.new`
-   * Using your "white" tag, attach it to a bead. Put the bead into your hash/bag, leaving they key/tag hanging out.
-5. Reuse a key: `data["pink"] = Bead.new`
-   * Change what kind of pink bead you want. Take the pink tag off and re-attach it to a new bead.   
-   * Note in IRB that the object ID is different for the first pink bead and the second pink bead.   
-6. Create a key for nothing: `data["brown"] = nil`
-   * Hang a brown tag/key from your bag/hash, with no bead attached. 
+2. Assign the key `blue`: `data["blue"] = Bead.new`
+   * Using your blue tag, attach it to a bead. Put the bead into the bag leaving the blue tag/key hanging out.   
+3. Read the value: `data["blue"]`
+   * Pull the 'blue' tag. Blue is your key, bead is your value.
+4. Store a second pair: `data["green"] = Bead.new`
+   * Using your "green" tag, attach it to a bead. Put the bead into your hash/bag, leaving they key/tag hanging out.
+5. Reuse a key: `data["blue"] = Bead.new`
+   * Change what kind of blue bead you want. Take the blue tag off and re-attach it to a new bead.   
+   * Note in IRB that the object ID is different for the first blue bead and the second blue bead.   
+6. Create a key for nothing: `data["purple"] = nil`
+   * Hang a purple tag/key from your bag/hash, with no bead attached. 
 7. Retrieving a list of `keys` from the hash: I can see what is in my bag/hash by calling data, it returns the whole hash.
    * Grab all the tags, pull them all out
 8. What if I want to do something with my keys, maybe I just want to see what keys are there. Use data.keys, note it returns an array of your keys. 
@@ -80,8 +80,8 @@ Follow along with the instructor as you walk through the following operations:
 8. Retrieving a list of `values` from the hash.  data.values
    * Returns just the values, as an array - looking in the bag? 
 9. Get a little weird: We said you can have any object type as a value, perhaps an array - `data["red"] = [Bead.new, Bead.new]` perhaps a collection of all my red beads. 
-10. Get more weird: You can also have a hash as a value (nested hashes) `data["warm"] = {"yellow" => Bead.new, "red" => Bead.new}`  
-    * This would be if you have a tag/key that is attached to your neighbor's hash/bag which had a yellow and red bead in it.
+10. Get more weird: You can also have a hash as a value (nested hashes) `data["warm"] = {"orange" => Bead.new, "red" => Bead.new}`  
+    * This would be if you have a tag/key that is attached to your neighbor's hash/bag which had a orange and red bead in it.
 11. Consider the key `"red"` and how it does and doesn't exist twice. What is different about the ways I need to access each of these reds?
 12. Mess up your brain: `data["spinning top"] = data`
 
