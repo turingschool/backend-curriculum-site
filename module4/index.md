@@ -33,7 +33,7 @@ Weeks 4&5 will be spent working on your capstone projects.
 *   State of Turing
 *   [Introduction to Professional Workflow](./lessons/intro_to_professional_workflow)
 *   Mod 4 Kickoff and Norming
-*   [Intermission Retro](./lessons/intermission-retro)
+*   [Weekly Challenge List](./homework/week-one-challenges)
 *   [Advanced JS Fundamentals](./lessons/advanced-js-fundamentals)
 *   Project Kickoff: Quantified Self
 *   [Fundamentals of Express](./lessons/building_and_testing_with_express)
