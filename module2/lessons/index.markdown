@@ -11,7 +11,11 @@ title: Module 2 Scope and Sequence
 * [Rails Mini-Project](http://backend.turing.io/module2/projects/mini-project)
 * [Little Shop of Orders](http://backend.turing.io/module2/projects/little_shop)
 
-## Week 1
+-------
+
+## Lessons
+
+### Week 1
 
 * [Intro to Sinatra](introduction_to_sinatra)
 * [HTML/CSS Basics](http://backend.turing.io/module2/slides/html_css_basics/html_css_basics)
@@ -28,7 +32,7 @@ title: Module 2 Scope and Sequence
 
 -------
 
-## Week 2
+### Week 2
 
 * [ActiveRecord Associations](activerecord_associations)
 * [Rails Exploration](https://github.com/turingschool/ruby-submissions/blob/master/1701-b/2module/exploration/sinatra_v_rails.markdown)
@@ -37,7 +41,7 @@ title: Module 2 Scope and Sequence
 
 -------
 
-## Week 3
+### Week 3
 
 * [Rails Basics Challenge](models_databases_relationships_routes_controllers_oh_my)
 * [Route Helpers](route_helpers)
@@ -52,7 +56,7 @@ title: Module 2 Scope and Sequence
 
 -------
 
-## Week 4
+### Week 4
 
 * [Sessions, Cookies, and Flashes](sessions_cookies_flashes)
 * [Authentication](authentication)
@@ -60,7 +64,7 @@ title: Module 2 Scope and Sequence
 
 -------
 
-## Week 5
+### Week 5
 
 * [How to Write a Great README](how_to_write_a_great_readme)
 * [Cart & Order Lifecycles](cart_implementation)
@@ -70,6 +74,6 @@ title: Module 2 Scope and Sequence
 
 -------
 
-## Week 6
+### Week 6
 
 * [HTML/CSS Best Practices](html_css_best_practices)
