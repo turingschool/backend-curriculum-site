@@ -1,13 +1,13 @@
 ---
 title: Visualising and Implementing Database Relationships
-length: 120
+length: 90
 tags: database, schema, relationships
 ---
 
 ## Goals
 
 * Define foreign key, primary key, schema
-* Define one to many and many to many relationships
+* Define one-to-many and many-to-many relationships
 * Describe the relationship between a foreign key on one table and a primary key on another table.
 * Use a schema designer to outline attributes of tables
 * Diagram a one-to-many relationship
@@ -15,9 +15,9 @@ tags: database, schema, relationships
 
 ### Warm-Up
 
-In our recent client meeting, our client decided their users should be able to organize their tasks by marking them with categories (we'll call these categories tags). Based on our conversation, we've decided:
+In our recent Task Manager client meeting, our client decided their users should be able to organize their tasks by marking them with labels. Based on our conversation, we've decided:
 
-     Users should have tasks. Tasks should have tags.
+     Users should have tasks. Tasks should have labels.
 
 Right now, our database only supports tasks. Take a minute to consider what changes we would need to make to our database in order to support the features requested by our client.
 
@@ -38,19 +38,17 @@ Right now, our database only supports tasks. Take a minute to consider what chan
 
 ### Exercise: Car Dealership
 
-A car dealership has many cars - diagram this relationship using a schema designer.
-
-### CFU
-
-* Let's diagram the relationship between menus and items together.
+A car dealership has many cars - diagram this relationship using the schema designer.
 
 ### Many-to-Many Relationships
 
 Many-to-many is a little harder than one-to-many.
 
-Imagine if we wanted to also tag all of our tasks that we've created. Tags can belong to many tasks, while at the same time, a task can have many tags. They way we are able to implement this relationship through a join table.
+Imagine if we wanted to also label all of our tasks that we've created. Labels can belong to many tasks, while at the same time, a task can have many labels. We can implement this relationship by using a **join table**.
 
-Let's diagram the tags and tasks relationship using the schema designer.
+_**Note:** Join tables are just ordinary tables with a unique purpose._
+
+Let's diagram the tasks and labels relationship using the schema designer.
 
 ### Exercise: Students and Courses
 
@@ -58,8 +56,10 @@ Diagram the many-to-many relationship between students and courses.
 
 ### Closing
 
-Let's revist our learning goals. Take a few minutes to define/describe/diagram the following:
+Let's revist our learning goals by answering the following:
 
-* Define foreign key, primary key, schema
-* Define one-to-many and many-to-many relationships
+* What is a primary key?
+* What is a foreign key?
+* What is a schema?
+* How does a one-to-many relationship differ from a many-to-many relationship?
 * Describe the relationship between a foreign key on one table and a primary key on another table.
