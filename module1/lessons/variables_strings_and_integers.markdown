@@ -43,7 +43,7 @@ There are several different types of objects in Ruby. Today, we'll focus on Stri
 
 Programming is all about creating abstractions, and in order to create an abstraction we must be able to assign names to things. Variables are a way of creating a name for a piece of data.
 
-In some languages you need to specify what type of data (like a number, word, etc) can go in a certain variable, referred to as Strongly Typed. Ruby, however, has a Flexible Type system where any variable can hold any kind of data. Additionally, some languages require you to "declare" a variable before you assign a value to it. Ruby variables are automatically created when you assign a value to them. Let’s try an example:
+In some languages you need to specify what type of data (like a number, word, etc) can go in a certain variable, referred to as Staticaly Typed. Ruby, however, has a Dynamic Type system where any variable can hold any kind of data. Additionally, some languages require you to "declare" a variable before you assign a value to it. Ruby variables are automatically created when you assign a value to them. Let’s try an example:
 
 ```ruby
 num = 10
