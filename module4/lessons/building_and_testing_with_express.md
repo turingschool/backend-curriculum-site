@@ -46,7 +46,7 @@ Most of the Express code that you write will be routing middleware. Middleware i
 Let's pick apart the structure of how we define an Express route:
 
 ```javascript
-app.get('/', function (request, response) {
+app.get('/', function(request, response) {
   response.send('Hello World!')
 })
 ```
@@ -80,17 +80,17 @@ We'll get a basic server running using some code I stole from [the Express docum
 
 ```js
 // server.js
-const express = require('express')
-const app = express()
+var express = require('express')
+var app = express()
 
 app.set('port', process.env.PORT || 3000)
 app.locals.title = 'Secret Box'
 
-app.get('/', (request, response) => {
+app.get('/', function(request, response) {
   response.send('It\'s a secret to everyone.')
 })
 
-app.listen(app.get('port'), () => {
+app.listen(app.get('port'), function() {
   console.log(`${app.locals.title} is running on ${app.get('port')}.`)
 })
 ```
@@ -109,7 +109,7 @@ What we need to do is to add some introspection and see if our application is be
 
 ```js
 if (!module.parent) {
-  app.listen(app.get('port'), () => {
+  app.listen(app.get('port'), function() {
     console.log(`${app.locals.title} is running on ${app.get('port')}.`);
   });
 }
@@ -144,19 +144,19 @@ We'll go ahead and use Chai as our assertion library - let's not forget to add i
 
 ```js
 // test/server-test.js
-const assert = require('chai').assert;
-const app = require('../server');
+var assert = require('chai').assert;
+var app = require('../server');
 ```
 
 Just to keep our spirits up, let's start with the simplest possible test.
 
 ```js
-const assert = require('chai').assert;
-const app = require('../server');
+var assert = require('chai').assert;
+var app = require('../server');
 
-describe('Server', () => {
+describe('Server', function() {
 
-  it('should exist', () => {
+  it('should exist', function() {
     assert(app);
   });
 
@@ -166,15 +166,15 @@ describe('Server', () => {
 Now, we'll want to start our server up before we run our tests. I don't want to worry about my testing version trying to use the same port as my development server. So, I'll pick another port that makes me happy. (You might also consider reading a port from a environment variable or passing one in as a command line argument. I decided not to in the name of not adding too much complexity to this tutorial.)
 
 ```js
-before(done => {
+before(function(done) {
   this.port = 9876;
-  this.server = app.listen(this.port, (err, result) => {
+  this.server = app.listen(this.port, function(err, result) {
     if (err) { return done(err); }
     done();
   });
 });
 
-after(() => {
+after(function() {
   this.server.close();
 });
 ```
@@ -202,7 +202,7 @@ We're saving it to our development dependencies but you could also use Request t
 In `test/server-test.js`, we'll require Request.
 
 ```js
-const request = require('request');
+var request = require('request');
 ```
 
 Alright, we've set everything up. Now, we can write our first test. Our app is pretty simple. So, let's start by making sure that we have a `/` endpoint and that it returns a 200 response.
@@ -210,29 +210,29 @@ Alright, we've set everything up. Now, we can write our first test. Our app is p
 Nested in our `describe('Server')` section, we'll add a `describe('GET /')` section as well. Our test suite will look something like this:
 
 ```js
-const assert = require('assert');
-const request = require('request');
-const app = require('../server');
+var assert = require('assert');
+var request = require('request');
+var app = require('../server');
 
-describe('Server', () => {
+describe('Server', function() {
 
-  before((done) => {
+  before(function(done) {
     this.port = 9876;
-    this.server = app.listen(this.port, (err, result) => {
+    this.server = app.listen(this.port, function(err, result) {
       if (err) { return done(err); }
       done();
     });
   });
 
-  after(() => {
+  after(function() {
     this.server.close();
   });
 
-  it('should exist', () => {
+  it('should exist', function() {
     assert(app);
   });
 
-  describe('GET /', () => {
+  describe('GET /', function() {
     // Our tests will go here.
   });
 
@@ -242,8 +242,8 @@ describe('Server', () => {
 Now, we'll write a test that will send a request to the `/` endpoint on our server and verify that we did in fact receive a 200.
 
 ```js
-it('should return a 200', (done) => {
-  request.get('http://localhost:9876', (error, response) => {
+it('should return a 200', function(done) {
+  request.get('http://localhost:9876', function(error, response) {
     assert.equal(response.statusCode, 200);
     done();
   });
@@ -253,8 +253,8 @@ it('should return a 200', (done) => {
 Again, it's a Node convention to pass any errors as the first argument—and Request is going to go ahead and follow that convention. We can improve the quality of the error messages we get from our test suite if we catch that error.
 
 ```js
-it('should return a 200', (done) => {
-  request.get('http://localhost:9876', (error, response) => {
+it('should return a 200', function(done) {
+  request.get('http://localhost:9876', function(error, response) {
     if (error) { done(error); }
     assert.equal(response.statusCode, 200);
     done();
@@ -275,10 +275,10 @@ Request allows us to set defaults. `request.defaults()` will return a wrapped ve
 In this suite, we're always going to be hitting our test server. So, let's set those as defaults in the `before` hook.
 
 ```js
-before((done) => {
+before(function(done) {
   this.port = 9876;
 
-  this.server = app.listen(this.port, (err, result) => {
+  this.server = app.listen(this.port, function(err, result) {
     if (err) { return done(err); }
     done();
   });
@@ -317,10 +317,10 @@ Right now, our `/` endpoint just says "It's a secret to everyone". That's neat. 
 Our test will look something like this:
 
 ```js
-it('should have a body with the name of the application', (done) => {
+it('should have a body with the name of the application', function(done) {
   var title = app.locals.title;
 
-  this.request.get('/', (error, response) => {
+  this.request.get('/', function(error, response) {
     if (error) { done(error); }
     assert(response.body.includes(title),
            `"${response.body}" does not include "${title}".`);
@@ -346,7 +346,7 @@ If we run the test, we'll see that it fails. Our error message should look somet
 So, let's go ahead and make this test pass. We'll modify `server.js` to respond with the name of the application instead of "Hello World!".
 
 ```js
-app.get('/', (request, response) => {
+app.get('/', function(request, response) {
   response.send(app.locals.title);
 });
 ```
@@ -360,7 +360,7 @@ When we go to view a tweet or a user, we do something special with the URL to id
 Consider the following:
 
 ```js
-app.get('/api/secrets/:id', (request, response) => {
+app.get('/api/secrets/:id', function(request, response) {
   response.json({
     id: request.params.id
   })
@@ -393,9 +393,9 @@ app.locals.secrets = {
 Here is the feature we want to implement: when a user has the correct secret, we want to show them message associated with that `id`.
 
 ```js
-app.get('/api/secrets/:id', (request, response) => {
-  const id = request.params.id
-  const message = app.locals.secrets[id]
+app.get('/api/secrets/:id', function(request, response) {
+  var id = request.params.id
+  var message = app.locals.secrets[id]
   response.json({ id, message })
 })
 ```
@@ -403,9 +403,9 @@ app.get('/api/secrets/:id', (request, response) => {
 Let's go ahead and take this for a spin. It kind of works. If they give us the right `id`, they'll get the message. But they don't get an error if they give us an invalid `id`. It would be preferable to send them a 404 status code, which let's the browser now that the resource was not found.
 
 ```js
-app.get('/api/secrets/:id', (request, response) => {
-  const id = request.params.id
-  const message = app.locals.secrets[id]
+app.get('/api/secrets/:id', function(request, response) {
+  var id = request.params.id
+  var message = app.locals.secrets[id]
 
   if (!message) { return response.sendStatus(404)  }
 
@@ -418,14 +418,14 @@ It appears we're successfully making this work - let's add a test though to ensu
 First, we'll verify that it returns a 404 when we ask for a secret that doesn't exist.
 
 ```js
-describe('GET /api/secrets/:id', () => {
-  beforeEach(() => {
+describe('GET /api/secrets/:id', function() {
+  beforeEach(function() {
     app.locals.secrets = {
       wowowow: 'I am a banana'
     }
   })
-  it('should return a 404 if the resource is not found', (done) => {
-    this.request.get('/api/secrets/bahaha', (error, response) => {
+  it('should return a 404 if the resource is not found', function(done) {
+    this.request.get('/api/secrets/bahaha', function(error, response) {
       if (error) { done(error) }
       assert.equal(response.statusCode, 404)
       done()
@@ -438,11 +438,11 @@ describe('GET /api/secrets/:id', () => {
 Next, let's verify that we're returning the correct data. 
 
 ```js
-it('should have the id and message from the resource', (done) => {
-  const id = 'wowowow'
-  const message = app.locals.secrets['wowowow'];
+it('should have the id and message from the resource', function(done) {
+  var id = 'wowowow'
+  var message = app.locals.secrets['wowowow'];
 
-  this.request.get('/api/secrets/wowowow', (error, response) => {
+  this.request.get('/api/secrets/wowowow', function(error, response) {
     if (error) { done(error); }
     assert(response.body.includes(id),
            `"${response.body}" does not include "${id}".`);
@@ -469,7 +469,7 @@ npm i body-parser --save
 We'll also need to require and use it in our `server.js`.
 
 ```js
-const bodyParser = require('body-parser')
+var bodyParser = require('body-parser')
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -480,9 +480,9 @@ This will add in support for parsing JSON as well as HTML forms. If you only nee
 Here is what my server looks like so far.
 
 ```js
-const express = require('express')
-const app = express()
-const bodyParser = require('body-parser')
+var express = require('express')
+var app = express()
+var bodyParser = require('body-parser')
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -493,27 +493,27 @@ app.locals.secrets = {
   wowowow: 'I am a banana'
 }
 
-app.get('/', (request, response) => {
+app.get('/', function(request, response) {
   response.send(app.locals.title)
 })
 
-app.get('/api/secrets', (request, response) => {
-  const secrets = app.locals.secrets
+app.get('/api/secrets', function(request, response) {
+  var secrets = app.locals.secrets
 
   response.json({ secrets })
 })
 
 
-app.get('/api/secrets/:id', (request, response) => {
-  const id = request.params.id
-  const message = app.locals.secrets[id]
+app.get('/api/secrets/:id', function(request, response) {
+  var id = request.params.id
+  var message = app.locals.secrets[id]
 
   if (!message) { return response.sendStatus(404)  }
 
   response.json({ id, message })
 })
 
-app.listen(app.get('port'), () => {
+app.listen(app.get('port'), function() {
   console.log(`${app.locals.title} is running on ${app.get('port')}.`)
 })
 ```
@@ -523,12 +523,12 @@ app.listen(app.get('port'), () => {
 Before we create a post route, let's write a test. We'll check to see that the post route exists.
 
 ```js
-  describe('POST /api/secrets', () => {
-    beforeEach(() => {
+  describe('POST /api/secrets', function() {
+    beforeEach(function() {
       app.locals.secrets = {}
     })
-    it('should not return 404', (done) => {
-      this.request.post('/api/secrets', (error, response) => {
+    it('should not return 404', function(done) {
+      this.request.post('/api/secrets', function(error, response) {
         if (error) { done(error) }
         assert.notEqual(response.statusCode, 404)
         done()
@@ -540,7 +540,7 @@ Before we create a post route, let's write a test. We'll check to see that the p
 Next, do as little as possible to make this test pass, which maybe something like the following:
 
 ```js
-app.post('/api/secrets', (request, response) => {
+app.post('/api/secrets', function(request, response) {
   response.status(201).end()
 })
 ```
@@ -548,30 +548,30 @@ app.post('/api/secrets', (request, response) => {
 Cool - our post method is defined. Let's write another test to build out the functionality we'd like. We want to send data to this post route and save it to our `app.locals.secrets` for now (eventually we'll save it to a database).
 
 ```js
-    it('should receive and store data', (done) => {
-      const message = {
-        message: 'I like pineapples!'
-      };
+it('should receive and store data', function(done) {
+  var message = {
+    message: 'I like pineapples!'
+  };
 
-      this.request.post('/api/secrets', { form: message }, (error, response) => {
-        if (error) { done(error); }
+  this.request.post('/api/secrets', { form: message }, function(error, response) {
+    if (error) { done(error); }
 
-        const secretCount  = Object.keys(app.locals.secrets).length;
+    var secretCount  = Object.keys(app.locals.secrets).length;
 
-        assert.equal(secretCount, 1, `Expected 1 secret, found ${secretCount}`);
+    assert.equal(secretCount, 1, `Expected 1 secret, found ${secretCount}`);
 
-        done();
-      });
-    });
+    done();
+  });
+});
 
 ```
 
 Next, we'll use our super secure method of generating random IDs.
 
 ```js
-app.post('/api/secrets', (request, response) => {
-  const id = Date.now()
-  const message = request.body.message
+app.post('/api/secrets', function(request, response) {
+  var id = Date.now()
+  var message = request.body.message
 
   app.locals.secrets[id] = message
 
@@ -597,9 +597,9 @@ Take a minute to look through some of the other available status codes that can 
 Status codes are especially important when handling errors for a request. Let's add some error handling to our previous example. We are going to assume that 'message' is a required property when submitting a new message, and we want to respond with an error if it's missing:
 
 ```js
-app.post('/api/secrets', (request, response) => {
-  const message = request.body.message
-  const id = Date.now()
+app.post('/api/secrets', function(request, response) {
+  var id = Date.now()
+  var message = request.body.message
 
   if (!message) {
     return response.status(422).send({
@@ -637,22 +637,22 @@ npm i md5 --save
 Now, in our `server.js`, we can require the module.
 
 ```js
-const md5 = require('md5')
+var md5 = require('md5')
 ```
 
 Finally, let's replace `Date.now()` in our `POST` action, we'll need to make sure `message` is defined before using `md5` though. 
 
 ```js
-app.post('/api/secrets', (request, response) => {
-  const message = request.body.message
-  const id = md5(message)
+app.post('/api/secrets', function(request, response) {
+  var message = request.body.message
+  var id = md5(message)
 
   if (!message) {
     return response.status(422).send({
       error: 'No message property provided'
     })
   } else {
-    const id = md5(message)
+    var id = md5(message)
     app.locals.secrets[id] = message
     response.status(201).json({ id, message })
 
