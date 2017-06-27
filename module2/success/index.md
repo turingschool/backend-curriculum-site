@@ -25,15 +25,20 @@ Write a minimum of 1 technical blog post about a topic of your choice and post i
 
 Students are expected to contribute during the Professional Development session and deliver deliverables from that session (see goals below).
 
+-------
+
 ## Skills and Topics
 
 ### Skill Proficiencies
 
-Academic success in Module 2 means that students demonstrate proficiency and comfort with the concepts below. The expected mastery level can be understood with the following scale:
+In addition to the above, academic success in Module 2 means that students demonstrate proficiency and comfort with the concepts below.
+The expected mastery level can be understood with the following scale:
 
 * **Mastery**: student is able to explain and implement the concept independently or with light reference
 * **Functional**: student recognizes when to use the concept and can implement it with the support of documentation and/or a collaborator
 * **Familiarity**: student can recognize and describe the concept when needed/appropriate, but is not able to implement the technology/technique
+
+-------
 
 #### MVC / Rails
 
@@ -62,6 +67,8 @@ Academic success in Module 2 means that students demonstrate proficiency and com
 - Be able to modify routes with `namespace`, `module`, `path`, `scope` (Functional)
 - Make smart use of route helpers (Mastery)
 
+-------
+
 #### HTTP
 
 - Diagram and explain the HTTP request/response cycle (Mastery)
@@ -70,6 +77,8 @@ Academic success in Module 2 means that students demonstrate proficiency and com
 - Understand application state and sessions (Mastery)
 - Make use of cookies and flash messages (Functional)
 
+-------
+
 #### HTML/CSS
 
 - Understand basic HTML tags/elements/nodes (Mastery)
@@ -77,10 +86,14 @@ Academic success in Module 2 means that students demonstrate proficiency and com
 - Build an application with a user-ready styled experience (Functional)
 - Craft wireframes (Mastery)
 
+-------
+
 #### Testing
 
 - Model testing with RSpec (Mastery)
 - Feature testing with RSpec / Capybara (Mastery)
+
+-------
 
 #### SQL / Database Planning
 
@@ -88,12 +101,16 @@ Academic success in Module 2 means that students demonstrate proficiency and com
 - Be able to design database schemas that represent relationships between resources (Mastery)
 - Articulately speak to one-to-one, one-to-many, many-to-many relationships (Mastery)
 
+-------
+
 #### ActiveRecord
 
 - Have deep understanding ActiveRecord query methods, including differences between `find` `find_by` and `where` (Mastery)
 - Understand how to CRUD resources with ActiveRecord (Mastery)
 - Create relationships between resources using ActiveRecord (Mastery)
 - Use ActiveRecord for model validations and callbacks (Functional)
+
+-------
 
 #### [Career Development](https://github.com/turingschool/career-development-curriculum/tree/master/module_two)
 
