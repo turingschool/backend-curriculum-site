@@ -20,6 +20,7 @@ layout: page
 ## Homework
 
 * [SuperFizz](../homework/super_fizz.md)
+* [Core Types, Enums Exercises, Mythical Creatures](https://github.com/turingschool/ruby-exercises/) (all in the subdirectories of this repository)
 
 ## Projects
 
