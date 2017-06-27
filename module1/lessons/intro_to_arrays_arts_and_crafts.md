@@ -34,8 +34,13 @@ Before we begin, collect the following Arts & Crafts supplies:
 
 Then take your five paper cups and use a marker to number them "0" through "4".
 
-## Together - Data Structures, Collections, and Programming
+## Warm Up
+* What is a "Data Structure"?  
+* Why are Arrays so ubiquitous?
+* What does an Array model conceptually?  
+* What are some of the properties of an array? How do they behave?  
 
+## Together - Data Structures, Collections, and Programming
 * What is a "Data Structure"?  
   A data structure is a particular way of organizing information so that it can be used efficiently
 * Why are Arrays so ubiquitous?
