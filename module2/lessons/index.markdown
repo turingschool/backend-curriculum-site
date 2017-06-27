@@ -2,6 +2,15 @@
 title: Module 2 Scope and Sequence
 ---
 
+## Projects
+
+* [BikeShare](https://github.com/turingschool/bike-share)
+* [Blogger Tutorial](http://backend.turing.io/module2/projects/blogger)
+* [Mix Master](http://backend.turing.io/module2/projects/mix_master/1_getting_started)
+* [Job Tracker Project](https://github.com/turingschool/job-tracker)
+* [Rails Mini-Project](http://backend.turing.io/module2/projects/mini-project)
+* [Little Shop of Orders](http://backend.turing.io/module2/projects/little_shop)
+
 ## Week 1
 
 * [Intro to Sinatra](introduction_to_sinatra)
@@ -15,7 +24,6 @@ title: Module 2 Scope and Sequence
 * [Intro to ActiveRecord with Sinatra](intro_to_active_record_in_sinatra)
 * [Model Testing in Sinatra](model_testing_in_sinatra_with_horses)
 * [Intro to Project Management](intro_to_project_management)
-* [BikeShare Kickoff](https://github.com/turingschool/bike-share)
 * [Feature Testing](feature_testing_in_sinatra_with_horses)
 
 -------
@@ -26,7 +34,6 @@ title: Module 2 Scope and Sequence
 * [Rails Exploration](https://github.com/turingschool/ruby-submissions/blob/master/1701-b/2module/exploration/sinatra_v_rails.markdown)
 * [REST, Controllers, and Routing in Rails](rest_routing_and_controllers_in_rails)
 * [Migrations and Relationships in Rails](models_migrations_databases)
-* [Blogger Tutorial](http://backend.turing.io/module2/projects/blogger)
 
 -------
 
@@ -37,13 +44,11 @@ title: Module 2 Scope and Sequence
 * Forms in Rails
   * [Form Helpers](form_helpers_rails)
   * [BookShelf](forms_primer)
-* [Mix Master Kick-off](http://backend.turing.io/module2/projects/mix_master/1_getting_started)
 * [SQL Practice](sql)
 * [Nested Routes](advanced_routing_rails)
 * [Factory Girl](factory_girl)
 * [MixMaster Q&A](http://backend.turing.io/module2/projects/mix_master/1_getting_started)
 * [Relationship Implementation and Exercises](https://github.com/turingschool-examples/relationship_practice_exercises)
-* [Job Tracker Project](https://github.com/turingschool/job-tracker)
 
 -------
 
@@ -52,7 +57,6 @@ title: Module 2 Scope and Sequence
 * [Sessions, Cookies, and Flashes](sessions_cookies_flashes)
 * [Authentication](authentication)
 * [Authorization](authorization-in-rails)
-* [Rails Mini-Project](http://backend.turing.io/module2/projects/mini-project)
 
 -------
 
@@ -60,8 +64,8 @@ title: Module 2 Scope and Sequence
 
 * [How to Write a Great README](how_to_write_a_great_readme)
 * [Cart & Order Lifecycles](cart_implementation)
-* [Little Shop of Orders Kickoff](http://backend.turing.io/module2/projects/little_shop)
 * [Intro to the Asset Pipeline](intro_to_the_asset_pipeline)
+* [Accessibility Best Practices](accessibility_best_practices)
 * [Callbacks, and Refactoring](callbacks_and_refactoring.md)
 
 -------
