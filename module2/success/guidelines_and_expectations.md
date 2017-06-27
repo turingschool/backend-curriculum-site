@@ -14,15 +14,13 @@ If you are unable to attend a day of instruction, let your instructors know as s
 
 #### Why?
 
-Turing moves at an accelerated pace and missing classroom content can make topics more difficult to learn. Some classes are dependent on pairs and other preparation for the instructor. Letting them know ahead of time allows them to make necessary adjustments. For group projects, other members may be dependent on the work you are doing. There are also decisions being made when groups meet. If you can’t be present, try to utilize all resources (such as screenhero or hangouts) to help compensate for the potential gaps in communication. It will help your projects go much smoother.
+Turing moves at an accelerated pace and missing classroom content can make topics more difficult to learn. Some classes are dependent on pairs and other preparation for the instructor. Letting them know ahead of time allows them to make necessary adjustments. For group projects, other members may be dependent on the work you are doing. There are also decisions being made when groups meet. If you can’t be present, try to utilize all resources (such as screenhero or hangouts) to help compensate for the potential gaps in communication. It will help your projects go much more smoothly.
 
 -------
 
 ##  Tardiness
 
-Class begins at 9am and after lunch at 1pm (always check backend.turing.io for more detailed schedule information). Plan to be ready for instruction, in your classroom, at that time. If you are running late to class, let your instructors know. When you arrive at class late, wait for the next break before entering the classroom.
-
-
+Class begins at 9am and after lunch at 1pm (always check the calendar for more detailed schedule information). Plan to be ready for instruction, in your classroom, at that time. If you are running late to class, let your instructors know.
 
 #### Why?
 
@@ -33,8 +31,6 @@ This is a courtesy to your peers. Many students find late arrivals distracting a
 ## Group Participation
 
 Active participation in both classroom instruction, community sessions, and group work is important. Engagement is a variety of things including: asking questions, participating in discussions, and actively listening.
-
-
 
 #### Why?
 
