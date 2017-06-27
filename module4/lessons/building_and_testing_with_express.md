@@ -51,7 +51,7 @@ app.get('/', function (request, response) {
 })
 ```
 
-In the above example, our express app (denoted by `app`), is handling a `GET` request to `'/'`. The second parameter in this call is our callback that defines how we're actually going to handle what happens when a user makes a `GET` request to `'/'`. The callback takes two parameters: the request (`req`) and the response (`res`). In this example, our hander is simply sending back a response (`res.send`) with the text 'Hello World!'.
+In the above example, our express app (denoted by `app`), is handling a `GET` request to `'/'`. The second parameter in this call is our callback that defines how we're actually going to handle what happens when a user makes a `GET` request to `'/'`. The callback takes two parameters: the request (`request`) and the response (`response`). In this example, our hander is simply sending back a response (`response.send`) with the text 'Hello World!'.
 
 This pattern is exactly how we can define and handle any routes in an Express application. There are four main pieces to this code:
 
@@ -418,39 +418,39 @@ It appears we're successfully making this work - let's add a test though to ensu
 First, we'll verify that it returns a 404 when we ask for a secret that doesn't exist.
 
 ```js
-  describe('GET /api/secrets/:id', () => {
-    beforeEach(() => {
-      app.locals.secrets = {
-        wowowow: 'I am a banana'
-      }
+describe('GET /api/secrets/:id', () => {
+  beforeEach(() => {
+    app.locals.secrets = {
+      wowowow: 'I am a banana'
+    }
+  })
+  it('should return a 404 if the resource is not found', (done) => {
+    this.request.get('/api/secrets/bahaha', (error, response) => {
+      if (error) { done(error) }
+      assert.equal(response.statusCode, 404)
+      done()
     })
-    it('should return a 404 if the resource is not found', (done) => {
-      this.request.get('/api/secrets/bahaha', (error, response) => {
-        if (error) { done(error) }
-        assert.equal(response.statusCode, 404)
-        done()
-      })
-    })
-   })
+  })
+})
 
 ```
 
 Next, let's verify that we're returning the correct data. 
 
 ```js
-		it('should have the id and message from the resource', (done) => {
-      const id = 'wowowow'
-		  const message = app.locals.secrets['wowowow'];
+it('should have the id and message from the resource', (done) => {
+  const id = 'wowowow'
+  const message = app.locals.secrets['wowowow'];
 
-      this.request.get('/api/secrets/wowowow', (error, response) => {
-		    if (error) { done(error); }
-		    assert(response.body.includes(id),
-		           `"${response.body}" does not include "${id}".`);
-		    assert(response.body.includes(message),
-		           `"${response.body}" does not include "${message}".`);
-		    done();
-		  });
-		});
+  this.request.get('/api/secrets/wowowow', (error, response) => {
+    if (error) { done(error); }
+    assert(response.body.includes(id),
+           `"${response.body}" does not include "${id}".`);
+    assert(response.body.includes(message),
+           `"${response.body}" does not include "${message}".`);
+    done();
+  });
+});
 
 ```
 
@@ -475,7 +475,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 ```
 
-This will add in support for parsing JSON as well as HTML forms. If you only need one of those, you can go ahead and remove the other. (We're only going to use JSON, but I am leaving it here for reference.)
+This will add in support for parsing JSON as well as HTML forms. If you only need one of those, you can go ahead and remove the other. (We're only going to use urlencoded for now, but I am leaving it here for reference.)
 
 Here is what my server looks like so far.
 
