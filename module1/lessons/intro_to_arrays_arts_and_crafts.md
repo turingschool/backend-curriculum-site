@@ -41,7 +41,7 @@ Then take your five paper cups and use a marker to number them "0" through "4".
 * What does an Array model conceptually?  
 * What are some of the properties of an array? How do they behave?  
 
-## Together - Data Structures, Collections, and Programming
+## Data Structures, Collections, and Programming
 * What is a "Data Structure"?  
   A data structure is a particular way of organizing information so that it can be used efficiently
 * Why are Arrays so ubiquitous?
@@ -64,7 +64,7 @@ Let's model some of the core concepts. In this section, we'll step through using
 
 As we go, we'll work side-by-side with our physical Array model and with an IRB/Pry session.
 
-1. Lay down your large piece of paper and write `data` in large letters. This is the name of your collection. How many elements are in your collection so far?
+1. Lay down your large piece of paper and write `data` in large letters. This is the name of your variable holding you collection. How many elements are in your collection so far?
 2. Put the empty `0` cup on the paper. If you now access the value inside `data[0]`, what would you get back?
 3. Store a "blue" bead into the zero cup, the equivalent of maybe `data[0] = "blue"`. What would you expect the answer of `data.count` to be? What does `data.first` return? What about `data.last`?
 4. We can explicitly assign the value of another cup. Add `data[1] = "red"`. That does not change the answer to `data.first`, but does change `data.last`. Why?
