@@ -47,7 +47,7 @@ A loop is a set of instructions that is executed repeatedly until some condition
 
 #### Examples:
 
-- While looking for a parking spot at a crowded sporting event, a car continues to drive up and down the rows until an empty spot is found (empty == true).   
+- While looking for a parking spot at a crowded sporting event, a car continues to drive up and down the rows until an empty spot is found (full == false).   
 (Loop that executes until a question returns true or false)
 - After baking cookies, you pull the cookie sheet out of the oven which holds 24 cookies. One by one, you remove each of the cookies from the sheet and place them on a cooling rack. (24.times do...)
 (Set of instructions that executes 24 times)
@@ -66,8 +66,14 @@ What are some differences you notice among them?
 
 ```ruby
 while condition
- # code to execute as long as condition is true
+ # code to execute as long as condition evaluates to true
 end
+```
+
+```ruby 
+while parking_spot.full?
+  keep_driving
+end 
 ```
 
 #### `until`
@@ -76,6 +82,12 @@ end
 until condition 
   # code to execute if above condition evaluates to false, stop when condition evaluates to true  
 end
+```  
+
+```ruby 
+until parking_spot.empty?  
+ keep_driving  
+end 
 ```
 
 #### `times`
@@ -138,6 +150,8 @@ if condition1
   # code to execute if above condition1 evaluates to true
 elsif condition2
   # code to execute if above condition2 evaluates to true
+elsif condition3
+  # code to execute if above condition3 evaluates to true
 else
   # code to execute if both evaluate to false
 end
