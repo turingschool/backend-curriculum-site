@@ -10,6 +10,10 @@ tags: ruby, classes, objects
 * Define classes with instance methods in Ruby
 * Define classes with instance variables in Ruby
 
+## Slides
+
+Linked [here](../slides/intro_to_classes)
+
 ## Warmup
 
 * Define a method `sum` that takes two numbers as arguments and returns their sum
@@ -117,7 +121,7 @@ Let's add a line to our runner file.
 require './classroom'
 
 classroom_a = Classroom.new(10, 5, 20)
-puts "Length: " + classroom_a.length
+puts "Length: " + classroom_a.length.to_s
 ```
 
 Run that, and we get a no method error. This is a little bit tricky. It's true we could create a method to access these instance variables, but Ruby gives us a shortcut. Update your `classroom.rb` file as follows:
@@ -169,9 +173,9 @@ Let's update our runner as well:
 require './classroom'
 
 classroom_a = Classroom.new(10, 5, 20)
-puts "Length: " + classroom_a.length
-puts "Width: " + classroom_a.width
-puts "Area: " + classroom_a.area
+puts "Length: " + classroom_a.length.to_s
+puts "Width: " + classroom_a.width.to_s
+puts "Area: " + classroom_a.area.to_s
 ```
 
 #### Changing State
@@ -210,21 +214,21 @@ And our runner:
 require './classroom'
 
 classroom_a = Classroom.new(10, 5, 20)
-puts "Length: " + classroom_a.length
-puts "Width: " + classroom_a.width
-puts "Area: " + classroom_a.area
+puts "Length: " + classroom_a.length.to_s
+puts "Width: " + classroom_a.width.to_s
+puts "Area: " + classroom_a.area.to_s
 
 puts "Make length 1."
 classroom_a.length = 1
 
-puts "New Length: " + classroom_a.length
-puts "New Area: " + classroom_a.area
+puts "New Length: " + classroom_a.length.to_s
+puts "New Area: " + classroom_a.area.to_s
 
 puts "Add four to length"
 classroom_a.add_length(4)
 
-puts "New Length: " + classroom_a.length
-puts "New Area: " + classroom_a.area
+puts "New Length: " + classroom_a.length.to_s
+puts "New Area: " + classroom_a.area.to_s
 ```
 
 Changing our `attr_reader`s to `attr_accessor`s makes it so that we can change the classroom's value from outside the class to **anything** we want. We are placing some trust in people using the class that they will use it responsibly.
