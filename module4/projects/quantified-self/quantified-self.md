@@ -62,8 +62,8 @@ Your requirements for the application are detailed in the cards you're going to 
 #### Broad Front End features
 
 - CRUD foods
-- Add a food to Diary (meal/day combo)
-- Compare calories to goals (meal and daily)
+- Add a food to a meal
+- Compare calories to goals (meal and total)
 - View calorie calculations in diary
 - All of that without refreshing the page
 - Data persists across refreshes
@@ -83,9 +83,7 @@ Your requirements for the application are detailed in the cards you're going to 
 - We're going to start with building the back end. For this code base, you'll be starting a new repository from scratch.
 - Accept your email invitation from Pivotal Tracker and use this as your Project Management tool.
 - Import [this CSV](./quantified-self-tracker-stories.csv) to your project to get all the cards in there. Import is found under settings.
-- If you'd like to attempt the extensions, import [this other CSV](./quantified-self-extension-stories.csv).
 - When you start to work on the front end, you'll want to follow the instructions on the [Quantified Self Starter Kit](https://github.com/turingschool-examples/quantified-self-starter-kit) to get your codebase going.
-- To help you track your progress, we've created a [Quantified Self Milestones](./quantified_self_milestones) document.
 
 ### Expectations
 
@@ -104,7 +102,7 @@ Your requirements for the application are detailed in the cards you're going to 
 - Plan, diagram and break down the problem, but don't try to get it right the first time. Don't write too much code without refactoring. Maybe stop and refactor every so many minutes, or so many cards.
 - A lot of this is new, and you'll probably have to be pairing more often, or at least be available to each other remotely.
 - Materialize is just a headache, but I can't stop you from using it.
-- Google `content-editable`. It will save you a lot of time for the editing foods functionality
+- Research `content-editable`. It will save you a lot of time for the editing foods functionality
 - There's a lot in this document. Refer back frequently
 - If there's any question about functionality, ask. There's a [#qs-questions](slack://channel?team=T029P2S9M&id=C3VFECP60) channel specifically for this.
 
