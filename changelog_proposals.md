@@ -7,6 +7,8 @@ The purpose of this document is to allow a place for us to keep track of things 
 
 ### B3
 
+* Start assessing projects for good READMEs
+* Have students reflect what they did to address accessibility 
 
 ### B2
 
