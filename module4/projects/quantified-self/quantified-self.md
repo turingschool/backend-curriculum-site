@@ -47,7 +47,7 @@ You are going to build a simple calorie tracker.
 
 ### Requirements overview
 
-Your requirements for the application are detailed in the cards you're going to import to Pivotal Tracker (you can also find them [here](/quantified-self-tracker-stories.csv)), but here's an visual of what you're doing:
+Your requirements for the application are detailed in the cards you're going to import to Pivotal Tracker (you can also find them [here](./quantified-self-tracker-stories.csv)), but here's an visual of what you're doing:
 
 #### Layouts
 
