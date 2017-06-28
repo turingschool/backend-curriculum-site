@@ -66,7 +66,7 @@ require './converter'
 
 converter = Converter.new
 converter.convert(32, 35, 100)
-puts "This is our converter: " + converter
+puts "This is our converter: #{converter}"
 ```
 
 Run that file by typing `ruby converter_runner.rb` into your terminal and see what happens.
@@ -75,7 +75,7 @@ First we get our expected output from running the `.convert` method on our `Conv
 
 What's after that?
 
-The output from `puts "This is our converter: " + converter` is the way that Ruby represents an instance of an object to use in print. Notice there's an `object_id` that is unique to each instance we've created. Even though they generally look the same, our computer is now tracking three separate instances of our Converter object.
+The output from `puts "This is our converter: #{converter}"` is the way that Ruby represents an instance of an object to use in print. Notice there's an `object_id` that is unique to each instance we've created. Even though they generally look the same, our computer is now tracking three separate instances of our Converter object.
 
 ### Behavior & State
 
@@ -121,7 +121,7 @@ Let's add a line to our runner file.
 require './classroom'
 
 classroom_a = Classroom.new(10, 5, 20)
-puts "Length: " + classroom_a.length.to_s
+puts "Length: #{classroom_a.length}"
 ```
 
 Run that, and we get a no method error. This is a little bit tricky. It's true we could create a method to access these instance variables, but Ruby gives us a shortcut. Update your `classroom.rb` file as follows:
@@ -173,9 +173,9 @@ Let's update our runner as well:
 require './classroom'
 
 classroom_a = Classroom.new(10, 5, 20)
-puts "Length: " + classroom_a.length.to_s
-puts "Width: " + classroom_a.width.to_s
-puts "Area: " + classroom_a.area.to_s
+puts "Length: #{classroom_a.length}"
+puts "Width: #{classroom_a.width}"
+puts "Area: #{classroom_a.area}"
 ```
 
 #### Changing State
@@ -214,21 +214,21 @@ And our runner:
 require './classroom'
 
 classroom_a = Classroom.new(10, 5, 20)
-puts "Length: " + classroom_a.length.to_s
-puts "Width: " + classroom_a.width.to_s
-puts "Area: " + classroom_a.area.to_s
+puts "Length: #{classroom_a.length}"
+puts "Width: #{classroom_a.width}"
+puts "Area: #{classroom_a.area}"
 
 puts "Make length 1."
 classroom_a.length = 1
 
-puts "New Length: " + classroom_a.length.to_s
-puts "New Area: " + classroom_a.area.to_s
+puts "New Length: #{classroom_a.length}"
+puts "New Area: #{classroom_a.area}"
 
 puts "Add four to length"
 classroom_a.add_length(4)
 
-puts "New Length: " + classroom_a.length.to_s
-puts "New Area: " + classroom_a.area.to_s
+puts "New Length: #{classroom_a.length}"
+puts "New Area: #{classroom_a.area}"
 ```
 
 Changing our `attr_reader`s to `attr_accessor`s makes it so that we can change the classroom's value from outside the class to **anything** we want. We are placing some trust in people using the class that they will use it responsibly.
