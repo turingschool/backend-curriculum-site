@@ -9,16 +9,6 @@ tags: sinatra, models, tdd, validations, scopes
 * set up RSpec within a Sinatra web app
 * test model methods and validations using best practices in RSpec
 
-## Repository
-
-If you already have a copy of the `intro-to-ar` repo, cd into it and type:
-
-`git checkout crud_complete`
-
-If you do not have a copy of the `intro-to-ar` repo: 
-
-`git clone -b crud_complete git@github.com:turingschool/intro-to-ar.git`
-
 ## Warmup
 
 1) Read [this](https://robots.thoughtbot.com/four-phase-test) Thoughtbot article about the four-phase test design.
@@ -29,6 +19,16 @@ With a pair:
 
 * Find a test you wrote in Mod 1. Can you map the four phases of testing to that test?
 * What similarities and differences do you see between the syntax of Minitest and RSpec? 
+
+## Repository
+
+If you already have a copy of the `intro-to-ar` repo, cd into it and type:
+
+`git checkout crud_complete`
+
+If you do not have a copy of the `intro-to-ar` repo: 
+
+`git clone -b crud_complete git@github.com:turingschool/intro-to-ar.git`
 
 ## Intro to RSpec
 
