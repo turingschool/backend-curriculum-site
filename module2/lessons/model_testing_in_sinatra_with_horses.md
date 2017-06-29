@@ -1,13 +1,13 @@
 ---
-title: Model Testing in Sinatra
+title: Model Testing in Sinatra with RSpec
 length: 120
 tags: sinatra, models, tdd, validations, scopes
 ---
 
 ## Goals
 
-* set up rspec within a Sinatra web app
-* test models using best practices in rspec
+* set up RSpec within a Sinatra web app
+* test model methods and validations using best practices in RSpec
 
 ## Repository
 
@@ -17,15 +17,20 @@ If you already have a copy of the `intro-to-ar` repo, cd into it and type:
 
 If you do not have a copy of the `intro-to-ar` repo: 
 
-`git clone -b crud_complete git@github.com:turingschool/intro-to-ar.git model_testing`
+`git clone -b crud_complete git@github.com:turingschool/intro-to-ar.git`
 
 ## Warmup
 
-Read [this](https://robots.thoughtbot.com/four-phase-test) Thoughtbot article about the four-phase test design.
+1) Read [this](https://robots.thoughtbot.com/four-phase-test) Thoughtbot article about the four-phase test design.
+
+2) We'll be using RSpec for this lesson. Read [this documentation](https://relishapp.com/rspec/rspec-core/docs/example-groups/basic-structure-describe-it) as an introduction to the RSpec syntax. 
+
+With a pair:  
+
+* Find a test you wrote in Mod 1. Can you map the four phases of testing to that test?
+* What similarities and differences do you see between the syntax of Minitest and RSpec? 
 
 ## Intro to RSpec
-
-We'll be using RSpec for this lesson. Read [this documentation](https://relishapp.com/rspec/rspec-core/docs/example-groups/basic-structure-describe-it) as an introduction to the RSpec syntax. 
 
 * Slightly different than Minitest, but not by much.
     * `describe` blocks as an outside wrapper to group related tests: use for *things*
@@ -67,10 +72,11 @@ $ mkdir spec/models
 
 Your `.rspec` file can contain certain flags that are helpful when you run your tests. 
 
-    * --color
-    * --format documentation
-    * --order random
-    * Can save in a `.rspec` file in your home directory
+    --require spec_helper
+    --color
+    --format documentation
+    --order random
+    
 
 
 **STEP 4**: Set up the `spec_helper.rb` file:
@@ -93,15 +99,15 @@ Now, let's create a file for testing our first model, Horse:
 $ touch spec/models/horse_spec.rb
 ```
 
-There are numerous ways to organize a model spec. However, let's work with [this approach](https://jarredtrost.com/how-to-organize-model-specs-82c10a59c24f). Take a second to read the article. 
+There are numerous ways to organize a model spec. However, let's work with [this approach](https://jarredtrost.com/how-to-organize-model-specs-82c10a59c24f). Take a few minutes to read the article. 
+
+With a pair: What's the general approach recommended by this article for organizing a model spec? What are the benefits? 
 
 ### Testing the `.total_winnings` Class Method
 
 Let's write our first model test. In `spec/models/horse_spec.rb`:
 
 ```ruby
-require_relative '../spec_helper'
-
 RSpec.describe Horse do
   describe "Class Methods" do
     describe ".total_winnings" do
@@ -133,12 +139,12 @@ This is not the behavior we want. We're polluting the database that we're using 
 
 Every time we run our tests, we want to start with a fresh slate with no existing data in our test database. Because of this, we need to have two different databases: one for testing purposes and one for development purposes. This way, we will still have access to all of our existing data when we run shotgun and look at our app in the browser, but we won't have to worry about those pieces interfering with our tests because they'll be in a separate database.
 
-How will our app know which environment -- test or dev -- we want to use at any moment? By default (like when we start the server with shotgun), we will be in development. If we want to run something in the test environment, we need an indicator. We'll use an environment variable: ENV['RACK_ENV']. So, in test/test_helper.rb:
+How will our app know which environment -- test or dev -- we want to use at any moment? By default (like when we start the server with shotgun), we will be in development. If we want to run something in the test environment, we need an indicator. We'll use an environment variable: ENV["RACK_ENV"]. So, in test/test_helper.rb:
 
 We're going to set an environment variable in our spec helper file and then use that variable to determine which database to use. In `spec_helper.rb` add the following **above** all the `require` lines:
 
 ```ruby
-ENV['RACK_ENV'] = 'test'
+ENV["RACK_ENV"] = "test"
 ```
 
 It's very important that this line comes before you require the environment. If you want to trace why, take a look first at line 14 in your `config/environment.rb` file, which should lead you to the `config/database.rb` file. In that file, you'll see that the database name gets set based on the current environment.
@@ -213,10 +219,13 @@ Run your tests again, and... passing. Great news.
 ## Worktime
 
 * In pairs, add the following tests and make each one pass:
-    * a test for the `.average_winnings` method
-    * a test for the `.total_winnings` method that ensures that when two jockeys exist, you're able to scope `.total_winnings` down to a single jockey by calling something like `Jockey.first.horses.total_winnings` (hint: you'll need to create your associations in your test, and make sure that `total_winnings` for the second jockey are not included in the `.total_winnings` result)
+    * a test for an `.average_winnings` class method
+    * a test for an `#age_in_months` instance method that returns the horse's age in months
     * tests that a horse cannot be created without an age or `total_winnings`
-* We also likely want to make sure that we can test that the name of each of our Jockeys is `unique`. Write a test that would ensure we can't create two Jockeys with the same name, and then use the ActiveRecord documentation available [here](http://guides.rubyonrails.org/active_record_validations.html#uniqueness) to see what you could do to ensure the `uniqueness` of a new jockey.
+    * a test for the `.total_winnings` method that ensures that when two jockeys exist, you're able to scope `.total_winnings` down to a single jockey by calling something like `Jockey.first.horses.total_winnings` (hint: you'll need to create your associations in your test, and make sure that `total_winnings` for the second jockey are not included in the `.total_winnings` result)
+    * a test to ensure that the name of each of our Jockeys is `unique`. Write a test that would ensure we can't create two Jockeys with the same name, and then use the ActiveRecord documentation available [here](http://guides.rubyonrails.org/active_record_validations.html#uniqueness) to see what you could do to ensure the `uniqueness` of a new jockey.
+
+Remember to use your four phases of testing! 
 
 ## Finished? 
 
