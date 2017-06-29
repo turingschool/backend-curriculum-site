@@ -396,14 +396,14 @@ git push heroku master
 heroku open
 ```
 
-This may give you an error screen. Heroku also seems to just silently fail lately. Let's take a quick look at the logs to see what the current version of Heroku is thinking:
+This usually gives you an error screen. Let's take a quick look at the logs to see what the current version of Heroku is thinking:
 
 ```
 heroku logs
 heroku logs --tail // Continue to watch new logs come in. There also seems to be more things logged in this case.
 ```
 
-We probably saw something in the logs about a Procfile. This lets Heroku know how to fire up your server. When not using Rails, Heroku doesn't make as many assumptions about what you've just pushed up.
+The important thing in the logs states that we're trying to run nodemon in production, because Heroku is just trying to `npm start`. nodemon is really a tool for development. Since there's not really a way to define different `npm start` commands, we're going to use a Heroku feature: the `Procfile`. This lets Heroku know how what command to run when it starts up in production.
 
 ```bash
 touch Procfile
@@ -411,6 +411,8 @@ touch Procfile
 # In the Procfile
 web: node server.js
 ```
+
+Cool. The server is up. No errors, at least not until we try to use the API.
 
 Heroku applications don't come with databases by default. We'll have to [manually add it to our application](https://devcenter.heroku.com/articles/heroku-postgresql#provisioning-the-add-on):
 
@@ -428,6 +430,8 @@ heroku run 'knex seed:run'
 ```
 
 It should give you some feedback that it worked. Now do `heroku open` and magic! You have data.
+
+I've walked you through deployment here to get you going. This is not necessarily something I expect you can just figure out on your own, but Heroku does have good documentation whenever you run into problems. Just don't forget about your `heroku logs` and you should be fine.
 
 ## More Your Turn
 
