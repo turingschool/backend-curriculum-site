@@ -1,16 +1,21 @@
 ---
-title: Model Testing in Rails
+title: Model Testing in Sinatra
 length: 120
-tags: rails, models, tdd, validations, scopes
+tags: sinatra, models, tdd, validations, scopes
 ---
 
 ## Goals
 
+* set up rspec within a Sinatra web app
+* test models using best practices in rspec
+
 ## Repository
 
-<!-- * [ActiveRecord Sinatra: Intro and Homework Complete](https://github.com/turingschool/intro-to-ar/tree/crud_complete): This branch is the result of completing the ActiveRecord work described [here](https://github.com/turingschool/intro-to-ar), and the homework [here](http://backend.turing.io/module2/homework/activerecord_and_database_practice). At this point, students should have their own copy of this assignment, and should not have to clone this down. -->
+If you already have a copy of the `intro-to-ar` repo, cd into it and type:
 
-To clone and checkout the remote `crud_complete` branch:
+`git checkout crud_complete`
+
+If you do not have a copy of the `intro-to-ar` repo: 
 
 `git clone -b crud_complete git@github.com:turingschool/intro-to-ar.git model_testing`
 
@@ -20,21 +25,19 @@ Read [this](https://robots.thoughtbot.com/four-phase-test) Thoughtbot article ab
 
 ## Intro to RSpec
 
-We'll be using RSpec for this lesson.
+We'll be using RSpec for this lesson. Read [this documentation](https://relishapp.com/rspec/rspec-core/docs/example-groups/basic-structure-describe-it) as an introduction to the RSpec syntax. 
 
 * Slightly different than Minitest, but not by much.
-    * `describe` blocks
-    * nested `describe` blocks
-    * `it` blocks
+    * `describe` blocks as an outside wrapper to group related tests: use for *things*
+    * `context` blocks to add... context (but technically the same method as `describe`): use for *states*
+    * `it` blocks to indicate an outcome (something to test)
     * `expect` instead of assert
-* Flags
-    * --color
-    * --format=documentation
-    * Can save in a `.rspec` file in your home directory
 
 ## Code-Along
 
 ### Setting up Model Tests
+
+**STEP 1**: Install rspec
 
 Add the following line to your `Gemfile`
 
@@ -44,25 +47,55 @@ gem 'rspec'
 
 Run `bundle`.
 
-### File structure
+**STEP 2**: Create File structure
 
-We'll create a spec folder. Within that folder, we'll create another folder called models. This way we can separate our model tests from our integration tests (more on this later).
+Make sure you are in the root of your app. 
+
+* `touch .rspec`
+* `mkdir spec`
+* `touch spec/spec_helper.rb`
+
+The shortcut to this step is to type `rspec --init`. However, this creates a bloated `spec_helper.rb` file that is, to be honest, more scary than helpful when you're first starting out. 
+
+Within the `spec` folder, we'll create another folder called models. This way we can separate our model tests from our feature tests (more on this tomorrow).
 
 ```
-$ mkdir spec
-$ touch spec/spec_helper.rb
 $ mkdir spec/models
-$ touch spec/models/horse_spec.rb
 ```
 
-In `spec/spec_helper.rb`:
+**STEP 3**: Configurations in .rspec file
+
+Your `.rspec` file can contain certain flags that are helpful when you run your tests. 
+
+    * --color
+    * --format documentation
+    * --order random
+    * Can save in a `.rspec` file in your home directory
+
+
+**STEP 4**: Set up the `spec_helper.rb` file:
+
+Add the following to your `spec_helper.rb` file:
 
 ```ruby
-require 'rspec'
+require 'bundler'
+Bundler.require(:default, :test)
 require File.expand_path('../../config/environment.rb', __FILE__)
 ```
 
-### Testing the `.total_winnings` Method
+Let's take a second to talk about what those three lines are doing. 
+
+### Setup of a Model Spec File
+
+Now, let's create a file for testing our first model, Horse:
+
+```
+$ touch spec/models/horse_spec.rb
+```
+
+There are numerous ways to organize a model spec. However, let's work with [this approach](https://jarredtrost.com/how-to-organize-model-specs-82c10a59c24f). Take a second to read the article. 
+
+### Testing the `.total_winnings` Class Method
 
 Let's write our first model test. In `spec/models/horse_spec.rb`:
 
@@ -70,24 +103,37 @@ Let's write our first model test. In `spec/models/horse_spec.rb`:
 require_relative '../spec_helper'
 
 RSpec.describe Horse do
-  describe ".total_winnings" do
-    it "returns total winnings for all horses" do
-      Horse.create(name: "Phil", age: 22, total_winnings: 3)
-      Horse.create(name: "Penelope", age: 24, total_winnings: 4)
+  describe "Class Methods" do
+    describe ".total_winnings" do
+      it "returns total winnings for all horses" do
+        Horse.create(name: "Phil", age: 22, total_winnings: 3)
+        Horse.create(name: "Penelope", age: 24, total_winnings: 4)
 
-      expect(Horse.total_winnings).to eq(7)
+        expect(Horse.total_winnings).to eq(7)
+      end
     end
   end
 end
 ```
 
-At this point you should be able to run your tests from the command line using the command `rspec`. `rspec` will also take some flags to change the output. For a full list run `rspec --help | less`. For example, run `rspec -c -f d` to see how the output differs. If you find yourself consistently using flags you can save them to a `.rspec` file in your home directory. See [this](http://stackoverflow.com/questions/1819614/how-do-i-globally-configure-rspec-to-keep-the-color-and-format-specdoc-o) Stack Overflow answer for additional details.
+Let's discuss: 
+
+* the dot in `.total_winnings`: check out [this best practice](http://www.betterspecs.org/#describe)
+* the space between the created horses and the expectation
+
+At this point you should be able to run your tests from the command line using the command `rspec`. 
+
+*Note*: `rspec` will also take some flags to change the output. For a full list run `rspec --help | less`. For example, run `rspec -c -f d` to see how the output differs. If you find yourself consistently using flags you can save them to a `.rspec` file in your home directory. See [this](http://stackoverflow.com/questions/1819614/how-do-i-globally-configure-rspec-to-keep-the-color-and-format-specdoc-o) Stack Overflow answer for additional details.
 
 Did we get what we expected? No? What's going on here? It looks like the total that's being reported by our test is the full total of our all the horses currently in our database.
 
 Run it one more time to check. Notice that the actual value that we're getting increased? So, not only are we not testing with only the data we're providing in the test, but on top of that, every time we run the test we're adding new horses to our development database.
 
 This is not the behavior we want. We're polluting the database that we're using when we browse the site locally. Wouldn't it be better if we could run our test suite without making these changes?
+
+Every time we run our tests, we want to start with a fresh slate with no existing data in our test database. Because of this, we need to have two different databases: one for testing purposes and one for development purposes. This way, we will still have access to all of our existing data when we run shotgun and look at our app in the browser, but we won't have to worry about those pieces interfering with our tests because they'll be in a separate database.
+
+How will our app know which environment -- test or dev -- we want to use at any moment? By default (like when we start the server with shotgun), we will be in development. If we want to run something in the test environment, we need an indicator. We'll use an environment variable: ENV['RACK_ENV']. So, in test/test_helper.rb:
 
 We're going to set an environment variable in our spec helper file and then use that variable to determine which database to use. In `spec_helper.rb` add the following **above** all the `require` lines:
 
@@ -118,8 +164,6 @@ In the test/development section of your Gemfile add the following line:
 Then in your spec helper, add the following after your current `require` lines:
 
 ```ruby
-require 'database_cleaner'
-
 DatabaseCleaner.strategy = :truncation
 
 RSpec.configure do |c|
@@ -138,10 +182,10 @@ Save and run your tests again from the command line. Passing test? Great again!
 
 One thing we haven't really worried about up to this point was whether or not a new Horse had all of its pieces in place when we were saving it to the database. We want to make sure that when someone tries to save a horse that they're providing us with all the information we need. We don't want to have someone save a horse with, for example, no name.
 
-Add the following test to your `horse_spec` within the main `describe` block, but outside of your existing `describe '.total_winnings'` block.
+Add the following test to your `horse_spec` within the main `describe Horse` block, but outside of your existing `describe 'Class Methods'` block.
 
 ```ruby
-describe "validations" do
+describe "Validations" do
   it "is invalid without a name" do
     horse = Horse.new(age: 22, total_winnings: 14)
 
@@ -162,17 +206,19 @@ ActiveRecord actually helps us out here. Go into the `app/models/horse.rb` model
   validates :name, presence: true
 ```
 
+Alternatively, you can write this as: `validates_presence_of :name`
+
 Run your tests again, and... passing. Great news.
 
 ## Worktime
 
-* In pairs, add the following tests:
+* In pairs, add the following tests and make each one pass:
     * a test for the `.average_winnings` method
     * a test for the `.total_winnings` method that ensures that when two jockeys exist, you're able to scope `.total_winnings` down to a single jockey by calling something like `Jockey.first.horses.total_winnings` (hint: you'll need to create your associations in your test, and make sure that `total_winnings` for the second jockey are not included in the `.total_winnings` result)
     * tests that a horse cannot be created without an age or `total_winnings`
-* Add the validations to make the last pair of tests pass.
 * We also likely want to make sure that we can test that the name of each of our Jockeys is `unique`. Write a test that would ensure we can't create two Jockeys with the same name, and then use the ActiveRecord documentation available [here](http://guides.rubyonrails.org/active_record_validations.html#uniqueness) to see what you could do to ensure the `uniqueness` of a new jockey.
 
-## Other Resources:
+## Finished? 
 
-* [RSpec Documentation](http://rspec.info/documentation/): For now you'll likely be most interested in the `rspec-core`, and `rspec-expectations` links.
+* Take a look at the [BetterSpecs](http://www.betterspecs.org/) community guidelines. 
+* Check out the [RSpec Documentation](http://rspec.info/documentation/): For now you'll likely be most interested in the `rspec-core`, and `rspec-expectations` links.
