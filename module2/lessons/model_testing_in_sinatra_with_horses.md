@@ -105,6 +105,8 @@ With a pair: What's the general approach recommended by this article for organiz
 
 ### Testing the `.total_winnings` Class Method
 
+Before we start testing anything, let's delete any model code that already exists so that we can truly mimic a TDD process. Head into `horse.rb` and `jockey.rb` to remove existing methods. (Don't be sad. It's good practice for you. Code isn't valuable anyway.)
+
 Let's write our first model test. In `spec/models/horse_spec.rb`:
 
 ```ruby
