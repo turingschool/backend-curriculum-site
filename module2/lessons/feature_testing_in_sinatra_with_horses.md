@@ -106,6 +106,7 @@ Update your `spec/spec_helper.rb` file to include the following:
 require 'capybara/dsl'
 
 Capybara.app = HorseApp
+Capybara.save_and_open_page_path = 'tmp/capybara'
 
 # within the RSpec configuration (this is the same place you have your database cleaner options set): 
 
@@ -247,11 +248,30 @@ end
 
 ```ruby
 fill_in("name_of_field", with: content) # use the name= attribute from the HTML
+select("text", :from => 'name_of_field') # use the name= attribute from the HTML
 click_link("text")
 click_button("text")
 click_link_or_button("text")
 expect(current_path).to eq('/')
 ```
+
+### What about all of those html files from save_and_open_page?
+
+They should be living in your `tmp/capybara` directory since you used this line in your spec_helper: `Capybara.save_and_open_page_path = 'tmp/capybara'`
+
+However, they will still be watched by git unless you make a `.gitignore` file at the root of your project:
+
+```bash
+$ touch .gitignore
+```
+
+Then, inside that file, add:
+
+```
+/tmp
+```
+
+This will tell git to ignore everything inside of the `tmp` directory. 
 
 ### Workshop
 
