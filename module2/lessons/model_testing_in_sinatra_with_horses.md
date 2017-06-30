@@ -224,6 +224,8 @@ Run your tests again, and... passing. Great news.
     * a test for an `.average_winnings` class method
     * a test for an `#age_in_months` instance method that returns the horse's age in months
     * tests that a horse cannot be created without an age or `total_winnings`
+
+For these next tests, you'll need a `jockey_spec.rb` file: 
     * a test for the `.total_winnings` method that ensures that when two jockeys exist, you're able to scope `.total_winnings` down to a single jockey by calling something like `Jockey.first.horses.total_winnings` (hint: you'll need to create your associations in your test, and make sure that `total_winnings` for the second jockey are not included in the `.total_winnings` result)
     * a test to ensure that the name of each of our Jockeys is `unique`. Write a test that would ensure we can't create two Jockeys with the same name, and then use the ActiveRecord documentation available [here](http://guides.rubyonrails.org/active_record_validations.html#uniqueness) to see what you could do to ensure the `uniqueness` of a new jockey.
 

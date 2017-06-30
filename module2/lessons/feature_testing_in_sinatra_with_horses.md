@@ -1,16 +1,16 @@
 ---
 title: Feature Testing in Sinatra with Capybara
 length: 120
-tags: capybara, user stories, feature tests, testing
+tags: capybara, user stories, feature tests, testing, sinatra
 ---
 
-## Key Topics
+## Goals
 
-During our session, we'll cover the following topics:
+By the end of this session, you will be able to:
 
-* Types of testing
-* What are user stories? Why are they beneficial?
-* Capybara
+* differentiate between feature tests and model tests
+* write user stories
+* translate user stories into feature tests using Capybara
 
 <!-- ## Lecture -->
 
@@ -18,7 +18,11 @@ During our session, we'll cover the following topics:
 
 ## Repository
 
-To clone and checkout the remote `model_complete` branch:
+If you already have a copy of the `intro-to-ar` repo, cd into it and type:
+
+`git checkout model_complete`
+
+If you do not have a copy of the `intro-to-ar` repo: 
 
 `git clone -b model_complete git@github.com:turingschool/intro-to-ar.git feature_testing`
 
@@ -26,7 +30,7 @@ To clone and checkout the remote `model_complete` branch:
 
 * What are we testing so far in our Horses app?
 * What aren't we testing?
-* Assuming that our tests will have some setup, execution, assertions, and teardown, what might be included in each phase?
+* Assuming that these unwritten tests will have some setup, execution, assertions, and teardown, what might be included in each phase?
 
 ## What are Feature Tests?
 
@@ -69,32 +73,15 @@ Then [expected result]
 
 ## [Capybara](https://github.com/teamcapybara/capybara)
 
-Capybara is a test framework that allows you to feature test any RACK-based app.
+What is a Capybara? 
 
-It provides a DSL to help you query and interact with the DOM.
+It is an aquatic herbivore that lives in South America. It is either the largest or second largest rodent in the world. They also have really cute babies. 
 
-### Helpful Capybara Methods
+![Capybara](https://c1.staticflickr.com/7/6020/5918545695_ef0e98c8ef_b.jpg)
 
-```ruby
-visit(path)
-expect(page).to have_content("content")
-expect(page).to have_css("css_selector")
-within("css_selector") {
-  # Assertions here
-}
-save_and_open_page
-```
+Capybara is also a Ruby test framework that allows you to feature test any RACK-based app.
 
-#### Form- and Button-Specific Methods
-
-```ruby
-fill_in("name_of_field", with: content)
-click_link("css_selector")
-click_button("css_selector")
-click_link_or_button("css_selector")
-click_on("css_selector")
-expect(current_path).to eq('/')
-```
+It provides a DSL (domain specific language) to help you query and interact with the DOM.
 
 ### Important Setup Things
 
@@ -110,16 +97,71 @@ Run `bundle`
 Update your `spec/spec_helper.rb` file to include the following:
 
 ```ruby
-# with your other required items
+# other required items here
 require 'capybara/dsl'
 
 Capybara.app = HorseApp
 
-# within the RSpec configuration:
+# within the RSpec configuration (this is the same place you have your database cleaner options set): 
+
   c.include Capybara::DSL
 ```
 
-Since we're going to be creating a new type of test, let's add a new folder to separate them from our model tests.
+### How to Format Feature Specs
+
+There are three general schools of thought:
+
+1) Scenario string contains context information that forms complete sentence with feature string
+
+(below example from [thoughtbot](https://robots.thoughtbot.com/rspec-integration-tests-with-capybara))
+```ruby
+RSpec.feature 'Visitor signs up' do
+  scenario 'with valid email and password' do
+    ...
+  end
+
+  scenario 'with invalid email' do
+    ...
+  end
+
+  scenario 'with blank password' do
+    ...
+  end
+end
+```
+
+2) Scenario contains desired outcome (along with any context)
+
+(below example also from [thoughtbot](https://thoughtbot.com/upcase/test-driven-rails-resources/rspec_acceptance.pdf))
+```ruby
+RSpec.feature 'Signing in' do
+  scenario 'signs the user in successfully with a valid email and password' do
+    ...
+  end
+  scenario 'notifies the user if their email is invalid' do
+    ...
+  end
+end
+```
+
+3) Scenario contains brief description of user action
+
+(below example from [Relishapp - RSpec documentation](https://relishapp.com/rspec/rspec-rails/docs/feature-specs/feature-spec))
+```ruby
+RSpec.feature "Widget management", :type => :feature do
+  scenario "User creates a new widget" do
+    ...
+  end
+end
+```
+
+There are also some other strange and unconventional ways to write features in the depths of the internet. I caution you to use your best judgement when looking at people's blog posts and figure out what the style is and why they're using that before blindly adopting it as your own. 
+
+I personally prefer approach #1 since it creates beautiful, gramatically correct sentences :) Aim to use that structure to get the most out of RSpec's documentation-style output. However, there are some situations where that approach doesn't really lend itself to the test. 
+
+### Making the Test
+
+Since we're going to be creating a new type of test, let's add a new folder to separate them from our model tests. The test that we're about to create is probably *not* a test you'd actually write in your project, but it's a simple example to show how Capybara works. 
 
 ```bash
 $ mkdir spec/features/
@@ -129,36 +171,73 @@ $ touch spec/features/user_sees_welcome_spec.rb
 In that new file add the following:
 
 ```ruby
-require_relative '../spec_helper'
-
-RSpec.describe "When a user visits '/'" do
-  it "they see a welcome message" do
+RSpec.feature "User visits '/'" do
+  scenario "and sees a welcome message" do
     # Your code here.
   end
 end
 ```
 
-### Exercise: Implement Feature Test
-
 Now, our user story is something along the lines of the following:
 
-* As a user
+* As an unauthenticated user
 * When I visit the root page
 * I should see a welcome message
 
-Try to turn that user story into a test using the Capybara methods from above and see if you can then make it pass.
+Let's turn that user story into a test using the Capybara methods from above and make it pass.
+
+### Helpful Capybara Methods
+
+```ruby
+visit(path)
+expect(page).to have_content("content")
+expect(page).to have_css("css_selector")
+within("css_selector") {
+  # Assertions here
+}
+save_and_open_page #must have `gem launchy` in Gemfile
+```
+
+### A More Realistic Test
+
+Let's write a feature spec for creating a horse:
+
+```bash
+$ touch spec/features/user_creates_horse_spec.rb
+```
+
+Inside that file:
+
+```ruby
+RSpec.feature "User creates horse" do
+  scenario "with valid attributes" do
+    # Your code here.
+  end
+end
+```
+
+#### Form- and Button-Specific Methods
+
+```ruby
+fill_in("name_of_field", with: content)
+click_link("css_selector")
+click_button("css_selector")
+click_link_or_button("css_selector")
+expect(current_path).to eq('/')
+```
 
 ### Workshop
 
-With the above exercise complete, work to write user stories and feature tests for the following:
+Work to write user stories and feature tests for the following:
 
-* The process of creating a Horse
 * That all horses are displayed on the Horse index
-* That a Jockey's total winnings are displayed on their page
+* That a Jockey's total winnings are displayed on their individual page
+* The process of creating a Horse
+* The process of editing a Horse's winnings
 
 ## Resources
 
 * [Capybara cheat sheet](https://gist.github.com/zhengjia/428105)
 * [Another cheat sheet](http://cheatrags.com/capybara)
-* [My favorite cheat sheet](https://thoughtbot.com/upcase/test-driven-rails-resources/capybara.pdf)
+* [Yet another cheat sheet](https://thoughtbot.com/upcase/test-driven-rails-resources/capybara.pdf)
 * [Simple Tricks for Capybara](http://www.elabs.se/blog/51-simple-tricks-to-clean-up-your-capybara-tests)
