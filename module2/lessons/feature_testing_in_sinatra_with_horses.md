@@ -24,7 +24,7 @@ If you already have a copy of the `intro-to-ar` repo, cd into it, make sure ever
 
 If you do not have a copy of the `intro-to-ar` repo: 
 
-`git clone -b model_complete git@github.com:turingschool/intro-to-ar.git feature_testing`
+`git clone -b model_tests git@github.com:turingschool/intro-to-ar.git feature_testing`
 
 ## Warmup
 
