@@ -18,7 +18,7 @@ Events are happening all the time in the browser. When the browser has finished 
 
 It is, however, possible for us to use JavaScript to set up listeners for events that interest us. Our listeners wait patiently on a DOM node until the event they're waiting for is fired. Then, they spring into action, running an appropriate function to respond to the event as required, or whatever else you deem appropriate.
 
-For a review of how to set event listeners, please refer to the [DOM Manipulation with JavaScript Lesson](http://frontend.turing.io/lessons/dom-manipulation-with-javascript.html)
+For a review of how to set event listeners, please refer to the [Introduction to JavaScript III - Intro to DOM Manipulation](http://frontend.turing.io/lessons/module-1/js-3-dom-manipulation.html)
 
 Event Bubbling
 ------------
@@ -48,9 +48,9 @@ Visit the [this page][codepen] and fork the CodePen.
 
 You may have noticed that the event listeners on a parent element are fired whenever the action occurs on one of its children.
 
-When an event occurs, the browser checks the element to see if there are any event listeners registered. After it checks the element where the event occurred, the browser works its way up the DOM tree to see if any of the parents have a listener registered, then grandparents, and so on. It checks every element all the way up to the root. This process is known as _event bubbling_.
+When an event occurs, the browser checks the element to see if there are any event listeners registered. After it checks the element where the event occurred, the browser works its way up the DOM tree to see if any of the parents have a listener registered, then grandparents, and so on. It checks every element all the way up to the root (see `event.path`). This process is known as _event bubbling_.
 
-Try out the following code in the example code pen:
+Try out the following code your forked CodePen:
 
 ```js
   document.querySelector('.grandparent').addEventListener('click', function (event) {
@@ -72,24 +72,98 @@ If you click on the button, you'll see that the events all bubble up through the
 
 The anonymous function passed to `document.addEventListener()` takes an optional argument, which it assigns an `Event` object to. In the case of the click event we've been using as an example, this is a `MouseEvent`. You can visit [the MDN page for `Event`](https://developer.mozilla.org/en-US/docs/Web/API/Event) to explore the full list of supported event types.
 
-Each type of event supports a number of different properties. `MouseEvent`s contain information about the `x` and `y` coordinates where the mouse was clicked. `KeyboardEvent` has information about which key was pressed. The `currentTarget` property on the `Event` object can be useful during the event bubbling phase.
+Each type of event supports a number of different properties. `MouseEvent` has information about the `x` and `y` coordinates where the mouse was clicked. `KeyboardEvent` has information about which key was pressed. The `target` and `currentTarget` properties on the `Event` object can be useful during the event bubbling phase.
 
-Let's make some changes to the code from earlier. Instead of logging a description of each element where an event was triggered, either by a click or through event bubbling, let's log the `target` of the event.
+The `target` property represents the node that actually triggered the event, whereas `currentTarget` is the node that is *listening* for the event. Sometimes, `target` and `currentTarget` are the same node, but not *always*.
+
+For example, if a `div` listens for a `click` event, a child `button` of the
+`div` is clicked, the `target` would be the `button`, and the `currentTarget`
+would be the `div`.
+
+```html
+<!-- index.html -->
+<div class="container">
+  <button class="submit">Submit</button>
+</div>
+```
+
+```js
+// scripts.js
+document.querySelector(".container")
+  .addEventListener("click", function (event) {
+    console.log(event.currentTarget) // With only one event listener registered,
+      // this will always be the div.container node
+
+    console.log(event.target) // if you click the button, this will be the
+      // button.submit node
+      // if you click outside of the button, but still in the .container space,
+      // it will log the div.container node
+  })
+```
+
+Let's make some changes to the code from earlier. Instead of logging a description of each element where an event was triggered, either by a click or through event bubbling, let's log the `target` and `currentTarget` of the event.
 
 ```js
 document.querySelector('.grandparent').addEventListener('click', function (event) {
-  console.log(event.target);
+  console.log("target", event.target);
+  console.log("currentTarget", event.currentTarget);
 });
 
 document.querySelector('.parent').addEventListener('click', function (event) {
-  console.log(event.target);
+  console.log("target", event.target);
+  console.log("currentTarget", event.currentTarget);
 });
 
 document.querySelector('#click-me').addEventListener('click', function (event) {
-  console.log(event.target);
+  console.log("target", event.target);
+  console.log("currentTarget", event.currentTarget);
 });
 ```
 
+## STOP && REFACTOR
+
+Just because we are in JavaScriptopolis doesn't mean we have to write WET ("Woo! Extra Typing!") code! In the interest of always keeping an eye out for repetitive tasks, let's see that previous snippet refactored with a `forEach` call:
+
+```js
+const selectors = [".grandparent", ".parent", "#click-me"]
+
+selectors.forEach(function (selector) {
+  document.querySelector(selector)
+    .addEventListener("click", function (event) {
+      console.log("target", event.target)
+      console.log("currentTarget", event.currentTarget)
+    })
+})
+```
+
+Let's demonstrate how nice and easily separated JavaScript callback functions are:
+
+```js
+const selectors = [".grandparent", ".parent", "#click-me"]
+
+selectors.forEach(listenForClick)
+
+function listenForClick (selector) {
+  const targets = ["target", "currentTarget"]
+  document.querySelector(selector)
+    .addEventListener("click", logger(targets))
+}
+
+function logger (targets) {
+  return function (event) {
+    targets.forEach(target => console.log(target, event[target]))
+  }
+}
+```
+
+Yes, more lines of code. **BUT**
+
+* **_Wayyy_** easier to test.
+* **_Wayyy_** more flexible over time.
+* **_Wayyy_** more reusable.
+* More about telling your code *what* to do rather than *how* to do it (i.e., declarative vs imperative programming).
+
+## Back to Events
 
 ### Pair Practice
 
@@ -124,12 +198,67 @@ Setting event listeners on specific newly created DOM nodes is one way to set ev
 
 Also, You can cause a [memory leak](http://javascript.crockford.com/memory/leak.html) if an event listeners are not unbound from an element when it is removed from the DOM.
 
-Rather than manage the addition and removal of event listeners, there is a methodology you can use called ___event delegation__*.
+Rather than manage the addition and removal of event listeners, there is a methodology you can use called *__event delegation__*.
 
-In ___event delegation__*, we take advantage of the fact that events bubble in the event loops by setting an event listener on one parent. This event listener analyzes bubbled events to find a match in its child elements.
+In *__event delegation__*, we take advantage of the fact that events bubble in the event loops by setting an event listener on one parent. This event listener analyzes bubbled events to find a match in its child elements.
 
-Let's check out the first iteration of Quantified Self and see where event delegation would be helpful!
+Event delegation in tandem with `target` and `currentTarget` allows you to have more articulate control over what events actually execute your JavaScript.
+
+Enough with the Bubbles
+-
+
+You have already come across `event.preventDefault()`, which does exactly what its name implies.
+
+In the context of event bubbling and delegation, there is another function on the `Event` object that is useful for controlling event flow:
+
+```js
+event.stopPropagation()
+```
+
+As you might expect, this prevents the event from traveling up the ancestral node path.
+
+This is helpful if a parent and child both have listeners, but should be executed in different contexts.
+
+> I never thought I would ever say the words "ancestral node path".
+
+Coming back to this generic logging example, what happens if you stop propagation after the `console.log()` line?
+
+```js
+const selectors = [".grandparent", ".parent", "#click-me"]
+
+selectors.forEach(listenForClick)
+
+function listenForClick (selector) {
+  const targets = ["target", "currentTarget"]
+  document.querySelector(selector)
+    .addEventListener("click", logger(targets))
+}
+
+function logger (targets) {
+  return function (event) {
+    targets.forEach(target => console.log(target, event[target]))
+    event.stopPropagation()
+  }
+}
+```
+
+Click around the DOM to see the results.
 
 ### Pair Practice
 
+Fork the CodePen from above and write a click event handler that responds to (and only to) buttons that both *do* and *could* exist on the DOM.
+
+## Review
+
+* When an element is bound to an event listener, what besides that element can trigger the event?
+* How does this relate to "event bubbling"?
+* What special object do we have access to when dealing with UI interactions?
+  * What are three useful properties on that object?
+* What is the difference between `target` and `currentTarget`?
+
+## Back to QS
+
+Let's check out the first iteration of Quantified Self and see where event delegation would be helpful!
+
 -   jQuery has an easy way to do event delegation with the 'on' function. Check out your QS project to make sure you're using event delegation. If you aren't, do some refactoring!
+
