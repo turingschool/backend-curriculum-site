@@ -7,9 +7,9 @@ tags: Integration testing libraries
 Goals
 ----------
 
--   Understand the value of integration tests
--   Write integration tests using outside resources with comfort
--   Incorporate integration tests into a webpack based environment 
+-   Understand the value and tradeoffs of integration tests
+-   Comfortably write integration tests using outside resources
+-   Incorporate integration tests into a webpack based environment
 
 Libraries covered
 ---------
@@ -26,8 +26,10 @@ Test Type Review
 -   Why would we use one over the other?
 -   Given, When, Then
 
-Let's integrate
+Setup
 -------------
+
+### Selenium Setup
 
 What about when we want to test user interactions with the application. We're going to bring in a new tool called [Selenium](https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/webdriver_exports_WebDriver.html).
 
@@ -39,14 +41,27 @@ I've added the packages you need to your package.json file already (chromedriver
 
 I've also included chromedriver in the root of the project, you are going to need to move that into your /usr/bin/local/ directory, if you don't have it installed.  You can check by running `chromedriver -v`
 
-Before we write our feature story, lets talk about some of the test setup.
+### Application setup
+
+Just like your current project, we're going to be running two different codebases. Clone down both of these, and we'll go through the README to get them both running.
+
+https://github.com/turingschool-examples/ajax-testing-be
+
+https://github.com/turingschool-examples/ajax-testing-fe
+
+Let's integrate
+----------------
+
+We have one passing test already. Let's walk through it and break down the pieces.
 
 ```js
 var assert    = require('chai').assert;
 var webdriver = require('selenium-webdriver');
+var until = webdriver.until;
 var test      = require('selenium-webdriver/testing');
+var frontEndLocation = "http://localhost:8080"
 
-test.describe('testing ideabox', function() {
+test.describe('testing my simple blog', function() {
   var driver;
   this.timeout(10000);
 
@@ -59,26 +74,27 @@ test.describe('testing ideabox', function() {
   test.afterEach(function() {
     driver.quit();
   })
-});
 ```
 
 Let's start with our `require`s
 
--   You should recognize that we're using Chai's assertions again.
 -   `webdriver` is really where the magic happens. We're going to be calling a lot from this object.
 -   `test` kind of replaces Mocha for us. We use selenium's `test` object because it handles asynchronous code better, but it's still technically running within Mocha.
+-   I've saved the url of my front end so I can easily use it throughout the tests, and change it in the future.
 
 Moving on:
 
 ```js
 // ...
-test.describe('testing ideabox', function() {
+test.describe('testing my simple blog', function() {
   var driver;
   this.timeout(10000);
 // ...
 ```
+
 -   Since we're using selenium's test runner, we have to preface our `describe()` and `it()` with `test`.
--   We're setting up a variable `driver` for the whole block
+-   We're setting up a variable `driver` for the whole block. This is the thing that actually interacts with the browser.
+-   I've set host as a variable so I can easily change it when the environment changes
 -   The default timeout is 2000 milliseconds, which we'll run out of quickly with all the browsing we're going to be doing.
 
 ```js
@@ -94,26 +110,52 @@ test.describe('testing ideabox', function() {
 
 Here we're starting Chrome before each test, and quitting it after each test. I've found this gives me the most consistent test results.
 
-The feature I want is to add an idea title and description, to my list of ideas.  We are going to use Jhun's ideabox site at [Jhun's Ideabox](http://idea-box-jhun.herokuapp.com/)
-Now lets write our feature story using the Given, When, Then syntax. The product manager who is often the person creating feature stories to add value to the business,
-asks you to allow a user to create a new idea with a description for ideabox.
+```js
+test.it("lists all the entries on load", function() {
+    driver.get(`${frontEndLocation}`)
+    driver.wait(until.elementLocated({css: "#entries .entry"}))
+    driver.findElements({css: "#entries .entry"})
+    .then(function (entries) {
+      assert.lengthOf(entries, 3);
+    })
+  })
+});
+```
 
 #### driver.get(url)
 
 This just visits a page in selenium.
 
-#### driver.findElement()
+#### driver.wait(until...)
+
+We're frequently going to be looking for things that don't exist at page load, because they have to be loaded via AJAX. These wait commands tell the test to wait until they can find some element on the page. You want to give it something that would only exist after the AJAX has loaded.
+
+#### driver.findElements()
 
 My preference is to use css selectors to select elements.  `driver.findElement({css: '#id-name'})`
 You may also select an element by id. `driver.findElement({id: 'id-name'})`
 
-#### click() 
+Because of some decisions made by the selenium team, basically everything is a promise. This means instead of returning values, these functions return promises, and the only way to get the values is to call `then()` on them, and name the variable for the value in the anonymous function parameters. But once you get the pattern, it's pretty straight forward.
 
-After selecting an element you can then call `click()` on that element
+There is also a `findElement()` if you only expect there to be one, and don't want to mess with an array.
+
+#### Understanding checkpoint
+
+We have more practice to do, but let's check in on where you're at.
+
+### A POST test
+
+Great! We've broken down an existing test for an existing feature. Let's see if we can test drive another feature. We want to be able to create a new `Entry` in our blog. The HTML form already exists, but it isn't wired up.
+
+Before we write our tests, let's go over a few more methods of the `driver` object:
+
+#### click()
+
+Called as a method off of `findElement()`. After selecting an element you can then call `click()` on that element
 
 #### sendKeys(string)
 
-After selecting an element, usually one with an `<input>` tag, you can then call `sendKeys(string)` to fill in the input field.
+Called as a method off of `findElement()`. After selecting an element, usually one with an `<input>` tag, you can then call `sendKeys(string)` to fill in the input field.
 
 #### getText() and getAttribute()
 
@@ -123,27 +165,48 @@ driver.findElement({id: 'ideaname'}).getText().then(function(textValue) {
 });
 ```
 
-This is how you get some information about your elements. Because of some decisions made by the selenium team, basically everything is a promise. This means instead of returning values, these functions return promises, and the only way to get the values is to call `then()` on them, and name the variable for the value in the anonymous function parameters. But once you get the pattern, it's pretty straight forward.
+These are just a few of the functions you can use, but at least enough for us to write our next test. There are a lot more [in the docs](https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/index_exports_WebDriver.html). The docs seem intimidating at first, but stick with them. They're consistent and have little snippets throughout.
 
-These are just a few of the functions you can use, but probably the most common ones. There are a lot more [in the docs](https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/index_exports_WebDriver.html). The docs seem intimidating at first, but stick with them. They're consistent and have little snippets throughout.
+Alright, we're ready to write the test.
 
-#### Search idea feature
+### Checks for Understanding
 
-With your pair, write an integration test that can search for the idea titled "Yo dude", by typing in only the letter "y" in the search field.  Please use the Given, When, Then syntax to write your story first.  Then line by line write the code.
+- What are some similarities and differences between this library, and integration tests you've written in the past?
+- What kind of challenges do you think you'll have when writing integration tests in JavaScript? What resources will you use to overcome those challenges?
 
-#### Integrating with webpack
+### AJAX refresher
 
-So far we've been running our tests using the npm script `npm test`.  Anyone notice all the unit tests output in their console?  We need to write an npm script just for unit tests, and just for integration tests.  Please pair with your partner to create these scripts.
+Let's make sure you're comfortable writing AJAX in jQuery by reviewing a few things:
+
+- [The jQuery docs for `.ajax()`](https://api.jquery.com/jquery.ajax/)
+- [The jQuery docs for other AJAX functions](https://api.jquery.com/category/ajax/)
+- The existing AJAX feature in the front-end codebase
+
+### Checks for Understanding
+
+- What are some use cases for AJAX? Name some features that will require an AJAX request to complete.
+- What information do you need before you can make an AJAX request?
+- How do you access the response from the request?
+
+Your Turn
+-------------
+
+Using your new found selenium knowledge, and your refreshed AJAX knowledge, write a test for, and then implement, the following feature:
+
+```
+As a user, when I click "Delete" under a entry, that entry is removed from the app without a refresh. When I refresh, the entry will not reappear.
+```
+
 
 CFU
 -------------
 
-* Take 5 minutes to answer this question in a blank text file. 
+* Take 5 minutes to answer this question in a blank text file.
 
 -  What is the difference between unit and integration tests?  What percentage of unit tests do you want vs integration tests and why?
 
 ### Notes for working with selenium
 
--   I've been visiting a production link for proof of concept, but usually you'll want to run your tests on your dev server. Don't forget to run your dev server in another tab before you run your tests.
+-   Don't forget to run your dev server and front-end webpack in another terminal tab before you run your tests.
 -   When googling, make don't google "selenium" or even "selenium javascript". You'll just get stuff in other languages. Put "webdriverjs" in your search query.
--   You might be missing something like a Database Cleaner. You can [use selenium to execute](https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/index_exports_WebDriver.html#executeScript) `localStorage.clear()`, maybe in your `beforeEach()`.
+-   You might be missing something like a Database Cleaner. Since the back-end API is your datasource, and your tests don't have direct access to the database, you will want to make requests to the API to set up and teardown your data.
