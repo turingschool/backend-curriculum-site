@@ -9,6 +9,10 @@ tags: enumerables, map, select, find
 * Learn how to use & recreate the functionality of `map`, `select` and `find` using .each
 * Understand when to use map, select, and find appropriately.
 
+## Slides
+
+Available [here](../slides/beginner_enumerables)
+
 ## Vocabulary  
 * enumerable  
 * iterate  

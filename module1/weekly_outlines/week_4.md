@@ -14,5 +14,6 @@ layout: page
 
 * [Battleship](../projects/battleship)
 
-## Other Relevant Links
+## Resources
 * [Refactoring Patterns Reading](https://github.com/turingschool/challenges/blob/master/refactoring_patterns_reading.markdown)
+* [Ruby Object Model Video](https://vimeo.com/160952993)
