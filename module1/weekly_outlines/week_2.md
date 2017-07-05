@@ -6,11 +6,11 @@ layout: page
 ## Lessons
 
 * [Academic Integrity](../lessons/academic_integrity)
-* [Introduction to Hashes](../lessons/hashes)
+* [Introduction to Hashes](../lessons/hashes_arts_and_crafts)
+* [Nested Collections](../lessons/nested_collections)
 * [How Testing Works](../lessons/how_testing_works)
 * [Git for Pairs](../lessons/git_for_pairs)
 * [Working with Files](../lessons/working_with_files) ([Class Recording](https://vimeo.com/162134025)) ([Related Video](https://vimeo.com/130322465))
-* [Translating Code to Classes](../lessons/translating_code_to_classes)
 
 ## Projects
 
