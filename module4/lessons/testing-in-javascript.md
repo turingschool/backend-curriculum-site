@@ -52,7 +52,9 @@ https://github.com/turingschool-examples/ajax-testing-fe
 Let's integrate
 ----------------
 
-We have one passing test already. Let's walk through it and break down the pieces.
+We have one passing test already. I'll mention that it's not in the `test/index.js` entry file. That's because selenium is designed to work with Node, while webpack, and most of your FE tests, are meant for the browser. Mocha will still recognize these files in the terminal. They just won't appear in our browser based tests.
+
+Let's walk through the one test and break down the pieces.
 
 ```js
 var assert    = require('chai').assert;
@@ -143,6 +145,8 @@ There is also a `findElement()` if you only expect there to be one, and don't wa
 
 We have more practice to do, but let's check in on where you're at.
 
+- How is Selenium like tools you've used in the past? What's different and new?
+
 ### A POST test
 
 Great! We've broken down an existing test for an existing feature. Let's see if we can test drive another feature. We want to be able to create a new `Entry` in our blog. The HTML form already exists, but it isn't wired up.
@@ -155,7 +159,7 @@ Called as a method off of `findElement()`. After selecting an element you can th
 
 #### sendKeys(string)
 
-Called as a method off of `findElement()`. After selecting an element, usually one with an `<input>` tag, you can then call `sendKeys(string)` to fill in the input field.
+Called as a method of `findElement()`. After selecting an element, usually one with an `<input>` tag, you can then call `sendKeys(string)` to fill in the input field.
 
 #### getText() and getAttribute()
 
@@ -182,9 +186,13 @@ Let's make sure you're comfortable writing AJAX in jQuery by reviewing a few thi
 - [The jQuery docs for other AJAX functions](https://api.jquery.com/category/ajax/)
 - The existing AJAX feature in the front-end codebase
 
+AJAX isn't unique to jQuery, and it's not all that unique as a concept. It's really just how we refer to the request->response->process cycle in JavaScript. API consumption you've done in the Ruby is basically the same thing. Asynchronicity is what makes it feel so different.
+
+There are other libraries that include AJAX functionality, and other libraries that are only for AJAX. `fetch()` is also trying to become a thing, but isn't included in any draft ES standard.
+
 ### Checks for Understanding
 
-- What are some use cases for AJAX? Name some features that will require an AJAX request to complete.
+- What are some use cases for AJAX? Name some cards from your current project that will require an AJAX request to complete.
 - What information do you need before you can make an AJAX request?
 - How do you access the response from the request?
 
@@ -198,12 +206,9 @@ As a user, when I click "Delete" under a entry, that entry is removed from the a
 ```
 
 
-CFU
--------------
+Wrap Up
+-----------------
 
-* Take 5 minutes to answer this question in a blank text file.
-
--  What is the difference between unit and integration tests?  What percentage of unit tests do you want vs integration tests and why?
 
 ### Notes for working with selenium
 
