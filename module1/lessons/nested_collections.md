@@ -17,8 +17,10 @@ tags: ruby, hashes, data structures
 5min - WrapUp
 
 ### WarmUp   
-By yourself or with a partner find answers to the following. Try to answer without using irb or pry.
-animals = {"dogs" => 3, "cats" => 5, "iguanas" => 2} 
+By yourself or with a partner find answers to the following.  
+Try to answer without using irb or pry.  
+animals = {"dogs" => 3, "cats" => 5, "iguanas" => 2}   
+
 * Using the above animals hash, how would you do the following  
    * return the amount of dogs  
    * add 3 parakeets  
