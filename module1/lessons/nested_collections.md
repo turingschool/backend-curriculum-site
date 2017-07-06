@@ -20,11 +20,11 @@ tags: ruby, hashes, data structures
 By yourself or with a partner find answers to the following.  
 Try to answer without using irb or pry.  
 animals = {"dogs" => 3, "cats" => 5, "iguanas" => 2}   
-
 * Using the above animals hash, how would you do the following  
    * return the amount of dogs  
    * add 3 parakeets  
    * increase the amount of cats by 2   
+
 pet_names = ["Fela", "Spot", "Iggy", "Willy"]  
 * Using the above pet_names array, how would you do the following  
    * add "Claude"  
