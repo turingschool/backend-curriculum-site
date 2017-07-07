@@ -48,7 +48,7 @@ Use our routes and controllers lesson from yesterday to add functionality so tha
 
 1) Set up a many-to-many relationship with Students, Courses, and Enrollments
 
-2) In the `rails console`, create a new Student (`student = Student.new`) and save that student (`student.save`). Create a new course (`course = Course.new`) and save it (`course.save`). Create an enrollment with `student.enrollments.create(`course_id: course.id`). What happens if you create a new course and associate it with a student at the same time - `student.courses.create(name: "Chemistry")`? What do you notice about this?
+2) In the `rails console`, create a new Student (`student = Student.new`) and save that student (`student.save`). Create a new course (`course = Course.new`) and save it (`course.save`). Create an enrollment with `student.enrollments.create(course_id: course.id`). What happens if you create a new course and associate it with a student at the same time - `student.courses.create(name: "Chemistry")`? What do you notice about this?
 
 3) Look at the ActiveRecord relationships with `student.enrollments` and `student.courses`.
 
