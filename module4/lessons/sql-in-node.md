@@ -57,7 +57,7 @@ If you're using git, add a .gitignore, and add `node_modules`. Since these get i
 
 Rewrite your `scripts` section like the following:
 
-```
+```js
 "scripts": {
     "test": "NODE_ENV=test mocha test/*-test.js",
     "start": "nodemon server.js",
@@ -177,7 +177,7 @@ exports.up = function(knex, Promise) {
   let createQuery = `CREATE TABLE secrets(
     id SERIAL PRIMARY KEY NOT NULL,
     message TEXT,
-    created_at DATETIME
+    created_at TIMESTAMP
   )`;
   return knex.raw(createQuery);
 };
