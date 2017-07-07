@@ -160,7 +160,7 @@ rails g model Genre name
 ```
 
 ```bash
-rails g model books_genres books:references genres:references
+rails g model BookGenre book:references genre:references
 ```
 
 *In the console*:
