@@ -17,7 +17,7 @@ layout: page
 * [Jungle Beat](../projects/jungle_beat)
 * [Date Night](../projects/date_night)
 * [Complete Me](../projects/complete_me)
-* [Night Writer](../projects/night_writer)
+* [Enigma](../projects/enigma)
 
 ## Exercises and Other Relevant Links
 
