@@ -181,7 +181,8 @@ Need a refresher on associations? Click [here](http://guides.rubyonrails.org/ass
 
 * What is a primary key?
 * What is a foreign key?
-* Why would one row of data have both primary and foreign keys?
+* In what situation would one row of data have both primary and foreign keys?
+* In what situation would two entities be related but *not* have foreign keys stored on either of the tables?
 * What is Rails' convention for the column name of the primary key?
 * What is Rails' convention for the column name of a foreign key?
 * What are dev, test, and prod databases all about?
