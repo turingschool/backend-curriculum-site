@@ -102,6 +102,8 @@ $ cd routes-controllers-example
 
 Let's take a few minutes to explore what `rails new` generates.
 
+Diagram time! Let's take a second to draw out the Request-Response cycle in an MVC app. This will look slightly different from the diagram we drew for Sinatra. 
+
 In `config/routes.rb`:
 
 ```ruby
