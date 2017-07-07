@@ -136,7 +136,7 @@ Inside of that file:
 ```ruby
 class TasksController < ApplicationController
   def index
-    render :text => "hello world"
+    render :plain => "hello world"
   end
 end
 ```
