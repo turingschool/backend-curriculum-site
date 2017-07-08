@@ -6,6 +6,7 @@ layout: page
 ## Lessons
 
 * [Testing Strategies Continued](../slides/testing_strategies_3)
+* [Inheritance](../lessons/inheritance)
 * [Working with Ruby Modules](../lessons/introduction_to_modules)
 * [Refactoring Patterns](../lessons/refactoring_patterns)
 * [Git with Branches](../slides/git_branching)
