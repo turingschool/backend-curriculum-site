@@ -12,3 +12,7 @@ The purpose of this document is to allow a place for us to keep track of things 
 
 
 ### B1
+
+- Move project kick-offs to Fridays from Thursdays
+- Move Mix-in lesson closer to Inheritance lesson to compare and contrast
+- Remove `cat` and `echo` from File/IO lesson
