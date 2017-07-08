@@ -1,8 +1,8 @@
 ---
 layout: page
-title: Intro to Methods
+title: Inheritance
 length: 60
-tags: ruby, methods
+tags: ruby, inheritance
 ---
 
 ## Learning Goals
