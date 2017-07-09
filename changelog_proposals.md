@@ -16,3 +16,5 @@ The purpose of this document is to allow a place for us to keep track of things 
 - Move project kick-offs to Fridays from Thursdays
 - Move Mix-in lesson closer to Inheritance lesson to compare and contrast
 - Remove `cat` and `echo` from File/IO lesson
+- Add instructions to download voices to JungleBeat
+- Add note about looping/recursion to JungleBeat and CompleteMe
