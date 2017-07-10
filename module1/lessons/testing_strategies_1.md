@@ -16,6 +16,7 @@ length: 60
 
 
 ### Vocabulary  
+* Encapsulation  
 * Unit Tests  
 * Integration Tests  
 * Feature Tests
@@ -34,7 +35,118 @@ length: 60
 
 ### Testing Patterns  
 
-It can be especially difficult to get started on a new project or even a new iteration of a project. The essence of testing is asking questions
+It can be especially difficult to get started on a new project or even a new iteration of a project. The essence of testing is asking questions and coming up with difficult answers.     
+
+* Testing compels you to make hard decisions early, and up front.
+  * This is scary because you are making decisions in a context you don't understand.
+* Testing (especially in the context of TDD) is a discipline tool -- forces you to a) be **specific** about what you are trying to do and b) stay **focused** on that objective  
+
+#### Isolating Functionality - Encapsulation 
+
+* What makes a test easy to write? What makes it hard?
+  * Being specific with the behavior you're testing makes writing the test easier.
+* Can we identify the input?
+* Can we identify the output?
+* The "interface"
+
+Identify the Input/Output and what your method will be called.
+
+```ruby 
+  def test_translate_returns_a_string_of_translated_characters  
+    input           = "hello world"
+    expected_output = "idolvhendid"
+    
+    translator = Translator.new  
+    actual_output   = translator.translate(input)  
+    
+    assert_equal expected_output, actual_output 
+  end 
+```
+Same test written with asserting the intended output against the method call. 
+
+```ruby 
+  def test_translate_returns_a_string_of_translated_characters  
+    translator = Translator.new  
+    
+    assert_equal "idolvhendid", translator.translate("hello world")   
+  end 
+```
+
+#### Top-Down  
+
+This style is also known as Dream Driven Development.  As a programmer, you know the big idea of what you need to accomplish so you write a test for your dream.  As you begin to implement your dream, you may need to write smaller tests and methods to accomplish your big task. You may spend a long time with that one test in a red state while you make smaller tests pass by writing supporting methods.    
+
+#### Bottom-Up  
+
+This style is where you start with the supporting pieces, cobbling them together to build up to your final goal. In a bottom up approach, you will take each chunk of functionality piece by piece. You may have a quicker cycle of red-green-refactor, but it may be a bit more unclear at the beginning where you will end up.  
+
+#### Edge Case Testing  
+
+When breaking down a strategy, it may be difficult to come up with a solution that works for all scenarios on your first try. A common practice is to first build a test that checks against the smallest possible scenario. If we go back to our translator above, before we get anywhere near testing `"hello world"` we probably just want to test that translated a single letter.  
+
+```ruby  
+def test_translate_returns_a_string_of_translated_characters  
+    input           = "a"
+    expected_output = "v"
+    
+    translator = Translator.new  
+    actual_output   = translator.translate(input)  
+    
+    assert_equal expected_output, actual_output 
+  end 
+
+```  
+
+After we get that first single letter test passing, test how it stretches. Does it work for two letters?  
+
+```ruby
+def test_translate_returns_a_string_of_translated_characters  
+    input           = "at"
+    expected_output = "vs"
+    
+    translator = Translator.new  
+    actual_output   = translator.translate(input)  
+    
+    assert_equal expected_output, actual_output 
+  end 
+```  
+
+Then maybe we want to test for five letters:   
+
+```ruby
+def test_translate_returns_a_string_of_translated_characters  
+    input           = hello"
+    expected_output = "dkssp"
+    
+    translator = Translator.new  
+    actual_output   = translator.translate(input)  
+    
+    assert_equal expected_output, actual_output 
+  end 
+```  
+
+You could keep going with a translator, checking for sentences, paragraphs etc. Maybe you want to check for special characters or punctuation. This process helps you incrementally ensure your method works for your intended purpose and for a number of scenarios.  Consider this combination of test and code:  
+
+```ruby  
+  def test_translate_returns_a_string_of_translated_characters  
+    input           = hello"
+    expected_output = "dkssp"
+    
+    translator = Translator.new  
+    actual_output   = translator.translate(input)  
+    
+    assert_equal expected_output, actual_output 
+  end 
+```  
+
+```ruby 
+ class Translator
+ 
+    def translate(message)
+      "dkssp"
+    end 
+ end 
+```
 
 ### Hierarchy of Tests
 
