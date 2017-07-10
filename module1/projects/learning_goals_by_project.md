@@ -14,7 +14,7 @@ None Listed
 *   Apply Enumerable techniques in a real context
 
 ### Jungle Beat 
-## Learning Goals / Areas of Focus
+#### Learning Goals / Areas of Focus
 * Practice breaking a program into logical components
 * Distinguishing between classes and instances of those classes
 * Understanding how linked lists work to store and find data
