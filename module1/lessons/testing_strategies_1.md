@@ -71,6 +71,8 @@ Same test written with asserting the intended output against the method call.
     assert_equal "idolvhendid", translator.translate("hello world")   
   end 
 ```
+**Turn & Talk**  
+How have you approached breaking down a problem? How have you used tests in this process?   
 
 #### Top-Down  
 
@@ -85,7 +87,7 @@ This style is where you start with the supporting pieces, cobbling them together
 When breaking down a strategy, it may be difficult to come up with a solution that works for all scenarios on your first try. A common practice is to first build a test that checks against the smallest possible scenario. If we go back to our translator above, before we get anywhere near testing `"hello world"` we probably just want to test that translated a single letter.  
 
 ```ruby  
-def test_translate_returns_a_string_of_translated_characters  
+def test_translate_returns_a_single_translated_character  
     input           = "a"
     expected_output = "v"
     
@@ -100,7 +102,7 @@ def test_translate_returns_a_string_of_translated_characters
 After we get that first single letter test passing, test how it stretches. Does it work for two letters?  
 
 ```ruby
-def test_translate_returns_a_string_of_translated_characters  
+def test_translate_returns_a_string_of_two_translated_characters  
     input           = "at"
     expected_output = "vs"
     
@@ -125,11 +127,14 @@ def test_translate_returns_a_string_of_translated_characters
   end 
 ```  
 
-You could keep going with a translator, checking for sentences, paragraphs etc. Maybe you want to check for special characters or punctuation. This process helps you incrementally ensure your method works for your intended purpose and for a number of scenarios.  Consider this combination of test and code:  
+You could keep going with a translator, checking for sentences, paragraphs etc. Maybe you want to check for special characters or punctuation. This process helps you incrementally ensure your method works for your intended purpose and for a number of scenarios.  
+
+**Turng & Talk**
+Consider this combination of test and code. What are the dangers illustrated here? What implications does this have for your testing practice?   
 
 ```ruby  
   def test_translate_returns_a_string_of_translated_characters  
-    input           = hello"
+    input           = hello"  
     expected_output = "dkssp"
     
     translator = Translator.new  
@@ -146,7 +151,8 @@ You could keep going with a translator, checking for sentences, paragraphs etc. 
       "dkssp"
     end 
  end 
-```
+```  
+
 
 ### Hierarchy of Tests  
 
