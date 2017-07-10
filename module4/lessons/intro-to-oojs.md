@@ -15,7 +15,7 @@ tags: JavaScript, object oriented programming, prototypes
 
 ## Warm Up
 
-Take 5 minutest to discuss the following with one or two people near you:
+Take 5 minutes to discuss the following with one or two people near you:
 
 * What are the main components of Object Oriented Programming?
 * What's one way to create a new object in JavaScript?
