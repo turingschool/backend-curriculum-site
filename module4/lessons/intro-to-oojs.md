@@ -1,8 +1,8 @@
 ---
 layout: page
-title: Object Oriented Javascript
+title: Object Oriented JavaScript
 length: 206
-tags: javascript, object oriented programming, prototypes
+tags: JavaScript, object oriented programming, prototypes
 ---
 
 # An Introduction to Object-Oriented JavaScript
@@ -10,10 +10,12 @@ tags: javascript, object oriented programming, prototypes
 ## Learning Goals
 * Students create and use functions with parameters *(mastery)*
 * Students organize functions into classes and objects *(functional)*
-* Students apply SOLID patterns to JavaScript functions *(mastery)*
+* Students apply good OO patterns to JavaScript functions *(mastery)*
 * Students make effective use of `this` in multiple contexts *(functional)*
 
 ## Warm Up
+
+Take 5 minutes to discuss the following with one or two people near you:
 
 * What are the main components of Object Oriented Programming?
 * What's one way to create a new object in JavaScript?
@@ -22,7 +24,7 @@ tags: javascript, object oriented programming, prototypes
 
 ## Introduction
 
-JavaScript is an object-oriented programming language. Functions can be used to construct new objects in JavaScript.
+JavaScript is an object-oriented programming language, but it follows a slightly different approach than what we know from Ruby. Instead of creating classes, constructor functions can be used to construct new objects in JavaScript.
 
 It's not a rule baked into the language, but — by convention — most JavaScript developers capitalize the names of functions that they intend on using as object constructors.
 
@@ -242,9 +244,13 @@ class EventHandler {
 }
 ```
 
-# Prototypes vs. Classes
+## Your turn: Mod 1 Final Returns!
 
-This is a topic that has been hashed out to great length on the internet. In some ways there are a lot of similarities between classes in a language like ruby and prototypes in a language like javascript:
+Go to [this repo](https://github.com/turingschool-examples/bon_appetit_js) and follow the instructions to get set up. Let's take thirty minutes to implement (some of) the Mod 1 final using object-oriented JavaScript.
+
+## Prototypes vs. Classes
+
+This is a topic that has been hashed out to great length on the internet. In some ways there are a lot of similarities between classes in a language like Ruby and prototypes in a language like JavaScript:
 
 * Both allow child instances of their type to access their methods and behavior
 * Both use a "chain" mechanism to continue searching for requested properties in their parent
@@ -253,13 +259,11 @@ This is a topic that has been hashed out to great length on the internet. In som
 However, there are also some major differences:
 
 * Prototypes don't really provide a mechanism for encapsulation of state, which is one of the major principles of most OO languages.
-* Javascript doesn't provide an OO-style mechanism for "private" functions (although we can achieve something similar with closures).
+* JavaScript doesn't provide an OO-style mechanism for "private" functions (although we can achieve something similar with closures).
 * Prototypes don't distinguish between their own methods and the methods provided to their children (i.e. class methods vs. instance methods).
-
-## Your turn: Quick Exercise
-
-Can you add a second method called `sayGoodbye` that enables each dog to bid farewell?
 
 ## Closing
 
-What three things can you do to update your QS code to make it more object oriented?
+With a neighbor, discuss three things you can do to update your QS code to make it more object oriented.
+
+### [Slides](../slides/oo_js_slides.pdf)
