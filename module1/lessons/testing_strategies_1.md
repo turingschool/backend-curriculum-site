@@ -148,7 +148,9 @@ You could keep going with a translator, checking for sentences, paragraphs etc. 
  end 
 ```
 
-### Hierarchy of Tests
+### Hierarchy of Tests  
+
+When writing a program, you will likely have smaller methods that support each other to create greater functionality. Often these might be wrapped in some kind of runner method, or chained together for a grand result. We saw this in the discussion above regarding both Top-Down and Bottom-Up strategies. The tests for these methods are actually different kinds of tests.  There are four commonly referred to types of tests which build upon each other:  
 
 [TestPyramid](http://martinfowler.com/bliki/TestPyramid.html)
 
@@ -169,7 +171,10 @@ Especially when you move into web development projects in later modules you'll r
 Feature tests to verify the behavior of your application as it will eventually be experienced by a user.
 
 In Module 1, on the other hand, we will rely much more heavily on **Unit** and **Integration** tests -- and it's very
-important to have a good mix of both!
+important to have a good mix of both!  
+
+**Turn & Talk**
+What kind of test would the above translator test be? What might the other kind of test and cooresponding method look like?
 
 ### WrapUp  
 * How does letting tests drive your development lead you to stronger code?  
