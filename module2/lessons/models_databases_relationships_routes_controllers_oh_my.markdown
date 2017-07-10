@@ -4,13 +4,13 @@ title: Rails Basics Challenge
 ---
 #### Practice with Migrations: One-to-Many Relationship at the Database Level
 
-Imagine that you have Students and Addresses. A student can have many addresses (ie - current address, permanent address, etc.), and an address belongs to one student. We're going to set up a Rails app to build this out.
+Imagine that you have Students and Addresses. In our fake world, a student can have many addresses (ie - maybe they have a current address, a permanent address, a parent address, a summer address, etc.), and an address belongs to *only* one student. True, this might not be a real-life situation, but go with it. This is a one-to-many for today. We're going to set up a Rails app to build this out.
 
 1) Create a new rails project from your command line! It's your choice whether to use PG or sqlite. 
 
 2) Create migrations (`rails g migration ...`) for both students and addresses. Make sure to give each object some applicable attributes (for example: first_name for students, street for addresses, etc.). 
 
-3) Create a migration to add a boolean column `is_alumnus` to the students table. Give this a default value of false. Migrate this and watch how `schema.rb` changed. [Unsure how to add a column?](http://lmgtfy.com/?q=rails+migration+add+column). 
+3) Create a migration to add a boolean column `is_alumnus` to the students table. Give this a default value of false. Migrate this and watch how `schema.rb` changed. [Unsure how to add a column?](http://lmgtfy.com/?q=rails+migration+add+column)
 
 4) Rollback one previous migration. What file changed? Can you re-migrate so that `is_alumnus` is in your table again? 
 
