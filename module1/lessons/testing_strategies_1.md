@@ -5,7 +5,7 @@ tags: basics, testing, encapsulation
 length: 60
 ---
 
-# Testing Strategies, or: How to help testing help us
+# Testing Strategies
 
 ## Learning Goals
 
