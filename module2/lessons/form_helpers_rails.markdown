@@ -12,9 +12,9 @@ title: Forms in Rails
 
 ### Setup
 
-* Clone [BookShelf](https://github.com/turingschool-examples/book_shelf)
-* Checkout the `pre-form-lesson` branch
-* `bundle`, `rake db:setup`
+* `git clone -b pre-form-lesson git@github.com:turingschool-examples/book_shelf.git forms_playground`
+* `bundle install`
+* `rake db:setup`
 * `rails server`
 * **Get familiar with the app.** What functionality is there?
 
