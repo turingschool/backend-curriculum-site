@@ -17,42 +17,26 @@ Learning Goals
 Overview
 ------------
 
-The Capstone Project will last two weeks and will consist of students working in teams of 3-4 students. Teams will be formed based on interest in an existing Turing internal projects or the cohort's existing personal projects listed [here](https://gist.github.com/BobGu/8e1aa089c9fafc99c0c557dfcbbf9080).
+The Capstone Project will last two weeks and will consist of students working individually to create something that's meaningful following the guidelines.
 
 Roles
 ------------
-*   Each group will assign the following roles:
-
-	1.  Project Manager
-	2.  Product Owner
-
 
 *   An instructor will be assigned to each group and act as the Technical Lead
 
 Structure of each week
 ------------
 
-Each team should work together to plan daily stand-up's. Let your Technical Lead know when these stand-up's will take place so they can attend as needed.
+Each student will submit a project proposal at the end of the "soft launch" [here](https://github.com/turingschool/ruby-submissions/blob/master/1701-b/4module/capstone_projects/project_proposal.md). Technical Lead's will give feedback on the scope of the project either via Github, Slack message, or in person.
 
-Every Tuesday afternoon, the Product Owner will talk with their team about the set of user stories to be implemented for that sprint. The sprint will start Tuesday and end Friday at 10 AM.
+At the beginning of each week, each student will set their sprint (aka what they want to accomplish that week). Throughout the week, each student should be tagging their Technical Lead in PR's if they have questions or want feedback on any code they've written. 
 
-At the culmunation of the project (Friday of Week 5), each team will spend 5 minutes demoing their project to the entire class. All team members should present a piece of the project.
+Halfway through the project, each student will spend 2 minutes demoing their project to the entire class. Students will also demo their projects at the end of the project in week six.
 
-After the demos, each team will meet with their Technical Lead who will evaluate their progress via the rubric below.
+Halfway through the project, each student will meet with their Technical Lead who will evaluate their progress via the rubric below.
 
-During the first day of each sprint, each Technical Lead will meet with the Product Owner of each team to walk through the next set of stories. The Product Owner is responsible for brainstorming what these stories are with their team. The Technical Lead is responsible for helping guide the Product Owner and estimate how long each story will take. 
+The student is responsible for communicating to the Technical Lead throughout each sprint if they are not going at a pace to finish the set of stories by the end of the sprint.
 
-The Project Manager is responsible for communicating to the Technical Lead throughout each sprint if the team is not going at a pace to finish the set of stories by the end of the sprint.
-
-All classes (except for PD classes) scheduled during week 5 and Friday of week 4 are optional unless otherwise stated, depending on the team you choose. Feel free to audit classes in other modules and programs:
-
-*   [BEE Module 1](https://www.google.com/calendar/embed?src=casimircreative.com_59k8msrrc2ddhcv787vubvp0s4%40group.calendar.google.com&ctz=America/Denver)
-*   [BEE Module 2](https://www.google.com/calendar/embed?src=casimircreative.com_rps2hg1nfqjih4rcl3gl6s4lpk%40group.calendar.google.com&ctz=America/Denver)
-*   [BEE Module 3](https://www.google.com/calendar/embed?src=casimircreative.com_e9k9b6n7bok174ilmqbfdr0sc4%40group.calendar.google.com&ctz=America/Denver)
-*   [FEE Module 1](https://calendar.google.com/calendar/embed?src=casimircreative.com_m6bndqol81h6jdlnpo0a6raot0%40group.calendar.google.com&ctz=America/Denver)
-*   [FEE Module 2](https://calendar.google.com/calendar/embed?src=Y2FzaW1pcmNyZWF0aXZlLmNvbV9jamlmZm9xdnRhanE0M241bW4yOTBjcDc0NEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t)
-*   [FEE Module 3](https://calendar.google.com/calendar/embed?src=casimircreative.com_krb9p35ck35m4uoji5d2715844%40group.calendar.google.com&ctz=America/Denver)
-*   [FEE Module 4](https://calendar.google.com/calendar/embed?src=casimircreative.com_pe92inv861hml159vg7qh8vpls%40group.calendar.google.com&ctz=America/Denver)
 
 Rubric
 ------------
