@@ -60,7 +60,7 @@ Weeks 4&5 will be spent working on your capstone projects.
 *   Small Group Instruction
 *   Technical Interview Prep
 *   [History of JavaScript](https://drive.google.com/open?id=0Bx6JZxtPBe_FVjk0dU1DekRGc00)
-*   [Refactor Tractor](./lessons/js_refactor_tractor)
+*   [Refactor Tractor](./lessons/refactor-workshop)
 *   Negotiations
 *   [Testing JS with Selenium](./lessons/intro_to_testing_with_selenium)
 *   [Rails Challenge](https://gist.github.com/case-eee/e6662baaee43e317109c64d089d2cad5)
