@@ -24,9 +24,9 @@ Technical Expectations
 
 We would like to give you a fair amount of freedom on this project. We want you to bulid something that you're excited about, and that you're proud of. These are a few requirements you should consider when pitching and building your project:
 
-*   You build something usable. Your should be comfortable publishing your project by the time it's due in week 6. A spike or exploration into a new concept without a clear deliverable won't be accepted.
+*   You build something usable. You should be comfortable publishing your project by the time it's due in week 6. A spike or exploration into a new concept without a clear deliverable won't be accepted.
 *   You must apply at least two new techniques. New is something from the 4th module (OOJS, Security, Environments, React), or something extra-curricular. Something not taught in the Turing Back-end engineering program.
-	-   Since accessibility is already in the rubric, it doesn't count as a new topic
+	-   Since accessibility is already in the rubric, it doesn't count as a new topic, but is required.
 	-   If you use something cool for your documentation (swagger, JSON-API, etc), I would count that.
 
 Structure of each week
