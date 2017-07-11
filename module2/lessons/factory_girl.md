@@ -4,9 +4,6 @@ length: 60
 tags: factorygirl, rails
 ---
 
-
-# FactoryGirl
-
 ## Intro
 
 By now we've test-driven a few different Rails applications. We know RSpec is our friend, but it might not be evident by the amount of "seed" data we need to set up for each of our tests.
@@ -28,9 +25,9 @@ WeatherCondition.create(date: "2014-08-09", max_temperature_f: 73, mean_temperat
 WeatherCondition.create(date: "2013-01-02", max_temperature_f: 73, mean_temperature_f: 68, min_temperature_f: 61, mean_humidity: 75, mean_visibility_miles: 7, mean_wind_speed_mph: 8, precipitation_inches: 1.1, zip_code: 94107)
 ```
 
-This gets quite repetitive once multiple tests need that same data.
+This gets quite repetitive once multiple tests need that same data. FactoryGirl becomes a tool we can leverage to remove this bloat from our test files.
 
-FactoryGirl becomes a tool we can leverage to remove this bloat from our test files. Rather than taking the time and energy to hand-write each individual piece of data needed for a spec, we can set up "factories" for each resource we're using (`Trip`, `Station`, `WeatherCondition`, etc.). These factories become available for us to use when and where we'd like throughout our tests.
+Rather than taking the time and energy to hand-write each individual piece of data needed for a spec, we can set up "factories" for each resource we're using (`Trip`, `Station`, `WeatherCondition`, etc.). These factories become available for us to use when and where we'd like throughout our tests.
 
 Still not sure what the purpose of FactoryGirl is? Check out [this StackOverflow answer](http://stackoverflow.com/questions/5183975/factory-girl-whats-the-purpose).
 
@@ -177,3 +174,4 @@ end
 
 FactoryGirl.create(:post, :published)
 FactoryGirl.create(:page, :draft)
+```
