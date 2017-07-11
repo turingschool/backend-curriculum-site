@@ -42,6 +42,8 @@ Halfway through the project, each student will meet with their Technical Lead wh
 
 The student is responsible for communicating to the Technical Lead throughout each sprint if they are not going at a pace to finish the set of stories by the end of the sprint.
 
+Everyone should join the [#pr-review-rodeo](slack://channel?team=T029P2S9M&id=C1S7U66MB) channel. Although not required, you can post your PRs there for review by your peers and mentors.
+
 
 Rubric
 ------------
