@@ -47,7 +47,7 @@ Time to write the test! We'll use a red-green-refactor approach:
 
 *GREEN*: Use the error messages and failures to drive your development. Implement the smallest possible piece of code to fix the error. Keep repeating this cycle until you get a passing test.
 
-*REFACTOR*: Now is the time to go back and refactor your code. This means cleaning up variable names, method names, duplication, and implementation.  
+*REFACTOR*: Now is the time to go back and refactor your code. This means cleaning up variable names, method names, duplication, and implementation.
 
 We'll start with a feature test, which is a type of acceptance test. An acceptance test tests functionality that the end user will need. We'll use this feature test to drive out the creation and functionality of certain routes, controllers, models, and views. As we touch those pieces, we may drop down to a lower level (for example, a model test) in order to test edge cases.
 
@@ -590,7 +590,7 @@ class ArtistsController < ApplicationController
   private
 
   def artist_params
-    params.require(:artist).permit(:name, :image_path)  
+    params.require(:artist).permit(:name, :image_path)
   end
 end
 ```
@@ -664,7 +664,7 @@ class ArtistsController < ApplicationController
   private
 
   def artist_params
-    params.require(:artist).permit(:name, :image_path)  
+    params.require(:artist).permit(:name, :image_path)
   end
 end
 ```
@@ -1077,10 +1077,6 @@ $ git push heroku master
 $ heroku run rake db:migrate
 ```
 
-Now you can visit `https://your-herokuapp-number.herokuapp.com/artists` and test out this functionality! Show your mom!!
-
-### Life Raft
-
-If you've messed things up, you can clone down the [2_implement-artists branch](https://github.com/rwarbelow/mix_master/tree/2_implement-artists) of `mix_master` which is complete up to this point in the tutorial.
+Now you can visit `https://your-herokuapp-number.herokuapp.com/artists` and test out this functionality! Send it to all your friends!!
 
 ### On to [Mix Master Part 3: Implementing Songs](3_implementing_songs.markdown)

@@ -280,10 +280,6 @@ Write controller specs for `PlaylistsController POST #create` and `PlaylistsCont
 
 Make sure to commit your work! Use proper commit message manners. All tests should be passing.
 
-### Life Raft
-
-If you've messed things up, you can clone down the [6_controller-tests](https://github.com/rwarbelow/mix_master/tree/6_controller-tests) of `mix_master` which is complete up to this point in the tutorial.
-
 ```
 $ git add .
 $ git commit
