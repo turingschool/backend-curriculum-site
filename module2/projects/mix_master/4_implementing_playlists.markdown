@@ -714,10 +714,6 @@ And I should not see the name of the removed song
 
 Make sure to commit your work! Use proper commit message manners.
 
-### Life Raft
-
-If you've messed things up, you can clone down the [4_playlist-functionality branch](https://github.com/rwarbelow/mix_master/tree/4_implement-playlists) of `mix_master` which is complete up to this point in the tutorial.
-
 ```
 $ git add .
 $ git commit

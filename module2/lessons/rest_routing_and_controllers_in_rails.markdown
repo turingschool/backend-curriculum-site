@@ -25,11 +25,17 @@ Slides available [here](../slides/rest_routing_rails/rest_routing_rails.md)
 
 * Representational State Transfer is a web architecture style
 * Coined by Roy Fielding in doctoral dissertation (2000)
-* Aims to give a URI (uniform resource identifier) to everything that can be manipulated and let the software determine what to do from there
+* Things vs. Actions
+* Stateless
+* Layerable
+* All about resources
+* Purpose: Aims to give a URI (uniform resource identifier) to everything that can be manipulated and let the software determine what to do from there
 * [Representational State Transfer](https://en.wikipedia.org/wiki/Representational_state_transfer) on Wikipedia
 * [What is Rest?](http://www.restapitutorial.com/lessons/whatisrest.html) from REST API Tutorial
 
-### So... what is REST in English?
+Want to know more about REST? Check out [this video](https://www.youtube.com/watch?v=2zz_XvKTVxI). 
+
+### REST, simplified.
 
 * a pattern for creating combinations of HTTP verbs and URIs to access resources
 
@@ -51,6 +57,7 @@ get '/users/new'
 
 Often, there will be a one-to-one(-to-one) between a resource's routes, controller and model.
 
+
 ## HTTP Verb Overview
 
 * The HTTP verb (GET, POST, DELETE, PUT, PATCH) changes the action a request is routed to.
@@ -66,6 +73,24 @@ Often, there will be a one-to-one(-to-one) between a resource's routes, controll
 
 **patch**: update part of a resource
 
+### Sinatra & REST
+
+Remember two weeks ago when we looked at the seven routes we were going to be creating with `TaskManager`? We were already following REST conventions!
+
+```
+get '/tasks'
+# shows all tasks
+
+get '/tasks/new'
+# shows form to create new task
+
+get '/tasks/:id'
+# shows a specific task
+
+post '/tasks'
+# creates a new task
+```
+
 ## Routes + Controllers in Rails
 
 "Convention over configuration"
@@ -76,6 +101,8 @@ $ cd routes-controllers-example
 ```
 
 Let's take a few minutes to explore what `rails new` generates.
+
+Diagram time! Let's take a second to draw out the Request-Response cycle in an MVC app. This will look slightly different from the diagram we drew for Sinatra. 
 
 In `config/routes.rb`:
 
@@ -109,7 +136,7 @@ Inside of that file:
 ```ruby
 class TasksController < ApplicationController
   def index
-    render :text => "hello world"
+    render :plain => "hello world"
   end
 end
 ```
@@ -128,11 +155,11 @@ Navigate to `localhost:3000/tasks` and you should see your text.
 
 1) Can you create a `new` route that would bring the user to a form where they can enter a new task?
 
-2) Can you create a `show` route that would allow a user to see one task? Just like in Sinatra, the route will need a changeable `/:id`.
+2) Can you create a `show` route that would allow a user to see one task? Just like in Sinatra, the route will need a changeable `/:id`. You *do not* need to create a show view; just get a message like "You are viewing the show page" to show up. 
 
-3) Can you create an `edit` route that would allow a user to get to the edit page for a task? Again, the route will need a changeable `/:id`.
+3) Can you create an `edit` route that would allow a user to get to the edit page for a task? Again, the route will need a changeable `/:id`. You *do not* need to create a form; just get a message like "You are viewing the edit page" to show up. 
 
-4) For the previous two routes (`show` and `edit`), can you get the task's `id` to display in the text that you render?
+4) For the previous two routes (show and edit), can you get the id param to display in the text that you render? You *do not* need to create a form; just get a message like "You are editing task 2" to show up. 
 
 In Sinatra, you could access the `:id` from the URL like this:
 
@@ -146,7 +173,11 @@ In Rails, you'll need to use `params[:id]`.
 
 ### Using Resources in the Routes File
 
-Change your `routes.rb` file to this:
+What are the common CRUD actions? They match up to eight routes. Can you name all of them?
+
+Since Rails is all about "convention over configuration", it has a nice way of allowing us to easily create all eight RESTful routes at one time via a shortcut. 
+
+We can use the shortcut `resources`. As an example, we can change our `config/routes.rb` file to to look like this:
 
 ```ruby
 Rails.application.routes.draw do
@@ -170,7 +201,7 @@ edit_task GET    /tasks/:id/edit(.:format) tasks#edit
           DELETE /tasks/:id(.:format)      tasks#destroy
 ```
 
-Any methods with `/:id/` require an id to be passed into the URL.
+Any methods with `:id` require an id to be passed into the URL. These values are dynamically added (like viewing the seventh task via `/tasks/7`).
 
 #### Questions:
 

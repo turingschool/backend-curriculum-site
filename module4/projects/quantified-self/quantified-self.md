@@ -18,9 +18,9 @@ You are going to build a simple calorie tracker.
 
 * Students apply knowledge of Ruby collections to JavaScript arrays
 * Students create and use functions with parameters
-* Students apply SOLID patterns to JavaScript functions
+* Students apply good coding conventions to JavaScript functions
 * Students organize functions into classes and objects
-* Students make effective use of this in multiple contexts
+* Students make effective use of `this` in multiple contexts
 * Students unit test JavaScript
 * Students use event listeners to attach code to event-element combinations including document-ready and element-click
 * Students write precise CSS-style selectors in multiple contexts like DOM manipulation and integration testing
@@ -37,16 +37,17 @@ You are going to build a simple calorie tracker.
 
 - Create a full-stack JS application across two codebases
 - Be able to organize your JS across different files
-- Make AJAX calls to connect your frontend with your backend
+- Make AJAX calls to connect your front-end with your back-end
 - Handle events
-- Handle events on DOM elements that didn't exist at load
+- Handle events fired on DOM elements that didn't exist at load
 - Manage state via jQuery
 - Handle multiple DOM and data changes on single event
 - Write unit and integration tests in Javascript
+- Start to understand how full-stack JS applications work in practice, without a whole lot of explicit explanation
 
 ### Requirements overview
 
-Your requirements for the application are detailed in the cards you're going to import to Pivotal Tracker (you can also find them [here](/quantified-self-tracker-stories.csv)), but here's an visual of what you're doing:
+Your requirements for the application are detailed in the cards you're going to import to Pivotal Tracker (you can also find them [here](./quantified-self-tracker-stories.csv)), but here's an visual of what you're doing:
 
 #### Layouts
 
@@ -61,10 +62,10 @@ Your requirements for the application are detailed in the cards you're going to 
 #### Broad Front End features
 
 - CRUD foods
-- Add a food to Diary (meal/day combo)
-- Compare calories to goals (meal and daily)
+- Add a food to a meal
+- Compare calories to goals (meal and total)
 - View calorie calculations in diary
-- View different days
+- All of that without refreshing the page
 - Data persists across refreshes
 - EXTENSION: Build an admin panel to manage data
 - EXTENSION: Add offline functionality
@@ -82,19 +83,15 @@ Your requirements for the application are detailed in the cards you're going to 
 - We're going to start with building the back end. For this code base, you'll be starting a new repository from scratch.
 - Accept your email invitation from Pivotal Tracker and use this as your Project Management tool.
 - Import [this CSV](./quantified-self-tracker-stories.csv) to your project to get all the cards in there. Import is found under settings.
-- If you'd like to attempt the extensions, import [this other CSV](./quantified-self-extension-stories.csv).
 - When you start to work on the front end, you'll want to follow the instructions on the [Quantified Self Starter Kit](https://github.com/turingschool-examples/quantified-self-starter-kit) to get your codebase going.
-- To help you track your progress, we've created a [Quantified Self Milestones](./quantified_self_milestones) document.
 
 ### Expectations
 
 - Use whatever you've used in the past for schema, documentation and user stories. Or something new you've been wanting to try out. These things are graded on completion. Probably want to agree on format in your DTR.
 - Allowed libraries are jQuery, lodash/underscore, and moment.
-- Logic like sorting, filtering, local storage and validation should be done without using another library. These are great opportunities to abstract logic for unit tests.
-- `<table>`s are ok for the actual tables. Try not to use them for the layout.
-- All elements from the mockup should be represented in your app, even if the styling or layout is different.  Unless it is mentioned specifically in the user stories, colors and other styling are up to you. I'll be just fine if it looks exactly like the mockup though.
-- Details, Details, Details!!! If it's in the user stories, we're looking for it in your app. And ask before you add any additional functionality. Additional functionality in the evaluation is usually just grounds for a stern look, but if you "improve" functionality and don't ask about it, it's considered incorrect.
-- SOLID is mentioned in the rubric. You've been applying SOLID in Ruby, without really knowing it, and they apply to all programming languages. You can learn more about it [here](https://scotch.io/bar-talk/s-o-l-i-d-the-first-five-principles-of-object-oriented-design).
+- Logic like sorting, filtering, local storage and validation should be done without using another library (except those listed in the previous point). These are great opportunities to abstract logic for unit tests.
+- All elements from the mockup should be represented in your app, even if the styling or layout is different.  Unless it is mentioned specifically in the user stories, colors and other styling are up to you. You'll be just fine if it looks exactly like the mockup though.
+- Details, Details, Details!!! If it's in the user stories, we're looking for it in your app. And ask before you add any additional functionality. The job is to build what is asked for, and get any improvements approved first.
 - This is a 2 week project without any scheduled instructor check ins. We expect that you'll be tagging instructors in PRs on github wherever you'd like feedback. We also expect that if you feel like your team is falling behind, that you'll reach out for extra support.
 
 ### Tips for success
@@ -105,6 +102,9 @@ Your requirements for the application are detailed in the cards you're going to 
 - Plan, diagram and break down the problem, but don't try to get it right the first time. Don't write too much code without refactoring. Maybe stop and refactor every so many minutes, or so many cards.
 - A lot of this is new, and you'll probably have to be pairing more often, or at least be available to each other remotely.
 - Materialize is just a headache, but I can't stop you from using it.
+- Research `content-editable`. It will save you a lot of time for the editing foods functionality
+- There's a lot in this document. Refer back frequently
+- If there's any question about functionality, ask. There's a [#qs-questions](slack://channel?team=T029P2S9M&id=C3VFECP60) channel specifically for this.
 
 ## Rubric
 
@@ -112,7 +112,7 @@ You will be subjectively graded by an instructor on the following criteria:
 
 ### Specification Adherence
 
-- 4: Application implements all functionality as defined, with no bugs, and one extension
+- 4: Application implements all functionality as defined, with no bugs, and one extension (if you choose to put your point here)
 - 3: Application implements all functionality as defined, but some bugs or strange behavior where features intersect
 - 2: Application is missing required functionality, deviates significantly from the spec, or serious bugs prevent features from being usable
 - 1: Application is missing a significant portion of functionality
@@ -141,7 +141,7 @@ You will be subjectively graded by an instructor on the following criteria:
 ### JS syntax and Style
 
 - 4: Javascript features explicit DOM traversal (not using closest), demonstrates great OOP concepts, and uses named and anonymous functions when appropriate
-- 3: Code logically divided into files. Developer can show examples of some SOLID concepts. Attention payed to indentation and naming.
+- 3: Code logically divided into files. Developer can show examples of good coding practices, like DRY and separation of concerns. Attention payed to indentation and naming.
 - 2: Javascript is noticeably lacking in the above concepts.
 - 1: Team has not applied any style concepts from class or from Ruby background
 
@@ -163,9 +163,15 @@ You will be subjectively graded by an instructor on the following criteria:
 
 Adhering to any of these additional specifications will allow you to increase one score above:
 
-- All functionality is part of a class, written using ES6
-- No Libraries (except for testing). All JavaScript functionality is your own.
-- Complete either of the two backend focused extensions below.
+#### All functionality is part of a class, written using ES6
+
+You'll learn about classes and ES6 during the course of this project. If you can fit all of your JS into classes, using ES6 syntax, you'll get one extra point to add to a rubric score.
+
+#### No Libraries (except for testing).
+
+A big part of this project is writing JS functionality that you could have borrowed from a library. We've listed a few allowed libraries above. jQuery is still used in most legacy codebases, and JS is sorely missing most time manipulation. Accepting this challenge will require you to write more code, but it will give you a better handle one what is built into JS.
+
+The exception is testing. There's not any reasonable way you'll be able to test without mocha and selenium.
 
 #### Multiple Sources of Truth
 

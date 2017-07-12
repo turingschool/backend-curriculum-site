@@ -6,9 +6,11 @@ tags: migrations, databases, relationships, rails, migrations, activerecord
 
 # Models, Databases, and Relationships
 
+In this lesson, we'll be coding along to create an example of an app that demonstrates a one-to-many and a many-to-many relationship. 
+
 Imagine we're going to build a bookshelf site for books, authors and genres. It's well overdue!
 
-What might the database schema look like? Let's emphasize figuring out the entities (aka tables), but also figure out some of the key data columns.
+What might the relationships look like? Let's emphasize figuring out the entities (aka tables), but also figure out some of the key data columns.
 
 ### Types of Relationships
 
@@ -20,13 +22,19 @@ Just storing data in a database isn't very interesting. Where the database shine
 
 * **Many-to-many relationships**: a row of table A relates to zero, one, or multiple rows of table B. A row of table B relates to zero, one, or multiple rows of table A.
 
+### Brainstorm time!
+
+With a partner, brainstorm at least one example of each of the three relationships mentioned above. 
+
 ### Databases in Rails Apps
 
-Let's make a new Rails app with a PG database set up automatically:
+By default, the `rails new appname` command creates a Rails project with a sqlite database. If you're creating a production app, you do not want a sqlite database. 
+
+Let's make a new Rails app with a PostgreSQL database set up automatically:
 
 ```bash
-rails new <appname> --database=postgresql
-rails new <appname> -d postgresql
+rails new relationshipexamples --database=postgresql
+rails new relationshipexamples -d postgresql
 ```
 
 The two places where you'll see the effects of this will be in the Gemfile (`gem 'pg'` instead of `gem 'sqlite3'`) and in `config/database.yml`.
@@ -37,21 +45,21 @@ Let's look at that file. Getting rid of the comments, it looks like this:
 default: &default
   adapter: postgresql
   encoding: unicode
-  pool: 5
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
   <<: *default
-  database: appname_development
+  database: pgapp_development
 
 test:
   <<: *default
-  database: appname_test
+  database: pgapp_test
 
 production:
   <<: *default
-  database: appname_production
-  username: appname
-  password: <%= ENV['APPNAME_DATABASE_PASSWORD'] %>
+  database: pgapp_production
+  username: pgapp
+  password: <%= ENV['PGAPP_DATABASE_PASSWORD'] %>
 ```
 
 ### One-to-Many Relationships
@@ -62,7 +70,11 @@ Let's do:
 
 1. First, we'll create a migration and a model:
 
-`rails generate migration create_authors first_name:text last_name:text`
+`rails generate migration CreateAuthors first_name:text last_name:text`
+
+or 
+
+`rails g migration CreateAuthors first_name:text last_name:text`
 
 The migration generator creates a migration and if we follow the working convention for rails the migration will be prepolulated.
 
@@ -89,49 +101,78 @@ class Author < ActiveRecord::Base
 end
 ```
 
-You can also use
+Let's delete these two files and try out something a little different. 
+
+Instead of making these two files, you could have also used just this command: 
 
 ```bash
 rails generate model Author first_name:text last_name:text
 ```
 
-The model generator creates a model, a migration, and two files related to testing.
+The model generator creates a model, a migration, and two files related to testing. Let's talk briefly about when you should use the model generator and when you should handcraft the files. 
+
+We can also destroy the files with:
+
+```bash
+rails destroy model Author
+rails d model Author
+```
+
+*Your Turn*: Recreate the model and migration using the rails generator. Make sure your Author has the correct attributes. 
 
 #### What about Books?
 
+What's the relationship between book and author? 
+
 ```bash
-rails g migration create_books title author:references
+rails g migration CreateBooks title author:references
 ```
+
+Let's look at what this migration creates.
+
+What else do we need? 
+
+*Your turn*: Practice destroying the model and migration, then recreate it with the correct attributes. 
 
 ### Associations
 
 #### One-to-Many Relationships at the Model Level: Book/Author
 
-Let's implement some model-level associations using our handy macros:
+Let's implement some model-level associations using our handy methods. You'll notice that if you use the model generator, the `belongs_to` relationship will already be set up. 
 
 * `has_many`
 * `belongs_to`
 
+Why do we need a foreign key at the database level and the `belongs_to` method in the model? What do each of these things allow for? 
+
+*In the console*:
+
+Create an author. Create a book. 
+
+What are different ways to associate books with authors? 
+
 ### Many-to-Many: Books and Genres?
 
-Knowing what we know about generating migrations, what would we need to implement a many-to-many relationship between `books` and `genres`?
+Let's first draw out the relationship for books and genres. 
 
-Turn to your neighbor and discuss what's needed.
+```bash
+rails g model Genre name
+```
 
-Once you've got an idea, let's work to implement them via generated migrations
+```bash
+rails g model BookGenre book:references genre:references
+```
 
-rails g model books_genres books:references genres:references
+*In the console*:
+
+Create a genre. 
+
+What are different ways to associate books with genres? 
 
 Need a refresher on associations? Click [here](http://guides.rubyonrails.org/association_basics.html).
 
 #### Notes
 
-* `rails g model ...` is shorthand for `rails generate model ...`
-* You can destroy a model with `rails d model ...`
-* You can also create a model without the attributes from the command line (`rails generate model author`) but you'll then need to add the attributes into the migration file by hand.
-* You can create the migration and the model separately like this: `rails g migration create_authors first_name:text last_name:text` then `touch app/models/author.rb` and adding the two lines of code to define the author class.
-* `rails generate model something` will generate a model and a migration
-* `rails generate model something name:string age:integer` will generate model and migration with those attributes
 * common column types: `boolean`, `string`, `text`, `integer`, `date`, `datetime`
 * `rake db:migrate` migrates development
 * you (generally) don't need to run `rake db:test:prepare`; running `rake test` will load the schema to the test database
@@ -140,7 +181,8 @@ Need a refresher on associations? Click [here](http://guides.rubyonrails.org/ass
 
 * What is a primary key?
 * What is a foreign key?
-* Why would one row of data have both primary and foreign keys?
+* In what situation would one row of data have both primary and foreign keys?
+* In what situation would two entities be related but *not* have foreign keys stored on either of the tables?
 * What is Rails' convention for the column name of the primary key?
 * What is Rails' convention for the column name of a foreign key?
 * What are dev, test, and prod databases all about?

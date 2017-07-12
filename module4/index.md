@@ -25,6 +25,8 @@ Students who successfully complete Module 4 will have demonstrated mastery of Pr
 
 Your first project is [Quantified Self](./projects/quantified-self/quantified-self). You'll start by building a back-end API to serve and persist your data. Then you'll build the front end to interact with the data. You'll use node and the express framework to build your API, and a heavy dose of jQuery to build out your front-end behavior.
 
+Starting week 2, you'll be making small contributions to open source. You can find out more [here](./lessons/contributing_to_open_source)
+
 Weeks 4&5 will be spent working on your capstone projects.
 
 ### Weekly Breakdown:
@@ -58,7 +60,7 @@ Weeks 4&5 will be spent working on your capstone projects.
 *   Small Group Instruction
 *   Technical Interview Prep
 *   [History of JavaScript](https://drive.google.com/open?id=0Bx6JZxtPBe_FVjk0dU1DekRGc00)
-*   [Refactor Tractor](./lessons/js_refactor_tractor)
+*   [Refactor Tractor](./lessons/refactor-workshop)
 *   Negotiations
 *   [Testing JS with Selenium](./lessons/intro_to_testing_with_selenium)
 *   [Rails Challenge](https://gist.github.com/case-eee/e6662baaee43e317109c64d089d2cad5)
@@ -70,7 +72,7 @@ Weeks 4&5 will be spent working on your capstone projects.
 *   [Accessibility Best Practices](./lessons/accessibility_best_practices)
 *   [Documenting for Collaboration](./lessons/archive/how_to_write_a_great_readme)
 *   [Agile and Other Buzzwords](./lessons/agile_and_other_buzzwords)
-*   [Application Coordination with Message Queues](./lessons/application_coordination_with_message_queues) 
+*   [Application Coordination with Message Queues](./lessons/application_coordination_with_message_queues)
 *   [Professional Code Environments](./lessons/professional_code_environments)
 *   [Basics of Security](./lessons/web_application_security)
 *   Capstone Project Retro and Check-In

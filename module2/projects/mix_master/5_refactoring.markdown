@@ -131,11 +131,11 @@ class ArtistsController < ApplicationController
 private
 
   def set_artist
-    @artist = Artist.find(params[:id])  
+    @artist = Artist.find(params[:id])
   end
 
   def artist_params
-    params.require(:artist).permit(:name, :image_path)  
+    params.require(:artist).permit(:name, :image_path)
   end
 end
 ```
@@ -187,10 +187,6 @@ Then in the form, we can just render the partial:
 ```
 
 Make sure to commit your work! Use proper commit message manners. All tests should be passing.
-
-### Life Raft
-
-If you've messed things up, you can clone down the [5_refactoring branch](https://github.com/rwarbelow/mix_master/tree/5_refactoring) of `mix_master` which is complete up to this point in the tutorial.
 
 ```
 $ git add .

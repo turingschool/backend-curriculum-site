@@ -28,13 +28,13 @@ tags: ruby, git, workflow
 ### Git Flow for Pairs 101   
 * Make a directory and CD into it  
 * Check that repo is not already inited   
-  (`git status`) 
+  (`git status`)  
 * Initialize repo locally    
-  (`git init`)
-* Create a repo on GitHub  
-  (repositories/new)
-* Add remote to local 
-  (`git remote add origin`) 
+  (`git init`)  
+* Create a repo on GitHub using Hub  
+  (`hub create`)  
+* Check GitHub for successful repo creation  
+  (`hub browse`)   
 * Check successful addition  
   (`git remote -v`)  
 * Check git status  
@@ -62,7 +62,7 @@ tags: ruby, git, workflow
    `git push origin master`)
 
 ### Merge Conflict Work Flow  
-* Orinal makes a change to the line in the file  
+* Orignal makes a change to the line in the file  
 * Original commits changes
 * Original pulls from master w/ Collaborator's changes  
   (`git pull origin branch_name`)  
@@ -108,4 +108,12 @@ Talk with partner
 
 ### Additional Resources  
 [Git - the Simple Guide](http://rogerdudler.github.io/git-guide/)  
-[Pro Git](https://git-scm.com/book/en/v2)
+[Pro Git](https://git-scm.com/book/en/v2)  
+
+### Alternate Way to Create a Repo:  
+* Create a repo on GitHub  
+  (repositories/new)
+* Add remote to local 
+  (`git remote add origin`) 
+* Check successful addition  
+  (`git remote -v`)

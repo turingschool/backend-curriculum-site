@@ -13,8 +13,12 @@ None Listed
 *   Learn to implement a REPL interface
 *   Apply Enumerable techniques in a real context
 
-### Jungle Beat  
-None listed  
+### Jungle Beat 
+#### Learning Goals / Areas of Focus
+* Practice breaking a program into logical components
+* Distinguishing between classes and instances of those classes
+* Understanding how linked lists work to store and find data
+* Testing components in isolation and in combination
 
 ### Enigma  
 #### Learning Goals / Areas of Focus
@@ -52,7 +56,6 @@ None listed
 * Connect related objects together through references
 * Learn an agile approach to building software
 
-
 ### Battleship  
 #### Learning Goals / Areas of Focus
 * Proficiently use TDD to drive development
@@ -70,7 +73,6 @@ None listed
 
 ### Headcount  
 #### Learning Goals
-
 * Use tests to drive both the design and implementation of code
 * Decompose a large application into components such as parsers, repositories, and analysis tools
 * Use test fixtures instead of actual data when testing

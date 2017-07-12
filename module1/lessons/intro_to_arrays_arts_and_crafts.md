@@ -30,7 +30,8 @@ Before we begin, collect the following Arts & Crafts supplies:
 * 1 piece of paper
 * 5 paper cups
 * 6 wooden beads
-* A pen or marker
+* A pen or marker  
+* 5 tags, one of each color ("blue", "red", "green", "purple", "orange")
 
 Then take your five paper cups and use a marker to number them "0" through "4".
 
@@ -40,7 +41,7 @@ Then take your five paper cups and use a marker to number them "0" through "4".
 * What does an Array model conceptually?  
 * What are some of the properties of an array? How do they behave?  
 
-## Together - Data Structures, Collections, and Programming
+## Data Structures, Collections, and Programming
 * What is a "Data Structure"?  
   A data structure is a particular way of organizing information so that it can be used efficiently
 * Why are Arrays so ubiquitous?
@@ -63,9 +64,9 @@ Let's model some of the core concepts. In this section, we'll step through using
 
 As we go, we'll work side-by-side with our physical Array model and with an IRB/Pry session.
 
-1. Lay down your large piece of paper and write `data` in large letters. This is the name of your collection. How many elements are in your collection so far?
+1. Lay down your large piece of paper and write `data` in large letters. This is the name of your variable holding you collection. How many elements are in your collection so far?
 2. Put the empty `0` cup on the paper. If you now access the value inside `data[0]`, what would you get back?
-3. Store a "blue" bead into the zero cup, the equivalent of maybe `data[0] = "blue"`. What would you expect the answer of `data.count` to be?
+3. Store a "blue" bead into the zero cup, the equivalent of maybe `data[0] = "blue"`. What would you expect the answer of `data.count` to be? What does `data.first` return? What about `data.last`?
 4. We can explicitly assign the value of another cup. Add `data[1] = "red"`. That does not change the answer to `data.first`, but does change `data.last`. Why?
 5. The "shovel" operator (`<<`) adds an element to the end of an existing array. Pretend you ran `data << "green"`. How many beads are in the array in total?
 6. It turns out that "shovel" is just syntactic sugar for the method named `push`. Pretend you ran `data.push(nil)`. How does that affect your array? What is the value of `data.count` now?  
@@ -108,9 +109,9 @@ Start with an empty `data` array in both the physical space and IRB.
 7. Remove the first element from the array `data.shift` -- what value will this return to you?
 8. Check the count of the array `data.count`
 9. Insert a red bead at index 1 `data.insert(1, "red")`
-10. Insert an orange bead at index 1 `data.insert(1, "orange")`
+10. Insert an orange bead at index 1 `data.insert(1, "orange")`  
 11. Prepend a purple bead to the front of the array `data.unshift("purple")`
-12. Overwrite the value at index 1 by assigning a yellow bead there `data[1] = "yellow"`
+12. Overwrite the value at index 1 by assigning a yellow bead there `data[1] = "blue"`
 
 ## Independent Work
 
@@ -137,7 +138,7 @@ shrink it?
 
 ## Homework  
 
-Core-Types: Arrays  
+[Core-Types](https://github.com/turingschool/ruby-exercises/tree/master/core-types): Arrays  
 
 
 

@@ -49,9 +49,9 @@ Large group share.
 
 #### Route Helpers
 
-Clone down [this repo](https://github.com/Carmer/helpers_playground).
+Clone down [this repo](https://github.com/turingschool-examples/helpers_playground).
 
-`git clone https://github.com/Carmer/helpers_playground`
+`git clone https://github.com/turingschool-examples/helpers_playground`
 
 Now go to the `routes.rb` file.
 
