@@ -35,7 +35,7 @@ Still not sure what the purpose of FactoryGirl is? Check out [this StackOverflow
 
 We'll be working with an existing Rails application to refactor existing (and passing) tests to use FactoryGirl. This should give us plenty of comfort and agency to begin using FactoryGirl on our own in future applications.
 
-1. Clone down and set up [this repo](https://github.com/turingschool-examples/relationship_practice_exercises/tree/factory-girl).
+1. Clone down and set up [this repo](https://github.com/turingschool-examples/factory_girl_intro).
 
 2. Work through this [playlist](https://www.youtube.com/playlist?list=PLf6E_SWaTZjH9V9-eeqH5oAXL-q7GcBm9) of tutorials alongside the repository cloned in the step above.
   * **TIP**: Try increasing the speed of the videos once you get the hang of FactoryGirl (settings in the gear button on the YouTube video frame).
