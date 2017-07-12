@@ -67,7 +67,7 @@ For the **first 10 minutes of each station**, work through the exercise independ
 
 *   [Station 1](refactoring_patterns_station_1)
 *   [Station 2](refactoring_patterns_station_2)
-*   [Station 3](https://github.com/turingschool/backend-curriculum-site/blob/gh-pages/module1/lessons/refactoring_patterns_station_3.markdown)
+*   [Station 3](refactoring_patterns_station_3)
 
 ## Follow Up: Enigma Refactoring Exercises
 
