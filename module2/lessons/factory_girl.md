@@ -69,6 +69,12 @@ end
 
 This allows you to use FactoryGirl methods like `#create` in your RSpec files without explicitly declaring `FactoryGirl` before it. Instead of `FactoryGirl.create`, you can just call `create` on its own.
 
+The following line should currently be commented out in `rails_helper.rb`. Find it and uncomment it. This line will allow us to require all ruby files that we put inside of the `spec/support` directory.
+
+```ruby
+Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
+```
+
 #### Using Test::Unit
 
 Inside of `test/test_helper.rb`:
