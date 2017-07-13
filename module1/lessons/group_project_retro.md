@@ -8,7 +8,7 @@
 
 #### Project Retro Questions
 
-* Identify 3 things went well. Why do you think these were successful?
+* Identify 3 things that went well. Why do you think these were successful?
   * Describe your role
   * Describe your partner’s role
   * Describe what actions/mindsets were critical to these successes
@@ -22,9 +22,9 @@
 
 **Personal Reflection**
 
-20 min
+15 min
 
-In a notebook or on your computer reflect upon your experience of group during this last project.
+In a notebook or on your computer reflect upon your experience of your group during this last project.
 
 Aim to spend about 10 min on each of the above sections.
 
@@ -39,7 +39,7 @@ This is a time for active listening and support.
 
 **Independent**
 
-20 min
+15 min
 
 Find a space to reflect and prepare feedback for your partner on this project. Use the instructions from the Feedback 1 session to guide your response. Keep in mind the principles of **specific, actionable,** and **kind**.
 
