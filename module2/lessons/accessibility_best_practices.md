@@ -7,6 +7,9 @@ Context
 
 Accessibility is often overlooked when designing applications. It is an extremely important part of inclusion. A developer must think about accessibility from inception.  
 
+While accessibility is sometimes considered "nice to have" for an application,
+a [recent lawsuit](https://www.forbes.com/sites/legalnewsline/2017/06/13/first-of-its-kind-trial-goes-plaintiffs-way-winn-dixie-must-update-website-for-the-blind/#4acd5c3f1b38) could be a harbinger of accessible applications becoming legally mandated. A man with blindness was unable to navigate a grocery store's website with his screen reader, and the court ruled in his favor. The grocery store has to set aside money to improve the website and cover the man's court costs.
+
 In order for us to really understand how to build a rich web experience, we need to know how the web looks like and feels like for those with accessibility needs.
 
 Goals
@@ -186,4 +189,4 @@ Wrap up
 
 Now that we are more aware of what is going on in the world of accessibility, what are we going to do to make sure we are committing ourselves to making the web a better place for everyone?
 
-Write down 3 actionable commitments you can do in your next coming projects to accommodate for accessibility issues and submit them [here](https://goo.gl/forms/0raVEfJPK3ktexDr1).
+Write down 3 actionable commitments you can do in your next coming projects to accommodate for accessibility issues and submit them [here](https://goo.gl/forms/pzni1serNvL4tHoY2).
