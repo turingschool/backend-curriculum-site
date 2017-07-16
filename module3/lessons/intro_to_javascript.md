@@ -156,6 +156,61 @@ console.log('BOOM');
 alert('POW');
 ```
 
+### Debugging in Javascript
+
+Debugging client-side and server-side JavaScript is a different beast than debugging Ruby.
+
+Because client-side JS is run entirely in the browser, the technique for troubleshooting broken code is more complicated than `binding.pry`. Luckily, modern browsers are aware of this and give us a collection of options for digging into your code.
+
+#### 1. Developer Tools
+One of the first things you should familiarize yourself with when working with JavaScript (or HTML...or CSS...) are the dev tools. You can find a cool tutorial to dive deeper with  [Code School's Discover-DevTools Tutorial.](http://discover-devtools.codeschool.com/) (Chapters 3 & 4 are particularly helpful)
+
+To open developer tools in Chrome:
+-   Mac: `Cmd` + `Opt` + `i` (or `Cmd` + `Opt` + `j`)
+-   (or) Right click on the browser window and select `inspect`
+-   (or) Select `View` in the navbar, then `Developer`, then `Developer Tools`
+
+When working with JavaScript, it is useful to keep your console open at all times to watch for errors and anything you've told your code to print out. Bringing us to...
+
+#### 2. console.log()
+`console.log()` is to JS what `puts` is to Ruby. This line of code will print whatever is provided as an argument to the console.
+
+Given the following function called `printStuff()`, adding console.log() will print the value of `myVariable` to the console.
+
+```
+const printStuff = function(){
+  var myVariable = 5 + 5
+  console.log(myVariable);
+}
+
+printStuff()
+=> 10
+```
+
+If you're confused about what a variable or function is returning, throw `console.log()` into your code or directly into the `console` in your browser to confirm/deny suspicions.
+
+#### 3. Debugging In the Console
+
+`debugger` is the `pry` of JS. Stick `debugger;` within a function to pause the browser from running the script when it hits a particular part of your code.
+
+```javascript
+// index.js
+let var1 = 5
+let var2 = "Ilana"
+const myMath = (var1, var2) => {
+  var1 * var2
+  debugger;
+}
+```
+
+***Warning***: A `debugger` statement will not trigger unless your inspector tools in the browser are open. This is meant to not interrupt a users experience if a developer accidentally commits and deploys a `debugger` statement.
+
+In the browser, if we open up the dev tools, navigate to the console and try to search for something.  The program will freeze on the line `debugger`. This lets us type stuff into our `console` to see what's going on.
+
+For a more in-depth lesson on working with DevTools - check out [advanced debugging](http://frontend.turing.io/lessons/debugging-with-devtools.html) or the [Chrome Documentation](https://developer.chrome.com/devtools/docs/javascript-debugging).
+
+---
+
 # Functions
 Functions are a way to group statements together to perform a specific task. Functions are reusable blocks of code. To create a function, you must give it a name and then write the statements required for the function to achieve its task inside the function's curly braces. Let's work through the pieces and parts of a function.
 
