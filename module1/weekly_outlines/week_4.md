@@ -5,15 +5,17 @@ layout: page
 
 ## Lessons
 
-* [Testing Strategies Continued](../slides/testing_strategies_3)
+* [Advanced Enumerables](../lessons/advanced_enumerables)
 * [Inheritance](../lessons/inheritance)
-* [Working with Ruby Modules](../lessons/introduction_to_modules)
-* [Refactoring Patterns](../lessons/refactoring_patterns)
-* [Git with Branches](../slides/git_branching)
+* Refactoring Patterns 1
+* Mixins
+* Refactoring Patterns 2
+* [Ruby Object Model](../lessons/ruby_object_model_alt)
 
 ## Projects and Exercises
 
 * [Battleship](../projects/battleship)
+* [Sorting Suite](../projects/sorting_suite)
 
 ## Resources
 * [Refactoring Patterns Reading](https://github.com/turingschool/challenges/blob/master/refactoring_patterns_reading.markdown)
