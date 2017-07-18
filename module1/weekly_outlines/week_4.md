@@ -15,7 +15,10 @@ layout: page
 ## Projects and Exercises
 
 * [Battleship](../projects/battleship)
-* [Sorting Suite](../projects/sorting_suite)
+* [Sorting Suite](../projects/sorting_suite)  
+
+## Homework  
+* Read the Motivation section of [Refactoring](https://dl.dropboxusercontent.com/u/69001/Refactoring/Refactoring%20-%20Chapter%207.pdf) for Move Method, Extract Class, & Hide Delegate  
 
 ## Resources
 * [Refactoring Patterns Reading](https://github.com/turingschool/challenges/blob/master/refactoring_patterns_reading.markdown)
