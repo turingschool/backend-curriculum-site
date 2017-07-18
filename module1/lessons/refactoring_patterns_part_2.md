@@ -13,9 +13,9 @@ tags: ruby, refactoring, tdd
 ### Structure  
 5min - WarmUp  
 5min - Review
-10min - Station Session 1  
-10min - Station Session 2
-10min - Station Session 3
+15min - Station Session 1  
+15min - Station Session 2
+15min - Station Session 3
 5min - WrapUp
 
 ### WarmUp 
@@ -34,7 +34,7 @@ What is the gist of each of these refactoring patterns? What are the pros/cons o
 
 ### Stations  
 You will spend 15 min at each station focusing on one of the strategies.  
-For each station you will apply the refactoring pattern to the code from [this](https://github.com/turingschool-examples/refactoring_patterns) repo.  
+For each station you will apply the refactoring pattern to the code from [this](https://github.com/turingschool-examples/refactoring_patterns) repo. Make sure to clone it down before you start.  
 1.  [Move Method](refactoring_patterns_1)  
 2.  [Extract Class](refactoring_patterns_2)  
 3.  [Hide Delegate](refactoring_patterns_3)  
