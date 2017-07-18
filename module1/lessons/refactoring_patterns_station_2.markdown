@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Refactoring Patterns - Extract Class
-length: 25
+length: 10 - 25
 tags: ruby, refactoring, tdd
 ---
 
@@ -14,12 +14,13 @@ tags: ruby, refactoring, tdd
 
 ## Instructions
 
-* Read the Extract Class section from 175 to 179
+* Discuss the Extract Class section from 175 to 179
 * *Carefully* re-read the code sections on 177 and 178
 * Read/discuss the Key Ideas below
 * Try refactoring the Example Scenario below using Extract Class
-* You're welcome to discuss / compare solutions with others
-* If you finish early, read the Inline Class pattern (179-181)
+* You're encouraged to discuss / compare solutions with others
+* If you finish early, apply this method to the Enigma repo linked today's lesson plan  
+* If you still have extra time, apply this strategy to your current project 
 
 ## Key Ideas
 
@@ -29,5 +30,6 @@ tags: ruby, refactoring, tdd
 * Extraction allows for easier testing, reuse, and abstraction
 
 ## Example Scenario
+Apply this Refactoring Pattern to the linked repository which you should have already cloned down. As you make classes around move things around, make sure the linked test still passes. 
 
 [Extract Class](https://github.com/turingschool-examples/refactoring_patterns/blob/master/test/station_2_extract_class_test.rb)
