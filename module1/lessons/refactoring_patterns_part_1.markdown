@@ -35,9 +35,7 @@ Let's start by discussing Refactoring at a high level:
 *   Changing the internals of code without changing the external behavior
 *   The concept of technical debt and awkward analogies to personal debt
 *   Software patterns are common solutions to common problems
-*   Refactoring patterns are common *transformations*, not *improvements*  .
-*   Jay Fields revised Fowler's book for Ruby:
-[Refactoring: Ruby Edition](http://www.amazon.com/Refactoring-Edition-Addison-Wesley-Professional-Series/dp/0321984137)
+*   Refactoring patterns are common *transformations*, not *improvements* .
 *   Three common refactoring patterns
 
     1.  [Move Method](refactoring_patterns_1)
@@ -50,5 +48,6 @@ Let's apply these refactoring patterns to this [Chisel](https://github.com/turin
 ## WrapUp  
 Describe the three common refactoring patterns (move method, extract class, hide delegate) and in what scenarios they should be used. Post your answers to Slack.  
 
-
-
+## Homework 
+Read the Motivation section for the Move Method, Extract Class, and Hide Delegate sections from [Chapter 7](https://dl.dropboxusercontent.com/u/69001/Refactoring/Refactoring%20-%20Chapter%207.pdf)) of Jay Fields' revised version of Fowlers'
+[Refactoring: Ruby Edition](http://www.amazon.com/Refactoring-Edition-Addison-Wesley-Professional-Series/dp/0321984137)

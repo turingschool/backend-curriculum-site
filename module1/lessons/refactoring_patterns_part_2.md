@@ -1,9 +1,14 @@
+---
+layout: page
+title: Refactoring Patterns
+length: 60
+tags: ruby, refactoring, tdd
+---
 
-### Learning GOals 
+### Learning Goals 
 *   define and apply the Move Method refactoring pattern
 *   define and apply the Extract Class refactoring pattern
 *   define and apply the Hide Delegate refactoring pattern
-
 
 ### Structure  
 5min - WarmUp  
@@ -29,7 +34,7 @@ What is the gist of each of these refactoring patterns? What are the pros/cons o
 
 ### Stations  
 You will spend 15 min at each station focusing on one of the strategies.  
-For each station you will apply the refactoring pattern to the code from [this](https://github.com/turingschool-examples/refactoring_patterns) repo.
+For each station you will apply the refactoring pattern to the code from [this](https://github.com/turingschool-examples/refactoring_patterns) repo.  
 1.  [Move Method](refactoring_patterns_1)  
 2.  [Extract Class](refactoring_patterns_2)  
 3.  [Hide Delegate](refactoring_patterns_3)  
