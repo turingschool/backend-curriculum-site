@@ -8,7 +8,7 @@ tags: ruby, refactoring, tdd
 ## Learning Goals
 
 *   explain how refactoring fits into the RED-GREEN-REFACTOR cycle
-*   identify the difference between refactoring and "changing shit"
+*   identify the difference between refactoring and "changing stuff"
 *   define and apply the Move Method refactoring pattern
 *   define and apply the Extract Class refactoring pattern
 *   define and apply the Hide Delegate refactoring pattern
