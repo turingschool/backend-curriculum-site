@@ -43,11 +43,11 @@ For each station you will apply the refactoring pattern to the code from [this](
 * What are some strategies to make sure that your code makes it from greed, past red, back to refactor again?  (a.k.a. how do you refactor without breaking everything?  
 * What was challenging about refactoring the above exercises?  
 
-### Follow Up: Enigma Refactoring Exercises
+#### Follow Up: Enigma Refactoring Exercises
 
 Students should join a pair to work on applying these techniques to a sample Enigma project using [these exercises](https://github.com/turingschool-examples/enigma_refactoring_exercises).
 
-### Follow Up
+##### Homework
 
 *   Tonight you should watch [Katrina's Therapeutic Refactoring talk](http://confreaks.tv/videos/cascadiaruby2012-therapeutic-refactoring).
-*   The readings we used today can be [found here](https://dl.dropboxusercontent.com/u/69001/Refactoring/Refactoring%20-%20Chapter%207.pdf).
+*   The readings we used today can be [found here](https://dl.dropboxusercontent.com/u/69001/Refactoring/Refactoring%20-%20Chapter%207.pdf). Read through the refactoring patterns not covered in this lesson. 
