@@ -14,9 +14,6 @@ tags: ruby, refactoring, tdd
 *   define and apply the Hide Delegate refactoring pattern
 
 ## Warmup
-
-Attempt to answer these questions:
-
 1.  Why do we refactor?
 2.  What's the difference between "refactoring" and "changing stuff"?
 3.  Does refactoring always make code better?
@@ -39,8 +36,17 @@ Let's start by discussing Refactoring at a high level:
 *   Three common refactoring patterns
 
     1.  [Move Method](refactoring_patterns_1)
+        * Where should it live? 
+        * What is the role of the class, does this functionality belong?  
+        * Which class/object does this method reference?  
     2.  [Extract Class](refactoring_patterns_2)
+        * Can you make chunks of methods?  
+        * Can they be grouped to feel like an object?  
+        * Would they have attributes? 
+        * Sandi Metz rules: Class should be less than 100 lines
     3.  [Hide Delegate](refactoring_patterns_3)
+        * What does the interface look like? Can we simplify it?  
+        * Law of Demeter
 
 ### Live Refactoring  
 Let's apply these refactoring patterns to this [Chisel](https://github.com/turingschool/curriculum/blob/master/source/projects/chisel.markdown) [project](https://github.com/AliSchlereth/chisel) altogether. 
