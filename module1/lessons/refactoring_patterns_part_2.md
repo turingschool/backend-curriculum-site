@@ -12,11 +12,11 @@ tags: ruby, refactoring, tdd
 
 ### Structure  
 5min - WarmUp  
-5min - Review
-15min - Station Session 1  
-15min - Station Session 2
-15min - Station Session 3
-5min - WrapUp
+5min - Review  
+15min - Station Session 1   
+15min - Station Session 2  
+15min - Station Session 3  
+5min - WrapUp  
 
 ### WarmUp 
 * What are your go-to refactoring strategies?   
