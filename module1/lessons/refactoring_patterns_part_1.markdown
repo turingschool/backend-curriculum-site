@@ -49,7 +49,18 @@ Let's start by discussing Refactoring at a high level:
         * Law of Demeter
 
 ### Live Refactoring  
-Let's apply these refactoring patterns to this [Chisel](https://github.com/turingschool/curriculum/blob/master/source/projects/chisel.markdown) [project](https://github.com/AliSchlereth/chisel) altogether. 
+Let's apply these refactoring patterns to this [Chisel](https://github.com/turingschool/curriculum/blob/master/source/projects/chisel.markdown) [project](https://github.com/AliSchlereth/chisel) altogether.   
+
+* Extract Class: Format  
+* Move Method: body, emphasis, strong & underlying methods  
+* Extract Class: FormatStrong  
+* Move Method: strong & underlying methods (on Chisel: Format.new.strong_formatting.strong(chunk)  
+* Extract Class: FormatEmphasis  
+* Move Method: emphasis & underlying methods (on Chisel: Format.new.emphasis_formatting.emphasis(chunk)  
+* Hide Delegate: on Chisel Format.new.strong(chunk) & on Format FormatStrong.strong(chunk)   
+* Hide Delegate: on Chisel Format.new.emphasis(chunk) & on Format FormatEmphasis.emphasis(chunk)  
+
+* If time & sequence works, also would be appropriate to change Format, FormatStrong, and FormatEmphasis to modules  
 
 ## WrapUp  
 Describe the three common refactoring patterns (move method, extract class, hide delegate) and in what scenarios they should be used. Post your answers to Slack.  
