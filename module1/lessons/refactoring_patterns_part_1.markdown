@@ -19,6 +19,7 @@ tags: ruby, refactoring, tdd
 3.  Does refactoring always make code better?
 
 ## Key Points
+"What if we move it over here... will that fix it?"  
 
 Let's start by discussing Refactoring at a high level:
 
@@ -47,6 +48,7 @@ Let's start by discussing Refactoring at a high level:
     3.  [Hide Delegate](refactoring_patterns_3)
         * What does the interface look like? Can we simplify it?  
         * Law of Demeter
+        * Protect from change 
 
 ### Live Refactoring  
 Let's apply these refactoring patterns to this [Chisel](https://github.com/turingschool/curriculum/blob/master/source/projects/chisel.markdown) [project](https://github.com/AliSchlereth/chisel) altogether.   
