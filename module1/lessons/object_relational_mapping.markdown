@@ -73,7 +73,7 @@ It might be an array of Ruby Objects such as:
 Write the Ruby code that you would use to make these Teacher objects.    
 
 #### Turn & Talk  
-Consider the scenario where some data comes from one type of data structure while other infomration comes from another data structure. How would that impact your application? What are some thoughts on how to make it easier for your application to navigate this different information?  
+Consider the scenario where some data comes from one type of data structure while other information comes from another data structure. How would that impact your application? What are some thoughts on how to make it easier for your application to navigate this different information?  
 
 ## ORM 
 ### What is ORM
