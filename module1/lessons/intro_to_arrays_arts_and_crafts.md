@@ -41,7 +41,8 @@ Then take your five paper cups and use a marker to number them "0" through "4".
 * What does an Array model conceptually?  
 * What are some of the properties of an array? How do they behave?  
 
-## Data Structures, Collections, and Programming
+## Data Structures, Collections, and Programming  
+In Pairs, post answers to Slack thread:
 * What is a "Data Structure"?  
   A data structure is a particular way of organizing information so that it can be used efficiently
 * Why are Arrays so ubiquitous?
@@ -62,7 +63,8 @@ Let's model some of the core concepts. In this section, we'll step through using
 * `insert`
 * `shuffle`
 
-As we go, we'll work side-by-side with our physical Array model and with an IRB/Pry session.
+As we go, we'll work side-by-side with our physical Array model and with an IRB/Pry session.  
+Have a student help by demonstrating interaction with manipulatives or on the board. 
 
 1. Lay down your large piece of paper and write `data` in large letters. This is the name of your variable holding you collection. How many elements are in your collection so far?
 2. Put the empty `0` cup on the paper. If you now access the value inside `data[0]`, what would you get back?
