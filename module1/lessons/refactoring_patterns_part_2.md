@@ -40,7 +40,7 @@ For each station you will apply the refactoring pattern to the code from [this](
 3.  [Hide Delegate](./refactoring_patterns_station_3.markdown)  
 
 ### WrapUp  
-* What are some strategies to make sure that your code makes it from greed, past red, back to refactor again?  (a.k.a. how do you refactor without breaking everything?  
+* What are some strategies to make sure that your code makes it from green, past red, back to green again?  (a.k.a. how do you refactor without breaking everything?  
 * What was challenging about refactoring the above exercises?  
 
 #### Follow Up: Enigma Refactoring Exercises
