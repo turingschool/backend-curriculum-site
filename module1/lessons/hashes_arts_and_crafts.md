@@ -30,8 +30,9 @@ For this section, we'll walk through performing some common Hash operations both
 You'll need these supplies:
 
 1. 1 Black Velvet Bag
-2. 5 Beads
-3. 6 Bead Labels  
+2. Piece of paper
+3. 6 Beads
+4. 6 Bead Labels  
    You'll need the following labels: blue, green, purple, red, orange, warm  
 
 ### Intro - Hash Properties
@@ -116,5 +117,5 @@ end
 11. As a group update your data collection T-Chart to include new Hash info.
 
 
-## Closing  
+## WrapUp  
 Create a Venn Diagram of Arrays and Hashes
