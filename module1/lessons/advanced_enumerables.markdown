@@ -4,7 +4,7 @@ length: 90
 tags: enumerables, ruby, zip, group_by, reduce
 ---
 
-## Goals
+## Learning Goals
 
 Be able to explain the difference between the Enumerable module and Enumerator class
 Understand when and how to use `zip`, `group_by`, and `reduce`/`inject` appropriately
@@ -12,6 +12,15 @@ Understand when and how to use `zip`, `group_by`, and `reduce`/`inject` appropri
 ## Hook
 
 We've looked at a number of enumerables in the past, quite a lot of them, and today we are going to look at some of the tougher enumerables, and we can also look at how we can chain them.
+
+## Warm Up  
+* Make a chart of all the enumerables you know at this point, what they do, and what they return  
+
+```
+enumerable | what it's used for | return value 
+----------------------------------------------
+           |                    | 
+```
 
 ## Basics: Enumerable and Enumerators
 
@@ -89,6 +98,8 @@ peanut_butter = [ "Peter Pan",
 "You got your Chuao in my Skippy!"
 # ...and so on and so forth.
 ```
+
+*Skip if 60min lesson*
 **Challenge #2:** Let's practice with some real world data. This is something that you'll often get. Someone writes some pretty poor software, and you get two associated arrays, but you need to actually put it together. People are the worst.
 
 ```ruby
@@ -111,7 +122,7 @@ houses = ["Hufflepuff",
 # ...and so on and so forth.
 ```
 
-### `group_by`
+## `group_by`
 
 We're going to put this idea of people and houses on hold for a second and talk about the greater idea of why we use enumerables. We've done a lot of things with enumerables.
 
@@ -163,7 +174,9 @@ Now, in practice.
 array = [1,2,3,4,5]
 => [1,2,3,4,5]
 
-array.reduce(0) { |sum, num| sum + num }
+array.reduce(0) do |sum, num| 
+   sum + num 
+end 
 => 15
 ```
 
@@ -176,6 +189,11 @@ Summing is easy, but we can also use `reduce` to build other things.
 **Challenge #2:** Start with a string of one long word (your choice). Write a `reduce` block that returns a count of all the letters in the word.
 
 **Challenge #3:** Given an array of the numbers 1 through ten, use inject to return the sum of all even numbers.
+
+
+## WrapUp  
+What do zip, group_by, and reduce do?  What are the gotchas for each?  
+
 
 ## Additional Reading
 
