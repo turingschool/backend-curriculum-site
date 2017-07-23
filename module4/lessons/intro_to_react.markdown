@@ -506,6 +506,8 @@ Switch over to your browser and open your React dev tools. What happens when you
 
 Good work!!!
 
+Note: you may need to use `parseInt()` in order to update the state when you're handling updating the like count.
+
 ### Refactor
 
 Our `handleDislikeClick` and `handleLikeClick` look very similar. Lets create a new function `modifyLikes` that takes a modification parameter and updates our states likes.
