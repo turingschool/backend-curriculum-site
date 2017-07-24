@@ -538,6 +538,8 @@ And reflect on a few things:
 
 ##### Resources/Additional Learning Materials
 
+[React & Rails Tutorial](https://github.com/applegrain/creact)
+
 [Old Slide Deck](https://drive.google.com/file/d/0Bx6JZxtPBe_FcWFSTkVHWEVqVDQ/view?usp=sharing)
 
 [Developing with Webpack](http://survivejs.com/webpack/developing-with-webpack/)
