@@ -47,8 +47,6 @@ place them across a few interesting continua:
 
 ### React's Take
 
-__Analogy:__ GPU Programming
-
 Part of the fundamental problem is that as the number of UI elements
 we're dealing with grows, the complexity of keeping them up to date
 and in sync with all the relevant data grows as well.
