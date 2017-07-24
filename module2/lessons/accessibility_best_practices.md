@@ -5,7 +5,7 @@ title: Accessibility Best Practices
 Context
 ----------
 
-Accessibility is often overlooked when designing applications. It is an extremely important part of inclusion. A developer must think about accessibility from inception.  
+Accessibility is often overlooked when designing applications. It is an extremely important part of inclusion. A developer must think about accessibility from inception.
 
 While accessibility is sometimes considered "nice to have" for an application,
 a [recent lawsuit](https://www.forbes.com/sites/legalnewsline/2017/06/13/first-of-its-kind-trial-goes-plaintiffs-way-winn-dixie-must-update-website-for-the-blind/#4acd5c3f1b38) could be a harbinger of accessible applications becoming legally mandated. A man with blindness was unable to navigate a grocery store's website with his screen reader, and the court ruled in his favor. The grocery store has to set aside money to improve the website and cover the man's court costs.
@@ -71,7 +71,7 @@ Visual
 
 ### Experiment 1
 
-First, read through [this article](http://bleacherreport.com/articles/2662974-nfl-players-pay-tribute-with-usa-themed-cleats-on-911-anniversary?utm_source=cnn.com&utm_medium=referral&utm_campaign=editorial) from CNN.com.
+First, read through [this article](http://bleacherreport.com/articles/2662974-nfl-players-pay-tribute-with-usa-themed-cleats-on-911-anniversary?utm_source=cnn.com&utm_medium=referral&utm_campaign=editorial) from bleacherreport.com.
 
 Once you've done that try going through the article with your eyes closed using the `chrome vox` extension installed.
 
@@ -99,18 +99,18 @@ Navigation Tip: Some websites do not allow `I want to see like the colour blind`
 
 #### Code tip!
 
-One big thing that can effect users is that sometimes forms utilize radio buttons. The issue with the visually impaired is that many times those radio buttons are difficult to click. What we can do to help improve the experience for our friends is to allow the parent object to be clickable too. Often times it's just a matter of wrapping your radio button in a `label` tag. check out the following [Codepen](https://codepen.io/paul66/pen/jKBzu) don't mind the ``JS`` look at the css and the ``html``
+One big thing that can affect users is that sometimes forms utilize radio buttons. The issue with the visually impaired is that many times those radio buttons are difficult to click. What we can do to help improve the experience for our friends is to allow the parent object to be clickable too. Often times it's just a matter of wrapping your radio button in a `label` tag. Check out the following [Codepen](https://codepen.io/paul66/pen/jKBzu). Don't mind the JavaScript - look at the CSS and the HTML
 
-These are some easy changes we can implement for application to be more accommodating.
+These are some easy changes we can implement for your application to be more accommodating.
 
 Mobility
 --------
 
-Mobility is an issue where the user typically has difficulty using a mouse or a trackpad. The first and easiest thing we can do as developers is making sure we are making our application completely usable with just a keyboard.
+Mobility is an issue where the user typically has difficulty using a mouse or a trackpad. The first and easiest thing we can do as developers is make sure we are making our application completely usable with just a keyboard.
 
 #### Video
 
-Watch this video from Dinosaur.js [here](https://www.youtube.com/watch?v=hKIQkgPVXH4&feature=youtu.be) go up to the 10 minute mark
+Watch this video from Dinosaur.js [here](https://www.youtube.com/watch?v=hKIQkgPVXH4&feature=youtu.be). Go up to the 10 minute mark.
 
 ### Experiment
 
@@ -122,7 +122,7 @@ Go to [Auto Traders](http://www.autotrader.com/) website and tab around.
 
 #### Go Further
 
-Check out [this article](http://archive.tlt.psu.edu/accessibility/tabindex0.html#whyzero) (make sure to inspect the ``html``)
+Check out [this article](http://archive.tlt.psu.edu/accessibility/tabindex0.html#whyzero) (make sure to inspect the HTML)
 
 If you're tired of reading, watch this [video](https://youtu.be/rvG7L-gsSuo) instead.
 
