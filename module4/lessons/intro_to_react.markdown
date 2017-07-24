@@ -523,18 +523,7 @@ e.g.
 
 ## Reflection/Wrap up
 
-Define the following React terms in your own words:
-
-- JSX
-- Component
-- Prop
-- State
-
-And reflect on a few things:
-
-- How is React different from the front-end development you've done?
-- What surprised you about React?
-- What do you still need to learn to be an effective developer of React applications?
+On your own, fill out the Intro to React Checks for Understanding questions [here](https://goo.gl/forms/6n82Ft7qC0lnipK13).
 
 ##### Resources/Additional Learning Materials
 
