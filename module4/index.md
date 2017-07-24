@@ -79,7 +79,7 @@ Weeks 4&5 will be spent working on your capstone projects.
 *   [Week 4 CFU's](https://github.com/turingschool/checks-for-understanding/blob/master/module-4/backend/week_four.md)
 
 <h4 id="week_5">Week 5</h4>
-*   [Introduction to React](https://docs.google.com/presentation/d/1hyNKmT0enmcKb01SUWb5-1Qxn_EXZOAc1HL2rEDuAgg/edit?usp=sharing)
+*   [Introduction to React](./lessons/intro_to_react)
 *   Job Search Strategies
 *   [React Part Two]()
 *   Algorithm/Interview Prep Time
