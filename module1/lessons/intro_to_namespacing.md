@@ -107,8 +107,11 @@ A Slytherin house:
 `slytherin_2.rb`    
 
 ```ruby
-module Student
+module House
   class Slytherin
+  
+  	attr_reader :students
+  	
     def initialize
       @teachers = []
       @students = []
@@ -135,6 +138,12 @@ house = House::Hufflepuff.new
 ```
 Agree/Disagree:  
 When I run the runner file what will I get? Why?   
+
+I might also nest them in folders to fix out file naming problem. 
+
+` mkdir house student`  
+` mv slytherin_1.rb student/slytherin.rb`
+` mv slytherin_2.rb house/slytherin.rb`
 
 Turn & Talk:  
 Have we seen a double colon like that before? What have you seen it do?  
