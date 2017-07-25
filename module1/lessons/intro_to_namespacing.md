@@ -141,8 +141,8 @@ When I run the runner file what will I get? Why?
 
 I might also nest them in folders to fix out file naming problem. 
 
-` mkdir house student`  
-` mv slytherin_1.rb student/slytherin.rb`
+` mkdir house student`    
+` mv slytherin_1.rb student/slytherin.rb`  
 ` mv slytherin_2.rb house/slytherin.rb`
 
 Turn & Talk:  
