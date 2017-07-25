@@ -81,7 +81,7 @@ Weeks 4&5 will be spent working on your capstone projects.
 <h4 id="week_5">Week 5</h4>
 *   [Introduction to React](./lessons/intro_to_react)
 *   Job Search Strategies
-*   [React Part Two]()
+*   [React Part Two](./lessons/intro_to_react_part_2)
 *   Algorithm/Interview Prep Time
 *   Assessment Part Two
 *   Open Source/Portfolio Worktime
