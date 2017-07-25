@@ -75,8 +75,8 @@ Create a runner:
 require "./slytherin.rb"
 require "./slytherin.rb"
 
+house = Slytherin.new
 student = Slytherin.new("Malfoy")  
-house = Slytherin.new  
 
 house.add_student(student)
 ```
@@ -86,68 +86,68 @@ If I run my runner, what will I get? Why?
 `ruby slytherin_runner.rb`
 
 We can use namespacing, where we wrap each Student in a module like so:  
-A Slytherin Student:    
-`student_1.rb`
-```ruby
-module House
-  class Slytherin
-    def cast_spell
-      puts "Expelliarmus!"
-    end
+A Slytherin Student:  
+  
+`slytherin_1.rb`
 
-    def speak
-      puts "I'm a Slytherin, and am AWESOME."
-    end
+```ruby
+module Student
+  class Slytherin  
+
+    def initialize(name)
+  	   @name = name
+  	   @teachers = []
+    end 
+
   end
 end 
 ```  
-A Hufflepuff student:  
-`student_2.rb`    
+A Slytherin house:  
+
+`slytherin_2.rb`    
+
 ```ruby
 module Student
   class Slytherin
-    def cast_spell
-      puts "Expelliarmus!"
+    def initialize
+      @teachers = []
+      @students = []
     end
-
-    def speak
-      puts "Potato."
-    end
+  
+    def add_student(student)
+       @students << student 
+    end 
+  
+    def add_teacher(teacher)
+       @teachers << teacher
+    end 
+  
   end
 end
 ```
 
-This is how we would instantiate with modules and then call the appropriate
-method:  
-`pry`  
+This is how we would instantiate with modules and then call the appropriate method:  
+Back in our runner:
 
-```ruby
-require "./student_1.rb"
-=> true
-require "./student_2.rb"  
-=> true  
-slyth = Student::Slytherin.new  
-huff = Student::Hufflepuff.new  
+```ruby  
+student = Student::Slytherin.new("Malfoy")  
+house = House::Hufflepuff.new  
 ```
 Agree/Disagree:  
-When I call slyth.speak what will I get vs huff.speak? Why?   
-```ruby 
-slyth.speak  
-??  
-huff.speak  
-??  
-```
+When I run the runner file what will I get? Why?   
 
 Turn & Talk:  
 Have we seen a double colon like that before? What have you seen it do?  
 
-The double colon is a scope resolution operator. It allows you to access items in modules, or class level items in classes.
+The double colon is a scope resolution operator. It allows you to change/direct your scope. It allows access to items in modules or class level items in classes.
 
 ### Exercise: Namespacing
 
 So now you try.  
 Make a Car Class:   
+
 `touch car_1.rb`  
+
 ```ruby
 class Car
   def start
@@ -159,8 +159,11 @@ class Car
   end
 end
 ``` 
+
 Make a second Car Class:    
+
 `touch car_2.rb`  
+
 ```ruby
 class Car
   def start
@@ -174,12 +177,13 @@ end
 ```
 
 * Start with the code above
-* Wrap the first `Car` with a module to create a `Car::AWD`
-* Wrap the second `Car` with a module to create a `Car::RWD`
-* Create an instance of `Car::RWD` and prove that you can access both
+* Wrap the first `Car` with a module to create a `AWD::Car`
+* Wrap the second `Car` with a module to create a `RWD::Car`
+* Create an instance of `RWD::Car` and prove that you can access both
   the expected methods
-* Create an instance of `Car::AWD` and prove that you can access both
+* Create an instance of `AWD::Car` and prove that you can access both
   the expected methods
 
 ### WrapUp  
-* 
+* What is the syntax of namespacing? How do you define it? How do you call it?  
+* What are some scenarios where you have seen it? Where might you use it? 
