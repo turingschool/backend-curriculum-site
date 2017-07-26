@@ -1,9 +1,11 @@
 ---
+layout: page
 title: Accessibility Best Practices
 ---
 
-Context
-----------
+# Accessibility Best Practices
+
+## Context
 
 Accessibility is often overlooked when designing applications. It is an extremely important part of inclusion. A developer must think about accessibility from inception.
 
@@ -12,15 +14,13 @@ a [recent lawsuit](https://www.forbes.com/sites/legalnewsline/2017/06/13/first-o
 
 In order for us to really understand how to build a rich web experience, we need to know how the web looks like and feels like for those with accessibility needs.
 
-Goals
--------
+## Goals
 
 -   Build empathy for people with accessibility needs
 -   Identify the 4 main accessibility issues
 -   Build familiarity with accessibility tools
 
-The Need
--------
+## The Need
 
 There are 3 billion (and counting) people using the internet.
 
@@ -47,8 +47,7 @@ Tim Berners-Lee, the creator of HTTP/HTML, tweeted in front of 90 million people
 
 The computer will always do exactly what you tell it to. Maybe it's time we start telling them to do the right thing.
 
-Identifying the 4 main accessibility issues.
-------------
+## Identifying the 4 main accessibility issues.
 
 Here are the top 4 accessibility things to look out for on the web:
 
@@ -61,8 +60,7 @@ Making sure we help accommodate these users allows us to really gear and tune ou
 
 Today, we will talk about the first three on the above list.
 
-Visual
-----------
+## Visual
 
 ### Tools Needed
 
@@ -103,8 +101,7 @@ One big thing that can affect users is that sometimes forms utilize radio button
 
 These are some easy changes we can implement for your application to be more accommodating.
 
-Mobility
---------
+## Mobility
 
 Mobility is an issue where the user typically has difficulty using a mouse or a trackpad. The first and easiest thing we can do as developers is make sure we are making our application completely usable with just a keyboard.
 
@@ -122,9 +119,7 @@ Go to [Auto Traders](http://www.autotrader.com/) website and tab around.
 
 #### Go Further
 
-Check out [this article](http://archive.tlt.psu.edu/accessibility/tabindex0.html#whyzero) (make sure to inspect the HTML)
-
-If you're tired of reading, watch this [video](https://youtu.be/rvG7L-gsSuo) instead.
+Watch this [video](https://youtu.be/rvG7L-gsSuo) on `tabindex`.
 
 ### Discussion
 
@@ -138,8 +133,7 @@ Never adjust the focus on your application. Without the focus there is literally
 
 One thing you want to consider is utilizing the ``tabindex`` attribute. What's great about this is if you set the ``tabindex`` of something to zero it acts like a ``stop sign`` that makes the screen reader and or tab focus move to a specific part of the page.
 
-Cognition
-------
+## Cognition
 
 Cognitive issues is defined by `webaim` as this:
 
@@ -180,14 +174,12 @@ Organizing your data in a way that is decreeable and engaging for the user will 
 -   Offering keyboard access
 -   Consider offering content in multiple formats
 
-Finding Violations
-------------
+## Finding Violations
 
 -   Add the [`axe` extension](https://chrome.google.com/webstore/detail/axe/lhdoppojpmngadmnindnejefpokejbdd?hl=en-US).
 -   In the developer tools of any website, click on the "aXe" tab and "analyze violations" which will display any violations for a given site.
 
-Wrap up
---------
+## Wrap up
 
 Now that we are more aware of what is going on in the world of accessibility, what are we going to do to make sure we are committing ourselves to making the web a better place for everyone?
 
