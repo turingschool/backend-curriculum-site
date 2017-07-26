@@ -7,7 +7,7 @@ title: Fixtures
 
 *   Understand what a fixture is and how to create one
 
-Slides [here](../slides/fixtures_mocks_stubs)
+Slides [here](../slides/fixtures)
 
 ## Test Helper: A Preface
 
