@@ -8,7 +8,7 @@ layout: page
 * [Advanced Enumerables](../lessons/advanced_enumerables)
 * [Inheritance](../lessons/inheritance)
 * [Refactoring Patterns 1](../lessons/refactoring_patterns_part_1)
-* Mixins
+* [Mixin Slides](../slides/mixins)
 * [Refactoring Patterns 2](../lessons/refactoring_patterns_part_2)
 * [Ruby Object Model](../lessons/ruby_object_model_alt)
 
