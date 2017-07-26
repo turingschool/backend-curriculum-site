@@ -18,3 +18,4 @@ The purpose of this document is to allow a place for us to keep track of things 
 - Remove `cat` and `echo` from File/IO lesson
 - Add instructions to download voices to JungleBeat
 - Add note about looping/recursion to JungleBeat and CompleteMe
+- Add lesson on Four Principles of OOP
