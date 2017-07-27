@@ -1,5 +1,5 @@
 ---
-title: "Express with Knex"
+title: "SQL in Node"
 length: 1.5 hours
 tags: node, express, knex, database, SQL, http
 ---
@@ -11,7 +11,7 @@ We're going to start from the end of the [Building and Testing with Express less
 If you need it, you can clone this repo, which represents the completed lesson:
 
 ```
-git clone https://github.com/turingschool-examples/1611-express-lesson-codez
+git clone https://github.com/turingschool-examples/building-app-with-express/tree/1701-intro-to-express
 ```
 
 ## Learning Goals
@@ -188,7 +188,7 @@ exports.down = function(knex, Promise) {
 };
 ```
 
-But, why is `Promise` passed in as a second argument? Knex is expecting that these methods return a promise of some sort. All Knex methods return a promise, so we fulfilled our end of the bargin in the example above. `Promise.all` allows you to do multiple things and return one promise. Knex passes us a reference to `Promise`, because it's not natively supported in some previous versions of Node. We're not using it at this moment, but we will in a second.
+But, why is `Promise` passed in as a second argument? Knex is expecting that these methods return a promise of some sort. All Knex methods return a promise, so we fulfilled our end of the bargain in the example above. `Promise.all` allows you to do multiple things and return one promise. Knex passes us a reference to `Promise`, because it's not natively supported in some previous versions of Node. We're not using it at this moment, but we will in a second.
 
 ### Seeds
 
@@ -220,7 +220,7 @@ We're going to need to modify this a bit.
 ```js
 exports.seed = function(knex, Promise) {
   return knex.raw('TRUNCATE secrets RESTART IDENTITY')
-  .then(() => {
+  .then(function() {
     return Promise.all([
       knex.raw(
         'INSERT INTO secrets (message, created_at) VALUES (?, ?)',
@@ -241,7 +241,7 @@ exports.seed = function(knex, Promise) {
 
 You'll notice that I used `Promise.all` this time. It's because I wanted to do three things (i.e. insert each of my fake secrets). `Promise.all` will resolve when all three of my inserts resolve.
 
-Also notice that `.raw()` is taking two parameters. Whenever you are passing dynamic values to a query, you want to add them as a second parameter. They will replace any `?` you have in your query in order. These values aren't technically dynamic, but it's good to just keep the same pattern that we'll be using later.
+Also notice that `.raw()` is taking two parameters. Whenever you are passing dynamic values (data) to a query, you want to add them as a second parameter. They will replace any `?` you have in your query in order. These values aren't technically dynamic, but it's good to just keep the same pattern that we'll be using later.
 
 ### Running the Migrations and Seeding the Database
 
@@ -284,7 +284,7 @@ Good! Let's try to actually pull out some data. Add the following in place of th
 
 ```js
   database.raw('SELECT * FROM secrets')
-  .then( (data) => {
+  .then( function(data) {
     console.log(data)
     process.exit();
   });
@@ -302,9 +302,9 @@ Let's also try creating a new record. Add another query before your existing one
 database.raw(
   'INSERT INTO secrets (message, created_at) VALUES (?, ?)',
   ["fUIDsPF", "I open bananas from the wrong side", new Date]
-).then( () => {
+).then( function() {
   database.raw('SELECT * FROM secrets')
-  .then( (data) => {
+  .then( function(data) {
     console.log(data.rows)
     process.exit();
   });
@@ -312,6 +312,14 @@ database.raw(
 ```
 
 We've chained our promises above to ensure that the new record gets created before we query for all of our records.
+
+### Quick Review and CFU
+
+We've just done some basic interactions with a database using SQL in Node. Let's make sure we at least understand what each part is doing.
+
+- `.raw()`
+- `.then()`
+- `function(data){ ... }`
 
 ## New GET Test
 
@@ -322,16 +330,16 @@ Let's rewrite our test for `/api/secrets/:id`
 -   Let's clear out the database when we're done.
 
 ```js
-beforeEach((done) => {
+beforeEach(function(done) {
   database.raw(
     'INSERT INTO secrets (message, created_at) VALUES (?, ?)',
     ["I open bananas from the wrong side", new Date]
-  ).then(() => done());
+  ).then(function() { done() });
 })
 
-afterEach((done) => {
+afterEach(function(done) {
   database.raw('TRUNCATE secrets RESTART IDENTITY')
-  .then(() => done());
+  .then(function() { done() });
 })
 ```
 
@@ -341,16 +349,16 @@ And the test itself:
 2.  We're using integer ids instead of string ids.
 
 ```js
-it('should return 404 if resource is not found', (done) => {
-  this.request.get('/api/secrets/10000', (error, response) => {
+it('should return 404 if resource is not found', function(done) {
+  this.request.get('/api/secrets/10000', function(error, response) {
     if (error) { done(error) }
     assert.equal(response.statusCode, 404)
     done()
   })
 })
 
-it('should return the id and message from the resource found', (done) => {
-  this.request.get('/api/secrets/1', (error, response) => {
+it('should return the id and message from the resource found', function(done) {
+  this.request.get('/api/secrets/1', function(error, response) {
     if (error) { done(error) }
 
     const id = 1
@@ -366,54 +374,45 @@ it('should return the id and message from the resource found', (done) => {
 })
 ```
 
-Don't forget to migrate your test database. Run `knex -h` to find out how to set the environment.
+Don't forget to migrate your test database. Run `knex -h` to find out how to set the environment in `knex` commands (like `migrate`).
+
+### Quick review and CFU
+
+- Is everyone comfortable with `done()`?
 
 ## Your Turn
 
-Rewrite the current `/api/secrets/:id` route. Use `npm`
-
-Then we'll go over a working implementation.
+Rewrite the current `/api/secrets/:id` route. Then we'll go over a working implementation.
 
 ## Pushing to Heroku
 
 Now that we are all wired up with Knex in our local dev environment, it's time to look towards big and better things... the wonderful world of production. Because it doesn't matter how awesome your endpoints are if you can't show the world.
 
-We've already done a lot of prep without even knowing it, but there are a few catchyas left to conquer. Before we can config production fully, we need to create our production app with Heroku. If you haven't already, go ahead and create an account with Heroku. Then login in your terminal:
+We've already done a lot of prep without even knowing it, but there are a few gotchyas left to conquer. Before we can config production fully, we need to create our production app with Heroku:
 
-```js
-heroku login
+```
+heroku create app-name
+git push heroku master
+heroku open
 ```
 
-To create an app with Heroku:
+This may give you an error screen. Heroku also seems to just silently fail lately. Let's take a quick look at the logs to see what the current version of Heroku is thinking:
 
-```js
-heroku create app-name // app-name can be whatever you want as long as there isn't another app named it. If you don't give it a name Heroku will name it something super badass like misty-acorn-valleys9292
 ```
-
-Then you can push your code to Heroku like so:
-
-```js
-git push heroku master // Make it a practice to only push to production from master. master is your Master. Obey it as your production overlord. Many things will be happening in your terminal but the main thing to look for is if the build succeeds or fails.
-heroku open // Opens your app in a browser
-```
-
-Aaaaaaaand...... error screen. Wah wah wah. Welcome to getting things up in production. The MOST IMPORTANT thing to learn about production is reading error logs from Heroku:
-
-```js
 heroku logs
-heroku logs --tail // Get the last error message
+heroku logs --tail // Continue to watch new logs come in. There also seems to be more things logged in this case.
 ```
 
-First step is to add a Procfile. This lets Heroku know to fire up your server.
+We probably saw something in the logs about a Procfile. This lets Heroku know how to fire up your server. When not using Rails, Heroku doesn't make as many assumptions about what you've just pushed up.
 
-```js
+```bash
 touch Procfile
 
-// In the Procfile
+# In the Procfile
 web: node server.js
 ```
 
-Node applications don't come with databases by default. We'll have to [manually add it to our application](https://devcenter.heroku.com/articles/heroku-postgresql#provisioning-the-add-on):
+Heroku applications don't come with databases by default. We'll have to [manually add it to our application](https://devcenter.heroku.com/articles/heroku-postgresql#provisioning-the-add-on):
 
 ```
 heroku addons:create heroku-postgresql:hobby-dev
@@ -428,7 +427,7 @@ heroku run 'knex migrate:latest'
 heroku run 'knex seed:run'
 ```
 
-It should give you some feedback that it worked. Now do heroku open and magic! You have data.
+It should give you some feedback that it worked. Now do `heroku open` and magic! You have data.
 
 ## More Your Turn
 
@@ -462,9 +461,9 @@ We don't need a framework to have well organized code!! Let's create some folder
 
 Take 3 minutes to answer the following questions with a partner:
 
--   What that we have written should live in a model?
+-   In the code that we have written, what should live in a model?
 -   How could you extract that code in to a function or functions?
--   If you had to extract this code to another file, what questions would you have?
+-   If you were to extract that code to another file, what questions would you have before you started?
 
 Let's start by extracting SQL out of our test hooks (`beforeEach` & `afterEach`). We'll just create some global functions at the top of our application to start.
 
@@ -482,14 +481,14 @@ function emptySecretsTable() {
 
 ...
 
-beforeEach((done) => {
+beforeEach(function(done) {
   makeSecret()
-  .then(() => done())
+  .then(function() { done() })
 })
 
-afterEach((done) => {
+afterEach(function(done) {
   emptySecretsTable()
-  .then(() => done())
+  .then(function() { done() })
 })
 
 ```
@@ -508,9 +507,9 @@ function createSecret(message) {
 
 ...
 
-beforeEach((done) => {
+beforeEach(function(done) {
   createSecret("I open bananas from the wrong side")
-  .then(() => done())
+  .then(function() { done() })
 })
 ```
 
@@ -534,14 +533,14 @@ const Secret = require('../lib/models/secret')
 
 ...
 
-beforeEach((done) => {
+beforeEach(function(done) {
   Secret.create()
-  .then(() => done())
+  .then(function() { done() })
 })
 
-afterEach((done) => {
+afterEach(function(done) {
   Secret.destroyAll()
-  .then(() => done())
+  .then(function() { done() })
 })
 ```
 
@@ -553,7 +552,7 @@ afterEach((done) => {
 
 ## Faux Controller
 
-Our `server.js` is getting bulky. Could we get it to behave more like a `routes.rb` file from Rails?
+Our `server.js` is getting bulky. Something I've noticed is that each block of code in this file is basically 1) an HTTP verb, 2) a route, and 3) a function to handle the request. Could we get it to behave more like a `routes.rb` file from Rails?
 
 Take 3 minutes and discuss with a partner:
 
