@@ -11,7 +11,7 @@ layout: page
 * [Fixtures](../lessons/fixtures)
 * [Namespacing](../lessons/intro_to_namespacing)
 * [Mocks & Stubs](../lessons/mocks_stubs) ([Video](https://vimeo.com/157333800))
-* Private Methods
+* [Private Methods](../lessons/private_methods)
 
 ## Projects
 
