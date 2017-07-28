@@ -12,12 +12,11 @@ tags: ruby, hashes, data structures
 
 ## Structure
 
-* 5 - Warmup
+* 5 - WarmUp
 * 25 - Together - Building a Hash
 * 5 - Break
-* 25 - Group Exercise
-* 5 - Break
-* 25 - Independent Practice
+* 15 - Group Exercise
+* 5 - WrapUp
 
 ## WarmUp
 Make a T-Chart of the collections you are familiar with. Fill in what you know about each collection type you listed.
@@ -31,8 +30,9 @@ For this section, we'll walk through performing some common Hash operations both
 You'll need these supplies:
 
 1. 1 Black Velvet Bag
-2. 5 Beads
-3. 6 Bead Labels  
+2. Piece of paper
+3. 6 Beads
+4. 6 Bead Labels  
    You'll need the following labels: blue, green, purple, red, orange, warm  
 
 ### Intro - Hash Properties
@@ -116,54 +116,6 @@ end
 10. How has `keys` changed after the last step? How has `values` changed? What was lost?
 11. As a group update your data collection T-Chart to include new Hash info.
 
-## Independent Work
 
-Finally let's break up for some independent work with Hashes and Arrays.
-
-### Hash and Array Nesting
-
-As our programs get more complex, we'll sometimes encounter more sophisticated combinations of these structures. Consider the following scenarios:
-
-#### Array within an Array
-
-```
-a = [[1, 2, 3], [4, 5, 6]]
-```
-
-* what is `a.count`
-* what is `a.first.count`
-* how can I access the element `5`
-
-#### Hash within an Array
-
-```
-a = [{:pizza => "tasty"}, {:calzone => "also tasty"}]
-```
-
-* what is `a.count`
-* what is `a.first.count`
-* how can I access the element `"also tasty"`
-
-#### Hash within a Hash
-
-```
-h = {:dog => {:name => "Chance", :weight => "45 pounds"},  
-     :cat => {:name => "Sassy", :weight => "15 pounds"}}
-```
-
-* what is `h.count`
-* what is `h.keys`
-* what is `h.values`
-* how can I access the element `"15 pounds"`
-
-### Practicing with Hashes and Nesting
-
-Now that we've worked through the basics, complete [Challenge 2 from the Collections Challenges](https://github.com/turingschool/challenges/blob/master/collections.markdown#2-state-capitals)
-
-### From the Top
-
-Now you've got a decent understanding of hashes. Let's go at it from the
-beginning and try to fill a few of the gaps: work through the [Hashes section of Ruby in 100 Minutes](http://tutorials.jumpstartlab.com/projects/ruby_in_100_minutes.html#8.-hashes) to pickup a bit more.
-
-## Closing  
+## WrapUp  
 Create a Venn Diagram of Arrays and Hashes

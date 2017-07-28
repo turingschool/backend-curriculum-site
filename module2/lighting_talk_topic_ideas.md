@@ -5,7 +5,7 @@ subheading: HTML/CSS Topics for Lighting Talks
 
 ### Your Own Topic
 
-You can make a pitch to do a topic of your choice. The topic must be in the realm of html/css/sass. Propose your topic to Andrew and Beth before you move forward with the planning of the talk.
+You can pitch a topic of your choice, but the topic must be in the realm of HTML/CSS/Sass.
 
 ### Suggested Topics
 

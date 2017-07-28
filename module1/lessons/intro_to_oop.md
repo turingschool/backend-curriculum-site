@@ -10,6 +10,10 @@ tags: ruby, classes, objects
 * Define classes with instance variables in Ruby
 * Explain 'state' and 'behavior' in the context of Ruby/OOP
 
+## Slides
+
+Available [here](../slides/intro_to_oop)
+
 ## Warmup
 
 * Write down two classes of things (e.g. `Classroom`), and for each class write down two instances of that class (e.g. `bem1_classroom`)
@@ -106,8 +110,8 @@ Add the following lines to the bottom of your runner file:
 standard_room = Classroom.new(15, 15)
 short_room    = Classroom.new(15, 15, 10)
 
-puts "Standard Heights: " + standard_room.height
-puts "Short Height: " + short_room.height
+puts "Standard Heights: #{standard_room.height}"
+puts "Short Height: #{short_room.height}"
 ```
 
 We should see that our standard room height is still 20, but our short room height is now the 10 that we passed to it.
@@ -215,8 +219,8 @@ puts classroom_a.volume
 standard_room = Classroom.new(15, 15)
 short_room    = Classroom.new(15, 15, 10)
 
-puts "Standard Heights: " + standard_room.height
-puts "Short Height: " + short_room.height
+puts "Standard Heights: #{standard_room.height}"
+puts "Short Height: #{short_room.height}"
 
 sal = Student.new("Sal")
 ali = Student.new("Ali")
@@ -285,8 +289,8 @@ puts classroom_a.volume
 standard_room = Classroom.new(15, 15)
 short_room    = Classroom.new(15, 15, 10)
 
-puts "Standard Heights: " + standard_room.height
-puts "Short Height: " + short_room.height
+puts "Standard Heights: #{standard_room.height}"
+puts "Short Height: #{short_room.height}"
 
 sal = Student.new("Sal")
 ali = Student.new("Ali")

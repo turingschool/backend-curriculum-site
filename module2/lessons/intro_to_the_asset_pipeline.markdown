@@ -58,7 +58,7 @@ What problem do we see first? How can we see our production errors?
 
 _Our logs!_
 
-Now check out `config/production.rb`. What is:
+Now check out `config/environments/production.rb`. What is:
 
 ```ruby
 config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?

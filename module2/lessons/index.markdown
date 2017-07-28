@@ -49,7 +49,7 @@ title: Module 2 Scope and Sequence
   * [Form Helpers](form_helpers_rails)
   * [BookShelf](forms_primer)
 * [SQL Practice](sql)
-* [Nested Routes](advanced_routing_rails)
+* [Advanced Routing in Rails](advanced_routing_rails)
 * [Factory Girl](factory_girl)
 * [MixMaster Q&A](http://backend.turing.io/module2/projects/mix_master/1_getting_started)
 * [Relationship Implementation and Exercises](https://github.com/turingschool-examples/relationship_practice_exercises)

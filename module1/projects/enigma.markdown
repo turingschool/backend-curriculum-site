@@ -152,9 +152,9 @@ Now you should have all the components in place such that your command-line encr
 * Swap some encrypted messages with a classmate and see if each other can decrypt them correctly
 * Start experimenting with the cracking functionality
 
-## Extensions
+## Extension
 
-### 1. Character Support
+### Character Support
 
 Improve your system so it supports all of the following:
 

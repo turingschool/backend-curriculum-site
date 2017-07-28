@@ -45,12 +45,15 @@ Some problems with our two environment solution:
     *   You have to ensure that your software versions are the same between environments
     *   Development environments are often not even running the same OS
     *   Although rare, hardware can sometimes change how software behaves
+    *   Other developers can see you WIP, but non-technical roles can't
 
 ### Stage 2: Three environments
 
 So, we created another environment that we call *Staging*. This environment is meant to execute our code in an environment as close as possible to production, without actually disrupting production.
 
 Your Staging environment will basically be a copy of production. Whatever setup you do in production, you'll do the same in staging. With a few exceptions we'll get into.
+
+Staging also provides a safe environment to check your work, or share your work with others. If you create bad data, or delete data, or introduce bugs, your users are not affected.
 
 ### Stage 3: Four environments
 
@@ -82,6 +85,7 @@ A staging environment...
 *   is typically dedicated to one project
 *   ideally setup/teardown is very easy
 *   is usually accessible by most or all developers
+*   is usually accessible by non-technical members of your team
 
 ### Production
 
@@ -139,7 +143,7 @@ To address these differences, we usually use **Environment Variables**. These ar
 
 *   Why might we need differing configurations?
 *   Where do we configure things in Rails?
-*   Where have we configured things in Node?
+*   Where do we configure things in Node?
 
 ## Some next level things to be aware of
 
@@ -162,7 +166,7 @@ If you want to dive deep into solutions to environment problems, dig into the ma
 
 ### We do
 
-Let's try to implement some of these things in an old project. Cloney island is perfect. It has just about every trick you know so far. Let's try to rework it
+Let's try to implement some of these things in an old project. Cloney island is perfect. It has just about every trick you know so far. Let's try to rework it.
 
 *    Identify something that we can make into configuration. Something we want to differ between environments.
 *    Set up CI with Travis CI

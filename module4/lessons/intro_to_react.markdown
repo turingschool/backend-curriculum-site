@@ -11,12 +11,17 @@ Learning Goals
 - Students can define basic React vocabulary (Component, JSX, Prop, State)
 - Students are able to create and use React components with heavy guidance from samples and documentation
 
+Warm Up
+--------------
+
+* What do you know thus far about React?
+* Why do Front End frameworks exist?
+* What are the different types of variables you can define in JS? What's the scope of variables in JS land?
+
 Background
 --------------
 
-### Slides
-
-Let's talk about the history of javascript and front-end development. We'll use [this keynote](https://drive.google.com/file/d/0Bx6JZxtPBe_FcWFSTkVHWEVqVDQ/view?usp=sharing)
+Let's first refresh on the history of javascript and front-end development.
 
 ### Overview -- Front-End Application History
 
@@ -41,8 +46,6 @@ place them across a few interesting continua:
 *   View/Data combination vs. View/Data separation
 
 ### React's Take
-
-__Analogy:__ GPU Programming
 
 Part of the fundamental problem is that as the number of UI elements
 we're dealing with grows, the complexity of keeping them up to date
@@ -164,7 +167,6 @@ building your own UI.
 
 Now that you've had a little introduction into React, discuss the following with your partner:
 
-- What did you learn from the reading that wasn’t in the lecture?
 - What parts of Quantified Self could have been easier with React?
 - When do you think you would use React? What is not a good use case for React?
 
@@ -173,7 +175,7 @@ And then let's come back as a group and report out your answers.
 Likes Counter Code Along
 -----------------
 
-From the slide deck, we ultimately want to create something like this:
+We ultimately want to create something like this:
 
 ![](/assets/images/lessons/react-in-theory/final-image.png)
 
@@ -182,7 +184,7 @@ Let's break this up so we can develop individual components
 - If you were dividing this into partials, what would your partials be?
 - How do you think react components are different from partials?
 
-### Install Some things
+### Install Some Tools
 
 Install the [react dev tools]( https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en). It will give you additional information about your react application in the chrome dev tools.
 
@@ -311,7 +313,7 @@ Note that the word `text` here is completely arbitrary. It can be whatever you w
 
 ### Refactor Time (3-5 minutes)
 
-I want you to move your ActionButton into a separate file called ActionButton.jsx.
+Work with a partner to move your ActionButton into a separate file (in the `src` directory) called `ActionButton.jsx`.
 
 ### Action Time
 
@@ -328,7 +330,8 @@ Currently our button does not do anything. Lets add an action. Add an `onClick` 
 
 Cool, now lets make our button a little more customizable by passing in our action
 
-First modify your ActionButton's render function
+First modify your `ActionButton`'s render function
+
 ```
 <button
     className="actionButton"
@@ -337,13 +340,17 @@ First modify your ActionButton's render function
   {this.props.text}
 </button>
 ```
-Next, inside your App.js file pass in a function to your instantiated ActionButton
+
+Next, inside your `App.js` file pass in a function to your instantiated `ActionButton`
+
 ```
 <ActionButton
     text="Submit the Action"
     onClick={this.handleClick}/>
 ```
+
 Finally, add a handle click function to your App.js component
+
 ```
 class App extends Component {
   handleClick() {
@@ -361,7 +368,7 @@ Something kind of funny is happening. Let's review some concepts, and then discu
 - When have you used them in the past?
 - What data type is an event handler?
 
-### Discussion
+### Discussion - Passing Info
 
 Components in React can pass information down to their children, but there isn't really a way for children to pass data back up to the parent. This is because the parent knows about the child (because it's in the render function), but the child doesn't have any way to access the parent.
 
@@ -371,9 +378,9 @@ Since the handler is defined as a method of the parent component, it has access 
 
 ### Build out our View (15-20 minutes)
 
-I want you to create a new Component called LikesCounter. This Component should have two Action Buttons one with the text "Like" and one with "Dislike". When you click Like or Dislike I want you to alert which one was clicked. Build this component in a new file, `LikesCounter.jsx`
+Let's create a new Component called `LikesCounter`. This Component should have two Action Buttons one with the text "Like" and one with "Dislike". When you click Like or Dislike, an alert of which one was clicked should appear. Build this component in a new file, `LikesCounter.jsx`
 
-After you create your LikesCounter, replace the ActionButton in your App with a LikesCounter.
+After you create your `LikesCounter`, replace the `ActionButton` in your `App` with a `LikesCounter`.
 
 Note: Watch out for the following error.
 
@@ -390,15 +397,15 @@ So now that we have our HTML page looking pretty fly, its time to add behavior t
 
 When the page loads, we want the initial value of Likes to be 0. Then when we click "Like" We want to add 1 to the value of Likes, and remove 1 when we click "Dislike".
 
-Let's rephrase. On page load we want to set the *initial* state of our LikesCounter to have a count of 0, in other words we want to "initialize" our component to have some values. Sounds like a constructor!
+Let's rephrase. On page load we want to set the *initial* state of our `LikesCounter` to have a count of 0, in other words we want to "initialize" our component to have some values. Sounds like a constructor!
 
 Along with sending the `props` through our custom HTML element, we can also define an initial `state` on our components that can be mutated based on user interaction and changes to our data.
 
 Our state machine needs to get that information from somewhere, so let's start with passing in an initial count property to our `<LikesCounter />` instance
 
-`<LikesCounter initialCount="0" />`
+`<LikesCounter initialLikes="0" />`
 
-Now we can add a constructor to our LikesCounter component. In our constructor we will set the initial state of our component.
+Now we can add a constructor to our `LikesCounter` component. In our constructor, we will set the initial state of our component.
 
 Underneath the line `class LikesCounter extends Component`
 
@@ -407,7 +414,7 @@ Add your constructor function
 constructor(props) {
   super(props);
   this.state = {
-    likes: props.initialCount
+    likes: props.initialLikes
   };
 }
 ```
@@ -433,7 +440,7 @@ class LikesCounter extends Component {
   constructor (props) {
     super(props);
     this.state = {
-      likes: props.initialCount
+      likes: props.initialLikes
     };
   }
 
@@ -468,21 +475,23 @@ export default LikesCounter
 Open up the console and look at what information is available within the `<LikesCounter />` component.
 
 Last step - hook up the buttons to change the state!
+
 <!--
 In a perfect world, I want to write a JavaScript function that adds 1 to the number of likes in our `<h3>` tag every time I click on the `Like (+1)` button. -->
 
 Lets modify our two our Like and Dislike functions to change our state. To modify our state we pass in a new state object to `this.setState(newState)`
 
+
 ```
 handleLikeClick () {
   this.setState({
-    count: this.state.count + 1
+    likes: this.state.likes + 1
   });
 }
 
 handleDislikeClick () {
   this.setState({
-    count: this.state.count - 1
+    likes: this.state.likes - 1
   });
 }
 ```
@@ -493,10 +502,13 @@ Switch over to your browser and open your React dev tools. What happens when you
 
 <!-- How can we display the updated number of likes in our HTML? -->
 
+Good work!!!
+
+Note: you may need to use `parseInt()` in order to update the state when you're handling updating the like count.
 
 ### Refactor
 
-Our handleDislikeClick and handleLikeClick look very similar. Lets create a new function `modifyLikes` that takes a modification parameter and updates our states likes.
+Our `handleDislikeClick` and `handleLikeClick` look very similar. Lets create a new function `modifyLikes` that takes a modification parameter and updates our states likes.
 
 e.g.
 ```
@@ -511,20 +523,14 @@ e.g.
 
 ## Reflection/Wrap up
 
-Define the following React terms in your own words:
-
-- JSX
-- Component
-- Prop
-- State
-
-And reflect on a few things:
-
-- How is React different from the front-end development you've done?
-- What surprised you about React?
-- What do you still need to learn to be an effective developer of React applications?
+On your own, fill out the Intro to React Checks for Understanding questions [here](https://goo.gl/forms/6n82Ft7qC0lnipK13).
 
 ##### Resources/Additional Learning Materials
+
+[React & Rails Tutorial](https://github.com/applegrain/creact)
+
+[Old Slide Deck](https://drive.google.com/file/d/0Bx6JZxtPBe_FcWFSTkVHWEVqVDQ/view?usp=sharing)
+
 [Developing with Webpack](http://survivejs.com/webpack/developing-with-webpack/)
 
 [Render vs Return](https://facebook.github.io/react/docs/component-specs.html)

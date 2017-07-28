@@ -3,10 +3,20 @@ layout: page
 title: Basics of Web Application Security
 ---
 
+Learning Goals
+---------------
+
+-   Students are familiar with common security practices, vulnerabilities and resources
+
+Intro
+--------------
+
+We've shown you best practices for security in Rails (authorization, authentication, strong params, etc), but Rails is not the only game in town. Let's talk about some of these concepts in general, and how they may apply in the various applications you build, and enable you to speak about these concepts from an educated perspective.
+
 Review of concepts
 -------------------
 
-These are the the concepts covered in mod 3. Let's talk about them briefly.
+These are the the concepts [covered in mod 3](../../module3/lessons/fundamental_rails_security). Let's talk about them briefly.
 
 * Privilege Escalation
 * Mass Assignment Vulnerabilities
@@ -18,6 +28,8 @@ Best Practices
 ----------------
 
 ### SSL
+
+You may not have thought about it, but interaction you have between your browser and a webserver has to go through a network of computers, and it's all exposed to anyone else on that network. Secure Socket Layer sits on top of HTTP, encrypting all traffic between a browser and server.
 
 - What are the advantages of SSL?
 - What are some disadvantages?
@@ -51,7 +63,7 @@ I've heard several drawn out explanations and metaphors of public/private keys. 
 
 Rarely have I ever manually used these keys. I've only ever used them with other software that does the necessary encrypting and decrypting for me. I just think the idea is really cool.
 
-#### Some uses
+#### Some uses of key pairs
 
 - SSL (Secure Socket Layer)
 - SSH (Secure Shell)
@@ -61,7 +73,7 @@ Rarely have I ever manually used these keys. I've only ever used them with other
 
 There's really two concepts I want to cover here:
 
-1. Sequential ID numbers can be a security risk
+1. Sequential ID numbers (the types of IDs you've been using this whole time) can be a security risk
 2. UUIDs are a common replacement for sequential IDs
 
 ### Secrets

@@ -67,7 +67,7 @@ $ git remote add upstream git@github.com:YOUR-GITHUB-USERNAME/module_3_assessmen
 
 Minitest/Capybara is already set up in the project. Run `rake test` to see one integration test passing. If you prefer to work with RSpec, please remove the `test/` directory and [set up RSpec](https://github.com/rspec/rspec-rails) in your project before the assessment.
 
-**The night before the assessment you will be asked to get keys for the API you will be working with.**
+**Instructors will provide you with your API key the day of the assessment.**
 
 Once you have your project ready to go, commit and push to your remote repo to confirm everything is set up correctly using something similar to the following:
 
@@ -82,10 +82,9 @@ $ git push -u upstream master
 These are recommended resources to look through before the assessment, and/or use during the assessment.
 
 * Request libraries such as [Faraday](https://github.com/lostisland/faraday) or [Net::HTTP](http://ruby-doc.org/stdlib-2.3.0/libdoc/net/http/rdoc/Net/HTTP.html)
+* [ActionController::API](http://api.rubyonrails.org/classes/ActionController/API.html)
 * [VCR](https://github.com/vcr/vcr)
 * [Ruby Docs](http://ruby-doc.org/)
-* [ActiveRecord Query Methods](http://api.rubyonrails.org/classes/ActiveRecord/QueryMethods.html) like `.where`, `.find_by`, `.joins`, `.includes`.
-* [ActiveRecord calculations](http://api.rubyonrails.org/classes/ActiveRecord/Calculations.html)
 * [Rails Docs](http://api.rubyonrails.org/)
 
 ## Evaluation Criteria

@@ -395,10 +395,6 @@ Apps will evolve over time, and you may reach a point where you need to go back 
 
 Make sure to commit your work! Use proper commit message manners. All tests should be passing.
 
-### Life Raft
-
-If you've messed things up, you can clone down the [7_implement-users](https://github.com/rwarbelow/mix_master/tree/7_implement-users) branch of `mix_master` which is complete up to this point in the tutorial.
-
 ```
 $ git add .
 $ git commit
@@ -406,7 +402,7 @@ $ git checkout master
 $ git merge 7_implement-users
 ```
 
-Before pushing to Heroku, you'll want to create a new set of Spotify keys and follow the instructions for the [Figaro](https://github.com/laserlemon/figaro) gem in order to set those keys on Heroku. In general, you want to have a set of keys, or registered application, for production and one for development. Since we specify the callback url when we register the app, one set of keys won't work locally and in production.  
+Before pushing to Heroku, you'll want to create a new set of Spotify keys and follow the instructions for the [Figaro](https://github.com/laserlemon/figaro) gem in order to set those keys on Heroku. In general, you want to have a set of keys, or registered application, for production and one for development. Since we specify the callback url when we register the app, one set of keys won't work locally and in production.
 
 ### Maybe Coming Soon!
 

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Refactoring Patterns - Move Method
-length: 25
+length: 10 - 25
 tags: ruby, refactoring, tdd
 ---
 
@@ -14,12 +14,13 @@ tags: ruby, refactoring, tdd
 
 ## Instructions
 
-* Read the Move Method section from 167 to 172
+* Discuss the Move Method section from 167 to 172
 * *Carefully* re-read the code sections on 170, 171, and 172
 * Read/discuss the Key Ideas below
 * Try refactoring the Example Scenario below using Move Method
-* You're welcome to discuss / compare solutions with others
-* If you finish early, read the Move Field pattern (172-175)
+* You're encouraged to discuss / compare solutions with others
+* If you finish early, apply this refactoring pattern to the Enigma examples found on the main lesson page for today 
+* If you still have more time, apply this refactoring pattern to your current project
 
 ## Key Ideas
 
@@ -28,6 +29,7 @@ tags: ruby, refactoring, tdd
 * You move the method from Class A to Class B and update any references
 * Remember to consider the context of Class B when choosing a name for the moved method
 
-## Example Scenario
+## Example Scenario  
+Apply this Refactoring Pattern to the linked repository which you should have already cloned down. As you move methods around, make sure the linked test still passes. 
 
 [Move Method](https://github.com/turingschool-examples/refactoring_patterns/blob/master/test/station_1_move_method_test.rb)

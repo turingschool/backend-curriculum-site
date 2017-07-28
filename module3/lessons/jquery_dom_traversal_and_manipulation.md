@@ -1,259 +1,199 @@
 ---
-layout: page
-title: jQuery DOM Traversal, Manipulation, and Events
+title: jQuery Intro - DOM Traversal, Manipulation, and Events
 length: 180
-tags: javascript, jquery
-status: draft
+tags: jquery, javascript
 ---
 
-## Learning Goals
+jQuery is a library that allows us to use CSS selectors to find elements on the page and then interact with them. Under the hood, **it's JavaScript**. It's used on about 78% of the top million web pages, so it's worth while getting comfortable with it.
 
-* Use jQuery selectors to find content
-* Understand that jQuery collections allow you to manipulate multiple elements with a single method
-* Use jQuery's DOM traversal methods to move around the DOM
-* Add CSS styles using jQuery
-* Append new content to the DOM
-* Add event listeners to elements currently in the DOM
-* Understand that adding an event listener will not effect elements you add to the DOM in the future
+#### Loading the jQuery library
 
-![js logo][js-logo]
-
-[js-logo]: /assets/images/lessons/jquery/js-logo.png
-
----
-
-## Getting Up to Speed with JavaScript
-
-JavaScript was created to make the web more dynamic. It is an object-oriented scripting language made to run inside a host environment like a web browser and provide programatic control over the objects of that environment. For example, when you click a button and you want something about the webpage to change, you will use JavaScript.
-
-JavaScript can be _client-side_ and _server-side_, meaning that it can be used to control user-facing interfaces as well as handle the server-side extensions that connect with a database.
-
-It’s a highly versatile and flexible language, and has become the most commonly used language of the web.
-
-Today we'll be talking about using JavaScript and the jQuery library to manipulate the DOM in a rails application.
-
-### Syntax, Variables and Functions
-
-#### Syntax
-
-Each statement in JavaScript ends with a semicolon (`;`). 
-
-JS has automatic semicolon insertion, so technically you can omit them most of the time and your code will still work. Use them anyway, at least for the first year you work with JavaScript.
-
-Camel case `camelCase` is prefered over snake case `snake_case`.
-
-Comments are made with `//`.
-
-#### Variables
-
-JS variables MUST be declared/created using `var`.
-
-```js
-var isSnowing = true;
-```
-
-_Note: if you work in es6, you can also use `let` or `const`._
-
-If you redefine a variables, you will not use the `var` keyword.
-
-```js
-var isSnowing = true;
-
-// looks out window
-
-isSnowing = false;
-```
-
-Variables can be _declared_ without being _defined_.
-
-```js
-var yetToBeDefined;
-yetToBeDefined;
-// => undefined
-yetToBeDefined = true;
-yetToBeDefined;
-// => true
-```
-
-#### Functions
-
-Functions are a way to group statements together to perform a specific task. Functions are reusable blocks of code. To create a function, you must give it a name and then write the statements required for the function to achieve its task inside the function’s curly braces
-
-Functions will follow the following general structure:
-
-```js
-var doSomething = function(thing) {
-  return thing;
-};
-```
-
-or 
-
-```js
-function doSomething(thing) {
-  return thing;
-};
-```
-
-_Note: the first example creates an unnamed function and then assigns it to a variable. Called a `function expression`. The second example is a `function declaration` - at the time you create a function you declare a name for it. This allows you to leverage a concept called `hoisting` in JavaScript. Because of the way JS is interpreted, the second function is available to use anywhere in your code. You can think of it as being 'hoisted' to the top of the file. Read more [here](http://adripofjavascript.com/blog/drips/variable-and-function-hoisting)_
-
-A function is called/invoked/run by using the parens:
-
-```js
-doSomething("test");
-// => "test"
-```
-
-Something that is really powerful about JavaScript is that functions can be passed around.
-
-If a function is called without parens, it is a reference to a function.
-
-```js
-  doSomething // will not run
-```
-
-Unlike ruby, if you want your function to return something other than undefined, you must explicitly use `return`. When a function hits a `return`, it will immediately stop there and return whatever follows the `return` statement.
-
-![hilarious semicolon reference][semicolons]
-
-[semicolons]: /assets/images/lessons/jquery/semicolons.png
-
----
-
-### Debugging in Javascript
-
-Debugging client-side and server-side JavaScript is a different beast than debugging Ruby. 
-
-Because client-side JS is run entirely in the browser, the technique for troubleshooting broken code is more complicated than `binding.pry`. Luckily, modern browsers are aware of this and give us a collection of options for digging into your code.
-
-#### 1. Developer Tools
-One of the first things you should familiarize yourself with when working with JavaScript (or HTML...or CSS...) are the dev tools. You can find a cool tutorial to dive deeper with  [Code School's Discover-DevTools Tutorial.](http://discover-devtools.codeschool.com/) (Chapters 3 & 4 are particularly helpful)
-
-To open developer tools in Chrome:
--   Mac: `Cmd` + `Opt` + `i` (or `Cmd` + `Opt` + `j`)
--   (or) Right click on the browser window and select `inspect`
--   (or) Select `View` in the navbar, then `Developer`, then `Developer Tools`
-
-When working with JavaScript, it is useful to keep your console open at all times to watch for errors and anything you've told your code to print out. Bringing us to...
-
-#### 2. console.log()
-`console.log()` is to JS what `puts` is to Ruby. This line of code will print whatever is provided as an argument to the console.
-
-Given the following function called `printStuff()`, adding console.log() will print the value of `myVariable` to the console.
-
-```
-var printStuff = function(){
-  var myVariable = 5 + 5
-  console.log(myVariable);
-}
-
-printStuff()
-=> 10
-```
-
-If you're confused about what a variable or function is returning, throw `console.log()` into your code or directly into the `console` in your browser to confirm/deny suspicions.
-
-#### 3. Debugging In the Console
-
-`debugger` is the `pry` of JS. Stick `debugger;` within a function to pause the browser from running the script when it hits a particular part of your code.
-
-```
-// index.js
-$('#search-ideas').on('keyup', function() {
-  var currentInput = this.value.toLowerCase();
-
-  $ideas.each(function (index, idea) {
-    var $idea = $(idea);
-    var $ideaContent = $idea.find('.content').text().toLowerCase();
-    debugger;
-    if ($ideacontent.indexOf(currentInput) >= 0) {
-      $idea.show();
-    } else {
-      $idea.hide();
-    }
-  });
-```
-
-***Warning***: A `debugger` statment will not trigger unless your inspector tools in the browser are open. This is meant to not interrupt a users experience if a developer accidently commits and deploys a `debugger` statement.
-
-In the browser, if we open up the dev tools, navigate to the console and try to search for something.  The program will freeze on the line `debugger`. This lets us type stuff into our `console` to see what's going on.
-
-For a more indepth lesson on working with DevTools - check out [advanced debugging](http://frontend.turing.io/lessons/debugging-with-devtools.html) or the [Chrome Documentation](https://developer.chrome.com/devtools/docs/javascript-debugging).
-
-![dev tools][dev-tools]
-
-[dev-tools]: /assets/images/lessons/jquery/dev-tools.jpg
-
----
-
-## Intro to the DOM
-
-DOM stands for Document Object Model. The browser uses it to represent everything on the page. It's an "object model" because it is made of objects. Each element is an object. If you wanted to, you could directly translate the DOM to a JavaScript object.
-
-The DOM is hierarchical. If you have a tag wrapping another tag, then the inner object is a child of the outer object, which is the parent.
+To use the jQuery library, you'll need to include the following lines in your HTML:
 
 ```html
-<ol>                <!-- parent -->
-  <li>First</li>    <!-- child  -->
-  <li>Second</li>   <!-- child  -->
-</ol>
-
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="path/to/your/jquery.min.js"><\/script>')</script>
 ```
 
-The browser creates the DOM by reading from HTML, but from then on, JavaScript controls any changes to the DOM.
+Let's talk about what's going on here:
 
+In the first line, we're linking to the [Google-hosted CDN (Content Delivery Network) for jQuery](https://developers.google.com/speed/libraries/#jquery). Both Google and Microsoft host the jQuery library, and for our purposes we'll go ahead and stick with the Google link. In this link, we can see which version of jQuery we're using, which is `3.1.1` (as of the writing of this lesson).   
+
+In the second line, we're including a link to a local set of jQuery files that we've downloaded to our machine and included in the directory for our project. This line isn't strictly required for us to use jQuery, but rather is a fallback to make sure that we can still access the library in the event that we are unable to access the CDN for some reason (better safe than sorry, right?). You can [download a copy of jQuery here.](http://jquery.com/download/) **Note: be sure to download the same version that you're referencing in the Google CDN link.**  
+
+Note: If you look at the file extension you'll see the file says `jquery.min.js` - that `min` extensions indicates that its a `minified` version of the jQuery library. jQuery is a large library, and in order to maximize performance (especially on larger code bases), reducing how much space your code takes up is incredibly important. A minified file indicates that it has been abbreviated using one of many different encryption techniques. You can read more about it [in this Wikipedia article](https://en.wikipedia.org/wiki/Minification_(programming) (sorry for the Wiki reference...it actually does a pretty good job of digging into the details) if you are interested in the what and why of minification.   
+
+## First Lines of jQuery
+
+Let's say that we have a page with the following markup:
+
+```html
+<h1 class="important-header">Dinosaurs are awesome.</h1>
 ```
-HTML --> DOM <--> JS
+
+Just like with plain ol' JavaScript, jQuery lets us change the text programatically. The neat thing about jQuery, though, is that it significantly reduces the amount of code we have to write.
+
+```js
+$('h1').text('I AM A DINOSAUR.');
 ```
 
+Play around with the following example using jQuery.
 
-![DOM][dom]
+- Change the replacement text to something else.
+- Change the `h1` selector to `.important-header`
+- Add the following line of code: `$('h1').css('backgroundColor', 'red');`
 
-[dom]: /assets/images/lessons/jquery/dom.png
+<p data-height="300" data-theme-id="23788" data-slug-hash="zBrJpV" data-default-tab="js,result" data-user="turing" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/team/turing/pen/gMPdzx/">Event Listeners</a> by Turing School of Software and Design (<a href="http://codepen.io/turing">@turing</a>) on <a href="http://codepen.io">CodePen</a>.</p>
 
-<cite> By Birger Eriksson - Own work, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=18034500 </cite>
+## Responding to User Events
 
----
+jQuery and, of course, JavaScript are used to change and manipulate web pages. Just like JavaScript, jQuery has the ability to add event listeners based on user interaction.
 
-## Lecture, Introduction
+This is the crux of front-end engineering. We present a user interface and then as the user interacts with the UI, we change and update what the user sees.
 
-### The Power of JavaScript
+Let's take a look at the jQuery syntax and then we'll talk about what's happening.
 
-As mentioned before, you can use JavaScript to create a script, run a server, interact with a database, etc. But if you already have Ruby & Rails, you'll do these things with Ruby for the most part (at least on the server side). 
+<p data-height="300" data-theme-id="23788" data-slug-hash="QEQwjy" data-default-tab="js,result" data-user="turing" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/team/turing/pen/QEQwjy">Event Listeners</a> by Turing School of Software and Design (<a href="http://codepen.io/turing">@turing</a>) on <a href="http://codepen.io">CodePen</a>.</p>
 
-The thing you'll really want to use JavaScript to do is manipulate the DOM. JS will give you the powers to change a page without refreshing it, react to user interaction, automatically size things, etc.
+The following things are happening in the example above:
 
-### jQuery vs Vanilla JavaScript
+- We're querying for any elements with the class of `change-me`.
+- We're adding an "event listener" to those elements. (There is just one in this case.)
+- We're listening for a user's mouse click.
+- We're providing an anonymous function.
+- In this example, the function will change the content of our heading.
 
-When you use the methods that JavaScript has out of the box, you'll often hear this refered to as using `vanilla JS`. There is an excellent [cheatsheet](https://gist.github.com/thegitfather/9c9f1a927cd57df14a59c268f118ce86) that has all of these methods.
+Now, when a user clicks on that button. The browser will run the function we provided to the event listener!
 
-The problem is that many of these methods are confusing or hard to work with.
+We can also listen for things other thank clicks. Here are some other events from the [jQuery documentation](http://api.jquery.com/Types/#Event).
 
-Why is this? JavaScript is run on the browser and for that reason, the maintainers or the language have no control over forcing users to update their browsers. This is the problem that JavaScript has had for it's entire life. Basically, once you add something to JavaScript, you have to support it basically forever.
+- `click`
+- `contextmenu`
+- `dblclick`
+- `hover`
+- `mousedown`
+- `mouseenter`
+- `mouseleave`
+- `mousemove`
+- `mouseout`
+- `mouseover`
+- `mouseup`
 
-So changes to JavaScript the language move _very_ slowly. And there are methods in JavaScript that are legacy and kind of broken, but still exist. And a ton of quirks.
+Take a moment to investigate and play with some of them.
 
-For that reason, libraries like [jQuery](https://jquery.com/) exist and are used heavily.
+## Try It: Adding a CSS Class
 
-jQuery is a library that wraps all of the DOM manipulation in JavaScript in friendly syntax and safeguards against browser incopatability. Under the hood, it’s just JavaScript. It’s used on about 78% of the top million web pages, so it’s worth while getting comfortable with it.
+Open the example below in CodePen using the "Edit on CodePen."
 
-Anything you can do in jQuery, you can do in vanilla JavaScript (with more lines of code, usually).
+<p data-height="300" data-theme-id="23788" data-slug-hash="gMPdzx" data-default-tab="js,result" data-user="turing" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/team/turing/pen/gMPdzx/">Event Listeners</a> by Turing School of Software and Design (<a href="http://codepen.io/turing">@turing</a>) on <a href="http://codepen.io">CodePen</a>.</p>
 
-John Resig, the creator of jQuery, released an annotated version of the original source code of jQuery. It's [absolutely worth reading through](http://genius.it/5088474/ejohn.org/files/jquery-original.html)
+We're using a jQuery method called `toggleClass()`. When the user clicks on the button, it either adds or remove the class `upside-down` depending on whether or not it was already there.
 
-![jquery logo][jquery]
+- Can you create some additional CSS classes and toggle them?
+- Can you also change the text?
+- Try out the following methods:
+  - `toggle()`
+  - `slideToggle()`
+  - `fadeToggle()`
 
-[jquery]: /assets/images/lessons/jquery/jquery.png
+## Getting Values from the User
 
----
+We're getting somewhere! We can respond to actions and change elements. It would be cool if we could also get some information from the user. If you recall, HTML provides `<input>` elements for just this kind of situation. jQuery helps out by providing the `.val()` method for getting the value out of a selected `<input>` element.
 
-## Lecture, Part One: Selectors
+Let's explore the following example.
+
+<p data-height="300" data-theme-id="23788" data-slug-hash="YWwOmQ" data-default-tab="js,result" data-user="turing" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/team/turing/pen/YWwOmQ/">Event Listeners</a> by Turing School of Software and Design (<a href="http://codepen.io/turing">@turing</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+
+In this example, we're doing the following:
+
+- We're adding an event listener to the "Change Me" button.
+- When it's clicked, we're grabbed the value of the input field and storing it into a variable.
+- We're then updating the contents of the `<h1>` to the value we stored from the input field.
+
+### A Note on Working with Numbers
+
+JavaScript has two ways of seeing if two values are equal: `==` and `===`. `==` is notoriously weird, so we tend to avoid it. But there is something with using `===` and getting numbers from input fields that we need to discuss.
+
+Let's consider the following example:
+
+<p data-height="300" data-theme-id="23788" data-slug-hash="GqoYJQ" data-default-tab="js,result" data-user="turing" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/team/turing/pen/GqoYJQ/">Is this two?</a> by Turing School of Software and Design (<a href="http://codepen.io/turing">@turing</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+
+Hmm—that's curious. It doesn't seem to work. You may have encountered this in a previous project. No matter what, input fields always hold **strings** of text. So, we're actually getting the string `"2"` from the input element and not the integer `2`. It makes sense that those things are not strictly equal. What we need to do is turn that string into a number before we compare it.
+
+This is pretty common, so JavaScript gives us a function for doing it called `parseInt()`.
+
+```js
+parseInt("2") === 2; // true!
+```
+
+Now, we can update our conditional as follows:
+
+```js
+if (parseInt(number) === 2) {
+  $('.message').text('You are right!');
+} else {
+  $('.message').text('Sorry, that is not the number 2.');
+}
+```
+
+It works now!
+
+<p data-height="300" data-theme-id="23788" data-slug-hash="rLxqwe" data-default-tab="js,result" data-user="turing" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/team/turing/pen/rLxqwe/">Is this two? (Non-Working)</a> by Turing School of Software and Design (<a href="http://codepen.io/turing">@turing</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+### Try It: Secret Passcode Time
+
+Can you change the code above so that it's looking for a secret passcode before it prints a hidden message to the screen? It's totally your call on what the password is and what the message should be. I don't want to steal your creative thunder.
+
+<!-- ## Bringing It Together: CSS Transitions and Animations Together
+
+We're getting there, right? We know how add and remove classes to elements on the page based on user input. We also know how to smoothly move things between two states using CSS. In the example below, the class of `clicked` is either added or removed whenever the box is clicked.
+
+Change some of the properties of the `.box` and `.clicked` selectors and observe the changes. We'll show off some of our—umm—"most impressive" experiments in a few minutes.
+
+<p data-height="300" data-theme-id="23788" data-slug-hash="xOVxxp" data-default-tab="css,result" data-user="turing" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/team/turing/pen/xOVxxp/">Flying Box</a> by Turing School of Software and Design (<a href="http://codepen.io/turing">@turing</a>) on <a href="http://codepen.io">CodePen</a>.</p> -->
+
+## Knowing Which Element We Clicked - THIS!
+
+Consider a situation where we have three boxes. When that particular box is clicked, we want to toggle a class on that box only. How do we know which box was clicked?
+
+It turns out that when we add an event listener using jQuery, we get a special variable called `this`. Although the concept of the JavaScript `this` can get quite complicated, for our purposes the variable `this` is assigned to the context within which it is called.
+
+Let's take a look at the example below:
+
+<p data-height="300" data-theme-id="23788" data-slug-hash="EyKxpp" data-default-tab="js,result" data-user="turing" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/team/turing/pen/EyKxpp/">$(this)</a> by Turing School of Software and Design (<a href="http://codepen.io/turing">@turing</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+
+#### Try It
+
+Can you create a class that adds a border and then toggle that class on the specific box that is hovered over? (For your own sanity, you probably want to remove the alert!)  
+
+## Traversing the DOM
+
+A little while ago, we wanted to figure out how to tell which element we clicked. But, what if we wanted to find an element in relation to the element we clicked? jQuery lets us navigate from one element to another. When the browser parses our HTML, it creates a big tree-like structure. jQuery lets us hop from branch to branch.
+
+Let's work through a box example again.  
+
+We want each box to have a button inside of it. When the user clicks the button, it should rotate the entire box. (We're rotating the box with a CSS class called `clicked`.)  
+
+<p data-height="300" data-theme-id="23788" data-slug-hash="vKGYzo" data-default-tab="js,result" data-user="turing" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/team/turing/pen/vKGYzo/">Rotating Buttons</a> by Turing School of Software and Design (<a href="http://codepen.io/turing">@turing</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+
+This code _does not_ work the way we'd like - right now when we click on the button, the button itself is rotating instead of the entire box. What we need to do is when the user clicks on a button, go up and find the box that it lives in (the parent element) and add the class to _that_ element. We can use traversal like this:
+
+<p data-height="300" data-theme-id="23788" data-slug-hash="YWqzJo" data-default-tab="js,result" data-user="turing" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/team/turing/pen/YWqzJo/">Rotating Boxes</a> by Turing School of Software and Design (<a href="http://codepen.io/turing">@turing</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+
+You can see all of ways we can move around the DOM tree in [jQuery documentation](https://api.jquery.com/category/traversing/tree-traversal/).
+
+# A Deeper Dive
+
+Let's take a closer look at how we can use the jQuery library!
+
+## Part One: Selectors
 
 ### Basic Selectors
 
-Out of the box, jQuery supports the selector syntax from CSS to find elements on the page.
+Out of the box, jQuery supports the selector syntax from CSS to find elements on the page just like `document.querySelector` and `document.querySelectorAll` from vanilla JS. So, you've already come pre-equipped with a bunch of knowledge for finding elements.
 
-That said, let's review some of the different ways we can find an element on page.
+That said, let's review some of the different ways we can find an element on page:
 
 * `$('p')`, selects all of a given element.
 * `$('#heading')`, selects the element with a given id.
@@ -283,6 +223,8 @@ Here are some examples:
 
 See the API documentation [here](http://api.jquery.com/category/selectors/attribute-selectors/).
 
+Let's take a look at [this simple form](https://turingschool-examples.github.io/jquery-playgrounds/form.html) and try out some selectors.
+
 ### The Special `:checked` Selector
 
 It's not uncommon that you might want to go look for all of the "checked" elements. This includes drop downs, checkboxes, and radio buttons.
@@ -290,103 +232,63 @@ It's not uncommon that you might want to go look for all of the "checked" elemen
 - `$('input:checked')` will return all of the checked checkboxes.
 - `$('input[type="radio"]:checked')` will return all of the checked radio buttons.
 
+### Quick Practice
+
+- Can you find all of the check boxes?
+- Can you find all of the radio buttons?
+- Can you find all of the checked elements?
+- What about all of the checked checkboxes?
+
+Use Chrome Developer Tools to select the form fields above. When properly selected you should see an array of selected elements. You should see sections of the page highlighted when you hover over the elements in the array.
+
 ### Laboratory
 
 [Here is an little experiment][exp] where you can play around and try out some different selectors.
 
-Play around with this on your own for a bit.
-
 [exp]: http://codylindley.com/jqueryselectors/
-
----
-
-![part 1][part-one]
-
-[part-one]: /assets/images/lessons/jquery/part-one.jpg
 
 ## Exercise, Part One: The Presidents
 
-For this exercise, we're going to play with [a table of the Presidents of the United States of America](https://github.com/turingschool-examples/jquery-playgrounds).
+For this exercise, we're going to play with [a table of the Presidents of the United States of America][presidents].
 
-You can either work from the repo or visit a [hosted version on github pages](https://turingschool-examples.github.io/jquery-playgrounds/presidents.html)
-
-```
-git clone https://github.com/turingschool-examples/jquery-playgrounds.git jquery_playgrounds
-
-cd jquery_playgrounds
-
-open presidents.html
-```
+[presidents]: https://turingschool-examples.github.io/jquery-playgrounds/presidents.html
 
 Let's try out a few things, just to get our hands dirty. We'll use the console in the Chrome developer tools to validate our work.
 
 * Select each `tr` element.
+* Select the first `tr` element only.
+* Select the third `tr` element only.
 * Select all of the elements with the class of `name`.
 * Select all of the elements with either the class of `name` or `term`.
-* Select all of the checked —umm— checkboxes. (You'll probably want to check some checkboxes first.)
+* Select all of the checked—umm—checkboxes. (You'll probably want to check some checkboxes first.)
 * Select all of the `td` elements with the class of `number` that appear in a row of a `tr` with the class of `whig`.
 
-(This should take about five minutes total.)
-
----
-
-![part 2][part-two]
-
-[part-two]: /assets/images/lessons/jquery/part-two.jpg
-
-## Lecture, Part Two: Manipulating CSS
+## Part Two: Manipulating CSS
 
 Once we have an element in our sites, we probably want to do something with it, right?
 
-In this case, let's add some CSS styling. Let's say we wanted to grab all of the Federalist presidents and turn their font color pink. We could do something like this:
-
-```js
-$('.federalist').css('color', 'pink');
-```
-
-One thing you might have noticed about CSS is that it really likes hyphens. So, to change a background color, you would use `background-color`. The thing about hyphens is that they are a no-no in JavaScript. So, we *should* to camel-case our property names in our CSS methods.
-
-```js
-$('.federalist').css('backgroundColor', 'pink');
-```
-
-You'll notice I said "should" instead of must. At the end of the day that's just a string. You can do it the other way, but it's against convention.
-
-```js
-$('.federalist').css('background-color', 'pink');
-```
-
-Right now, we're setting individual properties. We can also pass in a conditional object in order to change multiple CSS attributes all at once.
-
-```js
-$('.federalist').css({
-  backgroundColor: 'pink',
-  fontWeight: 'bold'
-});
-```
-
-If you ignored me earlier and insisted on using hyphens, you're going to have to wrap those property names in quotes now. Yuck.
-
-Writing CSS by hand is probably a bad idea. We're better off using classes to style our content.
-
-We can add and remove classes pretty easily in jQuery.
+In this case, let's add some CSS styling. We can add and remove classes pretty easily in jQuery.
 
 ```js
 $('.federalist').addClass('red');
 $('.federalist').removeClass('red');
 ```
 
-Keeping track of state is hard. jQuery is here to help.
+Keeping track of state is hard. jQuery is here to help. What if we were in a position where we want to add a class if an element had it, but remove it if it didn't? jQuery's `hasClass` method is certainly helpful in this case.
 
 ```js
 $('.federalist').hasClass('federalist'); // Returns true, obviously.
 ```
+
+But, it seems like this is a common pattern and there should be a better way to do this, right?
 
 The other option is to use `toggleClass`, which will either add or remove the class depending on whether or not the class currently exists.
 
 ```js
 $('.federalist').toggleClass('red');
 ```
+
+(Do this like 17 times for good measure.)
 
 ## Exercise, Part Two: Style the Presidents
 
@@ -395,13 +297,7 @@ $('.federalist').toggleClass('red');
 * Add the class of `yellow` to the term column of the table.
 * Take all the whig presidents and give them a purple background and white text.
 
----
-
-![part 3][part-three]
-
-[part-three]: /assets/images/lessons/jquery/part-three.png
-
-## Lecture, Part Three: Filtering and Traversal
+## Part Three: Filtering and Traversal
 
 Let's talk about a few [DOM traversal methods](http://api.jquery.com/category/traversing/tree-traversal/).
 
@@ -442,6 +338,7 @@ It's useful to think of `find()` as a more powerful alternative for `children()`
 
 Which one do you use? It depends, do you want to traverse all the way down the tree or just down one level.
 
+
 ## Exercise, Part Three: One-Term Presidents
 
 * Add the `green` class to anyone who served right after a president who died.
@@ -449,24 +346,22 @@ Which one do you use? It depends, do you want to traverse all the way down the t
 * Add the class of `blue` to the parent of a checked checkbox.
 * Add the class of `yellow` to the siblings of the parent (`td`, in this case) of an unchecked checkbox.
 
----
+## Part Four: Adding to the DOM
 
-![part 4][part-four]
-
-[part-four]: /assets/images/lessons/jquery/part-four.jpg
-
-## Lecture, Part Four: Adding to the DOM
-
-Let's take a look at some approaches of adding/changing content in the DOM.
+Let's take a look at some approaches of changing content in the DOM.
 
 ### `text()`
 
-jQuery's `text()` is like using the vanilla JavaScript `innerText` or `textContent`. Basically, it grabs the inner text of the element that you have selected or overwrite said content.
+`text()` is like using `innerText` or `textContent`. There is an important difference. The vanilla DOM manipulation tools allow you to assign the new value to `innerText`. The jQuery methods on the other hand work on everything as if it were a method.
 
-For example:
+Let's compare and contrast.
 
 ```js
-  $('.some-element').text('New text.');
+var vanilla = document.querySelector('.some-element');
+var jq = $('.some-element');
+
+vanilla.textContent = 'New text.';
+jq.text('New text.');
 ```
 
 ### `html()`
@@ -481,102 +376,12 @@ For example:
 
 `html()` replaces the entire contents of an element. `prepend()` adds new content onto the beginning of it.
 
+In order to take both `append()` and `prepend()` for a spin, let's try the following code in the exercise below.
+
+<p data-height="300" data-theme-id="23788" data-slug-hash="pbWXgg" data-default-tab="js,result" data-user="turing" data-embed-version="2" data-editable="true" class="codepen">See the Pen <a href="http://codepen.io/team/turing/pen/pbWXgg/">Append/Prepend</a> by Turing School of Software and Design (<a href="http://codepen.io/turing">@turing</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+
 ## Exercise, Part Four: Dead Presidents
 
 * Find all of the presidents who died in office (hint: they have a `died` class on their `tr`).
-* Append `<span class="died">(Died)<span>` to the the `term` column of presidents who have `.died`.
-
----
-
-![part 5][part-five]
-
-[part-five]: /assets/images/lessons/jquery/part-five.jpg
-
-## Lecture, Part Five: Simple Event Binding
-
-### Event Driven Programming
-
-Event driven programming relies on some external action to determine how the program behaves. Some external actor (a user or another computer) takes an action, and your program responds.
-
-### Event binding using jQuery
-
-Let's start by looking at the [jQuery Events API](http://api.jquery.com/category/events/).
-
-The Events API tends to mimic the native DOM events, but with some abstraction to standardize across all of the browsers in use today.
-
-Our main focus today is going to be on the `.on()` method. As of jQuery 1.7 and later, this is the preferred method for binding events. You may see `.bind()` as well, but this support older code.
-
-#### Knowing Which Element We Clicked
-
-jQuery makes it do stuff to many elements ate the same time, but if we add event listeners to a bunch of boxes at the same time, then how we know which one the user clicked? Consider a situation where we have three boxes. When that particular box is clicked, we want to toggle a class. How do we know which box was clicked?
-
-It turns out that when we add an event listener using jQuery, we get a special little variable called `this`. Lucky for us, `this` is set to the box we clicked on.
-
-<aside>
-  As you hopefully know, it's possible to select elements without jQuery. When we use jQuery our elements get a whole bunch of extra super powers. But, jQuery doesn't <em>know</em> that you want these when you're listening for an event. <code>this</code> is just the regular element. Use <code>$(this)</code> if you want to add those super powers back. At this very moment, it's probably unclear what those super powers are. So, let's just always use <code>$(this)</code> for now.
-</aside>
-
-Let's take a look at the example below:
-
-<p data-height="300" data-theme-id="23788" data-slug-hash="EyKxpp" data-default-tab="js,result" data-user="turing" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/team/turing/pen/EyKxpp/">$(this)</a> by Turing School of Software and Design (<a href="http://codepen.io/turing">@turing</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-
-## Exercise, Part Five
-
-As pairs, try to work through the following prompts. We'll do the first one together.
-
-* Add an event handler to all of the checkboxes that when the box is checked, adds the `yellow` class to the parent `tr`.
-* Add an event handler that adds the `red` class to a `td` element when it's clicked on.
-* Modify the event handler above to remove the `red` class when it is clicked a second time.
-* **Bonus**: Add a new `div` to the page, every time a checkbox is checked, add that presidents name to the `div`.
-* **Bonus 2**: Remove that presidents name when the box is unchecked.
-
----
-
-![form][form]
-
-[form]: /assets/images/lessons/jquery/form.png
-
-## Form Challenge
-
-Let's clone down [this simple form](https://github.com/turingschool-examples/jquery-form-challenge).
-
-```bash
-git clone git@github.com:turingschool-examples/jquery-form-challenge.git
-cd jquery-form-challenge
-open index.html
-```
-
-Right now, it doesn't work and needs to be wired up.
-
-1.  First, how could we select all `input`s?
-2.  How could we use jQuery to fill in the value for the `.link-title`?
-3.  How could we use jQuery to fill in the value for the `.link-url`?
-4.  How could we click the submit button from our console?
-
-Let's hop out of the console and actually edit the JS now.
-
-5.  Capture the `click` event for the submit button
-6.  On submit, let's get the value of the inputs
-7.  Now let's append those values under `My Links`
-
----
-
-![rails][rails]
-
-[rails]: /assets/images/lessons/jquery/rails.png
-
-## Lecture: Now in Rails
-
-Curious about how this all works with Rails?
-
-Check out [the presidents example in Rails](https://github.com/turingschool-examples/presidents-jquery-rails)
-
-Additional things to think about:
-
-* You already submit forms in rails, how exactly does that work?
-* What is server-side rendering vs client-side rendering?
-* What is `$( document ).ready()` [docs](https://learn.jquery.com/using-jquery-core/document-ready/)
-
-![presidents of the usa][presidents]
-
-[presidents]: /assets/images/lessons/jquery/presidents.jpg
+* Append `<span class="died">(Died)<span>` to the the `term` column.
+* **Bonus**: Add a radio button before the number in each row.

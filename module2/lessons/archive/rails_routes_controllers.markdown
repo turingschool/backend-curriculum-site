@@ -25,14 +25,16 @@ Read this [article](http://www.theodinproject.com/ruby-on-rails/routing).
 ### Intro to **REST**
 
 * Representational State Transfer is a web architecture style
-
 * Coined by Roy Fielding in doctoral dissertation (2000)
+* Things vs. Actions
+* Stateless
+* Layerable
+* All about resources
+* Purpose: Aims to give a URI (uniform resource identifier) to everything that can be manipulated and let the software determine what to do from there
 
-### What's the purpose of **REST**?
+Want to know more about REST? Check out [this video](https://www.youtube.com/watch?v=2zz_XvKTVxI). 
 
-Aims to give a URI (uniform resource identifier) to everything that can be manipulated and let the software determine what to do from there
-
-### What is **REST** in English?
+### REST, simplified. 
 
 A pattern for creating combinations of HTTP verbs and URIs to access resources
 
@@ -59,10 +61,13 @@ Remember two weeks ago when we looked at the seven routes we were going to be cr
 
 ```
 get '/tasks'
-# showed all tasks
+# shows all tasks
 
 get '/tasks/new'
 # shows form to create new task
+
+get '/tasks/:id'
+# shows a specific task
 
 post '/tasks'
 # creates a new task
@@ -70,7 +75,7 @@ post '/tasks'
 
 ### Rails & **REST**
 
-In Rails, our HTTP verb and path (`get '/tasks'`) corresponds with a specific controller and action that we will define in a `routes.rb` file.
+In Rails, our HTTP verb and path (`get '/tasks'`) correspond with a specific controller and action that we will define in a `routes.rb` file.
 
 Let's review real quick - what's the purpose or action associated with these HTTP verbs?
 
@@ -78,7 +83,6 @@ Let's review real quick - what's the purpose or action associated with these HTT
 * POST
 * PUT/PATCH
 * DELETE
-
 
 ### Routes + Controllers in Rails
 
@@ -115,9 +119,9 @@ Prefix Verb URI Pattern      Controller#Action
 
 This output gives us a great deal of information. It tells us that whenever a `GET` request to the endpoint `/tasks` is received, have the `tasks`_controller handle it by executing the `index` action (method). 
 
-_Note_: The `(.:format)` on the end of the URI pattern refers to handling routes like `http://example.com/tasks.csv` or `http://example.com/tasks.pdf`, etc.
+_Note_: The `(.:format)` on the end of the URI pattern refers to handling routes like `http://example.com/tasks.csv` or `http://example.com/tasks.pdf` or `http://example.com/tasks.json`, etc.
 
-**Based on our rake routes - what controller to we need? do we have it?**
+**Based on our rake routes - what controller to we need? do we have it?** Let's start up our server and see what happens when we try to go to '/tasks'. 
 
 Let's make a tasks controller. Be careful - naming is important. The name of the file should be the plural of what it is handling (in this case, tasks). We need to create the following file: `app/controllers/tasks_controller.rb`.
 
@@ -145,11 +149,11 @@ If we start up our rails server by running `rails server` or `rails s` from the 
 
 1) Can you create a route (following RESTful conventions) that would bring the user to a form where they can enter a new task?
 
-2) Can you create a route (following RESTful conventions) that would allow a user to see one task? Just like in Sinatra, the route will need a changeable /:id.
+2) Can you create a route (following RESTful conventions) that would allow a user to see one task? Just like in Sinatra, the route will need a dynamic /:id.
 
-3) Can you create a route (following RESTful conventions) that would allow a user to get to the edit page for a task? Again, the route will need a changeable /:id.
+3) Can you create a route (following RESTful conventions) that would allow a user to get to the edit page for a task? Again, the route will need a dynamic /:id.
 
-4) For the previous two routes (show and edit), can you get the params[:id] to display in the text that you render?
+4) For the previous two routes (show and edit), can you get the id param to display in the text that you render? You *do not* need to create a form; just get a message like "You are editing task 2" to show up. 
 
 ### Accessing params
 
@@ -207,19 +211,19 @@ What actions (methods) would we need in our `tasks_controller` in order to handl
 
 Which actions would render a form and which actions would redirect? (Think of `TaskManager` in Sinatra)
 
-
 ### Adding a root
 
 What happens when we hit our root of our application - or `localhost:3000` or `www.cutecats.com`? 
 
 We can use the `root` helper to define how our application will handle that `GET` request to `/`.
 
-
 ```
 Rails.application.routes.draw do
   root 'tasks#index'
 end
 ```
+
+You can also create a separate controller, like `home_controller.rb` to handle the root. 
 
 ### Homework
 

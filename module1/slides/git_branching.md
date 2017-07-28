@@ -4,21 +4,25 @@
 
 # Warmup
 
-* On your last partner project, how did you handle working together on a single project?
 * What have you heard so far about branching in Git?
 * Git is  a Decentralized Version Control System (DCVS). What does decentralized mean in this context?
-* What do you remember about submitting a pull request for your `Scrabble` challenge last week?
+* What questions do you still have about Git/GitHub
 
 ---
 
 # Overview
 
-* Checking out a branch (`git checkout -b branch_name`)
+* Creating a branch
+* Checking out a branch
+* Pushing a branch
 * Submitting a pull request
-* Reviewing a pull request
-* Merging a pull request
-* Pulling from master/merging from master
-* Resolving merge conflicts
+* Checking out master
+* Getting the latest version of master
+* Adding code from master to a branch
+
+---
+
+![](https://www.youtube.com/watch?v=_ALeswWzpBo)
 
 ---
 
@@ -31,11 +35,26 @@
 
 ---
 
+# New Git Commands
+
+```
+$ git branch new_branch_name
+$ git checkout new_branch_name (<= branch name should match)
+$ git push origin branch_name
+$ git merge master (<= merges master into current branch)
+```
+
+---
+
 # Checking out a New Branch
 
-`$ git checkout -b branch_name`
+```
+$ git branch new_feature
+$ git checkout new_feature
+```
 
 Do work.
+Make commits.
 
 ---
 
@@ -47,21 +66,16 @@ Do work.
 
 ---
 
-# Submitting a pull request
+# Submitting a Pull Request
 
 ```
-$ git checkout master
-$ git pull origin master
-$ git checkout branch_name
-$ git merge master
 $ git push origin branch_name
+$ hub browse
 ```
-
-*More later. Might result in merge conflict.*
 
 ---
 
-# Submitting a pull request (continued)
+# Submitting a Pull Request (continued)
 
 On GitHub:
 
@@ -71,6 +85,27 @@ On GitHub:
 * Message
 * `Create pull request`
 
+*Might result in merge conflict.*
+
+---
+
+# If There is a Merge Conflict
+
+```
+$ git checkout master
+$ git pull origin master
+$ git checkout branch_name
+$ git merge master
+```
+
+Resolve merge conflict.
+
+```
+$ git push origin branch_name
+```
+
+Pull request will be updated with your fix.
+
 ---
 
 # Reviewing a Pull Request
@@ -79,9 +114,7 @@ On GitHub:
 * Make comments
 * Request changes
 
-Notes:
-1) Teammate can make changes and push to the same branch
-2) You can pull down a branch to review by following [these](https://help.github.com/articles/checking-out-pull-requests-locally/) directions
+Note: You can pull down a branch to review by following [these](https://help.github.com/articles/checking-out-pull-requests-locally/) directions
 
 ---
 
@@ -97,7 +130,7 @@ Notes:
 
 # Pulling from Master
 
-* Want to make sure you have most up to date master
+* Want to make sure you have most up to date master?
 
 `$ git checkout master`
 `$ git pull origin master`
@@ -106,8 +139,7 @@ Notes:
 
 # Merging from Master (Locally)
 
-* If you are working on a branch
-* And master is now ahead of your branch
+* If you are working on a branch and you want code in your branch that your teammate has pushed:
 
 `$ git status` - Make sure you have everything committed
 `$ git checkout master`
@@ -115,7 +147,7 @@ Notes:
 `$ git checkout branch_with_my_feature`
 `$ git merge master`
 
-**Might result in merge conflicts**
+*Might result in merge conflicts*
 
 ---
 
@@ -124,26 +156,16 @@ Notes:
 * `$ git status` will list the files that have conflicts
 * Open each one
 * Decide what to keep
-    * Generally want to keep the code that was on master
-    * Not always
 * Remove tags indicating merge conflict
 
 ---
 
 # Summary
 
-```
-$ git checkout -b branch_name
-$ git push origin branch_name
-```
-
-* Create a PR on GitHub
-* Teammate Reviews PR on GitHub
-
-```
-$ git checkout master
-$ git pull origin master
-$ git checkout other_branch
-$ git merge master
-```
-
+* How do you create a new branch in Git?
+* How do you check out a new branch?
+* How do you push that branch to GitHub?
+* At a high level, how do you submit a pull request?
+* How do you check out master?
+* How do you get the latest version of master?
+* What do you do if you want to add code from master to your branch?

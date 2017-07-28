@@ -6,7 +6,12 @@ tags: enumerables,max, min, max_by, min_by, sort_by
 ---
 
 ## Goals
+
 * Understand how to use `max`, `max_by,` their opposites, and `sort_by` appropriately.
+
+## Slides
+
+Available [here](../slides/intermediate_enumerables)
 
 ### Hook
 

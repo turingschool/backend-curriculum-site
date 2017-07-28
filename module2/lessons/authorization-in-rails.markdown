@@ -1,7 +1,6 @@
 ---
 layout: page
 title: Authorization in Rails
-subheading: Web Applications with Ruby
 ---
 
 ### Learning Goals
@@ -9,15 +8,30 @@ subheading: Web Applications with Ruby
 * Authorize users based on roles
 * Write a feature tests that use a stubbing library
 * Implement namespacing for routes
-* Use a before action to protect admin controllers
+* Use a `before_action` to protect admin controllers
 
 ### Setup
 
-Use the `1610-b_authentication_live` branch of the [authentication-authorization repo](https://github.com/s-espinosa/auth_practice).
+Checkout or clone the `implement_specs` branch of the [authentication-authorization repo](https://github.com/turingschool-examples/authentication-authorization-example).
+
+```bash
+# EITHER checkout from existing repository:
+git checkout implement_specs
+# OR clone down new repository:
+git clone -b implement_specs git@github.com:turingschool-examples/authentication-authorization-example.git
+```
 
 ### Warm Up
 
-Fork the following [gist](https://gist.github.com/case-eee/9ca3c160b12297caff7e7b5c4126a340) and answer the questions. It's more than likely that you'll need to research on your own to answer these questions.
+Create a gist to answer the following questions. It's more than likely that you'll need to research answers to many of these. Let's put an asterisk next to those you need to research.
+
+*   What's the difference between Authentication and Authorization?
+*   Why are both necessary for securing our applications?
+*   What's a `before_action` filter in Rails?
+*   How can we scope a filter down to only work with specific actions?
+*   What's an `enum` attribute in ActiveRecord? Why would we ever want to use this?
+*   When thinking about Authorization, why might we want to namespace a resource?
+*   What does `allow_any_instance_of` in RSpec do?
 
 ### Recap
 
@@ -25,11 +39,11 @@ We'll answer all the questions from the gist as a class. Discuss how we might us
 
 ### Adding Authentication to our Application
 
-Let's first add a validation on the User model to ensure that `email` is present and unique. We wouldn't want two users to have the same email if that's what we are using to uniquely identify users when they login.
+Let's first add a validation on the User model to ensure that `username` is present and unique. We wouldn't want two users to have the same username if that's what we are using to uniquely identify users when they login.
 
 ```ruby
-validates :email, presence: true,
-                  uniqueness: true
+validates :username, presence: true,
+                    uniqueness: true
 ```
 
 Next, let's next create a test for the admin functionality we want to create. Our client has asked for categories in this application, and only an admin should be able to access the categories index.
@@ -48,7 +62,7 @@ require "rails_helper"
 describe "User visits categories index page" do
   context "as admin" do
     it "allows admin to see all categories" do
-	   admin = User.create(email: "penelope@penelope.com",
+	   admin = User.create(username: "penelope",
                         password: "boom",
                         role: 1)
 
@@ -77,7 +91,7 @@ require 'rails_helper'
 
 describe User do
   it "can be created as an admin" do
-    user = User.create(email: "penelope@penelope.com",
+    user = User.create(username: "penelope",
                        password: "boom",
                        role: 1)
 
@@ -86,7 +100,7 @@ describe User do
   end
 
   it "can be created as a default user" do
-    user = User.create(email: "sammy@test.com",
+    user = User.create(username: "sammy",
                        password: "pass",
                        role: 0)
 
@@ -121,7 +135,7 @@ We're halfway there! We've added a role, but we'll still get a fairly useless er
 ```ruby
 class User < ActiveRecord::Base
   has_secure_password
-  validates :email, presence: true,
+  validates :username, presence: true,
                     uniqueness: true
 
   enum role: %w(default admin)
@@ -181,7 +195,7 @@ And run our test suite to see what error we're getting now:
 
 ```ruby
 LoadError:
- Unable to autoload constant Admin::CategoriesController, expected /Users/caseyanncumbow/Desktop/Turing/1610/auth_practice/app/controllers/admin/categories_controller.rb to define it
+ Unable to autoload constant Admin::CategoriesController, expected /app/controllers/admin/categories_controller.rb to define it
 ```
 
 Errors like this are great. They reiterate to me that I've created the file that I wanted to, Rails is looking in that file, and it's just not finding what it expects. Let's populate that file now and help it out.
@@ -234,7 +248,7 @@ In our `admin_categories_spec.rb` file let's add the following:
 ```ruby
 context "as default user" do
   it 'does not allow default user to see admin categories index' do
-    user = User.create(email: "fern@gully.com",
+    user = User.create(username: "fern@gully.com",
                        password: "password",
                        role: 0)
 
@@ -306,4 +320,4 @@ end
 
 ### Work Time
 
-Add admin functionality to your RailsMini application and be sure to authorize an admin correctly.
+Add admin functionality to your Rails Mini-Project and be sure to authorize an admin correctly.

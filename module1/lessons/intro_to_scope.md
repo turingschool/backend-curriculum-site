@@ -11,6 +11,10 @@ tags: methods, scopes, arguments, ruby
 * Identify benefits of scope
 * Predict how variables will behave when multiple scopes are involved
 
+## Slides
+
+Available [here](../slides/intro_to_scope)
+
 ## Warmup
 
 What will the following code snippet output?
