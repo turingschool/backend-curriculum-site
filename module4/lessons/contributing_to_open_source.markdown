@@ -9,7 +9,7 @@ title: Contributing to Open Source
 
 You've published a lot of code but it's time to become real contributors. You will work solo to contribute to a single public open-source project by doing **all** of the following:
 
-1. Reproduce and confirm or contradict one bug report
+1. Produce, reproduce and confirm, or contradict one bug report
 2. Submit one sizable or two smaller code-centric pull requests (bug fix, test coverage, feature)
 3. Submit one documentation patch (README, CONTRIBUTING, code documentation, etc)
 4. Write a single blog post that explains the whole process and your takeaways.
