@@ -59,12 +59,14 @@ Compare implementations
 Get together with your current project pair. Analyze your project. Are there any places where you could implement private methods?  
 
 
-### Final Note  
-Often times you will see a pattern emerging where the private methods clump together and achieve similar type goals. When we see this happening in our code, it should make us consider (at least) extracting them to another object. 
+### Final Notes 
+* While making methods private restricts access to them, it is important to note that there are tools for getting around the private setting such as using .send(). Just know that something from the outside may still access this functionality - so be careful. Also note, that if you are using someone else's code and there are private methods it is your job to respect the intention of those methods not being used from the outside. 
+  
+* Often times you will see a pattern emerging where the private methods clump together and achieve similar type goals. When we see this happening in our code, it should make us consider (at least) extracting them to another object. 
 
 ## WrapUp
 
-Here are some questions to check your understanding of arrays:
+Here are some questions to check your understanding of encapsulation:
 
 * What is ecapsulation? Why do we use it?  
 * When should you use `attr_readers`, `attr_accessors`, `attr_writers`, and `private` methods?   
