@@ -3,6 +3,30 @@ layout: page
 title: HTML and CSS Best Practices
 ---
 
+## CSS Selector Refresh
+
+```css
+#id-name {
+  /*targets elements with id="id-name"*/
+}
+
+.class-name {
+  /*targets elements with class="class-name"*/
+}
+
+.class-name.second-class {
+  /*targets elements with class="class-name second-class"*/
+}
+
+.class-name p {
+  /*targets all paragraph child elements of class="class-name"*/
+}
+
+.class-name > p {
+  /*targets only paragraph elements that are direct children of class="class-name"*/
+}
+```
+
 ## Key to success: Modularity
 
 HTML and CSS deserve to be as DRY as your Ruby is. This is difficult to achieve in raw HTML and CSS.
@@ -60,19 +84,27 @@ By remaining intentional and consistent with my tag usage, I'm setting myself up
     <main>
       <section class="about">
         <h2>About Us</h2>
+        <a href="#" class="button link-to">Check this out!</a>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
       </section>
 
       <section class="history">
         <h2>Our History</h2>
         <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <a href="#" class="button link-to">Check this out!</a>
       </section>
 
       <section class="services">
         <h2>Our Services</h2>
         <ul>
-          <li>Service One</li>
-          <li>Service Two</li>
+          <li>
+            Service One
+            <a href="#" class="button favorite">Add Favorite</a>
+          </li>
+          <li>
+            Service Two
+            <a href="#" class="button favorite">Add Favorite</a>
+          </li>
         </ul>
       </section>
 
@@ -86,7 +118,7 @@ By remaining intentional and consistent with my tag usage, I'm setting myself up
     </main>
 
     <footer>
-      <a class="contact" href="mailto:example.com">Get in Contact!</a>
+      <a class="button contact" href="mailto:example.com">Get in Contact!</a>
     </footer>
 </body>
 ```
