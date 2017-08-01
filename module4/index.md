@@ -65,7 +65,7 @@ Weeks 4&5 will be spent working on your capstone projects.
 *   [Testing JS with Selenium](./lessons/intro_to_testing_with_selenium)
 *   [Rails Challenge](https://gist.github.com/case-eee/e6662baaee43e317109c64d089d2cad5)
 *   No CFU's this week. Be sure you complete the Rails Challenge.
-*   Capstone Project Soft Launch
+*   [Capstone Project Soft Launch](http://backend.turing.io/module4/capstone_project_overview)
 
 <h4 id="week_4">Week 4</h4>
 *   Final Assessment Part 1
