@@ -4,7 +4,7 @@ title: Quantified Self
 subheading: A calorie tracker project for the fourth module
 ---
 
-## Intro
+## Introduction
 
 Pearson's Law:
 
@@ -33,23 +33,13 @@ You are going to build a simple calorie tracker.
 * Students implement feedback from a code review to improve quality
 * Students use an agile process to turn acceptance requirements into deployed software
 
-## Challenges
-
-- Create a full-stack JS application across two codebases
-- Be able to organize your JS across different files
-- Make AJAX calls to connect your front-end with your back-end
-- Handle events
-- Handle events fired on DOM elements that didn't exist at load
-- Manage state via jQuery
-- Handle multiple DOM and data changes on single event
-- Write unit and integration tests in Javascript
-- Start to understand how full-stack JS applications work in practice, without a whole lot of explicit explanation
-
-### Requirements overview
+### Requirements Overview
 
 Your requirements for the application are detailed in the cards you're going to import to Pivotal Tracker (you can also find them [here](./quantified-self-tracker-stories.csv)), but here's an visual of what you're doing:
 
 #### Layouts
+
+You'll be building two main layouts for this project. A "foods" index page and a "diary" index page (as seen below).
 
 ### **Manage Foods**
 
@@ -65,50 +55,61 @@ Your requirements for the application are detailed in the cards you're going to 
 - Add a food to a meal
 - Compare calories to goals (meal and total)
 - View calorie calculations in diary
-- All of that without refreshing the page
+- The page must not refresh while users are interacting with it
 - Data persists across refreshes
 - EXTENSION: Build an admin panel to manage data
 - EXTENSION: Add offline functionality
 
 #### Broad Back End features
 
-- Build a service in Node that will store all of the Quantified Self data
-- The service will serve and consume JSON
-- Use SQL for all database communication
-- Document a plan in the form of a schema, API docs and user stories.
+First, we'll have our Front End talking with a pre-built Rails API found [here](). During week 3 of this project, we'll introduce Node, Express, and Knex and you'll build a new backend using only JavaScript! In a sense, you'll be replicating the exisiting Rails API in Node (super cool).
 
 ### Getting your project started
 
-- You're going to create two separate code bases to complete this project. You'll have a code base for your front end and a separate code base for your back end. You may run into some errors when trying to communicate between the two code bases (most likely CORS problems), but we'll address this in class.
-- We're going to start with building the back end. For this code base, you'll be starting a new repository from scratch.
-- Accept your email invitation from Pivotal Tracker and use this as your Project Management tool.
-- Import [this CSV](./quantified-self-tracker-stories.csv) to your project to get all the cards in there. Import is found under settings.
-- When you start to work on the front end, you'll want to follow the instructions on the [Quantified Self Starter Kit](https://github.com/turingschool-examples/quantified-self-starter-kit) to get your codebase going.
+- You'll have two separate code bases to complete this project. You'll have a code base for your front end and a separate code base for your back end. You may run into some errors when trying to communicate between the two code bases (most likely CORS problems), but we'll address this in class when we discuss AJAX.
+- We'll be starting with the front end so you'll want to follow the instructions on the [Quantified Self Starter Kit](https://github.com/turingschool-examples/quantified-self-starter-kit) to get your codebase going.
+- As mentioned previously, you'll be starting with the backend Rails API [here]().
+- When you start to re-build the backend with Node, you'll start that repository from scratch.
+- You'll need to accept your email invitation from Pivotal Tracker and use this as your Project Management tool.
+- Import [this CSV](./quantified-self-tracker-stories.csv) to your project to get all the cards in there. Import is found under settings. Note - these user stories are for the functionality dealing with the front end only. When you get to the backend, you'll need to write your own stories.
+- Add your assigned Technical Lead to your Pivotal Tracker and your repository.
 
 ### Expectations
 
-- Use whatever you've used in the past for schema, documentation and user stories. Or something new you've been wanting to try out. These things are graded on completion. Probably want to agree on format in your DTR.
+- Use whatever you've used in the past for schema, documentation and user stories. Or something new you've been wanting to try out. These things are graded on completion. Probably want to agree on a format in your DTR.
 - Allowed libraries are jQuery, lodash/underscore, and moment.
-- Logic like sorting, filtering, local storage and validation should be done without using another library (except those listed in the previous point). These are great opportunities to abstract logic for unit tests.
+- Logic like sorting, filtering, and validation should be done without using another library (except those listed in the previous point). These are great opportunities to abstract logic for unit tests.
 - All elements from the mockup should be represented in your app, even if the styling or layout is different.  Unless it is mentioned specifically in the user stories, colors and other styling are up to you. You'll be just fine if it looks exactly like the mockup though.
-- Details, Details, Details!!! If it's in the user stories, we're looking for it in your app. And ask before you add any additional functionality. The job is to build what is asked for, and get any improvements approved first.
-- This is a 2 week project without any scheduled instructor check ins. We expect that you'll be tagging instructors in PRs on github wherever you'd like feedback. We also expect that if you feel like your team is falling behind, that you'll reach out for extra support.
+- Details, Details, Details!!! If it's in the user stories, we're looking for it in your app. Please ask before you add any additional functionality. The job is to build what is asked for, and get any improvements approved first.
+- This is a 2 week project without any scheduled instructor check ins. We expect that you'll be tagging instructors in PRs on Github wherever you'd like feedback. We also expect that if you feel like your team is falling behind, that you'll reach out for extra support.
 
 ### Tips for success
 
-- Try to uses HTML/CSS classes when changing styling, instead of changing the styling of an element directly.
-- Experiment with ES6, but try to be consistent in each file whether you're using ES6 or ES5. Probably the most useful thing in ES6 is string interpolation and multi-line strings, neither of which are supported in ES5
+- Try to use HTML/CSS classes when changing styling, instead of changing the styling of an element directly.
+- Experiment with ES6, but try to be consistent in each file whether you're using ES6 or ES5. Probably the most useful thing in ES6 is string interpolation and multi-line strings, neither of which are supported in ES5.
 - There is similar functionality across elements in the app. Make your code DRY, but don't over do it. Sometimes the functionality differs slightly.
 - Plan, diagram and break down the problem, but don't try to get it right the first time. Don't write too much code without refactoring. Maybe stop and refactor every so many minutes, or so many cards.
 - A lot of this is new, and you'll probably have to be pairing more often, or at least be available to each other remotely.
-- Materialize is just a headache, but I can't stop you from using it.
-- Research `content-editable`. It will save you a lot of time for the editing foods functionality
-- There's a lot in this document. Refer back frequently
+- Materialize is just a headache, but we can't stop you from using it. Use whatever tool you'd like for styling.
+- Research `content-editable`. It will save you a lot of time for the editing foods functionality.
+- There's a lot in this document. Refer back frequently.
 - If there's any question about functionality, ask. There's a [#qs-questions](slack://channel?team=T029P2S9M&id=C3VFECP60) channel specifically for this.
+
+## Challenges
+
+- Create a full-stack JS application across two codebases
+- Be able to organize your JS across different files
+- Make AJAX calls to connect your front-end with your back-end
+- Handle events
+- Handle events fired on DOM elements that didn't exist at load
+- Manage state via jQuery
+- Handle multiple DOM and data changes on single event
+- Write unit and integration tests in Javascript
+- Start to understand how full-stack JS applications work in practice, without a whole lot of explicit explanation
 
 ## Rubric
 
-You will be subjectively graded by an instructor on the following criteria:
+You will be subjectively (Friday of Week Three via Github) graded by an instructor on the following criteria:
 
 ### Specification Adherence
 
@@ -159,7 +160,7 @@ You will be subjectively graded by an instructor on the following criteria:
 - 2: Team is using a project management tool but didn't update the progress frequently. Many cards have no changes made to them
 - 1: Team failed to use a project management tool to track its progress.
 
-### Risk Taking
+### Extensions: Risk Taking
 
 Adhering to any of these additional specifications will allow you to increase one score above:
 
