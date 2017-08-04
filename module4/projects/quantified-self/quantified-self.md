@@ -62,13 +62,13 @@ You'll be building two main layouts for this project. A "foods" index page and a
 
 #### Broad Back End features
 
-First, we'll have our Front End talking with a pre-built Rails API found [here](). During week 3 of this project, we'll introduce Node, Express, and Knex and you'll build a new backend using only JavaScript! In a sense, you'll be replicating the exisiting Rails API in Node (super cool).
+First, we'll have our Front End talking with a pre-built Rails API found [here](https://github.com/case-eee/quantified-self-api). During week 3 of this project, we'll introduce Node, Express, and Knex and you'll build a new backend using only JavaScript! In a sense, you'll be replicating the exisiting Rails API in Node (super cool).
 
 ### Getting your project started
 
 - You'll have two separate code bases to complete this project. You'll have a code base for your front end and a separate code base for your back end. You may run into some errors when trying to communicate between the two code bases (most likely CORS problems), but we'll address this in class when we discuss AJAX.
 - We'll be starting with the front end so you'll want to follow the instructions on the [Quantified Self Starter Kit](https://github.com/turingschool-examples/quantified-self-starter-kit) to get your codebase going.
-- As mentioned previously, you'll be starting with the backend Rails API [here]().
+- As mentioned previously, you'll be starting with the backend Rails API [here](https://github.com/case-eee/quantified-self-api). Fork this repository, push it to production, and use this as your source of data.
 - When you start to re-build the backend with Node, you'll start that repository from scratch.
 - You'll need to accept your email invitation from Pivotal Tracker and use this as your Project Management tool.
 - Import [this CSV](./quantified-self-tracker-stories.csv) to your project to get all the cards in there. Import is found under settings. Note - these user stories are for the functionality dealing with the front end only. When you get to the backend, you'll need to write your own stories.
@@ -80,7 +80,7 @@ First, we'll have our Front End talking with a pre-built Rails API found [here](
 - Allowed libraries are jQuery, lodash/underscore, and moment.
 - Logic like sorting, filtering, and validation should be done without using another library (except those listed in the previous point). These are great opportunities to abstract logic for unit tests.
 - All elements from the mockup should be represented in your app, even if the styling or layout is different.  Unless it is mentioned specifically in the user stories, colors and other styling are up to you. You'll be just fine if it looks exactly like the mockup though.
-- Details, Details, Details!!! If it's in the user stories, we're looking for it in your app. Please ask before you add any additional functionality. The job is to build what is asked for, and get any improvements approved first.
+- **Details, Details, Details!!!** If it's in the user stories, we're looking for it in your app. Please ask before you add any additional functionality. The job is to build what is asked for, and get any improvements approved first.
 - This is a 2 week project without any scheduled instructor check ins. We expect that you'll be tagging instructors in PRs on Github wherever you'd like feedback. We also expect that if you feel like your team is falling behind, that you'll reach out for extra support.
 
 ### Tips for success
