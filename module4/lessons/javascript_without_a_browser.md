@@ -60,6 +60,7 @@ Your output should look a little like this:
 
 ```terminal
 $ node hello_world.js
+I'm being executed in the terminal!!!
 hello world
 ```
 
