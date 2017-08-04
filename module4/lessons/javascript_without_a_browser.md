@@ -61,7 +61,7 @@ Your output should look a little like this:
 ```terminal
 $ node hello_world.js
 I'm being executed in the terminal!!!
-hello world
+Hello World!!
 ```
 
 Pretty simple, right? Remember V8? V8 is leveraged by node and is what allows us to execute JavaScript outside of the browser and in the terminal.
