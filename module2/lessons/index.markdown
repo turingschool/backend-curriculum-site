@@ -58,7 +58,7 @@ title: Module 2 Scope and Sequence
 
 ### Week 4
 
-* [Sessions, Cookies, and Flashes](sessions_cookies_flashes)
+* [Sessions, Cookies, and Flashes](sessions_cookies_and_flashes)
 * [Authentication](authentication)
 * [Authorization](authorization-in-rails)
 
