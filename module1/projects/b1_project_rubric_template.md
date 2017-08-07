@@ -63,6 +63,6 @@ The output from `rake sanitation:all` shows...
 ### 9. Collaboration
 <!-- (only relevant for pairing) -->
 * 4: Student discusses pros and cons of different approaches and solicits input
-* 3: Student lays out their thinking before attacking a problem and integrates feedback through the process
+* 3: Student lays out their thinking while working through a problem and integrates feedback throughout the process
 * 2: Student asks detailed questions when progress slows or stops
 * 1: Student is able to integrate unsolicited feedback but does not really collaborate
