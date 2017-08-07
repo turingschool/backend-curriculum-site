@@ -1,3 +1,7 @@
+---
+layout: page
+---
+
 # ActiveRecord and Database Design
 
 ### 1) into-to-ar: Continued Practice (~1-2 hours)
