@@ -40,6 +40,7 @@ Weeks 4&5 will be spent working on your capstone projects.
 *   [Webpack and NPM](./lessons/webpack-demystified)
 *   [Persisting and retrieving data with AJAX](./lessons/translation-station)
 *   [Debugging the Client Side](http://frontend.turing.io/lessons/debugging-with-devtools.html)
+*   [ES5 vs ES6](./lessons/es5_vs_es6)
 *   [Week One CFU](https://github.com/turingschool/checks-for-understanding/blob/master/module-4/backend/week_one.md)
 
 
@@ -78,7 +79,6 @@ Weeks 4&5 will be spent working on your capstone projects.
 
 
 <!-- *   [Introduction to Professional Workflow](./lessons/intro_to_professional_workflow)
-*   [ES5 vs ES6](./lessons/es5_vs_es6)
 *   [Testing JS with Selenium](./lessons/intro_to_testing_with_selenium)
 *   [Rails Challenge](https://gist.github.com/case-eee/e6662baaee43e317109c64d089d2cad5)
 *   [Agile and Other Buzzwords](./lessons/agile_and_other_buzzwords)
