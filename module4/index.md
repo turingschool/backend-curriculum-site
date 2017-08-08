@@ -31,13 +31,6 @@ Weeks 4&5 will be spent working on your capstone projects.
 
 ### Weekly Breakdown:
 
-<!-- *   [Introduction to Professional Workflow](./lessons/intro_to_professional_workflow)
-*   [ES5 vs ES6](./lessons/es5_vs_es6)
-*   [Testing JS with Selenium](./lessons/intro_to_testing_with_selenium)
-*   [Rails Challenge](https://gist.github.com/case-eee/e6662baaee43e317109c64d089d2cad5)
-*   [Agile and Other Buzzwords](./lessons/agile_and_other_buzzwords)
-*   [Weekly Challenge List](./homework/week-one-challenges) -->
-
 <h4 id="week_1">Week 1</h4>
 *   State of Turing
 *   Success in B4
@@ -68,7 +61,6 @@ Weeks 4&5 will be spent working on your capstone projects.
 *   JavaScript Final Assessment
 *   [Accessibility Best Practices](../module2/lessons/accessibility_best_practices)
 *   [Documenting for Collaboration](../module2/lessons/how_to_write_a_great_readme)
-*   [Application Coordination with Message Queues](./lessons/application_coordination_with_message_queues)
 *   [Professional Code Environments](./lessons/professional_code_environments)
 *   [Basics of Security](./lessons/web_application_security)
 *   [Week 4 CFU's](https://github.com/turingschool/checks-for-understanding/blob/master/module-4/backend/week_four.md)
@@ -83,3 +75,12 @@ Weeks 4&5 will be spent working on your capstone projects.
 *   Capstone Evaluations
 *   Open Source Demos
 *   Turing Stories
+
+
+<!-- *   [Introduction to Professional Workflow](./lessons/intro_to_professional_workflow)
+*   [ES5 vs ES6](./lessons/es5_vs_es6)
+*   [Testing JS with Selenium](./lessons/intro_to_testing_with_selenium)
+*   [Rails Challenge](https://gist.github.com/case-eee/e6662baaee43e317109c64d089d2cad5)
+*   [Agile and Other Buzzwords](./lessons/agile_and_other_buzzwords)
+*   [Application Coordination with Message Queues](./lessons/application_coordination_with_message_queues)
+*   [Weekly Challenge List](./homework/week-one-challenges) -->
