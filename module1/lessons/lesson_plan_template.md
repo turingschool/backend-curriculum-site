@@ -23,7 +23,8 @@ tags: ruby,
 
 ## Warm Up  
 *   
-*  
+*
+*
 
 ## High level Section
 #### Sub Sections  
@@ -44,7 +45,6 @@ tags: ruby,
 
 
 ## Wrap Up  
-* 
 * 
 * 
 * 
