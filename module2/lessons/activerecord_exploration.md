@@ -4,8 +4,6 @@ length: 60
 tags: activerecord, sinatra
 ---
 
-# ActiveRecord Exploration
-
 ## Overview
 
 Fork and clone [this repository](https://github.com/turingschool/activerecord_exploration).

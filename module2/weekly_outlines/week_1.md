@@ -15,23 +15,23 @@ layout: page
 
 * **LESSONS:**
   - [Intro to M2]()
-  - [Intro to Sinatra/Task Manager](../lessons/introduction_to_sinatra)
+  - [Introduction to Sinatra](../lessons/introduction_to_sinatra)
   - [HTML/CSS Basics](../slides/html_css_basics/html_css_basics)
 
 * **HOMEWORK:**
   - Finish adding functionality to TaskManager by following this [tutorial](https://gist.github.com/case-eee/06c54aae5b414dfc010f485827c9d1db).
   - Answer the questions [here](https://gist.github.com/case-eee/1f066fa3be100f8f18f4d31f521a3da4)
-  - [Spin up basic Rack Server](../homework/rack)
+  - Dive deep into [how the web works](https://gist.github.com/Carmer/1ac51aa7418c6bd4b1d19e22fa0e03a8). This might seem like a lot at first, but it shouldn't take you more than 30-45 minutes.
   - Read the "What is Rack" section (just the first one) in this [article](http://rubylearning.com/blog/2013/04/02/whats-rack/).
   - Read [What is 'Rack' in Ruby/Rails?](http://blog.gauravchande.com/what-is-rack-in-ruby-rails)
-  - Dive deep into [how the web works](https://gist.github.com/Carmer/1ac51aa7418c6bd4b1d19e22fa0e03a8). This might seem like a lot at first, but it shouldn't take you more than 30-45 minutes.
+  - [Spin up basic Rack Server](../homework/rack)
 
 ### Day 2:
 
 * **LESSONS:**
   - [How the Web Works](../slides/how_the_web_works/slides.md)
   - [Passing Data with Sinatra](../lessons/passing_data_with_sinatra)
-  - [CRUD in Sinatra](../lessons/crud_sinatra)
+  - [CRUD in Sinatra](../lessons/crud_in_sinatra)
   - [CRUD in Sinatra Workshop](../lessons/crud_in_sinatra_workshop)
 
 * **HOMEWORK:**
@@ -50,7 +50,7 @@ layout: page
   - Prep for tomorrow's Collaborative Communication session by reading these two (very short) articles:
     - [Ask Questions Instead of Giving Directions](../homework/resources/ask_questions.pdf)
     - [Mitigate Fault](../homework/resources/mitigate_fault.pdf)
-  -  Work through the [Routing Playground](https://github.com/turingschool/routing_playground) to learn more about Sinatra routes.
+  -  Work through the [Routes Playground](https://github.com/turingschool/routing_playground) to learn more about Sinatra routes.
 
 ### Day 4:
 
@@ -72,14 +72,14 @@ layout: page
 
 * **HOMEWORK:**
   - Answer the Module 2/Week One Recap [questions](https://github.com/turingschool/checks-for-understanding/blob/master/module-2/backend/week_one.md).
-  - Sign up for a [lightning talk](https://docs.google.com/spreadsheets/d/16EeEfxJZ9-dxQdPmfZyh3GVuvIh1lD9Hr3qgFjdmToA/edit?usp=sharing)
+  - Sign up for a [lightning talk](https://docs.google.com/spreadsheets/d/1_VXTkIwXgr2KRCNmHqzZ3MDfNFPav0dRajO3BejeKz8/edit?usp=sharing)
     - [Lighting Talk Topics](../lighting_talk_topic_ideas.md)
   - As you write your first tests for Bike Share, make a pull request and tag your instructors to review the tests.
   - [Watch Sharif Ramadan's intro to 1NF, 2NF and 3NF databases. They're only about 4 minutes each.](https://www.youtube.com/watch?v=K7vzLrGCV50&list=PLQ9AAKW8HuJ5m0rmHKL88ZyjOIKejvrj0)
   - Suggested:
     - Read the [Learn SQL the Hard Way](http://sql.learncodethehardway.org/book/) book.
     - [DevShed - An Introduction to Database Normalization](http://www.devshed.com/c/a/mysql/an-introduction-to-database-normalization/)
-    - [Mike Hillyer's Blog Post - intro to database normalization](http://mikehillyer.com/articles/an-introduction-to-database-normalization/)z``
+    - [Mike Hillyer's Blog Post - intro to database normalization](http://mikehillyer.com/articles/an-introduction-to-database-normalization/)
 
 ## Projects:
 
