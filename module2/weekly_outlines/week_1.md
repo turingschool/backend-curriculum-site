@@ -72,7 +72,7 @@ layout: page
 
 * **HOMEWORK:**
   - Answer the Module 2/Week One Recap [questions](https://github.com/turingschool/checks-for-understanding/blob/master/module-2/backend/week_one.md).
-  - Sign up for a [lightning talk](https://docs.google.com/spreadsheets/d/16EeEfxJZ9-dxQdPmfZyh3GVuvIh1lD9Hr3qgFjdmToA/edit?usp=sharing)
+  - Sign up for a [lightning talk](https://docs.google.com/spreadsheets/d/1_VXTkIwXgr2KRCNmHqzZ3MDfNFPav0dRajO3BejeKz8/edit?usp=sharing)
     - [Lighting Talk Topics](../lighting_talk_topic_ideas.md)
   - As you write your first tests for Bike Share, make a pull request and tag your instructors to review the tests.
   - [Watch Sharif Ramadan's intro to 1NF, 2NF and 3NF databases. They're only about 4 minutes each.](https://www.youtube.com/watch?v=K7vzLrGCV50&list=PLQ9AAKW8HuJ5m0rmHKL88ZyjOIKejvrj0)
