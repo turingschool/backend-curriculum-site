@@ -30,20 +30,20 @@ layout: page
 
 * **LESSONS:**
   - [How the Web Works](../slides/how_the_web_works/slides.md)
-  - [Passing Data with Sinatra](https://github.com/turingschool/shopping)
-  - [CRUD in Sinatra](../lessons/crud_sinatra_synthesis)
-  - [CRUD in Sinatra Workshop](../lessons/robot_world_crud_sinatra)
+  - [Passing Data with Sinatra](../lessons/passing_data_with_sinatra)
+  - [CRUD in Sinatra](../lessons/crud_sinatra)
+  - [CRUD in Sinatra Workshop](../lessons/crud_in_sinatra_workshop)
 
 * **HOMEWORK:**
-  - Finish CRUD Robot World. Instructions are found [here](https://github.com/turingschool-examples/robot-world).
+  - Finish CRUD Robot World. Instructions are found [here](../lessons/crud_in_sinatra_workshop).
   - Add basic styling to your Robot World. Timebox this!
 
 ### Day 3:
 
 * **LESSONS:**
-  - [Database Visualization & Relationships](../lessons/visualising_and_implementing_database_relationships)
-  - [ActiveRecord Exploration](https://github.com/turingschool/intro-to-ar)
-  - [Intro to ActiveRecord Tutorial](../lessons/intro_to_active_record_in_sinatra)
+  - [Database Visualization & Relationships](../lessons/database_visualization_and_relationships)
+  - [ActiveRecord Exploration](../lessons/activerecord_exploration)
+  - [Intro to ActiveRecord in Sinatra](../lessons/intro_to_active_record_in_sinatra)
 
 * **HOMEWORK:**
   - Continue practicing with ActiveRecord [here](../homework/activerecord_and_database_practice).
@@ -55,7 +55,7 @@ layout: page
 ### Day 4:
 
 * **LESSONS:**
-  - [Model Testing](../lessons/model_testing_in_sinatra_with_horses)
+  - [Model Testing in Sinatra](../lessons/model_testing_in_sinatra)
   - [Intro To Project Management](../lessons/intro_to_project_management)
 
 * **HOMEWORK:**
@@ -68,7 +68,7 @@ layout: page
 ### Day 5:
 
 * **LESSONS:**
-  - [Feature Testing in Sinatra](../lessons/feature_testing_in_sinatra_with_horses)
+  - [Feature Testing in Sinatra](../lessons/feature_testing_in_sinatra)
 
 * **HOMEWORK:**
   - Answer the Module 2/Week One Recap [questions](https://github.com/turingschool/checks-for-understanding/blob/master/module-2/backend/week_one.md).
