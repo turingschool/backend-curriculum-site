@@ -1,5 +1,5 @@
 ---
-title: Robot World - CRUD in Sinatra Practice
+title: CRUD in Sinatra Workshop: Robot World
 length: 120
 tags: crud, sinatra
 ---

@@ -1,5 +1,5 @@
 ---
-title: Feature Testing in Sinatra with Capybara
+title: Feature Testing in Sinatra
 length: 120
 tags: capybara, user stories, feature tests, testing, sinatra
 ---

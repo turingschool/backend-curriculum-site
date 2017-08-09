@@ -15,7 +15,7 @@ layout: page
 
 * **LESSONS:**
   - [Intro to M2]()
-  - [Intro to Sinatra/Task Manager](../lessons/introduction_to_sinatra)
+  - [Introduction to Sinatra](../lessons/introduction_to_sinatra)
   - [HTML/CSS Basics](../slides/html_css_basics/html_css_basics)
 
 * **HOMEWORK:**
@@ -31,7 +31,7 @@ layout: page
 * **LESSONS:**
   - [How the Web Works](../slides/how_the_web_works/slides.md)
   - [Passing Data with Sinatra](../lessons/passing_data_with_sinatra)
-  - [CRUD in Sinatra](../lessons/crud_sinatra)
+  - [CRUD in Sinatra](../lessons/crud_in_sinatra)
   - [CRUD in Sinatra Workshop](../lessons/crud_in_sinatra_workshop)
 
 * **HOMEWORK:**
