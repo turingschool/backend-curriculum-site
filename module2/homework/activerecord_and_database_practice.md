@@ -1,3 +1,7 @@
+---
+layout: page
+---
+
 # ActiveRecord and Database Design
 
 ### 1) FilmFile and ActiveRecord (~1-2 hours)
