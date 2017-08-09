@@ -1,3 +1,7 @@
+---
+layout: page
+---
+
 # ActiveRecord Association Practice
 
 We'll be using this starter [repository](https://github.com/turingschool-examples/sinatra-active-record-skeleton) to work through the following exercises.

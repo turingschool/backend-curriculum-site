@@ -15,7 +15,6 @@ layout: page
 
 * **LESSONS:**
   - [Intro to M2]()
-<!-- * [Intro to Git](../lessons/intro_to_git) -->
   - [Intro to Sinatra/Task Manager](../lessons/introduction_to_sinatra)
   - [HTML/CSS Basics](../slides/html_css_basics/html_css_basics)
 
@@ -80,7 +79,7 @@ layout: page
   - Suggested:
     - Read the [Learn SQL the Hard Way](http://sql.learncodethehardway.org/book/) book.
     - [DevShed - An Introduction to Database Normalization](http://www.devshed.com/c/a/mysql/an-introduction-to-database-normalization/)
-    - [Mike Hillyer's Blog Post - intro to database normalization](http://mikehillyer.com/articles/an-introduction-to-database-normalization/)
+    - [Mike Hillyer's Blog Post - intro to database normalization](http://mikehillyer.com/articles/an-introduction-to-database-normalization/)z``
 
 ## Projects:
 

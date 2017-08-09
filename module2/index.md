@@ -34,7 +34,7 @@ subheading: Web Applications with Ruby
   Week 5
   </li>
   </a>
-  <a href="week_6">
+  <a href="weekly_outlines/week_6">
   <li class="outline">
   Week 6
   </li>
