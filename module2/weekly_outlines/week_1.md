@@ -50,7 +50,7 @@ layout: page
   - Prep for tomorrow's Collaborative Communication session by reading these two (very short) articles:
     - [Ask Questions Instead of Giving Directions](../homework/resources/ask_questions.pdf)
     - [Mitigate Fault](../homework/resources/mitigate_fault.pdf)
-  -  Work through the [Routing Playground](https://github.com/turingschool/routing_playground) to learn more about Sinatra routes.
+  -  Work through the [Routes Playground](https://github.com/turingschool/routing_playground) to learn more about Sinatra routes.
 
 ### Day 4:
 
@@ -79,7 +79,7 @@ layout: page
   - Suggested:
     - Read the [Learn SQL the Hard Way](http://sql.learncodethehardway.org/book/) book.
     - [DevShed - An Introduction to Database Normalization](http://www.devshed.com/c/a/mysql/an-introduction-to-database-normalization/)
-    - [Mike Hillyer's Blog Post - intro to database normalization](http://mikehillyer.com/articles/an-introduction-to-database-normalization/)z``
+    - [Mike Hillyer's Blog Post - intro to database normalization](http://mikehillyer.com/articles/an-introduction-to-database-normalization/)
 
 ## Projects:
 
