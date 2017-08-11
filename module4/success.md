@@ -9,21 +9,23 @@ In order to graduate from Module 4, students must complete each of the following
 
 ### Final Assessment
 
-Students must earn a score of `3` or greater in *each* category of the final assessment rubric.
+Students must pass each part of the final assessment. The final assessment is composed of three sections:
+
+* JavaScript Assessment
+* Technical Communication Assessment
+* Capstone Project
 
 Assessment requirements will be provided on the first week of the module.
 
 ### Independent Work
 
-*Expected*: Students will [contribute to external Open Source](./lessons/contributing_to_open_source) in Weeks 2 - 6 as a side project.
-
-*Optional*: Students are encouraged to include the results of their in-class work and tutorials.
+*Expected*: Students will build their Capstone project.
 
 ### Group Work
 
 *Expected*: Students, as a pair, document the results of their Quantified Self project.
 
-*Expected*: Students, as a project team, are responsible for passing rubric scores by the end of their Capstone Project Sprint 2 (Week 5).
+*Expected*: Students, as a project team, are responsible for passing rubric scores on their Open Source project.
 
 ### Career Development
 
@@ -42,7 +44,7 @@ When documenting your community contribution, say a few words about the facilita
 
 ### Portfolio
 
-To document all of the work you've done this module, follow the guidelines stated in the B4 portfolio template [here](https://github.com/turingschool/portfolios/tree/master/templates). A Pull Requested submitting your portfolio is due Wednesday of Week 6.
+To document all of the work you've done this module, follow the guidelines stated in the B4 portfolio template [here](https://github.com/turingschool/portfolios/tree/master/templates/BEM4_template.md). A Pull Requested submitting your portfolio is due Wednesday of Week 6.
 
 ### Turing Story Presentation
 
