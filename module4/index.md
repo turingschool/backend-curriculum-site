@@ -23,11 +23,9 @@ Students who successfully complete Module 4 will have demonstrated mastery of Pr
 
 ### Projects
 
-Your first project is [Quantified Self](./projects/quantified-self/quantified-self). You'll start by building a back-end API to serve and persist your data. Then you'll build the front end to interact with the data. You'll use node and the express framework to build your API, and a heavy dose of jQuery to build out your front-end behavior.
-
-Starting week 2, you'll be making small contributions to open source. You can find out more [here](./lessons/contributing_to_open_source)
-
-Weeks 4&5 will be spent working on your capstone projects.
+1. [Quantified Self](./projects/quantified-self/quantified-self) - students start by building a front end in JavaScript that connects to an existing Rails API. Then they will re-build the back end with Node, Express, and Knex (so cool, right?). This project lasts the first three weeks.
+2. [Capstone Project](http://backend.turing.io/module4/capstone_project_overview) - this is a personal project students work on weeks three to six. Students will put everything they've learned during their time at Turing into this final project.
+3. Open Source Project - this group project will take place in week six. More information to come.
 
 ### Weekly Breakdown:
 
@@ -57,6 +55,7 @@ Weeks 4&5 will be spent working on your capstone projects.
 *   [SQL in Node](./lessons/sql-in-node)
 *   Organizing an Express App
 *   [Capstone Project Soft Launch](http://backend.turing.io/module4/capstone_project_overview)
+*   [Week Three CFU](https://github.com/turingschool/checks-for-understanding/blob/master/module-4/backend/week_three.md)
 
 <h4 id="week_4">Week 4</h4>
 *   JavaScript Final Assessment
