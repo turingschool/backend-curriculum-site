@@ -115,3 +115,5 @@ You're encouraged to talk with each other for ideas, inspiration, and collaborat
 ## Additional Resources
 * Reading: The origins of "OSS" terminology and culture in [1998](https://en.wikipedia.org/wiki/Open-source_software_movement#Brief_history)
 * Book: [Open Sources: Voices from the Revolution (1999)](http://www.oreilly.com/openbook/opensources/book/)
+* [Slides](../slides/open_source/contributing_to_open_source_slides.pdf)
+
