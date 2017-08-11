@@ -1,7 +1,10 @@
 ## Learning Goals by Project   
 
 ### Credit Check  
-None Listed  
+#### Learnging Goals 
+* break a problem into logical components 
+* implement correct Ruby syntax
+* utilize methods and classes 
 
 ### Sorting Suite  
 None Listed  
@@ -19,6 +22,7 @@ None Listed
 * Distinguishing between classes and instances of those classes
 * Understanding how linked lists work to store and find data
 * Testing components in isolation and in combination
+* Use and implement iteration or recursion techniques
 
 ### Enigma  
 #### Learning Goals / Areas of Focus
@@ -35,7 +39,12 @@ None Listed
 * Reading text from and writing text to files
 
 ### Date Night  
-None listed  
+### Learning Goals 
+* Practice breaking a program into logical components
+* Distinguishing between classes and instances of those classes
+* Understanding how binary search trees work to store and find data
+* Testing components in isolation and in combination 
+* Use and implement iteration or recursion techniques
 
 
 ### CompleteMe  
