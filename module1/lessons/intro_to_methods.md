@@ -13,6 +13,12 @@ tags: ruby, methods
 * Define methods that do not take arguments
 * Define a class with instance methods
 
+## Vocabulary 
+* Method 
+* Argument
+* Parameter
+* Abstraction 
+
 ## Slides
 
 Available [here](../slides/intro_to_methods)
@@ -168,7 +174,7 @@ Once you've completed that, see if you can determine what the `print_converted` 
 
 ### Layers of Abstraction
 
-One of the advantages of using methods is that we can build methods that operate at higher levels of abstraction than other methods. In some ways, this is like a pyramid where higher level methods rely on lower level methods to take care of the details.
+One of the advantages of using methods is that we can build methods that operate at higher levels of abstraction than other methods. Abstraction is a practice where less complex functionality is exposed in an interface and more complex funtionality is suppressed. In some ways, this is like a pyramid where higher level methods rely on lower level methods to take care of the details.
 
 If we look at our `converter.rb` file, what we really want to do is take three numbers, print a welcome, and then print a message for each of those numbers. We can create a method that does exactly that. Bundling these more detailed methods into more abstract methods can help us to create more complex programs.
 
@@ -249,10 +255,11 @@ Notice that when we wrap these methods in a class we need to create a new **inst
 
 With your partner, wrap your existing methods in a `Doubler` class and adjust your code so that the output when you run `ruby doubler.rb` is the same as it was before.
 
-## Summary
+## WrapUp
 
 * How do we define methods in Ruby?
 * What is the difference in how we define a method that takes arguments from one that does not?
+* How do you call one method from within another method?
 * Why do we use methods?
-* How do we define a simple class in Ruby?
+
 
