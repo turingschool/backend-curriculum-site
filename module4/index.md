@@ -74,7 +74,7 @@ Students who successfully complete Module 4 will have demonstrated mastery of Pr
 *   [Contributing to Open Source Kick Off](./lessons/contributing_to_open_source)
 *   Capstone Evaluations
 *   Open Source Demos
-*   [Turing Stories](success)
+*   [Turing Stories](success/#turing-story-presentation)
 
 
 <!-- *   [Introduction to Professional Workflow](./lessons/intro_to_professional_workflow)
