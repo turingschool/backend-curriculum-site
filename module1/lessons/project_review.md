@@ -13,11 +13,11 @@ tags: ruby, reflection
 * incorportate ideas and strategies from peers in future projects
 
 ## Structure  
-5 min - Warm Up  
+
 20 min - Self Reflection  
-5 min - Break  
+15 min - Shared Reflection  
 20 min - Code Share 
-5 min - Wrap Up 
+
 
 ## Self Reflection
 - What did you learn from this project?
@@ -26,6 +26,8 @@ tags: ruby, reflection
 - What risks did you take with this project?
 - What are you most proud of from this project? 
   
+## Shared Reflection 
+Meet with a partner to discuss the questions above.
 
 ## Code Sharing 
 * What classes did you use to solve this problem? Why?
