@@ -4,6 +4,13 @@ title: Jungle Beat
 ---
 
 # Jungle Beat
+### Learning Goals
+
+* Practice breaking a program into logical components
+* Distinguishing between classes and instances of those classes
+* Understanding how linked lists work to store and find data
+* Testing components in isolation and in combination
+* Use and implement iteration or recursion techniques
 
 ## Basics
 
@@ -46,13 +53,6 @@ Using sweet ASCII art, it might look like this:
 List -- (head) --> ["hello" | -]-- (link) --> ["world" | -]-- (link) --> ["!" | ]
 ```
 The three nodes here hold the data "hello", "world", and "!". The first two nodes have links which point to other nodes. The last node, holding the data "!", has no reference in the link spot. This signifies that it is the end of the list.
-
-## Learning Goals / Areas of Focus
-
-* Practice breaking a program into logical components
-* Distinguishing between classes and instances of those classes
-* Understanding how linked lists work to store and find data
-* Testing components in isolation and in combination
 
 ## Iterative Development
 

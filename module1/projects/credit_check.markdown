@@ -1,5 +1,10 @@
 # Credit Check
 
+### Learnging Goals 
+* break a problem into logical components 
+* implement approriate Ruby syntax
+* utilize methods and classes 
+
 Let's write a program that can detect mistakes in a credit card number.
 
 ## Background: Luhn Algorithm
