@@ -3,6 +3,13 @@ layout: page
 title: Date Night
 ---
 
+### Learning Goals 
+* Practice breaking a program into logical components
+* Distinguishing between classes and instances of those classes
+* Understanding how binary search trees work to store and find data
+* Testing components in isolation and in combination 
+* Use and implement iteration or recursion techniques
+
 ## Overview
 
 You are a junior developer at Netflix. You're on a team that is developing a list of movies for Netflix users called "Suggested for You." Each time movies are added to Netflix, an algorithm determines a score of how likely a given user is to enjoy that movie.
