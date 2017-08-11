@@ -10,17 +10,20 @@ layout: page
 * [Variables, Strings, and Integers](../lessons/variables_strings_and_integers)
 * [Intro to Methods](../lessons/intro_to_methods)
 * [Flow Control](../lessons/flow_control) ([Video](https://www.youtube.com/watch?v=iZkQWR9_RpY))
-* [Introducing Arrays](../lessons/arrays_101) ([Video](https://www.youtube.com/watch?v=nlwU1YtQ9SU))
-* [Intro to Classes](../lessons/intro_to_classes)
 * [Debugging with Pry](../lessons/debugging_with_pry)
+* [Introducing Arrays](../lessons/intro_to_arrays_arts_and_crafts) ([Video](https://www.youtube.com/watch?v=nlwU1YtQ9SU))
+* [Intro to Classes](../lessons/intro_to_classes)
+* [Methods, Arguments, Blocks & Scopes](../lessons/intro_to_scope)
 * [Beginner Enumerables](../lessons/beginner_enumerables)
 * [Intro to OOP](../lessons/intro_to_oop)
-* [Methods, Arguments, Blocks & Scopes](../lessons/intro_to_scope)
+* [Intro to TDD](../lessons/intro_to_tdd_and_pairing)
+
 
 ## Homework
 
 * [SuperFizz](../homework/super_fizz.md)
 * [Core Types, Enums Exercises, Mythical Creatures](https://github.com/turingschool/ruby-exercises/) (all in the subdirectories of this repository)
+* [Enumerable Exercises](https://github.com/turingschool/enums-exercises)
 
 ## Projects
 
