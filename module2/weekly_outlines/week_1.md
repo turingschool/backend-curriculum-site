@@ -14,7 +14,7 @@ layout: page
 ### Day 1:
 
 * **LESSONS:**
-  - [Intro to M2]()
+  - [Intro to M2](../slides/intro_to_m2)
   - [Introduction to Sinatra](../lessons/introduction_to_sinatra)
   - [HTML/CSS Basics](../slides/html_css_basics/html_css_basics)
 
