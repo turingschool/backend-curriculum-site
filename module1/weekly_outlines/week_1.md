@@ -12,7 +12,9 @@ layout: page
 * [Flow Control](../lessons/flow_control) ([Video](https://www.youtube.com/watch?v=iZkQWR9_RpY))
 * [Debugging with Pry](../lessons/debugging_with_pry)
 * [Introducing Arrays](../lessons/intro_to_arrays_arts_and_crafts) ([Video](https://www.youtube.com/watch?v=nlwU1YtQ9SU))
+* [Exercise: Bad Connection](../homework/bad_connection)
 * [Intro to Classes](../lessons/intro_to_classes)
+* [PD: Strengths Finder](../../career_development_curriculum/module_one/strengths_reflection_session)
 * [Methods, Arguments, Blocks & Scopes](../lessons/intro_to_scope)
 * [Beginner Enumerables](../lessons/beginner_enumerables)
 * [Intro to OOP](../lessons/intro_to_oop)
@@ -21,17 +23,19 @@ layout: page
 
 ## Homework
 
-* [SuperFizz](../homework/super_fizz.md)
-* [Core Types, Enums Exercises, Mythical Creatures](https://github.com/turingschool/ruby-exercises/) (all in the subdirectories of this repository)
+* [SuperFizzBuzz](../homework/super_fizz.md)
+* [Core Types, Mythical Creatures](https://github.com/turingschool/ruby-exercises/) (in the subdirectories of this repository)
 * [Enumerable Exercises](https://github.com/turingschool/enums-exercises)
 
-## Projects
+
+## Projects & Exercises
 
 * [Credit Check](../projects/credit_check.markdown) ([slides](../slides/credit_check))
 * [Jungle Beat](../projects/jungle_beat)
 * [Date Night](../projects/date_night) ([slides](../slides/date_night))
 
-## Exercises and Other Relevant Links
+
+## Resources
 
 * [Environment Setup](../../prework/environment_setup_prework) ([Video](https://vimeo.com/154607937))
 * [Terminal and Editor](https://github.com/turingschool/curriculum/blob/master/source/academy/workshops/terminal_and_editor.markdown)
