@@ -13,6 +13,7 @@ layout: page
 * [Credit Check Recheck](../lessons/credit_check_recheck)
 * [PD: Feedback I](../../career_development_curriculum/module_one/feedback_i)
 * [Group Project Retro](../lessons/group_project_retro)
+* [Gear Up: Getting Better at Difficult Things](https://github.com/turingschool/gear-up/blob/master/m1_citizenship/session_2_getting_better_at_difficult_things.md)
 
 
 ## Homework

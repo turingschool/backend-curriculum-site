@@ -12,13 +12,13 @@ layout: page
 * [Flow Control](../lessons/flow_control) ([Video](https://www.youtube.com/watch?v=iZkQWR9_RpY))
 * [Debugging with Pry](../lessons/debugging_with_pry)
 * [Introducing Arrays](../lessons/intro_to_arrays_arts_and_crafts) ([Video](https://www.youtube.com/watch?v=nlwU1YtQ9SU))
-* [Exercise: Bad Connection](../homework/bad_connection)
 * [Intro to Classes](../lessons/intro_to_classes)
 * [PD: Strengths Finder](../../career_development_curriculum/module_one/strengths_reflection_session)
 * [Methods, Arguments, Blocks & Scopes](../lessons/intro_to_scope)
 * [Beginner Enumerables](../lessons/beginner_enumerables)
 * [Intro to OOP](../lessons/intro_to_oop)
 * [Intro to TDD](../lessons/intro_to_tdd_and_pairing)
+* [Gear Up: Growth Mindset](https://github.com/turingschool/gear-up/blob/master/m1_citizenship/session_1_growth_mindset.markdown)
 
 
 ## Homework

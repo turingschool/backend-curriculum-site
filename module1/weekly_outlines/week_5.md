@@ -29,5 +29,6 @@ layout: page
 ## Resources
 
 * [DTR Memo Template](https://docs.google.com/document/d/1zMtgWhODQuP3KBNhrg6PtmPUkw0DIskqgggeyEzYZi4/edit)
+* [Code: Debugging the Gender Gap](https://www.codedoc.co/)
 * [Ruby Object Model Video](https://vimeo.com/160952993)
 * [POODR Parts 1, 2, and 3](../lessons/performance_of_code)
