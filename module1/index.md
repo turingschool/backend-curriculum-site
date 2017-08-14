@@ -31,20 +31,20 @@ In Module 1, students will learn to use Ruby and object-oriented programming to 
     </li>
   </a>
   <a href="weekly_outlines/week_4">
-  <li class="outline">
-  Week 4
-  </li>
+    <li class="outline">
+    Week 4
+    </li>
   </a>
   <a href="weekly_outlines/week_5">
-  <li class="outline">
-  Week 5
-  </li>
+    <li class="outline">
+    Week 5
+    </li>
   </a>
-  <!-- <a href="week_6">
-  <li class="outline">
-  Week 6
-  </li>
-  </a>  -->
+  <a href="weekly_outlines/week_6">
+    <li class="outline">
+    Week 6
+    </li>
+  </a> 
 </ul>
 
 ## Important Links
