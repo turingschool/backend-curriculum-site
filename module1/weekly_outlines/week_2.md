@@ -5,28 +5,33 @@ layout: page
 
 ## Lessons
 
+* [Branching Workflow in Git](../slides/git_branching)
 * [Academic Integrity](../lessons/academic_integrity)
 * [Introduction to Hashes](../lessons/hashes_arts_and_crafts)
-* [Nested Collections](../lessons/nested_collections)
 * [How Testing Works](../lessons/how_testing_works)
+* [Nested Collections](../lessons/nested_collections)
+* [Gear Up: Working Styles](https://github.com/turingschool/gear-up/blob/master/m1_citizenship/session_3_intro_extro_ambivert_styles.markdown)
 * [Git for Pairs](../lessons/git_for_pairs)
-* [Working with Files](../lessons/working_with_files) ([Class Recording](https://vimeo.com/162134025)) ([Related Video](https://vimeo.com/130322465))
+* [PD: Learning to Pair](../../career_development_curriculum/module_one/learning_to_pair)
+* [PD: DTR Guidelines](../../career_development_curriculum/module_one/dtr_guidelines_memo)
+
+
+## Homework
+
+* [Core Types, Mythical Creatures](https://github.com/turingschool/ruby-exercises/) (in the subdirectories of this repository)
+
 
 ## Projects
 
 * [Jungle Beat](../projects/jungle_beat)
 * [Date Night](../projects/date_night)
 * [Complete Me](../projects/complete_me)
-* [Enigma](../projects/enigma)
+* [Night Writer](../projects/night_writer)
 
-## Exercises and Other Relevant Links
-
-* [Enumerable Exercises](https://github.com/turingschool/enums-exercises)
 
 ## Resources
 
-* [DTR Memo](https://docs.google.com/document/d/1zMtgWhODQuP3KBNhrg6PtmPUkw0DIskqgggeyEzYZi4/edit)
-
-## Slides
-
 * [Debugging Techniques](../slides/debugging)
+* [Sandi Metz Talk: All the Little Things](https://www.youtube.com/watch?v=8bZh5LMaSmE)
+* [DTR Memo Template](https://docs.google.com/document/d/1zMtgWhODQuP3KBNhrg6PtmPUkw0DIskqgggeyEzYZi4/edit)
+
