@@ -1,4 +1,4 @@
-# Advanced JS Concepts
+# (More) Advanced JS Concepts
 
 ## Learning Goals
 
@@ -112,9 +112,57 @@ When do we want to leverage this in our code?
 
 ## jQuery vs JavaScript
 
-What's the difference between JavaScript and jQuery?
-How can we translate between the two?
-Why use one over the other?
+Recap: what's the difference between JavaScript and jQuery?
+
+jQuery makes this (written in raw JS):
+
+```js
+var elements = document.getElementsByTagName("img");
+
+for (var i = 0; i< elements.length; i++) {
+  elements[i].style.display = "none";
+ }
+ ```
+ 
+Turn into the following:
+
+```js
+$('img').hide();
+```
+
+#### Review: What is jQuery?
+
+- javaScript library (most popular)
+- open-source
+- easy DOM manipulation
+- simple methods for reading and interacting with your HTML
+- gives us more control over our DOM
+
+#### What are some popular jQuery methods?
+
+* `find()`
+* `hide()` & `show()`
+* `html()`
+* `prepend()` & `append()`
+* `on()`
+* `css()`
+
+#### Small Group Discussion
+
+* Why would we want to use jQuery over raw JavaScript? 
+* When might we want to use JavaScript instead of jQuery?
+
+#### You Do
+
+In your notebooks, translate the following from JS to jQuery. If you're stuck, ask whomever you're sitting next to or the interwebs! 
+
+```js
+var clickMeButton = document.getElementById('click-me');
+
+clickMeButton.addEventListener('click', function () {
+  console.log('You clicked me!');
+});
+```
 
 ## Bind events to jQuery selectors to manipulate the DOM
 
