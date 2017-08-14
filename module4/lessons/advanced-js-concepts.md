@@ -22,9 +22,88 @@ We've briefly touched on quite a few JavaScript concepts, now is our time to div
 
 ## JavaScript Objects
 
-What's an object in JavaScript?
-How do we interact with objects in JavaScript?
-Why do we want to encapsulate properties/functions in objects?
+What do we mean when we say "JavaScript object"? An object in JavaScript is a collection of properties, and a property is an association between a name (or key) and a value. A property's value can be a function, in which case the property is known as a method.
+
+How do we create new objects in JavaScript land? You can define an object in a few different ways. First of all, you can define an object literal by simply creating what may look like a Ruby hash:
+
+```js
+var penelope = { firstName: "Penelope", age: 88 }
+
+penelope
+// Object {firstName: "Penelope", age: 88}
+```
+
+You could also use the JavaScript keyword `new`.
+
+```js
+var penelope = new Object()
+penelope.firstName = "Penelope"
+penelope.age = 88
+
+penelope
+// Object {firstName: "Penelope", age: 88}
+```
+
+How do we interact with our newly created objects? We can access an object's properties/values by using dot or bracket notation.
+
+```js
+penelope.firstName
+// "Penelope"
+
+penelope["firstName"]
+// "Penelope"
+```
+
+*Reflect*: Why do we want to encapsulate properties/functions in objects?
+
+What else can we add to an object's properties? We can add functions as properties.
+
+```js
+var penelope = { 
+                firstName: "Penelope", 
+                age: 88,
+                sayHi: function() {
+                  return "Hello!"
+                }
+               }
+               
+ penelope.sayHi()
+ // "Hello!"
+
+```
+
+What if I want to return a value dynamically depending on the properties Penelope has? 
+
+```js
+var penelope = { 
+                firstName: "Penelope", 
+                age: 88,
+                sayHi: function() {
+                  return "Hi! I'm " + this.firstName
+                }
+               }
+               
+ penelope.sayHi()
+// "Hi! I'm Penelope"
+```
+
+Within the scope of a function set as a property on an object, `this` refers to the object itself. More on this to come!
+
+## You Do
+
+Define a variable called "pizza" in your console. Set it's value equal to an object that contains a property for "type" and "size." Give each property whatever you'd like. Next, add a property that returns the object's details like so: "This is a [type] pizza that is [size] inches long." For example, I should be able to call the following methods on the object you've defined and get the following return values (based on what values you've set to type and size).
+
+```js
+pizza.type
+// Cheese
+
+pizza.size
+// 10
+
+pizza.details()
+// This is a Cheese pizza that is 10 inches long.
+
+```
 
 ## What is `this`?
 
