@@ -7,13 +7,12 @@ Validating Food Calories,"Create Foods,foods.html",Feature,unscheduled,"When I c
 Clearing Food fields and validations,"Create Foods,foods.html",Feature,unscheduled,"When I successfully create a food, text fields and any error messages should be cleared"
 Persisting Foods,"View Foods,foods.html",Feature,unscheduled,"When I refresh the foods.html, I will see the same foods persist, in the same order"
 Deleting foods,"Delete Foods,foods.html",Feature,unscheduled,"When I click the ""Delete"" icon next to a food, it will be removed from the list."
-Removing deleted foods from diary,"Delete Foods,foods.html,index.html",Feature,unscheduled,Deleted foods will not be removed from meal tables in the diary.
 Making foods editable,"Edit Foods,foods.html",Feature,unscheduled,"If I click the Name or Calories field for any given food, it will become an input field containing the current values for that food"
 Saving changes to foods,"Edit Foods,foods.html",Feature,unscheduled,"When I click on something other than the input field, the field will turn back into plain text"
 Persisting food changes to diary,"Edit Foods,foods.html,index.html",Feature,unscheduled,"When edit a food's Name or Calories, any changes will also be made on the diary"
 Filtering my foods,"View Foods,foods.html",Feature,unscheduled,"I can filter the table of foods by typing into the ""Filter by Name"" box above the table. Show only foods that match the text typed. Filter the list on each key press. Should be case insensitive"
 Persisting food changes across refreshes,"View Foods,foods.html",Feature,unscheduled,"Except for filtering, any changes I make will persist across refreshes"
-Viewing meal tables,"View Diary,index.html",Feature,unscheduled,"When I visit index.html (or just `/`), I see tables for each meal for today"
+Viewing meal tables,"View Diary,index.html",Feature,unscheduled,"When I visit index.html (or just `/`), I see tables for each meal."
 Foods in meal tables,"View Diary,index.html",Feature,unscheduled,Each meal table has a list of foods by name and calorie
 Total calories in meal tables,"View Diary,index.html",Feature,unscheduled,"Each meal table has Total Calories below, which is the sum of calories for each food in that meal"
 Remaining calories in meal tables,"View Diary,index.html",Feature,unscheduled,"Each meal table has Remaining Calories, which is the goal calories minus the total calories. Goal calories are as follows: 200 for Snacks, 400 for Breakfast, 600 for Lunch and 800 for Dinner"
@@ -24,7 +23,7 @@ Styling Remaining Calories in Totals table,"View Diary,index.html",Feature,unsch
 Foods table in diary,"View Diary,index.html",Feature,unscheduled,"I should see a table of foods I have created under a Foods header. Each food has a Name, Calories and a checkbox"
 Create New food from diary,"View Diary,index.html",Feature,unscheduled,"If I click on the ""Create New"" button under the Foods header, I should be redirected to ""foods.html"""
 Search for food by name,"View Diary,index.html",Feature,unscheduled,"When I type into the ""Search by Name"" box above the Foods table, the table will only display foods that match the typed text, case insensitive. List of foods should update with each change to the search box."
-Add meal to diary,"Edit Diary,index.html",Feature,unscheduled,"When I click one of the meal buttons under the Add Selected To header, I should see any checked foods appear in the meal table for the clicked meal on the date currently being viewed."
+Add meal to diary,"Edit Diary,index.html",Feature,unscheduled,"When I click one of the meal buttons under the Add Selected To header, I should see any checked foods appear in the meal table for the clicked meal."
 Update calorie totals after adding food,"Edit Diary,index.html",Feature,unscheduled,"After adding a food to a meal, I should see any relevant Calorie totals update."
 Clearing checkboxes after adding food,"Edit Diary,index.html",Feature,unscheduled,"After adding a food to a meal, I should see the checkboxes in the Foods table clear."
 Removing foods from diary,"Edit Diary,index.html",Feature,unscheduled,"If I click the delete icon next to a food in a meals table, it will be removed from that meal"

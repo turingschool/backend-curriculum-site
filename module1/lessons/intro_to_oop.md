@@ -25,7 +25,19 @@ Available [here](../slides/intro_to_oop)
 
 Let's start with our `Classroom` class from yesterday.
 
-Now, if we want to create a method `#volume`, we can use the `#area` method as a starting point. Let's do that.
+Now, if we want to create a method `#volume`, we can use the `#area` method as a starting point. Let's do that. 
+In our runner file:
+
+```ruby
+# classroom_runner.rb
+require './classroom'
+
+classroom_a = Classroom.new(10, 5, 20)
+puts classroom_a.area
+puts classroom_a.length
+puts classroom_a.volume
+```
+We get a no method error for volume, let's build that: 
 
 ```ruby
 # classroom.rb
@@ -56,23 +68,23 @@ end
 
 In the `volume` method, `area` refers to the `area` method that is sitting in our class. We can refer to these methods much the same way we would variables.
 
-And in our runner file:
-
-```ruby
-# classroom_runner.rb
-require './classroom'
-
-classroom_a = Classroom.new(10, 5, 20)
-puts classroom_a.area
-puts classroom_a.length
-puts classroom_a.volume
-```
-
 Notice in the runner file we call this method just as we would any other.
 
 #### Setting Default Values
 
 Let's say that we knew that generally the ceilings in the basement were 20 feet, and that we would only want to define a height on the ceiling if we were creating a classroom that was an exception to that rule. We can set a default value for our `height` parameter using the syntax below:
+
+Add the following lines to the bottom of your runner file:
+
+```ruby
+# classroom_runner.rb
+standard_room = Classroom.new(15, 15)
+short_room    = Classroom.new(15, 15, 10)
+
+puts "Standard Heights: #{standard_room.height}"
+puts "Short Height: #{short_room.height}"
+```
+We want to pass our Classroom class either two or three arguments when we initialize.
 
 ```ruby
 # classroom.rb
@@ -101,24 +113,20 @@ class Classroom
 end
 ```
 
-If we do that, we can now pass our Classroom class either two or three arguments when we initialize.
-
-Add the following lines to the bottom of your runner file:
-
-```ruby
-# classroom_runner.rb
-standard_room = Classroom.new(15, 15)
-short_room    = Classroom.new(15, 15, 10)
-
-puts "Standard Heights: #{standard_room.height}"
-puts "Short Height: #{short_room.height}"
-```
-
 We should see that our standard room height is still 20, but our short room height is now the 10 that we passed to it.
 
 #### Setting Initial State Without Parameters
 
 One thing that's important to note is that we're making a decision here as programmers that we want someone to be able to pass a height, but if they don't we want to keep moving without a hiccup. We can also define instance variables that don't allow for user input. For example, let's assume we wanted to allow our classrooms to store the students that are in a classroom at any one time. Let's further assume that we want to have all of our classrooms start empty. We could indicate that in our code by updating our `Classroom` class as follows:
+In our runner file:
+```ruby
+# classroom_runner.rb
+standard_room = Classroom.new(15, 15)
+short_room    = Classroom.new(15, 15, 10)
+
+puts "Standard Room: #{standard_room.students}"
+puts "Short Room: #{short_room.students}"
+```
 
 ```ruby
 # classroom.rb
@@ -204,7 +212,7 @@ class Student
 end
 ```
 
-Now, let's update our runner file to actually use this new student class. First we need to require it, and then we can pass it to our new `#add_student` method.
+Now, let's update our runner file to actually use this new student class. First we need to require it, and then we can pass it to our new `#add_student` method via our runner.
 
 ```ruby
 # classroom runner
@@ -234,6 +242,32 @@ That's fun, but how do we use these students in our new class?
 #### Using Objects in Other Objects
 
 Let's create a new method in our Classroom class that allows us to print a roster. Now we don't want to print those full Student objects, we just want to print their names.
+And update our runner:
+
+```ruby
+# classroom runner
+require './classroom'
+require './student'
+
+classroom_a = Classroom.new(10, 5, 20)
+puts classroom_a.area
+puts classroom_a.length
+puts classroom_a.volume
+
+standard_room = Classroom.new(15, 15)
+short_room    = Classroom.new(15, 15, 10)
+
+puts "Standard Heights: #{standard_room.height}"
+puts "Short Height: #{short_room.height}"
+
+sal = Student.new("Sal")
+ali = Student.new("Ali")
+classroom_a.add_student(sal)
+classroom_a.add_student(ali)
+puts classroom_a.students
+classroom_a.print_roster
+```
+Let's build a print_roster method to satisfy the no method error:
 
 ```ruby
 # classroom.rb
@@ -273,33 +307,6 @@ class Classroom
   end
 end
 ```
-
-And update our runner:
-
-```ruby
-# classroom runner
-require './classroom'
-require './student'
-
-classroom_a = Classroom.new(10, 5, 20)
-puts classroom_a.area
-puts classroom_a.length
-puts classroom_a.volume
-
-standard_room = Classroom.new(15, 15)
-short_room    = Classroom.new(15, 15, 10)
-
-puts "Standard Heights: #{standard_room.height}"
-puts "Short Height: #{short_room.height}"
-
-sal = Student.new("Sal")
-ali = Student.new("Ali")
-classroom_a.add_student(sal)
-classroom_a.add_student(ali)
-puts classroom_a.students
-classroom_a.print_roster
-```
-
 Run our runner file, and... a list of student names!
 
 ## Practice

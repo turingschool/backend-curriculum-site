@@ -146,6 +146,18 @@ This will allow us to access all of the instance variables by sending messages t
 #### Combining State and Behavior
 
 That's great! What about methods? Yesterday we used methods in our classes, and we can still do that. Now, we can use our instance variables to create instance methods that return different values based on the state of our instance.
+Let's update our runner:
+
+```ruby
+# classroom_runner.rb
+require './classroom'
+
+classroom_a = Classroom.new(10, 5, 20)
+puts "Length: #{classroom_a.length}"
+puts "Width: #{classroom_a.width}"
+puts "Area: #{classroom_a.area}"
+```
+Run that, and we get a no method error for `area`. Let's build that method:
 
 ```ruby
 # classroom.rb
@@ -166,7 +178,11 @@ class Classroom
 end
 ```
 
-Let's update our runner as well:
+#### Changing State
+
+What if we want to change the values of our instance? Assume Turing hires a contractor to renovate our classrooms.
+
+Our runner:
 
 ```ruby
 # classroom_runner.rb
@@ -176,13 +192,21 @@ classroom_a = Classroom.new(10, 5, 20)
 puts "Length: #{classroom_a.length}"
 puts "Width: #{classroom_a.width}"
 puts "Area: #{classroom_a.area}"
+
+puts "Make length 1."
+classroom_a.add_length(4)
+
+puts "New Length: #{classroom_a.length}"
+puts "New Area: #{classroom_a.area}"
+
+puts "Add four to length"
+classroom_a.length = 1
+
+puts "New Length: #{classroom_a.length}"
+puts "New Area: #{classroom_a.area}"
 ```
-
-#### Changing State
-
-What if we want to change the values of our instance? Assume Turing hires a contractor to renovate our classrooms.
-
 We have two ways that we could potentially change these values. Update our files based on the code below:
+We get a no method error for add_length. As well as an error for `classroom_a.length = 1`.
 
 ```ruby
 # classroom.rb
@@ -207,29 +231,7 @@ class Classroom
 end
 ```
 
-And our runner:
 
-```ruby
-# classroom_runner.rb
-require './classroom'
-
-classroom_a = Classroom.new(10, 5, 20)
-puts "Length: #{classroom_a.length}"
-puts "Width: #{classroom_a.width}"
-puts "Area: #{classroom_a.area}"
-
-puts "Make length 1."
-classroom_a.length = 1
-
-puts "New Length: #{classroom_a.length}"
-puts "New Area: #{classroom_a.area}"
-
-puts "Add four to length"
-classroom_a.add_length(4)
-
-puts "New Length: #{classroom_a.length}"
-puts "New Area: #{classroom_a.area}"
-```
 
 Changing our `attr_reader`s to `attr_accessor`s makes it so that we can change the classroom's value from outside the class to **anything** we want. We are placing some trust in people using the class that they will use it responsibly.
 

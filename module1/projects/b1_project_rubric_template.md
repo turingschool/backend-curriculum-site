@@ -59,3 +59,10 @@ The output from `rake sanitation:all` shows...
 * 3: Student utilizes git workflow essentials, committing frequently to document progress
 * 2: Student adds and commits infrequently and pushes project to GitHub  
 * 1: Student makes an initial commit and pushes project to GitHub  
+
+### 9. Collaboration
+<!-- (only relevant for pairing) -->
+* 4: Student discusses pros and cons of different approaches and solicits input
+* 3: Student lays out their thinking while working through a problem and integrates feedback throughout the process
+* 2: Student asks detailed questions when progress slows or stops
+* 1: Student is able to integrate unsolicited feedback but does not really collaborate

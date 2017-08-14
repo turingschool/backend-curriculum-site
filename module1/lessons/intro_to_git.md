@@ -13,6 +13,14 @@ After this lesson, students should be able to:
 -  Configure global .gitignore files  
 -  Personalize Slack profiles with GitHub information  
 
+## Vocabulary
+
+- Git
+- Github
+- Version Control System
+- Distributed Version Control System
+
+
 ## Warm Up  
 * Has anyone heard of git before?  Thumbs Up/Down have you used it all during pre-work?  
 * What do you know about GitHub? How have you used it so far?  
@@ -238,6 +246,7 @@ If you've verified the above is complete, please work through the following:
 -   Customize your terminal - colors/themes, default directory, aliases, etc.  
 
 ## Wrap Up  
+
 * What is git? Why do we use it?  
 * What is GitHub? Why is it helpful?  
 * What types of things go in a .gitignore?  

@@ -5,10 +5,11 @@ The purpose of this document is to allow a place for us to keep track of things 
 ### B4
 
 * Move CI and Staging Environments class to B3
-* Have students reflect what they did to address accessibility
-* Move application coordination class to B3
-* Move Performance Dojo class to B4
-* Move Tracker class to B4
+* Begin Quantified Self with students building frontend and connecting with existing Rails backend
+* Finish Quantified Self with students building a backend in Node/Express and connecting their frontend with it
+* Add "Career Workshop" time with Meg (two 90 minute sessions) to build in job related work time
+* Change assessment format: remove 16 hour + assessment, add JS 2-3 hour assessment, technical communication assessment, and capstone project as a piece of their assessment
+* Rework Open Source project format - move to two day group project in week 6
 
 ### B3
 
@@ -29,3 +30,13 @@ The purpose of this document is to allow a place for us to keep track of things 
 
 
 ### B1
+
+- Move project kick-offs to Fridays from Thursdays
+- Move Mix-in lesson closer to Inheritance lesson to compare and contrast
+- Remove `cat` and `echo` from File/IO lesson
+- Add instructions to download voices to JungleBeat
+- Add note about looping/recursion to JungleBeat and CompleteMe
+- Add lesson on Four Principles of OOP
+- Start independent diagnostics earlier in the module
+- Consider meeting with students currently repeating the module early in the module to offer/discuss support.
+- Consider opening conversation about repeating earlier with those students for whom it is a possibility/likely outcome.
