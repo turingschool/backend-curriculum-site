@@ -1,7 +1,3 @@
-# Move Your Cubbies
-
----
-
 # Intro to M2
 
 ---
