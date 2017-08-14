@@ -49,3 +49,12 @@ As you know, Ruby has many enumerable methods available to make your life as a d
 * What do you notice about Array prototype methods?
 * How are they similar/different from Ruby enumerables?
 * What do you think a prototype is
+
+## Additional Resources
+
+* [Calling functions in JS](https://github.com/mdn/advanced-js-fundamentals-ck/blob/gh-pages/tutorials/02-functions/01-calling-functions.md)
+* [Event Basics](https://github.com/mdn/advanced-js-fundamentals-ck/blob/gh-pages/tutorials/04-events/01-basic-events.md)
+* [Intro to OOJS](https://github.com/mdn/advanced-js-fundamentals-ck/blob/gh-pages/tutorials/03-object-oriented-javascript/01-introduction-to-object-oriented-javascript.md)
+* [Array Prototype Methods](https://github.com/mdn/advanced-js-fundamentals-ck/blob/gh-pages/tutorials/01-array-prototype-methods/README.md)
+* [What is this?](https://github.com/mdn/advanced-js-fundamentals-ck/blob/gh-pages/tutorials/02-functions/02-what-is-this.md)
+
