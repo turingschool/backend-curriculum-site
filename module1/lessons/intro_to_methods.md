@@ -13,11 +13,12 @@ tags: ruby, methods
 * Define methods that do not take arguments
 * Define a class with instance methods
 
-## Vocabulary 
-* Method 
+## Vocabulary
+* Method
 * Argument
 * Parameter
-* Abstraction 
+* Return
+* Abstraction
 
 ## Slides
 
@@ -142,7 +143,7 @@ How is this program working? Talk with your partner about what each line is in c
 
 In the code snippet above we define a method `convert_to_celsius` that uses the **parameter** `temperature` to calculate the equivalent temperature in Celsius. We then call the method three times and pass it 32, 35, and 100 as **arguments**. Each time we call it, we **assign** the value that the method **returns** to a variable `celsius_1`, `celsius_2`, and `celsius_3`. We then print the values stored in those three variables to the screen.
 
-**TRY IT**: With your pair, define a method `doubler` that takes a single argument and doubles it. Similar to what we've done above, call that method three times and save the return values to variables. Then print those values to the screen.
+**TRY IT**: With your pair, define a method `doubler` that takes a single argument, doubles it (multiply by two) and returns it. Similar to what we've done above, call that method three times and save the return values to variables. Then print those values to the screen.
 
 ### Calling Methods from Other Methods
 
@@ -208,7 +209,7 @@ end
 convert(32, 35, 100)
 convert(12, 45, 65)
 ```
-**Turng & Talk** 
+**Turng & Talk**
 Talk with your partner about the flow of this program. Where does it start, how does each method get called?  
 
 
@@ -268,5 +269,3 @@ With your partner, wrap your existing methods in a `Doubler` class and adjust yo
 * What is the difference in how we define a method that takes arguments from one that does not?
 * How do you call one method from within another method?
 * Why do we use methods?
-
-
