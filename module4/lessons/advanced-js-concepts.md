@@ -107,8 +107,53 @@ pizza.details()
 
 ## What is `this`?
 
-Why is this important?
-When do we want to leverage this in our code?
+At a high level, `this` is a special property in JavaScript. `this` is not only very hard to talk about in English, it's also a confusing to many new (and experienced) JavaScript developers. 
+
+The short version is that `this` refers to the context in which a function was invoked in JavaScript. Keep in mind that this is different from where it was defined.
+
+```js
+function logThis() {
+  console.log(this)
+}
+
+logThis()
+// global object
+
+var penelope = {
+  name: "Penelope",
+  whatIsThis: function() {
+    console.log(this)
+  }
+}
+
+penelope.whatIsThis()
+// Object { name: 'Penelope', whatIsThis: [Function: whatIsThis] }
+
+```
+
+As you can see above, `this` refers to the parent object inside function code, if the function is called as a property of the parent (the example with Penelope above).
+
+Lastly, `this` in function code invoked using the new operator refers to the newly created object. For example:
+
+```js
+function Car (make, name) {
+  this.make = make
+  this.name = name
+}
+
+var jeepWrangler = new Car('Jeep Wrangler', ‘DangerZone’)
+
+console.log(jeepWrangler.name)
+// DangerZone
+```
+
+We'll talk more about using constructor functions and classes to create objects in a future lesson!
+
+*Note*: as you can see, `this` can be confusing and changes depending on the context we're in. `this` can also be explicitly set using other JS methods like `apply`, `call`, and `bind`. These methods are outside the scope of this lesson, but we encourage you to dive deeper if you're interested.
+
+### Small Group Discussion
+
+* When do we want to leverage this in our code?
 
 ## jQuery vs JavaScript
 
