@@ -41,13 +41,17 @@ I've added the packages you need to your package.json file already (chromedriver
 
 I've also included chromedriver in the root of the project, you are going to need to move that into your /usr/bin/local/ directory, if you don't have it installed.  You can check by running `chromedriver -v`
 
-### Application setup
+### Setup
 
-Just like your current project, we're going to be running two different codebases. Clone down both of these, and we'll go through the README to get them both running.
+We'll be working with a front-end repository. This will be our client that will communicate with an API via AJAX. For this lesson, we'll be using [JSONPlaceholder](https://jsonplaceholder.typicode.com/) as our API, serving us dummy data. For our projects, this back-end would be a separate repository running its own server.
 
-https://github.com/turingschool-examples/ajax-testing-be
-
-https://github.com/turingschool-examples/ajax-testing-fe
+```
+git clone git@github.com:turingschool-examples/ajax-testing-fe.git
+cd ajax-testing-fe
+npm install
+npm start
+npm test
+```
 
 Let's integrate
 ----------------
@@ -76,6 +80,7 @@ test.describe('testing my simple blog', function() {
   test.afterEach(function() {
     driver.quit();
   })
+});
 ```
 
 Let's start with our `require`s
@@ -91,6 +96,7 @@ Moving on:
 test.describe('testing my simple blog', function() {
   var driver;
   this.timeout(10000);
+});
 // ...
 ```
 
