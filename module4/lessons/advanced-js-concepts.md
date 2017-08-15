@@ -18,13 +18,13 @@
 
 ## Overview
 
-We've briefly touched on quite a few JavaScript concepts, now is our time to dive deeper and ensure we're all on the same page about some concepts in particular. 
+We've briefly touched on quite a few JavaScript concepts, now is our time to dive deeper and ensure we're all on the same page moving forward.  
 
 ## JavaScript Objects
 
 What do we mean when we say "JavaScript object"? An object in JavaScript is a collection of properties, and a property is an association between a name (or key) and a value. A property's value can be a function, in which case the property is known as a method.
 
-How do we create new objects in JavaScript land? You can define an object in a few different ways. First of all, you can define an object literal by simply creating what may look like a Ruby hash:
+How do we create new objects in JavaScript? You can define an object in a few different ways. First of all, you can define an object literal by simply creating what may look like a Ruby hash:
 
 ```js
 var penelope = { firstName: "Penelope", age: 88 }
@@ -56,7 +56,7 @@ penelope["firstName"]
 
 *Reflect*: Why do we want to encapsulate properties/functions in objects?
 
-What else can we add to an object's properties? We can add functions as properties.
+What else can we add to an object's properties? Functions!
 
 ```js
 var penelope = { 
@@ -72,7 +72,7 @@ var penelope = {
 
 ```
 
-What if I want to return a value dynamically depending on the properties Penelope has? 
+What if I want to return a value dynamically depending on Penelope's properties? 
 
 ```js
 var penelope = { 
@@ -111,6 +111,11 @@ At a high level, `this` is a special property in JavaScript. `this` is not only 
 
 The short version is that `this` refers to the context in which a function was invoked in JavaScript. Keep in mind that this is different from where it was defined.
 
+Thankfully, we have a few rules to follow.
+
+First of all, `this` refers to the global object in all global code.
+
+
 ```js
 function logThis() {
   console.log(this)
@@ -118,7 +123,12 @@ function logThis() {
 
 logThis()
 // global object
+```
 
+Secondly, `this` refers to the parent object inside function code, if the function is called as a property of the parent.
+
+
+```js
 var penelope = {
   name: "Penelope",
   whatIsThis: function() {
@@ -130,8 +140,6 @@ penelope.whatIsThis()
 // Object { name: 'Penelope', whatIsThis: [Function: whatIsThis] }
 
 ```
-
-As you can see above, `this` refers to the parent object inside function code, if the function is called as a property of the parent (the example with Penelope above).
 
 Lastly, `this` in function code invoked using the new operator refers to the newly created object. For example:
 
@@ -154,6 +162,8 @@ We'll talk more about using constructor functions and classes to create objects 
 ### Small Group Discussion
 
 * When do we want to leverage this in our code?
+* What are some situations where having access to `this` may be helpful?
+* In your own words, how would you describe `this`?
 
 ## jQuery vs JavaScript
 
@@ -181,7 +191,6 @@ $('img').hide();
 - open-source
 - easy DOM manipulation
 - simple methods for reading and interacting with your HTML
-- gives us more control over our DOM
 
 #### What are some popular jQuery methods?
 
@@ -197,7 +206,7 @@ $('img').hide();
 * Why would we want to use jQuery over raw JavaScript? 
 * When might we want to use JavaScript instead of jQuery?
 
-#### You Do
+#### Practice
 
 In your notebooks, translate the following from JS to jQuery. If you're stuck, ask whomever you're sitting next to or the interwebs! 
 
@@ -209,10 +218,23 @@ clickMeButton.addEventListener('click', function () {
 });
 ```
 
-## Bind events to jQuery selectors to manipulate the DOM
+## Review: DOM manipulation
 
-What's an event? What's the DOM?
-How do we select an DOM element using jQuery? 
+1. Select an element
+2. Bind an event to the selector
+3. Execute some code that manipulates the DOM accordingly
+
+## Review: DOM manipulation
+
+* What's an event? 
+* What's the DOM?
+* How do we select an DOM element using jQuery? 
+
+## Practice: Let's play around with some jQuery!
+
+Clone [this](https://github.com/turingschool-examples/jQuery-playground) repository. Navigate to the `basic-jQuery` directory. 
+
+**Spend 5 minutes refreshing on basic jQuery using this playground. Can you add a few events that trigger DOM manipulation? Can you change the font with the click of a button?**
 
 ## Array prototype methods
 
