@@ -219,7 +219,7 @@ upcase
 
 ### String Concatenation
 
-First, we'll assign the string "mary" to the variable `student`:
+First, we'll assign the string "Tyrese" to the variable `student`:
 
 ```ruby
 $ irb  
