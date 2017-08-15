@@ -32,10 +32,10 @@ Students who successfully complete Module 4 will have demonstrated mastery of Pr
 <h4 id="week_1">Week 1</h4>
 *   State of Turing
 *   Success in B4
-*   [Advanced JS - This, Scope, Events](./lessons/advanced-js-fundamentals)
-*   Project Kickoff: Quantified Self
+*   [Advanced JS - This, Objects, Events](./lessons/advanced-js-concepts)
 *   [Event Bubbling and Delegation](./lessons/event-bubbling-and-delegation)
 *   [Webpack and NPM](./lessons/webpack-demystified)
+*   Project Kickoff: Quantified Self
 *   [Persisting and retrieving data with AJAX](./lessons/translation-station)
 *   [Debugging the Client Side](http://frontend.turing.io/lessons/debugging-with-devtools.html)
 *   [ES5 vs ES6](./lessons/es5_vs_es6)
