@@ -137,6 +137,8 @@ puts celsius_1
 puts celsius_2
 puts celsius_3
 ```
+**Turn & Talk**  
+How is this program working? Talk with your partner about what each line is in charge of. Try to point out where the following are taking place: parameter, argument, return, assign to a variable.
 
 In the code snippet above we define a method `convert_to_celsius` that uses the **parameter** `temperature` to calculate the equivalent temperature in Celsius. We then call the method three times and pass it 32, 35, and 100 as **arguments**. Each time we call it, we **assign** the value that the method **returns** to a variable `celsius_1`, `celsius_2`, and `celsius_3`. We then print the values stored in those three variables to the screen.
 
@@ -174,7 +176,7 @@ Once you've completed that, see if you can determine what the `print_converted` 
 
 ### Layers of Abstraction
 
-One of the advantages of using methods is that we can build methods that operate at higher levels of abstraction than other methods. Abstraction is a practice where less complex functionality is exposed in an interface and more complex funtionality is suppressed. In some ways, this is like a pyramid where higher level methods rely on lower level methods to take care of the details.
+One of the advantages of using methods is that we can build methods that operate at higher levels of abstraction than other methods. Abstraction is a practice where less complex functionality is exposed in an interface and more complex functionality is suppressed. In some ways, this is like a pyramid where higher level methods rely on lower level methods to take care of the details.
 
 ![](https://camo.githubusercontent.com/07f5ef4748c194ee893c18089a2b6513d473ac37/687474703a2f2f6d696e6573662e636f6d2f7265736f75726365732f6363612f77702d636f6e74656e742f75706c6f6164732f323031302f30312f61627374726163742d6f2d6d65746572312e6a7067)
 
@@ -206,6 +208,9 @@ end
 convert(32, 35, 100)
 convert(12, 45, 65)
 ```
+**Turng & Talk** 
+Talk with your partner about the flow of this program. Where does it start, how does each method get called?  
+
 
 With a partner, create a method that provides similar functionality for `doubler.rb`. If you finish that, see if you can change your method so that it accepts an array as an argument and prints a message for each element of the array.
 

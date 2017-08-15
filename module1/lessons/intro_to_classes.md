@@ -8,7 +8,8 @@ tags: ruby, classes, objects
 ## Learning Goals
 
 * Define classes with instance methods in Ruby
-* Define classes with instance variables in Ruby  
+* Define classes with instance variables in Ruby 
+* Identify the application of Abstraction and Encapsulation principles 
 
 ## Schedule 
 * 5min - WarmUp
@@ -91,7 +92,7 @@ What's after that?
 
 The output from `puts "This is our converter: #{converter}"` is the way that Ruby represents an instance of an object to use in print. Notice there's an `object_id` that is unique to each instance we've created. Even though they generally look the same, our computer is now tracking three separate instances of our Converter object.  
 
-An *object* is an abstract representation of a real world thing. Abstraction is the practice of creating classes/objects and building out logical behaviors and characteristics. 
+An *object* is an abstract representation of a real world thing. Remember, abstraction is the practice of creating classes/objects and building out an interface with logical behaviors and characteristics. 
 
 Here we see Abstraction coming in to play where the user can interface with a Converter. It has specific details about it that we interact with such as `.convert` but other details that we do not interact with such as .`convert_to_celcius`. 
 
@@ -265,7 +266,7 @@ end
 
 
 
-Changing our `attr_reader`s to `attr_accessor`s makes it so that we can change the classroom's value from outside the class to **anything** we want. Note, we are changing, and reducing this object's encapsulation. We are placing some trust in people using the class that they will use it responsibly.
+Changing our `attr_reader`s to `attr_accessor`s makes it so that we can change the classroom's value from outside the class to **anything** we want. Note, we are changing, and reducing this object's Encapsulation. We are placing some trust in people using the class that they will use it responsibly.
 
 Meanwhile, the method `add_length` is a little more specific in what it allows us to do; specifically, using this method we can make the classroom longer. No other change is allowed. We do this by accessing the **instance variable** from within the method. Note, we could do this without an `attr_accessor`.
 
@@ -275,6 +276,9 @@ Create a `Lunchbox` class that has theme, height, width, and length attributes. 
 
 ## Summary
 
+* Explain Abstraction in your own words.
+* Explain Encapsulation in your own words.
 * How would you define a `Cubby` class in Ruby?
-* What might be some of its attributes?
-* What might be some of its methods?
+	* What might be some of its attributes?
+	* What might be some of its methods?
+ 

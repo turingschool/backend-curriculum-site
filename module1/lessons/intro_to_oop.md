@@ -212,7 +212,7 @@ What's this do? We use the shovel method to add a student that someone passes us
 
 That seems great, but what can we do with it? And what is a student? Is a student just a name? ARE YOU JUST A NAME!? No!
 
-Let's make our students into object, a more fleshed out version of this abstract idea. To do that we create a student class to represent our students. For now it'll be pretty small since there's not much we need our student class to do.
+Let's make our students into objects, a more fleshed out version of this abstract idea. To do that we create a student class to represent our students. For now it'll be pretty small since there's not much we need our student class to do.
 In our runner:
 
 ```ruby
@@ -259,7 +259,11 @@ That's fun, but how do we use these students in our new class?
 
 #### Using Objects in Other Objects
 
-Let's create a new method in our Classroom class that allows us to print a roster. Now we don't want to print those full Student objects, we just want to print their names.
+Let's create a new method in our Classroom class that allows us to print a roster. Now we don't want to print those full Student objects, we just want to print their names. 
+
+** Turn & Talk **  
+How can we use the functionality we've already built on Student to print a roster of student names in Classroom?
+
 And update our runner:
 
 ```ruby
