@@ -255,7 +255,7 @@ Let's setup our `add-test.js` file. We'll add `chai` as well as the module that 
 
 ```js
 const assert = require('chai').assert
-const add = require('../add')
+const addNumbers = require('../add')
 ```
 
 In the above snippet, we are using the constant that has the same name as our exported function and finding the file via its file path.
@@ -264,7 +264,7 @@ Now we are ready to write a test!
 
 ```js
 const assert = require('chai').assert
-const add = require('../add')
+const addNumbers = require('../add')
 
 describe('add functionality', function() {
   context('add function', function(){
