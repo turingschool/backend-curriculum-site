@@ -325,16 +325,17 @@ times
 ## Recap
 
 Today, you accomplished the following:
-
-* assign values to variables using proper naming conventions
-* define "string"
-* use string concatenation with literal strings and variables
-* use string interpolation with variables
-* call key methods on strings
-* define "integer"
-* define "float"
-* call key methods on integers and floats
-* read Ruby documentation
+* What are the naming requirements for Ruby local variables? What are the conventions?
+* How do you assign a value to a variable?
+* Define "string"
+* What is the syntax for string concatenation (aka How do you concatenate strings?)
+* What is the syntax for interpolation? (aka How do you interpolate variables into strings?)
+* Name a String method
+* Define "integer"
+* Define "float"
+* Name an Integer method
+* Name a Float method
+* How do you get to the Ruby Docs?
 
 ## Homework  
 *  Work through Core-Types for String and Fixnum  
