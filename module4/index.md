@@ -35,8 +35,7 @@ Students who successfully complete Module 4 will have demonstrated mastery of Pr
 *   [Advanced JS - This, Objects, Events](./lessons/advanced-js-concepts)
 *   [Event Bubbling and Delegation](./lessons/event-bubbling-and-delegation)
 *   [Webpack and NPM](./lessons/webpack-demystified)
-*   Project Kickoff: Quantified Self
-*   [Persisting and retrieving data with AJAX](./lessons/translation-station)
+*   [Test Driving AJAX](./lessons/testing-in-javascript)
 *   [Debugging the Client Side](http://frontend.turing.io/lessons/debugging-with-devtools.html)
 *   [ES5 vs ES6](./lessons/es5_vs_es6)
 *   [Week One CFU](https://github.com/turingschool/checks-for-understanding/blob/master/module-4/backend/week_one.md)
