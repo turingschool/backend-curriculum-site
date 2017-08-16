@@ -40,9 +40,9 @@ These can be used to:
 
 ### What is `.each`?
 
-* `.each` is the base for all enumerable methods
 * `.each` allows you to traverse a collection and access each of its elements
 * `.each` **returns the original collection**
+* `.each` is the base for all enumerable methods
 
 ### What is the syntax for writing enumerable methods?
 
@@ -79,6 +79,7 @@ This can also be written:
 ```ruby
 names.each { |name| puts name.capitalize }
 ```
+### Turn & Talk
 
 What do you think these should return?
 
@@ -93,7 +94,7 @@ Remember that there is a difference between what gets *output to a screen* and w
 Discuss one instance (during your prework or homework) where you faced a problem and had to run the entire file over and over again until you got the correct result.
 
 
-### Shorten the Dev Feedback Loop!
+### Shorten the Development Feedback Loop!
 
 Consider the feedback loop in programming: we assume our code should do something, we're wrong, we change it until we get working code. Shortening the loop will make us faster & more efficient developers. **Debuggers** provide effective tools for evaluating our assumptions.
 
@@ -118,9 +119,10 @@ gem install pry
 
 You can enter a Pry session from your CLI by simply typing `pry`
 
-`binding.pry` is the standard way to invoke Pry at runtime; it ensures that all local variables and other relevant state are inherited by the session. (It also causes the whereami command to be invoked automatically - and so the surounding context of the session (a few lines either side of the invocation line) are displayed for the user).
+`binding.pry` is the standard way to invoke Pry at runtime
 
-You can think of a binding like a “snapshot” of everything available at the moment of instantiation: current value of “self”, local variables, methods, instance variables and more. 
+* You can think of a binding like a “snapshot” of everything available at the moment of instantiation: current value of “self”, local variables, methods, instance variables and more. 
+* It also causes the whereami command to be invoked automatically - and so the surounding context of the session (a few lines either side of the invocation line) are displayed for the user.
 
 ### Pry Playground
 
@@ -131,8 +133,6 @@ You need to require Pry at the top of your Ruby file. Then you can use it wherev
 ```ruby
 require "pry"
 
-a_few_of_my_favorites = ["crisp apple strudels", "schnitzel with noodles", "wild geese that fly with the moon on their wings"]
-
 def favorite_things(things)
   things.each do |thing|
     binding.pry
@@ -142,6 +142,7 @@ def favorite_things(things)
   binding.pry
 end
 
+a_few_of_my_favorites = ["crisp apple strudels", "schnitzel with noodles", "wild geese that fly with the moon on their wings"]
 favorite_things(a_few_of_my_favorites)
 ```
 
@@ -169,11 +170,12 @@ doubles of each number? Triples?
 
 ## Recap
 
+* What do enumerable methods do? Give an example.
 * What is the syntax for an inline `each`? Multi-line `each`?
 * List 3 debugging tools/techniques for Ruby
-* What is the syntax for adding `pry` to your code? Where do you add these?
-* What can you access in a pry session?
-* How do you proceed to the next `binding.pry` (could be the next iteration of a loop)
+* What is the syntax for adding `Pry` to your code? Where do you add these?
+* What can you access in a runtime-invoked pry session?
+* How do you proceed to the next `binding.pry` (could be the next iteration of a loop)?
 * How do you exit a pry session completely?
 
 ***
