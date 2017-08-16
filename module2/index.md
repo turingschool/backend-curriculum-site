@@ -44,6 +44,8 @@ subheading: Web Applications with Ruby
 ### Important Links
 
 * [__Mod 2 Success__](./success)
+* [__Mod 2 Lesson Plans__](lessons)
+* [__Mod 2 Homework Assignments__](homework)
 * [__Mod 2 Portfolio Requirements__](./portfolios)
 * [__Mod 2 Professional Development Curriculum__](https://github.com/turingschool/career-development-curriculum/tree/master/module_two)
 

@@ -10,6 +10,12 @@ tags: ruby, classes, objects
 * Define classes with instance variables in Ruby
 * Explain 'state' and 'behavior' in the context of Ruby/OOP
 
+## Vocabulary
+* Object Oriented Programming (OOP) 
+* Object
+* Abstraction 
+* Encapsulation
+
 ## Slides
 
 Available [here](../slides/intro_to_oop)
@@ -23,7 +29,7 @@ Available [here](../slides/intro_to_oop)
 
 #### Using Related Methods
 
-Let's start with our `Classroom` class from yesterday.
+Let's start with our `Classroom` class from yesterday. Remember a class is an abstract representation of a real world thing/concept.
 
 Now, if we want to create a method `#volume`, we can use the `#area` method as a starting point. Let's do that. 
 In our runner file:
@@ -157,7 +163,13 @@ class Classroom
 end
 ```
 
-Now each classroom we create will be created with an empty array of students. How do we get students into this array? With a method!
+Now each classroom we create will be created with an empty array of students. 
+
+**Turn & Talk**
+What are the two methods of setting default values? 
+How should you decide which method to use? 
+
+How do we get students into this array? With a method!
 
 Let's add that now.
 
@@ -200,19 +212,8 @@ What's this do? We use the shovel method to add a student that someone passes us
 
 That seems great, but what can we do with it? And what is a student? Is a student just a name? ARE YOU JUST A NAME!? No!
 
-Let's create a student class to represent our students. For now it'll be pretty small since there's not much we need our student class to do.
-
-```ruby
-class Student
-  attr_reader :name
-
-  def initialize(name)
-    @name = name
-  end
-end
-```
-
-Now, let's update our runner file to actually use this new student class. First we need to require it, and then we can pass it to our new `#add_student` method via our runner.
+Let's make our students into objects, a more fleshed out version of this abstract idea. To do that we create a student class to represent our students. For now it'll be pretty small since there's not much we need our student class to do.
+In our runner:
 
 ```ruby
 # classroom runner
@@ -236,12 +237,33 @@ classroom_a.add_student(sal)
 classroom_a.add_student(ali)
 puts classroom_a.students
 ```
+We get an uninitialized constant for Student error, which tells us that our program can't find the class we told it to look for. This may be because we haven't required the student.rb file, or perhaps we haven't build one yet. Here it's because we haven't built it yet. 
 
+Let's go build that. `touch student.rb`
+
+```ruby
+#student.rb
+
+class Student
+  attr_reader :name
+
+  def initialize(name)
+    @name = name
+  end
+end
+```
+Note we have explicitly decided to expose the @name instance variable by including an attr_reader. This is an example of Encapsulation at work, only exposing what needs to be accessed from the outside. 
+
+Run the runner file again, and we shouldn't get any more errors.
 That's fun, but how do we use these students in our new class?
 
 #### Using Objects in Other Objects
 
-Let's create a new method in our Classroom class that allows us to print a roster. Now we don't want to print those full Student objects, we just want to print their names.
+Let's create a new method in our Classroom class that allows us to print a roster. Now we don't want to print those full Student objects, we just want to print their names. 
+
+** Turn & Talk **  
+How can we use the functionality we've already built on Student to print a roster of student names in Classroom?
+
 And update our runner:
 
 ```ruby
@@ -324,3 +346,4 @@ Feeling fancy? Update your Snack class to have a volume. Update the `add_snack` 
 * What are some examples of classes and instances from everyday life?
 * How would you define a `Person` class that had height, weight, and age attributes in Ruby?
 * What are the two main responsibilities of an instance of an object in Ruby?
+* How did we apply Abstraction and Encapsulation today? 

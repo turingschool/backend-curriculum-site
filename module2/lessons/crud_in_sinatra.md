@@ -12,6 +12,10 @@ By the end of this lesson, you will know/be able to:
 * understand functionality to of *U*pdate and *D*elete of CRUD for a Sinatra app
 * divide responsibilities between the controller, views, and models
 
+### Slides
+
+Available [here](../slides/crud_in_sinatra).
+
 ### Warm Up
 
 We'll go through the questions answered last night for homework [here](https://gist.github.com/case-eee/1f066fa3be100f8f18f4d31f521a3da4).

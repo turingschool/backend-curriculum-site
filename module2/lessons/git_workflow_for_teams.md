@@ -1,4 +1,5 @@
 ---
+layout: page
 title: Git Workflow
 subheading: for teams
 ---

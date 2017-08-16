@@ -186,14 +186,14 @@ More information about rbenv can be found [here](https://github.com/rbenv/rbenv#
 
 ### Ruby
 
-Now that we have rbenv installed, we're going to use it to install a specific version of Ruby: Ruby 2.3.1
+Now that we have rbenv installed, we're going to use it to install a specific version of Ruby: Ruby 2.4.1
 
-If you need another version it'll be same procedure, just replace "2.3.1" in the instructions with whichever version you want.
+If you need another version it'll be same procedure, just replace "2.4.1" in the instructions with whichever version you want.
 
 Install it with:
 
 ```shell
-rbenv install 2.3.1
+rbenv install 2.4.1
 ```
 
 #### Setting the Default Version
@@ -201,7 +201,7 @@ rbenv install 2.3.1
 You can tell rbenv which Ruby version you want to use by default:
 
 ```shell
-rbenv global 2.3.1
+rbenv global 2.4.1
 ```
 
 To reload your shell, do the following:
