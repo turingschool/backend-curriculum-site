@@ -5,7 +5,7 @@ length: 60
 tags: pry, ag, debugging
 ---
 
-## Goals
+## Learning Goals
 
 * Install tools to help support our debugging process.
 * Understand how to use feedback, verify assumptions and read stack traces.
