@@ -1,85 +1,72 @@
 ---
 layout: page
-title: Debugging with Pry
-length: 90
-tags: enumerable, ruby, collections, arrays, each
+title: Exploring .each and Debugging with Pry
+length: 60
+tags: enumerable, ruby, collections, arrays, each, pry, debugging
 ---
 
-## Debugging with Pry
+# Exploring `.each` & Debugging with Pry
 
-### Goals
+## Learning Goals
 
-* Learn how to use a debugger to pause and interact with running code
-* Understand how to use single-line and multi-line each
+* Recognize & demonstrate use of inline and multi-line `each`
+* Name various debuggers for Ruby
+* Employ pry to pause & interact with running code
 
-[slides](../slides/debugging_with_pry)
+<!-- * Learn how to use a debugger to pause and interact with running code
+* Understand how to use single-line and multi-line each -->
 
-### Debuggers
+<!-- [slides](../slides/debugging_with_pry) -->
 
-As programmers we often make assumptions about what our code is doing. We are often wrong. One of the most important and effective debugging techniques is to validate your assumptions.
+## Vocabulary 
+* Enumerable
+* Block
+* Block Parameter
+* Debugger
+* Pry
 
-Have you ever found yourself working on a programming problem and as you attempt to solve it, you are forced to run the entire file over and over again until you get the correct result? Wouldn't it be awesome if you could pause your code at a specific line and interact with it? Enter debuggers.
-
-Debuggers are great to see what your code is actually doing. The most common debuggers in ruby are `byebug` and `pry`. You can pick whichever you prefer. For this exercise we will use `pry`.
-
-First, install it from the command line.
-`gem install pry`
-
-Then, let's create an `exploring_each.rb` file within your classwork directory.
-
-You need to require it at the top of your Ruby file.
-
-```ruby
-require "pry"
-```
-
-Now you can use it like this...
-
-```ruby
-favorite_things = ["whiskers", "packages", "strings"]
-binding.pry
-```
-
-We're going to use your debugger to explore `.each` and on the challenges below.
-
-<!-- Let's use [this gist](https://gist.github.com/jmejia/04924190362f64fc49ab) as a guide. -->
-
-### What are enumerable methods?
+## What are enumerable methods?
 
 Enumerables are methods that can be used on collections (arrays and hashes) to iterate over each element.
-These can be used to make something based on the original collection, change the original collection, or search for elements or an element within that collection.
+These can be used to: 
+* create something based on the original collection
+* search for elements or an element within that collection
+* change the original collection
 
-### What is .each?
+### What is `.each`?
 
-* `.each` is the base for enumerable methods
-* it allows you to traverse a collection and access each of its elements
-* it **returns the original collection**
+* `.each` is the base for all enumerable methods
+* `.each` allows you to traverse a collection and access each of its elements
+* `.each` **returns the original collection**
 
-#### What is the syntax for writing enumerable methods?
+### What is the syntax for writing enumerable methods?
 
-##### Multi-Line
+* A **block** exists between `do...end` or between `{...}`
+* A **block parameter** goes between the pipes `||` & is the variable you use within the block itself
+
+#### Multi-Line Block
 
 ```ruby
-array.each do |item|
-  item.do_something
+array.each do |element|
+  element.do_something
 end
 ```
 
-##### Single-Line
+#### Inline (Single-Line) Block
 
 ```ruby
-array.each { |item| item.do_something }
+array.each { |element| element.do_something }
 ```
 
-#### Basic use of .each
+### Basic use of .each
 
 Let's say we have an array of words, and we want to print out to the screen
 each word in the array, but in all capitalized letters.
 
 ```ruby
-array = ["alice", "bob", "eva"]
+names = ["alice", "bob", "eva"]
 
-array.each do |name|
+names.each do |name|
   puts name.capitalize
 end
 ```
@@ -87,17 +74,77 @@ end
 This can also be written:
 
 ```ruby
-array = ["alice", "bob", "eva"]
+names = ["alice", "bob", "eva"]
 
-array.each { |name| puts name.capitalize }
+names.each { |name| puts name.capitalize }
 ```
 
-What do you think each of these returns?
+What do you think these should return?
 
 Remember that there is a difference between what gets output to a screen
 and what a bit of code returns.
 
-#### Exercises
+***
+
+## Debuggers
+
+As programmers we often make assumptions about what our code is doing. We are often wrong. One of the most important and effective debugging techniques is to validate your assumptions.
+
+Have you ever found yourself working on a programming problem and as you attempt to solve it, you are forced to run the entire file over and over again until you get the correct result? Wouldn't it be awesome if you could pause your code at a specific line and interact with it? Enter debuggers.
+
+Debuggers are great to see what your code is actually doing. The most common debuggers in ruby are `byebug` and `pry`. You can pick whichever you prefer. For this exercise we will use `pry`.
+
+### Pry
+
+Language shells, like IRB (interactive Ruby), are REPLs (Read-Eval-Print-Loop) that take user input, evaluate it & return the result.
+
+"Pry is a powerful alternative to the standard IRB (interactive ruby) shell for Ruby. It features syntax highlighting, a flexible plugin architecture, runtime invocation and source and documentation browsing." (Straight from the horse's mouth: [http://pryrepl.org/](http://pryrepl.org/))
+
+The **syntax highlighting** & **runtime invocation** are most useful & relevant to us.
+
+### Using Pry
+
+Install Pry from the command line:
+```
+gem install pry
+```
+
+You can enter a Pry session from your CLI by simply typing `pry`
+
+`binding.pry` is the standard way to invoke Pry at runtime; it ensures that all local variables and other relevant state are inherited by the session. (It also causes the whereami command to be invoked automatically - and so the surounding context of the session (a few lines either side of the invocation line) are displayed for the user).
+
+You can think of a binding like a “snapshot” of everything available at the moment of instantiation: current value of “self”, local variables, methods, instance variables and more. 
+
+### Pry Playground
+
+Then, let's create an `debugging_with_pry.rb` file within your classwork directory.
+
+You need to require it at the top of your Ruby file. Then you can use it wherever you'd like your program to pause.
+
+```ruby
+require "pry"
+
+a_few_of_my_favorites = ["whiskers", "packages", "strings"]
+
+def favorite_things(things)
+  things.each do |thing|
+    binding.pry
+    puts thing.capitalize
+    thing.upcase
+  end
+  binding.pry
+end
+
+favorite_things(a_few_of_my_favorites)
+```
+
+We're going to use your debugger to explore `.each` with the challenges below.
+
+<!-- Let's use [this gist](https://gist.github.com/jmejia/04924190362f64fc49ab) as a guide. -->
+
+***
+
+## Exercises
 
 Use your debugger to work through the following.
 
@@ -108,9 +155,27 @@ doubles of each number? Triples?
 * If you had the same array, how would you only print out the even numbers?
 What about the odd numbers?
 * If you had the same array, how could you create a new array which contains each number multipled by 2?
-* Given an array of first and last names, e.g. `["Ilana Corson", "Lauren Fazah", "Beth Sebian"]`, how would you print out only first names?
+* Given an array of first and last names, e.g. `["Victoria Vasys", "Ali Schlereth", "Nate Allen"]`, how would you print out only first names?
 * How would you print out only last names?
 * How could you print out only the initials?
 * How can you print out the last name and how many characters are in it?
 * How can you create an integer which represents the total number of characters in all the names?
-* Say you had an array of nested arrays: `[['Ilana', 'Corson'], ['Lauren', 'Fazah'], ['Beth', 'Sebian']]`. Each nested array has two elements, a first name and a last name. How would you print out each nested array's full name?
+* Say you had an array of nested arrays: `[['Victoria', 'Vasys'], ['Ali', 'Schlereth'], ['Nate', 'Allen']]`. Each nested array has two elements, a first name and a last name. How would you print out each nested array's full name?
+
+## Recap
+
+* What is the syntax for inline `each`?
+* Multi-line `each`?
+* List 3 debugging techniques for Ruby
+* Where and how do you add 'pry' to your code?
+* What can you do in a pry session?
+
+## Further Learning
+
+Explore http://pryrepl.org/
+
+Check out this video for a more in-depth intro to Pry: https://vimeo.com/26391171
+
+Fun fact- you can invoke “pry” on almost every Ruby object. That's possible because it is defined on Object, the ancestor of every Ruby class.
+
+Finally, we are not limited to remaining in the scope where the binding.pry call was invoked - using Pry's state navigation abilities we can navigate to any part of the program we wish and examine the state there (see https://vimeo.com/23634437)
