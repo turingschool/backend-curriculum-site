@@ -8,19 +8,19 @@ tags: ruby, classes, objects
 ## Learning Goals
 
 * Define classes with instance methods in Ruby
-* Define classes with instance variables in Ruby 
-* Identify the application of Abstraction and Encapsulation principles 
+* Define classes with instance variables in Ruby
+* Identify the application of Abstraction and Encapsulation principles
 
-## Schedule 
+## Schedule
 * 5min - WarmUp
-* 20min - Organizign Methods with Classes 
+* 20min - Organizing Methods with Classes
 * Behavior & State 
 * 5min - WrapUp
 
-## Vocabulary 
-* Class 
+## Vocabulary
+* Class
 * Instance
-* Instance Method 
+* Instance Method
 * Object
 * Abstract/Abstraction
 * Instance Variable
@@ -92,9 +92,9 @@ What's after that?
 
 The output from `puts "This is our converter: #{converter}"` is the way that Ruby represents an instance of an object to use in print. Notice there's an `object_id` that is unique to each instance we've created. Even though they generally look the same, our computer is now tracking three separate instances of our Converter object.  
 
-An *object* is an abstract representation of a real world thing. Remember, abstraction is the practice of creating classes/objects and building out an interface with logical behaviors and characteristics. 
+An *object* is an abstract representation of a real world thing. Remember, abstraction is the practice of creating classes/objects and building out an interface with logical behaviors and characteristics.
 
-Here we see Abstraction coming in to play where the user can interface with a Converter. It has specific details about it that we interact with such as `.convert` but other details that we do not interact with such as .`convert_to_celcius`. 
+Here we see Abstraction coming in to play where the user can interface with a Converter. It has specific details about it that we interact with such as `.convert` but other details that we do not interact with such as .`convert_to_celcius`.
 
 ### Behavior & State
 
@@ -132,9 +132,9 @@ puts classroom_a
 Run that and what do we get? Sure enough, it's an instance of classroom!
 
 That's great. We can set the attributes of the classroom instance when we create it. What if I want to access those attributes? Basically, what happens if I forget the length of the classroom? How do I ask it?
-We could put a pry to dig around. 
+We could put a pry to dig around.
 
-```ruby 
+```ruby
 #classroom_runner.rb
 require 'pry'
 require './classroom'
@@ -143,8 +143,8 @@ classroom_a = Classroom.new(10, 5, 20)
 binding.pry
 ```
 
-When we call `classroom_a` in our pry session, we get something like this `#<Classroom:0x007fe119e926c0>`, we still can't see the length. This is due in part to the principle of Encapsulation, where information is only exposed when intentionally built to do so. 
-Right now, we want to expose that information, so let's do that. 
+When we call `classroom_a` in our pry session, we get something like this `#<Classroom:0x007fe119e926c0>`, we still can't see the length. This is due in part to the principle of Encapsulation, where information is only exposed when intentionally built to do so.
+Right now, we want to expose that information, so let's do that.
 
 Let's add a line to our runner file.
 
@@ -281,4 +281,3 @@ Create a `Lunchbox` class that has theme, height, width, and length attributes. 
 * How would you define a `Cubby` class in Ruby?
 	* What might be some of its attributes?
 	* What might be some of its methods?
- 
