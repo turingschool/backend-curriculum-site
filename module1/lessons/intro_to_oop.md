@@ -9,6 +9,8 @@ tags: ruby, classes, objects
 
 * Define classes with instance variables in Ruby
 * Explain 'state' and 'behavior' in the context of Ruby/OOP
+* Explain Abstraction in the context of Ruby Objects
+* Identify that you can iterate over Ruby Objects to accomplish a goal
 
 ## Vocabulary
 * Object Oriented Programming (OOP) 
