@@ -1,4 +1,4 @@
-# Debugging with Pry
+# Debugging with Pry using `.each`
 
 ---
 
