@@ -24,6 +24,27 @@ Essentially, AJAX allows us to _asynchronously_ interact with most anything, but
 
 We'll learn more about asynchronicity in JavaScript later in the module, but for now, let's think of AJAX as the tool that will allow us to make client-side requests to an API.
 
+[jQuery AJAX](https://api.jquery.com/category/ajax/) requests come in all shapes and sizes, but for reference, here's a common structure:
+
+```js
+function() {
+  // make a GET request
+  // returning immediately since this AJAX call
+  // with chained handling is technically all one line
+  return $.getJSON("http://localhost:3000/api/v1/posts")
+  // JS Promise is returned, if successful, handled by `.then`
+  // JSON response is passed to anonymous function, here named `posts`
+  .then(function(posts){
+    // we're within this block if things went well,
+    // so do something with the data!
+  })
+  .fail(function(error) {
+    // only here if there was an error,
+    // so handle error if there is one
+  })
+}
+```
+
 ## Selenium Setup
 
 What about when we want to test user interactions with the application. We're going to bring in a new tool called [Selenium](https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/webdriver_exports_WebDriver.html).
