@@ -37,11 +37,55 @@ Linked [here](../slides/intro_to_classes)
 * Wrap these methods in a `Calculator` class
 * Create a new instance of our `Calculator` class and call the methods you defined
 
-## Lesson
+## Lesson  
+
+### Basic Classes
+
+It looks like we have a nice small set of methods that hang together to provide some functionality. Let's do just a little bit more work to wrap these methods together. We'll do that by creating a class to wrap these methods.
+
+The general pattern for creating a class is as follows:
+
+```ruby
+class NameOfClass
+  # stuff
+end
+```
+
+Let's do it.
+
+```ruby
+# converter.rb
+
+class Converter
+  def convert(first, second, third)
+    print_welcome
+    print_converted(first)
+    print_converted(second)
+    print_converted(third)
+  end
+
+  def print_welcome
+    puts 'Welcome to Converter!'
+  end
+
+  def convert_to_celsius(temperature)
+    ((temperature - 32) * 5.0 / 9.0).round(2)
+  end
+
+  def print_converted(temperature)
+    converted = convert_to_celsius(temperature)
+    puts "#{temperature} degrees Fahrenheit is equal to #{converted} degrees Celsius"
+  end
+end
+
+converter = Converter.new
+converter.convert(32, 35, 100)
+converter.convert(12, 45, 65)
+```
+
+Notice that when we wrap these methods in a class we need to create a new **instance** of the class on which to call these methods. We sometimes say that the instance is the **receiver**, that we're sending messages to it, and that it is responding to those messages.
 
 ### Organizing Methods with Classes
-
-Let's start with the `Converter` class from yesterday's lesson.
 
 ```ruby
 # converter.rb
