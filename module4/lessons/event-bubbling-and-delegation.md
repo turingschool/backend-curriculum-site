@@ -11,6 +11,13 @@ Learning Goals
 *   Understand event bubbling
 *   Learn to use event bubbling to set event listeners
 
+Warm Up
+-----------
+
+* Read the "Bubbling" and "event.target" section [here](https://javascript.info/bubbling-and-capturing)
+* What is event bubbling?
+* What does "inheritance" mean in your own words?
+
 Event Basics
 -------
 
@@ -176,6 +183,8 @@ A common obstacle that many JavaScript developers struggle with is understanding
 
 ### Experiment
 
+**For this class, we're going to use this [repo](https://github.com/turingschool-examples/js-event-delegation) instead of the Code Pen below.**
+
 <p data-height="300" data-theme-id="23788" data-slug-hash="OXzGGR" data-default-tab="js,result" data-user="turing" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/team/turing/pen/OXzGGR/">Events: Adding a New Event Listener</a> by Turing School of Software and Design (<a href="http://codepen.io/turing">@turing</a>) on <a href="http://codepen.io">CodePen</a>.</p>
 <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
 
@@ -201,6 +210,8 @@ Also, You can cause a [memory leak](http://javascript.crockford.com/memory/leak.
 Rather than manage the addition and removal of event listeners, there is a methodology you can use called *__event delegation__*.
 
 In *__event delegation__*, we take advantage of the fact that events bubble in the event loops by setting an event listener on one parent. This event listener analyzes bubbled events to find a match in its child elements.
+
+From the jQuery documentation: "Event delegation refers to the process of using event propagation (bubbling) to handle events at a higher level in the DOM than the element on which the event originated. It allows us to attach a single event listener for elements that exist now or in the future."
 
 Event delegation in tandem with `target` and `currentTarget` allows you to have more articulate control over what events actually execute your JavaScript.
 
@@ -255,10 +266,4 @@ Fork the CodePen from above and write a click event handler that responds to (an
 * What special object do we have access to when dealing with UI interactions?
   * What are three useful properties on that object?
 * What is the difference between `target` and `currentTarget`?
-
-## Back to QS
-
-Let's check out the first iteration of Quantified Self and see where event delegation would be helpful!
-
--   jQuery has an easy way to do event delegation with the 'on' function. Check out your QS project to make sure you're using event delegation. If you aren't, do some refactoring!
 

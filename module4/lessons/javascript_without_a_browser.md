@@ -60,7 +60,8 @@ Your output should look a little like this:
 
 ```terminal
 $ node hello_world.js
-hello world
+I'm being executed in the terminal!!!
+Hello World!!
 ```
 
 Pretty simple, right? Remember V8? V8 is leveraged by node and is what allows us to execute JavaScript outside of the browser and in the terminal.
@@ -254,7 +255,7 @@ Let's setup our `add-test.js` file. We'll add `chai` as well as the module that 
 
 ```js
 const assert = require('chai').assert
-const add = require('../add')
+const addNumbers = require('../add')
 ```
 
 In the above snippet, we are using the constant that has the same name as our exported function and finding the file via its file path.
@@ -263,7 +264,7 @@ Now we are ready to write a test!
 
 ```js
 const assert = require('chai').assert
-const add = require('../add')
+const addNumbers = require('../add')
 
 describe('add functionality', function() {
   context('add function', function(){

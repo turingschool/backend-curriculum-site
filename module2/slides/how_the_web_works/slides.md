@@ -1,3 +1,5 @@
+autoscale: true
+
 # How the Web Works
 
 ## The Hour Version

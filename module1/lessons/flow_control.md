@@ -17,15 +17,15 @@ tags: fundamentals, computer science
 * apply the `times` method to repeat instructions
 * use `loop` and `break` to repeat instructions
 * break out of an infinite loop in both IRB and regular Ruby
-  
+
 ## Vocabulary  
 * flow control  
-* if/elsif/else 
+* if/elsif/else
 * loop
 * while
 * until
 * times
-* infinite loop 
+* infinite loop
 
 ## Structure  
 5 min  - WarmUp   
@@ -38,6 +38,10 @@ tags: fundamentals, computer science
 In your journal, with a partner, and using the internet as a tool, answer the following:  
 *  What tools have you seen or used to determine what happens next in your code base?  
 *  What are some use cases for each of these?  
+
+### Note
+
+You're going to learn different ways to accomplish the same thing in this lesson. Remember that these are tools, and as you learn to be a software developer, you'll get a better idea of which tool to use for which job. For now, just try to understand how the tool works, and at least one use for that tool.
 
 ## Looping
 
@@ -70,24 +74,24 @@ while condition
 end
 ```
 
-```ruby 
+```ruby
 while parking_spot.full?
   keep_driving
-end 
+end
 ```
 
 #### `until`
 
 ```ruby
-until condition 
+until condition
   # code to execute if above condition evaluates to false, stop when condition evaluates to true  
 end
 ```  
 
-```ruby 
+```ruby
 until parking_spot.empty?  
  keep_driving  
-end 
+end
 ```
 
 #### `times`
@@ -100,19 +104,19 @@ end
 
 ```ruby
 5.times do |number|
- # code to execute given number of times 
+ # code to execute given number of times
 end
 ```  
 
-If your program gets stuck, you are likely in an infite loop. You can exit using `ctl-c`.  If you want your loop to exit once something is done, you can use `break`. 
+If your program gets stuck, you are likely in an infite loop. You can exit using `ctl-c`.  If you want your loop to exit once something is done, you can use `break`.
 
 ```
 count = 0
-loop do 
+loop do
   count += 1
   break if count == 3
 end
-``` 
+```
 
 ### Conditional Branching
 
@@ -170,12 +174,12 @@ You'll need a few tools to work with user input and output.
 
 Write a simple Ruby program which prompts the user to enter a message, then prints that message to the terminal.   
 For example:  
-From the command line: 
+From the command line:
 
 ```
 $ touch flow_control.rb
 ```  
-In `flow_control.rb`: 
+In `flow_control.rb`:
 
 ```ruby
 puts "Type your message:"  
@@ -203,11 +207,14 @@ Write a new program that prompts the user for a message, then, depending on the 
 * If the message ends with a vowel, print "VOWEL!"
 * If the message ends with a "y", print "DON'T KNOW!"
 
-##Turn& Talk
+## Turn & Talk
+
 Turning the other direction, use English to explain the flow of your code with your partner.
 
 ### Looping
-Back with your original partner: 
+
+Back with your original partner:
+
 #### 1. Easy Looping
 
 Use a `times` loop to generate this output:
@@ -242,7 +249,7 @@ This is my output line 2
 This is my output line 3
 This is my output line 4
 This is my output line 5
-``` 
+```
 
 #### 4. Rando-Guesser
 
@@ -265,7 +272,7 @@ You win!
 The secret number and the guesses are both random numbers 0 through 10.
 
 ## Turn & Talk  
-Turning the other direction, use English to explain the flow of your code with your partner. 
+Turning the other direction, use English to explain the flow of your code with your partner.
 
 ## WrapUp
 * What are two ways to control the flow of execution in a code base?  

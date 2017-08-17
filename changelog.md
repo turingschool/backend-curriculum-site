@@ -15,7 +15,7 @@
 
 ### B3
 
-* Add a short class on “Intro to JavaScript Syntax”
+* Add a short class on “Intro to JavaScript Syntax” which teaches basic syntax using ES6
 * Open up the ability for students to pitch their own project ideas instead of building a clone (Cloney Island)
 * Continuing with pivoting Cloney Island. Last time we kept one student on each project. This time we will pivot every student so everyone gets a chance to work on brownfield code.
 * Evals for Cloney Island during both sprints will be on individual user stories along with a group eval on overall product and documentation, and each individual will receive a score from their group members on their contributions to the project.

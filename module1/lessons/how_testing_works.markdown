@@ -5,7 +5,7 @@ length: 60
 tags: ruby, testing, tdd
 ---
 
-## Goals
+## Learning Goals
 
 * Define and demonstrate a testing cycle
 * Write a test using MiniTest

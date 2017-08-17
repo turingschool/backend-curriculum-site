@@ -89,7 +89,13 @@ If helpful, you can use the following sample data:
 
 ### Submission
 
-Use `git` to commit your solution and push to your repository.
+Use `git` to commit your solution and push to your repository. 
+
+```
+$ git add .
+$ git commit -m "Add Credit Check"
+$ git push origin master
+```
 
 Once you have committed and pushed, create a pull request to the Turing School Examples repository. Instructors will comment on your pull request to give you feedback on your code.
 

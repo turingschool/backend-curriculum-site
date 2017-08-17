@@ -23,6 +23,20 @@ tags: ruby, arrays, data structures
 * Array  
 * Index 
 
+## SetUp  
+In the pry session you'll be using, build a Bead class. Use instances of these beads through the demonstration.
+
+```ruby 
+class Bead 
+  attr_reader :color
+  
+  def initialize(color)
+     @color = color
+  end 
+
+end 
+```
+
 ## Supplies
 
 Before we begin, collect the following Arts & Crafts supplies:
@@ -33,7 +47,8 @@ Before we begin, collect the following Arts & Crafts supplies:
 * A pen or marker  
 * 5 tags, one of each color ("blue", "red", "green", "purple", "orange")
 
-Then take your five paper cups and use a marker to number them "0" through "4".
+Then take your five paper cups and use a marker to number them "0" through "4".  
+Attach each tag to a bead.
 
 ## Warm Up
 * What is a "Data Structure"?  
@@ -66,7 +81,7 @@ Let's model some of the core concepts. In this section, we'll step through using
 As we go, we'll work side-by-side with our physical Array model and with an IRB/Pry session.  
 Have a student help by demonstrating interaction with manipulatives or on the board. 
 
-1. Lay down your large piece of paper and write `data` in large letters. This is the name of your variable holding you collection. How many elements are in your collection so far?
+1. Lay down your large piece of paper and write `data` in large letters. This is the name of your variable holding your collection. How many elements are in your collection so far?
 2. Put the empty `0` cup on the paper. If you now access the value inside `data[0]`, what would you get back?
 3. Store a "blue" bead into the zero cup, the equivalent of maybe `data[0] = "blue"`. What would you expect the answer of `data.count` to be? What does `data.first` return? What about `data.last`?
 4. We can explicitly assign the value of another cup. Add `data[1] = "red"`. That does not change the answer to `data.first`, but does change `data.last`. Why?
