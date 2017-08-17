@@ -17,7 +17,7 @@ layout: page
 * [Methods, Arguments, Blocks & Scopes](../lessons/intro_to_scope)
 * [Beginner Enumerables](../lessons/beginner_enumerables)
 * [Intro to OOP](../lessons/intro_to_oop)
-* [Intro to TDD](../lessons/intro_to_tdd_and_pairing)
+* [Intro to TDD](../lessons/intro_to_tdd)
 * [Gear Up: Growth Mindset](https://github.com/turingschool/gear-up/blob/master/m1_citizenship/session_1_growth_mindset.markdown)
 
 
