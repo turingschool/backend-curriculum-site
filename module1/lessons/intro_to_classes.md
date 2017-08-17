@@ -80,7 +80,15 @@ Add the following to a new file called `converter_runner.rb`.
 require './converter'
 
 converter = Converter.new
+converter.convert(23, 27, 73)
+puts "This is our converter: #{converter}"
+
+converter = Converter.new
 converter.convert(32, 35, 100)
+puts "This is our converter: #{converter}"
+
+converter = Converter.new
+converter.convert(34, 22, 83)
 puts "This is our converter: #{converter}"
 ```
 
