@@ -11,14 +11,6 @@ tags: ruby, testing, tdd
 * Write a test using MiniTest
 * Use error messages to drive development
 
-## Intro to Test-Driven Development (TDD)
-
-How did you confirm your last projects were working correctly? What are the downsides to this approach? As we write increasingly complex applications, we'll need more sophisticated testing approaches to secure the same level of confidence.
-
-TDD is a process for writing code that helps you ensure your code works the way you intend, is understandable to others, and is cheap and easy to change.
-
-We will review how to use TDD to build applications. TDD consists of writing tests before you write code (radical, I know), using a testing framework such as Minitest to structure your testing suite, and using a red-green-refactor process to add complexity to your application.
-
 ### Write Tests First
 
 Why write the tests first?
@@ -39,7 +31,7 @@ Let's say I'm building a model to represent a house. What testing assertions cou
 
 Where do our tests live?
 - Tests will all live in their own `test` directory
-- Source code all lives in a siblibg `lib` directory
+- Source code all lives in a sibling `lib` directory
 - Test files should reflect the class it's testing with `_test` appended to the file name
 
 #### Practice
@@ -116,4 +108,4 @@ Now that you have a failing test from the exercise above, finish the red-green-r
 
 * Blog post: [Why Test Driven Development?](http://derekbarber.ca/blog/2012/03/27/why-test-driven-development/)
 * Want a written-out tutorial on TDD with Minitest? [Check here](http://tutorials.jumpstartlab.com/topics/testing/intro-to-tdd.html).
-* [Here](https://github.com/JoshCheek/how-to-test) is some material, based on the this lesson plan, initially given out to 1505. We had 2 hours for it, but wound up going over (had to spend time on unanticipated things like how to open a file in their editor, how to clone a repo, and what methods and classs are).
+* If you'd like additional practice with testing, take a look at this [calculator challenge](https://github.com/JoshCheek/how-to-test)
