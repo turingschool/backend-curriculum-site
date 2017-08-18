@@ -5,7 +5,7 @@ layout: page
 
 ## Lessons
 
-* [Branching Workflow in Git](../slides/git_branching)
+* [Branching Workflow in Git](../lessons/branching_in_git)
 * [Academic Integrity](../lessons/academic_integrity)
 * [Introduction to Hashes](../lessons/hashes_arts_and_crafts)
 * [How Testing Works](../lessons/how_testing_works)
@@ -34,4 +34,3 @@ layout: page
 * [Debugging Techniques](../slides/debugging)
 * [Sandi Metz Talk: All the Little Things](https://www.youtube.com/watch?v=8bZh5LMaSmE)
 * [DTR Memo Template](https://docs.google.com/document/d/1zMtgWhODQuP3KBNhrg6PtmPUkw0DIskqgggeyEzYZi4/edit)
-
