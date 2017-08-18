@@ -307,12 +307,13 @@ It is only seeing our navbar, so let's first get ourselves a search/index view.
 <%= @members.count %> Results
 <% @members.each do |member| %>
 <ul class="member">
-  <li class="name"><%= member.name %></li>
-  <li class="role"><%= member.role %></li>
-  <li class="party"><%= member.party %></li>
-  <li class="district"><%= member.district %></li>
+  <li class="name"><%= member[:name]  %></li>
+  <li class="role"><%= member[:role]  %></li>
+  <li class="party"><%= member[:party] %></li>
+  <li class="district"><%= member[:district] %></li>
 </ul>
 <% end %>
+
 
 ```
 
@@ -324,3 +325,51 @@ the index action, in this action we should contact the API, and get the
 information we are looking for.
 
 The following isn't going to be pretty, but we will be refactoring later.
+
+Let's put this in our index action.
+
+```
+def index
+  state = params[:state]
+  @conn = Faraday.new(url: "https://api.propublica.org") do |faraday|
+    faraday.headers["X-API-KEY"] = "S9JON3ruNOI6XiyymcnZ7gtsjnToPxuXyT0bgeaX"
+    faraday.adapter Faraday.default_adapter
+  end
+
+  response = @conn.get("/congress/v1/members/house/#{state}/current.json")
+
+  result = JSON.parse(response.body, symbolize_names: true)[:results]
+
+  @members = result.sort_by |member| do
+    member[:seniority].to_i
+  end.reverse
+
+end
+```
+
+This is how we set up the Faraday gem to talk and grab information from an
+external API. We set up an instance variable to hold the connection
+information, we tell it the name of the server, and our API Key, which
+is our password to be able to access the API. And then we use the get method
+on the connection and pass it the end point we want to access. We store that
+in the response local variable, and then we parse it.
+
+So now we have an array of hashes in the local variable result, which we then
+use to sort by seniority and set to the members instance variable which will
+get sent to the view.
+
+We run the test now, and it should pass. But we are far from done.
+
+### Checks for Understanding
+
+* What does Faraday do?
+* What is an API Key?
+* What is a connection?
+* What are headers?
+* What don't you like about this code?
+* Is our feature test enough?
+* What are we missing?
+* Do you like the index action in the search controller?
+* How would you start to refactor this?
+
+Our next step is to refactor this.
