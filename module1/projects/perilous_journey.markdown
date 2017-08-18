@@ -23,7 +23,7 @@ However to add some additional depth, let's also use this project as a chance to
 
 ### Oregon Trail 101-- Tips for survival!
 
-In case you're unfamiliar, Oregon Trail is one of the original computer games, created in 1971. It was originally designed to teach school children about 19th century pioneer life, but quickly became a cult classic. The player assumes the role of a wagon leader guiding their party from Independence, Missouri to the Wilamette Valley in Oregon via a wagon train in 1848. Due to the rampant amount of untreated disease and treacherous conditions of the rugged terrain, death was frequent. Thus, the main purpose was to survive, and to do so, each wagon family had to maintain supplies. They collected everything from oxen, food and clothing to ammunition and spare parts ([https://classicreload.com/oregon-trail.html](https://classicreload.com/oregon-trail.html)).
+The Oregon Trail is one of the original computer games, created in 1971. It was originally designed to teach school children about 19th century pioneer life, but quickly became a cult classic. The player assumes the role of a wagon leader guiding their party from Independence, Missouri to the Wilamette Valley in Oregon via a wagon train in 1848. Due to the rampant amount of untreated disease and treacherous conditions of the rugged terrain, death was frequent. Thus, the main purpose was to survive, and to do so, each wagon family had to maintain supplies. They collected everything from oxen, food and clothing to ammunition and spare parts ([https://classicreload.com/oregon-trail.html](https://classicreload.com/oregon-trail.html)).
 
 ![Don't die of Dysentery!](http://i.onionstatic.com/avclub/5907/21/16x9/960.jpg)
 
@@ -55,11 +55,11 @@ The point of this process is to help us focus on small pieces at a time without 
 ### Iteration Base Expectations
 
 * [Iteration 0](perilous_journey_iterations/iteration_0) - Node Basics
-* [Iteration 1](perilous_journey_iterations/iteration_1) - Append, All and Count (Single Node)
-* [Iteration 2](perilous_journey_iterations/iteration_2) - Append, All and Count (Multiple Nodes)
+* [Iteration 1](perilous_journey_iterations/iteration_1) - Append, To String, and Count (Single Node)
+* [Iteration 2](perilous_journey_iterations/iteration_2) - Append, To String, and Insert (Multiple Nodes)
 * [Iteration 3](perilous_journey_iterations/iteration_3) - Insert and Prepend
 * [Iteration 4](perilous_journey_iterations/iteration_4) - Find, Pop, and Includes?
-* [Iteration 5](perilous_journey_iterations/iteration_5) - Creating a Linked List Wrapper
+* [Iteration 5](perilous_journey_iterations/iteration_5) - Creating the WagonTrain Linked List "Wrapper"
 * [Iteration 6](perilous_journey_iterations/iteration_6) - Carrying Supplies
 * [Extensions](perilous_journey_iterations/extensions) - Hunting and Circle the Wagons
 

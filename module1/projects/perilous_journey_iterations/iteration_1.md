@@ -3,7 +3,7 @@ layout: page
 title: A Perilous Journey
 ---
 
-# Iteration 1 - `.append`, `.to_string`, and `.count` (Single Node)
+# Iteration 1 - Append, To String, and Count (Single Node)
 
 Great! We have nodes. In this iteration we'll create the `LinkedList` class and start filling in the basic functionality needed to append our _first node_.
 
