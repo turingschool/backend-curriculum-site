@@ -5,18 +5,13 @@ length: 60
 tags: git, github
 ---
 
-## Prework (the Night Before)
-
-Set up your ssh keys on github according to [these instructions](https://help.github.com/articles/generating-ssh-keys/)
-
-## Standards
-
 ### Learning Goals
 
 In this lesson, you will learn how to:
 
 * Start a project with Git
 * Make local version contributions to a project using Git
+* Use `hub` to interact with Github
 * Make changes to branches and merge them into master
 
 ### Vocabulary
@@ -26,23 +21,6 @@ In this lesson, you will learn how to:
 - Merge
 - Repository
 - Remote/Local
-
-### Navigating Branches and Commits
-
-* `Branches`: Git actually allows us to have multiple histories, each on its own *branch*;
-by default git creates a standard branch called *master*
-* `Head`: Reference for "Where am I now?"
-  * By default this is the "tip" of the current branch you're on, the latest commit on a given branch
-  * If you manually jump to another commit, `head` will represent the state of your code when that commit was the most recent change.
-  * When new commit is made on a branch, `head` moves to that new commit
-* `Working Directory` represents the current view of files, what we see as opposed to the various changes and alternative views git stores in its history
-
-### Check for Understanding
-Write on the following questions to synthesize what's been covered.
-* How do commits and branches serve as the bricks and mortar of a git repository?
-* What _is_ a commit and how does git use it to reconstruct the history of your code?
-
-When you're finished, post your answers in Slack.
 
 ## A Basic Git Workflow
 
