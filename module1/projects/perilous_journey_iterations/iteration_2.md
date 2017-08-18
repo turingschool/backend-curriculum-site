@@ -1,15 +1,15 @@
 ---
 layout: page
-title: Jungle Beat
+title: A Perilous Journey
 ---
 
-# Iteration 2 - Append, All/To String and Insert (Multiple Nodes)
+# Iteration 2 - Append, To String and Count (Multiple Nodes)
 
 Now that we can insert the first element of our list (i.e. the Head), let's focus on supporting these operations for multiple elements in the list.
 
 This iteration is really where we'll build out the core structure that makes up our linked list -- it will probably take you more time than the previous iterations.
 
-Update your `append`, `count`, and `to_s` methods to support the following interaction pattern:
+Update your `append`, `count`, and `to_string` methods to support the following interaction pattern:
 
 ```ruby
 > require "./lib/linked_list"
