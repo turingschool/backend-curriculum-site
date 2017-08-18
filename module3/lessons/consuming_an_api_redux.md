@@ -323,4 +323,4 @@ We need to do some work in our search controller. Since we are working with
 the index action, in this action we should contact the API, and get the
 information we are looking for.
 
-
+The following isn't going to be pretty, but we will be refactoring later.
