@@ -14,7 +14,7 @@ For this iteration, build a node class that can perform these functions:
 ```ruby
 > require "./lib/node"
 > node = Node.new("Burke")
-=> <Node @surname="West" @next_node=nil #5678904567890>
+=> <Node @surname="Burke" @next_node=nil #5678904567890>
 > node.surname
 => "Burke"
 > node.next_node
