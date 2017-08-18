@@ -141,3 +141,8 @@ end
 * How would you define a `Person` class that had height, weight, and age attributes in Ruby?
 * What are the two main responsibilities of an instance of an object in Ruby?
 
+# Video
+
+This is a 5 minute explanation of Object Oriented Programming. It's geared towards JavaScript developers, and they use the term "Object" where you should use "Instance", but otherwise, it does a good job of explaining the philosophy of OOP
+
+<https://www.youtube.com/watch?v=SS-9y0H3Si8>
