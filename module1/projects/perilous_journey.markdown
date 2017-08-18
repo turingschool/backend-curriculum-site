@@ -83,11 +83,12 @@ The point of this process is to help us focus on small pieces at a time without 
 
 Need some help on Linked Lists? You can check out some of the following resources:
 
-* https://www.youtube.com/watch?v=oiW79L8VYXk
-* http://www.eternallyconfuzzled.com/tuts/datastructures/jsw_tut_linklist.aspx
-* http://www.cs.cmu.edu/~adamchik/15-121/lectures/Linked%20Lists/linked%20lists.html
-* http://www.sitepoint.com/rubys-missing-data-structure/
-
+* [https://www.youtube.com/watch?v=oiW79L8VYXk](https://www.youtube.com/watch?v=oiW79L8VYXk)
+* [http://www.eternallyconfuzzled.com/tuts/datastructures/jsw_tut_linklist.aspx](http://www.eternallyconfuzzled.com/tuts/datastructures/jsw_tut_linklist.aspx)
+* [http://www.cs.cmu.edu/~adamchik/15-121/lectures/Linked%20Lists/linked%20lists.html](http://www.cs.cmu.edu/~adamchik/15-121/lectures/Linked%20Lists/linked%20lists.html)
+* [http://www.sitepoint.com/rubys-missing-data-structure/
+](http://www.sitepoint.com/rubys-missing-data-structure/
+)
 ## Evaluation Rubric
 
 The project will be assessed with the following rubric:
