@@ -61,7 +61,7 @@ The point of this process is to help us focus on small pieces at a time without 
 * [Iteration 4](perilous_journey_iterations/iteration_4) - Find, Pop, and Includes?
 * [Iteration 5](perilous_journey_iterations/iteration_5) - Creating a Linked List Wrapper
 * [Iteration 6](perilous_journey_iterations/iteration_6) - Carrying Supplies
-* [Extensions](perilous_journey_iterations/extensions) - Validating Beats, Speed & Voice
+* [Extensions](perilous_journey_iterations/extensions) - Hunting and Circle the Wagons
 
 ## Tips
 

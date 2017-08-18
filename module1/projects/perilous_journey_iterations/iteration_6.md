@@ -3,7 +3,7 @@ layout: page
 title: A Perilous Journey
 ---
 
-# Iteration 6 - Supplies
+# Iteration 6 - Carrying Supplies
 
 We have assembled the wagons for our train to the pacific, but we aren't going to make it very far without supplies. It is, after all, a perilous journey.
 
