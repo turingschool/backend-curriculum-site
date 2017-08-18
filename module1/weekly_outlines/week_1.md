@@ -31,7 +31,7 @@ layout: page
 ## Projects & Exercises
 
 * [Credit Check](../projects/credit_check.markdown) ([slides](../slides/credit_check))
-* [Jungle Beat](../projects/jungle_beat)
+* [A Perilous Journey](../projects/perilous_journey)
 * [Date Night](../projects/date_night) ([slides](../slides/date_night))
 
 
