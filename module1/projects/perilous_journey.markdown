@@ -54,14 +54,14 @@ The point of this process is to help us focus on small pieces at a time without 
 
 ### Iteration Base Expectations
 
-* [Iteration 0](perilous_journey_iterations/iteration_0) - Node Basics
-* [Iteration 1](perilous_journey_iterations/iteration_1) - Append, To String, and Count (Single Node)
-* [Iteration 2](perilous_journey_iterations/iteration_2) - Append, To String, and Insert (Multiple Nodes)
-* [Iteration 3](perilous_journey_iterations/iteration_3) - Insert and Prepend
-* [Iteration 4](perilous_journey_iterations/iteration_4) - Find, Pop, and Includes?
-* [Iteration 5](perilous_journey_iterations/iteration_5) - Creating the WagonTrain Linked List "Wrapper"
-* [Iteration 6](perilous_journey_iterations/iteration_6) - Carrying Supplies
-* [Extensions](perilous_journey_iterations/extensions) - Hunting and Circle the Wagons
+* [Iteration 0](perilous_journey_iterations/iteration_0.md) - Node Basics
+* [Iteration 1](perilous_journey_iterations/iteration_1.md) - Append, To String, and Count (Single Node)
+* [Iteration 2](perilous_journey_iterations/iteration_2.md) - Append, To String, and Insert (Multiple Nodes)
+* [Iteration 3](perilous_journey_iterations/iteration_3.md) - Insert and Prepend
+* [Iteration 4](perilous_journey_iterations/iteration_4.md) - Find, Pop, and Includes?
+* [Iteration 5](perilous_journey_iterations/iteration_5.md) - Creating the WagonTrain Linked List "Wrapper"
+* [Iteration 6](perilous_journey_iterations/iteration_6.md) - Carrying Supplies
+* [Extensions](perilous_journey_iterations/extensions.md) - Hunting and Circle the Wagons
 
 ## Tips
 
