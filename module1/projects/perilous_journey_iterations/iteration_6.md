@@ -16,13 +16,13 @@ Expected Behavior:
 ```ruby
 > require "./lib/wagon_train"
 > wt = WagonTrain.new
-=> <WagonTrain list=<LinkedList head=nil #234567890890> #456789045678>
+=> <WagonTrain list=<LinkedList @head=nil #234567890890> #456789045678>
 > wt.append("Burke", {"pounds of food" => 200})
-=> <Node surname="Burke" supplies={"pounds of food" => 200} next_node=nil #5678904567890>
+=> <Node @surname="Burke" @supplies={"pounds of food" => 200} @next_node=nil #5678904567890>
 > wt.list.prepend("Hardy", {"spare wagon tongues" => 3})
-=> <Node surname="Hardy" supplies={"spare wagon tongues" => 3} next_node=nil #5678904567890>
+=> <Node @surname="Hardy" @supplies={"spare wagon tongues" => 3} @next_node=<Node @surname="Burke" ... > #5678904567890>
 > wt.list.insert(1, "West", {"pounds of food" => 300})
-=> <Node surname="West" supplies={"pounds of food" => 300} next_node=nil #5678904567890>
+=> <Node @surname="West" @supplies={"pounds of food" => 300} @next_node=<Node @surname="Burke" ... > #5678904567890>
 > wt.count
 => 3
 > wt.supplies

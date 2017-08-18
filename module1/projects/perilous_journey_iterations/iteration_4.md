@@ -11,7 +11,7 @@ Perfect, we are almost there! Next is to add `find`, `pop` and `includes?` metho
 
 `includes?` gives back true or false whether the supplied value is in the list.
 
-`pop` removes elements the last element from the list. Before returning the last node, print that this family has "died of dysentery"
+`pop` removes the last element from the list. Before returning the last node, print that this family has "died of dysentery"
 
 Expected behavior:
 
