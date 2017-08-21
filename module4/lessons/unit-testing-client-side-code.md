@@ -38,7 +38,7 @@ After 15 minutes, turn to the person next to you and compare/discuss interesting
 
 Using the four areas of responsibility from Murphy's article, go through this partial Quantified Self implementation and take a first pass at highlighting the pieces you think belong to those certain sections.
 
-After about 10 minutes, turn to the person next to you and compare/discuss your results.
+After about 15 minutes, turn to the person next to you and compare/discuss your results.
 
 ## Application (25 minutes)
 
