@@ -7,8 +7,8 @@ tags: ruby, hashes, data structures
 ## Learning Goals
 
 * Use multiple types of collections intermingled  
-* Develop a mental model to understand nested hashes and arrays
-* Use common hash and array methods  
+* Describe a mental model that represents nested hashes and arrays
+* Apply common hash and array methods  
 
 ## Structure  
 10min - WarmUp  
@@ -127,3 +127,4 @@ beginning and try to fill a few of the gaps: work through the [Hashes section of
 ### WrapUp  
 *  What are three array methods and what do they do?  
 *  What are three hash methods and what do they do? 
+*  Describe a mental model for nested collections
