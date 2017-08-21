@@ -1,6 +1,6 @@
 ---
-title: Unit testing client side code
-subheading: A workshop
+title: Unit Testing Client-Side Code
+subheading: A Workshop
 ---
 
 ## Intro (5 minutes)
