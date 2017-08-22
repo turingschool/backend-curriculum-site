@@ -4,14 +4,12 @@ length: 180
 tags: JavaScript, AJAX, APIs, front-end
 ---
 
-### Goals
-
-By the end of this lesson, you will know/be able to:
+### Learning Goals
 
 *   Make all CRUD functionality AJAX calls.
-*   Access APIs through all client side JavaScript.
+*   Access APIs from client side JavaScript using standard HTTP verbs.
 *   Dynamically change content on a webpage without reloading the page.
-*   Explain the difference between client-side and server-side.  
+*   Explain the difference between client-side and server-side.
 
 ## JavaScript Refresh  
 Talk with a partner about the following:  
@@ -19,7 +17,7 @@ Talk with a partner about the following:
 * How do you set a variable?  
 * How do you access the developer tools in your browser?  
 * What are two debugging tools?  
-  (Think, what is similar to puts and pry?) 
+  (Think, what is similar to puts and pry?)
 
 ### Variables
 
@@ -108,7 +106,7 @@ What are the pros/cons of this strategy?
 Use these resources to find the following answers:  
 [W3Schools on AJAX](https://www.w3schools.com/xml/ajax_intro.asp)  
 [Benefits of AJAX](http://www.seguetech.com/ajax-technology/)  
-[AJAX Library Comparisons](http://andrewhfarmer.com/ajax-libraries/) 
+[AJAX Library Comparisons](http://andrewhfarmer.com/ajax-libraries/)
 
 -   What does AJAX stand for?
 -   Explaining asynchronous vs synchronous
@@ -144,7 +142,7 @@ git clone git@github.com:turingschool-examples/birdeck.git birdeck_client
 cd birdeck_client
 open index.html
 ```
-What do you see on the page in the browser? Check out the raw HTML in index.html to see how it correlates. What do you have in birdeck.js? What is $(document).ready(); and why do we use it? What is event.preventDefault(); doing? 
+What do you see on the page in the browser? Check out the raw HTML in index.html to see how it correlates. What do you have in birdeck.js? What is $(document).ready(); and why do we use it? What is event.preventDefault(); doing?
 
 
 ### AJAX - `GET` Index Code Along
@@ -197,8 +195,8 @@ $(document).ready(function(){
 * Clear currently listed posts  
    ```
    $(find posts div).html('')   
-   ``` 
-  or maybe 
+   ```
+  or maybe
    ```
    $(find your thing to clear).val('')
    ```
@@ -221,7 +219,7 @@ On your own, try getting a post by ID.
 
 Let's set up our app to send an AJAX POST request to create a new post and update our feed with this new post all with one click of the "Create Post" button.  
 
-What steps will you need to take? 
+What steps will you need to take?
 
 ### AJAX - PUT Workshop
 
@@ -237,7 +235,7 @@ You know the drill - let's delete a post by ID. Feel free to discuss approach ag
 
 Where would you use AJAX as a tool within a Rails Context?  
 What are some use cases for AJAX vs a page refresh?  
-What are three keys you might include in an AJAX Post request? 
+What are three keys you might include in an AJAX Post request?
 
 ### Additional Resources
 

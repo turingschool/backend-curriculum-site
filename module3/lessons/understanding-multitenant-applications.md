@@ -5,7 +5,7 @@ length: 120
 Tags: multi-tenancy, rails, pivot, controllers, models, routes, namespacing
 ---
 
-### Goals
+### Learning Goals
 
 By the end of this lesson, you will know/be able to:
 

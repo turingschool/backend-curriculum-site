@@ -7,6 +7,11 @@ tags: apis, testing, controller tests, rails
 
 ## Consuming an API
 
+### Learning Goals
+
+* Can explain why API consumption is important/useful
+* Understands the value and process of using BDD to solve a problem
+
 ### Warmup
 
 * What are the advantages to OAuth?
