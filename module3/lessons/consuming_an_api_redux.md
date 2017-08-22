@@ -399,6 +399,44 @@ def index
 end
 ```
 
+### Figaro
+
+Now it's time to add Figaro.
+
+Why do we need Figaro?
+
+What does it do?
+
+First thing we do, is we add figaro to our Gemfile, and then we run
+
+```sh
+$ bundle exec figaro install
+```
+
+This will create an application.yml in the config directory. That's where we
+keep our secrets. It also automatically adds it to our project .gitignore
+so it doesn't get committed and then uploaded to GitHub.
+
+In our application.yml file we just add in our key like this:
+
+```
+propublica_key: "adkljasd987987ad987"
+```
+
+And in our code, we just refer to it like this:
+
+```
+ENV["propublica_key"]
+```
+
+Please note that all values will be converted to strings.
+
+We can now go to our search_controller.rb file and replace our reference to
+the pro publica key with the environment variable.
+
+Note how this will change your documentation. Also how this will change
+how you interact with teammates if keys change. How do you think you'll share
+keys across your team?
 
 
 ### Checks for Understanding
