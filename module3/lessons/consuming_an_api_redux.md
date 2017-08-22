@@ -62,7 +62,7 @@ and create your databases.
 
 ```sh
 $ bundle
-$ rails s rspec:install
+$ rails g rspec:install
 $ rails db:create
 $ rails db:migrate
 ```
