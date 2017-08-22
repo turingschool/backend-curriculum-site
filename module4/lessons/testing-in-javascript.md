@@ -3,7 +3,7 @@ layout: page
 title: Integration Testing in Javascript
 ---
 
-## Goals
+## Learning Goals
 
 * Students remember AJAX
 * Students can comfortably write integration tests using outside resources
