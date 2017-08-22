@@ -12,25 +12,32 @@ tags: ruby, testing, tdd
 * Implement new assertion methods
 * Identify best testing practices
 
-### Warm Up
+## Warm Up
 
-What are some things you've noticed about the setup of tests? What do you think the following assertion methods do?
+* What's the phrase for summing up the TDD cycle?
+* What are 3 things an error message tells us?
+* What are some reasons for writing tests before implementation code?
+* What are some things we need for the setup of tests? 
 
-- `assert`
+## More Assertion Methods
+
+### Turn & Talk
+What do you think the following assertion methods do?
+
+- `assert_instance_of`
 - `assert_equal`
+- `assert`
+- `assert_nil`
 - `refute`
 - `refute_equal`
-- `assert_nil`
-- `assert_instance_of`
 
 ## TDD: Write Tests First
 
-Why write the tests first?
-  - Helps break problem into small pieces
-  - Removes fear of programming
-  - Communicates what your code _should_ do
-  - Shapes design
-  - Tells you basically exactly what to do
+- Shapes design
+- Helps break problem into small pieces
+- Removes fear of programming
+- Communicates what your code _should_ do
+- Tells you basically exactly what to do
 
 ## Test Etiquette
 
@@ -80,9 +87,7 @@ Let's explore how our code breaks when we don't follow the Test Etiquette rules 
 
 ## Recap
 
-* What's the phrase for summing up the TDD cycle?
-* What are some reasons for writing test before implementation code?
-* What are 3 things an error message tells us?
+* What are some reasons for writing tests before implementation code?
 * Name 3 new assertion methods you learned about today.
 * What 2 directories should we have within our project directory?
 * What **must** a test file include? What's the best name for a test?

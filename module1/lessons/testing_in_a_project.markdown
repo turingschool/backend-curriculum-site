@@ -62,9 +62,9 @@ What do we expect to see? (What output do we expect the method to return?)
 
 ### Practice
 
-1. Let's pick one of the models from the previous exercise (an office, a movie set, a staircar) and use Minitest to turn assertions into a Ruby tests.
+1. Let's pick one of the models from the previous exercise (an office, a movie set, a staircar) and use `minitest` to turn assertions into Ruby tests.
 
-2. We'll finish the red-green-refactor loop by writing code to pass the test and refactoring. 
+2. We'll finish the red-green-refactor loop by writing code to pass the test and then refactoring. 
 
 ** break **
 
@@ -81,9 +81,9 @@ Break down a test that you've written with the person sitting next to you; ask y
 
 Does the test make sense?
 How could I improve this test?
-What are some tests I could add to build on this test and make the method more robust?
+What are some assertions or tests I could add to build on this test to make my method more robust?
 
 ## Recap
-* 
-* 
-* 
+* How does testing help problem-solving?
+* What's another way to think about assertion expected & actual values?
+* What's one new technique you learned from your partner or improvement you made to your test suite?
