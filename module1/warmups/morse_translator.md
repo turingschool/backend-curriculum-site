@@ -1,6 +1,6 @@
 ## Morse Translator  
 
-Build a Ruby program that translates a message from English to Morse.  
+Build a well tested Ruby program that translates a message from English to Morse.  
 ** Hint **   
 Use a hash as your dictionary   
 
@@ -16,25 +16,28 @@ lowercase letters
 ```
 
 ### Iteration 1  
-Translate case insensitive, with numbers and spaces  
+Translate case insensitive, with numbers  
 
 ```ruby 
   $ translator = Translate.new 
   => #<Translate:0x007fa1ab98cac0>
   $ translator.eng_to_morse("Hello World") 
   => "......-...-..--- .-----.-..-..-.."
+  $ translator.eng_to_morse("There are 3 ships") 
+  => "-......-.. .-.-.. ...-- ..........--...."
 ```
 
 ### Iteration 2  
 Translate from a file  
-`input.txt`
+
 ```
+# in input.txt
 I am in a file
 ```
 
 ```ruby 
-$ translator = Translate.new 
-=> #<Translate:0x007fa1ab98cac0>
-$translator.from_file("input.txt")
-=> ".. .--- ..-. .- ..-....-..."
+  $ translator = Translate.new 
+  => #<Translate:0x007fa1ab98cac0>
+  $translator.from_file("input.txt")
+  => ".. .--- ..-. .- ..-....-..."
 ```
