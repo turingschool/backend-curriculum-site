@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Integration Testing in Javascript
+title: Test-Driving AJAX
 ---
 
 ## Learning Goals
