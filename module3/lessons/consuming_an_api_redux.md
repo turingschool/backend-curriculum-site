@@ -307,10 +307,10 @@ It is only seeing our navbar, so let's first get ourselves a search/index view.
 <%= @members.count %> Results
 <% @members.each do |member| %>
 <ul class="member">
-  <li class="name"><%= member[:name]  %></li>
-  <li class="role"><%= member[:role]  %></li>
-  <li class="party"><%= member[:party] %></li>
-  <li class="district"><%= member[:district] %></li>
+  <li class="name"><%= member.name %></li>
+  <li class="role"><%= member.role %></li>
+  <li class="party"><%= member.party %></li>
+  <li class="district"><%= member.district %></li>
 </ul>
 <% end %>
 
@@ -338,11 +338,7 @@ def index
 
   response = @conn.get("/congress/v1/members/house/#{state}/current.json")
 
-  result = JSON.parse(response.body, symbolize_names: true)[:results]
-
-  @members = result.sort_by |member| do
-    member[:seniority].to_i
-  end.reverse
+  results = JSON.parse(response.body, symbolize_names: true)[:results]
 
 end
 ```
@@ -354,11 +350,56 @@ is our password to be able to access the API. And then we use the get method
 on the connection and pass it the end point we want to access. We store that
 in the response local variable, and then we parse it.
 
-So now we have an array of hashes in the local variable result, which we then
-use to sort by seniority and set to the members instance variable which will
-get sent to the view.
+At this point, we are sending the parsed result of the response to the view.
+The view happily accepts this, but if we run the test, we can see that it's not
+happy.
 
-We run the test now, and it should pass. But we are far from done.
+What is the class of `@members` right here? It's an array of hashes. The view
+is iterating through the array, and hashes don't have methods like name, and
+district and so forth. We could change what the view wants, but lets do a bit
+of dream driven development here and say that our intent is that we have an
+array of member objects sent to the view and not an array of hashes.
+
+So before we can send it to the view, we need to do some conversion.
+
+We need a member class so let's create a member class.
+
+```
+# app/models/member.rb
+
+class Member
+  attr_reader :name,
+              :role,
+              :party,
+              :district,
+              :seniority
+
+  def initialize(attributes = {})
+    @name       = attributes[:name]
+    @role       = attributes[:role]
+    @party      = attributes[:party]
+    @district   = attributes[:district]
+    @seniority  = attributes[:seniority].to_i
+  end
+end
+```
+
+And then finally, we set up the creation of members in our controller.
+
+```
+# app/controllers/search_controller.rb
+
+def index
+...
+  results = JSON.parse(response.body, symbolize_names: true)[:results]
+
+  @members  = results.map do |result|
+     Member.new(result)
+  end
+end
+```
+
+
 
 ### Checks for Understanding
 
