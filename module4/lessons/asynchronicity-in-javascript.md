@@ -28,9 +28,11 @@ We now know that JavaScript runs synchronously.
 
 JavaScript's **call stack** is a data structure that keeps track of where we are in the sense of this synchronous thread of execution.
 
-"If we step into a function, we step into the stack. If we return from a function, we pop off the top of the stack." - [Philip Roberts, JSConf EU 2014](https://www.youtube.com/watch?v=8aGhZQkoFbQ)
+"If we step into a function, we step into the stack. If we return from a function, we pop off the top of the stack." - Philip Roberts
 
 Asynchronous processes are able to run concurrently because, while the JS runtime can only execute a single thread, your browser provides more threads for you. Async takes advantage of this and passes processes to the "event loop", where it will take the time it needs to execute and pop back onto the call stack once it's complete.
+
+Let's watch Philip Roberts further explain: [Philip Roberts, JSConf EU 2014](https://www.youtube.com/watch?v=8aGhZQkoFbQ)
 
 ### Callbacks (20 minutes)
 
