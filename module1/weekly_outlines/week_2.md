@@ -10,6 +10,7 @@ layout: page
 * [Introduction to Hashes](../lessons/hashes_arts_and_crafts)
 * [How Testing Works](../lessons/how_testing_works)
 * [Nested Collections](../lessons/nested_collections)
+* [Testing in a Project](../lessons/testing_in_a_project)
 * [Gear Up: Working Styles](https://github.com/turingschool/gear-up/blob/master/m1_citizenship/session_3_intro_extro_ambivert_styles.markdown)
 * [Git for Pairs](../lessons/git_for_pairs)
 * [PD: Learning to Pair](../../career_development_curriculum/module_one/learning_to_pair)
@@ -23,7 +24,7 @@ layout: page
 
 ## Projects
 
-* [Jungle Beat](../projects/jungle_beat)
+* [A Perilous Journey](../projects/perilous_journey)
 * [Date Night](../projects/date_night)
 * [Complete Me](../projects/complete_me)
 * [Night Writer](../projects/night_writer)

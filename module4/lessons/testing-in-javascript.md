@@ -1,9 +1,9 @@
 ---
 layout: page
-title: Integration Testing in Javascript
+title: Test-Driving AJAX
 ---
 
-## Goals
+## Learning Goals
 
 * Students remember AJAX
 * Students can comfortably write integration tests using outside resources

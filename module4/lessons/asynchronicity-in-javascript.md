@@ -1,5 +1,5 @@
 ---
-title: Actually understanding Asynchronicity in JavaScript
+title: Asynchronicity in JavaScript
 layout: page
 ---
 
@@ -10,7 +10,7 @@ layout: page
 
 ## Intro
 
-### When will I use this stuff?
+### When Will We Need This?
 
 The concepts we're going to talk about happen most often in the following situations:
 
@@ -18,17 +18,20 @@ The concepts we're going to talk about happen most often in the following situat
 - Events (clicks, keydowns, scrolls, etc)
 - Enumerables (forEach, map, filter)
 
-### Some videos
-
-Let's watch these things. They're going to create more questions than answers, but we've got the rest of class to cover answers.
+### Synchronous Vs Asynchronous
 
 - [What is Asynchronous JavaScript?](https://www.youtube.com/watch?v=YxWMxJONp7E)
-- [What is Async JavaScript?](https://www.youtube.com/watch?v=y8xPMYwQ0U8)
 
-### Some Slides
+#### The Event Loop
 
-If you really want a copy of the slides, you can [get the keynote here]( https://drive.google.com/open?id=0Bx6JZxtPBe_FYUktSTY5LWlVOTg)
+We now know that JavaScript runs synchronously.
 
+JavaScript's "call stack" is a data structure that keeps track of where we are in the sense of this synchronous thread of execution.
+
+"If we step into a function, we step into the stack. If we return from a function, we pop off the top of the stack." - [Philip Roberts, JSConf EU 2014](https://www.youtube.com/watch?v=8aGhZQkoFbQ)
+
+Asynchronous processes are able to run concurrently because, while the JS runtime can only execute a single thread, your browser provides more threads for you. Async takes advantage of this and passes processes to the "event loop", where it will take the time it needs to execute and pop back onto the call stack once it's complete.
+<!--
 ## How JS implements asynchronicity
 
 ### Packing up code for later
@@ -65,21 +68,21 @@ Discuss the following with the person next to you:
 - What are some instances where you would pass a function?
 - What is the syntax for passing a function?
 - What is the syntax for invoking a function?
-- When passing a function as a parameter, how are the arguments of the passed function used?
+- When passing a function as a parameter, how are the arguments of the passed function used? -->
 
 ### Callbacks
 
-We often refer to function parameters as "callback functions" or just "callbacks". Specifically, a callback is a function that is being passed as a parameter, and will be "called" (invoked) upon some later event.
+A callback is a second function that is being passed as a parameter to a first function and will be invoked by the original function.
 
-#### When does your callback need a parameter?
+For example:
 
-![https://cdn.meme.am/cache/instances/folder555/23597555.jpg](https://cdn.meme.am/cache/instances/folder555/23597555.jpg)
+```js
+function doubleNumber(num) {
+  console.log(num * 2);
+}
 
-The docs!! If you're using someone else's function that takes a callback, you're going to have to read the docs in order to know what parameters will be passed to your callback function.
-
-[Array.prototype.forEach docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach?v=example)
-
-[jQuery .getJSON() docs](https://api.jquery.com/jquery.getjson/)
+[1,2,3].forEach(doubleNumber);
+```
 
 #### Callbacks and Events
 
@@ -91,7 +94,7 @@ $("#my-button").on('click', function() {
 })
 ```
 
-You've probably seen a click event handled in just this way before. You pass a function to be executed later upon a 'click' event. I want to frame this in a slightly different way to help you understand how JavaScript interprets this. I'm going to write the same thing in without jQuery to help illustrate.
+You've probably seen a click event handled like this before. You pass a function to be executed later upon a `'click'` event. I want to frame this in a slightly different way to help you understand how JavaScript interprets this. I'm going to write the same thing in without jQuery to help illustrate.
 
 ```js
 document.getElementById('my-button').addEventListener('click', function() {
@@ -99,23 +102,23 @@ document.getElementById('my-button').addEventListener('click', function() {
 })
 ```
 
-The method `addEventListener()` does a better job of telling you what's actually happening. When writing asynchronous JavaScript, it can sometimes feel like your code is being run out of order. JavaScript is still being read from top to bottom. When it gets to the `addEventListener()`, it does just that. It adds a listener to the element, and it moves on to it's next instruction. It's not that javascript comes back to this code later. You packed it up and sent it off. Your callback function now exists all alone, waiting to be invoked by the browser upon a 'click' event.
+The method `addEventListener()` does a better job of telling you what's actually happening. When writing asynchronous JavaScript, it can sometimes feel like your code is being run out of order. JavaScript is still being read from top to bottom. When it gets to the `addEventListener()`, it does just that. It adds a listener to the element, and it moves on to its next instruction. It's not that JavaScript comes back to this code later. You packed it up and sent it off. Your callback function now exists all alone, waiting to be invoked by the browser upon a 'click' event.
 
 `setTimeout()` is another function that takes a callback. It's an easy way to play around with asynchronicity. It is also tied to an event, but that event happens to be "some number of milliseconds passed".
 
 ```js
 setTimeout(function() {
-  alert("At least 1 second has passed");
+  alert("1 second has passed");
 }, 1000);
 ```
 
-After 1000 milliseconds (2nd parameter), the callback function (1st parameter) is added the the event queue.
+After 1000 milliseconds (2nd parameter), the callback function (1st parameter) is added the the event loop.
 
 ### Promises
 
-Promises solve the same problem as callbacks. They're all about executing code upon some later event. A couple things to keep in mind about promises while we're seeing them in action:
+Promises solve a similar problem as callbacks. They're all about executing code upon some later event. A couple things to keep in mind about promises while we're seeing them in action:
 
-- A `Promise` is yet another data type in JavaScript. You assign it to a variable, it has methods, you can create new instances of it, and anything else you can do with JS classes.
+- A `Promise` is yet another data type in JavaScript. You assign it to a variable, it has methods and you can create new instances of it.
 - The methods of `Promise` (specifically `.then()`) make more sense in the context of "executing things in order" rather than "packing up code for later"
 
 Let's take this callback example and refactor it to use promises.
@@ -126,7 +129,7 @@ Let's take this callback example and refactor it to use promises.
 
 Each `.then()` returns another instance of `Promise`. Which means you can chain your `.then()`s. Let's refactor the promise we just made to use promise chaining.
 
-Another refactor example would be to use our `then()`s to keep things in order. Like if you had one AJAX call that had information you needed for a second call, which has information you need for a third call:
+Another refactor example would be to use our `.then()`s to keep things in order. If you had one AJAX call that had information you needed for a second call, which has information you need for a third call:
 
 <https://repl.it/HcuB/2>
 

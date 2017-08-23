@@ -72,6 +72,8 @@ TDD is a process for writing code that helps:
 
 ### minitest Setup
 
+[Minitest](http://docs.seattlerb.org/minitest/) is a framework used for automated testing. It is the testing framework used on many of the homework exercises you've been assigned.
+
 ```
 gem install minitest
 ```

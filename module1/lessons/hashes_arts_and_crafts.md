@@ -99,7 +99,10 @@ Start with an empty `data` hash in both the physical space and IRB.
 For the IRB person, recall that you can create a simple `Bead` model like this:
 
 ```ruby
-class Bead
+class Bead 
+  def initialize(color)
+     @color = color
+  end
 end
 ```
 
