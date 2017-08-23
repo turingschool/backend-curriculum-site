@@ -9,10 +9,10 @@ tags: ruby, rails, activerecord, sql
 * Discuss performance limitations of database queries with regard to
 increased DB scale and load
 * Discuss common ActiveRecord techniques for managing increased database scale.
-* Practice using each technique against a large JSBlogger dataset
+* Practice troubleshooting performance issues related to large datasets
+  * `pluck`, `select`, low level caching, `ActiveRecord`
 * See some techniques for handling less common, more complicated
   ActiveRecord queries
-* Get more practice expressing complex relational logic via ARel
 
 ## Setup - Blogger with DB Load
 

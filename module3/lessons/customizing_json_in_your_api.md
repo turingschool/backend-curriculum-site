@@ -9,6 +9,7 @@ tags: json, javascript, rails, ruby, api
 * Generate and customize Rails Serializers
 * Create JSON views using Jbuilder
 * Compare the two tools
+* Understand what constitutes presentation logic in the context of serving a JSON API and why formatting in the model is not the right place
 
 ## Recap
 

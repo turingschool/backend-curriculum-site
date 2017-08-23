@@ -4,6 +4,11 @@ length: 180
 tags: jquery, javascript
 ---
 
+### Learning Goals
+
+* Student can navigate and select/alter content on an HTML page using jQuery
+* Begin recognizing patterns involved with using jQuery
+
 jQuery is a library that allows us to use CSS selectors to find elements on the page and then interact with them. Under the hood, **it's JavaScript**. It's used on about 78% of the top million web pages, so it's worth while getting comfortable with it.
 
 #### Loading the jQuery library

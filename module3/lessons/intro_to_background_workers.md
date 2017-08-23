@@ -5,7 +5,7 @@ length: 180
 tags: Background Workers, sidekiq, queue, async
 ---
 
-### Goals
+### Learning Goals
 
 By the end of this lesson, you will know/be able to:
 

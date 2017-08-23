@@ -21,7 +21,7 @@ status: draft
 * Who or what is HTML/CSS designed for?
 * What are some cases where you might not want to render an entire HTML page and only send the data to a client?
 
-**Basic Narrative**: When designing a service or an API, you need a machine-readable way to transmit data. Typically, machine-readable formats have been just that—machine-readable (Think zeros and ones). JSON strikes a balance between being machine-readable, but also human-readable. Because it's also more lightweight (read: less characters) it's typically faster because it requires less bandwidth to transmit.
+**Basic Narrative**: When designing a service or an API, you need a machine-readable way to transmit data. Typically, machine-readable formats have been just that—machine-readable (Think zeros and ones). JSON strikes a balance between being machine-readable, but also human-readable. Because it's also more lightweight than XML (read: less characters) it's typically faster because it requires less bandwidth to transmit.
 
 Before diving deep into what JSON is, let's take a look at it [here](http://congress.api.sunlightfoundation.com/legislators/locate?zip=80229&apikey=e179a6973728c4dd3fb1204283aaccb5) or [here](https://birdeck-api.herokuapp.com/api/v1/posts/2). What do you notice?
 
