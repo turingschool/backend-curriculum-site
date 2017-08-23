@@ -19,7 +19,7 @@ layout: page
 - How do we group multiple tags together?
 - Semantic tags can replace `div`s to provide more context than a general `div`.
 
-- ![Example](html5demo1.jpg)
+- ![Example](./images/html5demo1.jpg)
 
 ### Bootstrap vs Flexbox
 
@@ -36,7 +36,7 @@ layout: page
 ### Let's play
 
 - display: flex;
-- flex-direction: row | row-reverse | column | column-reverse
+- flex-direction: row, row-reverse, column, column-reverse
 - order - displays in numerical order
 - flex-wrap
 
