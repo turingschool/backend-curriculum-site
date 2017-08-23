@@ -4,16 +4,15 @@ length: 60 min
 tags: ruby, objects, oop
 ---  
 
-
 ## Learning Goals  
 * desribe an object 
 * access information from one object in another object  
 
 ## Structure  
 5 min - Warm Up  
-20 min -   
+20 min - What is an object?
 5 min - Break  
-20 min -  
+20 min - Objects upon Objects upon Objects
 5 min - Wrap Up
 
 ## Vocabulary  
@@ -46,7 +45,7 @@ Create 3 different table objects
 armchair = Seat.new("stool", "metal")
 ```
 #### Turn & Talk  
-How did you make objects? What charactertistics does your table object have? What characteristics does your seat object have?  
+How did you make objects? What charactertistics does your table object have? What characteristics does your seat object have? 
 
 ** break **
 
