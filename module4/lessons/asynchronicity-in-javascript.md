@@ -80,7 +80,7 @@ setTimeout(function() {
 
 After 1000 milliseconds (2nd parameter), the callback function (1st parameter) is added the the event loop.
 
-### [Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) (30 minutes)
+### [Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) (10 minutes)
 
 Promises solve a similar problem as callbacks. They execute an asynchronous processes and can handle both the finished success or failure of said process. A couple things to keep in mind about promises while we're seeing them in action:
 
@@ -99,7 +99,7 @@ Thus, `.catch()` would only be triggered had the `Promise` not resolved successf
 
 Where have we seen something like this before?
 
-### AJAX Deferred Objects === Promises?
+### AJAX Deferred Objects === Promises? (20 minutes)
 
 We've seen the chainable `.then()` and `.catch()` quite often thanks to AJAX. But are AJAX requests returning Promises to us?
 
