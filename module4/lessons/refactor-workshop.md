@@ -44,7 +44,7 @@ Develop talking points for a three minute presentation that address the followin
 
 ## Presentations
 
-Each group present their "smellyscript" to practice technical communication (3 minutes).
+Each group present their "smellyscript" to practice technical communication (2 minutes).
 
 ## Review presented topics
 
