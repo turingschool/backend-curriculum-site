@@ -11,6 +11,7 @@ tags: apis, rails, faraday
 
 By the end of this class, a student will be able to:
 
+* Use BDD to build complex features
 * Set up and configure Faraday for use with a Rails application.
 * Use Faraday to connect to and retrieve information from third party external
 APIs.
