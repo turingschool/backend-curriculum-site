@@ -3,11 +3,11 @@ layout: page
 title: Date Night
 ---
 
-### Learning Goals 
+### Learning Goals
 * Practice breaking a program into logical components
 * Distinguishing between classes and instances of those classes
 * Understanding how binary search trees work to store and find data
-* Testing components in isolation and in combination 
+* Testing components in isolation and in combination
 * Use and implement iteration or recursion techniques
 
 ## Overview
@@ -21,9 +21,9 @@ It is your job to take new movies that have been scored, and store them in a Bin
 
 ## Binary Search Trees
 
-A binary search tree is a fundamental data structure useful for organizing large sets of data.
+A binary search tree is a fundamental data structure useful for organizing large sets of data. It's ideal whenever you need to retrieve and sort data quickly.
 
-More on Wikipedia: http://en.wikipedia.org/wiki/Binary_search_tree
+More on Wikipedia: <http://en.wikipedia.org/wiki/Binary_search_tree>
 
 A binary tree is built from *nodes*. Each node has:
 

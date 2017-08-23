@@ -1,9 +1,9 @@
 ---
 layout: page
-title: Integration Testing in Javascript
+title: Test-Driving AJAX
 ---
 
-## Goals
+## Learning Goals
 
 * Students remember AJAX
 * Students can comfortably write integration tests using outside resources
@@ -24,17 +24,57 @@ Essentially, AJAX allows us to _asynchronously_ interact with most anything, but
 
 We'll learn more about asynchronicity in JavaScript later in the module, but for now, let's think of AJAX as the tool that will allow us to make client-side requests to an API.
 
+[jQuery AJAX](https://api.jquery.com/category/ajax/) requests come in all shapes and sizes, but for reference, here's a common structure:
+
+```js
+function() {
+  // make a GET request
+  // returning immediately since this AJAX call
+  // with chained handling is technically all one line
+  return $.ajax({
+    type: "GET",
+    url: "http://localhost:3000/api/v1/posts"
+  })
+  // JS Promise is returned, if successful, handled by `.then`
+  // JSON response is passed to anonymous function, here named `posts`
+  .done(function(posts){
+    // we're within this block if things went well,
+    // so do something with the data!
+  })
+  .fail(function(error){
+    // only here if there was an error,
+    // so handle error if there is one
+  });
+}
+```
+
+Here's a very similar structure, using a bit of syntactic sugar:
+
+```js
+function() {
+  return $.getJSON("http://localhost:3000/api/v1/posts")
+  .then(function(posts){
+  })
+  .fail(function(error) {
+  })
+}
+```
+
+### Turn and Talk
+
+-   What are some use cases for AJAX? Name some cards from your current project that will require an AJAX request to complete.
+-   What information do you need before you can make an AJAX request?
+-   How do you access the response from the request?
+
 ## Selenium Setup
 
 What about when we want to test user interactions with the application. We're going to bring in a new tool called [Selenium](https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/webdriver_exports_WebDriver.html).
 
 Selenium solves a similar problem to Capybara. It allows you to visit pages, interact with them, and inspect the page in order to assert things against your application.
 
-Capybara has it's own built in assertions with `expect`, but we'll continue to use Chai for our assertions. Instead, we extract values from the page with Selenium, and then write assertions against those
+Capybara has its own built in assertions with `expect`, but we'll continue to use Chai for our assertions. Instead, we extract values from the page with Selenium, and then write assertions against those
 
 I've added the packages you need to your package.json file already (chromedriver, webdriverjs and selenium-webdriver), but Selenium runs on java, and you may need to install the JDK. If `javac -version` in your terminal succeeds, you're good to go. If it fails, [download the JDK here](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
-
-I've also included chromedriver in the root of the project, you are going to need to move that into your /usr/bin/local/ directory, if you don't have it installed.  You can check by running `chromedriver -v`
 
 ### Setup
 
@@ -50,9 +90,9 @@ npm test
 
 ## Let's Integrate
 
-We have one passing test already. I'll mention that it's not in the `test/index.js` entry file. That's because Selenium is designed to work with Node, while webpack, and most of your FE tests, are meant for the browser. Mocha will still recognize these files in the terminal. They just won't appear in our browser based tests.
+We have one passing test already.
 
-Let's walk through the one test and break down the pieces.
+Let's walk through that test and break down the pieces.
 
 ```js
 var assert    = require('chai').assert;
@@ -94,7 +134,7 @@ test.describe('testing my simple blog', function() {
 // ...
 ```
 
--   Since we're using selenium's test runner, we have to preface our `describe()` and `it()` with `test`.
+-   Since we're using Selenium's test runner, we have to preface our `describe()` and `it()` with `test`.
 -   We're setting up a variable `driver` for the whole block. This is the thing that actually interacts with the browser.
 -   I've set host as a variable so I can easily change it when the environment changes
 -   The default timeout is 2000 milliseconds, which we'll run out of quickly with all the browsing we're going to be doing.
@@ -110,7 +150,7 @@ test.describe('testing my simple blog', function() {
   });
 ```
 
-Here we're starting Chrome before each test, and quitting it after each test. I've found this gives me the most consistent test results.
+Here we're starting Chrome before each test, and quitting it after each test. I've found this yeilds the most consistent test results.
 
 ```js
 test.it("lists all the entries on load", function() {
@@ -126,7 +166,7 @@ test.it("lists all the entries on load", function() {
 
 #### driver.get(url)
 
-This just visits a page in selenium.
+This just visits a page in Selenium.
 
 #### driver.wait(until...)
 
@@ -134,10 +174,10 @@ We're frequently going to be looking for things that don't exist at page load, b
 
 #### driver.findElements()
 
-My preference is to use css selectors to select elements.  `driver.findElement({css: '#id-name'})`
-You may also select an element by id. `driver.findElement({id: 'id-name'})`
+My preference is to use CSS selectors to select elements.  `driver.findElement({css: '#id-name'})`.
+You may also select an element by id: `driver.findElement({id: 'id-name'})`
 
-Because of some decisions made by the Selenium team, basically everything is a promise. This means instead of returning values, these functions return promises, and the only way to get the values is to call `then()` on them, and name the variable for the value in the anonymous function parameters. But once you get the pattern, it's pretty straight forward.
+Because of some decisions made by the Selenium team, almost everything is a promise. This means instead of returning values, these functions return promises, and the only way to get the values is to call `then()` on them, and name the variable for the value in the anonymous function parameters. But once you get the pattern, it's pretty straight forward.
 
 There is also a `findElement()` if you only expect there to be one, and don't want to mess with an array.
 
@@ -172,30 +212,27 @@ driver.findElement({id: 'ideaname'}).getText()
 
 These are just a few of the functions you can use, but at least enough for us to write our next test. There are a lot more [in the docs](https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/index_exports_WebDriver.html). The docs seem intimidating at first, but stick with them. They're consistent and have little snippets throughout.
 
-Alright, we're ready to write the test.
+Alright, we're ready to write our test.
+
+```js
+test.it("posts an entry", function() {
+  driver.get(`${frontEndLocation}`);
+  driver.wait(until.elementLocated({css: "#entries .entry"}));
+  driver.findElement({id: 'author-field'}).sendKeys("Lauren");
+  driver.findElement({id: 'body-field'}).sendKeys("A new entry");
+  driver.findElement({css: 'input[type="submit"]'}).click();
+  driver.wait(until.elementLocated({css: "div[data-id='101']"}));
+  driver.findElements({css: "#entries .entry"})
+  .then(function (entries) {
+    assert.lengthOf(entries, 101);
+  });
+});
+```
 
 ### Checks for Understanding
 
 - What are some similarities and differences between this library and integration tests you've written in the past?
 - What kind of challenges do you think you'll have when writing integration tests in JavaScript? What resources will you use to overcome those challenges?
-
-### AJAX refresher
-
-Let's make sure you're comfortable writing AJAX in jQuery by reviewing a few things:
-
-- [The jQuery docs for `.ajax()`](https://api.jquery.com/jquery.ajax/)
-- [The jQuery docs for other AJAX functions](https://api.jquery.com/category/ajax/)
-- The existing AJAX feature in the front-end codebase
-
-AJAX isn't unique to jQuery, and it's not all that unique as a concept. It's really just how we refer to the request->response->process cycle in JavaScript. API consumption you've done in the Ruby is basically the same thing. Asynchronicity is what makes it feel so different.
-
-There are other libraries that include AJAX functionality, and other libraries that are only for AJAX. `fetch()` is also trying to become a thing, but isn't included in any draft ES standard.
-
-### Checks for Understanding
-
-- What are some use cases for AJAX? Name some cards from your current project that will require an AJAX request to complete.
-- What information do you need before you can make an AJAX request?
-- How do you access the response from the request?
 
 ## Your Turn
 

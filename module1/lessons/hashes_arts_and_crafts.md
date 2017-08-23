@@ -6,9 +6,9 @@ tags: ruby, hashes, data structures
 
 ## Learning Goals
 
-* Understand that there are multiple types of collections
-* Develop a mental model to understand hashes
-* Gain some familiarity with common hash methods
+* Understand that there are multiple types of data collections
+* Explain a mental model to describe hashes
+* Describe some common hash methods
 
 ## Structure
 
@@ -34,6 +34,7 @@ You'll need these supplies:
 3. 6 Beads
 4. 6 Bead Labels  
    You'll need the following labels: blue, green, purple, red, orange, warm  
+   Attach your labels to your beads
 
 ### Intro - Hash Properties
 
@@ -98,7 +99,10 @@ Start with an empty `data` hash in both the physical space and IRB.
 For the IRB person, recall that you can create a simple `Bead` model like this:
 
 ```ruby
-class Bead
+class Bead 
+  def initialize(color)
+     @color = color
+  end
 end
 ```
 

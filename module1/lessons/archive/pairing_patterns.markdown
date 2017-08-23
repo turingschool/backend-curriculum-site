@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Pairing Patters
+title: Pairing Patterns
 length: 180
 tags: git, github
 ---

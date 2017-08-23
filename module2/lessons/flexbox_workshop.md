@@ -1,77 +1,50 @@
 ---
-title: Introduction to CSS Flexbox Displays
-length: 60
-tags: html, css, flexbox
+layout: page
 ---
 
-## Learning Goals
+# Intro To Flexbox
 
-* Style HTML elements using CSS flexbox displays
-* Speak to styling in an object-oriented approach with containers and
-  presenters.
-* Access and manipulate CSS from the Chrome Developer Tools.
-* Maximize the utility of semantic HTML tags with DRY CSS styling.
+## Let's Review
 
-## Structure
+### The CSS Box Model
 
-* 5  - Warm Up
-* 15 - Object Oriented Styling
-* 5  - Break
-* 5  - Art Time
-* 25 - Code Time
-* 5  - Wrap-up, Share Out, Reflection
+- Every html tag is surrounded by a box. The box consists of the content, padding, border and margin. Let's discuss each property individually.
 
-## Warm-up
+### Block vs. Inline Display
 
-Turn to a partner and discuss these questions (4 minutes):
+- Certain tags have default display values. For example, an `h1` tag is a block-level tag and `img` is an inline tag. We can alter this by changing the CSS.
 
-* Based on your CSS knowledge so far, how do you position content on the DOM?
-* What problems have you run into with these techniques?
+### Semantic Tags
 
-Group share out (1 minute).
+- How do we group multiple tags together?
+- Semantic tags can replace `div`s to provide more context than a general `div`.
 
-### Object Oriented Styling
+- ![Example](html5demo1.jpg)
 
-[Slides!](https://drive.google.com/file/d/0B_OioFZBJZ12aTJSdHRYRGZwTTQ/view?usp=sharing)
+### Bootstrap vs Flexbox
 
-## Flex Forms
+- We can use the grid system (Bootstrap), which works fine but requires more digging into docs and base knowledge about how it works.
+- Flexbox allows us to manipulate the position of tags without all the knowledge of a larger grid system.
 
-## Art Time
+## Using Flexbox
 
-Take five minutes to draw a basic web application form (e.g., create a new thing) in your note book. Annotate and label your form with pertinent information you observe. 
+### Setup
 
-Some guiding questions:
+- Clone down [this repo](https://github.com/icorson3/flexbox). Open the `index.html` file from your command line (For atom, `atom open index.html`).
+- Check out the CSS and HTML files to see what is going on.
 
-* How many columns? 
-* How many rows? 
-* Does every "cell" have data? What "type"?
+### Let's play
 
-## Code Time
+- display: flex;
+- flex-direction: row | row-reverse | column | column-reverse
+- order - displays in numerical order
+- flex-wrap
 
-Clone [this repo](https://github.com/turingschool-examples/sinatra-form-styling) and follow the instructions in the README.
+### Make a Garbage Unicorn
 
-### Together - 25 minutes
-
-Using your fresh flexbox skills, let's code along and style the index page to look something like the images in the README.
-
-## Wrap-Up
-
-* Review learning goals (3 minutes):
-
-  * Style HTML elements using CSS flexbox displays
-  * Speak to styling in an object-oriented approach with containers and
-    presenters.
-  * Access and manipulate CSS from the Chrome Developer Tools.
-  * Maximize the utility of semantic HTML tags with DRY CSS styling.
-
-## Corrections & Improvements for Next Time
-
-* Make sure navbar is displayed
-* Define expectations for navbar
+- Most eye-burning website, wins!
 
 ## Resources
 
 * [A Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
-* [Slides](https://drive.google.com/file/d/0B_OioFZBJZ12aTJSdHRYRGZwTTQ/view?usp=sharing)
 * [Another challenge: flex calendar](https://github.com/tmikeschu/flexendar)
-

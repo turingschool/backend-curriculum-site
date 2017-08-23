@@ -23,6 +23,20 @@ tags: ruby, arrays, data structures
 * Array  
 * Index 
 
+## SetUp  
+In the pry session you'll be using, build a Bead class. Use instances of these beads through the demonstration.
+
+```ruby 
+class Bead 
+  attr_reader :color
+  
+  def initialize(color)
+     @color = color
+  end 
+
+end 
+```
+
 ## Supplies
 
 Before we begin, collect the following Arts & Crafts supplies:

@@ -6,7 +6,7 @@ By the end of this lesson, you will:
 
 * Understand when and why to use Express.js in the back-end of an application
 * Know how Express.js abstracts difficult server-side logic and makes it easier to write endpoints
-* Create a simple Express app that implements all of the basic CRUD methods
+* Create a simple Express app that implements basic CRUD methods
 
 An example repository of the completed example can be found [here](https://github.com/turingschool-examples/intro-to-express).
 
@@ -624,41 +624,6 @@ It would also be nice if we used the correct status code on the successful respo
 response.status(201).json({ id, message })
 ```
 
-### Generating Unique Keys
-
-At this moment, we're using a key-value store that we whipped up to hold our data. That said, we're going to need some unique keys. We could use something like the current date, but there is a tiny, tiny chance that we could get two requests at the exact same millisecond. I'm personally not willing to risk it.
-
-For the time being, we'll use an MD5 hash, which is a unique value based on the content of the message. You've seen them in Github gists among other places.
-
-```
-npm i md5 --save
-```
-
-Now, in our `server.js`, we can require the module.
-
-```js
-var md5 = require('md5')
-```
-
-Finally, let's replace `Date.now()` in our `POST` action, we'll need to make sure `message` is defined before using `md5` though. 
-
-```js
-app.post('/api/secrets', function(request, response) {
-  var message = request.body.message
-  var id = md5(message)
-
-  if (!message) {
-    return response.status(422).send({
-      error: 'No message property provided'
-    })
-  } else {
-    var id = md5(message)
-    app.locals.secrets[id] = message
-    response.status(201).json({ id, message })
-
-  }
-})
-```
 ## Conclusion
 
 You've built your first Express app!!!
