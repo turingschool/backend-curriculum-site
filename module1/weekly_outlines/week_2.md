@@ -24,7 +24,7 @@ layout: page
 
 ## Projects
 
-* [Perilous Journey](../projects/perilous_journey)
+* [A Perilous Journey](../projects/perilous_journey)
 * [Date Night](../projects/date_night)
 * [Complete Me](../projects/complete_me)
 * [Night Writer](../projects/night_writer)

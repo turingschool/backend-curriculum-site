@@ -30,7 +30,7 @@ tags: ruby, testing, tdd
 * Name 2 debugging tools we use heavily in collaboration with TDD
 * Recall 3 necessary components of a test file
 * Name 4 assertion methods
-* Why is the TDD workflow (Red-Green-Refactor) helpful/important?
+* Why is the TDD workflow (Red-Green-Refactor/tests before implementation) helpful/important?
 
 ## TDD Patterns
 
@@ -56,15 +56,28 @@ What testing questions could you ask to verify that the following models have be
 
 ### Input/Output thought process 
 For each test, consider:
-What object(s) do we need to access?
-What is the actual method we're testing? (What is the input for the assertion method?)
-What do we expect to see? (What output do we expect the method to return?)
+
+* What object(s) do we need to access?
+* What is the actual method we're testing? (What is the input for the assertion method?)
+* What do we expect to see? (What output do we expect the method to return?)
+
+### Test Format
+
+Generally, we only want the minimum necessary setup and we space tests according to setup and assertion(s):
+
+```ruby
+def test_method_does_something
+  # setup
+  
+  # assertion(s)
+end
+```
 
 ### Practice
 
-1. Let's pick one of the models from the previous exercise (an office, a movie set, a staircar) and use `minitest` to turn assertions into Ruby tests.
+1. Let's pick one of the models from the previous exercise (an office, a movie set, a staircar) and use `minitest` to turn our testing questions into tests.
 
-2. We'll finish the red-green-refactor loop by writing code to pass the test and then refactoring. 
+2. We'll finish the red-green-refactor loop by writing implementation code to pass the test and then refactor. 
 
 ** break **
 
@@ -77,7 +90,7 @@ Remember that TDD helps:
 * Communicate what your code _should_ do
 
 #### Turn & Talk  
-Break down a test that you've written with the person sitting next to you; ask your partner:
+Break down a test that you've written with a person working on the same project as you; ask your partner:
 
 Does the test make sense?
 How could I improve this test?
