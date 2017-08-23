@@ -7,6 +7,17 @@ tags: apis, rails, faraday
 
 ## Consuming an API
 
+### Learning Goals
+
+By the end of this class, a student will be able to:
+
+* Set up and configure Faraday for use with a Rails application.
+* Use Faraday to connect to and retrieve information from third party external
+APIs.
+* Parse the information retrieved from a third party API.
+* Create models to contain and model the information returned from an external
+API.
+
 ### Summary
 
 What we are going to be working on today is creating an app that reaches out
