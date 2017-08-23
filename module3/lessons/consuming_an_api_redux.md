@@ -163,7 +163,7 @@ this:
 Now, if we remember the user story, the application is expecting us to select
 Colorado out of a drop box. We can safely imply that we need to have all of
 the other states in this drop box as well. We don't want this to go in the
-view, so we can take advange of the application helper.
+view, so we can take advantage of the application helper.
 
 Add this to `app/helpers/application_helper.rb`
 
@@ -229,7 +229,7 @@ end
 That gives us a nice array of arrays of the states and their abbreviations.
 
 Because we placed this in the application_helper.rb file, we now have access
-to `us_states` anywhere in our app.
+to `us_states` anywhere in our views. (Quiz: Where isn't this available?)
 
 Now that we have this, we are going to edit our
 app/views/layouts/application.html.erb.
@@ -338,8 +338,7 @@ def index
 
   response = @conn.get("/congress/v1/members/house/#{state}/current.json")
 
-  results = JSON.parse(response.body, symbolize_names: true)[:results]
-
+  @members = JSON.parse(response.body, symbolize_names: true)[:results]
 end
 ```
 
@@ -358,7 +357,7 @@ What is the class of `@members` right here? It's an array of hashes. The view
 is iterating through the array, and hashes don't have methods like name, and
 district and so forth. We could change what the view wants, but lets do a bit
 of dream driven development here and say that our intent is that we have an
-array of member objects sent to the view and not an array of hashes.
+array of member objects sent to the view and not an array of hashes. That would be gross. You don't want to be gross, do you?
 
 So before we can send it to the view, we need to do some conversion.
 
