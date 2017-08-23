@@ -32,13 +32,15 @@ JavaScript's **call stack** is a data structure that keeps track of where we are
 
 "If we step into a function, we step into the stack. If we return from a function, we pop off the top of the stack." - Philip Roberts
 
-Asynchronous processes are able to run concurrently because, while the JS runtime can only execute a single thread, your browser provides more threads for you. Async takes advantage of this and passes processes to the "event loop", where it will take the time it needs to execute and pop back onto the call stack once it's complete.
+Asynchronous processes are able to run concurrently because, while the JS runtime can only execute a single thread, your browser provides more threads for you. Async takes advantage of this and passes processes to the **event loop**, where it will take the time it needs to execute and pop back onto the call stack by way of a **queue** once it's ready.
 
 Let's watch Philip Roberts further explain: [Philip Roberts, JSConf EU 2014](https://www.youtube.com/watch?v=8aGhZQkoFbQ)
 
 ### Callbacks (20 minutes)
 
-A `callback` is a second function that is being passed as a parameter to a first function and will be invoked by the original function.
+Callbacks, by nature are not asynchronous. They are, however, used widely by asynchronous code.
+
+As a refresher, a `callback` is a second function that is being passed as a parameter to a first function and will be invoked by the original function.
 
 For example:
 
@@ -70,6 +72,8 @@ document.getElementById('my-button').addEventListener('click', function() {
 
 The method `addEventListener()` does a better job of telling you what's actually happening. When writing asynchronous JavaScript, it can sometimes feel like your code is being run out of order. JavaScript is still being read from top to bottom. When it gets to the `addEventListener()`, it does just that. It adds a listener to the element, and it moves on to its next instruction. It's not that JavaScript comes back to this code later. You packed it up and sent it off. Your callback function now exists all alone, waiting to be invoked by the browser upon a 'click' event.
 
+#### Callbacks with Asynchronicity
+
 `setTimeout()` is another function that takes a callback. It's an easy way to play around with asynchronicity. It is also tied to an event, but that event happens to be "some number of milliseconds passed".
 
 ```js
@@ -78,7 +82,7 @@ setTimeout(function() {
 }, 1000);
 ```
 
-After 1000 milliseconds (2nd parameter), the callback function (1st parameter) is added the the event loop.
+`setTimeout()` sends its callback function to the event loop. After 1000 milliseconds (2nd parameter), the callback function (1st parameter) is then added back to the queue, ready to be added back to the stack once the stack is free.
 
 ### [Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) (10 minutes)
 
@@ -193,7 +197,7 @@ Alternate who takes the lead in answering the questions for the following 4 snip
   ```
 3.
   ```js
-  $.get("https://api.github.com/users/neight-allen/repos")
+  $.get("https://api.github.com/users/turingschool/repos")
     .then(function(repos) {
       return repos[0]
     }).then(function(repo){
