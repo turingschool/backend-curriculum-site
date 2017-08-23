@@ -5,8 +5,10 @@ layout: page
 
 ## Learning Goals
 
-- Students can use promises and callbacks to execute logic asynchronously
-- Students can read and explain code that uses callbacks and promises to execute asynchronous logic
+- Students can execute logic asynchronously with callbacks and AJAX requests
+- Students understand how JavaScript executes synchronously vs asynchronously
+- Students can read and explain JavaScript that executes asynchronously
+- Students are exposed to JS Promise structure for writing asynchronous JS
 
 ## Intro
 
