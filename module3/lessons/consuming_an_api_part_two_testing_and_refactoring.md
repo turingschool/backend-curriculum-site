@@ -28,9 +28,9 @@ What if our controller index action looked like this:
 
 class SearchController < ApplicaitonController
 
-	def index
-		@members = Member.find_all(params[:state])
-	end
+  def index
+    @members = Member.find_all(params[:state])
+  end
 end
 
 ```
@@ -78,11 +78,11 @@ It should look like this.
 
 ```
 def find_all(state)
-	members = PropublicaService.find_house_members(state).map do |raw_member|
-		Member.new(raw_member)
-	end
+  members = PropublicaService.find_house_members(state).map do |raw_member|
+    Member.new(raw_member)
+  end
 
-	sort_members(members)
+  sort_members(members)
 end
 
 ```
