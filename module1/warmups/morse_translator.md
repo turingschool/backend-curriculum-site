@@ -3,6 +3,13 @@ Using this [repo](https://github.com/turingschool-examples/morse_translator), bu
 ** Hint **   
 Use a hash as your dictionary   
 
+## Submission instructions
+
+1. Fork the repo above
+2. Clone your fork
+3. Push your solution to your fork
+4. Use Github's interface to create a pull request
+
 ### Iteration 0 
 Translate English to Morse Code    
 * lowercase letters

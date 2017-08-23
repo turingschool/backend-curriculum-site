@@ -15,11 +15,11 @@ tags: ruby, testing, tdd
 
 ## Structure  
 
-5 min - Warm Up  
-15 min - TDD Patterns
-5 min - Break  
-25 min - Implement Testing in a Project
-5 min - Wrap Up
+* 5 min - Warm Up  
+* 15 min - TDD Patterns
+* 5 min - Break  
+* 25 min - Implement Testing in a Project
+* 5 min - Wrap Up
 
 ## Vocabulary  
 
@@ -92,9 +92,9 @@ Remember that TDD helps:
 #### Turn & Talk  
 Break down a test that you've written with a person working on the same project as you; ask your partner:
 
-Does the test make sense?
-How could I improve this test?
-What are some assertions or tests I could add to build on this test to make my method more robust?
+* Does the test make sense?
+* How could I improve this test?
+* What are some assertions or tests I could add to build on this test to make my method more robust?
 
 ## Recap
 * How does testing help problem-solving?

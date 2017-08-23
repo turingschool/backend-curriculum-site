@@ -4,6 +4,11 @@ title: Active Record American Gladiators
 subheading: Advanced AR Challenges
 ---
 
+### Learning Goals
+
+* Practice core ActiveRecord methods and concepts
+* Revisit SQL concepts
+
 ### Structure
 
 * Code Challenges (90 minutes)

@@ -18,7 +18,7 @@ Update your `.append`, `.count`, and `.to_s` methods to support the following in
 > list.head
 => nil
 > list.append("Rhodes")
-=> "Rhodes"
+=> => <Node @surname="Rhodes" @next_node=nil #5678904567890>
 > list
 => <LinkedList @head=<Node @surname="Rhodes" ... > #45678904567>
 > list.head
@@ -26,7 +26,7 @@ Update your `.append`, `.count`, and `.to_s` methods to support the following in
 > list.head.next_node
 => nil
 > list.append("Hardy")
-=> "Hardy"
+=> => <Node @surname="Hardy" @next_node=nil #5678904567890>
 > list.head.next_node
 => <Node @surname="Hardy" @next_node=nil #5678904567890>
 > list.count

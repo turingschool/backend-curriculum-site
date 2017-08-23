@@ -5,6 +5,13 @@ length: 180
 tags: rails, security, authentication, OAuth
 ---
 
+## Learning Goals
+
+* Can explain the tradeoffs of using OAuth vs. building authentication from scratch.
+* Can implement the OAuth handshake using an HTTP library.
+* Understands the value of using Omniauth to handle this handshake.
+* Understands where to store and how to use a user's access token
+
 ## Prework
 
 Start by watching this [video](https://www.youtube.com/watch?v=tFYrq3d54Dc). Which explains the oauth process at a high level.

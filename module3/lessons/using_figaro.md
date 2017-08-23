@@ -7,6 +7,12 @@ tags: apis, testing, rails
 
 ## Using Figaro
 
+### Learning Goals
+
+* Explain why we need tools like Figaro
+* Other strategies that could be used to accomplish the same Goals
+* Implement and understand how to use Figaro
+
 ### Warmup
 
 * What might be some of the downsides to including our secret keys directly in our code?
@@ -28,5 +34,3 @@ Review the [Figaro documentation](https://github.com/laserlemon/figaro), and see
 ### Discusss
 
 ### Implement
-
-
