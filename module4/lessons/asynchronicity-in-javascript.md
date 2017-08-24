@@ -123,7 +123,7 @@ Let's look through a few examples:
 
 [Successful AJAX with `.then()`](https://repl.it/KWkD/latest)
 
-[Erroneous AJAX with `.catch()`](https://repl.it/Hcsi/latest)
+[Erroneous AJAX with `.catch()`](https://repl.it/Hcsi/9)
 
 
 #### Checks for Understanding (10 minutes)
