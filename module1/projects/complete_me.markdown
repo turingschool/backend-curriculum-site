@@ -164,7 +164,7 @@ Spec harness available [here](https://github.com/turingschool-examples/complete_
 
 ## Support Tooling
 
-Please make sure that, before your evaluation, your project has each of the following:
+Please make sure that, before your evaluation, your project has the following:
 
 * [SimpleCov](https://github.com/colszowka/simplecov) reporting accurate test coverage statistics
 
@@ -259,10 +259,6 @@ Could your word lookup possibly handle middle-of-the-word matches? So that `com`
 ### 3. Visual Interface
 
 Can you create a graphical user interface for your code? Something that a "normal person" might plausibly use? Consider a toolkit like [Shoes](http://shoesrb.com/) or [Ruby Processing](https://github.com/jashkenas/ruby-processing).
-
-### 4. Automated Reporting
-
-* Setup [SimpleCov](https://github.com/colszowka/simplecov) to monitor test coverage along the way
 
 ## Evaluation Rubric
 
