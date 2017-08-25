@@ -6,20 +6,23 @@ tags: ruby, computer science, logic
 
 ## Learning Goals
 
-* Understand falsy vs truthy in Ruby
-* Understand the key logic operators AND, OR, and NOT
-* Be able to combine operations into a logic expression
-* Be able to use a truth table to illustrate a logical expression
-* Be able to trace the paths through a chunk of code
-* Be able to use compound logic to flatten nested `if` statements
+* explain falsy vs truthy in Ruby
+* apply the key logic operators AND, OR, and NOT
+* combine operations into a logic expression
+* utilize a truth table to illustrate a logical expression
+* trace multiple paths through a code snippet
+* apply compound logic to flatten nested `if` statements
 
-## Why?
+## Vocabulary 
+* Boolean 
+* Truthy
+* Falsey
+* Truth Table 
+* Control Flow
 
-Why is it helpful to have a working understanding of boolean logic? It can help us flatten `if` statements and reduce the number of lines in our code. We are also going to encounter this frequently in our jobs. A lack in understanding can introduce bugs into our code bases.
-
-## Truthy and falsey values
-
-First, start by doing some research.
+## WarmUp  
+First, start by doing some research. You may choose independent or paired. 
+#### Truthy and falsey values
 
 * How many falsey values are there in Ruby?
 * What is truthy in Ruby?
@@ -33,6 +36,10 @@ When you've answered the questions above, which of these are truthy and which ar
 * false
 * true
 * "false"
+
+## Why?
+
+Why is it helpful to have a working understanding of boolean logic? It can help us flatten `if` statements and reduce the number of lines in our code. We are also going to encounter this frequently in our jobs. A lack in understanding can introduce bugs into our code bases.
 
 ## AND/OR/NOT and Truth Tables
 
