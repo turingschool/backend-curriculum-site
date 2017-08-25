@@ -3,6 +3,13 @@ layout: page
 title: Night Writer
 ---
 
+## Learning Goals / Areas of Focus
+
+* Practice breaking a program into logical components
+* Testing components in isolation and in combination
+* Applying Enumerable techniques in a real context
+* Reading text from and writing text to files
+
 ## Before You Begin
 
 The idea of [Night Writing](https://en.wikipedia.org/wiki/Night_writing) was first developed for Napoleon's army so soldiers could communicate silently at night without light. The concept of night writing led to Louis Braille's development of his [Braille tactile writing system](https://en.wikipedia.org/wiki/Braille).
@@ -23,12 +30,6 @@ The `0` represents a raised dot. The period is an unraised space. The above code
 
 Let's also constrain our Braille files to 80 braille characters (160 dots) wide.
 
-## Learning Goals / Areas of Focus
-
-* Practice breaking a program into logical components
-* Testing components in isolation and in combination
-* Applying Enumerable techniques in a real context
-* Reading text from and writing text to files
 
 ## Base Expectations
 
