@@ -26,7 +26,7 @@ First we need to make sure everything is set up and installed. See the [Environm
 From the command line, switch to the folder that will store your projects. For instance, I use `/Users/jcasimir/projects/`. Within that folder, run the following command:
 
 ```
-$ rails new blogger -T --database=postgresql
+$ rails new blogger -T
 ```
 
 Use `cd blogger` to change into the directory, then open it in your text editor.
@@ -165,7 +165,13 @@ With those files in place we can start developing!
 
 ### Working with the Database
 
-Rails uses migration files to perform modifications to the database. Almost any modification you can make to a DB can be done through a migration. The killer feature about Rails migrations is that they're generally database agnostic. When developing applications developers might use SQLite3 as we are in this tutorial, but in production we'll use PostgreSQL. Many others choose MySQL. It doesn't matter -- the same migrations will work on all of them!  This is an example of how Rails takes some of the painful work off your hands. You write your migrations once, then run them against almost any database.
+Rails uses migration files to perform modifications to the database. Almost any modification you can make to a DB can be done through a migration. If you haven't already, take the time now to create your database.
+
+```
+$ rake db:create
+```
+
+The killer feature about Rails migrations is that they're generally database agnostic. When developing applications developers might use SQLite3 as we are in this tutorial, but in production we'll use PostgreSQL. Many others choose MySQL. It doesn't matter -- the same migrations will work on all of them!  This is an example of how Rails takes some of the painful work off your hands. You write your migrations once, then run them against almost any database.
 
 #### Migration?
 
