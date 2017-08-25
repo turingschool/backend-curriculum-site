@@ -18,8 +18,8 @@ git clone https://github.com/turingschool-examples/building-app-with-express/tre
 
 By the end of this lesson, you will:
 
-*   Understand how to execute raw SQL in node
-*   Understand how to use promises to retrieve data from postgres in node
+*   Understand how to execute raw SQL in Node
+*   Understand how to use promises to retrieve data from Postgres in Node
 *   Understand how to made code organization decisions without a framework
 
 You wouldn't want to immediately jump to writing raw SQL in any production application, but being able to write SQL is a must on the job. Whether it's for queries that are too complex for whatever ORM or library you're using, or it's using SQL to interact with the database directly.
@@ -55,7 +55,7 @@ What you'll be left to do on your own:
 
 If you're using git, add a .gitignore, and add `node_modules`. Since these get installed from npm, you typically don't commit them.
 
-Rewrite your `scripts` section like the following:
+Rewrite your `scripts` section of `package.json` like the following:
 
 ```js
 "scripts": {
@@ -65,19 +65,19 @@ Rewrite your `scripts` section like the following:
   }
 ```
 
-Install nodemon as a development dependency:
+Install `nodemon` as a development dependency. It'll automatically reload our server for us as we make changes.
 
 ```
 npm install nodemon --save-dev
 ```
 
-Install knex and pg (postgres):
+Install `knex` and `pg` (postgres):
 
 ```
 npm install knex pg --save
 ```
 
-And install knex globally so we can use it on the command line:
+Also install `knex` globally so we can use it on the command line:
 
 ```
 npm install knex -g
@@ -91,13 +91,13 @@ Knex is a great library for working with many kinds of databases. It isn't a ful
 
 Make sure Postgres is installed and running. We will prep our app by creating two databases in Postgres. Don't forget the semicolons in the the CREATE DATABASE command!
 
-```js
+```bash
 $ psql
 CREATE DATABASE secrets;
 CREATE DATABASE secrets_test;
 ```
 
-We will use a knexfile to configure our database for all of our environments. Create that file using the below command with some default values:
+We will use a `knexfile` to configure our database for all of our environments. Create that file for your project using the below command. It'll set you up with some default values.
 
 ```
 → knex init
@@ -106,7 +106,7 @@ Created ./knexfile.js
 
 ### Database Configuration
 
-This generated a really nice configuration file that we are going to tweak.
+This generated a really nice configuration file that we need to tweak for Postgres (vs sqlite default).
 
 ```js
 module.exports = {
@@ -154,7 +154,7 @@ module.exports = {
 knex migrate:make create-secrets-table
 ```
 
-This created a `migrations` directory and added a time stamped file with the name of the migration at the end. The new file should look something like this:
+This created a `migrations` directory and added a time stamped file with the name of the migration at the end. The new file should contain this:
 
 ```js
 exports.up = function(knex, Promise) {
@@ -170,7 +170,7 @@ For every `up` there must be an equal and opposite `down` that will allow us to 
 
 You may be used to migrations with a `change` method. `change` has an implied `down` for every `up`, but we're using the more explicit methods here.
 
-Using SQL, we can define our secrets table. We've been using strings as ids, which you can totally do in postgres, but let's go ahead and bring integer ids back.
+Using SQL, we can define our `secrets` table. We've been using strings as IDs, which you can do in Postgres, but let's go ahead and bring integer IDs back.
 
 ```js
 exports.up = function(knex, Promise) {
@@ -192,7 +192,7 @@ But, why is `Promise` passed in as a second argument? Knex is expecting that the
 
 ### Seeds
 
-Seeds are some default data. This will be useful when we first start developing our application. To create our seed files, type the following in your terminal
+Seeded data will be useful when we start developing our application. To create seed files, type the following in your terminal:
 
 ```
 knex seed:make secrets
@@ -205,11 +205,11 @@ exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
   return knex('table_name').del()
     .then(function () {
-      return Promise.all([
-        // Inserts seed entries
-        knex('table_name').insert({id: 1, colName: 'rowValue1'}),
-        knex('table_name').insert({id: 2, colName: 'rowValue2'}),
-        knex('table_name').insert({id: 3, colName: 'rowValue3'})
+      // Inserts seed entries
+      return knex('table_name').insert([
+        {id: 1, colName: 'rowValue1'},
+        {id: 2, colName: 'rowValue2'},
+        {id: 3, colName: 'rowValue3'}
       ]);
     });
 };
@@ -256,9 +256,9 @@ This will run all of the migrations up to and including the most recent one. (We
 
 ## Fetching From the Database
 
-Let's create a little spike file to get our heads around knex and SQL. I love spike files. I create spike files all the time.
+Let's create a file to get our heads around knex and SQL.
 
-`database-spike.js`:
+`touch database-spike.js`:
 
 ```js
 const environment = process.env.NODE_ENV || 'development';
@@ -268,7 +268,7 @@ const database = require('knex')(configuration);
 process.exit();
 ```
 
-This is just enough code to get connected to postgres. A couple notes:
+This is just enough code to get connected to Postgres. A couple notes:
 
 1.  We want to know if we're in a development, testing, or production environment. If we don't know, we'll assume we're in development.
 2.  Based on that environment, we'll fetch the database configuration from `knexfile.js` for whatever environment we're in.
