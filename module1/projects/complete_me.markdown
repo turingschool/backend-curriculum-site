@@ -3,6 +3,13 @@ layout: page
 title: CompleteMe
 ---
 
+## Learning Goals
+
+* Practice breaking a program into logical components
+* Testing components in isolation and in combination
+* Applying Enumerable techniques in a real context
+* Reading text from and writing text to files
+
 ## CompleteMe
 
 Everyone in today's smartphone-saturated world has had their
