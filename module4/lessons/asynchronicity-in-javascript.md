@@ -5,12 +5,14 @@ layout: page
 
 ## Learning Goals
 
-- Students can use promises and callbacks to execute logic asynchronously
-- Students can read and explain code that uses callbacks and promises to execute asynchronous logic
+- Students can execute logic asynchronously with callbacks and AJAX requests
+- Students understand how JavaScript executes synchronously vs asynchronously
+- Students can read and explain JavaScript that executes asynchronously
+- Students are exposed to JS Promise structure for writing asynchronous JS
 
 ## Intro
 
-### When Will We Need This?
+### When Will We Need This? (5 mins)
 
 The concepts we're going to talk about happen most often in the following situations:
 
@@ -18,61 +20,27 @@ The concepts we're going to talk about happen most often in the following situat
 - Events (clicks, keydowns, scrolls, etc)
 - Enumerables (forEach, map, filter)
 
-### Synchronous Vs Asynchronous
+### Synchronous Vs Asynchronous (45 mins)
 
-- [What is Asynchronous JavaScript?](https://www.youtube.com/watch?v=YxWMxJONp7E)
+Watch: [What is Asynchronous JavaScript?](https://www.youtube.com/watch?v=YxWMxJONp7E)
 
 #### The Event Loop
 
 We now know that JavaScript runs synchronously.
 
-JavaScript's "call stack" is a data structure that keeps track of where we are in the sense of this synchronous thread of execution.
+JavaScript's **call stack** is a data structure that keeps track of where we are in the sense of this synchronous thread of execution.
 
-"If we step into a function, we step into the stack. If we return from a function, we pop off the top of the stack." - [Philip Roberts, JSConf EU 2014](https://www.youtube.com/watch?v=8aGhZQkoFbQ)
+"If we step into a function, we step into the stack. If we return from a function, we pop off the top of the stack." - Philip Roberts
 
-Asynchronous processes are able to run concurrently because, while the JS runtime can only execute a single thread, your browser provides more threads for you. Async takes advantage of this and passes processes to the "event loop", where it will take the time it needs to execute and pop back onto the call stack once it's complete.
-<!--
-## How JS implements asynchronicity
+Asynchronous processes are able to run concurrently because, while the JS runtime can only execute a single thread, your browser provides more threads for you. Async takes advantage of this and passes processes to the **event loop**, where it will take the time it needs to execute and pop back onto the call stack by way of a **queue** once it's ready.
 
-### Packing up code for later
+Let's watch Philip Roberts further explain: [Philip Roberts, JSConf EU 2014](https://www.youtube.com/watch?v=8aGhZQkoFbQ)
 
-Part of understanding asynchronicity is knowing how to pack up code to execute upon some later event. Packing up code and passing it around isn't actually all that foreign if you're coming from Ruby. Think about this code:
+### Callbacks (20 minutes)
 
-```ruby
-[1,2,3].each do |num|
-    puts num * 2
-end
-```
+Callbacks, by nature are not asynchronous. They are, however, used widely by asynchronous code.
 
-Between the `do` and `end`, you're actually passing a code block to the `each` enumerable. The code in that block will be executed, multiple times.
-
-We've talked about it already, but packing up code for later is done with functions in JavaScript.
-
-```javascript
-function doubleNumber(num) {
-    console.log(num * 2);
-}
-[1,2,3].forEach(doubleNumber);
-
-// Or with an inline anonymous function expression
-
-[1,2,3].forEach(function(num) {
-    console.log(num * 2);
-});
-```
-
-#### Checks for Understanding
-
-Discuss the following with the person next to you:
-
-- What are some instances where you would pass a function?
-- What is the syntax for passing a function?
-- What is the syntax for invoking a function?
-- When passing a function as a parameter, how are the arguments of the passed function used? -->
-
-### Callbacks
-
-A callback is a second function that is being passed as a parameter to a first function and will be invoked by the original function.
+As a refresher, a `callback` is a second function that is being passed as a parameter to a first function and will be invoked by the original function.
 
 For example:
 
@@ -84,7 +52,7 @@ function doubleNumber(num) {
 [1,2,3].forEach(doubleNumber);
 ```
 
-#### Callbacks and Events
+#### Callbacks with Events
 
 You've seen callbacks before in enumerables, but also in event listeners. Take this example:
 
@@ -104,6 +72,8 @@ document.getElementById('my-button').addEventListener('click', function() {
 
 The method `addEventListener()` does a better job of telling you what's actually happening. When writing asynchronous JavaScript, it can sometimes feel like your code is being run out of order. JavaScript is still being read from top to bottom. When it gets to the `addEventListener()`, it does just that. It adds a listener to the element, and it moves on to its next instruction. It's not that JavaScript comes back to this code later. You packed it up and sent it off. Your callback function now exists all alone, waiting to be invoked by the browser upon a 'click' event.
 
+#### Callbacks with Asynchronicity
+
 `setTimeout()` is another function that takes a callback. It's an easy way to play around with asynchronicity. It is also tied to an event, but that event happens to be "some number of milliseconds passed".
 
 ```js
@@ -112,54 +82,71 @@ setTimeout(function() {
 }, 1000);
 ```
 
-After 1000 milliseconds (2nd parameter), the callback function (1st parameter) is added the the event loop.
+`setTimeout()` sends its callback function to the event loop. After 1000 milliseconds (2nd parameter), the callback function (1st parameter) is then added back to the queue, ready to be added back to the stack once the stack is free.
 
-### Promises
+### [Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) (10 minutes)
 
-Promises solve a similar problem as callbacks. They're all about executing code upon some later event. A couple things to keep in mind about promises while we're seeing them in action:
+Promises solve a similar problem as callbacks. They execute an asynchronous processes and can handle both the finished success or failure of said process. A couple things to keep in mind about promises while we're seeing them in action:
 
-- A `Promise` is yet another data type in JavaScript. You assign it to a variable, it has methods and you can create new instances of it.
+- A `Promise` is yet another data type in JavaScript. You can assign it to a variable, it has methods and you can create new instances of it.
 - The methods of `Promise` (specifically `.then()`) make more sense in the context of "executing things in order" rather than "packing up code for later"
 
-Let's take this callback example and refactor it to use promises.
-
-<https://repl.it/Hcsi/2>
+Let's take a few minutes to read through MDN's [Promise documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise). Pay attention to the structure you see implemented in their examples.
 
 #### Promise Chaining
 
-Each `.then()` returns another instance of `Promise`. Which means you can chain your `.then()`s. Let's refactor the promise we just made to use promise chaining.
+Let's look at an example of a `Promise` in action: [https://repl.it/KWQp/4](https://repl.it/KWQp/4)
 
-Another refactor example would be to use our `.then()`s to keep things in order. If you had one AJAX call that had information you needed for a second call, which has information you need for a third call:
+Notice how `.then()` controls the flow of the data returned from the successful `Promise` resolution.
 
-<https://repl.it/HcuB/2>
+Thus, `.catch()` would only be triggered had the `Promise` not resolved successfully.
 
-#### Error handling
+Where have we seen something like this before?
 
-In addition to `.then()`, you can also add `.catch()` to the chain. Then, if any error is thrown in the chain, you can call a different function to handle the error.
+### AJAX Deferred Objects === Promises? (20 minutes)
 
-<https://repl.it/HdHR>
+We've seen the chainable `.then()` and `.catch()` quite often thanks to AJAX. But are AJAX requests returning Promises to us?
 
-#### Checks for Understanding
+Surprisingly, they're technically not. jQuery AJAX requests actually return to us [`Deferred` objects](https://api.jquery.com/category/deferred-object/). They look like `Promises`, they act like `Promises`, but technically they are not `Promises`.
+
+Regardless of what they technically are, these `Deferred` objects are likely your most common use-case for asynchronous JavaScript.
+
+Think back to the original reason we use AJAX - we want to request something (usually data) from somewhere else, but we're not sure how long it'll take to get that response.
+
+AJAX is able to take advantage of the concurrency / event loop we were speaking about earlier to allow our program to continue running while our AJAX request resolves.
+
+#### Chainable AJAX Examples
+
+Let's look through a few examples:
+
+[AJAX with Callbacks](https://repl.it/KWjo/latest)
+
+[Successful AJAX with `.then()`](https://repl.it/KWkD/latest)
+
+[Erroneous AJAX with `.catch()`](https://repl.it/Hcsi/9)
+
+
+#### Checks for Understanding (10 minutes)
 
 Discuss the following with the person next to you:
 
-- How are callbacks and promises the same?
-- How are callbacks and promises different?
+- How are callbacks, promises and deferred objects similar?
+- How are they different?
 - What's something you can do with promises that you can't do with callbacks?
-- How do you know what arguments your callback function will be called with?
-- How do you know what arguments your promise function will be called with? (it's the same answer)
+- How would you describe asynchronicity to a 5 year old?
 
 ## Application of Knowledge
 
-### Experiments in ordering
+### Experiments in Ordering (10 minutes)
 
-For each of these, read through the code, and think about what is going to happen. Then run the code in your browser's console to verify your assumptions.
+For each of these, read through the code, and try to predict what interactions will happen. Then run the code in your browser's console to verify your assumptions.
 
 ```js
 var balloon = "empty";
 
 setTimeout(function() {
   balloon = "filled";
+  console.log(`async balloon is ${balloon}`);
 }, 1000)
 
 console.log(balloon);
@@ -170,12 +157,13 @@ var balloon = "empty";
 
 $('body').on('click', function() {
   balloon = "filled";
-})
+  console.log(`async balloon is ${balloon}`);
+});
 
 console.log(balloon);
 ```
 
-## Speaking asynchronously
+## Speaking Asynchronously (25 minutes)
 
 Talk through the following code snippets with your partner. Answer the following questions:
 
@@ -209,7 +197,7 @@ Alternate who takes the lead in answering the questions for the following 4 snip
   ```
 3.
   ```js
-  $.get("https://api.github.com/users/neight-allen/repos")
+  $.get("https://api.github.com/users/turingschool/repos")
     .then(function(repos) {
       return repos[0]
     }).then(function(repo){
@@ -230,9 +218,9 @@ Alternate who takes the lead in answering the questions for the following 4 snip
   console.log(randomMerchantRevenue)
   ```
 
-## Stuff we haven't covered
+## Going Further
 
-Here's a couple JavaScript concepts you'll sometimes see associated with asynchronicity. I just want you to file this in a dusty part of your mind so you aren't completely confused when you see them.
+Here's a couple JavaScript concepts you'll sometimes see associated with asynchronicity. They're worth glancing over to avoid being completely confused when you come across them.
 
 **[Generators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*)**
 
@@ -241,19 +229,3 @@ A lot of the same "running code at a later time" can be done using generators. Y
 **[Async and Await](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)**
 
 These are a pair of keywords defined in ES7. They're just another way to ensure that things happen in a given order, but not necessarily at any given time.
-
-## What's next for you?
-
-In the Quantified Self project, you'll be using callbacks and/or promises for the following:
-
-**Database Queries**
-
-The database is an external data source. JS doesn't have time to wait for the DB to do it's thing, so it's an asynchronous interaction.
-
-**Integration Testing**
-
-When you learn how to test your application with Selenium, you'll often have to wait for the browser to react to your actions, or complete some task before you can check the state of things. So the selenium library is heavily asynchronous.
-
-**AJAX**
-
-When you integrate your front end JS with your back end JS, you'll be using AJAX to pass data back and forth. JS won't wait for the whole HTTP across the internet thing, so we use asynchronicity to keep our logic in order.

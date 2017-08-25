@@ -12,6 +12,7 @@ layout: page
 * [Nested Collections](../lessons/nested_collections)
 * [Testing in a Project](../lessons/testing_in_a_project)
 * [Gear Up: Working Styles](https://github.com/turingschool/gear-up/blob/master/m1_citizenship/session_3_intro_extro_ambivert_styles.markdown)
+* [Working with Objects](../lessons/working_with_objects.md)
 * [Git for Pairs](../lessons/git_for_pairs)
 * [PD: Learning to Pair](../../career_development_curriculum/module_one/learning_to_pair)
 * [PD: DTR Guidelines](../../career_development_curriculum/module_one/dtr_guidelines_memo)

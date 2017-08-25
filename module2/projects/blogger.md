@@ -26,7 +26,7 @@ First we need to make sure everything is set up and installed. See the [Environm
 From the command line, switch to the folder that will store your projects. For instance, I use `/Users/jcasimir/projects/`. Within that folder, run the following command:
 
 ```
-$ rails new blogger
+$ rails new blogger -T
 ```
 
 Use `cd blogger` to change into the directory, then open it in your text editor.
@@ -55,7 +55,6 @@ Untracked files:
 	log/
 	package.json
 	public/
-	test/
 	tmp/
 	vendor/
 
@@ -82,6 +81,10 @@ The `-u` flag remembers the origin/branch connection, and allows you to simply t
 
 Refresh your GitHub repo, and checkout your shiny new Rails app.
 
+### Install RSpec
+
+Use the documentation available [here](https://github.com/rspec/rspec-rails) to install RSpec in your project.
+
 ### Project Tour
 
 The generator has created a Rails application for you. Let's figure out what's in there. Looking at the project root, we have these folders:
@@ -93,7 +96,7 @@ The generator has created a Rails application for you. Let's figure out what's i
 * `lib` - This folder is to store code you control that is reusable outside the project.
 * `log` - Log files, one for each environment (development, test, production)
 * `public` - Static files can be stored and accessed from here, but all the interesting things (JavaScript, Images, CSS) have been moved up to `app` since Rails 3.1
-* `test` - If your project is using the default `Test::Unit` testing library, the tests will live here
+* `spec` - When you installed RSpec, it created this directory as well as a `rails_helper.rb` and a `spec_helper.rb` file. Your tests will live here.
 * `tmp` - Temporary cached files
 * `vendor` - Infrequently used, this folder is to store code you *do not* control. With Bundler and Rubygems, we generally don't need anything in here during development.
 
@@ -134,7 +137,7 @@ If you see an error here, it's most likely related to the database. You are prob
 
 ### Creating the Article Model
 
-Our blog will be centered around "articles," so we'll need a table in the database to store all the articles and a model to allow our Rails app to work with that data. 
+Our blog will be centered around "articles," so we'll need a table in the database to store all the articles and a model to allow our Rails app to work with that data.
 
 Whenever you find yourself ready to add functionality or features to your app,you should automatically think: *Time for a new working branch!*. Don't worry if that's not automatic yet, it soon will be. We are moving into the M(odel) part of MVC, so let's "checkout" a branch for implementing our Article model:
 
@@ -156,14 +159,19 @@ We're running the `generate` script, telling it to create a `model`, and naming 
 
 * `db/migrate/(some_time_stamp)_create_articles.rb` : A database migration to create the `articles` table
 * `app/models/article.rb` : The file that will hold the model code
-* `test/models/article_test.rb` : A file to hold unit tests for `Article`
-* `test/fixtures/articles.yml` : A fixtures file to assist with unit testing
+* `spec/models/article_spec.rb` : A file to hold unit tests for `Article`
 
 With those files in place we can start developing!
 
 ### Working with the Database
 
-Rails uses migration files to perform modifications to the database. Almost any modification you can make to a DB can be done through a migration. The killer feature about Rails migrations is that they're generally database agnostic. When developing applications developers might use SQLite3 as we are in this tutorial, but in production we'll use PostgreSQL. Many others choose MySQL. It doesn't matter -- the same migrations will work on all of them!  This is an example of how Rails takes some of the painful work off your hands. You write your migrations once, then run them against almost any database.
+Rails uses migration files to perform modifications to the database. Almost any modification you can make to a DB can be done through a migration. If you haven't already, take the time now to create your database.
+
+```
+$ rake db:create
+```
+
+The killer feature about Rails migrations is that they're generally database agnostic. When developing applications developers might use SQLite3 as we are in this tutorial, but in production we'll use PostgreSQL. Many others choose MySQL. It doesn't matter -- the same migrations will work on all of them!  This is an example of how Rails takes some of the painful work off your hands. You write your migrations once, then run them against almost any database.
 
 #### Migration?
 
@@ -376,9 +384,9 @@ The output shows that the generator created several files/folders for you:
 
 * `app/controllers/articles_controller.rb` : The controller file itself
 * `app/views/articles` : The directory to contain the controller's view templates
-* `test/controllers/articles_controller_test.rb` : The controller's unit tests file
+* `spec/controllers/articles_controller_spec.rb` : The controller's unit tests file
 * `app/helpers/articles_helper.rb` : A helper file to assist with the views (discussed later)
-* `test/helpers/articles_helper_test.rb` : The helper's unit test file
+* `spec/helpers/articles_helper_spec.rb` : The helper's unit test file
 * `app/assets/javascripts/articles.js.coffee` : A CoffeeScript file for this controller
 * `app/assets/stylesheets/articles.css.scss` : An SCSS stylesheet for this controller
 
@@ -2317,9 +2325,8 @@ Take a look at the output and you'll see roughly the following:
 generate  model Author --skip-migration
   invoke  active_record
   create    app/models/author.rb
-  invoke    test_unit
-  create      test/unit/author_test.rb
-  create      test/fixtures/authors.yml
+  invoke    rspec
+  create      spec/models/author_spec.rb
   insert  app/models/author.rb
   create  db/migrate/20120210184116_sorcery_core.rb
 ```
