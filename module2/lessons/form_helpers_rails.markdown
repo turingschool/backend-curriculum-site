@@ -10,6 +10,10 @@ title: Forms in Rails
 * Construct a basic form with the help of documentation/references
 * Practice building a small CRUD application with a form
 
+### Slides
+
+Available [here](../slides/forms_in_rails)
+
 ### Setup
 
 * `git clone -b pre-form-lesson git@github.com:turingschool-examples/book_shelf.git forms_playground`
