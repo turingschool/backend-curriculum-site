@@ -25,7 +25,7 @@ layout: page
 * **HOMEWORK:**
   - [Form and Route Helpers](https://github.com/turingschool/challenges/blob/master/form_route_helpers_rails.markdown)
   - Complete Challenge #3 from [Schema Practice](https://gist.github.com/rwarbelow/80417edbcc42578cb56a).
-  - Work on [MixMaster](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/mix_master)
+  - Work on [MixMaster](../projects/mix_master/1_getting_started)
 
 ### Day 3:
 
@@ -34,7 +34,7 @@ layout: page
 
 * **HOMEWORK:**
   - Complete Challenge #4 from [Schema Practice](https://gist.github.com/rwarbelow/80417edbcc42578cb56a).
-  - Finish [MixMaster](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/mix_master)
+  - Finish [MixMaster](../projects/mix_master/1_getting_started)
 
 ### Day 4:
 
