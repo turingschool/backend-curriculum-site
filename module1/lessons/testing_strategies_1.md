@@ -11,7 +11,6 @@ length: 60
 
 * Understand that TDD is about asking questions and making decisions
 * Understand the role of TDD in streamlining the problem-solving and design process.
-* Be able to explain and apply the "two-mindset approach" to TDD
 * Be able to name and explain the four key types of tests
 
 
