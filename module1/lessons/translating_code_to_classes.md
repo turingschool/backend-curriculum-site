@@ -1,12 +1,14 @@
 ---
 title: Translating Code to Classes
 length: 60
-tags: ruby
+tags: ruby, refactoring, DRY 
 ---
 
 ## Learning Goal
-
-*   Take existing code and turn it into a class with methods.
+*   apply a Class to a chunk of functionality
+*   untilize code written within a Class
+*   break apart a chunk of functionality in to individual methods 
+*   analyze code snippet for opportunities to make DRY
 
 ## Warm-up
 
@@ -435,3 +437,10 @@ end
   puts superfizz.run
 end
 ```
+
+### WrapUP 
+*  How do you define a class?
+*  How do you run code that lives within a Class?
+*  Why might you want to wrap your code in a Class? 
+*  Why might you want to break functionality into multiple methods? 
+*  How do you call a method from within another method? 
