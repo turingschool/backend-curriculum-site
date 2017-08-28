@@ -2,7 +2,7 @@
 layout: page
 title: Working with Files
 tags: files, I/O, command line, unix
-length: 90
+length: 60
 ---
 
 ## Learning Goals
@@ -45,7 +45,7 @@ cat <filename>
    Creates a Ruby File object that is "readable."
 
 ```ruby
-File.open(<filename>, "r")
+File.open('<filename>', "r")
 ```
 
 ### Basics - Creating an Empty File
@@ -69,20 +69,20 @@ File.open(<filename>, "w")
 * Using `echo` to add content from the command line
 
 ```
-echo "test" >filename
+echo "test" > <filename>
 ```
 
 * Using `cat` to add content from the command line
 
 ```
-cat >filename
+cat > <filename>
 CTRL+D
 ```
 
 * Using Ruby and `File.write()` in Pry, IRB, or your Ruby file.
 
 ```ruby
-new_file = File.open(<filename>, "w")
+new_file = File.open('<filename>', "w")
 new_file.write("text")
 ```
 
@@ -97,7 +97,7 @@ Another common interaction involves reading **"Command Line Arguments"**
 
 * `ARGV` - a special array
 * Arguments are provided as strings in the ARGV array
-* Arguments are separated by spaces in the commmand line
+* Arguments are separated by spaces in the command line
 * `ARGV` is a "constant" and is globally accessible from anywhere
 in a ruby program
 
@@ -131,7 +131,7 @@ Bob Ross Quotes
 “Let's build a happy little cloud. Let's build some happy little trees.”
 ```
 
-Using `ARGV`, write a Ruby script that will take in the above text and print out an all caps version to `loud_quotes.txt`.
+Using `ARGV`, write a Ruby script that will take in the above file and write out an all caps version to `loud_quotes.txt`.
 
 The program must be executed from the command line like so:
 
@@ -141,4 +141,4 @@ ruby <filename.rb> quiet_quotes.txt loud_quotes.txt
 
 ### Video
 
-https://vimeo.com/130322465
+<https://vimeo.com/130322465>
