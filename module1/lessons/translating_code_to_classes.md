@@ -4,7 +4,7 @@ length: 60
 tags: ruby, refactoring, DRY 
 ---
 
-## Learning Goal
+## Learning Goals
 *   apply a Class to a chunk of functionality
 *   untilize code written within a Class
 *   break apart a chunk of functionality in to individual methods 
