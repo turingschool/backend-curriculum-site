@@ -1,5 +1,5 @@
 ---
-title: Hashes
+title: Nested Collections
 length: 60
 tags: ruby, hashes, data structures
 ---

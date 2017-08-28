@@ -3,6 +3,13 @@ layout: page
 title: Night Writer
 ---
 
+## Learning Goals / Areas of Focus
+
+* Practice breaking a program into logical components
+* Testing components in isolation and in combination
+* Applying Enumerable techniques in a real context
+* Reading text from and writing text to files
+
 ## Before You Begin
 
 The idea of [Night Writing](https://en.wikipedia.org/wiki/Night_writing) was first developed for Napoleon's army so soldiers could communicate silently at night without light. The concept of night writing led to Louis Braille's development of his [Braille tactile writing system](https://en.wikipedia.org/wiki/Braille).
@@ -23,12 +30,6 @@ The `0` represents a raised dot. The period is an unraised space. The above code
 
 Let's also constrain our Braille files to 80 braille characters (160 dots) wide.
 
-## Learning Goals / Areas of Focus
-
-* Practice breaking a program into logical components
-* Testing components in isolation and in combination
-* Applying Enumerable techniques in a real context
-* Reading text from and writing text to files
 
 ## Base Expectations
 
@@ -64,7 +65,7 @@ If you'd like an example of how you might extract the File I/O into an external 
 
 ### 1. The Runner
 
-Write a Ruby program that can just output a string like:
+Write a Ruby program that can output a string like:
 
 ```
 $ ruby ./lib/night_write.rb message.txt braille.txt
@@ -100,11 +101,10 @@ You'll need a component that takes a normal text character and returns the Brail
 
 Bringing together the Echo Characters idea with the Mapping idea, you can actually output your Braille characters to the file. Consider building a component that would take in a plain-text letter and a position (maybe numbered 0-5) and would return either a `0` or `.`.
 
-### 5. Next Steps
-
 About this point, you should try Braille-ifying a message and exchange it with a classmate. Are your outputs identical?
 
-Then it's time to dive into the reading.
+### 5. Translate Braille to English
+Repeat steps 2 - 4 to translate a Braille text file to an English text file. 
 
 ## Extensions
 
@@ -131,7 +131,8 @@ These should be used both when going from standard characters to Braille (ie, `f
 Below are a few examples to help you develop your implementation. You're encouraged
 to submit additional examples, especially for the extensions, as pull requests.
 
-### lowercase character
+### lowercase character 
+Note, a Braille character is the full 6 .s or 0s
 
     "a"
 
@@ -163,7 +164,7 @@ to submit additional examples, especially for the extensions, as pull requests.
     ......0.
     .0...0..
 
-### 80 characters wide
+### 80 positions wide (40 Translated English lowercase letters)
 
     "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
 
@@ -171,7 +172,7 @@ to submit additional examples, especially for the extensions, as pull requests.
     ................................................................................
     ................................................................................
 
-### 82 characters wide (41 English letters)
+### 82 positions (41 Translated English lowercase letters)
 
     "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
 

@@ -109,7 +109,7 @@ First, we'll have our Front End talking with a pre-built Rails API found [here](
 
 ## Rubric
 
-You will be subjectively (Friday of Week Three via Github) graded by an instructor on the following criteria:
+You will be subjectively (Friday of Week Three via Github) graded by an instructor on the criteria below. You'll need to self assess on this rubric when submitting your final project [here](https://github.com/turingschool/ruby-submissions/tree/master/1703-b/4module/quantified_self/evaluations).
 
 ### Specification Adherence
 

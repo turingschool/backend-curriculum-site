@@ -5,6 +5,15 @@ length: 90
 tags: apis, rails, faraday, refactoring, VCR
 ---
 
+### Learning Goals
+
+After this class, a student should be able to:
+* Refactor code that reaches an API from the controller into its own service.
+* Understand the four main advantages of using a network mocking gem to test
+external APIs.
+* Understand that stubbing can also help testing APIs.
+* Configure and set up tests using VCR.
+
 Right now, we should be very unhappy with how our app looks. Not in terms of what it does, but how it looks. How fat is our controller? Very.
 
 We want to make it so that we have skinny controllers and fat models. So let's
@@ -19,9 +28,9 @@ What if our controller index action looked like this:
 
 class SearchController < ApplicaitonController
 
-	def index
-		@members = Member.find_all(params[:state])
-	end
+  def index
+    @members = Member.find_all(params[:state])
+  end
 end
 
 ```
@@ -69,11 +78,11 @@ It should look like this.
 
 ```
 def find_all(state)
-	members = PropublicaService.find_house_members(state).map do |raw_member|
-		Member.new(raw_member)
-	end
+  members = PropublicaService.find_house_members(state).map do |raw_member|
+    Member.new(raw_member)
+  end
 
-	sort_members(members)
+  sort_members(members)
 end
 
 ```
