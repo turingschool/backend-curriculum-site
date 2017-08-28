@@ -45,11 +45,13 @@ It can be especially difficult to get started on a new project or even a new ite
 
 * What makes a test easy to write? What makes it hard?
   * Being specific with the behavior you're testing makes writing the test easier.
-* Can we identify the input?
-* Can we identify the output?
-* The "interface"
-
-Identify the Input/Output and what your method will be called.
+* Write the test
+  * In my dream world, how would this work?
+  * How can I break this problem down?
+  * What are my inputs/outputs?
+  * What are classes/methods named?
+* Make it pass
+  * How do I do this in Ruby?
 
 ```ruby 
   def test_translate_returns_a_string_of_translated_characters  
@@ -117,7 +119,7 @@ Then maybe we want to test for five letters:
 
 ```ruby
 def test_translate_returns_a_string_of_translated_characters  
-    input           = hello"
+    input           = "hello"
     expected_output = "dkssp"
     
     translator = Translator.new  
@@ -129,12 +131,12 @@ def test_translate_returns_a_string_of_translated_characters
 
 You could keep going with a translator, checking for sentences, paragraphs etc. Maybe you want to check for special characters or punctuation. This process helps you incrementally ensure your method works for your intended purpose and for a number of scenarios.  
 
-**Turng & Talk**
+**Turn & Talk**
 Consider this combination of test and code. What are the dangers illustrated here? What implications does this have for your testing practice?   
 
 ```ruby  
   def test_translate_returns_a_string_of_translated_characters  
-    input           = hello"  
+    input           = "hello"  
     expected_output = "dkssp"
     
     translator = Translator.new  
@@ -154,33 +156,32 @@ Consider this combination of test and code. What are the dangers illustrated her
 ```  
 
 
-### Hierarchy of Tests  
+### Types of Tests  
 
-When writing a program, you will likely have smaller methods that support each other to create greater functionality. Often these might be wrapped in some kind of runner method, or chained together for a grand result. We saw this in the discussion above regarding both Top-Down and Bottom-Up strategies. The tests for these methods are actually different kinds of tests.  There are four commonly referred to types of tests which build upon each other:  
+When writing a program, you will likely have smaller methods that support each other to create greater functionality. Often these might be wrapped in some kind of runner method, or chained together for a grand result. We saw this in the discussion above regarding both Top-Down and Bottom-Up strategies. The tests for these methods are actually different kinds of tests. There are four commonly referred to types of tests which build upon each other:  
+
+* Programmer-centric:
+  * **Unit Test** - tests one component in isolation.
+  * **Integration Test** - tests multiple interdependencies or coordinating components.
+* Customer-centric:
+  * **Feature Test** - a single feature as experienced by a user.
+  * **Acceptance Test** - a collection of user functionalities that delivers business value.
+
+Especially when you move into web development projects in later modules you'll rely more heavily on Acceptance and Feature tests to verify the behavior of your application as it will eventually be experienced by a user.
+
+In Module 1, on the other hand, we will rely much more heavily on **Unit** and **Integration** tests -- and it's very
+important to have a good mix of both!  
+
+### Hierarchy of Tests
+
+
 
 [TestPyramid](http://martinfowler.com/bliki/TestPyramid.html)
 
 ![TestPyramid](http://martinfowler.com/bliki/images/testPyramid/test-pyramid.png)
 
-* Unit
-* Integration
-* Feature
-* Acceptance
-
-*Unit Test* - tests one component in isolation.
-*Integration Test* - tests multiple interdependencies or coordinating components.
-*Feature Test* - a single feature as experienced by a user.
-*Acceptance Test* - a collection of user functionalities that delivers business value.
-
-Feature and Acceptance Tests are customer-centric while Unit and Integration Tests are programmer-centric.
-Especially when you move into web development projects in later modules you'll rely more heavily on Acceptance and
-Feature tests to verify the behavior of your application as it will eventually be experienced by a user.
-
-In Module 1, on the other hand, we will rely much more heavily on **Unit** and **Integration** tests -- and it's very
-important to have a good mix of both!  
-
 **Turn & Talk**
-What kind of test would the above translator test be? What might the other kind of test and cooresponding method look like?
+What kind of test would the above translator test be? What might the other kind of test and corresponding method look like?
 
 ### WrapUp  
 * How does letting tests drive your development lead you to stronger code?  
