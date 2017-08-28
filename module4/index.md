@@ -52,7 +52,7 @@ Students who successfully complete Module 4 will have demonstrated mastery of Pr
 <h4 id="week_3">Week 3</h4>
 *   [Intro to Express](./lessons/building_and_testing_with_express)
 *   [SQL in Node](./lessons/sql-in-node)
-*   Organizing an Express App
+*   [Organizing an Express App](./organize-an-express-app)
 *   [Capstone Project Soft Launch](http://backend.turing.io/module4/capstone_project_overview)
 *   [Week Three CFU](https://github.com/turingschool/checks-for-understanding/blob/master/module-4/backend/week_three.md)
 
