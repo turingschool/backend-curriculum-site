@@ -42,7 +42,7 @@ By the end of this lesson, you will know/be able to:
 With a partner, attempt to implement the following functionality below. We will share out after each piece of functionality is implemented.
 
 ```
-git clone https://github.com/turingschool-examples/storedom.git multitenancy
+git clone https://github.com/turingschool-examples/storedom-5.git multitenancy
 cd multitenancy
 bundle && bundle exec rake db:drop db:setup
 ```

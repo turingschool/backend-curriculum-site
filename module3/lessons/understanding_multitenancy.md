@@ -74,7 +74,7 @@ that they are attached to specific stores.
 ### Setup
 
 ```
-git clone https://github.com/turingschool-examples/storedom.git multitenancy
+git clone https://github.com/turingschool-examples/storedom-5.git multitenancy
 cd multitenancy
 bundle && bundle exec rake db:drop db:setup
 ```
