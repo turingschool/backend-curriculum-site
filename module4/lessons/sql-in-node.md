@@ -10,7 +10,7 @@ We're going to start from the end of the [Building and Testing with Express less
 If you need it, you can clone this repo, which represents the completed lesson:
 
 ```
-git clone -b sql-in-node git@github.com:turingschool-examples/building-app-with-express.git
+git clone -b intro-to-express git@github.com:turingschool-examples/building-app-with-express.git
 ```
 
 ## Learning Goals
