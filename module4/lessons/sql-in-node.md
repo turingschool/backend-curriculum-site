@@ -455,20 +455,9 @@ Then we'll go over a working implementation.
 Hey! You built:
 
 -   a RESTful API in Node
--   that uses postgres
+-   that uses Postgresql
 -   and works in your 3 main environments
 
 Not too shabby! And you've got the knowledge to add all the routes and tables you like. But, things may start getting out of control soon. How big should your `server.js` really be anyway?
 
 Tomorrow, we'll go over how to [Organize an Express App](./organize-an-express-app)
-
-## Related Resources
-
-Most databases and their counterpart APIs have more than one resource. And there are almost always relationships between those resources. Now that we've taken away your `has_many` and `belongs_to`. How would you add these related resources?
-
-Some things to consider:
-
--   Although they aren't necessary, postgres (and most relational databases) have explicit foreign key designations. If you're gonna do it right, these should be added to your migrations.
--   Don't try to build `has_many` and `belongs_to`. Not right off the bat at least.
--   Feel free to play around with `JOIN` statements in your spike file to remember how they work.
--   We haven't been using classes, so there's no instance of a `Secret`. Only functions. It's like a class with only class methods. Ultimately, classes are the way to go, but could you serve related resources with only functions?
