@@ -155,8 +155,14 @@ const postSecret = (request, response, next) => {
 
 ## Going Further
 
+### `next()` and Middleware
+
 Curious what the `next` argument in `postSecret` up there is? In my opinion, it's the coolest thing about Express.
 
 `next` is a unique tool that allows you write your own application middleware. With this, you can take your Express app in virtually any direction. (_literally_)
 
 Hop over to the [Express docs](https://expressjs.com/) and learn about [writing your own middleware](https://expressjs.com/en/guide/writing-middleware.html).
+
+### Sessions
+
+Express doesn't come packaged with simple session tooling, but [cookie-session](https://github.com/expressjs/cookie-session) makes things just as easy. Check out their docs for getting quickly set up.
