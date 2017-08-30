@@ -8,14 +8,14 @@ layout: page
 ### Classes
 
 * [Understanding Multitenancy](../lessons/understanding_multitenancy)
-* [Finding Opportunities](https://github.com/turingschool/professional_skills/blob/master/job_search_strategy.md)
 * [Multitenancy Authorization](../lessons/multitenancy_authorization)
+* [Finding Opportunities](https://github.com/turingschool/professional_skills/blob/master/job_search_strategy.md)
+* [Intro to Professional Workflow](../lessons/intro_to_professional_workflow)
 * Career Q&A
-* Self-Directed Project Ideation & Prep
 * [Mock Assessment](../lessons/diagnostic)
-* Cloney Island Re-DTR
+* 80202 Re-DTR
 * Mock Assessment Roadshow
 
 ### Projects
 
-* [Cloney Island](../projects/cloney_island/cloney_island)
+* [80202](../projects/cloney_island/80202)

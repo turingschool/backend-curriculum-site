@@ -44,7 +44,7 @@ Students who successfully complete Module 4 will have demonstrated mastery of Pr
 <h4 id="week_2">Week 2</h4>
 *   [Object Oriented JavaScript](./lessons/intro-to-oojs)
 *   [Unit Testing Workshop](./lessons/unit-testing-client-side-code)
-*   [JavaScript History](https://drive.google.com/open?id=0Bx6JZxtPBe_FVjk0dU1DekRGc00)
+*   [JavaScript History](https://drive.google.com/file/d/0B_Hvhz38AFFxcHhEak11UXZHcDg/view?usp=sharing)
 *   [Refactor Tractor](./lessons/refactor-workshop)
 *   [Asynchronous JavaScript](./lessons/asynchronicity-in-javascript)
 *   [Week Two CFU](https://github.com/turingschool/checks-for-understanding/blob/master/module-4/backend/week_two.md)
@@ -52,7 +52,7 @@ Students who successfully complete Module 4 will have demonstrated mastery of Pr
 <h4 id="week_3">Week 3</h4>
 *   [Intro to Express](./lessons/building_and_testing_with_express)
 *   [SQL in Node](./lessons/sql-in-node)
-*   Organizing an Express App
+*   [Organizing an Express App](./lessons/organize-an-express-app)
 *   [Capstone Project Soft Launch](http://backend.turing.io/module4/capstone_project_overview)
 *   [Week Three CFU](https://github.com/turingschool/checks-for-understanding/blob/master/module-4/backend/week_three.md)
 

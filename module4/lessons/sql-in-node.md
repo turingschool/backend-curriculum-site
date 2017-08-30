@@ -10,7 +10,7 @@ We're going to start from the end of the [Building and Testing with Express less
 If you need it, you can clone this repo, which represents the completed lesson:
 
 ```
-git clone https://github.com/turingschool-examples/building-app-with-express/tree/1701-intro-to-express
+git clone -b intro-to-express git@github.com:turingschool-examples/building-app-with-express.git
 ```
 
 ## Learning Goals
@@ -281,8 +281,8 @@ node database-spike.js
 Good! Let's try to pull some data from our database. Add the following in place of the `process.exit()`
 
 ```js
-  database.raw('SELECT * FROM secrets')
-  .then(function(data) {
+database.raw('SELECT * FROM secrets')
+  .then((data) => {
     console.log(data)
     process.exit()
   })
@@ -301,7 +301,7 @@ Next, try throwing a `debugger` in and then run `node debug database-spike.js`. 
 Let's also try creating a new record. Add another query before your existing one:
 
 ```js
-function allSecrets(data) {
+const allSecrets = (data) => {
   console.log(data.rows)
   process.exit()
 }
@@ -310,10 +310,10 @@ database.raw(
   'INSERT INTO secrets (message, created_at) VALUES (?, ?)',
   ["I open bananas from the wrong side", new Date]
 )
-.then(function() {
+.then(() => {
   database.raw('SELECT * FROM secrets')
-  .then(allSecrets)
-})
+    .then(allSecrets)
+  })
 ```
 
 We've chained our promises above to ensure that the new record gets created before we query for all of our records.
@@ -342,32 +342,32 @@ const database = require('knex')(configuration);
 -   Let's clear out the database when we're done.
 
 ```js
-beforeEach(function(done) {
+beforeEach((done) => {
   database.raw(
     'INSERT INTO secrets (message, created_at) VALUES (?, ?)',
     ["I open bananas from the wrong side", new Date]
-  ).then(function() { done() })
+  ).then(() => done())
 })
 
 afterEach(function(done) {
   database.raw('TRUNCATE secrets RESTART IDENTITY')
-  .then(function() { done() })
-})
+    .then(() => done())
+  })
 ```
 
 And for the test itself - let's make our assertions more explicit. We're building a JSON API after all.
 
 ```js
-it('should return 404 if resource is not found', function(done) {
-  this.request.get('/api/secrets/10000', function(error, response) {
+it('should return 404 if resource is not found', (done) => {
+  this.request.get('/api/secrets/10000', (error, response) => {
     if (error) { done(error) }
     assert.equal(response.statusCode, 404)
     done()
   })
 })
 
-it('should return the id and message from the resource found', function(done) {
-  this.request.get('/api/secrets/1', function(error, response) {
+it('should return the id and message from the resource found', (done) => {
+  this.request.get('/api/secrets/1', (error, response) => {
     if (error) { done(error) }
 
     const id = 1
@@ -389,9 +389,9 @@ Don't forget to migrate your test database. Run `knex -h` to find out how to set
 
 - What is [`.done()`](https://mochajs.org/#asynchronous-code) doing?
 
-## Your Turn
+### Your Turn
 
-Rewrite the current `/api/secrets/:id` route. Then we'll go over a working implementation.
+On your own, rewrite the current `/api/secrets/:id` route.
 
 ## Pushing to Heroku
 
@@ -455,20 +455,9 @@ Then we'll go over a working implementation.
 Hey! You built:
 
 -   a RESTful API in Node
--   that uses postgres
+-   that uses Postgresql
 -   and works in your 3 main environments
 
 Not too shabby! And you've got the knowledge to add all the routes and tables you like. But, things may start getting out of control soon. How big should your `server.js` really be anyway?
 
 Tomorrow, we'll go over how to [Organize an Express App](./organize-an-express-app)
-
-## Related Resources
-
-Most databases and their counterpart APIs have more than one resource. And there are almost always relationships between those resources. Now that we've taken away your `has_many` and `belongs_to`. How would you add these related resources?
-
-Some things to consider:
-
--   Although they aren't necessary, postgres (and most relational databases) have explicit foreign key designations. If you're gonna do it right, these should be added to your migrations.
--   Don't try to build `has_many` and `belongs_to`. Not right off the bat at least.
--   Feel free to play around with `JOIN` statements in your spike file to remember how they work.
--   We haven't been using classes, so there's no instance of a `Secret`. Only functions. It's like a class with only class methods. Ultimately, classes are the way to go, but could you serve related resources with only functions?
