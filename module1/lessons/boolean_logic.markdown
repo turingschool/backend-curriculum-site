@@ -103,8 +103,7 @@ Let's pop a few scenarios into pry, pause before hitting 'enter':
 **Agree/Disagree**
 What do you expect it to return? `true`? `false`? Why? 
 `false && false || true`   
-
-Precedence then if same left to right 
+ 
 #### Precedence 
 It depends on the order Ruby executes. 
 [Precedence](https://ruby-doc.org/core-2.4.0/doc/syntax/precedence_rdoc.html) refers to the order of opperations which Ruby follows. Here are a few you probably use regularly. The list is read top down in order of precedence. 
@@ -117,7 +116,8 @@ It depends on the order Ruby executes.
 ||
 =, +=, -=, etc.
 ```
-It will 
+Ruby will run comparisions in order or precedence, if there are multiple of the same operator they will be evaluated starting with the left most operator. 
+
 If we take this Boolean Expression, `false || true && false || false`, we can digram the order Ruby will evaluate it in. 
 
 ```
@@ -133,10 +133,11 @@ What if you want the order Ruby executes this in to be different from its defaul
 Let's revisit that last expressions in `pry`, but let's add some parentheses.
 
 ```ruby
+false && false || true
 false && (false || true)
 ```
 **Turn & Talk**
-Turn to your neighbor and discuss what order you believe Ruby is evaluating our boolean expression in.
+Turn to your neighbor and discuss what order you believe Ruby is evaluating each boolean expression in. What will the result be?  
 
 ### Paired Practice
 #### Complex Truth Tables
