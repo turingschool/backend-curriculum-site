@@ -50,7 +50,7 @@ Let's start by extracting our SQL out of our handlers and into `secret.js`
 // secret.js
 const create = (message) => {
   return database.raw(
-    'INSERT INTO secrets (message, created_at) VALUES (?, ?)',
+    'INSERT INTO secrets (message, created_at) VALUES (?, ?) RETURNING id, message',
     [message, new Date]
   )
 };
