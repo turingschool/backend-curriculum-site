@@ -34,7 +34,7 @@ Structure of each week
 
 Each student will submit a project proposal after the "soft launch" [here](https://github.com/turingschool/ruby-submissions/tree/master/1703-b/4module/capstone_projects/proposals) by Tuesday, September 5th at 9 AM. Technical Lead's will give feedback on the scope of the project either via Github, Slack message, or in person by the end of the day.
 
-At the beginning of week one and during the checkpoint, each student will set their sprint (aka what they want to accomplish that week). Throughout the week, each student should be tagging their Technical Lead in PR's if they have questions or want feedback on any code they've written. 
+Each student will be responsible for setting prioritizes for their project and communicating those to their Technical Lead. Throughout the week, each student should be tagging their Technical Lead in PR's if they have questions or want feedback on any code they've written. 
 
 During the halfway checkpoint:
 
@@ -42,12 +42,13 @@ During the halfway checkpoint:
 * Each student will self-assess on the rubric below.
 * Each student has the option to meet with their Technical Lead who will evaluate their progress via the rubric below.
 
-At the end of the project (week 6):
-* Students will be evaluated on the rubric below.
-
 During the project:
-* The student is responsible for communicating to the Technical Lead throughout each sprint if they are not going at a pace to finish the set of stories by the end of the sprint.
+* The student is responsible for communicating to the Technical Lead throughout each sprint if they are not going at a pace to finish what they've prioritized.
 * The student is responsible for reaching out to their Technical Lead and the community for feedback/assistance on their code.
+
+At the end of the project (week 6):
+* Students will demo their project to the entire class.
+* Students will be evaluated (in-person with their Technical Lead) on the rubric below.
 
 Rubric
 ------------
