@@ -17,6 +17,7 @@ tags: ruby, computer science, logic
 * Boolean 
 * Truthy
 * Falsey
+* Precedence
 * Truth Table 
 * Flow Control
 
