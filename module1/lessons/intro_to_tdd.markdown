@@ -11,8 +11,8 @@ tags: ruby, testing, tdd
 
 * Explain and demonstrate the TDD workflow
 * Create and run a `minitest` test suite (including assertions)
-* Inerpret error messages & stack trace; adjust implementation code to fix error messages
-* Inerpret test failures & fix implementation accordingly
+* Interpret error messages & stack trace; adjust implementation code to fix error messages
+* Interpret test failures & fix implementation accordingly
 
 ## Vocabulary
 

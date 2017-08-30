@@ -1,35 +1,36 @@
 ---
 layout: page
 title: Refactoring Patterns - Extract Class
-length: 10 - 25
+length: 15
 tags: ruby, refactoring, tdd
 ---
 
-# Pattern 2: Extract Class
+# Refactoring Pattern 2: Extract Class
+
+## Learning Goals
+
+* Explain Extract Class & how it promotes abstraction & single responsibility principle 
+* Identify scenarios for which Extract Class is the appropriate refactoring pattern to use
+* Implement Extract Class
 
 ## Supplies
 
 * You should have a copy of
 [this extraction of Chapter 7](https://dl.dropboxusercontent.com/u/69001/Refactoring/Refactoring%20-%20Chapter%207.pdf).
 
-## Instructions
+## First 12 minutes:
 
 * Discuss the Extract Class section from 175 to 179
 * *Carefully* re-read the code sections on 177 and 178
-* Read/discuss the Key Ideas below
-* Try refactoring the Example Scenario below using Extract Class
-* You're encouraged to discuss / compare solutions with others
-* If you finish early, apply this method to the Enigma repo linked today's lesson plan  
-* If you still have extra time, apply this strategy to your current project 
+* Try refactoring [this](https://github.com/turingschool-examples/refactoring_patterns/blob/master/test/station_2_extract_class_test.rb) example scenario (you should already have this cloned) using Extract Class. As you create new classes and move things around, make sure the linked test still passes
+* If you finish early, apply this refactoring pattern to the Enigma examples found under `Additional Resources` in the main lesson for today
+* If you still have more time, apply this refactoring pattern to your current project
 
-## Key Ideas
+## Final 3 minutes:
 
-* One of the most common weaknesses in object-oriented systems
-* One object is doing the work of two (or more)
-* Really is a "Step 1" before applying Move Method
-* Extraction allows for easier testing, reuse, and abstraction
-
-## Example Scenario
-Apply this Refactoring Pattern to the linked repository which you should have already cloned down. As you make classes around move things around, make sure the linked test still passes. 
-
-[Extract Class](https://github.com/turingschool-examples/refactoring_patterns/blob/master/test/station_2_extract_class_test.rb)
+* Compare solutions with others in your small group 
+* Discuss these **key ideas** of Extract Class:
+  * One object is doing the work of two (or more)
+    * This is one of the most common weaknesses in object-oriented systems
+  * Really is a "Step 1" before applying Move Method
+  * Allows for easier testing, reuse, and abstraction
