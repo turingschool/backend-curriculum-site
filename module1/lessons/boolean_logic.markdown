@@ -230,8 +230,6 @@ class VehicleAnalysis
 	end 
 
 end 
-vehicle = Vehicle.new("pickup", true, true)
-VehicleAnalysis.new(vehicle)
 ``` 
 
 ```ruby 
@@ -240,7 +238,7 @@ require "vehicle"
 require "vehicle_analysis"
 
 vehicle = Vehicle.new("pickup", true, true)
-VehicleAnalysis.new(vehicle)
+VehicleAnalysis.new.anlyze(vehicle)
 ```
 
 * How many unique execution paths are there through the block of code starting with `if vehicle.car?` statement?
