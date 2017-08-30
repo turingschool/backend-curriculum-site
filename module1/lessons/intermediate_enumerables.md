@@ -2,7 +2,7 @@
 layout: page
 title: Intermediate Enumerables
 length: 60
-tags: enumerables,max, min, max_by, min_by, sort_by
+tags: enumerables, max, min, max_by, min_by, sort_by
 ---
 
 ## Goals
@@ -55,10 +55,10 @@ We can see that the string, `"a"` is in fact, less than the string `"b"`.
 Knowing this we can do some cool things like grabbing the "lowest" alphabetical string within an array.
 
 ```ruby
-  ["ilana", "lauren", "beth"].min
+  ["victoria", "nate", "ali"].min
 ```
 
-This code, here, it'll return us `"beth"`
+This code, here, it'll return us `"ali"`
 
 If we swap out the min for a max, what will we get?
 
@@ -86,9 +86,9 @@ Imagine we have a class `Person` that has some data stored in instance variables
 
 ```ruby
 people = []
-people << Person.new("Alice", 24)
-people << Person.new("Dave", 26)
-people << Person.new("Zayn", 30)
+people << Person.new("Tyrion", 32)
+people << Person.new("Jaime", 26)
+people << Person.new("Cercei", 36)
 
 ```
 
@@ -107,7 +107,7 @@ So let's walk this process out and look at how we would do this with .each. It's
   end
 ```
 
-This is very similar to our original implementation. The main difference is that instead of comparing the objects and determing which is "greater or lesser", we are comparing their attributes to each other.
+This is very similar to our original implementation. The main difference is that instead of comparing the objects and determining which is "greater or lesser", we are comparing their attributes to each other.
 
 And so, the max_by enumerable works similarly.
 
@@ -134,7 +134,11 @@ But we may be overcomplicating things. It doesn't have to be an array of objects
 So let's simplify the problem.
 
 ```ruby
-  people = [["Bob", 24],["Dave", 26],["Zayn", 30]]
+  people = [
+    ["Bob", 24],
+    ["Jane", 26],
+    ["Optimus Prime", 9_000_000]
+  ]
 
   people.max_by do |person|
     person[1]
@@ -154,23 +158,21 @@ class Person
   end
 end
 
-nsync = []
+bradys = []
 
-nsync << Person.new("Justin", 22)
-nsync << Person.new("Lance", 22)
-nsync << Person.new("JC", 22)
-nsync << Person.new("Chris", 24)
-nsync << Person.new("Joey", 23)
+bradys << Person.new("Carol", 48)
+bradys << Person.new("Greg", 22)
+bradys << Person.new("Mike", 52)
+bradys << Person.new("Marsha", 19)
+bradys << Person.new("Jan", 13)
 
 ```
 
-On paper, Grab me the oldest member of One Direction, and then grab me the first alphabetically.
+On paper, get the oldest member of the Brady Bunch, and then grab me the first alphabetically.
 
 Now check with your work with your neighbor.
 
 ### sort_by
-
-There's a theme today, and that's dealing with place.
 
 We've worked on grabbing the largest thing or smallest thing out of a
 collection, and that's great. But the next logical step is to sort them.
@@ -205,27 +207,27 @@ class Person
   end
 end
 
-nsync = []
+bradys = []
 
-nsync << Person.new("Justin", 22)
-nsync << Person.new("Lance", 22)
-nsync << Person.new("JC", 22)
-nsync << Person.new("Chris", 24)
-nsync << Person.new("Joey", 23)
+bradys << Person.new("Carol", 48)
+bradys << Person.new("Greg", 22)
+bradys << Person.new("Mike", 52)
+bradys << Person.new("Marsha", 19)
+bradys << Person.new("Jan", 13)
 
 ```
 
-Using this, how do you think we can sort by their name alphabetically?
+Using this, how do you think we can sort by their names alphabetically?
 
 Do this on paper. Check your work with a nearby friend.
 
 ### all?
 
-Finally, we are going to take a different tack here.
+And now, for something completely different.
 
 We're going to look at one of the enumerables that returns a simple true or false.
 
-Let's look at the name of this enumerable, `all?`. Simply, it's an enumerable with a conditional in the block. If every item in a collection returns true when going through the block, it returns `true`. Otherwise, it will return `false`.
+Let's look at the name of this enumerable, `all?`. Simply, it's an enumerable with a conditional in the block. If every item in a collection (every time through the block) returns `true` when going through the block, it returns `true`. Otherwise, it will return `false`.
 
 Example:
 
@@ -254,4 +256,3 @@ In the [enums-exercises](https://github.com/turingschool/enums-exercises) comple
 -   none?
 -   one?
 -   sort_by
--   find_using_max_by
