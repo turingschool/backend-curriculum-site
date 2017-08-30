@@ -34,7 +34,7 @@ Structure of each week
 
 Each student will submit a project proposal after the "soft launch" [here](https://github.com/turingschool/ruby-submissions/tree/master/1703-b/4module/capstone_projects/proposals) by Tuesday, September 5th at 9 AM. Technical Lead's will give feedback on the scope of the project either via Github, Slack message, or in person by the end of the day.
 
-Each student will be responsible for setting prioritizes for their project and communicating those to their Technical Lead. Throughout the week, each student should be tagging their Technical Lead in PR's if they have questions or want feedback on any code they've written.
+Each student will be responsible for setting priorities for their project and communicating those to their Technical Lead. Throughout the week, each student should be tagging their Technical Lead in PR's if they have questions or want feedback on any code they've written.
 
 During the halfway checkpoint:
 
@@ -55,8 +55,8 @@ Rubric
 
 ### 1. Project Planning & Management
 
-*   4: Developer has a highly detailed iteration map, sophisticated organization in their tracker tool, and exceptional git workflow
-*   3: Developer uses and iteration map to plan project scope, breaks down broad features into granular tasks, and exercises good Git workflow (e.g., feature branches, descriptive commits, incremental PRs)
+*   4: Developer has a highly detailed iteration map, sophisticated organization in their tracker tool, and exceptional Git workflow
+*   3: Developer uses an iteration map to plan project scope, breaks down broad features into granular tasks, and exercises good Git workflow (e.g., feature branches, descriptive commits, incremental PRs)
 *   2: Developer has a mental vision for the project iterations, shows some use of a tracker tool, and uses Git effectively
 *   1: Developer shows little evidence of project planning and management
 
@@ -64,7 +64,7 @@ Rubric
 
 *   4: Developer delivers stories committed to before starting the sprint
 *   3: Developer plans stories ahead of sprint and makes some scope adjustments along the way
-*   2: Developer implements a very little of the planned sprint
+*   2: Developer implements very little of the planned sprint
 *   1: Developer does not plan or complete sprint
 
 ### 3. Implementation Quality
