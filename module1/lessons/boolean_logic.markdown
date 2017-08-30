@@ -18,7 +18,7 @@ tags: ruby, computer science, logic
 * Truthy
 * Falsey
 * Truth Table 
-* Control Flow
+* Flow Control
 
 ## WarmUp  
 First, start by doing some research.  
