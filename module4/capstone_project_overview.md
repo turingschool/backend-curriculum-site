@@ -17,7 +17,7 @@ Learning Goals
 Overview
 ------------
 
-The Capstone Project will last two weeks and will consist of students meaningful, publishable work of their choosing. An instructor will be assigned to each student and act as the Technical Lead.
+The Capstone Project will last two weeks and will consist of student's building meaningful, publishable work of their choosing. An instructor will be assigned to each student and act as the Technical Lead.
 
 Technical Expectations
 ---------------------
@@ -25,14 +25,14 @@ Technical Expectations
 We would like to give you a fair amount of freedom on this project. We want you to bulid something that you're excited about, and that you're proud of. These are a few requirements you should consider when pitching and building your project:
 
 *   You build something usable. You should be comfortable publishing your project by the time it's due in week 6. A spike or exploration into a new concept without a clear deliverable won't be accepted.
-*   You must apply at least two new techniques. New is something from the 4th module (OOJS, Security, Environments, React), or something extra-curricular. Something not taught in the Turing Back-end engineering program.
+*   You must apply at least two new techniques. New is something from the 4th module (OOJS, Security, Environments, React), or something extra-curricular (something not taught in the Turing backend engineering program).
 	-   Since accessibility is already in the rubric, it doesn't count as a new topic, but is required.
-	-   If you use something cool for your documentation (swagger, JSON-API, etc), I would count that.
+	-   If you use something cool for your documentation (swagger, JSON-API, etc), we will accept it.
 
 Structure of each week
 ------------
 
-Each student will submit a project proposal after the "soft launch" [here](https://github.com/turingschool/ruby-submissions/tree/master/1701-b/4module/capstone_projects/project_proposals) by Monday morning at 9 AM. Technical Lead's will give feedback on the scope of the project either via Github, Slack message, or in person.
+Each student will submit a project proposal after the "soft launch" [here](https://github.com/turingschool/ruby-submissions/tree/master/1703-b/4module/capstone_projects/proposals) by Tuesday, September 5th at 9 AM. Technical Lead's will give feedback on the scope of the project either via Github, Slack message, or in person by the end of the day.
 
 At the beginning of week one and during the checkpoint, each student will set their sprint (aka what they want to accomplish that week). Throughout the week, each student should be tagging their Technical Lead in PR's if they have questions or want feedback on any code they've written. 
 
@@ -40,16 +40,14 @@ During the halfway checkpoint:
 
 * Each student will spend 2 minutes demoing their project to the entire class. 
 * Each student will self-assess on the rubric below.
-* Each student will meet with their Technical Lead who will evaluate their progress via the rubric below.
+* Each student has the option to meet with their Technical Lead who will evaluate their progress via the rubric below.
 
 At the end of the project (week 6):
-* Students will also demo their projects.
 * Students will be evaluated on the rubric below.
 
 During the project:
 * The student is responsible for communicating to the Technical Lead throughout each sprint if they are not going at a pace to finish the set of stories by the end of the sprint.
 * The student is responsible for reaching out to their Technical Lead and the community for feedback/assistance on their code.
-
 
 Rubric
 ------------

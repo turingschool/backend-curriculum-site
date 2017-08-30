@@ -66,10 +66,10 @@ Let's go ahead and install some dependencies that we'll need to get things rolli
 
 ```
 mkdir secret-box
+cd secret-box
 npm init
 npm i express --save
-npm i mocha --save-dev
-npm i chai --save-dev
+npm i --save-dev mocha chai
 ```
 
 FYI - running `npm init` builds our `package.json` file. What's `package.json`?
@@ -157,7 +157,7 @@ var app = require('../server');
 describe('Server', function() {
 
   it('should exist', function() {
-    assert(app);
+    assert(app.get);
   });
 
 });
@@ -413,7 +413,7 @@ app.get('/api/secrets/:id', function(request, response) {
 })
 ```
 
-It appears we're successfully making this work - let's add a test though to ensure the correct functionality. 
+It appears we're successfully making this work - let's add a test though to ensure the correct functionality.
 
 First, we'll verify that it returns a 404 when we ask for a secret that doesn't exist.
 
@@ -435,7 +435,7 @@ describe('GET /api/secrets/:id', function() {
 
 ```
 
-Next, let's verify that we're returning the correct data. 
+Next, let's verify that we're returning the correct data.
 
 ```js
 it('should have the id and message from the resource', function(done) {
@@ -513,9 +513,12 @@ app.get('/api/secrets/:id', function(request, response) {
   response.json({ id, message })
 })
 
-app.listen(app.get('port'), function() {
-  console.log(`${app.locals.title} is running on ${app.get('port')}.`)
-})
+
+if (!module.parent) {
+  app.listen(app.get('port'), function() {
+    console.log(`${app.locals.title} is running on ${app.get('port')}.`);
+  });
+}
 ```
 
 ### Creating a POST Route

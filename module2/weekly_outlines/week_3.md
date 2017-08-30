@@ -13,7 +13,7 @@ layout: page
   - [Rails Basics Challenge](../lessons/models_databases_relationships_routes_controllers_oh_my)
 
 * **HOMEWORK:**
-  - [Finish the Rails Basic Worktime if you didn't during the day](https://github.com/turingschool/challenges/blob/master/models_databases_relationships_routes_controllers_oh_my.markdown)
+  - [Finish the Rails Basic Challenge if you didn't during the day](../lessons/models_databases_relationships_routes_controllers_oh_my)
 
 ### Day 2:
 
