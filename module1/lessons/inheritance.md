@@ -7,7 +7,9 @@ tags: ruby, inheritance
 
 ## Learning Goals
 
-* Define methods in Ruby
+* identify inheritance as an essential principle of OOP
+* explain what is inheritance and why we use it 
+* identify that you can over-write a method locally (polymorphism?)
 
 ## Slides
 
