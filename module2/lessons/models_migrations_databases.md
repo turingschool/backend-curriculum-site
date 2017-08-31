@@ -6,11 +6,20 @@ tags: migrations, databases, relationships, rails, migrations, activerecord
 
 # Models, Databases, and Relationships
 
+### Overview
+
 In this lesson, we'll be coding along to create an example of an app that demonstrates a one-to-many and a many-to-many relationship. 
 
 Imagine we're going to build a bookshelf site for books, authors and genres. It's well overdue!
 
 What might the relationships look like? Let's emphasize figuring out the entities (aka tables), but also figure out some of the key data columns.
+
+### Learning Goals
+
+* Create one-to-many relationships at the database level using foreign keys.
+* Create many-to-many relationships at the database level using join tables with foreign keys.
+* Use `has_many` and `belongs_to` to create one-to-many and many-to-many relationships at the model level.
+* Define primary and foreign keys, and describe conventions used to name the columns containing each in a database.
 
 ### Types of Relationships
 
