@@ -19,6 +19,8 @@ Overview
 
 The Capstone Project will last two weeks and will consist of student's building meaningful, publishable work of their choosing. An instructor will be assigned to each student and act as the Technical Lead.
 
+The project consists of two "sprints": the first finishes on Friday of Week 4, the other on Monday of Week 6.
+
 Technical Expectations
 ---------------------
 
@@ -71,7 +73,7 @@ Rubric
 
 *   4: Project demonstrates exceptionally well tested (where applicable) and maintainable code
       * for topics outside of BE curriculum, developer can speak to best practices applied
-*   3: Project exhibits tested (where applicable), maintainable, and well-organized code. Developers are able to speak to architecture and implementation decisions
+*   3: Project exhibits tested (where applicable), maintainable, and well-organized code. Developer can speak to architecture and implementation decisions
 *   2: Project demonstrates some gaps in code quality and/or developers cannot defend their decisions
 *   1: Project demonstrates poor factoring and/or understanding of general programming principles such as MVC and OOP
 
