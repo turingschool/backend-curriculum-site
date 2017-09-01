@@ -71,6 +71,10 @@ Put your presentation into writing. Each person must write their own blog post. 
 
 ## The Repos
 
+### [Open Source Event Manager](https://github.com/openSUSE/osem)
+### [Open Food Network](https://github.com/openfoodfoundation/openfoodnetwork)
+
+
 TBD
 
 <!--### [Vets.gov](https://github.com/department-of-veterans-affairs/vets-website)
