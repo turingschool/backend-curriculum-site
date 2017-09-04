@@ -9,7 +9,7 @@ tags: ruby, code_review
 ## Learning Goals  
 * explain their strategy for approaching a problem
 * analyze strategies used by another programmer to compare to their own strategies
-* talk about their code 
+* explain how their code works in technical terms
 
 ## Structure  
 5 min - Warm Up  
@@ -36,7 +36,7 @@ From a high level, in a broad way, talk through your process for attacking this 
   * What were the cons of that strategy?  
 
 * What classes have you used to solve this problem? Why?
-  * How did you decide what functionality lived in which class? 
+  * How did you decide what functionality lives in which class? 
 
 ### Testing Strategies
 
@@ -58,4 +58,3 @@ From a high level, in a broad way, talk through your process for attacking this 
 ## Wrap Up  
 * What is (at least) one thing you've recognized you've done well? 
 * What is (at least) one thing you saw from your partner that you'd like to implement? 
- 
