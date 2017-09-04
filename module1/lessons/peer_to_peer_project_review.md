@@ -13,11 +13,11 @@ tags: ruby, code_review
 
 ## Structure  
 5 min - Warm Up  
-10 min - Breaking the Problem Down  
-10 min - Testing Strategies
-5 min - Break
-10 min - Logic Solutions
-5 min - Wrap Up
+10 min - Breaking the Problem Down    
+10 min - Testing Strategies  
+5 min - Break  
+10 min - Logic Solutions  
+5 min - Wrap Up  
 
 ## Vocabulary  
 * Code Review
@@ -47,7 +47,7 @@ From a high level, in a broad way, talk through your process for attacking this 
 * Have you taken a top down or bottom up approach? 
   * What are the pros/cons of your chosen strategy?  
   
-** Break **
+**Break**
   
 ### Logic Solutions  
 
