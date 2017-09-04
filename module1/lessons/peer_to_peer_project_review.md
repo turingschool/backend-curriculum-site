@@ -9,7 +9,7 @@ tags: ruby, code_review
 ## Learning Goals  
 * explain their strategy for approaching a problem
 * analyze strategies used by another programmer to compare to their own strategies
-* talk about thier code 
+* talk about their code 
 
 ## Structure  
 5 min - Warm Up  
