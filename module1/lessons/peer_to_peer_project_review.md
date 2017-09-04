@@ -1,9 +1,8 @@
-
 ---
 title: Peer to Peer Project Review
 length: 60 min
 tags: ruby, code_review
----  
+---
 
 
 ## Learning Goals  
@@ -33,10 +32,11 @@ From a high level, in a broad way, talk through your process for attacking this 
 
 * Where did you start? 
   * What were the pros of that strategy?
-  * What were the cons of that strategy?  
+  * What were the cons of that strategy?
+  * Did you have to change anything after you started?
 
 * What classes have you used to solve this problem? Why?
-  * How did you decide what functionality lives in which class? 
+  * How did you decide what functionality lives in which class?
 
 ### Testing Strategies
 
