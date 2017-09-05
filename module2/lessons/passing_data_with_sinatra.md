@@ -12,6 +12,11 @@ In this workshop, you'll practice passing data between a client and a Sinatra se
 
 Remember, there are a few different ways to pass data: through the query string parameters in the URL, through dynamic parameters in the URL, and through forms. We'll be focus on passing data via query params and via forms.
 
+## Learning Goals
+
+* Practice accessing query string parameters in a controller.
+* Practice accessing form parameters in a controller.
+
 ## Setup
 
 1) Clone this app: [http://github.com/turingschool/shopping](http://github.com/turingschool/shopping)

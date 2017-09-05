@@ -12,6 +12,15 @@
 
 ---
 
+## Learning Goals
+
+* Understand the standard structure of an HTML page.
+* Understand the information that belongs in each part of the HTML page.
+* Define a semantic tag.
+* Select HTML by a specific tag, class or id and apply CSS to those elements.
+* Describe the difference between a block and inline tag.
+* Understand how to chain HTML selectors in HTML and CSS code.
+
 # HTML
 
 ---
