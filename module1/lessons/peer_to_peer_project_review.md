@@ -53,7 +53,7 @@ From a high level, in a broad way, talk through your process for attacking this 
 
 * Pick a piece of functionalty that was challenging for you, but you overcame. 
   * Explain, in detail, how this functionalty works in your project. 
-  * What strategies did you use in succedding with this functionality?  
+  * What strategies did you use in succeeding with this functionality?  
 
 ## Wrap Up  
 * What is (at least) one thing you've recognized you've done well? 
