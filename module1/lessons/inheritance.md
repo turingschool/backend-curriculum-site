@@ -149,11 +149,13 @@ end
 # employee.rb
 class Employee
   attr_reader :name,
-              :id
+              :id,
+              :mood
 
   def initialize(name, id)
     @name = name
     @id   = id
+    @mood = "happy"
   end 
   
   def total_compensation
