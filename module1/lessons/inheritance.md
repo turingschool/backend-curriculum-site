@@ -102,7 +102,7 @@ puts ali.total_compensation
 `super` allows us to execute methods from our child class that have the same name in our parent class.
 
 * `super` passes all of the arguments in the current method
-* `super()` passes no arguments, but still compl
+* `super()` passes no arguments, but still completes any actions 
 * `super(argument1, argument2)` passes argument1 and argument2 specifically
 
 #### Example
