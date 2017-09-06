@@ -10,6 +10,13 @@ tags: ruby, mixins
 * understand that modules fill various roles in Ruby.
 * use a module to create a mixin to be DRY (Don't Repeat Yourself)
 
+## Vocabulary  
+* Module
+* Mixin
+* Instantiate
+* State
+* Behavior
+
 ## Sides
 
 Available [here](../slides/mixins)
@@ -31,6 +38,7 @@ A little bit about mixins.
 
 * Mixins allow us to share behavior between classes
 * Ruby implements mixins with Modules
+* Modules are like classes except you can't instantiate them
 * Modules only store behavior
 * Modules *do not* store state
 
