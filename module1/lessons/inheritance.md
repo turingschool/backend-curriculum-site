@@ -197,7 +197,6 @@ puts "Intern Total Comp: #{jeff.total_compensation}"
 require './employee'
 
 class Intern < Employee
-  attr_reader :hourly_rate
 
   def initialize(hourly_rate, name, id)
     @hourly_rate = hourly_rate
@@ -205,7 +204,7 @@ class Intern < Employee
   end
 
   def total_compensation
-    hourly_rate * 2000
+    @hourly_rate * 2000
   end
 end
 ```
