@@ -36,16 +36,16 @@ Let's start by discussing Refactoring at a high level:
 *   Refactoring patterns are common *transformations*, not *improvements* .
 *   Three common refactoring patterns
 
-    1.  [Move Method](refactoring_patterns_1)
+    1.  [Move Method](refactoring_patterns_station_1)
         * Where should it live?
         * What is the role of the class, does this functionality belong?  
         * Which class/object does this method reference?  
-    2.  [Extract Class](refactoring_patterns_2)
+    2.  [Extract Class](refactoring_patterns_station_2)
         * Can you make chunks of methods?  
         * Can they be grouped to feel like an object?  
         * Would they have attributes?
         * Sandi Metz rules: Class should be less than 100 lines
-    3.  [Hide Delegate](refactoring_patterns_3)
+    3.  [Hide Delegate](refactoring_patterns_station_3)
         * What does the interface look like? Can we simplify it?  
         * Law of Demeter
         * Protect from change
