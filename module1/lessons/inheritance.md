@@ -103,7 +103,8 @@ With a partner:
 
 * Create a `SalesManager` class that inherits from `Employee`, and takes `base_salary`, and `estimated_annual_sales` as arguments when you initialize.
 * Create a `bonus` method on `SalesManager` that returns 10% of `estimated_annual_sales`
-* Create a new `SalesManager` in your runner file and print their total compensation to the terminal
+* Create a new `SalesManager` in your runner file and print their total compensation to the terminal  
+* Which class is the parent and which is the child? Why did we define the relationship in this way?  
 
 ### Super
 
@@ -215,6 +216,6 @@ With a partner:
 ## Summary
 
 * Why might we decide to use inheritance?
-* What is the syntax for creating a class that inherits from another class?
+* What is the syntax for creating a class that inherits from another class? How many classes can you inherit from and how do you decide which should inherit from which?  
 * What does `super`, do and what are the differences between the three different ways you can call it?
 * What does it mean to override a method in Ruby?
