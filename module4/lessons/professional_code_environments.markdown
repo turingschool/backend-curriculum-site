@@ -140,8 +140,8 @@ To address these differences, we usually use **Environment Variables**. These ar
 *   Where do we configure environment settings in Rails?
 *   Where do we configure environment settings in Express?
 
-## Going Further
+## Implementing CI
 
-Try setting up [Travis CI](https://travis-ci.org/) for one of your existing projects.
+On your own, try setting up [Travis CI](https://travis-ci.org/) for one of your existing projects.
 
 Be sure to read their [docs here](https://docs.travis-ci.com/user/getting-started/).
