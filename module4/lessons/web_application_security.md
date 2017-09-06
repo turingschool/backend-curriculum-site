@@ -11,15 +11,18 @@ title: Basics of Web Application Security
 
 We've shown you best practices for security in Rails (authorization, authentication, strong params, etc), but Rails is not the only game in town. Let's talk about some of these concepts in general, and how they may apply in the various applications you build, and enable you to speak about these concepts from an educated perspective.
 
-## Review of concepts
+## Review of Concepts
 
-These are the concepts [covered in mod 3](../../module3/lessons/fundamental_rails_security). Let's talk about them briefly.
+These are a few concepts [covered in Mod 3](../../module3/lessons/fundamental_rails_security).
 
-* Privilege Escalation
-* Mass Assignment Vulnerabilities
-* XSS
+* [Privilege Escalation](https://en.wikipedia.org/wiki/Privilege_escalation)
+  * Privilege escalation is the act of exploiting a bug, design flaw or configuration oversight in an operating system or software application to gain elevated access to resources that are normally protected from an application or user. The result is that an application with more privileges than intended by the application developer or system administrator can perform unauthorized actions.
+* [Mass Assignment Vulnerabilities](https://www.owasp.org/index.php/Mass_Assignment_Cheat_Sheet)
+  * Software frameworks sometime allow developers to automatically bind HTTP request parameters into program code variables or objects to make using that framework easier on developers. This can sometimes cause harm. Attackers can sometimes use this methodology to create new parameters that the developer never intended which in turn creates or overwrites new variable or objects in program code that was not intended. This is called a mass assignment vulnerability.
+* [Cross-Site Scriptin (XSS)](https://www.owasp.org/index.php/Cross-site_Scripting_(XSS))
+  * Cross-Site Scripting (XSS) attacks are a type of injection, in which malicious scripts are injected into otherwise benign and trusted web sites. XSS attacks occur when an attacker uses a web application to send malicious code, generally in the form of a browser side script, to a different end user. Flaws that allow these attacks to succeed are quite widespread and occur anywhere a web application uses input from a user within the output it generates without validating or encoding it.
 
-You've seen security concepts applied in Rails, but let's talk about security more generally. These are concepts and terms you'll see in all types of web applications, regardless of the language.
+You've been exposed to security concepts applied in Rails, but let's talk about security more generally. The following are concepts and terms you'll see in all types of web applications, regardless of the language.
 
 ## Best Practices
 
