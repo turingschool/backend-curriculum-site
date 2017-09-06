@@ -183,4 +183,4 @@ Organizing your data in a way that is decreeable and engaging for the user will 
 
 Now that we are more aware of what is going on in the world of accessibility, what are we going to do to make sure we are committing ourselves to making the web a better place for everyone?
 
-Write down 3 actionable commitments you can do in your next coming projects to accommodate for accessibility issues and submit them [here](https://goo.gl/forms/q7ml5lrEYX3G17Z93).
+Write down 3 actionable commitments you can do in your next coming projects to accommodate for accessibility issues and submit them [here](https://goo.gl/forms/dJojOyXkMoeHaXST2).

@@ -7,11 +7,11 @@ tags: ruby, refactoring, tdd
 
 ## Learning Goals
 
-*   explain how refactoring fits into the RED-GREEN-REFACTOR cycle
-*   identify the difference between refactoring and "changing stuff"
-*   define and apply the Move Method refactoring pattern
-*   define and apply the Extract Class refactoring pattern
-*   define and apply the Hide Delegate refactoring pattern
+*   Explain how refactoring fits into the RED-GREEN-REFACTOR cycle
+*   Identify the difference between refactoring and "changing stuff"
+*   Define and apply the Move Method refactoring pattern
+*   Define and apply the Extract Class refactoring pattern
+*   Define and apply the Hide Delegate refactoring pattern
 
 ## Warmup
 1.  Why do we refactor?
@@ -51,7 +51,7 @@ Let's start by discussing Refactoring at a high level:
         * Protect from change 
 
 ### Live Refactoring  
-Let's apply these refactoring patterns to this [Chisel](https://github.com/turingschool/curriculum/blob/master/source/projects/chisel.markdown) [project](https://github.com/AliSchlereth/chisel) altogether.   
+Let's apply these refactoring patterns to this [Chisel](https://github.com/turingschool/curriculum/blob/master/source/projects/chisel.markdown) [project](https://github.com/AliSchlereth/chisel) together.   
 
 * Extract Class: Format  
 * Move Method: body, emphasis, strong & underlying methods  

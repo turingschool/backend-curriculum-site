@@ -102,7 +102,7 @@ puts ali.total_compensation
 `super` allows us to execute methods from our child class that have the same name in our parent class.
 
 * `super` passes all of the arguments in the current method
-* `super()` passes no arguments, but still compl
+* `super()` passes no arguments, but still completes any actions 
 * `super(argument1, argument2)` passes argument1 and argument2 specifically
 
 #### Example
@@ -149,7 +149,7 @@ puts sal.total_compensation
 
 ### Overriding Methods
 
-In Ruby we can override a method from our parent class by simply re-defining it in our child class. Doing this implies that there is some exception to a general rule. A `Mammal` class might have a method `lays_eggs?` that returns false that would work most child classes, but we would then need to ovverride that method on `Platypus` to return true.
+In Ruby we can override a method from our parent class by simply re-defining it in our child class. Doing this implies that there is some exception to a general rule. A `Mammal` class might have a method `lays_eggs?` that returns false that would work on most child classes, but we would then need to override that method on `Platypus` to return true.
 
 #### Example
 

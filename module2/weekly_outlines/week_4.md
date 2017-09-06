@@ -8,6 +8,7 @@ layout: page
 ### Day 1:
 
 * **LESSONS:**
+  - [ActiveRecord on Models](../lessons/active_record_on_models)
   - [Sessions, Cookies and Flashes](../lessons/sessions_cookies_and_flashes)
 
 
