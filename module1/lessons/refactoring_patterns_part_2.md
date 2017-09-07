@@ -21,8 +21,8 @@ tags: ruby, refactoring, tdd
 
 ## WarmUp 
 
-* What are your go-to refactoring strategies?
-* Which refactoring patterns are still fuzzy?
+* How have you already implemented refactoring strategies in your code?
+* Recall yesterdays red-green-refactor example. What are some strategies to get your code back to green again after you refactor and your tests run red?  (a.k.a. how do you refactor without breaking everything?)
 * What are three reasons for refactoring your code? 
 
 ## Refactoring Strategies
@@ -46,8 +46,8 @@ For each station you will apply the refactoring pattern to the code from [this](
 ## WrapUp  
 
 * What was challenging about refactoring the above exercises?  
-* What are some strategies to make sure that your code makes it from green, past red, back to green again?  (a.k.a. how do you refactor without breaking everything?
-* Explain the key differences between each refactoring pattern.
+* Which refactoring pattern might you reach for first?
+* Explain each refactoring pattern and the key motivation for using it.
 
 ## Homework
 
