@@ -231,7 +231,7 @@ Module Resources:
 
 Intro to Functional Programming(FP) Resources:
 * [Clojure for the Brave and True](http://www.braveclojure.com/)
-* [The Rise and Fall of Functional Programming](https://medium.com/javascript-scene/the-rise-and-fall-and-rise-of-functional-  programming-composable-software-c2d91b424c8c)
+* [The Rise and Fall of Functional Programming](https://medium.com/javascript-scene/the-rise-and-fall-and-rise-of-functional- programming-composable-software-c2d91b424c8c)
 
 Deep Dive into Functional Programming (FP):
   * [SICP](https://github.com/sarabander/sicp-pdf)
