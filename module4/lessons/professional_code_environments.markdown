@@ -51,6 +51,8 @@ Your staging environment is essentially a copy of production. Whatever setup you
 
 Staging provides a safe environment to check your work, or share your work with others. If you create bad data, or delete data, or introduce bugs, your production users are not affected.
 
+If you want to learn more about staging with Heroku - [check out this article.](https://devcenter.heroku.com/articles/multiple-environments)
+
 ### Stage 3: Three Environments + Continuous Integration
 
 There is yet another environment that is common on modern development teams: *Continuous Integration* (CI). It exists to run our tests, report back with success or failure, and in some cases, take additional action.
