@@ -10,7 +10,7 @@ layout: page
 * [Inheritance](../lessons/inheritance)
 * [PD: Strengths and Storytelling](../../career_development_curriculum/module_one/strengths_and_storytelling)
 * [Refactoring Patterns 1](../lessons/refactoring_patterns_part_1)
-* [Mixins](../slides/mixins)
+* [Mixins](../lessons/mixins)
 * [Refactoring Patterns 2](../lessons/refactoring_patterns_part_2)
 
 
