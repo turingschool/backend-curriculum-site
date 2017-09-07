@@ -18,38 +18,26 @@ tags: ruby, refactoring, tdd
 * You should have a copy of
 [this extraction of Chapter 7](https://dl.dropboxusercontent.com/u/69001/Refactoring/Refactoring%20-%20Chapter%207.pdf).
 
-## First 12 minutes:
+## First 12 minutes individually:
 
-* Discuss the Hide Delegate section from 181 to 184
+* Briefly read the Hide Delegate section from 181 to 184
 * *Carefully* re-read the code sections on 183 and 184
-* Try refactoring [this](https://github.com/turingschool-examples/refactoring_patterns/blob/master/test/station_3_hide_delegate_test.rb) example scenario (you should already have this cloned) using Hide Delegate. As you encapsulate
-the use of the delegated object, make sure the linked test still passes
+* Reflect on these **key ideas** of Hide Delegate:
+  *  Encapsulation means objects need to know less about other parts of the system
+    * Rather than talking through, talk to
+    * You can talk to your friends, but don't talk to your friends' friends
+  * Chains of method calls with different levels of abstraction are a red flag
+    * Instead, pass the messages like a bucket brigade
+  * The [Law of Demeter](http://en.wikipedia.org/wiki/Law_of_Demeter) is not a law and is not about agriculture
+* Try refactoring [this](https://github.com/turingschool-examples/refactoring_patterns/blob/master/test/station_3_hide_delegate_test.rb) example scenario (you should already have this cloned) using Hide Delegate. As you encapsulate the use of the delegated object, make sure the linked test still passes
 * If you finish early, apply this refactoring pattern to the Enigma examples found under `Additional Resources` in the main lesson for today
 * If you still have more time, apply this refactoring pattern to your current project
 
-## Final 3 minutes:
+## Final 3 minutes in your small group:
 
-* Compare solutions with others in your small group 
-* Discuss these **key ideas** of Hide Delegate:
-  *  Encapsulation => objects need to know less about other parts of the system
-    * You can talk to your friends, but don't talk to your friends' friends
-    * Rather than talking through, talk to
-  * The [Law of Demeter](http://en.wikipedia.org/wiki/Law_of_Demeter) is not a law and is not about agriculture
-  * Chains of method calls with different levels of abstraction are a red flag
-    * Instead, pass the messages like a bucket brigade
+* Answer the following questions:
+  * What is encapsulation?
+  * Why would we want to hide delegates?
+  * What's one clear indication that you should implement Hide Delegate?
+* Compare solutions
 
-
-* Read/discuss the Key Ideas below
-* Try refactoring the Example Scenario below using Hide Delegate
-* You're encouraged to discuss / compare solutions with others
-* If you finish early, apply this pattern to the Engima repo linked in today's lesson plan 
-* If you still have extra time, apply this pattern to your current project 
-
-## Key Ideas
-
-
-
-## Example Scenario
-Apply this Refactoring Pattern to the linked repository which you should have already cloned down. As you move methods around, make sure the linked test still passes. 
-
-[Hide Delegate]()
