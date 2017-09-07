@@ -17,9 +17,9 @@ We've looked at a number of enumerables in the past, quite a lot of them, and to
 * Make a chart of all the enumerables you know at this point, what they do, and what they return  
 
 ```
-enumerable | what it's used for | return value 
+enumerable | what it's used for | return value
 ----------------------------------------------
-           |                    | 
+           |                    |
 ```
 
 ## Basics: Enumerable and Enumerators
@@ -27,25 +27,25 @@ enumerable | what it's used for | return value
 Ruby collections (Array, Hash, Range) have access to the [Enumerable](http://ruby-doc.org/core-2.3.1/Enumerable.html) module.
 
 ```ruby
-array.included_modules
+Array.included_modules
 => [Enumerable, PP::ObjectMixin, Kernel]
 ```
 
 The Enumerable module gives Array access to many enumerable methods.
 
 ```ruby
-Enumerable.instance_methods # 54 total
-=> [:to_a, :to_h, :include?, :find, :entries, :sort, :sort_by, :grep, :grep_v, :count, :detect, :find_index, :find_all, :select, :reject, :collect, :map, :flat_map, :collect_concat, :inject, :reduce, :partition, :group_by, :first, :all?, :any?, :one?, :none?, :min, :max, :minmax, :min_by, :max_by, :minmax_by, :member?, :each_with_index, :reverse_each, :each_entry, :each_slice, :each_cons, :each_with_object, :zip, :take, :take_while, :drop, :drop_while, :cycle, :chunk, :slice_before, :slice_after, :slice_when, :chunk_while, :lazy]
+Enumerable.instance_methods # 55 total
+=> [:max, :min, :to_a, :to_h, :include?, :find, :entries, :sort, :sort_by, :grep, :grep_v, :count, :detect, :find_index, :find_all, :select, :reject, :collect, :map, :flat_map, :collect_concat, :inject, :reduce, :partition, :group_by, :first, :all?, :any?, :one?, :none?, :minmax, :min_by, :max_by, :minmax_by, :member?, :each_with_index, :reverse_each, :each_entry, :each_slice, :each_cons, :each_with_object, :zip, :take, :take_while, :drop, :drop_while, :cycle, :chunk, :slice_before, :slice_after, :slice_when, :chunk_while, :sum, :uniq, :lazy]
 
-Array.instance_methods # 184 total
-=> [:fill, :assoc, :rassoc, :uniq, :uniq!, :compact, :compact!, :flatten, :to_h, :flatten!, :shuffle!, :shuffle, :include?, :combination, :repeated_permutation, :permutation, :product, :sample, :repeated_combination, :bsearch_index, :bsearch, :select!, :&, :*, :+, :-, :sort, :count, :find_index, :select, :reject, :collect, :map, :pack, :first, :any?, :reverse_each, :zip, :take, :take_while, :drop, :drop_while, :cycle, :insert, :|, :index, :rindex, :replace, :clear, :pretty_print, :<=>, :<<, :==, :[], :[]=, :reverse, :empty?, :eql?, :concat, :reverse!, :shelljoin, :inspect, :delete, :length, :size, :each, :slice, :slice!, :to_ary, :to_a, :to_s, :pretty_print_cycle, :dig, :hash, :at, :fetch, :last, :push, :pop, :shift, :unshift, :frozen?, :each_index, :join, :rotate, :rotate!, :sort!, :collect!, :map!, :sort_by!, :keep_if, :values_at, :delete_at, :delete_if, :reject!, :transpose, :find, :entries, :sort_by, :grep, :grep_v, :detect, :find_all, :flat_map, :collect_concat, :inject, :reduce, :partition, :group_by, :all?, :one?, :none?, :min, :max, :minmax, :min_by, :max_by, :minmax_by, :member?, :each_with_index, :each_entry, :each_slice, :each_cons, :each_with_object, :chunk, :slice_before, :slice_after, :slice_when, :chunk_while, :lazy, :pry, :__binding__, :pretty_print_instance_variables, :pretty_print_inspect, :instance_of?, :public_send, :instance_variable_get, :instance_variable_set, :instance_variable_defined?, :remove_instance_variable, :private_methods, :kind_of?, :instance_variables, :tap, :is_a?, :extend, :define_singleton_method, :to_enum, :enum_for, :===, :=~, :!~, :respond_to?, :freeze, :display, :send, :pretty_inspect, :object_id, :method, :public_method, :singleton_method, :nil?, :class, :singleton_class, :clone, :dup, :itself, :taint, :tainted?, :untaint, :untrust, :trust, :untrusted?, :methods, :protected_methods, :public_methods, :singleton_methods, :!, :!=, :__send__, :equal?, :instance_eval, :instance_exec, :__id__]
+Array.instance_methods # 185 total
+=> [:join, :rotate, :rotate!, :sort!, :sort_by!, :collect!, :map!, :select!, :keep_if, :values_at, :delete_at, :delete_if, :to_h, :reject!, :transpose, :fill, :include?, :uniq!, :compact, :rassoc, :compact!, :flatten, :shuffle!, :shuffle, :sample, :assoc, :combination, :repeated_permutation, :permutation, :repeated_combination, :product, :flatten!, :bsearch_index, :bsearch, :&, :*, :+, :-, :sort, :shelljoin, :count, :find_index, :select, :reject, :collect, :map, :first, :any?, :pack, :pretty_print_cycle, :reverse_each, :zip, :take, :take_while, :drop, :drop_while, :cycle, :sum, :uniq, :|, :insert, :index, :rindex, :<=>, :<<, :clear, :replace, :==, :[], :[]=, :empty?, :eql?, :reverse, :reverse!, :concat, :pretty_print, :max, :min, :inspect, :length, :size, :each, :delete, :to_ary, :slice, :slice!, :to_a, :to_s, :dig, :hash, :frozen?, :at, :fetch, :last, :push, :pop, :shift, :unshift, :each_index, :find, :entries, :sort_by, :grep, :grep_v, :detect, :find_all, :flat_map, :collect_concat, :inject, :reduce, :partition, :group_by, :all?, :one?, :none?, :minmax, :min_by, :max_by, :minmax_by, :member?, :each_with_index, :each_entry, :each_slice, :each_cons, :each_with_object, :chunk, :slice_before, :slice_after, :slice_when, :chunk_while, :lazy, :pry, :__binding__, :pretty_print_instance_variables, :pretty_print_inspect, :instance_of?, :kind_of?, :is_a?, :tap, :public_send, :remove_instance_variable, :singleton_method, :instance_variable_set, :define_singleton_method, :method, :public_method, :extend, :to_enum, :enum_for, :pretty_inspect, :===, :=~, :!~, :respond_to?, :freeze, :object_id, :send, :display, :nil?, :class, :singleton_class, :clone, :dup, :itself, :taint, :tainted?, :untaint, :untrust, :untrusted?, :trust, :methods, :singleton_methods, :protected_methods, :private_methods, :public_methods, :instance_variable_get, :instance_variables, :instance_variable_defined?, :!, :!=, :__send__, :equal?, :instance_eval, :instance_exec, :__id__]
 ```
 
 When an array _instance_ uses an Enumerable method, the enumerator creates an instance of [Enumerator](http://ruby-doc.org/core-2.3.1/Enumerator.html) from the array.
 
 ```ruby
 array = [1,2,3]
-=> [1,2.3]
+=> [1,2,3]
 
 array.each
 => #<Enumerator: ...>
@@ -174,9 +174,9 @@ Now, in practice.
 array = [1,2,3,4,5]
 => [1,2,3,4,5]
 
-array.reduce(0) do |sum, num| 
-   sum + num 
-end 
+array.reduce(0) do |sum, num|
+   sum + num
+end
 => 15
 ```
 
@@ -192,8 +192,8 @@ Summing is easy, but we can also use `reduce` to build other things.
 
 
 ## WrapUp  
-What do zip, group_by, and reduce do?  What are the gotchas for each?  
 
+What do zip, group_by, and reduce do?  What are the gotchas for each?  
 
 ## Additional Reading
 

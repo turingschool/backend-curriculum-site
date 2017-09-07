@@ -10,6 +10,13 @@ tags: ruby, mixins
 * understand that modules fill various roles in Ruby.
 * use a module to create a mixin to be DRY (Don't Repeat Yourself)
 
+## Vocabulary  
+* Module
+* Mixin
+* Instantiate
+* State
+* Behavior
+
 ## Sides
 
 Available [here](../slides/mixins)
@@ -31,6 +38,7 @@ A little bit about mixins.
 
 * Mixins allow us to share behavior between classes
 * Ruby implements mixins with Modules
+* Modules are like classes except you can't instantiate them
 * Modules only store behavior
 * Modules *do not* store state
 
@@ -110,6 +118,7 @@ module OnlineOrder
   end
 end
 ```
+To get access to the methods defined in the module, you will include the module at the beginning of the class. Using include allows you to call the module methods on an instance. 
 
 In `amazon_order.rb`
 
@@ -161,7 +170,7 @@ amazon.review
 
 Turn & Talk: What just happened there?
 
-And now we just treat it as if the `confirmation` and `review` methods were included in our other classes.
+And now we just treat it as if the `confirmation` and `review` methods were part of our other classes, where you call the methods on an instance of an class. 
 
 ## Exercise: Module Mixins
 
@@ -209,7 +218,9 @@ Take the code from the discussion and implement a `AirConditioning` module that 
 Instances of either class should be able to turn the AC on (`Chilly air coming your way!`) or off (`Temp is fine in here.`).
 
 ## Summary
-
+* What is a module? How is it different than a class? 
+* How do you use a module? 
+* Why would you use a module vs class inheritance? 
 
 ## Additional Reading
 

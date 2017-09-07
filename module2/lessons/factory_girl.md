@@ -31,6 +31,13 @@ Rather than taking the time and energy to hand-write each individual piece of da
 
 Still not sure what the purpose of FactoryGirl is? Check out [this StackOverflow answer](http://stackoverflow.com/questions/5183975/factory-girl-whats-the-purpose).
 
+## Learning Goals
+
+* Install and configure the FactoryGirl gem in a rails application.
+* Understand the relationship between FactoryGirl and a test vs. development environment.
+* Create a single object using FactoryGirl syntax and methods.
+* Create a relationship between two objects in a factory. 
+
 ## Directions
 
 We'll be working with an existing Rails application to refactor existing (and passing) tests to use FactoryGirl. This should give us plenty of comfort and agency to begin using FactoryGirl on our own in future applications.

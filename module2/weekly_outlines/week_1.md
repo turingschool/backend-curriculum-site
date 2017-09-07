@@ -29,7 +29,7 @@ layout: page
 ### Day 2:
 
 * **LESSONS:**
-  - [How the Web Works](../slides/how_the_web_works/slides.md)
+  - [How the Web Works](../lessons/how_the_web_works/slides.md)
   - [Passing Data with Sinatra](../lessons/passing_data_with_sinatra)
   - [CRUD in Sinatra](../lessons/crud_in_sinatra)
   - [CRUD in Sinatra Workshop](../lessons/crud_in_sinatra_workshop)

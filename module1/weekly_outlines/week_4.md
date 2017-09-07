@@ -5,6 +5,7 @@ layout: page
 
 ## Lessons
 
+* [Peer to Peer Project Review](../lessons/peer_to_peer_project_review)
 * [Advanced Enumerables](../lessons/advanced_enumerables)
 * [Inheritance](../lessons/inheritance)
 * [PD: Strengths and Storytelling](../../career_development_curriculum/module_one/strengths_and_storytelling)

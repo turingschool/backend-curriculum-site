@@ -11,6 +11,11 @@ tags: ruby, inheritance
 * explain what is inheritance and why we use it 
 * identify that you can over-write a method locally (polymorphism?)
 
+## Vocabulary 
+* Inheritance 
+* Parent
+* Child 
+
 ## Slides
 
 Available [here](../slides/inheritance)
@@ -62,13 +67,15 @@ Setting up this relationship allows us to define methods on the parent class tha
 
 #### Example
 
-```ruby
-# employee.rb
-class Employee
-  def total_compensation
-    base_salary + bonus
-  end
-end
+```ruby 
+# runner.rb
+require './ceo'
+
+ali = Ceo.new(15, 20)
+
+puts "CEO Base Salary: #{ali.base_salary}"
+puts "CEO Total Comp: #{ali.total_compensation}"
+
 
 # ceo.rb
 require './employee'
@@ -83,41 +90,47 @@ class Ceo < Employee
   end
 end
 
-# runner.rb
-require './ceo'
-
-ali = Ceo.new(15, 20)
-
-puts ali.total_compensation
+# employee.rb
+class Employee
+  def total_compensation
+    base_salary + bonus
+  end
+end
 ```
 
-#### Practice with a Partner
+#### Independent Practice 
+With a partner: 
 
 * Create a `SalesManager` class that inherits from `Employee`, and takes `base_salary`, and `estimated_annual_sales` as arguments when you initialize.
 * Create a `bonus` method on `SalesManager` that returns 10% of `estimated_annual_sales`
-* Create a new `SalesManager` in your runner file and print their total compensation to the terminal
+* Create a new `SalesManager` in your runner file and print their total compensation to the terminal  
+* Which class is the parent and which is the child? Why did we define the relationship in this way?  
 
 ### Super
 
 `super` allows us to execute methods from our child class that have the same name in our parent class.
 
 * `super` passes all of the arguments in the current method
-* `super()` passes no arguments, but still compl
+* `super()` passes no arguments, but still completes any actions 
 * `super(argument1, argument2)` passes argument1 and argument2 specifically
 
 #### Example
 
-```ruby
-# employee.rb
-class Employee
-  attr_reader :name,
-              :id
+```ruby 
+# runner.rb
+require './ceo'
+require './sales_manager'
 
-  def initialize(name, id)
-    @name = name
-    @id   = id
-  end
-end
+ali = Ceo.new(15, 20, "Ali", 1)
+sal = SalesManager.new(15, 400)
+
+"CEO Base Salary: #{ali.base_salary}"
+puts "CEO Total Comp: #{ali.total_compensation}"
+puts "CEO Name: #{ali.name}"
+puts "CEO ID: #{ali.id}"
+puts "\n"
+puts "Sales Manager Bonus: #{sal.bonus}"
+puts "SalesManager Total Comp: #{sal.total_compensation}"
 
 # ceo.rb
 require './employee'
@@ -133,32 +146,59 @@ class Ceo < Employee
   end
 end
 
-# runner.rb
-require './ceo'
-require './sales_manager'
+# employee.rb
+class Employee
+  attr_reader :name,
+              :id,
+              :mood
 
-ali = Ceo.new(15, 20, "Ali", 1)
-sal = SalesManager.new(15, 400)
-
-puts "CEO Total Comp"
-puts ali.total_compensation
-puts "\n"
-puts "SalesManager Total Comp"
-puts sal.total_compensation
+  def initialize(name, id)
+    @name = name
+    @id   = id
+    @mood = "happy"
+  end 
+  
+  def total_compensation
+    base_salary + bonus
+  end
+end
 ```
+#### Independent Practice  
+With a partner:
+
+* add name and id to SalesManager using super
 
 ### Overriding Methods
 
-In Ruby we can override a method from our parent class by simply re-defining it in our child class. Doing this implies that there is some exception to a general rule. A `Mammal` class might have a method `lays_eggs?` that returns false that would work most child classes, but we would then need to ovverride that method on `Platypus` to return true.
+In Ruby we can override a method from our parent class by re-defining it in our child class. Doing this implies that there is some exception to a general rule. A `Mammal` class might have a method `lays_eggs?` that returns false that would work on most child classes, but we would then need to override that method on `Platypus` to return true.
 
 #### Example
 
 ```ruby
+# runner.rb
+require './ceo'
+require './sales_manager'
+require './intern'
+
+ali = Ceo.new(15, 20, "Ali", 1783)
+sal = SalesManager.new(15, 400, "Sal", 8736)
+jeff = Intern.new(5, "Jeff", 3298)
+
+puts "CEO Base Salary: #{ali.base_salary}"
+puts "CEO Total Comp: #{ali.total_compensation}"
+puts "CEO Name: #{ali.name}"
+puts "CEO ID: #{ali.id}"
+puts "\n"
+puts "Sales Manager Bonus: #{sal.bonus}"
+puts "SalesManager Total Comp: #{sal.total_compensation}"
+puts "\n"
+puts "Intern Total Comp: #{jeff.total_compensation}"
+
+
 # intern.rb
 require './employee'
 
 class Intern < Employee
-  attr_reader :hourly_rate
 
   def initialize(hourly_rate, name, id)
     @hourly_rate = hourly_rate
@@ -166,18 +206,21 @@ class Intern < Employee
   end
 
   def total_compensation
-    hourly_rate * 2000
+    @hourly_rate * 2000
   end
 end
 ```
 
-#### Practice with a Partner
 
-Using either `super` or overriding a method, make it so that when you call `#total_compensation` on `Ceo` it adds a dollar to their `base_salary` before returning the total compensation
+#### Independent Practice 
+With a partner:
+
+* Using either `super` or overriding a method, make it so that when you call `#total_compensation` on `Ceo` it adds a dollar to their `base_salary` before returning the total compensation
+* Explain in what ways does total_compensation work differently on Ceo, SalesManager, and Intern? 
 
 ## Summary
 
 * Why might we decide to use inheritance?
-* What is the syntax for creating a class that inherits from another class?
+* What is the syntax for creating a class that inherits from another class? How many classes can you inherit from and how do you decide which should inherit from which?  
 * What does `super`, do and what are the differences between the three different ways you can call it?
 * What does it mean to override a method in Ruby?

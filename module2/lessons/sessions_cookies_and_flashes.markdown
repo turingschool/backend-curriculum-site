@@ -12,6 +12,10 @@ tags: rails, http, sessions, cart, dinner dash
 * Practice the syntax for setting and fetching session data
 * Practice setting flash messages based on conditionals
 
+## Slides
+
+* Available [here](../slides/sessions_cookies_flashes/sessions_cookies_flashes)
+
 ## Structure
 
 * 25 - Whiteboard discussion: Request/Response and Cookies

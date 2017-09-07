@@ -44,6 +44,9 @@ layout: page
 
 ### Day 5:
 
+* - [Ruby Challenge](../lessons/violations)
+* - [Tech Interview Partner Q&A](../lessons/mock_interview)
+
 * **HOMEWORK:**
   - Continue working on Project.
   - Complete the weekly [recap](https://github.com/turingschool/checks-for-understanding/blob/master/module-2/backend/week_three.md)
