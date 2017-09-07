@@ -7,7 +7,7 @@ tags: workflow, professional skills
 
 ## Learning & Completion Goals
 
-*   Students build applications that execute in development, test, CI and production environments *(functional)*
+*   Students build applications that execute in development, staging, CI and production environments *(functional)*
 
 ### Learning Goals Breakdown
 
@@ -16,9 +16,9 @@ tags: workflow, professional skills
 *   Student can explain the nature and purpose of a staging environment
 *   Student can explain the main components of a staging/production environment
 
-## A brief history of environments
+## A Brief History of Environments
 
-### Stage 0: One environment
+### Stage 0: One Environment
 
 Way back when, development would happen directly on production. Imagine your app's been hosted on Heroku, you've got users on it daily, yet you push straight to Heroku every time you add a new feature / fix a bug.
 
@@ -27,7 +27,7 @@ Some problems:
 *   Getting the code from your machine onto the production server every time you want feedback from your code
 *   You're breaking things a lot while you're working, chancing your users' work being interrupted on the fly
 
-### Stage 1: Two environments
+### Stage 1: Two Environments
 
 To solve the last problem, we created development environments. Development environments are meant to:
 
@@ -43,7 +43,7 @@ Some problems with our two environment solution:
 *   Development environments are often not even running the same OS
 *   Although rare, hardware can sometimes change how software behaves
 
-### Stage 2: Three environments
+### Stage 2: Three Environments
 
 So, we created another environment that we call **staging**. This environment is meant to execute our code in an environment as close as possible to production, without actually disrupting production.
 
@@ -51,13 +51,11 @@ Your staging environment is essentially a copy of production. Whatever setup you
 
 Staging provides a safe environment to check your work, or share your work with others. If you create bad data, or delete data, or introduce bugs, your production users are not affected.
 
-### Stage 3: Four environments
+### Stage 3: Three Environments + Continuous Integration
 
 There is yet another environment that is common on modern development teams: *Continuous Integration* (CI). It exists to run our tests, report back with success or failure, and in some cases, take additional action.
 
-We all know to run our tests before we push, or after we merge, or before we deploy, but a continuous integration environment ensures that tests are run. It doesn't allow you to forget. You can even add CI tools to your production deployment process, such that any commit that doesn't pass its tests will be rejected.
-
-Curious about CI? Check out [Travis CI](https://travis-ci.org/).
+We all know to run our tests before we push, or after we merge, or before we deploy, but a continuously integrated environment ensures that tests are run. It doesn't allow you to forget. You can even add CI tools to your production deployment process, such that any commit that doesn't pass its tests will be rejected.
 
 ## Modern Environments
 
@@ -96,7 +94,7 @@ A production environment...
 
 ### Continuous Integration
 
-Continuous integration is another environment to consider. CI can span environments in some situations (always run your tests before you push, run your tests in staging, in a separate tool, etc)
+Continuous integration is an environment integration / practice to consider. CI can span environments in some situations (always run your tests before you push, run your tests in staging, in a separate tool, etc)
 
 A continuously integrated environment...
 
