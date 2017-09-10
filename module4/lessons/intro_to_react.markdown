@@ -494,11 +494,11 @@ class LikesCounter extends Component {
         <div>Likes: {this.state.likes}</div>
         <ActionButton
             text="Like +1"
-            onClick={this.handleLike} />
+            onClick={this.handleLike.bind(this)} />
 
         <ActionButton
             text="Dislike -1"
-            onClick={this.handleDislike} />
+            onClick={this.handleDislike.bind(this)} />
 
       </div>
     )
@@ -535,7 +535,7 @@ You can verify this state change by switching over to your browser and opening y
 
 Good work!
 
-<!-- Note: you may need to use `parseInt()` in order to update the state when you're handling updating the like count. -->
+Note: you may need to use `parseInt()` in order to update the state when you're handling updating the like count.
 
 ### Refactor
 
