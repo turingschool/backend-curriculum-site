@@ -559,18 +559,20 @@ Our `handleDislike` and `handleLike` functions look very similar. Let's create a
 
 On your own, fill out the Intro to React Checks for Understanding questions [here](https://goo.gl/forms/6n82Ft7qC0lnipK13).
 
-##### Resources/Additional Learning Materials
+## Going Further
+
+If you're enjoying what we've seen so far with React, I'd highly recommend reading their section of documentation called [Thinking in React](https://facebook.github.io/react/docs/thinking-in-react.html).
+
+This article walks you through their best practices for approaching a new application using React. Since component-based / data down, actions up paradigms are fairly new to us, it'll be a worthy read for you.
+
+## Resources and Additional Learning Materials
 
 [React & Rails Tutorial](https://github.com/applegrain/creact)
-
-[Old Slide Deck](https://drive.google.com/file/d/0Bx6JZxtPBe_FcWFSTkVHWEVqVDQ/view?usp=sharing)
-
-[Developing with Webpack](http://survivejs.com/webpack/developing-with-webpack/)
 
 [Render vs Return](https://facebook.github.io/react/docs/component-specs.html)
 
 [React Classes vs extend Component](https://toddmotto.com/react-create-class-versus-component/)
 
-[9 Things Ever React Dev Should Know](https://camjackson.net/post/9-things-every-reactjs-beginner-should-know)
+[9 Things Every React Dev Should Know](https://camjackson.net/post/9-things-every-reactjs-beginner-should-know)
 
 [React Tutorial by Facebook](https://facebook.github.io/react/docs/tutorial.html)
