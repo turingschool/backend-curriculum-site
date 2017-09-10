@@ -16,17 +16,17 @@ layout: page
   - [HTML/CSS Best Practices](../lessons/html_css_best_practices)
 
 * **HOMEWORK:**
-  - [Little Shop](https://github.com/turingschool/curriculum/blob/master/source/projects/little_shop.markdown)
+  - [Little Shop](http://backend.turing.io/module2/projects/little_shop)
 
 ### Day 2:
 
 * **HOMEWORK:**
-  - [Little Shop](https://github.com/turingschool/curriculum/blob/master/source/projects/little_shop.markdown)
+  - [Little Shop](http://backend.turing.io/module2/projects/little_shop)
 
 ### Day 3:
 
 * **HOMEWORK:**
-  - [Little Shop](https://github.com/turingschool/curriculum/blob/master/source/projects/little_shop.markdown)
+  - [Little Shop](http://backend.turing.io/module2/projects/little_shop)
 
 ### Day 4:
 
@@ -40,4 +40,4 @@ layout: page
 
 ## Projects:
 
-* [Little Shop](https://github.com/turingschool/curriculum/blob/master/source/projects/little_shop.markdown)
+* [Little Shop](http://backend.turing.io/module2/projects/little_shop)
