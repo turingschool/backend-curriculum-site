@@ -391,6 +391,8 @@ Just remember: **data down, actions up**
 
 In our app, since the action handler is defined as a method of its parent component, it has access to everything that the parent component has access to. As long as the child component uses the handler that was passed down, the parent is the one who is actually handling the action.
 
+Read more about how this works in React [here](https://facebook.github.io/react/docs/lifting-state-up.html).
+
 ### Build our View (15-20 minutes)
 
 Let's create a new component called `LikesCounter`. This component should have two `ActionButton`s: one saying "Like" and one saying "Dislike". When you click "Like" or "Dislike", an alert of which one was clicked should appear. Build this component in a new file, `components/LikesCounter.js`
@@ -507,6 +509,8 @@ class LikesCounter extends Component {
 
 export default LikesCounter
 ```
+
+Read more about why we're binding `this` [here](https://facebook.github.io/react/docs/handling-events.html).
 
 Open up the console and look at what information is available within the `<LikesCounter />` component.
 
