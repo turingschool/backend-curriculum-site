@@ -13,7 +13,7 @@ tags: javascript, front-end framework, react
 ## Warm Up
 
 * What do you know thus far about React?
-* Why do Front End frameworks exist?
+* Why do front-end frameworks / libraries exist?
 * What are the different types of variables you can define in JS? What's the scope of variables in JS land?
 
 ## Background
@@ -171,15 +171,18 @@ And then let's come back as a group and report out your answers.
 
 #### Quick Aside: JSX
 
-A big trait of React that is worth mentioning is its use of JSX vs plain old JavaScript. JSX itself exists as a statically-typed language on its own outside of React, but you'll likely only encounter it within React apps.
+A big trait of React that is worth mentioning is its use of JSX vs plain old JavaScript. JSX itself exists as a statically-typed spin-off of JavaScript that can be used on its own outside of React. However, you'll likely mostly encounter it within React apps.
 
 JSX
 
+- is a syntax extension of JavaScript
 - is statically-typed, but can infer the type set to variables based on their initial declaration
 - integrates HTML within JavaScript
   - this means that most elements and DOM manipulation in React will happen through JS (you will barely touch `index.html`)
 - can be typed within `.js` files within React, but `.jsx` extensions can also be used
   - if using `.jsx`, remember to tack that extension onto the end of the file you're importing
+
+Read more about its use in React [here](https://facebook.github.io/react/docs/introducing-jsx.html).
 
 ## Likes Counter Code Along
 
@@ -249,6 +252,16 @@ How does our App component get added to our view?
 Open your `./index.js` file.
 
 ReactDOM is React's object for interacting with the DOM. You can see we create an instance of our `<App />` and add it to our root element which can be found in our `public/index.html` page.
+
+#### Capitalized React Component Convention
+
+Take note of how `<App />` is capitalized.
+
+From the [React docs](https://facebook.github.io/react/docs/jsx-in-depth.html):
+
+> Capitalized types indicate that the JSX tag is referring to a React component. These tags get compiled into a direct reference to the named variable, so if you use the JSX <Foo /> expression, Foo must be in scope.
+> When an element type starts with a lowercase letter, it refers to a built-in component like <div> or <span> and results in a string 'div' or 'span' passed to React.createElement. Types that start with a capital letter like <Foo /> compile to React.createElement(Foo) and correspond to a component defined or imported in your JavaScript file.
+> We recommend naming components with a capital letter. If you do have a component that starts with a lowercase letter, assign it to a capitalized variable before using it in JSX.
 
 ### Time to Make a New Component!
 
@@ -419,6 +432,10 @@ When the page loads, we want the initial value of Likes to be 0. Then when we cl
 Let's rephrase. On page load we want to set the *initial* state of our `LikesCounter` to have a count of 0, in other words we want to "initialize" our component to have some values. Sounds like a constructor!
 
 Along with sending the `props` through our custom HTML element, we can also define an initial `state` on our components that can be mutated based on user interaction and changes to our data.
+
+From [React](https://facebook.github.io/react/docs/state-and-lifecycle.html):
+
+> State is similar to props, but it is private and fully controlled by the component.
 
 Our state machine needs to get that information from somewhere, so let's start with passing in an `initialLikes` property to our `<LikesCounter />` instance
 
