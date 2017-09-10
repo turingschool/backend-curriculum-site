@@ -439,13 +439,15 @@ From [React](https://facebook.github.io/react/docs/state-and-lifecycle.html):
 
 > State is similar to props, but it is private and fully controlled by the component.
 
-Our state machine needs to get that information from somewhere, so let's start with passing in an `initialLikes` property to our `<LikesCounter />` instance
+Our state machine needs to get that information from somewhere, so let's start with passing in an `initialLikes` property to our `<LikesCounter />` instance:
 
 `<LikesCounter initialLikes="0" />`
 
 Now we can add a constructor to our `LikesCounter` component. In our constructor, we will set the initial state of our component.
 
 Underneath the class declaration for `LikesCounter`, let's add our constructor function.
+
+A standard component's constructor function takes `props` as an argument and calls `super(props)`.
 
 ```jsx
 constructor(props) {
