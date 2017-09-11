@@ -85,7 +85,7 @@ Okay, so classes are objects too. But what does this mean in practice? How do yo
 
 class User
 
-  def self.describe_yourself
+  def self.description
     "I'm the User class! I don't have a name."
   end
 
@@ -93,7 +93,7 @@ class User
     @name = name
   end
 
-  def describe_yourself
+  def description
     "I'm a User! My name is #{@name}"
   end
   
@@ -102,18 +102,20 @@ end
 # pry 
 reqiure "./user.rb"
 
-User.describe_yourself
+User.description
 => "I'm the User class! I don't have a name." 
 
 tanya = User.new("Tanya")
-tanya.describe_yourself
+tanya.description
 => "I'm a User! My name is #{@name}"
 ```
 
 **Turn & Talk** 
 How do you define a class method? How do you call a class method? 
 
-### Uses of Class Methods  
+### Use of Class Methods 
+What if we are getting user data from disparate sources. Maybe some users are being ported in though a CSV of user data, others are coming in as JSON (think hash format), others are being created by signign up from an account and therefore our program is creating users directly. 
+ 
 
 ```ruby
 # user.rb
@@ -150,7 +152,7 @@ users = []
 users << User.load_from_hash({"name" => "Ariana", "email" => "ariana@email.com", "address" => "1874 Market St, Denver CO 80203"})
 
 CSV.foreach('./users.csv', headers: true, header_converters: :symbol) do |row|
-   users << User.from_csv(row)
+   users << User.load_from_csv(row)
 end 
 
 users << User.new("Tanya","tanya@email.com", "8293 Colorado Blvd, Denver, CO 89374")
@@ -160,7 +162,7 @@ puts users
 ```
 
 ### Independent Practice
-Suppose you are collecting Jokes for a joke telling app. Create a Joke class so that you can load information via .new, .from_hash, & .from_csv. Expect jokes to use an id, a question, and an answer  
+Suppose you are collecting Jokes for a joke telling application. Create a Joke class so that you can load information via .new, .from_hash, & .from_csv. Expect jokes to have an id, a question, and an answer as their state.  
 
 
 ## Wrap Up  
