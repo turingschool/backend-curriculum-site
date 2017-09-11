@@ -17,7 +17,8 @@ layout: page
 ### Day 2:
 
 * **LESSONS:**
-  - [Intro to the Asset Pipeline](../lessons/intro_to_the_asset_pipeline)
+  - [Accessibility Best Practices](../lessons/accessibility_best_practices)
+  - [How To Write a Great README](../lessons/how_to_write_a_great_readme)
 
 * **HOMEWORK:**
   - [Little Shop](http://backend.turing.io/module2/projects/little_shop)
@@ -25,7 +26,7 @@ layout: page
 ### Day 3:
 
 * **LESSONS:**
-  - [Accessibility Best Practices](../lessons/accessibility_best_practices)
+  - [Intro to the Asset Pipeline](../lessons/intro_to_the_asset_pipeline)
 
 * **HOMEWORK:**
   - [Little Shop](http://backend.turing.io/module2/projects/little_shop)
