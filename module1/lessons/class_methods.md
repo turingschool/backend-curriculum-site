@@ -6,15 +6,17 @@ tags: ruby, class methods, OOP
 
 
 ## Learning Goals  
-*   
-*  
-* 
+*  explain the syntactic difference between class an instance methods 
+*  explain when a developer might use a class method 
+*  use a class method to create an instance 
 
 ## Structure  
 5 min - Warm Up  
-20 min -   
+10 min - Class Methods as we know them
+10 min - Class vs Instance Methods
 5 min - Break  
-20 min -  
+10 min - Use of Class Methods  
+10 min - Independent Practice 
 5 min - Wrap Up
 
 ## Vocabulary  
@@ -32,7 +34,7 @@ tags: ruby, class methods, OOP
 * What do we call the method `#say_hello` on? What do we call the method `::new` on?
 * In the method list in the Ruby docs page for Array, what is the difference between methods with a `#` prefix and those with a `::` prefix?
 
-## Classes 
+## Classes as we Know Them
 
 **Turn & Talk**  
 Turn to a partner and define what a class is. Explain how you use one and why. Try to incorporate as much of the technical language as you can. 
@@ -74,8 +76,6 @@ tanya.object_id
 => 70334063539260
 ```
 
-** break **
-
 ## Class Methods 
 Okay, so classes are objects too. But what does this mean in practice? How do you use a Class object? 
 
@@ -109,6 +109,8 @@ tanya = User.new("Tanya")
 tanya.description
 => "I'm a User! My name is #{@name}"
 ```
+
+** break **
 
 **Turn & Talk** 
 How do you define a class method? How do you call a class method? 
