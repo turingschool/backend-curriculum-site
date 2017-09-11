@@ -31,7 +31,7 @@ Project implementation may **not** use:
 3. Add the other team members and your instructor(s) as collaborators
 4. Add your project to [waffle.io](http://waffle.io) to write and track user stories
 5. Create a Pull Request template
-6. Add the [user stories](little_user_stories) to waffle. 
+6. Add the [user stories](little_user_stories.md) to waffle. 
 
 ## Base Expectations
 
