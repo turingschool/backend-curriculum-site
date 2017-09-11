@@ -447,7 +447,7 @@ Now we can add a constructor to our `LikesCounter` component. In our constructor
 
 Underneath the class declaration for `LikesCounter`, let's add our constructor function.
 
-A standard component's constructor function takes `props` as an argument and calls `super(props)`.
+A standard component's constructor function takes `props` as an argument and calls `super(props)`. In an ES6 child class constructor, `this` cannot be used until `super` is called.
 
 ```jsx
 constructor(props) {
