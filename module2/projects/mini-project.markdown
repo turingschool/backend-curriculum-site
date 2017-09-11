@@ -165,7 +165,7 @@ If you choose to do this option make sure you try to implement all the concepts 
 
 ### Over the weekend
 
-Finish implementing the project over the weekend with your pair. Add the link to your project repository and Heroku URL to [this document](https://github.com/turingschool/ruby-submissions/blob/master/1606-b/rails_mini_project.yml).
+Finish implementing the project over the weekend with your pair. Submit the link to your project repository and Heroku URL to [this document](https://goo.gl/forms/eHzi1cvBhPBGyGYw2).
 
 ### Resources
 
