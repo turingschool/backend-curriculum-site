@@ -39,8 +39,8 @@ Slytherin Type 1
 class Slytherin
 
   def initialize(name)
-  	 @name = name
-  	 @teachers = []
+    @name = name
+    @teachers = []
   end
 
 end
@@ -58,11 +58,11 @@ class Slytherin
   end
 
   def add_student(student)
-     @students << student
+    @students << student
   end
 
   def add_teacher(teacher)
-     @teachers << teacher
+    @teachers << teacher
   end
 
 end
@@ -100,8 +100,8 @@ module Student
   class Slytherin
 
     def initialize(name)
-  	   @name = name
-  	   @teachers = []
+  	  @name = name
+  	  @teachers = []
     end
 
   end
@@ -123,11 +123,11 @@ module House
     end
 
     def add_student(student)
-       @students << student
+      @students << student
     end
 
     def add_teacher(teacher)
-       @teachers << teacher
+      @teachers << teacher
     end
 
   end
