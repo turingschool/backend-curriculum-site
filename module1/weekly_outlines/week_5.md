@@ -11,7 +11,7 @@ layout: page
 * [4 Pillars of OOP](../lessons/four_pillars_of_oop)
 * [Namespacing](../lessons/intro_to_namespacing)
 * [Fixtures](../lessons/fixtures)
-* [Binary, Octal, and Hex](lessons/number_systems)
+* [Binary, Octal, and Hex](../lessons/number_systems)
 * [Mocks & Stubs](../lessons/mocks_stubs) ([Video](https://vimeo.com/157333800))
 * [PD: Developer Identity](../../career_development_curriculum/module_one/developer_identity)
 * [Private Methods](../lessons/private_methods)

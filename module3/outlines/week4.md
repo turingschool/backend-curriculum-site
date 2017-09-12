@@ -16,5 +16,4 @@ layout: page
 
 ### Projects
 
-* [Cloney Island](../projects/cloney_island/cloney_island) (continued)
-* [Self-Directed Project Intro](../projects/self_directed_project)
+* [80202 Sprint 2](../projects/80202) (continued)
