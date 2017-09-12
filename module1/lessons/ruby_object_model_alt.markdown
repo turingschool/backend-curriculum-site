@@ -3,23 +3,30 @@ layout: page
 title: Ruby Object Model
 ---
 
-
-# Ruby Object Model
-
 ## Learning Goals
 
-* Use tools to map out relationship between Ruby classes and modules
-* Define `binding` and describe how Ruby uses bindings to manage use methods defined in superclasses.
-* Describe how Singleton methods and class work
-* Describe the syntax for distinguishing local variables, instance variables, class variables, and constants.
+- Understand how Ruby manages scope
+- Understand how Ruby manages inheritance
+- Understand how Ruby manages instances
+
+# Vocabulary
+- Binding
+- Scope
+- Pointer
+
+# Warmup
+
+- What's the difference between a class and an instance from Ruby's perspective?
+- How are modules used as "mix-ins"?
+- How do you know what variables, methods and classes you have available at any given time?
 
 ## Investigative Methods
 
 These three methods can help you investigate the relationships between classes and modules. All methods are run on the class (i.e. `String`, `Hash`)
 
-* `.ancestors`: returns a list of modules included/prepended in mod (including mod itself). See [docs](https://ruby-doc.org/core-2.3.1/Module.html#method-i-ancestors).
-* `.included_modules`: returns a list of the modules included in mod. See [docs](https://ruby-doc.org/core-2.2.3/Module.html#method-i-included_modules).
-* `.superclass`: returns the superclass of the class. See [docs](https://ruby-doc.org/core-2.3.1/Class.html#method-i-superclass).
+* `.ancestors`: returns a list of modules included/prepended in mod (including mod itself). See [docs](https://ruby-doc.org/core-2.4.1/Module.html#method-i-ancestors).
+* `.included_modules`: returns a list of the modules included in mod. See [docs](https://ruby-doc.org/core-2.4.1/Module.html#method-i-included_modules).
+* `.superclass`: returns the superclass of the class. See [docs](https://ruby-doc.org/core-2.4.1/Class.html#method-i-superclass).
 
 ## Mapping Ruby's Object Model
 ### Definitions and Rules
@@ -31,7 +38,7 @@ These three methods can help you investigate the relationships between classes a
 * `Modules` can be mixed-in to multiple classes (mixins)
 
 #### Exercises
-Using `.ancestors`, `.included_modules`, and `.superclass`, map out the ancestors and superclasses of Modules and Classes of these several commonly-used Ruby classes: Hash, Array, String, Fixnum, Bignum, and Float.
+Using `.ancestors`, `.included_modules`, and `.superclass`, map out the ancestors and superclasses of Modules and Classes of these several commonly-used Ruby classes: Hash, Array, String, Integer, and Float.
 
 #### Extension
 Read Camilo Reyes' ["Understanding the Object Model."](https://www.sitepoint.com/understanding-object-model/)
@@ -79,52 +86,18 @@ josh.get_binding.eval('self') # => #<Person:0x007fe6348454f0 @name="Josh">
 
 As this example shows, you can access the binding by calling `binding`.
 
-#### Exercises
+#### Paired exercise
+
 * Create a superclass for PersonSuperclass and a new method in that class that returns its binding. Make sure it is accessible from an instance of Person.
 * Experiment with bindings and articulate two new things you've learned about how they work.
 
 #### Check for Understanding
 Define Ruby's `binding`.
 
-## Singleton Methods and Eigenclasses
-Ruby also allows us to define so-called 'singleton methods' to describe methods only accessible to single objects.
-
-Ruby manages this information through the 'Singleton' class or Eigenclass, two words for the same thing. 'Eigen' is German for "one’s own".
-
-``` ruby
-class SingletonTest
-  def self.method_one
-    "I am class method, 'method_one'"
-  end
-
-  def method_two
-    "I am instance method 'method_two'"
-  end
-end
-
-st = SingletonTest.new
-st.method_one
-#=> NoMethodError: undefined method `method_one' for #<SingletonTest:0x007fb0f524dc60>
-
-st.method_two
-#=> "I am instance method, 'method_two'"
-
-st.class.method_one
-#=> "I am class method, 'method_one'"
-```
-
-#### Exercises
-* Describe how the code snippet below is an example of creating a singleton method. Copy this code and try to access the Singleton method. This technique may be helpful: `instance.eigenclass.instance_methods.grep(/method_one/)`
-* Describe one scenario in which you would use a singleton method.
-
-#### Check for Understanding
-Define what Ruby's singleton method does, how the Singleton class/Eigenclass manages these methods.
-
 ## Variables
 Now that we know about scopes and bindings, it will also be helpful to have some language to describe the variables available to us.
 
 * `Instance variables` (`@name`) begin with @. Uninitialized instance variables have the value nil and produce warnings with the -w option.
-* `Class variables` (`@@possible_names`) begin with @@ and must be initialized before they can be used in method definitions.
 * `Local variables` (`name`) begin with a lowercase letter or `_`. The scope of a local variable ranges from class, module, def, or do to the corresponding end or from a block's opening brace to its close brace {}.
 * `Constants` (`BIBLICAL_NAMES`) begin with an uppercase letter. Constants defined within a class or module can be accessed from within that class or module, and those defined outside a class or module can be accessed globally.
 
