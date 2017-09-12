@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Integrating React with an Existing Application Using Axios
+title: React Integration with Axios
 tags: javascript, front-end framework, react
 ---
 
