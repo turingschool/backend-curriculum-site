@@ -45,11 +45,13 @@ Using `.ancestors`, `.included_modules`, and `.superclass`, map out the ancestor
 Read Camilo Reyes' ["Understanding the Object Model."](https://www.sitepoint.com/understanding-object-model/)
 
 ## Variables
-Now that we know about scopes and bindings, it will also be helpful to have some language to describe the variables available to us.
 
-* `Instance variables` (`@name`) begin with @. Uninitialized instance variables have the value nil and produce warnings with the -w option.
-* `Local variables` (`name`) begin with a lowercase letter or `_`. The scope of a local variable ranges from class, module, def, or do to the corresponding end or from a block's opening brace to its close brace {}.
-* `Constants` (`BIBLICAL_NAMES`) begin with an uppercase letter. Constants defined within a class or module can be accessed from within that class or module, and those defined outside a class or module can be accessed globally.
+Let's quickly review the types of variables, and talk about a couple you may not have much experience with.
+
+* 'Instance variables' (`@name`) begin with @. Uninitialized instance variables have the value nil and produce warnings with the -w option.
+* 'Local variables' (`name`) begin with a lowercase letter or `_`. The scope of a local variable ranges from class, module, def, or do to the corresponding end or from a block's opening brace to its close brace {}.
+* 'Global Variables' (`$important_name`) begin with a `$`. These variables are accessible from anywhere.
+* 'Constants' (`BIBLICAL_NAMES`) begin with an uppercase letter. Constants defined within a class or module can be accessed from within that class or module, and those defined outside a class or module can be accessed globally.
 
 ## Bindings
 When you invoke a method on an instance, Ruby follows a pattern for locating the definition of that method.
