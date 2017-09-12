@@ -1,38 +1,108 @@
 ---
 layout: page
-title: React Part 2 - Axios
+title: Integrating React with an Existing Application Using Axios
 tags: javascript, front-end framework, react
 ---
 
 ## Learning Goals
 
-- Students can implement Axios in their React applications
 - Students can refactor an existing vanilla JS application to use React
+- Students can use Axios in their React applications
+
+## Integrating React with Existing Client Application
+
+### Installing Modules
+
+[Per the React docs](https://facebook.github.io/react/docs/installation.html), we'll need a few things:
+
+```bash
+# within root of project directory
+npm install --save react react-dom
+npm install --save-dev babel-cli babel-preset-react babel-preset-es2015
+echo '{ "presets": ["react", "es2015"] }' > .babelrc
+```
+
+### Project Integration
+
+Hop into your project's `index.js` and add your React imports:
+
+```js
+// index.js
+import React from 'react'
+import ReactDOM from 'react-dom';
+```
+
+Assuming there is a `#root` element in your markup:
+
+```js
+ReactDOM.render(<h1>Hello, world!</h1>, document.getElementById('root'))
+```
+
+Navigate to your page in the browser - voilà!
+
+You're ready to start searching down elements of your UI to transform into components.
+
+### Components
+
+The easiest place to start with components would be to find an element of your UI that could almost be plucked out and put back into place. Think buttons, avatars, feeds, comments, etc.
+
+Imagine your markup including a list of food / calorie information:
+
+```html
+<li class="food-row" data=id=`${food.id}`>
+  <p class="food-name">${food.name}</p>
+  <p class="food-calories">${food.calories}</p>
+</li>
+```
+
+As a React component, that would look something like:
+
+```jsx
+// Food.js
+import React, { Component } from "react"
+
+class Food extends Component {
+  render() {
+    return (
+      <li className="food-row" data=id={props.food.id}>
+        <p className="food-name">{props.name}</p>
+        <p className="food-calories">{props.calories}</p>
+      </li>
+    )
+  }
+}
+
+export default Food
+```
+
+Great! You're set to continue transforming UI elements into components.
 
 ## Why Axios?
 
-[Axios](https://github.com/mzabriskie/axios) is a promise-based library used with Node.js and your browser for making asynchronous JavaScript HTTP requests.
+[Axios](https://github.com/mzabriskie/axios) is a promise-based library used with Node.js and your browser to make asynchronous JavaScript HTTP requests.
 
-When we think "promise-based" and "asynchronous HTTP requests" with JavaScript, everything we'd done to accomplish this had been done using jQuery's AJAX.
+When we know we need to implement promise-based asynchronous HTTP requests with JavaScript we usually assume jQuery's AJAX is what we'll need to get the job done.
 
-While we _could_ add jQuery to our React application, we'd sort of be going against React by doing so. Remember, jQuery is wonderful for DOM manipulation. Since React is handling everything within its virtual DOM, there's really no longer a need for jQuery.
+While we _could_ add jQuery to our React application, we'd sort of be going against React by doing so. Remember, jQuery is a wonderful tool for DOM manipulation, but React doesn't care much about the DOM. Since React is handling everything within its own virtual DOM, there's really no longer a need for jQuery.
 
-Thus, Axios becomes the more natural solution to handle our HTTP requests.
+Thus, Axios becomes a lighter-weight solution to handle our HTTP requests.
 
 ### Installing Axios
+
+Fiirst let's install Axios.
 
 Simple.
 
 ```bash
 # within project directory
-npm instal axios --save
+npm install axios --save
 ```
 
 ### Working with Axios
 
-Also simple. We already know jQuery's AJAX syntax. Axios really isn't much different.
+Working with Axios? Also simple. We already know jQuery's AJAX syntax -- Axios really isn't much different.
 
-For example, if we wanted to make a GET request to the Quantified Self API's `foods` route, with Axios, it'd look like this:
+For example, if we wanted to make a GET request to our API's `foods` route, it'd look something like this:
 
 ```js
 import axios from 'axios'
@@ -54,3 +124,10 @@ axios.post('https://quantified-api.herokuapp.com/v1/foods', {
   calories: 120
 })
 ```
+
+That's about it! Congrats on transforming your first vanilla JS app into a React app!
+
+## Related Resources
+
+[Add React to an Existing Application](https://facebook.github.io/react/docs/installation.html)
+[Axios Docs](https://github.com/mzabriskie/axios)
