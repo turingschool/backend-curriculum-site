@@ -6,13 +6,13 @@ tags: ruby, class methods, OOP
 
 
 ## Learning Goals  
-*  explain the syntactic difference between class an instance methods 
+*  explain the syntactic difference between class and instance methods 
 *  explain when a developer might use a class method 
 *  use a class method to create an instance 
 
 ## Structure  
 5 min - Warm Up  
-10 min - Class Methods as we know them
+10 min - Classs as we know them
 10 min - Class vs Instance Methods
 5 min - Break  
 10 min - Use of Class Methods  
@@ -21,7 +21,6 @@ tags: ruby, class methods, OOP
 
 ## Vocabulary  
 * Class Methods 
-* Class Variables
 
 ## Warm Up  
 ```ruby
@@ -40,13 +39,13 @@ tags: ruby, class methods, OOP
 Turn to a partner and define what a class is. Explain how you use one and why. Try to incorporate as much of the technical language as you can. 
 
 #### Uses for Classes 
-* Factories for instances of a thing, creates the objects
+* Factories for instances of a thing
 * Hold blueprints.
     * Instance Variables (State)
     * Methods (Behavior)
 
 #### Classes are Objects Too  
-Imagine you are building out a database of users of your program.
+Imagine you are building out a collection of users of your program.
 
 ```
 # user.rb
@@ -116,7 +115,7 @@ tanya.description
 How do you define a class method? How do you call a class method? 
 
 ### Use of Class Methods 
-What if we are getting user data from disparate sources. Maybe some users are being ported in though a CSV of user data, others are coming in as JSON (think hash format), others are being created by signign up from an account and therefore our program is creating users directly. 
+What if we are getting user data from disparate sources. Maybe some users are being ported in though a CSV of user data, others are coming in as JSON (think hash format), others are being created by signing up from an account and therefore our program is creating users directly. 
  
 
 ```ruby
@@ -168,7 +167,7 @@ Suppose you are collecting Jokes for a joke telling application. Create a Joke c
 
 
 ## Wrap Up  
-* What is the difference syntactic between class methods & instance methods? 
+* What is the syntactic difference between class methods & instance methods? 
 * Why might you use a class method instead of an instance method? 
 
 
