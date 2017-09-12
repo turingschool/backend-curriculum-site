@@ -7,12 +7,13 @@ tags: ruby, modules, oop
 
 ### Learning Goals
 
-* understand that modules fill various roles in Ruby.
-* understand what a namespace is and how to create one with a module.
+* Understand that modules fill various roles in Ruby.
+* Understand what a namespace is and how to create one with a module.
 
-### Introduction
+### Vocabulary 
 
-You've already learned about Mixins, a use of modules. Another use of Modules is Namespacing.
+* Namespacing
+* Scope Resolution Operator
 
 ### Slides
 
@@ -22,23 +23,25 @@ Available [here](../slides/intro_to_namespacing)
 
 Spend the first five minutes writing answers to the following questions:
 
-1. What do you know about modules already?
+* What are some defining characteristics of modules?
+* Name one type of module we've already discussed.
 
 ### Namespacing
 
-Namespacing works for both classes and modules. We'll be implementing it with modules today.
+* Namespacers act as containers for our classes; they allow us to organize our code & implement different types of classes with the same name 
+* Namespacers can be either classes or modules. We'll be implementing namespacing with modules today.
 
 Let's look at some code.
 Slytherin Type 1
 
-`touch slytherin.rb`
+`touch slytherin1.rb`
 
 ```ruby
 class Slytherin
 
   def initialize(name)
-  	 @name = name
-  	 @teachers = []
+    @name = name
+    @teachers = []
   end
 
 end
@@ -46,7 +49,7 @@ end
 
 Slytherin Type 2
 
-`touch slytherin.rb`
+`touch slytherin2.rb`
 
 ```ruby
 class Slytherin
@@ -56,11 +59,11 @@ class Slytherin
   end
 
   def add_student(student)
-     @students << student
+    @students << student
   end
 
   def add_teacher(teacher)
-     @teachers << teacher
+    @teachers << teacher
   end
 
 end
@@ -74,14 +77,15 @@ Create a runner:
 `touch slytherin_runner.rb`
 
 ```ruby
-require "./slytherin.rb"
-require "./slytherin.rb"
+require "./slytherin1.rb"
+require "./slytherin2.rb"
 
 house = Slytherin.new
 student = Slytherin.new("Malfoy")
 
 house.add_student(student)
 ```
+
 Agree/Disagree:
 If I run my runner, what will I get? Why?
 
@@ -90,15 +94,15 @@ If I run my runner, what will I get? Why?
 We can use namespacing, where we wrap each Student in a module like so:
 A Slytherin Student:
 
-`slytherin_1.rb`
+`slytherin1.rb`
 
 ```ruby
 module Student
   class Slytherin
-
+    
     def initialize(name)
-  	   @name = name
-  	   @teachers = []
+      @name = name
+      @teachers = []
     end
 
   end
@@ -106,13 +110,13 @@ end
 ```
 A Slytherin house:
 
-`slytherin_2.rb`
+`slytherin2.rb`
 
 ```ruby
 module House
   class Slytherin
-
-  	attr_reader :students
+    
+    attr_reader :students
 
     def initialize
       @teachers = []
@@ -120,11 +124,11 @@ module House
     end
 
     def add_student(student)
-       @students << student
+      @students << student
     end
 
     def add_teacher(teacher)
-       @teachers << teacher
+      @teachers << teacher
     end
 
   end
@@ -136,21 +140,22 @@ Back in our runner:
 
 ```ruby
 student = Student::Slytherin.new("Malfoy")
-house = House::Hufflepuff.new
+house = House::Slytherin.new
 ```
+
 Agree/Disagree:
 When I run the runner file what will I get? Why?
 
 I might also nest them in folders to fix out file naming problem.
 
 ` mkdir house student`
-` mv slytherin_1.rb student/slytherin.rb`
-` mv slytherin_2.rb house/slytherin.rb`
+` mv slytherin1.rb student/slytherin.rb`
+` mv slytherin2.rb house/slytherin.rb`
 
 Turn & Talk:
 Have we seen a double colon like that before? What have you seen it do?
 
-The double colon is a scope resolution operator. It allows you to change/direct your scope. It allows access to items in modules or class level items in classes.
+The double colon is a **scope resolution operator**. It allows you to change/direct your scope. It allows access to items in modules or class-level items in classes.
 
 ### Exercise: Namespacing
 
@@ -196,5 +201,9 @@ end
   the expected methods
 
 ### WrapUp
-* What is the syntax of namespacing? How do you define it? How do you call it?
-* What are some scenarios where you have seen it? Where might you use it?
+* How do you namespace a class?
+* What is the syntax of calling a namespaced class?
+* What are some scenarios where you have seen namespacing? Where might you use it?
+
+### Additional Resources
+* Launch School's OOP "book" [Inheritance "chapter"](https://launchschool.com/books/oo_ruby/read/inheritance#moremodules)

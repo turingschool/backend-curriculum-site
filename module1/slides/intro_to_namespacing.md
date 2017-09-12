@@ -4,7 +4,8 @@
 
 # Warmup
 
-* What do you know about modules already?
+* What are some defining characteristics of modules?
+* Name one type of module we've already discussed.
 
 ---
 
@@ -136,7 +137,7 @@ Have we seen a double colon like that before? What have you seen it do?
 
 ---
 
-# Scopr Resolution Operator (::)
+# Scope Resolution Operator (::)
 
 * Allows you to change/direct your scope.
 * It allows access to items in modules or class level items in classes.
