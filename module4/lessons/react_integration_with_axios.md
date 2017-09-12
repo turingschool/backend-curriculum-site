@@ -125,7 +125,9 @@ axios.post('https://quantified-api.herokuapp.com/v1/foods', {
 })
 ```
 
-That's about it! Congrats on transforming your first vanilla JS app into a React app!
+Go as far as you can both creating components and whittling away at the need for jQuery altogether.
+
+Congrats - you've got a transformed React app!
 
 ## Related Resources
 
