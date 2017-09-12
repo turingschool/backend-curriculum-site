@@ -84,6 +84,7 @@ student = Slytherin.new("Malfoy")
 
 house.add_student(student)
 ```
+
 Agree/Disagree:
 If I run my runner, what will I get? Why?
 
@@ -138,8 +139,9 @@ Back in our runner:
 
 ```ruby
 student = Student::Slytherin.new("Malfoy")
-house = House::Hufflepuff.new
+house = House::Slytherin.new
 ```
+
 Agree/Disagree:
 When I run the runner file what will I get? Why?
 
@@ -203,4 +205,4 @@ end
 * What are some scenarios where you have seen namespacing? Where might you use it?
 
 ### Additional Resources
-* Launch School's OOP "book"(Inheritance "chapter")[https://launchschool.com/books/oo_ruby/read/inheritance]
+* Launch School's OOP "book"(Inheritance "chapter")[https://launchschool.com/books/oo_ruby/read/inheritance#moremodules]
