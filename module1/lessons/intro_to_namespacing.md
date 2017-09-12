@@ -206,4 +206,4 @@ end
 * What are some scenarios where you have seen namespacing? Where might you use it?
 
 ### Additional Resources
-* Launch School's OOP "book" (Inheritance chapter)[https://launchschool.com/books/oo_ruby/read/inheritance#moremodules]
+* Launch School's OOP "book" [Inheritance "chapter"](https://launchschool.com/books/oo_ruby/read/inheritance#moremodules)
