@@ -129,5 +129,5 @@ That's about it! Congrats on transforming your first vanilla JS app into a React
 
 ## Related Resources
 
-[Add React to an Existing Application](https://facebook.github.io/react/docs/installation.html)
-[Axios Docs](https://github.com/mzabriskie/axios)
+- [Add React to an Existing Application](https://facebook.github.io/react/docs/installation.html)
+- [Axios Docs](https://github.com/mzabriskie/axios)
