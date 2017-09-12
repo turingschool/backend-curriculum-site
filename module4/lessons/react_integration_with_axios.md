@@ -57,7 +57,7 @@ Imagine your markup including a list of food / calorie information:
 
 As a React component, that would look something like:
 
-```jsx
+```js
 // Food.js
 import React, { Component } from "react"
 
