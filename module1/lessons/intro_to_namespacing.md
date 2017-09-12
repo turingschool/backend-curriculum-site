@@ -98,10 +98,10 @@ A Slytherin Student:
 ```ruby
 module Student
   class Slytherin
-
+    
     def initialize(name)
-  	  @name = name
-  	  @teachers = []
+      @name = name
+      @teachers = []
     end
 
   end
@@ -114,8 +114,8 @@ A Slytherin house:
 ```ruby
 module House
   class Slytherin
-
-  	attr_reader :students
+    
+    attr_reader :students
 
     def initialize
       @teachers = []
