@@ -37,7 +37,7 @@ Exploring Tracker
 
 ### Warmup (2 minutes)
 
-*   Open your Quantified Self Pivotal Tracker.
+*   Open your project in Pivotal Tracker.
 *   Find *two* terms, buttons, or features that you don't understand.
 *   Try to create a new story card with a two-point estimate.
 
@@ -164,7 +164,7 @@ Then my teammates see the card in their project views
 
 ### Epic
 
-Epics are made to help organize large themes of functionality. In other words, a bunch of small, related stories make up an epic. 
+Epics are made to help organize large themes of functionality. In other words, a bunch of small, related stories make up an epic.
 
 For example, we might group all stories related to user authentication under an epic card titled "User Authentication". Labels tied to epics are colored purple, whereas regular labels are green. Epics allow teammates to assess and understand the state of a project based on broader themes and categories.
 
@@ -275,15 +275,15 @@ Estimating
 
 Each feature story should have an estimate. As a quick refresher, here's how we understand the point scale:
 
-*   3 Points - A vague idea or technology we don't understand
-*   2 Points - A concept that we understand, but it's too big to start work on (needs to be subdivided)
-*   1 Point - A story that is understood and ready for work
+Points mean different things at different places. There is no one way to estimate stories. For now, let's use the following:
 
-A good 1-point story represents less than a half day of work. Additionally, think of the points as relative. A 2-point story is 2 times as challenging as a 1-point story, and a 3-point story is 3 times as challenging.
+*   1 Point = ~2 hours of work
+
+
 
 #### Decomposing Stories
 
-Start with this 2-point story:
+Start with this 6-point story:
 
 ```
 As an unauthenticated user
@@ -294,7 +294,7 @@ Then I see only my own todos
 
 This is way too big to start work on! It'll be in-progress for days.
 
-With your pair, work on drafting at least four 1-point stories that deliver the same functionality as this 2-point story.
+With your pair, work on drafting at least four 1-point stories that deliver the same functionality as this 6-point story.
 
 #### Big-Picture Thinking
 
@@ -317,4 +317,3 @@ Explain/describe the following:
 * assigning points
 * progression/timeline of a feature
 * business roles
-
