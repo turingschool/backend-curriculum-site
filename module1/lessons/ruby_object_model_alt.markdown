@@ -9,12 +9,13 @@ title: Ruby Object Model
 - Understand how Ruby manages inheritance
 - Understand how Ruby manages instances
 
-# Vocabulary
+## Vocabulary
+
 - Binding
 - Scope
 - Pointer
 
-# Warmup
+## Warmup
 
 - What's the difference between a class and an instance from Ruby's perspective?
 - How are modules used as "mix-ins"?
@@ -31,7 +32,7 @@ These three methods can help you investigate the relationships between classes a
 ## Mapping Ruby's Object Model
 ### Definitions and Rules
 * `Classes`: store instance methods, have a superclass pointer
-* `Instance`: store instance variables, have a class pointer
+* `Instances`: store instance variables, have a class pointer
 * `Classes` are also instances (of Class)
 * `Classes` can only inherit from one other class (its 'superclass')
 * `Classes` can include multiple Modules.
@@ -51,10 +52,10 @@ When you invoke a method on an instance, Ruby follows a pattern for locating the
 * Until you find the method, go to the superclass
 * Once you find it, create a scope for that object
 
-After Ruby traverses modules and superclasses and locates the source of a method, a scope is created called a `Binding`. [Binding](https://ruby-doc.org/core-2.2.0/Binding.html) is an actual Ruby class that captures the context in which code is executed. The binding retains the context for future use, including relevant variables, methods, the value of self (the instance in which they are operating), and some other contextual details.
+After Ruby traverses modules and superclasses and locates the source of a method, a scope is created called a `Binding`. [Binding](https://ruby-doc.org/core-2.4.1/Binding.html) is an actual Ruby class that captures the context in which code is executed. The binding retains the context for future use, including relevant variables, methods, the value of self (the instance in which they are operating), and some other contextual details.
 
 ``` ruby
-class PersonSuperclass
+class Person
   def get_name
     @name
   end
@@ -64,14 +65,14 @@ class PersonSuperclass
   end
 end
 
-class Person < PersonSuperclass
+class Employee < Person
   attr_reader :name
 
   def initialize(name)
     @name = name
   end
 
-  def get_initial
+  def get_first_initial
     get_name[0]
   end
 end
@@ -88,8 +89,8 @@ As this example shows, you can access the binding by calling `binding`.
 
 #### Paired exercise
 
-* Create a superclass for PersonSuperclass and a new method in that class that returns its binding. Make sure it is accessible from an instance of Person.
-* Experiment with bindings and articulate two new things you've learned about how they work.
+* Create a superclass for Person and a new method in that class that returns its binding. Make sure it is accessible from an instance of Employee.
+* Experiment with bindings and articulate two new things you've learned about how they work. You can use [the docs](https://ruby-doc.org/core-2.4.1/Binding.html), or just type `binding.methods` to see what you _can_ do.
 
 #### Check for Understanding
 Define Ruby's `binding`.
@@ -102,4 +103,5 @@ Now that we know about scopes and bindings, it will also be helpful to have some
 * `Constants` (`BIBLICAL_NAMES`) begin with an uppercase letter. Constants defined within a class or module can be accessed from within that class or module, and those defined outside a class or module can be accessed globally.
 
 ## Formative Assessment
+
 Test your understanding of this material with this quiz: [http://quiz-ruby-object-model.herokuapp.com/](http://quiz-ruby-object-model.herokuapp.com/).
