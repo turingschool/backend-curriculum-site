@@ -28,7 +28,8 @@ Spend the first five minutes writing answers to the following questions:
 
 ### Namespacing
 
-Namespacing works for both classes and modules. We'll be implementing it with modules today.
+* Namespacers act as containers for our classes; they allow us to organize our code & implement different types of classes with the same name 
+* Namespacers can be either classes or modules. We'll be implementing namespacing with modules today.
 
 Let's look at some code.
 Slytherin Type 1
@@ -205,4 +206,4 @@ end
 * What are some scenarios where you have seen namespacing? Where might you use it?
 
 ### Additional Resources
-* Launch School's OOP "book"(Inheritance "chapter")[https://launchschool.com/books/oo_ruby/read/inheritance#moremodules]
+* Launch School's OOP "book" (Inheritance chapter)[https://launchschool.com/books/oo_ruby/read/inheritance#moremodules]
