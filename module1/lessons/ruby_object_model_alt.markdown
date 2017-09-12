@@ -44,6 +44,13 @@ Using `.ancestors`, `.included_modules`, and `.superclass`, map out the ancestor
 #### Extension
 Read Camilo Reyes' ["Understanding the Object Model."](https://www.sitepoint.com/understanding-object-model/)
 
+## Variables
+Now that we know about scopes and bindings, it will also be helpful to have some language to describe the variables available to us.
+
+* `Instance variables` (`@name`) begin with @. Uninitialized instance variables have the value nil and produce warnings with the -w option.
+* `Local variables` (`name`) begin with a lowercase letter or `_`. The scope of a local variable ranges from class, module, def, or do to the corresponding end or from a block's opening brace to its close brace {}.
+* `Constants` (`BIBLICAL_NAMES`) begin with an uppercase letter. Constants defined within a class or module can be accessed from within that class or module, and those defined outside a class or module can be accessed globally.
+
 ## Bindings
 When you invoke a method on an instance, Ruby follows a pattern for locating the definition of that method.
 
@@ -94,13 +101,6 @@ As this example shows, you can access the binding by calling `binding`.
 
 #### Check for Understanding
 Define Ruby's `binding`.
-
-## Variables
-Now that we know about scopes and bindings, it will also be helpful to have some language to describe the variables available to us.
-
-* `Instance variables` (`@name`) begin with @. Uninitialized instance variables have the value nil and produce warnings with the -w option.
-* `Local variables` (`name`) begin with a lowercase letter or `_`. The scope of a local variable ranges from class, module, def, or do to the corresponding end or from a block's opening brace to its close brace {}.
-* `Constants` (`BIBLICAL_NAMES`) begin with an uppercase letter. Constants defined within a class or module can be accessed from within that class or module, and those defined outside a class or module can be accessed globally.
 
 ## Formative Assessment
 
