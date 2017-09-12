@@ -71,11 +71,12 @@ Put your presentation into writing. Each person must write their own blog post. 
 
 ## The Repos
 
-### [Open Source Event Manager](https://github.com/openSUSE/osem)
-### [Open Food Network](https://github.com/openfoodfoundation/openfoodnetwork)
-
-
-TBD
+#### [Rails Girls Summer of Code - Team Tracker Project](https://github.com/rails-girls-summer-of-code/rgsoc-teams)
+#### [Rails Girls Summer of Code - Summer of Code Project](https://github.com/rails-girls-summer-of-code/summer-of-code)
+#### [Open Food Network](https://github.com/openfoodfoundation/openfoodnetwork)
+#### [Code for Social Good - Web App](https://github.com/Code4SocialGood/c4sg-web)
+#### [Ruby For Good - Playtime](https://github.com/rubyforgood/playtime)
+#### [Ruby For Good - PantryScheduler](https://github.com/rubyforgood/pantry_scheduler)
 
 <!--### [Vets.gov](https://github.com/department-of-veterans-affairs/vets-website)
 

@@ -66,7 +66,7 @@ Students who successfully complete Module 4 will have demonstrated mastery of Pr
 
 <h4 id="week_5">Week 5</h4>
 *   [Introduction to React](./lessons/intro_to_react)
-*   [React Part Two](./lessons/intro_to_react_part_2)
+*   [React Part Two](./lessons/react_integration_with_axios)
 *   Technical Communication Assessment
 
 <h4 id="week_6">Week 6</h4>

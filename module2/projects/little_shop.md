@@ -30,6 +30,8 @@ Project implementation may **not** use:
 2. One team member creates a repository with the name of your online ordering platform
 3. Add the other team members and your instructor(s) as collaborators
 4. Add your project to [waffle.io](http://waffle.io) to write and track user stories
+5. Create a Pull Request template
+6. Add the [user stories](little_user_stories.md) to waffle. 
 
 ## Base Expectations
 
@@ -39,13 +41,15 @@ You will build an online ordering platform. Customers should be able to place or
 
 Each team will have an assigned project manager that will be the primary point of contact between the product owner (instructor) and the rest of the team.
 
-Most initial stories will be provided by the product owner. You will be asked to write your own stories over the course of the project and they should follow the same format as the ones that are provided to you.
+Most stories will be provided by the product owner. You will be asked to write your own stories for extensions and they should follow the same format as the ones that are provided to you.
 
 You should not write code or migrations until a story calls for it.
 
 Teams will meet with the product owner regularly and demo completed stories. The product owner will request additional features at each meeting and those stories should be completed prior to your next meeting. Project scope and requirements can change at the discretion of the product owner so following an agile approach is really important.
 
-It is expected that teams will have meaningful discussions and code reviews using comments on Github. Your instructors will be looking for this. Commits should also have meaningful messages. If you have commits that say things like "Fixing hound complaints.", you will likely be asked to [squash](http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html) those commits. Rebasing should be done _before_ the branch is merged into master or you will run into problems.
+It is expected that teams will have meaningful discussions and code reviews using comments on Github. Your instructors will be looking for this. Commits should also have meaningful messages. Be careful about what type of commits are being made, i.e. "Cleanup Hound violations". If you want to learn more about squashing and rebasing commits, see [here](http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html).
+
+It is also expected that teams will use a Pull Request Template, as described [here](https://help.github.com/articles/creating-a-pull-request-template-for-your-repository/).
 
 The master branch of your project should always remain in a state where it can be demoed and deployed... yes, even days that you don't have any _planned_ meetings.
 
@@ -61,6 +65,7 @@ The extensions listed below are a non-exhaustive list of extension ideas.
 * credit card processing with Stripe or Paypal
 * phone or text message order confirmation
 * Implementing Authorization with an outside provider (OAuth)
+* admin dashboard with analytics about item performance
 
 ## Evaluation Process
 

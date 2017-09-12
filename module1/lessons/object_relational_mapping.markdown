@@ -131,7 +131,7 @@ In your notebook, write a pro/con table for using an ORM.
 ** break **
 
 ## Navigating Your Data Structure  
-In an ORM we might need to get something like Merchant.all which returns to us an array of merchant objects.  
+In an ORM we might need to get something like `Merchant.all` which returns to us an array of merchant objects.  
 * Where would this live? Why?  
 
 You might also need to find all the items that belong to a merchant.  
@@ -146,7 +146,7 @@ Let's pause and take a moment to draw out how our classes relate to one another:
 
 ```
 #### Turn & Talk  
-If we need to know about all the items for a merchant, what are some options for how to create these relationships?  Brainstorm at least 2 ways to hold on to these connections in our application.   
+If we need to know about all the items for a merchant, `merchant.items` which returns to us an array of item objects, what are some options for how to create these relationships? How can a merchant know about its items?    
 
 #### Common Strategies:
 *  Horizontal Knowledge  

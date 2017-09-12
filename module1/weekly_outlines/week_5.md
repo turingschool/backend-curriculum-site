@@ -8,6 +8,7 @@ layout: page
 * [Object Relational Mapping](../lessons/object_relational_mapping)
 * [Class Methods](../slides/class_methods)
 * [Ruby Object Model](../lessons/ruby_object_model_alt)
+* [4 Pillars of OOP](../lessons/four_pillars_of_oop)
 * [Namespacing](../lessons/intro_to_namespacing)
 * [Fixtures](../lessons/fixtures)
 * [Binary, Octal, and Hex](lessons/number_systems)
