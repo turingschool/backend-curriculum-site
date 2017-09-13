@@ -23,6 +23,7 @@ How would you find the following in ActiveRecord? SQL?
 > SELECT * FROM candidates
 > SELECT * FROM candidates WHERE id = 1
 > SELECT * FROM parties WHERE id = 1
+> SELECT * FROM candidates JOIN parties ON candidates.party_id = parties.id
 ```
 
 ---
@@ -34,6 +35,8 @@ How would you find the following in ActiveRecord? SQL?
 > Candidate.all
 > Candidate.find(1)
 > Parties.find(1)
+> Candidate.find(1).parties
+> Candidate.joins(:parties)
 ```
 
 ---
