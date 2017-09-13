@@ -9,7 +9,6 @@ layout: page
 
 * **LESSONS:**
   - [Cart & Order Lifecycle](../lessons/cart_implementation)
-  - [How to Write a Great Readme](../lessons/how_to_write_a_great_readme)
 
 * **HOMEWORK:**
   - [Little Shop](http://backend.turing.io/module2/projects/little_shop)
@@ -41,6 +40,10 @@ layout: page
   - [Little Shop](http://backend.turing.io/module2/projects/little_shop)
 
 ### Day 5:
+
+* **LESSONS:**
+  - HTML/CSS Static Comp Challenge
+  - [CFUs](https://github.com/turingschool/checks-for-understanding/blob/master/module-2/backend/week_5.md)
 
 * **HOMEWORK:**
   - [Little Shop](http://backend.turing.io/module2/projects/little_shop)
