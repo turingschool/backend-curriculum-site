@@ -27,6 +27,7 @@ layout: page
 
 * **LESSONS:**
   - [Intro to the Asset Pipeline](../lessons/intro_to_the_asset_pipeline)
+  - [SQL/ActiveRecord](../slides/sql_active_record)
 
 * **HOMEWORK:**
   - [Little Shop](http://backend.turing.io/module2/projects/little_shop)
