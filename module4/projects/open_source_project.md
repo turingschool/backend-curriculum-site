@@ -67,6 +67,8 @@ Each group will present the work they accomplished (or didn't accomplish) to the
 
 Put your presentation into writing. Each person must write their own blog post. You can write about all four sections described in the presentation, or pick a single one to go in-depth on. Regardless of what you choose, each blog post should be about 1,000 words.
 
+You'll submit your blog post here **before** your group presentation: https://github.com/turingschool/ruby-submissions/blob/master/1703-b/4module/open_source/blog_post_submission.md
+
 -----------------------------------------------------------
 
 ## The Repos
@@ -77,6 +79,8 @@ Put your presentation into writing. Each person must write their own blog post. 
 #### [Code for Social Good - Web App](https://github.com/Code4SocialGood/c4sg-web)
 #### [Ruby For Good - Playtime](https://github.com/rubyforgood/playtime)
 #### [Ruby For Good - PantryScheduler](https://github.com/rubyforgood/pantry_scheduler)
+
+If you don't see a project here that you'd like to contribute to, you're more than welcome to contribute to another project as long as you get it approved by an instructor. Keep in mind you only have about a day and a half to complete this assignment.
 
 <!--### [Vets.gov](https://github.com/department-of-veterans-affairs/vets-website)
 
