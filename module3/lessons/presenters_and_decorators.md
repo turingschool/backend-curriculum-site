@@ -6,7 +6,7 @@ tags: presenters, decorators, rails, refactoring, mvc
 
 ## Learning Goals
 
-* Understand the decorator pattern and how it can be used to clean up code
+* Understand the decorator pattern and how it can be used to make code cleaner and more maintainable
 * Understand the theory and purpose of a presenter object
 
 ## Lecture: Intro to Decorators
