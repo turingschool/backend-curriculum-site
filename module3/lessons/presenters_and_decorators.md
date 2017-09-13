@@ -6,17 +6,8 @@ tags: presenters, decorators, rails, refactoring, mvc
 
 ## Learning Goals
 
-* Understand the decorator pattern
-* Practice rewriting helpers using a Draper decorator
+* Understand the decorator pattern and how it can be used to clean up code
 * Understand the theory and purpose of a presenter object
-* Practice creating a presenter to collect and wrap data
-
-## Structure
-
-* 30 - Lecture: Intro to Decorators
-* 30 - Tutorial: Experimenting with Draper
-* 15 - Lecture: Intro to Presenters
-* 15 - Code: Creating a Dashboard Presenter
 
 ## Lecture: Intro to Decorators
 
@@ -33,8 +24,7 @@ tags: presenters, decorators, rails, refactoring, mvc
 
 * Decorators are a Software Pattern for applying object-oriented techniques to handling
 application presentation logic
-* Decorators are often used to solve similar problems as `Helpers` in Rails, but rather than mixing the
-helper methods into our view template, we will create an object that provides the desired behavior
+* Decorators are often used to solve similar problems as `Helpers` in Rails, but rather than mixing the helper methods into our view template, we will create an object that provides the desired behavior
 * Most implementations of the Decorator pattern are built around "wrapping" and "delegation"
 * Decorators are a good demonstration of
   the [Open/Closed Principle](https://en.wikipedia.org/wiki/Open/closed_principle) --
@@ -107,21 +97,92 @@ ObjectA, we can use it as a way to add small tweaks onto these existing
 behaviors. This can be very useful for presentation logic, which we often want to keep
 out of the main model methods.
 
-### Decorator Pattern - Popular Libraries
+### Decorator Pattern in Ruby
 
-There are quite a few libraries out there that implement this pattern,
-including one particularly popular one by some guy named Casimir.
+**TODO:** Create a project where we can try this out on and have the students work through it.
 
-Let's take a look at some Draper basics.
+The Decorator Pattern is an OO concept and is not specific to Ruby. Ruby offers us a simple, built-in way to use the Decorator Pattern: `SimpleDelegator`.
 
-* [Draper Docs](https://github.com/drapergem/draper)
+Let's take a look at how we could use a Decorator to clean up our view and prevent logic from leaking through.
 
-## Tutorial: Experimenting with Draper
+Let's say we're storing our cart contents in a session so that the key points to an item's id and the value points to the quantity of that item in the cart. If we called `session[:cart]` from a Rails controller and it returned `{"1" => 2, "3" => 1}` we would have 2 `Item`s with an id of 1 and 1 `Item` with an id of 3. Displaying this cart content in the view can be tricky since we want to load the `Item` objects and display things like their names and prices, but also the quantity in the cart. We could do something like this:
 
-[Work through this tutorial](http://tutorials.jumpstartlab.com/topics/decorators.html)
-using Decorators to extract some view logic from Blogger.
-If you get done with the core tutorial, then try out the bit at the end about
-creating XML and JSON from your decorator.
+```
+<% session[:cart].each do |item_id, quantity| %>
+  <% item = Item.find(item_id) %>
+  <tr>
+    <td><%= item.name %></td>
+    <td><%= item.name %></td>
+    <td><%= quantity %></td>
+  </tr>
+<% end %>
+```
+
+Gross. We are making database queries and accessing the `session` directly in our view. One way we could improve this is to use the Decorator Pattern. The end goal would be for our view to look like this:
+
+```
+<% @cart_items.each do |cart_item| %>
+  <tr>
+    <td><%= cart_item.name %></td>
+    <td><%= cart_item.name %></td>
+    <td><%= cart_item.quantity %></td>
+  </tr>
+<% end %>
+```
+
+This feels a lot better and more in line with the purpose of a view. Iterating over an array of objects instead of a hash is also preferred and will lead to more maintainable software. So what does the code behind this need to look like?
+
+In the controller:
+
+```
+def show
+  @cart_items = Cart.new(session[:cart]).cart_items
+end
+```
+
+In `cart.rb`
+
+```
+class Cart
+  def initialize(raw_contents = {})
+    @raw_contents = raw_contents
+  end
+
+  def cart_items
+    raw_contents.map do |item_id, quantity|
+      item = Item.find(item_id)
+      CartItem.new(item, quantity)
+    end
+  end
+
+  private
+    attr_reader :raw_contents
+end
+```
+
+In `cart_item.rb`
+
+```
+class CartItem < SimpleDelegator
+  attr_reader :quantity
+
+  def initialize(item, quantity)
+    super(item)
+    @quantity = quantity
+  end
+end
+```
+
+We now have several single responsibility objects which might on the surface seem more complex. But as this project grows in complexity we will have a much easier time deciding where to put logic. Is the code specific to the cart? Put it in the `Cart` class. Is it specific to an item in the cart? Put it in the `CartItem`. If we don't do this refactor and leave it the way it was, most of the logic lives in the view. If any of this logic needs to be used in multiple views, let's say a main cart view and a smaller cart side-bar, we'll likely have duplicate logic making changes more difficult to maintain.
+
+#### A Deeper Dive to Solidify Understanding
+
+Take some time to experiment and research the following questions
+
+1. In our `CartItem` we define `initialize`. Is this always necessary with `SimpleDelegator`? (Experiment: Create a more simple class that inherits from `SimpleDelegator` that doesn't require two parameter to initialize)
+1. In the `initialize` method, what is the purpose of the `super(item)` line?
+1. Does `super` always require a parameter?
+1. How does the Decorator Pattern utilize the Four Pillars of Object Oriented Programming?
 
 ## Lecture: Intro to Presenters
 
@@ -160,8 +221,7 @@ Presenters are a technique for solving this problem.
 * Example: creating a `Dashboard` presenter
 
 ## Code: Creating a Dashboard
-
-Go back to your Blogger project a presenter for the Dashboard such
+Using the Blogger project, create a presenter for the Dashboard such
 that the **only** instance variable in `views/dashboard/show.html.erb` is
 `@dashboard`.
 
