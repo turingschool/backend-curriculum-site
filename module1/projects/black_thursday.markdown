@@ -93,7 +93,7 @@ The output from `rake sanitation:all` shows...
 *   2: Six to ten complaints
 *   1: More than ten complaints  
 
-### 5. Version Control  
+### 6. Version Control  
 <!--  (doesn't apply to all projects, but a good spot for project-specific rubric requirements) -->  
 * 4: Student demonstrates strong git workflow, commits frequently to document progress, uses commits to identify added functionality, and utilizes pull requests for communication and feedback  
 * 3: Student utilizes git workflow essentials, committing frequently to document progress
