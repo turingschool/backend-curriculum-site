@@ -67,7 +67,7 @@ Each group will present the work they accomplished (or didn't accomplish) to the
 
 Put your presentation into writing. Each person must write their own blog post. You can write about all four sections described in the presentation, or pick a single one to go in-depth on. Regardless of what you choose, each blog post should be about 1,000 words.
 
-You'll submit your blog post here **before** your group presentation: https://github.com/turingschool/ruby-submissions/blob/master/1703-b/4module/open_source/blog_post_submission.md
+You'll submit your blog post [here](https://github.com/turingschool/ruby-submissions/blob/master/1703-b/4module/open_source/blog_post_submission.md) **before** your group presentation.
 
 -----------------------------------------------------------
 
