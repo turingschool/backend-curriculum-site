@@ -32,6 +32,8 @@ You use base-10 numbers everyday, but let's think a bit more about how they work
 
 ### Build It
 
+_Just in case we ever find those viewers and paper strips_
+
 Get yourself one plastic viewer and three paper strips.
 
 With *each* of your paper strips:
@@ -45,6 +47,14 @@ With *each* of your paper strips:
 Practice counting in your normal number system and think critically about the mechanics of how counting works.
 
 *Comprehension*: If you have three decimal digits, how many unique value can you represent?
+
+### Other number systems
+
+We have similar explanations and exercises in number systems with a different base. You can get to them here:
+
+- [Binary - Base 2](./number_systems-binary)
+- [Octal - Base 8](./number_systems-octal)
+- [Hexadecimal - Base 16](./number_systems-hexadecimal)
 
 ## Extensions
 
