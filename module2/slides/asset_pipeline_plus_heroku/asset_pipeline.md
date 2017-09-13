@@ -6,6 +6,7 @@
 
 * What do you already know about the asset pipeline?
 * What have you heard?
+* What computer languages does your browser understand?
 
 ---
 
@@ -38,11 +39,11 @@ note: assets in lib/assets and vendor/assets will not automatically be included 
 
 # The Asset Pipeline
 
-* Sprockets gem, enabled by default
 * Asset loading is expensive
 * Faster asset loading = faster performance
+* Sprockets gem, enabled by default
 * Framework to concatenate, minify, and preprocess JS, and CSS files
-* Depends on gems: sass-rails, uglifier, coffee-rails
+* Depends on other gems: sass-rails, uglifier, coffee-rails
 
 ---
 
@@ -67,6 +68,7 @@ note: assets in lib/assets and vendor/assets will not automatically be included 
   * Precompiling higher-level languages - Sass for CSS, CoffeeScript for JavaScript
   * Concatenating assets - one master .js file and one master .css file which reduces the number of requests a browser makes in order to render our web page
   * Minifying files - removes whitespace, comments, and shortens variable names
+  * Providing a `fingerprint` to compiled assets to support caching
 
 ---
 
@@ -153,30 +155,55 @@ In app/views/layouts/application.html.erb:
 
 ---
 
-# Set `SECRET_KEY_BASE`
+# Start Your Server
 
-* `rake secret`
-* `export "SECRET_KEY_BASE"="long_string"`
+```
+rails s -e production
+```
 
 ---
 
-# Adjust `production.rb`
-
-In `config/environments/production.rb`
-
-* `config.consider_all_requests_local = true`
-* Comment out the following:
+# Install Figaro
 
 ```
-  config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
+# Gemfile
+gem 'figaro'
+
+# Command line
+> bundel exec figaro install
+```
+
+---
+
+# Set `SECRET_KEY_BASE`
+
+```
+# Command line
+rake secret
+
+# In config/application.yml
+
+production:
+  SECRET_KEY_BASE: long_string_from_rake_secret
 ```
 
 ---
 
 # Load DB
 
-* `create_user -s -r app_name`
 * `RAILS_ENV=production rake db:create db:migrate db:seed`
+
+---
+
+# Serve Static Assets
+
+```
+# /config/application.yml
+
+procution:
+  SECRET_KEY_BASE: long_string_from_rake_secret
+  RAILS_SERVE_STATIC_FILES: true
+```
 
 ---
 
@@ -195,9 +222,25 @@ In `config/environments/production.rb`
 # Clobber
 
 * `rake assets:clobber`
-* Undo changes to `config/environments/production.rb`
 
 ---
 
-# Running Production Challenge
+# Links to Assets
 
+* Rails gives us helpers that we can use to access these assets
+* Without these helpers, our HTML/CSS will not have the fingerprints necessary to access the assets
+
+```
+<%= stylesheet_link_tag "application" %>
+<%= javascript_include_tag "application" %>
+<%= image_tag "rails.png" %>
+```
+
+---
+
+# Review
+
+* What does the asset pipeline do?
+* How does it benefit our applications?
+* What does Heroku do for you with regards to the asset pipeline?
+* What is one step you might take if your application seems to be working locally, but broken in production?
