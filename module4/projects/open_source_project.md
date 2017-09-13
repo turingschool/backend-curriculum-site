@@ -80,7 +80,7 @@ You'll submit your blog post [here](https://github.com/turingschool/ruby-submiss
 #### [Ruby For Good - Playtime](https://github.com/rubyforgood/playtime)
 #### [Ruby For Good - PantryScheduler](https://github.com/rubyforgood/pantry_scheduler)
 
-If you don't see a project here that you'd like to contribute to, you're more than welcome to contribute to another project as long as you get it approved by an instructor. Keep in mind you only have about a day and a half to complete this assignment.
+_If you don't see a project here that you'd like to contribute to, you're more than welcome to contribute to another project as long as you get it approved by an instructor. Keep in mind you only have about a day and a half to complete this assignment._
 
 <!--### [Vets.gov](https://github.com/department-of-veterans-affairs/vets-website)
 
