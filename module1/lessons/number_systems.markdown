@@ -5,6 +5,10 @@ length: 90
 tags: computer science, binary, fundamentals
 ---
 
+## Learning Goals 
+* identify common number systems used in programming
+
+
 Do you know how to count?
 
 There's more than one way of counting. You're most familiar with the base-10
