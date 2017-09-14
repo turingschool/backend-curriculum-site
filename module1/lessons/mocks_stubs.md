@@ -9,7 +9,19 @@ title: Mocks and Stubs
 *   Understand what mocking is, how to mock in Ruby with Minitest, and when to use it
 *   What’s the difference between behavior and state testing
 
-Slides [here](../slides/mocks_stubs)
+
+## Warmup
+
+- In Black Thursday, how many tests are loading CSV data?
+- Are there methods that you could test without actually loading the CSVs? How would you do it?
+
+## Discussion
+
+Talk to your partner to come up with answers to these questions
+
+- What is "test value"?
+- How can you determine the "value" of any individual test?
+- How does the Single Responsibility Principle apply to unit testing?
 
 ## Mocks and Stubs
 
@@ -25,7 +37,22 @@ Once that's set, require `mocha/mini_test` in your test_helper.rb.
 
 Mocks are objects that stand in for other objects. The other object might be one that's not implemented yet, doesn't yet have the functionality we need, or maybe we just want to work with a simpler situation.
 
-Let's imagine we wanted to test `Bob`'s `paint_palatte` method to see that it returns a collection of `Paint` instances.
+Let's imagine we wanted to test `Bob`'s `paints` method to see that it returns a collection of `Paint` instances.
+
+```ruby
+def test_it_can_have_paint
+  bob = Bob.new
+  paint_1 = Paint.new("Alizarin Crimson")
+  paint_2 = Paint.new("Van Dyke Brown")
+
+  bob.add_paint(paint_1)
+  bob.add_paint(paint_2)
+
+  assert_equal [paint_1, paint_2], bob.paints
+end
+```
+
+This is our first test. We don't have any other code. What are the things we need to do to make this pass?
 
 Does it seem entirely necessary to create and test `Paint` instances within a `BobTest`?
 
@@ -120,7 +147,7 @@ With your partners, teach back the difference between stubs and mocks. Check the
 
 ## The Ultimate CFU
 
-* How will you know you're writing a test that might be appropriate for stubbing or mocking?
+* Can you think of a Black Thursday test you've already written that could use mocks and stubs instead?
 * When would you use a stub over a mock with expectations and returns?
 
 ## Further Reading
