@@ -116,6 +116,12 @@ That's how mocks work. You create a mock to stand in for other objects and can a
 
 ### Stubs
 
+```ruby
+paint_1 = stub(:color => "Alizarin Crimson")
+paint_2 = stub(:color => "Van Dyke Brown")
+binding.pry
+```
+
 A stub is a fake method added to or overriding an existing method on an object. It's really just syntactic sugar for the `expects` & `returns` duo with Mocks above - just more straightforward!
 
 So why would we use a stub over an expectation? Stubs take precedence. From the Mocha docs:
