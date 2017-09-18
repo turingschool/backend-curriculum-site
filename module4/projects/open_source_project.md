@@ -73,12 +73,12 @@ You'll submit your blog post [here](https://github.com/turingschool/ruby-submiss
 
 ## The Repos
 
-#### [Rails Girls Summer of Code - Team Tracker Project](https://github.com/rails-girls-summer-of-code/rgsoc-teams)
-#### [Rails Girls Summer of Code - Summer of Code Project](https://github.com/rails-girls-summer-of-code/summer-of-code)
-#### [Open Food Network](https://github.com/openfoodfoundation/openfoodnetwork)
-#### [Code for Social Good - Web App](https://github.com/Code4SocialGood/c4sg-web)
-#### [Ruby For Good - Playtime](https://github.com/rubyforgood/playtime)
-#### [Ruby For Good - PantryScheduler](https://github.com/rubyforgood/pantry_scheduler)
+#### [Rails Girls Summer of Code - Team Tracker Project](https://github.com/rails-girls-summer-of-code/rgsoc-teams) - Rails
+#### [Rails Girls Summer of Code - Summer of Code Project](https://github.com/rails-girls-summer-of-code/summer-of-code) - Rails
+#### [Open Food Network](https://github.com/openfoodfoundation/openfoodnetwork) - Rails
+#### [Code for Social Good - Web App](https://github.com/Code4SocialGood/c4sg-web) - Angular, Java, HTML/CSS
+#### [Ruby For Good - Playtime](https://github.com/rubyforgood/playtime) - Rails
+#### [Ruby For Good - PantryScheduler](https://github.com/rubyforgood/pantry_scheduler) - React & Rails
 
 _If you don't see a project here that you'd like to contribute to, you're more than welcome to contribute to another project as long as you get it approved by an instructor. Keep in mind you only have about a day and a half to complete this assignment._
 
