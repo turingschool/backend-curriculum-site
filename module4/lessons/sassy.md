@@ -202,7 +202,7 @@ $brown-border: 3px solid brown;
   background-color: #672e6d;
   .blob_1 {
     font : {
-      size: 40px
+      size: 40px;
       family: cursive;
     }
     @include text_components;
