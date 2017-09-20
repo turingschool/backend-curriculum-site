@@ -145,8 +145,8 @@ How do we use this new Room class? Let's create a runner file!
 # room_runner.rb
 require './room'
 
-room_a = Room.new(10, 5, 20)
-puts room_a
+room = Room.new(10, 5, 20)
+puts room
 ```
 
 Run that and what do we get? Sure enough, it's an instance of Room!
@@ -159,7 +159,7 @@ We could put a pry to dig around.
 require 'pry'
 require './room'
 
-room_a = Room.new(10, 5, 20)
+room = Room.new(10, 5, 20)
 binding.pry
 ```
 
@@ -171,8 +171,8 @@ Let's add a line to our runner file.
 # room_runner.rb
 require './room'
 
-room_a = Room.new(10, 5, 20)
-puts "Length: #{room_a.length}"
+room = Room.new(10, 5, 20)
+puts "Length: #{room.length}"
 ```
 
 Run that, and we get a no method error. This is a little bit tricky. It's true we could create a method to access these instance variables, but Ruby gives us a shortcut. Update your `room.rb` file as follows:
@@ -192,7 +192,7 @@ class Room
 end
 ```
 
-This will allow us to access all of the instance variables by sending messages to our instance (e.g. calling `room_a.width` or `room_a.length`, etc.).
+This will allow us to access all of the instance variables by sending messages to our instance (e.g. calling `room.width` or `room.length`, etc.).
 
 #### Combining State and Behavior
 
@@ -204,10 +204,10 @@ Let's update our runner:
 # room_runner.rb
 require './room'
 
-room_a = Room.new(10, 5, 20)
-puts "Length: #{room_a.length}"
-puts "Width: #{room_a.width}"
-puts "Area: #{room_a.area}"
+room = Room.new(10, 5, 20)
+puts "Length: #{room.length}"
+puts "Width: #{room.width}"
+puts "Area: #{room.area}"
 ```
 Run that, and we get a no method error for `area`. Let's build that method:
 
@@ -240,26 +240,26 @@ Our runner:
 # room_runner.rb
 require './room'
 
-room_a = Room.new(10, 5, 20)
-puts "Length: #{room_a.length}"
-puts "Width: #{room_a.width}"
-puts "Area: #{room_a.area}"
+room = Room.new(10, 5, 20)
+puts "Length: #{room.length}"
+puts "Width: #{room.width}"
+puts "Area: #{room.area}"
 
 puts "Make length 1."
-room_a.add_length(4)
+room.add_length(4)
 
-puts "New Length: #{room_a.length}"
-puts "New Area: #{room_a.area}"
+puts "New Length: #{room.length}"
+puts "New Area: #{room.area}"
 
 puts "Add four to length"
-room_a.width = 1
+room.width = 1
 
-puts "New Length: #{room_a.length}"
-puts "New Width: #{room_a.width}"
-puts "New Area: #{room_a.area}"
+puts "New Length: #{room.length}"
+puts "New Width: #{room.width}"
+puts "New Area: #{room.area}"
 ```
 We have two ways that we could potentially change these values. Update our files based on the code below:
-We get a no method error for add_length. As well as an error for `room_a.width = 1`.
+We get a no method error for add_length. As well as an error for `room.width = 1`.
 
 ```ruby
 # room.rb
