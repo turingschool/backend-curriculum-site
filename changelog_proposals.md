@@ -48,4 +48,19 @@ _Lesson Changes_
 * Separate callbacks and scopes lesson into two (week 5).
 * Move written/independent assessments to Tuesday (week 6) instead of split Tue/Wed
 
-### B1
+### B1  
+
+_Lesson Add/Remove_
+* Namespacing to move to B2 
+* Remove ORM lesson from B1  
+* Added 4 Principles of OOP 
+* Added Ruby Object Model
+* Added Stacks, Methods, Control Flow 
+* Added Number System 
+* Added 4 Principles of OOP 
+
+_Shifting Schedule_ 
+* Move Boolean Logic to Wk1 
+  * In an effort to decrease content in wk 5 moved to wk 1. Seemed to flow content wise from the Flow Control lesson.
+  
+* 
