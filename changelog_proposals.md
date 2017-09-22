@@ -50,17 +50,28 @@ _Lesson Changes_
 
 ### B1  
 
-_Lesson Add/Remove_
-* Namespacing to move to B2 
-* Remove ORM lesson from B1  
-* Added 4 Principles of OOP 
-* Added Ruby Object Model
-* Added Stacks, Methods, Control Flow 
-* Added Number System 
-* Added 4 Principles of OOP 
+_Lessons Add/Remove_
+* Namespacing to move to B2  
+ * M1 students don't have opportunities to apply this concept. It also seems to confuse their concept of what a module is when we teach it together with Mixins.   
+* Remove ORM lesson from B1    
+  * In moving the below lessons in to week 5, it was rather over loaded. When analyzing which classes could be shifted around  it seems that ORM is not a necessary concept to be taught in M1 especially since it is also covered in M2.   
+* Added 4 Principles of OOP  
+  * Fundamental OOP concept. This is an introductory course aimed at giving exposure to the terms and concepts.   
+* Added Ruby Object Model  
+  * Adding class back in. Good background information for students to be exposed to.  
+* Added Stacks, Methods, Control Flow   
+  * Adding class back in. Good background information for students to understand how a programming language is executed.  
+* Added Number System  
+  * Adding class back in. Good background information for students to be exposed to before they apply binary or hex in the future.  
+* Added How Computer Works  
+  * Addinc class back in. Good background information for students to be exposed to.  
 
 _Shifting Schedule_ 
-* Move Boolean Logic to Wk1 
-  * In an effort to decrease content in wk 5 moved to wk 1. Seemed to flow content wise from the Flow Control lesson.
+* Move Enumerables 1 class to wk 2 
+  * In an effort to decrease density of content in wk1, moved to wk2.
+* Move Boolean Logic to Wk3 
+  * In an effort to decrease content in wk 5 moved to wk 1. 
   
-* 
+ _CFU_
+ * Rebrand Written Diagnostics as CFU 
+   * Aligning with wording used in other modules.  
