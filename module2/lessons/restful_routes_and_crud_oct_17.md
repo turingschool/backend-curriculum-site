@@ -36,7 +36,7 @@ title: RESTful Routes and CRUD
 
 ### What does REST mean?
 
-  - REST (Representational State Transfer) advocates that web applications should use HTTP as it was originally envisioned.
+  - Representational State Transfer
   - Uniform URLs
   - Structured
   - Patterned
@@ -44,7 +44,10 @@ title: RESTful Routes and CRUD
 ### RESTful Routes  
 
   - RESTful routes provide us with a design pattern that we can follow:
-  - A map between HTTP verbs (get, post, put, delete, patch) to controller CRUD actions (create, read, update, delete).
+  - A map between HTTP verb/path combinations and CRUD actions users want to perform on a resource.
+
+### Using REST in Our App
+
   - When your application receives an HTTP request, it identifies the HTTP method and URL, connects that with a connected controller action that has that method and URL, executes the code in that action, and determines which response gets sent back to the client.
   - Let's chart out the "Golden Seven" RESTful routes.
 
