@@ -267,15 +267,17 @@ The network panel is only useful if you understand what types of responses you c
 
 Lucky for us, the network panel automatically highlights any failed requests in red:
 
-![Network Panel Error](https://github.com/turingschool/backend-curriculum-site/blob/gh-pages/assets/images/lessons/debugging-with-devtools/network-panel-error.png)
+![Network Panel Error](network-panel-error)
 
 When we're trying to debug a network request and we see that it is highlighted in red in the network panel, we can click on the request under the 'Name' column to view more details about it. Here we'll be able to see more information about why it failed and what data was sent with the request:
 
-![Request Details](https://github.com/turingschool/backend-curriculum-site/blob/gh-pages/assets/images/lessons/debugging-with-devtools/request-details.png)
+![Request Details](request-details)
 
 The most important tabs in this view are the HEADERS tab and the RESPONSE tab. The Headers tab will give you detailed information about what was sent in the request. The response tab will show you what you actually received back from the server. This could be the JSON data you requested, an error message, or even an entire HTML file.
 
 [network-panel]: /assets/images/lessons/debugging-with-devtools/network-panel.png
+[request-details]: /assets/images/lessons/debugging-with-devtools/request-details.png
+[network-panel-error]: /assets/images/lessons/debugging-with-devtools/network-panel-error.png
 
 ---------------------------------------
 
