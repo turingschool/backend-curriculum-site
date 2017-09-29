@@ -32,8 +32,8 @@ Linked [here](../slides/intro_to_classes)
 
 ## Warmup
 
-* Define a method `sum` that takes two numbers as arguments and returns their sum
 * Define a method `hello` that returns the string "Hello, and welcome!"
+* Define a method `sum` that takes two numbers as arguments and returns their sum
 * Wrap these methods in a `Calculator` class
 * Create a new instance of our `Calculator` class and call the methods you defined
 
@@ -41,7 +41,7 @@ Linked [here](../slides/intro_to_classes)
 
 ### Basic Classes
 
-It looks like we have a nice small set of methods that hang together to provide some functionality. Let's do just a little bit more work to wrap these methods together. We'll do that by creating a class to wrap these methods.
+Using our Converter from yesterday, we have a nice small set of methods that hang together to provide some functionality. Let's do just a little bit more work to wrap these methods together. We'll do that by creating a class to wrap these methods.
 
 The general pattern for creating a class is as follows:
 
@@ -51,39 +51,7 @@ class NameOfClass
 end
 ```
 
-Let's do it.
-
-```ruby
-# converter.rb
-
-class Converter
-  def convert(first, second, third)
-    print_welcome
-    print_converted(first)
-    print_converted(second)
-    print_converted(third)
-  end
-
-  def print_welcome
-    puts 'Welcome to Converter!'
-  end
-
-  def convert_to_celsius(temperature)
-    ((temperature - 32) * 5.0 / 9.0).round(2)
-  end
-
-  def print_converted(temperature)
-    converted = convert_to_celsius(temperature)
-    puts "#{temperature} degrees Fahrenheit is equal to #{converted} degrees Celsius"
-  end
-end
-
-converter = Converter.new
-converter.convert(32, 35, 100)
-converter.convert(12, 45, 65)
-```
-
-Notice that when we wrap these methods in a class we need to create a new **instance** of the class on which to call these methods. We sometimes say that the instance is the **receiver**, that we're sending messages to it, and that it is responding to those messages.
+When we wrap these methods in a class we need to create a new **instance** of the class on which to call these methods. We sometimes say that the instance is the **receiver**, that we're sending messages to it, and that it is responding to those messages.
 
 ### Organizing Methods with Classes
 
@@ -144,23 +112,23 @@ What's after that?
 
 The output from `puts "This is our converter: #{converter}"` is the way that Ruby represents an instance of an object to use in print. Notice there's an `object_id` that is unique to each instance we've created. Even though they generally look the same, our computer is now tracking three separate instances of our Converter object.  
 
-An *object* is an abstract representation of a real world thing. Remember, abstraction is the practice of creating classes/objects and building out an interface with logical behaviors and characteristics.
+An *object* is an abstract representation of a real world thing. Remember, Abstraction is the practice of creating classes/objects and building out an interface with logical behaviors and characteristics.
 
 Here we see Abstraction coming in to play where the user can interface with a Converter. It has specific details about it that we interact with such as `.convert` but other details that we do not interact with such as .`convert_to_celcius`.
 
 ### Behavior & State
 
-Thus far we've only used classes as a place to collect instance methods (methods that we call on a specific instance of the class). Sometimes we say that these methods define the *behavior* of these instances. But why bother creating multiple instances if they all have exactly the same behavior? That's where *state* comes in. State refers to the specific attributes of an instance of a class. Applying this to a `Classroom` example, a specific classroom might have a width *attribute*. It's width would be considered to be part of its *state*.
+Thus far we've only used classes as a place to collect **instance methods** (methods that we call on a specific instance of the class). Sometimes we say that these methods define the **behavior** of these instances. But why bother creating multiple instances if they all have exactly the same behavior? That's where **state** comes in. State refers to the specific attributes of an instance of a class. Applying this to a `Classroom` example, a specific classroom might have a width **attribute**. It's width would be considered to be part of its **state**.
 
 #### Adding State to Our Classes
 
 We generally store state with **instance variables**, and frequently define them using an `initialize` method that is invoked in the background when we call `.new`.
 
-Let's create a new `Classroom` class that holds information about a classroom:
+Imagine we are creating a program that tells a general contractor how to plan out rooms. Let's create a new `Room` class that holds information about a classroom:
 
 ```ruby
-# classroom.rb
-class Classroom
+# Room.rb
+class Room
   def initialize(length, width, height)
     @length = length
     @width  = width
@@ -169,50 +137,49 @@ class Classroom
 end
 ```
 
-Those variables beginning with `@` are **instance variables** they can have a unique value for each **instance** that we create. That's great. That means that we can now create multiple classroom instances that have different lengths/widths/heights.
+Those variables beginning with `@` are **instance variables** they can have a unique value for each **instance** that we create. That's great. That means that we can now create multiple room instances that have different lengths/widths/heights.
 
-How do we use this new Classroom class? Let's create a runner file!
+How do we use this new Room class? Let's create a runner file!
 
 ```ruby
-# classroom_runner.rb
-require './classroom'
+# room_runner.rb
+require './room'
 
-classroom_a = Classroom.new(10, 5, 20)
-puts classroom_a
+room = Room.new(10, 5, 20)
+puts room
 ```
 
-Run that and what do we get? Sure enough, it's an instance of classroom!
+Run that and what do we get? Sure enough, it's an instance of Room!
 
-That's great. We can set the attributes of the classroom instance when we create it. What if I want to access those attributes? Basically, what happens if I forget the length of the classroom? How do I ask it?
+That's great. We can set the attributes of the classroom instance when we create it. What if I want to access those attributes? Basically, what happens if I forget the length of the this particular room? How do I ask it?
 We could put a pry to dig around.
 
 ```ruby
-#classroom_runner.rb
+#room_runner.rb
 require 'pry'
-require './classroom'
+require './room'
 
-classroom_a = Classroom.new(10, 5, 20)
+room = Room.new(10, 5, 20)
 binding.pry
 ```
 
-When we call `classroom_a` in our pry session, we get something like this `#<Classroom:0x007fe119e926c0>`, we still can't see the length. This is due in part to the principle of Encapsulation, where information is only exposed when intentionally built to do so.
-Right now, we want to expose that information, so let's do that.
+When we call `room_a` in our pry session, we get something like this `#<Room:0x007fe119e926c0>`, we still can't see the length. This is due in part to the principle of Encapsulation, where information is only exposed when intentionally built to do so. Right now, we want to expose that information, so let's do that.
 
 Let's add a line to our runner file.
 
 ```ruby
-# classroom_runner.rb
-require './classroom'
+# room_runner.rb
+require './room'
 
-classroom_a = Classroom.new(10, 5, 20)
-puts "Length: #{classroom_a.length}"
+room = Room.new(10, 5, 20)
+puts "Length: #{room.length}"
 ```
 
-Run that, and we get a no method error. This is a little bit tricky. It's true we could create a method to access these instance variables, but Ruby gives us a shortcut. Update your `classroom.rb` file as follows:
+Run that, and we get a no method error. This is a little bit tricky. It's true we could create a method to access these instance variables, but Ruby gives us a shortcut. Update your `room.rb` file as follows:
 
 ```ruby
-# classroom.rb
-class Classroom
+# room.rb
+class Room
   attr_reader :length,
               :width,
               :height
@@ -225,7 +192,7 @@ class Classroom
 end
 ```
 
-This will allow us to access all of the instance variables by sending messages to our instance (e.g. calling `classroom_a.width` or `classroom_a.length`, etc.).
+This will allow us to access all of the instance variables by sending messages to our instance (e.g. calling `room.width` or `room.length`, etc.).
 
 #### Combining State and Behavior
 
@@ -234,19 +201,19 @@ That's great! What about methods? Yesterday we used methods in our classes, and 
 Let's update our runner:
 
 ```ruby
-# classroom_runner.rb
-require './classroom'
+# room_runner.rb
+require './room'
 
-classroom_a = Classroom.new(10, 5, 20)
-puts "Length: #{classroom_a.length}"
-puts "Width: #{classroom_a.width}"
-puts "Area: #{classroom_a.area}"
+room = Room.new(10, 5, 20)
+puts "Length: #{room.length}"
+puts "Width: #{room.width}"
+puts "Area: #{room.area}"
 ```
 Run that, and we get a no method error for `area`. Let's build that method:
 
 ```ruby
-# classroom.rb
-class Classroom
+# room.rb
+class Room
   attr_reader :length,
               :width,
               :height
@@ -265,40 +232,43 @@ end
 
 #### Changing State
 
-What if we want to change the values of our instance? Assume Turing hires a contractor to renovate our classrooms.
+What if we want to change the values of our instance? Imagine mid way through construction, the client wants to change the dimensions to a room they had planned. We need the program to accomodate changing values. 
 
 Our runner:
 
 ```ruby
-# classroom_runner.rb
-require './classroom'
+# room_runner.rb
+require './room'
 
-classroom_a = Classroom.new(10, 5, 20)
-puts "Length: #{classroom_a.length}"
-puts "Width: #{classroom_a.width}"
-puts "Area: #{classroom_a.area}"
+room = Room.new(10, 5, 20)
+puts "Length: #{room.length}"
+puts "Width: #{room.width}"
+puts "Area: #{room.area}"
 
 puts "Make length 1."
-classroom_a.add_length(4)
+room.add_length(4)
 
-puts "New Length: #{classroom_a.length}"
-puts "New Area: #{classroom_a.area}"
+puts "New Length: #{room.length}"
+puts "New Area: #{room.area}"
 
 puts "Add four to length"
-classroom_a.length = 1
+room.width = 1
 
-puts "New Length: #{classroom_a.length}"
-puts "New Area: #{classroom_a.area}"
+puts "New Length: #{room.length}"
+puts "New Width: #{room.width}"
+puts "New Area: #{room.area}"
 ```
 We have two ways that we could potentially change these values. Update our files based on the code below:
-We get a no method error for add_length. As well as an error for `classroom_a.length = 1`.
+We get a no method error for add_length. As well as an error for `room.width = 1`.
 
 ```ruby
-# classroom.rb
-class Classroom
-  attr_accessor :length,
-                :width,
-                :height
+# room.rb
+class Room
+
+  attr_reader :length,
+              :width, 
+	      
+  attr_accessor :height
 
   def initialize(length, width, height)
     @length = length
@@ -318,9 +288,9 @@ end
 
 
 
-Changing our `attr_reader`s to `attr_accessor`s makes it so that we can change the classroom's value from outside the class to **anything** we want. Note, we are changing, and reducing this object's Encapsulation. We are placing some trust in people using the class that they will use it responsibly.
+Changing an `attr_reader` to an `attr_accessor` makes it so that we can change the room's value from outside the class to **anything** we want. Note, we are changing, and reducing this object's Encapsulation. We are placing some trust in people using the class that they will use it responsibly. We use an `attr_accessor` **only** when we need to change something from outside the class and **only** when we are sure we can trust what they change it to - since they can change it to **ANYTHING**.
 
-Meanwhile, the method `add_length` is a little more specific in what it allows us to do; specifically, using this method we can make the classroom longer. No other change is allowed. We do this by accessing the **instance variable** from within the method. Note, we could do this without an `attr_accessor`.
+Meanwhile, the method `add_length` is a little more specific in what it allows us to do; specifically, using this method we can make the classroom longer. No other change is allowed. We do this by accessing the **instance variable** from within the method. Note, we could also do this with an `attr_accessor` but may not want to.
 
 ### Practice
 
