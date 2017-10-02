@@ -11,8 +11,8 @@ In order to graduate from Module 4, students must successfully complete **each**
 
 Students must pass each part of the final assessment. The final assessment is composed of three sections:
 
-* [JavaScript Assessment]()
-* [Technical Communication Assessment]()
+* [JavaScript Assessment](https://github.com/turingschool-examples/word_watch)
+* [Technical Communication Assessment](https://gist.github.com/case-eee/d0674c36269493b208ccf78f5dd39e0a)
 * [Capstone Project](http://backend.turing.io/module4/capstone_project_overview)
 
 Assessment requirements will be provided during the first week of the module.
