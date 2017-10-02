@@ -33,7 +33,7 @@ Assessment requirements will be provided during the first week of the module.
 
 The Career Development segment is made up of several pieces:
 
-- The 30-day post-grad job search action plan (submitted in B4 portfolio)
+- The 30-day post-grad job search action [plan](https://github.com/turingschool/career-development-curriculum/blob/master/module_four/post_grad_plan.md) (submitted in B4 portfolio)
 - Share a summarized version of your professional story with your instructors during the portfolio review. This is a 1-2 minute sharing highlighting who you are, why you are in software, and what's next in your career
 - Prepare a lightning talk of their Turing story to present during the final week of the module (see the Turing Story Presentation section below)
 
