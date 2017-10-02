@@ -4,29 +4,42 @@
 
 # Module Overview
 
-* HTTP/HTML/CSS
+* The Web/HTTP
+* HTML/CSS
 * Sinatra
-* CRUD on the Web
-* SQL/ActiveRecord
-* Testing on the Web
-* Rails/Rails Conventions
-* Sessions/Cookies/Flashes
-* Authentication/Authorization
+* ActiveRecord/SQL
+* Basic Rails/Rails Conventions
+* Testing Web Applications
 
 ---
 
-# Intermission Work Q&A
-
-* Web Guesser
-* Personal Site/HTML/CSS
-* Bootstrap (afternoon session)
-* SQL
-* Task Manager
+# [Module Home Page](http://backend.turing.io/module2/)
 
 ---
 
-# Pair/Share: Web Guesser
+# Projects
+
+* Week 1/2: BikeShare
+* Week 3: Job Tracker
+* Week 4: Rails Mini-Project
+* Week 5/6: Little Shop of Orders
 
 ---
 
-# Pair/Share: Personal Site
+# Success
+
+Not a measure of intelligence, but instead a measure of:
+
+* Preparation for class
+* Attention during class
+* Work on resolving questions you have
+
+---
+
+# Pair Share
+
+* What goals do you have for M2?
+* Most challenging piece of the intermission work?
+* Most interesting piece of the intermission work?
+* What questions do you still have?
+
