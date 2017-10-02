@@ -6,20 +6,20 @@ layout: page
 ## Lessons
 
 * [Intro to M1](../slides/intro_to_m1)
-* [Intro to Git](../lessons/intro_to_git)
+* [Intro to Git/GitHub](../lessons/intro_to_git)
 * [Variables, Strings, and Integers](../lessons/variables_strings_and_integers)
 * [Intro to Methods](../lessons/intro_to_methods)
 * [Flow Control](../lessons/flow_control) ([Video](https://www.youtube.com/watch?v=iZkQWR9_RpY))
+* [Intro to Arrays](../lessons/intro_to_arrays_arts_and_crafts) ([Video](https://www.youtube.com/watch?v=nlwU1YtQ9SU))
 * [Debugging with Pry](../lessons/debugging_with_pry)
-* [Introducing Arrays](../lessons/intro_to_arrays_arts_and_crafts) ([Video](https://www.youtube.com/watch?v=nlwU1YtQ9SU))
-* [Intro to Classes](../lessons/intro_to_classes)
 * [PD: Strengths Finder](../../career_development_curriculum/module_one/strengths_reflection_session)
-* [Methods, Arguments, Blocks & Scopes](../lessons/intro_to_scope)
-* [Beginner Enumerables](../lessons/beginner_enumerables)
+* [Intro to Classes](../lessons/intro_to_classes)
+* [Intro to Scope](../lessons/intro_to_scope)
 * [Intro to OOP](../lessons/intro_to_oop)
+* [How Testing Works](../lessons/how_testing_works)
 * [Intro to TDD](../lessons/intro_to_tdd)
 * [Gear Up: Growth Mindset](https://github.com/turingschool/gear-up/blob/master/m1_citizenship/session_1_growth_mindset.markdown)
-
+ gcmsg "Update projects and week one B1 calendar"
 
 ## Homework
 

@@ -54,6 +54,18 @@ In Module 1, students will learn to use Ruby and object-oriented programming to 
 *   [__Pentathlon Description__](pentathlon)
 *   [__Professional Development Curriculum__](https://github.com/turingschool/career-development-curriculum/tree/master/module_one)
 
+## Projects
+
+* [Credit Check](../projects/credit_check.markdown) ([slides](../slides/credit_check))
+* [A Perilous Journey](../projects/perilous_journey)
+* [Date Night](../projects/date_night)
+* [Complete Me](../projects/complete_me)
+* [Enigma](../projects/enigma)
+* [HTTP Yeah You Know Me](../projects/http_yeah_you_know_me)
+* [Event Manager](../projects/eventmanager)
+* [Sorting Suite](../projects/sorting_suite)
+* [Black Thursday](../projects/black_thursday)  
+
 ## Success in Mod 1
 
 Students who successfully complete Module 1 will have demonstrated proficiency in Ruby Syntax & Style, Breaking Logic Into Components, Debugging, Test Driven Development, Version Control, their Desktop Environment, and Collaboration, as well as completed all Career Development requirements. [These skills are broken down in detail here](success).

@@ -94,14 +94,15 @@ class Bob
   end
 
   def final_episode
-    episode = {}
-
-    CSV.foreach(@filename, headers: true) do |row|
-      episode["EPISODE"] = row["EPISODE"]
+    current_episode = {}
+    
+    CSV.foreach(@filepath, headers: true, header_converters: :symbol) do |row|
+      current_episode['episode_number'] = row[:episode]
     end
-
-    episode["EPISODE"]
+    
+    current_episode['episode_number']
   end
+  
 end
 ```
 

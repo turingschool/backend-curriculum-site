@@ -5,17 +5,17 @@ layout: page
 
 ## Lessons
 
-* [Branching Workflow in Git](../lessons/branching_in_git)
+* [Git Gud @ Git](../lessons/branching_in_git)
 * [Academic Integrity](../lessons/academic_integrity)
-* [Introduction to Hashes](../lessons/hashes_arts_and_crafts)
-* [How Testing Works](../lessons/how_testing_works)
-* [Nested Collections](../lessons/nested_collections)
+* [Enumerables: A New Hope](../lessons/beginner_enumerables)
+* [Intro to Hashes](../lessons/hashes_arts_and_crafts)
 * [Testing in a Project](../lessons/testing_in_a_project)
+* [Nested Collections](../lessons/nested_collections)
 * [Gear Up: Working Styles](https://github.com/turingschool/gear-up/blob/master/m1_citizenship/session_3_intro_extro_ambivert_styles.markdown)
-* [Working with Objects](../lessons/working_with_objects.md)
 * [Git for Pairs](../lessons/git_for_pairs)
 * [PD: Learning to Pair](../../career_development_curriculum/module_one/learning_to_pair)
 * [PD: DTR Guidelines](../../career_development_curriculum/module_one/dtr_guidelines_memo)
+<!-- * [Working with Objects](../lessons/working_with_objects.md) -->
 
 
 ## Homework
