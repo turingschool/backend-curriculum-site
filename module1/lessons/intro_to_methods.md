@@ -40,7 +40,7 @@ Assume that we want to create a simple program to convert Fahrenheit to Celsius.
 puts 'Welcome to Converter!'
 ```
 
-A method allows us to reuse that same snippet of code. We define a method using the keyword `def`, followed by the name of the method, some set of instructions, followed by the keyword `end`
+A method allows us to reuse that same snippet of code. We define a method using the keyword `def`, followed by the name of the method, some set of instructions, followed by the keyword `end`.  
 Now assume that we want to make it so that we can reuse this code. We could define a method `print_welcome` that would allow us to print this statement many times.
 
 ```ruby
