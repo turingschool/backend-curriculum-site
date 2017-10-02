@@ -9,6 +9,10 @@ title: Introduction to MVC
 * Describe the single responsibility of the each of the Model, View, and Controller
 * Describe how data is passed from the browser/a request through the MVC pattern
 
+## Slides
+
+Available [here](../slides/intro_to_mvc)
+
 ## Warmup
 
 * In your own words, what are the primary responsibilities of the models, views, and controllers in Task Manager?
