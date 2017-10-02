@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Intro to Git
-length: 30
+length: 60
 tags: git, github
 ---
 
