@@ -16,6 +16,7 @@ layout: page
 * [PD: Learning to Pair](../../career_development_curriculum/module_one/learning_to_pair)
 * [PD: DTR Guidelines](../../career_development_curriculum/module_one/dtr_guidelines_memo)
 <!-- * [Working with Objects](../lessons/working_with_objects.md) -->
+<!-- No one's assigned to Enums: A New Hope, Ind timed (week 2, 4 & 5), or Intro to Hashes -->
 
 
 ## Homework
@@ -28,7 +29,7 @@ layout: page
 * [A Perilous Journey](../projects/perilous_journey)
 * [Date Night](../projects/date_night)
 * [Complete Me](../projects/complete_me)
-* [Night Writer](../projects/night_writer)
+* [Enigma](../projects/enigma)
 
 
 ## Resources

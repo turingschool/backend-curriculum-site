@@ -5,15 +5,17 @@ layout: page
 
 ## Lessons
 
-* [Project Etiquette](../lessons/ruby_project_etiquette) ([Video](http://vimeo.com/161695195))
-* [Testing Strategies 1](../lessons/testing_strategies_1) ([Video](https://vimeo.com/161526035))
-* [Working with Files](../lessons/working_with_files) ([Class Recording](https://vimeo.com/162134025)) ([Related Video](https://vimeo.com/130322465))
+* [Ruby Project Etiquette](../lessons/ruby_project_etiquette) ([Video](http://vimeo.com/161695195))
+* [Testing Strategies](../lessons/testing_strategies_1) ([Video](https://vimeo.com/161526035))
+* [File I/O](../lessons/working_with_files) ([Class Recording](https://vimeo.com/162134025)) ([Related Video](https://vimeo.com/130322465))
+* [Inheritance](../lessons/inheritance)
 * [Boolean Logic](../lessons/boolean_logic)
-* [Enumerables, Part Deux](../lessons/intermediate_enumerables) [Video 1](https://vimeo.com/161675625), [Video 2](https://vimeo.com/161677741), [Video 3](https://vimeo.com/161678930), [Video 4](https://vimeo.com/161680127)
+* [The Enumerables Strike Back](../lessons/intermediate_enumerables) [Video 1](https://vimeo.com/161675625), [Video 2](https://vimeo.com/161677741), [Video 3](https://vimeo.com/161678930), [Video 4](https://vimeo.com/161680127)
 * [Credit Check Recheck](../lessons/credit_check_recheck)
 * [PD: Feedback I](../../career_development_curriculum/module_one/feedback_i)
 * [Group Project Retro](../lessons/group_project_retro)
 * [Gear Up: Getting Better at Difficult Things](https://github.com/turingschool/gear-up/blob/master/m1_citizenship/session_2_getting_better_at_difficult_things.md)
+<!-- project reflection & credit-check-recheck to project evals w3d4 -->
 
 
 ## Homework
@@ -26,8 +28,8 @@ layout: page
 ## Projects
 
 * [Complete Me](../projects/complete_me)
-* [Night Writer](../projects/night_writer)
-* [Battleship](../projects/battleship)
+* [Enigma](../projects/enigma)
+* [HTTP Yeah You Know Me](../projects/http_yeah_you_know_me)
 
 
 ## Resources

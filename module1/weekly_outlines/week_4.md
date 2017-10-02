@@ -5,14 +5,14 @@ layout: page
 
 ## Lessons
 
+* [Modules](../lessons/mixins)
 * [Peer to Peer Project Review](../lessons/peer_to_peer_project_review)
-* [Advanced Enumerables](../lessons/advanced_enumerables)
-* [Inheritance](../lessons/inheritance)
+* [Refactoring Patterns I](../lessons/refactoring_patterns_part_1)
+* [Enumerables: Return of the Block](../lessons/advanced_enumerables)
+<!-- look up stacks, methods, flow-control url -->
 * [PD: Strengths and Storytelling](../../career_development_curriculum/module_one/strengths_and_storytelling)
-* [Refactoring Patterns 1](../lessons/refactoring_patterns_part_1)
-* [Mixins](../lessons/mixins)
-* [Refactoring Patterns 2](../lessons/refactoring_patterns_part_2)
-
+* [Refactoring Patterns II](../lessons/refactoring_patterns_part_2)
+<!-- add gear-up link -->
 
 ## Homework  
 * [Enumerable Exercises](https://github.com/turingschool/enums-exercises)
@@ -22,7 +22,7 @@ layout: page
 
 ## Projects and Exercises
 
-* [Battleship](../projects/battleship)
+* [HTTP Yeah You Know Me](../projects/http_yeah_you_know_me)
 * [Event Manager](../projects/eventmanager)
 * [Sorting Suite](../projects/sorting_suite)  
 

@@ -5,14 +5,15 @@ layout: page
 
 ## Lessons
 
-* [Object Relational Mapping](../lessons/object_relational_mapping)
+<!-- * [Object Relational Mapping](../lessons/object_relational_mapping) -->
+<!-- add code-debugging the gender gap link? -->
 * [Class Methods](../slides/class_methods)
 * [Ruby Object Model](../lessons/ruby_object_model_alt)
-* [4 Pillars of OOP](../lessons/four_pillars_of_oop)
-* [Namespacing](../lessons/intro_to_namespacing)
-* [Fixtures](../lessons/fixtures)
-* [Binary, Octal, and Hex](../lessons/number_systems)
-* [Mocks & Stubs](../lessons/mocks_stubs) ([Video](https://vimeo.com/157333800))
+* [Pentathlon](../pentathlon) & [Portfolio](../portfolios) Overview
+* [4 Principles of OOP](../lessons/four_pillars_of_oop)
+* [Testing with Fixtures](../lessons/fixtures)
+* [Number Systems](../lessons/number_systems)
+* [Testing with Mocks & Stubs](../lessons/mocks_stubs) ([Video](https://vimeo.com/157333800))
 * [PD: Developer Identity](../../career_development_curriculum/module_one/developer_identity)
 * [Private Methods](../lessons/private_methods)
 
