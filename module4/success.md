@@ -13,7 +13,7 @@ Students must pass each part of the final assessment. The final assessment is co
 
 * [JavaScript Assessment]()
 * [Technical Communication Assessment]()
-* [Capstone Project]()
+* [Capstone Project](http://backend.turing.io/module4/capstone_project_overview)
 
 Assessment requirements will be provided during the first week of the module.
 
