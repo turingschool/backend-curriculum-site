@@ -5,36 +5,37 @@ title: Module 4 Success
 
 ## Graduation Requirements
 
-In order to graduate from Module 4, students must complete each of the following:
+In order to graduate from Module 4, students must successfully complete **each** of the following:
 
 ### Final Assessment
 
 Students must pass each part of the final assessment. The final assessment is composed of three sections:
 
-* JavaScript Assessment
-* Technical Communication Assessment
-* Capstone Project
+* [JavaScript Assessment]()
+* [Technical Communication Assessment]()
+* [Capstone Project]()
 
-Assessment requirements will be provided on the first week of the module.
+Assessment requirements will be provided during the first week of the module.
 
 ### Independent Work
 
 *Expected*: Students will build their Capstone project.
 
+*Expected*: Students will complete and submit weekly Checks for Understanding questions (weeks 1-4).
+
 ### Group Work
 
-*Expected*: Students, as a pair, document the results of their Quantified Self project.
+*Expected*: Students, as a pair, complete the Quantified Self project.
 
-*Expected*: Students, as a project team, are responsible for passing rubric scores on their Open Source project.
+*Expected*: Students, as a project team, are responsible for passing their Open Source project and submitting an individual blog post summarizing the experience.
 
 ### Career Development
 
-The Career Development segment is made up of several pieces, all of which are to be submitted by **9AM on Monday of Week 5** unless otherwise noted though it is suggested that you send them earlier if possible. All deliverables except for your Census account check should be submitted in the [Career Development deliverables submissions folder](https://github.com/turingschool/career-development-curriculum/tree/master/deliverable_submissions).
+The Career Development segment is made up of several pieces:
 
-*   Cold Outreach & Networking: For this deliverable, you have 3 options to choose from - you can find them listed [here](https://github.com/turingschool/career-development-curriculum/blob/master/module_four/cold_outreach_ii.md). To fulfill the deliverable requirement, you only need to submit documentation of 1 option although you're absolutely encouraged to do more than one. 
-*   Add two projects to your Turing portfolio and add a link to your Turing portfolio.
-*   Document practice interview participation using these [guidelines](https://github.com/turingschool/career-development-curriculum/blob/master/module_four/interview_practice_reflection_guidelines.md).
-*   Complete action plan for the post-grad job search [here](https://github.com/turingschool/career-development-curriculum/blob/master/module_four/post_grad_plan.md).
+- The 30-day post-grad job search action plan (submitted in B4 portfolio)
+- Share a summarized version of your professional story with your instructors during the portfolio review. This is a 1-2 minute sharing highlighting who you are, why you are in software, and what's next in your career
+- Prepare a lightning talk of their Turing story to present during the final week of the module (see the Turing Story Presentation section below)
 
 ### Feedback & Community
 
