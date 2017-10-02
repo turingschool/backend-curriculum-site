@@ -171,15 +171,13 @@ ActiveJob looks for jobs in the `app/jobs` directory. These job files will typic
 Rails 4.2 introduced a generator for these jobs:
 
 ```ruby
-rails generate job example
+rails generate job gif_sender
 ```
 
-The above will create `ExampleJob` saved to the `app/jobs` directory.
-
-We know that we want a job for sending emails, so let's create an `EmailJob`.
+The above will create `GifSenderJob` saved to the `app/jobs` directory.
 
 ```ruby
-class EmailJob < ActiveJob::Base
+class GifSenderJob < ActiveJob::Base
 end
 ```
 
@@ -198,14 +196,14 @@ the worker to do its job:
 Given these constraints, it might look something like:
 
 ```ruby
-class EmailJob < ActiveJob::Base
+class GifSenderJob < ActiveJob::Base
   def perform(email, thought)
     UserNotifier.send_randomness_email(email, thought).deliver_now
   end
 end
 ```
 
-If you went the generate route for creating `EmailJob`, you may see something that looks like:
+If you went the generate route for creating `GifSenderJob`, you may see something that looks like:
 
 ```ruby
 queue_as :default
@@ -241,7 +239,7 @@ the line that was sending the email with this line to
 queue our job instead:
 
 ```ruby
-EmailJob.perform_later(params[:mailers][:email], params[:mailers][:thought])
+GifSenderJob.perform_later(params[:mailers][:email], params[:mailers][:thought])
 ```
 
 Remember -- the arguments passed in to the `.perform_later` method here

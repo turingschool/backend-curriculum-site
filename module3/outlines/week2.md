@@ -12,7 +12,7 @@ layout: page
 * [Using Figaro](../lessons/using_figaro)
 * [Consuming APIs](../lessons/consuming_an_api)
 * [VCR Testing](../lessons/testing_against_third_party_apis)
-* [Decorators and Presenters](../slides/decorators_and_presenters.md)
+* [Decorators and Presenters](../lessons/presenters_and_decorators)
 
 ### Projects
 

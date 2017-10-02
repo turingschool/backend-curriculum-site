@@ -42,7 +42,7 @@ Do you get it? Try each of these counts:
 * Count up three decimal values from `1010`
 * Count up eight decimal values from `100`
 * Count down four decimal values from `1100`
-* Cound down six decimal values from `1111`
+* Count down six decimal values from `1111`
 
 ### Conversions
 
