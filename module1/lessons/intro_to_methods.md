@@ -11,7 +11,6 @@ tags: ruby, methods
 * Explain why we use methods
 * Define methods that take arguments
 * Define methods that do not take arguments
-* Define a class with instance methods
 
 ## Vocabulary
 * Method
@@ -28,7 +27,7 @@ Available [here](../slides/intro_to_methods)
 
 * What do you know about methods from your prework?
 * How have you organized your code up to this point?
-* What tools have you used if you wanted to perform actions multiple times?
+* What tools have you used if you wanted to perform the same action multiple times?
 
 ## Lesson
 
