@@ -54,7 +54,8 @@ print_welcome
 print_welcome
 ```
 
-Try it! With a partner, create a method `print_welcome` in a new file `doubler.rb` that prints the message `Welcome to Doubler!`
+**Try it!**  
+With a partner, create a method `print_welcome` in a new file `doubler.rb` that prints the message `Welcome to Doubler!`
 
 ### Defining Methods with Parameters
 
