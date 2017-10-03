@@ -1,6 +1,6 @@
 # Credit Check
 
-### Learnging Goals 
+### Learning Goals 
 * break a problem into logical components 
 * implement approriate Ruby syntax
 * utilize methods and classes 
@@ -46,6 +46,8 @@ With the result of `67`, we take the ones digit (`7`) and subtract it from `10`:
 The full account number with check digit is `79927398713`.
 
 #### Validating an Account Number
+
+**You do need to build out validation functionality.**
 
 We can use the same process to validate an account number. Using `79927398713` as our sample input:
 
@@ -107,23 +109,30 @@ More information on submitting a pull request in GitHub is available [here](http
 
 The project will be assessed with the following guidelines:
 
+* 4: Above expectations
+* 3: Meets expectations
+* 2: Below expectations
+* 1: Well-below expectations
+
 ### 1. Ruby Syntax & Style
 
-* 4:  Application demonstrates excellent knowledge of Ruby syntax, style, and refactoring
-* 3:  Application shows strong effort towards organization, content, and refactoring
-* 2:  Application runs but the code has long methods, unnecessary or poorly named variables, and needs significant refactoring
-* 1:  Application generates syntax error or crashes during execution
+Expectations: 
+
+* [ ] Naming follows convention (is idiomatic)
+* [ ] Ruby methods used are logical and readable
+* [ ] Code is indented properly
+* [ ] Code does not exceed 80 characters per line
 
 ### 2. Breaking Logic into Components
 
-* 4: Application is expertly divided into logical components each with a clear, single responsibility
-* 3: Application effectively breaks logical components apart but breaks the principle of SRP
-* 2: Application shows some effort to break logic into components, but the divisions are inconsistent or unclear
-* 1: Application logic shows poor decomposition with too much logic mashed together
+Expectations: 
 
-### 3. Functional Expectations
+* [ ] Code is effectively broken into methods & classes
+* [ ] May break the principle of SRP
 
-* 4: Application meets all requirements, and implements one extension properly.
-* 3: Application meets all requirements as laid out per the specification.
-* 2: Application runs, but does not work properly, or does not meet specifications.
-* 1: Application does not run, crashes on start.
+### 3. Functionality
+
+Expectations: 
+
+* [ ] Application meets all requirements (extension not req'd)
+
