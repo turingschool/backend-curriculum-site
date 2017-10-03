@@ -23,26 +23,25 @@ layout: page
 ### Day 2:
 
 * **LESSONS:**
-  - [Model Testing in Sinatra](../lessons/model_testing_in_sinatra)
   - [Intro to ActiveRecord in Sinatra](../lessons/intro_to_active_record_in_sinatra)
+  - [Model Testing in Sinatra](../lessons/model_testing_in_sinatra)
+  - [Intro to HTML](../lessons/intro_to_html)
 
 ### Day 3:
 
 * **LESSONS:**
   - [Passing Data with Sinatra](../lessons/passing_data_with_sinatra)
-
-* **HOMEWORK:**
- - Prep for tomorrow's Collaborative Communication session by reading these two (very short) articles:
-    - [Ask Questions Instead of Giving Directions](../homework/resources/ask_questions.pdf)
-    - [Mitigate Fault](../homework/resources/mitigate_fault.pdf)
+  - Intermediate ActiveRecord
+  - [Intro to CSS](../lessons/intro_to_css)
 
 ### Day 4:
 
 * **LESSONS:**
+  - [Advanced CSS Selectors](../lessons/advanced_css)
   - [Feature Testing in Sinatra](../lessons/feature_testing_in_sinatra)
 
 * **HOMEWORK:**
-  - As you write your first tests for Bike Share, make a pull request and tag your instructors to review the tests.
+  - As you write your first feature tests for Bike Share, make a pull request and tag your instructors to review the tests.
 
 ## Projects:
 

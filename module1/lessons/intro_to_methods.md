@@ -11,7 +11,6 @@ tags: ruby, methods
 * Explain why we use methods
 * Define methods that take arguments
 * Define methods that do not take arguments
-* Define a class with instance methods
 
 ## Vocabulary
 * Method
@@ -28,7 +27,7 @@ Available [here](../slides/intro_to_methods)
 
 * What do you know about methods from your prework?
 * How have you organized your code up to this point?
-* What tools have you used if you wanted to perform actions multiple times?
+* What tools have you used if you wanted to perform the same action multiple times?
 
 ## Lesson
 
@@ -41,7 +40,7 @@ Assume that we want to create a simple program to convert Fahrenheit to Celsius.
 puts 'Welcome to Converter!'
 ```
 
-A method allows us to reuse that same snippet of code. We define a method using the keyword `def`, followed by the name of the method, some set of instructions, followed by the keyword `end`
+A method allows us to reuse that same snippet of code. We define a method using the keyword `def`, followed by the name of the method, some set of instructions, followed by the keyword `end`.  
 Now assume that we want to make it so that we can reuse this code. We could define a method `print_welcome` that would allow us to print this statement many times.
 
 ```ruby
@@ -55,7 +54,8 @@ print_welcome
 print_welcome
 ```
 
-Try it! With a partner, create a method `print_welcome` in a new file `doubler.rb` that prints the message `Welcome to Doubler!`
+**Try it!**  
+With a partner, create a method `print_welcome` in a new file `doubler.rb` that prints the message `Welcome to Doubler!`
 
 ### Defining Methods with Parameters
 
