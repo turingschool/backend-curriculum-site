@@ -36,8 +36,7 @@ Now we've talked about the very basics of events, let's turn our attention to ev
 
 In the following code pen, we have three nested HTML elements in `index.html`:
 
-<p data-height="300" data-theme-id="23788" data-slug-hash="ZOvkVo" data-default-tab="html,result" data-user="turing" data-embed-version="2" class="codepen">See the Pen <a href="https://codepen.io/case-eee/pen/mBqbJm">Event Bubbling Example</a> by Casey (<a href="http://codepen.io/case-eee">@case-eee</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+<p data-height="265" data-theme-id="0" data-slug-hash="mBqbJm" data-default-tab="css,result" data-user="case-eee" data-embed-version="2" data-pen-title="Event Bubbling" class="codepen">See the Pen <a href="https://codepen.io/case-eee/pen/mBqbJm/">Event Bubbling</a> by Casey Ann Cumbow (<a href="https://codepen.io/case-eee">@case-eee</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 
 ### Pair Practice
 
