@@ -17,14 +17,6 @@
 
 ---
 
-# RSpec Flags
-
-* –color
-* –format=documentation
-* Can save in a .rspec file in your home directory
-
----
-
 # Setup
 
 * Add `gem 'rspec'` to your Gemfile.
@@ -34,6 +26,7 @@
 
 # Create RSpec Directories and Files
 
+* Create a `.rspec` file
 * Create a `spec` directory
 * Create a `spec/spec_helper.rb` file
 * Create a `spec/models` directory
@@ -41,10 +34,21 @@
 
 ---
 
+# RSpec Flags
+
+Add to your `.rspec` file
+
+* -–color
+* -–format=documentation
+* --order=random
+
+---
+
 # Set Up Your Spec Helper
 
 ```
-require 'rspec'
+require 'bundler'
+bundler.require(:default, :test)
 require File.expand_path('../../config/environment.rb', __FILE__)
 ```
 
@@ -53,17 +57,28 @@ require File.expand_path('../../config/environment.rb', __FILE__)
 # Set Up Your First Test
 
 ```
-require_relative '../spec_helper'
+RSpec.describe Film do
+  describe "Class Methods" do
+    describe ".total_box_office_sales" do
+      it "returns total box office sales for all films" do
+        Film.create(title: "Fargo", year: 2017, box_office_sales: 3)
+        Film.create(title: "Die Hard", year: 2016, box_office_sales: 4)
 
-RSpec.describe Horse do
-  describe ".total_winnings" do
-    it "returns total winnings for all horses" do
-      Horse.create(name: "Phil", age: 22, total_winnings: 3)
-      Horse.create(name: "Penelope", age: 24, total_winnings: 4)
-
-      expect(Horse.total_winnings).to eq(7)
+        expect(Film.total_box_office_sales).to eq(7)
+      end
     end
   end
+end
+```
+
+---
+
+# Implement the Method
+
+```ruby
+# film.rb
+def self.total_box_office_sales
+  sum(:box_office_sales)
 end
 ```
 
@@ -114,20 +129,29 @@ end
 # Testing validations
 
 ```
-it "is invalid without a name" do
-  horse = Horse.new(age: 22, total_winnings: 14)
+describe "Validations" do
+  it "is invalid without a title" do
+    film = Film.new(year: 2017, box_office_sales: 2)
 
-  expect(horse).to_not be_valid
+    expect(film).to_not be_valid
+  end
 end
 ```
 
 ---
 
-# In the `Horse` model
+# In the `Film` model
 
 ```
 validates :name, presence: true
 ```
+
+---
+
+# Practice
+
+* a test for an `.average_box_office_sales` class method
+* tests that a film cannot be created without a `year` or `box_office_sales`
 
 ---
 

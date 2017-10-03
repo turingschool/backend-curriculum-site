@@ -4,33 +4,26 @@ length: 120
 tags: sinatra, models, tdd, validations, scopes
 ---
 
-## Goals
+## Learning Goals
 
 * set up RSpec within a Sinatra web app
 * test model methods and validations using best practices in RSpec
+
+## Slides
+
+Available [here](../slides/model_testing_in_sinatra)
+
+## Repository
+
+We will continue to use the Film File repository that we used in the Intro to ActiveRecord lesson.
 
 ## Warmup
 
 1) Read [this](https://robots.thoughtbot.com/four-phase-test) Thoughtbot article about the four-phase test design.
 
-2) We'll be using RSpec for this lesson. Read [this documentation](https://relishapp.com/rspec/rspec-core/docs/example-groups/basic-structure-describe-it) as an introduction to the RSpec syntax. 
+## Lecture
 
-With a pair:  
-
-* Find a test you wrote in Mod 1. Can you map the four phases of testing to that test?
-* What similarities and differences do you see between the syntax of Minitest and RSpec? 
-
-## Repository
-
-If you already have a copy of the `intro-to-ar` repo, cd into it and type:
-
-`git checkout crud_complete`
-
-If you do not have a copy of the `intro-to-ar` repo: 
-
-`git clone -b crud_complete git@github.com:turingschool/intro-to-ar.git`
-
-## Intro to RSpec
+### Intro to RSpec
 
 * Slightly different than Minitest, but not by much.
     * `describe` blocks as an outside wrapper to group related tests: use for *things*
@@ -54,30 +47,22 @@ Run `bundle`.
 
 **STEP 2**: Create File structure
 
-Make sure you are in the root of your app. 
+Make sure you are in the root of your app.
 
 * `touch .rspec`
 * `mkdir spec`
 * `touch spec/spec_helper.rb`
-
-The shortcut to this step is to type `rspec --init`. However, this creates a bloated `spec_helper.rb` file that is, to be honest, more scary than helpful when you're first starting out. 
-
-Within the `spec` folder, we'll create another folder called models. This way we can separate our model tests from our feature tests (more on this tomorrow).
-
-```
-$ mkdir spec/models
-```
+* `mkdir spec/models`
+* `touch spec/models/film_spec.rb`
 
 **STEP 3**: Configurations in .rspec file
 
-Your `.rspec` file can contain certain flags that are helpful when you run your tests. 
+Your `.rspec` file can contain certain flags that are helpful when you run your tests.
 
     --require spec_helper
     --color
-    --format documentation
-    --order random
-    
-
+    --format=documentation
+    --order=random
 
 **STEP 4**: Set up the `spec_helper.rb` file:
 
@@ -89,51 +74,69 @@ Bundler.require(:default, :test)
 require File.expand_path('../../config/environment.rb', __FILE__)
 ```
 
-Let's take a second to talk about what those three lines are doing. 
+First this will require the `bundler` gem, then use that gem to require the other gems we have loaded in the `default` and `test` groups in our Gemfile.
 
-### Setup of a Model Spec File
+Finally, we require the `environment.rb` file, which loads up the rest of our application so that we can use it in our tests.
 
-Now, let's create a file for testing our first model, Horse:
+### Create a Model Spec
 
-```
-$ touch spec/models/horse_spec.rb
-```
-
-There are numerous ways to organize a model spec. However, let's work with [this approach](https://jarredtrost.com/how-to-organize-model-specs-82c10a59c24f). Take a few minutes to read the article. 
-
-With a pair: What's the general approach recommended by this article for organizing a model spec? What are the benefits? 
-
-### Testing the `.total_winnings` Class Method
-
-Before we start testing anything, let's delete any model code that already exists so that we can truly mimic a TDD process. Head into `horse.rb` and `jockey.rb` to remove existing methods. (Don't be sad. It's good practice for you. Code isn't valuable anyway.)
-
-Let's write our first model test. In `spec/models/horse_spec.rb`:
+There are many ways we could choose to use RSpec `describe` and `context` blocks to organize our tests, but for our purposes today, we're going to use the following:
 
 ```ruby
-RSpec.describe Horse do
+RSpec.describe Film do
   describe "Class Methods" do
-    describe ".total_winnings" do
-      it "returns total winnings for all horses" do
-        Horse.create(name: "Phil", age: 22, total_winnings: 3)
-        Horse.create(name: "Penelope", age: 24, total_winnings: 4)
+    describe ".total_box_office_sales" do
+      it "returns total box office sales for all films" do
+        Film.create(title: "Fargo", year: 2017, box_office_sales: 3)
+        Film.create(title: "Die Hard", year: 2016, box_office_sales: 4)
 
-        expect(Horse.total_winnings).to eq(7)
+        expect(Film.total_box_office_sales).to eq(7)
       end
     end
   end
 end
 ```
 
-Let's discuss: 
+Let's discuss:
 
-* the dot in `.total_winnings`: check out [this best practice](http://www.betterspecs.org/#describe)
+* the dot in `.total_box_office_sales`: check out [this best practice](http://www.betterspecs.org/#describe)
 * the space between the created horses and the expectation
 
-At this point you should be able to run your tests from the command line using the command `rspec`. 
+At this point you should be able to run your tests from the command line using the command `rspec`.
 
 *Note*: `rspec` will also take some flags to change the output. For a full list run `rspec --help | less`. For example, run `rspec -c -f d` to see how the output differs. If you find yourself consistently using flags you can save them to a `.rspec` file in your home directory. See [this](http://stackoverflow.com/questions/1819614/how-do-i-globally-configure-rspec-to-keep-the-color-and-format-specdoc-o) Stack Overflow answer for additional details.
 
-Did we get what we expected? No? What's going on here? It looks like the total that's being reported by our test is the full total of our all the horses currently in our database.
+### Make it Pass
+
+What do we get? Errors! Great. We can follow errors.
+
+First it indicates that we need to create a method on our model. Let's add that now.
+
+```ruby
+# film.rb
+def self.total_box_office_sales
+
+end
+```
+
+Run our spec and it will tell us that the `total_box_office_sales` method returns `nil`. We need to populate it with something.
+
+ActiveRecord has just what we need:
+
+```ruby
+#film.rb
+def self.total_box_office_sales
+  sum(:box_office_sales)
+end
+```
+
+What's happening here? Well, `sum` is an ActiveRecord method that will sum a particular column of values in our database. How does it know which column? We pass it the column name as a symbol as an argument.
+
+How does it know that we're trying to call this method on our `films` table? The implicit receiver of the `sum` method is `self`, which in this case is the class Film.
+
+Great! Run our tests again, and we still get an error.
+
+What's going on here? It looks like the total that's being reported by our test is the full total of our all the horses currently in our database.
 
 Run it one more time to check. Notice that the actual value that we're getting increased? So, not only are we not testing with only the data we're providing in the test, but on top of that, every time we run the test we're adding new horses to our development database.
 
@@ -157,7 +160,9 @@ One more step and then we should be in good shape. From the command line:
 $ rake db:test:prepare
 ```
 
-This should both create and run the migrations for a test database (you should be able to see the new file in your `db` directory). Now run your test again from the command line using `rspec`. Passing test? Great!
+This should both create and run the migrations for a test database (you should be able to see the new file in your `db` directory).
+
+Now run your test again from the command line using `rspec`. Passing test? Great!
 
 Run the test again. Failing test! Damn.
 
@@ -184,7 +189,7 @@ RSpec.configure do |c|
 end
 ```
 
-Save and run your tests again from the command line. Passing test? Great again!
+Save and run your tests again from the command line. Passing test? Great! Run it one more time to double check? Great again!
 
 ### Testing Validations
 
@@ -194,15 +199,15 @@ Add the following test to your `horse_spec` within the main `describe Horse` blo
 
 ```ruby
 describe "Validations" do
-  it "is invalid without a name" do
-    horse = Horse.new(age: 22, total_winnings: 14)
+  it "is invalid without a title" do
+    film = Film.new(year: 2017, box_office_sales: 2)
 
-    expect(horse).to_not be_valid
+    expect(film).to_not be_valid
   end
 end
 ```
 
-Run your test suite from the command line with `rspec` and look for the new failure. The heart of this error is telling us that it expected `.valid?` to return false when called on our new horse, and instead got true.
+Run your test suite from the command line with `rspec` and look for the new failure. The heart of this error is telling us that it expected `.valid?` to return false when called on our new film, and instead got true.
 
 Great! It seems like this is testing what we want, but how can we actually make this pass?
 
@@ -211,7 +216,7 @@ Great! It seems like this is testing what we want, but how can we actually make 
 ActiveRecord actually helps us out here. Go into the `app/models/horse.rb` model and add the following line:
 
 ```ruby
-  validates :name, presence: true
+  validates :title, presence: true
 ```
 
 Alternatively, you can write this as: `validates_presence_of :name`
@@ -221,17 +226,12 @@ Run your tests again, and... passing. Great news.
 ## Worktime
 
 * In pairs, add the following tests and make each one pass:
-    * a test for an `.average_winnings` class method
-    * a test for an `#age_in_months` instance method that returns the horse's age in months
-    * tests that a horse cannot be created without an age or `total_winnings`
+    * a test for an `.average_box_office_sales` class method
+    * tests that a film cannot be created without a `year` or `box_office_sales`
 
-For these next tests, you'll need a `jockey_spec.rb` file: 
-    * a test for the `.total_winnings` method that ensures that when two jockeys exist, you're able to scope `.total_winnings` down to a single jockey by calling something like `Jockey.first.horses.total_winnings` (hint: you'll need to create your associations in your test, and make sure that `total_winnings` for the second jockey are not included in the `.total_winnings` result)
-    * a test to ensure that the name of each of our Jockeys is `unique`. Write a test that would ensure we can't create two Jockeys with the same name, and then use the ActiveRecord documentation available [here](http://guides.rubyonrails.org/active_record_validations.html#uniqueness) to see what you could do to ensure the `uniqueness` of a new jockey.
+Remember to use your four phases of testing!
 
-Remember to use your four phases of testing! 
+## Finished?
 
-## Finished? 
-
-* Take a look at the [BetterSpecs](http://www.betterspecs.org/) community guidelines. 
+* Take a look at the [BetterSpecs](http://www.betterspecs.org/) community guidelines.
 * Check out the [RSpec Documentation](http://rspec.info/documentation/): For now you'll likely be most interested in the `rspec-core`, and `rspec-expectations` links.
