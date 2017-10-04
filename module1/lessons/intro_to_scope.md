@@ -13,7 +13,10 @@ tags: methods, scopes, arguments, ruby
 
 ## Vocabulary 
 * Scope 
-* Global Scope
+ * Global Scope 
+ * Parent Scope
+ * Inner Scope
+ * Outer Scope
 * Closure
 
 ## Slides
@@ -249,26 +252,27 @@ example. More code!
 
 ```ruby
 new_ingredients = ["banana", "chocolate chips"]
-temperature = 375
+ingredient = "peanut butter"
 action = "bake"
 
 new_ingredients.each do |ingredient|
   action = "mix"
-  puts "#{action} the #{ingredient} at #{temperature} degrees"
+  puts "#{action} the #{ingredient}"
 end
 
 puts action
+puts ingredient
 ```
 
 What happens to our variables each time the block is executed?
 Especially of interest in this example are the `temperature` and `action` variables.
 
-In this case we see that the block variable `temperature` "shadows" the outer variable of the same name within the block. But what happens to `temperature` after the block is done?
+In this case we see that the block variable `ingredient` "shadows" the outer variable of the same name within the block. But what happens to `ingredient` after the block is done?
 
 And what about `action`? How does it change during the execution of the block?
 
 The ability of blocks to refer to surrounding local variables is
-powerful, but it can also be potentially dangerous. We should to pay close attention to what variables we modify within a block to avoid
+powerful, but it can also be potentially dangerous. We should pay close attention to what variables we modify within a block to avoid
 accidentally modifying the wrong thing.
 
 ## Independent Practice 
