@@ -1,81 +1,314 @@
 ---
-layout: page
+title: ActiveRecord Associations in Sinatra
+length: 60
+tags: activerecord, migrations, sinatra
 ---
 
-# ActiveRecord Association Practice
+## Learning Goals
 
-We'll be using this starter [repository](https://github.com/turingschool-examples/sinatra-active-record-skeleton) to work through the following exercises.
+* set up relationships between tables at the database level using foreign keys in migrations
+* set up relationships between tables at the model level using `has_many` and `belongs_to`
+* use rake commands to generate migration files, and migrate the database
+* modify a migration in order to create or modify a table
+* interpret `schema.rb`
 
-## Self-Eval Statements
+## Repository
 
-*   I feel _very_ comfortable creating has_many and belongs_to associations
-*   I feel _very_ comfortable modifying tables and models to accommodate new data
-*   I feel pretty confident that I can make a joins table if I need to
+We'll use the Film File repository available [here](https://github.com/turingschool-examples/film-file).
 
-## Step 1 - Tables
+## Warmup
 
-### Timing
+Describe the relationship between the following entities. Consider the relationship from both sides.
 
-*   Work (20 min)
-*   Group Review (10 min)
-*   Break (5 min)
+* Person and Social Security number
+* Owner and pet
+* Student and module
+* Film and genre
+* Book and author
 
-### Work
+## Lecture
 
-We're going to start building a `BoardGame` tracking application. A `BoardGame` has a `name`, `description`, and `year`. Each board is added by a user, so a user can add many `BoardGames`. Each `BoardGame` will also belong to a `Category` (for example, `family`, `adult`, `card`, etc.). A `Category` simply has a `name`.
+Thus far we've talked about tables in relational databases, but we haven't talked about how to create the relationships between those tables. These relationships actually  exist at two levels: 1) the database, 2) the ActiveRecord model.
 
-Draw the database schema to model this application description. Be sure to follow naming conventions and to put the foreign key in the correct table. When you're done, check with an instructor or your neighbor to ensure you're on the right track.
+### Types of Relationships
 
-*   **Baseline:** A `BoardGame` will belong to one `User` at a time and belong to one `Category` at a time.
-*   **Spicy:** A `BoardGame` can belong to multiple users, and a user can have multiple `board_games`. Also, a `BoardGame` can belong to multiple `categories`, and each `Category` will have multiple associated `board_games`.
+Before we begin talking about how to create relationships at the database level, let's talk about the types of relationships that could potentially exist:
 
-Once your schema looks good, go ahead and create some migrations to setup your database.
+* One-to-One: e.g. person/social security number
+* One-to-Many: e.g. student/module
+* Many-to-Many: e.g. Book/author
 
-## Step 2 - Models
+### One-to-Many/One-to-One
 
-### Timing
+#### Database Level
 
-*   Work (20 min)
-*   Group Review (10 min)
-*   Break (5 min)
+How do we create these relationships at the database level? With a column holding foreign keys. A foreign key is a column in a database holding primary keys for other tables in the database.
 
-### Work
+For example, assume we have tables for students and courses (we're going to use `course` here instead of `module` because module has a specific meaning within Ruby).
 
-What models do you need? How does a model relate to your database?
+Our courses table might hold the following attributes:
 
-Setup your models (don't forget to follow naming conventions!).
+* id
+* title
+* description
 
-*   **Finish Early?:** Write tests
+Meanwhile, our students table might have the following attributes:
 
-## Step 3 - Relationships
+* id
+* first_name
+* last_name
+* course_id
 
-### Timing
+The `module_id` on student indicates that there is a one-to-many relationship between module and student. More specifically, it indicates that a module has many students and a student belongs to a module. How do we know this?
 
-*   Work (10 min)
-*   Group Review (10 min)
-*   Break (5 min)
+Sample courses table:
 
-### Work
+| id | title | description                             |
+|----|-------|-----------------------------------------|
+| 1  | BE M1 | OOP with Ruby                           |
+| 2  | BE M2 | Web Applications with Ruby              |
+| 3  | BE M3 | Professional Rails Applications         |
+| 4  | BE M4 | Client-Side Development with JavaScript |
 
-Given that you have the correct relationship created on the database level, we can now create our relationships on the model level. How does a user relate to a `BoardGame`? How does a `BoardGame` relate to a `Category`? Work through each relationship and add the correct association to the correct model.
+Sample students table:
 
-*   **Spicy:** You'll also want to add validations to ensure that all `Categories` have a `name`, all `BoardGames` have `users` and `categories`.
-*   **Finish Early?:** Write tests
+| id | first_name | last_name | module_id |
+|----|------------|-----------|-----------|
+| 1  | Sal        | Espinosa  | 2         |
+| 2  | Ilana      | Corson    | 2         |
+| 3  | Josh       | Mejia     | 3         |
+| 4  | Casey      | Cumbow    | 4         |
+| 5  | Ali        | Schlereth | 1         |
+| 6  | Victoria   | Vasys     | 1         |
+| 7  | Mike       | Dao       | 1         |
 
-## Step 4 - Does it Work?
+We can use this same pattern to create a one-to-one relationship, though we would need to validate the uniquness of the foreign key (e.g. `module_id`) above.
 
-### Timing
+#### Model Level
 
-*   Work (15 min)
-*   Group Review (10 min)
-*   Break (5 min)
+We need to provide ActiveRecord with some additional information to use these relationships at the model level.
 
-### Work
+In the example above, we would need to add the following line to our Course model:
 
-How do we know if our models and our database tables are associated correctly? Let's hop into `tux`, create some data, and practice calling the methods we've written (our association methods)!
+```ruby
+has_many :students
+```
 
-## Done?
+and the following line to our Student model:
 
-*   If you did the baseline with no joins tables, pair with someone who did the joins table and get one up and running in your code.
-*   What if we wanted a user to be able to review a `BoardGame`? What tables, models, and associations would we need to create to add this review feature?
-*   Read about polymorphic associations [here](http://guides.rubyonrails.org/association_basics.html#polymorphic-associations). They are pretty neat!
+```ruby
+belongs_to :course
+```
+
+Notice that `:course` is singular, and `:students` is plural.
+
+Adding these lines gives us access to additional methods on our models.
+
+```ruby
+Student.find(1).course
+Course.find(3).students
+m2 = Course.find(2)
+m2.students
+
+m4 = Course.find(4)
+jeff = m4.students.create(first_name: "Jeff", last_name: "Casimir")
+
+jorge = Student.create(first_name: "Jorge", last_name: "Tellez")
+m4.students << jorge
+```
+
+## Code Along
+
+Let's add a `genres` table to our `FilmFile` app and then create relationships between the existing movies and their genre.
+
+### Creating the Genres Table
+
+Create a new migration to create the genres table.
+
+```
+$ rake db:create_migration NAME=create_genres
+
+```
+
+Use `ActiveRecord`'s `create_table` method to specify what we want to name this table and what fields it will include.
+
+
+```ruby
+class CreateGenres < ActiveRecord::Migration
+  def change
+    create_table :genres do |t|
+      t.string :name
+
+      t.timestamps null: false
+    end
+  end
+end
+```
+
+Run `rake db:migrate` to run your migrations against the database.
+
+Inspect the `schema.rb` file:
+
+```ruby
+ActiveRecord::Schema.define(version: 20160217022804) do
+
+  create_table "genres", force: :cascade do |t|
+    t.text     "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+end
+```
+
+### Create the Genre Model
+
+Add a `genre` model:
+
+```
+$ touch app/models/genre.rb
+```
+
+Inside of that file:
+
+```ruby
+class Genre < ActiveRecord::Base
+end
+```
+
+We'll add some genres to our database using Tux, an interactive console for your app:
+
+```ruby
+$ tux
+animation = Genre.create(name: "Animation")
+scifi = Genre.create(name: "Sci Fi")
+drama = Genre.create(name: "Drama")
+romance = Genre.create(name: "Romance")
+```
+
+### Genres and Films - How do they relate?
+
+Let's assume that a film belongs to a genre, and a genre has many films. How will we connect these two tables?
+
+If a genre has many films, then we'll add a foreign key on the film.
+
+We'll need to add a `genre_id` column to the `films` table. An individual `Film` will always have a reference to one `Genre` via the `genre_id` field.
+
+Let's add the migration to add a `genre_id` to the `films` table.
+
+```ruby
+$ rake db:create_migration NAME=add_genre_id_to_films
+```
+
+Inside of that file:
+
+```ruby
+class AddGenreIdToFilms < ActiveRecord::Migration
+  def change
+    add_column :films, :genre_id, :integer
+  end
+end
+
+```
+
+Let's migrate: `rake db:migrate` and take a look at `schema.rb`:
+
+```ruby
+ActiveRecord::Schema.define(version: 20160217022905) do
+
+  create_table "films", force: :cascade do |t|
+    t.text     "title"
+    t.integer  "year"
+    t.integer  "box_office_sales"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "genre_id"
+  end
+
+  create_table "genres", force: :cascade do |t|
+    t.string "name"
+  end
+
+end
+```
+
+### Associating the Genre and Film Models
+
+Let's add an `ActiveRecord` association to our `Genre` to describe the relationship between a genre and a film. This will make it easy to find all of a specific Genre's films.
+
+```ruby
+class Genre < ActiveRecord::Base
+  has_many :films
+end
+```
+
+This will allow us to call the method `films` on an instance of `Genre`. Behind the scenes, it will go through the `films` table and find all films where the `genre_id` attribute is the same as the primary key `id` of the genre it's being called on.
+
+Curious about how this is implemented? Check out [this blog post](http://callahanchris.github.io/blog/2014/10/08/behind-the-scenes-of-the-has-many-active-record-association/).
+
+A film has the opposite relationship with a genre. `ActiveRecord` gives us another association method:
+
+```ruby
+class Film < ActiveRecord::Base
+  belongs_to :genre
+end
+```
+
+This will allow us to call `film.genre` and get back the genre object associated with that film. Behind the scenes, this is finding the genre that has the primary key `id` of the `genre_id` column on the `film`.
+
+If you have a `has_many` relationship on a model, it is **not** necessary to have a `belongs_to` on another model.
+
+
+Let's test it out:
+
+```ruby
+$ tux
+animation = Genre.find_by(name: "Animation")
+animation.films
+# returns a collection of associated Film objects
+
+```
+
+Why is our result empty?
+
+We've added a `genre_id` field to each `Film`, but we haven't given that field a value on any of our existing films.
+
+There are a few different ways to associate your data. If both objects are already created, but we want to associate them, we could do the following:
+
+```ruby
+animation.films << Film.find_by(title: "The Lion King")
+...and so on
+```
+
+Another way to do this would be:
+
+```ruby
+Film.find_by(title: "The Lion King").update(genre_id: 1)
+```
+
+The better way to associate data is to do it upon creation:
+
+```ruby
+animation = Genre.find_by(name: "Animation")
+animation.films.create(title: "The Lion King", year: 1994, box_office_sales: 422783777)
+```
+
+This will create a new `Film` record and place whatever animation's `id` is in the `genre_id` field in the film.
+
+### Updating our View
+
+Let's update our `films_index.erb` view to show all the films in each genre:
+
+```erb
+<h1>All Films</h1>
+
+<div id="films">
+  <% @films.each do |film| %>
+    <h3><%= film.title %> (<%= film.year %>)</h3>
+    <p>Genre: <%= film.genre %></p>
+    <p>Gross US Box Office Sales: $<%= film.box_office_sales %></p>
+  <% end %>
+</div>
+```
+
+Run `shotgun` from the command line, then navigate to `localhost:9393/genres`. You should see the films listed along with their respective genre.
