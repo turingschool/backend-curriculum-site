@@ -261,7 +261,7 @@ Answer the following in the context of using Webpack:
 
 ## Additional Resources
 
-[Webpack Docs](https://webpack.js.org/)
-[Awesome Webpack Blog Post](http://code.tutsplus.com/series/introduction-to-webpack--cms-983)
-[Comparing Browserify/Grunt/Gulp/Webpack](https://npmcompare.com/compare/browserify,grunt,gulp,webpack)
-[Another Webpack Tutorial](http://survivejs.com/webpack/developing-with-webpack/getting-started/)
+*   [Webpack Docs](https://webpack.js.org/)
+*   [Awesome Webpack Blog Post](http://code.tutsplus.com/series/introduction-to-webpack--cms-983)
+*   [Comparing Browserify/Grunt/Gulp/Webpack](https://npmcompare.com/compare/browserify,grunt,gulp,webpack)
+*   [Another Webpack Tutorial](http://survivejs.com/webpack/developing-with-webpack/getting-started/)
