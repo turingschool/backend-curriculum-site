@@ -315,4 +315,4 @@ Let's update our `films_index.erb` view to show all the films in each genre:
 </div>
 ```
 
-Run `shotgun` from the command line, then navigate to `localhost:9393/genres`. You should see the films listed along with their respective genre.
+Run `shotgun` from the command line, then navigate to `localhost:9393/films`. You should see the films listed along with their respective genre.
