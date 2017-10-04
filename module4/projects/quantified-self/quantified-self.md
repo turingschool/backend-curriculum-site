@@ -119,9 +119,9 @@ Application implements **all** functionality as defined, but some bugs or strang
 - Meets Expectations
 - Below Expectations
 
-### Testing
+### Documentation
 
-Front-end uses unit tests wherever logic can be separated from interface and network requests.
+Developer provides easy to navigate documentation showing how to setup and contribute to the application.
 
 - Above Expectations
 - Meets Expectations
@@ -130,6 +130,14 @@ Front-end uses unit tests wherever logic can be separated from interface and net
 ### HTML/UI
 
 The team put some effort into styling, and the application is not confusing to use. HTML classes and IDs are kebab case.
+
+- Above Expectations
+- Meets Expectations
+- Below Expectations
+
+### Accessibility
+
+Developer implements code to increase accessibility
 
 - Above Expectations
 - Meets Expectations
