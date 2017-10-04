@@ -82,18 +82,18 @@ Let's model some of the core concepts. In this section, we'll step through using
 As we go, we'll work side-by-side with our physical Array model and with an IRB/Pry session.  
 <!-- Have a student help by demonstrating interaction with manipulatives or on the board.  -->
 
-1. Lay down your large piece of paper and write `data` in large letters. This is the name of your variable holding your collection. How many elements are in your collection so far?
-2. Put the empty `0` cup on the paper. If you now access the value inside `data[0]`, what would you get back?
-3. Store a "blue" bead into the zero cup, the equivalent of maybe `data[0] = "blue"`. What would you expect the answer of `data.count` to be? What does `data.first` return? What about `data.last`?
-4. We can explicitly assign the value of another cup. Add `data[1] = "red"`. That does not change the answer to `data.first`, but does change `data.last`. Why?
-5. The "shovel" operator (`<<`) adds an element to the end of an existing array. Pretend you ran `data << "green"`. How many beads are in the array in total?
-6. It turns out that "shovel" is just syntactic sugar for the method named `push`. Pretend you ran `data.push(nil)`. How does that affect your array? What is the value of `data.count` now?  
-9. You can remove the last element of an array by running `data.pop`. Do that now.  
-9. You can remove the first element of an array by running `data.shift`. Do that now.
-7. Sometimes you want to add an element to the *beginning* of an array. You do that with `data.unshift("purple")`. But wait a minute. You can't add the cup with marker `4` to the beginning of `data`. What do you do?
-8. You can also insert data into a specific location. Say you ran `data.insert(3, "orange")`. How does that change things?
-9. If you run `.shuffle` on an array it creates a copy of the array with the values shuffled in random order. But you only have enough cups for one array. How about you run `data = data.shuffle`?
-10. There's a ton you can do with *enumerable* methods. But the fundamental enumerator is the method `each`. On the side of your paper, write the output for this code: `data.each {|b| puts b }`.
+1. Lay down your large piece of paper and write `colors` in large letters. This is the name of your variable holding your collection. How many elements are in your collection so far?
+2. Put the empty `0` cup on the paper. If you now access the value inside `colors[0]`, what would you get back?
+3. Store a "blue" bead into the zero cup, the equivalent of maybe `colors[0] = "blue"`. What would you expect the answer of `colors.count` to be? What does `colors.first` return? What about `colors.last`?
+4. We can explicitly assign the value of another cup. Add `colors[1] = "red"`. That does not change the answer to `colors.first`, but does change `colors.last`. Why?
+5. The "shovel" operator (`<<`) adds an element to the end of an existing array. Pretend you ran `colors << "green"`. How many beads are in the array in total?
+6. It turns out that "shovel" is just syntactic sugar for the method named `push`. Pretend you ran `colors.push(nil)`. How does that affect your array? What is the value of `colors.count` now?  
+9. You can remove the last element of an array by running `colors.pop`. Do that now.  
+9. You can remove the first element of an array by running `colors.shift`. Do that now.
+7. Sometimes you want to add an element to the *beginning* of an array. You do that with `colors.unshift("purple")`. But wait a minute. You can't add the cup with marker `4` to the beginning of `colors`. What do you do?
+8. You can also insert data into a specific location. Say you ran `colors.insert(3, "orange")`. How does that change things?
+9. If you run `.shuffle` on an array it creates a copy of the array with the values shuffled in random order. But you only have enough cups for one array. How about you run `colors = colors.shuffle`?
+10. There's a ton you can do with *enumerable* methods. But the fundamental enumerator is the method `each`. On the side of your paper, write the output for this code: `colors.each {|b| puts b }`.
 
 Got it? Here are the important concepts you've seen:
 
@@ -114,22 +114,22 @@ For this exercise you'll work in threes.
 * Person `B` is in charge of the physical model
 * Person `C` is in charge of working in IRB (in such a way that the others can see!)
 
-Start with an empty `data` array in both the physical space and IRB.
+Start with an empty `colors` array in both the physical space and IRB.
 
 #### Steps
 
-1. Insert a "blue" bead to index 1 `data[1] = "blue"`
-2. Check the value of index 0 `data[0]`
-3. Check the value of index 1 `data[1]`
-4. Check the count of the array `data.count`
-5. Push a green and a red bead onto the array `data.push("green")` then `data.push("red")`
-6. Pop the last bead off of the array `data.pop`
-7. Remove the first element from the array `data.shift` -- what value will this return to you?
-8. Check the count of the array `data.count`
-9. Insert a red bead at index 1 `data.insert(1, "red")`
-10. Insert an orange bead at index 1 `data.insert(1, "orange")`  
-11. Prepend a purple bead to the front of the array `data.unshift("purple")`
-12. Overwrite the value at index 1 by assigning a yellow bead there `data[1] = "blue"`
+1. Insert a "blue" bead to index 1 `colors[1] = "blue"`
+2. Check the value of index 0 `colors[0]`
+3. Check the value of index 1 `colors[1]`
+4. Check the count of the array `colors.count`
+5. Push a green and a red bead onto the array `colors.push("green")` then `colors.push("red")`
+6. Pop the last bead off of the array `colors.pop`
+7. Remove the first element from the array `colors.shift` -- what value will this return to you?
+8. Check the count of the array `colors.count`
+9. Insert a red bead at index 1 `colors.insert(1, "red")`
+10. Insert an orange bead at index 1 `colors.insert(1, "orange")`  
+11. Prepend a purple bead to the front of the array `colors.unshift("purple")`
+12. Overwrite the value at index 1 by assigning a yellow bead there `colors[1] = "yellow"`
 
 ## Independent Work
 
@@ -141,12 +141,12 @@ Start over with the [arrays section of Ruby in 100 Minutes](http://tutorials.jum
 ## WrapUp
 
 * We say that arrays are "zero-indexed". Why does that make counting and positions somewhat confusing?
-* Why would `array << 7` be useful as opposed to setting a specific index (ie `array[12] = 7`) ?
+* Why would `array << 7` be useful as opposed to setting a specific index (ie `numbers[12] = 7`) ?
 * It's easy to mix up `push` and `pop` or `shift` and `unshift`. Can you come up with a way to keep them straight?
 * Which methods that you've seen here can grow the size of the array? Which
 shrink it?
 * What happens if you try to access a position outside the length of the array
-(like `array[100000]`)?
+(like `numbers[100000]`)?
 * What happens when you call `pop` on an empty array?
 
 
