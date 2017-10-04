@@ -2,7 +2,7 @@
 
 ## Introductions
 
-Sal and Ali will introduce themselves and share their story.
+Instructors will introduce themselves and share their story.
 
 ## Expectations
 
@@ -34,4 +34,4 @@ The best developers ask good questions. How well do you execute [Stack Overflow'
 
 * Room setup:
   * Keep the top of the cubbies clear.
-  * We want to designate input 1 for instructors so it's easy for guest lecturers to get set up. Please avoid changing HDMI inputs.
+  * Please avoid changing HDMI inputs.
