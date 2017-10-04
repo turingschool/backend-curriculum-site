@@ -41,7 +41,7 @@ Let's say you're building a game in JavaScript and you're new to this whole codi
 
 All of these JS files need to be loaded by your browser in a certain order, after the HTML is ready to go, or maybe before, depending on some details.
 
-All of the CSS files need to be applied to your HTML, but not until the SASS compiler has done its job.
+All of the CSS files need to be applied to your HTML, but not until the Sass compiler has done its job.
 
 And don't forget about the images or static asset files - those need to be pulled from the CSS files or maybe from the HTML code and stuck in their appropriate places relative to where the browser will render them.
 
@@ -223,7 +223,25 @@ Then visit `http://localhost:8080`
 
 Make a change to your `alert.js` file and go back to your browser.
 
-### Using package.json Scripts
+### Styling
+
+Webpack also allows you to require styling, like `.css` and `.scss` files the same way you would any other `.js` file. Behind the scenes, it's taking all your CSS and appending it to your HTML at the time the JS file is read in. It's kind of a hack, but it allows you to have just a single `.js` file that loads all your logic and styling in one go.
+
+Try creating a really simple `.scss` file in your `lib` folder, and requiring it in `lib/index.js`. You don't need to assign the return value of require to anything. You just need that require line for Webpack to load it.
+
+### Deployment
+
+Let's look at the [Github Pages section](https://github.com/turingschool-examples/quantified-self-starter-kit#github-pages-setup) of the starter kit README.
+
+## Checks for Understanding
+
+Answer the following in the context of using Webpack:
+
+1. What is your development process? What steps do you need to take before you can start developing?
+2. What is your test process?
+3. What is your deployment process?
+
+### Bonus: Using package.json Scripts
 
 `package.json` makes it easier to run commands. Let's make a few changes so we can keep shortcut some terminal commands.
 
@@ -240,24 +258,6 @@ Make a change to your `alert.js` file and go back to your browser.
 This lets us use the commands `npm start` to fire up webpack-dev-server, `npm run build` to package everything for production, and `npm test` to execute our testing suite.
 
 The `--hot --inline` flags tell npm to watch for any changes and reload automatically.
-
-### Styling
-
-As a quick note, Webpack also allows you to require styling, like `.css` and `.scss` files the same way you would any other `.js` file. Behind the scenes, it's taking all your CSS and appending it to your HTML at the time the JS file is read in. It's kind of a hack, but it allows you to have just a single `.js` file that loads all your logic and styling in one go.
-
-Try creating a really simple `.scss` file in your `lib` folder, and requiring it in `lib/index.js`. You don't need to assign the return value of require to anything. You just need that require line for Webpack to load it.
-
-### Deployment
-
-Let's look at the [Github Pages section](https://github.com/turingschool-examples/quantified-self-starter-kit#github-pages-setup) of the starter kit README.
-
-## Checks for Understanding
-
-Answer the following in the context of using Webpack:
-
-1. What is your development process? What steps do you need to take before you can start developing?
-2. What is your test process?
-3. What is your deployment process?
 
 ## Additional Resources
 
