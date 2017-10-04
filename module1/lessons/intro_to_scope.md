@@ -11,6 +11,14 @@ tags: methods, scopes, arguments, ruby
 * Identify benefits of scope
 * Predict how variables will behave when multiple scopes are involved
 
+## Vocabulary 
+* Scope 
+ * Global Scope 
+ * Parent Scope
+ * Inner Scope
+ * Outer Scope
+* Closure
+
 ## Slides
 
 Available [here](../slides/intro_to_scope)
@@ -46,7 +54,7 @@ puts x
 
 ## Lesson
 
-Variable scope is what controls what you have access to where. Scope is the kind of thing that you think you don't need to know until it starts causing you trouble. Even then, it is generally unnecessary to the rules of how scope works in Ruby. It's more important that when you see unexpected behavior that scope of your variables/method names is one of the things on your list to check.
+Variable scope is what controls what you have access to where. Scope is the kind of thing that you think you don't need to know until it starts causing you trouble. Even then, it is generally unnecessary to know the rules of how scope works in Ruby. It's more important that when you see unexpected behavior, that scope of your variables/method names is one of the things on your list to check.
 
 ### Global scope
 
@@ -75,9 +83,7 @@ expect to see. Then run the file (`ruby global_scope.rb`) and see if
 your expectations were correct.
 
 In this trivial example `x` is functioning as a local variable. So far
-we have not added any methods, classes, blocks, or other structures that
-would create additional scopes, so we might say that `x` is currently
-defined in the "global" or top-level scope.
+we have not added any methods, classes, blocks, or other structures that would create additional scopes, so we might say that `x` is currently defined in the "global" or top-level scope.
 
 __Methods in Global Scope__
 
@@ -99,8 +105,7 @@ Let's add some lines to the bottom of `global_scope.rb`:
 
 Again, consider what you expect this code to do, and then run it.
 
-So far so good — we can probably guess pretty easily how this example will
-behave.
+So far so good — we can probably guess pretty easily how this example will behave.
 
 Let's add another example using the new `print_doubled_value` method:
 
@@ -109,27 +114,21 @@ Let's add another example using the new `print_doubled_value` method:
   print_doubled_value(y)
 ```
 
-Does this code behave as you expect? Consider the 2 uses of the variable
-`x` in our current example — we have a variable called `x` in the top
-level scope which begins as `10` and is then incremented to `30`.
+Does this code behave as you expect? Consider the 2 uses of the variable `x` in our current example — we have a variable called `x` in the top level scope which begins as `10` and is then incremented to `30`.
 
-But inside of the `print_doubled_value` method, we see another usage of `x`,
-this one apparently changing each time the method is called.
+But inside of the `print_doubled_value` method, we see another usage of `x`, this one apparently changing each time the method is called.
 
 This illustrates one of the important behaviors of methods in ruby --
 they create new scopes with an independent set of variables from
 whatever scope surrounds the method.
 
 In this case the `x` which appears in the definition of our method
-(`def print_doubled_value(x)`) is an __argument__ to the method,
+(`def print_doubled_value(x)`) is a __parameter__ of the method,
 and as such it becomes a new local variable available within the
 scope of the method.
 
-To get fancy, we might say that the variable `x` is _bound_ by the
-method `print_doubled_value` -- other definitions of variables named `x`
-may exist, but within `print_doubled_value` they are irrelevant, since
-the method's own definition of this variable supersedes any other
-definitions.
+To get fancy, we might say that the variable `x` is __bound__ by the
+method `print_doubled_value` -- other definitions of variables named `x` may exist, but within `print_doubled_value` they are irrelevant, since the method's own definition of this variable supersedes any other definitions.
 
 Enough theory, let's look at another example. Redefine
 `print_doubled_value` and call it like so:
@@ -157,10 +156,10 @@ We can see from this example that modifying the value of `x` inside of
 the method has no effect on the value of `x` outside of the method.
 
 This behavior holds true even when (as in this example) the outer
-variable and the inner (method) variable _have the same name_!
+variable and the inner (local) variable _have the same name_!
 
 The method's variable of the name `x` is completely independent of the
-global scope's method of the name `x`, so any modifications we make
+global scope's variable of the name `x`, so any modifications we make
 within the method have no effect on the outer variable.
 
 Let's consider another example. Add a new `combine_variables` method to
@@ -198,31 +197,27 @@ Not only do they have independent versions of any variables that might
 have existed in their parent scope, but they can't even access other
 variables from the parent scope.
 
-This can be a common source of confusion when you're new to ruby so make
-a note: method's __can't__ access local variables in their parent scope.
+This can be a common source of confusion when you're new to Ruby so make a note: method's __can't__ access local variables in their parent scope.
 
 ### Blocks
 
-We saw earlier that methods create new scopes which lack the ability to
-reference local variables in their parent scope. But methods aren't the
-only things that can create scopes.
+We saw earlier that methods create new scopes which lack the ability to reference local variables in their parent scope. But methods aren't the only things that can create scopes.
 
-Another common way that we create new scopes in ruby is by using blocks.
-You've seen blocks many times by now, especially when using enumerables:
+Another common way that we create new scopes in Ruby is by using blocks. You've seen blocks many times by now, especially when using enumerables:
 
 ```ruby
-[1,2,3].each { |num| puts "num is #{num}" }
+[1,2,3].each do |num| 
+  puts "num is #{num}" 
+end
 num is 1
 num is 2
 num is 3
 => [1,2,3]
 ```
 
-Note that the `num` block variable functions very similarly to a method
-argument — each time the block is executed, a new value will be supplied
-for `num`
+Note that the `num` block variable functions very similarly to a method argument — each time the block is executed, a new value will be supplied for `num`
 
-Do blocks have the same behavior when it comes to scopes and arguments?
+Do blocks have the same behavior when it comes to scopes and arguments?  
 Let's find out. Add some more code to the bottom of our `global_scopes.rb` file:
 
 (this file is starting to get a bit messy, but such is the price of
@@ -230,26 +225,23 @@ learning)
 
 ```ruby
 ingredients = ["flour", "water", "yeast", "salt"]
-method = "measure"
+action = "measure"
 
 def unit
   ["teaspoon", "cup", "pinch"].sample
 end
 
 ingredients.each do |ingredient|
-  puts "#{method} one #{unit} #{ingredient}"
+  puts "#{action} one #{unit} #{ingredient}"
 end
 ```
+**Turn & Talk**
+There are quite a few pieces in play here — 2 local variables, a method, and a block variable! Find each of these. What output do you think it will produce?
 
-There are quite a few pieces in play here — 2 local variables, a method,
-and a block variable! What output do you think it will produce?
-
-Holy cavorting closures batman! Unlike the method example we saw before,
-which blew up when trying to refer to an adjacent local variable, this
-code works just fine.
+Holy cavorting closures batman! Unlike the method example we saw before, which blew up when trying to refer to an adjacent local variable, this code works just fine.
 
 This is due to the ability of blocks to create what is called a
-"closure." Unlike a method scope, which captures its arguments but
+__closure__. Unlike a method scope, which captures its arguments but
 ignores surrounding local variables, a closure "closes over" those
 variables and allows them to be referenced from the inner scope.
 
@@ -260,38 +252,34 @@ example. More code!
 
 ```ruby
 new_ingredients = ["banana", "chocolate chips"]
-temperature = 375
-method = "bake"
+ingredient = "peanut butter"
+action = "bake"
 
 new_ingredients.each do |ingredient|
-  method = "mix"
-  puts "#{method} the #{ingredient} at #{temperature} degrees"
+  action = "mix"
+  puts "#{action} the #{ingredient}"
 end
 
-puts method
+puts action
+puts ingredient
 ```
 
 What happens to our variables each time the block is executed?
-Especially of interest in this example are the `temperature` and `method`
-variables.
+Especially of interest in this example are the `temperature` and `action` variables.
 
-In this case we see that the block variable `temperature` "shadows" the
-outer variable of the same name within the block. But what happens to
-`temperature` after the block is done?
+In this case we see that the block variable `ingredient` "shadows" the outer variable of the same name within the block. But what happens to `ingredient` after the block is done?
 
-And what about `method`? How does it change during the execution of the
-block?
+And what about `action`? How does it change during the execution of the block?
 
 The ability of blocks to refer to surrounding local variables is
-powerful, but it can also be potentially dangerous. We should to pay close
-attention to what variables we modify within a block to avoid
+powerful, but it can also be potentially dangerous. We should pay close attention to what variables we modify within a block to avoid
 accidentally modifying the wrong thing.
 
 ## Independent Practice 
 ![Scope Playground](https://docs.google.com/drawings/d/e/2PACX-1vRH4j8dzxyHxgLgOQ2x6JSOuEQb32cMKZvuQRMjbLPrXAM9lx47qVrdL7ddPnI11hhZsr3vnQKZfyfa/pub?w=954&h=770) 
 
 Make a T-chart for each method.   
-What does it have access to? What does it not have access to?   
+What variables/methods does it have access to? What does it not have access to?   
 Turn to a neighbor and explain why or why not.   
 
 ## Summary
