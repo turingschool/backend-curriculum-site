@@ -287,6 +287,44 @@ _NOTE_: All revenues should be reported as a float with two decimal places.
 
 * `GET /api/v1/customers/:id/favorite_merchant` returns a merchant where the customer has conducted the most successful transactions
 
+## Code Expectations
+
+### Controller Actions
+
+It's expected that you limit your controller actions to only the standard Rails actions.
+For endpoints such as `GET /api/v1/merchants/find?parameters` the initial thought might be to do something like this:
+
+```
+module Api
+  module V1
+    class MerchantsController
+      # code omitted
+      def find
+        # code omitted
+      end
+    end
+  end
+end
+```
+
+This approach can lead to large controllers. For more info on the reasons why, check out this [blog post](http://jeromedalbert.com/how-dhh-organizes-his-rails-controllers/).
+
+Instead try something like this which adheres to the above approach of only using RESTful actions:
+
+```
+module Api
+  module V1
+    module Merchants
+      class SearchController
+        def show
+          # code omitted
+        end
+      end
+    end
+  end
+end
+```
+
 ## Milestones & Feedback
 
 #### Milestones
@@ -297,7 +335,7 @@ There is an Advanced ActiveRecord class scheduled for Wednesday. We *highly* enc
 
 #### What to expect from instructors
 
-There will not be formal check-ins for this projects. Instructors will generally be available during scheduled work time to discuss issues absent other commitments. Students should also view this as an opportunity to practice discussing code on GitHub, and instructors will prefer reviewing PRs to discussing code on Slack.
+There will not be formal check-ins for this project. Instructors will generally be available during scheduled work time to discuss issues absent other commitments. Students should also view this as an opportunity to practice discussing code on GitHub, and instructors will prefer reviewing PRs to discussing code on Slack.
 
 In their reviews, instructors will go over whatever technical, planning or other challenges you're having. They also may give you feedback, or suggest a different path than the one you're on.
 
