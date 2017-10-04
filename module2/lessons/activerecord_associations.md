@@ -12,6 +12,10 @@ tags: activerecord, migrations, sinatra
 * modify a migration in order to create or modify a table
 * interpret `schema.rb`
 
+## Slides
+
+Available [here](../slides/activerecord_associations)
+
 ## Repository
 
 We'll use the Film File repository available [here](https://github.com/turingschool-examples/film-file).
