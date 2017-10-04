@@ -137,7 +137,7 @@ The team put some effort into styling, and the application is not confusing to u
 
 ### Accessibility
 
-Developer implements code to increase accessibility
+Developer implements code to increase accessibility.
 
 - Above Expectations
 - Meets Expectations
@@ -161,7 +161,7 @@ The team uses master for production, uses feature branches for small groups of c
 
 ### Project Management
 
-The team is using a project management tool to keep their project organized and to track progress. 
+The team is using a project management tool to keep their project organized and to track progress. Team is documenting conclusions and timelines on relevant cards.
 
 - Above Expectations
 - Meets Expectations
