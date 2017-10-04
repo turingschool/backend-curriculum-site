@@ -279,7 +279,7 @@ accidentally modifying the wrong thing.
 ![Scope Playground](https://docs.google.com/drawings/d/e/2PACX-1vRH4j8dzxyHxgLgOQ2x6JSOuEQb32cMKZvuQRMjbLPrXAM9lx47qVrdL7ddPnI11hhZsr3vnQKZfyfa/pub?w=954&h=770) 
 
 Make a T-chart for each method.   
-What does it have access to? What does it not have access to?   
+What variables/methods does it have access to? What does it not have access to?   
 Turn to a neighbor and explain why or why not.   
 
 ## Summary
