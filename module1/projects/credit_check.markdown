@@ -119,8 +119,11 @@ The project will be assessed with the following guidelines:
 Expectations: 
 
 [ ] Naming follows convention (is idiomatic)
+
 [ ] Ruby methods used are logical and readable
+
 [ ] Code is indented properly
+
 [ ] Code does not exceed 80 characters per line
 
 ### 2. Breaking Logic into Components
@@ -128,6 +131,7 @@ Expectations:
 Expectations: 
 
 [ ] Code is effectively broken into methods & classes
+
 [ ] May break the principle of SRP
 
 ### 3. Functionality

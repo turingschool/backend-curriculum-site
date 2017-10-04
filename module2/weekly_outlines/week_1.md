@@ -31,7 +31,7 @@ layout: page
 
 * **LESSONS:**
   - [Passing Data with Sinatra](../lessons/passing_data_with_sinatra)
-  - Intermediate ActiveRecord
+  - [ActiveRecord Associations](../lessons/activerecord_associations)
   - [Intro to CSS](../lessons/intro_to_css)
 
 ### Day 4:

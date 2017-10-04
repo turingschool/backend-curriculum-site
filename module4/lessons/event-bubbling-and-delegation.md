@@ -36,14 +36,13 @@ Now we've talked about the very basics of events, let's turn our attention to ev
 
 In the following code pen, we have three nested HTML elements in `index.html`:
 
-<p data-height="300" data-theme-id="23788" data-slug-hash="ZOvkVo" data-default-tab="html,result" data-user="turing" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/team/turing/pen/ZOvkVo/">Event Bubbling Example</a> by Turing School of Software and Design (<a href="http://codepen.io/turing">@turing</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+<p data-height="265" data-theme-id="0" data-slug-hash="mBqbJm" data-default-tab="css,result" data-user="case-eee" data-embed-version="2" data-pen-title="Event Bubbling" class="codepen">See the Pen <a href="https://codepen.io/case-eee/pen/mBqbJm/">Event Bubbling</a> by Casey Ann Cumbow (<a href="https://codepen.io/case-eee">@case-eee</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 
 ### Pair Practice
 
 Visit the [this page][codepen] and fork the CodePen.
 
-[codepen]: http://codepen.io/team/turing/pen/ZOvkVo
+[codepen]: https://codepen.io/case-eee/pen/mBqbJm
 
 *   Add a click event to the button, that logs the element that was clicked on using `this`.
 *   Move the event listener to the `.parent` element. What is the result when you click on the button?
@@ -60,15 +59,15 @@ When an event occurs, the browser checks the element to see if there are any eve
 Try out the following code in your forked CodePen:
 
 ```js
-  document.querySelector('.grandparent').addEventListener('click', function (event) {
+  $('.grandparent').on('click', function (event) {
     console.log('Grandparent');
   });
 
-  document.querySelector('.parent').addEventListener('click', function (event) {
+  $('.parent').on('click', function (event) {
     console.log('Parent');
   });
 
-  document.querySelector('#click-me').addEventListener('click', function (event) {
+  $('#click-me').on('click', function (event) {
     console.log('Button');
   });
 ```
@@ -77,7 +76,7 @@ If you click on the button, you'll see that the events all bubble up through the
 
 ### The Event Object
 
-The anonymous function passed to `document.addEventListener()` takes an optional argument, which it assigns an `Event` object to. In the case of the click event we've been using as an example, this is a `MouseEvent`. You can visit [the MDN page for `Event`](https://developer.mozilla.org/en-US/docs/Web/API/Event) to explore the full list of supported event types.
+The anonymous function passed to `$(selector).on('click', function(){})` takes an optional argument, which it assigns an `Event` object to. In the case of the click event we've been using as an example, this is a `MouseEvent`. You can visit [the MDN page for `Event`](https://developer.mozilla.org/en-US/docs/Web/API/Event) to explore the full list of supported event types.
 
 Each type of event supports a number of different properties. `MouseEvent` has information about the `x` and `y` coordinates where the mouse was clicked. `KeyboardEvent` has information about which key was pressed. The `target` and `currentTarget` properties on the `Event` object can be useful during the event bubbling phase.
 
@@ -96,8 +95,7 @@ would be the `div`.
 
 ```js
 // scripts.js
-document.querySelector(".container")
-  .addEventListener("click", function (event) {
+$(".container").on("click", function (event) {
     console.log(event.currentTarget) // With only one event listener registered,
       // this will always be the div.container node
 
@@ -111,17 +109,17 @@ document.querySelector(".container")
 Let's make some changes to the code from earlier. Instead of logging a description of each element where an event was triggered, either by a click or through event bubbling, let's log the `target` and `currentTarget` of the event.
 
 ```js
-document.querySelector('.grandparent').addEventListener('click', function (event) {
+$('.grandparent').on('click', function (event) {
   console.log("target", event.target);
   console.log("currentTarget", event.currentTarget);
 });
 
-document.querySelector('.parent').addEventListener('click', function (event) {
+$('.parent').on('click', function (event) {
   console.log("target", event.target);
   console.log("currentTarget", event.currentTarget);
 });
 
-document.querySelector('#click-me').addEventListener('click', function (event) {
+$('#click-me').on('click', function (event) {
   console.log("target", event.target);
   console.log("currentTarget", event.currentTarget);
 });
@@ -135,8 +133,7 @@ Just because we are in JavaScriptopolis doesn't mean we have to write WET ("Woo!
 const selectors = [".grandparent", ".parent", "#click-me"]
 
 selectors.forEach(function (selector) {
-  document.querySelector(selector)
-    .addEventListener("click", function (event) {
+  $(selector).on("click", function (event) {
       console.log("target", event.target)
       console.log("currentTarget", event.currentTarget)
     })
@@ -152,8 +149,7 @@ selectors.forEach(listenForClick)
 
 function listenForClick (selector) {
   const targets = ["target", "currentTarget"]
-  document.querySelector(selector)
-    .addEventListener("click", logger(targets))
+  $(selector).on("click", logger(targets))
 }
 
 function logger (targets) {
@@ -215,7 +211,7 @@ From the jQuery documentation: "Event delegation refers to the process of using 
 
 Event delegation in tandem with `target` and `currentTarget` allows you to have more articulate control over what events actually execute your JavaScript.
 
-Enough with the Bubbles
+Extra: Enough with the Bubbles
 -
 
 You have already come across `event.preventDefault()`, which does exactly what its name implies.
@@ -235,14 +231,14 @@ This is helpful if a parent and child both have listeners, but should be execute
 Coming back to this generic logging example, what happens if you stop propagation after the `console.log()` line?
 
 ```js
+
 const selectors = [".grandparent", ".parent", "#click-me"]
 
 selectors.forEach(listenForClick)
 
 function listenForClick (selector) {
   const targets = ["target", "currentTarget"]
-  document.querySelector(selector)
-    .addEventListener("click", logger(targets))
+  $(selector).on("click", logger(targets))
 }
 
 function logger (targets) {
@@ -263,7 +259,6 @@ Fork the CodePen from above and write a click event handler that responds to (an
 
 * When an element is bound to an event listener, what besides that element can trigger the event?
 * How does this relate to "event bubbling"?
-* What special object do we have access to when dealing with UI interactions?
-  * What are three useful properties on that object?
+* When do we want to utilize event delegation?
 * What is the difference between `target` and `currentTarget`?
 

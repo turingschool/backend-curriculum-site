@@ -13,8 +13,10 @@ tags: ruby, classes, objects
 
 ## Schedule
 * 5min - WarmUp
-* 20min - Organizing Methods with Classes
-* Behavior & State 
+* 15min - Organizing Methods with Classes
+* 5min - Break
+* 15min - Behavior & State 
+* 10min - Independent Practice
 * 5min - WrapUp
 
 ## Vocabulary
