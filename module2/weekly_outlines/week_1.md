@@ -25,19 +25,19 @@ layout: page
 * **LESSONS:**
   - [Intro to ActiveRecord in Sinatra](../lessons/intro_to_active_record_in_sinatra)
   - [Model Testing in Sinatra](../lessons/model_testing_in_sinatra)
-  - Intro to HTML
+  - [Intro to HTML](../lessons/intro_to_html)
 
 ### Day 3:
 
 * **LESSONS:**
   - [Passing Data with Sinatra](../lessons/passing_data_with_sinatra)
   - [ActiveRecord Associations](../lessons/activerecord_associations)
-  - Intro to CSS
+  - [Intro to CSS](../lessons/intro_to_css)
 
 ### Day 4:
 
 * **LESSONS:**
-  - Advanced CSS Selectors
+  - [Advanced CSS Selectors](../lessons/advanced_css)
   - [Feature Testing in Sinatra](../lessons/feature_testing_in_sinatra)
 
 * **HOMEWORK:**

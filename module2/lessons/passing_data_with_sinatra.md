@@ -4,6 +4,11 @@ length: 60
 tags: parameters, sinatra
 ---
 
+## Learning Goals
+
+* Practice accessing query string parameters in a controller.
+* Practice accessing form parameters in a controller.
+
 ## Passing Data with Sinatra
 
 Yesterday, we talked about three ways to pass data in Sinatra. Now you'll get to test your skills with two of them.
@@ -12,10 +17,50 @@ In this workshop, you'll practice passing data between a client and a Sinatra se
 
 Remember, there are a few different ways to pass data: through the query string parameters in the URL, through dynamic parameters in the URL, and through forms. We'll be focus on passing data via query params and via forms.
 
-## Learning Goals
+## Review from Films
 
-* Practice accessing query string parameters in a controller.
-* Practice accessing form parameters in a controller.
+### Query String Parameters
+
+  - In the films repo, create a route to get the first film populated on the page `/films/1`.
+
+  ```ruby
+  get '/films/1' do
+    @films = Film.all
+    erb :films_index
+  end
+  ```
+  - Let's talk about how to make this dynamic.
+
+## Instance Variables, Local Variables, and the View
+
+### Experiment: Locals vs. Instance Variables
+
+Try this out:
+
+1) Go to your controller, and change your `get '/tasks' do...` route to say this:
+
+```ruby
+get '/films' do
+  films = Film.all
+  erb :film_index, :locals => { :films => films }
+end
+```
+
+2) Go to your `index.erb` view and remove the `@` from `@tasks`. It should now just say `tasks.each do...`. Does it work? Can you think of pros and cons for this versus the way we originally had it?
+
+### Notes: Locals vs. Instance Variables
+
+With Sinatra, we're allowed to pass variables to rendered views with the `:locals` option. This is handy, but adds more overhead than is necessary.
+
+Sinatra allows us to access instance variables defined in a particular route within that route's corresponding rendered view. Not only does this save us a little bit of code to write, this is very in line with how things work in Rails! For that reason alone, let's get into this habit, rather than use `:locals`.
+
+To test out how well you understand what pieces were affected by our changes, go ahead and switch back to using the instance variable instead of the locals hash.
+
+### From Forms/Inputs
+
+  - Getting input from a form.
+  - Lets create a route for a new film.
+  - Getting params and using pry.
 
 ## Setup
 
