@@ -57,13 +57,14 @@ Attach each tag to a bead.
 * What are some of the properties of an array? How do they behave?  
 
 ## Data Structures, Collections, and Programming  
-In Pairs, post answers to Slack thread:
+In pairs, post answers to Slack thread:
 * What is a "Data Structure"?  
   A data structure is a particular way of organizing information so that it can be used efficiently
 * Why are Arrays so ubiquitous?
+  Arrays are the most fundamental collection type in programming — just about every language has them. They are the most efficient data structure for **storing & accessing a sequence of objects** and can be easily sorted and searched.
 * What does an Array model conceptually?  
 * What are some of the properties of an array?  
-  Arrays are the most fundamental collection type in programming. Just about every language has them. Arrays are collections of data where each element is addressed by a number called the index or position.
+   Arrays are collections of data; each element in an array is addressed by a number called the index or position, starting with 0 (zero-indexed). All arrays have a size (length/count). Array elements are stored in subsequent memory locations. Ruby arrays can hold elements that have different data types. 
 
 ### Arrays - Group Exercise
 
@@ -79,7 +80,7 @@ Let's model some of the core concepts. In this section, we'll step through using
 * `shuffle`
 
 As we go, we'll work side-by-side with our physical Array model and with an IRB/Pry session.  
-Have a student help by demonstrating interaction with manipulatives or on the board. 
+<!-- Have a student help by demonstrating interaction with manipulatives or on the board.  -->
 
 1. Lay down your large piece of paper and write `data` in large letters. This is the name of your variable holding your collection. How many elements are in your collection so far?
 2. Put the empty `0` cup on the paper. If you now access the value inside `data[0]`, what would you get back?
@@ -132,16 +133,12 @@ Start with an empty `data` array in both the physical space and IRB.
 
 ## Independent Work
 
-You can continue to sit in your threes to work independently and ask each other questions / compare answers:
-
 ### From the Top
 
 Start over with the [arrays section of Ruby in 100 Minutes](http://tutorials.jumpstartlab.com/projects/ruby_in_100_minutes.html#7.-arrays). Make sure to run the code snippets.  
 
 
 ## WrapUp
-
-Here are some questions to check your understanding of arrays:
 
 * We say that arrays are "zero-indexed". Why does that make counting and positions somewhat confusing?
 * Why would `array << 7` be useful as opposed to setting a specific index (ie `array[12] = 7`) ?
