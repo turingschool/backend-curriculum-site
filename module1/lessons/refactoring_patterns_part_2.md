@@ -19,6 +19,12 @@ tags: ruby, refactoring, tdd
 15min - Station Session 3  
 5min - WrapUp  
 
+## Vocabulary 
+* Refactoring 
+* Move Method
+* Extract Class
+* Hide Delegate
+
 ## WarmUp 
 
 * How have you already implemented refactoring strategies in your code?
