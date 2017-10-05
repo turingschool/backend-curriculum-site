@@ -152,6 +152,13 @@ We're going to use our new debugger to explore `.each` with the challenges below
 
 ***
 
+### Important Commands for Pry Sessions 
+
+* To fully exit any pry session, enter `!!!`, `exit!`, or type `ctrl-\`
+* During runtime invocation:
+  * To proceed to the next pry (within your loop or not), enter `exit` (this will exit your pry session if you were on the last pry)
+  * If your pry session is too large for your CLI (e.g. it will show `:` on the bottom instead of `[1] pry(#<ClassName>)>`), type `q`
+
 ## Exercises
 
 Work through the following using `Pry`. We'll start with the first two together.
