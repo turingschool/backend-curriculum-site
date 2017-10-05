@@ -17,6 +17,12 @@ length: 90
 
 [Slides](../slides/testing_strategies)
 
+## Vocabulary 
+* unit tests
+* integration tests
+* feature tests
+* acceptance tests
+
 ## Lecture 1
 
 ### Introduction
