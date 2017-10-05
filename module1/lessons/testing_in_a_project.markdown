@@ -24,6 +24,7 @@ tags: ruby, testing, tdd
 ## Vocabulary  
 
 * TDD
+* Assertion methods
 
 ## Warm Up
 
