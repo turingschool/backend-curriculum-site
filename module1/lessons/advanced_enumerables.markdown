@@ -9,9 +9,16 @@ tags: enumerables, ruby, zip, group_by, reduce
 * Be able to explain the difference between the Enumerable module and Enumerator class
 * Understand when and how to use `zip`, `group_by`, and `reduce`/`inject` appropriately
 
+## Vocabulary 
+* Enumerable
+* Enumerator
+* zip
+* group_by
+* reduce
+
 ## Hook
 
-We've looked at a number of enumerables in the past, quite a lot of them, and today we are going to look at some of the tougher enumerables, and we can also look at how we can chain them.
+We've looked at a number of enumerables in the past, quite a lot of them, and today we are going to look at some of the tougher enumerables, and how we can chain them.
 
 ## Warm Up  
 * Make a chart of all the enumerables you know at this point, what they do, and what they return  
@@ -193,7 +200,8 @@ Summing is easy, but we can also use `reduce` to build other things.
 
 ## WrapUp  
 
-What do zip, group_by, and reduce do?  What are the gotchas for each?  
+* What do zip, group_by, and reduce do?  What are the gotchas for each?  
+* What is the difference between the Enumerable Module and Enumerator Class?
 
 ## Additional Reading
 
