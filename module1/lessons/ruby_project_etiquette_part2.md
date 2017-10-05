@@ -1,6 +1,8 @@
 ---
-layout: page
 title: Project Etiquette Part 2
+layout: page
+length: 60min
+tags: ruby
 ---
 
 ## Ruby Project Etiquette: Gemfiles & Bundler
@@ -9,6 +11,12 @@ In this session we're going to go over some common best practices for organizing
 
 * How to build a gemfile and why you'd want to
 * What `$LOAD_PATH` is and how it helps you
+
+
+## Vocabulary 
+* Gem
+* Gemfile
+* $LOAD_PATH
 
 ## Warmup
 
