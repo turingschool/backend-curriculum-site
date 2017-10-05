@@ -6,9 +6,9 @@
 
 # Warmup
 
-* What are we testing so far in our Horses app?
+* What are we testing so far in our FilmFile app?
 * What aren't we testing?
-* Remember your integration testing from M1? What might an integration test for a website try to test?
+* Assuming that our tests will have some setup, executation, assertions, and teardown, what might be included in each phase?
 
 ---
 
@@ -55,8 +55,8 @@
 
 # Create User Stories
 
-* Adding a Horse to HorsesApp
-* Viewing only the Horses associated with a specific Jockey
+* Adding a Film to FilmFile
+* Viewing only the Films associated with a specific Genre
 * Signing up for a new account
 * Logging into an account
 
@@ -85,14 +85,14 @@ Highlighted item are intended to change based on the actual example.
 # In Code
 
 ```ruby
-describe "When a user visits a horses show page" do
-  it "they should see information about the horse" do
-    horse = Horse.create(name: "Justin")
+describe "When a user visits a film show page" do
+  it "they should see information about the film" do
+    film = Film.create(title: "Fargo", year: 2017, box_office_sales: 4)
 
-    visit "/horses/#{horse.id}"
+    visit "/films/#{film.id}"
 
     within "#description" do
-      expect(page).to have_content("Justin")
+      expect(page).to have_content("Fargo")
     end
   end
 end
@@ -137,9 +137,9 @@ On your own or with a partner:
 
 ## Write Feature Tests For:
 
-* The process of creating a Horse
-* That all horses are displayed on the Horse index
-* That a Jockey's total winnings are displayed on their page
+* The process of creating a Film
+* That all films are displayed on the Film index
+* That a Genre's total winnings are displayed on their page
 
 ---
 
