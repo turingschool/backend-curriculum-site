@@ -15,6 +15,9 @@ tags: ruby, testing, fixtures, test helper
 
 Slides [here](../slides/fixtures)
 
+## Vocabulary 
+* Test Fixture 
+
 ## Warmup
 
 * What makes testing easy?
