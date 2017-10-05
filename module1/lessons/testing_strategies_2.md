@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Testing Strategies and Encapsulation
-tags: basics, testing, encapsulation
+title: Testing Strategies
+tags: basics, testing
 length: 90
 ---
 
