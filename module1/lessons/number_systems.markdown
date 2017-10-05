@@ -8,11 +8,19 @@ tags: computer science, binary, fundamentals
 ## Learning Goals 
 * identify common number systems used in programming
 
+## Vocabulary 
+* Binary
+* Hexadecimal
+* Base-#
 
+## WarmUp
+* Deconstruct the number 134. What does the 1 mean? What does the 3 mean? What does the 4 mean? 
+* What is the significance of increasing the digits in a number? Why do we go from single digit at 9 to double digit at 10?
+
+## Introduction
 Do you know how to count?
 
-There's more than one way of counting. You're most familiar with the base-10
-number system. In this session we'll work to:
+There's more than one way of counting. You're most familiar with the base-10 number system. In this session we'll work to:
 
 * better understand base-10 (decimal)
 * explain and explore base-2 (binary)
@@ -122,4 +130,4 @@ Experiment with these methods to see if you can accomplish all the conversions f
 * For each number system, add a "counting from" section. Like for hex: "Starting with `7A8` and count (decimal) 12 places. What do you get?"
 * Explain what materials are needed (viewers and strips)
 * Write the protocol for how to move between three stations with decending time: 20min, 15min, 12min? 22/18/15?
-* Add a few challenges/extensions within the individual pieces, like to binary ask the question "What would it be like to count to decimal 10 in Base-3?"
+* Add a few challenges/extensions within the individual pieces, like to binary ask the question "What would it be like to count to decimal 10 in Base-2?"
