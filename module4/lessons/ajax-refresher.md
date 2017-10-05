@@ -27,7 +27,7 @@ $.ajax({
 })
 // if successful, request is handled by `.then`
 // JSON response, here named `posts`, is passed to anonymous function
-.done(function(posts){
+.then(function(posts){
   // we're within this block if things went well,
   // so do something with the data!
 })
@@ -112,7 +112,7 @@ $('form').on('submit', function(event){
 })
 ```
 
-We can refactor that so our event bindings live together, our AJAX calls live together, and our AJAX handlers live togheter.
+We can refactor that so our event bindings live together, our AJAX calls live together, and our AJAX handlers live together.
 
 ```js
 // event bindings live nicely as one liners

@@ -1,5 +1,3 @@
-
-
 ---
 title: project review
 length: 60min
