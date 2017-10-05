@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Refactoring Patterns
-length: 60
+length: 60 min
 tags: ruby, refactoring, tdd
 ---
 
