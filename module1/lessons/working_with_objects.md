@@ -5,7 +5,7 @@ tags: ruby, objects, oop
 ---  
 
 ## Learning Goals  
-* desribe an object 
+* describe an object 
 * access information from one object in another object  
 
 ## Structure  

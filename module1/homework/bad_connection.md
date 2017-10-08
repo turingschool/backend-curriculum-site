@@ -49,7 +49,7 @@ THANK YOU FOR CALLING!
 ready_to_quit = false
 puts "HELLO, THIS IS A GROCERY STORE!"
 
-input = gets
+input = gets.chomp
 until ready_to_quit
   # Your code here
 end
@@ -61,3 +61,38 @@ In your code you'll definitely need to use `if` and likely an `elsif` and `else`
 Whenever you're ready to exit the program, set `ready_to_quit` to `true`.
 
 Also remember that `gets` is the "inverse" method of `puts` -- while `puts` outputs information to the terminal, `gets` captures information from the user by presenting a command prompt and allowing them to type input.
+
+## Iteration 1 
+
+Build a program the meets the above functionality 
+
+## Iteration 2 
+
+Refactor your program to use methods while maintaining above functionality  
+
+## Iteration 3 
+
+Refactor your program to use Classes as well as methods while maintaining above functionality  
+
+## Iteration 4  
+
+Add the following functionality to your program. 
+If you request `print log` while your program is running, it prints out a summary of the conversation noting the input correlated to output and a count of how many times an output has be given.   
+This may look something like this: 
+```
+HELLO?!
+* ['', '', '']
+* output 3 times
+
+I'M HAVING A HARD TIME HEARING YOU.  
+* ['do you sell carrots?', 'Do you sell carrots?']
+* output 2 times
+
+NO, THIS IS NOT A PET STORE 
+* ['DO YOU SELL CARROTS?', 'CARROTS', 'DO YOU HAVE ANY APPLES?', 'APPLES!', 'I WOULD LIKE SOME APPLES!' ]
+* output 5 times
+
+ANYTHING ELSE I CAN HELP YOU WITH?
+* ['GOODBYE1']
+* output 1 time
+```

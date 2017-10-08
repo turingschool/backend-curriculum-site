@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Intro to Git
-length: 30
+length: 60
 tags: git, github
 ---
 
@@ -104,7 +104,7 @@ and paste in the whole SSH key.
 $ ssh -T git@github.com
 ```
 
--   If you get this prompt, type 'yes':
+-   If you get this prompt:
 
 ```bash
 => The authenticity of host 'github.com (xxx.xxx.xxx.xxx)'... can\'t be established.
@@ -112,10 +112,11 @@ RSA key fingerprint is XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX.
 Are you sure you want to continue connecting (yes/no)?
 ```
 
+-   Type 'yes'
 -   If everything's working, you'll see the the following:
 
 ```bash
-=> Hi YourUsername! You\'ve succesfully authenticated, but GitHub does not provide shell access.
+=> Hi YourUsername! You\'ve successfully authenticated, but GitHub does not provide shell access.
 ```
 
 ## Global `.gitignore`  

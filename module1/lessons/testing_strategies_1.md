@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Testing Strategies 1
+title: Testing Strategies
 tags: basics, testing, encapsulation
 length: 60
 ---

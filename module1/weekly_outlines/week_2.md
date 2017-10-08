@@ -10,13 +10,12 @@ layout: page
 * [Enumerables: A New Hope](../lessons/beginner_enumerables)
 * [Intro to Hashes](../lessons/hashes_arts_and_crafts)
 * [Testing in a Project](../lessons/testing_in_a_project)
+* [Optional Review: Working with Objects](../lessons/working_with_objects)
 * [Nested Collections](../lessons/nested_collections)
 * [Gear Up: Working Styles](https://github.com/turingschool/gear-up/blob/master/m1_citizenship/session_3_intro_extro_ambivert_styles.markdown)
 * [Git for Pairs](../lessons/git_for_pairs)
 * [PD: Learning to Pair](../../career_development_curriculum/module_one/learning_to_pair)
 * [PD: DTR Guidelines](../../career_development_curriculum/module_one/dtr_guidelines_memo)
-<!-- * [Working with Objects](../lessons/working_with_objects.md) -->
-<!-- No one's assigned to Enums: A New Hope, Ind timed (week 2, 4 & 5), or Intro to Hashes -->
 
 
 ## Homework

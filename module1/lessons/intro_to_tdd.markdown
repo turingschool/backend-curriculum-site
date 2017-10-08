@@ -23,13 +23,10 @@ tags: ruby, testing, tdd
 
 ## Warm-up
 
-Assume that you have a `Person` and a `Dog` class.
-Assume all dogs have owners.
-
-* How might you represent the idea of a dog having an owner in code?
-* Write an `initialize` method for `Dog`
-* What do you need to put in a runner file to access both classes?
-* How did you confirm your last projects were working correctly? What are the downsides to this approach? 
+* What are some things we need for the setup of tests?
+* Name a few assertion methods.
+* Where should we run our tests from?
+* What do error messages tell us?
 
 ## Test-Driven Development (TDD) Overview
 
@@ -56,48 +53,6 @@ TDD is a process for writing code that helps:
 * Use a testing framework such as `minitest` to structure your testing suite
 * **Red-Green-Refactor** process to implement complexity to your application
 
-## TDD Code-Along with `minitest`
-
-### File Structure
-
-* One project directory
-* One file for test code
-* One file for implementation code
-
-### Scenario Specifications
-
-* Students have names
-* Students have laptops. The laptop is usually an Apple, but it can be any brand
-* Students can bring various flavors of cookies to their instructors, but double-chocolate brownie chunk flavor can never be wrong
-
-### minitest Setup
-
-[Minitest](http://docs.seattlerb.org/minitest/) is a framework used for automated testing. It is the testing framework used on many of the homework exercises you've been assigned.
-
-```
-gem install minitest
-```
-
-* Require `minitest/autorun` - the easy and explicit way to run all your tests
-* Require `minitest/pride` - vivid color explosion
-* Test class inherits from Minitest::Test 
-  * `test` is a `minitest` module; `::` is a scope resolution operator
-  * minitest/test is a small and incredibly fast unit testing framework. It provides a rich set of assertions to make your tests clean and readable.
-
-```ruby
-# student_test.rb
-require 'minitest'
-require 'minitest/autorun'
-require 'minitest/pride'
-
-class StudentTest < Minitest::Test
-  # test it exists
-  # test it has a name
-  # test it has a laptop
-  # test it has cookies
-end
-```
-
 ## TDD Cycle: Red, Green, Refactor
 
 Red-green-refactor is a process for writing code that involves three steps.
@@ -106,32 +61,50 @@ Red-green-refactor is a process for writing code that involves three steps.
 2. Write implementation code to make the test pass (green)
 3. Clean up your code if necessary (refactor)
 
-### `minitest` Testing
+## Write Tests First
 
-* Tests in `minitest` start with `def test_something`
-* Assertions (or refutations) start with the **assertion method**, followed by the **expected** value, followed by the **actual** value
+- Shapes design
+- Helps break problem into small pieces
+- Removes fear of programming
+- Communicates what your code _should_ do
+- Tells you basically exactly what to do
+
+## TDD Code-Along with `minitest`
+
+### Scenario Specifications
+
+* Products have a name
+* Products have a description
+* Products have a price
+* Products start with a total stock number available
+* You can calculate the cost of the total inventory
 
 ```ruby
-assert_equal 'expected', 'actual'
-```
+# product_test.rb
+require 'minitest'
+require 'minitest/autorun'
+require 'minitest/pride'
 
-Let's build on our Student Test!
-
-```ruby
-def test_it_exists
-  student = Student.new
-  assert_instance_of Student, student
-end
-
-def test_student_has_a_name
-  student = Student.new("Penelope")
-  assert_equal "Penelope", student.name
+class ProductTest < Minitest::Test
+  def test_it_exists
+    doomproof_vest = Product.new('Doomproof platinum vest', 'A radiation-absorbing tunic that allows the wearer to survive exposure to doom radiation.', 1200.00, 20)
+    
+    assert_instance_of Product, doomproof_vest
+  end
+  # test it has a name
+  # test it has a description
+  # test it has a price
+  # test it has an initial stock number
+  # test you can calculate the cost of the total inventory
 end
 ```
 
 ### Learn to Love the Error, Learn to Love the Failure
 
 They're your friends, seriously. Take time to understand each error and failure you encounter. You'll be seeing those same error messages over and over again, so the sooner you connect what they mean to what you need to fix, the smoother you'll be sailing.
+
+* Errors usually indicate your code is broken somewhere
+* Failures usually indicate that your code isn't functioning the way you expect it to
 
 ### Solving an Error or a Failure
 
@@ -143,13 +116,175 @@ They're your friends, seriously. Take time to understand each error and failure 
   * fun-fact: queues are FIFO (first-in, first-out, like a European line-up)
 3. Write implementation code to make the test pass
 
+* Lets write some implementation code to solve our errors, one step at a time.
+
+```
+E
+
+Error:
+ProductTest#test_it_exists:
+NameError: uninitialized constant ProductTest::Product
+Did you mean?  ProductTest
+    product_test.rb:8:in `test_it_exists'
+```
+
 ```ruby
-class Student
+# product_test.rb
+require 'minitest'
+require 'minitest/autorun'
+require 'minitest/pride'
+require './lib/product'
+
+class ProductTest < Minitest::Test
+  def test_it_exists
+    doomproof_vest = Product.new('Doomproof platinum vest', 'A radiation-absorbing tunic that allows the wearer to survive exposure to doom radiation.', 1200.00, 20)
+    
+    assert_instance_of Product, doomproof_vest
+  end
+  # test it has a name
+  # test it has a description
+  # test it has a price
+  # test it has an initial stock number
+  # test you can calculate the cost of the total inventory
+end
+
+class Product
+  
+end
+```
+
+```
+Error:
+ProductTest#test_it_exists:
+ArgumentError: wrong number of arguments (given 4, expected 0)
+    product_test.rb:9:in `initialize'
+    product_test.rb:9:in `new'
+    product_test.rb:9:in `test_it_exists'
+```
+
+```ruby
+class Product
+  
+  def initialize(l, l, l, l)
+    #code
+  end
+  
+end
+```
+
+* Refactor
+
+```ruby
+class Product
+  
+  def initialize(name, description, unit_price, amount_available)
+    #code
+  end
+  
+end
+```
+```
+.
+```
+
+```ruby
+def test_it_has_a_name_product_price_and_amount_available
+  doomproof_vest = Product.new('Doomproof platinum vest', 'A radiation-absorbing tunic that allows the wearer to survive exposure to doom radiation.', 1200.00, 20)
+  
+  assert_equal 'Doomproof platinum vest', doomproof_vest.name
+  assert_equal 'A radiation-absorbing tunic that allows the wearer to survive exposure to doom radiation.', doomproof_vest.description
+  assert_equal 1200.00, doomproof_vest.unit_price
+  assert_equal 20, doomproof_vest.amount_available
+end
+```
+
+```
+.E
+
+Error:
+ProductTest#test_it_has_a_name_product_price_and_amount_available:
+NoMethodError: undefined method `name' for #<Product:0x007fd15901b698>
+    product_test.rb:17:in `test_it_has_a_name_product_price_and_amount_available'
+```
+
+```ruby
+class Product
+  
   attr_reader :name
   
-  def initialize(name)
+  def initialize(name, description, unit_price, amount_available)
     @name = name
   end
+  
+end
+```
+
+* Continue the TDD cycle to make the current test pass
+
+```ruby
+class Product
+  
+  attr_reader :name, :description, :unit_price, :amount_available
+  
+  def initialize(name, description, unit_price, amount_available)
+    @name = name
+    @description = description
+    @unit_price = unit_price
+    @amount_available = amount_available
+  end
+  
+end
+```
+
+* Then dream up how you want your total inventory cost calculation to behave
+
+```ruby
+def test_total_inventory_cost_calculates_total_cost
+  doomproof_vest = Product.new('Doomproof platinum vest', 'A radiation-absorbing tunic that allows the wearer to survive exposure to doom radiation.', 1200.00, 20)
+  
+  assert_equal 24_000.00, doomproof_vest.total_inventory_cost
+end
+```
+
+```
+..E
+
+Error:
+ProductTest#test_total_inventory_cost_calculates_total_cost:
+NoMethodError: undefined method `total_inventory_cost' for #<Product:0x007fc93f143308>
+    product_test.rb:26:in `test_total_inventory_cost_calculates_total_cost'
+```
+
+```ruby
+class Product
+  ...
+  
+  def total_inventory_cost
+    #code
+  end
+
+end
+```
+
+```
+..F
+
+Failure:
+ProductTest#test_total_inventory_cost_calculates_total_cost [product_test.rb:26]:
+Expected: 24000.0
+  Actual: nil
+```
+
+* Draw the %$&@ing owl 
+
+```ruby
+class Product
+  ...
+  
+  def total_inventory_cost
+    unit_price * amount_available
+  end
+
 end
 ```
 
@@ -167,12 +302,10 @@ OR
 ## Recap
 
 * What is the color-related catchphrase for TDD workflow?
-* `minitest` setup 
-  * What do you have to require in a test file?
-  * What does your test class inherit from?
-  * What is the syntax for a minitest test? Assertion?
+* What are some reasons for writing tests before implementation code?
 * What's the main difference between an error and a failure?
+* What are 3 things an error message tells us?
 * How do you read a stack trace?
 
-## Further Learning
-* Explore the gem! [https://github.com/seattlerb/minitest](https://github.com/seattlerb/minitest)
+## Resources
+* Blog post: [Why Test Driven Development?](http://derekbarber.ca/blog/2012/03/27/why-test-driven-development/)

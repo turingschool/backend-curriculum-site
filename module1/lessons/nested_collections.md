@@ -38,7 +38,7 @@ As our programs get more complex, we'll sometimes encounter more sophisticated c
 
 #### Array within an Array
 
-```
+```ruby
 a = [[1, 2, 3], [4, 5, 6]]
 ```
 **Agree/Disagree**

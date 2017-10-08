@@ -152,6 +152,13 @@ We're going to use our new debugger to explore `.each` with the challenges below
 
 ***
 
+### Important Commands for Pry Sessions 
+
+* To fully exit any pry session, enter `!!!`, `exit!`, or type `ctrl-\`
+* During runtime invocation:
+  * To proceed to the next pry (within your loop or not), enter `exit` (this will exit your pry session if you were on the last pry)
+  * If your pry session is too large for your CLI (e.g. it will show `:` on the bottom instead of `[1] pry(#<ClassName>)>`), type `q`
+
 ## Exercises
 
 Work through the following using `Pry`. We'll start with the first two together.
@@ -166,7 +173,7 @@ doubles of each number? Triples?
   * How could you print out only the initials?
   * How can you print out the last name and how many characters are in it?
   * How can you create an integer which represents the total number of characters in all the names?
-* Say you had an array of nested arrays: `[['Victoria', 'Vasys'], ['Ali', 'Schlereth'], ['Nate', 'Allen']]`. Each nested array has two elements, a first name and a last name. How would you print out each nested array's full name?
+* Say you had an array of nested arrays: `[['Victoria', 'Vasys'], ['Ali', 'Schlereth'], ['Mike', 'Dao']]`. Each nested array has two elements, a first name and a last name. How would you print out each nested array's full name?
 
 ## Recap
 
@@ -174,7 +181,7 @@ doubles of each number? Triples?
 * What is the syntax for an inline `each`? Multi-line `each`?
 * List 3 debugging tools/techniques for Ruby
 * What is the syntax for adding `Pry` to your code? Where do you add these?
-* What can you access in a runtime-invoked pry session?
+<!-- * What can you access in a runtime-invoked pry session? -->
 * How do you proceed to the next `binding.pry` (could be the next iteration of a loop)?
 * How do you exit a pry session completely?
 

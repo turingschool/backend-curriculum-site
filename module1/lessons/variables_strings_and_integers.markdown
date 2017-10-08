@@ -338,7 +338,7 @@ Today, you accomplished the following:
 * How do you get to the Ruby Docs?
 
 ## Homework  
-*  Work through Core-Types for String and Fixnum  
+*  Work through Core-Types for String and Ints_and_Floats  
 
 ```bash  
 $ cd 1module  
