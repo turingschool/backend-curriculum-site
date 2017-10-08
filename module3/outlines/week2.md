@@ -10,8 +10,8 @@ layout: page
 * [Getting Started with OAuth](../lessons/getting_started_with_oauth)
 * Professional Storytelling
 * [Using Figaro](../lessons/using_figaro)
-* [Consuming APIs](../lessons/consuming_an_api)
-* [VCR Testing](../lessons/testing_against_third_party_apis)
+* [Consuming APIs](../lessons/consuming_an_api_redux)
+* [VCR Testing](../lessons/consuming_an_api_part_two_testing_and_refactoring)
 * [Decorators and Presenters](../lessons/presenters_and_decorators)
 
 ### Projects
