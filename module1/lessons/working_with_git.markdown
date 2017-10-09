@@ -22,6 +22,10 @@ In this lesson, you will learn how to:
 - Repository
 - Remote/Local
 
+## WarmUp 
+* What do you know about git? Why do we use it?
+* How have you used git so far? 
+
 ## A Basic Git Workflow
 
 Git contains many features. Fortunately, in 99% of cases we don't have to
@@ -92,24 +96,26 @@ Finally, let's make a commit!
 We use the `git commit` command for this. One key component of every commit is a "message" describing what the commit does. We can provide this message from the command line using the `-m` flag, like so:
 
 ```
-git commit -m "initial commit -- added Readme"
+git commit -m "Initial Commit -- Add Readme"
 ```
 
 Run `git status` one more time. Since we committed all of our changes,
 our working directory is now "clean".
 
-Check `git log` once more. It will show detailed information about each commit. Right now, we only have one.
+Check `git log`. It will show detailed information about each commit. Right now, we only have one.
+You can also run `git log --oneline`.
 
 This cycle -- make changes, stage changes (`git add`), and commit changes --
 is the backbone of a standard git workflow.
 
 You should use these steps frequently as you're working on a project.
 
+
 ### Check for Understanding
 
 Write on the following questions to synthesize what's been covered.
 * What's the difference between unstaged, staged, and committed changes?
-* How do these states (unstaged, staged, committed) help git keep track of the history of your code?
+* Whare are each of the commands we have covered so far? What does each do? 
 * How are `git status` and `git log` used to review the status of our code? How are they different?
 
 When you're finished, post your answers in Slack.
