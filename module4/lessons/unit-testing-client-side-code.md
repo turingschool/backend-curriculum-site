@@ -25,7 +25,7 @@ Reading: [Writing Testable JavaScript](https://alistapart.com/article/writing-te
 
 After 15 minutes, turn to the person next to you and compare/discuss interesting parts of the reading.
 
-### Murpy's Four Areas of Responsibility
+### Murphy's Four Areas of Responsibility
 
 - Presentation and interaction
 - Data management and persistence
