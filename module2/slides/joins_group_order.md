@@ -1,34 +1,26 @@
----
-title: ActiveRecord Queries
-length: 60
-tags: activerecord, migrations, sinatra
+# Joins, Group, & Order
+
 ---
 
-## Learning Goals
+# Learning Goals
 
 * Use `joins` to collect information from multiple tables
 * Use `group` to group results by a common characteristic
 * Use `order` to order grouped results
 
-## Slides
+---
 
-Available [here](../slides/joins_group_order)
-
-## Warmup
+# Warmup
 
 * What new ActiveRecord methods did you learn over the weekend?
 
-## Lecture
+---
 
-Thus far we've talked about using ActiveRecord to create, find, and delete records, as well as to find related records on other tables. In your project, you've begun using ActiveRecord to query your database for more analytical purposes. Today we're going to review three ActiveRecord methods that will help you with some of those analytics.
+# Joins
 
-### Joins
+---
 
-The `.joins` method creates a `JOIN` query at the SQL level. What does this do?
-
-Assume we have the following tables.
-
-courses:
+# Courses Table
 
 | id | title | description                             |
 |----|-------|-----------------------------------------|
@@ -37,7 +29,9 @@ courses:
 | 3  | BE M3 | Professional Rails Applications         |
 | 4  | BE M4 | Client-Side Development with JavaScript |
 
-students:
+---
+
+# Students Table
 
 | id | first_name | last_name | module_id |
 |----|------------|-----------|-----------|
@@ -49,13 +43,17 @@ students:
 | 6  | Victoria   | Vasys     | 1         |
 | 7  | Mike       | Dao       | 1         |
 
-A `JOIN` query would look something like this:
+---
+
+# SQL JOIN Query
 
 ```SQL
 SELECT * FROM courses JOIN students ON students.module_id = courses.id;
 ```
 
-And it would result in a table like the following:
+---
+
+# SQL JOIN Result
 
 | id | title | description                             | id | first_name | last_name | module_id |
 |----|-------|-----------------------------------------|----|------------|-----------|-----------|
@@ -67,11 +65,9 @@ And it would result in a table like the following:
 | 3  | BE M3 | Professional Rails Applications         | 3  | Josh       | Mejia     | 3         |
 | 4  | BE M4 | Client-Side Development with JavaScript | 4  | Casey      | Cumbow    | 4         |
 
-Notice that there is duplicated information in the table that resulted from this JOIN.
+---
 
-How does this look in ActiveRecord?
-
-First, in order to create the query, we use the ActiveRecord `.joins` method. Note that this is a **class** method. It creates a new table with a row for each record that would be in the resulting table.
+# ActiveRecord `joins`
 
 ```ruby
 # In the Course model
@@ -83,9 +79,12 @@ end
 Course.joins(:students)
 ```
 
-If we add `.count(:id)` to the end of those statements, we will get seven, even though there are only four courses. This is because the resulting table would have seven rows.
+Adding `.count(:id)` to the end of those statements => 7
+Will only have access to Course attributes
 
-The Course objects that are returned from this query will only know about Course attributes. In order to access attributes from both tables, we need to add one more piece:
+---
+
+# `joins` with `select`
 
 ```ruby
 # In the Course model
@@ -97,7 +96,12 @@ end
 Course.select("courses.*, students.*").joins(:students)
 ```
 
-With that in place, we can get student attributes out of our Course object, like so:
+Still returns 7 objects.
+Will have access to attributes on both tables.
+
+---
+
+# Using Attributes from the Combined Table
 
 ```
 Course.selct("courses.*, students.*")
@@ -106,11 +110,9 @@ Course.selct("courses.*, students.*")
   .first_name
 ```
 
-More on how we might use `.joins` shortly.
+---
 
-### Group
-
-Group will take the results and group them by a particular attribute. So, for example:
+# Group
 
 ```ruby
 # In the Student model
@@ -119,17 +121,15 @@ def self.count_by_module_id
 end
 ```
 
-Will return a hash like the following:
+Returns:
 
 ```ruby
 {1 => 3, 2 => 2, 3 => 1, 4 => 1}
 ```
 
-That's fine. Let's keep pushing.
+---
 
-### Order
-
-Assume we want to take the same request, but now sort it by the count, getting the courses with the lowest counts of students first. We could use order.
+# Order
 
 ```ruby
 # In the Student model
@@ -138,13 +138,15 @@ def self.count_by_module_id
 end
 ```
 
-Now the resultant hash would look something like the following:
+Returns:
 
 ```ruby
 {3 => 1, 4 => 1, 2 => 2, 1 => 3}
 ```
 
-Interestingly, if you add a `select` clause with a calculation as an argument, it is possible for a `group` and `order` query to return objects. For example:
+---
+
+# `group`, `order`, and a Calculation
 
 ```ruby
 Genre.select("genres.*, sum(box_office_sales) AS total_sales")
@@ -153,9 +155,13 @@ Genre.select("genres.*, sum(box_office_sales) AS total_sales")
   .order("total_sales DESC")
 ```
 
-This query will return a collection of Genre objects. The first will be the Genre with the highest total box office sales across all films.
+Returns a collection of Genre objects.
 
-## Checks for Understanding
+Could then call `total_sales` on the first element of the returned array.
+
+---
+
+# Checks for Understanding
 
 * What does a `.joins` query do in ActiveRecord?
 * `.group`?
