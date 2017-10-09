@@ -7,7 +7,7 @@ type: project
 
 ## Project Description
 
-Your Little Shop of Orders application was *almost* great, but it turns out that we need to *pivot* the business model.
+Your Little Shop project was a huge success. As it turns out there is an opportunity to make more money. Instead of supporting just one store, we are going to *pivot* and add support for multiple stores -- (think Amazon).
 
 In this project, you'll build upon an existing implementation of Little Shop. You will transform your e-commerce site into a platform that handles multiple, simultaneous businesses. Each business will have their own name, unique URL pattern, items, orders, and administrators.
 
@@ -18,9 +18,9 @@ The project requirements are listed below:
 * [Setup](#setup)
 * [Workflow](#workflow)
 * [Technical Expectations](#technical-expectations)
-* [Pivots](#pivots)
+* [Requirements](#requirements)
 * [Base Data](#base-data)
-* [Check-ins](#check-ins-and-milestones)
+* [Milestones](#check-ins-and-milestones)
 * [Evaluation](#evaluation)
 
 ## <a name="learning-goals"></a> Learning Goals
@@ -35,20 +35,20 @@ During this project, you'll learn about:
 
 ## <a name="teams"></a> Teams
 
-The project will be completed by teams of three to four developers over the span of two weeks.
+The project will be completed by teams over the span of two weeks.
 
-You will name a team leader that will:
+Your team will be responsible for:
 
-* Transform business requirements into user stories.
-* Work with the customer to establish team priorities.
-* Seek clarification from the customer when a user story is not clear.
-* Make sure that all the team members are on track and collaborating following a professional workflow.
+* transforming business requirements into user stories.
+* working with the customer to establish team priorities.
+* seeking clarification from the customer when a user story is not clear.
+* making sure all team members are on track and collaborating following a professional workflow.
 
-Like all projects, individual team members are expected to:
+As individuals you are responsible for:
 
-* Seek out features and responsibilities that are uncomfortable.
-* Support your teammates so that everyone can collaborate and contribute.
-* Follow a professional workflow when developing a feature.
+* seeking out features and responsibilities that are uncomfortable.
+* supporting your teammates so that everyone can collaborate and contribute.
+* following a professional workflow when developing a feature.
 
 ## <a name="setup"></a> Setup
 
@@ -67,14 +67,14 @@ As a group, dig into the code base and pay particular attention to:
 
 ### Beginning The Pivot
 
-Once you've explored the base project, the team leader will:
+Once you've explored the base project:
 
-* Create a new, blank repository on GitHub named `the_pivot`
+* Create a new, blank repository on GitHub named `the_pivot` (or some other meaningful name if you prefer)
 * Clone the Little Shop project that you'll be working with to your local machine
 * Go into that project directory and `git remote rm origin`
 * Add the new repository as a remote `git remote add origin git://new_repo_url`
 * Push the code `git push origin master`
-* Add the other team members as collaborators in Github
+* Add team members and your product owner as collaborators in Github
 
 Once the team leader has done this, the other team members can fork the new repo.
 
@@ -93,17 +93,15 @@ Furthermore, there should be *no reduction in functionality* except when explici
 
 ### Project Management Tool
 
-There are many popular project management tools out there. For this project we'll use a lightweight tool that wraps GitHub issues: [Waffle.io](https://waffle.io/)
-
-Setup a Waffle project for your new repo. Your team members and instructors should be added to the project so they can create, edit, and comment on issues.
+There are many popular project management tools out there. For this project we'll use Pivotal Tracker. Instructors will set up a Tracker project for you and send out invites to all team members.
 
 ## <a name="workflow"></a> Workflow
 
 ### Client Interaction
 
-You will meet with the client frequently to obtain his/her business needs and correct course. You will transform these requirements into user stories.
+You will meet with the client frequently to obtain business needs and correct course. You will transform these requirements into user stories.
 
-A feature will not be considered complete until it is working on production. You must assume that your client doesn't have any programming experience. You will have to learn how to manage expectations.
+A feature will not be considered complete until it is working in production. In many jobs your clients won't have programming knowledge. Learning how to manage expectations is a big part of being a professional developer.
 
 The stories as written and prioritized in your project management tool will be the authoritative project requirements. They may go against and likely go beyond the general requirements in this project description.
 
@@ -119,12 +117,22 @@ User stories follow this pattern:
 
 Examples:
 
-* As an admin, when I click on dashboard, I can see all the users listed in the page.
-* As a store admin, when I visit the orders page, I can see the orders listed there by status.
+```
+As an admin
+When I click on "Dashboard"
+I should be on "/dashboard"
+And I see a list of all users.
+```
+
+```
+As a store admin on my store dashboard page
+When I visit click on "Orders"
+I can see the orders listed by status.
+```
 
 ### Working with Git
 
-Once you have written the user stories with your client, each team member should:
+Once you have written the user stories, each team member should:
 
 1. Select a story from the project management tool.
 2. If the story is not clear, add comments or request clarification.
@@ -166,11 +174,19 @@ As an registered customer, I should be able to:
 * Manage my account information
 * View my purchase history
 
+### Business Manager
+
+As a business manager I should be able to:
+
+* Manage items on my business
+* Manage orders on my business
+
 ### Business Admin
 
 As a business admin, I should be able to:
 
 * Manage items on my business
+* Manage orders on my business
 * Update my business information
 * Manage other business admins for your store
 
@@ -182,42 +198,76 @@ As a platform admin, I should be able to:
 * Take a business offline / online
 * Perform any functionality restricted to business admins
 
-## Pivots
+## Requirements
 
-Your group will be assigned one of the following problem domains to pivot Little Shop:
+The following is a list of possible features to include. Work with your product owner to determine how many are required. Group size and initial state of the application will impact how much work can be completed. The ones marked "required" must be implemented.
 
-### Collector Items
+### Initial State and migration (required)
 
-How many times did you want to buy that old Pacman arcade so that you could put it next to that Atari console? Let's rework Little Shop into a platform to bid on collectors' items.
+Each project must be deployed and seeded in the original state of the app. When running the migrations to support multitenancy the existing data and uptime should not be disrupted. When you are ready to deploy let your product owner know so they can monitor the process and deployment to confirm the data was successfully updated and that service didn't go down.
 
-### Farmers' Market
+### Multitenancy (required)
 
-Organic vegetables that grow in innercity sidewalks are a great source of vitamins. Let's rework Little Shop into a marketplace for local produce.
+See the specifics of the roles above.
 
-### Lending
+### OAuth login (required)
 
-Micro-lending is a powerful tool for social progress. Let's rework Little Shop
-into a micro-lending platform.
+We want to support OAuth login with Twitter or Facebook in addition to the existing login functionality with an email address.
 
-### Jobs
+### Build an Authenticated API for the Admin Dashboard (required)
 
-Employment is key to quality of life. Let's rework our Little Shop into a platform
-to help people find great jobs.
+In RailsEngine you built an API that anyone could access at anytime. That's kinda gross and not gonna fly most of the time. Let's build out an API with the intent that it will be consumed only on the Admin dashboard. You will have to lock down your API and authenticate your requests.
 
-### Lodging
+Mild: Check for an API key.
+Spicy: Use a JWT (JSON Web Token). This is becoming the norm for front end applications interacting with back end apps.
 
-Experiencing other cultures is one of the strongest ways to build our understanding
-of humanity. Let's make it easier for people to open their homes to travelers.
+### Implement an Admin Dashboard (required)
 
-### Photos
+Practice your ActiveRecord and SQL chops. You can decide what types of info might be useful. Ideas: Top selling merchant, top selling items, inactive merchants, etc.
 
-People hated our restaurant, but they loved our product photos. Let's pivot
-the platform to sell photography, providing our customers a "whitelabel" experience.
+Use AJAX to consume your own API.
 
-### Tickets
+### Two-Factor Password Reset (required)
 
-Who wants to stand in line for tickets the day they come out? Nobody. Instead you
-can just pay 50-500% more to buy them from someone else.
+Using Twilio, build the following story. You must generate and track the reset code in your database and not use a third party for this.
+
+```md
+As a guest user
+When I visit "/login"
+And I click "Forgot my Password"
+Then I should be on '/password-reset'
+
+When I fill in `Email` with "josh@example.com"
+And I click `Submit`
+Then I should be redirected to "/password-confirmation"
+And I should see instructions to enter my confirmation code
+And I should have received a text message with a confirmation code
+
+When I enter the confirmation code
+And I fill in `Password` with `password`
+And I fill in `Password Confirmation` with `password`
+And I click "Submit"
+Then I should be redirected to "/dashboard"
+And I should be logged in
+And my old password should no longer work for logging in
+And my new password should work after logging out and logging back in
+```
+
+### Merchant Dashboard
+
+Try to think of some things that might help store owners maximize their sales. What's a merchant's best selling product? Worst selling? How many views does each item have this month? What percentage of viewers add the item to their cart? How many of those purchase? etc.
+
+### Live Chat Support
+
+Using Web-Sockets (probably ActionCable) create a live chat to help customers that need help or have questions about a product.
+
+### Home Page Suggestions
+
+Use the home page to display previously viewed items or items related to the things they have previously purchased.
+
+### Shipping
+
+Use the UPS, FedEx, or USPS API to integrate different shipping features. Address validation and shipping estimates.
 
 ## Base Data
 
@@ -226,52 +276,47 @@ You should have the following data pre-loaded in your marketplace:
 * 20 total businesses
 * 10 categories
 * 50 items per category
-* 100 registered customers, one with the following data:
-  * Username: jmejia@turing.io
+* 1000 registered customers, one with the following data:
+  * Username: josh@turing.io
   * Password: password
-* 10 orders per registered customer
-* 1 buisness admin per business, one with the following data:
-  * Username: nate@turing.io
+* 10-20 orders per registered customer
+* 1 business manager per business with the following data:
+  * Username: josh@turing.io
+  * Password: password
+* 1 business admin per business, one with the following data:
+  * Username: ian@turing.io
   * Password: password
 * 1 platform administrators
-  * Username: jorge@turing.io
+  * Username: cory@turing.io
   * Password: password
 
 It creates a much stronger impression of your site if the data is plausible. We recommend creating a few "template" businesses that have real listings, then replicating those as needed. You could also use the [Faker](https://github.com/stympy/faker) gem.
 
 ## Check-ins and Milestones
 
-We want you to be able to discuss your app with non-technical parties as well as technical.
-
-### Technical Lead
-
-Each team will be assigned a technical lead who will be a resource to ask technical questions. There will be designated periods of time where they will be available but it will be up to you to make use of this resource. You can reach out to your technical lead at any time by tagging them in WIP pull requests or open an issue on Github. Your technical lead will evaluate your project based on technical quality.
+Each team will have daily stand-ups with their product owner. On the job most technical discussion will take place on Github. You should practice asking technical questions of your instructors on Github in addition to Slack and face-to-face conversations.
 
 ### The Client
 
-Each team will be assigned a client who will serve a non-technical role and guide the development of the project. Your client will evaluate your project from the perspective of a product owner and whether their needs were satisfied.
+Each team will be assigned a client who will serve a non-technical role and guide the development of the product. Your client will evaluate your project from the perspective of a product owner and whether their needs were satisfied.
 
-You will meet with your client periodically during the project. The goals of each check-in roughly what should be completed before the check-in is listed below.
-
-### 1st Check-in
+### Day 1
 
 #### What should be done
 
-The scope of the pivot is more fluid than prior projects. You client will want to go over your plan for the project. Bring wireframes and detailed user stories (ie waffle cards). Don't underestimate the value of a good plan.
+The scope of the pivot is more fluid than prior projects. You client will want to go over your plan for the project. Wireframes and detailed user stories should be completed today. Don't underestimate the value of a good plan. Groups that communicate and plan will outperform those that just start coding.
 
-(You should also have a rough schema sketched out, but you will not be reviewing this with your client.)
+Use your client to review your plan.
 
-#### What to expect from your client
-
-Clients will help you refine your plan, including scope, wireframes and project management. You'll also decide what should be done by the next check-in.
-
-Don't expect to go over code, but if you've got technical questions, write them down and bring them to your technical lead.
-
-### 2nd Check-in
+### Day 2
 
 #### What should be done
 
-This is based on what you decided in your last check-in and should be working **in production**. You should be well on your way to basic functionality. If you've changed the plan, be sure to let your client know prior to the check-in. Have a plan for what you'd like to go over. Write down technical questions that arise for your technical lead.
+* Original state of the application should be deployed.
+* Design and styles should be starting to get flushed out.
+* Schema should be sketched out.
+* Stories should be prioritized.
+* Start building the most important pieces.
 
 #### What to expect from instructors
 
@@ -279,20 +324,23 @@ Your client will review the work you've done so far at a high level. Then it's r
 
 You'll also decide what should be done by the next check-in.
 
-### 3rd Check-in
+### Day 3
 
 #### What should be done
 
-Last check-in before evaluation.
+At this point you should be moving along with coding and fixing tests.
 
-This is based on what you decided in your last check-in, but basic functionality should be completed. If you've changed the plan, be sure to let your instructor know prior to the check-in. Have a plan for what you'd like to go over.
+## Deployment and Workflow
 
-#### What to expect from instructors
+Each team must...
 
-Your client will review the work you've done so far at a high level. Then it's up to you what to look at.
+* deploy early and often.
+* disable the ability to push to master.
+* setup continuous integration to validate there are no failing tests prior to deployment.
+* review pull requests prior to merging.
+* deploy to production after merging to master.
 
-By this point, you should be near done with basic functionality, and ready to talk about extensions for your app.
-
+Some groups may have a workflow that doesn't merge to master from a PR. You should avoid waiting days to deploy. The most successful groups will likely merge to master and deploy multiple times a day.
 
 ## Evaluation
 
