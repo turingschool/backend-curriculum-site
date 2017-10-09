@@ -318,12 +318,6 @@ Use your client to review your plan.
 * Stories should be prioritized.
 * Start building the most important pieces.
 
-#### What to expect from instructors
-
-Your client will review the work you've done so far at a high level. Then it's really up to you what to look at, whether it's with your client or technical lead.
-
-You'll also decide what should be done by the next check-in.
-
 ### Day 3
 
 #### What should be done
