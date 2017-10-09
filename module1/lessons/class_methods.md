@@ -20,7 +20,9 @@ tags: ruby, class methods, OOP
 5 min - Wrap Up
 
 ## Vocabulary  
-* Class Methods 
+* Instance Method
+* Class Method  
+* Ruby Object
 
 ## Warm Up  
 ```ruby

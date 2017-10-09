@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Refactoring Patterns
-length: 60
+length: 60 min
 tags: ruby, refactoring, tdd
 ---
 
@@ -18,6 +18,12 @@ tags: ruby, refactoring, tdd
 15min - Station Session 2  
 15min - Station Session 3  
 5min - WrapUp  
+
+## Vocabulary 
+* Refactoring 
+* Move Method
+* Extract Class
+* Hide Delegate
 
 ## WarmUp 
 

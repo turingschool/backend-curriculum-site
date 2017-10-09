@@ -5,13 +5,22 @@ length: 60
 tags: enumerables, max, min, max_by, min_by, sort_by
 ---
 
-## Goals
+## Learning Goals
 
 * Understand how to use `max`, `max_by,` their opposites, and `sort_by` appropriately.
 
 ## Slides
 
 Available [here](../slides/intermediate_enumerables)
+
+## Vocabulary 
+* Enumerable 
+* Iterate 
+* Return Value
+* max, max_by, min, min_by, sort_by
+
+## WarmUp
+* What enumerables have used so far?  
 
 ### Hook
 
@@ -246,6 +255,9 @@ end
 ```
 
 This would return false.
+
+## WrapUp
+* Name all the enumerables you know. What do they each return?
 
 ## For Homework:
 

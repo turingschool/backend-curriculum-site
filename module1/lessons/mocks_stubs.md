@@ -9,6 +9,11 @@ title: Mocks and Stubs
 *   Understand what mocking is, how to mock in Ruby with Minitest, and when to use it
 *   What’s the difference between behavior and state testing
 
+## Vocabulary
+* Mock Object
+* Stub 
+* Test Optimization
+
 
 ## Warmup
 

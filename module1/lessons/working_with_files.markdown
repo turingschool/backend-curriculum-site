@@ -20,6 +20,9 @@ length: 60
 * 20 - Exercising Raw Files
 * 5 - Progress Checks & Questions
 
+## Vocabulary 
+* 
+
 ## Lesson
 
 ### Warmup

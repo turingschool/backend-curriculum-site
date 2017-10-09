@@ -14,10 +14,16 @@ In this session we're going to go over some common best practices for organizing
 
 Slides available [here](../slides/ruby_etiquette)
 
-### Warmup
+## Vocabulary 
+* require
+* require_relative
+* rake task 
+
+## Warmup
 
 * How have you been organizing your projects so far?
 * What are the advantages of following conventions in project organization?
+* Do you tend to use require or require_relative? How does the pathing work?
 
 ### Directory and File Organization
 
@@ -78,7 +84,7 @@ Here's a quick overview of _how_ `require` and `require_relative` work.
 * Does NOT matter where you run the test from (searches for path relative to the file the requirement is in)
 * As directory structure gets more complex, navigating relative to the file you require come can become convoluted (`require_relative '../../../lib/enigma'`).
 
-`require` attempts to require a second file relative to *the place* from which the first file is **being run** -- that is, relative to whatever place you are sitting when you type `ruby file_one.rb`
+`require` attempts to require a second file relative to *the place* from which the first file is **being run** -- that is, relative to your present working directory when you type `ruby file_one.rb`
 
 * DOES matter where you run the test from
 * require tends to behave more consistently in complex scenarios and project structures (`require './lib/enigma'`)
@@ -186,9 +192,12 @@ task default: :test # <------ important
 
 Use your knowledge of Ruby's object model and blocks to make sense of the rake TestTask above.
 
-#### Summary
+## WrapUp
+* How does require_relative work? 
+* How does require work? 
+* Which does Ruby convention prefer? 
+* What is a Rake Task? Why would you use one?
 
-Review objectives from beginning of session.
 
 ### Recommended Homework
 
