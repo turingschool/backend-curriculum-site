@@ -11,7 +11,7 @@ Your Little Shop project was a huge success. As it turns out there is an opportu
 
 In this project, you'll build upon an existing implementation of Little Shop. You will transform your e-commerce site into a platform that handles multiple, simultaneous businesses. Each business will have their own name, unique URL pattern, items, orders, and administrators.
 
-The project requirements are listed below:
+The project goals and expectations are listed below:
 
 * [Learning Goals](#learning-goals)
 * [Teams](#teams)
