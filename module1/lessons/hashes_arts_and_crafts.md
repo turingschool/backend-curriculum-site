@@ -18,6 +18,14 @@ tags: ruby, hashes, data structures
 * 15 - Group Exercise
 * 5 - WrapUp
 
+## Vocabulary 
+* Data Structure 
+* Hash
+* Key
+* Value
+* Reference 
+* Assignment
+
 ## WarmUp
 Make a T-Chart of the collections you are familiar with. Fill in what you know about each collection type you listed.
 

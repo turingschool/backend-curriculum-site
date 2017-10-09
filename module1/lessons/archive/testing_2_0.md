@@ -1,6 +1,8 @@
 ---
 layout: page
 title: Testing 2.0
+length: 60min 
+tags: ruby, tdd, testing 
 ---
 
 ## Learning Goals

@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Mixins
+title: Modules
 length: 60
 tags: ruby, mixins
 ---
@@ -21,10 +21,6 @@ tags: ruby, mixins
 
 Available [here](../slides/mixins)
 
-## Introduction
-
-We're going to learn about Modules, a simple tool that will teach us to do two completely different things in Ruby - namespacing and mixins. They are pretty awesome.
-
 ## Warm Up
 
 Spend the first five minutes writing answers to the following questions:
@@ -32,12 +28,19 @@ Spend the first five minutes writing answers to the following questions:
 * What do you know about modules already? If little, what would you guess modules are all about?
 * Football and soccer both use a ball, but each has its own attributes. What behaviors might they share?
 
-## Mixins
+## Introduction
+
+We're going to learn about Modules, a simple tool that will teach us to do two completely different things in Ruby - namespacing and mixins. They are pretty awesome.
+
+### Mixins
 
 A little bit about mixins.
 
 * Mixins allow us to share behavior between classes
 * Ruby implements mixins with Modules
+
+### Modules 
+
 * Modules are like classes except you can't instantiate them
 * Modules only store behavior
 * Modules *do not* store state
@@ -99,9 +102,9 @@ amazon.review
 grub.review
 ```
 
-Turn & Talk: How can we use modules to make this code better?
+**Turn & Talk:** How can we use modules to make this code better?
 
-Well there's repetition in there, and one of the hallmarks of good programming is DRY, which stands for **don't repeat yourself**.
+Well there's repetition in there, and one of the hallmarks of good programming is DRY, which stands for **Don't Repeat Yourself**.
 
 Let's extract the duplication.
 
@@ -172,7 +175,7 @@ Turn & Talk: What just happened there?
 
 And now we just treat it as if the `confirmation` and `review` methods were part of our other classes, where you call the methods on an instance of an class. 
 
-## Exercise: Module Mixins
+## Exercise: Modules
 
 Now it's your turn.
 

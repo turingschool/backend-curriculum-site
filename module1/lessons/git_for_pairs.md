@@ -18,6 +18,16 @@ tags: ruby, git, workflow
 * 25  - Resolve Merge Conflict Demonstration
 * 5   - Closing/Synthesis
 
+## Vocabulary 
+* Git Commands
+  * git status
+  * git add file_name 
+  * git add .
+  * git commit -m "Add message"
+  * git push origin branch_name
+  * git pull origin branch_name
+* Merge Conflict 
+
 ## WarmUp  
 
 * What is git?  

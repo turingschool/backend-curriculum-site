@@ -5,6 +5,10 @@ length: 180
 tags: rails, security, authentication, OAuth
 ---
 
+## Historical Context for this lesson plan
+
+We used to teach this class using a gem since that’s how most of us do it on the job. We saw a big difference in understanding for students who were able to hand roll the handshake and those that used a gem. The other interesting thing we uncovered was many students struggled troubleshooting the gem if they didn’t understand the process. This lesson is built showing how to hand roll the OAuth process. The expectation students should try to use a gem on their projects. The big reason for using a gem is it’s much easier to test and most struggle with testing external APIs. To help with setting up OAuth using a gem, we have [this tutorial using Twitter](https://github.com/turingschool/lesson_plans/blob/master/ruby_03-professional_rails_applications/archive/getting_started_with_oauth.md#user-content-workshop----implementing-oauth-with-twitter). Why does this tutorial use Twitter instead of Github since most students use Github for APIcurious. The reason is we want students to draw parallels between Twitter and Github to figure out how to put things together on their projects.
+
 ## Learning Goals
 
 * Can explain the tradeoffs of using OAuth vs. building authentication from scratch.

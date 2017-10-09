@@ -11,7 +11,19 @@ tags: ruby, hashes, data structures
 *   Develop a mental model to understand hashes
 *   Gain some familiarity with common hash methods
 
+## Vocabulary
+* Hash
+* Key
+* Value
+* Symbol
+* Accessing Values
+* Assigning Values
+
+
 ## Hashes
+
+## WarmUp
+* What do you know about different data structures? When and how do you use them? 
 
 ### Intro - Hash Properties
 
@@ -89,7 +101,7 @@ Rather than using strings as keys, we're using **symbols**.
 
 A symbol, on its own, looks like this: `:symbol`.
 
-In Ruby, strings are compared a character by character, but symbols are compared by their `object_id`.
+In Ruby, strings are compared character by character, but symbols are compared by their `object_id`.
 Thus, symbols help your code run faster.
 
 #### Accessing Hash Values
@@ -203,6 +215,10 @@ h = {
 * what is `h.keys`?
 * what is `h.values`?
 * how can I access the valued `"15 pounds"`?
+
+## WrapUp
+* Create a Venn Diagram of Arrays & Hashes. Think about how their structured, when you would use each one, and nuances to how you interact with each one. 
+
 
 ## Further Practice
 

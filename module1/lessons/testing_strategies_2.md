@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Testing Strategies and Encapsulation
-tags: basics, testing, encapsulation
+title: Testing Strategies
+tags: basics, testing
 length: 90
 ---
 
@@ -16,6 +16,12 @@ length: 90
 * Be able to explain and apply the "two-mindset approach" to TDD
 
 [Slides](../slides/testing_strategies)
+
+## Vocabulary 
+* unit tests
+* integration tests
+* feature tests
+* acceptance tests
 
 ## Lecture 1
 

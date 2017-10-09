@@ -16,6 +16,12 @@ Let's take our comfort with our solutions, toss them to the side, and start fres
 * Follow your errors to create next steps when developing  
 * Write an algorithm using classes and methods
 
+## Vocabulary 
+* Error Message 
+* Test Driven Development (TDD)
+* Don't Repeat Yourself (DRY)
+* Single Responsibility Principle (SRP)
+
 ## WarmUp  
 * Why do we TDD?  
 * What are the pros/cons of using tests to drive your development?  

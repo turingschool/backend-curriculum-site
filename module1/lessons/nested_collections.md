@@ -16,7 +16,13 @@ tags: ruby, hashes, data structures
 20min - Practice with Hashes and Nesting  
 5min - WrapUp
 
-### WarmUp   
+## Vocabulary 
+* Collection
+* Data Structure
+* Nested Array
+* Nested Hash
+
+## WarmUp   
 By yourself or with a partner find answers to the following.  
 Try to answer without using irb or pry.  
 animals = {"dogs" => 3, "cats" => 5, "iguanas" => 2}   
@@ -25,7 +31,7 @@ animals = {"dogs" => 3, "cats" => 5, "iguanas" => 2}
    * add 3 parakeets  
    * increase the amount of cats by 2   
 
-pet_names = ["Fela", "Spot", "Iggy", "Willy"]  
+pet_names = ["Fela", "Spot", "Patch", "Willy"]  
 * Using the above pet_names array, how would you do the following  
    * add "Claude"  
    * access which name is first in the list  

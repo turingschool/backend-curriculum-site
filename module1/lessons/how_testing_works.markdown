@@ -12,6 +12,11 @@ tags: ruby, testing, tdd
 * Implement new assertion methods
 * Identify best testing practices
 
+## Vocabulary 
+* Testing
+* Assertion
+* TDD 
+
 ## Warm Up
 
 Assume that you have a `Person` and a `Dog` class.
