@@ -38,7 +38,7 @@ Students who successfully complete Module 4 will have demonstrated mastery of Pr
 *   [AJAX Refresher](./lessons/ajax-refresher)
 *   [Debugging the Client Side](./lessons/fe_dev_tool_debugging)
 *   [ES5 vs ES6](./lessons/es5_vs_es6)
-*   [Week One CFU](https://github.com/turingschool/checks-for-understanding/blob/master/module-4/backend/week_one)
+*   [Week One CFU](https://github.com/turingschool/checks-for-understanding/blob/master/module-4/backend/week_one.md)
 
 
 <h4 id="week_2">Week 2</h4>

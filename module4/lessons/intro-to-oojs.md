@@ -24,13 +24,13 @@ Take 5 minutes to discuss the following with one or two people near you:
 
 ## Introduction
 
-JavaScript is an object-oriented programming language, but it follows a slightly different approach than what we know from Ruby. Instead of creating classes, constructor functions can be used to construct new objects in JavaScript.
+JavaScript can behave as an object-oriented programming language, but it follows a slightly different approach than what we know from Ruby. Instead of creating classes, constructor functions can be used to construct new objects in JavaScript.
 
 It's not a rule baked into the language, but — by convention — most JavaScript developers capitalize the names of functions that they intend on using as object constructors.
 
-## Object Constructors
+## [Object Constructors](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/constructor)
 
-A constructor function or object constructor can be thought of as a blueprint (similar to classes), or—better yet—as a casting mold from which new objects are minted. The constructor function includes basic information about the properties of an object and uses a special syntax that allows us to build new objects quickly using the template defined by the constructor.
+A [constructor function or object constructor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/constructor) can be thought of as a blueprint (similar to classes), or—better yet—as a casting mold from which new objects are minted. The constructor function includes basic information about the properties of an object and uses a special syntax that allows us to build new objects quickly using the template defined by the constructor.
 
 Object constructors can be called using the `new` keyword.
 
@@ -65,8 +65,8 @@ You may have noticed that we're using `this` in our function and that it isn't b
 `Dog` is just a regular function. But, we call it a little differently than we did in previous section on functions. If you recall, there are a few ways we can call a function:
 
 * Using a pair of parenthesis as the end of the functions name (e.g. `someFunction()`).
-* Using the `call()` method (e.g. `someFunction.call()`).
-* Using the `apply()` method (e.g. `someFunction.apply()`).
+* Using the [`call()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call) method (e.g. `someFunction.call()`).
+* Using the [`apply()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply) method (e.g. `someFunction.apply()`).
 
 When we are writing object-oriented JavaScript, we have a fourth way of invoking a function: the `new` keyword. The `new` keyword invokes the function _as a constructor_, which causes it to behave in a fundamentally different way.
 
@@ -77,9 +77,9 @@ When we use the `new` keyword to call our function as a constructor, a few thing
 3. the body of our function is run
 4. our new object, `this`, is returned from the constructor
 
-## The `prototype` property
+## The [`prototype`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/prototype) Property
 
-Let's take a look at this in the context of our `Dog()` constructor:
+Let's take a look at `this` in the context of our `Dog()` constructor:
 
 ```js
 function Dog(name) {
@@ -138,7 +138,7 @@ function Dog(name) {
 
 var fido = new Dog('Fido');
 
-fido.toString = function () {
+fido.toString = function() {
   return '[Dog: ' + this.name + ']';
 };
 
@@ -146,6 +146,8 @@ fido.toString(); // [Dog: Fido]
 ```
 
 JavaScript finds the `toString` property immediately and doesn't have to look up the chain of prototypes. But, only `fido` has this fancy new `toString` property. It would be nice if all dogs could share this new functionality.
+
+> Side note: our custom `toString()` function is an example of the [Template Method Pattern](https://en.wikipedia.org/wiki/Template_method_pattern) in practice
 
 Each dog constructed by the `Dog()` constructor has `Dog.prototype` set as its prototype. This means that each dog looks immediately to `Dog.prototype` if we ask for a property that it doesn't have.
 
@@ -185,15 +187,17 @@ fido.sayHello(); // Hello, my name is Fido.
 spot.sayHello(); // Hello, my name is Spot.
 ```
 
+#### ES6 [`class`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/class) Syntax
+
 Here is the same implementation in ES6 syntax:
 
 ```js
 class Dog {
-  constructor (name) {
+  constructor(name) {
     this.name = name
   }
 
-  sayHello () {
+  sayHello() {
     return `Hello, my name is ${this.name}.`
   }
 }
@@ -205,9 +209,11 @@ fido.sayHello() // Hello, my name is Fido.
 spot.sayHello() // Hello, my name is Spot.
 ```
 
-Don't let the `class` keyword fool you **too** much. It still compiles down to a `Dog.prototype` object, it's just wrapped in a container more familiar to other OO lanuages.
+Don't let the [`class`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/class) keyword fool you **too** much. It still compiles down to a `Dog.prototype` object, it's just wrapped in a container more familiar to other OO lanuages.
 
-### A jQuery Example
+> Pro tip: shortcuts in code, such as this `class` syntax is often referred to as **syntactic sugar**
+
+### A OO jQuery Example
 
 You are now familiar with the classic `$(document).ready(() => ... )` setup, which tells the browser to wait for the DOM to load before running your scripts.  Perhaps you've also ended up with a big ol' list of functions in and out of this `ready` block, not really organized in any object-oriented way.
 
@@ -244,7 +250,7 @@ class EventHandler {
 }
 ```
 
-## Your turn: Mod 1 Final Returns!
+## Your Turn: Mod 1 Final Returns!
 
 Go to [this repo](https://github.com/turingschool-examples/bon_appetit_js) and follow the instructions to get set up. Let's take thirty minutes to implement (some of) the Mod 1 final using object-oriented JavaScript.
 

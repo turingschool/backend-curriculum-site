@@ -13,6 +13,9 @@ tags: ruby, refactoring, tdd
 *   Define and apply the Extract Class refactoring pattern
 *   Define and apply the Hide Delegate refactoring pattern
 
+## Vocabulary 
+* 
+
 ## Warmup
 1.  Why do we refactor?
 2.  What's the difference between "refactoring" and "changing stuff"?

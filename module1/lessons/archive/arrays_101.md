@@ -12,6 +12,11 @@ tags: ruby, arrays, names structures
 *   Develop a mental model to understand arrays
 *   Gain some familiarity with common array methods
 
+## Vocabulary 
+* Data Structure
+* Array
+* Iterate 
+
 ### What is a data structure?
 
 -   A data structure is a particular way of organizing names so that it can be used efficiently
