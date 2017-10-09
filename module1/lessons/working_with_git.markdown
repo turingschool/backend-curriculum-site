@@ -226,7 +226,11 @@ The general workflow is:
   * Checkout the branch
   * Make changes, add and commit the changes
   * Checkout master
-  * Merge your branch into master
+  * Pull from remote master into local master 
+  * Checkout branch you were working on 
+  * Merge master into your branch 
+  * Push your updated branch to GitHub 
+  * Put in a Pull Request(PR) to merge your branch into master 
 
 Let's practice this.
 
@@ -279,7 +283,7 @@ Add the file to staging, and commit the changes: `git add test/node_test.rb` and
 
 Run `git status` and `git log` to get an idea of whats going on.
 
-Now it's your turn. Create and add a placeholder for our `Node` class also. Create, add and commit `lib/node.rb`. Your `lib` folder should live in `git_intro`, at the "root" of the project, not inside the `test` folder (our current folder).
+Now it's your turn. Create and add a placeholder for our `Node` class also. Create, add and commit `lib/node.rb`. Your `lib` folder should live in `intro_git`, at the "root" of the project, not inside the `test` folder (our current folder).
 
 #### Merge feature work to master branch (`git merge`)
 
@@ -300,24 +304,29 @@ Now, let me show you something scary. Run `ls` to see the contents of your folde
 
 Don't worry. Git still has it. Git never forgets. It's just not part of the master branch. We've been working inside of our `node-class` branch specifically so that our changes didn't affect our master branch. But now we want to bring that work into our master branch.
 
+```
+git pull origin master 
+git checkout node-class 
+```
+
 To merge changes locally between branches, you should first move to the branch you want to update. Then run the command `git merge [branch you want to merge changes from]`.
 
 ```
-git merge node-class
+git merge master
 ls
 ```
 
-Our changes are now in master! We have now successfully made changes on a feature branch, kept master clean of unwanted code, and merge our finalized changes into master.
+We have now successfully made changes on a feature branch and kept master clean of unwanted code. 
 
 Our changes are not yet public on Github. Our work only exists locally. If you run `hub browse` now, you'll see that the _remote_ repository does not have our most up to date commit.
 
 Let's wrap up by publishing (pushing) our changes to github.
 
 ```
-git push origin master
+git push origin node-class
 ```
 
-Now refresh your repository on github, and you should see your most recent work. You can also see all your commits by clicking on "code".
+Now refresh your repository on github, and you should see your most recent work on the node-class branch. You can also see all your commits by clicking on "code". In order to get our updates onto master on GitHub, we need to put in a PR. Follow step 6 in these [directions](https://github.com/turingschool/backend-curriculum-site/blob/gh-pages/module1/lessons/friday_challenge_work_flow.md).
 
 ### Typical Git Workflow
 
@@ -340,8 +349,6 @@ And, if you just can't get enough Git, check out the [Pro Git book](http://git-s
 
 ## Wrapup
 
-Return to standards and check progress.
-* What was easy?
-* What was challenging?
-* What made sense?
-* What didn't make sense?
+* What is the difference between git and github? 
+* What are the standard git commands? What do they do and when should you use them? 
+* What is the workflow for usign branches? 
