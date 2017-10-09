@@ -75,6 +75,7 @@ mkdir secret-box
 cd secret-box
 npm init
 npm i express --save
+npm i --save-dev mocha chai
 touch server.js
 ```
 
