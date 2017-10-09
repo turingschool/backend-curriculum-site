@@ -76,7 +76,7 @@ Sample courses table:
 
 Sample students table:
 
-| id | first_name | last_name | module_id |
+| id | first_name | last_name | course_id |
 |----|------------|-----------|-----------|
 | 1  | Sal        | Espinosa  | 2         |
 | 2  | Ilana      | Corson    | 2         |
