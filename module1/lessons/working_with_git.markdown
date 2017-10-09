@@ -99,6 +99,8 @@ We use the `git commit` command for this. One key component of every commit is a
 git commit -m "Initial Commit -- Add Readme"
 ```
 
+Commit messages should be in an active present tense, this may be 'Add' or 'Adds' but not 'Added' or 'Adding'.  For more on git convention check out this [blog](https://chris.beams.io/posts/git-commit/). 
+
 Run `git status` one more time. Since we committed all of our changes,
 our working directory is now "clean".
 
