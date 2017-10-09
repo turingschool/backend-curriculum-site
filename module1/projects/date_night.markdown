@@ -127,7 +127,7 @@ Assuming we have a file named `movies.txt` with one score/movie pair per line:
 
 ```ruby
 tree.load('movies.txt')
-# => 26
+# => 99
 ```
 
 Where the return value is the number of movies inserted into the tree. If a score is already present in the tree when `load` is called, ignore it.

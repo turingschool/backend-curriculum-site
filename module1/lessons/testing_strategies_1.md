@@ -40,6 +40,12 @@ It can be especially difficult to get started on a new project or even a new ite
   * This is scary because you are making decisions in a context you don't understand.
 * Testing (especially in the context of TDD) is a discipline tool -- forces you to a) be **specific** about what you are trying to do and b) stay **focused** on that objective  
 
+* Four-phase testing
+  1.  Setup - sometimes in test, sometimes separate method
+  2.  Exercise
+  3.  Verify
+  4.  Teardown
+
 #### Isolating Functionality - Encapsulation 
 
 * What makes a test easy to write? What makes it hard?
@@ -78,6 +84,8 @@ How have you approached breaking down a problem? How have you used tests in this
 #### Top-Down  
 
 This style is also known as Dream Driven Development.  As a programmer, you know the big idea of what you need to accomplish so you write a test for your dream.  As you begin to implement your dream, you may need to write smaller tests and methods to accomplish your big task. You may spend a long time with that one test in a red state while you make smaller tests pass by writing supporting methods.    
+
+* You can solve difficult logic first before testing, then dream-drive
 
 #### Bottom-Up  
 

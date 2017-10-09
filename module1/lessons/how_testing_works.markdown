@@ -176,6 +176,67 @@ class LinkedListClass < Minitest::Test
 end
 ```
 
+### Ensuring Dynamic Functionality
+
+We should make sure that all of our methods can handle different cases, ensuring that our implementation code is dynamic, e.g.:
+
+```ruby
+# student_test.rb
+require 'minitest'
+require 'minitest/autorun'
+require 'minitest/pride'
+
+class StudentTest < Minitest::Test
+  def test_it_exists
+    student = Student.new
+    assert_instance_of Student, student
+  end
+
+  def test_student_has_a_name
+    student = Student.new("Penelope")
+    assert_equal "Penelope", student.name
+  end
+  
+  def test_student_can_have_a_different_name
+    student = Student.new("Hermione")
+    assert_equal "Hermione", student.name
+  end
+  # test it has a laptop
+  # test it has cookies
+end
+```
+
+### Testing Edge Cases
+
+* Ensure that your implementation code can handle things we might not expect, e.g.:
+
+```ruby
+# student_test.rb
+require 'minitest'
+require 'minitest/autorun'
+require 'minitest/pride'
+
+class StudentTest < Minitest::Test
+  def test_it_exists
+    student = Student.new
+    assert_instance_of Student, student
+  end
+
+  def test_student_has_a_name
+    student = Student.new("Penelope")
+    assert_equal "Penelope", student.name
+  end
+  
+  def test_student_can_have_a_different_name
+    student = Student.new("Hermione")
+    assert_equal "Hermione", student.name
+  end
+  # test it has a laptop
+  # test it has cookies
+end
+```
+
+
 ### Practice
 
 Let's explore how our code breaks when we don't follow the Test Etiquette rules from above.

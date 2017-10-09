@@ -56,15 +56,15 @@ In Module 1, students will learn to use Ruby and object-oriented programming to 
 
 ## Projects
 
-* [Credit Check](../projects/credit_check.markdown) ([slides](../slides/credit_check))
-* [A Perilous Journey](../projects/perilous_journey)
-* [Date Night](../projects/date_night)
-* [Complete Me](../projects/complete_me)
-* [Enigma](../projects/enigma)
-* [HTTP Yeah You Know Me](../projects/http_yeah_you_know_me)
-* [Event Manager](../projects/eventmanager)
-* [Sorting Suite](../projects/sorting_suite)
-* [Black Thursday](../projects/black_thursday)  
+* [Credit Check](./projects/credit_check.markdown) ([slides](./slides/credit_check))
+* [A Perilous Journey](./projects/perilous_journey)
+* [Date Night](./projects/date_night)
+* [Complete Me](./projects/complete_me)
+* [Enigma](./projects/enigma)
+* [HTTP Yeah You Know Me](./projects/http_yeah_you_know_me)
+* [Event Manager](./projects/eventmanager)
+* [Sorting Suite](./projects/sorting_suite)
+* [Black Thursday](./projects/black_thursday)  
 
 ## Success in Mod 1
 
