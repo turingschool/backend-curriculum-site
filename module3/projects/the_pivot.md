@@ -27,11 +27,11 @@ The project goals and expectations are listed below:
 
 During this project, you'll learn about:
 
-* Working with Multitenancy
-* Implementing JavaScript
-* Securing a Rails App
-* Sending Email
-* Creating Seed files
+* Work with Multitenancy
+* Implement JavaScript
+* Secure a Rails App
+* Learn to work with brownfield code
+* Deliver user stories outside of your comfort zone
 
 ## <a name="teams"></a> Teams
 
