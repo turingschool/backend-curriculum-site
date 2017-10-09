@@ -5,7 +5,7 @@ layout: page
 
 ## Lessons
 
-* [Git Gud @ Git](../lessons/branching_in_git)
+* [Git Gud @ Git](../lessons/working_with_git)
 * [Academic Integrity](../lessons/academic_integrity)
 * [Enumerables: A New Hope](../lessons/beginner_enumerables)
 * [Intro to Hashes](../lessons/hashes_arts_and_crafts)
