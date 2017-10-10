@@ -18,7 +18,7 @@ Slides available [here](../slides/rest_routing_rails/rest_routing_rails.md)
 * interpret the output of `rake routes`
 * explain the connection between `routes.rb` and controller files
 * create routes by hand
-* create routes using `resources :things`
+* create routes using `resources :movies`
 
 
 ## Intro to REST
@@ -33,16 +33,16 @@ Slides available [here](../slides/rest_routing_rails/rest_routing_rails.md)
 * [Representational State Transfer](https://en.wikipedia.org/wiki/Representational_state_transfer) on Wikipedia
 * [What is Rest?](http://www.restapitutorial.com/lessons/whatisrest.html) from REST API Tutorial
 
-Want to know more about REST? Check out [this video](https://www.youtube.com/watch?v=2zz_XvKTVxI). 
+Want to know more about REST? Check out [this video](https://www.youtube.com/watch?v=2zz_XvKTVxI).
 
 ### REST, simplified.
 
 * a pattern for creating combinations of HTTP verbs and URIs to access resources
 
 ```ruby
-get '/users'
-put '/users/:id'
-get '/users/new'
+get '/movies'
+put '/movies/:id'
+get '/movies/new'
 # ...etc...
 ```
 
@@ -102,13 +102,11 @@ $ cd routes-controllers-example
 
 Let's take a few minutes to explore what `rails new` generates.
 
-Diagram time! Let's take a second to draw out the Request-Response cycle in an MVC app. This will look slightly different from the diagram we drew for Sinatra. 
-
 In `config/routes.rb`:
 
 ```ruby
 Rails.application.routes.draw do
-  get '/tasks', to: 'tasks#index'
+  get '/movies', to: 'movies#index'
 end
 ```
 
@@ -116,17 +114,17 @@ From the command line, see which routes you have available: `$ rake routes`. You
 
 ```
 Prefix Verb URI Pattern      Controller#Action
- tasks GET  /tasks(.:format) tasks#index
+ tasks GET  /movies(.:format) movies#index
 ```
 
-This means whenever a `get` request to `/tasks` is received, have the `TasksController` handle it with the `index` action (method). The `(.:format)` piece on the end of the URI pattern refers to things like `http://example.com/tasks.csv` or `http://example.com/tasks.pdf`, etc.
+This means whenever a `get` request to `/movies` is received, have the `MoviesController` handle it with the `index` action (method). The `(.:format)` piece on the end of the URI pattern refers to things like `http://example.com/movies.csv` or `http://example.com/movies.pdf`, etc.
 
 Based on our rake routes - what controller to we need? do we have it?
 
-Make a tasks controller:
+Make a movies controller:
 
 ```bash
-$ touch app/controllers/tasks_controller.rb
+$ touch app/controllers/movies_controller.rb
 ```
 
 Naming is important. The name of the file should be the plural of what it is handling (in this case, tasks).
@@ -134,7 +132,7 @@ Naming is important. The name of the file should be the plural of what it is han
 Inside of that file:
 
 ```ruby
-class TasksController < ApplicationController
+class MoviesController < ApplicationController
   def index
     render :plain => "hello world"
   end
@@ -143,28 +141,28 @@ end
 
 What is ApplicationController? Look at the controllers folder and you should see an `application_controller.rb` file. This file defines the `ApplicationController` class, which (generally) all of your other controllers will inherit from.
 
-Notice that the name of the class matches the name of the file (`tasks_controller.rb` => `class TasksController`), one snake-cased and one camel-cased.
+Notice that the name of the class matches the name of the file (`movies_controller.rb` => `class MoviesController`), one snake-cased and one camel-cased.
 
-Normally we would not put in the line `render :text => "hello world"`. Without the render line, Rails will automatically look for a view inside of a folder with the same name as the controller (`tasks` folder), then look for a view with the same name as the method (`index.erb`). However, we are not going to deal with views today, so rendering text is the easiest way to see if a route is working.
+Normally we would not put in the line `render :text => "hello world"`. Without the render line, Rails will automatically look for a view inside of a folder with the same name as the controller (`movies` folder), then look for a view with the same name as the method (`index.erb`). However, we are not going to deal with views today, so rendering text is the easiest way to see if a route is working.
 
 Start up your rails server: `rails server` or `rails s` from the command line.
 
-Navigate to `localhost:3000/tasks` and you should see your text.
+Navigate to `localhost:3000/movies` and you should see your text.
 
 ### Workshop
 
-1) Can you create a `new` route that would bring the user to a form where they can enter a new task?
+1) Can you create a `new` route that would bring the user to a form where they can enter a new movie?
 
-2) Can you create a `show` route that would allow a user to see one task? Just like in Sinatra, the route will need a changeable `/:id`. You *do not* need to create a show view; just get a message like "You are viewing the show page" to show up. 
+2) Can you create a `show` route that would allow a user to see one movie? Just like in Sinatra, the route will need a changeable `/:id`. You *do not* need to create a show view; just get a message like "You are viewing the show page" to show up.
 
-3) Can you create an `edit` route that would allow a user to get to the edit page for a task? Again, the route will need a changeable `/:id`. You *do not* need to create a form; just get a message like "You are viewing the edit page" to show up. 
+3) Can you create an `edit` route that would allow a user to get to the edit page for a movie? Again, the route will need a changeable `/:id`. You *do not* need to create a form; just get a message like "You are viewing the edit page" to show up.
 
-4) For the previous two routes (show and edit), can you get the id param to display in the text that you render? You *do not* need to create a form; just get a message like "You are editing task 2" to show up. 
+4) For the previous two routes (show and edit), can you get the id param to display in the text that you render? You *do not* need to create a form; just get a message like "You are editing movie 2" to show up.
 
 In Sinatra, you could access the `:id` from the URL like this:
 
 ```ruby
-get '/tasks/:id' do |id|
+get '/movies/:id' do |id|
   puts id
 end
 ```
@@ -175,37 +173,37 @@ In Rails, you'll need to use `params[:id]`.
 
 What are the common CRUD actions? They match up to eight routes. Can you name all of them?
 
-Since Rails is all about "convention over configuration", it has a nice way of allowing us to easily create all eight RESTful routes at one time via a shortcut. 
+Since Rails is all about "convention over configuration", it has a nice way of allowing us to easily create all eight RESTful routes at one time via a shortcut.
 
 We can use the shortcut `resources`. As an example, we can change our `config/routes.rb` file to to look like this:
 
 ```ruby
 Rails.application.routes.draw do
-  resources :tasks
+  resources :movies
 end
 ```
 
 Now let's look at the routes we have available: `$ rake routes`.
 
-Using `resources :things` gives us eight RESTful routes that correspond to CRUD functionality.
+Using `resources :movies` gives us eight RESTful routes that correspond to CRUD functionality.
 
 ```
    Prefix Verb   URI Pattern               Controller#Action
-    tasks GET    /tasks(.:format)          tasks#index
-          POST   /tasks(.:format)          tasks#create
- new_task GET    /tasks/new(.:format)      tasks#new
-edit_task GET    /tasks/:id/edit(.:format) tasks#edit
-     task GET    /tasks/:id(.:format)      tasks#show
-          PATCH  /tasks/:id(.:format)      tasks#update
-          PUT    /tasks/:id(.:format)      tasks#update
-          DELETE /tasks/:id(.:format)      tasks#destroy
+    movies GET    /movies(.:format)          movies#index
+          POST   /movies(.:format)          movies#create
+ new_movie GET    /movies/new(.:format)      movies#new
+edit_movie GET    /movies/:id/edit(.:format) movies#edit
+     movie GET    /movies/:id(.:format)      movies#show
+          PATCH  /movies/:id(.:format)      movies#update
+          PUT    /movies/:id(.:format)      movies#update
+          DELETE /movies/:id(.:format)      movies#destroy
 ```
 
-Any methods with `:id` require an id to be passed into the URL. These values are dynamically added (like viewing the seventh task via `/tasks/7`).
+Any methods with `:id` require an id to be passed into the URL. These values are dynamically added (like viewing the seventh movie via `/movies/7`).
 
 #### Questions:
 
-* What actions (methods) would we need in our `TasksController` in order to handle all of these routes?
+* What actions (methods) would we need in our `MoviesController` in order to handle all of these routes?
 * Which actions would render a form and which actions would redirect? (Think of TaskManager in Sinatra)
 
 Don't worry about putting `render :text` in these actions. You won't be able to test out `post`, `patch`, `put`, or `delete` by navigating in your browser.
@@ -214,13 +212,13 @@ If you add a whole bunch of `resources :things` to your routes file, it will gen
 
 ```ruby
 Rails.application.routes.draw do
-  resources :tasks
-  resources :buildings
-  resources :hosts
+  resources :movies
+  resources :directors
+  resources :actors
 end
 ```
 
-Now try `$ rake routes`.
+Noxw try `$ rake routes`.
 
 ### Other things
 
@@ -228,11 +226,11 @@ Now try `$ rake routes`.
 
 ```ruby
 Rails.application.routes.draw do
-  root 'tasks#index'
+  root 'movies#index'
 end
 ```
 
-This will direct any get request to `localhost:3000` to the `tasks_controller.rb` `index` action.
+This will direct any get request to `localhost:3000` to the `movies_controller.rb` `index` action.
 
 ### Homework
 
