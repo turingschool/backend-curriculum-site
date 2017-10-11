@@ -30,6 +30,7 @@ layout: page
 ### Day 4:
 
 * **LESSONS:**
+  - [Sinatra vs. Rails Exploration](../lessons/sinatra_vs_rails_exploration)
   - [REST, Controllers & Routing in Rails](../lessons/rest_routing_and_controllers_in_rails)
 
 * **HOMEWORK:**
@@ -48,6 +49,7 @@ layout: page
 ## Projects:
 
 * [Blogger](../projects/blogger)
+* [JobTracker](https://github.com/turingschool/job-tracker)
 
 ## Resources:
 
