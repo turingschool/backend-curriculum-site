@@ -199,32 +199,76 @@ Note, a Braille character is the full 6 .s or 0s
 
 ## Evaluation Rubric
 
-The project will be assessed with the following rubric:
+The project will be assessed with the following guidelines:
+
+* 4: Above expectations
+* 3: Meets expectations
+* 2: Below expectations
+* 1: Well-below expectations
 
 ### 1. Ruby Syntax & Style
 
-* 4:  Application demonstrates excellent knowledge of Ruby syntax, style, and refactoring
-* 3:  Application shows strong effort towards organization, content, and refactoring
-* 2:  Application runs but the code has long methods, unnecessary or poorly named variables, and needs significant refactoring
-* 1:  Application generates syntax error or crashes during execution
+Expectations: 
+
+- [ ] Applies appropriate attribute encapsulation  
+
+- [ ] Developer creates instance and local variables appropriately
+
+- [ ] Naming follows convention (is idiomatic)
+
+- [ ] Ruby methods used are logical and readable  
+
+- [ ] Developer implements appropriate enumerable methods (#each is used sparingly)
+
+- [ ] Code is indented properly
+
+- [ ] Code does not exceed 80 characters per line  
+
+* 4: Above expectations
+* 3: Meets expectations
+* 2: Below expectations
+* 1: Well-below expectations
 
 ### 2. Breaking Logic into Components
 
-* 4: Application always breaks concepts into classes and methods which encapsulate functionality.
-* 3: Application consistently breaks concepts into classes and methods which have appropriate scope and responsibilities (SRP).
-* 2: Application makes use of some classes, but the divisions or encapsulation are unclear.
-* 1: Application makes use of just a few huge methods to control the bulk of the functionality.
+Expectations: 
+
+- [ ] Code is effectively broken into methods & classes 
+
+- [ ] Developer writes methods less than 8 lines 
+
+- [ ] No more than 3 methods break the principle of SRP 
+
+* 4: Above expectations
+* 3: Meets expectations
+* 2: Below expectations
+* 1: Well-below expectations
 
 ### 3. Test-Driven Development
 
-* 4: Application is broken into components which are well tested in both isolation and integration using appropriate data
-* 3: Application is well tested but does not balance isolation and integration tests, using only the data necessary to test the functionality
-* 2: Application makes use of tests, but the coverage is insufficient
-* 1: Application does not demonstrate use of TDD, or an insufficient number of tests.
+Expectations: 
 
-### 4. Functional Expectations
+- [ ] Each method is tested  
 
-* 4: Application meets all requirements, and implements one extension properly.
-* 3: Application meets all requirements as laid out per the specification.
-* 2: Application runs, but does not work properly, or does not meet specifications.
-* 1: Application does not run, crashes on start.
+- [ ] Tests implement Ruby syntax & style   
+
+- [ ] Balances unit and integration tests 
+
+- [ ] Evidence of edge cases are testing 
+
+* 4: Above expectations
+* 3: Meets expectations
+* 2: Below expectations
+* 1: Well-below expectations
+
+### 4. Functionality
+
+Expectations: 
+
+- [ ] Application meets all requirements (extension not req'd)
+
+* 4: Above expectations
+* 3: Meets expectations
+* 2: Below expectations
+* 1: Well-below expectations
+
