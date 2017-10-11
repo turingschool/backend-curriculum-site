@@ -223,7 +223,9 @@ Expectations:
 
 - [ ] Naming follows convention (is idiomatic)
 
-- [ ] Ruby methods used are logical and readable
+- [ ] Ruby methods used are logical and readable 
+
+- [ ] Recursion is implemented logically
 
 - [ ] Code is indented properly
 
