@@ -22,17 +22,15 @@ The concepts we're going to talk about happen most often in the following situat
 
 ### Synchronous Vs Asynchronous (45 mins)
 
-Watch: [What is Asynchronous JavaScript?](https://www.youtube.com/watch?v=YxWMxJONp7E)
-
 #### The Event Loop
 
 We now know that JavaScript runs synchronously.
 
 JavaScript's **call stack** is a data structure that keeps track of where we are in the sense of this synchronous thread of execution.
 
-"If we step into a function, we step into the stack. If we return from a function, we pop off the top of the stack." - Philip Roberts
+> "If we step into a function, we step into the stack. If we return from a function, we pop off the top of the stack." - Philip Roberts
 
-Asynchronous processes are able to run concurrently because, while the JS runtime can only execute a single thread, your browser provides more threads for you. Async takes advantage of this and passes processes to the **event loop**, where it will take the time it needs to execute and pop back onto the call stack by way of a **queue** once it's ready.
+Asynchronous processes are able to run concurrently because, while the JS runtime can only execute a single thread, your browser provides more threads for you. Async takes advantage of this and passes processes to JavaScript's **queue**, and one by one, once the async process is finished, the **event loop** will grab from the queue and put the process back onto the **stack**.
 
 Let's watch Philip Roberts further explain: [Philip Roberts, JSConf EU 2014](https://www.youtube.com/watch?v=8aGhZQkoFbQ)
 
