@@ -97,7 +97,7 @@ tags: ruby, git, workflow
 * Original puts in PR 
 * Collaborator comments and merges PR 
 
-[Merging a Branch to Master](https://drive.google.com/file/d/0B7O23RVvI8-FT0lGbm5HUmJQNFU/view?usp=sharing)
+![Merging a Branch to Master](https://drive.google.com/file/d/0B7O23RVvI8-FT0lGbm5HUmJQNFU/view?usp=sharing)
 
 ### Optional: Work flow with branches  
 * Collaborator pulls from master   
