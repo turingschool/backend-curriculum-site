@@ -98,8 +98,16 @@ capitals = {"OR" => "Salem",
   its capital ("Salem")
 * Level 3: Handle the case when a state's information is not known by
   returning "Unknown"
-* Level 4: Now let's go the other way. Given a capital name ("Denver"),
-  return the state name for which it is the capital ("Colorado")  
+* Level 4: Let's go the other way. Given a capital name ("Denver"),
+  return the state name for which it is the capital ("Colorado") 
+* Levle 5: Write some code to turn these two hashes into one nested hash which looks like this: 
+    ```
+    state_info = { "Oregon" => {abbreviation: "OR", capital: "Salem"},
+       "Alabama" => {abbreviation: "AL", capital: "Montgomery"},
+       "New Jersey" => {abbreviation: "NJ", capital: "Trenton"},
+       "Colorado" => {abbreviation: "CO", capital: "Denver"}
+      }
+    ```
 
 ### 2: Age Ordering
 
