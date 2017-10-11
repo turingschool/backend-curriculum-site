@@ -25,6 +25,7 @@ tags: ruby, hashes, data structures
 ## WarmUp   
 By yourself or with a partner find answers to the following.  
 Try to answer without using irb or pry.  
+
 animals = {"dogs" => 3, "cats" => 5, "iguanas" => 2}   
 * Using the above animals hash, how would you do the following  
    * return the amount of dogs  
@@ -74,14 +75,14 @@ h = {:dog => {:name => "Chance", :weight => "45 pounds"},
 * what is `h.values`
 * how can I access the element `"15 pounds"`
 
-### Practicing with Hashes and Nesting  
+### Pair Practice with Hashes and Nesting  
 
 ### 1: State Capitals
 
 You have 2 hashes, one which maps state names to state abbreviations,
 and one which maps state abbreviations to their capital:
 
-```
+```ruby
 states = {"Oregon" => "OR",
           "Alabama" => "AL",
           "New Jersey" => "NJ",
@@ -100,9 +101,11 @@ capitals = {"OR" => "Salem",
   returning "Unknown"
 * Level 4: Let's go the other way. Given a capital name ("Denver"),
   return the state name for which it is the capital ("Colorado") 
-* Levle 5: Write some code to turn these two hashes into one nested hash which looks like this: 
-    ```
-    state_info = { "Oregon" => {abbreviation: "OR", capital: "Salem"},
+* Level 5: Write some code to turn these two hashes into one nested hash which looks like this: 
+    
+    ```ruby
+    state_info = { 
+       "Oregon" => {abbreviation: "OR", capital: "Salem"},
        "Alabama" => {abbreviation: "AL", capital: "Montgomery"},
        "New Jersey" => {abbreviation: "NJ", capital: "Trenton"},
        "Colorado" => {abbreviation: "CO", capital: "Denver"}
@@ -113,7 +116,7 @@ capitals = {"OR" => "Salem",
 
 You have age data for a group of people:
 
-```
+```ruby
 data = [
   ['Frank', 33],
   ['Stacy', 15],
@@ -132,13 +135,12 @@ ascending age
 an array of names as the value (all the people who are that age).   
 e.g. `{24 => ['Juan', 'Steve', 'Jill']...}`  
 
+## WrapUp
 
-### From the Top
-
-Now you've got a decent understanding of hashes. Let's go at it from the
-beginning and try to fill a few of the gaps: work through the [Hashes section of Ruby in 100 Minutes](http://tutorials.jumpstartlab.com/projects/ruby_in_100_minutes.html#8.-hashes) to pickup a bit more.
-
-### WrapUp  
 *  What are three array methods and what do they do?  
 *  What are three hash methods and what do they do? 
 *  Describe a mental model for nested collections
+
+## Homework
+
+* Complete the `core-types/nested_collections_test.rb` in ruby-exercises

@@ -144,3 +144,8 @@ end
 
 ## WrapUp  
 Create a Venn Diagram of Arrays and Hashes
+
+## Additional Resources
+
+Now you've got a decent understanding of hashes. Let's go at it from the
+beginning and try to fill a few of the gaps: work through the [Hashes section of Ruby in 100 Minutes](http://tutorials.jumpstartlab.com/projects/ruby_in_100_minutes.html#8.-hashes) to pick up a bit more.
