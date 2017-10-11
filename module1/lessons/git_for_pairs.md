@@ -30,15 +30,22 @@ tags: ruby, git, workflow
 * What are the steps to creating and interacting with a repo on GitHub? How is git involved?
 
 ### Git Commands
+*Save updates*
 * git status
 * git add file_name 
 * git add .
 * git commit -m "Add message"
-* git push origin branch_name
-* git pull origin branch_name
 
+*Create and switch to new branch*
 * git checkout -b branch_name
+OR
+* git branch branch_name
+* git checkout branch_name
+
+*Interact with remote*
+* git pull origin branch_name
 * git merge branch_name
+* git push origin branch_name
 
 ## Modeling Workflow
 
