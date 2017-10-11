@@ -19,20 +19,26 @@ tags: ruby, git, workflow
 * 5   - Closing/Synthesis
 
 ## Vocabulary 
-* Git Commands
-  * git status
-  * git add file_name 
-  * git add .
-  * git commit -m "Add message"
-  * git push origin branch_name
-  * git pull origin branch_name
 * Merge Conflict 
+* Pull Request (PR)
+* Clone vs. Fork & Clone 
 
 ## WarmUp  
 
 * What is git?  
 * How does GitHub relate to git?  
 * What are the steps to creating and interacting with a repo on GitHub? How is git involved?
+
+### Git Commands
+* git status
+* git add file_name 
+* git add .
+* git commit -m "Add message"
+* git push origin branch_name
+* git pull origin branch_name
+
+* git checkout -b branch_name
+* git merge branch_name
 
 ## Modeling Workflow
 
