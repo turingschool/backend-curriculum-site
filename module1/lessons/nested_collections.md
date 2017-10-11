@@ -100,7 +100,7 @@ capitals = {"OR" => "Salem",
   returning "Unknown"
 * Level 4: Let's go the other way. Given a capital name ("Denver"),
   return the state name for which it is the capital ("Colorado") 
-* Levle 5: Write some code to turn these two hashes into one nested hash which looks like this: 
+* Level 5: Write some code to turn these two hashes into one nested hash which looks like this: 
     ```
     state_info = { "Oregon" => {abbreviation: "OR", capital: "Salem"},
        "Alabama" => {abbreviation: "AL", capital: "Montgomery"},
