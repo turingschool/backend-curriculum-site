@@ -96,11 +96,58 @@ post '/tasks'
 "Convention over configuration"
 
 ```bash
-$ rails new routes-controllers-example
+$ rails new movie_mania -T -d="postgresql" --skip-spring --skip-turbolinks
 $ cd routes-controllers-example
 ```
 
 Let's take a few minutes to explore what `rails new` generates.
+
+
+Let's install RSpec and dream drive our application!
+
+Add gems to Gemfile and bundle:
+  - 'rspec-rails'
+  - 'capybara'
+  - 'launchy'
+  - 'pry'
+
+Install RSpec
+
+```bash
+$ rails g rspec:install
+```
+
+What new files did this generate?
+
+Now lets write a test!
+
+```ruby
+  # user_sees_all_movies_spec.rb
+  describe "user_index" do
+    it "user_can_see_all_movies" do
+      movie_1 = Movie.create(title: "Drop Dead Fred", description: "An unhappy housewife gets a lift from the return of her imaginary childhood friend")
+      movie_2 = Movie.create(title: "Empire Records", description: "Independent Delaware store that employs a tight-knit group of music-savvy youths.")
+
+      visit "/movies"
+
+      expect(page).to have_content("All Movies")
+      expect(page).to have_content(movie_1.title)
+      expect(page).to have_content(movie_1.description)
+      expect(page).to have_content(movie_2.title)
+      expect(page).to have_content(movie_2.description)
+    end
+  end
+```
+
+Run RSpec, what happens? `Uninitialized Constant Movie` leads us to add a model but then what? I have to create an actual table for my movies in my database.
+
+```bash
+$ rails g model Movie title description:text
+```
+
+Overwrite the record `movie.rb` so we can see what that generated.
+
+Now look at our migrations, we have what we want so lets run `rails db:migrate`
 
 In `config/routes.rb`:
 
@@ -114,12 +161,13 @@ From the command line, see which routes you have available: `$ rake routes`. You
 
 ```
 Prefix Verb URI Pattern      Controller#Action
- tasks GET  /movies(.:format) movies#index
+movies GET  /movies(.:format) movies#index
 ```
 
 This means whenever a `get` request to `/movies` is received, have the `MoviesController` handle it with the `index` action (method). The `(.:format)` piece on the end of the URI pattern refers to things like `http://example.com/movies.csv` or `http://example.com/movies.pdf`, etc.
 
 Based on our rake routes - what controller to we need? do we have it?
+
 
 Make a movies controller:
 
