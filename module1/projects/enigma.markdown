@@ -224,11 +224,13 @@ Expectations:
 
 - [ ] Each method is tested  
 
+- [ ] Functionality is accurately covered
+
 - [ ] Tests implement Ruby syntax & style   
 
 - [ ] Balances unit and integration tests 
 
-- [ ] Evidence of edge cases are testing 
+- [ ] Evidence of edge cases testing 
 
 * 4: Above expectations
 * 3: Meets expectations
