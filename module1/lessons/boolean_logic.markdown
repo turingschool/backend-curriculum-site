@@ -69,6 +69,7 @@ Use a `pry` session to clarify how these three Ruby operators work. For each row
 => true
 ```
 
+
  `a` | `b` | `a && b` | <code>a &#124;&#124; b</code> | `!a` |
 | :---: | :---: | :---: | :---: | :---: |
 | true | true | true | true | false |
