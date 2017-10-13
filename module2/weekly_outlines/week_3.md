@@ -10,7 +10,7 @@ layout: page
 * **LESSONS:**
   - [Route Helpers](../lessons/route_helpers)
   - [Forms in Rails](../lessons/form_helpers_rails)
-  - [Rails Basics Challenge](../lessons/models_databases_relationships_routes_controllers_oh_my)
+  - [Rails Basics Challenge](../lessons/rails_basics_challenge)
 
 * **HOMEWORK:**
   - [Finish the Rails Basic Challenge if you didn't during the day](../lessons/models_databases_relationships_routes_controllers_oh_my)
