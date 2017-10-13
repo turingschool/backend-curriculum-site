@@ -19,48 +19,16 @@ What might the relationships look like? Let's emphasize figuring out the entitie
 * Use `has_many` and `belongs_to` to create one-to-many and many-to-many relationships at the model level.
 * Define primary and foreign keys, and describe conventions used to name the columns containing each in a database.
 
-## Types of Relationships
+## Slides
 
-Just storing data in a database isn't very interesting. Where the database shines is in the ability to connect or express relationships between elements of data.
-
-* **One-to-one relationships**: a row of table A relates to one and only one row of table B
-
-* **One-to-many relationships**: a row of table A relates to zero, one, or multiple rows of table B. However a row of table B relates to only one row of table A.
-
-* **Many-to-many relationships**: a row of table A relates to zero, one, or multiple rows of table B. A row of table B relates to zero, one, or multiple rows of table A.
+Available [here](../slides/models_migrations_databases)
 
 ## Warmup
 
-With a partner, brainstorm at least one example of each of the three relationships mentioned above.
-
-## Databases in Rails Apps
-
-By default, the `rails new appname` command creates a Rails project with a sqlite database. If you're creating a production app, you do not want a sqlite database.
-
-The two places where you'll see the effects of this will be in the Gemfile (`gem 'pg'` instead of `gem 'sqlite3'`) and in `config/database.yml`.
-
-Let's look at that file. Getting rid of the comments, it looks like this:
-
-```yaml
-default: &default
-  adapter: postgresql
-  encoding: unicode
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-
-development:
-  <<: *default
-  database: pgapp_development
-
-test:
-  <<: *default
-  database: pgapp_test
-
-production:
-  <<: *default
-  database: pgapp_production
-  username: pgapp
-  password: <%= ENV['PGAPP_DATABASE_PASSWORD'] %>
-```
+* In your own words, what is a migration?
+* What are some things that we can do with a migration?
+* What is the relationship between a migration, our database, and our schema?
+* What does `rake db:rollback` do? When **wouldn't** I want to use it?
 
 ## One-to-Many Relationships
 
