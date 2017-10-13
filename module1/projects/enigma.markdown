@@ -232,6 +232,8 @@ Expectations:
 
 - [ ] Evidence of edge cases testing 
 
+- [ ] Test Coverage metrics are present (SimpleCov)
+
 * 4: Above expectations
 * 3: Meets expectations
 * 2: Below expectations
