@@ -30,6 +30,9 @@ layout: page
 
 ### Day 4:
 
+* **LESSONS:**
+    - Little Shop Evals: While we are evaluating Little Shop projects, watch [this](https://brightonruby.com/2017/this-code-sucks-a-story-about-non-violent-communication-nadia-odunayo/) video, and then find a place to meet with your group and give each other feedback.
+
 * **HOMEWORK:**
   - Demo Night!
 

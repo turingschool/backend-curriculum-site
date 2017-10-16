@@ -71,10 +71,10 @@ Setting up this relationship allows us to define methods on the parent class tha
 # runner.rb
 require './ceo'
 
-ali = Ceo.new(15, 20)
+mike = Ceo.new(15, 20)
 
-puts "CEO Base Salary: #{ali.base_salary}"
-puts "CEO Total Comp: #{ali.total_compensation}"
+puts "CEO Base Salary: #{mike.base_salary}"
+puts "CEO Total Comp: #{mike.total_compensation}"
 
 
 # ceo.rb
@@ -121,13 +121,13 @@ With a partner:
 require './ceo'
 require './sales_manager'
 
-ali = Ceo.new(15, 20, "Ali", 1)
+mike = Ceo.new(15, 20, "Ali", 1)
 sal = SalesManager.new(15, 400)
 
-"CEO Base Salary: #{ali.base_salary}"
-puts "CEO Total Comp: #{ali.total_compensation}"
-puts "CEO Name: #{ali.name}"
-puts "CEO ID: #{ali.id}"
+"CEO Base Salary: #{mike.base_salary}"
+puts "CEO Total Comp: #{mike.total_compensation}"
+puts "CEO Name: #{mike.name}"
+puts "CEO ID: #{mike.id}"
 puts "\n"
 puts "Sales Manager Bonus: #{sal.bonus}"
 puts "SalesManager Total Comp: #{sal.total_compensation}"
@@ -180,14 +180,14 @@ require './ceo'
 require './sales_manager'
 require './intern'
 
-ali = Ceo.new(15, 20, "Ali", 1783)
+mike = Ceo.new(15, 20, "Mike", 1783)
 sal = SalesManager.new(15, 400, "Sal", 8736)
 jeff = Intern.new(5, "Jeff", 3298)
 
-puts "CEO Base Salary: #{ali.base_salary}"
-puts "CEO Total Comp: #{ali.total_compensation}"
-puts "CEO Name: #{ali.name}"
-puts "CEO ID: #{ali.id}"
+puts "CEO Base Salary: #{mike.base_salary}"
+puts "CEO Total Comp: #{mike.total_compensation}"
+puts "CEO Name: #{mike.name}"
+puts "CEO ID: #{mike.id}"
 puts "\n"
 puts "Sales Manager Bonus: #{sal.bonus}"
 puts "SalesManager Total Comp: #{sal.total_compensation}"

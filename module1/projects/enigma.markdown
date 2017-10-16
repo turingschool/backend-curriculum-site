@@ -166,7 +166,7 @@ Improve your system so it supports all of the following:
 
 ## Support Tooling
 
-Please make sure that, before your evaluation, your project has each of the following:
+Please make sure that, before your evaluation, your project has the following:
 
 * [SimpleCov](https://github.com/colszowka/simplecov) reporting accurate test coverage statistics
 
@@ -224,11 +224,15 @@ Expectations:
 
 - [ ] Each method is tested  
 
+- [ ] Functionality is accurately covered
+
 - [ ] Tests implement Ruby syntax & style   
 
 - [ ] Balances unit and integration tests 
 
-- [ ] Evidence of edge cases are testing 
+- [ ] Evidence of edge cases testing 
+
+- [ ] Test Coverage metrics are present (SimpleCov)
 
 * 4: Above expectations
 * 3: Meets expectations

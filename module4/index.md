@@ -58,27 +58,20 @@ Students who successfully complete Module 4 will have demonstrated mastery of Pr
 
 <h4 id="week_4">Week 4</h4>
 *   JavaScript Final Assessment
-*   [Accessibility Best Practices](../module2/lessons/accessibility_best_practices)
-*   [Documenting for Collaboration](../module2/lessons/how_to_write_a_great_readme)
-*   [Professional Code Environments](./lessons/professional_code_environments)
-*   [Basics of Security](./lessons/web_application_security)
-*   [Week 4 CFU's](https://github.com/turingschool/checks-for-understanding/blob/master/module-4/backend/week_four.md)
-
-<h4 id="week_5">Week 5</h4>
 *   [Introduction to React](./lessons/intro_to_react)
 *   [React Part Two](./lessons/react_integration_with_axios)
+*   [Basics of Security](./lessons/web_application_security)
+*   [Week 4 CFU](https://github.com/turingschool/checks-for-understanding/blob/master/module-4/backend/week_four.md)
+*   TGRF: Thank Goodness for Ruby Fridays
+
+<h4 id="week_5">Week 5</h4>
+*   [Job Search Strategies II](https://github.com/turingschool/career-development-curriculum/blob/master/module_four/job_search_strategies_ii.md)
 *   Technical Communication Assessment
+*   Optional: Big O
+*   TGRF: Thank Goodness for Ruby Fridays
 
 <h4 id="week_6">Week 6</h4>
 *   [Contributing to Open Source Kick Off](./lessons/contributing_to_open_source)
 *   Capstone Evaluations
 *   Open Source Demos
 *   [Turing Stories](success#turing-story-presentation)
-
-
-<!-- *   [Introduction to Professional Workflow](./lessons/intro_to_professional_workflow)
-*   [Testing JS with Selenium](./lessons/intro_to_testing_with_selenium)
-*   [Rails Challenge](https://gist.github.com/case-eee/e6662baaee43e317109c64d089d2cad5)
-*   [Agile and Other Buzzwords](./lessons/agile_and_other_buzzwords)
-*   [Application Coordination with Message Queues](./lessons/application_coordination_with_message_queues)
-*   [Weekly Challenge List](./homework/week-one-challenges) -->

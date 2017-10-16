@@ -3,16 +3,6 @@ title: SQL in Node
 tags: node, express, knex, database, SQL, http
 ---
 
-### Pre-reqs
-
-We're going to start from the end of the [Building and Testing with Express lesson](http://backend.turing.io/module4/lessons/building_and_testing_with_express)
-
-If you need it, you can clone this repo, which represents the completed lesson:
-
-```
-git clone -b intro-to-express git@github.com:turingschool-examples/building-app-with-express.git
-```
-
 ## Learning Goals
 
 By the end of this lesson, you will:
@@ -22,48 +12,15 @@ By the end of this lesson, you will:
 
 You wouldn't want to immediately jump to writing raw SQL in any production application, but being able to write SQL is a must on the job. Whether it's for queries that are too complex for whatever ORM or library you're using, or it's using SQL to interact with the database directly.
 
-## Application Goals
+### Setup
 
-What we have after the previous lesson:
+Clone this repo, which represents the completed "Intro to Express" lesson:
 
--   Namespaced API
--   RESTful API
--   Serves JSON
--   Consumes JSON
--   Full test coverage
--   Persists data (as long as you don't restart the server)
-
-What we want after this lesson:
-
--   Data that persists to a database
--   Migrations for our data
--   Seeds for our data
--   An app that will deploy to Heroku
--   Separate test, development and production environments
--   A model like module that can be used in controllers and tests
--   A controller like module to clean up our server.js
-
-What you'll be left to do on your own:
-
--   Put the *UD* in *CRUD*
--   Serve multiple resources
--   Any additional refactoring and DRYing out you'd like to do (you could refactor all day)
-
-## Some housekeeping
-
-If you're using git, add a .gitignore, and add `node_modules`. Since these get installed from npm, you typically don't commit them.
-
-Rewrite your `scripts` section of `package.json` like the following:
-
-```js
-"scripts": {
-    "test": "NODE_ENV=test mocha test/*-test.js",
-    "start": "nodemon server.js",
-    "debug": "NODE_ENV=test mocha debug test/*-test.js"
-  }
+```
+git clone -b intro-to-express git@github.com:turingschool-examples/building-app-with-express.git
 ```
 
-Install `nodemon` as a development dependency. It'll automatically reload our server for us as we make changes.
+Install [`nodemon`](https://nodemon.io/) as a development dependency. It'll automatically reload our server for us as we make changes to our Express application.
 
 ```
 npm install nodemon --save-dev
@@ -81,9 +38,9 @@ Also install `knex` globally so we can use it on the command line:
 npm install knex -g
 ```
 
-## What is Knex?
+## What is [Knex](http://knexjs.org/)?
 
-Knex is a great library for working with many kinds of databases. It isn't a full ORM like ActiveRecord, but it includes features like data migrations and seeds, which is great for us. The documentation isn't excellent, but that's fine, because we're only going to be using one command: `.raw()`
+[Knex](http://knexjs.org/) is a great library for working with many kinds of databases. It isn't a full ORM like ActiveRecord, but it includes features like data migrations and seeds, which is great for us. The documentation isn't excellent, but that's fine, because today we're only going to be using one command: `.raw()`
 
 ## Setting Up the Database
 
@@ -95,10 +52,10 @@ CREATE DATABASE secrets;
 CREATE DATABASE secrets_test;
 ```
 
-We will use a `knexfile` to configure our database for all of our environments. Create that file for your project using the below command. It'll set you up with some default values.
+We will use a `knexfile` to configure our database for all of our environments. Create that file for your project using the below command. It'll set you up with some default values - we'll want to overwrite those in a bit.
 
 ```
-→ knex init
+$ knex init
 Created ./knexfile.js
 ```
 
@@ -186,7 +143,7 @@ exports.down = function(knex, Promise) {
 }
 ```
 
-But, why is `Promise` passed in as a second argument? Knex is expecting that these methods return a promise of some sort. All Knex methods return a promise, so we fulfilled our end of the bargain in the example above. `Promise.all` allows you to do multiple things and return one promise. Knex passes us a reference to `Promise`, because it's not natively supported in some previous versions of Node. We're not using it at this moment, but we will in a second.
+But, why is `Promise` passed in as a second argument? Knex is expecting that these methods return a promise of some sort. All Knex methods return a promise, so we fulfilled our end of the bargain in the example above. [`Promise.all`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) allows you to do multiple things and return one promise. Knex passes us a reference to `Promise`, because it's not natively supported in some previous versions of Node. We're not using it at this moment, but we will in a second.
 
 ### Seeds
 
@@ -446,7 +403,7 @@ I've walked you through deployment here to get you going. This is not necessaril
 
 So now we can get data from the database, but how do we create? Modify the test and implementation for `POST /api/secrets`.
 
-Check this [stack overflow question](https://stackoverflow.com/questions/2944297/postgresql-function-for-last-inserted-id) for a good way to get the `id` for a newly created record
+Check this [StackOverflow question](https://stackoverflow.com/questions/2944297/postgresql-function-for-last-inserted-id) for a good way to get the `id` for a newly created record
 
 Then we'll go over a working implementation.
 
