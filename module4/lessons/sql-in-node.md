@@ -69,9 +69,9 @@ Also install `knex` globally so we can use it on the command line:
 npm install knex -g
 ```
 
-## What is Knex?
+## What is [Knex](http://knexjs.org/)?
 
-Knex is a great library for working with many kinds of databases. It isn't a full ORM like ActiveRecord, but it includes features like data migrations and seeds, which is great for us. The documentation isn't excellent, but that's fine, because today we're only going to be using one command: `.raw()`
+[Knex](http://knexjs.org/) is a great library for working with many kinds of databases. It isn't a full ORM like ActiveRecord, but it includes features like data migrations and seeds, which is great for us. The documentation isn't excellent, but that's fine, because today we're only going to be using one command: `.raw()`
 
 ## Setting Up the Database
 
@@ -174,7 +174,7 @@ exports.down = function(knex, Promise) {
 }
 ```
 
-But, why is `Promise` passed in as a second argument? Knex is expecting that these methods return a promise of some sort. All Knex methods return a promise, so we fulfilled our end of the bargain in the example above. `Promise.all` allows you to do multiple things and return one promise. Knex passes us a reference to `Promise`, because it's not natively supported in some previous versions of Node. We're not using it at this moment, but we will in a second.
+But, why is `Promise` passed in as a second argument? Knex is expecting that these methods return a promise of some sort. All Knex methods return a promise, so we fulfilled our end of the bargain in the example above. [`Promise.all`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) allows you to do multiple things and return one promise. Knex passes us a reference to `Promise`, because it's not natively supported in some previous versions of Node. We're not using it at this moment, but we will in a second.
 
 ### Seeds
 
