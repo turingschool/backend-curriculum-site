@@ -275,14 +275,6 @@ database.raw(
 
 We've chained our promises above to ensure that the new record gets created before we query for all of our records.
 
-### Quick Review and CFU
-
-We've just done some basic interactions with a database using SQL in Node. Let's make sure we at least understand what each part is doing.
-
-- [`.raw()`](http://knexjs.org/#Raw-Expressions)
-- `.then()`
-- `function(data){ ... }`
-
 ## New GET Test
 
 Let's rewrite our test for `/api/secrets/:id`
