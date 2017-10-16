@@ -147,7 +147,7 @@ $ rails g model Movie title description:text
 
 Overwrite the record `movie.rb` so we can see what that generated.
 
-Now look at our migrations, we have what we want so lets run `rails db:migrate`
+Now look at our migrations, we have what we want so lets run `rails db:migrategit `
 
 In `config/routes.rb`:
 

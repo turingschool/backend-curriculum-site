@@ -166,7 +166,7 @@ Improve your system so it supports all of the following:
 
 ## Support Tooling
 
-Please make sure that, before your evaluation, your project has each of the following:
+Please make sure that, before your evaluation, your project has the following:
 
 * [SimpleCov](https://github.com/colszowka/simplecov) reporting accurate test coverage statistics
 
@@ -231,6 +231,8 @@ Expectations:
 - [ ] Balances unit and integration tests 
 
 - [ ] Evidence of edge cases testing 
+
+- [ ] Test Coverage metrics are present (SimpleCov)
 
 * 4: Above expectations
 * 3: Meets expectations
