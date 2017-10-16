@@ -183,12 +183,10 @@ important to have a good mix of both!
 
 
 
-[TestPyramid](http://martinfowler.com/bliki/TestPyramid.html)
-
-![TestPyramid](http://martinfowler.com/bliki/images/testPyramid/test-pyramid.png)
+![TestPyramid](https://goo.gl/eyAApP)
 
 **Turn & Talk**
-What kind of test would the above translator test be? What might the other kind of test and corresponding method look like?
+What kind of test would the above translator test (for the runner method) be? What might the other kind of test and corresponding method look like?
 
 ### WrapUp  
 * How does letting tests drive your development lead you to stronger code?  
