@@ -47,6 +47,8 @@ In small groups walk through what the following Ruby tasks return:
 * File.open
 * File.read
 * File.readlines
+* File.write
+* File.close
 * CSV.foreach
   
 
