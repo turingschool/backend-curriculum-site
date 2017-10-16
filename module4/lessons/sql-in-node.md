@@ -268,9 +268,9 @@ database.raw(
   ["I open bananas from the wrong side", new Date]
 )
 .then(() => {
-  database.raw('SELECT * FROM secrets')
-    .then(allSecrets)
-  })
+  return database.raw('SELECT * FROM secrets')
+})
+.then(allSecrets)
 ```
 
 We've chained our promises above to ensure that the new record gets created before we query for all of our records.
