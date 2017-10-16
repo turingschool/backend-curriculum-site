@@ -8,39 +8,39 @@ layout: page
 ### Day 1:
 
 * **LESSONS:**
-  - [Route Helpers](../lessons/route_helpers)
   - [Forms in Rails](../lessons/form_helpers_rails)
-  - [Rails Basics Challenge](../lessons/rails_basics_challenge)
+  - [Nested Resources](../lessons/nested_resources)
+  - [Route Helpers](../lessons/route_helpers)
 
 * **HOMEWORK:**
-  - [Finish the Rails Basic Challenge if you didn't during the day](../lessons/models_databases_relationships_routes_controllers_oh_my)
+  - JobTracker
 
 ### Day 2:
 
 * **LESSONS:**
-  - [SQL](../lessons/sql)
+  - [SQL Refresher](../lessons/sql_refresher)
   - [Factory Girl](../lessons/factory_girl)
-  - [Building Bookshelf](../lessons/forms_primer)
 
 * **HOMEWORK:**
-  - [Form and Route Helpers](https://github.com/turingschool/challenges/blob/master/form_route_helpers_rails.markdown)
-  - Complete Challenge #3 from [Schema Practice](https://gist.github.com/rwarbelow/80417edbcc42578cb56a).
-  - Work on [MixMaster](../projects/mix_master/1_getting_started)
+  - JobTracker
 
 ### Day 3:
 
 * **LESSONS:**
-  - [Advanced Routing in Rails](../lessons/advanced_routing_rails)
+  - Intro to Sass
+  - [Rails Basics Challenge](../lessons/rails_basics_challenge)
 
 * **HOMEWORK:**
-  - Complete Challenge #4 from [Schema Practice](https://gist.github.com/rwarbelow/80417edbcc42578cb56a).
-  - Finish [MixMaster](../projects/mix_master/1_getting_started)
+  - JobTracker
 
 ### Day 4:
 
+* **LESSONS:**
+  - [Sessions, Cookies and Flashes](../lessons/sessions_cookies_and_flashes)
+  - [Namespacing](../lessons/namespacing)
+
 * **HOMEWORK:**
-  - Work on Project.
-  - Complete Challenge #5 from [Schema Practice](https://gist.github.com/rwarbelow/80417edbcc42578cb56a).
+  - Rest!
 
 ### Day 5:
 
@@ -48,10 +48,10 @@ layout: page
 * - [Tech Interview Partner Q&A](../lessons/mock_interview)
 
 * **HOMEWORK:**
-  - Continue working on Project.
-  - Complete the weekly [recap](https://github.com/turingschool/checks-for-understanding/blob/master/module-2/backend/week_three.md)
+  - Rails Mini Project
+  - Complete the weekly [CFUs](https://github.com/turingschool/checks-for-understanding/blob/master/module-2/backend/week_three.md)
 
 ## Projects:
 
-* [Mix Master](../projects/mix_master/1_getting_started)
 * [Job Tracker](https://github.com/turingschool/job-tracker)
+* [Rails Mini Project](../projects/mini-project)
