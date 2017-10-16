@@ -58,6 +58,6 @@ Turn and talk with your neighbor to discuss the following.
 
 Let's submit this form. Why do we need another route to handle the submission of this form? What is the naming convention for this route?
 
-### Exercise: Create Categories
+### Exercise: Create Actors
 
-We also have categories. We have only have the functionality to view all categories currently. Add the functionality for a user to add a new category. Don't forget - you'll need two routes for this!
+We also have Actors. Add the functionality for a user to add a new actor. Don't forget - you'll need two routes for this! 
