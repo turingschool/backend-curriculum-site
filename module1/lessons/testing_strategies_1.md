@@ -183,7 +183,7 @@ important to have a good mix of both!
 
 
 
-![TestPyramid](https://goo.gl/eyAApP)
+![TestPyramid](https://goo.gl/NYQcSd)
 
 **Turn & Talk**
 What kind of test would the above translator test (for the runner method) be? What might the other kind of test and corresponding method look like?
