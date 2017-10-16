@@ -181,7 +181,7 @@ important to have a good mix of both!
 
 ### Hierarchy of Tests
 
-
+A Turing Version of [Martin Fowler's test pyramid](http://martinfowler.com/bliki/TestPyramid.html):
 
 ![TestPyramid](https://goo.gl/NYQcSd)
 
