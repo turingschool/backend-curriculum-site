@@ -95,6 +95,6 @@ ruby <filename.rb> quiet_quotes.txt loud_quotes.txt
 
 ### Additional Resources
 
-[Reading/Writing to Files with Ruby Video](<https://vimeo.com/130322465>)
-[More on cat](https://slackbook.org/html/file-commands-output.html)
-[Resource on Unix Commands](http://mally.stanford.edu/~sr/computing/basic-unix.html)
+[Reading/Writing to Files with Ruby Video](<https://vimeo.com/130322465>)  
+[More on cat](https://slackbook.org/html/file-commands-output.html)  
+[Resource on Unix Commands](http://mally.stanford.edu/~sr/computing/basic-unix.html)  
