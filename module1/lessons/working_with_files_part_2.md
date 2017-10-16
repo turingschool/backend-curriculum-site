@@ -33,10 +33,10 @@ This lesson in intended as a follow up to this [video](https://vimeo.com/2382945
 
 Using a chart compare commands in Unix & Ruby 
 
-| | Unix Commands | Ruby Commands |  
-| :---: | :---: | :---: | :---: | :---: |
-|read | |  |
-|write | | |
+| | Unix Commands | Ruby Commands |    
+| :---: | :---: | :---: | :---: | :---: |  
+|read | |  |  
+|write | | |  
 
 
 ### Return values
