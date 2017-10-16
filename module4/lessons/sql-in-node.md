@@ -52,7 +52,7 @@ CREATE DATABASE secrets;
 CREATE DATABASE secrets_test;
 ```
 
-We will use a `knexfile` to configure our database for all of our environments. Create that file for your project using the below command. It'll set you up with some default values.
+We will use a `knexfile` to configure our database for all of our environments. Create that file for your project using the below command. It'll set you up with some default values - we'll want to overwrite those in a bit.
 
 ```
 $ knex init
