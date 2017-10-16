@@ -49,19 +49,7 @@ What you'll be left to do on your own:
 -   Serve multiple resources
 -   Any additional refactoring and DRYing out you'd like to do (you could refactor all day)
 
-## Some housekeeping
-
-If you're using git, add a .gitignore, and add `node_modules`. Since these get installed from npm, you typically don't commit them.
-
-Rewrite your `scripts` section of `package.json` like the following:
-
-```js
-"scripts": {
-    "test": "NODE_ENV=test mocha test/*-test.js",
-    "start": "nodemon server.js",
-    "debug": "NODE_ENV=test mocha debug test/*-test.js"
-  }
-```
+## Some Housekeeping
 
 Install `nodemon` as a development dependency. It'll automatically reload our server for us as we make changes.
 
@@ -83,7 +71,7 @@ npm install knex -g
 
 ## What is Knex?
 
-Knex is a great library for working with many kinds of databases. It isn't a full ORM like ActiveRecord, but it includes features like data migrations and seeds, which is great for us. The documentation isn't excellent, but that's fine, because we're only going to be using one command: `.raw()`
+Knex is a great library for working with many kinds of databases. It isn't a full ORM like ActiveRecord, but it includes features like data migrations and seeds, which is great for us. The documentation isn't excellent, but that's fine, because today we're only going to be using one command: `.raw()`
 
 ## Setting Up the Database
 
@@ -98,7 +86,7 @@ CREATE DATABASE secrets_test;
 We will use a `knexfile` to configure our database for all of our environments. Create that file for your project using the below command. It'll set you up with some default values.
 
 ```
-→ knex init
+$ knex init
 Created ./knexfile.js
 ```
 
@@ -446,7 +434,7 @@ I've walked you through deployment here to get you going. This is not necessaril
 
 So now we can get data from the database, but how do we create? Modify the test and implementation for `POST /api/secrets`.
 
-Check this [stack overflow question](https://stackoverflow.com/questions/2944297/postgresql-function-for-last-inserted-id) for a good way to get the `id` for a newly created record
+Check this [StackOverflow question](https://stackoverflow.com/questions/2944297/postgresql-function-for-last-inserted-id) for a good way to get the `id` for a newly created record
 
 Then we'll go over a working implementation.
 
