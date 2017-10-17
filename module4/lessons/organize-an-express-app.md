@@ -76,7 +76,7 @@ app.post('/api/secrets', (request, response) => {
 
   Secret.create(message)
     .then((data) => {
-      response.status(201).json({ data.rows[0].id, data.rows[0].message })
+      response.status(201).json(data.rows[0])
     })
 })
 ```
@@ -148,7 +148,7 @@ const postSecret = (request, response, next) => {
 
   Secret.create(message)
     .then(function(data){
-      response.status(201).json({ data.rows[0].id, data.rows[0].message })
+      response.status(201).json(data.rows[0])
     })
 }
 ```

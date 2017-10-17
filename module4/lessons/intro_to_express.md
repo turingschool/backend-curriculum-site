@@ -337,7 +337,7 @@ before(function(done) {
 We're storing our special, wrapped version of Request in a shared property called `this.request`. Now, we can update our test to use our wrapped version.
 
 ```js
-it('should return a 200', (done) => {
+it('should return a 200', function(done) {
   this.request.get('/', (error, response) => {
     if (error) { done(error); }
     assert.equal(response.statusCode, 200);
