@@ -76,7 +76,7 @@ app.post('/api/secrets', (request, response) => {
 
   Secret.create(message)
     .then((data) => {
-      response.status(201).json({ data.rows[0].id, data.rows[0].message })
+      response.status(201).json(data.rows[0])
     })
 })
 ```
@@ -148,7 +148,7 @@ const postSecret = (request, response, next) => {
 
   Secret.create(message)
     .then(function(data){
-      response.status(201).json({ data.rows[0].id, data.rows[0].message })
+      response.status(201).json(data.rows[0])
     })
 }
 ```
@@ -159,9 +159,11 @@ const postSecret = (request, response, next) => {
 
 Curious what the `next` argument in `postSecret` up there is? In my opinion, it's the coolest thing about Express.
 
-`next` is a unique tool that allows you write your own application middleware. With this, you can take your Express app in virtually any direction. (_literally_)
+`next` is a unique tool that allows you write your own application middleware. With this, you can take your Express app in virtually any direction. (_literally_) The only difference between a middleware function and a route handler callback is that middleware functions are expected to call `next` if they don't complete the request cycle.
 
-Hop over to the [Express docs](https://expressjs.com/) and learn about [writing your own middleware](https://expressjs.com/en/guide/writing-middleware.html).
+There are middleware packages for cookies, sessions, user logins, URL params, POST data, security headers and much more.
+
+Hop over to the [Express docs](https://expressjs.com/) or [Mozilla docs](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/Introduction#Using_middleware) and learn about [writing your own middleware](https://expressjs.com/en/guide/writing-middleware.html).
 
 ### Sessions
 

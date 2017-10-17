@@ -21,21 +21,31 @@ length: 60
 * 5 - Progress Checks & Questions
 
 ## Vocabulary 
-* 
-
-## Lesson
+* Unix Command
+* File I/O (Input/Output)
+* Argument Vector (ARGV)
 
 ### Warmup
 
 Spend 5 minutes answering the following questions:
 
-1. What exactly goes into files on our computer?
+1. What Unix commands (command line commands) do you use for creating/reading/writing files? 
 2. Name 3 kinds of files you've worked with in the past.
-3. What determines what kind of information goes into each kind of file?
-4. Why would you want to read files, especially text files, from Ruby?
+4. Why would you want to read files, especially text files, in a Ruby application?
 5. What other kinds of files might you want to read from a program?
 
-### Basics - Reading an Existing File
+## Reading & Writing to Files
+
+### Interacting with Files from the Command Line 
+####  Creating an Empty File
+
+* Using `touch` from the command line  
+   Creates a file in your present working directory(pwd).
+
+```
+touch <filename>
+```
+#### Reading an Existing File
 
 * Using `cat` in your terminal  
    Prints out the contents of your file.
@@ -44,30 +54,7 @@ Spend 5 minutes answering the following questions:
 cat <filename>
 ```
 
-* Using Ruby from Pry or IRB, `File.open()`   
-   Creates a Ruby File object that is "readable."
-
-```ruby
-File.open('<filename>', "r")
-```
-
-### Basics - Creating an Empty File
-
-* Using `touch` from the command line  
-   Creates a file.
-
-```
-touch <filename>
-```
-
-* Using Ruby and `File.open()`  
-    Creates a Ruby File object that is "writable."
-
-```ruby
-File.open(<filename>, "w")
-```
-
-### Basics - Writing Data to a File
+#### Writing Data to a File
 
 * Using `echo` to add content from the command line
 
@@ -82,11 +69,39 @@ cat > <filename>
 CTRL+D
 ```
 
+
+### Interacting with Files in a Ruby Program 
+From Pry or IRB
+
+#### Creating an Empty File
+
+* Using Ruby and `File.open()`  
+    Creates a Ruby File object that is "writable."
+
+```ruby
+File.open(<filename>, "w")
+```
+
+#### Reading an Existing File
+
+* Using Ruby `File.open()`   
+   Creates a Ruby File object that is "readable."
+
+```ruby
+file = File.open('<filename>', "r")
+file.read 
+file.rewind
+file.readlines
+```
+
+#### Writing Data to a File
+
 * Using Ruby and `File.write()` in Pry, IRB, or your Ruby file.
 
 ```ruby
 new_file = File.open('<filename>', "w")
-new_file.write("text")
+new_file.write("all the text you want")
+new_file.close
 ```
 
 ## Command-line Arguments and `ARGV`
@@ -96,10 +111,12 @@ interact with the system environment.
 
 Another common interaction involves reading **"Command Line Arguments"**
 
+So far we've basically used our command line as a way to tell our computer to run various ruby files. I enter this command, this file is run. However, it might be more useful to think of it as a communication tool in which the developer can communicate with their computer, their ruby program, etc.
+
 ### Reading Arguments from a Ruby Program
 
-* `ARGV` - a special array
-* Arguments are provided as strings in the ARGV array
+* `ARGV` - Argument Vector is basically a special array
+* Arguments from the command line are provided as strings in the ARGV array
 * Arguments are separated by spaces in the command line
 * `ARGV` is a "constant" and is globally accessible from anywhere
 in a ruby program
@@ -142,6 +159,8 @@ The program must be executed from the command line like so:
 ruby <filename.rb> quiet_quotes.txt loud_quotes.txt
 ```
 
-### Video
+### Additional Resources
 
-<https://vimeo.com/130322465>
+[Reading/Writing to Files with Ruby Video](<https://vimeo.com/130322465>)
+[More on cat](https://slackbook.org/html/file-commands-output.html)
+

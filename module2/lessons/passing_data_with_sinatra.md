@@ -37,7 +37,7 @@ Remember, there are a few different ways to pass data: through the query string 
 
 Try this out:
 
-1) Go to your controller, and change your `get '/tasks' do...` route to say this:
+1) Go to your controller, and change your `get '/films' do...` route to say this:
 
 ```ruby
 get '/films' do

@@ -27,7 +27,7 @@ WeatherCondition.create(date: "2013-01-02", max_temperature_f: 73, mean_temperat
 
 This gets quite repetitive once multiple tests need that same data. FactoryGirl becomes a tool we can leverage to remove this bloat from our test files.
 
-Rather than taking the time and energy to hand-write each individual piece of data needed for a spec, we can set up "factories" for each resource we're using (`Trip`, `Station`, `WeatherCondition`, etc.). These factories become available for us to use when and where we'd like throughout our tests.
+Rather than taking the time and energy to hand-write each individual piece of data needed for a spec, we can set up "factories" for each resource we're using (`Movie`, `Director`, `Actor`, etc.). These factories become available for us to use when and where we'd like throughout our tests.
 
 Still not sure what the purpose of FactoryGirl is? Check out [this StackOverflow answer](http://stackoverflow.com/questions/5183975/factory-girl-whats-the-purpose).
 
@@ -36,27 +36,14 @@ Still not sure what the purpose of FactoryGirl is? Check out [this StackOverflow
 * Install and configure the FactoryGirl gem in a rails application.
 * Understand the relationship between FactoryGirl and a test vs. development environment.
 * Create a single object using FactoryGirl syntax and methods.
-* Create a relationship between two objects in a factory. 
+* Create a relationship between two objects in a factory.
 
 ## Directions
 
-We'll be working with an existing Rails application to refactor existing (and passing) tests to use FactoryGirl. This should give us plenty of comfort and agency to begin using FactoryGirl on our own in future applications.
+We'll be working with our existing Rails (`movie_mania`) application to refactor existing (and passing) tests to use FactoryGirl. This should give us plenty of comfort and agency to begin using FactoryGirl on our own in future applications.
 
-1. Clone down and set up [this repo](https://github.com/turingschool-examples/factory_girl_intro).
 
-2. Work through this [playlist](https://www.youtube.com/playlist?list=PLf6E_SWaTZjH9V9-eeqH5oAXL-q7GcBm9) of tutorials alongside the repository cloned in the step above.
-  * **TIP**: Try increasing the speed of the videos once you get the hang of FactoryGirl (settings in the gear button on the YouTube video frame).
-
-3. Head to the [FactoryGirl Docs](https://github.com/thoughtbot/factory_girl/blob/master/GETTING_STARTED.md#configure-your-test-suite) and try to implement the following:
-  * Aliases
-  * Inheritance
-  * Dependent attributes
-  * Overriding association attribtues
-  * Generic sequences with `#generate` (e.g., the `name` attribute exists on many models)
-  * More traits
-  * Anything else that looks interesting to you!
-
-## TLDR; FactoryGirl Setup
+## FactoryGirl Setup
 
 In your Gemfile:
 
@@ -82,45 +69,25 @@ The following line should currently be commented out in `rails_helper.rb`. Find 
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 ```
 
-#### Using Test::Unit
-
-Inside of `test/test_helper.rb`:
-
-```ruby
-class Test::Unit::TestCase
-  include FactoryGirl::Syntax::Methods
-end
-```
-
 Factories are automatically loaded if they are in following directories:
 
 ```
 # RSpec
 spec/factories.rb
 spec/factories/*.rb
-
-# Test::Unit
-test/factories.rb
-test/factories/*.rb
 ```
 
-### Example of `test/factories/users.rb`:
+### Example of `spec/factories/directors.rb`:
 
 ```ruby
 FactoryGirl.define do
-  factory :user do
-    first_name "Taylor"
-    last_name  "Swift"
-    username   "tswizzle"
-    admin      false
+  factory :director do
+    name "Ilana Corson"
   end
 
-  # Want to call your factory "admin" but use the `User` class? Use an alias like this.
-  factory :admin, class: User do
-    first_name "sally"
-    last_name  "genericlastname"
-    username   "sg"
-    admin      true
+  # Want to call your factory "admin" but use the `Director` class? Use an alias like this.
+  factory :admin, class: Director do
+    name "Ilana Corson"
   end
 end
 ```
@@ -128,63 +95,40 @@ end
 Having the above factory allows you to do this:
 
 ```ruby
-# Unsaved user (Ruby land):
-user = build(:user)
+# Unsaved director (Ruby land):
+director = build(:director)
 
-# Saved user (Ruby and database land):
-user = create(:user)
+# Saved director (Ruby and database land):
+director = create(:director)
 
-# Admin user:
+# Admin director:
 admin = create(:admin)
-
-# Hash of attributes for a user:
-attributes = attributes_for(:user)
 ```
 
-* You can override attributes in factories with `create(:user, first_name: "Joe")`
-* dynamic vs. static values: "2015-03-05 11:14:47 -0700", { Time.now } or lazy attributes with block:
+* relationships
 
 ```ruby
-factory :user do
-  # ...
-  activation_code { User.generate_activation_code }
-  date_of_birth   { 21.years.ago }
+factory :movie do
+  title "Joe Black"
+  description  "Maybe brad pitt is in it?"
+  director
 end
 ```
 
-* dependent attributes:
+* sequences
 
 ```ruby
-factory :user do
-  first_name "Joe"
-  last_name  "Blow"
-  email { "#{first_name}.#{last_name}@example.com".downcase }
+factory :movie do
+  sequence(:title) {|n| "Title #{n}" }
+  sequence(:description) {|n| "This is a description #{n}" }
 end
-
-create(:user, last_name: "Doe").email
 ```
 
-* shared traits:
+* You can override attributes in factories with `create(:director, name: "Sal Espinosa")`
+* You can create a list too with `create_list(:movie, 2, director: director)`!
+* dynamic vs. static values: "2015-03-05 11:14:47 -0700", { Time.now } or sequence attributes with block:
 
-```ruby
-FactoryGirl.define do
-  factory :post do
-    title 'New post'
-  end
+### Additional Resources
 
-  factory :page do
-    title 'New page'
-  end
-
-  trait :published do
-    published_at Date.new(2012, 12, 3)
-  end
-
-  trait :draft do
-    published_at nil
-  end
-end
-
-FactoryGirl.create(:post, :published)
-FactoryGirl.create(:page, :draft)
-```
+- Work through this [playlist](https://www.youtube.com/playlist?list=PLf6E_SWaTZjH9V9-eeqH5oAXL-q7GcBm9) of tutorials alongside the repository cloned in the step above.
+  * **TIP**: Try increasing the speed of the videos once you get the hang of FactoryGirl (settings in the gear button on the YouTube video frame).

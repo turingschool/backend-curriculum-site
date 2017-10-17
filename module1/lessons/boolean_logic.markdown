@@ -69,7 +69,8 @@ Use a `pry` session to clarify how these three Ruby operators work. For each row
 => true
 ```
 
- `a` | `b` | `a && b` | <code>a &#124;&#124; b</code> | `!a` |
+
+| `a` | `b` | `a && b` | <code>a &#124;&#124; b</code> | `!a` |
 | :---: | :---: | :---: | :---: | :---: |
 | true | true | true | true | false |
 | true | false |  |  |  |
@@ -77,9 +78,10 @@ Use a `pry` session to clarify how these three Ruby operators work. For each row
 | false | false |  |  |  |
 
 
-</br>
-</br>
-</br>
+   <br/>
+   <br/>
+   <br/>
+   <br/>
 
 | `a` | `b` | `a && b` | <code>a &#124;&#124; b</code> | `!a` |
 | :---: | :---: | :---: | :---: | :---: |
@@ -88,14 +90,6 @@ Use a `pry` session to clarify how these three Ruby operators work. For each row
 | false | true | false | true | true |
 | false | false | false | false | true |
 
-### Smaller Group Breakouts
-
-**If not teaching as a class, skip to "Expressions and Precedence with Parentheses".**
-
-Fist to Five:
-Those feeling a "5" with logic so far, break out together, glance over the following parens section, then move onto Activity B. You'll work through this outside of the classroom individually - we'll regroup 15 minutes before the end of class to share solutions.
-
-For the rest of us, we'll work through the rest of the lesson as a class.
 
 ### Expressions and Precedence with Parentheses
 
@@ -119,7 +113,7 @@ It depends on the order Ruby executes.
 ```
 Ruby will run comparisions in order or precedence, if there are multiple of the same operator they will be evaluated starting with the left most operator. 
 
-If we take this Boolean Expression, `false || true && false || false`, we can digram the order Ruby will evaluate it in. 
+If we take this Boolean Expression, `false || true && false || false`, we can diagram the order Ruby will evaluate it in. 
 
 ```
 false || true && false || false 
@@ -201,33 +195,33 @@ end
 
 class VehicleAnalysis 
 	
-	def analyze(vehicle)
-		if vehicle.car?
-         if vehicle.four_wheel_drive? || !vehicle.four_wheel_drive?
-           puts "Vehicle has four wheels "
-           if vehicle.four_wheel_drive?
-             puts "with four wheel drive"
-           else
-             puts "with two wheel drive"
-           end
-         end
-       elsif vehicle.tractor?
-         puts "Vehicle has four wheels "
-         if vehicle.big_back_wheels?
-           puts "with big wheels in the back"
-         end
-       elsif vehicle.pickup?
-         puts "Vehicle has four wheels "
-         if vehicle.four_wheel_drive?
-           puts "with four wheel drive"
-         else
-           puts "with two wheel drive"
-         end
-         if vehicle.big_back_wheels?
-           puts "with big wheels in the back"
-         end
+  def analyze(vehicle)
+    if vehicle.car?
+      if vehicle.four_wheel_drive? || !vehicle.four_wheel_drive?
+        puts "Vehicle has four wheels "
+        if vehicle.four_wheel_drive?
+          puts "with four wheel drive"
+        else
+          puts "with two wheel drive"
+        end
       end
-	end 
+    elsif vehicle.tractor?
+      puts "Vehicle has four wheels "
+      if vehicle.big_back_wheels?
+        puts "with big wheels in the back"
+      end
+    elsif vehicle.pickup?
+      puts "Vehicle has four wheels "
+      if vehicle.four_wheel_drive?
+        puts "with four wheel drive"
+      else
+        puts "with two wheel drive"
+      end
+      if vehicle.big_back_wheels?
+        puts "with big wheels in the back"
+      end
+    end
+  end 
 
 end 
 ``` 
@@ -242,7 +236,7 @@ VehicleAnalysis.new.anlyze(vehicle)
 ```
 
 * How many unique execution paths are there through the block of code starting with `if vehicle.car?` statement?
-* Chart out the conditions which would lead to these paths using consider a truth table.
+* Chart out the conditions which would lead to these paths consider using a truth table.
 
 ### Activity 2: Flattening `if` statements
 
