@@ -188,7 +188,7 @@ As a business admin, I should be able to:
 * Manage items on my business
 * Manage orders on my business
 * Update my business information
-* Manage other business admins for your store
+* Manage other business managers and business admins for your store
 
 ### Platform Admin
 
@@ -340,6 +340,28 @@ Some groups may have a workflow that doesn't merge to master from a PR. You shou
 
 You'll be graded on each of the criteria below with a score of (1) well below
 expectations, (2) below expectations, (3) as expected, (4) better than expected.
+
+### Peer Evaluation
+
+Each group member will evaluate each member of the group anonymously based on the criteria below. Students will receive the average score combined from all group members. 3 and above is considered passing.
+
+* Communication
+  * 4: Group member did all the things mentioned in the bullet point below, but also was a catalyst for communication with the whole group.
+  * 3: Group member communicated clearly when they would and wouldn't be available well ahead of time. It was clear what they were working on and what the status was.
+  * 2: Group member would communicate when they would or wouldn't be available, but not until the last minute, or they would miss deadlines and not notify the group until the last minute.
+  * 1: It was unclear what the group member was working on, or they would fail to notify the team when they weren't going to meet a commitment.
+
+* Group member contributed code (quantity and quality)...
+  * 4: above expectations.
+  * 3: as expected.
+  * 2: below expectations.
+  * 1: well below expectations.
+
+* I would like to work with this group member professionally.
+  * 4: Absolutely. I will likely seek them out in the future with the hopes of working with them again.
+  * 3: Yes, I think I would enjoy working with them.
+  * 2: I would prefer not to.
+  * 1: I would actively avoid working with them again.
 
 ### Client Evaluation
 
