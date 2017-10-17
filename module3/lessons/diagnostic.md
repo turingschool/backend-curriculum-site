@@ -91,4 +91,4 @@ These are recommended resources to look through before the assessment, and/or us
 
 ## Evaluation Criteria
 
-See the [Assessment Evaluation Criteria](https://github.com/turingschool/lesson_plans/blob/master/ruby_03-professional_rails_applications/assessment.md#evaluation-criteria).
+See the [Assessment Evaluation Criteria](http://backend.turing.io/module3/lessons/assessment#evaluation-criteria).
