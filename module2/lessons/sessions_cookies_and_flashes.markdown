@@ -12,47 +12,80 @@ tags: rails, http, sessions, cart, dinner dash
 * Practice the syntax for setting and fetching session data
 * Practice setting flash messages based on conditionals
 
-## Slides
+## Exercise
 
-* Available [here](../slides/sessions_cookies_flashes/sessions_cookies_flashes)
+### Background
 
-## Structure
+1. Download [EditThisCookie](https://chrome.google.com/webstore/detail/editthiscookie/fngmhnnpilhplaeedifhccceomclgfbg).
+1. Watch [this](https://youtu.be/64veb6tKTm0) video about sessions and cookies.
+1. Watch [this](https://youtu.be/xdH9zsW1CK0) video covering the same topic with a slightly different focus.
+1. [This one](https://youtu.be/IPQhME1UYQU) as well.
+1. Read [Sections 5.1, 5.2, and 6](http://guides.rubyonrails.org/action_controller_overview.html) of the Action Controller Overview in the Rails docs.
+1. Visit a big name site (Wikipedia, Facebook, Amazon, Google, etc.), or another site that you visit frequently and click on EditThisCookie in your nav bar (you should see a cookie logo). Explore the different cookies that are being stored for each site. Many will likely be encrypted or at the very least seem cryptic, but some may have information that is more easily parsed by us mere mortals.
+1. Now watch [this video] showing how you might use cookies, sessions, and flashes in a Rails app (don't worry about coding along, just watch the video closely).
 
-* 25 - Whiteboard discussion: Request/Response and Cookies
-* 45 - Code Along
-* 10 - Q&A + Begin Homework
+### Practice
 
-## Request/Response and Cookies
+#### Cookies
 
-### When You're Finished
+Per section 6 of the docs linked above: Rails gives us a cookies method that acts like a hash that will allow us to set data in our controller and send it to our user as a cookie. Let's try this out.
 
-When this session is over you should be able to answer the following:
+Open MovieMania and in the `show` method on the `DirectorsController` change the `show` to match the method below:
+
+```ruby
+def show
+  @director = Director.find(params[:id])
+  cookies[:secret] = "It's a secret to everybody"
+end
+```
+
+Run `rails s`, open your browser, and visit the show page for one of the directors in your database. Use EditThisCookie to view the cookie that you have created (it should have a title of `secret`).
+
+Now, delete the line `cookie[:secret] = "It's a secret to everybody"` from your controller. Visit the page again and check to see if the cookie is still there. Click refresh a few times to see if that changes anything.
+
+Use EditThisCookie to change the value in the cookie to "It's a secret to nobody" (edit the value that you see and click the green checkbox). Hit refresh a few times and check to see what the value is. Remember: cookies are stored **client side** and can be edited by users.
+
+#### Sessions
+
+The session method that Rails gives us in our controller offers similar behavior for sessions.
+
+Go back to the `show` method of your DirectorsController and adjust it to the following:
+
+```ruby
+def show
+  @director = Director.find(params[:id])
+  session[:secret] = "This time for real, though."
+end
+```
+
+Reload your director show page again, and use EditThisCookie to see what cookies you have now. What is different about the sesssion? Can you change it?
+
+Update the `show` method in your DirectorsController one more time:
+
+```ruby
+def show
+  byebug
+  @director = Director.find(params[:id])
+  session[:secret] = "This time for real, though."
+end
+```
+
+Visit the director show page once more and check to see that you hit the `byebug` in the terminal where your server is running. From there, check to see what is stored in our session by entering `session[:secret]` in your byebug session. Rails translates the encrypted cookie that lives on the client's machine into something that you can read and use in your controller.
+
+Note thate the `flash` that you have been using is a special type of session that Rails automatically expires after one request. Generally we use it in our views to give users feedback about actions they have performed.
+
+#### Questions
+
+Answer the following questions:
 
 1. What is a cookie?
-2. What's the difference between a cookie and a session?
-3. What's serialization and how does it come into play with cookies?
-4. Can a cookie be shared by more than one user? How/why?
-5. What would it mean to store a user id in a cookie?
+1. What's the difference between a cookie and a session?
+1. What would it mean to store a user id in a cookie?
+1. When would we want to use a session over a cookie?
 
-### Discussion Points
 
-* Recapping Request/Response
-* Stateless protocol
-* Cookies and flow
-* What goes in a cookie?
-* Limitations & security concerns
-
-## Code Along at Your Own Pace
-
-Clone [Storedom](https://github.com/turingschool-examples/storedom)
-
-Code along with this [video](https://vimeo.com/130058574)
-
-If you finish early...
+## If you finish early...
 
 * experiment with [`flash.now`](http://guides.rubyonrails.org/action_controller_overview.html#flash-now)
 * read this blog post about [hacking Rails](http://robertheaton.com/2013/07/22/how-to-hack-a-rails-app-using-its-secret-token/) from 2013. Some of the content in this article is out of date but the concepts still apply.
 
-## Q&A
-
-Return to the questions above. Which can you answer? Any areas of confusion?
