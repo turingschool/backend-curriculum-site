@@ -38,6 +38,7 @@ layout: page
 * **LESSONS:**
   - [Sessions, Cookies and Flashes](../lessons/sessions_cookies_and_flashes)
   - [Namespacing](../lessons/namespacing)
+  - [Auth Exploration](https://gist.github.com/s-espinosa/9b7851faaf1d2bf039c7a65406e80cc5)
 
 * **HOMEWORK:**
   - Rest!

@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Advanced Routing in Rails
+title: Namespacing
 ---
 
 ## Learning Goals
@@ -8,19 +8,28 @@ title: Advanced Routing in Rails
 - Why/when do we namespace our routes?
 - What is the difference between Namespacing and Scoping?
 - When would we use one over the other?
-- In what case should you use Nested Resources?
 
-## Warm Up
+## Exercise
 
-How confident are you that you can create all 8 prefixes, http-verbs, URI-patterns, and controller actions that Rails gives you when you have the following?
+### Background
 
-```ruby
-# config/routes.rb
+Read [this](http://guides.rubyonrails.org/routing.html#controller-namespaces-and-routing) section of the Rails docs about namespacing in Rails.
 
-resources :cats
-```
+At a high level, namespacing a route in Rails does three things:
 
-## Setup
+1. Allows us to put the controller for a resource into a directory inside of our controllers directory.
+1. Changes the route that a user would visit.
+1. Changes the prefix that we would use as a path helper.
+
+Rails also allows us to do each of these three thigns independently:
+
+1. `module` allows us to put the controller into a sub-directory.
+1. `scope` changes the route that a user would visit.
+1. `as` allows us to change the prefix we use as a path helper.
+
+Let's explore this functionality in a new project, first individually, then all together as a namespace.
+
+### Setup
 
 Let's create an app for CRUDding some cats. Yes, it sounds weird. Yes, it is weird. Weird is good.
 
@@ -54,7 +63,7 @@ What can we do?
 ```ruby
 	# config/routes.rb
 	scope :admin do
-	 resources :cats
+	  resources :cats
 	end
 ```
 
@@ -132,6 +141,8 @@ As you may have expected, this seems like a lot of work for something that's use
 
 _Rad!_
 
+Update the routes file to the following:
+
 ```ruby
 	namespace :admin do
 	 resources :cats
@@ -154,43 +165,13 @@ vs
 
 Can you imagine what happens when you have 400 lines in your routes file?! You'll be thankful these route blocks exist for organization alone.
 
-### Nested Resources
+### Questions
 
-Imagine we have these relationships:
+* Summarize what each of the following things does in the context of our routes file:
+    * `scope`
+    * `module`
+    * `as`
+    * `namespace`
+* Why might it be beneficial to have a two controllers for Movies (one in `controllers/admin` and one just in `controllers`)?
+* What about different routes? Would we ever want to have `/admin/movies` **and** `/movies`? Why?
 
-```ruby
-	class Owner < ActiveRecord::Base
-	 has_many :cats
-	end
-
-	class Cat < ActiveRecord::Base
-	 belongs_to :owner
-	end
-
-```
-
-Let's set up our resource routes as follows:
-
-```ruby
-resources :owners do
- resources :cats
-end
-```
-
-Run `rake routes` now. Why might we want this setup for our routes?
-
-### Recap
-
-Turn and talk to your neighbor and discuss:
-
-*   What are differences between using **namespace** and **nested resources**?
-*   What are use cases for one or the other? Could you think of use cases for both?
-
-### Closing
-
-Can you answer these questions?
-
-- Why do we namespace things?
-- What is the difference between namespacing and scoping?
-- When would we use one over the other?
-- When should you use nested resources?
