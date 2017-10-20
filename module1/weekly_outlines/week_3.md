@@ -28,7 +28,7 @@ layout: page
 
 * [Complete Me](../projects/complete_me)
 * [Enigma](../projects/enigma)
-* [HTTP Yeah You Know Me](../projects/http_yeah_you_know_me)
+* [Event Reporter](../projects/event_reporter)
 
 
 ## Resources
