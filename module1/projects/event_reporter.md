@@ -3,35 +3,34 @@ layout: page
 title: EventReporter
 ---
 
-This project builds on the lessons learned in [EventManager]({% page_url /projects/eventmanager %})
+This project builds on the lessons learned in [EventManager](../projects/eventmanager)
 to focus on fundamental Ruby style/concepts.
 
 ## Project Overview
 
 ### Learning & Practice Goals
 
-* Become comfortable with implementing basic classes and methods
+* Determine appropriate classes and methods based on specifications
 * Demonstrate understanding of variable scope and lifecycle
 * Create multiple coordinating methods and objects
-* Use default and named parameters
+* Choose enumerables best suited for the task
 * Utilize effective debugging techniques
 
 ### Abstract
 
-Let's take [EventManager]({% page_url /projects/eventmanager %}) to the next
-level. Based on the same data file, build an interactive query and reporting
-tool which fulfills the expectations below. Re-use data cleaning procedures
+Let's take [EventManager](eventmanager) to the next
+level. Based on the larger data file, build an interactive query-and-reporting
+tool which fulfills the expectations below. Re-use data-cleaning procedures
 from the original `EventManager` to handle dirty input and generate beautiful
-output. We are also going to explore creating our own HTML files and
-using an API.
+output. We are also going to explore creating our own HTML files.
 
 ### Data Supplied
 
-* Source data file: [event_attendees.csv](/assets/eventmanager/event_attendees.csv)
+* Source data file: [full_event_attendees.csv](full_event_attendees.csv)
 
 ## Base Expectations
 
-As a user launching the program, I'm provided a REPL where I can issue one of several commands, described below. After each command completes, the prompt returns, waiting for another instruction.
+As a user launching the program, I'm provided a [REPL (Read-Eval-Print-Loop)](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop) where I can issue one of several commands, described below. After each command completes, the prompt returns, waiting for another instruction.
 
 ### The Queue
 
@@ -43,20 +42,23 @@ The program must respond to the following commands:
 
 #### `load <filename>`
 
-Erase any loaded data and parse the specified file. If no filename is given, default to `event_attendees.csv`.
+Erase any loaded data and parse the specified file. If no filename is given, default to `full_event_attendees.csv`.
 
-#### `help`
+#### `find <attribute> <criteria>`
 
-Output a listing of the available individual commands
+Populate the queue with all records matching the criteria for the given attribute. Example usages:
 
-#### `help <command>`
+* `find zipcode 20011`
+* `find last_name Johnson`
+* `find state VA`
 
-Output a description of how to use the specific command. For example:
+The comparison should:
 
-```
-help queue clear
-help find
-```
+* Be case insensitive, so `"Mary"` and `"mary"` would be found in the same search
+* Be insensitive to internal whitespace, but not external:
+  * `"John"` and `"John "` are considered matches
+  * `"John Paul"` and `"Johnpaul"` are not matches
+* Not do substring matches, so a `find first_name Mary` does not find a record with first name `"marybeth"`
 
 #### `queue count`
 
@@ -71,7 +73,7 @@ Empty the queue
 Print out a tab-delimited data table with a header row following this format:
 
 ```
-  LAST NAME  FIRST NAME  EMAIL  ZIPCODE  CITY  STATE  ADDRESS  PHONE  DISTRICT
+  LAST NAME  FIRST NAME  EMAIL  ZIPCODE  CITY  STATE  ADDRESS  PHONE
 ```
 
 #### `queue print by <attribute>`
@@ -89,29 +91,26 @@ state, address, and phone number.
 Export the current queue to the specified filename as a valid HTML file. The
 file should use tables and include the data for all of the expected information.
 
-#### `find <attribute> <criteria>`
+#### `help`
 
-Load the queue with all records matching the criteria for the given attribute. Example usages:
+Output a listing of the available individual commands
 
-* `find zipcode 20011`
-* `find last_name Johnson`
-* `find state VA`
+#### `help <command>`
 
-The comparison should:
+Output a description of how to use the specific command. For example:
 
-* Be case insensitive, so `"Mary"` and `"mary"` would be found in the same search
-* Be insensitive to internal whitespace, but not external:
-  * `"John"` and `"John "` are considered matches
-  * `"John Paul"` and `"Johnpaul"` are not matches
-* Not do substring matches, so a `find first_name Mary` does not find a record with first name `"marybeth"`
+```
+help queue clear
+help find
+```
 
 ### Test Cases for Base Expectations
 
 Your program must handle the following scenarios correctly:
 
-#### A. Happy Path
+#### A. Happy Paths
 
-1. `load event_attendees.csv`
+1. `load full_event_attendees.csv`
 2. `queue count` should return `0`
 3. `find first_name John`
 4. `queue count` should return `63`
@@ -196,7 +195,7 @@ find zipcode 20011 and last_name Johnson
   * `xml` generates valid, parsable XML
   * `yml` generates valid YAML
 
-### Implementing Queue District
+### Implementing `queue district`
 
 If there are less than 10 entries in the queue, this command will use the [Google Civic Information API](https://developers.google.com/civic-information/) to get Congressional District information for each entry.
 
@@ -308,7 +307,15 @@ Noting that it has...
 6. `queue save to sarah.yml`
 7. Inspect the four output files for completeness and structure.
 
-#### D. Queue Math
+#### D. `queue district`
+
+`queue print` for queues less than 10 should now print a data table with a header row following this format:
+
+```
+  LAST NAME  FIRST NAME  EMAIL  ZIPCODE  CITY  STATE  ADDRESS  PHONE  DISTRICT
+```
+
+#### E. Queue Math
 
 1. `load`
 2. `find zipcode 20011`
@@ -316,7 +323,7 @@ Noting that it has...
 4. `add zipcode 20010`
 5. Observe that there are 8 records in the queue.
 
-#### E. Nightmare-Mode Find
+#### F. Nightmare-Mode Find
 
 1. `load`
 2. `find state (DC, VA, MD) and last_name johnson`
@@ -376,6 +383,7 @@ Expectations:
 - [ ] Balances unit and integration tests 
 - [ ] Evidence of edge cases testing 
 - [ ] Test Coverage metrics are present (SimpleCov)
+- [ ] A test RakeTask is implemented
 
 * 4: Above expectations
 * 3: Meets expectations
