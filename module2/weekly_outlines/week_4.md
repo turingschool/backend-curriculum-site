@@ -20,7 +20,7 @@ layout: page
 ### Day 2:
 
 * **LESSONS:**
-  - [Authentication](../lessons/authentication)
+  - [Authentication](../slides/authentication/authentication)
 
 * **HOMEWORK:**
   - Finish and review authentication workshop.

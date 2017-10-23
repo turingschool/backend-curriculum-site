@@ -26,7 +26,22 @@
 ---
 
 # Live Coding
-## Creating a User
+## Creating a User Test
+
+```ruby
+  visit '/'
+
+  click_on "Sign Up to Be a User"
+
+  expect(path).to eq(new_user_path)
+
+  fill_in :username, with: "funbucket13"
+  fill_in :password, with: "test"
+
+  click_on "Create User"
+
+  expect(page).to have_content("Welcome, funbucket13!")
+```
 
 ---
 
@@ -48,8 +63,7 @@
 
 * Add gem ‘bcrypt’ to Gemfile
 * Add `has_secure_password` in User model[^1]
-* Add `password_digest` field in database
-
+* Generate `User` with `username` and `password` fields
 [^1]: Adds methods to set and authenticate against a BCrypt password
 
 ---
