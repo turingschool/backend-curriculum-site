@@ -1,7 +1,3 @@
----
-layout: page
----
-
 ![](pass.gif)
 
 # Authorization
