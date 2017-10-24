@@ -143,6 +143,16 @@ That's right. You are creative and I believe in you. Feel free to pitch an origi
 * One-to-many and Many-to-many relationships
 * Styling
 
+#### Approval
+
+In order to have your project approved, send a slack message to your instructors with answers to the following questions:
+
+* What will a visitor be able to do?
+* What will a logged in user be able to do?
+* What will an admin be able to do?
+* What is a one-to-many relationship you will be using?
+* What is a many-to-many relationship you will be using?
+
 #### Things to Consider
 
 If you choose to do this option make sure you try to implement all the concepts we've touched over the last week. For example:
@@ -162,10 +172,6 @@ If you choose to do this option make sure you try to implement all the concepts 
 * Implement Twitter, Github, or Facebook OAuth login
 * Use HAML for your views
 * TDD using RSpec instead of Test::Unit
-
-### Over the weekend
-
-Finish implementing the project over the weekend with your pair. Submit the link to your project repository and Heroku URL to [this document](https://goo.gl/forms/eHzi1cvBhPBGyGYw2).
 
 ### Resources
 
