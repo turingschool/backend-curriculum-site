@@ -30,11 +30,9 @@ Spend the first five minutes writing answers to the following questions:
 
 ## Introduction
 
-We're going to learn about Modules, a simple tool that will teach us to do two completely different things in Ruby - namespacing and mixins. They are pretty awesome.
+We're going to learn about Modules, a simple tool that will does a few completely different things in Ruby. Today we are going to talk about using them as Mixins. They are pretty awesome.
 
 ### Mixins
-
-A little bit about mixins.
 
 * Mixins allow us to share behavior between classes
 * Ruby implements mixins with Modules
