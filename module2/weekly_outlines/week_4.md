@@ -13,7 +13,7 @@ layout: page
 ### Day 2:
 
 * **LESSONS:**
-  - [Authorization](../lessons/authorization-in-rails)
+  - [Authorization](../lessons/authorization)
 
 * **HOMEWORK:**
   - Finish the Authentication/Authorization Workshop.
