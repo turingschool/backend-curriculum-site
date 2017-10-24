@@ -5,7 +5,7 @@ layout: page
 
 ## Lessons
 
-* [Modules](../lessons/mixins)
+* [Modules](../lessons/modules)
 * [Peer to Peer Project Review](../lessons/peer_to_peer_project_review)
 * [Refactoring Patterns I](../lessons/refactoring_patterns_part_1)
 * [Enumerables: Return of the Block](../lessons/advanced_enumerables)
