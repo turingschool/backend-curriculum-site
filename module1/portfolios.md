@@ -2,7 +2,7 @@
 
 ## Instructions
 
-### 1. Fork the Portfolios Repository
+### 1. Fork the Portfolios Repository and Clone your Fork
 
 Fork [Turing's Portfolios Repository](https://github.com/turingschool/portfolios) and clone it to your machine.
 
@@ -10,7 +10,7 @@ Fork [Turing's Portfolios Repository](https://github.com/turingschool/portfolios
 
 Use the template in the `templates` directory to create a new template for yourself.
 
-The file should be saved in the format `"date-name-completing.markdown"` where:
+The file should be saved in the format `"date-firstname-lastname-module.markdown"` where:
 
 * `date` is the last day of the module in compressed year/month/day, like `20150831`
 * `name` is your first and last name like `jeff-casimir`
@@ -26,12 +26,14 @@ If you were completing Module 4 in Cohort 1410 on August 31, 2015 and your name 
 
 Answer the questions in each section of the portfolio. Enter self-assessment scores in the final section.
 
+### 4. Make a PR to `turingschool/portfolios` by 2:30pm the Wednesday prior to your portfolio review
+
 ## Evaluation
 
 ### Process
 
 * Your portfolio will be evaluated in the last week of the module.
-* A pull request with your submission must be made by 8 am the day of your portfolio review.
+* A pull request with your submission must be made by 2:30pm the day before your portfolio review.
 * Non-conforming formats, filenames, or directories will be rejected and your review rescheduled.
 * Instructors will review all portfolio submissions before your scheduled portfolio review and merge pull requests.
 * During your portfolio review, you will discuss:
