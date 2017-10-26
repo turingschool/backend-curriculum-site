@@ -8,43 +8,35 @@ layout: page
 ### Day 1:
 
 * **LESSONS:**
-  - [ActiveRecord on Models](../lessons/active_record_on_models)
-  - [Sessions, Cookies and Flashes](../lessons/sessions_cookies_and_flashes)
-
-
-* **HOMEWORK:**
-  - Read this [primer](https://www.bu.edu/tech/about/security-resources/bestpractice/auth/) on authentication and authorization.
-  - Job Tracker
-  - Push your Job Tracker application to Heroku! If you're not sure how to do this, look back at the Mix Master project.
+  - [Authentication](../slides/authentication/authentication)
 
 ### Day 2:
 
 * **LESSONS:**
-  - [Authentication](../lessons/authentication)
+  - [Authorization](../lessons/authorization)
 
 * **HOMEWORK:**
-  - Finish and review authentication workshop.
+  - Finish the Authentication/Authorization Workshop.
   - If you have time, `rm -rf` your authentication repo and do it all over again.
 
 ### Day 3:
 
 * **LESSONS:**
-  - [Authorization](../lessons/authorization-in-rails)
+  - [ActiveRecord Obstacle Course](../lessons/active_record_obstacle_course)
 
 * **HOMEWORK:**
-  - Work on Rails MiniProject
   - Extension: Experimenting with APIs: Work through [this tutorial and workshop](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/exploring_apis.markdown) which will prepare you for extensions in your Rails Mini-Project and Little Shop.
-  - Finish the Authenication/Authorization Workshop.
+  - Watch [this](https://vimeo.com/135210007) video in preparation for tomorrow. ProTip: Watch on 1.5x speed (top left of the video)
 
 ### Day 4:
 
 * **LESSONS:**
-  - [ActiveRecord Obstacle Course](../lessons/active_record_obstacle_course)
+  - [Cart & Order Lifecycle](../lessons/cart_implementation)
 
 * **HOMEWORK:**
-  - Work on Rails MiniProject
+
+### Day 5
   - Write a technical blog post (post it on your personal blog or Medium)
-  - Watch [this](https://vimeo.com/135210007) video in preparation for Tuesday. ProTip: Watch on 1.5x speed (top left of the video)
 
 ## Projects:
 

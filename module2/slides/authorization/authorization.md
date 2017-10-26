@@ -1,7 +1,3 @@
----
-layout: page
----
-
 ![](pass.gif)
 
 # Authorization
@@ -10,7 +6,7 @@ layout: page
 
 # Warmup
 
-* How did you handle the secret page in Monday's assignment?
+* How did you handle the secret page in Thursday's assignment?
 * Have you tried to implement any authorization in the mini-project? If so, how?
 * Any thoughts on how we might use namespacing to help us organize our authorization strategy?
 

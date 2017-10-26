@@ -10,32 +10,23 @@ title: Authorization in Rails
 * Implement namespacing for routes
 * Use a `before_action` to protect admin controllers
 
-### Setup
+## Slides
 
-Checkout or clone the `implement_specs` branch of the [authentication-authorization repo](https://github.com/turingschool-examples/authentication-authorization-example).
+Available [here](../slides/authorization)
 
-```bash
-# EITHER checkout from existing repository:
-git checkout implement_specs
-# OR clone down new repository:
-git clone -b implement_specs git@github.com:turingschool-examples/authentication-authorization-example.git
-```
+## Warmup
 
-### Warm Up
+* How did you handle the secret page in Thursday's assignment?
+* Have you tried to implement any authorization in the mini-project? If so, how?
+* Any thoughts on how we might use namespacing to help us organize our authorization strategy?
+
+## Repo
+
+Continue working in your MovieMania application, or clone down the most recent version.
 
 Create a gist to answer the following questions. It's more than likely that you'll need to research answers to many of these. Let's put an asterisk next to those you need to research.
 
-*   What's the difference between Authentication and Authorization?
-*   Why are both necessary for securing our applications?
-*   What's a `before_action` filter in Rails?
-*   How can we scope a filter down to only work with specific actions?
-*   What's an `enum` attribute in ActiveRecord? Why would we ever want to use this?
-*   When thinking about Authorization, why might we want to namespace a resource?
-*   What does `allow_any_instance_of` in RSpec do?
-
-### Recap
-
-We'll answer all the questions from the gist as a class. Discuss how we might use these tools to implement authorization.
+## Code Along
 
 ### Adding Authentication to our Application
 
@@ -316,8 +307,16 @@ class Admin::CategoriesController < Admin::BaseController
 end
 ```
 
-### Questions?
+## Checks for Understanding
 
-### Work Time
+*   What's the difference between Authentication and Authorization?
+*   Why are both necessary for securing our applications?
+*   What's a `before_action` filter in Rails?
+*   How can we scope a filter down to only work with specific actions?
+*   What's an `enum` attribute in ActiveRecord? Why would we ever want to use this?
+*   When thinking about Authorization, why might we want to namespace a resource?
+*   What does `allow_any_instance_of` in RSpec do?
+
+## Work Time
 
 Add admin functionality to your Rails Mini-Project and be sure to authorize an admin correctly.
