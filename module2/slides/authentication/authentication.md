@@ -5,7 +5,7 @@
 
 # Warm Up
 
-## In your authentication practice project from Monday...
+## In your authentication practice project from the other day...
 
 * What attributes did you give a user?
 * What controller actions did you have for user?
@@ -25,6 +25,10 @@
 
 ---
 
+## What is Authentication?
+
+- Authentication is the client proving to the application that they are who they say they are. Usually this is done through a username/email and password combination. We handle this interaction a little differently than we handle a traditional user creation because we need to provide a way for our application to remember our user.
+
 # Live Coding
 ## Creating a User Test
 
@@ -33,7 +37,7 @@
 
   click_on "Sign Up to Be a User"
 
-  expect(path).to eq(new_user_path)
+  expect(current_path).to eq(new_user_path)
 
   fill_in :username, with: "funbucket13"
   fill_in :password, with: "test"
@@ -41,6 +45,55 @@
   click_on "Create User"
 
   expect(page).to have_content("Welcome, funbucket13!")
+```
+
+## Setting up the Root Page
+
+- At this point, we do not have a root page that supports this interaction. When we open our app, we want a page that directs the user to either create a new account or sign in with their existing credentials.
+
+- When we run our test, we get a failure because we do not have a root path defined in our `routes.rb` file.
+
+```ruby
+  #routes.rb
+
+  root "welcome#index"
+```
+
+- According to this root path, we are directing our root path to a `WelcomeController` and an `index` action in that controller.
+
+- When we run our test, we get this error:
+
+```bash
+ActionController::RoutingError:
+       uninitialized constant WelcomeController
+```
+
+- Let's create the `WelcomeController` and the action `index` as well. We are going to be rendering some basic content so we don't need to pass anything as an instance method.
+
+```ruby
+#controllers/welcome_controller.rb
+class WelcomeController < ApplicaitonController
+  def index
+  end
+end
+```
+
+- Now when we run our test, we get a template error. Add the template to `views/welcome/index.html.erb` (naming is based on the controller and action)
+
+- We get a new error if we run our test:
+
+```bash
+Capybara::ElementNotFound:
+       Unable to find visible link or button "Sign Up to Be a User"
+```
+
+- Let's add the link to sign up in the `welcome/index.html.erb` file
+
+```erb
+#views/welcome/index.html.erb
+
+<%= link_to "Sign Up to Be a User" %>
+
 ```
 
 ---

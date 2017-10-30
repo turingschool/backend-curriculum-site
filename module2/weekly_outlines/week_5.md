@@ -25,7 +25,7 @@ layout: page
 ### Day 3:
 
 * **LESSONS:**
-  - [Intro to the Asset Pipeline](../lessons/intro_to_the_asset_pipeline)
+  - [Intro to the Asset Pipeline](../slides/pipeline_plus_heroku/asset_pipeline)
   - [SQL/ActiveRecord](../slides/sql_active_record)
 
 * **HOMEWORK:**
