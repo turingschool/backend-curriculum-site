@@ -18,11 +18,15 @@ tags: ruby, rails, asset_pipeline
 
 [Starting a Rails app in production](https://gist.github.com/jmejia/8f6507d3faa92ff21f0b)
 
+[Sprockets](https://github.com/rails/sprockets-rails)
+
+
 ## Warm Up
 
 When building a Rails application, we tend to just assume that jQuery is readily available for us. If we open up the Chrome Developer Tools, we'll see that our Rails application is loading jQuery.
 
 Where is it coming from?
+
 
 ## Lecture
 
@@ -54,7 +58,7 @@ Anything in the pipeline will be available at the `/assets` URL. So, the `app/as
 
 **Try it Out:**
 
-* Clone [turingschool-examples/storedom](https://github.com/turingschool-examples/storedom) and do the necessary prep work (`bundle`, the requisite `rake` tasks).
+* Clone [turingschool-examples/storedom-5](https://github.com/turingschool-examples/storedom-5) and do the necessary prep work (`bundle`, the requisite `rake` tasks). This new version will use Ruby 2.4 and Rails5.
 * Create a directory in `app/assets` called `texts`.
 * Add a text file—let's call it `hello.txt`—to `app/assets/texts` and give it some contents.
 * Fire up the server and visit `http://localhost:3000/assets/hello.txt`.
@@ -243,11 +247,11 @@ module Jquery
 end
 ```
 
-There's not a lot going on in this code, but it tells Rails, "Hey! Look at me! Put by `vendor/assets` into the asset pipeline!"
+There's not a lot going on in this code, but it tells Rails, "Hey! Look at me! Put my `vendor/assets` into the asset pipeline!"
 
 If you use an `index.js` or `index.css`, then you can require the whole gem without specifying a file.
 
-Why would you want to use an `index.js`? Well, let's say you broke your gem assets into multiple files—probably a good idea. Using an `index.js`, allows you to be explicit about the order that these files should be included in.
+Why would you want to use an `index.js`? Well, let's say you broke your gem assets into multiple files -— probably a good idea. Using an `index.js`, allows you to be explicit about the order that these files should be included in.
 
 ### Post-Processing
 
@@ -259,4 +263,4 @@ In production, Rails will minify your assets to help you conserve bandwidth. Rai
 
 ### Resources
 
-* [Running you app in production](https://gist.github.com/rwarbelow/40bd72b2aee8888d6d91)
+* [Running your app in production](https://gist.github.com/rwarbelow/40bd72b2aee8888d6d91)
