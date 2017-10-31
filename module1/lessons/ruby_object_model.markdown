@@ -57,7 +57,7 @@ Now check out some Ruby classes and Modules you don't interface with often, but 
 ```ruby 
 class WoodThings
 
-  def tall
+  def soft
     "superclass's superclass"
   end
 
