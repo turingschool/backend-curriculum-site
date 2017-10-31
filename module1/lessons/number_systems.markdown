@@ -11,6 +11,7 @@ tags: computer science, binary, fundamentals
 ## Vocabulary 
 * Binary
 * Hexadecimal
+* Octal
 * Base-#
 
 ## WarmUp
@@ -18,13 +19,22 @@ tags: computer science, binary, fundamentals
 * What is the significance of increasing the digits in a number? Why do we go from single digit at 9 to double digit at 10?
 
 ## Introduction
-Do you know how to count?
 
 There's more than one way of counting. You're most familiar with the base-10 number system. In this session we'll work to:
 
 * better understand base-10 (decimal)
 * explain and explore base-2 (binary)
 * explain and explore base-16 (hexadecimal)
+* explain and explore base-8 (octal)
+
+Create a chart like the one below to keep track of each number system:
+
+|base|name|digits|max-digit|
+| :---: | :---: | :---: | :---: | :---: |
+|10||||
+|2||||
+|16||||
+|8||||
 
 ## Base-10 (decimal)
 
@@ -44,11 +54,8 @@ You use base-10 numbers everyday, but let's think a bit more about how they work
 
 ### Build It
 
-_Just in case we ever find those viewers and paper strips_
 
-Get yourself one plastic viewer and three paper strips.
 
-With *each* of your paper strips:
 
 1. The small top partial box will be your margin
 2. Write a big `0` filling the first full square
