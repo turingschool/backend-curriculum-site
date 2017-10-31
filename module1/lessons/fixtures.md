@@ -10,7 +10,7 @@ tags: ruby, testing, fixtures, test helper
 ## Learning Goals
 
 * Implement a test helper
-* Understand what text fixtures are and why they are useful
+* Understand what test fixtures are and why they are useful
 * Implement a test fixture
 
 Slides [here](../slides/fixtures)

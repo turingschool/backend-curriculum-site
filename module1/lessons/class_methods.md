@@ -91,9 +91,17 @@ class User
   def self.description
     "I'm the User class! I don't have a name."
   end
+  
+  def self.print_self
+    puts self
+  end
 
   def initialize(name)
     @name = name
+  end
+  
+  def print_self
+    puts self
   end
 
   def description
@@ -178,4 +186,4 @@ Suppose you are collecting Jokes for a joke telling application. Create a Joke c
 ## Additional Resources
 
 [Class Methods Review w/ Launch School](https://launchschool.com/books/oo_ruby/read/classes_and_objects_part2)  
-[Dig Deeper On Class Methods w/ ThoughtBot] (https://robots.thoughtbot.com/meditations-on-a-class-method)
+[Dig Deeper On Class Methods w/ ThoughtBot](https://robots.thoughtbot.com/meditations-on-a-class-method)
