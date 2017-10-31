@@ -41,7 +41,11 @@ These three methods can help you investigate the relationships between classes a
 * `Modules` can be mixed-in to multiple classes (mixins)
 
 #### Exercises
-Using `.ancestors`, `.included_modules`, and `.superclass`, map out the ancestors and superclasses of Modules and Classes of these several commonly-used Ruby classes: Hash, Array, String, Integer, and Float.
+Using `.class`, `.ancestors`, `.included_modules`, and `.superclass`, diagram the ancestors and superclasses of Modules and Classes of these several commonly-used Ruby classes: Hash, Array, String, Integer, and Float.
+
+![Ruby Inheritance Diagram](https://docs.google.com/drawings/d/e/2PACX-1vSh1z2yb089aMCD1pp5idcFcfvZdQt5vJH3cOAas22hI5mrIO83WrrrXdGZy6sWZuu9UALMEJeXX_JX/pub?w=960&h=720)
+
+Now check out some Ruby classes and Modules you don't interface with often, but use all the time. Try using `.class`, `.ancestors`, `.included_modules`, and `.superclass` to diagram `Object`, `Kernal`, and `BasicObject`.
 
 #### Extension
 Read Camilo Reyes' ["Understanding the Object Model."](https://www.sitepoint.com/understanding-object-model/)
@@ -58,9 +62,10 @@ Let's quickly review the types of variables, and talk about a couple you may not
 ## Bindings
 When you invoke a method on an instance, Ruby follows a pattern for locating the definition of that method.
 
-* Start by going to its class
+* Start by looking for a local variable
+* Check its class for a method
 * Look to that class's included_modules
-* Until you find the method, go to the superclass
+* Until it finds the method, go to the superclass
 * Once you find it, create a scope for that object
 
 After Ruby traverses modules and superclasses and locates the source of a method, a scope is created called a `Binding`. [Binding](https://ruby-doc.org/core-2.4.1/Binding.html) is an actual Ruby class that captures the context in which code is executed. The binding retains the context for future use, including relevant variables, methods, the value of self (the instance in which they are operating), and some other contextual details.
@@ -91,7 +96,7 @@ end
 joshs_name = "Josh"
 josh = Person.new(joshs_name)
 josh.get_name                 # => "Josh"
-josh.get_initial              # => "J"
+josh.get_first_initial              # => "J"
 josh.get_binding              # => #<Binding:0x007f879cc62250>
 josh.get_binding.eval('self') # => #<Person:0x007fe6348454f0 @name="Josh">
 ```
@@ -104,7 +109,9 @@ As this example shows, you can access the binding by calling `binding`.
 * Experiment with bindings and articulate two new things you've learned about how they work. You can use [the docs](https://ruby-doc.org/core-2.4.1/Binding.html), or just type `binding.methods` to see what you _can_ do.
 
 #### Check for Understanding
-Define Ruby's `binding`.
+* How does Ruby's look up chain work? What is the order it checks things?
+* What are three methods you can use to learn about where a built in Ruby method gets its components? 
+* Draw a diagram of where Ruby would look for the method 
 
 ## Formative Assessment
 
