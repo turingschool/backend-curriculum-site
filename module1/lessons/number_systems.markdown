@@ -36,11 +36,11 @@ Create a chart like the one below to keep track of each number system:
 |16||||
 |8||||
 
-## Base-10 (decimal)
+### Base-10 (decimal)
 
 You use base-10 numbers everyday, but let's think a bit more about how they work.
 
-### Theory
+#### Theory
 
 * Uses the symbols `0`, `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`
 * Digits carry over to the next place when `9` becomes `0`
@@ -52,32 +52,77 @@ You use base-10 numbers everyday, but let's think a bit more about how they work
   * 10^2 = 100 ("hundreds")
   * 10^3 = 1000 ("thousands")
 
+### Base-2 (binary)
+
+Everything in computing (hardware, software) is based on binary. At the electrical
+level a binary zero means "no electricity", while a binary one means "yes electricity".
+
+#### Theory
+
+* Uses the symbols `0` and `1` only
+* Digits carry over to the next place when `1` becomes `0`
+* One digit can represent only two unique numbers
+* Two digits can represent only four unique numbers
+* Moving right to left, positions represent:
+  * 2^0 = 1
+  * 2^1 = 2
+  * 2^2 = 4
+  * 2^3 = 8
+
+*Comprehension*: What number would come immediately after `1010`?
+
+### Base-16 (hexadecimal)
+
+Base-16 numbers are powerful for representing a large number of possible values with just a few characters (think of
+serial numbers).
+
+#### Theory
+
+In hex you have sixteen symbols! The hex system:
+
+* Uses the symbols `0` through `9` then `A`, `B`, `C`, `D`, `E`, `F`
+* Digits carry over to the next place when `F` becomes `0`
+* One digit can represent sixteen unique numbers
+* Two digits can represent 256 unique numbers
+* Moving right to left, positions represent:
+  * 16^0 = 1
+  * 16^1 = 16
+  * 16^2 = 256
+  * 16^3 = 4096
+
+*Comprehension*: What's the decimal equivalent of the maximum value represented by six hex digits?
+
+### Base-8 (octal)
+
+Octal is the least frequently use of these alternative number systems, but it has some interesting properties. One common
+usage is for dealing with file permissions in the Unix filesystem.
+
+#### Theory
+
+* Uses the symbols `0`, `1`, `2`, `3`, `4`, `5`, `6`, and `7`
+* Digits carry over to the next place when `7` becomes `0`
+* One digit can represent eight unique numbers
+* Two digits can represent 64 unique numbers
+* Moving right to left, positions represent:
+  * 8^0 = 1
+  * 8^1 = 8
+  * 8^2 = 64
+  * 8^3 = 512
+
+*Comprehension*: How many more unique numbers can be represented in four decimal digits versus four octal digits?
+
+
 ### Build It
 
-
-
-
-1. The small top partial box will be your margin
-2. Write a big `0` filling the first full square
-3. Write a big `1` filling the second full square
-4. Continue with the digits `2` through `9`
-5. Shade the eleventh full square as a bottom margin
+Use these [worksheets](https://drive.google.com/a/casimircreative.com/file/d/0Bz1JMFygchXyejZJWlo0SHZjQjg/view?usp=sharing) to build and write each number 0-20 in each Number System (decimal, binary, hexidecimal, & octal)
 
 Practice counting in your normal number system and think critically about the mechanics of how counting works.
 
 *Comprehension*: If you have three decimal digits, how many unique value can you represent?
 
-### Other number systems
-
-We have similar explanations and exercises in number systems with a different base. You can get to them here:
-
-- [Binary - Base 2](./number_systems-binary)
-- [Octal - Base 8](./number_systems-octal)
-- [Hexadecimal - Base 16](./number_systems-hexadecimal)
-
 ## Extensions
 
-If you get done with any of your small group stations, try out these extensions:
+If you get done with building out the numbers try out these extensions:
 
 ### Conversions: From Hex to Binary
 
