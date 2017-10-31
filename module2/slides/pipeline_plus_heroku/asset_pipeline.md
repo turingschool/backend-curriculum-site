@@ -145,7 +145,7 @@ In app/views/layouts/application.html.erb:
 
 * `heroku logs`
 * `heroku logs --tail`
-* `rails_12factor` - in production for earlier versions of rails
+* `rails_12factor` - in production for earlier versions of rails. Does not need for newer rails apps. Works with heroku. 
 
 ---
 
@@ -206,4 +206,3 @@ In `config/environments/production.rb`
 ---
 
 # Running Production Challenge
-

@@ -8,7 +8,7 @@ layout: page
 <!-- * [Object Relational Mapping](../lessons/object_relational_mapping) -->
 <!-- add code-debugging the gender gap link? -->
 * [Class Methods](../lessons/class_methods)
-* [Ruby Object Model](../lessons/ruby_object_model_alt)
+* [Ruby Object Model](../lessons/ruby_object_model)
 * [Pentathlon](../pentathlon) & [Portfolio](../portfolios) Overview
 * [4 Principles of OOP](../lessons/four_pillars_of_oop)
 * [Testing with Fixtures](../lessons/fixtures)

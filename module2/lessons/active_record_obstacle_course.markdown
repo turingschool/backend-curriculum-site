@@ -12,7 +12,7 @@ We've gotten fairly familiar with ActiveRecord's most common methods. Let's make
 
 1. Clone Storedom and checkout the `activerecord-obstacle-course` branch
 
-    * `git clone -b activerecord-obstacle-course https://github.com/turingschool-examples/storedom.git`
+    * `git clone -b activerecord-obstacle-course https://github.com/turingschool-examples/storedom-5`
 
 2. `bundle update`
 
