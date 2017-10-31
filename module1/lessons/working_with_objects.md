@@ -2,7 +2,7 @@
 title: Working with Objects
 length: 60 min
 tags: ruby, objects, oop
----  
+---
 
 ## Learning Goals  
 * describe an object 

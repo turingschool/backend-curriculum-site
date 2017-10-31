@@ -2,17 +2,19 @@
 title: Class Methods
 length: 60min
 tags: ruby, class methods, OOP
----  
+---
 
+### Slides available [here.](../slides/class_methods)
 
-## Learning Goals  
-*  explain the syntactic difference between class and instance methods 
-*  explain when a developer might use a class method 
-*  use a class method to create an instance 
+## Learning Goals
+  
+*  Explain the syntactic difference between class and instance methods 
+*  Explain when a developer might use a class method 
+*  Use a class method to create an instance 
 
 ## Structure  
 5 min - Warm Up  
-10 min - Classs as we know them
+10 min - Classes as we know them
 10 min - Class vs Instance Methods
 5 min - Break  
 10 min - Use of Class Methods  
@@ -129,14 +131,14 @@ class User
   	name = user_info["name"]
   	email = user_info["email"]
   	address = user_info["address"]
-	User.new(name, email, address)
+	  User.new(name, email, address)
   end
   
   def self.load_from_csv(user_info)
   	name = user_info[:name]
   	email = user_info[:email]
   	address = user_info[:address]
-	User.new(name, email, address)
+	  User.new(name, email, address)
   end 
 
   def initialize(name, email, address)
