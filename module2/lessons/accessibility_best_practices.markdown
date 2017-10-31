@@ -3,22 +3,19 @@ layout: page
 title: Accessibility Best Practices
 ---
 
-# Accessibility Best Practices
-
 ## Context
 
 Accessibility is often overlooked when designing applications. It is an extremely important part of inclusion. A developer must think about accessibility from inception.
 
-While accessibility is sometimes considered "nice to have" for an application,
-a [recent lawsuit](https://www.forbes.com/sites/legalnewsline/2017/06/13/first-of-its-kind-trial-goes-plaintiffs-way-winn-dixie-must-update-website-for-the-blind/#4acd5c3f1b38) could be a harbinger of accessible applications becoming legally mandated. A man with blindness was unable to navigate a grocery store's website with his screen reader, and the court ruled in his favor. The grocery store has to set aside money to improve the website and cover the man's court costs.
+While accessibility is sometimes considered "nice to have" for an application, a [recent lawsuit](https://www.forbes.com/sites/legalnewsline/2017/06/13/first-of-its-kind-trial-goes-plaintiffs-way-winn-dixie-must-update-website-for-the-blind/#4acd5c3f1b38) could be a harbinger of accessible applications becoming legally mandated. A man with blindness was unable to navigate a grocery store's website with his screen reader, and the court ruled in his favor. The grocery store has to set aside money to improve the website and cover the man's court costs.
 
 In order for us to really understand how to build a rich web experience, we need to know how the web looks like and feels like for those with accessibility needs.
 
 ## Goals
 
--   Build empathy for people with accessibility needs
--   Identify the 4 main accessibility issues
--   Build familiarity with accessibility tools
+- Build empathy for people with accessibility needs
+- Identify the 4 main accessibility issues
+- Build familiarity with accessibility tools
 
 ## The Need
 
@@ -28,10 +25,10 @@ In America alone, there are 57 million Americans with a disability (2012).
 
 Consider the following statistics from the [Census Bureau's survey taken on July 25, 2012](http://www.interactiveaccessibility.com/accessibility-statistics).
 
--   19.9 Million (8.2%) have difficulty lifting or grasping. This could, for example impact their use of a mouse or keyboard.
--   15.2 Million (6.3%) have a cognitive, mental, or emotional impairment.
--   8.1 Million (3.3%) have a vision impairment. These people might rely on a screen magnifier or a screen reader, or might have a form of color blindness.
--   7.6 Million (3.1%) have a hearing impairment.  They might rely on transcripts and / or captions for audio and video media.
+- 19.9 Million (8.2%) have difficulty lifting or grasping. This could, for example impact their use of a mouse or keyboard.
+- 15.2 Million (6.3%) have a cognitive, mental, or emotional impairment.
+- 8.1 Million (3.3%) have a vision impairment. These people might rely on a screen magnifier or a screen reader, or might have a form of color blindness.
+- 7.6 Million (3.1%) have a hearing impairment.  They might rely on transcripts and / or captions for audio and video media.
 
 According to the [Pew Internet Project Survey conducted by Princeton Survey Research Associates International](http://www.practicalecommerce.com/articles/1417-Accessibility-How-Many-Disabled-Web-Users-Are-There-), 54% of adults living with a disability go online.
 
@@ -51,10 +48,10 @@ The computer will always do exactly what you tell it to. Maybe it's time we star
 
 Here are the top 4 accessibility things to look out for on the web:
 
--   Visual
--   Mobility
--   Cognition
--   Hearing
+- Visual
+- Mobility
+- Cognition
+- Hearing
 
 Making sure we help accommodate these users allows us to really gear and tune our UI for everyone.
 
@@ -83,7 +80,7 @@ If you're interested on how some people with mainly visual needs interact with t
 
 If you're wondering what color blindness is here is a definition found online.
 
-`` Color blindness, also known as color vision deficiency, is the decreased ability to see color or differences in color. The most common cause of color blindness is due to a fault in the development of one or more of the three sets of color sensing cones in the eye.``
+> Color blindness, also known as color vision deficiency, is the decreased ability to see color or differences in color. The most common cause of color blindness is due to a fault in the development of one or more of the three sets of color sensing cones in the eye.
 
 Utilize the color blind extension and visit your favorite websites like Facebook or Instagram and experience how the color change effects your user experience.
 
@@ -123,9 +120,8 @@ Watch this [video](https://youtu.be/rvG7L-gsSuo) on `tabindex`.
 
 ### Discussion
 
-1.  Do you see a benefit to using `tabindex`?
-
-2.  What did you notice about the Auto Trader website while only using tab interaction?
+1. Do you see a benefit to using `tabindex`?
+2. What did you notice about the Auto Trader website while only using tab interaction?
 
 #### Code Tip
 
@@ -137,11 +133,9 @@ One thing you want to consider is utilizing the ``tabindex`` attribute. What's g
 
 Cognitive issues is defined by `webaim` as this:
 
-```txt
-The concept of cognitive disabilities is extremely broad, and not always well-defined. In loose terms, a person with a cognitive disability has greater difficulty with one or more types of mental tasks than the average person. There are too many types of cognitive disabilities to list here, but we will cover some of the major categories. Most cognitive disabilities have some sort of basis in the biology or physiology of the individual. The connection between a person's biology and mental processes is most obvious in the case of traumatic brain injury and genetic disorders, but even the more subtle cognitive disabilities often have a basis in the structure or chemistry of the brain.
+> The concept of cognitive disabilities is extremely broad, and not always well-defined. In loose terms, a person with a cognitive disability has greater difficulty with one or more types of mental tasks than the average person. There are too many types of cognitive disabilities to list here, but we will cover some of the major categories. Most cognitive disabilities have some sort of basis in the biology or physiology of the individual. The connection between a person's biology and mental processes is most obvious in the case of traumatic brain injury and genetic disorders, but even the more subtle cognitive disabilities often have a basis in the structure or chemistry of the brain.
 
-A person with profound cognitive disabilities will need assistance with nearly every aspect of daily living. Someone with a minor learning disability may be able to function adequately despite the disability, perhaps even to the extent that the disability is never discovered or diagnosed. Admittedly, the wide variance among the mental capabilities of those with cognitive disabilities complicates matters somewhat. In fact, one may reasonably argue that a great deal of web content cannot be made accessible to individuals with profound cognitive disabilities, no matter how hard the developer tries. Some content will always be too complex for certain audiences. This is unavoidable. Nevertheless, there are still some things that designers can do to increase the accessibility of web content to people with less severe cognitive disabilities.
-```
+> A person with profound cognitive disabilities will need assistance with nearly every aspect of daily living. Someone with a minor learning disability may be able to function adequately despite the disability, perhaps even to the extent that the disability is never discovered or diagnosed. Admittedly, the wide variance among the mental capabilities of those with cognitive disabilities complicates matters somewhat. In fact, one may reasonably argue that a great deal of web content cannot be made accessible to individuals with profound cognitive disabilities, no matter how hard the developer tries. Some content will always be too complex for certain audiences. This is unavoidable. Nevertheless, there are still some things that designers can do to increase the accessibility of web content to people with less severe cognitive disabilities.
 
 That being said, this topic is a little more abstract.
 
@@ -157,27 +151,26 @@ Checkout this [document](http://geon.github.io/programming/2016/03/03/dsxyliea) 
 
 ### Discussion
 
-1.  What steps can we take to consider people with cognitive issues?
-
-2.  Can you think of any website you know that would be difficult to use for someone with cognitive issues?
+1. What steps can we take to consider people with cognitive issues?
+2. Can you think of any website you know that would be difficult to use for someone with cognitive issues?
 
 #### Code Tip
 
 Organizing your data in a way that is decreeable and engaging for the user will help combat this. Some things we can do to help draw attention to our document:
 
--   Using proper headings, and lists
--   Using more white space in your design
--   “Chunking” content into more manageable pieces
--   Making forms manageable by breaking them into multiple, sequential steps
--   Providing a logical reading order
--   Being consistent with fonts, colors, and locations of page elements
--   Offering keyboard access
--   Consider offering content in multiple formats
+- Using proper headings, and lists
+- Using more white space in your design
+- “Chunking” content into more manageable pieces
+- Making forms manageable by breaking them into multiple, sequential steps
+- Providing a logical reading order
+- Being consistent with fonts, colors, and locations of page elements
+- Offering keyboard access
+- Consider offering content in multiple formats
 
 ## Finding Violations
 
--   Add the [`axe` extension](https://chrome.google.com/webstore/detail/axe/lhdoppojpmngadmnindnejefpokejbdd?hl=en-US).
--   In the developer tools of any website, click on the "aXe" tab and "analyze violations" which will display any violations for a given site.
+- Add the [`axe` extension](https://chrome.google.com/webstore/detail/axe/lhdoppojpmngadmnindnejefpokejbdd?hl=en-US).
+- In the developer tools of any website, click on the "aXe" tab and "analyze violations" which will display any violations for a given site.
 
 ## Wrap up
 
