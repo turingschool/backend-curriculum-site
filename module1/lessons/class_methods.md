@@ -99,13 +99,13 @@ class User
   def initialize(name)
     @name = name
   end
-  
-  def print_self
-    puts self
-  end
 
   def description
     "I'm a User! My name is #{@name}"
+  end
+  
+  def print_self
+    puts self
   end
   
 end
