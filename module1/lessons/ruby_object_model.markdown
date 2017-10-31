@@ -93,6 +93,10 @@ require "./furniture"
 class Chair < Furniture
   include ChairModule
 
+  def initialize
+    @motto = "I'm a chair!"
+  end 
+
   def chair_type
     short = "variable"
     puts short
