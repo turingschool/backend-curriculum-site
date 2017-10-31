@@ -50,16 +50,75 @@ Using `.class`, `.ancestors`, `.included_modules`, and `.superclass`, diagram th
 
 Now check out some Ruby classes and Modules you don't interface with often, but use all the time. Try using `.class`, `.ancestors`, `.included_modules`, and `.superclass` to diagram `Object`, `Kernal`, and `BasicObject`.
 
-## Scope with Variables & Methods
+## Scope with Variables & Methods 
 
-### Variables
+### The Lookup Chain
 
-Let's quickly review the types of variables, and talk about a couple you may not have much experience with.
+```ruby 
+class WoodThings
 
-* 'Instance variables' (`@name`) begin with @. Uninitialized instance variables have the value nil and produce warnings with the -w option.
-* 'Local variables' (`name`) begin with a lowercase letter or `_`. The scope of a local variable ranges from class, module, def, or do to the corresponding end or from a block's opening brace to its close brace {}.
-* 'Global Variables' (`$important_name`) begin with a `$`. These variables are accessible from anywhere.
-* 'Constants' (`BIBLICAL_NAMES`) begin with an uppercase letter. Constants defined within a class or module can be accessed from within that class or module, and those defined outside a class or module can be accessed globally.
+  def tall
+    "superclass's superclass"
+  end
+
+end
+```
+
+```ruby
+require "./wood_things"
+
+class Furniture < WoodThings
+
+  def soft
+    "superclass"
+  end
+
+end
+```
+
+```ruby
+module ChairModule
+
+  def soft
+    "module"
+  end
+
+end
+```
+
+```ruby 
+require "./chair_module"
+require "./furniture"
+
+class Chair < Furniture
+  include ChairModule
+
+  def chair_type
+    short = "variable"
+    puts short
+    puts soft
+  end
+
+  def short
+    "method"
+  end
+
+  def soft
+    "class"
+  end
+
+end
+
+Chair.new.chair_type
+```
+
+When I call `Chair.new.chair_type` what will be my output? 
+How could I get it to print module? 
+
+#### Independent Practice 
+How could I get `Chair.new.chair_type` to print `method`?
+How could I get `Chair.new.chair_type` to print `superclass`?
+How could I get `Chair.new.chair_type` to print `superclass's superclass`?
 
 ### Bindings
 When you invoke a method on an instance, Ruby follows a pattern for locating the definition of that method.
