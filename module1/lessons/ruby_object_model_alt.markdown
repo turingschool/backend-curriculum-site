@@ -47,9 +47,6 @@ Using `.class`, `.ancestors`, `.included_modules`, and `.superclass`, diagram th
 
 Now check out some Ruby classes and Modules you don't interface with often, but use all the time. Try using `.class`, `.ancestors`, `.included_modules`, and `.superclass` to diagram `Object`, `Kernal`, and `BasicObject`.
 
-#### Extension
-Read Camilo Reyes' ["Understanding the Object Model."](https://www.sitepoint.com/understanding-object-model/)
-
 ## Variables
 
 Let's quickly review the types of variables, and talk about a couple you may not have much experience with.
@@ -111,8 +108,11 @@ As this example shows, you can access the binding by calling `binding`.
 #### Check for Understanding
 * How does Ruby's look up chain work? What is the order it checks things?
 * What are three methods you can use to learn about where a built in Ruby method gets its components? 
-* Draw a diagram of where Ruby would look for the method 
+* Draw a diagram of where Ruby would look for the method `::new`
+* What is a binding? 
 
-## Formative Assessment
+## Additional Resources
 
-Test your understanding of this material with this quiz: [http://quiz-ruby-object-model.herokuapp.com/](http://quiz-ruby-object-model.herokuapp.com/).
+* Test your understanding of this material with this quiz: [http://quiz-ruby-object-model.herokuapp.com/](http://quiz-ruby-object-model.herokuapp.com/).
+* Read Camilo Reyes' ["Understanding the Object Model."](https://www.sitepoint.com/understanding-object-model/)
+* [Ruby Object Model Video](https://vimeo.com/160952993)
