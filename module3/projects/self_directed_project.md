@@ -30,10 +30,10 @@ a project.
 Every project will be a bit different, but they need to share some
 common technical characteristics:
 
-* You must use an external OAuth provider to authenticate users
-* You must consume an external API
-* You must implement a production quality user interface
-* You must optimize your application optimizing your database, implementing caching, using background workers, and sending AJAX requests
+* Use an external OAuth provider to authenticate users
+* Consume an external API
+* Implement a production quality user interface
+* Optimize your application optimizing your database, implementing caching, using background workers, and sending AJAX requests
 
 ### Project Scope
 
@@ -70,7 +70,6 @@ Your application **must make good use of one external dataset or API**. Some exa
 * [FitBit](https://dev.fitbit.com)
 * [Spotify](https://developer.spotify.com/web-api)
 * [Strava](https://www.strava.com/developers)
-* [Uber](https://developer.uber.com)
 * [Google Maps](https://developers.google.com/maps)
 
 However, the list is not limited to these. You can choose to integrate with a service of your choosing, as long as it is approved by your client.
@@ -78,8 +77,6 @@ However, the list is not limited to these. You can choose to integrate with a se
 ## <a name="project-concepts"></a> Project Concepts
 
 A week prior to the Self-Directed Project kickoff, each cohort member needs to generate at least **three project ideas**. The ideas must solve a real problem. To put your ideas into project proposals follow the template below. Each idea should have one project proposal.
-
-Once the project proposals are in place, each cohort member will pick an idea, and put the remaining two ideas into the shared ideas. The entire cohort will then vote on the ideas it wants to see built. Finally, the cohort members will have an opportunity to exchange their idea for one of the shared ones, or keep their original idea.
 
 ### Project Template
 
@@ -108,17 +105,17 @@ Once the project proposals are in place, each cohort member will pick an idea, a
 * Which OAuth integration are you planning to use?
 ```
 
-## Check-ins and Milestones
+## Milestones
 
 You will meet with instructors periodically during the project. The goals of each check-in roughly what should be completed before the check-in is listed below.
 
-### 1st Check-in
+### 1st Check-in (Days 1-2)
 
 - 15-25 minutes
 
 #### What should be done
 
-What you build is pretty much up to you. Instructors will want to go over your plan for the project. Research the APIs you want to use, and have a vision for what you want to build. It's better to know the limits API you're using than to be deep into code at this point. If you've only used Postman to this point, that's just fine.
+What you build is pretty much up to you. Instructors will want to go over your plan for the project. Research the APIs you want to use, and have a vision for what you want to build. It's better to know the limits of the API you're using than to be deep into code at this point. If you've only used Postman or cURL to this point, that's just fine.
 
 #### What to expect from instructors
 
@@ -126,8 +123,7 @@ Instructors will help you refine your plan, including scope, wireframes and proj
 
 Don't expect to go over too much code, but if you've got technical questions, go ahead and bring them up.
 
-
-### 2nd Check-in
+### 2nd Check-in (days 3-4)
 
 - 15-25 minutes
 
