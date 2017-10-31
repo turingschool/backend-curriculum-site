@@ -43,7 +43,7 @@ These three methods can help you investigate the relationships between classes a
 #### Exercises
 Using `.class`, `.ancestors`, `.included_modules`, and `.superclass`, diagram the ancestors and superclasses of Modules and Classes of these several commonly-used Ruby classes: Hash, Array, String, Integer, and Float.
 
-![Ruby Inheritance Diagram](https://docs.google.com/drawings/d/e/2PACX-1vSh1z2yb089aMCD1pp5idcFcfvZdQt5vJH3cOAas22hI5mrIO83WrrrXdGZy6sWZuu9UALMEJeXX_JX/pub?w=960&h=720)
+![Ruby Inheritance Diagram](hhttps://docs.google.com/drawings/d/e/2PACX-1vSh1z2yb089aMCD1pp5idcFcfvZdQt5vJH3cOAas22hI5mrIO83WrrrXdGZy6sWZuu9UALMEJeXX_JX/pub?w=952&h=728)
 
 Now check out some Ruby classes and Modules you don't interface with often, but use all the time. Try using `.class`, `.ancestors`, `.included_modules`, and `.superclass` to diagram `Object`, `Kernal`, and `BasicObject`.
 
