@@ -13,11 +13,14 @@ tags: ruby, OOP, CS
 
 ## Vocabulary
 
-- Binding
-- Scope
-- Pointer
+* Scope
+* Inheritance
+* Look Up Chain 
+* Superclass
+* Binding
 
-## Warmup
+
+## WarmUp
 
 - What's the difference between a class and an instance from Ruby's perspective?
 - How are modules used as "mix-ins"?
@@ -47,7 +50,9 @@ Using `.class`, `.ancestors`, `.included_modules`, and `.superclass`, diagram th
 
 Now check out some Ruby classes and Modules you don't interface with often, but use all the time. Try using `.class`, `.ancestors`, `.included_modules`, and `.superclass` to diagram `Object`, `Kernal`, and `BasicObject`.
 
-## Variables
+## Scope with Variables & Methods
+
+### Variables
 
 Let's quickly review the types of variables, and talk about a couple you may not have much experience with.
 
@@ -56,7 +61,7 @@ Let's quickly review the types of variables, and talk about a couple you may not
 * 'Global Variables' (`$important_name`) begin with a `$`. These variables are accessible from anywhere.
 * 'Constants' (`BIBLICAL_NAMES`) begin with an uppercase letter. Constants defined within a class or module can be accessed from within that class or module, and those defined outside a class or module can be accessed globally.
 
-## Bindings
+### Bindings
 When you invoke a method on an instance, Ruby follows a pattern for locating the definition of that method.
 
 * Start by looking for a local variable
@@ -101,18 +106,16 @@ josh.get_binding.eval('self') # => #<Person:0x007fe6348454f0 @name="Josh">
 As this example shows, you can access the binding by calling `binding`.
 
 #### Paired exercise
-
-* Create a superclass for Person and a new method in that class that returns its binding. Make sure it is accessible from an instance of Employee.
+* Using the code above, play around to see what your binding is in various places. 
 * Experiment with bindings and articulate two new things you've learned about how they work. You can use [the docs](https://ruby-doc.org/core-2.4.1/Binding.html), or just type `binding.methods` to see what you _can_ do.
 
-#### Check for Understanding
+### WrapUp
 * How does Ruby's look up chain work? What is the order it checks things?
 * What are three methods you can use to learn about where a built in Ruby method gets its components? 
 * Draw a diagram of where Ruby would look for the method `::new`
 * What is a binding? 
 
-## Additional Resources
-
+### Additional Resources
 * Test your understanding of this material with this quiz: [http://quiz-ruby-object-model.herokuapp.com/](http://quiz-ruby-object-model.herokuapp.com/).
 * Read Camilo Reyes' ["Understanding the Object Model."](https://www.sitepoint.com/understanding-object-model/)
 * [Ruby Object Model Video](https://vimeo.com/160952993)
