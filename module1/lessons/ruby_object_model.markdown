@@ -2,7 +2,7 @@
 layout: page
 title: Ruby Object Model
 length: 90 min
-tags: ruby, OOP, CS 
+tags: ruby, OOP, CS, inheritance 
 ---
 
 ## Learning Goals
