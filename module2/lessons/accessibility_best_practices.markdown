@@ -17,6 +17,10 @@ In order for us to really understand how to build a rich web experience, we need
 - Identify the 4 main accessibility issues
 - Build familiarity with accessibility tools
 
+## Slides
+
+Available [here](../slides/accessibility_best_practices)
+
 ## The Need
 
 There are 3 billion (and counting) people using the internet.
