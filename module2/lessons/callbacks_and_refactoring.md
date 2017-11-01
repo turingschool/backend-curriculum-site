@@ -10,47 +10,39 @@ title: Callbacks and Refactoring
 
 ## Setup
 
-* `git clone git@github.com:turingschool-examples/hotel_callbackfornia.git`
+* We are going to continue and use `movie_mania`.
 
-## Too Much Logic in Controller
+## When to Use a Callback
 
-Check out the `create` action in the `ReservationsController`.
+- Almost never.
+- After callbacks can get messy.
+- A PORO is a better option, most of the time.
 
-What here might be considered outside the scope of logic a controller action should handle?
+## Callbacks in Models. A use case.
+
+- We want to access our movies by title in the url. for example `/movies/drop_dead_fred`. Right now, we have access to our movie show page by `/movies/:id`. How do we create this new url?
+
+### Updating Our Test
 
 ```ruby
-def create
-  @reservation = Reservation.new(reservation_params)
+require 'rails_helper'
 
-  if @reservation.save
-    @reservation.room.booked!
-    redirect_to guest_reservations_path(current_guest)
-  else
-    redirect_to hotel_room_path(@reservation.room.hotel, @reservation.room)
+describe "user sees one movie" do
+  it "user sees one with title and description" do
+    movie = create(:movie)
+
+    visit movie_path(movie.slug)
+
+    expect(current_path).to eq("/movies/#{movie.title}")
+
+    expect(page).to have_content(movie.title)
+    expect(page).to have_content(movie.description)
   end
 end
 ```
 
-Should our reservation save, we're then updating the reservation's room's status to `booked` before we redirect our user.
-
-Let's see if we can extract this.
-
-## Callbacks in Models
-
-```ruby
-class Reservation < ApplicationRecord
-  belongs_to :room
-  belongs_to :guest
-
-  after_save :book_room
-
-  private
-
-  def book_room
-    self.room.booked!
-  end
-end
-```
+- But what is a slug???
+  - A slug is a piece of the URL’s path that is typically a hyphenated version of the title or main piece of a webpage you’re on.
 
 ## [Rails/ActiveRecord Callbacks](http://api.rubyonrails.org/classes/ActiveRecord/Callbacks.html)
 
@@ -84,19 +76,7 @@ Pick of a few below that sound useful to you. Let's take a few minutes to resear
   * `after_destroy`
   * `after_commit`/`after_rollback`
 
-## Where Else Could We Use a Callback?
-
-Check out our seedfile and take a look at how we're creating guests. What information are we requiring? Is anything missing here that is reflected in our schema?
-
-Often, there is information worth storing in your database that isn't worth asking your user to provide.
-
-This could be the full name of a user, the total price of an order, the URL slug of a blog post, etc.
-
-How can we turn our guest's first and last names into a callback?
-
-### Workshop: Full Name
-
-See if you can use a callback to create a guest's full name. Test this callback's functionality in your Rails Console.
+### Workshop: Visit Movie By Slug
 
 ## Callbacks Are Often Code Smells
 
@@ -105,41 +85,3 @@ Callbacks are super powerful, but why should we use them with care?
 Let's break up into 4 groups to research this.
 
 Try to be diligent with your research and come to your own conclusions. This practice will come in handy when navigating opinionated developers in your career.
-
-## Want More? Research Scopes
-
-Scopes allow you to define and chain query criteria in a declarative and
-reusable manner.
-
-Scopes take lambdas - a lambda is a function without a name.
-
-Here are some examples.
-
-```ruby
-class Reservation < ActiveRecord::Base
-
-  scope :complete, -> { where(complete: true) }
-  scope :today, -> { where("start_date >= ?",
-                           Time.zone.now.beginning_of_day) }
-end
-```
-
-They can also take arguments.
-
-```ruby
-class Reservation < ActiveRecord::Base
-
-    scope :newer_than, ->(date) {
-        where("start_date > ?", date)
-          }
-
-end
-```
-
-## Scopes vs Class Methods
-
-* These look eerily similar in usage, but there are key differences.
-* Scopes can always be chained.
-* Class methods can be chained only if they return an object that can be chained.
-* Scopes automatically work on has_many relationships.
-* You can set up a default scope.
