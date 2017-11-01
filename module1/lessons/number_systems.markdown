@@ -189,3 +189,6 @@ Total = 0000 1111 + 1010 0000 = Concatenate 1010 + 1111 = 10101111
 * What are some different number systems used in programming? Where might you use them? 
 * What do the digits 10 represent in each of these number systems?
 
+**Instructor Note:**  
+Print out the two pages of worksheet before class. Each student will need their own.
+
