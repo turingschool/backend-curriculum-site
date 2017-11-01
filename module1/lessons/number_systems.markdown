@@ -95,7 +95,7 @@ In hex you have sixteen symbols! The hex system:
 ### Base-8 (octal)
 
 Octal is the least frequently use of these alternative number systems, but it has some interesting properties. One common
-usage is for dealing with file permissions in the Unix filesystem.
+usage is for dealing with [file permissions in the Unix filesystem](http://www.tutonics.com/2012/12/linux-file-permissions-chmod-umask.html#octal_representation).
 
 #### Theory
 
