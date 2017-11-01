@@ -206,8 +206,8 @@ class Dog
 
   def chase(cat)
     dog_reaction = "woof"
-	cat.be_chased(self)
-	puts dog_reaction
+    cat.be_chased(self)
+    puts dog_reaction
   end
 end
 
@@ -218,7 +218,7 @@ class Cat
 
   def be_chased(dog)
     puts "oh no being chased by this dog:"
-	puts dog.name
+    puts dog.name
   end
 end
 
