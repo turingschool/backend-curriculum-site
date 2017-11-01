@@ -17,6 +17,10 @@ In order for us to really understand how to build a rich web experience, we need
 - Identify the 4 main accessibility issues
 - Build familiarity with accessibility tools
 
+## Slides
+
+Available [here](../slides/accessibility_best_practices)
+
 ## The Need
 
 There are 3 billion (and counting) people using the internet.
@@ -88,15 +92,9 @@ Navigation Tip: Some websites do not allow `I want to see like the colour blind`
 
 ### Discussion
 
-1.  What was the biggest difference between both experiences?
-2.  What was the most frustrating thing for you?
-3.  Could you get the screen reader to read the whole article for you?
-
-#### Code tip!
-
-One big thing that can affect users is that sometimes forms utilize radio buttons. The issue with the visually impaired is that many times those radio buttons are difficult to click. What we can do to help improve the experience for our friends is to allow the parent object to be clickable too. Often times it's just a matter of wrapping your radio button in a `label` tag. Check out the following [Codepen](https://codepen.io/paul66/pen/jKBzu). Don't mind the JavaScript - look at the CSS and the HTML
-
-These are some easy changes we can implement for your application to be more accommodating.
+1. What was the biggest difference between both experiences?
+2. What was the most frustrating thing for you?
+3. Could you get the screen reader to read the whole article for you?
 
 ## Mobility
 
@@ -108,7 +106,7 @@ Watch this video from Dinosaur.js [here](https://www.youtube.com/watch?v=hKIQkgP
 
 ### Experiment
 
-Go to [Auto Traders](http://www.autotrader.com/) website and tab around.
+Go to [Auto Trader](http://www.autotrader.com/) website and tab around.
 
 1.  What was your experience like tabbing around?
 2.  How was the focus?
@@ -122,12 +120,6 @@ Watch this [video](https://youtu.be/rvG7L-gsSuo) on `tabindex`.
 
 1. Do you see a benefit to using `tabindex`?
 2. What did you notice about the Auto Trader website while only using tab interaction?
-
-#### Code Tip
-
-Never adjust the focus on your application. Without the focus there is literally no way for a user to know where they are in your application.
-
-One thing you want to consider is utilizing the ``tabindex`` attribute. What's great about this is if you set the ``tabindex`` of something to zero it acts like a ``stop sign`` that makes the screen reader and or tab focus move to a specific part of the page.
 
 ## Cognition
 
@@ -155,6 +147,20 @@ Checkout this [document](http://geon.github.io/programming/2016/03/03/dsxyliea) 
 2. Can you think of any website you know that would be difficult to use for someone with cognitive issues?
 
 #### Code Tip
+
+##### Focus
+
+Never adjust the focus on your application. Without the focus there is literally no way for a user to know where they are in your application.
+
+One thing you want to consider is utilizing the ``tabindex`` attribute. What's great about this is if you set the ``tabindex`` of something to zero it acts like a ``stop sign`` that makes the screen reader and or tab focus move to a specific part of the page.
+
+##### Radio Buttons
+
+One big thing that can affect users is that sometimes forms utilize radio buttons. The issue with the visually impaired is that many times those radio buttons are difficult to click. What we can do to help improve the experience for our friends is to allow the parent object to be clickable too. Often times it's just a matter of wrapping your radio button in a `label` tag. Check out the following [Codepen](https://codepen.io/paul66/pen/jKBzu). Don't mind the JavaScript - look at the CSS and the HTML
+
+These are some easy changes we can implement for your application to be more accommodating.
+
+##### Dealing with Cognitive Issues
 
 Organizing your data in a way that is decreeable and engaging for the user will help combat this. Some things we can do to help draw attention to our document:
 
