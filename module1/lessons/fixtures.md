@@ -92,8 +92,9 @@ require 'csv'
 require 'pry'
 
 class Bob
-  def initialize(filename)
-    @filename = filename
+  
+  def initialize(filepath)
+    @filepath = filepath
   end
 
   def final_episode
