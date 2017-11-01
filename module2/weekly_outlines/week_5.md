@@ -31,6 +31,7 @@ layout: page
 ### Day 4:
 
 * **LESSONS:**
+  - [Remembering Ruby](../lessons/violations): Complete the challenge described.
 
 * **HOMEWORK:**
   - [Little Shop](http://backend.turing.io/module2/projects/little_shop)
