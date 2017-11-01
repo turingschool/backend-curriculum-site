@@ -58,7 +58,7 @@ class BobTest < Minitest::Test
     assert_instance_of Bob, Bob.new('./data/bob_elements.csv')
   end
 
-  def test_pointless_iteration
+  def test_time_to_run_long_iteration
     bob = Bob.new('./data/bob_elements.csv')
 
     assert_equal "S31E13", bob.final_episode
@@ -119,8 +119,12 @@ Once this is running, let's speed things up with a `bob_elements_truncated.csv` 
 ```
 .
 ├── data
+|   └── bob_elements.csv
 ├── lib
+|   └── bob.rb
 └── test
+    ├── bob_test.rb
+    ├── test_helper.rb
     └── fixtures
         └── bob_elements_truncated.csv
 ```
