@@ -11,6 +11,7 @@ tags: computer science, binary, fundamentals
 ## Vocabulary 
 * Binary
 * Hexadecimal
+* Octal
 * Base-#
 
 ## WarmUp
@@ -18,19 +19,28 @@ tags: computer science, binary, fundamentals
 * What is the significance of increasing the digits in a number? Why do we go from single digit at 9 to double digit at 10?
 
 ## Introduction
-Do you know how to count?
 
 There's more than one way of counting. You're most familiar with the base-10 number system. In this session we'll work to:
 
 * better understand base-10 (decimal)
 * explain and explore base-2 (binary)
 * explain and explore base-16 (hexadecimal)
+* explain and explore base-8 (octal)
 
-## Base-10 (decimal)
+Create a chart like the one below to keep track of each number system:
+
+|base|name|digits|max-digit|
+| :---: | :---: | :---: | :---: | :---: |
+|10||||
+|2||||
+|16||||
+|8||||
+
+### Base-10 (decimal)
 
 You use base-10 numbers everyday, but let's think a bit more about how they work.
 
-### Theory
+#### Theory
 
 * Uses the symbols `0`, `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`
 * Digits carry over to the next place when `9` becomes `0`
@@ -42,63 +52,77 @@ You use base-10 numbers everyday, but let's think a bit more about how they work
   * 10^2 = 100 ("hundreds")
   * 10^3 = 1000 ("thousands")
 
+### Base-2 (binary)
+
+Everything in computing (hardware, software) is based on binary. At the electrical
+level a binary zero means "no electricity", while a binary one means "yes electricity".
+
+#### Theory
+
+* Uses the symbols `0` and `1` only
+* Digits carry over to the next place when `1` becomes `0`
+* One digit can represent only two unique numbers
+* Two digits can represent only four unique numbers
+* Moving right to left, positions represent:
+  * 2^0 = 1
+  * 2^1 = 2
+  * 2^2 = 4
+  * 2^3 = 8
+
+*Comprehension*: What number would come immediately after `1010`?
+
+### Base-16 (hexadecimal)
+
+Base-16 numbers are powerful for representing a large number of possible values with just a few characters (think of
+serial numbers). One common usage that you will see is the #hex value for a color. For example #000000 is the lowest positive number and represents black while #ffffff is the highest positive number (with 6 digits) and represents white.
+
+#### Theory
+
+In hex you have sixteen symbols! The hex system:
+
+* Uses the symbols `0` through `9` then `A`, `B`, `C`, `D`, `E`, `F`
+* Digits carry over to the next place when `F` becomes `0`
+* One digit can represent sixteen unique numbers
+* Two digits can represent 256 unique numbers
+* Moving right to left, positions represent:
+  * 16^0 = 1
+  * 16^1 = 16
+  * 16^2 = 256
+  * 16^3 = 4096
+
+*Comprehension*: What is the highest value of a 6 digit hex number? What's the decimal equivalent of this number?
+
+### Base-8 (octal)
+
+Octal is the least frequently use of these alternative number systems, but it has some interesting properties. One common
+usage is for dealing with [file permissions in the Unix filesystem](http://www.tutonics.com/2012/12/linux-file-permissions-chmod-umask.html#octal_representation).
+
+#### Theory
+
+* Uses the symbols `0`, `1`, `2`, `3`, `4`, `5`, `6`, and `7`
+* Digits carry over to the next place when `7` becomes `0`
+* One digit can represent eight unique numbers
+* Two digits can represent 64 unique numbers
+* Moving right to left, positions represent:
+  * 8^0 = 1
+  * 8^1 = 8
+  * 8^2 = 64
+  * 8^3 = 512
+
+*Comprehension*: How many more unique numbers can be represented in four decimal digits versus four octal digits?
+
+
 ### Build It
 
-_Just in case we ever find those viewers and paper strips_
-
-Get yourself one plastic viewer and three paper strips.
-
-With *each* of your paper strips:
-
-1. The small top partial box will be your margin
-2. Write a big `0` filling the first full square
-3. Write a big `1` filling the second full square
-4. Continue with the digits `2` through `9`
-5. Shade the eleventh full square as a bottom margin
+Use these [worksheets](https://drive.google.com/a/casimircreative.com/file/d/0Bz1JMFygchXyejZJWlo0SHZjQjg/view?usp=sharing) to build and write each number 0-20 in each Number System (decimal, binary, hexidecimal, & octal)
 
 Practice counting in your normal number system and think critically about the mechanics of how counting works.
 
 *Comprehension*: If you have three decimal digits, how many unique value can you represent?
 
-### Other number systems
-
-We have similar explanations and exercises in number systems with a different base. You can get to them here:
-
-- [Binary - Base 2](./number_systems-binary)
-- [Octal - Base 8](./number_systems-octal)
-- [Hexadecimal - Base 16](./number_systems-hexadecimal)
-
 ## Extensions
 
-If you get done with any of your small group stations, try out these extensions:
-
-### Conversions: From Hex to Binary
-
-Converting Hex to Decimal and vice-versa is useful for making Hex numbers more human-readable. But in reality one of the main advantages of hex is that it's very easy to convert between hex and binary. Hexadecimal largely became popular as a number system among computer scientists and programmers because it serves as a convenient "shorthand" for representing binary numbers which would otherwise be very long.
-
-To understand why converting between these two is relatively easy, let's think about what binary and hex each represent.
-
-In hex, each "digit" can represent 16 different values (0-15). In terms of binary, we might say that this represents "4 bits" of information -- we could represent the same range of values in binary using various combinations of the first 4 bits.
-
-Thus, when converting hex to binary, we can actually just treat each digit in the Hexadecimal string as an independent set of 4 bits in binary. Convert all the digits into sets of 4 bits, string them together, and you're done!
-
-Let's look at an example of converting `AF` to Binary:
-
-```plain
-F (15) * 16^0 (1)  = 15(10)  =  0000 1111(2)
-A (10) * 16^1 (16) = 160(10) =  1010 0000(2)
-
-Total = 0000 1111 + 1010 0000 = Concatenate 1010 + 1111 = 10101111
-```
-
-#### Exercises
-
-##### Conversion - Hex <-> Binary
-
-1. Convert 1010 binary to hex
-2. Convert AF6C hex to binary
-3. Convert 1101 0101 binary to hex
-4. Convert FACE hex to binary
+If you get done with building out the numbers try out these extensions:
 
 ### Using Other Number Systems from Ruby
 
@@ -125,9 +149,46 @@ Experiment with these methods to see if you can accomplish all the conversions f
 3. Convert 10,000 decimal to hex
 4. Convert FACE hex to decimal
 
-## Changes for Next Time
+### Adding & Subtracting in different Number Systems 
+Using the Adding & Subtracting section of these resources, explore how familiar adding/subtracting algorithms are impacted by using a different number system.   
 
-* For each number system, add a "counting from" section. Like for hex: "Starting with `7A8` and count (decimal) 12 places. What do you get?"
-* Explain what materials are needed (viewers and strips)
-* Write the protocol for how to move between three stations with decending time: 20min, 15min, 12min? 22/18/15?
-* Add a few challenges/extensions within the individual pieces, like to binary ask the question "What would it be like to count to decimal 10 in Base-2?"
+* [Binary](./archive/number_systems_binary)
+* [Hexadecimal](./archive/number_systems_hexadecimal)
+* [Octal](./archive/number_systems_octal)
+
+### Conversions: From Hex to Binary
+
+Converting Hex to decimal and vice-versa is useful for making Hex numbers more human-readable. But in reality one of the main advantages of hex is that it's very easy to convert between hex and binary. Hexadecimal largely became popular as a number system among computer scientists and programmers because it serves as a convenient "shorthand" for representing binary numbers which would otherwise be very long.
+
+To understand why converting between these two is relatively easy, let's think about what binary and hex each represent.
+
+In hex, each "digit" can represent 16 different values (0-15). In terms of binary, we might say that this represents "4 bits" of information -- we could represent the same range of values in binary using various combinations of the first 4 bits.
+
+Thus, when converting hex to binary, we can actually just treat each digit in the Hexadecimal string as an independent set of 4 bits in binary. Convert all the digits into sets of 4 bits, string them together, and you're done!
+
+Let's look at an example of converting `AF` to Binary:
+
+```plain
+F (15) * 16^0 (1)  = 15(10)  =  0000 1111(2)
+A (10) * 16^1 (16) = 160(10) =  1010 0000(2)
+
+Total = 0000 1111 + 1010 0000 = Concatenate 1010 + 1111 = 10101111
+```
+
+#### Exercises
+
+##### Conversion - Hex <-> Binary
+
+1. Convert 1010 binary to hex
+2. Convert AF6C hex to binary
+3. Convert 1101 0101 binary to hex
+4. Convert FACE hex to binary
+
+
+## WrapUp 
+* What are some different number systems used in programming? Where might you use them? 
+* What do the digits 10 represent in each of these number systems?
+
+**Instructor Note:**  
+Print out the two pages of worksheet before class. Each student will need their own.
+
