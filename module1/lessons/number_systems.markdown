@@ -124,6 +124,38 @@ Practice counting in your normal number system and think critically about the me
 
 If you get done with building out the numbers try out these extensions:
 
+### Using Other Number Systems from Ruby
+
+Ruby by default represents numbers to us using base-10, even though it stores them in binary under the hood. However it also has the ability to represent numbers as strings of different bases when requested.
+
+To do this, you simply pass an optional, numeric argument to the `to_s` method on `Fixnum`:
+
+```
+6.to_s(2)
+=> "110"
+```
+
+Similarly, you can also pass an optional argument to the `to_i` method on `String` to tell ruby to use a different base when it's parsing a string into a number:
+
+```
+"110".to_i(2)
+=> 6
+```
+
+Experiment with these methods to see if you can accomplish all the conversions from the exercises above using ruby.
+
+1. Convert 100 decimal to hex
+2. Convert AF6C hex to decimal
+3. Convert 10,000 decimal to hex
+4. Convert FACE hex to decimal
+
+### Adding & Subtracting in different Number Systems 
+Using the Adding & Subtracting section of these resources, explore how familiar adding/subtracting algorithms are impacted by using a different number system.   
+
+* [Binary](./archive/number_systems_binary)
+* [Hexadecimal](./archive/number_systems_hexadecimal)
+* [Octal](./archive/number_systems_octal)
+
 ### Conversions: From Hex to Binary
 
 Converting Hex to Decimal and vice-versa is useful for making Hex numbers more human-readable. But in reality one of the main advantages of hex is that it's very easy to convert between hex and binary. Hexadecimal largely became popular as a number system among computer scientists and programmers because it serves as a convenient "shorthand" for representing binary numbers which would otherwise be very long.
@@ -152,34 +184,8 @@ Total = 0000 1111 + 1010 0000 = Concatenate 1010 + 1111 = 10101111
 3. Convert 1101 0101 binary to hex
 4. Convert FACE hex to binary
 
-### Using Other Number Systems from Ruby
 
-Ruby by default represents numbers to us using base-10, even though it stores them in binary under the hood. However it also has the ability to represent numbers as strings of different bases when requested.
+## WrapUp 
+* What are some different number systems used in programming? Where might you use them? 
+* What do the digits 10 represent in each of these number systems?
 
-To do this, you simply pass an optional, numeric argument to the `to_s` method on `Fixnum`:
-
-```
-6.to_s(2)
-=> "110"
-```
-
-Similarly, you can also pass an optional argument to the `to_i` method on `String` to tell ruby to use a different base when it's parsing a string into a number:
-
-```
-"110".to_i(2)
-=> 6
-```
-
-Experiment with these methods to see if you can accomplish all the conversions from the exercises above using ruby.
-
-1. Convert 100 decimal to hex
-2. Convert AF6C hex to decimal
-3. Convert 10,000 decimal to hex
-4. Convert FACE hex to decimal
-
-## Changes for Next Time
-
-* For each number system, add a "counting from" section. Like for hex: "Starting with `7A8` and count (decimal) 12 places. What do you get?"
-* Explain what materials are needed (viewers and strips)
-* Write the protocol for how to move between three stations with decending time: 20min, 15min, 12min? 22/18/15?
-* Add a few challenges/extensions within the individual pieces, like to binary ask the question "What would it be like to count to decimal 10 in Base-2?"
