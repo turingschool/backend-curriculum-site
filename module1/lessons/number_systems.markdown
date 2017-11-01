@@ -74,7 +74,7 @@ level a binary zero means "no electricity", while a binary one means "yes electr
 ### Base-16 (hexadecimal)
 
 Base-16 numbers are powerful for representing a large number of possible values with just a few characters (think of
-serial numbers).
+serial numbers). One common usage that you will see is the #hex value for a color. For example #000000 is the lowest positive number and represents black while #ffffff is the highest positive number (with 6 digits) and represents white.
 
 #### Theory
 
@@ -90,7 +90,7 @@ In hex you have sixteen symbols! The hex system:
   * 16^2 = 256
   * 16^3 = 4096
 
-*Comprehension*: What's the decimal equivalent of the maximum value represented by six hex digits?
+*Comprehension*: What is the highest value of a 6 digit hex number? What's the decimal equivalent of this number?
 
 ### Base-8 (octal)
 
@@ -158,7 +158,7 @@ Using the Adding & Subtracting section of these resources, explore how familiar 
 
 ### Conversions: From Hex to Binary
 
-Converting Hex to Decimal and vice-versa is useful for making Hex numbers more human-readable. But in reality one of the main advantages of hex is that it's very easy to convert between hex and binary. Hexadecimal largely became popular as a number system among computer scientists and programmers because it serves as a convenient "shorthand" for representing binary numbers which would otherwise be very long.
+Converting Hex to decimal and vice-versa is useful for making Hex numbers more human-readable. But in reality one of the main advantages of hex is that it's very easy to convert between hex and binary. Hexadecimal largely became popular as a number system among computer scientists and programmers because it serves as a convenient "shorthand" for representing binary numbers which would otherwise be very long.
 
 To understand why converting between these two is relatively easy, let's think about what binary and hex each represent.
 
