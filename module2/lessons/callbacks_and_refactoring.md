@@ -44,11 +44,42 @@ end
 - But what is a slug???
   - A slug is a piece of the URL’s path that is typically a hyphenated version of the title or main piece of a webpage you’re on.
 
+### Creating a slug column
+
+- We run into an issue when we run the tests that `slug` does not exist for `movie`. Lets add that migration:
+- `rails g migration AddSlugToMovies slug:string`
+- Check our migration and `rails db:migrate`
+
+### Updating Movie with Slug
+
+- The reality is that we want to create our slug and then save our movie with the slug we generated. How can we handle this? What type of callback could we use? Research for a few minutes.
+
+- What are [callbacks](http://api.rubyonrails.org/classes/ActiveRecord/Callbacks.html)?
+  - Callbacks allow you to trigger logic before or after an alteration of an object's state.
+
+- Take a minute to research how to create a hyphenated title. Any suggestions? `parameterize`
+
+```ruby
+#movie.rb
+before_save :generate_slug
+
+def generate_slug
+  self.slug = title.parameterize
+end
+```
+
+### Updating our Movies Controller
+
+- Since we are now going to use the slug to access the show page, we need to update our find method to find the movie by slug.
+
+```ruby
+#movies_controller.rb
+def show
+  @movie = Movie.find_by(slug: params[:id])
+end
+```
+
 ## [Rails/ActiveRecord Callbacks](http://api.rubyonrails.org/classes/ActiveRecord/Callbacks.html)
-
-What are [callbacks](http://api.rubyonrails.org/classes/ActiveRecord/Callbacks.html)?
-
-Pick of a few below that sound useful to you. Let's take a few minutes to research those.
 
 1. Creating an Object
   * `before_validation`
@@ -75,8 +106,6 @@ Pick of a few below that sound useful to you. Let's take a few minutes to resear
   * `around_destroy`
   * `after_destroy`
   * `after_commit`/`after_rollback`
-
-### Workshop: Visit Movie By Slug
 
 ## Callbacks Are Often Code Smells
 
