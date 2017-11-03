@@ -217,18 +217,12 @@ The project will be assessed with the following guidelines:
 
 Expectations: 
 
-- [ ] Applies appropriate attribute encapsulation  
-
+- [ ] Applies appropriate attribute encapsulation
 - [ ] Developer creates instance and local variables appropriately
-
 - [ ] Naming follows convention (is idiomatic)
-
 - [ ] Ruby methods used are logical and readable 
-
 - [ ] Recursion is implemented logically
-
 - [ ] Code is indented properly
-
 - [ ] Code does not exceed 80 characters per line  
 
 * 4: Above expectations
@@ -241,9 +235,7 @@ Expectations:
 Expectations: 
 
 - [ ] Code is effectively broken into methods & classes 
-
 - [ ] Developer writes methods less than 10 lines 
-
 - [ ] No more than 3 methods break the principle of SRP 
 
 * 4: Above expectations
@@ -256,7 +248,6 @@ Expectations:
 Expectations: 
 
 - [ ] Each method is tested  
-
 - [ ] Tests implement Ruby syntax & style   
 
 * 4: Above expectations
