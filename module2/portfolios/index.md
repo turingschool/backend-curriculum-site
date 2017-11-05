@@ -15,7 +15,7 @@ If not, you can find it here: [Turing's Portfolios Repository](https://github.co
 
 ### 2. Create an M2 Portfolio
 
-Use the [Module 2 template](template.txt) to create a new portfolio template for yourself. Markdown formatting is already set up for you (although not obvious for copy and pasting purposes).
+Use the [Module 2 template](https://github.com/turingschool/portfolios/blob/master/templates/BEM2_template.md) to create a new portfolio template for yourself. Markdown formatting is already set up for you (although not obvious for copy and pasting purposes).
 
 The file should be saved in the format `"date-name-completing.markdown"` where:
 
