@@ -26,7 +26,7 @@ Although you're working as a group, everybody should give themselves some alone 
 
 ### Open-Source Contributions
 
-Each team will be provided with an open-source repo and a short list of suggested issues to resolve. While you will not fail if you're unable to submit a PR that gets merged, we expect you to make a strong effort towards getting a contribution accepted. You do not have to work on the suggested issues and can pick others from the repo as long as they aren't already assigned to someone else.
+Each team will be provided with an open-source repository. While you will not fail if you're unable to submit a PR that gets merged, we expect you to make a strong effort towards getting a contribution accepted. You can pick any issue from the repo as long as they aren't already assigned to someone else. Typically, we suggest looking for issues that have tags that say "beginner-friendly", "help wanted", or "good first issue".
 
 #### Being a Good Human
 
@@ -67,7 +67,7 @@ Each group will present the work they accomplished (or didn't accomplish) to the
 
 Put your presentation into writing. Each person must write their own blog post. You can write about all four sections described in the presentation, or pick a single one to go in-depth on. Regardless of what you choose, each blog post should be about 1,000 words.
 
-You'll submit your blog post [here](https://github.com/turingschool/ruby-submissions/blob/master/1703-b/4module/open_source/blog_post_submission.md) **before** your group presentation.
+You'll submit your blog post [here](https://github.com/turingschool/ruby-submissions/blob/master/1705-b/4module/oss_blog_submission.md) **before** your group presentation.
 
 -----------------------------------------------------------
 
