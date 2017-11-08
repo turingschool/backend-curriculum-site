@@ -10,7 +10,7 @@ tags: ruby, testing, fixtures, test helper
 ## Learning Goals
 
 * Implement a test helper
-* Understand what text fixtures are and why they are useful
+* Understand what test fixtures are and why they are useful
 * Implement a test fixture
 
 Slides [here](../slides/fixtures)
@@ -58,7 +58,7 @@ class BobTest < Minitest::Test
     assert_instance_of Bob, Bob.new('./data/bob_elements.csv')
   end
 
-  def test_pointless_iteration
+  def test_time_to_run_long_iteration
     bob = Bob.new('./data/bob_elements.csv')
 
     assert_equal "S31E13", bob.final_episode
@@ -92,8 +92,9 @@ require 'csv'
 require 'pry'
 
 class Bob
-  def initialize(filename)
-    @filename = filename
+  
+  def initialize(filepath)
+    @filepath = filepath
   end
 
   def final_episode
@@ -118,8 +119,12 @@ Once this is running, let's speed things up with a `bob_elements_truncated.csv` 
 ```
 .
 ├── data
+|   └── bob_elements.csv
 ├── lib
+|   └── bob.rb
 └── test
+    ├── bob_test.rb
+    ├── test_helper.rb
     └── fixtures
         └── bob_elements_truncated.csv
 ```

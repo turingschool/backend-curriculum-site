@@ -72,7 +72,7 @@ ActionController::RoutingError:
 
 ```ruby
 #controllers/welcome_controller.rb
-class WelcomeController < ApplicaitonController
+class WelcomeController < ApplicationController
   def index
   end
 end
@@ -94,6 +94,24 @@ Capybara::ElementNotFound:
 
 <%= link_to "Sign Up to Be a User" %>
 
+```
+
+But where do we want this link to go? We want to create a new user resource. Notice we are treating this resource as any other resource.
+
+```erb
+#views/welcome/index.html.erb
+
+<%= link_to "Sign Up to Be a User", new_user_path %>
+
+```
+
+We still need to define this routes in our `routes.rb` file.
+
+```ruby
+#routes.rb
+root "welcome#index"
+
+resources :users, only: [:new]
 ```
 
 ---
