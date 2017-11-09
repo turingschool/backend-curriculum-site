@@ -353,7 +353,9 @@ Expectations:
 - [ ] Ruby methods used are logical and readable  
 - [ ] Developer implements best-choice enumerable methods
 - [ ] Code is indented properly
-- [ ] Code does not exceed 80 characters per line  
+- [ ] Code does not exceed 80 characters per line
+- [ ] A directory/file structure provides basic organization via lib/ and/or /test
+
 
 ### 2. Breaking Logic into Components
 
