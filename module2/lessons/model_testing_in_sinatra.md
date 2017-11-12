@@ -9,10 +9,6 @@ tags: sinatra, models, tdd, validations, scopes
 * set up RSpec within a Sinatra web app
 * test model methods and validations using best practices in RSpec
 
-## Slides
-
-Available [here](../slides/model_testing_in_sinatra)
-
 ## Repository
 
 We will continue to use the Film File repository that we used in the Intro to ActiveRecord lesson.

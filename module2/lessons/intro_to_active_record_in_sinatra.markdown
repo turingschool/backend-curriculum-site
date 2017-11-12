@@ -11,10 +11,6 @@ tags: activerecord, migrations, sinatra
 * Interpret schema.rb
 * Utilize ActiveRecord Models in the controller to pass information to views
 
-## Slides
-
-Available [here](../slides/intro_to_active_record)
-
 ## Repository
 
 Clone [this](https://github.com/turingschool-examples/film-file) repository and run `bundle install`.

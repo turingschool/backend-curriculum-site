@@ -9,10 +9,6 @@ title: RESTful Routes and CRUD
 * Create a routes reference chart for the seven RESTful routes.
 * Be able to distinguish between a RESTful vs non-RESTful route.
 
-## Slides
-
-Available [here](../slides/restful_routes_and_crud)
-
 ## Warmup
 
 Based on your intermission work:

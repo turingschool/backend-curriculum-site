@@ -8,7 +8,7 @@ layout: page
 ##### Optional Intermediate SQL
 
 * Revisit the [notes](https://github.com/turingschool/lesson_plans/blob/master/ruby_03-professional_rails_applications/intermediate_sql.md) from class.
-* Practice writing more complex queries in this [workshop](https://gist.github.com/case-eee/5affe7fd452336cef2c88121e8d49f5d).
+* Practice writing more complex queries in this [workshop](../misc/complex_queries).
 
 ### Day 1:
 

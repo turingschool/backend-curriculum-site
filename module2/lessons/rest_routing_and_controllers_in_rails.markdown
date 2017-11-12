@@ -8,10 +8,6 @@ tags: rest, routing, controllers, routes
 
 Read [this article](http://www.theodinproject.com/ruby-on-rails/routing).
 
-## Slides
-
-Slides available [here](../slides/rest_routing_rails/rest_routing_rails.md)
-
 ## Learning Goals
 
 * explain the purpose of the `routes.rb` file
