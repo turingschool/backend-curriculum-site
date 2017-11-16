@@ -17,6 +17,7 @@ layout: page
 * [Intro to Scope](../lessons/intro_to_scope)
 * [Intro to OOP](../lessons/intro_to_oop)
 * [How Testing Works](../lessons/how_testing_works)
+* [Intro to Hashes](../lessons/introducing_hashes)
 * [Intro to TDD](../lessons/intro_to_tdd)
 * [Gear Up: Growth Mindset](https://github.com/turingschool/gear-up/blob/master/m1_citizenship/session_1_growth_mindset.markdown)
 

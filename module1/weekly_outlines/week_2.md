@@ -8,7 +8,6 @@ layout: page
 * [Git Gud @ Git](../lessons/working_with_git)
 * [Academic Integrity](../lessons/academic_integrity)
 * [Enumerables: A New Hope](../lessons/beginner_enumerables)
-* [Intro to Hashes](../lessons/hashes_arts_and_crafts)
 * [Testing in a Project](../lessons/testing_in_a_project)
 * [Optional Review: Working with Objects](../lessons/working_with_objects)
 * [Nested Collections](../lessons/nested_collections)
