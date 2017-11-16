@@ -10,7 +10,7 @@ layout: page
 * [Variables, Strings, and Integers](../lessons/variables_strings_and_integers)
 * [Intro to Methods](../lessons/intro_to_methods)
 * [Flow Control](../lessons/flow_control) ([Video](https://www.youtube.com/watch?v=iZkQWR9_RpY))
-* [Intro to Arrays](../lessons/intro_to_arrays_arts_and_crafts) ([Video](https://www.youtube.com/watch?v=nlwU1YtQ9SU))
+* [Introducing Arrays](../lessons/introducing_arrays) ([Video](https://www.youtube.com/watch?v=nlwU1YtQ9SU))
 * [Debugging with Pry](../lessons/debugging_with_pry)
 * [PD: Strengths Finder](../../career_development_curriculum/module_one/strengths_reflection_session)
 * [Intro to Classes](../lessons/intro_to_classes)

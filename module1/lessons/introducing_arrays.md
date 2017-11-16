@@ -1,10 +1,8 @@
 ---
-title: Arrays
+title: Introducing Arrays
 length: 60
 tags: ruby, arrays, names structures
 ---
-
-# Introduction to Arrays
 
 ## Learning Goals
 
@@ -12,14 +10,26 @@ tags: ruby, arrays, names structures
 *   Develop a mental model to understand arrays
 *   Gain some familiarity with common array methods
 
-## Vocabulary 
+## Slides
+
+Available [here](../slides/introducing_arrays)
+
+## Warmup
+
+[Ruby Doc](https://ruby-doc.org/core-2.4.2/Array.html) defines an array as "ordered, integer-indexed collections of any object."
+
+* What information can you pull out of that definition?
+* Looking at the other information on that page, what can you tell about arrays?
+
+## Vocabulary
+
 * Data Structure
 * Array
-* Iterate 
+* Iterate
 
 ### What is a data structure?
 
--   A data structure is a particular way of organizing names so that it can be used efficiently
+-   A data structure is a particular way of organizing information so that it can be used efficiently
 
 ### What is an array?
 
@@ -38,7 +48,7 @@ We'll step through using some of the fundamental Array methods, including:
 
 As we go, we'll work with an IRB session.
 
--   Create a new file in your module 1 folder called ```intro_to_arrays.rb```. In this file, you can take notes and recreate what we have used in our pry session to refer to.
+-   Create a new file in your module 1 folder called `intro_to_arrays.rb`. In this file, you can take notes and recreate what we have used in our pry session to refer to.
 -   In our irb session let's create some names:
 
     ```ruby
@@ -131,6 +141,8 @@ As we go, we'll work with an IRB session.
     ```
 
     What happens when we call ```first_initial```? What about ```names```?
+
+## Summary
 
 Got it? Here are the important concepts you've seen:
 
