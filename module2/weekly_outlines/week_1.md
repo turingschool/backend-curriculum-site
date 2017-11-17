@@ -9,7 +9,7 @@ layout: page
 
 * **LESSONS:**
   - [Intro to M2](../misc/intro_to_m2)
-  - [How the Web Works](../lessons/how_the_web_works)
+  - [Intro to ActiveRecord in Sinatra](../lessons/intro_to_active_record_in_sinatra)
   - [Intro to REST & CRUD](../lessons/restful_routes_and_crud)
   - [Intro to MVC](../lessons/intro_to_mvc)
 
@@ -23,7 +23,7 @@ layout: page
 ### Day 2:
 
 * **LESSONS:**
-  - [Intro to ActiveRecord in Sinatra](../lessons/intro_to_active_record_in_sinatra)
+  - [How the Web Works](../lessons/how_the_web_works)
   - [Model Testing in Sinatra](../lessons/model_testing_in_sinatra)
   - [Intro to HTML](../lessons/intro_to_html)
   - [Database Visualization and Relationships](../lessons/database_visualization_and_relationships)
