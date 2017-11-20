@@ -77,7 +77,9 @@ We can also embed blocks with erb. Here’s an example using if/else:
     1. Collect any data we need to use in our view (using a model as a go-between)
     1. Render a view or redirect (using `erb` or `redirect`)
 
-Let's draw a diagram to represent this process.
+Let's draw a diagram to represent this process. 
+
+![mvc diagram](https://docs.google.com/drawings/d/e/2PACX-1vRrocz01rjJXxrIYnECmpzzVsUzIOrGL5psEFaIeZbMIrqsoU2WVQ-Sd-ZJCzy03VvoQL-KaTbHZd2F/pub?w=474&h=369)
 
 ### Experiment
 
