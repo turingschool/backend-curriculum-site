@@ -27,8 +27,8 @@ Look at your Task Manager controller.
 
 * Routes in Sinatra are defined as part of its DSL (Domain Specific Language).
 * These routes should look similar to other `do`/`end` blocks you're used to from Ruby.
-* The first keyword of these routes corresponds with the **HTTP verb** the request is making to the route.
-* The param this keyword takes is a string version of the **path** the request is being made to.
+* The first keyword, a predefined method, of these routes corresponds with the **HTTP verb** the request is making to the route.
+* The argument this method takes is a string version of the **path** the request is being made to.
 * Inside the block, we tell Sinatra how to handle the request.
 
 ### Model
