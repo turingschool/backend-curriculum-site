@@ -33,7 +33,7 @@ We will continue to use the Film File repository that we used in the Intro to Ac
 
 **STEP 1**: Install rspec
 
-Add the following line to your `Gemfile`
+Add the following line to to `:development` section of your `Gemfile`
 
 ```ruby
 gem 'rspec'
@@ -76,6 +76,7 @@ Finally, we require the `environment.rb` file, which loads up the rest of our ap
 
 ### Create a Model Spec
 
+In `spec/models/film_spec.rb`:
 There are many ways we could choose to use RSpec `describe` and `context` blocks to organize our tests, but for our purposes today, we're going to use the following:
 
 ```ruby
@@ -96,7 +97,7 @@ end
 Let's discuss:
 
 * the dot in `.total_box_office_sales`: check out [this best practice](http://www.betterspecs.org/#describe)
-* the space between the created horses and the expectation
+* the space between the created films and the expectation
 
 At this point you should be able to run your tests from the command line using the command `rspec`.
 
