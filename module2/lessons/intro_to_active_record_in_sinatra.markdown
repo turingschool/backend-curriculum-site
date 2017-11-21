@@ -11,6 +11,13 @@ tags: activerecord, migrations, sinatra
 * Interpret schema.rb
 * Utilize ActiveRecord Models in the controller to pass information to views
 
+## Vocabulary
+
+* ActiveRecord
+* Relational database
+* Schema
+* ORM
+
 ## Repository
 
 Clone [this](https://github.com/turingschool-examples/film-file) repository and run `bundle install`.
@@ -29,14 +36,16 @@ Using the Film File repository that we've cloned down, we're going to create an 
 #### Relational Databases
 Database systems are helpful when handling massive datasets by helping to optimize complicated queries. Relational databases make it easy to relate tables to one another.
 
-For example, if we have a table of songs and artists, and a song belongs to one artist, we'll need to keep track of how these pieces of data relate to one another. There's no easy way to query a YAML file for this info.
+For example, if we have a table of songs and artists, and a song belongs to one artist, we'll need to keep track of how these pieces of data relate to one another. We might keep that information in our app in something like a YAML file but the problem is, there's no easy way to query a YAML file for this info.
 
 #### Object Relational Mappers
-“An ORM framework is written in an object oriented language (like Ruby, Python, PHP etc.) and wrapped around a relational database. The object classes are mapped to the data tables in the database and the object instances are mapped to rows in those tables.”
+"An ORM framework is written in an object oriented language (like Ruby, Python, PHP etc.) and wrapped around a relational database. The object classes are mapped to the data tables in the database and the object instances are mapped to rows in those tables."
 
 (from sitepoint.com)
 
 ![400% ORM Diagram](http://wiki.expertiza.ncsu.edu/images/2/2c/ORM_Flowchart.jpg)
+
+* Someone has done the hard work of allowing us to easily interact with the relational database, through Ruby. 
 
 #### Ruby ORM's
 * ActiveRecord (lots)
@@ -45,10 +54,11 @@ For example, if we have a table of songs and artists, and a song belongs to one 
 
 #### Why do we need an ORM?
 
-We want to wrap our data in Ruby objects so we can easily manipuate them. If we didn't wrap them in Ruby objects, we'd simply have strings in arrays and other simple data types. This wouldn't be very easy to work with or manage.
+We want to wrap our data in Ruby objects so we can easily manipulate them. If we didn't wrap them in Ruby objects, we'd simply have strings in arrays and other simple data types. This wouldn't be very easy to work with or manage.
 
 #### How does a database map to a Ruby class?
 
+* a file represents a table
 * the table represents the collection of instances
 * a row represents one specific instance
 * the columns represent the attributes of an instance

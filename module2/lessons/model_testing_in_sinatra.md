@@ -96,7 +96,7 @@ end
 Let's discuss:
 
 * the dot in `.total_box_office_sales`: check out [this best practice](http://www.betterspecs.org/#describe)
-* the space between the created horses and the expectation
+* the space between the created films and the expectation
 
 At this point you should be able to run your tests from the command line using the command `rspec`.
 
@@ -132,9 +132,9 @@ How does it know that we're trying to call this method on our `films` table? The
 
 Great! Run our tests again, and we still get an error.
 
-What's going on here? It looks like the total that's being reported by our test is the full total of our all the horses currently in our database.
+What's going on here? It looks like the total that's being reported by our test is the full total of our all the films currently in our database.
 
-Run it one more time to check. Notice that the actual value that we're getting increased? So, not only are we not testing with only the data we're providing in the test, but on top of that, every time we run the test we're adding new horses to our development database.
+Run it one more time to check. Notice that the actual value that we're getting increased? So, not only are we not testing with only the data we're providing in the test, but on top of that, every time we run the test we're adding new films to our development database.
 
 This is not the behavior we want. We're polluting the database that we're using when we browse the site locally. Wouldn't it be better if we could run our test suite without making these changes?
 
@@ -162,7 +162,7 @@ Now run your test again from the command line using `rspec`. Passing test? Great
 
 Run the test again. Failing test! Damn.
 
-What's happening here? Before we were saving new horses to our development database every time we ran our test suite. Now we're doing the same thing to our test database. What we'd like to do is to clear out our database after each test. We could create these methods in each one of our tests, but there's a tool that will help us here: [Database Cleaner](https://github.com/DatabaseCleaner/database_cleaner).
+What's happening here? Before we were saving new films to our development database every time we ran our test suite. Now we're doing the same thing to our test database. What we'd like to do is to clear out our database after each test. We could create these methods in each one of our tests, but there's a tool that will help us here: [Database Cleaner](https://github.com/DatabaseCleaner/database_cleaner).
 
 In the test/development section of your Gemfile add the following line:
 
@@ -185,13 +185,15 @@ RSpec.configure do |c|
 end
 ```
 
+This will clean the database before all tests and after each test. This ensures that if we stop our test suite at any point before it finishes, we will still have a clean database.
+
 Save and run your tests again from the command line. Passing test? Great! Run it one more time to double check? Great again!
 
 ### Testing Validations
 
-One thing we haven't really worried about up to this point was whether or not a new Horse had all of its pieces in place when we were saving it to the database. We want to make sure that when someone tries to save a horse that they're providing us with all the information we need. We don't want to have someone save a horse with, for example, no name.
+One thing we haven't really worried about up to this point was whether or not a new Film had all of its pieces in place when we were saving it to the database. We want to make sure that when someone tries to save a film that they're providing us with all the information we need. We don't want to have someone save a film with, for example, no title.
 
-Add the following test to your `horse_spec` within the main `describe Horse` block, but outside of your existing `describe 'Class Methods'` block.
+Add the following test to your `film_spec` within the main `describe Film` block, but outside of your existing `describe 'Class Methods'` block.
 
 ```ruby
 describe "Validations" do
@@ -209,13 +211,13 @@ Great! It seems like this is testing what we want, but how can we actually make 
 
 ### Writing Validations
 
-ActiveRecord actually helps us out here. Go into the `app/models/horse.rb` model and add the following line:
+ActiveRecord actually helps us out here. Go into the `app/models/film.rb` model and add the following line:
 
 ```ruby
   validates :title, presence: true
 ```
 
-Alternatively, you can write this as: `validates_presence_of :name`
+Alternatively, you can write this as: `validates_presence_of :title`
 
 Run your tests again, and... passing. Great news.
 

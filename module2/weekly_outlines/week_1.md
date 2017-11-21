@@ -8,10 +8,10 @@ layout: page
 ### Day 1:
 
 * **LESSONS:**
-  - [Intro to M2](../misc/intro_to_m2)
-  - [Intro to ActiveRecord in Sinatra](../lessons/intro_to_active_record_in_sinatra)
+  - [Intro to M2](../misc/day_1.html)
   - [Intro to REST & CRUD](../lessons/restful_routes_and_crud)
   - [Intro to MVC](../lessons/intro_to_mvc)
+  - [Intro to ActiveRecord in Sinatra](../lessons/intro_to_active_record_in_sinatra)
 
 * **HOMEWORK:**
   - [DTR for Bike Share](../../career_development_curriculum/module_one/dtr_guidelines_memo). One group member should send link to forked gist to an instructor.
