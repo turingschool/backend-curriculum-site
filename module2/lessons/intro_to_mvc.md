@@ -7,7 +7,7 @@ title: Introduction to MVC
 
 * Identify the elements of the MVC pattern
 * Describe the single responsibility of the each of the Model, View, and Controller
-* Describe how data is passed from the browser/a request through the MVC pattern
+* Describe how data is passed through the MVC pattern
 
 ## Vocabulary 
 * MVC
@@ -89,6 +89,7 @@ Let's draw a diagram to represent this process.
 Let’s also quickly talk about why the 2nd path isn’t a good idea.
 
 ### Recap
-
-* What are the responsibilities for models, views, and controllers in the MVC pattern?
+* What does MVC stand for? 
+* What are the responsibilities for each part of the MVC pattern?
+* How is data passed through the MVC pattern?
 * What is the difference between `<%= %>` and `<% %>`?
