@@ -6,7 +6,6 @@ title: Advanced CSS Selectors
 ## Learning Goals
 
   - Introduce pseudo-selectors in CSS.
-  - Introduce ability to create ids/classes in ERB element tags.
 
 ### Pseudo-selectors - What are they?
 
