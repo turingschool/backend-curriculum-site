@@ -63,7 +63,7 @@ title: Introduction to HTML
 #### Non-Semantic
 
   - `div`s - incredibly common but with the introduction of HTML5, there was a move towards semantic tags.
-  - Tells us NOTHING about the content of the element.  
+  - `div`s tell us NOTHING about the content of the element.  
 
   ```html
   <!DOCTYPE html>
@@ -185,6 +185,7 @@ title: Introduction to HTML
     - Seen in our forms.
     - Seen mostly in `input` or `button`.
     - `name` - the key the data submitted will have.
+    - `task[title]` - will be the parameter value that maps to the key `name`
     - `value` - the value we want the `input` or `button` to have originally.
 
 ### Recap
