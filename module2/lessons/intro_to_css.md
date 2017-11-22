@@ -9,6 +9,16 @@ title: Introduction to CSS
   - Organize a CSS file for ease of use
   - Understand how to import external CSS file into HTML
 
+### Refresher - What is CSS?
+
+  - Stands for "Cascading Style Sheets".
+  - When we apply a `class` or an `id` to an HTML element, we are telling it that it has a "rule". We will write our rules for that element in our CSS file.
+  - Each rule in CSS (i.e a `class` or `id` rule) has a specific value assigned. `id`s have more specific values than `class`es.
+  - Common misconception that "cascading" means that it our browser will flow down the CSS file and the last rule will be applied.
+  - "Cascading" means that because more than one  rule could apply to a particular piece of HTML (it might have an id and a class), there has to be a known way of determining which rule applies to which piece of HTML.
+  - The rule used is chosen by cascading down from the more general rules to the specific rule required. The most specific rule is chosen.
+  - An `id` is the most specific rule but there is a way to calculate CSS Specificity (nice to know, not a need to know)
+
 #### Selectors
 
   ```css
@@ -41,7 +51,8 @@ title: Introduction to CSS
 
   - Group from least specific to most specific.
   - The element selectors, class, then id.
-  - Because styles CASCADE down, we want the styles that are most important to us to be at towards the bottom so nothing overrides them.
+  - This helps with not only visual organization but specificity organization.
+
 
 ### Linking CSS to HTML
 
@@ -62,5 +73,10 @@ title: Introduction to CSS
 ### Let's Play!
 
   - Clone down [this](https://github.com/turingschool-examples/html_css_playground) repo and:
-    1. Link the stylesheet to the HTML page.
-    2. Make a GARBAGE UNICORN.
+    1. Check out a branch `your_name_css_playground`
+    2. To open the static html file from your command line `open example.html`.
+    3. Link the stylesheet to the HTML page.
+    4. Change/Add information in the HTML file to be your own information.
+    5. Create a visually appealing navigation bar with links to the sections (`about-me`, `school`, `work`, you can also make your own)
+    6. Create a footer that stays at the bottom of the page with your email address.
+    7. HAVE FUN!
