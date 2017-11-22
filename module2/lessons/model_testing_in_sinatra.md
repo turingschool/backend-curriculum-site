@@ -276,19 +276,58 @@ describe "Validations" do
 end
 ```
 
-Run your test suite from the command line with `rspec` and look for the new failure. The heart of this error is telling us that it expected `.valid?` to return false when called on our new film, and instead got true.
+Run your test suite from the command line with `rspec` and look for the new failure. 
+
+```ruby
+Randomized with seed 20037
+
+Film
+  Validations
+    is invalid without a title (FAILED - 1)
+  Class Methods
+    .total_box_office_sales
+      returns total box office sales for all films
+
+Failures:
+
+  1) Film Validations is invalid without a title
+     Failure/Error: expect(film).to_not be_valid
+       expected `#<Film id: nil, title: nil, year: 2017, box_office_sales: 2, created_at: nil, updated_at: nil>.valid?` to return false, got true
+     # ./spec/models/film_spec.rb:7:in `block (3 levels) in <top (required)>'
+
+Finished in 0.07235 seconds (files took 0.81411 seconds to load)
+2 examples, 1 failure
+
+Failed examples:
+
+rspec ./spec/models/film_spec.rb:4 # Film Validations is invalid without a title
+
+Randomized with seed 20037
+```
+Under Film, Class Methods, .total_box_office_sales you should see a green `returns total box office sales for all films`. That is our old test still passing.   
+Under Film, Validations, you should see a red `is invalid without a title (FILED -1)`  
+Then when we look under the `Failures:` section it tells us 
+
+```ruby 
+Failure/Error: expect(film).to_not be_valid
+       expected `#<Film id: nil, title: nil, year: 2017, box_office_sales: 2, created_at: nil, updated_at: nil>.valid?` to return false, got true
+```
+
+The heart of this error is telling us that it expected `.valid?` to return false when called on our new film, and instead got true.
 
 Great! It seems like this is testing what we want, but how can we actually make this pass?
 
 ### Writing Validations
 
-ActiveRecord actually helps us out here. Go into the `app/models/film.rb` model and add the following line:
+ActiveRecord actually helps us out here by providing a `validates` method which we'll pass the column name in the form of a symbol, and an options hash `{presence: true}`. I *could* format it like this, `validates(:title, {presence: true})`. However, convention is to use the following format:
+
+Go into the `app/models/film.rb` model and add the following line:
 
 ```ruby
   validates :title, presence: true
 ```
 
-Alternatively, you can write this as: `validates_presence_of :name`
+Alternatively, you can write this as: `validates_presence_of :title`. This is nice if you want to validate the presence of multiple columns. 
 
 Run your tests again, and... passing. Great news.
 
