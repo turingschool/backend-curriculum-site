@@ -106,9 +106,42 @@ At this point you should be able to run your tests from the command line using t
 
 ### Make it Pass
 
-What do we get? Errors! Great. We can follow errors.
+What do we get? Errors! Great. We can follow errors. These errors are a bit different from Minitest Errors. Let's take a look:
+```
+Randomized with seed 28022
 
-First it indicates that we need to create a method on our model. Let's add that now.
+Film
+  Class Methods
+    .total_box_office_sales
+      returns total box office sales for all films (FAILED - 1)
+
+Failures:
+
+  1) Film Class Methods .total_box_office_sales returns total box office sales for all films
+     Failure/Error: expect(Film.total_box_office_sales).to eq(7)
+
+     NoMethodError:
+       undefined method `total_box_office_sales' for #<Class:0x007fea2ab582d8>
+     # /Users/aleneschlereth/.rvm/gems/ruby-2.4.0/gems/activerecord-5.1.4/lib/active_record/dynamic_matchers.rb:22:in `method_missing'
+     # ./spec/models/film_spec.rb:9:in `block (4 levels) in <top (required)>'
+
+Finished in 0.02851 seconds (files took 0.80607 seconds to load)
+1 example, 1 failure
+
+Failed examples:
+
+rspec ./spec/models/film_spec.rb:5 # Film Class Methods .total_box_office_sales returns total box office sales for all films
+
+Randomized with seed 28022
+```
+First we see the Randomized seed, which is a record of the random order the tests were run this time around. 
+Next we see the descriptors from our describe, context, and it blocks. Now we see a failure which should be a bit more familiar to you. 
+
+```
+NoMethodError:
+       undefined method `total_box_office_sales' for #<Class:0x007fea2ab582d8>
+```
+Let's add that method now.
 
 ```ruby
 # film.rb
@@ -116,8 +149,46 @@ def self.total_box_office_sales
 
 end
 ```
+Run our spec again and it tells us:
 
-Run our spec and it will tell us that the `total_box_office_sales` method returns `nil`. We need to populate it with something.
+```
+Randomized with seed 33027
+
+Film
+  Class Methods
+    .total_box_office_sales
+      returns total box office sales for all films (FAILED - 1)
+
+Failures:
+
+  1) Film Class Methods .total_box_office_sales returns total box office sales for all films
+     Failure/Error: expect(Film.total_box_office_sales).to eq(7)
+
+       expected: 7
+            got: nil
+
+       (compared using ==)
+     # ./spec/models/film_spec.rb:9:in `block (4 levels) in <top (required)>'
+
+Finished in 0.08559 seconds (files took 0.80613 seconds to load)
+1 example, 1 failure
+
+Failed examples:
+
+rspec ./spec/models/film_spec.rb:5 # Film Class Methods .total_box_office_sales returns total box office sales for all films
+
+Randomized with seed 33027
+```
+
+These error messsages are a lot longer, but in the middle we see 
+
+```
+expected: 7
+     got: nil
+```
+
+Which should be pretty familiar. What is causing our method to return nil instead of 7? 
+We need to populate it with something, the sum of the box_office_sales for each Film in the database.
 
 ActiveRecord has just what we need:
 
