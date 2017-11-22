@@ -136,13 +136,13 @@ Great! Run our tests again, and we still get an error.
 
 What's going on here? It looks like the total that's being reported by our test is the full total of our all the horses currently in our database.
 
-Run it one more time to check. Notice that the actual value that we're getting increased? So, not only are we not testing with only the data we're providing in the test, but on top of that, every time we run the test we're adding new horses to our development database.
+Run it one more time to check. Notice that the actual value that we're getting increased? So, not only are we not testing with only the data we're providing in the test, but on top of that, every time we run the test we're adding new films to our development database.
 
 This is not the behavior we want. We're polluting the database that we're using when we browse the site locally. Wouldn't it be better if we could run our test suite without making these changes?
 
 Every time we run our tests, we want to start with a fresh slate with no existing data in our test database. Because of this, we need to have two different databases: one for testing purposes and one for development purposes. This way, we will still have access to all of our existing data when we run shotgun and look at our app in the browser, but we won't have to worry about those pieces interfering with our tests because they'll be in a separate database.
 
-How will our app know which environment -- test or dev -- we want to use at any moment? By default (like when we start the server with shotgun), we will be in development. If we want to run something in the test environment, we need an indicator. We'll use an environment variable: ENV["RACK_ENV"]. So, in test/test_helper.rb:
+How will our app know which environment -- test or dev -- we want to use at any moment? By default (like when we start the server with shotgun), we will be in development. If we want to run something in the test environment, we need an indicator. We'll use an environment variable: ENV["RACK_ENV"]. 
 
 We're going to set an environment variable in our spec helper file and then use that variable to determine which database to use. In `spec_helper.rb` add the following **above** all the `require` lines:
 
