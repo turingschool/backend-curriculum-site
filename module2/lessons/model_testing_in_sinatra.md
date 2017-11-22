@@ -9,6 +9,10 @@ tags: sinatra, models, tdd, validations, scopes
 * set up RSpec within a Sinatra web app
 * test model methods and validations using best practices in RSpec
 
+## Vocab
+* RSpec 
+* Model Testing 
+
 ## Repository
 
 We will continue to use the Film File repository that we used in the Intro to ActiveRecord lesson.
@@ -16,6 +20,7 @@ We will continue to use the Film File repository that we used in the Intro to Ac
 ## Warmup
 
 1) Read [this](https://robots.thoughtbot.com/four-phase-test) Thoughtbot article about the four-phase test design.
+2) What did this look like in Minitest?
 
 ## Lecture
 
@@ -319,7 +324,7 @@ Great! It seems like this is testing what we want, but how can we actually make 
 
 ### Writing Validations
 
-ActiveRecord actually helps us out here by providing a `validates` method which we'll pass the column name in the form of a symbol, and an options hash `{presence: true}`. I *could* format it like this, `validates(:title, {presence: true})`. However, convention is to use the following format:
+ActiveRecord actually helps us out here by providing a `validates` method which we'll pass the column name in the form of a symbol, and an options hash `{presence: true}`. We *could* format it like this, `validates(:title, {presence: true})`. However, convention is to use the following format:
 
 Go into the `app/models/film.rb` model and add the following line:
 
@@ -343,3 +348,7 @@ Remember to use your four phases of testing!
 
 * Take a look at the [BetterSpecs](http://www.betterspecs.org/) community guidelines.
 * Check out the [RSpec Documentation](http://rspec.info/documentation/): For now you'll likely be most interested in the `rspec-core`, and `rspec-expectations` links.
+
+## Recap 
+* What goes into your spec_helper in a Sintra app? What does each piece do? 
+* Create a Venn Diagram comparing MiniTest & RSpec. Think about set up of methods and how you check expected outcomes. 
