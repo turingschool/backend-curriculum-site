@@ -77,6 +77,7 @@ Finally, we require the `environment.rb` file, which loads up the rest of our ap
 ### Create a Model Spec
 
 In `spec/models/film_spec.rb`:
+
 There are many ways we could choose to use RSpec `describe` and `context` blocks to organize our tests, but for our purposes today, we're going to use the following:
 
 ```ruby
