@@ -107,7 +107,7 @@ At this point you should be able to run your tests from the command line using t
 ### Make it Pass
 
 What do we get? Errors! Great. We can follow errors. These errors are a bit different from Minitest Errors. Let's take a look:
-```
+```ruby
 Randomized with seed 28022
 
 Film
@@ -137,7 +137,7 @@ Randomized with seed 28022
 First we see the Randomized seed, which is a record of the random order the tests were run this time around. 
 Next we see the descriptors from our describe, context, and it blocks. Now we see a failure which should be a bit more familiar to you. 
 
-```
+```ruby
 NoMethodError:
        undefined method `total_box_office_sales' for #<Class:0x007fea2ab582d8>
 ```
@@ -151,7 +151,7 @@ end
 ```
 Run our spec again and it tells us:
 
-```
+```ruby
 Randomized with seed 33027
 
 Film
@@ -182,7 +182,7 @@ Randomized with seed 33027
 
 These error messsages are a lot longer, but in the middle we see 
 
-```
+```ruby
 expected: 7
      got: nil
 ```
