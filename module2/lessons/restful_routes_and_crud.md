@@ -34,7 +34,9 @@ Often, our applications will have a separate controller and model for each resou
 
 * Representational State Transfer (ReST) is a web architecture style
 * Coined by Roy Fielding in doctoral dissertation (2000)
+* REST is a simple way to organize interactions between independent systems
 * A map between HTTP verb/path combinations and CRUD actions users want to perform on a resource
+* RESTful applications typically treat the web like a resource
 
 ### HTTP Verbs
 
@@ -67,7 +69,8 @@ Pull up the controller from Task Manager. Let's see if together we can create a 
 
 ### Not So RESTful routes
 
-* In task manager, see if you can make a route `localhost:3000/easter_egg` that when you visit, has a picture of a moose on it.
+* Do research. What is an example of a non-RESTful route?
+  * `/tasks/add`
 
 ## Additional Resources
 

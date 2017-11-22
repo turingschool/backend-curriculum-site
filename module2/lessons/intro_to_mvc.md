@@ -7,7 +7,14 @@ title: Introduction to MVC
 
 * Identify the elements of the MVC pattern
 * Describe the single responsibility of the each of the Model, View, and Controller
-* Describe how data is passed from the browser/a request through the MVC pattern
+* Describe how data is passed through the MVC pattern
+
+## Vocabulary 
+* MVC
+* Model 
+* View
+* Controller
+* DSL(Domain Specific Language)
 
 ## Warmup
 
@@ -70,7 +77,9 @@ We can also embed blocks with erb. Here’s an example using if/else:
     1. Collect any data we need to use in our view (using a model as a go-between)
     1. Render a view or redirect (using `erb` or `redirect`)
 
-Let's draw a diagram to represent this process.
+Let's draw a diagram to represent this process. 
+
+![mvc diagram](https://docs.google.com/drawings/d/e/2PACX-1vRrocz01rjJXxrIYnECmpzzVsUzIOrGL5psEFaIeZbMIrqsoU2WVQ-Sd-ZJCzy03VvoQL-KaTbHZd2F/pub?w=474&h=369)
 
 ### Experiment
 
@@ -80,6 +89,7 @@ Let's draw a diagram to represent this process.
 Let’s also quickly talk about why the 2nd path isn’t a good idea.
 
 ### Recap
-
-* What are the responsibilities for models, views, and controllers in the MVC pattern?
+* What does MVC stand for? 
+* What are the responsibilities for each part of the MVC pattern?
+* How is data passed through the MVC pattern?
 * What is the difference between `<%= %>` and `<% %>`?
