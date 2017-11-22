@@ -262,9 +262,9 @@ Save and run your tests again from the command line. Passing test? Great! Run it
 
 ### Testing Validations
 
-One thing we haven't really worried about up to this point was whether or not a new Horse had all of its pieces in place when we were saving it to the database. We want to make sure that when someone tries to save a horse that they're providing us with all the information we need. We don't want to have someone save a horse with, for example, no name.
+One thing we haven't really worried about up to this point was whether or not a new Film had all of its pieces in place when we were saving it to the database. We want to make sure that when someone tries to save a film that they're providing us with all the information we need. We don't want to have someone save a film with, for example, no title.
 
-Add the following test to your `horse_spec` within the main `describe Horse` block, but outside of your existing `describe 'Class Methods'` block.
+Add the following test to your `film_spec` within the main `describe Film` block, but outside of your existing `describe 'Class Methods'` block.
 
 ```ruby
 describe "Validations" do
@@ -282,7 +282,7 @@ Great! It seems like this is testing what we want, but how can we actually make 
 
 ### Writing Validations
 
-ActiveRecord actually helps us out here. Go into the `app/models/horse.rb` model and add the following line:
+ActiveRecord actually helps us out here. Go into the `app/models/film.rb` model and add the following line:
 
 ```ruby
   validates :title, presence: true
