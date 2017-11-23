@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Introduction to CSS
+tags: css, introduction, practice
 ---
 
 ## Learning Goals
@@ -18,7 +19,7 @@ title: Introduction to CSS
   * ID Selectors 
 
 ## Warm Up 
-* What do you know about CSS so far? Try to organize this information in a chart of some kind. 
+* What do you know about CSS so far? Think about the what and the how. Try to organize this information in a chart of some kind. 
 
 ### Refresher - What is CSS?
 
