@@ -1,13 +1,17 @@
 ---
 title: Model Testing in Sinatra with RSpec
 length: 120
-tags: sinatra, models, tdd, validations, scopes
+tags: sinatra, models, tdd, validations, scopes, testing
 ---
 
 ## Learning Goals
 
 * set up RSpec within a Sinatra web app
 * test model methods and validations using best practices in RSpec
+
+## Vocab
+* RSpec
+* Model Testing
 
 ## Repository
 
@@ -16,6 +20,7 @@ We will continue to use the Film File repository that we used in the Intro to Ac
 ## Warmup
 
 1) Read [this](https://robots.thoughtbot.com/four-phase-test) Thoughtbot article about the four-phase test design.
+2) What did this look like in Minitest?
 
 ## Lecture
 
@@ -33,7 +38,7 @@ We will continue to use the Film File repository that we used in the Intro to Ac
 
 **STEP 1**: Install rspec
 
-Add the following line to your `Gemfile`
+Add the following line to the block labeled `group :development, :test` in your `Gemfile`
 
 ```ruby
 gem 'rspec'
@@ -76,6 +81,8 @@ Finally, we require the `environment.rb` file, which loads up the rest of our ap
 
 ### Create a Model Spec
 
+In `spec/models/film_spec.rb`:
+
 There are many ways we could choose to use RSpec `describe` and `context` blocks to organize our tests, but for our purposes today, we're going to use the following:
 
 ```ruby
@@ -104,9 +111,42 @@ At this point you should be able to run your tests from the command line using t
 
 ### Make it Pass
 
-What do we get? Errors! Great. We can follow errors.
+What do we get? Errors! Great. We can follow errors. These errors are a bit different from Minitest Errors. Let's take a look:
+```ruby
+Randomized with seed 28022
 
-First it indicates that we need to create a method on our model. Let's add that now.
+Film
+  Class Methods
+    .total_box_office_sales
+      returns total box office sales for all films (FAILED - 1)
+
+Failures:
+
+  1) Film Class Methods .total_box_office_sales returns total box office sales for all films
+     Failure/Error: expect(Film.total_box_office_sales).to eq(7)
+
+     NoMethodError:
+       undefined method `total_box_office_sales' for #<Class:0x007fea2ab582d8>
+     # /Users/aleneschlereth/.rvm/gems/ruby-2.4.0/gems/activerecord-5.1.4/lib/active_record/dynamic_matchers.rb:22:in `method_missing'
+     # ./spec/models/film_spec.rb:9:in `block (4 levels) in <top (required)>'
+
+Finished in 0.02851 seconds (files took 0.80607 seconds to load)
+1 example, 1 failure
+
+Failed examples:
+
+rspec ./spec/models/film_spec.rb:5 # Film Class Methods .total_box_office_sales returns total box office sales for all films
+
+Randomized with seed 28022
+```
+First we see the Randomized seed, which is a record of the random order the tests were run this time around.
+Next we see the descriptors from our describe, context, and it blocks. Now we see a failure which should be a bit more familiar to you.
+
+```ruby
+NoMethodError:
+       undefined method `total_box_office_sales' for #<Class:0x007fea2ab582d8>
+```
+Let's add that method now.
 
 ```ruby
 # film.rb
@@ -114,8 +154,46 @@ def self.total_box_office_sales
 
 end
 ```
+Run our spec again and it tells us:
 
-Run our spec and it will tell us that the `total_box_office_sales` method returns `nil`. We need to populate it with something.
+```ruby
+Randomized with seed 33027
+
+Film
+  Class Methods
+    .total_box_office_sales
+      returns total box office sales for all films (FAILED - 1)
+
+Failures:
+
+  1) Film Class Methods .total_box_office_sales returns total box office sales for all films
+     Failure/Error: expect(Film.total_box_office_sales).to eq(7)
+
+       expected: 7
+            got: nil
+
+       (compared using ==)
+     # ./spec/models/film_spec.rb:9:in `block (4 levels) in <top (required)>'
+
+Finished in 0.08559 seconds (files took 0.80613 seconds to load)
+1 example, 1 failure
+
+Failed examples:
+
+rspec ./spec/models/film_spec.rb:5 # Film Class Methods .total_box_office_sales returns total box office sales for all films
+
+Randomized with seed 33027
+```
+
+These error messsages are a lot longer, but in the middle we see
+
+```ruby
+expected: 7
+     got: nil
+```
+
+Which should be pretty familiar. What is causing our method to return nil instead of 7?
+We need to populate it with something, the sum of the box_office_sales for each Film in the database.
 
 ActiveRecord has just what we need:
 
@@ -140,7 +218,7 @@ This is not the behavior we want. We're polluting the database that we're using 
 
 Every time we run our tests, we want to start with a fresh slate with no existing data in our test database. Because of this, we need to have two different databases: one for testing purposes and one for development purposes. This way, we will still have access to all of our existing data when we run shotgun and look at our app in the browser, but we won't have to worry about those pieces interfering with our tests because they'll be in a separate database.
 
-How will our app know which environment -- test or dev -- we want to use at any moment? By default (like when we start the server with shotgun), we will be in development. If we want to run something in the test environment, we need an indicator. We'll use an environment variable: ENV["RACK_ENV"]. So, in test/test_helper.rb:
+How will our app know which environment -- test or dev -- we want to use at any moment? By default (like when we start the server with shotgun), we will be in development. If we want to run something in the test environment, we need an indicator. We'll use an environment variable: ENV["RACK_ENV"].
 
 We're going to set an environment variable in our spec helper file and then use that variable to determine which database to use. In `spec_helper.rb` add the following **above** all the `require` lines:
 
@@ -205,19 +283,58 @@ describe "Validations" do
 end
 ```
 
-Run your test suite from the command line with `rspec` and look for the new failure. The heart of this error is telling us that it expected `.valid?` to return false when called on our new film, and instead got true.
+Run your test suite from the command line with `rspec` and look for the new failure.
+
+```ruby
+Randomized with seed 20037
+
+Film
+  Validations
+    is invalid without a title (FAILED - 1)
+  Class Methods
+    .total_box_office_sales
+      returns total box office sales for all films
+
+Failures:
+
+  1) Film Validations is invalid without a title
+     Failure/Error: expect(film).to_not be_valid
+       expected `#<Film id: nil, title: nil, year: 2017, box_office_sales: 2, created_at: nil, updated_at: nil>.valid?` to return false, got true
+     # ./spec/models/film_spec.rb:7:in `block (3 levels) in <top (required)>'
+
+Finished in 0.07235 seconds (files took 0.81411 seconds to load)
+2 examples, 1 failure
+
+Failed examples:
+
+rspec ./spec/models/film_spec.rb:4 # Film Validations is invalid without a title
+
+Randomized with seed 20037
+```
+Under Film, Class Methods, .total_box_office_sales you should see a green `returns total box office sales for all films`. That is our old test still passing.   
+Under Film, Validations, you should see a red `is invalid without a title (FILED -1)`  
+Then when we look under the `Failures:` section it tells us
+
+```ruby
+Failure/Error: expect(film).to_not be_valid
+       expected `#<Film id: nil, title: nil, year: 2017, box_office_sales: 2, created_at: nil, updated_at: nil>.valid?` to return false, got true
+```
+
+The heart of this error is telling us that it expected `.valid?` to return false when called on our new film, and instead got true.
 
 Great! It seems like this is testing what we want, but how can we actually make this pass?
 
 ### Writing Validations
 
-ActiveRecord actually helps us out here. Go into the `app/models/film.rb` model and add the following line:
+ActiveRecord actually helps us out here by providing a `validates` method which we'll pass the column name in the form of a symbol, and an options hash `{presence: true}`. We *could* format it like this, `validates(:title, {presence: true})`. However, convention is to use the following format:
+
+Go into the `app/models/film.rb` model and add the following line:
 
 ```ruby
   validates :title, presence: true
 ```
 
-Alternatively, you can write this as: `validates_presence_of :title`
+Alternatively, you can write this as: `validates_presence_of :title`. This is nice if you want to validate the presence of multiple columns.
 
 Run your tests again, and... passing. Great news.
 
@@ -233,3 +350,7 @@ Remember to use your four phases of testing!
 
 * Take a look at the [BetterSpecs](http://www.betterspecs.org/) community guidelines.
 * Check out the [RSpec Documentation](http://rspec.info/documentation/): For now you'll likely be most interested in the `rspec-core`, and `rspec-expectations` links.
+
+## Recap
+* What goes into your spec_helper in a Sintra app? What does each piece do?
+* Create a Venn Diagram comparing MiniTest & RSpec. Think about set up of methods and how you check expected outcomes.
