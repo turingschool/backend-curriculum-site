@@ -29,7 +29,7 @@ title: Introduction to CSS
   - "Cascading" means that because more than one rule could apply to a particular piece of HTML (it might have an id and a class), there has to be a known way of determining which rule applies to which piece of HTML.
   - The rule used is chosen by cascading down from the more general rules to the more specific rule required. The most specific rule is chosen.
   - An `id` is the most specific rule
-  - There is a way to [calculate CSS Specificity](https://specificity.keegan.st/) (nice to know, not a need to know)
+  - There is a way to [calculate CSS Specificity](https://specificity.keegan.st/) The highest number wins for most specific and will correspondingly take precedence in application of style. (nice to know, not a need to know)
 
 #### Selectors
 
@@ -66,6 +66,29 @@ title: Introduction to CSS
   - The element selectors, class, then id.
   - This helps with not only visual organization but specificity organization.
 
+  
+### The Box Model 
+#### All the Elements are Boxes
+Each element is a rectangular box. CSS leverages "the box model" to control layout and design. An HTML element is comprised of its content and the margins, borders, padding surrounding it. Boxes are "stacked" in the order they appear in your HTML. You can stack them horizontally, vertically, and in the z-plane.
+
+![Box Model](https://raw.githubusercontent.com/turingschool/front-end-curriculum/gh-pages/assets/images/box-model.jpg) 
+
+In HTML, you can visualize each element as its own rectangular box. There are a number of CSS properties that can affect the final width and height of each of these boxes. The CSS Box Model describes how the final height and width of an element is determined.
+
+We have a `div` element that we gave a `width` of `400` and a `height` of `200`. However, we've also applied several additional properties that are affecting its size and positioning. The `padding` and `border` properties are both adding `20px` to the element's height and width. Now the actual *visible* dimensions of our element are `480x280`. 
+
+
+### DevTools 
+Visit any web page, right click on any part of the page. A dropdown box will appear, with `inspect` towards the bottom. Click this will open your `Developer Tools`
+
+![Editing CSS](https://raw.githubusercontent.com/turingschool/front-end-curriculum/gh-pages/assets/images/lessons/debugging-with-devtools/editing-css.png)
+
+On the left you will see what is currently being rendered (original html + anything else impacting the layout such as CSS and JavaScript).
+
+To the right of the HTML pane, there's a small sidebar that gives us styling information for the currently selected element. If you scroll down on the righ, you will see a handy graphic of how our element is being rendered.
+
+#### Editing CSS
+Similar to the HTML pane, we can add or remove styles and adjust CSS property values from this pane. You can click on any style property associated with the selected element and change its value. You can also use the blue checkbox to toggle the style on or off.
 
 ### Linking CSS to HTML
 
