@@ -15,8 +15,8 @@ title: Introduction to HTML
   - Block
   - Inline
 
-### Review from Task Manager
-
+## WarmUp
+Review from Task Manager
   - What file extension did we use for HTML files?
   - What does that file extension stand for?
   - How did we create structure in our HTML?
@@ -63,7 +63,7 @@ title: Introduction to HTML
 
   - `div`s - incredibly common but with the introduction of HTML5, there was a move towards semantic tags.
   - `div`s tell us NOTHING about the content of the element.  
-  - A good use case or a `div` might be creating an element on a page like a solid box.
+  - A good use case for a `div` might be creating an element on a page like a solid box.
 
   ```html
     <!DOCTYPE html>
@@ -172,21 +172,22 @@ title: Introduction to HTML
   - A lot of the tags we use are already semantic such as form, link, etc.
 
 ### Block vs. Inline
-
-  - All HTML tags have a default display value. Either block or inline.
+  - The default value for all HTML tags is `inline`. Most "User Agent stylesheets" (the default styles the browser applies) reset many elements to `block`
   - The display value can be changed with the CSS property `display`.
 
-#### Block-level Elements
-
-  - A block-level element will take up the entire width of the page, no matter how small the content is within the tag.
+#### Block
+  - An element with a display of block will take up the entire width of the page, no matter how small the content is within the tag. 
   - It will always start on a new line.
-  - `p`, `form`, `h1 - h6`, and `div`s are all block level elements
+  - `p`, `form`, `h1 - h6`, `ul`, `section` and `div`s are all block elements
 
-#### Inline-level Elements
-
+#### Inline
   - `link`, `a`, `span` are all inline by default.
   - They will only take up as much space as it needs.
   - It will not start on a new line.
+  - You can set the margin and padding but it will only adjust horizontally. Will ignore any rules for width or height.
+
+#### Inline-Block
+  - Will situate itself inline, but can set a width and height.
 
 ### HTML Tag Attributes - The Break Down
 
