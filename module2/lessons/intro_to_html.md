@@ -171,7 +171,7 @@ Review from Task Manager
   ```
   - A lot of the tags we use are already semantic such as form, link, etc.
 
-### Block vs. Inline
+### Display Properties: Block vs. Inline
   - The default value for all HTML tags is `inline`. Most "User Agent stylesheets" (the default styles the browser applies) reset many elements to `block`
   - The display value can be changed with the CSS property `display`.
 
