@@ -38,7 +38,7 @@ We will continue to use the Film File repository that we used in the Intro to Ac
 
 **STEP 1**: Install rspec
 
-Add the following line to to `:development` section of your `Gemfile`
+Add the following line to the block labeled `group :development, :test` in your `Gemfile`
 
 ```ruby
 gem 'rspec'
