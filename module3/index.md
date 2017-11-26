@@ -45,3 +45,7 @@ subheading: Professional Rails Applications
 #### Projects
 
   This module consists of four projects, two team projects and two personal projects. [Find more details about the projects themselves here](projects_overview).
+
+#### Promotion
+
+In order to be promoted to Mod 4 you'll need to complete your [PD deliverables](https://github.com/turingschool/career-development-curriculum/tree/master/module_three) and your [Mod 3 end of Mod porfolio](https://github.com/turingschool/portfolios/blob/master/templates/BEM3_template.md).
