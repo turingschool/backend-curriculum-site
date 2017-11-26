@@ -16,7 +16,7 @@ tags: activerecord, migrations, sinatra
 * ActiveRecord
 * Relational database
 * Schema
-* ORM
+* Object Relational Map (ORM)
 
 ## Repository
 
