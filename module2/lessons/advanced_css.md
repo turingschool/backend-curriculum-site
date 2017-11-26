@@ -5,7 +5,16 @@ title: Advanced CSS Selectors
 
 ## Learning Goals
 
-  - Introduce pseudo-selectors in CSS.
+  - Apply CSS pseudo-selectors to an existing layout
+
+  
+## Vocab 
+* Pseudo-selector
+* Element
+
+## WarmUp 
+* What strategies have you used to style specific elements?
+* What tools do we have to change a style relative to user interaction?
 
 ### Pseudo-selectors - What are they?
 
@@ -87,3 +96,8 @@ title: Advanced CSS Selectors
 
   - Create a checkbox that has a label "I am a box!", when you click on the checkbox, the label gets a purple 3px solid border.
   - Create another section of boxes. The middle box in any section of boxes should have a height and width of 150 and the color teal.
+
+
+## WrapUp
+* What are 4 pseudo-selectos, what does each do? 
+* Why do we want to make our layout and design reactive to a user? 
