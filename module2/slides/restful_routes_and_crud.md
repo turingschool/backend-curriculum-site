@@ -10,6 +10,15 @@
 
 ---
 
+## Vocab
+
+* CRUD
+* Resource
+* REST
+* HTTP Verbs
+* URI
+* 7 RESTful Routes 
+
 # CRUD
 
 * C - Create
