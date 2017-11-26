@@ -1,4 +1,6 @@
-## Sinatra versus Rails Exploration
+---
+title: Sinatra versus Rails Exploration
+---
 
 ### Setup:
 

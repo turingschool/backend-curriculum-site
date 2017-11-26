@@ -7,11 +7,6 @@ title: SQL Refresher
 * Review SQL concepts from intermission work
 * Practice writing SQL queries in a familiar database
 
-## Slides
-
-Available [here](../slides/sql_refresher)
-
-
 ## Warmup
 
 * How do you determine which columns will be returned from a SQL query?
@@ -83,4 +78,3 @@ With a partner, see if you can complete each of the tasks below. After each sect
 1. [Fundamental SQL](http://tutorials.jumpstartlab.com/topics/sql/fundamental_sql.html) (review from intermission work)
 1. [SQL by repetition](http://sql-by-repetition.herokuapp.com/)
 1. [Intermediate SQL](https://github.com/turingschool/lesson_plans/blob/master/ruby_03-professional_rails_applications/intermediate_sql.md)
-
