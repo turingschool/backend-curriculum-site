@@ -14,7 +14,6 @@ layout: page
   - [Intro to ActiveRecord in Sinatra](../lessons/intro_to_active_record_in_sinatra)
 
 * **HOMEWORK:**
-  - [DTR for Bike Share](../../career_development_curriculum/module_one/dtr_guidelines_memo). One group member should send link to forked gist to an instructor.
   - [ActiveRecord Exploration](../lessons/activerecord_exploration)
   - Sign up for a [lightning talk](https://docs.google.com/spreadsheets/d/1sua_CFkZVGmCpLg6dbP-23DMBTSLDmTe7wtH7ggAPxs/edit?usp=sharing)
   - [Lighting Talk Topics](../misc/lighting_talk_topic_ideas)
@@ -27,6 +26,9 @@ layout: page
   - [Model Testing in Sinatra](../lessons/model_testing_in_sinatra)
   - [Intro to HTML](../lessons/intro_to_html)
   - [Database Visualization and Relationships](../lessons/database_visualization_and_relationships)
+
+* **HOMEWORK**
+  - [DTR for Bike Share](../../career_development_curriculum/module_one/dtr_guidelines_memo). One group member should send link to forked gist to an instructor.
 
 ### Day 3:
 
