@@ -69,27 +69,37 @@ $ rails g rspec:install
 
 Now let's get our factories set up!
 
-add `gem 'factory_girl_rails'` to your :development, :test block in your Gemfile.
+add `gem 'factory_bot_rails'` to your :development, :test block in your Gemfile.
 
 ```sh
 $ bundle
 $ mkdir spec/support/
-$ touch spec/support/factory_girl.rb
+$ touch spec/support/factory_bot.rb
 ```
 
-Inside of the factory_girl.rb file:
+Inside of the factory_bot.rb file:
 
 ```ruby
 RSpec.configure do |config|
-  config.include FactoryGirl::Syntax::Methods
+  config.include FactoryBot::Syntax::Methods
 end
 ```
 
 Inside of the rails_helper.rb file:
 
 ```ruby
-require 'support/factory_girl'
+require 'support/factory_bot'
 ```
+
+### Versioned APIs
+
+In software (and probably other areas in life) you're never going to know less about a problem than you do right now. Procrastination and being resolved to solve only immediate problems can be an effective strategy while writing software. Our assumptions are often wrong and we need to change what we build. When building APIs, we don't always know exactly how they will be used. Because of this, we should aim to build with the assumption that things will need to change.
+
+Imagine we are serving up an API that several other companies and developers are using. Let's think through a simple example. Let's say we have an API endpoint of `GET /api/items/1` that returns a JSON response that includes an `id`, `title`, `description`, and `number_sold`. Now imagine that at a later date we no longer want to provide `number_sold` and instead want to replace it with a new attribute called `popularity`. What happens to all of our consumers that were dependent on `number_sold`?
+
+We can provide a better experience for our clients by versioning our API. Instead of our endpoint being `GET /api/items/1` we can add an extra segment to our URL with a version number. Something like `GET /api/v1/items/1`. If we ever want to change our API in the future we can simply change the segment to represent the new API `GET /api/v2/items/1`. The big advantage here is we can have both endpoints served simultaneously to allow our clients to transition their code bases to use the newest version. Usually the intent is to shutdown the initial API since maintaining multiple versions can be a drain on resources. Most companies will provide a date that the deprecated API will be shutdown.
+
+We'll be building a versioned API for this lesson.
 
 ### 1. Creating Our First Test
 
@@ -105,7 +115,7 @@ $ touch spec/requests/api/v1/items_request_spec.rb
 
 Note that we are namespacing under `/api/v1`. This is how we are going to namespace our controllers, so we want to do the same in our tests.
 
-On the first line of our test, we want to set up our data. We configured Factory Girl so let's have it generate some items for us.
+On the first line of our test, we want to set up our data. We configured Factory Bot so let's have it generate some items for us.
 We then want to make the request that a user would be making. We want a `get` request to `api/v1/items` and we would like to get
 json back. At the end of the test we want to assert that the response was a success.
 
@@ -161,7 +171,7 @@ Before we run our test again, let's take a look at the Item Factory that was gen
 **spec/factories/items.rb**
 
 ```rb
-FactoryGirl.define do
+FactoryBot.define do
   factory :item do
     name "MyString"
     description "MyText"
@@ -175,10 +185,10 @@ This is boring. Let's change it to reflect a real item.
 **spec/factories/items.rb**
 
 ```rb
-FactoryGirl.define do
+FactoryBot.define do
   factory :item do
-    name "Screwdriver"
-    description "Not just for breakfast anymore."
+    name "Banana Stand"
+    description "There's always money in the banana stand."
   end
 end
 ```
@@ -317,7 +327,7 @@ First, let's write the test. As you can see, we have added a key `id` in the req
 Try to test drive the implementation before looking at the code below.
 ---
 
-Run the tests and the first error we get is: `ActionController::RoutingError: No route matches [GET] "/api/v1/items/980190962"`, or some other similar route. Factory Girl has created an id for us.
+Run the tests and the first error we get is: `ActionController::RoutingError: No route matches [GET] "/api/v1/items/980190962"`, or some other similar route. Factory Bot has created an id for us.
 
 Let's update our routes.
 
@@ -500,6 +510,6 @@ Pat yourself on the back. You just built an API. And with TDD. Huzzah! Now go ca
 ## Supporting Materials
 
 * [Notes](https://www.dropbox.com/s/zxftnls0at2eqtc/Turing%20-%20Testing%20an%20Internal%20API%20%28Notes%29.pages?dl=0)
-* [Getting started with Factory Girl](https://github.com/thoughtbot/factory_girl/blob/master/GETTING_STARTED.md)
-* [Use Factory Girl's Build Stubbed for a Faster Test](https://robots.thoughtbot.com/use-factory-girls-build-stubbed-for-a-faster-test)
+* [Getting started with Factory Bot](https://github.com/thoughtbot/factory_bot/blob/master/GETTING_STARTED.md)
+* [Use Factory Bot's Build Stubbed for a Faster Test](https://robots.thoughtbot.com/use-factory-girls-build-stubbed-for-a-faster-test) (Note that this post uses `FactoryGirl` instead of `FactoryBot`. `FactoryGirl` is the old name.)
 * [Building an Internal API Short Tutorial](https://vimeo.com/185342639)
