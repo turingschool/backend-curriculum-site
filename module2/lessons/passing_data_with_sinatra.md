@@ -93,7 +93,7 @@ To test out how well you understand what pieces were affected by our changes, go
   - Let's fill in our html with the necessary information and shotgun. Navigate to `/films/new` to see our form and fill it in. Click Submit.
   - Clicking submit stops our program and allows us to utilize our favorite tool, PRY!
   - Now that we are here, we can see the output of our `params`
-  - Nesting our parameters with `film[title]` will help us if we ever have multiple resources inputs on our page
+  - Nesting our parameters with `film[title]` will help us if we ever have multiple resources' inputs on our page
   - Test your knowledge by finishing the exercise so that your new film shows on the "films/index"
 
 ## Workshop/Homework
