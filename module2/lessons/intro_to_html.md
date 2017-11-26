@@ -11,6 +11,8 @@ title: Introduction to HTML
   - Identify different parts of an HTML tag
 
 ## Vocabulary
+  - Tag 
+  - Element
   - Semantic 
   - Block
   - Inline
@@ -211,4 +213,5 @@ Review from Task Manager
   - What type of information belongs in the head of an HTML document?
   - Why would we use semantic vs. non-semantic tags?
   - What is the difference between a block and inline element?
-  - When should we use an id over a class?
+  - When should we use an `id` over a `class`?
+  - How do we use `name` and `value`?
