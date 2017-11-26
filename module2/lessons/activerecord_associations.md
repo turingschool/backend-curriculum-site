@@ -297,7 +297,7 @@ This will create a new `Film` record and place whatever animation's `id` is in t
 
 ### Updating our View
 
-Let's update our `films_index.erb` view to show all the films in each genre:
+Let's update our `films/index.erb` view to show all the films in each genre:
 
 ```erb
 <h1>All Films</h1>

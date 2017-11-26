@@ -11,11 +11,11 @@ In order to graduate from Module 2, students must complete each of the following
 
 ### Final Assessment
 
-Students must earn a score of 3 or greater in each category of the final assessment rubric.
+Students are expected to satisfactorily complete both the written and timed assessments.
 
 ### Group Projects
 
-Students are expected to be a contributing team member in both of their group projects in Module 2 and receive 3s or upward sloping trend forom a lower score on the first project.
+Students are expected to be a contributing team member in both of their group projects in Module 2. Students are expected to complete the checklists provided for each project. 
 
 ### Blog Post
 

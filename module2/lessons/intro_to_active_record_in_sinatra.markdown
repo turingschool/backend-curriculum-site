@@ -16,7 +16,7 @@ tags: activerecord, migrations, sinatra
 * ActiveRecord
 * Relational database
 * Schema
-* ORM
+* Object Relational Map (ORM)
 
 ## Repository
 
@@ -45,7 +45,7 @@ For example, if we have a table of songs and artists, and a song belongs to one 
 
 ![400% ORM Diagram](http://wiki.expertiza.ncsu.edu/images/2/2c/ORM_Flowchart.jpg)
 
-* Someone has done the hard work of allowing us to easily interact with the relational database, through Ruby. 
+* Someone has done the hard work of allowing us to easily interact with the relational database, through Ruby.
 
 #### Ruby ORM's
 * ActiveRecord (lots)
@@ -176,9 +176,26 @@ Now that we have some films, let's check our controller to see that we're doing 
 class FilmFile < Sinatra::Base
   get '/films' do
     @films = Film.all
-    erb :films_index
+    erb :"films/index"
   end
 end
+```
+
+### Creating the View
+
+We are going to start to have LOTS of resources as our apps get bigger so let's start to organize our views. Let's create a `films` folder in `views` with an `index.erb` file.
+
+Throw this html in that file:
+
+```html
+  <!-- views/films/index.erb -->
+    <% @films.each do |film| %>
+    <ul>
+      <li><%= film.title %></li>
+      <li><%= film.year %></li>
+      <li><%= film.box_office_sales %></li>
+    </ul>
+    <% end %>  
 ```
 
 Run `shotgun` from the command line. Visit `localhost:9393/films` and see your films.
@@ -205,4 +222,3 @@ If you have additional time, review the files below.
 
 * What happens if you try to create an object when you have a model but not a table?
 * What happens if you try to create an object when you have a table but not a model?
-* What does `has_many` allow? What does `belongs_to` allow? Are both necessary?

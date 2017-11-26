@@ -10,7 +10,7 @@ The learning at Turing extends beyond technical training. Equally as important i
 
 ## Attendance
 
-If you are unable to attend a day of instruction, let your instructors know as soon as possible. It is your responsibility to stay up-to-date on lessons that you miss. If you need anything or have questions, let your anchor or supporting instructor know. They’ll be happy to help. When on group projects, be sure to let your group members know when you will be unavailable or absent.
+If you are unable to attend a day of instruction, let your instructors know as soon as possible. It is your responsibility to stay up-to-date on lessons that you miss. If you need anything or have questions, let both your anchor or supporting instructor know. They’ll be happy to help. When on group projects, be sure to let your group members know when you will be unavailable or absent.
 
 #### Why?
 

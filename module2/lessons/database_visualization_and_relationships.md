@@ -13,6 +13,13 @@ tags: database, schema, relationships
 * Diagram a one-to-many relationship
 * Diagram a many-to-many relationship
 
+## Vocabulary
+
+* Foreign Key
+* Primary Key
+* One-to-Many Relationship
+* Many-to-Many Relationship
+
 ### Warm-Up
 
 In our recent Task Manager client meeting, our client decided their users should be able to organize their tasks by marking them with labels. Based on our conversation, we've decided:
