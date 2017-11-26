@@ -11,11 +11,13 @@ tags: parameters, sinatra
 
 ## Passing Data with Sinatra
 
-Yesterday, we talked about three ways to pass data in Sinatra. Now you'll get to test your skills with two of them.
+- What are ways that we can pass parameters in Sinatra?
+  - URL
+  - Input Form
 
-In this workshop, you'll practice passing data between a client and a Sinatra server.
+- In this workshop, you'll practice passing data between a client and a Sinatra server.
 
-Remember, there are a few different ways to pass data: through the query string parameters in the URL, through dynamic parameters in the URL, and through forms. We'll be focus on passing data via query params and via forms.
+- There are a few different ways to pass data: through the query string parameters in the URL, through dynamic parameters in the URL, and through forms. We'll be focus on passing data via query params and via forms.
 
 ## Review from Films
 
@@ -25,11 +27,18 @@ Remember, there are a few different ways to pass data: through the query string 
 
   ```ruby
   get '/films/1' do
-    @films = Film.all
-    erb :films_index
+    @film = Film.find(1)
+    erb :"films/show"
   end
   ```
   - Let's talk about how to make this dynamic.
+
+  ```ruby
+  get '/films/:id' do
+    @film = Film.find(params[:id])
+    erb :"films/show"
+  end
+  ```
 
 ## Instance Variables, Local Variables, and the View
 
@@ -42,7 +51,7 @@ Try this out:
 ```ruby
 get '/films' do
   films = Film.all
-  erb :film_index, :locals => { :films => films }
+  erb :"film/index", :locals => { :films => films }
 end
 ```
 
@@ -56,13 +65,38 @@ Sinatra allows us to access instance variables defined in a particular route wit
 
 To test out how well you understand what pieces were affected by our changes, go ahead and switch back to using the instance variable instead of the locals hash.
 
-### From Forms/Inputs
+### Params from an Input Form
 
-  - Getting input from a form.
-  - Lets create a route for a new film.
-  - Getting params and using pry.
+  - Switch to the branch `input_params_example`
+  - Inspect the `views/films/new` file:
 
-## Setup
+  ```html
+    <form class="new-film" action="" method="">
+      <input type="text" name="film[title]" value="Title">
+      <input type="text" name="film[year]" value="Year">
+      <input type="text" name="film[box_office_sales]" value="Sales">
+      <input type="submit" value="Submit">
+    </form>
+  ```
+
+  - What resource are we trying to create?
+  - Based on REST:
+    - What verb should we use?
+    - What route should we send it to?
+
+  ```ruby
+    post "/films" do
+      require 'pry'; binding.pry
+    end
+  ```
+
+  - Let's fill in our html with the necessary information and shotgun. Navigate to `/films/new` to see our form and fill it in. Click Submit.
+  - Clicking submit stops our program and allows us to utilize our favorite tool, PRY!
+  - Now that we are here, we can see the output of our `params`
+  - Nesting our parameters with `film[title]` will help us if we ever have multiple resources inputs on our page
+  - Test your knowledge by finishing the exercise so that your new film shows on the "films/index"
+
+## Workshop/Homework
 
 1) Clone this app: [http://github.com/turingschool/shopping](http://github.com/turingschool/shopping)
 
