@@ -234,7 +234,7 @@ You can open its `index.html` in the browser from your command using:
 open basic-jQuery/index.html
 ```
 
-Spend 5 minutes refreshing on basic jQuery using this playground.
+We can refresh on basic jQuery using this playground.
 
 Try working through the HTML sections and adding DOM manipulations for each button.
 
