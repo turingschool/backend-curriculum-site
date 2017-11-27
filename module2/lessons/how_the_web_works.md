@@ -11,10 +11,6 @@ tags: http, dns, servers, rack
 * Identify the parts of an HTTP response.
 * Describe the different ways we use the term `server`.
 
-### Slides
-
-Available [here](../slides/how_the_web_works)
-
 ### Warmup
 
 * What happens when you enter an address into your nav bar and hit return? Be as specific as possible and draw a diagram.

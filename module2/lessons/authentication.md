@@ -1,4 +1,7 @@
-# Authentication
+---
+title: Authentication
+---
+
 ### If you are who you say you are...
 
 ---
@@ -30,6 +33,9 @@
 - Authentication is the client proving to the application that they are who they say they are. Usually this is done through a username/email and password combination. We handle this interaction a little differently than we handle a traditional user creation because we need to provide a way for our application to remember our user.
 
 # Live Coding
+
+- In `movie_mania`, our goal is to create a user that will eventually be able to check out movies from our application. This will require a way for a user to login to our application and our application to remember them.
+
 ## Creating a User Test
 
 ```ruby
@@ -46,8 +52,6 @@
 
   expect(page).to have_content("Welcome, funbucket13!")
 ```
-
-## Setting up the Root Page
 
 - At this point, we do not have a root page that supports this interaction. When we open our app, we want a page that directs the user to either create a new account or sign in with their existing credentials.
 
@@ -89,23 +93,23 @@ Capybara::ElementNotFound:
 
 - Let's add the link to sign up in the `welcome/index.html.erb` file
 
-```erb
-#views/welcome/index.html.erb
+```html
+<!-- /*views/welcome/index.html.erb*/ -->
 
 <%= link_to "Sign Up to Be a User" %>
 
 ```
 
-But where do we want this link to go? We want to create a new user resource. Notice we are treating this resource as any other resource.
+- But where do we want this link to go? We want to create a new user resource. Notice we are treating this resource as any other resource.
 
-```erb
-#views/welcome/index.html.erb
+```html
+<!-- views/welcome/index.html.erb -->
 
 <%= link_to "Sign Up to Be a User", new_user_path %>
 
 ```
 
-We still need to define this routes in our `routes.rb` file.
+- We still need to define this routes in our `routes.rb` file.
 
 ```ruby
 #routes.rb
@@ -114,54 +118,106 @@ root "welcome#index"
 resources :users, only: [:new]
 ```
 
+- Let's define the action and template that go along with our new user path.
+
+
+```ruby
+# controllers/users_controller.rb
+class UsersController < ApplicationController
+  def new
+    @user = User.new
+  end
+end
+```
+
+```html
+<!-- views/users/new.html.erb -->
+
+<%= form_for @user do |f| %>
+  <%= f.label :username %>
+  <%= f.text_field :username %>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+  <%= f.submit %>
+<% end %>
+```
+
+- We have our form set up to take in the information that we want to create our user object with (username and password).
+
+- Our tests will now complain because we have set up an object called `@user = User.new` but that object does not exist in our database. If we follow this error, we can add our `user` model and then run the tests again.
+
+```ruby
+#models/user.rb
+class User < ApplicationRecord
+
+end
+```
+
+- We still have to make the database connection but it doesn't feel right to store our passwords as plain text. IT ISN'T!!! DON'T DO IT. Use a password encryption tool (such as BCrypt) to store encrypted passwords in the database
+
+```bash
+rails g migration CreateUser username:string password_digest:string
+```
+
+- Why `password_digest`?
+
 ---
 
-# BCrypt
+## BCrypt
+
+- Requires that the object have a `password_digest` attribute that will recognize both `password` and `password_confirmation` as attributes even though the attribute is called `password_digest`.
+- Built into rails, comes out of the box in the gem file but it is commented out. Must uncomment to use it.
+- Takes password and password_confirmation (if necessary) and encrypts it to a very long, hard to decrypt, string.
+- Takes care of matching the password and password_confirmation (if necessary).
+
+- Find the `gem 'bcrypt'` in the `Gemfile` and uncomment it. Bundle again to complete the process.
+
+- We now need to tell our model that it will be expecting a field `password` (and `password_confirmation` if needed).
+
+```ruby
+#models/user.rb
+class User < ApplicationRecord
+  has_secure_password
+end
+```
+
+- Now we can create the user as we would with standard CRUD functionality, with one exception. The overall goal is to hold onto this users information so that when they login, our application can remember them. Functionality-wise, it doesn't make a whole lot of sense if when a user signs up, they have to log in again to access their information. When a new user signs up, we want them to be logged in. So how do we do that? What tool in rails might we be able to use to store information about our user as they are visiting our application?
 
 ---
 
-# Why bother?
+## Sessions
 
-## [fit] *DO NOT STORE PASSWORDS IN YOUR DATABASE AS PLAIN TEXT*
-
----
-
-# DON'T DO IT
-
----
-
-# Setup
-
-* Add gem ‘bcrypt’ to Gemfile
-* Add `has_secure_password` in User model[^1]
-* Generate `User` with `username` and `password` fields
-[^1]: Adds methods to set and authenticate against a BCrypt password
-
----
-
-# Live Coding
-## Adding BCrypt
-
----
-
-# Logging In
-
----
-
-# Tools
-
-* Sessions
-* More BCrypt
-* Helper methods
-
----
-
-# Sessions
+- HTTP is a stateless protocol. Sessions make it stateful. Without the idea of sessions, the user would have to identify, and probably authenticate, on every request
 
 * Set using `session[key] = value`
 * Clear using `session.clear`
 
 ---
+
+```ruby
+#controllers/users_controller.rb
+
+def create
+  @user = User.create(user_params)
+  if @user.save
+    session[:user_id] = @user.id
+    redirect_to dashboard_path(@user)
+  else
+    render :new
+  end
+end
+
+private
+
+def user_params
+  params.require(:user).permit(:username, :password)
+end
+```
+
+- By creating this key/value pair, we have created a way to get this information back easily.
+
+
+
 
 # More BCrypt
 

@@ -27,8 +27,8 @@ layout: page
 ### Day 3:
 
 * **LESSONS:**
-  - Intro to Sass
-  - [Rails Basics Challenge](../lessons/rails_basics_challenge)
+  - [Intro to Sass](../lessons/intro_to_sass)
+  - [Rails Basics Challenge](../misc/rails_basics_challenge)
 
 * **HOMEWORK:**
   - JobTracker
@@ -36,17 +36,14 @@ layout: page
 ### Day 4:
 
 * **LESSONS:**
-  - [Sessions, Cookies and Flashes](../lessons/sessions_cookies_and_flashes)
-  - [Namespacing](../lessons/namespacing)
-  - [Auth Exploration](https://gist.github.com/s-espinosa/9b7851faaf1d2bf039c7a65406e80cc5)
+  - [Sessions, Cookies and Flashes](../misc/sessions_cookies_and_flashes)
+  - [Namespacing](../misc/namespacing)
+  - [Auth Exploration](../misc/auth_exploration)
 
 * **HOMEWORK:**
   - Rest!
 
 ### Day 5:
-
-* - [Ruby Challenge](../lessons/violations)
-* - [Tech Interview Partner Q&A](../lessons/mock_interview)
 
 * **HOMEWORK:**
   - Rails Mini Project

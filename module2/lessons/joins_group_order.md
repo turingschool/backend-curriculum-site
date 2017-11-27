@@ -10,10 +10,6 @@ tags: activerecord, migrations, sinatra
 * Use `group` to group results by a common characteristic
 * Use `order` to order grouped results
 
-## Slides
-
-Available [here](../slides/joins_group_order)
-
 ## Warmup
 
 * What new ActiveRecord methods did you learn over the weekend?

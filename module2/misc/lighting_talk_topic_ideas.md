@@ -46,6 +46,6 @@ You can pitch a topic of your choice, but the topic must be in the realm of HTML
 
 ### Helpful Links
 
-* [Front end css info](http://frontend.turing.io/independent-)study/css-performance-and-organization.html
+* [Front end css info](http://frontend.turing.io/independent-study/css-performance-and-organization.html)
 
 * [Front end Image Handling](http://frontend.turing.io/independent-study/image-handling.html)

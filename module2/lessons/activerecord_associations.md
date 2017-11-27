@@ -12,10 +12,6 @@ tags: activerecord, migrations, sinatra
 * modify a migration in order to create or modify a table
 * interpret `schema.rb`
 
-## Slides
-
-Available [here](../slides/activerecord_associations)
-
 ## Repository
 
 We'll use the Film File repository available [here](https://github.com/turingschool-examples/film-file).
@@ -301,7 +297,7 @@ This will create a new `Film` record and place whatever animation's `id` is in t
 
 ### Updating our View
 
-Let's update our `films_index.erb` view to show all the films in each genre:
+Let's update our `films/index.erb` view to show all the films in each genre:
 
 ```erb
 <h1>All Films</h1>

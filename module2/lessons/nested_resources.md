@@ -8,10 +8,6 @@ title: Nested Resources in Rails
 - How do you use nested resources in Rails?
 - When should you use Nested Resources?
 
-## Slides
-
-Available [here](../slides/nested_resources)
-
 ## Warm Up
 
 Create a table containing all 8 prefixes, http-verbs, URI-patterns, and controller actions that Rails gives you when you have the following:
@@ -137,4 +133,3 @@ Turn and talk to your neighbor and discuss:
 * How does that change your routes?
 * What does it mean to use shallow nesting? Why would you do this?
 * What changes do you need to make in your controller when you nest a resource?
-

@@ -10,10 +10,6 @@ tags: capybara, user stories, feature tests, testing, sinatra
 * write user stories
 * translate user stories into feature tests using Capybara
 
-## Slides
-
-Available [here](../slides/feature_testing_in_sinatra)
-
 ## Repository
 
 You should be able to use the Film File repository that we have been using this week. If you have not yet cloned it down, you can find it [here](https://github.com/turingschool-examples/film-file).
