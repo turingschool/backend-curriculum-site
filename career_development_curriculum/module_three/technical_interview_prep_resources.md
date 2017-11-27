@@ -7,22 +7,26 @@ layout: page
 This markdown is intended to provide resources for Module 3 and 4 students as they prepare for technical interviews. This list is in no way exhaustive, but this should help give you a good start.
 
 ### Read this first
-Super mentor Ian Douglas has published [this handy guide](https://docs.google.com/document/d/1yWfxxYoCkZgxQrJ5Bn6051OE9a6f7mm5zs72jvqGKx8/edit?usp=sharing) to the ins and outs of technical interviews
 
-### Videos
+Here is a handy guide to the ins and outs of technical interviews
 
-* Check out one of Ian's [Google Hangout sessions](https://www.youtube.com/watch?v=aXohtMcPT6I)
+* https://docs.google.com/document/d/1yWfxxYoCkZgxQrJ5Bn6051OE9a6f7mm5zs72jvqGKx8/edit?usp=sharing
+* Pre-recorded video [Google Hangout sessions](https://www.youtube.com/watch?v=aXohtMcPT6I)
+
 
 ### Mock Interview Examples
 
-*
+* Ian is looking for volunteers to record example mock interviews for common phone screen questions as well as a
+  full coding technical interview.
+
 
 ### Schedule a Mock Interview
 
-* [Ian Douglas](iandouglas.youcanbook.me)
+* [Ian Douglas](HTTPS://turing-mock-interview-with-ian.youcanbook.me)
 * Marina Corona
 * [Emily Freeman](https://emilyfreeman.youcanbook.me/): Emily's focus is on backend interviews.
 * [Mark Miranda](https://markmiranda.youcanbook.me/)
+* [more interviewers can be found here](https://github.com/turingschool/career-development-curriculum/blob/master/module_three/technical_interview_prep_resources.md#schedule-a-mock-interview)
 
 ### Apps & Other Resources
 
