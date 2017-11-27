@@ -5,10 +5,9 @@ layout: page
 
 ## Lessons
 
-* [Git Gud @ Git](../lessons/working_with_git)
-* [Academic Integrity](../lessons/academic_integrity)
-* [Enumerables: A New Hope](../lessons/beginner_enumerables)
-* [Testing in a Project](../lessons/testing_in_a_project)
+### All
+
+* [Debugging Techniques](TBA)
 * [Optional Review: Working with Objects](../lessons/working_with_objects)
 * [Nested Collections](../lessons/nested_collections)
 * [Gear Up: Working Styles](https://github.com/turingschool/gear-up/blob/master/m1_citizenship/session_3_intro_extro_ambivert_styles.markdown)
@@ -16,6 +15,14 @@ layout: page
 * [PD: Learning to Pair](../../career_development_curriculum/module_one/learning_to_pair)
 * [PD: DTR Guidelines](../../career_development_curriculum/module_one/dtr_guidelines_memo)
 
+### Foxtrot
+* [How Testing Works](../lessons/how_testing_works)
+
+### Echo
+
+
+<!-- * [Debugging With Pry](../lessons/debugging_with_pry) -->
+<!-- * [Testing in a Project](../lessons/testing_in_a_project) -->
 
 ## Homework
 
