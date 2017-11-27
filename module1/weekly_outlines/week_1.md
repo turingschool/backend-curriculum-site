@@ -7,7 +7,7 @@ layout: page
 
 * [Intro to M1](../slides/intro_to_m1)
 * [Intro to Git/GitHub](../lessons/intro_to_git)
-* [Variables, Strings, and Integers](../lessons/variables_strings_and_integers)
+* [Intro to Variables and Data Types](../lessons/intro_to_variables_and_data_types)
 * [Intro to Methods](../lessons/intro_to_methods)
 * [Flow Control](../lessons/flow_control) ([Video](https://www.youtube.com/watch?v=iZkQWR9_RpY))
 * [Introducing Arrays](../lessons/introducing_arrays) ([Video](https://www.youtube.com/watch?v=nlwU1YtQ9SU))

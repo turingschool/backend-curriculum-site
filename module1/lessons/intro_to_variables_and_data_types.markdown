@@ -1,5 +1,5 @@
 ---
-title: Strings and Integers
+title: Intro to Variables and Data Types
 tags: basics, strings, Ruby in 100 Minutes
 length: 60 - 90
 ---
