@@ -37,22 +37,22 @@ Create a T-Chart on the white board for string, integer & float
 
 ## Intro
 
-There are several different types of objects in Ruby. Today, we'll focus on Strings and Integers. We'll also talk about variables, which are not a data type but instead a structure used to store references to data.  
+There are several different data types in Ruby. Today, we'll focus on Strings and Integers. We'll also talk about variables (structures used to store references to data, not data types themselves).  
 
 ## Variables  
 
-Programming is all about creating abstractions, and in order to create an abstraction we must be able to assign names to things. Variables are a way of creating a name for a piece of data.
+Programming is all about creating abstractions; in order to create an abstraction, we must be able to assign names to things. Variables are a way of creating a name for a piece of data.
 
-In some languages you need to specify what type of data (like a number, word, etc) can go in a certain variable, referred to as Staticaly Typed. Ruby, however, has a Dynamic Type system where any variable can hold any kind of data. Additionally, some languages require you to "declare" a variable before you assign a value to it. Ruby variables are automatically created when you assign a value to them. Let’s try an example:
+Some languages are Statically Typed, meaning you need to specify what type of data (like a number, word, etc) can go in a certain variable. Ruby is Dynamically Typed, meaning you do not need to declare the data type of a variable, any variable can hold any type of data and any variable *can* be reassigned to a different data type (constant variables shouldn't be changed). Some languages also require you to "declare" a variable before you assign a value to it, however, Ruby variables are automatically created when you assign a value to them. Let’s try an example:
 
 ```ruby
-num = 10
-num
+number = 10
+number
 ```
 
-The line `num = 10` creates the variable named num and stores the value 10 into it.
+The line `num = 10` creates the variable named `number` and stores the value 10 into it.
 
-In English we read left-to-right, so it’s natural to read code left to right. But when evaluating an assignment using the single equals (=), Ruby actually evaluates the right side first. Take the following example:
+In English we read left-to-right, so it’s natural to read code left to right. But when evaluating an assignment using the single equals sign (=), Ruby actually evaluates the right side first. Take the following example:
 
 ```ruby
 sum = 10 + 5
@@ -73,22 +73,28 @@ $ c
 
 Ruby variables have a few **requirements**. Local variables ...
 
-* always start with a lowercase letter (underscore is permitted, though uncommon)
 * have no spaces
 * do not contain most special characters like $, @, and &
+* can contain underscores & numbers, but CANNOT start with a number
+
+A few examples of invalid Ruby variable names include:
+
+* `student names` - variables cannot include a space
+* `account_$` - variables cannot include most special characters
+* `1st_lesson` – variables can’t start with a number, should just be first_lesson
 
 In addition to those requirements, Rubyists have a few common style **conventions** for variable names:
 
-* use snake case where each word in the name is lowercase and connected by underscores (_)
+* always start with a lowercase letter (underscore is permitted, though uncommon)
+* use snake case where each word in the name is lowercase and connected by underscores ( _ )
 * are named after the meaning of their contents, not the type of their contents
-* aren’t abbreviated, especially **NO SINGLE LETTER VARIABLES**
+* are NEVER abbreviated, especially **NO SINGLE LETTER VARIABLES**
 
 Good variable names might be count, students_in_class, or first_lesson.
 
-A few examples of bad Ruby variable names include:
+A few examples of Ruby variable names with poor convention include:
 
 * `studentsInClass` – uses camel-case rather than snake-case, should be students_in_class
-* `1st_lesson` – variables can’t start with a number, should just be first_lesson
 * `student_name_string` – includes the type of the data in the name, should just be students
 * `msg` or `v` – abbreviates rather than just using message  
 
@@ -98,6 +104,7 @@ A few examples of bad Ruby variable names include:
 * `time_machine`
 * `student_count_integer`
 * `homeworkAssignment`
+* `Team`
 * `3_sections`
 * `top_ppl`  
 
@@ -115,14 +122,14 @@ The shortest possible string is called the empty string: "". It’s not uncommon
 **Turn & Talk**  
 Which of the following are valid strings? Why/why not?  
 
-1. ''
-2. "123"
-3. 123
-4. "@*#%&"
-5. hello, world!
-6. 'welcome to Turing'
-7. '987654321."
-8. "hot chocolate is the best"
+1. `''`
+2. `"123"`
+3. `123`
+4. `"@\*#%&"`
+5. `hello, world!`
+6. `'welcome to Turing'`
+7. `'987654321."`
+8. `"hot chocolate is the best"`
 
 ### Substrings
 
@@ -159,7 +166,7 @@ We use [0..2] notation to pull out substrings. For example, I may want to get ba
 $ "hello, world"[0..4]
 ```
 
-In Ruby, `..` indicates an inclusive range. The above example means give me back all of the characters at positions 0, 1, 2, 3, and 4.
+In Ruby, `..` indicates an inclusive range. The above example means give me back all of the characters at positions 0, 1, 2, 3, and 4. An exclusive range is defined by `...` and excludes the last element; `"hello, world"[0..4]` would return `"hell"`.
 
 Ruby interprets negative positions to count back from the end of the string. So in "Hi", the "i" is in position -1 and the "H" is in position -2.
 
@@ -167,7 +174,7 @@ So if a letter has both a positive and negative position number, which should yo
 
 ### Introduction to String Methods
 
-A `method` in Ruby can be thought of as a message that's being sent to an object. The message is received, and something is returned where it was called. Here's a simple example:
+A Ruby `method` can be thought of as a message or command that's being sent to an object. The message is received, and something is returned where it was called. Here's a simple example:
 
 ```ruby
 $ "hello, world".upcase
@@ -178,7 +185,7 @@ The object it's being called on is "hello, world"
 The return value is "HELLO, WORLD".  
 Like the above example, most methods you'll see use what we call "dot notation" where there is a dot between the object and the method.
 
-Let's open up some Ruby documentation: [String](http://ruby-doc.org/core-2.2.3/String.html). Take a look on the left-hand side underneath "Methods".   
+Let's open up some Ruby documentation: [String](http://ruby-doc.org/core-2.4.1/String.html). Take a look on the left-hand side underneath "Methods".   
 
 You can also look at all of the possible string methods by calling the method `methods`:
 
@@ -186,7 +193,7 @@ You can also look at all of the possible string methods by calling the method `m
 $ "here is a string".methods  
 ```
 
-Another helpful method is `.class`, which tells you what type of object you're working with:
+Another helpful method is `.class`, which tells you what kind of data (object) type you're working with:
 
 ```ruby
 $ "here is a string".class  
