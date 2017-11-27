@@ -228,7 +228,20 @@ clickMeButton.addEventListener('click', function () {
 
 Clone [this](https://github.com/turingschool-examples/jQuery-playground) repository. Navigate to the `basic-jQuery` directory.
 
-**Spend 5 minutes refreshing on basic jQuery using this playground. Can you add a few events that trigger DOM manipulation? Can you change the font with the click of a button?**
+You can open its `index.html` in the browser from your command using:
+
+```bash
+open basic-jQuery/index.html
+```
+
+Spend 5 minutes refreshing on basic jQuery using this playground.
+
+Try working through the HTML sections and adding DOM manipulations for each button.
+
+If you work through those and want more, try these:
+
+* Can you change the font with the click of your mouse?
+* Can you change the background color of the page when the spacebar is clicked?
 
 ## Array.prototype Methods
 
