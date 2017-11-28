@@ -248,7 +248,7 @@ In the test/development section of your Gemfile add the following line:
   gem 'database_cleaner'
 ```
 
-Then in your spec helper, add the following after your current `require` lines:
+Then in your `spec_helper.rb`, add the following after your current `require` lines:
 
 ```ruby
 DatabaseCleaner.strategy = :truncation
