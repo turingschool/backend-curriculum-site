@@ -210,7 +210,49 @@ How does it know that we're trying to call this method on our `films` table? The
 
 Great! Run our tests again, and we still get an error.
 
-What's going on here? It looks like the total that's being reported by our test is the full total of our all the films currently in our database.
+```ruby
+Randomized with seed 56601
+
+Film
+  Class Methods
+    .total_box_office_sales
+D, [2017-11-27T19:25:39.140324 #73068] DEBUG -- :    (0.1ms)  begin transaction
+D, [2017-11-27T19:25:39.149342 #73068] DEBUG -- :   SQL (0.4ms)  INSERT INTO "films" ("title", "year", "box_office_sales", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Fargo"], ["year", 2017], ["box_office_sales", 3], ["created_at", "2017-11-28 02:25:39.140500"], ["updated_at", "2017-11-28 02:25:39.140500"]]
+D, [2017-11-27T19:25:39.150261 #73068] DEBUG -- :    (0.6ms)  commit transaction
+D, [2017-11-27T19:25:39.150662 #73068] DEBUG -- :    (0.1ms)  begin transaction
+D, [2017-11-27T19:25:39.152934 #73068] DEBUG -- :   SQL (0.4ms)  INSERT INTO "films" ("title", "year", "box_office_sales", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Die Hard"], ["year", 2016], ["box_office_sales", 4], ["created_at", "2017-11-28 02:25:39.150796"], ["updated_at", "2017-11-28 02:25:39.150796"]]
+D, [2017-11-27T19:25:39.153903 #73068] DEBUG -- :    (0.7ms)  commit transaction
+D, [2017-11-27T19:25:39.154685 #73068] DEBUG -- :    (0.2ms)  SELECT SUM("films"."box_office_sales") FROM "films"
+      returns total box office sales for all films (FAILED - 1)
+
+Failures:
+
+  1) Film Class Methods .total_box_office_sales returns total box office sales for all films
+     Failure/Error: expect(Film.total_box_office_sales).to eq(7)
+
+       expected: 7
+            got: 4125279531
+
+       (compared using ==)
+     # ./spec/models/film_spec.rb:8:in `block (4 levels) in <top (required)>'
+
+Finished in 0.04993 seconds (files took 1.05 seconds to load)
+1 example, 1 failure
+
+Failed examples:
+
+rspec ./spec/models/film_spec.rb:4 # Film Class Methods .total_box_office_sales returns total box office sales for all films
+
+Randomized with seed 56601
+```
+
+What's going on here? Let's try to focus in on the important part of the error.
+```ruby 
+  expected: 7
+       got: 4125279531
+```
+
+It looks like the total that's being reported by our test is the full total of our all the films currently in our database.
 
 Run it one more time to check. Notice that the actual value that we're getting increased? So, not only are we not testing with only the data we're providing in the test, but on top of that, every time we run the test we're adding new films to our development database.
 
