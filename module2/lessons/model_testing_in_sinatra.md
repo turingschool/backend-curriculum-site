@@ -20,7 +20,7 @@ We will continue to use the Film File repository that we used in the Intro to Ac
 ## Warmup
 
 1) Read [this](https://robots.thoughtbot.com/four-phase-test) Thoughtbot article about the four-phase test design.
-2) What did this look like in Minitest?
+2) Thinking about what you just read, what did this look like in Minitest?
 
 ## Lecture
 
