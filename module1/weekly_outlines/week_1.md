@@ -10,7 +10,7 @@ layout: page
 * [Intro to M1](../slides/intro_to_m1)
 * [Introducing Arrays](../lessons/introducing_arrays) ([Video](https://www.youtube.com/watch?v=nlwU1YtQ9SU))
 * [PD: Strengths Finder](../../career_development_curriculum/module_one/strengths_reflection_session)
-* [Exploring #each](TBA)
+* [Exploring #each](../lessons/exploring_each)
 * [Git Gud @ Git](../lessons/working_with_git)
 * [Enumerables: A New Hope](../lessons/beginner_enumerables)
 * [Intro to Hashes](../lessons/introducing_hashes)
