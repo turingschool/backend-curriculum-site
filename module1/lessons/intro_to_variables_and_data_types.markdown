@@ -272,6 +272,7 @@ $ 123456789.class
 $ 1_000_000_000_000_000_000_000.class
 $ 5.6.class
 $ 1.239.class
+$ 43e+3.class
 ```
 
 *Try it*: Predict the return value before trying these in IRB. Which of these work? Which of these do something you didn't expect?
