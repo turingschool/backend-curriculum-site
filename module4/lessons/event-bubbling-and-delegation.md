@@ -162,7 +162,7 @@ You should see 2 tasks in our To-do List labeled "Task 1" and "Task 2" as well a
 
 What did you notice?
 
-The event listeners are only bound to the buttons that were present when the page code was first loaded. The buttons we added later were not around when we added the listeners.
+The event listeners are only bound to the li elements that were present when the page code was first loaded. The li elements we added later were not around when we added the listeners.
 
 **What could we do to fix this?**
 
