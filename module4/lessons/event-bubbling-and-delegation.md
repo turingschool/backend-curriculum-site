@@ -148,13 +148,13 @@ const selectors = [".grandparent", ".parent", "#click-me"]
 selectors.forEach(listenForClick)
 
 function listenForClick (selector) {
-  const targets = ["target", "currentTarget"]
-  $(selector).on("click", logger(targets))
+  const eventProperties = ["target", "currentTarget"]
+  $(selector).on("click", logEventProperties(eventProperties))
 }
 
-function logger (targets) {
+function logEventProperties (properties) {
   return function (event) {
-    targets.forEach(target => console.log(target, event[target]))
+    properties.forEach(property => console.log(property, event[property]))
   }
 }
 ```
@@ -168,10 +168,6 @@ Yes, more lines of code. **BUT**
 
 ## Back to Events
 
-### Pair Practice
-
-Modify the code above to log the event itself (as opposed to the `target` property on the event). What other properties on the event object look particularly useful?
-
 Adding and Removing Event Listeners
 ----------------
 
@@ -181,14 +177,14 @@ A common obstacle that many JavaScript developers struggle with is understanding
 
 **For this class, we're going to use this [repo](https://github.com/turingschool-examples/js-event-delegation) instead of the Code Pen below.**
 
-<p data-height="300" data-theme-id="23788" data-slug-hash="OXzGGR" data-default-tab="js,result" data-user="turing" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/team/turing/pen/OXzGGR/">Events: Adding a New Event Listener</a> by Turing School of Software and Design (<a href="http://codepen.io/turing">@turing</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+<p data-height="290" data-theme-id="0" data-slug-hash="jaegdg" data-default-tab="js,result" data-user="kat3kasper" data-embed-version="2" data-pen-title="Events: Adding a New Event Listener" class="codepen">See the Pen <a href="https://codepen.io/kat3kasper/pen/jaegdg/">Events: Adding a New Event Listener</a> by Katelyn Kasperowicz (<a href="https://codepen.io/kat3kasper">@kat3kasper</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
-You should see three buttons labeled "Click me!" as well as a button for adding new buttons to the page.
+You should see 2 tasks in our To-do List labeled "Task 1" and "Task 2" as well as a button for adding new tasks to our list.
 
-1.  Click each of the "Click me!" buttons and verify that each one fires an `alert` notifying you that the button has in fact been clicked.
-2.  Add an additional button using the "Add a new button below." button.
-3.  Click on your new button and observe the results.
+1.  Click each of the tasks in our list and verify that each one fires an `alert` notifying you that the `li` element has in fact been clicked.
+2.  Add an additional task using the "Add new task" button.
+3.  Click on the new task and observe the results.
 
 What did you notice?
 
@@ -210,6 +206,21 @@ In *__event delegation__*, we take advantage of the fact that events bubble in t
 From the jQuery documentation: "Event delegation refers to the process of using event propagation (bubbling) to handle events at a higher level in the DOM than the element on which the event originated. It allows us to attach a single event listener for elements that exist now or in the future."
 
 Event delegation in tandem with `target` and `currentTarget` allows you to have more articulate control over what events actually execute your JavaScript.
+
+### Pair Practice
+
+Fork the CodePen from above and write a click event handler that responds to (and only to) `li` that both *do* and *could* exist on the DOM.
+
+Does your solution look anything like this?
+
+```js
+$ol.on('click', function (event) {
+    // Check if target is a list item
+    if (event.target.nodeName == "LI") {
+      alert(`${event.target.innerHTML} clicked`);
+    }
+});
+```
 
 Extra: Enough with the Bubbles
 -
@@ -237,13 +248,13 @@ const selectors = [".grandparent", ".parent", "#click-me"]
 selectors.forEach(listenForClick)
 
 function listenForClick (selector) {
-  const targets = ["target", "currentTarget"]
-  $(selector).on("click", logger(targets))
+  const eventProperties = ["target", "currentTarget"]
+  $(selector).on("click", logEventProperties(eventProperties))
 }
 
-function logger (targets) {
+function logEventProperties (properties) {
   return function (event) {
-    targets.forEach(target => console.log(target, event[target]))
+    properties.forEach(property => console.log(property, event[property]))
     event.stopPropagation()
   }
 }
@@ -251,9 +262,6 @@ function logger (targets) {
 
 Click around the DOM to see the results.
 
-### Pair Practice
-
-Fork the CodePen from above and write a click event handler that responds to (and only to) buttons that both *do* and *could* exist on the DOM.
 
 ## Review
 
@@ -261,4 +269,3 @@ Fork the CodePen from above and write a click event handler that responds to (an
 * How does this relate to "event bubbling"?
 * When do we want to utilize event delegation?
 * What is the difference between `target` and `currentTarget`?
-
