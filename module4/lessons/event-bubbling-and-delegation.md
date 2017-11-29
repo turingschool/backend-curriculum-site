@@ -149,8 +149,6 @@ A common obstacle that many JavaScript developers struggle with is understanding
 
 ### Experiment
 
-**For this class, we're going to use this [repo](https://github.com/turingschool-examples/js-event-delegation) instead of the Code Pen below.**
-
 <p data-height="265" data-theme-id="0" data-slug-hash="GOwKQa" data-default-tab="js,result" data-user="kat3kasper" data-embed-version="2" data-pen-title="Events: Event Delegation" class="codepen">See the Pen <a href="https://codepen.io/kat3kasper/pen/GOwKQa/">Events: Event Delegation</a> by Katelyn Kasperowicz (<a href="https://codepen.io/kat3kasper">@kat3kasper</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
