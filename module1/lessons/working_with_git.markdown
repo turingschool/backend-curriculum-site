@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Branching in Git
+title: Working with Git
 length: 60
 tags: git, github
 ---
@@ -11,7 +11,7 @@ In this lesson, you will learn how to:
 
 * Start a project with Git
 * Make local version contributions to a project using Git
-* Use `hub` to interact with Github
+<!-- * Use `hub` to interact with Github -->
 * Make changes to branches and merge them into master
 
 ### Vocabulary
@@ -138,7 +138,7 @@ There are a few things we'll need to do to use GitHub to host our newly-created 
 2. Add the online repo as a "remote" for our local repository
 3. `push` changes from our local repository to the remote copy that Github is tracking for us
 
-### Creating a Repository with [Hub](https://github.com/github/hub)
+<!-- ### Creating a Repository with [Hub](https://github.com/github/hub)
 
 We can create a repository via the GitHub web interface, but fortunately there's also a very handy command line utility called `Hub` that makes this even easier.
 
@@ -152,7 +152,9 @@ Hub provides a command-line interface to streamline many of the common interacti
 
 You can read more about the commands available in Hub's [documentation](https://github.com/github/hub#commands), but for now we're going to be using the `create` command.
 
-Hub will help us create a relationship to our remote repository. Before we do that, though, let's check whether we currently have any remote relationships defined.
+Hub will help us create a relationship to our remote repository. Before we do that, though, let's check whether we currently have any remote relationships defined. -->
+
+Make sure you're in the `intro_git` directory we created earlier and let's check whether we currently have any remote relationships defined.
 
 ```
 git remote -v
@@ -160,7 +162,7 @@ git remote -v
 
 We should see no results when we run this command. Now let's add the relationship.
 
-Make sure you're in the `intro_git` directory we created earlier, and create a new (GitHub) repository to host this content online. Use Hub's `create` command:
+<!-- Make sure you're in the `intro_git` directory we created earlier, and create a new (GitHub) repository to host this content online. Use Hub's `create` command:
 
 ```
 hub create
@@ -169,15 +171,31 @@ hub create
 If this is your first time using Hub, you'll be prompted for your github username and password. After that, hub will do 2 things:
 
 1. Create the repository on GitHub
-2. Add that repository as a "remote" within our local repository (on our machine)
+2. Add that repository as a "remote" within our local repository (on our machine) -->
 
-Check `git remote -v` and we'll see that origin has been set to our remote repo address: `origin git@github.com:username/repo_name.git`
+### 1. Create a new (GitHub) repository to host this content online.
 
-### Pushing changes to our new remote
+Go to your GitHub profile & click on the `Repositories` tab. Click the green "New" button in the upper-right corner. 
+
+Fill in the name with the name of your project (usually corresponding to its assigned title).
+
+Click "Create repository"
+
+### 2. Add the online repo as a "remote" for our local repository
+
+Click the "Copy to Clipboard" button next to the "...or push an existing repository from the command line" section.
+
+Navigate to your CLI and make sure you're in your project directory.
+
+Paste (`cmmd-v`) the copied commands into your CLI.
+
+Check `git remote -v` to see that the `origin` remote has been set to our remote repo address: `origin git@github.com:username/repo_name.git`
+
+### 3. Push changes to our new remote
 
 __Discussion:__ Remote vs. Local Copies of Repo
 
-Thanks to hub, we have a remote available to push to. We'll do this with the `git push` command, which takes __2 arguments__:
+Since we now have a remote repo (on GitHub), we can push our local changes to it. We'll do this with the `git push` command, which takes __2 arguments__:
 
 1. A "remote" to push to (most often this will be `origin`)
 2. The "branch" we'd like to push to (for now this will usually be `master`)
@@ -188,18 +206,20 @@ So we can push our code so far like so:
 git push origin master
 ```
 
-Now let's use Hub to go to our repo page on github and view our changes:
+Now we can go to our GitHub repo to view our changes.
+
+<!-- Now let's use Hub to go to our repo page on github and view our changes:
 
 ```
 hub browse
-```
+``` -->
 
 ### Check for Understanding
 
 Write on the following questions to synthesize what's been covered.
 
 * How is Github different from Git?
-* What does Hub help us with?
+<!-- * What does Hub help us with? -->
 * What relationship does a `remote` repository have with our `local` repository?
 * What does pushing to a remote branch do for us?
 
@@ -320,7 +340,9 @@ ls
 
 We have now successfully made changes on a feature branch and kept master clean of unwanted code. 
 
-Our changes are not yet public on Github. Our work only exists locally. If you run `hub browse` now, you'll see that the _remote_ repository does not have our most up to date commit.
+Our changes are not yet public on Github. Our work only exists locally. If you open your GitHub repo, you'll see that the _remote_ repository does not have our most up-to-date commit.
+<!-- 
+Our changes are not yet public on Github. Our work only exists locally. If you run `hub browse` now, you'll see that the _remote_ repository does not have our most up-to-date commit. -->
 
 Let's wrap up by publishing (pushing) our changes to github.
 
@@ -336,10 +358,13 @@ From the example we worked through above, we can come up with a common workflow 
 
 1. Make a new project directory
 2. Initialize the directory (`git init`)
-3. Make and checkout a feature branch (`git branch` and `git checkout`)
-4. Make changes to the code, add to staging area, and then commit the changes (`git add`, `git commit`)
-5. Checkout the master branch and merge changes into master from the feature branch (`git merge`)
-6. Repeat with more feature branches!
+3. Create a GitHub repo
+4. Connect an `origin` remote to your GitHub repo on your local machine
+5. Make and checkout a feature branch (`git branch` and `git checkout`)
+6. Make changes to the code, add to staging area, and then commit the changes (`git add`, `git commit`) (repeat this step until you have a functional feature)
+7. Checkout the master branch and merge changes into master from the feature branch (`git merge`)
+8. Push your changes to GitHub
+9. Repeat steps 5. - 8. with more feature branches!
 
 ## Independent Practice
 
@@ -353,4 +378,4 @@ And, if you just can't get enough Git, check out the [Pro Git book](http://git-s
 
 * What is the difference between git and github? 
 * What are the standard git commands? What do they do and when should you use them? 
-* What is the workflow for usign branches? 
+* What is the workflow for using branches? 
