@@ -140,32 +140,6 @@ selectors.forEach(function (selector) {
 })
 ```
 
-Let's demonstrate how nice and easily separated JavaScript callback functions are:
-
-```js
-const selectors = [".grandparent", ".parent", "#click-me"]
-
-selectors.forEach(listenForClick)
-
-function listenForClick (selector) {
-  const eventProperties = ["target", "currentTarget"]
-  $(selector).on("click", logEventProperties(eventProperties))
-}
-
-function logEventProperties (properties) {
-  return function (event) {
-    properties.forEach(property => console.log(property, event[property]))
-  }
-}
-```
-
-Yes, more lines of code. **BUT**
-
-* **_Wayyy_** easier to test.
-* **_Wayyy_** more flexible over time.
-* **_Wayyy_** more reusable.
-* More about telling your code *what* to do rather than *how* to do it (i.e., declarative vs imperative programming).
-
 ## Back to Events
 
 Adding and Removing Event Listeners
@@ -177,7 +151,7 @@ A common obstacle that many JavaScript developers struggle with is understanding
 
 **For this class, we're going to use this [repo](https://github.com/turingschool-examples/js-event-delegation) instead of the Code Pen below.**
 
-<p data-height="290" data-theme-id="0" data-slug-hash="jaegdg" data-default-tab="js,result" data-user="kat3kasper" data-embed-version="2" data-pen-title="Events: Adding a New Event Listener" class="codepen">See the Pen <a href="https://codepen.io/kat3kasper/pen/jaegdg/">Events: Adding a New Event Listener</a> by Katelyn Kasperowicz (<a href="https://codepen.io/kat3kasper">@kat3kasper</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<p data-height="265" data-theme-id="0" data-slug-hash="GOwKQa" data-default-tab="js,result" data-user="kat3kasper" data-embed-version="2" data-pen-title="Events: Event Delegation" class="codepen">See the Pen <a href="https://codepen.io/kat3kasper/pen/GOwKQa/">Events: Event Delegation</a> by Katelyn Kasperowicz (<a href="https://codepen.io/kat3kasper">@kat3kasper</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
 You should see 2 tasks in our To-do List labeled "Task 1" and "Task 2" as well as a button for adding new tasks to our list.
@@ -217,7 +191,7 @@ Does your solution look anything like this?
 $ol.on('click', function (event) {
     // Check if target is a list item
     if (event.target.nodeName == "LI") {
-      alert(`${event.target.innerHTML} clicked`);
+      alert(`${event.target.innerHTML} clicked`)
     }
 });
 ```
@@ -239,25 +213,18 @@ This is helpful if a parent and child both have listeners, but should be execute
 
 > I never thought I would ever say the words "ancestral node path".
 
-Coming back to this generic logging example, what happens if you stop propagation after the `console.log()` line?
+Coming back to this generic logging example, what happens if you stop propagation after the `console.log()` lines?
 
 ```js
-
 const selectors = [".grandparent", ".parent", "#click-me"]
 
-selectors.forEach(listenForClick)
-
-function listenForClick (selector) {
-  const eventProperties = ["target", "currentTarget"]
-  $(selector).on("click", logEventProperties(eventProperties))
-}
-
-function logEventProperties (properties) {
-  return function (event) {
-    properties.forEach(property => console.log(property, event[property]))
-    event.stopPropagation()
-  }
-}
+selectors.forEach(function (selector) {
+  $(selector).on("click", function (event) {
+      console.log("target", event.target)
+      console.log("currentTarget", event.currentTarget)
+      event.stopPropagation()
+    })
+})
 ```
 
 Click around the DOM to see the results.
