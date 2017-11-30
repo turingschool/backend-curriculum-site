@@ -30,6 +30,7 @@ title: Advanced CSS Selectors
 
 ### Let's jump back into our playground to explore
 
+  - Create and switch to a branch `your_name_advanced_css`
   - In our [HTML CSS Playground](https://github.com/turingschool-examples/html_css_playground) that we were working on yesterday, open the file "advanced_css.html" and the css associated with it.
   - We have 3 blue boxes:
 
