@@ -14,7 +14,7 @@ layout: page
 * [Git Gud @ Git](../lessons/working_with_git)
 * [Enumerables: A New Hope](../lessons/beginner_enumerables)
 * [Intro to Hashes](../lessons/introducing_hashes)
-* [Objects, Instances and Classes](TBA)
+* [Objects, Instances and Classes](../objects_instances_classes)
 * [Academic Integrity](../lessons/academic_integrity)
 * [Gear Up: Health & Wellness](	https://github.com/turingschool/gear-up/blob/47b936ce64782229a4338512818b5388e0e70f8d/Growth_Mindset_Facilitator_Guide.markdown)
 
