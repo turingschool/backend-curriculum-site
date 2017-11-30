@@ -111,7 +111,7 @@ Similar to the HTML pane, we can add or remove styles and adjust CSS property va
 
   - Clone down [this](https://github.com/turingschool-examples/html_css_playground) repo and:
     1. Check out a branch `your_name_css_playground`
-    2. To open the static html file from your command line `open example.html`.
+    2. To open the static html file from your command line `open intro_to_css.html`.
     3. Link the stylesheet to the HTML page.
     4. Change/Add information in the HTML file to be your own information.
     5. Create a visually appealing navigation bar with links to the sections (`about-me`, `school`, `work`, you can also make your own)
