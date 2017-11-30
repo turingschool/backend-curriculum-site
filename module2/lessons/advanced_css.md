@@ -10,6 +10,8 @@ title: Advanced CSS Selectors
   
 ## Vocab 
 * Pseudo-selector
+* Pseudo-class
+* Pseudo-element
 * Element
 
 ## WarmUp 
@@ -21,12 +23,15 @@ title: Advanced CSS Selectors
   - Specific characteristics of an element that can be targeted with CSS.
   - Creates a special state for that element.
 
-### Common pseudo-selectors
+### Common Pseudo-classes
 
   - `hover`
   - `disabled`
   - `focus`
   - `nth-of-type`
+  
+  Pseudo-class [documentaion](https://www.w3schools.com/css/css_pseudo_classes.asp)
+  Pseudo-element [documentaion](https://www.w3schools.com/css/css_pseudo_elements.asp)
 
 ### Let's jump back into our playground to explore
 
