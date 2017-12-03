@@ -7,6 +7,7 @@ layout: page
 
 ### All
 
+* [Problems, Solutions, Algorithms](../lessons/problems_solutions_algorithms)
 * [Debugging Techniques](TBA)
 * [Optional Review: Working with Objects](../lessons/working_with_objects)
 * [Nested Collections](../lessons/nested_collections)
