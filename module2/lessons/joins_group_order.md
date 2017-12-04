@@ -192,13 +192,13 @@ Now the resultant hash would look something like the following:
 Interestingly, if you add a `select` clause with a calculation as an argument, it is possible for a `group` and `order` query to return objects. For example:
 
 ```ruby
-Genre.select("genres.*, sum(box_office_sales) AS total_sales")
-  .joins(:films)
-  .group(:genre_id)
-  .order("total_sales DESC")
+Course.select("courses.*, avg(score) AS avg_score")
+  .joins(:students)
+  .group(:course_id, :id)
+  .order("avg_score DESC")
 ```
 
-This query will return a collection of Genre objects. The first will be the Genre with the highest total box office sales across all films.
+This query will return a collection of Course objects. The first will be the Course with the highest total box office sales across all films.
 
 ## Checks for Understanding
 
