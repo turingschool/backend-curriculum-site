@@ -383,6 +383,7 @@ With these tools at your disposal, enhance your server handler so that each requ
 
 To demonstrate this functionality, additionally add a new GET endpoint `/sleepy` which sleeps for 3 seconds and then returns a 200 OK response with the body `"yawn..."`. You should be able to handle multiple `/sleepy` requests in a row without the second one waiting for the first one to complete.
 
+
 ## Evaluation Rubric
 
 The project will be assessed with the following guidelines:
@@ -402,7 +403,9 @@ Expectations:
 - [ ] Ruby methods used are logical and readable  
 - [ ] Developer implements best-choice enumerable methods
 - [ ] Code is indented properly
-- [ ] Code does not exceed 80 characters per line  
+- [ ] Code does not exceed 80 characters per line
+- [ ] A directory/file structure provides basic organization via lib/ and/or /test
+
 
 ### 2. Breaking Logic into Components
 
@@ -435,11 +438,6 @@ Expectations:
 - [ ] Developer commits at a pace of at least 1 commit per hour
 - [ ] Developer implements branching and PRs
 - [ ] The final submitted version is merged into master
-
-
-
-
-
 
 
 ## Addendum Content
