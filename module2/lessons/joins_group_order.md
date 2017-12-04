@@ -159,6 +159,23 @@ The keys are the course_id and the values are the count of how many students in 
 
 Assume we want to take the same request, but now sort it by the count, getting the courses with the lowest counts of students first. We could use order.
 
+```SQL
+# In SQL
+SELECT students.course_id, count(students.id) AS student_count FROM students GROUP BY students.course_id ORDER BY student_count;
+```
+
+This will return us a table like so:
+
+```SQL
+course_id | student_count
+-----------+---------------
+         4 |             1
+         3 |             1
+         2 |             2
+         1 |             3
+(4 rows)
+```
+
 ```ruby
 # In the Student model
 def self.count_by_course_id
