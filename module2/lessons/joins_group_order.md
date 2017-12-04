@@ -105,7 +105,7 @@ def self.with_students
 end
 
 # From Tux
-Module.select("modules.*, students.*").joins(:students)
+Course.select("courses.*, students.*").joins(:students)
 ```
 
 With that in place, we can get student attributes out of our Course object, like so:
