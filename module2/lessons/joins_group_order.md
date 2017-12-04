@@ -124,6 +124,22 @@ More on how we might use `.joins` shortly.
 
 Group will take the results and group them by a particular attribute. So, for example:
 
+```SQL
+# In SQL:
+SELECT students.course_id, count(students.id) AS student_count FROM students GROUP BY students.course_id;
+```
+The return looks something like this:
+
+```SQL
+course_id | student_count
+-----------+---------------
+         4 |             1
+         1 |             3
+         3 |             1
+         2 |             2
+(4 rows)
+```
+
 ```ruby
 # In the Student model
 def self.count_by_course_id
@@ -137,7 +153,7 @@ Will return a hash like the following:
 {1 => 3, 2 => 2, 3 => 1, 4 => 1}
 ```
 
-That's fine. Let's keep pushing.
+The keys are the course_id and the values are the count of how many students in that course.
 
 ### Order
 
