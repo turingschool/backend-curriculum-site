@@ -32,14 +32,15 @@ After 15 minutes, turn to the person next to you and compare/discuss interesting
 - Overall application state
 - Setup and glue code to make the pieces work together
 
-## Activity (10 minutes)
+## Activity (25 minutes)
 
 - [QS Snippet](https://gist.github.com/neight-allen/6b7f05c01023682d41ad5625febf2655)
 
-Pair up with the person next to you. Using the four areas of responsibility from Murphy's article, go through this partial Quantified Self implementation and take a first pass at highlighting the pieces you think belong to those certain sections.
+Using the four areas of responsibility from Murphy's article, go through this partial Quantified Self implementation and take a first pass at highlighting the pieces you think belong to those certain sections.
 
+After about 15 minutes, turn to the person next to you and compare/discuss your results.
 
-## Application (20 minutes)
+## Application (25 minutes)
 
 Get together with your project partner. Find a function within your codebase that would be a good candidate for refactoring based on what we've just learned.
 
@@ -49,4 +50,4 @@ Get together with your project partner. Find a function within your codebase tha
 1. Try to write unit tests for those functions before refactoring them
 1. TDD your refactor
 
-Spend about 10-15 minutes doing this for one function. We'll close by seeing some of your solutions.
+Spend about 10 minutes doing this for one function. We'll close by seeing some of your solutions.
