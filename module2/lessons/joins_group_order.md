@@ -111,6 +111,7 @@ Course.select("courses.*, students.*").joins(:students)
 With that in place, we can get student attributes out of our Course object, like so:
 
 ```
+From tux
 Course.selct("courses.*, students.*")
   .joins(:students)
   .first
