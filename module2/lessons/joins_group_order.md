@@ -13,6 +13,10 @@ tags: activerecord, migrations, sinatra
 ## Warmup
 
 * What new ActiveRecord methods did you learn over the weekend?
+* How would you do the following in SQL?
+  * Join results from multiple tables?
+  * Order results
+  * Group results
 
 ## Lecture
 
@@ -24,7 +28,7 @@ The `.joins` method creates a `JOIN` query at the SQL level. What does this do?
 
 Assume we have the following tables.
 
-courses:
+modules:
 
 | id | title | description                             |
 |----|-------|-----------------------------------------|
@@ -48,7 +52,7 @@ students:
 A `JOIN` query would look something like this:
 
 ```SQL
-SELECT * FROM courses JOIN students ON students.module_id = courses.id;
+SELECT * FROM modules JOIN students ON students.module_id = module.id;
 ```
 
 And it would result in a table like the following:
@@ -70,7 +74,7 @@ How does this look in ActiveRecord?
 First, in order to create the query, we use the ActiveRecord `.joins` method. Note that this is a **class** method. It creates a new table with a row for each record that would be in the resulting table.
 
 ```ruby
-# In the Course model
+# In the Module model
 def self.with_students
   joins(:students)
 end
@@ -84,19 +88,19 @@ If we add `.count(:id)` to the end of those statements, we will get seven, even 
 The Course objects that are returned from this query will only know about Course attributes. In order to access attributes from both tables, we need to add one more piece:
 
 ```ruby
-# In the Course model
+# In the Module model
 def self.with_students
-  select("courses.*, students.*").joins(:students)
+  select("modules.*, students.*").joins(:students)
 end
 
 # From Tux
-Course.select("courses.*, students.*").joins(:students)
+Module.select("modules.*, students.*").joins(:students)
 ```
 
-With that in place, we can get student attributes out of our Course object, like so:
+With that in place, we can get student attributes out of our Module object, like so:
 
 ```
-Course.selct("courses.*, students.*")
+Module.selct("modules.*, students.*")
   .joins(:students)
   .first
   .first_name
@@ -125,7 +129,7 @@ That's fine. Let's keep pushing.
 
 ### Order
 
-Assume we want to take the same request, but now sort it by the count, getting the courses with the lowest counts of students first. We could use order.
+Assume we want to take the same request, but now sort it by the count, getting the modules with the lowest counts of students first. We could use order.
 
 ```ruby
 # In the Student model
