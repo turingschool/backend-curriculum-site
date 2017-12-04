@@ -175,7 +175,7 @@ Make a movies controller:
 $ touch app/controllers/movies_controller.rb
 ```
 
-Naming is important. The name of the file should be the plural of what it is handling (in this case, tasks).
+Naming is important. The name of the file should be the plural of what it is handling (in this case, movies).
 
 Inside of that file:
 
