@@ -1,7 +1,7 @@
 ---
 title: ActiveRecord Queries
 length: 60
-tags: activerecord, migrations, sinatra
+tags: activerecord, migrations, sinatra, sql
 ---
 
 ## Learning Goals
@@ -9,6 +9,14 @@ tags: activerecord, migrations, sinatra
 * Use `joins` to collect information from multiple tables
 * Use `group` to group results by a common characteristic
 * Use `order` to order grouped results
+* Compare SQL queries to ActiveRecord queries
+
+## Vocabulary 
+* SQL Query (Standard Query Language)
+* ActiveRecord Query
+* joins (JOIN)
+* group (GROUP BY)
+* order (ORDER BY)
 
 ## Warmup
 
@@ -21,6 +29,8 @@ tags: activerecord, migrations, sinatra
 ## Lecture
 
 Thus far we've talked about using ActiveRecord to create, find, and delete records, as well as to find related records on other tables. In your project, you've begun using ActiveRecord to query your database for more analytical purposes. Today we're going to review three ActiveRecord methods that will help you with some of those analytics.
+
+To give us some context to work within, clone down the [roster repo](https://github.com/turingschool-examples/roster).
 
 ### Joins
 
@@ -89,6 +99,11 @@ end
 Course.joins(:students)
 ```
 
+```ruby
+=> #<ActiveRecord::Relation [#<Course id: 1, title: "BE M1", description: "OOP with Ruby">, #<Course id: 1, title: "BE M1", description: "OOP with Ruby">, #<Course id: 1, title: "BE M1", description: "OOP with Ruby">, #<Course id: 2, title: "BE M2", description: "Web Applications with Ruby">, #<Course id: 2, title: "BE M2", description: "Web Applications with Ruby">, #<Course id: 3, title: "BE M3", description: "Professional Rails Applications">, #<Course id: 4, title: "BE M4", description: "Client-Side Development with JavaScript">]>
+```
+
+
 If we add `.count(:id)` to the end of those statements, we will get seven, even though there are only four courses. This is because the resulting table would have seven rows.
 
 The Course objects that are returned from this query will only know about Course attributes. In order to access attributes from both tables, we need to add one more piece:
@@ -100,12 +115,13 @@ def self.with_students
 end
 
 # From Tux
-Module.select("modules.*, students.*").joins(:students)
+Course.select("courses.*, students.*").joins(:students)
 ```
 
 With that in place, we can get student attributes out of our Course object, like so:
 
 ```
+From tux
 Course.selct("courses.*, students.*")
   .joins(:students)
   .first
@@ -117,6 +133,22 @@ More on how we might use `.joins` shortly.
 ### Group
 
 Group will take the results and group them by a particular attribute. So, for example:
+
+```SQL
+# In SQL:
+SELECT students.course_id, count(students.id) AS student_count FROM students GROUP BY students.course_id;
+```
+The return looks something like this:
+
+```SQL
+course_id | student_count
+-----------+---------------
+         4 |             1
+         1 |             3
+         3 |             1
+         2 |             2
+(4 rows)
+```
 
 ```ruby
 # In the Student model
@@ -131,11 +163,28 @@ Will return a hash like the following:
 {1 => 3, 2 => 2, 3 => 1, 4 => 1}
 ```
 
-That's fine. Let's keep pushing.
+The keys are the course_id and the values are the count of how many students in that course.
 
 ### Order
 
 Assume we want to take the same request, but now sort it by the count, getting the courses with the lowest counts of students first. We could use order.
+
+```SQL
+# In SQL
+SELECT students.course_id, count(students.id) AS student_count FROM students GROUP BY students.course_id ORDER BY student_count;
+```
+
+This will return us a table like so:
+
+```SQL
+course_id | student_count
+-----------+---------------
+         4 |             1
+         3 |             1
+         2 |             2
+         1 |             3
+(4 rows)
+```
 
 ```ruby
 # In the Student model
@@ -153,13 +202,13 @@ Now the resultant hash would look something like the following:
 Interestingly, if you add a `select` clause with a calculation as an argument, it is possible for a `group` and `order` query to return objects. For example:
 
 ```ruby
-Genre.select("genres.*, sum(box_office_sales) AS total_sales")
-  .joins(:films)
-  .group(:genre_id)
-  .order("total_sales DESC")
+Course.select("courses.*, avg(score) AS avg_score")
+  .joins(:students)
+  .group(:course_id, :id)
+  .order("avg_score DESC")
 ```
 
-This query will return a collection of Genre objects. The first will be the Genre with the highest total box office sales across all films.
+This query will return a collection of Course objects. The first will be the Course with the highest total box office sales across all films.
 
 ## Checks for Understanding
 
