@@ -5,34 +5,47 @@ layout: page
 
 ## Lessons
 
-* [Intro to M1](../slides/intro_to_m1)
-* [Intro to Git/GitHub](../lessons/intro_to_git)
-* [Variables, Strings, and Integers](../lessons/variables_strings_and_integers)
-* [Intro to Methods](../lessons/intro_to_methods)
-* [Flow Control](../lessons/flow_control) ([Video](https://www.youtube.com/watch?v=iZkQWR9_RpY))
-* [Intro to Arrays](../lessons/intro_to_arrays_arts_and_crafts) ([Video](https://www.youtube.com/watch?v=nlwU1YtQ9SU))
-* [Debugging with Pry](../lessons/debugging_with_pry)
-* [PD: Strengths Finder](../../career_development_curriculum/module_one/strengths_reflection_session)
-* [Intro to Classes](../lessons/intro_to_classes)
-* [Intro to Scope](../lessons/intro_to_scope)
-* [Intro to OOP](../lessons/intro_to_oop)
-* [How Testing Works](../lessons/how_testing_works)
-* [Intro to TDD](../lessons/intro_to_tdd)
-* [Gear Up: Growth Mindset](https://github.com/turingschool/gear-up/blob/master/m1_citizenship/session_1_growth_mindset.markdown)
+### All
 
+* [Intro to M1](../slides/intro_to_m1)
+* [Introducing Arrays](../lessons/introducing_arrays) ([Video](https://www.youtube.com/watch?v=nlwU1YtQ9SU))
+* [PD: Strengths Finder](../../career_development_curriculum/module_one/strengths_reflection_session)
+* [Exploring #each](../lessons/exploring_each)
+* [Git Gud @ Git](../lessons/working_with_git)
+* [Enumerables: A New Hope](../lessons/beginner_enumerables)
+* [Intro to Hashes](../lessons/introducing_hashes)
+* [Objects, Instances and Classes](../lessons/objects_classes_instances)
+* [Academic Integrity](../lessons/academic_integrity)
+* [Gear Up: Health & Wellness](	https://github.com/turingschool/gear-up/blob/47b936ce64782229a4338512818b5388e0e70f8d/Growth_Mindset_Facilitator_Guide.markdown)
+
+### Foxtrot
+* [Intro to Variables and Data Types](../lessons/intro_to_variables_and_data_types)
+* [Flow Control](../lessons/flow_control) ([Video](https://www.youtube.com/watch?v=iZkQWR9_RpY))
+
+### Echo
+* [Ruby in 100 Minutes](http://tutorials.jumpstartlab.com/projects/ruby_in_100_minutes.html)
+* [How Testing Works](../lessons/how_testing_works)
+
+<!-- * [Intro to Methods](../lessons/intro_to_methods) -->
+<!-- * [Intro to Classes](../lessons/intro_to_classes) -->
+<!-- * [Intro to Scope](../lessons/intro_to_scope) -->
+<!-- * [Intro to OOP](../lessons/intro_to_oop) -->
+<!-- * [Intro to TDD](../lessons/intro_to_tdd) -->
 
 ## Homework
 
+* [Working with Strings and Integers](https://github.com/turingschool/challenges/blob/master/working_with_strings_and_integers.markdown)
+* [Intro to Git/GitHub](../lessons/intro_to_git)
+* Eloquent Ruby: Download the reading [here](https://drive.google.com/file/d/0B4C6lfVKu-E7WjRhNnRKa0k4NHc/view?usp=sharing) and work on [these](https://github.com/turingschool/challenges/blob/master/eloquent_ruby_arrays_and_strings.markdown) exercises.
 * [SuperFizzBuzz](../homework/super_fizz.md)
 * [Core Types, Mythical Creatures](https://github.com/turingschool/ruby-exercises/) (in the subdirectories of this repository)
+* [Credit Check](../projects/credit_check.markdown) ([slides](../slides/credit_check))
 * [Enumerable Exercises](https://github.com/turingschool/enums-exercises)
 
 
 ## Projects & Exercises
 
-* [Credit Check](../projects/credit_check.markdown) ([slides](../slides/credit_check))
-* [A Perilous Journey](../projects/perilous_journey)
-* [Date Night](../projects/date_night) ([slides](../slides/date_night))
+* [Mastermind](../projects/mastermind)
 
 
 ## Resources

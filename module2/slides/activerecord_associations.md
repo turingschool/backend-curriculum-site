@@ -256,7 +256,7 @@ animation.films.create(title: "The Lion King", year: 1994, box_office_sales: 422
 # Updating our View
 
 ```erb
-# films_index.rb
+# films/index.erb
 <h1>All Films</h1>
 
 <div id="films">
@@ -267,4 +267,3 @@ animation.films.create(title: "The Lion King", year: 1994, box_office_sales: 422
   <% end %>
 </div>
 ```
-

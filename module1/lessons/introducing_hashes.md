@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Hashes
+title: Introducing Hashes
 length: 90
 tags: ruby, hashes, data structures
 ---
@@ -12,6 +12,7 @@ tags: ruby, hashes, data structures
 *   Gain some familiarity with common hash methods
 
 ## Vocabulary
+
 * Hash
 * Key
 * Value
@@ -19,11 +20,15 @@ tags: ruby, hashes, data structures
 * Accessing Values
 * Assigning Values
 
+## Slides
 
-## Hashes
+Available [here](../slides/introducing_hashes)
 
 ## WarmUp
-* What do you know about different data structures? When and how do you use them? 
+
+[Ruby Doc](http://ruby-doc.org/core-2.4.2/Hash.html) defines a hash as "a dictionary-like collection of unique keys and their values. Also called associative arrays, they are similar to Arrays, but where an Array uses integers as its index, a Hash allows you to use any object type."
+
+* What information can you tease from this definition?
 
 ### Intro - Hash Properties
 
@@ -145,28 +150,18 @@ For this exercise you'll work in pairs.
 * Person `A` is in charge of reading the instructions
 * Person `B` is in charge of working in pry (in such a way that their partner can see!)
 
-Start with an empty `beads` hash in space and pry. You'll be storing new instances of a `Bead` to this hash.
-
-For the pry person, recall that you can create a simple `Bead` model like this:
-
-```ruby
-class Bead
-end
-```
-
 ### Steps
 
-1. Insert a "blue" bead `beads[:blue] = Bead.new`
-2. Find the value attached to the key `:blue`
-3. Find the value attached to the key `:green`
-4. Add a new bead referenced by the key `:green`
-5. Add a new bead referenced by the key `:purple`
-6. What are the `keys`? What kind of object does that method return?
-7. What are the `values`? What kind of object does that method return?
-8. What's interesting about the order of the return value of both `keys` and `values`?
-9. Add a new bead referenced by the key `:green`
+1. Create a hash called `new_band`.
+2. Add a bassist to your `new_band` hash.
+3. Find the name of your bassist by accessing the `:bassist` key in the `new_band` hash.
+4. Find the value attached to `:vocalist` in your hash.
+5. Add a vocalist to your hash.
+6. Add a drummer to your hash.
+7. What are the keys of your hash? What kind of object does that method return?
+8. What are the values of your hash? What kind of object does that method return?
+9. Assign a new value to the `:vocalist` key of your hash.
 10. How has `keys` changed after the last step? How has `values` changed? What
-was lost?
 
 ## Independent Work
 
@@ -216,9 +211,9 @@ h = {
 * what is `h.values`?
 * how can I access the valued `"15 pounds"`?
 
-## WrapUp
-* Create a Venn Diagram of Arrays & Hashes. Think about how their structured, when you would use each one, and nuances to how you interact with each one. 
+## Wrap Up
 
+* Create a Venn Diagram of Arrays & Hashes. Think about how they're structured, when you would use each one, and nuances to how you interact with each one.
 
 ## Further Practice
 

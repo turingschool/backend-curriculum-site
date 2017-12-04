@@ -1,5 +1,5 @@
-# Intro to the Asset Pipeline
-
+---
+title: Intro to the Asset Pipeline
 ---
 
 # Warmup

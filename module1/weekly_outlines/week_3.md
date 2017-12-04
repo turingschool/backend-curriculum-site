@@ -5,6 +5,9 @@ layout: page
 
 ## Lessons
 
+### All
+* [Pairing Patterns](../lessons/pairing_patterns)
+* [Testing Strategies](../lessons/testing_in_a_project)
 * [Ruby Project Etiquette](../lessons/ruby_project_etiquette) ([Video](http://vimeo.com/161695195))
 * [Testing Strategies](../lessons/testing_strategies_1) ([Video](https://vimeo.com/161526035))
 * [File I/O](../lessons/working_with_files_part_2) ([Class Recording](https://vimeo.com/162134025)) ([Related Video](https://vimeo.com/130322465)) ([Intro Video](https://vimeo.com/238294504))
@@ -15,6 +18,10 @@ layout: page
 * [PD: Feedback I](../../career_development_curriculum/module_one/feedback_i)
 * [Group Project Retro](../lessons/group_project_retro)
 * [Gear Up: Getting Better at Difficult Things](https://github.com/turingschool/gear-up/blob/master/m1_citizenship/session_2_getting_better_at_difficult_things.md)
+
+### Foxtrot
+
+### Echo
 
 
 ## Homework

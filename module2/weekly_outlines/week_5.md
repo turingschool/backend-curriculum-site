@@ -8,13 +8,17 @@ layout: page
 ### Day 1:
 
 * **LESSONS:**
-  - [Intro to the Asset Pipeline](../slides/pipeline_plus_heroku/asset_pipeline)
-  - [How To Write a Great README](../lessons/how_to_write_a_great_readme)
+  - [Intro to the Asset Pipeline](../lessons/asset_pipeline)
 
 * **HOMEWORK:**
   - [Little Shop](http://backend.turing.io/module2/projects/little_shop)
 
 ### Day 2:
+
+* **LESSONS**
+  - [Cart & Order Lifecycle](../lessons/cart_implementation)
+  - [Callbacks & Refactoring](../lessons/callbacks_and_refactoring)
+
 
 * **HOMEWORK:**
   - [Little Shop](http://backend.turing.io/module2/projects/little_shop)
@@ -22,8 +26,7 @@ layout: page
 ### Day 3:
 
 * **LESSONS:**
-  - [Accessibility Best Practices](../lessons/accessibility_best_practices)
-  - [Callbacks & Refactoring](../lessons/callbacks_and_refactoring)
+  - [Remembering Ruby](../misc/violations): Complete the challenge described.
 
 * **HOMEWORK:**
   - [Little Shop](http://backend.turing.io/module2/projects/little_shop)
@@ -31,15 +34,8 @@ layout: page
 ### Day 4:
 
 * **LESSONS:**
-  - [Remembering Ruby](../lessons/violations): Complete the challenge described.
-
-* **HOMEWORK:**
-  - [Little Shop](http://backend.turing.io/module2/projects/little_shop)
-
-### Day 5:
-
-* **LESSONS:**
-  - [SQL/ActiveRecord](../slides/sql_active_record)
+  - [Rails Challenge 2](../challenges/rails_challenge_2)
+  - [How To Write a Great README](../lessons/how_to_write_a_great_readme)
   - [CFUs](https://github.com/turingschool/checks-for-understanding/blob/master/module-2/backend/week_5.md)
 
 * **HOMEWORK:**

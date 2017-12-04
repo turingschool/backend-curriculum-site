@@ -19,10 +19,6 @@ What might the relationships look like? Let's emphasize figuring out the entitie
 * Use `has_many` and `belongs_to` to create one-to-many and many-to-many relationships at the model level.
 * Define primary and foreign keys, and describe conventions used to name the columns containing each in a database.
 
-## Slides
-
-Available [here](../slides/models_migrations_databases)
-
 ## Warmup
 
 * In your own words, what is a migration?
