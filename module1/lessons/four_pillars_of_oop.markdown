@@ -86,7 +86,7 @@ Minitest. Your tests are classes. Every test file you create is a new class. You
 
 ### Polymorphism
 
-Defined as "the condition of occurring in several different forms". Basically, it just means that we can call the same method on
+Defined as "the condition of occurring in several different forms". Basically, it just means that we can call the same method on different objects.
 
 #### Y tho?
 
