@@ -119,6 +119,8 @@ Now lets write a test!
 
 ```ruby
   # user_sees_all_movies_spec.rb
+  reqiure "rails_helper"
+  
   describe "user_index" do
     it "user_can_see_all_movies" do
       movie_1 = Movie.create(title: "Drop Dead Fred", description: "An unhappy housewife gets a lift from the return of her imaginary childhood friend")
