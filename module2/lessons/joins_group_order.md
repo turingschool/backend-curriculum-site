@@ -1,7 +1,7 @@
 ---
 title: ActiveRecord Queries
 length: 60
-tags: activerecord, migrations, sinatra
+tags: activerecord, migrations, sinatra, sql
 ---
 
 ## Learning Goals
@@ -9,6 +9,7 @@ tags: activerecord, migrations, sinatra
 * Use `joins` to collect information from multiple tables
 * Use `group` to group results by a common characteristic
 * Use `order` to order grouped results
+* Compare SQL queries to ActiveRecord queries
 
 ## Warmup
 
