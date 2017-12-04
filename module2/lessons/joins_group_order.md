@@ -28,7 +28,7 @@ The `.joins` method creates a `JOIN` query at the SQL level. What does this do?
 
 Assume we have the following tables.
 
-modules:
+courses:
 
 | id | title | description                             |
 |----|-------|-----------------------------------------|
@@ -39,7 +39,7 @@ modules:
 
 students:
 
-| id | first_name | last_name | module_id |
+| id | first_name | last_name | course_id |
 |----|------------|-----------|-----------|
 | 1  | Sal        | Espinosa  | 2         |
 | 2  | Ilana      | Corson    | 2         |
@@ -49,10 +49,16 @@ students:
 | 6  | Victoria   | Vasys     | 1         |
 | 7  | Mike       | Dao       | 1         |
 
+
+In another tab, let's open a connection to `psql`
+```
+$ psql
+$ \c roster-development
+```
 A `JOIN` query would look something like this:
 
 ```SQL
-SELECT * FROM modules JOIN students ON students.module_id = module.id;
+SELECT * FROM courses JOIN students ON students.course_id = courses.id;
 ```
 
 And it would result in a table like the following:
@@ -74,7 +80,7 @@ How does this look in ActiveRecord?
 First, in order to create the query, we use the ActiveRecord `.joins` method. Note that this is a **class** method. It creates a new table with a row for each record that would be in the resulting table.
 
 ```ruby
-# In the Module model
+# In the Course model
 def self.with_students
   joins(:students)
 end
@@ -88,19 +94,19 @@ If we add `.count(:id)` to the end of those statements, we will get seven, even 
 The Course objects that are returned from this query will only know about Course attributes. In order to access attributes from both tables, we need to add one more piece:
 
 ```ruby
-# In the Module model
+# In the Course model
 def self.with_students
-  select("modules.*, students.*").joins(:students)
+  select("courses.*, students.*").joins(:students)
 end
 
 # From Tux
 Module.select("modules.*, students.*").joins(:students)
 ```
 
-With that in place, we can get student attributes out of our Module object, like so:
+With that in place, we can get student attributes out of our Course object, like so:
 
 ```
-Module.selct("modules.*, students.*")
+Course.selct("courses.*, students.*")
   .joins(:students)
   .first
   .first_name
@@ -114,8 +120,8 @@ Group will take the results and group them by a particular attribute. So, for ex
 
 ```ruby
 # In the Student model
-def self.count_by_module_id
-  group(:module_id).count
+def self.count_by_course_id
+  group(:course_id).count
 end
 ```
 
@@ -129,12 +135,12 @@ That's fine. Let's keep pushing.
 
 ### Order
 
-Assume we want to take the same request, but now sort it by the count, getting the modules with the lowest counts of students first. We could use order.
+Assume we want to take the same request, but now sort it by the count, getting the courses with the lowest counts of students first. We could use order.
 
 ```ruby
 # In the Student model
-def self.count_by_module_id
-  group(:module_id).order("count_all").count
+def self.count_by_course_id
+  group(:course_id).order("count_all").count
 end
 ```
 
