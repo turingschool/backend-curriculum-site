@@ -11,6 +11,13 @@ tags: activerecord, migrations, sinatra, sql
 * Use `order` to order grouped results
 * Compare SQL queries to ActiveRecord queries
 
+## Vocabulary 
+* SQL Query (Standard Query Language)
+* ActiveRecord Query
+* joins (JOIN)
+* group (GROUP BY)
+* order (ORDER BY)
+
 ## Warmup
 
 * What new ActiveRecord methods did you learn over the weekend?
