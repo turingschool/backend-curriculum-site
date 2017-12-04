@@ -23,6 +23,8 @@ tags: activerecord, migrations, sinatra, sql
 
 Thus far we've talked about using ActiveRecord to create, find, and delete records, as well as to find related records on other tables. In your project, you've begun using ActiveRecord to query your database for more analytical purposes. Today we're going to review three ActiveRecord methods that will help you with some of those analytics.
 
+To give us some context to work within, close down the [roster repo](https://github.com/turingschool-examples/roster).
+
 ### Joins
 
 The `.joins` method creates a `JOIN` query at the SQL level. What does this do?
