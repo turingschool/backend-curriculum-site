@@ -93,7 +93,7 @@ post '/tasks'
 
 ```bash
 $ rails new movie_mania -T -d="postgresql" --skip-spring --skip-turbolinks
-$ cd routes-controllers-example
+$ cd movie_mania
 ```
 
 Let's take a few minutes to explore what `rails new` generates.
