@@ -17,6 +17,10 @@ To start, we need to make sure we have the appropriate tooling installed.
 
 We'll also be using the [Erroneous Creatures](https://github.com/turingschool-examples/erroneous_creatures) respository. Clone that repository so that you have a version that you can work on locally.
 
+## Slides
+
+Availabe [here](../slides/debugging_techniques)
+
 ## Warmup
 
 * What do you do when you don't know what's going wrong with your application?
