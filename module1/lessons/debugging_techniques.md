@@ -70,7 +70,7 @@ Not verifying your assumptions can be one of the costliest mistakes you make as 
 
 While it's nice to drop into IRB to see if there are methods that exist in Ruby that I can use to solve my problem, it's even better to put a `pry` *into my code* to see exactly what I can do given the other methods and variables I've defined.
 
-Let's run the Hippogriff test again, and review the errors that are generated theere:
+Let's run the Hippogriff test again, and review the errors that are generated there:
 
 ```
 Error:
