@@ -44,6 +44,12 @@ Develop talking points for a three minute presentation that address the followin
 
 ## Presentations
 
+<!---
+Test to see that comments aren't displayed on the backend site
+-->
+
+[//]: # (This may be the most platform independent comment)
+
 Each group present their "smellyscript" to practice technical communication (2 minutes).
 
 ## Review presented topics
