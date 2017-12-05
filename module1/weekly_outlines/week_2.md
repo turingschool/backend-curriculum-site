@@ -8,7 +8,7 @@ layout: page
 ### All
 
 * [Problems, Solutions, Algorithms](../lessons/problems_solutions_algorithms)
-* [Debugging Techniques](TBA)
+* [Debugging Techniques](../lessons/debugging_techniques)
 * [Optional Review: Working with Objects](../lessons/working_with_objects)
 * [Nested Collections](../lessons/nested_collections)
 * [Gear Up: Working Styles](https://github.com/turingschool/gear-up/blob/master/m1_citizenship/session_3_intro_extro_ambivert_styles.markdown)
