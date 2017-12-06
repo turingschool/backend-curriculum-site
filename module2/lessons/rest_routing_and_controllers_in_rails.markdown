@@ -159,7 +159,7 @@ movies GET  /movies(.:format) movies#index
 
 This means whenever a `get` request to `/movies` is received, have the `MoviesController` handle it with the `index` action (method). The `(.:format)` piece on the end of the URI pattern refers to things like `http://example.com/movies.csv` or `http://example.com/movies.pdf`, etc.
 
-Based on our rake routes - what controller to we need? do we have it? Let's run our test and see what error we get:
+Based on our rake routes - what controller do we need? do we have it? Let's run our test and see what error we get:
 
 ```bash
 Failure/Error: visit "/movies"
