@@ -8,6 +8,13 @@ tags: rest, routing, controllers, routes, rspec
 
 Read [this article](http://www.theodinproject.com/ruby-on-rails/routing).
 
+## Vocabulary
+
+- `routes.rb`
+- `rake routes`
+- CRUD
+- MVC
+
 ## Learning Goals
 
 * explain the purpose of the `routes.rb` file
@@ -15,6 +22,12 @@ Read [this article](http://www.theodinproject.com/ruby-on-rails/routing).
 * explain the connection between `routes.rb` and controller files
 * create routes by hand
 * create routes using `resources :movies`
+
+## Warm Up
+
+- How are routes applied in Sinatra?
+- Where do our routes live?
+- How is MVC implemented in Sinatra?
 
 ## Reminder - REST
 
@@ -257,7 +270,7 @@ Let's add some movies in `rails console` and start the server again to see our m
 
 2) Can you create a `show` route that would allow a user to see one movie? Just like in Sinatra, the route will need a changeable `/:id`. You *do not* need to create a show view; just get a message like "You are viewing the show page" to show up.
 
-3) Can you create an `edit` route that would allow a user to get to the edit page for a movie? Again, the route will need a changeable `/:id`. You *do not* need to create a form; just get a message like "You are viewing the edit page" to show up.
+3) Can you create an `edit` route that would allow a user to get to the edit page for a movie? Again, the route will need a changeable `/:id`. You *do not* need to create a form because you already have one! (Think about a partial); just get a message like "You are viewing the edit page" to show up.
 
 4) For the previous two routes (show and edit), can you get the id param to display in the text that you render? You *do not* need to create a form; just get a message like "You are editing movie 2" to show up.
 
@@ -320,7 +333,7 @@ Rails.application.routes.draw do
 end
 ```
 
-Noxw try `$ rake routes`.
+Now try `$ rake routes`.
 
 ### Other things
 
@@ -333,6 +346,12 @@ end
 ```
 
 This will direct any get request to `localhost:3000` to the `movies_controller.rb` `index` action.
+
+## Wrap Up Questions
+
+- How are routes applied in Rails?
+- Where do our routes live?
+- How is MVC implemented in Rails?
 
 ### Homework
 
