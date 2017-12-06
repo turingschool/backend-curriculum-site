@@ -56,7 +56,7 @@ Translate Morse Code to English
 ```ruby 
   $ translator = Translate.new 
   => #<Translate:0x007fa1ab98cac0>
-  $ translator.morse_to_eng("......-...-..--- .-----.-..-..-..") 
+  $ translator.morse_to_eng(".... . .-.. .-.. ---  .-- --- .-. .-.. -..") 
   => "hello world"
 ```
 
