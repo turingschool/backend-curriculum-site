@@ -46,33 +46,33 @@ As our programs get more complex, we'll sometimes encounter more sophisticated c
 #### Array within an Array
 
 ```ruby
-a = [[1, 2, 3], [4, 5, 6]]
+numbers = [[1, 2, 3], [4, 5, 6]]
 ```
 **Agree/Disagree**
-* what is `a.count`
-* what is `a.first.count`
+* what is `numbers.count`
+* what is `numbers.first.count`
 * how can I access the element `5`
 
 #### Hashes within an Array
 
 ```
-a = [{:pizza => "tasty"}, {:calzone => "also tasty"}]
+food_feelings = [{:pizza => "tasty"}, {:calzone => "also tasty"}]
 ```
 **Agree/Disagree**
-* what is `a.count`
-* what is `a.first.count`
+* what is `food_feelings.count`
+* what is `food_feelings.first.count`
 * how can I access the element `"also tasty"`
 
 #### Hash within a Hash
 
 ```
-h = {:dog => {:name => "Chance", :weight => "45 pounds"},  
-     :cat => {:name => "Sassy", :weight => "15 pounds"}}
+pets = {:dog => {:name => "Chance", :weight => "45 pounds"},  
+        :cat => {:name => "Sassy", :weight => "15 pounds"}}
 ```
 **Agree/Disagree**
-* what is `h.count`
-* what is `h.keys`
-* what is `h.values`
+* what is `pets.count`
+* what is `pets.keys`
+* what is `pets.values`
 * how can I access the element `"15 pounds"`
 
 ### Pair Practice with Hashes and Nesting  
@@ -117,7 +117,7 @@ capitals = {"OR" => "Salem",
 You have age data for a group of people:
 
 ```ruby
-data = [
+ages = [
   ['Frank', 33],
   ['Stacy', 15],
   ['Juan', 24],
