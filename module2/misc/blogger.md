@@ -23,11 +23,16 @@ Part of the reason Ruby on Rails became popular quickly is that it takes a lot o
 
 First we need to make sure everything is set up and installed. See the [Environment Setup](http://tutorials.jumpstartlab.com/topics/environment/environment.html) page for instructions on setting up and verifying your Ruby and Rails environment.
 
-From the command line, switch to the folder that will store your projects. For instance, I use `/Users/jcasimir/projects/`. Within that folder, run the following command:
+From the command line, switch to the folder that will store your projects. For instance, `/Users/jcasimir/module2/projects/`. Within that folder, run the following command:
 
 ```
-$ rails new blogger -T
+$ rails new blogger -T -d="postgresql" --skip-turbolinks --skip-spring
 ```
+
+- `-T` - rails has minitest by default, when this flag is used, `gem 'minitest'` will not be in the Gemfile
+- `-d="postgresql"` - by default, Rails uses `sqlite3`. We want to tell it to use `postgres` instead because sites that we use for deploying, expect a postgres database.
+- `--skip-spring` - Spring is a Rails application preloader. It speeds up development by keeping your application running in the background so you don't need to boot it every time you run a test, rake task or migration but it benefits more advanced developers the most. We are going to not include it in our Gemfile.
+- `--skip-turbolinks` - Enables faster page loading by using AJAX call behind the scenes but has some subtle edge cases where it will not work as expected. For those reasons, we don't enable it by default.
 
 Use `cd blogger` to change into the directory, then open it in your text editor.
 
@@ -83,11 +88,26 @@ Refresh your GitHub repo, and checkout your shiny new Rails app.
 
 ### Install RSpec
 
-Use the documentation available [here](https://github.com/rspec/rspec-rails) to install RSpec in your project.
+Add these gems to Gemfile and bundle:
+  - `gem 'rspec-rails'` = rspec test suite
+  - `gem 'capybara'` = allows us to interact with the DOM
+  - `gem 'launchy'` = allows us to save_and_open_page to see a live version on the browser
+  - `gem 'pry'` = debugging tool
+  - `gem 'byebug'`= built in rails debugger
+
+Make sure you bundle!
+
+Install RSpec via the command line:
+
+```bash
+$ rails generate rspec:install
+```
+
+This generated new files that configure RSpec for us! Want to know more? See [here](https://github.com/rspec/rspec-rails)
 
 ### Project Tour
 
-The generator has created a Rails application for you. Let's figure out what's in there. Looking at the project root, we have these folders:
+By running `rails new`, the generator has created a Rails application for you. Let's figure out what's in there. Looking at the project root, we have these folders:
 
 * `app` - This is where 98% of your effort will go. It contains subfolders which will hold most of the code you write including Models, Controllers, Views, Helpers, JavaScript, etc.
 * `bin` - This is where your app's executables are stored: `bundle`, `rails`, `rake`, `spring`, and, something a lot of people are excited about for Rails 5, `yarn`.
@@ -102,16 +122,19 @@ The generator has created a Rails application for you. Let's figure out what's i
 
 ### Configuring the Database
 
-Look in the `config` directory and open the file `database.yml`. This file controls how Rails' database connection system will access your database. You can configure many different databases, including SQLite3, MySQL, PostgreSQL, SQL Server, and Oracle.
-
-If you were connecting to an existing database you would enter the database configuration parameters here. Since we're using SQLite3 and starting from scratch, we can leave the defaults to create a new database, which will happen automatically. The database will be stored in `db/development.sqlite3`
+- We can set up our database by giving the command `rake db:create` from the command line. Do that now.
 
 ### Starting the Server
 
 Let's start up the server. From your project directory:
 
+```bash
+rails server
 ```
-$ bin/rails server
+
+And you should see:
+
+```bash
 => Booting Puma
 => Rails 5.1.0 application starting in development on http://localhost:3000
 => Run `rails server -h` for more startup options
@@ -137,7 +160,7 @@ If you see an error here, it's most likely related to the database. You are prob
 
 ### Creating the Article Model
 
-Our blog will be centered around "articles," so we'll need a table in the database to store all the articles and a model to allow our Rails app to work with that data.
+Our blog will be centered around `articles`, each with a `title` and `body`, so we'll need a table in the database to store all the articles and a model to allow our Rails app to work with that data.
 
 Whenever you find yourself ready to add functionality or features to your app,you should automatically think: *Time for a new working branch!*. Don't worry if that's not automatic yet, it soon will be. We are moving into the M(odel) part of MVC, so let's "checkout" a branch for implementing our Article model:
 
@@ -150,54 +173,38 @@ With `checkout` we create a new branch (`-b` for branch) off of the `master` bra
 We'll use one of Rails' generators to create the required files. Switch to your terminal and enter the following:
 
 ```
-$ rails generate model Article
+$ rails generate migration CreateArticles title:string body:text
 ```
 
-**Note** that we use `rails` here but we used `bin/rails` previously. With `rails`, RubyGems will activate the latest version of the rails executable it can find in PATH. This is fine as long as you use this version of Rails in your project. If you have a project which uses an older version of Rails and you run `rails`, you can run into problems when trying to run code that's changed in the latest Rails version. `bin/rails` fixes this problem by making sure your environment uses the versions specified in your project's Gemfile.
+We're running the `generate` script, telling it to create a `migration`, and naming that migration `CreateArticle`.
 
-We're running the `generate` script, telling it to create a `model`, and naming that model `Article`. From that information, Rails creates the following files:
+Since we know the attributes that our `article` has, we can assign those right in the terminal migration command. We have an attribute of `title` that we want to be a `string` and an attribute `body` that we want to be a `text` type.
 
-* `db/migrate/(some_time_stamp)_create_articles.rb` : A database migration to create the `articles` table
-* `app/models/article.rb` : The file that will hold the model code
-* `spec/models/article_spec.rb` : A file to hold unit tests for `Article`
+Rails uses migration files to perform modifications to the database. Almost any modification you can make to a DB can be done through a migration.
 
-With those files in place we can start developing!
-
-### Working with the Database
-
-Rails uses migration files to perform modifications to the database. Almost any modification you can make to a DB can be done through a migration. If you haven't already, take the time now to create your database.
-
-```
-$ rake db:create
-```
-
-The killer feature about Rails migrations is that they're generally database agnostic. When developing applications developers might use SQLite3 as we are in this tutorial, but in production we'll use PostgreSQL. Many others choose MySQL. It doesn't matter -- the same migrations will work on all of them!  This is an example of how Rails takes some of the painful work off your hands. You write your migrations once, then run them against almost any database.
+The killer feature about Rails migrations is that they're generally database agnostic. When developing applications developers might use PostgreSQL as we are in this tutorial, but we might use another database. Many others choose MySQL. It doesn't matter -- the same migrations will work on all of them!  This is an example of how Rails takes some of the painful work off your hands. You write your migrations once, then run them against almost any database.
 
 #### Migration?
 
 **Important!**
 
-What is a migration?  Let's open `db/migrate/(some_time_stamp)_create_articles.rb` and take a look. First you'll notice that the filename begins with a mish-mash of numbers which is a timestamp of when the migration was created. Migrations need to be ordered, so the timestamp serves to keep them in chronological order. Inside the file, you'll see just the method `change`.
+What is a migration?  Let's open `db/migrate/(some_time_stamp)_create_articles.rb` and take a look. First you'll notice that the filename begins with a mish-mash of numbers which is a timestamp of when the migration was created. Migrations need to be ordered, so the timestamp serves to keep them in chronological order. Inside the file, you'll see the method `change`.
 
 Migrations used to have two methods, `up` and `down`. The `up` was used to make your change, and the `down` was there as a safety valve to undo the change. But this usually meant a bunch of extra typing, so with Rails 3.1 those two were replaced with `change`.
 
 We write `change` migrations just like we used to write `up`, but Rails will figure out the undo operations for us automatically.
 
-You may often find yourself thinking *"Thank you, Rails. Thank you."* This is
-totall normal.
+You may often find yourself thinking *"Thank you, Rails. Thank you."* This is totally normal.
 
 #### Modifying `change`
 
 Inside the `change` method you'll see the generator has placed a call to the `create_table` method, passed the symbol `:articles` as a parameter, and created a block with the variable `t` referencing the table that's created.
 
-We call methods on `t` to create columns in the `articles` table. What kind of fields does our Article need to have?  Since migrations make it easy to add or change columns later, we don't need to think of everything right now, we just need a few to get us rolling. Let's start with:
-
-* `title` (a string)
-* `body` (a "text")
+We call methods on `t` to create columns in the `articles` table. Since we used the command line to define our attributes, our migration should already be all set up the way we want it.
 
 That's it! You might be wondering, what is a "text" type?  This is an example of relying on the Rails database adapters to make the right call. For some DBs, large text fields are stored as `varchar`, while others like Postgres use a `text` type. The database adapter will figure out the best choice for us depending on the configured database -- we don't have to worry about it. The "string" type is similar, just shorter. You can think generally think of the former as multi-line and the latter as single-line/in-line.
 
-Add those into your `change` like this:
+Your migration should look like this:
 
 ```ruby
 def change
@@ -221,7 +228,7 @@ What is that `t.timestamps` doing there? It will create two columns inside our t
 Save that migration file, switch over to your terminal, and run this command:
 
 ```
-$ bin/rake db:migrate
+$ rake db:migrate
 ```
 
 This command starts the `rake` program which is a ruby utility for running maintenance-like functions on your application (working with the DB, executing unit tests, deploying to a server, etc).
@@ -244,10 +251,29 @@ We've now created the `articles` table in the database and can start working on 
 
 ### Working with a Model in the Console
 
+Let's add the model so that our app doesn't complain:
+
+```ruby
+#models/article.rb
+class Article < ApplicationRecord
+
+end
+```
+
+We want this model to inherit from ActiveRecord so why ApplicationRecord? If we take a look around, we see a base file in the model directory called `application_record.rb`. Open that and peek around:
+
+```ruby
+class ApplicationRecord < ActiveRecord::Base
+  self.abstract_class = true
+end
+```
+
+That file inherits from ActiveRecord so we want to inherit from ApplicationRecord. This allows us to have a master model that could contain some shared methods.
+
 Another awesome feature of working with Rails is the `console`. The `console` is a command-line interface to your application. It allows you to access and work with just about any part of your application directly instead of going through the web interface. This will accelerate your development process. Once an app is in production the console makes it very easy to do bulk modifications, searches, and other data operations. So let's open the console now by going to your terminal and entering this:
 
 ```
-$ bin/rails console
+$ rails console
 ```
 
 You'll then just get back a prompt of `>>`. You're now inside an `irb` interpreter with full access to your application. Let's try some experiments. Enter each of these commands one at a time and observe the results:
@@ -268,13 +294,13 @@ Type `exit` to quit the Rails console.
 
 **Important!**
 
-All the code for the `Article` model is in the file `app/models/article.rb`, so let's open that now.
+All the code for the `Article` model is in the file `app/models/article.rb`, so let's open that again.
 
 Not very impressive, right?  There are no attributes defined inside the model, so how does Rails know that an Article should have a `title`, a `body`, etc?  The answer is a technique called reflection. Rails queries the database, looks at the articles table, and assumes that whatever columns that table has should be the attributes for the model.
 
 You'll recognize most of them from your migration file, but what about `id`?  Every table you create with a migration will automatically have an `id` column which serves as the table's primary key. When you want to find a specific article, you'll look it up in the articles table by its unique ID number. Rails and the database work together to make sure that these IDs are unique, usually using a special column type in the DB called "serial".
 
-In your console (BONUS: you can run `bin/rails c`, `c` being short for `console`), try entering `Article.all` again. Do you see the blank article that we created with the `Article.new` command?  No?  The console doesn't change values in the database until we explicitly call the `.save` method on an object. Let's create a sample article and you'll see how it works. Enter each of the following lines one at a time:
+In your console (BONUS: you can run `rails c`, `c` being short for `console`), try entering `Article.all` again. Do you see the blank article that we created with the `Article.new` command?  No?  The console doesn't change values in the database until we explicitly call the `.save` method on an object. Let's create a sample article and you'll see how it works. Enter each of the following lines one at a time:
 
 ```
 $ article = Article.new
@@ -283,6 +309,7 @@ $ article.body = "This is the text for my article, woo hoo!"
 $ article.save
 $ Article.all
 ```
+
 Now you'll see that the `Article.all` command gave you back an array holding the one article we created and saved. Go ahead and **create 3 more sample articles**.
 
 This is a great start for our Article model, let's conclude our working branch
@@ -337,8 +364,12 @@ This line tells Rails that we have a resource named `articles` and the router sh
 
 Dealing with routes is commonly very challenging for new Rails programmers. There's a great tool that can make it easier on you. To get a list of the routes in your application, go to a command prompt and run `rake routes`. You'll get a listing like this:
 
+```bash
+$ rake routes
 ```
-$ bin/rake routes
+And your outcome should be:
+
+```bash
       Prefix Verb   URI Pattern                  Controller#Action
     articles GET    /articles(.:format)          articles#index
              POST   /articles(.:format)          articles#create
@@ -374,23 +405,22 @@ Now that the router knows how to handle requests about articles, it needs a plac
 We're going to use another Rails generator but your terminal has the console currently running. Let's open one more terminal or command prompt and move to your project directory which we'll use for command-line scripts. In that new terminal, enter this command:
 
 ```
-$ bin/rails generate controller articles
+$ touch app/controllers/articles_controller.rb
 ```
 
 Remember, models are singular (e.g., Article), and controllers are plural (e.g.,
 articles).
 
-The output shows that the generator created several files/folders for you:
+Let's open up the controller file, `app/controllers/articles_controller.rb` and add the code we want:
 
-* `app/controllers/articles_controller.rb` : The controller file itself
-* `app/views/articles` : The directory to contain the controller's view templates
-* `spec/controllers/articles_controller_spec.rb` : The controller's unit tests file
-* `app/helpers/articles_helper.rb` : A helper file to assist with the views (discussed later)
-* `spec/helpers/articles_helper_spec.rb` : The helper's unit test file
-* `app/assets/javascripts/articles.js.coffee` : A CoffeeScript file for this controller
-* `app/assets/stylesheets/articles.css.scss` : An SCSS stylesheet for this controller
+```ruby
+#app/controllers/articles_controller.rb
+class ArticlesContoller < ApplicationController
 
-Let's open up the controller file, `app/controllers/articles_controller.rb`. You'll see that this is basically a blank class, beginning with the `class` keyword and ending with the `end` keyword. Any code we add to the controller must go _between_ these two lines.
+end
+```
+
+What is ApplicationController? Look at the controllers folder and you should see an `application_controller.rb` file. This file defines the `ApplicationController` class, which (generally) all of your other controllers will inherit from.
 
 ### Defining the Index Action
 
@@ -418,9 +448,7 @@ What is that "at" sign doing on the front of `@articles`?  That marks this varia
 
 A normal Ruby instance variable is available to all methods within an instance.
 
-<!-- In Rails' controllers, there's a *hack* which allows instance variables to be automatically transferred from the controller to the object which renders the view template. So any data we want available in the view template should be promoted to an instance variable by adding a `@` to the beginning.
-
-There are ways to accomplish the same goals without instance variables, but they're not widely used. Check out the [Decent Exposure](https://github.com/voxdolo/decent_exposure) gem to learn more. -->
+There are ways to accomplish the same goals without instance variables, but they're not widely used. Check out the [Decent Exposure](https://github.com/voxdolo/decent_exposure) gem to learn more.
 
 ### Creating the Template
 
@@ -503,7 +531,7 @@ No code snippet this time. Checkout a new branch from master. The name should de
 
 #### Looking at the Routing Table
 
-Remember when we looked at the Routing Table using `bin/rake routes` from the command line? Look at the left-most column and you'll see the route names. These are useful when creating links.
+Remember when we looked at the Routing Table using `rake routes` from the command line? Look at the left-most column and you'll see the route names. These are useful when creating links.
 
 When we create a link, we'll typically use a "route helper" to specify where the link should point. We want our link to display the single article which happens in the `show` action. Looking at the table, the name for that route is `article` and it requires a parameter `id` in the URL. The route helper we'll use looks like this:
 
@@ -771,26 +799,25 @@ We already have an action and template for displaying an article, the `show`, so
 
 #### Processing the Data
 
-Before we can send the client to the `show`, let's process the data. The data from the form will be accesible through the `params` method.
+Before we can send the client to the `show`, let's process the data. The data from the form will be accessible through the `params` method.
 
 To check out the structure and content of `params`, I like to use this trick:
 
 ```ruby
 def create
-  fail
+  binding.pry
 end
 ```
 
-The `fail` method will halt the request allowing you to examine the request
-parameters.
+The `binding.pry` method will halt the request allowing you to play with the code inside of your console.
 
 Refresh/resubmit the page in your browser.
 
 #### Understanding Form Parameters
 
-The page will say "RuntimeError".
+Type `params` into your pry session to see the output.
 
-Below the error information is the request information. We are interested in the parameters (I've inserted line breaks for readability):
+Here is the request information. We are interested in the parameters (I've inserted line breaks for readability):
 
 ```
 {"utf8"=>"✔", "authenticity_token"=>"UDbJdVIJjK+qim3m3N9qtZZKgSI0053S7N8OkoCmDjA=",
@@ -809,11 +836,9 @@ What are all those? We see the `{` and `}` on the outside, representing a `Hash`
 * `action` : Which controller action is being activated for this request
 * `controller` : Which controller class is being activated for this request
 
-You can also inspect `params` interactively in that nifty console below.
-
 #### Pulling Out Form Data
 
-Now that we've seen the structure, we can access the form data to mimic the way we created sample objects in the console. In the `create` action, remove the `fail` instruction and, instead, try this:
+Now that we've seen the structure, we can access the form data to mimic the way we created sample objects in the console. In the `create` action, take the `binding.pry` out and try this:
 
 ```ruby
 def create
@@ -979,7 +1004,15 @@ Let's define the `destroy` method in our `ArticlesController` so it:
 2. Calls `.destroy` on that object
 3. Redirects to the articles index page
 
-Do that now on your own and test it.
+Do that now on your own and test it by running through the feature on `localhost:3000/articles`.
+
+Didn't quite get there? See the code below:
+
+```ruby
+  def destroy
+    Article.destroy(params[:id])
+  end
+```
 
 #### Confirming Deletion
 
@@ -1030,7 +1063,7 @@ class ArticlesController < ApplicationController
   ...
 
   private
-  
+
   ...
 
   def set_article
@@ -1102,6 +1135,11 @@ Now go back to the `_form.html.erb` and paste the code from your clipboard.
 #### Writing the Edit Template
 
 Then look at your `edit.html.erb` file. Add an H1 header and the line which renders the partial.
+
+```html
+  <h1>Edit <%= @article.title %></h1>
+  <%= render partial: 'form' %>
+```
 
 #### Testing the Partial
 
@@ -1255,11 +1293,11 @@ First, we need to brainstorm what a comment _is_...what kinds of data does it ha
 
 With that understanding, let's create a `Comment` model. Switch over to your terminal and enter this line:
 
-```
-$ bin/rails generate model Comment author_name:string body:text article:references
+```bash
+$ rails generate migration CreateComment author_name:string body:text article:references
 ```
 
-We've already gone through what files this generator creates, we'll be most interested in the migration file and the `comment.rb`.
+We'll be most interested in the migration file and adding the `comment.rb` file.
 
 ### Setting up the Migration
 
@@ -1279,8 +1317,17 @@ You might see some Rails projects pre-5.0.0 that have `t.timestamps null: false`
 
 Once you've taken a look at your generated migration task, go to your terminal and run the migration:
 
+```bash
+$ rake db:migrate
 ```
-$ bin/rake db:migrate
+
+### Add Comments Model
+
+```ruby
+#app/models/comment.rb
+
+class Comment < ApplicationRecord
+end
 ```
 
 ### Relationships
@@ -1296,7 +1343,7 @@ Part of the big deal with Rails is that it makes working with these relationship
 
 In this case one article has many comments, so each comment has a field named `article_id`.
 
-Following this convention will get us a lot of functionality "for free."  Open your `app/models/comment.rb` and check it out:
+Following this convention will get us a lot of functionality "for free."  Open your `app/models/comment.rb` and add:
 
 ```ruby
 class Comment < ActiveRecord::Base
@@ -1468,8 +1515,16 @@ Just like we needed an `articles_controller.rb` to manipulate our `Article` obje
 
 Switch over to your terminal to generate it:
 
+```bash
+$ touch app/controllers/comments_controller.rb
 ```
-$ bin/rails generate controller comments
+
+And set up that file:
+
+```ruby
+# app/controllers/comments_controller.rb
+class CommentsController < ApplicationController
+end
 ```
 
 #### Writing `CommentsController.create`
@@ -1593,13 +1648,26 @@ With those relationships in mind, let's design the new models:
 
 Note that there are no changes necessary to Article because the foreign key is stored in the Tagging model. So now lets generate these models in your terminal:
 
-```
-$ bin/rails generate model Tag name:string
-$ bin/rails generate model Tagging tag:references article:references
-$ bin/rake db:migrate
+```bash
+$ rails generate migration Tag name:string
+$ rails generate migration Tagging tag:references article:references
+$ rake db:migrate
 ```
 
 ### Expressing Relationships
+
+Lets add both of the above models that we just generated:
+
+```ruby
+# app/models/tag.rb
+class Tag < ApplicationRecord
+
+end
+
+# app/models/tagging.rb
+class Tagging < ApplicationRecord
+end
+```
 
 Now that our model files are generated we need to tell Rails about the relationships between them. For each of the files below, add these lines:
 
@@ -1882,8 +1950,16 @@ undefined method `tag_path' for #<ActionView::Base:0x104aaa460>
 
 The `link_to` helper is trying to use `tag_path` from the router, but the router doesn't know anything about our Tag object. We created a model, but we never created a controller or route. There's nothing to link to -- so let's generate that controller from your terminal:
 
+```bash
+$ touch app/controller/tags_controller.rb
 ```
-$ bin/rails generate controller tags
+
+And create controller:
+
+```ruby
+# app/controllers/tags_controller.rb
+class TagsController < ApplicationController
+end
 ```
 
 Then we need to add tags as a resource to our `config/routes.rb`, it should look like this:
@@ -1941,7 +2017,7 @@ clues.
 With that, a long Iteration 3 is complete!
 
 
-####Saving to GitHub.
+#### Saving to GitHub.
 
 Woah! The tagging feature is now complete. Good on you. You're going to want to push this to the repo.
 
@@ -1952,7 +2028,7 @@ $ git push
 ```
 
 
-## I4: A Few Gems
+## I4: STOP HERE OR IF YOU WANT MORE: A Few Gems
 
 In this iteration we'll learn how to take advantage of the many plugins and libraries available to quickly add features to your application. First we'll work with `paperclip`, a library that manages file attachments and uploading.
 
@@ -2662,9 +2738,7 @@ Your basic authentication is done, and Iteration 5 is complete!
 
 We now have the concept of authenticated users, represented by our `Author` class, in our blogging application, and it's authors who are allowed to create and edit articles. What could be done to make the ownership of articles more explicit and secure, and how could we restrict articles to being edited only by their original owner?
 
-
 #### Saving to GitHub.
-
 
 ```
 $ git add .
