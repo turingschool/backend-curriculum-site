@@ -93,7 +93,7 @@ post '/tasks'
 
 ```bash
 $ rails new movie_mania -T -d="postgresql" --skip-spring --skip-turbolinks
-$ cd routes-controllers-example
+$ cd movie_mania
 ```
 
 Let's take a few minutes to explore what `rails new` generates.
@@ -119,6 +119,8 @@ Now lets write a test!
 
 ```ruby
   # user_sees_all_movies_spec.rb
+  reqiure "rails_helper"
+  
   describe "user_index" do
     it "user_can_see_all_movies" do
       movie_1 = Movie.create(title: "Drop Dead Fred", description: "An unhappy housewife gets a lift from the return of her imaginary childhood friend")
@@ -143,7 +145,9 @@ $ rails g model Movie title description:text
 
 Overwrite the record `movie.rb` so we can see what that generated.
 
-Now look at our migrations, we have what we want so lets run `rails db:migrategit `
+Now look at our migrations, we have what we want so lets create and then migrate.   
+Run `rails db:create`
+Run `rails db:migrate`
 
 In `config/routes.rb`:
 
@@ -171,7 +175,7 @@ Make a movies controller:
 $ touch app/controllers/movies_controller.rb
 ```
 
-Naming is important. The name of the file should be the plural of what it is handling (in this case, tasks).
+Naming is important. The name of the file should be the plural of what it is handling (in this case, movies).
 
 Inside of that file:
 
@@ -187,7 +191,7 @@ What is ApplicationController? Look at the controllers folder and you should see
 
 Notice that the name of the class matches the name of the file (`movies_controller.rb` => `class MoviesController`), one snake-cased and one camel-cased.
 
-Normally we would not put in the line `render :text => "hello world"`. Without the render line, Rails will automatically look for a view inside of a folder with the same name as the controller (`movies` folder), then look for a view with the same name as the method (`index.erb`). However, we are not going to deal with views today, so rendering text is the easiest way to see if a route is working.
+Normally we would not put in the line `render :plain => "hello world"`. Without the render line, Rails will automatically look for a view inside of a folder with the same name as the controller (`movies` folder), then look for a view with the same name as the method (`index.erb`). However, we are not going to deal with views today, so rendering text is the easiest way to see if a route is working.
 
 Start up your rails server: `rails server` or `rails s` from the command line.
 

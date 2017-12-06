@@ -215,9 +215,25 @@ end
 ```
 
 - By creating this key/value pair, we have created a way to get this information back easily.
+- Now when we run our tests, all should pass.
 
+## New Test - Account Already Exists
 
+- On our root page, we should also have the option to log in if our account already exists.
+- Let's add a new test for this functionality
 
+```ruby
+  user = User.create(username: "funbucket13", password: "test")
+
+  visit '/'
+
+  click_on "I already have an account"
+
+  expect(current_path).to eq(user_path(user))
+
+  expect(page).to have_content("Welcome, funbucket13!")
+  expect(page).to have_content("Logout")
+```
 
 # More BCrypt
 
