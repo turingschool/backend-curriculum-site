@@ -86,25 +86,6 @@ The `-u` flag remembers the origin/branch connection, and allows you to simply t
 
 Refresh your GitHub repo, and checkout your shiny new Rails app.
 
-### Install RSpec
-
-Add these gems to Gemfile and bundle:
-  - `gem 'rspec-rails'` = rspec test suite
-  - `gem 'capybara'` = allows us to interact with the DOM
-  - `gem 'launchy'` = allows us to save_and_open_page to see a live version on the browser
-  - `gem 'pry'` = debugging tool
-  - `gem 'byebug'`= built in rails debugger
-
-Make sure you bundle!
-
-Install RSpec via the command line:
-
-```bash
-$ rails generate rspec:install
-```
-
-This generated new files that configure RSpec for us! Want to know more? See [here](https://github.com/rspec/rspec-rails)
-
 ### Project Tour
 
 By running `rails new`, the generator has created a Rails application for you. Let's figure out what's in there. Looking at the project root, we have these folders:
