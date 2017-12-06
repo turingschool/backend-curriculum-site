@@ -89,8 +89,11 @@ Why do we need a foreign key at the database level and the `belongs_to` method i
 
 *In the console*:
 
-Create a director. Create a movie.
+Create a director. Create a movie. 
 
+Did you get an error? Maybe `NameError: uninitialized constant Director`? Why are we getting this error? What do we need to do to fix this error?  Hop out of the console and fix the error.
+
+Hop back into the console:  
 What are different ways to associate movies with directors?
 
 ## Many-to-Many: Movies and Actors?
