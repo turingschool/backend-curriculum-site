@@ -11,14 +11,14 @@ tags: js, javascript, refactoring
 ## Structure
 
 |-|-|
-| 5 | Warmup |
-| 30 | Presentations |
+| 10 | Warmup |
+| 15 | Presentations |
 | 5 | Pomodoro |
 | 5 | Smell Review |
 | 25 | Code-along / Workshop |
 | 5 | Pomodoro |
 | 40 | Paired practice |
-| 5 | Review |
+| 15 | Review |
 
 
 ## Learning Goals
@@ -30,7 +30,7 @@ tags: js, javascript, refactoring
 
 ## Warmup
 
-With your Quantified Self partner, take 5 minutes to identify a chunk of code (<= 10 lines) that you *know* is smelly, but haven't had time or don't know how to refactor it.
+With your Quantified Self partner, take 10 minutes to identify a chunk of code (<= 10 lines) that you *know* is smelly, but haven't had time or don't know how to refactor it.
 
 Develop talking points for a three minute presentation that address the following:
 
@@ -45,16 +45,56 @@ Develop talking points for a three minute presentation that address the followin
 ## Presentations
 
 <!---
-Test to see that comments aren't displayed on the backend site
+To break up the groups (ex.):
+
+1.     | 2.   | 3.    | 4.      | 5.      | 6.
+Jordan | Sam  | Casey | Blake   | Taylor  | Peyton
+Alex   | Jess | Lee   | Charlie | Phoenix | Dakota
+
+Split them in 2
+Group A : 1, 2, 3
+Group B : 4, 5, 6
+
+To set the pairs needed later have each member of a team meet with a member of a different team who saw their presentation. I tend to match diagonal here them loop around. i.e
+
+Jordan & Jess
+Sam & Lee
+Casey & Alex
+
+Blake & Phoenix
+Taylor & Dakota
+Peyton & Charlie
+
+This ensures that when they refactor the other person code they have seen it before in the presentation and that members from 2 different team are helping review the originally teams code giving the original team different perspectives.
+
 -->
 
-[//]: # (This may be the most platform independent comment)
-
-Each group present their "smellyscript" to practice technical communication (2 minutes).
+Each group present their "smellyscript" to the other groups to practice technical communication (3 minutes).
 
 ## Review presented topics
 
+### Low Hanging fruits
+ * Leftover `debugger` statements
+ * Commented out code
+ * Wonky whitespace
+ * Mismatched or too many semicolons
+ * Inconsistent use of function syntax
+ * Inconsistent use of `var` vs `const` & `let`
+ * Dead, unused code
+
+### Other Code smells
+ * Comments - fine line between comments that illuminate and comments that obscure. why vs what
+ * Long Methods - short methods are easier to read, understand and trouble shoot
+ * Long Parameter List - the more parameters the more complex
+ * Duplicated Code - DRY, DRY, DRY
+ * Conditional Complexity - large conditional logic blocks
+ * Uncommunicative Name - does the method name succinctly describe what it does
+
 ## Code-along 1-2 topics
+
+<!---
+  Pick 1 or 2 examples from the presentations to refactor in front of the class
+-->
 
 ## Paired Practice
 
@@ -66,7 +106,7 @@ In your assigned pair (given by instructor):
 
 ## Review
 
-With your Quantified Self partner, discuss the following (3 minutes):
+With your Quantified Self partner, discuss the following (15 minutes):
 
   * How your workshop pair approached refactoring
   * Your main takeaway from today's workshop
