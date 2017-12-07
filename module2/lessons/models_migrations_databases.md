@@ -34,7 +34,60 @@ What might the relationships look like? Let's emphasize figuring out the entitie
 
 ### At the Database Level: Directors
 
-Let's do:
+We want to create some directors with a name. Let's add a test for that! Since this will be a model test, we need to first make a `/models` directory nested under `/spec` then create a director_spec.rb
+
+`mkdir spec/models`
+`touch spec/models/director_spec.rb`
+
+
+We're going to use the handy dandy gem [shoulda-matchers](https://github.com/thoughtbot/shoulda-matchers) to give us some streamlined syntax to use in testing our validations
+
+Add `gem 'shoulda-matchers', '~> 3.1'` to `group :development, :test` in your `Gemfile`  
+Bundle
+Put the following in `rails_helper.rb`
+
+```ruby 
+Shoulda::Matchers.configure do |config|
+  config.integrate do |with|
+    with.test_framework :rspec
+
+    # Choose one or more libraries:
+    with.library :active_record
+    with.library :active_model
+    with.library :action_controller
+    # Or, choose the following (which implies all of the above):
+    with.library :rails
+  end
+end
+```
+
+In `director_spec.rb`
+
+```ruby
+require 'rails_helper'
+
+describe Director, type: :model do
+  describe "validations" do
+    it {is_expected.to validate_presence_of(:name)}
+  end 
+end
+
+```
+
+When we run rspec, we get an error similar to this:
+
+```ruby 
+# --- Caused by: ---
+     # PG::UndefinedTable:
+     #   ERROR:  relation "directors" does not exist
+     #   LINE 8:                WHERE a.attrelid = '"directors"'::regclass
+     #                                             ^
+     #   ./spec/models/director_spec.rb:5:in `block (2 levels) in <top (required)>'
+```
+
+
+
+Let's make a Director!:
 
 1. First, we'll create a migration and a model:
 
@@ -68,9 +121,52 @@ class Director < ApplicationRecord
 end
 ```
 
+Let's run rspec again.  
+
+```ruby 
+Failures:
+
+  1) Director should validate that :name cannot be empty/falsy
+     Failure/Error: it {is_expected.to validate_presence_of(:name)}
+
+       Director did not properly validate that :name cannot be empty/falsy.
+         After setting :name to ‹nil›, the matcher expected the Director to be
+         invalid, but it was valid instead.
+     # ./spec/models/director_spec.rb:4:in `block (2 levels) in <top (required)>'
+```
+
+The important part to read here is `Director did not properly validate that :name cannot be empty/false.`
+
+Let's add a validation to Director!
+`validates_presence_of :name`
+
+Passing tests!
+
 ### What about Movies?
 
 What's the relationship between movie and director?
+
+Let's create a test to help us drive this out.  Add the following to your director_spec.rb within the greater describe Director block, but outside of the validations block.
+
+```ruby 
+describe 'relationships' do
+  it {is_expected.to have_many(:movies)
+end 
+```
+
+When we run this test we get an error something like this:
+
+```ruby
+Failures:
+
+  1) Director relationships should have many movies
+     Failure/Error: it {is_expected.to have_many(:movies)}
+       Expected Director to have a has_many association called movies (no association called movies)
+     # ./spec/models/director_spec.rb:9:in `block (3 levels) in <top (required)>'
+```
+
+Let's go make a relationship!
+
 
 ```bash
 rails g migration AddDirectorsToMovies director:references
@@ -95,14 +191,44 @@ Why do we need a foreign key at the database level and the `belongs_to` method i
 
 Create a director. Create a movie. 
 
-Did you get an error? Maybe `NameError: uninitialized constant Director`? Why are we getting this error? What do we need to do to fix this error?  Hop out of the console and fix the error.
+Did you get an error? Maybe `NameError: uninitialized constant Director`? Why are we getting this error? What do we need to do to fix this error? Remember that creating a migration is a separate step from running the migration. Hop out of the console and fix the error.
 
 Hop back into the console:  
 What are different ways to associate movies with directors?
 
+Before we move on, let's make sure to circle back and add a relationship validation to Movie. You may also need to adjust your setup section of your `movie_spec.rb` if you already have one.
+
 ## Many-to-Many: Movies and Actors?
 
-Let's first draw out the relationship for movies and actors.
+Let's first draw out a diagram of the relationship for movies and actors.
+
+Now let's create a test.
+
+```ruby 
+touch spec/models/actor_spec.rb
+
+#actor_spec.rb
+require "rails_helper"
+
+describe Actor, type: model do
+  describe "relationships" do
+	it {is_expected.to have_many(:movies).through(:actor_movies}
+  end 
+end 
+```
+
+When we run this, what error do we get? 
+
+```ruby 
+# --- Caused by: ---
+     # PG::UndefinedTable:
+     #   ERROR:  relation "actor" does not exist
+     #   LINE 8:                WHERE a.attrelid = '"actor"'::regclass
+     #                                             ^
+     #   ./spec/models/actor_spec.rb:5:in `block (2 levels) in <top (required)>'
+```
+
+Let's write a migration to create Actors and an ActorMovies.
 
 ```bash
 rails g migration CreateActors name
@@ -122,6 +248,8 @@ How can we get access to something through our joins table?
 
 * `has_many :plural_table_name, through: :name_of_joins_table`
 * `belongs_to`
+
+Run rspec again. 
 
 *In the console*:
 
