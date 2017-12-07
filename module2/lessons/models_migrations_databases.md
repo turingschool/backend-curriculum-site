@@ -101,11 +101,11 @@ What are different ways to associate movies with directors?
 Let's first draw out the relationship for movies and actors.
 
 ```bash
-rails g migration createActors name
+rails g migration CreateActors name
 ```
 
 ```bash
-rails g migration createActorMovies actor:references movie:references
+rails g migration CreateActorMovies actor:references movie:references
 ```
 
 ```bash
