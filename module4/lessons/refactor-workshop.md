@@ -45,15 +45,20 @@ Develop talking points for a three minute presentation that address the followin
 ## Presentations
 
 <!---
+
+Presentation Break up
+
 To break up the groups (ex.):
 
 1.     | 2.   | 3.    | 4.      | 5.      | 6.
 Jordan | Sam  | Casey | Blake   | Taylor  | Peyton
 Alex   | Jess | Lee   | Charlie | Phoenix | Dakota
 
-Split them in 2
+Split them in 2 groups
 Group A : 1, 2, 3
 Group B : 4, 5, 6
+
+Paired Practice Break up
 
 To set the pairs needed later have each member of a team meet with a member of a different team who saw their presentation. I tend to match diagonal here them loop around. i.e
 
