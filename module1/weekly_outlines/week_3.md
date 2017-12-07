@@ -34,7 +34,7 @@ layout: page
 ## Projects
 
 * [Complete Me](../projects/complete_me)
-* [Enigma](../projects/enigma)
+* [Night Writer](../projects/night_writer)
 * [Event Reporter](../projects/event_reporter)
 
 

@@ -32,10 +32,10 @@ layout: page
 
 ## Projects
 
-* [A Perilous Journey](../projects/perilous_journey)
+* [Jungle Beats](../projects/jungle_beat)
 * [Date Night](../projects/date_night)
 * [Complete Me](../projects/complete_me)
-* [Enigma](../projects/enigma)
+* [Night Writer](../projects/night_writer)
 
 
 ## Resources
