@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Models, Migrations, and Databases
-tags: migrations, databases, relationships, rails, migrations, activerecord
+tags: migrations, databases, relationships, rails, activerecord
 ---
 
 ## Overview
@@ -17,7 +17,11 @@ What might the relationships look like? Let's emphasize figuring out the entitie
 * Create one-to-many relationships at the database level using foreign keys.
 * Create many-to-many relationships at the database level using join tables with foreign keys.
 * Use `has_many` and `belongs_to` to create one-to-many and many-to-many relationships at the model level.
-* Define primary and foreign keys, and describe conventions used to name the columns containing each in a database.
+
+## Vocab 
+* Migration
+* Schema
+* Relationships
 
 ## Warmup
 
@@ -114,9 +118,13 @@ rake db:migrate
 
 Now create the models to go with these new tables.
 
+How can we get access to something through our joins table?  
+
+* has_many :table_name, through: :name_of_joins_table
+
 *In the console*:
 
-Create a actor.
+Create an actor.
 
 What are different ways to associate movies with actors?
 
@@ -130,11 +138,9 @@ Need a refresher on associations? Click [here](http://guides.rubyonrails.org/ass
 
 ## Checks for Understanding
 
-* What is a primary key?
-* What is a foreign key?
-* In what situation would one row of data have both primary and foreign keys?
-* In what situation would two entities be related but *not* have foreign keys stored on either of the tables?
-* What is Rails' convention for the column name of the primary key?
-* What is Rails' convention for the column name of a foreign key?
-* What are dev, test, and prod databases all about?
-* What is the database.yml and how is it used?
+* What are three different types of table relationships that you might need to implement? In what scenario would you use each?
+* What is the syntax for the following migrations in Rails?
+  * Create a table
+  * Add a column to a table, with or without a data type
+  * Add a reference from one table to another
+  * Create a joins table
