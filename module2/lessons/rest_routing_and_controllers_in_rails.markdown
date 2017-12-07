@@ -6,7 +6,7 @@ tags: rest, routing, controllers, routes, rspec
 
 ## Prework
 
-Read [this article](http://www.theodinproject.com/ruby-on-rails/routing).
+Read [this article](https://www.theodinproject.com/courses/ruby-on-rails/lessons/routing).
 
 ## Vocabulary
 
