@@ -120,7 +120,8 @@ Now create the models to go with these new tables.
 
 How can we get access to something through our joins table?  
 
-* has_many :table_name, through: :name_of_joins_table
+* `has_many :plural_table_name, through: :name_of_joins_table`
+* `belongs_to`
 
 *In the console*:
 
