@@ -1177,7 +1177,6 @@ We can add a flash message by inserting one line:
 
 ```ruby
 def update
-  @article = Article.find(params[:id])
   @article.update(article_params)
 
   flash.notice = "Article '#{@article.title}' Updated!"
