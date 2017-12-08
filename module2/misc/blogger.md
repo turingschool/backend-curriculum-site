@@ -1035,11 +1035,11 @@ def edit
 end
 ```
 
-Wait, that looks an awful lot like how we set `@article` in our `delete` action. Let's DRY up this with a `before_action`:
+Wait, that looks an awful lot like how we set `@article` in our 'show' and `delete` action. Let's DRY up this with a `before_action`:
 
 ```ruby
 class ArticlesController < ApplicationController
-  before_action :set_article, only: [:destroy, :edit]
+  before_action :set_article, only: [:show, :destroy, :edit]
 
   ...
 
@@ -1056,6 +1056,9 @@ end
 This runs the `set_article` method before `destroy` and `edit`, as specified by the `only:` key. With this, `@article` is available within the scopes of th `destroy` and `edit` actions. We can now remove the lines in `destroy` and `edit` that set `@article`, leaving something like this:
 
 ```ruby
+def show
+end
+
 def destroy
   @article.destroy
 
