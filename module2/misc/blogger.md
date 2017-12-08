@@ -1053,7 +1053,7 @@ class ArticlesController < ApplicationController
 end
 ```
 
-This runs the `set_article` method before `show`, `destroy` and `edit`, as specified by the `only:` key. With this, `@article` is available within the scopes of the `destroy` and `edit` actions. We can now remove the lines in `destroy` and `edit` that set `@article`, leaving something like this:
+This runs the `set_article` method before `show`, `destroy` and `edit`, as specified by the `only:` key. With this, `@article` is available within the scopes of the `show`, `destroy` and `edit` actions. We can now remove the lines in `show`, `destroy` and `edit` that set `@article`, leaving something like this:
 
 ```ruby
 def show
