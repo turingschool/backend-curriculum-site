@@ -1,10 +1,10 @@
 ---
-title: FactoryGirl
+title: FactoryBot
 length: 60
 tags: factorygirl, rails, testing, tdd
 ---
 
-## Intro
+## Intro to Factory Bot
 
 By now we've test-driven a few different Rails applications. We know RSpec is our friend, but it might not be evident by the amount of "seed" data we need to set up for each of our tests.
 
@@ -33,20 +33,19 @@ Still not sure what the purpose of FactoryGirl is? Check out [this StackOverflow
 
 ## Learning Goals
 
-* Install and configure the FactoryGirl gem in a rails application.
-* Understand the relationship between FactoryGirl and a test vs. development environment.
-* Create a single object using FactoryGirl syntax and methods.
+* Install and configure the FactoryBot gem in a rails application.
+* Understand the relationship between FactoryBot and a test vs. development environment.
+* Create a single object using FactoryBot syntax and methods.
 * Create a relationship between two objects in a factory.
 
 ## Vocab
 * test data
 * factory 
-* 
+* dummy data
 
 ## Directions
 
-We'll be working with our existing Rails (`movie_mania`) application to refactor existing (and passing) tests to use FactoryGirl. This should give us plenty of comfort and agency to begin using FactoryGirl on our own in future applications.
-
+We'll be working with our existing Rails (`movie_mania`) application to refactor existing (and passing) tests to use FactoryBot. This should give us plenty of comfort and agency to begin using FactoryBot on our own in future applications.
 
 ## FactoryGirl Setup
 
@@ -54,21 +53,21 @@ In your Gemfile:
 
 ```ruby
 group :development, :test do
-  gem "factory_girl_rails"
+  gem "factory_bot_rails"
 end
 ```
 
 #### Using RSpec
 
-Create a directory and file `spec/support/factory_girl.rb`. Inside of that file:
+Create a directory and file `spec/support/factory_bot.rb`. Inside of that file:
 
 ```ruby
 RSpec.configure do |config|
-  config.include FactoryGirl::Syntax::Methods
+  config.include FactoryBot::Syntax::Methods
 end
 ```
 
-This allows you to use FactoryGirl methods like `#create` in your RSpec files without explicitly declaring `FactoryGirl` before it. Instead of `FactoryGirl.create`, you can just call `create` on its own.
+This allows you to use FactoryBot methods like `#create` in your RSpec files without explicitly declaring `FactoryBot` before it. Instead of `FactoryBot.create`, you can just call `create` on its own.
 
 The following line should currently be commented out in `rails_helper.rb`. Find it and uncomment it. This line will allow us to require all ruby files that we put inside of the `spec/support` directory.
 
@@ -87,13 +86,8 @@ spec/factories/*.rb
 ### Example of `spec/factories/directors.rb`:
 
 ```ruby
-FactoryGirl.define do
+FactoryBot.define do
   factory :director do
-    name "Ilana Corson"
-  end
-
-  # Want to call your factory "admin" but use the `Director` class? Use an alias like this.
-  factory :admin, class: Director do
     name "Ilana Corson"
   end
 end
@@ -102,6 +96,8 @@ end
 Having the above factory allows you to do this:
 
 ```ruby
+#from a test somewhere
+
 # Unsaved director (Ruby land):
 director = build(:director)
 
@@ -112,9 +108,22 @@ director = create(:director)
 admin = create(:admin)
 ```
 
+* alias
+Want to call your factory "admin" but use the `Director` class? Use an alias like this. You can call create(:admin) and it will give you a Director object.
+
+```
+FactoryBot.define do
+  factory :admin, class: Director do
+    name "Ilana Corson"
+  end
+end
+```
+
 * relationships
+Want to create an object but it has a belongs_to and needs an associated object to be created?
 
 ```ruby
+#spec/factories/movies.rb
 factory :movie do
   title "Joe Black"
   description  "Maybe brad pitt is in it?"
@@ -123,6 +132,7 @@ end
 ```
 
 * sequences
+Want to create unique content? You might use a sequence to put a number in each value.
 
 ```ruby
 factory :movie do
@@ -131,11 +141,27 @@ factory :movie do
 end
 ```
 
-* You can override attributes in factories with `create(:director, name: "Sal Espinosa")`
-* You can create a list too with `create_list(:movie, 2, director: director)`!
-* dynamic vs. static values: "2015-03-05 11:14:47 -0700", { Time.now } or sequence attributes with block:
+* overriding 
+When creating a new instance you can override attributes in factories `create(:director, name: "Sal Espinosa")`
+
+* lists 
+Want to create multiple of the same type of resource?  
+`directors = create_list(:director, 2)`
+or 
+`director_1, director_2 = create_list(:director, 2)`
+
+
+* Dynamic Values
+Want to be able to dynamically create values?
+use `{Time.now}` instead of `"2015-03-05 11:14:47 -0700"`
+
 
 ### Additional Resources
 
-- Work through this [playlist](https://www.youtube.com/playlist?list=PLf6E_SWaTZjH9V9-eeqH5oAXL-q7GcBm9) of tutorials alongside the repository cloned in the step above.
-  * **TIP**: Try increasing the speed of the videos once you get the hang of FactoryGirl (settings in the gear button on the YouTube video frame).
+- Work through this [playlist](https://www.youtube.com/playlist?list=PLf6E_SWaTZjH9V9-eeqH5oAXL-q7GcBm9) of tutorials alongside this clone [repository](https://github.com/turingschool-examples/factory_girl_intro) . 
+  * **TIP**: Try increasing the speed of the videos once you get the hang of FactoryBot (settings in the gear button on the YouTube video frame).
+
+## WrapUp
+* How do you create a factory for a single resource?
+* How do you create a factory for a resource that belongs_to another resource?
+* Why might you use a tool like FactoryBot?
