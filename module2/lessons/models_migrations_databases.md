@@ -6,14 +6,13 @@ tags: migrations, databases, relationships, rails, activerecord
 
 ## Overview
 
-In this lesson, we'll be coding along to create an example of an app that demonstrates a one-to-many and a many-to-many relationship.
+In this lesson, we'll be adding to movie_mania to demonstrate a one-to-many and a many-to-many relationship.
 
-We're going to add two tables (`directors`, and `actors`) to our database, and connect them to our existing `films` table.
-
-What might the relationships look like? Let's emphasize figuring out the entities (aka tables), but also figure out some of the key data columns.
+We'll add two tables (`directors`, and `actors`) to our database, and connect them to our existing `movies` table. What might the relationships look like? 
 
 ## Learning Goals
 
+* Write migrations in rails
 * Create one-to-many relationships at the database level using foreign keys.
 * Create many-to-many relationships at the database level using join tables with foreign keys.
 * Use `has_many` and `belongs_to` to create one-to-many and many-to-many relationships at the model level.
@@ -34,16 +33,16 @@ What might the relationships look like? Let's emphasize figuring out the entitie
 
 ### At the Database Level: Directors
 
-We want to create some directors with a name. Let's add a test for that! Since this will be a model test, we need to first make a `/models` directory nested under `/spec` then create a director_spec.rb
+We want to create some directors with a name. Let's add a test for that! Since this will be a model test, we need to first make a `/models` directory nested under `/spec` then create a `director_spec.rb`
 
-`mkdir spec/models`
+`mkdir spec/models`  
 `touch spec/models/director_spec.rb`
 
 
-We're going to use the handy dandy gem [shoulda-matchers](https://github.com/thoughtbot/shoulda-matchers) to give us some streamlined syntax to use in testing our validations
+We're going to use the handy dandy gem [shoulda-matchers](https://github.com/thoughtbot/shoulda-matchers) to give us some streamlined syntax to use in testing our validations and relationships.
 
 Add `gem 'shoulda-matchers', '~> 3.1'` to `group :development, :test` in your `Gemfile`  
-Bundle
+Bundle  
 Put the following in `rails_helper.rb`
 
 ```ruby 
@@ -113,8 +112,8 @@ class CreateDirectors < ActiveRecord::Migration
 end
 ```
 
-Now create a model file. `touch app/models/director.rb`
-Inside `director.rb` add the code that hooks up our model to ActiveRecord.
+Now create a model file. `touch app/models/director.rb`.
+ Inside `director.rb` add the code that hooks up our model to ActiveRecord.
 
 ```ruby
 class Director < ApplicationRecord
@@ -138,15 +137,20 @@ Failures:
 The important part to read here is `Director did not properly validate that :name cannot be empty/false.`
 
 Let's add a validation to Director!
-`validates_presence_of :name`
 
-Passing tests!
+```ruby 
+class Director < ApplicationRecord
+ validates_presence_of :name 
+end
+```
+
+Run rspec again and we get passing tests!
 
 ### What about Movies?
 
-What's the relationship between movie and director?
+What's the relationship between movie and director? Draw this out in a diagram to help visualize the relationship.
 
-Let's create a test to help us drive this out.  Add the following to your director_spec.rb within the greater describe Director block, but outside of the validations block.
+Let's create a test to help us drive this out.  Add the following to your `director_spec.rb` within the greater describe Director block, but outside of the validations block.
 
 ```ruby 
 describe 'relationships' do
@@ -165,16 +169,24 @@ Failures:
      # ./spec/models/director_spec.rb:9:in `block (3 levels) in <top (required)>'
 ```
 
-Let's go make a relationship!
+The important part to read here `Expected Director to have a has_many association called movies (no association called movies)` Tells us we are missing a relationship. Let's go make one!
 
 
 ```bash
 rails g migration AddDirectorsToMovies director:references
 ```
 
-Let's look at what this migration creates.
+Take a look at what this migration creates.
 
-What else do we need?
+```ruby 
+class AddDirectorsToMovies < ActiveRecord::Migration[5.0]
+  def change
+    add_reference :movies, :director, foreign_key: true
+  end
+end
+```
+
+What else do we need to make this work as expected?
 
 ## Associations
 
@@ -200,7 +212,7 @@ Before we move on, let's make sure to circle back and add a relationship validat
 
 ## Many-to-Many: Movies and Actors?
 
-Let's first draw out a diagram of the relationship for movies and actors.
+Let's first add to our diagram the relationship for `movies` and `actors`. A movie can have many actors in it, but an actor can be in many movies. This is what constitutes a many-to-many relationship. Since neither the movie nor the actor has only one of the other and therefore can't have a foreign key on it, we're going to create a join table `actor_movies`.
 
 Now let's create a test.
 
@@ -228,28 +240,39 @@ When we run this, what error do we get?
      #   ./spec/models/actor_spec.rb:5:in `block (2 levels) in <top (required)>'
 ```
 
-Let's write a migration to create Actors and an ActorMovies.
+Let's write a migration to create Actors and ActorMovies.
 
 ```bash
 rails g migration CreateActors name
 ```
 
-```bash
-rails g migration CreateActorMovies actor:references movie:references
+If we run rspec again, we'll likely get something like this:
+
+```ruby 
+# --- Caused by: ---
+     # PG::UndefinedTable:
+     #   ERROR:  relation "actor_movies" does not exist
+     #   LINE 8:                WHERE a.attrelid = '"actor_movies"'::regclass
+     #                                             ^
+     #   ./spec/models/actor_spec.rb:5:in `block (2 levels) in <top (required)>'
 ```
 
+Let's create that join table now.
+
 ```bash
+rails g migration CreateActorMovies actor:references movie:references
+
 rake db:migrate
 ```
 
 Now create the models to go with these new tables.
 
-How can we get access to something through our joins table?  
+How can we get access to another resource through our join table?  
 
 * `has_many :plural_table_name, through: :name_of_joins_table`
 * `belongs_to`
 
-Run rspec again. 
+Run rspec again. Passing tests?
 
 *In the console*:
 
