@@ -4,7 +4,7 @@ title: Models, Migrations, and Databases
 tags: migrations, databases, relationships, rails, activerecord
 ---
 
-## Overview
+## Models, Migrations, and Databases in Rails
 
 In this lesson, we'll be adding to movie_mania to demonstrate a one-to-many and a many-to-many relationship.
 
