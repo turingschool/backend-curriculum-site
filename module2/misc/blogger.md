@@ -1277,7 +1277,7 @@ First, we need to brainstorm what a comment _is_...what kinds of data does it ha
 With that understanding, let's create a `Comment` model. Switch over to your terminal and enter this line:
 
 ```bash
-$ rails generate migration CreateComment author_name:string body:text article:references
+$ rails generate migration CreateComments author_name:string body:text article:references
 ```
 
 We'll be most interested in the migration file and adding the `comment.rb` file.
