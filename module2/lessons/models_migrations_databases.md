@@ -22,7 +22,7 @@ We'll add two tables (`directors`, and `actors`) to our database, and connect th
 * Schema
 * Relationships
 
-## Warmup
+## WarmUp
 
 * In your own words, what is a migration?
 * What are some things that we can do with a migration?
@@ -288,7 +288,7 @@ Need a refresher on associations? Click [here](http://guides.rubyonrails.org/ass
 * `rake db:migrate` migrates development
 * you (generally) don't need to run `rake db:test:prepare`; running `rake test` will load the schema to the test database
 
-## Checks for Understanding
+## WrapUp
 
 * What are three different types of table relationships that you might need to implement? In what scenario would you use each?
 * What is the syntax for the following migrations in Rails?
