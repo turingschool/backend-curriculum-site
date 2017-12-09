@@ -122,7 +122,7 @@ Each of the following skills is covered in the curriculum, and most are covered 
 * Students use event listeners to attach code to event-element combinations including document-ready and element-click *(functional)*
 * Students write precise CSS-style selectors in multiple contexts like DOM manipulation and integration testing *(functional)*
 * Students read form content and manipulate DOM via JavaScript *(functional)*
-* Students integrate outside data sources in the browser (AJAX, local storage) *(functional)*
+* Students integrate outside data sources in the browser (Fetch, local storage) *(functional)*
 * Students use integration testing to verify JavaScript functionality *(functional)*
 
 ### JavaScript Tools and Libraries
