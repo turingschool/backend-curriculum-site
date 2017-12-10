@@ -19,9 +19,14 @@ tags: ruby, git, workflow
 * 5   - Closing/Synthesis
 
 ## Vocabulary
+
 * Merge Conflict
 * Pull Request (PR)
 * Clone vs. Fork & Clone
+
+## Slides
+
+Available [here](../slides/git_for_pairs)
 
 ## WarmUp
 
@@ -30,6 +35,7 @@ tags: ruby, git, workflow
 * What are the steps to creating and interacting with a repo on GitHub? How is git involved?
 
 ### Git Commands
+
 *Save updates*
 * git status
 * git add file_name
@@ -50,6 +56,7 @@ OR
 ## Modeling Workflow
 
 ### Git Flow for Pairs 101
+
 * Make a directory and CD into it
 * Check that repo is not already inited
   (`git status`)
@@ -113,6 +120,7 @@ OR
 ![Merging a Branch to Master](https://docs.google.com/drawings/d/e/2PACX-1vR6KtiUHn_LsBfxJRYUYwgT7KJClTVLajC3OzwME6RLF1HroCbOQGuRXUcgjI-I1xfZ-LuF4R5BGbi7/pub?w=960&h=720)
 
 ### Optional: Work flow with branches
+
 * Collaborator pulls from master
   (`git pull origin master`)
 * Collaborator creates new branch
@@ -131,6 +139,7 @@ OR
   (`git pull origin master`)
 
 ## Closing
+
 Talk with partner
 * What are the commands to do the following:
    - Create a repo
@@ -141,5 +150,6 @@ Talk with partner
 * What is a merge conflict? How might you resolve a merge conflict?
 
 ### Additional Resources
+
 [Git - the Simple Guide](http://rogerdudler.github.io/git-guide/)
 [Pro Git](https://git-scm.com/book/en/v2)
