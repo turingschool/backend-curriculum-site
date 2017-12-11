@@ -11,9 +11,9 @@ tags: methods, scopes, arguments, ruby
 * Identify benefits of scope
 * Predict how variables will behave when multiple scopes are involved
 
-## Vocabulary 
-* Scope 
- * Global Scope 
+## Vocabulary
+* Scope
+ * Global Scope
  * Parent Scope
  * Inner Scope
  * Outer Scope
@@ -206,8 +206,8 @@ We saw earlier that methods create new scopes which lack the ability to referenc
 Another common way that we create new scopes in Ruby is by using blocks. You've seen blocks many times by now, especially when using enumerables:
 
 ```ruby
-[1,2,3].each do |num| 
-  puts "num is #{num}" 
+[1,2,3].each do |num|
+  puts "num is #{num}"
 end
 num is 1
 num is 2
@@ -217,7 +217,7 @@ num is 3
 
 Note that the `num` block variable functions very similarly to a method argument — each time the block is executed, a new value will be supplied for `num`
 
-Do blocks have the same behavior when it comes to scopes and arguments?  
+Do blocks have the same behavior when it comes to scopes and arguments?
 Let's find out. Add some more code to the bottom of our `global_scopes.rb` file:
 
 (this file is starting to get a bit messy, but such is the price of
@@ -275,12 +275,12 @@ The ability of blocks to refer to surrounding local variables is
 powerful, but it can also be potentially dangerous. We should pay close attention to what variables we modify within a block to avoid
 accidentally modifying the wrong thing.
 
-## Independent Practice 
-![Scope Playground](https://docs.google.com/drawings/d/e/2PACX-1vRH4j8dzxyHxgLgOQ2x6JSOuEQb32cMKZvuQRMjbLPrXAM9lx47qVrdL7ddPnI11hhZsr3vnQKZfyfa/pub?w=954&h=770) 
+## Independent Practice
+![Scope Playground](https://docs.google.com/drawings/d/e/2PACX-1vRH4j8dzxyHxgLgOQ2x6JSOuEQb32cMKZvuQRMjbLPrXAM9lx47qVrdL7ddPnI11hhZsr3vnQKZfyfa/pub?w=954&h=770)
 
-Make a T-chart for each method.   
-What variables/methods does it have access to? What does it not have access to?   
-Turn to a neighbor and explain why or why not.   
+Make a T-chart for each method.
+What variables/methods does it have access to? What does it not have access to?
+Turn to a neighbor and explain why or why not.
 
 ## Summary
 
