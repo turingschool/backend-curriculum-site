@@ -1,5 +1,5 @@
 ---
-title: The Pivot
+title: Le Pivot
 length: 2 weeks
 tags:
 type: project
@@ -148,145 +148,59 @@ Once you have written the user stories, each team member should:
 
 ## <a name="technical-expectations"></a> Technical Expectations
 
-You are to extend Little Shop so that it can handle multiple, simultaneous businesses. Each business should have:
+You will receive stories, chores, and tasks that need to be taken care of. Most of the project requirements will be communicated through your project management tool. The following is a high level overview of our goals.
 
-* A unique name
-* A unique URL pattern (http://example.com/name-of-business)
-* Unique items
-* Unique orders
-* Unique administrators
+You are to extend Little Shop so that it can handle multiple, simultaneous businesses.
 
 The Pivot should be able to handle the following users:
 
-### Guest Customer
-
-As a guest customer, I should be able to:
-
-* Visit different businesses.
-* Add items from multiple businesses into a single cart.
-* Log in or create an account before completing checkout.
-
-### Registered Customer
-
-As an registered customer, I should be able to:
-
-* Make purchases on any business
-* Manage my account information
-* View my purchase history
-
-### Business Manager
-
-As a business manager I should be able to:
-
-* Manage items on my business
-* Manage orders on my business
-
-### Business Admin
-
-As a business admin, I should be able to:
-
-* Manage items on my business
-* Manage orders on my business
-* Update my business information
-* Manage other business managers and business admins for your store
-
-### Platform Admin
-
-As a platform admin, I should be able to:
-
-* Approve or decline the creation of new businesses
-* Take a business offline / online
-* Perform any functionality restricted to business admins
+* Guest Customer
+  * Visit different businesses.
+  * Add items from multiple businesses into a single cart.
+  * Log in or create an account before completing checkout.
+* Registered Customer
+  * Make purchases on any business
+  * Manage my account information
+  * View my purchase history
+* Store Manager
+  * Manage items on my business
+  * Manage orders on my business
+* Store Admin
+  * Manage items on my business
+  * Manage orders on my business
+  * Update my business information
+  * Manage other business managers and business admins for your store
+* Platform Admin
+  * Approve or decline the creation of new businesses
+  * Take a business offline / online
+  * Perform any functionality restricted to business admins
 
 ## Requirements
 
-The following is a list of possible features to include. Work with your product owner to determine how many are required. Group size and initial state of the application will impact how much work can be completed. The ones marked "required" must be implemented.
+Group size and communication will impact how much work can be completed. Work with your product owners to set expectations. You will be graded on what you commit to.
 
-### Initial State and migration (required)
+### Initial State and migrations
 
-Each project must be deployed and seeded in the original state of the app. When running the migrations to support multitenancy the existing data and uptime should not be disrupted. When you are ready to deploy let your product owner know so they can monitor the process and deployment to confirm the data was successfully updated and that service didn't go down.
-
-### Multitenancy (required)
-
-See the specifics of the roles above.
-
-### OAuth login (required)
-
-We want to support OAuth login with Twitter or Facebook in addition to the existing login functionality with an email address.
-
-### Build an Authenticated API for the Admin Dashboard (required)
-
-In RailsEngine you built an API that anyone could access at anytime. That's kinda gross and not gonna fly most of the time. Let's build out an API with the intent that it will be consumed only on the Admin dashboard. You will have to lock down your API and authenticate your requests.
-
-Mild: Check for an API key.
-Spicy: Use a JWT (JSON Web Token). This is becoming the norm for front end applications interacting with back end apps.
-
-### Implement an Admin Dashboard (required)
-
-Practice your ActiveRecord and SQL chops. You can decide what types of info might be useful. Ideas: Top selling merchant, top selling items, inactive merchants, etc.
-
-Use AJAX to consume your own API.
-
-### Two-Factor Password Reset (required)
-
-Using Twilio, build the following story. You must generate and track the reset code in your database and not use a third party for this.
-
-```md
-As a guest user
-When I visit "/login"
-And I click "Forgot my Password"
-Then I should be on '/password-reset'
-
-When I fill in `Email` with "josh@example.com"
-And I click `Submit`
-Then I should be redirected to "/password-confirmation"
-And I should see instructions to enter my confirmation code
-And I should have received a text message with a confirmation code
-
-When I enter the confirmation code
-And I fill in `Password` with `password`
-And I fill in `Password Confirmation` with `password`
-And I click "Submit"
-Then I should be redirected to "/dashboard"
-And I should be logged in
-And my old password should no longer work for logging in
-And my new password should work after logging out and logging back in
-```
-
-### Merchant Dashboard
-
-Try to think of some things that might help store owners maximize their sales. What's a merchant's best selling product? Worst selling? How many views does each item have this month? What percentage of viewers add the item to their cart? How many of those purchase? etc.
-
-### Live Chat Support
-
-Using Web-Sockets (probably ActionCable) create a live chat to help customers that need help or have questions about a product.
-
-### Home Page Suggestions
-
-Use the home page to display previously viewed items or items related to the things they have previously purchased.
-
-### Shipping
-
-Use the UPS, FedEx, or USPS API to integrate different shipping features. Address validation and shipping estimates.
+Each project must be deployed and seeded in the original state of the app. When running the migrations to support multitenancy the existing data and uptime should not be disrupted. *DO NOT ALTER ANY OF THE PRE-EXISTING DATA IN PRODUCTION*. Your product owners will be checking to confirm data isn't being lost or changed. If you want to test your features out in production create new data. Deploy early and often. Every time code makes it to your main branch it should be deployed.
 
 ## Base Data
 
-You should have the following data pre-loaded in your marketplace:
+In addition to the pre-populated data, you should add
 
-* 20 total businesses
-* 10 categories
-* 50 items per category
-* 1000 registered customers, one with the following data:
+* 5 businesses
+* 10 additional categories
+* 5 items per new category
+* 5 additional registered customers, one with the following data:
   * Username: josh@turing.io
   * Password: password
-* 10-20 orders per registered customer
-* 1 business manager per business with the following data:
+* 1-5 orders per new registered customer
+* 1 new business manager per business with the following data:
   * Username: josh@turing.io
   * Password: password
-* 1 business admin per business, one with the following data:
+* 1 new business admin per business, one with the following data:
   * Username: ian@turing.io
   * Password: password
-* 1 platform administrators
+* 1 new platform administrators
   * Username: cory@turing.io
   * Password: password
 
@@ -294,17 +208,19 @@ It creates a much stronger impression of your site if the data is plausible. We 
 
 ## Check-ins and Milestones
 
-Each team will have daily stand-ups with their product owner. On the job most technical discussion will take place on Github. You should practice asking technical questions of your instructors on Github in addition to Slack and face-to-face conversations.
-
-### The Client
-
-Each team will be assigned a client who will serve a non-technical role and guide the development of the product. Your client will evaluate your project from the perspective of a product owner and whether their needs were satisfied.
+Each team will have daily stand-ups with their product owner. On the job most technical discussion will take place on Github. You should practice asking technical questions of your instructors on Github in addition to Slack and face-to-face conversations. Be sure to add your product owner to your Github repo.
 
 ### Day 1
 
 #### What should be done
 
-The scope of the pivot is more fluid than prior projects. You client will want to go over your plan for the project. Wireframes and detailed user stories should be completed today. Don't underestimate the value of a good plan. Groups that communicate and plan will outperform those that just start coding.
+The scope of the pivot is more fluid than prior projects. Your client will want to go over your plan for the project. Don't underestimate the value of a good plan. Groups that communicate and plan will outperform those that just start coding.
+
+* DTR
+* Wireframes
+* Writing of additional user stories should be completed
+* Original state of the application should be deployed
+* Review test suite and get a sense of what isn't tested
 
 Use your client to review your plan.
 
@@ -312,7 +228,6 @@ Use your client to review your plan.
 
 #### What should be done
 
-* Original state of the application should be deployed.
 * Design and styles should be starting to get flushed out.
 * Schema should be sketched out.
 * Stories should be prioritized.
@@ -331,6 +246,7 @@ Each team must...
 * deploy early and often.
 * disable the ability to push to master.
 * setup continuous integration to validate there are no failing tests prior to deployment.
+* use the pull request template.
 * review pull requests prior to merging.
 * deploy to production after merging to master.
 
