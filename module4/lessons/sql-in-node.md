@@ -334,13 +334,19 @@ it('should return the id and message from the resource found', (done) => {
 
 Don't forget to migrate your test database. Run `knex -h` to find out how to set the environment in `knex` commands (like `migrate`).
 
-### Quick review and CFU
+### Quick Review and CFU
 
 - What is [`.done()`](https://mochajs.org/#asynchronous-code) doing?
 
 ### Your Turn
 
 On your own, rewrite the current `/api/secrets/:id` route.
+
+## Summary
+
+Here's a concise collection of the steps needed to set up your Express app with Knex.
+
+[Setting up Express with Postgres via Knex](https://gist.github.com/laurenfazah/e0b0033cdc40a313d4710cc04e654556)
 
 ## Pushing to Heroku
 
