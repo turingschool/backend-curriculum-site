@@ -48,9 +48,9 @@ Still not sure what the purpose of FactoryGirl is? Check out [this StackOverflow
 
 ## Directions
 
-We'll be working with our existing Rails (`movie_mania`) application to refactor existing (and passing) tests to use FactoryBot. This should give us plenty of comfort and agency to begin using FactoryBot on our own in future applications.
+We'll be working with our existing Rails (`movie_mania`) application to refactor existing (and passing) tests to use [FactoryBot](https://github.com/thoughtbot/factory_bot_rails). This should give us plenty of comfort and agency to begin using FactoryBot on our own in future applications.
 
-## FactoryGirl Setup
+## FactoryBot Setup
 
 In your Gemfile:
 
