@@ -1,15 +1,11 @@
 # Nested Resources
 
----
-
-# Learning Goals
+## Learning Goals
 
 - How do you use nested resources in Rails?
 - When should you use Nested Resources?
 
----
-
-# Warm Up
+## Warm Up
 
 Create a table containing all 8 http-verbs, URI-patterns, and controller actions that Rails gives you when you have the following:
 
@@ -19,15 +15,11 @@ Create a table containing all 8 http-verbs, URI-patterns, and controller actions
 resources :muffins
 ```
 
----
-
-# Background
+## Background
 
 Read [this](http://guides.rubyonrails.org/routing.html#nested-resources) section of the Rails routing documentation and discuss with someone close to you.
 
----
-
-# Examples
+## Examples
 
 ```
 GET  /directors/1/movies
@@ -35,9 +27,7 @@ GET  /directors/1/movies/new
 POST /directors/1/movies
 ```
 
----
-
-# How do we Create Nested Routes?
+## How do we Create Nested Routes?
 
 ```
 # config/routes.rb
@@ -48,9 +38,7 @@ end
 
 * Run `rake routes`
 
----
-
-# Shallow Nesting
+## Shallow Nesting
 
 ```ruby
 # config/routes.rb
@@ -62,9 +50,7 @@ end
 * Run `rake routes` again.
 * How does this differ from what was generated without `shallow: true`?
 
----
-
-# `form_for` Arguments
+## `form_for` Arguments
 
 `form_for` uses the object it receives as an argument to determine:
 
@@ -72,17 +58,13 @@ end
 * Whether the fields in the form correspond to attributes on the object
 * What route to use when sending the information when a user hits submit
 
----
-
-# `form_for` with Nested Resources
+## `form_for` with Nested Resources
 
 * Need to pass both the existing director and new movie
 * Will provide them in an array as an argument
 * Need to update both our controller and our view
 
----
-
-# Let's code along:
+## Let's code along:
 
 - You should have a test already to see the form for a new movie. Now let's create a new movie with a director. Based on what we know about nested routes, let's start here:
 
@@ -140,8 +122,6 @@ Failure/Error: click_on "Create Movie"
 
 - Based on the route above, we need our form to post to a specific directors movies. How can we do that? Through the controller and form! Let's make those adjustments.
 
-# Movies Controller: `new`
-
 ```ruby
 # app/controllers/movies_controller.rb
 def new
@@ -149,10 +129,6 @@ def new
   @movie    = Movie.new
 end
 ```
-
----
-
-# Movie View
 
 - Lets update our view for the movie to use the form_helper that rails gives us to build a form.
 
@@ -182,7 +158,7 @@ end
 - LAST: Adjust your view to show the director of the movie!
 - We should have a passing test!!!
 
-Creating a New Movie via localhost 
+Creating a New Movie via localhost
 
 * Be sure you have at least one director in your database
 * Run `rails s`
