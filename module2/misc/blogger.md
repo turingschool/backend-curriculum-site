@@ -234,6 +234,12 @@ We've now created the `articles` table in the database and can start working on 
 
 Let's add the model so that our app doesn't complain:
 
+```bash
+  touch app/models/article.rb
+```
+
+And inside of that file:
+
 ```ruby
 #models/article.rb
 class Article < ApplicationRecord
@@ -383,7 +389,7 @@ Now that the router knows how to handle requests about articles, it needs a plac
 
 ### Creating the Articles Controller
 
-We're going to use another Rails generator but your terminal has the console currently running. Let's open one more terminal or command prompt and move to your project directory which we'll use for command-line scripts. In that new terminal, enter this command:
+Your terminal has the console currently running. Let's open one more terminal or command prompt and move to your project directory which we'll use for command-line scripts. In that new terminal, enter this command:
 
 ```
 $ touch app/controllers/articles_controller.rb
@@ -462,7 +468,7 @@ Why did we choose `index.html.erb` instead of the `index.erb` that the error mes
 
 Now you're looking at a blank file. Enter in this view template code which is a mix of HTML and what are called ERB tags:
 
-```erb
+```html
 <h1>All Articles</h1>
 
 <ul id="articles">
@@ -1632,8 +1638,8 @@ With those relationships in mind, let's design the new models:
 Note that there are no changes necessary to Article because the foreign key is stored in the Tagging model. So now lets generate these models in your terminal:
 
 ```bash
-$ rails generate migration Tag name:string
-$ rails generate migration Tagging tag:references article:references
+$ rails generate migration CreateTags name:string
+$ rails generate migration CreateTaggings tag:references article:references
 $ rake db:migrate
 ```
 
