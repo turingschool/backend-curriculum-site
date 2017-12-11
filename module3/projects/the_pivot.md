@@ -1,5 +1,5 @@
 ---
-title: The Pivot
+title: Le Pivot
 length: 2 weeks
 tags:
 type: project
