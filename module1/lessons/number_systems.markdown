@@ -5,17 +5,17 @@ length: 90
 tags: computer science, binary, fundamentals
 ---
 
-## Learning Goals 
+## Learning Goals
 * identify common number systems used in programming
 
-## Vocabulary 
+## Vocabulary
 * Binary
 * Hexadecimal
 * Octal
 * Base-#
 
 ## WarmUp
-* Deconstruct the number 134. What does the 1 mean? What does the 3 mean? What does the 4 mean? 
+* Deconstruct the number 134. What does the 1 mean? What does the 3 mean? What does the 4 mean?
 * What is the significance of increasing the digits in a number? Why do we go from single digit at 9 to double digit at 10?
 
 ## Introduction
@@ -149,8 +149,9 @@ Experiment with these methods to see if you can accomplish all the conversions f
 3. Convert 10,000 decimal to hex
 4. Convert FACE hex to decimal
 
-### Adding & Subtracting in different Number Systems 
-Using the Adding & Subtracting section of these resources, explore how familiar adding/subtracting algorithms are impacted by using a different number system.   
+### Adding & Subtracting in different Number Systems
+
+Using the Adding & Subtracting section of these resources, explore how familiar adding/subtracting algorithms are impacted by using a different number system.
 
 * [Binary](./archive/number_systems_binary)
 * [Hexadecimal](./archive/number_systems_hexadecimal)
@@ -185,10 +186,11 @@ Total = 0000 1111 + 1010 0000 = Concatenate 1010 + 1111 = 10101111
 4. Convert FACE hex to binary
 
 
-## WrapUp 
-* What are some different number systems used in programming? Where might you use them? 
+## WrapUp
+
+* What are some different number systems used in programming? Where might you use them?
 * What do the digits 10 represent in each of these number systems?
 
-**Instructor Note:**  
+**Instructor Note:**
 Print out the two pages of worksheet before class. Each student will need their own.
 

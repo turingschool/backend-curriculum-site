@@ -10,7 +10,7 @@ We're going to start from the end of the [SQL in Node Lesson](http://backend.tur
 If you need it, you can clone this repo, which represents the completed lesson:
 
 ```
-git clone -b sql-in-node git@github.com:turingschool-examples/building-app-with-express.git
+git clone -b sql-in-node git@github.com:turingschool-examples/building-app-with-express.git organizing_express
 ```
 
 ## Learning Goals
@@ -24,6 +24,8 @@ By the end of this lesson, you will:
 Let's do some refactoring. Right now, `server.js` is hard to read and its methods are doing too much.
 
 Think of the last Rails app you've built. You probably spent a very small amount of time making structural and design decisions (think routes, controllers, models). Just because the framework we're currently using doesn't prepackage our structure, doesn't mean we shouldn't implement something that's still quite helpful. Therefore, we'll be aiming to add some lightweight MVC strcuture to our Express apps.
+
+> Note: The models and controllers we initially create will not be structured by classes, but we will eventually refactor them to be so. In the meantime, something like our `models/secret.js` file itself will be required in as a pseudo model and used as such. 
 
 ## Models
 
@@ -67,7 +69,6 @@ We can now refactor our `server.js` POST handler as such:
 const Secret = require('./lib/models/secret')
 
 app.post('/api/secrets', (request, response) => {
-  let id = Date.now()
   let message = request.body.message
 
   if (!message) {
@@ -85,7 +86,7 @@ While we're at it, we can create a handy `destroyAll` method.
 
 ```js
 // secret.js
-let destroyAll = () => {
+const destroyAll = () => {
   return database.raw('TRUNCATE secrets RESTART IDENTITY')
 }
 
@@ -155,11 +156,15 @@ const postSecret = (request, response, next) => {
 
 ## Going Further
 
+### `static` Class Methods
+
+Ideally in OOP, our controllers and models would be class-based. Explore [`static`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) methods to see how we can easily emulate Ruby's class methods.
+
 ### `next()` and Middleware
 
 Curious what the `next` argument in `postSecret` up there is? In my opinion, it's the coolest thing about Express.
 
-`next` is a unique tool that allows you write your own application middleware. With this, you can take your Express app in virtually any direction. (_literally_) The only difference between a middleware function and a route handler callback is that middleware functions are expected to call `next` if they don't complete the request cycle.
+`next` is a unique tool that allows you write your own application middleware. With this, you can take your Express app in virtually any direction. The only difference between a middleware function and a route handler callback is that middleware functions are expected to call `next` if they don't complete the request cycle.
 
 There are middleware packages for cookies, sessions, user logins, URL params, POST data, security headers and much more.
 

@@ -40,10 +40,10 @@ Still not sure what the purpose of FactoryBot is? Check out [this StackOverflow 
 
 ## Vocab
 * test data
-* factory 
+* factory
 * dummy data
 
-## WarmUp 
+## WarmUp
 * What has your experience been of creating the setup portion of each test?
 * What strategies have you used to make things more DRY?
 
@@ -66,8 +66,8 @@ end
 Create a directory for our configuration of FactoryBot   
 `mkdir spec/support`  
 Add a factory_bot.rb file.  
-`touch spec/support/factory_bot.rb` 
-  
+`touch spec/support/factory_bot.rb`
+
 Inside of that file:  
 
 ```ruby
@@ -120,12 +120,12 @@ director = create(:director)
 When creating a new instance you can override attributes in factories `create(:director, name: "Sal Espinosa")`
 
 **Lists**  
-Want to create multiple of the same type of resource? 
+Want to create multiple of the same type of resource?
 Let's look at our `spec/features/users_sees_all_movies_spec.rb`.
 Here we are creating two movies. Let's DRY this up a bit.
- 
+
 `movies = create_list(:movies, 2)`
-or 
+or
 `movies_1, movies_2 = create_list(:movie, 2)`
 
 **Relationships**  
@@ -141,7 +141,7 @@ end
 ```
 
 **Sequences**  
-Want to create unique content? You might use a sequence to put a number in each value. 
+Want to create unique content? You might use a sequence to put a number in each value.
 What if we want our movies to have different titles?
 
 ```ruby
@@ -171,7 +171,7 @@ use `{Time.now}` instead of `"2015-03-05 11:14:47 -0700"`
 
 ### Additional Resources
 
-- Work through this [playlist](https://www.youtube.com/playlist?list=PLf6E_SWaTZjH9V9-eeqH5oAXL-q7GcBm9) of tutorials alongside this clone [repository](https://github.com/turingschool-examples/factory_girl_intro) . 
+- Work through this [playlist](https://www.youtube.com/playlist?list=PLf6E_SWaTZjH9V9-eeqH5oAXL-q7GcBm9) of tutorials alongside this clone [repository](https://github.com/turingschool-examples/factory_girl_intro) .
   * **TIP**: Try increasing the speed of the videos once you get the hang of FactoryBot (settings in the gear button on the YouTube video frame).
 
 ## WrapUp

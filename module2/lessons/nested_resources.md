@@ -3,6 +3,8 @@ layout: page
 title: Nested Resources in Rails
 ---
 
+# Nested Resources
+
 ## Learning Goals
 
 - How do you use nested resources in Rails?
@@ -10,7 +12,7 @@ title: Nested Resources in Rails
 
 ## Warm Up
 
-Create a table containing all 8 prefixes, http-verbs, URI-patterns, and controller actions that Rails gives you when you have the following:
+Create a table containing all 8 http-verbs, URI-patterns, and controller actions that Rails gives you when you have the following:
 
 ```ruby
 # config/routes.rb
@@ -18,18 +20,11 @@ Create a table containing all 8 prefixes, http-verbs, URI-patterns, and controll
 resources :muffins
 ```
 
-## Overview
-
-We're going to discuss the concept of nested resources. Last week when we created a relationship between directors and movies we saw that the newest versions of Rails default to not letting us to create a movie without a related director. If that's the case, we will need to make sure that any time we allow a user to create a movie, they also have to enter a director. We could do this with a validation, but there are two other ways that we can enforce this constraint without allowing a user to submit a form before they realize they've done something wrong:
-
-1) Provide a dropdown in our form that does not have a blank option.
-2) Nest our route to create movies under directors.
-
-## What is a nested route?
+## Background
 
 Read [this](http://guides.rubyonrails.org/routing.html#nested-resources) section of the Rails routing documentation and discuss with someone close to you.
 
-Examples:
+## Examples
 
 ```
 GET  /directors/1/movies
@@ -37,9 +32,7 @@ GET  /directors/1/movies/new
 POST /directors/1/movies
 ```
 
-## How do we create nested routes in rails?
-
-Using the MovieMania app that we've been creating, adjust your routes file to include the following:
+## How do we Create Nested Routes?
 
 ```
 # config/routes.rb
@@ -48,11 +41,9 @@ resources :directors do
 end
 ```
 
-Run `rake routes` to see the routes/paths that are generated with this in your routes file.
+* Run `rake routes`
 
-One note: some of our resources don't need to be nested. For example, if we want to see a specific movie we can visit `/movies/:id` and see information about that movie. We don't need to know the director in order to see information about that movie if we know it's id.
-
-Rails offers us a tool to only nest those resources that need to be nested: `shallow: true`.
+## Shallow Nesting
 
 ```ruby
 # config/routes.rb
@@ -61,21 +52,82 @@ resources :directors shallow: true do
 end
 ```
 
-Run `rake routes` again. How does this differ from what was generated without `shallow: true`?
+* Run `rake routes` again.
+* How does this differ from what was generated without `shallow: true`?
 
-## Forms with Nested Resources
+## `form_for` Arguments
 
-The Rails `form_for` method takes an object as an argument. It uses that object to determine a few things:
+`form_for` uses the object it receives as an argument to determine:
 
-* Whether to render a new form or an update form (based on whether or not the object has been `.persisted?`).
-* Whether the fields in the form correspond to attributes on the object.
-* What route to use when sending the information when a user hits submit.
+* Whether to render a new form or an update form
+* Whether the fields in the form correspond to attributes on the object
+* What route to use when sending the information when a user hits submit
 
-Given that our route to create a new movie is now nested (i.e. `POST '/directors/:director_id/movies'`), how do we give our `form_for` the id that it needs to determine the route that will accept our information? We change the argument to an array including both the existing director and the new movie.
+## `form_for` with Nested Resources
 
-First we need to update our controller to pass these two objects. Note that we access the director's id as `director_id` in the params hash. This corresponds to what we see in the output of `rake routes` with our newly nested routes.
+* Need to pass both the existing director and new movie
+* Will provide them in an array as an argument
+* Need to update both our controller and our view
 
+## Let's code along:
+
+- You should have a test already to see the form for a new movie. Now let's create a new movie with a director. Based on what we know about nested routes, let's start here:
+
+```ruby
+  #spec/features/user_can_create_a_new_movie_spec.rb
+  director = Director.create(name: "Ilana")
+  visit "/directors/#{director.id}/movies/new"
+
+  fill_in :title, with: "Finding Nemo"
+  fill_in :description, with: "A sad fish story"
+
+  click_on "Create Movie"
+
+  expect(current_path).to eq("/movies/#{Movie.last.id}")
+  expect(page).to have_content("Finding Nemo")
+  expect(page).to have_content("A sad fish story")
+  expect(page).to have_content(director.name)
 ```
+
+- What is in your controller? What is in your view?
+- Last week, we wrote a test to see a new form for a new movie but did not create a new movie.
+
+- Our controller should look like this:
+
+```ruby
+#app/controllers/movies_controller.rb
+def new
+end
+```
+
+- And our view like this:
+
+```html
+<form action="/movies" method="post">
+  <input type="text" name="movie[title]" value="Title">
+  <input type="text" name="movie[description]" value="Description">
+  <input type="submit" value="Create Movie">
+</form>
+```
+
+- This should take us all the way to a failing test:
+
+```bash
+Failure/Error: click_on "Create Movie"
+
+     ActionController::RoutingError:
+       No route matches [POST] "/movies"
+```
+
+- Hmmmm, but we have opened the routes for making a new movie for a director. Let's check out `rake routes` output to see what route we are actually trying to hit. What are we looking for? A route that creates our new movie. What HTTP verb do we use when we create a new resource?
+
+```bash
+  POST   /directors/:director_id/movies(.:format)     movies#create
+```
+
+- Based on the route above, we need our form to post to a specific directors movies. How can we do that? Through the controller and form! Let's make those adjustments.
+
+```ruby
 # app/controllers/movies_controller.rb
 def new
   @director = Director.find(params[:director_id])
@@ -83,10 +135,10 @@ def new
 end
 ```
 
-Then we need to go update our form to use these two arguments:
+- Lets update our view for the movie to use the form_helper that rails gives us to build a form.
 
 ```
-# app/views/new.html.erb
+# app/views/movies/new.html.erb
 <h1>Create a New Movie</h1>
 
 <%= form_for [@director, @movie] do |f| %>
@@ -98,33 +150,45 @@ Then we need to go update our form to use these two arguments:
 <% end %>
 ```
 
-Now that we have a form submitting to our new route, we need to make a movie related to our director. How do we have access to the director? Through params! Remember, we're sending this request to `/directors/:director_id/movies`, so that `director_id` is hanging out in our route and getting put into our params hash.
-
-Note that we'll also need to change our redirect since our movies index is now nested to directors.
+Let's run RSpec and adjust our Movies Controller to point the form to  `create`
 
 ```ruby
 def create
   director = Director.find(params[:director_id])
-  director.movies.create(movie_params)
-  redirect_to "/directors/#{director.id}/movies"
+  movie = director.movies.create(movie_params)
+  redirect_to "/movies/#{movie.id}"
 end
 ```
 
-Let's run `rails s` check to see what happens when we visit `/directors/1/movies/new`
+- LAST: Adjust your view to show the director of the movie!
+- We should have a passing test!!!
 
-Be sure that you have at least one director in your database. If not, create one in the console by running `rails c`.
+Creating a New Movie via localhost
 
-## Mixing Nested and Non-Nested Routes
+* Be sure you have at least one director in your database
+* Run `rails s`
+* Visit `/directors/1/movies/new`
 
-What if we want to see a list of all movies? We can still do that. Just add the following line to our `config/routes.rb` file **outside of the block related to directors.**
+---
+
+# Mixing Nested and Non-Nested Routes
+
+* What if we want to see a list of all movies?
 
 ```ruby
+# config/routes.rb
+resources :directors, shallow: true do
+  resources :movies
+end
+
 resources :movies, only: [:index]
 ```
 
-Now visit `/movies` and you should see all movies.
+Visit `/movies` and you should see all movies.
 
-## Checks for Understanding
+---
+
+# Checks for Understanding
 
 Turn and talk to your neighbor and discuss:
 
