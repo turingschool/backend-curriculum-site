@@ -155,11 +155,15 @@ const postSecret = (request, response, next) => {
 
 ## Going Further
 
+### `static` Class Methods
+
+Ideally in OOP, our controllers and models would be class-based. Explore [`static`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) methods to see how we can easily emulate Ruby's class methods.
+
 ### `next()` and Middleware
 
 Curious what the `next` argument in `postSecret` up there is? In my opinion, it's the coolest thing about Express.
 
-`next` is a unique tool that allows you write your own application middleware. With this, you can take your Express app in virtually any direction. (_literally_) The only difference between a middleware function and a route handler callback is that middleware functions are expected to call `next` if they don't complete the request cycle.
+`next` is a unique tool that allows you write your own application middleware. With this, you can take your Express app in virtually any direction. The only difference between a middleware function and a route handler callback is that middleware functions are expected to call `next` if they don't complete the request cycle.
 
 There are middleware packages for cookies, sessions, user logins, URL params, POST data, security headers and much more.
 
