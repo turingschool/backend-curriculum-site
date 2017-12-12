@@ -10,7 +10,7 @@ We're going to start from the end of the [SQL in Node Lesson](http://backend.tur
 If you need it, you can clone this repo, which represents the completed lesson:
 
 ```
-git clone -b sql-in-node git@github.com:turingschool-examples/building-app-with-express.git
+git clone -b sql-in-node git@github.com:turingschool-examples/building-app-with-express.git organizing_express
 ```
 
 ## Learning Goals
