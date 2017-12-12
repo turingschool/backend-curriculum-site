@@ -201,7 +201,7 @@ def create
   @user = User.create(user_params)
   if @user.save
     session[:user_id] = @user.id
-    redirect_to dashboard_path(@user)
+    redirect_to user_path(@user)
   else
     render :new
   end
@@ -215,6 +215,27 @@ end
 ```
 
 - By creating this key/value pair, we have created a way to get this information back easily.
+
+BUT WE DON'T HAVE A SHOW VIEW!
+
+Let's open that route, update our controller and create a view:
+
+```ruby
+  #routes.rb
+
+  resources :users, only: [:new, :show]
+```
+
+```ruby
+# app/controllers/users_controller.rb
+  def show
+    @user = User.find(params[:id])
+  end
+```
+
+```html
+  <h1>Welcome, <%= @user.username %>!</h1>
+```
 - Now when we run our tests, all should pass.
 
 ## New Test - Account Already Exists
@@ -300,44 +321,56 @@ Now we get a error when we click the "Log In" button!
 We need an action in our controller that handles the post request:
 
 ```ruby
-```
+# app/controllers/sessions_controller.rb
 
-
-# More BCrypt
-
-```ruby
-@user = User.find_by(email: params[:email])
-if @user.authenticate(password)
-  # do user logged in stuff
-else
-  # try again
+def create
+  user = User.find_by(username: params[:session][:username])
+  if user && user.authenticate(params[:session][:password])
+    session[:user_id] = user.id
+    redirect_to user_path(user)
+  else
+    render :new
+  end
 end
 ```
 
----
+ `.authenticate` is a method for BCrypt. From the source docs on GitHub:
+
+ ```ruby
+ def authenticate(unencrypted_password)
+   BCrypt::Password.new(password_digest).is_password?(unencrypted_password) && self
+ end
+ ```
+
+ So if we find the user and their password entered matches the one in our database, we can add our session key of `user_id` to our sessions hash.
 
 # Helper Methods
+
+Lets update our views to use a helper method:
+
+```html
+<h1>Welcome, <%= current_user.username %>!</h1>
+```
+
+If we run our tests, they will fail because we have not defined `current_user`
 
 * Set in a controller as `helper_method :method_name`
 * Allows us to use the method in our views
 
----
-
-# Live Coding
-## Logging In
-
 ```ruby
-def current_user
-  @current_user ||= User.find(session[:user_id]) if session[:user_id]
+# app/controllers/application_controller.rb
+class ApplicationController < ActiveRecord::Base
+  helper_method :current_user
+
+  def current_user
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  end
 end
 ```
 
----
+## Workshop
 
-# Live Coding
-## Logging Out
-
----
+- Create a test that logs out a currently logged in user. This will require you to create a new route and send it to a new action that will destroy the session. 
 
 # Takeaways
 
