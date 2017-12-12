@@ -25,6 +25,8 @@ Let's do some refactoring. Right now, `server.js` is hard to read and its method
 
 Think of the last Rails app you've built. You probably spent a very small amount of time making structural and design decisions (think routes, controllers, models). Just because the framework we're currently using doesn't prepackage our structure, doesn't mean we shouldn't implement something that's still quite helpful. Therefore, we'll be aiming to add some lightweight MVC strcuture to our Express apps.
 
+> Note: The models and controllers we initially create will not be structured by classes, but we will eventually refactor them to be so. In the meantime, something like our `models/secret.js` file itself will be required in as a pseudo model and used as such. 
+
 ## Models
 
 ### Dicuss: Where Can We Refactor?
@@ -67,7 +69,6 @@ We can now refactor our `server.js` POST handler as such:
 const Secret = require('./lib/models/secret')
 
 app.post('/api/secrets', (request, response) => {
-  let id = Date.now()
   let message = request.body.message
 
   if (!message) {
@@ -85,7 +86,7 @@ While we're at it, we can create a handy `destroyAll` method.
 
 ```js
 // secret.js
-let destroyAll = () => {
+const destroyAll = () => {
   return database.raw('TRUNCATE secrets RESTART IDENTITY')
 }
 
