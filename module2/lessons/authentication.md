@@ -229,11 +229,79 @@ end
 
   click_on "I already have an account"
 
+  expect(current_path).to eq(login_path)
+  fill_in "user[username]", with: user.username
+  fill_in "user[password]", with: user.password
+
+  click_on "Log In"
+
   expect(current_path).to eq(user_path(user))
 
   expect(page).to have_content("Welcome, funbucket13!")
   expect(page).to have_content("Logout")
 ```
+
+We are dream driving! We want to click on "I already have an account" and be taken to a form to fill in with my already existing username and password.
+
+Our html should have a link like this:
+
+```html
+  <%= link_to "I already have an account", login_path %>
+```
+
+When running our tests, our test gets tripped up because `login_path` has not been defined in our routes. But where should we send the user to to log in?
+
+Lets send them to a sessions controller that will handle information related to the session.
+
+The `login_path` is just a form where our user can enter their credentials.
+
+```ruby
+#routes.rb
+
+  get '/login', as: 'login', to: 'sessions#new'
+```
+
+And we will need a controller to handle this information:
+
+```ruby
+# app/controllers/sessions_controller.rb
+
+class SessionsController
+  def new
+  end
+end
+```
+
+And a view to render the form (this is a great use case for form_tag!)
+
+```html
+<!-- app/views/sessions/new.html.erb -->
+
+<%= form_tag login_path do %>
+  <%= label_tag :username %>
+  <%= text_field_tag :username %>
+
+  <%= label_tag :password %>
+  <%= password_field_tag :password %>
+
+  <%= submit_tag "Log In", class: "btn btn-large btn-primary" %>
+<% end %>
+```
+
+Now that we have our form, when we run RSpec, we get a new error complaining about not having a post to `/login`:
+
+```ruby
+#routes.rb  
+  post '/login', as: 'login', to: 'sessions#create'
+```
+
+Now we get a error when we click the "Log In" button!
+
+We need an action in our controller that handles the post request:
+
+```ruby
+```
+
 
 # More BCrypt
 
