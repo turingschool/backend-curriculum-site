@@ -8,15 +8,13 @@ layout: page
 ### All
 * [Pairing Patterns](../lessons/pairing_patterns)
 * [Testing Strategies](../lessons/testing_in_a_project)
-* [The Enumerables Strike Back](../lessons/intermediate_enumerables) [Video 1](https://vimeo.com/161675625), [Video 2](https://vimeo.com/161677741), [Video 3](https://vimeo.com/161678930), [Video 4](https://vimeo.com/161680127)
+* [The Enumerables Strike](../lessons/intermediate_enumerables) [Back](../lessons/advanced_enumerables)[Video 1](https://vimeo.com/161675625), [Video 2](https://vimeo.com/161677741), [Video 3](https://vimeo.com/161678930), [Video 4](https://vimeo.com/161680127)
 * [Scope](../lessons/intro_to_scope)
 * [PD: Feedback I](../../career_development_curriculum/module_one/feedback_i)
+* [Group Project Retro](../lessons/group_project_retro)
 * [Understanding Call Stacks & Return Values](../lessons/stacks_methods_flow_control)
-* [Number Systems](../lessons/number_systems)/[Event Reporter Kick-Off](../project/event_reporter)
+* [Number Systems](../lessons/number_systems)
 
-### Foxtrot
-
-### Echo
 
 ## Homework
 
@@ -29,7 +27,7 @@ layout: page
 
 * [Complete Me](../projects/complete_me)
 * [Night Writer](../projects/night_writer)
-* [Event Reporter](../projects/event_reporter)
+* [HTTP Yeah You Know Me](../projects/http_yeah_you_know_me)
 
 ## Resources
 
@@ -42,5 +40,4 @@ layout: page
 * [Inheritance](../lessons/inheritance)
 * [Boolean Logic](../lessons/boolean_logic)
 * [Credit Check Recheck](../lessons/credit_check_recheck)
-* [Getting Better at Difficult Things](https://github.com/turingschool/gear-up/blob/master/m1_citizenship/session_2_getting_better_at_difficult_things.md)
-* [Group Project Retro](../lessons/group_project_retro)
+* [Josh Cheek Git Branching](https://vimeo.com/131588133)

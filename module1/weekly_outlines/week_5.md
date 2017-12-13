@@ -5,18 +5,17 @@ layout: page
 
 ## Lessons
 
+
+* [Pentathlon](../pentathlon) & [Portfolio](../portfolios) Overview
+* [Git Gudder at Git](../lessons/git_for_pairs)
+* [Testing with Fixtures](../lessons/fixtures), [Mocks & Stubs](../lessons/mocks_stubs) ([Video](https://vimeo.com/157333800))
+* [PD: Developer Identity](../../career_development_curriculum/module_one/developer_identity)
+
+<!-- * [Private Methods](../lessons/private_methods) -->
 <!-- * [Object Relational Mapping](../lessons/object_relational_mapping) -->
 <!-- add code-debugging the gender gap link? -->
-* [Class Methods](../lessons/class_methods)
-* [Ruby Object Model](../lessons/ruby_object_model)
-* [Pentathlon](../pentathlon) & [Portfolio](../portfolios) Overview
-* [4 Principles of OOP](../lessons/four_pillars_of_oop)
-* [Testing with Fixtures](../lessons/fixtures)
-* [Number Systems](../lessons/number_systems)
-* [Testing with Mocks & Stubs](../lessons/mocks_stubs) ([Video](https://vimeo.com/157333800))
-* [PD: Developer Identity](../../career_development_curriculum/module_one/developer_identity)
-* [Private Methods](../lessons/private_methods)
-
+<!-- * [Class Methods](../lessons/class_methods) -->
+<!-- * [4 Principles of OOP](../lessons/four_pillars_of_oop) -->
 
 ## Homework
 
