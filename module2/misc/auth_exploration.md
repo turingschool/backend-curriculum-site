@@ -6,7 +6,7 @@ subheading: Guided Tutorial
 # User Registration and Authentication
 
 ## Summary
-We're going to build a tiny application that explores user registration, authentication, and authorization.  To begin, our application will be limited to allowing users to register for our site and afterward login and logout.  Once our application has this functionality, we'll look at authorizatio - allowing logged in users access to content that guests cannot access.
+We're going to build a tiny application that explores user registration, authentication, and authorization.  To begin, our application will be limited to allowing users to register for our site and afterward login and logout.  Once our application has this functionality, we'll look at authorization - allowing logged in users access to content that guests cannot access.
 
 
 ### Working with Sessions
