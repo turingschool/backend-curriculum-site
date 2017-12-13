@@ -16,7 +16,7 @@ layout: page
 * [Intro to Hashes](../lessons/introducing_hashes)
 * [Objects, Instances and Classes](../lessons/objects_classes_instances)
 * [Academic Integrity](../lessons/academic_integrity)
-* [Gear Up: Health & Wellness](	https://github.com/turingschool/gear-up/blob/47b936ce64782229a4338512818b5388e0e70f8d/Growth_Mindset_Facilitator_Guide.markdown)
+* [Gear Up: Health & Wellness](	https://github.com/turingschool/gear-up/blob/47b936ce64782229a4338512818b5388e0e70f8d/Growth_Mindset_Facilitator_Guide.markdown), [What Growth Mindset Means](https://hbr.org/2016/01/what-having-a-growth-mindset-actually-means), [Carol Dweck TED talk](https://www.ted.com/talks/carol_dweck_the_power_of_believing_that_you_can_improve)
 
 ### Foxtrot
 * [Intro to Variables and Data Types](../lessons/intro_to_variables_and_data_types)
@@ -28,7 +28,6 @@ layout: page
 
 <!-- * [Intro to Methods](../lessons/intro_to_methods) -->
 <!-- * [Intro to Classes](../lessons/intro_to_classes) -->
-<!-- * [Intro to Scope](../lessons/intro_to_scope) -->
 <!-- * [Intro to OOP](../lessons/intro_to_oop) -->
 <!-- * [Intro to TDD](../lessons/intro_to_tdd) -->
 
@@ -47,6 +46,11 @@ layout: page
 
 * [Mastermind](../projects/mastermind)
 
+<!--
+* [Pseudocoding](../homework/pseudocoding_homework.md)
+* [Bad Connection](../homework/bad_connection.md)
+* [Exercism](http://exercism.io/)
+-->
 
 ## Resources
 
@@ -57,12 +61,3 @@ layout: page
 * [String and Integer Riddles](https://github.com/turingschool/challenges/blob/master/string-and-integer-riddles.markdown)
 * [Strings the Hard Way](https://github.com/turingschool/challenges/blob/master/strings_the_hard_way.markdown)
 
-<!-- ## OLD:
-* [Working With Strings & Integers](https://github.com/turingschool/challenges/blob/master/working_with_strings_and_integers.markdown)
-* [Pseudocoding](../homework/pseudocoding_homework.md)
-* [Bad Connection](../homework/bad_connection.md)
-* [Sorting Suite](../projects/sorting_suite.markdown)
-* [Core Types (Foxtrot)](https://github.com/turingschool/ruby-exercises/tree/master/core-types)
-* [Mythical Creatures](https://github.com/turingschool/ruby-exercises/blob/master/mythical-creatures/)
-* [Exercism](http://exercism.io/)
- -->

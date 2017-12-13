@@ -5,15 +5,15 @@ layout: page
 
 ## Lessons
 
-* [Modules](../lessons/modules)
-* [Peer to Peer Project Review](../lessons/peer_to_peer_project_review)
 * [Refactoring Patterns I](../lessons/refactoring_patterns_part_1)
-* [Enumerables: Return of the Block](../lessons/advanced_enumerables)
-* [Stacks, Methods & Flow Control](../lessons/stacks_methods_flow_control)
+* [Ruby Load Path and Project Ettiquette](../lessons/ruby_project_etiquette)
+* [Modules](../lessons/modules)
 * [PD: Strengths and Storytelling](../../career_development_curriculum/module_one/strengths_and_storytelling)
 * [Refactoring Patterns II](../lessons/refactoring_patterns_part_2)
-* [Project Review](../lessons/project_review)
-<!-- add gear-up link? -->
+* [Number Systems](../lessons/number_systems)/[Event Reporter Kick-Off](../project/event_reporter)
+
+<!-- * [Peer to Peer Project Review](../lessons/peer_to_peer_project_review) -->
+<!-- * [Enumerables: Return of the Block](../lessons/advanced_enumerables) -->
 
 ## Homework  
 * [Enumerable Exercises](https://github.com/turingschool/enums-exercises)
