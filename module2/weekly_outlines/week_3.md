@@ -19,7 +19,7 @@ layout: page
 
 * **LESSONS:**
   - [SQL Refresher](../lessons/sql_refresher)
-  - [Factory Girl](../lessons/factory_girl)
+  - [Factory Bot](../lessons/factory_bot)
 
 * **HOMEWORK:**
   - JobTracker
