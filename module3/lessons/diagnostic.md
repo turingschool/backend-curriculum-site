@@ -5,7 +5,7 @@ length: 90
 tags: json, javascript, rails, ruby, api
 ---
 
-This diagnostic is individual and you will be working on it for 2 hours. It's advisable to familiarize yourself with the recommended resources (details below) before the assessment.
+This diagnostic is individual and you will be working on it for 2 hours.
 
 **IMPORTANT:** _Run through the Setup section below **prior to** the diagnostic._
 
@@ -54,7 +54,7 @@ To better follow your progress over the 2 hours we expect that you commit every 
 ## Setup
 
 1. Set up a [new project](https://github.com/new) titled `module_3_diagnostic` associated with your Github account.
-1. Clone down [AltFuelFinder](https://github.com/turingschool-examples/alt-fuel-finder). Be sure to customize the setup of the project prior to the diagnostic such as adding any gems you prefer to use. Common gems are rspec, factory_girl, pry, faraday, figaro, vcr.
+1. Clone down [AltFuelFinder](https://github.com/turingschool-examples/alt-fuel-finder). Take a look at the Gemfile and add any gems you'd like to use.
 
 
 **NOTE:** Delete `Gemfile.lock` before you bundle to avoid version conflicts.
@@ -67,9 +67,9 @@ $ bundle
 $ git remote add upstream git@github.com:YOUR-GITHUB-USERNAME/module_3_diagnostic.git
 ```
 
-If you prefer to work with RSpec, please remove the `test/` directory and [set up RSpec](https://github.com/rspec/rspec-rails) in your project before the assessment.
-
 **The morning of the assessment you will be asked to get keys for the API you will be working with.**
+
+Confirm the project is setup properly by running your tests using `rspec` (there should be one passing test). You should also start your Rails server and navigate to the root page in the browser.
 
 Once you have your project ready to go, commit and push to your remote repo to confirm everything is set up correctly using something similar to the following:
 
