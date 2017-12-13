@@ -19,29 +19,11 @@ title: Introduction to SASS
 * Nesting Elements
 * Nesting Properties
 
-## CSS Selector Refresh
+## CSS Selector Refresh - WarmUp
 
-```css
-#id-name {
-  /*targets elements with id="id-name"*/
-}
-
-.class-name {
-  /*targets elements with class="class-name"*/
-}
-
-.class-name.second-class {
-  /*targets elements with class="class-name second-class"*/
-}
-
-.class-name p {
-  /*targets all paragraph child elements of class="class-name"*/
-}
-
-.class-name > p {
-  /*targets only paragraph elements that are direct children of class="class-name"*/
-}
-```
+* How do you target an id in CSS?
+* How do you target a class in CSS?
+* How do you target an `<h1>` inside of a `<div class="container">`?
 
 ## What is SASS?
 
@@ -72,7 +54,7 @@ This should provide for you an `application.scss` within `app/assets/stylesheets
 
 Lets also create a `custom.scss` file to write our new code in.
 
-But where in our app is are the stylesheets even linked?!?
+But where in our app are the stylesheets even linked?!?
 
 Check out the file `app/views/application.html.erb` to see where we are linking the stylesheets and how (hint: it's a rails helper!)
 
@@ -82,7 +64,7 @@ Variables in SASS are declared with a `$` and are assigned with a colon `:`
 
 ![color palette](../misc/images/colorpalette.png)
 
-We have chosen a color palette for our app, let's create some variables with those hex codes. Our app is pretty small right now so keeping track of colors is simple but image as our app grows and we have to continually look back for our hex codes. By creating variables, we can easily access these colors at any point.
+We have chosen a color palette for our app, let's create some variables with those hex codes. Our app is pretty small right now so keeping track of colors is simple but imagine as our app grows and we have to continually look back for our hex codes. By creating variables, we can easily access these colors at any point.
 
 ```Sass
 $light-purple: #E8E1EF;
@@ -161,7 +143,7 @@ On your own, add a font family of `papyrus` and a size of 15px to the `<p>` tag 
 * What does SASS stand for?
 * Why is SASS a better option than CSS?
 * How is a variable declared and assigned in SASS?
-* Why is nesting a benefit? Both at a element and property level?
+* Why is nesting a benefit? Both at an element and property level?
 
 ### Resources
 
