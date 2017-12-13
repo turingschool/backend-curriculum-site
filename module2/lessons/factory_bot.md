@@ -29,7 +29,7 @@ This gets quite repetitive once multiple tests need that same data. FactoryGirl 
 
 Rather than taking the time and energy to hand-write each individual piece of data needed for a spec, we can set up "factories" for each resource we're using (`Movie`, `Director`, `Actor`, etc.). These factories become available for us to use when and where we'd like throughout our tests.
 
-Still not sure what the purpose of FactoryGirl is? Check out [this StackOverflow answer](http://stackoverflow.com/questions/5183975/factory-girl-whats-the-purpose).
+Still not sure what the purpose of FactoryBot is? Check out [this StackOverflow answer](http://stackoverflow.com/questions/5183975/factory-girl-whats-the-purpose).
 
 ## Learning Goals
 
@@ -40,15 +40,16 @@ Still not sure what the purpose of FactoryGirl is? Check out [this StackOverflow
 
 ## Vocab
 * test data
-* factory 
+* factory
 * dummy data
 
-## WarmUp 
-* 
+## WarmUp
+* What has your experience been of creating the setup portion of each test?
+* What strategies have you used to make things more DRY?
 
 ## Directions
 
-We'll be working with our existing Rails (`movie_mania`) application to refactor existing (and passing) tests to use [FactoryBot](https://github.com/thoughtbot/factory_bot_rails). This should give us plenty of comfort and agency to begin using FactoryBot on our own in future applications.
+We'll be working with our existing Rails (`movie_mania`) application to refactor existing (and passing) tests to use [FactoryBot](https://github.com/thoughtbot/factory_bot/blob/master/GETTING_STARTED.md#configure-your-test-suite). This should give us plenty of comfort and agency to begin using FactoryBot on our own in future applications.
 
 ## FactoryBot Setup
 
@@ -62,7 +63,12 @@ end
 
 #### Using RSpec
 
-Create a directory and file `spec/support/factory_bot.rb`. Inside of that file:
+Create a directory for our configuration of FactoryBot   
+`mkdir spec/support`  
+Add a factory_bot.rb file.  
+`touch spec/support/factory_bot.rb`
+
+Inside of that file:  
 
 ```ruby
 RSpec.configure do |config|
@@ -96,34 +102,34 @@ FactoryBot.define do
 end
 ```
 
+Pull up your `user_creates_movie_spec.rb`. Within this test you likely are creating a director with something like `director = Director.create(name: "DirectorName")`
+
 Having the above factory allows you to do this:
 
 ```ruby
-#from a test somewhere
+#from user_creates_movie_spec.rb
 
 # Unsaved director (Ruby land):
 director = build(:director)
 
 # Saved director (Ruby and database land):
 director = create(:director)
-
-# Admin director:
-admin = create(:admin)
 ```
 
-* alias
-Want to call your factory "admin" but use the `Director` class? Use an alias like this. You can call create(:admin) and it will give you a Director object.
+**Overriding**  
+When creating a new instance you can override attributes in factories `create(:director, name: "Sal Espinosa")`
 
-```
-FactoryBot.define do
-  factory :admin, class: Director do
-    name "Ilana Corson"
-  end
-end
-```
+**Lists**  
+Want to create multiple of the same type of resource?
+Let's look at our `spec/features/users_sees_all_movies_spec.rb`.
+Here we are creating two movies. Let's DRY this up a bit.
 
-* relationships
-Want to create an object but it has a belongs_to and needs an associated object to be created?
+`movies = create_list(:movies, 2)`
+or
+`movies_1, movies_2 = create_list(:movie, 2)`
+
+**Relationships**  
+Want to create an object but it has a belongs_to and needs an associated object to be created? Now we have a director or two created and two movies. We have more tools to DRY this up even more. If we create our movie prepopulated with a director, we don't need to create directors in our movie index test.
 
 ```ruby
 #spec/factories/movies.rb
@@ -134,8 +140,9 @@ factory :movie do
 end
 ```
 
-* sequences
+**Sequences**  
 Want to create unique content? You might use a sequence to put a number in each value.
+What if we want our movies to have different titles?
 
 ```ruby
 factory :movie do
@@ -144,24 +151,27 @@ factory :movie do
 end
 ```
 
-* overriding 
-When creating a new instance you can override attributes in factories `create(:director, name: "Sal Espinosa")`
+**Alias**  
+Want to call your factory "admin" but use the `Director` class? Use an alias like this. You can call create(:admin) and it will give you a Director object.
 
-* lists 
-Want to create multiple of the same type of resource?  
-`directors = create_list(:director, 2)`
-or 
-`director_1, director_2 = create_list(:director, 2)`
+Maybe you want to be able to create a regular old director as well as a super-director of sorts, an `:admin`.
 
+```
+FactoryBot.define do
+  factory :admin, class: Director do
+    name "Ilana Corson"
+  end
+end
+```
 
-* Dynamic Values
+**Dynamic Values**
 Want to be able to dynamically create values?
 use `{Time.now}` instead of `"2015-03-05 11:14:47 -0700"`
 
 
 ### Additional Resources
 
-- Work through this [playlist](https://www.youtube.com/playlist?list=PLf6E_SWaTZjH9V9-eeqH5oAXL-q7GcBm9) of tutorials alongside this clone [repository](https://github.com/turingschool-examples/factory_girl_intro) . 
+- Work through this [playlist](https://www.youtube.com/playlist?list=PLf6E_SWaTZjH9V9-eeqH5oAXL-q7GcBm9) of tutorials alongside this clone [repository](https://github.com/turingschool-examples/factory_girl_intro) .
   * **TIP**: Try increasing the speed of the videos once you get the hang of FactoryBot (settings in the gear button on the YouTube video frame).
 
 ## WrapUp
