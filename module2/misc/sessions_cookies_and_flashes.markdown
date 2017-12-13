@@ -72,7 +72,7 @@ end
 
 Visit the director show page once more and check to see that you hit the `byebug` in the terminal where your server is running. From there, check to see what is stored in our session by entering `session[:secret]` in your byebug session. Rails translates the encrypted cookie that lives on the client's machine into something that you can read and use in your controller.
 
-Note thate the `flash` that you have been using is a special type of session that Rails automatically expires after one request. Generally we use it in our views to give users feedback about actions they have performed.
+Note that the `flash` that you have been using is a special type of session that Rails automatically expires after one request. Generally we use it in our views to give users feedback about actions they have performed.
 
 #### Questions
 
