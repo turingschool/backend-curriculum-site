@@ -51,7 +51,7 @@ When a user registers with our site, we'll need to persist the information that 
 When users register for our site, we'll want them to be able to later return to our site and login using the details that they provided when registering—specifically, the e-mail address and password.  How will our application determine whether or not the user supplied a correct e-mail and password combination?
 
 ```ruby
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   # e.g., User.authenticate('penelope@turing.com', 'boom')
   def self.authenticate(email, password)
     # if email and password correspond to a valid user, return that user
