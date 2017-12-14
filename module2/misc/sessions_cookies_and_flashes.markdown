@@ -22,7 +22,6 @@ tags: rails, http, sessions, cart, dinner dash
 1. [This one](https://youtu.be/IPQhME1UYQU) as well.
 1. Read [Sections 5.1, 5.2, and 6](http://guides.rubyonrails.org/action_controller_overview.html) of the Action Controller Overview in the Rails docs.
 1. Visit a big name site (Wikipedia, Facebook, Amazon, Google, etc.), or another site that you visit frequently and click on EditThisCookie in your nav bar (you should see a cookie logo). Explore the different cookies that are being stored for each site. Many will likely be encrypted or at the very least seem cryptic, but some may have information that is more easily parsed by us mere mortals.
-1. Now watch [this video] showing how you might use cookies, sessions, and flashes in a Rails app (don't worry about coding along, just watch the video closely).
 
 ### Practice
 
