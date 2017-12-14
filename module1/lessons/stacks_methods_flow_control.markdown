@@ -13,6 +13,10 @@ length: 60
 * Understand how Ruby uses a stack to model flow-of-control between methods
 * Understand how Ruby's stack and bindings collaborate to control local scope
 
+## Slides
+
+Available [here](../slides/stacks_methods_flow_control)
+
 ## Vocabulary
 
 * Stack
