@@ -208,7 +208,7 @@ Once you've answered those, work to implement the variety of `fetch()` requests 
 
 
 ## Additional Resources
-[David Walsh fetch API](https://davidwalsh.name/fetch)
-[CSS Tricks Using Fetch](https://css-tricks.com/using-fetch/)
+* [David Walsh fetch API](https://davidwalsh.name/fetch)
+* [CSS Tricks Using Fetch](https://css-tricks.com/using-fetch/)
 
 Be aware that AJAX can also be used to make client side request to a server. Fetch has become more poplar in recent years as it is built into Javascript, works on almost all browsers, and doesn't require jQuery. If you want to learn more check out this old lesson [AJAX Refresher](./archive/organize-an-express-app)
