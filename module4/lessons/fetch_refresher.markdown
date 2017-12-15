@@ -5,13 +5,13 @@ title: Fetch Refresher
 
 ## Learning Goals
 
-* Students are comfortable using Fetch to make RESTful requests
+* Students are comfortable using `fetch()` to make RESTful requests
 
 ## Fetch...What's That Again?
 
-Essentially, Fetch allows us to _asynchronously_ interact with most anything, but predominantly other servers (think APIs). The asynchronous bit here means that we could make a request and not need to wait for its response before moving on to execute other lines of code. The request will come back and be handled when it's ready without needing to halt our program waiting for it.
+Essentially, `fetch()` allows us to _asynchronously_ interact with most anything, but predominantly other servers (think APIs). The asynchronous bit here means that we could make a request and not need to wait for its response before moving on to execute other lines of code. The request will come back and be handled when it's ready without needing to halt our program waiting for it.
 
-We'll learn more about asynchronicity in JavaScript later in the module, but for now, let's think of Fetch as the tool that will allow us to make client-side requests to a different server (API).
+We'll learn more about asynchronicity in JavaScript later in the module, but for now, let's think of `fetch()` as the tool that will allow us to make client-side requests to a different server (API).
 
 ## GET Example
 
@@ -31,7 +31,7 @@ fetch('http://localhost:3000/api/v1/posts')
   })
 ```
 
-Since fetch responses are returned as a readable stream, you will often need to use methods provided by `Response` to convert the stream into data you wish to consume. We will be using `response.json()`, but other [methods](https://developer.mozilla.org/en-US/docs/Web/API/Response) like `blob()`, `formData()` and `text()` are available.
+Since `fetch()` responses are returned as a readable stream, you will often need to use methods provided by `Response` to convert the stream into data you wish to consume. We will be using `response.json()`, but other [methods](https://developer.mozilla.org/en-US/docs/Web/API/Response) like `blob()`, `formData()` and `text()` are available.
 
 ```js
 fetch('http://localhost:3000/api/v1/posts')
@@ -45,7 +45,7 @@ fetch('http://localhost:3000/api/v1/posts')
 
 ## POST Example
 
-Sending data with Fetch is also pretty easy. Fetch allows us to set an optional parameter with an `Request` object which allows us to control a number of parameter. The attributes we will focus on are `method`, `headers` and `body`. You can view more options [here](https://developer.mozilla.org/en-US/docs/Web/API/Request). The default request method is `get` so we need to set our method to `post`. Since we will mostly be working with JSON content we need will need to set the `Content-Type` in headers to `application/json` and make sure we use `JSON.stringify` before sending our data.
+Sending data with `fetch()` is also pretty easy. `fetch()` allows us to set an optional parameter with an `Request` object which allows us to control a number of parameter. The attributes we will focus on are `method`, `headers` and `body`. You can view more options [here](https://developer.mozilla.org/en-US/docs/Web/API/Request). The default request method is `get` so we need to set our method to `post`. Since we will mostly be working with JSON content we need will need to set the `Content-Type` in headers to `application/json` and make sure we use `JSON.stringify` before sending our data.
 
 ```js
 // Data we wish to send to the API endpoint
@@ -63,6 +63,11 @@ fetch('http://localhost:3000/api/v1/posts', {
 
 ## Error Checking
 
+Check out the example below. Our second button makes an unsuccessful request with a 404 response so why does it seem to still succeed? Read more about error handling [here](https://css-tricks.com/using-fetch/#article-header-id-5).
+
+<p data-height="348" data-theme-id="0" data-slug-hash="aEvBvz" data-default-tab="js,result" data-user="kat3kasper" data-embed-version="2" data-pen-title="Fetch Error Handling" class="codepen">See the Pen <a href="https://codepen.io/kat3kasper/pen/aEvBvz/">Fetch Error Handling</a> by Katelyn Kasperowicz (<a href="https://codepen.io/kat3kasper">@kat3kasper</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
 The promise returned from `fetch()` will only reject on network failure or if anything prevented the request from completing. This means it won't reject on a response of 404 or 500 from the server but will return an `ok` status set to false.
 
 To handle responses that do not return a successful status, we can create a response handler. If the response is `ok` we continue processing the data as we did above. If it is not we use `Promise.reject` to trigger our catch handler and pass it an error object with the `status`, `statusCode` and any addition json information we get from the server.
@@ -72,10 +77,7 @@ function handleResponse(response) {
   // Convert the readable stream to json
   return response.json()
     .then(json => {
-      if (response.ok) {
-        // if the response is ok return the json object
-        return json
-      } else {
+      if (!response.ok) {
         // if the response returns a status code outside of 200-299 throw an error
         const error = {
           status: response.status,
@@ -84,6 +86,8 @@ function handleResponse(response) {
         }
         return Promise.reject(error)
       }
+      // if the response is ok return the json object
+      return json
     })
 }
 
@@ -100,7 +104,7 @@ fetch('http://localhost:3000/api/v1/posts')
 
 ## Organizing Fetch Requests
 
-In the examples above, the success or failure of our Fetch requests are handled by anonymous functions. By changing these, we can start to organize and DRY up our code.
+In the examples above, the success or failure of our `fetch()` requests are handled by anonymous functions. By changing these, we can start to organize and DRY up our code.
 
 I'd suggest grouping all of these to-be-named functions together (...hint, hint...in a file...).
 
@@ -133,7 +137,7 @@ const errorLog = (error) => {
 }
 ```
 
-We could then slim down our Fetch call to just this:
+We could then slim down our `fetch()` call to just this:
 
 ```js
 fetch('http://localhost:3000/api/v1/posts')
@@ -146,11 +150,11 @@ Notice how we still need to handle the call with `.then()` and `.catch().`
 
 ### Going Further - Organizing Requests as Event Handlers
 
-It's very likely you'll be using Fetch requests as event handlers.
+It's very likely you'll be using `fetch()` requests as event handlers.
 
 For example, on submit of a form, we make a POST request with the form data.
 
-Just like we organized our Fetch handlers above, we can organize our event handlers similarly.
+Just like we organized our `fetch()` handlers above, we can organize our event handlers similarly.
 
 If we were working with form data like this:
 
@@ -170,7 +174,7 @@ $('form').on('submit', function(event){
 })
 ```
 
-We can refactor that so our event bindings live together, our Fetch calls live together, and our Fetch handlers live together.
+We can refactor that so our event bindings live together, our `fetch()` calls live together, and our `fetch()` handlers live together.
 
 ```js
 // event bindings live nicely as one liners
@@ -196,15 +200,15 @@ const postArticle = (event) => {
 
 Pair up with your Quantified Self partner and discuss the following:
 
--   What are some use cases for Fetch? Name some cards from your project that will require an Fetch request to complete.
--   What information do you need before you can make an Fetch request?
+-   What are some use cases for `fetch()`? Name some cards from your project that will require an `fetch()` request to complete.
+-   What information do you need before you can make an `fetch()` request?
 -   How do you access the response from the request?
 
-Once you've answered those, work to implement the variety of Fetch requests necessary to GET, POST, DELETE, etc. to the Quantified Self API.
+Once you've answered those, work to implement the variety of `fetch()` requests necessary to GET, POST, DELETE, etc. to the Quantified Self API.
 
 
 ## Additional Resources
 [David Walsh fetch API](https://davidwalsh.name/fetch)
 [CSS Tricks Using Fetch](https://css-tricks.com/using-fetch/)
 
-Be aware that AJAX can also be used to make client side request to a server. Fetch has become more poplar in recent years as it is built into Javascript, works on almost all browsers, and doesn't require jQuery. If you want to learn more check out this old lesson [AJAX Refresher](./archive/organize-an-express-app) 
+Be aware that AJAX can also be used to make client side request to a server. Fetch has become more poplar in recent years as it is built into Javascript, works on almost all browsers, and doesn't require jQuery. If you want to learn more check out this old lesson [AJAX Refresher](./archive/organize-an-express-app)
