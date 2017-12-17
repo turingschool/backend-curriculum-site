@@ -1,19 +1,29 @@
 ---
+layout: page
 title: Authentication
+tags: rails, authentication, bcrypt, ruby
 ---
 
 ### If you are who you say you are...
 
 ---
+## Learning Goals
+* 
 
-# Warm Up
+## Vocabulary
+* authentication
+* session
+* hash
+
+## Warm Up
 
 ## In your authentication practice project from the other day...
 
+* What questions do you have?
+* What is the purpose of authentication? When might you use it?
 * What attributes did you give a user?
 * What controller actions did you have for user?
 * How did you handle logging a user in?
-* What questions do you have?
 
 ---
 
