@@ -81,7 +81,7 @@ In applications there are different use cases for authorization.  For example, a
 
 What is our content?  We're practicing authorization, so let's just create a "secret" page.  Users should be authorized to see the secret page only if they're logged in.  If users try to access the secret page when they're not logged in, they should be redirected to the login page.
 
-One way to restrict access to authorized users is a [filter](http://guides.rubyonrails.org/action_controller_overview.html#filters).  This not the only way to accomplish this and not necessarily the best way in this case.  But it's one tool to implement this kind of pre-route logic.  For an application this simple, it's ok to put the authorization logic in the route handler itself.
+One way to restrict access to authorized users is a [filter](http://guides.rubyonrails.org/action_controller_overview.html#filters).  This is not the only way to accomplish this and not necessarily the best way in this case.  But it's one tool to implement this kind of pre-route logic.  For an application this simple, it's ok to put the authorization logic in the route handler itself.
 
 
 ## Conclusion
