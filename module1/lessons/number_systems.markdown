@@ -8,6 +8,10 @@ tags: computer science, binary, fundamentals
 ## Learning Goals
 * identify common number systems used in programming
 
+## Slides
+
+Available [here](../slides/number_systems)
+
 ## Vocabulary
 * Binary
 * Hexadecimal
