@@ -2111,7 +2111,7 @@ This `has_attached_file` method is part of the paperclip library. With that decl
 
 As of version 4.0, all attachments are required to include a content\_type validation, a file\_name validation, or to explicitly state that they're not going to have either. Paperclip raises MissingRequiredValidatorError error if you do not do this. So, we add the validates\_attachment\_content_type line so that our model will validate that it is receiving a proper filetype.
 
-We also have to deal with mass assignment! Modify your `app/helpers/articles_helper.rb` and update the `article_params` method to permit an `:image` as:
+We also have to deal with mass assignment! Modify your `app/controllers/articles_controller.rb` and update the `article_params` method to permit an `:image` as:
 
 ```ruby
   def article_params
