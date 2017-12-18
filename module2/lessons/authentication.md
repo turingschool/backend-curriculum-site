@@ -7,13 +7,11 @@ tags: rails, authentication, bcrypt, ruby, sessions, helper_methods
 
 ### If you are who you say you are...
 
----
 ## Learning Goals
 * explain the use of Authentication and why it's important
 * implement Authentication using BCrypt
 * utilize Sessions in a Rails app 
 * implement a helper_method for use in views and controllers
-
 
 ## Vocabulary
 * authentication
@@ -31,8 +29,6 @@ tags: rails, authentication, bcrypt, ruby, sessions, helper_methods
 * What controller actions did you have for User?
 * How did you handle logging a user in?
 
----
-
 ## Overview
 
 * Creating a user in our database
@@ -42,13 +38,11 @@ tags: rails, authentication, bcrypt, ruby, sessions, helper_methods
 * Using a *helper_method* to access *current_user* in views
 * Using *form_tag* and a Controller with no associated model
 
----
-
 ## What is Authentication?
 
 - Authentication is the client proving to the application that they are who they say they are. Usually this is done through a username/email and password combination. We handle this interaction a little differently than we handle a traditional user creation because we need to provide a way for our application to remember our user.
 
-## Live Coding
+## Code Along
 
 - In `movie_mania`, our goal is to create a user that will eventually be able to check out movies from our application. This will require a way for a user to login to our application and our application to remember them.
 
@@ -531,7 +525,7 @@ If you run your tests again, you should get passing tests. However, I want to im
 * Use a *session* to store a logged in user id
 * Use *form_tag* when creating a form without an associated model
 
-### WrapUp
+## WrapUp
 * What does Authentication mean? Why do we use it and when?
 * What are the steps to implementing Authentication in a Rails app? I counted 5 main steps. How many do you come up with?
 * How might you use Sessions to help with Authentication? Why is this an important piece?
