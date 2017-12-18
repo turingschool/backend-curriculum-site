@@ -55,8 +55,8 @@ tags: rails, authentication, bcrypt, ruby
 
   expect(current_path).to eq(new_user_path)
 
-  fill_in :username, with: "funbucket13"
-  fill_in :password, with: "test"
+  fill_in "user[username]", with: "funbucket13"
+  fill_in "user[password]", with: "test"
 
   click_on "Create User"
 
@@ -66,6 +66,13 @@ tags: rails, authentication, bcrypt, ruby
 - At this point, we do not have a root page that supports this interaction. When we open our app, we want a page that directs the user to either create a new account or sign in with their existing credentials.
 
 - When we run our test, we get a failure because we do not have a root path defined in our `routes.rb` file.
+
+```bash
+Failure/Error: visit "/"
+
+     ActionController::RoutingError:
+       No route matches [GET] "/"
+```
 
 ```ruby
   #routes.rb
@@ -118,6 +125,15 @@ Capybara::ElementNotFound:
 <%= link_to "Sign Up to Be a User", new_user_path %>
 
 ```
+- When we run our tests we get this error: 
+
+```bash
+Failure/Error: <%= link_to "Sign Up to Be a User", new_user_path %>
+
+     ActionView::Template::Error:
+       undefined local variable or method `new_user_path' for #<#<Class:0x007ffe993dc530>:0x007ffe993e7458>
+       Did you mean?  new_movie_path
+```
 
 - We still need to define this routes in our `routes.rb` file.
 
@@ -126,6 +142,30 @@ Capybara::ElementNotFound:
 root "welcome#index"
 
 resources :users, only: [:new]
+```
+
+-If we run our test again we'll get this succession of errors:
+
+```bash
+Failure/Error: click_on "Sign Up to Be a User"
+
+     ActionController::RoutingError:
+       uninitialized constant UsersController
+```
+
+```bash
+Failure/Error: click_on "Sign Up to Be a User"
+
+     AbstractController::ActionNotFound:
+       The action 'new' could not be found for UsersController
+```
+
+```bash
+Failure/Error: click_on "Sign Up to Be a User"
+
+     ActionController::UnknownFormat:
+       UsersController#new is missing a template for this request format and variant.
+...
 ```
 
 - Let's define the action and template that go along with our new user path.
@@ -154,7 +194,9 @@ end
 
 - We have our form set up to take in the information that we want to create our user object with (username and password).
 
-- Our tests will now complain because we have set up an object called `@user = User.new` but that object does not exist in our database. If we follow this error, we can add our `user` model and then run the tests again.
+- Our tests will now complain about an `uninitialized constant UsersController::User`. Remember this means this class can't be found whether through routing or because it doesn't exist yet. 
+
+Why are we getting this error? We have set up an object called `@user = User.new` but that object does not exist in our database! If we follow this error, we can add our `user` model and then run the tests again.
 
 ```ruby
 #models/user.rb
@@ -163,7 +205,28 @@ class User < ApplicationRecord
 end
 ```
 
-- We still have to make the database connection but it doesn't feel right to store our passwords as plain text. IT ISN'T!!! DON'T DO IT. Use a password encryption tool (such as BCrypt) to store encrypted passwords in the database
+Next we get this whopper of an error:
+
+```bash
+Failure/Error: @user = User.new
+
+     ActiveRecord::StatementInvalid:
+       PG::UndefinedTable: ERROR:  relation "users" does not exist
+       LINE 8:                WHERE a.attrelid = '"users"'::regclass
+                                                 ^
+       :               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                            pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod,
+                    (SELECT c.collname FROM pg_collation c, pg_type t
+                      WHERE c.oid = a.attcollation AND t.oid = a.atttypid AND a.attcollation <> t.typcollation),
+                            col_description(a.attrelid, a.attnum) AS comment
+                       FROM pg_attribute a LEFT JOIN pg_attrdef d
+                         ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+                      WHERE a.attrelid = '"users"'::regclass
+                        AND a.attnum > 0 AND NOT a.attisdropped
+                      ORDER BY a.attnum
+```
+
+- The `PG::UndefinedTable: ERROR:  relation "users" does not exist` tells us that postgres can't find a `users` table. We still have to make the database connection but it doesn't feel right to store our passwords as plain text. IT ISN'T!!! DON'T DO IT. Use a password encryption tool (such as BCrypt) to store encrypted passwords in the database
 
 ```bash
 rails g migration CreateUser username:string password_digest:string
@@ -175,9 +238,10 @@ rails g migration CreateUser username:string password_digest:string
 
 ## BCrypt
 
-- Requires that the object have a `password_digest` attribute that will recognize both `password` and `password_confirmation` as attributes even though the attribute is called `password_digest`.
+- [BCrypt Docs](https://github.com/codahale/bcrypt-ruby) [Rails built-in SecurePassword module](http://api.rubyonrails.org/classes/ActiveModel/SecurePassword/ClassMethods.html#method-i-has_secure_password)
+-  Secure Password Requires that the object have a `password_digest` attribute that will recognize both `password` and `password_confirmation` as attributes even though the attribute is called `password_digest`.
 - Built into rails, comes out of the box in the gem file but it is commented out. Must uncomment to use it.
-- Takes password and password_confirmation (if necessary) and encrypts it to a very long, hard to decrypt, string.
+- Takes password and password_confirmation (if necessary) and encrypts it to a very long, hard to decrypt, string this is referred to as **hashing**.
 - Takes care of matching the password and password_confirmation (if necessary).
 
 - Find the `gem 'bcrypt'` in the `Gemfile` and uncomment it. Bundle again to complete the process.
@@ -191,9 +255,23 @@ class User < ApplicationRecord
 end
 ```
 
-- Now we can create the user as we would with standard CRUD functionality, with one exception. The overall goal is to hold onto this users information so that when they login, our application can remember them. Functionality-wise, it doesn't make a whole lot of sense if when a user signs up, they have to log in again to access their information. When a new user signs up, we want them to be logged in. So how do we do that? What tool in rails might we be able to use to store information about our user as they are visiting our application?
+- Now we can create the user as we would with standard CRUD functionality, with one exception. The overall goal is to hold onto this user's information so that when they login, our application can remember them. UX-wise, it doesn't make a whole lot of sense if when a user signs up, they have to log in again to access their information. When a new user signs up, we want them to be logged in. So how do we do that? What tool in rails might we be able to use to store information about our user as they are visiting our application?
 
 ---
+
+-When we run our test again we get this error:
+
+```bash
+Failure/Error: <%= form_for @user do |f| %>
+
+     ActionView::Template::Error:
+       undefined method `users_path' for #<#<Class:0x007fc37ffabb68>:0x007fc37ffaa8f8>
+```
+
+When reading this error, `undefined method users_path` sticks out to me as the important part. However I have to use a bit of my background knowledge to know what to do with it.  `users_path` is a path helper. I know that `users_path` can be used for an index or a create. I know I want to make a create route because I'm trying to `POST` from my form to the DB. 
+
+### Independent Practice 
+Go ahead and create the user :create route and the associated action in the `UsersController`.
 
 ## Sessions
 
