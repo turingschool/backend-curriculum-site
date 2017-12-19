@@ -8,6 +8,7 @@ layout: page
 * [Fundamental Refactoring Patterns](../lessons/fundamental_refactoring_patterns)
 * [Ruby Load Path and Project Ettiquette](../lessons/ruby_project_etiquette)
 * [Modules](../lessons/modules)
+* [Boolean Logic](../lessons/boolean_logic)
 * [PD: Strengths and Storytelling](../../career_development_curriculum/module_one/strengths_and_storytelling)
 
 <!-- * [Peer to Peer Project Review](../lessons/peer_to_peer_project_review) -->
