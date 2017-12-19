@@ -14,6 +14,7 @@ tags: ruby, computer science, logic
 * apply compound logic to flatten nested `if` statements
 
 ## Vocabulary
+
 * Boolean
 * Truthy
 * Falsey
@@ -22,8 +23,10 @@ tags: ruby, computer science, logic
 * Flow Control
 
 ## WarmUp
+
 First, start by doing some research.
 You may choose independent or paired.
+
 #### Truthy and falsey values
 
 * How many falsey values are there in Ruby?
@@ -56,6 +59,7 @@ Why is it helpful to have a working understanding of boolean logic? It can help 
 A truth table is a mathematical table used in logic. In the truth table below the first two columns (`a` and `b`) are our _input variables_. Our table should cover all of the different possible combinations of input variables. There are four different combinations for our two input variables (`a` and `b`). These are represented as rows. The remaining columns show all of the possible results of three Ruby operators for a given row. So the first row says if `a` is `true` and `b` is `true` then `a && b` is `true`, <code>a &#124;&#124; b</code> is `true`, and `!a` is `false`.
 
 ### Independent Practice
+
 Use a `pry` session to clarify how these three Ruby operators work. For each row, set `a` and `b` to their values and experiment with the Ruby operators.
 
 **Example:**
@@ -100,6 +104,7 @@ What do you expect it to return? `true`? `false`? Why?
 `false && false || true`
 
 #### Precedence
+
 It depends on the order Ruby executes.
 [Precedence](https://ruby-doc.org/core-2.4.0/doc/syntax/precedence_rdoc.html) refers to the order of opperations which Ruby follows. Here are a few you probably use regularly. The list is read top down in order of precedence.
 
@@ -135,6 +140,7 @@ false && (false || true)
 Turn to your neighbor and discuss what order you believe Ruby is evaluating each boolean expression in. What will the result be?
 
 ### Paired Practice
+
 #### Complex Truth Tables
 
 Evaluate the following by creating a [truth table](https://docs.google.com/spreadsheets/d/1-1GjYCcTwfPhDCGPvUdB7FsTRQqTY9V3g1ieIVlQ3JU/edit#gid=0) for three boolean values (`A`, `B`, and `C`) and using it to solve the following expressions:
@@ -153,7 +159,9 @@ For example, `false && x # => false` without needing to know what `x` equals.
 -->
 
 ### Independent Practice
+
 By yourself or with a partner:
+
 #### Activity 1: Vehicle
 
 ```ruby
