@@ -171,9 +171,9 @@ end
 
 This task would then be run from the command line using `rake pizza` (from the **project root** -- noticing a pattern?)
 
-#### Building a [Testing Rake Task](http://rake.rubyforge.org/classes/Rake/TestTask.html)
+#### Building a [Testing Rake Task](https://docs.ruby-lang.org/en/2.1.0/Rake/TestTask.html)
 
-Let's build our first [testing rake task](http://rake.rubyforge.org/classes/Rake/TestTask.html). Our objective is to be able to go into the root directory of your project, type `rake`, and run our test suite (all of your tests) with that one command.
+Let's build our first [testing rake task](https://docs.ruby-lang.org/en/2.1.0/Rake/TestTask.html). Our objective is to be able to go into the root directory of your project, type `rake`, and run our test suite (all of your tests) with that one command.
 
 ```ruby
 require "rake"
@@ -204,4 +204,4 @@ Use your knowledge of Ruby's object model and blocks to make sense of the rake T
 Tonight:
 
 1. Update your current project to follow these conventions
-2. Update one previous project (Credit Check, Flashcards, Complete Me, Date Night) to also follow these conventions
+2. Update one previous project (Credit Check, Jungle Beat, Date Night, Night Writer, Complete Me) to also follow these conventions
