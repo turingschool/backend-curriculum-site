@@ -81,7 +81,7 @@ Your git log will look something like this:
 git history on GitHub using a URL like this:
   - https://github.com/your-username/your-repo-name/**network**
  
-![GitHub Network Tab](https://drive.google.com/file/d/1wrPI5uhFfrnlUkDdIAmL1veqLP7n4jre/view?usp=sharing)
+![GitHub Network Tab](https://drive.google.com/open?id=1wrPI5uhFfrnlUkDdIAmL1veqLP7n4jre)
 
 - This method of merging works great in solo and pairing projects.
 
