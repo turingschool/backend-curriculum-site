@@ -48,6 +48,7 @@ $ git checkout -b new-branch
 # do some work
 $ git add new_file.rb
 $ git commit -m "here is my new awesome work"
+$ git pull origin master
 $ git push origin new-branch
 
 # visit github.com/your_username/some-awesome-repo
@@ -57,9 +58,6 @@ $ git push origin new-branch
 $ git checkout master
 # fetch master and download new changes
 $ git pull master
-
-# finally, delete your old branch
-$ git branch -D new-branch
 ```
 
 ## Whiteboard diagram
@@ -104,7 +102,7 @@ should `git rebase` often to minimize merge conflicts along the way.
 
 Doing a `git rebase` will have to step through every single commit you've made on your **feature** branch, one at a
 time, and see if it's possible to apply it on top of the **master** branch. Squashing your commits may make this
-process easier. (covered later)
+process easier.
 
 ### Whiteboard diagram
 
@@ -121,15 +119,24 @@ $ git commit -m "here is my new awesome work"
 # pull master from the origin fork and rebase our work
 # git pull --rebase origin master
 
-# fix any merge conflicts, commit them
+**If you have a merge conflict**
+# fix any merge conflicts
+$ git rebase --continue
+# continue the cycle of fixing and continue until no more conflicts
+# you might have to fix the same merge conflict multiple times
+
+$ git push origin branch_name
+# visit github.com/your_username/some-awesome-repo
+# create a pull request
+# merge the code
 
 $ git checkout master
-# merge our branch into master to catch up our master
-$ git merge new-branch
-
-# finally, delete your old branch
-$ git branch -D new-branch
+$ git pull origin master
 ```
+
+**Important Notes**
+* Once you run `git --rebase origin master` you are in a **rebasing session**. Be careful not to make changes beyond fixing merge conflicts while in this session. 
+* You can exit a rebase session with `git rebase --abort`. This deletes all changes you made during your rebase session and exits the session. You are back to where you started. 
 
 ### Advantages
 
@@ -148,9 +155,7 @@ $ git branch -D new-branch
 
 As a general rule, it works best to rebase regularly while you are working on a feature branch locally and
 individually. If anyone else is looking at or using your branch to base their work off of, rebasing is dangerous
-because rebasing will rewrite the commit history. Avoiding complicated rebases means rebasing almost as frequently
-as you are committing.
-
+because rebasing will rewrite the commit history and possibly create orphan branches. Avoiding complicated rebases means rebasing almost as frequently as you are committing.
 
 ### Merge vs Rebase
 
@@ -162,8 +167,6 @@ Not every tech company uses the rebase method. Depending on where you work you m
   * what are the significant similarities
   * what are the pros of each
   * what are the cons of each 
-
-
 
 ## Resources
 
