@@ -51,7 +51,7 @@ When a user registers with our site, we'll need to persist the information that 
 When users register for our site, we'll want them to be able to later return to our site and login using the details that they provided when registering—specifically, the e-mail address and password.  How will our application determine whether or not the user supplied a correct e-mail and password combination?
 
 ```ruby
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   # e.g., User.authenticate('penelope@turing.com', 'boom')
   def self.authenticate(email, password)
     # if email and password correspond to a valid user, return that user
@@ -81,7 +81,7 @@ In applications there are different use cases for authorization.  For example, a
 
 What is our content?  We're practicing authorization, so let's just create a "secret" page.  Users should be authorized to see the secret page only if they're logged in.  If users try to access the secret page when they're not logged in, they should be redirected to the login page.
 
-One way to restrict access to authorized users is a [filter](http://guides.rubyonrails.org/action_controller_overview.html#filters).  This not the only way to accomplish this and not necessarily the best way in this case.  But it's one tool to implement this kind of pre-route logic.  For an application this simple, it's ok to put the authorization logic in the route handler itself.
+One way to restrict access to authorized users is a [filter](http://guides.rubyonrails.org/action_controller_overview.html#filters).  This is not the only way to accomplish this and not necessarily the best way in this case.  But it's one tool to implement this kind of pre-route logic.  For an application this simple, it's ok to put the authorization logic in the route handler itself.
 
 
 ## Conclusion

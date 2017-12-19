@@ -34,7 +34,7 @@ We would like to give you a fair amount of freedom on this project. We want you 
 Structure of each week
 ------------
 
-Each student will submit a project proposal after the "soft launch" [here](https://github.com/turingschool/ruby-submissions/tree/master/1705-b/4module/capstone_projects/proposals) by Monday of week 4. Technical Lead's will give feedback on the scope of the project either via Github, Slack message, or in person by the end of the day.
+Each student will submit a project proposal after the "soft launch" [here](https://github.com/turingschool/ruby-submissions/tree/master/1706-b/4module/capstone_projects/proposals) by Monday of week 4. Technical Lead's will give feedback on the scope of the project either via Github, Slack message, or in person by the end of the day.
 
 Each student will be responsible for setting priorities for their project and communicating those to their Technical Lead. Throughout the week, each student should be tagging their Technical Lead in PR's if they have questions or want feedback on any code they've written.
 
