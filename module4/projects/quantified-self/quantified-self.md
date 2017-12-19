@@ -25,7 +25,7 @@ You are going to build a simple calorie tracker.
 * Students use event listeners to attach code to event-element combinations including document-ready and element-click
 * Students write precise CSS-style selectors in multiple contexts like DOM manipulation and integration testing
 * Students read form content and manipulate DOM via JavaScript
-* Students integrate outside data sources in the browser (AJAX, local storage)
+* Students integrate outside data sources in the browser (Fetch, local storage)
 * Students use integration testing to verify JavaScript functionality
 * Students implement a stand-alone web service with Node and Express
 * Students interact with SQL databases by writing raw SQL
@@ -66,7 +66,7 @@ First, we'll have our Front End talking with a pre-built Rails API found [here](
 
 ### Getting your project started
 
-- You'll have two separate code bases to complete this project. You'll have a code base for your front end and a separate code base for your back end. You may run into some errors when trying to communicate between the two code bases (most likely CORS problems), but we'll address this in class when we discuss AJAX.
+- You'll have two separate code bases to complete this project. You'll have a code base for your front end and a separate code base for your back end. You may run into some errors when trying to communicate between the two code bases (most likely CORS problems), but we'll address this in class when we discuss Fetch.
 - We'll be starting with the front end so you'll want to follow the instructions on the [Quantified Self Starter Kit](https://github.com/turingschool-examples/quantified-self-starter-kit) to get your codebase going.
 - As mentioned previously, you'll be starting with the backend Rails API [here](https://github.com/case-eee/quantified-self-api). Fork this repository, run the setup commands, push it to production (your own heroku app), and use this as your source of data.
 - When you start to re-build the backend with Node, you'll start your new backend repository from scratch.
@@ -99,7 +99,7 @@ First, we'll have our Front End talking with a pre-built Rails API found [here](
 
 - Create a full-stack JS application across two codebases
 - Be able to organize your JS across different files
-- Make AJAX calls to connect your front-end with your back-end
+- Make Fetch calls to connect your front-end with your back-end
 - Handle events
 - Handle events fired on DOM elements that didn't exist at load
 - Manage state via jQuery
@@ -193,7 +193,7 @@ The exception is testing. There's not any reasonable way you'll be able to test 
 
 Local Storage is often used for "offline" functionality. When the user is having trouble connecting to the internet, the application will continue to function. When a connection is re-established, the local changes are uploaded to the server. Likewise, if changes are made on one client, they should be downloaded to another client
 
-Use Local Storage and AJAX to meet the following requirements:
+Use Local Storage and Fetch to meet the following requirements:
 
 1. If I'm disconnected from the internet, I can continue to use the application.
 1. When I make a change while disconnected from the internet, that change will be uploaded to the server when I reconnect
