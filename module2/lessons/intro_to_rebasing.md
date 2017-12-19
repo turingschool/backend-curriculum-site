@@ -73,7 +73,7 @@ Your git log will look something like this:
 - Merge pull request #75 from your_username/some-old-branch
 - ...
 
-![git log](../misc/images/git_log)
+![git log](../misc/images/git_log.png)
 
 ### Advantages
 
@@ -81,7 +81,7 @@ Your git log will look something like this:
 git history on GitHub using a URL like this:
   - https://github.com/your-username/your-repo-name/**network**
  
-![GitHub Network Tab](../misc/images/merge_network_diagram)
+![GitHub Network Tab](../misc/images/merge_network_diagram.png)
 
 - This method of merging works great in solo and pairing projects.
 
