@@ -10,16 +10,14 @@ Some content shared from [the front-end program](https://github.com/turingschool
 ## Learning Goals
 
 * Understand the difference between merge and rebase workflows
-  * Know when and when not to rebase
-  * Identify pros and cons of each method
-* Squashing Commits
-* Other helpful Git shortcuts
+* Explain when and when not to rebase
+* Identify pros and cons of each method
 
 ## Vocabuarly 
 * git log
-* git commmit
-* git merge
-* git rebase
+* commmit
+* merge
+* rebase
 
 ## WarmUp 
 * What is the flow of commands to create a git repository locally and save your work?
