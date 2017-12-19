@@ -119,7 +119,7 @@ $ git commit -m "here is my new awesome work"
 # pull master from the origin fork and rebase our work
 # git pull --rebase origin master
 
-**If you have a merge conflict**
+# If you have a merge conflict
 # fix any merge conflicts
 $ git rebase --continue
 # continue the cycle of fixing and continue until no more conflicts
