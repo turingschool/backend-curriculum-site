@@ -35,7 +35,7 @@ Students who successfully complete Module 4 will have demonstrated mastery of Pr
 *   [Advanced JS - This, Objects, Events](./lessons/advanced-js-concepts)
 *   [Event Bubbling and Delegation](./lessons/event-bubbling-and-delegation)
 *   [Webpack and NPM](./lessons/webpack-demystified)
-*   [AJAX Refresher](./lessons/ajax-refresher)
+*   [Fetch Refresher](./lessons/fetch_refresher)
 *   [Debugging the Client Side](./lessons/fe_dev_tool_debugging)
 *   [ES5 vs ES6](./lessons/es5_vs_es6)
 *   [Week One CFU](https://github.com/turingschool/checks-for-understanding/blob/master/module-4/backend/week_one.md)
@@ -59,7 +59,7 @@ Students who successfully complete Module 4 will have demonstrated mastery of Pr
 <h4 id="week_4">Week 4</h4>
 *   JavaScript Final Assessment
 *   [Introduction to React](./lessons/intro_to_react)
-*   [React Part Two](./lessons/react_integration_with_axios)
+*   [React Part Two](./lessons/react_integration)
 *   [Basics of Security](./lessons/web_application_security)
 *   [Week 4 CFU](https://github.com/turingschool/checks-for-understanding/blob/master/module-4/backend/week_four.md)
 *   TGRF: Thank Goodness for Ruby Fridays
