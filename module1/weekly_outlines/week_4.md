@@ -5,19 +5,18 @@ layout: page
 
 ## Lessons
 
-* [Refactoring Patterns I](../lessons/refactoring_patterns_part_1)
+* [Fundamental Refactoring Patterns](../lessons/fundamental_refactoring_patterns)
 * [Ruby Load Path and Project Ettiquette](../lessons/ruby_project_etiquette)
 * [Modules](../lessons/modules)
+* [Boolean Logic](../lessons/boolean_logic)
 * [PD: Strengths and Storytelling](../../career_development_curriculum/module_one/strengths_and_storytelling)
-* [Refactoring Patterns II](../lessons/refactoring_patterns_part_2)
-* [Number Systems](../lessons/number_systems)/[Event Reporter Kick-Off](../project/event_reporter)
 
 <!-- * [Peer to Peer Project Review](../lessons/peer_to_peer_project_review) -->
 <!-- * [Enumerables: Return of the Block](../lessons/advanced_enumerables) -->
 
-## Homework  
+## Homework
 * [Enumerable Exercises](https://github.com/turingschool/enums-exercises)
-* Read the Motivation sections for the Move Method, Extract Class, and Hide Delegate sections from [Chapter 7 of Refactoring: Ruby Edition](https://dl.dropboxusercontent.com/u/69001/Refactoring/Refactoring%20-%20Chapter%207.pdf) by Jay Fields 
+* Read the Motivation sections for the Move Method, Extract Class, and Hide Delegate sections from [Chapter 7 of Refactoring: Ruby Edition](https://dl.dropboxusercontent.com/u/69001/Refactoring/Refactoring%20-%20Chapter%207.pdf) by Jay Fields
 * [Katrina's Therapeutic Refactoring talk](http://confreaks.tv/videos/cascadiaruby2012-therapeutic-refactoring)
 
 
@@ -25,5 +24,5 @@ layout: page
 
 * [HTTP Yeah You Know Me](../projects/http_yeah_you_know_me)
 * [Event Manager](../projects/eventmanager)
-* [Sorting Suite](../projects/sorting_suite)  
+* [Sorting Suite](../projects/sorting_suite)
 
