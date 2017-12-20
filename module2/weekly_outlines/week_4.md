@@ -38,7 +38,8 @@ layout: page
 ### Day 5
 
 * **LESSONS:**
-  - [Rails Challenge 1](../challenges/rails_challenge_1)
+  - [Rails Challenge 2](https://github.com/turingschool-examples/rails_challenge_2)
+  - [Cart Exploration](../misc/cart_exploration)
 
 * **HOMEWORK:**
   - Write a technical blog post (post it on your personal blog or Medium)
