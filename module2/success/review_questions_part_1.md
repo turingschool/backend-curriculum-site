@@ -1,18 +1,14 @@
 ---
-title: Git Like a Pro
-length: 60-ish
-tags: git, workflow, rebase
+layout: page
+title: Review Questions Weeks 1-3
 ---
 
-
-## Review Questions Weeks 1 - 3
-
 ### MVC & Rails
-* Diagram and explain the MVC model 
-* What is the role of the model? 
-* When would you want to use a class method rather than an instance method? 
-* What is the role of a view? What language(s) would you use in a view? 
-* What is the role of the controller? 
+* Diagram and explain the MVC model
+* What is the role of the model?
+* When would you want to use a class method rather than an instance method?
+* What is the role of a view? What language(s) would you use in a view?
+* What is the role of the controller?
 * What are the 7 RESTful CRUD actions?
 * Create a chart for Users with columns for path_helpers, HTTP Verb, URI, ActiveRecord, Redirect/Render, View
 
@@ -32,7 +28,7 @@ tags: git, workflow, rebase
 * How do you target the following in CSS?
   * a class
   * an id
-  * an element 
+  * an element
 
 ### Testing
 * How would you set up a test to check that a User has an email address and that only one user can have that email address?
@@ -40,7 +36,7 @@ tags: git, workflow, rebase
 
 ### Databases
 * What is the SQL to pull the record for every User?
-* What is the SQL to pull the record for how many Users are in the database? 
+* What is the SQL to pull the record for how many Users are in the database?
 * Diagram the tables of a database where a User has_many Assignments, an Assignment belongs_to a User, a Course has_many Assignments, and an Assignment belongs_to a Course.
 
 ### ActiveRecord
