@@ -22,6 +22,10 @@ tags: ruby, computer science, logic
 * Truth Table
 * Flow Control
 
+## Slides
+
+Available [here](../slides/boolean_logic)
+
 ## WarmUp
 
 First, start by doing some research.
