@@ -46,7 +46,7 @@ end
 
 # Precedence
 
-[Precedence](https://ruby-doc.org/core-2.4.0/doc/syntax/precedence_rdoc.html) refers to the order of opperations which Ruby follows.
+[Precedence](https://ruby-doc.org/core-2.4.0/doc/syntax/precedence_rdoc.html) refers to the order of operations which Ruby follows.
 
 ```
 !
