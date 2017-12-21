@@ -117,7 +117,7 @@ $ git checkout -b new-branch
 $ git add new_file.rb
 $ git commit -m "here is my new awesome work"
 # pull master from the origin fork and rebase our work
-# git pull --rebase origin master
+$ git pull --rebase origin master
 
 # If you have a merge conflict
 # fix any merge conflicts
