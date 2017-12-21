@@ -144,6 +144,8 @@ $ git pull origin master
 - History appears cleaner. All of the new work you've done on your feature branch will be placed **after** the other
   commits on master. It's kind of like telling git, "pretend I didn't take 2 weeks to finish my feature, and make it
   seem like I started the work today and finished it all in a couple of minutes."
+  
+![rebase git log](../misc/images/rebase_git_log.png)
 
 ### Disadvantage
 
@@ -156,6 +158,10 @@ $ git pull origin master
 As a general rule, it works best to rebase regularly while you are working on a feature branch locally and
 individually. If anyone else is looking at or using your branch to base their work off of, rebasing is dangerous
 because rebasing will rewrite the commit history and possibly create orphan branches. Avoiding complicated rebases means rebasing almost as frequently as you are committing.
+
+### Paired Practice  
+Clone down [quilt_shop](https://github.com/turingschool-examples/quilt_shop)
+Follow the directions on the README to practice rebasing. 
 
 ### Merge vs Rebase
 
