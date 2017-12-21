@@ -3,6 +3,21 @@ layout: page
 title: Accessibility Best Practices
 ---
 
+## Warm Up Questions
+
+- What do you think about when you design a view?
+- What attributes have you used in your html tags so far?
+
+## Vocabulary
+
+- Accessibility
+- Screen Reader
+- Visual Impairment
+- Cognition
+- Role attribute
+- Aria attribute
+- Violations
+
 ## Context
 
 Accessibility is often overlooked when designing applications. It is an extremely important part of inclusion. A developer must think about accessibility from inception.
@@ -14,12 +29,8 @@ In order for us to really understand how to build a rich web experience, we need
 ## Goals
 
 - Build empathy for people with accessibility needs
-- Identify the 4 main accessibility issues
+- Identify the 3 main accessibility issues
 - Build familiarity with accessibility tools
-
-## Slides
-
-Available [here](../slides/accessibility_best_practices)
 
 ## The Need
 
@@ -48,14 +59,13 @@ Tim Berners-Lee, the creator of HTTP/HTML, tweeted in front of 90 million people
 
 The computer will always do exactly what you tell it to. Maybe it's time we start telling them to do the right thing.
 
-## Identifying the 4 main accessibility issues.
+## Identifying the 3 main accessibility issues.
 
-Here are the top 4 accessibility things to look out for on the web:
+Here are 3 accessibility things to look out for on the web:
 
 - Visual
 - Mobility
 - Cognition
-- Hearing
 
 Making sure we help accommodate these users allows us to really gear and tune our UI for everyone.
 
@@ -65,8 +75,9 @@ Today, we will talk about the first three on the above list.
 
 ### Tools Needed
 
--   [`chrome vox`](https://chrome.google.com/webstore/detail/chromevox/kgejglhpjiefppelpmljglcjbhoiplfn?hl=en), a screen reader
--   [`I want to see like the colour blind`](https://chrome.google.com/webstore/detail/i-want-to-see-like-the-co/jebeedfnielkcjlcokhiobodkjjpbjia?hl=en-GB), a chrome extension that emulates color blindness
+-   [`Read Aloud`](https://chrome.google.com/webstore/detail/read-aloud-a-text-to-spee/hdhinadidafjejdhmfkjgnolgimiaplp?hl=en), a chrome extension screen reader
+-   [`colorblinding`](https://chrome.google.com/webstore/detail/colorblinding/dgbgleaofjainknadoffbjkclicbbgaa?hl=enB), a chrome extension that emulates color blindness
+- [`axe` extension](https://chrome.google.com/webstore/detail/axe/lhdoppojpmngadmnindnejefpokejbdd?hl=en-US), a chrome extension that finds accessibility violations
 
 ### Experiment 1
 
@@ -80,6 +91,109 @@ Navigation Tip: hold `command + control` and then press the `down` or `up` key t
 
 If you're interested on how some people with mainly visual needs interact with the web check out this [video](https://www.youtube.com/watch?v=LdVlbO7_hz8&feature=youtu.be).
 
+### WAI-ARIA
+WAI-ARIA is a shorthand for (Web Accessibility Initiative – Accessible Rich Internet Applications). WAI-ARIA is a specification written by the W3C, defining a set of additional HTML attributes that can be applied to elements to provide additional semantics and improve accessibility wherever it is lacking. ARIA breaks down into 3 categories:
+
+* __Roles__: define the purpose of an element
+* __Properties__:  help better describe what an element can do
+* __States__: like properties that are designed to change – normally with the help of Javascript
+* An element can only have one ARIA role at a time, but can have as many properties and states as necessary.
+
+An important point about WAI-ARIA attributes is that they don't affect anything about the web page, except for the information exposed by the browser's accessibility APIs (where screenreaders get their information from). WAI-ARIA doesn't affect webpage structure, the DOM, etc., although the attributes can be useful for selecting elements by CSS.
+
+### Rules of ARIA Use
+
+There are a few core rules to keep in mind when using ARIA:
+
+* If you can use native HTML elements and attributes to communicate the proper semantics (like `<nav>`, `<header>`, `<aside>`, `<button>`, etc.) and behavior then do so. Adding ARIA support where it’s not needed is __redundant code__ that isn’t doing anything. For the most part it won’t lead to problems, but it is a waste of time.
+* Don’t change native semantics, unless you really have to.
+* All interactive controls such as a button, sliding control, or drag-and-drop widget must be usable by the keyboard.
+* There are 2 ways to hide information from the accessibility tree, which should be used very sparingly for situations where content is unimportant or meant to be hidden. An example of this would be hiding icons that have been added to display extra decoration or branding. You can do this either with `role=”presentation”` or `aria-hidden=”true”`. __You should never use these on an element that is visible and can be focused with the keyboard, such as an input field or a link__.
+* Lastly, all interactive elements such as form fields should have a name associated with them. Something like a `<label>` is perfect, and with ARIA, you can even specify that a certain element is labelled by or described by another element.
+
+#### Semantic HTML
+
+* Elements such as `<nav>`, `<button>`, `<header>`, `<aside>` when read aloud help clarify what part of the html page someone is focused on.
+* These elements have default implicit ARIA roles.
+* Keep an eye on these so you can avoid writing redundant code.
+
+#### More Obscure Semantic HTML5 Elements
+
+* `<q></q>`: inline quoted text
+* `<time></time>`: date or specific time
+* `<cite></cite>`: reference to a cited book, play, etc
+* `<input type="email"></input>`: specific type of input field
+* `<figcaption></figcaption>`: detailed caption on an image
+* `<code></code>`: code snippet
+* `<aside></aside>`: chunk of text that isn't the primary focus of the page
+* `<article></article>`: small subsection of content
+* `<abbr></abbr>`: abbreviation
+
+```
+Example: <nav></nav> tags have an implicit role="navigation".
+```
+* [Table of elements with implicit Aria roles](http://lab.abhinayrathore.com/aria-cheatsheet/)
+
+#### Alt Attributes for Images!
+
+* Hugely important
+* Low hanging fruit, easy to use on images.
+* Be verbose.
+* Just do it.
+
+```
+bad: <img src="mountain.jpg" alt="mountain" />
+good: <img src="mountain.jpg" alt="The cascade mountains at sunset in January" />
+```
+
+#### Title Attributes for Links!
+
+* Low hanging fruit on anchor tags.
+* Not necessary for all links, but make sure to use them for your icon anchors – you know, things like your facebook, twitter, etc icons:
+
+```html
+<a class="facebook-icon" title="Facebook"><a/>
+```
+
+#### Lang attribute on HTML!
+
+* Low hanging fruit for HTML
+* As far as non-english speaking screen readers are concerned, when they land on an english-speaking web page without lang attribute, it will be spoken with the screen reader language - making it impossible to understand - unless the screen reader user disables language switching in the screen reader.
+* Just do it
+
+```html
+<html lang="en">
+</html>
+```
+
+### ARIA Landmark Roles
+
+One of the easiest ARIA features to implement, and one that provides significant immediate benefits to screen reader users, is landmark roles. To add them, simply add a relevant role attribute to an appropriate container within your HTML. This allows the screen reader to quickly jump to that section of the page. Below, you will find an example of how you might utilize the different landmark roles for your layout:
+
+![Landmark Layout](../misc/images/aria-landmark-roles.png)
+
+__Take note:__
+
+* The banner, main, and contentinfo roles are meant to be used only one time per page
+* Take care in using `role="application"` - When assistive technologies encounter content that’s marked up with `role=”application”` they stop listening for users’ keystrokes and hand off all functionality to the application. This is due to an expectation that the application has its own model for navigating and operating all controls by keyboard. It generally should not be used.
+
+Below you will find a code example of defining three landmark roles:
+
+```html
+<header role="banner">
+</header>
+
+<main role="main">
+</main>
+
+<footer role="contentinfo">
+</footer>
+```
+
+### Go Further
+
+Watch [this](https://www.youtube.com/watch?v=qdB8SRhqvFc&t=399s) video about ARIA implementation.
+
 ### Experiment 2
 
 If you're wondering what color blindness is here is a definition found online.
@@ -87,8 +201,6 @@ If you're wondering what color blindness is here is a definition found online.
 > Color blindness, also known as color vision deficiency, is the decreased ability to see color or differences in color. The most common cause of color blindness is due to a fault in the development of one or more of the three sets of color sensing cones in the eye.
 
 Utilize the color blind extension and visit your favorite websites like Facebook or Instagram and experience how the color change effects your user experience.
-
-Navigation Tip: Some websites do not allow `I want to see like the colour blind`, left-click page and click `Experience Colour Blindness`. If `I want to see like the colour blind` is enabled, you will see a list of options on how to experience the site.
 
 ### Discussion
 
@@ -148,19 +260,19 @@ Checkout this [document](http://geon.github.io/programming/2016/03/03/dsxyliea) 
 
 #### Code Tip
 
-##### Focus
+- Focus
 
 Never adjust the focus on your application. Without the focus there is literally no way for a user to know where they are in your application.
 
 One thing you want to consider is utilizing the ``tabindex`` attribute. What's great about this is if you set the ``tabindex`` of something to zero it acts like a ``stop sign`` that makes the screen reader and or tab focus move to a specific part of the page.
 
-##### Radio Buttons
+- Radio Buttons
 
 One big thing that can affect users is that sometimes forms utilize radio buttons. The issue with the visually impaired is that many times those radio buttons are difficult to click. What we can do to help improve the experience for our friends is to allow the parent object to be clickable too. Often times it's just a matter of wrapping your radio button in a `label` tag. Check out the following [Codepen](https://codepen.io/paul66/pen/jKBzu). Don't mind the JavaScript - look at the CSS and the HTML
 
 These are some easy changes we can implement for your application to be more accommodating.
 
-##### Dealing with Cognitive Issues
+### Dealing with Cognitive Issues
 
 Organizing your data in a way that is decreeable and engaging for the user will help combat this. Some things we can do to help draw attention to our document:
 
@@ -179,6 +291,12 @@ Organizing your data in a way that is decreeable and engaging for the user will 
 - In the developer tools of any website, click on the "aXe" tab and "analyze violations" which will display any violations for a given site.
 
 ## Wrap up
+
+### Questions
+
+1. What are the 3 main accessibility areas that we covered today?
+2. What tool can you use to help find violations?
+3. Why is this important?
 
 Now that we are more aware of what is going on in the world of accessibility, what are we going to do to make sure we are committing ourselves to making the web a better place for everyone?
 
