@@ -139,6 +139,10 @@ $ git pull origin master
 * Once you run `git --rebase origin master` you are in a **rebasing session**. Be careful not to make changes beyond fixing merge conflicts while in this session. 
 * You can exit a rebase session with `git rebase --abort`. This deletes all changes you made during your rebase session and exits the session. You are back to where you started. 
 
+If you're not sure if you are in a rebasing session or not, you can run `git status`. It will tell you in red `rebase in progress; onto commit#`.  
+
+![rebase in progress message](../misc/images/rebase_in_progress.png)
+
 ### Advantages
 
 - Avoids auto-generated commits of pulling/merging master into your feature branch or merging your branch into master
@@ -160,8 +164,25 @@ As a general rule, it works best to rebase regularly while you are working on a 
 individually. If anyone else is looking at or using your branch to base their work off of, rebasing is dangerous
 because rebasing will rewrite the commit history and possibly create orphan branches. Avoiding complicated rebases means rebasing almost as frequently as you are committing.
 
-### Paired Practice  
+### Workshop
 Clone down [quilt_shop](https://github.com/turingschool-examples/quilt_shop)
+
+#### Whole Group Practice  
+This repo has four branches on it. 
+
+```
+$ git branch -a
+  remotes/origin/add_fabric_crud
+  remotes/origin/add_pattern_crud
+  remotes/origin/add_tool_crud
+  remotes/origin/master
+```
+
+`add_tool_crud` has already been merged in to `master`  
+Let's rebase `master` into the `add_pattern_crud` branch 
+
+#### Paired Practice  
+Now your turn to rebase `master` into the `add_fabric_crud` branch
 
 Follow the directions on the README to practice rebasing. 
 
