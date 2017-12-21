@@ -3,14 +3,19 @@ layout: page
 title: Accessibility Best Practices
 ---
 
+## Warm Up Questions
+
+- What do you think about when you design a view?
+- What attributes have you used in your html tags so far?
+
 ## Vocabulary
 
 - Accessibility
 - Screen Reader
 - Visual Impairment
 - Cognition
-- Role property
-- Aria property
+- Role attribute
+- Aria attribute
 - Violations
 
 ## Context
