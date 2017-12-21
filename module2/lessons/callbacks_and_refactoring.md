@@ -1,16 +1,23 @@
 ---
+layout: page  
+length: 60min
 title: Callbacks and Refactoring
+tags: rails, ruby, callbacks, refactoring, dry
 ---
 
-## Goals
+## Learning Goals
 
 * Understand how callbacks work
 * Know some common callbacks
 * Use callbacks to your advantage
 
+## Vocabulary  
+* callback
+* dry
+
 ## Setup
 
-* We are going to continue and use `movie_mania`.
+* We are going to continue to use `movie_mania`.
 
 ## When to Use a Callback
 
