@@ -104,6 +104,21 @@ Doing a `git rebase` will have to step through every single commit you've made o
 time, and see if it's possible to apply it on top of the **master** branch. Squashing your commits may make this
 process easier.
 
+### Advantages
+
+- Avoids auto-generated commits of pulling/merging master into your feature branch or merging your branch into master
+- History appears cleaner. All of the new work you've done on your feature branch will be placed **after** the other
+  commits on master. It's kind of like telling git, "pretend I didn't take 2 weeks to finish my feature, and make it
+  seem like I started the work today and finished it all in a couple of minutes."
+  
+![rebase git log](../misc/images/rebase_git_log.png)
+
+### Disadvantage
+
+- Dealing with merge conflicts can be repetitive if your feature branch has lots of commits
+- If teammates create a branch off of YOUR branch (and not master), rewriting your git history in this manner will
+  cause problems combining their work later.
+
 ### Whiteboard diagram
 
 ### Workflow
@@ -143,20 +158,6 @@ If you're not sure if you are in a rebasing session or not, you can run `git sta
 
 ![rebase in progress message](../misc/images/rebase_in_progress.png)
 
-### Advantages
-
-- Avoids auto-generated commits of pulling/merging master into your feature branch or merging your branch into master
-- History appears cleaner. All of the new work you've done on your feature branch will be placed **after** the other
-  commits on master. It's kind of like telling git, "pretend I didn't take 2 weeks to finish my feature, and make it
-  seem like I started the work today and finished it all in a couple of minutes."
-  
-![rebase git log](../misc/images/rebase_git_log.png)
-
-### Disadvantage
-
-- Dealing with merge conflicts can be repetitive if your feature branch has lots of commits
-- If teammates create a branch off of YOUR branch (and not master), rewriting your git history in this manner will
-  cause problems combining their work later.
 
 ### To Rebase or Not to Rebase?
 
