@@ -161,6 +161,7 @@ because rebasing will rewrite the commit history and possibly create orphan bran
 
 ### Paired Practice  
 Clone down [quilt_shop](https://github.com/turingschool-examples/quilt_shop)
+
 Follow the directions on the README to practice rebasing. 
 
 ### Merge vs Rebase
