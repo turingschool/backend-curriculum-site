@@ -122,6 +122,7 @@ $ git pull --rebase origin master
 # If you have a merge conflict
 # fix any merge conflicts
 $ git rebase --continue
+$ git add file_name
 # continue the cycle of fixing and continue until no more conflicts
 # you might have to fix the same merge conflict multiple times
 
