@@ -31,7 +31,7 @@ layout: page
 ### Day 4:
 
 * **LESSONS:**
-  - [Rebasing](../lessons/rebasing)
+  - [Rebasing](../lessons/intro_to_rebasing)
   - [Accessibility Best Practices](../lessons/accessibility_best_practices)
 
 
