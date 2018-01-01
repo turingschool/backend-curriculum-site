@@ -60,7 +60,7 @@ You will build on a Rails 5 version of [Storedom](https://github.com/turingschoo
 ```sh
 $ git clone -b mod_3_assessment_base git@github.com:turingschool-examples/storedom-5.git
 $ cd storedom-5
-$ rm -rf Gemfile.lock
+$ rm Gemfile.lock
 $ bundle
 $ bundle exec rake db:{drop,create,setup}
 $ git remote add upstream git@github.com:YOUR-GITHUB-USERNAME/module_3_assessment.git
