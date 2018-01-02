@@ -6,21 +6,112 @@
 
 * What do you already know about the asset pipeline?
 * What have you heard?
+* What computer languages does your browser understand?
 
 ---
 
-# Learning Goals
+# Overview
 
-* Explain the purpose of the asset pipeline
-* Run your app in the production environment locally
+* *Asset Exploration:* Explore how assets are loaded in the browser.
+* *Enter the Asset Pipeline:* Provide a high level descripiion of the responsibilities of the asset pipeline.
+* *Putting it Together:* Descrbie how assets are stored/accessed in a Rails application.
 
 ---
 
-# What Are Assets
+# What? Why?
 
-* Javascripts
-* CSS files
+Assets include:
+
+* JavaScript Files
+* CSS Files
 * Images
+
+The assset pipeline is an attempt to try to serve these assets more quickly.
+
+---
+
+# Asset Exploration
+
+* Visit Turing's [Back-End Curriculum](http://backend.turing.io/) site.
+* With a neighbor, estimate how many requests were made to load that site.
+* In Chrome, open the developer tools (cmd-opt-i).
+* Click on the Network tab, and hit reload.
+* Count the number of assets loaded.
+
+Answer the questions included in the lesson.
+
+---
+
+# Enter the Asset Pipeline
+
+* *Concatenating/Minifying:* Makes the assets we serve more compact.
+* *Precompiling:* Allows us to write in languages related to CSS/JavaScript.
+* *Fingerprinting:* Provides a means to invalidate cached assets.
+
+---
+
+# Concatenating/Minifying
+
+See if you can find answers to the following questions on the internet:
+
+* What does minified CSS look like?
+* What does minified JavaScript look like?
+* What does it mean that the asset pipeline concatenates our assets?
+
+---
+
+# Minified CSS
+
+![inline](css-minified.jpg)
+
+---
+
+# Minified JS
+
+![inline](js-minified.png)
+
+---
+
+# Concatenation
+
+Concatenation creates a single file from multiple
+
+---
+
+# Precompiling: Browser Languages
+
+* HTML
+* CSS
+* JavaScript
+
+---
+
+# Precompiling: Other Languages
+
+* Sass/Less
+* CoffeeScript
+
+---
+
+# Precompiling: the Asset Pipeline
+
+Translates languages
+
+* Sass/Less => CSS
+* CoffeeScript => Javascript
+
+---
+
+# Fingerprinting
+
+* Asset Pipeline adds a fingerprint to the end of our file names.
+* If the file changes, the fingerprint also changes.
+* If the fingerprint changes *our browser will view it as a different file.*
+* The browser will then not rely on any cached version of the file that it has.
+
+---
+
+# Putting it Together
 
 ---
 
@@ -35,64 +126,32 @@ note: assets in lib/assets and vendor/assets will not automatically be included 
 
 ---
 
-# The Asset Pipeline
-
-* Sprockets gem, enabled by default
-* Asset loading is expensive
-* Faster asset loading = faster performance
-* Framework to concatenate, minify, and preprocess JS, and CSS files
-* Depends on gems: sass-rails, uglifier, coffee-rails
-
----
-
-# Asset Pipeline Scavenger Hunt
-
----
-
-# What Does Minified CSS Look Like?
-
-![inline](css-minified.jpg)
-
----
-
-# What Does Minified JS Look Like?
-
-![inline](js-minified.png)
-
----
-
-# Duties of the Asset Pipeline
-
-  * Precompiling higher-level languages - Sass for CSS, CoffeeScript for JavaScript
-  * Concatenating assets - one master .js file and one master .css file which reduces the number of requests a browser makes in order to render our web page
-  * Minifying files - removes whitespace, comments, and shortens variable names
-
----
-
 # Manifest Files
 
-  * `app/assets/javascripts/application.js`
-  * `app/assets/stylesheets/application.css`
+Within each of those directories is a manifest file.
+
+* `app/assets/javascripts/application.js`
+* `app/assets/stylesheets/application.css`
 
 ---
 
-# Directives in Manifest Files
+# Manifest Files (continued)
 
-  * Processed top-to-bottom
-  * `require_tree .` recursively requires all files within app/assets
-  * Files required in the manifest can live in app/assets, lib/assets, or vendor/assets
+These manifest files provide instructions on how to find our assets.
+
+* These instructions are processed top-to-bottom
+* `require_tree .` recursively requires all files within app/assets
+* Files required in the manifest can live in app/assets, lib/assets, or vendor/assets
 
 ---
 
-# Directives in Manifest Files
+# Manifest Files (sample)
 
 ![inline](manifest.png)
 
 ---
 
-# How Does Your App Know About the Master JS and CSS File?
-
-In app/views/layouts/application.html.erb:
+# Views
 
 ```erb
 <%= stylesheet_link_tag "application", media: "all" %>
@@ -101,48 +160,23 @@ In app/views/layouts/application.html.erb:
 
 ---
 
-# Running Your App in Production Locally
+# Accessing Our Assets
+
+* `asset_path()`
+* `image_path()`
 
 ---
 
-# Set `SECRET_KEY_BASE`
+# Heroku
 
-* `rake secret`
-* `export "SECRET_KEY_BASE"="long_string"`
-
----
-
-# Adjust `config/environments/production.rb`
-
-* `config.consider_all_requests_local = true`
-* `config.serve_static_files = true`
+* Precompiles your assets automatically
+* Other services will require you to run `rake assets:precompile`
 
 ---
 
-# Load DB
+# Review
 
-* `RAILS_ENV=production rake db:migrate db:seed`
-
----
-
-# Precompile Assets
-
-* `rake assets:precompile`
-
----
-
-# Run Server
-
-* `rails s -e production`
-
----
-
-# Clobber
-
-* `rake assets:clobber`
-* Undo changes to `config/environments/production.rb`
-
----
-
-# Running Production Challenge
-
+* What does the asset pipeline do?
+* How does it benefit our applications?
+* What does Heroku do for you with regards to the asset pipeline?
+* What is one step you might take if your application seems to be working locally, but broken in production?
