@@ -10,6 +10,10 @@ title: Intro to the Asset Pipeline
 * Explain how Rails uses fingerprinting to expire cached assets
 * Use Rails' view helpers to link to assets in production
 
+## Slides
+
+Available [here](../slides/asset_pipeline/asset_pipeline)
+
 ## Warmup
 
 * What do you already know about the asset pipeline?
