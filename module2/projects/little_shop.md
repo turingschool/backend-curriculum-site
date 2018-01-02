@@ -100,7 +100,7 @@ following criteria:
 
 * Exceeds Expectations: Project has a running test suite that exercises the application at multiple levels
 * Meets Expectations: Project has a running test suite that tests at multiple levels but fails to cover some features
-* Below Expectations: Project has sporadic use of tests and multiple levels
+* Below Expectations: Project has sporadic use of tests at multiple levels
 
 ### 6. Usability
 
