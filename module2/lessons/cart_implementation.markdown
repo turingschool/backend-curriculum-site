@@ -199,8 +199,8 @@ class CartsController < ApplicationController
   def create
     movie = Movie.find(params[:movie_id])
     session[:cart] ||= Hash.new(0)
-    session[:cart][movie.id] = session[:cart][movie.id] + 1
-    flash[:notice] = "You now have #{session[:cart][movie.id]} #{movie.title} in your cart."
+    session[:cart][movie.id.to_s] = session[:cart][movie.id.to_s] + 1
+    flash[:notice] = "You now have #{session[:cart][movie.id.to_s]} #{movie.title} in your cart."
     redirect_to movies_path
   end
 end
@@ -224,8 +224,8 @@ class CartsController < ApplicationController
   def create
     movie = Movie.find(params[:movie_id])
     session[:cart] ||= Hash.new(0)
-    session[:cart][movie.id] = session[:cart][movie.id] + 1
-    flash[:notice] = "You now have #{pluralize(session[:cart][movie.id], movie.title)} in your cart."
+    session[:cart][movie.id.to_s] = session[:cart][movie.id.to_s] + 1
+    flash[:notice] = "You now have #{pluralize(session[:cart][movie.id.to_s], movie.title)} in your cart."
     redirect_to movies_path
   end
 end
@@ -414,8 +414,8 @@ class CartsController < ApplicationController
   def create
     movie = Movie.find(params[:movie_id])
     session[:cart] ||= Hash.new(0)
-    session[:cart][movie.id] = session[:cart][movie.id] + 1
-    flash[:notice] = "You now have #{pluralize(session[:cart][movie.id], movie.title)}."
+    session[:cart][movie.id.to_s] = session[:cart][movie.id.to_s] + 1
+    flash[:notice] = "You now have #{pluralize(session[:cart][movie.id.to_s], movie.title)}."
     redirect_to movies_path
   end
 end
@@ -480,15 +480,15 @@ In order to get these tests to pass, add the following two methods to our Cart P
 
 ```ruby
 def add_movie(id)
-  contents[id] = contents[id] + 1
+  contents[id.to_s] = contents[id.to_s] + 1
 end
 
 def count_of(id)
-  contents[id]
+  contents[id.to_s]
 end
 ```
 
-What if we ask for the count of a non-existant movie?  Add `expect(subject.count_of(0)).to eq(0)` to your test for the `count_of` method. What's the matter, got `nil`? Let's **coerce** `nil` values to `0` with `#to_i`.
+What if we ask for the count of a non-existent movie?  Add `expect(subject.count_of(0)).to eq(0)` to your test for the `count_of` method. What's the matter, got `nil`? Let's **coerce** `nil` values to `0` with `#to_i`.
 
 ```
 def count_of(id)
