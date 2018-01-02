@@ -1,3 +1,7 @@
+---
+layout: page
+---
+
 # User Stories
 
 ## Story 1: Create Wireframes for Most Important Views
@@ -221,20 +225,8 @@ I can modify my account data
 
 But I cannot modify any other user's account data
 
-## Story 21: Admin Orders
 
-As an Admin
-When I visit the dashboard
-Then I can see a listing of all orders
-And I can see the total number of orders for each status **("Ordered", "Paid", "Cancelled", "Completed")**
-And I can see a link for each individual order
-And I can filter orders to display by each status type  **("Ordered", "Paid", "Cancelled", "Completed")**
-And I have links to transition between statuses
-- I can click on "cancel" on individual orders which are "paid" or "ordered"
-- I can click on "mark as paid" on orders that are "ordered"
-- I can click on "mark as completed" on orders that are "paid"
-
-## Story 22: Admin views an individual Order
+## Story 21: Admin views an individual Order
 
 As an authenticated Admin, when I visit an individual order page
 Then I can see the order's date and time.
@@ -247,7 +239,7 @@ And I can see, for each item on the order:
 And I can see the total for the order.
 And I can see the status for the order.
 
-## Story 23: Admin Item Creation
+## Story 22: Admin Item Creation
 
 As an authenticated Admin:
 I can create an item.
@@ -258,7 +250,7 @@ I can create an item.
 - The price must be a valid decimal numeric value and greater than zero.
 - The photo is optional. If not present, a stand-in photo is used. **(PAPERCLIP)**
 
-## Story 24: Admin Viewing items
+## Story 23: Admin Viewing items
 
 As an Admin
 When I visit "/admin/dashboard"
@@ -271,9 +263,10 @@ And each item should have:
 - Title that links to the item
 - Description
 - Status
-- Actions (Edit)
+- Ability to Edit Item
+- Ability to Retire/Reactivate Item
 
-## Story 25: Admin edits an item
+## Story 24: Admin edits an item
 
 Background: an existing item
 
@@ -282,3 +275,45 @@ When I visit "admin/items"
 And I click "Edit"
 Then my current path should be "/admin/items/:ITEM_ID/edit"
 And I should be able to update title, description, image, and status
+
+## Story 25: Admin Orders
+
+As an Admin
+When I visit the dashboard
+Then I can see a listing of all orders
+And I can see the total number of orders for each status **("Ordered", "Paid", "Cancelled", "Completed")**
+And I can see a link for each individual order
+And I can filter orders to display by each status type  **("Ordered", "Paid", "Cancelled", "Completed")**
+And I have links to transition between statuses
+- I can click on "cancel" on individual orders which are "paid" or "ordered"
+- I can click on "mark as paid" on orders that are "ordered"
+- I can click on "mark as completed" on orders that are "paid"
+
+## Story 26: Analytics Dashboard
+
+As an admin
+When I visit the admin dashboard
+I can see a link to the analytics dashboard
+When I click the link I am redirected to "/admin/analytics-dashboard"
+
+## Story 27: User Breakdown
+
+On the analytics-dashboard
+I see the user who has placed the most orders
+
+## Story 28: Category Breakdown
+
+On the analytics-dashboard
+For each category, I see the highest price item for the category and then
+I see a breakdown of how many orders have been placed for the category.
+
+## Story 29: Retired Item Analytics
+
+On the analytics-dashboard
+I see a list of items that have ever been retired, including their item name, current status (retired or active) and total retired count. Items should be ordered by how many times they have been retired (retired count).
+
+## Story 30: Orders by State
+
+On the analytics-dashboard
+I see a state by state (alphabetically) breakdown of how many **completed** orders were "sent" there.
+I also have a sort button that allows me to arrange my states by order count.
