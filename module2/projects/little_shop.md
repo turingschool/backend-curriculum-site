@@ -41,11 +41,11 @@ You will build an online ordering platform. Customers should be able to place or
 
 Each team will have an assigned project manager that will be the primary point of contact between the product owner (instructor) and the rest of the team.
 
-Most stories will be provided by the product owner. You will be asked to write your own stories for extensions and they should follow the same format as the ones that are provided to you.
+All base stories will be provided by the product owner. You will be asked to write your own stories for extensions and they should follow the same format as the ones that are provided to you.
 
 You should not write code or migrations until a story calls for it.
 
-Teams will meet with the product owner regularly and demo completed stories. The product owner will request additional features at each meeting and those stories should be completed prior to your next meeting. Project scope and requirements can change at the discretion of the product owner so following an agile approach is really important.
+Teams can self-pace but will have a number of stories required to be completed at each check-in. Teams will meet with the product owner regularly and demo completed stories. Project scope and requirements can change at the discretion of the product owner so following an agile approach is really important.
 
 It is expected that teams will have meaningful discussions and code reviews using comments on Github. Your instructors will be looking for this. Commits should also have meaningful messages. Be careful about what type of commits are being made, i.e. "Cleanup Hound violations". If you want to learn more about squashing and rebasing commits, see [here](http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html).
 
@@ -99,7 +99,7 @@ following criteria:
 ### 5. Testing
 
 * Exceeds Expectations: Project has a running test suite that exercises the application at multiple levels
-* Meets Expectations: Project has a running test suite that tests and multiple levels but fails to cover some features
+* Meets Expectations: Project has a running test suite that tests at multiple levels but fails to cover some features
 * Below Expectations: Project has sporadic use of tests and multiple levels
 
 ### 6. Usability
