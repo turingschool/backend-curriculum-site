@@ -154,3 +154,18 @@ In app/views/layouts/application.html.erb:
 * What does Heroku do for you with regards to the asset pipeline?
 * What is one step you might take if your application seems to be working locally, but broken in production?
 
+## Challenge
+
+Clone down [Backpacking](https://github.com/turingschool/backpacking). Run the following commands:
+
+```
+$ cd backpacking
+$ rake db:create db:migrate db:seed
+$ rails s
+```
+
+Visit `127.0.0.1:3000` to see what the app should look like.
+
+Now, close your server and run the application in production using the command `rails s -e=production`.
+
+If you visit `127.0.0.1:3000` your application will show an error that will likely be new to you. Work with a partner to address errors generated until the app that you see matches the app that you see when you run `rails s` without the `-e=production` flag.

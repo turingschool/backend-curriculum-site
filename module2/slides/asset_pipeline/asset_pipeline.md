@@ -180,3 +180,11 @@ These manifest files provide instructions on how to find our assets.
 * How does it benefit our applications?
 * What does Heroku do for you with regards to the asset pipeline?
 * What is one step you might take if your application seems to be working locally, but broken in production?
+
+---
+
+# Challenge
+
+* Running an application in production locally.
+
+See lesson plan.
