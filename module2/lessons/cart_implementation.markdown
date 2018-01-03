@@ -69,6 +69,19 @@ Run the test and it complains about not having a add movie button. Let's make a 
 Our error now is:
 
 ```
+undefined local variable or method `carts_path'
+```
+
+So we need a cart resource because although we do not want to store the cart information (it changes a lot), it will still need a controller.
+
+```ruby
+#routes.rb
+resources :carts, only: [:create]
+```
+
+Now we get a new error:
+
+```
   1) User adds a pen to their cart a message is displayed
      Failure/Error: click_button "Add Movie"
 
@@ -77,6 +90,22 @@ Our error now is:
 ```
 
 Make a controller: `touch app/controllers/carts_controller.rb`. If you run the test again, it will complain about missing the action `create`. So, inside of the controller file:
+
+```ruby
+class CartsController < ApplicationController
+  def create
+  end
+end
+```
+
+And now our error is funky, harder to decipher:
+
+```terminal
+Unable to find visible xpath "/html"
+```
+
+This is because we are sending this action nowhere. There is no direct view that corresponds with `create` so we need to redirect it somewhere. Let's bring us back to the movies index.
+
 
 ```ruby
 class CartsController < ApplicationController
@@ -102,7 +131,7 @@ And modify our `create` action in the controller:
 class CartsController < ApplicationController
   def create
     movie = Movie.find(params[:movie_id])
-    flash[:notice] = "You now have 1 #{@movie.title} in your cart."
+    flash[:notice] = "You now have 1 #{movie.title} in your cart."
     redirect_to movies_path
   end
 end
@@ -135,7 +164,7 @@ RSpec.feature "When a user adds movies to their cart" do
 
     click_button "Add Movie"
 
-    expect(page).to have_content("You now have 1#{@movie.title} in your cart.")
+    expect(page).to have_content("You now have 1 #{@movie.title} in your cart.")
   end
 
   scenario "the message correctly increments for multiple movies" do
@@ -168,11 +197,10 @@ Let's go back into the CartsController:
 ```ruby
 class CartsController < ApplicationController
   def create
-    id   = params[:movie_id].to_s
-    movie = Movie.find_by(id: id)
-    session[:cart] ||= {}
-    session[:cart][id] = (session[:cart][id] || 0) + 1
-    flash[:notice] = "You now have #{session[:cart][id]} #{@movie.title}."
+    movie = Movie.find(params[:movie_id])
+    session[:cart] ||= Hash.new(0)
+    session[:cart][movie.id.to_s] = session[:cart][movie.id.to_s] + 1
+    flash[:notice] = "You now have #{session[:cart][movie.id.to_s]} #{movie.title} in your cart."
     redirect_to movies_path
   end
 end
@@ -183,7 +211,7 @@ This is close. Our test will still fail, but it looks like our number is increme
 ```
   1) User adds a movie to their cart the message correctly increments for multiple movies
      Failure/Error: expect(page).to have_content("You now have 2 Rollerball Pens.")
-       expected to find text "You now have 2 #{@movie.title}s in your cart." in ""You now have 2 #{@movie.title} in your cart.""
+       expected to find text "You now have 2 #{movie.title}s in your cart." in ""You now have 2 #{movie.title} in your cart.""
      # ./spec/features/user_adds_movie_to_cart_spec.rb:25:in `block (2 levels) in <top (required)>'
 ```
 
@@ -194,11 +222,10 @@ class CartsController < ApplicationController
   include ActionView::Helpers::TextHelper
 
   def create
-    id   = params[:movie_id].to_s
-    movie = Movie.find_by(id: id)
-    session[:cart] ||= {}
-    session[:cart][id] = (session[:cart][id] || 0) + 1
-    flash[:notice] = "You now have #{pluralize(session[:cart][id], @movie.name)}."
+    movie = Movie.find(params[:movie_id])
+    session[:cart] ||= Hash.new(0)
+    session[:cart][movie.id.to_s] = session[:cart][movie.id.to_s] + 1
+    flash[:notice] = "You now have #{pluralize(session[:cart][movie.id.to_s], movie.title)} in your cart."
     redirect_to movies_path
   end
 end
@@ -305,7 +332,7 @@ In our MoviesController, let's go ahead and add the instance variable `@cart`. L
 
 ```ruby
   def index
-    @items    = Movie.all
+    @items = Movie.all
     @cart = Cart.new(session[:cart])
   end
 ```
@@ -320,11 +347,11 @@ Create a `spec/models` folder, and a new test for our Cart class: `spec/models/c
 require 'rails_helper'
 
 RSpec.describe Cart do
-  subject { Cart.new({"1" => 2, "2" => 3}) }
 
   describe "#total_count" do
     it "can calculate the total number of items it holds" do
-      expect(subject.total_count).to eq(5)
+      cart = Cart.new({"1" => 2, "2" => 3})
+      expect(cart.total_count).to eq(5)
     end
   end
 end
@@ -365,7 +392,7 @@ class Cart
   attr_reader :contents
 
   def initialize(initial_contents)
-    @contents = initial_contents || {}
+    @contents = initial_contents || Hash.new(0)
   end
 
   def total_count
@@ -385,11 +412,10 @@ class CartsController < ApplicationController
   include ActionView::Helpers::TextHelper
 
   def create
-    id   = params[:movie_id].to_s
-    movie = Movie.find_by(id: id)
-    session[:cart] ||= {}
-    session[:cart][id] = (session[:cart][id] || 0) + 1
-    flash[:notice] = "You now have #{pluralize(session[:cart][id], @movie.title)} in your cart."
+    movie = Movie.find(params[:movie_id])
+    session[:cart] ||= Hash.new(0)
+    session[:cart][movie.id.to_s] = session[:cart][movie.id.to_s] + 1
+    flash[:notice] = "You now have #{pluralize(session[:cart][movie.id.to_s], movie.title)}."
     redirect_to movies_path
   end
 end
@@ -410,7 +436,7 @@ class CartsController < ApplicationController
     @cart.add_movie(movie.id)
     session[:cart] = @cart.contents
 
-    flash[:notice] = "You now have #{pluralize(@cart.count_of(movie.id), movie.name)}."
+    flash[:notice] = "You now have #{pluralize(@cart.count_of(movie.id), movie.title)}."
     redirect_to movies_path
   end
 end
@@ -454,7 +480,7 @@ In order to get these tests to pass, add the following two methods to our Cart P
 
 ```ruby
 def add_movie(id)
-  contents[id.to_s] = (contents[id.to_s] || 0) + 1
+  contents[id.to_s] = contents[id.to_s] + 1
 end
 
 def count_of(id)
@@ -462,7 +488,7 @@ def count_of(id)
 end
 ```
 
-What if we ask for the count of a non-existant movie?  Add `expect(subject.count_of(0)).to eq(0)` to your test for the `count_of` method. What's the matter, got `nil`? Let's **coerce** `nil` values to `0` with `#to_i`.
+What if we ask for the count of a non-existent movie?  Add `expect(subject.count_of(0)).to eq(0)` to your test for the `count_of` method. What's the matter, got `nil`? Let's **coerce** `nil` values to `0` with `#to_i`.
 
 ```
 def count_of(id)
