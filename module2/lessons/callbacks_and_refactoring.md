@@ -13,7 +13,12 @@ tags: rails, ruby, callbacks, refactoring, dry
 
 ## Vocabulary  
 * callback
-* dry
+* DRY
+* slug
+
+## WarmUp
+* What refactoring strategies have you used in Rails so far?
+* How have you kept your Rails apps DRY? 
 
 ## Setup
 
@@ -121,3 +126,7 @@ Callbacks are super powerful, but why should we use them with care?
 Let's break up into 4 groups to research this.
 
 Try to be diligent with your research and come to your own conclusions. This practice will come in handy when navigating opinionated developers in your career.
+
+## WrapUp
+* What is a callback? Name 5 of them.
+* When should you use a callback?
