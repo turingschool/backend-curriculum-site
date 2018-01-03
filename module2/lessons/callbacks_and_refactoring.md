@@ -91,6 +91,8 @@ def show
 end
 ```
 
+One last piece of the puzzle. Right now we are finding our movie by it's slug, but we call params[:id] to get that slug. Huh? 
+
 ## [Rails/ActiveRecord Callbacks](http://api.rubyonrails.org/classes/ActiveRecord/Callbacks.html)
 
 1. Creating an Object
