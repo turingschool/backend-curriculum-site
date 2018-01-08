@@ -10,77 +10,41 @@ title: HTML and CSS Best Practices
   3. How can we nest css properties in SASS?
   4. What does SASS stand for?
 
-### More SASS
-
-#### Using `@extend`
-
-- Let's say, in `movie_mania`, we want to update our `movies#index` css file. It seems like our title and description share the same color but the title is bold. What if we want both to be bold and purple? We can extend the style of one class to the other to cut down on duplication.
-
-```css
-ul {
-  border: $custom-border;
-  .title {
-    color: $custom-color;
-    font-weight: bold;
-  }
-
-  .description {
-    @extend .title;
-  }
-}
-```
-
-- A selector can use more than one extend!
-
-#### Mixins  
-
-- Mixins allow you to define styles that can be re-used throughout the stylesheet. A good place to include these might be the `base.scss` file (see below)
-
-```css
-@mixin header-styles {
-  color: $custom-color;
-  font-weight: bold;
-}
-
-.description {
-  @include header-styles;
-}
-
-.title {
-  @include header-styles;
-}
-```
-
-- Mixins can also take arguments! 
-
-```css
-@mixin header-styles($color, $weight) {
-  color: $color;
-  font-weight: $weight;
-}
-
-.description {
-  @include header-styles(red, bold);
-}
-
-.title {
-  @include header-styles($custom-color, italic);
-}
-```
+## More SASS
 
 ### Key to success: Modularity
 
 HTML and CSS deserve to be as DRY as your Ruby is. This is difficult to achieve in raw HTML and CSS.
 
-### SCSS Setup in Rails
+### SCSS Setup in Rails - Manual
 
-[`sass-rails`](https://github.com/rails/sass-rails) ships with Rails 5 projects. If you need to add it manually:
+[`sass-rails`](https://github.com/rails/sass-rails) ships with Rails 5 and > projects. If you need to add it manually:
 
 ```ruby
 # Gemfile
 gem 'sass-rails'
 ```
 This should provide for you an `application.scss` within `app/assets/stylesheets`
+
+### Including Partials in your SCSS Manifesto
+
+We are going to extract some scss from our `custom.scss` file so we need to load them into our SCSS manifesto properly (`application.scss`).
+
+A general rule of thumb is **import in order of least specific to most specific**. This way, if base styles need to be overridden, they can be within their individual section.
+
+With our above examples, our `application.scss` would look something like:
+
+```scss
+/* assets/stylesheets/application.scss */
+
+@import 'base';
+@import 'skeleton';
+
+@import 'components/buttons';
+
+@import 'sections/header';
+@import 'sections/movies-index';
+```
 
 ### Identifying and Extracting Modularity
 
@@ -90,50 +54,60 @@ Right off the bat, create a `base.scss` partial that can hold all base styles fo
 
 I'd highly recommend saving theme colors to variables and importing fonts and saving them to variables within this partial to start.
 
-```scss
+Let's put our font colors and type there. We want to use a new "fun" font!
+
+```css
 /* assets/stylesheets/base.scss */
 
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Joti+One');
 
-$font-sans-serif: 'Open Sans', sans-serif;
+$font-default: 'Joti One', cursive;
 
-$light: #fff;
-$dark: #000;
-$accent: #64609a;
+$light-purple: #E8E1EF;
+$ice-blue: #D9FFF8;
+$wow-green: #C7FFDA;
+$mellow-green: #C4F4C7;
+$forest-green: #9BB291;
 ```
 
 #### Step 2: Skeletal styles
 
 If all of our sections of the site we're building are sharing consistency among element names, consistency is assumed among styling for these elements.
 
-Perhaps each `h2` have the same `font-family`, `font-size`, and `color`.
-
-Perhaps each `section` has 30px of top and bottom `padding`.
-
-Perhaps every-other `section` has an accent `background-color`.
-
 We can gather all of this into an SCSS partial.
 
 ```css
 /* assets/stylesheets/skeleton.scss */
+h1 {
+  font: {
+    family: $font-default;
+    size: 50px;
+  }
+  color: $ice-blue;
+}
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: Helvetica;
+h2 {
+  text: {
+    align: center;
+    decoration: underline;
+  }
 }
+
+
 p {
-  font-family: Arial;
-  font-size: 14px;
+  font: {
+    family: papyrus;
+    size: 15px;
+  }
 }
-section {
-  padding: 30px auto;
-}
+
 ```
 
 #### Step 3: Sections
 
 This would allow me to, at any moment, easily find and update the styles associated with a specific section.
 
-```scss
+```css
 /* assets/stylesheets/sections/_header.scss */
 
 header {
@@ -142,28 +116,24 @@ header {
 }
 ```
 
-```scss
-/* assets/stylesheets/sections/_about.scss */
+```css
+/* assets/stylesheets/sections/_movie-index.scss */
 
-.about {
+.movie-index {
+  h1 {
+    color: $mellow-green;
+  }
+
   h2 {
+    color: $forest-green;
+    border: $wow-border;
   }
   p {
+    border: $wow-border;
   }
 }
-```
 
-```scss
-/* assets/stylesheets/sections/_customers.scss */
 
-.customers {
-  h2 {
-  }
-  ul {
-    li {
-    }
-  }
-}
 ```
 
 #### Step 4: Global Components
@@ -185,15 +155,24 @@ Consider the following possibly global components you'd have sprinkled across yo
 
 Creating a separate SCSS partial for each of these makes our code immensely more modular. So modular, in fact, that you could reuse these partials among other sites you build with a simple drag/drop and aligning of element/class names.
 
-```scss
+```HTML
+<div class="movie-index">
+  <h1>All Movies</h1>
+
+  <% @movies.each do |movie| %>
+    <h2><%= movie.title %></h2>
+    <p><%= movie.description %></p>
+    <%= button_to "Add Movie", carts_path(movie_id: movie.id), class: 'button.cart' %>
+  <% end %>
+</div>
+```
+
+```css
 /* assets/stylesheets/components/_buttons.scss */
 
 .button {
-  &.link-to {
-  }
-  &.favorite {
-  }
-  &.contact {
+  &.cart {
+    background-color: $mellow-green;
   }
 }
 ```
@@ -206,31 +185,31 @@ This cascade of partials may not be immediately implementable for your site. You
 - Section partials with styles specific to that section
 - Global components defined in one place
 
-### Including Partials in your SCSS Manifesto
+### More SASS syntax
 
-All of the above is good and great, so long as you've got them loaded into your SCSS manifesto properly (`application.scss`).
+#### Using `@extend`
 
-A general rule of thumb is **import in order of least specific to most specific**. This way, if base styles need to be overridden, they can be within their individual section.
+- Let's say, in `movie_mania`, we want to style our `movies#new` css file. It seems like our title and description share the same color but the title is bold. What if we want both to be bold and purple? We can extend the style of one class to the other to cut down on duplication.
 
-With our above examples, our `application.scss` would look something like:
+```css
+ul {
+  border: $custom-border;
+  .title {
+    color: $custom-color;
+    font-weight: bold;
+  }
 
-```scss
-/* assets/stylesheets/application.scss */
-
-@import 'base';
-@import 'skeleton';
-@import 'colors';
-@import 'typography';
-
-@import 'components/buttons';
-
-@import 'sections/header';
-@import 'sections/about';
-@import 'sections/movies';
-@import 'sections/directors';
-@import 'sections/users';
-@import 'sections/footer';
+  .description {
+    @extend .title;
+  }
+}
 ```
+
+- A selector can use more than one extend!
+
+#### Mixins  
+
+- Mixins allow you to define styles that can be re-used throughout the stylesheet.
 
 ### Other Suggestions
 
