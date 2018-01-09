@@ -1,6 +1,6 @@
 # Open Source Project
 
-So far we've been building a lot of projects from scratch. While this is a great way to learn, it doesn't quite prepare you for the horror that is jumping into a pre-existing codebase full of bugs, legacy code and unfamiliar frameworks and libraries. 
+So far we've been building a lot of projects from scratch. While this is a great way to learn, it doesn't quite prepare you for the horror that is jumping into a pre-existing codebase full of bugs, legacy code and unfamiliar frameworks and libraries.
 
 In this project, we'll learn how to navigate and contribute to someone else's codebase by implementing features, refactoring old code, and fixing bugs: all without breaking anything. Be careful what you touch! The slightest change could bring the whole app down.
 
@@ -40,7 +40,7 @@ If you cannot come up with a solution to submit a pull request by the project, y
 
 *Sorry, but I've had to drop this issue from my to-do list. I won't be able to submit a pull request in a timely manner and don't want to hold up progress. Hopefully someone else will be able to pick this up!*
 
-Throughout this process, make sure you are conforming to any stylistic conventions and contribution guidelines set by the project maintainers. Repos will often have `CONTRIBUTING.md` files that give you guidelines on how to format your commit messages, how to write your pull request descriptions and how to file new issues. 
+Throughout this process, make sure you are conforming to any stylistic conventions and contribution guidelines set by the project maintainers. Repos will often have `CONTRIBUTING.md` files that give you guidelines on how to format your commit messages, how to write your pull request descriptions and how to file new issues.
 
 #### Getting Instructor Review & Approval
 
@@ -67,7 +67,7 @@ Each group will present the work they accomplished (or didn't accomplish) to the
 
 Put your presentation into writing. Each person must write their own blog post. You can write about all four sections described in the presentation, or pick a single one to go in-depth on. Regardless of what you choose, each blog post should be about 500 - 1,000 words. We encourage you to post this publicly on medium or your own blog site.
 
-You'll submit your blog post [here](https://github.com/turingschool/ruby-submissions/blob/master/1705-b/4module/oss_blog_submission.md) **before** your group presentation.
+You'll submit your blog post [here](https://github.com/turingschool/ruby-submissions/blob/master/1706-b/4module/oss_blog_submission.md) **before** your group presentation.
 
 -----------------------------------------------------------
 
@@ -79,6 +79,7 @@ You'll submit your blog post [here](https://github.com/turingschool/ruby-submiss
 #### [Code for Social Good - Web App](https://github.com/Code4SocialGood/c4sg-web) - Angular, Java, HTML/CSS
 #### [Ruby For Good - Playtime](https://github.com/rubyforgood/playtime) - Rails
 #### [Ruby For Good - PantryScheduler](https://github.com/rubyforgood/pantry_scheduler) - React & Rails
+#### [Spree - Spree]](https://github.com/rubyforgood/pantry_scheduler) -  Rails
 
 _If you don't see a project here that you'd like to contribute to, you're more than welcome to contribute to another project as long as you get it approved by an instructor. Keep in mind you only have about a day and a half to complete this assignment._
 
