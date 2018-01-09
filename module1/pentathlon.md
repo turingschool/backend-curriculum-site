@@ -14,10 +14,6 @@ Students will have 2 hours to complete a timed exercise. Outside documentation i
 2.   There will be a branch that has tests on it that the student will have to merge into the master branch and resolve any conflicts.
 3.   Once conflicts are resolved, the student will have to complete the remaining challenge, with testing, on their own branch (will include enumerable and additional code).
 4.   Student must submit a PR to the repo.
-<!-- 
-## Written Diagnostic
-
-Students will have 90 minutes to complete a written diagnostic. Questions will cover material from the five weekly diagnostics students receive each Friday. -->
 
 ## Final (Paired) Project
 
