@@ -31,7 +31,7 @@ This lesson in intended as a follow up to this [video](https://vimeo.com/2382945
 ## File Writing with Unix & Ruby 
 #### Compare
 
-Using a chart compare commands in Unix & Ruby 
+Using a chart, compare commands in Unix & Ruby 
 
 
 |  | Unix Commands | Ruby Commands |  
