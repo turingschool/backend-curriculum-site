@@ -80,40 +80,6 @@ You'll submit your blog post [here](https://github.com/turingschool/ruby-submiss
 #### [Ruby For Good - Playtime](https://github.com/rubyforgood/playtime) - Rails
 #### [Ruby For Good - PantryScheduler](https://github.com/rubyforgood/pantry_scheduler) - React & Rails
 #### [Spree - Spree]](https://github.com/rubyforgood/pantry_scheduler) -  Rails
+#### [Zarel - Pokemon-Showdown]](https://github.com/Zarel/Pokemon-Showdown/) -  Node.js
 
 _If you don't see a project here that you'd like to contribute to, you're more than welcome to contribute to another project as long as you get it approved by an instructor. Keep in mind you only have about a day and a half to complete this assignment._
-
-<!--### [Vets.gov](https://github.com/department-of-veterans-affairs/vets-website)
-
-**Potential Issues:**
-
-* [#3434](https://github.com/department-of-veterans-affairs/vets-website/issues/3434)
-* [#3274](https://github.com/department-of-veterans-affairs/vets-website/issues/3274)
-* [#5221](https://github.com/department-of-veterans-affairs/vets-website/issues/5221)
-
-### [18F Crime Data](https://github.com/18F/crime-data-frontend)
-
-**Potential Issues:**
-
-* [#1136](https://github.com/18F/crime-data-frontend/issues/1136)
-* [#1135](https://github.com/18F/crime-data-frontend/issues/1135)
-* [#1088](https://github.com/18F/crime-data-frontend/issues/1088)
-* [#1008](https://github.com/18F/crime-data-frontend/issues/1008)
-* [#990](https://github.com/18F/crime-data-frontend/issues/990)
-
-### [Swagger UI](https://github.com/swagger-api/swagger-ui)
-
-**Potential Issues:**
-
-* [#3393](https://github.com/swagger-api/swagger-ui/issues/3393)
-* [#3359](https://github.com/swagger-api/swagger-ui/issues/3359)
-* [#3269](https://github.com/swagger-api/swagger-ui/issues/3269)
-
-### [Open Food Network](https://github.com/openfoodfoundation/openfoodnetwork)
-
-**Potential Issues:**
-* [#1311](https://github.com/openfoodfoundation/openfoodnetwork/issues/1311)
-* [#1306](https://github.com/openfoodfoundation/openfoodnetwork/issues/1306)
-* [#1296](https://github.com/openfoodfoundation/openfoodnetwork/issues/1296)
-* [#1382](https://github.com/openfoodfoundation/openfoodnetwork/issues/1382)
-* [#1307](https://github.com/openfoodfoundation/openfoodnetwork/issues/1307)-->
