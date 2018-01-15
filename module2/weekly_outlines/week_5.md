@@ -8,7 +8,7 @@ layout: page
 ### Day 1:
 
 * **LESSONS:**
-  - [Intro to the Asset Pipeline](../lessons/asset_pipeline)
+  - [Intermediate ActiveRecord](../lessons/intermediate_activerecord)
 
 * **HOMEWORK:**
   - [Little Shop](http://backend.turing.io/module2/projects/little_shop)
@@ -26,6 +26,7 @@ layout: page
 ### Day 3:
 
 * **LESSONS:**
+  - [Intro to the Asset Pipeline](../lessons/asset_pipeline)
   - [Remembering Ruby](../misc/violations): Complete the challenge described.
 
 * **HOMEWORK:**

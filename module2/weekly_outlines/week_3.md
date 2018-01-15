@@ -9,8 +9,8 @@ layout: page
 
 * **LESSONS:**
   - [Forms in Rails](../lessons/form_helpers_rails)
-  - [Nested Resources](../lessons/nested_resources)
   - [Route Helpers](../lessons/route_helpers)
+  - [Nested Resources](../lessons/nested_resources)
 
 * **HOMEWORK:**
   - JobTracker
@@ -18,8 +18,10 @@ layout: page
 ### Day 2:
 
 * **LESSONS:**
-  - [SQL Refresher](../lessons/sql_refresher)
+
+  - [Design Principles](../lessons/design_principles)
   - [Factory Bot](../lessons/factory_bot)
+  - [Diagrams and The Web](../lessons/diagrams_and_the_web)
 
 * **HOMEWORK:**
   - JobTracker

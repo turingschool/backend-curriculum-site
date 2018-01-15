@@ -22,7 +22,8 @@ layout: page
 ### Day 3:
 
 * **LESSONS:**
-  - [ActiveRecord Obstacle Course](../misc/active_record_obstacle_course)
+  - [HTML/CSS Best Practices](../lessons/html_css_best_practices)
+  - [SQL Refresher](../lessons/sql_refresher)
 
 * **HOMEWORK:**
   - Extension: Experimenting with APIs: Work through [this tutorial and workshop](../misc/exploring_apis_workshop) which will prepare you for extensions in your Rails Mini-Project and Little Shop.
@@ -33,6 +34,7 @@ layout: page
 * **LESSONS:**
   - [Rebasing](../lessons/intro_to_rebasing)
   - [Accessibility Best Practices](../lessons/accessibility_best_practices)
+  - [ActiveRecord Obstacle Course](../misc/active_record_obstacle_course)
 
 
 ### Day 5

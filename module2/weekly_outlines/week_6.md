@@ -12,9 +12,6 @@ layout: page
 
 ### Day 1:
 
-* **LESSONS:**
-  - [HTML/CSS Best Practices](../lessons/html_css_best_practices)
-
 * **HOMEWORK:**
   - [Little Shop](http://backend.turing.io/module2/projects/little_shop)
 
