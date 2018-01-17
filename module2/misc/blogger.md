@@ -484,7 +484,7 @@ $ article.save
 $ Article.all
 ```
 
-Now you'll see that the `Article.all` command gave you back an array holding the one article we created and saved. Go ahead and **create 3 more sample articles**.
+Now you'll see that the `Article.all` command gave you back an array holding the one article we created and saved. Go ahead and **create 3 more sample articles**. When you're finished type `exit` to leave the console.
 
 #### Validations
 
@@ -616,8 +616,8 @@ end
 We need to first do the test setup, usually requiring data prep. In this test our user is going to visit the URI `/articles` and expect to see multiple articles' information displayed. For this test we will need more than one article. Add the following within the it block of your test.
 
 ```ruby
-      article_1 = Article.new(title: "Title 1", body: "Body 1")
-      article_2 = Article.new(title: "Title 2", body: "Body 2")
+      article_1 = Article.create!(title: "Title 1", body: "Body 1")
+      article_2 = Article.create!(title: "Title 2", body: "Body 2")
 ``` 
 
 We also will use Capybara methods to tell our test to navigate to the right page. Add the following below your data prep but still within the it block.
@@ -780,13 +780,27 @@ The second column, here `GET`, is the HTTP verb for the route. Web browsers typi
 
 The third column is similar to a regular expression which is matched against the requested URL. Elements in parentheses are optional. Markers starting with a `:` will be made available to the controller with that name. In our example line, `/articles(.:format)` will match the URLs `/articles/`, `/articles.json`, `/articles` and other similar forms.
 
-The fourth column is where the route maps to in the applications. Our example has `articles#index`, so requests will be sent to the `index` method of the `ArticlesController` class.
+The fourth column is where the route maps to in the application. Our example has `articles#index`, so requests will be sent to the `index` method of the `ArticlesController` class.
 
 Now that the router knows how to handle requests about articles, it needs a place to actually send those requests, the *Controller*.
 
+If we re-run `rspec` we get an error telling us likewise. Note you're error message will likely be just as large as last time, but we only really need to focus on the failure message printed above the stack trace. My error reads:
+
+```ruby
+Failures:
+
+  1) user sees all articles they visit /articles displays all articles
+     Failure/Error: visit '/articles'
+
+     ActionController::RoutingError:
+       uninitialized constant ArticlesController
+```
+
+RSpec can't find a class called ArticlesController. Let's go make one!
+
 ### Creating the Articles Controller
 
-Your terminal has the console currently running. Let's open one more terminal or command prompt and move to your project directory which we'll use for command-line scripts. In that new terminal, enter this command:
+Let's open one more terminal or command prompt and move to your project directory which we'll use for command-line scripts. I generally like to keep one terminal tab for my console, one for running tests/command prompts, and one for my server. In that a terminal window, enter this command:
 
 ```
 $ touch app/controllers/articles_controller.rb
@@ -806,17 +820,34 @@ end
 
 What is ApplicationController? Look at the controllers folder and you should see an `application_controller.rb` file. This file defines the `ApplicationController` class, which (generally) all of your other controllers will inherit from.
 
+Let's run our tests again with `rspec`. Looking above the blue stack trace I see the following message:
+
+```ruby
+Failures:
+
+  1) user sees all articles they visit /articles displays all articles
+     Failure/Error: visit '/articles'
+
+     AbstractController::ActionNotFound:
+       The action 'index' could not be found for ArticlesController
+```
+
+Woo new errors! This means we're making progress. What is this action 'index' all about? 
+
+
 ### Defining the Index Action
 
 The first feature we want to add is an "index" page. This is what the app will send back when a user requests `http://localhost:3000/articles/` -- following the RESTful conventions, this should be a list of the articles. So when the router sees this request come in, it tries to call the `index` action inside `articles_controller`.
 
-Let's first try it out by entering `http://localhost:3000/articles/` into your web browser. You should get an error message that looks like this:
+Let's first try it out by entering `http://localhost:3000/articles/` into your web browser. If you no longer have a server running, remember you can spin one up with the `rails s` command. You should get an error message that looks like this:
 
 ```
 Unknown action
 
 The action 'index' could not be found for ArticlesController
 ```
+
+Same error message our test gave us! 
 
 The router tried to call the `index` action, but the articles controller doesn't have a method with that name. It then lists available actions, but there aren't any. This is because our controller is still blank. Let's add the following method inside the controller:
 
@@ -828,15 +859,38 @@ end
 
 #### Instance Variables
 
-What is that "at" sign doing on the front of `@articles`?  That marks this variable as an "instance level variable". We want the list of articles to be accessible from both the controller and the view that we're about to create. In order for it to be visible in both places it has to be an instance variable. If we had just named it `articles`, that local variable would only be available within the `index` method of the controller.
+What is that "at" sign doing on the front of `@articles`?  That marks this variable as an "instance level variable". We want the list of all articles in the database to be accessible from both the controller and the view that we're about to create. In order for it to be visible in both places it has to be an instance variable. If we had just named it `articles`, that local variable would only be available within the `index` method of the controller.
 
 A normal Ruby instance variable is available to all methods within an instance.
 
 There are ways to accomplish the same goals without instance variables, but they're not widely used. Check out the [Decent Exposure](https://github.com/voxdolo/decent_exposure) gem to learn more.
 
+If we run our tests again, we should get a different error now in the failure section, above the stack trace. 
+
+```ruby
+ 1) user sees all articles they visit /articles displays all articles
+     Failure/Error: visit '/articles'
+
+     ActionController::UnknownFormat:
+       ArticlesController#index is missing a template for this request format and variant.
+
+       request.formats: ["text/html"]
+       request.variant: []
+
+       NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.
+```
+
+GAH! What does all that mean? The part I focus on is this:
+
+```ruby
+ArticlesController#index is missing a template for this request format and variant.
+```
+
+It's telling us we don't have a view template for this index action method.
+
 ### Creating the Template
 
-Now refresh your browser. The error message changed, but you've still got an error, right?
+Now refresh your browser. The error message changed, but you've still got an error just like our new test error, right?
 
 ```
 ActionController::UnknownFormat in ArticlesController#index
@@ -846,20 +900,35 @@ ArticlesController#index is missing a template for this request format and varia
 
 The error message is pretty helpful here. It tells us that the app is looking for a (view) template in `app/views/articles/` but it can't find one named `index.erb`. Rails has *assumed* that our `index` action in the controller should have a corresponding `index.erb` view template in the views folder. We didn't have to put any code in the controller to tell it what view we wanted, Rails just figures it out.
 
-To get some helpful git reps, let's commit our changes and checkout a branch from our current
-`articles-controller` branch to add the view.
+Let's commit our changes.
 
 ```
-git add .
+git add config/routes
+git add app/controllers/articles_controller.rb
 git commit -m "Set up /articles route and action"
-git checkout -b article-index-view
 ```
 
-In your editor, find the folder `app/views/articles` and, in that folder, create a file named `index.html.erb`.
+Let's create our view template.
+
+```bash
+mkdir app/views/articles
+touch app/views/articles/index.html.erb
+```
 
 #### Naming Templates
 
 Why did we choose `index.html.erb` instead of the `index.erb` that the error message said it was looking for?  Putting the HTML in the name makes it clear that this view is for generating HTML. In later versions of our blog we might create an RSS feed which would just mean creating an XML view template like `index.xml.erb`. Rails is smart enough to pick the right one based on the browser's request, so when we just ask for `http://localhost:3000/articles/` it will find the `index.html.erb` and render that file.
+
+Let's run our tests again and see how our changes have affected our error message. You'll notice how this error message is much shorter. Where'd the stack trace go? Since we've successfully loaded the page, RSpec is is now only looking for text on the page. None of or our Rails methods are erroring out, thus no stack trace. Either way, we're still going to focus on what the message within the `Failures:` section says:
+
+```ruby
+Failures:
+
+  1) user sees all articles they visit /articles displays all articles
+     Failure/Error: expect(page).to have_content(article_1.title)
+       expected to find text "Title 1" in ""
+     # ./spec/features/user_sees_all_articles_spec.rb:11:in `block (3 levels) in <top (required)>'
+```
 
 #### Index Template Content
 
@@ -873,6 +942,9 @@ Now you're looking at a blank file. Enter in this view template code which is a 
     <li>
       <%= article.title %>
     </li>
+     <li>
+      <%= article.body %>
+    </li>
   <% end %>
 </ul>
 ```
@@ -883,25 +955,58 @@ ERB is a templating language that allows us to mix Ruby into our HTML. There are
 * If the clause started with `<%`, the result of the ruby code will be hidden
 * If the clause started with `<%=`, the result of the ruby code will be output in place of the clause
 
-Save the file and refresh your web browser. You should see a listing of the articles you created in the console. We've got the start of a web application!
+When we run our tests, what do we get?
+
+```ruby
+user sees all articles
+  they visit /articles
+    displays all articles
+
+Article
+  validations
+    should validate that :title cannot be empty/falsy
+    should validate that :body cannot be empty/falsy
+
+Finished in 0.21042 seconds (files took 2.32 seconds to load)
+3 examples, 0 failures
+```
+
+Woo, green passing tests!!
+
+Refresh your web browser. You should see a listing of the articles you created in the console. We've got the start of a web application!
 
 Let's commit our changes and head back into our controller and merge our new index view.
 
 ```
-git add .
+git add app/views/articles/
 git commit -m "Add articles index template"
-git checkout articles-controller
-git merge articles-index-view
 ```
-
-Because we developed the view in a branch off the `articles-controllers` branch, we merge into `articles-controller` and not `master`.
 
 Let's double check our `/articles` path one more time in the browser to make sure our merge links the controller and the view correctly. Once that's squared away, let's merge `articles-controller` to `master`:
 
 ```
+git pull origin master
+git push origin articles-controller
+```
+On GitHub put in a PR to merge your changes into master (Yes put in a PR even though you're working solo.
+
+My PR message looks like this:
+
+```
+Add Articles Index Functionality
+* Add a feature spec for all articles
+* Add all routes for articles 
+* Add an ArticlesController
+* Add an index action within ArticlesController
+* Add a view for articles/index
+* All tests passing
+```
+
+Merge your PR. Then come back to your CLI to pull down the current master.
+
+```
 git checkout master
-git merge articles-controller
-git push
+git pull origin master
 git branch -d articles-controller
 ```
 
