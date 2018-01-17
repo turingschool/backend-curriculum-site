@@ -97,7 +97,7 @@ By running `rails new`, the generator has created a Rails application for you. L
 * `lib` - This folder is to store code you control that is reusable outside the project.
 * `log` - Log files, one for each environment (development, test, production)
 * `public` - Static files can be stored and accessed from here, but all the interesting things (JavaScript, Images, CSS) have been moved up to `app` since Rails 3.1
-* `spec` - When you installed RSpec, it created this directory as well as a `rails_helper.rb` and a `spec_helper.rb` file. Your tests will live here.
+* `spec` - When you install RSpec, it creates this directory as well as a `rails_helper.rb` and a `spec_helper.rb` file. Your tests will live here. You probably don't see this folder right now, but we'll circle back around to installing RSpec.
 * `tmp` - Temporary cached files
 * `vendor` - Infrequently used, this folder is to store code you *do not* control. With Bundler and Rubygems, we generally don't need anything in here during development.
 
@@ -139,6 +139,93 @@ You'll see the Rails' "Welcome Aboard" page. As long as there's no big ugly erro
 
 If you see an error here, it's most likely related to the database. You are probably running Windows and don't have either the SQLite3 application installed or the gem isn't installed properly. Go back to [Environment Setup](http://tutorials.jumpstartlab.com/topics/environment/environment.html) and use the Rails Installer package. Make sure you check the box during setup to configure the environment variables. Restart your machine after the installation and give it another try.
 
+### Setting Up for Testing 
+
+We're going to work with a few different tools while testing, [RSpec](https://relishapp.com/rspec), [Capybara](https://github.com/teamcapybara/capybara), [Launchy](https://github.com/copiousfreetime/launchy), and [Shoulda Matchers](https://github.com/thoughtbot/shoulda-matchers). RSpec is a test driver comparable to MiniTest. RSpec allows you to rung unit, integration and feature tests. Capybara is a DSL(Domain Specific Language) that helps you build tests in a user friendly format, naviating the page and performing user actions. Launchy is a helper class that allows you to add the line `save_and_open_page` within a test. When you run your test suite a browser window will be opened with the current state of the web page where the `save_and_open_page` is located. It is a helpful debugging tool. Shoulda Matchers provides us simple one liners helpful in testing validations and relationships on models.
+
+#### Adding Gems 
+
+In your Gemfile, you should already have a group :development, :test section that looks like this: 
+
+```ruby
+group :development, :test do
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+end
+```
+
+In this section add `gem rspec-rails` `gem capybara`, `gem launchy`, and `gem shoulda-matchers`. Then run `bundle` from your command line. You should see a long print out gems being bundled for use in your projecut. The end result of your bundle should look something like this:
+
+```ruby
+Bundle complete! 14 Gemfile dependencies, 71 gems now installed.
+Use `bundle info [gemname]` to see where a bundled gem is installed.
+```
+
+Your Gemfile group :development, :test should now look like this:
+
+```ruby
+group :development, :test do
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'shoulda-matchers'
+end
+```
+
+#### Further RSpec setup
+
+Notice we still don't have that `spec` directory we talked about earlier. We need to futher install RSpec. From your command line, enter the command `rails g rspec:install`. I'd expect to see the following output:
+
+```ruby
+   create  .rspec
+   create  spec
+   create  spec/spec_helper.rb
+   create  spec/rails_helper.rb
+```
+
+If you check your project directory now, you should see a `spec` folder with two new files, `spec_helper.rb` and `rails_helper.rb`. If you click into these files you'll see that spec_helper is more about configuring RSpec while rails_helper is more about tying RSpec and Rails together. You'll need to require `rails_helper` from the beginning of each test you write in your project. At the root of your project you'll also see a `.rspec` file. This file requires in your `spec_helper.rb`.
+
+#### Further Shoulda Matchers Setup  
+
+In `rails_helper.rb` add the following configuration for Shoulda Matchers.
+
+```ruby
+Shoulda::Matchers.configure do |config|
+  config.integrate do |with|
+    # Choose a test framework:
+    with.test_framework :rspec
+    # Or, choose the following (which implies all of the above):
+    with.library :rails
+  end
+end
+```
+
+
+#### Don't forget to commit as you go
+Let's commit these updates with git. 
+
+```
+git add Gemfile
+git add Gemfile.lock
+git add spec
+git add .rspec	
+git status (Everything should be green now)
+git commit -m "Add setup for testing with RSpec and Shoulda Matchers"
+```
+
+#### Directory Setup 
+
+You'll want all your tests to be organized so that Rails finds them and also so developers working on your project have an easy time navigating your test files. We want to make sub directories for our model tests and feature tests. And then add a .keep file to each so git tracks the emtpy directories. 
+
+```bash
+mkdir spec/models spec/features
+touch spec/models/.keep spec/features/.keep
+```  
+
+If you run a `git status` you should see `spec/features` and `spec/models` in red.  Add and commit these changes before moving on.
+
 ### Creating the Article Model
 
 Our blog will be centered around `articles`, each with a `title` and `body`, so we'll need a table in the database to store all the articles and a model to allow our Rails app to work with that data.
@@ -150,6 +237,70 @@ git checkout -b article-model
 ```
 
 With `checkout` we create a new branch (`-b` for branch) off of the `master` branch called `article-model` and move directly into it. Let's get our Model on now.
+
+
+#### Model Tests
+Before we dive into the deep and start changing things, let's great a test to help drive our development and keep up focused. Within `spec/models` touch `article_spec.rb`
+
+```bash
+touch spec/models/article_spec.rb`
+```
+
+In your article_spec add the following test:
+
+```ruby
+require "rails_helper
+
+describe Article, type: :model do
+  describe "validations" do
+    it {should validate_presence_of(:title)}
+    it {should validate_presence_of(:body)}
+  end
+end
+```
+
+And commit it. 
+
+```bash
+git add spec/models/article_spec.rb
+git commit -m "Add article spec with validations"
+```
+You can run your test suite from your CLI(command line interface) with the command `rspec`. Go ahead and do that now.  I get the following print out:
+
+```bash
+/Users/aleneschlereth/turing/1711/practice/blogger/db/schema.rb doesn't exist yet. Run `rails db:migrate` to create it, then try again. If you do not intend to use a database, you should instead alter /Users/aleneschlereth/turing/1711/practice/blogger/config/application.rb to limit the frameworks that will be loaded.
+
+An error occurred while loading ./spec/models/article_spec.rb.
+Failure/Error:
+  describe Article, type: model do
+    describe "validations" do
+      it {should validate_presence_of(:title)}
+      it {should validate_presence_of(:body)}
+    end
+  end
+
+NameError:
+  uninitialized constant Article
+# ./spec/models/article_spec.rb:3:in `<top (required)>'
+No examples found.
+
+Finished in 0.00076 seconds (files took 3.69 seconds to load)
+0 examples, 0 failures, 1 error occurred outside of examples
+```
+
+There's a lot going on here. Let's focus our attention to the NameError section:
+
+```
+NameError:
+  uninitialized constant Article
+# ./spec/models/article_spec.rb:3:in `<top (required)>
+```
+
+We know from working with Ruby and MiniTest that this error is telling us it can't Article. In this past this has meant that maybe the files aren't required appropriately or the class just doesn't exist. Now that we'll be working with a database we also have to think about whether this resource exists in the database or not. 
+
+We haven't done anything with our database yet other than create an empty one. It definitely doesn't have Articles in there yet. Let's go solve that problem first. 
+
+#### Creating a Resource in the Database
 
 We'll use one of Rails' generators to create the required files. Switch to your terminal and enter the following:
 
@@ -183,7 +334,7 @@ Inside the `change` method you'll see the generator has placed a call to the `cr
 
 We call methods on `t` to create columns in the `articles` table. Since we used the command line to define our attributes, our migration should already be all set up the way we want it.
 
-That's it! You might be wondering, what is a "text" type?  This is an example of relying on the Rails database adapters to make the right call. For some DBs, large text fields are stored as `varchar`, while others like Postgres use a `text` type. The database adapter will figure out the best choice for us depending on the configured database -- we don't have to worry about it. The "string" type is similar, just shorter. You can think generally think of the former as multi-line and the latter as single-line/in-line.
+That's it! You might be wondering, what is a "text" type?  This is an example of relying on the Rails database adapters to make the right call. For some DBs, large text fields are stored as `varchar`, while others like Postgres use a `text` type. The database adapter will figure out the best choice for us depending on the configured database -- we don't have to worry about it. The "string" type is similar, just shorter. You can generally think of the former as multi-line and the latter as single-line/in-line.
 
 Your migration should look like this:
 
@@ -197,6 +348,8 @@ def change
   end
 end
 ```
+
+You may need to add the `t.timestamps` line.
 
 #### Timestamps
 
@@ -230,9 +383,40 @@ It tells you that it is running the migration named `CreateArticles`. And the "m
 
 We've now created the `articles` table in the database and can start working on our `Article` model.
 
-### Working with a Model in the Console
+Before we move on, don't forget to commit.
 
-Let's add the model so that our app doesn't complain:
+```bash
+git add db/migrate
+git add db/schema.rb
+git commit -m "Add Article migration"
+```
+
+### Working with a Model 
+
+Let's run `rspec` from our command line again. The output should look something like this:
+
+```
+An error occurred while loading ./spec/models/article_spec.rb.
+Failure/Error:
+  describe Article, type: model do
+    describe "validations" do
+      it {should validate_presence_of(:title)}
+      it {should validate_presence_of(:body)}
+    end
+  end
+
+NameError:
+  uninitialized constant Article
+# ./spec/models/article_spec.rb:3:in `<top (required)>'
+No examples found
+
+Finished in 0.00044 seconds (files took 4.63 seconds to load)
+0 examples, 0 failures, 1 error occurred outside of examples
+```
+
+The top looks slightly different, but the meat of what we're focusing hasn't yet. RSpec still can't find an Article. 
+
+Let's add the model so that RSpec doesn't complain:
 
 ```bash
   touch app/models/article.rb
@@ -257,6 +441,9 @@ end
 
 That file inherits from ActiveRecord so we want to inherit from ApplicationRecord. This allows us to have a master model that could contain some shared methods.
 
+
+#### Rails Console
+
 Another awesome feature of working with Rails is the `console`. The `console` is a command-line interface to your application. It allows you to access and work with just about any part of your application directly instead of going through the web interface. This will accelerate your development process. Once an app is in production the console makes it very easy to do bulk modifications, searches, and other data operations. So let's open the console now by going to your terminal and entering this:
 
 ```
@@ -273,7 +460,7 @@ $ Article.new
 
 **Important!**
 
-The first line was just to demonstrate that you can run normal Ruby, just like `irb`, within your `console`. The second line referenced the `Article` model and called the `all` class method which returns an array of all articles in the database -- so far an empty array. The third line created a new article object. You can see that this new object had attributes `id`, `title`, `body`, `created_at`, and `updated_at`.
+The first line was just to demonstrate that you can run normal Ruby, just like `irb`, within your `console`. The second line referenced the `Article` model and called the `all` class method which returns an ActiveRecord::Relation, which acts and looks just like an array, of all articles in the database -- so far an empty one. The third line created a new article object. You can see that this new object had attributes `id`, `title`, `body`, `created_at`, and `updated_at`.
 
 Type `exit` to quit the Rails console.
 
@@ -299,27 +486,98 @@ $ Article.all
 
 Now you'll see that the `Article.all` command gave you back an array holding the one article we created and saved. Go ahead and **create 3 more sample articles**.
 
+#### Validations
+
+Back to our test suite again, when we run `rspec` our error has changed. 
+
+```bash
+Article
+  validations
+    should validate that :title cannot be empty/falsy (FAILED - 1)
+    should validate that :body cannot be empty/falsy (FAILED - 2)
+
+Failures:
+
+  1) Article validations should validate that :title cannot be empty/falsy
+     Failure/Error: it {should validate_presence_of(:title)}
+
+       Article did not properly validate that :title cannot be empty/falsy.
+         After setting :title to ‹nil›, the matcher expected the Article to be
+         invalid, but it was valid instead.
+     # ./spec/models/article_spec.rb:5:in `block (3 levels) in <top (required)>'
+
+  2) Article validations should validate that :body cannot be empty/falsy
+     Failure/Error: it {should validate_presence_of(:body)}
+
+       Article did not properly validate that :body cannot be empty/falsy.
+         After setting :body to ‹nil›, the matcher expected the Article to be
+         invalid, but it was valid instead.
+     # ./spec/models/article_spec.rb:6:in `block (3 levels) in <top (required)>'
+
+Finished in 0.06108 seconds (files took 2.23 seconds to load)
+2 examples, 2 failures
+
+Failed examples:
+
+rspec ./spec/models/article_spec.rb:5 # Article validations should validate that :title cannot be empty/falsy
+rspec ./spec/models/article_spec.rb:6 # Article validations should validate that :body cannot be empty/falsy
+```
+
+You should expect your error messages to be a bit longer than you've experienced in the past. The parts I want to focus on with this error are here:
+
+```bash
+Article did not properly validate that :body cannot be empty/falsy.
+         After setting :body to ‹nil›, the matcher expected the Article to be
+         invalid, but it was valid instead.
+```
+
+Basically RSpec is no longer concerned about finding the Article but now our assertion is failing. We told it we wanted every Article to have a title and body present, but our code doesn't demand that. In order to fix this, let's add some validations to our Article model.
+
+```ruby
+#app/models/article.rb
+class Article < ApplicationRecord
+
+  validates_presence_of :title, :body
+
+end
+```
+
+When we run `rspec` again you should see green. A passing test!
+
 This is a great start for our Article model, let's conclude our working branch
 and merge to master:
 
 Part 1 - Commit:
 
 ```
-git add .
-git commit -m "Add article model, tests, and migration"
+git add app/models/article.rb
+git commit -m "Add article model"
 ```
 
 Part 2 - Merge:
 
 ```
+git pull origin master
+git push origin article-model
+```
+On GitHub put in a PR to merge the branch article-model into master. My PR message looks like this:
+
+```
+Add Article Model 
+* Add Spec with validations for title and body
+* Add migration to create articles table in DB
+* Add Article model
+* Add validations for title and body to Article model
+* Test is passing 
+```
+
+Even though we are working on a solo project, we still want to keep strong git habits, which includes PRs and not merging to master. Since we're working solo, we will need to merge our own PRs though. Do that before moving on.
+
+To keep things nice and tidy, from the CLI(command line interface):
+
+```
 git checkout master
-git merge article-model
-git push
-```
-
-To keep things nice and tidy:
-
-```
+git pull origin master
 git branch -d article-model
 ```
 
@@ -332,6 +590,145 @@ Let's start off with a controller branch:
 ```
 git checkout -b articles-controller
 ```
+
+#### Feature Tests 
+
+As with anything we do, let's create a feature test before we go crazy building things we may or may not need. First, touch a new test file.
+
+```bash
+touch spec/features/user_sees_all_articles_spec.rb
+```
+
+Add the following test structure:
+
+```ruby
+require "rails_helper"
+
+describe "user sees all articles" do
+  desribe "they visit /articles" do
+    it "displays all articles" do
+      
+    end
+  end
+end
+```
+
+We need to first do the test setup, usually requiring data prep. In this test our user is going to visit the URI `/articles` and expect to see multiple articles' information displayed. For this test we will need more than one article. Add the following within the it block of your test.
+
+```ruby
+      article_1 = Article.new(title: "Title 1", body: "Body 1")
+      article_2 = Article.new(title: "Title 2", body: "Body 2")
+``` 
+
+We also will use Capybara methods to tell our test to navigate to the right page. Add the following below your data prep but still within the it block.
+
+```ruby
+     visit '/articles'
+```
+
+Lastly we need to assert or expect something. I want my user to see the title and body of each article on the page. Add the following expectations below your visit line.
+
+```ruby
+     expect(page).to have_content(article_1.title)
+     expect(page).to have_content(article_1.body)
+     expect(page).to have_content(article_2.title)
+     expect(page).to have_content(article_2.body)
+```
+
+The test should look like this altogether:
+
+```ruby
+require "rails_helper"
+
+describe "user sees all articles" do
+  describe "they visit /articles" do
+    it "displays all articles" do
+      article_1 = Article.new(title: "Title 1", body: "Body 1")
+      article_2 = Article.new(title: "Title 2", body: "Body 2")
+
+      visit '/articles'
+
+      expect(page).to have_content(article_1.title)
+      expect(page).to have_content(article_1.body)
+      expect(page).to have_content(article_2.title)
+      expect(page).to have_content(article_2.body)
+    end
+  end
+end
+```
+
+Now that we have a test, let's commit it.
+
+```bash
+git add spec/features/user_sees_all_articles_spec.rb
+git commit -m 'Add all articles feature spec'
+```
+
+Let's run it!
+
+See what I mean about longer error messages?
+
+```ruby
+user sees all articles
+  they visit /articles
+    displays all articles (FAILED - 1)
+
+Article
+  validations
+    should validate that :title cannot be empty/falsy
+    should validate that :body cannot be empty/falsy
+
+Failures:
+
+  1) user sees all articles they visit /articles displays all articles
+     Failure/Error: visit '/articles'
+
+     ActionController::RoutingError:
+       No route matches [GET] "/articles"
+     # /Users/aleneschlereth/.rvm/gems/ruby-2.4.0/gems/railties-5.1.4/lib/rails/rack/logger.rb:36:in `call_app'
+     # /Users/aleneschlereth/.rvm/gems/ruby-2.4.0/gems/railties-5.1.4/lib/rails/rack/logger.rb:24:in `block in call'
+     # /Users/aleneschlereth/.rvm/gems/ruby-2.4.0/gems/railties-5.1.4/lib/rails/rack/logger.rb:24:in `call'
+     # /Users/aleneschlereth/.rvm/gems/ruby-2.4.0/gems/rack-2.0.3/lib/rack/method_override.rb:22:in `call'
+     # /Users/aleneschlereth/.rvm/gems/ruby-2.4.0/gems/rack-2.0.3/lib/rack/runtime.rb:22:in `call'
+     # /Users/aleneschlereth/.rvm/gems/ruby-2.4.0/gems/rack-2.0.3/lib/rack/sendfile.rb:111:in `call'
+     # /Users/aleneschlereth/.rvm/gems/ruby-2.4.0/gems/railties-5.1.4/lib/rails/engine.rb:522:in `call'
+     # /Users/aleneschlereth/.rvm/gems/ruby-2.4.0/gems/rack-2.0.3/lib/rack/urlmap.rb:68:in `block in call'
+     # /Users/aleneschlereth/.rvm/gems/ruby-2.4.0/gems/rack-2.0.3/lib/rack/urlmap.rb:53:in `each'
+     # /Users/aleneschlereth/.rvm/gems/ruby-2.4.0/gems/rack-2.0.3/lib/rack/urlmap.rb:53:in `call'
+     # /Users/aleneschlereth/.rvm/gems/ruby-2.4.0/gems/rack-test-0.8.2/lib/rack/mock_session.rb:29:in `request'
+     # /Users/aleneschlereth/.rvm/gems/ruby-2.4.0/gems/rack-test-0.8.2/lib/rack/test.rb:251:in `process_request'
+     # /Users/aleneschlereth/.rvm/gems/ruby-2.4.0/gems/rack-test-0.8.2/lib/rack/test.rb:129:in `custom_request'
+     # /Users/aleneschlereth/.rvm/gems/ruby-2.4.0/gems/rack-test-0.8.2/lib/rack/test.rb:58:in `get'
+     # /Users/aleneschlereth/.rvm/gems/ruby-2.4.0/gems/capybara-2.17.0/lib/capybara/rack_test/browser.rb:69:in `process'
+     # /Users/aleneschlereth/.rvm/gems/ruby-2.4.0/gems/capybara-2.17.0/lib/capybara/rack_test/browser.rb:41:in `process_and_follow_redirects'
+     # /Users/aleneschlereth/.rvm/gems/ruby-2.4.0/gems/capybara-2.17.0/lib/capybara/rack_test/browser.rb:22:in `visit'
+     # /Users/aleneschlereth/.rvm/gems/ruby-2.4.0/gems/capybara-2.17.0/lib/capybara/rack_test/driver.rb:44:in `visit'
+     # /Users/aleneschlereth/.rvm/gems/ruby-2.4.0/gems/capybara-2.17.0/lib/capybara/session.rb:274:in `visit'
+     # /Users/aleneschlereth/.rvm/gems/ruby-2.4.0/gems/capybara-2.17.0/lib/capybara/dsl.rb:50:in `block (2 levels) in <module:DSL>'
+     # ./spec/features/user_sees_all_articles_spec.rb:9:in `block (3 levels) in <top (required)>'
+
+Finished in 0.03617 seconds (files took 1.67 seconds to load)
+3 examples, 1 failure
+
+Failed examples:
+
+rspec ./spec/features/user_sees_all_articles_spec.rb:5 # user sees all articles they visit /articles displays all articles
+```
+
+Hopefully yours is coming through with some different colors. The long blue section is the strack trace. It can be helpful to use in debugging but is certainly not the first place I look. Instead I'm going to focus on the content of my failure:
+
+```ruby
+Failures:
+
+  1) user sees all articles they visit /articles displays all articles
+     Failure/Error: visit '/articles'
+
+     ActionController::RoutingError:
+       No route matches [GET] "/articles"
+```
+`No route matches [GET] "/articles"` Huh? Let's talk about routes.  
+
+#### Rails Routing
 
 When a Rails server gets a request from a web browser it first goes to the _router_. The router decides what the request is trying to do, what resources it is trying to interact with. The router dissects a request based on the address it is requesting and other HTTP parameters (like the request type of GET or PUT). Let's open the router's configuration file, `config/routes.rb`.
 
