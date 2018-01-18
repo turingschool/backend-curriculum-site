@@ -649,9 +649,7 @@ describe "user sees all articles" do
       visit '/articles'
 
       expect(page).to have_content(article_1.title)
-      expect(page).to have_content(article_1.body)
       expect(page).to have_content(article_2.title)
-      expect(page).to have_content(article_2.body)
     end
   end
 end
@@ -941,9 +939,6 @@ Now you're looking at a blank file. Enter in this view template code which is a 
   <% @articles.each do |article| %>
     <li>
       <%= article.title %>
-    </li>
-     <li>
-      <%= article.body %>
     </li>
   <% end %>
 </ul>
@@ -1427,24 +1422,35 @@ Failures:
 
 What's happening here is that we're passing `@article` to `form_for`. Since we haven't created an `@article` in this action, the variable just holds `nil`. The `form_for` method calls `model_name` on `nil`, generating the error above.
 
-
 #### Setting up for Reflection
 
-Rails uses some of the _reflection_ techniques that we talked about earlier in order to set up the form. Remember in the console when we called `Article.new` to see what fields an `Article` has? Rails wants to do the same thing, but we need to create the blank object for it. Go into your `articles_controller.rb`, and _inside_ the `new` method, add this line:
+Rails uses some of the _reflection_ techniques that we talked about earlier in order to set up the form. Remember in the console when we called `Article.new` to see what fields an `Article` has? Rails wants to do the same thing, but we need to create the blank Ruby object for it. Go into your `articles_controller.rb`, and _inside_ the `new` method, add this line:
 
 ```ruby
 @article = Article.new
 ```
 
-Then refresh your browser and your form should come up. Enter in a title, some body text, and click CREATE.
+When you run your test suite, your error should be the following: 
+
+```ruby
+Failures:
+
+  1) user creates a new article they link from the articles index they fill in a title and body creates a new article
+     Failure/Error: click_on "Create Article"
+
+     AbstractController::ActionNotFound:
+       The action 'create' could not be found for ArticlesController
+```
+
+Go back and look at the test you created.  Since my error is concerning the click_on "Create Article" that tells me Capybara made it through all those fill_in steps without a problem. 
 
 ### The `create` Action
 
 Your old friend pops up again...
 
 ```
-Unknown action
-The action 'create' could not be found for ArticlesController
+AbstractController::ActionNotFound:
+  The action 'create' could not be found for ArticlesController
 ```
 
 We accessed the `new` action to load the form, but Rails' interpretation of REST uses a second action named `create` to process the data from that form. Inside your `articles_controller.rb` add this method (again, _inside_ the `ArticlesContoller` class, but _outside_ the other methods):
@@ -1455,7 +1461,19 @@ def create
 end
 ```
 
-If you refresh and try to submit, you should see absolutely nothing happen. If you open your developer console with `command-option-j`, you should see:
+When we run our tests again, we get this rather unhelpful error:
+
+```ruby
+Failures:
+
+  1) user creates a new article they link from the articles index they fill in a title and body creates a new article
+     Failure/Error: expect(page).to have_content("New Title!")
+
+     Capybara::ElementNotFound:
+       Unable to find visible xpath "/html"
+```
+
+This is a great opportunity to use Launchy. Put a `save_and_open_page` after the click_on "Create Article" but before the expectation lines. You should see absolutely nothing on the page. If you open your developer console with `command-option-j`, you should see:
 
 ```
 XHR Loaded (articles - 204 No Content - 85.57199999631848ms - 555B)
