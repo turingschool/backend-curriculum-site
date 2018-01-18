@@ -13,7 +13,7 @@ tags: ruby, object-oriented programming
 * explain and use return values
 * be able to write methods with and without parameters
 
-##Classes and Instances
+## Classes and Instances
 
 ### Classes and Instances in Real Life
 
@@ -28,7 +28,7 @@ Specific instances:
 * White refrigerator in the big workspace
 * Black refrigerator in the big workspace
 
-**TRY IT** For your type of object, list three different attributes and three different methods (a.k.a. actions). For example:
+**TRY IT**: For your type of object, list three different attributes and three different methods (a.k.a. actions). For example:
 
 #### Refrigerator Attributes
 * color
@@ -69,7 +69,7 @@ b = String.new("beta")
 b.object_id
 => 70162535734120
 b.upcase
-=> "B"
+=> "BETA"
 ```
 
 We can say that `String` is the class, and `a` and `b` are `Instances` of the String Class, or `a` and `b` are String `Objects`.
@@ -95,10 +95,10 @@ Notice that `class` is lowercase while `NameOfClass` is CamelCased.
 class Refrigerator
 end
 
-refrigerator_1  = Refrigerator.new
+refrigerator_1 = Refrigerator.new
 p refrigerator_1
 
-refrigerator_2   = Refrigerator.new
+refrigerator_2 = Refrigerator.new
 p refrigerator_2
 
 refrigerator_3 = Refrigerator.new
@@ -125,7 +125,7 @@ end
 
 This method is run once and only once during an Object's lifetime, when we call `new`.
 
-**TRY IT** Create an initialize method for your Class and put a print statement in it. Run your file and see what happens.
+**TRY IT**: Create an initialize method for your Class and put a print statement in it. Run your file and see what happens.
 
 ## Modeling State with Attributes
 
@@ -164,10 +164,10 @@ class Refrigerator
   end
 end
 
-refrigerator_1  = Refrigerator.new("white", 12)
+refrigerator_1 = Refrigerator.new("white", 12)
 p refrigerator_1
 
-refrigerator_2   = Refrigerator.new("black", 34)
+refrigerator_2 = Refrigerator.new("black", 34)
 p refrigerator_2
 
 refrigerator_3 = Refrigerator.new("hot pink", 100000)
@@ -176,7 +176,7 @@ p refrigerator_3
 
 Notice that we didn't change `@food = []`. Why might this be?
 
-**TRY IT** Give your initialize method some parameters and create some instances with different attributes.
+**TRY IT**: Give your initialize method some parameters and create some instances with different attributes.
 
 ## Modeling Behavior with Methods
 
@@ -223,7 +223,7 @@ class Refrigerator
   end
 end
 
-refrigerator_1  = Refrigerator.new("white", 12)
+refrigerator_1 = Refrigerator.new("white", 12)
 puts refrigerator_1.color
 ...
 ```
@@ -307,6 +307,8 @@ class Refrigerator
 
   def add_food
   end
+
+  ...
 ```
 
 When we call this add_food method, we want to add the new food to the `@food` array. But where does this new food come from? We need a parameter.
@@ -349,12 +351,12 @@ class Refrigerator
   end
 end
 
-refrigerator_1  = Refrigerator.new("white", 12)
+refrigerator_1 = Refrigerator.new("white", 12)
 puts refrigerator_1.color
 refrigerator_1.add_food("apples")
 p refrigerator_1
 
-refrigerator_2   = Refrigerator.new("black", 34)
+refrigerator_2 = Refrigerator.new("black", 34)
 p refrigerator_2
 
 refrigerator_3 = Refrigerator.new("hot pink", 100000)
@@ -363,7 +365,7 @@ p refrigerator_3
 
 We can see from the print statements that the `@food` array of refrigerator_1 is now populated with "apples".
 
-**TRY IT** With your pair, create a new method for your Class. This method should change one of your Class's attributes.
+**TRY IT**: With your pair, create a new method for your Class. This method should change one of your Class's attributes.
 
 ## Pair Work
 
@@ -375,7 +377,7 @@ Let's think about modeling cars in code. Work through the following steps. Remeb
 1. Add a `paint` method to your Car class to change its color. It should take a `new_color` parameter.
 1. Give your Car an attribute `odometer`. What should the odometer value be when the Car is first created? Create a getter method for this attribute.
 1. Add a method to the class named `horn`. In that method return the String `"BEEEEEP!"`.
-1. Add a method to your class named `drive` which takes an argument named `distance`. When the method is called, have it return the a string like `I'm driving 12 miles` where `12` is the value passed in for `distance`. After a car drives, its odometer should be updated.
+1. Add a method to your class named `drive` which takes an argument named `distance`. When the method is called, have it return the a string like `I'm driving 12 miles` where `12` is the value passed in for `distance`. Also, when a car drives, its odometer should be updated.
 1. This one is tricky. Add a method named `start`. If the car has not yet been started, when the method is called it should return `"Starting up!"`. But if the car has previously been started, it should return `"BZZT! Nice try, though."`. You'll need to create an instance variable, a method, use an if statement, and return a value.
 
 ## Be a badass:
