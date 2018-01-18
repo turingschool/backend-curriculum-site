@@ -1258,7 +1258,7 @@ Look at the URL: `http://localhost:3000/articles/1`. When we added the `link_to`
 
 So what do we want to do when the user clicks an article title?  Find the article, then display a page with its title and body. We'll use the number on the end of the URL to find the article in the database.
 
-Within the controller, we have access to a method named `params` which returns us a hash of the request parameters. Often we'll refer to it as "the `params` hash", but technically it's "the `params` method which returns a hash-like object". Params is not a hash, but it acts just like one so we can treat it just like a hash.
+Within the controller, we have access to a method named `params` which returns us the request parameters. Often we'll refer to it as "the `params` hash", but technically it's "the `params` method which returns a hash-like object". Params is not a hash, but it acts just like one so we can treat it just like a hash.
 
 Put a `binding.pry` or `buybug` in your show action and run your test suite again. When your test suite stops, enter `params` and see what is returned. 
 
@@ -1473,14 +1473,17 @@ Failures:
        Unable to find visible xpath "/html"
 ```
 
-This is a great opportunity to use Launchy. Put a `save_and_open_page` after the click_on "Create Article" but before the expectation lines. You should see absolutely nothing on the page. If you open your developer console with `command-option-j`, you should see:
+This is a great opportunity to use Launchy. Put a `save_and_open_page` after the click_on "Create Article" but before the expectation lines. You should see absolutely nothing on the page. If you go to your server tab you should see:
 
 ```
-XHR Loaded (articles - 204 No Content - 85.57199999631848ms - 555B)
+Started POST "/articles" for 127.0.0.1 at 2018-01-18 09:55:52 -0700
+Processing by ArticlesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"T/n64kWdb4FRAQ8CCiHA27k4141L+70dDCBxAYXOmjJCzeNRmGiKV3dICHTg9fHShY1H5B2Wsbq2sarKoxBwsQ==", "article"=>{"title"=>"something", "body"=>"other things"}, "commit"=>"Create Article"}
+No template found for ArticlesController#create, rendering head :no_content
+Completed 204 No Content in 46ms (ActiveRecord: 0.0ms)
 ```
 
-This is a fancy way to say your POST request did absolutely nothing, which
-matches the amount of code in our `#create` action: absolutely nothing.
+That last line says `Completed 204 No Content`. This is a fancy way to say your POST request did absolutely nothing, which matches the amount of code in our `#create` action: absolutely nothing.
 
 #### We Don't Always Need Templates
 
@@ -1492,7 +1495,7 @@ We already have an action and template for displaying an article, the `show`, so
 
 Before we can send the client to the `show`, let's process the data. The data from the form will be accessible through the `params` method.
 
-To check out the structure and content of `params`, I like to use this trick:
+To check out the structure and content of `params`, put a pry in your create action:
 
 ```ruby
 def create
@@ -1502,7 +1505,7 @@ end
 
 The `binding.pry` method will halt the request allowing you to play with the code inside of your console.
 
-Refresh/resubmit the page in your browser.
+Re-run your tests to hit the pry.
 
 #### Understanding Form Parameters
 
@@ -1516,7 +1519,7 @@ Here is the request information. We are interested in the parameters (I've inser
  "commit"=>"Create", "action"=>"create", "controller"=>"articles"}
 ```
 
-What are all those? We see the `{` and `}` on the outside, representing a `Hash`. Within the hash we see keys:
+What are all those? We see the `{` and `}` on the outside, similar to a `Hash`. Within the hash we see keys:
 
 * `utf8` : This meaningless checkmark is a hack to force Internet Explorer to submit the form using UTF-8. [Read more on StackOverflow](http://stackoverflow.com/questions/3222013/what-is-the-snowman-param-in-rails-3-forms-for)
 * `authenticity_token` : Rails has some built-in security mechanisms to resist "cross-site request forgery". Basically, this value proves that the client fetched the form from your site before submitting the data.
@@ -1535,23 +1538,28 @@ Now that we've seen the structure, we can access the form data to mimic the way 
 def create
   @article = Article.new
   @article.title = params[:article][:title]
+  @article.title = params[:article][:body]
   @article.save
 end
 ```
 
-If you refresh the page in your browser you'll still get the template error. Add one more line to the action, the redirect:
+Heading back to our tests, remove the save_and_open_page and then run your test suite again. We still get that xpath error. If you refresh your browser and enter the form again, when you look at your server you should still see this error:
+
+```
+No template found for ArticlesController#create, rendering head :no_content
+Completed 204 No Content in 70ms (ActiveRecord: 13.2ms)
+```
+
+We still don't have a template. Why is this error different from the other no template error? Remember we used a POST to get to our create action, all our other ones have been GET requests so far. We don't usually have a view for a POST request. Instead we need to send a message to the browser that we've successully created and that it needs to make a second call to our show path.
+
+Add one more line to the action, the redirect:
 
 ```ruby
 redirect_to article_path(@article)
 ```
 
-Refresh the page and you should go to the show for your new article. (_NOTE_: You've now created the same sample article twice)
-
-#### More Body
-
-The `show` page has the title, but where's the body? Add a line to the `create` action to pull out the `:body` key from the `params` hash and store it into `@article`.
-
-Then try it again in your browser. Both the `title` and `body` should show up properly.
+When you run your test suite, you should see all passing tests. !!
+Let's commit this before refactoring.
 
 #### Fragile Controllers
 
@@ -1585,16 +1593,16 @@ end
 
 Test and you'll find that it... blows up! What gives?
 
-For security reasons, it's not a good idea to blindly save parameters sent into us via the params hash. Luckily, Rails gives us a feature to deal with this situation: Strong Parameters.
+For security reasons, it's not a good idea to blindly save parameters sent to us via the params hash. Luckily, Rails gives us a feature to deal with this situation: Strong Parameters.
 
 It works like this: You use two new methods, `require` and `permit`.  They help you declare which attributes you'd like to accept. Add the below code to the bottom of your `articles_controller.rb`.
 
 ```ruby
 private
 
-def article_params
-  params.require(:article).permit(:title, :body)
-end
+  def article_params
+    params.require(:article).permit(:title, :body)
+  end
 ```
 
 Now, you'll then use this method instead of the `params` hash directly:
@@ -1628,18 +1636,61 @@ end
 
 We can then re-use this method any other time we want to make an `Article`.
 
-**Git time**. Commit, checkout, merge, push, delete Look at the header directly below, make a new branch based on that header.
+Commit, push, PR, merge, checkout master, pull, delete. Look at the header directly below, make a new branch based on that header.
 
 ### Deleting Articles
 
 We can create articles and we can display them, but when we eventually deliver this to less perfect people than us, they're going to make mistakes. There's no way to remove an article, let's add that next.
 
-We could put delete links on the index page, but instead let's add them to the `show.html.erb` template. Let's figure out how to create the link.
+We could put delete links on the index page, but instead let's add them to the `show.html.erb` template. 
+
+#### But first, a test
+
+We want a brand new test file where our user is going to delete an article. 
+
+* We've already decided that we will be linking from the show page. 
+* How would we build an assertion that proves that it is gone from the complete list of articles?
+
+Build out your own test first before checking out my example below. 
+
+```ruby
+require "rails_helper"
+
+describe "user deletes an article" do
+  describe "they link from the show page" do
+    it "displays all articles without the deleted entry" do
+      article_1 = Article.create!(title: "Title 1", body: "Body 1")
+      article_2 = Article.create!(title: "Title 2", body: "Body 2")
+
+      visit article_path(article_1)
+      click_link "Delete"
+
+      expect(current_path).to eq(articles_path)
+      expect(page).to have_content(article_2.title)
+      expect(page).to_not have_content(article_1.title)
+    end
+  end
+end
+
+``` 
+With our test all put together let's commit that first before moving on. When we run the test suite, we get the following error. Remember the important part to read in the error message is above the long stack trace where it lists the `Failures` message. 
+
+```ruby
+Failures:
+
+  1) user deletes an article they link from the show page displays all articles without the deleted entry
+     Failure/Error: click_link "Delete"
+
+     Capybara::ElementNotFound:
+       Unable to find visible link "Delete"
+```
+
+Let's figure out how to create the link.
 
 We'll start with the `link_to` helper, and we want it to say the word "delete" on the link. So that'd be:
 
 ```erb
-<%= link_to "delete", some_path %>
+<%= link_to "Delete", some_path %>
 ```
 
 But what should `some_path` be? Look at the routes table with `rake routes`. The `destroy` action will be the last row, but it has no name in the left column. In this table the names "trickle down," so look up two lines and you'll see the name `article`.
@@ -1652,7 +1703,22 @@ The helper method for the destroy-triggering route is `article_path`. It needs t
 
 Add that to `app/views/articles/show.html.erb`.
 
-Go to your browser, load the show page, click the link, and observe what happens.
+When we run our test suite again, we get the following error:
+
+```ruby
+Failures:
+
+  1) user deletes an article they link from the show page displays all articles without the deleted entry
+     Failure/Error: expect(current_path).to eq(articles_path)
+
+       expected: "/articles"
+            got: "/articles/3"
+
+       (compared using ==)
+     # ./spec/features/user_deletes_an_article_spec.rb:12:in `block (3 levels) in <top (required)>'
+```
+
+Huh? If you look closely, this error is coming from line 12 of our test file where we told our application that we expect to be on the index (articles_path aka "/articles") but instead we're on "/articles/85" (aka article_path(article aka a show).
 
 #### REST is about Path and Verb
 
@@ -1683,7 +1749,7 @@ Rails' solution to this problem is to *fake* a `DELETE` verb. In your view templ
 <%= link_to "delete", article_path(@article), method: :delete %>
 ```
 
-Through some JavaScript tricks, Rails can now pretend that clicking this link triggers a `DELETE`. Try it in your browser, and say hello to your old friend, "Unknown Action" error.
+Through some JavaScript tricks, Rails can now pretend that clicking this link triggers a `DELETE`. Try your tests again, and say hello to your old friend, "ActionNotFound" error.
 
 #### The `destroy` Action
 
@@ -1695,15 +1761,18 @@ Let's define the `destroy` method in our `ArticlesController` so it:
 2. Calls `.destroy` on that object
 3. Redirects to the articles index page
 
-Do that now on your own and test it by running through the feature on `localhost:3000/articles`.
+Do that now on your own and run your tests.
 
 Didn't quite get there? See the code below:
 
 ```ruby
   def destroy
     Article.destroy(params[:id])
+    redirect_to articles_path
   end
 ```
+
+Passing tests means time to commit! 
 
 #### Confirming Deletion
 
@@ -1713,7 +1782,7 @@ There's one more parameter you might want to add to your `link_to` call in your 
 data: {confirm: "Really delete the article?"}
 ```
 
-This will pop up a JavaScript dialog when the link is clicked. The Cancel button will stop the request, while the OK button will submit it for deletion.
+This will pop up a JavaScript dialog when the link is clicked. The Cancel button will stop the request, while the OK button will submit it for deletion. Run your tests again to make sure this change didn't break anything. Your tests should still be passing, which means...
 
 Delete functionality is implemented! Now go be a Git boss and wrap up this branch.
 
@@ -1725,6 +1794,23 @@ Sometimes we don't want to destroy an entire object, we just want to make some c
 
 In the same way that we used `new` to display the form and `create` to process that form's data, we'll use `edit` to display the edit form and `update` to save the changes.
 
+#### First, we write a test  
+
+We want to create a new test file for the purpose of checking if a user can edit an article. Try to come up with your own list of what you want your test to do, thinking through each phase of a test (setup, action, assertion). Think about the user flow. We want to link from a show to an edit (which only displays the form), fill in a form, and see the results of our change to this single article. Put together your test on your own. I'm not going to give you a sample test, but you might reference the new/create test if you need some support.
+
+Commit your new test.
+Run your test and you should get a similar error:
+
+```ruby
+Failures:
+
+  1) user edits an article they link from a show page they fill in an edit field and submit displays the updated information on a show
+     Failure/Error: click_link "Edit"
+
+     Capybara::ElementNotFound:
+       Unable to find visible link "Edit"
+```
+
 #### Adding the Edit Link
 
 Again in `show.html.erb`, let's add this:
@@ -1733,7 +1819,7 @@ Again in `show.html.erb`, let's add this:
 <%= link_to "edit", edit_article_path(@article) %>
 ```
 
-Trigger the `edit_article` route and pass in the `@article` object. Try it!
+Trigger the `edit_article` route and pass in the `@article` object. When you run your tests you should get an `ActionNotFound` message or edit.
 
 #### Implementing the `edit` Action
 
@@ -1745,7 +1831,59 @@ def edit
 end
 ```
 
-Wait, that looks an awful lot like how we set `@article` in our 'show' and `delete` action. Let's DRY up this with a `before_action`:
+The router is expecting to find an action in `ArticlesController` named `edit`, so let's add this:
+
+```ruby
+def edit
+
+end
+```
+When you run your test suite you'll see the `ArticlesController#edit is missing a template for this request format and variant.` error message. Let't go create that file.
+
+#### An Edit Form
+
+Create a file `app/views/articles/edit.html.erb`. Below is what the edit form would look like:
+
+```erb
+<h1>Edit an Article</h1>
+
+<%= form_for(@article) do |f| %>
+  <ul>
+  <% @article.errors.full_messages.each do |error| %>
+    <li><%= error %></li>
+  <% end %>
+  </ul>
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :body %><br />
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+```
+
+Run your test and you should get an error similar to this:
+
+```ruby
+Failures:
+
+  1) user edits an article they link from a show page they fill in an edit field and submit displays the updated information on a show
+     Failure/Error: <%= form_for(@article) do |f| %>
+
+     ActionView::Template::Error:
+       First argument in form cannot contain nil or be empty
+```
+
+We've seen this error before. When you build your form_for you pass it an argument of your object (@article). Where do we get @article from? The controller. Take a look at your edit action in your controller. 
+
+Add `@article = Article.find(params[:id])` to your edit method. Rerun your test, and we have a new error! 
+
+But wait, that code in edit looks an awful lot like how we set `@article` in our 'show' and `delete` action. Let's first DRY up this with a `before_action`:
 
 ```ruby
 class ArticlesController < ApplicationController
@@ -1779,65 +1917,17 @@ def edit
 end
 ```
 
-All the `edit` action does is find the object and display the form. Refresh and you'll see the template missing error.
+All the `edit` action does is find the object and display the form. Run your tests again to make sure you're still getting the following error:
 
-#### An Edit Form
+```ruby
+Failures:
 
-Create a file `app/views/articles/edit.html.erb` but *hold on before you type anything*. Below is what the edit form would look like:
+  1) user edits an article they link from a show page they fill in an edit field and submit displays the updated information on a show
+     Failure/Error: click_on "Update Article"
 
-```erb
-<h1>Edit an Article</h1>
-
-<%= form_for(@article) do |f| %>
-  <ul>
-  <% @article.errors.full_messages.each do |error| %>
-    <li><%= error %></li>
-  <% end %>
-  </ul>
-  <p>
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </p>
-  <p>
-    <%= f.label :body %><br />
-    <%= f.text_area :body %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+     AbstractController::ActionNotFound:
+       The action 'update' could not be found for ArticlesController
 ```
-
-In the Ruby community there is a mantra of "Don't Repeat Yourself" -- but that's exactly what I've done here. This view is basically the same as the `new.html.erb` -- the only change is the H1. We can abstract this form into a single file called a _partial_, then reference this partial from both `new.html.erb` and `edit.html.erb`.
-
-#### Creating a Form Partial
-
-Partials are a way of packaging reusable view template code. We'll pull the common parts out from the form into the partial, then render that partial from both the new template and the edit template.
-
-Create a file `app/views/articles/_form.html.erb` and, yes, it has to have the underscore at the beginning of the filename. Partials always start with an underscore.
-
-Open your `app/views/articles/new.html.erb` and CUT all the text from and including the `form_for` line all the way to its `end`. The only thing left will be your H1 line.
-
-Add the following code to that view:
-
-```erb
-<%= render partial: 'form' %>
-```
-
-Now go back to the `_form.html.erb` and paste the code from your clipboard.
-
-#### Writing the Edit Template
-
-Then look at your `edit.html.erb` file. Add an H1 header and the line which renders the partial.
-
-```html
-  <h1>Edit <%= @article.title %></h1>
-  <%= render partial: 'form' %>
-```
-
-#### Testing the Partial
-
-Go back to your articles list and try creating a new article -- it should work just fine. Try editing an article and you should see the form with the existing article's data -- it works OK until you click "Update Article."
 
 #### Implementing Update
 
@@ -1863,13 +1953,67 @@ The only new bit here is the `update` method. It's very similar to `Article.new`
 
 We use the same `article_params` method as before so that we only update the attributes we're allowed to.
 
-Now try editing and saving some of your articles.
+Run your test suite again, and passing tests!! Passing tests means time to commit our progress.
+
+#### Some Refactoring
+
+In the Ruby community there is a mantra of "Don't Repeat Yourself" -- but that's exactly what I've done with our edit view. This view is basically the same as the `new.html.erb` -- the only change is the H1. We can abstract this form into a single file called a _partial_, then reference this partial from both `new.html.erb` and `edit.html.erb`.
+
+#### Creating a Form Partial
+
+Partials are a way of packaging reusable view template code. We'll pull the common parts out from the form into the partial, then render that partial from both the new template and the edit template.
+
+Create a file `app/views/articles/_form.html.erb` and, yes, it has to have the underscore at the beginning of the filename. Partials always start with an underscore.
+
+Open your `app/views/articles/new.html.erb` and CUT all the text from and including the `form_for` line all the way to its `end`. The only thing left will be your H1 line.
+
+Add the following code to the new view:
+
+```erb
+<%= render partial: 'form' %>
+```
+
+Now go back to the `_form.html.erb` and paste the code from your clipboard.
+
+Run your tests to make sure they're still passing and you haven't broken anything. 
+
+#### Writing the Edit Template
+
+Then look at your `edit.html.erb` file. Remove the entirty of the form_for and add the line which renders the partial.
+
+```html
+  <h1>Edit <%= @article.title %></h1>
+  <%= render partial: 'form' %>
+```
+
+Run your tests again and make sure they're all green. Then, commit your changes.
 
 ### Adding a flash message
 
 Our operations are working, but it would be nice if we gave the user some kind of status message about what took place. When we create an article the message might say "Article 'the-article-title' was created", or "Article 'the-article-title' was removed" for the remove action. We can accomplish this with the `flash` object.
 
-The controller provides you with accessors to interact with the `flash` object. Calling `flash.notice` will fetch a value, and `flash.notice = "Your Message"` will store the string into it.
+The controller provides you with accessor methods to interact with the `flash` object. Calling `flash.notice` will fetch a value, and `flash.notice = "Your Message"` will store the string into it.
+
+#### But first, let's add to our test 
+
+In your user_edits_an_article_spec add the following expectation:
+
+```ruby
+expect(page).to have_content("Article Your Updated Title was updated.")
+```
+
+Run your tests an you should see a similar error:
+
+```ruby
+Failures:
+
+  1) user edits an article they link from a show page they fill in an edit field and submit displays the updated information on a show
+     Failure/Error: expect(page).to have_content("Article #{article.title} was updated.")
+       expected to find text "Article Title 1 was updated." in "Different Title Different Body Edit Delete << Back to Articles List"
+     # ./spec/features/user_edits_an_article_spec.rb:22:in `block (4 levels) in <top (required)>'
+```
+
+The `expected to find text "Article Title 1 Updated!" in "Different Title Different Body Edit Delete << Back to Articles List"` part tells us RSpec couldn't find this new text on the page. Which makes sense because we haven't implemented it yet.
 
 #### Flash for Update
 
@@ -1897,9 +2041,9 @@ end
 
 #### Testing the flash messages
 
-Try editing and saving an article through your browser. Does anything show up?
+Run your test suite. What error do you get? The same one?!
 
-We need to add the flash messages to our view templates. The `update` method redirects to the `show`, so we _could_ just add the display to our show template.
+We need to add the flash messages to our view templates. We stored our message in the flash objct, but we didn't print it to the page. The `update` method redirects to the `show`, so we _could_ just add the display to our show template.
 
 However, we will use the flash object in many actions of the application. Most of the time, it's preferred to add it to our layout.
 
@@ -1935,15 +2079,13 @@ The `yield` is where the view template content will be injected. Just *above* th
 
 This outputs the value stored in the `flash` object in the attribute `:notice`.
 
-#### More Flash Message Testing
-
-With the layout modified, try changing your article, clicking save, and you should see the flash message appear at the top of the `show` page.
+Run your test suite again and you should have all passing tests. Which means, time to commit! 
 
 #### Adding More Messages
 
-Typical controllers will set flash messages in the `update`, `create`, and `destroy` actions. Insert messages into the latter two actions now.
+Typical controllers will set flash messages in the `update`, `create`, and `destroy` actions. Add assertions into each test, insert messages into the `create` and `destroy` actions now.
 
-Test out each action/flash messages, then you're done with I1.
+If you have passing tests, then you're done with I1. Commit!
 
 ### An Aside on the Site Root
 
@@ -1957,9 +2099,9 @@ root to: 'articles#index'
 
 Now visit `http://localhost:3000` and you should see your article list.
 
-With flash message, partials, and a root default, we got a little beyond the scope of our branch, and I'm okay with that. We didn't really add anything new of substance, just made things nicer. If you think  we should have committed before adding flash messages, or even adding a partial, I respect that. Do your thing next time.
+With flash message, partials, and a root default, we got a little beyond the scope of our branch, and I'm okay with that. We didn't really add anything new of substance, just made things nicer.
 
-**Commit, checkout, merge, push, delete.**
+**Commit, push, PR, merge, checkout, pull, delete.**
 
 If you are not happy with the code changes you have implemented in this iteration, you don't have to throw the whole project away and restart it.  You can use Git's reset command to roll back to your first commit, and retry this iteration from there.  To do so, in your terminal, type in:
 
@@ -1984,7 +2126,33 @@ First, we need to brainstorm what a comment _is_...what kinds of data does it ha
 * It has an author name
 * It has a body
 
-With that understanding, let's create a `Comment` model. Switch over to your terminal and enter this line:
+With that understanding, let's create a `Comment` model and a test. 
+
+### Testing a Model's Relationships
+
+Create a new file `touch spec/models/comment_spec.rb`
+
+Set up your test similar to how we formatted the article model test, except this time we want to check that it has the right relationship to an article rather than validating presence of attributes. Your assertion might look like this: 
+
+```ruby
+  it {should belong_to(:article)}
+```
+
+Commit your test, then run the test suite. You should see an error similar to this:
+
+```ruby
+An error occurred while loading ./spec/models/comment_spec.rb.
+Failure/Error:
+  describe Comment, type: :model do
+    it {should belong_to(:article)}
+  end
+
+NameError:
+  uninitialized constant Comment
+```
+Remember this means RSpec cannot find a Comment. Which makes sense because we haven't made one yet in neither our database nor our models.
+
+Let's make a Comment! Switch over to your terminal and enter this line:
 
 ```bash
 $ rails generate migration CreateComments author_name:string body:text article:references
