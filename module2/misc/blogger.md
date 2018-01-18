@@ -13,7 +13,7 @@ In this project you'll create a simple blog system and learn the basics of Ruby 
 * RESTful design
 * Adding gems for extra features
 
-This tutorial is open source. If you notice errors, typos, or have questions/suggestions, please [submit them to the project on GitHub](https://github.com/turingschool/backend-curriculum-site/blob/gh-pages/module2/misc/blogger.md).
+This tutorial is open source. If you notice errors, typos, or have questions/suggestions, please [submit them to the project on GitHub](https://github.com/turingschool/backend-curriculum-site/blob/gh-pages/module2/misc/blogger.md). You can find a completed (through Iter3) version [here](https://github.com/AliSchlereth/blogger). 
 
 ## I0: Up and Running
 
@@ -2571,19 +2571,19 @@ redirect_to article_path(@comment.article)
 
 Recall that `article_path` needs to know *which* article we want to see. We might not have an `@article` object in this controller action, but we can find the `Article` associated with this `Comment` by calling `@comment.article`.
 
-Test out your form to create another comment now -- and it should work!
-
 ### Cleaning Up
 
 We've got some decent comment functionality, but there are a few things we should add and tweak.
 
 #### Comments Count
 
-Let's make it so where the view template has the "Comments" header it displays how many comments there are, like "Comments (3)". Open up your article's `show.html.erb` and change the comments header so it looks like this:
+Let's make it so where the view template has the "Comments" header, it displays how many comments there are, like "Comments (3)". First add an assertion to your `user_sees_one_article_spec`. Open up your article's `show.html.erb` and change the comments header so it looks like this:
 
 ```erb
 <h3>Comments (<%= @article.comments.size %>)</h3>
 ```
+
+Run your tests to make sure you didn't break anything.
 
 #### Form Labels
 
@@ -2593,7 +2593,7 @@ The comments form looks a little silly with "Author Name". It should probably sa
 <%= f.label :author_name, "Your Name"  %>
 ```
 
-Change your `comments/_form.html.erb` so it has labels "Your Name" and "Your Comment".
+Change your `comments/_form.html.erb` so it has labels "Your Name" and "Your Comment". Run your tests again to make sure you didn't break anything.
 
 #### Add a Timestamp to the Comment Display
 
@@ -2635,7 +2635,7 @@ What is a tag?  We need to figure that out before we can create the model. First
 
 Many-to-many relationships are tricky because we're using an SQL database. If an Article "has many" tags, then we would put the foreign key `article_id` inside the `tags` table - so then a Tag would "belong to" an Article. But a tag can connect to *many* articles, not just one. We can't model this relationship with just the `articles` and `tags` tables.
 
-When we start thinking about the database modeling, there are a few ways to achieve this setup. One way is to create a "join table" that just tracks which tags are connected to which articles. Traditionally this table would be named `articles_tags` and Rails would express the relationships by saying that the Article model `has_and_belongs_to_many` Tags, while the Tag model `has_and_belongs_to_many` Articles.
+When we start thinking about the database modeling, there are a few ways to achieve this setup. One way is to create a "join table" that just tracks which tags are connected to which articles. Traditionally this table would be named `article_tags` and Rails would express the relationships by saying that the Article model `has_and_belongs_to_many` Tags, while the Tag model `has_and_belongs_to_many` Articles.
 
 Most of the time this isn't the best way to really model the relationship. The connection between the two models usually has value of its own, so we should promote it to a real model. For our purposes, we'll introduce a model named "Tagging" which is the connection between Articles and Tags. The relationships will setup like this:
 
@@ -2653,7 +2653,49 @@ With those relationships in mind, let's design the new models:
   * `tag_id`: Integer holding the foreign key of the referenced Tag
   * `article_id`: Integer holding the foreign key of the referenced Article
 
-Note that there are no changes necessary to Article because the foreign key is stored in the Tagging model. So now lets generate these models in your terminal:
+Note that there are no changes necessary to Article because the foreign key is stored in the Tagging model. 
+
+#### But first, we test
+
+Let's make two tests. One for Tagging and one for Tag. We want each to test it's relationship with both other pieces (i.e. a Tagging belongs_to Tag AND Tagging belongs_to Article)
+
+* Create a model test for Tag, checking its relationships
+* Create a model test for Taggin, checking its relationships
+* Add expectations to an Articles relationships section for Tag and Tagging
+
+One hint, you've used the have_many shoulda-matchers method. Now tag `.through(:resource_name)` to the end to test this has_may through scenario.
+
+Commit your test and then run it.
+When I run my test suite, I see these two errors:
+
+```ruby
+An error occurred while loading ./spec/models/tag_spec.rb.
+Failure/Error:
+  describe Tag, type: :model do
+    describe "relationships" do
+      it {should have_many(:tagings)}
+      it {should have_many(:articles).through(:taggings)}
+    end
+  end
+
+NameError:
+  uninitialized constant Tag
+  
+  
+An error occurred while loading ./spec/models/tagging_spec.rb.
+Failure/Error:
+  describe Tagging, type: :model do
+    describe "relationships" do
+      it {should belong_to(:tag)}
+      it {should belong_to(:article)}
+    end
+  end
+
+NameError:
+  uninitialized constant Tagging
+```
+
+So now lets generate these tables in your terminal:
 
 ```bash
 $ rails generate migration CreateTags name:string
@@ -2661,9 +2703,13 @@ $ rails generate migration CreateTaggings tag:references article:references
 $ rake db:migrate
 ```
 
+Note, the order is important here. Your second migration you generate relies on the first one to have been created first. Otherwise when you try to create Taggings it will complain about not knowing what a tag is.
+
+We just made a pretty significant DB change so let's commit that progress.
+
 ### Expressing Relationships
 
-Lets add both of the above models that we just generated:
+We won't be rid of those errors though until we persist this change to models. Lets add models for both of the above tables that we just generated:
 
 ```ruby
 # app/models/tag.rb
@@ -2675,6 +2721,8 @@ end
 class Tagging < ApplicationRecord
 end
 ```
+
+When I run my test, I have a new error... or errors actually. I have 6 failing assertions right now. Thank goodness they're all about these relationships I just added. 
 
 Now that our model files are generated we need to tell Rails about the relationships between them. For each of the files below, add these lines:
 
@@ -2723,6 +2771,8 @@ has_many :articles, through: :taggings
 
 Now if we have an object like `article` we can just ask for `article.tags` or, conversely, if we have an object named `tag` we can ask for `tag.articles`.
 
+Run your tests again and you should be all passing. Which means, time to commit!
+
 To see this in action, start the `bin/rails console` and try the following:
 
 ```
@@ -2736,6 +2786,20 @@ $ article.tags
 
 The first interface we're interested in is within the article itself. When I write an article, I want to have a text box where I can enter a list of zero or more tags separated by commas. When I save the article, my app should associate my article with the tags with those names, creating them if necessary.
 
+Let's go to the `user_creates_a_new_article_spec`. Add `fill_in "article[tag_list]", with: "ruby, technology"` to the fill_in list already present. Also add an expectation that those tags are listed on the page.
+
+Run your test and what do you get?
+
+```ruby
+Failures:
+
+  1) user creates a new article they link from the articles index they fill in a title and body creates a new article
+     Failure/Error: fill_in "article[tag_list]", with: "ruby, technology"
+
+     Capybara::ElementNotFound:
+       Unable to find visible field "article[tag_list]" that is not disabled
+```
+
 Add the following to our existing form in `app/views/articles/_form.html.erb`:
 
 ```erb
@@ -2745,30 +2809,58 @@ Add the following to our existing form in `app/views/articles/_form.html.erb`:
 </p>
 ```
 
-With that added, try to create a new article in your browser and you should see this error:
+With that added, run your test again you should see this error:
 
 ```
-NoMethodError in Articles#new
-Showing app/views/articles/_form.html.erb where line #14 raised:
-undefined method `tag_list' for #<Article:0x10499bab0>
+Failures:
+
+  1) user creates a new article they link from the articles index they fill in a title and body creates a new article
+     Failure/Error: <%= f.text_field :tag_list %>
+
+     ActionView::Template::Error:
+       undefined method `tag_list' for #<Article:0x007ff89851de50>
+       Did you mean?  tag_ids
 ```
 
-An Article doesn't have an attribute or method named `tag_list`. We made it up in order for the form to display related tags, but we need to add a method to the `article.rb` file like this:
+An Article doesn't have an attribute or method named `tag_list`. We made it up in order for the form to display related tags, but we need to add a method to the `article.rb` file. 
+
+Let's hop back over to our `article_spec` really quickly to add a test for this new model method.
+
+```ruby
+describe "instance methods" do
+    describe "#tag_list" do
+      it "turns associated tags into a string" do
+        article = Article.create(title: "Tall Tables", body: "They are tough for the short legged")
+        article.tags.create(name: "furniture")
+        article.tags.create(name: "opinions")
+
+        expect(article.tag_list).to eq("furniture, opinions")
+      end
+    end
+  end
+```
+
+You can run just one part of your test suite, so let's just run the model tests with `rspec spec/models`. You should get a similar undefined method error.
+
+Let's build the method like this:
 
 ```ruby
 def tag_list
   tags.join(", ")
 end
 ```
-
-Back in your console, find that article again, and take a look at the results of `tag_list`:
+Run your test... and we still have an error.
 
 ```
-$ reload!
-$ article = Article.first
-$ article.tag_list
-=> "#<Tag:0x007fe4d60c2430>, #<Tag:0x007fe4d617da50>"
+Failures:
+
+  1) Article instance methods #tag_list turns associated tags into a string
+     Failure/Error: expect(article.tag_list).to eq("furniture, opinions")
+
+       expected: "furniture, opinions"
+            got: "#<Tag:0x007fbedc11ca18>, #<Tag:0x007fbedfa416e0>"
 ```
+
 That is not quite right. What happened?
 
 Our array of tags is an array of Tag instances. When we joined the array Ruby called the default `#to_s` method on every one of these Tag instances. The default `#to_s` method for an object produces some really ugly output.
@@ -2800,25 +2892,52 @@ class Tag < ActiveRecord::Base
 end
 ```
 
-Now, when we try to join our `tags`, it'll delegate properly to our name
-attribute. This is because `#join` calls `#to_s` on every element of the
-array.
+Now, when we try to join our `tags`, it'll delegate properly to our name attribute. This is because `#join` calls `#to_s` on every element of the array.
 
-Your form should now show up and there's a text box at the bottom named "Tag list".
-Enter content for another sample article and in the tag list enter 'ruby, technology'.
-Click save. It.... worked?
+You probably have passing tests right now. But we just created a new model method. We're not done here.  Hop over to the `tag_spec` and add a section for instance methods and an assertion the to_s method. Once you have your model tests passing go ahead and commit your changes to your model spec and your models. 
 
-But it didn't. Click 'edit' again, and you'll see that we're back to the `#<Tag...` business, like before. What gives?
+Run your tests again. I got this error:
 
-```
-Started PATCH "/articles/1" for 127.0.0.1 at 2013-07-17 09:25:20 -0400
-Processing by ArticlesController#update as HTML
-  Parameters: {"utf8"=>"", "authenticity_token"=>"qs2M71Rmb64B7IM1ASULjlI1WL6nWYjgH/eOu8en+Dk=", "article"=>{"title"=>"Sample Article", "body"=>"This is the text for my article, woo hoo!", "tag_list"=>"ruby, technology"}, "commit"=>"Update Article", "id"=>"1"}
-  Article Load (0.1ms)  SELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1  [["id", "1"]]
-Unpermitted parameters: tag_list
+```ruby
+Failures:
+
+  1) user creates a new article they link from the articles index they fill in a title and body creates a new article
+     Failure/Error: expect(page).to have_content("ruby, technology")
+       expected to find text "ruby, technology" in "Article New Title! Created! New Title! New Body! Edit Delete Comments (0) Post a Comment Your Name Your Comment << Back to Articles List"
 ```
 
-Unpermitted parameters? Oh yeah! Strong Parameters has done its job, saving us from parameters we don't want. But in this case, we _do_ want that parameter. Open up your `app/controllers/articles_controller.rb` and fix the `article_params` method:
+It's not showing up on the page. 
+
+### Adding Tags to our Display
+
+According to our work in the console, articles can now have tags, but we haven't done anything to display them in the article pages.
+
+Let's start with `app/views/articles/show.html.erb`. Right below the line that displays the `article.title`, add these lines:
+
+```erb
+<p>
+  Tags:
+  <% @article.tags.each do |tag| %>
+    <%= tag.name %>
+  <% end %>
+</p>
+```
+
+When I run my test again, I get an (only slightly) new error.
+
+```ruby
+Failures:
+
+  1) user creates a new article they link from the articles index they fill in a title and body creates a new article
+     Failure/Error: expect(page).to have_content("ruby, technology")
+       expected to find text "ruby, technology" in "Article New Title! Created! New Title! Tags: New Body! Edit Delete Comments (0) Post a Comment Your Name Your Comment << Back to Articles List"
+```
+
+When I look at the string of what IS on the page, I see that header of Tags: but my tags are listed there. Why aren't they saving? Put a `binding.pry` in your articles#create action. I'd probably put it after we call Article.new. 
+
+Let's run our test and poke around. First I want to check out `params` then maybe `params[:tag_list]`. Is my information coming through from the form? Yes. I see "ruby, technology" nested under `:tag_list` in params. Second I want to check the state of my new Article. What is `@article`? Do we have anything under `@article.tags`? Hmm nothing there. Why aren't our tags being saved? Check our strong params `article_params`. Oooo here I only see :title and :body.  Why not :tag_list?
+
+Strong Parameters has done its job, saving us from parameters we don't want. But in this case, we _do_ want that parameter. Fix the `article_params` method:
 
 ```ruby
   def article_params
@@ -2826,21 +2945,19 @@ Unpermitted parameters? Oh yeah! Strong Parameters has done its job, saving us f
   end
 ```
 
-If you go back and put "ruby, technology" as tags, and click save, you'll get this new error:
+Take out your pry, and run your test again, you'll get this new error:
 
 ```
-ActiveRecord::UnknownAttributeError in ArticlesController#create
-unknown attribute: tag_list
+Failures:
+
+  1) user creates a new article they link from the articles index they fill in a title and body creates a new article
+     Failure/Error: @article = Article.new(article_params)
+
+     ActiveModel::UnknownAttributeError:
+       unknown attribute 'tag_list' for Article.
 ```
 
-What is this all about?  Let's start by looking at the form data that was posted when we clicked SAVE. This data is in the terminal where you are running the rails server. Look for the line that starts "Processing ArticlesController#create", here's what mine looks like:
-
-```
-Processing ArticlesController#create (for 127.0.0.1) [POST]
-  Parameters: {"article"=>{"body"=>"Yes, the samples continue!", "title"=>"My Sample", "tag_list"=>"ruby, technology"}, "commit"=>"Save", "authenticity_token"=>"xxi0A3tZtoCUDeoTASi6Xx39wpnHt1QW/6Z1jxCMOm8="}
-```
-
-The field that's interesting there is the `"tag_list"=>"technology, ruby"`. Those are the tags as I typed them into the form. The error came up in the `create` method, so let's peek at `app/controllers/articles_controller.rb` in the `create` method. See the first line that calls `Article.new(article_params)`?  This is the line that's causing the error as you could see in the middle of the stack trace.
+What is this all about?  Let's start by looking at the form data that was posted when we clicked SAVE. Put a pry back in and look at your params. The field that's interesting there is the `"tag_list"=>"technology, ruby"`. Those are the tags as I typed them into the form. The error came up in the `create` method, so let's peek at `app/controllers/articles_controller.rb` in the `create` method. See the first line that calls `Article.new(article_params)`?  This is the line that's causing the error as you could see in the middle of the stack trace.
 
 Since the `create` method passes all the parameters from the form into the `Article.new` method, the tags are sent in as the string `"technology, ruby"`. The `new` method will try to set the new Article's `tag_list` equal to `"technology, ruby"` but that method doesn't exist because there is no attribute named `tag_list`.
 
@@ -2854,7 +2971,7 @@ def tag_list=(tags_string)
 end
 ```
 
-Just leave it blank for now and try to resubmit your sample article with tags. It goes through!
+Just leave it blank for now and re-run your tests. We're back to the error telling us it's not listed on the page.
 
 ### Not So Fast
 
@@ -2914,6 +3031,7 @@ def tag_list=(tags_string)
   self.tags = new_or_found_tags
 end
 ```
+When I run my test suite again, I have all passing tests. Phew. Let's commit these changes. There was quite a bit in there.
 
 ### Testing in the Console
 
@@ -2932,44 +3050,52 @@ $ tag.articles
 ```
 And you'll see that this Tag is associated with just one Article.
 
-### Adding Tags to our Display
 
-According to our work in the console, articles can now have tags, but we haven't done anything to display them in the article pages.
+### Adding Tag Links to our Display
 
-Let's start with `app/views/articles/show.html.erb`. Right below the line that displays the `article.title`, add these lines:
+We want to be able to link from our article show to a tag show. 
 
-```erb
-<p>
-  Tags:
-  <% @article.tags.each do |tag| %>
-    <%= link_to tag.name, tag_path(tag) %>
-  <% end %>
-</p>
-```
+#### First, let's write a test.
 
-Refresh your view and...BOOM:
+We want a new test file for a user seeing a single tag. I'm going to want to click from an article show to a tag show and have it display the tag's name. 
 
-```
-NoMethodError in Articles#show
-Showing app/views/articles/index.html.erb where line #6 raised:
-undefined method `tag_path' for #<ActionView::Base:0x104aaa460>
-```
-
-The `link_to` helper is trying to use `tag_path` from the router, but the router doesn't know anything about our Tag object. We created a model, but we never created a controller or route. There's nothing to link to -- so let's generate that controller from your terminal:
-
-```bash
-$ touch app/controller/tags_controller.rb
-```
-
-And create controller:
+You're going to need to do a some data prep that is slightly more fancy that you've done before. We are trying to set up this many-to-many relationship in our test.  Below are a few different strategies to choose from:
 
 ```ruby
-# app/controllers/tags_controller.rb
-class TagsController < ApplicationController
-end
+      article = Article.create!(title: "New Title", body: "New Body")
+      tag = article.tags.create!(name: "Name")
 ```
 
-Then we need to add tags as a resource to our `config/routes.rb`, it should look like this:
+```ruby
+     article = Article.create!(title: "New Title", body: "New Body")
+     tag = Tag.create!(name: "Name")
+     article.tags << tag 
+```
+
+```ruby
+      article = Article.create!(title: "New Title", body: "New Body")
+      tag = Tag.create!(name: "Name")
+      tagging = Tagging.create!(article_id: article.id, tag_id: tag.id)
+```
+
+Once you've put your test together don't forget to commit.  
+
+When I run my tests, my error looks like this:
+
+```ruby
+Failures:
+
+  1) user creates a new article they link from the articles index they fill in a title and body creates a new article
+     Failure/Error: <%= link_to tag.name, tag_path(tag) %>
+
+     ActionView::Template::Error:
+       undefined method `tag_path' for #<#<Class:0x007f9bc61b13b8>:0x007f9bc8d31c40>
+       Did you mean?  image_path
+```
+
+The `link_to` helper is trying to use `tag_path` from the router, but the router doesn't know anything about our Tag object. We created a model, but we never created a controller or route. There's nothing to link to.
+
+We need to add tags as a resource to our `config/routes.rb`, it should look like this:
 
 ```ruby
 Rails.Application.routes.draw do
@@ -2983,7 +3109,44 @@ Rails.Application.routes.draw do
 end
 ```
 
-Refresh your article page and you should see tags, with links, associated with this article.
+Now we get a new error:
+
+```ruby
+Failures:
+
+  1) user sees one tag they link from an article show displays a tag's information
+     Failure/Error: click_link "Name"
+
+     ActionController::RoutingError:
+       uninitialized constant TagsController
+```
+
+
+So let's generate that controller from your terminal:
+
+```bash
+$ touch app/controller/tags_controller.rb
+```
+
+And create controller:
+
+```ruby
+# app/controllers/tags_controller.rb
+class TagsController < ApplicationController
+end
+```
+
+Then 
+
+```ruby
+Failures:
+
+  1) user sees one tag they link from an article show displays a tag's information
+     Failure/Error: click_link "Name"
+
+     AbstractController::ActionNotFound:
+       The action 'show' could not be found for TagsController
+```
 
 ### Listing Articles by Tag
 
@@ -2997,7 +3160,9 @@ def show
 end
 ```
 
-Then create the show template `app/views/tags/show.html.erb`:
+Then we get a `TagsController#show is missing a template for this request format and variant.` error.
+
+Let's create the show template `app/views/tags/show.html.erb`:
 
 ```erb
 <h1>Articles Tagged with <%= @tag.name %></h1>
@@ -3009,30 +3174,21 @@ Then create the show template `app/views/tags/show.html.erb`:
 </ul>
 ```
 
-Refresh your view and you should see a list of articles with that tag. Keep in mind that there might be some abnormalities from articles we tagged before doing our fixes to the `tag_list=` method. For any article with issues, try going to its `edit` screen, saving it, and things should be fixed up. If you wanted to clear out all taggings you could do `Tagging.destroy_all` from your console.
+Re-run your tests and we're all green. Time to commit!
 
 ### Listing All Tags
 
-We've built the `show` action, but the reader should also be able to browse the tags available at `http://localhost:3000/tags`. I think you can do this on your own. Create an `index` action in your `tags_controller.rb` and an `index.html.erb` in the corresponding views folder. Look at your `articles_controller.rb` and Article `index.html.erb` if you need some clues.
+We've built the `show` action, but the reader should also be able to browse the tags available at `http://localhost:3000/tags`. I think you can do this on your own. 
+
+Create a test for a user seeing all tags. Follow the errors to get your test passing.
+
+Look at your `articles_controller.rb` and Article `index.html.erb` if you need some clues along the way.
 
 Now that we can see all of our tags, we also want the capability to delete them.
-I think you can do this one on your own too. Create a `destroy` action in your
-`tags_controller.rb` and edit the `index.html.erb` file you just created. Look
-at your `articles_controller.rb` and Article `show.html.erb` if you need some
-clues.
+I think you can do this one on your own too. Create a test for a user deleting a tag. Follow the errors to implement the functionality. Look
+at your `articles_controller.rb` and Article `show.html.erb` if you need some clues.
 
-With that, a long Iteration 3 is complete!
-
-
-#### Saving to GitHub.
-
-Woah! The tagging feature is now complete. Good on you. You're going to want to push this to the repo.
-
-```
-$ git add .
-$ git commit -m "Tagging feature completed"
-$ git push
-```
+With that, a long Iteration 3 is complete! Wrap up your branch with a commit, push, PR, merge, checkout master, pull, and delete.
 
 
 ## I4: STOP HERE OR IF YOU WANT MORE: A Few Gems
