@@ -1032,7 +1032,20 @@ For example, `article_path(1)` would generate the string `"/articles/1"`. Give t
 
 #### Completing the Article Links
 
-Back in `app/views/articles/index.html.erb`, find where we have this line:
+Let's update or assertions in our feature test. Change `dexpect(page).to have_content(article_1.title)` to `expect(page).to have_link(article_1.title)` and make the same update for the second article.
+
+When you run your test your error should looke something like this:
+
+```ruby
+Failures:
+
+  1) user sees all articles they visit /articles displays all articles
+     Failure/Error: expect(page).to have_link(article_1.title)
+       expected to find visible link "Title 1" but there were no matches
+     # ./spec/features/user_sees_all_articles_spec.rb:11:in `block (3 levels) in <top (required)>'
+```
+
+Our test is now broken because while we have the text for the article's title, it's not a link yet. Back in `app/views/articles/index.html.erb`, find where we have this line:
 
 ```erb
 <%= article.title %>
@@ -1044,34 +1057,47 @@ Instead, let's use a `link_to` helper:
 <%= link_to article.title, article_path(article) %>
 ```
 
-The first part of this helper after the `link_to`, in this case `article.title`, is the text you want the link to say. The next part is our route helper.
+The first part of this helper after the `link_to`, in this case `article.title`, is the text you want the link to say. The next part is our route helper. Note that when you pass an entire object as an argument, Rails takes the id from the object and builds the route from there.
 
 But wait, there's one more thing. Our stylesheet for this project is going to look for a certain class on the link to make it look fancy. To add HTML attributes to a link, we include them in a Ruby hash style on the end like this:
 
 ```erb
-<%= link_to article.title, article_path(article), class: 'article_title' %>
+<%= link_to article.title, article_path(article), class: 'article-title' %>
 ```
 
 Or, if you wanted to also have a CSS ID attribute:
 
 ```erb
 <%= link_to article.title, article_path(article),
-    class: 'article_title', id: "article_#{article.id}" %>
+    class: 'article-title', id: "article-#{article.id}" %>
 ```
 
 When the template is rendered, it will output HTML like this:
 
 ```html
-<a class="article_title" id="article_1" href="/articles/1">First Sample Article</a>
+<a class="article-title" id="article-1" href="/articles/1">First Sample Article</a>
 ```
+Run your test suite again you should have all green, passing tests. Let's commit this change before we move on. 
 
 #### New Article Link
 
-At the very bottom of the template, let's add a link to the "Create a New Article" page.
+At the very bottom of the template, let's add a link to the "Create a New Article" page. First, let's add an assertion to our feature test.
+Referencing the new assertion we just used to check that each article title is a link, write another assertion that there is a  "Create a New Article" link on the page.  
+
+When we run our test suite, we get the following error:
+
+```ruby
+Failures:
+
+  1) user sees all articles they visit /articles displays all articles
+     Failure/Error: expect(page).to have_link("Create a New Article")
+       expected to find visible link "Create a New Article" but there were no matches
+     # ./spec/features/user_sees_all_articles_spec.rb:16:in `block (3 levels) in <top (required)>'
+```
 
 We'll use the `link_to` helper, we want it to display the text `"Create a New Article"`, and where should it point? Look in the routing table for the `new` action, that's where the form to create a new article will live. You'll find the name `new_article`, so the helper is `new_article_path`. Assemble those three parts and write the link in your template.
 
-Use the technique mentioned above to add the CSS class `new_article` to your "Create a New Article" link.
+Use the technique mentioned above to add the CSS class `new-article` to your "Create a New Article" link.
 
 ```erb
 <h1>All Articles</h1>
@@ -1084,8 +1110,10 @@ Use the technique mentioned above to add the CSS class `new_article` to your "Cr
   <% end %>
 </ul>
 
-<%= link_to "Create a New Article", new_article_path, class: "new_article" %>
+<%= link_to "Create a New Article", new_article_path, class: "new-article" %>
 ```
+
+Run your tests again and they should be passing.
 
 #### Review the Results
 
@@ -1094,15 +1122,74 @@ Refresh your browser and each sample article title should be a link. If you clic
 Based on our branch name, we have completed the intended functionality. Let's:  
 
 * Commit these changes
-* Checkout to master
-* Merge our `index-navigation-links` branch
-* Push our master branch
+* Push our code to GitHub
+* Put in a PR with comments to merge our work to master on GitHub
+* Merge your PR
+* Checkout master locally
+* Pull the current version of master into your local master
 * Delete `index-navigation-links`
 * Checkout a new branch for adding functionality for the SHOW action
 
 ### Creating the SHOW Action
 
-Click the title link for one of your sample articles and you'll get the "Unknown Action" error we saw before. Remember how we moved forward?
+We'll need to write a new test for this since we're building out functionality on a new action/view. Create a new feature test file for the functionality where a user sees one article. Within this test structure, you're going to start with a describe block similar to the name of the file, then give any more specific scenario information, and then say what you expect to find there. Git it a try yourself before looking at my sample below.
+
+```ruby
+require "rails_helper"
+
+describe "user sees one article" do
+	describe "they link from the articles index" do
+		it "displays information for one article" do
+		
+		end 
+	end 
+end 
+```
+
+We need our test to do the following:
+
+* Create an article
+* Visit the articles index
+* Click the article's link
+* Expect the page to display the article's title
+* Expect the page to display the article's body
+
+Give it a try before looking at my test below:
+
+```ruby
+require "rails_helper"
+
+describe "user sees one article" do
+  describe "they link from the article index" do
+    it "displays information for one article" do
+      article = Article.create!(title: "New Title", body: "New Body")
+
+      visit articles_path
+
+      click_link article.title
+
+      expect(page).to have_content(article.title)
+      expect(page).to have_content(article.body)
+    end
+  end
+end
+```
+
+After you've put your test together, don't forget to commit it.
+
+When we run our test suite, we have a new error. 
+
+```bash
+Failures:
+
+  1) user sees one article they link from the article index displays information for one article
+     Failure/Error: click_link article.title
+
+     AbstractController::ActionNotFound:
+       The action 'show' could not be found for ArticlesController
+```
+
+How did we move forward when we got a similar error for the index?
 
 An "action" is just a method of the controller. Here we're talking about the `ArticlesController`, so our next step is to open `app/controllers/articles_controller.rb` and add a `show` method:
 
@@ -1112,25 +1199,43 @@ def show
 end
 ```
 
-Refresh the browser and you'll get the `ActionController::UnknownFormat in ArticlesController#show` error. Let's pause here before creating the view template.
+When we run our tests again we get this much longer failure message:
 
-#### A Bit on Parameters
+```bash
+Failures:
 
-Look at the URL: `http://localhost:3000/articles/1`. When we added the `link_to` in the index and pointed it to the `article_path` for this `article`, the router created this URL. Following the RESTful convention, this URL goes to a SHOW method which would display the Article with ID number `1`. Your URL might have a different number depending on which article title you clicked in the index.
+  1) user sees one article they link from the article index displays information for one article
+     Failure/Error: click_link article.title
 
-So what do we want to do when the user clicks an article title?  Find the article, then display a page with its title and body. We'll use the number on the end of the URL to find the article in the database.
+     ActionController::UnknownFormat:
+       ArticlesController#show is missing a template for this request format and variant.
 
-Within the controller, we have access to a method named `params` which returns us a hash of the request parameters. Often we'll refer to it as "the `params` hash", but technically it's "the `params` method which returns a hash".
+       request.formats: ["text/html"]
+       request.variant: []
 
-Within that hash we can find the `:id` from the URL by accessing the key `params[:id]`. Use this inside the `show` method of `ArticlesController` along with the class method `find` on the `Article` class:
-
-```ruby
-@article = Article.find(params[:id])
+       NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.
 ```
 
-#### Back to the Template
+Remember the important part of this message is:
 
-Refresh your browser and we still have the same missing template error. Create the file `app/views/articles/show.html.erb` and add this code:
+```bash
+ActionController::UnknownFormat:
+       ArticlesController#show is missing a template for this request format and variant.
+```
+
+What did we do to solve this error last time? Go ahead and create the file for the show template. Think first about where this file should live. Rails is going to look in a very specific place for this file.
+
+When you run your test suite again, I'd expect to have a different error:
+
+```ruby
+Failures:
+
+  1) user sees one article they link from the article index displays information for one article
+     Failure/Error: expect(page).to have_content(article.title)
+       expected to find text "New Title" in ""
+     # ./spec/features/user_sees_one_article_spec.rb:12:in `block (3 levels) in <top (required)>'
+```
+Add the following html & erb to your file:
 
 ```erb
 <h1><%= @article.title %></h1>
@@ -1138,11 +1243,51 @@ Refresh your browser and we still have the same missing template error. Create t
 <%= link_to "<< Back to Articles List", articles_path %>
 ```
 
+What does your error tell you now?
+
+```ruby
+Failures:
+
+  1) user sees one article they link from the article index displays information for one article
+     Failure/Error: <h1><%= @article.title %></h1>
+
+     ActionView::Template::Error:
+       undefined method `title' for nil:NilClass
+```
+
+Here RSpec is telling us it tried to run the method `.title` on @article, but @article is `nil` so it doesn't have access to such a method. How do we make @article not be empty/nil?
+
+#### A Bit on Parameters
+
+Look at the URL: `http://localhost:3000/articles/1`. When we added the `link_to` in the index and pointed it to the `article_path` for this `article`, the router created this URL. Following the RESTful convention, this URL goes to a SHOW method which would display the Article with ID number `1`. Your URL might have a different number depending on which article title you clicked in the index.
+
+So what do we want to do when the user clicks an article title?  Find the article, then display a page with its title and body. We'll use the number on the end of the URL to find the article in the database.
+
+Within the controller, we have access to a method named `params` which returns us a hash of the request parameters. Often we'll refer to it as "the `params` hash", but technically it's "the `params` method which returns a hash-like object". Params is not a hash, but it acts just like one so we can treat it just like a hash.
+
+Put a `binding.pry` or `buybug` in your show action and run your test suite again. When your test suite stops, enter `params` and see what is returned. 
+
+```
+<ActionController::Parameters {"controller"=>"articles", "action"=>"show", "id"=>"34"} permitted: false>
+```
+
+Play around a little bit. What happens when you type `params[:controller]` or `params["action"]` or `params[:id]`?
+
+Exit `pry`, remove the `binding.pry` from your show action and run your test suite again to continue.
+
+Within that hash we can find the `:id` from the URL by accessing the key `params[:id]`. Use this inside the `show` method of `ArticlesController` along with the class method `find` on the `Article` class to retrieve the record from the database and create a Ruby object whose state is the information pulled from the database.
+
+```ruby
+@article = Article.find(params[:id])
+```
+
+If you run your tests at this point, you should be all green, all tests passing. 
+
+#### Back to the Web page
+
 Refresh your browser and your article should show up along with a link back to the index. We can now navigate from the index to a show page and back.
 
-Time to commit. Bite-sized commits like this are best-practice, and a great
-habit to start early. Commit, checkout to master, merge this branch, push
-master, and delete the old working branch.
+Time to commit. Bite-sized commits like this are best-practice, and a great habit to start early. Commit, push your branch to GitHub, but in a PR with a message, merge your PR, checkout master, pull in the updates to master, and delete the old working branch.
 
 ### Styling
 
@@ -1161,19 +1306,59 @@ curl http://tutorials.jumpstartlab.com/assets/blogger/screen.css -o app/assets/s
 `curl` is a command line tool used to access server data. We get the data from
 `http://tutorials.jumpstartlab.com/assets/blogger/screen.css` and output it (`-o`) to `app/assets/stylesheets`.
 
-Commit, checkout to master, merge, push, delete.
+Commit, push, put in a PR, merge, checkout master, pull in updated master, delete.
 
 ## I1: Form-based Workflow
 
 We've created sample articles from the console, but that isn't a viable long-term solution. The users of our app will expect to add content through a web interface. In this iteration we'll create an HTML form to submit the article, then all the backend processing to get it into the database.
 
+Check out a branch for adding create functionality to our app.
+
 ### Creating the NEW Action and View
 
-Previously, we set up the `resources :articles` route in `routes.rb`, and that told Rails that we were going to follow the RESTful conventions for this model named Article. Following this convention, the URL for creating a new article would be `http://localhost:3000/articles/new`. From the articles index, click your "Create a New Article" link and it should go to this path.
+Previously, we set up the `resources :articles` route in `routes.rb`, and that told Rails that we were going to follow the RESTful conventions for this model named Article. Following this convention, the URL for creating a new article would be `http://localhost:3000/articles/new`. From the articles index, your "Create a New Article" link should go to this path.
 
-Then you'll see an "Unknown Action" error. The router went looking for an action named `new` inside the `ArticlesController` and didn't find it.
+### But first, tests
 
-Check out a branch for adding create functionality to our app.
+Create a new feature test file for a user creating a new article. Think about how they need to visit a new article form first. Set up your test structure to describe the scenario and what you want to happen. Will you need to create an article in the data prep section? How will you tell Capybara to fill in the form? Try to write out the whole test before looking at my sample.
+
+```ruby
+require "rails_helper"
+
+describe "user creates a new article" do
+  describe "they link from the articles index" do
+    describe "they fill in a title and body" do
+      it "creates a new article" do
+        visit articles_path
+        click_link "Create a New Article"
+
+        expect(current_path).to eq(new_article_path)
+
+        fill_in "article[title]", with: "New Title!"
+        fill_in "article[body]",  with: "New Body!"
+        click_on "Create Article"
+
+        expect(page).to have_content("New Title!")
+        expect(page).to have_content("New Body!")
+      end
+    end
+  end
+end
+```
+
+When we run this test, we get the following error message. 
+
+```ruby
+Failures:
+
+  1) user creates a new article they link from the articles index they fill in a title and body creates a new article
+     Failure/Error: click_link "Create a New Article"
+
+     AbstractController::ActionNotFound:
+       The action 'new' could not be found for ArticlesController
+```
+
+Good thing we've done this twice and know how to handle this error. 
 
 Now, let's create that action. Open `app/controllers/articles_controller.rb` and add this method, making sure it's _inside_ the `ArticlesController` class, but _outside_ the existing `index` and `show` methods:
 
@@ -1185,15 +1370,13 @@ end
 
 #### Starting the Template
 
-With that defined, refresh your browser and you should get the "ActionController::UnknownFormat in ArticlesController#new" error.
+Our next error we get from our tests is the long `no template` error. 
 
 Create a new file `app/views/articles/new.html.erb` with these contents:
 
 ```erb
 <h1>Create a New Article</h1>
 ```
-
-Refresh your browser and you should just see the heading "Create a New Article".
 
 ### Writing a Form
 
@@ -1230,19 +1413,20 @@ What is all that?  Let's look at it piece by piece:
 
 #### Does it Work?
 
-Refresh your browser and you'll see this:
+Re-run your test suite and you certainly have a new error. 
 
 ```
-ArgumentError in Articles#new
-Showing /Users/you/projects/blogger/app/views/articles/new.html.erb where line #2 raised:
-First argument in form cannot contain nil or be empty
+Failures:
+
+  1) user creates a new article they link from the articles index they fill in a title and body creates a new article
+     Failure/Error: <%= form_for(@article) do |f| %>
+
+     ActionView::Template::Error:
+       First argument in form cannot contain nil or be empty
 ```
 
 What's happening here is that we're passing `@article` to `form_for`. Since we haven't created an `@article` in this action, the variable just holds `nil`. The `form_for` method calls `model_name` on `nil`, generating the error above.
 
-In your browser, note the black console window in the bottom of the screen. It's
-like a pry session with all your `rails console` abilities as well. Try playing
-around with your `Article` model, or just some plain old Ruby stuff.
 
 #### Setting up for Reflection
 
