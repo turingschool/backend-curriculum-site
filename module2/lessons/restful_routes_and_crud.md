@@ -6,6 +6,7 @@ title: RESTful Routes and CRUD
 ## Learning Goals
 
 * Explain CRUD in the context of web applications.
+* Explain what is REST
 * Create a routes reference chart for the seven RESTful routes.
 * Be able to distinguish between a RESTful vs non-RESTful route.
 
@@ -38,7 +39,7 @@ Often, our applications will have a separate controller and model for each resou
 
 ## REST
 
-* Representational State Transfer (ReST) is a web architecture style
+* **Representational State Transfer** (ReST) is a web architecture style
 * Coined by Roy Fielding in doctoral dissertation (2000)
 * REST is a simple way to organize interactions between independent systems
 * A map between HTTP verb/path combinations and CRUD actions users want to perform on a resource
@@ -56,7 +57,7 @@ Additional information from the [W3C](https://www.w3.org/Protocols/rfc2616/rfc26
 
 ### URI
 
-* Uniform Resource Identifier
+* **Uniform Resource Identifier**
 
 In this context, the portion of the URL after the domain.
 
@@ -68,7 +69,7 @@ What is the URI for this address? `http://www.tatteredcover.com/book/97816267229
 
 ### Seven RESTful Routes
 
-Pull up the controller from Task Manager. Let's see if together we can create a [table](https://docs.google.com/spreadsheets/d/1AGjUE49UJajPEQHvh3plKjaem5RAGvuv5SNjZzvjD9U/edit?usp=sharing) for seven RESTful routes allowing us to perform all CRUD actions on a Task. Include the following:
+Pull up the controller from Task Manager. Let's see if we can create a [table](https://docs.google.com/spreadsheets/d/1AGjUE49UJajPEQHvh3plKjaem5RAGvuv5SNjZzvjD9U/edit?usp=sharing) for seven RESTful routes allowing us to perform all CRUD actions on a Task. Include the following:
 
 * What a user wants
 * Method (verb)
@@ -76,6 +77,8 @@ Pull up the controller from Task Manager. Let's see if together we can create a 
 * Data Prep/Manipulation
 * Do we want to Redirect or Render erb
 * Name of View
+
+In small groups complete the table either on a computer or poster.
 
 |What does it do?|Verb|URI|Data Prep| Redirect or Render?|View|
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -91,6 +94,12 @@ Pull up the controller from Task Manager. Let's see if together we can create a 
 
 * Do research. What is an example of a non-RESTful route?
   * `/tasks/add`
+  
+  
+## WrapUp 
+* What is each part of CRUD? 
+* What is REST? 
+* How do we combine CRUD and REST in web applications?
 
 ## Additional Resources
 
