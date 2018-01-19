@@ -9,6 +9,12 @@ title: RESTful Routes and CRUD
 * Create a routes reference chart for the seven RESTful routes.
 * Be able to distinguish between a RESTful vs non-RESTful route.
 
+## Vocabulary
+* CRUD
+* REST
+* HTTP Verbs
+* URI
+
 ## Warmup
 
 Based on your intermission work:
@@ -56,16 +62,30 @@ In this context, the portion of the URL after the domain.
 
 For the URL `https://en.wikipedia.org/wiki/Uniform_Resource_Identifier`, the URI would be `/wiki/Uniform_Resource_Identifier`.
 
+**Turn & Talk**
+
+What is the URI for this address? `http://www.tatteredcover.com/book/9781626722934` 
+
 ### Seven RESTful Routes
 
-Pull up the controller from Task Manager. Let's see if together we can create a table for seven RESTful routes allowing us to perform all CRUD actions that includes the following:
+Pull up the controller from Task Manager. Let's see if together we can create a [table](https://docs.google.com/spreadsheets/d/1AGjUE49UJajPEQHvh3plKjaem5RAGvuv5SNjZzvjD9U/edit?usp=sharing) for seven RESTful routes allowing us to perform all CRUD actions on a Task. Include the following:
 
 * What a user wants
 * Method (verb)
 * URI
 * Data Prep/Manipulation
-* Redirect or Render
+* Do we want to Redirect or Render erb
 * Name of View
+
+|What does it do?|Verb|URI|Data Prep| Redirect or Render?|View|
+|:---:|:---:|:---:|:---:|:---:|:---:|
+|||||||
+|||||||
+|||||||
+|||||||
+|||||||
+|||||||
+|||||||
 
 ### Not So RESTful routes
 
