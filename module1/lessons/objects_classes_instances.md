@@ -127,6 +127,14 @@ This method is run once and only once during an Object's lifetime, when we call 
 
 **TRY IT**: Create an initialize method for your Class and put a print statement in it. Run your file and see what happens.
 
+#### Check for Understanding
+* What is a Class? 
+* What is an Instance? 
+* What is an Object? 
+* How are these three things alike/different?
+* What code do you have to write to create a Class? What code do you have to write to create an instance?
+* What happens when a new instance is created? 
+
 ## Modeling State with Attributes
 
 The instances of the classes we've defined so far are basically useless. Aside from their `object_id`, there is nothing unique about these instances.
@@ -366,6 +374,12 @@ p refrigerator_3
 We can see from the print statements that the `@food` array of refrigerator_1 is now populated with "apples".
 
 **TRY IT**: With your pair, create a new method for your Class. This method should change one of your Class's attributes.
+
+#### Check for Understanding
+* What is an attribute? How can we recognize an attribute?
+* What is a method? How do we write methods?
+* What are parameters? How do we add parameters to methods?
+* What is a return value? How do you know what the return value of a method is? Do all methods have return values?
 
 ## Pair Work
 
