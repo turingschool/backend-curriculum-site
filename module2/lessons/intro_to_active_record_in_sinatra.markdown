@@ -63,6 +63,10 @@ We want to wrap our data in Ruby objects so we can easily manipulate them. If we
 * a row represents one specific instance
 * the columns represent the attributes of an instance
 
+**Partnered Practice**
+
+With someone near you, draw out a diagram representing the above four aspects.
+
 ## Tutorial
 
 We're going to use ActiveRecord migrations to create a `films` table, and then create a Film model that allows us to interact with that table from our app.
