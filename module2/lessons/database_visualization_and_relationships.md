@@ -21,12 +21,13 @@ tags: database, schema, relationships
 * Many-to-Many Relationship
 
 ### Warm-Up
+1) Draw a diagram showing which tables we currently have in our Task Manager database. What information lives in that table?
 
-In our recent Task Manager client meeting, our client decided their users should be able to organize their tasks by marking them with labels. Based on our conversation, we've decided:
+2) In our recent Task Manager client meeting, our client decided their users should be able to organize their tasks by marking them with labels. Based on our conversation, we've decided:
 
      Users should have tasks. Tasks should have labels.
 
-Right now, our database only supports tasks. Take a minute to consider what changes we would need to make to our database in order to support the features requested by our client.
+Right now, our database only supports tasks. Take a minute to consider what changes we would need to make to our database in order to support the features requested by our client. Add these to your diagram.
 
 ### Defining Key Terms
 
