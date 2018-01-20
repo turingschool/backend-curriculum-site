@@ -20,7 +20,7 @@ tags: database, schema, relationships
 * One-to-Many Relationship
 * Many-to-Many Relationship
 
-### Warm-Up
+## Warm-Up
 1) Draw a diagram showing which tables we currently have in our Task Manager database. What information lives in that table?
 
 2) In our recent Task Manager client meeting, our client decided their users should be able to organize their tasks by marking them with labels. Based on our conversation, we've decided:
@@ -62,7 +62,7 @@ Let's diagram the tasks and labels relationship using the schema designer.
 
 Diagram the many-to-many relationship between students and courses.
 
-### Closing
+## Closing
 
 Let's revist our learning goals by answering the following:
 
