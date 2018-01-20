@@ -27,7 +27,7 @@ tags: database, schema, relationships
 
      Users should have tasks. Tasks should have labels.
 
-Right now, our database only supports tasks. Take a minute to consider what changes we would need to make to our database in order to support the features requested by our client. Add these to your diagram.
+     Right now, our database only supports tasks. Take a minute to consider what changes we would need to make to our database in order to support the features requested by our client. Add these to your diagram.
 
 ### Defining Key Terms
 
