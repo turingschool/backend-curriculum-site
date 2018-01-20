@@ -41,7 +41,7 @@ tags: database, schema, relationships
 ### One-to-Many Relationships
 
 * The relationship between `users` and `tasks` is a one-to-many relationship.
-* `tasks` has a column called `user_id` which is refers to the primary key of the `users` table.
+* `tasks` has a column called `user_id` which refers to the primary key of the `users` table.
 * Let's diagram the relationship using a schema designer.
 
 ### Exercise: Car Dealership
