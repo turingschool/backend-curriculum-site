@@ -100,6 +100,7 @@ In small groups complete the table either on a computer or poster.
 * What is each part of CRUD? 
 * What is REST? 
 * How do we combine CRUD and REST in web applications?
+* Record a version of the restful routes table in your notes
 
 ## Additional Resources
 
