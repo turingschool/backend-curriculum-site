@@ -24,6 +24,7 @@ Clone [this](https://github.com/turingschool-examples/film-file) repository and 
 
 ## Warmup
 
+* What are the pieces of MVC? How do we use them in a Sinatra app?
 * What do you know about ActiveRecord?
 * Name two ActiveRecord methods you explored yesterday.
 
