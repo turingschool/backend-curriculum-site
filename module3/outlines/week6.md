@@ -9,8 +9,6 @@ layout: page
 
 * [Caching Strategies in Rails](../lessons/caching_in_rails)
 * [Getting Started with Workers](../lessons/intro_to_background_workers)
-* Personal Project Evaluations
-* Portfolio Reviews
 
 ### Projects
 

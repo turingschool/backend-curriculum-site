@@ -10,10 +10,9 @@ layout: page
 * [Fundamental Rails Security](../lessons/fundamental_rails_security)
 * [Introduction to JavaScript](../lessons/intro_to_javascript)
 * [jQuery DOM Traversal and Manipulation](../lessons/jquery_dom_traversal_and_manipulation)
-* Interview Prep Fireside Chat
 * [Practice Assessment](../lessons/practice_assessment)
 * [Sending Email](../lessons/sending_email_sendgrid)
 
 ### Projects
 
-* [80202 Sprint 2](../projects/80202) (continued)
+* [Le Pivot](../projects/le_pivot) (continued)
