@@ -13,7 +13,7 @@ In this project you'll create a simple blog system and learn the basics of Ruby 
 * RESTful design
 * Adding gems for extra features
 
-This tutorial is open source. If you notice errors, typos, or have questions/suggestions, please [submit them to the project on GitHub](https://github.com/turingschool/backend-curriculum-site/blob/gh-pages/module2/misc/blogger.md).
+This tutorial is open source. If you notice errors, typos, or have questions/suggestions, please [submit them to the project on GitHub](https://github.com/turingschool/backend-curriculum-site/blob/gh-pages/module2/misc/blogger.md). You can find a completed (through Iter3) version [here](https://github.com/AliSchlereth/blogger). 
 
 ## I0: Up and Running
 
@@ -97,7 +97,7 @@ By running `rails new`, the generator has created a Rails application for you. L
 * `lib` - This folder is to store code you control that is reusable outside the project.
 * `log` - Log files, one for each environment (development, test, production)
 * `public` - Static files can be stored and accessed from here, but all the interesting things (JavaScript, Images, CSS) have been moved up to `app` since Rails 3.1
-* `spec` - When you installed RSpec, it created this directory as well as a `rails_helper.rb` and a `spec_helper.rb` file. Your tests will live here.
+* `spec` - When you install RSpec, it creates this directory as well as a `rails_helper.rb` and a `spec_helper.rb` file. Your tests will live here. You probably don't see this folder right now, but we'll circle back around to installing RSpec.
 * `tmp` - Temporary cached files
 * `vendor` - Infrequently used, this folder is to store code you *do not* control. With Bundler and Rubygems, we generally don't need anything in here during development.
 
@@ -139,6 +139,94 @@ You'll see the Rails' "Welcome Aboard" page. As long as there's no big ugly erro
 
 If you see an error here, it's most likely related to the database. You are probably running Windows and don't have either the SQLite3 application installed or the gem isn't installed properly. Go back to [Environment Setup](http://tutorials.jumpstartlab.com/topics/environment/environment.html) and use the Rails Installer package. Make sure you check the box during setup to configure the environment variables. Restart your machine after the installation and give it another try.
 
+### Setting Up for Testing 
+
+We're going to work with a few different tools while testing, [RSpec](https://relishapp.com/rspec), [Capybara](https://github.com/teamcapybara/capybara), [Launchy](https://github.com/copiousfreetime/launchy), and [Shoulda Matchers](https://github.com/thoughtbot/shoulda-matchers). RSpec is a test driver comparable to MiniTest. RSpec allows you to rung unit, integration and feature tests. Capybara is a DSL(Domain Specific Language) that helps you build tests in a user friendly format, naviating the page and performing user actions. Launchy is a helper class that allows you to add the line `save_and_open_page` within a test. When you run your test suite a browser window will be opened with the current state of the web page where the `save_and_open_page` is located. It is a helpful debugging tool. Shoulda Matchers provides us simple one liners helpful in testing validations and relationships on models.
+
+#### Adding Gems 
+
+In your Gemfile, you should already have a group :development, :test section that looks like this: 
+
+```ruby
+group :development, :test do
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+end
+```
+
+In this section add `gem rspec-rails` `gem capybara`, `gem launchy`, `gem shoulda-matchers` and `gem pry`. Then run `bundle` from your command line. You should see a long print out of gems being bundled for use in your project. The end result of your bundle should look something like this:
+
+```ruby
+Bundle complete! 14 Gemfile dependencies, 71 gems now installed.
+Use `bundle info [gemname]` to see where a bundled gem is installed.
+```
+
+Your Gemfile group :development, :test should now look like this:
+
+```ruby
+group :development, :test do
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'shoulda-matchers'
+  gem 'pry'
+end
+```
+
+#### Further RSpec setup
+
+Notice we still don't have that `spec` directory we talked about earlier. We need to futher install RSpec. From your command line, enter the command `rails g rspec:install`. I'd expect to see the following output:
+
+```ruby
+   create  .rspec
+   create  spec
+   create  spec/spec_helper.rb
+   create  spec/rails_helper.rb
+```
+
+If you check your project directory now, you should see a `spec` folder with two new files, `spec_helper.rb` and `rails_helper.rb`. If you click into these files you'll see that spec_helper is more about configuring RSpec while rails_helper is more about tying RSpec and Rails together. You'll need to require `rails_helper` from the beginning of each test you write in your project. At the root of your project you'll also see a `.rspec` file. This file requires in your `spec_helper.rb`.
+
+#### Further Shoulda Matchers Setup  
+
+In `rails_helper.rb` add the following configuration for Shoulda Matchers.
+
+```ruby
+Shoulda::Matchers.configure do |config|
+  config.integrate do |with|
+    # Choose a test framework:
+    with.test_framework :rspec
+    # Or, choose the following (which implies all of the above):
+    with.library :rails
+  end
+end
+```
+
+
+#### Don't forget to commit as you go
+Let's commit these updates with git. 
+
+```
+git add Gemfile
+git add Gemfile.lock
+git add spec
+git add .rspec	
+git status (Everything should be green now)
+git commit -m "Add setup for testing with RSpec and Shoulda Matchers"
+```
+
+#### Directory Setup 
+
+You'll want all your tests to be organized so that Rails finds them and also so developers working on your project have an easy time navigating your test files. We want to make sub directories for our model tests and feature tests. And then add a .keep file to each so git tracks the emtpy directories. 
+
+```bash
+mkdir spec/models spec/features
+touch spec/models/.keep spec/features/.keep
+```  
+
+If you run a `git status` you should see `spec/features` and `spec/models` in red.  Add and commit these changes before moving on.
+
 ### Creating the Article Model
 
 Our blog will be centered around `articles`, each with a `title` and `body`, so we'll need a table in the database to store all the articles and a model to allow our Rails app to work with that data.
@@ -150,6 +238,70 @@ git checkout -b article-model
 ```
 
 With `checkout` we create a new branch (`-b` for branch) off of the `master` branch called `article-model` and move directly into it. Let's get our Model on now.
+
+
+#### Model Tests
+Before we dive into the deep and start changing things, let's great a test to help drive our development and keep up focused. Within `spec/models` touch `article_spec.rb`
+
+```bash
+touch spec/models/article_spec.rb`
+```
+
+In your article_spec add the following test:
+
+```ruby
+require "rails_helper
+
+describe Article, type: :model do
+  describe "validations" do
+    it {should validate_presence_of(:title)}
+    it {should validate_presence_of(:body)}
+  end
+end
+```
+
+And commit it. 
+
+```bash
+git add spec/models/article_spec.rb
+git commit -m "Add article spec with validations"
+```
+You can run your test suite from your CLI(command line interface) with the command `rspec`. Go ahead and do that now.  I get the following print out:
+
+```bash
+/Users/aleneschlereth/turing/1711/practice/blogger/db/schema.rb doesn't exist yet. Run `rails db:migrate` to create it, then try again. If you do not intend to use a database, you should instead alter /Users/aleneschlereth/turing/1711/practice/blogger/config/application.rb to limit the frameworks that will be loaded.
+
+An error occurred while loading ./spec/models/article_spec.rb.
+Failure/Error:
+  describe Article, type: model do
+    describe "validations" do
+      it {should validate_presence_of(:title)}
+      it {should validate_presence_of(:body)}
+    end
+  end
+
+NameError:
+  uninitialized constant Article
+# ./spec/models/article_spec.rb:3:in `<top (required)>'
+No examples found.
+
+Finished in 0.00076 seconds (files took 3.69 seconds to load)
+0 examples, 0 failures, 1 error occurred outside of examples
+```
+
+There's a lot going on here. Let's focus our attention to the NameError section:
+
+```
+NameError:
+  uninitialized constant Article
+# ./spec/models/article_spec.rb:3:in `<top (required)>
+```
+
+We know from working with Ruby and MiniTest that this error is telling us it can't Article. In this past this has meant that maybe the files aren't required appropriately or the class just doesn't exist. Now that we'll be working with a database we also have to think about whether this resource exists in the database or not. 
+
+We haven't done anything with our database yet other than create an empty one. It definitely doesn't have Articles in there yet. Let's go solve that problem first. 
+
+#### Creating a Resource in the Database
 
 We'll use one of Rails' generators to create the required files. Switch to your terminal and enter the following:
 
@@ -183,7 +335,7 @@ Inside the `change` method you'll see the generator has placed a call to the `cr
 
 We call methods on `t` to create columns in the `articles` table. Since we used the command line to define our attributes, our migration should already be all set up the way we want it.
 
-That's it! You might be wondering, what is a "text" type?  This is an example of relying on the Rails database adapters to make the right call. For some DBs, large text fields are stored as `varchar`, while others like Postgres use a `text` type. The database adapter will figure out the best choice for us depending on the configured database -- we don't have to worry about it. The "string" type is similar, just shorter. You can think generally think of the former as multi-line and the latter as single-line/in-line.
+That's it! You might be wondering, what is a "text" type?  This is an example of relying on the Rails database adapters to make the right call. For some DBs, large text fields are stored as `varchar`, while others like Postgres use a `text` type. The database adapter will figure out the best choice for us depending on the configured database -- we don't have to worry about it. The "string" type is similar, just shorter. You can generally think of the former as multi-line and the latter as single-line/in-line.
 
 Your migration should look like this:
 
@@ -197,6 +349,8 @@ def change
   end
 end
 ```
+
+You may need to add the `t.timestamps` line.
 
 #### Timestamps
 
@@ -230,9 +384,40 @@ It tells you that it is running the migration named `CreateArticles`. And the "m
 
 We've now created the `articles` table in the database and can start working on our `Article` model.
 
-### Working with a Model in the Console
+Before we move on, don't forget to commit.
 
-Let's add the model so that our app doesn't complain:
+```bash
+git add db/migrate
+git add db/schema.rb
+git commit -m "Add Article migration"
+```
+
+### Working with a Model 
+
+Let's run `rspec` from our command line again. The output should look something like this:
+
+```
+An error occurred while loading ./spec/models/article_spec.rb.
+Failure/Error:
+  describe Article, type: model do
+    describe "validations" do
+      it {should validate_presence_of(:title)}
+      it {should validate_presence_of(:body)}
+    end
+  end
+
+NameError:
+  uninitialized constant Article
+# ./spec/models/article_spec.rb:3:in `<top (required)>'
+No examples found
+
+Finished in 0.00044 seconds (files took 4.63 seconds to load)
+0 examples, 0 failures, 1 error occurred outside of examples
+```
+
+The top looks slightly different, but the meat of what we're focusing hasn't yet. RSpec still can't find an Article. 
+
+Let's add the model so that RSpec doesn't complain:
 
 ```bash
   touch app/models/article.rb
@@ -257,6 +442,9 @@ end
 
 That file inherits from ActiveRecord so we want to inherit from ApplicationRecord. This allows us to have a master model that could contain some shared methods.
 
+
+#### Rails Console
+
 Another awesome feature of working with Rails is the `console`. The `console` is a command-line interface to your application. It allows you to access and work with just about any part of your application directly instead of going through the web interface. This will accelerate your development process. Once an app is in production the console makes it very easy to do bulk modifications, searches, and other data operations. So let's open the console now by going to your terminal and entering this:
 
 ```
@@ -273,7 +461,7 @@ $ Article.new
 
 **Important!**
 
-The first line was just to demonstrate that you can run normal Ruby, just like `irb`, within your `console`. The second line referenced the `Article` model and called the `all` class method which returns an array of all articles in the database -- so far an empty array. The third line created a new article object. You can see that this new object had attributes `id`, `title`, `body`, `created_at`, and `updated_at`.
+The first line was just to demonstrate that you can run normal Ruby, just like `irb`, within your `console`. The second line referenced the `Article` model and called the `all` class method which returns an ActiveRecord::Relation, which acts and looks just like an array, of all articles in the database -- so far an empty one. The third line created a new article object. You can see that this new object had attributes `id`, `title`, `body`, `created_at`, and `updated_at`.
 
 Type `exit` to quit the Rails console.
 
@@ -297,7 +485,65 @@ $ article.save
 $ Article.all
 ```
 
-Now you'll see that the `Article.all` command gave you back an array holding the one article we created and saved. Go ahead and **create 3 more sample articles**.
+Now you'll see that the `Article.all` command gave you back an array holding the one article we created and saved. Go ahead and **create 3 more sample articles**. When you're finished type `exit` to leave the console.
+
+#### Validations
+
+Back to our test suite again, when we run `rspec` our error has changed. 
+
+```bash
+Article
+  validations
+    should validate that :title cannot be empty/falsy (FAILED - 1)
+    should validate that :body cannot be empty/falsy (FAILED - 2)
+
+Failures:
+
+  1) Article validations should validate that :title cannot be empty/falsy
+     Failure/Error: it {should validate_presence_of(:title)}
+
+       Article did not properly validate that :title cannot be empty/falsy.
+         After setting :title to ‹nil›, the matcher expected the Article to be
+         invalid, but it was valid instead.
+     # ./spec/models/article_spec.rb:5:in `block (3 levels) in <top (required)>'
+
+  2) Article validations should validate that :body cannot be empty/falsy
+     Failure/Error: it {should validate_presence_of(:body)}
+
+       Article did not properly validate that :body cannot be empty/falsy.
+         After setting :body to ‹nil›, the matcher expected the Article to be
+         invalid, but it was valid instead.
+     # ./spec/models/article_spec.rb:6:in `block (3 levels) in <top (required)>'
+
+Finished in 0.06108 seconds (files took 2.23 seconds to load)
+2 examples, 2 failures
+
+Failed examples:
+
+rspec ./spec/models/article_spec.rb:5 # Article validations should validate that :title cannot be empty/falsy
+rspec ./spec/models/article_spec.rb:6 # Article validations should validate that :body cannot be empty/falsy
+```
+
+You should expect your error messages to be a bit longer than you've experienced in the past. The parts I want to focus on with this error are here:
+
+```bash
+Article did not properly validate that :body cannot be empty/falsy.
+         After setting :body to ‹nil›, the matcher expected the Article to be
+         invalid, but it was valid instead.
+```
+
+Basically RSpec is no longer concerned about finding the Article but now our assertion is failing. We told it we wanted every Article to have a title and body present, but our code doesn't demand that. In order to fix this, let's add some validations to our Article model.
+
+```ruby
+#app/models/article.rb
+class Article < ApplicationRecord
+
+  validates_presence_of :title, :body
+
+end
+```
+
+When we run `rspec` again you should see green. A passing test!
 
 This is a great start for our Article model, let's conclude our working branch
 and merge to master:
@@ -305,21 +551,34 @@ and merge to master:
 Part 1 - Commit:
 
 ```
-git add .
-git commit -m "Add article model, tests, and migration"
+git add app/models/article.rb
+git commit -m "Add article model"
 ```
 
 Part 2 - Merge:
 
 ```
+git pull origin master
+git push origin article-model
+```
+On GitHub put in a PR to merge the branch article-model into master. My PR message looks like this:
+
+```
+Add Article Model 
+* Add Spec with validations for title and body
+* Add migration to create articles table in DB
+* Add Article model
+* Add validations for title and body to Article model
+* Test is passing 
+```
+
+Even though we are working on a solo project, we still want to keep strong git habits, which includes PRs and not merging to master. Since we're working solo, we will need to merge our own PRs though. Do that before moving on.
+
+To keep things nice and tidy, from the CLI(command line interface):
+
+```
 git checkout master
-git merge article-model
-git push
-```
-
-To keep things nice and tidy:
-
-```
+git pull origin master
 git branch -d article-model
 ```
 
@@ -332,6 +591,143 @@ Let's start off with a controller branch:
 ```
 git checkout -b articles-controller
 ```
+
+#### Feature Tests 
+
+As with anything we do, let's create a feature test before we go crazy building things we may or may not need. First, touch a new test file.
+
+```bash
+touch spec/features/user_sees_all_articles_spec.rb
+```
+
+Add the following test structure:
+
+```ruby
+require "rails_helper"
+
+describe "user sees all articles" do
+  desribe "they visit /articles" do
+    it "displays all articles" do
+      
+    end
+  end
+end
+```
+
+We need to first do the test setup, usually requiring data prep. In this test our user is going to visit the URI `/articles` and expect to see multiple articles' information displayed. For this test we will need more than one article. Add the following within the it block of your test.
+
+```ruby
+      article_1 = Article.create!(title: "Title 1", body: "Body 1")
+      article_2 = Article.create!(title: "Title 2", body: "Body 2")
+``` 
+
+We also will use Capybara methods to tell our test to navigate to the right page. Add the following below your data prep but still within the it block.
+
+```ruby
+     visit '/articles'
+```
+
+Lastly we need to assert or expect something. I want my user to see the title and body of each article on the page. Add the following expectations below your visit line.
+
+```ruby
+     expect(page).to have_content(article_1.title)
+     expect(page).to have_content(article_1.body)
+     expect(page).to have_content(article_2.title)
+     expect(page).to have_content(article_2.body)
+```
+
+The test should look like this altogether:
+
+```ruby
+require "rails_helper"
+
+describe "user sees all articles" do
+  describe "they visit /articles" do
+    it "displays all articles" do
+      article_1 = Article.new(title: "Title 1", body: "Body 1")
+      article_2 = Article.new(title: "Title 2", body: "Body 2")
+
+      visit '/articles'
+
+      expect(page).to have_content(article_1.title)
+      expect(page).to have_content(article_2.title)
+    end
+  end
+end
+```
+
+Now that we have a test, let's commit it.
+
+```bash
+git add spec/features/user_sees_all_articles_spec.rb
+git commit -m 'Add all articles feature spec'
+```
+
+Let's run it!
+
+See what I mean about longer error messages?
+
+```ruby
+user sees all articles
+  they visit /articles
+    displays all articles (FAILED - 1)
+
+Article
+  validations
+    should validate that :title cannot be empty/falsy
+    should validate that :body cannot be empty/falsy
+
+Failures:
+
+  1) user sees all articles they visit /articles displays all articles
+     Failure/Error: visit '/articles'
+
+     ActionController::RoutingError:
+       No route matches [GET] "/articles"
+     # /Users/aleneschlereth/.rvm/gems/ruby-2.4.0/gems/railties-5.1.4/lib/rails/rack/logger.rb:36:in `call_app'
+     # /Users/aleneschlereth/.rvm/gems/ruby-2.4.0/gems/railties-5.1.4/lib/rails/rack/logger.rb:24:in `block in call'
+     # /Users/aleneschlereth/.rvm/gems/ruby-2.4.0/gems/railties-5.1.4/lib/rails/rack/logger.rb:24:in `call'
+     # /Users/aleneschlereth/.rvm/gems/ruby-2.4.0/gems/rack-2.0.3/lib/rack/method_override.rb:22:in `call'
+     # /Users/aleneschlereth/.rvm/gems/ruby-2.4.0/gems/rack-2.0.3/lib/rack/runtime.rb:22:in `call'
+     # /Users/aleneschlereth/.rvm/gems/ruby-2.4.0/gems/rack-2.0.3/lib/rack/sendfile.rb:111:in `call'
+     # /Users/aleneschlereth/.rvm/gems/ruby-2.4.0/gems/railties-5.1.4/lib/rails/engine.rb:522:in `call'
+     # /Users/aleneschlereth/.rvm/gems/ruby-2.4.0/gems/rack-2.0.3/lib/rack/urlmap.rb:68:in `block in call'
+     # /Users/aleneschlereth/.rvm/gems/ruby-2.4.0/gems/rack-2.0.3/lib/rack/urlmap.rb:53:in `each'
+     # /Users/aleneschlereth/.rvm/gems/ruby-2.4.0/gems/rack-2.0.3/lib/rack/urlmap.rb:53:in `call'
+     # /Users/aleneschlereth/.rvm/gems/ruby-2.4.0/gems/rack-test-0.8.2/lib/rack/mock_session.rb:29:in `request'
+     # /Users/aleneschlereth/.rvm/gems/ruby-2.4.0/gems/rack-test-0.8.2/lib/rack/test.rb:251:in `process_request'
+     # /Users/aleneschlereth/.rvm/gems/ruby-2.4.0/gems/rack-test-0.8.2/lib/rack/test.rb:129:in `custom_request'
+     # /Users/aleneschlereth/.rvm/gems/ruby-2.4.0/gems/rack-test-0.8.2/lib/rack/test.rb:58:in `get'
+     # /Users/aleneschlereth/.rvm/gems/ruby-2.4.0/gems/capybara-2.17.0/lib/capybara/rack_test/browser.rb:69:in `process'
+     # /Users/aleneschlereth/.rvm/gems/ruby-2.4.0/gems/capybara-2.17.0/lib/capybara/rack_test/browser.rb:41:in `process_and_follow_redirects'
+     # /Users/aleneschlereth/.rvm/gems/ruby-2.4.0/gems/capybara-2.17.0/lib/capybara/rack_test/browser.rb:22:in `visit'
+     # /Users/aleneschlereth/.rvm/gems/ruby-2.4.0/gems/capybara-2.17.0/lib/capybara/rack_test/driver.rb:44:in `visit'
+     # /Users/aleneschlereth/.rvm/gems/ruby-2.4.0/gems/capybara-2.17.0/lib/capybara/session.rb:274:in `visit'
+     # /Users/aleneschlereth/.rvm/gems/ruby-2.4.0/gems/capybara-2.17.0/lib/capybara/dsl.rb:50:in `block (2 levels) in <module:DSL>'
+     # ./spec/features/user_sees_all_articles_spec.rb:9:in `block (3 levels) in <top (required)>'
+
+Finished in 0.03617 seconds (files took 1.67 seconds to load)
+3 examples, 1 failure
+
+Failed examples:
+
+rspec ./spec/features/user_sees_all_articles_spec.rb:5 # user sees all articles they visit /articles displays all articles
+```
+
+Hopefully yours is coming through with some different colors. The long blue section is the strack trace. It can be helpful to use in debugging but is certainly not the first place I look. Instead I'm going to focus on the content of my failure:
+
+```ruby
+Failures:
+
+  1) user sees all articles they visit /articles displays all articles
+     Failure/Error: visit '/articles'
+
+     ActionController::RoutingError:
+       No route matches [GET] "/articles"
+```
+`No route matches [GET] "/articles"` Huh? Let's talk about routes.  
+
+#### Rails Routing
 
 When a Rails server gets a request from a web browser it first goes to the _router_. The router decides what the request is trying to do, what resources it is trying to interact with. The router dissects a request based on the address it is requesting and other HTTP parameters (like the request type of GET or PUT). Let's open the router's configuration file, `config/routes.rb`.
 
@@ -383,13 +779,27 @@ The second column, here `GET`, is the HTTP verb for the route. Web browsers typi
 
 The third column is similar to a regular expression which is matched against the requested URL. Elements in parentheses are optional. Markers starting with a `:` will be made available to the controller with that name. In our example line, `/articles(.:format)` will match the URLs `/articles/`, `/articles.json`, `/articles` and other similar forms.
 
-The fourth column is where the route maps to in the applications. Our example has `articles#index`, so requests will be sent to the `index` method of the `ArticlesController` class.
+The fourth column is where the route maps to in the application. Our example has `articles#index`, so requests will be sent to the `index` method of the `ArticlesController` class.
 
 Now that the router knows how to handle requests about articles, it needs a place to actually send those requests, the *Controller*.
 
+If we re-run `rspec` we get an error telling us likewise. Note you're error message will likely be just as large as last time, but we only really need to focus on the failure message printed above the stack trace. My error reads:
+
+```ruby
+Failures:
+
+  1) user sees all articles they visit /articles displays all articles
+     Failure/Error: visit '/articles'
+
+     ActionController::RoutingError:
+       uninitialized constant ArticlesController
+```
+
+RSpec can't find a class called ArticlesController. Let's go make one!
+
 ### Creating the Articles Controller
 
-Your terminal has the console currently running. Let's open one more terminal or command prompt and move to your project directory which we'll use for command-line scripts. In that new terminal, enter this command:
+Let's open one more terminal or command prompt and move to your project directory which we'll use for command-line scripts. I generally like to keep one terminal tab for my console, one for running tests/command prompts, and one for my server. In that a terminal window, enter this command:
 
 ```
 $ touch app/controllers/articles_controller.rb
@@ -409,17 +819,34 @@ end
 
 What is ApplicationController? Look at the controllers folder and you should see an `application_controller.rb` file. This file defines the `ApplicationController` class, which (generally) all of your other controllers will inherit from.
 
+Let's run our tests again with `rspec`. Looking above the blue stack trace I see the following message:
+
+```ruby
+Failures:
+
+  1) user sees all articles they visit /articles displays all articles
+     Failure/Error: visit '/articles'
+
+     AbstractController::ActionNotFound:
+       The action 'index' could not be found for ArticlesController
+```
+
+Woo new errors! This means we're making progress. What is this action 'index' all about? 
+
+
 ### Defining the Index Action
 
 The first feature we want to add is an "index" page. This is what the app will send back when a user requests `http://localhost:3000/articles/` -- following the RESTful conventions, this should be a list of the articles. So when the router sees this request come in, it tries to call the `index` action inside `articles_controller`.
 
-Let's first try it out by entering `http://localhost:3000/articles/` into your web browser. You should get an error message that looks like this:
+Let's first try it out by entering `http://localhost:3000/articles/` into your web browser. If you no longer have a server running, remember you can spin one up with the `rails s` command. You should get an error message that looks like this:
 
 ```
 Unknown action
 
 The action 'index' could not be found for ArticlesController
 ```
+
+Same error message our test gave us! 
 
 The router tried to call the `index` action, but the articles controller doesn't have a method with that name. It then lists available actions, but there aren't any. This is because our controller is still blank. Let's add the following method inside the controller:
 
@@ -431,15 +858,38 @@ end
 
 #### Instance Variables
 
-What is that "at" sign doing on the front of `@articles`?  That marks this variable as an "instance level variable". We want the list of articles to be accessible from both the controller and the view that we're about to create. In order for it to be visible in both places it has to be an instance variable. If we had just named it `articles`, that local variable would only be available within the `index` method of the controller.
+What is that "at" sign doing on the front of `@articles`?  That marks this variable as an "instance level variable". We want the list of all articles in the database to be accessible from both the controller and the view that we're about to create. In order for it to be visible in both places it has to be an instance variable. If we had just named it `articles`, that local variable would only be available within the `index` method of the controller.
 
 A normal Ruby instance variable is available to all methods within an instance.
 
 There are ways to accomplish the same goals without instance variables, but they're not widely used. Check out the [Decent Exposure](https://github.com/voxdolo/decent_exposure) gem to learn more.
 
+If we run our tests again, we should get a different error now in the failure section, above the stack trace. 
+
+```ruby
+ 1) user sees all articles they visit /articles displays all articles
+     Failure/Error: visit '/articles'
+
+     ActionController::UnknownFormat:
+       ArticlesController#index is missing a template for this request format and variant.
+
+       request.formats: ["text/html"]
+       request.variant: []
+
+       NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.
+```
+
+GAH! What does all that mean? The part I focus on is this:
+
+```ruby
+ArticlesController#index is missing a template for this request format and variant.
+```
+
+It's telling us we don't have a view template for this index action method.
+
 ### Creating the Template
 
-Now refresh your browser. The error message changed, but you've still got an error, right?
+Now refresh your browser. The error message changed, but you've still got an error just like our new test error, right?
 
 ```
 ActionController::UnknownFormat in ArticlesController#index
@@ -449,20 +899,35 @@ ArticlesController#index is missing a template for this request format and varia
 
 The error message is pretty helpful here. It tells us that the app is looking for a (view) template in `app/views/articles/` but it can't find one named `index.erb`. Rails has *assumed* that our `index` action in the controller should have a corresponding `index.erb` view template in the views folder. We didn't have to put any code in the controller to tell it what view we wanted, Rails just figures it out.
 
-To get some helpful git reps, let's commit our changes and checkout a branch from our current
-`articles-controller` branch to add the view.
+Let's commit our changes.
 
 ```
-git add .
+git add config/routes
+git add app/controllers/articles_controller.rb
 git commit -m "Set up /articles route and action"
-git checkout -b article-index-view
 ```
 
-In your editor, find the folder `app/views/articles` and, in that folder, create a file named `index.html.erb`.
+Let's create our view template.
+
+```bash
+mkdir app/views/articles
+touch app/views/articles/index.html.erb
+```
 
 #### Naming Templates
 
 Why did we choose `index.html.erb` instead of the `index.erb` that the error message said it was looking for?  Putting the HTML in the name makes it clear that this view is for generating HTML. In later versions of our blog we might create an RSS feed which would just mean creating an XML view template like `index.xml.erb`. Rails is smart enough to pick the right one based on the browser's request, so when we just ask for `http://localhost:3000/articles/` it will find the `index.html.erb` and render that file.
+
+Let's run our tests again and see how our changes have affected our error message. You'll notice how this error message is much shorter. Where'd the stack trace go? Since we've successfully loaded the page, RSpec is is now only looking for text on the page. None of or our Rails methods are erroring out, thus no stack trace. Either way, we're still going to focus on what the message within the `Failures:` section says:
+
+```ruby
+Failures:
+
+  1) user sees all articles they visit /articles displays all articles
+     Failure/Error: expect(page).to have_content(article_1.title)
+       expected to find text "Title 1" in ""
+     # ./spec/features/user_sees_all_articles_spec.rb:11:in `block (3 levels) in <top (required)>'
+```
 
 #### Index Template Content
 
@@ -486,25 +951,58 @@ ERB is a templating language that allows us to mix Ruby into our HTML. There are
 * If the clause started with `<%`, the result of the ruby code will be hidden
 * If the clause started with `<%=`, the result of the ruby code will be output in place of the clause
 
-Save the file and refresh your web browser. You should see a listing of the articles you created in the console. We've got the start of a web application!
+When we run our tests, what do we get?
+
+```ruby
+user sees all articles
+  they visit /articles
+    displays all articles
+
+Article
+  validations
+    should validate that :title cannot be empty/falsy
+    should validate that :body cannot be empty/falsy
+
+Finished in 0.21042 seconds (files took 2.32 seconds to load)
+3 examples, 0 failures
+```
+
+Woo, green passing tests!!
+
+Refresh your web browser. You should see a listing of the articles you created in the console. We've got the start of a web application!
 
 Let's commit our changes and head back into our controller and merge our new index view.
 
 ```
-git add .
+git add app/views/articles/
 git commit -m "Add articles index template"
-git checkout articles-controller
-git merge articles-index-view
 ```
-
-Because we developed the view in a branch off the `articles-controllers` branch, we merge into `articles-controller` and not `master`.
 
 Let's double check our `/articles` path one more time in the browser to make sure our merge links the controller and the view correctly. Once that's squared away, let's merge `articles-controller` to `master`:
 
 ```
+git pull origin master
+git push origin articles-controller
+```
+On GitHub put in a PR to merge your changes into master (Yes put in a PR even though you're working solo.
+
+My PR message looks like this:
+
+```
+Add Articles Index Functionality
+* Add a feature spec for all articles
+* Add all routes for articles 
+* Add an ArticlesController
+* Add an index action within ArticlesController
+* Add a view for articles/index
+* All tests passing
+```
+
+Merge your PR. Then come back to your CLI to pull down the current master.
+
+```
 git checkout master
-git merge articles-controller
-git push
+git pull origin master
 git branch -d articles-controller
 ```
 
@@ -530,7 +1028,20 @@ For example, `article_path(1)` would generate the string `"/articles/1"`. Give t
 
 #### Completing the Article Links
 
-Back in `app/views/articles/index.html.erb`, find where we have this line:
+Let's update or assertions in our feature test. Change `dexpect(page).to have_content(article_1.title)` to `expect(page).to have_link(article_1.title)` and make the same update for the second article.
+
+When you run your test your error should looke something like this:
+
+```ruby
+Failures:
+
+  1) user sees all articles they visit /articles displays all articles
+     Failure/Error: expect(page).to have_link(article_1.title)
+       expected to find visible link "Title 1" but there were no matches
+     # ./spec/features/user_sees_all_articles_spec.rb:11:in `block (3 levels) in <top (required)>'
+```
+
+Our test is now broken because while we have the text for the article's title, it's not a link yet. Back in `app/views/articles/index.html.erb`, find where we have this line:
 
 ```erb
 <%= article.title %>
@@ -542,34 +1053,47 @@ Instead, let's use a `link_to` helper:
 <%= link_to article.title, article_path(article) %>
 ```
 
-The first part of this helper after the `link_to`, in this case `article.title`, is the text you want the link to say. The next part is our route helper.
+The first part of this helper after the `link_to`, in this case `article.title`, is the text you want the link to say. The next part is our route helper. Note that when you pass an entire object as an argument, Rails takes the id from the object and builds the route from there.
 
 But wait, there's one more thing. Our stylesheet for this project is going to look for a certain class on the link to make it look fancy. To add HTML attributes to a link, we include them in a Ruby hash style on the end like this:
 
 ```erb
-<%= link_to article.title, article_path(article), class: 'article_title' %>
+<%= link_to article.title, article_path(article), class: 'article-title' %>
 ```
 
 Or, if you wanted to also have a CSS ID attribute:
 
 ```erb
 <%= link_to article.title, article_path(article),
-    class: 'article_title', id: "article_#{article.id}" %>
+    class: 'article-title', id: "article-#{article.id}" %>
 ```
 
 When the template is rendered, it will output HTML like this:
 
 ```html
-<a class="article_title" id="article_1" href="/articles/1">First Sample Article</a>
+<a class="article-title" id="article-1" href="/articles/1">First Sample Article</a>
 ```
+Run your test suite again you should have all green, passing tests. Let's commit this change before we move on. 
 
 #### New Article Link
 
-At the very bottom of the template, let's add a link to the "Create a New Article" page.
+At the very bottom of the template, let's add a link to the "Create a New Article" page. First, let's add an assertion to our feature test.
+Referencing the new assertion we just used to check that each article title is a link, write another assertion that there is a  "Create a New Article" link on the page.  
+
+When we run our test suite, we get the following error:
+
+```ruby
+Failures:
+
+  1) user sees all articles they visit /articles displays all articles
+     Failure/Error: expect(page).to have_link("Create a New Article")
+       expected to find visible link "Create a New Article" but there were no matches
+     # ./spec/features/user_sees_all_articles_spec.rb:16:in `block (3 levels) in <top (required)>'
+```
 
 We'll use the `link_to` helper, we want it to display the text `"Create a New Article"`, and where should it point? Look in the routing table for the `new` action, that's where the form to create a new article will live. You'll find the name `new_article`, so the helper is `new_article_path`. Assemble those three parts and write the link in your template.
 
-Use the technique mentioned above to add the CSS class `new_article` to your "Create a New Article" link.
+Use the technique mentioned above to add the CSS class `new-article` to your "Create a New Article" link.
 
 ```erb
 <h1>All Articles</h1>
@@ -582,8 +1106,10 @@ Use the technique mentioned above to add the CSS class `new_article` to your "Cr
   <% end %>
 </ul>
 
-<%= link_to "Create a New Article", new_article_path, class: "new_article" %>
+<%= link_to "Create a New Article", new_article_path, class: "new-article" %>
 ```
+
+Run your tests again and they should be passing.
 
 #### Review the Results
 
@@ -592,15 +1118,74 @@ Refresh your browser and each sample article title should be a link. If you clic
 Based on our branch name, we have completed the intended functionality. Let's:  
 
 * Commit these changes
-* Checkout to master
-* Merge our `index-navigation-links` branch
-* Push our master branch
+* Push our code to GitHub
+* Put in a PR with comments to merge our work to master on GitHub
+* Merge your PR
+* Checkout master locally
+* Pull the current version of master into your local master
 * Delete `index-navigation-links`
 * Checkout a new branch for adding functionality for the SHOW action
 
 ### Creating the SHOW Action
 
-Click the title link for one of your sample articles and you'll get the "Unknown Action" error we saw before. Remember how we moved forward?
+We'll need to write a new test for this since we're building out functionality on a new action/view. Create a new feature test file for the functionality where a user sees one article. Within this test structure, you're going to start with a describe block similar to the name of the file, then give any more specific scenario information, and then say what you expect to find there. Git it a try yourself before looking at my sample below.
+
+```ruby
+require "rails_helper"
+
+describe "user sees one article" do
+	describe "they link from the articles index" do
+		it "displays information for one article" do
+		
+		end 
+	end 
+end 
+```
+
+We need our test to do the following:
+
+* Create an article
+* Visit the articles index
+* Click the article's link
+* Expect the page to display the article's title
+* Expect the page to display the article's body
+
+Give it a try before looking at my test below:
+
+```ruby
+require "rails_helper"
+
+describe "user sees one article" do
+  describe "they link from the article index" do
+    it "displays information for one article" do
+      article = Article.create!(title: "New Title", body: "New Body")
+
+      visit articles_path
+
+      click_link article.title
+
+      expect(page).to have_content(article.title)
+      expect(page).to have_content(article.body)
+    end
+  end
+end
+```
+
+After you've put your test together, don't forget to commit it.
+
+When we run our test suite, we have a new error. 
+
+```bash
+Failures:
+
+  1) user sees one article they link from the article index displays information for one article
+     Failure/Error: click_link article.title
+
+     AbstractController::ActionNotFound:
+       The action 'show' could not be found for ArticlesController
+```
+
+How did we move forward when we got a similar error for the index?
 
 An "action" is just a method of the controller. Here we're talking about the `ArticlesController`, so our next step is to open `app/controllers/articles_controller.rb` and add a `show` method:
 
@@ -610,25 +1195,43 @@ def show
 end
 ```
 
-Refresh the browser and you'll get the `ActionController::UnknownFormat in ArticlesController#show` error. Let's pause here before creating the view template.
+When we run our tests again we get this much longer failure message:
 
-#### A Bit on Parameters
+```bash
+Failures:
 
-Look at the URL: `http://localhost:3000/articles/1`. When we added the `link_to` in the index and pointed it to the `article_path` for this `article`, the router created this URL. Following the RESTful convention, this URL goes to a SHOW method which would display the Article with ID number `1`. Your URL might have a different number depending on which article title you clicked in the index.
+  1) user sees one article they link from the article index displays information for one article
+     Failure/Error: click_link article.title
 
-So what do we want to do when the user clicks an article title?  Find the article, then display a page with its title and body. We'll use the number on the end of the URL to find the article in the database.
+     ActionController::UnknownFormat:
+       ArticlesController#show is missing a template for this request format and variant.
 
-Within the controller, we have access to a method named `params` which returns us a hash of the request parameters. Often we'll refer to it as "the `params` hash", but technically it's "the `params` method which returns a hash".
+       request.formats: ["text/html"]
+       request.variant: []
 
-Within that hash we can find the `:id` from the URL by accessing the key `params[:id]`. Use this inside the `show` method of `ArticlesController` along with the class method `find` on the `Article` class:
-
-```ruby
-@article = Article.find(params[:id])
+       NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.
 ```
 
-#### Back to the Template
+Remember the important part of this message is:
 
-Refresh your browser and we still have the same missing template error. Create the file `app/views/articles/show.html.erb` and add this code:
+```bash
+ActionController::UnknownFormat:
+       ArticlesController#show is missing a template for this request format and variant.
+```
+
+What did we do to solve this error last time? Go ahead and create the file for the show template. Think first about where this file should live. Rails is going to look in a very specific place for this file.
+
+When you run your test suite again, I'd expect to have a different error:
+
+```ruby
+Failures:
+
+  1) user sees one article they link from the article index displays information for one article
+     Failure/Error: expect(page).to have_content(article.title)
+       expected to find text "New Title" in ""
+     # ./spec/features/user_sees_one_article_spec.rb:12:in `block (3 levels) in <top (required)>'
+```
+Add the following html & erb to your file:
 
 ```erb
 <h1><%= @article.title %></h1>
@@ -636,11 +1239,51 @@ Refresh your browser and we still have the same missing template error. Create t
 <%= link_to "<< Back to Articles List", articles_path %>
 ```
 
+What does your error tell you now?
+
+```ruby
+Failures:
+
+  1) user sees one article they link from the article index displays information for one article
+     Failure/Error: <h1><%= @article.title %></h1>
+
+     ActionView::Template::Error:
+       undefined method `title' for nil:NilClass
+```
+
+Here RSpec is telling us it tried to run the method `.title` on @article, but @article is `nil` so it doesn't have access to such a method. How do we make @article not be empty/nil?
+
+#### A Bit on Parameters
+
+Look at the URL: `http://localhost:3000/articles/1`. When we added the `link_to` in the index and pointed it to the `article_path` for this `article`, the router created this URL. Following the RESTful convention, this URL goes to a SHOW method which would display the Article with ID number `1`. Your URL might have a different number depending on which article title you clicked in the index.
+
+So what do we want to do when the user clicks an article title?  Find the article, then display a page with its title and body. We'll use the number on the end of the URL to find the article in the database.
+
+Within the controller, we have access to a method named `params` which returns us the request parameters. Often we'll refer to it as "the `params` hash", but technically it's "the `params` method which returns a hash-like object". Params is not a hash, but it acts just like one so we can treat it just like a hash.
+
+Put a `binding.pry` or `buybug` in your show action and run your test suite again. When your test suite stops, enter `params` and see what is returned. 
+
+```
+<ActionController::Parameters {"controller"=>"articles", "action"=>"show", "id"=>"34"} permitted: false>
+```
+
+Play around a little bit. What happens when you type `params[:controller]` or `params["action"]` or `params[:id]`?
+
+Exit `pry`, remove the `binding.pry` from your show action and run your test suite again to continue.
+
+Within that hash we can find the `:id` from the URL by accessing the key `params[:id]`. Use this inside the `show` method of `ArticlesController` along with the class method `find` on the `Article` class to retrieve the record from the database and create a Ruby object whose state is the information pulled from the database.
+
+```ruby
+@article = Article.find(params[:id])
+```
+
+If you run your tests at this point, you should be all green, all tests passing. 
+
+#### Back to the Web page
+
 Refresh your browser and your article should show up along with a link back to the index. We can now navigate from the index to a show page and back.
 
-Time to commit. Bite-sized commits like this are best-practice, and a great
-habit to start early. Commit, checkout to master, merge this branch, push
-master, and delete the old working branch.
+Time to commit. Bite-sized commits like this are best-practice, and a great habit to start early. Commit, push your branch to GitHub, but in a PR with a message, merge your PR, checkout master, pull in the updates to master, and delete the old working branch.
 
 ### Styling
 
@@ -659,19 +1302,59 @@ curl http://tutorials.jumpstartlab.com/assets/blogger/screen.css -o app/assets/s
 `curl` is a command line tool used to access server data. We get the data from
 `http://tutorials.jumpstartlab.com/assets/blogger/screen.css` and output it (`-o`) to `app/assets/stylesheets`.
 
-Commit, checkout to master, merge, push, delete.
+Commit, push, put in a PR, merge, checkout master, pull in updated master, delete.
 
 ## I1: Form-based Workflow
 
 We've created sample articles from the console, but that isn't a viable long-term solution. The users of our app will expect to add content through a web interface. In this iteration we'll create an HTML form to submit the article, then all the backend processing to get it into the database.
 
+Check out a branch for adding create functionality to our app.
+
 ### Creating the NEW Action and View
 
-Previously, we set up the `resources :articles` route in `routes.rb`, and that told Rails that we were going to follow the RESTful conventions for this model named Article. Following this convention, the URL for creating a new article would be `http://localhost:3000/articles/new`. From the articles index, click your "Create a New Article" link and it should go to this path.
+Previously, we set up the `resources :articles` route in `routes.rb`, and that told Rails that we were going to follow the RESTful conventions for this model named Article. Following this convention, the URL for creating a new article would be `http://localhost:3000/articles/new`. From the articles index, your "Create a New Article" link should go to this path.
 
-Then you'll see an "Unknown Action" error. The router went looking for an action named `new` inside the `ArticlesController` and didn't find it.
+### But first, tests
 
-Check out a branch for adding create functionality to our app.
+Create a new feature test file for a user creating a new article. Think about how they need to visit a new article form first. Set up your test structure to describe the scenario and what you want to happen. Will you need to create an article in the data prep section? How will you tell Capybara to fill in the form? Try to write out the whole test before looking at my sample.
+
+```ruby
+require "rails_helper"
+
+describe "user creates a new article" do
+  describe "they link from the articles index" do
+    describe "they fill in a title and body" do
+      it "creates a new article" do
+        visit articles_path
+        click_link "Create a New Article"
+
+        expect(current_path).to eq(new_article_path)
+
+        fill_in "article[title]", with: "New Title!"
+        fill_in "article[body]",  with: "New Body!"
+        click_on "Create Article"
+
+        expect(page).to have_content("New Title!")
+        expect(page).to have_content("New Body!")
+      end
+    end
+  end
+end
+```
+
+When we run this test, we get the following error message. 
+
+```ruby
+Failures:
+
+  1) user creates a new article they link from the articles index they fill in a title and body creates a new article
+     Failure/Error: click_link "Create a New Article"
+
+     AbstractController::ActionNotFound:
+       The action 'new' could not be found for ArticlesController
+```
+
+Good thing we've done this twice and know how to handle this error. 
 
 Now, let's create that action. Open `app/controllers/articles_controller.rb` and add this method, making sure it's _inside_ the `ArticlesController` class, but _outside_ the existing `index` and `show` methods:
 
@@ -683,15 +1366,13 @@ end
 
 #### Starting the Template
 
-With that defined, refresh your browser and you should get the "ActionController::UnknownFormat in ArticlesController#new" error.
+Our next error we get from our tests is the long `no template` error. 
 
 Create a new file `app/views/articles/new.html.erb` with these contents:
 
 ```erb
 <h1>Create a New Article</h1>
 ```
-
-Refresh your browser and you should just see the heading "Create a New Article".
 
 ### Writing a Form
 
@@ -728,37 +1409,49 @@ What is all that?  Let's look at it piece by piece:
 
 #### Does it Work?
 
-Refresh your browser and you'll see this:
+Re-run your test suite and you certainly have a new error. 
 
 ```
-ArgumentError in Articles#new
-Showing /Users/you/projects/blogger/app/views/articles/new.html.erb where line #2 raised:
-First argument in form cannot contain nil or be empty
+Failures:
+
+  1) user creates a new article they link from the articles index they fill in a title and body creates a new article
+     Failure/Error: <%= form_for(@article) do |f| %>
+
+     ActionView::Template::Error:
+       First argument in form cannot contain nil or be empty
 ```
 
 What's happening here is that we're passing `@article` to `form_for`. Since we haven't created an `@article` in this action, the variable just holds `nil`. The `form_for` method calls `model_name` on `nil`, generating the error above.
 
-In your browser, note the black console window in the bottom of the screen. It's
-like a pry session with all your `rails console` abilities as well. Try playing
-around with your `Article` model, or just some plain old Ruby stuff.
-
 #### Setting up for Reflection
 
-Rails uses some of the _reflection_ techniques that we talked about earlier in order to set up the form. Remember in the console when we called `Article.new` to see what fields an `Article` has? Rails wants to do the same thing, but we need to create the blank object for it. Go into your `articles_controller.rb`, and _inside_ the `new` method, add this line:
+Rails uses some of the _reflection_ techniques that we talked about earlier in order to set up the form. Remember in the console when we called `Article.new` to see what fields an `Article` has? Rails wants to do the same thing, but we need to create the blank Ruby object for it. Go into your `articles_controller.rb`, and _inside_ the `new` method, add this line:
 
 ```ruby
 @article = Article.new
 ```
 
-Then refresh your browser and your form should come up. Enter in a title, some body text, and click CREATE.
+When you run your test suite, your error should be the following: 
+
+```ruby
+Failures:
+
+  1) user creates a new article they link from the articles index they fill in a title and body creates a new article
+     Failure/Error: click_on "Create Article"
+
+     AbstractController::ActionNotFound:
+       The action 'create' could not be found for ArticlesController
+```
+
+Go back and look at the test you created.  Since my error is concerning the click_on "Create Article" that tells me Capybara made it through all those fill_in steps without a problem. 
 
 ### The `create` Action
 
 Your old friend pops up again...
 
 ```
-Unknown action
-The action 'create' could not be found for ArticlesController
+AbstractController::ActionNotFound:
+  The action 'create' could not be found for ArticlesController
 ```
 
 We accessed the `new` action to load the form, but Rails' interpretation of REST uses a second action named `create` to process the data from that form. Inside your `articles_controller.rb` add this method (again, _inside_ the `ArticlesContoller` class, but _outside_ the other methods):
@@ -769,14 +1462,29 @@ def create
 end
 ```
 
-If you refresh and try to submit, you should see absolutely nothing happen. If you open your developer console with `command-option-j`, you should see:
+When we run our tests again, we get this rather unhelpful error:
+
+```ruby
+Failures:
+
+  1) user creates a new article they link from the articles index they fill in a title and body creates a new article
+     Failure/Error: expect(page).to have_content("New Title!")
+
+     Capybara::ElementNotFound:
+       Unable to find visible xpath "/html"
+```
+
+This is a great opportunity to use Launchy. Put a `save_and_open_page` after the click_on "Create Article" but before the expectation lines. You should see absolutely nothing on the page. If you go to your server tab you should see:
 
 ```
-XHR Loaded (articles - 204 No Content - 85.57199999631848ms - 555B)
+Started POST "/articles" for 127.0.0.1 at 2018-01-18 09:55:52 -0700
+Processing by ArticlesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"T/n64kWdb4FRAQ8CCiHA27k4141L+70dDCBxAYXOmjJCzeNRmGiKV3dICHTg9fHShY1H5B2Wsbq2sarKoxBwsQ==", "article"=>{"title"=>"something", "body"=>"other things"}, "commit"=>"Create Article"}
+No template found for ArticlesController#create, rendering head :no_content
+Completed 204 No Content in 46ms (ActiveRecord: 0.0ms)
 ```
 
-This is a fancy way to say your POST request did absolutely nothing, which
-matches the amount of code in our `#create` action: absolutely nothing.
+That last line says `Completed 204 No Content`. This is a fancy way to say your POST request did absolutely nothing, which matches the amount of code in our `#create` action: absolutely nothing.
 
 #### We Don't Always Need Templates
 
@@ -788,7 +1496,7 @@ We already have an action and template for displaying an article, the `show`, so
 
 Before we can send the client to the `show`, let's process the data. The data from the form will be accessible through the `params` method.
 
-To check out the structure and content of `params`, I like to use this trick:
+To check out the structure and content of `params`, put a pry in your create action:
 
 ```ruby
 def create
@@ -798,7 +1506,7 @@ end
 
 The `binding.pry` method will halt the request allowing you to play with the code inside of your console.
 
-Refresh/resubmit the page in your browser.
+Re-run your tests to hit the pry.
 
 #### Understanding Form Parameters
 
@@ -812,7 +1520,7 @@ Here is the request information. We are interested in the parameters (I've inser
  "commit"=>"Create", "action"=>"create", "controller"=>"articles"}
 ```
 
-What are all those? We see the `{` and `}` on the outside, representing a `Hash`. Within the hash we see keys:
+What are all those? We see the `{` and `}` on the outside, similar to a `Hash`. Within the hash we see keys:
 
 * `utf8` : This meaningless checkmark is a hack to force Internet Explorer to submit the form using UTF-8. [Read more on StackOverflow](http://stackoverflow.com/questions/3222013/what-is-the-snowman-param-in-rails-3-forms-for)
 * `authenticity_token` : Rails has some built-in security mechanisms to resist "cross-site request forgery". Basically, this value proves that the client fetched the form from your site before submitting the data.
@@ -831,23 +1539,28 @@ Now that we've seen the structure, we can access the form data to mimic the way 
 def create
   @article = Article.new
   @article.title = params[:article][:title]
+  @article.title = params[:article][:body]
   @article.save
 end
 ```
 
-If you refresh the page in your browser you'll still get the template error. Add one more line to the action, the redirect:
+Heading back to our tests, remove the save_and_open_page and then run your test suite again. We still get that xpath error. If you refresh your browser and enter the form again, when you look at your server you should still see this error:
+
+```
+No template found for ArticlesController#create, rendering head :no_content
+Completed 204 No Content in 70ms (ActiveRecord: 13.2ms)
+```
+
+We still don't have a template. Why is this error different from the other no template error? Remember we used a POST to get to our create action, all our other ones have been GET requests so far. We don't usually have a view for a POST request. Instead we need to send a message to the browser that we've successully created and that it needs to make a second call to our show path.
+
+Add one more line to the action, the redirect:
 
 ```ruby
 redirect_to article_path(@article)
 ```
 
-Refresh the page and you should go to the show for your new article. (_NOTE_: You've now created the same sample article twice)
-
-#### More Body
-
-The `show` page has the title, but where's the body? Add a line to the `create` action to pull out the `:body` key from the `params` hash and store it into `@article`.
-
-Then try it again in your browser. Both the `title` and `body` should show up properly.
+When you run your test suite, you should see all passing tests. !!
+Let's commit this before refactoring.
 
 #### Fragile Controllers
 
@@ -881,16 +1594,16 @@ end
 
 Test and you'll find that it... blows up! What gives?
 
-For security reasons, it's not a good idea to blindly save parameters sent into us via the params hash. Luckily, Rails gives us a feature to deal with this situation: Strong Parameters.
+For security reasons, it's not a good idea to blindly save parameters sent to us via the params hash. Luckily, Rails gives us a feature to deal with this situation: Strong Parameters.
 
 It works like this: You use two new methods, `require` and `permit`.  They help you declare which attributes you'd like to accept. Add the below code to the bottom of your `articles_controller.rb`.
 
 ```ruby
 private
 
-def article_params
-  params.require(:article).permit(:title, :body)
-end
+  def article_params
+    params.require(:article).permit(:title, :body)
+  end
 ```
 
 Now, you'll then use this method instead of the `params` hash directly:
@@ -924,18 +1637,61 @@ end
 
 We can then re-use this method any other time we want to make an `Article`.
 
-**Git time**. Commit, checkout, merge, push, delete Look at the header directly below, make a new branch based on that header.
+Commit, push, PR, merge, checkout master, pull, delete. Look at the header directly below, make a new branch based on that header.
 
 ### Deleting Articles
 
 We can create articles and we can display them, but when we eventually deliver this to less perfect people than us, they're going to make mistakes. There's no way to remove an article, let's add that next.
 
-We could put delete links on the index page, but instead let's add them to the `show.html.erb` template. Let's figure out how to create the link.
+We could put delete links on the index page, but instead let's add them to the `show.html.erb` template. 
+
+#### But first, a test
+
+We want a brand new test file where our user is going to delete an article. 
+
+* We've already decided that we will be linking from the show page. 
+* How would we build an assertion that proves that it is gone from the complete list of articles?
+
+Build out your own test first before checking out my example below. 
+
+```ruby
+require "rails_helper"
+
+describe "user deletes an article" do
+  describe "they link from the show page" do
+    it "displays all articles without the deleted entry" do
+      article_1 = Article.create!(title: "Title 1", body: "Body 1")
+      article_2 = Article.create!(title: "Title 2", body: "Body 2")
+
+      visit article_path(article_1)
+      click_link "Delete"
+
+      expect(current_path).to eq(articles_path)
+      expect(page).to have_content(article_2.title)
+      expect(page).to_not have_content(article_1.title)
+    end
+  end
+end
+
+``` 
+With our test all put together let's commit that first before moving on. When we run the test suite, we get the following error. Remember the important part to read in the error message is above the long stack trace where it lists the `Failures` message. 
+
+```ruby
+Failures:
+
+  1) user deletes an article they link from the show page displays all articles without the deleted entry
+     Failure/Error: click_link "Delete"
+
+     Capybara::ElementNotFound:
+       Unable to find visible link "Delete"
+```
+
+Let's figure out how to create the link.
 
 We'll start with the `link_to` helper, and we want it to say the word "delete" on the link. So that'd be:
 
 ```erb
-<%= link_to "delete", some_path %>
+<%= link_to "Delete", some_path %>
 ```
 
 But what should `some_path` be? Look at the routes table with `rake routes`. The `destroy` action will be the last row, but it has no name in the left column. In this table the names "trickle down," so look up two lines and you'll see the name `article`.
@@ -948,7 +1704,22 @@ The helper method for the destroy-triggering route is `article_path`. It needs t
 
 Add that to `app/views/articles/show.html.erb`.
 
-Go to your browser, load the show page, click the link, and observe what happens.
+When we run our test suite again, we get the following error:
+
+```ruby
+Failures:
+
+  1) user deletes an article they link from the show page displays all articles without the deleted entry
+     Failure/Error: expect(current_path).to eq(articles_path)
+
+       expected: "/articles"
+            got: "/articles/3"
+
+       (compared using ==)
+     # ./spec/features/user_deletes_an_article_spec.rb:12:in `block (3 levels) in <top (required)>'
+```
+
+Huh? If you look closely, this error is coming from line 12 of our test file where we told our application that we expect to be on the index (articles_path aka "/articles") but instead we're on "/articles/85" (aka article_path(article aka a show).
 
 #### REST is about Path and Verb
 
@@ -979,7 +1750,7 @@ Rails' solution to this problem is to *fake* a `DELETE` verb. In your view templ
 <%= link_to "delete", article_path(@article), method: :delete %>
 ```
 
-Through some JavaScript tricks, Rails can now pretend that clicking this link triggers a `DELETE`. Try it in your browser, and say hello to your old friend, "Unknown Action" error.
+Through some JavaScript tricks, Rails can now pretend that clicking this link triggers a `DELETE`. Try your tests again, and say hello to your old friend, "ActionNotFound" error.
 
 #### The `destroy` Action
 
@@ -991,15 +1762,18 @@ Let's define the `destroy` method in our `ArticlesController` so it:
 2. Calls `.destroy` on that object
 3. Redirects to the articles index page
 
-Do that now on your own and test it by running through the feature on `localhost:3000/articles`.
+Do that now on your own and run your tests.
 
 Didn't quite get there? See the code below:
 
 ```ruby
   def destroy
     Article.destroy(params[:id])
+    redirect_to articles_path
   end
 ```
+
+Passing tests means time to commit! 
 
 #### Confirming Deletion
 
@@ -1009,7 +1783,7 @@ There's one more parameter you might want to add to your `link_to` call in your 
 data: {confirm: "Really delete the article?"}
 ```
 
-This will pop up a JavaScript dialog when the link is clicked. The Cancel button will stop the request, while the OK button will submit it for deletion.
+This will pop up a JavaScript dialog when the link is clicked. The Cancel button will stop the request, while the OK button will submit it for deletion. Run your tests again to make sure this change didn't break anything. Your tests should still be passing, which means...
 
 Delete functionality is implemented! Now go be a Git boss and wrap up this branch.
 
@@ -1021,6 +1795,23 @@ Sometimes we don't want to destroy an entire object, we just want to make some c
 
 In the same way that we used `new` to display the form and `create` to process that form's data, we'll use `edit` to display the edit form and `update` to save the changes.
 
+#### First, we write a test  
+
+We want to create a new test file for the purpose of checking if a user can edit an article. Try to come up with your own list of what you want your test to do, thinking through each phase of a test (setup, action, assertion). Think about the user flow. We want to link from a show to an edit (which only displays the form), fill in a form, and see the results of our change to this single article. Put together your test on your own. I'm not going to give you a sample test, but you might reference the new/create test if you need some support.
+
+Commit your new test.
+Run your test and you should get a similar error:
+
+```ruby
+Failures:
+
+  1) user edits an article they link from a show page they fill in an edit field and submit displays the updated information on a show
+     Failure/Error: click_link "Edit"
+
+     Capybara::ElementNotFound:
+       Unable to find visible link "Edit"
+```
+
 #### Adding the Edit Link
 
 Again in `show.html.erb`, let's add this:
@@ -1029,7 +1820,7 @@ Again in `show.html.erb`, let's add this:
 <%= link_to "edit", edit_article_path(@article) %>
 ```
 
-Trigger the `edit_article` route and pass in the `@article` object. Try it!
+Trigger the `edit_article` route and pass in the `@article` object. When you run your tests you should get an `ActionNotFound` message or edit.
 
 #### Implementing the `edit` Action
 
@@ -1041,7 +1832,59 @@ def edit
 end
 ```
 
-Wait, that looks an awful lot like how we set `@article` in our 'show' and `delete` action. Let's DRY up this with a `before_action`:
+The router is expecting to find an action in `ArticlesController` named `edit`, so let's add this:
+
+```ruby
+def edit
+
+end
+```
+When you run your test suite you'll see the `ArticlesController#edit is missing a template for this request format and variant.` error message. Let't go create that file.
+
+#### An Edit Form
+
+Create a file `app/views/articles/edit.html.erb`. Below is what the edit form would look like:
+
+```erb
+<h1>Edit an Article</h1>
+
+<%= form_for(@article) do |f| %>
+  <ul>
+  <% @article.errors.full_messages.each do |error| %>
+    <li><%= error %></li>
+  <% end %>
+  </ul>
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :body %><br />
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+```
+
+Run your test and you should get an error similar to this:
+
+```ruby
+Failures:
+
+  1) user edits an article they link from a show page they fill in an edit field and submit displays the updated information on a show
+     Failure/Error: <%= form_for(@article) do |f| %>
+
+     ActionView::Template::Error:
+       First argument in form cannot contain nil or be empty
+```
+
+We've seen this error before. When you build your form_for you pass it an argument of your object (@article). Where do we get @article from? The controller. Take a look at your edit action in your controller. 
+
+Add `@article = Article.find(params[:id])` to your edit method. Rerun your test, and we have a new error! 
+
+But wait, that code in edit looks an awful lot like how we set `@article` in our 'show' and `delete` action. Let's first DRY up this with a `before_action`:
 
 ```ruby
 class ArticlesController < ApplicationController
@@ -1075,65 +1918,17 @@ def edit
 end
 ```
 
-All the `edit` action does is find the object and display the form. Refresh and you'll see the template missing error.
+All the `edit` action does is find the object and display the form. Run your tests again to make sure you're still getting the following error:
 
-#### An Edit Form
+```ruby
+Failures:
 
-Create a file `app/views/articles/edit.html.erb` but *hold on before you type anything*. Below is what the edit form would look like:
+  1) user edits an article they link from a show page they fill in an edit field and submit displays the updated information on a show
+     Failure/Error: click_on "Update Article"
 
-```erb
-<h1>Edit an Article</h1>
-
-<%= form_for(@article) do |f| %>
-  <ul>
-  <% @article.errors.full_messages.each do |error| %>
-    <li><%= error %></li>
-  <% end %>
-  </ul>
-  <p>
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </p>
-  <p>
-    <%= f.label :body %><br />
-    <%= f.text_area :body %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+     AbstractController::ActionNotFound:
+       The action 'update' could not be found for ArticlesController
 ```
-
-In the Ruby community there is a mantra of "Don't Repeat Yourself" -- but that's exactly what I've done here. This view is basically the same as the `new.html.erb` -- the only change is the H1. We can abstract this form into a single file called a _partial_, then reference this partial from both `new.html.erb` and `edit.html.erb`.
-
-#### Creating a Form Partial
-
-Partials are a way of packaging reusable view template code. We'll pull the common parts out from the form into the partial, then render that partial from both the new template and the edit template.
-
-Create a file `app/views/articles/_form.html.erb` and, yes, it has to have the underscore at the beginning of the filename. Partials always start with an underscore.
-
-Open your `app/views/articles/new.html.erb` and CUT all the text from and including the `form_for` line all the way to its `end`. The only thing left will be your H1 line.
-
-Add the following code to that view:
-
-```erb
-<%= render partial: 'form' %>
-```
-
-Now go back to the `_form.html.erb` and paste the code from your clipboard.
-
-#### Writing the Edit Template
-
-Then look at your `edit.html.erb` file. Add an H1 header and the line which renders the partial.
-
-```html
-  <h1>Edit <%= @article.title %></h1>
-  <%= render partial: 'form' %>
-```
-
-#### Testing the Partial
-
-Go back to your articles list and try creating a new article -- it should work just fine. Try editing an article and you should see the form with the existing article's data -- it works OK until you click "Update Article."
 
 #### Implementing Update
 
@@ -1159,13 +1954,67 @@ The only new bit here is the `update` method. It's very similar to `Article.new`
 
 We use the same `article_params` method as before so that we only update the attributes we're allowed to.
 
-Now try editing and saving some of your articles.
+Run your test suite again, and passing tests!! Passing tests means time to commit our progress.
+
+#### Some Refactoring
+
+In the Ruby community there is a mantra of "Don't Repeat Yourself" -- but that's exactly what I've done with our edit view. This view is basically the same as the `new.html.erb` -- the only change is the H1. We can abstract this form into a single file called a _partial_, then reference this partial from both `new.html.erb` and `edit.html.erb`.
+
+#### Creating a Form Partial
+
+Partials are a way of packaging reusable view template code. We'll pull the common parts out from the form into the partial, then render that partial from both the new template and the edit template.
+
+Create a file `app/views/articles/_form.html.erb` and, yes, it has to have the underscore at the beginning of the filename. Partials always start with an underscore.
+
+Open your `app/views/articles/new.html.erb` and CUT all the text from and including the `form_for` line all the way to its `end`. The only thing left will be your H1 line.
+
+Add the following code to the new view:
+
+```erb
+<%= render partial: 'form' %>
+```
+
+Now go back to the `_form.html.erb` and paste the code from your clipboard.
+
+Run your tests to make sure they're still passing and you haven't broken anything. 
+
+#### Writing the Edit Template
+
+Then look at your `edit.html.erb` file. Remove the entirty of the form_for and add the line which renders the partial.
+
+```html
+  <h1>Edit <%= @article.title %></h1>
+  <%= render partial: 'form' %>
+```
+
+Run your tests again and make sure they're all green. Then, commit your changes.
 
 ### Adding a flash message
 
 Our operations are working, but it would be nice if we gave the user some kind of status message about what took place. When we create an article the message might say "Article 'the-article-title' was created", or "Article 'the-article-title' was removed" for the remove action. We can accomplish this with the `flash` object.
 
-The controller provides you with accessors to interact with the `flash` object. Calling `flash.notice` will fetch a value, and `flash.notice = "Your Message"` will store the string into it.
+The controller provides you with accessor methods to interact with the `flash` object. Calling `flash.notice` will fetch a value, and `flash.notice = "Your Message"` will store the string into it.
+
+#### But first, let's add to our test 
+
+In your user_edits_an_article_spec add the following expectation:
+
+```ruby
+expect(page).to have_content("Article Your Updated Title was updated.")
+```
+
+Run your tests an you should see a similar error:
+
+```ruby
+Failures:
+
+  1) user edits an article they link from a show page they fill in an edit field and submit displays the updated information on a show
+     Failure/Error: expect(page).to have_content("Article #{article.title} was updated.")
+       expected to find text "Article Title 1 was updated." in "Different Title Different Body Edit Delete << Back to Articles List"
+     # ./spec/features/user_edits_an_article_spec.rb:22:in `block (4 levels) in <top (required)>'
+```
+
+The `expected to find text "Article Title 1 Updated!" in "Different Title Different Body Edit Delete << Back to Articles List"` part tells us RSpec couldn't find this new text on the page. Which makes sense because we haven't implemented it yet.
 
 #### Flash for Update
 
@@ -1193,9 +2042,9 @@ end
 
 #### Testing the flash messages
 
-Try editing and saving an article through your browser. Does anything show up?
+Run your test suite. What error do you get? The same one?!
 
-We need to add the flash messages to our view templates. The `update` method redirects to the `show`, so we _could_ just add the display to our show template.
+We need to add the flash messages to our view templates. We stored our message in the flash objct, but we didn't print it to the page. The `update` method redirects to the `show`, so we _could_ just add the display to our show template.
 
 However, we will use the flash object in many actions of the application. Most of the time, it's preferred to add it to our layout.
 
@@ -1231,15 +2080,13 @@ The `yield` is where the view template content will be injected. Just *above* th
 
 This outputs the value stored in the `flash` object in the attribute `:notice`.
 
-#### More Flash Message Testing
-
-With the layout modified, try changing your article, clicking save, and you should see the flash message appear at the top of the `show` page.
+Run your test suite again and you should have all passing tests. Which means, time to commit! 
 
 #### Adding More Messages
 
-Typical controllers will set flash messages in the `update`, `create`, and `destroy` actions. Insert messages into the latter two actions now.
+Typical controllers will set flash messages in the `update`, `create`, and `destroy` actions. Add assertions into each test, insert messages into the `create` and `destroy` actions now.
 
-Test out each action/flash messages, then you're done with I1.
+If you have passing tests, then you're done with I1. Commit!
 
 ### An Aside on the Site Root
 
@@ -1253,9 +2100,9 @@ root to: 'articles#index'
 
 Now visit `http://localhost:3000` and you should see your article list.
 
-With flash message, partials, and a root default, we got a little beyond the scope of our branch, and I'm okay with that. We didn't really add anything new of substance, just made things nicer. If you think  we should have committed before adding flash messages, or even adding a partial, I respect that. Do your thing next time.
+With flash message, partials, and a root default, we got a little beyond the scope of our branch, and I'm okay with that. We didn't really add anything new of substance, just made things nicer.
 
-**Commit, checkout, merge, push, delete.**
+**Commit, push, PR, merge, checkout, pull, delete.**
 
 If you are not happy with the code changes you have implemented in this iteration, you don't have to throw the whole project away and restart it.  You can use Git's reset command to roll back to your first commit, and retry this iteration from there.  To do so, in your terminal, type in:
 
@@ -1280,7 +2127,33 @@ First, we need to brainstorm what a comment _is_...what kinds of data does it ha
 * It has an author name
 * It has a body
 
-With that understanding, let's create a `Comment` model. Switch over to your terminal and enter this line:
+With that understanding, let's create a `Comment` model and a test. 
+
+### Testing a Model's Relationships
+
+Create a new file `touch spec/models/comment_spec.rb`
+
+Set up your test similar to how we formatted the article model test, except this time we want to check that it has the right relationship to an article rather than validating presence of attributes. Your assertion might look like this: 
+
+```ruby
+  it {should belong_to(:article)}
+```
+
+Commit your test, then run the test suite. You should see an error similar to this:
+
+```ruby
+An error occurred while loading ./spec/models/comment_spec.rb.
+Failure/Error:
+  describe Comment, type: :model do
+    it {should belong_to(:article)}
+  end
+
+NameError:
+  uninitialized constant Comment
+```
+Remember this means RSpec cannot find a Comment. Which makes sense because we haven't made one yet in neither our database nor our models.
+
+Let's make a Comment! Switch over to your terminal and enter this line:
 
 ```bash
 $ rails generate migration CreateComments author_name:string body:text article:references
@@ -1302,7 +2175,7 @@ t.references :article, index: true, foreign_key: true
 t.timestamps
 ```
 
-You might see some Rails projects pre-5.0.0 that have `t.timestamps null: false`. This is now the default option, which prevents null values from being saved for either `created_at` or `updated_at`.
+You might see some Rails projects pre-5.0.0 that have `t.timestamps null: false`. This is now the default option, which prevents null values from being saved for either `created_at` or `updated_at`. You might need to add t.timestamps **Before** you migrate.
 
 Once you've taken a look at your generated migration task, go to your terminal and run the migration:
 
@@ -1310,7 +2183,17 @@ Once you've taken a look at your generated migration task, go to your terminal a
 $ rake db:migrate
 ```
 
+We've made a pretty major change in alterign our database so let's commit that change. 
+
+```bash
+git add db/migrate
+git add db/schema
+git commit -m "Add comments table to db"
+```
+
 ### Add Comments Model
+
+If we run our test again, we get that same `uninitialized constant Comment` error. We need to create the Comment class as well.  
 
 ```ruby
 #app/models/comment.rb
@@ -1329,10 +2212,23 @@ Part of the big deal with Rails is that it makes working with these relationship
 
 * the objects on the "many" end should have a foreign key referencing the "one" object.
 * that foreign key should be titled with the name of the "one" object, then an underscore, then "id".
+* We would say that objects on the "many" end "belong_to" the object on the "one" end
 
-In this case one article has many comments, so each comment has a field named `article_id`.
+In this case one article has many comments, so each comment has a field named `article_id`. We would say an article `has_many` comments and a comment `belongs_to` an article.
 
-Following this convention will get us a lot of functionality "for free."  Open your `app/models/comment.rb` and add:
+Following this convention will get us a lot of functionality "for free."  
+
+If we run our tests, we find a new error:
+
+```ruby
+Failures:
+
+  1) Comment should belong to article
+     Failure/Error: it {should belong_to(:article)}
+       Expected Comment to have a belongs_to association called article (no association called article)
+```
+
+Open your `app/models/comment.rb` and add:
 
 ```ruby
 class Comment < ActiveRecord::Base
@@ -1341,20 +2237,44 @@ end
 ```
 The reason this `belongs_to` field already exists is because when we generated the Comment model, we included this line: `article:references`. What that does is tell Rails that we want this model to _reference_ the Article model, thus creating a one-way relationship from Comment to Article. You can see this in action in our migration on the line `t.references :article`.
 
-A comment relates to a single article, it "belongs to" an article. We then want to declare the other side of the relationship inside `app/models/article.rb` like this:
+A comment relates to a single article, it "belongs to" an article. We then want to declare the other side of the relationship inside `app/models/article.rb`.  
+
+#### But first, the test
+
+Let's add a section to our `spec/models/article_spec.rb`. Inside the first describe block, but outside of the validations describe block add another block for relationships with an assertion that article should have_many comments. Give it a try before looking at my example below.
+
+```ruby 
+describe "relationshps" do
+  it {should have_many(:comments)}
+end
+```
+
+Our error should look like this: 
+
+```ruby
+Failures:
+
+  1) Article relationshps should have many comments
+     Failure/Error: it {should have_many(:comments)}
+       Expected Article to have a has_many association called comments (no association called comments)
+```
+To satisy this error we can add the following method to `article.rb`. 
 
 ```ruby
 class Article < ActiveRecord::Base
   has_many :comments
 end
 ```
+
 Unlike how `belongs_to :article` was implemented for us on the creation of the Comment model because of the references, the `has_many :comments` relationship must be entered in manually.
 
 Now an article "has many" comments, and a comment "belongs to" an article. We have explained to Rails that these objects have a one-to-many relationship.
 
+Run your tests again and they should be all green. Which means, time to commit! 
+
 ### Testing in the Console
 
-Let's use the console to test how this relationship works in code. If you don't have a console open, go to your terminal and enter `rails console` from your project directory. If you have a console open already, enter the command `reload!` to refresh any code changes.
+Let's use the console to play with how this relationship works in code. If you don't have a console open, go to your terminal and enter `rails console` from your project directory. If you have a console open already, enter the command `reload!` to refresh any code changes.
 
 Run the following commands one at a time and observe the output:
 
@@ -1367,18 +2287,18 @@ $ article.comments
 ```
 When you called the `comments` method on object `article`, it gave you back a blank array because that article doesn't have any comments. When you executed `Comment.new` it gave you back a blank Comment object with those fields we defined in the migration.
 
-But, if you look closely, when you did `article.comments.new` the comment object you got back wasn't quite blank -- it has the `article_id` field already filled in with the ID number of article `article`. Additionally, the following (last) call to `article.comments` shows that the new comment object has already been added to the in-memory collection for the `article` article object.
+But, if you look closely, when you did `article.comments.new` the comment object you got back wasn't quite blank -- it has the `article_id` field already filled in with the ID number of article `article`. Additionally, the following (last) call to `article.comments` shows that the new comment object has already been added to the in-memory collection for the `article`, Article object.
 
 Try creating a few comments for that article like this:
 
 ```
 $ comment = article.comments.new
 $ comment.author_name = "Daffy Duck"
-$ comment.body = "I think this article is thhh-thhh-thupid!"
+$ comment.body = "I think this article is thhh-thhh-thupendous!"
 $ comment.save
 $ new_comment = article.comments.create(author_name: "Chewbacca", body: "RAWR!")
 ```
-For the first comment, `comment`, I used a series of commands like we've done before. For the second comment, `new_comment`, I used the `create` method. `new` doesn't send the data to the database until you call `save`. With `create` you build and save to the database all in one step.
+For the first Comment, `comment`, I used a series of commands like we've done before. For the second comment, `new_comment`, I used the `create` method. `new` doesn't send the data to the database until you call `save`. With `create` you build and save to the database all in one step.
 
 Now that you've created a few comments, try executing `article.comments` again. Did your comments all show up?  When I did it, only one comment came back. The console tries to minimize the number of times it talks to the database, so sometimes if you ask it to do something it's already done, it'll get the information from the cache instead of really asking the database -- giving you the same answer it gave the first time. That can be annoying. To force it to clear the cache and lookup the accurate information, try this:
 
@@ -1390,14 +2310,55 @@ You'll see that the article has associated comments. Now we need to integrate th
 
 ### Displaying Comments for an Article
 
-We want to display any comments underneath their parent article. Open `app/views/articles/show.html.erb` and add the following lines right before the link to the articles list:
+We want to display any comments underneath their parent article. 
+
+Go back to `user_sees_one_article_spec.rb`. We're going to need to add some comments associated with the article and also add some assertions that those comments are showing up on the page. My test now looks like this:
+
+```ruby
+require "rails_helper"
+
+describe "user sees one article" do
+  describe "they link from the article index" do
+    it "displays information for one article" do
+      article = Article.create!(title: "New Title", body: "New Body")
+      comment_1 = article.comments.create(author_name: "Me", body: "Commenty comments")
+      comment_2 = article.comments.create(author_name: "You", body: "So much to say")
+      
+      visit articles_path
+
+      click_link article.title
+
+      expect(page).to have_content(article.title)
+      expect(page).to have_content(article.body)
+      expect(page).to have_content(comment_1.author_name)
+      expect(page).to have_content(comment_1.body)
+      expect(page).to have_content(comment_2.author_name)
+      expect(page).to have_content(comment_2.body)
+    end
+  end
+end
+
+```
+First commit, then let's run our test and see what kind of error we get.
+
+```ruby
+Failures:
+
+  1) user sees one article they link from the article index displays information for one article
+     Failure/Error: expect(page).to have_content(comment_1.author_name)
+       expected to find text "Me" in "New Title New Body Edit Delete << Back to Articles List"
+```
+
+This tells me two things. First, RSpec didn't have any problem creating comments associated with an article. Excellent. Second, the information for an article's comments is not showing up on the page.
+
+Open `app/views/articles/show.html.erb` and add the following lines right before the link to the articles list:
 
 ```erb
 <h3>Comments</h3>
 <%= render partial: 'articles/comment', collection: @article.comments.reverse %>
 ```
 
-This renders a partial named `"comment"` and that we want to do it once for each element in the collection `@article.comments`. We saw in the console that when we call the `.comments` method on an article we'll get back an array of its associated comment objects. This render line will pass each element of that array one at a time into the partial named `"comment"`. Now we need to create the file `app/views/articles/_comment.html.erb` and add this code:
+This renders a partial named `"comment"` and sets that we want to do it once for each element in the collection `@article.comments`. We saw in the console that when we call the `.comments` method on an article we'll get back an array of its associated comment objects. This render line will pass each element of that array one at a time into the partial named `"comment"`. Now we need to create the file `app/views/articles/_comment.html.erb` and add this code:
 
 ```erb
 <div>
@@ -1406,7 +2367,7 @@ This renders a partial named `"comment"` and that we want to do it once for each
 </div>
 ```
 
-Display one of your articles where you created the comments, and they should all show up.
+When you run your test suite again you should see all green. Time to commit!
 
 ### Web-Based Comment Creation
 
@@ -1416,7 +2377,43 @@ Good start, but our users can't get into the console to create their comments. W
 
 The lazy option would be to add a "New Comment" link to the article `show` page. A user would read the article, click the link, go to the new comment form, enter their comment, click save, and return to the article.
 
-But, in reality, we expect to enter the comment directly on the article page. Let's look at how to embed the new comment form onto the article `show`.
+But, in reality, we expect to enter the comment directly on the article page. This means we need to further update our `user_sees_one_article_spec.rb`. For this I'm going to add another whole describe block, nested within the outermost describe block.
+
+```ruby
+  describe "they fill in a comment form" do
+    it "displays the comment on the article show" do
+      article = Article.create!(title: "New Title", body: "New Body")
+
+      visit article_path(article)
+
+      fill_in "comment[author_name]", with: "ME!"
+      fill_in "comment[body]", with: "So many thoughts on this article."
+      click_on "Submit"
+
+      expect(current_path).to eq(article_path(article))
+      expect(page).to have_content("Post a Comment")
+      expect(page).to have_content("ME!")
+      expect(page).to have_content("So many thoughts on this article.")
+    end
+  end
+
+```
+Commit your test change!
+Then, my error looks like this:
+
+```ruby
+Failures:
+
+  1) user sees one article they fill in a comment form displays the comment on the article show
+     Failure/Error: fill_in "comment[author_name]", with: "ME!"
+
+     Capybara::ElementNotFound:
+       Unable to find visible field "comment[author_name]" that is not disabled
+```
+
+From this I know that RSpec can't find my form on the page.
+
+Let's look at how to embed the new comment form onto the article `show`.
 
 Just above the "Back to Articles List" in the articles `show.html.erb`:
 
@@ -1424,36 +2421,7 @@ Just above the "Back to Articles List" in the articles `show.html.erb`:
 <%= render partial: 'comments/form' %>
 ```
 
-This is expecting a file `app/views/comments/_form.html.erb`, so create the `app/views/comments/` directory with the `_form.html.erb` file, and add this starter content:
-
-```erb
-<h3>Post a Comment</h3>
-<p>(Comment form will go here)</p>
-```
-
-Look at an article in your browser to make sure that partial is showing up. Then we can start figuring out the details of the form.
-
-#### In the `ArticlesController`
-
-First look in your `articles_controller.rb` for the `new` method.
-
-Remember how we created a blank `Article` object so Rails could figure out which fields an article has?  We need to do the same thing before we create a form for the `Comment`.
-
-But when we view the article and display the comment form we're not running the article's `new` method, we're running the `show` method. So we'll need to create a blank `Comment` object inside that `show` method like this:
-
-```ruby
-@comment = Comment.new
-@comment.article_id = @article.id
-```
-
-Due to the Rails' mass-assignment protection, the `article_id` attribute
-of the new `Comment` object needs to be manually assigned with the `id`
-of the `Article`. Why do you think we use `Comment.new` instead of
-`@article.comments.new`?
-
-#### Improving the Comment Form
-
-Now we can create a form inside our `comments/_form.html.erb` partial like this:
+This is expecting a file `app/views/comments/_form.html.erb`, so create the `app/views/comments/` directory with the `_form.html.erb` file, and add this form:
 
 ```erb
 <h3>Post a Comment</h3>
@@ -1473,14 +2441,47 @@ Now we can create a form inside our `comments/_form.html.erb` partial like this:
 <% end %>
 ```
 
+Whoa, major test breakage.  Don't panic. A lot of our assertions hit the article show, so each time the test suite tries to load that view we get this same error:
+
+```ruby
+Failures:
+
+  1) **this line is likely different for you**
+     Failure/Error: <%= form_for [ @article, @comment ] do |f| %>
+
+     ActionView::Template::Error:
+       First argument in form cannot contain nil or be empty
+```
+
+We know this error. We've seen it twice already. We are passing our form_for an argument of which type of object we're working with. In this form we pass **both** @article - the article the comment will belong to - and @comment. When this happened before it meant we hadn't created the emtpy Ruby object for the form to build off of. Let's go look in our ArticlesController. Remember we got to this partial on the show route, so we need to check out the show action. 
+
+#### In the `ArticlesController`
+
+First look in your `articles_controller.rb` for the `new` method.
+
+Remember how we created a blank `Article` object so Rails could figure out which fields an article has?  We need to do the same thing for our comment form.
+
+But when we view the article and display the comment form we're not running the article's `new` method, we're running the `show` method. So we'll need to create a blank `Comment` object inside that `show` method like this:
+
+```ruby
+@comment = Comment.new
+@comment.article_id = @article.id
+```
+
+Due to the Rails' mass-assignment protection, the `article_id` attribute of the new `Comment` object needs to be manually assigned with the `id` of the `Article`. Why do you think we use `Comment.new` instead of `@article.comments.new`?
+
+
+
 #### Trying the Comment Form
 
-Save and refresh your web browser and you'll get an error like this:
+Run your tests again you'll get an error like this:
 
 ```
-NoMethodError in Articles#show
-Showing app/views/comments/_form.html.erb where line #3 raised:
-undefined method `article_comments_path' for #<ActionView::Base:0x10446e510>
+ Failure/Error: <%= form_for [ @article, @comment ] do |f| %>
+
+     ActionView::Template::Error:
+       undefined method `article_comments_path' for #<#<Class:0x007faca3c81228>:0x007faca40fd310>
+       Did you mean?  article_path
 ```
 
 The `form_for` helper is trying to build the form so that it submits to `article_comments_path`. That's a helper which we expect to be created by the router, but we haven't told the router anything about `Comments` yet. Open `config/routes.rb` and update your article to specify comments as a sub-resource.
@@ -1491,7 +2492,9 @@ resources :articles do
 end
 ```
 
-Then refresh your browser and your form should show up. Try filling out the comments form and click SUBMIT -- you'll get an error about `uninitialized constant CommentsController`.
+Run your tests again. Hallelujah, we got most of our green back. We still have one test failing with an `uninitialized constant CommentsController` error.
+
+Before we move on, getting all those green tests back, I think deserves a commit.
 
 <div class="note">
   <p>Did you figure out why we aren't using <code>@article.comments.new</code>? If you want, edit the <code>show</code> action and replace <code>@comment = Comment.new</code> with <code>@comment = @article.comments.new</code>. Refresh the browser. What do you see?</p>
@@ -1516,6 +2519,20 @@ class CommentsController < ApplicationController
 end
 ```
 
+**BEFORE** you run your tests, predict which error message you'll see. Okay run your test, did you get what you expected? I got this:
+
+```
+Failures:
+
+  1) user sees one article they fill in a comment form displays the comment on the article show
+     Failure/Error: click_on "Submit"
+
+     AbstractController::ActionNotFound:
+       The action 'create' could not be found for CommentsController
+```
+
+We need a create action in our CommentsController.
+
 #### Writing `CommentsController.create`
 
 The comment form is attempting to create a new `Comment` object which triggers the `create` action. How do we write a `create`?
@@ -1536,10 +2553,11 @@ end
 
 private
 
-def comment_params
-  params.require(:comment).permit(:author_name, :body)
-end
+  def comment_params
+    params.require(:comment).permit(:author_name, :body)
+  end
 ```
+Go ahead and run your tests again. ALL GREEN TESTS! Commit!
 
 #### After Creation
 
@@ -1553,19 +2571,19 @@ redirect_to article_path(@comment.article)
 
 Recall that `article_path` needs to know *which* article we want to see. We might not have an `@article` object in this controller action, but we can find the `Article` associated with this `Comment` by calling `@comment.article`.
 
-Test out your form to create another comment now -- and it should work!
-
 ### Cleaning Up
 
 We've got some decent comment functionality, but there are a few things we should add and tweak.
 
 #### Comments Count
 
-Let's make it so where the view template has the "Comments" header it displays how many comments there are, like "Comments (3)". Open up your article's `show.html.erb` and change the comments header so it looks like this:
+Let's make it so where the view template has the "Comments" header, it displays how many comments there are, like "Comments (3)". First add an assertion to your `user_sees_one_article_spec`. Open up your article's `show.html.erb` and change the comments header so it looks like this:
 
 ```erb
 <h3>Comments (<%= @article.comments.size %>)</h3>
 ```
+
+Run your tests to make sure you didn't break anything.
 
 #### Form Labels
 
@@ -1575,7 +2593,7 @@ The comments form looks a little silly with "Author Name". It should probably sa
 <%= f.label :author_name, "Your Name"  %>
 ```
 
-Change your `comments/_form.html.erb` so it has labels "Your Name" and "Your Comment".
+Change your `comments/_form.html.erb` so it has labels "Your Name" and "Your Comment". Run your tests again to make sure you didn't break anything.
 
 #### Add a Timestamp to the Comment Display
 
@@ -1617,7 +2635,7 @@ What is a tag?  We need to figure that out before we can create the model. First
 
 Many-to-many relationships are tricky because we're using an SQL database. If an Article "has many" tags, then we would put the foreign key `article_id` inside the `tags` table - so then a Tag would "belong to" an Article. But a tag can connect to *many* articles, not just one. We can't model this relationship with just the `articles` and `tags` tables.
 
-When we start thinking about the database modeling, there are a few ways to achieve this setup. One way is to create a "join table" that just tracks which tags are connected to which articles. Traditionally this table would be named `articles_tags` and Rails would express the relationships by saying that the Article model `has_and_belongs_to_many` Tags, while the Tag model `has_and_belongs_to_many` Articles.
+When we start thinking about the database modeling, there are a few ways to achieve this setup. One way is to create a "join table" that just tracks which tags are connected to which articles. Traditionally this table would be named `article_tags` and Rails would express the relationships by saying that the Article model `has_and_belongs_to_many` Tags, while the Tag model `has_and_belongs_to_many` Articles.
 
 Most of the time this isn't the best way to really model the relationship. The connection between the two models usually has value of its own, so we should promote it to a real model. For our purposes, we'll introduce a model named "Tagging" which is the connection between Articles and Tags. The relationships will setup like this:
 
@@ -1635,7 +2653,49 @@ With those relationships in mind, let's design the new models:
   * `tag_id`: Integer holding the foreign key of the referenced Tag
   * `article_id`: Integer holding the foreign key of the referenced Article
 
-Note that there are no changes necessary to Article because the foreign key is stored in the Tagging model. So now lets generate these models in your terminal:
+Note that there are no changes necessary to Article because the foreign key is stored in the Tagging model. 
+
+#### But first, we test
+
+Let's make two tests. One for Tagging and one for Tag. We want each to test it's relationship with both other pieces (i.e. a Tagging belongs_to Tag AND Tagging belongs_to Article)
+
+* Create a model test for Tag, checking its relationships
+* Create a model test for Taggin, checking its relationships
+* Add expectations to an Articles relationships section for Tag and Tagging
+
+One hint, you've used the have_many shoulda-matchers method. Now tag `.through(:resource_name)` to the end to test this has_may through scenario.
+
+Commit your test and then run it.
+When I run my test suite, I see these two errors:
+
+```ruby
+An error occurred while loading ./spec/models/tag_spec.rb.
+Failure/Error:
+  describe Tag, type: :model do
+    describe "relationships" do
+      it {should have_many(:tagings)}
+      it {should have_many(:articles).through(:taggings)}
+    end
+  end
+
+NameError:
+  uninitialized constant Tag
+  
+  
+An error occurred while loading ./spec/models/tagging_spec.rb.
+Failure/Error:
+  describe Tagging, type: :model do
+    describe "relationships" do
+      it {should belong_to(:tag)}
+      it {should belong_to(:article)}
+    end
+  end
+
+NameError:
+  uninitialized constant Tagging
+```
+
+So now lets generate these tables in your terminal:
 
 ```bash
 $ rails generate migration CreateTags name:string
@@ -1643,9 +2703,13 @@ $ rails generate migration CreateTaggings tag:references article:references
 $ rake db:migrate
 ```
 
+Note, the order is important here. Your second migration you generate relies on the first one to have been created first. Otherwise when you try to create Taggings it will complain about not knowing what a tag is.
+
+We just made a pretty significant DB change so let's commit that progress.
+
 ### Expressing Relationships
 
-Lets add both of the above models that we just generated:
+We won't be rid of those errors though until we persist this change to models. Lets add models for both of the above tables that we just generated:
 
 ```ruby
 # app/models/tag.rb
@@ -1657,6 +2721,8 @@ end
 class Tagging < ApplicationRecord
 end
 ```
+
+When I run my test, I have a new error... or errors actually. I have 6 failing assertions right now. Thank goodness they're all about these relationships I just added. 
 
 Now that our model files are generated we need to tell Rails about the relationships between them. For each of the files below, add these lines:
 
@@ -1705,6 +2771,8 @@ has_many :articles, through: :taggings
 
 Now if we have an object like `article` we can just ask for `article.tags` or, conversely, if we have an object named `tag` we can ask for `tag.articles`.
 
+Run your tests again and you should be all passing. Which means, time to commit!
+
 To see this in action, start the `bin/rails console` and try the following:
 
 ```
@@ -1718,6 +2786,20 @@ $ article.tags
 
 The first interface we're interested in is within the article itself. When I write an article, I want to have a text box where I can enter a list of zero or more tags separated by commas. When I save the article, my app should associate my article with the tags with those names, creating them if necessary.
 
+Let's go to the `user_creates_a_new_article_spec`. Add `fill_in "article[tag_list]", with: "ruby, technology"` to the fill_in list already present. Also add an expectation that those tags are listed on the page.
+
+Run your test and what do you get?
+
+```ruby
+Failures:
+
+  1) user creates a new article they link from the articles index they fill in a title and body creates a new article
+     Failure/Error: fill_in "article[tag_list]", with: "ruby, technology"
+
+     Capybara::ElementNotFound:
+       Unable to find visible field "article[tag_list]" that is not disabled
+```
+
 Add the following to our existing form in `app/views/articles/_form.html.erb`:
 
 ```erb
@@ -1727,30 +2809,58 @@ Add the following to our existing form in `app/views/articles/_form.html.erb`:
 </p>
 ```
 
-With that added, try to create a new article in your browser and you should see this error:
+With that added, run your test again you should see this error:
 
 ```
-NoMethodError in Articles#new
-Showing app/views/articles/_form.html.erb where line #14 raised:
-undefined method `tag_list' for #<Article:0x10499bab0>
+Failures:
+
+  1) user creates a new article they link from the articles index they fill in a title and body creates a new article
+     Failure/Error: <%= f.text_field :tag_list %>
+
+     ActionView::Template::Error:
+       undefined method `tag_list' for #<Article:0x007ff89851de50>
+       Did you mean?  tag_ids
 ```
 
-An Article doesn't have an attribute or method named `tag_list`. We made it up in order for the form to display related tags, but we need to add a method to the `article.rb` file like this:
+An Article doesn't have an attribute or method named `tag_list`. We made it up in order for the form to display related tags, but we need to add a method to the `article.rb` file. 
+
+Let's hop back over to our `article_spec` really quickly to add a test for this new model method.
+
+```ruby
+describe "instance methods" do
+    describe "#tag_list" do
+      it "turns associated tags into a string" do
+        article = Article.create(title: "Tall Tables", body: "They are tough for the short legged")
+        article.tags.create(name: "furniture")
+        article.tags.create(name: "opinions")
+
+        expect(article.tag_list).to eq("furniture, opinions")
+      end
+    end
+  end
+```
+
+You can run just one part of your test suite, so let's just run the model tests with `rspec spec/models`. You should get a similar undefined method error.
+
+Let's build the method like this:
 
 ```ruby
 def tag_list
   tags.join(", ")
 end
 ```
-
-Back in your console, find that article again, and take a look at the results of `tag_list`:
+Run your test... and we still have an error.
 
 ```
-$ reload!
-$ article = Article.first
-$ article.tag_list
-=> "#<Tag:0x007fe4d60c2430>, #<Tag:0x007fe4d617da50>"
+Failures:
+
+  1) Article instance methods #tag_list turns associated tags into a string
+     Failure/Error: expect(article.tag_list).to eq("furniture, opinions")
+
+       expected: "furniture, opinions"
+            got: "#<Tag:0x007fbedc11ca18>, #<Tag:0x007fbedfa416e0>"
 ```
+
 That is not quite right. What happened?
 
 Our array of tags is an array of Tag instances. When we joined the array Ruby called the default `#to_s` method on every one of these Tag instances. The default `#to_s` method for an object produces some really ugly output.
@@ -1782,25 +2892,52 @@ class Tag < ActiveRecord::Base
 end
 ```
 
-Now, when we try to join our `tags`, it'll delegate properly to our name
-attribute. This is because `#join` calls `#to_s` on every element of the
-array.
+Now, when we try to join our `tags`, it'll delegate properly to our name attribute. This is because `#join` calls `#to_s` on every element of the array.
 
-Your form should now show up and there's a text box at the bottom named "Tag list".
-Enter content for another sample article and in the tag list enter 'ruby, technology'.
-Click save. It.... worked?
+You probably have passing tests right now. But we just created a new model method. We're not done here.  Hop over to the `tag_spec` and add a section for instance methods and an assertion the to_s method. Once you have your model tests passing go ahead and commit your changes to your model spec and your models. 
 
-But it didn't. Click 'edit' again, and you'll see that we're back to the `#<Tag...` business, like before. What gives?
+Run your tests again. I got this error:
 
-```
-Started PATCH "/articles/1" for 127.0.0.1 at 2013-07-17 09:25:20 -0400
-Processing by ArticlesController#update as HTML
-  Parameters: {"utf8"=>"", "authenticity_token"=>"qs2M71Rmb64B7IM1ASULjlI1WL6nWYjgH/eOu8en+Dk=", "article"=>{"title"=>"Sample Article", "body"=>"This is the text for my article, woo hoo!", "tag_list"=>"ruby, technology"}, "commit"=>"Update Article", "id"=>"1"}
-  Article Load (0.1ms)  SELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1  [["id", "1"]]
-Unpermitted parameters: tag_list
+```ruby
+Failures:
+
+  1) user creates a new article they link from the articles index they fill in a title and body creates a new article
+     Failure/Error: expect(page).to have_content("ruby, technology")
+       expected to find text "ruby, technology" in "Article New Title! Created! New Title! New Body! Edit Delete Comments (0) Post a Comment Your Name Your Comment << Back to Articles List"
 ```
 
-Unpermitted parameters? Oh yeah! Strong Parameters has done its job, saving us from parameters we don't want. But in this case, we _do_ want that parameter. Open up your `app/controllers/articles_controller.rb` and fix the `article_params` method:
+It's not showing up on the page. 
+
+### Adding Tags to our Display
+
+According to our work in the console, articles can now have tags, but we haven't done anything to display them in the article pages.
+
+Let's start with `app/views/articles/show.html.erb`. Right below the line that displays the `article.title`, add these lines:
+
+```erb
+<p>
+  Tags:
+  <% @article.tags.each do |tag| %>
+    <%= tag.name %>
+  <% end %>
+</p>
+```
+
+When I run my test again, I get an (only slightly) new error.
+
+```ruby
+Failures:
+
+  1) user creates a new article they link from the articles index they fill in a title and body creates a new article
+     Failure/Error: expect(page).to have_content("ruby, technology")
+       expected to find text "ruby, technology" in "Article New Title! Created! New Title! Tags: New Body! Edit Delete Comments (0) Post a Comment Your Name Your Comment << Back to Articles List"
+```
+
+When I look at the string of what IS on the page, I see that header of Tags: but my tags are listed there. Why aren't they saving? Put a `binding.pry` in your articles#create action. I'd probably put it after we call Article.new. 
+
+Let's run our test and poke around. First I want to check out `params` then maybe `params[:tag_list]`. Is my information coming through from the form? Yes. I see "ruby, technology" nested under `:tag_list` in params. Second I want to check the state of my new Article. What is `@article`? Do we have anything under `@article.tags`? Hmm nothing there. Why aren't our tags being saved? Check our strong params `article_params`. Oooo here I only see :title and :body.  Why not :tag_list?
+
+Strong Parameters has done its job, saving us from parameters we don't want. But in this case, we _do_ want that parameter. Fix the `article_params` method:
 
 ```ruby
   def article_params
@@ -1808,21 +2945,19 @@ Unpermitted parameters? Oh yeah! Strong Parameters has done its job, saving us f
   end
 ```
 
-If you go back and put "ruby, technology" as tags, and click save, you'll get this new error:
+Take out your pry, and run your test again, you'll get this new error:
 
 ```
-ActiveRecord::UnknownAttributeError in ArticlesController#create
-unknown attribute: tag_list
+Failures:
+
+  1) user creates a new article they link from the articles index they fill in a title and body creates a new article
+     Failure/Error: @article = Article.new(article_params)
+
+     ActiveModel::UnknownAttributeError:
+       unknown attribute 'tag_list' for Article.
 ```
 
-What is this all about?  Let's start by looking at the form data that was posted when we clicked SAVE. This data is in the terminal where you are running the rails server. Look for the line that starts "Processing ArticlesController#create", here's what mine looks like:
-
-```
-Processing ArticlesController#create (for 127.0.0.1) [POST]
-  Parameters: {"article"=>{"body"=>"Yes, the samples continue!", "title"=>"My Sample", "tag_list"=>"ruby, technology"}, "commit"=>"Save", "authenticity_token"=>"xxi0A3tZtoCUDeoTASi6Xx39wpnHt1QW/6Z1jxCMOm8="}
-```
-
-The field that's interesting there is the `"tag_list"=>"technology, ruby"`. Those are the tags as I typed them into the form. The error came up in the `create` method, so let's peek at `app/controllers/articles_controller.rb` in the `create` method. See the first line that calls `Article.new(article_params)`?  This is the line that's causing the error as you could see in the middle of the stack trace.
+What is this all about?  Let's start by looking at the form data that was posted when we clicked SAVE. Put a pry back in and look at your params. The field that's interesting there is the `"tag_list"=>"technology, ruby"`. Those are the tags as I typed them into the form. The error came up in the `create` method, so let's peek at `app/controllers/articles_controller.rb` in the `create` method. See the first line that calls `Article.new(article_params)`?  This is the line that's causing the error as you could see in the middle of the stack trace.
 
 Since the `create` method passes all the parameters from the form into the `Article.new` method, the tags are sent in as the string `"technology, ruby"`. The `new` method will try to set the new Article's `tag_list` equal to `"technology, ruby"` but that method doesn't exist because there is no attribute named `tag_list`.
 
@@ -1836,7 +2971,7 @@ def tag_list=(tags_string)
 end
 ```
 
-Just leave it blank for now and try to resubmit your sample article with tags. It goes through!
+Just leave it blank for now and re-run your tests. We're back to the error telling us it's not listed on the page.
 
 ### Not So Fast
 
@@ -1896,6 +3031,7 @@ def tag_list=(tags_string)
   self.tags = new_or_found_tags
 end
 ```
+When I run my test suite again, I have all passing tests. Phew. Let's commit these changes. There was quite a bit in there.
 
 ### Testing in the Console
 
@@ -1914,44 +3050,52 @@ $ tag.articles
 ```
 And you'll see that this Tag is associated with just one Article.
 
-### Adding Tags to our Display
 
-According to our work in the console, articles can now have tags, but we haven't done anything to display them in the article pages.
+### Adding Tag Links to our Display
 
-Let's start with `app/views/articles/show.html.erb`. Right below the line that displays the `article.title`, add these lines:
+We want to be able to link from our article show to a tag show. 
 
-```erb
-<p>
-  Tags:
-  <% @article.tags.each do |tag| %>
-    <%= link_to tag.name, tag_path(tag) %>
-  <% end %>
-</p>
-```
+#### First, let's write a test.
 
-Refresh your view and...BOOM:
+We want a new test file for a user seeing a single tag. I'm going to want to click from an article show to a tag show and have it display the tag's name. 
 
-```
-NoMethodError in Articles#show
-Showing app/views/articles/index.html.erb where line #6 raised:
-undefined method `tag_path' for #<ActionView::Base:0x104aaa460>
-```
-
-The `link_to` helper is trying to use `tag_path` from the router, but the router doesn't know anything about our Tag object. We created a model, but we never created a controller or route. There's nothing to link to -- so let's generate that controller from your terminal:
-
-```bash
-$ touch app/controller/tags_controller.rb
-```
-
-And create controller:
+You're going to need to do a some data prep that is slightly more fancy that you've done before. We are trying to set up this many-to-many relationship in our test.  Below are a few different strategies to choose from:
 
 ```ruby
-# app/controllers/tags_controller.rb
-class TagsController < ApplicationController
-end
+      article = Article.create!(title: "New Title", body: "New Body")
+      tag = article.tags.create!(name: "Name")
 ```
 
-Then we need to add tags as a resource to our `config/routes.rb`, it should look like this:
+```ruby
+     article = Article.create!(title: "New Title", body: "New Body")
+     tag = Tag.create!(name: "Name")
+     article.tags << tag 
+```
+
+```ruby
+      article = Article.create!(title: "New Title", body: "New Body")
+      tag = Tag.create!(name: "Name")
+      tagging = Tagging.create!(article_id: article.id, tag_id: tag.id)
+```
+
+Once you've put your test together don't forget to commit.  
+
+When I run my tests, my error looks like this:
+
+```ruby
+Failures:
+
+  1) user creates a new article they link from the articles index they fill in a title and body creates a new article
+     Failure/Error: <%= link_to tag.name, tag_path(tag) %>
+
+     ActionView::Template::Error:
+       undefined method `tag_path' for #<#<Class:0x007f9bc61b13b8>:0x007f9bc8d31c40>
+       Did you mean?  image_path
+```
+
+The `link_to` helper is trying to use `tag_path` from the router, but the router doesn't know anything about our Tag object. We created a model, but we never created a controller or route. There's nothing to link to.
+
+We need to add tags as a resource to our `config/routes.rb`, it should look like this:
 
 ```ruby
 Rails.Application.routes.draw do
@@ -1965,7 +3109,44 @@ Rails.Application.routes.draw do
 end
 ```
 
-Refresh your article page and you should see tags, with links, associated with this article.
+Now we get a new error:
+
+```ruby
+Failures:
+
+  1) user sees one tag they link from an article show displays a tag's information
+     Failure/Error: click_link "Name"
+
+     ActionController::RoutingError:
+       uninitialized constant TagsController
+```
+
+
+So let's generate that controller from your terminal:
+
+```bash
+$ touch app/controller/tags_controller.rb
+```
+
+And create controller:
+
+```ruby
+# app/controllers/tags_controller.rb
+class TagsController < ApplicationController
+end
+```
+
+Then 
+
+```ruby
+Failures:
+
+  1) user sees one tag they link from an article show displays a tag's information
+     Failure/Error: click_link "Name"
+
+     AbstractController::ActionNotFound:
+       The action 'show' could not be found for TagsController
+```
 
 ### Listing Articles by Tag
 
@@ -1979,7 +3160,9 @@ def show
 end
 ```
 
-Then create the show template `app/views/tags/show.html.erb`:
+Then we get a `TagsController#show is missing a template for this request format and variant.` error.
+
+Let's create the show template `app/views/tags/show.html.erb`:
 
 ```erb
 <h1>Articles Tagged with <%= @tag.name %></h1>
@@ -1991,30 +3174,21 @@ Then create the show template `app/views/tags/show.html.erb`:
 </ul>
 ```
 
-Refresh your view and you should see a list of articles with that tag. Keep in mind that there might be some abnormalities from articles we tagged before doing our fixes to the `tag_list=` method. For any article with issues, try going to its `edit` screen, saving it, and things should be fixed up. If you wanted to clear out all taggings you could do `Tagging.destroy_all` from your console.
+Re-run your tests and we're all green. Time to commit!
 
 ### Listing All Tags
 
-We've built the `show` action, but the reader should also be able to browse the tags available at `http://localhost:3000/tags`. I think you can do this on your own. Create an `index` action in your `tags_controller.rb` and an `index.html.erb` in the corresponding views folder. Look at your `articles_controller.rb` and Article `index.html.erb` if you need some clues.
+We've built the `show` action, but the reader should also be able to browse the tags available at `http://localhost:3000/tags`. I think you can do this on your own. 
+
+Create a test for a user seeing all tags. Follow the errors to get your test passing.
+
+Look at your `articles_controller.rb` and Article `index.html.erb` if you need some clues along the way.
 
 Now that we can see all of our tags, we also want the capability to delete them.
-I think you can do this one on your own too. Create a `destroy` action in your
-`tags_controller.rb` and edit the `index.html.erb` file you just created. Look
-at your `articles_controller.rb` and Article `show.html.erb` if you need some
-clues.
+I think you can do this one on your own too. Create a test for a user deleting a tag. Follow the errors to implement the functionality. Look
+at your `articles_controller.rb` and Article `show.html.erb` if you need some clues.
 
-With that, a long Iteration 3 is complete!
-
-
-#### Saving to GitHub.
-
-Woah! The tagging feature is now complete. Good on you. You're going to want to push this to the repo.
-
-```
-$ git add .
-$ git commit -m "Tagging feature completed"
-$ git push
-```
+With that, a long Iteration 3 is complete! Wrap up your branch with a commit, push, PR, merge, checkout master, pull, and delete.
 
 
 ## I4: STOP HERE OR IF YOU WANT MORE: A Few Gems
