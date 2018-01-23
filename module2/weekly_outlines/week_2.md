@@ -12,7 +12,7 @@ layout: page
   - [Joins, Group, Order](../lessons/joins_group_order)
 
 * **HOMEWORK:**
-  - Work on BikeShare
+  - Work on Little Shop Redux
 
 ### Day 2:
 
@@ -20,12 +20,12 @@ layout: page
   - [Flex Box Workshop](../lessons/flexbox_workshop)
 
 * **HOMEWORK:**
-  - Work on BikeShare
+  - Work on Little Shop Redux
 
 ### Day 3:
 
 * **HOMEWORK:**
-  - Work on BikeShare
+  - Work on Little Shop Redux
 
 ### Day 4:
 
