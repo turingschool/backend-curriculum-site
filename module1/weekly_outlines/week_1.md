@@ -44,7 +44,7 @@ layout: page
 
 ## Projects & Exercises
 
-* [Mastermind](../projects/mastermind)
+* [Flashcards](../projects/flashcards)
 
 <!--
 * [Pseudocoding](../homework/pseudocoding_homework.md)
