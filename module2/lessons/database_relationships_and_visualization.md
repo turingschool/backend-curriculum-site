@@ -23,9 +23,10 @@ tags: database, schema, relationships
 ## Warm-Up
 1) Draw a diagram showing which tables we currently have in our Task Manager database. What information lives in that table?
 
-2) In our recent Task Manager client meeting, our client decided their users should be able to organize their tasks by marking them with labels. Based on our conversation, we've decided:
+2) In our recent Task Manager client meeting, our client decided their application should scope tasks to a user.
+   Based on our conversation, we've decided:
 
-     Users should have tasks. Tasks should have labels.
+     Users should have tasks.
 
      Right now, our database only supports tasks. Take a minute to consider what changes we would need to make to our database in order to support the features requested by our client. Add these to your diagram.
 
@@ -49,6 +50,15 @@ tags: database, schema, relationships
 A car dealership has many cars - diagram this relationship using the schema designer.
 
 ### Many-to-Many Relationships
+
+In our recent Task Manager client meeting, our client also decided their users should be able to organize their tasks by marking them with labels. Based on our conversation, we've decided:
+
+  ```
+  Users should have tasks. Tasks should have labels.
+  ```
+  
+  Take a minute to consider what changes we would need to make to our database in order to support the features requested by our client. Add these to your diagram.
+
 
 Many-to-many is a little harder than one-to-many.
 
