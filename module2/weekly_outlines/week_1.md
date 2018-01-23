@@ -24,7 +24,7 @@ layout: page
 * **LESSONS:**
   - [Model Testing in Sinatra](../lessons/model_testing_in_sinatra)
   - [Intro to ActiveRecord in Sinatra](../lessons/intro_to_active_record_in_sinatra)
-  - [Database Visualization and Relationships](../lessons/database_visualization_and_relationships)
+  - [Database Relationships and Validations](../lessons/database_relationships_and_validations)
 
 * **HOMEWORK**
   - [DTR for Little Shop Redux](../../career_development_curriculum/module_one/dtr_guidelines_memo). One group member should send link to forked gist to an instructor.
