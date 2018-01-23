@@ -24,6 +24,5 @@ layout: page
 
 * [HTTP Yeah You Know Me](../projects/http_yeah_you_know_me)
 * [Event Manager](../projects/eventmanager)
-<!--
 * [Sorting Suite](../projects/sorting_suite)
--->
+
