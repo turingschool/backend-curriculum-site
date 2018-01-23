@@ -7,66 +7,61 @@ tags: json, javascript, rails, ruby, api
 ## Learning Goals
 
 * Generate and customize Rails Serializers
-* Create JSON views using Jbuilder
-* Compare the two tools
+* Discuss other serialization options, like Jbuilder
 * Understand what constitutes presentation logic in the context of serving a JSON API and why formatting in the model is not the right place
 
 ## Recap
 
 ### API Namespacing
 
-- Why do we namespace?
-- Why do we version?
-- In routes
-  - Default format of JSON
-- In app folder  
+- Why do we namespace our APIs?
+- Why do we version our APIs?
 
-## Warmup  
-- What would be some situations where you don't want to expose, in json, all the information for a specific record?
-- What tools/gems are out there to help you with this?
-  - Split class 5min research Jbuilder/Active Model Serializer
-  - Share out
+## Warmup
 
-## Lecture
+### Jbuilder vs Active Model Serializer
 
-### Customizing JSON output
+With your neighbor, assign a person A and person B.
+
+Person A will research Jbuilder and person B will research Active Model Serializer.
+
+Try to answer the following:
+
+- What are their purposes?
+- How do they accomplish that?
+- What does their setup in Rails entail?
+
+## Active Model Serializers
+
+While Jbuilder and AMS allow us to customize our JSON, we'll be moving forward with Active Model Serializers. This allows us to break from the concept of views fully with our API, and instead, mold that data in an object-oriented fashion.
 
 When we call `render json:`, Rails makes a call to `as_json` under the hood unless we have a serializer set up. Eventually, `as_json` calls `to_json` and our response is generated.
 
-Let's imagine that you don't just want the raw guts of your model converted to JSON and sent out to the user -- maybe you want to customize what you send back. There are a few approaches:
+With how we've used `render json:` up til now, all data related with the resources in our database is sent back to the client as-is.
 
-1. Try to use some clever combination of ERB and JSON in the view
-2. Massage your model into some presentable hash in the controller
-3. Override `as_json` on your model ([Example][as_json])
-4. Use an ActiveModel serializer
-5. Use Jbuilder (a DSL for creating JSON built into Rails 4/5) in the view layer
-
-[as_json]: https://github.com/JumpstartLab/blogger_advanced/commit/085a9f6681feb3c3623042a9897f037abc6d6bf7
-
-Let's take a look at the last two ways to customize the JSON that gets sent to the user.
+Let's imagine that you don't just want the raw guts of your model converted to JSON and sent out to the user -- maybe you want to customize what you send back.
 
 ## Setup
 
-We're going to start where we left off in the internal API testing lesson.   
+We're going to start where we left off in the internal API testing lesson.
 
-```
-git clone https://github.com/s-espinosa/building_internal_apis.git  
-bundle  
+```bash
+git clone https://github.com/s-espinosa/building_internal_apis.git
+bundle
 git checkout building_api_complete
-git checkout -b setup  
 ```
 
-We want to work with objects that have related models, so let's add an orders model:
+We want to work with objects that have related models, so let's add an `Order` model:
 
-```
+```bash
 rails g model order order_number
 rails g model order_item order:references item:references item_price:integer quantity:integer
 bundle exec rake db:migrate
 ```
 
-Add Faker Gem
-```
-gem faker
+Add `gem 'faker'`:
+
+```bash
 bundle
 ```
 
@@ -112,7 +107,7 @@ And seed
 bundle exec rake db:seed
 ```
 
-Create your controller
+Create your controller:
 
   - `rails g controller api/v1/orders index show`
   - Create routes.
@@ -120,13 +115,11 @@ Create your controller
 
 ## Responses
 
-> What's he building in there? -Tom Waits
-
 What does our JSON currently output as?
 
-What do we want out JSON to output?  
+What do we want out JSON to output?
 
-JSON responses should contain the following keys from the following endpoints:
+JSON responses should contain the following data from the following endpoints:
 
 **api/v1/items**
 
@@ -147,7 +140,7 @@ JSON responses should contain the following keys from the following endpoints:
 {
   "id": 1,
   "name": "Hammer",
-  "price": 11
+  "price": 11,
   "num_orders": 5,
   "orders": [
     {"order_number": "12345ABC"},
@@ -177,7 +170,7 @@ JSON responses should contain the following keys from the following endpoints:
   "num_items": 5,
   "items": [
     {
-      "id": 1
+      "id": 1,
       "name": "Hammer",
       "price": 11
     },
@@ -186,13 +179,11 @@ JSON responses should contain the following keys from the following endpoints:
 }
 ```
 
-## Using ActiveModel Serializers to modify `as_json`
-
-![Cereal JASON](https://s-media-cache-ak0.pinimg.com/originals/5d/87/7e/5d877ee8747db10896b3ea8bd41f14b7.jpg)
+## Using Active Model Serializers to modify `as_json`
 
 [Active Model Serializer Docs][am_serializer_guide]
 
-[am_serializer_guide]: https://github.com/rails-api/active_model_serializers/tree/master/docs
+[am_serializer_guide]: https://github.com/rails-api/active_model_serializers/tree/0-10-stable
 
 ### Intro
 
@@ -204,8 +195,6 @@ JSON responses should contain the following keys from the following endpoints:
 ### Code Along
 
 We're going to create a serializer for `Order`.
-
-First, let's checkout a new branch called `json_serializers`.
 
 - Create your serializer
   - `rails g serializer order`
@@ -257,95 +246,10 @@ Do what I did to `Order`, but on `Item` now.
 - A relationship
   - `orders`
 
-## Using jbuilder to build JSON views
-
-![Builder JASON](https://s-media-cache-ak0.pinimg.com/736x/6f/66/04/6f6604ef438db98480436046ebf61191--jason-voorhees-horror-movies.jpg)
-
-[jbuilder docs][jbuilder_readme]
-
-[jbuilder_readme]: https://github.com/rails/jbuilder/blob/master/README.md
-
-### Intro
-
-- Built in to Rails 4+ (still needs to be gem installed)
-- Uses Rails views
-- What does DSL mean?
-
-### Code Along
-
-Let's use Jbuilder to create JSON views for `Order`.
-
-First, add and commit your serializers work, go back to the `setup` branch and checkout a `jbuilder` branch.
-
-- Uncomment `gem 'jbuilder', '~> 2.5'` in the Gemfile
-
-
-- Add views
-  - (/views/api/v1/orders)
-
-- Add attributes
-  - Some existing fields
-    - `id`, `order_number`
-  - Some custom fields
-    - `num_items`
-  - A relationship
-    - `items`
-
-Our final product should look something like this:
-
-```ruby
-# controllers/api/v1/orders_controller.rb
-class Api::V1::OrdersController < ApplicationController
-  def index
-    @orders = Order.all
-  end
-
-  def show
-    @order = Order.find(params[:id])
-  end
-end
-```
-
-```ruby
-# views/api/v1/orders/index.json.jbuilder
-json.(@orders) do |order|
-  json.(order, :id, :order_number)
-  json.num_items(order.items.count)
-end
-```
-
-```ruby
-# views/api/v1/orders/show.json.jbuilder
-json.(@order, :id, :order_number)
-json.num_items(@order.items.count)
-json.items @order.items do |item|
-  json.(item, :id)
-end
-```
-
-To see this, make sure the endpoint you make a `GET` request to is post-pended with `.json`.
-
-For example, `localhost:3000/api/v1/orders.json`
-
-### Lab
-
-Do what I did to `Order`, but on `Item` now.
-
-- Some existing fields
-  - `id`, `name`, `description`
-- Some custom fields
-  - `num_orders`
-- A relationship
-  - `orders`
-
-## Comparison
-
-- What differentiates Jbuilder from Serializers?
-- When would you use one or the other?
 
 ## Resources
 
-Here's some branches of Storedom with customized JSON
+Here's some branches of Storedom with customized JSON:
 
 - Storedom branch for [Serializers](https://github.com/turingschool-examples/storedom/tree/custom_json_serializers)
 - Storedom branch for [Jbuilder](https://github.com/turingschool-examples/storedom/tree/custom_json_jbuilder)
