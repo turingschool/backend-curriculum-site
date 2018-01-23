@@ -10,6 +10,10 @@ By the end of this lesson, students:
   - can find their way around Webpack and its config
   - are able to use Webpack for development, testing and production
 
+## Slides
+
+Available [here](../slides/webpack)
+
 ## Part 1: Big Picture
 
 ### The Purpose of Build Tools
