@@ -139,7 +139,7 @@
 
 ```bash
 $ git clone git@github.com:turingschool-examples/quantified-self-starter-kit.git webpack-lesson
-$ cd quantified-self-starter-kit
+$ cd webpack-lesson
 $ npm install
 ```
 
