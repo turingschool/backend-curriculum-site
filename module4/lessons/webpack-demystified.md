@@ -262,6 +262,8 @@ This lets us use handy `npm` commands such as `npm start` to fire up webpack-dev
 
 The `--hot --inline` flags tell npm to watch for any changes and reload automatically.
 
+Why `npm run build` instead of just `npm build`? [NPM has a built in build command](https://stackoverflow.com/questions/29939697/npm-build-doesnt-run-the-script-named-build-in-package-json), which is not what we want to run in this case.
+
 ## Additional Resources
 
 *   [Webpack Docs](https://webpack.js.org/)
