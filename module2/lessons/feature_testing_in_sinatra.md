@@ -12,7 +12,8 @@ tags: capybara, user stories, feature tests, testing, sinatra
 
 ## Vocabulary
 * feature test
-* 
+* user story
+* DSL (Domain Specific Language)
 
 ## Repository
 
