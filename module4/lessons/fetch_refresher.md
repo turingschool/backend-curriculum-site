@@ -5,61 +5,106 @@ title: Fetch Refresher
 
 ## Learning Goals
 
-* Students are comfortable using `fetch()` to make RESTful requests
+By the end of this lesson, you will ...
 
-## Fetch...What's That Again?
+- explain what a Promise is
+- explain the advantages of using the Fetch API and Promises
+- be able to write GET, POST, and DELETE requests using the Fetch API
+- be familiar with patterns to organize/refactor fetch requests
 
-Essentially, `fetch()` allows us to _asynchronously_ interact with most anything, but predominantly other servers (think APIs). The asynchronous bit here means that we could make a request and not need to wait for its response before moving on to execute other lines of code. The request will come back and be handled when it's ready without needing to halt our program waiting for it.
+## JavaScript - synchronous or asynchronous?
 
-We'll learn more about asynchronicity in JavaScript later in the module, but for now, let's think of `fetch()` as the tool that will allow us to make client-side requests to a different server (API).
+- Only one block of code can run at a time (in the order that it is written/appears)
+- JS is only asynchronous in the sense that it can perform some asynchronous operations (non-blocking)
+- Tasks that can not be completed immediately are going to complete asynchronously
 
-## GET Example
+See the [Async JS lesson](http://backend.turing.io/module4/lessons/asynchronicity-in-javascript) for a deeper dive!
 
-[Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) requests come in all shapes and sizes, but for reference, here's a common structure:
+This means that our code is read and executed line-by-line in the order that it's written:
 
 ```js
-// make a GET request
-fetch('http://localhost:3000/api/v1/posts')
-  // if successful, request is handled by `.then`
-  .then(response => {
-    // we're within this block if things went well,
-    // so do something with the data!
-  })
-  .catch(error => {
-    // only here if there was an error,
-    // so handle error if there is one
-  })
+thisFunctionWillExecuteFirst();
+thisFunctionWillExecuteSecond();
+thisFunctionWillExecuteThird();
+thisIsGoingToTakeForever();
+iHaveToWaitOnAllTheseOtherSlowPokesAboveMe();
 ```
 
-Since `fetch()` responses are returned as a readable stream, you will often need to use methods provided by `Response` to convert the stream into data you wish to consume. We will be using `response.json()`, but other [methods](https://developer.mozilla.org/en-US/docs/Web/API/Response) like `blob()`, `formData()` and `text()` are available.
+### WHEN might we want our code to operate in an async manner?
+
+The most common example of an async process we will run into on the client-side is a network request. Making a trip to the server can take a significant amount of time, and our applications would be painfully slow if they stopped the rest of our code from executing.
+
+Asynchronous JavaScript will be processed in the background - it will not block the execution of the code that follows it. This comes in handy when we want to pull a slow or expensive operations out of the default synchronous flow of execution.
+
+The hot way to do this right is by using [Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise), which handle asynchronous JavaScript.
+
+## Explore
+
+With a partner, use prior knowledge/educated guesses to discuss what you see happening at each line of this function. Also jot down any questions that arise from look at this.
 
 ```js
-fetch('http://localhost:3000/api/v1/posts')
-  .then(response => response.json())
-  .then(data => {
-    // Now data is in a format we are more used to i.e. {"posts": [{"title": "Fetch Refresher", "author": "Katelyn Kasperowicz"},..]}
-  })
-  .catch(error => {
-  })
+const fetchDiscussions = () => {
+  fetch('/api/vi/discussions')
+  .then((response) => response.json())
+  .then((rawDiscussions) => cleanDiscussions(rawDiscussions))
+  .catch((error) => console.error({ error }));
+}
 ```
 
-## POST Example
-
-Sending data with `fetch()` is also pretty easy. `fetch()` allows us to set an optional parameter with an `Request` object which allows us to control a number of parameter. The attributes we will focus on are `method`, `headers` and `body`. You can view more options [here](https://developer.mozilla.org/en-US/docs/Web/API/Request). The default request method is `get` so we need to set our method to `post`. Since we will mostly be working with JSON content we need will need to set the `Content-Type` in headers to `application/json` and make sure we use `JSON.stringify` before sending our data.
+## A Typical Fetch Request
 
 ```js
-// Data we wish to send to the API endpoint
-const newPost = {title: 'Hello Wisconsin', author: 'Eric Forman'}
+const postDiscussions = () => {
+  fetch('/api/vi/discussions', {
+    method: 'POST',
+    body: JSON.stringify({
+      discussionName: 'Foo',
+      totalPoints: 100,
+    });
+  });
+}
+```
 
-fetch('http://localhost:3000/api/v1/posts', {
-  method: 'post',
-  headers: {
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify(newPost)
+What differences do you notice between a GET and POST?
+
+`fetch()` takes TWO arguments:
+
+- URL or API endpoint (always)
+- object of configuration settings for the request. This may contain what kind of request we're making and any data we might need to pass along with it (optional)
+
+## Promises
+
+3 states of Promises:
+
+- Pending
+- Resolved/Fulfilled (with a return value from your async operation)
+- Rejected (with an error message from your async operation)
+
+Every fetch request we make will return a Promise object that contains our response data. This allows us to easily react to the type of response we get once it's available.
+
+Handling the response of a fetch request might look something like this:
+
+```js
+fetch('/api/v1/discussions', {
+  method: 'POST',
+  body: JSON.stringify({
+    discussionName: 'Foo',
+    totalPoints: 100,
+  });
 })
-//.then().....
+.then(response => response.json())
+.then(discussions => renderDiscussions(discussions))
+.catch((error) => console.error({ error }))
 ```
+
+While we wait for the server to return our response, the rest of our application can continue executing other code in the meantime. Once the response object is available, our first .then() block will fire. The response object returns a lot of extra information that we don't necessarily need. All we want in this scenario is a JSON object of our discussions data which we can get by calling response.json().
+
+Converting the body to a JSON data structure with response.json() actually returns another Promise. (Converting the data to a particular type can take significant time, which is why we have this additional Promise step before we can begin working with out data.) Because we're getting another Promise object back, we can simply chain another .then() block where we actually receive our project data. We can then render it to the DOM with our imaginary renderDiscussions() function.
+
+If for any reason the request failed, the .catch() block will be fired and we will log the error to the console.
+
+[Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
+
 
 ## Error Checking
 
@@ -195,6 +240,15 @@ const postArticle = (event) => {
     .catch(errorLog)
 }
 ```
+
+## CFU
+
+Pair up with your Quantified Self partner and practice answering the following interview questions:
+
+* What are the advantages of using fetch?
+* What are promises used for? Can you give an example of when you've used one?
+
+Be ready to share you answer(s) with the class when we wrap up.
 
 ## Work Time
 
