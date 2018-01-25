@@ -5,11 +5,10 @@ title: Advanced CSS Selectors
 
 ## Learning Goals
 
-  - Apply CSS pseudo-selectors to an existing layout
+  - Apply CSS pseudo-classes to an existing layout
 
   
 ## Vocab 
-* Pseudo-selector
 * Pseudo-class
 * Pseudo-element
 * Element
@@ -18,7 +17,7 @@ title: Advanced CSS Selectors
 * What strategies have you used to style specific elements?
 * What tools do we have to change a style relative to user interaction?
 
-### Pseudo-selectors - What are they?
+### Pseudo-classes - What are they?
 
   - Specific characteristics of an element that can be targeted with CSS.
   - Creates a special state for that element.
@@ -53,7 +52,7 @@ title: Advanced CSS Selectors
 
 #### Task 2 - Disabled
 
-  - `disabled` is a common pseudo-selector that might be used to indicate that a text input field (or checkbox/radio buttons/etc) cannot be selected.
+  - `disabled` is a common pseudo-class that might be used to indicate that a text input field (or checkbox/radio buttons/etc) cannot be selected.
   - In our playground example, we can give each of our boxes a name. (This is just an example so it's not so real world ::winking::).
   - Let's disable the last boxes input and make sure our users know it is disabled by making it red.
 
