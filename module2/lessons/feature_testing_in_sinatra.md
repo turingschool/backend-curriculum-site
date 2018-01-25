@@ -73,7 +73,7 @@ Open a blank file and write user stories for the four situations below with a pa
 
 ## Creating Our Feature Test
 
-[Capybara](https://github.com/teamcapybara/capybara)
+[Capybara](https://github.com/teamcapybara/capybara#using-capybara-with-rspec)
 
 Capybara is a Ruby test framework that allows you to feature test any RACK-based app.
 
