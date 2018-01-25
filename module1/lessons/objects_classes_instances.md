@@ -1,66 +1,88 @@
 ---
-title: Classes, Instances, Methods
+title: Classes, Instances, Attributes, Methods
 length: 120
 tags: ruby, object-oriented programming
 ---
 
-## Learning Goals
+# Learning Goals
 
-* explain the difference between classes and instances
-* define a class and creating instances of that class
+* understand the difference between classes and instances
+* be able to define a class and create instances of that class
+* understand the initialize method, and when it is called.
 * identify and explain the role of attributes in an instance
 * explain and use return values
-* write and identify instance methods
-* define methods with and without methods
-* use arguments within methods
+* be able to write methods with and without parameters
 
-## Lecture
+## Classes and Instances
 
-### Classes and Objects in Real Life
+### Classes and Instances in Real Life
 
-**TRY IT**: With your pair, brainstorm five **types** of objects and **specific** instances of that object that are at Turing. For example:
-
-#### Type of object: Cubby
-
-Specific instances:
-
-* Horace's cubby
-* Steve's cubby
-* Mike's cubby
+**TRY IT**: With your pair, brainstorm a **type** of object and **specific** instances of that object that are at Turing. For example:
 
 #### Type of object: Refrigerator
 
-Specific objects:
+Specific instances:
 
 * Small staff refrigerator
 * Student refrigerator near Classroom A
 * White refrigerator in the big workspace
 * Black refrigerator in the big workspace
 
-In the cases above, what we called "type of object" is called a `Class`, and what we called "specific objects" are called `instances`.
+**TRY IT**: For your type of object, list three different attributes and three different methods (a.k.a. actions). For example:
 
-### Classes and Objects in Code
+#### Refrigerator Attributes
+* color
+* size
+* food items
 
-In irb, let's make a few new instances of a String:
+#### Refrigerator Methods
+* add food
+* remove food
+* change temperature
+
+
+### Classes and Instances in Programming
+
+In programming, a *Class* is something that models:
+1. State
+1. Behavior
+
+State is what something *is*. Behavior is what something *does*. In the previous activity, our *Class* was refrigerator. We modeled the state of a refrigerator by defining the attributes "color", "size", and "food items". We modeled the behavior of a refrigerator by defining the methods "add food", "remove food", and "change temperature".
+
+An *Instance* or *Object* is a concrete representation of a *Class*. In the previous activity, "small staff refrigerator" is a specific *Instance* of the Regrigerator *Class*. We can also say that "small staff refrigerator" is a Refrigerator *Object*. Do not get confused by the terms *Instance* an *Object*. They mean the exact same thing (for now). 
+
+Think of a Class like a blueprint for a house and an Instance as an actual house. The blueprint is a just an idea of how the house should be built, and the house is the realization of that blueprint.
+
+### Classes and Instances in Ruby
+
+Let's take a look at a Ruby Class. In irb, we'll make a few new instances of a String:
 
 ```ruby
-a = String.new
+a = String.new("alpha")
 => ""
 a.object_id
 => 70162531807580
-b = String.new
+a.end_with? "a"
+=> true
+b = String.new("beta")
 => ""
 b.object_id
 => 70162535734120
+b.upcase
+=> "BETA"
 ```
 
-We can say that `String` is the class, and `a` and `b` are instances of that class.
+We can say that `String` is the class, and `a` and `b` are `Instances` of the String Class, or `a` and `b` are String `Objects`.
 
-String (like Array, Hash, etc.) are built-in classes in Ruby. We didn't have to define those classes; they already existed. These are useful, but we are limited in what we can do with the built-in classes.
+The *States* that `a` and `b` hold are their respective values "alpha" and "beta".
 
-Ruby does not have classes like `Cubby` or `Refrigerator`. Let's go ahead and define those classes. Make a new file called `classes_and_instances_playground.rb`.
+The *Behaviors* of `a` and `b` are their methods, like "end_with?" and "upcase".
 
-The syntax for define a class, at its most bare-bones level, is this:
+String is a built-in class in Ruby. We didn't have to define it; it already exists. Can you name some other built-in Classes?
+
+These are useful, but we are limited in what we can do with the built-in classes. Ruby does not have other classes we might need, like `Refrigerator`. Let's go ahead and define it.
+
+The syntax for defining a class, at its most bare-bones level, is this:
 
 ```
 class NameOfClass
@@ -73,133 +95,137 @@ Notice that `class` is lowercase while `NameOfClass` is CamelCased.
 class Refrigerator
 end
 
-refrigerator_1  = Refrigerator.new
-p "Number 1: #{refrigerator_1}"
+refrigerator_1 = Refrigerator.new
+p refrigerator_1
 
-refrigerator_2   = Refrigerator.new
-p "Number 2: #{refrigerator_2}"
+refrigerator_2 = Refrigerator.new
+p refrigerator_2
 
 refrigerator_3 = Refrigerator.new
-p "Number 3: #{refrigerator_3}"
+p refrigerator_3
 ```
 
-Remember, `p` is the combination of `puts` and `inspect` (like `puts steve.inspect`). Let's run the file `ruby classes_and_instances_playground.rb` and see what happens.
+Remember, p is a combination of the puts and inspect methods. Let's run this code and see what happens.
 
-Sometimes it's helpful to be able pause your file and look around. We can do this by installing the gem "pry" and then pausing execution:
+**TRY IT**: With your pair, define your Class that you brainstormed, create some instances of that Class, and use the `p` statement to print them out.
 
-```
-$ gem install pry
-```
+### Initialize
+
+When we run Refrigerator.new in Ruby, what actually happens? We can see from the last example that three different Refrigerator objects (or instances) are created. Other than that, nothing happens. We need to tell Ruby what should happen when a new Refrigerator instance (or object) is created. We do this with the initialize method.
 
 ```ruby
 class Refrigerator
-end
-
-refrigerator_1  = Refrigerator.new
-p "Number 1: #{refrigerator_1}"
-
-refrigerator_2   = Refrigerator.new
-p "Number 2: #{refrigerator_2}"
-
-refrigerator_3 = Refrigerator.new
-p "Number 3: #{refrigerator_3}"
-
-require 'pry'; binding.pry
-puts "-------"
-```
-
-**TRY IT**: With your pair, define two of the classes that you brainstormed and create instances of those classes. Paste your code in your Slack channel.
-
-### Attributes IRL
-
-The instances of the classes we've defined so far are basically useless. Aside from their `object_id`, there is nothing unique about these instances.
-
-In Object-Oriented Programming (OOP), **objects need to be able to model state**.
-
-What are the attributes (states) that may vary among refrigerators?
-
-* Brand
-* Color
-* Temperature
-* Plugged In?
-* Contents
-
-**TRY IT**: With your pair, brainstorm the things that make a `Person` unique.
-
-### Attributes in Code
-
-Let's go back to our playground file and add some attributes to the `Refrigerator` class:
-
-```ruby
-class Refrigerator
-  def initialize(brand, color, temperature, plugged_in, contents)
-    @brand       = brand
-    @color       = color
-    @temperature = temperature
-    @plugged_in  = plugged_in
-    @contents    = contents
+  def initialize
+    #Initialize code here
   end
 end
 
-refrigerator_1  = Refrigerator.new("Maytag", "white", 36, true, ["leftover pizza", "yogurt", "soylent"])
-p "Number 1: #{refrigerator_1}"
-
-refrigerator_2   = Refrigerator.new("", "black", 40, true, [])
-p "Number 2: #{refrigerator_2}"
-
-refrigerator_3 = Refrigerator.new("", "black", 33, false, ["celery"])
-p "Number 3: #{refrigerator_3}"
-
-require 'pry'; binding.pry
-puts "-------"
+...
 ```
 
-Let's run the file `ruby classes_and_instances_playground.rb` and see what happens.
+This method is run once and only once during an Object's lifetime, when we call `new`.
 
-**TRY IT**: With your pair, create a class `Person` that has the attributes `name`, `birth_year`, `language`, and `alive` (which will be a true/false value). Make three instances of the `Person` class. Paste your code in Slack.
+**TRY IT**: Create an initialize method for your Class and put a print statement in it. Run your file and see what happens.
 
-### Accessing Attribute Values
+## Modeling State with Attributes
 
-Our refrigerators now store their own attributes, but how do we access those values? Let's run the file again and try this:
+The instances of the classes we've defined so far are basically useless. Aside from their `object_id`, there is nothing unique about these instances.
+
+Remember, a class models *State* and *Behavior*. Let's give our refrigerator some state.
+
+In our playground file, we'll add some attributes to the `Refrigerator` class. The @ symbol before a variable name indicates that it is an *Attribute* or *Instance Variable*. These two terms mean the exact same thing.
 
 ```ruby
-refrigerator.brand
+class Refrigerator
+  def initialize
+    @color       = "white"
+    @size        = 12
+    @food        = []    
+  end
+end
+
+...
+```
+
+In English, this code is saying "When we create a new Refrigerator, it should have a `color` of "white", a `size` of 12, and an empty array of `food`."
+
+**TRY IT**: With your pair, give your class some attributes. Do you see a difference in the `p` statements when you run the file now? Try creating an atttribute without the @ symbol. What do you notice?
+
+### Parameters
+
+Our Refrigerators now have state, but they all have the same state! We want to be able to create different refrigerators. We'll do this by adding *Parameters* to our initialize method.
+
+```ruby
+class Refrigerator
+  def initialize(color_param, size_param)
+    @color       = color_param
+    @size        = size_param
+    @food        = []    
+  end
+end
+
+refrigerator_1 = Refrigerator.new("white", 12)
+p refrigerator_1
+
+refrigerator_2 = Refrigerator.new("black", 34)
+p refrigerator_2
+
+refrigerator_3 = Refrigerator.new("hot pink", 100000)
+p refrigerator_3
+```
+
+Notice that we didn't change `@food = []`. Why might this be?
+
+**TRY IT**: Give your initialize method some parameters and create some instances with different attributes.
+
+## Modeling Behavior with Methods
+
+Our class now models State in the form of Attributes, but what about *Behavior*?
+
+We can define the behavior of our class by creating methods. The simplest method we can create is called a "getter". This is a method that gives us back an attribute. For instance, if we create a new Refrigerator with the color "white" like this...
+
+```ruby
+refrigerator_1  = Refrigerator.new("white", 12)
+```
+
+refrigerator_1 should be able to tell us what its color is like this...
+
+```ruby
+refrigerator_1.color
+```
+
+Let's add this to our code.
+```ruby
+...
+
+refrigerator_1  = Refrigerator.new("white", 12)
+puts refrigerator_1.color
+...
 ```
 
 What happens? Why? Let's look at the error message:
 
 ```
-NoMethodError: undefined method `brand' for #<Refrigerator:0x007f8d42132c58>
-from (pry):4:in `<main>'
+undefined method `color' for #<Refrigerator:0x007fa3e6922a98> (NoMethodError)
 ```
 
-This error tells us exactly what we need to do: define a method `brand` for the `Refrigerator`.
+This error tells us exactly what we need to do: define a method `color` for the `Refrigerator`.
 
 ```ruby
 class Refrigerator
-  def initialize(brand, color, temperature, plugged_in, contents)
-    @brand       = brand
-    @color       = color
-    @temperature = temperature
-    @plugged_in  = plugged_in
-    @contents    = contents
+  def initialize(color_param, size_param)
+    @color       = color_param
+    @size        = size_param
+    @food        = []    
   end
 
-  def brand
+  def color
   end
 end
 
-refrigerator_1  = Refrigerator.new("Maytag", "white", 36, true, ["leftover pizza", "yogurt", "soylent"])
-p "Number 1: #{refrigerator_1}"
-
-refrigerator_2   = Refrigerator.new("", "black", 40, true, [])
-p "Number 2: #{refrigerator_2}"
-
-refrigerator_3 = Refrigerator.new("", "black", 33, false, ["celery"])
-p "Number 3: #{refrigerator_3}"
-
-require 'pry'; binding.pry
-puts "-------"
+refrigerator_1 = Refrigerator.new("white", 12)
+puts refrigerator_1.color
+...
 ```
 
 Run the file and try it again. This time, we get nil back. Why?
@@ -208,7 +234,7 @@ Run the file and try it again. This time, we get nil back. Why?
 
 When we call a method on an object, we expect something to be returned to us. For example, if I ask some "What is your name?", I would expect for them to respond with a name.
 
-Right now, when we call `refrigerator_1.brand`, we get `nil`, which in Ruby means nothingness. This is because our method is empty. This is what an empty method looks like:
+Right now, when we call `refrigerator_1.color`, we get `nil`, which in Ruby means nothingness. This is because our method is empty. This is what an empty method looks like:
 
 ```ruby
 def my_method
@@ -217,348 +243,141 @@ end
 
 An empty method will always return `nil`. We need to return something else.
 
-The last evaluated line of code will always be the return value. For example:
+**The last evaluated line of code will always be the return value unless the return statement is used**
+
+What will be returned by each of the following methods?
 
 ```ruby
 def my_method
-  1+1
+  x = 1+1
   ["piglet", "kitten", "baby gorilla"]
   99
 end
 ```
 
+```ruby
+def my_method
+  return 1+1
+  ["piglet", "kitten", "baby gorilla"]
+  99
+end
+```
+
+```ruby
+def my_method
+  x = 1+1
+  y = ["piglet", "kitten", "baby gorilla"]
+  return x
+end
+```
+
 ### Back to the Code
 
-What should the `brand` method return?
+What should the `color` method return?
 
 ```ruby
 class Refrigerator
-  def initialize(brand, color, temperature, plugged_in, contents)
-    @brand       = brand
-    @color       = color
-    @temperature = temperature
-    @plugged_in  = plugged_in
-    @contents    = contents
+  def initialize(color_param, size_param)
+    @color       = color_param
+    @size        = size_param
+    @food        = []    
   end
 
-  def brand
-    @brand
+  def color
+    @color
   end
 end
 
-refrigerator_1  = Refrigerator.new("Maytag", "white", 36, true, ["leftover pizza", "yogurt", "soylent"])
-p "Number 1: #{refrigerator_1}"
-
-refrigerator_2   = Refrigerator.new("", "black", 40, true, [])
-p "Number 2: #{refrigerator_2}"
-
-refrigerator_3 = Refrigerator.new("", "black", 33, false, ["celery"])
-p "Number 3: #{refrigerator_3}"
-
-require 'pry'; binding.pry
-puts "-------"
+...
 ```
 
-Now let's try calling `refrigerator_1.brand`. It works! This is called a `getter` method because we are able to read the value of an attribute.
+**TRY IT**: With your pair, create getter methods for the attributes of your class. Use these getter methods to print out the attributes of one of your instances.
 
-**TRY IT**: With your pair, create getter methods for the `color`, `contents`, `temperature`, and `contents`. Next, create getter methods for `name`, `birth_year`, and `language`. Paste your code **only for Person** in Slack.
+### More Interesting Methods
 
-### Simplifying Getter Methods
-
-Ruby gives us a built-in way to provide these same getter methods but without having to define each of these methods separately. We'll use `attr_reader` to do this:
+We want to be able to add food to our fridge. Let's create a new method. 
 
 ```ruby
 class Refrigerator
-  attr_reader :brand,
-              :color,
-              :temperature,
-              :contents
-
-  def initialize(brand, color, temperature, plugged_in, contents)
-    @brand       = brand
-    @color       = color
-    @temperature = temperature
-    @plugged_in  = plugged_in
-    @contents    = contents
+  def initialize(color_param, size_param)
+    @color       = color_param
+    @size        = size_param
+    @food        = []    
   end
-end
 
-refrigerator_1  = Refrigerator.new("Maytag", "white", 36, true, ["leftover pizza", "yogurt", "soylent"])
-p "Number 1: #{refrigerator_1}"
+  def add_food
+  end
 
-refrigerator_2   = Refrigerator.new("", "black", 40, true, [])
-p "Number 2: #{refrigerator_2}"
-
-refrigerator_3 = Refrigerator.new("", "black", 33, false, ["celery"])
-p "Number 3: #{refrigerator_3}"
-
-require 'pry'; binding.pry
-puts "-------"
+  ...
 ```
 
-Try running the program and testing out the getter methods. You should get the same behavior.
+When we call this add_food method, we want to add the new food to the `@food` array. But where does this new food come from? We need a parameter.
 
-**TRY IT**: With your pair, replace your getter methods for `name`, `birth_year`, and `language` with `attr_reader`s. Paste your code **only for Person** in Slack.
+```ruby
+def add_food(new_food)
+end
+```
 
-### Defining Custom Methods
+Next, we need to add this new food to the `@food` array.
 
-Let's say we want to be able to return the temperature in Celsius. Let's define a `temperature_in_celsius` method. By the way, the formula for converting F to C is this:
+```ruby
+def add_food(new_food)
+  @food << new_food
+end
+```
 
-(F - 32) * 5/9
+Finally, we need to call this method.
 
-So we'll need to use the `@temperature` instance variable in order to insert that for `F` in the equation.
+```ruby
+  refrigerator_1.add_food("apples")
+```
+
+This is what the code looks like so far:
 
 ```ruby
 class Refrigerator
-  attr_reader :brand,
-              :color,
-              :temperature,
-              :contents
-
-  def initialize(brand, color, temperature, plugged_in, contents)
-    @brand       = brand
-    @color       = color
-    @temperature = temperature
-    @plugged_in  = plugged_in
-    @contents    = contents
+  def initialize(color_param, size_param)
+    @color       = color_param
+    @size        = size_param
+    @food        = []    
   end
 
-  def temperature_in_celsius
-    (@temperature - 32) * 5.0/9.0
+  def add_food(new_food)
+    @food << new_food
+  end
+
+  def color
+    @color
   end
 end
 
-refrigerator_1  = Refrigerator.new("Maytag", "white", 36, true, ["leftover pizza", "yogurt", "soylent"])
-p "Number 1: #{refrigerator_1}"
+refrigerator_1 = Refrigerator.new("white", 12)
+puts refrigerator_1.color
+refrigerator_1.add_food("apples")
+p refrigerator_1
 
-refrigerator_2   = Refrigerator.new("", "black", 40, true, [])
-p "Number 2: #{refrigerator_2}"
+refrigerator_2 = Refrigerator.new("black", 34)
+p refrigerator_2
 
-refrigerator_3 = Refrigerator.new("", "black", 33, false, ["celery"])
-p "Number 3: #{refrigerator_3}"
-
-require 'pry'; binding.pry
-puts "-------"
+refrigerator_3 = Refrigerator.new("hot pink", 100000)
+p refrigerator_3
 ```
 
-Let's try out the method: `refrigerator_2.temperature_in_celsius`.
+We can see from the print statements that the `@food` array of refrigerator_1 is now populated with "apples".
 
-**TRY IT**: With your pair, define a `age` method for `Person`.
-
-### Defining Custom Methods with Arguments
-
-Let's say we wanted to add things to the contents of the refrigerator, and we want the user to be able to specify what food is being added. We'll need to allow this dynamic value to be accepted by the method.
-
-We've seen methods that accept parameters before:
-
-```ruby
-message = "Hello, world!"
-message.start_with?("H")
-=> true
-message.index("e")
-=> 1
-```
-
-These methods allow different values to be passed in depending on what value is wanted.
-
-In our refrigerator class:
-
-```ruby
-class Refrigerator
-  attr_reader :brand,
-              :color,
-              :temperature,
-              :contents
-
-  def initialize(brand, color, temperature, plugged_in, contents)
-    @brand       = brand
-    @color       = color
-    @temperature = temperature
-    @plugged_in  = plugged_in
-    @contents    = contents
-  end
-
-  def temperature_in_celsius
-    (@temperature - 32) * 5.0/9.0
-  end
-
-  def add_item(item)
-    @contents << item
-  end
-end
-
-refrigerator_1  = Refrigerator.new("Maytag", "white", 36, true, ["leftover pizza", "yogurt", "soylent"])
-p "Number 1: #{refrigerator_1}"
-
-refrigerator_2   = Refrigerator.new("", "black", 40, true, [])
-p "Number 2: #{refrigerator_2}"
-
-refrigerator_3 = Refrigerator.new("", "black", 33, false, ["celery"])
-p "Number 3: #{refrigerator_3}"
-
-require 'pry'; binding.pry
-puts "-------"
-```
-
-**TRY IT**: With your pair, define a `greet(name)` method that accepts a person's name and then greets that person by returning a string like "Hi, Joanne! Nice to meet you."
-
-### Redefining Attribute Values
-
-Now that we've seen how to pass in arguments, let's figure out how we can change the values of instance variables. We want to be able to do this:
-
-```ruby
-refrigerator_1.color = "red"
-=> #<Refrigerator:0x007fe30a2e8bd8 @brand="Maytag", @color="red", @temperature=36, @plugged_in=true, @contents=["leftover pizza", "yogurt", "soylent"]>
-```
-
-Right now when we try this, we get an error:
-
-```
-undefined method `color= for #<Refrigerator:0x007fe30a2e8bd8>'
-```
-
-Let's define that `setter` method:
-
-```ruby
-class Refrigerator
-  attr_reader :brand,
-              :color,
-              :temperature,
-              :contents
-
-  def initialize(brand, color, temperature, plugged_in, contents)
-    @brand       = brand
-    @color       = color
-    @temperature = temperature
-    @plugged_in  = plugged_in
-    @contents    = contents
-  end
-
-  def temperature_in_celsius
-    (@temperature - 32) * 5.0/9.0
-  end
-
-  def add_item(item)
-    @contents << item
-  end
-
-  def color=(new_color)
-    @color = new_color
-  end
-end
-
-refrigerator_1  = Refrigerator.new("Maytag", "white", 36, true, ["leftover pizza", "yogurt", "soylent"])
-p "Number 1: #{refrigerator_1}"
-
-refrigerator_2   = Refrigerator.new("", "black", 40, true, [])
-p "Number 2: #{refrigerator_2}"
-
-refrigerator_3 = Refrigerator.new("", "black", 33, false, ["celery"])
-p "Number 3: #{refrigerator_3}"
-
-require 'pry'; binding.pry
-puts "-------"
-```
-
-Like using `attr_reader` to simplify getter methods, we can use `attr_writer` for the setter method:
-
-
-```ruby
-class Refrigerator
-  attr_reader :brand,
-              :color,
-              :temperature,
-              :contents
-
-  attr_writer :color
-
-  def initialize(brand, color, temperature, plugged_in, contents)
-    @brand       = brand
-    @color       = color
-    @temperature = temperature
-    @plugged_in  = plugged_in
-    @contents    = contents
-  end
-
-  def temperature_in_celsius
-    (@temperature - 32) * 5.0/9.0
-  end
-
-  def add_item(item)
-    @contents << item
-  end
-end
-
-refrigerator_1  = Refrigerator.new("Maytag", "white", 36, true, ["leftover pizza", "yogurt", "soylent"])
-p "Number 1: #{refrigerator_1}"
-
-refrigerator_2   = Refrigerator.new("", "black", 40, true, [])
-p "Number 2: #{refrigerator_2}"
-
-refrigerator_3 = Refrigerator.new("", "black", 33, false, ["celery"])
-p "Number 3: #{refrigerator_3}"
-
-require 'pry'; binding.pry
-puts "-------"
-```
-
-Even better, if we want both a getter and a setter for an attribute, we can use `attr_accessor`:
-
-```ruby
-class Refrigerator
-  attr_reader :brand,
-              :temperature,
-              :contents
-
-  attr_accessor :color
-
-  def initialize(brand, color, temperature, plugged_in, contents)
-    @brand       = brand
-    @color       = color
-    @temperature = temperature
-    @plugged_in  = plugged_in
-    @contents    = contents
-  end
-
-  def temperature_in_celsius
-    (@temperature - 32) * 5.0/9.0
-  end
-
-  def add_item(item)
-    @contents << item
-  end
-end
-
-refrigerator_1  = Refrigerator.new("Maytag", "white", 36, true, ["leftover pizza", "yogurt", "soylent"])
-p "Number 1: #{refrigerator_1}"
-
-refrigerator_2   = Refrigerator.new("", "black", 40, true, [])
-p "Number 2: #{refrigerator_2}"
-
-refrigerator_3 = Refrigerator.new("", "black", 33, false, ["celery"])
-p "Number 3: #{refrigerator_3}"
-
-require 'pry'; binding.pry
-puts "-------"
-```
+**TRY IT**: With your pair, create a new method for your Class. This method should change one of your Class's attributes.
 
 ## Pair Work
 
-Let's think about modeling cars in code. Work through these steps:
+Let's think about modeling cars in code. Work through the following steps. Remeber to check your work as you complete each step.
 
-1. Create a `Car` class and save it in `car.rb`.
-1. At the bottom of the file, outside the class definition, write `my_car = Car.new` to create an instance.
-1. Run the file from your terminal with `$ ruby car.rb`. Observe nothing (boohoo!).
-1. Add a method to the class named `horn`. In that method return the String `"BEEEEEP!"`. Then at the very bottom of the file add `puts my_car.horn`.
-1. Run your file again and observe output (yay!).
-1. Add a method to your class named `drive` which takes an argument named `distance`. When the method is called, have it return the a string like `I'm driving 12 miles` where `12` is the value passed in for `distance`.
-1. Add `puts my_car.drive(12)` to the bottom of your file and run it again. Observe two lines of output (double yay!).
-1. Add an `attr_accessor`, an externally-accessible attribute, with the name `color`.
-1. Add a method named `report_color` that returns the String `"I am purple"` where `"purple"` is the value stored in `color`.
-1. Add two lines to the bottom of the file: `my_car.color = 'purple'` and `puts my_car.report_color`
-1. Add an externally-accessible attribute named `wheel_count` and add a line at the bottom setting it to `18`.
-1. At the bottom of the file, write a line that prints out `"This sweet ride is sitting on 18 wheels"` where `18` is the value returned from the `wheel_count` method.
-1. At the bottom of the file, write a line that creates a second instance of the class Car called, `my_second_car`, and sets the `wheel_count` to `2`. Then write a line that prints "This sweet ride is sitting on 2 wheels". Observer how the two instances have their own instance variables (one car has 18 wheels, the other has 2 wheels, the code is shared through the class, but the variables are stored on the object).
+1. Create a `Car` class and save it in `car.rb`. At the bottom of the file, outside the class definition, create a new Car instance.
+1. A Car should have `make`, `model`, and `color` attributes. When a new car is created, we need to be able to specify its make and model as parameters. However, a new Car always has a "white" color.
+1. Create getter methods for your Car class's attributes.
+1. Add a `paint` method to your Car class to change its color. It should take a `new_color` parameter.
+1. Give your Car an attribute `odometer`. What should the odometer value be when the Car is first created? Create a getter method for this attribute.
+1. Add a method to the class named `horn`. In that method return the String `"BEEEEEP!"`.
+1. Add a method to your class named `drive` which takes an argument named `distance`. When the method is called, have it return the a string like `I'm driving 12 miles` where `12` is the value passed in for `distance`. Also, when a car drives, its odometer should be updated.
 1. This one is tricky. Add a method named `start`. If the car has not yet been started, when the method is called it should return `"Starting up!"`. But if the car has previously been started, it should return `"BZZT! Nice try, though."`. You'll need to create an instance variable, a method, use an if statement, and return a value.
 
 ## Be a badass:
