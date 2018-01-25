@@ -37,8 +37,8 @@ Key ideas:
 
 *   Ordered vs. Unordered
 *   Pairs
-*   Determinism and uniqueness
 *   Choosing a hash vs an array
+*   Symbols vs. Strings
 *   Performance characteristics
 
 ## Working with a Hash
@@ -79,10 +79,10 @@ new_hash = Hash.new(0)
 
 In the above declaration, the default value of any key created for `new_hash` has a default value of 0. Keep this in mind for the future - you may find it helpful down the road.
 
-We can also create a hash with some initial key/value pairs. Let's use this syntax to create our ingredients hash:
+We can also create a hash with some initial key/value pairs. Let's use this syntax to create our stew hash:
 
 ```ruby
-ingredients = {
+stew = {
   "onions" => 2,
   "carrots" => 5,
   "chicken" => 1
@@ -96,41 +96,41 @@ The `=>` is called a hash rocket.
 We use brackets `[]` to access the hash just like arrays, only we don't use indexes, we use keys. 
 
 ```ruby
-ingredients["onions"]
+stew["onions"]
 => 2
 ```
 
 We can create a new key/value pair like this:
 
 ```ruby
-ingredients["potatoes"] = 2
+stew["potatoes"] = 2
 ```
 
 Do we need any peppers for the stew? Let's check:
 
 ```ruby
-ingredients["peppers"]
+stew["peppers"]
 => nil
 ```
 
 Oops, we forget Jeff is coming to dinner tonight and he doesn't like onions too much. Let's decrease the amount of onions by 1.
 
 ```ruby
-ingredients["onions"] = ingredients["onions"] - 1
+stew["onions"] = stew["onions"] - 1
 ```
 or
 ```ruby
-ingredients["onions"] -= 1
+stew["onions"] -= 1
 ```
 
 Remember, keys/values can be any type of object.
 
 ```ruby
-ingredients[8] = "this value is a string"
+stew[8] = "this value is a string"
 => "this value is a string"
-ingredients[true] = 1.5
+stew[true] = 1.5
 => 1.5
-ingredients
+stew
 => {
   "onions"=>2, 
   "carrots"=>5, 
@@ -146,11 +146,11 @@ In this code, we created a key with the Integer 8 with a value of the String "th
 We don't want these pairs in our hash, so let's get rid of them:
 
 ```ruby
-ingredients.delete(8)
+stew.delete(8)
 => "this value is a string"
-ingredients.delete(true)
+stew.delete(true)
 => 1.5
-ingredients
+stew
 => {
   "onions"=>2, 
   "carrots"=>5, 
@@ -201,16 +201,16 @@ string_2.object_id
 
 Symbols are also faster than strings because Ruby can determine if two symbols are equal by checking their object_id. Strings have to be compared character by character.
 
-So if symbols are faster and more efficient than strings, why would we use strings? First of all, a string's value can change. Strings are *mutable*, whereas symbols are *immutable*. Second, symbol's have far fewer methods than strings.
+So if symbols are faster and more efficient than strings, why would we use strings? Because a string's value can change, making them useful as variables. Strings are *mutable*, whereas symbols are *immutable*.
 
 Don't worry if this doesn't quite make sense yet. The important thing to understand is that strings are useful as variables. Symbols are useful as names. This makes symbols perfect for keys in hashes.
 
 ## Working with Hashes and Symbols
 
-Let's recreate our ingredients hash using symbols instead of strings.
+Let's recreate our stew hash using symbols instead of strings.
 
 ```ruby
-ingredients = {
+stew = {
   :onions => 2,
   :carrots => 5,
   :chicken => 1  
@@ -220,50 +220,50 @@ ingredients = {
 Ruby gives us a handy shortcut for creating a hash with symbol keys:
 
 ```ruby
-ingredients = {
+stew = {
   onions: 2,
   carrots: 5,
   chicken: 1  
 }
 ```
 
-These two definitions for our ingredients hash produce the exact same hash, however the second is the preferred syntax. Be careful... The colon must immediately follow the name of the key without any spaces in between.
+These two definitions for our stew hash produce the exact same hash, however the second is the preferred syntax. Be careful... The colon must immediately follow the name of the key without any spaces in between.
 
 Let's again add 2 potatoes:
 
 ```ruby
-ingredients[:potatoes] = 2
+stew[:potatoes] = 2
 ```
 
 Get the number of onions:
 
 ```ruby
-ingredients[:onions]
+stew[:onions]
 => 2
 ```
 
 Check if we need peppers:
 
 ```ruby
-ingredients[:peppers]
+stew[:peppers]
 => nil
 ```
 
 And decrease the amount of onions by 1:
 
 ```ruby
-ingredients[:onions] = ingredients[:onions] - 1
+stew[:onions] = stew[:onions] - 1
 ```
 or
 ```ruby
-ingredients[:onions] -= 1
+stew[:onions] -= 1
 ```
 
 If we want to see all of our keys/values...
 ```ruby
-ingredients.keys
+stew.keys
 => [:onions, :carrots, :chicken, :potatoes]
-ingredients.values
+stew.values
 => [1, 5, 1, 2]
 ```
 
