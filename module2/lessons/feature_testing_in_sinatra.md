@@ -29,7 +29,7 @@ You should be able to use the Film File repository that we have been using this 
 
 ## What are Feature Tests?
 
-* Feature tests mimic the behavior of the user: In the case of web apps, this behavior will be clicking, filling in forms, moving to new pages, etc.
+* Feature tests mimic the behavior of the user: In the case of web apps, this behavior will be clicking, filling in forms, visiting new pages, etc.
 * Just like a user, the feature test should not need to know about underlying code
 * Based on user stories
 
