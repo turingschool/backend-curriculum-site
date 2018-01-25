@@ -22,13 +22,12 @@ layout: page
 ### Day 2:
 
 * **LESSONS:**
-  - [How the Web Works](../lessons/how_the_web_works)
   - [Model Testing in Sinatra](../lessons/model_testing_in_sinatra)
   - [Intro to ActiveRecord in Sinatra](../lessons/intro_to_active_record_in_sinatra)
-  - [Database Visualization and Relationships](../lessons/database_visualization_and_relationships)
+  - [Database Relationships and Visualizations](../lessons/database_relationships_and_visualizations)
 
 * **HOMEWORK**
-  - [DTR for Bike Share](../../career_development_curriculum/module_one/dtr_guidelines_memo). One group member should send link to forked gist to an instructor.
+  - [DTR for Little Shop Redux](../../career_development_curriculum/module_one/dtr_guidelines_memo). One group member should send link to forked gist to an instructor.
 
 ### Day 3:
 
@@ -36,6 +35,7 @@ layout: page
   - [Passing Data with Sinatra](../lessons/passing_data_with_sinatra)
   - [ActiveRecord Associations](../lessons/activerecord_associations)
   - [Intro to CSS](../lessons/intro_to_css)
+  - [How the Web Works](../lessons/how_the_web_works)
 
 * **HOMEWORK:**
   - [ActiveRecord and Database Practice](../homework/activerecord_and_database_practice)
@@ -48,7 +48,7 @@ layout: page
 
 ## Projects:
 
-* [Bikeshare](https://github.com/turingschool/bike-share)
+* [Little Shop Redux](https://github.com/turingschool-projects/little-shop-redux)
 
 ## Additional Resources:
 

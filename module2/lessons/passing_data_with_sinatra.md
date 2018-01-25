@@ -6,22 +6,35 @@ tags: parameters, sinatra
 
 ## Learning Goals
 
-* Practice accessing query string parameters in a controller.
-* Practice accessing form parameters in a controller.
+* Access dynamic parameters in a controller
+* Access query string parameters in a controller.
+* Access form parameters in a controller.
+
+## Vocab
+* parameters
+* params
+* dynamic parameters
+* query string parameters
+
+## WarmUp
+
+* Add the ability for a user to visit `/films/1` and see the information for a Film with the id of 1
 
 ## Passing Data with Sinatra
 
 - What are ways that we can pass parameters in Sinatra?
   - URL
+  		- dynamic parameters
+  		- query string parameters
   - Input Form
 
 - In this workshop, you'll practice passing data between a client and a Sinatra server.
 
-- There are a few different ways to pass data: through the query string parameters in the URL, through dynamic parameters in the URL, and through forms. We'll focus on passing data via query params and via forms.
+- There are a few different ways to pass data: through dynamic parameters in the URL, through the query string parameters in the URL, and through forms. We'll focus on passing data via dynamic params and via forms.
 
-## Review from Films
+## Passing Data from Client to Server
 
-### Query String Parameters
+### Dynamic Parameters
 
   - In the films repo, create a route to get the first film populated on the page `/films/1`.
 
@@ -39,33 +52,29 @@ tags: parameters, sinatra
     erb :"films/show"
   end
   ```
+  - We often refer to the `:id` part as a wildcard. It doesn't have to say `:id` instead you could put in `:bananas`. In which case we'd see `{"bananas" => 1}` in params. We typically use :id though, as it is more descriptive of what information is coming through. 
+  
+  
+### Query String Parameters
 
-## Instance Variables, Local Variables, and the View
+  - Put a pry in your above method
 
-### Experiment: Locals vs. Instance Variables
+  ```ruby
+   get '/films/:id' do
+   require 'pry' ; binding.pry
+    @film = Film.find(params[:id])
+    erb :"films/show"
+  end
+  ```
+  - Go back to your browser and visit `/films/1?term=apples`
+  - What is that `?term=apples` part? This is a **query string parameter**. You can string as many key value pairs together without spaces using an `&` to separate the pairs. (i.e. `?term=apples&count=4`)
+  - Switch to terminal and check out what we have in params in our pry session
 
-Try this out:
+ **Turn & Talk**
+ How might this be useful?
 
-1) Go to your controller, and change your `get '/films' do...` route to say this:
 
-```ruby
-get '/films' do
-  films = Film.all
-  erb :"film/index", :locals => { :films => films }
-end
-```
-
-2) Go to your `index.erb` view and remove the `@` from `@tasks`. It should now just say `tasks.each do...`. Does it work? Can you think of pros and cons for this versus the way we originally had it?
-
-### Notes: Locals vs. Instance Variables
-
-With Sinatra, we're allowed to pass variables to rendered views with the `:locals` option. This is handy, but adds more overhead than is necessary.
-
-Sinatra allows us to access instance variables defined in a particular route within that route's corresponding rendered view. Not only does this save us a little bit of code to write, this is very in line with how things work in Rails! For that reason alone, let's get into this habit, rather than use `:locals`.
-
-To test out how well you understand what pieces were affected by our changes, go ahead and switch back to using the instance variable instead of the locals hash.
-
-### Params from an Input Form
+### Form Parameters
 
   - Switch to the branch `input_params_example`
   - Inspect the `views/films/new` file:
@@ -90,20 +99,52 @@ To test out how well you understand what pieces were affected by our changes, go
     end
   ```
 
-  - Let's fill in our html with the necessary information and shotgun. Navigate to `/films/new` to see our form and fill it in. Click Submit.
+  - Let's shotgun. Navigate to `/films/new` to see our form and fill it in. Click Submit.
   - Clicking submit stops our program and allows us to utilize our favorite tool, PRY!
-  - Now that we are here, we can see the output of our `params`
+  - Now that we are here, we can see the output of `params`
   - Nesting our parameters with `film[title]` will help us if we ever have multiple resources' inputs on our page
-  - Test your knowledge by finishing the exercise so that your new film shows on the "films/index"
+
+**Partner Practice**  
+Test your knowledge by finishing the exercise so that your new film shows on the "films/index"
+
+## Passing Data From Controller to View
+
+### Locals vs. Instance Variables
+
+Try this out:
+
+1) Go to your controller, and change your `get '/films' do...` route to say this:
+
+```ruby
+get '/films' do
+  films = Film.all
+  erb :"film/index", :locals => { :films => films }
+end
+```
+
+2) Go to your `index.erb` view and remove the `@` from `@films`. It should now just say `films.each do...`. Does it work? Can you think of pros and cons for this versus the way we originally had it?
+
+### Notes: Locals vs. Instance Variables
+
+With Sinatra, we're allowed to pass variables to rendered views with the `:locals` option. This is handy, but adds more overhead than is necessary.
+
+Sinatra allows us to access instance variables defined in a particular route within that route's corresponding rendered view. Not only does this save us a little bit of code to write, this is very in line with how things work in Rails! For that reason alone, let's get into this habit, rather than use `:locals`.
+
+To test out how well you understand what pieces were affected by our changes, go ahead and switch back to using the instance variable instead of the locals hash.
+
 
 ## Workshop/Homework
 
 1) Clone this app: [http://github.com/turingschool/shopping](http://github.com/turingschool/shopping)
 
-2) Create and migrate the database by running the two migration files:
+2) This application doesn't use ActiveRecord so create and migrate the database by running the two migration files:
 
-* `ruby db/migrations/001_create_items.rb`
-* `ruby db/migrations/002_create_users.rb`
+```bash
+$ ruby db/migrations/001_create_items.rb
+=> Items table created and seeded.
+$ ruby db/migrations/002_create_users.rb
+=> Users table created.
+```
 
 Running these migrations will also create five items for your shop.
 
@@ -157,7 +198,7 @@ Take a look in `views/new_item.erb`. You'll see an existing form, but something 
 
 #### Activity 2
 
-You'll see a route in your `shopping_app.rb` to `get '/users/new'`. It renders a view template that currently blank. Create a form in this file that will accept two attributes: a name and an email address. Use the `<label>` HTML tag to differentiate between the name and email address input fields.
+You'll see a route in your `shopping_app.rb` to `get '/users/new'`. It renders a view template that is currently blank. Create a form in this file that will accept two attributes: a name and an email address. Use the `<label>` HTML tag to differentiate between the name and email address input fields.
 
 Create a route that handles the submission of this form (follow the conventions from our CRUD chart) and ultimately brings the user back to the list of all users.
 
@@ -167,3 +208,10 @@ If you're finished, here are some ideas:
 
 * Build out full CRUD functionality for Users.
 * Use Bootstrap to style your views.
+
+
+## WrapUp
+* What are dynamic parameters and why would you use them?
+* What are query string parameters and why would you use them?
+* How do you get access in your controller to information submitted in a form? 
+* How do you pass local variables to a view? Should we use them? Why? Why not?

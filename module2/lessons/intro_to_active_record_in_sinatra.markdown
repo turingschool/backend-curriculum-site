@@ -18,15 +18,15 @@ tags: activerecord, migrations, sinatra
 * Schema
 * Object Relational Map (ORM)
 
-## Repository
-
-Clone [this](https://github.com/turingschool-examples/film-file) repository and run `bundle install`.
-
 ## Warmup
 
 * What are the pieces of MVC? How do we use them in a Sinatra app?
 * What do you know about ActiveRecord?
 * Name two ActiveRecord methods you explored yesterday.
+
+## Repository
+
+Clone [this](https://github.com/turingschool-examples/film-file) repository and run `bundle install`.
 
 ## Lecture
 

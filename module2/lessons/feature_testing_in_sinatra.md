@@ -10,6 +10,11 @@ tags: capybara, user stories, feature tests, testing, sinatra
 * write user stories
 * translate user stories into feature tests using Capybara
 
+## Vocabulary
+* feature test
+* user story
+* DSL (Domain Specific Language)
+
 ## Repository
 
 You should be able to use the Film File repository that we have been using this week. If you have not yet cloned it down, you can find it [here](https://github.com/turingschool-examples/film-file).
@@ -24,7 +29,7 @@ You should be able to use the Film File repository that we have been using this 
 
 ## What are Feature Tests?
 
-* Feature tests mimic the behavior of the user: In the case of web apps, this behavior will be clicking, filling in forms, moving to new pages, etc.
+* Feature tests mimic the behavior of the user: In the case of web apps, this behavior will be clicking, filling in forms, visiting new pages, etc.
 * Just like a user, the feature test should not need to know about underlying code
 * Based on user stories
 
@@ -32,7 +37,7 @@ You should be able to use the Film File repository that we have been using this 
 
 * A tool used to communicate user needs to software developers.
 * They are used in Agile Development, and it was first introduced in 1998 by proponents of Extreme Programming.
-* They describe what a user needs to do in order to fulfill job function.
+* They describe what a user needs to do in order to fulfill a function.
 
 ```txt
 As a user
@@ -68,7 +73,7 @@ Open a blank file and write user stories for the four situations below with a pa
 
 ## Creating Our Feature Test
 
-[Capybara](https://github.com/teamcapybara/capybara)
+[Capybara](https://github.com/teamcapybara/capybara#using-capybara-with-rspec)
 
 Capybara is a Ruby test framework that allows you to feature test any RACK-based app.
 
@@ -87,7 +92,7 @@ For example, the following methods are included in the Capybara DSL:
 
 ### Important Setup Things
 
-Add the following lines to your `Gemfile` in the `:development, :test` group:
+Ensure the following lines are present in your `Gemfile` in the `:development, :test` group:
 
 ```ruby
 gem 'capybara'
@@ -109,6 +114,7 @@ Capybara.save_and_open_page_path = 'tmp/capybara'
 
   c.include Capybara::DSL
 ```
+NOTE: If you do not have a spec/spec_helper.rb follow the set up directions found [here](https://github.com/turingschool/backend-curriculum-site/blob/gh-pages/module2/lessons/model_testing_in_sinatra.md)
 
 ### Writing the Test
 
@@ -122,7 +128,7 @@ $ touch spec/features/user_sees_welcome_spec.rb
 In that new file add the following:
 
 ```ruby
-RSpec.describe "When a user visits '/'" do
+RSpec.describe "an unauthenticated user visits welcome page" do
   it "they see a welcome message" do
     # Your code here.
   end
@@ -138,12 +144,14 @@ Now, our user story is something along the lines of the following:
 Let's turn that user story into a test using the Capybara methods from above and make it pass.
 
 ```ruby
-RSpec.describe "When a user visits '/'" do
-  it "they see a welcome message" do
-    visit '/'
+RSpec.describe "an unauthenticated user visits welcome page" do
+  context "they visit /" do
+    scenario "they see a welcome message" do
+      visit '/'
 
-    within("#greeting") do
-      expect(page).to have_content("Welcome!")
+      within("#greeting") do
+        expect(page).to have_content("Welcome!")
+      end
     end
   end
 end
@@ -174,6 +182,11 @@ Write a test for:
 * The process of creating a film
 * That all films are displayed on the film index
 * That a genre's total winnings are displayed on their page
+
+## Wrap Up
+* What is the difference between a model and feature test?
+* What are the 4 main methods (blocks) for a test? Why/when would you use each one?
+* What is the general structure of a user story? 
 
 ## Resources
 

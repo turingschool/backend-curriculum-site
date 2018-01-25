@@ -17,12 +17,9 @@ tags: ruby, hashes, data structures
 * Key
 * Value
 * Symbol
+* Mutable/Immutable
 * Accessing Values
 * Assigning Values
-
-## Slides
-
-Available [here](../slides/introducing_hashes)
 
 ## WarmUp
 
@@ -30,9 +27,9 @@ Available [here](../slides/introducing_hashes)
 
 * What information can you tease from this definition?
 
-### Intro - Hash Properties
+## Intro - Hash Properties
 
-Hashes are the second most important data structure in Ruby. Like an Array, a Hash is a data structure used for representing a _collection_ of things. But whereas an Array generally represents a **list** of things (ordered, identified by numeric position), we use a Hash to represent a collection of *named* values. These names are often called `keys` or `attributes`. In a Hash, we can insert data by assigning it to a name and later retrieving it using the same name.
+Hashes are the second most important data structure in Ruby. Like an Array, a Hash is a data structure used for representing a _collection_ of things. But whereas an Array generally represents a list of ordered, indexed values, **a Hash represents a collection of *named* values**. These names are called **keys**, and each key has a corresponding **value**. In a Hash, we can insert data by assigning it to a name and later retrieving it using the same name.
 
 Some languages call their Hashes *dictionaries* for this reason -- you look up a word (the label) to retrieve its definition (the data or value with which the label was associated).
 
@@ -40,19 +37,29 @@ Key ideas:
 
 *   Ordered vs. Unordered
 *   Pairs
-*   Determinism and uniqueness
 *   Choosing a hash vs an array
+*   Symbols vs. Strings
 *   Performance characteristics
 
-### Working with a Hash
+## Working with a Hash
 
-Hashes boil down simply to a collection of key/value pairs.
+Hashes boil down simply to a collection of **key/value** pairs.
 
 Keys must be unique.
 
-Values can be any data type (including arrays and hashes).
+Keys and Values can be any data type (including arrays and hashes).
 
-#### Creating a Hash
+Let's say we are making a stew. The ingredients for our stew are:
+
+* 2 Onions
+* 5 Carrots
+* 1 Chicken
+
+Why is a hash a good choice for storing this information?
+
+**TRY IT**: With your partner, brainstorm another collection of data that could be stored in a hash.
+
+### Creating a Hash
 
 ```ruby
 new_hash = {}
@@ -72,83 +79,208 @@ new_hash = Hash.new(0)
 
 In the above declaration, the default value of any key created for `new_hash` has a default value of 0. Keep this in mind for the future - you may find it helpful down the road.
 
-#### Hash Keys
-
-Let's imagine needing to store the specifications of different television models as a hash. Each individual tv's specifications, or values, will be unique to it, but all televisions share the same attributes.
-
-Let's imagine all of our tv hashes will store information for their `screen_size`, `price`, and `brand`.
-
-A simple example of a television modeled as a hash:
+We can also create a hash with some initial key/value pairs. Let's use this syntax to create our stew hash:
 
 ```ruby
-new_tv = {
-  "screen_size" => 50,
-  "price" => 300,
-  "brand" => "Samsung"
+stew = {
+  "onions" => 2,
+  "carrots" => 5,
+  "chicken" => 1
 }
 ```
 
-Take a note of the syntax there. You'll likely come across it down the road.
+The `=>` is called a hash rocket.
 
-How does that differ from the following syntax?
+### Accessing the Hash
+
+We use brackets `[]` to access the hash just like arrays, only we don't use indexes, we use keys. 
 
 ```ruby
-new_tv = {
-  screen_size: 50,
-  price: 300,
-  brand: "Samsung"
+stew["onions"]
+=> 2
+```
+
+We can create a new key/value pair like this:
+
+```ruby
+stew["potatoes"] = 2
+```
+
+Do we need any peppers for the stew? Let's check:
+
+```ruby
+stew["peppers"]
+=> nil
+```
+
+Oops, we forget Jeff is coming to dinner tonight and he doesn't like onions too much. Let's decrease the amount of onions by 1.
+
+```ruby
+stew["onions"] = stew["onions"] - 1
+```
+or
+```ruby
+stew["onions"] -= 1
+```
+
+Remember, keys/values can be any type of object.
+
+```ruby
+stew[8] = "this value is a string"
+=> "this value is a string"
+stew[true] = 1.5
+=> 1.5
+stew
+=> {
+  "onions"=>2, 
+  "carrots"=>5, 
+  "chicken"=>1, 
+  "potatoes"=>2, 
+  8=>"this value is a string", 
+  true=>1.5
 }
 ```
 
-There are a variety of ways to structure your hash's syntax, but the above is the most preferred.
+In this code, we created a key with the Integer 8 with a value of the String "this value is a string". We also created a key with `true` with a value of the Float 1.5. 
 
-Rather than using strings as keys, we're using **symbols**.
+We don't want these pairs in our hash, so let's get rid of them:
 
-A symbol, on its own, looks like this: `:symbol`.
+```ruby
+stew.delete(8)
+=> "this value is a string"
+stew.delete(true)
+=> 1.5
+stew
+=> {
+  "onions"=>2, 
+  "carrots"=>5, 
+  "chicken"=>1, 
+  "potatoes"=>2
+}
+```
 
-In Ruby, strings are compared character by character, but symbols are compared by their `object_id`.
-Thus, symbols help your code run faster.
+**TRY IT**: Using pry, create a hash.  Give it some initial key/value pairs, add a new pair, change one of the values, and delete one of the key/value pairs.
 
-#### Accessing Hash Values
+#### Check for Understanding
 
-What did we use to access the values in an array?
+* What is a Hash?
+* What type of Objects can Hashes hold?
+* How can you create a Hash?
+* How can you add/change/remove a key/value pair?
 
-The information contained within a hash is unordered, so we cannot rely on the value's position to access it.
+## Symbols
 
-While we don't have indexes, we do have keys!
+In Ruby, symbols are basically Strings that can't change. You can recognize a symbol because it starts with a colon `:`. All of the following are symbols:
 
-__.keys__
+```ruby
+:name   
+:symbols_can_have_underscores
+:"symbols can be in quotes"
+```
 
-Ah, `.keys`. Our first hash method.
+Symbols are more efficient than strings because Ruby creates only one Object for each unique symbol. Two strings with the same value are still two separate Objects. This is illustrated in the following pry session:
 
-Within our same pry session, let's run `new_tv.keys`. What do we get? What data type is this returned value?
+```ruby
+sym_1 = :this_is_a_symbol
+=> :this_is_a_symbol
+sym_2 = :this_is_a_symbol
+=> :this_is_a_symbol
+sym_1.object_id
+=> 2166748
+sym_2.object_id
+=> 2166748
+string_1 = "this is a string"
+=> "this is a string"
+string_2 = "this is a string"
+=> "this is a string"
+string_1.object_id
+=> 70099504860860
+string_2.object_id
+=> 70099508726060
+```
 
-__.values__
+Symbols are also faster than strings because Ruby can determine if two symbols are equal by checking their object_id. Strings have to be compared character by character.
 
-Just like we used `.keys`, let's try out `.values`. Wow, what useful information!
+So if symbols are faster and more efficient than strings, why would we use strings? Because a string's value can change, making them useful as variables. Strings are *mutable*, whereas symbols are *immutable*.
 
-__Getting by Key: `[]`__
+Don't worry if this doesn't quite make sense yet. The important thing to understand is that strings are useful as variables. Symbols are useful as names. This makes symbols perfect for keys in hashes.
 
-In theory, if we know the keys we've set in our hash, accessing their values is quite simple.
+## Working with Hashes and Symbols
 
-Let's access the `screen_size` of our `new_tv`.
+Let's recreate our stew hash using symbols instead of strings.
 
-What happens if we access `screen_size` as a string instead of a symbol?
+```ruby
+stew = {
+  :onions => 2,
+  :carrots => 5,
+  :chicken => 1  
+}
+```
 
-What happens if we retrieve a value from a key that does not exist?
+Ruby gives us a handy shortcut for creating a hash with symbol keys:
 
-__Setting by Key: `[]=`__
+```ruby
+stew = {
+  onions: 2,
+  carrots: 5,
+  chicken: 1  
+}
+```
 
-Let's change our `new_tv`'s `screen_size` to 60.
+These two definitions for our stew hash produce the exact same hash, however the second is the preferred syntax. Be careful... The colon must immediately follow the name of the key without any spaces in between.
 
-Let's add a new attribute to our tv, `resolution` and set that equal to "720p".
+Let's again add 2 potatoes:
+
+```ruby
+stew[:potatoes] = 2
+```
+
+Get the number of onions:
+
+```ruby
+stew[:onions]
+=> 2
+```
+
+Check if we need peppers:
+
+```ruby
+stew[:peppers]
+=> nil
+```
+
+And decrease the amount of onions by 1:
+
+```ruby
+stew[:onions] = stew[:onions] - 1
+```
+or
+```ruby
+stew[:onions] -= 1
+```
+
+If we want to see all of our keys/values...
+```ruby
+stew.keys
+=> [:onions, :carrots, :chicken, :potatoes]
+stew.values
+=> [1, 5, 1, 2]
+```
+
+What type of Objects do these methods return?
+
+#### Check for Understanding
+
+* What is a symbol? How is it different than a String?
+* What is the advantage of using a String? What is the advantage of using a Symbol? Which is better for Hashes?
+* What is different about using symbols in Hashes?
+* Describe some useful Hash methods. Where can you look to find more Hash methods?
 
 ## Pair Exercise
 
-For this exercise you'll work in pairs.
-
 * Person `A` is in charge of reading the instructions
-* Person `B` is in charge of working in pry (in such a way that their partner can see!)
+* Person `B` is in charge of working in pry (in such a way that their partner can see)
+* You should be using symbols for the keys in this exercise
 
 ### Steps
 
@@ -158,8 +290,8 @@ For this exercise you'll work in pairs.
 4. Find the value attached to `:vocalist` in your hash.
 5. Add a vocalist to your hash.
 6. Add a drummer to your hash.
-7. What are the keys of your hash? What kind of object does that method return?
-8. What are the values of your hash? What kind of object does that method return?
+7. Get all the keys in your Hash. What kind of object does that method return?
+8. Get all the values in your Hash. What kind of object does that method return?
 9. Assign a new value to the `:vocalist` key of your hash.
 10. How has `keys` changed after the last step? How has `values` changed? What
 
@@ -169,7 +301,9 @@ Finally let's break up for some independent work with Hashes and Arrays.
 
 ### Hash and Array Nesting
 
-As our programs get more complex, we'll sometimes encounter more sophisticated combinations of these structures. Consider the following scenarios:
+Remember, keys/values can be any type of object, including Hashes and Arrays!
+
+As our programs get more complex, we'll encounter more sophisticated combinations of these structures. Consider the following scenarios:
 
 #### Array within an Array
 
@@ -209,7 +343,7 @@ h = {
 * what is `h.count`?
 * what is `h.keys`?
 * what is `h.values`?
-* how can I access the valued `"15 pounds"`?
+* how can I access the value `"15 pounds"`?
 
 ## Wrap Up
 

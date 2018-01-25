@@ -8,7 +8,11 @@ layout: page
 ### All
 * [Pairing Patterns](../lessons/pairing_patterns)
 * [Testing Strategies](../lessons/testing_in_a_project)
-* [The Enumerables Strike](../lessons/intermediate_enumerables) [Back](../lessons/advanced_enumerables)[Video 1](https://vimeo.com/161675625), [Video 2](https://vimeo.com/161677741), [Video 3](https://vimeo.com/161678930), [Video 4](https://vimeo.com/161680127)
+* [Enumerables II](../lessons/intermediate_enumerables) 
+[Video 1](https://vimeo.com/161675625), 
+[Video 2](https://vimeo.com/161677741),  
+[Video 3](https://vimeo.com/161678930), 
+[Video 4](https://vimeo.com/161680127)
 * [Scope](../lessons/intro_to_scope)
 * [PD: Feedback I](../../career_development_curriculum/module_one/feedback_i)
 * [Group Project Retro](../lessons/group_project_retro)
