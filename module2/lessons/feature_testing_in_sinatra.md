@@ -128,7 +128,7 @@ $ touch spec/features/user_sees_welcome_spec.rb
 In that new file add the following:
 
 ```ruby
-RSpec.describe "When a user visits '/'" do
+RSpec.describe "an unauthenticated user visits welcome page" do
   it "they see a welcome message" do
     # Your code here.
   end
@@ -144,7 +144,7 @@ Now, our user story is something along the lines of the following:
 Let's turn that user story into a test using the Capybara methods from above and make it pass.
 
 ```ruby
-RSpec.describe "user visits welcome page" do
+RSpec.describe "an unauthenticated user visits welcome page" do
   context "they visit /" do
     scenario "they see a welcome message" do
       visit '/'
