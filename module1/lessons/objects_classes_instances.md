@@ -389,9 +389,3 @@ It only plays with swapping representations, not changing behaviour.
 We'll take a piece of toplevel procedural code and turn it into a beautilful namespaced object,
 and then back again.
 
-## Homework
-
-* Complete Bob
-* Over the weekend, complete `command-query` exercises and `mythical-creatures` exercises
-* Optional: `objects-and-methods` exercises
-
