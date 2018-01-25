@@ -97,11 +97,12 @@ fetch('/api/v1/discussions', {
 .catch((error) => console.error({ error }))
 ```
 
-While we wait for the server to return our response, the rest of our application can continue executing other code in the meantime. Once the response object is available, our first .then() block will fire. The response object returns a lot of extra information that we don't necessarily need. All we want in this scenario is a JSON object of our discussions data which we can get by calling response.json().
+While we wait for the server to return our response, the rest of our application can continue executing other code in the meantime. Once the response object is available, our first `.then()` block will fire. The response object returns a lot of extra information that we don't necessarily need. All we want in this scenario is a JSON object of our discussions data which we can get by calling `response.json()`.
 
-Converting the body to a JSON data structure with response.json() actually returns another Promise. (Converting the data to a particular type can take significant time, which is why we have this additional Promise step before we can begin working with out data.) Because we're getting another Promise object back, we can simply chain another .then() block where we actually receive our project data. We can then render it to the DOM with our imaginary renderDiscussions() function.
+Converting the body to a JSON data structure with `response.json()` actually returns another Promise. (Converting the data to a particular type can take significant time, which is why we have this additional Promise step before we can begin working with out data.) Because we're getting another Promise object back, we can simply chain another `.then()` block where we actually receive our project data. We can then render it to the DOM with our imaginary `renderDiscussions()` function. Notice how we are using another `.then()` statement. This is called Promise Chaining. We do this because each `.then()` results in a new Promise.
 
-If for any reason the request failed, the .catch() block will be fired and we will log the error to the console.
+
+If for any reason the request failed, the `.catch()` block will be fired and we will log the error to the console.
 
 [Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
 
@@ -113,7 +114,7 @@ Check out the example below. Our second button makes an unsuccessful request wit
 <p data-height="348" data-theme-id="0" data-slug-hash="aEvBvz" data-default-tab="js,result" data-user="kat3kasper" data-embed-version="2" data-pen-title="Fetch Error Handling" class="codepen">See the Pen <a href="https://codepen.io/kat3kasper/pen/aEvBvz/">Fetch Error Handling</a> by Katelyn Kasperowicz (<a href="https://codepen.io/kat3kasper">@kat3kasper</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
-The promise returned from `fetch()` will only reject on network failure or if anything prevented the request from completing. This means it won't reject on a response of 404 or 500 from the server but will return an `ok` status set to false.
+The promise returned from `fetch()` will only reject on network failure or if anything prevented the request from completing. This means it won't reject on a response of 404 or 500 from the server but will return a `status.ok` status set to false.
 
 To handle responses that do not return a successful status, we can create a response handler. If the response is `ok` we continue processing the data as we did above. If it is not we use `Promise.reject` to trigger our catch handler and pass it an error object with the `status`, `statusCode` and any addition json information we get from the server.
 
