@@ -104,5 +104,5 @@ title: Advanced CSS Selectors
 
 
 ## WrapUp
-* What are 4 pseudo-selectors, what does each do? 
+* What are 4 pseudo-classes, what does each do? 
 * Why do we want to make our layout and design reactive to a user? 
