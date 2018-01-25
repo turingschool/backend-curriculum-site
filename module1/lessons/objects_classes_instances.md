@@ -49,7 +49,7 @@ In programming, a *Class* is something that models:
 
 State is what something *is*. Behavior is what something *does*. In the previous activity, our *Class* was refrigerator. We modeled the state of a refrigerator by defining the attributes "color", "size", and "food items". We modeled the behavior of a refrigerator by defining the methods "add food", "remove food", and "change temperature".
 
-An *Instance* or *Object* is a concrete representation of a *Class*. In the previous activity, "small staff refrigerator" is a specific *Instance* of the Regrigerator *Class*. We can also say that "small staff refrigerator" is a Refrigerator *Object*. Do not get confused by the terms *Instance* an *Object*. They mean the exact same thing (for now). 
+An *Instance* or *Object* is a concrete representation of a *Class*. In the previous activity, "small staff refrigerator" is a specific *Instance* of the Refrigerator *Class*. We can also say that "small staff refrigerator" is a Refrigerator *Object*. Do not get confused by the terms *Instance* an *Object*. They mean the exact same thing (for now).
 
 Think of a Class like a blueprint for a house and an Instance as an actual house. The blueprint is a just an idea of how the house should be built, and the house is the realization of that blueprint.
 
@@ -149,7 +149,7 @@ end
 
 In English, this code is saying "When we create a new Refrigerator, it should have a `color` of "white", a `size` of 12, and an empty array of `food`."
 
-**TRY IT**: With your pair, give your class some attributes. Do you see a difference in the `p` statements when you run the file now? Try creating an atttribute without the @ symbol. What do you notice?
+**TRY IT**: With your pair, give your class some attributes. Do you see a difference in the `p` statements when you run the file now? Try creating an attribute without the @ symbol. What do you notice?
 
 ### Parameters
 
@@ -295,7 +295,7 @@ end
 
 ### More Interesting Methods
 
-We want to be able to add food to our fridge. Let's create a new method. 
+We want to be able to add food to our fridge. Let's create a new method.
 
 ```ruby
 class Refrigerator
@@ -332,10 +332,21 @@ Finally, we need to call this method.
   refrigerator_1.add_food("apples")
 ```
 
+What if we only wanted to add food up to our refrigerator's size?
+
+```ruby
+def add_food(new_food)
+  if(@food.length < @size)
+    @food << new_food
+  end
+end
+```
+
 This is what the code looks like so far:
 
 ```ruby
 class Refrigerator
+
   def initialize(color_param, size_param)
     @color       = color_param
     @size        = size_param
@@ -343,12 +354,15 @@ class Refrigerator
   end
 
   def add_food(new_food)
-    @food << new_food
+    if(@food.length < @size)
+      @food << new_food
+    end
   end
 
   def color
     @color
   end
+
 end
 
 refrigerator_1 = Refrigerator.new("white", 12)
@@ -388,4 +402,3 @@ It builds on bubble sort, but you don't have to understand the algorithm to foll
 It only plays with swapping representations, not changing behaviour.
 We'll take a piece of toplevel procedural code and turn it into a beautilful namespaced object,
 and then back again.
-
