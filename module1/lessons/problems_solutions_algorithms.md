@@ -22,6 +22,11 @@ tags: ruby, pseudocode, algorithms
 * 10 - Challenge 3
 * 5 - Closeout
 
+## Vocabulary
+* Pseudocode
+* Algorithm
+* Iteration
+
 ## Warmup
 
 ### Part 1 - Writing
@@ -42,7 +47,8 @@ you had originally written down.
 
 ## Lecture - Big-Picture Strategy
 
-* What is an Algorithm
+* What is an Algorithm  
+    `a process or set of rules to be followed in calculations or other problem-solving operations, especially by a computer.`
 * Incremental solutions (linear)
 * Iterative solutions (spirals)
 * Building a full "slice"
@@ -100,4 +106,10 @@ all the odds and one with all the evens.
 I have a file with 100 latitude/longitude pairs. Find the point that's closest to the north pole.
 
 *Extension*: Find the one closest to the **magnetic** north pole.
+
+
+## WrapUp
+* What is an algorithm? What is algorithmic thinking? Why is it necessary when working with computers?
+* How does iterative problem solving work? Why is it beneficial to us as developers?
+* What is pseudocode? How does it make programming easier? Why should we do it even if we think we've got a pretty sweet plan?
 
