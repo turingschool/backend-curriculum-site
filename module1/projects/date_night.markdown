@@ -9,6 +9,7 @@ title: Date Night
 * Understanding how binary search trees work to store and find data
 * Testing components in isolation and in combination
 * Use and implement iteration or recursion techniques
+* Measure test coverage with a tool such as SimpleCov
 
 ## Overview
 
@@ -241,6 +242,7 @@ The project will be assessed with the following guidelines:
 * Tests exist to cover edge cases
 * Tests covers critical functionality of software
 * Testing exhibits TDD approach
+* Test coverage is measured with a tool such as [SimpleCov](https://github.com/colszowka/simplecov)
 
 
 ### 4. Functionality
