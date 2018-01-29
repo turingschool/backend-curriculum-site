@@ -15,6 +15,11 @@ layout: page
 - `flex-direction`
 - `flex-flow`
 
+## Warm Up
+* What strategies have you used so far to position elements on the page? 
+* How do you feel about positioning in CSS?
+* Rate your abilities to position elements on the page
+
 ### Flexbox
 
 - Introduced as syntax in 2015.
@@ -113,7 +118,13 @@ layout: page
 
 - With the time left, take another look at [Dog Party](https://github.com/icorson3/dog-party) and see if you can apply Flexbox to your layout.
 
+## Wrap Up
+* What are the 5 main properties to use with flex box?
+  * What does each do?
+  * What are the possible arguments you can pass each propery?
+
 ## Resources
 
 * [A Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
 * [Another challenge: flex calendar](https://github.com/tmikeschu/flexendar)
+* [A game to learn Flexbox](http://flexboxfroggy.com/)
