@@ -24,7 +24,7 @@ layout: page
 
 - Introduced as syntax in 2015.
 - Flexbox allows us to manipulate the position of tags without all the knowledge of a larger grid system.
-- We can use the grid system (Bootstrap), which works fine but requires more digging into docs and base knowledge about how it works.
+- We can use a grid system ([Bootstrap](https://v4-alpha.getbootstrap.com/), [CSS Grid](https://css-tricks.com/snippets/css/complete-guide-grid/), etc), which works fine but requires more digging into docs and base knowledge about how it works.
 
 ## Using Flexbox
 
