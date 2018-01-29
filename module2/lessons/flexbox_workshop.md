@@ -119,7 +119,7 @@ layout: page
 - With the time left, take another look at [Dog Party](https://github.com/icorson3/dog-party) and see if you can apply Flexbox to your layout.
 
 ## Wrap Up
-* What are the 5 main properties to use with flex box?
+* What are the 5 main properties to use with Flexbox which we learned today? (There are many more, check out the resources below)
   * What does each do?
   * What are the possible arguments you can pass each propery?
 
