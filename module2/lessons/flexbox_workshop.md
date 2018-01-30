@@ -30,7 +30,7 @@ layout: page
 
 ### Setup
 
-- Clone down [this repo](https://github.com/icorson3/flexbox). Open the `index.html` file from your command line (For atom, `atom open index.html`).
+- Clone down [this repo](https://github.com/turingschool-examples/flexbox_be2). Open the `index.html` file from your command line (For atom, `atom open index.html`).
 - Check out the CSS and HTML files to see what is going on.
 
 ### Let's play
