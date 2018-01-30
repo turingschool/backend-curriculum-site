@@ -14,7 +14,7 @@ title: OWASP's Top 10 Most Critical Web Application Security Risks
 
 ## Learning Goals
 
-* Students are familiar with common security risks, examples and step to begin prevention
+* Students are familiar with common security risks, examples and steps to begin prevention
 
 ## Warm Up
 
@@ -28,6 +28,13 @@ We've shown you best practices for security in Rails (authorization, authenticat
 
 ## OWASP
 
+*OWASP* is a international not-for-profit organization focused on the improvement of software security. It is not affiliated with any particular company, instead is made up of mostly volunteers including security experts from around the world. This allows for unbiased and cost-effective information for anyone interested in improving application security.
+
+About every 4 years the organization puts out a call for data to determine the current top 10 security risks. *OWASP* then puts out a survey to its members (*this could be you!*) to complete in order to rank the risks based on the following risk factors:
+* Exploitability
+* Weakness Prevalence
+* Weakness Detectability
+* Technical Impacts
 
 Here is a list of the Top 10 security risks as chosen in 2017. For more details on each of the risks check out [OWASP Top 10 - 2017](https://www.owasp.org/images/7/72/OWASP_Top_10-2017_%28en%29.pdf.pdf).
 
@@ -43,3 +50,7 @@ Here is a list of the Top 10 security risks as chosen in 2017. For more details 
 10. Insufficient Logging & Monitoring
 
 For each vulnerability, the document describes how to determine if you application is vulnerable, example attack scenarios, as well as ways to prevent it.
+
+## Research & Presentations
+
+Alone or with a partner, describe you assigned vulnerability. Figure out what is important and describe it on your chart paper.
