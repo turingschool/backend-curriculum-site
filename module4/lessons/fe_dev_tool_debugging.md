@@ -148,27 +148,27 @@ Now that we've fixed the first JavaScript error we encountered, we can actually 
 
 ```javascript
 const getExpenses = () => {
-  return fetch('/expenses', {
+  $.ajax({
+    method: 'GET',
     dataType: 'json',
-  })
-  .then(response => response.json())
-  .then(data => {
-    console.log('Expenses returned successfully!');
-    renderExpenses(data.expenses);
-  })
-  .catch(error => {
-    console.error('There was some kind of error.');
+    url: '/expenses',
+    success: function (data) {
+      console.log('Expenses returned successfully!');
+    },
+    error: function (error) {
+      console.error('There was some kind of error.');
+    }
   });
 };
 ```
 
-It's nice to know that we have made a successful fetch call, but what if we want to log the data from our fetch response? Let's include the `data` argument from our success callback into our `console.log()`:
+It's nice to know that we have made a successful ajax call, but what if we want to log the data from our ajax response? Let's include the `data` argument from our success callback into our `console.log()`: 
 
 ```javascript
 console.log('Expenses returned successfully: ', data);
 ```
 
-You should now see the success message along with the array of expenses that were returned from that fetch request. This is a common way for developers to confirm the value of a variable or clarify what is being returned from a function. However, there are a couple of downsides to this method:
+You should now see the success message along with the array of expenses that were returned from that ajax request. This is a common way for developers to confirm the value of a variable or clarify what is being returned from a function. However, there are a couple of downsides to this method:
 
 * **it encourages debugging by 'trial-and-error'** - you have to guess where in your code you should put the logging, and what values you need to log
 * **logged data is stale** - your code continues to run even after the values have been logged, so you can't actually *do* anything with them
@@ -193,7 +193,7 @@ The `debugger` statement is a bit more robust than `console.log()` because it wi
 
 *NOTE - The console must be open for debugger to catch, otherwise the app will look normal and you won't get any error messages - if you get stuck, refresh your page while the console is open and go from there.*
 
-Let's put a `debugger` statement in our expenseTracker application. Now that we've successfully retrieved our expenses with an fetch call, we want to render them in the UI. We have a function called `renderExpenses` to handle this for us. It loops through each expense and appends it to the table body. Though we don't have a bug in this code, we can easily demonstrate how `debugger` statements pause our code execution by putting one in the loop:
+Let's put a `debugger` statement in our expenseTracker application. Now that we've successfully retrieved our expenses with an ajax call, we want to render them in the UI. We have a function called `renderExpenses` to handle this for us. It loops through each expense and appends it to the table body. Though we don't have a bug in this code, we can easily demonstrate how `debugger` statements pause our code execution by putting one in the loop:
 
 ```javascript
 const renderExpenses = (expenses) => {
@@ -229,7 +229,7 @@ Let's remove the `debugger` statement we adding in our codebase, and use a break
 #### Watching Variables
 Another way we can inspect the state of our application is by using watch expressions. In the sidebar above the 'scope' section we just explored, there is also a 'watch' section. In here, we can add the name of any variable in our application, and the panel will continuously monitor and display its value, no matter how many times it changes.
 
-With our breakpoints still in place, let's add the variable `expense` to the watch section by clicking on the plus sign and typing 'expense' into the textbox that appears:
+With our breakpoints still in place, let's add the variable `expense` to the watch section by clicking on the plus sign and typing 'expense' into the textbox that appears: 
 
 ![Add watch expression][add-watch]
 
@@ -290,3 +290,7 @@ that code.
 ---------------------------------------
 
 For more details and information about other ways to dig into your js, checkout the [Chrome Documentation](https://developer.chrome.com/devtools/docs/javascript-debugging).
+
+
+
+
