@@ -8,13 +8,6 @@ tags: rest, routing, controllers, routes, rspec
 
 Read [this article](https://www.theodinproject.com/courses/ruby-on-rails/lessons/routing).
 
-## Vocabulary
-
-- `routes.rb`
-- `rake routes`
-- CRUD
-- MVC
-
 ## Learning Goals
 
 * explain the purpose of the `routes.rb` file
@@ -22,6 +15,13 @@ Read [this article](https://www.theodinproject.com/courses/ruby-on-rails/lessons
 * explain the connection between `routes.rb` and controller files
 * create routes by hand
 * create routes using `resources :movies`
+
+## Vocabulary
+
+- `routes.rb`
+- `rake routes`
+- CRUD
+- MVC
 
 ## Warm Up
 
