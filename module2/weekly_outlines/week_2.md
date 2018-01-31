@@ -25,6 +25,7 @@ layout: page
 ### Day 3:
 
 * **HOMEWORK:**
+  - Read about [Routing in Rails](https://www.theodinproject.com/courses/ruby-on-rails/lessons/routing)
   - Work on Little Shop Redux
 
 ### Day 4:
