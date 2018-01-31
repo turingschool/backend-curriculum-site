@@ -226,7 +226,7 @@ ActionController::UnknownFormat:
 
 What is this funny error?? We see a line `MoviesController#index is missing a template for this request format and variant.`. Template refers to an erb/html file. This means we are missing a erb/html file. In rails, we want to use `.html.erb` file extension.
 
-WHY THO? Rails convention says that we should include the output type and the end with the `.erb` extension.
+WHY THO? Rails convention says that we should include the output type and end with the `.erb` extension.
 
 ```html
 #views/movies/index.html.erb
