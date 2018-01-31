@@ -15,6 +15,8 @@ layout: page
 
 * **HOMEWORK:**
   - [ActiveRecord Exploration](../homework/activerecord_exploration)
+  - [DevShed - An Introduction to Database Normalization](http://www.devshed.com/c/a/mysql/an-introduction-to-database-normalization/)
+  - [Mike Hillyer's Blog Post - intro to database normalization](http://mikehillyer.com/articles/an-introduction-to-database-normalization/)
   - Sign up for a [lightning talk](https://docs.google.com/spreadsheets/d/1sua_CFkZVGmCpLg6dbP-23DMBTSLDmTe7wtH7ggAPxs/edit?usp=sharing)
   - [Lighting Talk Topics](../misc/lighting_talk_topic_ideas)
 
@@ -59,8 +61,6 @@ layout: page
   - [CRUD in Sinatra Workshop](../misc/crud_in_sinatra_workshop)
   - [Watch Sharif Ramadan's intro to 1NF, 2NF and 3NF databases. They're only about 4 minutes each.](https://www.youtube.com/watch?v=K7vzLrGCV50&list=PLQ9AAKW8HuJ5m0rmHKL88ZyjOIKejvrj0)
   - [Learn SQL the Hard Way](http://sql.learncodethehardway.org/book/) book.
-  - [DevShed - An Introduction to Database Normalization](http://www.devshed.com/c/a/mysql/an-introduction-to-database-normalization/)
-  - [Mike Hillyer's Blog Post - intro to database normalization](http://mikehillyer.com/articles/an-introduction-to-database-normalization/)
   - [Capybara (software) - Wikipedia](https://en.wikipedia.org/wiki/Capybara_(software))
   - [The Basics of Capybara and Improving your Tests](https://www.sitepoint.com/basics-capybara-improving-tests/)
   - [Testing your App with Capybara](https://github.com/teamcapybara/capybara)
