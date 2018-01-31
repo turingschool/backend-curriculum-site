@@ -53,7 +53,7 @@ $ cd movie_mania
 - `--skip-spring` - Spring is a Rails application preloader. It speeds up development by keeping your application running in the background so you don't need to boot it every time you run a test, rake task or migration but it benefits more advanced developers the most. We are going to not include it in our Gemfile.
 - `--skip-turbolinks` - Enables faster page loading by using AJAX call behind the scenes but has some subtle edge cases where it will not work as expected. For those reasons, we don't enable it by default.
 
-Take a few minutes to explore what `rails new` generates.
+Take a few minutes to explore what `rails new` generates. Which parts are the same as a Sinatra application? 
 
 ## Start with a Test
 
