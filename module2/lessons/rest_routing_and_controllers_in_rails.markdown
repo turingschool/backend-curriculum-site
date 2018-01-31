@@ -25,6 +25,7 @@ Read [this article](https://www.theodinproject.com/courses/ruby-on-rails/lessons
 
 ## Warm Up
 
+- What is REST?
 - How are routes applied in Sinatra?
 - Where do our routes live?
 - How is MVC implemented in Sinatra?
