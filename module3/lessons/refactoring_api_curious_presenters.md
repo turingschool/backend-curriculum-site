@@ -5,13 +5,13 @@ title: Refactoring API Curious
 
 ## Learning Goals
 
-* Students understand refactor techniques using presenters
-* Understand the decorator pattern and how it can be used to make code cleaner and more maintainable
-* Understand the theory and purpose of a presenter object
+* Students understand refactor techniques using presenters and decorators
+* Students understand the theory and purpose of a presenter object vs a decorator object
+* Students understand the benefits of `SimpleDelegator`
 
 ## Warmup
 
-* What new uses of Rails were you exposed to during API curious?
+* What new uses of Rails were you exposed to during API Curious?
   * What specifically was beyond the traditional scope of MVC?
 * Did any of our controllers or models have more than one responsibility?
 * How many instance variables were we using to send information to our views?
@@ -55,17 +55,11 @@ with this outline for code cleanliness?
 
 Presenters are a technique for solving this problem.
 
-* Similar to Decorators, Presenters are a pattern for abstracting
-  complexity in our view/presentation layer
-<!-- * Decorator -- Adds functionality (often view-related) to a single object (or possibly collection of objects) -->
-* Presenter -- Combines functionality across _multiple objects_
-  into a single interface
-* A presenter is just another domain object -- one that represents
-  a larger abstraction across multiple objects
-<!-- * In more complicated scenarios, Presenters and Decorators can be used in conjunction -->
+* Presenters are a pattern for abstracting complexity in our view/presentation layer
+* Presenters combine functionality across _multiple objects_ into a single interface
 * No library needed -- just POROs!
 
-## Workshop:  Refactor API Curious
+### Workshop:  Refactor API Curious with Presenters
 
 Go ahead and spin up your Rails server. Log into the application through GitHub and check out what information shows up on your user show page.
 
@@ -77,9 +71,9 @@ What do we see that conflicts with the advice we read from Sandi Metz above?
 
 Let's think through how a Presenter object could clean this up for us.
 
-### POROs
+#### Our Goal: One Instance Variable Sent to View
 
-PORO == Plain Old Ruby Object
+> PORO == Plain Old Ruby Object
 
 Think back to life before ActiveRecord - we modeled our data in regular old Ruby classes. We're going to bring this concept back as we implement presenter objects. These objects will allow us to fully remove hashes from our view, as well as remove all but one instance variable being sent to the view.
 
@@ -95,3 +89,96 @@ Within `dashboard_presenter.rb`, let's define our PORO:
 class DasboardPresenter
 end
 ```
+
+We'll likely want to initialize this with some information about the current user.
+
+Let's go ahead and begin moving instance variables defined in our controller over to our presenter.
+
+Our end goal should leave us with one instance variable in our controller method whose value points to an instance of `DashboardPresenter`.
+
+## Intro to Decorators
+
+You may be thinking our code looks pretty good now. You're right!
+
+As always, though, there's room to go further.
+
+We're going to look into the concept of **decorators**. These will feel similar to presenters, but often are used to add extra functionality to objects.
+
+### Decorator Basics
+
+* Decorators are a Software Pattern for applying object-oriented techniques to handling
+application presentation logic
+* Decorators are often used to solve similar problems as `Helpers` in Rails, but rather than mixing the helper methods into our view template, we will create an object that provides the desired behavior
+* Most implementations of the Decorator pattern are built around "wrapping" and "delegation"
+* Decorators are a good demonstration of
+  the [Open/Closed Principle](https://en.wikipedia.org/wiki/Open/closed_principle) --
+  we are able to add functionality to the wrapped object without
+  modifying it directly
+* Decorators in Ruby also exploit Ruby's use of duck typing -- since
+  they delegate unknown methods to the internal/wrapped object, they
+  effectively preserve the same interface and can be used
+  interchangeably.
+
+#### Our Goal: Add Functionality to User Objects (Without Modifying them Directly)
+
+Let's take a moment to think of our `User` objects within API Curious.
+
+We've purposefully not saved many attributes for a user single to the database.
+As far as single responsibility goes, this makes sense.
+
+In the context of our application, however, we know that there are attributes of each user that we do frequently want to access.
+
+Let's take, for example, users' repositories. When cloning GitHub, it makes sense that we'd want to `GET` repositories for each user, but we know that it wouldn't make sense to create a `respositories` column on the `users` table.
+
+What we can do here is **decorate** the `User` object.
+
+For this, we'll be creating a `GithubUser` decorator object.  It'll allow us to keep the sanctity and single responsibility of the `User` class as-is, while adding additional functionality on top - such as a `#repositories` method.
+
+
+```bash
+mkdir app/decorators
+touch app/decorators/github_user.rb
+```
+
+Within `github_user.rb`, let's define our decorator PORO:
+
+```ruby
+class GithubUser
+end
+```
+
+We're going to want to initialize instances of `GithubUser` with a `User` object.
+
+By doing this, we'll keep all access to data within the `User` object, but we'll also be able to customize that data as needed **AND** add functionality via methods on the `GithubUser` object.
+
+### Understanding `SimpleDelegator`
+
+Ruby's got a built-in class to help with decorating objects.
+
+Take a few minutes to read up on this: [https://ruby-doc.org/stdlib-2.4.2/libdoc/delegate/rdoc/SimpleDelegator.html](https://ruby-doc.org/stdlib-2.4.2/libdoc/delegate/rdoc/SimpleDelegator.html)
+
+Let's look at the Ruby doc's `SimpleDelegator` usage. Pop the following code into `pry` and play around.
+
+What does this help with? What advantages does `SimpleDelegator` have for us?
+
+```ruby
+class User
+  def born_on
+    Date.new(1989, 9, 10)
+  end
+end
+
+class UserDecorator < SimpleDelegator
+  def birth_year
+    born_on.year
+  end
+end
+
+decorated_user = UserDecorator.new(User.new)
+decorated_user.birth_year  #=> 1989
+decorated_user.born_on  #=> #<Date: 1989-09-10 ((2447780j,0s,0n),+0s,2299161j)>
+```
+
+Essentially, we're able to remove the extra layer our `Decorator` class was adding on top of the `User` class.
+
+Knowing this, let's refactor once more for our `GithubUser` decorator to inherit from `SimpleDelegator`.
