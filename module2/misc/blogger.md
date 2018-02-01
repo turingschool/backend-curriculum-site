@@ -244,13 +244,13 @@ With `checkout` we create a new branch (`-b` for branch) off of the `master` bra
 Before we dive into the deep and start changing things, let's great a test to help drive our development and keep up focused. Within `spec/models` touch `article_spec.rb`
 
 ```bash
-touch spec/models/article_spec.rb`
+touch spec/models/article_spec.rb
 ```
 
 In your article_spec add the following test:
 
 ```ruby
-require "rails_helper
+require "rails_helper"
 
 describe Article, type: :model do
   describe "validations" do
@@ -266,7 +266,7 @@ And commit it.
 git add spec/models/article_spec.rb
 git commit -m "Add article spec with validations"
 ```
-You can run your test suite from your CLI(command line interface) with the command `rspec`. Go ahead and do that now.  I get the following print out:
+You can run your test suite from your CLI(command line interface) with the command `rspec`. Go ahead and do that now. I get the following print out:
 
 ```bash
 /Users/aleneschlereth/turing/1711/practice/blogger/db/schema.rb doesn't exist yet. Run `rails db:migrate` to create it, then try again. If you do not intend to use a database, you should instead alter /Users/aleneschlereth/turing/1711/practice/blogger/config/application.rb to limit the frameworks that will be loaded.
@@ -297,7 +297,7 @@ NameError:
 # ./spec/models/article_spec.rb:3:in `<top (required)>
 ```
 
-We know from working with Ruby and MiniTest that this error is telling us it can't Article. In this past this has meant that maybe the files aren't required appropriately or the class just doesn't exist. Now that we'll be working with a database we also have to think about whether this resource exists in the database or not. 
+We know from working with Ruby and MiniTest that this error is telling us it can't find the class `Article`. In this past this has meant that maybe the files aren't required appropriately or the class just doesn't exist. Now that we'll be working with a database we also have to think about whether this resource exists in the database or not. 
 
 We haven't done anything with our database yet other than create an empty one. It definitely doesn't have Articles in there yet. Let's go solve that problem first. 
 
