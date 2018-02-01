@@ -271,13 +271,40 @@ Let's add some movies in `rails console` and start the server again to see our m
 
 ### Workshop
 
-1) Create a `new` route that would bring the user to a form where they can enter a new movie
+```
+As a user
+When I visit a new route
+Then I see a form with fields for title and desctiption
+```
 
-2) Create a `show` route that would allow a user to see one movie? Just like in Sinatra, the route will need a changeable `/:id`. You *do not* need to create a show view; just get a message like "You are viewing the show page" to show up.
+```
+As a user
+When I visit a show route
+Then I see the title of a movie
+Then I see the description of a movie
+```
 
-3) Create an `edit` route that would allow a user to get to the edit page for a movie? Again, the route will need a changeable `/:id`. You *do not* need to create a form because you already have one! (Think about a partial); just get a message like "You are viewing the edit page" to show up.
+Just like in Sinatra, the route will need a changeable `/:id`. You *do not* need to create a show view; just get a message like "You are viewing the show page" to show up.
 
-4) For the previous two routes (show and edit), display the id param in the text that you render? You *do not* need to create a form; just get a message like "You are editing movie 2" to show up.
+
+```
+As a user
+When I visit an edit route for a specific movie
+Then I see a form with a title field
+Then I see a form with a description field
+Then I see each field prepopulated with the movie's data
+```
+
+Again, the route will need a changeable `/:id`. You *do not* need to create a form because you already have one! (Think about a partial); just get a message like "You are viewing the edit page" to show up.
+
+
+```
+As a user
+When I visit show or edit
+Then I see the id of the movie
+```
+
+Display the id param in the text that you render. You *do not* need to create a form; just get a message like "You are editing movie 2" to show up.
 
 In Sinatra, you could access the `:id` from the URL like this:
 
@@ -291,7 +318,7 @@ In Rails, you'll need to use `params[:id]`.
 
 ### Using Resources in the Routes File
 
-**Turng & Talk** 
+**Turn & Talk** 
 What are the common CRUD actions? They match up to eight routes. Can you name all of them?
 
 
