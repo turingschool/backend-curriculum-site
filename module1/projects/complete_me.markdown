@@ -147,32 +147,7 @@ completion.suggest("piz")
 
 ```
 
-## Spec Harness
-
-This is the first project where we'll use an automated spec harness
-to evaluate the correctness of your projects.
-
-For this reason, you'll want to make sure to follow the
-top-level interface described in the previous sections
-closely.
-
-You can structure the internals of your program however you like,
-but if the top level interface does not match, the
-spec harness will be unable to evaluate your work.
-
-Spec harness available [here](https://github.com/turingschool-examples/complete_me_spec_harness/blob/master/test/complete_me_test.rb).
-
-## Support Tooling
-
-Please make sure that, before your evaluation, your project has the following:
-
-* [SimpleCov](https://github.com/colszowka/simplecov) reporting accurate test coverage statistics
-
-## Supporting Features
-
-In addition to the base features included above, you must choose **one** of the following to implement:
-
-### 1. Substring-Specific Selection Tracking
+### Substring-Specific Selection Tracking
 
 A simple approach to tracking selections would be to simply
 "count" the number of times a given word is selected
@@ -216,7 +191,7 @@ However for the substring "pi", we choose "pizza" twice and
 "piz" don't count when suggesting against "pi", so now "pizza"
 and "pizzicato" come up as the top choices.
 
-### 2. Word Deletion and Tree Pruning
+### Word Deletion and Tree Pruning
 
 Let's add a feature that let's us delete words from the tree.
 When deleting a node, we'll need to consider a couple of cases.
@@ -246,19 +221,47 @@ The exact implementation of this process will depend on how your
 tree is built, so we likely won't include it in the spec harness. You
 will need to provide your own tests that demonstrate this functionality.
 
-## Extensions
 
-### 1. Denver Addresses
+## Spec Harness
+
+This is the first project where we'll use an automated spec harness
+to evaluate the correctness of your projects.
+
+For this reason, you'll want to make sure to follow the
+top-level interface described in the previous sections
+closely.
+
+You can structure the internals of your program however you like,
+but if the top level interface does not match, the
+spec harness will be unable to evaluate your work.
+
+Spec harness available [here](https://github.com/turingschool-examples/complete_me_spec_harness/blob/master/test/complete_me_test.rb).
+
+## Support Tooling
+
+Please make sure that, before your evaluation, your project has the following:
+
+* [SimpleCov](https://github.com/colszowka/simplecov) reporting accurate test coverage statistics
+* [HoundCI](https://houndci.com/) Pull Request based linter.
+
+## Supporting Features
+
+In addition to the base features included above, you must choose **two** of the following to implement:
+
+
+### 3. Denver Addresses
 
 Working with words was interesting, but what about a bigger dataset? Check out [this data file](http://data.denvergov.org/dataset/city-and-county-of-denver-addresses) (you'll want the CSV version) that contains all the known addresses in the city of Denver. Use the `full_address` field that's last in the row. Can you make your autocomplete work with that dataset?
 
-### 2. Substrings
+### 4. Substrings
 
 Could your word lookup possibly handle middle-of-the-word matches? So that `com` would list both the possibilities `complete` and `incomplete`? How does this change the memory requirements of your running program?
 
-### 3. Visual Interface
+### 5. Visual Interface
 
 Can you create a graphical user interface for your code? Something that a "normal person" might plausibly use? Consider a toolkit like [Shoes](http://shoesrb.com/) or [Ruby Processing](https://github.com/jashkenas/ruby-processing).
+
+
 
 ## Evaluation Rubric
 
