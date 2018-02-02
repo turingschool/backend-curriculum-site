@@ -216,7 +216,6 @@ end
 
 decorated_user = UserDecorator.new(User.new, "some info!")
 decorated_user.birth_year  #=> 1989
-decorated_user.born_on  #=> #<Date: 1989-09-10 ((2447780j,0s,0n),+0s,2299161j)>
 ```
 
 Now knowing this, let's add functionality to our application's users with the `GithubUser` decorator we created.
