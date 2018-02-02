@@ -1028,7 +1028,7 @@ For example, `article_path(1)` would generate the string `"/articles/1"`. Give t
 
 #### Completing the Article Links
 
-Let's update our assertions in our feature test. Change `dexpect(page).to have_content(article_1.title)` to `expect(page).to have_link(article_1.title)` and make the same update for the second article.
+Let's update our assertions in our feature test. Change `expect(page).to have_content(article_1.title)` to `expect(page).to have_link(article_1.title)` and make the same update for the second article.
 
 When you run your test your error should looke something like this:
 
@@ -1128,7 +1128,7 @@ Based on our branch name, we have completed the intended functionality. Let's:
 
 ### Creating the SHOW Action
 
-We'll need to write a new test for this since we're building out functionality on a new action/view. Create a new feature test file for the functionality where a user sees one article. Within this test structure, you're going to start with a describe block similar to the name of the file, then give any more specific scenario information, and then say what you expect to find there. Git it a try yourself before looking at my sample below.
+We'll need to write a new test for this since we're building out functionality on a new action/view. Create a new feature test file for the functionality where a user sees one article. Within this test structure, you're going to start with a describe block similar to the name of the file, then give any more specific scenario information, and then say what you expect to find there. Give it a try yourself before looking at my sample below.
 
 ```ruby
 require "rails_helper"
