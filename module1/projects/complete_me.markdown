@@ -249,15 +249,15 @@ Please make sure that, before your evaluation, your project has the following:
 In addition to the base features included above, you must choose **two** of the following to implement:
 
 
-### 3. Denver Addresses
+### 1. Denver Addresses
 
 Working with words was interesting, but what about a bigger dataset? Check out [this data file](http://data.denvergov.org/dataset/city-and-county-of-denver-addresses) (you'll want the CSV version) that contains all the known addresses in the city of Denver. Use the `full_address` field that's last in the row. Can you make your autocomplete work with that dataset?
 
-### 4. Substrings
+### 2. Substrings
 
 Could your word lookup possibly handle middle-of-the-word matches? So that `com` would list both the possibilities `complete` and `incomplete`? How does this change the memory requirements of your running program?
 
-### 5. Visual Interface
+### 3. Visual Interface
 
 Can you create a graphical user interface for your code? Something that a "normal person" might plausibly use? Consider a toolkit like [Shoes](http://shoesrb.com/) or [Ruby Processing](https://github.com/jashkenas/ruby-processing).
 
