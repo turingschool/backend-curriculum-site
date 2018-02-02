@@ -301,7 +301,15 @@ The project will be assessed with the following guidelines:
 * Evidence of edge cases testing 
 * Test Coverage metrics are present (SimpleCov)
 
-### 4. Functionality
+### 4. Git Workflow
+
+* Repository demonstrates that each member of team has contributed fairly equally.
+* Developers commit at a rate of approximately one commit every 30 minutes.
+* Repository shows the use of branches.
+* Developers use a pull request workflow.
+* Developers resolve HoundCI complaints in their pull requests.
+
+### 5. Functionality
 
 * Application meets all requirements (extension not req'd)
 
