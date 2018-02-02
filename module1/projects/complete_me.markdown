@@ -242,7 +242,7 @@ Spec harness available [here](https://github.com/turingschool-examples/complete_
 Please make sure that, before your evaluation, your project has the following:
 
 * [SimpleCov](https://github.com/colszowka/simplecov) reporting accurate test coverage statistics
-* [HoundCI](https://houndci.com/) Pull Request based linter.
+* [HoundCI](https://houndci.com/) Pull Request based linter. (This should be set up when you start your project.)
 
 ## Supporting Features
 
