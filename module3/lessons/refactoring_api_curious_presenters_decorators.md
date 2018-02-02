@@ -183,3 +183,40 @@ decorated_user.born_on  #=> #<Date: 1989-09-10 ((2447780j,0s,0n),+0s,2299161j)>
 Essentially, we're able to remove the extra layer our `Decorator` class was adding on top of the `User` class.
 
 Knowing this, let's refactor once more for our `GithubUser` decorator to inherit from `SimpleDelegator`.
+
+#### What About `initialize`?
+
+Notice how our decorator can be initialized without an `initialize` method defined.
+
+So long as the object you're decorating is the **only** argument that needs to be passed to the decorator, `initialize` is not needed.
+
+If additional information (besides the object) must be passed to the decorator, you **will** need to define `initialize`.
+
+Let's try that out:
+
+```ruby
+class User
+  def born_on
+    Date.new(1989, 9, 10)
+  end
+end
+
+class UserDecorator < SimpleDelegator
+  attr_reader :user, :extra_info
+
+  def initialize(user, extra_info)
+    @extra_info = extra_info
+    @user = user
+  end
+
+  def birth_year
+    user.born_on.year
+  end
+end
+
+decorated_user = UserDecorator.new(User.new, "some info!")
+decorated_user.birth_year  #=> 1989
+decorated_user.born_on  #=> #<Date: 1989-09-10 ((2447780j,0s,0n),+0s,2299161j)>
+```
+
+Now knowing this, let's add functionality to our application's users with the `GithubUser` decorator we created.
