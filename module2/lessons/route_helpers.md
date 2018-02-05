@@ -33,7 +33,7 @@ With your partner, take a look at the entries in the table that `rake routes` gi
 |Example Entry       | root |GET | /         |movies#index     |
 |Definition (what it does)|      |    |           |                 |
 
-Fill in "Definition" with your understanding of what the column represents/how it can be used. If you're unsure of a definition, enter your best guess.
+Fill in "Definition" with your understanding of what the column represents/how it can be used. If you're unsure of a definition, enter your best guess. After creating your table, cross reference yours with the table found [here](https://docs.google.com/spreadsheets/d/1AGjUE49UJajPEQHvh3plKjaem5RAGvuv5SNjZzvjD9U/edit#gid=0).
 
 #### Large group share
 * What is the path helper for each CRUD action? Which ones take an argument?
