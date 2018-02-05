@@ -20,7 +20,8 @@ By the end of this lesson, you will know/be able to:
 
 ## WarmUp
 
-* How have you been sending a user to another route, say in in your tests or in a controller? 
+* How have you been sending a user to another route, say in your tests or in a controller? 
+* What is the syntax for hand rolling a route?
 * What shortcut does Rails give us to create multiple routes at once?
 
 ## Routes
@@ -30,7 +31,7 @@ With your partner, take a look at the entries in the table that `rake routes` gi
 |Table Heading       |Prefix|Verb|URI Pattern|Controller#Action|
 |--------------------|------|----|-----------|-----------------|
 |Example Entry       | root |GET | /         |movies#index     |
-|Definition          |      |    |           |                 |
+|Definition (what it does)|      |    |           |                 |
 
 Fill in "Definition" with your understanding of what the column represents/how it can be used. If you're unsure of a definition, enter your best guess.
 
