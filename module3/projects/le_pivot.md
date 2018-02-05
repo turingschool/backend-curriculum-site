@@ -69,21 +69,14 @@ As a group, dig into the code base and pay particular attention to:
 
 Once you've explored the base project:
 
-* Create a new, blank repository on GitHub named `the_pivot` (or some other meaningful name if you prefer)
-* Clone the Little Shop project that you'll be working with to your local machine
+* Create a new, blank repository on GitHub named `le_pivot` (or some other meaningful name if you prefer)
+* Clone [the base project](https://github.com/turingschool-examples/the_pivot_base) that you'll be working with to your local machine
 * Go into that project directory and `git remote rm origin`
 * Add the new repository as a remote `git remote add origin git://new_repo_url`
 * Push the code `git push origin master`
 * Add team members and your product owner as collaborators in Github
 
-Once the team leader has done this, the other team members can fork the new repo.
-
-### Tagging the Start Point
-
-We want to be able to easily compare the change between the start of the project and the end. For that purpose, create a tag in the repo and push it to GitHub:
-
-* $ git tag -a little_shop_v1
-* $ git push --tags
+Once the team lead has done this, the other team members can fork the new repo.
 
 ### Restrictions & Outside Code
 
@@ -217,20 +210,19 @@ Each team will have daily stand-ups with their product owner. On the job most te
 The scope of the pivot is more fluid than prior projects. Your client will want to go over your plan for the project. Don't underestimate the value of a good plan. Groups that communicate and plan will outperform those that just start coding.
 
 * DTR
+* Each group member should assign themselves a user story that is challenging for them to complete by the end of the project. You don't need to work on this yet but there are likely other pieces that need to be in place to complete that story (aka blockers).
 * Wireframes
-* Writing of additional user stories should be completed
+* Design
 * Original state of the application should be deployed
-* Review test suite and get a sense of what isn't tested
-
-Use your client to review your plan.
 
 ### Day 2
 
 #### What should be done
 
-* Design and styles should be starting to get flushed out.
+* Review test suite and get a sense of what isn't tested
 * Schema should be sketched out.
-* Stories should be prioritized.
+* Stories should be prioritized based on selected stories and blockers.
+* Writing of additional user stories should be completed
 * Start building the most important pieces.
 
 ### Day 3
@@ -250,7 +242,7 @@ Each team must...
 * review pull requests prior to merging.
 * deploy to production after merging to master.
 
-Some groups may have a workflow that doesn't merge to master from a PR. You should avoid waiting days to deploy. The most successful groups will likely merge to master and deploy multiple times a day.
+Some groups may have a workflow that doesn't merge to master from a PR. You should avoid waiting days to deploy. The most successful groups will likely deploy every time something makes it to master (or whatever main branch you are working off of).
 
 ## Evaluation
 
@@ -317,7 +309,7 @@ Each group member will evaluate each member of the group anonymously based on th
 
 **Test Quality**
 
-* Project is well tested (Above 90% and the most valuable pieces of the app are covered). If you were paying for someone to build this for you, would you be satisfied with the tests that are written?
+* If you were paying for someone to build this for you, would you be satisfied with the tests that are written?
   * 4: Better than expected
   * 3: As expected
   * 2: Below expectations
