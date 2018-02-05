@@ -8,9 +8,18 @@ title: Design Principles for Backend Developers
   * build vocabulary and familiarity
   * begin to develop an eye for good/effective design
 
+## Vocab
+
+  * User Experience (UX)
+  * User Interface (UI)
+
 ## Warm Up
 
 Take a few minutes to brainstorm with your neighbor to come up with something that you use regularly and you feel embodies great design.
+
+## User Experience vs. User Interface
+
+Work closely together. A great product experience starts with UX followed by UI. UX is more about why we design something a certain way and UI is designing in that way and adapting to the technology it is presented on.
 
 ## 10 Guiding Principals
 
@@ -59,7 +68,6 @@ Design makes an important contribution to the preservation of the environment. I
 Less, but better – because it concentrates on the essential aspects, and the products are not burdened with non-essentials.
 
 Back to purity, back to simplicity.
-
 
 #### Group Chat
 Did the products you brainstormed earlier fulfill all these requirements? Why or why not?
