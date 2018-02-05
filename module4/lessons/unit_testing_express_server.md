@@ -239,6 +239,8 @@ Migrate your secrets_test with:
 knex migrate:latest --env test
 ```
 
+Create a new directory under seeds called `test`, and touch `secrets.js` - this should contain the exact same thing that your `secrets.js` inside of the `dev` seed file.
+
 Seed your secrets_test with:
 
 ```shell
