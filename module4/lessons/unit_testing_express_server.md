@@ -449,7 +449,6 @@ describe('API Routes', () => {
       return chai.request(server)
         .post('/api/secrets')
         .send({
-          id: "142",
           message: "I am in love with Mr. Wigglesworth."
         })
         .then((response) => {
