@@ -224,6 +224,27 @@ const configuration = require('../knexfile')[environment];
 const database = require('knex')(configuration);
 ```
 
+#### Create and Setup Database
+
+Use the following commands to create your test database:
+
+```shell
+psql
+CREATE DATABASE secrets_test;
+```
+
+Migrate your secrets_test with:
+
+```shell
+knex migrate:latest --env test
+```
+
+Seed your secrets_test with:
+
+```shell
+knex seed:run --env test
+```
+
 #### before and beforeEach
 
 Server-side tests should run in isolation and each test should not leave artifacts in the database. For instance, the first test in the test file should not influence what happens with the fifth test. Therefore, we need to run migrations before we run the test suite and reset the database before each test.
