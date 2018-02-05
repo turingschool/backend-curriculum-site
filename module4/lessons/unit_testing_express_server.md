@@ -10,10 +10,12 @@ Server-side testing is a crucial facet of testing. As your app grows in size and
 
 When we have render our applications through a front-end, our server-side testing looks a little different than what are you used to testing in Rails - **front-end** testing should test what renders based on user interactions, while **server-side** testing focuses on the API routes - looking at a request coming from a client, processing the request, and testing if the correct response to the client is given.
 
+
 ## Why do we test?
 
 * Why do we test our code?
 * What do you like and dislike about testing?
+
 
 ## Basic Structure of a Server-Side Test
 
@@ -32,11 +34,13 @@ What about the response should we test?
   - If it's an array, how many elements should be in the array?
   - If it's an object, what properties and values should the object have?
 
+
 ## Let's Go Through Some Examples
 
 We'll be using [mocha](https://mochajs.org/) for our test runner, [chai](http://chaijs.com/) for our assertion library, and [chai-http](https://github.com/chaijs/chai-http) for our request generator.
 
 We will use the express app that we've been working on in class to practice testing. Checkout to the `testing-practice` branch.
+
 
 ### Setup
 
@@ -81,41 +85,6 @@ This makes sense because we don't have any tests yet, but now we're all setup to
 *Note:* If you aren't automatically exited out of the test, use the command `mocha --exit` instead.
 
 
-So you have access to your database, add at the top of the `routes.spec.js` file:
-
-```javascript
-const environment = process.env.NODE_ENV || 'test';
-const configuration = require('../knexfile')[environment];
-const database = require('knex')(configuration);
-```
-
-### before and beforeEach
-
-Server-side tests should run in isolation and each test should not leave artifacts in the database. For instance, the first test in the test file should not influence what happens with the fifth test. Therefore, we need to run migrations before we run the test suite and reset the database before each test.
-
-If you're using a "real" database like postgreSQL with knex, you will typically need to:
-
- 1. Before all tests, run the migrations for your test environment and seed the test database
- 2. Before each test:
-  * Clean out the database (delete records in all tables)
-  * Seed your database with records
-
-With our testing structure, we have built-in methods called `before` and `beforeEach`, and they run before all tests and before each test in the describe block they are scoped in, respectively. There is also `after` and `afterEach`, but there is a caveat with `afterEach`. If a test fails, the `afterEach` will _not_ run after that test, which can leave your database in a bad state. So be sure to put your database in a good state for every test even if one fails.
-
-Let's write these methods within the `describe('API Routes', ...` block.
-
-```javascript
-before(() => {
-  // Run migrations and seeds for test database
-});
-
-beforeEach((done) => {
-  // Would normally run run your seed(s), which includes clearing all records
-  // from each of the tables
-  done(); // Need to call the done function because this is not a promise/async
-});
-```
-
 ### Happy Path
 
 The happy path is a test case we write for when we expect everything to go well. This includes a well-formed request and an appropriate response.
@@ -150,6 +119,7 @@ Here is the breakdown of the test:
 - If you cannot return a promise from the test, then you need to use the `done()` function to tell mocha that the test has completed (or else the test will timeout and fail - we'll see this later in the lesson)
 
 The tests are written using `should`, but you can choose to use `expect` or `assert` - just be consistent. See the [chai docs](http://chaijs.com/api/) for more info.
+
 
 ### Sad Path
 
@@ -243,6 +213,45 @@ describe('API Routes', () => {
 });
 ```
 
+
+### Setup for API routes
+
+So you have access to your database, add at the top of the `routes.spec.js` file:
+
+```javascript
+const environment = process.env.NODE_ENV || 'test';
+const configuration = require('../knexfile')[environment];
+const database = require('knex')(configuration);
+```
+
+#### before and beforeEach
+
+Server-side tests should run in isolation and each test should not leave artifacts in the database. For instance, the first test in the test file should not influence what happens with the fifth test. Therefore, we need to run migrations before we run the test suite and reset the database before each test.
+
+If you're using a "real" database like postgreSQL with knex, you will typically need to:
+
+ 1. Before all tests, run the migrations for your test environment and seed the test database
+ 2. Before each test:
+  * Clean out the database (delete records in all tables)
+  * Seed your database with records
+
+With our testing structure, we have built-in methods called `before` and `beforeEach`, and they run before all tests and before each test in the describe block they are scoped in, respectively. There is also `after` and `afterEach`, but there is a caveat with `afterEach`. If a test fails, the `afterEach` will _not_ run after that test, which can leave your database in a bad state. So be sure to put your database in a good state for every test even if one fails.
+
+Let's write these methods within the `describe('API Routes', ...` block.
+
+```javascript
+before(() => {
+  // Run migrations and seeds for test database
+});
+
+beforeEach((done) => {
+  // Would normally run run your seed(s), which includes clearing all records
+  // from each of the tables
+  done(); // Need to call the done function because this is not a promise/async
+});
+```
+
+
 ### Test an API Call (GET Request)
 
 From our basic server-side tests above, you can see how we might test our API. The first test is for the `/api/secrets/:id` route. A GET request to this endpoint should return a single secret.
@@ -294,6 +303,7 @@ Test Express is running on 3000.
 
 ```
 
+
 ### Test a POST Request
 
 For a post request, we need to not only send the request to the correct endpoint, but we also need to give some information in the body of the post request.
@@ -324,7 +334,6 @@ describe('POST /api/secrets', () => {
 
 });
 ```
-
 
 ### POST Sad Path
 
@@ -358,6 +367,7 @@ There are many more possibilities for route sad paths. Some could be:
 * A user tries to change the primary key of a record
 * A user submits duplicate data for table columns that must have unique record values
 * And others!
+
 
 ### File summary
 
@@ -482,11 +492,13 @@ describe('API Routes', () => {
 
 ```
 
+
 ## Checks for Understanding
 
 * What libraries do we use to test server-side endpoints?
 * What is the difference between happy and sad path tests?
 * What about a response should we test?
+
 
 ## Interview Question
 
