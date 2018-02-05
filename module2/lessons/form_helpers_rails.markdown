@@ -20,6 +20,7 @@ title: Forms in Rails
   * create a new movie
   * field to enter title  
   * field to enter description
+  * labels for each field
 
 ### Setup
 
