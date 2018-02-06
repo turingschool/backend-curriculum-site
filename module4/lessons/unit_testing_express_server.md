@@ -4,6 +4,14 @@ length: 90
 tags: express, testing, server, node
 ---
 
+## Learning Goals
+
+By the end of this lesson, you will...
+* Write tests for your Express application
+* Explain the differences between the way we test when we have a front end
+* Explain the benefits of testing
+
+
 ## Overview
 
 Server-side testing is a crucial facet of testing. As your app grows in size and complexity, there will be more points of potential failure.
@@ -238,6 +246,8 @@ Migrate your secrets_test with:
 ```shell
 knex migrate:latest --env test
 ```
+
+Create a new directory under seeds called `test`, and touch `secrets.js` - this should contain the exact same thing that your `secrets.js` inside of the `dev` seed file.
 
 Seed your secrets_test with:
 
