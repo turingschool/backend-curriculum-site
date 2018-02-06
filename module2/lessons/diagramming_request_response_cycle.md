@@ -93,3 +93,4 @@ As a group, let's talk through an example from each piece of CRUD functionality.
 
 * How the Web Works [lesson](https://github.com/turingschool/backend-curriculum-site/blob/gh-pages/module2/lessons/how_the_web_works.md), [prework](https://github.com/turingschool/intermission-assignments/blob/master/2be/details/how_the_web_works.md)
 * [Internals of a Rails Request/Response Cycyle](https://www.rubypigeon.com/posts/examining-internals-of-rails-request-response-cycle/). I recommend focusing on sections 5-8.
+* [Completed MVC Diagram](https://drive.google.com/file/d/1-p04Ayx4BtnNwV-WRDlWWSVNp94Kw1in/view?usp=sharing)
