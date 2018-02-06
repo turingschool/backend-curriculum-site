@@ -30,6 +30,7 @@ layout: page
 
 * **LESSONS:**
   - [Intro to Sass](../lessons/intro_to_sass)
+  - [Diagramming the Request Response Cycle](../lessons/diagramming_request_response_cycle)
   - [Rails Basics Challenge](../misc/rails_basics_challenge)
 
 * **HOMEWORK:**
