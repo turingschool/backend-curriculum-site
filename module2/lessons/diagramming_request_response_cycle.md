@@ -12,9 +12,10 @@ tags: ruby, http, request_response_cycle
 
 ## Structure  
 5 min - Warm Up  
-10 min -   
+10 min - Diagram Request/Response  
+20 min - User Stories and the Request/Response Cycle 
 5 min - Break  
-20 min -  
+15 min - Large Group Share 
 5 min - Wrap Up
 
 ## Vocabulary  
