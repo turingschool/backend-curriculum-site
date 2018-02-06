@@ -7,7 +7,7 @@ tags: node, express, knex, database, SQL, http
 
 By the end of this lesson, you will:
 
-*   Understand how to made code organization decisions in an unopinionated framework.
+*   Understand how to make code organization decisions in an unopinionated framework.
 
 ## Slides
 
