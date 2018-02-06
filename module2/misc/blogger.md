@@ -245,13 +245,13 @@ With `checkout` we create a new branch (`-b` for branch) off of the `master` bra
 Before we dive into the deep and start changing things, let's great a test to help drive our development and keep up focused. Within `spec/models` touch `article_spec.rb`
 
 ```bash
-touch spec/models/article_spec.rb`
+touch spec/models/article_spec.rb
 ```
 
 In your article_spec add the following test:
 
 ```ruby
-require "rails_helper
+require "rails_helper"
 
 describe Article, type: :model do
   describe "validations" do
@@ -267,7 +267,7 @@ And commit it.
 git add spec/models/article_spec.rb
 git commit -m "Add article spec with validations"
 ```
-You can run your test suite from your CLI(command line interface) with the command `rspec`. Go ahead and do that now.  I get the following print out:
+You can run your test suite from your CLI(command line interface) with the command `rspec`. Go ahead and do that now. I get the following print out:
 
 ```bash
 /Users/aleneschlereth/turing/1711/practice/blogger/db/schema.rb doesn't exist yet. Run `rails db:migrate` to create it, then try again. If you do not intend to use a database, you should instead alter /Users/aleneschlereth/turing/1711/practice/blogger/config/application.rb to limit the frameworks that will be loaded.
@@ -298,7 +298,7 @@ NameError:
 # ./spec/models/article_spec.rb:3:in `<top (required)>
 ```
 
-We know from working with Ruby and MiniTest that this error is telling us it can't Article. In this past this has meant that maybe the files aren't required appropriately or the class just doesn't exist. Now that we'll be working with a database we also have to think about whether this resource exists in the database or not. 
+We know from working with Ruby and MiniTest that this error is telling us it can't find the class `Article`. In this past this has meant that maybe the files aren't required appropriately or the class just doesn't exist. Now that we'll be working with a database we also have to think about whether this resource exists in the database or not. 
 
 We haven't done anything with our database yet other than create an empty one. It definitely doesn't have Articles in there yet. Let's go solve that problem first. 
 
@@ -1041,7 +1041,7 @@ For example, `article_path(1)` would generate the string `"/articles/1"`. Give t
 
 #### Completing the Article Links
 
-Let's update or assertions in our feature test. Change `dexpect(page).to have_content(article_1.title)` to `expect(page).to have_link(article_1.title)` and make the same update for the second article.
+Let's update our assertions in our feature test. Change `expect(page).to have_content(article_1.title)` to `expect(page).to have_link(article_1.title)` and make the same update for the second article.
 
 When you run your test your error should looke something like this:
 
@@ -1141,7 +1141,7 @@ Based on our branch name, we have completed the intended functionality. Let's:
 
 ### Creating the SHOW Action
 
-We'll need to write a new test for this since we're building out functionality on a new action/view. Create a new feature test file for the functionality where a user sees one article. Within this test structure, you're going to start with a describe block similar to the name of the file, then give any more specific scenario information, and then say what you expect to find there. Git it a try yourself before looking at my sample below.
+We'll need to write a new test for this since we're building out functionality on a new action/view. Create a new feature test file for the functionality where a user sees one article. Within this test structure, you're going to start with a describe block similar to the name of the file, then give any more specific scenario information, and then say what you expect to find there. Give it a try yourself before looking at my sample below.
 
 ```ruby
 require "rails_helper"
