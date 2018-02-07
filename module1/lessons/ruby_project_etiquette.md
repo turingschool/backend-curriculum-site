@@ -146,6 +146,7 @@ end
 ```
 
 **require type** | running file from project directory | running file from test directory
+|:--:|:--:|:--:|
 `require` | |
 `require_relative` | |
 
