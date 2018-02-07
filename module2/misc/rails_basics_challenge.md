@@ -13,7 +13,7 @@ Create a new rails project from your command line and implement the following us
 
 ### Students
 
-Let's start by creating students alone. If you'd like some additional practice, feel free to see if you can test-drive this functionality, but it's not required. Styling is also not required for this particular exercise.
+Let's start by creating students alone. You should TDD throughout. Styling is also not required for this particular exercise.
 
 #### User Can See an Individual Student
 
