@@ -56,18 +56,19 @@ I'd highly recommend saving theme colors to variables and importing fonts and sa
 
 Let's put our font colors and type there. We want to use a new "fun" font!
 
-```css
+```sass
 /* assets/stylesheets/base.scss */
 
 @import url('https://fonts.googleapis.com/css?family=Joti+One');
 
 $font-default: 'Joti One', cursive;
 
-$light-purple: #E8E1EF;
-$ice-blue: #D9FFF8;
-$wow-green: #C7FFDA;
-$mellow-green: #C4F4C7;
-$forest-green: #9BB291;
+$light-purple: #6369D1;
+$ice-blue: #60E1E0;
+$grayish: #D8D2E1;
+$light-brown: #B88E8D;
+$dark-navy: #34435E;
+
 ```
 
 #### Step 2: Skeletal styles
@@ -116,23 +117,23 @@ header {
 }
 ```
 
-```css
+```sass
 /* assets/stylesheets/sections/_movie-index.scss */
+$wow-border: 3px dotted $light-purple;
 
 .movie-index {
   h1 {
-    color: $mellow-green;
+    color: $dark-navy;
   }
 
   h2 {
-    color: $forest-green;
+    color: $light-brown;
     border: $wow-border;
   }
   p {
     border: $wow-border;
   }
 }
-
 
 ```
 
@@ -172,7 +173,7 @@ Creating a separate SCSS partial for each of these makes our code immensely more
 
 .button {
   &.cart {
-    background-color: $mellow-green;
+    background-color: $dark-navy;
   }
 }
 ```
@@ -189,27 +190,62 @@ This cascade of partials may not be immediately implementable for your site. You
 
 #### Using `@extend`
 
-- Let's say, in `movie_mania`, we want to style our `movies#new` css file. It seems like our title and description share the same color but the title is bold. What if we want both to be bold and purple? We can extend the style of one class to the other to cut down on duplication.
+- Let's take a small example from `movie_mania` to demonstrate how to use `@extend`. We have a border on both our `h2` and our `p` tag. Our `p` tag only has the rule of `border: $wow-border`. Using `@extend` is similar in SASS as it is in Ruby classes. It allows the tag that holds the `@extend` rule to inherit the rules of the class/id/basic selectors.
 
-```css
-ul {
-  border: $custom-border;
-  .title {
-    color: $custom-color;
-    font-weight: bold;
+```sass
+  movie-index {
+    h1 {
+      color: $dark-navy;
+    }
+    h2 {
+      color: $light-brown;
+      @extend p
+    }
+    p {
+      border: $wow-border;
+    }
   }
-
-  .description {
-    @extend .title;
-  }
-}
 ```
 
-- A selector can use more than one extend!
+- Now our `h2` inherits the same `$wow-border` as the `p` tag and we don't have to repeat ourselves. But what else did this do? What changes do we see?
+- Since it inherits from `p` and `p` has rules that cascade down, we now have ALL the `p` rules applying to the `h2` tag!
+- Fun Fact: A selector can use more than one extend!
 
 #### Mixins  
 
 - Mixins allow you to define styles that can be re-used throughout the stylesheet.
+- We want our `h2` and `p` to have the `$wow-border` but we also want them to have a background color of `$grayish`. How can we accomplish this?
+- Let's add a mixin to our `base.scss` file, where it will be accessible to the files below it (based on `@import` statements). Let's also delete `@extend p` from our `h2` for this example.
+
+```sass
+// base.scss
+
+$wow-border: 3px dotted $light-purple;
+
+@mixin movie-index-border {
+  border: $wow-border;
+  background-color: $grayish;
+}
+```
+
+And to use it in our `movie-index.scss` file, we need to use `@include` in our rules:
+
+```sass
+  .movie-index {
+    h1 {
+      color: $dark-navy;
+    }
+    h2 {
+      color: $light-brown;
+      @include movie-index-border
+    }
+    p {
+      @include movie-index-border
+    }
+  }
+```
+
+- Fun Fact: Mixins can also take default arguments!
 
 ### Other Suggestions
 

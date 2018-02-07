@@ -67,25 +67,25 @@ Variables in SASS are declared with a `$` and are assigned with a colon `:`
 We have chosen a color palette for our app, let's create some variables with those hex codes. Our app is pretty small right now so keeping track of colors is simple but imagine as our app grows and we have to continually look back for our hex codes. By creating variables, we can easily access these colors at any point.
 
 ```Sass
-$light-purple: #E8E1EF;
-$ice-blue: #D9FFF8;
-$wow-green: #C7FFDA;
-$mellow-green: #C4F4C7;
-$forest-green: #9BB291;
+$light-purple: #6369D1;
+$ice-blue: #60E1E0;
+$grayish: #D8D2E1;
+$light-brown: #B88E8D;
+$dark-navy: #34435E;
 ```
-Lets go ahead and set all text color of all our `<h1>`'s to `$mellow-green` and our `<h2>` to `$forest-green`
+Lets go ahead and set all text color of all our `<h1>`'s to `$light-brown` and our `<h2>` to `$dark-navy`
 
 ```SASS
   h1 {
-    color: $mellow-green;
+    color: $light-brown;
   }
 
   h2 {
-    color: $forest-green;
+    color: $dark-navy;
   }
 ```
 
-What if we just want the `<h1>` on the `movies#index` to be `$mellow-green` but other `h1`'s to be `$light-purple`?
+What if we just want the `<h1>` on the `movies#index` to be `$light-brown` but other `h1`'s to be `$light-purple`?
 
 ## Nesting - Elements
 
@@ -105,7 +105,7 @@ Then we can NEST our html elements. This provides more readable code and an actu
 
 ```SASS
   h1 {
-    color: $mellow-green;
+    color: $light-brown;
   }
 
   .movie-index {
@@ -117,7 +117,7 @@ Then we can NEST our html elements. This provides more readable code and an actu
 
 Run `rails s` and visit the route `/movies` to see the CSS. Inspect the CSS and see that it compiles as we expect to see CSS code! COOL!
 
-On your own: Create a variable that holds a `$wow-green` 3px dotted border and add it to both the `<p>` tag and the `<h2>`.
+On your own: Create a variable that holds a `$grayish` 3px dotted border and add it to both the `<p>` tag and the `<h2>`.
 
 ## Nesting - Properties
 
