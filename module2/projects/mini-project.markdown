@@ -68,7 +68,7 @@ Let's create an app to record your ideas. Host your app live on Heroku.
 - [ ] The application utilizes a nav bar. 
 - [ ] The style shows evidence of intentional layout. 
 - [ ] Space and text is balanced. White space is used to visually separate content. 
-- [ ] The user can intuitvely navigate between different portions of the application without manually entering the URL into the nav-bar or using the back button on their browser.
+- [ ] The application is easily usable. The user can intuitvely navigate between different portions of the application without manually entering the URL into the nav-bar or using the back button on their browser.
 
 ### Testing
 
@@ -124,7 +124,7 @@ Create an app where users can "favorite" gifs.
 - [ ] The application utilizes a nav bar. 
 - [ ] The style shows evidence of intentional layout. 
 - [ ] Space and text is balanced. White space is used to visually separate content. 
-- [ ] The user can intuitvely navigate between different portions of the application without manually entering the URL into the nav-bar or using the back button on their browser.
+- [ ] The application is easily usable. The user can intuitvely navigate between different portions of the application without manually entering the URL into the nav-bar or using the back button on their browser.
 
 ### Testing
 
@@ -180,7 +180,7 @@ Create an app where an admin (let's say for example, Richard) can assign points 
 - [ ] The application utilizes a nav bar. 
 - [ ] The style shows evidence of intentional layout. 
 - [ ] Space and text is balanced. White space is used to visually separate content. 
-- [ ] The user can intuitvely navigate between different portions of the application without manually entering the URL into the nav-bar or using the back button on their browser.
+- [ ] The application is easily usable. The user can intuitvely navigate between different portions of the application without manually entering the URL into the nav-bar or using the back button on their browser.
 
 ### Testing
 
@@ -239,7 +239,7 @@ If you choose to do this option make sure you try to implement all the concepts 
 - [ ] The application utilizes a nav bar. 
 - [ ] The style shows evidence of intentional layout. 
 - [ ] Space and text is balanced. White space is used to visually separate content. 
-- [ ] The user can intuitvely navigate between different portions of the application without manually entering the URL into the nav-bar or using the back button on their browser.
+- [ ] The application is easily usable. The user can intuitvely navigate between different portions of the application without manually entering the URL into the nav-bar or using the back button on their browser.
 
 ### Testing
 
