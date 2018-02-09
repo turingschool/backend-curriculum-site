@@ -56,3 +56,6 @@ layout: page
 
 * [Job Tracker](https://github.com/turingschool/job-tracker)
 * [Rails Mini Project](../projects/mini-project)
+
+## Additional Resources
+* [Mix Master](../projects/mix_master/1_getting_started.markdown)
