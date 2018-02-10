@@ -1,12 +1,13 @@
 ---
 layout: page
 title: Authorization in Rails
+tags: rails, authorization
 ---
 
 ### Learning Goals
 
 * Authorize users based on roles
-* Write a feature tests that use a stubbing library
+* Write a feature test that usees a stubbing library
 * Implement namespacing for routes
 * Use a `before_action` to protect admin controllers
 
@@ -22,27 +23,58 @@ Available [here](../slides/authorization)
 
 ## Repo
 
-Continue working in your MovieMania application, or clone down the most recent version.
-
-Create a gist to answer the following questions. It's more than likely that you'll need to research answers to many of these. Let's put an asterisk next to those you need to research.
+Continue working in your MovieMania application, or clone down the most recent version. A sample repo can be found [here](https://github.com/turingschool-examples/movie_mania_1711).
 
 ## Code Along
 
 ### Adding Authentication to our Application
 
-Let's first add a validation on the User model to ensure that `username` is present and unique. We wouldn't want two users to have the same username if that's what we are using to uniquely identify users when they login.
+Let's first add a validation on the User model to ensure that `username` is present and unique. We wouldn't want two users to have the same username if that's what we are using to uniquely identify users when they login. First, let's write a test.
+
+```ruby
+#spec/models/user_spec.rb
+require "rails_helper"
+
+describe User, type: :model do
+  describe "validates" do
+    it "presence of username" do
+      user = User.new(password: "Password")
+
+      expect(user).to_not be_valid
+    end
+    
+    it "uniqueness of username" do
+      orig = User.create(username: "user", password: "Password")
+      copy_cat = User.new(username: "user", password: "Password")
+
+      expect(copy_cat).to_not be_valid
+    end
+
+  end
+end
+```
+Our error should read:
+
+```
+Failures:
+
+  1) User validates presence of username
+     Failure/Error: expect(user).to_not be_valid
+       expected #<User id: 1, username: nil, password_digest: "$2a$04$iN35iTt4QVssodVTPDls7uSrSYSZnP7Vl2lwoZ6nfSC..."> not to be valid
+     # ./spec/models/user_spec.rb:8:in `block (3 levels) in <top (required)>'
+```
 
 ```ruby
 validates :username, presence: true,
                     uniqueness: true
 ```
 
-Next, let's next create a test for the admin functionality we want to create. Our client has asked for categories in this application, and only an admin should be able to access the categories index.
+Next, let's create a test for the admin functionality we want to create. Our client has asked for categories in this application, and only an admin should be able to access the categories index.
 
 We'll need to create a new test file in the `spec/features` folder.
 
 ```bash
-$ touch spec/features/admin_categories_spec.rb
+$ touch spec/features/admin_sees_categories_index_spec.rb
 ```
 
 Let's write our test.
@@ -68,37 +100,41 @@ end
 
 Meanwhile, what's going on with that `role` field? Basically, we'll need that in order to determine what level of authorization a user has within the scope of our application. We know this is a distinction that we're going to want to be able to make. Let's drop down into a model test to see if we can develop this behavior.
 
-Let's create a model test for `User`.
-
-```bash
-$ mkdir spec/models
-$ touch spec/models/user_spec.rb
-```
-
-That file will include the following:
-
 ```ruby
+# spec/models/user_spec.rb
 require 'rails_helper'
 
 describe User do
-  it "can be created as an admin" do
-    user = User.create(username: "penelope",
-                       password: "boom",
-                       role: 1)
+  describe "roles" do
+    it "can be created as an admin" do
+      user = User.create(username: "penelope",
+                         password: "boom",
+                         role: 1)
 
-    expect(user.role).to eq("admin")
-    expect(user.admin?).to be_truthy
-  end
+      expect(user.role).to eq("admin")
+      expect(user.admin?).to be_truthy
+    end
 
-  it "can be created as a default user" do
-    user = User.create(username: "sammy",
-                       password: "pass",
-                       role: 0)
+    it "can be created as a default user" do
+      user = User.create(username: "sammy",
+                         password: "pass",
+                         role: 0)
 
-    expect(user.role).to eq("default")
-    expect(user.default?).to be_truthy
+      expect(user.role).to eq("default")
+      expect(user.default?).to be_truthy
+    end
   end
 end
+```
+
+Our error should read something like this:
+
+```
+An error occurred while loading ./spec/features/admin_seed_categories_index_spec.rb.
+Failure/Error: admin = User.create(username: "penelope", password: "boom", role: 1)
+
+ActiveModel::UnknownAttributeError:
+  unknown attribute 'role' for User.
 ```
 
 This might seem a little bit crazy at first. The tests only have two lines, and those two lines don't even seem to go together very well. We create a `User` with a `role` of 1 and then proceed to assert that the user's role is `"admin"`. And that last line feels a little redundant? What's happening?
@@ -121,7 +157,30 @@ end
 
 Don't forget to run `rake db:migrate` to run this migration! Check your `db/schema.rb` to ensure that our schema reflects these changes.
 
-We're halfway there! We've added a role, but we'll still get a fairly useless error. At this point, let's add our `enum` to our `User` model.
+We're halfway there! We've added a role, but we'll still get a fairly useless error. 
+
+```
+Failures:
+
+  1) User roles can be created as an admin
+     Failure/Error: expect(user.role).to eq("admin")
+
+       expected: "admin"
+            got: 1
+
+       (compared using ==)
+     # ./spec/models/user_spec.rb:25:in `block (3 levels) in <top (required)>'
+
+  2) User roles can be created as a default user
+     Failure/Error: expect(user.role).to eq("default")
+
+       expected: "default"
+            got: 0
+
+       (compared using ==)
+     # ./spec/models/user_spec.rb:34:in `block (3 levels) in <top (required)>'
+```
+At this point, let's add our `enum` to our `User` model.
 
 ```ruby
 class User < ActiveRecord::Base
@@ -150,11 +209,11 @@ Add this `namespace` and the route for only the `index` to your routes (we may n
 
 ```ruby
 namespace :admin do
-  resources :categories, only: ['index']
+  resources :categories, only: [:index]
 end
 ```
 
-Whenever we add something to our `routes.rb`, verify that your output via `rake routes` is what you expect.
+Whenever we add something to our `routes.rb`, verify that your output via `rails routes` is what you expect. Whoa, our routes are getting long and hard to read. Let's run `rails routes | grep admin` to see just our admin routes.
 
 Routes are looking good. What about our specs?
 
@@ -234,7 +293,7 @@ Let's run our test... And it passes! Great! We're done here, right? I mean, pass
 
 Question: have we done anything up to this point that's really new? Anything that would give us any confidence that we've actually authorized a user? We've gone through the trouble of creating a place to put some of our admin functionality, but I don't see anywhere that we're actually limiting access to that space. Let's create a test to make sure a default user can't get to all this sweet admin goodness. If we can make that pass I'll start to feel a little bit better about our authentication.
 
-In our `admin_categories_spec.rb` file let's add the following:
+In our `admin_sees_categories_index_spec.rb` file let's add the following:
 
 ```ruby
 context "as default user" do
@@ -258,14 +317,28 @@ Inside of our `Admin::CategoriesController`, let's add a `before_action` to chec
 ```ruby
 class Admin::CategoriesController < ApplicationController
   before_action :require_admin
-
-  def require_admin
-    render file: "/public/404" unless current_admin?
-  end
+  
+  private
+    def require_admin
+      render file: "/public/404" unless current_admin?
+    end
 end
 ```
 
-So, at a high level this makes sense: we've created a `before_action` to check to see if a user is a current admin, but if we run the test we now have two errors because we haven't defined `current_admin?`. Let's define that the same place that we define `current_user` in our `ApplicationController`.
+So, at a high level this makes sense: we've created a `before_action` to check to see if a user is a current admin, but if we run the test we now have two errors. (The second is the same as the first)
+
+```
+Failures:
+
+  1) admin sees categories index as admin they are allowed to see all categories
+     Failure/Error: render file: "/public/404" unless current_admin?
+
+     NoMethodError:
+       undefined method `current_admin?' for #<Admin::CategoriesController:0x007fabfb9dfc70>
+       Did you mean?  current_user
+```
+
+We haven't defined `current_admin?`. Let's define that the same place that we define `current_user` in our `ApplicationController`.
 
 ```ruby
 # application_controller.rb
@@ -307,7 +380,7 @@ class Admin::CategoriesController < Admin::BaseController
 end
 ```
 
-## Checks for Understanding
+## WrapUp 
 
 *   What's the difference between Authentication and Authorization?
 *   Why are both necessary for securing our applications?
