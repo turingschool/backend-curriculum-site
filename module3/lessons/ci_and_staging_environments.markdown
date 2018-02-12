@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Professional Code Environments
+title: CI and Staging Environments
 length: 105
 tags: workflow, professional skills
 ---
