@@ -44,7 +44,7 @@ layout: page
   - [Auth Exploration](../misc/auth_exploration)
 
 * **HOMEWORK:**
-  - Rest!
+  - [Schema Practice](../misc/schema_practice). Choose 2 - 3.
 
 ### Day 5:
 

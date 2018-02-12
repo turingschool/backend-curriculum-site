@@ -63,12 +63,12 @@ Let's create an app to record your ideas. Host your app live on Heroku.
 ### User Experience
 
 - [ ] The application has been styled.
-- [ ] The application uses a color scheme.
+- [ ] The application uses a balanced, considered color scheme.
 - [ ] The application implements a font (that is not the default font).
 - [ ] The application utilizes a nav bar. 
 - [ ] The style shows evidence of intentional layout. 
 - [ ] Space and text is balanced. White space is used to visually separate content. 
-- [ ] The user can intuitvely navigate between different portions of the application without manually entering the URL into the nav-bar or using the back button on their browser.
+- [ ] The application is easily usable. The user can intuitvely navigate between different portions of the application without manually entering the URL into the nav-bar or using the back button on their browser.
 
 ### Testing
 
@@ -119,12 +119,12 @@ Create an app where users can "favorite" gifs.
 ### User Experience
 
 - [ ] The application has been styled.
-- [ ] The application uses a color scheme.
+- [ ] The application uses a balanced, considered color scheme.
 - [ ] The application implements a font (that is not the default font).
 - [ ] The application utilizes a nav bar. 
 - [ ] The style shows evidence of intentional layout. 
 - [ ] Space and text is balanced. White space is used to visually separate content. 
-- [ ] The user can intuitvely navigate between different portions of the application without manually entering the URL into the nav-bar or using the back button on their browser.
+- [ ] The application is easily usable. The user can intuitvely navigate between different portions of the application without manually entering the URL into the nav-bar or using the back button on their browser.
 
 ### Testing
 
@@ -175,12 +175,12 @@ Create an app where an admin (let's say for example, Richard) can assign points 
 ### User Experience
 
 - [ ] The application has been styled.
-- [ ] The application uses a color scheme.
+- [ ] TThe application uses a balanced, considered color scheme.
 - [ ] The application implements a font (that is not the default font).
 - [ ] The application utilizes a nav bar. 
 - [ ] The style shows evidence of intentional layout. 
 - [ ] Space and text is balanced. White space is used to visually separate content. 
-- [ ] The user can intuitvely navigate between different portions of the application without manually entering the URL into the nav-bar or using the back button on their browser.
+- [ ] The application is easily usable. The user can intuitvely navigate between different portions of the application without manually entering the URL into the nav-bar or using the back button on their browser.
 
 ### Testing
 
@@ -229,7 +229,24 @@ If you choose to do this option make sure you try to implement all the concepts 
 - [ ] Sessions, flashes and maybe cookies if you have a good use case for them.
 - [ ] Authentication
 - [ ] Authorization
-- [ ] Styling
+
+#### Rubric for General Parts:
+### User Experience
+
+- [ ] The application has been styled.
+- [ ] TThe application uses a balanced, considered color scheme.
+- [ ] The application implements a font (that is not the default font).
+- [ ] The application utilizes a nav bar. 
+- [ ] The style shows evidence of intentional layout. 
+- [ ] Space and text is balanced. White space is used to visually separate content. 
+- [ ] The application is easily usable. The user can intuitvely navigate between different portions of the application without manually entering the URL into the nav-bar or using the back button on their browser.
+
+### Testing
+
+- [ ] Project has a running test suite
+- [ ] Test suite includes robust feature tests
+- [ ] Test suite includes tests for validations
+- [ ] Test suite includes tests for methods that they have created on the models
 
 #### Optional Extensions
 
