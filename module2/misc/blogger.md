@@ -141,7 +141,7 @@ If you see an error here, it's most likely related to the database. You are prob
 
 ### Setting Up for Testing 
 
-We're going to work with a few different tools while testing, [RSpec](https://relishapp.com/rspec), [Capybara](https://github.com/teamcapybara/capybara), [Launchy](https://github.com/copiousfreetime/launchy), and [Shoulda Matchers](https://github.com/thoughtbot/shoulda-matchers). RSpec is a test driver comparable to MiniTest. RSpec allows you to rung unit, integration and feature tests. Capybara is a DSL(Domain Specific Language) that helps you build tests in a user friendly format, naviating the page and performing user actions. Launchy is a helper class that allows you to add the line `save_and_open_page` within a test. When you run your test suite a browser window will be opened with the current state of the web page where the `save_and_open_page` is located. It is a helpful debugging tool. Shoulda Matchers provides us simple one liners helpful in testing validations and relationships on models.
+We're going to work with a few different tools while testing, [RSpec](https://relishapp.com/rspec), [Capybara](https://github.com/teamcapybara/capybara), [Launchy](https://github.com/copiousfreetime/launchy), [Shoulda Matchers](https://github.com/thoughtbot/shoulda-matchers), [Pry](https://github.com/pry/pry), and [Active Designer](https://github.com/thompickett/active_designer). RSpec is a test driver comparable to MiniTest. RSpec allows you to rung unit, integration and feature tests. Capybara is a DSL(Domain Specific Language) that helps you build tests in a user friendly format, naviating the page and performing user actions. Launchy is a helper class that allows you to add the line `save_and_open_page` within a test. When you run your test suite a browser window will be opened with the current state of the web page where the `save_and_open_page` is located. It is a helpful debugging tool. Shoulda Matchers provides us simple one liners helpful in testing validations and relationships on models. Pry is debugging gem for Ruby environment. Active Designer will give you a visual of the current structure of your database.
 
 #### Adding Gems 
 
@@ -172,6 +172,7 @@ group :development, :test do
   gem 'launchy'
   gem 'shoulda-matchers'
   gem 'pry'
+  gem 'active_designer'
 end
 ```
 
@@ -244,13 +245,13 @@ With `checkout` we create a new branch (`-b` for branch) off of the `master` bra
 Before we dive into the deep and start changing things, let's great a test to help drive our development and keep up focused. Within `spec/models` touch `article_spec.rb`
 
 ```bash
-touch spec/models/article_spec.rb`
+touch spec/models/article_spec.rb
 ```
 
 In your article_spec add the following test:
 
 ```ruby
-require "rails_helper
+require "rails_helper"
 
 describe Article, type: :model do
   describe "validations" do
@@ -266,7 +267,7 @@ And commit it.
 git add spec/models/article_spec.rb
 git commit -m "Add article spec with validations"
 ```
-You can run your test suite from your CLI(command line interface) with the command `rspec`. Go ahead and do that now.  I get the following print out:
+You can run your test suite from your CLI(command line interface) with the command `rspec`. Go ahead and do that now. I get the following print out:
 
 ```bash
 /Users/aleneschlereth/turing/1711/practice/blogger/db/schema.rb doesn't exist yet. Run `rails db:migrate` to create it, then try again. If you do not intend to use a database, you should instead alter /Users/aleneschlereth/turing/1711/practice/blogger/config/application.rb to limit the frameworks that will be loaded.
@@ -297,7 +298,7 @@ NameError:
 # ./spec/models/article_spec.rb:3:in `<top (required)>
 ```
 
-We know from working with Ruby and MiniTest that this error is telling us it can't Article. In this past this has meant that maybe the files aren't required appropriately or the class just doesn't exist. Now that we'll be working with a database we also have to think about whether this resource exists in the database or not. 
+We know from working with Ruby and MiniTest that this error is telling us it can't find the class `Article`. In this past this has meant that maybe the files aren't required appropriately or the class just doesn't exist. Now that we'll be working with a database we also have to think about whether this resource exists in the database or not. 
 
 We haven't done anything with our database yet other than create an empty one. It definitely doesn't have Articles in there yet. Let's go solve that problem first. 
 
@@ -383,6 +384,18 @@ $ bin/rake db:migrate
 It tells you that it is running the migration named `CreateArticles`. And the "migrated" line means that it completed without errors. When the migrations are run, data is added to the database to keep track of which migrations have *already* been run. Try running `rake db:migrate` again now, and see what happens.
 
 We've now created the `articles` table in the database and can start working on our `Article` model.
+
+Every time you run a migration, you'll also want to checkout your schema. This can be found under `db/schema.rb`. This file displays the current structure of your database - which tables are in your database and which columns are present on each table. If you're more of a visual person, you may also want to use Active Designer. 
+
+Run `active_designer --create db/schema.rb` from the command line. You should see the following output: 
+
+```
+Created active_designer/index.html
+```
+
+You'll notice that this has added an `active_designer` directory with an index.html in it. This has been built off your `schema.rb`. When you run the command `open active_designer/index.html` a web page will open up with a visual depiction of the current structure of your database. Cool! 
+
+I highly recommend checking both your `schema.rb` and running `active_designer --create db/schema.rb` after each migration you run.
 
 Before we move on, don't forget to commit.
 
@@ -1028,7 +1041,7 @@ For example, `article_path(1)` would generate the string `"/articles/1"`. Give t
 
 #### Completing the Article Links
 
-Let's update or assertions in our feature test. Change `dexpect(page).to have_content(article_1.title)` to `expect(page).to have_link(article_1.title)` and make the same update for the second article.
+Let's update our assertions in our feature test. Change `expect(page).to have_content(article_1.title)` to `expect(page).to have_link(article_1.title)` and make the same update for the second article.
 
 When you run your test your error should looke something like this:
 
@@ -1128,7 +1141,7 @@ Based on our branch name, we have completed the intended functionality. Let's:
 
 ### Creating the SHOW Action
 
-We'll need to write a new test for this since we're building out functionality on a new action/view. Create a new feature test file for the functionality where a user sees one article. Within this test structure, you're going to start with a describe block similar to the name of the file, then give any more specific scenario information, and then say what you expect to find there. Git it a try yourself before looking at my sample below.
+We'll need to write a new test for this since we're building out functionality on a new action/view. Create a new feature test file for the functionality where a user sees one article. Within this test structure, you're going to start with a describe block similar to the name of the file, then give any more specific scenario information, and then say what you expect to find there. Give it a try yourself before looking at my sample below.
 
 ```ruby
 require "rails_helper"

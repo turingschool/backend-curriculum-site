@@ -15,17 +15,22 @@ layout: page
 - `flex-direction`
 - `flex-flow`
 
-### Flexbox
+## Warm Up
+* What strategies have you used so far to position elements on the page? 
+* How do you feel about positioning in CSS?
+* Rate your abilities to position elements on the page
+
+## Flexbox
 
 - Introduced as syntax in 2015.
 - Flexbox allows us to manipulate the position of tags without all the knowledge of a larger grid system.
-- We can use the grid system (Bootstrap), which works fine but requires more digging into docs and base knowledge about how it works.
+- We can use a grid system ([Bootstrap](https://v4-alpha.getbootstrap.com/), [CSS Grid](https://css-tricks.com/snippets/css/complete-guide-grid/), etc), which works fine but requires more digging into docs and base knowledge about how it works.
 
-## Using Flexbox
+### Using Flexbox
 
 ### Setup
 
-- Clone down [this repo](https://github.com/icorson3/flexbox). Open the `index.html` file from your command line (For atom, `atom open index.html`).
+- Clone down [this repo](https://github.com/turingschool-examples/flexbox_be2). Open the `index.html` file from your command line (For atom, `atom open index.html`).
 - Check out the CSS and HTML files to see what is going on.
 
 ### Let's play
@@ -113,7 +118,13 @@ layout: page
 
 - With the time left, take another look at [Dog Party](https://github.com/icorson3/dog-party) and see if you can apply Flexbox to your layout.
 
+## Wrap Up
+* What are the 5 main properties to use with Flexbox which we learned today? (There are many more, check out the resources below)
+  * What does each do?
+  * What are the possible arguments you can pass each propery?
+
 ## Resources
 
 * [A Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
 * [Another challenge: flex calendar](https://github.com/tmikeschu/flexendar)
+* [A game to learn Flexbox](http://flexboxfroggy.com/)

@@ -3,21 +3,29 @@ title: Organizing an Express App
 tags: node, express, knex, database, SQL, http
 ---
 
-### Pre-reqs
-
-We're going to start from the end of the [SQL in Node Lesson](http://backend.turing.io/module4/lessons/sql-in-node)
-
-If you need it, you can clone this repo, which represents the completed lesson:
-
-```
-git clone -b sql-in-node git@github.com:turingschool-examples/building-app-with-express.git organizing_express
-```
-
 ## Learning Goals
 
 By the end of this lesson, you will:
 
-*   Understand how to made code organization decisions without a framework
+*   Understand how to make code organization decisions in an unopinionated framework.
+
+## Slides
+
+Available [here](../slides/organizing_an_express_app)
+
+## Pre-reqs
+
+We're going to start from the end of the [SQL in Node Lesson](http://backend.turing.io/module4/lessons/sql-in-node)
+
+If you need it, you can clone [this](https://github.com/turingschool-examples/secret-box-revisited) repo, which has a branch `02_sql_lesson_complete` that represents the code that we expect to have been completed at the end of that lesson.
+
+## Warmup
+
+Given the code that you currently have in the `/api/secrets.js` file:
+
+* Walk through each line of code and describe what it's doing.
+* How might you split the code in that function into smaller functions?
+* How might you split it into separate files?
 
 ## Models and Controllers
 
@@ -25,25 +33,27 @@ Let's do some refactoring. Right now, `server.js` is hard to read and its method
 
 Think of the last Rails app you've built. You probably spent a very small amount of time making structural and design decisions (think routes, controllers, models). Just because the framework we're currently using doesn't prepackage our structure, doesn't mean we shouldn't implement something that's still quite helpful. Therefore, we'll be aiming to add some lightweight MVC strcuture to our Express apps.
 
-> Note: The models and controllers we initially create will not be structured by classes, but we will eventually refactor them to be so. In the meantime, something like our `models/secret.js` file itself will be required in as a pseudo model and used as such. 
+> Note: The models and controllers we initially create will not be structured by classes, but we will eventually refactor them to be so. In the meantime, something like our `models/secret.js` file itself will be required in as a pseudo model and used as such.
 
 ## Models
 
 ### Dicuss: Where Can We Refactor?
 
-Take 3 minutes to answer the following questions with a partner:
+Take 3 minutes to answer the following questions with a partner assuming you were going to create a new file to act as a model in your application:
 
--   In the code that we have written, what should live in a model?
--   How could you extract that code in to a function or functions?
+* What will this file be called?
+* Where will you put it?
+* What are its responsibilities?
+* Are there things currently in `secrets.js` that are specifically *not* the responsibility of the model?
+* Go ahead and see if you can move your code and ensure that everything still works.
 
-### Code Along: Implement Models
+### With a Partner: Implement Models
 
 First, some structure:
 
 ```
-mkdir /lib
-mkdir /lib/models
-touch /lib/models/secret.js
+$ mkdir models
+$ touch models/secret.js
 ```
 
 Let's start by extracting our SQL out of our handlers and into `secret.js`
@@ -96,24 +106,6 @@ module.exports = {
 }
 ```
 
-Last step is to use this new module and its functions in our test file.
-
-```js
-const Secret = require('../lib/models/secret')
-
-describe('GET /api/secrets/:id', function(){
-  beforeEach((done) => {
-    Secret.create("I open bananas from the wrong side")
-    .then(() => done())
-  })
-
-  afterEach((done) => {
-    Secret.destroyAll()
-    .then(() => done())
-  })
-})
-```
-
 ### Your Turn
 
 -   Can you extract the rest of the SQL from your tests and `server.js`?
@@ -122,15 +114,15 @@ describe('GET /api/secrets/:id', function(){
 
 ## Controllers
 
-Our `server.js` is getting bulky. Something I've noticed is that each block of code in this file is mostly comprised of 1) an HTTP verb, 2) a route, and 3) a function to handle the request.
+Our `app.js` is still a little bulky. Something I've noticed is that each block of code in this file is mostly comprised of 1) an HTTP verb, 2) a route, and 3) a function to handle the request.
 
-These were all things our `routes.rb` handled in Rails. Could we get `server.js` to behave more like a `routes.rb` file?
+These were all things our `routes.rb` handled in Rails. Could we get `app.js` to behave more like a `routes.rb` file?
 
 Take 3 minutes and discuss with a partner:
 
--   What code from our `server.js` looks like it might belong in a controller?
--   How could you extract that code in to a function or functions?
--   If you had to extract this code to another file, what questions would you have?
+* What code from our `app.js` looks like it might belong in a controller?
+* How could you extract that code in to a function or functions?
+* If you had to extract this code to another file, what questions would you have?
 
 ### Your Turn
 

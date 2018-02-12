@@ -30,6 +30,7 @@ layout: page
 
 * **LESSONS:**
   - [Intro to Sass](../lessons/intro_to_sass)
+  - [Diagramming the Request Response Cycle](../lessons/diagramming_request_response_cycle)
   - [Rails Basics Challenge](../misc/rails_basics_challenge)
 
 * **HOMEWORK:**
@@ -43,7 +44,7 @@ layout: page
   - [Auth Exploration](../misc/auth_exploration)
 
 * **HOMEWORK:**
-  - Rest!
+  - [Schema Practice](../misc/schema_practice). Choose 2 - 3.
 
 ### Day 5:
 
@@ -55,3 +56,6 @@ layout: page
 
 * [Job Tracker](https://github.com/turingschool/job-tracker)
 * [Rails Mini Project](../projects/mini-project)
+
+## Additional Resources
+* [Mix Master](../projects/mix_master/1_getting_started.markdown)

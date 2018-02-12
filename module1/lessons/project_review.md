@@ -6,7 +6,7 @@ tags: ruby, reflection
 
 
 ## Learning Goals  
-* identify strengths and weeknesses in the completed project 
+* identify strengths and weaknesses in the completed project 
 * reflect on strategies for improved work flow 
 * incorportate ideas and strategies from peers in future projects
 

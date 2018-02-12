@@ -120,7 +120,7 @@ If you are running your test files from within the `project` directory, both of 
 
 What seems more brittle in this case is likely actually more resilient to future changes. Remember the example above: if our application and test suite grow, we may decide that we want to include subdirectories for our tests. If we use `require_relative` that means that we have to add a `../` to each and every one of our tests. If we use `require` we can simply move our files to a new subdirectory and continue to run our tests from the `project` directory as we have been doing.
 
-Additionally, using require tends to be more common within the community. Programmers get workedup about weird things and sometimes it's best to just go with the flow
+Additionally, using require tends to be more common within the community. Programmers get worked up about weird things and sometimes it's best to just go with the flow.
 
 ##### Check for Understanding
 
@@ -146,6 +146,7 @@ end
 ```
 
 **require type** | running file from project directory | running file from test directory
+|:--:|:--:|:--:|
 `require` | |
 `require_relative` | |
 

@@ -4,6 +4,13 @@ length: 90
 tags: express, testing, server, node
 ---
 
+## Learning Goals
+
+By the end of this lesson, you will...
+* Write tests for your Express application
+* Explain the differences between the way we test when we have a front end
+* Explain the benefits of testing
+
 ## Overview
 
 Server-side testing is a crucial facet of testing. As your app grows in size and complexity, there will be more points of potential failure.
@@ -12,6 +19,8 @@ When we have render our applications through a front-end, our server-side testin
 
 ## Why do we test?
 
+* Why do we test our code?
+* What do you like and dislike about testing?
 
 ## Basic Structure of a Server-Side Test
 
@@ -36,6 +45,7 @@ We'll be using [mocha](https://mochajs.org/) for our test runner, [chai](http://
 
 We will use the express app that we've been working on in class to practice testing. Checkout to the `testing-practice` branch.
 
+
 ### Setup
 
 Now let's install our testing tools from the terminal.
@@ -53,7 +63,7 @@ At the top of the test file, `routes.spec.js`, add:
 const chai = require('chai');
 const should = chai.should();
 const chaiHttp = require('chai-http');
-const server = require('../server');
+const server = require('../app.js');
 
 chai.use(chaiHttp);
 
@@ -121,7 +131,6 @@ describe('Client Routes', () => {
     .then((response) => {
       response.should.have.status(200);
       response.should.be.html;
-      response.res.text.should.equal('Welcome to Express')
     })
     .catch((error) => {
       throw error;
@@ -152,7 +161,6 @@ describe('Client Routes', () => {
     .then((response) => {
       response.should.have.status(200);
       response.should.be.html;
-      response.res.text.should.equal('Welcome to Express')
     })
     .catch((error) => {
       throw error;
@@ -196,7 +204,8 @@ Right now, this is what the entire test file looks like:
 const chai = require('chai');
 const should = chai.should();
 const chaiHttp = require('chai-http');
-const server = require('../server');
+const server = require('../app.js');
+
 
 chai.use(chaiHttp);
 
@@ -208,7 +217,6 @@ describe('Client Routes', () => {
       .then((response) => {
         response.should.have.status(200);
         response.should.be.html;
-        response.res.text.should.equal('Welcome to Express')
       })
       .catch((error) => {
         throw error;
@@ -230,6 +238,67 @@ describe('Client Routes', () => {
 
 describe('API Routes', () => {
 
+});
+```
+
+
+### Setup for API routes
+
+So you have access to your database, add at the top of the `routes.spec.js` file:
+
+```javascript
+const environment = process.env.NODE_ENV || 'test';
+const configuration = require('../knexfile')[environment];
+const database = require('knex')(configuration);
+```
+
+#### Create and Setup Database
+
+Use the following commands to create your test database:
+
+```shell
+psql
+CREATE DATABASE secrets_test;
+```
+
+Migrate your secrets_test with:
+
+```shell
+knex migrate:latest --env test
+```
+
+Create a new directory under seeds called `test`, and touch `secrets.js` - this should contain the exact same thing that your `secrets.js` inside of the `dev` seed file.
+
+Seed your secrets_test with:
+
+```shell
+knex seed:run --env test
+```
+
+#### before and beforeEach
+
+Server-side tests should run in isolation and each test should not leave artifacts in the database. For instance, the first test in the test file should not influence what happens with the fifth test. Therefore, we need to run migrations before we run the test suite and reset the database before each test.
+
+If you're using a "real" database like postgreSQL with knex, you will typically need to:
+
+ 1. Before all tests, run the migrations for your test environment and seed the test database
+ 2. Before each test:
+  * Clean out the database (delete records in all tables)
+  * Seed your database with records
+
+With our testing structure, we have built-in methods called `before` and `beforeEach`, and they run before all tests and before each test in the describe block they are scoped in, respectively. There is also `after` and `afterEach`, but there is a caveat with `afterEach`. If a test fails, the `afterEach` will _not_ run after that test, which can leave your database in a bad state. So be sure to put your database in a good state for every test even if one fails.
+
+Let's write these methods within the `describe('API Routes', ...` block.
+
+```javascript
+before(() => {
+  // Run migrations and seeds for test database
+});
+
+beforeEach((done) => {
+  // Would normally run run your seed(s), which includes clearing all records
+  // from each of the tables
+  done(); // Need to call the done function because this is not a promise/async
 });
 ```
 
@@ -295,18 +364,17 @@ describe('POST /api/secrets', () => {
 
   it('should add a secret', () => {
     return chai.request(server)
-      .post('/api/secrets')   // Notice the change in the verb
-      .send({                 // Here is the information sent in the body or the request
-        id: "142",
+      .post('/api/secrets')
+      .send({
         message: "I am in love with Mr. Wigglesworth."
       })
       .then((response) => {
-        response.should.have.status(201);   // Different status here
-        response.body.should.be.a('object');
-        response.body.should.have.property('id');
-        response.body.id.should.be(142);
-        response.body.should.have.property('message');
-        response.body.message.should.be('I am in love with Mr. Wigglesworth.');
+        response.should.have.status(201);
+        response.body.should.be.a('array');
+        response.body[0].should.have.property('id');
+        response.body[0].id.should.equal(4);
+        response.body[0].should.have.property('message');
+        response.body[0].message.should.equal('I am in love with Mr. Wigglesworth.');
       })
       .catch((error) => {
         throw error;
@@ -316,7 +384,6 @@ describe('POST /api/secrets', () => {
 });
 ```
 
-
 ### POST Sad Path
 
 What if we make a POST request and don't specify all of the properties of a secret (in this case, the message)? An example with multiple properties would be an endpoint that requires lastname, program, and enrolled. In the request body if we specify `{lastname: 'Knuth', program: 'FE'}`, but we leave out the `enrolled` property and value, the new record should not be created. We don't want unintended null values in our database!
@@ -324,20 +391,17 @@ What if we make a POST request and don't specify all of the properties of a secr
 We should have designed our server so that it does not accept this kind of situation with missing data; now we need to test that!
 
 ```javascript
-  it('should not add a secret if message is not provided', () => {
-    return chai.request(server)
-      .post('/api/secrets/')
-      .send({
-        id: "143"   // Missing the message property
-      })
-      .then((response) => {
-        response.should.have.status(422);
-        response.body.should.equal('No message property provided');
-      })
-      .catch((error) => {
-        throw error;
-      });
-  });
+it('should not add a secret if message is not provided', () => {
+  return chai.request(server)
+    .post('/api/secrets')
+    .send({}) // Missing the message property
+    .then((response) => {
+      response.should.have.status(422);
+    })
+    .catch((error) => {
+      throw error;
+    });
+});
 ```
 
 
@@ -353,15 +417,6 @@ There are many more possibilities for route sad paths. Some could be:
 * A user submits duplicate data for table columns that must have unique record values
 * And others!
 
-
-So you have access to your database, add at the top of the `routes.spec.js` file:
-
-```javascript
-const environment = process.env.NODE_ENV || 'test';
-const configuration = require('../knexfile')[environment];
-const database = require('knex')(configuration);
-```
-
 ### File summary
 
 By the end of it all, this is what the `routes.spec.js` file looks like:
@@ -370,8 +425,7 @@ By the end of it all, this is what the `routes.spec.js` file looks like:
 const chai = require('chai');
 const should = chai.should();
 const chaiHttp = require('chai-http');
-const server = require('../routes/api/secrets');
-
+const server = require('../app.js');
 const environment = process.env.NODE_ENV || 'test';
 const configuration = require('../knexfile')[environment];
 const database = require('knex')(configuration);
@@ -386,7 +440,6 @@ describe('Client Routes', () => {
     .then((response) => {
       response.should.have.status(200);
       response.should.be.html;
-      response.res.text.should.equal('Welcome to Express')
     })
     .catch((error) => {
       throw error;
@@ -413,7 +466,9 @@ describe('API Routes', () => {
       .then(() => done())
       .catch(error => {
         throw error;
-      });
+      })
+      .done();
+
   });
 
   beforeEach((done) => {
@@ -421,7 +476,8 @@ describe('API Routes', () => {
       .then(() => done())
       .catch(error => {
         throw error;
-      });
+      })
+      .done();
   });
 
   describe('GET /api/secrets/:id', () => {
@@ -447,20 +503,19 @@ describe('API Routes', () => {
   });
 
   describe('POST /api/secrets', () => {
+
     it('should add a secret', () => {
       return chai.request(server)
         .post('/api/secrets')
         .send({
-          id: "142",
           message: "I am in love with Mr. Wigglesworth."
         })
         .then((response) => {
-          response.should.have.status(201);
-          response.body.should.be.a('object');
-          response.body.should.have.property('id');
-          response.body.id.should.be(142);
-          response.body.should.have.property('message');
-          response.body.message.should.be('I am in love with Mr. Wigglesworth.');
+          response.body.should.be.a('array');
+          response.body[0].should.have.property('id');
+          response.body[0].id.should.equal(4);
+          response.body[0].should.have.property('message');
+          response.body[0].message.should.equal('I am in love with Mr. Wigglesworth.');
         })
         .catch((error) => {
           throw error;
@@ -469,17 +524,15 @@ describe('API Routes', () => {
 
     it('should not add a secret if message is not provided', () => {
       return chai.request(server)
-        .post('/api/secrets/')
+        .post('/api/secrets')
         .send({})
         .then((response) => {
           response.should.have.status(422);
-          response.body.should.equal('No message property provided');
         })
         .catch((error) => {
           throw error;
         });
     });
-
   });
 
 });
