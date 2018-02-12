@@ -152,15 +152,17 @@ end
 
 ## Rakefiles and Test Runners
 
-* Unix origins, building projects, and `make`
-* Problem: want a standardized command that you can run in every project
-* For a C project, "building" means compiling and verifying that things work
-* Ruby projects don't get compiled, so what does "building" mean for a Ruby project?
-* Rake tries to create a standardized solution for this problem
-* Also provides a standardized "task runner" for ruby projects
-* `Rakefile` is a special file that lives in the root of your project and defines these tasks
+* Unix origins, building projects, and [make](https://www.computerhope.com/unix/umake.htm)
+For a C project, "building" means compiling and verifying that things work. Ruby projects don't get compiled, so what does "building" mean for a Ruby project?
+
+Rake tries to create a standardized solution for this problem so that you can interact with build and program prep the same no matter which application you're running. Not only does it give you set commands, but you can also build your town tasks and run them through Rake.
+
+By default Rake will look for a file name `Rakefile` in the root of your project. You'll define your RakeTasks in here. 
+
 
 #### Using Rake to Build a Task
+
+A task is comprised of the keyword `task` followed by the name you assign to the task written as a symbol. This gets passed a block of code - similar to how we pass a block of code to the `.each` method.
 
 Code along with your instructor to build your first rake task.
 
@@ -177,16 +179,13 @@ This task would then be run from the command line using `rake pizza` (from the *
 Let's build our first [testing rake task](https://docs.ruby-lang.org/en/2.1.0/Rake/TestTask.html). Our objective is to be able to go into the root directory of your project, type `rake`, and run our test suite (all of your tests) with that one command.
 
 ```ruby
-require "rake"
-require "rake/testtask"
-
-Rake::TestTask.new do |t|
-  t.libs << "test"
-  t.test_files = FileList['test/*_test.rb']
-  t.verbose = true
+desc "run all tests"
+task :test do
+  ruby "test/*_test.rb"
+  ruby "test/**/*_test.rb"
 end
 
-task default: :test # <------ important
+task default: ["test"]
 ```
 
 ##### Exercise
