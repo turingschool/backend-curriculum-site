@@ -11,19 +11,16 @@ By the end of this lesson, you will...
 * Explain the differences between the way we test when we have a front end
 * Explain the benefits of testing
 
-
 ## Overview
 
 Server-side testing is a crucial facet of testing. As your app grows in size and complexity, there will be more points of potential failure.
 
 When we have render our applications through a front-end, our server-side testing looks a little different than what are you used to testing in Rails - **front-end** testing should test what renders based on user interactions, while **server-side** testing focuses on the API routes - looking at a request coming from a client, processing the request, and testing if the correct response to the client is given.
 
-
 ## Why do we test?
 
 * Why do we test our code?
 * What do you like and dislike about testing?
-
 
 ## Basic Structure of a Server-Side Test
 
@@ -41,7 +38,6 @@ What about the response should we test?
 * What should be contained in the body?
   - If it's an array, how many elements should be in the array?
   - If it's an object, what properties and values should the object have?
-
 
 ## Let's Go Through Some Examples
 
@@ -92,6 +88,32 @@ This makes sense because we don't have any tests yet, but now we're all setup to
 
 *Note:* If you aren't automatically exited out of the test, use the command `mocha --exit` instead.
 
+### before and beforeEach
+
+Server-side tests should run in isolation and each test should not leave artifacts in the database. For instance, the first test in the test file should not influence what happens with the fifth test. Therefore, we need to run migrations before we run the test suite and reset the database before each test.
+
+If you're using a "real" database like postgreSQL with knex, you will typically need to:
+
+ 1. Before all tests, run the migrations for your test environment and seed the test database
+ 2. Before each test:
+  * Clean out the database (delete records in all tables)
+  * Seed your database with records
+
+With our testing structure, we have built-in methods called `before` and `beforeEach`, and they run before all tests and before each test in the describe block they are scoped in, respectively. There is also `after` and `afterEach`, but there is a caveat with `afterEach`. If a test fails, the `afterEach` will _not_ run after that test, which can leave your database in a bad state. So be sure to put your database in a good state for every test even if one fails.
+
+Let's write these methods within the `describe('API Routes', ...` block.
+
+```javascript
+before(() => {
+  // Run migrations and seeds for test database
+});
+
+beforeEach((done) => {
+  // Would normally run run your seed(s), which includes clearing all records
+  // from each of the tables
+  done(); // Need to call the done function because this is not a promise/async
+});
+```
 
 ### Happy Path
 
@@ -103,7 +125,6 @@ The test for the route `/` becomes:
 
 ```javascript
 describe('Client Routes', () => {
-
   it('should return the home page with text', () => {
     return chai.request(server)
     .get('/')
@@ -115,7 +136,6 @@ describe('Client Routes', () => {
       throw error;
     });
   });
-
 });
 ```
 
@@ -127,7 +147,6 @@ Here is the breakdown of the test:
 - If you cannot return a promise from the test, then you need to use the `done()` function to tell mocha that the test has completed (or else the test will timeout and fail - we'll see this later in the lesson)
 
 The tests are written using `should`, but you can choose to use `expect` or `assert` - just be consistent. See the [chai docs](http://chaijs.com/api/) for more info.
-
 
 ### Sad Path
 
@@ -186,6 +205,7 @@ const chai = require('chai');
 const should = chai.should();
 const chaiHttp = require('chai-http');
 const server = require('../app.js');
+
 
 chai.use(chaiHttp);
 
@@ -282,7 +302,6 @@ beforeEach((done) => {
 });
 ```
 
-
 ### Test an API Call (GET Request)
 
 From our basic server-side tests above, you can see how we might test our API. The first test is for the `/api/secrets/:id` route. A GET request to this endpoint should return a single secret.
@@ -333,7 +352,6 @@ Test Express is running on 3000.
   3 passing (61ms)
 
 ```
-
 
 ### Test a POST Request
 
@@ -399,7 +417,6 @@ There are many more possibilities for route sad paths. Some could be:
 * A user submits duplicate data for table columns that must have unique record values
 * And others!
 
-
 ### File summary
 
 By the end of it all, this is what the `routes.spec.js` file looks like:
@@ -451,6 +468,7 @@ describe('API Routes', () => {
         throw error;
       })
       .done();
+
   });
 
   beforeEach((done) => {
@@ -493,7 +511,6 @@ describe('API Routes', () => {
           message: "I am in love with Mr. Wigglesworth."
         })
         .then((response) => {
-          response.should.have.status(201);
           response.body.should.be.a('array');
           response.body[0].should.have.property('id');
           response.body[0].id.should.equal(4);
@@ -516,20 +533,17 @@ describe('API Routes', () => {
           throw error;
         });
     });
-
   });
 
 });
 
 ```
 
-
 ## Checks for Understanding
 
 * What libraries do we use to test server-side endpoints?
 * What is the difference between happy and sad path tests?
 * What about a response should we test?
-
 
 ## Interview Question
 
