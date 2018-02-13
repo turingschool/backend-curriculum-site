@@ -5,7 +5,7 @@ length: 60min
 tags: ruby
 ---
 
-## Ruby Project Etiquette: Gemfiles & Bundler
+## Ruby Project Etiquette: Gemfiles, Bundler, & LOAD_PATH
 
 In this session we're going to go over some common best practices for organizing and managing code in our Ruby projects. By the end of the lesson, you should be comfortable with the following tasks.
 
