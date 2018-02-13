@@ -24,7 +24,7 @@ The first thing you will see is a helpful note to enter `help` if you need some 
 
 In order to interact with our BikeShare database, we'll first need to connect to it. How do we know it exists or what it's named? First type `\list`. This will provide you with a list of databases avaialble to you.
 
-In order to connect to our database, type `\c bike-share-development` (or whatever `\list` tells you your database is called). Now you should be able to run SQL commands.
+In order to connect to our database, type `\c little-shop-redux-development` (or whatever `\list` tells you your database is called). Now you should be able to run SQL commands.
 
 When you're ready to disconnect type `\q`
 
@@ -34,44 +34,43 @@ With a partner, see if you can complete each of the tasks below. After each sect
 
 #### SELECT FROM LIMIT
 
-* All of the information on the `stations` table.
-* Max, min, and mean temp from the `conditions` table.
-* `id`, `start_station_id`, and `duration` of five trips.
+* All of the information on the `merchants` table.
+* Max, min, and mean unit_price from the `items` table.
+* `id`, `merchant_id`, and `description` of five items.
 
 #### WHERE
 
-* Trips that started at the station with an id of 2.
-* Stations that have a `dock_count` of 15.
-* id, date, and precipitation for conditions with more than 1 inch of precipitation.
+* Items that have a merchant with an id of 12334284.
+* Items that have a `unit_price` of 800.
+* id, unit price, and description for items more expensive than 800.
 
 #### max/min/count/average
 
-* Duration of the longest trip.
-* Duration of the shortest trip.
-* Average `dock_count` at a station.
-* Highest `dock_count` at a station.
-* Count of days with no rain.
-* Name/`dock_count` of the station with the most docks.
-* Id, start station id, and duration of the longest trip.
-* Id, start station id, and duration of the shortest trips.
+* All information about the oldest Merchant.
+* All information about the newest Merchant.
+* Average items `unit_price` for a merchant.
+* Highest items `unit_price` for a merchant.
+* Name of the merchant with the most items.
+* Id, merchant id, and description of the most expensive item.
+* Id, merchant id, and description of the least expensive item.
 
 #### JOIN
 
-* Name of the station where the longest trip started.
-* Name of the stations where the shortest trips started.
+* Name of the category that has the most merchants.
+* Name of the category that has the least merchants.
 
 #### GROUP
 
-* Count of trips started at each station.
+* Count of items for each merchant.
 * Count of trips ended at each station.
-* Count of trips started on days with more than an inch of precipitation.
+* Count of items created after 1993-09-29.
 
 #### ORDER
 
-* Top five stations with the most trips started.
-* Top five stations with the most trips ended.
-* Least popular start station.
-* `mean_temperature` and `precipiation` on the five dates with the most trips.
+* Top five merchants with the most items.
+* Top five most expensive items .
+* Least popular merchant (by item count).
+* `name` for on the five merchants with the most items.
 
 ## Additional Resources
 
