@@ -11,7 +11,7 @@ tags: javascript, front-end framework, react
 - Explain why, when, and how we import and export files
 
 
-## Build Quantified Self in React
+## Brainstorm - How would we build Quantified Self in React?
 
 * For the foods page, what components might we need?
 * What would those parent/child relationships be?
@@ -29,6 +29,10 @@ npm start
 Make sure the project is up and running in your browser.
 
 Check out the file structure - what is similar/different from yesterday's project?
+
+### Imports and Exports
+
+Now that we've mapped out our app and have our initial file structure, let's go ahead and import/export everything we need for today.
 
 ### App.js
 
@@ -59,14 +63,10 @@ class App extends Component {
 export default App;   // this is necessary for our index.js to find this file
 ```
 
-Now we need to GET our foods! Check out the util/requests file - we already have the fetch requests! Let's pull that into our App, then use `componentDidMount()` to make that call.
+Now we need to GET our foods! Check out the util/requests file - we already have the fetch requests! Let's use `componentDidMount()` to make that call.
 
 ```js
 //App.js
-import React, { Component } from 'react';   
-import { getFoods } from './utils/requests';  // only bringing in that one function
-import './styles/App.css';
-
 class App extends Component {
   constructor(props) {  
     super(props);
@@ -104,9 +104,6 @@ Now, let's render our FoodList and FoodForm!
 
 ```js
 //App.js
-//other imports
-import FoodList from './FoodList';  // in order to render our FoodList, App has to know about it
-
 class App extends Component {
   constructor(props) {  
     super(props);
@@ -139,9 +136,6 @@ We have brought in FoodList, but there isn't much in that file right now.
 
 ```js
 //FoodList.js
-import React, { Component } from 'react';
-import '../styles/FoodList.css';
-
 class FoodList extends Component {
   render() {
     console.log(this.props)   //make sure we have foods as expected
@@ -152,11 +146,9 @@ class FoodList extends Component {
     )
   }
 };
-
-export default FoodList;
 ```
 
-We should now see that App and FoodList are talking to each other correctly, and that FoodList has the array of foods! Great. Each food will have it's own card component, so we now need to map over all our foods.
+We should now see that FoodList has the array of foods! Great. Each food will have it's own card component, so we now need to map over all our foods.
 
 ```js
 class FoodList extends Component {
@@ -215,9 +207,6 @@ What is happening with `{ mappedFoods }`? JSX, this syntax extension to JavaScri
 We are SO close! We talked about this `<Card />` component, but aren't using it yet. Instead of rendering all those lines of JSX in the map, let's abstract that out into a re-usable card.
 
 ```js
-//other imports
-import FoodCard from './FoodCard';
-
 class FoodList extends Component {
 
   let foods = this.props.foods;
@@ -244,9 +233,6 @@ class FoodList extends Component {
 ..now we have to make a FoodCard. This one is easy!
 
 ```js
-import React from 'react';
-import '../styles/FoodCard.css';
-
 const FoodCard = ({ food, deleteFood }) => {
   return (
     <div
@@ -258,8 +244,6 @@ const FoodCard = ({ food, deleteFood }) => {
     </div>
   )
 }
-
-export default FoodCard;
 ```
 
 #### PAUSE and Check In
@@ -271,10 +255,6 @@ export default FoodCard;
 Now that we realize we don't need state in FoodList, we really should do the right thing and re-factor it into a presentational component. You'll see this done differently - many folks choose to start all components out as stateful; if they need to add in state, they don't need to change much. You can always come back at the end of a project and make things with no state, presentational. This isn't a must-do, BUT it will hopefully illustrate the difference for you.
 
 ```js
-import React from 'react';
-import FoodCard from './FoodCard';
-import '../styles/FoodList.css';
-
 const createFoodCards = (foods) => {
   return foods.map((food) => {
     return (
@@ -296,8 +276,6 @@ const FoodList = ({ foods }) => {
     </div>
   );
 }
-
-export default FoodList;
 ```
 
 #### PAUSE and Check In
@@ -317,9 +295,6 @@ We haven't really been able to see the power of state in anything but our App ye
 Knowing the very basics of a controlled component, should FoodForm be stateful or presentational?
 
 ```js
-import React, { Component } from 'react';
-import '../styles/FoodForm.css';
-
 class FoodForm extends Component {
   constructor(props) {
     super(props)
@@ -352,8 +327,6 @@ class FoodForm extends Component {
     );
   }
 }
-
-export default FoodForm;
 ```
 
 We already have our form set up, but we need to listen for changes on the input and a click of the button. On those events, let's call a method that lives in the component.
@@ -411,29 +384,29 @@ If we throw a `console.log` in those methods, we should see we are getting into 
 
 ```js
   updateFood = (key, event) => {  // key is the 'food' or 'calories' passed in
-    this.setState({ [key]: event.target.value }) // this allows us to re-use the same function for both keys to set state
+    this.setState({ [key]: event.target.value })
+    // this allows us to re-use the same function for both keys to set state
   }
 
   <input
     className="input"
     type="text"
     placeholder="Food Name"
-    onChange={ this.updateFood.bind(this, 'food') }   // bind creates a new function, bound to THIS context, with the key of food
+    onChange={ this.updateFood.bind(this, 'food') }   
+    // bind creates a new function, bound to THIS context, with the key of food
   />
   <input
     className="input"
     type="number"
     placeholder="Calories"
-    onChange={ this.updateFood.bind(this, 'calories') } // bind creates a new function, bound to THIS context, with the key of cal
+    onChange={ this.updateFood.bind(this, 'calories') }
+    // bind creates a new function, bound to THIS context, with the key of cal
   />
 ```
 
 Now that state is sent, let's get this new food into the database!
 
 ```js
-//FoodForm.js
-import { addFoods } from './utils/requests';
-
 addFood = (event) => {
   event.preventDefault()
   let food = this.state.food;
