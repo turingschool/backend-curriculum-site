@@ -35,7 +35,6 @@ With a partner, see if you can complete each of the tasks below. After each sect
 #### SELECT FROM LIMIT
 
 * All of the information on the `merchants` table.
-* Max, min, and mean unit_price from the `items` table.
 * `id`, `merchant_id`, and `description` of five items.
 
 #### WHERE
@@ -46,31 +45,32 @@ With a partner, see if you can complete each of the tasks below. After each sect
 
 #### max/min/count/average
 
-* All information about the oldest Merchant.
-* All information about the newest Merchant.
-* Average items `unit_price` for a merchant.
-* Highest items `unit_price` for a merchant.
-* Name of the merchant with the most items.
+* Max, min, and mean unit_price from the `items` table.
+* Average price for all items.
 * Id, merchant id, and description of the most expensive item.
 * Id, merchant id, and description of the least expensive item.
+* Count of items created after 1993-09-29.
+* All information about the oldest Merchant.
+* All information about the newest Merchant.
 
 #### JOIN
 
-* Name of the category that has the most merchants.
-* Name of the category that has the least merchants.
+* Highest items `unit_price` for merchant with id of 12334284.
+* Average items `unit_price` for merchant with id of 12334284.
 
 #### GROUP
 
 * Count of items for each merchant.
-* Count of trips ended at each station.
-* Count of items created after 1993-09-29.
+* Name of the merchant with the most items.
+* Name of the category that has the most merchants.
+* Name of the category that has the least merchants.
 
 #### ORDER
 
 * Top five merchants with the most items.
-* Top five most expensive items .
+* Top five most expensive items.
 * Least popular merchant (by item count).
-* `name` for on the five merchants with the most items.
+* `name` for the five merchants with the most items.
 
 ## Additional Resources
 
