@@ -61,7 +61,7 @@ Students who successfully complete Module 4 will have demonstrated mastery of Pr
 *   JavaScript Final Assessment
 *   [Introduction to React](./lessons/intro_to_react)
 *   [React Sandbox](./lessons/react-sandbox)
-*   [Basics of Security](./lessons/web_application_security)
+*   [Basics of Security](./lessons/web_application_security_top_10)
 *   [Week 4 CFU](https://github.com/turingschool/checks-for-understanding/blob/master/module-4/backend/week_four.md)
 *   TGRF: Thank Goodness for Ruby Fridays
 
