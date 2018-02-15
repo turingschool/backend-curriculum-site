@@ -203,7 +203,7 @@ You can also use multiple selectors in the same statement:
 
 ### Chaining Selectors
 
-There are a few different ways to chain selectors to use them together. You can seperate these selectors with a comma, a space, or nothing at all.
+There are a few different ways to chain selectors to use them together. You can separate these selectors with a comma, a space, or nothing at all.
 
 * Comma: `$('p, #heading, .important')` just combines all of the selectors together.
 * Space: `$('p #heading .important')` treats each selector as a child of the previous. This will give you items of the class `important` that are children of the id `heading` which are inside a `<p>` tag.
@@ -270,7 +270,8 @@ Here are some of the all-stars of the DOM traversing world:
 
 The `parent()` method will take the currently selected element and go one level up the DOM tree.
 
-<p data-height="300" data-theme-id="23788" data-slug-hash="AXQkEZ" data-default-tab="js,result" data-user="turing" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/team/turing/pen/AXQkEZ/">jQuery Parent</a> by Turing School of Software and Design (<a href="http://codepen.io/turing">@turing</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<p data-height="265" data-theme-id="0" data-slug-hash="NyaZbq" data-default-tab="html,result" data-user="ameseee" data-embed-version="2" data-pen-title="jQuery Parent" class="codepen">See the Pen <a href="https://codepen.io/ameseee/pen/NyaZbq/">jQuery Parent</a> by Amy Holt (<a href="https://codepen.io/ameseee">@ameseee</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
 ### `parents()`
 
