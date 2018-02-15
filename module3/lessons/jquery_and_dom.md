@@ -277,13 +277,15 @@ The `parent()` method will take the currently selected element and go one level 
 
 This one will include all of the parents—all the way up to the `<body>` of the page. Additionally, you can pass it a selector. `$('.some-selector').parents('.active')` will traverse up the DOM, but only return the elements with the class of `.active`.
 
-<p data-height="300" data-theme-id="23788" data-slug-hash="AXQkXA" data-default-tab="js,result" data-user="turing" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/team/turing/pen/AXQkXA/">jQuery Parents</a> by Turing School of Software and Design (<a href="http://codepen.io/turing">@turing</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<p data-height="265" data-theme-id="0" data-slug-hash="vdeqxb" data-default-tab="html,result" data-user="ameseee" data-embed-version="2" data-pen-title="jQuery Parents" class="codepen">See the Pen <a href="https://codepen.io/ameseee/pen/vdeqxb/">jQuery Parents</a> by Amy Holt (<a href="https://codepen.io/ameseee">@ameseee</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
 ### `children()`
 
 This method returns all of the direct childen of the given selection. It will _not_ search their children. Like `parents()`, `children()` will also take a selector. `$('.some-selector').children('.active')` will go through the children of the current query and only return the elements with the class of `.active`.
 
-<p data-height="300" data-theme-id="23788" data-slug-hash="VjrOjp" data-default-tab="js,result" data-user="turing" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/team/turing/pen/VjrOjp/">jQuery Children</a> by Turing School of Software and Design (<a href="http://codepen.io/turing">@turing</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<p data-height="265" data-theme-id="0" data-slug-hash="VQMJWq" data-default-tab="html,result" data-user="ameseee" data-embed-version="2" data-pen-title="jQuery Children" class="codepen">See the Pen <a href="https://codepen.io/ameseee/pen/VQMJWq/">jQuery Children</a> by Amy Holt (<a href="https://codepen.io/ameseee">@ameseee</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
 ### `siblings()`
 
