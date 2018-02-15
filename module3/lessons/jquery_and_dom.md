@@ -300,7 +300,8 @@ One you have queried for some elements using jQuery, you can use `find()` to dri
 
 It's useful to think of `find()` as a more powerful alternative for `children()`. The `children()` method will look only one level down the tree. `find()` will search the children, the grandchildren, the great-grandchildren, and so on. The method will look at anything you currently have selected and then search within those results.
 
-<p data-height="300" data-theme-id="23788" data-slug-hash="dXVEpN" data-default-tab="js,result" data-user="turing" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/team/turing/pen/dXVEpN/">jQuery Find</a> by Turing School of Software and Design (<a href="http://codepen.io/turing">@turing</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<p data-height="265" data-theme-id="0" data-slug-hash="jZGjaV" data-default-tab="html,result" data-user="ameseee" data-embed-version="2" data-pen-title="jQuery Find" class="codepen">See the Pen <a href="https://codepen.io/ameseee/pen/jZGjaV/">jQuery Find</a> by Amy Holt (<a href="https://codepen.io/ameseee">@ameseee</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
 Which one do you use? It depends, do you want to traverse all the way down the tree or just down one level.
 
