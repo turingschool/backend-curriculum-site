@@ -20,7 +20,6 @@ tags: ruby, rails, asset_pipeline
 
 ## Resources
 
-[Slides](https://www.dropbox.com/s/ajifnbjzogvxyff/Turing%20-%20Understanding%20the%20Asset%20Pipeline.key?dl=0)
 [Starting a Rails app in production](https://gist.github.com/jmejia/8f6507d3faa92ff21f0b)
 [Sprockets](https://github.com/rails/sprockets-rails)
 
