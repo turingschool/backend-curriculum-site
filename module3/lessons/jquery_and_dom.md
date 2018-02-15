@@ -354,6 +354,10 @@ In order to take both `append()` and `prepend()` for a spin, let's try the follo
 * Append `<span class="died">(Died)<span>` to the the `term` column.
 * **Bonus**: Add a radio button before the number in each row.
 
+## DOM Competition
+
+With your partner, you have 10 minutes to create the most impressive CodePen. Create a new pen, and use jQuery to manipulate the DOM in at least FOUR different ways. Extra points for 🦄Sparkle and Delight🦄.
+
 ## Final CFU
 
 * What is jQuery? What is it so popular?
