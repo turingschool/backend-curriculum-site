@@ -20,8 +20,8 @@ tags: ruby, rails, asset_pipeline
 
 ## Resources
 
-[Starting a Rails app in production](https://gist.github.com/jmejia/8f6507d3faa92ff21f0b)
-[Sprockets](https://github.com/rails/sprockets-rails)
+* [Starting a Rails app in production](https://gist.github.com/jmejia/8f6507d3faa92ff21f0b)
+* [Sprockets](https://github.com/rails/sprockets-rails)
 
 ## Prior to Class
 
