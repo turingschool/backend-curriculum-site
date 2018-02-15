@@ -291,8 +291,8 @@ This method returns all of the direct childen of the given selection. It will _n
 
 `siblings()` will select all of the sibling elements based on the current query. Like its friends, it will also take a selector if you're polite.
 
-<p data-height="300" data-theme-id="23788" data-slug-hash="Gqrapr" data-default-tab="js,result" data-user="turing" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/team/turing/pen/Gqrapr/">Siblings</a> by Turing School of Software and Design (<a href="http://codepen.io/turing">@turing</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+<p data-height="265" data-theme-id="0" data-slug-hash="wyrLra" data-default-tab="html,result" data-user="ameseee" data-embed-version="2" data-pen-title="jQuery Siblings" class="codepen">See the Pen <a href="https://codepen.io/ameseee/pen/wyrLra/">jQuery Siblings</a> by Amy Holt (<a href="https://codepen.io/ameseee">@ameseee</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
 ### `find()`
 
