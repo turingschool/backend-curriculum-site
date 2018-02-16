@@ -31,7 +31,7 @@ This application will collect data in two ways:
 
 * Differentiate responsibilities between components of the Rails stack
 * Design a system of models which use one-to-one, one-to-many, and many-to-many relationships
-* Organize code using best practices (use POROs when appropriate, avoid long methods, etc.)
+* Organize code using best practices (use POROs when appropriate, avoid long methods, logic lives in appropriate places, etc.)
 * Create methods using ActiveRecord on the appropriate class.
 
 ### Testing
@@ -54,7 +54,7 @@ You should not write code or migrations until a story calls for it.
 
 Teams can self-pace but will have a number of stories required to be completed at each check-in. Teams will meet with the product owner regularly and demo completed stories. Project scope and requirements can change at the discretion of the product owner so following an agile approach is really important.
 
-It is expected that teams will have meaningful discussions and code reviews using comments on Github. Your instructors will be looking for this. Commits should also have meaningful messages. Be careful about what type of commits are being made, i.e. "Cleanup Hound violations". If you want to learn more about squashing and rebasing commits, see [here](http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html).
+It is expected that teams will have meaningful discussions and code reviews using comments on Github. Your instructors will be looking for this. Commits should also have meaningful messages. Be careful about what type of commits are being made, i.e. "Cleanup Hound violations". If you want to learn more about squashing commits, see [here](http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html).
 
 It is also expected that teams will use a Pull Request Template, as described [here](https://help.github.com/articles/creating-a-pull-request-template-for-your-repository/).
 
@@ -92,6 +92,10 @@ You'll want to set up the [DatabaseCleaner](https://github.com/DatabaseCleaner/d
 ```ruby
 DatabaseCleaner.strategy = :truncation
 ```
+
+### Deployment
+
+This project must be deployed with a smaller data set on Heroku.
 
 ## User Stories
 
