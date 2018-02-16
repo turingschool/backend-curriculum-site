@@ -110,7 +110,7 @@ I see all stations (name, dock count, city, installation date)
 ```
 As a visitor,
 When I visit the station show
-I see the url '/:station-name' with that stations name instead of :id,
+I see the url '/:station-name' with that station's name instead of :id,
 I see all attributes for that station.
 
 ** All Attributes must be present **
@@ -203,8 +203,8 @@ I also should not see the accessory listed in cart
 ```
 As a visitor,
 When I visit an accessory show for a retired accessory,
-I am still be able to access the accessory page,
-I am not be able to add the accessory to my cart,
+I am still able to access the accessory page,
+I am not able to add the accessory to my cart,
 I also see in place of the "Add to Cart" button or link - "Accessory Retired"
 ```
 
@@ -235,7 +235,7 @@ The total for the cart should match that decrease.
 ```
 As a visitor,
 I cannot view another user's private data, such as current order, etc.
-I should be redirected to login/create account when I try to check out,
+I should be redirected to /login when I try to check out,
 I cannot view the administrator screens or use administrator functionality,
 I cannot make myself an admin.
 ```
@@ -260,7 +260,7 @@ I see a link for "Logout".
 ```
 As a registered user,
 When I visit '/cart',
-I see see a small image, title, description and price for each accessory in my cart,
+I see a small image, title, description and price for each accessory in my cart,
 I see a subtotal and quantity breakdown for each accessory,
 I see a total for my cart,
 I also see a button to "Checkout".
@@ -318,11 +318,11 @@ I see the Longest ride,
 I see the Shortest ride,
 I see the Station with the most rides as a starting place,
 I see the Station with the most rides as an ending place,
-I see Month by Month breakdown of number of rides with subtotals for each I see the year,
+I see Month by Month breakdown of number of rides with subtotals for each year,
 I see the Most ridden bike with total number of rides for that bike,
 I see the Least ridden bike with total number of rides for that bike,
 I see the User subscription type breakout with both count and percentage,
-I see the Single date with the highest number of trips with a count of those  trips,
+I see the Single date with the highest number of trips with a count of those trips,
 I see the Single date with the lowest number of trips with a count of those trips.
 ```
 
@@ -332,8 +332,8 @@ When I visit a station show,
 In addition to the user story above,
 I see the Number of rides started at this station,
 I see the Number of rides ended at this station,
-I see the Most frequent destination station (for rides that began at this I see the station),
-I see the Most freuqnet origination station (for rides that ended at this I see the station),
+I see the Most frequent destination station (for rides that began at this station),
+I see the Most freuqnet origination station (for rides that ended at this station),
 I see the Date with the highest number of trips started at this station,
 I see the Most frequent zip code for users starting trips at this station,
 I see the Bike ID most frequently starting a trip at this station.
@@ -388,9 +388,9 @@ I also see a button to edit this station.
 ```
 As a admin,
 When I visit '/stations/new',
-I fill in a form with all stations attributes,
+I fill in a form with all station attributes,
 When I click "Create Station",
-I am directed to a that stations show page.
+I am directed to that station's show page.
 I also see a flash message that I have created that station.
 
 ** All Attributes must be present **
@@ -399,10 +399,10 @@ I also see a flash message that I have created that station.
 ```
 As a admin,
 When I visit '/stations/edit,
-I fill in a form with all stations attributes,
-When I click "Updated Station",
-I am directed to a that stations show page,
-I see the updated stations information,
+I fill in a form with all station attributes,
+When I click "Update Station",
+I am directed that station's show page,
+I see the updated station's information,
 I also see a flash message that I have updated that station.
 
 ** All Attributes must be present **
@@ -439,20 +439,20 @@ As a admin,
 When I visit '/trips/new',
 I fill in a form with all trip attributes,
 When I click "Create Trip",
-I am directed to a that trips show page.
+I am directed to that trip's show page.
 I also see a flash message that I have created that trip.
 
 
-** Zip Code is a user-provided field, and may not be present on all records. Otherwise, as with Station's, all attributes of a Trip need to be present to ensure data integrity **
+** Zip Code is a user-provided field, and may not be present on all records. Otherwise, as with Stations, all attributes of a Trip need to be present to ensure data integrity **
 ```
 
 ```
 As a admin,
 When I visit '/trips/edit,
-I fill in a form with all trips attributes,
-When I click "Updated Trip",
-I am directed to a that trips show page,
-I see the updated trips information,
+I fill in a form with all trip attributes,
+When I click "Update Trip",
+I am directed to that trip's show page,
+I see the updated trip's information,
 I also see a flash message that I have updated that trip.
 
 ** All Attributes must be present **
@@ -485,9 +485,9 @@ I also see a button to edit this condition.
 ```
 As a admin,
 When I visit '/conditions/new',
-I fill in a form with all condtion attributes,
+I fill in a form with all condition attributes,
 When I click "Create Condition",
-I am directed to a that conditions show page.
+I am directed to a that condition's show page.
 I also see a flash message that I have created that condition.
 
 ** All Attributes must be present **
@@ -496,10 +496,10 @@ I also see a flash message that I have created that condition.
 ```
 As a admin,
 When I visit '/conditions/edit,
-I fill in a form with all conditions attributes,
-When I click "Updated Condition",
-I am directed to a that conditions show page,
-I see the updated conditions information,
+I fill in a form with all condition attributes,
+When I click "Update Condition",
+I am directed to that condition's show page,
+I see the updated condition's information,
 I also see a flash message that I have updated that condition.
 
 ** All Attributes must be present **
