@@ -49,3 +49,4 @@ layout: page
 ## Projects:
 
 * [Rails Mini Project](../projects/mini-project)
+* [Bike Share Redux](../projects/bike-share-redux)
