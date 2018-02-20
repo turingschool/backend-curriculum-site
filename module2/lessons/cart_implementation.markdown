@@ -9,12 +9,16 @@ tags: cart, order
 * represent a cart using a PORO in Rails
   * Start thinking about opportunities for using POROs to extract logic from the controller.
 * use a `flash` to send messages to the view
-* load an object to be used throughout the app using a `before_action` in the ApplicationController
+* load an object to be used throughout the app using a `before_action` filter in the ApplicationController
 
 ## Structure
 
 * Warm Up
 * Code-along
+
+## Vocabulary
+* Session
+* PORO
 
 ## Video
 
@@ -32,7 +36,7 @@ We'll build out an app where a user should be able to add movies to their cart. 
 
 ## Code-Along
 
-We are going to use `movie_mania` for this example.
+We are going to use `movie_mania` for this example. A sample repo can be found [here](https://github.com/turingschool-examples/movie_mania_1711)
 
 ### Writing a Test
 
@@ -182,7 +186,7 @@ end
 
 ```
 
-If we run this now it fails because even though we've added two pens, our flash message will always say that we have one pen. We need a way to store information about how many pens have been added.
+If we run this now it fails because even though we've added two movies, our flash message will always say that we have one movie. We need a way to store information about how many movies have been added.
 
 Thinking through this a little bit, we could store something in the database every time someone adds a movie to their cart, but there are a few drawbacks to that approach:
 
@@ -529,7 +533,7 @@ Double check to see that our tests are still passing, and we should be in good s
 * How do I add a flash message to a view?
 * How did we use `before_action` to refactor our controllers?
 
-## You want more?
+## Extensions
 
 #### Showing the cart
 
