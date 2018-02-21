@@ -8,6 +8,10 @@ title: Intermediate ActiveRecord
 * Introduce specific ActiveRecord methods
 * Practice combining ActiveRecord methods
 
+## Slides
+
+Available [here](../slides/intermediate_active_record)
+
 ## Setup
 
 We will be using [this repository](https://github.com/turingschool-examples/election). Clone it down and follow the setup instructions included in the readme.
