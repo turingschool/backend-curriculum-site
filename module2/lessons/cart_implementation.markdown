@@ -32,7 +32,7 @@ tags: cart, order
 
 ## Intro
 
-We'll build out an app where a user should be able to add movies to their cart. The added movies are not saved to the database until the user has decided.
+We'll build out an app where a user should be able to add movies to their cart. The added movies are not saved to the database until the user has decided so.
 
 ## Code-Along
 
