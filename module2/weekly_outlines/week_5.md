@@ -9,7 +9,7 @@ layout: page
 
 * **LESSONS:**
   - [Remembering Ruby](../misc/violations): Complete the challenge described.
-  - [Intermediate ActiveRecord](../lessons/intermediate_activerecord)
+  - [Intermediate ActiveRecord](../lessons/intermediate_active_record)
 
 ### Day 2:
 
