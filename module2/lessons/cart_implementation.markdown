@@ -491,7 +491,7 @@ def count_of(id)
   contents[id.to_s]
 end
 ```
-d
+
 What if we ask for the count of a non-existent movie?  Add `expect(subject.count_of(0)).to eq(0)` to your test for the `count_of` method. What's the matter, got `nil`? Let's **coerce** `nil` values to `0` with `#to_i`.
 
 ```
