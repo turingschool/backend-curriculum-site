@@ -387,7 +387,7 @@ I also see a button to edit this station.
 
 ```
 As a admin,
-When I visit '/stations/new',
+When I visit '/admin/stations/new',
 I fill in a form with all station attributes,
 When I click "Create Station",
 I am directed to that station's show page.
@@ -398,7 +398,7 @@ I also see a flash message that I have created that station.
 
 ```
 As a admin,
-When I visit '/stations/edit,
+When I visit '/admin/stations/edit,
 I fill in a form with all station attributes,
 When I click "Update Station",
 I am directed that station's show page,
@@ -436,7 +436,7 @@ I also see a button to edit this trip.
 
 ```
 As a admin,
-When I visit '/trips/new',
+When I visit '/admin/trips/new',
 I fill in a form with all trip attributes,
 When I click "Create Trip",
 I am directed to that trip's show page.
@@ -448,7 +448,7 @@ I also see a flash message that I have created that trip.
 
 ```
 As a admin,
-When I visit '/trips/edit,
+When I visit '/admin/trips/edit,
 I fill in a form with all trip attributes,
 When I click "Update Trip",
 I am directed to that trip's show page,
@@ -484,7 +484,7 @@ I also see a button to edit this condition.
 
 ```
 As a admin,
-When I visit '/conditions/new',
+When I visit '/admin/conditions/new',
 I fill in a form with all condition attributes,
 When I click "Create Condition",
 I am directed to a that condition's show page.
@@ -495,7 +495,7 @@ I also see a flash message that I have created that condition.
 
 ```
 As a admin,
-When I visit '/conditions/edit,
+When I visit '/admin/conditions/edit,
 I fill in a form with all condition attributes,
 When I click "Update Condition",
 I am directed to that condition's show page,
@@ -575,7 +575,7 @@ I can click on "mark as completed" on orders that are "paid"
 
 ```
 As an admin
-When I visit '/bike-shop/new'
+When I visit 'admin/bike-shop/new'
 I can create an accessory,
 An accessory must have a title, description and price,
 The title and description cannot be empty,
