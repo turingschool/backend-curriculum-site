@@ -98,6 +98,7 @@ DatabaseCleaner.strategy = :truncation
 This project must be deployed with a smaller data set on Heroku.
 
 ## User Stories
+### As a visitor
 
 ```
 As a visitor,
@@ -239,6 +240,7 @@ I should be redirected to /login when I try to check out,
 I cannot view the administrator screens or use administrator functionality,
 I cannot make myself an admin.
 ```
+### As a registered user
 
 ```
 As a registered user,
@@ -296,6 +298,7 @@ I cannot view another user's private data (current or past orders, etc),
 I cannot view the administrator screens or use admin functionality,
 I cannot make myself an admin.  
 ```
+### As a registered user and admin
 
 ```
 As a registered user and admin,
@@ -368,6 +371,8 @@ As a registered user and admin,
 I can modify my account data,
 I cannot modify any other user's account data.
 ```
+
+### As a admin
 
 ```
 As a admin,
