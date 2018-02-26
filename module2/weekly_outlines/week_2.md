@@ -42,9 +42,11 @@ layout: page
 * **LESSONS:**
   - [Models, Migrations and Databases](../lessons/models_migrations_databases)
 
-* **HOMEWORK:**
-  - Complete [Blogger](../misc/blogger)
-  - Answer the Week Two CFUs [questions](https://github.com/turingschool/checks-for-understanding/blob/master/module-2/backend/week_two.md).
+### Weekend Homework
+  - Finish [Blogger](../misc/blogger)
+  - [Checks for Understanding](https://github.com/turingschool/checks-for-understanding/blob/master/module-2/backend/week_two.md).
+  - Static Comp Challenge
+  - Start [Job Tracker]((https://github.com/turingschool/job-tracker))
   - Finish preparing and sending feedback to your Little Shop group members. Be sure to include both encouraging feedback and feedback that will encourage growth.
 
 ## Projects:
