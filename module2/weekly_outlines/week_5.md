@@ -9,7 +9,6 @@ layout: page
 
 * **LESSONS:**
   - [Remembering Ruby](../misc/violations): Complete the challenge described.
-  - [Intermediate ActiveRecord](../lessons/intermediate_active_record)
 
 ### Day 2:
 
@@ -20,13 +19,25 @@ layout: page
 ### Day 3:
 
 * **LESSONS:**
-  - [Intro to the Asset Pipeline](../lessons/asset_pipeline)
+  - [Intermediate ActiveRecord](../lessons/intermediate_active_record)
+  
+* **HOMEWORK**
+  - Clone down this app: https://github.com/turingschool-examples/hinny
+  - Run the server in Production Locally with this [video](https://vimeo.com/255927334)
 
 ### Day 4:
 
 * **LESSONS:**
+  - [Intro to the Asset Pipeline](../lessons/asset_pipeline)
+
+### Day 5:
+
+* **LESSONS:**
   - [How To Write a Great README](../lessons/how_to_write_a_great_readme)
+  
+* **HOMEWORK**
   - [CFUs](https://github.com/turingschool/checks-for-understanding/blob/master/module-2/backend/week_5.md)
+  - Static Comp Challenge
 
 ## Projects:
 
