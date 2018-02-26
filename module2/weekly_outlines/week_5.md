@@ -10,12 +10,18 @@ layout: page
 * **LESSONS:**
   - [Remembering Ruby](../misc/violations): Complete the challenge described.
 
+* **HOMEWORK**
+  - [Bike Share](https://github.com/turingschool/backend-curriculum-site/blob/bike-share-updates/module2/projects/bike-share-redux.md)
+  
 ### Day 2:
 
 * **LESSONS**
   - [Cart & Order Lifecycle](../lessons/cart_implementation)
   - [Callbacks & Refactoring](../lessons/callbacks_and_refactoring)
 
+* **HOMEWORK**
+  - [Bike Share](https://github.com/turingschool/backend-curriculum-site/blob/bike-share-updates/module2/projects/bike-share-redux.md)
+  
 ### Day 3:
 
 * **LESSONS:**
@@ -24,12 +30,16 @@ layout: page
 * **HOMEWORK**
   - Clone down this app: https://github.com/turingschool-examples/hinny
   - Run the server in Production Locally with this [video](https://vimeo.com/255927334)
-
+  - [Bike Share](https://github.com/turingschool/backend-curriculum-site/blob/bike-share-updates/module2/projects/bike-share-redux.md)
+  
 ### Day 4:
 
 * **LESSONS:**
   - [Intro to the Asset Pipeline](../lessons/asset_pipeline)
 
+* **HOMEWORK**
+  - [Bike Share](https://github.com/turingschool/backend-curriculum-site/blob/bike-share-updates/module2/projects/bike-share-redux.md)
+  
 ### Day 5:
 
 * **LESSONS:**
@@ -38,6 +48,7 @@ layout: page
 * **HOMEWORK**
   - [CFUs](https://github.com/turingschool/checks-for-understanding/blob/master/module-2/backend/week_5.md)
   - Static Comp Challenge
+  - [Bike Share](https://github.com/turingschool/backend-curriculum-site/blob/bike-share-updates/module2/projects/bike-share-redux.md)
 
 ## Projects:
 
