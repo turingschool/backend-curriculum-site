@@ -13,22 +13,22 @@ layout: page
 ### Day 1:
 
 * **HOMEWORK:**
-  - [Little Shop](http://backend.turing.io/module2/projects/little_shop)
+  - [Bike Share](https://github.com/turingschool/backend-curriculum-site/blob/bike-share-updates/module2/projects/bike-share-redux.md)
 
 ### Day 2:
 
 * **HOMEWORK:**
-  - [Little Shop](http://backend.turing.io/module2/projects/little_shop)
+  - [Bike Share](https://github.com/turingschool/backend-curriculum-site/blob/bike-share-updates/module2/projects/bike-share-redux.md)
 
 ### Day 3:
 
 * **HOMEWORK:**
-  - [Little Shop](http://backend.turing.io/module2/projects/little_shop)
+  - [Bike Share](https://github.com/turingschool/backend-curriculum-site/blob/bike-share-updates/module2/projects/bike-share-redux.md)
 
 ### Day 4:
 
 * **LESSONS:**
-    - Little Shop Evals: While we are evaluating Little Shop projects, watch [this](https://brightonruby.com/2017/this-code-sucks-a-story-about-non-violent-communication-nadia-odunayo/) video, and then find a place to meet with your group and give each other feedback.
+    - Bike Share Evals: While we are evaluating Little Shop projects, watch [this](https://brightonruby.com/2017/this-code-sucks-a-story-about-non-violent-communication-nadia-odunayo/) video, and then find a place to meet with your group and give each other feedback.
 
 * **HOMEWORK:**
   - Demo Night!
@@ -40,4 +40,4 @@ layout: page
 
 ## Projects:
 
-* [Little Shop](http://backend.turing.io/module2/projects/little_shop)
+* [Bike Share](  - [Bike Share](https://github.com/turingschool/backend-curriculum-site/blob/bike-share-updates/module2/projects/bike-share-redux.md))
