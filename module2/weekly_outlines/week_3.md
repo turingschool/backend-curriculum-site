@@ -20,7 +20,6 @@ layout: page
 * **LESSONS:**
 
   - [Design Principles](../lessons/design_principles)
-  - [Factory Bot](../lessons/factory_bot)
   - [Diagrams and The Web](../lessons/diagrams_and_the_web)
 
 * **HOMEWORK:**
@@ -51,6 +50,12 @@ layout: page
 * **HOMEWORK:**
   - Rails Mini Project
   - Complete the weekly [CFUs](https://github.com/turingschool/checks-for-understanding/blob/master/module-2/backend/week_three.md)
+
+### Weekend Homework
+   - [Checks for Understanding](https://github.com/turingschool/checks-for-understanding/blob/master/module-2/backend/week_three.md)
+   - Static Comp Challenge
+   - [Factory Bot](../lessons/factory_bot)
+   - Rails Mini Project
 
 ## Projects:
 
