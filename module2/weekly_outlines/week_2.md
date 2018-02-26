@@ -10,7 +10,8 @@ layout: page
 * **LESSONS**
 
   - [Joins, Group, Order](../lessons/joins_group_order)
-  - [Advanced CSS Selectors](../lessons/advnaced_css_selectors)
+  - [Advanced CSS Selectors](../lessons/advanced_css)
+  - [Database Relationships and Visualizations](../lessons/database_relationships_and_visualizations)
 
 * **HOMEWORK:**
   - Work on Little Shop Redux
