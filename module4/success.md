@@ -19,22 +19,21 @@ Assessment requirements will be provided during the first week of the module.
 
 ### Independent Work
 
-*Expected*: Students will build their Capstone project.
+*Expected:* Students will build their Capstone project.
 
-*Expected*: Students will complete and submit weekly Checks for Understanding questions (weeks 1-4).
+*Expected:* Students will complete and submit weekly Checks for Understanding questions (weeks 1-4).
 
 ### Group Work
 
-*Expected*: Students, as a pair, complete the Quantified Self project.
+*Expected:* Students, as a pair, complete the Quantified Self project.
 
-*Expected*: Students, as a project team, are responsible for passing their Open Source project and submitting an individual blog post summarizing the experience.
+*Expected:* Students, as a project team, are responsible for passing their House of Vars (Open Source) project and submitting an individual blog post summarizing the experience.
 
 ### Career Development
 
 The Career Development segment is made up of several pieces:
 
-- The 30-day post-grad job search action [plan](https://github.com/turingschool/career-development-curriculum/blob/master/module_four/post_grad_plan.md) (submitted in B4 portfolio)
-- Share a summarized version of your professional story with your instructors during the portfolio review. This is a 1-2 minute sharing highlighting who you are, why you are in software, and what's next in your career
+- The 30-day post-grad job search action [plan](https://github.com/turingschool/career-development-curriculum/blob/master/module_four/post_grad_plan.md) (submitted in markdown for presentation _and_ via DM to your coach)
 - Prepare a lightning talk of their Turing story to present during the final week of the module (see the Turing Story Presentation section below)
 
 ### Feedback & Community
@@ -43,9 +42,9 @@ As stewards of the larger Turing community, Module 4 students are expected to fa
 
 When documenting your community contribution, say a few words about the facilitation experience.
 
-### Portfolio
+### Presentation & Portfolio
 
-To document all of the work you've done this module, follow the guidelines stated in the B4 portfolio template [here](https://github.com/turingschool/portfolios/tree/master/templates/BEM4_template.md). A Pull Requested submitting your portfolio is due Wednesday of Week 6.
+To reflect on the work you've done during this module, you will prepare a 10 minute presentation outlined [here](https://gist.github.com/LouisaBarrett/03aa5567937943ca274437205bc35271). You will present this to one of your current instructors, another staff member, and a community member/alum. A PR submitting the associated markdown is due at 9 am the day of presentations.
 
 ### Turing Story Presentation
 
