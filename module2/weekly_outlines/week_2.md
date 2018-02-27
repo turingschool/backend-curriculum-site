@@ -10,6 +10,8 @@ layout: page
 * **LESSONS**
 
   - [Joins, Group, Order](../lessons/joins_group_order)
+  - [Advanced CSS Selectors](../lessons/advanced_css)
+  - [Database Relationships and Visualizations](../lessons/database_relationships_and_visualizations)
 
 * **HOMEWORK:**
   - Work on Little Shop Redux
@@ -33,6 +35,7 @@ layout: page
 * **LESSONS:**
   - [Sinatra vs. Rails Exploration](../misc/sinatra_vs_rails_exploration)
   - [REST, Controllers & Routing in Rails](../lessons/rest_routing_and_controllers_in_rails)
+  - Database Normalization
 
 * **HOMEWORK:**
   - Work on [Blogger](../misc/blogger)
@@ -42,10 +45,12 @@ layout: page
 * **LESSONS:**
   - [Models, Migrations and Databases](../lessons/models_migrations_databases)
 
-* **HOMEWORK:**
-  - Complete [Blogger](../misc/blogger)
-  - Answer the Week Two CFUs [questions](https://github.com/turingschool/checks-for-understanding/blob/master/module-2/backend/week_two.md).
-  - Finish preparing and sending feedback to your Little Shop group members. Be sure to include both encouraging feedback and feedback that will encourage growth.
+### Weekend Homework
+  - Finish [Blogger](../misc/blogger)
+  - [Checks for Understanding](https://github.com/turingschool/checks-for-understanding/blob/master/module-2/backend/week_two.md).
+  - Static Comp Challenge
+  - Start [JobTracker]((https://github.com/turingschool/job-tracker))
+  - Finish preparing and sending feedback to your Little Shop group members. Be sure to include both encouraging feedback and feedback that will encourage growth. Send your feedback through a group DM to your partner and instructors. 
 
 ## Projects:
 

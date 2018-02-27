@@ -85,7 +85,7 @@ Let's create an app to record your ideas. Host your app live on Heroku.
 
 ### Project Option 2: GifGenerator
 
-Create an app where users can "favorite" gifs.
+Create an app where users can "favorite" gifs. Host your app live on Heroku.
 
 #### Gifs
 

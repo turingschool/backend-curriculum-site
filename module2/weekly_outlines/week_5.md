@@ -8,40 +8,48 @@ layout: page
 ### Day 1:
 
 * **LESSONS:**
-  - [Intermediate ActiveRecord](../lessons/intermediate_activerecord)
+  - [Remembering Ruby](../misc/violations): Complete the challenge described.
 
-* **HOMEWORK:**
-  - [Little Shop](http://backend.turing.io/module2/projects/little_shop)
-
+* **HOMEWORK**
+  - [Bike Share](https://github.com/turingschool/backend-curriculum-site/blob/bike-share-updates/module2/projects/bike-share-redux.md)
+  
 ### Day 2:
 
 * **LESSONS**
   - [Cart & Order Lifecycle](../lessons/cart_implementation)
   - [Callbacks & Refactoring](../lessons/callbacks_and_refactoring)
 
-
-* **HOMEWORK:**
-  - [Little Shop](http://backend.turing.io/module2/projects/little_shop)
-
+* **HOMEWORK**
+  - [Bike Share](https://github.com/turingschool/backend-curriculum-site/blob/bike-share-updates/module2/projects/bike-share-redux.md)
+  
 ### Day 3:
 
 * **LESSONS:**
-  - [Intro to the Asset Pipeline](../lessons/asset_pipeline)
-  - [Remembering Ruby](../misc/violations): Complete the challenge described.
-
-* **HOMEWORK:**
-  - [Little Shop](http://backend.turing.io/module2/projects/little_shop)
-
+  - [Intermediate ActiveRecord](../lessons/intermediate_active_record)
+  
+* **HOMEWORK**
+  - Clone down this app: https://github.com/turingschool-examples/hinny
+  - Run the server in Production Locally with this [video](https://vimeo.com/255927334)
+  - [Bike Share](https://github.com/turingschool/backend-curriculum-site/blob/bike-share-updates/module2/projects/bike-share-redux.md)
+  
 ### Day 4:
 
 * **LESSONS:**
-  - [Rails Challenge 2](../challenges/rails_challenge_2)
-  - [How To Write a Great README](../lessons/how_to_write_a_great_readme)
-  - [CFUs](https://github.com/turingschool/checks-for-understanding/blob/master/module-2/backend/week_5.md)
+  - [Intro to the Asset Pipeline](../lessons/asset_pipeline)
 
-* **HOMEWORK:**
-  - [Little Shop](http://backend.turing.io/module2/projects/little_shop)
+* **HOMEWORK**
+  - [Bike Share](https://github.com/turingschool/backend-curriculum-site/blob/bike-share-updates/module2/projects/bike-share-redux.md)
+  
+### Day 5:
+
+* **LESSONS:**
+  - [How To Write a Great README](../lessons/how_to_write_a_great_readme)
+  
+* **HOMEWORK**
+  - [CFUs](https://github.com/turingschool/checks-for-understanding/blob/master/module-2/backend/week_5.md)
+  - Static Comp Challenge
+  - [Bike Share](https://github.com/turingschool/backend-curriculum-site/blob/bike-share-updates/module2/projects/bike-share-redux.md)
 
 ## Projects:
 
-* [Little Shop](http://backend.turing.io/module2/projects/little_shop)
+* [Bike Share Redux](../projects/bike-share-redux)

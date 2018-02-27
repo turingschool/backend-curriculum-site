@@ -11,7 +11,6 @@ layout: page
   - [Intro to M2](../misc/day_1.html)
   - [Intro to REST & CRUD](../lessons/restful_routes_and_crud)
   - [Intro to MVC](../lessons/intro_to_mvc)
-  - [Intro to HTML](../lessons/intro_to_html)
 
 * **HOMEWORK:**
   - [ActiveRecord Exploration](../homework/activerecord_exploration)
@@ -25,9 +24,9 @@ layout: page
 ### Day 2:
 
 * **LESSONS:**
-  - [Model Testing in Sinatra](../lessons/model_testing_in_sinatra)
-  - [Intro to ActiveRecord in Sinatra](../lessons/intro_to_active_record_in_sinatra)
-  - [Database Relationships and Visualizations](../lessons/database_relationships_and_visualizations)
+- [Intro to ActiveRecord in Sinatra](../lessons/intro_to_active_record_in_sinatra)
+- [Model Testing in Sinatra](../lessons/model_testing_in_sinatra)
+- [How the Web Works](../lessons/how_the_web_works)
 
 * **HOMEWORK**
   - [DTR for Little Shop Redux](../../career_development_curriculum/module_one/dtr_guidelines_memo). One group member should send link to forked gist to an instructor.
@@ -35,10 +34,9 @@ layout: page
 ### Day 3:
 
 * **LESSONS:**
-  - [Passing Data with Sinatra](../lessons/passing_data_with_sinatra)
+  - [Passing Data with HTML/HTTP](../lessons/passing_data_with_sinatra)
   - [ActiveRecord Associations](../lessons/activerecord_associations)
-  - [Intro to CSS](../lessons/intro_to_css)
-  - [How the Web Works](../lessons/how_the_web_works)
+  - [Intro to HTML](../lessons/intro_to_html)
 
 * **HOMEWORK:**
   - [ActiveRecord and Database Practice](../homework/activerecord_and_database_practice)
@@ -46,8 +44,13 @@ layout: page
 ### Day 4:
 
 * **LESSONS:**
-  - [Advanced CSS Selectors](../lessons/advanced_css)
   - [Feature Testing in Sinatra](../lessons/feature_testing_in_sinatra)
+  - [Intro to CSS](../lessons/intro_to_css)
+
+### Day 5:
+* **HOMEWORK**
+  - [Checks for Understanding](https://github.com/turingschool/checks-for-understanding/blob/master/module-2/backend/week_one.md)
+  - Static Comp Challenge
 
 ## Projects:
 

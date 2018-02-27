@@ -61,7 +61,7 @@ In Module 1, students will learn to use Ruby and object-oriented programming to 
 * [Date Night](./projects/date_night)
 * [Complete Me](./projects/complete_me)
 * [HTTP Yeah You Know Me](./projects/http_yeah_you_know_me)
-* [Event Manager](./projects/eventmanager)
+* [Event Manager](https://github.com/turingschool/curriculum/blob/4814d5517ed3a6cd33e717df535cdb0c0c5a9b8a/source/projects/eventmanager.markdown)
 * [Sorting Suite](./projects/sorting_suite)
 * [Black Thursday](./projects/black_thursday)  
 
