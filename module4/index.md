@@ -25,7 +25,7 @@ Students who successfully complete Module 4 will have demonstrated mastery of Pr
 
 1. [Quantified Self](./projects/quantified-self/quantified-self) - students start by building a front end in JavaScript that connects to an existing Rails API. Then they will re-build the back end with Node, Express, and Knex (so cool, right?). This project lasts the first three weeks.
 2. [Capstone Project](http://backend.turing.io/module4/capstone_project_overview) - this is a personal project students work on weeks three to six. Students will put everything they've learned during their time at Turing into this final project.
-3. [Open Source Project](http://backend.turing.io/module4/projects/open_source_project) - this group project will take place in week six. More information to come.
+3. [House of Vars - Open Source Project](http://backend.turing.io/module4/projects/open_source_project) - this group project will take place in week six. More information to come.
 
 ### Weekly Breakdown:
 
@@ -72,7 +72,7 @@ Students who successfully complete Module 4 will have demonstrated mastery of Pr
 *   TGRF: Thank Goodness for Ruby Fridays
 
 <h4 id="week_6">Week 6</h4>
-*   [Contributing to Open Source Kick Off](./lessons/contributing_to_open_source)
+*   [House of Vars Kick Off](./lessons/contributing_to_open_source)
 *   Capstone Evaluations
-*   Open Source Demos
+*   House of Vars Demos
 *   [Turing Stories](success#turing-story-presentation)
