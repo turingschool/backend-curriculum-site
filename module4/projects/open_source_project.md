@@ -79,7 +79,7 @@ You'll submit your blog post [here](https://github.com/turingschool/ruby-submiss
 #### [Code for Social Good - Web App](https://github.com/Code4SocialGood/c4sg-web) - Angular, Java, HTML/CSS
 #### [Ruby For Good - Playtime](https://github.com/rubyforgood/playtime) - Rails
 #### [Ruby For Good - PantryScheduler](https://github.com/rubyforgood/pantry_scheduler) - React & Rails
-#### [Spree - Spree]](https://github.com/rubyforgood/pantry_scheduler) -  Rails
-#### [Zarel - Pokemon-Showdown]](https://github.com/Zarel/Pokemon-Showdown/) -  Node.js
+#### [Spree - Spree](https://github.com/rubyforgood/pantry_scheduler) -  Rails
+#### [Zarel - Pokemon-Showdown](https://github.com/Zarel/Pokemon-Showdown/) -  Node.js
 
 _If you don't see a project here that you'd like to contribute to, you're more than welcome to contribute to another project as long as you get it approved by an instructor. Keep in mind you only have about a day and a half to complete this assignment._
