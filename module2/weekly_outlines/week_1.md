@@ -17,9 +17,6 @@ layout: page
   - [DevShed - An Introduction to Database Normalization](http://www.devshed.com/c/a/mysql/an-introduction-to-database-normalization/)
   - [Mike Hillyer's Blog Post - intro to database normalization](http://mikehillyer.com/articles/an-introduction-to-database-normalization/)
   - [Watch Sharif Ramadan's intro to 1NF, 2NF and 3NF databases. They're only about 4 minutes each.](https://www.youtube.com/watch?v=K7vzLrGCV50&list=PLQ9AAKW8HuJ5m0rmHKL88ZyjOIKejvrj0)
-  - Sign up for a [lightning talk](https://docs.google.com/spreadsheets/d/1sua_CFkZVGmCpLg6dbP-23DMBTSLDmTe7wtH7ggAPxs/edit?usp=sharing)
-  - [Lighting Talk Topics](../misc/lighting_talk_topic_ideas)
-
 
 ### Day 2:
 
