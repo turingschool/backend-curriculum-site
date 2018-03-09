@@ -70,6 +70,18 @@ Let's create an app to record your ideas. Host your app live on Heroku.
 - [ ] Space and text is balanced. White space is used to visually separate content. 
 - [ ] The application is easily usable. The user can intuitvely navigate between different portions of the application without manually entering the URL into the nav-bar or using the back button on their browser.
 
+### Database
+
+- [ ] Properly implements a one-to-many relationship
+- [ ] Properly implements a many-to-many relationship
+- [ ] Utilizes primary and foreign keys appropriately
+
+### Code Quality
+
+- [ ] Logic lives in the appropriate files
+- [ ] Methods are refactored and follow SRP
+- [ ] Naming follows convention
+
 ### Testing
 
 - [ ] Project has a running test suite
@@ -116,7 +128,7 @@ Create an app where users can "favorite" gifs. Host your app live on Heroku.
 - [ ] Users cannot create gifs -- only the admin can do that.
 - [ ] Visitors (non-registered users) can create user accounts.
 
-### User Experience
+#### User Experience
 
 - [ ] The application has been styled.
 - [ ] The application uses a balanced, considered color scheme.
@@ -126,7 +138,20 @@ Create an app where users can "favorite" gifs. Host your app live on Heroku.
 - [ ] Space and text is balanced. White space is used to visually separate content. 
 - [ ] The application is easily usable. The user can intuitvely navigate between different portions of the application without manually entering the URL into the nav-bar or using the back button on their browser.
 
-### Testing
+#### Database
+
+- [ ] Properly implements a one-to-many relationship
+- [ ] Properly implements a many-to-many relationship
+- [ ] Utilizes primary and foreign keys appropriately
+
+### Code Quality
+
+- [ ] Logic lives in the appropriate files
+- [ ] Methods are refactored and follow SRP
+- [ ] Naming follows convention
+
+
+#### Testing
 
 - [ ] Project has a running test suite
 - [ ] Test suite includes robust feature tests
@@ -172,7 +197,7 @@ Create an app where an admin (let's say for example, Richard) can assign points 
 - [ ] A user cannot redeem another user's points.
 - [ ] Admin can create a user.
 
-### User Experience
+#### User Experience
 
 - [ ] The application has been styled.
 - [ ] TThe application uses a balanced, considered color scheme.
@@ -182,7 +207,20 @@ Create an app where an admin (let's say for example, Richard) can assign points 
 - [ ] Space and text is balanced. White space is used to visually separate content. 
 - [ ] The application is easily usable. The user can intuitvely navigate between different portions of the application without manually entering the URL into the nav-bar or using the back button on their browser.
 
-### Testing
+#### Database
+
+- [ ] Properly implements a one-to-many relationship
+- [ ] Properly implements a many-to-many relationship
+- [ ] Utilizes primary and foreign keys appropriately
+
+#### Code Quality
+
+- [ ] Logic lives in the appropriate files
+- [ ] Methods are refactored and follow SRP
+- [ ] Naming follows convention
+
+
+#### Testing
 
 - [ ] Project has a running test suite
 - [ ] Test suite includes robust feature tests
@@ -231,7 +269,7 @@ If you choose to do this option make sure you try to implement all the concepts 
 - [ ] Authorization
 
 #### Rubric for General Parts:
-### User Experience
+#### User Experience
 
 - [ ] The application has been styled.
 - [ ] TThe application uses a balanced, considered color scheme.
@@ -241,7 +279,19 @@ If you choose to do this option make sure you try to implement all the concepts 
 - [ ] Space and text is balanced. White space is used to visually separate content. 
 - [ ] The application is easily usable. The user can intuitvely navigate between different portions of the application without manually entering the URL into the nav-bar or using the back button on their browser.
 
-### Testing
+#### Database
+
+- [ ] Properly implements a one-to-many relationship
+- [ ] Properly implements a many-to-many relationship
+- [ ] Utilizes primary and foreign keys appropriately
+
+#### Code Quality
+
+- [ ] Logic lives in the appropriate files
+- [ ] Methods are refactored and follow SRP
+- [ ] Naming follows convention
+
+#### Testing
 
 - [ ] Project has a running test suite
 - [ ] Test suite includes robust feature tests
@@ -252,7 +302,7 @@ If you choose to do this option make sure you try to implement all the concepts 
 
 - Implement Twitter, Github, or Facebook OAuth login
 - Use HAML for your views
-- TDD using RSpec instead of Test::Unit
+- TDD using Test::Unit instead of RSpec
 
 ### Resources
 
