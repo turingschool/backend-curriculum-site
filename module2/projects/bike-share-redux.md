@@ -47,19 +47,19 @@ This application will collect data in two ways:
 
 ## Process
 
-Each team will have an assigned project manager that will be the primary point of contact between the product owner (instructor) and the rest of the team.
+Each team will have an assigned project manager (peer) that will be the primary point of contact between the product owner (instructor) and the rest of the team.
 
 All base stories will be provided by the product owner. You will be asked to write your own stories for extensions and they should follow the same format as the ones that are provided to you.
 
 You should not write code or migrations until a story calls for it.
 
-Teams can self-pace but will have a number of stories required to be completed at each check-in. Teams will meet with the product owner regularly and demo completed stories. Project scope and requirements can change at the discretion of the product owner so following an agile approach is really important.
+Teams can self-pace but will have a number of stories required to be completed at each check-in. Teams will meet with the product owner regularly and demo completed stories in production. Project scope and requirements can change at the discretion of the product owner so following an agile approach is really important.
 
-It is expected that teams will have meaningful discussions and code reviews using comments on Github. Your instructors will be looking for this. Commits should also have meaningful messages. Be careful about what type of commits are being made, i.e. "Cleanup Hound violations". If you want to learn more about squashing commits, see [here](http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html).
+It is expected that teams will have meaningful discussions and code reviews using comments on Github. If you would like technical feedback from instructors, you will need to tag them in PRs with specific questions. Commits should also have meaningful messages. Be careful about what type of commits are being made, i.e. "Cleanup Hound violations". If you want to learn more about squashing commits, see [here](http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html).
 
 It is also expected that teams will use a Pull Request Template, as described [here](https://help.github.com/articles/creating-a-pull-request-template-for-your-repository/).
 
-The master branch of your project should always remain in a state where it can be demoed and deployed... yes, even days that you don't have any _planned_ meetings.
+The master branch of your project should always remain in a state where it can be demoed and deployed... yes, even days that you don't have any _planned_ meetings. This also means that your production application (on Heroku) should be ready to demo at any time.
 
 Everyone will provide feedback for group members at the end of the project.
 
