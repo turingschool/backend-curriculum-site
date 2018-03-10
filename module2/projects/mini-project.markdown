@@ -20,6 +20,16 @@ This afternoon, use these new skills to start adding the following features to a
 
 Use [this question guide](https://gist.github.com/rwarbelow/0fed3529495a814eabb1) to establish group norms if you're working with someone else.
 
+### Code Review
+
+This is a non-assessed project. If you would like feedback on your code, consider tagging the following in PRs:
+
+- Peers
+- Mentors
+- Instructors
+
+If you tag someone in a PR. Make sure to point them to a specific part of a specific file. Have a question in mind beyond "Will you take a look at this." General questions can also be asked by tagging others in GitHub issues.
+
 ### Project Options
 
 - IdeaBox
@@ -149,7 +159,6 @@ Create an app where users can "favorite" gifs. Host your app live on Heroku.
 - [ ] Logic lives in the appropriate files
 - [ ] Methods are refactored and follow SRP
 - [ ] Naming follows convention
-
 
 #### Testing
 
