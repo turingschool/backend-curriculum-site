@@ -165,40 +165,6 @@ The short answer: whenever you're handed a promise by an API you didn't write, w
 When you read the documentation for a library that uses promises, one of the first sentences will likely say 'this is a promise-based library'. There are some APIs that still use callbacks rather than promises (the `geolocation` API, for example). You'll want to read the documentation closely to see if the library expects you to use a promise or callback. So for once, we don't really have to be in charge of making a decision here -- we can let the tools and technologies we're using dictate whether or not we should be using promises.
 
 
-## Further Learning: the Promise Object
-
-Unless you're making a library or creating an abstraction over something complicated, you're likely to consume promises more than you create them. The syntax can look squirrelly, but if we pull it apart, it's not that bad. If you open up the console in your browser dev tools, you can actually create your own Promise object and inspect its inner workings:
-
-```js
-let foo = new Promise();
-```
-
-Done. Well, not quiet. We also need to give it the mechanics for how it should handle fulfillment or rejection. So, we hand the `Promise` constructor a function that will dictate how we figure this all out.
-
-```js
-let foo = new Promise(() => {});
-```
-
-Okay, here's where it gets a bit hectic, that function is going to be handed two arguments, which are both functions as well.
-
-```js
-let foo = new Promise((resolve, reject) => {});
-```
-
-As you can probably imagine when things go well, you should call the `resolve()` function. If things blow up, then you should use the `reject()` function.
-
-```js
-let foo = new Promise((resolve, reject) => {
-  if (thingsGoWell) {
-    resolve(theDataYouReceived);
-  } else {
-    reject(someHelpfulError);
-  }
-});
-```
-
-The promise object itself encapsulates all of the asynchronous logic and allows whoever receives this promise to just deal with `then` and `catch` as we did in prior examples.
-
 ## Explore
 
 With a partner, use prior knowledge/educated guesses to discuss what you see happening at each line of this function. Also jot down any questions that arise from look at this.
