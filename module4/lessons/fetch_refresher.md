@@ -184,6 +184,7 @@ const fetchDiscussions = () => {
 const postDiscussions = () => {
   fetch('/api/vi/discussions', {
     method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       discussionName: 'Foo',
       totalPoints: 100,
@@ -214,6 +215,7 @@ Handling the response of a fetch request might look something like this:
 ```js
 fetch('/api/v1/discussions', {
   method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
   body: JSON.stringify({
     discussionName: 'Foo',
     totalPoints: 100,
