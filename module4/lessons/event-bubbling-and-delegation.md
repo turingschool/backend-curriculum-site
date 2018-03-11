@@ -51,17 +51,28 @@ In the following code pen, we have three nested HTML elements in `index.html`:
 <p data-height="265" data-theme-id="0" data-slug-hash="pLvGMM" data-default-tab="css,result" data-user="ameseee" data-embed-version="2" data-pen-title="Event Bubbling" class="codepen">See the Pen <a href="https://codepen.io/ameseee/pen/pLvGMM/">Event Bubbling</a> by Amy Holt (<a href="https://codepen.io/ameseee">@ameseee</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-### Pair Practice
+### Small Group Practice
 
 Visit the [this page][codepen] and fork the CodePen.
 
-[codepen]: https://codepen.io/case-eee/pen/mBqbJm
+[codepen]: https://codepen.io/ameseee/pen/pLvGMM
 
+Follow your group's directions, then answer the following questions:
+*   What is the result when you click on the button?
+*   What is is the result when you click the `.parent` element?
+*   What is is the result when you click the `.grandparent` element?
+Refactor any code you wrote.
+Draw a diagram to explain what is happening and write your code out on your poster!
+
+Groups 1, 4:
 *   Add a click event to the button, that logs the element that was clicked on using `this`.
-*   Move the event listener to the `.parent` element. What is the result when you click on the button?
-*   Move the event listener from the first step to the `.grandparent` element.
-    *   What is the result when you click on the button?
-    *   What is is the result when you click the `.parent` element?
+
+Groups 2, 5:
+*   Add a click event to the `.parent` element, that logs the element that was clicked on using `this`.
+
+Groups 3, 6:
+*   Add a click event to the `.grandparent` element, that logs the element that was clicked on using `this`.
+
 
 ### Discussion
 
