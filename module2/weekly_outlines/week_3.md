@@ -28,8 +28,7 @@ layout: page
 ### Day 3:
 
 * **LESSONS:**
-  - [Intro to Sass](../lessons/intro_to_sass)
-  - [Rails Basics Challenge](../misc/rails_basics_challenge)
+  - [Namespacing](../misc/namespacing)
 
 * **HOMEWORK:**
   - JobTracker
@@ -38,7 +37,6 @@ layout: page
 
 * **LESSONS:**
   - [Sessions, Cookies and Flashes](../misc/sessions_cookies_and_flashes)
-  - [Namespacing](../misc/namespacing)
   - [Auth Exploration](../misc/auth_exploration)
 
 * **HOMEWORK:**
@@ -59,3 +57,4 @@ layout: page
 
 ## Additional Resources
 * [Mix Master](../projects/mix_master/1_getting_started.markdown)
+* [Intro to Sass](../lessons/intro_to_sass)
