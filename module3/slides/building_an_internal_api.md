@@ -43,4 +43,4 @@
 
 ---
 
-# Code Along
+# Try It!
