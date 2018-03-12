@@ -40,4 +40,4 @@ layout: page
 
 ## Projects:
 
-* [Bike Share](  - [Bike Share](https://github.com/turingschool/backend-curriculum-site/blob/bike-share-updates/module2/projects/bike-share-redux.md))
+* [Bike Share]((https://github.com/turingschool/backend-curriculum-site/blob/bike-share-updates/module2/projects/bike-share-redux.md))
