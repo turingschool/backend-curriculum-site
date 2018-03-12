@@ -90,7 +90,7 @@ end
 Inside of the rails_helper.rb file:
 
 ```ruby
-require 'support/factory_bot'
+require_relative './support/factory_bot'
 ```
 
 ### Versioned APIs
