@@ -10,7 +10,6 @@ layout: page
 * **LESSONS**
 
   - [Joins, Group, Order](../lessons/joins_group_order)
-  - [Advanced CSS Selectors](../lessons/advanced_css)
   - [Database Relationships and Visualizations](../lessons/database_relationships_and_visualizations)
 
 * **HOMEWORK:**
@@ -19,12 +18,16 @@ layout: page
 ### Day 2:
 
 * **LESSONS:**
-  - [Flex Box Workshop](../lessons/flexbox_workshop)
+
 
 * **HOMEWORK:**
   - Work on Little Shop Redux
+  - [Flex Box Workshop](../lessons/flexbox_workshop)
 
 ### Day 3:
+
+* **LESSONS**
+  - [Sinatra vs. Rails Exploration](../misc/sinatra_vs_rails_exploration)
 
 * **HOMEWORK:**
   - Read about [Routing in Rails](https://www.theodinproject.com/courses/ruby-on-rails/lessons/routing)
@@ -36,12 +39,11 @@ layout: page
 ### Day 4:
 
 * **LESSONS:**
-  - [Sinatra vs. Rails Exploration](../misc/sinatra_vs_rails_exploration)
   - [REST, Controllers & Routing in Rails](../lessons/rest_routing_and_controllers_in_rails)
-  - Database Normalization
+  - [Database Normalization Link Coming!]()
 
 * **HOMEWORK:**
-  - Work on [Blogger](../misc/blogger)
+  - Work on Blogger
 
 ### Day 5:
 
