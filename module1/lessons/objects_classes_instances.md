@@ -50,7 +50,7 @@ In programming, a *Class* is something that models:
 
 State is what something *is*. Behavior is what something *does*. In the previous activity, our *Class* was refrigerator. We modeled the state of a refrigerator by defining the attributes "color", "size", and "food items". We modeled the behavior of a refrigerator by defining the methods "add food", "remove food", and "change temperature".
 
-An *Instance* or *Object* is a concrete representation of a *Class*. In the previous activity, "small staff refrigerator" is a specific *Instance* of the Regrigerator *Class*. We can also say that "small staff refrigerator" is a Refrigerator *Object*. Do not get confused by the terms *Instance* an *Object*. They mean the exact same thing (for now). 
+An *Instance* or *Object* is a concrete representation of a *Class*. In the previous activity, "small staff refrigerator" is a specific *Instance* of the Regrigerator *Class*. We can also say that "small staff refrigerator" is a Refrigerator *Object*. Do not get confused by the terms *Instance* an *Object*. They mean the exact same thing (for now).
 
 Think of a Class like a blueprint for a house and an Instance as an actual house. The blueprint is a just an idea of how the house should be built, and the house is the realization of that blueprint.
 
@@ -129,12 +129,12 @@ This method is run once and only once during an Object's lifetime, when we call 
 **TRY IT**: Create an initialize method for your Class and put a print statement in it. Run your file and see what happens.
 
 #### Check for Understanding
-* What is a Class? 
-* What is an Instance? 
-* What is an Object? 
+* What is a Class?
+* What is an Instance?
+* What is an Object?
 * How are these three things alike/different?
 * What code do you have to write to create a Class? What code do you have to write to create an instance?
-* What happens when a new instance is created? 
+* What happens when a new instance is created?
 
 ## Modeling State with Attributes
 
@@ -387,7 +387,7 @@ end
 
 #### attr_accessor
 
-attr_accessor is a shorthand for a getter and a setter method. We can replace the attr_reader and attr_writers with one attr_accessor:
+attr_accessor is a shorthand for a getter and a setter method. We can replace the `attr_reader` and `attr_writer` with one `attr_accessor`:
 
 ```ruby
 class Refrigerator
@@ -405,7 +405,7 @@ end
 
 ### More Interesting Methods
 
-We want to be able to add food to our fridge. Let's create a new method. 
+We want to be able to add food to our fridge. Let's create a new method.
 
 ```ruby
 class Refrigerator
@@ -442,15 +442,22 @@ Finally, we need to call this method.
   refrigerator_1.add_food("apples")
 ```
 
+What if we only wanted to add food up to our refrigerator's size?
+
+```ruby
+def add_food(new_food)
+  if(@food.length < @size)
+    @food << new_food
+  end
+end
+```
+
 This is what the code looks like so far:
 
 ```ruby
 class Refrigerator
-<<<<<<< Updated upstream
-=======
   attr_accessor :color
 
->>>>>>> Stashed changes
   def initialize(color_param, size_param)
     @color       = color_param
     @size        = size_param
@@ -460,16 +467,10 @@ class Refrigerator
   def add_food(new_food)
     @food << new_food
   end
-<<<<<<< Updated upstream
-
-  def color
-    @color
-  end
-=======
->>>>>>> Stashed changes
 end
 
 refrigerator_1 = Refrigerator.new("white", 12)
+refrigerator_1.color = "blue"
 puts refrigerator_1.color
 refrigerator_1.add_food("apples")
 p refrigerator_1
@@ -518,4 +519,3 @@ and then back again.
 * Complete Bob
 * Over the weekend, complete `command-query` exercises and `mythical-creatures` exercises
 * Optional: `objects-and-methods` exercises
-
