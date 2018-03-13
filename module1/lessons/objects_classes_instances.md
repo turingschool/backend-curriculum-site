@@ -50,7 +50,11 @@ In programming, a *Class* is something that models:
 
 State is what something *is*. Behavior is what something *does*. In the previous activity, our *Class* was refrigerator. We modeled the state of a refrigerator by defining the attributes "color", "size", and "food items". We modeled the behavior of a refrigerator by defining the methods "add food", "remove food", and "change temperature".
 
+<<<<<<< HEAD
 An *Instance* or *Object* is a concrete representation of a *Class*. In the previous activity, "small staff refrigerator" is a specific *Instance* of the Regrigerator *Class*. We can also say that "small staff refrigerator" is a Refrigerator *Object*. Do not get confused by the terms *Instance* an *Object*. They mean the exact same thing (for now).
+=======
+An *Instance* or *Object* is a concrete representation of a *Class*. In the previous activity, "small staff refrigerator" is a specific *Instance* of the Refrigerator *Class*. We can also say that "small staff refrigerator" is a Refrigerator *Object*. Do not get confused by the terms *Instance* an *Object*. They mean the exact same thing (for now).
+>>>>>>> d0c34a4f3991747788312571e89f563013a721fa
 
 Think of a Class like a blueprint for a house and an Instance as an actual house. The blueprint is a just an idea of how the house should be built, and the house is the realization of that blueprint.
 
@@ -158,7 +162,7 @@ end
 
 In English, this code is saying "When we create a new Refrigerator, it should have a `color` of "white", a `size` of 12, and an empty array of `food`."
 
-**TRY IT**: With your pair, give your class some attributes. Do you see a difference in the `p` statements when you run the file now? Try creating an atttribute without the @ symbol. What do you notice?
+**TRY IT**: With your pair, give your class some attributes. Do you see a difference in the `p` statements when you run the file now? Try creating an attribute without the @ symbol. What do you notice?
 
 ### Parameters
 
@@ -513,8 +517,7 @@ If you get done with the above exercise, then follow along with [this](https://v
 It will go through [this](https://github.com/JoshCheek/1508/blob/0facae943f7785e5133ea506595534c1b00b3025/katas/blowing_bubbles_part2.rb) coding exercise.
 It builds on bubble sort, but you don't have to understand the algorithm to follow along with it
 It only plays with swapping representations, not changing behaviour.
-We'll take a piece of toplevel procedural code and turn it into a beautilful namespaced object,
-and then back again.
+We'll take a piece of toplevel procedural code and turn it into a beautilful namespaced object, and then back again.
 
 ## Homework
 
