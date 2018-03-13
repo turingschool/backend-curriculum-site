@@ -465,7 +465,9 @@ class Refrigerator
   end
 
   def add_food(new_food)
-    @food << new_food
+    if(@food.length < @size)
+      @food << new_food
+    end
   end
 end
 
