@@ -136,7 +136,6 @@ Compare those responses to the responses below. How do they differ?
   {
     "id": 1,
     "name": "Hammer",
-    "price": 11
   },
   {...}
 ]
@@ -148,7 +147,6 @@ Compare those responses to the responses below. How do they differ?
 {
   "id": 1,
   "name": "Hammer",
-  "price": 11,
   "num_orders": 5,
   "orders": [
     {"order_number": "12345ABC"},
