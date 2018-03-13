@@ -45,7 +45,7 @@ describe "user sees one movie" do
 
     visit movie_path(movie.slug)
 
-    expect(current_path).to eq("/movies/#{movie.title}")
+    expect(current_path).to eq("/movies/#{movie.slug}")
 
     expect(page).to have_content(movie.title)
     expect(page).to have_content(movie.description)
@@ -70,6 +70,12 @@ end
   - Callbacks allow you to trigger logic before or after an alteration of an object's state.
 
 - Take a minute to research how to create a hyphenated title. Any suggestions? `parameterize`
+
+```ruby
+resources :directors, shallow: true do
+    resources :movies, param: :slug
+  end
+```
 
 ```ruby
 #movie.rb
@@ -101,7 +107,6 @@ One last piece of the puzzle. Right now we are finding our movie by it's slug, b
   * `before_save`
   * `around_save`
   * `before_create`
-  * `around_create`
   * `after_create`
   * `after_save`
   * `after_commit`/`after_rollback`
@@ -111,13 +116,11 @@ One last piece of the puzzle. Right now we are finding our movie by it's slug, b
   * `before_save` **__Note: before_save gets called when we update and when we create.__**
   * `around_save`
   * `before_update`
-  * `around_update`
   * `after_update`
   * `after_save`
   * `after_commit`/`after_rollback`
 1. Destroying an Object
   * `before_destroy`
-  * `around_destroy`
   * `after_destroy`
   * `after_commit`/`after_rollback`
 

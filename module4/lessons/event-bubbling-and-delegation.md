@@ -27,6 +27,18 @@ It is, however, possible for us to use JavaScript to set up listeners for events
 
 For a review of how to set event listeners, please refer to the [Introduction to JavaScript III - Intro to DOM Manipulation](http://frontend.turing.io/lessons/module-1/js-3-dom-manipulation.html)
 
+
+## Things to know
+
+Event propagation is an important yet misunderstood topic/term when talking about events. Event propagation is an overarching term that includes the three different phases of DOM Events: capturing, targeting, and bubbling. Event propagation is bi-directional (starts at the window... goes to the target... and ends at the window) and is often improperly used as a synonym for event bubbling. Every time an event occurs, event propagation is occurring behind the scenes.
+
+![Graphical representation of an event dispatched in a DOM tree using the DOM event flow](/assets/images/eventpropagation.svg)
+
+* Event capture phase - When an event occurs in the DOM, notification of the event is passed starting at the top of the DOM tree and passing down through all parent element nodes all the way to the target node where the event occurred.
+* Event target phase - After the capturing phase occurs, the Target phase occurs. The target phase only includes a notification of Node where the event took place.
+* Event bubbling phase - This is the final phase to occur, although many people think this is the first phase. In the bubbling phase a notice is passed from the target Node up through all of the parent Nodes all the way back to the top root of the DOM
+
+
 Event Bubbling
 ------------
 
@@ -36,19 +48,32 @@ Now we've talked about the very basics of events, let's turn our attention to ev
 
 In the following code pen, we have three nested HTML elements in `index.html`:
 
-<p data-height="265" data-theme-id="0" data-slug-hash="mBqbJm" data-default-tab="css,result" data-user="case-eee" data-embed-version="2" data-pen-title="Event Bubbling" class="codepen">See the Pen <a href="https://codepen.io/case-eee/pen/mBqbJm/">Event Bubbling</a> by Casey Ann Cumbow (<a href="https://codepen.io/case-eee">@case-eee</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<p data-height="265" data-theme-id="0" data-slug-hash="pLvGMM" data-default-tab="css,result" data-user="ameseee" data-embed-version="2" data-pen-title="Event Bubbling" class="codepen">See the Pen <a href="https://codepen.io/ameseee/pen/pLvGMM/">Event Bubbling</a> by Amy Holt (<a href="https://codepen.io/ameseee">@ameseee</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-### Pair Practice
+### Small Group Practice
 
 Visit the [this page][codepen] and fork the CodePen.
 
-[codepen]: https://codepen.io/case-eee/pen/mBqbJm
+[codepen]: https://codepen.io/ameseee/pen/pLvGMM
 
+Follow your group's directions, then answer the following questions:
+*   What is the result when you click on the button?
+*   What is is the result when you click the `.parent` element?
+*   What is is the result when you click the `.grandparent` element?
+
+Refactor any code you wrote.
+Draw a diagram to explain what is happening and write your code out on your poster!
+
+**Groups 1, 4:**
 *   Add a click event to the button, that logs the element that was clicked on using `this`.
-*   Move the event listener to the `.parent` element. What is the result when you click on the button?
-*   Move the event listener from the first step to the `.grandparent` element.
-    *   What is the result when you click on the button?
-    *   What is is the result when you click the `.parent` element?
+
+**Groups 2, 5:**
+*   Add a click event to the `.parent` element, that logs the element that was clicked on using `this`.
+
+**Groups 3, 6:**
+*   Add a click event to the `.grandparent` element, that logs the element that was clicked on using `this`.
+
 
 ### Discussion
 
@@ -59,15 +84,15 @@ When an event occurs, the browser checks the element to see if there are any eve
 Try out the following code in your forked CodePen:
 
 ```js
-  $('.grandparent').on('click', function (event) {
+  $('.grandparent').on('click', function(event) {
     console.log('Grandparent');
   });
 
-  $('.parent').on('click', function (event) {
+  $('.parent').on('click', function(event) {
     console.log('Parent');
   });
 
-  $('#click-me').on('click', function (event) {
+  $('#click-me').on('click', function(event) {
     console.log('Button');
   });
 ```
@@ -125,7 +150,7 @@ $('#click-me').on('click', function (event) {
 });
 ```
 
-## STOP && REFACTOR
+## STOP & REFACTOR
 
 Just because we are in JavaScriptopolis doesn't mean we have to write WET ("Woo! Extra Typing!") code! In the interest of always keeping an eye out for repetitive tasks, let's see that previous snippet refactored with a `forEach` call:
 
@@ -149,8 +174,8 @@ A common obstacle that many JavaScript developers struggle with is understanding
 
 ### Experiment
 
-<p data-height="265" data-theme-id="0" data-slug-hash="GOwKQa" data-default-tab="js,result" data-user="kat3kasper" data-embed-version="2" data-pen-title="Events: Event Delegation" class="codepen">See the Pen <a href="https://codepen.io/kat3kasper/pen/GOwKQa/">Events: Event Delegation</a> by Katelyn Kasperowicz (<a href="https://codepen.io/kat3kasper">@kat3kasper</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+<p data-height="265" data-theme-id="0" data-slug-hash="pLvYrj" data-default-tab="js,result" data-user="ameseee" data-embed-version="2" data-pen-title="Events: Event Delegation" class="codepen">See the Pen <a href="https://codepen.io/ameseee/pen/pLvYrj/">Events: Event Delegation</a> by Amy Holt (<a href="https://codepen.io/ameseee">@ameseee</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 You should see 2 tasks in our To-do List labeled "Task 1" and "Task 2" as well as a button for adding new tasks to our list.
 
@@ -164,12 +189,14 @@ The event listeners are only bound to the li elements that were present when the
 
 **What could we do to fix this?**
 
+Work with your partner to modify the function that adds new buttons so that it adds an event listener to the element before appending it to the page.
+
 Event Delegation
 ------------------
 
 Setting event listeners on specific newly created DOM nodes is one way to set event listeners. However, if you're not careful, you may end up setting multiple listeners on the same node.
 
-Also, You can cause a [memory leak](http://javascript.crockford.com/memory/leak.html) if an event listeners are not unbound from an element when it is removed from the DOM.
+Also, you can cause a [memory leak](http://javascript.crockford.com/memory/leak.html) if an event listeners are not unbound from an element when it is removed from the DOM.
 
 Rather than manage the addition and removal of event listeners, there is a methodology you can use called *__event delegation__*.
 
@@ -179,20 +206,6 @@ From the jQuery documentation: "Event delegation refers to the process of using 
 
 Event delegation in tandem with `target` and `currentTarget` allows you to have more articulate control over what events actually execute your JavaScript.
 
-### Pair Practice
-
-Fork the CodePen from above and write a click event handler that responds to (and only to) `li` that both *do* and *could* exist on the DOM.
-
-Does your solution look anything like this?
-
-```js
-$ol.on('click', function (event) {
-    // Check if target is a list item
-    if (event.target.nodeName == "LI") {
-      alert(`${event.target.innerHTML} clicked`)
-    }
-});
-```
 
 Extra: Enough with the Bubbles
 -
@@ -234,3 +247,7 @@ Click around the DOM to see the results.
 * How does this relate to "event bubbling"?
 * When do we want to utilize event delegation?
 * What is the difference between `target` and `currentTarget`?
+
+## Interview Question
+
+* What does event bubbling or event propagation mean?

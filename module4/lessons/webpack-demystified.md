@@ -10,6 +10,10 @@ By the end of this lesson, students:
   - can find their way around Webpack and its config
   - are able to use Webpack for development, testing and production
 
+## Slides
+
+Available [here](../slides/webpack)
+
 ## Part 1: Big Picture
 
 ### The Purpose of Build Tools
@@ -257,6 +261,8 @@ Let's look at the [Github Pages section](https://github.com/turingschool-example
 This lets us use handy `npm` commands such as `npm start` to fire up webpack-dev-server, `npm run build` to package everything for production, and `npm test` to execute our testing suite.
 
 The `--hot --inline` flags tell npm to watch for any changes and reload automatically.
+
+Why `npm run build` instead of just `npm build`? [NPM has a built in build command](https://stackoverflow.com/questions/29939697/npm-build-doesnt-run-the-script-named-build-in-package-json), which is not what we want to run in this case.
 
 ## Additional Resources
 

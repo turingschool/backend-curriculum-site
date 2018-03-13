@@ -18,14 +18,15 @@ tags: activerecord, migrations, sinatra
 * Schema
 * Object Relational Map (ORM)
 
+## Warmup
+
+* What are the pieces of MVC? How do we use them in a Sinatra app?
+* What do you know about ActiveRecord?
+* Name two ActiveRecord methods you explored yesterday.
+
 ## Repository
 
 Clone [this](https://github.com/turingschool-examples/film-file) repository and run `bundle install`.
-
-## Warmup
-
-* What do you know about ActiveRecord?
-* Name two ActiveRecord methods you explored yesterday.
 
 ## Lecture
 
@@ -62,6 +63,10 @@ We want to wrap our data in Ruby objects so we can easily manipulate them. If we
 * the table represents the collection of instances
 * a row represents one specific instance
 * the columns represent the attributes of an instance
+
+**Partnered Practice**
+
+With someone near you, draw out a diagram representing the above four aspects.
 
 ## Tutorial
 

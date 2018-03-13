@@ -5,7 +5,7 @@ length: 60min
 tags: ruby
 ---
 
-## Ruby Project Etiquette: Gemfiles & Bundler
+## Ruby Project Etiquette: Gemfiles, Bundler, & LOAD_PATH
 
 In this session we're going to go over some common best practices for organizing and managing code in our Ruby projects. By the end of the lesson, you should be comfortable with the following tasks.
 
@@ -20,14 +20,11 @@ In this session we're going to go over some common best practices for organizing
 
 ## Warmup
 
-* What conventions are you already following when you create a new project?
+* How do you manage dependencies in your project?
 
 ## Gems & Gemfiles
 
-* A "Gem" is a packaged up piece of ruby code designed to be shared with others (i.e. a library)
-* [RubyGems](https://rubygems.org/) is the community-run repository and website where gems can be published so other users can download them
-* [Bundler](http://bundler.io/) is the popular dependency manager rubyists use to download and manage gems
-* Similar to a `Rakefile`, a `Gemfile` lives at the **root of your project** and contains a list of the gems that project *depends on*
+A "Gem" is a packaged up piece of ruby code designed to be shared with others (i.e. a library). [RubyGems](https://rubygems.org/) is the community-run repository and website where gems can be published so other users can download and use them easily. [Bundler](http://bundler.io/) is the popular dependency manager rubyists use to download and manage gems. Bundler versions are unique to Ruby versions, if you change Ruby versions you must have that Ruby's Bundler version installed also. Similar to a `Rakefile`, a `Gemfile` lives at the **root of your project** and contains a list of the gems that project *depends on*.
 
 **Sample Gemfile:**
 
@@ -37,18 +34,20 @@ source "https://rubygems.org"
 gem "minitest"
 ```
 
-* To install the dependencies listed in this file you would run `bundle` (**Can you guess from where?**)
-* Running bundle will also create a special file called `Gemfile.lock` in your project root. You should commit both of these files to source control
+To install the dependencies listed in your Gemfileyou would run `bundle` (**Can you guess from where?**). Running bundle will also create a special file called `Gemfile.lock` in your project root. This file records which version of each gem your project relies upon. You should commit both of these files to source control so that other users of your application use the same gem versions and things don't break.
 
 ### Exercise - Making A Gemfile
 
-1. Create a new blank directory on your machine
-2. Create an empty file called `http_requests.rb`
+1. Use the directory you created in the Rake section of [Ruby Project Ettiquette Part 1](../ruby_project_ettiquette)
+2. Add a method `jam` to your `Event` class.
 3. In the file, enter the following code to make a request using the Faraday gem:
 
 ```ruby
 require "faraday"
-puts Faraday.get('http://www.warnerbros.com/archive/spacejam/movie/jam.htm').body
+
+def jam
+  puts Faraday.get('http://www.warnerbros.com/archive/spacejam/movie/jam.html').body
+end 
 ```
 
 4. Create an empty `Gemfile` in the directory
@@ -98,11 +97,11 @@ Your OS has a similar construct called `PATH` which it uses to find executable c
 
 ### Exercise: Messing with Load Path
 
-1. Create a ruby file called `print_stuff.rb` in the directory `/tmp` on your machine (thus `/tmp/print_stuff.rb`)
+1. Create a ruby file called `print_stuff.rb` in the directory `/tmp` on your machine. `/tmp` is two levels up from your base user directory (`cd ~../..`)
 2. In that file define a simple method that prints a line of text. Call it `print_stuff`
 3. Go to your **Home Directory** (`cd ~`) and open a pry or IRB session
 4. Try to require `print_stuff` in irb/pry with `$ require 'print_stuff'`. You will get an error.
-5. Use ruby to ADD the path `./tmp` to your load path (remember, `$LOAD_PATH` is just an array so you can use normal Ruby array methods on it)
+5. Use ruby to ADD the path `../../tmp` to your load path (remember, `$LOAD_PATH` is just an array so you can use normal Ruby array methods on it)
 6. Try to require `print_stuff` again using the command in 4 (above). It will return true.
 
 ### Check for Understanding
@@ -113,6 +112,7 @@ Describe to a neighbor why the exercise above worked.
 
 If you finish early, scan this article from Joshua Paling on [Load Path](http://joshuapaling.com/blog/2015/03/22/ruby-load-path.html).
 
-#### Summary
-
-Review objectives from beginning of session.
+## Wrap Up
+* What is a gem? Why would you use one?
+* What is a Gemfile and a Gemfile.lock? Why would you use one?
+* What is a load path? How can you alter your load path? 

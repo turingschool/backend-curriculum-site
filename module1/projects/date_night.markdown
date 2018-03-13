@@ -9,6 +9,7 @@ title: Date Night
 * Understanding how binary search trees work to store and find data
 * Testing components in isolation and in combination
 * Use and implement iteration or recursion techniques
+* Measure test coverage with [SimpleCov](https://github.com/colszowka/simplecov)
 
 ## Overview
 
@@ -166,8 +167,6 @@ Where the return value is an `Array` with one nested array per node at that leve
 
 When the percentages of two nodes at the same level are dramatically different, like `28` and `42` above, then we know that this tree is starting to become unbalanced.
 
-## Extensions
-
 ### Understanding the Shape
 
 This extensions is made up of two methods:
@@ -190,6 +189,10 @@ What is the height (aka the maximum depth) of the tree?
 tree.height
 # => 3
 ```
+
+
+## Extension
+
 
 ### Deleting Nodes
 
@@ -235,7 +238,12 @@ The project will be assessed with the following guidelines:
 ### 3. Test-Driven Development
 
 * Each method is tested  
-* Tests implement Ruby syntax & style   
+* Tests implement Ruby syntax & style  
+* Tests exist to cover edge cases
+* Tests covers critical functionality of software
+* Testing exhibits TDD approach
+* Test coverage is measured with [SimpleCov](https://github.com/colszowka/simplecov)
+* Test coverage exceeds 95%
 
 
 ### 4. Functionality

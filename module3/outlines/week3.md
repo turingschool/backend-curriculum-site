@@ -18,4 +18,4 @@ layout: page
 
 ### Projects
 
-* [80202](../projects/cloney_island/80202)
+* [Le Pivot](../projects/le_pivot)

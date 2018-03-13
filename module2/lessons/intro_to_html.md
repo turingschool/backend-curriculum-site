@@ -11,6 +11,7 @@ title: Introduction to HTML
   - Identify different parts of an HTML tag
 
 ## Vocabulary
+  - HTML
   - Tag 
   - Element
   - Semantic 
@@ -22,6 +23,9 @@ Review from Task Manager
   - What file extension did we use for HTML files?
   - What does that file extension stand for?
   - How did we create structure in our HTML?
+  
+### Hyper Text Markup Language
+A Markup Language used for describing the structure/layout of web pages.
 
 ### Structure of an HTML Document
 
@@ -33,6 +37,9 @@ Review from Task Manager
       <head>
         <meta charset="utf-8">
         <title></title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Chonburi|Muli">
+        <link rel="stylesheet" href="../stylesheets/main.css" />
+        <script type="text/javascript" src="javascript.js"></script>
       </head>
       <body>
 
@@ -41,7 +48,7 @@ Review from Task Manager
   ```
   - Let's talk about the specific parts:
 
-#### Type Declaration
+#### [Type Declaration](https://www.w3schools.com/tags/tag_doctype.asp)
 
   - `<!DOCTYPE html>` tells our browsers that our application is using HTML5. `html` signals the beginning of our HTML.
 

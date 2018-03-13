@@ -8,13 +8,6 @@ tags: rest, routing, controllers, routes, rspec
 
 Read [this article](https://www.theodinproject.com/courses/ruby-on-rails/lessons/routing).
 
-## Vocabulary
-
-- `routes.rb`
-- `rake routes`
-- CRUD
-- MVC
-
 ## Learning Goals
 
 * explain the purpose of the `routes.rb` file
@@ -23,8 +16,16 @@ Read [this article](https://www.theodinproject.com/courses/ruby-on-rails/lessons
 * create routes by hand
 * create routes using `resources :movies`
 
+## Vocabulary
+
+- `routes.rb`
+- `rake routes`
+- CRUD
+- MVC
+
 ## Warm Up
 
+- What is REST?
 - How are routes applied in Sinatra?
 - Where do our routes live?
 - How is MVC implemented in Sinatra?
@@ -52,7 +53,7 @@ $ cd movie_mania
 - `--skip-spring` - Spring is a Rails application preloader. It speeds up development by keeping your application running in the background so you don't need to boot it every time you run a test, rake task or migration but it benefits more advanced developers the most. We are going to not include it in our Gemfile.
 - `--skip-turbolinks` - Enables faster page loading by using AJAX call behind the scenes but has some subtle edge cases where it will not work as expected. For those reasons, we don't enable it by default.
 
-Take a few minutes to explore what `rails new` generates.
+Take a few minutes to explore what `rails new` generates. Which parts are the same as a Sinatra application? 
 
 ## Start with a Test
 
@@ -225,7 +226,7 @@ ActionController::UnknownFormat:
 
 What is this funny error?? We see a line `MoviesController#index is missing a template for this request format and variant.`. Template refers to an erb/html file. This means we are missing a erb/html file. In rails, we want to use `.html.erb` file extension.
 
-WHY THO? Rails convention says that we should include the output type and the end with the `.erb` extension.
+WHY THO? Rails convention says that we should include the output type and end with the `.erb` extension.
 
 ```html
 #views/movies/index.html.erb
@@ -262,17 +263,48 @@ Start up your rails server: `rails server` or `rails s` from the command line.
 
 Navigate to `localhost:3000/movies` and what do you see? NOTHING!
 
+**Check for Understanding**
+Why don't we have any data on our page even though we created data in our test? 
+
+
 Let's add some movies in `rails console` and start the server again to see our movies!
 
 ### Workshop
 
-1) Can you create a `new` route that would bring the user to a form where they can enter a new movie?
+```
+As a user
+When I visit a new route
+Then I see a form with fields for title and desctiption
+```
 
-2) Can you create a `show` route that would allow a user to see one movie? Just like in Sinatra, the route will need a changeable `/:id`. You *do not* need to create a show view; just get a message like "You are viewing the show page" to show up.
+```
+As a user
+When I visit a show route
+Then I see the title of a movie
+Then I see the description of a movie
+```
 
-3) Can you create an `edit` route that would allow a user to get to the edit page for a movie? Again, the route will need a changeable `/:id`. You *do not* need to create a form because you already have one! (Think about a partial); just get a message like "You are viewing the edit page" to show up.
+Just like in Sinatra, the route will need a changeable `/:id`. You *do not* need to create a show view; just get a message like "You are viewing the show page" to show up.
 
-4) For the previous two routes (show and edit), can you get the id param to display in the text that you render? You *do not* need to create a form; just get a message like "You are editing movie 2" to show up.
+
+```
+As a user
+When I visit an edit route for a specific movie
+Then I see a form with a title field
+Then I see a form with a description field
+Then I see each field prepopulated with the movie's data
+```
+
+Again, the route will need a changeable `/:id`. You *do not* need to create a form because you already have one! (Think about a partial); just get a message like "You are viewing the edit page" to show up.
+
+
+```
+As a user
+When I visit show or edit
+Then I see the id of the movie
+```
+
+Display the id param in the text that you render. You *do not* need to create a form; just get a message like "You are editing movie 2" to show up.
 
 In Sinatra, you could access the `:id` from the URL like this:
 
@@ -286,7 +318,9 @@ In Rails, you'll need to use `params[:id]`.
 
 ### Using Resources in the Routes File
 
+**Turn & Talk** 
 What are the common CRUD actions? They match up to eight routes. Can you name all of them?
+
 
 Since Rails is all about "convention over configuration", it has a nice way of allowing us to easily create all eight RESTful routes at one time via a shortcut.
 
@@ -319,7 +353,7 @@ Any methods with `:id` require an id to be passed into the URL. These values are
 #### Questions:
 
 * What actions (methods) would we need in our `MoviesController` in order to handle all of these routes?
-* Which actions would render a form and which actions would redirect? (Think of TaskManager in Sinatra)
+* Which actions would render a form and which actions would redirect?
 
 Don't worry about putting `render :text` in these actions. You won't be able to test out `post`, `patch`, `put`, or `delete` by navigating in your browser.
 

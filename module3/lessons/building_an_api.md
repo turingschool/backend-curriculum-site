@@ -12,6 +12,10 @@ tags: apis, testing, requests, rails
 * Use request specs to cover an internal API
 * Feel comfortable writing request specs that deal with different HTTP verbs (GET, POST, PUT, DELETE)
 
+## Slides
+
+Available [here](../slides/building_an_internal_api)
+
 ## Warmup
 
 * What is an API in the context of web development?
@@ -23,15 +27,13 @@ tags: apis, testing, requests, rails
 ## Overview
 
 * Review of New Tools
-* RSpec & Factory Girl Setup
+* RSpec & FactoryBot Setup
 * Creating Our First Test and Factory
 * Api::V1::ItemsController#index
 * Api::V1::ItemsController#show
 * Api::V1::ItemsController#create
 * Api::V1::ItemsController#update
 * Api::V1::ItemsController#destroy
-
-[Slides](../slides/building_an_internal_api)
 
 ## New Tools
 
@@ -88,7 +90,7 @@ end
 Inside of the rails_helper.rb file:
 
 ```ruby
-require 'support/factory_bot'
+require_relative './support/factory_bot'
 ```
 
 ### Versioned APIs
@@ -198,8 +200,28 @@ end
 We're TDD'ing so let's run our tests again.
 
 We should get the error `ActionController::RoutingError: No route matches [GET] "/api/v1/items"`
-This is because we haven't created our controller yet so let's create it! Keep in mind the namespacing we used to setup the test directory.
-`api/v1`
+
+This is because we haven't yet set up our routing.
+
+```rb
+# config/routes.rb
+  namespace :api do
+    namespace :v1 do
+      resources :items, only: [:index]
+    end
+  end
+```
+
+Sure enough, that changes our error.
+
+```
+ActionController::RoutingError:
+  uninitialized constant Api
+```
+
+Our routes file is telling our app to look for a directory `api` in our `controllers` directory, but that doesn't yet exist. Ultimately, we're going to need a controller. Let's go ahead and create that controller in this next step.
+
+If you'd like, feel free to run your tests after creating the directory structure to see the new error confirming that we're looking for a controller.
 
 ```sh
 $ mkdir -p app/controllers/api/v1
@@ -212,17 +234,6 @@ We can add the following to the controller we just made:
 # app/controllers/api/v1/items_controller.rb
 class Api::V1::ItemsController < ApplicationController
 end
-```
-
-If we were to run our tests again, we should get the same error because we haven't setup the routing.
-
-```rb
-# config/routes.rb
-  namespace :api do
-    namespace :v1 do
-      resources :items, only: [:index]
-    end
-  end
 ```
 
 Also, add the action in the controller:
@@ -259,8 +270,7 @@ describe "Items API" do
 end
 ```
 
-When we run our tests again, we get a semi-obnoxious error of `JSON::ParserError: A JSON text must at least contain two octets!`.
-This just means that we need open and closing braces for it to actually be JSON. Either `[]` or `{}`
+When we run our tests again, we get a semi-obnoxious `JSON::ParserError`.
 
 Well that makes sense. We aren't actually rendering anything yet. Let's render some JSON from our controller.
 

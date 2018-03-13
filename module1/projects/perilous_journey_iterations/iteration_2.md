@@ -3,7 +3,7 @@ layout: page
 title: A Perilous Journey
 ---
 
-# Iteration 2 - `.append`, `.to_string` and `.insert` (Multiple Nodes)
+# Iteration 2 - `.append` and `.to_string` (Multiple Nodes)
 
 Now that we can insert the first element of our list (i.e. the Head), let's focus on supporting these operations for multiple elements in the list.
 

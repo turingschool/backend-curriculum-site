@@ -10,41 +10,52 @@ layout: page
 * **LESSONS**
 
   - [Joins, Group, Order](../lessons/joins_group_order)
+  - [Database Relationships and Visualizations](../lessons/database_relationships_and_visualizations)
 
 * **HOMEWORK:**
-  - Work on BikeShare
+  - Work on Little Shop Redux
 
 ### Day 2:
 
 * **LESSONS:**
-  - [Flex Box Workshop](../lessons/flexbox_workshop)
+
 
 * **HOMEWORK:**
-  - Work on BikeShare
+  - Work on Little Shop Redux
+  - [Flex Box Workshop](../lessons/flexbox_workshop)
 
 ### Day 3:
 
+* **LESSONS**
+  - [Sinatra vs. Rails Exploration](../misc/sinatra_vs_rails_exploration)
+
 * **HOMEWORK:**
-  - Work on BikeShare
+  - Read about [Routing in Rails](https://www.theodinproject.com/courses/ruby-on-rails/lessons/routing)
+  - [DevShed - An Introduction to Database Normalization](http://www.devshed.com/c/a/mysql/an-introduction-to-database-normalization/)
+  - [Mike Hillyer's Blog Post - intro to database normalization](http://mikehillyer.com/articles/an-introduction-to-database-normalization/)
+  - [Watch Sharif Ramadan's intro to 1NF, 2NF and 3NF databases. They're only about 4 minutes each.](https://www.youtube.com/watch?v=K7vzLrGCV50&list=PLQ9AAKW8HuJ5m0rmHKL88ZyjOIKejvrj0)
+ - Work on [Blogger](../misc/blogger)
 
 ### Day 4:
 
 * **LESSONS:**
-  - [Sinatra vs. Rails Exploration](../misc/sinatra_vs_rails_exploration)
   - [REST, Controllers & Routing in Rails](../lessons/rest_routing_and_controllers_in_rails)
+  - [Database Normalization Link Coming!]()
 
 * **HOMEWORK:**
-  - Work on [Blogger](../misc/blogger)
+  - Work on Blogger
 
 ### Day 5:
 
 * **LESSONS:**
   - [Models, Migrations and Databases](../lessons/models_migrations_databases)
 
-* **HOMEWORK:**
-  - Complete [Blogger](../misc/blogger)
-  - Answer the Week Two Recap [questions](https://github.com/turingschool/checks-for-understanding/blob/master/module-2/backend/week_two.md).
-  - Finish preparing and sending feedback to your Bike Share group members. Be sure to include both encouraging feedback and feedback that will encourage growth.
+### Weekend Homework
+  - Finish [Blogger](../misc/blogger)
+  - [Checks for Understanding](https://github.com/turingschool/checks-for-understanding/blob/master/module-2/backend/week_two.md).
+  - Static Comp Challenge
+  - Start [JobTracker]((https://github.com/turingschool/job-tracker))
+  - Finish preparing and sending feedback to your Little Shop group members. Be sure to include both encouraging feedback and feedback that will encourage growth. Send your feedback through a group DM to your partner and instructors. 
 
 ## Projects:
 
@@ -55,4 +66,3 @@ layout: page
 
   - [1 of 8 Intro to Database Series. by Dr. Daniel Soper](https://www.youtube.com/watch?v=4Z9KEBexzcM)
   - [Routes and controllers](https://github.com/turingschool/challenges/blob/master/routes_controllers_rails.markdown).
-  - [Schema Practice](../misc/schema_practice).

@@ -20,6 +20,7 @@ title: Forms in Rails
   * create a new movie
   * field to enter title  
   * field to enter description
+  * labels for each field
 
 ### Setup
 
@@ -28,8 +29,19 @@ title: Forms in Rails
 
 ### User Story
 
-1. `As a user, when I visit "/directors/new" , I see a form where I can create a new director`
-2. `When I fill in name and click "Create Director", I am taken to the director that I just created's show page`
+1. ```
+    As a user, 
+    When I visit "/directors/new" 
+    Then I see a form where I can create a new director`
+    ```
+
+2. ```
+    As a user,
+    When I visit "/directors/new" 
+    And I fill in name 
+    And I click "Create Director"
+    ThenI am taken to the director that I just created's show page`
+    ```
 
 ### Tests
 
@@ -54,7 +66,6 @@ fill_in "director[name]", with: "Sal Espinosa"
 
 click_on "Create Director"
 
-expect(current_path).to eq("/directors/#{Director.last.id}")
 expect(page).to have_content("Sal Espinosa")
 ```
 
@@ -154,10 +165,10 @@ touch app/views/directors/new.html.erb
 - A form_for is this: `<%= form_for @post, :as => :post, :url => posts_path, :html => { :class => "new_post", :id => "new_post" } do |f| %>`
 - What is all this??
 * How does this form know where to submit to?
-  - It is using the instance variable to determine whether it is a form for a new object or to edit an object. If the object has a value i.e. `Director.find(params[:id])` then rails knows that we are looking to edit a resource. If the instance variable holds no information, rails interprets that as wanting to create a new resource. Andddddd the `form_for` line tells us the url (which we can also set manually if we want)
+  - It is using the instance variable to determine whether it is a form for a new object or to edit an object. If the object has a value i.e. `Director.find(params[:id])` then rails knows that we are looking to edit a resource. If the instance variable holds no information, rails interprets that as wanting to create a new resource. Andddddd the `form_for` line tells us the url (which we can also set manually if we want to through an options hash)
   - :as => :post, creates the nested names such as name="post[title]"
   - :url => posts_path tells rails which route the request is being sent to
-  - :html {:class => "new_post", :id => "new_post} are an automatically generated class and id, the names come from the new route and the :as attribute
+  - :html {:class => "new_post", :id => "new_post} are an automatically generated class and id, the names come from the new route and the :as attribute. You can overide the default with this :html hash
   - Based on the above, the submit button will be rendered to reflect the form it is on. If it is a new form, it says "Create Resource" and if edit, "Update Resource". We can change that by adding a string to the `f.submit` line.
   - Notice that form_for is a method, we pass it some arguments (a bunch of them in an options hash) and then pass it a block. `f` is a block parameter that we then use throughout the rest of the block.
 
@@ -181,7 +192,7 @@ class DirectorsController < ApplicationController
 end
 ```
 
-What do we have access to?? PARAMS!!!!
+What do we have access to?? What should we check when we aren't sure? PARAMS!!!!
 
 But there is some other junk in there too, how can we separate out the things we need and make sure that only the attributes we want are present?
 
@@ -216,12 +227,13 @@ But there is some other junk in there too, how can we separate out the things we
 
 ### `form_for` vs `form_tag`
 
-Turn and talk with your neighbor to discuss the following.
+**Turn and talk** 
+With your neighbor discuss the following.
 
 *   What is `form_for`? How is this different from a [`form_tag`](http://api.rubyonrails.org/v5.1/classes/ActionView/Helpers/FormTagHelper.html#method-i-form_tag)?
-  - Form_for deals with model attributes while form_tag does not.
+  - Form_for deals with model/resource attributes while form_tag does not.
 *   When would we want to use one over the other?
-  - A form that isn't related to a model would be a good place to use a form_tag.
+  - A form that isn't related to a model/resource would be a good place to use a form_tag.
 
 ### Exercise: Finish Create Directors and Add Create Actors
 

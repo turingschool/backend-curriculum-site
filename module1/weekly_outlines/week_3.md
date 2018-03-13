@@ -7,8 +7,12 @@ layout: page
 
 ### All
 * [Pairing Patterns](../lessons/pairing_patterns)
-* [Testing Strategies](../lessons/testing_in_a_project)
-* [The Enumerables Strike](../lessons/intermediate_enumerables) [Back](../lessons/advanced_enumerables)[Video 1](https://vimeo.com/161675625), [Video 2](https://vimeo.com/161677741), [Video 3](https://vimeo.com/161678930), [Video 4](https://vimeo.com/161680127)
+* [Testing Strategies](../lessons/testing_strategies_1)
+* [Enumerables II](../lessons/intermediate_enumerables) 
+[Video 1](https://vimeo.com/161675625), 
+[Video 2](https://vimeo.com/161677741),  
+[Video 3](https://vimeo.com/161678930), 
+[Video 4](https://vimeo.com/161680127)
 * [Scope](../lessons/intro_to_scope)
 * [PD: Feedback I](../../career_development_curriculum/module_one/feedback_i)
 * [Group Project Retro](../lessons/group_project_retro)
@@ -35,7 +39,7 @@ layout: page
 * [Character Count - Pair Exercise](https://github.com/turingschool/challenges/blob/master/character_count.markdown)
 * [Dynamics: Drive](https://github.com/turingschool/dynamics/blob/master/drive.markdown)
 * [Ruby Project Etiquette](../lessons/ruby_project_etiquette) ([Video](http://vimeo.com/161695195))
-* [Testing Strategies](../lessons/testing_strategies_1) ([Video](https://vimeo.com/161526035))
+* [Testing Strategies Video](https://vimeo.com/161526035)
 * [File I/O](../lessons/working_with_files_part_2) ([Class Recording](https://vimeo.com/162134025)) ([Related Video](https://vimeo.com/130322465)) ([Intro Video](https://vimeo.com/238294504))
 * [Inheritance](../lessons/inheritance)
 * [Boolean Logic](../lessons/boolean_logic)

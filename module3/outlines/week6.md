@@ -7,10 +7,9 @@ layout: page
 
 ### Classes
 
+* [Intro to Fetch](../lessons/getting_started_with_fetch)
 * [Caching Strategies in Rails](../lessons/caching_in_rails)
 * [Getting Started with Workers](../lessons/intro_to_background_workers)
-* Personal Project Evaluations
-* Portfolio Reviews
 
 ### Projects
 

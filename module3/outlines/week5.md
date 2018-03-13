@@ -8,11 +8,9 @@ layout: page
 ### Classes
 
 * [Understanding the Asset Pipeline](../lessons/understanding_the_asset_pipeline)
-* Job Search Strategies
-* [Working with AJAX](../lessons/getting_started_with_ajax)
 * [Assessment](../lessons/assessment)
 * [Performance Dojo](../lessons/performance_dojo)
 
 ### Projects
 
-* [Self-Directed Project Intro](../projects/self_directed_project) (continued)
+* [Self-Directed Project Intro](../projects/self_directed_project)

@@ -20,13 +20,15 @@ tags: database, schema, relationships
 * One-to-Many Relationship
 * Many-to-Many Relationship
 
-### Warm-Up
+## Warm-Up
+1) Draw a diagram showing which tables we currently have in our Task Manager database. What information lives in that table?
 
-In our recent Task Manager client meeting, our client decided their users should be able to organize their tasks by marking them with labels. Based on our conversation, we've decided:
+2) In our recent Task Manager client meeting, our client decided their application should scope tasks to a user.
+   Based on our conversation, we've decided:
 
-     Users should have tasks. Tasks should have labels.
+     Users should have tasks.
 
-Right now, our database only supports tasks. Take a minute to consider what changes we would need to make to our database in order to support the features requested by our client.
+     Right now, our database only supports tasks. Take a minute to consider what changes we would need to make to our database in order to support the features requested by our client. Add these to your diagram.
 
 ### Defining Key Terms
 
@@ -40,14 +42,24 @@ Right now, our database only supports tasks. Take a minute to consider what chan
 ### One-to-Many Relationships
 
 * The relationship between `users` and `tasks` is a one-to-many relationship.
-* `tasks` has a column called `user_id` which is refers to the primary key of the `users` table.
+* `tasks` has a column called `user_id` which refers to the primary key of the `users` table.
 * Let's diagram the relationship using a schema designer.
 
-### Exercise: Car Dealership
+**Independent Practice** - Car Dealership
 
 A car dealership has many cars - diagram this relationship using the schema designer.
 
 ### Many-to-Many Relationships
+
+In our recent Task Manager client meeting, our client also decided their users should be able to organize their tasks by marking them with labels. Based on our conversation, we've decided:
+
+  ```
+  Users should have tasks. Tasks should have labels.
+  ```
+  
+**Independent Practice** - Labels & Tasks
+  Take a minute to consider what changes we would need to make to our database in order to support the features requested by our client. Add these to your diagram.
+
 
 Many-to-many is a little harder than one-to-many.
 
@@ -57,11 +69,11 @@ _**Note:** Join tables are just ordinary tables with a unique purpose._
 
 Let's diagram the tasks and labels relationship using the schema designer.
 
-### Exercise: Students and Courses
+**Independent Practice** - Students and Courses
 
 Diagram the many-to-many relationship between students and courses.
 
-### Closing
+## Closing
 
 Let's revist our learning goals by answering the following:
 

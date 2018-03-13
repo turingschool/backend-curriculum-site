@@ -20,6 +20,8 @@ subheading: Professional Rails Applications
     <a href="outlines/week3">
       <li class="outline">Week 3</li>
     </a>
+  </ul>
+  <ul class="outlines">
     <a href="outlines/week4">
       <li class="outline">Week 4</li>
     </a>
