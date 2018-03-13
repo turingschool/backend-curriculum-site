@@ -63,16 +63,26 @@ Follow your group's directions, then answer the following questions:
 *   What is is the result when you click the `.grandparent` element?
 
 Refactor any code you wrote.
+
 Draw a diagram to explain what is happening and write your code out on your poster!
 
 **Groups 1, 4:**
-*   Add a click event to the button, that logs the element that was clicked on using `this`.
+*   Add a click event to the button that logs or alerts:
+  * `this`
+  * event.target
+  * event.currentTarget
 
 **Groups 2, 5:**
-*   Add a click event to the `.parent` element, that logs the element that was clicked on using `this`.
+*   Add a click event to the `.parent` element that logs or alerts:
+  * `this`
+  * event.target
+  * event.currentTarget
 
 **Groups 3, 6:**
-*   Add a click event to the `.grandparent` element, that logs the element that was clicked on using `this`.
+*   Add a click event to the `.grandparent` element that logs or alerts:
+  * `this`
+  * event.target
+  * event.currentTarget
 
 
 ### Discussion
