@@ -18,7 +18,7 @@
 
 * Rails Engine
 * API Curious
-* Cloney Island
+* LePivot
 * Self-directed Project
 
 ---
@@ -40,10 +40,7 @@
 # PD Deliverables
 
 * Resume
-* Portfolio
-* Trello board
-* Job search action plan
-* Reflections
+* Turing Alumni Portfolio
 
 ---
 

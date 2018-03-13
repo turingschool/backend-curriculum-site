@@ -1,9 +1,12 @@
-# Credit Check
+---
+layout: page
+title: Credit Check
+---
 
-### Learning Goals 
-* break a problem into logical components 
+### Learning Goals
+* break a problem into logical components
 * implement approriate Ruby syntax
-* utilize methods and classes 
+* utilize methods and classes
 
 Let's write a program that can detect mistakes in a credit card number.
 
@@ -91,7 +94,7 @@ If helpful, you can use the following sample data:
 
 ### Submission
 
-Use `git` to commit your solution and push to your repository. 
+Use `git` to commit your solution and push to your repository.
 
 ```
 $ git add .
@@ -131,4 +134,3 @@ The project will be assessed with the following guidelines:
 ### 3. Functionality
 
 * Application meets all requirements (extension not req'd)
-

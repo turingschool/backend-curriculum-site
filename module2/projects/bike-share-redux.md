@@ -26,6 +26,7 @@ This application will collect data in two ways:
 * Deploy an application to Heroku
 * Write an articulate README documenting features and functionalities of application
 * Build a logical user-flow that moves across multiple controllers and models
+* Navigation links are present for all functionality
 
 ### Code Organization/Quality
 
@@ -46,19 +47,19 @@ This application will collect data in two ways:
 
 ## Process
 
-Each team will have an assigned project manager that will be the primary point of contact between the product owner (instructor) and the rest of the team.
+Each team will have an assigned project manager (peer) that will be the primary point of contact between the product owner (instructor) and the rest of the team.
 
 All base stories will be provided by the product owner. You will be asked to write your own stories for extensions and they should follow the same format as the ones that are provided to you.
 
 You should not write code or migrations until a story calls for it.
 
-Teams can self-pace but will have a number of stories required to be completed at each check-in. Teams will meet with the product owner regularly and demo completed stories. Project scope and requirements can change at the discretion of the product owner so following an agile approach is really important.
+Teams can self-pace but will have a number of stories required to be completed at each check-in. Teams will meet with the product owner regularly and demo completed stories in production. Project scope and requirements can change at the discretion of the product owner so following an agile approach is really important.
 
-It is expected that teams will have meaningful discussions and code reviews using comments on Github. Your instructors will be looking for this. Commits should also have meaningful messages. Be careful about what type of commits are being made, i.e. "Cleanup Hound violations". If you want to learn more about squashing commits, see [here](http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html).
+It is expected that teams will have meaningful discussions and code reviews using comments on Github. If you would like technical feedback from instructors, you will need to tag them in PRs with specific questions. Commits should also have meaningful messages. Be careful about what type of commits are being made, i.e. "Cleanup Hound violations". If you want to learn more about squashing commits, see [here](http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html).
 
 It is also expected that teams will use a Pull Request Template, as described [here](https://help.github.com/articles/creating-a-pull-request-template-for-your-repository/).
 
-The master branch of your project should always remain in a state where it can be demoed and deployed... yes, even days that you don't have any _planned_ meetings.
+The master branch of your project should always remain in a state where it can be demoed and deployed... yes, even days that you don't have any _planned_ meetings. This also means that your production application (on Heroku) should be ready to demo at any time.
 
 Everyone will provide feedback for group members at the end of the project.
 
@@ -99,6 +100,7 @@ This project must be deployed with a smaller data set on Heroku.
 
 ## User Stories
 ### As a visitor
+- [ ]
 
 ```
 As a visitor,
@@ -108,6 +110,8 @@ I see all stations (name, dock count, city, installation date)
 ** All Attributes must be present **
 ```
 
+- [ ]
+
 ```
 As a visitor,
 When I visit the station show
@@ -116,6 +120,9 @@ I see all attributes for that station.
 
 ** All Attributes must be present **
 ```
+
+- [ ]
+
 
 ```
 As a visitor,
@@ -127,12 +134,14 @@ When I visit a second page, there should be buttons to move both forward and bac
 
 ** All Attributes must be present **
 ```
+- [ ]
 
 ```
 As a visitor,
 When I visit the trip show,
 I see all attributes for that trip.
 ```
+- [ ]
 
 ```
 As a visitor,
@@ -141,6 +150,7 @@ I see all conditions (Date, Max Temperature, Mean Temperature, Min Temperature, 
 
 ** All Attributes must be present **
 ```
+- [ ]
 
 ```
 As a visitor,
@@ -149,6 +159,7 @@ I see all attributes for that condition.
 
 ** All Attributes must be present **
 ```
+- [ ]
 
 ```
 As a visitor,
@@ -167,6 +178,7 @@ I see my profile information,
 I do not see a link for "Login",
 I also see a link for "Logout".
 ```
+- [ ]
 
 ```
 As a visitor,
@@ -178,8 +190,9 @@ When I click "Add to Cart",
 I see a flash message alerting me that I have added that specific accessory to my cart.
 I also see my cart count updated on all pages.
 ```
+- [ ]
 
-<!-- ```
+```
 As a visitor,
 When I visit '/cart',
 I see all the bike accessory I have added to my cart,
@@ -188,7 +201,8 @@ I see a total for my cart,
 After I create an account,
 I visit "/cart,
 I see all of the data that was there when I was not logged in.
-``` -->
+``` 
+- [ ]
 
 ```
 As a visitor,
@@ -200,6 +214,7 @@ The message should say "Successfully removed SOME_ACCESSORY from your cart.",
 The flash message should be a link to that accessory in case the user wants to add it back,
 I also should not see the accessory listed in cart
 ```
+- [ ]
 
 ```
 As a visitor,
@@ -208,6 +223,7 @@ I am still able to access the accessory page,
 I am not able to add the accessory to my cart,
 I also see in place of the "Add to Cart" button or link - "Accessory Retired"
 ```
+- [ ]
 
 ```
 As a visitor,
@@ -220,6 +236,7 @@ The item's quantity should reflect the increase,
 The subtotal for that item should increase,
 Also, the total for the cart should match that increase.
 ```
+- [ ]
 
 ```
 As a visitor,
@@ -232,6 +249,7 @@ The item's quantity should reflect the decrease,
 The subtotal for that item should decrease,
 The total for the cart should match that decrease.
 ```
+- [ ]
 
 ```
 As a visitor,
@@ -241,6 +259,7 @@ I cannot view the administrator screens or use administrator functionality,
 I cannot make myself an admin.
 ```
 ### As a registered user
+- [ ]
 
 ```
 As a registered user,
@@ -258,6 +277,7 @@ I see my profile information,
 I do not see a link for "Login",
 I see a link for "Logout".
 ```
+- [ ]
 
 ```
 As a registered user,
@@ -267,6 +287,7 @@ I see a subtotal and quantity breakdown for each accessory,
 I see a total for my cart,
 I also see a button to "Checkout".
 ```
+- [ ]
 
 ```
 As a registered user,
@@ -276,6 +297,7 @@ And click "Checkout",
 I see my own dashboard,
 I also see a flash message telling me I have "successfully submitted your order".
 ```
+- [ ]
 
 ```
 As a registered user,
@@ -291,6 +313,7 @@ I do not see the order of another user.
 If the order was completed or cancelled,
 I see a timestamp when the action took place.
 ```
+- [ ]
 
 ```
 As a registered user,
@@ -299,6 +322,7 @@ I cannot view the administrator screens or use admin functionality,
 I cannot make myself an admin.  
 ```
 ### As a registered user and admin
+- [ ]
 
 ```
 As a registered user and admin,
@@ -312,6 +336,7 @@ I see the Station(s) where the fewest bikes are available (based on docks),
 I see the Most recently installed station,
 I also see the Oldest station.
 ```
+- [ ]
 
 ```
 As a registered user and admin,
@@ -328,6 +353,7 @@ I see the User subscription type breakout with both count and percentage,
 I see the Single date with the highest number of trips with a count of those trips,
 I see the Single date with the lowest number of trips with a count of those trips.
 ```
+- [ ]
 
 ```
 As a registered user and admin,
@@ -341,6 +367,7 @@ I see the Date with the highest number of trips started at this station,
 I see the Most frequent zip code for users starting trips at this station,
 I see the Bike ID most frequently starting a trip at this station.
 ```
+- [ ]
 
 ```
 As a registered user and admin,
@@ -350,6 +377,7 @@ I see the Breakout of average number of rides, highest number of rides, and lowe
 I see the Breakout of average number of rides, highest number of rides, and lowest number of rides on days with mean wind speeds in four mile increments,
 I see the Breakout of average number of rides, highest number of rides, and lowest number of rides on days with mean visibility in miles in four mile increments.
 ```
+- [ ]
 
 ```
 As a registered user and admin,
@@ -357,6 +385,7 @@ When I visit '/trips-dashboard',
 I see the Weather on the day with the highest rides.
 I see the Weather on the day with the lowest rides.
 ```
+- [ ]
 
 ```
 As a registered user and admin,
@@ -365,6 +394,7 @@ And I click "Logout",
 I see "Login",
 I do not see "Logout".
 ```
+- [ ]
 
 ```
 As a registered user and admin,
@@ -373,6 +403,7 @@ I cannot modify any other user's account data.
 ```
 
 ### As a admin
+- [ ]
 
 ```
 As a admin,
@@ -381,6 +412,7 @@ I see everything a visitor can see,
 I see a button next to each station to edit that station,
 I also see a button next to each station to delete that station.
 ```
+- [ ]
 
 ```
 As an admin,
@@ -389,6 +421,7 @@ I see all attributes a visitor can see,
 I see a button to delete this station,
 I also see a button to edit this station.
 ```
+- [ ]
 
 ```
 As a admin,
@@ -400,6 +433,7 @@ I also see a flash message that I have created that station.
 
 ** All Attributes must be present **
 ```
+- [ ]
 
 ```
 As a admin,
@@ -412,6 +446,7 @@ I also see a flash message that I have updated that station.
 
 ** All Attributes must be present **
 ```
+- [ ]
 
 ```
 As an admin,
@@ -420,6 +455,7 @@ And I click delete next to a station,
 I do not see the station on the index.
 I also see a flash message that I have deleted that station.
 ```
+- [ ]
 
 ```
 As a admin,
@@ -428,6 +464,7 @@ I see all attributes that a visitor can see,
 I see a button next to each trip to edit that trip,
 I also see a button next to each trip to delete that trip.
 ```
+- [ ]
 
 ```
 As an admin,
@@ -438,6 +475,7 @@ I also see a button to edit this trip.
 
 ** All Attributes must be present **
 ```
+- [ ]
 
 ```
 As a admin,
@@ -450,6 +488,7 @@ I also see a flash message that I have created that trip.
 
 ** Zip Code is a user-provided field, and may not be present on all records. Otherwise, as with Stations, all attributes of a Trip need to be present to ensure data integrity **
 ```
+- [ ]
 
 ```
 As a admin,
@@ -462,6 +501,7 @@ I also see a flash message that I have updated that trip.
 
 ** All Attributes must be present **
 ```
+- [ ]
 
 ```
 As an admin,
@@ -470,6 +510,7 @@ And I click delete next to a trip,
 I do not see the trip on the index.
 I also see a flash message that I have deleted that trip.
 ```
+- [ ]
 
 ```
 As a admin,
@@ -478,6 +519,7 @@ I see everything that a visitor can see,
 I see a button next to each condition to edit that condition,
 I also see a button next to each condition to delete that condition.
 ```
+- [ ]
 
 ```
 As an admin,
@@ -486,6 +528,7 @@ I see all the attributes a visitor can see,
 I see a button to delete this condition,
 I also see a button to edit this condition.
 ```
+- [ ]
 
 ```
 As a admin,
@@ -497,6 +540,7 @@ I also see a flash message that I have created that condition.
 
 ** All Attributes must be present **
 ```
+- [ ]
 
 ```
 As a admin,
@@ -509,6 +553,7 @@ I also see a flash message that I have updated that condition.
 
 ** All Attributes must be present **
 ```
+- [ ]
 
 ```
 As an admin,
@@ -517,6 +562,7 @@ And I click delete next to a condition,
 I do not see the condition on the index.
 I also see a flash message that I have deleted that condition
 ```
+- [ ]
 
 ```
 As an admin,
@@ -534,6 +580,7 @@ I see my profile information,
 I do not see a link for "Login",
 I see a link for "Logout"
 ```
+- [ ]
 
 ```
 As an admin,
@@ -546,6 +593,7 @@ I see the line item subtotal,
 I see the total for the order,
 I also see the status for the order.
 ```
+- [ ]
 
 ```
 As an admin,
@@ -563,6 +611,7 @@ Status
 Ability to Edit accessory
 Ability to Retire/Reactivate accessory
 ```
+- [ ]
 
 ```
 As an admin,
@@ -577,6 +626,7 @@ I can click on "cancel" on individual orders which are "paid" or "ordered"
 I can click on "mark as paid" on orders that are "ordered"
 I can click on "mark as completed" on orders that are "paid"
 ```
+- [ ]
 
 ```
 As an admin
@@ -598,8 +648,7 @@ Update the seeds file in your /db directory and add the station.csv file to your
 
 ## Evaluation Process
 
-For the evaluation we'll work through the expectations above and look at the
-following criteria:
+For the evaluation we'll work through the expectations above and look at the following criteria:
 
 ### 1. Feature Completeness
 
@@ -615,9 +664,9 @@ following criteria:
 
 ### 3. Controllers
 
-* Exceeds Expectations: Controllers show significant effort to push logic down the stack
-* Meets Expectations: Controllers are generally well organized with three or fewer particularly ugly parts
-* Below Expectations: There are four to seven ugly controller methods that should have been refactored
+* Exceeds Expectations: Controllers show significant effort towards refactoring and pushing logic down the stack
+* Meets Expectations: Controllers are generally well organized with three or fewer methods that need refactoring
+* Below Expectations: There are four to seven controller methods that should have been refactored
 
 ### 4. Models
 
@@ -627,18 +676,18 @@ following criteria:
 
 ### 5. Testing
 
-* Exceeds Expectations: Project has a running test suite that exercises the application at multiple levels
-* Meets Expectations: Project has a running test suite that tests at multiple levels but fails to cover some features
+* Exceeds Expectations: Project has a running test suite that exercises the application at multiple levels and utilizes mocking & stubbing
+* Meets Expectations: Project has a running test suite that covers all functionality and tests at multiple levels
 * Below Expectations: Project has sporadic use of tests at multiple levels
 
 ### 6. Usability
 
 * Exceeds Expectations: Project is highly usable and ready to deploy to customers
 * Meets Expectations: Project is highly usable, but needs more polish before it'd be customer-ready
-* Below Expectations: Project needs more attention to the User Experience, but works
+* Below Expectations: Project needs more attention to the User Experience, some views need to use a URL to visit them
 
 ### 7. Workflow
 
-* Exceeds Expectations: Excellent use of branches, pull requests, and a project management tool.
-* Meets Expectations: Good use of branches, pull requests, and a project-management tool.
+* Exceeds Expectations: Excellent use of branches, pull requests, code review and a project management tool.
+* Meets Expectations: Good use of branches, pull requests, code review, rebasing, and a project-management tool.
 * Below Expectations: Sporadic use of branches, pull requests, and/or project-management tool.

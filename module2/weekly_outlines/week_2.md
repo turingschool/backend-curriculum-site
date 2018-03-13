@@ -10,7 +10,6 @@ layout: page
 * **LESSONS**
 
   - [Joins, Group, Order](../lessons/joins_group_order)
-  - [Advanced CSS Selectors](../lessons/advanced_css)
   - [Database Relationships and Visualizations](../lessons/database_relationships_and_visualizations)
 
 * **HOMEWORK:**
@@ -19,26 +18,32 @@ layout: page
 ### Day 2:
 
 * **LESSONS:**
-  - [Flex Box Workshop](../lessons/flexbox_workshop)
+
 
 * **HOMEWORK:**
   - Work on Little Shop Redux
+  - [Flex Box Workshop](../lessons/flexbox_workshop)
 
 ### Day 3:
 
+* **LESSONS**
+  - [Sinatra vs. Rails Exploration](../misc/sinatra_vs_rails_exploration)
+
 * **HOMEWORK:**
   - Read about [Routing in Rails](https://www.theodinproject.com/courses/ruby-on-rails/lessons/routing)
-  - Work on Little Shop Redux
+  - [DevShed - An Introduction to Database Normalization](http://www.devshed.com/c/a/mysql/an-introduction-to-database-normalization/)
+  - [Mike Hillyer's Blog Post - intro to database normalization](http://mikehillyer.com/articles/an-introduction-to-database-normalization/)
+  - [Watch Sharif Ramadan's intro to 1NF, 2NF and 3NF databases. They're only about 4 minutes each.](https://www.youtube.com/watch?v=K7vzLrGCV50&list=PLQ9AAKW8HuJ5m0rmHKL88ZyjOIKejvrj0)
+ - Work on [Blogger](../misc/blogger)
 
 ### Day 4:
 
 * **LESSONS:**
-  - [Sinatra vs. Rails Exploration](../misc/sinatra_vs_rails_exploration)
   - [REST, Controllers & Routing in Rails](../lessons/rest_routing_and_controllers_in_rails)
-  - Database Normalization
+  - [Database Normalization Link Coming!]()
 
 * **HOMEWORK:**
-  - Work on [Blogger](../misc/blogger)
+  - Work on Blogger
 
 ### Day 5:
 

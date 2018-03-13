@@ -11,13 +11,11 @@ layout: page
   - [Intro to M2](../misc/day_1.html)
   - [Intro to REST & CRUD](../lessons/restful_routes_and_crud)
   - [Intro to MVC](../lessons/intro_to_mvc)
+  - [Intro to HTML](../lessons/intro_to_html)
 
 * **HOMEWORK:**
   - [ActiveRecord Exploration](../homework/activerecord_exploration)
-  - [DevShed - An Introduction to Database Normalization](http://www.devshed.com/c/a/mysql/an-introduction-to-database-normalization/)
-  - [Mike Hillyer's Blog Post - intro to database normalization](http://mikehillyer.com/articles/an-introduction-to-database-normalization/)
-  - [Watch Sharif Ramadan's intro to 1NF, 2NF and 3NF databases. They're only about 4 minutes each.](https://www.youtube.com/watch?v=K7vzLrGCV50&list=PLQ9AAKW8HuJ5m0rmHKL88ZyjOIKejvrj0)
-
+  
 ### Day 2:
 
 * **LESSONS:**
@@ -33,7 +31,6 @@ layout: page
 * **LESSONS:**
   - [Passing Data with HTML/HTTP](../lessons/passing_data_with_sinatra)
   - [ActiveRecord Associations](../lessons/activerecord_associations)
-  - [Intro to HTML](../lessons/intro_to_html)
 
 * **HOMEWORK:**
   - [ActiveRecord and Database Practice](../homework/activerecord_and_database_practice)
