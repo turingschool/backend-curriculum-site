@@ -1,7 +1,7 @@
 ---
 title: ActiveRecord Associations in Sinatra
 length: 60
-tags: activerecord, migrations, sinatra
+tags: activerecord, migrations, sinatra, relational_database
 ---
 
 ## Learning Goals
@@ -11,6 +11,14 @@ tags: activerecord, migrations, sinatra
 * use rake commands to generate migration files, and migrate the database
 * modify a migration in order to create or modify a table
 * interpret `schema.rb`
+
+## Vocabulary
+* primary key
+* foreign key
+* one-to-one
+* one-to-many
+* many-to-many
+
 
 ## Repository
 
