@@ -11,7 +11,7 @@ layout: page
 * [Flow Control](../lessons/flow_control) ([Video](https://www.youtube.com/watch?v=iZkQWR9_RpY))
 * [PD: Strengths Finder](../../career_development_curriculum/module_one/strengths_reflection_session)
 * [Objects, Instances and Classes](../lessons/objects_classes_instances)
-* [Exploring #each](../lessons/exploring_each)
+* [#each](../lessons/each) [video](https://vimeo.com/160173522)
 * [Enumerables: A New Hope](../lessons/beginner_enumerables)
 * [How Testing Works](../lessons/how_testing_works)
 * [Academic Integrity](../lessons/academic_integrity)
