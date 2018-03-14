@@ -332,6 +332,10 @@ Let's update our `films/index.erb` view to show all the films in each genre:
 
 Run `shotgun` from the command line, then navigate to `localhost:9393/films`. You should see the films listed along with their respective genre.
 
+### Extension
+
+What would this look like for a many-to-many relationship? How do you structure the tables in the database? What do the migrations look like to get this done? How are your models impacted? How will this impact data prep in tests or controller methods? 
+
 ## WrapUP
 
 * How do you associate two resources on the database level?
