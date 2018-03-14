@@ -161,7 +161,9 @@ Now with this array can you do the following with `.each`?
 4. Can you print out if the number is divisible by 2 or not?
 5. Can you print out the sum of the numbers?
 
+### Additional Resources 
 
+* [Video](https://vimeo.com/160173522)
 
 
 
