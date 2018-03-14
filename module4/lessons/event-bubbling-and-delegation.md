@@ -13,10 +13,9 @@ Learning Goals
 
 Warm Up
 -----------
-
+* What is an event?
 * Read the "Bubbling" and "event.target" section [here](https://javascript.info/bubbling-and-capturing)
 * What is event bubbling?
-* What does "inheritance" mean in your own words?
 
 Event Basics
 -------
@@ -32,11 +31,9 @@ For a review of how to set event listeners, please refer to the [Introduction to
 
 Event propagation is an important yet misunderstood topic/term when talking about events. Event propagation is an overarching term that includes the three different phases of DOM Events: capturing, targeting, and bubbling. Event propagation is bi-directional (starts at the window... goes to the target... and ends at the window) and is often improperly used as a synonym for event bubbling. Every time an event occurs, event propagation is occurring behind the scenes.
 
-![Graphical representation of an event dispatched in a DOM tree using the DOM event flow](/assets/images/eventpropagation.svg)
-
-* Event capture phase - When an event occurs in the DOM, notification of the event is passed starting at the top of the DOM tree and passing down through all parent element nodes all the way to the target node where the event occurred.
-* Event target phase - After the capturing phase occurs, the Target phase occurs. The target phase only includes a notification of Node where the event took place.
-* Event bubbling phase - This is the final phase to occur, although many people think this is the first phase. In the bubbling phase a notice is passed from the target Node up through all of the parent Nodes all the way back to the top root of the DOM
+* **Event capture phase** - When an event occurs in the DOM, notification of the event is passed starting at the top of the DOM tree and passing down through all parent element nodes all the way to the target node where the event occurred.
+* **Event target phase** - After the capturing phase occurs, the Target phase occurs. The target phase only includes a notification of Node where the event took place.
+* **Event bubbling phase** - This is the final phase to occur, although many people think this is the first phase. In the bubbling phase a notice is passed from the target Node up through all of the parent Nodes all the way back to the top root of the DOM
 
 
 Event Bubbling
