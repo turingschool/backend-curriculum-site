@@ -59,7 +59,7 @@ Meanwhile, our students table might have the following attributes:
 * last_name
 * course_id
 
-The `course_id` on student indicates that there is a one-to-many relationship between module and student. More specifically, it indicates that a module has many students and a student belongs to a module. How do we know this?
+The `course_id` on student indicates that there is a one-to-many relationship between course and student. More specifically, it indicates that a module has many students and a student belongs to a module. How do we know this?
 
 Sample courses table:
 
