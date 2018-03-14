@@ -59,7 +59,7 @@ Meanwhile, our students table might have the following attributes:
 * last_name
 * course_id
 
-The `module_id` on student indicates that there is a one-to-many relationship between module and student. More specifically, it indicates that a module has many students and a student belongs to a module. How do we know this?
+The `course_id` on student indicates that there is a one-to-many relationship between module and student. More specifically, it indicates that a module has many students and a student belongs to a module. How do we know this?
 
 Sample courses table:
 
@@ -82,7 +82,7 @@ Sample students table:
 | 6  | Victoria   | Vasys     | 1         |
 | 7  | Mike       | Dao       | 1         |
 
-We can use this same pattern to create a one-to-one relationship, though we would need to validate the uniquness of the foreign key (e.g. `module_id`) above.
+We can use this same pattern to create a one-to-one relationship, though we would need to validate the uniquness of the foreign key (e.g. `course_id`) above.
 
 #### Model Level
 
