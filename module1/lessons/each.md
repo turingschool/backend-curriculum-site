@@ -1,4 +1,4 @@
---- 
+
 title: Introduciton to .each
 length: 90
 tags: enumerable, ruby, collections, arrays, each,
@@ -95,3 +95,72 @@ Let's talk a little bit more here about scalability.
 The first approach that we took - to print out an array of three students
 that took three lines of code. How many lines would we need if our array 
 contained ten students? Fifty? A million?
+
+What about the second and third approaches? How many lines of code would it take
+to handle ten students? Fifty? A kajillion?
+
+And now we want to talk about how dynamic our code is. What if we had a hundred
+students and we then had to change the number of students we had down to 50? 
+How many lines of code would we have to change for our first example?
+
+How many lines of code would we have to change for our second approach? Our
+third?
+
+But now let's talk about how we would do it with each.
+
+The standard format for using `.each` looks like this.
+
+```
+
+collection.each do |block_parameter|
+  block_of_code
+end
+```
+
+`collection` here is an array, and we are running the each method on it. There 
+is then a do and in pipes is the block parameter. Standard practice is that the
+array will have a plural name and the block_parameter will be the singular. 
+For example student and students. The block of code will be run once for each 
+item in our collection.
+
+Now to replicate what we've done earlier using `.each`
+
+
+```
+students = ["Katie Bell", "Neville Longbottom", "Luna Lovegood"]
+
+students.each do |student|
+  puts student
+end
+```
+
+### Your Turn
+
+Now it's your turn to practice. 
+
+With your new best friend sitting next to you, with this following array use
+`.each` to: 
+
+`array = ["justin", "selena", "demi", "carly"]`
+
+1. Can you print out their names capitalized?
+2. Can you print out their names in all caps?
+3. Can you print out their names but reversed?
+4. Can you print out only the names that are longer than four letters in length?
+5. Can you print out only the lengths of their names?
+
+
+Now with this array can you do the following with `.each`?
+
+`array = [1,2,3,4,5]`
+
+1. Can you print only the odd numbers?
+2. Can you print only the even numbers?
+3. Can you print out each number doubled?
+4. Can you print out if the number is divisible by 2 or not?
+5. Can you print out the sum of the numbers?
+
+
+
+
+
