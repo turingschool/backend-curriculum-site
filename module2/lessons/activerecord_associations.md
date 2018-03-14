@@ -331,3 +331,10 @@ Let's update our `films/index.erb` view to show all the films in each genre:
 ```
 
 Run `shotgun` from the command line, then navigate to `localhost:9393/films`. You should see the films listed along with their respective genre.
+
+## WrapUP
+
+* How do you associate two resources on the database level?
+* How do you associate two resources on the model level?
+* How do you associate two resources when doing data prep in a test or controller?
+* Compare and contrast a primary key and foreign key. Where do each live?
