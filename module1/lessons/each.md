@@ -1,4 +1,5 @@
 
+---
 title: Introduciton to .each
 length: 90
 tags: enumerable, ruby, collections, arrays, each,
