@@ -160,6 +160,15 @@ Inspect the `schema.rb` file:
 ```ruby
 ActiveRecord::Schema.define(version: 20160217022804) do
 
+  create_table "films", force: :cascade do |t|
+    t.text     "title"
+    t.integer  "year"
+    t.integer  "box_office_sales"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "genre_id"
+  end
+
   create_table "genres", force: :cascade do |t|
     t.text     "name"
     t.datetime "created_at"
@@ -235,6 +244,8 @@ ActiveRecord::Schema.define(version: 20160217022905) do
 
   create_table "genres", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
