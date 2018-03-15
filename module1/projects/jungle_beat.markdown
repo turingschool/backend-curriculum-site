@@ -23,17 +23,20 @@ However to add some additional depth, let's also use this project as a chance to
 Go into your Terminal and try this:
 
 ```
-$ say -r 500 -v Boing "ding, dah, oom, oom, ding, oom, oom, oom, ding, dah, oom, oom, ding, dah, oom, oom, ding, dah, oom, oom "
+$ say -r 500 "ding, dah, oom, oom, ding, oom, oom, oom, ding, dah, oom, oom, ding, dah, oom, oom, ding, dah, oom, oom "
 ```
 
 Yeah. That's what we're looking for. Now try it from Ruby:
 
 ```
 $ pry
-> `say -r 500 -v Boing "ding, dah, oom, oom"`
+> `say -r 500 "ding, dah, oom, oom"`
 ```
 
 Note that the backticks allow you to run terminal commands from within Ruby.
+
+The exact command that you need to run may differ based on what version of OS X 
+you have installed on your computer. The commands above will work on 10.13
 
 ### Linked Lists
 
@@ -52,7 +55,23 @@ Using sweet ASCII art, it might look like this:
 ```
 List -- (head) --> ["hello" | -]-- (link) --> ["world" | -]-- (link) --> ["!" | ]
 ```
+
 The three nodes here hold the data "hello", "world", and "!". The first two nodes have links which point to other nodes. The last node, holding the data "!", has no reference in the link spot. This signifies that it is the end of the list.
+
+In other lower level languages, something called a pointer is what is used to ensure that a single link knows about the next link. In Ruby, we don't use pointers, so the link is literally its node. When we get to a node which is the last node, we call it the tail, and its link is nil. 
+
+A linked list should be able to do the following:
+
+
+* Insert elements
+* Pop an element from the end
+* Push an element onto the beginning
+* Remove the (first occurance | all occurances) of an element by data content
+* Remove an element by position
+* Add an element at an arbitrary position
+* Add an element after a known node
+* Find whether a data element is or is not in the list
+* Find the distance between two nodes
 
 ## Iterative Development
 
