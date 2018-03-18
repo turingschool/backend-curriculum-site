@@ -102,7 +102,7 @@ $ git commit -m "Add Credit Check"
 $ git push origin master
 ```
 
-Once you have committed and pushed, create a pull request to the Turing School Examples repository. Instructors will comment on your pull request to give you feedback on your code.
+Once you have committed and pushed, send the link to your repository to your assessor.
 
 More information on committing changes in `git` can be found [here](http://dont-be-afraid-to-commit.readthedocs.io/en/latest/git/commandlinegit.html), and [here](http://gitref.org/basic/). Note: for this exercise, you will not need to check out a branch. The commands you will need are `git add`, `git commit -m "Put your commit message here"`, and `git push origin master`. These guides cover many more commands. This will be a good opportunity for you to read online documentation to pull out only the information you need.
 
@@ -131,6 +131,17 @@ The project will be assessed with the following guidelines:
 * Code is effectively broken into methods & classes
 * May break the principle of SRP
 
-### 3. Functionality
+### 3. Test-Driven Development
+
+Expectations: 
+
+* Each method is tested  
+* Functionality is accurately covered
+* Tests implement Ruby syntax & style   
+* Balances unit and integration tests 
+* Evidence of edge cases testing
+* A test RakeTask is implemented
+
+## 4. Functionality
 
 * Application meets all requirements (extension not req'd)
