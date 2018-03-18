@@ -139,23 +139,24 @@ users on our behalf.
 
 To register a new application, follow these steps:
 
-1. Go to [www.github.com](www.github.com) and login
-2. Go to your settings
-3. Under `Developer settings`, click on `OAuth applications`
-4. Click on `Register a new application`
-5. Fill in `Application Name` with any name you want.
-6. Fill in `Homepage URL` with: `http://localhost:3000`
-7. Fill in `Authorization callback URL` with
+1. Go to [www.github.com](www.github.com) and login.
+2. Go to your settings.
+3. Under `Developer settings`, check to see that you're in the `OAuth Apps` section.
+4. Click on `New OAuth App`.
+5. Fill in `Application name` with any name you want.
+6. Fill in `Homepage URL` with: `http://localhost:3000`.
+7. Fill in `Application Description` with whatever you like.
+8. Fill in `Authorization callback URL` with
 `http://localhost:3000/auth/github/callback` **(Make sure you use `http` and not
 `https`)**
-8. Click on `Register application`
-9. The page should refresh and show you your application information. Save this
+9. Click on `Register application`
+10. The page should refresh and show you your application information. Save this
 page so we can reference the `client_id` and `client_secret`.
 
 ### Step 2 - Creating a new Rails app
 
-```rb
-$ rails new oauth_workshop -T -d postgresql
+```ruby
+$ rails new oauth_workshop -T -d postgresql --skip-spring --skip-turbolinks
 $ cd oauth_workshop
 $ bundle
 $ bundle exec rake db:create
@@ -183,46 +184,68 @@ $ bundle install
 
 ### Step 3 - Authenticating user on Github
 
-The very first step in getting our user authenticated is to have them
-visit the Github site. We can do this by having a link on our home page that
-redirects them to http://github.com/login/oauth/authorize. We also need to
-provide the [scope](https://developer.github.com/v3/oauth/#scopes) and our
-client_id that github provided to us.
+Our users will start this entire process by visiting our page. The first thing that we need for them is a landing page of some sort that will give them the opportunity to log in with GitHub.
 
-```sh
-$ touch app/controllers/home_controller.rb
-$ mkdir app/views/home
-$ touch app/views/home/index.html.erb
-```
+Let's start by creating a route for our users to visit.
 
-Let's set up our root application route, HomeController and view.
-
-**config/routes.rb**
-
-```rb
+```ruby
+# config/routes.rb
 Rails.application.routes.draw do
   root "home#index"
 end
 ```
 
-**app/controllers/home_controller.rb**
+Note that assumes that we have a `HomeController` with an `index` action on it. Let's create that now.
 
-```rb
+```ruby
+# app/controllers/home_controller.rb
 class HomeController < ApplicationController
   def index
   end
 end
 ```
 
+With that controller action in place we now need a view to display. Start by creating the directory structure/file.
+
+```sh
+$ mkdir app/views/home
+$ touch app/views/home/index.html.erb
+```
+
+In your newly created view, let's start off with the following.
+
+```html
+<h1>Welcome!</h1>
+```
+
+Great! Let's visit that page to see if what we have so far is linking up correctly. Fire up your server with `rails s` and visit `http://localhost:3000`. You should see a page that just says `Welcome!`
+
+Now, the very first step in getting our user authenticated with GitHub is to have them visit GitHub! We can do this by adding a link to GitHub from our homepage.
+
+But how will GitHub know what to do with our user once they get there? We don't want to send them to just the GitHub homepage. We want to send them to a portal that GitHub has created for the specific purpose of authenticating users for other applications. Additionally, when we send them to GitHub we need to tell them who sent our user there in the first place.
+
+It's almost as though we are sending our users over to a friend's house and telling them 'Tell them Jessica sent you,' except in this case we're going to replace `Jessica` with our `client_id`. More information about this handshake process is available in the [GitHub documentation](https://developer.github.com/apps/building-oauth-apps/authorization-options-for-oauth-apps/).
+
+GitHub specifies that the link we use to start this process is `https://github.com/login/oauth/authorize`. We'll provide our `client_id` as a query parameter in the URL. For GitHub specifically, also need to give some additional information about the kind of information we want to have access to. GitHub calls these [scopes](https://developer.github.com/v3/oauth/#scope).
+
+Altogether our link will look something like this:
+
+```
+https://github.com/login/oauth/authorize?client_id=YOUR_CLIENT_ID&scope=repo
+```
+
+Adding that to our `index.html.erb` gives us the following:
+
 **app/views/home/index.html.erb**
 
 ```rb
+<h1>Welcome!</h1>
+
 <%= link_to "Login",
-"https://github.com/login/oauth/authorize?client_id=#{your_client_id}&scope=repo" %>
+"https://github.com/login/oauth/authorize?client_id=YOUR_CLIENT_ID&scope=repo" %>
 ```
 
-Spin up that server, visit localhost in an incognito window (this prevents us from having to constantly clear our cookies throughout the tutorial), and let's visit click on `Login` (Make sure you are signed
-out of Github)
+Spin up that server, visit localhost in an incognito window (this prevents us from having to constantly clear our cookies throughout the tutorial), and let's visit click on `Login` (Make sure you are signed out of Github)
 
 You should see that you have been redirected to the Github site, and have been
 asked to login. Enter your credentials, and now you should see that Github is
@@ -235,7 +258,7 @@ You should now see an error `No route matches [GET] "/auth/github/callback"`
 If you look at the url, you can see that it
 matches the callback url we specified in our app settings on Github. You can
 also see that there is a code in the params. We don't have this route in our
-app, so let's get that setup.
+app, so let's set that up.
 
 **config/routes.rb**
 
@@ -243,7 +266,7 @@ app, so let's get that setup.
 Rails.application.routes.draw do
   root "home#index"
 
-> get '/auth/github/callback', to: 'sessions#create'
+  get '/auth/github/callback', to: 'sessions#create'
 end
 ```
 
@@ -300,31 +323,44 @@ Let's also add a `binding.pry` to the end of our method so we can see what we ar
 
 ```rb
 def create
-   @response =
-   Faraday.post("https://github.com/login/oauth/access_token?client_id=[paste_client_id_here]&client_secret=[paste_secret_here]&code=#{params["code"]}")
+  client_id     = YOUR_CLIENT_ID
+  client_secret = YOUR_CLIENT_SECRET
+  code          = params[:code]
+  response      = Faraday.post("https://github.com/login/oauth/access_token?client_id=#{client_id}&client_secret=#{client_secret}&code=#{code}")
    binding.pry
 end
 ```
 
 Let's now run through the logging in process again, and then look at pry to see
-what kind of response we are getting back. Again, logout of Github and clear
+what kind of response we are getting back. Again, logout of GitHub and clear
 your cookies if you aren't using an incognito window.
 
-Within pry, type in `@response` and we should see the whole response.
-What we actually want is the response body, so let's type in `@response.body` and
+Within pry, type in `response` and we should see the whole response.
+What we actually want is the response body, so let's type in `response.body` and
 we get the access token we need in order to hit the API and get back user data.
 Notice that we do need to parse out that token. Let's take a trip to Rubyville.
-There are many ways we can parse out the string, but for now let's use split so
-we get an array of words, and then use the index to grab the access token.
+
+While we only really want the token, let's go ahead and parse this response to look like the hash it feels like it should be. We'll also go ahead and pull that token out at the end.
 
 **app/controllers/sessions_controller.rb**
 
 ```rb
 def create
-   @response =
-   Faraday.post("https://github.com/login/oauth/access_token?client_id=[paste_client_id_here]&client_secret=&code=#{params["code"]}")
+  client_id     = YOUR_CLIENT_ID
+  client_secret = YOUR_CLIENT_SECRET
+  code          = params[:code]
+  response      = Faraday.post("https://github.com/login/oauth/access_token?client_id=#{client_id}&client_secret=#{client_secret}&code=#{code}")
 
->  token = @response.body.split(/\W+/)[1]
+  pairs = response.body.split("&")
+  response_hash = {}
+  pairs.each do |pair|
+    key, value = pair.split("=")
+    response_hash[key] = value
+  end
+
+  token = response_hash["token"]
+
+  binding.pry
 end
 ```
 
@@ -337,12 +373,22 @@ we can send a GET request to `https://api.github.com/user?access_token` with
 
 ```rb
 def create
-   @response =
-   Faraday.post("https://github.com/login/oauth/access_token?client_id=&client_secret=&code=#{params["code"]}")
-   token = @response.body.split(/\W+/)[1]
+  client_id     = YOUR_CLIENT_ID
+  client_secret = YOUR_CLIENT_SECRET
+  code          = params[:code]
+  response      = Faraday.post("https://github.com/login/oauth/access_token?client_id=#{client_id}&client_secret=#{client_secret}&code=#{code}")
 
->  oauth_response = Faraday.get("https://api.github.com/user?access_token=#{token}")
->  binding.pry
+  pairs = response.body.split("&")
+  response_hash = {}
+  pairs.each do |pair|
+    key, value = pair.split("=")
+    response_hash[key] = value
+  end
+
+  token = response_hash["token"]
+
+  oauth_response = Faraday.get("https://api.github.com/user?access_token=#{token}")
+  binding.pry
 end
 ```
 
@@ -398,11 +444,23 @@ Update the code:
 
 ```rb
 def create
-   @response =
-   Faraday.post("https://github.com/login/oauth/access_token?client_id=&client_secret=&code=#{params["code"]}")
-   token = @response.body.split(/\W+/)[1]
-   oauth_response = Faraday.get("https://api.github.com/user?access_token=#{token}")
- > auth = JSON.parse(oauth_response.body)
+  client_id     = YOUR_CLIENT_ID
+  client_secret = YOUR_CLIENT_SECRET
+  code          = params[:code]
+  response      = Faraday.post("https://github.com/login/oauth/access_token?client_id=#{client_id}&client_secret=#{client_secret}&code=#{code}")
+
+  pairs = response.body.split("&")
+  response_hash = {}
+  pairs.each do |pair|
+    key, value = pair.split("=")
+    response_hash[key] = value
+  end
+
+  token = response_hash["token"]
+
+  oauth_response = Faraday.get("https://api.github.com/user?access_token=#{token}")
+
+  auth = JSON.parse(oauth_response.body)
 end
 ```
 
@@ -435,18 +493,30 @@ Once we find the user, we save their data into the db.
 
 ```rb
 def create
-   @response =
-   Faraday.post("https://github.com/login/oauth/access_token?client_id=&client_secret=&code=#{params["code"]}")
-   token = @response.body.split(/\W+/)[1]
-   oauth_response = Faraday.get("https://api.github.com/user?access_token=#{token}")
-   auth = JSON.parse(oauth_response.body)
+  client_id     = YOUR_CLIENT_ID
+  client_secret = YOUR_CLIENT_SECRET
+  code          = params[:code]
+  response      = Faraday.post("https://github.com/login/oauth/access_token?client_id=#{client_id}&client_secret=#{client_secret}&code=#{code}")
 
- > user          = User.find_or_create_by(uid: auth["id"])
- > user.username = auth["login"]
- > user.uid      = auth["id"]
- > user.token    = token
- > user.save
- > binding.pry
+  pairs = response.body.split("&")
+  response_hash = {}
+  pairs.each do |pair|
+    key, value = pair.split("=")
+    response_hash[key] = value
+  end
+
+  token = response_hash["token"]
+
+  oauth_response = Faraday.get("https://api.github.com/user?access_token=#{token}")
+
+  auth = JSON.parse(oauth_response.body)
+
+  user          = User.find_or_create_by(uid: auth["id"])
+  user.username = auth["login"]
+  user.uid      = auth["id"]
+  user.token    = token
+  user.save
+  binding.pry
 end
 ```
 
@@ -457,24 +527,101 @@ that we have access to this user in our views. First, let's save the user's `id`
 
 ```rb
 def create
-   @response =
-   Faraday.post("https://github.com/login/oauth/access_token?client_id=&client_secret=&code=#{params["code"]}")
-   token = @response.body.split(/\W+/)[1]
-   oauth_response = Faraday.get("https://api.github.com/user?access_token=#{token}")
-   auth = JSON.parse(oauth_response.body)
+  client_id     = YOUR_CLIENT_ID
+  client_secret = YOUR_CLIENT_SECRET
+  code          = params[:code]
+  response      = Faraday.post("https://github.com/login/oauth/access_token?client_id=#{client_id}&client_secret=#{client_secret}&code=#{code}")
 
-   user          = User.find_or_create_by(uid: auth["id"])
-   user.username = auth["login"]
-   user.uid      = auth["id"]
-   user.token    = token
-   user.save
+  pairs = response.body.split("&")
+  response_hash = {}
+  pairs.each do |pair|
+    key, value = pair.split("=")
+    response_hash[key] = value
+  end
 
- > session[:user_id] = user.id
+  token = response_hash["token"]
+
+  oauth_response = Faraday.get("https://api.github.com/user?access_token=#{token}")
+
+  auth = JSON.parse(oauth_response.body)
+
+  user          = User.find_or_create_by(uid: auth["id"])
+  user.username = auth["login"]
+  user.uid      = auth["id"]
+  user.token    = token
+  user.save
+
+  session[:user_id] = user.id
 end
 ```
 
-Now let's create a helper method called `current_user` in our application controller
-and find our user with the `session[:user_id]`.
+Great! We have a User, we've stored that user's id in our session, and we're just about ready to show them the next page. Let's redirect our now logged in user to their dashboard.
+
+```rb
+def create
+  client_id     = YOUR_CLIENT_ID
+  client_secret = YOUR_CLIENT_SECRET
+  code          = params[:code]
+  response      = Faraday.post("https://github.com/login/oauth/access_token?client_id=#{client_id}&client_secret=#{client_secret}&code=#{code}")
+
+  pairs = response.body.split("&")
+  response_hash = {}
+  pairs.each do |pair|
+    key, value = pair.split("=")
+    response_hash[key] = value
+  end
+
+  token = response_hash["token"]
+
+  oauth_response = Faraday.get("https://api.github.com/user?access_token=#{token}")
+
+  auth = JSON.parse(oauth_response.body)
+
+  user          = User.find_or_create_by(uid: auth["id"])
+  user.username = auth["login"]
+  user.uid      = auth["id"]
+  user.token    = token
+  user.save
+
+  session[:user_id] = user.id
+
+  redirect_to dashboard_path
+end
+```
+
+That will give us an error that our dashboard path doesn't exist. Let's add it to our routes file.
+
+```ruby
+# config/routes.rb
+Rails.application.routes.draw do
+  root 'home#index'
+
+  get '/auth/github/callback', to: 'sessions#create'
+  get '/dashboard', to: 'dashboard#show'
+end
+```
+
+New error: we need a DashboardController to handle that. Let's make one of those.
+
+```ruby
+# app/controllers/dashboard_controller.rb
+class DashboardController < ApplicationController
+  def show
+  end
+end
+```
+
+New error: missing a template. Let's make one!
+
+**app/views/dashboard/show.html.erb**
+
+```html
+<h1>Welcome, <%= current_user.username %></h1>
+```
+
+Notice that I'm using `current_user` here. We don't actually have a `current_user` method set up coming from our DashboardController or our ApplicationController. That doesn't bother me. I'm writing this view the way that I *want* it to work, in a way that's familiar to me. I have enough faith in myself as a dev that I can go back and make it work. We'll do that next.
+
+This is something that we might want to have access to at different places in our app. Let's go ahead and create the method in our ApplicationController.
 
 **app/controllers/application_controller.rb**
 
@@ -485,70 +632,8 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def current_user
-   @current_user ||= User.find(session[:user_id])
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
-```
-
-Next, let's user our current user and display its information in a dashboard view.
-
-**config/routes.rb**
-
-```rb
-Rails.application.routes.draw do
-  root "home#index"
-
-  get '/auth/github/callback', to: 'sessions#create'
-
-> resources :dashboard, only: [:index]
-end
-```
-
-```sh
-$ touch app/controllers/dashboard_controller.rb
-```
-
-**app/controllers/dashboard_controller.rb**
-
-```rb
-class DashboardController < ApplicationController
-  def index
-  end
-end
-```
-
-```sh
-$ mkdir app/views/dashboard
-$ touch app/views/dashboard/index.html.erb
-```
-
-**app/views/dashboard/index.html.erb**
-
-```rb
-HEY, LOOK AT YOU ALL LOGGED IN, <%= current_user.username %>
-```
-
-Lastly, let's update our `SessionsController` to redirect to the dashboard page once we have our user.
-
-**app/controllers/sessions_controller.rb**
-
-```rb
-def create
-   @response =
-   Faraday.post("https://github.com/login/oauth/access_token?client_id=&client_secret=&code=#{params["code"]}")
-   token = @response.body.split(/\W+/)[1]
-   oauth_response = Faraday.get("https://api.github.com/user?access_token=#{token}")
-   auth = JSON.parse(oauth_response.body)
-
-   user          = User.find_or_create_by(uid: auth["id"])
-   user.username = auth["login"]
-   user.uid      = auth["id"]
-   user.token    = token
-   user.save
-
-  session[:user_id] = user.id
-
-> redirect_to dashboard_index_path
-end
 ```
 
 Let's log back in to our app. We should now see that we have landed on the dashboard page. HOORAY!
@@ -560,22 +645,34 @@ the users repos.
 
 ```rb
 def create
-   @response =
-   Faraday.post("https://github.com/login/oauth/access_token?client_id=&client_secret=&code=#{params["code"]}")
-   token = @response.body.split(/\W+/)[1]
-   oauth_response = Faraday.get("https://api.github.com/user?access_token=#{token}")
-   auth = JSON.parse(oauth_response.body)
+  client_id     = YOUR_CLIENT_ID
+  client_secret = YOUR_CLIENT_SECRET
+  code          = params[:code]
+  response      = Faraday.post("https://github.com/login/oauth/access_token?client_id=#{client_id}&client_secret=#{client_secret}&code=#{code}")
 
-   user          = User.find_or_create_by(uid: auth["id"])
-   user.username = auth["login"]
-   user.uid      = auth["id"]
-   user.token    = token
-   user.save
+  pairs = response.body.split("&")
+  response_hash = {}
+  pairs.each do |pair|
+    key, value = pair.split("=")
+    response_hash[key] = value
+  end
+
+  token = response_hash["token"]
+
+  oauth_response = Faraday.get("https://api.github.com/user?access_token=#{token}")
+
+  auth = JSON.parse(oauth_response.body)
+
+  user          = User.find_or_create_by(uid: auth["id"])
+  user.username = auth["login"]
+  user.uid      = auth["id"]
+  user.token    = token
+  user.save
 
   session[:user_id] = user.id
 
 > binding.pry
-  redirect_to dashboard_index_path
+  redirect_to dashboard_path
 end
 ```
 
