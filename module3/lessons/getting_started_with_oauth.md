@@ -16,6 +16,10 @@ We used to teach this class using a gem since that’s how most of us do it on t
 * Understands the value of using Omniauth to handle this handshake.
 * Understands where to store and how to use a user's access token
 
+## Slides
+
+Available [here](../slides/getting_started_with_oauth)
+
 ## Prework
 
 Start by watching this [video](https://www.youtube.com/watch?v=tFYrq3d54Dc). Which explains the oauth process at a high level.
