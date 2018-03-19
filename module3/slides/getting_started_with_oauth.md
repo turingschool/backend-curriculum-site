@@ -38,6 +38,16 @@ Based on the application you created last Thursday during evals:
 
 ---
 
+# Tools: Faraday
+
+* How do you submit a basic request?
+* How can you submit a request with params?
+* How can you submit a request with headers?
+* How do you create a reusable base connection?
+* What does that allow you to do?
+
+---
+
 # 1. Register a New OAuth App
 
 ---
