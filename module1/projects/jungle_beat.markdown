@@ -146,9 +146,16 @@ The project will be assessed with the following guidelines:
 ### 3. Test-Driven Development
 
 * Each method is tested  
-* Tests implement Ruby syntax & style   
+* Tests implement Ruby syntax & style  
 
+### 4. Version Control
 
-### 4. Functionality
+Expectations: 
+
+* Developer commits at a pace of at least 1 commit per hour
+* Developer implements branching and PRs
+* The final submitted version is merged into master
+
+### 5. Functionality
 
 * Application meets all requirements (extension not req'd)
