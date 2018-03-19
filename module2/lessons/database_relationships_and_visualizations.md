@@ -57,7 +57,7 @@ In our recent Task Manager client meeting, our client also decided their users s
   Users should have tasks. Tasks should have labels.
   ```
   
-**Independent Practice** - Labels & Tasks
+**Independent Practice** - Labels & Tasks  
   Take a minute to consider what changes we would need to make to our database in order to support the features requested by our client. Add these to your diagram.
 
 
