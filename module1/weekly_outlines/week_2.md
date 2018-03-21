@@ -11,7 +11,7 @@ layout: page
 * [Debugging Techniques](../lessons/debugging_techniques)
 * [Gear Up: Working Styles](https://github.com/turingschool/gear-up/blob/master/m1_citizenship/session_3_intro_extro_ambivert_styles.markdown) [Reading](https://www.fastcompany.com/3016031/are-you-an-introvert-or-an-extrovert-and-what-it-means-for-your-career)
 * [Nested Collections](../lessons/nested_collections)
-* [Git for Pairs](../lessons/git_and_github_for_pairs)
+* [Git for Pairs](../lessons/git_for_pairs)
 * [PD: Learning to Pair](../../career_development_curriculum/module_one/learning_to_pair)
 <!-- * [Ruby Object Model](../lessons/ruby_object_model) -->
 <!-- * [PD: DTR Guidelines](../../career_development_curriculum/module_one/dtr_guidelines_memo) -->
