@@ -825,7 +825,7 @@ Let's open up the controller file, `app/controllers/articles_controller.rb` and 
 
 ```ruby
 #app/controllers/articles_controller.rb
-class ArticlesContoller < ApplicationController
+class ArticlesController < ApplicationController
 
 end
 ```
@@ -1467,7 +1467,7 @@ AbstractController::ActionNotFound:
   The action 'create' could not be found for ArticlesController
 ```
 
-We accessed the `new` action to load the form, but Rails' interpretation of REST uses a second action named `create` to process the data from that form. Inside your `articles_controller.rb` add this method (again, _inside_ the `ArticlesContoller` class, but _outside_ the other methods):
+We accessed the `new` action to load the form, but Rails' interpretation of REST uses a second action named `create` to process the data from that form. Inside your `articles_controller.rb` add this method (again, _inside_ the `ArticlesController` class, but _outside_ the other methods):
 
 ```ruby
 def create
