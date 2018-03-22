@@ -796,7 +796,7 @@ The fourth column is where the route maps to in the application. Our example has
 
 Now that the router knows how to handle requests about articles, it needs a place to actually send those requests, the *Controller*.
 
-If we re-run `rspec` we get an error telling us likewise. Note you're error message will likely be just as large as last time, but we only really need to focus on the failure message printed above the stack trace. My error reads:
+If we re-run `rspec` we get an error telling us likewise. Note your error message will likely be just as large as last time, but we only really need to focus on the failure message printed above the stack trace. My error reads:
 
 ```ruby
 Failures:
