@@ -644,9 +644,7 @@ Lastly we need to assert or expect something. I want my user to see the title an
 
 ```ruby
      expect(page).to have_content(article_1.title)
-     expect(page).to have_content(article_1.body)
      expect(page).to have_content(article_2.title)
-     expect(page).to have_content(article_2.body)
 ```
 
 The test should look like this altogether:
