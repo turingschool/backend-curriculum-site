@@ -65,7 +65,12 @@ Then I should see a unique API key to use for making API calls
 
 Each team should use the rubric below to self assess your project. Bring this to the eval with your instructor. Be prepared to show examples for each box you check.
 
-## Completion
+### Passing?
+
+[ ] Yes
+[ ] No
+
+### Completion
 
 [ ] All user stories complete (required)
 [ ] All but 2 spec harness tests are passing (required)
