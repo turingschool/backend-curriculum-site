@@ -18,4 +18,4 @@ layout: page
 
 ### Projects
 
-* [Le Pivot](../projects/le_pivot)
+* [Battleshift](../projects/battleshift)

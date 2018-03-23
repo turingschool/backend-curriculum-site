@@ -17,4 +17,4 @@ layout: page
 
 ### Projects
 
-* [Le Pivot](../projects/le_pivot) (continued)
+* [Self-Directed Project Intro](../projects/self_directed_project)
