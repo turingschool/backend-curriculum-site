@@ -67,43 +67,43 @@ Each team should use the rubric below to self assess your project. Bring this to
 
 ### Passing?
 
-[ ] Yes
-[ ] No
+- [ ] Yes
+- [ ] No
 
 ### Completion
 
-[ ] All user stories complete (required)
-[ ] All but 2 spec harness tests are passing (required)
+- [ ] All user stories complete (required)
+- [ ] All but 2 spec harness tests are passing (required)
 
 ### Testing
 
-[ ] I would be satisfied paying for this test suite. (required)
-[ ] Unit testing is above 90%. (required)
+- [ ] I would be satisfied paying for this test suite. (required)
+- [ ] Unit testing is above 90%. (required)
 
 **Passing project utilize three or more of these techniques in multiple tests:**
 
-[ ] Fixtures
-[ ] Mocks
-[ ] Stubs
-[ ] Doubles
-[ ] Spies
+- [ ] Fixtures
+- [ ] Mocks
+- [ ] Stubs
+- [ ] Doubles
+- [ ] Spies
 
 ### Code Quality
 
-[ ] Project uses polymorphism (required)
+- [ ] Project uses polymorphism (required)
 
 **Passing project uses one or more of the following**
 
-[ ] Project uses encapsulation
-[ ] Project uses abstraction
-[ ] Project uses inheritance
+- [ ] Project uses encapsulation
+- [ ] Project uses abstraction
+- [ ] Project uses inheritance
 
 ### Developer Empathy and Technical Debt
 
-[ ] Dev(s) can point out areas where they may have created or added to technical debt (required)
-[ ] Dev(s) can explain how the previous developers could have written their code to be more maintainable (required)
+- [ ] Dev(s) can point out areas where they may have created or added to technical debt (required)
+- [ ] Dev(s) can explain how the previous developers could have written their code to be more maintainable (required)
 
 ### Explorers and Risk Takers
 
-[ ] Project was built with abundent curiosity. (Bonus)
-[ ] Project was built with fearlessness. (Bonus)
+- [ ] Project was built with abundent curiosity. (Bonus)
+- [ ] Project was built with fearlessness. (Bonus)
