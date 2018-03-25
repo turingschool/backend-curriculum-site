@@ -194,7 +194,7 @@ describe('Client Routes', () => {
 
 The status code is the very least we can test for. If you have a custom 404 error page, then you can also test for the contents of the page.
 
-When you run the tests with `mocha`, you should see something like:
+When you run the tests with `NODE_ENV=test mocha --exit`, you should see something like:
 
 ```shell
 
@@ -301,12 +301,12 @@ describe('API Routes', () => {
       return chai.request(server)
         .get('/api/secrets/1')
         .then((response) => {
-          response.should.have.status(expected status code);
-          response.should.be....;
-          response.body.should.be.a('data-type');
-          response.body.length.should.equal(length);
-          response.body[0].should.have.property('property-name');
-          response.body[0].[property].should.equal(value-of-property);
+          response.should.have.status(); //what status code should come back?
+          response.should.be....; //what format do you expect your response to come in as?
+          response.body.should.be.a('data-type'); //what data type?
+          response.body.length.should.equal(length); //how many elements?
+          response.body[0].should.have.property('property-name'); //key
+          response.body[0].[property].should.equal(value-of-property); //value
           //repeat for all properties
         })
         .catch((error) => {
@@ -318,7 +318,7 @@ describe('API Routes', () => {
 });
 ```
 
-Run the tests with `mocha` or `mocha --exit`. Because we already have the route set up in our `server.js` file, you should see something like:
+Run the tests with `NODE_ENV=test mocha --exit`. Because we already have the route set up in our `server.js` file, you should see something like:
 
 ```shell
 
@@ -354,7 +354,7 @@ describe('POST /api/secrets', () => {
       .then((response) => {
         response.should.have.status();
         response.body.shoud...
-        //you write the rest
+        //you write the rest!
       })
       .catch((error) => {
         throw error;
