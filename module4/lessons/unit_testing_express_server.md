@@ -76,7 +76,7 @@ describe('API Routes', () => {
 });
 ```
 
-Run the test suite with the command `mocha` (you'll have to have mocha installed globally to run this command in the terminal). The test output should be something like:
+Run the test suite with the command `NODE_ENV=test mocha --exit` (you'll have to have mocha installed globally to run this command in the terminal). The test output should be something like:
 
 ```shell
 
@@ -86,7 +86,7 @@ Run the test suite with the command `mocha` (you'll have to have mocha installed
 
 This makes sense because we don't have any tests yet, but now we're all setup to add tests!
 
-*Note:* If you aren't automatically exited out of the test, use the command `mocha --exit` instead.
+*Note:* You may or may not need the `--exit` flag.
 
 ### before and beforeEach
 
@@ -106,12 +106,23 @@ Let's write these methods within the `describe('API Routes', ...` block.
 ```javascript
 before(() => {
   // Run migrations and seeds for test database
+  database.migrate.latest()
+  .then(() => done())
+  .catch((error) => {
+    throw error;
+  })
+  .done();
 });
 
 beforeEach((done) => {
   // Would normally run run your seed(s), which includes clearing all records
   // from each of the tables
-  done(); // Need to call the done function because this is not a promise/async
+  database.seed.run()
+  .then(() => done())
+  .catch((error) => {
+    throw error;
+  })
+  .done(); // Need to call the done function because this is not a promise/async
 });
 ```
 
@@ -183,7 +194,7 @@ describe('Client Routes', () => {
 
 The status code is the very least we can test for. If you have a custom 404 error page, then you can also test for the contents of the page.
 
-When you run the tests with `mocha`, you should see something like:
+When you run the tests with `NODE_ENV=test mocha --exit`, you should see something like:
 
 ```shell
 
@@ -275,33 +286,6 @@ Seed your secrets_test with:
 knex seed:run --env test
 ```
 
-#### before and beforeEach
-
-Server-side tests should run in isolation and each test should not leave artifacts in the database. For instance, the first test in the test file should not influence what happens with the fifth test. Therefore, we need to run migrations before we run the test suite and reset the database before each test.
-
-If you're using a "real" database like postgreSQL with knex, you will typically need to:
-
- 1. Before all tests, run the migrations for your test environment and seed the test database
- 2. Before each test:
-  * Clean out the database (delete records in all tables)
-  * Seed your database with records
-
-With our testing structure, we have built-in methods called `before` and `beforeEach`, and they run before all tests and before each test in the describe block they are scoped in, respectively. There is also `after` and `afterEach`, but there is a caveat with `afterEach`. If a test fails, the `afterEach` will _not_ run after that test, which can leave your database in a bad state. So be sure to put your database in a good state for every test even if one fails.
-
-Let's write these methods within the `describe('API Routes', ...` block.
-
-```javascript
-before(() => {
-  // Run migrations and seeds for test database
-});
-
-beforeEach((done) => {
-  // Would normally run run your seed(s), which includes clearing all records
-  // from each of the tables
-  done(); // Need to call the done function because this is not a promise/async
-});
-```
-
 ### Test an API Call (GET Request)
 
 From our basic server-side tests above, you can see how we might test our API. The first test is for the `/api/secrets/:id` route. A GET request to this endpoint should return a single secret.
@@ -317,14 +301,13 @@ describe('API Routes', () => {
       return chai.request(server)
         .get('/api/secrets/1')
         .then((response) => {
-          response.should.have.status(200);
-          response.should.be.json;
-          response.body.should.be.a('array');
-          response.body.length.should.equal(1);
-          response.body[0].should.have.property('id');
-          response.body[0].id.should.equal(1);
-          response.body[0].should.have.property('message');
-          response.body[0].message.should.equal('I hate mashed potatoes');
+          response.should.have.status(); //what status code should come back?
+          response.should.be....; //what format do you expect your response to come in as?
+          response.body.should.be.a('data-type'); //what data type?
+          response.body.length.should.equal(length); //how many elements?
+          response.body[0].should.have.property('property-name'); //key
+          response.body[0].[property].should.equal(value-of-property); //value
+          //repeat for all properties
         })
         .catch((error) => {
           throw error;
@@ -335,7 +318,7 @@ describe('API Routes', () => {
 });
 ```
 
-Run the tests with `mocha` or `mocha --exit`. Because we already have the route set up in our `server.js` file, you should see something like:
+Run the tests with `NODE_ENV=test mocha --exit`. Because we already have the route set up in our `server.js` file, you should see something like:
 
 ```shell
 
@@ -369,12 +352,9 @@ describe('POST /api/secrets', () => {
         message: "I am in love with Mr. Wigglesworth."
       })
       .then((response) => {
-        response.should.have.status(201);
-        response.body.should.be.a('array');
-        response.body[0].should.have.property('id');
-        response.body[0].id.should.equal(4);
-        response.body[0].should.have.property('message');
-        response.body[0].message.should.equal('I am in love with Mr. Wigglesworth.');
+        response.should.have.status();
+        response.body.shoud...
+        //you write the rest!
       })
       .catch((error) => {
         throw error;
@@ -396,7 +376,7 @@ it('should not add a secret if message is not provided', () => {
     .post('/api/secrets')
     .send({}) // Missing the message property
     .then((response) => {
-      response.should.have.status(422);
+      response.should.have.status(expected status code);
     })
     .catch((error) => {
       throw error;

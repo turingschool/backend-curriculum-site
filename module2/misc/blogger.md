@@ -2913,8 +2913,8 @@ Run your tests again. I got this error:
 Failures:
 
   1) user creates a new article they link from the articles index they fill in a title and body creates a new article
-     Failure/Error: expect(page).to have_content("ruby, technology")
-       expected to find text "ruby, technology" in "Article New Title! Created! New Title! New Body! Edit Delete Comments (0) Post a Comment Your Name Your Comment << Back to Articles List"
+     Failure/Error: expect(page).to have_content("ruby technology")
+       expected to find text "ruby technology" in "Article New Title! Created! New Title! New Body! Edit Delete Comments (0) Post a Comment Your Name Your Comment << Back to Articles List"
 ```
 
 It's not showing up on the page.
@@ -2940,8 +2940,8 @@ When I run my test again, I get an (only slightly) new error.
 Failures:
 
   1) user creates a new article they link from the articles index they fill in a title and body creates a new article
-     Failure/Error: expect(page).to have_content("ruby, technology")
-       expected to find text "ruby, technology" in "Article New Title! Created! New Title! Tags: New Body! Edit Delete Comments (0) Post a Comment Your Name Your Comment << Back to Articles List"
+     Failure/Error: expect(page).to have_content("ruby technology")
+       expected to find text "ruby technology" in "Article New Title! Created! New Title! Tags: New Body! Edit Delete Comments (0) Post a Comment Your Name Your Comment << Back to Articles List"
 ```
 
 When I look at the string of what IS on the page, I see that header of Tags: but my tags are listed there. Why aren't they saving? Put a `binding.pry` in your articles#create action. I'd probably put it after we call Article.new.
