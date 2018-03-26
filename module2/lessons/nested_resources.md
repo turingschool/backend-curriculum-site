@@ -47,7 +47,7 @@ end
 
 ```ruby
 # config/routes.rb
-resources :directors shallow: true do
+resources :directors, shallow: true do
   resources :movies
 end
 ```
@@ -75,17 +75,19 @@ end
 
 ```ruby
   #spec/features/user_can_create_a_new_movie_spec.rb
-  director = Director.create(name: "Ilana")
+  director = Director.create(name: "Patty Jenkins")
   visit "/directors/#{director.id}/movies/new"
-
-  fill_in :title, with: "Finding Nemo"
-  fill_in :description, with: "A sad fish story"
+  title = "Wonder Woman"
+  description = "Before she was Wonder Woman, she was Diana."
+  
+  fill_in :title, with: title
+  fill_in :description, with: description
 
   click_on "Create Movie"
 
   expect(current_path).to eq("/movies/#{Movie.last.id}")
-  expect(page).to have_content("Finding Nemo")
-  expect(page).to have_content("A sad fish story")
+  expect(page).to have_content(title)
+  expect(page).to have_content(description)
   expect(page).to have_content(director.name)
 ```
 
