@@ -8,7 +8,7 @@ tags: routes, helpers, rails
 
 By the end of this lesson, you will know/be able to:
 
-* Understand the 5 pieces of information this `rake routes` gives us.
+* Understand the 5 pieces of information `rake routes` gives us.
 * Use a route helper to easily refer to a relative and absolute path.
 * Understand the difference between what `_url` and `_path` return when combined with a routes prefix.
 * Find a routes prefix and use that prefix to build a helper.
