@@ -26,6 +26,12 @@ Project Overview
 3.  Create a [Waffle.io](http://waffle.io) account for project management.
 4.  Setup [SimpleCov](https://github.com/colszowka/simplecov) to monitor test coverage along the way
 
+#### Special Notes
+
+This project will require you to be running version 2.3.x of Ruby. This will get you used to working in an older version of Ruby and you will learn how to work with different versions of Rubies using rbenv.
+
+Documentation for rbenv can be found [here](https://github.com/rbenv/rbenv/blob/master/README.md)
+
 ### Spec Harness
 
 This project will be assessed with the help of a [spec harness](https://github.com/turingschool/black_thursday_spec_harness). The `README.md` file includes instructions for setup and usage. Note that the spec harness **is not** a replacement for your own test suite.
