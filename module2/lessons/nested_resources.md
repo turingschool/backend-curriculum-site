@@ -147,7 +147,7 @@ end
   <%= f.label :title %>
   <%= f.text_field :title %>
   <%= f.label :description %>
-  <%= f.text_area :title %>
+  <%= f.text_area :description %>
   <%= f.submit %>
 <% end %>
 ```
