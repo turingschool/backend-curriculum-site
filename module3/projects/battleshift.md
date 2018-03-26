@@ -20,7 +20,7 @@ You will be building on top of a pre-existing API implementation of the game Bat
 
 ## Requirements
 
-Your app will only be assessed for what has made it into production. Your evaluator will use your production URL to run a [spec harness](https://github.com/turingschool-examples/battleshift_spec_harness) to determine completion.
+Your app will only be assessed for what has made it into production. Your evaluator will use your production URL to run a [spec harness](https://github.com/turingschool-examples/battleshift_spec_harness) to check basic functionality. However, it is expected that you write more thorough tests on your application.
 
 Use the rubric below to self assess your project and bring this to the eval with your instructor. Be prepared to show examples for each box you check.
 
@@ -61,6 +61,12 @@ When I check my email for the registration email
 Then I should see a unique API key to use for making API calls
 ```
 
+## Extensions
+
+* Prevent two players from playing more than one game
+* Create a web interface for the game by consuming your API
+* Use Twilio to send SMS alerts when your opponent makes a move
+
 ## Evaluation
 
 Each team should use the rubric below to self assess your project. Bring this to the eval with your instructor. Be prepared to show examples for each box you check.
@@ -73,11 +79,13 @@ Each team should use the rubric below to self assess your project. Bring this to
 ### Completion
 
 - [ ] All user stories complete (required)
-- [ ] All but 2 spec harness tests are passing (required)
+- [ ] All spec harness tests are passing (required)
+- [ ] All requirements set by your instructor have been met. (required)
 
 ### Testing
 
 - [ ] I would be satisfied paying for this test suite. (required)
+- [ ] Common edge case are tested. (5 required)
 - [ ] Unit testing is above 90%. (required)
 
 **Passing project utilize three or more of these techniques in multiple tests:**
@@ -92,7 +100,7 @@ Each team should use the rubric below to self assess your project. Bring this to
 
 - [ ] Project uses polymorphism (required)
 
-**Passing project uses one or more of the following**
+**Passing project uses one (required) or more of the following**
 
 - [ ] Project uses encapsulation
 - [ ] Project uses abstraction
@@ -105,5 +113,4 @@ Each team should use the rubric below to self assess your project. Bring this to
 
 ### Explorers and Risk Takers
 
-- [ ] Project was built with abundent curiosity. (Bonus)
 - [ ] Project was built with fearlessness. (Bonus)
