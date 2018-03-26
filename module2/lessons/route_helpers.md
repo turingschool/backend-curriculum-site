@@ -28,10 +28,10 @@ By the end of this lesson, you will know/be able to:
 
 With your partner, take a look at the entries in the table that `rake routes` gives you and fill out the table below in your notebook or on your computer.
 
-|Table Heading       |Prefix|Verb|URI Pattern|Controller#Action| Redirect or Render|
-|--------------------|------|----|-----------|-----------------|-------------------|
-|Example Entry       | root |GET | /         |movies#index     | render|
-|Definition (what it does)|      |    |           |                 | |
+|Table Heading       |Prefix|Verb|URI Pattern|Controller#Action| Redirect or Render| View|
+|--------------------|------|----|-----------|-----------------|-------------------|-----|
+|Example Entry       | root |GET | /         |movies#index     | render| |
+|Definition (what it does)|      |    |           |                 | | |
 
 Fill in "Definition" with your understanding of what the column represents/how it can be used. If you're unsure of a definition, enter your best guess. After creating your table, cross reference yours with the table found [here](https://docs.google.com/spreadsheets/d/1AGjUE49UJajPEQHvh3plKjaem5RAGvuv5SNjZzvjD9U/edit#gid=0).
 
