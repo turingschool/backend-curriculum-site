@@ -80,8 +80,8 @@ end
   title = "Wonder Woman"
   description = "Before she was Wonder Woman, she was Diana."
   
-  fill_in :title, with: title
-  fill_in :description, with: description
+  fill_in :movie_title, with: title
+  fill_in :movie_description, with: description
 
   click_on "Create Movie"
 
@@ -152,7 +152,7 @@ end
 <% end %>
 ```
 
-Let's run RSpec and adjust our Movies Controller to point the form to  `create`
+Let's run RSpec and adjust our Movies Controller to point the form to `create`
 
 ```ruby
 def create
