@@ -234,7 +234,13 @@ The project will be assessed with the following guidelines:
 * Evidence of edge cases testing 
 * Test Coverage metrics are present (SimpleCov)
 
-### 4. Functionality
+### 4. Version Control
+
+* Developer commits at a pace of at least 1 commit per hour
+* Developer implements branching and PRs
+* The final submitted version is merged into master
+
+### 5. Functionality
 
 * Application meets all requirements (extension not req'd)
 
