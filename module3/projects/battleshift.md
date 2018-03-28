@@ -14,7 +14,7 @@ You will be building on top of a pre-existing API implementation of the game Bat
 * Lock down an API using unique keys
 * Build on top of brownfield code
 * Empathy for developers facing deadlines
-* Empathy for teammates that might work your code in the future
+* Empathy for teammates that might work your code in the future (or future you!)
 * Prioritize what code is relevant to your immediate task (and ignore the rest)
 * Send email from a Rails application
 
