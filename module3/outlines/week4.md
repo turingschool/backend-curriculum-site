@@ -7,14 +7,13 @@ layout: page
 
 ### Classes
 
-* [Fundamental Rails Security](../lessons/fundamental_rails_security)
+* [Understanding Multitenancy](../lessons/understanding_multitenancy)
+* [Multitenancy Authorization](../lessons/multitenancy_authorization)
+* [Intro to Professional Workflow](../lessons/intro_to_professional_workflow)
 * [Introduction to JavaScript](../lessons/intro_to_javascript)
-* [CI and Staging Environments](../lessons/ci_and_staging_environments)
-* [Application Coordination with Messaging Queues](../lessons/application_coordination_with_message_queues)
-* [jQuery DOM Traversal and Manipulation](../lessons/jquery_and_dom)
 * [Practice Assessment](../lessons/practice_assessment)
-* [Sending Email](../lessons/sending_email_sendgrid)
+* [Asset Pipeline Review](../lessons/understanding_the_asset_pipeline)
 
 ### Projects
 
-* [Self-Directed Project Intro](../projects/self_directed_project)
+* [Self-Directed Project](../projects/self_directed_project)
