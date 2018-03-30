@@ -24,6 +24,8 @@ The project requirements are listed below:
 * Revisiting previous concepts such as APIs and OAuth
 * Finding the strengths and gaps in your knowledge of Ruby, Rails, and organizing
 a project.
+* Use an agile process as you develop features
+* Configure a continuous integration server
 
 ## <a name="technical-expectations"> Technical Expectations
 
@@ -113,6 +115,7 @@ You will meet with instructors periodically during the project. The goals of eac
 * Create a board on Pivotal Tracker and invite your PM as a contributor.
 * Before you begin to implement code, write up 5-10 stories on your new Pivotal Tracker board. These stories must be written in present tense.
 * Once step two is complete, send your tracker board over to your PM.
+* Setup a [CI Server](http://backend.turing.io/module3/lessons/ci_and_staging_environments)
 
 ### Pull Requests
 
