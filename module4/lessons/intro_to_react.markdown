@@ -18,68 +18,84 @@ Students will be able to ...
 * Why do front-end frameworks / libraries exist?
 * How do we currently understand elements to be added to and removed from our browser's viewport?
 
-## React's Take on Front-End Development
 
-React's big innovation is that it gives us a way to utilize
-the efficiently re-render our browser's display when manipulating the DOM.
+## What is React
 
-Using React, we'll define __components__ -- individual pieces of our UI
-that handle the data related to them. We'll give each
-component a key __render__ function, which tells React how to
-re-generate the portion of the DOM controlled by that component
-_in terms of its data._
+People will define React in many ways, but at it's core,
 
-Then, whenever anything changes, React can walk down the component tree,
-re-rendering components in terms of their associated data (which may or may not have changed).
+> React is a client-side JavaScript library that allows you to easily and efficiently manipulate the DOM based on application data and how it changes in response to user interaction
 
-### What's the Benefit?
+Let's break down this definition a bit:
 
-But what about the performance problems of DOM repaints?
+** Client-side Framework/Library **
 
-React gets around the efficiency problem of re-rendering the DOM by implementing a separate, in-memory model of the current DOM, called a **virtual DOM**. When things need to be re-rendered,
-React can (very quickly) re-generate its virtual representation of the DOM. Then,
-it actually uses an algorithm to isolate those elements that _actually changed_,
-and sends real DOM updates to only those elements.
+** Easy & efficient DOM manipulation **
 
-So when we said React allows us to continuously re-render the entire UI in response
-to data changes, we were oversimplifying. In reality, React itself does end up
-sending selective updates to the DOM.
+** Application Data **
 
-Use your browser's element inspector to inspect what's happening in this [React example](https://codepen.io/gaearon/pen/gwoJZk?editors=0010) vs [jQuery example](https://codepen.io/laurenfazah/pen/EwzeYY).
 
-### Other Benefits of React
+### The Virtual DOM
+We mentioned previously that a big benefit of React is how well it can handle DOM manipulations in an easy and efficient way. This is done through the use of a Virtual DOM. A Virtual DOM is a JavaScript object that represents a copy of a DOM structure. This provides us with a huge performance benefit, because accessing and updating a JavaScript object is much faster than accessing the true DOM directly.
 
-*   __Lightweight__ -- does a specific thing and does it pretty well
-*   __Very modular__ -- easy to drop in for a small portion
-of your UI without having to rewrite everything in React
-*   __Easy to learn__ -- As we will see shortly, there's
-not much to it. Learn the basics for setting up components
-as well as a few core lifecycle methods, and you're ready to start
-building your own UI.
+React lets us alter this virtual DOM first, then renders the change for us - making the smallest amount of true DOM manipulations possible. React will only render the deltas of what actually needs to be changed, rather than making a massive DOM manipulation to elements on the page that aren't actually changing.
+
+### JSX
+
+JSX is a special syntax that allows you to write HTML in your JavaScript, and JavaScript in your HTML. It's technically XML, but you can just think of it as HTML and JavaScript working together to create that Virtual DOM. The same way Babel converts ES6 into ES5, Webpack converts JSX into JavaScript and HTML.
+
+JSX syntax takes some getting used to, and it might seem to fly in the face of what you know about "separation of concerns" - but after a bit of practice you'll find it becomes more intuitive. In the early days when we talked about separation of concerns, we thought: split up your HTML (content) from your CSS (presentation) from your interactivity (JavaScript). Now when we think about separating our concerns, we do it in a slightly more semantic, user-centric way. We're not bothered by mashing up our HTML, CSS and JavaScript in a single file, if all of that logic works together to create a single application feature. Our separation of concerns is now much more focused on the concerns of our users, rather than concerns about our file structure. We'll see this demonstrated a bit further later on in this lesson.
+
+First, let's take a look at the JSX syntax:
+
+What looks familiar? What looks different? You might notice the curly braces around things like onClick={someFunction}. These curly braces are allowing us to interpolate JavaScript in our HTML. Think about how you may have used template strings in vanilla JavaScript in the past: we use the ${} syntax to denote that this particular chunk of the string is a dynamic value that should be evaluated and parsed as a dynamic JavaScript value, rather than plain text. The curly braces in React give us similar functionality. Anywhere in our JSX where we want to tell our application "This is JavaScript, so don't render it character by character like HTML, we can wrap that code in curly braces to signal that.
+
+### Components
+
+Components are reusable pieces of code that represent templates for a particular instance of a UI element. Components can take in parameters that might vary from instance to instance, allowing us to create unique elements with a shared structure and style. The main benefit of components is how modular they are - they can snap or nest together to create complete pages and applications.
+
+If we take a look at a website like Twitter, we can start to flesh out what components might be making up the entire page, and how they're being reused:
+
+![](/assets/images/lessons/react-in-theory/twitter-components.png)
+
+You'll hear the term 'component' used in many different areas of programming, and it might mean slightly different things depending on the context. In React, components have the following characteristics:
+
+* they are either functions or an extended ES6 class
+* they return one, single JSX element (remember, functions can only return one thing!)
+* there are two types of components: stateless and stateful
+
+We'll start investigating these characteristics by practicing with stateless components.
+
+#### Stateless Components
+
+Stateless components are components that simply need to render content to the DOM, and do not need to be aware of any application data that might be changing. They are sometimes called "dumb" components. Stateless components are just functions that return the HTML you want rendered to the DOM. Examine the following example:
+
+```js
+import React from 'react';
+
+export default App = () => {
+  return (
+    <div>
+      Hello World
+    </div>
+  );
+}
+```
+#### Stateful Components
+
+Stateful components are ES6 classes that extend an abstract 'Component' class, given to us by default by React. They each have a render method that allows us to specify what should be rendered to the DOM, and they keep track of some sort of application data.
+
+#### Props and State
+
+Props and state are how we manage and share information among components in React. We will dig into exactly how that works when we see it in action later in the lesson. It will be important for you to know what responsibility each has, and the difference between the two.
 
 ## Discussion
 
 Now that you've had a little introduction into React, discuss the following with your partner:
 
 - What parts of Quantified Self could have been easier with React?
-- When do you think you would use React? What is not a good use case for React?
+- Draw out a sketch of one of the QS views - how would you break it out into components, and what semantic names would you give those components?
 
 And then let's come back as a group and report out your answers.
-
-#### Quick Aside: JSX
-
-A big trait of React that is worth mentioning is its use of JSX vs plain old JavaScript. JSX itself exists as a statically-typed spin-off of JavaScript that can be used on its own outside of React. However, you'll likely mostly encounter it within React apps.
-
-JSX
-
-- is a syntax extension of JavaScript
-- is statically-typed, but can infer the type set to variables based on their initial declaration
-- integrates HTML within JavaScript
-  - this means that most elements and DOM manipulation in React will happen through JS (you will barely touch `index.html`)
-- can be typed within `.js` files within React, but `.jsx` extensions can also be used
-  - if using `.jsx`, remember to tack that extension onto the end of the file you're importing
-
-Read more about its use in React [here](https://facebook.github.io/react/docs/introducing-jsx.html).
 
 ## Fur Friends Greeting
 
@@ -111,16 +127,16 @@ Let's walk through this...
 
 ```jsx
 import React, { Component } from 'react';
-import Greeting from './Greeting';
+import FurFriend from './FurFriend';
 import '../styles/App.css';
 
 const App = () => {
   return (
     <div className="list-of-names">
       <h1 className="title">Well hello...</h1>
-      <Greeting />
-      <Greeting />
-      <Greeting />
+      <FurFriend />
+      <FurFriend />
+      <FurFriend />
     </div>
   )
 }
@@ -136,15 +152,15 @@ Open your `./index.js` file.
 
 ReactDOM is React's object for interacting with the DOM. You can see we create an instance of our `<App />` and add it to our root element which can be found in our `public/index.html` page.
 
-Open `./src/components/App.js`
+Open `./src/components/FurFriend.js`
 
 Let's walk through this...
 
 ```jsx
 import React, { Component } from 'react';
-import '../styles/Greeting.css'
+import '../styles/FurFriend.css'
 
-const Greeting = () => {
+const FurFriend = () => {
   return (
     <div className="greeting">
       <p>✨fur friend✨</p>
@@ -154,9 +170,9 @@ const Greeting = () => {
   )
 }
 
-export default Greeting;
+export default FurFriend;
 ```
-Head back to your browser. Open up the console, click on the React tab, Expand the `<App>` component and you'll see we have our `<ActionButton />` component. Take a minute to dig in and see what comes up in our sidebar.
+Head back to your browser. Open up the console, click on the React tab, Expand the `<App>` component and you'll see we have our `<FurFriend />` component. Take a minute to dig in and see what comes up in our sidebar.
 
 ```
 Props
@@ -175,26 +191,30 @@ From the [React docs](https://facebook.github.io/react/docs/jsx-in-depth.html):
 
 ### Time to Render Fur Friends with Names!
 
-We are currently re-using the Greeting component three times. This is a common pattern in React and should be utilized as much as possible. However, it's not dynamic, so this doesn't look like much right now. Remember how we saw that empty props object in the React Dev Tools a minute ago? We need to change that by passing some props to the Greeting component.
+We are currently re-using the FurFriend component three times. This is a common pattern in React and should be utilized as much as possible. However, it's not dynamic, so this doesn't look like much right now. Remember how we saw that empty props object in the React Dev Tools a minute ago? We need to change that by passing some props to the FurFriend component.
 
 ### Props
 
-Props are crucial attributes of React components. A `prop` is an immutable property that holds data to be passed down to the component.
+We mentioned that components are reusable pieces of code, that allow us to create unique instances of certain UI elements. We can do this by passing props to each of our components. Think about how you create new instances of ES6 Classes - they share the same base, but you pass in different arguments every time you create a new instance, which allows each instance to vary slightly.
 
-Let's start in App, the parent component of the Greeting component:
+Props allow us to pass information from parent components to child components. We can pass strings, numbers, booleans, arrays, objects, functions, pretty much any piece of data we want access to in our child component. We can name them whatever we'd like, as long as we're consistent and semantic with the names that we choose.
+
+When we pass props down to a child component, it comes through as a simple JavaScript object with key value pairs.
+
+Let's start in App, the parent component of the FurFriend component:
 
 ```jsx
 import React, { Component } from 'react';
-import Greeting from './Greeting';
+import FurFriend from './FurFriend';
 import '../styles/App.css';
 
 const App = () => {
   return (
     <div className="list-of-names">
       <h1 className="title">Well hello...</h1>
-      <Greeting name="Shih-Tzu"/> // PROPS
-      <Greeting name="Shar-Pei"/> // BEING
-      <Greeting name="Hedgie"/>   // PASSED
+      <FurFriend name="Shih-Tzu"/> // PROPS
+      <FurFriend name="Shar-Pei"/> // BEING
+      <FurFriend name="Hedgie"/>   // PASSED
     </div>
   )
 }
@@ -202,17 +222,17 @@ const App = () => {
 export default App;
 ```
 
-Now, rather than just rendering three Greeting components that are exactly the same, we are rendering three Greeting components, each of which now have the property of `name`.
+Now, rather than just rendering three FurFriend components that are exactly the same, we are rendering three FurFriend components, each of which now have the property of `name`.
 
-Check out your React dev tools again. Select the `<Greeting />`, what do you see under props?
+Check out your React dev tools again. Select the `<FurFriend />`, what do you see under props?
 
-Now, let's access those props within the Greeting component.
+Now, let's access those props within the FurFriend component.
 
 ```jsx
 import React, { Component } from 'react';
-import '../styles/Greeting.css'
+import '../styles/FurFriend.css'
 
-const Greeting = (props) => {
+const FurFriend = (props) => {
   return (
     <div className="greeting">
       <p>✨{props.name}✨</p>
@@ -222,23 +242,26 @@ const Greeting = (props) => {
   )
 }
 
-export default Greeting;
+export default FurFriend;
 ```
 
-Note that the word `name` here is completely arbitrary. It can be whatever you want to refer to that value as in your component. We could have put `<Greeting jellyfish="Shih-Tzu"/>` and within our JSX, accessed `{this.props.jellyfish}`.
+Note that the word `name` here is completely arbitrary. It can be whatever you want to refer to that value as in your component. We could have put `<FurFriend jellyfish="Shih-Tzu"/>` and within our JSX, accessed `{this.props.jellyfish}`.
 
 ### Turn and Talk
 
-* Are App and Greeting stateless or stateful components?
-* How did Greeting get the props of `name`?
+* Are App and FurFriend stateless or stateful components?
+* How did FurFriend get the props of `name`?
 
-### Action Time
+### Action Time - Stateful Components
 
-Currently, our button does not do anything. We want each Furry Friend to keep track of it's rating, so we need this Greeting component to be `stateful`.
+Currently, our button does not do anything. We want each Furry Friend to keep track of it's rating, so we need this FurFriend component to be `stateful`.
 
+State is slightly different than props: state holds data that represents the actual state of our application. State can be changed and mutated through user interactions, whereas props should remain immutable.
+
+One of the more confusing things about React is when to make a component stateful. A general rule of thumb to keep in mind is that, if you're not sure if a component should be stateless or stateful, start with a stateless component. Add state if you find that you need it. Stateful components are a lot heavier than stateless component. Keep your app as lean as possible!
 
 ```jsx
-class Greeting extends Component {
+class FurFriend extends Component {
   constructor() {
     super()
     this.state = {
@@ -266,7 +289,7 @@ Nothing should look different in the browser - feel free to change the default s
 Let's make this button actually do it's job! We need to give it an event listener (this will look a little different from what we're used to seeing in jQuery). On that click, let's call a function that's inside of this class/component.
 
 ```jsx
-class Greeting extends Component {
+class FurFriend extends Component {
   constructor() {
     super()
     this.state = {
@@ -294,7 +317,7 @@ class Greeting extends Component {
 }
 ```
 
-Notice the difference between the className and onClick. onClick was assigned to an expression wrapped in `{ }` braces. We had to call the incrementCount function with `this` because we want to refer to the incrementCount() function that is part of this Greeting class.
+Notice the difference between the className and onClick. onClick was assigned to an expression wrapped in `{ }` braces. We had to call the incrementCount function with `this` because we want to refer to the incrementCount() function that is part of this FurFriend class.
 
 We are still aren't actually incrementing. React gives us an important function:
 
