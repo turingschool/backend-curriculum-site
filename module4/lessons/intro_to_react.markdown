@@ -1,14 +1,16 @@
 ---
 layout: page
-title: Intro to React.JS
+title: Intro to React
 length: 180
 tags: javascript, front-end framework, react
 ---
 
 ## Learning Goals
 
-- Students can define basic React vocabulary (Component, JSX, Prop, State)
-- Students are able to create and use React components with heavy guidance from samples and documentation
+Students will be able to ...
+- Provide a high level explanation of FE libraries/frameworks, specifically React and it's benefits
+- Students can define and use basic React vocabulary (Component, JSX, Prop, State)
+- Build an application with stateful and stateless components
 
 ## Warm Up
 
@@ -79,11 +81,11 @@ JSX
 
 Read more about its use in React [here](https://facebook.github.io/react/docs/introducing-jsx.html).
 
-## Likes Counter Code Along
+## Fur Friends Greeting
 
 We ultimately want to create something like this:
 
-![](/assets/images/lessons/react-in-theory/final-image.png)
+![](/assets/images/lessons/react-in-theory/fur-friends-final.png)
 
 Let's break this up so we can develop individual components.
 
@@ -93,48 +95,34 @@ If you were dividing this UI into sections, what would your sections be?
 
 Install the [react dev tools]( https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en). It will give you additional information about your React application in the Chrome dev tools.
 
-Then we're going to use a tool from Facebook called [Create React App](https://github.com/facebookincubator/create-react-app). It configures webpack and babel for us, so we don't need to worry about them and can focus on React.
+Then we're going to clone down a repo already set up for us.
 
-Some terminal commands:
+When you create your own React application, it is recommended to use a tool from Facebook called [Create React App](https://github.com/facebookincubator/create-react-app). It configures webpack and babel for us, so we don't need to worry about them and can focus on React.
 
-```
-npm install -g create-react-app
-create-react-app awesome-counter
-cd awesome-counter
-npm start
-```
-
-Let's navigate to `http://localhost:3000/`.
-
-Look at that - we have our React dev environment set up!
+After cloning the repo, let's navigate to `http://localhost:3000/`.
 
 ### Explore the app
 
 Open a new tab in Terminal and open up your project with your text editor.
 
-Open `./src/App.js`
+Open `./src/components/App.js`
 
 Let's walk through this...
 
 ```jsx
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Greeting from './Greeting';
+import '../styles/App.css';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
+const App = () => {
+  return (
+    <div className="list-of-names">
+      <h1 className="title">Well hello...</h1>
+      <Greeting />
+      <Greeting />
+      <Greeting />
+    </div>
+  )
 }
 
 export default App;
@@ -148,6 +136,33 @@ Open your `./index.js` file.
 
 ReactDOM is React's object for interacting with the DOM. You can see we create an instance of our `<App />` and add it to our root element which can be found in our `public/index.html` page.
 
+Open `./src/components/App.js`
+
+Let's walk through this...
+
+```jsx
+import React, { Component } from 'react';
+import '../styles/Greeting.css'
+
+const Greeting = () => {
+  return (
+    <div className="greeting">
+      <p>✨fur friend✨</p>
+      <p>10</p>
+      <button className="increase-score">+1</button>
+    </div>
+  )
+}
+
+export default Greeting;
+```
+Head back to your browser. Open up the console, click on the React tab, Expand the `<App>` component and you'll see we have our `<ActionButton />` component. Take a minute to dig in and see what comes up in our sidebar.
+
+```
+Props
+  Empty Object
+```
+
 #### Capitalized React Component Convention
 
 Take note of how `<App />` is capitalized.
@@ -158,303 +173,153 @@ From the [React docs](https://facebook.github.io/react/docs/jsx-in-depth.html):
 > When an element type starts with a lowercase letter, it refers to a built-in component like <div> or <span> and results in a string 'div' or 'span' passed to React.createElement. Types that start with a capital letter like <Foo /> compile to React.createElement(Foo) and correspond to a component defined or imported in your JavaScript file.
 > We recommend naming components with a capital letter. If you do have a component that starts with a lowercase letter, assign it to a capitalized variable before using it in JSX.
 
-### Time to Make a New Component!
+### Time to Render Fur Friends with Names!
 
-Let's start by creating the template for the Like / Dislike button. Create an `ActionButton` class above our `App` class in `index.js`:
-
-```jsx
-class ActionButton extends Component {
-  render() {
-    return (
-      <button className="action-button">
-        Submit
-      </button>
-    )
-  }
-}
-
-...
-
-class App extends Component {
-  ...
-}
-```
-
-Let's add the new component to our `App` component. Replace everything inside the `App` `div` with the `ActionButton` component:
-
-```jsx
-<div className="App">
-  <ActionButton />
-</div>
-```
-
-Head back to your browser. Great, we have our button! Open up the console, click on the React tab, Expand the `<App>` component and you'll see we have our `<ActionButton />` component. Take a minute to dig in and see what comes up in our sidebar.
-
-```
-Props
-  Empty Object
-```
+We are currently re-using the Greeting component three times. This is a common pattern in React and should be utilized as much as possible. However, it's not dynamic, so this doesn't look like much right now. Remember how we saw that empty props object in the React Dev Tools a minute ago? We need to change that by passing some props to the Greeting component.
 
 ### Props
 
 Props are crucial attributes of React components. A `prop` is an immutable property that holds data to be passed down to the component.
 
-Right now the text within our button is hardcoded to be 'Submit'; let's change it to be dynamic via props.
-
-```jsx
-class ActionButton extends Component {
-  render () {
-    return (
-      <button className="actionButton">
-        {this.props.text}
-      </button>
-    )
-  }
-}
-```
-
-Now, let's pass our text into our instantiation of our `ActionButton`.
-
-`<ActionButton text="Submit"/>`
-
-Check out your React dev tools again. Select the `<ActionButton />`, what do you see under props?
-
-Note that the word `text` here is completely arbitrary. It can be whatever you want to refer to that value as in your component. We could have put `<ActionButton jellyfish="Submit"/>` and within our JSX, accessed `{this.props.jellyfish}`.
-
-### Refactor (3-5 minutes)
-
-Work with a partner to refactor your `ActionButton` component out of `App.js.` I'd recommend you create a `components` directory within `src` to start housing these components in.
-
-### Action Time
-
-Currently, our button does not do anything. Let's add an action. Add an `onClick` property to your button element.
-
-```jsx
-<button
-    className="actionButton"
-    onClick={() => alert(this.props.text)}>
-
-  {this.props.text}
-</button>
-```
-
-Cool, now let's make our button a more customizable by passing in our action.
-
-First, modify your `ActionButton`'s `render` function.
-
-```jsx
-<button
-    className="actionButton"
-    onClick={this.props.onClick}>
-
-  {this.props.text}
-</button>
-```
-
-Inside your `App.js` file, pass in a function to your instantiated `ActionButton`.
-
-```jsx
-<ActionButton
-    text="Submit"
-    onClick={this.handleClick}/>
-```
-
-Finally, add a `handleClick` function to your `App` component.
-
-```jsx
-class App extends Component {
-  handleClick() {
-    alert('you clicked me!')
-  }
-  render() {...}
-}
-```
-
-### Synthesize: Passing Actions as Props
-
-You might be wondering why we're passing a `handleClick` function as a prop from `App` to our child component, `ActionButton`.
-
-We absolutely could be defining this method within `ActionButton`, but if we're learning it this way, there's got to be a benefit (trust us).
-
-#### "Data Down, Actions Up"
-
-Components in React can pass information down to their children, but there isn't really a way for children to pass data back up to the parent. This is because the parent knows about the child (because it's in the render function), but the child component doesn't have any way to access its parent.
-
-The convention the React community (and Ember community before them) has adopted is passing actions down as data and allowing them to bubble back up.
-
-Just remember: **data down, actions up**
-
-In our app, since the action handler is defined as a method of its parent component, it has access to everything that the parent component has access to. As long as the child component uses the handler that was passed down, the parent is the one who is actually handling the action.
-
-Read more about how this works in React [here](https://facebook.github.io/react/docs/lifting-state-up.html).
-
-### Build our View (15-20 minutes)
-
-Let's create a new component called `LikesCounter`. This component should have two `ActionButton`s: one saying "Like" and one saying "Dislike". When you click "Like" or "Dislike", an alert of which one was clicked should appear. Build this component in a new file, `components/LikesCounter.js`
-
-After you create your `LikesCounter`, replace the `ActionButton` in your `App` with a `LikesCounter`.
-
-Anticipate the following error:
-
-```
-Error in ./src/LikesCounter.js
-Syntax error: Adjacent JSX elements must be wrapped in an enclosing tag
-```
-
-This is important. React components can only render one _root level_ element, which simply means that you have to structure your JSX so that everything is contained within a single element.
-
-Let's fix this by wrapping our adjacent `ActionButton` components in a `div`.
-
-```jsx
-return (
-  <div>
-    <ActionButton
-      text="Like +1"
-    />
-    <ActionButton
-      text="Dislike -1"
-    />
-  </div>
-)
-```
-
-### Props vs State
-
-Now that our HTML is in place, it's time to add some behavior to the buttons.
-
-Let's about what we're trying to accomplish here:
-
-When the page loads, we want the initial value of Likes to be 0. Then when we click "Like", we want to add 1 to the value of Likes, and remove 1 when we click "Dislike".
-
-Let's rephrase. On page load we want to set the *initial* state of our `LikesCounter` to have a count of 0, in other words we want to "initialize" our component to have some values. Sounds like a constructor!
-
-Along with sending the `props` through our custom HTML element, we can also define an initial `state` on our components that can be mutated based on user interaction and changes to our data.
-
-From [React](https://facebook.github.io/react/docs/state-and-lifecycle.html):
-
-> State is similar to props, but it is private and fully controlled by the component.
-
-Our state machine needs to get that information from somewhere, so let's start with passing in an `initialLikes` property to our `<LikesCounter />` instance:
-
-`<LikesCounter initialLikes="0" />`
-
-Now we can add a constructor to our `LikesCounter` component. In our constructor, we will set the initial state of our component.
-
-Underneath the class declaration for `LikesCounter`, let's add our constructor function.
-
-A standard component's constructor function takes `props` as an argument and calls `super(props)`. In an ES6 child class constructor, `this` cannot be used until `super` is called.
-
-```jsx
-constructor(props) {
-  super(props)
-  this.state = {
-    likes: props.initialLikes
-  }
-}
-```
-
-We can now access a dynamically changing `likes` state value within our LikesCounter as so:
-
-```jsx
-render() {
-  return(
-    <div>
-      <p>Likes: {this.state.likes}</p>
-    ...
-  )
-}
-```
-
-At this point your `LikesCounter` should look something like this:
+Let's start in App, the parent component of the Greeting component:
 
 ```jsx
 import React, { Component } from 'react';
-import ActionButton from './ActionButton'
+import Greeting from './Greeting';
+import '../styles/App.css';
 
-class LikesCounter extends Component {
-  constructor(props) {
-    super(props);
+const App = () => {
+  return (
+    <div className="list-of-names">
+      <h1 className="title">Well hello...</h1>
+      <Greeting name="Shih-Tzu"/> // PROPS
+      <Greeting name="Shar-Pei"/> // BEING
+      <Greeting name="Hedgie"/>   // PASSED
+    </div>
+  )
+}
+
+export default App;
+```
+
+Now, rather than just rendering three Greeting components that are exactly the same, we are rendering three Greeting components, each of which now have the property of `name`.
+
+Check out your React dev tools again. Select the `<Greeting />`, what do you see under props?
+
+Now, let's access those props within the Greeting component.
+
+```jsx
+import React, { Component } from 'react';
+import '../styles/Greeting.css'
+
+const Greeting = (props) => {
+  return (
+    <div className="greeting">
+      <p>✨{props.name}✨</p>
+      <p>10</p>
+      <button className="increase-score">+1</button>
+    </div>
+  )
+}
+
+export default Greeting;
+```
+
+Note that the word `name` here is completely arbitrary. It can be whatever you want to refer to that value as in your component. We could have put `<Greeting jellyfish="Shih-Tzu"/>` and within our JSX, accessed `{this.props.jellyfish}`.
+
+### Turn and Talk
+
+* Are App and Greeting stateless or stateful components?
+* How did Greeting get the props of `name`?
+
+### Action Time
+
+Currently, our button does not do anything. We want each Furry Friend to keep track of it's rating, so we need this Greeting component to be `stateful`.
+
+
+```jsx
+class Greeting extends Component {
+  constructor() {
+    super()
     this.state = {
-      likes: props.initialLikes
-    };
+      count: 10
+    }
   }
 
-  handleDislike() {
-    alert('Dislike');
-  }
-
-  handleLike() {
-    alert('Like');
-  }
-
-  render () {
+  render() {
     return (
-      <div>
-        <div>Likes: {this.state.likes}</div>
-        <ActionButton
-            text="Like +1"
-            onClick={this.handleLike.bind(this)} />
-
-        <ActionButton
-            text="Dislike -1"
-            onClick={this.handleDislike.bind(this)} />
-
+      <div className="greeting">
+        <p>✨{this.props.name}✨</p>
+        <p>{this.state.count}</p>
+        <button
+          className="increase-score">
+          +1
+        </button>
       </div>
     )
   }
 }
-
-export default LikesCounter
 ```
 
-Read more about why we're binding `this` [here](https://facebook.github.io/react/docs/handling-events.html).
+Nothing should look different in the browser - feel free to change the default state to another number, and you should see that reflected in your browser!
 
-Open up the console and look at what information is available within the `<LikesCounter />` component.
-
-Last step - hook up the buttons to change the state!
-
-Let's modify our two our Like and Dislike functions to change our state. To modify our state, we pass in a new state object to `this.setState(newState)`
-
+Let's make this button actually do it's job! We need to give it an event listener (this will look a little different from what we're used to seeing in jQuery). On that click, let's call a function that's inside of this class/component.
 
 ```jsx
-handleLike() {
-  this.setState({
-    likes: this.state.likes + 1
-  });
-}
+class Greeting extends Component {
+  constructor() {
+    super()
+    this.state = {
+      count: 10
+    }
+  }
 
-handleDislike() {
-  this.setState({
-    likes: this.state.likes - 1
-  });
+  incrementCount() {
+    // do something
+  }
+
+  render() {
+    return (
+      <div className="greeting">
+        <p>✨{this.props.name}✨</p>
+        <p>{this.state.count}</p>
+        <button
+          className="increase-score"
+          onClick={() => this.incrementCount()}>
+          +1
+        </button>
+      </div>
+    )
+  }
 }
 ```
 
-This is where the magic of React comes in. We are essentially throwing out the old information and replacing it with fresh, up-to-date information.
+Notice the difference between the className and onClick. onClick was assigned to an expression wrapped in `{ }` braces. We had to call the incrementCount function with `this` because we want to refer to the incrementCount() function that is part of this Greeting class.
 
-You can verify this state change by switching over to your browser and opening your React dev tools. Check out what happens when you click a button.
+We are still aren't actually incrementing. React gives us an important function:
 
-Good work!
+#### `setState()`
 
-Note: you may need to use `parseInt()` in order to update the state when you're handling updating the like count.
+`setState()` can be called on the instance of the component. This function takes an object as an argument - the part of the state that you would like to set, or change.
 
-### Refactor
-
-Our `handleDislike` and `handleLike` functions look very similar. Let's create a new function `modifyLikes` that takes a modification parameter and updates our states likes.
-
-```jsx
-  handleLikeClick () {
-    this.modifyLikes(1);
-  }
-
-  handleDislikeClick () {
-    this.modifyLikes(-1);
-  }
+```js
+incrementCount() {
+  this.setState({ count: this.state.count + 1 })
+}
 ```
+
+### Turn and Talk
+
+* What is the difference between state and props?
+* How, and where, do we update state?
+
+
+## Interview questions
+* I saw on your resume you have used React on a couple of projects. What did you like/dislike about working in React?
+* What are some of the advantages and disadvantages of working in React?
 
 ## CFUs
-
-On your own, fill out the Intro to React Checks for Understanding questions [here](https://goo.gl/forms/6n82Ft7qC0lnipK13).
+On your own, fill out the Intro to React Checks for Understanding questions [here](https://goo.gl/forms/SHYac3wCF8yFxmrq2).
 
 ## Going Further
 
