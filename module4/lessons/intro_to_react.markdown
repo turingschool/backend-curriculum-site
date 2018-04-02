@@ -25,15 +25,6 @@ People will define React in many ways, but at it's core,
 
 > React is a client-side JavaScript library that allows you to easily and efficiently manipulate the DOM based on application data and how it changes in response to user interaction
 
-Let's break down this definition a bit:
-
-** Client-side Framework/Library **
-
-** Easy & efficient DOM manipulation **
-
-** Application Data **
-
-
 ### The Virtual DOM
 We mentioned previously that a big benefit of React is how well it can handle DOM manipulations in an easy and efficient way. This is done through the use of a Virtual DOM. A Virtual DOM is a JavaScript object that represents a copy of a DOM structure. This provides us with a huge performance benefit, because accessing and updating a JavaScript object is much faster than accessing the true DOM directly.
 
@@ -47,6 +38,21 @@ JSX syntax takes some getting used to, and it might seem to fly in the face of w
 
 First, let's take a look at the JSX syntax:
 
+```jsx
+let listItems = [{ name: 'peaches' }, { name: 'raspberries' }, { name: 'mint' }];
+
+const groceryList =
+  <div className="grocery" onClick={ someFunction }>
+    <h1>A Grocery List</h1>
+    <ul>
+      {
+        listItems.map((item) => {
+          return <li>{ item.name }</li>
+          })
+      }
+    </ul>
+  </div>
+```
 What looks familiar? What looks different? You might notice the curly braces around things like onClick={someFunction}. These curly braces are allowing us to interpolate JavaScript in our HTML. Think about how you may have used template strings in vanilla JavaScript in the past: we use the ${} syntax to denote that this particular chunk of the string is a dynamic value that should be evaluated and parsed as a dynamic JavaScript value, rather than plain text. The curly braces in React give us similar functionality. Anywhere in our JSX where we want to tell our application "This is JavaScript, so don't render it character by character like HTML, we can wrap that code in curly braces to signal that.
 
 ### Components
@@ -84,7 +90,7 @@ export default App = () => {
 
 Stateful components are ES6 classes that extend an abstract 'Component' class, given to us by default by React. They each have a render method that allows us to specify what should be rendered to the DOM, and they keep track of some sort of application data.
 
-#### Props and State
+### Props and State
 
 Props and state are how we manage and share information among components in React. We will dig into exactly how that works when we see it in action later in the lesson. It will be important for you to know what responsibility each has, and the difference between the two.
 
