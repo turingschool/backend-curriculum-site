@@ -16,13 +16,13 @@ title: SQL Refresher
 
 ### Setup
 
-Enter `psql` from your terminal. This should drop you into an interactive postgres session where you can run SQL commends from the terminal.
+Enter `psql` from your terminal. This should drop you into an interactive postgres session where you can run SQL commands from the terminal.
 
 Note: if you get an error about no user existing, check [this](https://stackoverflow.com/questions/17633422/psql-fatal-database-user-does-not-exist) Stack Overflow post.
 
 The first thing you will see is a helpful note to enter `help` if you need some more information about how to use this interactive session. `\?` will provide you with some terminal specific commands, while `\h` will provide you with a list of SQL commands that offer additional documentation.
 
-In order to interact with our BikeShare database, we'll first need to connect to it. How do we know it exists or what it's named? First type `\list`. This will provide you with a list of databases avaialble to you.
+In order to interact with our LittleShop database, we'll first need to connect to it. How do we know it exists or what it's named? First type `\list`. This will provide you with a list of databases avaialble to you.
 
 In order to connect to our database, type `\c little-shop-redux-development` (or whatever `\list` tells you your database is called). Now you should be able to run SQL commands.
 
@@ -62,8 +62,6 @@ With a partner, see if you can complete each of the tasks below. After each sect
 
 * Count of items for each merchant.
 * Name of the merchant with the most items.
-* Name of the category that has the most merchants.
-* Name of the category that has the least merchants.
 
 #### ORDER
 
