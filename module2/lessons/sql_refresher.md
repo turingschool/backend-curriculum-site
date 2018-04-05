@@ -77,6 +77,8 @@ With a partner, see if you can complete each of the tasks below. After each sect
 #### Extensions
 
 * Total of each invoice for each merchant.
+* Merchant ID and Invoice ID for the top 5 least expensive invoices.
+* Merchant ID and Invoice ID for the top 5 most expensive invoices.
 
 ## Additional Resources
 
