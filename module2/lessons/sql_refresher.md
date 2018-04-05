@@ -24,7 +24,7 @@ The first thing you will see is a helpful note to enter `help` if you need some 
 
 In order to interact with our LittleShop database, we'll first need to connect to it. How do we know it exists or what it's named? First type `\list`. This will provide you with a list of databases avaialble to you.
 
-In order to connect to our database, type `\c little-shop-redux-development` (or whatever `\list` tells you your database is called). Now you should be able to run SQL commands.
+In order to connect to our database, type `\c little-shop-redux` (or whatever `\list` tells you your database is called). Now you should be able to run SQL commands.
 
 When you're ready to disconnect type `\q`
 
