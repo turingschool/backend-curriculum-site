@@ -45,6 +45,7 @@ With a partner, see if you can complete each of the tasks below. After each sect
 * id, price, and description for items more expensive than 800.
 
 #### Aggregate Functions
+(Complete these without using Order)
 
 * Max, and min price from the `items` table.
 * Average price for all items.
@@ -63,6 +64,7 @@ With a partner, see if you can complete each of the tasks below. After each sect
 
 * Count of items for each merchant.
 * Total price of all items for each merchant.
+* Total income for each merchant.
 
 #### ORDER
 
