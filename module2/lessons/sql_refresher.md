@@ -74,6 +74,10 @@ With a partner, see if you can complete each of the tasks below. After each sect
 * Least prolific merchant (by item count).
 * `name` for the five merchants with the most items.
 
+#### Extensions
+
+* Total of each invoice for each merchant.
+
 ## Additional Resources
 
 1. [Fundamental SQL](http://tutorials.jumpstartlab.com/topics/sql/fundamental_sql.html) (review from intermission work)
