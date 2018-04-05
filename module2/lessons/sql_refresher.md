@@ -19,7 +19,7 @@ This activity relies on a pre-created database. Make sure you have created and s
 
 Enter `psql` from your terminal. This should drop you into an interactive postgres session where you can run SQL commands from the terminal.
 
-Note: if you get an error about no user existing, check [this](https://stackoverflow.com/questions/17633422/psql-fatal-database-user-does-not-exist) Stack Overflow post.
+Note: If you get an error that says something like `Database username "YOUR_NAME" does not exist.` you will need to create a database that shares the username. Run `createdb "YOUR_NAME"` and re-run psql.
 
 The first thing you will see is a helpful note to enter `help` if you need some more information about how to use this interactive session. `\?` will provide you with some terminal specific commands, while `\h` will provide you with a list of SQL commands that offer additional documentation.
 
