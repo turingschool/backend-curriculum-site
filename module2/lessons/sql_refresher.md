@@ -61,13 +61,14 @@ With a partner, see if you can complete each of the tasks below. After each sect
 #### GROUP
 
 * Count of items for each merchant.
-* Name of the merchant with the most items.
+* Total price of all items for each merchant.
 
 #### ORDER
 
-* Top five merchants with the most items.
-* Top five most expensive items.
-* Least popular merchant (by item count).
+* Name of the merchant with the most items.
+* Top five merchants with the most invoices.
+* Top 10 most expensive items.
+* Least prolific merchant (by item count).
 * `name` for the five merchants with the most items.
 
 ## Additional Resources
