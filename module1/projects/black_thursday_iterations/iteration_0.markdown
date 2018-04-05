@@ -36,6 +36,9 @@ instances. It offers the following methods:
 *   `find_by_id` - returns either `nil` or an instance of `Merchant` with a matching ID
 *   `find_by_name` - returns either `nil` or an instance of `Merchant` having done a *case insensitive* search
 *   `find_all_by_name` - returns either `[]` or one or more matches which contain the supplied name fragment, *case insensitive*
+*    `create(attributes)` - create a new `Merchant` instance with the provided `attributes`.
+*    `update(id, attribute)` - update the `Merchant` instance with the corresponding `id` with the provided `attributes`
+*    `delete(id)` - delete the `Merchant` instance with the corresponding `id`
 
 The data can be found in `data/merchants.csv` so the instance is created and used like this:
 
@@ -77,6 +80,9 @@ It offers the following methods:
 *   `find_all_by_price` - returns either `[]` or instances of `Item` where the supplied price exactly matches
 *   `find_all_by_price_in_range` - returns either `[]` or instances of `Item` where the supplied price is in the supplied range (a single Ruby `range` instance is passed in)
 *   `find_all_by_merchant_id` - returns either `[]` or instances of `Item` where the supplied merchant ID matches that supplied
+*    `create(attributes)` - create a new `Item` instance with the provided `attributes`.
+*    `update(id, attribute)` - update the `Item` instance with the corresponding `id` with the provided `attributes`
+*    `delete(id)` - delete the `Item` instance with the corresponding `id`
 
 It's initialized and used like this:
 
