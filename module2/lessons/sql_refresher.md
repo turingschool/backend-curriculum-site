@@ -15,6 +15,7 @@ title: SQL Refresher
 ## Lesson
 
 ### Setup
+This activity relies on a pre-created database. Make sure you have created and seeded the database from your little-shop-redux. If you do not have a little-shop-redux, you can pull down a completed version [here](https://github.com/kolyaventuri/little-shop-redux/tree/d14150d9b0e004db6057b42f2b3c933723f996cc).
 
 Enter `psql` from your terminal. This should drop you into an interactive postgres session where you can run SQL commands from the terminal.
 
