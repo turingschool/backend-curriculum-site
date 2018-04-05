@@ -45,7 +45,7 @@ With a partner, see if you can complete each of the tasks below. After each sect
 
 #### max/min/count/average
 
-* Max, min, and mean unit_price from the `items` table.
+* Max, min, and mean price from the `items` table.
 * Average price for all items.
 * Id, merchant id, and description of the most expensive item.
 * Id, merchant id, and description of the least expensive item.
@@ -55,8 +55,8 @@ With a partner, see if you can complete each of the tasks below. After each sect
 
 #### JOIN
 
-* Highest items `unit_price` for merchant with id of 12334284.
-* Average items `unit_price` for merchant with id of 12334284.
+* Highest items `price` for merchant with id of 12334284.
+* Average items `price` for merchant with id of 12334284.
 
 #### GROUP
 
