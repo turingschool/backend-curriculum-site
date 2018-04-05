@@ -41,7 +41,7 @@ With a partner, see if you can complete each of the tasks below. After each sect
 
 * Items that have a merchant with an id of 12334284.
 * Items that have a `price` of 800.
-* id, unit price, and description for items more expensive than 800.
+* id, price, and description for items more expensive than 800.
 
 #### max/min/count/average
 
