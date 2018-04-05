@@ -45,7 +45,7 @@ With a partner, see if you can complete each of the tasks below. After each sect
 
 #### Aggregate Functions
 
-* Max, min, and mean price from the `items` table.
+* Max, and min price from the `items` table.
 * Average price for all items.
 * Id, merchant id, and description of the most expensive item.
 * Id, merchant id, and description of the least expensive item.
