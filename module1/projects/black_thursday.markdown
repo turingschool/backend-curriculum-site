@@ -6,7 +6,7 @@ title: Black Thursday
 Black Thursday
 ===============
 
-A business is only as smart as its data. Let's build a system able to manage our data and execute business intelligence queries against the data from a typical e-commerce business.
+A business is only as smart as its data. Let's build a system to manage our data and execute business intelligence queries against the data from a typical e-commerce business.
 
 Project Overview
 -----------------
@@ -15,7 +15,7 @@ Project Overview
 
 *   Use tests to drive both the design and implementation of code
 *   Decompose a large application into components
-*   Use test fixtures instead of actual data when testing
+*   Design a solution that is functional, readable, maintainable, and testable
 *   Learn an agile approach to building software
 
 ### Getting Started
