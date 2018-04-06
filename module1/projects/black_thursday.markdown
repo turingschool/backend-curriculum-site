@@ -24,6 +24,7 @@ Project Overview
 1.  Everyone on the team clones the repository
 1.  Setup [SimpleCov](https://github.com/colszowka/simplecov) to monitor test coverage along the way
 1.  Setup [Rubocop](https://atom.io/packages/linter-rubocop)
+1.  Setup [Hound CI](https://houndci.com/)
 1.  Create a Rakefile
 
 #### Special Notes
@@ -103,7 +104,7 @@ The project will be assessed with the following guidelines:
 
 ### 5. Version Control
 
-- [ ] Developers commits at a pace of at least 1 commit per hour
+- [ ] Developers commit at a pace of at least 1 commit per hour
 - [ ] Developers implements branching and PRs
 - [ ] Developer resolves Hound CI complaints on PRs
 - [ ] Commit history shows developers contributed evenly
