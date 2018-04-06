@@ -80,7 +80,7 @@ It offers the following methods:
 *   `find_all_by_price` - returns either `[]` or instances of `Item` where the supplied price exactly matches
 *   `find_all_by_price_in_range` - returns either `[]` or instances of `Item` where the supplied price is in the supplied range (a single Ruby `range` instance is passed in)
 *   `find_all_by_merchant_id` - returns either `[]` or instances of `Item` where the supplied merchant ID matches that supplied
-*    `create(attributes)` - create a new `Item` instance with the provided `attributes`.
+*    `create(attributes)` - create a new `Item` instance with the provided `attributes`. The new `Item`'s id should be the current highest `Item` id plus 1.
 *    `update(id, attribute)` - update the `Item` instance with the corresponding `id` with the provided `attributes`
 *    `delete(id)` - delete the `Item` instance with the corresponding `id`
 
