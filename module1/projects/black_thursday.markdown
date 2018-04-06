@@ -21,9 +21,10 @@ Project Overview
 ### Getting Started
 
 1.  One team member forks the repository [here](https://github.com/turingschool-examples/black_thursday) and adds the other(s) as collaborators.
-2.  Everyone on the team clones the repository
-3.  Create a [Waffle.io](http://waffle.io) account for project management.
-4.  Setup [SimpleCov](https://github.com/colszowka/simplecov) to monitor test coverage along the way
+1.  Everyone on the team clones the repository
+1.  Setup [SimpleCov](https://github.com/colszowka/simplecov) to monitor test coverage along the way
+1.  Setup [Rubocop] (https://atom.io/packages/linter-rubocop)
+1.  Create a Rakefile
 
 #### Special Notes
 
