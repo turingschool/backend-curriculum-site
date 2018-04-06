@@ -21,7 +21,7 @@ instances. It offers the following methods:
 *   `find_all_by_customer_id` - returns either `[]` or one or more matches which have a matching customer ID
 *   `find_all_by_merchant_id` - returns either `[]` or one or more matches which have a matching merchant ID
 *   `find_all_by_status` - returns either `[]` or one or more matches which have a matching status
-*    `create(attributes)` - create a new `Invoice` instance with the provided `attributes`.
+*    `create(attributes)` - create a new `Invoice` instance with the provided `attributes`. The new `Invoice`'s id should be the current highest `Invoice` id plus 1.
 *    `update(id, attribute)` - update the `Invoice` instance with the corresponding `id` with the provided `attributes`
 *    `delete(id)` - delete the `Invoice` instance with the corresponding `id`
 
