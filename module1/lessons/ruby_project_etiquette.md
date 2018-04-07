@@ -192,9 +192,35 @@ Let's build a task that will run all our tests. Our objective is to be able to g
 desc "run all tests"
 task :test do
   ruby "test/*_test.rb"
-  ruby "test/**/*_test.rb"
 end
 ```
+
+So here's the thing, that code up there only runs one thing. What do we have to do to get all of it to run?
+
+```
+ my_files = FileList['test/**/*.rb']
+  my_files.each do |file|
+    ruby file
+  end
+ ```
+ 
+ Look at that! We are getting a list of all of the files in our test directory, and we are enumerating over the list of files
+ and then we are just going to run each one. 
+ 
+ This is great, but we are missing something. Each runs individually, and we have to scroll up a lot. This is what we would call less than ideal. How do we get everything to run altogether? As if it was one big test file?
+ 
+ Have your Rakefile look like this.
+
+```
+require 'rake/testtask'
+
+Rake::TestTask.new do |t|
+    t.pattern = "test/**/*_test.rb"
+end
+
+```
+
+`testtask` is a thing built into Rake that will do that for us, we just need to follow the format above.
 
 ### Default
 
