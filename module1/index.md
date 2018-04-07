@@ -55,6 +55,9 @@ In Module 1, students will learn to use Ruby and object-oriented programming to 
 *   [__Pentathlon Description__](pentathlon)
 *   [__Professional Development Curriculum__](https://github.com/turingschool/career-development-curriculum/tree/master/module_one)
 
+## Lesson Plans
+
+* [Ruby Data Types](./lessons/ruby_data_types.md)
 ## Projects
 
 * [Credit Check](./projects/credit_check.markdown) ([slides](./slides/credit_check))
