@@ -29,9 +29,9 @@ This application will collect data in two ways:
 * The application has been styled.
 * The application uses a balanced, considered color scheme.
 * The application implements a font (that is not the default font).
-* The application utilizes a nav bar. 
-* The style shows evidence of intentional layout. 
-* Space and text is balanced. White space is used to visually separate content. 
+* The application utilizes a nav bar.
+* The style shows evidence of intentional layout.
+* Space and text is balanced. White space is used to visually separate content.
 * The application is easily usable. The user can intuitvely navigate between different portions of the application without manually entering the URL into the nav-bar or using the back button on their browser.
 
 ### Code Organization/Quality
@@ -50,22 +50,24 @@ This application will collect data in two ways:
 * Use Git and GitHub to work collaboratively, develop in smaller groups, and resolve merge conflicts.
 * Use Git Rebase workflow.
 * Practice an agile workflow and improve communication skills working within a team
+* Seek technical feedback from peers and Product Owners utilizing Code Review on PRs
 
 ## Process
 
-Each team will have an assigned project manager (peer) that will be the primary point of contact between the product owner (instructor) and the rest of the team.
 
-All base stories will be provided by the product owner. You will be asked to write your own stories for extensions and they should follow the same format as the ones that are provided to you.
+Each team will have an assigned Project Manager (peer) that will be the primary point of contact between the Product Owner (instructor) and the rest of the team.
+
+All base stories will be provided by the Product Owner. You will be asked to write your own stories for extensions and they should follow the same format as the ones that are provided to you.
 
 You should not write code or migrations until a story calls for it.
 
-Teams can self-pace but will have a number of stories required to be completed at each check-in. Teams will meet with the product owner regularly and demo completed stories in production. Project scope and requirements can change at the discretion of the product owner so following an agile approach is really important.
+Teams can self-pace but will have a number of stories required to be completed at each check-in. Teams will meet with the Product Owner regularly and demo completed stories in production mode(Heroku). Project scope and requirements can change at the discretion of the Product Owner so following an agile approach is really important.
 
 It is expected that teams will have meaningful discussions and code reviews using comments on Github. If you would like technical feedback from instructors, you will need to tag them in PRs with specific questions. Commits should also have meaningful messages. Be careful about what type of commits are being made, i.e. "Cleanup Hound violations". If you want to learn more about squashing commits, see [here](http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html).
 
 It is also expected that teams will use a Pull Request Template, as described [here](https://help.github.com/articles/creating-a-pull-request-template-for-your-repository/).
 
-The master branch of your project should always remain in a state where it can be demoed and deployed... yes, even days that you don't have any _planned_ meetings. This also means that your production application (on Heroku) should be ready to demo at any time.
+The master branch of your project should always remain in a state where it can be demoed and deployed... yes, even days that you don't have any _planned_ meetings. This also means that your production application (on Heroku) should be ready to demo at any time. It is a good idea to push changes to production(Heroku) each time you merge to master.
 
 Everyone will provide feedback for group members at the end of the project.
 
@@ -204,13 +206,13 @@ I also see my cart count updated on all pages.
 As a visitor,
 When I visit '/cart',
 I see all the bike accessories I have added to my cart,
-I see a thumbnail for each accessory as well as the title and price, 
+I see a thumbnail for each accessory as well as the title and price,
 I see a subtotal and quantity breakdown for each accessory,
 I see a total for my cart,
 After I create an account,
 I visit "/cart,
 I see all of the data that was there when I was not logged in.
-``` 
+```
 - [ ]
 
 ```
@@ -379,7 +381,7 @@ In addition to the user story above,
 I see the Number of rides started at this station,
 I see the Number of rides ended at this station,
 I see the Most frequent destination station (for rides that began at this station),
-I see the Most freuqnet origination station (for rides that ended at this station),
+I see the Most frequent origination station (for rides that ended at this station),
 I see the Date with the highest number of trips started at this station,
 I see the Most frequent zip code for users starting trips at this station,
 I see the Bike ID most frequently starting a trip at this station.
@@ -540,7 +542,7 @@ I also see a button next to each condition to delete that condition.
 
 ```
 As an admin,
-When I visit a conditon show,
+When I visit a condition show,
 I see all the attributes a visitor can see,
 I see a button to delete this condition,
 I also see a button to edit this condition.
