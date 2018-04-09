@@ -22,7 +22,7 @@ This application will collect data in two ways:
 
 * Use Rails and ERB templates to render views to create, read, update, and delete resources using RESTful routes and appropriate HTTP verbs
 * Use Rails and ERB templates to display a dashboard not related to a specific resource saved in the database
-* Practice mixing HTML, CSS, and templates to create an inviting and usable User Interface
+* Practice mixing HTML, SASS, and templates to create an inviting and usable User Interface
 * Deploy an application to Heroku
 * Write an articulate README documenting features and functionalities of application
 * Build a logical user-flow that moves across multiple controllers and models
@@ -708,6 +708,12 @@ For the evaluation we'll work through the expectations above and look at the fol
 * Exceeds Expectations: Project is highly usable and ready to deploy to customers
 * Meets Expectations: Project is highly usable, but needs more polish before it'd be customer-ready
 * Below Expectations: Project needs more attention to the User Experience, some views need to use a URL to visit them
+
+### 8. SASS
+
+* Exceeds Expectations: Project utilizes SASS to its fullest
+* Meets Expectations: Project utilizes SASS but does not harness its unique functionality
+* Below Expectations: Project does not utilize SASS
 
 ### 8. Workflow
 
