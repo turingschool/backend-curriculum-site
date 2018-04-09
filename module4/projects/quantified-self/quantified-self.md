@@ -35,7 +35,7 @@ You are going to build a simple calorie tracker.
 
 ### Requirements Overview
 
-Your requirements for the application are detailed in the cards you're going to import to Pivotal Tracker (you can also find them [here](./quantified-self-tracker-stories.csv)), but here's an visual of what you're doing:
+Your requirements for the application are detailed in the cards **you're going to import to Pivotal Tracker** (you can also find them [here](./quantified-self-tracker-stories.csv)), but here's an visual of what you're doing:
 
 #### Layouts
 
@@ -85,7 +85,7 @@ First, we'll have our Front End talking with a pre-built Rails API found [here](
 
 ### Tips for success
 
-- Try to use HTML/CSS classes when changing styling, instead of changing the styling of an element directly.
+- Use HTML/CSS classes when changing styling, instead of changing the styling of an element directly.
 - Experiment with ES6, but try to be consistent in each file whether you're using ES6 or ES5. Probably the most useful thing in ES6 is string interpolation and multi-line strings, neither of which are supported in ES5.
 - There is similar functionality across elements in the app. Make your code DRY, but don't over do it. Sometimes the functionality differs slightly.
 - Plan, diagram and break down the problem, but don't try to get it right the first time. Don't write too much code without refactoring. Maybe stop and refactor every so many minutes, or so many cards.
@@ -109,7 +109,7 @@ First, we'll have our Front End talking with a pre-built Rails API found [here](
 
 ## Rubric
 
-You will be subjectively (Friday of Week Three via Github) graded by an instructor on the criteria below. You'll need to self assess on this rubric when submitting your final project [here](https://github.com/turingschool/ruby-submissions/tree/master/1708-b/4module/quantified_self).
+You will be subjectively (Friday of Week Three via Github) graded by an instructor on the criteria below. You'll need to self assess on this rubric when submitting your final project [here](https://github.com/turingschool/ruby-submissions/tree/master/1710-b/4module/quantified_self).
 
 ### Specification Adherence
 
@@ -121,7 +121,7 @@ Application implements **all** functionality as defined, but some bugs or strang
 
 ### Documentation
 
-Developer provides easy to navigate documentation showing how to setup and contribute to the application.
+Developer provides easy to navigate documentation showing how to setup and contribute to the application (for _both_ front-end and back-end repos).
 
 - Above Expectations
 - Meets Expectations
@@ -129,7 +129,7 @@ Developer provides easy to navigate documentation showing how to setup and contr
 
 ### HTML/UI
 
-The team put some effort into styling, and the application is not confusing to use. HTML classes and IDs are kebab case.
+The team put some effort into styling, and the application is not confusing to use (including, but not limited to, user should **not** have to type anything into the URL to go between pages). HTML classes and IDs are kebab case.
 
 - Above Expectations
 - Meets Expectations
@@ -137,15 +137,14 @@ The team put some effort into styling, and the application is not confusing to u
 
 ### Accessibility
 
-Developer implements code to increase accessibility.
+Developer implements code to increase accessibility (your app should have 0 violations according to aXe).
 
-- Above Expectations
 - Meets Expectations
 - Below Expectations
 
 ### JS syntax and Style
 
-JavaScript code is logically divided into files. Developers can show examples of good coding practices and demonstrate OOP concepts, like DRY and separation of concerns. Developers pay attention to indentation and naming conventions. They also consistently utilize ES5 or ES6 syntax and jQuery when working with events.
+JavaScript code is logically divided into files. Developers can show examples of good coding practices and demonstrate OOP concepts, like DRY and separation of concerns. Developers pay attention to indentation and naming conventions. They also _consistently_ utilize ES5 or ES6 syntax and jQuery when working with events.
 
 - Above Expectations
 - Meets Expectations
@@ -153,7 +152,7 @@ JavaScript code is logically divided into files. Developers can show examples of
 
 ### Git Workflow
 
-The team uses master for production, uses feature branches for small groups of cards, and has a pull request for each feature with good context and conversation. Developers that aren't on the team have commented on PRs.
+The team uses master for production, uses feature branches for small groups of cards, and has a pull request for each feature with good context and conversation, following the template. Commit messages are in the present tense, and start with a capital letter. Developers that aren't on the team have commented on PRs.
 
 - Above Expectations
 - Meets Expectations
@@ -161,7 +160,7 @@ The team uses master for production, uses feature branches for small groups of c
 
 ### Project Management
 
-The team is using a project management tool to keep their project organized and to track progress. Team is documenting conclusions and timelines on relevant cards.
+The team is using Pivotal Tracker to keep their project organized and to track progress. Team is documenting conclusions and timelines on relevant cards.
 
 - Above Expectations
 - Meets Expectations
@@ -169,7 +168,7 @@ The team is using a project management tool to keep their project organized and 
 
 ### Communication
 
-The team consistently reaches out to their Technical Lead for feedback on code quality and technical issues. The team responds to their Technical Lead in a timely manner.
+The team consistently reaches out to their Technical Lead for feedback on code quality and technical issues. The team responds to their Technical Lead in a timely manner. The team implements feedback from Technical Lead around pacing, refactors, workflow, etc.
 
 - Above Expectations
 - Meets Expectations

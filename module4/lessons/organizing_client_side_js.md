@@ -44,3 +44,7 @@ Have each group show the file structures they have come up with.
 * What are some similarities we are seeing?
 * What are some differences?
 * Should we all be using similar structures? What does that look like?
+
+## Interview Question
+
+You're building the front-end for an weather app in vanilla JavaScript. It displays the current temperature, 10-hour and 7-day forecasts, and has a search bar where the user can change the location. What might your file structure look like?

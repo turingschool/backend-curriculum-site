@@ -44,6 +44,7 @@ Specific instances:
 ### Classes and Instances in Programming
 
 In programming, a *Class* is something that models:
+
 1. State
 1. Behavior
 
@@ -89,7 +90,7 @@ class NameOfClass
 end
 ```
 
-Notice that `class` is lowercase while `NameOfClass` is CamelCased.
+Notice that `class` is lowercase while `NameOfClass` is PascalCased.
 
 ```ruby
 class Refrigerator
@@ -126,6 +127,14 @@ end
 This method is run once and only once during an Object's lifetime, when we call `new`.
 
 **TRY IT**: Create an initialize method for your Class and put a print statement in it. Run your file and see what happens.
+
+#### Check for Understanding
+* What is a Class?
+* What is an Instance?
+* What is an Object?
+* How are these three things alike/different?
+* What code do you have to write to create a Class? What code do you have to write to create an instance?
+* What happens when a new instance is created?
 
 ## Modeling State with Attributes
 
@@ -195,6 +204,7 @@ refrigerator_1.color
 ```
 
 Let's add this to our code.
+
 ```ruby
 ...
 
@@ -232,7 +242,7 @@ Run the file and try it again. This time, we get nil back. Why?
 
 ### Return Values
 
-When we call a method on an object, we expect something to be returned to us. For example, if I ask some "What is your name?", I would expect for them to respond with a name.
+When we call a method on an object, we expect something to be returned to us. For example, if I ask someone "What is your name?", I would expect for them to respond with a name.
 
 Right now, when we call `refrigerator_1.color`, we get `nil`, which in Ruby means nothingness. This is because our method is empty. This is what an empty method looks like:
 
@@ -291,7 +301,107 @@ end
 ...
 ```
 
-**TRY IT**: With your pair, create getter methods for the attributes of your class. Use these getter methods to print out the attributes of one of your instances.
+### Setter Methods
+
+We can now retrieve the color attribute, but what if we want to change it? We do that with a **Setter**  method. We want to be able to set the value like so:
+
+```ruby
+refrigerator_1 = Refrigerator.new("white", 12)
+refrigerator_1.color = "blue"
+```
+
+If we run this code, we'll see this error:
+
+`undefined method 'color=' for #<Refrigerator:0x007fa3e6922a98> (NoMethodError)`
+
+Just like before, this error tells us exactly what we need to do: define the method `color=`
+
+```ruby
+  def color= (new_color)
+    @color = new_color
+  end
+```
+
+### Getter and Setter Short Cuts
+
+Because the getter and setter patterns are so common, Ruby gives us handy shortcuts to make our lives easier.
+
+#### attr_reader
+
+attr_reader is a shorthand for a getter method. Right now our refrigerator class looks like this:
+
+```ruby
+class Refrigerator
+  def initialize(color_param, size_param)
+    @color       = color_param
+    @size        = size_param
+    @food        = []    
+  end
+
+  def color
+    @color
+  end
+
+  def color= (new_color)
+    @color = new_color
+  end
+end
+```
+
+We can replace the getter method with attr_reader like so:
+
+```ruby
+class Refrigerator
+  attr_reader :color
+
+  def initialize(color_param, size_param)
+    @color       = color_param
+    @size        = size_param
+    @food        = []    
+  end
+
+  def color= (new_color)
+    @color = new_color
+  end
+end
+```
+
+#### attr_writer
+
+attr_writer is a shorthand for a setter method. We can replace the setter method like so:
+
+
+```ruby
+class Refrigerator
+  attr_reader :color
+
+  attr_writer :color
+
+  def initialize(color_param, size_param)
+    @color       = color_param
+    @size        = size_param
+    @food        = []    
+  end
+end
+```
+
+#### attr_accessor
+
+attr_accessor is a shorthand for a getter and a setter method. We can replace the `attr_reader` and `attr_writer` with one `attr_accessor`:
+
+```ruby
+class Refrigerator
+  attr_accessor :color
+
+  def initialize(color_param, size_param)
+    @color       = color_param
+    @size        = size_param
+    @food        = []    
+  end
+end
+```
+
+**TRY IT**: With your pair, create getter methods for the attributes of your class. Use these getter methods to print out the attributes of one of your instances. Then replace them with shorthand.
 
 ### More Interesting Methods
 
@@ -346,6 +456,7 @@ This is what the code looks like so far:
 
 ```ruby
 class Refrigerator
+  attr_accessor :color
 
   def initialize(color_param, size_param)
     @color       = color_param
@@ -358,14 +469,10 @@ class Refrigerator
       @food << new_food
     end
   end
-
-  def color
-    @color
-  end
-
 end
 
 refrigerator_1 = Refrigerator.new("white", 12)
+refrigerator_1.color = "blue"
 puts refrigerator_1.color
 refrigerator_1.add_food("apples")
 p refrigerator_1
@@ -380,6 +487,12 @@ p refrigerator_3
 We can see from the print statements that the `@food` array of refrigerator_1 is now populated with "apples".
 
 **TRY IT**: With your pair, create a new method for your Class. This method should change one of your Class's attributes.
+
+#### Check for Understanding
+* What is an attribute? How can we recognize an attribute?
+* What is a method? How do we write methods?
+* What are parameters? How do we add parameters to methods?
+* What is a return value? How do you know what the return value of a method is? Do all methods have return values?
 
 ## Pair Work
 
@@ -400,5 +513,10 @@ If you get done with the above exercise, then follow along with [this](https://v
 It will go through [this](https://github.com/JoshCheek/1508/blob/0facae943f7785e5133ea506595534c1b00b3025/katas/blowing_bubbles_part2.rb) coding exercise.
 It builds on bubble sort, but you don't have to understand the algorithm to follow along with it
 It only plays with swapping representations, not changing behaviour.
-We'll take a piece of toplevel procedural code and turn it into a beautilful namespaced object,
-and then back again.
+We'll take a piece of toplevel procedural code and turn it into a beautilful namespaced object, and then back again.
+
+## Homework
+
+* Complete Bob
+* Over the weekend, complete `command-query` exercises and `mythical-creatures` exercises
+* Optional: `objects-and-methods` exercises

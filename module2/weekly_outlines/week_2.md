@@ -10,6 +10,7 @@ layout: page
 * **LESSONS**
 
   - [Joins, Group, Order](../lessons/joins_group_order)
+  - [Database Relationships and Visualizations](../lessons/database_relationships_and_visualizations)
 
 * **HOMEWORK:**
   - Work on Little Shop Redux
@@ -17,35 +18,44 @@ layout: page
 ### Day 2:
 
 * **LESSONS:**
-  - [Flex Box Workshop](../lessons/flexbox_workshop)
+
 
 * **HOMEWORK:**
   - Work on Little Shop Redux
+  - [Flex Box Workshop](../lessons/flexbox_workshop)
 
 ### Day 3:
 
+* **LESSONS**
+  - [Sinatra vs. Rails Exploration](../misc/sinatra_vs_rails_exploration)
+
 * **HOMEWORK:**
   - Read about [Routing in Rails](https://www.theodinproject.com/courses/ruby-on-rails/lessons/routing)
-  - Work on Little Shop Redux
+  - [DevShed - An Introduction to Database Normalization](http://www.devshed.com/c/a/mysql/an-introduction-to-database-normalization/)
+  - [Mike Hillyer's Blog Post - intro to database normalization](http://mikehillyer.com/articles/an-introduction-to-database-normalization/)
+  - [Watch Sharif Ramadan's intro to 1NF, 2NF and 3NF databases. They're only about 4 minutes each.](https://www.youtube.com/watch?v=K7vzLrGCV50&list=PLQ9AAKW8HuJ5m0rmHKL88ZyjOIKejvrj0)
+ - Work on [Blogger](../misc/blogger)
 
 ### Day 4:
 
 * **LESSONS:**
-  - [Sinatra vs. Rails Exploration](../misc/sinatra_vs_rails_exploration)
   - [REST, Controllers & Routing in Rails](../lessons/rest_routing_and_controllers_in_rails)
+  - [Database Normalization and Optimization](../lessons/database_normalization_and_optimization)
 
 * **HOMEWORK:**
-  - Work on [Blogger](../misc/blogger)
+  - Work on Blogger
 
 ### Day 5:
 
 * **LESSONS:**
   - [Models, Migrations and Databases](../lessons/models_migrations_databases)
 
-* **HOMEWORK:**
-  - Complete [Blogger](../misc/blogger)
-  - Answer the Week Two CFUs [questions](https://github.com/turingschool/checks-for-understanding/blob/master/module-2/backend/week_two.md).
-  - Finish preparing and sending feedback to your Little Shop group members. Be sure to include both encouraging feedback and feedback that will encourage growth.
+### Weekend Homework
+  - Finish [Blogger](../misc/blogger)
+  - [Checks for Understanding](https://github.com/turingschool/checks-for-understanding/blob/master/module-2/backend/week_two.md).
+  - Static Comp Challenge
+  - Start [JobTracker](https://github.com/turingschool/job-tracker)
+  - Finish preparing and sending feedback to your Little Shop group members. Be sure to include both encouraging feedback and feedback that will encourage growth. Send your feedback through a group DM to your partner and instructors.
 
 ## Projects:
 

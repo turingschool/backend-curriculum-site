@@ -10,7 +10,7 @@ We've gotten fairly familiar with ActiveRecord's most common methods. Let's make
 
 ## Instructions
 
-1. Clone Storedom and checkout the `activerecord-obstacle-course` branch
+1. Clone [Storedom](https://github.com/turingschool-examples/storedom-5) and checkout the `activerecord-obstacle-course` branch
 
     * `git clone -b activerecord-obstacle-course https://github.com/turingschool-examples/storedom-5`
 

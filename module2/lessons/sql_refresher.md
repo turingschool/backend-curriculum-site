@@ -15,16 +15,17 @@ title: SQL Refresher
 ## Lesson
 
 ### Setup
+This activity relies on a pre-created database. Make sure you have created and seeded the database from your little-shop-redux. If you do not have a little-shop-redux, you can pull down a completed version [here](https://github.com/kolyaventuri/little-shop-redux/tree/d14150d9b0e004db6057b42f2b3c933723f996cc).
 
-Enter `psql` from your terminal. This should drop you into an interactive postgres session where you can run SQL commends from the terminal.
+Enter `psql` from your terminal. This should drop you into an interactive postgres session where you can run SQL commands from the terminal.
 
-Note: if you get an error about no user existing, check [this](https://stackoverflow.com/questions/17633422/psql-fatal-database-user-does-not-exist) Stack Overflow post.
+Note: If you get an error that says something like `Database username "YOUR_NAME" does not exist.` you will need to create a database that shares the username. Run `createdb "YOUR_NAME"` and re-run psql.
 
 The first thing you will see is a helpful note to enter `help` if you need some more information about how to use this interactive session. `\?` will provide you with some terminal specific commands, while `\h` will provide you with a list of SQL commands that offer additional documentation.
 
-In order to interact with our BikeShare database, we'll first need to connect to it. How do we know it exists or what it's named? First type `\list`. This will provide you with a list of databases avaialble to you.
+In order to interact with our LittleShop database, we'll first need to connect to it. How do we know it exists or what it's named? First type `\list`. This will provide you with a list of databases avaialble to you.
 
-In order to connect to our database, type `\c little-shop-redux-development` (or whatever `\list` tells you your database is called). Now you should be able to run SQL commands.
+In order to connect to our database, type `\c little-shop-development` (or whatever `\list` tells you your database is called). Now you should be able to run SQL commands.
 
 When you're ready to disconnect type `\q`
 
@@ -40,12 +41,13 @@ With a partner, see if you can complete each of the tasks below. After each sect
 #### WHERE
 
 * Items that have a merchant with an id of 12334284.
-* Items that have a `unit_price` of 800.
-* id, unit price, and description for items more expensive than 800.
+* Items that have a `price` of 800.
+* id, price, and description for items more expensive than 800.
 
-#### max/min/count/average
+#### Aggregate Functions
+(Complete these without using Order)
 
-* Max, min, and mean unit_price from the `items` table.
+* Max, and min price from the `items` table.
 * Average price for all items.
 * Id, merchant id, and description of the most expensive item.
 * Id, merchant id, and description of the least expensive item.
@@ -55,22 +57,28 @@ With a partner, see if you can complete each of the tasks below. After each sect
 
 #### JOIN
 
-* Highest items `unit_price` for merchant with id of 12334284.
-* Average items `unit_price` for merchant with id of 12334284.
+* Highest items `price` for merchant with id of 12334284.
+* Average items `price` for merchant with id of 12334284.
 
 #### GROUP
 
 * Count of items for each merchant.
-* Name of the merchant with the most items.
-* Name of the category that has the most merchants.
-* Name of the category that has the least merchants.
+* Total price of all items for each merchant.
+* Total income for each merchant.
 
 #### ORDER
 
-* Top five merchants with the most items.
-* Top five most expensive items.
-* Least popular merchant (by item count).
+* Name of the merchant with the most items.
+* Top five merchants with the most invoices.
+* Top 10 most expensive items.
+* Least prolific merchant (by item count).
 * `name` for the five merchants with the most items.
+
+#### Extensions
+
+* Total of each invoice for each merchant.
+* Merchant ID and Invoice ID for the top 5 least expensive invoices.
+* Merchant ID and Invoice ID for the top 5 most expensive invoices.
 
 ## Additional Resources
 

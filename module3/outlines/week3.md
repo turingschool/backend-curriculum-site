@@ -7,6 +7,7 @@ layout: page
 
 ### Classes
 
+* [Sending Email](../lessons/sending_email_sendgrid)
 * [Understanding Multitenancy](../lessons/understanding_multitenancy)
 * [Multitenancy Authorization](../lessons/multitenancy_authorization)
 * [Finding Opportunities](https://github.com/turingschool/professional_skills/blob/master/job_search_strategy.md)
@@ -18,4 +19,4 @@ layout: page
 
 ### Projects
 
-* [Le Pivot](../projects/le_pivot)
+* [Battleshift](../projects/battleshift)

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Pairing Patterns
-length: 180
+length: 90
 tags: git, github
 ---
 
@@ -40,6 +40,40 @@ Let's briefly warmup by pairing however you naturally see fit. **Before you star
 
 Work for ~20 minutes.
 
+
+## Session 2: Driver-Navigator
+
+In Driver-Navigator:
+
+* Person A does the thinking and talking, Person B does the syntax and typing
+* When a test/implementation cycle is completed, swap roles
+* Person B does the thinking and talking, Person A does the syntax and typing
+* When a test/implementation cycle is completed, swap roles
+* Continued...
+
+Work for ~20 minutes, then provide your pair with feedback.
+
+## Session 3: Challenger
+
+In Challenger:
+
+* Person A writes the first test
+* Person B writes an intentionally weak implementation (*challenging* the test from Person A)
+* Person B writes the next test
+* Person A writes an intentionally weak implementation
+* Person A writes the next test
+* Continued...
+
+## Other Patterns Ping-Pong
+
+Next we'll experiment with ping-pong pairing:
+
+* Person A writes a test
+* Person B writes an implementation
+* Person A writes a test
+* Person B writes an implementation
+* Continued...
+
 At the end of this session, provide your pair with two pieces of feedback:
 
 1) Something your pair did that they should continue. Why?
@@ -56,39 +90,4 @@ At the end of this session, provide your pair with two pieces of feedback:
 
 Make sure your feedback is specific, actionable, and kind.
 
-## Session 2: Ping-Pong
-
-Next we'll experiment with ping-pong pairing:
-
-* Person A writes a test
-* Person B writes an implementation
-* Person A writes a test
-* Person B writes an implementation
-* Continued...
-
-Work for ~20 minutes, then provide your pair with feedback.
-
-## Session 3: Driver-Navigator
-
-In Driver-Navigator:
-
-* Person A does the thinking and talking, Person B does the syntax and typing
-* When a test/implementation cycle is completed, swap roles
-* Person B does the thinking and talking, Person A does the syntax and typing
-* When a test/implementation cycle is completed, swap roles
-* Continued...
-
-Work for ~20 minutes, then provide your pair with feedback.
-
-## Session 4: Challenger
-
-In Challenger:
-
-* Person A writes the first test
-* Person B writes an intentionally weak implementation (*challenging* the test from Person A)
-* Person B writes the next test
-* Person A writes an intentionally weak implementation
-* Person A writes the next test
-* Continued...
-
-Work for ~20 minutes, then provide your pair with feedback.
+SMART Feedback: Specific, Measurable, Achievable, Related to Task, Time-Based

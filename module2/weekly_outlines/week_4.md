@@ -22,8 +22,7 @@ layout: page
 ### Day 3:
 
 * **LESSONS:**
-  - [HTML/CSS Best Practices](../lessons/html_css_best_practices)
-  - [SQL Refresher](../lessons/sql_refresher)
+
 
 * **HOMEWORK:**
   - Extension: Experimenting with APIs: Work through [this tutorial and workshop](../misc/exploring_apis_workshop) which will prepare you for extensions in your Rails Mini-Project and Little Shop.
@@ -33,18 +32,19 @@ layout: page
 
 * **LESSONS:**
   - [Rebasing](../lessons/intro_to_rebasing)
-  - [Accessibility Best Practices](../lessons/accessibility_best_practices)
+  - [SQL Refresher](../lessons/sql_refresher)
   - [ActiveRecord Obstacle Course](../misc/active_record_obstacle_course)
 
 
 ### Day 5
 
 * **LESSONS:**
-  - [Rails Challenge 2](https://github.com/turingschool-examples/rails_challenge_2)
   - [Cart Exploration](../misc/cart_exploration)
 
 * **HOMEWORK:**
-  - Write a technical blog post (post it on your personal blog or Medium)
+  - [Checks for Understanding](https://github.com/turingschool/checks-for-understanding/blob/master/module-2/backend/week_four.md)
+  - Static Comp Challenge
+  - Write a technical blog post (post it on your personal blog or Medium), link it in your portfolio
 
 ## Projects:
 

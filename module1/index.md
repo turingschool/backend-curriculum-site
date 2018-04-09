@@ -13,7 +13,7 @@ In Module 1, students will learn to use Ruby and object-oriented programming to 
 <iframe src="https://calendar.google.com/calendar/embed?src=casimircreative.com_59k8msrrc2ddhcv787vubvp0s4@group.calendar.google.com&ctz=America/Denver&mode=week" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
 
 ## Curriculum
-
+<!-- 
 <ul class="outlines">
   <a href="weekly_outlines/week_1">
     <li class="outline">
@@ -46,6 +46,7 @@ In Module 1, students will learn to use Ruby and object-oriented programming to 
     </li>
   </a> 
 </ul>
+-->
 
 ## Important Links
 
@@ -53,6 +54,31 @@ In Module 1, students will learn to use Ruby and object-oriented programming to 
 *   [__Portfolio Requirements__](portfolios)
 *   [__Pentathlon Description__](pentathlon)
 *   [__Professional Development Curriculum__](https://github.com/turingschool/career-development-curriculum/tree/master/module_one)
+
+## Lesson Plans
+
+* [Ruby Data Types](./lessons/ruby_data_types.md)
+* [Flow Contol](./lessons/flow_control.md)
+* [Objects, Instances and Classes](./lessons/objects_classes_instances.md)
+* [Exploring .each](./lessons/exploring_each.md)
+* [Enumerables I](./lessons/beginner_enumerables.md)
+* [How Testing Works](./lessons/how_testing_works.md)
+* [Scope](./lessons/intro_to_scope.md)
+* [Problems Solutions Algorithms](./lessons/problems_solutions_algorithms.md)
+* [Debugging Tecniques](./lessons/debugging_techniques.md)
+* [Nested Collections](./lessons/nested_collections.md)
+* [Git for Pairs](./lessons/git_for_pairs.md)
+* [Pairing Patterns](./lessons/pairing_patterns.md)
+* [Testing Strategies](./lessons/testing_strategies_1.md)
+* [Enumerables II](./lessons/intermediate_enumerables.md)
+* [Programming with Values]()
+* [Mocks and Stubs](./lessons/mocks_stubs.md)
+* [Fundamental Refactoring Patterns](./lessons/fundamental_refactoring_patterns.md)
+* [Ruby Modules](./lessons/modules.md)
+* [Ruby Project Etiquette](./lessons/ruby_project_etiquette.md)
+* [Ruby Object Model](./lessons/ruby_object_model.md)
+* [Enumerables III](./lessons/advanced)
+
 
 ## Projects
 

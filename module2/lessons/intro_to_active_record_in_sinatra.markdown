@@ -194,13 +194,13 @@ Throw this html in that file:
 
 ```html
   <!-- views/films/index.erb -->
-    <% @films.each do |film| %>
+   <% @films.each do |film| %>
     <ul>
       <li><%= film.title %></li>
       <li><%= film.year %></li>
       <li><%= film.box_office_sales %></li>
     </ul>
-    <% end %>  
+   <% end %>  
 ```
 
 Run `shotgun` from the command line. Visit `localhost:9393/films` and see your films.

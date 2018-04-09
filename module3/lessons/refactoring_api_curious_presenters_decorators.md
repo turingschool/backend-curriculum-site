@@ -10,6 +10,10 @@ subheading: Presenters and Decorators
 * Students understand the theory and purpose of a presenter object vs a decorator object
 * Students understand the benefits of `SimpleDelegator`
 
+## Slides
+
+Available [here](../slides/refactoring_api_curious_presenters_decorators)
+
 ## Warmup
 
 * What new uses of Rails were you exposed to during API Curious?

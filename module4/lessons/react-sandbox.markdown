@@ -287,10 +287,9 @@ YOU MUST USE THESE WORDS:
 import, props, render, key, stateful/presentational, export, single return value
 
 
-### [Controlled Components](https://reactjs.org/docs/forms.html)
+### [Controlled Components](https://reactjs.org/docs/forms.html) - Partner Work Time
 
 We haven't really been able to see the power of state in anything but our App yet. React can control an input form element, and this is called a 'controlled component'. React does this by combining the fact that `<input>`, `<textarea>`, and `<select>` typically maintain their own state and that React state is mutable.
-
 
 Knowing the very basics of a controlled component, should FoodForm be stateful or presentational?
 
@@ -330,7 +329,6 @@ class FoodForm extends Component {
 ```
 
 We already have our form set up, but we need to listen for changes on the input and a click of the button. On those events, let's call a method that lives in the component.
-
 
 ```js
 class FoodForm extends Component {
@@ -462,5 +460,4 @@ If you are building your capstone in React, cool. If you are not, you get to pai
 - When do you have to import a React component into another file? When do you need to export something?
 - Which Dev Tools are used while building a React App? What is the purpose of each?
 - How does a component 'get' props, and what can props be?
-
 - What are the advantages and disadvantages of React?

@@ -22,6 +22,7 @@ tags: ruby, rails, asset_pipeline
 
 * [Starting a Rails app in production](https://gist.github.com/jmejia/8f6507d3faa92ff21f0b)
 * [Sprockets](https://github.com/rails/sprockets-rails)
+* [Solutions](https://vimeo.com/256876292) to the paired challenges below
 
 ## Prior to Class
 
@@ -82,7 +83,7 @@ By default, Rails places three sub-directories in your `app/assets` directory. T
 
 Anything in the pipeline will be available at the `/assets` URL. So, the `app/assets/javascripts/application.js` in your asset pipeline will be available in development at `http://localhost:3000/assets/application.js`. `app/assets/stylesheets/application.css` will also be available at the root of your asset directory. The asset pipeline will completely flatten your directory structure when you spin up your development server or precompile your assets.
 
-**Try it Out:**
+**In Pairs**
 
 * Create a directory in `app/assets` called `texts`.
 * Add a text file—let's call it `hello.txt`—to `app/assets/arbitrary_directory` and give it some contents.
@@ -178,7 +179,7 @@ __Discussion/Question:__ Why are `jquery` and our other external JS libraries no
 * `depend_on` announces that you depend on a file, but does not include it in the asset bundle.
 * `stub` blacklists a dependency from the bundle.
 
-**Pairing Exercise**
+**In Pairs**
 
 The order in your manifest matters. If you load the root page for the application in development mode you'll notice two hero images. This should be a carousel with the two images rotating but there's a problem loading the JavaScript. If you load the console in your browser you should see an error.
 
