@@ -714,3 +714,9 @@ For the evaluation we'll work through the expectations above and look at the fol
 * Exceeds Expectations: Excellent use of branches, pull requests, peer and instructor  code review, rebasing and a project management tool.
 * Meets Expectations: Good use of branches, pull requests, peer and instructor code review, rebasing, and a project-management tool.
 * Below Expectations: Sporadic use of branches, pull requests, and/or project-management tool.
+
+### 9. Documentation
+
+* Exceeds Expectations: Excellent README which gives users an exemplary guide to the what and how your application
+* Meets Expectations: A custom README is present and gives users an guide to the what and how your application
+* Below Expectations: This project is lacking a README
