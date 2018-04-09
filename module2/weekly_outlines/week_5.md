@@ -12,6 +12,7 @@ layout: page
 
 * **HOMEWORK**
   - [Bike Share](https://github.com/turingschool/backend-curriculum-site/blob/bike-share-updates/module2/projects/bike-share-redux.md)
+  - [Intro to Sass](../lessons/intro_to_sass)
   
 ### Day 2:
 
