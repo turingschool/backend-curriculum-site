@@ -26,7 +26,13 @@ This application will collect data in two ways:
 * Deploy an application to Heroku
 * Write an articulate README documenting features and functionalities of application
 * Build a logical user-flow that moves across multiple controllers and models
-* Navigation links are present for all functionality
+* The application has been styled.
+* The application uses a balanced, considered color scheme.
+* The application implements a font (that is not the default font).
+* The application utilizes a nav bar. 
+* The style shows evidence of intentional layout. 
+* Space and text is balanced. White space is used to visually separate content. 
+* The application is easily usable. The user can intuitvely navigate between different portions of the application without manually entering the URL into the nav-bar or using the back button on their browser.
 
 ### Code Organization/Quality
 
@@ -155,7 +161,7 @@ I see all conditions (Date, Max Temperature, Mean Temperature, Min Temperature, 
 ```
 As a visitor,
 When I visit a condition show,
-I see all attributes for that condition.
+I see all attributes for that condition. (Date, Max Temperature, Mean Temperature, Min Temperature, Mean Humidity, Mean Visibility (in Miles), Mean Wind Speed (mph), Precipitation (inches))  
 
 ** All Attributes must be present **
 ```
@@ -178,6 +184,8 @@ I see my profile information,
 I do not see a link for "Login",
 I also see a link for "Logout".
 ```
+
+
 - [ ]
 
 ```
@@ -195,7 +203,8 @@ I also see my cart count updated on all pages.
 ```
 As a visitor,
 When I visit '/cart',
-I see all the bike accessory I have added to my cart,
+I see all the bike accessories I have added to my cart,
+I see a thumbnail for each accessory as well as the title and price, 
 I see a subtotal and quantity breakdown for each accessory,
 I see a total for my cart,
 After I create an account,
@@ -211,8 +220,16 @@ And I click link "Remove" next to an accessory,
 My current page should be "/cart",
 I see a flash message,
 The message should say "Successfully removed SOME_ACCESSORY from your cart.",
-The flash message should be a link to that accessory in case the user wants to add it back,
-I also should not see the accessory listed in cart
+The flash message should contain a link to that accessory in case the user wants to add it back,
+I also should not see the accessory listed in my cart.
+```
+- [ ]
+
+```
+As a visitor,
+When I visit an accessory show,
+I see an image, title, description and price for my accessory,
+I can click "Add to Cart"
 ```
 - [ ]
 
@@ -282,7 +299,7 @@ I see a link for "Logout".
 ```
 As a registered user,
 When I visit '/cart',
-I see a small image, title, description and price for each accessory in my cart,
+I see a small image, title, and price for each accessory in my cart,
 I see a subtotal and quantity breakdown for each accessory,
 I see a total for my cart,
 I also see a button to "Checkout".
@@ -295,7 +312,7 @@ After adding a few items to my cart,
 When I visit '/cart',
 And click "Checkout",
 I see my own dashboard,
-I also see a flash message telling me I have "successfully submitted your order".
+I also see a flash message telling me I have "Successfully submitted your order totaling $TOTAL".
 ```
 - [ ]
 
@@ -371,7 +388,7 @@ I see the Bike ID most frequently starting a trip at this station.
 
 ```
 As a registered user and admin,
-When I visit '/weather-dashboard',
+When I visit '/conditions-dashboard',
 I see the Breakout of average number of rides, highest number of rides, and lowest number of rides on days with a high temperature in 10 degree chunks (e.g. average number of rides on days with high temps between fifty and sixty degrees),
 I see the Breakout of average number of rides, highest number of rides, and lowest number of rides on days with precipitation in half-inch increments,
 I see the Breakout of average number of rides, highest number of rides, and lowest number of rides on days with mean wind speeds in four mile increments,
@@ -425,7 +442,7 @@ I also see a button to edit this station.
 
 ```
 As a admin,
-When I visit '/admin/stations/new',
+When I visit admin station new,
 I fill in a form with all station attributes,
 When I click "Create Station",
 I am directed to that station's show page.
@@ -437,7 +454,7 @@ I also see a flash message that I have created that station.
 
 ```
 As a admin,
-When I visit '/admin/stations/edit,
+When I visit admin station edit,
 I fill in a form with all station attributes,
 When I click "Update Station",
 I am directed that station's show page,
@@ -479,7 +496,7 @@ I also see a button to edit this trip.
 
 ```
 As a admin,
-When I visit '/admin/trips/new',
+When I visit admin trip new,
 I fill in a form with all trip attributes,
 When I click "Create Trip",
 I am directed to that trip's show page.
@@ -492,7 +509,7 @@ I also see a flash message that I have created that trip.
 
 ```
 As a admin,
-When I visit '/admin/trips/edit,
+When I visit admin trip edit,
 I fill in a form with all trip attributes,
 When I click "Update Trip",
 I am directed to that trip's show page,
@@ -532,7 +549,7 @@ I also see a button to edit this condition.
 
 ```
 As a admin,
-When I visit '/admin/conditions/new',
+When I visit admin condition new,
 I fill in a form with all condition attributes,
 When I click "Create Condition",
 I am directed to a that condition's show page.
@@ -544,7 +561,7 @@ I also see a flash message that I have created that condition.
 
 ```
 As a admin,
-When I visit '/admin/conditions/edit,
+When I visit admin condition edit,
 I fill in a form with all condition attributes,
 When I click "Update Condition",
 I am directed to that condition's show page,
@@ -615,7 +632,7 @@ Ability to Retire/Reactivate accessory
 
 ```
 As an admin,
-When I visit '/admin/dashboard',
+When I visit the admin dashboard,
 I see a list of all orders,
 I see the total number of orders for each status ("Ordered", "Paid", "Cancelled", "Completed"),
 I see a link for each individual order,
@@ -630,7 +647,7 @@ I can click on "mark as completed" on orders that are "paid"
 
 ```
 As an admin
-When I visit 'admin/bike-shop/new'
+When I visit admin bikeshop new
 I can create an accessory,
 An accessory must have a title, description and price,
 The title and description cannot be empty,
@@ -652,21 +669,21 @@ For the evaluation we'll work through the expectations above and look at the fol
 
 ### 1. Feature Completeness
 
-* Exceeds Expectations: All features are correctly implemented along with two extensions and project is depoyed
+* Exceeds Expectations: All features are correctly implemented along with two extensions and project is deployed
 * Meets Expectations: All features defined in the assignment are correctly implemented and project is deployed
 * Below Expectations: There are one or two features missing or incorrectly implemented and/or project is not fully deployed
 
 ### 2. Views
 
 * Exceeds Expectations: Views show logical refactoring into layout(s), partials and helpers, with no logic present
-* Meets Expectations: Views make use of layout(s), partials and helpers, but some logic leaks through
+* Meets Expectations: Views make use of layout(s), partials and helpers
 * Below Expectations: Views don't make use of partials or show weak understanding of `render`
 
 ### 3. Controllers
 
 * Exceeds Expectations: Controllers show significant effort towards refactoring and pushing logic down the stack
 * Meets Expectations: Controllers are generally well organized with three or fewer methods that need refactoring
-* Below Expectations: There are four to seven controller methods that should have been refactored
+* Below Expectations: There are four or more controller methods that should have been refactored
 
 ### 4. Models
 
@@ -674,20 +691,26 @@ For the evaluation we'll work through the expectations above and look at the fol
 * Meets Expectations: Models show an effort to push logic down the stack, but need more internal refactoring
 * Below Expectations: Models are somewhat messy and/or make poor use of Rails features
 
-### 5. Testing
+### 5. ActiveRecord
+
+* Exceeds Expectations: Best choice ActiveRecord methods are used to solve each problem
+* Meets Expectations: ActiveRecord is utilized wherever it can be. There is no Ruby where there should be ActiveRecord
+* Below Expectations: Ruby is used to programatically solve problems where ActiveRecord could be used
+
+### 6. Testing
 
 * Exceeds Expectations: Project has a running test suite that exercises the application at multiple levels and utilizes mocking & stubbing
 * Meets Expectations: Project has a running test suite that covers all functionality and tests at multiple levels
 * Below Expectations: Project has sporadic use of tests at multiple levels
 
-### 6. Usability
+### 7. Usability
 
 * Exceeds Expectations: Project is highly usable and ready to deploy to customers
 * Meets Expectations: Project is highly usable, but needs more polish before it'd be customer-ready
 * Below Expectations: Project needs more attention to the User Experience, some views need to use a URL to visit them
 
-### 7. Workflow
+### 8. Workflow
 
-* Exceeds Expectations: Excellent use of branches, pull requests, code review and a project management tool.
-* Meets Expectations: Good use of branches, pull requests, code review, rebasing, and a project-management tool.
+* Exceeds Expectations: Excellent use of branches, pull requests, peer and instructor  code review, rebasing and a project management tool.
+* Meets Expectations: Good use of branches, pull requests, peer and instructor code review, rebasing, and a project-management tool.
 * Below Expectations: Sporadic use of branches, pull requests, and/or project-management tool.
