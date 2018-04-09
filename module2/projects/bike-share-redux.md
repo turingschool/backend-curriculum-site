@@ -87,7 +87,7 @@ Project implementation may **not** use:
 
 ### Define the Relationship with Your Group
 
-DTR with your group [here](http://backend.turing.io/career_development_curriculum/module_one/dtr_guidelines_memo). One group member should send a link of the forked gist to your anchor as soon as it's complete.
+DTR with your group [here](https://github.com/turingschool/career-development-curriculum/blob/master/module_one/dtr_guidelines_memo.md). One group member should send a link of the forked gist to your anchor as soon as it's complete.
 
 ### Requirements
 
