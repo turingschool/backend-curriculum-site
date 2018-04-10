@@ -70,7 +70,7 @@ You'll submit your blog post [here](https://goo.gl/forms/hDZATpqbfVrwFeRY2) **be
 ## The Repos
 
 #### [Rails Girls Summer of Code - Team Tracker Project](https://github.com/rails-girls-summer-of-code/rgsoc-teams) - Rails
-#### [Rails Girls Summer of Code - Summer of Code Project](https://github.com/rails-girls-summer-of-code/summer-of-code) - Rails
+#### [Rails Girls Summer of Code - Summer of Code Project](https://github.com/rails-girls-summer-of-code/summer-of-code) - Jekyll (Ruby static site generator)
 #### [Open Food Network](https://github.com/openfoodfoundation/openfoodnetwork) - Rails
 #### [Code for Social Good - Web App](https://github.com/Code4SocialGood/c4sg-web) - Angular, Java, HTML/CSS
 #### [Ruby For Good - Playtime](https://github.com/rubyforgood/playtime) - Rails
