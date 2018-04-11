@@ -174,5 +174,3 @@ sales_analyst = sales_engine.analyst
 
 * Failed charges should never be counted in revenue totals or statistics.
 * An invoice is considered paid in full if it has a successful transaction
-* An invoice cannot have more than one successful transaction.
-* A transaction is always for the full amount. For instance, you cannot pay half the invoice total in one transaction.
