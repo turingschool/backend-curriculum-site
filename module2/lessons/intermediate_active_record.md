@@ -39,8 +39,8 @@ In the Election repository, drop into a Rails console session and run the follow
 > rails c
 > Candidate.all
 > Candidate.find(1)
-> Parties.find(1)
-> Candidate.find(1).parties
+> Party.find(1)
+> Candidate.find(1).party
 > Candidate.joins(:party)
 ```
 
@@ -174,7 +174,7 @@ end
 
 ## Exercise
 
-Can you create an array of democratic candidates ordered by the number of results they received that also responds to `vote_totals`?
+Can you create an array of democratic candidates ordered by the number of results they received that also responds to `total_votes`?
 
 ```
 # rails c
