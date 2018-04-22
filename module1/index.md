@@ -82,6 +82,7 @@ In Module 1, students will learn to use Ruby and object-oriented programming to 
 
 ## Projects
 
+* [Perilous Journey](./projects/perilous_journey)
 * [Credit Check](./projects/credit_check.markdown) ([slides](./slides/credit_check))
 * [Jungle Beat](./projects/jungle_beat)
 * [Date Night](./projects/date_night)
