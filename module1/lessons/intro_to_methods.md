@@ -5,19 +5,19 @@ length: 60
 tags: ruby, methods
 ---
 
-## Learning Goals
+Parsing vs Executing
+  Turn and talk about what is happening
+Input and Output
+Parameters
+DRY
+Command and Query
+Black Box
 
-* Define methods in Ruby
-* Explain why we use methods
-* Define methods that take arguments
-* Define methods that do not take arguments
-
-## Vocabulary
-* Method
-* Argument
-* Parameter
-* Return
-* Abstraction
+How to return
+What Return values have you already used?
+What happens if you don't save a return value?
+  It goes poof
+Scope - what happens if you call a method before you defined it?
 
 ## Slides
 
