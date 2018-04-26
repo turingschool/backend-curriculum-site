@@ -47,11 +47,25 @@ A **Return Value** can be any type, for example `4`, `"Hello World"`, `true`, `[
 If you open a pry session and type
 
 ```ruby
-"Hello World".upcase
+pry(main)> "Hello World".upcase
 => "HELLO WORLD"
 ```
 
-You are calling the `upcase` **Method** on the string`"Hello World"`. The **Return Value** is `"HELLO WORLD"`.
+You are calling the `upcase` **Method** on the string`"Hello World"`. The **Return Value**, denoted by the `=>`, is `"HELLO WORLD"`.
+
+## Parameters
+
+**Parameters** are the input to a method.
+
+If you open a pry session and type
+
+```ruby
+pry(main)> "Hello World".include? "Hello"
+=> true
+```
+
+You are calling the `include?` method on the string `"Hello World"`. You are **Passing** the **Parameter** `"Hello"` to the `include?` method. The **Return Value** is `true`. 
+
 
 
 
