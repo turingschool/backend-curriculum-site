@@ -13,7 +13,7 @@ layout: page
   - [Database Relationships and Visualizations](../lessons/database_relationships_and_visualizations)
 
 * **HOMEWORK:**
-  - Work on Little Shop Redux
+  - Work on [Little Shop Redux](https://github.com/turingschool-projects/little-shop-redux)
 
 ### Day 2:
 
@@ -21,7 +21,7 @@ layout: page
 
 
 * **HOMEWORK:**
-  - Work on Little Shop Redux
+  - Work on [Little Shop Redux](https://github.com/turingschool-projects/little-shop-redux)
   - [Flex Box Workshop](../lessons/flexbox_workshop)
 
 ### Day 3:
@@ -59,6 +59,7 @@ layout: page
 
 ## Projects:
 
+* [Little Shop Redux](https://github.com/turingschool-projects/little-shop-redux)
 * [Blogger](../misc/blogger)
 * [JobTracker](https://github.com/turingschool-projects/job-tracker)
 
