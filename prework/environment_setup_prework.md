@@ -174,7 +174,13 @@ To open your bash profile, type:
 atom ~/.bash_profile
 ```
 
-Check if it got installed correctly by checking the version.
+This will open up the file where you will want to put `eval "$(rbenv init -)"` in on its own line at the end of the file. Save the file and quit atom.
+
+Check if you did this step  correctly by typing in `cat ~./.bash_profile`
+
+You should see `eval "$(rbenv init -)"` somewhere on your screen.
+
+Now check to make sure rbenv was installed properly
 
 ```
 rbenv --version
