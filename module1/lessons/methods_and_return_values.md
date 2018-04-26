@@ -38,15 +38,20 @@ tags: ruby, methods
 
 ## Return Values
 
-A **Return Value** is the output of a **Method**. When you write
-
-```ruby
-
-```
+A **Return Value** is the output of a **Method**.
 
 Every **Method** has *exactly one* **Return Value**.
 
 A **Return Value** can be any type, for example `4`, `"Hello World"`, `true`, `[1,2,3]`, `nil`.
+
+If you open a pry session and type
+
+```ruby
+"Hello World".upcase
+=> "HELLO WORLD"
+```
+
+You are calling the `upcase` **Method** on the string`"Hello World"`. The **Return Value** is `"HELLO WORLD"`.
 
 
 
