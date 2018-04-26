@@ -24,7 +24,7 @@ layout: page
 - [How the Web Works](../lessons/how_the_web_works)
 
 * **HOMEWORK**
-  - [DTR for Little Shop Redux](../../career_development_curriculum/module_one/dtr_guidelines_memo). One group member should send link to forked gist to an instructor.
+  - [DTR for Little Shop Redux](../../career_development_curriculum/module_one/dtr_guidelines_memo). One group member should fork that DTR gist and send their gist link to all Mod 2 instructors.
 
 ### Day 3:
 
