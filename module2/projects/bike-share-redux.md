@@ -1,5 +1,7 @@
 # Bike Share
 
+This is a large-group project. The most common feedback we get from students is that they didn't get to work on a particular area of the project because of the size and complexity of the project. **You must advocate for yourself** if there's a particular area of the project where you would like to focus your attention.
+
 ## Abstract
 
 In this project you'll use Ruby, Rails, and Activerecord to build a site that analyzes bike share usage in San Francisco and allows a user to purchase bike accessories via an online store.
@@ -7,8 +9,9 @@ In this project you'll use Ruby, Rails, and Activerecord to build a site that an
 In this project you'll use Ruby on Rails to build an online commerce platform to facilitate online ordering.
 
 This application will collect data in two ways:
-  1. Through web forms allowing users to enter trip/station/weather information
-  2. By consuming CSV files with historical information for stations, trips, and weather. In addition to creating and storing this information for viewing at a later date, this application will provide a number of user dashboards with higher level analysis of trends in bike share usage.
+
+1. Through web forms allowing users to enter trip/station/weather information
+1. By consuming CSV files with historical information for stations, trips, and weather. In addition to creating and storing this information for viewing at a later date, this application will provide a number of user dashboards with higher level analysis of trends in bike share usage.
 
 ## Learning Goals
 
@@ -28,7 +31,7 @@ This application will collect data in two ways:
 * Build a logical user-flow that moves across multiple controllers and models
 * The application has been styled.
 * The application uses a balanced, considered color scheme.
-* The application implements a font (that is not the default font).
+* The application implements a font which is not the default font.
 * The application utilizes a nav bar.
 * The style shows evidence of intentional layout.
 * Space and text is balanced. White space is used to visually separate content.
@@ -48,20 +51,21 @@ This application will collect data in two ways:
 ### Working Collaboratively
 
 * Use Git and GitHub to work collaboratively, develop in smaller groups, and resolve merge conflicts.
+* Use Git for code reviews with one another. (we want to see your conversation/questions)
 * Use Git Rebase workflow.
-* Practice an agile workflow and improve communication skills working within a team
-* Seek technical feedback from peers and Product Owners utilizing Code Review on PRs
+* Practice an Agile workflow and improve communication skills working within a team.
+* Seek technical feedback from peers and Product Owners utilizing Code Review on PRs.
+* Use a Pull Request Template, as described [here](https://help.github.com/articles/creating-a-pull-request-template-for-your-repository/).
 
 ## Process
 
-
 Each team will have an assigned Project Manager (peer) that will be the primary point of contact between the Product Owner (instructor) and the rest of the team.
 
-All base stories will be provided by the Product Owner. You will be asked to write your own stories for extensions and they should follow the same format as the ones that are provided to you.
+All base stories will be provided by the Product Owner. You will be asked to write your own stories for Extensions and they should follow the same format as the ones that are provided to you.
 
 You should not write code or migrations until a story calls for it.
 
-Teams can self-pace but will have a number of stories required to be completed at each check-in. Teams will meet with the Product Owner regularly and demo completed stories in production mode(Heroku). Project scope and requirements can change at the discretion of the Product Owner so following an agile approach is really important.
+Teams can self-pace but will have a number of stories required to be completed at each check-in. Full teams (not just the Project Manager) will meet with the Product Owner regularly and demo completed stories in production mode (hosted on Heroku, NOT on localhost). Project scope and requirements can change at the discretion of the Product Owner so following an Agile approach is really important.
 
 It is expected that teams will have meaningful discussions and code reviews using comments on Github. If you would like technical feedback from instructors, you will need to tag them in PRs with specific questions. Commits should also have meaningful messages. Be careful about what type of commits are being made, i.e. "Cleanup Hound violations". If you want to learn more about squashing commits, see [here](http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html).
 
@@ -73,9 +77,14 @@ Everyone will provide feedback for group members at the end of the project.
 
 ### Restrictions
 
-Project implementation may **not** use:
+Project implementation **MUST** use:
 
-* Any external library for authentication except `bcrypt`
+* `bcrypt` must be used for authentication
+
+Project implementation may **NOT** use:
+
+* (no restrictions)
+
 
 ### Getting Started
 
@@ -87,12 +96,14 @@ Project implementation may **not** use:
 
 ### Define the Relationship with Your Group
 
-DTR with your group [here](https://github.com/turingschool/career-development-curriculum/blob/master/module_one/dtr_guidelines_memo.md). One group member should send a link of the forked gist to your anchor as soon as it's complete.
+* DTR with your group [here](https://github.com/turingschool/career-development-curriculum/blob/master/module_one/dtr_guidelines_memo.md).
+* One group member should fork that DTR gist and send a link of their forked gist to your instructors as soon as it's complete.
 
 ### Requirements
 
 This project must use:
 
+* [Rails](http://rubyonrails.org)
 * [PostgreSQL](http://www.postgresql.org/)
 * [ActiveRecord](http://guides.rubyonrails.org/active_record_basics.html)
 
@@ -340,11 +351,13 @@ I cannot view another user's private data (current or past orders, etc),
 I cannot view the administrator screens or use admin functionality,
 I cannot make myself an admin.  
 ```
-### As a registered user and admin
+
+
+### As a registered user
 - [ ]
 
 ```
-As a registered user and admin,
+As a registered user,
 When I visit '/stations-dashboard',
 I see the Total count of stations,
 I see the Average bikes available per station (based on docks),
@@ -358,7 +371,7 @@ I also see the Oldest station.
 - [ ]
 
 ```
-As a registered user and admin,
+As a registered user,
 When I visit '/trips-dashboard',
 I see the Average duration of a ride,
 I see the Longest ride,
@@ -375,7 +388,7 @@ I see the Single date with the lowest number of trips with a count of those trip
 - [ ]
 
 ```
-As a registered user and admin,
+As a registered user,
 When I visit a station show,
 In addition to the user story above,
 I see the Number of rides started at this station,
@@ -389,7 +402,7 @@ I see the Bike ID most frequently starting a trip at this station.
 - [ ]
 
 ```
-As a registered user and admin,
+As a registered user,
 When I visit '/conditions-dashboard',
 I see the Breakout of average number of rides, highest number of rides, and lowest number of rides on days with a high temperature in 10 degree chunks (e.g. average number of rides on days with high temps between fifty and sixty degrees),
 I see the Breakout of average number of rides, highest number of rides, and lowest number of rides on days with precipitation in half-inch increments,
@@ -399,7 +412,7 @@ I see the Breakout of average number of rides, highest number of rides, and lowe
 - [ ]
 
 ```
-As a registered user and admin,
+As a registered user,
 When I visit '/trips-dashboard',
 I see the Weather on the day with the highest rides.
 I see the Weather on the day with the lowest rides.
@@ -407,7 +420,7 @@ I see the Weather on the day with the lowest rides.
 - [ ]
 
 ```
-As a registered user and admin,
+As a registered user,
 When I visit '/',
 And I click "Logout",
 I see "Login",
@@ -421,11 +434,11 @@ I can modify my account data,
 I cannot modify any other user's account data.
 ```
 
-### As a admin
+### As a admin user
 - [ ]
 
 ```
-As a admin,
+As an admin user,
 When I visit the stations index,
 I see everything a visitor can see,
 I see a button next to each station to edit that station,
@@ -434,7 +447,7 @@ I also see a button next to each station to delete that station.
 - [ ]
 
 ```
-As an admin,
+As an admin user,
 When I visit the station show,
 I see all attributes a visitor can see,
 I see a button to delete this station,
@@ -443,7 +456,7 @@ I also see a button to edit this station.
 - [ ]
 
 ```
-As a admin,
+As an admin user,
 When I visit admin station new,
 I fill in a form with all station attributes,
 When I click "Create Station",
@@ -455,7 +468,7 @@ I also see a flash message that I have created that station.
 - [ ]
 
 ```
-As a admin,
+As an admin user,
 When I visit admin station edit,
 I fill in a form with all station attributes,
 When I click "Update Station",
@@ -468,7 +481,7 @@ I also see a flash message that I have updated that station.
 - [ ]
 
 ```
-As an admin,
+As an admin user,
 When I visit the stations index,
 And I click delete next to a station,
 I do not see the station on the index.
@@ -477,7 +490,7 @@ I also see a flash message that I have deleted that station.
 - [ ]
 
 ```
-As a admin,
+As an admin user,
 When I visit the trips index,
 I see all attributes that a visitor can see,
 I see a button next to each trip to edit that trip,
@@ -486,7 +499,7 @@ I also see a button next to each trip to delete that trip.
 - [ ]
 
 ```
-As an admin,
+As an admin user,
 When I visit the trip show,
 I see everything a visitor can see,
 I see a button to delete this trip,
@@ -497,7 +510,7 @@ I also see a button to edit this trip.
 - [ ]
 
 ```
-As a admin,
+As an admin user,
 When I visit admin trip new,
 I fill in a form with all trip attributes,
 When I click "Create Trip",
@@ -510,7 +523,7 @@ I also see a flash message that I have created that trip.
 - [ ]
 
 ```
-As a admin,
+As an admin user,
 When I visit admin trip edit,
 I fill in a form with all trip attributes,
 When I click "Update Trip",
@@ -523,7 +536,7 @@ I also see a flash message that I have updated that trip.
 - [ ]
 
 ```
-As an admin,
+As an admin user,
 When I visit the trips index,
 And I click delete next to a trip,
 I do not see the trip on the index.
@@ -532,7 +545,7 @@ I also see a flash message that I have deleted that trip.
 - [ ]
 
 ```
-As a admin,
+As an admin user,
 When I visit the conditions index,
 I see everything that a visitor can see,
 I see a button next to each condition to edit that condition,
@@ -541,7 +554,7 @@ I also see a button next to each condition to delete that condition.
 - [ ]
 
 ```
-As an admin,
+As an admin user,
 When I visit a condition show,
 I see all the attributes a visitor can see,
 I see a button to delete this condition,
@@ -550,7 +563,7 @@ I also see a button to edit this condition.
 - [ ]
 
 ```
-As a admin,
+As a admin user,
 When I visit admin condition new,
 I fill in a form with all condition attributes,
 When I click "Create Condition",
@@ -562,7 +575,7 @@ I also see a flash message that I have created that condition.
 - [ ]
 
 ```
-As a admin,
+As an admin user,
 When I visit admin condition edit,
 I fill in a form with all condition attributes,
 When I click "Update Condition",
@@ -575,7 +588,7 @@ I also see a flash message that I have updated that condition.
 - [ ]
 
 ```
-As an admin,
+As an admin user,
 When I visit the conditions index,
 And I click delete next to a condition,
 I do not see the condition on the index.
@@ -584,7 +597,7 @@ I also see a flash message that I have deleted that condition
 - [ ]
 
 ```
-As an admin,
+As an admin user,
 When I visit "/",
 I see a link for "Login",
 
@@ -602,7 +615,7 @@ I see a link for "Logout"
 - [ ]
 
 ```
-As an admin,
+As an admin user,
 When I visit an individual order page,
 I see the order's date and time,
 I see the purchaser's full name and address,
@@ -615,7 +628,7 @@ I also see the status for the order.
 - [ ]
 
 ```
-As an admin,
+As an admin user,
 When I visit "/admin/dashboard",
 I see a link for viewing all accessories,
 When I click that link,
@@ -633,7 +646,7 @@ Ability to Retire/Reactivate accessory
 - [ ]
 
 ```
-As an admin,
+As an admin user,
 When I visit the admin dashboard,
 I see a list of all orders,
 I see the total number of orders for each status ("Ordered", "Paid", "Cancelled", "Completed"),
@@ -648,7 +661,7 @@ I can click on "mark as completed" on orders that are "paid"
 - [ ]
 
 ```
-As an admin
+As an admin user,
 When I visit admin bikeshop new
 I can create an accessory,
 An accessory must have a title, description and price,
