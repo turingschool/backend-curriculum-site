@@ -12,7 +12,7 @@ layout: page
   - [REST, Controllers & Routing in Rails](http://backend.turing.io/module2/lessons/rest_routing_and_controllers_in_rails)
   - [Models, Migrations and Databases](http://backend.turing.io/module2/lessons/models_migrations_databases)
 
-## HOMEWORK
+## Homework
   - [Flex Box Workshop](http://backend.turing.io/module2/lessons/flexbox_workshop)
   - Read about [Routing in Rails](https://www.theodinproject.com/courses/ruby-on-rails/lessons/routing)
   - [DevShed - An Introduction to Database Normalization](http://www.devshed.com/c/a/mysql/an-introduction-to-database-normalization/)
