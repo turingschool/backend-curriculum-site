@@ -82,6 +82,8 @@ tags: ruby, data types, strings, integers, floats, arrays, hashes
 * Key methods - .values, .keys
 * Enumerables - many times we will want to do the same thing to every key, value, or key/value pair in a hash. The Ruby language provides a lot of methods that allow us to do that efficiently
 
+## CFU
+Please complete [this](https://goo.gl/forms/CPhMUhOkjwc0Prs93) form to help the instructors know where you are with data types. If this is anything you are unfamiliar on in this lesson or in the CFU, brush up on it _tonight_ so you are not behind the rest of the week.
 
 ## Additional Resources
 
