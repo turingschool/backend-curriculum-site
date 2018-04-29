@@ -13,7 +13,7 @@ In Module 1, students will learn to use Ruby and object-oriented programming to 
 <iframe src="https://calendar.google.com/calendar/embed?src=casimircreative.com_59k8msrrc2ddhcv787vubvp0s4@group.calendar.google.com&ctz=America/Denver&mode=week" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
 
 ## Curriculum
-<!-- 
+<!--
 <ul class="outlines">
   <a href="weekly_outlines/week_1">
     <li class="outline">
@@ -44,7 +44,7 @@ In Module 1, students will learn to use Ruby and object-oriented programming to 
     <li class="outline">
     Week 6
     </li>
-  </a> 
+  </a>
 </ul>
 -->
 
@@ -57,31 +57,32 @@ In Module 1, students will learn to use Ruby and object-oriented programming to 
 
 ## Lesson Plans
 
-* [Ruby Data Types](./lessons/ruby_data_types.md)
-* [Flow Contol](./lessons/flow_control.md)
-* [Objects, Instances and Classes](./lessons/objects_classes_instances.md)
-* [Exploring .each](./lessons/exploring_each.md)
-* [Enumerables I](./lessons/beginner_enumerables.md)
-* [How Testing Works](./lessons/how_testing_works.md)
-* [Scope](./lessons/intro_to_scope.md)
-* [Problems Solutions Algorithms](./lessons/problems_solutions_algorithms.md)
-* [Debugging Tecniques](./lessons/debugging_techniques.md)
-* [Nested Collections](./lessons/nested_collections.md)
-* [Git for Pairs](./lessons/git_for_pairs.md)
-* [Pairing Patterns](./lessons/pairing_patterns.md)
-* [Testing Strategies](./lessons/testing_strategies_1.md)
-* [Enumerables II](./lessons/intermediate_enumerables.md)
+* [Ruby Data Types](./lessons/ruby_data_types)
+* [Flow Contol](./lessons/flow_control)
+* [Objects, Instances and Classes](./lessons/objects_classes_instances)
+* [Exploring .each](./lessons/exploring_each)
+* [Enumerables I](./lessons/beginner_enumerables)
+* [How Testing Works](./lessons/how_testing_works)
+* [Scope](./lessons/intro_to_scope)
+* [Problems Solutions Algorithms](./lessons/problems_solutions_algorithms)
+* [Debugging Tecniques](./lessons/debugging_techniques)
+* [Nested Collections](./lessons/nested_collections)
+* [Git for Pairs](./lessons/git_for_pairs)
+* [Pairing Patterns](./lessons/pairing_patterns)
+* [Testing Strategies](./lessons/testing_strategies_1)
+* [Enumerables II](./lessons/intermediate_enumerables)
 * [Programming with Values]()
-* [Mocks and Stubs](./lessons/mocks_stubs.md)
-* [Fundamental Refactoring Patterns](./lessons/fundamental_refactoring_patterns.md)
-* [Ruby Modules](./lessons/modules.md)
-* [Ruby Project Etiquette](./lessons/ruby_project_etiquette.md)
-* [Ruby Object Model](./lessons/ruby_object_model.md)
-* [Enumerables III](./lessons/advanced)
+* [Mocks and Stubs](./lessons/mocks_stubs)
+* [Fundamental Refactoring Patterns](./lessons/fundamental_refactoring_patterns)
+* [Ruby Modules](./lessons/modules)
+* [Ruby Project Etiquette](./lessons/ruby_project_etiquette)
+* [Ruby Object Model](./lessons/ruby_object_model)
+* [Enumerables III](./lessons/advanced_enumerables)
 
 
 ## Projects
 
+* [Perilous Journey](./projects/perilous_journey)
 * [Credit Check](./projects/credit_check.markdown) ([slides](./slides/credit_check))
 * [Jungle Beat](./projects/jungle_beat)
 * [Date Night](./projects/date_night)

@@ -3,57 +3,28 @@ title: Week 3
 layout: page
 ---
 
-## Lessons & Homework
+## Lessons
 
-### Day 1:
+  - [Forms in Rails](http://backend.turing.io/module2/lessons/form_helpers_rails)
+  - [Route Helpers](http://backend.turing.io/module2/lessons/route_helpers)
+  - [Nested Resources](http://backend.turing.io/module2/lessons/nested_resources)
+  - [Diagramming the Request Response Cycle](http://backend.turing.io/module2/lessons/diagramming_request_response_cycle)
+  - [Design Principles](http://backend.turing.io/module2/lessons/design_principles)
+  - [Namespacing](http://backend.turing.io/module2/misc/namespacing)
+  - [Sessions, Cookies and Flashes](http://backend.turing.io/module2/misc/sessions_cookies_and_flashes)
+  - [Auth Exploration](http://backend.turing.io/module2/misc/auth_exploration)
+  
+## Homework
 
-* **LESSONS:**
-  - [Forms in Rails](../lessons/form_helpers_rails)
-  - [Route Helpers](../lessons/route_helpers)
-  - [Nested Resources](../lessons/nested_resources)
-
-* **HOMEWORK:**
-  - JobTracker
-
-### Day 2:
-
-* **LESSONS:**
-
-  - [Design Principles](../lessons/design_principles)
-  - [Diagramming the Request Response Cycle](../lessons/diagramming_request_response_cycle)
-
-* **HOMEWORK:**
-  - JobTracker
-
-### Day 3:
-
-* **LESSONS:**
-  - [Namespacing](../misc/namespacing)
-
-* **HOMEWORK:**
-  - JobTracker
-
-### Day 4:
-
-* **LESSONS:**
-  - [Sessions, Cookies and Flashes](../misc/sessions_cookies_and_flashes)
-  - [Auth Exploration](../misc/auth_exploration)
-
-* **HOMEWORK:**
-  - [Schema Practice](../misc/schema_practice). Choose 2 - 3.
-
-### Day 5:
-
-* **HOMEWORK:**
-  - Rails Mini Project
+  - [Schema Practice](http://backend.turing.io/module2/misc/schema_practice). Choose 2 - 3.
   - [Checks for Understanding](https://github.com/turingschool/checks-for-understanding/blob/master/module-2/backend/week_three.md)
    - Static Comp Challenge
-   - [Factory Bot](../lessons/factory_bot)
+   - [Factory Bot](http://backend.turing.io/module2/lessons/factory_bot)
 
-## Projects:
+## Projects
 
-* [Job Tracker](https://github.com/turingschool/job-tracker)
-* [Rails Mini Project](../projects/mini-project)
+* [JobTracker](https://github.com/turingschool-projects/job-tracker)
+* [Rails Mini Project](http://backend.turing.io/module2/projects/mini-project)
 
 ## Additional Resources
 * [Mix Master](../projects/mix_master/1_getting_started.markdown)

@@ -28,7 +28,6 @@ A student who graduates from this module will be able to do the following.
 
 * Import and export data to .csv and .txt files
 * Speak clearly and accurately about OOP, language mechanics, and correctly name the elements of Ruby syntax
-* Explain the difference between public and private methods
 * Explain the difference between class and instance methods
 
 
