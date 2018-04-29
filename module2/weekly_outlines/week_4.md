@@ -3,7 +3,7 @@ title: Week 4
 layout: page
 ---
 
-* **LESSONS:**
+## Lessons
   - [Authentication](http://backend.turing.io/module2/lessons/authentication)
   - [Authorization](http://backend.turing.io/module2/lessons/authorization)
   - [Rebasing](http://backend.turing.io/module2/lessons/intro_to_rebasing)
@@ -12,7 +12,7 @@ layout: page
   - [Remembering Ruby](../misc/violations): Complete the challenge described.
   - [Cart Exploration](http://backend.turing.io/module2/misc/cart_exploration)
 
-* **HOMEWORK:**
+## Homework
   - Finish the Authentication/Authorization Workshop.
   - If you have time, `rm -rf` your authentication repo and do it all over again.
   - Extension: Experimenting with APIs: Work through [this tutorial and workshop](http://backend.turing.io/module2/misc/exploring_apis_workshop) which will prepare you for extensions in your Rails Mini-Project.
@@ -21,7 +21,7 @@ layout: page
   - Static Comp Challenge
   - Write a technical blog post (post it on your personal blog or Medium), link it in your portfolio
 
-## Projects:
+## Projects
 
 * [Rails Mini Project](http://backend.turing.io/module2/projects/mini-project)
 * [Bike Share Redux](http://backend.turing.io/module2/projects/bike-share-redux)
