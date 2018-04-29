@@ -83,7 +83,7 @@ Print the data table sorted by the specified `attribute` like `zipcode`.
 #### `queue save to <filename.csv>`
 
 Export the current queue to the specified filename as a CSV. The file should
-should include data and headers for last name, first name, email, zipcode, city,
+include data and headers for last name, first name, email, zipcode, city,
 state, address, and phone number.
 
 #### `queue export html <filename.csv>`

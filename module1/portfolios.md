@@ -61,6 +61,3 @@ that you will not be successful at Turing
 * To be Promoted
     * Performance across all projects and assessments that demonstrates a high likelihood of success in Module 2.
     * This may be demonstrated by high performance throughout the module, or a strong upward sloping trend in performance.
-* To be Retained
-    * A passing Chisel project completed during the final 2 weeks of the module **OR**
-    * Satisfactory progress on the Headcount / Black Thursday final project.
