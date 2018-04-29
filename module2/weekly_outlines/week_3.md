@@ -3,52 +3,21 @@ title: Week 3
 layout: page
 ---
 
-## Lessons & Homework
-
-### Day 1:
-
 * **LESSONS:**
-  - [Forms in Rails](../lessons/form_helpers_rails)
-  - [Route Helpers](../lessons/route_helpers)
-  - [Nested Resources](../lessons/nested_resources)
-
+  - [Forms in Rails](http://backend.turing.io/module2/lessons/form_helpers_rails)
+  - [Route Helpers](http://backend.turing.io/module2/lessons/route_helpers)
+  - [Nested Resources](http://backend.turing.io/module2/lessons/nested_resources)
+  - [Diagramming the Request Response Cycle](http://backend.turing.io/module2/lessons/diagramming_request_response_cycle)
+  - [Design Principles](http://backend.turing.io/module2/lessons/design_principles)
+  - [Namespacing](http://backend.turing.io/module2/misc/namespacing)
+  - [Sessions, Cookies and Flashes](http://backend.turing.io/module2/misc/sessions_cookies_and_flashes)
+  - [Auth Exploration](http://backend.turing.io/module2/misc/auth_exploration)
+  
 * **HOMEWORK:**
-  - [JobTracker](https://github.com/turingschool-projects/job-tracker)
-
-### Day 2:
-
-* **LESSONS:**
-
-  - [Design Principles](../lessons/design_principles)
-  - [Diagramming the Request Response Cycle](../lessons/diagramming_request_response_cycle)
-
-* **HOMEWORK:**
-  - [JobTracker](https://github.com/turingschool-projects/job-tracker)
-
-### Day 3:
-
-* **LESSONS:**
-  - [Namespacing](../misc/namespacing)
-
-* **HOMEWORK:**
-  - [JobTracker](https://github.com/turingschool-projects/job-tracker)
-
-### Day 4:
-
-* **LESSONS:**
-  - [Sessions, Cookies and Flashes](../misc/sessions_cookies_and_flashes)
-  - [Auth Exploration](../misc/auth_exploration)
-
-* **HOMEWORK:**
-  - [Schema Practice](../misc/schema_practice). Choose 2 - 3.
-
-### Day 5:
-
-* **HOMEWORK:**
-  - Rails Mini Project
+  - [Schema Practice](http://backend.turing.io/module2/misc/schema_practice). Choose 2 - 3.
   - [Checks for Understanding](https://github.com/turingschool/checks-for-understanding/blob/master/module-2/backend/week_three.md)
    - Static Comp Challenge
-   - [Factory Bot](../lessons/factory_bot)
+   - [Factory Bot](http://backend.turing.io/module2/lessons/factory_bot)
 
 ## Projects:
 
