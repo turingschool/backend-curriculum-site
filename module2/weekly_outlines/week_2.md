@@ -25,13 +25,13 @@ layout: page
   - Static Comp Challenge
   - Finish preparing and sending feedback to your Little Shop group members. Be sure to include both encouraging feedback and feedback that will encourage growth. Send your feedback through a group DM to your partner and instructors.
 
-## Projects:
+## Projects
 
 * [Little Shop Redux](https://github.com/turingschool-projects/little-shop-redux)
 * [Blogger](http://backend.turing.io/module2/misc/blogger)
 * [JobTracker](https://github.com/turingschool-projects/job-tracker)
 
-## Resources:
+## Additional Resources
 
   - [1 of 8 Intro to Database Series. by Dr. Daniel Soper](https://www.youtube.com/watch?v=4Z9KEBexzcM)
   - [Routes and controllers](https://github.com/turingschool/challenges/blob/master/routes_controllers_rails.markdown).
