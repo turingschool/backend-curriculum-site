@@ -12,8 +12,8 @@ tags: ruby, data types, strings, integers, floats, arrays, hashes
 
 ## Agenda
 
-- 5 min - Warm up / Move to groups
-- 10 min - Ruby Docs Overview / Task overview
+- 5 min - Warm up
+- 10 min - Ruby Docs Overview / Task overview / Move to Groups
 - 15 min - Work in First Group
 - 10 min - Work in Second Group
 - 5 min - Break
