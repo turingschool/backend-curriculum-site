@@ -12,8 +12,8 @@ layout: page
   - [Joins, Group, Order](http://backend.turing.io/module2/lessons/joins_group_order)
   - [Database Relationships and Visualizations](http://backend.turing.io/module2/lessons/database_relationships_and_visualizations)
   - [Sinatra vs. Rails Exploration](http://backend.turing.io/module2/misc/sinatra_vs_rails_exploration)
-  - [REST, Controllers & Routing in Rails](http://backend.turing.io/module2/lessons/rest_routing_and_controllers_in_rails)
   - [Database Normalization and Optimization](http://backend.turing.io/module2/lessons/database_normalization_and_optimization)
+  - [REST, Controllers & Routing in Rails](http://backend.turing.io/module2/lessons/rest_routing_and_controllers_in_rails)
   - [Models, Migrations and Databases](http://backend.turing.io/module2/lessons/models_migrations_databases)
 
 * **HOMEWORK:**
