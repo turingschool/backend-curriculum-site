@@ -17,7 +17,6 @@ layout: page
   - [Models, Migrations and Databases](http://backend.turing.io/module2/lessons/models_migrations_databases)
 
 * **HOMEWORK:**
-  - Work on [Little Shop Redux](https://github.com/turingschool-projects/little-shop-redux)
   - [Flex Box Workshop](http://backend.turing.io/module2/lessons/flexbox_workshop)
   - Read about [Routing in Rails](https://www.theodinproject.com/courses/ruby-on-rails/lessons/routing)
   - [DevShed - An Introduction to Database Normalization](http://www.devshed.com/c/a/mysql/an-introduction-to-database-normalization/)
