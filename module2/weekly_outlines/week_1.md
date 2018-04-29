@@ -17,9 +17,9 @@ layout: page
   - [Intro to CSS](http://backend.turing.io/module2/lessons/intro_to_css)
 
 * **HOMEWORK:**
-  - [ActiveRecord Exploration](../homework/activerecord_exploration)
+  - [ActiveRecord Exploration](http://backend.turing.io/module2/homework/activerecord_exploration)
   - [DTR for Little Shop Redux](../../career_development_curriculum/module_one/dtr_guidelines_memo). One group member should send link to forked gist to an instructor.
-  - [ActiveRecord and Database Practice](../homework/activerecord_and_database_practice)
+  - [ActiveRecord and Database Practice](http://backend.turing.io/module2/homework/activerecord_and_database_practice)
   - [Checks for Understanding](https://github.com/turingschool/checks-for-understanding/blob/master/module-2/backend/week_one.md)
   - Static Comp Challenge
 
