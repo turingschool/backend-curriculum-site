@@ -5,16 +5,16 @@ layout: page
 
 ## Lessons
   - [Intro to M2](../misc/day_1.html)
-  - [Intro to REST & CRUD](http://backend.turing.io/module2/lessons/restful_routes_and_crud)
-  - [Intro to HTML](http://backend.turing.io/module2/lessons/intro_to_html)
-  - [Intro to MVC](http://backend.turing.io/module2/lessons/intro_to_mvc)
-  - [Intro to ActiveRecord in Sinatra](http://backend.turing.io/module2/lessons/intro_to_active_record_in_sinatra)
-  - [Model Testing in Sinatra](http://backend.turing.io/module2/lessons/model_testing_in_sinatra)
-  - [How the Web Works](http://backend.turing.io/module2/lessons/how_the_web_works)
-  - [ActiveRecord Associations](http://backend.turing.io/module2/lessons/activerecord_associations)
-  - [Passing Data with HTML/HTTP](http://backend.turing.io/module2/lessons/passing_data_with_sinatra)
-  - [Feature Testing in Sinatra](http://backend.turing.io/module2/lessons/feature_testing_in_sinatra)
-  - [Intro to CSS](http://backend.turing.io/module2/lessons/intro_to_css)
+  - [Intro to REST & CRUD](../lessons/restful_routes_and_crud)
+  - [Intro to HTML](../lessons/intro_to_html)
+  - [Intro to MVC](../lessons/intro_to_mvc)
+  - [Intro to ActiveRecord in Sinatra](../lessons/intro_to_active_record_in_sinatra)
+  - [Model Testing in Sinatra](../lessons/model_testing_in_sinatra)
+  - [How the Web Works](../lessons/how_the_web_works)
+  - [ActiveRecord Associations](../lessons/activerecord_associations)
+  - [Passing Data with HTML/HTTP](../lessons/passing_data_with_sinatra)
+  - [Feature Testing in Sinatra](../lessons/feature_testing_in_sinatra)
+  - [Intro to CSS](../lessons/intro_to_css)
 
 * **HOMEWORK:**
   - [ActiveRecord Exploration](../homework/activerecord_exploration)
