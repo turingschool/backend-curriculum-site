@@ -16,7 +16,7 @@ layout: page
   - [Feature Testing in Sinatra](http://backend.turing.io/module2/lessons/feature_testing_in_sinatra)
   - [Intro to CSS](http://backend.turing.io/module2/lessons/intro_to_css)
 
-## HOMEWORK
+## Homework
   - [ActiveRecord Exploration](http://backend.turing.io/module2/homework/activerecord_exploration)
   - [DTR for Little Shop Redux](https://github.com/turingschool-projects/little-shop-redux). One group member should send link to forked gist to an instructor.
   - [ActiveRecord and Database Practice](http://backend.turing.io/module2/homework/activerecord_and_database_practice)
