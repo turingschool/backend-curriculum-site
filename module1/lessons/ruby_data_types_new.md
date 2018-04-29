@@ -10,17 +10,18 @@ tags: ruby, data types, strings, integers, floats, arrays, hashes
 * Speak to a few common methods for each data type.
 * Be able to reference Ruby Docs in order to determine what an object's method does.
 
+
 ## Agenda
 
 - 5 min - Warm up
 - 10 min - Ruby Docs Overview / Task overview / Move to Groups
 - 15 min - Work in First Group
-- 10 min - Work in Second Group
+- 15 min - Work in Second Group
 - 5 min - Break
-- 20 min - Presentations
-- 5 min - Break
-- 10 min - Instructor Recap
-
+- 5 min - Presentations
+- 5 min - Presentations
+- 15 min - Instructor Recap, Notecards
+- 10 min - CFU
 
 ## Integers & Floats
 * Integers are numbers without decimals, both positive and negative
@@ -41,6 +42,7 @@ tags: ruby, data types, strings, integers, floats, arrays, hashes
   - `.to_f` - change an integer to a float
   - `.to_i` - change a float to an integer
   - `.to_s` - change an integer or float to a "string"
+
 
 ## Strings
 * A series of characters between quotation marks
@@ -69,6 +71,7 @@ tags: ruby, data types, strings, integers, floats, arrays, hashes
   - push, pop, shift, unshift, delete_at, insert
 * Enumerables - many times we will want to do the same thing to every element in an array. The Ruby language provides a lot of methods that allow us to do that efficiently
   - each, map, find, select
+
 
 ## Hashes
 * Also known as a dictionary, can hold many pieces of information
