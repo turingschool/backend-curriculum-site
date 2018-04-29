@@ -22,7 +22,7 @@ layout: page
 ## Projects:
 
 * [JobTracker](https://github.com/turingschool-projects/job-tracker)
-* [Rails Mini Project](../projects/mini-project)
+* [Rails Mini Project](http://backend.turing.io/module2/projects/mini-project)
 
 ## Additional Resources
 * [Mix Master](../projects/mix_master/1_getting_started.markdown)
