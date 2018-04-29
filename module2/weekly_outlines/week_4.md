@@ -9,6 +9,7 @@ layout: page
   - [Rebasing](http://backend.turing.io/module2/lessons/intro_to_rebasing)
   - [SQL Refresher](http://backend.turing.io/module2/lessons/sql_refresher)
   - [ActiveRecord Obstacle Course](http://backend.turing.io/module2/misc/active_record_obstacle_course)
+  - [Remembering Ruby](../misc/violations): Complete the challenge described.
   - [Cart Exploration](http://backend.turing.io/module2/misc/cart_exploration)
 
 * **HOMEWORK:**
