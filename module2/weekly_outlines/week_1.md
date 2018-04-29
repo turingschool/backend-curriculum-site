@@ -23,11 +23,11 @@ layout: page
   - [Checks for Understanding](https://github.com/turingschool/checks-for-understanding/blob/master/module-2/backend/week_one.md)
   - Static Comp Challenge
 
-## Projects:
+## Projects
 
 * [Little Shop Redux](https://github.com/turingschool-projects/little-shop-redux)
 
-## Additional Resources:
+## Additional Resources
 
   - Finding CSS/HTML challenging still? Checkout out this [tutorial](https://github.com/turingschool-examples/introductory-static-site)
   - Reverse-engineer one of your favorite websites to practice your HTML/CSS skills.
