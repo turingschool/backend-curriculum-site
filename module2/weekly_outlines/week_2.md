@@ -3,11 +3,7 @@ title: Week 2
 layout: page
 ---
 
-## Lessons & Homework
-
-### Day 1:
-
-* **LESSONS**
+## Lessons
 
   - [Joins, Group, Order](http://backend.turing.io/module2/lessons/joins_group_order)
   - [Database Relationships and Visualizations](http://backend.turing.io/module2/lessons/database_relationships_and_visualizations)
@@ -16,7 +12,7 @@ layout: page
   - [REST, Controllers & Routing in Rails](http://backend.turing.io/module2/lessons/rest_routing_and_controllers_in_rails)
   - [Models, Migrations and Databases](http://backend.turing.io/module2/lessons/models_migrations_databases)
 
-* **HOMEWORK:**
+## HOMEWORK
   - [Flex Box Workshop](http://backend.turing.io/module2/lessons/flexbox_workshop)
   - Read about [Routing in Rails](https://www.theodinproject.com/courses/ruby-on-rails/lessons/routing)
   - [DevShed - An Introduction to Database Normalization](http://www.devshed.com/c/a/mysql/an-introduction-to-database-normalization/)
