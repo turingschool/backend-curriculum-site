@@ -16,7 +16,7 @@ layout: page
   - [Sass 2.0](http://backend.turing.io/module2/lessons/sass_2.0)
   - Clone down this app: https://github.com/turingschool-examples/hinny
   - Run the server in Production Locally with this [video](https://vimeo.com/255927334)
-  - [CFUs](https://github.com/turingschool/checks-for-understanding/blob/master/module-2/backend/week_5.md)
+  - [CFUs](https://github.com/turingschool/checks-for-understanding/blob/master/module-2/backend/week_five.md)
   - Static Comp Challenge
 
 ## Projects:
