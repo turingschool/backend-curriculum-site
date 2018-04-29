@@ -3,46 +3,23 @@ title: Week 1
 layout: page
 ---
 
-## Lessons & Homework
-
-### Day 1:
-
-* **LESSONS:**
+## Lessons
   - [Intro to M2](../misc/day_1.html)
   - [Intro to REST & CRUD](../lessons/restful_routes_and_crud)
-  - [Intro to MVC](../lessons/intro_to_mvc)
   - [Intro to HTML](../lessons/intro_to_html)
-
-* **HOMEWORK:**
-  - [ActiveRecord Exploration](../homework/activerecord_exploration)
-  
-### Day 2:
-
-* **LESSONS:**
-- [Intro to ActiveRecord in Sinatra](../lessons/intro_to_active_record_in_sinatra)
-- [Model Testing in Sinatra](../lessons/model_testing_in_sinatra)
-- [How the Web Works](../lessons/how_the_web_works)
-
-* **HOMEWORK**
-  - [DTR for Little Shop Redux](../../career_development_curriculum/module_one/dtr_guidelines_memo). One group member should fork that DTR gist and send their gist link to all Mod 2 instructors.
-
-### Day 3:
-
-* **LESSONS:**
-  - [Passing Data with HTML/HTTP](../lessons/passing_data_with_sinatra)
+  - [Intro to MVC](../lessons/intro_to_mvc)
+  - [Intro to ActiveRecord in Sinatra](../lessons/intro_to_active_record_in_sinatra)
+  - [Model Testing in Sinatra](../lessons/model_testing_in_sinatra)
+  - [How the Web Works](../lessons/how_the_web_works)
   - [ActiveRecord Associations](../lessons/activerecord_associations)
-
-* **HOMEWORK:**
-  - [ActiveRecord and Database Practice](../homework/activerecord_and_database_practice)
-
-### Day 4:
-
-* **LESSONS:**
+  - [Passing Data with HTML/HTTP](../lessons/passing_data_with_sinatra)
   - [Feature Testing in Sinatra](../lessons/feature_testing_in_sinatra)
   - [Intro to CSS](../lessons/intro_to_css)
 
-### Day 5:
-* **HOMEWORK**
+* **HOMEWORK:**
+  - [ActiveRecord Exploration](../homework/activerecord_exploration)
+  - [DTR for Little Shop Redux](../../career_development_curriculum/module_one/dtr_guidelines_memo). One group member should send link to forked gist to an instructor.
+  - [ActiveRecord and Database Practice](../homework/activerecord_and_database_practice)
   - [Checks for Understanding](https://github.com/turingschool/checks-for-understanding/blob/master/module-2/backend/week_one.md)
   - Static Comp Challenge
 
