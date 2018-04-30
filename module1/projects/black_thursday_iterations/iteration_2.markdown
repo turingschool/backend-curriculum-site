@@ -6,7 +6,7 @@ title: Black Thursday Iteration 2
 I2: Basic Invoices
 ========
 
-Now we'll begin to move a little faster. Let's work with invoices and build up the data access layer, relationships, and business intelligence in one iteration.
+Now we'll begin to move a little faster. Let's work with invoices and build up the data access layer  and business intelligence in one iteration.
 
 Data Access Layer
 ----------
@@ -21,6 +21,9 @@ instances. It offers the following methods:
 *   `find_all_by_customer_id` - returns either `[]` or one or more matches which have a matching customer ID
 *   `find_all_by_merchant_id` - returns either `[]` or one or more matches which have a matching merchant ID
 *   `find_all_by_status` - returns either `[]` or one or more matches which have a matching status
+*    `create(attributes)` - create a new `Invoice` instance with the provided `attributes`. The new `Invoice`'s id should be the current highest `Invoice` id plus 1.
+*    `update(id, attribute)` - update the `Invoice` instance with the corresponding `id` with the provided `attributes`. Only the invoice's `status` can be updated. This method will also change the invoice's updated_at attribute to the current time.
+*    `delete(id)` - delete the `Invoice` instance with the corresponding `id`
 
 The data can be found in `data/invoices.csv` so the instance is created and used like this:
 
@@ -54,35 +57,20 @@ i = Invoice.new({
 })
 ```
 
-Relationships
----------
-
-Then connect our invoices to our merchants:
-
-```ruby
-se = SalesEngine.from_csv({
-  :items => "./data/items.csv",
-  :merchants => "./data/merchants.csv",
-  :invoices => "./data/invoices.csv"
-})
-merchant = se.merchants.find_by_id(12334159)
-merchant.invoices
-# => [<invoice>, <invoice>, <invoice>]
-invoice = se.invoices.find_by_id(20)
-invoice.merchant
-# => <merchant>
-```
-
 Business Intelligence
 -------------
 
-Assume we're created `sa` as a `SalesAnalyst` instance:
+Assuming we have a `sales_engine` that's an instance of `SalesEngine` let's initialize a `SalesAnalyst` like this:
+
+```ruby
+sales_analyst = sales_engine.analyst
+```
 
 ### How many invoices does the average merchant have?
 
 ```ruby
-sa.average_invoices_per_merchant # => 10.49
-sa.average_invoices_per_merchant_standard_deviation # => 3.29
+sales_analyst.average_invoices_per_merchant # => 10.49
+sales_analyst.average_invoices_per_merchant_standard_deviation # => 3.29
 ```
 
 ### Who are our top performing merchants?
@@ -90,7 +78,7 @@ sa.average_invoices_per_merchant_standard_deviation # => 3.29
 Which merchants are more than two standard deviations *above* the mean?
 
 ```ruby
-sa.top_merchants_by_invoice_count # => [merchant, merchant, merchant]
+sales_analyst.top_merchants_by_invoice_count # => [merchant, merchant, merchant]
 ```
 
 ### Who are our lowest performing merchants?
@@ -98,7 +86,7 @@ sa.top_merchants_by_invoice_count # => [merchant, merchant, merchant]
 Which merchants are more than two standard deviations *below* the mean?
 
 ```ruby
-sa.bottom_merchants_by_invoice_count # => [merchant, merchant, merchant]
+sales_analyst.bottom_merchants_by_invoice_count # => [merchant, merchant, merchant]
 ```
 
 ### Which days of the week see the most sales?
@@ -106,7 +94,7 @@ sa.bottom_merchants_by_invoice_count # => [merchant, merchant, merchant]
 On which days are invoices created at more than one standard deviation *above* the mean?
 
 ```ruby
-sa.top_days_by_invoice_count # => ["Sunday", "Saturday"]
+sales_analyst.top_days_by_invoice_count # => ["Sunday", "Saturday"]
 ```
 
 ### What percentage of invoices are not shipped?
@@ -114,7 +102,7 @@ sa.top_days_by_invoice_count # => ["Sunday", "Saturday"]
 What percentage of invoices are `shipped` vs `pending` vs `returned`? (takes symbol as argument)
 
 ```ruby
-sa.invoice_status(:pending) # => 29.55
-sa.invoice_status(:shipped) # => 56.95
-sa.invoice_status(:returned) # => 13.5
+sales_analyst.invoice_status(:pending) # => 29.55
+sales_analyst.invoice_status(:shipped) # => 56.95
+sales_analyst.invoice_status(:returned) # => 13.5
 ```

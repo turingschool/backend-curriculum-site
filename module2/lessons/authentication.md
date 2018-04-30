@@ -229,7 +229,7 @@ Failure/Error: @user = User.new
 The `PG::UndefinedTable: ERROR:  relation "users" does not exist` tells us that postgres can't find a `users` table. We still have to make the database connection but it doesn't feel right to store our passwords as plain text. IT ISN'T!!! DON'T DO IT. Use a password encryption tool (such as BCrypt) to store encrypted passwords in the database
 
 ```bash
-rails g migration CreateUser username:string password_digest:string
+rails g migration CreateUsers username:string password_digest:string
 ```
 
 Why `password_digest`?
@@ -398,7 +398,7 @@ Which brings us to an `uninitialized constant SessionsController` error. And the
 ```ruby
 # app/controllers/sessions_controller.rb
 
-class SessionsController
+class SessionsController < ApplicationController
   def new
   end
 end

@@ -173,7 +173,7 @@ Create an app where an admin (let's say for example, Richard) can assign points 
 
 #### Rewards
 
-- [ ] Rewards can be created, edited, updated, and destroyed only by the admin.
+- [ ] Rewards can be created only by the admin.
 - [ ] Rewards can be edited only by the admin.
 - [ ] Rewards can be updated only by the admin.
 - [ ] Rewards can be destroyed only by the admin.
