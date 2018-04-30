@@ -134,7 +134,6 @@ You will meet with instructors periodically during the project. The goals of eac
 
 ## <a name="evaluation"></a> Evaluation
 
-You'll be graded on each of the criteria below with a score of (1) well below expectations, (2) below expectations, (3) as expected, (4) better than expected.
 
 ### Feature Delivery
 
