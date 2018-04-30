@@ -23,7 +23,7 @@ status: draft
 
 **Basic Narrative**: When designing a service or an API, you need a machine-readable way to transmit data. Typically, machine-readable formats have been just that—machine-readable (Think zeros and ones). JSON strikes a balance between being machine-readable, but also human-readable. Because it's also more lightweight than XML (read: less characters) it's typically faster because it requires less bandwidth to transmit.
 
-Before diving deep into what JSON is, let's take a look at it [here](http://congress.api.sunlightfoundation.com/legislators/locate?zip=80229&apikey=e179a6973728c4dd3fb1204283aaccb5) or [here](https://birdeck-api.herokuapp.com/api/v1/posts/2). What do you notice?
+Before diving deep into what JSON is, let's take a look at it [here](https://developer.github.com/v3/git/commits) or [here](https://birdeck-api.herokuapp.com/api/v1/posts/2). What do you notice?
 
 ### What is JSON?
 
@@ -78,18 +78,11 @@ This is valid JSON in a Ruby context.
 * Including a trailing comma in an array
 * Trying to break a string over multiple lines (`\n` is fine)
 
-#### Lint Your JSON
-
-If you find yourself writing JSON (we'll do this when we get to AJAX), [JSONLint](http://jsonlint.com/) is a great way to validate and troubleshoot your JSON formatting.
-
-#### Try it!  
-Hop into the JSONlinter and make yourself an object like above.  
-
 ### Where you'll find JSON
 
-* APIs (e.g. Github, Twitter)
-* Node's `package.json` and Bower's `bower.json` dependency manifests
-* Sending data back and forth to your app through AJAX requests; building DOM with on the client with data from the server
+* APIs (e.g. Github, Twitter).
+* Node's `package.json` .
+* Sending data back and forth to your app through AJAX requests; building DOM (Document Object Model) on the client with data from the server.
 
 ### JSON and Ruby
 
@@ -118,7 +111,7 @@ puts parsed_person['pets']
 
 ### JSON versus XML
 
-Let's look at some data in [JSON and XML](https://gist.github.com/stevekinney/210a7fb9c9b3c0be2e53).
+Let's look at some data in [JSON and XML](../misc/xml_vs_json).
 
 Any differences you notice?
 
@@ -132,12 +125,7 @@ Any differences you notice?
 * What are some places you've seen JSON?
 * What are some of the gotchas working with JSON?
 
-## Supporting Materials
-
-* [Slides](https://www.dropbox.com/s/j3waahelo4q3f2e/Turing%20-%20JSON%20Fundamentals.key?dl=0)
-
 ## Additional Resources
-
 ### JSON and JavaScript
 
 Even if all JavaScript objects are not JSON objects, all JSON objects are JavaScript objects.
@@ -159,7 +147,3 @@ These methods are relatively straight-forward.
 `stringify` will take a JavaScript object and—umm—_stringify_ it.
 
 `JSON.parse` is fairly strict. If there is an error in your JSON, it will throw an error (usually not a particularly helpful one). If you're getting some cryptic errors, toss your JSON into [JSONLint](http://jsonlint.com/) and make sure your JSON is malformed in some way before you spend too much time scratching your head trying to figure out what's wrong.
-
-## Corrections & Improvements for Next Time
-
-* None
