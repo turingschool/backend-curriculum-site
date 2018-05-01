@@ -43,16 +43,6 @@ We're going to use your debugger to explore `.each` and on the challenges below.
 
 Let's use [this gist](https://gist.github.com/ameseee/d060d7ed237d02ead7c1c6837817107b) as a guide.
 
-#### Setup
-
-In your terminal:
-  * Install pry `gem install pry`
-  * Make a new directory & cd into it (probably inside of your Mod1 directory)"" `mkdir intro_to_each && cd intro_to_each`
-  * Create a file for practice: `touch each_practice.rb`
-  * Open the file in atom: `atom .`
-  * Copy and paste the contents of the Gist above into your file (`cmd + a` will highlight all, `cmd + c` will copy, and `cmd + v` will paste!)
-
-
 #### What are enumerable methods?
 
 * methods that can be used on arrays and hashes to go through each element or
@@ -105,8 +95,19 @@ What do you think each of these **returns**?
 Remember that there is a difference between what gets output to a screen
 vs what a bit of code returns.
 
+#### Setup
 
-#### Exercises
+In your terminal:
+  * Install pry `gem install pry`
+  * Make a new directory & cd into it (probably inside of your Mod1 directory)"" `mkdir intro_to_each && cd intro_to_each`
+  * Create a file for practice: `touch each_practice.rb`
+  * Open the file in atom: `atom .`
+  * Copy and paste the contents of [this gist](https://gist.github.com/ameseee/d060d7ed237d02ead7c1c6837817107b) into your file (`cmd + a` will highlight all, `cmd + c` will copy, and `cmd + v` will paste!)
+  - **Note:** The divider method just makes the file friendly to read when it prints out in your terminal 😜
+
+We will work through `"Kourtney's Kids 💗 - MULTI-LINE"` together - then you will do the rest with your partner.
+
+#### Continued Exercises
 
 Use your debugger to work through the following...
 
