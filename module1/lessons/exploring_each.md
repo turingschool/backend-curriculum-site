@@ -18,30 +18,8 @@ As programmers we often make assumptions about what our code is doing. We are of
 
 Have you ever found yourself working on a programming problem and as you attempt to solve it, you are forced to run the entire file over and over again until you get the correct result? Wouldn't it be awesome if you could pause your code at a specific line and interact with it? Enter debuggers.
 
-Debuggers are great to see what your code is actually doing. The most common debuggers in ruby are `byebug` and `pry`. You can pick whichever you prefer. For this exercise we will use `pry`.
+Debuggers are great to see what your code is actually doing. The most common debuggers in ruby are `byebug` and `pry`. You can pick whichever you prefer. For this exercise we will use `pry` - not just in our terminal but in an rb file!
 
-### Using `pry`
-
-* Make sure it is installed globally (we will do in class in a moment)
-
-`gem install pry`
-
-You need to require it at the top of your Ruby file.
-
-```
-require "pry"
-```
-
-Now you can use it like this...
-
-```
-favorite_celebs = ["Kim", "Kourtney", "Khloe"]
-binding.pry
-```
-
-We're going to use your debugger to explore `.each` and on the challenges below.
-
-Let's use [this gist](https://gist.github.com/ameseee/d060d7ed237d02ead7c1c6837817107b) as a guide.
 
 #### What are enumerable methods?
 
@@ -95,6 +73,7 @@ What do you think each of these **returns**?
 Remember that there is a difference between what gets output to a screen
 vs what a bit of code returns.
 
+
 #### Setup
 
 In your terminal:
@@ -105,7 +84,25 @@ In your terminal:
   * Copy and paste the contents of [this gist](https://gist.github.com/ameseee/d060d7ed237d02ead7c1c6837817107b) into your file (`cmd + a` will highlight all, `cmd + c` will copy, and `cmd + v` will paste!)
   - **Note:** The divider method just makes the file friendly to read when it prints out in your terminal 😜
 
-We will work through `"Kourtney's Kids 💗 - MULTI-LINE"` together - then you will do the rest with your partner.
+  ### Using `pry`
+
+  You need to require it at the top of your Ruby file (already done in the gist, just here for a reference)
+
+  ```
+  require "pry"
+  ```
+
+  Now you can use it like this...
+
+  ```
+  favorite_celebs = ["Kim", "Kourtney", "Khloe"]
+  binding.pry
+  ```
+
+  We're going to use your debugger to explore `.each` and on the challenges below.
+
+  We will work through `"Kourtney's Kids 💗 - MULTI-LINE"` together - then you will do the rest with your partner.
+
 
 #### Continued Exercises
 
