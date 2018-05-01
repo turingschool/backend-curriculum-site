@@ -87,6 +87,8 @@ At a high level, we are going to follow these steps:
 
 ### Creating the database
 
+(make sure you've run `bundle install` before you start these instructions)
+
 Before we begin, we'll need to create a database.
 
 If you look in the `db` folder, you'll notice that we don't have any database files. In order to create our database, we need to run `rake db:create`. After running this command, you'll see an empty sqlite file now inside the `db` folder.
@@ -113,7 +115,7 @@ end
 We are going to use ActiveRecord's `create_table` method to specify what we want to name this table and what fields it will include.
 
 ```ruby
-class CreateFilms < ActiveRecord::Migration
+class CreateFilms < ActiveRecord::Migration[5.1]
   def change
     create_table :films do |t|
       t.text    :title
