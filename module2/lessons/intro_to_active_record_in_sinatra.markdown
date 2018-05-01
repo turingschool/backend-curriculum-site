@@ -162,7 +162,14 @@ end
 
 By inheriting from `ActiveRecord::Base`, we're given a bunch of class and instance methods we can use to manipulate the films in our database. These methods will take the place of the methods that you wrote yourself in Task Manager (e.g. `::all`, `::find`, `::new`, `::save`).
 
-Now that we have a model, we can use `tux` (an interactive console for your app) to add some films to our database.
+Now that we have a model, we can use `tux` (an interactive console for your app) to add some films to our database. If you get an error when running tux that looks like this:
+```bash
+$ tux
+/Users/username/.rbenv/versions/2.4.3/lib/ruby/gems/2.4.0/gems/ripl-rack-0.2.1/lib/ripl/rack.rb:38:in `eval': You have already activated rack-test 0.6.3, but your Gemfile requires rack-test 1.0.0. Prepending `bundle exec` to your command may solve this. (Gem::LoadError)
+```
+
+To fix this error, just run tux like this instead: `bundle exec tux`
+
 
 ```ruby
 $ tux
