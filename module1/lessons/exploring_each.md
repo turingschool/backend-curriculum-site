@@ -12,6 +12,15 @@ tags: enumerable, ruby, collections, arrays, each, debugger, pry
 * Learn how to use a debugger to pause and interact with running code
 
 
+### Vocabulary
+
+* enumerable
+* iterate
+* array
+* each
+* return value
+
+
 #### Debuggers
 
 As programmers we often make assumptions about what our code is doing. We are often wrong. One of the most important and effective debugging techniques is to validate your assumptions.
