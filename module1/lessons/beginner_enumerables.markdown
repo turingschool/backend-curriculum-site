@@ -16,12 +16,12 @@ Available [here](../slides/beginner_enumerables)
 ## Vocabulary  
 * enumerable  
 * iterate  
-* map, select, find
+* map, find, find_all
 * return value
 
 ## Warm Up  
 * What is an **enumerable**? What is a use case for one?  
-* Write the block of code to use `.each` to print each letter in the following array `dynasty = ["K", "e", "n", "n", "e", "d", "y"]`
+* In your notebook, write the block of code to use `.each` to print each letter in the following array `dynasty_1 = ["K", "e", "n", "n", "e", "d", "y"]`
 
 ## Intro
 
@@ -38,7 +38,7 @@ Let's look at this in code. Taking an array of the numbers, we want to end up wi
 
 ```ruby
 def double                    # define a method called double
-  numbers = [1, 2, 3, 4, 5]   # declare a variable, numbers, with the value of an array
+  numbers = [1, 2, 3, 4, 5]   # declare a numbers variable with the value of an array
 
   result = []                 # declare a variable, results, with the value of an empty array
 
@@ -62,7 +62,7 @@ This code is decent. But there are things about it I'm not entirely thrilled abo
 
 ```ruby
 def double                # define a method called double
-  numbers = [1,2,3,4,5]   # declare a variable, numbers, with the value of an array
+  numbers = [1, 2, 3, 4, 5]   # declare a numbers variable with the value of an array
 
   numbers.map do |num|    # iterate over numbers with `.map`
     num * 2               # number x 2
@@ -78,7 +78,7 @@ Instinctually, this should look better to you. We don't have any unnecessary var
 
 ```ruby
 def double
-  numbers = [1,2,3,4,5]
+  numbers = [1, 2, 3 ,4, 5]
 
   numbers.map do |num|
     num * 2
@@ -93,20 +93,24 @@ end
 * Many folks are tempted to save the result of map to a variable. Why might I disagree with this choice?  
 
 #### Independent Practice
-I want this method to return all of these names in caps.
+The method below returns an array of the brothers names in all caps; your job is to write one using the `map` method. (Touch an `enums_practice.rb` file in your M1 directory and write the code in that file)
 
 ```ruby
 def kennedy_brothers
   brothers = ["Robert", "Ted", "Joseph", "John"]
 
-  brothers.map do |brother|
-    # CODE HERE!
+  caps_brothers = []
+
+  brothers.each do |brother|
+    caps_brothers << brother.upcase
   end
+
+  caps_brothers
 
 end
 ```
 **Annotate**
-Annotate each line of code the way the examples above were, to describe exactly what is happening at each line.
+Annotate each line of your new code the way the examples above were, to describe exactly what is happening at each line.
 
 **Turn & Talk**  
 Share you code with your neighbor.  Talk them through your annotations - be specific. What is similar/different? Why did you make the choices you made?  
@@ -159,7 +163,7 @@ def find_sisters
   sisters = ["Rose", "Kathleen", "Eunice", "Patricia", "Jean"]
 
   sisters.find do |sister|
-    #CODE HERE
+    # YOUR CODE HERE
   end
 end
 ```
@@ -174,7 +178,6 @@ Let's start by thinking about how we would do this using our old friend, `.each`
 
 ```ruby
 def all_the_odds
-
   numbers = [1,2,3,4,5]
 
   result = []
@@ -194,7 +197,6 @@ Not bad, but we're stuck with that `result` container that we don't like. Pay at
 
 ```ruby
 def all_the_odds
-
   numbers = [1,2,3,4,5]
 
   numbers.select do |num|
@@ -207,19 +209,26 @@ end
 **Discuss:** Why is this better?
 
 #### Independent Practice
-Let's grab all of the Kennedy Spouses that start with a "V".
+Let's grab all of the Kennedy Spouses that start with a "V" using `find_all` rather than `each`:
 
 ```ruby
 def named_v
-
   spouses = ["Jacqueline", "William", "Robert", "Peter", "Ethel", "Stephen", "Virginia", "Victoria"]
 
-  spouses.select do |spouse|
-    # CODE HERE
+  spouses_starting_v = []
+
+  spouses.each do |spouse|
+    if spouse[0] == "V"
+      spouses_starting_v << spouse
+    end
   end
 
 end
 ```
+
+## Exercises
+Follow the directions on [this README](https://github.com/ameseee/enums_practice) to get some more practice!
+
 
 ## Final CFU
 * What do map, find, and select do? What do they return?
@@ -227,7 +236,6 @@ end
 
 
 ### Homework
-
-Work on the `map`, `find`, and `select` exercises for [Enums-Exercises](https://github.com/turingschool/enums-exercises).
-
-Work through [Beginner Enumerables](https://github.com/turingschool-examples/beginner_enums/) according to instructions within its README.
+* Continue working on the [Kennedys Practice](https://github.com/ameseee/enums_practice)
+* Work on the `map`, `find`, and `select` exercises for [Enums-Exercises](https://github.com/turingschool/enums-exercises).
+* Work through [Beginner Enumerables](https://github.com/turingschool-examples/beginner_enums/) according to instructions within its README.
