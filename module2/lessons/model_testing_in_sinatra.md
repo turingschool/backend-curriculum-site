@@ -384,7 +384,7 @@ Run your tests again, and... passing. Great news.
 
 * In pairs, add the following tests and make each one pass:
     * a test for an `.average_box_office_sales` class method
-    * tests that a film cannot be created without a `year` or `box_office_sales`
+    * tests that a film cannot be created without a `title` or `year`
 
 Remember to use your four phases of testing!
 
