@@ -165,7 +165,7 @@ What do you see in the following files:
 
 # Deployment
 
-* [Github Pages section](https://github.com/turingschool-examples/quantified-self-starter-kit#github-pages-setup) of the starter kit README.
+* [GitHub Pages Section](https://github.com/turingschool/qs-frontend-starter#github-pages-setup) of the starter kit README.
 
 ---
 

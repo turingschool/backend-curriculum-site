@@ -110,7 +110,7 @@ This will allow us to type `webpack`, `webpack-dev-server`, and `mocha` directly
 ### Setup Starter Kit
 
 ```bash
-git clone git@github.com:turingschool-examples/quantified-self-starter-kit.git webpack-lesson
+git clone git@github.com:turingschool/qs-frontend-starter.git webpack-lesson
 ```
 
 This will clone down the same repo that you'll be using for your project, but will put it in a folder you can play around with for this lesson.
@@ -235,7 +235,7 @@ Check out that webpack magic in the browser!
 
 ### Deployment
 
-Let's look at the [Github Pages section](https://github.com/turingschool-examples/quantified-self-starter-kit#github-pages-setup) of the starter kit README.
+Let's look at the [GitHub Pages Section](https://github.com/turingschool/qs-frontend-starter#github-pages-setup) of the starter kit README.
 
 ## Checks for Understanding
 
