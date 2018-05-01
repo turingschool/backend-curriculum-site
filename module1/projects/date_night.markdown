@@ -245,8 +245,15 @@ The project will be assessed with the following guidelines:
 * Test coverage is measured with [SimpleCov](https://github.com/colszowka/simplecov)
 * Test coverage exceeds 95%
 
+### 4. Version Control
 
-### 4. Functionality
+Expectations: 
+
+* Developer commits at a pace of at least 1 commit per hour
+* Developer implements branching and PRs
+* The final submitted version is merged into master
+
+### 5. Functionality
 
 * Application meets all requirements (extension not req'd)
 

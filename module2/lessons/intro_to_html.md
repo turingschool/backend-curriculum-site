@@ -37,6 +37,9 @@ A Markup Language used for describing the structure/layout of web pages.
       <head>
         <meta charset="utf-8">
         <title></title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Chonburi|Muli">
+        <link rel="stylesheet" href="../stylesheets/main.css" />
+        <script type="text/javascript" src="javascript.js"></script>
       </head>
       <body>
 

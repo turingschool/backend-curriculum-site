@@ -15,16 +15,17 @@ title: SQL Refresher
 ## Lesson
 
 ### Setup
+This activity relies on a pre-created database. Make sure you have created and seeded the database from your little-shop-redux. If you do not have a little-shop-redux, you can pull down a completed version [here](https://github.com/kolyaventuri/little-shop-redux/tree/d14150d9b0e004db6057b42f2b3c933723f996cc).
 
-Enter `psql` from your terminal. This should drop you into an interactive postgres session where you can run SQL commends from the terminal.
+Enter `psql` from your terminal. This should drop you into an interactive postgres session where you can run SQL commands from the terminal.
 
-Note: if you get an error about no user existing, check [this](https://stackoverflow.com/questions/17633422/psql-fatal-database-user-does-not-exist) Stack Overflow post.
+Note: If you get an error that says something like `Database username "YOUR_NAME" does not exist.` you will need to create a database that shares the username. Run `createdb "YOUR_NAME"` and re-run psql.
 
 The first thing you will see is a helpful note to enter `help` if you need some more information about how to use this interactive session. `\?` will provide you with some terminal specific commands, while `\h` will provide you with a list of SQL commands that offer additional documentation.
 
-In order to interact with our BikeShare database, we'll first need to connect to it. How do we know it exists or what it's named? First type `\list`. This will provide you with a list of databases avaialble to you.
+In order to interact with our LittleShop database, we'll first need to connect to it. How do we know it exists or what it's named? First type `\list`. This will provide you with a list of databases avaialble to you.
 
-In order to connect to our database, type `\c bike-share-development` (or whatever `\list` tells you your database is called). Now you should be able to run SQL commands.
+In order to connect to our database, type `\c little-shop-development` (or whatever `\list` tells you your database is called). Now you should be able to run SQL commands.
 
 When you're ready to disconnect type `\q`
 
@@ -34,44 +35,50 @@ With a partner, see if you can complete each of the tasks below. After each sect
 
 #### SELECT FROM LIMIT
 
-* All of the information on the `stations` table.
-* Max, min, and mean temp from the `conditions` table.
-* `id`, `start_station_id`, and `duration` of five trips.
+* All of the information on the `merchants` table.
+* `id`, `merchant_id`, and `description` of five items.
 
 #### WHERE
 
-* Trips that started at the station with an id of 2.
-* Stations that have a `dock_count` of 15.
-* id, date, and precipitation for conditions with more than 1 inch of precipitation.
+* Items that have a merchant with an id of 12334284.
+* Items that have a `price` of 800.
+* id, price, and description for items more expensive than 800.
 
-#### max/min/count/average
+#### Aggregate Functions
+(Complete these without using Order)
 
-* Duration of the longest trip.
-* Duration of the shortest trip.
-* Average `dock_count` at a station.
-* Highest `dock_count` at a station.
-* Count of days with no rain.
-* Name/`dock_count` of the station with the most docks.
-* Id, start station id, and duration of the longest trip.
-* Id, start station id, and duration of the shortest trips.
+* Max, and min price from the `items` table.
+* Average price for all items.
+* Id, merchant id, and description of the most expensive item.
+* Id, merchant id, and description of the least expensive item.
+* Count of items created after 1993-09-29.
+* All information about the oldest Merchant.
+* All information about the newest Merchant.
 
 #### JOIN
 
-* Name of the station where the longest trip started.
-* Name of the stations where the shortest trips started.
+* Highest items `price` for merchant with id of 12334284.
+* Average items `price` for merchant with id of 12334284.
 
 #### GROUP
 
-* Count of trips started at each station.
-* Count of trips ended at each station.
-* Count of trips started on days with more than an inch of precipitation.
+* Count of items for each merchant.
+* Total price of all items for each merchant.
+* Total income for each merchant.
 
 #### ORDER
 
-* Top five stations with the most trips started.
-* Top five stations with the most trips ended.
-* Least popular start station.
-* `mean_temperature` and `precipiation` on the five dates with the most trips.
+* Name of the merchant with the most items.
+* Top five merchants with the most invoices.
+* Top 10 most expensive items.
+* Least prolific merchant (by item count).
+* `name` for the five merchants with the most items.
+
+#### Extensions
+
+* Total of each invoice for each merchant.
+* Merchant ID and Invoice ID for the top 5 least expensive invoices.
+* Merchant ID and Invoice ID for the top 5 most expensive invoices.
 
 ## Additional Resources
 

@@ -7,10 +7,11 @@ layout: page
 
 ### Classes
 
-* [Understanding the Asset Pipeline](../lessons/understanding_the_asset_pipeline)
-* [Working with AJAX](../lessons/getting_started_with_ajax)
+* [jQuery DOM Traversal and Manipulation](../lessons/jquery_and_dom)
+* [Application Coordination with Messaging Queues](../lessons/application_coordination_with_message_queues)
 * [Assessment](../lessons/assessment)
-* [Performance Dojo](../lessons/performance_dojo)
+* [Intro to Fetch](../lessons/getting_started_with_fetch)
+* [Getting Started with Workers](../lessons/intro_to_background_workers)
 
 ### Projects
 

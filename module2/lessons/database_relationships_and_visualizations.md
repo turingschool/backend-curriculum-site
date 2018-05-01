@@ -45,7 +45,7 @@ tags: database, schema, relationships
 * `tasks` has a column called `user_id` which refers to the primary key of the `users` table.
 * Let's diagram the relationship using a schema designer.
 
-### Exercise: Car Dealership
+**Independent Practice** - Car Dealership
 
 A car dealership has many cars - diagram this relationship using the schema designer.
 
@@ -57,6 +57,7 @@ In our recent Task Manager client meeting, our client also decided their users s
   Users should have tasks. Tasks should have labels.
   ```
   
+**Independent Practice** - Labels & Tasks  
   Take a minute to consider what changes we would need to make to our database in order to support the features requested by our client. Add these to your diagram.
 
 
@@ -68,7 +69,7 @@ _**Note:** Join tables are just ordinary tables with a unique purpose._
 
 Let's diagram the tasks and labels relationship using the schema designer.
 
-### Exercise: Students and Courses
+**Independent Practice** - Students and Courses
 
 Diagram the many-to-many relationship between students and courses.
 

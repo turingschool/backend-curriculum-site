@@ -13,7 +13,7 @@ In this project you'll create a simple blog system and learn the basics of Ruby 
 * RESTful design
 * Adding gems for extra features
 
-This tutorial is open source. If you notice errors, typos, or have questions/suggestions, please [submit them to the project on GitHub](https://github.com/turingschool/backend-curriculum-site/blob/gh-pages/module2/misc/blogger.md). You can find a completed (through Iter3) version [here](https://github.com/AliSchlereth/blogger). 
+This tutorial is open source. If you notice errors, typos, or have questions/suggestions, please [submit them to the project on GitHub](https://github.com/turingschool/backend-curriculum-site/blob/gh-pages/module2/misc/blogger.md). You can find a completed (through Iter3) version [here](https://github.com/AliSchlereth/blogger).
 
 ## I0: Up and Running
 
@@ -139,13 +139,13 @@ You'll see the Rails' "Welcome Aboard" page. As long as there's no big ugly erro
 
 If you see an error here, it's most likely related to the database. You are probably running Windows and don't have either the SQLite3 application installed or the gem isn't installed properly. Go back to [Environment Setup](http://tutorials.jumpstartlab.com/topics/environment/environment.html) and use the Rails Installer package. Make sure you check the box during setup to configure the environment variables. Restart your machine after the installation and give it another try.
 
-### Setting Up for Testing 
+### Setting Up for Testing
 
-We're going to work with a few different tools while testing, [RSpec](https://relishapp.com/rspec), [Capybara](https://github.com/teamcapybara/capybara), [Launchy](https://github.com/copiousfreetime/launchy), and [Shoulda Matchers](https://github.com/thoughtbot/shoulda-matchers). RSpec is a test driver comparable to MiniTest. RSpec allows you to rung unit, integration and feature tests. Capybara is a DSL(Domain Specific Language) that helps you build tests in a user friendly format, naviating the page and performing user actions. Launchy is a helper class that allows you to add the line `save_and_open_page` within a test. When you run your test suite a browser window will be opened with the current state of the web page where the `save_and_open_page` is located. It is a helpful debugging tool. Shoulda Matchers provides us simple one liners helpful in testing validations and relationships on models.
+We're going to work with a few different tools while testing, [RSpec](https://relishapp.com/rspec), [Capybara](https://github.com/teamcapybara/capybara), [Launchy](https://github.com/copiousfreetime/launchy), [Shoulda Matchers](https://github.com/thoughtbot/shoulda-matchers), [Pry](https://github.com/pry/pry), and [Active Designer](https://github.com/thompickett/active_designer). RSpec is a test driver comparable to MiniTest. RSpec allows you to rung unit, integration and feature tests. Capybara is a DSL(Domain Specific Language) that helps you build tests in a user friendly format, naviating the page and performing user actions. Launchy is a helper class that allows you to add the line `save_and_open_page` within a test. When you run your test suite a browser window will be opened with the current state of the web page where the `save_and_open_page` is located. It is a helpful debugging tool. Shoulda Matchers provides us simple one liners helpful in testing validations and relationships on models. Pry is debugging gem for Ruby environment. Active Designer will give you a visual of the current structure of your database.
 
-#### Adding Gems 
+#### Adding Gems
 
-In your Gemfile, you should already have a group :development, :test section that looks like this: 
+In your Gemfile, you should already have a group :development, :test section that looks like this:
 
 ```ruby
 group :development, :test do
@@ -172,6 +172,7 @@ group :development, :test do
   gem 'launchy'
   gem 'shoulda-matchers'
   gem 'pry'
+  gem 'active_designer'
 end
 ```
 
@@ -205,20 +206,20 @@ end
 
 
 #### Don't forget to commit as you go
-Let's commit these updates with git. 
+Let's commit these updates with git.
 
 ```
 git add Gemfile
 git add Gemfile.lock
 git add spec
-git add .rspec	
+git add .rspec
 git status (Everything should be green now)
 git commit -m "Add setup for testing with RSpec and Shoulda Matchers"
 ```
 
-#### Directory Setup 
+#### Directory Setup
 
-You'll want all your tests to be organized so that Rails finds them and also so developers working on your project have an easy time navigating your test files. We want to make sub directories for our model tests and feature tests. And then add a .keep file to each so git tracks the emtpy directories. 
+You'll want all your tests to be organized so that Rails finds them and also so developers working on your project have an easy time navigating your test files. We want to make sub directories for our model tests and feature tests. And then add a .keep file to each so git tracks the emtpy directories.
 
 ```bash
 mkdir spec/models spec/features
@@ -244,13 +245,13 @@ With `checkout` we create a new branch (`-b` for branch) off of the `master` bra
 Before we dive into the deep and start changing things, let's great a test to help drive our development and keep up focused. Within `spec/models` touch `article_spec.rb`
 
 ```bash
-touch spec/models/article_spec.rb`
+touch spec/models/article_spec.rb
 ```
 
 In your article_spec add the following test:
 
 ```ruby
-require "rails_helper
+require "rails_helper"
 
 describe Article, type: :model do
   describe "validations" do
@@ -260,13 +261,13 @@ describe Article, type: :model do
 end
 ```
 
-And commit it. 
+And commit it.
 
 ```bash
 git add spec/models/article_spec.rb
 git commit -m "Add article spec with validations"
 ```
-You can run your test suite from your CLI(command line interface) with the command `rspec`. Go ahead and do that now.  I get the following print out:
+You can run your test suite from your CLI(command line interface) with the command `rspec`. Go ahead and do that now. I get the following print out:
 
 ```bash
 /Users/aleneschlereth/turing/1711/practice/blogger/db/schema.rb doesn't exist yet. Run `rails db:migrate` to create it, then try again. If you do not intend to use a database, you should instead alter /Users/aleneschlereth/turing/1711/practice/blogger/config/application.rb to limit the frameworks that will be loaded.
@@ -297,9 +298,9 @@ NameError:
 # ./spec/models/article_spec.rb:3:in `<top (required)>
 ```
 
-We know from working with Ruby and MiniTest that this error is telling us it can't Article. In this past this has meant that maybe the files aren't required appropriately or the class just doesn't exist. Now that we'll be working with a database we also have to think about whether this resource exists in the database or not. 
+We know from working with Ruby and MiniTest that this error is telling us it can't find the class `Article`. In this past this has meant that maybe the files aren't required appropriately or the class just doesn't exist. Now that we'll be working with a database we also have to think about whether this resource exists in the database or not.
 
-We haven't done anything with our database yet other than create an empty one. It definitely doesn't have Articles in there yet. Let's go solve that problem first. 
+We haven't done anything with our database yet other than create an empty one. It definitely doesn't have Articles in there yet. Let's go solve that problem first.
 
 #### Creating a Resource in the Database
 
@@ -384,6 +385,18 @@ It tells you that it is running the migration named `CreateArticles`. And the "m
 
 We've now created the `articles` table in the database and can start working on our `Article` model.
 
+Every time you run a migration, you'll also want to checkout your schema. This can be found under `db/schema.rb`. This file displays the current structure of your database - which tables are in your database and which columns are present on each table. If you're more of a visual person, you may also want to use Active Designer.
+
+Run `active_designer --create db/schema.rb` from the command line. You should see the following output:
+
+```
+Created active_designer/index.html
+```
+
+You'll notice that this has added an `active_designer` directory with an index.html in it. This has been built off your `schema.rb`. When you run the command `open active_designer/index.html` a web page will open up with a visual depiction of the current structure of your database. Cool!
+
+I highly recommend checking both your `schema.rb` and running `active_designer --create db/schema.rb` after each migration you run.
+
 Before we move on, don't forget to commit.
 
 ```bash
@@ -392,7 +405,7 @@ git add db/schema.rb
 git commit -m "Add Article migration"
 ```
 
-### Working with a Model 
+### Working with a Model
 
 Let's run `rspec` from our command line again. The output should look something like this:
 
@@ -415,7 +428,7 @@ Finished in 0.00044 seconds (files took 4.63 seconds to load)
 0 examples, 0 failures, 1 error occurred outside of examples
 ```
 
-The top looks slightly different, but the meat of what we're focusing hasn't yet. RSpec still can't find an Article. 
+The top looks slightly different, but the meat of what we're focusing hasn't yet. RSpec still can't find an Article.
 
 Let's add the model so that RSpec doesn't complain:
 
@@ -489,7 +502,7 @@ Now you'll see that the `Article.all` command gave you back an array holding the
 
 #### Validations
 
-Back to our test suite again, when we run `rspec` our error has changed. 
+Back to our test suite again, when we run `rspec` our error has changed.
 
 ```bash
 Article
@@ -564,12 +577,12 @@ git push origin article-model
 On GitHub put in a PR to merge the branch article-model into master. My PR message looks like this:
 
 ```
-Add Article Model 
+Add Article Model
 * Add Spec with validations for title and body
 * Add migration to create articles table in DB
 * Add Article model
 * Add validations for title and body to Article model
-* Test is passing 
+* Test is passing
 ```
 
 Even though we are working on a solo project, we still want to keep strong git habits, which includes PRs and not merging to master. Since we're working solo, we will need to merge our own PRs though. Do that before moving on.
@@ -592,7 +605,7 @@ Let's start off with a controller branch:
 git checkout -b articles-controller
 ```
 
-#### Feature Tests 
+#### Feature Tests
 
 As with anything we do, let's create a feature test before we go crazy building things we may or may not need. First, touch a new test file.
 
@@ -606,9 +619,9 @@ Add the following test structure:
 require "rails_helper"
 
 describe "user sees all articles" do
-  desribe "they visit /articles" do
+  describe "they visit /articles" do
     it "displays all articles" do
-      
+
     end
   end
 end
@@ -619,7 +632,7 @@ We need to first do the test setup, usually requiring data prep. In this test ou
 ```ruby
       article_1 = Article.create!(title: "Title 1", body: "Body 1")
       article_2 = Article.create!(title: "Title 2", body: "Body 2")
-``` 
+```
 
 We also will use Capybara methods to tell our test to navigate to the right page. Add the following below your data prep but still within the it block.
 
@@ -631,9 +644,7 @@ Lastly we need to assert or expect something. I want my user to see the title an
 
 ```ruby
      expect(page).to have_content(article_1.title)
-     expect(page).to have_content(article_1.body)
      expect(page).to have_content(article_2.title)
-     expect(page).to have_content(article_2.body)
 ```
 
 The test should look like this altogether:
@@ -783,7 +794,7 @@ The fourth column is where the route maps to in the application. Our example has
 
 Now that the router knows how to handle requests about articles, it needs a place to actually send those requests, the *Controller*.
 
-If we re-run `rspec` we get an error telling us likewise. Note you're error message will likely be just as large as last time, but we only really need to focus on the failure message printed above the stack trace. My error reads:
+If we re-run `rspec` we get an error telling us likewise. Note your error message will likely be just as large as last time, but we only really need to focus on the failure message printed above the stack trace. My error reads:
 
 ```ruby
 Failures:
@@ -812,7 +823,7 @@ Let's open up the controller file, `app/controllers/articles_controller.rb` and 
 
 ```ruby
 #app/controllers/articles_controller.rb
-class ArticlesContoller < ApplicationController
+class ArticlesController < ApplicationController
 
 end
 ```
@@ -831,7 +842,7 @@ Failures:
        The action 'index' could not be found for ArticlesController
 ```
 
-Woo new errors! This means we're making progress. What is this action 'index' all about? 
+Woo new errors! This means we're making progress. What is this action 'index' all about?
 
 
 ### Defining the Index Action
@@ -846,7 +857,7 @@ Unknown action
 The action 'index' could not be found for ArticlesController
 ```
 
-Same error message our test gave us! 
+Same error message our test gave us!
 
 The router tried to call the `index` action, but the articles controller doesn't have a method with that name. It then lists available actions, but there aren't any. This is because our controller is still blank. Let's add the following method inside the controller:
 
@@ -864,7 +875,7 @@ A normal Ruby instance variable is available to all methods within an instance.
 
 There are ways to accomplish the same goals without instance variables, but they're not widely used. Check out the [Decent Exposure](https://github.com/voxdolo/decent_exposure) gem to learn more.
 
-If we run our tests again, we should get a different error now in the failure section, above the stack trace. 
+If we run our tests again, we should get a different error now in the failure section, above the stack trace.
 
 ```ruby
  1) user sees all articles they visit /articles displays all articles
@@ -991,7 +1002,7 @@ My PR message looks like this:
 ```
 Add Articles Index Functionality
 * Add a feature spec for all articles
-* Add all routes for articles 
+* Add all routes for articles
 * Add an ArticlesController
 * Add an index action within ArticlesController
 * Add a view for articles/index
@@ -1028,7 +1039,7 @@ For example, `article_path(1)` would generate the string `"/articles/1"`. Give t
 
 #### Completing the Article Links
 
-Let's update or assertions in our feature test. Change `dexpect(page).to have_content(article_1.title)` to `expect(page).to have_link(article_1.title)` and make the same update for the second article.
+Let's update our assertions in our feature test. Change `expect(page).to have_content(article_1.title)` to `expect(page).to have_link(article_1.title)` and make the same update for the second article.
 
 When you run your test your error should looke something like this:
 
@@ -1073,7 +1084,7 @@ When the template is rendered, it will output HTML like this:
 ```html
 <a class="article-title" id="article-1" href="/articles/1">First Sample Article</a>
 ```
-Run your test suite again you should have all green, passing tests. Let's commit this change before we move on. 
+Run your test suite again you should have all green, passing tests. Let's commit this change before we move on.
 
 #### New Article Link
 
@@ -1128,7 +1139,7 @@ Based on our branch name, we have completed the intended functionality. Let's:
 
 ### Creating the SHOW Action
 
-We'll need to write a new test for this since we're building out functionality on a new action/view. Create a new feature test file for the functionality where a user sees one article. Within this test structure, you're going to start with a describe block similar to the name of the file, then give any more specific scenario information, and then say what you expect to find there. Git it a try yourself before looking at my sample below.
+We'll need to write a new test for this since we're building out functionality on a new action/view. Create a new feature test file for the functionality where a user sees one article. Within this test structure, you're going to start with a describe block similar to the name of the file, then give any more specific scenario information, and then say what you expect to find there. Give it a try yourself before looking at my sample below.
 
 ```ruby
 require "rails_helper"
@@ -1136,10 +1147,10 @@ require "rails_helper"
 describe "user sees one article" do
 	describe "they link from the articles index" do
 		it "displays information for one article" do
-		
-		end 
-	end 
-end 
+
+		end
+	end
+end
 ```
 
 We need our test to do the following:
@@ -1173,7 +1184,7 @@ end
 
 After you've put your test together, don't forget to commit it.
 
-When we run our test suite, we have a new error. 
+When we run our test suite, we have a new error.
 
 ```bash
 Failures:
@@ -1261,7 +1272,7 @@ So what do we want to do when the user clicks an article title?  Find the articl
 
 Within the controller, we have access to a method named `params` which returns us the request parameters. Often we'll refer to it as "the `params` hash", but technically it's "the `params` method which returns a hash-like object". Params is not a hash, but it acts just like one so we can treat it just like a hash.
 
-Put a `binding.pry` or `buybug` in your show action and run your test suite again. When your test suite stops, enter `params` and see what is returned. 
+Put a `binding.pry` or `buybug` in your show action and run your test suite again. When your test suite stops, enter `params` and see what is returned.
 
 ```
 <ActionController::Parameters {"controller"=>"articles", "action"=>"show", "id"=>"34"} permitted: false>
@@ -1277,7 +1288,7 @@ Within that hash we can find the `:id` from the URL by accessing the key `params
 @article = Article.find(params[:id])
 ```
 
-If you run your tests at this point, you should be all green, all tests passing. 
+If you run your tests at this point, you should be all green, all tests passing.
 
 #### Back to the Web page
 
@@ -1342,7 +1353,7 @@ describe "user creates a new article" do
 end
 ```
 
-When we run this test, we get the following error message. 
+When we run this test, we get the following error message.
 
 ```ruby
 Failures:
@@ -1354,7 +1365,7 @@ Failures:
        The action 'new' could not be found for ArticlesController
 ```
 
-Good thing we've done this twice and know how to handle this error. 
+Good thing we've done this twice and know how to handle this error.
 
 Now, let's create that action. Open `app/controllers/articles_controller.rb` and add this method, making sure it's _inside_ the `ArticlesController` class, but _outside_ the existing `index` and `show` methods:
 
@@ -1366,7 +1377,7 @@ end
 
 #### Starting the Template
 
-Our next error we get from our tests is the long `no template` error. 
+Our next error we get from our tests is the long `no template` error.
 
 Create a new file `app/views/articles/new.html.erb` with these contents:
 
@@ -1409,7 +1420,7 @@ What is all that?  Let's look at it piece by piece:
 
 #### Does it Work?
 
-Re-run your test suite and you certainly have a new error. 
+Re-run your test suite and you certainly have a new error.
 
 ```
 Failures:
@@ -1431,7 +1442,7 @@ Rails uses some of the _reflection_ techniques that we talked about earlier in o
 @article = Article.new
 ```
 
-When you run your test suite, your error should be the following: 
+When you run your test suite, your error should be the following:
 
 ```ruby
 Failures:
@@ -1443,7 +1454,7 @@ Failures:
        The action 'create' could not be found for ArticlesController
 ```
 
-Go back and look at the test you created.  Since my error is concerning the click_on "Create Article" that tells me Capybara made it through all those fill_in steps without a problem. 
+Go back and look at the test you created.  Since my error is concerning the click_on "Create Article" that tells me Capybara made it through all those fill_in steps without a problem.
 
 ### The `create` Action
 
@@ -1454,7 +1465,7 @@ AbstractController::ActionNotFound:
   The action 'create' could not be found for ArticlesController
 ```
 
-We accessed the `new` action to load the form, but Rails' interpretation of REST uses a second action named `create` to process the data from that form. Inside your `articles_controller.rb` add this method (again, _inside_ the `ArticlesContoller` class, but _outside_ the other methods):
+We accessed the `new` action to load the form, but Rails' interpretation of REST uses a second action named `create` to process the data from that form. Inside your `articles_controller.rb` add this method (again, _inside_ the `ArticlesController` class, but _outside_ the other methods):
 
 ```ruby
 def create
@@ -1643,16 +1654,16 @@ Commit, push, PR, merge, checkout master, pull, delete. Look at the header direc
 
 We can create articles and we can display them, but when we eventually deliver this to less perfect people than us, they're going to make mistakes. There's no way to remove an article, let's add that next.
 
-We could put delete links on the index page, but instead let's add them to the `show.html.erb` template. 
+We could put delete links on the index page, but instead let's add them to the `show.html.erb` template.
 
 #### But first, a test
 
-We want a brand new test file where our user is going to delete an article. 
+We want a brand new test file where our user is going to delete an article.
 
-* We've already decided that we will be linking from the show page. 
+* We've already decided that we will be linking from the show page.
 * How would we build an assertion that proves that it is gone from the complete list of articles?
 
-Build out your own test first before checking out my example below. 
+Build out your own test first before checking out my example below.
 
 ```ruby
 require "rails_helper"
@@ -1673,8 +1684,8 @@ describe "user deletes an article" do
   end
 end
 
-``` 
-With our test all put together let's commit that first before moving on. When we run the test suite, we get the following error. Remember the important part to read in the error message is above the long stack trace where it lists the `Failures` message. 
+```
+With our test all put together let's commit that first before moving on. When we run the test suite, we get the following error. Remember the important part to read in the error message is above the long stack trace where it lists the `Failures` message.
 
 ```ruby
 Failures:
@@ -1773,7 +1784,7 @@ Didn't quite get there? See the code below:
   end
 ```
 
-Passing tests means time to commit! 
+Passing tests means time to commit!
 
 #### Confirming Deletion
 
@@ -1880,9 +1891,9 @@ Failures:
        First argument in form cannot contain nil or be empty
 ```
 
-We've seen this error before. When you build your form_for you pass it an argument of your object (@article). Where do we get @article from? The controller. Take a look at your edit action in your controller. 
+We've seen this error before. When you build your form_for you pass it an argument of your object (@article). Where do we get @article from? The controller. Take a look at your edit action in your controller.
 
-Add `@article = Article.find(params[:id])` to your edit method. Rerun your test, and we have a new error! 
+Add `@article = Article.find(params[:id])` to your edit method. Rerun your test, and we have a new error!
 
 But wait, that code in edit looks an awful lot like how we set `@article` in our 'show' and `delete` action. Let's first DRY up this with a `before_action`:
 
@@ -1976,7 +1987,7 @@ Add the following code to the new view:
 
 Now go back to the `_form.html.erb` and paste the code from your clipboard.
 
-Run your tests to make sure they're still passing and you haven't broken anything. 
+Run your tests to make sure they're still passing and you haven't broken anything.
 
 #### Writing the Edit Template
 
@@ -1995,7 +2006,7 @@ Our operations are working, but it would be nice if we gave the user some kind o
 
 The controller provides you with accessor methods to interact with the `flash` object. Calling `flash.notice` will fetch a value, and `flash.notice = "Your Message"` will store the string into it.
 
-#### But first, let's add to our test 
+#### But first, let's add to our test
 
 In your user_edits_an_article_spec add the following expectation:
 
@@ -2080,7 +2091,7 @@ The `yield` is where the view template content will be injected. Just *above* th
 
 This outputs the value stored in the `flash` object in the attribute `:notice`.
 
-Run your test suite again and you should have all passing tests. Which means, time to commit! 
+Run your test suite again and you should have all passing tests. Which means, time to commit!
 
 #### Adding More Messages
 
@@ -2127,13 +2138,13 @@ First, we need to brainstorm what a comment _is_...what kinds of data does it ha
 * It has an author name
 * It has a body
 
-With that understanding, let's create a `Comment` model and a test. 
+With that understanding, let's create a `Comment` model and a test.
 
 ### Testing a Model's Relationships
 
 Create a new file `touch spec/models/comment_spec.rb`
 
-Set up your test similar to how we formatted the article model test, except this time we want to check that it has the right relationship to an article rather than validating presence of attributes. Your assertion might look like this: 
+Set up your test similar to how we formatted the article model test, except this time we want to check that it has the right relationship to an article rather than validating presence of attributes. Your assertion might look like this:
 
 ```ruby
   it {should belong_to(:article)}
@@ -2183,7 +2194,7 @@ Once you've taken a look at your generated migration task, go to your terminal a
 $ rake db:migrate
 ```
 
-We've made a pretty major change in alterign our database so let's commit that change. 
+We've made a pretty major change in alterign our database so let's commit that change.
 
 ```bash
 git add db/migrate
@@ -2243,13 +2254,13 @@ A comment relates to a single article, it "belongs to" an article. We then want 
 
 Let's add a section to our `spec/models/article_spec.rb`. Inside the first describe block, but outside of the validations describe block add another block for relationships with an assertion that article should have_many comments. Give it a try before looking at my example below.
 
-```ruby 
+```ruby
 describe "relationshps" do
   it {should have_many(:comments)}
 end
 ```
 
-Our error should look like this: 
+Our error should look like this:
 
 ```ruby
 Failures:
@@ -2258,7 +2269,7 @@ Failures:
      Failure/Error: it {should have_many(:comments)}
        Expected Article to have a has_many association called comments (no association called comments)
 ```
-To satisy this error we can add the following method to `article.rb`. 
+To satisy this error we can add the following method to `article.rb`.
 
 ```ruby
 class Article < ActiveRecord::Base
@@ -2270,7 +2281,7 @@ Unlike how `belongs_to :article` was implemented for us on the creation of the C
 
 Now an article "has many" comments, and a comment "belongs to" an article. We have explained to Rails that these objects have a one-to-many relationship.
 
-Run your tests again and they should be all green. Which means, time to commit! 
+Run your tests again and they should be all green. Which means, time to commit!
 
 ### Testing in the Console
 
@@ -2310,7 +2321,7 @@ You'll see that the article has associated comments. Now we need to integrate th
 
 ### Displaying Comments for an Article
 
-We want to display any comments underneath their parent article. 
+We want to display any comments underneath their parent article.
 
 Go back to `user_sees_one_article_spec.rb`. We're going to need to add some comments associated with the article and also add some assertions that those comments are showing up on the page. My test now looks like this:
 
@@ -2323,7 +2334,7 @@ describe "user sees one article" do
       article = Article.create!(title: "New Title", body: "New Body")
       comment_1 = article.comments.create(author_name: "Me", body: "Commenty comments")
       comment_2 = article.comments.create(author_name: "You", body: "So much to say")
-      
+
       visit articles_path
 
       click_link article.title
@@ -2453,7 +2464,7 @@ Failures:
        First argument in form cannot contain nil or be empty
 ```
 
-We know this error. We've seen it twice already. We are passing our form_for an argument of which type of object we're working with. In this form we pass **both** @article - the article the comment will belong to - and @comment. When this happened before it meant we hadn't created the emtpy Ruby object for the form to build off of. Let's go look in our ArticlesController. Remember we got to this partial on the show route, so we need to check out the show action. 
+We know this error. We've seen it twice already. We are passing our form_for an argument of which type of object we're working with. In this form we pass **both** @article - the article the comment will belong to - and @comment. When this happened before it meant we hadn't created the emtpy Ruby object for the form to build off of. Let's go look in our ArticlesController. Remember we got to this partial on the show route, so we need to check out the show action.
 
 #### In the `ArticlesController`
 
@@ -2653,7 +2664,7 @@ With those relationships in mind, let's design the new models:
   * `tag_id`: Integer holding the foreign key of the referenced Tag
   * `article_id`: Integer holding the foreign key of the referenced Article
 
-Note that there are no changes necessary to Article because the foreign key is stored in the Tagging model. 
+Note that there are no changes necessary to Article because the foreign key is stored in the Tagging model.
 
 #### But first, we test
 
@@ -2680,8 +2691,8 @@ Failure/Error:
 
 NameError:
   uninitialized constant Tag
-  
-  
+
+
 An error occurred while loading ./spec/models/tagging_spec.rb.
 Failure/Error:
   describe Tagging, type: :model do
@@ -2722,7 +2733,7 @@ class Tagging < ApplicationRecord
 end
 ```
 
-When I run my test, I have a new error... or errors actually. I have 6 failing assertions right now. Thank goodness they're all about these relationships I just added. 
+When I run my test, I have a new error... or errors actually. I have 6 failing assertions right now. Thank goodness they're all about these relationships I just added.
 
 Now that our model files are generated we need to tell Rails about the relationships between them. For each of the files below, add these lines:
 
@@ -2822,7 +2833,7 @@ Failures:
        Did you mean?  tag_ids
 ```
 
-An Article doesn't have an attribute or method named `tag_list`. We made it up in order for the form to display related tags, but we need to add a method to the `article.rb` file. 
+An Article doesn't have an attribute or method named `tag_list`. We made it up in order for the form to display related tags, but we need to add a method to the `article.rb` file.
 
 Let's hop back over to our `article_spec` really quickly to add a test for this new model method.
 
@@ -2894,7 +2905,7 @@ end
 
 Now, when we try to join our `tags`, it'll delegate properly to our name attribute. This is because `#join` calls `#to_s` on every element of the array.
 
-You probably have passing tests right now. But we just created a new model method. We're not done here.  Hop over to the `tag_spec` and add a section for instance methods and an assertion the to_s method. Once you have your model tests passing go ahead and commit your changes to your model spec and your models. 
+You probably have passing tests right now. But we just created a new model method. We're not done here.  Hop over to the `tag_spec` and add a section for instance methods and an assertion the to_s method. Once you have your model tests passing go ahead and commit your changes to your model spec and your models.
 
 Run your tests again. I got this error:
 
@@ -2902,11 +2913,11 @@ Run your tests again. I got this error:
 Failures:
 
   1) user creates a new article they link from the articles index they fill in a title and body creates a new article
-     Failure/Error: expect(page).to have_content("ruby, technology")
-       expected to find text "ruby, technology" in "Article New Title! Created! New Title! New Body! Edit Delete Comments (0) Post a Comment Your Name Your Comment << Back to Articles List"
+     Failure/Error: expect(page).to have_content("ruby technology")
+       expected to find text "ruby technology" in "Article New Title! Created! New Title! New Body! Edit Delete Comments (0) Post a Comment Your Name Your Comment << Back to Articles List"
 ```
 
-It's not showing up on the page. 
+It's not showing up on the page.
 
 ### Adding Tags to our Display
 
@@ -2929,11 +2940,11 @@ When I run my test again, I get an (only slightly) new error.
 Failures:
 
   1) user creates a new article they link from the articles index they fill in a title and body creates a new article
-     Failure/Error: expect(page).to have_content("ruby, technology")
-       expected to find text "ruby, technology" in "Article New Title! Created! New Title! Tags: New Body! Edit Delete Comments (0) Post a Comment Your Name Your Comment << Back to Articles List"
+     Failure/Error: expect(page).to have_content("ruby technology")
+       expected to find text "ruby technology" in "Article New Title! Created! New Title! Tags: New Body! Edit Delete Comments (0) Post a Comment Your Name Your Comment << Back to Articles List"
 ```
 
-When I look at the string of what IS on the page, I see that header of Tags: but my tags are listed there. Why aren't they saving? Put a `binding.pry` in your articles#create action. I'd probably put it after we call Article.new. 
+When I look at the string of what IS on the page, I see that header of Tags: but my tags are listed there. Why aren't they saving? Put a `binding.pry` in your articles#create action. I'd probably put it after we call Article.new.
 
 Let's run our test and poke around. First I want to check out `params` then maybe `params[:tag_list]`. Is my information coming through from the form? Yes. I see "ruby, technology" nested under `:tag_list` in params. Second I want to check the state of my new Article. What is `@article`? Do we have anything under `@article.tags`? Hmm nothing there. Why aren't our tags being saved? Check our strong params `article_params`. Oooo here I only see :title and :body.  Why not :tag_list?
 
@@ -3053,11 +3064,11 @@ And you'll see that this Tag is associated with just one Article.
 
 ### Adding Tag Links to our Display
 
-We want to be able to link from our article show to a tag show. 
+We want to be able to link from our article show to a tag show.
 
 #### First, let's write a test.
 
-We want a new test file for a user seeing a single tag. I'm going to want to click from an article show to a tag show and have it display the tag's name. 
+We want a new test file for a user seeing a single tag. I'm going to want to click from an article show to a tag show and have it display the tag's name.
 
 You're going to need to do a some data prep that is slightly more fancy that you've done before. We are trying to set up this many-to-many relationship in our test.  Below are a few different strategies to choose from:
 
@@ -3069,7 +3080,7 @@ You're going to need to do a some data prep that is slightly more fancy that you
 ```ruby
      article = Article.create!(title: "New Title", body: "New Body")
      tag = Tag.create!(name: "Name")
-     article.tags << tag 
+     article.tags << tag
 ```
 
 ```ruby
@@ -3136,7 +3147,7 @@ class TagsController < ApplicationController
 end
 ```
 
-Then 
+Then
 
 ```ruby
 Failures:
@@ -3178,7 +3189,7 @@ Re-run your tests and we're all green. Time to commit!
 
 ### Listing All Tags
 
-We've built the `show` action, but the reader should also be able to browse the tags available at `http://localhost:3000/tags`. I think you can do this on your own. 
+We've built the `show` action, but the reader should also be able to browse the tags available at `http://localhost:3000/tags`. I think you can do this on your own.
 
 Create a test for a user seeing all tags. Follow the errors to get your test passing.
 

@@ -7,8 +7,8 @@ layout: page
 
 ### Classes
 
+* [Optimization Dojo](../lessons/performance_dojo)
 * [Caching Strategies in Rails](../lessons/caching_in_rails)
-* [Getting Started with Workers](../lessons/intro_to_background_workers)
 
 ### Projects
 

@@ -7,10 +7,8 @@ layout: page
 
 ### Classes
 
-* [Understanding Multitenancy](../lessons/understanding_multitenancy)
-* [Multitenancy Authorization](../lessons/multitenancy_authorization)
-* [Finding Opportunities](https://github.com/turingschool/professional_skills/blob/master/job_search_strategy.md)
-* [Intro to Professional Workflow](../lessons/intro_to_professional_workflow)
+* [Sending Email](../lessons/sending_email_sendgrid)
+* [Fundamental Rails Security](../lessons/fundamental_rails_security)
 * Career Q&A
 * [Mock Assessment](../lessons/diagnostic)
 * 80202 Re-DTR
@@ -18,4 +16,4 @@ layout: page
 
 ### Projects
 
-* [Le Pivot](../projects/le_pivot)
+* [Battleshift](../projects/battleshift)

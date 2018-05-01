@@ -24,6 +24,8 @@ The project requirements are listed below:
 * Revisiting previous concepts such as APIs and OAuth
 * Finding the strengths and gaps in your knowledge of Ruby, Rails, and organizing
 a project.
+* Use an agile process as you develop features
+* Configure a continuous integration server
 
 ## <a name="technical-expectations"> Technical Expectations
 
@@ -50,7 +52,6 @@ Your application **must make good use of one external dataset or API**. Some exa
 #### Government Data
 
 * [Data.gov](https://www.data.gov/)
-* [Sunlight Foundation](http://sunlightfoundation.com/)
 * [ProPublica](http://www.propublica.org/tools/)
 * [NASA](http://data.nasa.gov/api-info/)
 * [US Census](http://www.census.gov/data/developers/data-sets.html)
@@ -76,7 +77,7 @@ However, the list is not limited to these. You can choose to integrate with a se
 
 ## <a name="project-concepts"></a> Project Concepts
 
-A week prior to the Self-Directed Project kickoff, each cohort member needs to generate at least **three project ideas**. The ideas must solve a real problem. To put your ideas into project proposals follow the template below. Each idea should have one project proposal.
+Your idea must be approved by an instructor and should be supplied in a gist using the following template...
 
 ### Project Template
 
@@ -105,100 +106,66 @@ A week prior to the Self-Directed Project kickoff, each cohort member needs to g
 * Which OAuth integration are you planning to use?
 ```
 
-## Milestones
+## Milestones & Agile Process
 
 You will meet with instructors periodically during the project. The goals of each check-in roughly what should be completed before the check-in is listed below.
 
-### 1st Check-in (Days 1-2)
+### Setup
 
-- 15-25 minutes
+* Create a board on Pivotal Tracker and invite your PM as a contributor.
+* Before you begin to implement code, write up 5-10 stories on your new Pivotal Tracker board. These stories must be written in present tense.
+* Once step two is complete, send your tracker board over to your PM.
+* Setup a [CI Server](http://backend.turing.io/module3/lessons/ci_and_staging_environments)
 
-#### What should be done
+### Pull Requests
 
-What you build is pretty much up to you. Instructors will want to go over your plan for the project. Research the APIs you want to use, and have a vision for what you want to build. It's better to know the limits of the API you're using than to be deep into code at this point. If you've only used Postman or cURL to this point, that's just fine.
+* For each story you create, there will be an associated story ID number. You'll use this in your pull requests.
+* PR's must be formatted as the following: 123456: Add user to database table, 789101: Add get_all action for user resource, 194385: Add create action for user resource, etc
+* Copy and paste the story URL into the PR. Tag your PM if you have specific questions. No need to have our approval to merge unless there is an issue that needs to be resolved.
+* Once you have run through and completed your original story list, write an additional 5-10 stories and send us a notification that they have been written. We'll be expecting to see consistent updates.
 
-#### What to expect from instructors
+### "Standup" and Checkins
 
-Instructors will help you refine your plan, including scope, wireframes and project management. You'll also decide what should be done by the next check-in.
-
-Don't expect to go over too much code, but if you've got technical questions, go ahead and bring them up.
-
-### 2nd Check-in (days 3-4)
-
-- 15-25 minutes
-
-#### What should be done
-
-This is based on what you decided in your last check-in. If you've changed the plan, be sure to let your instructor know prior to the check-in. Have a plan for what you'd like to go over. Specific technical questions, discussing strategies for execution, or whatever else you'd like to talk about.
-
-#### What to expect from instructors
-
-Instructors will review the work you've done so far at a high level. What's working? What are you in the middle of? Then it's really up to you what to look at, whether it's with your client or technical lead.
-
-You'll also decide what should be done by the next check-in.
-
-### 3rd Check-in
-
-- 15-25 minutes
-
-#### What should be done
-
-This is based on what you decided in your last check-in. If you've changed the plan, be sure to let your instructor know prior to the check-in. Have a plan for what you'd like to go over. Specific technical questions, discussing strategies for execution, or whatever else you'd like to talk about.
-
-Last check-in before evaluation. Make sure you've reviewed the evaluation criteria, and bring any questions you have about it.
-
-#### What to expect from instructors
-
-Instructors will review the work you've done so far at a high level. They may have some comments on bugs to fix or extensions to build. Then it's really up to you what to look at.
+* Every weekday at 2PM send your PM a remote "daily standup" style update via Slack that answers the following questions:
+  * What have you been working on?
+  * What are you going to be working on?
+  * Is anything blocking you?
+* Every two days you will commit to the work you will have complete over the next two days and a specific time it will be complete. Work with your PM to determine when this will be.
 
 ## <a name="evaluation"></a> Evaluation
 
-You'll be graded on each of the criteria below with a score of (1) well below expectations, (2) below expectations, (3) as expected, (4) better than expected.
 
 ### Feature Delivery
 
 **1. Completion**
 
-* 4: Developer completed all the user stories and requirements set by the client in timely manner.
-* 3: Developer completed all the user stories and requirements set by the client.
-* 2: Developer completed most of the user stories and requirements set by the client.
-* 1: Developer completed the user stories and requirements partially.
+- [ ] Developer completed all the user stories and requirements set by the client.
 
 **2. Organization**
 
-* 4: Developer used a project management tool and updated their progress in real-time.
-* 3: Developer used a project management tool to keep their project organized.
-* 2: Developer used a project management tool but didn't update the progress frequently.
-* 1: Developer failed to use a project management tool to track its progress.
+- [ ] Developer used a project management tool and updated their progress in real-time.
 
 ### Technical Quality
 
 **1. Test-Driven Development**
 
-* 4: Project shows exceptional use of testing at different layers (above 95% coverage).
-* 3: Project shows adequate testing (90% - 95% coverage).
-* 2: Project shows gaps in test usage/coverage/design (85 - 90% coverage).
-* 1: Project lacks sufficient testing (under 85% coverage).
+- [ ] Project demonstrates high value testing at different layers (above 90%).
 
 **2. Code Quality**
 
-* 4: Project demonstrates exceptionally well factored code.
-* 3: Project demonstrates solid code quality and MVC principles.
-* 2: Project demonstrates some gaps in code quality and/or application of MVC principles.
-* 1: Project demonstrates poor factoring and/or understanding of MVC.
+- [ ] Project uses abstraction.
+- [ ] Project shows understanding of MVC principles (no logic in views, clean controllers, serializers and presenters to handle formatting rather than models etc.)
+
+**3. Technical Growth**
+
+- [ ] Project uses at least one new technology
 
 ### Product Experience
 
 **1. User Experience**
 
-* 4: Project exhibits a production-ready and polished UX.
-* 3: Project exhibits a production-ready user experience.
-* 2: Project exhibits some gaps in the UX.
-* 1: Project exhibits inattention to the user experience.
+- [ ] Project is ready to demo
 
 **2. Performance**
 
-* 4: Project pages load on average under 300 milliseconds.
-* 3: Project pages load on average under 400 milliseconds.
-* 2: Project pages load on average under 500 milliseconds.
-* 1: Project pages load on average over 500 milliseconds.
+- [ ] Average page load time is under 400 milliseconds.

@@ -37,9 +37,9 @@ but whereas each node in a binary tree points to up to 2 subtrees,
 nodes within our retrieval tries will point to `N` subtrees, where `N`
 is the size of the alphabet we want to complete within.
 
-Thus for a simple latin-alphabet text trie, each node will potentially
+Thus, for a simple latin-alphabet text trie, each node will potentially
 have 26 children, one for each character that could potentially follow
-the text entered thus far.
+the text entered in a search so far.
 (In graph theory terms, we could classify this as a Directed, Acyclic
 graph of order 26, but hey, who's counting?)
 
@@ -51,36 +51,39 @@ Take a moment and read more about Tries:
 * [Tries writeup in the DSA Repo](https://github.com/turingschool/data_structures_and_algorithms/tree/master/tries)
 * [Tries Wikipedia Article](https://en.wikipedia.org/wiki/Trie)
 
+
 ### Input File
 
 Of course, our Trie won't be very useful without a good dataset
 to populate it. Fortunately, our computers ship with a special
 file containing a list of standard dictionary words.
-It lives at `/usr/share/dict/words`
+You can find it in the terminal at this path: `/usr/share/dict/words`
 
 Using the unix utility `wc` (word count), we can see that the file
 contains 235886 words:
 
 ```
-$ cat /usr/share/dict/words | wc -l
+$ wc -l /usr/share/dict/words
 235886
 ```
 
 Should be enough for us!
+
 
 ### Required Features
 
 To complete the project, you will need to build an autocomplete
 system which provides the following features:
 
-1. Insert a single word to the autocomplete dictionary
+1. Insert a single word at a time to the autocomplete dictionary
 2. Count the number of words in the dictionary
 3. Populate a newline-separated list of words into the dictionary
 4. Suggest completions for a substring
 5. Mark a selection for a substring
 6. Weight subsequent suggestions based on previous selections
 
-### Basic Interaction Model
+
+### Basic Interaction Model (Interface)
 
 We'll expect to interact with your completion project from an interactive
 pry session, following a model something like this:
@@ -147,32 +150,7 @@ completion.suggest("piz")
 
 ```
 
-## Spec Harness
-
-This is the first project where we'll use an automated spec harness
-to evaluate the correctness of your projects.
-
-For this reason, you'll want to make sure to follow the
-top-level interface described in the previous sections
-closely.
-
-You can structure the internals of your program however you like,
-but if the top level interface does not match, the
-spec harness will be unable to evaluate your work.
-
-Spec harness available [here](https://github.com/turingschool-examples/complete_me_spec_harness/blob/master/test/complete_me_test.rb).
-
-## Support Tooling
-
-Please make sure that, before your evaluation, your project has the following:
-
-* [SimpleCov](https://github.com/colszowka/simplecov) reporting accurate test coverage statistics
-
-## Supporting Features
-
-In addition to the base features included above, you must choose **one** of the following to implement:
-
-### 1. Substring-Specific Selection Tracking
+### Substring-Specific Selection Tracking
 
 A simple approach to tracking selections would be to simply
 "count" the number of times a given word is selected
@@ -216,13 +194,14 @@ However for the substring "pi", we choose "pizza" twice and
 "piz" don't count when suggesting against "pi", so now "pizza"
 and "pizzicato" come up as the top choices.
 
-### 2. Word Deletion and Tree Pruning
 
-Let's add a feature that let's us delete words from the tree.
+### Word Deletion and Tree Pruning
+
+Let's add a feature that lets us delete words from the tree.
 When deleting a node, we'll need to consider a couple of cases.
 
 First, make sure that we adjust our tree so that the node relating to
-the removed word is no longer seen as a valid word. This means
+the removed word no longer seen that word as a valid word. This means
 that subsequent suggestions should no longer return it as a match for
 any of its substrings.
 
@@ -231,26 +210,60 @@ children below them), this is all you need to do.
 
 However, for **leaf nodes** (i.e. nodes at the end of the tree), we
 will also want to **completely remove** those nodes from the tree.
-Since the node in question no longer represents a word and there
-are no remaining nodes below it, there's no point in keeping it in the
-tree, so we should remove it.
+Since the leaf node in question no longer represents a word, and there
+are no remaining nodes below it, there's no point in keeping the leaf
+node in the tree, so we should remove it.
 
 **Additionally**, once we remove this node, we would also want to
 remove any of its parents for which it was the only child. That is --
 if, once we remove our word in question, the node above it is now
 a path to nowhere, we should also remove that node. This process would
-repeat up the chain until we finally reach "word" node that we want
+repeat up the chain until we finally reach a "word" node that we want
 to keep around.
+
+For example, if the word `trying` was in our Trie (as well as the word `try`)
+then the 'y' node and 'g' node would be "word" nodes. If we were to delete
+the word `trying` from the Trie, then the nodes for 'i', 'n' and 'g' should
+be removed, not just the 'g' node.
 
 The exact implementation of this process will depend on how your
 tree is built, so we likely won't include it in the spec harness. You
 will need to provide your own tests that demonstrate this functionality.
 
-## Extensions
+
+## Spec Harness
+
+This is the first project where Turing instructors will use an automated 
+test runner, called a "spec harness" to evaluate the correctness and
+completeness of your projects. A link to the spec harness is included below
+so that you can run it yourself.
+
+For this reason, you'll want to make sure to follow the top-level interface 
+described in the previous sections very closely or some tests may not pass.
+
+You can structure the internals of your program however you like,
+but if the top level interface does not match, the
+spec harness will be unable to evaluate your work.
+
+The spec harness is available [here](https://github.com/turingschool-examples/complete_me_spec_harness/blob/master/test/complete_me_test.rb).
+
+
+## Support Tooling
+
+Please make sure that, before your evaluation, your project has the following:
+
+* [SimpleCov](https://github.com/colszowka/simplecov) reporting accurate test coverage statistics
+* [HoundCI](https://houndci.com/) Pull Request based linter. (This should be set up when you start your project.)
+
+
+## Supporting Features
+
+In addition to the base features included above, you must choose **two** of the following to implement:
+
 
 ### 1. Denver Addresses
 
-Working with words was interesting, but what about a bigger dataset? Check out [this data file](http://data.denvergov.org/dataset/city-and-county-of-denver-addresses) (you'll want the CSV version) that contains all the known addresses in the city of Denver. Use the `full_address` field that's last in the row. Can you make your autocomplete work with that dataset?
+Working with words was interesting, but what about a bigger dataset? Check out [this data file](http://data.denvergov.org/dataset/city-and-county-of-denver-addresses) (you'll want the CSV version) that contains all the known addresses in the city of Denver. Use the `full_address` field (the last column in the row). Can you make your autocomplete work with that dataset?
 
 ### 2. Substrings
 
@@ -260,45 +273,83 @@ Could your word lookup possibly handle middle-of-the-word matches? So that `com`
 
 Can you create a graphical user interface for your code? Something that a "normal person" might plausibly use? Consider a toolkit like [Shoes](http://shoesrb.com/) or [Ruby Processing](https://github.com/jashkenas/ruby-processing).
 
-## Evaluation Rubric
 
-The project will be assessed with the following guidelines:
+
+**Expectations:**
+
+### 1. Ruby Syntax & Style
+
+- [ ] Applies appropriate attribute encapsulation  
+- [ ] Developer creates instance and local variables appropriately
+- [ ] Naming follows convention (is idiomatic)
+- [ ] Ruby methods used are logical and readable  
+- [ ] Recursion is implemented logically
+- [ ] Developer implements appropriate enumerable methods (#each is used sparingly)
+- [ ] Code is indented properly
+- [ ] Code does not exceed 80 characters per line 
+- [ ] Each class has correctly-named files and corresponding test files in the proper directories
+- [ ] Code has been linted and corrected properly.
+
+Grading:
 
 * 4: Above expectations
 * 3: Meets expectations
 * 2: Below expectations
 * 1: Well-below expectations
 
-**Expectations:**
-
-### 1. Ruby Syntax & Style
-
-* Applies appropriate attribute encapsulation  
-* Developer creates instance and local variables appropriately
-* Naming follows convention (is idiomatic)
-* Ruby methods used are logical and readable  
-* Recursion is implemented logically
-* Developer implements appropriate enumerable methods (#each is used sparingly)
-* Code is indented properly
-* Code does not exceed 80 characters per line 
-* Each class has correctly-named files and corresponding test files in the proper directories
-
 ### 2. Breaking Logic into Components
 
-* Code is effectively broken into methods & classes 
-* Developer writes methods less than 8 lines 
-* No more than 3 methods break the principle of SRP 
+- [ ] Code is effectively broken into methods & classes 
+- [ ] Developer writes methods less than 8 lines 
+- [ ] Methods do not break the principle of SRP 
+
+Grading:
+
+* 4: Above expectations
+* 3: Meets expectations
+* 2: Below expectations
+* 1: Well-below expectations
 
 ### 3. Test-Driven Development
 
-* Each method is tested  
-* Functionality is accurately covered
-* Tests implement Ruby syntax & style   
-* Balances unit and integration tests 
-* Evidence of edge cases testing 
-* Test Coverage metrics are present (SimpleCov)
+- [ ] Each method is tested  
+- [ ] Functionality is accurately covered
+- [ ] Tests implement Ruby syntax & style   
+- [ ] Balances unit and integration tests 
+- [ ] Evidence of edge cases testing 
+- [ ] Test Coverage metrics are present (SimpleCov)
+- [ ] Test Coverage metrics exceed 95%
 
-### 4. Functionality
+Grading:
 
-* Application meets all requirements (extension not req'd)
+* 4: Above expectations
+* 3: Meets expectations
+* 2: Below expectations
+* 1: Well-below expectations
 
+### 4. Git Workflow
+
+- [ ] Repository demonstrates that each member of team has contributed fairly equally.
+- [ ] Developers commit at a rate of approximately one commit every 30 minutes.
+- [ ] Repository shows the use of branches.
+- [ ] Developers use a pull request workflow.
+- [ ] Developers resolve HoundCI complaints in their pull requests.
+
+Grading:
+
+* 4: Above expectations
+* 3: Meets expectations
+* 2: Below expectations
+* 1: Well-below expectations
+
+### 5. Functionality
+
+- [ ] Application meets all core requirements
+- [ ] Application passes spec harness
+
+Grading:
+
+* 4: Above expectations
+* 3: Meets expectations
+* 2: Below expectations
+* 1: Well-below expectations

@@ -21,8 +21,8 @@ instances. It offers the following methods:
 *   `find_by_id` - returns either `nil` or an instance of `InvoiceItem` with a matching ID
 *   `find_all_by_item_id` - returns either `[]` or one or more matches which have a matching item ID
 *   `find_all_by_invoice_id` - returns either `[]` or one or more matches which have a matching invoice ID
-*    `create(attributes)` - create a new `InvoiceItem` instance with the provided `attributes`.
-*    `update(id, attribute)` - update the `InvoiceItem` instance with the corresponding `id` with the provided `attributes`
+*    `create(attributes)` - create a new `InvoiceItem` instance with the provided `attributes`. The new `InvoiceItem`'s id should be the current highest `InvoiceItem` id plus 1.
+*    `update(id, attribute)` - update the `InvoiceItem` instance with the corresponding `id` with the provided `attributes`. Only the invoice_item's `quantity` and `unit_price` can be updated. This method will also change the invoice_item's `updated_at` attribute to the current time.
 *    `delete(id)` - delete the `InvoiceItem` instance with the corresponding `id`
 
 The data can be found in `data/invoice_items.csv` so the instance is created and used like this:
@@ -75,8 +75,8 @@ instances. It offers the following methods:
 *   `find_all_by_invoice_id` - returns either `[]` or one or more matches which have a matching invoice ID
 *   `find_all_by_credit_card_number` - returns either `[]` or one or more matches which have a matching credit card number
 *   `find_all_by_result` - returns either `[]` or one or more matches which have a matching status
-*    `create(attributes)` - create a new `Transaction` instance with the provided `attributes`.
-*    `update(id, attribute)` - update the `Transaction` instance with the corresponding `id` with the provided `attributes`
+*    `create(attributes)` - create a new `Transaction` instance with the provided `attributes`. The new `Transaction`'s id should be the current highest `Transaction` id plus 1.
+*    `update(id, attribute)` - update the `Transaction` instance with the corresponding `id` with the provided `attributes`. Only the transaction's `credit_card_number`, `credit_card_expiration_date`, and `result` can be updated. This method will also change the transaction's `updated_at` attribute to the current time.
 *    `delete(id)` - delete the `Transaction` instance with the corresponding `id`
 
 The data can be found in `data/transactions.csv` so the instance is created and used like this:
@@ -124,8 +124,8 @@ instances. It offers the following methods:
 *   `find_by_id` - returns either `nil` or an instance of `Customer` with a matching ID
 *   `find_all_by_first_name` - returns either `[]` or one or more matches which have a first name matching the substring fragment supplied
 *   `find_all_by_last_name` - returns either `[]` or one or more matches which have a last name matching the substring fragment supplied
-*    `create(attributes)` - create a new `Customer` instance with the provided `attributes`.
-*    `update(id, attribute)` - update the `Customer` instance with the corresponding `id` with the provided `attributes`
+*    `create(attributes)` - create a new `Customer` instance with the provided `attributes`. The new `Customer`'s id should be the current highest `Customer` id plus 1.
+*    `update(id, attribute)` - update the `Customer` instance with the corresponding `id` with the provided `attributes`. Only the customer's `first_name` and `last_name` can be updated. This method will also change the customer's `updated_at` attribute to the current time.
 *    `delete(id)` - delete the `Customer` instance with the corresponding `id`
 
 The data can be found in `data/customers.csv` so the instance is created and used like this:
@@ -174,5 +174,3 @@ sales_analyst = sales_engine.analyst
 
 * Failed charges should never be counted in revenue totals or statistics.
 * An invoice is considered paid in full if it has a successful transaction
-* An invoice cannot have more than one successful transaction.
-* A transaction is always for the full amount. For instance, you cannot pay half the invoice total in one transaction.

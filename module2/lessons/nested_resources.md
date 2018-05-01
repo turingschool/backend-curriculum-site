@@ -47,7 +47,7 @@ end
 
 ```ruby
 # config/routes.rb
-resources :directors shallow: true do
+resources :directors, shallow: true do
   resources :movies
 end
 ```
@@ -75,17 +75,19 @@ end
 
 ```ruby
   #spec/features/user_can_create_a_new_movie_spec.rb
-  director = Director.create(name: "Ilana")
+  director = Director.create(name: "Patty Jenkins")
   visit "/directors/#{director.id}/movies/new"
-
-  fill_in :title, with: "Finding Nemo"
-  fill_in :description, with: "A sad fish story"
+  title = "Wonder Woman"
+  description = "Before she was Wonder Woman, she was Diana."
+  
+  fill_in :movie_title, with: title
+  fill_in :movie_description, with: description
 
   click_on "Create Movie"
 
   expect(current_path).to eq("/movies/#{Movie.last.id}")
-  expect(page).to have_content("Finding Nemo")
-  expect(page).to have_content("A sad fish story")
+  expect(page).to have_content(title)
+  expect(page).to have_content(description)
   expect(page).to have_content(director.name)
 ```
 
@@ -145,12 +147,12 @@ end
   <%= f.label :title %>
   <%= f.text_field :title %>
   <%= f.label :description %>
-  <%= f.text_area :title %>
+  <%= f.text_area :description %>
   <%= f.submit %>
 <% end %>
 ```
 
-Let's run RSpec and adjust our Movies Controller to point the form to  `create`
+Let's run RSpec and adjust our Movies Controller to point the form to `create`
 
 ```ruby
 def create

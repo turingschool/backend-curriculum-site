@@ -21,8 +21,8 @@ instances. It offers the following methods:
 *   `find_all_by_customer_id` - returns either `[]` or one or more matches which have a matching customer ID
 *   `find_all_by_merchant_id` - returns either `[]` or one or more matches which have a matching merchant ID
 *   `find_all_by_status` - returns either `[]` or one or more matches which have a matching status
-*    `create(attributes)` - create a new `Invoice` instance with the provided `attributes`.
-*    `update(id, attribute)` - update the `Invoice` instance with the corresponding `id` with the provided `attributes`
+*    `create(attributes)` - create a new `Invoice` instance with the provided `attributes`. The new `Invoice`'s id should be the current highest `Invoice` id plus 1.
+*    `update(id, attribute)` - update the `Invoice` instance with the corresponding `id` with the provided `attributes`. Only the invoice's `status` can be updated. This method will also change the invoice's updated_at attribute to the current time.
 *    `delete(id)` - delete the `Invoice` instance with the corresponding `id`
 
 The data can be found in `data/invoices.csv` so the instance is created and used like this:

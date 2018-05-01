@@ -10,30 +10,21 @@ tags: json, javascript, rails, ruby, api
 * Discuss other serialization options, like Jbuilder
 * Understand what constitutes presentation logic in the context of serving a JSON API and why formatting in the model is not the right place
 
-## Recap
+## Slides
 
-### API Namespacing
-
-- Why do we namespace our APIs?
-- Why do we version our APIs?
+Available [here](../slides/customizing_json)
 
 ## Warmup
 
-### Jbuilder vs Active Model Serializer
+Research ActiveModel Serializers
 
-With your neighbor, assign a person A and person B.
-
-Person A will research Jbuilder and person B will research Active Model Serializer.
-
-Try to answer the following:
-
-- What are their purposes?
-- How do they accomplish that?
-- What does their setup in Rails entail?
+* What do serializers allow us to do?
+* What resources were you able to find? Which seem most promising?
+* What search terms did you use that gave the best results?
 
 ## Active Model Serializers
 
-While Jbuilder and AMS allow us to customize our JSON, we'll be moving forward with Active Model Serializers. This allows us to break from the concept of views fully with our API, and instead, mold that data in an object-oriented fashion.
+AMS allow us to break from the concept of views fully with our API, and instead, mold that data in an object-oriented fashion.
 
 When we call `render json:`, Rails makes a call to `as_json` under the hood unless we have a serializer set up. Eventually, `as_json` calls `to_json` and our response is generated.
 
@@ -41,9 +32,23 @@ With how we've used `render json:` up til now, all data related with the resourc
 
 Let's imagine that you don't just want the raw guts of your model converted to JSON and sent out to the user -- maybe you want to customize what you send back.
 
-## Setup
+## Scavenger Hunt
 
-We're going to start where we left off in the internal API testing lesson.
+With a partner, based on the resources you found, how do you:
+
+* set up AMS in your Rails project?
+* create a new serializer?
+* tell a serializer which attributes to display?
+* tell a serializer to display related objects?
+* tell a serializer to display a calculated value?
+
+Share your findings with the class.
+
+## Code Along
+
+### Adding to Our Existing Project
+
+We're going to start where we left off in the internal API testing lesson. Feel free to use the repository that you created yesterday. Otherwise, you can clone the repo below as a starting place.
 
 ```bash
 git clone https://github.com/s-espinosa/building_internal_apis.git
@@ -113,13 +118,16 @@ Create your controller:
   - Create routes.
   - Set `index` and `show` methods to render appropriate json
 
-## Responses
+### Desired Responses
 
-What does our JSON currently output as?
+Use Postman or your browser to view the current responses that your API is providing to the routes listed below:
 
-What do we want out JSON to output?
+* api/v1/items
+* api/v1/items/:id
+* api/v1/orders
+* api/v1/orders/:id
 
-JSON responses should contain the following data from the following endpoints:
+Compare those responses to the responses below. How do they differ?
 
 **api/v1/items**
 
@@ -128,7 +136,6 @@ JSON responses should contain the following data from the following endpoints:
   {
     "id": 1,
     "name": "Hammer",
-    "price": 11
   },
   {...}
 ]
@@ -140,7 +147,6 @@ JSON responses should contain the following data from the following endpoints:
 {
   "id": 1,
   "name": "Hammer",
-  "price": 11,
   "num_orders": 5,
   "orders": [
     {"order_number": "12345ABC"},
@@ -179,20 +185,9 @@ JSON responses should contain the following data from the following endpoints:
 }
 ```
 
-## Using Active Model Serializers to modify `as_json`
+### Using Active Model Serializers to modify `as_json`
 
-[Active Model Serializer Docs][am_serializer_guide]
-
-[am_serializer_guide]: https://github.com/rails-api/active_model_serializers/tree/0-10-stable
-
-### Intro
-
-- Install with a gem: `gem 'active_model_serializers', '~> 0.10.0'`
-- Uses model syntax
-- Modifies [`.as_json`](http://api.rubyonrails.org/classes/ActiveModel/Serializers/JSON.html#method-i-as_json), which happens in the background of [`respond_with`](http://edgeapi.rubyonrails.org/classes/ActionController/Responder.html)
-- Serializers describe which attributes and relationships should be serialized.
-
-### Code Along
+Install AMS with a gem: `gem 'active_model_serializers', '~> 0.10.0'`
 
 We're going to create a serializer for `Order`.
 
@@ -235,9 +230,9 @@ class OrderSerializer < ActiveModel::Serializer
 end
 ```
 
-### Lab
+## Lab
 
-Do what I did to `Order`, but on `Item` now.
+Do what we did to `Order`, but on `Item` now.
 
 - Some existing fields
   - `id`, `name`, `description`
@@ -247,9 +242,10 @@ Do what I did to `Order`, but on `Item` now.
   - `orders`
 
 
-## Resources
+## Additional Resources
 
 Here's some branches of Storedom with customized JSON:
 
+- [Active Model Serializer Docs](https://github.com/rails-api/active_model_serializers/tree/0-10-stable)
 - Storedom branch for [Serializers](https://github.com/turingschool-examples/storedom/tree/custom_json_serializers)
 - Storedom branch for [Jbuilder](https://github.com/turingschool-examples/storedom/tree/custom_json_jbuilder)

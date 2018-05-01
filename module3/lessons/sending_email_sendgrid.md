@@ -53,7 +53,7 @@ Run your server to see what we've already got in our repo
 rails s
 ```  
 Inspect the Form/Input field, where does this route to? 
-Make sure the route is the routes file:
+Make sure the route is in the routes file:
 
 ```rb
 post '/notification' => 'notification#create'

@@ -8,7 +8,7 @@ tags: routes, helpers, rails
 
 By the end of this lesson, you will know/be able to:
 
-* Understand the 5 pieces of information this `rake routes` gives us.
+* Understand the 5 pieces of information `rake routes` gives us.
 * Use a route helper to easily refer to a relative and absolute path.
 * Understand the difference between what `_url` and `_path` return when combined with a routes prefix.
 * Find a routes prefix and use that prefix to build a helper.
@@ -20,19 +20,20 @@ By the end of this lesson, you will know/be able to:
 
 ## WarmUp
 
-* How have you been sending a user to another route, say in in your tests or in a controller? 
+* How have you been sending a user to another route, say in your tests or in a controller? 
+* What is the syntax for hand rolling a route?
 * What shortcut does Rails give us to create multiple routes at once?
 
 ## Routes
 
 With your partner, take a look at the entries in the table that `rake routes` gives you and fill out the table below in your notebook or on your computer.
 
-|Table Heading       |Prefix|Verb|URI Pattern|Controller#Action|
-|--------------------|------|----|-----------|-----------------|
-|Example Entry       | root |GET | /         |movies#index     |
-|Definition          |      |    |           |                 |
+|Table Heading       |Prefix|Verb|URI Pattern|Controller#Action| Redirect or Render| View|
+|--------------------|------|----|-----------|-----------------|-------------------|-----|
+|Example Entry       | root |GET | /         |movies#index     | render| |
+|Definition (what it does)|      |    |           |                 | | |
 
-Fill in "Definition" with your understanding of what the column represents/how it can be used. If you're unsure of a definition, enter your best guess.
+Fill in "Definition" with your understanding of what the column represents/how it can be used. If you're unsure of a definition, enter your best guess. After creating your table, cross reference yours with the table found [here](https://docs.google.com/spreadsheets/d/1AGjUE49UJajPEQHvh3plKjaem5RAGvuv5SNjZzvjD9U/edit#gid=0).
 
 #### Large group share
 * What is the path helper for each CRUD action? Which ones take an argument?

@@ -25,7 +25,7 @@ Students who successfully complete Module 4 will have demonstrated mastery of Pr
 
 1. [Quantified Self](./projects/quantified-self/quantified-self) - students start by building a front end in JavaScript that connects to an existing Rails API. Then they will re-build the back end with Node, Express, and Knex (so cool, right?). This project lasts the first three weeks.
 2. [Capstone Project](http://backend.turing.io/module4/capstone_project_overview) - this is a personal project students work on weeks three to six. Students will put everything they've learned during their time at Turing into this final project.
-3. [Open Source Project](http://backend.turing.io/module4/projects/open_source_project) - this group project will take place in week six. More information to come.
+3. [House of Vars - Open Source Project](http://backend.turing.io/module4/projects/open_source_project) - this group project will take place in week six. More information to come.
 
 ### Weekly Breakdown:
 
@@ -43,7 +43,7 @@ Students who successfully complete Module 4 will have demonstrated mastery of Pr
 
 <h4 id="week_2">Week 2</h4>
 *   [Object Oriented JavaScript](./lessons/intro-to-oojs)
-*   [Unit Testing Workshop](./lessons/unit-testing-client-side-code)
+*   [Organizing Client-Side JavaScript Code](./lessons/organizing_client_side_js)
 *   [JavaScript History](https://drive.google.com/file/d/0B_Hvhz38AFFxcHhEak11UXZHcDg/view?usp=sharing)
 *   [Refactor Tractor](./lessons/refactor-workshop)
 *   [Asynchronous JavaScript](./lessons/asynchronicity-in-javascript)
@@ -53,14 +53,15 @@ Students who successfully complete Module 4 will have demonstrated mastery of Pr
 *   [Intro to Express](./lessons/intro_to_express)
 *   [SQL in Node](./lessons/sql-in-node)
 *   [Organizing an Express App](./lessons/organize-an-express-app)
+*   [Unit Testing an Express Server](./lessons/unit_testing_express_server)
 *   [Capstone Project Soft Launch](http://backend.turing.io/module4/capstone_project_overview)
 *   [Week Three CFU](https://github.com/turingschool/checks-for-understanding/blob/master/module-4/backend/week_three.md)
 
 <h4 id="week_4">Week 4</h4>
 *   JavaScript Final Assessment
 *   [Introduction to React](./lessons/intro_to_react)
-*   [React Part Two](./lessons/react_integration)
-*   [Basics of Security](./lessons/web_application_security)
+*   [React Sandbox](./lessons/react-sandbox)
+*   [Basics of Security](./lessons/web_application_security_top_10)
 *   [Week 4 CFU](https://github.com/turingschool/checks-for-understanding/blob/master/module-4/backend/week_four.md)
 *   TGRF: Thank Goodness for Ruby Fridays
 
@@ -71,7 +72,7 @@ Students who successfully complete Module 4 will have demonstrated mastery of Pr
 *   TGRF: Thank Goodness for Ruby Fridays
 
 <h4 id="week_6">Week 6</h4>
-*   [Contributing to Open Source Kick Off](./lessons/contributing_to_open_source)
+*   [House of Vars Kick Off](./lessons/contributing_to_open_source)
 *   Capstone Evaluations
-*   Open Source Demos
+*   House of Vars Demos
 *   [Turing Stories](success#turing-story-presentation)

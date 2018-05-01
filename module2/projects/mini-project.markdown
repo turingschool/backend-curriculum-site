@@ -4,21 +4,19 @@ title: Rails Mini-Project
 subheading: Putting it all Together
 ---
 
-### Overview
-
-This week, we talked about
-
-- rails
-- database schemas (use the [online schema designer](http://ondras.zarovi.cz/sql/demo/))
-- authentication
-- authorization
-- git workflow
-
-This afternoon, use these new skills to start adding the following features to a new Rails application. **TDD is not dead.**
-
 ### Setting Expectations
 
 Use [this question guide](https://gist.github.com/rwarbelow/0fed3529495a814eabb1) to establish group norms if you're working with someone else.
+
+### Code Review
+
+This is a non-assessed project. In order to get feedback on your code, consider tagging the following in PRs:
+
+- Peers
+- Mentors
+- Instructors
+
+If you tag someone in a PR. Make sure to point them to a specific part of a specific file. Have a question in mind beyond "Will you take a look at this." General questions can also be asked by tagging others in GitHub issues.
 
 ### Project Options
 
@@ -60,6 +58,35 @@ Let's create an app to record your ideas. Host your app live on Heroku.
 - [ ] Users cannot create images -- only the admin can do that; however, a user can assign an image to their idea.
 - [ ] Visitors can create user accounts.
 
+### User Experience
+
+- [ ] The application has been styled.
+- [ ] The application uses a balanced, considered color scheme.
+- [ ] The application implements a font (that is not the default font).
+- [ ] The application utilizes a nav bar. 
+- [ ] The style shows evidence of intentional layout. 
+- [ ] Space and text is balanced. White space is used to visually separate content. 
+- [ ] The application is easily usable. The user can intuitvely navigate between different portions of the application without manually entering the URL into the nav-bar or using the back button on their browser.
+
+### Database
+
+- [ ] Properly implements a one-to-many relationship
+- [ ] Properly implements a many-to-many relationship
+- [ ] Utilizes primary and foreign keys appropriately
+
+### Code Quality
+
+- [ ] Logic lives in the appropriate files
+- [ ] Methods are refactored and follow SRP
+- [ ] Naming follows convention
+
+### Testing
+
+- [ ] Project has a running test suite
+- [ ] Test suite includes robust feature tests
+- [ ] Test suite includes tests for validations
+- [ ] Test suite includes tests for methods that they have created on the models
+
 #### Optional Extensions
 
 - Implement Twitter, Github, or Facebook OAuth login
@@ -68,7 +95,7 @@ Let's create an app to record your ideas. Host your app live on Heroku.
 
 ### Project Option 2: GifGenerator
 
-Create an app where users can "favorite" gifs.
+Create an app where users can "favorite" gifs. Host your app live on Heroku.
 
 #### Gifs
 
@@ -99,6 +126,35 @@ Create an app where users can "favorite" gifs.
 - [ ] Users cannot create gifs -- only the admin can do that.
 - [ ] Visitors (non-registered users) can create user accounts.
 
+#### User Experience
+
+- [ ] The application has been styled.
+- [ ] The application uses a balanced, considered color scheme.
+- [ ] The application implements a font (that is not the default font).
+- [ ] The application utilizes a nav bar. 
+- [ ] The style shows evidence of intentional layout. 
+- [ ] Space and text is balanced. White space is used to visually separate content. 
+- [ ] The application is easily usable. The user can intuitvely navigate between different portions of the application without manually entering the URL into the nav-bar or using the back button on their browser.
+
+#### Database
+
+- [ ] Properly implements a one-to-many relationship
+- [ ] Properly implements a many-to-many relationship
+- [ ] Utilizes primary and foreign keys appropriately
+
+### Code Quality
+
+- [ ] Logic lives in the appropriate files
+- [ ] Methods are refactored and follow SRP
+- [ ] Naming follows convention
+
+#### Testing
+
+- [ ] Project has a running test suite
+- [ ] Test suite includes robust feature tests
+- [ ] Test suite includes tests for validations
+- [ ] Test suite includes tests for methods that they have created on the models
+
 #### Optional Extensions
 
 - Implement Twitter, Github, or Facebook OAuth login
@@ -117,7 +173,7 @@ Create an app where an admin (let's say for example, Richard) can assign points 
 
 #### Rewards
 
-- [ ] Rewards can be created, edited, updated, and destroyed only by the admin.
+- [ ] Rewards can be created only by the admin.
 - [ ] Rewards can be edited only by the admin.
 - [ ] Rewards can be updated only by the admin.
 - [ ] Rewards can be destroyed only by the admin.
@@ -138,6 +194,36 @@ Create an app where an admin (let's say for example, Richard) can assign points 
 - [ ] A user cannot redeem another user's points.
 - [ ] Admin can create a user.
 
+#### User Experience
+
+- [ ] The application has been styled.
+- [ ] TThe application uses a balanced, considered color scheme.
+- [ ] The application implements a font (that is not the default font).
+- [ ] The application utilizes a nav bar. 
+- [ ] The style shows evidence of intentional layout. 
+- [ ] Space and text is balanced. White space is used to visually separate content. 
+- [ ] The application is easily usable. The user can intuitvely navigate between different portions of the application without manually entering the URL into the nav-bar or using the back button on their browser.
+
+#### Database
+
+- [ ] Properly implements a one-to-many relationship
+- [ ] Properly implements a many-to-many relationship
+- [ ] Utilizes primary and foreign keys appropriately
+
+#### Code Quality
+
+- [ ] Logic lives in the appropriate files
+- [ ] Methods are refactored and follow SRP
+- [ ] Naming follows convention
+
+
+#### Testing
+
+- [ ] Project has a running test suite
+- [ ] Test suite includes robust feature tests
+- [ ] Test suite includes tests for validations
+- [ ] Test suite includes tests for methods that they have created on the models
+
 #### Optional Extensions
 
 - Implement Twitter, Github, or Facebook OAuth login
@@ -146,7 +232,7 @@ Create an app where an admin (let's say for example, Richard) can assign points 
 
 ### Option 4: Original Idea
 
-That's right. You are creative and I believe in you. Feel free to pitch an original idea for the mini-project.
+That's right. You are creative and I believe in you. Feel free to pitch an original idea for the mini-project. Pitch your project through the form your instructor will link in your channel.
 
 #### Must-Haves:
 
@@ -157,7 +243,7 @@ That's right. You are creative and I believe in you. Feel free to pitch an origi
 
 #### Approval
 
-In order to have your project approved, send a slack message to your instructors with answers to the following questions:
+In order to have your project approved, submit your pitch through the form your instructor will link in your channel. Approval is contingent upon:
 
 - [ ] What will a visitor be able to do?
 - [ ] What will a logged in user be able to do?
@@ -179,11 +265,41 @@ If you choose to do this option make sure you try to implement all the concepts 
 - [ ] Authentication
 - [ ] Authorization
 
+#### Rubric for General Parts:
+#### User Experience
+
+- [ ] The application has been styled.
+- [ ] TThe application uses a balanced, considered color scheme.
+- [ ] The application implements a font (that is not the default font).
+- [ ] The application utilizes a nav bar. 
+- [ ] The style shows evidence of intentional layout. 
+- [ ] Space and text is balanced. White space is used to visually separate content. 
+- [ ] The application is easily usable. The user can intuitvely navigate between different portions of the application without manually entering the URL into the nav-bar or using the back button on their browser.
+
+#### Database
+
+- [ ] Properly implements a one-to-many relationship
+- [ ] Properly implements a many-to-many relationship
+- [ ] Utilizes primary and foreign keys appropriately
+
+#### Code Quality
+
+- [ ] Logic lives in the appropriate files
+- [ ] Methods are refactored and follow SRP
+- [ ] Naming follows convention
+
+#### Testing
+
+- [ ] Project has a running test suite
+- [ ] Test suite includes robust feature tests
+- [ ] Test suite includes tests for validations
+- [ ] Test suite includes tests for methods that they have created on the models
+
 #### Optional Extensions
 
 - Implement Twitter, Github, or Facebook OAuth login
 - Use HAML for your views
-- TDD using RSpec instead of Test::Unit
+- TDD using Test::Unit instead of RSpec
 
 ### Resources
 

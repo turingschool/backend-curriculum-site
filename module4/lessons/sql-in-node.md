@@ -10,39 +10,44 @@ By the end of this lesson, you will:
 *   Understand how to execute raw SQL in Node
 *   Understand how to use promises to retrieve data from Postgres in Node
 
-You wouldn't want to immediately jump to writing raw SQL in any production application, but being able to write SQL is a must on the job. Whether it's for queries that are too complex for whatever ORM or library you're using, or it's using SQL to interact with the database directly.
+## Slides
 
-### Setup
+Available [here](../slides/sql_in_node)
 
-Clone this repo, which represents the completed "Intro to Express" lesson:
+## Warmup
 
-```
-git clone -b intro-to-express git@github.com:turingschool-examples/building-app-with-express.git
-```
+Visit the `knexjs.org` website.
 
-Install [`nodemon`](https://nodemon.io/) as a development dependency. It'll automatically reload our server for us as we make changes to our Express application.
+* What does Knex do?
+* Does this sound like any of the tools you've used previously?
 
-```
-npm install nodemon --save-dev
-```
-
-Install `knex` and `pg` (postgres):
-
-```
-npm install knex pg --save
-```
-
-Also install `knex` globally so we can use it on the command line:
-
-```
-npm install knex -g
-```
 
 ## What is [Knex](http://knexjs.org/)?
 
 [Knex](http://knexjs.org/) is a great library for working with many kinds of databases. It isn't a full ORM like ActiveRecord, but it includes features like data migrations and seeds, which is great for us. The documentation isn't excellent, but that's fine, because today we're only going to be using one command: `.raw()`
 
-## Setting Up the Database
+## Add Knex to SecretBox
+
+With a partner, follow the instructions below to integrate Knex into your project. For now, we'll just include this code in a `database-spike.js` file, but eventually we'll create new endpoints to serve information from our database.
+
+### Setup
+
+If you did not complete the work from the Intro to Express lesson, clone [this](https://github.com/turingschool-examples/secret-box-revisited) repo and check out the `01_express_lesson_complete` branch.
+
+Install `knex` and `pg` (postgres):
+
+```
+$ cd secret-box-revisited
+$ npm install knex pg --save
+```
+
+Also install `knex` globally so we can use it on the command line:
+
+```
+$ npm install knex -g
+```
+
+### Creating the Database
 
 Make sure Postgres is installed and running. We will prep our app by creating two databases in Postgres. Don't forget the semicolons in the the CREATE DATABASE command!
 
@@ -209,7 +214,7 @@ knex seed:run
 
 This will run all of the migrations up to and including the most recent one. (We only have one, so this is pretty straightforward for us.) Next, we will run all the seed files under the dev directory to insert our two owners and three secrets that belong to those owners so that we have something to work with in the next step.
 
-## Fetching From the Database
+### Fetching From the Database
 
 Let's create a file to get our heads around `knex` with Postgres.
 
@@ -258,89 +263,78 @@ Next, try throwing a `debugger` in and then run `node debug database-spike.js`. 
 Let's also try creating a new record. Add another query before your existing one:
 
 ```js
-const allSecrets = (data) => {
-  console.log(data.rows)
-  process.exit()
-}
-
 database.raw(
-  'INSERT INTO secrets (message, created_at) VALUES (?, ?)',
+  'INSERT INTO secrets (message, created_at) VALUES (?, ?) RETURNING *',
   ["I open bananas from the wrong side", new Date]
-)
-.then(() => {
-  return database.raw('SELECT * FROM secrets')
+).then(function(secret) {
+  console.log(secret.rows)
+  process.exit()
 })
-.then(allSecrets)
 ```
 
 We've chained our promises above to ensure that the new record gets created before we query for all of our records.
 
-## New GET Test
+### Share
 
-Let's rewrite our test for `/api/secrets/:id`
+Let's share out and discuss any questions you have.
 
--   We need to add our database require statements to the top.
+## Creating API Routes
 
-```js
-const environment = process.env.NODE_ENV || 'test';
-const configuration = require('../knexfile')[environment];
-const database = require('knex')(configuration);
+Now that we've created a file to connect to our database, see if you can create GET and POST routes for secrets
+
+* GET `api/secrets/:id` returns an object as JSON
+* POST `/api/secrets` returns the newly created object as JSON
+
+
+*Check online to see how to return JSON and how to access URL parameters*
+
+See if ou can get both of these routes to work, and we'll share out as a class.
+
+## Adding Error Handling
+
+### Error Handling: GET
+
+In order to protect our GET route, we need to make sure that if the SELECT query does not return anything we send our clients a 404. One possible way to organize this code is included below.
+
 ```
+router.get('/:id', function(req, res, next) {
+  var id = req.params.id
 
--   We need to modify our `beforeEach` to manipulate the database instead of `app.locals`.
--   Let's clear out the database when we're done.
-
-```js
-beforeEach((done) => {
   database.raw(
-    'INSERT INTO secrets (message, created_at) VALUES (?, ?)',
-    ["I open bananas from the wrong side", new Date]
-  ).then(() => done())
-})
-
-afterEach(function(done) {
-  database.raw('TRUNCATE secrets RESTART IDENTITY')
-    .then(() => done())
-  })
-```
-
-And for the test itself - let's make our assertions more explicit. We're building a JSON API after all.
-
-```js
-it('should return 404 if resource is not found', (done) => {
-  this.request.get('/api/secrets/10000', (error, response) => {
-    if (error) { done(error) }
-    assert.equal(response.statusCode, 404)
-    done()
-  })
-})
-
-it('should return the id and message from the resource found', (done) => {
-  this.request.get('/api/secrets/1', (error, response) => {
-    if (error) { done(error) }
-
-    const id = 1
-    const message = "I open bananas from the wrong side"
-
-    let parsedSecret = JSON.parse(response.body)
-
-    assert.equal(parsedSecret.id, id)
-    assert.equal(parsedSecret.message, message)
-    assert.ok(parsedSecret.created_at)
-    done()
+    'SELECT * FROM secrets WHERE id=?',
+    [id]
+  ).then(function(secret) {
+    if(!secret.rows) {
+      return res.sendStatus(404)
+    } else {
+      res.json(secret.rows)
+    }
   })
 })
 ```
 
-Don't forget to migrate your test database. Run `knex -h` to find out how to set the environment in `knex` commands (like `migrate`).
+### Error Handling: POST
 
-### Quick Review and CFU
+Now we need to protect our POST route. The main concern here is that a client might send a POST request without including all of the infromation that we need for our database. We could potentially do the following:
 
-- What is [`.done()`](https://mochajs.org/#asynchronous-code) doing?
+```
+router.post('/', function(req, res, next) {
+  var message = req.body.message
 
-### Your Turn
+  if(!message) {
+    return res.status(422).send({
+      error: "No message property provided"
+    })
+  }
 
-On your own, rewrite the current `/api/secrets/:id` route.
+  database.raw(
+    'INSERT INTO secrets(message, created_at) VALUES (?, ?) RETURNING *',
+    [message, new Date]
+  ).then(function(secret) {
+      res.status(201).json(secret.rows)
+  })
+})
+```
 
 ## Summary
 
@@ -397,22 +391,14 @@ It should give you some feedback that it worked. Now do `heroku open` and magic!
 
 I've walked you through deployment here to get you going. This is not necessarily something I expect you can just figure out on your own, but Heroku does have good documentation whenever you run into problems. Just don't forget about your `heroku logs` and you should be fine.
 
-## More Your Turn
-
-So now we can get data from the database, but how do we create? Modify the test and implementation for `POST /api/secrets`.
-
-Check this [StackOverflow question](https://stackoverflow.com/questions/2944297/postgresql-function-for-last-inserted-id) for a good way to get the `id` for a newly created record
-
-Then we'll go over a working implementation.
-
 ## Milestone
 
 Hey! You built:
 
 -   a RESTful API in Node
 -   that uses Postgresql
--   and works in your 3 main environments
+-   and works in both development and production
 
-Not too shabby! And you've got the knowledge to add all the routes and tables you like. But, things may start getting out of control soon. How big should your `server.js` really be anyway?
+Not too shabby! And you've got the knowledge to add all the routes and tables you like. But, things may start getting out of control soon. How big should your routes files really be anyway?
 
 Tomorrow, we'll go over how to [Organize an Express App](./organize-an-express-app)
