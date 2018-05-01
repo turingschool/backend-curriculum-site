@@ -59,6 +59,7 @@ In Module 1, students will learn to use Ruby and object-oriented programming to 
 
 * [Ruby Data Types](./lessons/ruby_data_types)
 * [Flow Contol](./lessons/flow_control)
+* [Methods and Return Values](./lessons/methods_and_return_values)
 * [Objects, Instances and Classes](./lessons/objects_classes_instances)
 * [Exploring .each](./lessons/exploring_each)
 * [Enumerables I](./lessons/beginner_enumerables)
