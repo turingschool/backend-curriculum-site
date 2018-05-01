@@ -1,8 +1,8 @@
 ---
 layout: page
-title: Intro to Methods
+title: Methods and Return Values
 length: 60
-tags: ruby, methods
+tags: ruby, methods, return, argument
 ---
 
 ## Learning Goals
