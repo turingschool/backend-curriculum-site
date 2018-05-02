@@ -87,15 +87,13 @@ vs what a bit of code returns.
 
 In your terminal:
   * Install pry `gem install pry`
-  * Make a new directory & cd into it (probably inside of your Mod1 directory)"" `mkdir intro_to_each && cd intro_to_each`
-  * Create a file for practice: `touch each_practice.rb`
-  * Open the file in atom: `atom .`
-  * Copy and paste the contents of [this gist](https://gist.github.com/ameseee/d060d7ed237d02ead7c1c6837817107b) into your file (`cmd + a` will highlight all, `cmd + c` will copy, and `cmd + v` will paste!)
+  * Follow the directions in [this README]() to get the repo running on your machine
+  * Navigate to `each_practice.md`
   - **Note:** The divider method just makes the file friendly to read when it prints out in your terminal 😜
 
   ### Using `pry`
 
-  You need to require it at the top of your Ruby file (already done in the gist, just here for a reference)
+  You need to require it at the top of your Ruby file
 
   ```
   require "pry"
