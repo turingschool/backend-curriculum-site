@@ -87,7 +87,7 @@ vs what a bit of code returns.
 
 In your terminal:
   * Install pry `gem install pry`
-  * Follow the directions in [this README]() to get the repo running on your machine
+  * Follow the directions in [this README](https://github.com/ameseee/enums_practice) to get the repo running on your machine
   * Navigate to `each_practice.md`
   - **Note:** The divider method just makes the file friendly to read when it prints out in your terminal 😜
 
