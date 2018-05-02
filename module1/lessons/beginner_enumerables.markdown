@@ -70,7 +70,7 @@ def double                # define a method called double
 
 end                       # end the double method
 
-numbers
+double
 => [2, 4, 6, 8, 10]       # our numbers array has been changed!
 ```
 
