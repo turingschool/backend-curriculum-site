@@ -66,6 +66,7 @@ In Module 1, students will learn to use Ruby and object-oriented programming to 
 * [How Testing Works](./lessons/how_testing_works)
 * [Scope](./lessons/intro_to_scope)
 * [Problems Solutions Algorithms](./lessons/problems_solutions_algorithms)
+* [Hashes](./lessons/introducing_hashes)
 * [Debugging Tecniques](./lessons/debugging_techniques)
 * [Nested Collections](./lessons/nested_collections)
 * [Git for Pairs](./lessons/git_for_pairs)
