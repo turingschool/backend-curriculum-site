@@ -118,7 +118,7 @@ Try this out:
 ```ruby
 get '/films' do
   films = Film.all
-  erb :"film/index", :locals => { :films => films }
+  erb :"films/index", :locals => { :films => films }
 end
 ```
 

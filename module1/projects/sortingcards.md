@@ -101,18 +101,11 @@ round.percent_correct
 => 50
 ```
 
-# Iteration 3: Bubble Sort
+# Iteration 3: Sorting the Deck
 
 In this iteration, we will start to add some algorithmic complexity. We are going to add to the deck object the ability to sort the cards based on their value from lowest to highest. (Assume that you won't have two cards of the same value with different suits.)
 
-For this iteration, you will be using an algorithm called Bubble Sort. 
-
-Bubble Sort Resources:
-
-* [Wikipedia](https://en.wikipedia.org/wiki/Bubble_sort)
-* [YouTube CS50](https://www.youtube.com/watch?v=RT-hUXUWQ2I)
-* [Folk Dance](https://www.youtube.com/watch?v=lyZQPjUT5B4)
-* [Visualization (Watch till the end, the last part is SO satisfying)](https://www.youtube.com/watch?v=Cq7SMsQBEUw)
+Ruby has built in methods for sorting. You are *NOT* allowed to use any of these built in sorting methods.
 
 The interaction pattern will look like this:
 
@@ -122,19 +115,13 @@ card_2 = Card.new("3", "Clubs")
 card_3 = Card.new("5", "Diamonds")
 deck = Deck.new([card_1, card_2, card_3])
 
-deck.bubble_sort
+deck.sort
 => [card_2, card_1, card_3]
 ```
 
-# Iteration 4: Insertion Sort
+# Iteration 4: Merge Sort
 
-We're doing the same here, but with a different sorting algorithm, insertion sort. As you implement this, think about why do we need different algorithms? How many swaps does insertion sort make in the best case scenario? Worst case? How does this compare to Bubble Sort?
-
-
-* [Wikipedia](https://en.wikipedia.org/wiki/Insertion_sort)
-* [YouTube CS50](https://www.youtube.com/watch?v=kU9M51eKSX8)
-* [Folk Dance](https://www.youtube.com/watch?v=ROalU379l3U)
-* [Visualization (Watch till the end, the last part is SO satisfying)](https://www.youtube.com/watch?v=8oJS1BMKE64)
+We're doing the same here, but with a different sorting algorithm, merge sort. As you implement this, think about why do we need different algorithms? How many swaps does your sort from iteration 3 make in the best case scenario? Worst case? How does this compare to Merge Sort?
 
 The interaction pattern will look like this:
 
@@ -144,7 +131,7 @@ card_2 = Card.new("3", "Clubs")
 card_3 = Card.new("5", "Diamonds")
 deck = Deck.new([card_1, card_2, card_3])
 
-deck.insertion_sort
+deck.merge_sort
 => [card_2, card_1, card_3]
 ```
 
