@@ -12,7 +12,7 @@ layout: page
   - [Model Testing in Sinatra](http://backend.turing.io/module2/lessons/model_testing_in_sinatra)
   - [How the Web Works](http://backend.turing.io/module2/lessons/how_the_web_works)
   - [ActiveRecord Associations](http://backend.turing.io/module2/lessons/activerecord_associations)
-  - [Passing Data with HTML/HTTP](http://backend.turing.io/module2/lessons/passing_data_with_sinatra)
+  - [Passing Data with Sinatra](http://backend.turing.io/module2/lessons/passing_data_with_sinatra)
   - [Feature Testing in Sinatra](http://backend.turing.io/module2/lessons/feature_testing_in_sinatra)
   - [Intro to CSS](http://backend.turing.io/module2/lessons/intro_to_css)
 

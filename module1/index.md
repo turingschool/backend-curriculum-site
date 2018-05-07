@@ -59,12 +59,14 @@ In Module 1, students will learn to use Ruby and object-oriented programming to 
 
 * [Ruby Data Types](./lessons/ruby_data_types)
 * [Flow Contol](./lessons/flow_control)
+* [Methods and Return Values](./lessons/methods_and_return_values)
 * [Objects, Instances and Classes](./lessons/objects_classes_instances)
 * [Exploring .each](./lessons/exploring_each)
 * [Enumerables I](./lessons/beginner_enumerables)
 * [How Testing Works](./lessons/how_testing_works)
 * [Scope](./lessons/intro_to_scope)
 * [Problems Solutions Algorithms](./lessons/problems_solutions_algorithms)
+* [Hashes](./lessons/introducing_hashes)
 * [Debugging Tecniques](./lessons/debugging_techniques)
 * [Nested Collections](./lessons/nested_collections)
 * [Git for Pairs](./lessons/git_for_pairs)
@@ -82,8 +84,10 @@ In Module 1, students will learn to use Ruby and object-oriented programming to 
 
 ## Projects
 
-* [Perilous Journey](./projects/perilous_journey)
 * [Credit Check](./projects/credit_check.markdown) ([slides](./slides/credit_check))
+* [Mastermind](./projects/mastermind)
+* [Perilous Journey](./projects/perilous_journey)
+* [Sorting Cards](./projects/sorting_cards)
 * [Jungle Beat](./projects/jungle_beat)
 * [Date Night](./projects/date_night)
 * [Complete Me](./projects/complete_me)

@@ -122,7 +122,7 @@ With that in place, we can get student attributes out of our Course object, like
 
 ```
 From tux
-Course.selct("courses.*, students.*")
+Course.select("courses.*, students.*")
   .joins(:students)
   .first
   .first_name
@@ -208,7 +208,7 @@ Course.select("courses.*, avg(score) AS avg_score")
   .order("avg_score DESC")
 ```
 
-This query will return a collection of Course objects. The first will be the Course with the highest total box office sales across all films.
+This query will return a collection of Course objects. The first will be the Course with the highest avg_score.
 
 ## Checks for Understanding
 

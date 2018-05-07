@@ -12,45 +12,22 @@ tags: enumerable, ruby, collections, arrays, each, debugger, pry
 * Learn how to use a debugger to pause and interact with running code
 
 
+### Vocabulary
+
+* enumerable
+* iterate
+* array
+* each
+* return value
+
+
 #### Debuggers
 
 As programmers we often make assumptions about what our code is doing. We are often wrong. One of the most important and effective debugging techniques is to validate your assumptions.
 
 Have you ever found yourself working on a programming problem and as you attempt to solve it, you are forced to run the entire file over and over again until you get the correct result? Wouldn't it be awesome if you could pause your code at a specific line and interact with it? Enter debuggers.
 
-Debuggers are great to see what your code is actually doing. The most common debuggers in ruby are `byebug` and `pry`. You can pick whichever you prefer. For this exercise we will use `pry`.
-
-### Using `pry`
-
-* Make sure it is installed globally (we will do in class in a moment)
-
-`gem install pry`
-
-You need to require it at the top of your Ruby file.
-
-```
-require "pry"
-```
-
-Now you can use it like this...
-
-```
-favorite_celebs = ["Kim", "Kourtney", "Khloe"]
-binding.pry
-```
-
-We're going to use your debugger to explore `.each` and on the challenges below.
-
-Let's use [this gist](https://gist.github.com/ameseee/d060d7ed237d02ead7c1c6837817107b) as a guide.
-
-#### Setup
-
-In your terminal:
-  * Install pry `gem install pry`
-  * Make a new directory & cd into it (probably inside of your Mod1 directory)"" `mkdir intro_to_each && cd intro_to_each`
-  * Create a file for practice: `touch each_practice.rb`
-  * Open the file in atom: `atom .`
-  * Copy and paste the contents of the Gist above into your file (`cmd + a` will highlight all, `cmd + c` will copy, and `cmd + v` will paste!)
+Debuggers are great to see what your code is actually doing. The most common debuggers in ruby are `byebug` and `pry`. You can pick whichever you prefer. For this exercise we will use `pry` - not just in our terminal but in an rb file!
 
 
 #### What are enumerable methods?
@@ -106,7 +83,35 @@ Remember that there is a difference between what gets output to a screen
 vs what a bit of code returns.
 
 
-#### Exercises
+#### Setup
+
+In your terminal:
+  * Install pry `gem install pry`
+  * Follow the directions in [this README](https://github.com/ameseee/enums_practice) to get the repo running on your machine
+  * Navigate to `each_practice.md`
+  - **Note:** The divider method just makes the file friendly to read when it prints out in your terminal 😜
+
+  ### Using `pry`
+
+  You need to require it at the top of your Ruby file
+
+  ```
+  require "pry"
+  ```
+
+  Now you can use it like this...
+
+  ```
+  favorite_celebs = ["Kim", "Kourtney", "Khloe"]
+  binding.pry
+  ```
+
+  We're going to use your debugger to explore `.each` and on the challenges below.
+
+  We will work through `"Kourtney's Kids 💗 - MULTI-LINE"` together - then you will do the rest with your partner.
+
+
+#### Continued Exercises
 
 Use your debugger to work through the following...
 

@@ -17,15 +17,25 @@ tags: ruby, hashes, data structures
 * Key
 * Value
 * Symbol
-* Mutable/Immutable
 * Accessing Values
 * Assigning Values
 
-## WarmUp
+## Warm Up
 
-[Ruby Doc](http://ruby-doc.org/core-2.4.2/Hash.html) defines a hash as "a dictionary-like collection of unique keys and their values. Also called associative arrays, they are similar to Arrays, but where an Array uses integers as its index, a Hash allows you to use any object type."
+Would you rather store the list of fridge items in `fridge_items_1` or `fridge_items_2`? Why? Discuss with your partner.
 
-* What information can you tease from this definition?
+```
+fridge_items_1 = ["milk", "eggs", "eggs", "eggs", "eggs", "eggs", "eggs", "avocado", "avocado", "tortilla", "tortilla", "tortilla", "tortilla", "tortilla", "tortilla", "tortilla", "tortilla", "tortilla"]
+```
+
+```
+fridge_items_2 = {
+	"milk" => 1,
+	"eggs" => 6,
+	"avocado" => 2,
+	"tortilla" => 9
+}
+```
 
 ## Intro - Hash Properties
 
@@ -41,23 +51,30 @@ Key ideas:
 *   Symbols vs. Strings
 *   Performance characteristics
 
+Write down **your** definition of a hash
+
 ## Working with a Hash
 
-Hashes boil down simply to a collection of **key/value** pairs.
+- A hash is enclosed in curly braces { }, key/value pairs are separated by commas, and keys and values are separated by either a rocket or a colon.
+- Each key in a hash must be unique
+	- If you attempt to have duplicate keys when you first create a hash, you will get a `warning: key :key_name is duplicated and overwritten on line X` error
+	- If you try to add a new key/value pair using a key that already exists, that new key/value pair will overwrite the previous one - dangerous.
+- Keys and values can be any type of object:
+	```
+	example = {	"string_value": "this value is a string",
+					"array_value": ["this", "value", "is", "an", "array"],
+					3: "this values' key is an integer",
+					"boolean_value": true
+				}
+	```
 
-Keys must be unique.
+- Values can be accessed with bracket notation:
+	- given ``` shih_tzu = { "name"=> "Sodie" } ```
+	- ``` shih_tzu["name"]``` _returns_```"Sodie" ```
 
-Keys and Values can be any data type (including arrays and hashes).
+Let's say we are making a list of items to pack for a trip. Why is a hash a good choice for storing this information?
 
-Let's say we are making a stew. The ingredients for our stew are:
-
-* 2 Onions
-* 5 Carrots
-* 1 Chicken
-
-Why is a hash a good choice for storing this information?
-
-**TRY IT**: With your partner, brainstorm another collection of data that could be stored in a hash.
+**THINK ABOUT IT**: With your partner, brainstorm another collection of data that could be stored in a hash.
 
 ### Creating a Hash
 
@@ -82,84 +99,108 @@ In the above declaration, the default value of any key created for `new_hash` ha
 We can also create a hash with some initial key/value pairs. Let's use this syntax to create our stew hash:
 
 ```ruby
-stew = {
-  "onions" => 2,
-  "carrots" => 5,
-  "chicken" => 1
+suitcase = {
+  "socks" => 4,
+  "jeans" => 1,
 }
 ```
 
 The `=>` is called a hash rocket.
 
+### Explore
+With your partner, explore the following challenges. One partner should be typing (make sure the other can see the screen) and the other should talk. This is a paired programming technique called driver/navigator.
+
+* Start with the hash: suitcase = { "socks" => 4, "jeans" => 1 }
+* Add 3 shirts to your suitcase
+* Add a key value pair of swimsuit/true to your suitcase
+* Take the socks out of your suitcase
+* Check for how many jackets you have in your suitcase
+* Check how many shirts (and only shirts) are in your suitcase
+* Call `.keys` and `.values` on your hash - what is returned? Why might this be useful?
+
+
 ### Accessing the Hash
 
-We use brackets `[]` to access the hash just like arrays, only we don't use indexes, we use keys. 
+We use brackets `[]` to access the hash just like arrays, only we don't use indexes, we use keys.
 
 ```ruby
-stew["onions"]
-=> 2
+suitcase["socks"]
+=> 4
 ```
 
 We can create a new key/value pair like this:
 
 ```ruby
-stew["potatoes"] = 2
+suitcase["shirts"] = 3
 ```
 
-Do we need any peppers for the stew? Let's check:
+```ruby
+suitcase["swimsuit"] = true
+```
+
+Did we put any jackets on our list? Let's check:
 
 ```ruby
-stew["peppers"]
+stew["jackets"]
 => nil
 ```
 
-Oops, we forget Jeff is coming to dinner tonight and he doesn't like onions too much. Let's decrease the amount of onions by 1.
+Oops, we forget that we added one day to our trip, so should probably bring an extra shirt.
 
 ```ruby
-stew["onions"] = stew["onions"] - 1
+suitcase["shirts"] = suitcase["shirts"] + 1
 ```
 or
 ```ruby
-stew["onions"] -= 1
+suitcase["shirts"] += 1
 ```
 
 Remember, keys/values can be any type of object.
 
 ```ruby
-stew[8] = "this value is a string"
+suitcase[8] = "this value is a string"
 => "this value is a string"
-stew[true] = 1.5
+suitcase[true] = 1.5
 => 1.5
-stew
+suitcase
 => {
-  "onions"=>2, 
-  "carrots"=>5, 
-  "chicken"=>1, 
-  "potatoes"=>2, 
-  8=>"this value is a string", 
+  "socks"=>4,
+  "jeans"=>1,
+  "shirts"=>4,
+  8=>"this value is a string",
   true=>1.5
 }
 ```
 
-In this code, we created a key with the Integer 8 with a value of the String "this value is a string". We also created a key with `true` with a value of the Float 1.5. 
+In this code, we created a key with the Integer 8 with a value of the String "this value is a string". We also created a key with `true` with a value of the Float 1.5.
 
 We don't want these pairs in our hash, so let's get rid of them:
 
 ```ruby
-stew.delete(8)
+suitcase.delete(8)
 => "this value is a string"
-stew.delete(true)
+suitcase.delete(true)
 => 1.5
-stew
+suitcase
 => {
-  "onions"=>2, 
-  "carrots"=>5, 
-  "chicken"=>1, 
-  "potatoes"=>2
+  "socks"=>4,
+  "jeans"=>1,
+  "shirts"=>4,
 }
 ```
 
-**TRY IT**: Using pry, create a hash.  Give it some initial key/value pairs, add a new pair, change one of the values, and delete one of the key/value pairs.
+Access all the keys or all the values from a hash:
+
+```ruby
+suitcase.keys
+=> ["socks", "jeans", "shirts"]
+
+suitcase.values
+=> [4, 1, 4]
+```
+
+The .keys and .values methods return an array of all the keys and values, respectively, of the hash.
+
 
 #### Check for Understanding
 
@@ -203,68 +244,68 @@ Symbols are also faster than strings because Ruby can determine if two symbols a
 
 So if symbols are faster and more efficient than strings, why would we use strings? Because a string's value can change, making them useful as variables. Strings are *mutable*, whereas symbols are *immutable*.
 
-Don't worry if this doesn't quite make sense yet. The important thing to understand is that strings are useful as variables. Symbols are useful as names. This makes symbols perfect for keys in hashes.
+Don't worry if this doesn't quite make sense yet. The important thing to understand is that strings are useful as variables. Symbols are useful as names. **This makes symbols perfect for keys in hashes.**
 
 ## Working with Hashes and Symbols
 
-Let's recreate our stew hash using symbols instead of strings.
+Let's recreate our suitcase hash using symbols instead of strings.
 
 ```ruby
-stew = {
-  :onions => 2,
-  :carrots => 5,
-  :chicken => 1  
+suitcase = {
+  :socks => 4,
+  :jeans => 1,
+  :shirts => 3  
 }
 ```
 
 Ruby gives us a handy shortcut for creating a hash with symbol keys:
 
 ```ruby
-stew = {
-  onions: 2,
-  carrots: 5,
-  chicken: 1  
+suitcase = {
+  socks: 4,
+  jeans: 1,
+  shirts: 3
 }
 ```
 
-These two definitions for our stew hash produce the exact same hash, however the second is the preferred syntax. Be careful... The colon must immediately follow the name of the key without any spaces in between.
+These two definitions for our suitcase hash produce the exact same hash, however the second is the preferred syntax. Be careful... The colon must immediately follow the name of the key without any spaces in between.
 
 Let's again add 2 potatoes:
 
 ```ruby
-stew[:potatoes] = 2
+suitcase[:swimsuit] = true
 ```
 
-Get the number of onions:
+Get the number of socks:
 
 ```ruby
-stew[:onions]
-=> 2
+suitcase[:socks]
+=> 4
 ```
 
-Check if we need peppers:
+Check if we are packing any jackets:
 
 ```ruby
-stew[:peppers]
+suitcase[:jackets]
 => nil
 ```
 
-And decrease the amount of onions by 1:
+And increase the amount of shirts by 1:
 
 ```ruby
-stew[:onions] = stew[:onions] - 1
+suitcase[:shirts] = suitcase[:shirts] + 1
 ```
 or
 ```ruby
-stew[:onions] -= 1
+suitcase[:shirts] += 1
 ```
 
 If we want to see all of our keys/values...
 ```ruby
-stew.keys
-=> [:onions, :carrots, :chicken, :potatoes]
-stew.values
-=> [1, 5, 1, 2]
+suitcase.keys
+=> [:socks, :jeans, :shirts, :swimsuit]
+suitcase.values
+=> [4, 1, 4, true]
 ```
 
 What type of Objects do these methods return?
@@ -295,7 +336,7 @@ What type of Objects do these methods return?
 9. Assign a new value to the `:vocalist` key of your hash.
 10. How has `keys` changed after the last step? How has `values` changed? What
 
-## Independent Work
+## Extension Practice
 
 Finally let's break up for some independent work with Hashes and Arrays.
 
@@ -318,38 +359,48 @@ a = [[1, 2, 3], [4, 5, 6]]
 #### Hash within an Array
 
 ```ruby
-a = [{pizza: "tasty"}, {calzone: "also tasty"}]
+italian = [{ pizza: "tasty" }, { calzone: "also tasty" }]
 ```
 
-* what is `a.count`
-* what is `a.first.count`
+* what is `italian.count`
+* what is `italian.first.count`
 * how can I access the value `"also tasty"`
 
 #### Hash within a Hash
 
 ```ruby
-h = {
+pets = {
   dog: {
-    name: "Chance",
-    weight: "45 pounds"
+    name: "Sodie",
+    weight: "10 pounds"
   },
   cat: {
-    name: "Sassy",
+    name: "Sunshine",
     weight: "15 pounds"
   }
 }
 ```
 
-* what is `h.count`?
-* what is `h.keys`?
-* what is `h.values`?
+* what is `pets.count`?
+* what is `pets.keys`?
+* what is `pets.values`?
 * how can I access the value `"15 pounds"`?
 
-## Wrap Up
+## Exit Ticket
 
-* Create a Venn Diagram of Arrays & Hashes. Think about how they're structured, when you would use each one, and nuances to how you interact with each one.
+<!-- print out to ensure this is closed book
+- In your own words, define a hash
+- Venn Diagram of arrays and hashes
+- Write a hash with 3 key/value pairs (assign to a new variable)
+- Access the value of the first key/value pair
+- Show how you would add a new key/value pair
+- Delete any key/value pair of your choosing
+- What is a symbol?
+- for all of your examples, did you use symbols? If you did - re-write your original hash without symbols. If you didn't, re-write your original hash with symbols.
+-  -->
 
-## Further Practice
+
+## Further Practice/Resources
 
 ### Ruby Docs
 
