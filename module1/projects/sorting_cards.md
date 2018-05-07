@@ -134,6 +134,11 @@ deck = Deck.new([card_1, card_2, card_3])
 deck.merge_sort
 => [card_2, card_1, card_3]
 ```
+### Merge Sort Resources
+
+* [Youtube CS50](https://youtu.be/Pr2Jf83_kG0)
+* [Merge Sort Visualization](https://www.youtube.com/watch?v=ZRPoEKHXTJg)
+* [Folk Dance](https://www.youtube.com/watch?v=XaqR3G_NVoo)
 
 # Extensions
 
