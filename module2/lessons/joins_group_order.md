@@ -122,7 +122,7 @@ With that in place, we can get student attributes out of our Course object, like
 
 ```
 From tux
-Course.selct("courses.*, students.*")
+Course.select("courses.*, students.*")
   .joins(:students)
   .first
   .first_name
