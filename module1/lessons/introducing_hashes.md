@@ -1,8 +1,8 @@
 ---
 layout: page
 title: Introducing Hashes
-length: 90
-tags: ruby, hashes, data structures
+length: 60
+tags: ruby, hashes, data structures, key, value
 ---
 
 ## Learning Goals
@@ -39,7 +39,7 @@ fridge_items_2 = {
 
 ## Intro - Hash Properties
 
-Hashes are the second most important data structure in Ruby. Like an Array, a Hash is a data structure used for representing a _collection_ of things. But whereas an Array generally represents a list of ordered, indexed values, **a Hash represents a collection of *named* values**. These names are called **keys**, and each key has a corresponding **value**. In a Hash, we can insert data by assigning it to a name and later retrieving it using the same name.
+Like an Array, a Hash is a data structure used for representing a _collection_ of things. But whereas an Array generally represents a list of ordered, indexed values, **a Hash represents a collection of *named* values**. These names are called **keys**, and each key has a corresponding **value**. In a Hash, we can insert data by assigning it to a name and later retrieving it using the same name.
 
 Some languages call their Hashes *dictionaries* for this reason -- you look up a word (the label) to retrieve its definition (the data or value with which the label was associated).
 
