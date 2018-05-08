@@ -34,6 +34,8 @@ Available [here](../slides/git_for_pairs)
 * How does GitHub relate to git?
 * What are the steps to creating and interacting with a repo on GitHub? How is git involved?
 
+## Model
+
 ### Creating a repo
 
 Sometimes you will want to start with a boilerplate that you are provided with at Turing:
@@ -111,7 +113,7 @@ After merging something on GitHub, you always want to make sure you have that la
 - `$ git pull origin master`
 
 
-### Practice
+## Practice
 - Create a new directory, make it a git repository, create a GitHub repository
 - Checkout to a feature branch
 - Make three changes; for each change, make a commit
