@@ -65,8 +65,9 @@ Sometimes you will want to start from scratch:
 
 ### Saving your changes as you go
 
-Rationale for doing this  -
-more Rationale
+Just like one would frequently click 'save' in a word document when you finish a really great paragraph that will contribute to an essay, we want to save small pieces of code that contribute to completing a project. Not only does this allow us to save changes so we don't lose anything we worked hard on, git keeps track of the history, so we can always look back and see who worked on the project, how often, how long it took to build, etc. These little saves are called `commits`.
+
+Commit messages should follow [these rules](https://chris.beams.io/posts/git-commit/#seven-rules).
 
 Workflow:
 - `$ git status`
