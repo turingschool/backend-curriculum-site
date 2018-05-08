@@ -69,7 +69,7 @@ In Module 1, students will learn to use Ruby and object-oriented programming to 
 * [Hashes](./lessons/introducing_hashes)
 * [Debugging Tecniques](./lessons/debugging_techniques)
 * [Nested Collections](./lessons/nested_collections)
-* [Git for Pairs](./lessons/git_for_pairs)
+* [Git for Pairs](./lessons/git_for_pairs_new)
 * [Pairing Patterns](./lessons/pairing_patterns)
 * [Testing Strategies](./lessons/testing_strategies_1)
 * [Enumerables II](./lessons/intermediate_enumerables)
