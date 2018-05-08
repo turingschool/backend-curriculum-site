@@ -13,12 +13,8 @@ tags: git, workflow, pull request, merge, commit, github
 ## Agenda
 
 - Visualizing Git & GitHub
-- Model:
-  - Creating a Repo - both ways
-  - Saving your changes
-  - Branching workflow
-  - Pull Requests
-- Practice
+- Model Workflow
+- Practice Workflow
 - Solidify
 
 ## Vocabulary
@@ -146,8 +142,6 @@ After merging something on GitHub, you always want to make sure you have that la
   (`git push origin add_content`)
 * Original puts in PR
 * Collaborator comments and merges PR
-
-![Merging a Branch to Master](https://docs.google.com/drawings/d/e/2PACX-1vR6KtiUHn_LsBfxJRYUYwgT7KJClTVLajC3OzwME6RLF1HroCbOQGuRXUcgjI-I1xfZ-LuF4R5BGbi7/pub?w=960&h=720)
 
 ## Closing
 
