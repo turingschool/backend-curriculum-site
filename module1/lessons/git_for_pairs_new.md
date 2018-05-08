@@ -73,6 +73,8 @@ Workflow:
 - `$ git commit -m "Add ________ functionality"`
 - `$ git push origin master`
 
+Want to check which remote repository you're connected to?
+- `$ git remote -v`
 
 ### Keeping your workflow even more organized (and safe)
 
@@ -100,6 +102,10 @@ Create a PR (pull request):
 - If you are working with a partner - your partner would need to do the rest. If you are working solo, click the green 'Merge Pull Request', then 'Confirm Merge' buttons
 - You should see a 'Pull request successfully merged and closed' message. This means your GitHub has been updated to the work from the branch you set up.
 
+WHAT IF I GET SCARED?
+- `$ git status` - will tell you if you have any changed files - if they have been staged (added) or not, and more.
+- `$ git diff` - will show the changes you have made since last commit
+- `$ git log` - will show you the commits and some info about them
 
 ### Collaborating and more on keeping workflow organized
 

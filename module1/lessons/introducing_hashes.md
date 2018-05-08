@@ -51,7 +51,6 @@ Key ideas:
 *   Symbols vs. Strings
 *   Performance characteristics
 
-Write down **your** definition of a hash
 
 ## Working with a Hash
 
@@ -75,6 +74,7 @@ Write down **your** definition of a hash
 Let's say we are making a list of items to pack for a trip. Why is a hash a good choice for storing this information?
 
 **THINK ABOUT IT**: With your partner, brainstorm another collection of data that could be stored in a hash.
+**WRITE:** What is **your** definition of a hash?
 
 ### Creating a Hash
 
@@ -141,7 +141,7 @@ suitcase["swimsuit"] = true
 Did we put any jackets on our list? Let's check:
 
 ```ruby
-stew["jackets"]
+suitcase["jackets"]
 => nil
 ```
 
