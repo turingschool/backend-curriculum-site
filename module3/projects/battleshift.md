@@ -7,7 +7,7 @@ type: project
 
 ## Project Description
 
-You will be building on top of a pre-existing API implementation of the game Battleship. The current project allows a player to play against a computer through an API. For this project we will add multiplayer functionality and basic levels of security.
+You will be building on top of a pre-existing API implementation of the game Battleship, found [here](https://github.com/turingschool-examples/battleshift). The current project allows a player to play against a computer through an API. For this project we will add multiplayer functionality and basic levels of security.
 
 ## Learning Goals
 
