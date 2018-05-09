@@ -25,3 +25,4 @@ Take one of the following terms (ensuring that all terms are covered and there's
     * Background workers
     * Amazon Web Services
     * Service Oriented Architecture
+    * Single page applications
