@@ -16,6 +16,10 @@ tags: database, schema, relationships
 * Normalization
 * B-Tree
 
+## Slides
+
+Available [here](../slides/database_normalization_and_optimization)
+
 
 ## Warm-Up
 
