@@ -154,7 +154,7 @@ Let's create a test to help us drive this out.  Add the following to your `direc
 
 ```ruby 
 describe 'relationships' do
-  it {is_expected.to have_many(:movies)
+  it {should have_many(:movies)
 end 
 ```
 
@@ -224,7 +224,7 @@ require "rails_helper"
 
 describe Actor, type: model do
   describe "relationships" do
-	it {is_expected.to have_many(:movies).through(:actor_movies}
+	it {should have_many(:movies).through(:actor_movies}
   end 
 end 
 ```
