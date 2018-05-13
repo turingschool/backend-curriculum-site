@@ -94,24 +94,25 @@ Imagine we have a class `Person` that has some data stored in instance variables
 
 ```ruby
   class Person
+
     attr_reader :name,
                 :age
 
     def initialize(name, age)
       @name = name
-      @age = age
+      @age  = age
     end
+
   end
 ```
 
- So far, we haven't done anything even remotely exotic. But let's store a number of these persons into an array.
+ So far, we haven't done anything new to us. But let's store a number of these persons into an array.
 
 ```ruby
 people = []
-people << Person.new("Tyrion", 32)
-people << Person.new("Jaime", 26)
-people << Person.new("Cercei", 36)
-
+people << Person.new("Sofia", 4)
+people << Person.new("Scarlett", 9)
+people << Person.new("Stella", 8)
 ```
 
 We've now got an array of three `Person` objects.
@@ -122,26 +123,31 @@ So let's walk this process out and look at how we would do this with .each. It's
 
 ```ruby
   def max_by(people)
-    result = people.first
+    oldest = people.first
+
     people.each do |person|
-      result = person if person.age > result.age
+      if person.age > oldest.age
+        oldest = person
+      end
     end
+
+    oldest
   end
 ```
 
-This is very similar to our original implementation. The main difference is that instead of comparing the objects and determining which is "greater or lesser", we are comparing their attributes to each other.
+This is very similar to our original implementation. The main difference is that instead of comparing the objects and determining which is "greater or lesser", we are comparing _their attributes_ to each other.
 
 And so, the max_by enumerable works similarly.
 
 ```ruby
-  people.max_by do |person|
-    person.age
+  people.max_by do |person|   # use the max_by enumerable to iterate
+    person.age                # max_by will return the greatest person.age
   end
 ```
 
 We are iterating over the array, looking at each item in the array, looking at the attribute and then returning the entire object that has the largest value that we want.
 
-Simply put, to use this enumerable, we just list our criteria for searching in the block, and the numerable will simply give us the matching object.
+Another way to see it, to use this enumerable, we list our criteria for searching in the block, and the numerable will simply give us the matching object.
 
 We can also grab the first alphabetically here.
 
@@ -151,23 +157,25 @@ We can also grab the first alphabetically here.
   end
 ```
 
-But we may be overcomplicating things. It doesn't have to be an array of objects, it can be an array of arrays. We're talking about a collection of things that might hold more than one piece of data.
+It doesn't have to be an array of objects, it can be an array of arrays. We're talking about a collection of things that might hold more than one piece of data.
 
 So let's simplify the problem.
 
 ```ruby
   people = [
-    ["Bob", 24],
-    ["Jane", 26],
-    ["Optimus Prime", 9_000_000]
+    ["Sofie", 4],
+    ["Scarlett", 9],
+    ["Stella", 8]
   ]
 
   people.max_by do |person|
-    person[1]
+    person[1]                # index 1 is the integer/age
   end
 ```
 
-Now you try.
+To find the youngest person, I would use the `min_by` method.
+
+#### Now you try:
 
 ```ruby
 class Person
@@ -180,17 +188,16 @@ class Person
   end
 end
 
-bradys = []
+kardashians = []
 
-bradys << Person.new("Carol", 48)
-bradys << Person.new("Greg", 22)
-bradys << Person.new("Mike", 52)
-bradys << Person.new("Marsha", 19)
-bradys << Person.new("Jan", 13)
+kardashians << Person.new("Kourtney", 39)
+kardashians << Person.new("Kim", 37)
+kardashians << Person.new("Kris", 62)
+kardashians << Person.new("Khloe", 33)
 
 ```
 
-On paper, get the oldest member of the Brady Bunch, and then grab me the first alphabetically.
+On paper, write code to **get the youngest member of the Kardashians.**
 
 Now check with your work with your neighbor.
 
