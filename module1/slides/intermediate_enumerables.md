@@ -14,7 +14,8 @@
 # Max
 
 ```ruby
-[1, 2, 3, 4, 5].max
+[1,3,9,2,5].max
+=> 9
 ```
 
 ---
@@ -22,7 +23,8 @@
 # Min
 
 ```ruby
-[1, 2, 3, 4, 5].min
+[1,3,9,2,5].min
+=> 1
 ```
 
 ---
@@ -30,7 +32,8 @@
 # Max/Min with Letters
 
 ```ruby
-["ilana", "lauren", "beth"].min
+  ["Brian", "Mike", "Amy"].min
+  => "Amy"
 ```
 
 ---
@@ -38,11 +41,14 @@
 # `#sort_by`
 
 ```ruby
-people = [["Bob", 24], ["Dave", 26], ["Zayn", 30]]
+people = [["Sofia", 4], ["Scarlett", 9], ["Stella", 8]]
 
-people.sort_by do |person|
+sorted_people = people.sort_by do |person|
   person[1]
 end
+
+sorted_people
+=> [["Sofie", 4], ["Stella", 8], ["Scarlett", 9]]
 ```
 
 ---
@@ -60,10 +66,12 @@ class Person
   end
 end
 
-people = []
-people << Person.new("Seema", 24)
-people << Person.new("Faizah", 26)
-people << Person.new("Zaahir", 30)
+kardashians = []
+
+kardashians << Person.new("Kourtney", 39)
+kardashians << Person.new("Kim", 37)
+kardashians << Person.new("Kris", 62)
+kardashians << Person.new("Khloe", 33)
 ```
 
 ---
@@ -71,9 +79,12 @@ people << Person.new("Zaahir", 30)
 # `#max_by`/`#min_by` (setup)
 
 ```ruby
-  people.max_by do |person|
+  oldest_kard = kardashians.max_by do |person|
     person.age
   end
+
+  oldest_kard
+  => <Person:0x007fecd21740a0 @name="Kris", @age=62>
 ```
 
 ---
@@ -85,17 +96,25 @@ all_adults = people.all? do |person|
   person.age > 21
 end
 
-any_zaahirs = people.any? do |person|
-  person.name == "Zaahir"
+=> true
+
+any_kims = people.any? do |person|
+  person.name == "Kim"
 end
 
-one_seema = people.one? do |person|
-  person.name == "Seema"
+=> true
+
+one_kylie = people.one? do |person|
+  person.name == "Kylie"
 end
+
+=> false
 
 no_minors = people.none? do |person|
   person.age < 18
 end
+
+=> true
 ```
 
 ---
