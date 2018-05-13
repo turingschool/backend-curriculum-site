@@ -284,6 +284,18 @@ Give what you just learned about `all?` - can make an educated guess about what 
 
 ## Wrap Up
 * Name all the enumerables you know. What do they each return?
+<!--
+## Practice Time
+
+Make posters:
+Darian and Chris: max_by, min_by
+Matt and Mellisa: sort_by
+Tobin and Connor: all?
+Angi and Tristan: any? one? what's the difference
+Blythe and Erik: none?
+
+Practice on Enums Exercises:
+Everyone else -->
 
 ## For Homework:
 
@@ -296,4 +308,3 @@ In the [enums-exercises](https://github.com/turingschool/enums-exercises) comple
 -   any?
 -   none?
 -   one?
--   sort_by
