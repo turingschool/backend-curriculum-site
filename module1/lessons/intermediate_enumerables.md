@@ -1,30 +1,30 @@
 ---
 layout: page
 title: Intermediate Enumerables
-length: 60
-tags: enumerables, max, min, max_by, min_by, sort_by
+length: 90
+tags: enumerables, max, min, max_by, min_by, sort_by, all?, any?, one?, none?
 ---
 
 ## Learning Goals
 
-* Understand how to use `max`, `max_by,` their opposites, and `sort_by` appropriately.
+* Be able to use `max`, `max_by,` their opposites, and `sort_by` appropriately.
 
 ## Slides
 
 Available [here](../slides/intermediate_enumerables)
 
-## Vocabulary 
-* Enumerable 
-* Iterate 
+## Vocabulary
+* Enumerable
+* Iterate
 * Return Value
 * max, max_by, min, min_by, sort_by
 
-## WarmUp
+## Warm Up
 * What enumerables have used so far?  
 
 ### Hook
 
-We've got a handle on the beginner enumerables, and you've probably figured out how to use another few to sort our information. So far, we've learned how to create a new collection, and how to search in the selection returning us either a single item or multiple items.
+We've got a handle on the beginner enumerables, and you've probably discovered some more on your own. In class so far, we've learned how to create a new collection, and how to search in the selection returning us either a single item or multiple items.
 
 ### min / max
 
