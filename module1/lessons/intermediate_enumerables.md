@@ -34,27 +34,35 @@ Let's think about how we would do that with .each.
 
 ```ruby
   def max(array)
-    result = array.first
+    greatest = array.first
     array.each do |num|
-      result = num if num > result
+      if num > greatest
+        greatest = num
+      end
 
     end
 
-    result
+    greatest
   end
 
-  max ([1,3,2,4,5])
+  max([1,3,9,2,5])
+  => 9
 ```
 
-That's cool. But there's easier.
+That's cool. But there's a much easier way - we can make Ruby do the work for us.
 
 ```ruby
-[1,3,2,5,4].max
+[1,3,9,2,5].max
+=> 9
 ```
 
-And what if we wanted to take the smallest? You'd just use .min instead.
+And what if we wanted to take the smallest? You'd just use `.min` instead.
 
-Note, that you can use these methods for strings as well as numbers. Letters have a sort of intrinsic values on their own.
+
+**TURN & TALK:** All the other enumerables have a do block; these don't but are still considered enumerables - why?
+
+
+Note that you can use these methods for strings as well as numbers. Letters have a sort of intrinsic values on their own.
 
 What do I mean? open up a pry session in your terminal and type in,
 `"a" > "b"`
@@ -67,7 +75,12 @@ Knowing this we can do some cool things like grabbing the "lowest" alphabetical 
   ["victoria", "nate", "ali"].min
 ```
 
-This code, here, it'll return us `"ali"`
+This code, here, it'll return us `"ali"`. Be careful - this is NOT comparing the length of the strings!
+
+```Ruby
+"zzz" > "aaaa"
+true
+```
 
 If we swap out the min for a max, what will we get?
 
