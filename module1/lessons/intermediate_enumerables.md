@@ -72,10 +72,10 @@ We can see that the string, `"a"` is in fact, less than the string `"b"`.
 Knowing this we can do some cool things like grabbing the "lowest" alphabetical string within an array.
 
 ```ruby
-  ["victoria", "nate", "ali"].min
+  ["Brian", "Mike", "Amy"].min
 ```
 
-This code, here, it'll return us `"ali"`. Be careful - this is NOT comparing the length of the strings!
+This code, here, it'll return us `"Amy"`. Be careful - this is NOT straight up comparing the length of the strings - it's comparing the value of each string! Try running this: `["hello", "hi", "hey"].min`
 
 ```Ruby
 "zzz" > "aaaa"
@@ -201,6 +201,8 @@ On paper, write code to **get the youngest member of the Kardashians.**
 
 Now check with your work with your neighbor.
 
+**CFU:** What is the return value of `min_by` and `max_by`?
+
 ### sort_by
 
 We've worked on grabbing the largest thing or smallest thing out of a
@@ -236,27 +238,29 @@ class Person
   end
 end
 
-bradys = []
+kardashians = []
 
-bradys << Person.new("Carol", 48)
-bradys << Person.new("Greg", 22)
-bradys << Person.new("Mike", 52)
-bradys << Person.new("Marsha", 19)
-bradys << Person.new("Jan", 13)
+kardashians << Person.new("Kourtney", 39)
+kardashians << Person.new("Kim", 37)
+kardashians << Person.new("Kris", 62)
+kardashians << Person.new("Khloe", 33)
 
 ```
 
 Using this, how do you think we can sort by their names alphabetically?
+Do this on paper. Check your work with your BFF.
 
-Do this on paper. Check your work with a nearby friend.
+Extension: How could you create a list of names going in the opposite order?
+
+**CFU:** What is the return value of `sort_by`?
 
 ### all?
 
 And now, for something completely different.
 
-We're going to look at one of the enumerables that returns a simple true or false.
+We're going to look at one of the enumerables that returns a simple true or false. This is always indicated by the method ending with a '?'.
 
-Let's look at the name of this enumerable, `all?`. Simply, it's an enumerable with a conditional in the block. If every item in a collection (every time through the block) returns `true` when going through the block, it returns `true`. Otherwise, it will return `false`.
+Let's look at the name of this enumerable, `all?`. Under the hood, it's an enumerable with a conditional in the block. If **every** item in a collection returns `true` when going through the block, the entire method returns `true`. Otherwise, it will return `false`.
 
 Example:
 
@@ -276,13 +280,18 @@ end
 
 This would return false.
 
-## WrapUp
+Give what you just learned about `all?` - can make an educated guess about what `any?`, `none?`, and `one?` do/return?
+
+## Wrap Up
 * Name all the enumerables you know. What do they each return?
 
 ## For Homework:
 
 In the [enums-exercises](https://github.com/turingschool/enums-exercises) complete the following pattern and regular tests:
 
+-   max_by
+-   min_by
+-   sort_by
 -   all?
 -   any?
 -   none?
