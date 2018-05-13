@@ -76,7 +76,7 @@ kardashians << Person.new("Khloe", 33)
 
 ---
 
-# `#max_by`/`#min_by` (setup)
+# `#max_by`/`#min_by`
 
 ```ruby
   oldest_kard = kardashians.max_by do |person|
