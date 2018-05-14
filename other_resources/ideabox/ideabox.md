@@ -275,6 +275,8 @@ require './app'
 run IdeaBoxApp
 ```
 
+Note that you don't have to type in the `.rb` extension - It is assuming that we have a `.rb` at the end of our ruby file.
+
 #### Start It Again
 
 Now, if you run
@@ -294,13 +296,14 @@ Earlier when we started the application directly it started on port 4567. In our
 
 You can pick whatever port you like, and tell `rackup` to use it. Let's stick with Sinatra's default, `4567`:
 
-{% terminal %}
+```
 $ rackup -p 4567
-{% endterminal %}
+```
+
 
 #### Remove the `run!` and Requires
 
-We can now delete the redundant `run!` line inside of `app.rb` and our `config.ru` has taken care of requiring the dependencies. So we can cut down our `app.rb` to just this:
+We can now delete the redundant `run!` line inside of `app.rb` and we can delete the require in our `app.rb` as well because our `config.ru` has taken care of requiring the dependencies. So we can cut down our `app.rb` to just this:
 
 ```ruby
 class IdeaBoxApp < Sinatra::Base
