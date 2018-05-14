@@ -86,14 +86,20 @@ In Module 1, students will learn to use Ruby and object-oriented programming to 
 
 * [Credit Check](./projects/credit_check.markdown) ([slides](./slides/credit_check))
 * [Mastermind](./projects/mastermind)
+* [Chisel](./projects/chisel)
 * [Perilous Journey](./projects/perilous_journey)
 * [Sorting Cards](./projects/sorting_cards)
 * [Jungle Beat](./projects/jungle_beat)
 * [Date Night](./projects/date_night)
+* [Night Writer](./projects/night_writer)
+* [Enigma](./projects/enigma)
 * [Complete Me](./projects/complete_me)
 * [HTTP Yeah You Know Me](./projects/http_yeah_you_know_me)
-* [Event Manager](https://github.com/turingschool/curriculum/blob/4814d5517ed3a6cd33e717df535cdb0c0c5a9b8a/source/projects/eventmanager.markdown)
+* [Battleship](./projects/battleship)
+* [Event Manager](./projects/eventmanager)
+* [Event Reporter](./projects/event_reporter)
 * [Sorting Suite](./projects/sorting_suite)
+* [Head Count](./projects/headcount)
 * [Black Thursday](./projects/black_thursday)  
 
 ## Success in Mod 1
