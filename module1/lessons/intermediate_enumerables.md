@@ -284,6 +284,7 @@ Give what you just learned about `all?` - can make an educated guess about what 
 
 ## Wrap Up
 * Name all the enumerables you know. What do they each return?
+
 <!--
 ## Practice Time
 
@@ -295,7 +296,8 @@ Angi and Tristan: any? one? what's the difference
 Blythe and Erik: none?
 
 Practice on Enums Exercises:
-Everyone else -->
+Everyone else
+-->
 
 ## For Homework:
 
