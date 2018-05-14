@@ -20,7 +20,7 @@ Available [here](../slides/intermediate_enumerables)
 * max, max_by, min, min_by, sort_by
 
 ## Warm Up
-* What enumerables have used so far?  
+* What enumerables have you used so far?  
 
 ### Hook
 
