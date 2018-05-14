@@ -67,7 +67,7 @@ require 'rails_helper'
 
 describe Director, type: :model do
   describe "validations" do
-    it {is_expected.to validate_presence_of(:name)}
+    it {should validate_presence_of(:name)}
   end 
 end
 
@@ -126,7 +126,7 @@ Let's run rspec again.
 Failures:
 
   1) Director should validate that :name cannot be empty/falsy
-     Failure/Error: it {is_expected.to validate_presence_of(:name)}
+     Failure/Error: it {should validate_presence_of(:name)}
 
        Director did not properly validate that :name cannot be empty/falsy.
          After setting :name to ‹nil›, the matcher expected the Director to be
@@ -154,7 +154,7 @@ Let's create a test to help us drive this out.  Add the following to your `direc
 
 ```ruby 
 describe 'relationships' do
-  it {is_expected.to have_many(:movies)
+  it {should have_many(:movies)
 end 
 ```
 
@@ -164,7 +164,7 @@ When we run this test we get an error something like this:
 Failures:
 
   1) Director relationships should have many movies
-     Failure/Error: it {is_expected.to have_many(:movies)}
+     Failure/Error: it {should have_many(:movies)}
        Expected Director to have a has_many association called movies (no association called movies)
      # ./spec/models/director_spec.rb:9:in `block (3 levels) in <top (required)>'
 ```
@@ -224,7 +224,7 @@ require "rails_helper"
 
 describe Actor, type: model do
   describe "relationships" do
-	it {is_expected.to have_many(:movies).through(:actor_movies}
+	it {should have_many(:movies).through(:actor_movies}
   end 
 end 
 ```

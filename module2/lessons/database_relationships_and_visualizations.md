@@ -21,14 +21,10 @@ tags: database, schema, relationships
 * Many-to-Many Relationship
 
 ## Warm-Up
-1) Draw a diagram showing which tables we currently have in our Task Manager database. What information lives in that table?
 
-2) In our recent Task Manager client meeting, our client decided their application should scope tasks to a user.
-   Based on our conversation, we've decided:
-
-     Users should have tasks.
-
-     Right now, our database only supports tasks. Take a minute to consider what changes we would need to make to our database in order to support the features requested by our client. Add these to your diagram.
+* Draw a diagram of the table in our Task Manager database. What information lives in that table?
+* Assume we want to expand this application to allow for more than a single user. Each user should have multiple tasks. What changes would we need to make to our existing database?
+* What changes would we need to make to our models in order to take advantage of the changes we made to our database?
 
 ### Defining Key Terms
 

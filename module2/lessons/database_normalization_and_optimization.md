@@ -16,12 +16,15 @@ tags: database, schema, relationships
 * Normalization
 * B-Tree
 
+## Slides
+
+Available [here](../slides/database_normalization_and_optimization)
+
 
 ## Warm-Up
 
-1) Clone (or re-use) the [roster repo](https://github.com/turingschool-examples/roster). Run `bundle` to install any missing gems, then run `rake db{create,migrate,seed}`.
-
-2) Re-familiarize yourself with using the `psql` command-line utility for PostgreSQL. From a terminal prompt, run `psql roster-development`. Use `\q` within the psql shell to exit back to your terminal prompt.
+* Read [this](https://www.essentialsql.com/get-ready-to-learn-sql-database-normalization-explained-in-simple-english/) article on database normalization.
+* In your own words summarize what database normalization is.
 
 
 ### Defining Key Terms
@@ -34,42 +37,74 @@ tags: database, schema, relationships
 
 "Normalization" is usually done by examining our database table structure to look for duplicated data, usually strings, and find ways to replace those values with something which is faster to store and search.
 
-For example, our students table in our roster codebase has content which contains a student id, a student name, a course_id, and a score. While this purpose is suited for a small application like this, a more scalable version of our data would split the responsibility of this table into multiple pieces.
-
-Currently, the table holds three sets of data:
-
-- student identification
-- a relationship to a course for that student
-- a score for that student within the course
-
-This technically breaks the idea of "single responsibility" and becomes a great target for normalization.
-
-### Examining a table definition in ActiveRecord Models vs PostgreSQL
-
-Open `/db/schema.rb` from our codebase and examine the definition for the `students` table:
+For example, let's take a look at one potential schema for a database linking students and courses.
 
 ```ruby
-create_table "students", force: :cascade do |t|
-  t.string "first_name"
-  t.string "last_name"
-  t.bigint "course_id"
-  t.integer "score"
-  t.index ["course_id"], name: "index_students_on_course_id"
+ActiveRecord::Schema.define(version: 20171204033005) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "courses", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+  end
+
+  create_table "students", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.bigint "course_id"
+    t.integer "score"
+    t.index ["course_id"], name: "index_students_on_course_id"
+  end
+
 end
 ```
 
-A better breakdown of this data might look like this:
+Given that `course_id` exists on the students table, we might assume a one-to-many relationship between courses and students. What if the actual relationship was many-to-many? Without changing the database, how would we record the fact that a student was enrolled in multiple courses?
 
-- a student model that only contains a student id, and their name
-- a model that links a student id and a course id for enrollment (we'll call this the "student/course" join table)
-- a model that a student would have a score, through the student/course join table
+We could potentially put multiple course ids in the `course_id` column. We could also have multiple `course_id` columns (e.g. `course_1_id`, `course_2_id`, etc.). Or we could have multiple rows that had the same first/last name for a student. However, none of these solutions would be *normalized*.
 
-**Pair with a partner to sketch what these new tables might look like and how you might make migrations to move data from one table to another.**
+How could we adjust the structure of the database to record a many-to-many relationship between students?
 
-As a class, discuss the pros and cons of making these changes.
+
+### Why Normalize
+
+Imagine for a moment we did not normalize the database, but instead pursued one of the other solutions described above. How would we find all of the students enrolled in a particular course? What opportunities for error/corrupted information would exist?
+
+How does normalization help resolve these potential issues?
+
+
+### Practice
+
+* Imagine you were going to create a database to store the information in the JSON hash below. How might you structure your database?
+
+```ruby
+payload = '{
+  "url":"http://jumpstartlab.com/blog",
+  "requestedAt":"2013-02-16 21:38:28 -0700",
+  "respondedIn":37,
+  "referredBy":"http://jumpstartlab.com",
+  "requestType":"GET",
+  "eventName": "socialLogin",
+  "userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_2) AppleWebKit/537.17 (KHTML, like Gecko) Chrome/24.0.1309.0 Safari/537.17",
+  "resolutionWidth":"1920",
+  "resolutionHeight":"1280",
+  "ip":"63.29.38.211"
+}'
+```
+
+* Review [this](https://www.kaggle.com/unitednations/global-commodity-trade-statistics/data) commodity trade data. How might you structure a normalized database to store this data?
+
+* Review [this](https://www.kaggle.com/aashita/nyt-comments/data) New York Times article data. How might you structure a normlalized database to store this data?
+
 
 
 ## How are tables and indexes actually stored in PostgreSQL
+
+Clone (or re-use) the [roster repo](https://github.com/turingschool-examples/roster). Run bundle to install any missing gems, then run rake db:{create,migrate,seed}.
+
+From a terminal prompt, run psql roster-development. Use \q within the psql shell to exit back to your terminal prompt.
 
 Based on the `belongs_to` and `has_many` attributes in our `/app/models/student.rb` and `/app/models/course.rb`, we can see how ActiveRecord constructs our tables. But what do these actually look like in PostgreSQL? Let's take a look.
 
