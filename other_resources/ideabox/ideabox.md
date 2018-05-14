@@ -80,12 +80,12 @@ Save the file.
 
 ### Starting the Server
 
-From your project directory, start the server:
+From your project directory, start the server by typing in the terminal, `ruby app.rb`. You should see output similar to the following:
 
 ```
 $ ruby app.rb
 [2013-07-08 10:27:00] INFO  WEBrick 1.3.1
-[2013-07-08 10:27:00] INFO  ruby 2.1.1 (2013-02-22) [x86_64-darwin12.4.0]
+[2013-07-08 10:27:00] INFO  ruby 2.4.1 (2017-03-22) [x86_64-darwin17]
 == Sinatra/1.4.3 has taken the stage on 4567 for development with backup from WEBrick
 [2013-07-08 10:27:00] INFO  WEBrick::HTTPServer#start: pid=94643 port=4567
 ```
@@ -167,15 +167,17 @@ end
 
 This functionality will be important later. Basically we only want to call `run!`, which actually starts the application, if this file was run directly like this:
 
-{% terminal %}
+```
 $ ruby app.rb
-{% endterminal %}
+```
 
 ### Refactoring to use `rackup`
 
 It's not a very good idea to have the app run itself. That line
 `run! if app_file == $0` is ugly. Let's separate the concerns of *defining* the application from *running* the
 application.
+
+We want to refactor our code. Refactoring is the process of improving our code here to be more readable and simple, without changing the functionality of our code.
 
 #### Rack, In Brief
 
@@ -184,6 +186,8 @@ There's a standard named Rack that's used by most Ruby web frameworks, including
 This allows the community to share tools across frameworks. The Puma web server, for instance, supports Rack applications. So that means it can run either Sinatra or Rails apps without knowing anything more than the fact that they adhere to the Rack interface.
 
 Let's take advantage of Rack to run our application.
+
+First quit your application by pressing CTRL + C in your terminal window. 
 
 #### Creating `config.ru`
 
@@ -217,13 +221,13 @@ run IdeaBoxApp
 
 Try starting your application with:
 
-{% terminal %}
+```
 $ rackup
-{% endterminal %}
+```
 
 It will give you the following error:
 
-```plain
+```
 path/to/idea_box/config.ru:4:in `block in <main>': uninitialized constant IdeaBoxApp (NameError)
 ```
 
@@ -275,9 +279,10 @@ run IdeaBoxApp
 
 Now, if you run
 
-{% terminal %}
+```
 $ rackup
-{% endterminal %}
+```
+
 
 The application should start normally.
 
