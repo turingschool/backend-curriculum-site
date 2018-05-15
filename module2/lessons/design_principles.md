@@ -15,7 +15,7 @@ title: Design Principles for Backend Developers
 
 ## Warm Up
 
-Take a few minutes to brainstorm with your neighbor to come up with something that you use regularly and you feel embodies great design.
+Take a few minutes to brainstorm with your neighbor to come up with something that you use regularly use and you feel embodies great design.
 
 ## User Experience vs. User Interface
 
