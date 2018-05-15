@@ -62,13 +62,15 @@ You'll be building two main layouts for this project. A "foods" index page and a
 
 #### Broad Back End features
 
-First, we'll have our Front End talking with a pre-built Rails API found [here](https://github.com/case-eee/quantified-self-api). During week 3 of this project, we'll introduce Node, Express, and Knex and you'll build a new backend using only JavaScript! In a sense, you'll be replicating the exisiting Rails API in Node (super cool).
+During the three weeks of this project, you'll get the opportunity to build this API
+for three interations. First, you'll build it in Rails. Second, you'll build it using
+Node, Express, and Knex. Lastly, you'll use a wild card programming language to stretch
+skills a little more.
 
 ### Getting your project started
 
 - You'll have two separate code bases to complete this project. You'll have a code base for your front end and a separate code base for your back end. You may run into some errors when trying to communicate between the two code bases (most likely CORS problems), but we'll address this in class when we discuss Fetch.
 - We'll be starting with the front end so you'll want to follow the instructions on the [Quantified Self Starter Kit](https://github.com/turingschool-examples/quantified-self-starter-kit) to get your codebase going.
-- As mentioned previously, you'll be starting with the backend Rails API [here](https://github.com/case-eee/quantified-self-api). Fork this repository, run the setup commands, push it to production (your own heroku app), and use this as your source of data.
 - When you start to re-build the backend with Node, you'll start your new backend repository from scratch.
 - You'll need to accept your email invitation from Pivotal Tracker and use this as your Project Management tool.
 - Import [this CSV](./quantified-self-tracker-stories.csv) to your project to get all the cards in there. Import is found under settings. Note - these user stories are for the functionality dealing with the front end only. When you get to the backend, you'll need to write your own stories.

@@ -13,7 +13,7 @@ layout: page
   - [Nested Resources](../lessons/nested_resources)
 
 * **HOMEWORK:**
-  - JobTracker
+  - [JobTracker](https://github.com/turingschool-projects/job-tracker)
 
 ### Day 2:
 
@@ -23,7 +23,7 @@ layout: page
   - [Diagramming the Request Response Cycle](../lessons/diagramming_request_response_cycle)
 
 * **HOMEWORK:**
-  - JobTracker
+  - [JobTracker](https://github.com/turingschool-projects/job-tracker)
 
 ### Day 3:
 
@@ -31,7 +31,7 @@ layout: page
   - [Namespacing](../misc/namespacing)
 
 * **HOMEWORK:**
-  - JobTracker
+  - [JobTracker](https://github.com/turingschool-projects/job-tracker)
 
 ### Day 4:
 
@@ -52,7 +52,7 @@ layout: page
 
 ## Projects:
 
-* [Job Tracker](https://github.com/turingschool/job-tracker)
+* [JobTracker](https://github.com/turingschool-projects/job-tracker)
 * [Rails Mini Project](../projects/mini-project)
 
 ## Additional Resources

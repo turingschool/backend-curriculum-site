@@ -31,7 +31,7 @@ Be able to find which merchant the customers bought the most items from:
 sales_analyst.top_merchant_for_customer(customer_id) #=> merchant
 ```
 
-Find which customers only had one transaction:
+Find which customers only have only one invoice:
 
 ```rb
 sales_analyst.one_time_buyers #=> [customer, customer, customer]

@@ -25,7 +25,7 @@ layout: page
 
 
 * **HOMEWORK:**
-  - Extension: Experimenting with APIs: Work through [this tutorial and workshop](../misc/exploring_apis_workshop) which will prepare you for extensions in your Rails Mini-Project and Little Shop.
+  - Extension: Experimenting with APIs: Work through [this tutorial and workshop](../misc/exploring_apis_workshop) which will prepare you for extensions in your Rails Mini-Project.
   - Watch [this](https://vimeo.com/135210007) video in preparation for tomorrow. ProTip: Watch on 1.5x speed (top left of the video)
 
 ### Day 4:

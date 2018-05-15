@@ -1,5 +1,7 @@
 # Bike Share
 
+This is a large-group project. The most common feedback we get from students is that they didn't get to work on a particular area of the project because of the size and complexity of the project. **You must advocate for yourself** if there's a particular area of the project where you would like to focus your attention.
+
 ## Abstract
 
 In this project you'll use Ruby, Rails, and Activerecord to build a site that analyzes bike share usage in San Francisco and allows a user to purchase bike accessories via an online store.
@@ -7,8 +9,9 @@ In this project you'll use Ruby, Rails, and Activerecord to build a site that an
 In this project you'll use Ruby on Rails to build an online commerce platform to facilitate online ordering.
 
 This application will collect data in two ways:
-  1. Through web forms allowing users to enter trip/station/weather information
-  2. By consuming CSV files with historical information for stations, trips, and weather. In addition to creating and storing this information for viewing at a later date, this application will provide a number of user dashboards with higher level analysis of trends in bike share usage.
+
+1. Through web forms allowing users to enter trip/station/weather information
+1. By consuming CSV files with historical information for stations, trips, and weather. In addition to creating and storing this information for viewing at a later date, this application will provide a number of user dashboards with higher level analysis of trends in bike share usage.
 
 ## Learning Goals
 
@@ -22,11 +25,17 @@ This application will collect data in two ways:
 
 * Use Rails and ERB templates to render views to create, read, update, and delete resources using RESTful routes and appropriate HTTP verbs
 * Use Rails and ERB templates to display a dashboard not related to a specific resource saved in the database
-* Practice mixing HTML, CSS, and templates to create an inviting and usable User Interface
+* Practice mixing HTML, SASS, and templates to create an inviting and usable User Interface
 * Deploy an application to Heroku
 * Write an articulate README documenting features and functionalities of application
 * Build a logical user-flow that moves across multiple controllers and models
-* Navigation links are present for all functionality
+* The application has been styled.
+* The application uses a balanced, considered color scheme.
+* The application implements a font which is not the default font.
+* The application utilizes a nav bar.
+* The style shows evidence of intentional layout.
+* Space and text is balanced. White space is used to visually separate content.
+* The application is easily usable. The user can intuitvely navigate between different portions of the application without manually entering the URL into the nav-bar or using the back button on their browser.
 
 ### Code Organization/Quality
 
@@ -42,32 +51,40 @@ This application will collect data in two ways:
 ### Working Collaboratively
 
 * Use Git and GitHub to work collaboratively, develop in smaller groups, and resolve merge conflicts.
+* Use Git for code reviews with one another. (we want to see your conversation/questions)
 * Use Git Rebase workflow.
-* Practice an agile workflow and improve communication skills working within a team
+* Practice an Agile workflow and improve communication skills working within a team.
+* Seek technical feedback from peers and Product Owners utilizing Code Review on PRs.
+* Use a Pull Request Template, as described [here](https://help.github.com/articles/creating-a-pull-request-template-for-your-repository/).
 
 ## Process
 
-Each team will have an assigned project manager (peer) that will be the primary point of contact between the product owner (instructor) and the rest of the team.
+Each team will have an assigned Project Manager (peer) that will be the primary point of contact between the Product Owner (instructor) and the rest of the team.
 
-All base stories will be provided by the product owner. You will be asked to write your own stories for extensions and they should follow the same format as the ones that are provided to you.
+All base stories will be provided by the Product Owner. You will be asked to write your own stories for Extensions and they should follow the same format as the ones that are provided to you.
 
 You should not write code or migrations until a story calls for it.
 
-Teams can self-pace but will have a number of stories required to be completed at each check-in. Teams will meet with the product owner regularly and demo completed stories in production. Project scope and requirements can change at the discretion of the product owner so following an agile approach is really important.
+Teams can self-pace but will have a number of stories required to be completed at each check-in. Full teams (not just the Project Manager) will meet with the Product Owner regularly and demo completed stories in production mode (hosted on Heroku, NOT on localhost). Project scope and requirements can change at the discretion of the Product Owner so following an Agile approach is really important.
 
 It is expected that teams will have meaningful discussions and code reviews using comments on Github. If you would like technical feedback from instructors, you will need to tag them in PRs with specific questions. Commits should also have meaningful messages. Be careful about what type of commits are being made, i.e. "Cleanup Hound violations". If you want to learn more about squashing commits, see [here](http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html).
 
 It is also expected that teams will use a Pull Request Template, as described [here](https://help.github.com/articles/creating-a-pull-request-template-for-your-repository/).
 
-The master branch of your project should always remain in a state where it can be demoed and deployed... yes, even days that you don't have any _planned_ meetings. This also means that your production application (on Heroku) should be ready to demo at any time.
+The master branch of your project should always remain in a state where it can be demoed and deployed... yes, even days that you don't have any _planned_ meetings. This also means that your production application (on Heroku) should be ready to demo at any time. It is a good idea to push changes to production(Heroku) each time you merge to master.
 
 Everyone will provide feedback for group members at the end of the project.
 
 ### Restrictions
 
-Project implementation may **not** use:
+Project implementation **MUST** use:
 
-* Any external library for authentication except `bcrypt`
+* `bcrypt` must be used for authentication
+
+Project implementation may **NOT** use:
+
+* (no restrictions)
+
 
 ### Getting Started
 
@@ -79,12 +96,14 @@ Project implementation may **not** use:
 
 ### Define the Relationship with Your Group
 
-DTR with your group [here](http://backend.turing.io/career_development_curriculum/module_one/dtr_guidelines_memo). One group member should send a link of the forked gist to your anchor as soon as it's complete.
+* DTR with your group [here](https://github.com/turingschool/career-development-curriculum/blob/master/module_one/dtr_guidelines_memo.md).
+* One group member should fork that DTR gist and send a link of their forked gist to your instructors as soon as it's complete.
 
 ### Requirements
 
 This project must use:
 
+* [Rails](http://rubyonrails.org)
 * [PostgreSQL](http://www.postgresql.org/)
 * [ActiveRecord](http://guides.rubyonrails.org/active_record_basics.html)
 
@@ -155,7 +174,7 @@ I see all conditions (Date, Max Temperature, Mean Temperature, Min Temperature, 
 ```
 As a visitor,
 When I visit a condition show,
-I see all attributes for that condition.
+I see all attributes for that condition. (Date, Max Temperature, Mean Temperature, Min Temperature, Mean Humidity, Mean Visibility (in Miles), Mean Wind Speed (mph), Precipitation (inches))  
 
 ** All Attributes must be present **
 ```
@@ -178,6 +197,8 @@ I see my profile information,
 I do not see a link for "Login",
 I also see a link for "Logout".
 ```
+
+
 - [ ]
 
 ```
@@ -195,13 +216,14 @@ I also see my cart count updated on all pages.
 ```
 As a visitor,
 When I visit '/cart',
-I see all the bike accessory I have added to my cart,
+I see all the bike accessories I have added to my cart,
+I see a thumbnail for each accessory as well as the title and price,
 I see a subtotal and quantity breakdown for each accessory,
 I see a total for my cart,
 After I create an account,
 I visit "/cart,
 I see all of the data that was there when I was not logged in.
-``` 
+```
 - [ ]
 
 ```
@@ -211,8 +233,16 @@ And I click link "Remove" next to an accessory,
 My current page should be "/cart",
 I see a flash message,
 The message should say "Successfully removed SOME_ACCESSORY from your cart.",
-The flash message should be a link to that accessory in case the user wants to add it back,
-I also should not see the accessory listed in cart
+The flash message should contain a link to that accessory in case the user wants to add it back,
+I also should not see the accessory listed in my cart.
+```
+- [ ]
+
+```
+As a visitor,
+When I visit an accessory show,
+I see an image, title, description and price for my accessory,
+I can click "Add to Cart"
 ```
 - [ ]
 
@@ -282,7 +312,7 @@ I see a link for "Logout".
 ```
 As a registered user,
 When I visit '/cart',
-I see a small image, title, description and price for each accessory in my cart,
+I see a small image, title, and price for each accessory in my cart,
 I see a subtotal and quantity breakdown for each accessory,
 I see a total for my cart,
 I also see a button to "Checkout".
@@ -295,7 +325,7 @@ After adding a few items to my cart,
 When I visit '/cart',
 And click "Checkout",
 I see my own dashboard,
-I also see a flash message telling me I have "successfully submitted your order".
+I also see a flash message telling me I have "Successfully submitted your order totaling $TOTAL".
 ```
 - [ ]
 
@@ -321,11 +351,13 @@ I cannot view another user's private data (current or past orders, etc),
 I cannot view the administrator screens or use admin functionality,
 I cannot make myself an admin.  
 ```
-### As a registered user and admin
+
+
+### As a registered user
 - [ ]
 
 ```
-As a registered user and admin,
+As a registered user,
 When I visit '/stations-dashboard',
 I see the Total count of stations,
 I see the Average bikes available per station (based on docks),
@@ -339,7 +371,7 @@ I also see the Oldest station.
 - [ ]
 
 ```
-As a registered user and admin,
+As a registered user,
 When I visit '/trips-dashboard',
 I see the Average duration of a ride,
 I see the Longest ride,
@@ -356,13 +388,13 @@ I see the Single date with the lowest number of trips with a count of those trip
 - [ ]
 
 ```
-As a registered user and admin,
+As a registered user,
 When I visit a station show,
 In addition to the user story above,
 I see the Number of rides started at this station,
 I see the Number of rides ended at this station,
 I see the Most frequent destination station (for rides that began at this station),
-I see the Most freuqnet origination station (for rides that ended at this station),
+I see the Most frequent origination station (for rides that ended at this station),
 I see the Date with the highest number of trips started at this station,
 I see the Most frequent zip code for users starting trips at this station,
 I see the Bike ID most frequently starting a trip at this station.
@@ -370,8 +402,8 @@ I see the Bike ID most frequently starting a trip at this station.
 - [ ]
 
 ```
-As a registered user and admin,
-When I visit '/weather-dashboard',
+As a registered user,
+When I visit '/conditions-dashboard',
 I see the Breakout of average number of rides, highest number of rides, and lowest number of rides on days with a high temperature in 10 degree chunks (e.g. average number of rides on days with high temps between fifty and sixty degrees),
 I see the Breakout of average number of rides, highest number of rides, and lowest number of rides on days with precipitation in half-inch increments,
 I see the Breakout of average number of rides, highest number of rides, and lowest number of rides on days with mean wind speeds in four mile increments,
@@ -380,7 +412,7 @@ I see the Breakout of average number of rides, highest number of rides, and lowe
 - [ ]
 
 ```
-As a registered user and admin,
+As a registered user,
 When I visit '/trips-dashboard',
 I see the Weather on the day with the highest rides.
 I see the Weather on the day with the lowest rides.
@@ -388,7 +420,7 @@ I see the Weather on the day with the lowest rides.
 - [ ]
 
 ```
-As a registered user and admin,
+As a registered user,
 When I visit '/',
 And I click "Logout",
 I see "Login",
@@ -402,11 +434,11 @@ I can modify my account data,
 I cannot modify any other user's account data.
 ```
 
-### As a admin
+### As a admin user
 - [ ]
 
 ```
-As a admin,
+As an admin user,
 When I visit the stations index,
 I see everything a visitor can see,
 I see a button next to each station to edit that station,
@@ -415,7 +447,7 @@ I also see a button next to each station to delete that station.
 - [ ]
 
 ```
-As an admin,
+As an admin user,
 When I visit the station show,
 I see all attributes a visitor can see,
 I see a button to delete this station,
@@ -424,8 +456,8 @@ I also see a button to edit this station.
 - [ ]
 
 ```
-As a admin,
-When I visit '/admin/stations/new',
+As an admin user,
+When I visit admin station new,
 I fill in a form with all station attributes,
 When I click "Create Station",
 I am directed to that station's show page.
@@ -436,8 +468,8 @@ I also see a flash message that I have created that station.
 - [ ]
 
 ```
-As a admin,
-When I visit '/admin/stations/edit,
+As an admin user,
+When I visit admin station edit,
 I fill in a form with all station attributes,
 When I click "Update Station",
 I am directed that station's show page,
@@ -449,7 +481,7 @@ I also see a flash message that I have updated that station.
 - [ ]
 
 ```
-As an admin,
+As an admin user,
 When I visit the stations index,
 And I click delete next to a station,
 I do not see the station on the index.
@@ -458,7 +490,7 @@ I also see a flash message that I have deleted that station.
 - [ ]
 
 ```
-As a admin,
+As an admin user,
 When I visit the trips index,
 I see all attributes that a visitor can see,
 I see a button next to each trip to edit that trip,
@@ -467,7 +499,7 @@ I also see a button next to each trip to delete that trip.
 - [ ]
 
 ```
-As an admin,
+As an admin user,
 When I visit the trip show,
 I see everything a visitor can see,
 I see a button to delete this trip,
@@ -478,8 +510,8 @@ I also see a button to edit this trip.
 - [ ]
 
 ```
-As a admin,
-When I visit '/admin/trips/new',
+As an admin user,
+When I visit admin trip new,
 I fill in a form with all trip attributes,
 When I click "Create Trip",
 I am directed to that trip's show page.
@@ -491,8 +523,8 @@ I also see a flash message that I have created that trip.
 - [ ]
 
 ```
-As a admin,
-When I visit '/admin/trips/edit,
+As an admin user,
+When I visit admin trip edit,
 I fill in a form with all trip attributes,
 When I click "Update Trip",
 I am directed to that trip's show page,
@@ -504,7 +536,7 @@ I also see a flash message that I have updated that trip.
 - [ ]
 
 ```
-As an admin,
+As an admin user,
 When I visit the trips index,
 And I click delete next to a trip,
 I do not see the trip on the index.
@@ -513,7 +545,7 @@ I also see a flash message that I have deleted that trip.
 - [ ]
 
 ```
-As a admin,
+As an admin user,
 When I visit the conditions index,
 I see everything that a visitor can see,
 I see a button next to each condition to edit that condition,
@@ -522,8 +554,8 @@ I also see a button next to each condition to delete that condition.
 - [ ]
 
 ```
-As an admin,
-When I visit a conditon show,
+As an admin user,
+When I visit a condition show,
 I see all the attributes a visitor can see,
 I see a button to delete this condition,
 I also see a button to edit this condition.
@@ -531,8 +563,8 @@ I also see a button to edit this condition.
 - [ ]
 
 ```
-As a admin,
-When I visit '/admin/conditions/new',
+As a admin user,
+When I visit admin condition new,
 I fill in a form with all condition attributes,
 When I click "Create Condition",
 I am directed to a that condition's show page.
@@ -543,8 +575,8 @@ I also see a flash message that I have created that condition.
 - [ ]
 
 ```
-As a admin,
-When I visit '/admin/conditions/edit,
+As an admin user,
+When I visit admin condition edit,
 I fill in a form with all condition attributes,
 When I click "Update Condition",
 I am directed to that condition's show page,
@@ -556,7 +588,7 @@ I also see a flash message that I have updated that condition.
 - [ ]
 
 ```
-As an admin,
+As an admin user,
 When I visit the conditions index,
 And I click delete next to a condition,
 I do not see the condition on the index.
@@ -565,7 +597,7 @@ I also see a flash message that I have deleted that condition
 - [ ]
 
 ```
-As an admin,
+As an admin user,
 When I visit "/",
 I see a link for "Login",
 
@@ -583,7 +615,7 @@ I see a link for "Logout"
 - [ ]
 
 ```
-As an admin,
+As an admin user,
 When I visit an individual order page,
 I see the order's date and time,
 I see the purchaser's full name and address,
@@ -596,7 +628,7 @@ I also see the status for the order.
 - [ ]
 
 ```
-As an admin,
+As an admin user,
 When I visit "/admin/dashboard",
 I see a link for viewing all accessories,
 When I click that link,
@@ -614,8 +646,8 @@ Ability to Retire/Reactivate accessory
 - [ ]
 
 ```
-As an admin,
-When I visit '/admin/dashboard',
+As an admin user,
+When I visit the admin dashboard,
 I see a list of all orders,
 I see the total number of orders for each status ("Ordered", "Paid", "Cancelled", "Completed"),
 I see a link for each individual order,
@@ -629,8 +661,8 @@ I can click on "mark as completed" on orders that are "paid"
 - [ ]
 
 ```
-As an admin
-When I visit 'admin/bike-shop/new'
+As an admin user,
+When I visit admin bikeshop new
 I can create an accessory,
 An accessory must have a title, description and price,
 The title and description cannot be empty,
@@ -641,7 +673,7 @@ The photo is optional. If not present, a stand-in photo is used. (PAPERCLIP)
 
 ## Details for Seeding CSVs
 
-Download the dataset available [here](https://www.kaggle.com/benhamner/sf-bay-area-bike-share). This will include all of the CSV files that you will be using in this project. Since these files are large, we have set up your project directory structure and .gitignore so that when you add these files to the /db/csv/ directory they will not be pushed up to GitHub. However, this also means that each of the members of your team will need to download these files independently. Please note that there are idiosyncracies in the data that are outlined in some detail [here](https://www.kaggle.com/benhamner/sf-bay-area-bike-share/discussion/23165). These may not be important to you at this moment, but this will be an important reference as you move through future iterations.
+Download the dataset available [here](https://www.kaggle.com/benhamner/sf-bay-area-bike-share). This will include all of the CSV files that you will be using in this project. Since these files are large, you will want to set up your .gitignore so that when you add these files to the /db/csv/ directory they will not be pushed up to GitHub. However, this also means that each of the members of your team will need to download these files independently. Please note that there are idiosyncracies in the data that are outlined in some detail [here](https://www.kaggle.com/benhamner/sf-bay-area-bike-share/discussion/23165). These may not be important to you at this moment, but this will be an important reference as you move through future iterations.
 
 Update the seeds file in your /db directory and add the station.csv file to your /db/csv/ directory. When you run rake db:seed your development database should be populated with the information from the station.csv file. Your index should include a total of seventy stations.
 
@@ -652,21 +684,21 @@ For the evaluation we'll work through the expectations above and look at the fol
 
 ### 1. Feature Completeness
 
-* Exceeds Expectations: All features are correctly implemented along with two extensions and project is depoyed
+* Exceeds Expectations: All features are correctly implemented along with two extensions and project is deployed
 * Meets Expectations: All features defined in the assignment are correctly implemented and project is deployed
 * Below Expectations: There are one or two features missing or incorrectly implemented and/or project is not fully deployed
 
 ### 2. Views
 
 * Exceeds Expectations: Views show logical refactoring into layout(s), partials and helpers, with no logic present
-* Meets Expectations: Views make use of layout(s), partials and helpers, but some logic leaks through
+* Meets Expectations: Views make use of layout(s), partials and helpers
 * Below Expectations: Views don't make use of partials or show weak understanding of `render`
 
 ### 3. Controllers
 
 * Exceeds Expectations: Controllers show significant effort towards refactoring and pushing logic down the stack
 * Meets Expectations: Controllers are generally well organized with three or fewer methods that need refactoring
-* Below Expectations: There are four to seven controller methods that should have been refactored
+* Below Expectations: There are four or more controller methods that should have been refactored
 
 ### 4. Models
 
@@ -674,20 +706,38 @@ For the evaluation we'll work through the expectations above and look at the fol
 * Meets Expectations: Models show an effort to push logic down the stack, but need more internal refactoring
 * Below Expectations: Models are somewhat messy and/or make poor use of Rails features
 
-### 5. Testing
+### 5. ActiveRecord
+
+* Exceeds Expectations: Best choice ActiveRecord methods are used to solve each problem
+* Meets Expectations: ActiveRecord is utilized wherever it can be. There is no Ruby where there should be ActiveRecord
+* Below Expectations: Ruby is used to programatically solve problems where ActiveRecord could be used
+
+### 6. Testing
 
 * Exceeds Expectations: Project has a running test suite that exercises the application at multiple levels and utilizes mocking & stubbing
 * Meets Expectations: Project has a running test suite that covers all functionality and tests at multiple levels
 * Below Expectations: Project has sporadic use of tests at multiple levels
 
-### 6. Usability
+### 7. Usability
 
 * Exceeds Expectations: Project is highly usable and ready to deploy to customers
 * Meets Expectations: Project is highly usable, but needs more polish before it'd be customer-ready
 * Below Expectations: Project needs more attention to the User Experience, some views need to use a URL to visit them
 
-### 7. Workflow
+### 8. SASS
 
-* Exceeds Expectations: Excellent use of branches, pull requests, code review and a project management tool.
-* Meets Expectations: Good use of branches, pull requests, code review, rebasing, and a project-management tool.
+* Exceeds Expectations: Project utilizes SASS to its fullest
+* Meets Expectations: Project utilizes SASS but does not harness its unique functionality
+* Below Expectations: Project does not utilize SASS
+
+### 8. Workflow
+
+* Exceeds Expectations: Excellent use of branches, pull requests, peer and instructor  code review, rebasing and a project management tool.
+* Meets Expectations: Good use of branches, pull requests, peer and instructor code review, rebasing, and a project-management tool.
 * Below Expectations: Sporadic use of branches, pull requests, and/or project-management tool.
+
+### 9. Documentation
+
+* Exceeds Expectations: Excellent README which gives users an exemplary guide to the what and how your application
+* Meets Expectations: A custom README is present and gives users an guide to the what and how your application
+* Below Expectations: This project is lacking a README
