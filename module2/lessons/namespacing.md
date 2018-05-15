@@ -1,4 +1,5 @@
 # Namespacing
+
 ## Learning Goals
 
 Why/when do we namespace our routes?
