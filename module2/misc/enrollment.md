@@ -5,15 +5,30 @@ title: Rails Basics Challenge
 
 ## Learning Goals
 
-* Practice creating a rails application from scratch
+* Practice creating a Rails application from scratch
+
+## Requirements
+
+- Commit every 15 minutes at a minimum (we will be looking for timestamps on commits), push to GitHub often
+- When finished, send a private message to all of your instructors with your Git repo
+- TDD Throughout. Tests should cover all features and all model-level validations and class/instance methods on your models.
+- include Simplecov, code coverage should be 90% or better.
+- add a .gitignore file to exclude your Gemfile and Gemfile.lock
+
+## Grading/Rubric
+
+We're mostly concerned that you're getting the features finished, but grading also includes optimal database setup, good migrations, strong ActiveRecord relationships, and complete testing.
+
+**Styling is also not required for this particular exercise.** If you choose to make your code to look nicer, please do so AFTER you finish all other user stories.
+
 
 ## Overview
 
-Create a new rails project from your command line and implement the following user stories. Feel free to review any documentation/projects you have at your disposal.
+Create a new Rails project from your terminal, and implement the following user stories. Feel free to review any documentation/projects you have at your disposal.
 
 ### Students
 
-Let's start by creating students alone. You should TDD throughout. Styling is also not required for this particular exercise.
+Let's start by creating Students.
 
 #### User Can See an Individual Student
 
@@ -125,4 +140,3 @@ When I visit `/courses/:id`
 I see the name of that course
 And a list of students enrolled in that course
 ```
-
