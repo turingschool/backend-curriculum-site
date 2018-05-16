@@ -82,7 +82,7 @@ Save the file.
 
 From your project directory, start the server by typing in the terminal, `ruby app.rb`. You should see output similar to the following:
 
-```
+```ruby
 $ ruby app.rb
 [2013-07-08 10:27:00] INFO  WEBrick 1.3.1
 [2013-07-08 10:27:00] INFO  ruby 2.4.1 (2017-03-22) [x86_64-darwin17]
@@ -350,7 +350,7 @@ Putting our HTML in the block of the `get` method works, but it's difficult to r
 
 Within your project folder, create a folder named `views`. In that folder, create a file named `index.erb` with the following contents:
 
-```erb
+```html
 <html>
   <head>
     <title>IdeaBox</title>
@@ -406,7 +406,7 @@ Then from the command line, run `shotgun`.
 
 Now we need to add a little HTML form which is, itself, outside the scope of this tutorial. Here's the HTML we want to use, and you can just copy and paste this code, it would go in your `index.erb`
 
-```erb
+```html
 <html>
   <head>
     <title>IdeaBox</title>
@@ -470,7 +470,7 @@ The block you supply to `not_found` will be run by Sinatra whenever a request do
 Then in your `views` folder, define a file named `error.erb` with these
 contents:
 
-```erb
+```html
 <html>
   <head>
     <title>IdeaBox Error</title>
@@ -599,7 +599,7 @@ Refresh the browser and you're back to "Creating an IDEA!". This `save` method e
 How should we save our data? Should we store it in memory, to a file, or to a database?
 
 Almost every web application is backed by a database that stores its data.
-We're going to use an incredibly simple database that comes with Ruby called
+We're going to use a simple database that comes with Ruby called
 `YAML::Store` to store our ideas.
 
 ### Saving
@@ -640,20 +640,20 @@ Here our call to `database` is returning an instance of `YAML::Store`. The `YAML
 We're building some complex functionality here. Let's see if things are
 actually working. From a terminal in the project directory, fire up IRB:
 
-{% terminal %}
+```
 $ irb
-{% endterminal %}
+```
 
 Then within IRB:
 
-{% irb %}
-$ require './idea'
+```ruby 
+irb(main):001:0> require './idea'
 => true
-$ idea = Idea.new
+irb(main):002:0> idea = Idea.new
 => #<Idea:0x007f86fc04a0a8>
-$ idea.save
+irb(main):003:0> idea.save
 => NameError: uninitialized constant Idea::YAML
-{% endirb %}
+```
 
 Loading `idea.rb` goes fine, but when we try to save, it blows up in
 `save` when it calls the `database` method because it doesn't know what `YAML` is.
@@ -662,47 +662,52 @@ Loading `idea.rb` goes fine, but when we try to save, it blows up in
 
 Let's just tell irb to load `YAML`, then try to save again:
 
-{% irb %}
-$ require 'yaml'
-$ idea.save
+```ruby
+irb(main):004:0> require 'yaml'
+=> true
+irb(main):005:0> idea.save
 => NameError: uninitialized constant Psych::Store
-{% endirb %}
+```
 
 OK, so we get a new error message. We didn't require enough pieces.
 
 The thing we're using in the `database` method, `YAML::Store`, is a
 wrapper around another library named `Psych::Store`. We can pull it in by requiring 'yaml/store':
 
-{% irb %}
-$ require 'yaml/store'
-$ idea.save
+```ruby
+irb(main):006:0> require 'yaml/store'
+=> true
+irb(main):007:0> idea.save
 => {title: 'diet', description: 'pizza all the time'}
-{% endirb %}
+```
 
 #### Verifying Data in the Database
 
 But did it really save anything? Within IRB you can look at what's in the database:
 
-{% irb %}
-$ idea = Idea.new
-$ idea.database.transaction { idea.database['ideas'] }
+```ruby
+irb(main):008:0> idea = Idea.new
+irb(main):009:0> idea.database.transaction { idea.database['ideas'] }
 => [{:title=>"diet", :description=>"pizza all the time"}]
-{% endirb %}
+```
 
 What happens if we save another one?
 
-{% irb %}
-$ idea = Idea.new
-$ idea.save
-$ idea.database.transaction { idea.database['ideas'] }
+```ruby
+irb(main):010:0> idea = Idea.new
+irb(main):011:0> idea.save
+irb(main):012:0> idea.database.transaction { idea.database['ideas'] }
 => [{:title=>"diet", :description=>"pizza all the time"}, {:title=>"diet", :description=>"pizza all the time"}]
-{% endirb %}
+
+```
 
 They're definitely going into the database. It's kind of pointless, since
 we're saving the same idea over and over again, but the basic functionality is
 working.
 
 For this to work in our web app, then, we need to add `require 'yaml/store'` to the top of `idea.rb`.
+
+(Note: You can quit irb by typing in `quit`)
 
 ### Inspecting the Database
 
@@ -750,16 +755,16 @@ ideas:
 
 Start a new IRB session if you don't already have one running:
 
-{% terminal %}
+```
 $ irb
-{% endterminal %}
+```
 
-{% irb %}
-$ require './idea'
-$ idea = Idea.new
-$ idea.database.transaction { idea.database['ideas'] }
+```ruby
+irb(main):001:0> require './idea'
+irb(main):002:0> idea = Idea.new
+irb(main):003:0> idea.database.transaction { idea.database['ideas'] }
 => [{:title=>"diet", :description=>"pizza all the time"}, {:title=>"exercise", :description=>"play video games"}]
-{% endirb %}
+```
 
 Note that the second idea that came back had our modified description.
 
@@ -768,18 +773,18 @@ Note that the second idea that came back had our modified description.
 Rather than saving the same pizza idea every time, let's save data passed in when the `Idea` instance is created:
 
 ```ruby
-$ idea = Idea.new("app", "social network for dogs")
-$ idea.save
+irb(main):004:0> idea = Idea.new("app", "social network for dogs")
+irb(main):005:0> idea.save
 ```
 
 #### Try It
 
 What happens if we try doing this in IRB?
 
-{% irb %}
-$ idea = Idea.new("app", "social network for dogs")
+```ruby
+irb(main):006:0> idea = Idea.new("app", "social network for dogs")
 => ArgumentError: wrong number of arguments(2 for 0)
-{% endirb %}
+```
 
 The `new` method for `Idea` doesn't like this at all. The error is telling us
 that we're trying to give it two arguments, but it accepts zero.
@@ -801,13 +806,13 @@ end
 
 Now if we exit the IRB session and start over, we won't get an error:
 
-{% irb %}
-$ require './idea'
-$ idea = Idea.new("app", "social network for dogs")
+```ruby
+irb(main):007:0> require './idea'
+irb(main):008:0> idea = Idea.new("app", "social network for dogs")
 => #<Idea:0x007f7f608472b8>
-$ idea.save
+irb(main):009:0> idea.save
 => [{:title=>"diet", :description=>"pizza all the time"}, {:title=>"exercise", :description=>"play video games"}, {:title=>"diet", :description=>"pizza all the time"}]
-{% endirb %}
+```
 
 It didn't crash, but it didn't work either. If you take a look inside your database YAML file it saved the same old pizza idea. We're almost there, though.
 
@@ -844,12 +849,12 @@ end
 
 Restart your IRB session and try this:
 
-{% irb %}
-$ require './idea'
-$ Idea.new("app", "social network for dogs").save
-$ Idea.new("excursion", "take everyone to the zoo").save
-$ Idea.new("party", "dance all night and all day").save
-{% endirb %}
+```ruby
+irb(main):001:0> require './idea'
+irb(main):002:0> Idea.new("app", "social network for dogs").save
+irb(main):003:0> Idea.new("excursion", "take everyone to the zoo").save
+irb(main):004:0> Idea.new("party", "dance all night and all day").save
+```
 
 Open your `ideabox` file and make sure that the ideas you just created are
 there with the correct content.
@@ -871,7 +876,7 @@ We're getting an `ArgumentError` that says `wrong number of arguments (0 for
 2)`. This sounds kind of familiar. It says the problem is in `app.rb` the
 line:
 
-```rb
+```ruby
 idea = Idea.new
 ```
 
@@ -960,7 +965,7 @@ We need to get the data back out of the database and into the view template.
 
 Hop over to the `index.erb`. We'll use a bit of ERB to run non-printing Ruby code (with `<%` and `%>`) and a bit of Ruby (`.each`) to iterate through a collection named `ideas`:
 
-```erb
+```html
 <html>
   <head>...</head>
   <body>
