@@ -340,7 +340,7 @@ end
 
 Refresh the page in your browser and you should see this:
 
-![Hello World](idea_box/hello_world.png)
+![Hello World](hello_world.png)
 
 HTML is really just a string with some special tags in it. The browser understands that tag structure and has opinions about what it should look like.
 
@@ -361,12 +361,11 @@ Within your project folder, create a folder named `views`. In that folder, creat
 </html>
 ```
 
-Go to your browser and refresh the root page. You should see no change, still
-just `Hello, World`.
+Go to your browser and refresh the root page. You should see no change, still just `Hello, World`. We need to tell our app that it should use the `index.erb` file that we've just created and placed in that `views` folder.
 
 #### Rendering the Template
 
-Back in your `app.rb`, change your `get` method like this:
+Back in your `app.rb`, change your `get` method to look like this:
 
 ```ruby
 get '/' do
@@ -387,55 +386,9 @@ Go to your server terminal session and hit `CTRL-C` to stop the process.
 Restart the server (`rackup -p 4567`), flip over to your browser, and refresh
 the page. Now you should see the "View Template Edition" content.
 
-#### Automatic Reloading
+#### Automatic Reloading with Shotgun
 
-Below are two ways to setup automatic reloading. Choose one.
-
-#### #1: Sinatra Reloader 
-
-One to get automatic reloading is to use the `sinatra/reloader` functionality of the `sinatra-contrib` gem.
-
-Add `sinatra-contrib` to your `Gemfile`:
-
-```ruby
-gem 'sinatra-contrib', require: 'sinatra/reloader'
-```
-
-Then run `bundle` from your terminal to install the gem.
-
-Add this `configure` block into your `app.rb`:
-
-```ruby
-class IdeaBoxApp < Sinatra::Base
-  configure :development do
-    register Sinatra::Reloader
-  end
-
-  # ... other stuff
-end
-```
-
-Kill your server process (`CTRL-C`) and restart it using `rackup`:
-
-{% terminal %}
-$ rackup -p 4567
-== WEBrick on http://127.0.0.1:4567/
-[2013-02-26 17:41:28] INFO  WEBrick 1.3.1
-[2013-02-26 17:41:28] INFO  ruby 2.1.1 (2013-02-06) [x86_64-darwin11.4.2]
-[2013-02-26 17:41:28] INFO  WEBrick::HTTPServer#start: pid=9648 port=4567
-{% endterminal %}
-
-Now go to your `index.erb` and change the H1 header to just `IdeaBox`. Save
-the template, go to your browser, refresh, and you should see the updated
-heading.
-
-Your files are now reloading each request without you manually stopping and restarting the server.
-
-#### #2: Shotgun
-
-[Shotgun](https://github.com/rtomayko/shotgun) is an automatic reloader for Rack. It works with any Rack-supported server. According to the documentation, "Each time a request is received, it forks, loads the application in the child process, processes the request, and exits the child process. The
-result is clean, application-wide reloading of all source files and templates on
-each request."
+[Shotgun](https://github.com/rtomayko/shotgun) is an automatic reloader for Rack. It works with any Rack-supported server. According to the documentation, "Each time a request is received, it forks, loads the application in the child process, processes the request, and exits the child process. The result is clean, application-wide reloading of all source files and templates on each request."
 
 To use Shotgun, add it to your Gemfile:
 
@@ -444,13 +397,14 @@ gem 'shotgun'
 ```
 
 Then from the command line, run `shotgun`. 
+
+(Note: To get Shotgun to work on port 4567, you would type in `shotgun -p 4567`)
  
 ### Creating a Form
 
 #### HTML Form
 
-Now we need to add a little HTML form which is, itself, outside the scope of
-this tutorial. Here's the HTML we want to use:
+Now we need to add a little HTML form which is, itself, outside the scope of this tutorial. Here's the HTML we want to use, and you can just copy and paste this code, it would go in your `index.erb`
 
 ```erb
 <html>
@@ -473,24 +427,24 @@ this tutorial. Here's the HTML we want to use:
 
 Preview it in the browser.
 
-![Idea Box v1](idea_box/idea_box_v1.png)
+![Idea Box v1](idea_box_v1.png)
 
 Pretty ugly, eh? Go ahead and fill in a title and
 brief description, then hit `Submit`.
 
 #### Sinatra Doesn't Know This Ditty
 
-![Missing Error](idea_box/missing_error.png)
+![Missing Error](missing_error.png)
 
 Get used to seeing this screen. It's Sinatra's default `404` page, which is
 rendered whenever you submit a request which doesn't have a matching route.
 
-Typically it means you:
+Typically it means that we:
 
 1. Didn't define the route pattern at all
-2. Your method is using the wrong HTTP verb
+2. Our method is using the wrong HTTP verb
    (ex: your method uses `get`, but the request is coming in as a `post`)
-3. The route pattern doesn't match the request like you thought it did
+3. The route pattern doesn't match the request like we thought it did
 
 The default error page is pretty useless for debugging. Let's create a
 better error page.
@@ -548,14 +502,14 @@ contents:
 </html>
 ```
 
-Refresh your browser page which generated the error  and you should see more useful information about the error itself.
+Refresh your browser page which generated the error and you should see more useful information about the error itself.
 
 _Note_: If you'd like to output other things about the request, check out the
 [API documentation](http://rdoc.info/gems/rack/Rack/Request) for `Rack::Request`.
 
 #### Handling POST requests to `/`
 
-You've already defined what to do for some requests to `/` using the `get` methods. But when the browser submits the request from the form it's making a `POST` request. We need to define what should happen for a `POST` to `/`:
+You've already defined what to do for some requests to `/` using the `get` methods. But when the browser submits the request from the form it's making a `POST` request. We need to define what should happen when we get a `POST` to `/`:
 
 ```ruby
 post '/' do
@@ -563,8 +517,7 @@ post '/' do
 end
 ```
 
-Refresh the browser and that line of text should appear. But what should our
-`POST /` path actually do? Let's write some pseudocode:
+Refresh the browser and that line of text should appear. But what should our `POST /` path actually do? Let's write some pseudocode. What this means is that we want to outline what we want to happen in English. We do this to help us define what we want to do / what we want to happen in granular steps.
 
 ```ruby
 post '/' do
@@ -577,14 +530,14 @@ end
 
 #### Step 1: Create an `Idea`
 
-We could write our entire application inside the `app.rb` file. But, instead, let's pull out the business logic about an idea out in to a class named `Idea`. Create a file in the root of your project named `idea.rb` with these contents:
+We could write our entire application inside the `app.rb` file. But, instead, let's pull out the logic about an idea out in to a class named `Idea`. Create a file in the root of your project named `idea.rb` with these contents:
 
 ```ruby
 class Idea
 end
 ```
 
-Then, in your `POST /` path method, try to create an instance of `Idea`:
+Then, in our `POST /` path method, we are going to create an instance of `Idea`:
 
 ```ruby
 post '/' do
@@ -601,19 +554,17 @@ Refresh your browser and you'll get...
 
 ##### `uninitialized constant IdeaBoxApp::Idea`
 
-We need to tell Sinatra to load our new `Idea` file. At the top of your `app.rb`:
+This error means that our IdeaBox application doesn't know about the Idea class that we've just created. We need to tell Sinatra to load our new `Idea` file. Put this code at the top of our `app.rb`:
 
 ```ruby
 require './idea'
 ```
 
-Flip to the browser, refresh, and you'll see "Creating an IDEA!". This means
-that it got to that line in the `post '/'` method without any errors.
+Refresh your browser, and you'll see "Creating an IDEA!". This means that it got to that line in the `post '/'` method without any errors.
 
 ##### Step 2: Saving the Idea
 
-Our step 2 is "store it", which we'd like to be as easy as calling `.save` on
-the instance:
+Our step 2 is "store it", which we'd like to be as easy as calling `.save` on the instance:
 
 ```ruby
 post '/' do
@@ -628,7 +579,7 @@ post '/' do
 end
 ```
 
-Refresh the page and boom: `undefined method 'save'` for an `Idea` instance.
+Refresh the page and boom, we get the error message `undefined method 'save'` for an `Idea` instance.
 
 ##### Defining Save
 
