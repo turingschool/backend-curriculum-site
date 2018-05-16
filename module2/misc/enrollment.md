@@ -13,7 +13,6 @@ title: Rails Basics Challenge
 - When finished, send a private message to all of your instructors with your Git repo
 - TDD Throughout. Tests should cover all features and all model-level validations and class/instance methods on your models.
 - include Simplecov, code coverage should be 90% or better.
-- add a .gitignore file to exclude your Gemfile and Gemfile.lock
 
 ## Grading/Rubric
 
