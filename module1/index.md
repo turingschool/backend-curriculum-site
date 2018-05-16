@@ -84,23 +84,23 @@ In Module 1, students will learn to use Ruby and object-oriented programming to 
 
 ## Projects
 
-* [Credit Check](./projects/credit_check.markdown) ([slides](./slides/credit_check))
-* [Mastermind](./projects/mastermind)
-* [Chisel](./projects/chisel)
-* [Perilous Journey](./projects/perilous_journey)
-* [Sorting Cards](./projects/sorting_cards)
-* [Jungle Beat](./projects/jungle_beat)
-* [Date Night](./projects/date_night)
-* [Night Writer](./projects/night_writer)
-* [Enigma](./projects/enigma)
-* [Complete Me](./projects/complete_me)
-* [HTTP Yeah You Know Me](./projects/http_yeah_you_know_me)
 * [Battleship](./projects/battleship)
+* [Black Thursday](./projects/black_thursday)  
+* [Chisel](./projects/chisel)
+* [Complete Me](./projects/complete_me)
+* [Credit Check](./projects/credit_check.markdown) ([slides](./slides/credit_check))
+* [Date Night](./projects/date_night)
+* [Enigma](./projects/enigma)
 * [Event Manager](./projects/eventmanager)
 * [Event Reporter](./projects/event_reporter)
-* [Sorting Suite](./projects/sorting_suite)
 * [Head Count](./projects/headcount)
-* [Black Thursday](./projects/black_thursday)  
+* [HTTP Yeah You Know Me](./projects/http_yeah_you_know_me)
+* [Jungle Beat](./projects/jungle_beat)
+* [Mastermind](./projects/mastermind)
+* [Night Writer](./projects/night_writer)
+* [Perilous Journey](./projects/perilous_journey)
+* [Sorting Cards](./projects/sorting_cards)
+* [Sorting Suite](./projects/sorting_suite)
 
 ## Success in Mod 1
 
