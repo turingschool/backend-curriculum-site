@@ -57,7 +57,9 @@ And save it.
 
 #### Install the Dependency
 
-Return to your terminal and, from your project directory, run `bundle`. The Bundler gem will read the `Gemfile`, decide if anything needs to be installed from RubyGems, and install it.
+Return to your terminal and, from your project directory, run `bundle` in the terminal.. The Bundler gem will read the `Gemfile`, decide if anything needs to be installed from RubyGems, and install it.
+
+This will also generate a `Gemfile.lock` file which contains information about gem versions.
 
 ### Beginning `app.rb`
 
@@ -84,13 +86,13 @@ From your project directory, start the server by typing in the terminal, `ruby a
 
 ```ruby
 $ ruby app.rb
-[2013-07-08 10:27:00] INFO  WEBrick 1.3.1
-[2013-07-08 10:27:00] INFO  ruby 2.4.1 (2017-03-22) [x86_64-darwin17]
-== Sinatra/1.4.3 has taken the stage on 4567 for development with backup from WEBrick
-[2013-07-08 10:27:00] INFO  WEBrick::HTTPServer#start: pid=94643 port=4567
+[2018-05-16 12:56:07] INFO  WEBrick 1.3.1
+[2018-05-16 12:56:07] INFO  ruby 2.4.1 (2017-03-22) [x86_64-darwin17]
+== Sinatra (v2.0.1) has taken the stage on 4567 for development with backup from WEBrick
+[2018-05-16 12:56:07] INFO  WEBrick::HTTPServer#start: pid=3283 port=4567
 ```
 
-In the third line of output note that the server is, by default, running on
+In the fourth line of output note that the server is, by default, running on
 port `4567`.
 
 Access [http://localhost:4567](http://localhost:4567) in your web browser.
@@ -174,7 +176,7 @@ $ ruby app.rb
 ### Refactoring to use `rackup`
 
 It's not a very good idea to have the app run itself. That line
-`run! if app_file == $0` is ugly. Let's separate the concerns of *defining* the application from *running* the
+`run! if app_file == $0` isn't great. Let's separate the concerns of *defining* the application from *running* the
 application.
 
 We want to refactor our code. Refactoring is the process of improving our code here to be more readable and simple, without changing the functionality of our code.
@@ -187,7 +189,7 @@ This allows the community to share tools across frameworks. The Puma web server,
 
 Let's take advantage of Rack to run our application.
 
-First quit your application by pressing CTRL + C in your terminal window. 
+First quit your application by pressing `CTRL + C` in your terminal window. 
 
 #### Creating `config.ru`
 
@@ -224,6 +226,8 @@ Try starting your application with:
 ```
 $ rackup
 ```
+
+(Note: rack is installed when Sinatra is installed.)
 
 It will give you the following error:
 
@@ -338,7 +342,7 @@ get '/' do
 end
 ```
 
-Refresh the page in your browser and you should see this:
+Start up your server and refresh and you should see: 
 
 ![Hello World](hello_world.png)
 
@@ -396,9 +400,9 @@ To use Shotgun, add it to your Gemfile:
 gem 'shotgun'
 ```
 
-Then from the command line, run `shotgun`. 
+And then run `bundle` at the command line.
 
-(Note: To get Shotgun to work on port 4567, you would type in `shotgun -p 4567`)
+Then from the command line, run `shotgun -p 4567`. 
  
 ### Creating a Form
 
@@ -451,7 +455,7 @@ better error page.
 
 #### Call the `not_found` Method
 
-Within your `app.rb`, call the `not_found` method:
+Within your `app.rb`, add the `not_found` method:
 
 ```ruby
 class IdeaBoxApp < Sinatra::Base
@@ -503,9 +507,6 @@ contents:
 ```
 
 Refresh your browser page which generated the error and you should see more useful information about the error itself.
-
-_Note_: If you'd like to output other things about the request, check out the
-[API documentation](http://rdoc.info/gems/rack/Rack/Request) for `Rack::Request`.
 
 #### Handling POST requests to `/`
 
@@ -663,22 +664,10 @@ Loading `idea.rb` goes fine, but when we try to save, it blows up in
 Let's just tell irb to load `YAML`, then try to save again:
 
 ```ruby
-irb(main):004:0> require 'yaml'
-=> true
-irb(main):005:0> idea.save
-=> NameError: uninitialized constant Psych::Store
-```
-
-OK, so we get a new error message. We didn't require enough pieces.
-
-The thing we're using in the `database` method, `YAML::Store`, is a
-wrapper around another library named `Psych::Store`. We can pull it in by requiring 'yaml/store':
-
-```ruby
 irb(main):006:0> require 'yaml/store'
 => true
 irb(main):007:0> idea.save
-=> {title: 'diet', description: 'pizza all the time'}
+=> [{title: 'diet', description: 'pizza all the time'}]
 ```
 
 #### Verifying Data in the Database
@@ -941,7 +930,7 @@ Replace "Creating an IDEA!" with `redirect '/'`:
 ```ruby
 post '/' do
   # 1. Create an idea based on the form parameters
-  idea = Idea.new
+  idea = Idea.new(params['idea_title'], params['idea_description'])
 
   # 2. Store it
   idea.save
@@ -1292,7 +1281,7 @@ We can add new ideas and delete ideas we don't like, but sometimes things are *a
 
 ### Adding an Edit Link
 
-We'll use the same positional identifier to figure out which element to edit. Let's use the url pattern `id/edit` where `id` is the position of the idea.
+We'll use the same positional identifier to figure out which element to edit. Let's use the url pattern `id/edit` where `id` is the position of the idea. Modify your `index.erb` file to add an edit link like below.
 
 ```html
 <ul>
@@ -1762,6 +1751,8 @@ end
 
 There. Now both creating and editing ideas should work correctly.
 
+Note that when you update ideas now, you will see `- !ruby/hash:Sinatra::IndifferentHash` in your YAML database. Don't worry about this for now, as you will still be able to read, create, update and delete entries.
+
 ## I6: Using a View Layout
 
 Our view templates have a lot of duplication. View layouts are used to define the "boilerplate" HTML that should go on every page. Typically this includes the header, navigation, sidebar, and footer. Then the view template only has to focus on the content for that action/page.
@@ -1805,8 +1796,6 @@ If you open up your `idea.rb` file, you'll notice that most of the methods in th
 Create a new file `idea_store.rb` in the root of your project, and move all of the method definitions that start with `self.` out of `idea.rb` and into the new `idea_store.rb`.
 
 Go ahead and move `require 'yaml/store'` as well, since that is relevant to the storage, not the idea itself.
-
-If you now have any calls to `new` in `IdeaStore` change them to `Idea.new` instead.
 
 #### Modifying `app.rb` to use `IdeaStore`
 
