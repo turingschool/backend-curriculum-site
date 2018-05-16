@@ -1574,7 +1574,7 @@ Reload the page again, and you should see your updated idea!
 
 ## I5: Refactoring `Idea`
 
-There's a lot that is klunky about our implementation so far.
+There's a lot that is clunky about our implementation so far.
 
 ### How Ideas are Built
 
@@ -1647,12 +1647,11 @@ the right ideas show up in the list of all the ideas.
 
 #### Improving the `POST /` Action
 
-That `POST /` endpoint looks worse than it did before. It would be nice if we could
-just give the `Idea.new` a hash straight from the `params`.
+That `POST /` endpoint looks worse than it did before. It would be nice if we could just give the `Idea.new` a hash straight from the `params`.
 
 We can by changing the form. Remember that the names of the `input` tags in the form determine the keys that are available in `params`. Change the form so the `input` tags are named like this:
 
-```erb
+```html
 <form action='/' method='POST'>
   <p>
   Your Idea:
@@ -1663,8 +1662,7 @@ We can by changing the form. Remember that the names of the `input` tags in the 
 </form>
 ```
 
-Notice how we changed `idea_title` and `idea_description` to `idea[title]` and
-`idea[description]`? Sinatra will automatically group them into a nested hash within `params`. So in the action receiving the request we'll have `params` like this:
+Notice how we changed `idea_title` and `idea_description` to `idea[title]` and `idea[description]`? Sinatra will automatically group them into a nested hash within `params`. So in the action receiving the request we'll have `params` like this:
 
 ```ruby
 {'idea' => {'title' => 'My Title', 'description' => 'My Description'}}
@@ -1684,10 +1682,9 @@ Test your app, to make sure it still works!
 
 #### Fixing Edit and Update Actions
 
-We also need to fix the form in `edit.erb`  and the corresponding `PUT /:id`
-endpoint to use the same `params` style:
+We also need to fix the form in `edit.erb` and the corresponding `PUT /:id` endpoint to use the same `params` style:
 
-```erb
+```html
 <form action="/<%= id %>" method='POST'>
   <p>
     Edit your Idea:
@@ -1735,28 +1732,19 @@ ideas:
 
 Can you see how they're different?
 
-It's pretty subtle. In one, the `title` and `description` have colons on both
-sides of the string, and in the other, they only have a colon at the end of
-the string.
+It's pretty subtle. In one, the `title` and `description` have colons on both sides of the string, and in the other, they only have a colon at the end of the string.
 
-Essentially, `:title:` is the YAML for the Ruby _symbol_ `:title`, whereas
-`title:` is YAML for the Ruby _string_ `"title"`.
+Essentially, `:title:` is the YAML for the Ruby _symbol_ `:title`, whereas `title:` is YAML for the Ruby _string_ `"title"`.
 
-When the `params` object comes back, we send it directly to `Idea.update`.
-While we can access fields in the `params` using both strings and symbols for
-the keys, if we just grab the value of `params[:idea]`, we'll get a hash with
-*string* values for the keys:
+When the `params` object comes back, we send it directly to `Idea.update`. While we can access fields in the `params` using both strings and symbols for the keys, if we just grab the value of `params[:idea]`, we'll get a hash with *string* values for the keys:
 
 ```ruby
 {"title" => "game", "description" => "tic tac toe"}
 ```
 
-We can either jump through some hoops to deal with both strings and symbols,
-or change the update so we explicitly pass symbols to the database, or we can
-just use strings all the way through the app. Let's just use strings.
+We can either jump through some hoops to deal with both strings and symbols, or change the update so we explicitly pass symbols to the database, or we can just use strings all the way through the app. Let's just use strings.
 
-We need to update the `initialize` and `save` methods in `idea.rb` to use
-strings for the hash keys instead of symbols:
+We need to update the `initialize` and `save` methods in `idea.rb` to use strings for the hash keys instead of symbols:
 
 ```ruby
 def initialize(attributes)
@@ -1784,7 +1772,7 @@ Copy your `views/index.erb` to a file named `views/layout.erb`. Open up the new
 `layout.erb` file, and delete everything inside the <body> tags so that you
 end up with this:
 
-```erb
+```html
 <html>
   <head>
     <title>IdeaBox</title>
@@ -1798,7 +1786,7 @@ Reload the root page in your browser and you should see no content, just a white
 
 *However*, this layout doesn't allow the content of the view template to actually be rendered. To do that, we need to add a call to `yield` inside the `<body>` tags like this:
 
-```erb
+```html
 <body>
   <%= yield %>
 </body>
