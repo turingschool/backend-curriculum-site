@@ -1798,21 +1798,15 @@ Open `index.erb` and `edit.erb` and delete all the wrapper which is in the layou
 
 ## I7: Idea vs Ideas
 
-If you open up your `idea.rb` file, you'll notice that most of the methods in
-that file are not about a single idea, but about dealing with the storage and
-retrieval of ideas. Let's move the database operations out of `Idea` into a separate class named `IdeaStore`.
+If you open up your `idea.rb` file, you'll notice that most of the methods in that file are not about a single idea, but about dealing with the storage and retrieval of ideas. Let's move the database operations out of `Idea` into a separate class named `IdeaStore`.
 
 ### Move Class Methods to `IdeaStore`
 
-Create a new file `idea_store.rb` in the root of your project, and move all of
-the method definitions that start with `self.` out of `idea.rb` and into the
-new `idea_store.rb`.
+Create a new file `idea_store.rb` in the root of your project, and move all of the method definitions that start with `self.` out of `idea.rb` and into the new `idea_store.rb`.
 
-Go ahead and move `require 'yaml/store'` as well, since that is relevant to
-the storage, not the idea itself.
+Go ahead and move `require 'yaml/store'` as well, since that is relevant to the storage, not the idea itself.
 
-If you now have any calls to `new` in `IdeaStore` change them to
-`Idea.new` instead.
+If you now have any calls to `new` in `IdeaStore` change them to `Idea.new` instead.
 
 #### Modifying `app.rb` to use `IdeaStore`
 
@@ -1860,9 +1854,7 @@ end
 
 #### A Lingering Issue
 
-We're left with something odd. Our `idea.rb` file still has some database
-specific stuff in it, in the `save` method, and in the Sinatra app, all of the
-endpoints are talking to the IdeaStore, except the `POST /` endpoint.
+We're left with something odd. Our `idea.rb` file still has some database specific stuff in it, in the `save` method, and in the Sinatra app, all of the endpoints are talking to the IdeaStore, except the `POST /` endpoint.
 
 By moving the database-related operations into a separate class, we can see that
 we didn't have a very consistent approach to how we're dealing with the
@@ -2249,7 +2241,7 @@ end
 
 Next we have to update the index page to use this id rather than the index of the array of ideas:
 
-```erb
+```html
 <ul>
   <% ideas.each do |idea| %>
     <li>
@@ -2272,7 +2264,7 @@ That takes care of showing ideas on the index page and liking the right ideas, b
 
 Update the first line of `lib/app/views/edit.erb` to use `idea.id` instead of `id`:
 
-```erb
+```html
 <form action='/<%= idea.id mode == "edit" %>' method='POST'>
 ```
 
@@ -2293,7 +2285,7 @@ This means that we can get rid of the hacky `mode` variable that we send to the 
 
 Open up the `lib/app/views/edit.erb` and change it to this:
 
-```erb
+```html
 <form action='/<%= idea.id %>' method='POST'>
   <p>
     <% if idea.id %>
@@ -2435,25 +2427,6 @@ what it would look like using Haml.
 
 * Replace all the *erb* templates with *haml* templates.
 
-### Image Upload
-
-Pictures are worth a 1000 words.
-
-* When you create an idea you can specify an image
-* When you create a resource for an idea you can specify an image
-* You are able to upload an image that will be associated with the idea
-* When viewing an idea the image is displayed within the idea
-* When viewing a resource the image is displayed within that resource
-
-### Sound Upload
-
-The power of the spoken word
-
-* When you create an idea you can specify an sound
-* When you create a resource for an idea you can specify an sound
-* When viewing an idea the sound is displayed as a downloadable link
-* When viewing a resource the sound is displayed as a downloadable link
-
 ### SMS Integration
 
 Faster than even a mobile website might be the ability to define ideas through
@@ -2461,18 +2434,3 @@ text message.
 
 * You able to text a new idea to a particular phone number
 * The message from the text appear in your list of ideas
-
-### Users
-
-Currently you can only track the ideas of one person. What would help you to
-generate ideas is if you could take idea generation socially
-
-* A person is able to generate a user account
-* A user account has a username
-* When viewing a user's page you are only able to the ideas for that user
-* When viewing a user's page you are able to add ideas as previously defined
-
-> At the moment we are not going to discuss the policies for good password
-> creation and rentention or maintaining a logged in user. The idea of a
-> user in this implementation simply allows you to segment the ideas across
-> users. Any person viewing a user's page can add a new idea for that user.
