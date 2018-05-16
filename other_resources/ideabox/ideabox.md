@@ -1294,7 +1294,7 @@ We can add new ideas and delete ideas we don't like, but sometimes things are *a
 
 We'll use the same positional identifier to figure out which element to edit. Let's use the url pattern `id/edit` where `id` is the position of the idea.
 
-```erb
+```html
 <ul>
   <% ideas.each_with_index do |idea, id| %>
     <li>
@@ -1369,9 +1369,7 @@ code into it:
 </html>
 ```
 
-Again we're creating a form which uses the `POST` method, and giving Sinatra the
-extra information in `_method=PUT` to say that even though this is coming in
-with the `POST` verb, we actually want it to be a `PUT`.
+Again we're creating a form which uses the `POST` method, and giving Sinatra the extra information in `_method=PUT` to say that even though this is coming in with the `POST` verb, we actually want it to be a `PUT`.
 
 Then the form has `input` tags for the title and description. The `value` attribute uses the current values for the idea rather than having blank boxes.
 
