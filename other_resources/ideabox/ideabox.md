@@ -1,14 +1,12 @@
 # Ideabox
 
-Every developer has more ideas than time. As David Allen likes to say "the human brain is for creating ideas, not remembering them." Let's build a system
-to record your good, bad, and awful ideas.
+Every developer has more ideas than time. As David Allen likes to say "the human brain is for creating ideas, not remembering them." Let's build a systemto record your good, bad, and awful ideas.
 
 ## Goal Setting
 
 ### Before You Begin
 
-Coming into this tutorial you've got a good understanding of Ruby. You have some 
-understanding of how the web works, but probably haven't built web applications.
+Coming into this tutorial you've got a good understanding of Ruby. You have some understanding of how the web works, but probably haven't built web applications.
 
 ### Process
 
@@ -92,12 +90,9 @@ $ ruby app.rb
 [2018-05-16 12:56:07] INFO  WEBrick::HTTPServer#start: pid=3283 port=4567
 ```
 
-In the fourth line of output note that the server is, by default, running on
-port `4567`.
+In the fourth line of output note that the server is, by default, running on port `4567`.
 
-Access [http://localhost:4567](http://localhost:4567) in your web browser.
-You should see `Hello, World` then pat yourself on the back for developing a
-web application.
+Access [http://localhost:4567](http://localhost:4567) in your web browser. You should see `Hello, World` then pat yourself on the back for developing a web application.
 
 ### What Just Happened?
 
@@ -117,8 +112,7 @@ class IdeaBoxApp < Sinatra::Base
 end
 ```
 
-Then we create a Ruby class which is going to be our application. It
-inherits from `Sinatra::Base`, which provides the application with all the Sinatra functionality.
+Then we create a Ruby class which is going to be our application. It inherits from `Sinatra::Base`, which provides the application with all the Sinatra functionality.
 
 ### Define the URL to Match
 
@@ -129,16 +123,11 @@ class IdeaBoxApp < Sinatra::Base
 end
 ```
 
-We call a method named `get`, giving it a parameter
-`/` and a block of code. The string parameter to `get` is the URL pattern to
-match against the incoming HTTP request.
+We call a method named `get`, giving it a parameter `/` and a block of code. The string parameter to `get` is the URL pattern to match against the incoming HTTP request.
 
-Our Sinatra application knows that it is running on
-[http://localhost:4567](http://localhost:4567), so we only need to define the
-part of the url that comes after that.
+Our Sinatra application knows that it is running on [http://localhost:4567](http://localhost:4567), so we only need to define the part of the url that comes after that.
 
-In this case we passed `'/'`, which will match when someone visits the
-homepage, also known as the _root_ of the application.
+In this case we passed `'/'`, which will match when someone visits the homepage, also known as the _root_ of the application.
 
 ### Defining the Response
 
@@ -150,12 +139,9 @@ class IdeaBoxApp < Sinatra::Base
 end
 ```
 
-The block of code that we pass to the `get` method, the stuff between the `do`
-and the `end`, is the code that Sinatra is going to run when someone requests
-the matching page.
+The block of code that we pass to the `get` method, the stuff between the `do` and the `end`, is the code that Sinatra is going to run when someone requests the matching page.
 
-The response to the request is a string, in this case `'Hello, World!'`, which
-is sent to the browser.
+The response to the request is a string, in this case `'Hello, World!'`, which is sent to the browser.
 
 #### Run the Application
 
@@ -175,9 +161,7 @@ $ ruby app.rb
 
 ### Refactoring to use `rackup`
 
-It's not a very good idea to have the app run itself. That line
-`run! if app_file == $0` isn't great. Let's separate the concerns of *defining* the application from *running* the
-application.
+It's not a very good idea to have the app run itself. That line `run! if app_file == $0` isn't great. Let's separate the concerns of *defining* the application from *running* the application.
 
 We want to refactor our code. Refactoring is the process of improving our code here to be more readable and simple, without changing the functionality of our code.
 
@@ -195,8 +179,7 @@ First quit your application by pressing `CTRL + C` in your terminal window.
 
 Rack applications have a file in their project root named `config.ru`. When a Rack-compatible server is told to load the application, it'll try to run this file. Despite having the extension `.ru`, it's just another Ruby file.
 
-Create an empty file called `config.ru`. Your
-`idea_box` project directory should now look like this:
+Create an empty file called `config.ru`. Your `idea_box` project directory should now look like this:
 
 ```plain
 idea_box/
@@ -263,8 +246,7 @@ OK, so it has something to do with running the application we wrote. But what is
 path/to/idea_box/config.ru:4:in `block in <main>': uninitialized constant IdeaBoxApp (NameError)
 ```
 
-It doesn't know anything about any `IdeaBoxApp`. That's because we haven't
-told our `config.ru` file where to find it.
+It doesn't know anything about any `IdeaBoxApp`. That's because we haven't told our `config.ru` file where to find it.
 
 #### Adding the Requires
 
@@ -321,9 +303,7 @@ Now you're ready to start building the application.
 
 ## I1: Recording Ideas
 
-For the early iterations we're going to ignore authentication and
-authorization. Just imagine that our users are going to run this app on their
-local machine behind a firewall, so they don't care about security.
+For the early iterations we're going to ignore authentication and authorization. Just imagine that our users are going to run this app on their local machine behind a firewall, so they don't care about security.
 
 When they visit the root URL, we should...
 
@@ -381,14 +361,9 @@ Flip over to your browser, refresh, and...still see `Hello, World`???
 
 ### Reloading Application Code
 
-If you've developed anything in Rails before, you've been spoiled by automatic
-reloading. In Ruby it's actually pretty complex to dynamically undefine and
-redefine classes when files change. In Sinatra, this functionality is **not**
-built in by default.
+If you've developed anything in Rails before, you've been spoiled by automatic reloading. In Ruby it's actually pretty complex to dynamically undefine and redefine classes when files change. In Sinatra, this functionality is **not** built in by default.
 
-Go to your server terminal session and hit `CTRL-C` to stop the process.
-Restart the server (`rackup -p 4567`), flip over to your browser, and refresh
-the page. Now you should see the "View Template Edition" content.
+Go to your server terminal session and hit `CTRL-C` to stop the process. Restart the server (`rackup -p 4567`), flip over to your browser, and refresh the page. Now you should see the "View Template Edition" content.
 
 #### Automatic Reloading with Shotgun
 
@@ -433,15 +408,13 @@ Preview it in the browser.
 
 ![Idea Box v1](idea_box_v1.png)
 
-Pretty ugly, eh? Go ahead and fill in a title and
-brief description, then hit `Submit`.
+Pretty ugly, eh? Go ahead and fill in a title and brief description, then hit `Submit`.
 
 #### Sinatra Doesn't Know This Ditty
 
 ![Missing Error](missing_error.png)
 
-Get used to seeing this screen. It's Sinatra's default `404` page, which is
-rendered whenever you submit a request which doesn't have a matching route.
+Get used to seeing this screen. It's Sinatra's default `404` page, which is rendered whenever you submit a request which doesn't have a matching route.
 
 Typically it means that we:
 
@@ -450,8 +423,7 @@ Typically it means that we:
    (ex: your method uses `get`, but the request is coming in as a `post`)
 3. The route pattern doesn't match the request like we thought it did
 
-The default error page is pretty useless for debugging. Let's create a
-better error page.
+The default error page is pretty useless for debugging. Let's create a better error page.
 
 #### Call the `not_found` Method
 
@@ -471,8 +443,7 @@ The block you supply to `not_found` will be run by Sinatra whenever a request do
 
 #### Create the Error View
 
-Then in your `views` folder, define a file named `error.erb` with these
-contents:
+Then in your `views` folder, define a file named `error.erb` with these contents:
 
 ```html
 <html>
@@ -599,14 +570,11 @@ Refresh the browser and you're back to "Creating an IDEA!". This `save` method e
 
 How should we save our data? Should we store it in memory, to a file, or to a database?
 
-Almost every web application is backed by a database that stores its data.
-We're going to use a simple database that comes with Ruby called
-`YAML::Store` to store our ideas.
+Almost every web application is backed by a database that stores its data. We're going to use a simple database that comes with Ruby called `YAML::Store` to store our ideas.
 
 ### Saving
 
-The first problem in front of us is how to make `Idea#save` work, so instances
-of `Idea` need access to the database.
+The first problem in front of us is how to make `Idea#save` work, so instances of `Idea` need access to the database.
 
 Let's define a `database` method that either fetches the database referenced by `@database` or creates a new database named `ideabox`:
 
@@ -638,8 +606,7 @@ Here our call to `database` is returning an instance of `YAML::Store`. The `YAML
 
 ### Testing Ideas in the Database
 
-We're building some complex functionality here. Let's see if things are
-actually working. From a terminal in the project directory, fire up IRB:
+We're building some complex functionality here. Let's see if things are actually working. From a terminal in the project directory, fire up IRB:
 
 ```
 $ irb
@@ -656,8 +623,7 @@ irb(main):003:0> idea.save
 => NameError: uninitialized constant Idea::YAML
 ```
 
-Loading `idea.rb` goes fine, but when we try to save, it blows up in
-`save` when it calls the `database` method because it doesn't know what `YAML` is.
+Loading `idea.rb` goes fine, but when we try to save, it blows up in `save` when it calls the `database` method because it doesn't know what `YAML` is.
 
 #### Require 'yaml/store'
 
@@ -690,9 +656,7 @@ irb(main):012:0> idea.database.transaction { idea.database['ideas'] }
 
 ```
 
-They're definitely going into the database. It's kind of pointless, since
-we're saving the same idea over and over again, but the basic functionality is
-working.
+They're definitely going into the database. It's kind of pointless, since we're saving the same idea over and over again, but the basic functionality is working.
 
 For this to work in our web app, then, we need to add `require 'yaml/store'` to the top of `idea.rb`.
 
@@ -775,8 +739,7 @@ irb(main):006:0> idea = Idea.new("app", "social network for dogs")
 => ArgumentError: wrong number of arguments(2 for 0)
 ```
 
-The `new` method for `Idea` doesn't like this at all. The error is telling us
-that we're trying to give it two arguments, but it accepts zero.
+The `new` method for `Idea` doesn't like this at all. The error is telling us that we're trying to give it two arguments, but it accepts zero.
 
 #### Add an `initialize`
 
@@ -807,8 +770,7 @@ It didn't crash, but it didn't work either. If you take a look inside your datab
 
 #### Using `title` and `description`
 
-We need to take the `title` and `description` and make them available to the
-`save` method. Let's store them in instance variables:
+We need to take the `title` and `description` and make them available to the `save` method. Let's store them in instance variables:
 
 ```ruby
 class Idea
@@ -845,13 +807,11 @@ irb(main):003:0> Idea.new("excursion", "take everyone to the zoo").save
 irb(main):004:0> Idea.new("party", "dance all night and all day").save
 ```
 
-Open your `ideabox` file and make sure that the ideas you just created are
-there with the correct content.
+Open your `ideabox` file and make sure that the ideas you just created are there with the correct content.
 
 ### Ideas from the Browser
 
-Remember back when we were building a web application? Let's hop
-over there and see what's going on.
+Remember back when we were building a web application? Let's hop over there and see what's going on.
 
 * Go to [localhost:4567](http://localhost:4567) in your browser
 * Enter an idea in the form
@@ -861,16 +821,13 @@ Are you surprised to see an exception?
 
 #### Debugging the Idea Submission
 
-We're getting an `ArgumentError` that says `wrong number of arguments (0 for
-2)`. This sounds kind of familiar. It says the problem is in `app.rb` the
-line:
+We're getting an `ArgumentError` that says `wrong number of arguments (0 for 2)`. This sounds kind of familiar. It says the problem is in `app.rb` the line:
 
 ```ruby
 idea = Idea.new
 ```
 
-We changed the definition of `initialize` in `Idea` to take `title` and
-`description` -- 2 arguments. We need to send in the data from the form.
+We changed the definition of `initialize` in `Idea` to take `title` and `description` -- 2 arguments. We need to send in the data from the form.
 
 #### Finding the Form Data
 
@@ -890,8 +847,7 @@ post '/' do
 end
 ```
 
-Now go to [localhost:4567](http://localhost:4567) and fill in a new idea.
-Click submit, and the page shows you the following.
+Now go to [localhost:4567](http://localhost:4567) and fill in a new idea. Click submit, and the page shows you the following.
 
 ```plain
 {"idea_title"=>"story", "idea_description"=>"a princess steals a spaceship"}
@@ -922,8 +878,7 @@ Try submitting a new idea through the web interface again. You'll still see "Cre
 
 #### Redirecting After Save
 
-So we're doing step 1 and step 2 correctly. Step 3 _Send us back to the index
-page to see all the ideas_ is still not right.
+So we're doing step 1 and step 2 correctly. Step 3 _Send us back to the index page to see all the ideas_ is still not right.
 
 Replace "Creating an IDEA!" with `redirect '/'`:
 
@@ -1006,8 +961,7 @@ get '/' do
 end
 ```
 
-Since we're programming by wishful thinking, let's see what our application
-thinks about this. Reload the root page of the app.
+Since we're programming by wishful thinking, let's see what our application thinks about this. Reload the root page of the app.
 
 ```plain
 NoMethodError: undefined method 'all' for Idea:Class
@@ -1037,8 +991,7 @@ Reload the page and you'll get a new error.
 NameError: undefined local variable or method `database' for Idea:Class
 ```
 
-We have a `database` method, but it's only
-available to the *instances* of `Idea`, not the `Idea` class itself.
+We have a `database` method, but it's only available to the *instances* of `Idea`, not the `Idea` class itself.
 
 ##### Make `database` a Class Method
 
@@ -1429,8 +1382,7 @@ Refresh and you'll get this error:
 TypeError: can't convert String into Integer
 ```
 
-Once again, we're trying to index into an array with a string rather than an
-integer.
+Once again, we're trying to index into an array with a string rather than an integer.
 
 Change the action to use `to_i` on the `id`:
 
@@ -1465,13 +1417,10 @@ Reload the page.
 Now we're getting:
 
 ```plain
-NoMethodError: undefined method `title' for {:title=>"diet", :description=>"pizza all the
-time"}:Hash
+NoMethodError: undefined method `title' for {:title=>"diet", :description=>"pizza all the time"}:Hash
 ```
 
-We are getting the raw hash out of the database, and we need to turn it into
-an idea. Change the `find` method in `idea.rb` so we're getting a raw idea and then
-creating a new Idea instance with it:
+We are getting the raw hash out of the database, and we need to turn it into an idea. Change the `find` method in `idea.rb` so we're getting a raw idea and then creating a new Idea instance with it:
 
 ```ruby
 def self.find(id)
@@ -1573,8 +1522,7 @@ When we create a new instance of `Idea` we say:
 Idea.new(title, description)
 ```
 
-But we often want to create an idea based on a hash that comes out of the
-database like in the `find` method:
+But we often want to create an idea based on a hash that comes out of the database like in the `find` method:
 
 ```ruby
 def self.find(id)
@@ -1583,8 +1531,7 @@ def self.find(id)
 end
 ```
 
-It would be nice if we could just give that hash straight to `Idea.new` like
-this:
+It would be nice if we could just give that hash straight to `Idea.new` like this:
 
 ```ruby
 Idea.new(raw_idea)
@@ -1598,8 +1545,7 @@ In `idea.rb` we need to:
 2. update the `self.find` method to pass a hash to `new`.
 3. update the `self.all` method to pass a hash to `new`.
 
-We also need to make a change in `app.rb` in the `POST /` endpoint to pass a
-hash to the `Idea.new` method instead of two distinct parameters.
+We also need to make a change in `app.rb` in the `POST /` endpoint to pass a hash to the `Idea.new` method instead of two distinct parameters.
 
 The results look like this:
 
@@ -1631,8 +1577,7 @@ post '/' do
 end
 ```
 
-Test your app to make sure you can still add new ideas and edit them, and that
-the right ideas show up in the list of all the ideas.
+Test your app to make sure you can still add new ideas and edit them, and that the right ideas show up in the list of all the ideas.
 
 #### Improving the `POST /` Action
 
@@ -1694,8 +1639,7 @@ end
 
 ##### Debugging a Type Issue
 
-This doesn't quite work. When we update ideas, we end up with empty ideas in
-the list.
+This doesn't quite work. When we update ideas, we end up with empty ideas in the list.
 
 If you look at the database file, some of the ideas look like this:
 
@@ -1845,9 +1789,7 @@ end
 
 We're left with something odd. Our `idea.rb` file still has some database specific stuff in it, in the `save` method, and in the Sinatra app, all of the endpoints are talking to the IdeaStore, except the `POST /` endpoint.
 
-By moving the database-related operations into a separate class, we can see that
-we didn't have a very consistent approach to how we're dealing with the
-database.
+By moving the database-related operations into a separate class, we can see that we didn't have a very consistent approach to how we're dealing with the database.
 
 Let's create a new method in `IdeaStore`:
 
@@ -1860,8 +1802,7 @@ def self.create(attributes)
 end
 ```
 
-Then we can call this method from the `POST /` endpoint in the web app,
-allowing us to get rid of both the `save` and `database` method in `Idea`.
+Then we can call this method from the `POST /` endpoint in the web app, allowing us to get rid of both the `save` and `database` method in `Idea`.
 
 ```ruby
 post '/' do
@@ -1874,8 +1815,7 @@ Now our use of `IdeaStore` is more consitent and no one outside of `IdeaStore` n
 
 ## I8: Improving the Project Structure
 
-Until now we've pretty much been sticking everything into the root of the
-project.
+Until now we've pretty much been sticking everything into the root of the project.
 
 It looks like this:
 
@@ -1919,8 +1859,7 @@ idea_box/
     └── idea_box.rb
 ```
 
-This puts all of our application under `lib/`, but separates the web application
-from the pure business logic.
+This puts all of our application under `lib/`, but separates the web application from the pure logic.
 
 ### Moving Files
 
@@ -1971,8 +1910,7 @@ In `config.ru`:
 require 'app'
 ```
 
-For all of these require statements to work correctly, we need to put `lib` on
-our PATH.  Add this to the very top of `config.ru`:
+For all of these require statements to work correctly, we need to put `lib` on our PATH.  Add this to the very top of `config.ru`:
 
 ```ruby
 $:.unshift File.expand_path("./../lib", __FILE__)
@@ -1980,8 +1918,7 @@ $:.unshift File.expand_path("./../lib", __FILE__)
 
 ### Relocating the Database
 
-We also need to change the name of the database in `IdeaStore` to point to
-the new location:
+We also need to change the name of the database in `IdeaStore` to point to the new location:
 
 ```ruby
 class IdeaStore
@@ -1995,8 +1932,7 @@ end
 
 ### Where Are the Views?
 
-Finally, we need to tell the sinatra application where to look for its
-templates:
+Finally, we need to tell the sinatra application where to look for its templates:
 
 ```ruby
 class IdeaBoxApp < Sinatra::Base
@@ -2010,8 +1946,7 @@ There. Instead of a junk drawer of files all in the root, now we have an organiz
 
 ## I9: Ranking and Sorting
 
-How do we separate the good ideas from the **GREAT** ideas? Let's implement
-ranking and sorting.
+How do we separate the good ideas from the **GREAT** ideas? Let's implement ranking and sorting.
 
 First, we'll need to store a rank inside of our ideas.
 
@@ -2140,7 +2075,7 @@ Then try liking another idea.
 
 This should take you back to the index page, which probably won't look any different than it did. To see if it worked, take a look inside of your `db/ideabox` file.
 
-One of your ideas should now have an extra line:
+One of your ideas should now have an extra line and will look something like this:
 
 ```yaml
 ---
@@ -2270,7 +2205,6 @@ Then, in the edit page, change `id` to `idea.id`.
 
 Notice how we have an id on ideas in the database, but that value is nil if the idea was just created with `Idea.new`?
 
-This means that we can get rid of the hacky `mode` variable that we send to the `new` and `edit` forms.
 
 Open up the `lib/app/views/edit.erb` and change it to this:
 
@@ -2292,7 +2226,6 @@ Open up the `lib/app/views/edit.erb` and change it to this:
 </form>
 ```
 
-Now we can delete the stray `mode` variables. There's one in `index.erb` and one in `edit.erb`.
 
 Delete your database, restart your application, and try adding, deleting, editing, and voting on ideas.
 
@@ -2328,15 +2261,11 @@ There. This time we really are done.
 
 ## Extensions
 
-Your application is able to capture, rank and sort ideas. If only that was enough
-for you. The following extensions allow you to define additional features to
-make your application more dynamic and interesting.
+Your application is able to capture, rank and sort ideas. If only that was enough for you. The following extensions allow you to define additional features to make your application more dynamic and interesting.
 
 ### Tagging
 
-Besides viewing ideas in ranked order  it would be great if you could also view
-ideas that are similar to one another or share the same thing that ignited the
-idea.
+Besides viewing ideas in ranked order  it would be great if you could also view ideas that are similar to one another or share the same thing that ignited the idea.
 
 * When you create an idea you can specify one or more tags.
 * A tag is a single phrase, a single word or fragment sentence, that you use
@@ -2357,9 +2286,7 @@ After creating ideas you want to start tracking when you create your ideas.
 
 ### Revisions
 
-You start with an idea that eventually changes over time. Where you started from
-and where you ended is a very different place. Sometimes you would like to see
-the evolution of an idea.
+You start with an idea that eventually changes over time. Where you started from and where you ended is a very different place. Sometimes you would like to see the evolution of an idea.
 
 * When you edit and save an idea the previous version of the idea is also saved.
 * An idea now has a history or list of revisions
@@ -2367,8 +2294,7 @@ the evolution of an idea.
 
 ### Grouped Ideas
 
-Tagging allows for you to view ideas that within a certian category. Sometimes
-you want to differentiate your work ideas from your personal ideas.
+Tagging allows for you to view ideas that within a certian category. Sometimes you want to differentiate your work ideas from your personal ideas.
 
 * By default all ideas are added to a default group
 * You are to define additional groups
@@ -2379,47 +2305,37 @@ you want to differentiate your work ideas from your personal ideas.
 
 ### Mobile Friendly
 
-Ideas strike like lightning and it is important to be able to be able to enter
-your ideas from a small-screen device. While the original site works with a
-mobile device, it would be great to optimize the experience.
+Ideas strike like lightning and it is important to be able to be able to enter your ideas from a small-screen device. While the original site works with a mobile device, it would be great to optimize the experience.
 
 * You are able to add, view, and edit ideas easily through a mobile browser.
 
 ### Searching for Idea
 
-After creating so many ideas it becomes hard to manage all the ideas. It would
-be great if you could search for a specific idea based on a word or phrase
-contained within an idea.
+After creating so many ideas it becomes hard to manage all the ideas. It would be great if you could search for a specific idea based on a word or phrase contained within an idea.
 
 * The main index page has a search field
 * The search field allows you to specify a phrase.
 * A phrase is a word or or fragment sentence
-* When search is initiated the contents of the search field will be used to
-  find only the ideas with that contain the phrase, case insensitive, provided
-  within the search field.
+* When search is initiated the contents of the search field will be used to find only the ideas with that contain the phrase, case insensitive, provided within the search field.
 
 ### Fuel
 
-With your defined ideas it would be great to start adding more details and
-resources for each of those ideas.
+With your defined ideas it would be great to start adding more details and resources for each of those ideas.
 
 * For each idea you can add a new resource
 * A resource is text or link related to the idea
 * You are not able to see the resources of an idea on the index page
-* You are able to view all the resources for an idea when you view the details
-  of an idea.
+* You are able to view all the resources for an idea when you view the details of an idea.
 
 ### Haml
 
-You have templated your application with ERB. It might be interesting to see
-what it would look like using Haml.
+You have templated your application with ERB. It might be interesting to see what it would look like using Haml.
 
 * Replace all the *erb* templates with *haml* templates.
 
 ### SMS Integration
 
-Faster than even a mobile website might be the ability to define ideas through
-text message.
+Faster than even a mobile website might be the ability to define ideas through text message.
 
 * You able to text a new idea to a particular phone number
 * The message from the text appear in your list of ideas
