@@ -1151,7 +1151,7 @@ Let's use the position of the idea in the list to identify the idea.
 
 In the view we can get the position, or index, by changing the `ideas.each` loop to be an `ideas.each_with_index` loop:
 
-```erb
+```html
 <ul>
   <% ideas.each_with_index do |idea, id| %>
     <li>
@@ -1168,7 +1168,7 @@ Refresh the page and each idea will have its position number next to the title.
 
 We can then use the `id` to find a certain idea. Let's create a small form for each idea that has a delete button:
 
-```erb
+```html
 <ul>
   <% ideas.each_with_index do |idea, id| %>
     <li>
@@ -1205,7 +1205,7 @@ Try deleting an idea again and... still boom.
 
 Sinatra is still looking for a `POST` route, not a `DELETE`.
 
-Sinatra knows about the workaround using the `_method` parameter, but we need to enable it.
+Sinatra knows about the workaround using the `_method` parameter, but does nothing about it by default. And so, we have to enable it.
 
 In your `app.rb` file add this line to the top of your class definition:
 
@@ -1255,7 +1255,7 @@ end
 
 The `delete` method starts a transaction, accesses the `ideas` collection, then uses the `delete_at` method to remove the element at a certain position.
 
-This is an example of "duck typing." The `delete_at` method in `YAML::Store` is built to work like the `delete_at` method on `Array`. You as a developer don't have to think about how `YAML::Store` works, you just pretend it's an `Array`.
+This is an example of "duck typing." The `delete_at` method in `YAML::Store` is built to work like the `delete_at` method on `Array`. As a developer, you don't have to think about how `YAML::Store` works, you just pretend that it's an `Array`.
 
 Now try deleting the idea again in your browser.
 
