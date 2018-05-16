@@ -32,7 +32,7 @@ After completing this tutorial you should be able to:
 
 For this project you need to have setup:
 
-* Ruby 2.1
+* Ruby 2.4
 * Ruby's Bundler gem
 
 ### File/Folder Structure
