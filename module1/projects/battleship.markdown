@@ -204,42 +204,9 @@ When either the player or computer win the game...
 * Output how many shots it took the winner to sink the opponent's ships
 * Output the total time that the game took to play
 
-## Extensions
+## Extension
 
-If you're able to finish the base expectations, add on one or more of the
-following extensions:
-
-### Difficulty Levels
-
-When the user is getting ready to start a game, ask them what difficulty
-level they'd like to play, with the following adaptations:
-
-* Beginner = 4x4 grid, 2-unit boat, 3-unit boat
-* Intermediate = 8x8 grid, 2-unit boat, 3-unit boat, 4-unit boat
-* Advanced = 12x12 grid, 2-unit boat, 3-unit boat, 4-unit boat, 5-unit boat
-
-### Remote Play
-
-Allow two players to play against each other across the network.
-
-### Graphical Interface
-
-Use Ruby-Processing to generate a graphical user interface that allows the
-players to see the game and click the grid to shoot.
-
-### Package & Polish
-
-Your game won't be very popular if it's hard to install and run.
-
-#### Add a Command Line Wrapper
-
-Create an executable script that allows the user to just run `battleship`
-from their terminal without directly executing Ruby.
-
-#### Build a Gem
-
-Wrap your code into a Ruby gem and publish it on Rubygems.org with a name like
-`battleship-jcasimir` based on your GitHub user name.
+Make your game playable through a web browser. You may find [This Tutorial](/module1/projects/http_tutorial) helpful.
 
 ## Evaluation Rubric
 
@@ -247,7 +214,7 @@ The project will be assessed with the following rubric:
 
 ### 1. Ruby Syntax & Style
 
-Expectations: 
+Expectations:
 
 - [ ] Applies appropriate attribute encapsulation  
 - [ ] Developer creates instance and local variables appropriately
@@ -261,27 +228,27 @@ Expectations:
 
 ### 2. Breaking Logic into Components
 
-Expectations: 
+Expectations:
 
-- [ ] Code is effectively broken into methods & classes 
-- [ ] Developer writes methods less than 7 lines 
-- [ ] No more than 3 methods break the principle of SRP 
+- [ ] Code is effectively broken into methods & classes
+- [ ] Developer writes methods less than 7 lines
+- [ ] No more than 3 methods break the principle of SRP
 
 ### 3. Test-Driven Development
 
-Expectations: 
+Expectations:
 
 - [ ] Each method is tested  
 - [ ] Functionality is accurately covered
 - [ ] Tests implement Ruby syntax & style   
-- [ ] Balances unit and integration tests 
-- [ ] Evidence of edge cases testing 
+- [ ] Balances unit and integration tests
+- [ ] Evidence of edge cases testing
 - [ ] Test Coverage metrics are present (SimpleCov)
 - [ ] A test RakeTask is implemented
 
 ### 4. Functionality
 
-Expectations: 
+Expectations:
 
 - [ ] Application meets all requirements (extension not req'd)
 
