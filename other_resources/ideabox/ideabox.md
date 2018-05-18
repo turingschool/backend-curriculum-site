@@ -83,19 +83,11 @@ end
 
 Save the file.
 
-#### Rack, In Brief
-
-There's a standard named Rack that's used by most Ruby web frameworks, including both Sinatra and Rails. It's a small interface that each framework follows.
-
-This allows the community to share tools across frameworks. The Puma web server, for instance, supports Rack applications. So that means it can run either Sinatra or Rails apps without knowing anything more than the fact that they adhere to the Rack interface.
-
-Let's take advantage of Rack to run our application.
-
 #### Creating `config.ru`
 
-Rack applications have a file in their project root named `config.ru`. When a Rack-compatible server is told to load the application, it'll try to run this file. Despite having the extension `.ru`, it's just another Ruby file.
+Rack is the tool that will actually run our application. Rack applications have a file in their project root named `config.ru` that tells Rack how to load the application.
 
-Your `idea_box` project directory should now look like this:
+Your `idea_box` project directory should currently look like this:
 
 ```plain
 idea_box/
@@ -104,8 +96,6 @@ idea_box/
 ├── app.rb
 └── config.ru
 ```
-
-`config.ru` is called a _rack up_ file, hence the `ru` file extension. We're going to put the instructions to actually running the application into that file.
 
 #### Filling In `config.ru`
 
@@ -125,7 +115,7 @@ run IdeaBoxApp
 Try starting your application in your terminal by running:
 
 ```
-$ rackup
+// ♥ rackup
 ```
 
 You should see output like this:
