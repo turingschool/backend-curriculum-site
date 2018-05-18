@@ -359,7 +359,7 @@ Refresh your browser page which generated the error and you should see more usef
 
 #### Handling POST requests to `/`
 
-You've already defined what to do for some requests to `/` using the `get` methods. But when the browser submits the request from the form it's making a `POST` request. We need to define what should happen when we get a `POST` to `/`:
+You've already defined what to do for some requests to `/` using the `get` methods. But when the browser submits the request from the form it's making a `POST` request. We need to define what should happen when we get a `POST` to `/` by adding this within our `app.rb`:
 
 ```ruby
 post '/' do
