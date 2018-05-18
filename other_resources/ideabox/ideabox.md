@@ -24,6 +24,10 @@ After completing this tutorial you should be able to:
 * read and react to HTTP parameters from the form
 * explain the statelessness of the HTTP request/response cycle
 
+### READ THIS
+
+If you are doing this on Cloud 9, do this for I0 instead: [I0: Getting Started for Cloud9](c9_ideabox.md)
+
 ## I0: Getting Started
 
 ### Environment Setup
