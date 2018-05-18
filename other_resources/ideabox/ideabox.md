@@ -43,7 +43,8 @@ Let's start our project with the minimum and build up from there. We need:
 
 * to create a project folder
 * to add a file called `Gemfile` in that project folder
-* to add a file called `app.rb` file in that project folder
+* to add a file called `app.rb`  in that project folder
+* to add a file called `config.ru` in that project folder
 
 ### `Gemfile`
 
@@ -57,7 +58,7 @@ gem 'sinatra', require: 'sinatra/base'
 
 And save it.
 
-#### Install the Dependency
+#### Install the Dependencies
 
 Return to your terminal and, from your project directory, run `bundle` in the terminal.. The Bundler gem will read the `Gemfile`, decide if anything needs to be installed from RubyGems, and install it.
 
@@ -68,33 +69,67 @@ This will also generate a `Gemfile.lock` file which contains information about g
 In the `app.rb` we'll start writing the body of our application.
 
 ```ruby
-require 'bundler'
-Bundler.require
-
 class IdeaBoxApp < Sinatra::Base
   get '/' do
     "Hello, World!"
   end
-
-  run! if app_file == $0
 end
 ```
 
 Save the file.
 
-### Starting the Server
+#### Rack, In Brief
 
-From your project directory, start the server by typing in the terminal, `ruby app.rb`. You should see output similar to the following:
+There's a standard named Rack that's used by most Ruby web frameworks, including both Sinatra and Rails. It's a small interface that each framework follows.
 
-```ruby
-$ ruby app.rb
-[2018-05-16 12:56:07] INFO  WEBrick 1.3.1
-[2018-05-16 12:56:07] INFO  ruby 2.4.1 (2017-03-22) [x86_64-darwin17]
-== Sinatra (v2.0.1) has taken the stage on 4567 for development with backup from WEBrick
-[2018-05-16 12:56:07] INFO  WEBrick::HTTPServer#start: pid=3283 port=4567
+This allows the community to share tools across frameworks. The Puma web server, for instance, supports Rack applications. So that means it can run either Sinatra or Rails apps without knowing anything more than the fact that they adhere to the Rack interface.
+
+Let's take advantage of Rack to run our application.
+
+#### Creating `config.ru`
+
+Rack applications have a file in their project root named `config.ru`. When a Rack-compatible server is told to load the application, it'll try to run this file. Despite having the extension `.ru`, it's just another Ruby file.
+
+Your `idea_box` project directory should now look like this:
+
+```plain
+idea_box/
+├── Gemfile
+├── Gemfile.lock
+├── app.rb
+└── config.ru
 ```
 
-In the fourth line of output note that the server is, by default, running on port `4567`.
+`config.ru` is called a _rack up_ file, hence the `ru` file extension. We're going to put the business of actually running the application into that file.
+
+#### Filling In `config.ru`
+
+Open up the file and add the following code to it:
+
+```ruby
+require 'bundler'
+Bundler.require
+
+require './app'
+
+run IdeaBoxApp
+```
+
+#### Starting the Application
+
+Try starting your application with:
+
+```
+$ rackup
+```
+
+(Note: rack is installed when Sinatra is installed.)
+
+
+### Starting the Server
+
+
+In the fourth line of output note that the server is, by default, running on port `9292`.
 
 Access [http://localhost:4567](http://localhost:4567) in your web browser. You should see `Hello, World` then pat yourself on the back for developing a web application.
 
@@ -129,8 +164,6 @@ end
 
 We call a method named `get`, giving it a parameter `/` and a block of code. The string parameter to `get` is the URL pattern to match against the incoming HTTP request.
 
-Our Sinatra application knows that it is running on [http://localhost:4567](http://localhost:4567), so we only need to define the part of the url that comes after that.
-
 In this case we passed `'/'`, which will match when someone visits the homepage, also known as the _root_ of the application.
 
 ### Defining the Response
@@ -147,111 +180,6 @@ The block of code that we pass to the `get` method, the stuff between the `do` a
 
 The response to the request is a string, in this case `'Hello, World!'`, which is sent to the browser.
 
-#### Run the Application
-
-```ruby
-class IdeaBoxApp < Sinatra::Base
-  # ...
-
-  run! if app_file == $0
-end
-```
-
-This functionality will be important later. Basically we only want to call `run!`, which actually starts the application, if this file was run directly like this:
-
-```
-$ ruby app.rb
-```
-
-### Refactoring to use `rackup`
-
-It's not a very good idea to have the app run itself. That line `run! if app_file == $0` isn't great. Let's separate the concerns of *defining* the application from *running* the application.
-
-We want to refactor our code. Refactoring is the process of improving our code here to be more readable and simple, without changing the functionality of our code.
-
-#### Rack, In Brief
-
-There's a standard named Rack that's used by most Ruby web frameworks, including both Sinatra and Rails. It's a small interface that each framework follows.
-
-This allows the community to share tools across frameworks. The Puma web server, for instance, supports Rack applications. So that means it can run either Sinatra or Rails apps without knowing anything more than the fact that they adhere to the Rack interface.
-
-Let's take advantage of Rack to run our application.
-
-First quit your application by pressing `CTRL + C` in your terminal window. 
-
-#### Creating `config.ru`
-
-Rack applications have a file in their project root named `config.ru`. When a Rack-compatible server is told to load the application, it'll try to run this file. Despite having the extension `.ru`, it's just another Ruby file.
-
-Create an empty file called `config.ru`. Your `idea_box` project directory should now look like this:
-
-```plain
-idea_box/
-├── Gemfile
-├── Gemfile.lock
-├── app.rb
-└── config.ru
-```
-
-`config.ru` is called a _rack up_ file, hence the `ru` file extension. We're going to move the business of actually running the application into that file.
-
-#### Filling In `config.ru`
-
-Open up the file and add the following code to it:
-
-```ruby
-require 'bundler'
-Bundler.require
-
-run IdeaBoxApp
-```
-
-#### Starting the Application
-
-Try starting your application with:
-
-```
-$ rackup
-```
-
-(Note: rack is installed when Sinatra is installed.)
-
-It will give you the following error:
-
-```
-path/to/idea_box/config.ru:4:in `block in <main>': uninitialized constant IdeaBoxApp (NameError)
-```
-
-##### Reading the Error Message
-
-Let's pick that error message apart. First, it tells us what the name of the file is where the error occurred:
-
-```plain
-path/to/idea_box/config.ru
-```
-
-So it's in the `config.ru` file.
-
-Then it tells us which line the error occurred on:
-
-```plain
-path/to/idea_box/config.ru:4
-```
-
-So it happened on line 4. What's on line 4 of `config.ru`?
-
-```ruby
-run IdeaBoxApp
-```
-
-OK, so it has something to do with running the application we wrote. But what is it complaining about, really?
-
-```plain
-path/to/idea_box/config.ru:4:in `block in <main>': uninitialized constant IdeaBoxApp (NameError)
-```
-
-It doesn't know anything about any `IdeaBoxApp`. That's because we haven't told our `config.ru` file where to find it.
-
 #### Adding the Requires
 
 We need to tell the `config.ru` file to load the application we defined. Modify it like this:
@@ -267,41 +195,23 @@ run IdeaBoxApp
 
 Note that you don't have to type in the `.rb` extension - It is assuming that we have a `.rb` at the end of our ruby file.
 
-#### Start It Again
+#### Accessing your Web Application
 
-Now, if you run
-
-```
-$ rackup
-```
-
-
-The application should start normally.
-
-#### Default Ports
-
-Earlier when we started the application directly it started on port 4567. In our browser we opened [localhost:4567](http://localhost:4567).
-
-`rackup` defaults to the port `9292` instead of port `4567`, so we'd access the page at [localhost:9292](http://localhost:9292).
-
-You can pick whatever port you like, and tell `rackup` to use it. Let's stick with Sinatra's default, `4567`:
-
-```
-$ rackup -p 4567
-```
-
-
-#### Remove the `run!` and Requires
-
-We can now delete the redundant `run!` line inside of `app.rb` and we can delete the require in our `app.rb` as well because our `config.ru` has taken care of requiring the dependencies. So we can cut down our `app.rb` to just this:
+When running `rackup` you should see something similar to this:
 
 ```ruby
-class IdeaBoxApp < Sinatra::Base
-  get '/' do
-    'Hello, world!'
-  end
-end
+Your server is running at 165.227.60.187:39515
+[2018-05-18 14:04:22] INFO  WEBrick 1.3.1
+[2018-05-18 14:04:22] INFO  ruby 2.3.1 (2016-04-26) [x86_64-linux]
+[2018-05-18 14:04:22] INFO  WEBrick::HTTPServer#start: pid=1573 port=39515
+68.64.216.134 - - [18/May/2018:14:04:29 +0000] "GET /
 ```
+
+The first line is what is important, we have a bunch of numbers with dots, a colon and then yet more numbers.
+
+This is the IP address and port your application is running. In the above example it says: `Your server is running at 165.227.60.187:39515` 
+
+So to access your web application, if my information was the same as the output above, I would type the following into my the address bar of my web browser: `http:/165.227.60.187:39515`
 
 Now you're ready to start building the application.
 
