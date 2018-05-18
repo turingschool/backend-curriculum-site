@@ -139,23 +139,14 @@ If everything is setup correctly, you'll see `Hello, World` in your browser. If 
 
 Let's pick through `app.rb` and examine what we have so far. Consider clearing out your `app.rb` (deleting all the content) and rebuilding it step-by-step. Hit `ctrl-c` in your terminal to stop the running server.
 
-#### Require dependencies
-
-```ruby
-require 'bundler'
-Bundler.require
-```
-
-In the first two lines of `app.rb` we loaded Bundler and told it to require everything specified in the `Gemfile`.
-
 ### The Application Container
+
+We start with a Ruby class which is going to contain our application. It inherits from `Sinatra::Base`, which provides the application with all the Sinatra functionality.
 
 ```ruby
 class IdeaBoxApp < Sinatra::Base
 end
 ```
-
-Then we built a Ruby class which is going to contain our application. It inherits from `Sinatra::Base`, which provides the application with all the Sinatra functionality.
 
 ### Define the URL to Match
 
