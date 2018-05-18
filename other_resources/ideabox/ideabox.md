@@ -32,23 +32,26 @@ If you are doing this on Cloud 9, do this for I0 instead: [I0: Getting Started f
 
 ### Environment Setup
 
-For this project you need to have setup:
+For this project you need to have access to:
 
 * Ruby 2.4
 * Ruby's Bundler gem
 
+If you're using Learn.co, these are already set up for you.
+
 ### File/Folder Structure
 
-Let's start our project with the minimum and build up from there. We need:
+Let's start our project with the minimum and build up from there. We should:
 
-* to create a project folder
-* to add a file called `Gemfile` in that project folder
-* to add a file called `app.rb`  in that project folder
-* to add a file called `config.ru` in that project folder
+* create a project folder name `ideabox`
+* move your terminal into that folder by running `cd ideabox`
+* create a file named `Gemfile` in that project folder
+* create a file named `app.rb`  in that project folder
+* create a file named `config.ru` in that project folder
 
 ### `Gemfile`
 
-The `Gemfile` is used to express the dependencies of our application. We need the Sinatra library for our app to work, so we add it to the `Gemfile`:
+The `Gemfile` is used to express the dependencies of our application. Note that the filename is just `Gemfile` with no extension. We want the Sinatra library for our app to work, so open the `Gemfile` and add these lines:
 
 ```ruby
 source 'https://rubygems.org'
@@ -60,13 +63,13 @@ And save it.
 
 #### Install the Dependencies
 
-Return to your terminal and, from your project directory, run `bundle` in the terminal.. The Bundler gem will read the `Gemfile`, decide if anything needs to be installed from RubyGems, and install it.
+Go to your terminal and, from your project directory, run `bundle` in the terminal. The Bundler gem will read the `Gemfile`, decide if anything needs to be installed from RubyGems, and install it.
 
 This will also generate a `Gemfile.lock` file which contains information about gem versions.
 
 ### Beginning `app.rb`
 
-In the `app.rb` we'll start writing the body of our application.
+Open or create `app.rb` and start writing the body of our application like this:
 
 ```ruby
 class IdeaBoxApp < Sinatra::Base
@@ -100,7 +103,7 @@ idea_box/
 └── config.ru
 ```
 
-`config.ru` is called a _rack up_ file, hence the `ru` file extension. We're going to put the business of actually running the application into that file.
+`config.ru` is called a _rack up_ file, hence the `ru` file extension. We're going to put the instructions to actually running the application into that file.
 
 #### Filling In `config.ru`
 
@@ -117,23 +120,32 @@ run IdeaBoxApp
 
 #### Starting the Application
 
-Try starting your application with:
+Try starting your application in your terminal by running:
 
 ```
 $ rackup
 ```
 
-(Note: rack is installed when Sinatra is installed.)
+You should see output like this:
 
+```plain
+// ♥ rackup
+Your server is running at 165.227.60.187:39515
+[2018-05-18 14:04:22] INFO  WEBrick 1.3.1
+[2018-05-18 14:04:22] INFO  ruby 2.3.1 (2016-04-26) [x86_64-linux]
+[2018-05-18 14:04:22] INFO  WEBrick::HTTPServer#start: pid=1573 port=39515
+68.64.216.134 - - [18/May/2018:14:04:29 +0000] "GET /
+```
 
-### Starting the Server
+#### Loading The App In Your Browser
 
+The key information you need is the server's IP address and port in the startup output. In the sample above, the server started at `165.227.60.187:39515`. Look at your own output, copy that IP and Port (the part after the colon), and paste them into the address bar of your web browser.
 
-In the fourth line of output note that the server is, by default, running on port `9292`.
-
-Access [http://localhost:4567](http://localhost:4567) in your web browser. You should see `Hello, World` then pat yourself on the back for developing a web application.
+If everything is setup correctly, you'll see `Hello, World` in your browser. If you *don't* see that, look in your terminal for any clues about what went wrong.
 
 ### What Just Happened?
+
+Let's pick through `app.rb` and examine what we have so far. Consider clearing out your `app.rb` (deleting all the content) and rebuilding it step-by-step. Hit `ctrl-c` in your terminal to stop the running server.
 
 #### Require dependencies
 
@@ -144,14 +156,14 @@ Bundler.require
 
 In the first two lines of `app.rb` we loaded Bundler and told it to require everything specified in the `Gemfile`.
 
-### Create the Application Container
+### The Application Container
 
 ```ruby
 class IdeaBoxApp < Sinatra::Base
 end
 ```
 
-Then we create a Ruby class which is going to be our application. It inherits from `Sinatra::Base`, which provides the application with all the Sinatra functionality.
+Then we built a Ruby class which is going to contain our application. It inherits from `Sinatra::Base`, which provides the application with all the Sinatra functionality.
 
 ### Define the URL to Match
 
@@ -180,40 +192,9 @@ The block of code that we pass to the `get` method, the stuff between the `do` a
 
 The response to the request is a string, in this case `'Hello, World!'`, which is sent to the browser.
 
-#### Adding the Requires
+### Checking Functionality
 
-We need to tell the `config.ru` file to load the application we defined. Modify it like this:
-
-```ruby
-require 'bundler'
-Bundler.require
-
-require './app'
-
-run IdeaBoxApp
-```
-
-Note that you don't have to type in the `.rb` extension - It is assuming that we have a `.rb` at the end of our ruby file.
-
-#### Accessing your Web Application
-
-When running `rackup` you should see something similar to this:
-
-```ruby
-Your server is running at 165.227.60.187:39515
-[2018-05-18 14:04:22] INFO  WEBrick 1.3.1
-[2018-05-18 14:04:22] INFO  ruby 2.3.1 (2016-04-26) [x86_64-linux]
-[2018-05-18 14:04:22] INFO  WEBrick::HTTPServer#start: pid=1573 port=39515
-68.64.216.134 - - [18/May/2018:14:04:29 +0000] "GET /
-```
-
-The first line is what is important, we have a bunch of numbers with dots, a colon and then yet more numbers.
-
-This is the IP address and port your application is running. In the above example it says: `Your server is running at 165.227.60.187:39515` 
-
-So to access your web application, if my information was the same as the output above, I would type the following into my the address bar of my web browser: `http:/165.227.60.187:39515`
-
-Now you're ready to start building the application.
+Launch the server again with `rackup` and confirm that it's working in your browser. Now you're ready to start building the real application.
 
 ## I1: Recording Ideas
 
