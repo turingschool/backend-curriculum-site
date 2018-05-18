@@ -255,7 +255,7 @@ gem 'shotgun'
 
 And then run `bundle` at the command line.
 
-Then from the command line, run `shotgun -p 4567`. 
+Then from the command line, run `shotgun`. 
  
 ### Creating a Form
 
