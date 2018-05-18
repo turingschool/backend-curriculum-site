@@ -313,7 +313,7 @@ class IdeaBoxApp < Sinatra::Base
     erb :error
   end
 
-  # ...
+  # ... leave the existing get '/' chunk here
 end
 ```
 
