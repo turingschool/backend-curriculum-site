@@ -241,7 +241,7 @@ Flip over to your browser, refresh, and...still see `Hello, World`???
 
 If you've developed anything in Rails before, you've been spoiled by automatic reloading. In Ruby it's actually pretty complex to dynamically undefine and redefine classes when files change. In Sinatra, this functionality is **not** built in by default.
 
-Go to your server terminal session and hit `CTRL-C` to stop the process. Restart the server (`rackup -p 4567`), flip over to your browser, and refresh the page. Now you should see the "View Template Edition" content.
+Go to your server terminal session and hit `CTRL-C` to stop the process. Restart the server (`rackup`), flip over to your browser, and refresh the page. Now you should see the "View Template Edition" content.
 
 #### Automatic Reloading with Shotgun
 
@@ -691,7 +691,7 @@ Open your `ideabox` file and make sure that the ideas you just created are there
 
 Remember back when we were building a web application? Let's hop over there and see what's going on.
 
-* Go to [localhost:4567](http://localhost:4567) in your browser
+* Go to the IP and port number you've been using.
 * Enter an idea in the form
 * Click `Submit`
 
@@ -725,7 +725,7 @@ post '/' do
 end
 ```
 
-Now go to [localhost:4567](http://localhost:4567) and fill in a new idea. Click submit, and the page shows you the following.
+Now go to your web app and fill in a new idea. Click submit, and the page shows you the following.
 
 ```plain
 {"idea_title"=>"story", "idea_description"=>"a princess steals a spaceship"}
