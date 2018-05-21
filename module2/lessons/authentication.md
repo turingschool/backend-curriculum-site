@@ -346,10 +346,10 @@ HTTP is a stateless protocol, which means there is no connection between each re
 #controllers/users_controller.rb
 
 def create
-  user = User.create(user_params)
-  if user.save
+  @user = User.create(user_params)
+  if @user.save
     session[:user_id] = @user.id
-    redirect_to user_path(user)
+    redirect_to user_path(@user)
   else
     render :new
   end
