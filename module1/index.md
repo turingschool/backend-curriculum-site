@@ -103,6 +103,7 @@ In Module 1, students will learn to use Ruby and object-oriented programming to 
 * [Perilous Journey](./projects/perilous_journey)
 * [Sorting Cards](./projects/sorting_cards)
 * [Sorting Suite](./projects/sorting_suite)
+* [Wizarding Bank](./projects/wizarding_bank)
 
 ## Success in Mod 1
 
