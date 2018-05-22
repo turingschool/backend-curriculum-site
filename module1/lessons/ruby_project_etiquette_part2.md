@@ -24,7 +24,9 @@ In this session we're going to go over some common best practices for organizing
 
 ## Gems & Gemfiles
 
-A "Gem" is a packaged up piece of ruby code designed to be shared with others (i.e. a library). [RubyGems](https://rubygems.org/) is the community-run repository and website where gems can be published so other users can download and use them easily. [Bundler](http://bundler.io/) is the popular dependency manager rubyists use to download and manage gems. Bundler versions are unique to Ruby versions, if you change Ruby versions you must have that Ruby's Bundler version installed also. Similar to a `Rakefile`, a `Gemfile` lives at the **root of your project** and contains a list of the gems that project *depends on*.
+- A "Gem" is a packaged up piece of ruby code designed to be shared with others (i.e. a library). [RubyGems](https://rubygems.org/) is the community-run repository and website where gems can be published so other users can download and use them easily.
+- [Bundler](http://bundler.io/) is the popular dependency manager rubyists use to download and manage gems. Bundler versions are unique to Ruby versions, if you change Ruby versions you must have that Ruby's Bundler version installed also.
+- Similar to a `Rakefile`, a `Gemfile` lives at the **root of your project** and contains a list of the gems that project *depends on*.
 
 **Sample Gemfile:**
 
