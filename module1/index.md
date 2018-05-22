@@ -75,7 +75,7 @@ In Module 1, students will learn to use Ruby and object-oriented programming to 
 * [Testing Strategies](./lessons/testing_strategies_1)
 * [Modules](./lessons/modules)
 * [Inheritance](./lessons/inheritance)
-* [Load Path - Ruby Project Etiquette](./lessons/ruby_project_etiquette)
+* [Project Etiquette](./lessons/project_etiquette)
 * [Fundamental Refactoring Patterns](./lessons/fundamental_refactoring_patterns)
 * [Programming with Values]()
 * [Boolean Logic](./lessons/boolean_logic)
