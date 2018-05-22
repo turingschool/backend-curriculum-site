@@ -160,7 +160,7 @@ Rake tasks come from [make](https://www.computerhope.com/unix/umake.htm) tasks, 
 
 Rake tries to create a standardized solution for this problem so that you can interact with build and program prep the same no matter which application you're running. Not only does it give you set commands, but you can also build your own tasks and run them through Rake.
 
-By default Rake will look for a file name `Rakefile` in the root of your project. You'll define your RakeTasks in here.
+By default, Rake will look for a file name `Rakefile` in the root of your project. You'll define your RakeTasks in that file.
 
 ### Using Rake to Build a Task
 
@@ -169,7 +169,7 @@ A task is comprised of the keyword `task` followed by the name you assign to the
 Let's build your first Rake task!
 
 **Independent Practice**  
-Using the directory structure listed above, create a project named `party_planner`. Make sure to include a Rakefile.
+For your `greeting` project, include a Rakefile. Reminder: it should be at the root of a project, and does not have a file extension.
 
 
 **Whole Group**
@@ -184,8 +184,6 @@ end
 
 This task would then be run from the command line using `rake welcome` (from the **project root** -- noticing a pattern?) We can also run `rake -T` to see which Rake commands we've defined and what they do.
 
-**Independent Practice**
-Now create an `Event` class with an instance method of `greeting` that puts "Welcome to the party!". Create a second Rake task that calls this method.
 
 ### Building a Test Task
 
@@ -194,11 +192,13 @@ Let's build a task that will run all our tests. Our objective is to be able to g
 ```ruby
 desc "run all tests"
 task :test do
-  ruby "test/*_test.rb"
+  ruby "test/*_test.rb"   # what is this line doing?
 end
 ```
 
-So here's the thing, that code up there only runs one thing. What do we have to do to get all of it to run?
+So here's the thing, that code up there only runs one thing. It's hard to see right now - let's add in a `goodbye` class that does something similar (but opposite) to hello. Now run `rake test` and notice - it only runs one of the tests.
+
+What do we have to do to get all of it to run? Pop this inside of the `do ... end` block:
 
 ```
  my_files = FileList['test/**/*.rb']
@@ -207,12 +207,11 @@ So here's the thing, that code up there only runs one thing. What do we have to 
   end
  ```
 
- Look at that! We are getting a list of all of the files in our test directory, and we are enumerating over the list of files
- and then we are just going to run each one.
+ Look at that! We are getting a list of all of the files in our test directory, and we are enumerating over the list of files and then we are just going to run each one.
 
- This is great, but we are missing something. Each runs individually, and we have to scroll up a lot. This is what we would call less than ideal. How do we get everything to run altogether? As if it was one big test file?
+ This is great, but we are missing something. Each runs individually, and once we have multiple classes tested we have to scroll up a lot. This is what we would call less than ideal. How do we get everything to run altogether - as if it was one big test file?
 
- Have your Rakefile look like this.
+Have your Rakefile look like this:
 
 ```
 require 'rake/testtask'
@@ -227,18 +226,19 @@ end
 
 ### Default
 
-If you run the command `rake` without any further arguments, Rake will automatically look for a task named `default`. We can also set up a Rake task to have prerequisites - that is other tasks that must be run before the current task is run. If you set a prerequisite, Rake will automatcially run those other tasks first, you don't even have to worry about it. Using this knowledge, we can add the following to our Rakefile:
+If you run the command `rake` without any further arguments, Rake will automatically look for a task named `default`. We can also set up a Rake task to have prerequisites - that is other tasks that must be run before the current task is run. If you set a prerequisite, Rake will automatically run those other tasks first, you don't even have to worry about it. Using this knowledge, we can add the following to our Rakefile:
+
 
 ```ruby
 task default: ["test", "welcome"]
 ```
 
-This will run both our `test` and `welcome` tasks when we run `rake, but not the third task you created independently.
+This will run both our `test` and `welcome` tasks when we run `rake`, but only those two, as those two are the two that appear in the default array.
 
 #### Exercise
-Update your current project to follow these conventions.
+Update your current project to follow these conventions!
 
-## WrapUp
+## Wrap Up
 * How does require_relative work?
 * How does require work?
 * Which does Ruby convention prefer?
@@ -248,8 +248,7 @@ Update your current project to follow these conventions.
 ### Recommended Homework
 
 Tonight:
-
-Update at least one previous project (Credit Check, Jungle Beat, Date Night, Night Writer, Complete Me) to also follow these conventions.
+- Update at least one previous project (Credit Check, Date Night, Enigma, Complete Me) to also follow these conventions.
 
 ### Additional Resources
 
