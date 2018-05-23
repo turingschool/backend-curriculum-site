@@ -7,19 +7,6 @@ tags: ruby, rake, require, require_relative, organization
 
 ## Ruby Project Etiquette: How to Mind Your P's and Q's in a Ruby Project
 
-In this session we're going to go over some common best practices for organizing and managing code in our Ruby projects. By the end of the lesson, you should be comfortable with the following tasks.
-
-* File naming conventions
-* Directory structure conventions
-* Difference between `require` and `require_relative`
-* How to build a rakefile and **why** you want to
-
-
-## Vocabulary
-* require
-* require_relative
-* rake task
-
 ### Directory and File Organization
 
 #### File/Class Naming Conventions
