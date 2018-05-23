@@ -10,8 +10,8 @@ In this project you'll use Ruby on Rails to build an online commerce platform to
 
 This application will collect data in two ways:
 
-1. Through web forms allowing users to enter trip/station/weather information
-1. By consuming CSV files with historical information for stations, trips, and weather. In addition to creating and storing this information for viewing at a later date, this application will provide a number of user dashboards with higher level analysis of trends in bike share usage.
+1. Through web forms allowing users to enter trip/station information
+1. By consuming CSV files with historical information for stations and trips. In addition to creating and storing this information for viewing at a later date, this application will provide a number of user dashboards with higher level analysis of trends in bike share usage.
 
 
 ## Learning Goals
@@ -409,15 +409,6 @@ I see the Most frequent origination station (for rides that ended at this statio
 I see the Date with the highest number of trips started at this station,
 I see the Most frequent zip code for users starting trips at this station,
 I see the Bike ID most frequently starting a trip at this station.
-```
-
-```
-[ ]  Done
-
-As a registered user,
-When I visit '/trips-dashboard',
-I see the Weather on the day with the highest rides.
-I see the Weather on the day with the lowest rides.
 ```
 
 ```
