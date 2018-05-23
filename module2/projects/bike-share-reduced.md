@@ -28,16 +28,16 @@ This application will collect data in two ways:
 
 * Use Rails and ERB templates to render views to create, read, update, and delete resources using RESTful routes and appropriate HTTP verbs
 * Use Rails and ERB templates to display a dashboard not related to a specific resource saved in the database
-* Practice mixing HTML, SASS, and templates to create an inviting and usable User Interface
+* Practice mixing HTML, SASS/CSS, and templates to create an inviting and usable User Interface
 * Deploy the application to Heroku
 * Write an articulate README documenting features and functionalities of application
 * Build a logical user-flow that moves across multiple controllers and models
-* The application has been styled
-* The application uses a balanced, considered color scheme
-* The application implements a font which is not the default font
+* The application has been styled:
+  * The application uses a balanced, considered color scheme
+  * The application implements a font which is not the default font
+  * The style shows evidence of intentional layout
+  * Space and text is balanced; white space is used to visually separate content
 * The application utilizes a nav bar
-* The style shows evidence of intentional layout
-* Space and text is balanced; white space is used to visually separate content
 * The application is easily usable (user can intuitvely navigate around the app without any manual entry of URIs into the nav-bar)
 
 
