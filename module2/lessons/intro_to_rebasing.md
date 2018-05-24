@@ -15,7 +15,7 @@ Some content shared from [the front-end program](https://github.com/turingschool
 
 ## Vocabuarly 
 * git log
-* commmit
+* commit
 * merge
 * rebase
 
@@ -196,7 +196,8 @@ Not every tech company uses the rebase method. Depending on where you work you m
   * what are the significant differences
   * what are the significant similarities
   * what are the pros of each
-  * what are the cons of each 
+  * what are the cons of each
+  * what can be tricky about each process
 
 ## Resources
 
