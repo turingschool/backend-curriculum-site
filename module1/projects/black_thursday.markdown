@@ -37,6 +37,8 @@ Documentation for rbenv can be found [here](https://github.com/rbenv/rbenv/blob/
 
 This project will be assessed with the help of a [spec harness](https://github.com/turingschool/black_thursday_spec_harness). The `README.md` file includes instructions for setup and usage. Note that the spec harness **is not** a replacement for your own test suite.
 
+Spec harness `README.md` [here](https://github.com/turingschool/black_thursday_spec_harness)
+
 ### Key Concepts
 
 From a technical perspective, this project will emphasize:
@@ -84,17 +86,17 @@ The project will be assessed with the following guidelines:
 
 ### 2. Breaking Logic into Components
 
-- [ ] Code is effectively broken into methods & classes 
-- [ ] Developer writes methods less than 7 lines 
-- [ ] No more than 3 methods break the principle of SRP 
+- [ ] Code is effectively broken into methods & classes
+- [ ] Developer writes methods less than 7 lines
+- [ ] No more than 3 methods break the principle of SRP
 
 ### 3. Test-Driven Development
 
 - [ ] Each method is tested  
 - [ ] Functionality is accurately covered
 - [ ] Tests implement Ruby syntax & style   
-- [ ] Balances unit and integration tests 
-- [ ] Evidence of edge cases testing 
+- [ ] Balances unit and integration tests
+- [ ] Evidence of edge cases testing
 - [ ] Test Coverage metrics are present (SimpleCov)
 - [ ] A test RakeTask is implemented
 
@@ -157,5 +159,4 @@ The output from `rake sanitation:all` shows...
 <!-- * 4: Student demonstrates strong git workflow, commits frequently to document progress, uses commits to identify added functionality, and utilizes pull requests for communication and feedback  
 * 3: Student utilizes git workflow essentials, committing frequently to document progress
 * 2: Student adds and commits infrequently and pushes project to GitHub  
-* 1: Student makes an initial commit and pushes project to GitHub   --> 
-
+* 1: Student makes an initial commit and pushes project to GitHub   -->
