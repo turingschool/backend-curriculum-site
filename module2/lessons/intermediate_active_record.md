@@ -10,7 +10,7 @@ title: Intermediate ActiveRecord
 
 ## Slides
 
-Available [here](https://github.com/turingschool/backend-curriculum-site/blob/gh-pages/module2/slides/intermediate_active_record)
+Available [here](https://github.com/turingschool/backend-curriculum-site/blob/gh-pages/module2/slides/intermediate_active_record.md)
 
 ## Setup
 
