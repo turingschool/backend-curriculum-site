@@ -17,3 +17,4 @@ layout: page
 ## Projects
 
 * [Quantified Self](./projects/quantified-self/quantified-self)
+
