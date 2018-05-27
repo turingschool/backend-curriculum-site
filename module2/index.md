@@ -10,43 +10,33 @@ subheading: Web Applications with Ruby
 
 <ul class="outlines">
   <a href="weekly_outlines/week_1">
-    <li class="outline">
-    Week 1
-    </li>
+    <li class="outline">Week 1</li>
   </a>
   <a href="weekly_outlines/week_2">
-    <li class="outline">
-    Week 2
-    </li>
+    <li class="outline">Week 2</li>
   </a>
   <a href="weekly_outlines/week_3">
-    <li class="outline">
-    Week 3
-    </li>
+    <li class="outline">Week 3</li>
   </a>
+</ul>
+<ul class="outlines">
   <a href="weekly_outlines/week_4">
-  <li class="outline">
-  Week 4
-  </li>
+    <li class="outline">Week 4</li>
   </a>
   <a href="weekly_outlines/week_5">
-  <li class="outline">
-  Week 5
-  </li>
+    <li class="outline">Week 5</li>
   </a>
   <a href="weekly_outlines/week_6">
-  <li class="outline">
-  Week 6
-  </li>
+    <li class="outline">Week 6</li>
   </a>
 </ul>
 
-### Important Links
+## Overview
+
+In Module 2, we expand upon fundamental Ruby skills by building database-backed web applications in Sinatra and Rails. Through group projects, we explore best practices in agile project management and collaboration. By the end of this module, students will be comfortable creating basic Rails web applications.
+
+## Important Links
 
 * [__Mod 2 Success__](./success)
 * [__Mod 2 Portfolio Requirements__](./portfolios)
 * [__Mod 2 Professional Development Curriculum__](https://github.com/turingschool/career-development-curriculum/tree/master/module_two)
-
-### Overview
-
-In Module 2, we expand upon fundamental Ruby skills by building database-backed web applications in Sinatra and Rails. Through group projects, we explore best practices in agile project management and collaboration. By the end of this module, students will be comfortable creating basic Rails web applications.
