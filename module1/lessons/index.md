@@ -1,0 +1,32 @@
+---
+layout: page
+title: Module 1 Lessons
+---
+
+* [Ruby Data Types](./ruby_data_types)
+* [Flow Contol](./flow_control)
+* [Exploring .each](./exploring_each)
+* [Methods, Arguments, Return Values](./methods_and_return_values)
+* [Intro to Git and Github](./intro_to_git)
+* [Objects, Instances and Classes](./objects_classes_instances)
+* [How Testing Works](./how_testing_works)
+* [Enumerables I](./beginner_enumerables)
+* [Ruby Project Etiquette](./ruby_project_etiquette)
+* [Hashes](./introducing_hashes)
+* [Debugging Techniques](./debugging_techniques)
+* [Scope](./intro_to_scope)
+* [Git for Pairs](./git_for_pairs_new)
+* [Design Principles]()
+* [Nested Collections](./nested_collections)
+* [Problem Solving](./problems_solutions_algorithms)
+* [Enumerables II](./intermediate_enumerables)
+* [Boolean Logic](./boolean_logic)
+* [Memory Allocation]()
+* [Testing Strategies](./testing_strategies_1)
+* [Programming with Values]()
+* [Class Methods](class_methods)
+* [Inheritance](./inheritance)
+* [Modules](./modules)
+* [Ruby Object Model](./ruby_object_model)
+* [Enumerables III](./advanced_enumerables)
+* [Mocks and Stubs](./mocks_stubs)
