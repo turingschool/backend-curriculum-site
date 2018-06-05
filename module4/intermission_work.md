@@ -82,6 +82,9 @@ All of these things were at one time part of the intermission week work. We've r
 
 Then finish it all with [JavaScript Garden](http://bonsaiden.github.io/JavaScript-Garden/).
 
+### All you need to know about importing and exporting files
+[ES6 import, export, default cheatsheet](https://hackernoon.com/import-export-default-require-commandjs-javascript-nodejs-es6-vs-cheatsheet-different-tutorial-example-5a321738b50f)
+
 ### Exercisms
 
 * Complete *5* of your own completed [exercism.io][exer] exercises in JavaScript
