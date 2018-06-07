@@ -12,6 +12,8 @@ In Module 1, students will learn to use Ruby and object-oriented programming to 
 
 ### [__Exercises__](./exercises)
 
+### [__Learning Goals__](./learning_goals)
+
 ### [__Promotion to Module 2__](./promotion)
 
 <br>
