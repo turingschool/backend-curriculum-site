@@ -29,7 +29,7 @@ Additionally, in Module 3 we will be creating applications to deliver and consum
 
 Rewrite your Bike Share `routes.rb`:
 
-Module 3 requires you to know URLs, paths and HTTP verbs inside and out. Rewrite the routes file for your Little Shop to use only methods that map directly to HTTP verbs: `get`, `post`, `put`, `patch` and `delete`. You will probably need to add `to:` and `as:` parameters to make sure your apps continue to work, and tests continue to pass.
+Module 3 requires you to know URLs, paths and HTTP verbs inside and out. Rewrite the routes file for your Bike Share to use only methods that map directly to HTTP verbs: `get`, `post`, `put`, `patch` and `delete`. You will probably need to add `to:` and `as:` parameters to make sure your apps continue to work, and tests continue to pass.
 
 If you wrote your routes that way already, replace them using `resources`.
 
