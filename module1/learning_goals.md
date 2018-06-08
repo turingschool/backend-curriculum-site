@@ -9,7 +9,7 @@ Academic success in BEM1 means that students demonstrate proficiency and comfort
 **Functional**: student recognizes when to use the concept and can implement it with the support of documentation and/or a collaborator
 **Familiarity**: student can recognize and describe the concept when needed/appropriate
 
-A student who graduates from this module will be able to do the following.
+A student who graduates from this module will be able to do the following:
 
 ## Ruby Mechanics
 
