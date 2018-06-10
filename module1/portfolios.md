@@ -29,7 +29,7 @@ If you were completing Module 4 in Cohort 1410 on August 31, 2015 and your name 
 
 Answer the questions in each section of the portfolio. Enter self-assessment scores in the final section.
 
-### 4. Make a PR to `turingschool/portfolios` by 2:30pm the Wednesday prior to your portfolio review
+### 4. Make a PR to `turingschool/portfolios` by 4:30pm the Wednesday prior to your portfolio review
 
 ## Evaluation
 
