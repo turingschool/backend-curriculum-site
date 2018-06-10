@@ -1,4 +1,4 @@
---- 
+---
 layout: page
 title: SortingCards
 ---
@@ -144,7 +144,7 @@ deck.merge_sort
 
 * Prevent duplicate cards from being added to a deck.
 * Put incorretly guessed cards back into the iteration to be asked again until the user guesses correctly.
-* A deck can have up to two jokers. 
+* A deck can have up to two jokers.
 
 
 ## Evaluation Rubric
@@ -166,13 +166,13 @@ The project will be assessed with the following guidelines:
 * Ruby methods used are logical and readable
 * Code is indented properly
 * Code does not exceed 80 characters per line
-* Each class has correctly-named files and corresponding test files in the proper directories 
+* Each class has correctly-named files and corresponding test files in the proper directories
 
 ### 2. Breaking Logic into Components
 
-* Code is effectively broken into methods & classes 
-* Developer writes methods less than 10 lines 
-* No more than 3 methods break the principle of SRP 
+* Code is effectively broken into methods & classes
+* Developer writes methods less than 10 lines
+* No more than 3 methods break the principle of SRP
 
 ### 3. Test-Driven Development
 
