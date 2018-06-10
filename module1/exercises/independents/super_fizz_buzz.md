@@ -45,9 +45,10 @@ FizzBuzz
 
 ## Iteration 2
 
-Create a class that responds to the following interaction pattern:
+Refactor your `super_fizz_buzz.rb` file into a class. You should be able to interact with your class from a `pry` session like so:
 
 ```ruby
+require './super_fizz_buzz'
 super_fizz = SuperFizzBuzz.new
 super_fizz.output(8)
 => "8"
@@ -63,4 +64,4 @@ Write a Minitest test to verify the behavior of your class
 
 ### Iteration 4
 
-Create a command line interface where the user can enter a number or a range of numbers and see the output. 
+Create a command line interface where the user can enter a number or a range of numbers and see the output.
