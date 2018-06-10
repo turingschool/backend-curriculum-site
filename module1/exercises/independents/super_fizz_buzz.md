@@ -61,7 +61,6 @@ super_fizz.output_range(8, 15)
 
 Write a Minitest test to verify the behavior of your class
 
-
 ### Iteration 4
 
-Can you make your class work correctly in as few lines as possible?
+Create a command line interface where the user can enter a number or a range of numbers and see the output. 
