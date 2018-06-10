@@ -6,15 +6,17 @@ subheading: Object Oriented Programming with Ruby
 
 In Module 1, students will learn to use Ruby and object-oriented programming to build software. They will develop skills to write automated tests, pseudocode, write implementation code, and refactor code to meet Ruby conventions. Through several large group projects and regular pairing exercises, students will learn skills and procedures for effectively collaborating and pairing with other developers.
 
-### [__Projects__](./projects)
+### [Projects](./projects)
 
-### [__Lessons__](./lessons)
+### [Lessons](./lessons)
 
-### [__Exercises__](./exercises)
+### [Exercises](./exercises)
 
-### [__Learning Goals__](./learning_goals)
+### [Learning Goals](./learning_goals)
 
-### [__Promotion to Module 2__](./promotion)
+### [Professional Development Curriculum](https://github.com/turingschool/career-development-curriculum/tree/master/module_one)
+
+### [Promotion to Module 2](./promotion)
 
 <br>
 
