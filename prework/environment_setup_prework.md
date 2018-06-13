@@ -139,7 +139,7 @@ As the Ruby language has evolved over the years, new versions have been released
 To some extent programs written for one version of Ruby will run just fine on another version,
 but sometimes you'll encounter incompatibilities, such that a program needs to be run with a specific version of Ruby.
 
-For this reason, we'd like to be able to install and manage multiple versions on our system. This is precisely the job rbenv handles.
+For this reason, we'd like to be able to install and manage multiple versions of Ruby on our system. This is precisely the job rbenv handles.
 
 #### Installation
 
@@ -157,7 +157,7 @@ brew install rbenv
 rbenv init
 ```
 
-The output from your shell will be something similar to:
+The output from your terminal will be something similar to:
 
 ```shell
 # Load rbenv automatically by appending
@@ -168,22 +168,22 @@ eval "$(rbenv init -)"
 
 This means that you will need to add the above line (beginning with `eval`) to the bottom of your bash profile.
 
-To open your bash profile, type:
+In your terminal, type:
 
 ```shell
 atom ~/.bash_profile
 ```
 
-This will open up the file where you will want to put `eval "$(rbenv init -)"` in on its own line at the end of the file. Save the file and quit atom.
+This will open up your bash_profile in Atom so you can edit it. Copy the line `eval "$(rbenv init -)"` and paste it at the END of your bash_profile. Save the file.
 
-Check if you did this step  correctly by typing in `cat ~./.bash_profile`
+Check if you did this step correctly by switching back to your terminal and typing `cat ~/.bash_profile`. You should see `eval "$(rbenv init -)"` somewhere in the output of your terminal.
 
-You should see `eval "$(rbenv init -)"` somewhere on your screen.
+Close your terminal and reopen it. This is a very important step since the bash profile is loaded each time a new terminal window is opened.
 
-Now check to make sure rbenv was installed properly
+Now check to make sure rbenv was installed properly. In your terminal, type:
 
 ```
-rbenv --version
+rbenv versions
 ```
 
 It should give you a version number rather than an error message.
@@ -201,6 +201,30 @@ Install it with:
 ```shell
 rbenv install 2.4.1
 ```
+
+It should take a while to finish installing. Type
+
+```shell
+rbenv versions
+```
+
+and you should now see 2.4.1 listed.
+
+Be careful, there are two different rbenv commands, `version` and `versions`. The first shows you your current version. The second shows all installed versions.
+
+Switch to your newly installed version with
+
+ `rbenv local 2.4.1`
+
+ Now enter:
+
+ `ruby -v`
+
+ This shows us what version of Ruby we are running. You should see something like:
+
+ `ruby 2.4.1p205 (2017-12-14 revision 61247) [x86_64-darwin17]`
+
+ You can ignore everything after the "p". This output shows us we are running Ruby 2.4.1, which is what we want. If you got something different than 2.4.1, go back through the Rbenv installation, make sure you have you successfully edited your bash_profile, restart your terminal, and try again.
 
 #### Setting the Default Version
 
