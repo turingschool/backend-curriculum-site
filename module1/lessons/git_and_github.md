@@ -44,6 +44,7 @@ These are the steps you should take to make changes and save them to your reposi
 1. Make changes
 1. `git status` - we should see the files we changed as unstaged.
 1. `git add <name of file we changed>` - stage those changes for commit. We need to do this for each file we changed.
+1. `git status` -  we should see the files we changed as staged for commit.
 1. `git commit -m "short message about the changes we made"` - commit the changes.
 
 ## Github
@@ -78,6 +79,7 @@ If you are working in a group project, you want to make sure you are up to date 
 1. Make changes
 1. `git status` - we should see the files we changed as unstaged.
 1. `git add <name of file we changed>` - stage those changes for commit. We need to do this for each file we changed.
+1. `git status` -  we should see the files we changed as staged for commit.
 1. `git commit -m "short message about the changes we made"` - commit the changes.
 1. `git push origin master`
 
@@ -119,12 +121,13 @@ Not only do Pull Requests allow you to merge branches, they allow other collabor
 This is the final version of our workflow, and is what you should be doing on every project, partner or solo.
 
   1. `git status` - make sure our working directory is clean. If there are changes, we need to figure out what to do with them, either commit them or stash them.
-  1. `git branch <feature name>` - Make a new branch based on a feature you want to add
+  1. `git branch <feature name>` - make a new branch based on a feature you want to add. Alternatively, you can use `git checkout -b <feature name>` to create and checkout the branch in one command.
   1. `git checkout <feature name>` - Checkout the branch
-    Alternatively, you can use `git checkout -b <feature name>` to create and checkout the branch in one command.
+  1. `git pull origin <feature name>` - make sure you are up to date with the remote.
   1. Make changes
   1. `git status` - we should see the files we changed as unstaged.
   1. `git add <name of file we changed>` - stage those changes for commit. We need to do this for each file we changed.
+  1. `git status` -  we should see the files we changed as staged for commit.
   1. `git commit -m "short message about the changes we made"` - commit the changes.
   1. `git push origin <feature name>` - Push your branch to Github.
   1. Continue committing to the branch until the feature is complete
