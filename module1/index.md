@@ -16,6 +16,8 @@ In Module 1, students will learn to use Ruby and object-oriented programming to 
 
 ### [Professional Development Curriculum](https://github.com/turingschool/career-development-curriculum/tree/master/module_one)
 
+### [Syllabus](./syllabus)
+
 ### [Promotion to Module 2](./promotion)
 
 <br>
