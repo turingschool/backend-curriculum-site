@@ -130,5 +130,5 @@ This is the final version of our workflow, and is what you should be doing on ev
   1. `git status` -  we should see the files we changed as staged for commit.
   1. `git commit -m "short message about the changes we made"` - commit the changes.
   1. `git push origin <feature name>` - Push your branch to Github.
-  1. Continue committing to the branch until the feature is complete
+  1. Repeat steps 4 - 10 until the feature is complete
   1. Put in a Pull Request (PR) to merge your branch into master. If you are working in a group, your teammates should review your PR and merge it if it is acceptable. If you are working alone, it is okay to merge your own PR.
