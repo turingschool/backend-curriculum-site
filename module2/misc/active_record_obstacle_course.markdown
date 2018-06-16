@@ -18,7 +18,13 @@ The remaining portions of the obstacle course will increase in difficulty and wi
 
 1. Fork the [Storedom](https://github.com/turingschool-examples/storedom-5) repo to your own GitHub account, clone down your fork, and checkout the `activerecord-obstacle-course` branch.
 
-2. `bundle update`
+2. Do the usual setup
+
+```bash
+bundle install
+bundle update
+rake db:{drop,create,migrate,seed}
+```
 
 3. Start with the top test within `spec/models/activerecord_obstacle_course_spec.rb` and work in order.
 
