@@ -1,3 +1,8 @@
+---
+layout: page
+title: Sorting Suite
+---
+
 # Sorting Suite
 
 Sorting algorithms are one of the common domains for studying Computer Science data structures and algorithms. They give us an opportunity to focus on algorithms of various complexity all solving a relatively simple problem.
@@ -367,26 +372,24 @@ The project will be assessed with the following guidelines:
 * Ruby methods used are logical and readable  
 * Developer implements appropriate enumerable methods (#each is used sparingly)
 * Code is indented properly
-* Code does not exceed 80 characters per line 
+* Code does not exceed 80 characters per line
 * Each class has correctly-named files and corresponding test files in the proper directories
 
 ### 2. Breaking Logic into Components
 
-* Code is effectively broken into methods & classes 
-* Developer writes methods less than 8 lines 
-* No more than 3 methods break the principle of SRP 
+* Code is effectively broken into methods & classes
+* Developer writes methods less than 8 lines
+* No more than 3 methods break the principle of SRP
 
 ### 3. Test-Driven Development
 
 * Each method is tested  
 * Functionality is accurately covered
 * Tests implement Ruby syntax & style   
-* Balances unit and integration tests 
-* Evidence of edge cases testing 
+* Balances unit and integration tests
+* Evidence of edge cases testing
 * Test Coverage metrics are present (SimpleCov)
 
 ### 4. Functionality
 
 * Application meets all requirements (extension not req'd)
-
-

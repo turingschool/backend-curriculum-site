@@ -12,6 +12,10 @@ By the end of this lesson, you will ...
 - be able to write GET, POST, and DELETE requests using the Fetch API
 - be familiar with patterns to organize/refactor fetch requests
 
+## Slides
+
+Available [here](../slides/fetch_refresher)
+
 ## JavaScript - synchronous or asynchronous?
 
 - Only one block of code can run at a time (in the order that it is written/appears)

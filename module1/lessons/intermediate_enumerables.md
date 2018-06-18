@@ -1,30 +1,30 @@
 ---
 layout: page
 title: Intermediate Enumerables
-length: 60
-tags: enumerables, max, min, max_by, min_by, sort_by
+length: 90
+tags: enumerables, max, min, max_by, min_by, sort_by, all?, any?, one?, none?
 ---
 
 ## Learning Goals
 
-* Understand how to use `max`, `max_by,` their opposites, and `sort_by` appropriately.
+* Be able to use `max`, `max_by,` their opposites, and `sort_by` appropriately.
 
 ## Slides
 
 Available [here](../slides/intermediate_enumerables)
 
-## Vocabulary 
-* Enumerable 
-* Iterate 
+## Vocabulary
+* Enumerable
+* Iterate
 * Return Value
 * max, max_by, min, min_by, sort_by
 
-## WarmUp
-* What enumerables have used so far?  
+## Warm Up
+* What enumerables have you used so far?  
 
 ### Hook
 
-We've got a handle on the beginner enumerables, and you've probably figured out how to use another few to sort our information. So far, we've learned how to create a new collection, and how to search in the selection returning us either a single item or multiple items.
+We've got a handle on the beginner enumerables, and you've probably discovered some more on your own. In class so far, we've learned how to create a new collection, and how to search in the selection returning us either a single item or multiple items.
 
 ### min / max
 
@@ -34,27 +34,35 @@ Let's think about how we would do that with .each.
 
 ```ruby
   def max(array)
-    result = array.first
+    greatest = array.first
     array.each do |num|
-      result = num if num > result
+      if num > greatest
+        greatest = num
+      end
 
     end
 
-    result
+    greatest
   end
 
-  max ([1,3,2,4,5])
+  max([1,3,9,2,5])
+  => 9
 ```
 
-That's cool. But there's easier.
+That's cool. But there's a much easier way - we can make Ruby do the work for us.
 
 ```ruby
-[1,3,2,5,4].max
+[1,3,9,2,5].max
+=> 9
 ```
 
-And what if we wanted to take the smallest? You'd just use .min instead.
+And what if we wanted to take the smallest? You'd just use `.min` instead.
 
-Note, that you can use these methods for strings as well as numbers. Letters have a sort of intrinsic values on their own.
+
+**TURN & TALK:** All the other enumerables have a do block; these don't but are still considered enumerables - why?
+
+
+Note that you can use these methods for strings as well as numbers. Letters have a sort of intrinsic values on their own.
 
 What do I mean? open up a pry session in your terminal and type in,
 `"a" > "b"`
@@ -64,10 +72,15 @@ We can see that the string, `"a"` is in fact, less than the string `"b"`.
 Knowing this we can do some cool things like grabbing the "lowest" alphabetical string within an array.
 
 ```ruby
-  ["victoria", "nate", "ali"].min
+  ["Brian", "Mike", "Amy"].min
 ```
 
-This code, here, it'll return us `"ali"`
+This code, here, it'll return us `"Amy"`. Be careful - this is NOT straight up comparing the length of the strings - it's comparing the value of each string! Try running this: `["hello", "hi", "hey"].min`
+
+```Ruby
+"zzz" > "aaaa"
+true
+```
 
 If we swap out the min for a max, what will we get?
 
@@ -81,24 +94,25 @@ Imagine we have a class `Person` that has some data stored in instance variables
 
 ```ruby
   class Person
+
     attr_reader :name,
                 :age
 
     def initialize(name, age)
       @name = name
-      @age = age
+      @age  = age
     end
+
   end
 ```
 
- So far, we haven't done anything even remotely exotic. But let's store a number of these persons into an array.
+ So far, we haven't done anything new to us. But let's store a number of these persons into an array.
 
 ```ruby
 people = []
-people << Person.new("Tyrion", 32)
-people << Person.new("Jaime", 26)
-people << Person.new("Cercei", 36)
-
+people << Person.new("Sofia", 4)
+people << Person.new("Scarlett", 9)
+people << Person.new("Stella", 8)
 ```
 
 We've now got an array of three `Person` objects.
@@ -109,26 +123,31 @@ So let's walk this process out and look at how we would do this with .each. It's
 
 ```ruby
   def max_by(people)
-    result = people.first
+    oldest = people.first
+
     people.each do |person|
-      result = person if person.age > result.age
+      if person.age > oldest.age
+        oldest = person
+      end
     end
+
+    oldest
   end
 ```
 
-This is very similar to our original implementation. The main difference is that instead of comparing the objects and determining which is "greater or lesser", we are comparing their attributes to each other.
+This is very similar to our original implementation. The main difference is that instead of comparing the objects and determining which is "greater or lesser", we are comparing _their attributes_ to each other.
 
 And so, the max_by enumerable works similarly.
 
 ```ruby
-  people.max_by do |person|
-    person.age
+  people.max_by do |person|   # use the max_by enumerable to iterate
+    person.age                # max_by will return the greatest person.age
   end
 ```
 
 We are iterating over the array, looking at each item in the array, looking at the attribute and then returning the entire object that has the largest value that we want.
 
-Simply put, to use this enumerable, we just list our criteria for searching in the block, and the numerable will simply give us the matching object.
+Another way to see it, to use this enumerable, we list our criteria for searching in the block, and the numerable will simply give us the matching object.
 
 We can also grab the first alphabetically here.
 
@@ -138,23 +157,25 @@ We can also grab the first alphabetically here.
   end
 ```
 
-But we may be overcomplicating things. It doesn't have to be an array of objects, it can be an array of arrays. We're talking about a collection of things that might hold more than one piece of data.
+It doesn't have to be an array of objects, it can be an array of arrays. We're talking about a collection of things that might hold more than one piece of data.
 
 So let's simplify the problem.
 
 ```ruby
   people = [
-    ["Bob", 24],
-    ["Jane", 26],
-    ["Optimus Prime", 9_000_000]
+    ["Sofie", 4],
+    ["Scarlett", 9],
+    ["Stella", 8]
   ]
 
   people.max_by do |person|
-    person[1]
+    person[1]                # index 1 is the integer/age
   end
 ```
 
-Now you try.
+To find the youngest person, I would use the `min_by` method.
+
+#### Now you try:
 
 ```ruby
 class Person
@@ -167,19 +188,20 @@ class Person
   end
 end
 
-bradys = []
+kardashians = []
 
-bradys << Person.new("Carol", 48)
-bradys << Person.new("Greg", 22)
-bradys << Person.new("Mike", 52)
-bradys << Person.new("Marsha", 19)
-bradys << Person.new("Jan", 13)
+kardashians << Person.new("Kourtney", 39)
+kardashians << Person.new("Kim", 37)
+kardashians << Person.new("Kris", 62)
+kardashians << Person.new("Khloe", 33)
 
 ```
 
-On paper, get the oldest member of the Brady Bunch, and then grab me the first alphabetically.
+On paper, write code to **get the youngest member of the Kardashians.**
 
 Now check with your work with your neighbor.
+
+**CFU:** What is the return value of `min_by` and `max_by`?
 
 ### sort_by
 
@@ -216,27 +238,29 @@ class Person
   end
 end
 
-bradys = []
+kardashians = []
 
-bradys << Person.new("Carol", 48)
-bradys << Person.new("Greg", 22)
-bradys << Person.new("Mike", 52)
-bradys << Person.new("Marsha", 19)
-bradys << Person.new("Jan", 13)
+kardashians << Person.new("Kourtney", 39)
+kardashians << Person.new("Kim", 37)
+kardashians << Person.new("Kris", 62)
+kardashians << Person.new("Khloe", 33)
 
 ```
 
 Using this, how do you think we can sort by their names alphabetically?
+Do this on paper. Check your work with your BFF.
 
-Do this on paper. Check your work with a nearby friend.
+Extension: How could you create a list of names going in the opposite order?
+
+**CFU:** What is the return value of `sort_by`?
 
 ### all?
 
 And now, for something completely different.
 
-We're going to look at one of the enumerables that returns a simple true or false.
+We're going to look at one of the enumerables that returns a simple true or false. This is always indicated by the method ending with a '?'.
 
-Let's look at the name of this enumerable, `all?`. Simply, it's an enumerable with a conditional in the block. If every item in a collection (every time through the block) returns `true` when going through the block, it returns `true`. Otherwise, it will return `false`.
+Let's look at the name of this enumerable, `all?`. Under the hood, it's an enumerable with a conditional in the block. If **every** item in a collection returns `true` when going through the block, the entire method returns `true`. Otherwise, it will return `false`.
 
 Example:
 
@@ -256,15 +280,33 @@ end
 
 This would return false.
 
-## WrapUp
+Give what you just learned about `all?` - can make an educated guess about what `any?`, `none?`, and `one?` do/return?
+
+## Wrap Up
 * Name all the enumerables you know. What do they each return?
+
+<!--
+## Practice Time
+
+Make posters:
+Darian and Chris: max_by, min_by
+Matt and Mellisa: sort_by
+Tobin and Connor: all?
+Angi and Tristan: any? one? what's the difference
+Blythe and Erik: none?
+
+Practice on Enums Exercises:
+Everyone else
+-->
 
 ## For Homework:
 
 In the [enums-exercises](https://github.com/turingschool/enums-exercises) complete the following pattern and regular tests:
 
+-   max_by
+-   min_by
+-   sort_by
 -   all?
 -   any?
 -   none?
 -   one?
--   sort_by
