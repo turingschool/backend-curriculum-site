@@ -17,14 +17,14 @@ This tutorial is open source. If you notice errors, typos, or have questions/sug
 
 Getting Started [Iteration 0](https://github.com/turingschool/backend-curriculum-site/backend-curriculum-site/blob/gh-pages/module2/misc/blogger_iteration_0.md)
 
-Form-based Workflow[Iteration 1](https://github.com/turingschool/backend-curriculum-site/backend-curriculum-site/blob/gh-pages/module2/misc/blogger_iteration_1.md)
+Form-based Workflow [Iteration 1](https://github.com/turingschool/backend-curriculum-site/backend-curriculum-site/blob/gh-pages/module2/misc/blogger_iteration_1.md)
 
-Adding Comments[Iteration 2](https://github.com/turingschool/backend-curriculum-site/backend-curriculum-site/blob/gh-pages/module2/misc/blogger_iteration_2.md)
+Adding Comments [Iteration 2](https://github.com/turingschool/backend-curriculum-site/backend-curriculum-site/blob/gh-pages/module2/misc/blogger_iteration_2.md)
 
-Tagging[Iteration 3](https://github.com/turingschool/backend-curriculum-site/backend-curriculum-site/blob/gh-pages/module2/misc/blogger_iteration_3.md)
+Tagging [Iteration 3](https://github.com/turingschool/backend-curriculum-site/backend-curriculum-site/blob/gh-pages/module2/misc/blogger_iteration_3.md)
 
-[Iteration 4](https://github.com/turingschool/backend-curriculum-site/backend-curriculum-site/blob/gh-pages/module2/misc/blogger_iteration_4.md) Authorization
+Authorization [Iteration 4](https://github.com/turingschool/backend-curriculum-site/backend-curriculum-site/blob/gh-pages/module2/misc/blogger_iteration_4.md)
 
-Authentication [Iteration 5](https://github.com/turingschool/backend-curriculum-site/backend-curriculum-site/blob/gh-pages/module2/misc/blogger_iteration_5.md) Authentication
+Authentication [Iteration 5](https://github.com/turingschool/backend-curriculum-site/backend-curriculum-site/blob/gh-pages/module2/misc/blogger_iteration_5.md)
 
 Extras [Iteration 6](https://github.com/turingschool/backend-curriculum-site/backend-curriculum-site/blob/gh-pages/module2/misc/blogger_iteration_6.md)
