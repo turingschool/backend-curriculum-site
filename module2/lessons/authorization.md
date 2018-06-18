@@ -23,7 +23,7 @@ Available [here](../slides/authorization)
 
 ## Repo
 
-Continue working in your MovieMania application, or clone down the most recent version. A sample repo can be found [here](https://github.com/turingschool-examples/movie_mania_1711).
+Continue working in your MovieMania application, or clone down the most recent version. A sample repo can be found [here](https://github.com/turingschool-examples/movie_mania_1803).
 
 ## Code Along
 

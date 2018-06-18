@@ -87,6 +87,8 @@ At a high level, we are going to follow these steps:
 
 ### Creating the database
 
+(make sure you've run `bundle install` before you start these instructions)
+
 Before we begin, we'll need to create a database.
 
 If you look in the `db` folder, you'll notice that we don't have any database files. In order to create our database, we need to run `rake db:create`. After running this command, you'll see an empty sqlite file now inside the `db` folder.
@@ -113,7 +115,7 @@ end
 We are going to use ActiveRecord's `create_table` method to specify what we want to name this table and what fields it will include.
 
 ```ruby
-class CreateFilms < ActiveRecord::Migration
+class CreateFilms < ActiveRecord::Migration[5.1]
   def change
     create_table :films do |t|
       t.text    :title
@@ -160,7 +162,14 @@ end
 
 By inheriting from `ActiveRecord::Base`, we're given a bunch of class and instance methods we can use to manipulate the films in our database. These methods will take the place of the methods that you wrote yourself in Task Manager (e.g. `::all`, `::find`, `::new`, `::save`).
 
-Now that we have a model, we can use `tux` (an interactive console for your app) to add some films to our database.
+Now that we have a model, we can use `tux` (an interactive console for your app) to add some films to our database. If you get an error when running tux that looks like this:
+```bash
+$ tux
+/Users/username/.rbenv/versions/2.4.3/lib/ruby/gems/2.4.0/gems/ripl-rack-0.2.1/lib/ripl/rack.rb:38:in `eval': You have already activated rack-test 0.6.3, but your Gemfile requires rack-test 1.0.0. Prepending `bundle exec` to your command may solve this. (Gem::LoadError)
+```
+
+To fix this error, just run tux like this instead: `bundle exec tux`
+
 
 ```ruby
 $ tux

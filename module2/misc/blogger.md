@@ -26,5 +26,3 @@ Tagging [Iteration 3](https://github.com/turingschool/backend-curriculum-site/ba
 Authorization [Iteration 4](https://github.com/turingschool/backend-curriculum-site/backend-curriculum-site/blob/gh-pages/module2/misc/blogger_iteration_4.md)
 
 Authentication [Iteration 5](https://github.com/turingschool/backend-curriculum-site/backend-curriculum-site/blob/gh-pages/module2/misc/blogger_iteration_5.md)
-
-Extras [Iteration 6](https://github.com/turingschool/backend-curriculum-site/backend-curriculum-site/blob/gh-pages/module2/misc/blogger_iteration_6.md)

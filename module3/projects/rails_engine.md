@@ -343,6 +343,8 @@ In their reviews, instructors will go over whatever technical, planning or other
 
 ### Feature Delivery
 
+Feature completeness will be determined using the [spec harness](https://github.com/turingschool/rales_engine_spec_harness)
+
 **1. Completion**
 
 * 4: Project completes all base requirements according to the spec harness.
@@ -375,7 +377,7 @@ In their reviews, instructors will go over whatever technical, planning or other
 
 **4. Queries**
 
-* 4: Project makes great use of ActiveRecord relationships and queries, including some advanced query functionality such as `joins` and `includes`.
+* 4: Project makes great use of ActiveRecord relationships and queries, including some advanced query functionality such as `joins` and `select` to create virtual attributes.
 * 3: Project makes good use of ActiveRecord, but drops to ruby enumerables for some query methods.
 * 2: Project has some gaps in ActiveRecord usage, including numerous business methods that rely on ruby enumerables to find the appropriate data.
 * 1: Project struggles to establish a coherent ActiveRecords schema, including missing relationships or dysfunctional queries.

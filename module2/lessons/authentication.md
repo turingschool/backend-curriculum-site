@@ -232,6 +232,32 @@ The `PG::UndefinedTable: ERROR:  relation "users" does not exist` tells us that 
 rails g migration CreateUsers username:string password_digest:string
 ```
 
+Apply that migration (`rake db:{drop,create,migrate,seed}`).
+
+Let's get back to `password_digest` in a moment -- we should also make sure that our User model requires that the username and password fields be populated.
+
+Let's start with a test in `spec/models/user_spec.rb` that looks like this:
+
+```ruby
+require 'rails_helper'
+
+describe User, type: :model do
+  describe "validations" do
+    it {should validate_presence_of(:username)}
+    it {should validate_uniqueness_of(:username)}
+    it {should validate_presence_of(:password)}
+  end
+end
+```
+
+```ruby
+# models/user.rb
+class User < ApplicationRecord
+  validates :username, uniqueness: true, presence: true
+  validates_presence_of :password, require: true
+end
+```
+
 Why `password_digest`?
 
 ### BCrypt
@@ -242,20 +268,23 @@ Why `password_digest`?
 - Takes password and password_confirmation (if necessary) and encrypts it to a very long, hard to decrypt, string this is referred to as **hashing**.
 - Takes care of matching the password and password_confirmation (if necessary).
 
-- Find the `gem 'bcrypt'` in the `Gemfile` and uncomment it. Bundle again to complete the process.
+- Find the `gem 'bcrypt'` in the `Gemfile` and uncomment it. Run `bundle` again to complete the process.
 
-We now need to tell our model that it will be expecting a field `password` (and `password_confirmation` if needed).
+We now need to tell our model that it will be expecting a field `password` (and `password_confirmation` if needed) with the `has_secure_password` entry below.
 
 ```ruby
-#models/user.rb
+# models/user.rb
 class User < ApplicationRecord
+  validates :username, uniqueness: true, presence: true
+  validates_presence_of :password, require: true
+  
   has_secure_password
 end
 ```
 
-Now we can create the user as we would with standard CRUD functionality, with one exception. The overall goal is to hold onto this user's information so that when they login, our application can remember them. UX-wise, it doesn't make a whole lot of sense if when a user signs up, they have to log in again to access their information. When a new user signs up, we want them to be logged in. So how do we do that? What tool in rails might we be able to use to store information about our user as they are visiting our application?
+Now we can create the user as we would with standard CRUD functionality, with one exception. The overall goal is to hold onto this user's information so that when they login, our application can remember them. UX-wise, it doesn't make a whole lot of sense if when a user signs up, they have to log in again to access their information. When a new user signs up, we want them to be logged in. So how do we do that? What tool in Rails might we be able to use to store information about our user as they are visiting our application?
 
--When we run our test again we get this error:
+When we run our test again we get this error:
 
 ```bash
 Failure/Error: <%= form_for @user do |f| %>
@@ -317,10 +346,10 @@ HTTP is a stateless protocol, which means there is no connection between each re
 #controllers/users_controller.rb
 
 def create
-  user = User.create(user_params)
-  if user.save
+  @user = User.create(user_params)
+  if @user.save
     session[:user_id] = @user.id
-    redirect_to user_path(user)
+    redirect_to user_path(@user)
   else
     render :new
   end

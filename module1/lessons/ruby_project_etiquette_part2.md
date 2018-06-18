@@ -13,7 +13,7 @@ In this session we're going to go over some common best practices for organizing
 * What `$LOAD_PATH` is and how it helps you
 
 
-## Vocabulary 
+## Vocabulary
 * Gem
 * Gemfile
 * $LOAD_PATH
@@ -24,7 +24,9 @@ In this session we're going to go over some common best practices for organizing
 
 ## Gems & Gemfiles
 
-A "Gem" is a packaged up piece of ruby code designed to be shared with others (i.e. a library). [RubyGems](https://rubygems.org/) is the community-run repository and website where gems can be published so other users can download and use them easily. [Bundler](http://bundler.io/) is the popular dependency manager rubyists use to download and manage gems. Bundler versions are unique to Ruby versions, if you change Ruby versions you must have that Ruby's Bundler version installed also. Similar to a `Rakefile`, a `Gemfile` lives at the **root of your project** and contains a list of the gems that project *depends on*.
+- A "Gem" is a packaged up piece of ruby code designed to be shared with others (i.e. a library). [RubyGems](https://rubygems.org/) is the community-run repository and website where gems can be published so other users can download and use them easily.
+- [Bundler](http://bundler.io/) is the popular dependency manager rubyists use to download and manage gems. Bundler versions are unique to Ruby versions, if you change Ruby versions you must have that Ruby's Bundler version installed also.
+- Similar to a `Rakefile`, a `Gemfile` lives at the **root of your project** and contains a list of the gems that project *depends on*.
 
 **Sample Gemfile:**
 
@@ -46,8 +48,8 @@ To install the dependencies listed in your Gemfileyou would run `bundle` (**Can 
 require "faraday"
 
 def jam
-  puts Faraday.get('http://www.warnerbros.com/archive/spacejam/movie/jam.html').body
-end 
+  puts Faraday.get('https://corgiorgy.com/').body
+end
 ```
 
 4. Create an empty `Gemfile` in the directory
@@ -91,7 +93,7 @@ Open a `pry` or `irb` session and type in `$LOAD_PATH`. You should get a respons
  "/Users/your_username/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/x86_64-darwin15"]
 ```
 
-The default `$LOAD_PATH` will contain Ruby itself, files in the standard library (hence we can `require "date"` without a path), **as well as our current directory**. This is why `require`, by default, works relative to the place from which you code is *being run*, and thus why we should try to stick with the habit of running code from project root.
+The default `$LOAD_PATH` will contain Ruby itself, files in the standard library (hence we can `require "pry"` without a path), **as well as our current directory**. This is why `require`, by default, works relative to the place from which you code is *being run*, and thus why we should try to stick with the habit of running code from project root.
 
 Your OS has a similar construct called `PATH` which it uses to find executable commands. Check it out by running `echo $PATH` at your terminal. This is how it knows what to execute when we type a simple command like `git`
 
@@ -115,4 +117,4 @@ If you finish early, scan this article from Joshua Paling on [Load Path](http://
 ## Wrap Up
 * What is a gem? Why would you use one?
 * What is a Gemfile and a Gemfile.lock? Why would you use one?
-* What is a load path? How can you alter your load path? 
+* What is a load path? How can you alter your load path?

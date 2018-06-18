@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Apicurious
+title: APIcurious
 length: 1 week
 tags:
 type: project
@@ -89,16 +89,18 @@ Build a basic subreddit browser. As a user, I should be able to:
 
 By **Tuesday afternoon** you should have oAuth implemented. Using the token you receive from authentication, you should be able to make requests to the API at least using Postman or curl. Ideally you will be able to make a request from your application and display *some information* on a page by Tuesday evening/Wednesday morning even if the code has not yet been refactored into a service. This will leave you with Wednesday and Thursday to refactor and implement the required functionality.
 
-By **Wednesday morning** begin thinking about if you'd like to receive a grade for this project or not.
-
 ## <a name="what-to-expect"></a> What to expect from instructors
 
 Instructors will work to review pull requests for code quality and limited debugging. As we start to move forward in Mod 3, we continue to encourage you to rely upon available documentation to implement functionality, even if you are uncomfortable with how the code is working. If you do run into a problem where you are unable to implement some functionality after exhausting your resources, please submit a [WIP] pull request *with an explicit question* so that instructors can view the code in context.
 
 ## <a name="evaluation"></a> Evaluation
 
-You'll be graded on each of the criteria below with a score of (1) well below
-expectations, (2) below expectations, (3) as expected, (4) better than expected.
+This project is not graded but the following rubric can help determine if you are moving at the correct pace:
+
+(1) well below expectations
+(2) below expectations
+(3) as expected
+(4) better than expected
 
 ### Feature Delivery
 
