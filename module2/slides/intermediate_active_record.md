@@ -10,7 +10,7 @@ How would you find the following in ActiveRecord?
 
 * Average age of all horses
 * Average age of horses belonging to an owner with an id of 1
-* Total winnings of all horses (`assume the winnings column is on horses`)
+* Total winnings of all horses (assume a `winnings` column on horses)
 * Total winnings of all horses belonging to an owner with an id of 4
 
 ---
@@ -21,8 +21,8 @@ How would you find the following in ActiveRecord?
 > rails c
 > Candidate.all
 > Candidate.find(1)
-> Party.find(1)
-> Candidate.find(1).party
+> Parties.find(1)
+> Candidate.find(1).parties
 > Candidate.joins(:party)
 ```
 
@@ -185,7 +185,7 @@ end
 
 # Exercise
 
-Can you create an array of democratic candidates ordered by the number of results they received that also responds to `total_votes`?
+Can you create an array of democratic candidates ordered by the number of results they received that also responds to `vote_totals`?
 
 ```
 # rails c

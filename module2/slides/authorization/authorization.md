@@ -4,8 +4,9 @@
 
 ---
 
-# Warm Up
+# Warmup
 
+* How did you handle the secret page in Thursday's assignment?
 * Have you tried to implement any authorization in the mini-project? If so, how?
 * Any thoughts on how we might use namespacing to help us organize our authorization strategy?
 
@@ -102,17 +103,3 @@ end
 
 `ApplicationController`
 `Admin::BaseController`
-
----
-
-#Wrap-Up
-
-* What's the difference between Authentication and Authorization and why are both necessary?
-* What's a before_action in Rails and how can we limit it for specific actions?
-* What's an enum attribute in ActiveRecord? When would we want to use it?
-* Why might we namespace a resource when we are applying authorization?
-
----
-#Wrap-Up
-
-* What does `allow_any_instance_of` in RSpec do?
