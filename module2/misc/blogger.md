@@ -15,10 +15,16 @@ In this project you'll create a simple blog system and learn the basics of Ruby 
 
 This tutorial is open source. If you notice errors, typos, or have questions/suggestions, please [submit them to the project on GitHub](https://github.com/turingschool/backend-curriculum-site/blob/gh-pages/module2/misc/blogger.md). You can find a completed (through Iteration 3) version [here](https://github.com/AliSchlereth/blogger).
 
-[Iteration 0](https://github.com/turingschool/backend-curriculum-site/module2/misc/blogger_iteration_0.md)
-[Iteration 1](https://github.com/turingschool/backend-curriculum-site/module2/misc/blogger_iteration_1.md)
-[Iteration 2](https://github.com/turingschool/backend-curriculum-site/module2/misc/blogger_iteration_2.md)
-[Iteration 3](https://github.com/turingschool/backend-curriculum-site/module2/misc/blogger_iteration_3.md)
-[Iteration 4](https://github.com/turingschool/backend-curriculum-site/module2/misc/blogger_iteration_4.md)
-[Iteration 5](https://github.com/turingschool/backend-curriculum-site/module2/misc/blogger_iteration_5.md)
-[Iteration 6](https://github.com/turingschool/backend-curriculum-site/module2/misc/blogger_iteration_6.md)
+[Iteration 0](https://github.com/turingschool/backend-curriculum-site/backend-curriculum-site/blob/gh-pages/module2/misc/blogger_iteration_0.md)
+
+[Iteration 1](https://github.com/turingschool/backend-curriculum-site/backend-curriculum-site/blob/gh-pages/module2/misc/blogger_iteration_1.md)
+
+[Iteration 2](https://github.com/turingschool/backend-curriculum-site/backend-curriculum-site/blob/gh-pages/module2/misc/blogger_iteration_2.md)
+
+[Iteration 3](https://github.com/turingschool/backend-curriculum-site/backend-curriculum-site/blob/gh-pages/module2/misc/blogger_iteration_3.md)
+
+[Iteration 4](https://github.com/turingschool/backend-curriculum-site/backend-curriculum-site/blob/gh-pages/module2/misc/blogger_iteration_4.md)
+
+[Iteration 5](https://github.com/turingschool/backend-curriculum-site/backend-curriculum-site/blob/gh-pages/module2/misc/blogger_iteration_5.md)
+
+[Iteration 6](https://github.com/turingschool/backend-curriculum-site/backend-curriculum-site/blob/gh-pages/module2/misc/blogger_iteration_6.md)
