@@ -42,7 +42,7 @@ bundle install
 bundle update
 rake db:{drop,create,migrate,seed}
 rspec spec/models/activerecord_obstacle_course_spec.rb
-# you should see several passing tests, several failing tests, and one skipped test
+# you should see several passing tests, and a few skipped tests
 ```
 
 3. Start with the top test within `spec/models/activerecord_obstacle_course_spec.rb` and work in order.
@@ -53,11 +53,11 @@ rspec spec/models/activerecord_obstacle_course_spec.rb
 
     * For example: `rspec spec/models/activerecord_obstacle_course_spec.rb:34`
 
-    * Note: There's one skipped spec. Ignore it until the very end.
+    * Note: There's one skipped spec at the very end. Ignore it until all other tests are finished.
 
 6. Most of the tests follow the same format...
 
-    * Leave the Ruby as is or comment it out -- Don't erase.
+    * Leave the Ruby as is or comment it out -- Don't erase it.
 
       ```ruby
 
@@ -71,7 +71,7 @@ rspec spec/models/activerecord_obstacle_course_spec.rb
 
       ```ruby
       # -----------------------------
-      # A section for you to write refactor the Ruby code
+      # A section for you to write refactor the Ruby or raw SQL code
       # -----------------------------
       ```
 
