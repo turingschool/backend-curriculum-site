@@ -72,7 +72,7 @@ With someone near you, draw out a diagram representing the above four aspects.
 
 We're going to use ActiveRecord migrations to create a `songs` table, and then create a Song model that allows us to interact with that table from our app.
 
-A `Song` will have a title (text), length in seconds (integer), and total_play_count (integer).
+A `Song` will have a title (text), length in seconds (integer), and play_count (integer).
 
 At a high level, we are going to follow these steps:
 
@@ -120,7 +120,7 @@ class CreateSongs < ActiveRecord::Migration[5.1]
     create_table :songs do |t|
       t.text    :title
       t.integer :length
-      t.integer :total_play_count
+      t.integer :play_count
 
       t.timestamps null: false
     end
@@ -138,7 +138,7 @@ ActiveRecord::Schema.define(version: 20160217022804) do
   create_table "songs", force: :cascade do |t|
     t.text     "title"
     t.integer  "length"
-    t.integer  "total_play_count"
+    t.integer  "play_count"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -173,10 +173,10 @@ To fix this error, just run tux like this instead: `bundle exec tux`
 
 ```ruby
 $ tux
-Song.create(title: "Don't Stop Believing", length: 1981, total_play_count: 760847)
-Song.create(title: "My Heart Will Go On", length: 1997, total_play_count: 65862)
-Song.create(title: "Imperial March", length: 183, total_play_count: 521771)
-Song.create(title: "Bohemian Rhapsody", length: 10000, total_play_count: 623547)
+Song.create(title: "Don't Stop Believing", length: 1981, play_count: 760847)
+Song.create(title: "My Heart Will Go On", length: 1997, play_count: 65862)
+Song.create(title: "Imperial March", length: 183, play_count: 521771)
+Song.create(title: "Bohemian Rhapsody", length: 10000, play_count: 623547)
 ```
 
 ### Updating the Controller
@@ -204,7 +204,7 @@ Throw this html in that file:
     <ul>
       <li><%= song.title %></li>
       <li><%= song.length %></li>
-      <li><%= song.total_play_count %></li>
+      <li><%= song.play_count %></li>
     </ul>
    <% end %>  
 ```
