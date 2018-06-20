@@ -173,8 +173,8 @@ To fix this error, just run tux like this instead: `bundle exec tux`
 
 ```ruby
 $ tux
-Song.create(title: "Don't Stop Believing", length: 1981, play_count: 760847)
-Song.create(title: "My Heart Will Go On", length: 1997, play_count: 65862)
+Song.create(title: "Don't Stop Believin'", length: 251, play_count: 760847)
+Song.create(title: "My Heart Will Go On", length: 280, play_count: 65862)
 Song.create(title: "Imperial March", length: 183, play_count: 521771)
 Song.create(title: "Bohemian Rhapsody", length: 10000, play_count: 623547)
 ```
