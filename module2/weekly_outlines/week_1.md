@@ -18,6 +18,7 @@ layout: page
 
 ## Homework
   - [ActiveRecord Exploration](http://backend.turing.io/module2/homework/activerecord_exploration)
+  - [ActiveRecord Obstacle Course](http://backend.turing.io/module2/misc/active_record_obstacle_course)
   - [DTR for Little Shop Redux](https://github.com/turingschool-projects/little-shop-redux). One group member should send link to forked gist to an instructor.
   - [ActiveRecord and Database Practice](http://backend.turing.io/module2/homework/activerecord_and_database_practice)
   - [Checks for Understanding](https://github.com/turingschool/checks-for-understanding/blob/master/module-2/backend/week_one.md)
