@@ -66,7 +66,7 @@ You also have a few types of values available in a JSON structure:
 
 #### Example
 
-`
+```
 person = '{
   "name":"Jennifer Johnson",
   "street":"641 Pine St.",
@@ -74,7 +74,7 @@ person = '{
   "age":50,
   "pets":["cat","dog","fish"]
 }'
-`
+```
 
 This is valid JSON in a Ruby context.
 
@@ -99,22 +99,22 @@ The `json` library is part of the standard library these days, so there is no ne
 
 Let's play around with it in our `pry` consoles.
 
-`rb
+```rb
 require 'json'
 
 my_hash = { hello: "goodbye" }
 puts JSON.generate(my_hash) #=> "{"hello":"goodbye"}"
 puts  my_hash.to_json #=> "{"hello":"goodbye"}"
-`
+```
 
-`rb
+```rb
 require 'json'
 
 person = '{"name":"Jennifer Johnson","street":"641 Pine St.","phone":true,"age":50,"pets":["cat","dog","fish"]}'
 parsed_person = JSON.parse(person) #=> {"name"=>"Jennifer Johnson", "street"=>"641 Pine St.", "phone"=>true, "age"=>50, "pets"=>["cat", "dog", "fish"]}
 puts parsed_person
 puts parsed_person['pets']
-`
+```
 
 ### JSON versus XML
 
