@@ -6,6 +6,8 @@ length: 90
 tags: apis, testing, requests, rails
 ---
 
+This lesson plan last updated with Ruby 2.4.1 and Rails 5.2.0
+
 ## Learning Goals
 
 * Understand how an internal API works at a conceptual level
