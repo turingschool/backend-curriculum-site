@@ -79,11 +79,13 @@ credit_check.valid_number?(5541808923795240)
 => true
 credit_check.valid_number?(5541801923795240)
 => false
-credit_check.validation_ouput(5541808923795240)
+credit_check.validation_output(5541808923795240)
 => "The number 5541808923795240 is valid"
-credit_check.validation_ouput(5541801923795240)
+credit_check.validation_output(5541801923795240)
 => "The number 5541801923795240 is invalid"
 ```
+
+**note on interaction patterns**: this means that you should be able to open a pry session, require the file with your class, for instance `require './credit_check'`, and type in the lines of code above exactly and get the same output in your pry session.
 
 ### Iteration 3 - Branching and Minitest
 
