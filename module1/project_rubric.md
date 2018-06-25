@@ -32,7 +32,6 @@ Notes:
 The student(s):
 
 - [ ] adheres to the Single Responsibility and DRY principles
-- [ ] utilizes Test Driven Development to drive the design of the code.
 - [ ] creates Objects and Classes that appropriately encompass state and behavior
 - [ ] uses instance and local variables appropriately
 - [ ] writes readable code with the following characteristics:
@@ -48,10 +47,9 @@ Notes:
 
 The student(s):
 
-- [ ] writes Minitest tests that describe the expected behavior of a program
+- [ ] writes Minitest tests that describe the expected behavior of a program according to technical specifications
 - [ ] names and orders tests so that a test file reads like documentation
 - [ ] writes Minitest assertions that accurately test a piece of functionality
-- [ ] translates technical specifications into tests
 - [ ] writes a test before writing code that implements the behavior to make that test pass
 - [ ] writes both integration and unit tests
 
