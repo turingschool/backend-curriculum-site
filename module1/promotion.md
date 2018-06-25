@@ -10,7 +10,7 @@ Students who are promoted to Module 2 will have successfully completed the Softw
 Promoted students will demonstrate proficiency in the material outlined in the [Module 1 Learning Goals](./learning_goals). In Week 6 of Module 1, these abilities will be assessed by the following:
 
 1. Final Paired Assessment
-1. Final Independent Assessment
+1. Final Independent Challenge
 1. Final Project
 
 More details on these assessments can be found in the [Module 1 Syllabus](./syllabus).

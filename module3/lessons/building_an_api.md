@@ -6,6 +6,8 @@ length: 90
 tags: apis, testing, requests, rails
 ---
 
+This lesson plan last updated with Ruby 2.4.1 and Rails 5.2.0
+
 ## Learning Goals
 
 * Understand how an internal API works at a conceptual level
@@ -72,12 +74,6 @@ $ rails g rspec:install
 Now let's get our factories set up!
 
 add `gem 'factory_bot_rails'` to your :development, :test block in your Gemfile.
-
-```sh
-$ bundle
-$ mkdir spec/support/
-$ touch spec/support/factory_bot.rb
-```
 
 Inside of the rails_helper.rb file add this to the RSpec.configure block:
 
