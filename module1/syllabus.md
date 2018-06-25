@@ -41,7 +41,7 @@ The Final Paired Assessment will be graded using [This Rubric](./paired_rubric)
 
 ## Scores
 
-Projects, Paired Assessments, and Independent Assessments will scored on a 4 point scale:
+Projects, Paired Assessments, and Independent Assessments will be scored on a 4 point scale:
 
 1: Well Below Expectations
 2: Below Expectations
