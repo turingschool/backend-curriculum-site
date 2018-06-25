@@ -73,12 +73,6 @@ Now let's get our factories set up!
 
 add `gem 'factory_bot_rails'` to your :development, :test block in your Gemfile.
 
-```sh
-$ bundle
-$ mkdir spec/support/
-$ touch spec/support/factory_bot.rb
-```
-
 Inside of the rails_helper.rb file add this to the RSpec.configure block:
 
 ```ruby
