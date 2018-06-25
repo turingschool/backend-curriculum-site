@@ -143,7 +143,7 @@ rake secret
 
 2. Insert the secret and run the following command to deploy to AWS
 ```bash
-  eb create -d -db.engine postgres -db.size 5 --envvars SECRET_KEY_BASE=PUT_SECRET_HERE
+eb create -d -db.engine postgres -db.size 5 --envvars SECRET_KEY_BASE=PUT_SECRET_HERE
 ```
 
 **What does the following line of code do above?**
