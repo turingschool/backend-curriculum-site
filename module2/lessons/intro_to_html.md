@@ -25,7 +25,10 @@ Review from Task Manager
   - How did we create structure in our HTML?
   
 ### Hyper Text Markup Language
+
 A Markup Language used for describing the structure/layout of web pages.
+
+Some HTML tags are "containers" for content, and some tags **are** the content.
 
 ### Structure of an HTML Document
 
@@ -50,7 +53,8 @@ A Markup Language used for describing the structure/layout of web pages.
 
 #### [Type Declaration](https://www.w3schools.com/tags/tag_doctype.asp)
 
-  - `<!DOCTYPE html>` tells our browsers that our application is using HTML5. `html` signals the beginning of our HTML.
+  - `<!DOCTYPE html>` tells our browsers that our application is using HTML5.
+  - `<html>` signals the beginning of our HTML.
 
 #### Head
 
@@ -66,7 +70,7 @@ A Markup Language used for describing the structure/layout of web pages.
 
 ### Semantic vs Non-Semantic Tags
 
-  - How did you create HTML structure in your Task Manager app? Most everyone uses `div`s at first.
+  - How did you create HTML structure in your Task Manager app? Most everyone uses `<div>` tags at first.
 
 #### Non-Semantic
 
