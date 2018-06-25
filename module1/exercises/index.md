@@ -27,4 +27,4 @@ title: Module 1 Exercises
 * [Super Spy](./paired/super_spy)
 * [Yacht Club](./paired/yacht_club)
 
-### [__Ruby Exercises__](https://github.com/turingschool/module1-ruby-exercises)
+### [__Ruby Exercises__](https://github.com/turingschool/ruby-exercises)
