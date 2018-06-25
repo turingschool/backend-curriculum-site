@@ -55,7 +55,7 @@ Scores reflect the instructor's expectations for the student’s progress at tha
 Students will receive a weekly CFU (check for understanding). This CFU will cover the material up to that week. It is to be completed independently, and is closed note, closed internet. Instructors will collect the CFUs, but they will not be graded. Review of the CFU will usually take place on Fridays as a class.
 
 ## Ruby Exercises
-[Link to Repo](https://github.com/turingschool/module1-ruby-exercises)
+[Link to Repo](https://github.com/turingschool/ruby-exercises)
 
 These exercises are to be used by students to practice the material covered in module 1. While the projects require synthesizing many concepts, the Ruby Exercises are meant to practice a concept in isolation. Successful students will reinforce their skills through both projects and exercises. During paired projects, students will explain in their DTR (Define the Relationship) how they will make time to work on their exercises. Exercises will not be assigned or graded, however instructors will provide a weekly list of suggested exercises to practice the material.
 
