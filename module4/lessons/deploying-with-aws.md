@@ -59,7 +59,7 @@ eb --version
 1. Start off with creating a new application
 
 ```bash
-rails new myapp --database=postgresql  
+rails new aws_rails --database=postgresql  
 ```
 
 2. Add a simple welcome page
@@ -141,9 +141,9 @@ Now go into your rails application and checkout the .elasticbeanstalk config fil
 rake secret
 ```
 
-2. Run the following command to deploy to AWS
+2. Insert the secret and run the following command to deploy to AWS
 ```bash
-  eb create -d -db.engine postgres -db.size 5 --envvars SECRET_KEY_BASE=USE_YOUR_SECRET
+  eb create -d -db.engine postgres -db.size 5 --envvars SECRET_KEY_BASE=PUT_SECRET_HERE
 ```
 
 **What does the following line of code do above?**
