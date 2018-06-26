@@ -61,7 +61,7 @@ As you progress through becoming a more practiced git user, don't forget that th
 
 ### Commands for interacting with Github
 
-* `push <remote name> <branch name>` - push your commits to Github. The remote name is almost always `origin`. The branch name is whatever branch you want to push to (more on branching further down). For instance, if you are working on the `master` branch, which is the default branch, the command would be:
+* `push <remote name> <branch name>` - Update your remote repository to match your local repository. The remote name is almost always `origin`. The branch name is whatever branch you want to push to (more on branching further down). For instance, if you are working on the `master` branch, which is the default branch, the command would be:
   * `git push origin master`
 * `pull <remote name> <branch name>` - update your local repository with the changes made to the remote. This will be important when you are working with someone else, and you want to get the changes they made. Similar to pushing, remote name will almost always be `origin`. Branch name is whatever branch you want to pull from. So if you wanted to get the recent changes to `master`, the command would be:
   * `git pull origin master`
