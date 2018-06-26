@@ -34,7 +34,7 @@ Saving your work in git is known as **committing**. Even though you may change a
 * `add <file name>` - stage a change for commit.
   * ex: `git add credit_check.rb`
 * `commit -m "<commit message>"` - commit a change. Each commit requires a commit message (must be in quotes).    
-  * ex: `git commit -m "adds search feature"``
+  * ex: `git commit -m "adds search feature"`
 
 ### Git Workflow
 
