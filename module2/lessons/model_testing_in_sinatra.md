@@ -381,7 +381,7 @@ Run your tests again, and... passing. Great news.
 
 * In pairs, add the following tests and make each one pass:
   * a test for an `.average_play_count` class method
-  * tests that a song cannot be created without a `title` or `year`
+  * tests that a song cannot be created without a `title` or `length`
 
 Remember to use your four phases of testing!
 
