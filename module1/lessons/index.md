@@ -8,6 +8,7 @@ title: Module 1 Lessons
 * [Flow Contol](./flow_control)
 * [Exploring .each](./exploring_each)
 * [Methods, Arguments, Return Values](./methods_and_return_values)
+* [Git and Github](./git_and_github)
 * [Objects, Instances and Classes](./objects_classes_instances)
 * [Enumerables I](./beginner_enumerables)
 * [Hashes](./introducing_hashes)
