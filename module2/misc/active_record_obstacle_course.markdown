@@ -26,10 +26,10 @@ git remote add turing git@github.com:turingschool-examples/storedom-5
 git fetch turing
 
 # check out Turing's `activerecord-obstacle-course` branch
-git co turing/activerecord-obstacle-course
+git checkout turing/activerecord-obstacle-course
 
 # make a branch for your repo
-git co -b activerecord-obstacle-course
+git checkout -b activerecord-obstacle-course
 
 # push the branch to your repo
 git push -u origin activerecord-obstacle-course
