@@ -52,7 +52,7 @@ Then I see a listing of each song, its title, length, and play count
 ```
 As a user,
 When I visit /songs/1,
-Then I see the title, length and play count of the movie matching that ID
+Then I see the title, length and play count of the song matching that ID
 ```
 
 ```
@@ -80,7 +80,7 @@ As a user,
 When I visit /songs/1
 Then I see a "Delete" button
 When I click the "Delete" button
-Then I see a listing of all current movies and their titles
+Then I see a listing of all current songs and their details
 And the song I deleted is not longer present
 ```
 
