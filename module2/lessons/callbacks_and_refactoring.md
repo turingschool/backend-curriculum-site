@@ -66,7 +66,7 @@ From the [Rails Guides](http://guides.rubyonrails.org/active_record_callbacks.ht
 
 ### When to Use a Callback
 
-Almost never. After callbacks can get messy. A PORO is a better option, most of the time.
+Almost never. "After" callbacks can get messy. A PORO is a better option, most of the time.
 
 ### Callbacks Are Often Code Smells
 
@@ -80,27 +80,27 @@ Try to be diligent with your research and come to your own conclusions. This pra
 
 ### Setup
 
-We are going to continue to use `movie_mania`.
+We are going to continue to use `SetList`.
 
 ### Use Case
 
-We want to access our movies by title in the url. for example `/movies/drop_dead_fred`. Right now, we have access to our movie show page by `/movies/:id`. How do we create this new url?
+We want to access our songs by title in the url. for example `/songs/my_heart_will_go_on`. Right now, we have access to our song show page by `/songs/:id`. How do we create this new url?
 
 ### Updating Our Test
 
 ```ruby
 require 'rails_helper'
 
-describe "user sees one movie" do
+describe "user sees one song" do
   it "user sees one with title and description" do
-    movie = create(:movie)
+    song = Song.create(title: "Don't Stop Believin'", length: 123, play_count: 0)
 
-    visit movie_path(movie.slug)
+    visit song_path(song.slug)
 
-    expect(current_path).to eq("/movies/#{movie.slug}")
+    expect(current_path).to eq("/songs/#{song.slug}")
 
-    expect(page).to have_content(movie.title)
-    expect(page).to have_content(movie.description)
+    expect(page).to have_content(song.title)
+    expect(page).to have_content(song.length)
   end
 end
 ```
@@ -109,26 +109,26 @@ But what is a slug??? A slug is a piece of the URL’s path that is typically a 
 
 ### Creating a slug column
 
-We run into an issue when we run the tests that `slug` does not exist for `movie`. Lets add that migration:
+We run into an issue when we run the tests that `slug` does not exist for `song`. Lets add that migration:
 
-`rails g migration AddSlugToMovies slug:string`
+`rails g migration AddSlugToSongs slug:string`
 
 Check our migration and `rails db:migrate`
 
-### Updating Movie with Slug
+### Updating Song with Slug
 
-- The reality is that we want to create our slug and then save our movie with the slug we generated. How can we handle this? What type of callback could we use? Research for a few minutes.
+- The reality is that we want to create our slug and then save our song with the slug we generated. How can we handle this? What type of callback could we use? Research for a few minutes.
 
 - Take a minute to research how to create a hyphenated title. Any suggestions? `parameterize`
 
 ```ruby
 resources :directors, shallow: true do
-  resources :movies, param: :slug
+  resources :songs, param: :slug
 end
 ```
 
 ```ruby
-#movie.rb
+# app/models/song.rb
 before_save :generate_slug
 
 def generate_slug
@@ -136,18 +136,18 @@ def generate_slug
 end
 ```
 
-### Updating our Movies Controller
+### Updating our Songs Controller
 
-Since we are now going to use the slug to access the show page, we need to update our find method to find the movie by slug.
+Since we are now going to use the slug to access the show page, we need to update our find method to find the song by slug.
 
 ```ruby
-#movies_controller.rb
+# app/controllers/songs_controller.rb
 def show
-  @movie = Movie.find_by(slug: params[:id])
+  @song = Song.find_by(slug: params[:id])
 end
 ```
 
-One last piece of the puzzle. Right now we are finding our movie by it's slug, but we call params[:id] to get that slug. Huh?
+One last piece of the puzzle. Right now we are finding our song by it's slug, but we call params[:id] to get that slug. Huh?
 
 ## WrapUp
 
