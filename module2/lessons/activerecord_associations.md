@@ -129,7 +129,7 @@ m4.students << jorge
 
 Let's add an `playlist` table to our app and then create relationships between the existing songs and their playlist.
 
-### Creating the Events Table
+### Creating the Playlist Table
 
 Create a new migration to create the new table.
 
