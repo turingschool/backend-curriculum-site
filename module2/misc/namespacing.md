@@ -172,6 +172,5 @@ Can you imagine what happens when you have 400 lines in your routes file?! You'l
     * `module`
     * `as`
     * `namespace`
-* Why might it be beneficial to have a two controllers for Movies (one in `controllers/admin` and one just in `controllers`)?
-* What about different routes? Would we ever want to have `/admin/movies` **and** `/movies`? Why?
-
+* Why might it be beneficial to have two controllers for Songs (one in `controllers/admin` and one just in `controllers`)?
+* What about different routes? Would we ever want to have `/admin/songs` **and** `/songs`? Why or why not?
