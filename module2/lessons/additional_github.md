@@ -1,10 +1,18 @@
-# Squashing Commits
+# Cool Git Stuff, and a Reminder to be Professional
+
+## Learning Goals
+
+Coming soon!
+
+---
+
+## Squashing Commits
 
 Many open-source contributions will want you to "squash" your commits to remove unnecessary "work in progress" markers
 or commit messages that aren't helpful for tracking your progress along the way. Some workplaces will encourage
 squashing unhelpful commit messages, but will generally discourage squashing ALL commit messages to a single commit.
 
-## Scenario
+### Scenario
 
 ```bash
 # you've cloned a repo, and you make a feature branch
@@ -48,14 +56,15 @@ $ git commit -m"database integration done, more work needed on UI"
 
 This is **extremely** helpful when rebasing as well, so you can squash all feature work down into fewer commits.
 
-## Disadvantages
+### Disadvantages
 
-- You effectively lose the incremental work history of how you've built your project. Hiring managers and tech
-leads who evaluate your GitHub history may want to see your actual workflow so it doesn't appear that you created
-all portions of a feature in one perfect commit.
+- You lose the incremental work history of how you've built your project. 
+  - You can still find them in your local work history (sometimes) but work you push to GitHub will lose that history.
+- Hiring managers and tech leads who evaluate your GitHub history may want to see your actual workflow so it doesn't appear that you created all portions of a feature in one "perfect" commit.
 
+---
 
-# .gitconfig
+## .gitconfig
 
 You probably already have a `.gitconfig` file in your `$HOME` folder (ie, `/Users/username/gitconfig`)
 
@@ -106,3 +115,7 @@ Some cool shortcuts:
   # What is it:  see an ASCII-branched history of your repo
   # Usage:       git graph
 ```
+
+## Being Professional with Git
+
+More content soon!
