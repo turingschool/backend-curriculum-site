@@ -11,7 +11,7 @@ layout: page
 
 ## Intro (10 min)
 
-Read [What is Continuous Integration](https://aws.amazon.com/devops/continuous-integration/)
+Read [What is Continuous Integration?](https://aws.amazon.com/devops/continuous-integration/)
 
 Discuss with the person next to you:
 - What is CI?
@@ -82,7 +82,6 @@ language: ruby
 rvm:
  - 2.4.1
 ```
-
 > Hint: Be sure to use your ruby version
 
 2. Add `.travis.yml` file to git, commit, & push
@@ -112,4 +111,4 @@ It is also known as the process of releasing code frequently to the end user (da
 Where have you already seen this? *cough, cough* Github pages?
 
 Many CI platforms have these features built in and can automatically deploy your application after your code is merged.
-(Auto Deploy With Travis CI and Heroku)[https://docs.travis-ci.com/user/deployment/heroku/]
+[Auto Deploy With Travis CI and Heroku](https://docs.travis-ci.com/user/deployment/heroku/)
