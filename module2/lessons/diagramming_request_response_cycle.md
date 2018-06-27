@@ -25,14 +25,17 @@ tags: ruby, http, request_response_cycle
 * server
 
 ## Warm Up  
-* In your notebook, draw a diagram of how the web works. Assume the IP address for the website you're visiting is stored in cache (and therefore no need to go through the DNS lookup). Include in this diagram how your server would go about creating the response. You can assume your server is built with an MVC structure.
+* In your notebook, draw a diagram of how the web works.
+* Assume the IP address for the website you're visiting is stored in cache (and therefore no need to draw the entire DNS lookup process).
+* Include in this diagram how your server would go about creating the response.
+* You can assume your server is built with the MVC design pattern.
 
 
 ## The Request Response Cycle
 With a group of 3-4 people, draw out a diagram on a poster of how a client and server interact. 
 
 #### Walk the Room    
-Take a minute to circulate through the room. Mentally compare and contrast the other posters to your own groups'.
+Take a minute to circulate through the room. Mentally compare and contrast the other posters to the diagram made by your own group. What differences do you see? Which details are included that your group forgot?
 
 ** break **
 
@@ -42,44 +45,50 @@ Following the user stories listed below, take turns talking through the steps of
 
 ```
 As a user, 
-When I visit /movies,
-Then I see a listing of each movie and its title
+When I visit /songs,
+Then I see a listing of each song, its title, length, and play count
 ```
 
 ```
 As a user,
-When I visit /movies/1,
-Then I see the title and description of that movie
+When I visit /songs/1,
+Then I see the title, length and play count of the movie matching that ID
 ```
 
 ```
 As a user,
-When I visit /movies/new
-Then I see a new movie form
-And I see input fields for title and description
-When I click "Create Movie"
-Then I see the title and description of that movie
+When I visit /songs/new
+Then I see a new song form
+And I see input fields for the song
+When I click "Create Song"
+Then I see the song listed with its details
 ```
 
 ```
 As a user,
-When I visit /movies/1/edit
-Then I see a new movie form
-And I see input fields for title and description
-And I see the movie's current title and description in the input fields
-When I click "Update Movie"
-Then I see the updated title and description of that movie
+When I visit /songs/1/edit
+Then I see a new song form
+And I see input fields for all attributes
+And I see the song's current details in the input fields
+And I change any detail about the song
+When I click "Update Song"
+Then I see the updated details for that song
 ```
 
 ```
 As a user,
-When I visit /movies/1
+When I visit /songs/1
 Then I see a "Delete" button
 When I click the "Delete" button
 Then I see a listing of all current movies and their titles
+And the song I deleted is not longer present
 ```
 
-If you work through each of these user stories. Follow the same patterns for `/directors`. Make sure each person talks through a different piece of functionality than before.
+Work through each of these user stories with a partner.
+
+Follow the same patterns for `/artists`.
+
+Make sure each person talks through a different piece of functionality than before.
 
 ## Group Share
 As a group, let's talk through an example from each piece of CRUD functionality.
@@ -87,7 +96,7 @@ As a group, let's talk through an example from each piece of CRUD functionality.
 ## Wrap Up  
 * How many requests are involved in creating a new record?
 * Which part of the process is in charge of packaging up and sending the response?
-* Explain in detail what happens when a user visits `www.example.com/movies`
+* Explain in detail what happens when a user visits `www.example.com/songs`
 
 
 ## Additional Resources
