@@ -6,7 +6,7 @@ tags: rails, http, sessions, cart, dinner dash
 
 ## Learning Goals
 
-* Understand how cookies are a part of the request/response cycle
+* Understand how cookies are a part of the HTTP request/response cycle
 * Understand how cookies and sessions tie together
 * Understand how to store state in both cookies and sessions
 * Practice the syntax for setting and fetching session data
@@ -27,20 +27,22 @@ tags: rails, http, sessions, cart, dinner dash
 
 #### Cookies
 
-Per section 6 of the docs linked above: Rails gives us a cookies method that acts like a hash that will allow us to set data in our controller and send it to our user as a cookie. Let's try this out.
+Per section 6 of the docs linked above: Rails gives us a `cookies` method that acts like a hash that will allow us to set data in our controller and send it to our user as a cookie. Let's try this out.
 
-Open MovieMania and in the `show` method on the `DirectorsController` change the `show` to match the method below:
+Open SetList and in the `show` method on the `ArtistsController` change the `show` to match the method below:
 
 ```ruby
+# app/controllers/artists_controller.rb
+
 def show
-  @director = Director.find(params[:id])
+  @artist = Artist.find(params[:id])
   cookies[:secret] = "It's a secret to everybody"
 end
 ```
 
-Run `rails s`, open your browser, and visit the show page for one of the directors in your database. Use EditThisCookie to view the cookie that you have created (it should have a title of `secret`).
+Run `rails s` in a terminal, open your browser, and visit the show page for one of the artists in your database. Use EditThisCookie to view the cookie that you have created (it should have a title of `secret`).
 
-Now, delete the line `cookie[:secret] = "It's a secret to everybody"` from your controller. Visit the page again and check to see if the cookie is still there. Click refresh a few times to see if that changes anything.
+Now, delete the line `cookie[:secret] = "It's a secret to everybody"` from your controller. Visit the page again and check to see if the cookie is still there. Click refresh a few times. What changed?
 
 Use EditThisCookie to change the value in the cookie to "It's a secret to nobody" (edit the value that you see and click the green checkbox). Hit refresh a few times and check to see what the value is. Remember: cookies are stored **client side** and can be edited by users.
 
@@ -48,28 +50,35 @@ Use EditThisCookie to change the value in the cookie to "It's a secret to nobody
 
 The session method that Rails gives us in our controller offers similar behavior for sessions.
 
-Go back to the `show` method of your DirectorsController and adjust it to the following:
+Go back to the `show` method of your ArtistsController and adjust it to the following:
 
 ```ruby
+# app/controllers/artists_controller.rb
+
 def show
-  @director = Director.find(params[:id])
+  @artist = Artist.find(params[:id])
   session[:secret] = "This time for real, though."
 end
 ```
 
-Reload your director show page again, and use EditThisCookie to see what cookies you have now. What is different about the sesssion? Can you change it?
+Reload your artist show page again, and use EditThisCookie to see what cookies you have now. What is different about the sesssion? Can you change it?
 
-Update the `show` method in your DirectorsController one more time:
+Update the `show` method in your ArtistsController one more time:
 
 ```ruby
+# app/controllers/artists_controller
 def show
-  byebug
-  @director = Director.find(params[:id])
+  binding.pry
+  @artist = Artist.find(params[:id])
   session[:secret] = "This time for real, though."
 end
 ```
 
-Visit the director show page once more and check to see that you hit the `byebug` in the terminal where your server is running. From there, check to see what is stored in our session by entering `session[:secret]` in your byebug session. Rails translates the encrypted cookie that lives on the client's machine into something that you can read and use in your controller.
+Visit the artist show page once more and check to see that you hit the Pry in the terminal where your server is running.
+
+From there, check to see what is stored in our session by entering `session[:secret]` in your Pry session.
+
+Rails translates the encrypted cookie that lives on the client's machine into something that you can read and use in your controller.
 
 Note that the `flash` that you have been using is a special type of session that Rails automatically expires after one request. Generally we use it in our views to give users feedback about actions they have performed.
 
