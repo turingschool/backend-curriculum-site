@@ -11,7 +11,7 @@ tags: rails, authentication, bcrypt, ruby, sessions, helper_methods
 * explain the use of Authentication and why it's important
 * implement Authentication using BCrypt
 * utilize Sessions in a Rails app 
-* implement a helper_method for use in views and controllers
+* Utilize `helper_method` for use in views and controllers
 
 ## Vocabulary
 * authentication
@@ -44,26 +44,37 @@ Authentication is the client proving to the application that they are who they s
 
 ## Code Along
 
-In `movie_mania`, our goal is to create a user that will eventually be able to check out movies from our application. This will require a way for a user to login to our application and our application to remember them.
+In SetList, our next goal is to create a user who can reserve songs in our application. This will require a way for a user to log in to our application, and for our application to "remember" that user.
 
 ### Creating a User Test
 
+```
+As a visitor
+When I visit '/'
+and I can click a link that says "Sign Up to Be a User"
+and I can enter registration details in a form
+and submit that form
+Then I should see a welcome message with my username
+and my user details have been saved in the database.
+```
+
 ```ruby
+  username = "funbucket13"
   visit '/'
 
   click_on "Sign Up to Be a User"
 
   expect(current_path).to eq(new_user_path)
 
-  fill_in "user[username]", with: "funbucket13"
-  fill_in "user[password]", with: "test"
+  fill_in :user_username, with: username
+  fill_in :user_password, with: "test"
 
   click_on "Create User"
 
-  expect(page).to have_content("Welcome, funbucket13!")
+  expect(page).to have_content("Welcome, #{username}!")
 ```
 
-At this point, we do not have a root page that supports this interaction. When we open our app, we want a page that directs the user to either create a new account or sign in with their existing credentials.
+At this point, we do not have a root-level page that supports this interaction. (We should also allow existing users to sign in with their credentials)
 
 When we run our test, we get a failure because we do not have a root path defined in our `routes.rb` file.
 
@@ -80,7 +91,7 @@ Failure/Error: visit "/"
   root "welcome#index"
 ```
 
-According to this root path, we are directing our root path to a `WelcomeController` and an `index` action in that controller.
+According to this `root` path, we are directing our root path to a `WelcomeController` and an `index` action in that controller.
 
 When we run our test, we get this error:
 
@@ -89,17 +100,18 @@ ActionController::RoutingError:
        uninitialized constant WelcomeController
 ```
 
-Let's create the `WelcomeController` and the action `index` as well. We are going to be rendering some basic content so we don't need to pass anything as an instance method.
+Let's create the `WelcomeController` and a method for the `index` action as well. We are going to be rendering some basic content so we don't need to fetch any data or build any instance variables in our controller.
 
 ```ruby
-#controllers/welcome_controller.rb
+# app/controllers/welcome_controller.rb
+
 class WelcomeController < ApplicationController
   def index
   end
 end
 ```
 
-Now when we run our test, we get a template error. Add the template to `views/welcome/index.html.erb` (naming is based on the controller and action)
+Now when we run our test, we get a missing template error. Add the template to `views/welcome/index.html.erb` (remember, filenames and folder names are based on the controller and action names)
 
 We get a new error if we run our test:
 
@@ -108,23 +120,22 @@ Capybara::ElementNotFound:
        Unable to find visible link or button "Sign Up to Be a User"
 ```
 
-Let's add the link to sign up in the `welcome/index.html.erb` file
+Let's add the link to sign up in the `app/views/welcome/index.html.erb` file
 
 ```html
-<!-- /*views/welcome/index.html.erb*/ -->
-
 <%= link_to "Sign Up to Be a User" %>
-
 ```
 
-But where do we want this link to go? We want to create a new user resource. Notice we are treating this resource as any other resource.
+But which URI path will be send a user to who clicks on this link?
+
+We need to create a "new user" resource. 
+
+**Notice we are treating this resource as any other resource.**
 
 ```html
-<!-- views/welcome/index.html.erb -->
-
 <%= link_to "Sign Up to Be a User", new_user_path %>
-
 ```
+
 When we run our tests we get this error: 
 
 ```bash
@@ -132,10 +143,10 @@ Failure/Error: <%= link_to "Sign Up to Be a User", new_user_path %>
 
      ActionView::Template::Error:
        undefined local variable or method `new_user_path' for #<#<Class:0x007ffe993dc530>:0x007ffe993e7458>
-       Did you mean?  new_movie_path
+       Did you mean?  new_song_path
 ```
 
-We still need to define this routes in our `routes.rb` file.
+We still need to define this routes in our `routes.rb` file. We only need a `new` method though, so let's restrict that while we're there:
 
 ```ruby
 #routes.rb
@@ -172,7 +183,8 @@ Let's define the action and template that go along with our new user path.
 
 
 ```ruby
-# controllers/users_controller.rb
+# app/controllers/users_controller.rb
+
 class UsersController < ApplicationController
   def new
     @user = User.new
@@ -194,12 +206,12 @@ end
 
 We have our form set up to take in the information that we want to create our user object with (username and password).
 
-Our tests will now complain about an `uninitialized constant UsersController::User`. Remember this means this class can't be found whether through routing or because it doesn't exist yet. 
+Our tests will now complain about an `uninitialized constant UsersController::User`. This error means this class can't be found, whether through routing rules problems, or because it doesn't exist yet. 
 
-Why are we getting this error? We have set up an object called `@user = User.new` but that object does not exist in our database! If we follow this error, we can add our `user` model and then run the tests again.
+Why are we getting this error? We have set up an object called `@user = User.new` but that kind of object does not exist in our database! If we follow this error, we can add our `User` model and then run the tests again.
 
 ```ruby
-#models/user.rb
+# app/models/user.rb
 class User < ApplicationRecord
 
 end
@@ -226,7 +238,9 @@ Failure/Error: @user = User.new
                       ORDER BY a.attnum
 ```
 
-The `PG::UndefinedTable: ERROR:  relation "users" does not exist` tells us that postgres can't find a `users` table. We still have to make the database connection but it doesn't feel right to store our passwords as plain text. IT ISN'T!!! DON'T DO IT. Use a password encryption tool (such as BCrypt) to store encrypted passwords in the database
+The `PG::UndefinedTable: ERROR:  relation "users" does not exist` tells us that PostgreSQL can't find a `users` table.
+
+We still have to make the database portions (migration, etc) but it doesn't feel right to store our passwords as plain text. **IT ISN'T!!! DON'T DO IT. Use a password encryption tool (such as BCrypt) to store encrypted passwords in the database**.
 
 ```bash
 rails g migration CreateUsers username:string password_digest:string
@@ -234,7 +248,7 @@ rails g migration CreateUsers username:string password_digest:string
 
 Apply that migration (`rake db:{drop,create,migrate,seed}`).
 
-Let's get back to `password_digest` in a moment -- we should also make sure that our User model requires that the username and password fields be populated.
+We'll get back to why we called the field `password_digest` in a moment -- we should also make sure that our User model requires that the username and password fields be populated by adding validations.
 
 Let's start with a test in `spec/models/user_spec.rb` that looks like this:
 
@@ -258,15 +272,15 @@ class User < ApplicationRecord
 end
 ```
 
-Why `password_digest`?
+## Why `password_digest`?
 
 ### BCrypt
 
 [BCrypt Docs](https://github.com/codahale/bcrypt-ruby) [Rails built-in SecurePassword module](http://api.rubyonrails.org/classes/ActiveModel/SecurePassword/ClassMethods.html#method-i-has_secure_password)
 -  Secure Password Requires that the object have a `password_digest` attribute that will recognize both `password` and `password_confirmation` as attributes even though the attribute is called `password_digest`.
-- Built into rails, comes out of the box in the gem file but it is commented out. Must uncomment to use it.
-- Takes password and password_confirmation (if necessary) and encrypts it to a very long, hard to decrypt, string this is referred to as **hashing**.
-- Takes care of matching the password and password_confirmation (if necessary).
+- Built into Rails, comes out of the box in the gem file but it is commented out by default. Must uncomment to use it.
+- Takes password and password_confirmation (if necessary) and encrypts it to a very long string which is hard to decrypt; this is referred to as **hashing**.
+- Takes care of matching the `password` and `password_confirmation` fields (if used).
 
 - Find the `gem 'bcrypt'` in the `Gemfile` and uncomment it. Run `bundle` again to complete the process.
 
@@ -282,7 +296,9 @@ class User < ApplicationRecord
 end
 ```
 
-Now we can create the user as we would with standard CRUD functionality, with one exception. The overall goal is to hold onto this user's information so that when they login, our application can remember them. UX-wise, it doesn't make a whole lot of sense if when a user signs up, they have to log in again to access their information. When a new user signs up, we want them to be logged in. So how do we do that? What tool in Rails might we be able to use to store information about our user as they are visiting our application?
+Now we can create the user as we would with standard CRUD functionality, with one exception. The overall goal is to hold onto this user's information so that when they log in, our application can remember them on future requests.
+
+From a User Experience perspective, it feels weird to make a user sign up, but then they have to log in again after registering. A better User Experience is this: When a new user signs up, we want them to be logged in automatically. So how do we do that? What tool in Rails might we be able to use to store information about our user as they are visiting our application?
 
 When we run our test again we get this error:
 
@@ -293,18 +309,22 @@ Failure/Error: <%= form_for @user do |f| %>
        undefined method `users_path' for #<#<Class:0x007fc37ffabb68>:0x007fc37ffaa8f8>
 ```
 
-When reading this error, `undefined method users_path` sticks out to me as the important part. However I have to use a bit of my background knowledge to know what to do with it.  `users_path` is a path helper. I know that `users_path` can be used for an index or a create. I know I want to make a create route because I'm trying to `POST` from my form to the DB. 
+When reading this error, `undefined method users_path` sticks out to me as the important part.
+
+Anything with `_path` at the end is probably a "path helper" from Rails, and the place those get created is in our `config/routes.rb`.
+
+We also know that `users_path` could be used either for an index page or to create a new user. I know I want to use the `create` route because I'm trying to `POST` from my form. 
 
 ### Independent Practice 
-Go ahead and create the user :create route and the associated action in the `UsersController` as well as the associated show pieces.
 
+Go ahead and create the user :create route and the associated action in the `UsersController` as well as the associated show pieces.
 
 You should end up with something like this: 
 
 ```ruby
   #routes.rb
 
-  resources :users, only: [:new, :create :show]
+  resources :users, only: [:new, :create, :show]
 ```
 
 ```ruby
@@ -334,13 +354,17 @@ You should end up with something like this:
 ```
 Now when we run our tests, all should pass. 
 
+
 ### Sessions
-Except we don't want them to pass just yet. We need to add our user's information to sessions so our user doesn't have to log in for each page they want to visit. 
 
-HTTP is a stateless protocol, which means there is no connection between each request sent. Nothing is being remembered. Sessions make it stateful. Without the idea of sessions, the user would have to identify, and probably authenticate, on every request.
+Except we don't **WANT** them to pass just yet. We need to add our user's information to a session so our user doesn't have to log in for each page they want to visit. 
 
-* Set using `session[key] = value`
-* Clear using `session.clear`
+HTTP is a stateless protocol, which means there is no connection between each request sent. Nothing is being "remembered" by the server from one request to another. Sessions make it seem stateful. Without the idea of sessions, the user may have to probably authenticate on every request.
+
+#### Adding/Removing things from a session:
+
+* Set data for our user using hash key/values: `session[key] = value`
+* Clear the ENTIRE session data for that user using `session.clear`
 
 ```ruby
 #controllers/users_controller.rb
@@ -370,6 +394,19 @@ By creating this key/value pair, we have created a way to get this information b
 - On our root page, we should also have the option to log in if our account already exists.
 - Let's add a new test for this functionality
 
+```
+As a registered user
+When I visit '/'
+and I click on a link that says "I already have an account"
+Then I should see a login form
+and I can enter my username and password
+and submit the form
+and see a welcome message with my username
+and my user ID is stored in a session
+and I should no longer see the link that says "I already have an account"
+and I should see a link that says "Log out"
+```
+
 ```ruby
   user = User.create(username: "funbucket13", password: "test")
 
@@ -386,7 +423,7 @@ By creating this key/value pair, we have created a way to get this information b
   expect(current_path).to eq(user_path(user))
 
   expect(page).to have_content("Welcome, #{user.username}")
-  expect(page).to have_content("Logout")
+  expect(page).to have_content("Log out")
 ```
 
 We are dream driving! We want to click on "I already have an account" and be taken to a form to fill in with my already existing username and password. Our error should look something like this:
@@ -450,10 +487,8 @@ And a view to render the form (this is a great use case for form_tag since we're
 <%= form_tag login_path do %>
   <%= label_tag :username %>
   <%= text_field_tag :username %>
-
   <%= label_tag :password %>
   <%= password_field_tag :password %>
-
   <%= submit_tag "Log In" %>
 <% end %>
 ```
@@ -515,11 +550,12 @@ Failure/Error: <h1>Welcome, <%= current_user.username %></h1>
        Did you mean?  current_page?
 ```
 
-* Set in ApplicationController as `helper_method :method_name`
-* Allows us to use the method in our views and controllers.
+* We set this in ApplicationController as `helper_method :method_name`
+* Allows us to use the `current_user` method anywhere else within our views and controllers.
 
 ```ruby
 # app/controllers/application_controller.rb
+
 class ApplicationController < ActiveRecord::Base
   helper_method :current_user
 
