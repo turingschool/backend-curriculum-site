@@ -1,10 +1,10 @@
 ---
-layout: page
 title: Introduction to CSS & Bootstrap
 tags: css, introduction, bootstrap
 ---
 
-## Learning Goals
+### Learning Goals
+
 * Understand between element, class, and id selectors
 * Organize CSS file
 * Understand how to import an external CSS file
@@ -12,9 +12,11 @@ tags: css, introduction, bootstrap
 * Intro to BootStrap
 
 ## Warm Up
+
 * What do you know about CSS so far?
 
 ## CSS
+
 - Stands for "Cascading Style Sheets".
 - When we apply a `class` or an `id` to an HTML element, we are telling it that it has a "rule". We will write our rules for that element in our CSS file.
 - Each rule in CSS (i.e a `class` or `id` rule) has a specific value assigned. `id`s have more specific values than `class`es.
