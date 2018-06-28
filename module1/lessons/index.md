@@ -9,6 +9,7 @@ title: Module 1 Lessons
 * [Exploring .each](./exploring_each)
 * [Methods, Arguments, Return Values](./methods_and_return_values)
 * [Objects, Instances and Classes](./objects_classes_instances)
+* [How Testing Works](./how_testing_works)
 * [Enumerables I](./beginner_enumerables)
 * [Hashes](./introducing_hashes)
 * [Scope](./intro_to_scope)
