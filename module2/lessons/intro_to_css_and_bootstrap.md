@@ -1,3 +1,9 @@
+---
+layout: page
+title: Introduction to CSS & Bootstrap
+tags: css, introduction, bootstrap
+---
+
 ## Learning Goals
 * Understand between element, class, and id selectors
 * Organize CSS file
