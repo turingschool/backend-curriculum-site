@@ -108,7 +108,7 @@ Update your `spec/spec_helper.rb` file to include the following:
 require 'capybara/dsl'
 
 Capybara.app = SetList
-Capybara.save_and_open_page_path = 'tmp/capybara'
+Capybara.save_path = 'tmp/capybara'
 
 # within the RSpec configuration (this is the same place you have your database cleaner options set):
 
