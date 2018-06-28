@@ -100,8 +100,11 @@ Flexbox uses a horizontal axis and vertical axis to align items and create space
 
 ##### Flexbox Resources
 [Flexbox Guide](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+
 [Flexbox Visualization](https://medium.freecodecamp.org/an-animated-guide-to-flexbox-d280cf6afc35)
+
 [Flexbox Tutorial](https://mastery.games/p/flexbox-zombies)
+
 [Another Flexbox Tutorial](https://flexboxfroggy.com/)
 
 #### Grid
@@ -109,6 +112,7 @@ Grid is used for a two-dimensional layout where both columns and rows are used. 
 
 ##### Grid Resources
 [Grid Guide](https://css-tricks.com/snippets/css/complete-guide-grid/)
+
 [Grid Tutorial](https://cssgridgarden.com/)
 
 #### BootStrap
@@ -118,6 +122,7 @@ To get started using the available templates, you must first include the necessa
 
 ##### Bootstrap Resources
 [Bootstrap Docs](https://getbootstrap.com/)
+
 [How to Start with Bootstrap](https://www.taniarascia.com/what-is-bootstrap-and-how-do-i-use-it/)
 
 ## WrapUp
@@ -126,3 +131,8 @@ To get started using the available templates, you must first include the necessa
 * How do we link a stylesheet to an html document?  
 * When do we use Flexbox?
 * When do we use Grid?
+
+##### Other Resources
+[CSS Basics](https://thecssworkshop.com/css-basics)
+[CSS Zen Garden](http://www.csszengarden.com/)
+[Sass](https://sass-lang.com/guide)
