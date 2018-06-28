@@ -6,13 +6,13 @@ tags: migrations, databases, relationships, rails, activerecord
 
 ## Models, Migrations, and Databases in Rails
 
-In this lesson, we'll be adding to [SetList](https://github.com/turingschool-examples/set-list) to demonstrate a one-to-many and a many-to-many relationship.
+In this lesson, we'll be adding to our new SetList Rails app to demonstrate a one-to-many and a many-to-many relationship.
 
 We'll add two tables (`artists`, and `playlists`) to our database, and connect them to our existing `songs` table. What might the relationships look like? 
 
 ## Learning Goals
 
-* Write migrations in rails
+* Write migrations in Rails
 * Create one-to-many relationships at the database level using foreign keys.
 * Create many-to-many relationships at the database level using join tables with foreign keys.
 * Use `has_many` and `belongs_to` to create one-to-many and many-to-many relationships at the model level.

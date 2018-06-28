@@ -14,6 +14,10 @@ tags: ruby, methods, return, argument
 * Understand different types of methods
 * Understand how abstraction helps us program
 
+## Slides
+
+Available [here](../slides/methods_and_return_values)
+
 ## Vocabulary
 * Return
 * Method

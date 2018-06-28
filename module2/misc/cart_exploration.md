@@ -7,19 +7,19 @@ title: Cart Exploration
 
 
 ```
-  As a unregistered user,
-  When I visit the movie index
-  I can click on “Add to Cart” on my first movie
-  And I see a flash message “Added Movie to Cart”
-  And I click “View Cart”
-  And I see a list of all movies I have added to my cart.
-
-  Cannot:
-  Save cart to database
-
-  Can:
-  Use Sessions
-
-  BOSS MODE:
-  extract cart to a Plain Old Ruby Object PORO
+As a unregistered user,
+When I visit the song index
+I can click on “Add to Cart” on the first song
+And I see a flash message “Added Song to Cart”
+And I click "View Cart"
+And I see a list of all songs I have added to my cart.
 ```
+
+### You Cannot:
+- Save cart to database
+
+### You Can:
+- Use Sessions
+
+### BOSS MODE:
+- extract cart to a Plain Old Ruby Object (PORO)

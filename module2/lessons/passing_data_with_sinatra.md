@@ -18,7 +18,7 @@ tags: parameters, sinatra
 
 ## WarmUp
 
-* Add the ability for a user to visit `/films/1` and see the information for a Film with the id of 1
+* Add the ability for a user to visit `/songs/1` and see the information for a Song with the id of 1
 
 ## Passing Data with Sinatra
 
@@ -36,20 +36,20 @@ tags: parameters, sinatra
 
 ### Dynamic Parameters
 
-  - In the films repo, create a route to get the first film populated on the page `/films/1`.
+  - In the set-list repo, create a route to get the first song populated on the page `/songs/1`.
 
   ```ruby
-  get '/films/1' do
-    @film = Film.find(1)
-    erb :"films/show"
+  get '/songs/1' do
+    @song = Song.find(1)
+    erb :"songs/show"
   end
   ```
   - Let's talk about how to make this dynamic.
 
   ```ruby
-  get '/films/:id' do
-    @film = Film.find(params[:id])
-    erb :"films/show"
+  get '/songs/:id' do
+    @song = Song.find(params[:id])
+    erb :"songs/show"
   end
   ```
   - We often refer to the `:id` part as a wildcard. It doesn't have to say `:id` instead you could put in `:bananas`. In which case we'd see `{"bananas" => 1}` in params. We typically use :id though, as it is more descriptive of what information is coming through. 
@@ -60,13 +60,13 @@ tags: parameters, sinatra
   - Put a pry in your above method
 
   ```ruby
-   get '/films/:id' do
+   get '/songs/:id' do
    require 'pry' ; binding.pry
-    @film = Film.find(params[:id])
-    erb :"films/show"
+    @songs = Song.find(params[:id])
+    erb :"songs/show"
   end
   ```
-  - Go back to your browser and visit `/films/1?term=apples`
+  - Go back to your browser and visit `/songs/1?term=apples`
   - What is that `?term=apples` part? This is a **query string parameter**. You can string as many key value pairs together without spaces using an `&` to separate the pairs. (i.e. `?term=apples&count=4`)
   - Switch to terminal and check out what we have in params in our pry session
 
@@ -77,13 +77,13 @@ tags: parameters, sinatra
 ### Form Parameters
 
   - Switch to the branch `input_params_example`
-  - Inspect the `views/films/new` file:
+  - Inspect the `views/songs/new` file:
 
   ```html
-    <form class="new-film" action="" method="">
-      <input type="text" name="film[title]" value="Title">
-      <input type="text" name="film[year]" value="Year">
-      <input type="text" name="film[box_office_sales]" value="Sales">
+    <form class="new-song" action="" method="">
+      <input type="text" name="song[title]" value="Title">
+      <input type="text" name="song[length]" value="Length">
+      <input type="text" name="song[play_count]" value="Play Count">
       <input type="submit" value="Submit">
     </form>
   ```
@@ -94,18 +94,18 @@ tags: parameters, sinatra
     - What route should we send it to?
 
   ```ruby
-    post "/films" do
+    post "/songs" do
       require 'pry'; binding.pry
     end
   ```
 
-  - Let's shotgun. Navigate to `/films/new` to see our form and fill it in. Click Submit.
+  - Let's shotgun. Navigate to `/songs/new` to see our form and fill it in. Click Submit.
   - Clicking submit stops our program and allows us to utilize our favorite tool, PRY!
   - Now that we are here, we can see the output of `params`
-  - Nesting our parameters with `film[title]` will help us if we ever have multiple resources' inputs on our page
+  - Nesting our parameters with `song[title]` will help us if we ever have multiple resources' inputs on our page
 
 **Partner Practice**  
-Test your knowledge by finishing the exercise so that your new film shows on the "films/index"
+Test your knowledge by finishing the exercise so that your new song shows on the "songs/index"
 
 ## Passing Data From Controller to View
 
@@ -113,16 +113,16 @@ Test your knowledge by finishing the exercise so that your new film shows on the
 
 Try this out:
 
-1) Go to your controller, and change your `get '/films' do...` route to say this:
+1) Go to your controller, and change your `get '/songs' do...` route to say this:
 
 ```ruby
-get '/films' do
-  films = Film.all
-  erb :"films/index", :locals => { :films => films }
+get '/songs' do
+  songs = Song.all
+  erb :"songs/index", :locals => { :songs => songs }
 end
 ```
 
-2) Go to your `index.erb` view and remove the `@` from `@films`. It should now just say `films.each do...`. Does it work? Can you think of pros and cons for this versus the way we originally had it?
+2) Go to your `index.erb` view and remove the `@` from `@songs`. It should now just say `songs.each do...`. Does it work? Can you think of pros and cons for this versus the way we originally had it?
 
 ### Notes: Locals vs. Instance Variables
 

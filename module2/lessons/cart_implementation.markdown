@@ -32,42 +32,38 @@ tags: cart, order
 
 ## Intro
 
-We'll build out an app where a user should be able to add movies to their cart. The added movies are not saved to the database until the user has decided so.
+We'll build out an app where a user should be able to add songs to their cart. The added songs are not saved to the database until the user has decided so.
 
 ## Code-Along
 
-We are going to use `movie_mania` for this example. A sample repo can be found [here](https://github.com/turingschool-examples/movie_mania_1711)
+We are going to use the `SetList` project for this example.
 
 ### Writing a Test
 
-* `touch spec/features/user_can_add_movies_to_their_cart_spec.rb`
-* Navigate to `spec/features/user_can_add_movies_to_their_cart_spec.rb`
-* Inside of that file add the following:
-
 ```ruby
+# spec/features/user_can_add_songs_to_their_cart_spec.rb
+
 require 'rails_helper'
 
-RSpec.feature "When a user adds movies to their cart" do
-  before(:each) do
-    @movie = create(:movie)
-  end
+RSpec.describe "When a user adds songs to their cart" do
+  it "a message is displayed" do
+    song = Song.create(title: "Song 1")
+    
+    visit songs_path
 
-  scenario "a message is displayed" do
-    visit movies_path
+    click_button "Add Song"
 
-    click_button "Add Movie"
-
-    expect(page).to have_content("You now have 1 #{@movie.title} in your cart.")
+    expect(page).to have_content("You now have 1 copy of #{@song.title} in your cart.")
   end
 end
 ```
 
 ### Creating a Cart and Adding a Flash Message
 
-Run the test and it complains about not having a add movie button. Let's make a button and talk about what the path should be. Inside of views/movies/index.html.erb:
+Run the test and it complains about not having an "Add Song" button. Let's make a button and talk about what the path should be. Inside of `views/songs/index.html.erb`:
 
 ```erb
-  <%= button_to "Add Movie", carts_path, class: "btn btn-danger" %>
+  <%= button_to "Add Song", carts_path, class: "btn btn-danger" %>
 ```
 
 Our error now is:
@@ -79,7 +75,7 @@ undefined local variable or method `carts_path'
 So we need a cart resource because although we do not want to store the cart information (it changes a lot), it will still need a controller.
 
 ```ruby
-#routes.rb
+# config/routes.rb
 resources :carts, only: [:create]
 ```
 
@@ -87,7 +83,7 @@ Now we get a new error:
 
 ```
   1) User adds a pen to their cart a message is displayed
-     Failure/Error: click_button "Add Movie"
+     Failure/Error: click_button "Add Song"
 
      ActionController::RoutingError:
        uninitialized constant CartsController
@@ -108,40 +104,40 @@ And now our error is funky, harder to decipher:
 Unable to find visible xpath "/html"
 ```
 
-This is because we are sending this action nowhere. There is no direct view that corresponds with `create` so we need to redirect it somewhere. Let's bring us back to the movies index.
+This is because we are sending this action nowhere; Capybara cannot see any HTML to parse. There is no direct view that corresponds with `create` so we need to redirect it somewhere. Let's bring the user back to the songs index.
 
 
 ```ruby
 class CartsController < ApplicationController
   def create
-    redirect_to movies_path
+    redirect_to songs_path
   end
 end
 ```
 
-Does it work? Start up your server and click the "Add Movie" button. Does it redirect you back to the same page? Good.
+Does it work? Start up your server, visit the songs index page, and click the "Add Song" button. Does it redirect you back to the same page? Good.
 
-When you run the test, it fails on line 16, which is looking for the content "You now have the movie #{@movie.title} in your cart." This should be a flash message, but right now we don't know which movie was added when we click the "Add Movie" button. How do we pass an Movie ID to the create action? Let's modify our button:
+When you run the test, it fails looking for the content "You now have 1 of #{@song.title} in your cart." This should be a flash message, but right now we don't know which song was added when we click the "Add Song" button. How do we pass a Song ID to the create action? Let's modify our button:
 
 ```erb
-  <%= button_to "Add Movie",carts_path(movie_id: movie.id), class: "btn btn-danger" %>
+  <%= button_to "Add Song", carts_path(song_id: song.id), class: "btn btn-danger" %>
 ```
 
-We can pass key/value pairs in our path helpers to pass extra data as string query params!
+We can pass key/value pairs in our path helpers, and they get added as query params at the end of our URI path!
 
 And modify our `create` action in the controller:
 
 ```ruby
 class CartsController < ApplicationController
   def create
-    movie = Movie.find(params[:movie_id])
-    flash[:notice] = "You now have 1 #{movie.title} in your cart."
-    redirect_to movies_path
+    song = Song.find(params[:song_id])
+    flash[:notice] = "You now have 1 copy of #{song.title} in your cart."
+    redirect_to songs_path
   end
 end
 ```
 
-And display the flash notice using a content tag in the application.html.erb:
+And display the flash notice using a content tag in the `app/views/application.html.erb` file:
 
 ```erb
 <% flash.each do |type, message| %>
@@ -149,63 +145,57 @@ And display the flash notice using a content tag in the application.html.erb:
 <% end %>
 ```
 
-Great! That test is passing. But what happens if we add two movies?
+Great! That test is passing. But what happens if we add two songs?
 
-### Adding Multiple Movies and Updating Our Flash
+### Adding Multiple Songs and Updating Our Flash
 
 Let's update our test to check and see.
 
 ```ruby
-require 'rails_helper'
+spec/features/user_can_add_songs_to_their_cart_spec.rb
 
-RSpec.feature "When a user adds movies to their cart" do
-  before(:each) do
-    @movie = create(:movie)
+RSpec.describe "When a user adds songs to their cart" do
+  it "a message is displayed" do
+    ...
   end
 
-  scenario "a message is displayed" do
-    visit movies_path
+  it "the message correctly increments for multiple songs" do
+    song = Song.create(title: "Song 1")
+    
+    visit songs_path
 
-    click_button "Add Movie"
+    click_button "Add Song"
 
-    expect(page).to have_content("You now have 1 #{@movie.title} in your cart.")
-  end
+    expect(page).to have_content("You now have 1 copy of #{@song.title} in your cart.")
 
-  scenario "the message correctly increments for multiple movies" do
-    visit movies_path
+    click_button "Add Song"
 
-    click_button "Add Movie"
-
-    expect(page).to have_content("You now have 1 #{@movie.title} in your cart.")
-
-    click_button "Add Movie"
-
-    expect(page).to have_content("You now have 2 #{@movie.title}s in your cart.")
+    expect(page).to have_content("You now have 2 copies of #{@song.title} in your cart.")
   end
 end
 
 ```
 
-If we run this now it fails because even though we've added two movies, our flash message will always say that we have one movie. We need a way to store information about how many movies have been added.
+If we run this now it fails because even though we've added two songs, our flash message will always say that we have one song. We need a way to store information about how many songs have been added.
 
-Thinking through this a little bit, we could store something in the database every time someone adds a movie to their cart, but there are a few drawbacks to that approach:
+Thinking through this a little bit, we could store something in the database every time someone adds a songs to their cart, but there are a few drawbacks to that approach:
 
-* It would require multiple updates (and potentially deletions) while someone makes up their mind about what to actually keep in their cart.
-* It would require us to log a user in before they could add anything to their cart so that we could create that association in our database.
-* It could potentially result in some abandoned records if a user decides not to finalize their cart contents.
+* It would require multiple updates (and potentially deletions) while someone makes up their mind about what to actually keep in their cart. That's a lot of extra database work.
+  * It would also require the user to log in before they could add anything to their cart so that we could create that association in our database anyway.
+* It could potentially result in some abandoned database records if a user decides not to finalize their cart contents.
 
-Instead, we need to find a way to store the state of a cart (which movies have been added to our cart and how many of each type). Can we store data in a session?
+Instead, we need to find a way to store the state of a cart (which songs have been added to our cart and how many of each type). Can we store data in a session?
 
 Let's go back into the CartsController:
 
 ```ruby
 class CartsController < ApplicationController
   def create
-    movie = Movie.find(params[:movie_id])
+    song = Song.find(params[:song_id])
     session[:cart] ||= Hash.new(0)
-    session[:cart][movie.id.to_s] = session[:cart][movie.id.to_s] + 1
-    flash[:notice] = "You now have #{session[:cart][movie.id.to_s]} #{movie.title} in your cart."
-    redirect_to movies_path
+    session[:cart][song.id] = session[:cart][song.id] + 1
+    flash[:notice] = "You now have #{session[:cart][song.id]} copy of #{song.title} in your cart."
+    redirect_to songs_path
   end
 end
 ```
@@ -213,31 +203,32 @@ end
 This is close. Our test will still fail, but it looks like our number is incrementing correctly. Our error likely looks something like:
 
 ```
-  1) User adds a movie to their cart the message correctly increments for multiple movies
-     Failure/Error: expect(page).to have_content("You now have 2 Rollerball Pens.")
-       expected to find text "You now have 2 #{movie.title}s in your cart." in ""You now have 2 #{movie.title} in your cart.""
-     # ./spec/features/user_adds_movie_to_cart_spec.rb:25:in `block (2 levels) in <top (required)>'
+  1) User adds a song to their cart the message correctly increments for multiple songs
+     Failure/Error: expect(page).to have_content("You now have 2 copies of Song 1 in your cart.")
+       expected to find text "You now have 2 copies of #{song.title} in your cart." in ""You now have 2 copy of #{song.title} in your cart.""
+     # ./spec/features/user_adds_song_to_cart_spec.rb:25:in `block (2 levels) in <top (required)>'
 ```
 
-It's the plural of "#{@movie.title}" that's giving us a hard time. Luckily we have a tool for that with `#pluralize`. This is a view helper, so in order to use it here in our controller to set a flash message, we'll need to include `ActionView::Helpers::TextHelper` explicitly.
+It's the plural of "copy/copies" that's giving us a hard time. Luckily we have a tool for that with `#pluralize`. This is a view helper method, so in order to use it here in our controller to set a flash message, we'll need to include `ActionView::Helpers::TextHelper` explicitly in our controller.
 
 ```ruby
 class CartsController < ApplicationController
   include ActionView::Helpers::TextHelper
 
   def create
-    movie = Movie.find(params[:movie_id])
+    song = Song.find(params[:song_id])
     session[:cart] ||= Hash.new(0)
-    session[:cart][movie.id.to_s] = session[:cart][movie.id.to_s] + 1
-    flash[:notice] = "You now have #{pluralize(session[:cart][movie.id.to_s], movie.title)} in your cart."
-    redirect_to movies_path
+    session[:cart][song.id] = session[:cart][song.id] + 1
+    quantity = session[:cart][song.id]
+    flash[:notice] = "You now have #{quantity} #{pluralize(quantity, "copy")} of #{song.title} in your cart."
+    redirect_to songs_path
   end
 end
 ```
 
 And there we have another passing test.
 
-That's nice, but wouldn't it be better to see how many movies total we have in our cart? Yes. Yes it would.
+That's nice, but wouldn't it be better to see how many songs total we have in our cart? Yes. Yes it would.
 
 ### Adding a Cart Tracker
 
@@ -246,38 +237,23 @@ First, let's update our feature test.
 ```ruby
 require 'rails_helper'
 
-RSpec.feature "When a user adds movies to their cart" do
-  before(:each) do
-    @movie = create(:movie)
-  end
-
+RSpec.feature "When a user adds songs to their cart" do
   scenario "a message is displayed" do
-    visit movies_path
-
-    click_button "Add Movie"
-
-    expect(page).to have_content("You now have 1 #{@movie.title} in your cart.")
+    ...
   end
 
-  scenario "the message correctly increments for multiple movies" do
-    visit movies_path
-
-    click_button "Add Movie"
-
-    expect(page).to have_content("You now have 1 #{@movie.title} in your cart.")
-
-    click_button "Add Movie"
-
-    expect(page).to have_content("You now have 2 #{@movie.title}s in your cart.")
+  scenario "the message correctly increments for multiple songs" do
+    ...
   end
 
-  scenario "the total number of movies in the cart increments" do
-
-    visit movies_path
+  scenario "the total number of songs in the cart increments" do
+    song = Song.create(title: "Song 1")
+    
+    visit songs_path
 
     expect(page).to have_content("Cart: 0")
 
-    click_button "Add Movie"
+    click_button "Add Song"
 
     expect(page).to have_content("Cart: 1")
   end
@@ -291,7 +267,7 @@ If we run our test now, we'll see that we have not included "Cart: 0" in our vie
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MovieMania</title>
+    <title>SetList</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
@@ -310,9 +286,11 @@ If we run our test now, we'll see that we have not included "Cart: 0" in our vie
 </html>
 ```
 
-Sure enough, that gets us to a new error where now our test is looking for "Cart: 1" and not finding it on our page (because we're still displaying "Cart: 0" since it's hard coded).
+Sure enough, that gets us to a new error where now our test is looking for "Cart: 1" and not finding it on our page (because we're still displaying "Cart: 0" since it's hard-coded in our view).
 
-We could potentially pass in a count specifically to use in that slot, but it's starting to feel like I'm doing a lot with this cart. More than should probably just be handled in the controller. What I *really*, more than anything want to do here is to have some sort of an object that I can call `#total` on to get the number of objects in the cart. I don't have a model to use, but that doesn't stop me from creating a `Cart` PORO. The question becomes where to start and what to refactor.
+We could potentially pass in a count specifically to use in that slot, but it's starting to feel like we're doing a LOT of logic with this cart. More than should probably just be handled in the controller.
+
+What we *really* want to do here is to have some sort of an object that I can call `#total` on to get the number of objects in the cart. I don't have a model to use since we're not saving the cart in the database, but that doesn't stop me from creating a `Cart` PORO. The question becomes where to start, and what to refactor.
 
 Since we're thinking of implementing this here in the view, let's start there with how we'd *like* this object to behave. Change the new line that we added to the view to the following:
 
@@ -320,32 +298,32 @@ Since we're thinking of implementing this here in the view, let's start there wi
 <p>Cart: <%= @cart.total_count %></p>
 ```
 
-Run our test, and we've broken everything.
+Run our test, and ... we've broken everything!!!
 
 ```
-  3) User adds a movie to their cart the total number of items in the cart increments
+  3) User adds a song to their cart the total number of items in the cart increments
      Failure/Error: <p>Cart: <%= @cart.total_count %></p>
 
      ActionView::Template::Error:
        undefined method `total_count' for nil:NilClass`
 ```
 
-That's o.k. We can fix this.
+That's okay! We can fix this!!
 
-In our MoviesController, let's go ahead and add the instance variable `@cart`. Let's also assume that we'll need to pass it the contents currently sitting in our session to make it work.
+In our SongsController, let's go ahead and add the instance variable `@cart`. Let's also assume that we'll need to pass it the contents currently sitting in our session to make it work.
 
 ```ruby
   def index
-    @items = Movie.all
+    @items = Song.all
     @cart = Cart.new(session[:cart])
   end
 ```
 
-New failing test telling us that we don't have a Cart class. At this point, we're going to have to create our PORO, so let's dip down into a model test.
+When we run our tests again, we see another failing test telling us that we don't have a Cart class. At this point, we're going to have to create our PORO, so let's dip down into a model test.
 
 ### Creating Our Cart PORO
 
-Create a `spec/models` folder, and a new test for our Cart class: `spec/models/cart_spec.rb`. Within our new test file, add the following:
+In our `spec/models` folder, and a new test for our Cart class: `spec/models/cart_spec.rb`. Within our new test file, add the following:
 
 ```ruby
 require 'rails_helper'
@@ -354,14 +332,17 @@ RSpec.describe Cart do
 
   describe "#total_count" do
     it "can calculate the total number of items it holds" do
-      cart = Cart.new({"1" => 2, "2" => 3})
+      cart = Cart.new({
+        1 => 2,  # two copies of song 1
+        2 => 3   # three copies of song 2
+      })
       expect(cart.total_count).to eq(5)
     end
   end
 end
 ```
 
-Sounds good. Run that test and we find that we need to actually go create our Cart class. In our models folder touch `cart.rb` and add the following code:
+Run that test and we find that we need to actually go create our Cart class. In our `app/models` folder, add `cart.rb` and insert the following code:
 
 ```ruby
 class Cart
@@ -382,7 +363,7 @@ And that makes our model test pass!
 Unfortunately, our feature tests still don't pass for us.
 
 ```
-  3) User adds a movie to their cart the total number of movies in the cart increments
+  3) User adds a song to their cart the total number of songs in the cart increments
      Failure/Error: contents.values.sum
 
      ActionView::Template::Error:
@@ -416,11 +397,11 @@ class CartsController < ApplicationController
   include ActionView::Helpers::TextHelper
 
   def create
-    movie = Movie.find(params[:movie_id])
+    song = Song.find(params[:song_id])
     session[:cart] ||= Hash.new(0)
-    session[:cart][movie.id.to_s] = session[:cart][movie.id.to_s] + 1
-    flash[:notice] = "You now have #{pluralize(session[:cart][movie.id.to_s], movie.title)}."
-    redirect_to movies_path
+    session[:cart][song.id] = session[:cart][song.id] + 1
+    flash[:notice] = "You now have #{quantity} #{pluralize(quantity, "copy")} of #{song.title} in your cart."
+    redirect_to songs_path
   end
 end
 ```
@@ -434,19 +415,19 @@ class CartsController < ApplicationController
   include ActionView::Helpers::TextHelper
 
   def create
-    movie = Movie.find(params[:movie_id])
+    song = Song.find(params[:song_id])
 
     @cart = Cart.new(session[:cart])
-    @cart.add_movie(movie.id)
+    @cart.add_song(song.id)
     session[:cart] = @cart.contents
 
-    flash[:notice] = "You now have #{pluralize(@cart.count_of(movie.id), movie.title)}."
-    redirect_to movies_path
+    flash[:notice] = "You now have #{quantity} #{pluralize(quantity, "copy")} of #{song.title} in your cart."
+    redirect_to songs_path
   end
 end
 ```
 
-We're still letting the controller handle getting and setting the session, but we're putting our PORO in charge of managing the hash that we're storing there: both 1) adding movies to it, and 2) reporting on how many of a particular movie we have.
+We're still letting the controller handle getting and setting the session, but we're putting our PORO in charge of managing the hash that we're storing there: both 1) adding songs to it, and 2) reporting on how many of a particular song we have.
 
 Since we've added these methods to our controller, we now have a missing method error when we run our test. Let's add both methods to our model test to see that they do what we expect them to. The `subject` syntax is a nice RSpec feature to use if you're using a similar setup in many tests. In this case, we abstract the logic for creating a `Cart` instance, and can call that return value with `subject`. I like how this reads, but feel free to forego this pattern if you don't like it as much.
 
@@ -454,25 +435,25 @@ Since we've added these methods to our controller, we now have a missing method 
 require 'rails_helper'
 
 RSpec.describe Cart do
-  subject { Cart.new({"1" => 2, "2" => 3}) }
+  subject { Cart.new({1 => 2, 2 => 3}) }
 
   describe "#total_count" do
-    it "calculates the total number of movies it holds" do
+    it "calculates the total number of songs it holds" do
       expect(subject.total_count).to eq(5)
     end
   end
 
-  describe "#add_movie" do
-    it "adds an movie to its contents" do
-      subject.add_movie(1)
-      subject.add_movie(2)
+  describe "#add_song" do
+    it "adds a song to its contents" do
+      subject.add_song(1)
+      subject.add_song(2)
 
-      expect(subject.contents).to eq({"1" => 3, "2" => 4})
+      expect(subject.contents).to eq({1 => 3, 2 => 4})
     end
   end
 
   describe "#count_of" do
-    it "reports how many of a particular movie" do
+    it "reports how many of a particular song" do
       expect(subject.count_of(1)).to eq(2)
       expect(subject.count_of(2)).to eq(3)
     end
@@ -483,20 +464,20 @@ end
 In order to get these tests to pass, add the following two methods to our Cart PORO.
 
 ```ruby
-def add_movie(id)
-  contents[id.to_s] = contents[id.to_s] + 1
+def add_song(id)
+  contents[id] = contents[id] + 1
 end
 
 def count_of(id)
-  contents[id.to_s]
+  contents[id]
 end
 ```
 
-What if we ask for the count of a non-existent movie?  Add `expect(subject.count_of(0)).to eq(0)` to your test for the `count_of` method. What's the matter, got `nil`? Let's **coerce** `nil` values to `0` with `#to_i`.
+What if we ask for the count of a non-existent song?  Add `expect(subject.count_of(0)).to eq(0)` to your test for the `count_of` method. What's the matter, got `nil`? Let's **coerce** `nil` values to `0` with `#to_i`.
 
 ```
 def count_of(id)
-  contents[id.to_s].to_i
+  contents[id].to_i
 end
 ```
 
@@ -504,7 +485,7 @@ And all passing tests!
 
 ### Controller Cleanup
 
-One more thing to look at in our Controllers. Notice that in both our CartsController and our MoviesController we're setting `@cart` as one of our first actions. This is likely something that we'll continue to want to have access to in our controllers, particularly since we've put a reference to `@cart` in our `application.html.erb`. Let's move that action out to our ApplicationController to ensure that it always gets set.
+One more thing to look at in our Controllers. Notice that in both our CartsController and our SongsController we're setting `@cart` as one of our first actions. This is likely something that we'll continue to want to have access to in our controllers, particularly since we've put a reference to `@cart` in our `application.html.erb`. Let's move that action out to our ApplicationController to ensure that it always gets set.
 
 In ApplicationController, add the following:
 
@@ -518,7 +499,7 @@ end
 
 If for some reason we access the cart more than once in a given request/response cycle, the cart object is memoized with `||=`.
 
-Then delete the following line from both your MoviesController and CartsController:
+Then delete the following line from both your SongsController and CartsController:
 
 ```ruby
   @cart = Cart.new(session[:cart])
@@ -545,7 +526,7 @@ Let's say that you wanted users to be able to click on "View Cart" (similar to "
 
 #### Ending and saving the cart contents
 
-What about allowing users to save their cart movies as a package? You might approach it something like this:
+What about allowing users to save their cart songs as a package? You might approach it something like this:
 
 ```erb
   Cart: <%= @cart.total_count %>
@@ -566,14 +547,14 @@ class PackagesController < ApplicationController
   def create
     # the four lines below probably would be best delegated to a PackageCreator PORO
     package = Package.new(user_name: "Rachel")
-    cart.contents.each do |movie_id, quantity|
-      package.movies.new(movie_id: movie_id, quantity: quantity)
+    cart.contents.each do |song_id, quantity|
+      package.songs.new(song_id: song_id, quantity: quantity)
     end
 
     if package.save
       session[:cart] = nil
-      flash[:notice] = "Your bag is packed! You packed #{package.movies.count} movies."
-      redirect_to movies_path
+      flash[:notice] = "Your bag is packed! You packed #{package.songs.count} songs."
+      redirect_to songs_path
     else
       # implement if you have validations
     end

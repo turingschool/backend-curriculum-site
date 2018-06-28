@@ -17,11 +17,11 @@ tags: capybara, user stories, feature tests, testing, sinatra
 
 ## Repository
 
-You should be able to use the Film File repository that we have been using this week. If you have not yet cloned it down, you can find it [here](https://github.com/turingschool-examples/film-file).
+You should be able to use the Film File repository that we have been using this week. If you have not yet cloned it down, you can find it [here](https://github.com/turingschool-examples/set-list).
 
 ## Warmup
 
-* What are we testing so far in our FilmFile app?
+* What are we testing so far in our SetList app?
 * What aren't we testing?
 * Assuming that our tests will have some setup, execution, assertions, and teardown, what might be included in each phase?
 
@@ -107,7 +107,7 @@ Update your `spec/spec_helper.rb` file to include the following:
 # other required items here
 require 'capybara/dsl'
 
-Capybara.app = FilmFileApp
+Capybara.app = SetList
 Capybara.save_and_open_page_path = 'tmp/capybara'
 
 # within the RSpec configuration (this is the same place you have your database cleaner options set):

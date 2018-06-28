@@ -129,7 +129,7 @@ m4.students << jorge
 
 Let's add an `playlist` table to our app and then create relationships between the existing songs and their playlist.
 
-### Creating the Events Table
+### Creating the Playlist Table
 
 Create a new migration to create the new table.
 
@@ -194,10 +194,10 @@ We'll add some playlists to our database using Tux, an interactive console for y
 
 ```ruby
 $ tux
-animation = Playlist.create(name: "Funky Beats 2018")
-scifi = Playlist.create(name: "1980's Dance Party")
-drama = Playlist.create(name: "Power Ballads")
-romance = Playlist.create(name: "Classic Rock")
+funky_beats = Playlist.create(name: "Funky Beats 2018")
+dance_party = Playlist.create(name: "1980's Dance Party")
+power_ballads = Playlist.create(name: "Power Ballads")
+classic_rock = Playlist.create(name: "Classic Rock")
 ```
 
 ### Playlists and Songs - How do they relate?
@@ -333,7 +333,7 @@ Let's update our `songs/index.erb` view to show all the songs in each playlist:
 <h1>All Songs</h1>
 
 <div id="songs">
-  <% @songs.each do |film| %>
+  <% @songs.each do |song| %>
     <h3><%= song.title %></h3>
     <p>Song length: <%= song.length %></p>
     <p>Playlist: <%= song.playlist.name %></p>
