@@ -145,4 +145,6 @@ To get started using the available templates, you must first include the necessa
 
 [CSS Zen Garden](http://www.csszengarden.com/)
 
+[CSS Psuedo-Classes & Psuedo-Elements](http://www.growingwiththeweb.com/2012/08/pseudo-classes-vs-pseudo-elements.html)
+
 [Sass](https://sass-lang.com/guide)
