@@ -15,7 +15,7 @@ layout: page
   - [ActiveRecord Associations](http://backend.turing.io/module2/lessons/activerecord_associations)
   - [Passing Data with Sinatra](http://backend.turing.io/module2/lessons/passing_data_with_sinatra)
   - [Feature Testing in Sinatra](http://backend.turing.io/module2/lessons/feature_testing_in_sinatra)
-  - [Intro to CSS](http://backend.turing.io/module2/lessons/intro_to_css)
+  - [Intro to CSS & Bootstrap](http://backend.turing.io/module2/lessons/intro_to_css_and_bootstrap)
 
 ## Homework
   - [ActiveRecord Exploration](http://backend.turing.io/module2/homework/activerecord_exploration)

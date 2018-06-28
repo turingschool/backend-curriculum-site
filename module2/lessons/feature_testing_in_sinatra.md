@@ -108,7 +108,7 @@ Update your `spec/spec_helper.rb` file to include the following:
 require 'capybara/dsl'
 
 Capybara.app = SetList
-Capybara.save_and_open_page_path = 'tmp/capybara'
+Capybara.save_path = 'tmp/capybara'
 
 # within the RSpec configuration (this is the same place you have your database cleaner options set):
 
@@ -159,7 +159,7 @@ end
 
 ### What about all of those html files from save_and_open_page?
 
-If you used `save_and_open_page` in your test as you were trying to determine what should be included in your view, Launchy will have generated a number of files and saved them. They should be living in your `tmp/capybara` directory since you used this line in your spec_helper: `Capybara.save_and_open_page_path = 'tmp/capybara'`
+If you used `save_and_open_page` in your test as you were trying to determine what should be included in your view, Launchy will have generated a number of files and saved them. They should be living in your `tmp/capybara` directory since you used this line in your spec_helper: `Capybara.save_path = 'tmp/capybara'`
 
 However, they will still be watched by git unless you make a `.gitignore` file at the root of your project:
 
@@ -179,9 +179,9 @@ This will tell git to ignore everything inside of the `tmp` directory.
 
 Write a test for:
 
-* The process of creating a film
-* That all films are displayed on the film index
-* That a genre's total winnings are displayed on their page
+* The process of creating a song
+* That all songs are displayed on the song index
+* That a playlists total song lengths are displayed on their page
 
 ## Wrap Up
 * What is the difference between a model and feature test?
