@@ -99,6 +99,7 @@ Flexbox is used to have a more flexible layout that helps to align and distribut
 Flexbox uses a horizontal axis and vertical axis to align items and create space around those items. It is better to use for small-scale layouts and one dimensional layouts.
 
 *Flexbox Resources*
+---
 [Flexbox Guide](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
 
 [Flexbox Visualization](https://medium.freecodecamp.org/an-animated-guide-to-flexbox-d280cf6afc35)
@@ -111,7 +112,7 @@ Flexbox uses a horizontal axis and vertical axis to align items and create space
 Grid is used for a two-dimensional layout where both columns and rows are used. This allows us to break up the container into cells to align objects, but unlike a table, grid allows us to layer items if necessary.
 
 *Grid Resources*
-
+---
 [Grid Guide](https://css-tricks.com/snippets/css/complete-guide-grid/)
 
 [Grid Tutorial](https://cssgridgarden.com/)
@@ -135,7 +136,7 @@ To get started using the available templates, you must first include the necessa
 * When do we use Grid?
 
 *Other Resources*
-
+---
 [CSS Basics](https://thecssworkshop.com/css-basics)
 
 [CSS Zen Garden](http://www.csszengarden.com/)
