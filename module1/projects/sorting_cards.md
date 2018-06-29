@@ -3,15 +3,13 @@ layout: page
 title: SortingCards
 ---
 
-In this project, you will write a program that is used through the command line. A user will be able to see cards, guess what the card is, and sort the cards.
+In this project, you will write a program to simulate a deck of cards. We will add functionality to guess what the card on the top of the deck is, and sort the deck.
 
-In order to build good habits, we've broken the project up into small classes to demonstrate objects that have a single responsibility. As you work through each iteration, use TDD to drive out the desired behavior.
-
-The rubric for this project is included at the bottom of this file.
+In order to build good habits, we've broken the project into small classes to demonstrate objects that have a single responsibility.
 
 # Iteration 1: Cards and Guesses
 
-We start off with a card object. Use TDD to drive the creation of an object that has this interaction pattern:
+We start off with a Card object. A Card is initialized with a value and suit. The Card class should respond to the following interaction pattern:
 
 ```ruby
 card = Card.new("Ace", "Spades")
@@ -21,7 +19,7 @@ card.suit
 => "Spades"
 ```
 
-Along with the card, we also have a guess.  Users will enter a guess and we're going to have to figure out if the guess is correct. Use TDD to create this interaction pattern:
+Along with the Card, we also have a Guess. It should respond to the following interaction pattern:
 
 ```ruby
 card = Card.new("10", "Hearts")
@@ -36,7 +34,7 @@ guess.feedback
 => "Correct!"
 ```
 
-We also want to make sure that incorrect guesses are also handled properly.
+We also want to make sure that incorrect guesses are handled properly.
 
 ```ruby
 card = Card.new("Queen", "Clubs")
@@ -53,7 +51,7 @@ guess.feedback
 
 # Iteration 2: Storing Cards in a Deck and The Round
 
-Let's store the cards in a deck. Be sure to use TDD to create an object that has this interaction pattern:
+Let's store the cards in a Deck.
 
 ```ruby
 card_1 = Card.new("3","Hearts")
@@ -66,7 +64,7 @@ deck.count
 => 3
 ```
 
-A round will be the object that processes responses and records guesses. The idea is that when we start a round, the current card is the first in the deck. As we make a guess on that card, the current card becomes the next card in the deck. As always, use TDD to drive this following behavior.
+A Round will be the object that processes responses and records guesses. The idea is that when we start a Round, the current card is the first in the deck. As we make a guess on that card, the current card becomes the next card in the deck.
 
 ```ruby
 card_1 = Card.new("3","Hearts")
@@ -79,7 +77,7 @@ round.guesses
 => []
 round.current_card
 => #<Card:0x007ffdf1820a90 @value="3", @suit="Hearts">
-round.record_guess("3 of Hearts")
+round.record_guess({value: "3", suit: "Hearts"})
 => #<Guess:0x007ffdf19c8a00 @card=#<Card:0x007ffdf1820a90 @value="3", @suit="Hearts">, @response="3 of Hearts">
 round.guesses.count
 => 1
@@ -89,7 +87,7 @@ round.number_correct
 => 1
 round.current_card
 => #<Card:0x007ffdf1820a90 @value="4", @suit="Clubs">
-round.record_guess("Jack of Diamonds")
+round.record_guess({value: "Jack", suit: "Diamonds"})
 => #<Guess:0x007ffdf19c8a00 @card=#<Card:0x007ffdf1820a90 @value="4", @suit="Clubs">, @response="Jack of Diamonds">
 round.guesses.count
 => 2
@@ -103,20 +101,24 @@ round.percent_correct
 
 # Iteration 3: Sorting the Deck
 
-In this iteration, we will start to add some algorithmic complexity. We are going to add to the deck object the ability to sort the cards based on their value from lowest to highest. (Assume that you won't have two cards of the same value with different suits.)
+In this iteration, we will start to add some algorithmic complexity. We are going to add to the deck object the ability to sort the cards based on their value from lowest to highest. The order of values from lowest to highest is 2 through 10, Jack, Queen, King, Ace.
 
-Ruby has built in methods for sorting. You are *NOT* allowed to use any of these built in sorting methods.
+If two cards have the same value, the suit should be used to determine the order they are sorted. The order of suit from lowest to highest is Clubs, Diamonds, Hearts, Spades.
+
+You are *NOT* allowed to use any built in sorting methods.
 
 The interaction pattern will look like this:
 
 ```ruby
 card_1 = Card.new("4","Hearts")
-card_2 = Card.new("3", "Clubs")
+card_2 = Card.new("Jack", "Clubs")
 card_3 = Card.new("5", "Diamonds")
-deck = Deck.new([card_1, card_2, card_3])
+card_4 = Card.new("Ace", "Spades")
+card_5 = Card.new("Ace", "Diamonds")
+deck = Deck.new([card_1, card_2, card_3, card_4, card_5])
 
 deck.sort
-=> [card_2, card_1, card_3]
+=> [card_1, card_3, card_2, card_5, card_4]
 ```
 
 # Iteration 4: Merge Sort
@@ -127,63 +129,67 @@ The interaction pattern will look like this:
 
 ```ruby
 card_1 = Card.new("4","Hearts")
-card_2 = Card.new("3", "Clubs")
+card_2 = Card.new("Jack", "Clubs")
 card_3 = Card.new("5", "Diamonds")
-deck = Deck.new([card_1, card_2, card_3])
+card_4 = Card.new("Ace", "Spades")
+card_5 = Card.new("Ace", "Diamonds")
+deck = Deck.new([card_1, card_2, card_3, card_4, card_5])
 
 deck.merge_sort
-=> [card_2, card_1, card_3]
+=> [card_1, card_3, card_2, card_5, card_4]
 ```
+
 ### Merge Sort Resources
 
 * [Youtube CS50](https://youtu.be/Pr2Jf83_kG0)
 * [Merge Sort Visualization](https://www.youtube.com/watch?v=ZRPoEKHXTJg)
 * [Folk Dance](https://www.youtube.com/watch?v=XaqR3G_NVoo)
 
-# Extensions
 
-* Prevent duplicate cards from being added to a deck.
-* Put incorretly guessed cards back into the iteration to be asked again until the user guesses correctly.
-* A deck can have up to two jokers.
+# Evaluation Rubric
 
+## Functionality
 
-## Evaluation Rubric
+* Student completes through Iteration 3
 
-The project will be assessed with the following guidelines:
+## Mechanics
 
-* 4: Above expectations
-* 3: Meets expectations
-* 2: Below expectations
-* 1: Well-below expectations
+The student:
 
-**Expectations:**
+* appropriately uses Strings, Integers, Floats, Ranges, Symbols, Nils, Arrays, and Hashes
+* implements best-choice enumerable methods to iterate over collections
+* uses boolean expressions and flow control structures to logically manage a program's flow
+* uses methods, arguments, and return values to break code into logical components
+* creates Classes that utilize instance variables, attribute accessors, and instance methods
 
-### 1. Ruby Syntax & Style
+## Design
 
-* Applies appropriate attribute encapsulation  
-* Developer creates instance and local variables appropriately
-* Naming follows convention (is idiomatic)
-* Ruby methods used are logical and readable
-* Code is indented properly
-* Code does not exceed 80 characters per line
-* Each class has correctly-named files and corresponding test files in the proper directories
+The student:
 
-### 2. Breaking Logic into Components
+* adheres to the Single Responsibility and DRY principles
+* creates Objects and Classes that appropriately encompass state and behavior
+* uses instance and local variables appropriately
+* writes readable code with the following characteristics:
+    * Variable and method names are self explanatory
+    * Methods are under 7 lines
+    * Lines of code are under 80 characters
+    * Project directory structure adheres to convention
+    * A linter reports less than 5 errors
 
-* Code is effectively broken into methods & classes
-* Developer writes methods less than 10 lines
-* No more than 3 methods break the principle of SRP
+## Testing
 
-### 3. Test-Driven Development
+The student:
 
-* Each method is tested  
-* Tests implement Ruby syntax & style   
+* writes Minitest tests that describe the expected behavior of a program according to technical specifications
+* names and orders tests so that a test file reads like documentation
+* writes Minitest assertions that accurately test a piece of functionality
+* writes a test before writing code that implements the behavior to make that test pass
+* writes both integration and unit tests
 
-### 4. Functionality
+## Version Control
 
-* Application meets all requirements (extension not req'd)
+The student:
 
-* 4: Completes Iteration 4 and one extension.
-* 3: Completes Iteration 3
-* 2: Completes Iteration 2
-* 1: Completes Iteration 1
+* hosts their code on the master branch of their remote repository
+* makes commits in small chunks of functionality
+* submits and merges Pull Requests using the Github interface
