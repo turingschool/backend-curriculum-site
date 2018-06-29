@@ -2,7 +2,61 @@
 
 ## Learning Goals
 
-Coming soon!
+- A few extra git commands and HOW-TO ideas
+- shell-based git configuration shortcuts for productivity
+- professional use of git
+
+---
+
+## Oh noes! You cloned down the wrong repo, now what?
+
+Hint: You don't need to completely erase your work folder and start all over!
+
+Let's say you've forked a repo from Turing, but you've accidentally cloned the Turing repo instead of your own fork. Now what?
+
+### Enter: "git remotes"
+
+A "remote" in git is another git repo that is related to what you already have cloned on your system. The benefit here is that you can pull and push work to different repos.
+
+Instructors may do this at Turing all the time, it's also very common in the workplace.
+
+- we clone a Turing project to our laptop
+- we fork a copy of the repo
+- we add a 'remote' to the repo
+  - `git remote -v` will show you the remote "name" and the URL path to the repo
+  - Ian likes to change "origin" to something more meaningful, like "turing" if it's the Turing URL, and "mine" if it's his own GitHub account
+    - `git remote rename origin turing`
+- we make changes and push the work to our own fork
+  - `git push mine master`
+- then we make a pull request from our fork to Turing's repo
+
+---
+
+## Did you know...?
+
+If you fork somebody's repo, and that other person later deletes their repo, you also lose your forked copy of that repo?
+
+Never fear!
+
+If you have cloned their repo or your forked copy to your local system, create a new repo on GitHub with the same name, and then run `git push -u (remote_name) master` and you have your own copy for reference later on!
+
+```bash
+$ hub create old-repo-name
+created repository: iandouglas/old-repo-name
+```
+
+Normally this `hub create` command would set a new "origin" remote. If you *already* have an origin remote, `hub create` WILL NOT CHANGE your old remote name. You may need to add a new remote for your own GitHub account.
+
+```bash
+$ git remote rename origin old_origin
+$ git remote add origin git@github.com:your_github_username/old-repo-name
+```
+
+And now we can save our work by pushing our local code to our repo on GitHub:
+
+```bash
+$ git push -u origin master
+```
 
 ---
 
@@ -64,7 +118,7 @@ This is **extremely** helpful when rebasing as well, so you can squash all featu
 
 ---
 
-## .gitconfig
+## .gitconfig -- Command Line shortcuts for git
 
 You probably already have a `.gitconfig` file in your `$HOME` folder (ie, `/Users/username/gitconfig`)
 
@@ -115,7 +169,16 @@ Some cool shortcuts:
   # What is it:  see an ASCII-branched history of your repo
   # Usage:       git graph
 ```
+---
 
 ## Being Professional with Git
 
-More content soon!
+We all get frustrated, and sometimes we want to take it out on our poor, little github commit messages.
+
+Be careful though: https://twitter.com/gitlost (warning, contains lots of profanity!)
+
+Employers will likely be looking through your GitHub repos, seeing how you built your projects, as part of evaluating you as a potential candidate for a job. Do you REALLY want them seeing commit messages full of swearing, or loads and loads of "this isn't working" / "this still isn't working" / "why the #$%^ isn't this working?!" commit messages?
+
+No, of course not.
+
+Employers also want to see what goes on in your group projects (like how well the workload was split among everyone) and how well you communicate with one another. Having civil and meaningful conversation with groupmates through GitHub comments (not just on Slack) is a great way to indicate to employers that you are happy to keep open and friendly communication going with your team.
