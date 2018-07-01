@@ -1,6 +1,6 @@
 ---
 page: layout
-title: Methods, Arguments, Blocks, and Scopes
+title: Scope
 length: 90
 tags: methods, scopes, arguments, ruby
 ---
