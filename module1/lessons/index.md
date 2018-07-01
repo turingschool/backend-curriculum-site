@@ -12,7 +12,7 @@ title: Module 1 Lessons
 * [Objects, Instances and Classes](./objects_classes_instances)
 * [Enumerables I](./beginner_enumerables)
 * [Hashes](./introducing_hashes)
-* [Scope](./intro_to_scope)
+* [Scope](./scope)
 * [Nested Collections](./nested_collections)
 * [Enumerables II](./intermediate_enumerables)
 * [Boolean Logic](./boolean_logic)
