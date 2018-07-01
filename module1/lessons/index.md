@@ -39,4 +39,5 @@ title: Module 1 Lessons
 
 ### Version Control
 * [Intro to Git and Github](./intro_to_git)
+* [Git Review](./git_review)
 * [Git for Pairs](./git_for_pairs_new)
