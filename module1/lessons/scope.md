@@ -106,6 +106,8 @@ Now let's create a method `y`. Change your code to this:
 
 **Turn and Talk**: What output do you expect to see when you run this file?
 
+Remember the original error that you saw when y wasn't defined? It said undefined local variable or method 'y'. From Ruby's perspective looking up a variable or looking up a method are very similar things (though there are differences we will get into below!). Here, we're using a method named y instead of a variable named y. The method only has one line, and since methods return their last line in Ruby, the value (20) is what is being returned from that method.
+
 It's also important to note that Ruby reads your file sequentially. Change your code to this:
 
 ```ruby
@@ -159,6 +161,8 @@ In this example, there are *two different* local variables called `x`. One of th
 **method scopes** are independent from surrounding scopes. Local variables defined within the **method scope** are not available in surrounding scopes, and local variables defined in surrounding scopes are not available within the **method scope**.
 
 In this example, the **method scope** of the `print_variable` method is independent from the surrounding **global scope**. This means that local variables defined in the **global scope** cannot be seen in the `print_variable` method, and vice versa.
+
+Remember, what is important here is that you get a feel for where variables are available to you. You don't need to be able to quote the intricacies of scope verbatim.
 
 To Illustrate this, change `scope.rb` to this:
 
@@ -297,7 +301,7 @@ puts number
 
 **Turn and Talk**: What output do you expect to see when you run this file?
 
-Now try this:
+Now we are going to experiment a bit. Normally, we don't want to have multiple variables named the same to avoid confusion, but in the following examples we are going to try it just to see what happens. Remember, the goal is to get a feel for how scope works in Ruby. Try this:
 
 ```ruby
 numbers = [1,2,3]
