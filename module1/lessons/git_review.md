@@ -168,7 +168,7 @@ On GitHub
 1. Review the code in your `lib` and `test` directories on GitHub to confirm that you have successfully pushed and merged your code to master
 1. Click on `<> Code` to return to the main page for your `dog_party` repository
 
-#### Iteration 2.8: Git the Code from GitHub Master to Our Local Master
+#### Iteration 2.8: Get the Code from GitHub Master to Our Local Master
 
 In your terminal:
 
