@@ -38,6 +38,6 @@ title: Module 1 Lessons
 * [Debugging Techniques](./debugging_techniques)
 
 ### Version Control
-* [Intro to Git and Github](./intro_to_git)
+* [Intro to Git and Github](./git_and_github)
 * [Git Review](./git_review)
 * [Git for Pairs](./git_for_pairs_new)
