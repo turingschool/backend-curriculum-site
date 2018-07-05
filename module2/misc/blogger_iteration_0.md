@@ -728,7 +728,7 @@ When a Rails server gets a request from a web browser it first goes to the _rout
 Rails used to fill this file with TONS of comments, but they take it easier on us now with just one. Let's still get rid of it and make our whole file look like this:
 
 ```ruby
-Rails::Application.routes.draw do
+Rails.application.routes.draw do
   resources :articles
 end
 ```
