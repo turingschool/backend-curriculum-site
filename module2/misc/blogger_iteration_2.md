@@ -504,4 +504,4 @@ If you feel awesome about and comfortable with what we've done so far, feel free
 
 Note: Iterations 0-2 were updated to reflect Rails 5.1.0, if you run into inconsistencies between the tutorial and your development (e.g., different error messages or behavior), it could be due to version differences.
 
-[Continue to Iteration 3](https://github.com/turingschool/backend-curriculum-site/module2/misc/blogger_iteration_3.md)
+[Continue to Iteration 3](https://github.com/turingschool/backend-curriculum-site/blob/gh-pages/module2/misc/blogger_iteration_3.md)
