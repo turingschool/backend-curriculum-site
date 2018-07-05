@@ -421,4 +421,4 @@ Date:   Thu Apr 11 17:31:37 2013 -0600
 and so on...
 ```
 
-[Continue to Iteration 6](https://github.com/turingschool/backend-curriculum-site/module2/misc/blogger_iteration_6.md)
+[Continue to Iteration 6](https://github.com/turingschool/backend-curriculum-site/blob/gh-pages/module2/misc/blogger_iteration_6.md)
