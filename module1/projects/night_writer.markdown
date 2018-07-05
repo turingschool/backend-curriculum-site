@@ -73,13 +73,13 @@ Following the same pattern, `hello world` would be represented as follows:
 
 You can experiment with [converting other words](http://www.brailletranslator.org/) yourself and share some samples with your classmates. Use the [lowercase letters a-z here from the American Foundation for the Blind](http://braillebug.afb.org/braille_print.asp) for your project.
 
-Each line of your braille file should be no wider than 40 braille characters (80 dots) wide.
+Each line of your Braille file should be no wider than 40 Braille characters (80 dots) wide.
 
 In order to break this problem down further, you may wish to work on things in the following order:
 
 * Update your existing Ruby program to take the entire message contained in your input file and save it to the output file provided by a user. At this point, do not do any work to translate the message to Braille.
-* Create a dictionary of some sort that allows you to look up a English letter and find its braille equivalent.
-* Update your program to take an input file with a single letter and create an output file with the braille equivalent.
+* Create a dictionary of some sort that allows you to look up a English letter and find its Braille equivalent.
+* Update your program to take an input file with a single letter and create an output file with the Braille equivalent.
 * Update your program again so that it can take multiple letters. Compare results with a classmate.
 * Update the program so that messages of more than 80 characters are split over multiple lines.
 
@@ -96,10 +96,10 @@ In order to break this problem down further, you may wish to work on things in t
 
 * Using your existing Ruby program as a template, create a new program called NightReader that prints a confirmation message to the terminal that contains the name of the file that the user input as their second argument.
 * Calculate the number of characters in the file provided as input and include that in the confirmation message.
-* Create a dictionary that maps some representation of braille characters to English characters.
-* Convert a single braille character contained in your input file into a single English character in your output file.
-* Convert multiple braille characters into multiple English characters.
-* Convert a file containing multiple lines of braille into English characters.
+* Create a dictionary that maps some representation of Braille characters to English characters.
+* Convert a single Braille character contained in your input file into a single English character in your output file.
+* Convert multiple Braille characters into multiple English characters.
+* Convert a file containing multiple lines of Braille into English characters.
 
 ### Iteration 4: Refactor & Support Additional Characters
 
