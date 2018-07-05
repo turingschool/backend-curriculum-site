@@ -303,4 +303,4 @@ $git commit -m "added a few gems"
 $git push
 ```
 
-[Continue to Iteration 5](https://github.com/turingschool/backend-curriculum-site/module2/misc/blogger_iteration_5.md)
+[Continue to Iteration 5](https://github.com/turingschool/backend-curriculum-site/blob/gh-pages/module2/misc/blogger_iteration_5.md)
