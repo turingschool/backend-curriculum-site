@@ -1298,4 +1298,4 @@ curl http://tutorials.jumpstartlab.com/assets/blogger/screen.css -o app/assets/s
 
 Commit, push, put in a PR, merge, checkout master, pull in updated master, delete.
 
-[Continue to Iteration 1](https://github.com/turingschool/backend-curriculum-site/module2/misc/blogger_iteration_1.md)
+[Continue to Iteration 1](https://github.com/turingschool/backend-curriculum-site/blob/gh-pages/module2/misc/blogger_iteration_0.md)
