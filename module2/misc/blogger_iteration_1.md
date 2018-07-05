@@ -809,4 +809,4 @@ Date:   Thu Apr 11 11:02:57 2013 -0600
 $ git reset --hard <SOME BIG SHA KEY>
 ```
 
-[Continue to Iteration 2](https://github.com/turingschool/backend-curriculum-site/module2/misc/blogger_iteration_2.md)
+[Continue to Iteration 2](https://github.com/turingschool/backend-curriculum-site/blob/gh-pages/module2/misc/blogger_iteration_2.md)
