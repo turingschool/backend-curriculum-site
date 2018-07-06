@@ -5,19 +5,20 @@ tags: basics, testing, encapsulation
 length: 60
 ---
 
-# Testing Strategies
-
 ## Learning Goals
 
 * Understand that TDD is about asking questions and making decisions
 * Understand the role of TDD in streamlining the problem-solving and design process.
 * Be able to name and explain the four key types of tests
 
+## Slides
 
-### Vocabulary  
-* Encapsulation  
-* Unit Tests  
-* Integration Tests  
+Available [here](../slides/testing_strategies_4)
+
+### Vocabulary
+* Encapsulation
+* Unit Tests
+* Integration Tests
 * Feature Tests
 * Acceptance Tests
 
