@@ -28,7 +28,7 @@ The following assignments are due **the Friday before your first day of class**.
 
 Turing is not just a school where you learn to code. Turing's curriculum focuses on both technical and professional development. In order to achieve our mission and vision, we also have group sessions each week called Gear Up in order to bring community awareness to certain issues in the tech industry.
 
-The assignments below will be submitted in gists that you will create on your GitHub account. You will create this account once you have completed the GitHub setup described on Day 0 of the technical prework repository (see below). You will be able to create your own gists. A gists is just a text document that can be stored on GitHub. To create a gist, follow the steps below:
+The assignments below will be submitted in gists that you will create on your GitHub account. You will create this account once you have completed the GitHub setup described on Day 0 of the technical prework repository (see below). You will be able to create your own gists. A gist is just a text document that can be stored on GitHub. To create a gist, follow the steps below:
 
 * Log in to your GitHub account
 * In the upper right corner, click on the '+' icon
