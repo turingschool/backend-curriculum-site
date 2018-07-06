@@ -13,6 +13,7 @@ title: Module 1 Lessons
 * [Enumerables I](./beginner_enumerables)
 * [Hashes](./introducing_hashes)
 * [Scope](./scope)
+* [Working with Files](./working_with_files)
 * [Nested Collections](./nested_collections)
 * [Enumerables II](./intermediate_enumerables)
 * [Boolean Logic](./boolean_logic)
