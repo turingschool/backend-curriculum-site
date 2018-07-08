@@ -44,7 +44,7 @@ The assignments below will be submitted in gists that you will create on your Gi
 
 ### Technical Prework
 
-The technical prework can be completed in 8 days, with one day for setup. However, it is highly recommended that you begin the prework immediately. It is expected that you spend a few hours of concentrated effort on the tasks for each day - about 30 hours total. This should help you to establish a routine of coding every day. If you have more than 7 days working on the prework, you should break up the work and complete the Next Steps section below so that you are coding every day!
+The technical prework can be completed in 8 days, with one day for setup. However, it is highly recommended that you begin the prework immediately. It is expected that you spend a few hours of concentrated effort on the tasks for each day - about 30 hours total. This should help you to establish a routine of coding every day.
 
 At Turing, you will have to code every single day to stay on top of the workload and build muscle memory for everything you've learned. This prework is designed to get you into that essential routine before day one of class.
 
@@ -53,7 +53,7 @@ After completing the prework, you should be able to do the following:
 * Be comfortable navigating your development environment and using your tools (Atom, Chrome, the console, and the command line)
 * Develop a basic knowledge of Ruby in order to build a simple program (for show and tell)
 
-If you have more than 7 days (or more than 30 hours) to dedicate to prework, first complete the 7-day prework tasks, and then continue on to the Next Steps section that contains additional resources on multiple subjects to use as a deeper dive
+If you have more than 7 days to work on the prework, you should break up the work and complete the Next Steps section below so that you are coding every day!
 
 #### [Click here to get started with the Technical Prework](https://github.com/turingschool-examples/backend_prework/tree/master/day_0)
 
@@ -64,4 +64,4 @@ Before moving any further, complete all of the projects listed in Day 7 of the B
 1. Complete the [Railsbridge Curriculum](http://curriculum.railsbridge.org/ruby/)
 1. Follow [This Lesson](http://backend.turing.io/module1/lessons/git_and_github) to learn more about Git and Github. Create some repositories to practice these commands. This will describe the workflow you will need throughout your time at Turing.
 1. Dive deeper into Ruby with [Launch School's Ruby Book](https://launchschool.com/books/ruby)
-1. [Become a command line master by working through](https://www.learnenough.com/command-line-tutorial)
+1. Become a command line master by working through [Michael Hartl's command line book](https://www.learnenough.com/command-line-tutorial)
