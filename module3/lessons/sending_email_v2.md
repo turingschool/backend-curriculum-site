@@ -5,6 +5,8 @@ length: 30
 tags: rails, email, sendgrid, smtp, action mailer
 ---
 
+This lesson was last updated to work with Rails 5.2.0 and Ruby 2.4.1.
+
 ## WarmUp 
 
 * Let's define email.
