@@ -9,16 +9,7 @@ Welcome to Turing! In order to make you as successful as possible during your ti
 
 ## Prework Overview
 
-The prework below is intended to take 8 days, with the first day dedicated to computer setup. It is expected that you spend a few hours of concentrated effort on the tasks for each day - about 30 hours total. This should help you to establish a routine of coding every day. If you plan to spend more than 7 days working on the prework, you should break up the work so that you are coding every day!
-
-At Turing, you will have to code every single day to stay on top of the workload and build muscle memory for everything you've learned. This 7 days of prework is designed to get you into that essential routine before day one of class.
-
-After completing the prework, you should be able to do the following:
-
-* Be comfortable navigating your development environment and using your tools (Atom, Chrome, the console, and the command line)
-* Develop a basic knowledge of Ruby in order to build a simple program
-
-If you have more than 7 days (or more than 30 hours) to dedicate to prework, first complete the 7-day prework tasks, and then continue on to the Next Steps section that contains additional resources on multiple subjects to use as a deeper dive.
+The prework is divided into two sections: Professional Development and Technical Prework. You are required to spend at least 8 days completing these assignments, however it is recommended that you start the prework as soon as possible. If you have more than a week to dedicate to prework, make sure you continue to code every day after you have completed the assignments. You SHOULD NOT complete the prework early and take an extended break from coding before your first day of class. This is very important to make sure you are in a routine that will keep your skills sharp and prepare you to hit the ground running on day 1.
 
 ## Prework Assignments
 
@@ -62,6 +53,6 @@ If you have more than 7 days to work on the prework, you should break up the wor
 Before moving any further, complete all of the projects listed in Day 7 of the Backend Prework Repository. If you have more time, get ahead of the curve by working through the following activities. They are listed in order of priority.
 
 1. Complete the [Railsbridge Curriculum](http://curriculum.railsbridge.org/ruby/)
-1. Follow [This Lesson](http://backend.turing.io/module1/lessons/git_and_github) to learn more about Git and Github. Create some repositories to practice these commands. This will describe the workflow you will need throughout your time at Turing.
+1. Follow [This Lesson](http://backend.turing.io/module1/lessons/git_and_github) to learn more about Git and Github. Create some repositories to practice these commands. You will use the git workflow described in this lesson extensively throughout your coding career.
 1. Dive deeper into Ruby with [Launch School's Ruby Book](https://launchschool.com/books/ruby)
 1. Become a command line master by working through [Michael Hartl's command line book](https://www.learnenough.com/command-line-tutorial)
