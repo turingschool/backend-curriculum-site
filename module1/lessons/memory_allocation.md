@@ -186,9 +186,9 @@ puts "spicy_sausage object_id is #{spicy_sausage.object_id}"
 puts "spicy_sausage's value is #{spicy_sausage.inspect}"
 ```
 
-Run this code and update your Sheet with the filling variable name, object_id, and value in memory. Notice that the value printed out for `taco_1` now shows the instance variable `filling`. Update your sheet with this new value stored in memory.
+Run this code and update your Sheet with the spicy_sausage variable name, object_id, and value in memory. Notice that the value printed out for `taco_1` now shows the instance variable `filling`. Update cell C2 with this new value stored in memory.
 
-So the Taco object is somehow storing the filling in an instance variable, and that value is "Chorizo". But we also have a variable called `spicy_sausage` that is also holding that value "Chorizo". So the question is, are there two different spaces in memory being allocated? Let's find out. Update your code to this:
+So the Taco object is somehow storing the value "Chorizo" in an instance variable, but we also have a variable called `spicy_sausage` that is also holding that value "Chorizo". So the question is, are there two different spaces in memory being allocated for the string "Chorizo"? Did our Taco object make a copy of the "Chorizo" string? Let's find out. Update your code to this:
 
 ```ruby
 class Taco
@@ -206,10 +206,155 @@ puts "taco_1 object_id is #{taco_1.object_id}"
 puts "taco_1's value is #{taco_1.inspect}"
 
 puts "taco_1 filling's object_id is #{taco_1.filling.object_id}"
-puts "taco_1's value is #{taco_1.filling.inspect}"
+puts "taco_1's filling's value is #{taco_1.filling.inspect}"
 
 puts "spicy_sausage object_id is #{spicy_sausage.object_id}"
 puts "spicy_sausage's value is #{spicy_sausage.inspect}"
 ```
 
 **Turn and Talk**: Will taco_1's filling's object_id be different than spicy_sausage's object_id?
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+Compare the two different object_ids and notice that they are the same! Even though this string "Chorizo" is being stored in two different places, it is still only one string. So how do we update our Sheet? Since we know that the there is only one space of memory being taken up, we don't need to add a new row to our sheet. All we need to do is update cell A3 to not only have `spicy_sausage` as a variable name, but also `@filling`. Update your Sheet to look like this:
+
+![Imgur](https://i.imgur.com/tRrwFht.png)
+
+This is a very important concept: we can access the same object stored in memory through many different variables. In this case, there is only one memory location storing "Chorizo", but there are two variables that can access it.
+
+Let's see if we get the same behavior when we create another class for Filling instead of using strings. Update your code to this:
+
+```ruby
+class Taco
+  attr_reader :filling
+
+  def initialize(filling)
+    @filling = filling
+  end
+end
+
+class Filling
+  attr_accessor :name
+
+  def initialize(name)
+    @name = name
+  end
+end
+
+spicy_sausage = Filling.new("Chorizo")
+taco_1 = Taco.new(spicy_sausage)
+
+puts "taco_1 object_id is #{taco_1.object_id}"
+puts "taco_1's value is #{taco_1.inspect}"
+
+puts "taco_1 filling's object_id is #{taco_1.filling.object_id}"
+puts "taco_1's filling's value is #{taco_1.filling.inspect}"
+
+puts "spicy_sausage object_id is #{spicy_sausage.object_id}"
+puts "spicy_sausage's value is #{spicy_sausage.inspect}"
+```
+
+**Turn and Talk** Before you run the code, how might you have to update your Sheet?
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+Run this code and you will see the same behavior as with Strings. The `@filling` instance variable inside `taco_1` is pointing to the same spot in memory as the `spicy_sausage` variable. The only difference is that that spot in memory is holding a Filling object instead of a string. Update your Sheet's cell C3 with the new value for that `spicy_sausage` and `@filling` are pointing to.
+
+So if these two different variables are pointing to the same spot in memory, if we change one, do we change the other? Let's try it:
+
+```ruby
+class Taco
+  attr_reader :filling
+
+  def initialize(filling)
+    @filling = filling
+  end
+end
+
+class Filling
+  attr_accessor :name
+
+  def initialize(name)
+    @name = name
+  end
+end
+
+spicy_sausage = Filling.new("Chorizo")
+taco_1 = Taco.new(spicy_sausage)
+
+puts "Initial value of spicy_sausage is #{spicy_sausage.inspect}"
+puts "Initial value of taco_1's filling is #{taco_1.filling.inspect}"
+
+taco_1.filling.name = "Carne Asada"
+
+puts "New value of spicy_sausage is #{spicy_sausage.inspect}"
+puts "New value of taco_1's filling is #{taco_1.filling.inspect}"
+```
+
+**Turn and Talk**: Will spicy_sausage and taco_1.filling have the same name after `taco_1.filling.name = "Carne Asada"`?
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+Run this code and you will see that changing `taco_1.filling` changed `spicy_sausage`. This can be a very intimidating concept at first, but it is very important. These variable names are ways of referencing Objects that live in memory. You can have many different variable names that reference the same Object.
+
+Another important idea here is that since the `taco_1` object has a reference to the Filling object, any time taco_1 is moved around, for instance passed as an argument to a method, the Filling object goes with it. It is like a Russian nesting doll. If you have a small doll inside a large doll and hand the large doll to your friend, they get the small doll as well.
+
+**Check for Understanding**
+
+Answer the following questions based on this code:
+
+```ruby
+class Car
+  attr_accessor :make, :model
+
+  def initialize(make, model)
+    @make = make
+    @model = model
+  end
+end
+
+class Person
+  attr_accessor :car
+
+  def initialize(car)
+    @car = car
+  end
+end
+
+camry = Car.new("Toyota", "Camry")
+person = Person.new(camry)
+```
+
+* How many Car Objects are created?
+* How many Person Objects are created?
+* How many different variables point to the Car Object?
+* How many different variables point to the Person Object?
+* If we called `person.car.model = "Rav 4"`, what would you see if you printed the variable `camry`?
