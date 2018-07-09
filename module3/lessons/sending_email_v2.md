@@ -11,7 +11,7 @@ This lesson was last updated to work with Rails 5.2.0 and Ruby 2.4.1.
 
 * Let's define email.
 * What do emails have to do with web apps?
-* 
+* What are examples of things we can do with email in our apps?
 
 ## Sending Email with SendGrid
 
