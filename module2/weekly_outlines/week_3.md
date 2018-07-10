@@ -10,7 +10,7 @@ layout: page
   - [Nested Resources](http://backend.turing.io/module2/lessons/nested_resources)
   - [Diagramming the Request Response Cycle](http://backend.turing.io/module2/lessons/diagramming_request_response_cycle)
   - [Design Principles](http://backend.turing.io/module2/lessons/design_principles)
-  - [Namespacing](http://backend.turing.io/module2/misc/namespacing)
+  - [Namespacing](http://backend.turing.io/module2/lessons/namespacing)
   - [Sessions, Cookies and Flashes](http://backend.turing.io/module2/misc/sessions_cookies_and_flashes)
   - [Auth Exploration](http://backend.turing.io/module2/misc/auth_exploration)
   
