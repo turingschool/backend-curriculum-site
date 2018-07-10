@@ -86,6 +86,7 @@ Complete two of the following:
 * Give players the option of playing with two players.
 * Track win/loss records for players based on a name that they enter that persists between plays (consider writing to CSV). Give players the option of seeing a list of the top ranked players based on their win percentage.
 * Record the time it takes for a player to win a game. Track their fastest wins and fastest losses. Provide an option for users to view their personal statistics once they have entered their name.
+* Make it so that a player can play over HTTP against a computer opponent. Use [this](http://backend.turing.io/module1/projects/http_tutorial) tutorial as a starting place for creating your server.
 
 ## Evaluation Rubric
 
