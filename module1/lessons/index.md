@@ -17,7 +17,7 @@ title: Module 1 Lessons
 * [Nested Collections](./nested_collections)
 * [Enumerables II](./intermediate_enumerables)
 * [Boolean Logic](./boolean_logic)
-* [Memory Allocation]()
+* [Memory Allocation](./memory_allocation)
 * [Class Methods](class_methods)
 * [Inheritance](./inheritance)
 * [Modules](./modules)
