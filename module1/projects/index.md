@@ -5,11 +5,13 @@ title: Backend Module 1 Projects
 
 #### [Battleship](./battleship)
 
-#### [Black Thursday](./black_thursday)  
+#### [Black Thursday](./black_thursday)
 
 #### [Chisel](./chisel)
 
 #### [Complete Me](./complete_me)
+
+#### [Connect Four](./connect_four)
 
 #### [Credit Check](./credit_check)
 
