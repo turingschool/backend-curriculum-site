@@ -122,7 +122,7 @@ Check our migration and `rails db:migrate`
 - Take a minute to research how to create a hyphenated title. Any suggestions? `parameterize`
 
 ```ruby
-resources :directors, shallow: true do
+resources :artists, shallow: true do
   resources :songs, param: :slug
 end
 ```

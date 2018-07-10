@@ -25,9 +25,9 @@ WeatherCondition.create(date: "2014-08-09", max_temperature_f: 73, mean_temperat
 WeatherCondition.create(date: "2013-01-02", max_temperature_f: 73, mean_temperature_f: 68, min_temperature_f: 61, mean_humidity: 75, mean_visibility_miles: 7, mean_wind_speed_mph: 8, precipitation_inches: 1.1, zip_code: 94107)
 ```
 
-This gets quite repetitive once multiple tests need that same data. FactoryGirl becomes a tool we can leverage to remove this bloat from our test files.
+This gets quite repetitive once multiple tests need that same data. FactoryBot becomes a tool we can leverage to remove this bloat from our test files.
 
-Rather than taking the time and energy to hand-write each individual piece of data needed for a spec, we can set up "factories" for each resource we're using (`Movie`, `Director`, `Actor`, etc.). These factories become available for us to use when and where we'd like throughout our tests.
+Rather than taking the time and energy to hand-write each individual piece of data needed for a spec, we can set up "factories" for each resource we're using (`Song`, `Artist`, `Playlist`, etc.). These factories become available for us to use when and where we'd like throughout our tests.
 
 Still not sure what the purpose of FactoryBot is? Check out [this StackOverflow answer](http://stackoverflow.com/questions/5183975/factory-girl-whats-the-purpose).
 
@@ -49,7 +49,7 @@ Still not sure what the purpose of FactoryBot is? Check out [this StackOverflow 
 
 ## Directions
 
-We'll be working with our existing Rails (`movie_mania`) application to refactor existing (and passing) tests to use [FactoryBot](https://github.com/thoughtbot/factory_bot/blob/master/GETTING_STARTED.md#configure-your-test-suite). This should give us plenty of comfort and agency to begin using FactoryBot on our own in future applications.
+We'll be working with our existing SetList Rails application to refactor existing (and passing) tests to use [FactoryBot](https://github.com/thoughtbot/factory_bot/blob/master/GETTING_STARTED.md#configure-your-test-suite). This should give us plenty of comfort and agency to begin using FactoryBot on our own in future applications.
 
 ## FactoryBot Setup
 
@@ -92,73 +92,74 @@ spec/factories.rb
 spec/factories/*.rb
 ```
 
-### Example of `spec/factories/directors.rb`:
+### Example of `spec/factories/artists.rb`:
 
 ```ruby
 FactoryBot.define do
-  factory :director do
+  factory :artist do
     name "Ilana Corson"
   end
 end
 ```
 
-Pull up your `user_creates_movie_spec.rb`. Within this test you likely are creating a director with something like `director = Director.create(name: "DirectorName")`
+Pull up your `user_creates_song_spec.rb`. Within this test you likely are creating a artist with something like `artist = Artist.create(name: "ArtistName")`
 
 Having the above factory allows you to do this:
 
 ```ruby
-#from user_creates_movie_spec.rb
+#from user_creates_song_spec.rb
 
-# Unsaved director (Ruby land):
-director = build(:director)
+# Unsaved artist (Ruby land):
+artist = build(:artist)
 
-# Saved director (Ruby and database land):
-director = create(:director)
+# Saved artist (Ruby and database land):
+artist = create(:artist)
 ```
 
 **Overriding**  
-When creating a new instance you can override attributes in factories `create(:director, name: "Sal Espinosa")`
+When creating a new instance you can override attributes in factories `create(:artist, name: "Sal Espinosa")`
 
 **Lists**  
 Want to create multiple of the same type of resource?
-Let's look at our `spec/features/users_sees_all_movies_spec.rb`.
-Here we are creating two movies. Let's DRY this up a bit.
+Let's look at our `spec/features/users_sees_all_songs_spec.rb`.
+Here we are creating two songs. Let's DRY this up a bit.
 
-`movies = create_list(:movies, 2)`
+`songs = create_list(:songs, 2)`
 or
-`movies_1, movies_2 = create_list(:movie, 2)`
+`songs_1, songs_2 = create_list(:song, 2)`
 
 **Relationships**  
-Want to create an object but it has a belongs_to and needs an associated object to be created? Now we have a director or two created and two movies. We have more tools to DRY this up even more. If we create our movie prepopulated with a director, we don't need to create directors in our movie index test.
+Want to create an object but it has a belongs_to and needs an associated object to be created? Now we have a artist or two created and two songs. We have more tools to DRY this up even more. If we create our song prepopulated with a artist, we don't need to create artists in our song index test.
 
 ```ruby
-#spec/factories/movies.rb
-factory :movie do
-  title "Joe Black"
-  description  "Maybe brad pitt is in it?"
-  director
+#spec/factories/songs.rb
+factory :song do
+  title "Billie Jean"
+  length 5
+  play_count 0
+  artist
 end
 ```
 
 **Sequences**  
 Want to create unique content? You might use a sequence to put a number in each value.
-What if we want our movies to have different titles?
+What if we want our songs to have different titles?
 
 ```ruby
-factory :movie do
+factory :song do
   sequence(:title) {|n| "Title #{n}" }
-  sequence(:description) {|n| "This is a description #{n}" }
+  sequence(:length) {|n| n*60}" }
 end
 ```
 
 **Alias**  
-Want to call your factory "admin" but use the `Director` class? Use an alias like this. You can call create(:admin) and it will give you a Director object.
+Want to call your factory "admin" but use the `Artist` class? Use an alias like this. You can call create(:admin) and it will give you a Artist object.
 
-Maybe you want to be able to create a regular old director as well as a super-director of sorts, an `:admin`.
+Maybe you want to be able to create a regular old artist as well as a super-artist of sorts, an `:admin`.
 
 ```
 FactoryBot.define do
-  factory :admin, class: Director do
+  factory :admin, class: Artist do
     name "Ilana Corson"
   end
 end
