@@ -12,7 +12,8 @@ title: Module 1 Lessons
 * [Objects, Instances and Classes](./objects_classes_instances)
 * [Enumerables I](./beginner_enumerables)
 * [Hashes](./introducing_hashes)
-* [Scope](./intro_to_scope)
+* [Scope](./scope)
+* [Working with Files](./working_with_files)
 * [Nested Collections](./nested_collections)
 * [Enumerables II](./intermediate_enumerables)
 * [Boolean Logic](./boolean_logic)
@@ -38,5 +39,6 @@ title: Module 1 Lessons
 * [Debugging Techniques](./debugging_techniques)
 
 ### Version Control
-* [Intro to Git and Github](./intro_to_git)
+* [Intro to Git and Github](./git_and_github)
+* [Git Review](./git_review)
 * [Git for Pairs](./git_for_pairs_new)

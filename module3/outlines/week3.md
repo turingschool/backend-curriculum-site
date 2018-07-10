@@ -7,7 +7,7 @@ layout: page
 
 ### Classes
 
-* [Sending Email](../lessons/sending_email_sendgrid)
+* [Sending Email](../lessons/sending_email_v2)
 * [Fundamental Rails Security](../lessons/fundamental_rails_security)
 * Career Q&A
 * [Mock Assessment](../lessons/diagnostic)

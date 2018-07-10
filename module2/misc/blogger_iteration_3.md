@@ -567,4 +567,4 @@ at your `articles_controller.rb` and Article `show.html.erb` if you need some cl
 
 With that, a long Iteration 3 is complete! Wrap up your branch with a commit, push, PR, merge, checkout master, pull, and delete.
 
-[Continue to Iteration 4](https://github.com/turingschool/backend-curriculum-site/module2/misc/blogger_iteration_4.md)
+[Continue to Iteration 4](https://github.com/turingschool/backend-curriculum-site/blob/gh-pages/module2/misc/blogger_iteration_4.md)

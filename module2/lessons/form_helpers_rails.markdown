@@ -25,7 +25,7 @@ title: Forms in Rails
 
 ### Setup
 
-* Open up a working version of `set_list`.
+* Open up a working version of `music_box`.
 * **Get familiar with the `/new` route.** What functionality is there?
 
 ### User Story
@@ -164,26 +164,26 @@ touch app/views/artists/new.html.erb
   end
 ```
 
-- A `form_for` is this: `<%= form_for @post, :as => :post, :url => posts_path, :html => { :class => "new_post", :id => "new_post" } do |f| %>`
+- A `form_for` is this: `<%= form_for @artist, :as => :artist, :url => artists_path, :html => { :class => "new_artist", :id => "new_artist" } do |f| %>`
 - What is all this??
 * How does this form know where to submit to?
   - It is using the instance variable to determine whether it is a form for a new object or to edit an object.
   - If the object has a value i.e. `Artist.find(params[:id])` then Rails knows that we are looking to edit a resource and pre-populated the form with all of that object's data. (this is super handy!)
   - If the instance variable holds no information, Rails interprets that as wanting to create a new resource.
   - Finally, the `form_for` line tells us the url (which we can also set manually if we want to through an options hash)
-  - `:as => :post`, creates the nested names such as `name="post[title]"`
-  - `:url => posts_path` tells Rails which route the request is being sent to
-  - `:html {:class => "new_post", :id => "new_post}` are an automatically-generated class and id, the names come from the new route and the `:as` attribute. You can overide the default with this `:html` hash
+  - `:as => :artist`, creates the nested names such as `name="artist[name]"`
+  - `:url => artists_path` tells Rails which route the request is being sent to
+  - `:html {:class => "new_artist", :id => "new_artist}` are an automatically-generated class and id, the names come from the new route and the `:as` attribute. You can overide the default with this `:html` hash
   - Based on the above, the submit button will be rendered with text reflecting the form's intention.
     - If it is a new form, it says "Create (Resource)"
-    - If we're editing an existing resource, the button says "Update Resource".
+    - If we're editing an existing resource, the button says "Update (Resource)".
     - We can change that by adding a string to the `f.submit` line.
   - Notice that `form_for` is a method, we pass it some arguments (a bunch of them in an options hash) and then pass it a block of code. `f` is a block parameter that we then use throughout the rest of the block.
 
 By creating this form, we should now be further along in our errors:
 
 ```bash
-The action 'create' could not be found for SongsController
+The action 'create' could not be found for ArtistsController
 ```
 
 ```ruby

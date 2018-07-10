@@ -103,21 +103,11 @@ new_tv
 
 ---
 
-# Independent Exercise
-
-* See instructions in lesson plan
-
----
-
 # Wrap Up
 
-Create a Venn Diagram of Arrays & Hashes.
-
-Things to consider:
-
-* How are they structured?
-* When you would use each one?
-* How do you interact with each one?
-
+* What is a symbol? How is it different than a String?
+* What is the advantage of using a String? What is the advantage of using a Symbol? Which is better for Hashes?
+* What is different about using symbols in Hashes?
+* Describe some useful Hash methods. Where can you look to find more Hash methods?
 
 
