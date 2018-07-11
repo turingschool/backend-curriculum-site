@@ -46,7 +46,9 @@ After completing the prework, you should be able to do the following:
 
 If you have more than 7 days to work on the prework, you should break up the work and complete the Next Steps section below so that you are coding every day!
 
-#### [Click here to get started with the Technical Prework](https://github.com/turingschool-examples/backend_prework/tree/master/day_0)
+The link below will take you to the Github page that contains all the Technical Prework. Scroll through the page to find the instructions for getting your computer setup and getting started with the prework.
+
+#### [Click here to get started with the Technical Prework](https://github.com/turingschool-examples/backend_prework)
 
 ### Next Steps
 
