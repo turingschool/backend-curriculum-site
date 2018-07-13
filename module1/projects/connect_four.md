@@ -76,13 +76,14 @@ If one of those conditions has been met, the player should be given the option o
 
 ### Iteration 4: Additional Features
 
-Complete two of the following:
+Complete one of the three extensions below.
 
 * Wrap the proeject in [Gem](https://en.wikipedia.org/wiki/RubyGems) using [Bundler](https://bundler.io/v1.16/guides/creating_gem.html) that can be run from the command line by typing `connect` anywhere on your machine rather than `ruby ./lib/connect_four.rb` from your project directory.
-* Give players the option of playing with two players.
-* Track win/loss records for players based on a name that they enter that persists between plays (consider writing to CSV). Give players the option of seeing a list of the top ranked players based on their win percentage.
-* Record the time it takes for a player to win a game. Track their fastest wins and fastest losses. Provide an option for users to view their personal statistics once they have entered their name.
 * Make it so that a player can play over HTTP against a computer opponent. Use [this](http://backend.turing.io/module1/projects/http_tutorial) tutorial as a starting place for creating your server.
+* Add all of the following functionality:
+    * Give players the option of playing with two players.
+    * Track win/loss records for players based on a name that they enter that persists between plays (consider writing to CSV). Give players the option of seeing a list of the top ranked players based on their win percentage.
+    * Record the time it takes for a player to win a game. Track their fastest wins and fastest losses. Provide an option for users to view their personal statistics once they have entered their name.
 
 ## Evaluation Rubric
 
