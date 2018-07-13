@@ -10,6 +10,14 @@ Application implements **all** functionality as defined, but some bugs or strang
 - Meets Expectations
 - Below Expectations
 
+### Testing
+
+Individual codes and uses TDD during all iterations of QS. For the Rails portion, test coverage must be at 100% and include happy/sad paths. For the Javascript portion, test coverage must be at 100% and only account for happy path. For the wildcard portion, test coverage is 50% or above and only accounts for happy path.  
+
+- Above Expectations
+- Meets Expectations
+- Below Expectations
+
 ### Documentation
 
 Developer provides easy to navigate documentation showing how to setup and contribute to the application (for _all_ repositories).
