@@ -56,11 +56,7 @@ XXOX..X
 XOOXOOX
 ```
 
-For Iteration 1, students should have:
-
-* A program that will print out a welcome message and an empty board.
-* A board class that can hold the state of the board at any given time.
-* The board class should initialize with an empty board.
+For Iteration 1, students should have a program that will print out a welcome message and an empty board.
 
 ### Iteration 2: Placing Pieces
 
@@ -68,13 +64,13 @@ Update your program to request user input and allow them to place an individual 
 
 Your program should ask for the user to enter a letter A - G, update the board so that their piece has been placed in that column, and then display the board again.
 
-Once a player has completed their turn, the computer should take its turn and place a piece in one of the 7 columns. Once the computer has taken their turn, display the board again.
+Once a player has completed their turn, the computer should take its turn and place a piece in one of the 7 columns at random. Once the computer has taken their turn, display the board again.
 
 Players should be able to repeat this sequence and continue taking turns.
 
 ### Iteration 3: Evaluating Win & Draw Conditions
 
-Continue to update your program so that after each turn the computer determines whether one of the players has won or if the game has ended in a draw.
+Continue to update your program so that after each turn the program determines whether one of the players has won or if the game has ended in a draw.
 
 If one of those conditions has been met, the player should be given the option of playing again or quitting.
 
