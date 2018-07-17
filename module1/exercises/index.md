@@ -17,6 +17,7 @@ title: Module 1 Exercises
 
 ### Practice Paired Assessments
 
+* [Music Festival](https://github.com/turingschool-examples/music_festival)
 * [Award Show](./paired/award_show)
 * [Candy Shop](./paired/candy_shop)
 * [Doggie Day Care](./paired/doggie_day_care)
