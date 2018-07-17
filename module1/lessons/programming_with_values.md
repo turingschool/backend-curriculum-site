@@ -1,30 +1,34 @@
 ---
 layout: page
-title: Designing for Testability
+title: Programming with Values
 length: 120
 tags: Testing, TDD, OOP, Design, Fixtures, Headcount
 ---
 
 ## Outline
 
-This lesson is divided into 3 sections:
+This lesson is divided into 5 sections:
 
-1. Short warm-up discussion (~25 minutes)
-2. Student Exercise (~50 minutes)
-3. Live Coding Demo applying the principles to the Headcount project (~90 minutes)
+1. Short warm-up discussion (~20 minutes)
+1. Lecture
+1. Student exercise
+1. Share out
+1. Review potential refactor
 
-## Discussion - Testing vs. External Dependencies
+## Slides
 
-### Warmup Questions
+Available [here](../slides/programming_with_values)
 
-Students should spend 5 minutes answering these questions in their notebooks.
-Then call a random student to share their answer for each one.
+## Lesson
 
-* What is an "Edge Case"?
-* How do we test an edge case?
-* What makes a piece of code easy to test?
-* Does this change when our objects have to deal with
-  importing data from the outside world?
+### Warmup
+
+* What does 'single responsibility' mean in a programming context?
+* How does programming with an eye towards the single responsibility principle help us as programmers?
+* In past projects, what have you decided to test? What have you decided not to test?
+* Why?
+
+### Lecture
 
 ### Data Pains - limiting our interface to our objects
 
@@ -47,17 +51,25 @@ objects; Ease of use / "Do it all" when you need to pull in a bunch of external 
 it into a separate entity
 * The interface between our objects is simple data, rather than external infrastructure
 
-## Exercise - TDD Pizza Parlor
+### Exercise - TDD Pizza Parlor
 
 Keep these principles in mind as you complete this short
 [Pizza Parlor Exercise](https://github.com/turingschool-examples/pizza_parlor)
 
-## Live Coding Demo - Applying these Principles to Headcount
+### Share
 
-[Sample Code](https://gist.github.com/worace/a60ab88d64f892b48c0e)
+* What did you test?
+* What didn't you test?
+* Can you test more if you refactored your code?
+
+### Review Potential Refactors
+
+* Can we isolate the file I/O?
+* Can we extract it to a class?
 
 ## Further Reading / Watching
 
+* [Programming with Values (earlier version of this lecture)](https://vimeo.com/157333800)
 * [The Value of Values by Rich Hickey](https://www.youtube.com/watch?v=-6BsiVyC1kM)
 * [Hexagonal Architecture by Alistair Cockburn](http://alistair.cockburn.us/Hexagonal+architecture)
 * [Hexagonal Rails by Matt Wynne](https://www.youtube.com/watch?v=CGN4RFkhH2M)
