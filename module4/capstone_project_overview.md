@@ -17,9 +17,7 @@ Learning Goals
 Overview
 ------------
 
-The Capstone Project will last two weeks and will consist of student's building meaningful, publishable work of their choosing. An instructor will be assigned to each student and act as the Technical Lead.
-
-The project consists of two "sprints": the first finishes on Friday of Week 4, the other on Monday of Week 6.
+The Capstone Project will last around two weeks and will consist of student's building meaningful, publishable work of their choosing. An instructor will be assigned to each student and act as the Technical Lead.
 
 Technical Expectations
 ---------------------
@@ -27,14 +25,11 @@ Technical Expectations
 We would like to give you a fair amount of freedom on this project. We want you to bulid something that you're excited about, and that you're proud of. These are a few requirements you should consider when pitching and building your project:
 
 *   You build something usable. You should be comfortable publishing your project by the time it's due in week 6. A spike or exploration into a new concept without a clear deliverable won't be accepted.
-*   You must apply at least four new techniques, or build your project in a new language and/or framework. New is something from the 4th module (OOJS, Security, Environments, React), or something extra-curricular (something not taught in the Turing backend engineering program).
-  *   Since accessibility is already in the rubric, it doesn't count as a new topic, but is required.
-  *   If you use something cool for your documentation (swagger, JSON-API, etc), we will accept it.
+*   You must apply at least four new techniques, or build your project in a new language and/or framework. New is something from the 4th module (SOA, Security, Continious integration, etc), or something extra-curricular (something not taught in the Turing backend engineering program).
+  *   If you use something cool for your documentation (StopLight, Apaiary, Swagger, JSON-API, etc), we will accept it.
 
 Structure of each week
 ------------
-
-Each student will submit a project proposal after the "soft launch" [here](https://github.com/turingschool/ruby-submissions/tree/master/1706-b/4module/capstone_projects/proposals) by Monday of week 4. Technical Lead's will give feedback on the scope of the project either via Github, Slack message, or in person by the end of the day.
 
 Each student will be responsible for setting priorities for their project and communicating those to their Technical Lead. Throughout the week, each student should be tagging their Technical Lead in PR's if they have questions or want feedback on any code they've written.
 
@@ -90,14 +85,6 @@ Developer implements four new techniques or patterns.
 ### 5. Documentation
 
 Developer provides easy to navigate documentation showing how to setup and contribute to the application.
-
-- Above Expectations
-- Meets Expectations
-- Below Expectations
-
-### 6. Accessibility
-
-Developer implements code to increase accessibility.
 
 - Above Expectations
 - Meets Expectations
