@@ -23,7 +23,7 @@ Available [here](../slides/authorization)
 
 ## Repo
 
-Continue working in your SetList application, or clone down the most recent version. A sample repo can be found [here](https://github.com/turingschool-examples/set_list_1804).
+Continue working in your Music Box application, or clone down the most recent version. A sample repo can be found [here](https://github.com/turingschool-examples/music_box_1804).
 
 ## Code Along
 
