@@ -26,7 +26,7 @@ We would like to give you a fair amount of freedom on this project. We want you 
 
 *   You build something usable. You should be comfortable publishing your project by the time it's due in week 6. A spike or exploration into a new concept without a clear deliverable won't be accepted.
 *   You must apply at least four new techniques, or build your project in a new language and/or framework. New is something from the 4th module (SOA, Security, Continious integration, etc), or something extra-curricular (something not taught in the Turing backend engineering program).
-  *   If you use something cool for your documentation (StopLight, Apaiary, Swagger, JSON-API, etc), we will accept it.
+  *   If you use something cool for your documentation (StopLight, Apiary, Swagger, JSON-API, etc), we will accept it.
 
 Structure of each week
 ------------
