@@ -27,7 +27,7 @@ title: Module 1 Lessons
 * [Ruby Project Etiquette](./ruby_project_etiquette)
 * [Design Principles]()
 * [Problem Solving](./problems_solutions_algorithms)
-* [Programming with Values]()
+* [Programming with Values](./programming_with_values)
 * [Ruby Object Model](./ruby_object_model)
 
 ### Testing

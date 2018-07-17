@@ -13,7 +13,7 @@ The prework is divided into two sections: Professional Development and Technical
 
 ## Prework Assignments
 
-The following assignments are due **the Friday before your first day of class**.
+The following assignments are due **according to the date on turing.io/prep**. You will submit links to your work there using a google form. 
 
 ### Professional Development
 
