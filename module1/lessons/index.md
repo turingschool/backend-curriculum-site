@@ -19,6 +19,7 @@ title: Module 1 Lessons
 * [Boolean Logic](./boolean_logic)
 * [Memory Allocation](./memory_allocation)
 * [Class Methods](class_methods)
+* [Project Etiquette](./project_etiquette)
 * [Inheritance](./inheritance)
 * [Modules](./modules)
 * [Enumerables III](./advanced_enumerables)
