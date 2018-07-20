@@ -12,6 +12,7 @@ title: Module 1 Exercises
 * [Open Mic](https://github.com/turingschool-examples/open_mic)
 * [Denver Public Library](https://github.com/turingschool-examples/denver_public_library)
 * [Market Street Apartments](https://github.com/turingschool-examples/market_st_apartments)
+* [Museum](https://github.com/turingschool-examples/museum)
 * [Reunion](https://github.com/turingschool-examples/reunion)
 * [Company Audit](https://github.com/turingschool-examples/company-audit)
 
