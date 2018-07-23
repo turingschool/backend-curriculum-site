@@ -23,6 +23,7 @@ title: Module 1 Lessons
 * [Inheritance](./inheritance)
 * [Modules](./modules)
 * [Enumerables III](./advanced_enumerables)
+* [Understanding the Call Stack](./stacks_methods_flow_control)
 
 ### Design
 * [Ruby Project Etiquette](./ruby_project_etiquette)
