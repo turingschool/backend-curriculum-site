@@ -21,15 +21,12 @@ A student who graduates from this module will be able to do the following:
 
 * Students will be able to use Arrays and Hashes and explain the differences between them
 
-* Students will be able to explain what a Symbol is and identify when it should be used over a String
-
-* Students will be able to create and interact with Ruby Range 0bjects
-
-* Students will be able to explain the NilClass and identify its appropriate uses
+* Students will be able to identify and utilize Symbols
 
 * Students will be able to implement best-choice enumerable methods to iterate over collections
 
 * Students will be able to use the following Flow Control structures:
+
   * if
   * elsif
   * else
@@ -51,6 +48,10 @@ A student who graduates from this module will be able to do the following:
 
 * Students will be able to import/export data to files
 
+* Students will be able to create class methods
+
+* Students will be able to describe the difference between class and instance methods
+
 **Familiar:**
 
 * Students will be able to explain the difference between local and instance variable scope
@@ -65,24 +66,26 @@ A student who graduates from this module will be able to do the following:
 
 * Students will be able to explain the difference between state and behavior and how these concepts are implemented in Ruby
 
+* Students will be able to break down a large technical challenge in to manageable tasks using techniques such as whiteboarding and pseudocode
+
 * Students will be able to utilize Test Driven Development to drive the design of the code.
 
-* Students will able to break down a large technical challenge in to manageable tasks using techniques such as whiteboarding and pseudocode
-
-* Students will be able to explain the Single Responsibility and DRY principles and adhere to these principles in their code.
+* Students will be able to explain the Single Responsibility and DRY principles
 
 * Students will be able to write readable code with the following characteristics:
+
   * Variable and method names are self explanatory
   * Methods are under 7 lines
   * Lines of code are under 80 characters
   * Project directory structure adheres to convention
-  * A linter reports less than 5 errors
-
-* Students will be able to limit use of Instance Variables so that they only convey the state of an object
 
 **Functional:**
 
 * Students will be able to identify use cases for Modules and Inheritance
+
+* Students will be able to limit use of Instance Variables so that they only convey the state of an object
+
+* Students will be able to write code that adheres to the Single Responsibility and DRY principles
 
 ## Testing
 
@@ -92,13 +95,13 @@ A student who graduates from this module will be able to do the following:
 
 * Students will be able to accurately test a piece of functionality by writing appropriate Minitest assertions
 
-* Students will be able to name and order tests so that a test file reads like documentation
-
 * Students will be able to translate technical specifications into tests
 
 * Students will be able to write a test before writing code that implements the behavior to make that test pass
 
 **Functional:**
+
+* Students will be able to name and order tests so that a test file reads like documentation
 
 * Students will be able to explain what edge case testing is and write tests for those edge cases
 
@@ -118,10 +121,11 @@ A student who graduates from this module will be able to do the following:
 
 * Students will be able to use Pry to create breakpoints in their code
 
+* Students will be able to identify when variables are in and out of scope
+
 **Functional:**
 
 * Students will be able to utilize the Ruby Docs and other online resources to aid in debugging
-
 
 ## Version Control
 
@@ -129,17 +133,25 @@ A student who graduates from this module will be able to do the following:
 
 * Students will be able to explain the difference between remote and local repositories
 
-* Students will be able to push, pull, commit, and branch using the git command line interface
+* Students will be able to push, pull, commit, and branch using the Git command line interface
 
 * Students will be able to commit code in small chunks of functionality
 
-* Students will be able to submit and merge Pull Requests using the Github interface
+* Students will be able to submit and merge Pull Requests using the GitHub interface
+
+* Students will be able to use Git and GitHub to collaborate with a partner on a project
+
+**Functional:**
+
+* Students will be able to provide comments on code on GitHub
+
+* Students will be able to resolve merge conflicts
 
 ## Desktop Environment
 
 **Mastery:**
 
-* Students will be able to navigate the machine to write and run Ruby programs
+* Students will be able to use the command line to navigate the machine to write and run Ruby programs
 
 * Students will be able to explain how the command line interface and text editor interact
 
