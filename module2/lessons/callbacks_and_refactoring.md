@@ -13,7 +13,7 @@ tags: rails, ruby, callbacks, refactoring, dry
 
 ## Slides
 
-Available [here](../slides/callbacks_and_refactoring)
+Available [here](./../slides/callbacks_and_refactoring)
 
 ## Vocabulary
 
