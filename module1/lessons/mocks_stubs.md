@@ -113,7 +113,7 @@ def test_it_can_have_paint
 end
 ```
 
-Go ahead and write that test. Run it.
+Go ahead and write that test. Run it. *Don't create a Paint class at this time!*
 
 * What happens?
 * Why?
@@ -136,7 +136,13 @@ Looks weird, right? Read this code carefully and figure out:
 * what is `mock`, from a Ruby perspective? (like an "object", "integer", what?)
 * what type thing is `'name'`?
 
-Let's try to put it to use. Add within our `test_paint_palatte` method a mock for the `Paint` class.
+Let's try to put it to use. Add the following line under your existing require statements in your test:
+
+```ruby
+require 'mocha/minitest'
+```
+
+Replace the existing lines creating instances of Paint within our `test_it_can_have_paint` method with the following:
 
 ```ruby
 paint_1 = mock('paint')
@@ -227,7 +233,7 @@ Putting that together we can do the following within `BobTest`:
 ```ruby
 def test_it_can_return_colors
   bob = Bob.new
-  paint_1 = mock(color: "Alizarin Crimson")
+  paint_1 = mock("paint")
   paint_1.expects(:color).returns("Alizarin Crimson")
   paint_2 = mock("paint")
   paint_2.expects(:color).returns("Van Dyke Brown")
@@ -238,7 +244,6 @@ def test_it_can_return_colors
 
   assert_equal ["Alizarin Crimson", "Van Dyke Brown"], bob.paint_colors
 end
-
 ```
 
 Once you're in pry, try calling the `color` method on `paint_1`. Does it work? Call it again? Does it work?
