@@ -84,7 +84,7 @@ We are going to continue to use `Music Box`.
 
 ### Use Case
 
-We want to access our songs by title in the url. for example `/songs/my_heart_will_go_on`. Right now, we have access to our song show page by `/songs/:id`. How do we create this new url?
+We want to access our songs by title in the url. for example `/songs/my-heart-will-go-on`. Right now, we have access to our song show page by `/songs/:id`. How do we create this new url?
 
 ### Updating Our Test
 
