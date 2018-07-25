@@ -8,8 +8,6 @@ layout: page
   - [Authorization](http://backend.turing.io/module2/lessons/authorization)
   - [Git Shotrtcuts and Professionalism](http://backend.turing.io/module2/lessons/additional_github)
   - [SQL Refresher](http://backend.turing.io/module2/lessons/sql_refresher)
-  - [ActiveRecord Obstacle Course](http://backend.turing.io/module2/misc/active_record_obstacle_course) Check-In
-  - [Remembering Ruby](../misc/violations): Complete the challenge described.
   - [Cart Exploration](http://backend.turing.io/module2/misc/cart_exploration)
 
 ## Homework
