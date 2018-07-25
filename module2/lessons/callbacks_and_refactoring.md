@@ -129,7 +129,7 @@ But what is a slug??? A slug is a piece of the URL’s path that is typically a 
 
 We run into an issue when we run the tests that `slug` does not exist for `song`. Lets add that migration:
 
-![Faliure](../misc/images/undefined_method_slug.png)
+![Undefined Method](../misc/images/undefined_method_slug.png)
 
 `rails g migration AddSlugToSongs slug:string`
 
@@ -143,7 +143,7 @@ Check our migration and `rails db:migrate`
 
 Running our test we should get an error: 
 
-![Faliure](../misc/images/unmatched_contraints.png)
+![Unmatched Constraints](../misc/images/unmatched_constraints.png)
 
 Step 1: In Our Routes Add
 ```ruby
