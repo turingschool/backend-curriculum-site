@@ -20,7 +20,7 @@ Take 5 mins to discuss with a partner about the following:
 
 So first what is GraphQL?
 
->> GraphQL is an API standard that enables declarative data fetching where a client can specify exactly what it needs from an API
+> GraphQL is an API standard that enables declarative data fetching where a client can specify exactly what it needs from an API
 server.
 
 Before diving into what that means let's discuss the why's. When learning about a new technology, it can be helpful to understand first the reasons behind why it was built. This helps us understand how and why it works along with its intricacies.
@@ -55,7 +55,7 @@ With a partner complete the following exercises:
 
 1. We want to display the following information in our UI about our current viewer using the [GitHub GraphQL Explorer](https://developer.github.com/v4/explorer/). Edit the default starting query to query for the necessary information.
 
-![exercise 1 mockup](../../assets/lessons/graphql/exercise-1-mockup.png)
+![exercise 1 mockup](../../assets/images/lessons/graphql/exercise-1-mockup.png)
 
 *hint hint Look at the valid fields for User*
 
@@ -71,20 +71,20 @@ By now you are probably thinking to yourself, "Hot damn, this is so cool! Does i
 ### Setup
 
 Let's use our Rails QS repo to create a GraphQL server that enablges us to query our Foods. Add the following gems to you Gemfile:
-```
+``` ruby
 gem 'graphql'
 gem 'graphiql-rails', group: :development
 ```
 
 Now run
-```
+``` bash
 bundle
 rails generate graphql:install
 ```
 
 In order to use [GraphiQL](https://github.com/rmosolgo/graphiql-rails), the pretty in-browser GraphQL IDE that we used when exploring GitHub's GraphQL server, We need to add the engine to our `routes.rb`.
 
-```  
+``` ruby
 # config/routes.rb
 if Rails.env.development?
   mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "graphql#execute"
@@ -97,7 +97,7 @@ To make sure everything is working go to:
 
 If your Rails app is an API only app you may be encountering this error `ActionController::RoutingError (No route matches [GET] "/stylesheets/graphiql/rails/application.css")` Update your `application.rb` file to include `sprockets/railtie`.
 
-```
+``` ruby
 #config/application.rb
 
 require "sprockets/railtie"
@@ -107,7 +107,7 @@ require "sprockets/railtie"
 
 First we need to set up our [GraphQL Object Type](https://graphql.org/learn/schema/#object-types-and-fields) for foods, which just represent a kind of object you can fetch from your service, and what fields it has.
 
-```
+``` ruby
 # app/graphql/types/food_type.rb
 
 # defines a new GraphQL type
@@ -132,7 +132,7 @@ Each field of our GraphQL types needs a corresponding resolver function. When a 
 
 Let's update `app/graphql/types/query_type.rb` which was created when we ran `rails generate graphql:install`.
 
-```
+``` ruby
 # app/graphql/types/query_type.rb
 
 Types::QueryType = GraphQL::ObjectType.define do
