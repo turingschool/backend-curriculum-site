@@ -40,10 +40,13 @@ The expected mastery level can be understood with the following scale:
 
 -------
 
+## MVC / Rails
+
 #### MVC / Rails
 
 - Diagram and explain the MVC model (Mastery)
-- Be able to implement authentication and authorization within a Rails application (Mastery)
+- Be able to implement authentication and authorization within a Rails application (Functional)
+- Make use of flash messages (Functional)
 
 ##### Models
 
@@ -52,63 +55,58 @@ The expected mastery level can be understood with the following scale:
 
 ##### Views
 
-- Template a view in Rails using a templating language (either `erb` or `haml`)  (Mastery)
-- How to create a form in a view using Rails, including a form using nested resources. (Mastery / Functional)
+- Template a view in Rails using a templating language (eg, `erb`)  (Mastery)
+- How to create a form in a view using Rails, including a form using nested resources. (Mastery)
 
 ##### Controllers
 
 - Understand the controller's role as a dispatcher between client and server (Mastery)
 - Be able to build RESTful CRUD actions: `index`, `show`, `new`, `create`, `edit`, `update`, `destroy` (Mastery)
-- Be able to build custom (non-RESTful) actions (Functional)
 
-##### Routes
+##### Routing
 
-- Implement RESTful routes for resources (Mastery)
-- Be able to modify routes with `namespace`, `module`, `path`, `scope` (Functional)
-- Make smart use of route helpers (Mastery)
+- Implement RESTful routes for resources (Functional)
+- Understand best use of route helpers and path helpers (Mastery)
 
 -------
+
+## HTTP, HTML, CSS
 
 #### HTTP
 
 - Diagram and explain the HTTP request/response cycle (Mastery)
 - Understand the different segments of a URL (protocol, host, path, query params) (Functional)
+- Understand application state and sessions (Functional)
 - Understand what headers, body and status codes are in this context (Familiarity)
-- Understand application state and sessions (Mastery)
-- Make use of cookies and flash messages (Functional)
+
+#### HTML, CSS
+
+- Understand basic HTML tabs, elements, nodes (Functional)
+- Target specific HTML content with CSS selectors (Functional)
+- Basic use and understanding of modern CSS grid systems (Familiarity)
 
 -------
 
-#### HTML/CSS
+## Testing
 
-- Understand basic HTML tags/elements/nodes (Mastery)
-- Target specific HMTL content with CSS selectors (Mastery)
-- Build an application with a user-ready styled experience (Functional)
-- Craft wireframes (Mastery)
-
--------
-
-#### Testing
-
-- Model testing with RSpec (Mastery)
+- Model testing with RSpec including validations, and class and instance methods (Mastery)
 - Feature testing with RSpec / Capybara (Mastery)
 
 -------
 
-#### SQL / Database Planning
+## ActiveRecord, SQL, Database Planning
 
-- Writing and executing SQL select statements that insert, select, calculate, join, order and group (Mastery)
-- Be able to design database schemas that represent relationships between resources (Mastery)
+#### SQL and Database Planning
+
+- Writing and executing 'raw' SQL statements that insert, select, calculate, join, order and group (Familiarity)
+- Be able to design database schemas that represent relationships between resources (Functional)
 - Articulately speak to one-to-one, one-to-many, many-to-many relationships (Mastery)
-
--------
 
 #### ActiveRecord
 
 - Have deep understanding ActiveRecord query methods, including differences between `find` `find_by` and `where` (Mastery)
 - Understand how to CRUD resources with ActiveRecord (Mastery)
 - Create relationships between resources using ActiveRecord (Mastery)
-- Use ActiveRecord for model validations and callbacks (Functional)
 
 -------
 
