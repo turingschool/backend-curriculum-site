@@ -29,5 +29,6 @@ title: Module 1 Exercises
 * [Musician](./paired/musician)
 * [Super Spy](./paired/super_spy)
 * [Yacht Club](./paired/yacht_club)
+* [Company](https://github.com/turingschool-examples/company)
 
 ### [__Ruby Exercises__](https://github.com/turingschool/ruby-exercises)
