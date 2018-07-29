@@ -5,6 +5,8 @@ length: 180
 tags: Background Workers, sidekiq, queue, async
 ---
 
+This lesson plan was last updated to work with Rails 5.2.0 and Ruby 4.2.1
+
 ### Learning Goals
 
 By the end of this lesson, you will know/be able to:
@@ -48,29 +50,9 @@ Workin-it is a simple app that takes an email and a random thought to generate a
 
 Why?
 
-Checkout our `UserNotifier` mailer. A 5 second delay has been hard-coded in to simulate a real-life delay.
+Check out our `UserNotifierMailer` mailer. A 5 second delay has been hard-coded in to simulate a real-life delay.
 
 ### 2: Mailcatcher for Local Email Processing
-
-In order to see the emails that the application outputs, lets
-also use [mailcatcher](http://mailcatcher.me/). Mailcatcher is a ruby library
-for providing local SMTP server. It allows you to get emails locally in development.
-
-```
-$ gem install mailcatcher
-$ mailcatcher
-```
-
-You should now be able to monitor email at `http://127.0.0.1:1080/`.
-
-The following lines in `development.rb` tell rails to send through port 1025 which Mailcatcher is watching.
-
-```ruby
-config.action_mailer.delivery_method = :smtp
-config.action_mailer.smtp_settings = { address: 'localhost', port: 1025 }
-```
-
-You'd need to update the `smtp_settings` with your own account info in production.
 
 Now test that the application is working by entering an email address
 and any thought you may have right now. You should
@@ -198,7 +180,7 @@ Given these constraints, it might look something like:
 ```ruby
 class GifSenderJob < ActiveJob::Base
   def perform(email, thought)
-    UserNotifier.send_randomness_email(email, thought).deliver_now
+    UserNotifierMailer.send_randomness_email(email, thought).deliver_now
   end
 end
 ```
@@ -255,7 +237,7 @@ Sidekiq and Resque provide dashboards for us to monitor our local job queues.
 They both run using Sinatra, so to enable them, we need to add Sinatra to our Gemfile:
 
 ```ruby
-gem 'sinatra', '>= 1.3.0', :require => nil
+gem 'sinatra'
 ```
 
 Then, in our routes file, we'll need to mount the Sidekiq dashboard:
@@ -279,7 +261,7 @@ Now you can navigate to `http://localhost:3000/sidekiq/`. This dashboard is very
 
 ### Repository
 
-* [Work-it Repo](https://github.com/turingschool-examples/work-it/tree/master/app)
+* [Work-it Repo](https://github.com/turingschool-examples/work-it/)
 
 ### Outside Resources / Further Reading
 
