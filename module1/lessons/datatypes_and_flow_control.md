@@ -81,33 +81,92 @@ greeting = "Hello World!"
 
 the variable `greeting` is holding a `String` object.
 
-# Integers & Floats
+# Integers
 
-* Integers: numbers without decimals
+* Numbers without decimals
     * `1`
     * `-1`
     * `100_033_443`
-* Floats: numbers with decimals
+
+## Integer Math
+
+```ruby
+4 + 3
+#=> 7
+7 * 2
+#=> 14
+45 % 10
+#=> 5 (the modulo aka the remainder)
+3 / 4
+#=> 0
+```
+
+## Ingeter Methods
+
+* `#even?`
+* `#odd?`
+
+## Integer Comparison
+
+```ruby
+4 == 4
+#=> true
+12 <= 8
+#=> false
+3 != 6
+#=> true
+```
+
+# Floats
+
+* Numbers with decimals
     * `4.25`
     * `8.275`
     * `-14.5`
 
-## Integer & Float Methods
+## Float Methods
 
-* Mathematical operations
+* `#round`
+
+## Float Math
 
 ```ruby
-4 + 3 #=> 7
-7 * 2 #=> 14
-45 % 10 #=> 5 (the modulo aka the remainder)
+4.1 + 3.2
+#=> 7.3
+4 + 7.5
+#=> 11.5
+3 / 4
+#=> 0
+3.0 / 4.0
+#=> 0.75
+3.0 / 4
+#=> 0.75
+3 / 4.0
+#=> 0.75
 ```
 
-* Comparison operators
+## Float Comparison
 
 ```ruby
-4 == 4 #=> true
-12 <= 8 #=> false
-3 != 6 #=> true
+4.0 == 4.0
+#=> true
+4.0 == 4
+#=> true
+3.1 <= 2.8
+#=> false
+3 != 3.1
+#=> true
+```
+
+# Check for Understanding
+
+What will each line of code return? Write down your answers, then use Pry or IRB to check your answers.
+
+```ruby
+7 / 2
+7 / 2.0
+7.even?
+7.31.round(1)
 ```
 
 # Strings
@@ -130,14 +189,14 @@ Creates a new String by evaluating whatever is inside the `#{}`. The String must
 ```ruby
 name = "Sal"
 "My name is #{name}"
-=> "My name is Sal"
+#=> "My name is Sal"
 ```
 
 You can insert any ruby code inside the `#{}`. For example:
 
 ```ruby
 "Two plus two is #{2 + 2}"
-=> "Two plus two is 4"
+#=> "Two plus two is 4"
 ```
 
 Remember, your code should still be readable, so don't go crazy with putting too much code in an interpolation.
@@ -150,7 +209,7 @@ Creates a new string by appending one onto the other. For example:
 greeting = "hello"
 place = "world"
 greeting + place
-=> "helloworld"
+#=> "helloworld"
 ```
 
 You can concatenate as many Strings as you want, for example:
@@ -159,7 +218,7 @@ You can concatenate as many Strings as you want, for example:
 greeting = "hello"
 place = "world"
 greeting + " " + place + "!"
-=> "hello world!"
+#=> "hello world!"
 ```
 
 ## Substrings
@@ -170,7 +229,7 @@ You can select a single character substring using brackets and an index like thi
 
 ```ruby
 "Sal"[0]
-=> "S"
+#=> "S"
 ```
 
 Remember, indexing starts at 0.
@@ -179,24 +238,27 @@ We can get a range of characters using a beginning and an ending index like this
 
 ```ruby
 "Sal"[0..1]
-=> "Sa"
+#=> "Sa"
 ```
 
 You can also index from the end of the String:
 
 ```ruby
 "Sal"[0..-1]
-=> "Sal"
+#=> "Sal"
 ```
 
-# Check
+# Check for Understanding
 
-What will each line of code below return?
+What will each line of code return? Write down your answers, then use Pry or IRB to check your answers.
 
 ```ruby
-"Sal".upcase
-"Megan"[3]
-"Brian".chars
+teacher = "sal"
+teacher.upcase
+"My favorite teacher is #{teacher.capitalize}"
+"My first initial is " + "Megan"[0] + "!"
+"My name is #{"Brian".length} letters long"
+"My name ends in #{teacher[-1]}"
 ```
 
 # Changing Data Types
@@ -209,13 +271,13 @@ Be careful, sometimes these can behave unexpectedly and Ruby won't give you an e
 
 ```ruby
 "hello".to_i
-=> 0
+#=> 0
 "3 little monkeys".to_i
-=> 3
+#=> 3
 " 3".to_f
-=> 3.0
+#=> 3.0
 "_3".to_f
-=> 0.0
+#=> 0.0
 ```
 
 # Arrays
@@ -244,9 +306,9 @@ Be careful, sometimes these can behave unexpectedly and Ruby won't give you an e
 * insert
 * join
 
-# Check
+# Check for Understanding
 
-What will each line of code below return?
+What will each line of code return? Write down your answers, then use Pry or IRB to check your answers.
 
 ```ruby
 numbers = [5, 4, 7, 9]
@@ -255,6 +317,7 @@ numbers.push(7)
 numbers.pop
 numbers.length
 numbers.insert(1, 4)
+numbers.join(", ")
 ```
 
 ## Additional Resources
