@@ -5,7 +5,7 @@ title: Credit Check
 
 ### Learning Goals
 * break a problem into logical components
-* implement approriate Ruby syntax
+* implement appropriate Ruby syntax
 * utilize methods and classes
 
 Let's write a program that can detect mistakes in a credit card number.
@@ -22,23 +22,23 @@ You can checkout the full description on Wikipedia: http://en.wikipedia.org/wiki
 
 The formula verifies a number against its included check digit, which is usually appended to a partial account number to generate the full account number. This full account number must pass the following test:
 
-* from the rightmost digit, which is the check digit, moving left, double the value of every second digit
+* starting with the first digit, double the value of every other digit
 * if product of this doubling operation is greater than 9 (e.g., 7 * 2 = 14), then sum the digits of the products (e.g., 10: 1 + 0 = 1, 14: 1 + 4 = 5).
 * take the sum of all the digits
-* if and only if the total modulo 10 is equal to 0 then the number is valid
+* if the sum is divisible by ten, the number is valid
 
 ### Example
 
 #### Validating an Account Number
 
-Using `79927398713` as our sample input:
+Using `5541808923795240` as our sample input:
 
 ```
-Account number:        7   9   9   2   7   3   9   8   7   1   3
-2x every other digit:  7   18  9   4   7   6   9   16  7   2   3
-Summed digits over 10: 7   9   9   4   7   6   9   7   7   2   3
-Results summed:        7   9   9   4   7   6   9   7   7   2   3 = 70
-Modulo Ten:            70 % 10 == 0
+Account number:        5    5    4    1    8    0    8    9    2    3    7    9    5    2    4    0
+2x every other digit:  10   5    8    1    16   0    16   9    4    3    14   9    10   2    8    0
+Summed digits over 10: 1    5    8    1    7    0    7    9    4    3    5    9    1    2    8    0
+Results summed:        70
+Divisible by 10?:      70 % 10 == 0
 ```
 
 Since the summed results modulo 10 is zero, the account number is valid according to the algorithm.
