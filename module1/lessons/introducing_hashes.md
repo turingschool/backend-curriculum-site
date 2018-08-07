@@ -11,6 +11,10 @@ tags: ruby, hashes, data structures, key, value
 *   Develop a mental model to understand hashes
 *   Gain some familiarity with common hash methods
 
+## Slides
+
+Available [here](../slides/introducing_hashes)
+
 ## Vocabulary
 
 * Hash

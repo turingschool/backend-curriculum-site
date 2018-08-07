@@ -22,7 +22,7 @@ tags: activerecord, migrations, sinatra, relational_database
 
 ## Repository
 
-We'll use the Film File repository available [here](https://github.com/turingschool-examples/film-file).
+We'll use the [Set List repo](https://github.com/turingschool-examples/set-list).
 
 ## Warmup
 
@@ -127,24 +127,22 @@ m4.students << jorge
 
 ## Code Along
 
-Let's add a `genres` table to our `FilmFile` app and then create relationships between the existing movies and their genre.
+Let's add an `playlist` table to our app and then create relationships between the existing songs and their playlist.
 
-### Creating the Genres Table
+### Creating the Playlist Table
 
-Create a new migration to create the genres table.
+Create a new migration to create the new table.
 
+```bash
+$ rake db:create_migration NAME=create_playlists
 ```
-$ rake db:create_migration NAME=create_genres
 
-```
-
-Use `ActiveRecord`'s `create_table` method to specify what we want to name this table and what fields it will include.
-
+Use `ActiveRecord`'s `create_table` method to specify what we want to name this table and the fields it will include. For now, a playlist only needs a name.
 
 ```ruby
-class CreateGenres < ActiveRecord::Migration
+class CreatePlaylists < ActiveRecord::Migration
   def change
-    create_table :genres do |t|
+    create_table :playlists do |t|
       t.string :name
 
       t.timestamps null: false
@@ -160,16 +158,15 @@ Inspect the `schema.rb` file:
 ```ruby
 ActiveRecord::Schema.define(version: 20160217022804) do
 
-  create_table "films", force: :cascade do |t|
+  create_table "songs", force: :cascade do |t|
     t.text     "title"
-    t.integer  "year"
-    t.integer  "box_office_sales"
+    t.integer  "length"
+    t.integer  "play_count"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "genre_id"
   end
 
-  create_table "genres", force: :cascade do |t|
+  create_table "playlists", force: :cascade do |t|
     t.text     "name"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -178,51 +175,51 @@ ActiveRecord::Schema.define(version: 20160217022804) do
 end
 ```
 
-### Create the Genre Model
+### Create the Playlist Model
 
-Add a `genre` model:
+Add a `playlist` model:
 
 ```
-$ touch app/models/genre.rb
+$ touch app/models/playlist.rb
 ```
 
 Inside of that file:
 
 ```ruby
-class Genre < ActiveRecord::Base
+class Playlist < ActiveRecord::Base
 end
 ```
 
-We'll add some genres to our database using Tux, an interactive console for your app:
+We'll add some playlists to our database using Tux, an interactive console for your app:
 
 ```ruby
 $ tux
-animation = Genre.create(name: "Animation")
-scifi = Genre.create(name: "Sci Fi")
-drama = Genre.create(name: "Drama")
-romance = Genre.create(name: "Romance")
+funky_beats = Playlist.create(name: "Funky Beats 2018")
+dance_party = Playlist.create(name: "1980's Dance Party")
+power_ballads = Playlist.create(name: "Power Ballads")
+classic_rock = Playlist.create(name: "Classic Rock")
 ```
 
-### Genres and Films - How do they relate?
+### Playlists and Songs - How do they relate?
 
-Let's assume that a film belongs to a genre, and a genre has many films. How will we connect these two tables?
+Let's assume that a song can only belongs to a single playlist, and a playlist has many songs. How will we connect these two tables?
 
-If a genre has many films, then we'll add a foreign key on the film.
+If a playlist has many songs, then we'll add a foreign key **on the song** model. This allows a song to **belong** to a playlist.
 
-We'll need to add a `genre_id` column to the `films` table. An individual `Film` will always have a reference to one `Genre` via the `genre_id` field.
+We'll need to add a `playlist_id` column to the `songs` table. An individual `Song` will always have a reference to one `Playlist` by using the `playlist_id` field.
 
-Let's add the migration to add a `genre_id` to the `films` table.
+Let's add the migration to add a `playlist_id` to the `songs` table.
 
-```ruby
-$ rake db:create_migration NAME=add_genre_id_to_films
+```bash
+$ rake db:create_migration NAME=add_playlist_id_to_songs
 ```
 
 Inside of that file:
 
 ```ruby
-class AddGenreIdToFilms < ActiveRecord::Migration
+class AddPlaylistIdToSongs < ActiveRecord::Migration
   def change
-    add_column :films, :genre_id, :integer
+    add_column :songs, :playlist_id, :integer
   end
 end
 
@@ -233,16 +230,16 @@ Let's migrate: `rake db:migrate` and take a look at `schema.rb`:
 ```ruby
 ActiveRecord::Schema.define(version: 20160217022905) do
 
-  create_table "films", force: :cascade do |t|
+  create_table "songs", force: :cascade do |t|
     t.text     "title"
-    t.integer  "year"
-    t.integer  "box_office_sales"
+    t.integer  "length"
+    t.integer  "play_count"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "genre_id"
+    t.integer  "playlist_id"
   end
 
-  create_table "genres", force: :cascade do |t|
+  create_table "playlists", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -251,29 +248,40 @@ ActiveRecord::Schema.define(version: 20160217022905) do
 end
 ```
 
-### Associating the Genre and Film Models
+### Associating the Playlist and Song Models in our Application
 
-Let's add an `ActiveRecord` association to our `Genre` to describe the relationship between a genre and a film. This will make it easy to find all of a specific Genre's films.
+At a database level, we have what we need for now, but our application still isn't aware that these models are somehow working together.
+
+Let's add an `ActiveRecord` association to our `Playlist` to describe the relationship between a playlist and a song. This will make it easy to find all of a specific Playlist's songs.
 
 ```ruby
-class Genre < ActiveRecord::Base
-  has_many :films
+class Playlist < ActiveRecord::Base
+  has_many :songs
 end
 ```
 
-This will allow us to call the method `films` on an instance of `Genre`. Behind the scenes, it will go through the `films` table and find all films where the `genre_id` attribute is the same as the primary key `id` of the genre it's being called on.
+Now, when we have an **intsance** of a single `Playlist`, we have access to a method called `songs` on that instance. 
+
+```ruby
+my_playlist = Playlist.create(name: 'Funky Beats 2018')
+# let's imagine some songs were added to that playlist
+puts my_playlist.songs
+# this would give us the list of all songs associated with that playlist.
+```
+
+Behind the scenes, ActiveRecord and the database will go through the `songs` table and find all songs where the `playlist_id` attribute is the same as the primary key `id` of the playlist it's being called on.
 
 Curious about how this is implemented? Check out [this blog post](http://callahanchris.github.io/blog/2014/10/08/behind-the-scenes-of-the-has-many-active-record-association/).
 
-A film has the opposite relationship with a genre. `ActiveRecord` gives us another association method:
+A song has the opposite relationship with a playlist. Because a song can only have a single `playlist_id` value, it "belongs" to that playlist, and only that playlist. `ActiveRecord` gives us another association method:
 
 ```ruby
-class Film < ActiveRecord::Base
-  belongs_to :genre
+class Song < ActiveRecord::Base
+  belongs_to :playlist
 end
 ```
 
-This will allow us to call `film.genre` and get back the genre object associated with that film. Behind the scenes, this is finding the genre that has the primary key `id` of the `genre_id` column on the `film`.
+This will allow us to get an instance of a single song, and call `song.playlist` to get back the `Playlist` object associated with that song. Behind the scenes, this is searching the database for the playlist that has the primary key `id` of the `playlist_id` column on the `song` instance.
 
 If you have a `has_many` relationship on a model, it is **not** necessary to have a `belongs_to` on another model.
 
@@ -282,55 +290,59 @@ Let's test it out:
 
 ```ruby
 $ tux
-animation = Genre.find_by(name: "Animation")
-animation.films
-# returns a collection of associated Film objects
+classic_rock_playlist = Playlist.find_by(name: "Classic Rock")
+classic_rock_playlist.songs
+# returns a collection of associated Song objects
 
 ```
 
-Why is our result empty?
+**Why is our result empty?**
 
-We've added a `genre_id` field to each `Film`, but we haven't given that field a value on any of our existing films.
+We've added a `playlist_id` field to each `Song`, but we haven't given that field a value on any of our existing songs.
 
 There are a few different ways to associate your data. If both objects are already created, but we want to associate them, we could do the following:
 
 ```ruby
-animation.films << Film.find_by(title: "The Lion King")
+# let's imagine we've already added this song:
+# Song.create(title: "Don't Stop Believin'", length: 251, play_count: 760847)
+classic_rock_playlist.songs << Song.find_by(title: "Don't Stop Believin'")
 ...and so on
 ```
 
-Another way to do this would be:
+The `<<` shovel operator will automatically build the association for us, through ActiveRecord, to populate the song's `playlist_id`. This isn't super clear, though, so here's another method:
 
 ```ruby
-Film.find_by(title: "The Lion King").update(genre_id: 1)
+Song.find_by(title: "Don't Stop Belivin'").update(playlist_id: classic_rock_playlist.id)
 ```
 
-The better way to associate data is to do it upon creation:
+The better way, and our preferred way, is to associate data upon creation:
 
 ```ruby
-animation = Genre.find_by(name: "Animation")
-animation.films.create(title: "The Lion King", year: 1994, box_office_sales: 422783777)
+classic_rock_playlist = Playlist.find_by(name: "Classic Rock")
+classic_rock_playlist.songs.create(title: "Don't Stop Believin'", length: 251, play_count: 760847)
 ```
 
-This will create a new `Film` record and place whatever animation's `id` is in the `genre_id` field in the film.
+This will create a new `Song` record AND place our playlist's `id` is in the `playlist_id` field in the song's database record.
+
 
 ### Updating our View
 
-Let's update our `films/index.erb` view to show all the films in each genre:
+Let's update our `songs/index.erb` view to show all the songs in each playlist:
 
 ```erb
-<h1>All Films</h1>
+<h1>All Songs</h1>
 
-<div id="films">
-  <% @films.each do |film| %>
-    <h3><%= film.title %> (<%= film.year %>)</h3>
-    <p>Genre: <%= film.genre %></p>
-    <p>Gross US Box Office Sales: $<%= film.box_office_sales %></p>
+<div id="songs">
+  <% @songs.each do |song| %>
+    <h3><%= song.title %></h3>
+    <p>Song length: <%= song.length %></p>
+    <p>Playlist: <%= song.playlist.name %></p>
+    <p>Play Count: $<%= song.play_count %></p>
   <% end %>
 </div>
 ```
 
-Run `shotgun` from the command line, then navigate to `localhost:9393/films`. You should see the films listed along with their respective genre.
+Run `shotgun` from the command line, then navigate to `localhost:9393/songs`. You should see the songs listed along with their respective playlist.
 
 ### Extension
 

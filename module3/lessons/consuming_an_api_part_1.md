@@ -66,6 +66,7 @@ gem 'bootstrap-sass'
 group :development, :test do
   gem 'pry'
   gem 'rspec-rails'
+  gem 'capybara'
 end
 ```
 

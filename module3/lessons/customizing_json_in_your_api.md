@@ -4,6 +4,8 @@ length: 90
 tags: json, javascript, rails, ruby, api
 ---
 
+This lesson plan was last verified to have worked with Ruby v2.4.1 and Rails v5.2.0
+
 ## Learning Goals
 
 * Generate and customize Rails Serializers
@@ -51,7 +53,7 @@ Share your findings with the class.
 We're going to start where we left off in the internal API testing lesson. Feel free to use the repository that you created yesterday. Otherwise, you can clone the repo below as a starting place.
 
 ```bash
-git clone https://github.com/s-espinosa/building_internal_apis.git
+git clone https://github.com/turingschool-examples/building_internal_apis.git
 bundle
 git checkout building_api_complete
 ```

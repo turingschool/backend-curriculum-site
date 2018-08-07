@@ -1,8 +1,9 @@
+# JSON Fundamentals
+
 ---
 title: JSON Fundamentals
-length: 30-
-tags: json, javascript
-status: draft
+length: 60
+tags: json, ruby, javascript
 ---
 
 ## Learning Goals
@@ -17,6 +18,12 @@ status: draft
 ## Lecture
 
 ### Warmup
+
+Assign pairs or triplets - each group should have a destination.
+
+- Step 1 - Write on a slip of paper directions on how to get from where you are sitting and get to your assigned destination.
+- Step 2 - Exchange directions and see if it makes sense.
+- Step 3 - Write a new set of instructions and see just how efficient you can get. What is the fastest way you can communicate the information the person needs to get to their destination. You can use abbreviations, symbols, WHATEVER. 
 
 * Who or what is HTML/CSS designed for?
 * What are some cases where you might not want to render an entire HTML page and only send the data to a client?

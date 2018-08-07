@@ -10,6 +10,10 @@ tags: ruby, data types, strings, integers, floats, arrays, hashes
 * Speak to a few common methods for each data type.
 * Be able to reference Ruby Docs in order to determine what an object's method does.
 
+## Slides
+
+Available [here](../slides/ruby_data_types)
+
 
 ## Agenda
 

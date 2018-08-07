@@ -210,16 +210,17 @@ class UserDecorator < SimpleDelegator
 
   def initialize(user, extra_info)
     @extra_info = extra_info
-    @user = user
+    super(user)
   end
 
   def birth_year
-    user.born_on.year
+    born_on.year
   end
 end
 
 decorated_user = UserDecorator.new(User.new, "some info!")
 decorated_user.birth_year  #=> 1989
+decorated_user.born_on  #=> Sun, 10 Sep 1989
 ```
 
 Now knowing this, let's add functionality to our application's users with the `GithubUser` decorator we created.

@@ -14,7 +14,7 @@ Read [this article](https://www.theodinproject.com/courses/ruby-on-rails/lessons
 * interpret the output of `rake routes`
 * explain the connection between `routes.rb` and controller files
 * create routes by hand
-* create routes using `resources :movies`
+* create routes using `resources :songs`
 
 ## Vocabulary
 
@@ -43,15 +43,19 @@ Want to know more about REST? Check out [this video](https://www.youtube.com/wat
 
 "Convention over configuration"
 
+## Starting a New Project
+
+Let's create a whole new Rails app. We're going to use this codebase for the rest of the inning in mod 2. We're going to recreate an app very similar to what we started in Sinatra, but we'll be adding a LOT more to this version!
+
 ```bash
-$ rails new movie_mania -T -d="postgresql" --skip-spring --skip-turbolinks
-$ cd movie_mania
+$ rails new set_list -T -d="postgresql" --skip-spring --skip-turbolinks
+$ cd set_list
 ```
 
 - `-T` - rails has minitest by default, when this flag is used, `gem 'minitest'` will not be in the Gemfile
-- `-d="postgresql"` - by default, Rails uses `sqlite3`. We want to tell it to use `postgres` instead because sites that we use for deploying, expect a postgres database.
+- `-d="postgresql"` - by default, Rails uses `sqlite3`. We want to tell it to use `postgresql` instead because platforms we use for deploying our projects will expect to use a PostgreSQL database.
 - `--skip-spring` - Spring is a Rails application preloader. It speeds up development by keeping your application running in the background so you don't need to boot it every time you run a test, rake task or migration but it benefits more advanced developers the most. We are going to not include it in our Gemfile.
-- `--skip-turbolinks` - Enables faster page loading by using AJAX call behind the scenes but has some subtle edge cases where it will not work as expected. For those reasons, we don't enable it by default.
+- `--skip-turbolinks` - Enables faster page loading by using AJAX call behind the scenes but has some nasty/subtle edge cases where your app will not work as expected. For those reasons, we don't enable it by default.
 
 Take a few minutes to explore what `rails new` generates. Which parts are the same as a Sinatra application? 
 
@@ -59,14 +63,14 @@ Take a few minutes to explore what `rails new` generates. Which parts are the sa
 
 Let's install RSpec and dream drive our application!
 
-Add gems to Gemfile and bundle:
+### Add gems to Gemfile and run `bundle update`:
   - `rspec-rails` = rspec test suite
   - `capybara` = allows us to interact with the DOM
   - `launchy` = allows us to save_and_open_page to see a live version on the browser
   - `pry` = debugging tool
   - `byebug`= built in rails debugger
 
-Install RSpec
+### Install and set up RSpec
 
 ```bash
 $ rails g rspec:install
@@ -79,24 +83,24 @@ What new files did this generate?
 - `spec_helper` - where we keep all specs that don't depend on rails
 - `rails_helper` - rails related configuration
 
-Now lets write a test!
+### Now lets write a test!
 
 ```ruby
-  # features/user_sees_all_movies_spec.rb
+  # features/user_sees_all_songs_spec.rb
   require "rails_helper"
 
   describe "user_index" do
-    it "user_can_see_all_movies" do
-      movie_1 = Movie.create(title: "Drop Dead Fred", description: "An unhappy housewife gets a lift from the return of her imaginary childhood friend")
-      movie_2 = Movie.create(title: "Empire Records", description: "Independent Delaware store that employs a tight-knit group of music-savvy youths.")
+    it "user_can_see_all_songs" do
+      song_1 = Song.create(title: "Don't Stop Believin'", length: 303, play_count:123456)
+      song_1 = Song.create(title: "Never Gonna Give You Up", length: 253, play_count:987654321)
 
-      visit "/movies"
+      visit "/songs"
 
-      expect(page).to have_content("All Movies")
-      expect(page).to have_content(movie_1.title)
-      expect(page).to have_content(movie_1.description)
-      expect(page).to have_content(movie_2.title)
-      expect(page).to have_content(movie_2.description)
+      expect(page).to have_content("All Songs")
+      expect(page).to have_content(song_1.title)
+      expect(page).to have_content("Plays: #{song_1.play_count}")
+      expect(page).to have_content(song_2.title)
+      expect(page).to have_content("Plays: #{song_2.play_count}")
     end
   end
 ```
@@ -105,17 +109,17 @@ Run RSpec, what happens?
 
 ```bash
 ActiveRecord::NoDatabaseError:
-  FATAL:  database "mania_test" does not exist
+  FATAL:  database "set_list_test" does not exist
 ```
 
 How do we create a new database? Run `rake db:create`
 
-Running Rspec again gives me this error `Uninitialized Constant Movie`, which leads us to add a model
+Running Rspec again gives me this error `Uninitialized Constant Song`, which leads us to add a model
 
 ```ruby
-#models/movie.rb
+#models/song.rb
 
-class Movie < ApplicationRecord
+class Song < ApplicationRecord
 end
 ```
 
@@ -133,15 +137,15 @@ Run Rspec again:
 
 ```bash
 ActiveRecord::StatementInvalid:
-   PG::UndefinedTable: ERROR:  relation "movies" does not exist
+   PG::UndefinedTable: ERROR:  relation "songs" does not exist
 ```
 
-Now what? We have to create an actual table for my movies in my database. In Sinatra, how do we create a migration? `rake db:create_migration NAME=create_table`
+Now what? We have to create an actual table for my songs in my database. In Sinatra, how do we create a migration? `rake db:create_migration NAME=create_table`
 
 In rails:
 
 ```bash
-$ rails g migration CreateMovies title description:text
+$ rails g migration CreateSongs title:string length:integer play_count:integer
 ```
 
 We have written the instructions for our database but haven't executed those instructions. Run `rake db:migrate`
@@ -149,18 +153,18 @@ We have written the instructions for our database but haven't executed those ins
 Let's run RSpec again and see our error:
 
 ```bash
-Failure/Error: visit "/movies"
+Failure/Error: visit "/songs"
 
      ActionController::RoutingError:
-       No route matches [GET] "/movies"
-     # ./spec/features/user_sees_all_movies_spec.rb:8:in `block (2 levels) in <top (required)>'
+       No route matches [GET] "/songs"
+     # ./spec/features/user_sees_all_songs_spec.rb:8:in `block (2 levels) in <top (required)>'
 ```
 
 In `config/routes.rb`:
 
 ```ruby
 Rails.application.routes.draw do
-  get '/movies', to: 'movies#index'
+  get '/songs', to: 'songs#index'
 end
 ```
 
@@ -168,32 +172,34 @@ From the command line, we can see which routes we have available: `$ rake routes
 
 ```
 Prefix Verb URI Pattern      Controller#Action
-movies GET  /movies(.:format) movies#index
+songs GET   /songs(.:format) songs#index
 ```
 
-This means whenever a `get` request to `/movies` is received, have the `MoviesController` handle it with the `index` action (method). The `(.:format)` piece on the end of the URI pattern refers to things like `http://example.com/movies.csv` or `http://example.com/movies.pdf`, etc.
+This means whenever a `get` request to `/songs` is received, have the `SongsController` handle it with the `index` action (method).
+
+Don't worry about the `(.:format)` piece on the end of the URI pattern. You'll use that more in mod3. It refers to things like `http://example.com/songs.csv` or `http://example.com/songs.pdf`, etc.
 
 Based on our rake routes - what controller do we need? do we have it? Let's run our test and see what error we get:
 
 ```bash
-Failure/Error: visit "/movies"
+Failure/Error: visit "/songs"
 
    ActionController::RoutingError:
-     uninitialized constant MoviesController
+     uninitialized constant SongsController
 ```
 
-Make a movies controller:
+Make a songs controller:
 
 ```bash
-$ touch app/controllers/movies_controller.rb
+$ touch app/controllers/songs_controller.rb
 ```
 
-Naming is important. The name of the file should be the plural of what it is handling (in this case, movies).
+Naming is important. The **name of the file should be the plural of what it is handling** (in this case, songs).
 
 Inside of that file:
 
 ```ruby
-class MoviesController < ApplicationController
+class SongsController < ApplicationController
 
 end
 ```
@@ -201,22 +207,22 @@ end
 When we RSpec now, we get another error:
 
 ```bash
-The action 'index' could not be found for MoviesController
+The action 'index' could not be found for SongsController
 ```
 
 Let's add the index method:
 
 What is ApplicationController? Look at the controllers folder and you should see an `application_controller.rb` file. This file defines the `ApplicationController` class, which (generally) all of your other controllers will inherit from.
 
-Notice that the name of the class matches the name of the file (`movies_controller.rb` => `class MoviesController`), one snake-cased and one camel-cased.
+Notice that the name of the class matches the name of the file (`songs_controller.rb` => `class SongsController`), the file is "snake-cased" and the class name is "camel-cased".
 
-Without a specific render line, Rails will automatically look for a view inside of a folder with the same name as the controller (`movies` folder), then look for a view with the same name as the method (`index.erb`).
+Without a specific `render` command in our action method, Rails will automatically look for a folder with the same name as the controller (`songs` folder), then look for a view with the same name as the method (`index.erb`).
 
 Running Rspec again gives us this error:
 
 ```bash
 ActionController::UnknownFormat:
-    MoviesController#index is missing a template for this request format and variant.
+    SongsController#index is missing a template for this request format and variant.
 
     request.formats: ["text/html"]
     request.variant: []
@@ -224,19 +230,19 @@ ActionController::UnknownFormat:
     NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.
 ```
 
-What is this funny error?? We see a line `MoviesController#index is missing a template for this request format and variant.`. Template refers to an erb/html file. This means we are missing a erb/html file. In rails, we want to use `.html.erb` file extension.
+What is this funny error?? We see a line `SongsController#index is missing a template for this request format and variant.`. Template refers to an erb/html file. This means we are missing a erb/html file. In rails, we want to use `.html.erb` file extension.
 
 WHY THO? Rails convention says that we should include the output type and end with the `.erb` extension.
 
 ```html
-#views/movies/index.html.erb
+#views/songs/index.html.erb
 
-<h1>All Movies</h1>
+<h1>All Songs</h1>
 
 
-<% @movies.each do |movie| %>
-  <h2><%= movie.title %></h2>
-  <p><%= movie.description %></p>
+<% @songs.each do |song| %>
+  <h2><%= song.title %></h2>
+  <p>Plays: <%= song.play_count %></p>
 <% end %>  
 ```
 
@@ -246,13 +252,13 @@ Now when we run our tests, we see a new error:
 undefined method 'each' for nil:NilClass
 ```
 
-We have not defined our instance variable `@movies` so this makes sense! Let's do that:
+We have not defined our instance variable `@songs` so this makes sense! Let's do that:
 
 ```ruby
-#controllers/movies_controller.rb
-class MoviesController < ApplicationController
+#controllers/songs_controller.rb
+class SongsController < ApplicationController
   def index
-    @movies = Movie.all
+    @songs = Song.all
   end
 end
 ```
@@ -261,38 +267,39 @@ Run RSpec one last time and we have a passing test!
 
 Start up your rails server: `rails server` or `rails s` from the command line.
 
-Navigate to `localhost:3000/movies` and what do you see? NOTHING!
+Navigate to `localhost:3000/songs` and what do you see? NOTHING!
 
-**Check for Understanding**
+#### Check for Understanding
+
 Why don't we have any data on our page even though we created data in our test? 
 
 
-Let's add some movies in `rails console` and start the server again to see our movies!
+Let's add some songs in `rails console` and start the server again to see our songs!
 
 ### Workshop
 
 ```
 As a user
 When I visit a new route
-Then I see a form with fields for title and desctiption
+Then I see a form with fields for title and length
 ```
 
 ```
 As a user
 When I visit a show route
-Then I see the title of a movie
-Then I see the description of a movie
+Then I see the title of a song
+Then I see the length of a song
 ```
 
-Just like in Sinatra, the route will need a changeable `/:id`. You *do not* need to create a show view; just get a message like "You are viewing the show page" to show up.
+Just like in Sinatra, the route will need a changeable `/:id`. You *do not* need to create a `show` view; just get a message like "You are viewing the show page" to show up.
 
 
 ```
 As a user
-When I visit an edit route for a specific movie
+When I visit an edit route for a specific song
 Then I see a form with a title field
-Then I see a form with a description field
-Then I see each field prepopulated with the movie's data
+Then I see a form with a length field
+Then I see each field pre-populated with the song's data
 ```
 
 Again, the route will need a changeable `/:id`. You *do not* need to create a form because you already have one! (Think about a partial); just get a message like "You are viewing the edit page" to show up.
@@ -301,15 +308,15 @@ Again, the route will need a changeable `/:id`. You *do not* need to create a fo
 ```
 As a user
 When I visit show or edit
-Then I see the id of the movie
+Then I see the id of the song
 ```
 
-Display the id param in the text that you render. You *do not* need to create a form; just get a message like "You are editing movie 2" to show up.
+Display the id param in the text that you render. You *do not* need to create a form; just get a message like "You are editing song 2" to show up.
 
 In Sinatra, you could access the `:id` from the URL like this:
 
 ```ruby
-get '/movies/:id' do |id|
+get '/songs/:id' do |id|
   puts id
 end
 ```
@@ -328,31 +335,31 @@ We can use the shortcut `resources`. As an example, we can change our `config/ro
 
 ```ruby
 Rails.application.routes.draw do
-  resources :movies
+  resources :songs
 end
 ```
 
 Now let's look at the routes we have available: `$ rake routes`.
 
-Using `resources :movies` gives us eight RESTful routes that correspond to CRUD functionality.
+Using `resources :songs` gives us eight RESTful routes that correspond to CRUD functionality.
 
 ```
    Prefix Verb   URI Pattern               Controller#Action
-    movies GET    /movies(.:format)          movies#index
-          POST   /movies(.:format)          movies#create
- new_movie GET    /movies/new(.:format)      movies#new
-edit_movie GET    /movies/:id/edit(.:format) movies#edit
-     movie GET    /movies/:id(.:format)      movies#show
-          PATCH  /movies/:id(.:format)      movies#update
-          PUT    /movies/:id(.:format)      movies#update
-          DELETE /movies/:id(.:format)      movies#destroy
+    songs GET    /songs(.:format)          songs#index
+          POST   /songs(.:format)          songs#create
+ new_song GET    /songs/new(.:format)      songs#new
+edit_song GET    /songs/:id/edit(.:format) songs#edit
+     song GET    /songs/:id(.:format)      songs#show
+          PATCH  /songs/:id(.:format)      songs#update
+          PUT    /songs/:id(.:format)      songs#update
+          DELETE /songs/:id(.:format)      songs#destroy
 ```
 
-Any methods with `:id` require an id to be passed into the URL. These values are dynamically added (like viewing the seventh movie via `/movies/7`).
+Any methods with `:id` require an id to be passed into the URL. These values are dynamically added (like viewing the seventh song via `/songs/7`).
 
 #### Questions:
 
-* What actions (methods) would we need in our `MoviesController` in order to handle all of these routes?
+* What actions (methods) would we need in our `SongsController` in order to handle all of these routes?
 * Which actions would render a form and which actions would redirect?
 
 Don't worry about putting `render :text` in these actions. You won't be able to test out `post`, `patch`, `put`, or `delete` by navigating in your browser.
@@ -361,9 +368,9 @@ If you add a whole bunch of `resources :things` to your routes file, it will gen
 
 ```ruby
 Rails.application.routes.draw do
-  resources :movies
-  resources :directors
-  resources :actors
+  resources :songs
+  resources :artists
+  resources :playlists
 end
 ```
 
@@ -375,11 +382,11 @@ Now try `$ rake routes`.
 
 ```ruby
 Rails.application.routes.draw do
-  root 'movies#index'
+  root 'songs#index'
 end
 ```
 
-This will direct any get request to `localhost:3000` to the `movies_controller.rb` `index` action.
+This will direct any get request to `localhost:3000` to the `songs_controller.rb` `index` action.
 
 ## Wrap Up Questions
 

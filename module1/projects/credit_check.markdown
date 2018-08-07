@@ -82,7 +82,6 @@ Create a `CreditCard` class based on the following criteria:
 If the previous criteria are met, you should be able to interact with the `CreditCard` class from a Pry session like so:
 
 ```ruby
-
 pry(main)> require './lib/credit_card'
 #=> true
 

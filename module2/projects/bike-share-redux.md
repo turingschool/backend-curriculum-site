@@ -390,7 +390,6 @@ I see the Single date with the lowest number of trips with a count of those trip
 ```
 As a registered user,
 When I visit a station show,
-In addition to the user story above,
 I see the Number of rides started at this station,
 I see the Number of rides ended at this station,
 I see the Most frequent destination station (for rides that began at this station),

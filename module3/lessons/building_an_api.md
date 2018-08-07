@@ -6,6 +6,8 @@ length: 90
 tags: apis, testing, requests, rails
 ---
 
+This lesson plan last updated with Ruby 2.4.1 and Rails 5.2.0
+
 ## Learning Goals
 
 * Understand how an internal API works at a conceptual level
@@ -73,24 +75,10 @@ Now let's get our factories set up!
 
 add `gem 'factory_bot_rails'` to your :development, :test block in your Gemfile.
 
-```sh
-$ bundle
-$ mkdir spec/support/
-$ touch spec/support/factory_bot.rb
-```
-
-Inside of the factory_bot.rb file:
+Inside of the rails_helper.rb file add this to the RSpec.configure block:
 
 ```ruby
-RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
-end
-```
-
-Inside of the rails_helper.rb file:
-
-```ruby
-require_relative './support/factory_bot'
 ```
 
 ### Versioned APIs
@@ -132,7 +120,7 @@ describe "Items API" do
 
     get '/api/v1/items'
 
-    expect(response).to be_success
+    expect(response).to be_successful
   end
 end
 ```
@@ -263,7 +251,7 @@ describe "Items API" do
 
       get '/api/v1/items'
 
-      expect(response).to be_success
+      expect(response).to be_successful
 
       items = JSON.parse(response.body)
    end
@@ -303,7 +291,7 @@ describe "Items API" do
 
     get "/api/v1/items"
 
-    expect(response).to be_success
+    expect(response).to be_successful
 
     items = JSON.parse(response.body)
 
@@ -329,7 +317,7 @@ First, let's write the test. As you can see, we have added a key `id` in the req
 
     item = JSON.parse(response.body)
 
-    expect(response).to be_success
+    expect(response).to be_successful
     expect(item["id"]).to eq(id)
   end
 ```
@@ -378,7 +366,7 @@ it "can create a new item" do
   item = Item.last
 
   assert_response :success
-  expect(response).to be_success
+  expect(response).to be_successful
   expect(item.name).to eq(item_params[:name])
 end
 ```
@@ -437,7 +425,7 @@ it "can update an existing item" do
   put "/api/v1/items/#{id}", params: {item: item_params}
   item = Item.find_by(id: id)
 
-  expect(response).to be_success
+  expect(response).to be_successful
   expect(item.name).to_not eq(previous_name)
   expect(item.name).to eq("Sledge")
 end
@@ -477,7 +465,7 @@ it "can destroy an item" do
 
   delete "/api/v1/items/#{item.id}"
 
-  expect(response).to be_success
+  expect(response).to be_successful
   expect(Item.count).to eq(0)
   expect{Item.find(item.id)}.to raise_error(ActiveRecord::RecordNotFound)
 end

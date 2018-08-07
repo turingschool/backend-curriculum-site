@@ -18,12 +18,12 @@ Available [here](../slides/authorization)
 ## Warmup
 
 * How did you handle the secret page in Thursday's assignment?
-* Have you tried to implement any authorization in the mini-project? If so, how?
+* Have you tried to implement any authorization in your RailsMini project? If so, how?
 * Any thoughts on how we might use namespacing to help us organize our authorization strategy?
 
 ## Repo
 
-Continue working in your MovieMania application, or clone down the most recent version. A sample repo can be found [here](https://github.com/turingschool-examples/movie_mania_1803).
+Continue working in your Music Box application, or clone down the most recent version. A sample repo can be found [here](https://github.com/turingschool-examples/music_box_1804).
 
 ## Code Along
 
@@ -36,12 +36,8 @@ Let's first add a validation on the User model to ensure that `username` is pres
 require "rails_helper"
 
 describe User, type: :model do
-  describe "validates" do
-    it "presence of username" do
-      user = User.new(password: "Password")
-
-      expect(user).to_not be_valid
-    end
+  describe 'Validations' do
+    it { should validate_presence_of(:username) }
     
     it "uniqueness of username" do
       orig = User.create(username: "user", password: "Password")
@@ -61,15 +57,21 @@ Failures:
   1) User validates presence of username
      Failure/Error: expect(user).to_not be_valid
        expected #<User id: 1, username: nil, password_digest: "$2a$04$iN35iTt4QVssodVTPDls7uSrSYSZnP7Vl2lwoZ6nfSC..."> not to be valid
-     # ./spec/models/user_spec.rb:8:in `block (3 levels) in <top (required)>'
+     # ./spec/models/user_spec.rb:5:in `block (3 levels) in <top (required)>'
 ```
 
 ```ruby
-validates :username, presence: true,
-                    uniqueness: true
+# app/models/user.rb
+class User < ActiveRecord::Base
+  validates :username, presence: true, uniqueness: true
+  
+  ...
+end
 ```
 
-Next, let's create a test for the admin functionality we want to create. Our client has asked for categories in this application, and only an admin should be able to access the categories index.
+Next, let's create a test for the admin functionality we want to create.
+
+Our client has asked for categories (solo act, bands, etc) in this application, and only an admin should be able to access the categories index.
 
 We'll need to create a new test file in the `spec/features` folder.
 
@@ -98,7 +100,11 @@ describe "User visits categories index page" do
 end
 ```
 
-Meanwhile, what's going on with that `role` field? Basically, we'll need that in order to determine what level of authorization a user has within the scope of our application. We know this is a distinction that we're going to want to be able to make. Let's drop down into a model test to see if we can develop this behavior.
+**Wait, what's going on with that `role` field?**
+
+Basically, we'll need that in order to determine what level of authorization a user has within the scope of our application. This is a distinction that we're going to want to be able to make in our application.
+
+Let's drop down into a model test to see if we can develop this behavior.
 
 ```ruby
 # spec/models/user_spec.rb
@@ -209,11 +215,16 @@ Add this `namespace` and the route for only the `index` to your routes (we may n
 
 ```ruby
 namespace :admin do
+  # only admin users will be able to reach these resources
   resources :categories, only: [:index]
 end
 ```
 
-Whenever we add something to our `routes.rb`, verify that your output via `rails routes` is what you expect. Whoa, our routes are getting long and hard to read. Let's run `rails routes | grep admin` to see just our admin routes.
+Whenever we add something to our `routes.rb`, verify that your output via `rails routes` is what you expect.
+
+Whoa, our routes are getting long and hard to read!
+
+Let's run `rails routes -c admin` to see just our admin routes.
 
 Routes are looking good. What about our specs?
 
@@ -222,7 +233,7 @@ ActionController::RoutingError:
  uninitialized constant Admin
 ```
 
-Remember when we want to use namespace, we'll need all the controllers that are namespaced within that namespace folder.
+Remember when we want to use namespace, its controllers need to be places within a folder that shares a name with the namespace.
 
 ```
 $ mkdir app/controllers/admin
@@ -303,7 +314,9 @@ context "as default user" do
                        role: 0)
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+    
     visit admin_categories_path
+    
     expect(page).to_not have_content("Admin Categories")
     expect(page).to have_content("The page you were looking for doesn't exist.")
   end

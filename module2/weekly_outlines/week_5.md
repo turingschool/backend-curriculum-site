@@ -4,6 +4,8 @@ layout: page
 ---
 
 ## Lessons
+  - [ActiveRecord Obstacle Course](http://backend.turing.io/module2/misc/active_record_obstacle_course) Check-In
+  - [Remembering Ruby](../misc/violations): Complete the challenge described.
   - [Cart & Order Lifecycle](http://backend.turing.io/module2/lessons/cart_implementation)
   - [Callbacks & Refactoring](http://backend.turing.io/module2/lessons/callbacks_and_refactoring)
   - [Intermediate ActiveRecord](http://backend.turing.io/module2/lessons/intermediate_active_record)

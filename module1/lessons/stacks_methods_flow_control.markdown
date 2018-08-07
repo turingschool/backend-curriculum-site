@@ -231,6 +231,20 @@ chance = Dog.new("Chance")
 chance.chase(sassy)
 ```
 
+### Practice
+
+Clone this repo: https://github.com/turingschool-examples/lion_king.
+
+Run the code with `ruby runner.rb`.
+
+Model the call stack for this code using index cards.
+
+Each index card represents a method call.
+
+Use sticky notes to show a return value moving from the method on top of the stack back to the calling method.
+
+Write the arguments passed in to the method on the top of the card.
+
 ### Group Time Wrapup -- Why Bother
 
 * Most essential challenge in starting programming: Getting over the "Mental Model" hump
@@ -278,7 +292,7 @@ Each time, pay attention to:
 ```ruby
 class Pizza
   attr_reader :toppings, :cooked
-  
+
   def initialize(toppings)
     @toppings = toppings
     @cooked = false
@@ -427,4 +441,3 @@ pry(main)> binding.instance_variables
 pry(main)> binding.eval("self").instance_variables
 => [:@pizza, :@a]
 ```
-

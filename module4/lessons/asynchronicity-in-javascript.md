@@ -5,7 +5,7 @@ layout: page
 
 ## Learning Goals
 
-- Students can execute logic asynchronously with callbacks and AJAX requests
+- Students can execute logic asynchronously with callbacks and Fetch requests
 - Students understand how JavaScript executes synchronously vs asynchronously
 - Students can read and explain JavaScript that executes asynchronously
 - Students are exposed to JS Promise structure for writing asynchronous JS
@@ -101,35 +101,21 @@ Thus, `.catch()` would only be triggered had the `Promise` not resolved successf
 
 Where have we seen something like this before?
 
-### AJAX Deferred Objects === Promises? (20 minutes)
+### Fetch
 
-We've seen the chainable `.then()` and `.catch()` quite often thanks to AJAX. But are AJAX requests returning Promises to us?
+We've seen the chainable `.then()` and `.catch()` quite often thanks to Fetch. Fetch returns a `Promise` object to us and are likely your most common user-case for asynchronous JavaScript.
 
-Surprisingly, they're technically not. jQuery AJAX requests actually return to us [`Deferred` objects](https://api.jquery.com/category/deferred-object/). They look like `Promises`, they act like `Promises`, but technically they are not `Promises`.
+Think back to the original reason we use Fetch - we want to request something (usually data) from somewhere else, but we're not sure how long it'll take to get that response.
 
-Regardless of what they technically are, these `Deferred` objects are likely your most common use-case for asynchronous JavaScript.
+Fetch is able to take advantage of the concurrency / event loop we were speaking about earlier to allow our program to continue running while our Fetch request resolves.
 
-Think back to the original reason we use AJAX - we want to request something (usually data) from somewhere else, but we're not sure how long it'll take to get that response.
-
-AJAX is able to take advantage of the concurrency / event loop we were speaking about earlier to allow our program to continue running while our AJAX request resolves.
-
-#### Chainable AJAX Examples
-
-Let's look through a few examples:
-
-[AJAX with Callbacks](https://repl.it/KWjo/latest)
-
-[Successful AJAX with `.then()`](https://repl.it/KWkD/latest)
-
-[Erroneous AJAX with `.catch()`](https://repl.it/Hcsi/9)
+Take a look at an example of a `Fetch` call in action: [https://repl.it/@KatelynKasperow/DirectCruelLaws](https://repl.it/@KatelynKasperow/DirectCruelLaws)
 
 
-#### Checks for Understanding (10 minutes)
+#### Checks for Understanding (5 minutes)
 
 Discuss the following with the person next to you:
 
-- How are callbacks, promises and deferred objects similar?
-- How are they different?
 - What's something you can do with promises that you can't do with callbacks?
 - How would you describe asynchronicity to a 5 year old?
 
@@ -195,7 +181,10 @@ Alternate who takes the lead in answering the questions for the following 4 snip
   ```
 3.
   ```js
-  $.get("https://api.github.com/users/turingschool/repos")
+  fetch("https://api.github.com/users/turingschool/repos")
+    .then(function(response) {
+      return response.json();
+    })
     .then(function(repos) {
       return repos[0]
     }).then(function(repo){
@@ -207,8 +196,8 @@ Alternate who takes the lead in answering the questions for the following 4 snip
 4.
   ```js
   var randomMerchantRevenue;
-  $.get("/api/v1/merchants/random.json", function(merchant) {
-    $.get("/api/v1/merchants/" + merchant.id + "/revenue.json", function(revenue) {
+  fetch("/api/v1/merchants/random.json", function(merchant) {
+    fetch("/api/v1/merchants/" + merchant.id + "/revenue.json", function(revenue) {
       randomMerchantRevenue = revenue.total_revenue;
     })
   })
