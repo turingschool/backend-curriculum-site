@@ -43,10 +43,10 @@ The Final Paired Assessment will be graded using [This Rubric](./paired_rubric)
 
 Projects, Paired Assessments, and Independent Assessments will be scored on a 4 point scale:
 
-1: Well Below Expectations
-2: Below Expectations
-3: Meets Expectations
-4: Well Above expectations
+1. Well Below Expectations
+2. Below Expectations
+3. Meets Expectations
+4. Well Above expectations
 
 Scores reflect the instructor's expectations for the student’s progress at that moment in time, not the expectations for the end of the mod. Assessments will be broken into iterations. A student is expected to complete the project or assessment through iteration 3.
 
@@ -83,4 +83,6 @@ When sending a direct message (dm), students must DM ALL instructors. Exceptions
 
 ## Attendance
 
-Attendance is required at 90% or above to pass Module 1 and is required at all Professional Development and Gear Up sessions.
+Attendance is required at 90% or above to pass Module 1.
+
+Attendance will be counted at all scheduled activities from 9:00 am to 4:00 pm not listed as "Project Work Time". Per the Student Course Catalog, tardiness will be counted as absence.
