@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Flow Control
-tags: fundamentals, datatypes, flow control, computer science
+title: Ruby Datatypes
+tags: fundamentals, datatypes, computer science
 ---
 
 ## Learning Goals
