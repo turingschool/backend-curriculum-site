@@ -1,8 +1,3 @@
----
-layout: page
-title: Credit Check
----
-
 ### Learning Goals
 * break a problem into logical components
 * implement appropriate Ruby syntax
@@ -45,19 +40,26 @@ Since the summed results modulo 10 is zero, the account number is valid accordin
 
 ## Assignment
 
+### Setup
+
+1. Fork [this Repository](https://github.com/turingschool-examples/credit_check)
+1. Clone your forked repo to your machine with `git clone <ssh key for your repo>`
+
 ### Iteration 1 - The Luhn Algorithm
 
-Start with this template and save it as `credit_check.rb` in your `lib` directory:
+Open `credit_check.rb` in your `lib` directory. You should should this template:
 
 ```ruby
-card_number = "4929735477250543"
+card_number = "5541808923795240"
 
 # Your Luhn Algorithm Here
 
 # Output
-## If it is valid, print "The number is valid!"
-## If it is invalid, print "The number is invalid!"
+## If it is valid, print "The number [card number] is valid!"
+## If it is invalid, print "The number [card number] is invalid!"
 ```
+
+Fill out the file so that it will print out the validity of the given card_number. The number included in the template is a valid example.
 
 #### Sample Data
 
@@ -66,32 +68,43 @@ If helpful, you can use the following sample data:
 * *Valid*: 5541808923795240, 4024007136512380, 6011797668867828
 * *Invalid*: 5541801923795240, 4024007106512380, 6011797668868728
 
-### Iteration 2 - Github and Classes
+### Iteration 2 - Credit Card Class
 
-* Create a repository on Github and push your algorithm to it. From here on, all your code should be hosted on Github.
+Create a `CreditCard` class based on the following criteria:
 
-* Create a class that responds to the following interaction pattern:
+* A `CreditCard` is passed two arguments upon initialization
+  * The first argument is a String representing the card number
+  * The second argument is an Integer representing the `CreditCard`'s limit
+* A `CreditCard` has getter methods called `card_number` and `limit` for reading the card number and limit
+* A `CreditCard` has a method called `is_valid?` that takes no arguments and returns either true or false based on whether or not the card number is valid.
+* A `CreditCard` has a method called `last_four` that returns a String of the last four digits of the card number
+
+If the previous criteria are met, you should be able to interact with the `CreditCard` class from a Pry session like so:
 
 ```ruby
-credit_check = CreditCheck.new
-=> #<CreditCheck:0x00007fe82d2a8a38>
-credit_check.valid_number?(5541808923795240)
-=> true
-credit_check.valid_number?(5541801923795240)
-=> false
-credit_check.validation_ouput(5541808923795240)
-=> "The number 5541808923795240 is valid"
-credit_check.validation_ouput(5541801923795240)
-=> "The number 5541801923795240 is invalid"
+
+pry(main)> require './lib/credit_card'
+#=> true
+
+pry(main)> credit_card = CreditCard.new("5541808923795240", 15000)
+#=> #<CreditCard:0x00007fbb1ca5f698 @card_number="5541808923795240", @limit=15000>
+
+pry(main)> credit_card.card_number
+#=> "5541808923795240"
+
+pry(main)> credit_card.limit
+#=> 15000
+
+pry(main)> credit_card.last_four
+#=> "5240"
+
+pry(main)> credit_card.is_valid?
+#=> true
 ```
 
-### Iteration 3 - Branching and Minitest
+### Iteration 3 - Testing
 
-* Create a branch in your local git repo called `testing`
-
-* Create a Minitest test that accurately covers the expected behavior of your CreditCheck class
-
-* Push the branch up to your Github repository and merge the branch using a Pull Request
+Write tests for your `CreditCard` class that cover that expected behavior described in the previous iteration. If done correctly, the `bank_test.rb` test should also pass.
 
 ### Iteration 4 - Extensions
 
