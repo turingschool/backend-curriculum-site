@@ -50,6 +50,8 @@ Variables are used to store data. You make a variable by using the **Assignment 
 greeting = "Hello World!"
 ```
 
+Ruby evaluates assignments from right to left. This means Ruby will evaluate whatever code is on the right side of the `=`, and then store that in the variable on the left side of the `=`. In the previous example, when Ruby hits that line of code, it first evaluates `"Hello World!"`, which just evaluates to the String `"Hello World!"`, and stores it in the variables `greeting`.
+
 For now, all the variables we will be using are **Local Variables**. Local variables must start with a lowercase letter, and can only contain letters, numbers, and underscores `_`. In Ruby, the convention is to name variables using "Snake Case", which is all lowercase letters with words separated by underscores. For example, this is a good variable name:
 
 ```ruby
@@ -165,6 +167,7 @@ What will each line of code return? Write down your answers, then use Pry or IRB
 ```ruby
 7 / 2
 7 / 2.0
+7 >= 7
 7.even?
 7.31.round(1)
 ```
