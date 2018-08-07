@@ -24,6 +24,8 @@ Available [here](../slides/methods_and_return_values)
 * Argument
 * Parse
 * Execute
+* Command
+* Query
 * Abstraction
 
 ## Warmup
@@ -181,83 +183,307 @@ end
 
 As soon as Ruby sees the `return` keyword, the method stops and outputs the specified value.
 
-**IMPORTANT: each of the previous versions of convert_to_celsius return the same value**
+**IMPORTANT: each of the previous versions of `convert_to_celsius` return the same value**
 
-## Calling our Methods
+## Practice
 
-Let's update the `converter.rb` file:
+Using our Credit Check project from yesterday, let's practice creating some of our own methods.
 
-```ruby
-# converter.rb
+First, let's wrap our whole algorithm into one giant method, called `validate`:
 
-def print_welcome
-  puts 'Welcome to Converter!'
+```
+#lib/credit_check.rb
+
+def validate(card_number)
+  digits = card_number.chars
+  double_every_other = []
+  digits.each.with_index do |digit, index|
+    if index.even?
+      double_every_other << digit.to_i * 2
+    else
+      double_every_other << digit.to_i
+    end
+  end
+
+  summed_over_ten = []
+  double_every_other.each do |digit|
+    if digit > 9
+      summed_over_ten << digit - 9
+    else
+      summed_over_ten << digit
+    end
+  end
+
+  sum = 0
+  summed_over_ten.each do |digit|
+    sum += digit
+  end
+
+  if sum % 10 == 0
+    puts "The number #{card_number} is valid"
+  else
+    puts "The number #{card_number} is invalid"
+  end
 end
 
-def convert_to_celsius(fahrenheit)
-  ((fahrenheit - 32) * 5.0 / 9.0).round(2)
-end
-
-print_welcome
-convert_to_celsius(32)
-convert_to_celsius(35)
-convert_to_celsius(100)
+card_number = "5541801923795240"
+validate(card_number)
 ```
 
-Once you have saved the code above, run it using the command `ruby converter.rb` in your terminal. Be sure you are in the same directory as the `converter.rb` file.
+Once you have saved the code above, run it using the command `ruby lib/credit_check.rb` in your terminal. Be sure you are in the root directory of your credit check project.
 
 What happens? Is it what you expected? Why or why not?
 
-It may look like nothing happened, but in the background this program ran and did everything we told it to. We didn't see anything because we never explicitly told it to print values to the screen.
+Let's try something else. In the last `if` statement, remove the two `puts` so that the `if` statement looks like this:
 
-Let's change the program so that we can see some output.
+```
+if sum % 10 == 0
+    "The number #{card_number} is valid"
+  else
+    "The number #{card_number} is invalid"
+  end
+```
+
+Now, run the file again.  What happens? Discuss with a partner.
+
+In this new version of our credit_check, we can see the result by printing the result of the method call, like this:
 
 ```ruby
-# converter.rb
+def validate(card_number)
+  digits = card_number.chars
+  double_every_other = []
+  digits.each.with_index do |digit, index|
+    if index.even?
+      double_every_other << digit.to_i * 2
+    else
+      double_every_other << digit.to_i
+    end
+  end
 
-def print_welcome
-  puts 'Welcome to Converter!'
+  summed_over_ten = []
+  double_every_other.each do |digit|
+    if digit > 9
+      summed_over_ten << digit - 9
+    else
+      summed_over_ten << digit
+    end
+  end
+
+  sum = 0
+  summed_over_ten.each do |digit|
+    sum += digit
+  end
+
+  if sum % 10 == 0
+    "The number #{card_number} is valid"
+  else
+    "The number #{card_number} is invalid"
+  end
 end
 
-def convert_to_celsius(fahrenheit)
-  ((fahrenheit - 32) * 5.0 / 9.0).round(2)
-end
-
-celsius_1 = convert_to_celsius(32)
-celsius_2 = convert_to_celsius(35)
-celsius_3 = convert_to_celsius(100)
-
-print_welcome
-puts celsius_1
-puts celsius_2
-puts celsius_3
+card_number = "5541801923795240"
+puts validate(card_number)
 ```
+
+### Refactoring
+Right now, our credit_check file has one giant method - this is not a good sign! When creating methods, we want each method to have one responsibility, or one job. With a partner, discuss what each of the 'responsibilities' of this method are - how many can you pick out?
+
+The first job of our `validate` method is to convert the `card_number` string into an array of integers.  Let's pull that responsibility out into its own method:
+
+```ruby
+def get_digits(card_number)
+  digit_array = []
+  characters = card_number.chars
+  characters.each do |character|
+    digit_array << character.to_i
+  end
+  digit_array
+end
+
+def validate(array_of_digits, card_number)
+  doubled = []
+  array_of_digits.each.with_index do |digit, index|
+    if index.even?
+      doubled << digit * 2
+    else
+      doubled << digit
+    end
+  end
+
+  summed_over_ten = []
+  doubled.each do |digit|
+    if digit > 9
+      summed_over_ten << digit - 9
+    else
+      summed_over_ten << digit
+    end
+  end
+
+  sum = 0
+  summed_over_ten.each do |digit|
+    sum += digit
+  end
+
+  if sum % 10 == 0
+    "The number #{card_number} is valid"
+  else
+    "The number #{card_number} is invalid"
+  end
+end
+
+card_number = "5541801923795240"
+array_of_digits = get_digits(card_number)
+puts validate(array_of_digits, card_number)
+```
+
+Great! Now, we have a nice `get_digits` method that is responsible for only one job: converting a string into an array of integers. Let's use this same principle to refactor the rest of our `validate` method.
+
+```ruby
+def get_digits(card_number)
+  digit_array = []
+  characters = card_number.chars
+  characters.each do |character|
+    digit_array << character.to_i
+  end
+  digit_array
+end
+
+def double_every_other(array_of_digits)
+  doubled = []
+  array_of_digits.each.with_index do |digit, index|
+    if index.even?
+      doubled << digit * 2
+    else
+      doubled << digit
+    end
+  end
+  doubled
+end
+
+def sum_over_ten(digits)
+  summed_over_ten = []
+  digits.each do |digit|
+    if digit > 9
+      summed_over_ten << digit - 9
+    else
+      summed_over_ten << digit
+    end
+  end
+  summed_over_ten
+end
+
+def sum_digits(digits)
+  sum = 0
+  digits.each do |digit|
+    sum += digit
+  end
+  sum
+end
+
+def divisible_by_ten?(sum)
+  if sum % 10 == 0
+    true
+  else
+    false
+  end
+end
+
+def output(validity, card_number)
+  if validity
+    "The number #{card_number} is valid"
+  else
+    "The number #{card_number} is invalid"
+  end
+end
+
+card_number = "5541801923795240"
+array_of_digits = get_digits(card_number)
+doubled = double_every_other(array_of_digits)
+summed_over_ten = sum_over_ten(doubled)
+sum = sum_digits(summed_over_ten)
+validity = divisible_by_ten?(sum)
+puts output(validity, card_number)
+```
+
+Now, all of our methods are carrying just one responsibility!  There is just one more thing that we can do to help refactor this program. As it stands, we are calling a bunch of methods to achieve the goal of verifying a credit card number.  Wouldn't it be nice to only have to call one method whose responsibility would be to call the other methods?  Let's go ahead and make that refactor in the next section.
+
 
 ### Calling Methods from Other Methods
 
-We can also call methods from within other methods that are in the same scope. Let's add a function that takes a number and then prints a more robust message.
+We can call methods from within other methods that are in the same scope. Let's add a function that takes a credit card number and calls out to the other methods to check it's validity.
 
 ```ruby
-# converter.rb
-
-def print_welcome
-  puts 'Welcome to Converter!'
+def is_valid?(card_number)
+  array_of_digits = get_digits(card_number)
+  doubled = double_every_other(array_of_digits)
+  summed_over_ten = sum_over_ten(doubled)
+  sum = sum_digits(summed_over_ten)
+  validity = divisible_by_ten?(sum)
+  output(validity, card_number)
 end
 
-def convert_to_celsius(fahrenheit)
-  ((fahrenheit - 32) * 5.0 / 9.0).round(2)
+def get_digits(card_number)
+  digit_array = []
+  characters = card_number.chars
+  characters.each do |character|
+    digit_array << character.to_i
+  end
+  digit_array
 end
 
-def print_converted(temperature)
-  converted = convert_to_celsius(temperature)
-  puts "#{temperature} degrees Fahrenheit is equal to #{converted} degrees Celsius"
+def double_every_other(array_of_digits)
+  doubled = []
+  array_of_digits.each.with_index do |digit, index|
+    if index.even?
+      doubled << digit * 2
+    else
+      doubled << digit
+    end
+  end
+  doubled
 end
 
-print_welcome
-print_converted(32)
-print_converted(35)
-print_converted(100)
+def sum_over_ten(digits)
+  summed_over_ten = []
+  digits.each do |digit|
+    if digit > 9
+      summed_over_ten << digit - 9
+    else
+      summed_over_ten << digit
+    end
+  end
+  summed_over_ten
+end
+
+def sum_digits(digits)
+  sum = 0
+  digits.each do |digit|
+    sum += digit
+  end
+  sum
+end
+
+def divisible_by_ten?(sum)
+  if sum % 10 == 0
+    true
+  else
+    false
+  end
+end
+
+def output(validity, card_number)
+  if validity
+    "The number #{card_number} is valid"
+  else
+    "The number #{card_number} is invalid"
+  end
+end
+
+card_number = "5541801923795240"
+puts is_valid?(card_number)
 ```
+
+A note on order: The order of your _methods_ does not matter.  Ruby will **parse** each method as the file is read and then when a method is **called** Ruby will **execute** the parsed methods accordingly.
 
 ### Layers of Abstraction
 
@@ -265,39 +491,8 @@ One of the advantages of using methods is that we can build methods that operate
 
 ![](https://camo.githubusercontent.com/07f5ef4748c194ee893c18089a2b6513d473ac37/687474703a2f2f6d696e6573662e636f6d2f7265736f75726365732f6363612f77702d636f6e74656e742f75706c6f6164732f323031302f30312f61627374726163742d6f2d6d65746572312e6a7067)
 
-If we look at our `converter.rb` file, what we really want to do is take three numbers, print a welcome, and then print a message for each of those numbers. We can create a method that does exactly that. Bundling these more detailed methods into more abstract methods can help us to create more complex programs.
+If we look at our `credit_check.rb` file, what we really want to do is take a credit card number, check that it is valid, and print an outcome for that number. We _can_ create a method that does exactly that, but bundling these more detailed methods into more abstract methods can help us to create more complex programs.
 
-```ruby
-# converter.rb
-
-def convert(first, second, third)
-  print_welcome
-  print_converted(first)
-  print_converted(second)
-  print_converted(third)
-end
-
-def print_welcome
-  puts 'Welcome to Converter!'
-end
-
-def convert_to_celsius(fahrenheit)
-  ((fahrenheit - 32) * 5.0 / 9.0).round(2)
-end
-
-def print_converted(temperature)
-  converted = convert_to_celsius(temperature)
-  puts "#{temperature} degrees Fahrenheit is equal to #{converted} degrees Celsius"
-end
-convert(32, 35, 100)
-convert(12, 45, 65)
-```
-
-**Turng & Talk**
-Talk with your partner about the flow of this program. Where does it start, how does each method get called?  
-
-
-With a partner, create a method that provides similar functionality for `doubler.rb`. If you finish that, see if you can change your method so that it accepts an array as an argument and prints a message for each element of the array.
 
 ## WrapUp
 
