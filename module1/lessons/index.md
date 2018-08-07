@@ -4,7 +4,7 @@ title: Module 1 Lessons
 ---
 
 ### Ruby Mechanics
-* [Ruby Data Types](./ruby_data_types)
+* [Ruby Data Types](./datatypes)
 * [Flow Contol](./flow_control)
 * [Exploring .each](./exploring_each)
 * [Methods, Arguments, Return Values](./methods_and_return_values)
