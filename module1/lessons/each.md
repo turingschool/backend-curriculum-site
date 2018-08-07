@@ -6,8 +6,14 @@ tags: enumerable, ruby, collections, arrays, each,
 
 ## Learning Goals
 
-* understand how to use #each
-* Identify common patterns used with #each
+* understand how to use #each to iterate over a collection
+
+## Vocabulary
+
+* Collection
+* Iteration
+* Block
+* Block Variable
 
 # Scalability
 
@@ -17,8 +23,7 @@ Let's pretend that we've just graduated from Turing, and that we've landed our f
 students = ["Katie Bell", "Neville Longbottom", "Luna Lovegood"]
 ```
 
-What if we wanted to print out all of the items in this array? If we didn't
-know what loops were we might do something like this.
+What if we wanted to print out all of the items in this array? If we didn't know what loops were we might do something like this.
 
 ```ruby
 puts students[0]
@@ -28,12 +33,9 @@ puts students[2]
 
 And that works, right?
 
-But what are some of the problems inherent to this approach? It wasn't too
-terrible to do with just three students in this array, but what if we had ten
-students? A hundred? A thousand? A million?
+But what are some of the problems inherent to this approach? It wasn't too terrible to do with just three students in this array, but what if we had ten students? A hundred? A thousand? A million?
 
-When we have a solution that works for a small number of items, but we
-it doesn't work for a large number of items, we say that _it doesn't scale_. We want to design solution that are dynamic, meaning they can work for various inputs.
+When we have a solution that works for a small number of items, but it doesn't work for a large number of items, we say that _it doesn't scale_. We want to design solution that are dynamic, meaning they can work for various inputs.
 
 # \#each
 
@@ -73,7 +75,11 @@ students = ["Katie Bell", "Neville Longbottom", "Luna Lovegood"]
 students.each {|student_name| puts student_name }
 ```
 
-Generally, we avoid using single-line syntax unless the operation inside the block is *very* short. In this example, it is appropriate. 
+Generally, we avoid using single-line syntax unless the operation inside the block is *very* short. In this example, it is appropriate.
+
+# Credit Check Example
+
+Let's use the [Credit Check Project](../projects/credit_check) as an example problem where we'll need to do some iteration.
 
 ### Your Turn
 
