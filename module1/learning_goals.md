@@ -25,7 +25,7 @@ A student who graduates from this module will be able to do the following:
 
 * Students will be able to identify and utilize Symbols
 
-* Students will be able to implement best-choice enumerable methods to iterate over collections
+* Students will be able to appropriately use enumerable methods to iterate over collections
 
 * Students will be able to use the following Flow Control structures:
 
