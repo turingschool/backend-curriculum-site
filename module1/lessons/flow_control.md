@@ -5,8 +5,6 @@ length: 60
 tags: fundamentals, computer science
 ---
 
-# Flow Control
-
 ## Learning Goals
 
 * explain the flow of execution through a chunk of code  
@@ -19,6 +17,9 @@ tags: fundamentals, computer science
 * break out of an infinite loop in both IRB and regular Ruby
 
 ## Vocabulary  
+* condition
+* boolean
+* conditional branching
 * flow control  
 * if/elsif/else
 * loop
@@ -287,3 +288,5 @@ With a partner, each of you creating a version on your computer:
 * If the text has an odd number of characters, print "ODD!"
 * If the text has an even number of characters, print "EVEN!"
 * The program should repeat this process until the user enters "q" or "quit"
+
+**Bonus**: Create three versions of this program that use three different types of loops: `while`, `until`, and `loop do`
