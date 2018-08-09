@@ -5,8 +5,8 @@ title: Module 1 Exercises
 
 ### Practice Independent Challenges
 
-* [Super Fizz Buzz](./independents/super_fizz_buzz)
-* [Bad Connection](./independents/bad_connection)
+* [Super Fizz Buzz](https://github.com/turingschool-examples/super_fizz_buzz)
+* [Bad Connection](https://github.com/turingschool-examples/bad_connection)
 * [Morse Translator](https://github.com/turingschool-examples/morse_translator)
 * [Scrabble](https://github.com/turingschool-examples/scrabble)
 * [Open Mic](https://github.com/turingschool-examples/open_mic)
