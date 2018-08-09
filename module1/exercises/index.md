@@ -6,14 +6,15 @@ title: Module 1 Exercises
 ### Practice Independent Challenges
 
 * [Super Fizz Buzz](https://github.com/turingschool-examples/super_fizz_buzz)
-* [Bad Connection](https://github.com/turingschool-examples/bad_connection)
-* [Morse Translator](https://github.com/turingschool-examples/morse_translator)
+* [Binary Translator](https://github.com/turingschool-examples/binary_translator)
 * [Scrabble](https://github.com/turingschool-examples/scrabble)
+* [Potluck](https://github.com/turingschool-examples/potluck)
+* [World Cup](https://github.com/turingschool-examples/world_cup)
 * [Open Mic](https://github.com/turingschool-examples/open_mic)
-* [Denver Public Library](https://github.com/turingschool-examples/denver_public_library)
 * [Market Street Apartments](https://github.com/turingschool-examples/market_st_apartments)
+* [Denver Public Library](https://github.com/turingschool-examples/denver_public_library)
 * [Museum](https://github.com/turingschool-examples/museum)
-* [Reunion](https://github.com/turingschool-examples/reunion)
+* [Pantry](https://github.com/turingschool-examples/pantry)
 * [Market](https://github.com/turingschool-examples/market)
 
 ### Practice Paired Assessments
