@@ -14,7 +14,7 @@ title: Module 1 Exercises
 * [Market Street Apartments](https://github.com/turingschool-examples/market_st_apartments)
 * [Museum](https://github.com/turingschool-examples/museum)
 * [Reunion](https://github.com/turingschool-examples/reunion)
-* [Company Audit](https://github.com/turingschool-examples/company-audit)
+* [Market](https://github.com/turingschool-examples/market)
 
 ### Practice Paired Assessments
 
