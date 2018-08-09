@@ -14,14 +14,10 @@ tags: sql, databases, modeling
 
 ## Structure
 
-* 5 - Warmup
-* 20 - Lecture
-* 5 - Break
-* 15 - Lecture
-* 10 - Fundamental SQL Tutorial
-* 5 - Break
-* 20 - Fundamental SQL Tutorial
-* 5 - Wrapup
+* Warmup
+* Lecture
+* Code-along
+* Wrapup
 
 ## Warmup
 
@@ -33,7 +29,7 @@ Discuss the following questions with another student. Which answers do you know?
 
 ## Lecture
 
-[Slides](https://www.dropbox.com/s/8ofg6iu0iakdqw9/intro_to_SQL.key?dl=0)
+[Slides](https://docs.google.com/presentation/d/1ARR7ILvni6jeV3_5Ku0eEx-bxgG_njj8dcU-mlq8k-M/)
 
 Let's discuss the big picture of SQL:
 
@@ -48,18 +44,20 @@ Let's discuss the big picture of SQL:
 
 ### Key Points
 
-* must end SQL statements with a semicolon
-* capital vs. lowercase conventions
+* You must end SQL statements with a semicolon
+* Keywords in SQL, such as "SELECT" and "WHERE" do not have to be capitalized, but convention says they should
+* Indentation and multi-line queries make them MUCH easier to read
 
 ### Snippets
 
 ```sql
+-- comments in SQL usually start with a double dash
+-- each of the following is a separate command
 SELECT * FROM table WHERE column=value;
-INSERT INTO table (column1,column2,column3) VALUES (value1,value2,value3);
+INSERT INTO table (column1, column2, column3) VALUES (value1, value2, value3);
 DELETE FROM table WHERE column=value;
 SELECT column FROM table1 INNER JOIN table2 ON table1.column_name=table2.column_name;
 ```
-
 
 ## Independent Work
 
@@ -83,3 +81,9 @@ Return to the warmup questions and improve your answers.
 * What is a relational database, and how does it differ from any old database?
 * Name something you can do with SQL.
 * What does AUTOINCREMENT do? Why is this important, or how does it make our life easier?
+
+## Practice/Homework
+
+Practice SQL online:
+
+https://pgexercises.com/gettingstarted.html
