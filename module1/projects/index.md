@@ -41,4 +41,6 @@ title: Backend Module 1 Projects
 
 #### [Sorting Suite](./sorting_suite)
 
+#### [Super Sports Games](./super_sports_games)
+
 #### [Wizarding Bank](./wizarding_bank)
