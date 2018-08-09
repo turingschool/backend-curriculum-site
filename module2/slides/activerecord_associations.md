@@ -130,7 +130,7 @@ $ rake db:create_migration NAME=create_genres
 # Update Genres Migration
 
 ```ruby
-class CreateGenres < ActiveRecord::Migration
+class CreateGenres < ActiveRecord::Migration[5.1]
   def change
     create_table :genres do |t|
       t.string :name
@@ -193,7 +193,7 @@ $ rake db:create_migration NAME=add_genre_id_to_films
 Inside of that file:
 
 ```ruby
-class AddGenreIdToFilms < ActiveRecord::Migration
+class AddGenreIdToFilms < ActiveRecord::Migration[5.1]
   def change
     add_column :films, :genre_id, :integer
   end

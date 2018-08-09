@@ -76,7 +76,7 @@ Let's look at the SorceryCore migration that the generator created before we mig
 For this tutorial, you will need to add the username column to the Author model. To do that, open the migration file `*_sorcery_core.rb` file under `db/migrate` and make sure your file looks like this:
 
 ```ruby
-class SorceryCore < ActiveRecord::Migration
+class SorceryCore < ActiveRecord::Migration[5.1]
   def change
     create_table :authors do |t|
       t.string :username,         :null => false
