@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Methods and Return Values
-length: 60
+length: 90
 tags: ruby, methods, return, argument
 ---
 
@@ -24,8 +24,6 @@ Available [here](../slides/methods_and_return_values)
 * Argument
 * Parse
 * Execute
-* Command
-* Query
 * Abstraction
 
 ## Warmup
