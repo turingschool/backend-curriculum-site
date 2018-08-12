@@ -67,7 +67,7 @@ That will create a file in your `db/migrate/` folder that ends in `_add_papercli
 Remember that the code inside the `change` method is to migrate the database forward, and Rails should automatically figure out how to undo those changes. We'll use the `add_column` and `remove_column` methods to setup the fields paperclip is expecting:
 
 ```ruby
-class AddPaperclipFieldsToArticle < ActiveRecord::Migration
+class AddPaperclipFieldsToArticle < ActiveRecord::Migration[5.1]
   def change
     add_column :articles, :image_file_name,    :string
     add_column :articles, :image_content_type, :string

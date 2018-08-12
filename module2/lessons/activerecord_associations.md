@@ -13,6 +13,7 @@ tags: activerecord, migrations, sinatra, relational_database
 * interpret `schema.rb`
 
 ## Vocabulary
+
 * primary key
 * foreign key
 * one-to-one
@@ -90,7 +91,7 @@ Sample students table:
 | 6  | Victoria   | Vasys     | 1         |
 | 7  | Mike       | Dao       | 1         |
 
-We can use this same pattern to create a one-to-one relationship, though we would need to validate the uniquness of the foreign key (e.g. `course_id`) above.
+We can use this same pattern to create a one-to-one relationship, though we would need to validate the uniqueness of the foreign key (e.g. `course_id`) above.
 
 #### Model Level
 
@@ -140,7 +141,7 @@ $ rake db:create_migration NAME=create_playlists
 Use `ActiveRecord`'s `create_table` method to specify what we want to name this table and the fields it will include. For now, a playlist only needs a name.
 
 ```ruby
-class CreatePlaylists < ActiveRecord::Migration
+class CreatePlaylists < ActiveRecord::Migration[5.1]
   def change
     create_table :playlists do |t|
       t.string :name
@@ -206,6 +207,39 @@ Let's assume that a song can only belongs to a single playlist, and a playlist h
 
 If a playlist has many songs, then we'll add a foreign key **on the song** model. This allows a song to **belong** to a playlist.
 
+Let's add some testing first! Inside of `spec/models/song_spec.rb` in our "Validations" block, let's add this new test:
+
+```ruby
+describe "Validations" do
+  # the other tests are here
+  it "has one playlist" do
+    association = described_class.reflect_on_association(:playlist)
+    expect(association.macro).to eq :belongs_to
+  end
+end
+```
+
+We should also make a test file for our Playlist model as well:
+
+```ruby
+# spec/models/playlist_spec.rb
+
+RSpec.describe Playlist, :type => :model do
+  describe "Validations" do
+    it "has many songs" do
+      association = Playlist.reflect_on_association(:songs)
+      expect(association.macro).to eq :has_many
+    end
+  end
+end
+```
+
+The error we get when we run `rspec` is a weird message about `undefined method 'macro' for nil:NilClass`. That means our `association` variable, which we're telling to "reflect" on its model associations, is coming back `nil`. This is our hint that the relationship is not set up properly.
+
+#### Relating the data at the database level first
+
+Before ActiveRecord can understand the relationship between two tables, we have to do some work in the database first.
+
 We'll need to add a `playlist_id` column to the `songs` table. An individual `Song` will always have a reference to one `Playlist` by using the `playlist_id` field.
 
 Let's add the migration to add a `playlist_id` to the `songs` table.
@@ -217,7 +251,7 @@ $ rake db:create_migration NAME=add_playlist_id_to_songs
 Inside of that file:
 
 ```ruby
-class AddPlaylistIdToSongs < ActiveRecord::Migration
+class AddPlaylistIdToSongs < ActiveRecord::Migration[5.1]
   def change
     add_column :songs, :playlist_id, :integer
   end
@@ -260,7 +294,7 @@ class Playlist < ActiveRecord::Base
 end
 ```
 
-Now, when we have an **intsance** of a single `Playlist`, we have access to a method called `songs` on that instance. 
+Now, when we have an **instance** of a single `Playlist`, we have access to a method called `songs` on that instance.
 
 ```ruby
 my_playlist = Playlist.create(name: 'Funky Beats 2018')
@@ -346,7 +380,7 @@ Run `shotgun` from the command line, then navigate to `localhost:9393/songs`. Yo
 
 ### Extension
 
-What would this look like for a many-to-many relationship? How do you structure the tables in the database? What do the migrations look like to get this done? How are your models impacted? How will this impact data prep in tests or controller methods? 
+What would this look like for a many-to-many relationship? How do you structure the tables in the database? What do the migrations look like to get this done? How are your models impacted? How will this impact data prep in tests or controller methods?
 
 ## WrapUP
 

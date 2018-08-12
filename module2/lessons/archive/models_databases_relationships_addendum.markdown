@@ -16,7 +16,7 @@ Let's do:
 Let's look at the migration inside of `db/migrate`:
 
 ```ruby
-class CreateAuthors < ActiveRecord::Migration
+class CreateAuthors < ActiveRecord::Migration[5.1]
   def change
     create_table :authors do |t|
       t.text :first_name

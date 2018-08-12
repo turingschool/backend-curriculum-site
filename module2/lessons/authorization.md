@@ -38,7 +38,7 @@ require "rails_helper"
 describe User, type: :model do
   describe 'Validations' do
     it { should validate_presence_of(:username) }
-    
+
     it "uniqueness of username" do
       orig = User.create(username: "user", password: "Password")
       copy_cat = User.new(username: "user", password: "Password")
@@ -64,7 +64,7 @@ Failures:
 # app/models/user.rb
 class User < ActiveRecord::Base
   validates :username, presence: true, uniqueness: true
-  
+
   ...
 end
 ```
@@ -154,7 +154,7 @@ $ rails g migration AddRoleToUsers role:integer
 That should give us a starting point. Edit the new migration to include a default value of 0.
 
 ```ruby
-class AddRoleToUsers < ActiveRecord::Migration
+class AddRoleToUsers < ActiveRecord::Migration[5.1]
   def change
     add_column :users, :role, :integer, default: 0
   end
@@ -163,7 +163,7 @@ end
 
 Don't forget to run `rake db:migrate` to run this migration! Check your `db/schema.rb` to ensure that our schema reflects these changes.
 
-We're halfway there! We've added a role, but we'll still get a fairly useless error. 
+We're halfway there! We've added a role, but we'll still get a fairly useless error.
 
 ```
 Failures:
@@ -314,9 +314,9 @@ context "as default user" do
                        role: 0)
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-    
+
     visit admin_categories_path
-    
+
     expect(page).to_not have_content("Admin Categories")
     expect(page).to have_content("The page you were looking for doesn't exist.")
   end
@@ -330,7 +330,7 @@ Inside of our `Admin::CategoriesController`, let's add a `before_action` to chec
 ```ruby
 class Admin::CategoriesController < ApplicationController
   before_action :require_admin
-  
+
   private
     def require_admin
       render file: "/public/404" unless current_admin?
@@ -393,7 +393,7 @@ class Admin::CategoriesController < Admin::BaseController
 end
 ```
 
-## WrapUp 
+## WrapUp
 
 *   What's the difference between Authentication and Authorization?
 *   Why are both necessary for securing our applications?

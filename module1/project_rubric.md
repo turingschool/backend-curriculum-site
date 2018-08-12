@@ -20,7 +20,7 @@ Notes:
 The student(s):
 
 - [ ] appropriately uses Strings, Integers, Floats, Ranges, Symbols, Nils, Arrays, and Hashes
-- [ ] implements best-choice enumerable methods to iterate over collections
+- [ ] implements appropriate enumerable methods to iterate over collections
 - [ ] uses boolean expressions and flow control structures to logically manage a program's flow
 - [ ] uses methods, arguments, and return values to break code into logical components
 - [ ] creates Classes that utilize instance variables, attribute accessors, and instance methods
@@ -39,7 +39,6 @@ The student(s):
     * Methods are under 7 lines
     * Lines of code are under 80 characters
     * Project directory structure adheres to convention
-    * A linter reports less than 5 errors
 
 ## Testing
 
@@ -50,7 +49,6 @@ The student(s):
 - [ ] writes Minitest tests that describe the expected behavior of a program according to technical specifications
 - [ ] names and orders tests so that a test file reads like documentation
 - [ ] writes Minitest assertions that accurately test a piece of functionality
-- [ ] writes a test before writing code that implements the behavior to make that test pass
 - [ ] writes both integration and unit tests
 
 ## Version Control

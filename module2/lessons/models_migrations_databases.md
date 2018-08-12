@@ -8,7 +8,7 @@ tags: migrations, databases, relationships, rails, activerecord
 
 In this lesson, we'll be adding to our new SetList Rails app to demonstrate a one-to-many and a many-to-many relationship.
 
-We'll add two tables (`artists`, and `playlists`) to our database, and connect them to our existing `songs` table. What might the relationships look like? 
+We'll add two tables (`artists`, and `playlists`) to our database, and connect them to our existing `songs` table. What might the relationships look like?
 
 ## Learning Goals
 
@@ -17,7 +17,7 @@ We'll add two tables (`artists`, and `playlists`) to our database, and connect t
 * Create many-to-many relationships at the database level using join tables with foreign keys.
 * Use `has_many` and `belongs_to` to create one-to-many and many-to-many relationships at the model level.
 
-## Vocab 
+## Vocab
 * Migration
 * Schema
 * Relationships
@@ -45,7 +45,7 @@ We're going to use the handy dandy gem [shoulda-matchers](https://github.com/tho
 - run `bundle update`
 - Put the following in `rails_helper.rb`:
 
-```ruby 
+```ruby
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|
     with.test_framework :rspec
@@ -68,14 +68,14 @@ require 'rails_helper'
 describe Artist, type: :model do
   describe "validations" do
     it {should validate_presence_of(:name)}
-  end 
+  end
 end
 
 ```
 
 When we run rspec, we get an error similar to this:
 
-```ruby 
+```ruby
 # --- Caused by: ---
      # PG::UndefinedTable:
      #   ERROR:  relation "artists" does not exist
@@ -99,7 +99,7 @@ The migration generator creates a migration and if we follow the working convent
 Let's look at the migration inside of `db/migrate`:
 
 ```ruby
-class CreateArtists < ActiveRecord::Migration
+class CreateArtists < ActiveRecord::Migration[5.1]
   def change
     create_table :artists do |t|
       t.string :name
@@ -120,7 +120,7 @@ end
 
 Let's run rspec again.  
 
-```ruby 
+```ruby
 Failures:
 
   1) Artist should validate that :name cannot be empty/falsy
@@ -136,9 +136,9 @@ The important part to read here is `Artist did not properly validate that :name 
 
 Let's add a validation to Artist!
 
-```ruby 
+```ruby
 class Artist < ApplicationRecord
- validates_presence_of :name 
+ validates_presence_of :name
 end
 ```
 
@@ -151,10 +151,10 @@ What's the relationship between song and artist? Draw this out in a diagram to h
 
 Let's create a test to help us drive this out.  Add the following to your `artist_spec.rb` within the greater describe Artist block, but outside of the validations block.
 
-```ruby 
+```ruby
 describe 'relationships' do
   it {should have_many(:songs)
-end 
+end
 ```
 
 When we run this test we get an error something like this:
@@ -177,7 +177,7 @@ rails g migration AddArtistsToSongs artist:references
 
 Take a look at what this migration creates.
 
-```ruby 
+```ruby
 class AddArtistsToSongs < ActiveRecord::Migration[5.1]
   def change
     add_reference :songs, :artist, foreign_key: true
@@ -201,13 +201,13 @@ Why do we need a foreign key at the database level and the `belongs_to` method i
 *In the console*:
 
 - Create a artist.
-- Create a song. 
+- Create a song.
 
-Did you get an error? Maybe `NameError: uninitialized constant Artist`? 
+Did you get an error? Maybe `NameError: uninitialized constant Artist`?
 
-- Why are we getting this error? 
-- What do we need to do to fix this error? 
-  - Remember that creating a migration is a separate step from *running* the migration. 
+- Why are we getting this error?
+- What do we need to do to fix this error?
+  - Remember that creating a migration is a separate step from *running* the migration.
 - Hop out of the console and fix the error.
 
 Hop back into the console:  
@@ -234,7 +234,7 @@ When you're thinking about what to call this table, think about how you're likel
 
 Let's create a test.
 
-```ruby 
+```ruby
 # spec/models/playlist_spec.rb
 
 require "rails_helper"
@@ -242,13 +242,13 @@ require "rails_helper"
 describe Playlist, type: model do
   describe "relationships" do
     it {should have_many(:songs).through(:playlist_songs}
-  end 
-end 
+  end
+end
 ```
 
-When we run this, what error do we get? 
+When we run this, what error do we get?
 
-```ruby 
+```ruby
 # --- Caused by: ---
      # PG::UndefinedTable:
      #   ERROR:  relation "playlist" does not exist
@@ -265,7 +265,7 @@ rails g migration CreatePlaylists name:string
 
 If we run rspec again, we'll likely get something like this:
 
-```ruby 
+```ruby
 # --- Caused by: ---
      # PG::UndefinedTable:
      #   ERROR:  relation "playlist_songs" does not exist
