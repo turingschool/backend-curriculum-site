@@ -5,8 +5,6 @@ length: 60
 tags: fundamentals, computer science
 ---
 
-# Flow Control
-
 ## Learning Goals
 
 * explain the flow of execution through a chunk of code  
@@ -19,6 +17,9 @@ tags: fundamentals, computer science
 * break out of an infinite loop in both IRB and regular Ruby
 
 ## Vocabulary  
+* condition
+* boolean
+* conditional branching
 * flow control  
 * if/elsif/else
 * loop
@@ -27,46 +28,206 @@ tags: fundamentals, computer science
 * times
 * infinite loop
 
-## Structure  
-5 min  - WarmUp   
-20min - Intro to Branching & Loops   
-5 min  - Break  
-20min - Paired Exercises   
-5 min  - WrapUp  
-
-## WarmUp  
-In your journal, with a partner, and using the internet as a tool, answer the following:  
-*  What tools have you seen or used to determine what happens next in your code base?  
-*  What are some use cases for each of these?  
-
 ### Note
 
 You're going to learn different ways to accomplish the same thing in this lesson. Remember that these are tools, and as you learn to be a software developer, you'll get a better idea of which tool to use for which job. For now, just try to understand how the tool works, and at least one use for that tool.
 
+# Conditions
+
+In programming, we refer to something that is either `true` or `false` as a **Boolean**.
+
+A condition is something that evaluates to a Boolean. This can be as simple as a variable that holds a Boolean value:
+
+```ruby
+play_again = false
+```
+
+We can also use comparison operators to create a condition by comparing two values. The important comparison operators are:
+
+* `==` equal to
+  * Be careful not to mix this up with `=`
+* `>` greater than
+* `>=` greater than or equal to
+* `<` less than
+* `<=` less than or equal to
+* `!=` not equal
+
+We can use them like so:
+
+```ruby
+mood = "hungry"
+mood == "sleepy"
+#=> false
+mood.length > 5
+#=> true
+mood != "grumpy"
+#=> true
+```
+
+You can also use the negation operator `!` (also known as a "bang") to reverse something from true to false.
+
+```ruby
+play_again = true
+!play_again
+#=> false
+```
+
+There are also methods that can be used as conditions. Although it's not a rule, typically these methods end in a `?`:
+
+```ruby
+1.even?
+#=> false
+"hello".include? "h"
+#=> true
+```
+
+## `||` and `&&`
+
+We can use the "or" operator `||` and the "and" operator `&&` to combine two conditions into a single condition. `||` evaluates to true if one of the conditions is true. `&&` evaluates to true if both are true:
+
+```ruby
+breed = "Corgi"
+age = 2
+breed == "Corgi" || age == 3
+#=> true
+breed == "Corgi" && age == 3
+#=> false
+```
+
+Be careful... a common mistake is to try to use `||` with two possible values. If we want to say "the count is either 0 or 10", you may try something like this:
+
+```ruby
+count = 5
+count == 0 || 10
+```
+
+This won't give you an error, but it isn't working like you expect. For reasons we will discuss later, this condition will always evaluate to true, which might not be what you expect. If we read this as "count is equal to zero or ten", it makes sense to us, but that's not how Ruby reads it. Ruby evaluates each condition on the left and right independently and then combines them. So Ruby reads it as "Count is equal to zero; or ten.". The important point here is that both sides of an `||` or `&&` are valid conditions. This statement would be correctly written as:
+
+```ruby
+count = 5
+count == 0 || count == 10
+```
+
+# Conditional Branching
+
+In programming, branching refers to a choice that is made depending on whether or not a condition is true or false. Think of branching as "choose your own adventure".
+
+Examples:
+
+- If a student earns a 3.8 GPA or higher, then they are invited to the honor roll ceremony. (One branch)
+- If you want to spend a lot of money for dinner, go to a fancy restaurant. Otherwise, cook at home. (Two branches)
+
+## `if`
+
+All of our conditional branches will begin with an `if`. The code following the `if` will run if the condition is true.
+
+```ruby
+if condition
+  # code to execute if condition is true
+end
+```
+
+## `elsif`
+
+Use an `elsif` to create more branches.
+
+```ruby
+if condition1
+  # code to execute if above condition1 evaluates to true
+elsif condition2
+  # code to execute if above condition2 evaluates to true
+elsif condition3
+  # code to execute if above condition3 evaluates to true
+end
+```
+
+## `else`
+
+Code inside an `else` will run when none of the previous conditions are true.
+
+```ruby
+if condition1
+  # code to execute if above condition1 evaluates to true
+elsif condition2
+  # code to execute if above condition2 evaluates to true
+elsif condition3
+  # code to execute if above condition3 evaluates to true
+else
+  # code to execute if all previous conditions evaluate to false
+end
+```
+
+## Other rules
+
+* Conditional branches have exactly one `if`
+* The `if` can be following by any number of `elsif`s
+* A conditional branch will have either zero or one `else`
+* The `else` comes after the `if`/`elsif`s
+* The conditional branch always ends with an `end`
+* Only one branch can be taken.
+* Conditions are evaluated in order.
+
+## Check for Understanding
+
+What will the following code print to the screen?
+
+```ruby
+play_again = true
+lives = 3
+if lives == 0
+  puts "You Lose!"
+elsif !play_again
+  puts "Game Over!"
+elsif play_again && lives > 0
+  puts "Welcome back!"
+else
+  puts "invalid input"
+end
+```
+
 ## Looping
 
-### Discussion
+A loop is a set of instructions that is executed repeatedly until some condition is met. This condition may be a certain number of times that the loop is executed, for example:
 
-A loop is a set of instructions that is executed repeatedly until some condition is met. This condition may be a certain number of times that the loop is executed, or it may be a question that returns a true/false (boolean) answer.
-
-#### Examples:
-
-- While looking for a parking spot at a crowded sporting event, a car continues to drive up and down the rows until an empty spot is found (full == false).   
-(Loop that executes until a question returns true or false)
 - After baking cookies, you pull the cookie sheet out of the oven which holds 24 cookies. One by one, you remove each of the cookies from the sheet and place them on a cooling rack. (24.times do...)
 (Set of instructions that executes 24 times)
 
-**Turn & Talk**
+or it may be a question that returns a true/false (boolean) answer. For example:
 
-What are some other examples of looping in the real world?
+- While looking for a parking spot at a crowded sporting event, a car continues to drive up and down the rows until an empty spot is found (full == false).   
+(Loop that executes until a question returns true or false)
 
-### Some looping options: while, until, times
+## `times`
 
-Let's look at three of the more popular loops Ruby offers.
+A `times` loop executes code an exact number of times.
 
-What are some differences you notice among them?
+```ruby
+5.times do
+  # code to execute given number of times  
+end
+```
 
-#### `while`
+We can also include a **Block Variable** that tells us which iteration of the loop is running.
+
+This code
+
+```ruby
+5.times do |number|
+ puts number
+end
+```  
+
+will print out
+
+```
+0
+1
+2
+3
+4
+```
+
+## `while`
 
 ```ruby
 while condition
@@ -80,7 +241,7 @@ while parking_spot.full?
 end
 ```
 
-#### `until`
+## `until`
 
 ```ruby
 until condition
@@ -94,190 +255,38 @@ until parking_spot.empty?
 end
 ```
 
-#### `times`
+## loop do
+
+`loop do` allows you to run code in an infinite loop.
+
 
 ```ruby
-5.times do
-  # code to execute given number of times  
+loop do
+  # code will run forever
 end
 ```
 
+You can use the `break` keyword to end a `loop do`:
+
 ```ruby
-5.times do |number|
- # code to execute given number of times
-end
-```  
-
-If your program gets stuck, you are likely in an infite loop. You can exit using `ctl-c`.  If you want your loop to exit once something is done, you can use `break`.
-
-```
 count = 0
 loop do
   count += 1
-  break if count == 3
+  if count == 3
+    break
+  end
 end
 ```
 
-### Conditional Branching
+If you accidentally get stuck in an infinite loop, use `control + c` to stop it.
 
-In programming, branching refers to a choice that is made depending on whether or not a condition is true or false. Think of branching as "choose your own adventure".
+# Exercise
 
-Examples:
-
-- If a student earns a 3.8 GPA or higher, then they are invited to the honor roll ceremony. (One branch)
-- If you want to spend a lot of money for dinner, go to a fancy restaurant. Otherwise, cook at home. (Two branches)
-
-*Try it*: What are some other examples of branching in the real world?
-
-* `if`
-
-```ruby
-if condition
-  # code to execute
-end
-```
-
-* `else`
-
-```ruby
-if condition
-  # code to execute if true
-else
-  # code to execute if false
-end
-```
-
-* `elsif`
-
-```ruby
-if condition1
-  # code to execute if above condition1 evaluates to true
-elsif condition2
-  # code to execute if above condition2 evaluates to true
-elsif condition3
-  # code to execute if above condition3 evaluates to true
-else
-  # code to execute if both evaluate to false
-end
-```
-
-## Exercises  
 With a partner, each of you creating a version on your computer:
 
-### Branching
-You'll need a few tools to work with user input and output.
+* Write a program that will ask the user to enter some text
+* If the text has an odd number of characters, print "ODD!"
+* If the text has an even number of characters, print "EVEN!"
+* The program should repeat this process until the user enters "q" or "quit"
 
-* How do we tell Ruby to print text to the screen?
-* How do we tell Ruby to bring in text from the user?
-
-#### 1. Basic `puts` / `gets`
-
-Write a simple Ruby program which prompts the user to enter a message, then prints that message to the terminal.   
-For example:  
-From the command line:
-
-```
-$ touch flow_control.rb
-```  
-In `flow_control.rb`:
-
-```ruby
-puts "Type your message:"  
-message = gets.chomp
-puts "You typed: #{message}"
-```
-From the command line:  
-
-```
-$ ruby flow_control.rb
-Type your message:
-$ pizza
-You typed: pizza
-```
-
-#### 2. Basic Branching
-
-Extend your previous program so that if the text the user enters has an even number of letters, it prints "EVEN!", and if it has an odd number of letters, it prints "ODD!".
-
-#### 3. Multi-pronged branching
-
-Write a new program that prompts the user for a message, then, depending on the following conditions, prints an appropriate message:
-
-* If the message ends with a consonant, print "CONSONANT!"
-* If the message ends with a vowel, print "VOWEL!"
-* If the message ends with a "y", print "DON'T KNOW!"
-
-## Turn & Talk
-
-Turning the other direction, use English to explain the flow of your code with your partner.
-
-### Looping
-
-Back with your original partner:
-
-#### 1. Easy Looping
-
-Use a `times` loop to generate this output:
-
-```
-Line
-Line
-Line
-Line
-Line
-```
-
-#### 2. Looping with a Condition
-
-Build on your answer from the problem above and add an `if`/`else` to generate output like this:
-
-```
-Line is even
-Line is odd
-Line is even
-Line is odd
-Line is even
-```
-
-#### 3. Three Loops
-
-Generate the output below using three totally separate implementations (`times`, `while` and `until`):
-
-```
-This is my output line 1
-This is my output line 2
-This is my output line 3
-This is my output line 4
-This is my output line 5
-```
-
-#### 4. Rando-Guesser
-
-Write two implementations, one with `while` and one with `until` that output the following:
-
-```
-(The secret number is 8)
-Guess is 4
-Guess again!
-Guess is 5
-Guess again!
-Guess is 9
-Guess again!
-Guess is 4
-Guess again!
-Guess is 8
-You win!
-```
-
-The secret number and the guesses are both random numbers 0 through 10.
-
-## Turn & Talk  
-Turning the other direction, use English to explain the flow of your code with your partner.
-
-## WrapUp
-* What are two ways to control the flow of execution in a code base?  
-* Describe a use cases for each type of flow control covered today.(should be about 6)   
-
-## Extensions
-
-If you have time or would like more practice, try [this challenge](flow_control_alt_exercise.markdown).
+**Bonus**: Create three versions of this program that use three different types of loops: `while`, `until`, and `loop do`
