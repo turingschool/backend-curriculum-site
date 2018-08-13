@@ -84,6 +84,4 @@ Return to the warmup questions and improve your answers.
 
 ## Practice/Homework
 
-Practice SQL online:
-
-https://pgexercises.com/gettingstarted.html
+[Practice SQL online](https://pgexercises.com/gettingstarted.html)
