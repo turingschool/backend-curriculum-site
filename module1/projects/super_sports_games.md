@@ -29,7 +29,7 @@ Step | Description | Operation | Result
 
 ## Setup
 
-1. Fork [this Repository](https://github.com/turingschool-examples/generic_super_sports_games)
+1. Fork [this Repository](https://github.com/turingschool-examples/super_sports_games)
 1. Clone your forked repo to your machine with git clone <ssh key for your repo>
   1. Make sure you clone it to a location that makes sense, for example `/Users/your_user_name/turing/1module/projects`.
 
