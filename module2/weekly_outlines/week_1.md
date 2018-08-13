@@ -6,7 +6,7 @@ layout: page
 ## Lessons
   - [Intro to M2](../misc/day_1.html)
   - [Intro to REST & CRUD](../lessons/restful_routes_and_crud)
-  - [Intro to SQL](../lessons/archive/intro_to_sql)
+  - [Intro to SQL](../lessons/archive/introduction_to_sql)
   - [Intro to MVC](../lessons/intro_to_mvc)
   - [Intro to ActiveRecord in Sinatra](../lessons/intro_to_active_record_in_sinatra)
   - [Model Testing in Sinatra](../lessons/model_testing_in_sinatra)
