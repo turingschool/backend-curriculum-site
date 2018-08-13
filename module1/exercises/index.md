@@ -3,6 +3,10 @@ layout: page
 title: Module 1 Exercises
 ---
 
+### [Ruby Exercises](https://github.com/turingschool/ruby-exercises)
+### [Enumerable Exercises](https://github.com/turingschool/enums-exercises)
+### [Debugging Exercises](https://github.com/turingschool-examples/erroneous_creatures)
+
 ### Practice Independent Challenges
 
 * [Super Fizz Buzz](https://github.com/turingschool-examples/super_fizz_buzz)
@@ -31,5 +35,3 @@ title: Module 1 Exercises
 * [Super Spy](./paired/super_spy)
 * [Yacht Club](./paired/yacht_club)
 * [Company](https://github.com/turingschool-examples/company)
-
-### [__Ruby Exercises__](https://github.com/turingschool/ruby-exercises)
