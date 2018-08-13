@@ -76,7 +76,7 @@ Let's look at the SorceryCore migration that the generator created before we mig
 For this tutorial, you will need to add the username column to the Author model. To do that, open the migration file `*_sorcery_core.rb` file under `db/migrate` and make sure your file looks like this:
 
 ```ruby
-class SorceryCore < ActiveRecord::Migration
+class SorceryCore < ActiveRecord::Migration[5.1]
   def change
     create_table :authors do |t|
       t.string :username,         :null => false
@@ -351,10 +351,10 @@ Let's add in a protection scheme like this to the new users form:
 
 That way when the app is first setup we can create an account, then new users can only be created by a logged in user.
 
-We can create a `before_filter` which will run _before_ the `new` and `create` actions of our `authors_controller.rb`. Open that controller and put all this code in:
+We can create a `before_action` which will run _before_ the `new` and `create` actions of our `authors_controller.rb`. Open that controller and put all this code in:
 
 ```ruby
-before_filter :zero_authors_or_authenticated, only: [:new, :create]
+before_action :zero_authors_or_authenticated, only: [:new, :create]
 
 def zero_authors_or_authenticated
   unless Author.count == 0 || current_user
@@ -376,12 +376,12 @@ Then try to reach the registration form and it should work!  Create yourself an 
 
 ### Securing the Rest of the Application
 
-The first thing we need to do is sprinkle `before_filters` on most of our controllers:
+The first thing we need to do is sprinkle `before_actions` on most of our controllers:
 
-* In `authors_controller`, add a before filter to protect the actions besides `new` and `create` like this:<br/>`before_filter :require_login, except: [:new, :create]`
+* In `authors_controller`, add a before filter to protect the actions besides `new` and `create` like this:<br/>`before_action :require_login, except: [:new, :create]`
 * In `author_sessions_controller` all the methods need to be accessible to allow login and logout
-* In `tags_controller`, we need to prevent unauthenticated users from deleting the tags, so we protect just `destroy`. Since this is only a single action we can use `:only` like this:<br/>`before_filter :require_login, only: [:destroy]`
-* In `comments_controller`, we never implemented `index` and `destroy`, but just in case we do let's allow unauthenticated users to only access `create`:<br/>`before_filter :require_login, except: [:create]`
+* In `tags_controller`, we need to prevent unauthenticated users from deleting the tags, so we protect just `destroy`. Since this is only a single action we can use `:only` like this:<br/>`before_action :require_login, only: [:destroy]`
+* In `comments_controller`, we never implemented `index` and `destroy`, but just in case we do let's allow unauthenticated users to only access `create`:<br/>`before_action :require_login, except: [:create]`
 * In `articles_controller` authentication should be required for `new`, `create`, `edit`, `update` and `destroy`. Figure out how to write the before filter using either `:only` or `:except`
 
 Now our app is pretty secure, but we should hide all those edit, destroy, and new article links from unauthenticated users.
@@ -421,4 +421,4 @@ Date:   Thu Apr 11 17:31:37 2013 -0600
 and so on...
 ```
 
-[Continue to Iteration 6](https://github.com/turingschool/backend-curriculum-site/module2/misc/blogger_iteration_6.md)
+[Continue to Iteration 6](https://github.com/turingschool/backend-curriculum-site/blob/gh-pages/module2/misc/blogger_iteration_6.md)

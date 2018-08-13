@@ -30,7 +30,7 @@ With your partner, take a look at the entries in the table that `rake routes` gi
 
 |Table Heading       |Prefix|Verb|URI Pattern|Controller#Action| Redirect or Render| View|
 |--------------------|------|----|-----------|-----------------|-------------------|-----|
-|Example Entry       | root |GET | /         |movies#index     | render| |
+|Example Entry       | root |GET | /         |songs#index      | render| |
 |Definition (what it does)|      |    |           |                 | | |
 
 Fill in "Definition" with your understanding of what the column represents/how it can be used. If you're unsure of a definition, enter your best guess. After creating your table, cross reference yours with the table found [here](https://docs.google.com/spreadsheets/d/1AGjUE49UJajPEQHvh3plKjaem5RAGvuv5SNjZzvjD9U/edit#gid=0).
@@ -40,11 +40,11 @@ Fill in "Definition" with your understanding of what the column represents/how i
 * What is the url helper for each? How do these compare to the path helpers? 
 
 #### Independent Practice
-Update your test suite to use path helpers instead of direct paths (i.e. "/movies") 
+Update your test suite to use path helpers instead of direct paths (i.e. "/songs") 
 
 #### Partnered Workshop
 
-Research how to use link helpers with your path helpers to create a navigation bar. This navigation bar would contain a link that leads to all movies and one that leads to all directors. It also includes a link to go home. Your home would show links to create a new movie or director.
+Research how to use link helpers with your path helpers to create a navigation bar. This navigation bar would contain a link that leads to all songs and one that leads to all artists. It also includes a link to go home. Your home would show links to create a new song or artist.
 
 #### Partnered Share 
 
@@ -52,6 +52,6 @@ Turn to a new partner and share out how you used path helpers to dry up your cod
 
 ### WrapUp
 
-* What does directors_path evaluate to outside of a link helper?
-* What does directors_url evaluate to outside of a link helper?
-* What does director_path(@director) give you? Why do you need to pass it @director? Which routes do you need to pass a resource?
+* What does artists_path evaluate to outside of a link helper?
+* What does artists_url evaluate to outside of a link helper?
+* What does artist_path(@artist) give you? Why do you need to pass it @artist? Which other routes need you to pass a resource?

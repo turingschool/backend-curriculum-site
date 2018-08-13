@@ -29,15 +29,15 @@ Given the code that you currently have in the `/api/secrets.js` file:
 
 ## Models and Controllers
 
-Let's do some refactoring. Right now, `server.js` is hard to read and its methods are doing too much.
+Let's do some refactoring. Right now, `/api/secrets.js` is hard to read and its methods are doing too much.
 
-Think of the last Rails app you've built. You probably spent a very small amount of time making structural and design decisions (think routes, controllers, models). Just because the framework we're currently using doesn't prepackage our structure, doesn't mean we shouldn't implement something that's still quite helpful. Therefore, we'll be aiming to add some lightweight MVC strcuture to our Express apps.
+Think of the last Rails app you've built. You probably spent a very small amount of time making structural and design decisions (think routes, controllers, models). Just because the framework we're currently using doesn't prepackage our structure, doesn't mean we shouldn't implement something that's still quite helpful. Therefore, we'll be aiming to add some lightweight MVC structure to our Express apps.
 
 > Note: The models and controllers we initially create will not be structured by classes, but we will eventually refactor them to be so. In the meantime, something like our `models/secret.js` file itself will be required in as a pseudo model and used as such.
 
 ## Models
 
-### Dicuss: Where Can We Refactor?
+### Discuss: Where Can We Refactor?
 
 Take 3 minutes to answer the following questions with a partner assuming you were going to create a new file to act as a model in your application:
 
@@ -72,10 +72,10 @@ module.exports = {
 }
 ```
 
-We can now refactor our `server.js` POST handler as such:
+We can now refactor our `secrets.js` POST handler as such:
 
 ```js
-// server.js
+// secrets.js
 const Secret = require('./lib/models/secret')
 
 app.post('/api/secrets', (request, response) => {
@@ -108,25 +108,25 @@ module.exports = {
 
 ### Your Turn
 
--   Can you extract the rest of the SQL from your tests and `server.js`?
+-   Can you extract the rest of the SQL from your tests and `routes/api/secrets.js`?
 -   Can you use promise chaining to extract the `rows` property from in model?
 -   Can you do the same to extract a single resource for your `.find` method?
 
 ## Controllers
 
-Our `app.js` is still a little bulky. Something I've noticed is that each block of code in this file is mostly comprised of 1) an HTTP verb, 2) a route, and 3) a function to handle the request.
+Our `routes/api/secrets.js` is still a little bulky. Something I've noticed is that each block of code in this file is mostly comprised of 1) an HTTP verb, 2) a route, and 3) a function to handle the request.
 
-These were all things our `routes.rb` handled in Rails. Could we get `app.js` to behave more like a `routes.rb` file?
+These were all things our `routes.rb` handled in Rails. Could we get `routes/api/secrets.js` to behave more like a `routes.rb` file?
 
 Take 3 minutes and discuss with a partner:
 
-* What code from our `app.js` looks like it might belong in a controller?
+* What code from our `routes/api/secrets.js` looks like it might belong in a controller?
 * How could you extract that code in to a function or functions?
 * If you had to extract this code to another file, what questions would you have?
 
 ### Your Turn
 
-Given that the second parameter of your `.get()` and `.post()` methods are just functions, try to extract them to a module in `lib/controllers` and reference them from `server.js`
+Given that the second parameter of your `.get()` and `.post()` methods are just functions, try to extract them to a module in `lib/controllers` and reference them from `routes/api/secrets.js`
 
 For example:
 

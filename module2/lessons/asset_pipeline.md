@@ -23,7 +23,7 @@ Available [here](../slides/asset_pipeline/asset_pipeline)
 ## Overview
 
 * *Asset Exploration:* Explore how assets are loaded in the browser.
-* *Enter the Asset Pipeline:* Provide a high level descripiion of the responsibilities of the asset pipeline.
+* *Enter the Asset Pipeline:* Provide a high level descripition of the responsibilities of the asset pipeline.
 * *Putting it Together:* Descrbie how assets are stored/accessed in a Rails application.
 
 ## Background

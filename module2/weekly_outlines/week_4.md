@@ -6,10 +6,8 @@ layout: page
 ## Lessons
   - [Authentication](http://backend.turing.io/module2/lessons/authentication)
   - [Authorization](http://backend.turing.io/module2/lessons/authorization)
-  - [Rebasing](http://backend.turing.io/module2/lessons/intro_to_rebasing)
+  - [Git Shotrtcuts and Professionalism](http://backend.turing.io/module2/lessons/additional_github)
   - [SQL Refresher](http://backend.turing.io/module2/lessons/sql_refresher)
-  - [ActiveRecord Obstacle Course](http://backend.turing.io/module2/misc/active_record_obstacle_course)
-  - [Remembering Ruby](../misc/violations): Complete the challenge described.
   - [Cart Exploration](http://backend.turing.io/module2/misc/cart_exploration)
 
 ## Homework

@@ -53,7 +53,7 @@ Clone down both of the repos and complete steps laid out in the README. You will
 
 ## 7. Submit your work.
 
-Find the submission document located [here](https://github.com/turingschool/ruby-submissions/blob/master/1710-b/4module/intermission_work.md), update the links next to your name, and create a PR titled `FirstLast-Intermission Work`. The deadline for submissions is Monday, Week 1 at 9 AM. If you anticipate that you won't meet this deadline for any circumstances, you need to DM your instructors as soon as possible.
+Send your instructors all your links to any gists or repos that you may have created or have to show off. 
 
 ### Tips for JS success
 

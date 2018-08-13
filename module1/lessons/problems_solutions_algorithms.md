@@ -23,9 +23,14 @@ tags: ruby, pseudocode, algorithms
 * 5 - Closeout
 
 ## Vocabulary
+
 * Pseudocode
 * Algorithm
 * Iteration
+
+## Slides
+
+Available [here](../slides/problems_solutions_algorithms)
 
 ## Warmup
 
@@ -47,7 +52,7 @@ you had originally written down.
 
 ## Lecture - Big-Picture Strategy
 
-* What is an Algorithm  
+* What is an Algorithm
     `a process or set of rules to be followed in calculations or other problem-solving operations, especially by a computer.`
 * Incremental solutions (linear)
 * Iterative solutions (spirals)
@@ -56,14 +61,13 @@ you had originally written down.
 
 ### An Iterative Process
 
-A generalized process for solving technical problems:
-
-1. How will you know when the problem is solved? (Identify the big-picture goal)
-2. How do you want to use the software? (Indentify the "interface")
-3. What's the (next-)most trivial possible case? (Indentify the next small-picture goal)
-4. *How* do we achieve this goal? (Sketch an algorithm using pseudocode)
-5. Implement it (do programming)
-6. Is the whole problem (from step 1) solved? If not, return to 3.
+1. *Identify the big picture goal:* What do you want your program to do? How will you know when you've succeeded?
+1. *Identify the interface:* How do you want to interact with your program? What are its inputs and outputs?
+1. *Identify a small picture goal:* What is the simplest case of this problem? Is there a sub-problem of even that case?
+1. *Plan to solve that small goal:* Sketch ideas out in a notebook.
+1. *Write a small goal test:* Identify expected inputs and outputs. Decide on a method name.
+1. *Implement:* Write pseudocode and turn that into code.
+1. *Repeat:* Is the whole problem solved? If not, go back to step 3.
 
 ### Exercise 1 -- Common Words
 
@@ -96,10 +100,27 @@ We'll then break into small groups to work through this process for a few differ
 
 ### Odds & Evens
 
-I have a file with 100 numbers. I want to create two new files: one with
-all the odds and one with all the evens.
+I have a file with 100 numbers. I want to create two new files: one with all the odds and one with all the evens.
 
 *Extension*: Don't allow duplicates in the output
+
+### Palindromes
+
+A palindrome is a word or phrase that reads the same when you reverse all of the letters.
+
+* mom
+* kayak
+* noon
+* Never odd or even
+
+A palindromic number is the same concept applied to numbers:
+
+* 101
+* 11
+* 1221
+* 45654
+
+Create a program to find the largest palindromic number that you can create by multiplying two three digit numbers together.
 
 ### Lats & Longs
 

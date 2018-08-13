@@ -12,7 +12,7 @@ title: Nested Resources in Rails
 
 ## Warm Up
 
-Create a table containing all 8 http-verbs, URI-patterns, and controller actions that Rails gives you when you have the following:
+Create a table containing all of the HTTP verbs, URI patterns, and controller actions that Rails gives you when you have the following:
 
 ```ruby
 # config/routes.rb
@@ -22,22 +22,24 @@ resources :muffins
 
 ## Background
 
-Read [this](http://guides.rubyonrails.org/routing.html#nested-resources) section of the Rails routing documentation and discuss with someone close to you.
+Read [this](http://guides.rubyonrails.org/routing.html#nested-resources) section of the Rails routing documentation and discuss with the person next to you.
 
 ## Examples
 
 ```
-GET  /directors/1/movies
-GET  /directors/1/movies/new
-POST /directors/1/movies
+GET  /artists/1/songs
+GET  /artists/1/songs/new
+POST /artists/1/songs
 ```
 
 ## How do we Create Nested Routes?
 
+Indentation and a do/end marker!
+
 ```
 # config/routes.rb
-resources :directors do
-  resources :movies
+resources :artists do
+  resources :songs
 end
 ```
 
@@ -47,17 +49,18 @@ end
 
 ```ruby
 # config/routes.rb
-resources :directors, shallow: true do
-  resources :movies
+resources :artists, shallow: true do
+  resources :songs
 end
 ```
 
 * Run `rake routes` again.
 * How does this differ from what was generated without `shallow: true`?
+* When we would we want it one way or the other?
 
-## `form_for` Arguments
+## `form_for` with an un-nested resource
 
-`form_for` uses the object it receives as an argument to determine:
+`form_for` uses an object passed to it as an argument to determine:
 
 * Whether to render a new form or an update form
 * Whether the fields in the form correspond to attributes on the object
@@ -65,39 +68,43 @@ end
 
 ## `form_for` with Nested Resources
 
-* Need to pass both the existing director and new movie
+* Need to pass **BOTH** the initial resource as well as the nested resource (eg, both `artists` and `songs`)
 * Will provide them in an array as an argument
+  * the array HAS to be in the correct order!
 * Need to update both our controller and our view
 
 ## Let's code along:
 
-- You should have a test already to see the form for a new movie. Now let's create a new movie with a director. Based on what we know about nested routes, let's start here:
+- You should have a test already to see the form for a new song.
+- Now let's create a new song with an artist.
+
+Based on what we know about nested routes, let's start here:
 
 ```ruby
-  #spec/features/user_can_create_a_new_movie_spec.rb
-  director = Director.create(name: "Patty Jenkins")
-  visit "/directors/#{director.id}/movies/new"
-  title = "Wonder Woman"
-  description = "Before she was Wonder Woman, she was Diana."
+  #spec/features/user_can_create_a_new_song_spec.rb
+  artist = Artist.create(name: "Journey")
+  visit "/artists/#{artist.id}/songs/new"
+  title = "Don't Stop Believin'"
+  length = 231
   
-  fill_in :movie_title, with: title
-  fill_in :movie_description, with: description
+  fill_in :song_title, with: title
+  fill_in :song_length, with: length
 
-  click_on "Create Movie"
+  click_on "Create Song"
 
-  expect(current_path).to eq("/movies/#{Movie.last.id}")
+  expect(current_path).to eq("/songs/#{Song.last.id}")
   expect(page).to have_content(title)
-  expect(page).to have_content(description)
-  expect(page).to have_content(director.name)
+  expect(page).to have_content(length)
+  expect(page).to have_content(artist.name)
 ```
 
 - What is in your controller? What is in your view?
-- Last week, we wrote a test to see a new form for a new movie but did not create a new movie.
+- We previously wrote a test to see a new form for a new song but did not actually create a new song.
 
-- Our controller should look like this:
+- Our controller should only have an empty `new` method:
 
 ```ruby
-#app/controllers/movies_controller.rb
+#app/controllers/songs_controller.rb
 def new
 end
 ```
@@ -105,88 +112,98 @@ end
 - And our view like this:
 
 ```html
-<form action="/movies" method="post">
-  <input type="text" name="movie[title]" value="Title">
-  <input type="text" name="movie[description]" value="Description">
-  <input type="submit" value="Create Movie">
+<form action="/songs" method="post">
+  <input type="text" name="song[title]" value="Title">
+  <input type="number" name="song[length]" value="Length">
+  <input type="submit" value="Create Song">
 </form>
 ```
 
 - This should take us all the way to a failing test:
 
 ```bash
-Failure/Error: click_on "Create Movie"
+Failure/Error: click_on "Create Song"
 
      ActionController::RoutingError:
-       No route matches [POST] "/movies"
+       No route matches [POST] "/songs"
 ```
 
-- Hmmmm, but we have opened the routes for making a new movie for a director. Let's check out `rake routes` output to see what route we are actually trying to hit. What are we looking for? A route that creates our new movie. What HTTP verb do we use when we create a new resource?
+Hmmmm, but we have opened the routes for making a new song for an artist.
+
+Let's check out `rake routes` output to see what route we are actually trying to hit. 
+
+* What are we looking for? A route that creates our new song.
+* Which HTTP verb do we use when we create a new resource?
 
 ```bash
-  POST   /directors/:director_id/movies(.:format)     movies#create
+  POST   /artists/:artist_id/songs(.:format)     songs#create
 ```
 
-- Based on the route above, we need our form to post to a specific directors movies. How can we do that? Through the controller and form! Let's make those adjustments.
+- Based on the route above, we need our form to post to a route for a specific artist's songs.
+- How can we do that? Through the controller and form! Let's make those adjustments.
 
 ```ruby
-# app/controllers/movies_controller.rb
+# app/controllers/songs_controller.rb
 def new
-  @director = Director.find(params[:director_id])
-  @movie    = Movie.new
+  @artist = Artist.find(params[:artist_id])
+  @song   = Song.new
 end
 ```
 
-- Lets update our view for the movie to use the form_helper that rails gives us to build a form.
+- Lets update our view to use `@song` as a parameter to a form helper:
 
 ```
-# app/views/movies/new.html.erb
-<h1>Create a New Movie</h1>
+# app/views/songs/new.html.erb
+<h1>Create a New Song</h1>
 
-<%= form_for [@director, @movie] do |f| %>
+<%= form_for [@artist, @song] do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %>
-  <%= f.label :description %>
-  <%= f.text_area :description %>
+  <%= f.label :length %>
+  <%= f.number_field :length %>
+  <%= f.label :play_count %>
+  <%= f.number_field :play_count %>
   <%= f.submit %>
 <% end %>
 ```
 
-Let's run RSpec and adjust our Movies Controller to point the form to `create`
+Let's run RSpec and adjust our `SongsController` so we can point the form to its `create` method:
 
 ```ruby
+# app/controllers/songs_controller.rb
+
 def create
-  director = Director.find(params[:director_id])
-  movie = director.movies.create(movie_params)
-  redirect_to "/movies/#{movie.id}"
+  artist = Artist.find(params[:artist_id])
+  song = artist.songs.create(song_params)
+  redirect_to "/songs/#{song.id}"
 end
 ```
 
-- LAST: Adjust your view to show the director of the movie!
+- LAST: Adjust your song show page view to show the artist of the song!
 - We should have a passing test!!!
 
-Creating a New Movie via localhost
+Creating a New Song via localhost
 
-* Be sure you have at least one director in your database
+* Be sure you have at least one artist in your database
 * Run `rails s`
-* Visit `/directors/1/movies/new`
+* Visit `/artists/1/songs/new`
 
 ---
 
 # Mixing Nested and Non-Nested Routes
 
-* What if we want to see a list of all movies?
+* What if we want to see a list of all songs?
 
 ```ruby
 # config/routes.rb
-resources :directors, shallow: true do
-  resources :movies
+resources :artists, shallow: true do
+  resources :songs
 end
 
-resources :movies, only: [:index]
+resources :songs, only: [:index]
 ```
 
-Visit `/movies` and you should see all movies.
+Visit `/songs` and you should see all songs.
 
 ---
 

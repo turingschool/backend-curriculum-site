@@ -7,9 +7,11 @@ tags: activerecord, rails
 
 We've gotten fairly familiar with ActiveRecord's most common methods. Let's make sure we don't get rusty with those other less-frequently used methods.
 
-For Backend Module 2 students, this obstacle course is meant to test your knowledge over the course of the endire inning. We do not expect (nor encourage) you to finish this early. **A pull request is due in week 6 as a deliverable to graduate the module.**
+For Backend Module 2 students, this obstacle course is meant to test your knowledge over the course of the entire inning. We do not expect (nor encourage) you to finish this early. **A pull request is due in week 6 as a deliverable to graduate the module.**
 
 The first few portions of this obstacle course are meant to test your knowledge around processing things in Ruby to put more of that work on the database (PostgreSQL) to make our own code easier to maintain. Your job will be to remove the code that processes data in Ruby, and replace that code with proper ActiveRecord commands to do the exact same work.
+
+**There will be more than one way to solve some of these problems.**
 
 The remaining portions of the obstacle course will increase in difficulty and will teach you how to turn raw SQL into proper ActiveRecord commands.
 
@@ -26,10 +28,10 @@ git remote add turing git@github.com:turingschool-examples/storedom-5
 git fetch turing
 
 # check out Turing's `activerecord-obstacle-course` branch
-git co turing/activerecord-obstacle-course
+git checkout turing/activerecord-obstacle-course
 
 # make a branch for your repo
-git co -b activerecord-obstacle-course
+git checkout -b activerecord-obstacle-course
 
 # push the branch to your repo
 git push -u origin activerecord-obstacle-course
@@ -42,22 +44,22 @@ bundle install
 bundle update
 rake db:{drop,create,migrate,seed}
 rspec spec/models/activerecord_obstacle_course_spec.rb
-# you should see several passing tests, several failing tests, and one skipped test
+# you should see several passing tests, and a few skipped tests
 ```
 
-3. Start with the top test within `spec/models/activerecord_obstacle_course_spec.rb` and work in order.
+3. **You must not change the setup or expectations of any test.**
 
-4. To run your tests, you can run `rspec spec/models/activerecord_obstacle_course_spec.rb`
+4. Start with the top test within `spec/models/activerecord_obstacle_course_spec.rb` and work in order.
 
-5. If you want to run one specific test, you can run `rspec spec/models/activerecord_obstacle_course_spec.rb:LINE_NUMBER`.
+5. To run your tests, you can run `rspec spec/models/activerecord_obstacle_course_spec.rb`
+
+6. If you want to run one specific test, you can run `rspec spec/models/activerecord_obstacle_course_spec.rb:LINE_NUMBER`.
 
     * For example: `rspec spec/models/activerecord_obstacle_course_spec.rb:34`
 
-    * Note: There's one skipped spec. Ignore it until the very end.
+7. Most of the tests follow the same format...
 
-6. Most of the tests follow the same format...
-
-    * Leave the Ruby as is or comment it out -- Don't erase.
+    * Comment out the original ruby code -- don't erase it completely.
 
       ```ruby
 
@@ -71,7 +73,7 @@ rspec spec/models/activerecord_obstacle_course_spec.rb
 
       ```ruby
       # -----------------------------
-      # A section for you to write refactor the Ruby code
+      # A section for you to write refactor the Ruby or raw SQL code
       # -----------------------------
       ```
 
@@ -83,7 +85,6 @@ rspec spec/models/activerecord_obstacle_course_spec.rb
       # -----------------------------
       ```
 
-7. You must not change the setup or expectations of any test.
 
 ## Extensions
 

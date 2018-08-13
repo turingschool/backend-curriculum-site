@@ -17,7 +17,7 @@ tags: authorization, rails
 
 ## Repository
 
-Use the `authentication-finished` branch of the [authentication-authorization repo](https://github.com/turingschool-examples/authentication-authorization). 
+Use the `authentication-finished` branch of the [authentication-authorization repo](https://github.com/turingschool-examples/authentication-authorization).
 
 ## Lecture
 
@@ -58,7 +58,7 @@ We'll also quickly add a few flash messages in the sessions controller and users
 * We'll also add a validation on the User model:
 
 ```ruby
-  validates :username, presence: true, 
+  validates :username, presence: true,
                        uniqueness: true
 ```
 
@@ -88,7 +88,7 @@ end
 * migration to add "role:integer" to user table, default 0
 
 ```ruby
-class AddRoleToUsers < ActiveRecord::Migration
+class AddRoleToUsers < ActiveRecord::Migration[5.1]
   def change
     add_column :users, :role, :integer, default: 0
   end
@@ -101,14 +101,14 @@ end
 $ rake db:migrate
 ```
 
-* Run your tests: `rake test`. You should get an error about undefined method `any_instance`. This is a stubbing method that comes from the Mocha library. To fix this, add `gem 'mocha'` to our Gemfile and bundle, then `require 'mocha/mini_test'` in the test helper. 
+* Run your tests: `rake test`. You should get an error about undefined method `any_instance`. This is a stubbing method that comes from the Mocha library. To fix this, add `gem 'mocha'` to our Gemfile and bundle, then `require 'mocha/mini_test'` in the test helper.
 
 * add roles enum to model
 
 ```ruby
 class User < ActiveRecord::Base
   has_secure_password
-  validates :username, presence: true, 
+  validates :username, presence: true,
                        uniqueness: true
 
   enum role: %w(default admin)
@@ -162,7 +162,7 @@ class Admin::BaseController < ApplicationController
   before_action :require_admin
 
   def require_admin
-    render file: "/public/404" unless current_admin? 
+    render file: "/public/404" unless current_admin?
   end
 end
 ```
@@ -221,13 +221,13 @@ $ touch app/views/admin/categories/index.html.erb
 
 ## Work Time
 
-### User: 
+### User:
 * can view index and show page for tools that belong to self
 * cannot update users besides self
 * cannot create see or update other users tools
 
 
-### Admin: 
+### Admin:
 * can create, update, read, and delete tools
 * cannot update users besides self
 * can CRUD categories

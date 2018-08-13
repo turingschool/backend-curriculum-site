@@ -8,13 +8,13 @@ tags: ruby, inheritance
 ## Learning Goals
 
 * identify inheritance as an essential principle of OOP
-* explain what is inheritance and why we use it 
+* explain what is inheritance and why we use it
 * identify that you can over-write a method locally (polymorphism?)
 
-## Vocabulary 
-* Inheritance 
+## Vocabulary
+* Inheritance
 * Parent
-* Child 
+* Child
 
 ## Slides
 
@@ -22,16 +22,15 @@ Available [here](../slides/inheritance)
 
 ## Warmup
 
+* Where do objects get methods you don't write like `.inspect`?
 * What have you done up to this point when you noticed duplication in your code?
 * What do you think of when you hear the word inheritance?
 * Create a new test file for a `Node` class with a single test to see if the class `Node` exists.
 * Where do you think we get the ability to call the method `assert_equal` or `assert_instance_of`, etc?
 
-## Lesson
+## Inheritance
 
-### Introduction
-
-In Ruby, inheritance is one way that we can use code defined in one class in multiple classes. One of the benefits of inheritance is the reduction in duplication that comes from defining methods on a parent class that can then be used across many child classes. You've already seen inheritance in your testing suite.
+In Ruby, inheritance is one way that we can use code defined in one class in multiple classes. One of the benefits of inheritance is the reduction in duplication that comes from defining methods on a **Parent** class that can then be used across many child classes. You've already seen inheritance in your testing suite.
 
 ```ruby
 require 'minitest'
@@ -43,180 +42,147 @@ end
 
 In the snippet above, `< Minitest::Test` means `inherit from the Test module of Minitest` (we'll talk about modules later).
 
+A couple rules of inheritance in Ruby:
+
+* When a class inherits from another class, it receives all of the methods from that other class
+* The inheriting class is called the **child** or **subclass**
+* The class being inherited from is called the **parent** or **superclass**
+* A class can only inherit from one parent
+* Any number of classes can inherit from a single superclass
+
 Since inheritance is one of a few ways we can share code across classes, it's convention to use it when there is a **is-a** relationship between two things. For example, a dog **is a** mammal, a CEO **is an** employee.
 
 One note: a class can only inherit from one other class. Be sure that when you use inheritance the class you are choosing to inherit from has the strongest relationship with the child classes.
 
-### Syntax
+## Creating a Subclass
 
-The `<` character tells us that our class is inheriting from another class when used in a class definition.
+If we have a file `employee.rb` that contains this class:
 
 ```ruby
-# employee.rb
+#employee.rb
 class Employee
-end
-
-# ceo.rb
-require './employee'
-
-class Ceo < Employee
-end
-```
-
-Setting up this relationship allows us to define methods on the parent class that we can then use on the child.
-
-#### Example
-
-```ruby 
-# runner.rb
-require './ceo'
-
-mike = Ceo.new(15, 20)
-
-puts "CEO Base Salary: #{mike.base_salary}"
-puts "CEO Total Comp: #{mike.total_compensation}"
-
-
-# ceo.rb
-require './employee'
-
-class Ceo < Employee
-  attr_reader :base_salary,
-              :bonus
-
   def initialize(base_salary, bonus)
     @base_salary = base_salary
-    @bonus       = bonus
+    @bonus = bonus
   end
-end
 
-# employee.rb
-class Employee
   def total_compensation
-    base_salary + bonus
+    @base_salary + @bonus
   end
 end
 ```
 
-#### Independent Practice 
-With a partner: 
+We can inherit from it using the `<` character. Let's try this in a file called `ceo.rb`:
 
-* Create a `SalesManager` class that inherits from `Employee`, and takes `base_salary`, and `estimated_annual_sales` as arguments when you initialize.
-* Create a `bonus` method on `SalesManager` that returns 10% of `estimated_annual_sales`
-* Create a new `SalesManager` in your runner file and print their total compensation to the terminal  
-* Which class is the parent and which is the child? Why did we define the relationship in this way?  
-
-### Super
-
-`super` allows us to execute methods from our child class that have the same name in our parent class.
-
-* `super` passes all of the arguments in the current method
-* `super()` passes no arguments, but still completes any actions 
-* `super(argument1, argument2)` passes argument1 and argument2 specifically
-
-#### Example
-
-```ruby 
-# runner.rb
-require './ceo'
-require './sales_manager'
-
-mike = Ceo.new(15, 20, "Ali", 1)
-sal = SalesManager.new(15, 400)
-
-"CEO Base Salary: #{mike.base_salary}"
-puts "CEO Total Comp: #{mike.total_compensation}"
-puts "CEO Name: #{mike.name}"
-puts "CEO ID: #{mike.id}"
-puts "\n"
-puts "Sales Manager Bonus: #{sal.bonus}"
-puts "SalesManager Total Comp: #{sal.total_compensation}"
-
-# ceo.rb
+```ruby
+#ceo.rb
 require './employee'
 
 class Ceo < Employee
-  attr_reader :base_salary,
-              :bonus
-
-  def initialize(base_salary, bonus, name, id)
-    @base_salary = base_salary
-    @bonus       = bonus
-    super(name, id)
-  end
 end
+```
 
-# employee.rb
-class Employee
-  attr_reader :name,
-              :id,
-              :mood
+Let's test this in a separate file called `runner.rb`:
 
-  def initialize(name, id)
-    @name = name
-    @id   = id
-    @mood = "happy"
-  end 
-  
-  def total_compensation
-    base_salary + bonus
+```ruby
+#runner.rb
+require './employee'
+require './ceo'
+
+employee = Employee.new(50000, 5000)
+puts "employee compensation is #{employee.total_compensation}"
+ceo = Ceo.new(100000, 1000)
+puts "ceo compensation is #{ceo.total_compensation}"
+```
+
+You can see that even though we didn't define `initialize` and `total_compensation` in our `Ceo` class, the `Ceo` object still responded to those methods because it inherited them from `Employee`. In this example, `Ceo` is the **subclass** or **child**, and `Employee` is the **superclass** or **parent**.
+
+Let's also add a method to our `Ceo` class:
+
+```ruby
+#ceo.rb
+require './employee'
+
+class Ceo < Employee
+  def title
+    "Chief Executive Officer"
   end
 end
 ```
-#### Independent Practice  
-With a partner:
 
-* add name and id to SalesManager using super
+And update our runner:
 
-### Overriding Methods
+```ruby
+#runner.rb
+require './employee'
+require './ceo'
+
+employee = Employee.new(50000, 5000)
+puts "employee compensation is #{employee.total_compensation}"
+ceo = Ceo.new(100000, 1000)
+puts "ceo compensation is #{ceo.total_compensation}"
+puts "ceo title is #{ceo.title}"
+```
+
+So we can still define methods in our `Ceo` class just like with any other class.
+
+**Try it**: With your partner, create a `SalesManager` class that inherits from `Employee`. Add a method `title` that prints its title. Test it in your runner file.
+
+## Super
+
+When called inside a method, the keyword `super` calls the method from the superclass with the same name. For instance if you call super in the `initialize` method, it will call the superclass's `initialize` method.
+
+Let's say we don't want every `Ceo` to have the same title, so we will pass it in to the initialize as an argument:
+
+```ruby
+#ceo.rb
+require './employee'
+
+class Ceo < Employee
+  attr_reader :title
+
+  def initialize(base_salary, bonus, title)
+    @title = title
+    super(base_salary, bonus)
+  end
+end
+```
+
+The call to `super` calls the `Employee` class's initialize, which sets up the `base_salary` and `bonus` instance variables.
+
+Here, we specified the arguments to `super`. There are actually three forms of the keyword `super`:
+
+* `super(argument1, argument2)` calls the superclass method with argument1 and argument2 specifically
+* `super` calls the superclass method with all of the arguments in the current method
+* `super()` calls the superclass method with no arguments
+
+**Try It**: With your partner, add an argument `total_sales` to your `SalesManager`'s initialize, and call the superclass initialize.
+
+## Overriding
 
 In Ruby we can override a method from our parent class by re-defining it in our child class. Doing this implies that there is some exception to a general rule. A `Mammal` class might have a method `lays_eggs?` that returns false that would work on most child classes, but we would then need to override that method on `Platypus` to return true.
 
-#### Example
+If we want to change our Ceo's annual salary:
 
 ```ruby
-# runner.rb
-require './ceo'
-require './sales_manager'
-require './intern'
-
-mike = Ceo.new(15, 20, "Mike", 1783)
-sal = SalesManager.new(15, 400, "Sal", 8736)
-jeff = Intern.new(5, "Jeff", 3298)
-
-puts "CEO Base Salary: #{mike.base_salary}"
-puts "CEO Total Comp: #{mike.total_compensation}"
-puts "CEO Name: #{mike.name}"
-puts "CEO ID: #{mike.id}"
-puts "\n"
-puts "Sales Manager Bonus: #{sal.bonus}"
-puts "SalesManager Total Comp: #{sal.total_compensation}"
-puts "\n"
-puts "Intern Total Comp: #{jeff.total_compensation}"
-
-
-# intern.rb
+#ceo.rb
 require './employee'
 
-class Intern < Employee
+class Ceo < Employee
+  attr_reader :title
 
-  def initialize(hourly_rate, name, id)
-    @hourly_rate = hourly_rate
-    super(name, id)
+  def initialize(base_salary, bonus, title)
+    @title = title
+    super(base_salary, bonus)
   end
 
   def total_compensation
-    @hourly_rate * 2000
+    (@base_salary + @bonus) * 2
   end
 end
 ```
 
-
-#### Independent Practice 
-With a partner:
-
-* Using either `super` or overriding a method, make it so that when you call `#total_compensation` on `Ceo` it adds a dollar to their `base_salary` before returning the total compensation
-* Explain in what ways does total_compensation work differently on Ceo, SalesManager, and Intern? 
+**Try it**: With your partner, override your `SalesManager`'s `total compensation` to be the annual_salary plus the bonus plus 10 percent of the total_sales.
 
 ## Summary
 

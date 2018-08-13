@@ -76,7 +76,7 @@ Methods that get called at certain moments of an object's life cycle. With callb
 
 # Callbacks in Models. A use case.
 
-- We want to access our movies by title in the url. for example `/movies/drop_dead_fred`. Right now, we have access to our movie show page by `/movies/:id`. How do we create this new url?
+- We want to access our songs by title in the url. for example `/songs/my-hear-will-go-on`. Right now, we have access to our song show page by `/songs/:id`. How do we create this new url?
 - What changes will we need to make to make this work?
 - How might a callback help us in this case?
 

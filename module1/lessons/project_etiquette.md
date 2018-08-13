@@ -18,7 +18,9 @@ tags: ruby, rake, require, require_relative, organization
 
 #### Directory Structure
 
-In a standard Ruby project, we tend to organize code into 4 sub-directories:
+Every project should have one top level directory that contains everything for that project. This is called the **Root Directory**. Be careful: "Root Directory" can also refer to the root of your computer. In this case, we are referring to the root of the project. Context is very important.
+
+In a standard Ruby project, we tend to organize code into 4 sub-directories underneath the root directory:
 
 1. `lib` for source code
 2. `test` for test files
@@ -27,12 +29,14 @@ In a standard Ruby project, we tend to organize code into 4 sub-directories:
 
 #### Example Directory Structure & Naming
 
+If we are creating an "Enigma" project that needs a `RotationGenerator` class, our directory structure would look like this:
+
 ```ruby
-.
-├── lib
-│   ├── rotation_generator.rb
-└── test
-    ├── rotation_generator_test.rb
+enigma
+  ├── lib
+  │   ├── rotation_generator.rb
+  └── test
+      ├── rotation_generator_test.rb
 ```
 
 ```ruby
@@ -87,14 +91,14 @@ Here's a quick overview of _how_ `require` and `require_relative` work.
 Consider a project with the following structure.
 
 ```
-.
-├── lib
-│   ├── enigma.rb
-└── test
-    ├── enigma_test.rb
+enigma
+  ├── lib
+  │   ├── enigma.rb
+  └── test
+      ├── enigma_test.rb
 ```
 
-Generally within the Ruby community it is assumed that you will be running your test files from the `project/` directory *and not from within the `/test` directory*.
+Generally within the Ruby community it is assumed that you will be running your test files from the root directory, in this case "enigma", *and not from within the `/test` directory*.
 
 **Avoid the temptation to navigate into go into test or lib directories through terminal to run code (i.e. `test$ ruby enigma_test`). Use `enigma$ ruby test/enigma_test.rb` instead.**
 
@@ -111,8 +115,7 @@ What seems more brittle in this case is likely actually more resilient to future
 
 Additionally, using require tends to be more common within the community. Programmers get worked up about weird things and sometimes it's best to just `go with the flow`.
 
-
-## Rakefiles and Test Runners
+## Rakefiles
 
 Rake tasks come from [make](https://www.computerhope.com/unix/umake.htm) tasks, Unix origins. They are used for task management and building projects. For a C project, "building" means compiling and verifying that things work. Ruby projects don't get compiled, so what does "building" mean for a Ruby project?
 
@@ -120,77 +123,27 @@ Rake tries to create a standardized solution for this problem so that you can in
 
 By default, Rake will look for a file name `Rakefile` in the root of your project. You'll define your RakeTasks in that file.
 
-### Using Rake to Build a Task
+### Rakefile to Run all your Tests
 
-A task is comprised of the keyword `task` followed by the name you assign to the task written as a symbol (`:task_name`). This gets passed a block of code (` do ...end` - similar to how we pass a block of code to the `.each` method).
-
-### Building a Test Task
-
-Let's build a task that will run all our tests. Our objective is to be able to go into the root directory of your project, type `rake test`, and run our test suite (all of your tests) with that one command. You'll need to use `*` to pull in files of various names but still end in `_test.rb`.
+In your project's root directory, create a file called `Rakefile`. Add this code to it:
 
 ```ruby
-desc "run all tests"
-task :test do
-  ruby "test/*_test.rb"   # what is this line doing?
-end
-```
-
-So here's the thing, that code up there only runs one thing.
-
-What do we have to do to get all of it to run? Notice the changes between the `do ... end` block:
-
-```ruby
-desc "run all tests"
-task :test do
-my_files = FileList['test/**/*.rb']
- my_files.each do |file|
-   ruby file
- end
-end
- ```
-
-Now, we should be getting a list of all of the files in our test directory, and we are enumerating over the list of files and then we are just going to run each one.
-
-This is great, but we are missing something. Each runs individually, and once we have multiple classes tested we have to scroll up a lot. This is what we would call less than ideal. How do we get everything to run altogether - as if it was one big test file?
-
-Have your Rakefile look like this:
-
-```
 require 'rake/testtask'
 
 Rake::TestTask.new do |t|
     t.pattern = "test/**/*_test.rb"
 end
 
+task default: ["test"]
 ```
 
-`testtask` is a thing built into Rake that will do that for us, we just need to follow the format above.
+A "task" is referring to something rake can do for you. The `Rake::TestTask` is a special task built in to rake for running all your tests. Instead of having to run all your test individually by calling `ruby test/file_name` for each test file, you can run the command `rake` in the command line from your project root directory and it will run all of the test files inside your test directory as if it were one, big test file.
 
-Again, this:
+**note:** You may need to `gem install rake`.
 
-```
-require 'rake/testtask'
+Notice that the `Rake::TestTask` is being passed a block, kind of like how we pass blocks to enumerables. This block is specifying where the test files are located with the line `t.pattern = "test/**/*_test.rb"`. The `*` is a wildcard character, which means it will pattern match anything. This line of code is saying "our tests are located in the test directory in files that end with `_test.rb`".
 
-Rake::TestTask.new do |t|
-    t.pattern = "test/**/*_test.rb"
-end
-
-```
-
-is probably what you want in the Rakefile; we walked you through the section above so you have a little bit of understanding about what rake is doing for us.
-
-
-### Default
-
-If you run the command `rake` without any further arguments, Rake will automatically look for a task named `default`. We can also set up a Rake task to have prerequisites - that is other tasks that must be run before the current task is run. If you set a prerequisite, Rake will automatically run those other tasks first, you don't even have to worry about it. Using this knowledge, we can add the following to our Rakefile:
-
-
-```ruby
-task default: ["test", "welcome"]
-```
-
-This will run both our `test` and `welcome` (assuming we have a welcome task) tasks when we run `rake`, but only those two, as those two are the two that appear in the default array.
-
+The line `task default: ["test"]` is setting our default task to "test". Normally when you run `rake`, you have to specify the name of task you want to run, but setting "test" as the default allows us to just run `rake` from the command line to run all the tests.
 
 ## Additional Resources
 

@@ -26,11 +26,11 @@ tags: activerecord, migrations, sinatra
 
 ## Repository
 
-Clone [this](https://github.com/turingschool-examples/film-file) repository and run `bundle install`.
+Clone [this](https://github.com/turingschool-examples/set-list) repository and run `bundle install`.
 
 ## Lecture
 
-Using the Film File repository that we've cloned down, we're going to create an application that displays information about films in our database.
+Using the Set List repository that we've cloned down, we're going to create an application that displays information about songs in our database.
 
 ### Background
 
@@ -70,20 +70,20 @@ With someone near you, draw out a diagram representing the above four aspects.
 
 ## Tutorial
 
-We're going to use ActiveRecord migrations to create a `films` table, and then create a Film model that allows us to interact with that table from our app.
+We're going to use ActiveRecord migrations to create a `songs` table, and then create a Song model that allows us to interact with that table from our app.
 
-A `Film` will have a title (text), year (integer), and box_office_sales (integer).
+A `Song` will have a title (text), length in seconds (integer), and play_count (integer).
 
 At a high level, we are going to follow these steps:
 
 1. Create a migration file.
-1. Write code in that migration to create the `films` table with the necessary fields
+1. Write code in that migration to create the `songs` table with the necessary fields
 1. Run the migration.
 1. Inspect `schema.rb` to ensure your table was created as intended.
-1. Create a `Film` model.
+1. Create a `Song` model.
 1. Add data using `tux`
-1. Review our controller to see that we have a route to see all films
-1. Launch our server to see your films!
+1. Review our controller to see that we have a route to see all songs
+1. Launch our server to see your songs!
 
 ### Creating the database
 
@@ -93,20 +93,20 @@ Before we begin, we'll need to create a database.
 
 If you look in the `db` folder, you'll notice that we don't have any database files. In order to create our database, we need to run `rake db:create`. After running this command, you'll see an empty sqlite file now inside the `db` folder.
 
-### Creating a Films Table
+### Creating a Songs Table
 
 Now we want to add a table to our database. In order to do that, we'll need to create a migration to hold the instructions to add this table to our database. When we `run` our migrations, we make those changes to our database.
 
 Rake gives us some handy commands to help us generate migration files.
 
 ```ruby
-$ rake db:create_migration NAME=create_films
+$ rake db:create_migration NAME=create_songs
 ```
 
 Inside of that file you should see an empty migration file:
 
 ```ruby
-class CreateFilms < ActiveRecord::Migration
+class CreateSongs < ActiveRecord::Migration
   def change
   end
 end
@@ -115,12 +115,12 @@ end
 We are going to use ActiveRecord's `create_table` method to specify what we want to name this table and what fields it will include.
 
 ```ruby
-class CreateFilms < ActiveRecord::Migration[5.1]
+class CreateSongs < ActiveRecord::Migration[5.1]
   def change
-    create_table :films do |t|
+    create_table :songs do |t|
       t.text    :title
-      t.integer :year
-      t.integer :box_office_sales
+      t.integer :length
+      t.integer :play_count
 
       t.timestamps null: false
     end
@@ -135,34 +135,34 @@ Inspect the schema.rb file:
 ```ruby
 ActiveRecord::Schema.define(version: 20160217022804) do
 
-  create_table "films", force: :cascade do |t|
+  create_table "songs", force: :cascade do |t|
     t.text     "title"
-    t.integer  "year"
-    t.integer  "box_office_sales"
+    t.integer  "length"
+    t.integer  "play_count"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 end
 ```
 
-### Creating a Film Model
+### Creating a Song Model
 
-Now that we have a `films` table, we'll want to create a Film model to interact with that table.
+Now that we have a `songs` table, we'll want to create a Song model to interact with that table.
 
 ```
-$ touch app/models/film.rb
+$ touch app/models/song.rb
 ```
 
 Inside of that file:
 
 ```ruby
-class Film < ActiveRecord::Base
+class Song < ActiveRecord::Base
 end
 ```
 
-By inheriting from `ActiveRecord::Base`, we're given a bunch of class and instance methods we can use to manipulate the films in our database. These methods will take the place of the methods that you wrote yourself in Task Manager (e.g. `::all`, `::find`, `::new`, `::save`).
+By inheriting from `ActiveRecord::Base`, we're given a bunch of class and instance methods we can use to manipulate the songs in our database. These methods will take the place of the methods that you wrote yourself in Task Manager (e.g. `::all`, `::find`, `::new`, `::save`).
 
-Now that we have a model, we can use `tux` (an interactive console for your app) to add some films to our database. If you get an error when running tux that looks like this:
+Now that we have a model, we can use `tux` (an interactive console for your app) to add some songs to our database. If you get an error when running tux that looks like this:
 ```bash
 $ tux
 /Users/username/.rbenv/versions/2.4.3/lib/ruby/gems/2.4.0/gems/ripl-rack-0.2.1/lib/ripl/rack.rb:38:in `eval': You have already activated rack-test 0.6.3, but your Gemfile requires rack-test 1.0.0. Prepending `bundle exec` to your command may solve this. (Gem::LoadError)
@@ -173,46 +173,43 @@ To fix this error, just run tux like this instead: `bundle exec tux`
 
 ```ruby
 $ tux
-Film.create(title: "Avatar", year: 2009, box_office_sales: 760505847)
-Film.create(title: "Titanic", year: 1997, box_office_sales: 658672302)
-Film.create(title: "Jurassic World", year: 2015, box_office_sales: 652177271)
-Film.create(title: "The Avengers", year: 2012, box_office_sales: 623279547)
-Film.create(title: "The Dark Knight Rises", year: 2008, box_office_sales: 533316061)
-Film.create(title: "Star Wars: Episode I - The Phantom Menace", year: 1999, box_office_sales: 474544677)
-Film.create(title: "The Lion King", year: 1994, box_office_sales: 422783777)
+Song.create(title: "Don't Stop Believin'", length: 251, play_count: 760847)
+Song.create(title: "My Heart Will Go On", length: 280, play_count: 65862)
+Song.create(title: "Imperial March", length: 183, play_count: 521771)
+Song.create(title: "Bohemian Rhapsody", length: 10000, play_count: 623547)
 ```
 
 ### Updating the Controller
 
-Now that we have some films, let's check our controller to see that we're doing the database prep that we need to do in order to see our films.
+Now that we have some songs, let's check our controller to see that we're doing the database prep that we need to do in order to see our songs.
 
 ```ruby
-class FilmFile < Sinatra::Base
-  get '/films' do
-    @films = Film.all
-    erb :"films/index"
+class SetList < Sinatra::Base
+  get '/songs' do
+    @songs = Song.all
+    erb :"songs/index"
   end
 end
 ```
 
 ### Creating the View
 
-We are going to start to have LOTS of resources as our apps get bigger so let's start to organize our views. Let's create a `films` folder in `views` with an `index.erb` file.
+We are going to start to have LOTS of resources as our apps get bigger so let's start to organize our views. Let's create a `songs` folder in `views` with an `index.erb` file.
 
 Throw this html in that file:
 
 ```html
-  <!-- views/films/index.erb -->
-   <% @films.each do |film| %>
+  <!-- views/songs/index.erb -->
+   <% @songs.each do |song| %>
     <ul>
-      <li><%= film.title %></li>
-      <li><%= film.year %></li>
-      <li><%= film.box_office_sales %></li>
+      <li><%= song.title %></li>
+      <li><%= song.length %></li>
+      <li><%= song.play_count %></li>
     </ul>
    <% end %>  
 ```
 
-Run `shotgun` from the command line. Visit `localhost:9393/films` and see your films.
+Run `shotgun` from the command line. Visit `localhost:9393/songs` and see your songs.
 
 ### Inspecting the Setup
 
