@@ -245,54 +245,41 @@ Update your runner file so that you:
 
 **TRY IT**: With your pair, create a `have_birthday` method for your Person class. This should increase the age of that person by 1.
 
-## Pair Work
+## As A Group
 
 ### Updating CreditCheck
 
-With your partner, update your CreditCheck project using the following directions:
+With your partner, update your CreditCheck project using the following directions.
 
-1. Create new file called `credit_card.rb` inside of your `./lib` directory
-1. Define CreditCard class inside of that file
-1. Take the methods that you previously had in `credit_check.rb` into the new `CreditCard` class
-1. Create a file called `runner.rb`
-1. Inside of that file:
-    * Require your `credit_card.rb` file.
-    * Create a new instance of `credit_card.rb`
-    * Call `is_valid?` on that instance of `CreditCard` with **a valid** credit card and `puts` the result to the terminal.
-    * Call `is_valid?` on that instance of `CreditCard` with **an invalid** credit card and `puts` the result to the terminal.
-1. Create initialize method that takes `card_number` and `credit_limit` as arguments
-* Refactor your `is_valid?` method to use the `card_number` instance variable instead of taking an argument
-* Revise your `runner.rb` file so that it works with this new version of CreditCard
-* Update your runner file so that you print:
-    * The card number
-    * Its credit limit
-    * If it is a valid card or not
-* Add `current_balance` as an instance variable that holds the total amount charged to date. The `current_balance` should initially be set to 0.
-* Create an `available_credit` method that returns the remaining credit that the CreditCard has.
-* Update your class so that it has a `charge` method that takes an argument of an amount. This method should *increase* the value being held by `current_balance`.
-* Update your runner file to use the `charge` method and check that it correctly increases `current_balance`. This should also **decrease** the `available_credit`
+Create a CreditCard class based on the following criteria:
 
-By the end of this exercise, you should be able to run the following code in a `pry` session and get results similar to those below.
+* A CreditCard is passed two arguments upon initialization
+    * The first argument is a String representing the card number
+    * The second argument is an Integer representing the CreditCard’s limit
+* A CreditCard can access the called card_number and limit from outside the class with `attr_reader`s
+* A CreditCard has a method called is_valid? that takes no arguments and returns either true or false based on whether or not the card number is valid.
+* A CreditCard has a method called last_four that returns a String of the last four digits of the card number
+
+If the previous criteria are met, you should be able to interact with the CreditCard class from a Pry session like so:
 
 ```ruby
-require './lib/credit_card'
+pry(main)> require './lib/credit_card'
 #=> true
-cc = CreditCard.new("4024007106512380", 15000)
-#<CreditCard:0x007fac20a366e0>
-cc.is_valid?
-#=>true
-cc.credit_limit
-#=>15000
-cc.current_balance
-#=>0
-cc.available_credit
-#=>15000
-cc.charge(1000)
-#=> 1000
-cc.current_balance
-#=>1000
-cc.available_credit
-#=> 14000
+
+pry(main)> credit_card = CreditCard.new("5541808923795240", 15000)
+#=> #<CreditCard:0x00007fbb1ca5f698 @card_number="5541808923795240", @limit=15000>
+
+pry(main)> credit_card.card_number
+#=> "5541808923795240"
+
+pry(main)> credit_card.limit
+#=> 15000
+
+pry(main)> credit_card.last_four
+#=> "5240"
+
+pry(main)> credit_card.is_valid?
+#=> true
 ```
 
 ### Check for Understanding
@@ -311,25 +298,3 @@ With your partner, answer the questions below.
     * What is a method? How do we write methods?
     * What are parameters? How do we add parameters to methods?
     * What is a return value? How do you know what the return value of a method is? Do all methods have return values?
-
-
-### Crafting Cars
-
-If you have additional time, work through the exercise below. We want to model cars in code. Work through the following steps. Remember to check your work as you complete each step.
-
-1. Create a `Car` class and save it in `car.rb`. At the bottom of the file, outside the class definition, create a new Car instance.
-1. A Car should have `make`, `model`, and `color` attributes. When a new car is created, we need to be able to specify its make and model as parameters. However, a new Car always has a "white" color.
-1. Create `attr_reader`s for your Car class's attributes.
-1. Add a `paint` method to your Car class to change its color. It should take a `new_color` parameter.
-1. Give your Car an attribute `odometer`. What should the odometer value be when the Car is first created? Create a getter method for this attribute.
-1. Add a method to the class named `horn`. In that method return the String `"BEEEEEP!"`.
-1. Add a method to your class named `drive` which takes an argument named `distance`. When the method is called, have it return the a string like `I'm driving 12 miles` where `12` is the value passed in for `distance`. Also, when a car drives, its odometer should be updated.
-1. This one is tricky. Add a method named `start`. If the car has not yet been started, when the method is called it should return `"Starting up!"`. But if the car has previously been started, it should return `"BZZT! Nice try, though."`. You'll need to create an instance variable, a method, use an if statement, and return a value.
-
-### Additional Exercises
-
-If you get done with the above exercise, then follow along with [this](https://vimeo.com/137837005) video.
-It will go through [this](https://github.com/JoshCheek/1508/blob/0facae943f7785e5133ea506595534c1b00b3025/katas/blowing_bubbles_part2.rb) coding exercise.
-It builds on bubble sort, but you don't have to understand the algorithm to follow along with it
-It only plays with swapping representations, not changing behaviour.
-We'll take a piece of toplevel procedural code and turn it into a beautilful namespaced object, and then back again.
