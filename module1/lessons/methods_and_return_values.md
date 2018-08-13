@@ -189,7 +189,7 @@ Using our Credit Check project from yesterday, let's practice creating some of o
 
 First, let's wrap our whole algorithm into one giant method, called `validate`:
 
-```
+```ruby
 #lib/credit_check.rb
 
 def validate(card_number)
@@ -234,7 +234,7 @@ What happens? Is it what you expected? Why or why not?
 
 Let's try something else. In the last `if` statement, remove the two `puts` so that the `if` statement looks like this:
 
-```
+```ruby
 if sum % 10 == 0
     "The number #{card_number} is valid"
   else
