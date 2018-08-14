@@ -39,6 +39,7 @@ title: Module 1 Lessons
 * [Mocks and Stubs](./mocks_stubs)
 
 ### Debugging
+* [Debugging with Pry](./debugging_with_pry)
 * [Debugging Techniques](./debugging_techniques)
 
 ### Version Control
