@@ -7,7 +7,7 @@ tags: debugging, pry
 
 ## Installing Pry
 
-In your terminal, enter the command:
+If you haven't already, in your terminal, enter the command:
 
 `gem install pry`
 
@@ -34,33 +34,65 @@ As programmers we often make assumptions about what our code is doing. We are of
 
 Have you ever found yourself working on a programming problem and as you attempt to solve it, you are forced to run the entire file over and over again until you get the correct result? Wouldn't it be awesome if you could pause your code at a specific line and interact with it? Enter Pry.
 
-Create a new Ruby file called `pry.rb`. In order to use Pry, you need to require it at the top of your file:
+
+### Pausing
+
+Create a new Ruby file called `pry.rb` and add this code to it:
 
 ```ruby
-require "pry"
-```
+require 'pry'
 
-Now add this code to the file:
-
-```ruby
 favorite_things = ["Trapper Keeper", "Netscape Navigator", "Troll Doll"]
-first_thing = favorite_things[0]
-second_thing = favorite_things[1]
-third_thing = favorite_things[2]
 binding.pry
-puts "first thing is #{first_thing}"
-puts "second thing is #{second_thing}"
-puts "third thing is #{third_thing}"
-puts "Lets add another thing"
-favorite_things << "Sega Dreamcast"
-last_thing = favorite_things[-1]
-puts "last thinng is #{last_thing}"
 ```
+
+The first line requires Pry, which allows us to use it in this file.
 
 Run the code and you should see a Pry prompt. Depending on your screen size, you may also see a colon, which means you are in a pager. Hit `q` to exit the pager.
 
-Whenever Ruby sees a `binding.pry` statement, Ruby pauses the execution of code and opens up a Pry session *in the middle of the code*. This Pry session is a the same as the one we opened before, except that you now have access to the variables that Ruby has created up to that point in the code. In your Pry prompt, enter `favorite_things` and you will see the array stored in the favorite_things variable. Do the same with `first_thing`, `second_thing`, and `third_thing`. Just like the Pry session before, you can run any Ruby code inside this session. Try it by entering `favorite_things.length` and `favorite_things[0]`.
+Whenever Ruby sees a `binding.pry` statement, Ruby pauses the execution of code and opens up a Pry session *in the middle of the code*. This Pry session is a the same as the one we opened before, except that you now have access to the variables and methods that Ruby has created up to that point in the code. In your Pry prompt, enter `favorite_things` and you will see the array stored in the favorite_things variable. Just like the Pry session before, you can run any Ruby code inside this session. Try it by entering `favorite_things.length` and `favorite_things[0]`.
 
-You can type `exit` to tell Ruby to close the Pry session and continue running the code. The program will run and stop again if it hits another `binding.pry`. Add another `binding.pry` to the end of this code, run it, and enter `exit` into the Pry session that opens up. You should hit another Pry.
+### Resuming
 
-You can also type `!!!` to tell Ruby to end the program right there instead of continuing to run the code. This can be very useful if you have many `binding.pry` statements, or if they are located inside a loop that will run many times.
+You can type `exit` to tell Ruby to close the Pry session and continue running the code. The program will run and stop again if it hits another `binding.pry`. Enter `exit` into your Pry session and you will see the program end since there are no more `binding.pry`s
+
+Update your code to this:
+
+```ruby
+require 'pry'
+
+favorite_things = ["Trapper Keeper", "Netscape Navigator", "Troll Doll"]
+binding.pry
+new_thing = "Banana Split"
+favorite_things << new_thing
+binding.pry
+```
+
+Run this code, and your program will pause at the *first* `binding.pry`. Try typing in `new_thing` and you will see that this variable hasn't been defined yet. Type `exit` and Ruby will continue running and stop at the second `binding.pry`. Now type `new_thing` and you will see that you have access to that variable, because this `binding.pry` happened after the variable was defined. Also, type in `favorite_things` and you will see the array has been updated.
+
+### Stopping
+
+We can also put a `binding.pry` in a loop. Update your code to this:
+
+```ruby
+require 'pry'
+
+favorite_things = ["Trapper Keeper", "Netscape Navigator", "Troll Doll"]
+new_thing = "Banana Split"
+favorite_things << new_thing
+25.times do
+  p favorite_things
+  binding.pry
+end
+
+```
+
+Now our `binding.pry` is inside a loop that happens 25 times. Run this code and type `exit` a couple times. You'll notice that you continue to hit the same pry statement. If we have a loop that runs many times, it can be a pain to type `exit` over and over to get to the end of the program. You can instead force the program to end by typing `exit!` or `!!!`.
+
+### Summary
+
+* `require 'pry'` at the top of your file.
+* Use `binding.pry` inside your code to tell Ruby to *Pause* your program when it hits that line of code.
+* Use `exit` to tell Ruby to *Resume* running your code.
+* Use `exit!` or `!!!` to tell Ruby to *Stop* your program.
+* If you get stuck in a pager, denoted by a colon `:`, you can hit `q` to exit the pager.
