@@ -1,6 +1,7 @@
 ---
 title: Debugging with Pry
 tags: debugging, pry
+layout: page
 ---
 
 # Pry
