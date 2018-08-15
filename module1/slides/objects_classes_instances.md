@@ -2,6 +2,10 @@
 
 ---
 
+# Warmup & Syntax
+
+---
+
 # Warmup
 
 * In your notebook brainstorm five **types** of objects and **specific** instances of that object that are at Turing.
@@ -64,7 +68,11 @@ require 'pry'; binding.pry
 
 ---
 
-# Attributes IRL
+# Attributes & Instance Variables
+
+---
+
+# Attributes in Life
 
 In Object-Oriented Programming (OOP), **objects need to be able to model state**.
 
@@ -72,12 +80,6 @@ In Object-Oriented Programming (OOP), **objects need to be able to model state**
     * Color
     * Contents
     * Label
-
----
-
-# Attributes: Practice
-
-**TRY IT**: With your pair, brainstorm the things that make a `Person` unique.
 
 ---
 
@@ -110,6 +112,10 @@ require 'pry'; binding.pry
 # Attributes in Code: Practice
 
 **TRY IT**: With your pair, create a class `Person` that has the attributes `name`, `birth_year`, `language`, and `alive` (which will be a true/false value). Make three instances of the `Person` class.
+
+---
+
+# Accessing Attributes
 
 ---
 
@@ -153,6 +159,10 @@ end
 
 ---
 
+# Defining Methods
+
+---
+
 # Defining Methods in Our Class
 
 Define an `add_food` method that allows you to put foods in your fridge.
@@ -171,7 +181,11 @@ end
 
 # Methods: Practice
 
-**TRY IT**: With your pair, define a `age` method for `Person`.
+**TRY IT**: With your pair, define an `age` method for `Person`.
+
+---
+
+# Credit Card
 
 ---
 
