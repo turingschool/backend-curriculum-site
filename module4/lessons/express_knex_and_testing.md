@@ -115,7 +115,7 @@ First we will change our development environment to use Postgres instead of mySq
 
 Next we'll update this connection value. Every database system has a slightly different way of establishing a connection. We have postgres running on our machines, and we need to connect to it by using what's called a connection string. (You'll notice the stubbed-in sqlite3 required a connection file.) The format for this string is just:
 
-```postgres://localhost/<name of database>```
+```connection: postgres://localhost/<name of database>```
 
 Let's name our database 'publications' and update that configuration value.
 
@@ -595,10 +595,6 @@ What about the response should we test?
   - If it's an array, how many elements should be in the array?
   - If it's an object, what properties and values should the object have?
   
-```shell
-npm install -D mocha chai chai-http
-```
-
 ### Packages we will use to test
 
 We will use the following packages to write and run our tests:
