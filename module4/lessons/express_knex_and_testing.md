@@ -57,7 +57,7 @@ This pattern is exactly how we can define and handle any routes in an Express ap
 
 ## Getting Started with Express
 
-Let's explore Express at it's most basic level - using `app.locals` for data, before we connect to a database. Read through the server.js in [this repo](https://github.com/turingschool/chatbox)file and answer the following:
+Let's explore Express at it's most basic level - using `app.locals` for data, before we connect to a database. Read through the server.js file in [this repo](https://github.com/turingschool/chatbox) and answer the following:
 - What packages are we bringing in and what are they doing for us?
 - How are we grabbing info from the request?
 - How do we send HTTP statuses?
