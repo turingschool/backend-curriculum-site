@@ -804,17 +804,13 @@ In another describe block, let’s write the test first:
           // Different status here
           response.should.have.status(201);
           response.body.should.be.a('object');
-          response.body.should.have.property('title');
-          response.body.title.should.equal('Waterfall Wow');
-          response.body.should.have.property('author');
-          response.body.author.should.equal('Amy');
-          response.body.should.have.property('publisher');
-          response.body.publisher.should.equal('idk');
+          response.body.should.have.property('id');
           done();
         });
     });
   });
 ```
+
 Seems like everything should work…right? However, if we console.log() the request.body in the route, we get undefined. Turns out Express needs help parsing the body of a request. There is a package called, you guessed it, body-parser that can help us with this. It’s already in the package.json file so you don’t need to install it - just bring it in to the server file.
 
 Add this line to the server.js file:
