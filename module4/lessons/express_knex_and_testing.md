@@ -25,11 +25,11 @@ While Node's `http` library provides us with all of the functionality we need fo
 ## Request Flow
 When we are just using Node.js, the flow of a single request might look like this:
 
-![node only][http://frontend.turing.io/assets/images/lessons/express/node-only-flow.png]
+![inline](http://frontend.turing.io/assets/images/lessons/express/node-only-flow.png)
 
 When we add Express, there are a couple of additional steps added to the flow of a request:
 
-![express flow][http://frontend.turing.io/assets/images/lessons/express/express-flow.png]
+![inline](http://frontend.turing.io/assets/images/lessons/express/express-flow.png)
 
 While the Express flow might look more complex, it actually makes the developer's job a lot easier. In this flow, the developer is only responsible for the "Middleware" part of the process. This replaces the single route handler function that you would write with only Node `http`. Writing middleware for Express is a lot easier to write and more maintainable because of the "Express" step that abstracts the complex logic for us.
 
