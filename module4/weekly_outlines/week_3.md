@@ -5,11 +5,11 @@ layout: page
 
 ## Lessons
 
-* [Fetch Refresher](../lessons/fetch_refresher)
+* Getting Started with Docker
+* Service Oriented Architecture
 * Big-O Notation
-* Technical Challenge
 * [Project Planning](../lessons/project-planning)
-* QS Reflection
+* Technical Challenge
 * [Week Three CFU](https://github.com/turingschool/checks-for-understanding/blob/master/module-4/backend/week_three.md)
 
 ## Projects
