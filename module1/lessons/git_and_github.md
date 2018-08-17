@@ -15,6 +15,10 @@ After this lesson, students should be able to:
 * Link a local repository to a remote repository
 * Use a branching workflow with Git and GitHub
 
+## Slides
+
+Available [here](../slides/git_and_github)
+
 ## Warmup
 
 * What do you already know about Git/GitHub?
