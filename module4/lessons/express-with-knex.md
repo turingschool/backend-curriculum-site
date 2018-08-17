@@ -220,7 +220,7 @@ const configuration = require('../knexfile')[environment];
 const database = require('knex')(configuration);
 ```
 
-Then, lets our `beforeEach()` and `afterEach()` hooks inside our get test:
+Then, lets write our `beforeEach()` and `afterEach()` hooks inside our get test:
 
 ```js
   let monster = { id: 1, name: 'Steve', level: 2 , created_at: null, updated_at: null}
@@ -267,7 +267,7 @@ There are a few things going on in the code above.
 
 If you run `npm start`, you should see our three monsters when you visit /api/v1/monsters.
 
-Okay cool we can get data from the database, but how do we create and edit and delete?? First, our test:
+Great! We can get data from the database, but how do we create and edit and delete?? First, our test:
 
 ```js
 describe('POST /api/v1/monsters', () => {
@@ -317,11 +317,7 @@ Implement a PUT and DELETE route for a monster
 ### Pushing to Heroku
 Now that we are all wired up with Knex in our local dev environment, it's time to look towards big and better things... the wonderful world of production. Because it doesn't matter how awesome your endpoints are if you can't show the world.
 
-We've already done a lot of prep without even knowing it, but there are a few catchyas left to conquer. Before we can config production fully, we need to create our production app with Heroku. If you haven't already, go ahead and create an account with Heroku. Then login in your terminal:
-
-```js
-heroku login
-```
+We've already done a lot of prep without even knowing it, but there are a few catchyas left to conquer. Before we can config production fully, we need to create our production app with Heroku.
 
 To create an app with Heroku:
 
@@ -365,7 +361,7 @@ Now we want to make sure our knexfile has this environment variable for producti
 ```js
   production: {
     client: 'pg',
-    connection: process.env.HEROKU_POSTGRESQL_SILVER_URL + `?ssl=true`,
+    connection: process.env.DATABASE_URL + `?ssl=true`,
     migrations: {
       directory: './db/migrations'
     },
@@ -376,14 +372,22 @@ Now we want to make sure our knexfile has this environment variable for producti
   }
 ```
 
-Now our production code knows where to look to grab production data. The last step is adding some seed data, which I'll just copy from seeds/dev to seeds/production. Commit all those changes and push it up to Heroku. To migrate and seed with Heroku:
+Now our production code knows where to look to grab production data. The last step is adding some seed data, which I'll just copy from seeds/dev to seeds/production. **Commit all those changes and push it up to Heroku.**
+
+Now, migrate with Heroku:
 
 ```
-$ heroku run 'knex migrate:latest'
-$ heroku run 'knex seed:run'
+$ heroku run knex migrate:latest
 ```
 
-It should give you some feedback that it worked. Now do heroku open and magic! You have data.
+If you don't yet have a production seed file, create one. Then, seed with Heroku:
+
+```
+$ heroku run knex seed:run
+```
+
+It should give you some feedback that it worked. Now run `heroku open` and you have data!
+
 
 ## Relationships
 

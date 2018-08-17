@@ -9,7 +9,6 @@ title: Module 1 Lessons
 * [Flow Contol](./flow_control)
 * [#each](./each)
 * [Methods, Arguments, Return Values](./methods_and_return_values)
-* [Git and Github](./git_and_github)
 * [Objects, Instances and Classes](./objects_classes_instances)
 * [Enumerables I](./beginner_enumerables)
 * [Hashes](./introducing_hashes)
@@ -43,6 +42,6 @@ title: Module 1 Lessons
 * [Debugging Techniques](./debugging_techniques)
 
 ### Version Control
-* [Intro to Git and Github](./git_and_github)
+* [Git and Github](./git_and_github)
 * [Git Review](./git_review)
 * [Git for Pairs](./git_for_pairs_new)

@@ -18,32 +18,15 @@ The remaining portions of the obstacle course will increase in difficulty and wi
 
 ## Instructions
 
-1. Fork the [Storedom](https://github.com/turingschool-examples/storedom-5) repo to your own GitHub account, then clone down your fork. Then, do the following:
-
-```bash
-# add Turing's repo as a 'remote'
-git remote add turing git@github.com:turingschool-examples/storedom-5
-
-# fetch all of Turing's branches
-git fetch turing
-
-# check out Turing's `activerecord-obstacle-course` branch
-git checkout turing/activerecord-obstacle-course
-
-# make a branch for your repo
-git checkout -b activerecord-obstacle-course
-
-# push the branch to your repo
-git push -u origin activerecord-obstacle-course
-```
+1. Fork [the repo](https://github.com/turingschool-projects/activerecord-obstacle-course) to your own GitHub account, then clone down your fork.
 
 2. Do the usual setup
 
 ```bash
 bundle install
 bundle update
-rake db:{drop,create,migrate,seed}
-rspec spec/models/activerecord_obstacle_course_spec.rb
+rake db:{drop,create,migrate,seed}  # seeding will take a few moments
+rspec
 # you should see several passing tests, and a few skipped tests
 ```
 

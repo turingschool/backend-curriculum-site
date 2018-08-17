@@ -17,7 +17,7 @@ tags: capybara, user stories, feature tests, testing, sinatra
 
 ## Repository
 
-You should be able to use the Film File repository that we have been using this week. If you have not yet cloned it down, you can find it [here](https://github.com/turingschool-examples/set-list).
+You should be able to use the SetList repository that we have been using this week. If you have not yet cloned it down, you can find it [here](https://github.com/turingschool-examples/set-list).
 
 ## Warmup
 
