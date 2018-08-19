@@ -129,7 +129,7 @@ Say we created one function responsible for appending posts and another to log o
 ```js
 const appendPosts = (posts) => {
   posts.forEach(function(post){
-    $(".posts-box").append(post)
+    $('.posts-box').append(post)
   })
 }
 
@@ -160,7 +160,7 @@ Just like we organized our `fetch()` handlers above, we can organize our event h
 If we were working with form data like this:
 
 ```js
-$('form').on('submit', function(event){
+$('form').on('submit', function(event) {
   event.preventDefault()
   return fetch('http://example.com/articles', {
     method: 'post',
@@ -178,34 +178,39 @@ $('form').on('submit', function(event){
 We can refactor that so our event bindings live together, our `fetch()` calls live together, and our `fetch()` handlers live together.
 
 ```js
-// event bindings live nicely as one liners
-$('form').on('submit', postArticle)
+// event bindings live nicely as one liners:
+$('form').on('submit', postArticle);
 
 const requestOptions = {
   method: 'post',
   headers: { 'Content-Type': 'application/json'},
-  body: JSON.stringify(article)
+  body: JSON.stringify(article);
 }
 
-// Fetch call is nice and tidy on its own
+// Fetch call is nice and tidy on its own:
 const postArticle = (event) => {
   event.preventDefault()
   return fetch('http://example.com/articles', requestOptions)
     .then(handleResponse)
-    .then(appendArticle)
-    .catch(errorLog)
+    .then(appendArticle(article))
+    .catch(errorLog);
+}
+
+// DOM manipulation is abstracted:
+const appendArticle = (article) => {
+  $('.container').append(`
+    <p>${article}</p>
+  `);
 }
 ```
 
 ## Work Time
 
-Pair up with your Quantified Self partner and discuss the following:
+Pair up with someone... and write the Post request and necessary jQuery to invite a new Hedgehog to the party::
 
--   What are some use cases for `fetch()`? Name some cards from your project that will require an `fetch()` request to complete.
--   What information do you need before you can make an `fetch()` request?
--   How do you access the response from the request?
-
-Once you've answered those, work to implement the variety of `fetch()` requests necessary to GET, POST, DELETE, etc. to the Quantified Self API.
+-   Fork the [https://codepen.io/ameseee/pen/rKqaLE?editors=1010](Hedgehog Party) into your own CodePen (create an account if needed - it's free!)
+-   Write the Post request and necessary jQuery to invite a new Hedgehog to the party.
+- Write the Delete request and necessary jQuery to uninvite a Hedgehog from the party.
 
 
 ## Additional Resources
