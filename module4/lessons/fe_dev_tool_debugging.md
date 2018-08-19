@@ -19,7 +19,7 @@ Debugging your front-end code can be an intimidating part of the development pro
 The front-end languages (HTML, CSS and JavaScript) are run entirely in the browser, so the technique for troubleshooting broken code can happen in many places. Luckily, modern browsers are aware of this and give us a collection of advanced tools to help us debug.
 
 ### Developer Tools
-One of the first tools you should familiarize yourself with when doing front-end development are the built-in browser [DevTools](https://developer.chrome.com/devtools). Though you can explore the browser DevTools on any webpage, we'll be using a simple expense tracking application to demonstrate how to use the DevTools. You can clone the application [here](https://github.com/turingschool-examples/debugging-with-devtools), and follow the installation instructions in the README to get set up. The application has some pre-made bugs for us to solve as we go through the lesson.
+One of the first tools you should familiarize yourself with when doing front-end development are the built-in browser [DevTools](https://developer.chrome.com/devtools). Though you can explore the browser DevTools on any webpage, we'll be using a simple expense tracking application to demonstrate how to use the DevTools.
 
 #### Accessing DevTools
 To open developer tools in Chrome:
@@ -275,8 +275,7 @@ The most important tabs in this view are the HEADERS tab and the RESPONSE tab. T
 
 ### Practice
 
-Let's put this information into practice by trying to solve a couple of bugs in our expense application.
-Read through the first buggy scenario [here](https://github.com/turingschool-examples/debugging-with-devtools/tree/category-highlighting) and checkout the `category-highlighting` branch to get started fixing
+Let's put this information into practice by trying to solve a couple of bugs in our expense application. You can clone the application [here](https://github.com/turingschool-examples/debugging-with-devtools), and follow the installation instructions in the README to get set up. The application has some pre-made bugs for us to solve as we go through the lesson. Read through the first buggy scenario [here](https://github.com/turingschool-examples/debugging-with-devtools/tree/category-highlighting) and checkout the `category-highlighting` branch to get started fixing
 that code.
 
 ---------------------------------------
