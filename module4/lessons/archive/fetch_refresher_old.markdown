@@ -208,7 +208,7 @@ const appendArticle = (article) => {
 
 Pair up with someone... and write the Post request and necessary jQuery to invite a new Hedgehog to the party::
 
--   Fork the [https://codepen.io/ameseee/pen/rKqaLE?editors=1010](Hedgehog Party) into your own CodePen (create an account if needed - it's free!)
+-   Fork the (https://codepen.io/ameseee/pen/rKqaLE?editors=1010)[Hedgehog Party] into your own CodePen (create an account if needed - it's free!)
 -   Write the Post request and necessary jQuery to invite a new Hedgehog to the party.
 - Write the Delete request and necessary jQuery to uninvite a Hedgehog from the party.
 
@@ -219,5 +219,5 @@ Pair up with someone... and write the Post request and necessary jQuery to invit
 
 Be aware that AJAX can also be used to make client side request to a server. Fetch has become more poplar in recent years as it is built into Javascript, works on almost all browsers, and doesn't require jQuery. If you want to learn more check out this old lesson [AJAX Refresher](./archive/organize-an-express-app)
 
-[https://github.com/ameseee/fetch-hedgehog-party/blob/complete/public/index.js](Instructor Materials)
+(https://github.com/ameseee/fetch-hedgehog-party/blob/complete/public/index.js)[Instructor Materials]
 
