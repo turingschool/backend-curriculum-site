@@ -218,3 +218,6 @@ Pair up with someone... and write the Post request and necessary jQuery to invit
 * [CSS Tricks Using Fetch](https://css-tricks.com/using-fetch/)
 
 Be aware that AJAX can also be used to make client side request to a server. Fetch has become more poplar in recent years as it is built into Javascript, works on almost all browsers, and doesn't require jQuery. If you want to learn more check out this old lesson [AJAX Refresher](./archive/organize-an-express-app)
+
+[https://github.com/ameseee/fetch-hedgehog-party/blob/complete/public/index.js](Instructor Materials)
+
