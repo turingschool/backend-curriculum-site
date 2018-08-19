@@ -19,9 +19,11 @@ Debugging your front-end code can be an intimidating part of the development pro
 The front-end languages (HTML, CSS and JavaScript) are run entirely in the browser, so the technique for troubleshooting broken code can happen in many places. Luckily, modern browsers are aware of this and give us a collection of advanced tools to help us debug.
 
 ### Developer Tools
-One of the first tools you should familiarize yourself with when doing front-end development are the built-in browser [DevTools](https://developer.chrome.com/devtools). Though you can explore the browser DevTools on any webpage, we'll be using a simple expense tracking application to demonstrate how to use the DevTools.
+One of the first tools you should familiarize yourself with when doing front-end development are the built-in browser [DevTools](https://developer.chrome.com/devtools), which can be used to explore any webpage.
 
 #### Accessing DevTools
+First, open up your favorite website - preferably something that you imagine has a lot of traffic and/or is making a lot of requests (NYTimes and CNN are great for this exercise if you don't have a favorite).
+
 To open developer tools in Chrome:
   - Mac: `Cmd` + `Opt` + `i`
   - (or) Right click on the browser window and select `inspect`
@@ -62,6 +64,8 @@ You'll notice hovering over an HTML element in the devtools panel will also high
 
 You can also select elements directly on the page by clicking the ![Square Arrow](http://i.imgur.com/ODylyUu.png) icon in the toolbar, then hovering over the element on the page. This will automatically bring you to the corresponding code for that element in the devtools panel.
 
+**TRY IT:** Click on an element on your favorite website, then look at the HTML in the DevTools.
+
 If you're having trouble finding the element you'd like to work with, you can search through the entire HTML with `Cmd + F`. You'll notice a searchbar appear at the bottom of the panel where you can enter any string to find a match. This is useful if you'd like to search for an element by a known ID or class.
 
 ![Find in HTML][find-in-html]
@@ -81,27 +85,23 @@ The browser didn't recognize that we wanted the `<b>` tag to be considered HTML,
 
 ![Edit as HTML][edit-as-html]
 
-There are a lot of other options in the menu that appears when you right-click on an element. Play around with each of the options to see what else can be done.
+There are a lot of other options in the menu that appears when you right-click on an element.
+
+**TRY IT:** Play around with each of the options on your favorite website to see what else can be done!
 
 #### Editing CSS
-To the right of the HTML pane, there's a small sidebar that gives us styling information for the currently selected element. Similar to the HTML pane, we can add or remove styles and adjust CSS property values from this pane. You can click on any style property associated with the selected element and change its value. You can also use the blue checkbox to toggle the style on or off.
+To the right of the HTML pane, there's a small sidebar (Styles is selected by default) that gives us styling information for the currently selected element. Similar to the HTML pane, we can add or remove styles and adjust CSS property values from this pane. You can click on any style property associated with the selected element and change its value. You can also use the blue checkbox to toggle the style on or off.
 
 ![Editing CSS][editing-css]
 
 #### Inspecting DOM Events
-Also in this sidebar is a tab labeled 'Event Listeners'. This is an important one for debugging user interactions on your application. In our expense tracker application, we've set up an event listener on our form for submitting a new expense:
+In this sidebar, you will also find a tab labeled 'Event Listeners'. This is an important one for debugging user interactions on your application. In the gif below, this arrow/send button provides a dropdown with a menu of options to like or retweet the article. When one is clicked on, another window will open to the respective social media website.
 
-```javascript
-$('#submit-expense').on('submit', (e) => {
-  e.preventDefault();
-  console.log('Submitting a new expense...');
-});
-```
-
-We can verify that this event listener has been attached to its corresponding DOM node by selecting the `form` in the elements panel, and navigating to the 'Event Listeners' tab in the sidebar:
+We can verify that this event listener has been attached to its corresponding DOM node by selecting the `button` in the elements panel, and navigating to the 'Event Listeners' tab in the sidebar:
 
 ![Event Listeners][event-listeners]
 
+**TRY IT:** Select an element that you would expect to have an event listener and try to locate it in the tools. Warning: if this is a site with a lot going on, you'll see A LOT of listeners! Dig into some of those and try to figure out what they may be doing.
 
 [elements-panel]: /assets/images/lessons/debugging-with-devtools/elements-panel.png
 [find-in-html]: /assets/images/lessons/debugging-with-devtools/find-in-html.gif
@@ -178,6 +178,8 @@ The sources panel gives us an overview of all the files we have loaded into our 
 * live-debugging JavaScript errors
 * monitoring the values of application variables
 
+**TRY IT:** Look through the files on the far left, as well as all the `.js` files (along the horizontal tab) - what might those all be responsible for?
+
 #### Pausing Code Execution with `debugger`
 Similar to the `console.log()` method we just learned about, we can also use `debugger` statements in our code to get feedback about our application's JavaScript.
 
@@ -185,36 +187,15 @@ The `debugger` statement is a bit more robust than `console.log()` because it wi
 
 *NOTE - The console must be open for debugger to catch, otherwise the app will look normal and you won't get any error messages - if you get stuck, refresh your page while the console is open and go from there.*
 
-Let's put a `debugger` statement in our expenseTracker application. Now that we've successfully retrieved our expenses with an fetch call, we want to render them in the UI. We have a function called `renderExpenses` to handle this for us. It loops through each expense and appends it to the table body. Though we don't have a bug in this code, we can easily demonstrate how `debugger` statements pause our code execution by putting one in the loop:
-
-```javascript
-const renderExpenses = (expenses) => {
-  const tableBody = $('#expenses-data tbody');
-  expenses.forEach(expense => {
-    debugger;
-    const tableRow = document.createElement('tr');
-    $(tableRow).addClass(expense.category);
-    $(tableRow).append(`<td>${expense.category}</td>`);
-    $(tableRow).append(`<td>${expense.description}</td>`);
-    $(tableRow).append(`<td>${expense.cost}</td>`);
-    tableBody.append(tableRow);
-  });
-};
-```
-
-After putting the `debugger` in your loop, refresh the page and you should see the code pausing on each loop. Every time you resume the code execution (by clicking the blue arrow at the top of the browser window), you should see a new expense rendered to the table.
-
 ![debugger-pause][debugger-pause]
 
-Pay special attention to the sidebar on the right of the devtool panel. Underneath the 'scope' section, you can explore all the variables that exist within your scope at the time of this pause. You'll notice the variable called `expense` will change as we iterate through each loop, because we are appending a new expense object to the DOM every time we pause our code.
+Pay special attention to the sidebar on the right of the DevTool panel. Underneath the 'scope' section, you can explore all the variables that exist within your scope at the time of this pause. You'll notice the variable called `expense` will change as we iterate through each loop, because we are appending a new expense object to the DOM every time we pause our code.
 
 
 #### Setting Breakpoints
 As mentioned, the `debugger` strategy has some advantages over using `console.log()`. The only setback with using `debugger` statements is that we have to continually toggle between our codebase and the browser, adding and removing debuggers from our code. The sources panel actually provides a way for us to streamline this debugging process a little bit.
 
 When we want to set a `debugger` statement in a particular JavaScript file, we can simply open that file in the source panel by clicking on its name in the left-sidebar. Once we're viewing the code, we can set 'breakpoints' (essentially, these are debugger statements) by clicking on the line numbers where we want to pause code execution. This makes it easy and fast for us to add and remove as many breakpoints as we want.
-
-Let's remove the `debugger` statement we adding in our codebase, and use a breakpoint from the sources panel instead. From the sources panel, click on `script.js` in the sidebar on the left. Then click on the line number corresponding to our first line in the loop function (`const tableRow = document.createElement('tr');`). If you've set the breakpoint correctly, the line number should turn blue. Refresh the page to see how breakpoints work in the same fashion as `debugger` statements:
 
 ![breakpoint-pause][breakpoint-pause]
 
@@ -266,6 +247,8 @@ When we're trying to debug a network request and we see that it is highlighted i
 ![Request Details](https://i.imgur.com/R156Ed9.png)
 
 The most important tabs in this view are the HEADERS tab and the RESPONSE tab. The Headers tab will give you detailed information about what was sent in the request. The response tab will show you what you actually received back from the server. This could be the JSON data you requested, an error message, or even an entire HTML file.
+
+**TRY IT:** Before your explore - what status codes do you expect to see on your favorite website? Now, check it out. What status codes do you see? Do you see any red? If so, click on it and investigate the headers and response tabs associated with it. 
 
 [network-panel]: /assets/images/lessons/debugging-with-devtools/network-panel.png
 [request-details]: /assets/images/lessons/debugging-with-devtools/request-details.png
