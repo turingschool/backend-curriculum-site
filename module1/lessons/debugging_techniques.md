@@ -9,7 +9,7 @@ layout: page
 
 * Understand how to read a stack trace
 * Understand common error messages
-* Understand how to use to create breakpoints in code to help verify assumptions
+* Understand how to use pry to create breakpoints in code to help verify assumptions
 * Develop a debugging process
 
 ## Tools & Repositories
@@ -33,8 +33,6 @@ There are two ways that programming can go wrong:
 
 1. Your program doesn't run. You get an **Error**.
 1. Your program runs, but it doesn't work the way you expect. You get a **Failure**.
-
-In Module 1, we use the Minitest framework that shows us our failures and errors.
 
 Having a debugging process when things go wrong is crucial to being an effective developer. No matter how skilled you are at coding, you will always write bugs, so it is very important to know how to hunt them down and fix them.
 
@@ -73,9 +71,9 @@ Let's break this down line by line:
 * All of the following lines are part of the **Stack Trace**:
   * `/Users/brian/turing/1module/exercises/erroneous_creatures/lib/hobbit.rb:18:in 'adult?'`: This is the first line of the stack trace, and is the line where the error actually happened. The first part is a big long file path to the file. Generally, we only care about the last part, the file name. In this case, it is `hobbit.rb:18`. This is telling us that the error occurred in the `hobbit.rb` file on line 18. The next part, `in 'adult?'` tells us that this error happened in the `adult?` method. `hobbit.rb:18` is the most important part of the whole stack trace. It tells us the exact location of the error.
   * `/Users/brian/turing/1module/exercises/erroneous_creatures/lib/hobbit.rb:22:in 'play'`: The next line in the stack trace tells us where the `adult?` method was called from. Again, the most important part is the file and line number, `hobbit.rb` line 22. The last part, `in 'play'` is telling us that the `play` method was running when the `adult?` method was called.
-  * `test/hobbit_test.rb:75:in block in test_can_get_tired_if_play_3times`: The next line in the stack trace tells us where the `play` method was called from. It was called from the `hobbit_test.rb` file on line 75
-  * `test/hobbit_test.rb:74:in times` is telling us that the previous method call was running in a `times` loop that started on line `74`
-  * `test/hobbit_test.rb:74:in 'test_can_get_tired_if_play_3times'` is telling us that the `test_can_get_tired_if_play_3times` started the `times` loop
+  * `test/hobbit_test.rb:75:in block in test_can_get_tired_if_play_3times`: The next line in the stack trace tells us where the `play` method was called from. It was called from the `hobbit_test.rb` file on line 75 in a block.
+  * `test/hobbit_test.rb:74:in times` is telling us that that block was part of a `times` loop that started on line `74`
+  * `test/hobbit_test.rb:74:in 'test_can_get_tired_if_play_3times'` is telling us that the `times` loop was called from `test_can_get_tired_if_play_3times`.
 
 If we chart this out as a series of method calls, it looks something like this:
 
@@ -87,6 +85,8 @@ test_can_get_tired_if_play_3times -> times -> play -> adult?
 
 When we use the stack trace, we start at the top and work our way down. In this case, we start at `hobbit.rb:18` to see the line where the error occurred. The error was `undefined method '>=' for nil:NilClass`. Looking at that line of code, we can see that the variable `@age` was misspelled, causing it to be `nil`. Fixing the spelling resolves the error.
 
+If we didn't find an error in the `play` method, we could take another step back into the `adult?` method to see if we can find an error there.
+
 When reading a stack trace, you should ignore references to code that you didn't write. For instance, run the `unicorn_test.rb` file and you will see this output:
 
 ```
@@ -96,6 +96,29 @@ When reading a stack trace, you should ignore references to code that you didn't
 ```
 
 Let's follow our same process for reading the Stack Trace (note that unlike before, Minitest doesn't tell us what test was running). The first line tells us the error is `cannot load such file -- .lib/unicorn (LoadError)`. The next line tells it happened on line 20 of `kernel_require`. Because we didn't write `kernel_require` we can ignore that. The next line tells us that `kernel_require` code was called from `unicorn_test.rb` line 4. Examining this line, we can see a mispelling in our require statement.
+
+## Errors
+
+When you see an error in your terminal, it can be tempting to read it as "blah blah blah something isn't working, let me open up my code and fix it". Instead, you should read the error, the WHOLE error, maybe even read it twice, and really try to understand your problem before you try to fix it. Here are some common errors and how we can interpret them:
+
+`NameError: uninitialized constant SomeClass::SomeConstant` - Ruby doesn't know what `SomeConstant` is.
+
+`undefined local variable or method 'x' for SomeObject (NameError)` - Ruby doesn't know what `x` is. It looked for a local variable `x` but couldn't find one. It then looked for a method `x` and couldn't find one for `SomeObject`
+
+`wrong number of arguments (given x, expected y) (ArgumentError)` - You called a method with `x` number of arguments, but the method definition specifies it needs `y` number of arguments. This often happens when we call `.new` on something. Remember, when you call `.new` it also calls `.initialize` so you need to make sure the number of arguments you pass to `.new` match the number of arguments defined in `.initialize`
+
+`undefined method 'some_method' for SomeObject:SomeClass (NoMethodError)` - you tried to call `some_method` on `SomeObject`, but `SomeObject` doesn't respond to that method. This means that `some_method` is not defined in `SomeClass`. This error can take several forms:
+
+1. If you didn't write `SomeClass`, you called a method that doesn't exist i.e. `"hello world".first`.
+1. If you did write `SomeClass`, you misspelled the name of the method or you didn't defined `some_method` for `SomeClass`
+1. If `SomeObject:SomeClass` shows up as `nil:NilClass`, this means that something is nil that shouldn't be.
+1. Sometimes `SomeObject:SomeClass` looks like `#<SomeClass:0x00007f7fa21d5410>`. You can read this as "you tried to call `some_method` on a `SomeClass` object".
+
+`syntax error, unexpected end-of-input, expecting keyword_end` - You are missing an `end`. Indenting your code properly will make it MUCH easier to hunt down the missing end.
+
+`syntax error, unexpected keyword_end, expecting end-of-input` - You have an extra `end` or an `end` in the wrong place. Indenting your code properly will make it MUCH easier to hunt down the offensive end.
+
+`require': cannot load such file -- file_name (LoadError)` - Ruby cannot load the file `file_name`. Make sure `file_name` is spelled correctly, the path is written correctly i.e. `./lib/file_name`, and that you are running from the root directory of your project.
 
 ## Verifying Your Assumptions
 
