@@ -11,7 +11,7 @@ tags: activerecord, migrations, sinatra, sql
 * Use `order` to order grouped results
 * Compare SQL queries to ActiveRecord queries
 
-## Vocabulary 
+## Vocabulary
 * SQL Query (Standard Query Language)
 * ActiveRecord Query
 * joins (JOIN)
@@ -49,15 +49,16 @@ courses:
 
 students:
 
-| id | first_name | last_name | course_id |
-|----|------------|-----------|-----------|
-| 1  | Sal        | Espinosa  | 2         |
-| 2  | Ilana      | Corson    | 2         |
-| 3  | Josh       | Mejia     | 3         |
-| 4  | Casey      | Cumbow    | 4         |
-| 5  | Ali        | Schlereth | 1         |
-| 6  | Victoria   | Vasys     | 1         |
-| 7  | Mike       | Dao       | 1         |
+| id | first_name | last_name   | course_id | score |
+|----|------------|-------------|-----------|-------|
+| 1  | Brian      | Zanti       | 1         | 3     |
+| 2  | Megan      | McMahon     | 1         | 4     |
+| 3  | Josh       | Mejia       | 3         | 2     |
+| 4  | Mike       | Dao         | 3         | 3     |
+| 5  | Ian        | Douglas     | 2         | 2     |
+| 6  | Dione      | Wilson      | 2         | 4     |
+| 7  | Cory       | Westerfield | 4         | 3     |
+| 8  | Sal        | Espinosa    | 1         | 2     |
 
 
 In another tab, let's open a connection to `psql`
@@ -65,6 +66,12 @@ In another tab, let's open a connection to `psql`
 $ psql
 $ \c roster-development
 ```
+
+If you get an error trying to run the above commands try this instead:
+```
+$ psql --dbname roster-development
+```
+
 A `JOIN` query would look something like this:
 
 ```SQL
@@ -73,15 +80,16 @@ SELECT * FROM courses JOIN students ON students.course_id = courses.id;
 
 And it would result in a table like the following:
 
-| id | title | description                             | id | first_name | last_name | module_id |
-|----|-------|-----------------------------------------|----|------------|-----------|-----------|
-| 1  | BE M1 | OOP with Ruby                           | 5  | Ali        | Schlereth | 1         |
-| 1  | BE M1 | OOP with Ruby                           | 6  | Victoria   | Vasys     | 1         |
-| 1  | BE M1 | OOP with Ruby                           | 7  | Mike       | Dao       | 1         |
-| 2  | BE M2 | Web Applications with Ruby              | 1  | Sal        | Espinosa  | 2         |
-| 2  | BE M2 | Web Applications with Ruby              | 2  | Ilana      | Corson    | 2         |
-| 3  | BE M3 | Professional Rails Applications         | 3  | Josh       | Mejia     | 3         |
-| 4  | BE M4 | Client-Side Development with JavaScript | 4  | Casey      | Cumbow    | 4         |
+| id | title | description                             | id | first_name | last_name   | course_id | score |
+|----|-------|-----------------------------------------|----|------------|-------------|-----------|-------|
+| 1  | BE M1 | OOP with Ruby                           | 1  | Brian      | Zanti       | 1         | 3     |
+| 1  | BE M1 | OOP with Ruby                           | 2  | Megan      | McMahon     | 1         | 4     |
+| 3  | BE M3 | Professional Rails Applications         | 3  | Josh       | Mejia       | 3         | 2     |
+| 3  | BE M3 | Professional Rails Applications         | 4  | Mike       | Dao         | 3         | 3     |
+| 2  | BE M2 | Web Applications with Ruby              | 5  | Ian        | Douglas     | 2         | 4     |
+| 2  | BE M2 | Web Applications with Ruby              | 6  | Dione      | Wilson      | 2         | 2     |
+| 4  | BE M4 | Client-Side Development with JavaScript | 7  | Cory       | Westerfield | 4         | 3     |
+| 1  | BE M1 | OOP with Ruby                           | 8  | Sal        | Espinosa    | 1         | 2     |
 
 Notice that there is duplicated information in the table that resulted from this JOIN.
 
@@ -100,11 +108,11 @@ Course.joins(:students)
 ```
 
 ```ruby
-=> #<ActiveRecord::Relation [#<Course id: 1, title: "BE M1", description: "OOP with Ruby">, #<Course id: 1, title: "BE M1", description: "OOP with Ruby">, #<Course id: 1, title: "BE M1", description: "OOP with Ruby">, #<Course id: 2, title: "BE M2", description: "Web Applications with Ruby">, #<Course id: 2, title: "BE M2", description: "Web Applications with Ruby">, #<Course id: 3, title: "BE M3", description: "Professional Rails Applications">, #<Course id: 4, title: "BE M4", description: "Client-Side Development with JavaScript">]>
+=> #<ActiveRecord::Relation [#<Course id: 1, title: "BE M1", description: "OOP with Ruby">, #<Course id: 1, title: "BE M1", description: "OOP with Ruby">, #<Course id: 1, title: "BE M1", description: "OOP with Ruby">, #<Course id: 2, title: "BE M2", description: "Web Applications with Ruby">, #<Course id: 2, title: "BE M2", description: "Web Applications with Ruby">, #<Course id: 3, title: "BE M3", description: "Professional Rails Applications">, #<Course id: 3, title: "BE M3", description: "Professional Rails Applications">, #<Course id: 4, title: "BE M4", description: "Client-Side Development with JavaScript">]>
 ```
 
 
-If we add `.count(:id)` to the end of those statements, we will get seven, even though there are only four courses. This is because the resulting table would have seven rows.
+If we add `.count(:id)` to the end of those statements, we will get eight, even though there are only four courses. This is because the resulting table would have eight rows.
 
 The Course objects that are returned from this query will only know about Course attributes. In order to access attributes from both tables, we need to add one more piece:
 
@@ -141,12 +149,12 @@ SELECT students.course_id, count(students.id) AS student_count FROM students GRO
 The return looks something like this:
 
 ```SQL
-course_id | student_count
+course_id  | student_count
 -----------+---------------
+         3 |             2
          4 |             1
-         1 |             3
-         3 |             1
          2 |             2
+         1 |             3
 (4 rows)
 ```
 
@@ -160,7 +168,7 @@ end
 Will return a hash like the following:
 
 ```ruby
-{1 => 3, 2 => 2, 3 => 1, 4 => 1}
+{3 => 2, 4 => 1, 2 => 2, 1 => 3}
 ```
 
 The keys are the course_id and the values are the count of how many students in that course.
@@ -180,7 +188,7 @@ This will return us a table like so:
 course_id | student_count
 -----------+---------------
          4 |             1
-         3 |             1
+         3 |             2
          2 |             2
          1 |             3
 (4 rows)
@@ -196,7 +204,7 @@ end
 Now the resultant hash would look something like the following:
 
 ```ruby
-{3 => 1, 4 => 1, 2 => 2, 1 => 3}
+{4 => 1, 3 => 2, 2 => 2, 1 => 3}
 ```
 
 Interestingly, if you add a `select` clause with a calculation as an argument, it is possible for a `group` and `order` query to return objects. For example:
