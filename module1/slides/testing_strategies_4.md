@@ -21,9 +21,37 @@
 
 # Why Write Tests First?
 
+* Integrate writing tests into our process
 * Figure out what you want
-* Only write the code you need
 * Break down problems
+* Only write the code you need
+
+---
+
+# Types of Tests: Integration
+
+* Check to see how methods work together.
+
+---
+
+# Types of Tests: Unit
+
+* Check to see that methods work in isolation.
+
+---
+
+# Hierarchy of Tests
+
+![TestPyramid](https://goo.gl/NYQcSd)
+
+---
+
+# Sad-Path Testing
+
+* Allows us to test what happens when someone gives us a value we don't want
+    * Does our application error out?
+    * Does it handle the unexpected values nicely?
+    * How do we want it to behave?
 
 ---
 
@@ -59,76 +87,6 @@ car.odometer.class
 
 ---
 
-# How to Write Tests
-
-* Test **methods**
-    * Even integration tests test methods
-    * Does this method do what I expect when I call it?
-* Require us to make decisions
-    * How to name methods/classes
-    * What input methods will take
-    * What methods will return
-    * Sometimes what side effects methods will have
-
----
-
-# Instance Methods
-
-* Most of the methods you've seen up to this point
-* Call methods on an instance of a class
-* Take input in the form of arguments
-* Provide output in the form of return values
-
-```ruby
-cw = CaseWorker.new
-cw.cases
-# => []
-```
-
----
-
-# Steps to Test an Instance Method
-
-* Decide what the input will be
-* Decide what the output will be
-* Create an instance
-* Call the instance method on that instance
-* With the given input
-* Save the result to a variable
-* Assert that result is equal to the expected output
-
----
-
-# Template
-
-```ruby
-def test_it_can_do_something
-  instance = SomeClass.new
-
-  expected = expected_output
-  actual   = instance.method_name(input)
-
-  assert_equal expected, actual
-end
-```
-
----
-
-# Example
-
-```ruby
-def test_it_can_double_numbers
-  doubler = Doubler.new
-
-  expected = 4
-  actual   = dobuler.double(2)
-
-  assert_equal expected, actual
-end
-```
-
----
-
 # Interaction Patterns: Paired
 
 ```
@@ -148,6 +106,8 @@ car.odometer
 # Interactions in Pry
 
 * Can use our interaction patterns in `pry`
+* *Try it!*
+* Require the class that you built in `pry` and then see if you can run the methods you created based on what you saw in the interaction pattern
 
 ---
 
@@ -166,31 +126,7 @@ car.odometer
 
 ---
 
-# Integration vs. Unit Tests
+# Wrap Up
 
-* Tests up to this point would likely be integration tests
-* How do we test at the unit level?
-    * Write a high level test
-    * Recognize it as the ultimate goal
-    * Begin to implement (is everything connected?)
-    * Get to `expected: x, got: nil`
-    * Skip it
-    * Pseudocode solution
-    * Write new test for first step of solution
-
----
-
-# Unit Tests
-
-* Still tests methods
-* Use same pattern
-    * Input
-    * Expected output
-    * Create instance
-    * Actual output
-    * Assertion
-
----
-
-# Share
-
+* How does letting tests drive your development lead you to stronger code?
+* What tradeoffs do you face when working with unit vs integration tests?

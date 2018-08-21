@@ -11,162 +11,62 @@ length: 60
 * Understand the role of TDD in streamlining the problem-solving and design process.
 * Be able to name and explain the four key types of tests
 
-## Slides
+## Vocabulary
 
-Available [here](../slides/testing_strategies_4)
-
-### Vocabulary
 * Encapsulation
 * Unit Tests
 * Integration Tests
 * Feature Tests
 * Acceptance Tests
 
-### Structure  
-* 5min - WarmUp  
-* Testing Patterns  
-* Hierarchy of Tests  
-* 5min - WrapUp  
+## Structure
 
-### WarmUp  
-* What is your current workflow in regards to testing and writing code?  
-* What are some benefits of writing tests before your code?  
-* What are some different types and purposes of your tests?  
+* 5min - WarmUp
+* Testing Patterns
+* Hierarchy of Tests
+* 5min - WrapUp
 
-### Testing Patterns  
+## Slides
 
-It can be especially difficult to get started on a new project or even a new iteration of a project. The essence of testing is asking questions and coming up with difficult answers.     
+Available [here](../slides/testing_strategies_4)
+
+## WarmUp
+
+* Why do we write tests?
+* What are the benefits of having a test suite?
+* How do you decide what to test?
+* What is your process for writing test?
+* What has been the most difficult part of testing so far?
+
+## Lecture
+
+### Overview
+
+It can be especially difficult to get started on a new project or even a new iteration of a project. The essence of testing is asking questions and coming up with difficult answers.
 
 * Testing compels you to make hard decisions early, and up front.
-  * This is scary because you are making decisions in a context you don't understand.
-* Testing (especially in the context of TDD) is a discipline tool -- forces you to a) be **specific** about what you are trying to do and b) stay **focused** on that objective  
+* This is scary because you are making decisions in a context you don't understand.
+* Testing (especially in the context of TDD) is a discipline tool -- forces you to a) be **specific** about what you are trying to do and b) stay **focused** on that objective
 
-* Four-phase testing
-  1.  Setup - sometimes in test, sometimes separate method
-  2.  Exercise
-  3.  Verify
-  4.  Teardown
+### Why do we write tests?
 
-#### Isolating Functionality - Encapsulation 
+Having tests a robust test suite is a way for us to be good to our future selves. Having a robust test suite provides us with two advantages:
 
-* What makes a test easy to write? What makes it hard?
-  * Being specific with the behavior you're testing makes writing the test easier.
-* Write the test
-  * In my dream world, how would this work?
-  * How can I break this problem down?
-  * What are my inputs/outputs?
-  * What are classes/methods named?
-* Make it pass
-  * How do I do this in Ruby?
+* *Refactor with Confidence:* When we decide we want to make a change to how we've implemented our code, we can make that change making sure that we know that the code as a whole still works.
+* *Add new features with confidence:* This also allows us to add new features with confidence. Sometimes it's difficult to know how code we add may impact functionality that we've already provided. A test suite tells us when something new we've done has broken something else we did before.
 
-```ruby 
-  def test_translate_returns_a_string_of_translated_characters  
-    input           = "hello world"
-    expected_output = "idolvhendid"
-    
-    translator = Translator.new  
-    actual_output   = translator.translate(input)  
-    
-    assert_equal expected_output, actual_output 
-  end 
-```
-Same test written with asserting the intended output against the method call. 
+### Okay, sure, but why do we write tests first?
 
-```ruby 
-  def test_translate_returns_a_string_of_translated_characters  
-    translator = Translator.new  
-    
-    assert_equal "idolvhendid", translator.translate("hello world")   
-  end 
-```
-**Turn & Talk**  
-How have you approached breaking down a problem? How have you used tests in this process?   
+Sometimes it can feel a little bit difficult to come up with a test for something before we've decided exactly how it's going to work. That's fine. However, writing our tests first provides some additional advantages:
 
-#### Top-Down  
+* *Integrates writing tests into our process for creating new code:* This means we don't have to go back and fill-in our test suite later. Testing becomes an integral part of writing code and note a chore to be completed at some later date.
+* *Forces us to think about what it is we actually want:* Part of the reason testing is so hard is that we have to make decisions early. Programming is hard. It can be helpful to separate the process of determining *what* we want the program to do from how we're actually going to accomplish it. In some ways, this also allows us to ask the question: 'in my dream world, how would this work?' It gives us permission to really think about what we *want* rather than what we think will be easiest to implement.
+* *Breaking down problems:* Similar to the point above, making decisions about our code will help us to break our problem down into smaller problems. If we think first of the inputs and outputs for one method, we can then also think about the inputs and outputs for some of our helper methods.
+* *Only write the code you need:* It's surprisingly easy to get distracted when you're programming. We can start writing code that we think will help us at some point in the future without really knowing how. We can't completely ignore this possibility when we have a test, but it can help to tell us when we've actually solved a problem. This also let's us know that we don't need to write any more code.
 
-This style is also known as Dream Driven Development.  As a programmer, you know the big idea of what you need to accomplish so you write a test for your dream.  As you begin to implement your dream, you may need to write smaller tests and methods to accomplish your big task. You may spend a long time with that one test in a red state while you make smaller tests pass by writing supporting methods.    
+### Types of Tests
 
-* You can solve difficult logic first before testing, then dream-drive
-
-#### Bottom-Up  
-
-This style is where you start with the supporting pieces, cobbling them together to build up to your final goal. In a bottom up approach, you will take each chunk of functionality piece by piece. You may have a quicker cycle of red-green-refactor, but it may be a bit more unclear at the beginning where you will end up.  
-
-#### Edge Case Testing  
-
-When breaking down a strategy, it may be difficult to come up with a solution that works for all scenarios on your first try. A common practice is to first build a test that checks against the smallest possible scenario. If we go back to our translator above, before we get anywhere near testing `"hello world"` we probably just want to test that translated a single letter.  
-
-```ruby  
-def test_translate_returns_a_single_translated_character  
-    input           = "a"
-    expected_output = "v"
-    
-    translator = Translator.new  
-    actual_output   = translator.translate(input)  
-    
-    assert_equal expected_output, actual_output 
-  end 
-
-```  
-
-After we get that first single letter test passing, test how it stretches. Does it work for two letters?  
-
-```ruby
-def test_translate_returns_a_string_of_two_translated_characters  
-    input           = "at"
-    expected_output = "vs"
-    
-    translator = Translator.new  
-    actual_output   = translator.translate(input)  
-    
-    assert_equal expected_output, actual_output 
-  end 
-```  
-
-Then maybe we want to test for five letters:   
-
-```ruby
-def test_translate_returns_a_string_of_translated_characters  
-    input           = "hello"
-    expected_output = "dkssp"
-    
-    translator = Translator.new  
-    actual_output   = translator.translate(input)  
-    
-    assert_equal expected_output, actual_output 
-  end 
-```  
-
-You could keep going with a translator, checking for sentences, paragraphs etc. Maybe you want to check for special characters or punctuation. This process helps you incrementally ensure your method works for your intended purpose and for a number of scenarios.  
-
-**Turn & Talk**
-Consider this combination of test and code. What are the dangers illustrated here? What implications does this have for your testing practice?   
-
-```ruby  
-  def test_translate_returns_a_string_of_translated_characters  
-    input           = "hello"  
-    expected_output = "dkssp"
-    
-    translator = Translator.new  
-    actual_output   = translator.translate(input)  
-    
-    assert_equal expected_output, actual_output 
-  end 
-```  
-
-```ruby 
- class Translator
- 
-    def translate(message)
-      "dkssp"
-    end 
- end 
-```  
-
-
-### Types of Tests  
-
-When writing a program, you will likely have smaller methods that support each other to create greater functionality. Often these might be wrapped in some kind of runner method, or chained together for a grand result. We saw this in the discussion above regarding both Top-Down and Bottom-Up strategies. The tests for these methods are actually different kinds of tests. There are four commonly referred to types of tests which build upon each other:  
+When writing a program, you will likely have smaller methods that support each other to create greater functionality. Often these might be wrapped in some kind of runner method, or chained together for a grand result. We saw this in the discussion above regarding both Top-Down and Bottom-Up strategies. The tests for these methods are actually different kinds of tests. There are four commonly referred to types of tests which build upon each other:
 
 * Programmer-centric:
   * **Unit Test** - tests one component in isolation.
@@ -178,7 +78,7 @@ When writing a program, you will likely have smaller methods that support each o
 Especially when you move into web development projects in later modules you'll rely more heavily on Acceptance and Feature tests to verify the behavior of your application as it will eventually be experienced by a user.
 
 In Module 1, on the other hand, we will rely much more heavily on **Unit** and **Integration** tests -- and it's very
-important to have a good mix of both!  
+important to have a good mix of both!
 
 ### Hierarchy of Tests
 
@@ -186,9 +86,109 @@ A Turing Version of [Martin Fowler's test pyramid](http://martinfowler.com/bliki
 
 ![TestPyramid](https://goo.gl/NYQcSd)
 
-**Turn & Talk**
-What kind of test would the above translator test (for the runner method) be? What might the other kind of test and corresponding method look like?
+### Sad Path Testing
 
-### WrapUp  
-* How does letting tests drive your development lead you to stronger code?  
-* What are the four types of tests?  What is the role of each type of test?  
+When you test your application, especially when you have some sort of user interaction, be sure that you include tests to see what will happen when a user does not behave as you would expect them to. We sometimes refer to this as sad-path testing. What happens when things go wrong? Do our applications completely error out or do they give our users feedback that they can use to determine what to do next?
+
+## Practice
+
+### Observe
+
+Given the following interaction pattern, what tests would I write?
+
+```
+> car = Car.new("Toyota", "Camry")
+=> #<Node:0x007fa2e9acd738>
+car.make
+=> "Toyota"
+car.model
+=> "Camry"
+car.color
+=> "white"
+```
+
+As I read through this I see a Car class that implements four methods that I will need to test: `new`, `make`, `model`, and `color`.
+
+My test file would likely end up looking like this, though I would write each one of these tests and make them pass one at a time.
+
+```ruby
+require 'minitest/autorun'
+require 'minitest/pride'
+require './lib/car'
+
+class CarTest < Minitest::Test
+  def test_it_exists
+    car = Car.new("Toyota", "Camry")
+
+    assert_instance_of Car, car
+  end
+
+  def test_it_has_attributes
+    car = Car.new("Toyota", "Camry")
+
+    assert_equal "Toyota", car.make
+    assert_equal "Camry", car.model
+  end
+
+  def test_it_is_white_by_default
+    car = Car.new("Toyota", "Camry")
+
+    assert_equal "white", car.color
+  end
+end
+```
+
+### With a Partner
+
+See if you can write a test suite for the interaction pattern below.
+
+```
+car = Car.new("Toyota", "Camry")
+car.color
+#=> "white"
+car.paint("blue")
+car.color
+#=> "blue"
+car.odometer
+#=> 0
+car.odometer.class
+#=> Integer
+```
+
+Share out with the class!
+
+### Detour: Interaction Patterns in Pry
+
+The interaction patterns you've seen up to this point have been intended to offer you snippets of code that you could run in pry if you wanted. You'll need to remember to require the class that you're using, but after that each of the lines should run pretty much as described. Go ahead and try it! Open up a pry session and run the following lines. See if they return what you would expect.
+
+```
+require './lib/car'
+#=> true
+car = Car.new("Toyota", "Camry")
+car.color
+#=> "white"
+car.paint("blue")
+car.color
+#=> "blue"
+car.odometer
+#=> 0
+car.odometer.class
+#=> Integer
+```
+
+Note that there are some lines where we don't provide a return value. Pry will always show you what the return value of a method is. If we haven't included a return value, it means that we are not concerned with what the method returns. That's a pretty good indicator that it's a `command` method, designed to change some aspect of a class's state.
+
+### With a Partner
+
+You will not always have interaction patterns to guide your testing. In these cases, you'll need to decide for yourself what you'll name the methods and how you'll decide to implement its functionality.
+
+* When you start a car it returns a string that says "Starting up!"
+* If you try to start the car when it's already running it returns the string "BZZZT!"
+* If you stop a car that's running it returns the string "Stopping."
+
+Share out with the class!
+
+### WrapUp
+
+* How does letting tests drive your development lead you to stronger code?
+* What tradeoffs do you face when working with unit vs integration tests?
