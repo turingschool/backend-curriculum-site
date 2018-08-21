@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Testing Strategies
+title: Test Driven Development
 tags: basics, testing, encapsulation
 length: 60
 ---

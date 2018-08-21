@@ -34,7 +34,7 @@ title: Module 1 Lessons
 
 ### Testing
 * [How Testing Works](./how_testing_works)
-* [Testing Strategies](./testing_strategies_1)
+* [Test Driven Development](./test_driven_development)
 * [Mocks and Stubs](./mocks_stubs)
 
 ### Debugging
