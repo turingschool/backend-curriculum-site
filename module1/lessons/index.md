@@ -44,4 +44,4 @@ title: Module 1 Lessons
 ### Version Control
 * [Git and Github](./git_and_github)
 * [Git Review](./git_review)
-* [Git for Pairs](./git_for_pairs_new)
+* [Git for Pairs](./git_for_pairs)
