@@ -7,6 +7,7 @@ title: Fetch Refresher
 ## Learning Goals
 
 * Students are comfortable using `fetch()` to make RESTful requests
+* Students can use jQuery to manipulate the DOM
 
 ## Fetch...What's That Again?
 
@@ -220,4 +221,3 @@ Pair up with someone... and write the Post request and necessary jQuery to invit
 Be aware that AJAX can also be used to make client side request to a server. Fetch has become more poplar in recent years as it is built into Javascript, works on almost all browsers, and doesn't require jQuery. If you want to learn more check out this old lesson [AJAX Refresher](./archive/organize-an-express-app)
 
 [Instructor Materials](https://github.com/ameseee/fetch-hedgehog-party/blob/complete/public/index.js)
-
