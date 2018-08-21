@@ -6,7 +6,7 @@ layout: page
 ## Lessons
 
 * [Organizing an Express App](../lessons/organize-an-express-app)
-* [Fetch Refresher](../lessons/archive/fetch_refresher_old)
+* [Fetch & jQuery Refresher](../lessons/archive/fetch_refresher_old)
 * [Debugging Client Side Code](../lessons/fe_dev_tool_debugging)
 * Tech Buzzwords
 * Technical Challenge
