@@ -12,6 +12,9 @@ Students will
 * Create diagrams of classes that outline their state and behavior
 * Review code and form opinions on that code
 
+## Slides
+
+Available [here](../slides/design_principles)
 
 ## Warmup
 
