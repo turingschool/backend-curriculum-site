@@ -4,9 +4,13 @@ Part of the reason Ruby on Rails became popular quickly is that it takes a lot o
 
 ### Setting the Stage
 
-First we need to make sure everything is set up and installed. See the [Environment Setup](http://tutorials.jumpstartlab.com/topics/environment/environment.html) page for instructions on setting up and verifying your Ruby and Rails environment.
+<!-- First we need to make sure everything is set up and installed. See the [Environment Setup](http://tutorials.jumpstartlab.com/topics/environment/environment.html) page for instructions on setting up and verifying your Ruby and Rails environment. -->
 
-From the command line, switch to the folder that will store your projects. For instance, `/Users/jcasimir/module2/projects/`. Within that folder, run the following command:
+You will need Rails installed and verify that it is version 5.1 and **NOT** 5.2
+ - To check your version run `rails -v` in the command line.
+ - If you have not installed rails run `gem install rails -v 5.1` in the command line.
+
+Now from the command line, switch to the folder that will store your projects. For instance, `/Users/jcasimir/module2/projects/`. Within that folder, run the following command:
 
 ```
 $ rails new blogger -T -d="postgresql" --skip-turbolinks --skip-spring
