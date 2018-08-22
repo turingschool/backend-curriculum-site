@@ -1,97 +1,82 @@
 ---
+layout: page
 title: Design Principles
-length: 90
-tags: ruby, SRP, DRY, design, state, behavior
+length: 120
 ---
 
-## Learning Goals  
-* Students will be able to explain the difference between state and behavior and how these concepts are implemented in Ruby
-* Students will be able to explain the Single Responsibility and DRY principles
+## Learning Goals
 
-## Vocabulary  
-* State
-* Behavior
-* Object Oriented Programming
-* Refactoring
-* Single Responsibility Principle
-* DRY principle
+Students will
 
-## Warm Up  
-* Why is it important to write methods under 7 lines?
-* Why is it important to write lines of code under 80 characters?
-
-OOP
-  - Why is it helpful?
-    - Helps organize code into logical components
-DRY
-  - Only have to change code in one place
-  - Makes code shorter and thus more readable
-Single Responsibility
-  - Part of SOLID
-  - applies to classes and methods
-  - Flexibility
-    - If things do one thing, changing it shouldn't break other things
-    - Avoids GOD class
-  - Readability
-    - Only have to figure out one thing this class is doing.
+* Research and describe different programming principles
+* Create diagrams of classes that outline their state and behavior
+* Review code and form opinions on that code
 
 
-- Lines of code less than 80
-- Methods less than 7
-- SRP
-- DRY
-- Encapsulation
-- Abstraction
+## Warmup
 
+Number off and research the following topics:
 
+* Code Smells
+* SOLID OOP
+* Four Pillars of OOP
+* OOP Design Patterns
+* Law of Demeter
+* DRY/YAGNI
 
+In a group, create a poster with short descriptions of each one of the above topics.
 
-## SOLID Design Principles
+## Lesson
 
-SOLID is an acronym for 5 design principles that help software developers write better code. They are:
+We're going to practice diagramming classes, and then use those diagrams as a way to better understand and make plans for our code.
 
-* Single responsibility principle
-* Open/closed principle
-* Liskov substitution principle
-* Interface segregation principle
-* Dependency inversion principle
+### Diagramming Classes
 
-In module 1, we will focus on the first of those principles.
+A class diagram is a visual way to represent a class. It includes:
 
-### Single Responsibility Principle
+* Class Name
+* Instance Variables
+* Methods
 
-[Single Responsibility Principle Wikipedia Page](https://en.wikipedia.org/wiki/Single_responsibility_principle)
+![Class Diagram](./assets/class_diagram.jpg)
 
-The Single Responsibility Principle (SRP) states that every class and method should have responsibility over a single part of the functionality provided by the software. Put more simply, each class and method should do one thing.
+Let's practice together by creating a class diagram for a Dog class.
 
-So far, we have seen classes and methods as tools we can use to organize our code into logical chunks. When we write those classes and methods, we want to ensure that they follow SRP. There are two main reasons we would want to do this:
+The name of the class would likely be Dog.
 
-1. To make our code readable
-1. To make our code maintainable
+It might hold state like its name, age, breed, etc.
 
-### DRY
+It might also have methods like `roll_over`, `sit`, `fetch`, `bark`, `eat`, `sleep`, etc.
 
-DRY stands for Don't Repeat Yourself. Just like SRP, DRY makes our code both more readable and maintainable. Reasons we would do this:
+What would the primary responsibility of this class be? To describe and hold the behaviors associated with a Dog.
 
-### Independent Practice  
+### Practice with a Partner
 
-#### Turn & Talk  
+Take a look at the project spec for Sorting Cards.
 
+* What classes are included?
+* What state do they each hold?
+* What methods do they implement?
+* What is the primary responsibility for each class?
 
-** break **
+### Practicing Without a Spec
 
-## High Level Section
-### Sub Sections
+Assume we wanted to create a program to play the game mastermind from our command line.
 
-### Independent Practice
+* What classes would you create to tackle this problem?
+* What would be each class's primary responsibility?
+* What methods would each class have?
+* What state would they hold as insstance variables?
 
-#### Turn & Talk  
+### Code Review
 
+Look at the three different versions of the Mastermind project linked [here](https://github.com/s-espinosa/master_minds). Students are asked to create a version of the classic game that you can play in your terminal.
 
-## Wrap Up  
-*
-*
-*
+![Mastermind](./assets/Mastermind.jpg)
 
+Review the three different versions, and answer the following questions.
 
-## Additional Resources
+* What do you like about each one?
+* What don't you like?
+* Are there specific aspects of the code that are making it easy or difficult to read?
+
