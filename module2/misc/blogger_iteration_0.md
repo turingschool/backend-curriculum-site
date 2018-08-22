@@ -6,7 +6,9 @@ Part of the reason Ruby on Rails became popular quickly is that it takes a lot o
 
 
 **Important Note** In the Environment Setup below it will explain how to install `rvm`. Please be sure that you only have **either** `rvm` **or** `rbenv`. Not both. 
-To check what you have: run `rbenv -v` in the command line (If it says `command not found`, you do not have `rbenv` installed). To check for `rvm` repeat the process.
+To check what you have: 
+Run `rbenv -v` in the command line (If it says `command not found`, you do not have `rbenv` installed).
+Run `rvm -v` in the command line (If it says `command not found`, you do not have `rvm` installed).
 
 First we need to make sure everything is set up and installed. See the [Environment Setup](http://tutorials.jumpstartlab.com/topics/environment/environment.html) page for instructions on setting up and verifying your Ruby and Rails environment.
 
