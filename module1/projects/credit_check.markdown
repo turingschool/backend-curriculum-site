@@ -1,3 +1,8 @@
+---
+layout: page
+title: Credit Check
+---
+
 ### Learning Goals
 * break a problem into logical components
 * implement appropriate Ruby syntax

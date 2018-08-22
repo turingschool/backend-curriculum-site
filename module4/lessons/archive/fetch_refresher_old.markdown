@@ -7,6 +7,7 @@ title: Fetch Refresher
 ## Learning Goals
 
 * Students are comfortable using `fetch()` to make RESTful requests
+* Students can use jQuery to manipulate the DOM
 
 ## Fetch...What's That Again?
 
@@ -129,7 +130,7 @@ Say we created one function responsible for appending posts and another to log o
 ```js
 const appendPosts = (posts) => {
   posts.forEach(function(post){
-    $(".posts-box").append(post)
+    $('.posts-box').append(post)
   })
 }
 
@@ -160,7 +161,7 @@ Just like we organized our `fetch()` handlers above, we can organize our event h
 If we were working with form data like this:
 
 ```js
-$('form').on('submit', function(event){
+$('form').on('submit', function(event) {
   event.preventDefault()
   return fetch('http://example.com/articles', {
     method: 'post',
@@ -178,34 +179,39 @@ $('form').on('submit', function(event){
 We can refactor that so our event bindings live together, our `fetch()` calls live together, and our `fetch()` handlers live together.
 
 ```js
-// event bindings live nicely as one liners
-$('form').on('submit', postArticle)
+// event bindings live nicely as one liners:
+$('form').on('submit', postArticle);
 
 const requestOptions = {
   method: 'post',
   headers: { 'Content-Type': 'application/json'},
-  body: JSON.stringify(article)
+  body: JSON.stringify(article);
 }
 
-// Fetch call is nice and tidy on its own
+// Fetch call is nice and tidy on its own:
 const postArticle = (event) => {
   event.preventDefault()
   return fetch('http://example.com/articles', requestOptions)
     .then(handleResponse)
-    .then(appendArticle)
-    .catch(errorLog)
+    .then(appendArticle(article))
+    .catch(errorLog);
+}
+
+// DOM manipulation is abstracted:
+const appendArticle = (article) => {
+  $('.container').append(`
+    <p>${article}</p>
+  `);
 }
 ```
 
 ## Work Time
 
-Pair up with your Quantified Self partner and discuss the following:
+Pair up with someone... and write the Post request and necessary jQuery to invite a new Hedgehog to the party::
 
--   What are some use cases for `fetch()`? Name some cards from your project that will require an `fetch()` request to complete.
--   What information do you need before you can make an `fetch()` request?
--   How do you access the response from the request?
-
-Once you've answered those, work to implement the variety of `fetch()` requests necessary to GET, POST, DELETE, etc. to the Quantified Self API.
+-   Fork the [Hedgehog Party](https://codepen.io/ameseee/pen/rKqaLE?editors=1010) into your own CodePen (create an account if needed - it's free!)
+-   Write the Post request and necessary jQuery to invite a new Hedgehog to the party.
+- Write the Delete request and necessary jQuery to uninvite a Hedgehog from the party.
 
 
 ## Additional Resources
@@ -213,3 +219,5 @@ Once you've answered those, work to implement the variety of `fetch()` requests 
 * [CSS Tricks Using Fetch](https://css-tricks.com/using-fetch/)
 
 Be aware that AJAX can also be used to make client side request to a server. Fetch has become more poplar in recent years as it is built into Javascript, works on almost all browsers, and doesn't require jQuery. If you want to learn more check out this old lesson [AJAX Refresher](./archive/organize-an-express-app)
+
+[Instructor Materials](https://github.com/ameseee/fetch-hedgehog-party/blob/complete/public/index.js)

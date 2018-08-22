@@ -29,9 +29,15 @@ Step | Description | Operation | Result
 
 ## Setup
 
-1. Fork [this Repository](https://github.com/turingschool-examples/generic_super_sports_games)
+1. Fork [this Repository](https://github.com/turingschool-examples/super_sports_games)
 1. Clone your forked repo to your machine with git clone <ssh key for your repo>
   1. Make sure you clone it to a location that makes sense, for example `/Users/your_user_name/turing/1module/projects`.
+
+## Submission
+
+When you are ready to turn in the project, submit a pull request from your forked repository to the turingschool-examples repository.
+
+**Make sure to put your name in your PR!**
 
 ## Iteration 1 - Standard Deviation
 
@@ -60,9 +66,14 @@ Create an `Event` class given the following criteria:
 * An `Event` has a method called `average_age` that returns the average age as a float rounded to 2 decimal places
 * An `Event` has a method called `standard_deviation_age` that returns the standard deviation of the ages as a float rounded to 2 decimal places.
 
-If the previous criteria are met, you should be able to interact with the `Event` class from a Pry session like so:
+If your `Event` class follows all of the criteria, you should be able to run the `games_test.rb` test and see all of the tests pass.
+
+Also, if the previous criteria are met, you should be able to interact with the `Event` class from a Pry session like so:
 
 ```ruby
+pry(main)> require './lib/event'
+#=> true
+
 pry(main)> event = Event.new("Curling", [24, 30, 18, 20, 41])
 #=> #<Event:0x00007fba3fc42ab0 @ages=[24, 30, 18, 20, 41], @name="Curling">
 
@@ -84,8 +95,6 @@ pry(main)> event.average_age
 pry(main)> event.standard_deviation_age
 #=> 8.28
 ```
-
-Also, if the previous criteria are met, the `games_test.rb` test should pass.
 
 ## Iteration 3 - Testing
 
