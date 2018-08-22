@@ -17,9 +17,7 @@ Number off and research the following topics:
 
 # Diagramming Classes
 
-* Class Name
-* Instance Variables
-* Methods
+![inline](./assets/class_diagram.jpg)
 
 Let's practice with a Dog class.
 What is the primary responsibility of the class?
@@ -38,7 +36,7 @@ What is the primary responsibility of the class?
 
 # Paired Practice
 
-Assume we wanted to create a program to play the game mastermind from our command line.
+![inline](./assets/Mastermind.jpg)
 
 * What classes would you create to tackle this problem?
 * What would be each class's primary responsibility?
