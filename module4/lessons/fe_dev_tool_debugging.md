@@ -73,11 +73,11 @@ If you're having trouble finding the element you'd like to work with, you can se
 #### Editing Elements and Content
 Directly from the elements panel, we can edit the HTML and see the changes reflected immediately. (Again, these changes won't be saved to your codebase, but sometimes it helps to see the tweaks as you make them before committing to them.)
 
-Let's say we want to edit the title of the application from 'expenseTracker' to 'expenseLog'. We can find that heading in the elements panel, double-click on it, and edit the text:
+Let's say we want to edit the title of a headline from some garbage about Trump to some good news. We can find that heading in the elements panel, double-click on it, and edit the text:
 
 ![Editing Text][editing-text]
 
-Now let's say we want to make just the word 'Log' in the title bold. If we wrap a `<b>` tag around 'Log', and hit the `enter` key to save the change, look what happens:
+Now let's say we want to make just one word in the title bold. If we wrap a `<b>` tag around that word, and hit the `enter` key to save the change, look what happens:
 
 ![Cant Parse HTML][cant-parse-html]
 
@@ -136,9 +136,7 @@ We seem to have a Reference Error to an undefined variable called `loadExpenses`
 On the right-hand side of the panel, it tells us the error is coming from a file called 'jquery-3.1.0.min.js' on line 2. But that doesn't seem right, because we didn't write that code and jQuery never has bugs! This is where the **stack trace** comes in.
 
 **The stack trace allows you to follow the bug directly to where it originated**  
-If you click the little triangle arrow next to the error in the console, you'll see some additional information expand. This is the line-by-line path of the bug that caused the code to throw an error. It's now much easier to see that the bug originated in our `script.js` file, on line 51.
-
-We can quickly fix this error by looking through our code for a `loadExpenses` function. We don't seem to have one, which is why the console is telling us it's undefined. We do have a `getExpenses` function though. Let's call `getExpenses()` on line 51 instead of `loadExpenses()`.
+If you click the little triangle arrow next to the error in the console, you'll see some additional information expand. This is the line-by-line path of the bug that caused the code to throw an error. It's now much easier to see that the bug originated in our `script.js` file, on line 39.
 
 
 #### Logging values with `console.log()`
