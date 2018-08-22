@@ -4,6 +4,10 @@ Part of the reason Ruby on Rails became popular quickly is that it takes a lot o
 
 ### Setting the Stage
 
+
+**Important Note** In the Environment Setup below it will explain how to install `rvm`. Please be sure that you only have **either** `rvm` **or** `rbenv`. Not both. 
+To check what you have: run `rbenv -v` in the command line (If it says `command not found`, you do not have `rbenv` installed). To check for `rvm` repeat the process.
+
 First we need to make sure everything is set up and installed. See the [Environment Setup](http://tutorials.jumpstartlab.com/topics/environment/environment.html) page for instructions on setting up and verifying your Ruby and Rails environment.
 
 From the command line, switch to the folder that will store your projects. For instance, `/Users/jcasimir/module2/projects/`. Within that folder, run the following command:
