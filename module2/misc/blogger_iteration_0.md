@@ -3,8 +3,11 @@
 Part of the reason Ruby on Rails became popular quickly is that it takes a lot of the hard work off your hands, and that's especially true in starting up a project. Rails practices the idea of "sensible defaults" and will, with one command, create a working application ready for your customization.
 
 ### Setting the Stage
-
 <!-- First we need to make sure everything is set up and installed. See the [Environment Setup](http://tutorials.jumpstartlab.com/topics/environment/environment.html) page for instructions on setting up and verifying your Ruby and Rails environment. -->
+**Important Note** In the Environment Setup below it will explain how to install `rvm`. Please be sure that you only have **either** `rvm` **or** `rbenv`. Not both. 
+To check what you have: 
+Run `rbenv -v` in the command line (If it says `command not found`, you do not have `rbenv` installed).
+Run `rvm -v` in the command line (If it says `command not found`, you do not have `rvm` installed).
 
 You will need Rails installed and verify that it is version 5.1 and **NOT** 5.2
  - To check your version run `rails -v` in the command line.
