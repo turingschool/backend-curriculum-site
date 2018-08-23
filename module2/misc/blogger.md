@@ -1,8 +1,4 @@
-# Blogger (A Tutorial for Rails)
----
-title: Blogger
-subheading: Guided Tutorial
----
+# Blogger (A Guided Tutorial for Rails)
 
 In this project you'll create a simple blog system and learn the basics of Ruby on Rails including:
 
