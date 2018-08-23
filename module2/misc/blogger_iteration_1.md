@@ -233,7 +233,7 @@ Now that we've seen the structure, we can access the form data to mimic the way 
 def create
   @article = Article.new
   @article.title = params[:article][:title]
-  @article.title = params[:article][:body]
+  @article.body = params[:article][:body]
   @article.save
 end
 ```
