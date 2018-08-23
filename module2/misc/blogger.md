@@ -1,3 +1,4 @@
+# Blogger (A Tutorial for Rails)
 ---
 title: Blogger
 subheading: Guided Tutorial
