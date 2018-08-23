@@ -112,16 +112,17 @@ Run `psql roster-development` in a new terminal window. Here, we can execute a S
 
 ```
 roster-development=# select * from students;
- id | first_name | last_name | course_id | score
-----+------------+-----------+-----------+-------
-  1 | Sal        | Espinosa  |         2 |     3
-  2 | Ilana      | Corson    |         2 |     4
-  3 | Josh       | Mejia     |         3 |     3
-  4 | Casey      | Cumbow    |         4 |     4
-  5 | Ali        | Schlereth |         1 |     3
-  6 | Victoria   | Vasys     |         1 |     4
-  7 | Mike       | Dao       |         1 |     3
-(7 rows)
+id | first_name |  last_name  | course_id | score
+----+------------+-------------+-----------+-------
+ 1 | Brian      | Zanti       |         1 |     3
+ 2 | Megan      | McMahon     |         1 |     4
+ 3 | Josh       | Mejia       |         3 |     2
+ 4 | Mike       | Dao         |         3 |     3
+ 5 | Dione      | Wilson      |         2 |     2
+ 6 | Ian        | Douglas     |         2 |     4
+ 7 | Cory       | Westerfield |         4 |     3
+ 8 | Sal        | Espinosa    |         1 |     2
+(8 rows)
 ```
 
 This, however, doesn't tell us very much about the table itself, only the data within it. Let's examine the *structure* of the table:
