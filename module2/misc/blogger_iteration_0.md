@@ -4,8 +4,8 @@ Part of the reason Ruby on Rails became popular quickly is that it takes a lot o
 
 ### Setting the Stage
 <!-- First we need to make sure everything is set up and installed. See the [Environment Setup](http://tutorials.jumpstartlab.com/topics/environment/environment.html) page for instructions on setting up and verifying your Ruby and Rails environment. -->
-**Important Note** In the Environment Setup below it will explain how to install `rvm`. Please be sure that you only have **either** `rvm` **or** `rbenv`. Not both. 
-To check what you have: 
+**Important Note** In the Environment Setup below it will explain how to install `rvm`. Please be sure that you only have **either** `rvm` **or** `rbenv`. Not both.
+To check what you have:
 Run `rbenv -v` in the command line (If it says `command not found`, you do not have `rbenv` installed).
 Run `rvm -v` in the command line (If it says `command not found`, you do not have `rvm` installed).
 
@@ -186,9 +186,7 @@ In `rails_helper.rb` add the following configuration for Shoulda Matchers.
 ```ruby
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|
-    # Choose a test framework:
     with.test_framework :rspec
-    # Or, choose the following (which implies all of the above):
     with.library :rails
   end
 end
