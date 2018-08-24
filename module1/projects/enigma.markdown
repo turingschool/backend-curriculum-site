@@ -14,15 +14,14 @@ In this project you'll use Ruby to build a tool for cracking an encryption algor
 * Applying Enumerable techniques in a real context
 * Reading text from and writing text to files
 
-## Base Expectations
+## Support Tooling
 
-You are to build an encryption engine for encrypting, decrypting, and cracking
-messages.
+Please make sure that, before your evaluation, your project has the following:
 
-Additionally, your program will need to read messages from and output them to
-the file system.
+* [SimpleCov](https://github.com/colszowka/simplecov) reporting accurate test coverage statistics
 
-### Encryption Notes
+
+## Encryption Algorithm
 
 The encryption is based on rotation. The character map is made up of all the
 lowercase letters, then the numbers, then space, then period, then comma. New
@@ -176,59 +175,7 @@ $ ruby ./lib/crack.rb encrypted.txt cracked.txt 240818
 Created 'cracked.txt' with the cracked key 82648 and date 240818
 ```
 
-
-## Development Phases
-
-As you work to implement the project here are ideas for some of your first iterations:
-
-### 1. Key Generator
-
-It'd be great if instead of random numbers we could generate a legitimate key. Starting from your runner:
-
-* Create an instance of a key generator
-* Figure out what, if anything, you'd need to pass in to the object
-* Start writing tests for the key generator object based on the specs above
-* Go through building the implementation
-* Use it from your runner to generate and output a valid key
-
-### 2. Offsets
-
-Before we can start encrypting we probably need to calculate the offsets.
-
-* From your runner, create an instance of an offset calculator
-* Pass the current date and the generated key into the offset calculator
-* Write tests and implementation around the idea of being able to pass in the date and key, then query the A, B, C, and D final rotations
-
-### 3. Encryption
-
-Now that you have all the components you're ready to encrypt a message.
-
-* Create an encryptor object in your runner
-* What information would the encryptor need to be "setup" and ready to encrypt messages? Pass that in.
-* Call an encrypt method and pass in a string message. Get back the encrypted version.
-
-### 4. Next Steps
-
-Now you should have all the components in place such that your command-line encryption is working! Next up:
-
-* Follow a similar flow to develop the decrypt script and functionality
-* Swap some encrypted messages with a classmate and see if each other can decrypt them correctly
-* Start experimenting with the cracking functionality
-
-## Iteration 1
-
-```ruby
-pry(main)> require './lib/enigma'
-#=> true
-pry(main)> e = Enigma.new
-pry(main)> my_message = "this is so secret ..end.."
-pry(main)> output = e.encrypt(my_message)
-#=> # encrypted message here
-pry(main)> output = e.encrypt(my_message, "12345", Date.today) #key and date are optional (gen random key and use today's date)
-
 ## Extension
-
-### Character Support
 
 Improve your system so it supports all of the following:
 
@@ -238,86 +185,7 @@ Improve your system so it supports all of the following:
 * spaces
 * these symbols: `!@#$%^&*()[],.<>;:/?\|`
 
-## Support Tooling
-
-Please make sure that, before your evaluation, your project has the following:
-
-* [SimpleCov](https://github.com/colszowka/simplecov) reporting accurate test coverage statistics
-* [HoundCI](http://houndci.com) HoundCI Pull Request based linter. (This should be set up when you start your project.)
-
 
 ## Evaluation Rubric
 
-The project will be assessed with the following guidelines:
-
-* 4: Above expectations
-* 3: Meets expectations
-* 2: Below expectations
-* 1: Well-below expectations
-
-**Expectations:**
-
-### 1. Ruby Syntax & Style
-
-* Applies appropriate attribute encapsulation  
-* Developer creates instance and local variables appropriately
-* Naming follows convention (is idiomatic)
-* Ruby methods used are logical and readable  
-* Developer implements appropriate enumerable methods (#each is used only when necessary)
-* Code is indented properly
-* Code does not exceed 80 characters per line
-* Each class has correctly-named files and corresponding test files in the proper directories
-* Code has been linted and corrected properly.
-
-* 4: Above expectations
-* 3: Meets expectations
-* 2: Below expectations
-* 1: Well-below expectations
-
-### 2. Breaking Logic into Components
-
-* Code is effectively broken into methods & classes
-* Developer writes methods less than 8 lines
-* Methods do not break the principle of SRP
-
-* 4: Above expectations
-* 3: Meets expectations
-* 2: Below expectations
-* 1: Well-below expectations
-
-### 3. Test-Driven Development
-
-* Each method is tested  
-* Functionality is accurately covered
-* Tests implement Ruby syntax & style   
-* Balances unit and integration tests
-* Evidence of edge cases testing
-* Test Coverage metrics are present (SimpleCov)
-* Test Coverage metrics exceed 95%
-
-* 4: Above expectations
-* 3: Meets expectations
-* 2: Below expectations
-* 1: Well-below expectations
-
-### 4. Git Workflow
-
-* Repository demonstrates that each member of team has contributed fairly equally.
-* Developers commit at a rate of approximately one commit every 30 minutes.
-* Repository shows the use of branches.
-* Developers use a pull request workflow.
-* Developers resolve HoundCI complaints in their pull requests.
-
-* 4: Above expectations
-* 3: Meets expectations
-* 2: Below expectations
-* 1: Well-below expectations
-
-### 5. Functionality
-
-* Application meets all requirements (extensions not required for a 3)
-
-* 4: Above expectations
-* 3: Meets expectations
-* 2: Below expectations
-* 1: Well-below expectations
+You will be evaluated based on [this Project Rubric](../project_rubric)
