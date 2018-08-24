@@ -47,18 +47,6 @@ $ wc -l /usr/share/dict/words
 
 Should be enough for us!
 
-
-### Required Features
-
-To complete the project, you will need to build an autocomplete system which provides the following features:
-
-1. Insert a single word at a time to the autocomplete dictionary
-2. Count the number of words in the dictionary
-3. Populate a newline-separated list of words into the dictionary
-4. Suggest completions for a substring
-5. Mark a selection for a substring
-6. Weight subsequent suggestions based on previous selections
-
 ## Support Tooling
 
 Please make sure that, before your evaluation, your project has the following:
