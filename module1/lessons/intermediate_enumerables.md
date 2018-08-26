@@ -17,52 +17,53 @@ Available [here](../slides/intermediate_enumerables)
 * Enumerable
 * Iterate
 * Return Value
+* Block
 * max, max_by, min, min_by, sort_by
 
 ## Warm Up
-* What enumerables have you used so far?  
 
-### Hook
+Given the array `kardashians = ["Khloe", "Kim", "Kris", "Kourtney"]`
+
+* Find all the Kardashians with 3 or more letters
+* Find `"Kris"`
+* Create a new array with all the names upcased
+
+# Lesson
 
 We've got a handle on the beginner enumerables, and you've probably discovered some more on your own. In class so far, we've learned how to create a new collection, and how to search in the selection returning us either a single item or multiple items.
 
-### min / max
+## min / max
 
-What would we do if we wanted to take the smallest thing out of an array?
+What would we do if we wanted to get the largest thing out of an array?
 
 Let's think about how we would do that with .each.
 
 ```ruby
-  def max(array)
-    greatest = array.first
-    array.each do |num|
-      if num > greatest
-        greatest = num
-      end
-
-    end
-
-    greatest
+nums = [1,3,9,2,5]
+greatest = nums.first
+nums.each do |num|
+  if num > greatest
+    greatest = num
   end
+end
 
-  max([1,3,9,2,5])
-  => 9
+puts greatest
 ```
 
 That's cool. But there's a much easier way - we can make Ruby do the work for us.
 
 ```ruby
-[1,3,9,2,5].max
-=> 9
+nums = [1,3,9,2,5]
+puts nums.max
 ```
 
 And what if we wanted to take the smallest? You'd just use `.min` instead.
 
-
 **TURN & TALK:** All the other enumerables have a do block; these don't but are still considered enumerables - why?
 
+## Comparing Strings
 
-Note that you can use these methods for strings as well as numbers. Letters have a sort of intrinsic values on their own.
+You can use these methods for strings as well as numbers. Letters have a sort of intrinsic values on their own.
 
 What do I mean? open up a pry session in your terminal and type in,
 `"a" > "b"`
@@ -86,11 +87,48 @@ If we swap out the min for a max, what will we get?
 
 This is normally where we would have you try this on your own, but I'm not going to insult your intelligence.
 
-### min_by / max_by
+## min_by / max_by
 
-Getting the largest value out of an array is all well and good, but life isn't always that simple. We often deal with complex sets of data.
+Let's go back to our code to find the largest value using `each`. This time we'll use an array of Strings as the example:
 
-Imagine we have a class `Person` that has some data stored in instance variables. Let's just arbitrarily say that it is storing the person's name and their age.
+```ruby
+names = ["Khloe", "Kim", "Kris", "Kourtney"]
+greatest = names.first
+names.each do |name|
+  if name > greatest
+    greatest = name
+  end
+end
+
+puts greatest
+```
+
+In this example, we use the greater than operator `>` to compare our Strings. We just saw that by default Ruby compares Strings by the letter value. What if we want it to do something different, for example, compare by the length of the String? We'd have to do this:
+
+```ruby
+names = ["Khloe", "Kim", "Kris", "Kourtney"]
+greatest = names.first
+names.each do |name|
+  if name.length > greatest.length
+    greatest = name
+  end
+end
+
+puts greatest
+```
+
+The idea here is that we are overriding how we are comparing the elements in the array. We can do this even easier with `max_by`:
+
+```ruby
+names = ["Khloe", "Kim", "Kris", "Kourtney"]
+greatest = names.max_by do |name|
+  name.length
+end
+```
+
+`max_by` takes whatever the last line of code executed in the block is and uses that to find the max element. In this case, it uses the length of each String to determine what the max should be.
+
+This is quite handy when we make our own objects and we want to find the max/min based on some criteria. Imagine we have a class `Person` that stores a name and age:
 
 ```ruby
   class Person
@@ -106,7 +144,7 @@ Imagine we have a class `Person` that has some data stored in instance variables
   end
 ```
 
- So far, we haven't done anything new to us. But let's store a number of these persons into an array.
+ And let's store some instances of `Person` in an Array:
 
 ```ruby
 people = []
@@ -115,9 +153,7 @@ people << Person.new("Scarlett", 9)
 people << Person.new("Stella", 8)
 ```
 
-We've now got an array of three `Person` objects.
-
-The challenge here is how we can grab the largest or smallest items by a particular attribute.
+What if we wanted to get the max Person by age? If you call `people.max`, Ruby will tell you it doesn't know how to compare two `Person` objects.
 
 So let's walk this process out and look at how we would do this with .each. It's a lot like how we would implement .max or .min.
 
@@ -140,14 +176,14 @@ This is very similar to our original implementation. The main difference is that
 And so, the max_by enumerable works similarly.
 
 ```ruby
-  people.max_by do |person|   # use the max_by enumerable to iterate
+  greatest = people.max_by do |person|   # use the max_by enumerable to iterate
     person.age                # max_by will return the greatest person.age
   end
 ```
 
 We are iterating over the array, looking at each item in the array, looking at the attribute and then returning the entire object that has the largest value that we want.
 
-Another way to see it, to use this enumerable, we list our criteria for searching in the block, and the numerable will simply give us the matching object.
+Another way to see it, to use this enumerable, we list our criteria for searching in the block, and the enumerable will simply give us the matching object.
 
 We can also grab the first alphabetically here.
 
@@ -194,16 +230,14 @@ kardashians << Person.new("Kourtney", 39)
 kardashians << Person.new("Kim", 37)
 kardashians << Person.new("Kris", 62)
 kardashians << Person.new("Khloe", 33)
-
 ```
 
-On paper, write code to **get the youngest member of the Kardashians.**
+Write code to:
 
-Now check with your work with your neighbor.
+* Get the youngest member
+* Get the person with the shortest name
 
-**CFU:** What is the return value of `min_by` and `max_by`?
-
-### sort_by
+## Sort
 
 We've worked on grabbing the largest thing or smallest thing out of a
 collection, and that's great. But the next logical step is to sort them.
@@ -213,16 +247,30 @@ been talking about so far. The main difference is that instead of
 returning a single object, it returns an array of sorted objects, sorted
 by the criteria that you select IN ASCENDING ORDER.
 
-So let's look at some code.
+Just like with `max`, ruby Arrays have a method `sort` that will sort based on the default comparison. For Integers, this is simply sorting based on value:
 
 ```ruby
-  [2,4,3,1].sort_by do |num|
-    num
-  end
+[2,4,3,1].sort
+=> [1,2,3,4]
 ```
 
-This bit of code will return `[1,2,3,4]`, because it sorts items in
-ascending order.
+For Strings, it will sort alphabetically:
+
+```Ruby
+["Brian", "Mike", "Amy"].sort
+=> ["Amy", "Brian", "Mike"]
+```
+
+## sort_by
+
+Just like with `max` and `min`, sometimes the default comparison isn't good enough, and we want to override how ruby will compare our objects. For instance, if we want to sort Strings based on their length:
+
+```ruby
+names = ["Khloe", "Kim", "Kris", "Kourtney"]
+sorted = names.sort_by do |name|
+  name.length
+end
+```
 
 That's a simple array, we can take it to the next level by using
 our previous example.
@@ -244,7 +292,6 @@ kardashians << Person.new("Kourtney", 39)
 kardashians << Person.new("Kim", 37)
 kardashians << Person.new("Kris", 62)
 kardashians << Person.new("Khloe", 33)
-
 ```
 
 Using this, how do you think we can sort by their names alphabetically?
@@ -254,11 +301,11 @@ Extension: How could you create a list of names going in the opposite order?
 
 **CFU:** What is the return value of `sort_by`?
 
-### all?
+## all?
 
 And now, for something completely different.
 
-We're going to look at one of the enumerables that returns a simple true or false. This is always indicated by the method ending with a '?'.
+We're going to look at one of the enumerables that returns a simple true or false. This is  indicated by the method ending with a '?'.
 
 Let's look at the name of this enumerable, `all?`. Under the hood, it's an enumerable with a conditional in the block. If **every** item in a collection returns `true` when going through the block, the entire method returns `true`. Otherwise, it will return `false`.
 
@@ -280,33 +327,22 @@ end
 
 This would return false.
 
-Give what you just learned about `all?` - can make an educated guess about what `any?`, `none?`, and `one?` do/return?
+Given what you just learned about `all?` - can make an educated guess about what `any?`, `none?`, and `one?` do/return?
 
 ## Wrap Up
+
 * Name all the enumerables you know. What do they each return?
 
-<!--
-## Practice Time
+### For Homework:
+In the enums-exercises, complete the following:
 
-Make posters:
-Darian and Chris: max_by, min_by
-Matt and Mellisa: sort_by
-Tobin and Connor: all?
-Angi and Tristan: any? one? what's the difference
-Blythe and Erik: none?
-
-Practice on Enums Exercises:
-Everyone else
--->
-
-## For Homework:
-
-In the [enums-exercises](https://github.com/turingschool/enums-exercises) complete the following pattern and regular tests:
-
--   max_by
--   min_by
--   sort_by
--   all?
--   any?
--   none?
--   one?
+* find_using_max_by_test.rb
+* sort_by_test.rb
+* all_pattern_test.rb
+* all_test.rb
+* any_pattern_test.rb
+* any_test.rb
+* none_pattern_test.rb
+* none_test.rb
+* one_pattern_test.rb
+* one_test.rb
