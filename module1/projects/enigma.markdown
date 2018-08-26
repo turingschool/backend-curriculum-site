@@ -40,11 +40,11 @@ lines will not appear in the message nor character map.
 
 * The date of message transmission is also factored into the encryption
 * Consider the date in the format DDMMYY, like 240818
-* Square the numeric form (412699225) and find the last four digits (9225)
+* Square the numeric form (57993309124) and find the last four digits (9124)
 * The first digit is the "A offset" (9)
 * The second digit is the "B offset" (2)
 * The third digit is the "C offset" (2)
-* The fourth digit is the "D offset" (5)
+* The fourth digit is the "D offset" (4)
 
 #### Encrypting a Message
 
