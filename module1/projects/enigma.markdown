@@ -42,7 +42,7 @@ lines will not appear in the message nor character map.
 * Consider the date in the format DDMMYY, like 240818
 * Square the numeric form (57993309124) and find the last four digits (9124)
 * The first digit is the "A offset" (9)
-* The second digit is the "B offset" (2)
+* The second digit is the "B offset" (1)
 * The third digit is the "C offset" (2)
 * The fourth digit is the "D offset" (4)
 
