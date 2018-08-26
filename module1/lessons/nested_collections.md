@@ -6,8 +6,8 @@ tags: ruby, hashes, data structures
 
 ## Learning Goals
 
-* Use multiple types of collections intermingled  
-* Apply common hash and array methods  
+* Use multiple types of collections intermingled
+* Apply common hash and array methods
 * Describe strategies for navigating nested collections
 
 
@@ -17,21 +17,21 @@ tags: ruby, hashes, data structures
 * Nested Array
 * Nested Hash
 
-## WarmUp   
-With a partner find answers to the following.  
-First, try to answer without using pry, then use pry to verify.  
+## WarmUp
+With a partner find answers to the following.
+First, try to answer without using pry, then use pry to verify.
 
-animals = {"dogs" => 3, "cats" => 5, "iguanas" => 2}   
-* Using the above animals hash, how would you do the following  
-   * return the amount of dogs  
-   * add 3 parakeets  
-   * increase the amount of cats by 2   
+animals = {"dogs" => 3, "cats" => 5, "iguanas" => 2}
+* Using the above animals hash, how would you do the following
+   * return the amount of dogs
+   * add 3 parakeets
+   * increase the amount of cats by 2
 
-pet_names = ["Fela", "Spot", "Patch", "Willy"]  
-* Using the above pet_names array, how would you do the following  
-   * add "Claude"  
-   * access which name is first in the list  
-   * access which name is last in the list  
+pet_names = ["Fela", "Spot", "Patch", "Willy"]
+* Using the above pet_names array, how would you do the following
+   * add "Claude"
+   * access which name is first in the list
+   * access which name is last in the list
    * remove "Fela" from the list
 
 ### Hash and Array Nesting
@@ -63,7 +63,7 @@ food_feelings = [{:pizza => "tasty"}, {:calzone => "also tasty"}]
 #### Hash within a Hash
 
 ```
-pets = {:dog => {:name => "Chance", :weight => "45 pounds"},  
+pets = {:dog => {:name => "Chance", :weight => "45 pounds"},
         :cat => {:name => "Sassy", :weight => "15 pounds"}}
 ```
 **Turn and Talk**
@@ -87,7 +87,7 @@ pizza_toppings = {veggies: ["green peppers", "jalapeño", "mushrooms"],
 * How can I add the element `"olives"` to they key `"veggies"`
 
 
-### Pair Practice with Hashes and Nesting  
+### Pair Practice with Hashes and Nesting
 
 ### 1: State Capitals
 
@@ -106,7 +106,7 @@ capitals = {"OR" => "Salem",
             "CO" => "Denver"}
 ```
 
-* Level 1: Write some code which given a state name ("Alabama") outputs the state abbreviation  
+* Level 1: Write some code which given a state name ("Alabama") outputs the state abbreviation
 * Level 2: Write some code which given a state name ("Oregon") outputs
   its capital ("Salem")
 * Level 3: Handle the case when a state's information is not known by
@@ -139,13 +139,13 @@ ages = [
 ]
 ```
 
-* Level 1: Write code that'll output the ages (and only the ages) for the data set   
+* Level 1: Write code that'll output the ages (and only the ages) for the data set
 * Level 2: Write code that'll output the names (and only the names) in order by
-ascending age  
-* Level 3: Output the name with the age, like `Juan (24)`  
+ascending age
+* Level 3: Output the name with the age, like `Juan (24)`
 * Level 4: Write code to automatically build a hash with the age as the key and
-an array of names as the value (all the people who are that age).   
-e.g. `{24 => ['Juan', 'Steve', 'Jill']...}`  
+an array of names as the value (all the people who are that age).
+e.g. `{24 => ['Juan', 'Steve', 'Jill']...}`
 
 
 ## Homework
