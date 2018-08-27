@@ -21,7 +21,7 @@ At a high level, namespacing a route in Rails does three things:
 1. Changes the route that a user would visit.
 1. Changes the prefix that we would use as a path helper.
 
-Rails also allows us to do each of these three thigns independently:
+Rails also allows us to do each of these three things independently:
 
 1. `module` allows us to put the controller into a sub-directory.
 1. `scope` changes the route that a user would visit.
@@ -165,12 +165,13 @@ vs
 
 Can you imagine what happens when you have 400 lines in your routes file?! You'll be thankful these route blocks exist for organization alone.
 
-### Questions
+### Test Your Understanding
+By the end of this work period have a written response to each of the following questions.
 
-* Summarize what each of the following things does in the context of our routes file:
+* Describe what each of the following things does in the context of our routes file:
     * `scope`
     * `module`
     * `as`
     * `namespace`
-* Why might it be beneficial to have two controllers for Songs (one in `controllers/admin` and one just in `controllers`)?
+* Why might it be beneficial to have two controllers for Songs (one in `controllers/admin` and one just in `controllers`)? Would it have any downsides?
 * What about different routes? Would we ever want to have `/admin/songs` **and** `/songs`? Why or why not?
