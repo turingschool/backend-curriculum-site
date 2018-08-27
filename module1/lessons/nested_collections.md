@@ -10,24 +10,28 @@ tags: ruby, hashes, data structures
 * Apply common hash and array methods
 * Describe strategies for navigating nested collections
 
-
 ## Vocabulary
 * Collection
 * Data Structure
 * Nested Array
 * Nested Hash
 
+## Slides
+
+Available [here](../slides/nested_collections)
+
 ## WarmUp
+
 With a partner find answers to the following.
 First, try to answer without using pry, then use pry to verify.
 
-animals = {"dogs" => 3, "cats" => 5, "iguanas" => 2}
+`animals = {"dogs" => 3, "cats" => 5, "iguanas" => 2}`
 * Using the above animals hash, how would you do the following
    * return the amount of dogs
    * add 3 parakeets
    * increase the amount of cats by 2
 
-pet_names = ["Fela", "Spot", "Patch", "Willy"]
+`pet_names = ["Fela", "Spot", "Patch", "Willy"]`
 * Using the above pet_names array, how would you do the following
    * add "Claude"
    * access which name is first in the list
