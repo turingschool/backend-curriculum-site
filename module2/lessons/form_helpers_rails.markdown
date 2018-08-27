@@ -25,7 +25,7 @@ title: Forms in Rails
 
 ### Setup
 
-* Open up a working version of `music_box`.
+* Open up a working version of `jukebox`.
 * **Get familiar with the `/new` route.** What functionality is there?
 
 ### User Story
