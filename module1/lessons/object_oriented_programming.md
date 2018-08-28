@@ -97,7 +97,7 @@ owner = Owner.new(dog)
 
 ## Method Look Up
 
-We can think of methods like they are messages, and just like messages they have receivers. When you type the code `some_object.method_name`, you are sending the `method_name` messages to the `some_object` object. Another way to say this is that methods run on objects. When the Object receives that message, it looks in its *Class* to find that method.
+We can think of methods as messages. Just like messages they have receivers. When you type the code `some_object.method_name`, you are sending the `method_name` message to the `some_object` object. Another way to say this is that methods run on objects. When the Object receives that message, it looks in its *Class* to find that method.
 
 Let's look at this example:
 
@@ -209,7 +209,7 @@ owner = Owner.new("Jeff", dog)
 puts owner.introduction
 ```
 
-If we run this code, it will still work exactly the same. `self` means "the current object", so when Ruby sees `self` inside the `introduction` method, it is referring to the `Owner` object that we called `introduction` on, i.e. the Owner names "Jeff". Ruby then knows to look in the `Owner` class for the `introduce_self` and `introduce_pet` methods.
+If we run this code, it will still work exactly the same. `self` means "the current object", so when Ruby sees `self` inside the `introduction` method, it is referring to the `Owner` object that we called `introduction` on, i.e. the Owner named "Jeff". Ruby then knows to look in the `Owner` class for the `introduce_self` and `introduce_pet` methods.
 
 You've run across the error `undefined local variable or method`. Now we can see how Ruby can treat something as a local variable *or* a method. In this case, it first looks for a local variable named `introduce_self` and `introduce_pet`. When it can't find them, it then looks for a method. We can illustrate this by changing the example to:
 
