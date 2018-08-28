@@ -7,28 +7,24 @@ tags: ruby, object-oriented programming
 
 ## Learning Goals
 
-* Review how objects can interact
-* Define Object Oriented Programming
-* Discuss the advantages of Object Oriented Programming
-* Practice diagramming Object Oriented solutions to problems
+* Understand the distinction between a variable and what it references
+* Understand how objects can interact
+* Understand the process Ruby use to look up an instance method
+* Understand self
 
-* Instance Methods
-* Notation
-* Class Interactions
-* State vs. Behavior
-* When to use Instance Variables
+## Vocabulary
 
-What is OOP
-Objects in Objects example
-Passing Data between Objects
-State vs. Behavior
-Notation
+* Variable
+* Object
+* Reference
+* Pointer
+* Self
 
 # Object Oriented Programming
 
 ## Variables and Objects
 
-An important thing to remember is that variables and Objects are not the same. Take a look at this example:
+There is an important distinction between variables and what that variable holds. Take a look at this example:
 
 ```ruby
 class Dog
@@ -271,12 +267,12 @@ class Owner
   def initialize(name, pet)
     @name = name
     @pet = pet
-    # binding.pry
+    binding.pry
   end
 
   def introduction
     self.introduce_self + " and " + self.introduce_pet
-    # binding.pry
+    binding.pry
   end
 
   def introduce_self
@@ -293,11 +289,11 @@ class Dog
 
   def initialize(name)
     @name = name
-    # binding.pry
+    binding.pry
   end
 end
 
-# binding.pry
+binding.pry
 dog = Dog.new("Fido")
 owner_1 = Owner.new("Dan", dog)
 owner_2 = Owner.new("Terry", dog)
