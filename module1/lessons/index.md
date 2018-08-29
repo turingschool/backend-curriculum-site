@@ -17,6 +17,7 @@ title: Module 1 Lessons
 * [Nested Collections](./nested_collections)
 * [Enumerables II](./intermediate_enumerables)
 * [Boolean Logic](./boolean_logic)
+* [Object Oriented Programming](./object_oriented_programming)
 * [Memory Allocation](./memory_allocation)
 * [Class Methods](class_methods)
 * [Project Etiquette](./project_etiquette)
