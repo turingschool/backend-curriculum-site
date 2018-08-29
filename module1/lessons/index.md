@@ -18,12 +18,11 @@ title: Module 1 Lessons
 * [Enumerables II](./intermediate_enumerables)
 * [Boolean Logic](./boolean_logic)
 * [Object Oriented Programming](./object_oriented_programming)
-* [Memory Allocation](./memory_allocation)
-* [Class Methods](class_methods)
-* [Project Etiquette](./project_etiquette)
-* [Inheritance](./inheritance)
 * [Modules](./modules)
+* [Inheritance](./inheritance)
+* [Class Methods](class_methods)
 * [Enumerables III](./advanced_enumerables)
+* [Memory Allocation](./memory_allocation)
 * [Understanding the Call Stack](./stacks_methods_flow_control)
 
 ### Design
