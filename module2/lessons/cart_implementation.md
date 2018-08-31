@@ -47,7 +47,8 @@ require 'rails_helper'
 
 RSpec.describe "When a user adds songs to their cart" do
   it "a message is displayed" do
-    song = Song.create(title: "Song 1")
+    artist = Artist.create(name: 'Rick Astley')
+    song = artist.songs.create(title: 'Never Gonna Give You Up', length: 250, play_count: 1000000)
     
     visit songs_path
 
@@ -160,7 +161,8 @@ RSpec.describe "When a user adds songs to their cart" do
   end
 
   it "the message correctly increments for multiple songs" do
-    song = Song.create(title: "Song 1")
+    artist = Artist.create(name: 'Rick Astley')
+    song = artist.songs.create(title: 'Never Gonna Give You Up', length: 250, play_count: 1000000)
     
     visit songs_path
 
@@ -218,9 +220,10 @@ class CartsController < ApplicationController
   def create
     song = Song.find(params[:song_id])
     session[:cart] ||= Hash.new(0)
+    session[:cart][song.id] ||= 0
     session[:cart][song.id] = session[:cart][song.id] + 1
     quantity = session[:cart][song.id]
-    flash[:notice] = "You now have #{quantity} #{pluralize(quantity, "copy")} of #{song.title} in your cart."
+    flash[:notice] = "You now have #{pluralize(quantity, "copy")} of #{song.title} in your cart."
     redirect_to songs_path
   end
 end
@@ -353,7 +356,7 @@ class Cart
   end
 
   def total_count
-    contents.values.sum
+    @contents.values.sum
   end
 end
 ```
@@ -399,8 +402,9 @@ class CartsController < ApplicationController
   def create
     song = Song.find(params[:song_id])
     session[:cart] ||= Hash.new(0)
+    session[:cart][song.id] ||= 0
     session[:cart][song.id] = session[:cart][song.id] + 1
-    flash[:notice] = "You now have #{quantity} #{pluralize(quantity, "copy")} of #{song.title} in your cart."
+    flash[:notice] = "You now have #{pluralize(quantity, "copy")} of #{song.title} in your cart."
     redirect_to songs_path
   end
 end
@@ -451,13 +455,6 @@ RSpec.describe Cart do
       expect(subject.contents).to eq({1 => 3, 2 => 4})
     end
   end
-
-  describe "#count_of" do
-    it "reports how many of a particular song" do
-      expect(subject.count_of(1)).to eq(2)
-      expect(subject.count_of(2)).to eq(3)
-    end
-  end
 end
 ```
 
@@ -465,19 +462,16 @@ In order to get these tests to pass, add the following two methods to our Cart P
 
 ```ruby
 def add_song(id)
-  contents[id] = contents[id] + 1
+  @contents[id] = @contents[id] + 1
 end
 
-def count_of(id)
-  contents[id]
-end
 ```
 
 What if we ask for the count of a non-existent song?  Add `expect(subject.count_of(0)).to eq(0)` to your test for the `count_of` method. What's the matter, got `nil`? Let's **coerce** `nil` values to `0` with `#to_i`.
 
 ```
 def count_of(id)
-  contents[id].to_i
+  @contents[id].to_i
 end
 ```
 
