@@ -174,7 +174,7 @@ end
 
 ## Exercise
 
-Can you create an array of democratic candidates ordered by the number of results they received that also responds to `vote_totals`?
+Can you create an array of democratic candidates ordered by the number of results they received that also responds to `total_votes`?
 
 ```
 # rails c
