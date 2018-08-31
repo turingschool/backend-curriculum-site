@@ -49,7 +49,7 @@ Still not sure what the purpose of FactoryBot is? Check out [this StackOverflow 
 
 ## Directions
 
-We'll be working with our existing SetList Rails application to refactor existing (and passing) tests to use [FactoryBot](https://github.com/thoughtbot/factory_bot/blob/master/GETTING_STARTED.md#configure-your-test-suite). This should give us plenty of comfort and agency to begin using FactoryBot on our own in future applications.
+We'll be working with our existing Jukebox Rails application to refactor existing (and passing) tests to use [FactoryBot](https://github.com/thoughtbot/factory_bot/blob/master/GETTING_STARTED.md#configure-your-test-suite). This should give us plenty of comfort and agency to begin using FactoryBot on our own in future applications.
 
 ## FactoryBot Setup
 
@@ -97,7 +97,7 @@ spec/factories/*.rb
 ```ruby
 FactoryBot.define do
   factory :artist do
-    name "Ilana Corson"
+    name "Imagine Dragons"
   end
 end
 ```
@@ -117,7 +117,7 @@ artist = create(:artist)
 ```
 
 **Overriding**  
-When creating a new instance you can override attributes in factories `create(:artist, name: "Sal Espinosa")`
+When creating a new instance you can override attributes in factories `create(:artist, name: "Journey")`
 
 **Lists**  
 Want to create multiple of the same type of resource?
@@ -160,7 +160,7 @@ Maybe you want to be able to create a regular old artist as well as a super-arti
 ```
 FactoryBot.define do
   factory :admin, class: Artist do
-    name "Ilana Corson"
+    name "Queen"
   end
 end
 ```
