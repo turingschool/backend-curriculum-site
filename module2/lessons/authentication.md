@@ -317,7 +317,7 @@ We also know that `users_path` could be used either for an index page or to crea
 
 ### Independent Practice 
 
-Go ahead and create the user :create route and the associated action in the `UsersController` as well as the associated show pieces.
+Go ahead and create the user :create route and the associated action in the `UsersController` as well as the associated show pieces. Make sure you test all pieces!
 
 You should end up with something like this: 
 
@@ -334,9 +334,9 @@ You should end up with something like this:
   end
   
   def create
-    user = User.new(user_params)
+    @user = User.new(user_params)
     if user.save
-      redirect_to user_path(user)
+      redirect_to user_path(@user)
     else
       render :new
     end
