@@ -27,49 +27,9 @@ Continue working in your Jukebox application, or clone down the most recent vers
 
 ## Code Along
 
-### Adding Authentication to our Application
+### Adding Authorization to our App
 
-Let's first add a validation on the User model to ensure that `username` is present and unique. We wouldn't want two users to have the same username if that's what we are using to uniquely identify users when they login. First, let's write a test.
-
-```ruby
-#spec/models/user_spec.rb
-require "rails_helper"
-
-describe User, type: :model do
-  describe 'Validations' do
-    it { should validate_presence_of(:username) }
-
-    it "uniqueness of username" do
-      orig = User.create(username: "user", password: "Password")
-      copy_cat = User.new(username: "user", password: "Password")
-
-      expect(copy_cat).to_not be_valid
-    end
-
-  end
-end
-```
-Our error should read:
-
-```
-Failures:
-
-  1) User validates presence of username
-     Failure/Error: expect(user).to_not be_valid
-       expected #<User id: 1, username: nil, password_digest: "$2a$04$iN35iTt4QVssodVTPDls7uSrSYSZnP7Vl2lwoZ6nfSC..."> not to be valid
-     # ./spec/models/user_spec.rb:5:in `block (3 levels) in <top (required)>'
-```
-
-```ruby
-# app/models/user.rb
-class User < ActiveRecord::Base
-  validates :username, presence: true, uniqueness: true
-
-  ...
-end
-```
-
-Next, let's create a test for the admin functionality we want to create.
+Let's create a test for the admin functionality we want to create.
 
 Our client has asked for categories (solo act, bands, etc) in this application, and only an admin should be able to access the categories index.
 
