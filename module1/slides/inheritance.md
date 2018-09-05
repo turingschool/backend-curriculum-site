@@ -117,7 +117,6 @@ class Ceo < Employee
     super(name, id)
   end
 end
-
 ```
 
 ---
