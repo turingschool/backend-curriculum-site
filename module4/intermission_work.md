@@ -5,28 +5,21 @@ layout: page
 
 ## Required Work
 
-To prepare for Module 4 we'd like for you to complete the following before 9 AM Monday (the first day of M4).
+To prepare for Module 4, please complete & submit (via DM to your instructors) the following before 12 noon Sunday, the day before the inning begins. This will allow instructors time to review and provide feedback.
 
 ## 1. Reflection on Learning Experiences
 
 Complete this [exercise](https://gist.github.com/case-eee/6a5b06bf88c3fa82d9498c6763314ae4) to reflect on your learning experience thus far here at Turing.
 
-## 2. JavaScript Fundamentals
+**Submit: Link to gist.**
 
-Read the following lessons to gain a deeper understanding of JavaScript syntax and how JavaScript works. Depending on your level of knowledge with JavaScript, some of this may be a review and some of this may be new. Even if you feel confident with the fundamentals of JavaScript, we encourage you to read through the content as a refresher. This content is taken from the Front End program - we think it's a great overview of the JS basics.
+## 2. Number Guesser
 
-* [Data Types, Variables, Conditionals, Function Basics](http://frontend.turing.io/lessons/module-1/js-1.html)
-* [Function Fundamentals, Variable Scope, Loops, Arrays](http://frontend.turing.io/lessons/module-1/js-2.html)
-* [Objects, This, Data Structures](http://frontend.turing.io/lessons/module-1/js-4.html)
-* [Array Prototype Methods](http://frontend.turing.io/lessons/module-1/array-prototype-methods-intro)
+Complete phases 1-3 of [Number Guesser](http://frontend.turing.io/projects/number-guesser.html). You _can_ use jQuery for this.
 
-Create a free account on [JavaScript 30](https://javascript30.com/) and complete:
-  - Array Cardio Days 1
-  - Array Cardio Day 2
-  - Objects and Arrays
-  - Tally String Times with Reduce
-  - Feel free to choose a few more that look interesting to you! They are all great resources, we just think the 4 above are _most_ relevant to what you need to start Mod 4.
-  - Code along as you follow the videos and **copy and paste the code into a gist** (one gist is fine; separate each video with a comment)
+On a branch called `annotated`, annotate every line of JavaScript (either below/above the line in a comment) to explain what the code is doing. Include any explanation as to why you used ES5 vs. ES6 functions, var vs. let vs. const, etc.
+
+**Submit: Link to Number Guesser Repo AND GitHub Pages deployment link. Make sure this includes the `annotated` branch.**
 
 ## 3. JavaScript without a Browser
 
@@ -34,28 +27,29 @@ While JavaScript was originally intended to be a client-side scripting language,
 
 Let's get introduced to JavaScript without a browser. Work through [this lesson](http://backend.turing.io/module4/lessons/javascript_without_a_browser). It will introduce you to Node.js and basic unit-testing using Mocha.
 
-## 4. ES5 vs. ES6
-- [ES5 v ES6 Lesson](http://frontend.turing.io/lessons/module-2/es5-vs-es6.html)
-- [ES5 v ES6 Slides](https://docs.google.com/presentation/d/1ISEwW7suiVzmDb7sJg1Y_kFaKu6OaRFzLGPbk3XVAHg/edit)
-- Convert the ES5 functions in the [repl](https://repl.it/@ameseee/ES5-greater-ES6) into ES6 functions.
+**Submit: Nothing. But you should still do it.**
 
-
-## 5. Sorting Suite
+## 4. Sorting Suite
 
 Complete Sorting Suite in Javascript [here](http://frontend.turing.io/projects/sorting-suite.html). Choose **one** out of the three fundamental sorting algorithms to complete. Use Node.js to run your code, and Mocha/Chai to write your tests. FE2 gets this as a project, so we'll use their project requirements, but you can ignore the rubric. You won't be graded. We just want you to get some practice testing and writing JavaScript.
 
-## 6. DOM Manipulation Challenges
+**Submit: Link to repo for Sorting Suite.**
 
-Clone down both of the repos and complete steps laid out in the README. You will need to create a repo for each and push your work to it to submit.
-
-* [Style Editor Challenge](https://github.com/turingschool-examples/javascript-style-editor-challenge)
-* [Add Comments Challenge](https://github.com/turingschool-examples/javascript-add-comments-challenge)
-
-## 7. Submit your work.
-
-Send your instructors all your links to any gists or repos that you may have created or have to show off. 
 
 ### Tips for JS success
+
+Suggested resources to utilize:
+
+* [Data Types, Variables, Conditionals, Function Basics](http://frontend.turing.io/lessons/module-1/js-1.html)
+* [Function Fundamentals, Variable Scope, Loops, Arrays](http://frontend.turing.io/lessons/module-1/js-2.html)
+* [Objects, This, Data Structures](http://frontend.turing.io/lessons/module-1/js-4.html)
+* [Array Prototype Methods](http://frontend.turing.io/lessons/module-1/array-prototype-methods-intro)
+
+[JavaScript 30](https://javascript30.com/):
+  - Array Cardio Days 1
+  - Array Cardio Day 2
+  - Objects and Arrays
+  - Tally String Times with Reduce
 
 Some biggies if you're coming from Ruby:
 
