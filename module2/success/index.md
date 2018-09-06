@@ -96,6 +96,7 @@ The expected mastery level can be understood with the following scale:
 ##### Routing
 
 - Implement RESTful routes for resources
+- Implement and understand namespace and nested routes
 
 ##### HTTP
 

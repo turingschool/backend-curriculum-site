@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Inheritance
-length: 60
+length: 120
 tags: ruby, inheritance
 ---
 
@@ -22,7 +22,6 @@ Available [here](../slides/inheritance)
 
 ## Warmup
 
-* Where do objects get methods you don't write like `.inspect`?
 * What have you done up to this point when you noticed duplication in your code?
 * What do you think of when you hear the word inheritance?
 * Create a new test file for a `Node` class with a single test to see if the class `Node` exists.
@@ -56,18 +55,15 @@ One note: a class can only inherit from one other class. Be sure that when you u
 
 ## Creating a Subclass
 
+### Syntax
+
 If we have a file `employee.rb` that contains this class:
 
 ```ruby
-#employee.rb
+# employee.rb
 class Employee
-  def initialize(base_salary, bonus)
-    @base_salary = base_salary
-    @bonus = bonus
-  end
-
   def total_compensation
-    @base_salary + @bonus
+    base_salary + bonus
   end
 end
 ```
@@ -75,60 +71,47 @@ end
 We can inherit from it using the `<` character. Let's try this in a file called `ceo.rb`:
 
 ```ruby
-#ceo.rb
+# ceo.rb
 require './employee'
 
 class Ceo < Employee
+  attr_reader :base_salary,
+              :bonus
+
+  def initialize(base_salary, bonus)
+    @base_salary = base_salary
+    @bonus       = bonus
+  end
 end
+
 ```
 
 Let's test this in a separate file called `runner.rb`:
 
 ```ruby
 #runner.rb
-require './employee'
 require './ceo'
 
-employee = Employee.new(50000, 5000)
-puts "employee compensation is #{employee.total_compensation}"
-ceo = Ceo.new(100000, 1000)
-puts "ceo compensation is #{ceo.total_compensation}"
+ali = Ceo.new(15, 20)
+
+puts ali.total_compensation
 ```
 
-You can see that even though we didn't define `initialize` and `total_compensation` in our `Ceo` class, the `Ceo` object still responded to those methods because it inherited them from `Employee`. In this example, `Ceo` is the **subclass** or **child**, and `Employee` is the **superclass** or **parent**.
+You can see that even though we didn't define `total_compensation` in our `Ceo` class, the `Ceo` object still responded to this methods because it inherited them from `Employee`. In this example, `Ceo` is the **subclass** or **child**, and `Employee` is the **superclass** or **parent**.
 
-Let's also add a method to our `Ceo` class:
+Note, we can still define methods in our `Ceo` class just like with any other class.
 
-```ruby
-#ceo.rb
-require './employee'
+### Try It!
 
-class Ceo < Employee
-  def title
-    "Chief Executive Officer"
-  end
-end
-```
+With a partner:
 
-And update our runner:
-
-```ruby
-#runner.rb
-require './employee'
-require './ceo'
-
-employee = Employee.new(50000, 5000)
-puts "employee compensation is #{employee.total_compensation}"
-ceo = Ceo.new(100000, 1000)
-puts "ceo compensation is #{ceo.total_compensation}"
-puts "ceo title is #{ceo.title}"
-```
-
-So we can still define methods in our `Ceo` class just like with any other class.
-
-**Try it**: With your partner, create a `SalesManager` class that inherits from `Employee`. Add a method `title` that prints its title. Test it in your runner file.
+* Create a `SalesManager` class that inherits from `Employee`, and takes `base_salary`, and `estimated_annual_sales` as arguments when you initialize.
+* Create a `bonus` method on `SalesManager` that returns 10% of `estimated_annual_sales`
+* Create a new `SalesManager` in your runner file and print their total compensation to the terminal
 
 ## Super
+
+### Overview
 
 When called inside a method, the keyword `super` calls the method from the superclass with the same name. For instance if you call super in the `initialize` method, it will call the superclass's `initialize` method.
 
@@ -139,16 +122,18 @@ Let's say we don't want every `Ceo` to have the same title, so we will pass it i
 require './employee'
 
 class Ceo < Employee
-  attr_reader :title
+  attr_reader :base_salary,
+              :bonus
 
-  def initialize(base_salary, bonus, title)
-    @title = title
-    super(base_salary, bonus)
+  def initialize(base_salary, bonus, name, id)
+    @base_salary = base_salary
+    @bonus       = bonus
+    super(name, id)
   end
 end
 ```
 
-The call to `super` calls the `Employee` class's initialize, which sets up the `base_salary` and `bonus` instance variables.
+The call to `super` calls the `Employee` class's initialize, which set the `name` and `id` instance variables.
 
 Here, we specified the arguments to `super`. There are actually three forms of the keyword `super`:
 
@@ -156,37 +141,36 @@ Here, we specified the arguments to `super`. There are actually three forms of t
 * `super` calls the superclass method with all of the arguments in the current method
 * `super()` calls the superclass method with no arguments
 
-**Try It**: With your partner, add an argument `total_sales` to your `SalesManager`'s initialize, and call the superclass initialize.
-
 ## Overriding
 
-In Ruby we can override a method from our parent class by re-defining it in our child class. Doing this implies that there is some exception to a general rule. A `Mammal` class might have a method `lays_eggs?` that returns false that would work on most child classes, but we would then need to override that method on `Platypus` to return true.
+In Ruby we can also override a method from our parent class by re-defining it in our child class. Doing this implies that there is some exception to a general rule. A `Mammal` class might have a method `lays_eggs?` that returns false that would work on most child classes, but we would then need to override that method on `Platypus` to return true.
 
-If we want to change our Ceo's annual salary:
+Let's take a look at an Intern class. Let's assume that at this company interns are paid an hourly wage, but are not paid a bonus. Their compensation would no longer be calculated as `base_salary + bonus`. Instead, we can redefine that method on `Intern`, and override the method of the same name on `Employee`.
 
 ```ruby
-#ceo.rb
 require './employee'
 
-class Ceo < Employee
-  attr_reader :title
+class Intern < Employee
+  attr_reader :hourly_rate
 
-  def initialize(base_salary, bonus, title)
-    @title = title
-    super(base_salary, bonus)
+  def initialize(hourly_rate, name, id)
+    @hourly_rate = hourly_rate
+    super(name, id)
   end
 
   def total_compensation
-    (@base_salary + @bonus) * 2
+    hourly_rate * 2000
   end
 end
 ```
 
-**Try it**: With your partner, override your `SalesManager`'s `total compensation` to be the annual_salary plus the bonus plus 10 percent of the total_sales.
+### Try It
+
+Using either `super` or overriding a method, make it so that when you call `#total_compensation` on `Ceo` it adds a dollar to their `base_salary` before returning the total compensation
 
 ## Summary
 
 * Why might we decide to use inheritance?
-* What is the syntax for creating a class that inherits from another class? How many classes can you inherit from and how do you decide which should inherit from which?  
+* What is the syntax for creating a class that inherits from another class? How many classes can you inherit from and how do you decide which should inherit from which?
 * What does `super`, do and what are the differences between the three different ways you can call it?
 * What does it mean to override a method in Ruby?
