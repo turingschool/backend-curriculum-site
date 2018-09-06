@@ -52,7 +52,6 @@ This application will collect data in two ways:
 
 * Use Git and GitHub to work collaboratively, develop in smaller groups, and resolve merge conflicts.
 * Use Git for code reviews with one another. (we want to see your conversation/questions)
-* Use Git Rebase workflow.
 * Practice an Agile workflow and improve communication skills working within a team.
 * Seek technical feedback from peers and Product Owners utilizing Code Review on PRs.
 * Use a Pull Request Template, as described [here](https://help.github.com/articles/creating-a-pull-request-template-for-your-repository/).
