@@ -83,13 +83,15 @@ By default, Rails places three sub-directories in your `app/assets` directory. T
 
 Anything in the pipeline will be available at the `/assets` URL. So, the `app/assets/javascripts/application.js` in your asset pipeline will be available in development at `http://localhost:3000/assets/application.js`. `app/assets/stylesheets/application.css` will also be available at the root of your asset directory. The asset pipeline will completely flatten your directory structure when you spin up your development server or precompile your assets.
 
-**In Pairs**
+**In Pairs (3 mins)**
 
-* Create a directory in `app/assets` called `texts`.
-* Add a text file—let's call it `hello.txt`—to `app/assets/arbitrary_directory` and give it some contents.
+* Create a directory in `app/assets` called `this_name_does_not_matter`.
+* Add a text file—let's call it `hello.txt`—to `app/assets/this_name_does_not_matter` and give it some contents.
 * Fire up the server and visit `http://localhost:3000/assets/hello.txt`.
 * Move it to `app/assets/javascripts` and refresh the page.
 * Discuss with your partner: What's the purpose of separate directories?
+
+**As a class**
 
 At it's core, the asset pipeline is a list of load paths. You can see these load paths by firing up the Rails console.
 
@@ -116,7 +118,7 @@ You'll typically see something like this:
 - "/Users/michaelbolton/.rvm/gems/ruby-2.5.0/gems/coffee-rails-4.0.1/lib/assets/javascripts"
 ```
 
-The asset pipeline works its way through your load path. The first asset with a given name wins. If you had an asset named `app/assets/stylesheet.css.scss` and another called `vendor/assets/stylesheet.css.scss`, the asset in your `app/assets` directory would win because it occurs first in the load path.
+The asset pipeline works its way through your load path starting at the top. The first asset with a given name wins. If you had an asset named `app/assets/stylesheet.css.scss` and another called `vendor/assets/stylesheet.css.scss`, the asset in your `app/assets` directory would win because it occurs first in the load path.
 
 ## Loading Assets - Our Journey Begins
 
@@ -179,16 +181,16 @@ __Discussion/Question:__ Why are `jquery` and our other external JS libraries no
 * `depend_on` announces that you depend on a file, but does not include it in the asset bundle.
 * `stub` blacklists a dependency from the bundle.
 
-**In Pairs**
+**In Pairs (10 minutes)**
 
-The order in your manifest matters. If you load the root page for the application in development mode you'll notice two hero images. This should be a carousel with the two images rotating but there's a problem loading the JavaScript. If you load the console in your browser you should see an error.
+*Instructor:* The order in your manifest matters. If you load the root page for the application in development mode you'll notice two hero images. This should be a carousel with the two images rotating but there's a problem loading the JavaScript. If you load the console in your browser you should see an error.
 
 * Which file is causing the error?
 * Using this [setup documentation](http://kenwheeler.github.io/slick/#getting-started): What is Slick dependent on?
 * Try to update the manifest to get the carousel to work.
 * If you figure it out, start the app in production and confirm it works there as well.
 
-### ActionView Helpers in Production
+### ActionView Helpers in Production (as a class)
 
 Start your application in production mode and inspect element in the browser. Locate the line that loads your application JavaScript. You should something that looks like this:
 
@@ -244,7 +246,7 @@ When you run `rake assets:precompile`, Rails goes through your assets and copies
 
 ### Why Assets Break in Production
 
-**In Pairs**
+**In Pairs (25 minutes)**
 
 For the next exercises we want to start our Rails app in both development and production at the same time 🙀.
 
