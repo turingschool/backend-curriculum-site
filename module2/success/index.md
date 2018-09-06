@@ -7,7 +7,7 @@ title: Module 2 Success
 
 In order to graduate from Module 2, students must complete each of the following:
 
-### Follow the [Guidelines and Expectations](./guidelines_and_expectations).
+### Follow the [Guidelines and Expectations](./guidelines_and_expectations)
 
 ### Final Assessment
 
@@ -15,7 +15,7 @@ Students are expected to satisfactorily complete both the written and timed asse
 
 ### Group Projects
 
-Students are expected to be a contributing team member in both of their group projects in Module 2. Students are expected to complete the checklists provided for each project. 
+Students are expected to be a contributing team member in both of their group projects in Module 2. Students are expected to complete the checklists provided for each project.
 
 ### Blog Post
 
@@ -40,73 +40,92 @@ The expected mastery level can be understood with the following scale:
 
 -------
 
-## MVC / Rails
+## Mastery in the following skills
 
 #### MVC / Rails
 
-- Diagram and explain the MVC model (Mastery)
-- Be able to implement authentication and authorization within a Rails application (Functional)
-- Make use of flash messages (Functional)
+- Diagram and explain the MVC model
 
 ##### Models
 
-- Differences and use cases between a model that inherits from ActiveRecord vs a PORO (Mastery)
-- Class methods vs. instance methods (Mastery)
+- Differences and use cases between a model that inherits from ActiveRecord vs a PORO
+- Class methods vs. instance methods
 
 ##### Views
 
-- Template a view in Rails using a templating language (eg, `erb`)  (Mastery)
-- How to create a form in a view using Rails, including a form using nested resources. (Mastery)
+- Template a view in Rails using a templating language (eg, `erb`)
+- How to create a form in a view using Rails, including a form using nested resources.
 
 ##### Controllers
 
-- Understand the controller's role as a dispatcher between client and server (Mastery)
-- Be able to build RESTful CRUD actions: `index`, `show`, `new`, `create`, `edit`, `update`, `destroy` (Mastery)
+- Understand the controller's role as a dispatcher between client and server
+- Be able to build RESTful CRUD actions: `index`, `show`, `new`, `create`, `edit`, `update`, `destroy`
 
 ##### Routing
 
-- Implement RESTful routes for resources (Functional)
-- Understand best use of route helpers and path helpers (Mastery)
+- Understand best use of route helpers and path helpers
 
--------
+##### HTTP
 
-## HTTP, HTML, CSS
+- Diagram and explain the HTTP request/response cycle
 
-#### HTTP
+##### Testing
 
-- Diagram and explain the HTTP request/response cycle (Mastery)
-- Understand the different segments of a URL (protocol, host, path, query params) (Functional)
-- Understand application state and sessions (Functional)
-- Understand what headers, body and status codes are in this context (Familiarity)
+- Model testing with RSpec including validations, and class and instance methods
+- Feature testing with RSpec / Capybara
 
-#### HTML, CSS
+##### SQL and Database Planning
 
-- Understand basic HTML tabs, elements, nodes (Functional)
-- Target specific HTML content with CSS selectors (Functional)
-- Basic use and understanding of modern CSS grid systems (Familiarity)
+- Articulately speak to one-to-one, one-to-many, many-to-many relationships
 
--------
+##### ActiveRecord
 
-## Testing
+- Have deep understanding ActiveRecord query methods, including differences between `find` `find_by` and `where`
+- Understand how to CRUD resources with ActiveRecord
+- Create relationships between resources using ActiveRecord
 
-- Model testing with RSpec including validations, and class and instance methods (Mastery)
-- Feature testing with RSpec / Capybara (Mastery)
+--------
 
--------
+## Functional in the following skills
 
-## ActiveRecord, SQL, Database Planning
+##### MVC / Rails
 
-#### SQL and Database Planning
+- Be able to implement authentication and authorization within a Rails application
+- Make use of flash messages
 
-- Writing and executing 'raw' SQL statements that insert, select, calculate, join, order and group (Familiarity)
-- Be able to design database schemas that represent relationships between resources (Functional)
-- Articulately speak to one-to-one, one-to-many, many-to-many relationships (Mastery)
+##### Routing
 
-#### ActiveRecord
+- Implement RESTful routes for resources
 
-- Have deep understanding ActiveRecord query methods, including differences between `find` `find_by` and `where` (Mastery)
-- Understand how to CRUD resources with ActiveRecord (Mastery)
-- Create relationships between resources using ActiveRecord (Mastery)
+##### HTTP
+
+- Understand the different segments of a URL (protocol, host, path, query params)
+- Understand application state and sessions
+
+##### HTML, CSS
+
+- Understand basic HTML tabs, elements, nodes
+- Target specific HTML content with CSS selectors
+
+##### SQL and Database Planning
+
+- Be able to design database schemas that represent relationships between resources
+
+----------
+
+## Familiarity in the following skills
+
+##### HTTP
+
+- Understand what headers, body and status codes are in this context
+
+##### HTML, CSS
+
+- Basic use and understanding of modern CSS grid systems
+
+##### SQL and Database Planning
+
+- Writing and executing 'raw' SQL statements that insert, select, calculate, join, order and group
 
 -------
 
