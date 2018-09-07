@@ -169,6 +169,16 @@ Some cool shortcuts:
   # What is it:  see an ASCII-branched history of your repo
   # Usage:       git graph
 ```
+
+Other Alias resources:
+
+Be careful not to just "copy and paste" these and use them without understanding them:
+
+- https://dev.to/megamattmiller/the-git-aliases-that-get-me-to-friday-1cmj
+- https://dev.to/nickytonline/my-git-aliases-5dea
+- http://durdn.com/blog/2012/11/22/must-have-git-aliases-advanced-examples/
+
+
 ---
 
 ## Being Professional with Git
