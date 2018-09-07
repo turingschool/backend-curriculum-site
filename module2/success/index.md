@@ -7,7 +7,7 @@ title: Module 2 Success
 
 In order to graduate from Module 2, students must complete each of the following:
 
-### Follow the [Guidelines and Expectations](./guidelines_and_expectations)
+### Follow the [Guidelines and Expectations](https://github.com/turingschool/backend-curriculum-site/blob/gh-pages/module2/success/guidelines_and_expectations.md)
 
 ### Final Assessment
 
