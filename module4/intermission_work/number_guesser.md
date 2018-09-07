@@ -51,11 +51,11 @@ You have liberty with the UI.
 
 Desktop layout:
 
-![Number Guesser Desktop][./assets/desktop_layout.png]
+![inline][./assets/desktop_layout.png]
 
 Color and font spec:
 
-![Design Specs][./assets/color_font_spec.png]
+![inline][./assets/color_font_spec.png]
 
 
 ------------------------------------------------------------------
