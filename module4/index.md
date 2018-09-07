@@ -33,10 +33,10 @@ subheading: Professional Application Development
 
 ## Overview
 
-Module 4 is the capstone: a demonstration of the best of what students are capable of. It prepares them for the workplace by emulating the patterns and processes that they’ll use. It should prepare them for their career by helping them set goals and direction without dictating every step of the journey.
+Module 4 is the capstone: a demonstration of the best of what students are capable of. It prepares them for the workplace by emulating the patterns, processes, and collaboration that they’ll use. It should prepare them for their career by helping them set goals and direction without dictating every step of the journey.
 
 ## Important Links
 
 * [Learning Goals](./learning_goals)
-* [Intermission Work](./intermission_work)
+* [Intermission Work](./intermission_work/intermission_work)
 * [Graduation Requirements](./graduation_requirements)
