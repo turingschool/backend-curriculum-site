@@ -46,6 +46,11 @@ The expected mastery level can be understood with the following scale:
 
 - Diagram and explain the MVC model
 
+##### Functional in the following skills
+
+- Be able to implement authentication and authorization within a Rails application
+- Make use of flash messages
+
 ## Models
 
 ##### Mastery in the following skills
@@ -73,11 +78,25 @@ The expected mastery level can be understood with the following scale:
 
 - Understand best use of route helpers and path helpers
 
+##### Functional in the following skills
+
+- Implement RESTful routes for resources
+- Implement and understand namespace and nested routes
+
 ## HTTP
 
 ##### Mastery in the following skills
 
 - Diagram and explain the HTTP request/response cycle
+
+##### Functional in the following skills
+
+- Understand the different segments of a URL (protocol, host, path, query params)
+- Understand application state and sessions
+
+##### Familiarity in the following skills
+
+- Understand what headers, body and status codes are in this context
 
 ## Testing
 
@@ -100,29 +119,6 @@ The expected mastery level can be understood with the following scale:
 - Understand how to CRUD resources with ActiveRecord
 - Create relationships between resources using ActiveRecord
 
---------
-
-## MVC / Rails
-
-##### Functional in the following skills
-
-- Be able to implement authentication and authorization within a Rails application
-- Make use of flash messages
-
-## Routing
-
-##### Functional in the following skills
-
-- Implement RESTful routes for resources
-- Implement and understand namespace and nested routes
-
-## HTTP
-
-##### Functional in the following skills
-
-- Understand the different segments of a URL (protocol, host, path, query params)
-- Understand application state and sessions
-
 ## HTML, CSS
 
 ##### Functional in the following skills
@@ -130,27 +126,15 @@ The expected mastery level can be understood with the following scale:
 - Understand basic HTML tabs, elements, nodes
 - Target specific HTML content with CSS selectors
 
-## SQL and Database Planning
-
-##### Functional in the following skills
-
-- Be able to design database schemas that represent relationships between resources
-
-----------
-
-## HTTP
-
-##### Familiarity in the following skills
-
-- Understand what headers, body and status codes are in this context
-
-## HTML, CSS
-
 ##### Familiarity in the following skills
 
 - Basic use and understanding of modern CSS grid systems
 
 ## SQL and Database Planning
+
+##### Functional in the following skills
+
+- Be able to design database schemas that represent relationships between resources
 
 ##### Familiarity in the following skills
 
