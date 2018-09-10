@@ -1,6 +1,6 @@
 # Whiteboard
 
-## Objectives 
+## Objectives
 -   To have a clear strategy to tackle whiteboard problems
 -   Understand what employers are looking for
 
@@ -8,12 +8,12 @@
   * Summary
   * Types of interview problems
   * What is an interviewer looking for
-  * Have Mike(or a student) answer a question on the whiteboard
+  * Have Mike (or a student) answer a question on the whiteboard
   * Step by step strategy
   * Have students do a problem on pen an paper
 
 ### Summary(1-3 minutes)
-  * Whiteboarding is not fair! 
+  * Whiteboarding is not fair!
   * Most places that interview have a live coding or whiteboard portion of the
     interview.
   * 30 minutes to an hour in length.
@@ -28,7 +28,7 @@
     * Given an array of numbers, find the greatest product between two numbers
     * Anything you can find on Exercism.io
 
-### Things interviewer is looking for(3-7 minutes)
+### Things interviewer is looking for (3-7 minutes)
   * Are they asking the right questions?
   * How are their problem solving skills?
   * Does the solution work?
@@ -60,7 +60,7 @@ cases now you time is to make it up)
 
 ### Students practice and review 45mins - 1hr and 15mins
   * Do the problem on pen and paper
-    * Given a collection, find the max, min, and length of the collection. 
+    * Given a collection, find the max, min, and length of the collection.
     * Have students discuss steps one and two in pairs, get together and discuss.
     * Have them do steps 4-6 on their own.
 
