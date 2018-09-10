@@ -52,7 +52,7 @@ taco_2 memory address is 70135104802660
 taco_2 value is #<Taco:0x00007f9334041ec8 @type="Carnitas">
 ```
 
-In cell A2 of your sheet, put "taco_1" for the variable name. Copy and paste the memory address that was printed out and put it in cell B2. In cell C2, copy and paste the entire value printed out for taco_1.inspect. In the example above, it would be `#<Taco:0x00007f9334041ef0>`. Do the same for taco_2. Your Sheet should look something like this:
+In cell A2 of your sheet, put "taco_1" for the variable name. Copy and paste the memory address that was printed out and put it in cell B2. In cell C2, copy and paste the entire value printed out for taco_1.inspect. In the example above, it would be `#<Taco:0x00007f9334041ef0 @type="Al Pastor">`. Do the same for taco_2. Your Sheet should look something like this:
 
 ![Imgur](https://i.imgur.com/OCUSw1O.png)
 
@@ -117,13 +117,13 @@ taco_2 = Taco.new("Al Pastor")
 puts "taco_1 initial memory address is #{taco_1.object_id}"
 puts "taco_1 initial value is #{taco_1.inspect}"
 
-taco_1.filling = "Carnitas"
+taco_1.type = "Carnitas"
 
 puts "taco_1 new memory address is #{taco_1.object_id}"
 puts "taco_1 new value is #{taco_1.inspect}"
 ```
 
-**Turn and Talk**: Do you expect `taco_1` to have a different memory address after we change the filling?
+**Turn and Talk**: Do you expect `taco_1` to have a different memory address after we change the `type`?
 
 <br />
 <br />
@@ -135,9 +135,9 @@ puts "taco_1 new value is #{taco_1.inspect}"
 <br />
 <br />
 
-Compare the initial memory_address and the new memory_address and notice that they are exactly the same! Not only can Ruby set aside these boxes of memory, but we can also change what is inside them. Update your Sheet's row for `taco_1` with the new value being stored in memory after we change the filling.
+Compare the initial memory_address and the new memory_address and notice that they are exactly the same! Not only can Ruby set aside these boxes of memory, but we can also change what is inside them. Update your Sheet's row for `taco_1` with the new value being stored in memory after we change the `type`.
 
-Let's make a slight change to the code. Instead of setting the filling with the assignment operator `=`, we are going to change the whole object:
+Let's make a slight change to the code. Instead of setting the `type` with the assignment operator `=`, we are going to use `.new`:
 
 ```ruby
 class Taco
@@ -159,7 +159,7 @@ puts "taco_1 new memory address is #{taco_1.object_id}"
 puts "taco_1 new value is #{taco_1.inspect}"
 ```
 
-**Turn and Talk**: Do you expect `string_one` to have a different memory address after the assignment?
+**Turn and Talk**: Do you expect `taco_1` to have a different memory address after the `.new`?
 
 <br />
 <br />
@@ -176,7 +176,7 @@ Compare the initial memory address and the new memory address and notice that th
 
 Because Ruby allocated a new space of memory, we need a new row in our Sheet. In cell A4, put the variable name `taco_1`. In cell B4, put the new memory address that was printed out. In cell C4, put the new value being stored in that space of memory.
 
-Your sheet should now have two variables named `taco_1`, so which one will Ruby use? You have probably come across this a couple times in your code. When we reassign a variable, the old value is lost because we no longer have a variable to reference it. It goes poof, into the ether of the computer. The technical jargon for this is that the old memory is "garbage collected". Delete row 2 from your Sheet. Your Sheet should look like this:
+Your sheet should now have two variables named `taco_1`, so which one will Ruby use? You have probably come across this a couple times in your code. When we reassign a variable, the old value is lost because we no longer have a variable to reference it. It goes poof, into the ether of the computer. The technical term for this is that the old memory is **garbage collected**. Delete row 2 from your Sheet to simulate the garbage collection. Your Sheet should look like this:
 
 ![Imgur](https://i.imgur.com/jHW2VFO.png)
 
@@ -191,6 +191,7 @@ Answer the following questions in your Sheet:
 * What is an Object in terms of memory?
 * What is a variable?
 * What happens when we call `.new`?
+* What is garbage collection?
 
 ## Activity 2: Objects in Objects
 
