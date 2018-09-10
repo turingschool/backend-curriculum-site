@@ -9,7 +9,7 @@ layout: page
 * Technical Challenge
 * Mock Interviews
 * Implementation Challenge
-* [GraphQL](../lessons/intro-to-graphql)
+* [GraphQL](../lessons/intro_to_graphql)
 
 ## Projects
 
