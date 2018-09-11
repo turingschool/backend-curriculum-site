@@ -16,7 +16,7 @@ title: Module 4 Lessons
 * [Build & Test an Express App](./express_knex_and_testing)
 * [Organizing an Express App](./organize_an_express_app)
 
-# Build Tools & Workflow
+## Build Tools & Workflow
 
 * [Webpack and NPM](./webpack_demystified)
 * [Project Planning](./project_planning)
