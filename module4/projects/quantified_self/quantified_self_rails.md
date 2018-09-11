@@ -258,7 +258,7 @@ If successful, this request will return:
 }
 ```
 
-##### Meal Endpoints:
+##### Favorites Endpoints:
 
 **GET /api/v1/favorite_foods**
 
