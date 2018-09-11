@@ -24,14 +24,6 @@ Available [here](../slides/mocks_stubs)
 * In Black Thursday, how many of your tests are loading CSV data?
 * Have you attempted to adjust those tests/your code to not rely on CSV data? Had any luck?
 
-## Discussion
-
-Talk to your partner to come up with answers to these questions
-
-- What is "test value"?
-- How can you determine the "value" of any individual test?
-- How does the Single Responsibility Principle apply to unit testing?
-
 ### Mocks
 
 Mocks are objects that stand in for other objects. The other object might be one that's not implemented yet, doesn't yet have the functionality we need, or maybe we just want to work with a simpler situation.
