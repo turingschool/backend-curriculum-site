@@ -9,6 +9,8 @@ tags: api, graphql
 - Write an Express/GraphQL server
 - Interact with a GraphQL API using Graph_i_QL
 
+[Slides](./intro_to_graphql_slides)
+
 ## Warmup
 
 Write your answer to the following:
@@ -50,9 +52,14 @@ Read more on these [here](https://code.fb.com/core-data/graphql-a-data-query-lan
 
 ## LinkedIn for Pets APIs
 
-- show RESTful Pet API diagram, reinforce challenges with using REST for this
-- show graph, explain nodes and edges, root query
-- show how simple it is to write a query!
+The Rest API could be visualized with something like this:
+![inline](../../assets/images/lessons/intro_to_graphql/rest_diagram)
+
+The Graph for this data would look something like this:
+![inline](../../assets/images/lessons/intro_to_graphql/graph_diagram)
+
+This is the query (and response) that we would have to write in GraphQL!
+![inline](../../assets/images/lessons/intro_to_graphql/query)
 
 
 ## Building a GraphQL Server
@@ -314,10 +321,6 @@ Try adding a pet in GraphiQL. Think about how your mutation request might need t
 
 The schema file is getting a little lengthy - can you pull each type, the RootQuery, and the mutation out into their own files and maintain functionality?
 
-## Server vs. Client
+## Complete GraphQL Server
 
-- info on how we only went into server side stuff - you have to have a GraphQL client (GraphiQL) to access this stuff.
-
-## Buzzwords
-
-- client vs. server, apollo, relay
+Congrats, you've written your first GraphQL server and tested it out in Graph_i_QL! You can see it takes a bit of setup, but the long term benefits are something many companies seeing are very much worth it.
