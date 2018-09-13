@@ -26,7 +26,7 @@ With a partner, whiteboard the JSON response from `api/v1/users/:id`.
 Considering this response (and we can pretty easily imagine what the JSON response for `api/v1/users` would look like),
 - What would a developer need to do to access a list of all the puppy names?
 - What would a developer need to do to access a list of users, and the name of their company (assuming that's a property on the company)?
-- What _isn't ideal_ about both of these situation?
+- What _isn't ideal_ about both of these situations?
 
 ### Disadvantages to REST
 
