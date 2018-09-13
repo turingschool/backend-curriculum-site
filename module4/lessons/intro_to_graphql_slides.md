@@ -77,19 +77,19 @@ Some of it's features:
 
 # LinkedIn for Puppies
 
-![inline](/assets/images/lessons/intro_to_graphql/rest_diagram.png)
+![inline](http://backend.turing.io/assets/images/lessons/intro_to_graphql/rest_diagram.png)
 
 ---
 
 # LinkedIn for Puppies
 
-![inline](/assets/images/lessons/intro_to_graphql/graph_diagram.png)
+![inline](http://backend.turing.io/assets/images/lessons/intro_to_graphql/graph_diagram.png)
 
 ---
 
 # LinkedIn for Puppies
 
-![inline](/assets/images/lessons/intro_to_graphql/query.png)
+![inline](http://backend.turing.io/assets/images/lessons/intro_to_graphql/query.png)
 
 ---
 
