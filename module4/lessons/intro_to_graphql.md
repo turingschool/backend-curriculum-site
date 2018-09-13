@@ -7,7 +7,7 @@ tags: api, graphql
 
 - Explain what GraphQL is and the benefits of using it over REST
 - Write an Express/GraphQL server
-- Interact with a GraphQL API using Graph_i_QL
+- Interact with a GraphQL API using GraphiQL
 
 [Slides](./intro_to_graphql_slides)
 
@@ -323,4 +323,4 @@ The schema file is getting a little lengthy - can you pull each type, the RootQu
 
 ## Complete GraphQL Server
 
-Congrats, you've written your first GraphQL server and tested it out in Graph_i_QL! You can see it takes a bit of setup, but the long term benefits are something many companies seeing are very much worth it.
+Congrats, you've written your first GraphQL server and tested it out in GraphiQL! You can see it takes a bit of setup, but the long term benefits are something many companies seeing are very much worth it.
