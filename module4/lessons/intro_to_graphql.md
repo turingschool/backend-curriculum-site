@@ -53,13 +53,13 @@ Read more on these [here](https://code.fb.com/core-data/graphql-a-data-query-lan
 ## LinkedIn for Pets APIs
 
 The Rest API could be visualized with something like this:
-![inline](../../assets/images/lessons/intro_to_graphql/rest_diagram)
+![inline](/assets/images/lessons/intro_to_graphql/rest_diagram)
 
 The Graph for this data would look something like this:
-![inline](../../assets/images/lessons/intro_to_graphql/graph_diagram)
+![inline](/assets/images/lessons/intro_to_graphql/graph_diagram)
 
 This is the query (and response) that we would have to write in GraphQL!
-![inline](../../assets/images/lessons/intro_to_graphql/query)
+![inline](/assets/images/lessons/intro_to_graphql/query)
 
 
 ## Building a GraphQL Server
