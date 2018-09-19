@@ -66,16 +66,13 @@ NOTE: This is not because one way is better, but it's extremely important to und
 
 ### JavaScript/JQuery (What's this JavaScript I keep hearing about?)
 
-[Codecademy JavaScript Track](http://www.codecademy.com/en/tracks/javascript)
+[Codecademy Introduction to JavaScript](https://www.codecademy.com/learn/introduction-to-javascript)
 
 JavaScript is the scripting language of web browsers. During Module 3 we'll start getting our first introductions to JS and we'd like you to work through some basic materials as a preparation.
 
-Focus primarily on the sections for:
+This JavaScript Course is estimated at 35 hours in length. YOU DO NOT HAVE TO COMPLETE IT. We would suggest that you work on it throughout the next month. It should go more quickly than you expect because you have some programming experience, and this is written for people who do not have experience. 
 
-* Functions
-* Control Flow
-* Data Structures
-* Objects I and Objects II
+We are mainly looking for you to get experience with the syntax, and at a minimumum you should understand the JS Data Types, Conditionals, and Looping.
 
 [jQuery](https://www.codeschool.com/courses/try-jquery)
 
