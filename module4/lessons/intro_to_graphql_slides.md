@@ -111,16 +111,17 @@ ___
 
 # Familiarize Yourself with Starter Repo
 
-- First, investigate the dependencies in the `package.json` - what has been installed, and what job do you think each dependency has?
-- As mentioned in the README of the repo, a JSON DB is being used to avoid time spent on setting up databases on machines for this lesson. Take a look at `db.json` to familiarize yourself with our initial data.
-- Now, let's take a look at `server.js` - this is an Express server built _with_ GraphQL, so you'll still see some of the things you're familiar with!
-- Lastly, let's check out `schema.js` - this file is where we will be doing all our work today.
+- `package.json` - what has been installed, and what job do you think each dependency has?
+- `db.json` - familiarize yourself with our initial data.
+- `server.js` - this is an Express server built _with_ GraphQL, so you'll still see some of the things you're familiar with!
+- `schema.js` - this file is where we will be doing all our work today.
 
 ___
 
 # Root Query
 
 Key Points:
+
 -  a Root Query is the `entry` point into a graph. You can have queries on as many nodes as you'd like.
 - a Root Query is a GraphQLObjectType - which require two arguments - `name` and `fields`.
 
@@ -129,6 +130,7 @@ ___
 # Types
 
 Key Points:
+
 - a Type defines the properties of a given object.
 - the resolve function determines what is returned from that type (it talks to our DB)
 
@@ -137,6 +139,7 @@ ___
 # Pet-Company Relationship
 
 Key Points:
+
 - Pet can have foreign key of companyId, and company can also have the list of pets - convenient!
 
 ___
@@ -144,6 +147,7 @@ ___
 # Mutations
 
 Key Points:
+
 - Creating, updating and deleting are ALL under the category of mutations.
 
 ___
@@ -151,5 +155,11 @@ ___
 # Refactoring
 
 The schema file is getting a little lengthy - can you pull each type, the RootQuery, and the mutation out into their own files and maintain functionality?
+
+___
+
+# GraphQL vs. RESTful APIs
+
+With your partner, create a poster that compares/contrasts GraphQL and REST, and highlights the key points that we learned today.
 
 ___

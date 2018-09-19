@@ -7,19 +7,23 @@ title: Module 4 Graduation Requirements
 
 In order to graduate from Module 4, students must successfully complete **each** of the following:
 
+## Attendance
+
+* Be on time and present for 90%+ of scheduled classes, check-ins, and evals.
+
 ### Ongoing Work
 
 * Weekly Checks for Understanding (weeks 1-4)
 
 ### Projects
 
-* [Quantified Self](./projects/quantified-self)
-* [House of Vars](./projects/open_source_project) including a blog post on their experience
+* [Quantified Self Rails ](./projects/quantified-self/quantified_self_rails)
+* [Quantified Self Full-Stack](./projects/quantified-self/quantified_self_full_stack)
 * [Capstone Project](./capstone_project_overview)
+* [Final: Take-Home Code Challenge](./link-coming)
 
 ### Assessments
 
-* JavaScript Assessment
 * [Mock Interview](./mock_interview_assessment)
 
 ### Career Development

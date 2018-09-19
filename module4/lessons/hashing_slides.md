@@ -6,9 +6,6 @@ slidenumbers: true
 ^ notes
 - Collections
 - The dream of a hash function is constant time lookup no matter how many elements
-- add in a middle level between MD5 and %6 that they can do by hand - my chunk should NOT require any computers.
-- no computers during entire 1st third of lesson.
-- build in what the MD5 part looks like in 2nd third of lesson.
 - TONE - timing, clarity of expectations, start and stop times, how do we set and shape tone, opportunities to change it mid way.
 
 ---
@@ -18,20 +15,54 @@ slidenumbers: true
 - Choose ONE snack for yourself
 - Resist the temptation & do NOT open it yet
 
-^ Make sure that everyone has a snack, and that all four snacks were selected at least 1x. If someone didn't select a snack, give them the least popular one.
+^ Make sure that everyone has a snack, and that all five snacks were selected at least 1x. If someone didn't select a snack, give them the least popular one.
+
+---
+
+# Warm Up
+
+- I don't quite know what I want to have them do here.
+
+^ comments
 
 ---
 
 # Learning Goals
 
-* Instructors will be able to explain the key features of a hash
+* Instructors will be able to explain how hashes are created
 * Instructors will be able to explain what hashing is and where it is used in the real world
 
 ^ KEY POINTS:
 - There is no way to take the hash and go back to original string
-- Inputs can be any size
-- Outputs will always be the same size
+- Inputs can be any size/Outputs will always be the same size
 - Any slight change of input results in drastic changes of output
+Intro notes:
+
+---
+
+# What is this all about?
+
+**Hash Tables:**
+- data structure that maps keys to values
+- each key gets assigned to a unique bucket
+- time lookup, insertion, and deletion should be constant
+
+^ Let's build a little high-level context before we dig into hashing.
+Hash Tables are a data structure - the dream is that no matter how many elements we have, we can have a constant time lookup
+
+---
+
+# What is this all about?
+
+**Hash Function/Algorithms:**
+- Functions that map data to a 'bucket' in a hash table
+- The values returned are referred to as hash values, hash codes, digests, or hashes
+
+^ Today we are going to focus on the fundamentals of what this hash function needs to do, in order to do a good job storing our data for us.
+
+---
+
+![inline](https://study.cs50.net/slideshows/1WyRdHGA7wYMYg078wXpv9qAjrELJBokRFRKGnVbnI7Q/img/0.png)
 
 ---
 
@@ -40,10 +71,11 @@ slidenumbers: true
 NOT including spaces, find the number of characters in your snack's string. Spell it correctly.
 
 ^ Snacks:
-- fruitsnacks
-- chips
-- twizzlers
-- M&Ms
+- fruitsnacks (11)
+- cheezit (7)
+- granolabar (10)
+- starburst (9)
+- M&Ms (4)
 
 ---
 
@@ -53,18 +85,75 @@ This should result in a number 0-5.
 
 Drop your snack off in the bin with your number on it.
 
-^ We should see a collision with chips & fruit snacks in snack bin 5. People should stay at their bin.
+^ We should see a collision with M&Ms & granolabar in snack bin 4. People should stay at their bin.
 
 ---
 
 # Pitfalls of our Hash Function
 
 DISCUSS:
-Why was this a bad hash function?
+
+- Why was this a bad hash function?
 
 ^ Circulate and looks for answers around the idea of collisions and easy-to-crack.
-TWO REASONS: Collision: This shouldn't happen a lot - but what if we had ten snack options? We still only have 6 snack boxes. KP - CAN'T GO BACKWARDS. With something so simple, this would be easy enough to crack.
+TWO REASONS:
+Collision: This shouldn't happen a lot - but what if we had ten snack options? We still only have 6 snack boxes.
+KP - CAN'T GO BACKWARDS. With something so simple, this would be easy enough to crack.
 The main solution is to use a more advanced hash function. (Even then, we may run into collisions, but we aren't going to focus on that today.)
+
+---
+
+# A Better Hash Function
+
+Using that same `snackLength` as an input, use this hash function to calculate a digest:
+
+```js
+function hashMe(input) {
+  var hash1 = input % 7;
+  var hash2 = (input * 2) % 6;
+
+  var finalHash = ((hash1 + hash2) % 7) + hash1.toString() + hash2.toString();
+
+  return finalHash;
+}
+```
+
+^ Provide print-outs of this so instructors can write each step by the code if that's helpful.
+
+---
+
+# A Better Hash Function
+
+Find the snack bin with your new-and-improved snack hash on it. Discuss with your snack friends:
+- What was better about this algorithm? What is the evidence?
+- What does our hash digest have in common with other groups'?
+- What are the weaknesses of this algorithm? Explain.
+
+^ Instructors should walk to snack bin and be talking right away.
+Questions to prompt:
+- Do we have any collisions this time?
+- Would this be easy to 'undo' and figure out the algorithm?
+- What if you made a typo - spelled the snack wrong but had same number of characters?
+- What if we have M&Ms and Twix? (collision)
+Instructors should grab their snack and go back to their seats.
+
+---
+
+# Whole Group Share Out
+
+- What do all of these hash digests have in common?
+- What are the weaknesses?
+
+^ What do all of these hashes have in common? (Same size output - connect to same size of jars.)
+What are the weaknesses? (Just checks length, easy to crack. We should be able to see a significant difference between the hashes cookies and cooikes and Cookies.)
+
+---
+
+# Think Pair Share
+
+Considering all we've talked about so far today, what would you list as the top 2-3 key points about hashing?
+
+^ Write about this for 1 minute, talk with partner for 1 minute, then group share out.
 
 ---
 
@@ -74,49 +163,8 @@ The main solution is to use a more advanced hash function. (Even then, we may ru
 - Fewer collisions
 - Nearly impossible to go backwards
 
-^ There are some advanced hash functions out there that can be used to hash values. They have varying degrees of security - we won't get into those details today. SHA-1 is the hash function that is used to create the 40-character sha for git commit messages. https://blog.thoughtram.io/git/2014/11/18/the-anatomy-of-a-git-commit.html#introducing-sha-1
-Instructors should grab their snack and go back to their seats.
-
----
-
-# Another Hash for your snack
-
-- Go to `md5hashgenerator.com`
-- Provide your snack name
-- What's your new hash?
-
-^ Now that we've seen the power of a better hash function, let's use one in hopes that we can find a unique way to store each snack. Go to https://www.md5hashgenerator.com/ and type in your snack name - make sure there are no spaces, spelling errors, and check capitalization.
-Now, take your computer or phone and your snack to the appropriate bin.
-- Do we have any collisions this time? Why?
-- With people at your bin, make a prediction - if you make a small spelling error, maybe pluralize your snack, or capitalize one letter - how different do you expect the hash to be? Why?
-- Try out a couple 'close' inputs with the MD5 Hash Generator - is your hash close?
-
----
-
-# Another Hash for your snack
-
-PREDICT & DICUSS:
-
-If you make a small spelling error, how different do you expect the hash to be? Why?
-
-
-^ Now that we've seen the power of a better hash function, let's use one in hopes that we can find a unique way to store each snack. Go to https://www.md5hashgenerator.com/ and type in your snack name - make sure there are no spaces, spelling errors, and check capitalization.
-Now, take your computer or phone and your snack to the appropriate bin.
-- Do we have any collisions this time? Why?
-- With people at your bin, make a prediction - if you make a small spelling error, maybe pluralize your snack, or capitalize one letter - how different do you expect the hash to be? Why?
-- Try out a couple 'close' inputs with the MD5 Hash Generator - is your hash close?
-Once they try it out - DISCUSS as a group and stamp the KP - even the slightest change in input results in a drastic change in output.
-Send instructors back to their table.
-
----
-
-# Similarities and Differences
-
-Find a friend with a different snack. Discuss:
-- What is different about your hashes?
-- What do your hashes have in common?
-
-^ KP: No matter the size of the input, the output is always the same size. In this case, 32 characters. Think about our snacks - M&Ms are tiny compared to a bag of chips. BUT, the snack bins were all exactly the same size.
+^ There are some advanced hash algorithms out there that can be used to hash values. They have varying degrees of security - we won't get into those details today. SHA-1 is the hash function that is used to create the 40-character sha for git commit messages. https://blog.thoughtram.io/git/2014/11/18/the-anatomy-of-a-git-commit.html#introducing-sha-1
+We are now going to get some practice with MD5 and SHA-256, which should really highlight some of these ideas for you!
 
 ---
 
@@ -124,7 +172,7 @@ Find a friend with a different snack. Discuss:
 
 - Any slight change in input will result in a drastic change of the output
 - No matter the input size, the outputs will all be the same size
-- There is no way to get back to the original string
+- There should be no way to get back to the original string
 
 ^ Connect back to snacks:
 - Change to input - misspelling.
