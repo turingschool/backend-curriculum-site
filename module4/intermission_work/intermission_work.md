@@ -7,6 +7,8 @@ layout: page
 
 To prepare for Module 4, please complete & submit (via DM to your instructors) the following before 12 noon Sunday, the day before the inning begins. This will allow instructors time to review and provide feedback.
 
+Submit all links [here](https://goo.gl/forms/jcLIOC1y9iN2NJGP2).
+
 ## 1. Reflection on Learning Experiences
 
 Complete this [exercise](https://gist.github.com/case-eee/6a5b06bf88c3fa82d9498c6763314ae4) to reflect on your learning experience thus far here at Turing.
