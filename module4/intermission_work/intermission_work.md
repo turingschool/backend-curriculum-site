@@ -5,7 +5,7 @@ layout: page
 
 ## Required Work
 
-To prepare for Module 4, please complete & submit (via DM to your instructors) the following before 12 noon Sunday, the day before the inning begins. This will allow instructors time to review and provide feedback.
+To prepare for Module 4, please complete & submit the following before 12 noon Sunday, the day before the inning begins. This will allow instructors time to review and provide feedback.
 
 Submit all links [here](https://goo.gl/forms/jcLIOC1y9iN2NJGP2).
 
