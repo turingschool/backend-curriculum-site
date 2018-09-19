@@ -17,8 +17,8 @@ In order to graduate from Module 4, students must successfully complete **each**
 
 ### Projects
 
-* [Quantified Self Rails ](./projects/quantified-self/quantified_self_rails)
-* [Quantified Self Full-Stack](./projects/quantified-self/quantified_self_full_stack)
+* [Quantified Self Rails ](./projects/quantified_self/quantified_self_rails)
+* [Quantified Self Full-Stack](./projects/quantified_self/quantified_self_full_stack)
 * [Capstone Project](./capstone_project_overview)
 * [Final: Take-Home Code Challenge](./link-coming)
 
