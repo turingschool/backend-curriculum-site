@@ -303,7 +303,7 @@ If successful, this request will return the following:
 ### Expectations
 
 - Tag instructors in PRs on Github wherever you'd like feedback.
-- Reach out for extra support if you feel like your team is falling behind.
+- Reach out for extra support if you feel like you are falling behind.
 - If there's any question about functionality, ASK.
 - To submit, tag your instructor in a PR using [this template](https://gist.github.com/ameseee/c4f0b2e1bb3f41661a7de8574ba3992c).
 
