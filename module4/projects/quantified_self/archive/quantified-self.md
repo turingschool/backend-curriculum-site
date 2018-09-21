@@ -62,7 +62,7 @@ You'll be building two main layouts for this project. A "foods" index page and a
 
 #### Broad Back End features
 
-During the three weeks of this project, you'll get the opportunity to build this API
+During the two weeks of this project, you'll get the opportunity to build this API
 for three interations. First, you'll build it in Rails. Second, you'll build it using
 Node, Express, and Knex. Lastly, you'll use a wild card programming language to stretch
 skills a little more.

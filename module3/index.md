@@ -48,8 +48,9 @@ For a sense of where your abilities should be by the end of the module, take a l
 
 ## Projects
 
-This module consists of four projects, two team projects and two personal projects. [Find more details about the projects themselves here](projects_overview).
+This module consists of an individual non graded project, a pair project, a group project, and an individual project that will carry into M4. 
 
 ## Promotion
 
-In order to be promoted to Mod 4 you'll need to complete your [PD deliverables](https://github.com/turingschool/career-development-curriculum/tree/master/module_three) and your [Mod 3 end of Mod porfolio](https://github.com/turingschool/portfolios/blob/master/templates/BEM3_template.md).
+In order to be promoted to Mod 4 you'll need to complete your [PD deliverables](https://github.com/turingschool/career-development-curriculum/tree/master/module_three) and your [Mod 3 end of Mod porfolio](https://github.com/turingschool/portfolios/blob/master/templates/BEM3_template.md). There should be an upward sloping trend in your performance on the projects. You will need to pass both your final assessment and final individual project, as well as demonstrate that you are job-ready. 
+

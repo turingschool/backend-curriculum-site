@@ -5,7 +5,9 @@ layout: page
 
 ## Required Work
 
-To prepare for Module 4, please complete & submit (via DM to your instructors) the following before 12 noon Sunday, the day before the inning begins. This will allow instructors time to review and provide feedback.
+To prepare for Module 4, please complete & submit the following before 12 noon Sunday, the day before the inning begins. This will allow instructors time to review and provide feedback.
+
+Submit all links [here](https://goo.gl/forms/jcLIOC1y9iN2NJGP2).
 
 ## 1. Reflection on Learning Experiences
 
@@ -15,7 +17,7 @@ Complete this [exercise](https://gist.github.com/case-eee/6a5b06bf88c3fa82d9498c
 
 ## 2. Number Guesser
 
-Complete phases 1-3 of [Number Guesser](http://frontend.turing.io/projects/number-guesser.html). You _can_ use jQuery for this.
+Complete phases 1-3 of [Number Guesser](./number_guesser.md). You _can_ use jQuery for this.
 
 On a branch called `annotated`, annotate every line of JavaScript (either below/above the line in a comment) to explain what the code is doing. Include any explanation as to why you used ES5 vs. ES6 functions, var vs. let vs. const, etc.
 

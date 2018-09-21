@@ -36,7 +36,7 @@ We'll build out an app where a user should be able to add songs to their cart. T
 
 ## Code-Along
 
-We are going to use the `SetList` project for this example.
+We are going to use the `Jukebox` project for this example.
 
 ### Writing a Test
 

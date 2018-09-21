@@ -169,13 +169,23 @@ Some cool shortcuts:
   # What is it:  see an ASCII-branched history of your repo
   # Usage:       git graph
 ```
+
+Other Alias resources:
+
+Be careful not to just "copy and paste" these and use them without understanding them:
+
+- [https://dev.to/megamattmiller/the-git-aliases-that-get-me-to-friday-1cmj](https://dev.to/megamattmiller/the-git-aliases-that-get-me-to-friday-1cmj)
+- [https://dev.to/nickytonline/my-git-aliases-5dea](https://dev.to/nickytonline/my-git-aliases-5dea)
+- [http://durdn.com/blog/2012/11/22/must-have-git-aliases-advanced-examples/](http://durdn.com/blog/2012/11/22/must-have-git-aliases-advanced-examples/)
+
+
 ---
 
 ## Being Professional with Git
 
 We all get frustrated, and sometimes we want to take it out on our poor, little github commit messages.
 
-Be careful though: https://twitter.com/gitlost (warning, contains lots of profanity!)
+Be careful though: [https://twitter.com/gitlost](https://twitter.com/gitlost) (warning, contains lots of profanity!)
 
 Employers will likely be looking through your GitHub repos, seeing how you built your projects, as part of evaluating you as a potential candidate for a job. Do you REALLY want them seeing commit messages full of swearing, or loads and loads of "this isn't working" / "this still isn't working" / "why the #$%^ isn't this working?!" commit messages?
 
