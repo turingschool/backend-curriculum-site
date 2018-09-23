@@ -37,6 +37,7 @@ Complete Sorting Suite in Javascript [here](http://frontend.turing.io/projects/s
 
 **Submit: Link to repo for Sorting Suite.**
 
+___
 
 ### Tips for JS success
 
@@ -46,6 +47,7 @@ Suggested resources to utilize:
 * [Function Fundamentals, Variable Scope, Loops, Arrays](http://frontend.turing.io/lessons/module-1/js-2.html)
 * [Objects, This, Data Structures](http://frontend.turing.io/lessons/module-1/js-4.html)
 * [Array Prototype Methods](http://frontend.turing.io/lessons/module-1/array-prototype-methods-intro)
+* [ES6, Webpack Tutorial](http://ccoenraets.github.io/es6-tutorial/)
 
 [JavaScript 30](https://javascript30.com/):
   - Array Cardio Days 1
@@ -56,7 +58,7 @@ Suggested resources to utilize:
 Some biggies if you're coming from Ruby:
 
 -   Methods are called Functions
--   `nil` is called `undefined`
+-   You should know the difference between `undefined` and `null`; JS does not have a `nil` like Ruby does
 -   `require`ing a file you've written does nothing if you didn't export from that file
 -   All `return`s are explicit in Javascript. If you don't use the word `return`, your return value will be `undefined`
 
