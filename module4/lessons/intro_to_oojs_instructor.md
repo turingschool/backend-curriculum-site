@@ -1,23 +1,37 @@
----
-layout: page
-title: Object Oriented JavaScript
-length: 206
-tags: JavaScript, object oriented programming, prototypes
----
-
 # An Introduction to Object-Oriented JavaScript
 
-## Learning Goals
-* Students organize functions into classes and objects *(functional)*
-* Students apply good OO patterns to JavaScript functions *(mastery)*
-* Students make effective use of `this` in multiple contexts *(functional)*
+Instructor Notes
+
+This lesson mainly follows the resource at './intro_to_oojs'. A few additions for instructors to be aware of:
+- Warm Up and Wrap Up slides gives explicit directions for student actions, and teacher notes.
+- Activity on Classical Inheritance vs. Prototypal Inheritance is in slides, not mentioned in student-facing resource.
+
+Prep:
+- Write learning goals, vocab, and rough agenda on board.
+- Prep partners for whiteboard (and after) activity. They are in a solo project during this week.
+- Prep slide or printouts of Animal/Dog classes for whiteboard inheritance activity
 
 ## Warm Up
+
+Jot down your answers to the following in your notebook:
 
 1. What are the main components of Object Oriented Programming?
 2. What do you like/dislike about OOP?
 3. What's one way to create a new object in JavaScript?
 4. What's your experience in making your JavaScript object-oriented thus far?
+
+^ Facilitation:
+- 4 min: students writing silently in notebooks
+- 30 sec: students talk with partner about #1
+- 1 min: students talk with different partner about #3-4 (it may be very likely that many students respond "none" to #4 and is totally ok! Reassure them of this - that's today's goal.)
+- (During this time, instructor is circulating, looking for strong responses to each)
+- 2 min: Instructor calls on already-selected students to answer #1, #3, and #4
+
+## Learning Goals
+
+* Students organize functions into classes and objects *(functional)*
+* Students apply good OO patterns to JavaScript functions *(mastery)*
+* Students make effective use of `this` in multiple contexts *(functional)*
 
 ## Vocabulary
 
@@ -34,9 +48,8 @@ JavaScript can behave as an object-oriented programming language, but it follows
 
 It's not a rule baked into the language, but — by convention — most JavaScript developers capitalize the names of functions that they intend on using as object constructors.
 
-## [Object Constructors](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/constructor)
-
-A [constructor function or object constructor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/constructor) can be thought of as a blueprint (similar to classes), or—better yet—as a casting mold from which new objects are minted. The constructor function includes basic information about the properties of an object and uses a special syntax that allows us to build new objects quickly using the template defined by the constructor.
+## Object Constructors
+A **constructor function or object constructor** can be thought of as a blueprint (similar to classes), or—better yet—as a casting mold from which new objects are minted. The constructor function includes basic information about the properties of an object and uses a special syntax that allows us to build new objects quickly using the template defined by the constructor.
 
 Object constructors can be called using the `new` keyword.
 
@@ -71,8 +84,10 @@ You may have noticed that we're using `this` in our function and that it isn't b
 `Dog` is just a regular function. But, we call it a little differently than we did in previous section on functions. If you recall, there are a few ways we can call a function:
 
 * Using a pair of parenthesis as the end of the functions name (e.g. `someFunction()`).
-* Using the [`call()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call) method (e.g. `someFunction.call()`).
-* Using the [`apply()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply) method (e.g. `someFunction.apply()`).
+* Using the `call()` method (e.g. `someFunction.call()`).
+* Using the `apply()` method (e.g. `someFunction.apply()`).
+
+### NEW Keyword
 
 When we are writing object-oriented JavaScript, we have a fourth way of invoking a function: the `new` keyword. The `new` keyword invokes the function _as a constructor_, which causes it to behave in a fundamentally different way.
 
@@ -83,7 +98,7 @@ When we use the `new` keyword to call our function as a constructor, a few thing
 3. the body of our function is run
 4. our new object, `this`, is returned from the constructor
 
-## The [`prototype`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/prototype) Property
+## The `prototype` Property
 
 Let's take a look at `this` in the context of our `Dog()` constructor:
 
@@ -113,7 +128,54 @@ With regular functions, we generally don't use the `prototype` property — it's
 
 You may have heard that JavaScript has something called _prototypal inheritance_. This is a very complicated term for a relatively simple concept.
 
-**Classical Inheritance v. JS Prototypal Inheritance Whiteboard Activity**
+## **Classical Inheritance v. JS Prototypal Inheritance Whiteboard Activity**
+
+#### OO - Classical Inheritance
+
+(Instructor, create slide with this code/print out handouts for each pair so they can easily reference all over the room).
+
+With your partner, whiteboard out how you would visualize classical inheritance with OO for something like this:
+
+```ruby
+class Animal
+  def eat
+    puts "yum!"
+  end
+
+  def breathe
+    puts "inhale and exhale"
+  end
+end
+
+class Dog < Animal
+  def speak
+    puts "bark"
+  end
+end
+```
+
+Consider:
+- How can you diagram the relationship between Animal and Dog?
+- How can you diagram the relationship between Animal and eat?
+- How can you diagram the relationship between Dog and eat?
+
+^ We would expect students to diagram something that indicates Dog is copied from Animal, and eat comes from Animal, and eat comes from Dog.
+Discuss the idea of 'copying' - we've always used the blueprint or cookie cutter analogy to make sense of OO. JS tries to make it _look_ like that's what happening, but it's not what's happening.
+
+#### JavaScript - Prototypal Inheritance
+
+(the following progression of ideas and diagrams are from Kevin Simpson's FE Masters Deep JS Foundations)
+
+- Prototypes are where all other OOP patterns in JavaScript stem.
+- Objects are built by constructor class (a function call with `new` keyword).
+- People say... "A constructor makes and object based on it's own prototype." LIES. This suggests copying (blueprint -> house), which JS does not do.
+
+CORRECTION:
+- "A constructor makes and object _linked to_ it's own prototype."JS does not do copying, but it does create a link to the object.
+
+
+
+## Back to Dog Example
 
 When we call a property on an object (e.g. `fido.name`), JavaScript checks the object to see if it has a `name` property. If it does, then it hands us that property. If not, then it checks the object's prototype. If the object's prototype doesn't have that property, then it check's the prototype's prototype, and so on. It continues this process until it reaches the top of the chain. If it still hasn't defined this property, then it returns `undefined`.
 
@@ -194,7 +256,6 @@ var spot = new Dog('Spot');
 fido.sayHello(); // Hello, my name is Fido.
 spot.sayHello(); // Hello, my name is Spot.
 ```
-
 
 
 ## ES6 [`class`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/class) Syntax
@@ -296,12 +357,6 @@ However, there are also some major differences:
 ## Closing
 
 In your notebook, answer the following:
+- What is the `this` keyword in JavaScript?
 - What happens when the `new` keyword is used?
 - How would describe the differences between "OO" in JavaScript and OO in Ruby?
-- What's your definition for each of our vocab words for this lesson?
-  - Object Oriented Programming
-  - Classical Inheritance
-  - constructor functions (JS)
-  - prototype (JS)
-  - Prototypal Inheritance (JS)
-  - `this` (JS)
