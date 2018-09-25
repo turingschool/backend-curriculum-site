@@ -20,11 +20,11 @@ By the end of this activity, students should...
 
 ## The Problem
 
-[!inline](https://media.makeameme.org/created/it-works-on-5b27d8.jpg)
+![inline](https://media.makeameme.org/created/it-works-on-5b27d8.jpg)
 
 ## The Solution
 
-[!inline](https://msdnshared.blob.core.windows.net/media/2017/10/docker.png)
+![inline](https://msdnshared.blob.core.windows.net/media/2017/10/docker.png)
 
 Docker is software that allows us to:
 - Create environments to work in
