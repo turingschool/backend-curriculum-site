@@ -17,7 +17,9 @@ You are going to build a simple calorie tracker.
 ## Learning Goals
 
 * Create a Rails API given specified endpoints and response formats.
-* Review and refactor code (in each of the three languages) so that it:
+* Use a CI tool to check on build successes early and ofter.
+* Follow the agile process, using a Pivotal Tracker board.
+* Review and refactor code so that it:
     * is well organized
     * clearly communicates intent
     * utilizes abstraction to hide complexity
@@ -29,7 +31,7 @@ You will be creating a fully-tested API that supports a front-end that users wil
 
 Your requirements for the application are detailed in the cards **you're going to create on Pivotal Tracker**.
 
-#### Background: The Front End
+### Background: The Front End
 
 The application that consumes your API will have two main layouts. A "foods" index page and a "diary" index page (as seen below).
 
@@ -49,17 +51,17 @@ At a high level, users will be able to:
 - View calorie calculations in diary
 - Data persists across refreshes
 
-#### Back End Features
+### Back End Features
 
 You will be building an API only for this iteration of Quantified Self. In the second iteration, you and a partner will build an Express server and build-out the front-end in JavaScript and jQuery. For now, let's focus on this Rails back-end:
 
-- You'll start the repositories from scratch.
+- You'll start the repository from scratch.
 - Create a Pivotal Tracker board and write stories for each of your endpoints.
 - Add your assigned Technical Lead to your Pivotal Tracker and your repository.
 
 You will need to build ten endpoints. All endpoints will return the data as JSON.
 
-##### Food Endpoints:
+#### Food Endpoints:
 
 **GET /api/v1/foods**
 
@@ -305,6 +307,7 @@ If successful, this request will return the following:
 - Tag instructors in PRs on Github wherever you'd like feedback.
 - Reach out for extra support if you feel like you are falling behind.
 - If there's any question about functionality, ASK.
+- Be prepared for your check-in - tag your instructor in a PR using [this template](https://gist.github.com/ameseee/bcad94e879ff60e8649820c8e321d58a) by 8am on Thursday, October 4.
 - To submit, tag your instructor in a PR using [this template](https://gist.github.com/ameseee/c4f0b2e1bb3f41661a7de8574ba3992c).
 
 ## Rubric
