@@ -8,9 +8,12 @@ tags: JavaScript, object oriented programming, prototypes
 # An Introduction to Object-Oriented JavaScript
 
 ## Learning Goals
-* Students organize functions into classes and objects *(functional)*
-* Students apply good OO patterns to JavaScript functions *(mastery)*
-* Students make effective use of `this` in multiple contexts *(functional)*
+
+By the end of this lesson you should...
+
+* be able to apply OO patterns to JavaScript functions *(mastery)*
+* explain the difference between OOP and JavaScript's Prototypal Inheritance *(functional)*
+* better understand and make use of `this` in multiple contexts *(functional)*
 
 ## Warm Up
 
@@ -34,7 +37,7 @@ JavaScript can behave as an object-oriented programming language, but it follows
 
 It's not a rule baked into the language, but — by convention — most JavaScript developers capitalize the names of functions that they intend on using as object constructors.
 
-## [Object Constructors](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/constructor)
+## [Constructors](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/constructor)
 
 A [constructor function or object constructor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/constructor) can be thought of as a blueprint (similar to classes), or—better yet—as a casting mold from which new objects are minted. The constructor function includes basic information about the properties of an object and uses a special syntax that allows us to build new objects quickly using the template defined by the constructor.
 
@@ -43,10 +46,10 @@ Object constructors can be called using the `new` keyword.
 ```js
 function Dog() {}
 
-var fido = new Dog();
+var sodie = new Dog();
 ```
 
-`fido` in the example above will be a new object — albeit, a very simple one.
+`sodie` in the example above will be a new object — albeit, a very simple one.
 
 Let's add to our `Dog()` constructor.
 
@@ -56,12 +59,12 @@ function Dog(name) {
   this.legs = 4;
 }
 
-var fido = new Dog('Fido');
-var spot = new Dog('Spot');
+var sodie = new Dog('Sodie');
+var oscar = new Dog('Oscar');
 
-fido.name; // 'Fido'
-fido.legs; // 4
-spot.name; // 'Spot'
+sodie.name; // 'Sodie'
+sodie.legs; // 4
+oscar.name; // 'Oscar'
 ```
 
 ## Functions and `this` revisited
@@ -95,6 +98,8 @@ function Dog(name) {
   this.legs = 4;
   // return this;
 }
+
+var sodie = new Dog("Sodie");
 ```
 
 What is `Dog.prototype` and where does it come from? Functions are objects and all functions in JavaScript have a `prototype` property.
@@ -115,7 +120,7 @@ You may have heard that JavaScript has something called _prototypal inheritance_
 
 **Classical Inheritance v. JS Prototypal Inheritance Whiteboard Activity**
 
-When we call a property on an object (e.g. `fido.name`), JavaScript checks the object to see if it has a `name` property. If it does, then it hands us that property. If not, then it checks the object's prototype. If the object's prototype doesn't have that property, then it check's the prototype's prototype, and so on. It continues this process until it reaches the top of the chain. If it still hasn't defined this property, then it returns `undefined`.
+When we call a property on an object (e.g. `sodie.name`), JavaScript checks the object to see if it has a `name` property. If it does, then it hands us that property. If not, then it checks the object's prototype. If the object's prototype doesn't have that property, then it check's the prototype's prototype, and so on. It continues this process until it reaches the top of the chain. If it still hasn't defined this property, then it returns `undefined`.
 
 By default, all objects inherit from `Object`, which has a few methods on it. One of these methods is `toString()`.
 
@@ -125,15 +130,15 @@ function Dog(name) {
   this.legs = 4;
 }
 
-var fido = new Dog('Fido');
+var sodie = new Dog('Sodie');
 
-fido.legs; // 4
-fido.toString(); // [object Object]
+sodie.legs; // 4
+sodie.toString(); // [object Object]
 ```
 
-When we call `fido.legs` in the example above, JavaScript checks `fido` to see if it has a `legs` property. It does, so JavaScript returns the value, `4`. In the next line, we call `toString()`.
+When we call `sodie.legs` in the example above, JavaScript checks `sodie` to see if it has a `legs` property. It does, so JavaScript returns the value, `4`. In the next line, we call `toString()`.
 
-Well, `fido` doesn't have a `toString` property, so we check `fido`'s prototype, which is `Dog.prototype`. That's an empty object, so it certainly doesn't have that property.
+Well, `sodie` doesn't have a `toString` property, so we check `sodie`'s prototype, which is `Dog.prototype`. That's an empty object, so it certainly doesn't have that property.
 
 Eventually, we work our way up to `Object.prototype`, which has a to `toString` property set to a built-in function. JavaScript calls the `toString()` method that it found up the chain, which returns `[object Object]`.
 
@@ -144,16 +149,16 @@ function Dog(name) {
   this.name = name;
 }
 
-var fido = new Dog('Fido');
+var sodie = new Dog('Fido');
 
-fido.toString = function() {
+sodie.toString = function() {
   return '[Dog: ' + this.name + ']';
 };
 
-fido.toString(); // [Dog: Fido]
+sodie.toString(); // [Dog: Fido]
 ```
 
-JavaScript finds the `toString` property immediately and doesn't have to look up the chain of prototypes. But, only `fido` has this fancy new `toString` property. It would be nice if all dogs could share this new functionality.
+JavaScript finds the `toString` property immediately and doesn't have to look up the chain of prototypes. But, only `sodie` has this fancy new `toString` property. It would be nice if all dogs could share this new functionality.
 
 > Side note: our custom `toString()` function is an example of the [Template Method Pattern](https://en.wikipedia.org/wiki/Template_method_pattern) in practice
 
@@ -170,11 +175,11 @@ Dog.prototype.toString = function () {
   return '[Dog: ' + this.name + ']';
 };
 
-var fido = new Dog('Fido');
-var spot = new Dog('Spot');
+var sodie = new Dog('Sodie');
+var oscar = new Dog('Oscar');
 
-fido.toString(); // [Dog: Fido]
-spot.toString(); // [Dog: Spot]
+sodie.toString(); // [Dog: Sodie]
+oscar.toString(); // [Dog: Oscar]
 ```
 
 Prototypes are a great way to share functionality between related objects. We can define any properties we want on `Dog.prototype`.
@@ -188,11 +193,11 @@ Dog.prototype.sayHello = function () {
   return 'Hello, my name is ' + this.name + '.'
 };
 
-var fido = new Dog('Fido');
-var spot = new Dog('Spot');
+var sodie = new Dog('Sodie');
+var oscar = new Dog('Oscar');
 
-fido.sayHello(); // Hello, my name is Fido.
-spot.sayHello(); // Hello, my name is Spot.
+sodie.sayHello(); // Hello, my name is Sodie.
+oscar.sayHello(); // Hello, my name is Oscar.
 ```
 
 
