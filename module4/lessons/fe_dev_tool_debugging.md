@@ -4,13 +4,18 @@ length: TBD
 tags: debugging, javascript, dom, browser, devtools
 ---
 
-### Goals
+### Learning Goals
 
 By the end of this lesson, you will:
 
 * Understand how and when to use specific debugging tools
 * Be able to debug errors in HTML, CSS and JavaScript
 * Know where to look for and how to isolate JavaScript errors
+
+## Warm Up
+
+- What debugging tools do you use in Rails? To what extent do you think they are helpful? What is your favorite, and why?
+- What debugging tools have you used in JavaScript so far? To what extent do you think they are helpful? What is your favorite, and why?
 
 ## Debugging the Front-End with DevTools
 
@@ -246,7 +251,7 @@ When we're trying to debug a network request and we see that it is highlighted i
 
 The most important tabs in this view are the HEADERS tab and the RESPONSE tab. The Headers tab will give you detailed information about what was sent in the request. The response tab will show you what you actually received back from the server. This could be the JSON data you requested, an error message, or even an entire HTML file.
 
-**TRY IT:** Before your explore - what status codes do you expect to see on your favorite website? Now, check it out. What status codes do you see? Do you see any red? If so, click on it and investigate the headers and response tabs associated with it. 
+**TRY IT:** Before your explore - what status codes do you expect to see on your favorite website? Now, check it out. What status codes do you see? Do you see any red? If so, click on it and investigate the headers and response tabs associated with it.
 
 [network-panel]: /assets/images/lessons/debugging-with-devtools/network-panel.png
 [request-details]: /assets/images/lessons/debugging-with-devtools/request-details.png
@@ -256,9 +261,11 @@ The most important tabs in this view are the HEADERS tab and the RESPONSE tab. T
 
 ### Practice
 
-Let's put this information into practice by trying to solve a couple of bugs in our expense application. You can clone the application [here](https://github.com/turingschool-examples/debugging-with-devtools), and follow the installation instructions in the README to get set up. The application has some pre-made bugs for us to solve as we go through the lesson. Read through the first buggy scenario [here](https://github.com/turingschool-examples/debugging-with-devtools/tree/category-highlighting) and checkout the `category-highlighting` branch to get started fixing
+Let's put this information into practice by trying to solve a couple of bugs in our expense application.
+
+You can clone the application [here](https://github.com/turingschool-examples/debugging-with-devtools), and follow the installation instructions in the README to get set up. The application has some pre-made bugs for us to solve as we go through the lesson. Read through the first buggy scenario [here](https://github.com/turingschool-examples/debugging-with-devtools/tree/category-highlighting) and checkout the `category-highlighting` branch to get started fixing
 that code.
 
 ---------------------------------------
 
-For more details and information about other ways to dig into your js, checkout the [Chrome Documentation](https://developer.chrome.com/devtools/docs/javascript-debugging).
+For more details and information about other ways to dig into your js, check out the [Chrome Documentation](https://developer.chrome.com/devtools/docs/javascript-debugging).
