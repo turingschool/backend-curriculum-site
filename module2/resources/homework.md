@@ -5,11 +5,13 @@ layout: page
 
 # Weekly Homework:
 
-- [Checks for Understanding](https://github.com/turingschool/checks-for-understanding/blob/master/module-2/backend)
+- Checks for Understanding
+  - [https://github.com/turingschool/checks-for-understanding/blob/master/module-2/backend](https://github.com/turingschool/checks-for-understanding/blob/master/module-2/backend)
   - **due every Monday at 8:30am**
 - Static Comp Challenge, unless told otherwise by instructors
   - **due Monday at 8:30am or during class work time**
-- [ActiveRecord Obstacle Course](../misc/active_record_obstacle_course)
+- ActiveRecord Obstacle Course
+  - [Notes and Introduction](../misc/active_record_obstacle_course)
   - **due Wednesday of Week 6**
 
 
@@ -51,3 +53,5 @@ layout: page
 
 - [Intro to Sass](../lessons/intro_to_sass)
 - [Sass 2.0](../lessons/sass_2.0)
+- Finish preparing and sending feedback to your project partners. Be sure to include both encouraging feedback and feedback that will encourage growth. Send your feedback through a group DM on Slack to your partner and instructors.
+  - **Feedback is due in Slack by the project due date.**
