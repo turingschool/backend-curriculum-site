@@ -28,7 +28,7 @@ The following items are evaluated and assessed by instructors as part of conside
 * [Laugh Tracks](https://github.com/turingschool-projects/LaughTracks), solo project, week 1
 * [Book Club](https://github.com/turingschool-projects/BookClub), paired project, week 2 and 3
 * [Little Shop](projects/little_shop), group project, week 4 and 5
-* [JobTracker](https://github.com/turingschool-projects/job-tracker)
+* [JobTracker](https://github.com/turingschool-projects/job-tracker), solo project, week 6
 * [Write a technical blog post](http://backend.turing.io/module2/success/#blog-post), due by week 6
 * [ActiveRecord Obstacle Course](../misc/active_record_obstacle_course), due by week 6
 * Mid-Mod Evaluation

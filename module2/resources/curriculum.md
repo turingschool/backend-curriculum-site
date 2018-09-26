@@ -1,11 +1,11 @@
 ---
-title: Module 2 Homework
+title: Module 2 Curriculum
 layout: page
 ---
 
 ## Module-Specific
 
-- [Intro to M2](../misc/day_1.html)
+- [Intro to M2](../misc/day_1)
 
 
 ## Explorations
