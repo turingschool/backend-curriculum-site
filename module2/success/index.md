@@ -9,21 +9,32 @@ In order to graduate from Module 2, students must complete each of the following
 
 ### Follow the [Guidelines and Expectations](./guidelines_and_expectations)
 
-### Final Assessment
 
-Students are expected to satisfactorily complete both the written and timed assessments.
+### Assessments and Final Project
+
+Students are expected to satisfactorily complete all written and timed assessments.
+
+Each student will be required to complete a final solo project which will is a major determining factor for promotion to Module 3.
+
+
+### Class Participation
+
+Students are expected to follow Turing's Code of Conduct and be respectful in class with regards to timeliness, paying attention to instructors, and contributing well in class for turn-and-talk sessions, journaling and note-taking, and answering prompted questions.
 
 ### Group Projects
 
-Students are expected to be a contributing team member in both of their group projects in Module 2. Students are expected to complete the checklists provided for each project.
+Students are expected to be a contributing team member in all group projects in Module 2. Students are expected to complete the checklists provided for each project and provide feedback for one another.
+
 
 ### Blog Post
 
-Write a minimum of 1 technical blog post about a topic of your choice and post it to Medium or your personal blog site.
+Write a minimum of 1 technical blog post about a topic of your choice, must include screenshots or visuals, and should be about some aspect of coding or software development. Post it to Medium or your personal blog site.
+
 
 ### Professional Development
 
 Students are expected to contribute during the Professional Development session and deliver deliverables from that session (see goals below).
+
 
 -------
 
