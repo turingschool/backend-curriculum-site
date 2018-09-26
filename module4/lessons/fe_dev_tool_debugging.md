@@ -4,7 +4,7 @@ length: TBD
 tags: debugging, javascript, dom, browser, devtools
 ---
 
-### Learning Goals
+## Learning Goals
 
 By the end of this lesson, you will:
 
