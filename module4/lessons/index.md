@@ -33,8 +33,8 @@ title: Module 4 Lessons
 
 ## Job Ready
 
-* [Technical Challenge #1](./link_will_come_later)
-* [Technical Challenge #2](./link_will_come_later)
+* [Project Polish](./project_polish)
+* [Technical Challenges](./link_will_come_later)
 * [Dream Job Interview Prep](./link_will_come_later)
 * [Big-O Notation](./)
 
