@@ -18,7 +18,6 @@ layout: page
 # Week 1
 
 - [ActiveRecord Exploration](../homework/activerecord_exploration)
-- [DTR for Little Shop Redux](https://github.com/turingschool-projects/little-shop-redux). One group member should send link to forked gist to an instructor.
 - [ActiveRecord and Database Practice](../homework/activerecord_and_database_practice)
 
 
