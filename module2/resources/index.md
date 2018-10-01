@@ -35,7 +35,7 @@ layout: page
 - [1 of 8 Intro to Database Series. by Dr. Daniel Soper](https://www.youtube.com/watch?v=4Z9KEBexzcM)
 - [Complex SQL Queries Workshop](http://backend.turing.io/module2/misc/complex_queries).
 - [Advanced SQL practice](https://github.com/turingschool/lesson_plans/blob/master/ruby_03-professional_rails_applications/intermediate_sql.md)
-- [PostgreSQL Exercises]https://pgexercises.com/questions/basic/
+- [PostgreSQL Exercises](https://pgexercises.com/questions/basic/)
 
 
 ## Testing Resources
