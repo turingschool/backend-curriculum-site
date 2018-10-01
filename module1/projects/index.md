@@ -37,7 +37,7 @@ title: Backend Module 1 Projects
 
 #### [Perilous Journey](./perilous_journey)
 
-#### [Sorting Cards](./sorting_cards/index)
+#### [Sorting Cards](./sorting_cards)
 
 #### [Sorting Suite](./sorting_suite)
 
