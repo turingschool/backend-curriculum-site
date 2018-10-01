@@ -83,4 +83,4 @@ When sending a direct message (DM), students must DM ALL instructors. Exceptions
 
 ## Attendance
 
-Attendance is required at 90% or above to pass Module 1. Attendance will be counted at all scheduled activities from 9:00 am to 4:00 pm not listed as "Project Work Time". Per the Student Course Catalog, tardiness will be counted as absence. When a student is going to miss class, they must inform the instructors ahead of time. These absences will still be recorded.
+Attendance is required at 90% or above to pass Module 1. Attendance will be counted at all scheduled activities from 9:00 am to 4:00 pm not listed as "Project Work Time". Per the Student Course Catalog, tardiness will be counted as absence.
