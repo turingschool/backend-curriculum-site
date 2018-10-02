@@ -8,7 +8,7 @@ tags: javascript, webpack, npm, babel, gitignore, config, configuration, configu
 
 Adding dependencies, bundling your JavaScript files with Webpack, adding style loaders writing npm scripts, linting your code, preventing files from being added to github ... This lesson will begin to draw back the veil on these mysteries!
 
-In this lesson, we will hand-roll a boilerplate repo that we'll use for our Sorting Suite homework and Complete Me project.
+In this lesson, we will hand-roll a boilerplate repo that can be used for a life-changing app - a [Wombat Greeter](https://github.com/turingschool-examples/webpack-npm-wombat).
 
 ## Vocab
 
