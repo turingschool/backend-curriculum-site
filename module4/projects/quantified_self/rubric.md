@@ -1,6 +1,6 @@
 ## Rubric
 
-You will be subjectively (Friday of Week Three via Github) graded by an instructor on the criteria below. You'll need to self assess on this rubric when submitting your final project. 
+You will be graded by an instructor on the criteria below. You'll need to self assess on this rubric when submitting your final project.
 
 ### Specification Adherence
 
@@ -12,7 +12,7 @@ Application implements **all** functionality as defined, but some bugs or strang
 
 ### Testing
 
-Individual codes and uses TDD during all iterations of QS. For the Rails portion, test coverage must be at 100% and include happy/sad paths. For the Javascript portion, test coverage must be at 100% and only account for happy path. For the wildcard portion, test coverage is 50% or above and only accounts for happy path.  
+Individual codes and uses TDD during all iterations of QS. For the Rails portion, test coverage must be at 100% and include happy/sad paths.
 
 - Above Expectations
 - Meets Expectations
@@ -20,7 +20,7 @@ Individual codes and uses TDD during all iterations of QS. For the Rails portion
 
 ### Documentation
 
-Developer provides easy to navigate documentation showing how to setup and contribute to the application (for _all_ repositories).
+Developer provides easy to navigate documentation showing how to setup and contribute to the application (for _all_ repositories). If the application is Dockerized, instructions running locally and in a container should be provided.
 
 - Above Expectations
 - Meets Expectations
@@ -44,7 +44,7 @@ The developer uses master for production, uses feature branches for small groups
 
 ### Project Management
 
-The developer is using Pivotal Tracker to keep their project organized and to track progress. Developer is documenting conclusions and timelines on relevant cards.
+The developer is using Pivotal Tracker to keep their project organized and to track progress. Developer is documenting conclusions and timelines on relevant cards. Developer set up CI and checked for successful builds after each merge into the master branch.
 
 - Above Expectations
 - Meets Expectations
@@ -57,4 +57,3 @@ The developer consistently reaches out to their Technical Lead for feedback on c
 - Above Expectations
 - Meets Expectations
 - Below Expectations
-

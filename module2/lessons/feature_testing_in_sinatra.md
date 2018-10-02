@@ -97,6 +97,7 @@ Ensure the following lines are present in your `Gemfile` in the `:development, :
 ```ruby
 gem 'capybara'
 gem 'launchy'
+gem 'simplecov'
 ```
 
 Run `bundle`
@@ -105,8 +106,12 @@ Update your `spec/spec_helper.rb` file to include the following:
 
 ```ruby
 # other required items here
-require 'capybara/dsl'
 
+# SimpleCov will help us see which lines of code we've tested or not
+require 'simplecov'
+SimpleCov.start
+
+require 'capybara/dsl'
 Capybara.app = SetList
 Capybara.save_path = 'tmp/capybara'
 
@@ -186,7 +191,7 @@ Write a test for:
 ## Wrap Up
 * What is the difference between a model and feature test?
 * What are the 4 main methods (blocks) for a test? Why/when would you use each one?
-* What is the general structure of a user story? 
+* What is the general structure of a user story?
 
 ## Resources
 

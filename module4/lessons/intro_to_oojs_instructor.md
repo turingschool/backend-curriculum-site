@@ -1,11 +1,31 @@
----
-layout: page
-title: Object Oriented JavaScript
-length: 206
-tags: JavaScript, object oriented programming, prototypes
----
-
 # An Introduction to Object-Oriented JavaScript
+
+Instructor Notes
+
+This lesson mainly follows the resource at './intro_to_oojs'. A few additions for instructors to be aware of:
+- Warm Up and Wrap Up slides gives explicit directions for student actions, and teacher notes.
+- Activity on Classical Inheritance vs. Prototypal Inheritance is in slides, not mentioned in student-facing resource.
+
+Prep:
+- Write learning goals, vocab, and rough agenda on board.
+- Prep partners for whiteboard (and after) activity. They are in a solo project during this week.
+- Prep slide or printouts of Animal/Dog classes for whiteboard inheritance activity
+
+## Warm Up
+
+Jot down your answers to the following in your notebook:
+
+1. What are the main components of Object Oriented Programming?
+2. What do you like/dislike about OOP?
+3. What's one way to create a new object in JavaScript?
+4. What's your experience in making your JavaScript object-oriented thus far?
+
+^ Facilitation:
+- 4 min: students writing silently in notebooks
+- 30 sec: students talk with partner about #1
+- 1 min: students talk with different partner about #3-4 (it may be very likely that many students respond "none" to #4 and is totally ok! Reassure them of this - that's today's goal.)
+- (During this time, instructor is circulating, looking for strong responses to each)
+- 2 min: Instructor calls on already-selected students to answer #1, #3, and #4
 
 ## Learning Goals
 
@@ -14,13 +34,6 @@ By the end of this lesson you should...
 * be able to apply OO patterns to JavaScript functions *(mastery)*
 * explain the difference between OOP and JavaScript's Prototypal Inheritance *(functional)*
 * better understand and make use of `this` in multiple contexts *(functional)*
-
-## Warm Up
-
-1. What are the main components of Object Oriented Programming?
-2. What do you like/dislike about OOP?
-3. What's one way to create a new object in JavaScript?
-4. What's your experience in making your JavaScript object-oriented thus far?
 
 ## Vocabulary
 
@@ -37,22 +50,23 @@ JavaScript can behave as an object-oriented programming language, but it follows
 
 It's not a rule baked into the language, but — by convention — most JavaScript developers capitalize the names of functions that they intend on using as object constructors.
 
-## [Constructors](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/constructor)
-
-A [constructor function or object constructor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/constructor) can be thought of as a blueprint (similar to classes), or—better yet—as a casting mold from which new objects are minted. The constructor function includes basic information about the properties of an object and uses a special syntax that allows us to build new objects quickly using the template defined by the constructor.
+## Constructors
+A **constructor function or object constructor** can be thought of as a blueprint (similar to classes), or—better yet—as a casting mold from which new objects are minted. The constructor function includes basic information about the properties of an object and uses a special syntax that allows us to build new objects quickly using the template defined by the constructor.
 
 Object constructors can be called using the `new` keyword.
 
+SLIDE:
 ```js
 function Dog() {}
 
 var sodie = new Dog();
 ```
 
+SAY:
 `sodie` in the example above will be a new object — albeit, a very simple one.
-
 Let's add to our `Dog()` constructor.
 
+SLIDE:
 ```js
 function Dog(name) {
   this.name = name;
@@ -62,20 +76,30 @@ function Dog(name) {
 var sodie = new Dog('Sodie');
 var oscar = new Dog('Oscar');
 
-sodie.name; // 'Sodie'
-sodie.legs; // 4
-oscar.name; // 'Oscar'
+sodie.name;
+sodie.legs;
+oscar.name;
 ```
+
+SAY:
+Here, we are taking an argument to customize a property:
+- What would this look like in a Ruby class (STUDENT_NAME)? - initialize
+- What would you expect to return for sodie.name (STUDENT_NAME), ('Sodie')
+    sodie.legs (STUDENT_NAME), (4)
+    oscar.name (STUDENT_NAME)? ('Oscar')
+
+- Now, let's talk about the way we are using **`this`** here. We know that the default behavior of `this` is to bind to the global object; clearly that's not happening. `Dog` is just a regular function, with a `this` context, so the context is DOG!
+
 
 ## Functions and `this` revisited
 
-You may have noticed that we're using `this` in our function and that it isn't bound to the global object, like it ought to be.
-
-`Dog` is just a regular function. But, we call it a little differently than we did in previous section on functions. If you recall, there are a few ways we can call a function:
+If you recall, there are a few ways we can call a function:
 
 * Using a pair of parenthesis as the end of the functions name (e.g. `someFunction()`).
-* Using the [`call()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call) method (e.g. `someFunction.call()`).
-* Using the [`apply()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply) method (e.g. `someFunction.apply()`).
+* Using the `call()` method (e.g. `someFunction.call()`).
+* Using the `apply()` method (e.g. `someFunction.apply()`).
+
+### NEW Keyword
 
 When we are writing object-oriented JavaScript, we have a fourth way of invoking a function: the `new` keyword. The `new` keyword invokes the function _as a constructor_, which causes it to behave in a fundamentally different way.
 
@@ -86,10 +110,21 @@ When we use the `new` keyword to call our function as a constructor, a few thing
 3. the body of our function is run
 4. our new object, `this`, is returned from the constructor
 
-## The [`prototype`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/prototype) Property
+## The `prototype` Property
 
-Let's take a look at `this` in the context of our `Dog()` constructor:
+SLIDE:
+```js
+function Dog() {}
+function Cat() {}
 
+Dog.prototype; // {}
+Cat.prototype; // {}
+```
+SAY:
+This property is set to an empty object — `{}` — by default.
+
+
+SLIDE:
 ```js
 function Dog(name) {
   // `this` is set to a new object
@@ -102,23 +137,75 @@ function Dog(name) {
 var sodie = new Dog("Sodie");
 ```
 
-What is `Dog.prototype` and where does it come from? Functions are objects and all functions in JavaScript have a `prototype` property.
+SAY:
+- Let's take a look at `this` in the context of our `Dog()` constructor: (talk through code on slide)
+- What is `Dog.prototype` and where does it come from?
+- Functions are objects and all functions in JavaScript have a `prototype` property.
 
-This property is set to an empty object — `{}` — by default.
-
-```js
-function Dog() {}
-function Cat() {}
-
-Dog.prototype; // {}
-Cat.prototype; // {}
-```
 
 With regular functions, we generally don't use the `prototype` property — it's like an appendix. But, this special little object comes in to play when we use the function as a constructor.
 
 You may have heard that JavaScript has something called _prototypal inheritance_. This is a very complicated term for a relatively simple concept.
 
-**Classical Inheritance v. JS Prototypal Inheritance Whiteboard Activity**
+## **Classical Inheritance v. JS Prototypal Inheritance Whiteboard Activity**
+
+#### OO - Classical Inheritance
+
+With your partner, whiteboard out how you would visualize classical inheritance with OO for something like this:
+
+```ruby
+class Animal
+  def eat
+    puts "yum!"
+  end
+
+  def breathe
+    puts "inhale and exhale"
+  end
+end
+
+class Dog < Animal
+  def speak
+    puts "bark"
+  end
+end
+```
+
+Consider:
+- How can you diagram the relationship between Animal and Dog?
+- How can you diagram the relationship between Animal and eat?
+- How can you diagram the relationship between Dog and eat?
+
+^ We would expect students to diagram something that indicates Dog is copied from Animal, and eat comes from Animal, and eat comes from Dog.
+Discuss the idea of 'copying' - we've always used the blueprint or cookie cutter analogy to make sense of OO. JS tries to make it _look_ like that's what happening, but it's not what's happening.
+!! Instruct student to move their stuff and find a seat with their whiteboard partner. !!
+
+#### JavaScript - Prototypal Inheritance
+
+(the following progression of ideas and diagrams are from Kevin Simpson's FE Masters Deep JS Foundations)
+SLIDE:
+- Prototypes are where all other OOP patterns in JavaScript stem.
+- Objects are built by constructor class (a function call with `new` keyword).
+
+SLIDE
+"A constructor makes and object based on it's own prototype."
+
+SAY:
+Because of what we know about OOP, this makes sense. Your diagrams showed copies of Animals, Dogs copying Animal information, etc. The thing is, that's NOT what is happening under the hood in JS.
+
+SLIDE:
+- "A constructor makes and object _linked to_ it's own prototype."
+
+SAY:
+JS does not do copying, but it **does** create a link to the object.
+
+DRAW OUT DIAGRAM & TALK THROUGH
+[Diagram]('./assets/prototype_chain_diagram.JPG')
+[Diagram with Explanation](./assets/prototype_chain_explained.JPG)
+
+## Back to Dog Example
+
+REFER TO NOTES - RUN THIS CODE IN CONSOLE
 
 When we call a property on an object (e.g. `sodie.name`), JavaScript checks the object to see if it has a `name` property. If it does, then it hands us that property. If not, then it checks the object's prototype. If the object's prototype doesn't have that property, then it check's the prototype's prototype, and so on. It continues this process until it reaches the top of the chain. If it still hasn't defined this property, then it returns `undefined`.
 
@@ -136,9 +223,9 @@ sodie.legs; // 4
 sodie.toString(); // [object Object]
 ```
 
-When we call `sodie.legs` in the example above, JavaScript checks `sodie` to see if it has a `legs` property. It does, so JavaScript returns the value, `4`. In the next line, we call `toString()`.
+When we call `sodie.legs` in the example above, JavaScript checks `sodie` to see if it has a `legs` property. It does, so JavaScript returns the value, `4`.
 
-Well, `sodie` doesn't have a `toString` property, so we check `sodie`'s prototype, which is `Dog.prototype`. That's an empty object, so it certainly doesn't have that property.
+In the next line, we call `toString()`. Well, `sodie` doesn't have a `toString` property, so we check `sodie`'s prototype, which is `Dog.prototype`. That's an empty object, so it certainly doesn't have that property.
 
 Eventually, we work our way up to `Object.prototype`, which has a to `toString` property set to a built-in function. JavaScript calls the `toString()` method that it found up the chain, which returns `[object Object]`.
 
@@ -158,7 +245,7 @@ sodie.toString = function() {
 sodie.toString(); // [Dog: Fido]
 ```
 
-JavaScript finds the `toString` property immediately and doesn't have to look up the chain of prototypes. But, only `sodie` has this fancy new `toString` property. It would be nice if all dogs could share this new functionality.
+JavaScript finds the `toString` property immediately and doesn't have to look up the chain of prototypes. But, only `sodie` has this fancy new `toString` property. It would be nice if all dogs could share this new functionality. (BTW, we shouldn't ever override built-in methods like `toString` - this was just to illustrate the concepts!)
 
 > Side note: our custom `toString()` function is an example of the [Template Method Pattern](https://en.wikipedia.org/wiki/Template_method_pattern) in practice
 
@@ -200,9 +287,7 @@ sodie.sayHello(); // Hello, my name is Sodie.
 oscar.sayHello(); // Hello, my name is Oscar.
 ```
 
-
-
-## ES6 [`class`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/class) Syntax
+## ES6 `class` Syntax
 
 The ES6 `class` keyword has gotten a lot of excitement from newer JS devs, but there are a lot of critics out there. Some things to know:
 - syntax looks a lot more like a class system; it is still bound by the prototype system
@@ -224,14 +309,14 @@ class Dog {
   }
 }
 
-const fido = new Dog('Fido')
-const spot = new Dog('Spot')
+const sodie = new Dog('Sodie')
+const oscar = new Dog('Oscar')
 
-fido.sayHello() // Hello, my name is Fido.
-spot.sayHello() // Hello, my name is Spot.
+sodie.sayHello() // Hello, my name is Sodie.
+oscar.sayHello() // Hello, my name is Oscar.
 ```
 
-Don't let the [`class`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/class) keyword fool you **too** much. It still compiles down to a `Dog.prototype` object, it's just wrapped in a container so the syntax is more familiar to other OO languages.
+Don't let the `class` keyword fool you **too** much. It still compiles down to a `Dog.prototype` object, it's just wrapped in a container so the syntax is more familiar to other OO languages.
 
 A couple of it's limitations:
 - An object cannot be extended
@@ -279,9 +364,9 @@ class EventHandler {
 }
 ```
 
-## Your Turn: Mod 1 Final Returns!
+## Your Turn: All those Mod 1 Exercises Return!
 
-Go to [this repo](https://github.com/turingschool-examples/bon_appetit_js) and follow the instructions to get set up. Let's take thirty minutes to implement (some of) the Mod 1 final using object-oriented JavaScript.
+Go to [this repo](https://github.com/turingschool-examples/bon_appetit_js) and follow the instructions to get set up. Let's take thirty minutes to implement (some of) the Mod 1 exercise using object-oriented JavaScript.
 
 ## Prototypes vs. Classes
 
@@ -301,12 +386,6 @@ However, there are also some major differences:
 ## Closing
 
 In your notebook, answer the following:
+- What is the `this` keyword in JavaScript?
 - What happens when the `new` keyword is used?
 - How would describe the differences between "OO" in JavaScript and OO in Ruby?
-- What's your definition for each of our vocab words for this lesson?
-  - Object Oriented Programming
-  - Classical Inheritance
-  - constructor functions (JS)
-  - prototype (JS)
-  - Prototypal Inheritance (JS)
-  - `this` (JS)

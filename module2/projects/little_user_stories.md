@@ -248,7 +248,7 @@ I can create an item.
 - The title and description cannot be empty.
 - The title must be unique for all items in the system.
 - The price must be a valid decimal numeric value and greater than zero.
-- The photo is optional. If not present, a stand-in photo is used. **(PAPERCLIP)**
+- The photo is optional. If not present, a stand-in photo is used.
 
 ## Story 23: Admin Viewing items
 
