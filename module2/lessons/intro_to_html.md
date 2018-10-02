@@ -198,7 +198,7 @@ Now instead of needing to repeat the above in every erb/html file we can simply 
           <article class="explore-the-shore">
             <a href="https://www.denverzoo.org/explore-shore">Explore the Shore</a>
           </article>
-          <article class="lorikeet-advuenture">
+          <article class="lorikeet-adventure">
             <p>Come play with our lorikeets.</p>
           </article>
         </section>
