@@ -124,7 +124,7 @@ When I check my email for the registration email
 Then I should see a unique API key to use for making API calls
 ```
 
-**Day 7+:** Work through the spec harness.
+**Day 6+:** Work through the spec harness.
 
 ## Extensions
 
