@@ -113,8 +113,8 @@ pry(main)> "Hello World".gsub "World", "Turing"
 1. For each of those methods, identify any arguments
 
 ```ruby
-pry(main)> pi = 3.14159265359.round(2)    
-#=> 3.14
+pry(main)> pi = 3.14159265359.round(2).to_s    
+#=> "3.14"
 pry(main)> puts pi    
 3.14
 #=> nil
