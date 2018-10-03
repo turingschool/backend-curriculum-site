@@ -62,7 +62,7 @@ pry(main)> card = Card.new("10", "Hearts")
 #=> #<Card:0x00007f9984004cc0 @suit="Hearts", @value="10">
 
 pry(main)> guess = Guess.new("10 of Hearts", card)
-#=> #<Guess:0x00007f99842f0998 @card=#<Card:0x00007f9984004cc0 @suit="Hearts", @value="10">, @guess="10 of Hearts">
+#=> #<Guess:0x00007f99842f0998 @card=#<Card:0x00007f9984004cc0 @suit="Hearts", @value="10">, @response="10 of Hearts">
 
 pry(main)> guess.card
 #=> #<Card:0x00007f9984004cc0 @suit="Hearts", @value="10">
@@ -90,7 +90,7 @@ pry(main)> card = Card.new("Queen", "Clubs")
 #=> #<Card:0x00007f99839aa2a8 @suit="Clubs", @value="Queen">
 
 pry(main)> guess = Guess.new("2 of Diamonds", card)
-#=> #<Guess:0x00007f998413ee60 @card=#<Card:0x00007f99839aa2a8 @suit="Clubs", @value="Queen">, @guess="2 of Diamonds">
+#=> #<Guess:0x00007f998413ee60 @card=#<Card:0x00007f99839aa2a8 @suit="Clubs", @value="Queen">, @response="2 of Diamonds">
 
 pry(main)> guess.card
 => #<Card:0x00007f99839aa2a8 @suit="Clubs", @value="Queen">
@@ -106,5 +106,3 @@ pry(main)> guess.feedback
 ```
 
 Remember, `#<Guess:0x00007f998413ee60 ... >` means "A Guess Obeject" or "An Instance of the Guess Class".
-
-
