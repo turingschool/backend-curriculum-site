@@ -176,10 +176,13 @@ _Another note: Additional reading about the `package-lock.json` file [here](http
 
 4. Install the following dependencies:
   - webpack
+  - webpack-dev-server
   - webpack-cli
   - babel-loader
   - babel-cli
   - babel-preset-env
+  - babel-preset-es2015
+  - babel-core@7
   - style-loader
   - css-loader
 
@@ -358,6 +361,10 @@ In the HTML of the project, we point our `<script>` tag to `"bundle.js"`, so it 
     ```
 
 6. In your terminal, run `npm test`
+
+7. Before this will work, we need to change the file we are providing to `index.html`. The script tag should point to `./dist/main.bundle.js`.
+
+8. In your terminal, run `npm start`. Visit localhost:8080 to view in your browser.
 
 ---
 
