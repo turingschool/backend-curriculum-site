@@ -23,6 +23,7 @@ layout: page
 ## Web Development Basics
 
 - [Intro to HTML](../lessons/intro_to_html)
+- [Intro to HTML Exploration](../lessons/intro_to_html_interactive_lesson)
 - [Intro to CSS & Bootstrap](../lessons/intro_to_css_and_bootstrap)
 - [Design Principles](http://backend.turing.io/module2/lessons/design_principles)
 - [Passing Data with Sinatra](../lessons/passing_data_with_sinatra)

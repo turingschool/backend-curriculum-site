@@ -22,7 +22,7 @@ Available [here](../slides/git_and_github)
 ## Warmup
 
 * What do you already know about Git/GitHub?
-* What questions do you still have?
+* Why do we use Git/GitHub
 
 ## Overview
 
