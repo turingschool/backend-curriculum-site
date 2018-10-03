@@ -296,24 +296,24 @@ Now it's your turn to practice.
 With your new best friend sitting next to you, with this following array use
 `.each` to:
 
-`array = ["justin", "selena", "demi", "carly"]`
+`singers = ["justin", "selena", "demi", "carly"]`
 
 1. Can you print out their names capitalized?
 2. Can you print out their names in all caps?
 3. Can you print out their names but reversed?
-4. Can you print out only the names that are longer than four letters in length?
-5. Can you print out only the lengths of their names?
+4. Can you create a new array with only the names that are longer than four letters in length?
+5. Can you create a new array with the lengths of their names?
 
 
 Now with this array can you do the following with `.each`?
 
 `array = [1,2,3,4,5]`
 
-1. Can you print only the odd numbers?
-2. Can you print only the even numbers?
+1. Can you create a new array with only the odd numbers?
+2. Can you create a new array with only the even numbers?
 3. Can you print out each number doubled?
 4. Can you print out if the number is divisible by 2 or not?
-5. Can you print out the sum of the numbers?
+5. Can you find the the sum of the numbers?
 
 ### Additional Resources
 

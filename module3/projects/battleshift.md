@@ -1,16 +1,22 @@
 ---
 title: Battleshift
-length: 1 week
+length: 2 weeks
 tags:
 type: project
 ---
 
 ## Project Description
 
-You will be building on top of a pre-existing API implementation of the game Battleship, found [here](https://github.com/turingschool-examples/battleshift). The current project allows a player to play against a computer through an API. For this project we will add multiplayer functionality and basic levels of security. **Why?** Most devs are building on top of existing code bases where we have to inherit and deal with the technical debt and decisions of those that came before us. Understanding how someone's decisions impact a team is an important part of learning how to write maintainable software. You also rarely have time for a complete rewrite so deciding what to care about and when becomes as important a skill as being able to write code.
+You will be building on top of a pre-existing API implementation of the game Battleship, found [here](https://github.com/turingschool-examples/battleshift). The current project allows a player to play against a computer through an API. The "real world" scenario for having an API for a game would be to support multiple devices to connect through the same interface. For example: An Android app, an iPhone app, and a desktop app could all use the same API to play this game.
+
+For this project we will start building the interface for the desktop application, add multiplayer functionality, and create basic levels of security.
+
+**Why?** Most devs are building on top of existing code bases where we have to inherit and deal with the technical debt and decisions of those that came before us. Understanding how someone's decisions impact a team is an important part of learning how to write maintainable software. You also rarely have time for a complete rewrite so deciding what to care about and when becomes as important a skill as being able to write code.
 
 ## Learning Goals
 
+* Explain what dogfooding is and why we would do it
+* Learn to consume a JSON API
 * Lock down an API using unique keys
 * Build on top of brownfield code
 * Empathy for developers facing deadlines
@@ -20,11 +26,68 @@ You will be building on top of a pre-existing API implementation of the game Bat
 
 ## Requirements
 
-Your app will only be assessed for what has made it into production. Your evaluator will use your production URL to run a [spec harness](https://github.com/turingschool-examples/battleshift_spec_harness) to check basic functionality. However, it is expected that you write more thorough tests on your application.
+Your app will only be assessed for what has made it into production. Your evaluator will use your production URL to run a [spec harness](https://github.com/turingschool-examples/battleshift_spec_harness) to check basic functionality of the game play through the JSON API. However, it is expected that you write more thorough tests on your application.
 
 Use the rubric below to self assess your project and bring this to the eval with your instructor. Be prepared to show examples for each box you check.
 
-Complete the following stories prior to working on the spec harness failures. Once these are complete, start with the `game_play_spec` in the spec harness.
+### Week 1
+
+**Days 1 and 2:** Each team member should start a spike branch for the story below and should not pair. Questions and collaboration are encouraged but it is really important that each student does the work. Complete the following user story. The controller that is hit using the URL below should not go directly to the database. Your app should consume your own API to accomplish the task below (AKA dogfooding).
+
+```
+Title: Dogfooding GET /api/v1/users/:id
+
+Background: There is a user stored in the database with an id of 1, name of Josiah Bartlet, email of jbartlet@example.com
+
+As a guest user
+When I visit "/users/1"
+Then I should see the user's name Josiah Bartlet
+And I should see the user's email address jbartlet@example.com
+```
+
+Once both team members have completed the above user story, create a new branch. Share your implementations with each other and discuss how you would like to approach the user story as a pair. Use acceptance tests to drive the development of the user story. Ship it!
+
+Each team member should start a spike branch for the story below and should not pair. Questions and collaboration are encouraged but it is really important that each student does the work. Complete the following user story. The controller that is hit using the URL below should not go directly to the database. Your app should consume your own API to accomplish the task below (AKA dogfooding).
+
+```
+Title: Dogfooding GET /api/v1/users/
+
+Background: There are two users stored in the database
+
+As a guest user
+When I visit "/users"
+Then I should see the user's name (for both users)
+And I should see the user's email (for both users)
+```
+
+Once both team members have completed the above user story, create a new branch. Share your implementations with each other and discuss how you would like to approach the user story as a pair. Use acceptance tests to drive the development of the user story. Ship it!
+
+**Days 3 and 4:** Using the same process as above complete the task below.
+
+```
+Title: Build PATCH /api/v1/users/:id
+
+API should only support changing a users's email address
+```
+
+```
+Title: Edit a user's email address (dogfooding PATCH /api/v1/users/:id)
+
+Background: There is a user stored in the database with an id of 1, name of Josiah Bartlet, email of jbartlet@example.com
+
+As a guest user
+When I visit "/users"
+And I click on `Edit` for Josiah Bartlet
+Then I should be on "/users/1/edit"
+
+When I fill in the email field with "josiah@example.com"
+And I click "Save"
+Then I should be on "/users"
+And I should see a flash message that says "Successfully updated Josiah Bartlet."
+And I should should see Josiah Bartlet's email show up in the list as "josiah@example.com"
+```
+
+**Day 5:** Complete the following stories prior to working on the spec harness failures. Once these are complete, start with the `game_play_spec` in the spec harness.
 
 ```
 As a guest user
@@ -60,6 +123,8 @@ As a non-activated user
 When I check my email for the registration email
 Then I should see a unique API key to use for making API calls
 ```
+
+**Day 6+:** Work through the spec harness.
 
 ## Extensions
 

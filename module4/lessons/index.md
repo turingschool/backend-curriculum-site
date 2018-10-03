@@ -18,7 +18,7 @@ title: Module 4 Lessons
 
 ## Build Tools & Workflow
 
-* [Webpack and NPM](./webpack_demystified)
+* [Webpack and NPM](./npm_and_webpack)
 * [Project Planning](./project_planning)
 * [Continuous Integration](./continuous_integration)
 * [Third Party Code Review  - QS](./link_will_come_later)

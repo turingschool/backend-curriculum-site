@@ -25,8 +25,8 @@ For example:
 
 * Type of object: Cubby
 * Specific instances:
-    * Ali's cubby
-    * Mike's cubby
+    * Brian's cubby
+    * Megan's cubby
     * Sal's cubby
 
 ## Classes in Ruby
@@ -245,42 +245,26 @@ Update your runner file so that you:
 
 **TRY IT**: With your pair, create a `have_birthday` method for your Person class. This should increase the age of that person by 1.
 
-## As A Group
+## In Pairs
 
-### Updating CreditCheck
+### Create a Book Class
 
-With your partner, update your CreditCheck project using the following directions.
+With your partner, create a book class. Make sure that your book class has at least 3 attributes and 2 methods.
 
-Create a CreditCard class based on the following criteria:
+Once you've created your class, create a runner file that creates three separate instances of book and saves them to variables.
 
-* A CreditCard is passed two arguments upon initialization
-    * The first argument is a String representing the card number
-    * The second argument is an Integer representing the CreditCard’s limit
-* A CreditCard can access the called card_number and limit from outside the class with `attr_reader`s
-* A CreditCard has a method called is_valid? that takes no arguments and returns either true or false based on whether or not the card number is valid.
-* A CreditCard has a method called last_four that returns a String of the last four digits of the card number
+### Create a Library Class
 
-If the previous criteria are met, you should be able to interact with the CreditCard class from a Pry session like so:
+With your partner, create a Library class. Add attributes as you wish, but the be sure to include a `@collection` instance variable that starts as an empty array.
 
-```ruby
-pry(main)> require './lib/credit_card'
-#=> true
+If you have time:
 
-pry(main)> credit_card = CreditCard.new("5541808923795240", 15000)
-#=> #<CreditCard:0x00007fbb1ca5f698 @card_number="5541808923795240", @limit=15000>
+* Add a `add_book` method that takes an instance of book and adds it to your collection.
+* Add a `titles` method that iterates over your collection of books and returns only their titles.
+* Add an `authors` method that iterates over your collection of books and returns the authors for each book. Can you make it so that it does not return any duplicate authors?
+* Pretty print: add a method that prints a table of books and authors that the library has. This will require some string manipulation to get a table to print with columns that line up.
 
-pry(main)> credit_card.card_number
-#=> "5541808923795240"
-
-pry(main)> credit_card.limit
-#=> 15000
-
-pry(main)> credit_card.last_four
-#=> "5240"
-
-pry(main)> credit_card.is_valid?
-#=> true
-```
+Update your runner file to create a new library, add some books to the library, and print information about their collections.
 
 ### Check for Understanding
 

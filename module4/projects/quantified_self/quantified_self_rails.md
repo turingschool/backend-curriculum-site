@@ -266,7 +266,7 @@ If successful, this request will return:
 
 Retrieves data on the foods which were eaten most frequently. This should return an array of objects with a timesEaten property representing the number of times the food was eaten, then a foods property whose value is an array of foods that were eaten the given number of times, calories, and the meals it was eaten for.
 
-This response should include the 3 highest `timesEaten` values (if applicable; foods only eaten once should not appear).
+This response should include the 3 highest `timesEaten` values (if applicable; foods only eaten once should not appear). If there are not 3 `timesEaten` values greater than 1, only list the `timesEaten` values greater than 1.
 
 If successful, this request will return the following:
 
@@ -279,25 +279,33 @@ If successful, this request will return the following:
         {
           "name": "Banana",
           "calories": 200,
+          // since Bananas were eaten 4 times but only two meals
+          // are in this array, this would mean that Banana was eaten
+          // more than once in at least each meal
           "mealsWhenEaten": ["Breakfast", "Dinner"]
         },
-        {
-          "name": "Meatloaf"
-          "calories": 800,
-          "mealsWhenEaten": ["Lunch", "Dinner"]
-        }
-      ]
   },
   "timesEaten": 3,
   "foods":
     [
       {
-        "name": "Banana",
+        "name": "Strawberries",
         "calories": 200,
-        "mealsWhenEaten": ["Breakfast", "Dinner"]
+        "mealsWhenEaten": ["Breakfast", "Lunch", "Dinner"]
+      },
+      {
+        "name": "Almonds"
+        "calories": 800,
+        // Since almonds were eaten three times but snacks is the
+        // only meal in this array, this would mean that almonds were
+        // only eaten as snacks, but three times.
+        "mealsWhenEaten": ["Snacks"]
       }
     ]
+    ]
   }
+  // `"timesEaten": 2` is not listed here because in this example,
+  // no snack was eaten exactly two times.
 ]
 ```
 

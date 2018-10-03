@@ -11,9 +11,6 @@ Students will be able to...
 - explain what considerations go into a polished project
 - do an audit of a current project on their resume and improve at least one area of that project
 
-## Vocabulary
-
-
 
 ## Warm Up
 
