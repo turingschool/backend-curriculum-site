@@ -14,8 +14,8 @@ For example:
 
 * Type of object: Cubby
 * Specific instances:
-    * Ali's cubby
-    * Mike's cubby
+    * Brian's cubby
+    * Megan's cubby
     * Sal's cubby
 
 ---
@@ -77,9 +77,6 @@ require 'pry'; binding.pry
 In Object-Oriented Programming (OOP), **objects need to be able to model state**.
 
 * What are the attributes that may vary among cubbies?
-    * Color
-    * Contents
-    * Label
 
 ---
 
@@ -185,11 +182,7 @@ end
 
 ---
 
-# Credit Card
-
----
-
-# Practice: Credit Card
+# Practice: Library
 
 * See lesson plan.
 
