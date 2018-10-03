@@ -197,6 +197,8 @@ _Another note: Additional reading about the `package-lock.json` file [here](http
 
 Webpack is a build tool that takes multiple JavaScript modules and bundles them up into a single, unified file.
 
+> You can compare webpack to the Asset Pipeline.
+
 ### Why Do We Like It?
 
 While webpack can be difficult to understand at first, it makes our lives much easier.
