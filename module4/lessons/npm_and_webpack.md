@@ -19,7 +19,6 @@ In this lesson, we will hand-roll a boilerplate repo that can be used for a life
 ---
 
 ## NPM
-[NPM basics: slides with an exercise](https://docs.google.com/presentation/d/1DLcitTaOS0sOYrooIEa8iD92HWFU-EDHHwRbXCT15-w/edit?usp=sharing)
 
 [NPM documentation](https://docs.npmjs.com/)
 
@@ -124,7 +123,7 @@ _Another note: Additional reading about the `package-lock.json` file [here](http
 
 #### - `npm install`
 
- Install package dependancies and devDependencies listed in `package.json`
+ Install package dependencies and devDependencies listed in `package.json`
 
 #### - `npm install [package-name]`
 
@@ -136,11 +135,11 @@ _Another note: Additional reading about the `package-lock.json` file [here](http
 
 #### - `npm install --save [package-name]`
 
- Install package locally in folder location `node_modules` and update `package.json` dependancies
+ Install package locally in folder location `node_modules` and update `package.json` dependencies
 
 #### - `npm install --save-dev [package-name]`
 
- Install package locally in folder location `node_modules` and update `package.json` developer dependancies. Shortcut: `npm install -D`.
+ Install package locally in folder location `node_modules` and update `package.json` developer dependencies. Shortcut: `npm install -D`.
 
 #### - `npm start`
 
@@ -171,7 +170,8 @@ _Another note: Additional reading about the `package-lock.json` file [here](http
   - chai
 
     ```bash
-    npm install mocha chai -D
+    npm install mocha -D
+    npm install chai -D
     ```
 
 4. Install the following dependencies:
@@ -301,7 +301,7 @@ In the HTML of the project, we point our `<script>` tag to `"bundle.js"`, so it 
     touch webpack.config.js .babelrc
     ```
 
-3. Paste the following code into the `.babelrc` file:
+3. Paste the following code into the `.babelrc` file. `preset-env` is a smart preset that allows us to use the latest JavaScript without needing to micromanage syntax and browser polyfills.
 
     ```js
     {
