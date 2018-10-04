@@ -25,7 +25,7 @@ Assume all dogs have owners.
 * How might you represent the idea of a dog having an owner in code?
 * Write an `initialize` method for `Dog`
 * What do you need to put in a runner file to access both classes?
-* How did you confirm your last projects were working correctly? What are the downsides to this approach? 
+* Up to now, how have you identified if your programs were working correctly? What are the downsides to this approach? 
 
 ## Test Etiquette
 
@@ -235,6 +235,11 @@ class StudentTest < Minitest::Test
   def test_student_can_have_a_different_name
     student = Student.new("Hermione")
     assert_equal "Hermione", student.name
+  end
+  
+  def test_student_cant_be_created_with_integer_name
+    student = Student.new(13)
+    assert_equal "Name not Provided", student.name
   end
   # test it has a laptop
   # test it has cookies
