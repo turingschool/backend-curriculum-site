@@ -48,11 +48,11 @@ At a high level, users will be able to:
 * The above images are NOT wireframes you should follow - they are as simple as possible to illustrate the info/functionality your app should have. Your need to develop wireframes and decide on a UI flow.
 * User should NEVER have to 'refresh' the page to get updated data, and user should NEVER have to type something into the URL bar once they are on your page.
 
-#### Option 1 - Calendar
+### Option 1 - Calendar
 
 What's the point of this app if one can't look back in time and see what eating habits they have? If you select this option, you need to build out another page on the front-end that lists all dates the user has recorded meals, and what they ate for each meal.
 
-#### Option 2 - Recipes
+### Option 2 - Recipes
 
 Instead of "Foods", you may want to call it "Pantry"... going down the recipes route means you need to allow your user to select one or more foods from the "manage foods" page, then be shown recipes that can be made with the selected food(s). The recipes should probably be shown on another page for a smooth UI, and should be pulled from the Yummly API.
 
