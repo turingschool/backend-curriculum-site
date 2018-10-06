@@ -12,7 +12,7 @@ Application implements **all** functionality as defined, but some bugs or strang
 
 ### Testing
 
-Individual codes and uses TDD during all iterations of QS. For the Rails portion, test coverage must be at 100% and include happy/sad paths.
+Individual codes and uses TDD during all iterations of QS. For the Rails portion, test coverage must be at 95% and include happy/sad paths. For the Express portion, test coverage must be at 95% and include happy paths.
 
 - Above Expectations
 - Meets Expectations
