@@ -129,7 +129,9 @@ NOTE: Both tasks require network requests as well as DOM manipulation. This is g
 
 ## Error Checking
 
-Check out the example below. Our second button makes an unsuccessful request with a 404 response so why does it seem to still succeed? Read more about error handling [here](https://css-tricks.com/using-fetch/#article-header-id-5).
+Read about error handling [here](https://css-tricks.com/using-fetch/#article-header-id-5), then try to implement similar error handling in our GET request.
+
+Check out the example below. Our second button makes an unsuccessful request with a 404 response so why does it seem to still succeed?
 
 <p data-height="348" data-theme-id="0" data-slug-hash="aEvBvz" data-default-tab="js,result" data-user="kat3kasper" data-embed-version="2" data-pen-title="Fetch Error Handling" class="codepen">See the Pen <a href="https://codepen.io/kat3kasper/pen/aEvBvz/">Fetch Error Handling</a> by Katelyn Kasperowicz (<a href="https://codepen.io/kat3kasper">@kat3kasper</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
@@ -166,7 +168,6 @@ fetch(`http://localhost:3000/api/v1/posts`)
     // When there is an error in the handleResponse function we can access the error object given to us by the Promise reject
   })
 ```
-
 
 ## Organizing Fetch Requests
 
@@ -272,17 +273,6 @@ Pair up with your Quantified Self partner and practice answering the following i
 * What are promises used for? Can you give an example of when you've used one?
 
 Be ready to share you answer(s) with the class when we wrap up.
-
-
-## Work Time
-
-Pair up with your Quantified Self partner and discuss the following:
-
--   What are some use cases for `fetch()`? Name some cards from your project that will require a `fetch()` request to complete.
--   What information do you need before you can make a `fetch()` request?
--   How do you access the response from the request?
-
-Once you've answered those, work to implement the variety of `fetch()` requests necessary to GET, POST, DELETE, etc. to the Quantified Self API.
 
 
 ## Additional Resources
