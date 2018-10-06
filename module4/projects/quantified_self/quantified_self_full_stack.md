@@ -16,29 +16,22 @@ You are going to build a simple calorie tracker.
 
 ## Learning Goals
 
-* Create a front-end to consume the Rails/Express API built for QS.
 * Create an Express API given specified endpoints and response formats.
-* Review and refactor code (in each of the three languages) so that it:
-    * is well organized
-    * clearly communicates intent
-    * utilizes abstraction to hide complexity
-    * breaks problems down into small methods/functions with a single responsibility
+* Create a front-end to consume the Express API built for QS.
 
 ### Requirements Overview
 
 You will be creating a front-end to consume your fully-tested Express API that users will utilize to track calories in meals that they eat.
 
-Your requirements for the application are detailed in the cards **you're going to create on Pivotal Tracker**.
-
 ### Front End Features
 
-Your front end application that consumes your API will have two main layouts. A "foods" index page and a "diary" index page (as seen below).
+Your front end application that consumes your API will have three main layouts. A "foods" index page and a "diary" index page (as seen below), and either a "recipes" or "calendar" (or history) page.
 
-##### **Manage Foods**
+#### **Manage Foods**
 
 ![quantifed-self-resource-management.png](quantified-self-resource-management.png)
 
-##### **Main Diary**
+#### **Main Diary**
 
 ![quantified-self-diary.png](quantified-self-diary.png)
 
@@ -49,10 +42,19 @@ At a high level, users will be able to:
 - Compare calories to goals (meal and total)
 - View calorie calculations in diary
 - Data persists across refreshes
+- Consume the same endpoints that you built in Rails (but from your Express server), in addition to either the Calendar or Recipe option, explained below.
 
 **A couple of things to note:**
 * The above images are NOT wireframes you should follow - they are as simple as possible to illustrate the info/functionality your app should have. Your need to develop wireframes and decide on a UI flow.
 * User should NEVER have to 'refresh' the page to get updated data, and user should NEVER have to type something into the URL bar once they are on your page.
+
+#### Option 1 - Calendar
+
+What's the point of this app if one can't look back in time and see what eating habits they have? If you select this option, you need to build out another page on the front-end that lists all dates the user has recorded meals, and what they ate for each meal.
+
+#### Option 2 - Recipes
+
+Instead of "Foods", you may want to call it "Pantry"... going down the recipes route means you need to allow your user to select one or more foods from the "manage foods" page, then be shown recipes that can be made with the selected food(s). The recipes should probably be shown on another page for a smooth UI, and should be pulled from the Yummly API.
 
 ### Back End Features
 
@@ -62,9 +64,11 @@ For your Express back end:
 - Create a Pivotal Tracker board and write stories for each of your endpoints.
 - Add your assigned Technical Lead to your Pivotal Tracker and your repository.
 
-You will need to build ten endpoints. All endpoints will return the data as JSON.
+You will need to build the same foods and meals endpoints as you did in the Rails application (listed below). Based on the option you choose (calendar or recipes) you may need to modify the endpoints listed in project spec - do so as needed. You will definitely need to add some.
 
-##### Food Endpoints:
+There may be different architectural decisions you make with your server because of this addition from the Rails app; take you time to plan this out thoughtfully.
+
+#### Food Endpoints:
 
 **GET /api/v1/foods**
 
@@ -108,7 +112,7 @@ If food is successfully updated (name and calories are required fields), the foo
 
 Will delete the food with the id passed in and return a 204 status code. If the food can't be found, a 404 will be returned.
 
-##### Meal Endpoints:
+#### Meal Endpoints:
 
 **GET /api/v1/meals**
 
@@ -263,46 +267,6 @@ If successful, this request will return:
 }
 ```
 
-##### Favorites Endpoints:
-
-**GET /api/v1/favorite_foods**
-
-Retrieves data on the foods which were eaten most frequently. This should return an array of objects with a timesEaten property representing the number of times the food was eaten, then a foods property whose value is an array of foods that were eaten the given number of times, calories, and the meals it was eaten for.
-
-This response should include the 3 highest `timesEaten` values (if applicable; foods only eaten once should not appear).
-
-If successful, this request will return the following:
-
-```js
-[
-  {
-    "timesEaten": 4,
-    "foods":
-      [
-        {
-          "name": "Banana",
-          "calories": 200,
-          "mealsWhenEaten": ["Breakfast", "Dinner"]
-        },
-        {
-          "name": "Meatloaf"
-          "calories": 800,
-          "mealsWhenEaten": ["Lunch", "Dinner"]
-        }
-      ]
-  },
-  "timesEaten": 3,
-  "foods":
-    [
-      {
-        "name": "Banana",
-        "calories": 200,
-        "mealsWhenEaten": ["Breakfast", "Dinner"]
-      }
-    ]
-  }
-]
-```
 
 ### Expectations
 
