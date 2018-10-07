@@ -1,4 +1,4 @@
-# Building & Testing an Express App
+# Building an Express App
 
 ### Goals
 
