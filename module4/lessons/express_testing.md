@@ -1,5 +1,11 @@
 # Testing your Express App
 
+### Goals
+
+By the end of this lesson, you will:
+
+* Test a simple Express app that implements all of the basic CRUD methods
+
 ## Basic Structure of a Server-Side Test
 
 1. DB setup (if testing route that interacts with the database)
