@@ -23,6 +23,9 @@ You are going to build a simple calorie tracker.
 
 You will be creating a front-end to consume your fully-tested Express API that users will utilize to track calories in meals that they eat.
 
+* Your front end should be deployed with [GitHub Pages](https://pages.github.com/) or [Surge](https://surge.sh/).
+* Your back end should be deployed with Heroku.
+
 ### Front End Features
 
 Your front end application that consumes your API will have three main layouts. A "foods" index page and a "diary" index page (as seen below), and either a "recipes" or "calendar" (or history) page.
@@ -47,6 +50,7 @@ At a high level, users will be able to:
 **A couple of things to note:**
 * The above images are NOT wireframes you should follow - they are as simple as possible to illustrate the info/functionality your app should have. Your need to develop wireframes and decide on a UI flow.
 * User should NEVER have to 'refresh' the page to get updated data, and user should NEVER have to type something into the URL bar once they are on your page.
+* While you are developing the front-end before you have your Express server deployed, feel free to use `https://rails-quantified-self.herokuapp.com/` as your base URL for requests. 
 
 ### Option 1 - Calendar
 
