@@ -6,6 +6,9 @@ title: SortingCards - Peer Code Review Template
 
 With your partner, please answer the following questions.  Take notes and share those notes with your partner.
 
+1. Review the `number_correct` method on the Round class:
+    * Discuss the decisions you made to either store this information as an instance variable, or calculate the number any time the metho is called.
+    * What are some pros and cons to each approach?
 1. Review each persons sorting algorithm:
     * Are your algorithms similar or different?
     * What are some pros and cons to each person's approach?
