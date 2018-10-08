@@ -5,22 +5,20 @@ layout: page
 
 ## Learning Goals
 
-- Students can execute logic asynchronously with callbacks and Fetch requests
 - Students understand how JavaScript executes synchronously vs asynchronously
 - Students can read and explain JavaScript that executes asynchronously
-- Students are exposed to JS Promise structure for writing asynchronous JS
+- Students are able to explain how asynchronous JavaScript can be handled
 
-## Intro
+## Vocabulary
 
-### When Will We Need This? (5 mins)
+- asynchronous
+- call stack
+- queue
+- Web APIs
+- Event Loop
+- JS Engine/runtime
 
-The concepts we're going to talk about happen most often in the following situations:
-
-- Loading external data (APIs, files, databases)
-- Events (clicks, keydowns, scrolls, etc)
-- Enumerables (forEach, map, filter)
-
-### Synchronous Vs Asynchronous (45 mins)
+### Synchronous vs. Asynchronous
 
 #### Synchronous JavaScript
 
@@ -53,6 +51,14 @@ Now consider:
 
 BOTTOM LINE: If we could only run synchronous code in the browser, we couldn't keep up with what users expect from applications. Say hello to asynchronous code, brought to you by your browser!
 
+## Intro
+
+### When Will We Need This?
+
+The concepts we're going to talk about happen most often in the following situations:
+
+- Loading external data (APIs, files, databases)
+- Events (clicks, keydowns, scrolls, etc)
 
 #### The Event Loop
 
@@ -68,23 +74,29 @@ Let's watch Philip Roberts further explain: [Philip Roberts, JSConf EU 2014](htt
 
 ## Application of Knowledge
 
-### Experiments in Ordering (10 minutes)
+### Experiments in Ordering
 
-For each of these, read through the code, and try to predict what interactions will happen. **Then** run the code in your browser's console to verify your assumptions.
+With your partner, take your assign chunk of code and try to predict what interactions will happen. **Then** run the code in your browser's console to verify your assumptions.
+
+1. Snack Time
 
 ```js
-var balloon = "empty";
+var hungry = "very";
+console.log(hungry);
 
 setTimeout(function() {
-  balloon = "filled";
-  console.log(`async balloon is ${balloon}`);
-}, 1000)
+  hungry = "not anymore";
+  console.log(`async hungry is ${hungry}`);
+}, 1000);
 
-console.log(balloon);
+console.log(hungry);
 ```
+
+2. Ballon
 
 ```js
 var balloon = "empty";
+console.log(balloon);
 
 $('body').on('click', function() {
   balloon = "filled";
@@ -94,7 +106,24 @@ $('body').on('click', function() {
 console.log(balloon);
 ```
 
-### Callbacks (20 minutes)
+3. Repos
+
+```js
+var repos = [];
+console.log(repos);
+
+fetch("https://api.github.com/users/turingschool/repos")
+  .then(response => response.json())
+  .then(allRepos => {
+    repos = allRepos[0]
+    console.log(repos);
+  });
+
+console.log(repos);
+```
+Once you've made sense of why this worked the way it did, whiteboard (or make a poster) a visual to show what happened with the call stack in the code snippet you chose.
+
+### Callbacks
 
 Callbacks, by nature are not asynchronous. They are, however, used widely by asynchronous code.
 
@@ -112,7 +141,7 @@ function doubleNumber(num) {
 
 #### Callbacks with Events
 
-You've seen callbacks before in enumerables, but also in event listeners. Take this example:
+You've seen callbacks before in array prototypes (think, Ruby enumerables), but also in event listeners. Take this example:
 
 ```js
 $("#my-button").on('click', function() {
@@ -143,7 +172,7 @@ setTimeout(function() {
 
 `setTimeout()` sends its callback function to the event loop. After 1000 milliseconds (2nd parameter), the callback function (1st parameter) is then added back to the queue, ready to be added back to the stack once the stack is free.
 
-### [Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) (10 minutes)
+### [Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 
 Promises solve a similar problem as callbacks. They execute an asynchronous processes and can handle both the finished success or failure of said process. The technical definition of a promise is: `an object representing the eventual completion or error of an operation, along with a value.` A couple things to keep in mind about promises while we're seeing them in action:
 
@@ -159,73 +188,13 @@ To reiterate, a promise is like an egg. It's in one of three states:
 
 ![inline](http://www.tashakheiriddin.com/wp-content/uploads/2016/12/chicken-or-egg2.jpg)
 
+#### Wrap Up
 
-#### Promise Chaining
-
-Let's look at an example of a `Promise` [in action](https://repl.it/@ameseee/JS-Promise-Demo).
-
-Notice how `.then()` controls the flow of the data returned from the successful `Promise` resolution. Thus, `.catch()` would only be triggered had the `Promise` not resolved successfully.
-
-Keep this in mind:
-  - Once the initial Promise is **resolved**, the `.then()` block will execute. That `then()` block is passed the return value from the promise that we can work with. Keep in mind, it is still a Promise object.
-  - If for any reason our Promise fails, the `catch()` block will execute. This does not catch 404s, so you need to write error handling for that on your own.
-
-Las thing to be aware of - we are given some very handy methods on the Promise object. `Promise.all` takes an array of promises, and will return a single promise that only resolves when all promises in that array are resolved. **hint hint** you'll need this in your QS server.
-
-
-### Fetch - A Web API
-
-We've seen the chainable `.then()` and `.catch()` quite often thanks to Fetch. Fetch returns a `Promise` object to us and are likely your most common user-case for asynchronous JavaScript.
-
-Think back to the original reason we use Fetch - we want to request something (usually data) from somewhere else, but we're not sure how long it will take to get that response.
-
-Fetch has the ability to take advantage of the concurrency / event loop we were speaking about earlier to allow our program to continue running while our Fetch request resolves.
-
-Take a look at an example of a `Fetch` call in action: [https://repl.it/@KatelynKasperow/DirectCruelLaws](https://repl.it/@ameseee/DirectCruelLaws)
-
-
-#### Checks for Understanding (5 minutes)
-
-Discuss the following with the person next to you:
+Write your answers to the following in your notebook:
 
 - What's something you can do with promises that you can't do with callbacks?
 - How would you describe asynchronicity to a 5 year old?
 
-
-## Speaking Asynchronously (20 minutes)
-
-Talk through the following code snippets with your partner. Answer the following questions:
-
-- What is happening on each line?
-- What are some of today's new concepts that are being used in the snippet?
-
-### In Pairs
-
-Alternate who takes the lead in answering the questions for the following snippets:
-
-1.
-  ```js
-  fetch("https://api.github.com/users/turingschool/repos")
-    .then((response) => response.json())
-    .then((repos) => repos[0])
-    .then((repo) => console.log(repo.name))
-    .catch(() => console.log("something went wrong"));
-  ```
-
-2.
-  ```js
-  var randomMerchantRevenue;
-
-  fetch("/api/v1/merchants/random.json", function(merchant) {
-    fetch("/api/v1/merchants/" + merchant.id + "/revenue.json", function(revenue) {
-      randomMerchantRevenue = revenue.total_revenue;
-    })
-  })
-
-  console.log(randomMerchantRevenue)
-  ```
-
-Finished early? Go into your front-end Quantified Self code base and read through some fetch requests - can you make sense of the promises, then and catch statements? We will use a lot of these concepts as we build out and test an Express server tomorrow!
 
 ## Going Further
 

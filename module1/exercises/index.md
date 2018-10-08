@@ -11,7 +11,6 @@ title: Module 1 Exercises
 
 * [Super Fizz Buzz](https://github.com/turingschool-examples/super_fizz_buzz)
 * [Binary Translator](https://github.com/turingschool-examples/binary_translator)
-* [Scrabble](https://github.com/turingschool-examples/scrabble)
 * [Potluck](https://github.com/turingschool-examples/potluck)
 * [World Cup](https://github.com/turingschool-examples/world_cup)
 * [Open Mic](https://github.com/turingschool-examples/open_mic)

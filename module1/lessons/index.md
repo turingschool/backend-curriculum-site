@@ -10,7 +10,7 @@ title: Module 1 Lessons
 * [#each](./each)
 * [Methods, Arguments, Return Values](./methods_and_return_values)
 * [Objects, Instances and Classes](./objects_classes_instances)
-* [Enumerables I](./beginner_enumerables)
+* [#map](./map)
 * [Hashes](./introducing_hashes)
 * [Scope](./scope)
 * [Working with Files](./working_with_files)
