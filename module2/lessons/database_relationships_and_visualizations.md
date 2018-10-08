@@ -22,9 +22,9 @@ tags: database, schema, relationships
 
 ## Warm-Up
 
-* Draw a diagram of the table in our Task Manager database. What information lives in that table?
-* Assume we want to expand this application to allow for more than a single user. Each user should have multiple tasks. What changes would we need to make to our existing database?
-* What changes would we need to make to our models in order to take advantage of the changes we made to our database?
+* Draw a diagram of the table for `users` in your Book Club project. What information lives in that table?
+* What is the relationship between a `user` and a `review`? What does this relationship look like on a database level?
+* How will this relationship be set-up in the models?
 
 ### Defining Key Terms
 
@@ -37,8 +37,8 @@ tags: database, schema, relationships
 
 ### One-to-Many Relationships
 
-* The relationship between `users` and `tasks` is a one-to-many relationship.
-* `tasks` has a column called `user_id` which refers to the primary key of the `users` table.
+* The relationship between `user` and `reviews` is a one-to-many relationship.
+* `reviews` has a column called `user_id` which refers to the primary key of the `users` table.
 * Let's diagram the relationship using a schema designer.
 
 **Independent Practice** - Car Dealership
@@ -47,23 +47,23 @@ A car dealership has many cars - diagram this relationship using the schema desi
 
 ### Many-to-Many Relationships
 
-In our recent Task Manager client meeting, our client also decided their users should be able to organize their tasks by marking them with labels. Based on our conversation, we've decided:
+Let's think about the relationship between books and authors.
 
   ```
-  Users should have tasks. Tasks should have labels.
+  A book can have many authors. An author can have many books.
   ```
-  
-**Independent Practice** - Labels & Tasks  
-  Take a minute to consider what changes we would need to make to our database in order to support the features requested by our client. Add these to your diagram.
+
+**Independent Practice** - Books & Authors
+  Take a minute to consider how our database would need to look in order to support this feature. Add these to your diagram.
 
 
 Many-to-many is a little harder than one-to-many.
 
-Imagine if we wanted to also label all of our tasks that we've created. Labels can belong to many tasks, while at the same time, a task can have many labels. We can implement this relationship by using a **join table**.
+Since books can have multiple authors and an author could have many books, we can implement this relationship by using a **join table**.
 
 _**Note:** Join tables are just ordinary tables with a unique purpose._
 
-Let's diagram the tasks and labels relationship using the schema designer.
+Let's diagram the books and authors relationship using the schema designer.
 
 **Independent Practice** - Students and Courses
 
@@ -71,7 +71,7 @@ Diagram the many-to-many relationship between students and courses.
 
 ## Closing
 
-Let's revist our learning goals by answering the following:
+Let's revisit our learning goals by answering the following:
 
 * What is a primary key?
 * What is a foreign key?
