@@ -21,7 +21,7 @@ You are going to build a simple calorie tracker.
 
 ### Requirements Overview
 
-You will be creating a front-end to consume your fully-tested Express API that users will utilize to track calories in meals that they eat.
+You will be creating a front-end to consume your fully-tested Express API that users will utilize to track calories in meals that they eat. You can use [this](https://github.com/turingschool-examples/qs-fe-starter-kit) as a starter kit.
 
 * Your front end should be deployed with [GitHub Pages](https://pages.github.com/) or [Surge](https://surge.sh/).
 * Your back end should be deployed with Heroku.
@@ -50,7 +50,7 @@ At a high level, users will be able to:
 **A couple of things to note:**
 * The above images are NOT wireframes you should follow - they are as simple as possible to illustrate the info/functionality your app should have. Your need to develop wireframes and decide on a UI flow.
 * User should NEVER have to 'refresh' the page to get updated data, and user should NEVER have to type something into the URL bar once they are on your page.
-* While you are developing the front-end before you have your Express server deployed, feel free to use `https://rails-quantified-self.herokuapp.com/` as your base URL for requests. 
+* While you are developing the front-end before you have your Express server deployed, feel free to use `https://fast-meadow-36413.herokuapp.com/` as your base URL for requests.
 
 ### Option 1 - Calendar
 
