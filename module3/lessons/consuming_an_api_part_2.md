@@ -5,6 +5,10 @@ length: 90
 tags: apis, rails, faraday, refactoring, VCR
 ---
 
+### Resources
+
+* [Video](https://www.youtube.com/watch?v=FUYoJTtfJ20) showing how to setup Webmock and VCR
+
 ### Learning Goals
 
 After this class, a student should be able to:
