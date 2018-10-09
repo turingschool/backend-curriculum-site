@@ -22,8 +22,8 @@ tags: database, schema, relationships
 
 ## Warm-Up
 
-* Draw a diagram of the table for `users` in your Book Club project. What information lives in that table?
-* What is the relationship between a `user` and a `review`? What does this relationship look like on a database level?
+* Draw a diagram of the table for `books` in your Book Club project. What information lives in that table?
+* What is the relationship between a `books` and a `review`? What does this relationship look like on a database level?
 * How will this relationship be set-up in the models?
 
 ### Defining Key Terms
@@ -37,8 +37,8 @@ tags: database, schema, relationships
 
 ### One-to-Many Relationships
 
-* The relationship between `user` and `reviews` is a one-to-many relationship.
-* `reviews` has a column called `user_id` which refers to the primary key of the `users` table.
+* The relationship between `book` and `reviews` is a one-to-many relationship.
+* `reviews` has a column called `book_id` which refers to the primary key of the `books` table.
 * Let's diagram the relationship using a schema designer.
 
 **Independent Practice** - Car Dealership
