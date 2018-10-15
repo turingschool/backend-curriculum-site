@@ -12,7 +12,7 @@ Given the code that you currently have in the `index.js` file:
 
 ---
 
-# Creating a Secret Model
+# Creating a Paper Model
 
 With a partner see if you can extract methods to create a Paper model.
 
@@ -28,7 +28,7 @@ With a partner see if you can extract methods to create a Paper model.
 
 ---
 
-# Creating a Secrets Controller
+# Creating a Papers Controller
 
 With a partner see if you can extract methods to create a Papers Controller.
 
