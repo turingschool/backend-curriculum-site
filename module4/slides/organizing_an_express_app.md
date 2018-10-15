@@ -43,6 +43,30 @@ With a partner see if you can extract methods to create a Papers Controller.
 
 ---
 
+# Routes
+
+```js
+# lib/routes/api/v1/footnotes.js
+
+const express = require('express');
+const router  = express.Router();
+const footnotesController = require('../../../controllers/footnotes_controller')
+
+router.get('/', footnotesController.index);
+
+module.exports = router
+
+# index.js
+const footnotes = require('./lib/routes/api/v1/footnotes')
+
+app.use('/api/v1/footnotes', footnotes)
+```
+
+
+
+
+---
+
 # Questions
 
 Express is not as opinionated as Rails when it comes to orgnizing our app.

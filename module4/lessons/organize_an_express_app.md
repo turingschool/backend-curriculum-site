@@ -97,9 +97,9 @@ app.get('/api/v1/papers', (request, response) => {
 
 ## Controllers
 
-Our `index.js` is still a little bulky. Something I've noticed is that each block of code in this file is mostly comprised of 1) an HTTP verb, 2) a route, and 3) a function to handle the request.
+Our `index.js` is still a little bulky. Something I've noticed is that each block of code in this file is mostly comprised of a function to handle the request.
 
-These were all things our `routes.rb` handled in Rails. Could we get `routes/api/secrets.js` to behave more like a `routes.rb` file?
+Could we create a controller to handle this functionality?
 
 Take 3 minutes and discuss with a partner:
 
@@ -131,6 +131,35 @@ module.exports = {
   index,
 }
 ```
+
+## Routes
+
+As our application accrues more routes, it might also be nice to move our routes out to separate files. Express will let us do that using Express Router. Create a new file to hold the code below:
+
+```
+# lib/routes/api/v1/footnotes.js
+
+const express = require('express');
+const router  = express.Router();
+const footnotesController = require('../../../controllers/footnotes_controller')
+
+router.get('/', footnotesController.index);
+
+module.exports = router
+```
+
+And update `index.js` by taking out the footnotesController and the get route for footnotes. Replace with the following:
+
+```
+# index.js
+const footnotes = require('./lib/routes/api/v1/footnotes')
+
+app.use('/api/v1/footnotes', footnotes)
+```
+
+### Your Turn
+
+Refactor to pull the routes that you have for papers out to a separate file as well or put all of your routes in a separate file.
 
 ## Going Further
 
