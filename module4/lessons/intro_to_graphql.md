@@ -314,6 +314,17 @@ module.exports = new GraphQLSchema({
 });
 ```
 
+
+In GraphiQl, make a mutation query with something like this:
+
+```
+mutation {
+  addPet(firstName: "Buddy", age: 10) {
+    id
+  }
+}
+```
+
 Try adding a pet in GraphiQL. Think about how your mutation request might need to be different from a query. If you're stuck on this - [read this blog](https://hackernoon.com/mutations-in-graphql-9ac6a28202a2). If you run into errors - read carefully as they are usually quite helpful.
 
 **On your own,** write the mutations to editPet and deletePet. Test out in GraphiQL.
