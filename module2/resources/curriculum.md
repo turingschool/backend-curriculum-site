@@ -19,6 +19,8 @@ layout: page
 - [How To Write a Great README](../lessons/how_to_write_a_great_readme)
 - [Exploration: Sessions, Cookies and Flash Messages](http://backend.turing.io/module2/misc/sessions_cookies_and_flashes)
 - [Exploration: Authentication/Autorization](http://backend.turing.io/module2/misc/auth_exploration)
+- [Exploration: How the Web Works](http://backend.turing.io/module2/misc/exploration_how_the_web_works)
+- Exploration: OWASP Top Ten Web Security (coming soon)
 
 
 ## Web Development Basics
