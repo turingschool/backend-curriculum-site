@@ -87,13 +87,13 @@ const RootQuery = new GraphQLObjectType({
 ```
 
 The GraphQLObjectType has two required properties:
-- `name` - will always be a string that describes the type being defined. By convention, we would use 'Pet' here (notice the capital R)
+- `name` - will always be a string that describes the type being defined. By convention, we would use 'Pet' here (notice the capital P)
 - `fields` - an object that tells GraphQL about all of the properties on this type. For a RootQuery,
 
 ```js
 const RootQuery = new GraphQLObjectType({
-  name: 'RootQueryType',      // name is a required property
-  fields: {                   // fields is a required property
+  name: 'RootQueryType',   // name is a required property
+  fields: {                // fields is a required property
 
   }
 });
@@ -105,9 +105,9 @@ Let's start by building a Root Query for a specific pet, so someone can jump int
 const RootQuery = new GraphQLObjectType({
   name: 'RootQueryType',
   fields: {
-    pet: {                                   // an object
-      type: PetType,                         // indicating the type of object that will be given back
-      args: { id: { type: GraphQLString }}   // expects an argument of ID
+    pet: {                                // an object
+      type: PetType,                      // indicating the type of object that will be given back
+      args: { id: { type: GraphQLString }}// expects an argument of ID
     }
   }
 });
@@ -190,8 +190,8 @@ const PetType = new GraphQLObjectType({
     id: { type: GraphQLString },
     firstName: { type: GraphQLString },
     age: { type: GraphQLInt },
-    company: {                        // company !== companyId which our model has - why we need to resolve
-      type: CompanyType,              // expecting a CompanyType when we get the data back
+    company: {            // company !== companyId which our model has - why we need to resolve
+      type: CompanyType,  // expecting a CompanyType when we get the data back
       resolve(parentValue, args) {
         return axios.get(`http://localhost:3000/companies/${parentValue.companyId}`)
           .then(response => response.data);

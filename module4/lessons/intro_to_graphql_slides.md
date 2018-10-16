@@ -118,7 +118,7 @@ ___
 # Starter Repo
 
 * Clone down the repo in your channel
-* Follow direction sin README
+* Follow directions in README
 * Start perusing the files
 
 ___
