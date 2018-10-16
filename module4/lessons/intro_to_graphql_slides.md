@@ -37,19 +37,32 @@ With a partner, whiteboard the JSON response from `api/v1/users/:id`
 
 ---
 
-# Discuss
+# Activity
 
-Considering this response (and we can pretty easily imagine the response from `api/v1/users`),
-- What would a developer need to do to access a list of all the puppy names?
-- What would a developer need to do to access a list of users, and the name of their company (assuming that's a property on the company)?
-- What _isn't ideal_ about both of these situations?
+- Each person should have a sheet of paper with one puppy-user attribute written on it.
+- The class needs to group together like a big JSON object.
+
+^ Once the group is together like a JSON object on one side of the room, instructor is on other side of the room.
+Over-Fetching: Instructor says: I need the puppy-user name - what are you going to send me, server? (The whole group should walk over together.) Well, I didn't want all of you, but I guess I can just weed the rest of you out. I need the puppy-user name and favorite toys. What are you going to send me? (The whole group should walk over.) I didn't want everyone!
+STAMP the idea: We are currently OVER-FETCHING. Only want one thing but get a bunch back.
+Under-Fetching: Instructor says: Now I need the name and location of the company that the pet works at. What are you going to do server? (I get the whole JSON object, including the companyId). Now I have to make another request to get all the companies info. STAMP the idea: We are currently UNDER-FETCHING, making a request to the restful API, get a company id, and now have to go back out to another endpoint and ask for it. Ugh.
+
+---
+
+# Turn & Talk
+
+What isn't ideal about both of these situations?
+- If I want a puppy's name ...
+- If I want to puppy's company's name ...
+
+^ This is just giving students a chance to say out loud the points that the instructor brought up in activity.
 
 ---
 
 # Disadvantages to REST
 
 - Deciding on URL schema gets tough with heavily nested relationships
-- Sometimes it takes too many HTTP requests to get the data we need
+- Sometimes it takes too many HTTP requests to get the data we need (under-fetching)
 - It's common to over-fetch data (getting everything back when we only needed one property)
 
 ^ The second and third bullets especially cause problems as over 60% of internet users are on mobile devices.
@@ -57,6 +70,7 @@ Considering this response (and we can pretty easily imagine the response from `a
 ---
 
 # A Solution - GraphQL
+
 ![inline](https://miro.medium.com/max/1372/1*EOMP0V69RZ5xChG5pRoFyA.png)
 
 ^ When Facebook was re-building their native mobile applications in 2012, they ran into some problems - server queries written didn't match what they wanted in their apps, and there was a considerable amount of code needed to parse data had to be written on both server and client side. So, they invented GraphQL. In 2015, Facebook released it to the public.
