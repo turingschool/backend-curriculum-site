@@ -13,11 +13,12 @@ layout: page
 - [Sinatra vs. Rails Exploration](http://backend.turing.io/module2/misc/sinatra_vs_rails_exploration)
 - [How the Web Works](../lessons/how_the_web_works)
 - [Diagramming the Request Response Cycle](http://backend.turing.io/module2/lessons/diagramming_request_response_cycle)
-- [Auth Exploration](http://backend.turing.io/module2/misc/auth_exploration)
 - [Git Shortcuts and Professionalism](http://backend.turing.io/module2/lessons/additional_github)
 - [Shopping Cart Exploration](http://backend.turing.io/module2/misc/cart_exploration)
 - [Remembering Ruby](../misc/violations)
 - [How To Write a Great README](../lessons/how_to_write_a_great_readme)
+- [Exploration: Sessions, Cookies and Flash Messages](http://backend.turing.io/module2/misc/sessions_cookies_and_flashes)
+- [Exploration: Authentication/Autorization](http://backend.turing.io/module2/misc/auth_exploration)
 
 
 ## Web Development Basics
@@ -38,7 +39,6 @@ layout: page
 - [Route Helpers in Rails](http://backend.turing.io/module2/lessons/route_helpers)
 - [Nested Resources in Rails](http://backend.turing.io/module2/lessons/nested_resources)
 - [Namespacing Routes in Rails](http://backend.turing.io/module2/lessons/namespacing)
-- [Sessions, Cookies and Flash Messages](http://backend.turing.io/module2/misc/sessions_cookies_and_flashes)
 - [Authentication](http://backend.turing.io/module2/lessons/authentication)
 - [Authorization](http://backend.turing.io/module2/lessons/authorization)
 - [Cart & Order Lifecycle](../lessons/cart_implementation)
