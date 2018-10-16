@@ -71,10 +71,12 @@ If the `session` hash and/or how to use it is unclear, revisit this [reading](ht
 
 
 ### Release 3:  Implement Logging Out
+
 If users can login, we'll also want to allow them to logout.  Implement a controller method that will log a user out when they visit it.  This will most likely involve deleting some content from the `session` hash.
 
 
 ### Release 4:  Implement Authorization
+
 To this point, we've been dealing with *authentication*:  answering the question, "Who are you?"  Now we're going to handle *authorization*:  answering the question, "What do you have permission to do?"
 
 In applications there are different use cases for authorization.  For example, an application might have a group of administrators with special privileges.  Perhaps they can edit content, delete posts, etc., while other users cannot.  In our application, we'll authorize all logged in users to view the content of our site.  If users have not logged in, they will not be authorized to view the content.
@@ -85,9 +87,16 @@ One way to restrict access to authorized users is a [filter](http://guides.rubyo
 
 
 ## Conclusion
+
 Think about the apps we use everyday:  Twitter, Instagram, GitHub, etc.  User registration, authentication, and authorization are key aspects in these applications.  These are skills that we must have.  We've gotten an introduction to these concepts in this challenge.  Moving forward, we'll receive more practice with them as we'll continue building user authentication into our applications.
 
 ## Extensions
 
-
 Remember how we talked about not ever storing passwords in plain text? How do we securely store users' passwords while allowing users to sign in with their plain-text passwords?  One option is to use a [hashing algorithm](https://en.wikipedia.org/wiki/Cryptographic_hash_function) and store the hashed versions of users' passwords in our database.  One such hashing algorithm is [bcrypt](https://en.wikipedia.org/wiki/Bcrypt), for which there is a [Ruby gem](https://github.com/codahale/bcrypt-ruby). Implement hashing your passwords!
+
+
+# Questions for Hand-in:
+
+1. Please submit your repo for the work above.
+1. What are the primary use cases for authentication and authorization within an application?
+1. What are some ways you could implement different authorization patterns if you wanted some users to have read/write access to different resources? (ie, you can see an index or show page but not allowed to create/edit/delete)
