@@ -3,6 +3,14 @@ title: Intro to GraphQL
 tags: api, graphql
 ---
 
+## Materials
+
+- 1 marker per student
+- 1 sheet of printer paper per student
+- Slide deck
+- White boards around room (for Why GraphQL? activity)
+- Posters (for closing activity)
+
 ## Learning Goals
 
 - Explain what GraphQL is and the benefits of using it over REST
