@@ -3,6 +3,15 @@ slidenumbers: true
 
 # GraphQL
 
+Please sit with these partners:
+
+- Chris & Connor
+- Emmie & Colin
+- Stephen & Angela
+- Seth & Lucas
+- Tristan & Keegan
+- Matt & JP & John
+
 ---
 
 # Learning Goals
@@ -18,6 +27,7 @@ slidenumbers: true
 Write your answer to the following:
 - Why do we use APIs?
 - What makes an API RESTful?
+- Why do we commonly see `/api/v1/` included in RESTful API endpoints?
 
 ---
 
@@ -81,7 +91,6 @@ What isn't ideal about both of these situations?
 
 Some of it's features:
 * Defines a data shape
-* Hierarchical
 * Strongly Typed
 * Protocol, not storage
 * Introspective

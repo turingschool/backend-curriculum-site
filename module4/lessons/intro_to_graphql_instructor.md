@@ -11,6 +11,11 @@ tags: api, graphql
 
 [Slides](./intro_to_graphql_slides)
 
+## Vocab
+- Graph
+- GraphQL
+- REST, RESTful APIS
+
 ## Warmup
 
 Write your answer to the following:
@@ -18,16 +23,17 @@ Write your answer to the following:
 - What makes an API RESTful?
 - Why do we commonly see `/api/v1/` included in RESTful API endpoints?
 
-## Why GraphQL?
+## Why GraphQL? ACTIVITY
 
 Let's say we are building LinkedIn for Puppies. Each puppy-user would have a name, company, title, education, favorite treat, parent names, and best friends.
 
-With a partner, whiteboard the JSON response from `api/v1/puppy/:id`.
-
-Considering this response (and we can pretty easily imagine what the JSON response for `api/v1/puppy-users` would look like),
-- What would a developer need to do to access a list of all the puppy names?
-- What would a developer need to do to access a list of puppies, and the name of their company (assuming that's a property on the company)?
-- What _isn't ideal_ about both of these situations?
+- With a partner, whiteboard the JSON response from `api/v1/puppy/:id`.
+- Each person should have a sheet of paper with one puppy-user attribute written on it.
+- The class needs to group together like a big JSON object.
+- Once the group is together like a JSON object on one side of the room, instructor is on other side of the room.
+  - Over-Fetching: Instructor says: I need the puppy-user name - what are you going to send me, server? (The whole group should walk over together.) Well, I didn't want all of you, but I guess I can just weed the rest of you out. I need the puppy-user name and favorite toys. What are you going to send me? (The whole group should walk over.) I didn't want everyone!STAMP the idea: We are currently OVER-FETCHING. Only want one thing but get a bunch back.
+  - Under-Fetching: Instructor says: Now I need the name and location of the company that the pet works at. What are you going to do server? (I get the whole JSON object, including the companyId). Now I have to make another request to get all the companies info. STAMP the idea: We are currently UNDER-FETCHING, making a request to the restful API, get a company id, and now have to go back out to another endpoint and ask for it. Ugh.
+- Now that you have explain and illustrated the ideas of under and over fetching, have a turn-and-talk where students have to say these things back to each other (there is a slide for this).
 
 ### Disadvantages to REST
 
@@ -325,3 +331,26 @@ The schema file is getting a little lengthy - can you pull each type, the RootQu
 ## Complete GraphQL Server
 
 Congrats, you've written your first GraphQL server and tested it out in GraphiQL! You can see it takes a bit of setup, but the long term benefits are something many companies seeing are very much worth it.
+
+
+## Closing Activity
+
+Split the class into three groups (or more), each group gets one topic and 10 minutes to plan a pitch and poster/whiteboard to use as a visual.
+
+### Making the case for GraphQL
+
+Your manager is thinking about moving to GraphQL. Whatever you think about it in real life today, in this situation, you are on a mission to convince her that your company should move to it.
+
+What's your pitch?
+
+### Prevent Disaster
+
+Your manager is thinking about moving to GraphQL. Whatever you think about it in real life today, in this situation, you are on a mission to make sure this horrible decision is not make because REST is the best.
+
+What's your pitch?
+
+### Educator
+
+Your manager is thinking about moving to GraphQL. It's so much of a buzzword that it seems like some people on your team are all excited about it for that reason only.
+
+Your job is to educate the team on what the purpose and benefits of GraphQL are, and how this compares to REST.
