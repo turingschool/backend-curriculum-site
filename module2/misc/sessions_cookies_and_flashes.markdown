@@ -82,9 +82,9 @@ Rails translates the encrypted cookie that lives on the client's machine into so
 
 Note that the `flash` that you have been using is a special type of session that Rails automatically expires after one request. Generally we use it in our views to give users feedback about actions they have performed.
 
-#### Questions
+## Questions to Hand-in:
 
-Answer the following questions:
+Answer the following questions in the Google Form provided to you.
 
 1. What is a cookie?
 1. What's the difference between a cookie and a session?
