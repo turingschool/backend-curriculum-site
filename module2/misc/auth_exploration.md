@@ -97,6 +97,8 @@ Remember how we talked about not ever storing passwords in plain text? How do we
 
 # Questions for Hand-in:
 
+Use the Google Form provided by your instructors for the following questions:
+
 1. Please submit your repo for the work above.
 1. What are the primary use cases for authentication and authorization within an application?
 1. What are some ways you could implement different authorization patterns if you wanted some users to have read/write access to different resources? (ie, you can see an index or show page but not allowed to create/edit/delete)
