@@ -20,7 +20,7 @@ Each pair will demo their finished game for a small group of your classmates.  D
 * Walk through the code that you implemented to validate ship placement
 * Show a diagram and briefly describe your classes and how they should interact. This can be a drawing on the board.
 
-Your demos should be 20 minutes with an additional 5 minutes for questions from the audience.
+Your demos should be 10 minutes with an additional 5 minutes for questions from the audience.
 
 ### Asynchronous Code Review
 
