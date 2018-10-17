@@ -46,7 +46,7 @@ title: Black Thursday - Evaluation Rubric
 
 * **3** Every method is tested at both the unit and integration level. git history demonstrates students are writing tests before implementation code.
 
-* **2** Every method is not tested. git history demonstrates students are writing tests before implementation code.
+* **2** Every method is not tested. git history does not demonstrate students are writing tests before implementation code.
 
 * **1** Less than half of the methods in any given class are untested or have tests that don't verify expected behavior.
 
