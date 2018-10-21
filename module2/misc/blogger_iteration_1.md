@@ -393,7 +393,7 @@ But what should `some_path` be? Look at the routes table with `rake routes`. The
 The helper method for the destroy-triggering route is `article_path`. It needs to know which article to delete since there's an `:id` in the path, so our link will look like this:
 
 ```erb
-<%= link_to "delete", article_path(@article) %>
+<%= link_to "Delete", article_path(@article) %>
 ```
 
 Add that to `app/views/articles/show.html.erb`.
