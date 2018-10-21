@@ -522,14 +522,6 @@ The router is expecting to find an action in `ArticlesController` named `edit`, 
 
 ```ruby
 def edit
-  @article = Article.find(params[:id])
-end
-```
-
-The router is expecting to find an action in `ArticlesController` named `edit`, so let's add this:
-
-```ruby
-def edit
 
 end
 ```
