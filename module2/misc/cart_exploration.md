@@ -40,5 +40,6 @@ To get credit for handing in your work on time:
 
 1. Make a branch for your new work
 1. Commit your code locally and push your branch to your GitHub repo
+1. DO NOT MERGE THIS BRANCH!! (we'll be going over this in a future class!!!)
 1. Look at the Branches tab for your repo and click on the branch name (the uri will look like https://github.com/yourusername/your-repo-name/tree/your-branch-name
 1. Send the URL of your branch to your instructors via Slack DM
