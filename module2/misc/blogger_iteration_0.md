@@ -127,7 +127,7 @@ If you see an error here, it's most likely related to the database. You are prob
 
 ### Setting Up for Testing
 
-We're going to work with a few different tools while testing, [RSpec](https://relishapp.com/rspec), [Capybara](https://github.com/teamcapybara/capybara), [Launchy](https://github.com/copiousfreetime/launchy), [Shoulda Matchers](https://github.com/thoughtbot/shoulda-matchers), [Pry](https://github.com/pry/pry), and [Active Designer](https://github.com/thompickett/active_designer). RSpec is a test driver comparable to MiniTest. RSpec allows you to rung unit, integration and feature tests. Capybara is a DSL(Domain Specific Language) that helps you build tests in a user friendly format, naviating the page and performing user actions. Launchy is a helper class that allows you to add the line `save_and_open_page` within a test. When you run your test suite a browser window will be opened with the current state of the web page where the `save_and_open_page` is located. It is a helpful debugging tool. Shoulda Matchers provides us simple one liners helpful in testing validations and relationships on models. Pry is debugging gem for Ruby environment. Active Designer will give you a visual of the current structure of your database.
+We're going to work with a few different tools while testing, [RSpec](https://relishapp.com/rspec), [Capybara](https://github.com/teamcapybara/capybara), [Launchy](https://github.com/copiousfreetime/launchy), [Shoulda Matchers](https://github.com/thoughtbot/shoulda-matchers), [Pry](https://github.com/pry/pry), and [Active Designer](https://github.com/thompickett/active_designer). RSpec is a test driver comparable to MiniTest. RSpec allows you to run unit, integration and feature tests. Capybara is a DSL(Domain Specific Language) that helps you build tests in a user friendly format, naviating the page and performing user actions. Launchy is a helper class that allows you to add the line `save_and_open_page` within a test. When you run your test suite a browser window will be opened with the current state of the web page where the `save_and_open_page` is located. It is a helpful debugging tool. Shoulda Matchers provides us simple one liners helpful in testing validations and relationships on models. Pry is debugging gem for Ruby environment. Active Designer will give you a visual of the current structure of your database.
 
 #### Adding Gems
 
@@ -166,7 +166,7 @@ end
 
 Notice we still don't have that `spec` directory we talked about earlier. We need to futher install RSpec. From your command line, enter the command `rails g rspec:install`. I'd expect to see the following output:
 
-```ruby
+```bash
    create  .rspec
    create  spec
    create  spec/spec_helper.rb
@@ -192,7 +192,7 @@ end
 #### Don't forget to commit as you go
 Let's commit these updates with git.
 
-```
+```bash
 git add Gemfile
 git add Gemfile.lock
 git add spec
@@ -218,7 +218,7 @@ Our blog will be centered around `articles`, each with a `title` and `body`, so 
 
 Whenever you find yourself ready to add functionality or features to your app,you should automatically think: *Time for a new working branch!*. Don't worry if that's not automatic yet, it soon will be. We are moving into the M(odel) part of MVC, so let's "checkout" a branch for implementing our Article model:
 
-```
+```bash
 git checkout -b article-model
 ```
 
@@ -276,10 +276,10 @@ Finished in 0.00076 seconds (files took 3.69 seconds to load)
 
 There's a lot going on here. Let's focus our attention to the NameError section:
 
-```
+```bash
 NameError:
   uninitialized constant Article
-# ./spec/models/article_spec.rb:3:in `<top (required)>
+ ./spec/models/article_spec.rb:3:in `<top (required)>`
 ```
 
 We know from working with Ruby and MiniTest that this error is telling us it can't find the class `Article`. In this past this has meant that maybe the files aren't required appropriately or the class just doesn't exist. Now that we'll be working with a database we also have to think about whether this resource exists in the database or not.
@@ -290,7 +290,7 @@ We haven't done anything with our database yet other than create an empty one. I
 
 We'll use one of Rails' generators to create the required files. Switch to your terminal and enter the following:
 
-```
+```bash
 $ rails generate migration CreateArticles title:string body:text
 ```
 
@@ -347,7 +347,7 @@ What is that `t.timestamps` doing there? It will create two columns inside our t
 
 Save that migration file, switch over to your terminal, and run this command:
 
-```
+```bash
 $ rake db:migrate
 ```
 
@@ -357,7 +357,7 @@ We tell `rake` to `db:migrate` which means "look in your set of functions for th
 
 In this case we had just one migration to run and it should print some output like this to your terminal:
 
-```
+```bash
 $ bin/rake db:migrate
 ==  CreateArticles: migrating =================================================
 -- create_table(:articles)
@@ -373,7 +373,7 @@ Every time you run a migration, you'll also want to checkout your schema. This c
 
 Run `active_designer --create db/schema.rb` from the command line. You should see the following output:
 
-```
+```bash
 Created active_designer/index.html
 ```
 
@@ -405,7 +405,7 @@ Failure/Error:
 
 NameError:
   uninitialized constant Article
-# ./spec/models/article_spec.rb:3:in `<top (required)>'
+ ./spec/models/article_spec.rb:3:in <top (required)>
 No examples found
 
 Finished in 0.00044 seconds (files took 4.63 seconds to load)
@@ -444,13 +444,13 @@ That file inherits from ActiveRecord so we want to inherit from ApplicationRecor
 
 Another awesome feature of working with Rails is the `console`. The `console` is a command-line interface to your application. It allows you to access and work with just about any part of your application directly instead of going through the web interface. This will accelerate your development process. Once an app is in production the console makes it very easy to do bulk modifications, searches, and other data operations. So let's open the console now by going to your terminal and entering this:
 
-```
+```bash
 $ rails console
 ```
 
 You'll then just get back a prompt of `>>`. You're now inside an `irb` interpreter with full access to your application. Let's try some experiments. Enter each of these commands one at a time and observe the results:
 
-```
+```bash
 $ Time.now
 $ Article.all
 $ Article.new
@@ -547,14 +547,14 @@ and merge to master:
 
 Part 1 - Commit:
 
-```
+```bash
 git add app/models/article.rb
 git commit -m "Add article model"
 ```
 
 Part 2 - Merge:
 
-```
+```bash
 git pull origin master
 git push origin article-model
 ```
@@ -573,7 +573,7 @@ Even though we are working on a solo project, we still want to keep strong git h
 
 To keep things nice and tidy, from the CLI(command line interface):
 
-```
+```bash
 git checkout master
 git pull origin master
 git branch -d article-model
@@ -585,7 +585,7 @@ We've created a few articles through the console, but we really don't have a web
 
 Let's start off with a controller branch:
 
-```
+```bash
 git checkout -b articles-controller
 ```
 
@@ -763,7 +763,7 @@ Experiment with commenting out the `resources :articles` in `routes.rb` and runn
 
 These are the seven core actions of Rails' REST implementation. To understand the table, let's look at the first row as an example:
 
-```
+```bash
       Prefix Verb   URI Pattern                  Controller#Action
     articles GET    /articles(.:format)          articles#index
 ```
@@ -796,7 +796,7 @@ RSpec can't find a class called ArticlesController. Let's go make one!
 
 Let's open one more terminal or command prompt and move to your project directory which we'll use for command-line scripts. I generally like to keep one terminal tab for my console, one for running tests/command prompts, and one for my server. In that a terminal window, enter this command:
 
-```
+```bash
 $ touch app/controllers/articles_controller.rb
 ```
 
@@ -835,7 +835,7 @@ The first feature we want to add is an "index" page. This is what the app will s
 
 Let's first try it out by entering `http://localhost:3000/articles/` into your web browser. If you no longer have a server running, remember you can spin one up with the `rails s` command. You should get an error message that looks like this:
 
-```
+```bash
 Unknown action
 
 The action 'index' could not be found for ArticlesController
@@ -876,7 +876,7 @@ If we run our tests again, we should get a different error now in the failure se
 
 GAH! What does all that mean? The part I focus on is this:
 
-```ruby
+```bash
 ArticlesController#index is missing a template for this request format and variant.
 ```
 
@@ -886,7 +886,7 @@ It's telling us we don't have a view template for this index action method.
 
 Now refresh your browser. The error message changed, but you've still got an error just like our new test error, right?
 
-```
+```bash
 ActionController::UnknownFormat in ArticlesController#index
 
 ArticlesController#index is missing a template for this request format and variant. request.formats: ["text/html"]...
@@ -896,7 +896,7 @@ The error message is pretty helpful here. It tells us that the app is looking fo
 
 Let's commit our changes.
 
-```
+```bash
 git add config/routes
 git add app/controllers/articles_controller.rb
 git commit -m "Set up /articles route and action"
@@ -968,14 +968,14 @@ Refresh your web browser. You should see a listing of the articles you created i
 
 Let's commit our changes and head back into our controller and merge our new index view.
 
-```
+```bash
 git add app/views/articles/
 git commit -m "Add articles index template"
 ```
 
 Let's double check our `/articles` path one more time in the browser to make sure our merge links the controller and the view correctly. Once that's squared away, let's merge `articles-controller` to `master`:
 
-```
+```bash
 git pull origin master
 git push origin articles-controller
 ```
@@ -995,7 +995,7 @@ Add Articles Index Functionality
 
 Merge your PR. Then come back to your CLI to pull down the current master.
 
-```
+```bash
 git checkout master
 git pull origin master
 git branch -d articles-controller
@@ -1236,7 +1236,7 @@ Add the following html & erb to your file:
 
 What does your error tell you now?
 
-```ruby
+```
 Failures:
 
   1) user sees one article they link from the article index displays information for one article
@@ -1246,7 +1246,7 @@ Failures:
        undefined method `title' for nil:NilClass
 ```
 
-Here RSpec is telling us it tried to run the method `.title` on @article, but @article is `nil` so it doesn't have access to such a method. How do we make @article not be empty/nil?
+Here RSpec is telling us it tried to run the method `.title` on @article, but @article is `nil` so it doesn't have access to such a method. How do we make `@article` not be empty/nil?
 
 #### A Bit on Parameters
 
