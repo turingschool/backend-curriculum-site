@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Self-Directed Project
+title: Fantasticus
 length: 2 weeks
 tags:
 type: project
