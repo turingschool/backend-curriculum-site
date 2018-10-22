@@ -7,7 +7,7 @@ tags: rails, authorization
 ### Learning Goals
 
 * Authorize users based on roles
-* Write a feature test that usees a stubbing library
+* Write a feature test that fakes a user being logged in
 * Implement namespacing for routes
 * Use a `before_action` to protect admin controllers
 
@@ -17,13 +17,12 @@ Available [here](../slides/authorization)
 
 ## Warmup
 
-* How did you handle the secret page in Thursday's assignment?
-* Have you tried to implement any authorization in your RailsMini project? If so, how?
+* Any initial reflections on your auth exploration to share about what you've already learned about authorization?
 * Any thoughts on how we might use namespacing to help us organize our authorization strategy?
 
 ## Repo
 
-Continue working in your Jukebox application, or clone down the most recent version. A sample repo can be found [here]https://github.com/turingschool-projects/jukebox_1806.
+Continue working in your code-along application, or clone down the most recent version. A sample repo can be found [here]https://github.com/turingschool-examples/bad_tracks_1808.
 
 ## Code Along
 
@@ -33,15 +32,10 @@ Let's create a test for the admin functionality we want to create.
 
 Our client has asked for categories (solo act, bands, etc) in this application, and only an admin should be able to access the categories index.
 
-We'll need to create a new test file in the `spec/features` folder.
-
-```bash
-$ touch spec/features/admin_sees_categories_index_spec.rb
-```
-
 Let's write our test.
 
 ```ruby
+# spec/features/admin_sees_categories_index_spec.rb
 require "rails_helper"
 
 describe "User visits categories index page" do
