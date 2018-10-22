@@ -22,7 +22,7 @@ Available [here](../slides/authorization)
 
 ## Repo
 
-Continue working in your code-along application, or clone down the most recent version. A sample repo can be found [here]https://github.com/turingschool-examples/bad_tracks_1808.
+Continue working in your code-along application, or clone down the most recent version. A sample repo can be found [here](https://github.com/turingschool-examples/bad_tracks_1808).
 
 ## Code Along
 
