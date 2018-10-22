@@ -62,4 +62,4 @@ them into Iterations in their own files. Your project *must* implement iteration
 
 ## Evaluation Rubric
 
-Your project will be assessed using [this rubric](../project_rubric)
+Your project will be assessed using [this rubric](./rubric)
