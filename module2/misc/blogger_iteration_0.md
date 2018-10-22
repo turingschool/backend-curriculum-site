@@ -226,7 +226,7 @@ With `checkout` we create a new branch (`-b` for branch) off of the `master` bra
 
 
 #### Model Tests
-Before we dive into the deep and start changing things, let's great a test to help drive our development and keep up focused. Within `spec/models` touch `article_spec.rb`
+Before we dive into the deep and start changing things, let's create a test to help drive our development and keep us focused. Within `spec/models` touch `article_spec.rb`
 
 ```bash
 touch spec/models/article_spec.rb
