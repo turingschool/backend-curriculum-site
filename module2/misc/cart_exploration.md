@@ -7,6 +7,9 @@ title: Cart Exploration
 
 This Exploration will require that you do a lot more independent (or group) research into the topic than previous explorations.
 
+To get started, find and review some recent blog posts about "rails 5 shopping cart best practices".
+
+
 ###
 
 Using the main code-along project in Mod 2 (ie, Set List, Bad Tracks, Jukebox, etc), implement tests and code that will satisfy the following user story:
