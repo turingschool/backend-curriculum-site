@@ -14,12 +14,12 @@ layout: page
 - [How the Web Works](../lessons/how_the_web_works)
 - [Diagramming the Request Response Cycle](http://backend.turing.io/module2/lessons/diagramming_request_response_cycle)
 - [Git Shortcuts and Professionalism](http://backend.turing.io/module2/lessons/additional_github)
-- [Shopping Cart Exploration](http://backend.turing.io/module2/misc/cart_exploration)
 - [Remembering Ruby](../misc/violations)
 - [How To Write a Great README](../lessons/how_to_write_a_great_readme)
 - [Exploration: Sessions, Cookies and Flash Messages](http://backend.turing.io/module2/misc/sessions_cookies_and_flashes)
 - [Exploration: Authentication/Autorization](http://backend.turing.io/module2/misc/auth_exploration)
 - [Exploration: How the Web Works](http://backend.turing.io/module2/misc/exploration_how_the_web_works)
+- [Exploration: Shopping Cart Best Practices](http://backend.turing.io/module2/misc/cart_exploration)
 - Exploration: OWASP Top Ten Web Security (coming soon)
 
 
