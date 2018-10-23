@@ -92,7 +92,9 @@ spec/factories.rb
 spec/factories/*.rb
 ```
 
-### Example of `spec/factories/artists.rb`:
+### Example of Making an Artist
+
+`spec/factories/artists.rb`:
 
 ```ruby
 FactoryBot.define do
@@ -136,12 +138,13 @@ FactoryBot.define do
     play_count { 0 }
   end
 end
-
 ```
 
 `songs = create_list(:songs, 2)`
 or
 `songs_1, songs_2 = create_list(:song, 2)`
+
+In this case, this WON'T work for us, because Songs require that we have an artist associated with them (because of nested resources), so we need to associate these in a relationship check:
 
 
 **Relationships**  
@@ -160,6 +163,9 @@ FactoryBot.define do
   end
 end
 ```
+
+The benefit to this is that our test no longer has to `create(:artist)`, just making a song will generate an artist for us as part of creating a song!
+
 
 **Sequences**  
 
@@ -180,11 +186,14 @@ end
 ```
 
 **Alias**  
+
 Want to call your factory "admin" but use the `Artist` class? Use an alias like this. You can call create(:admin) and it will give you a Artist object.
 
 Maybe you want to be able to create a regular old artist as well as a super-artist of sorts, an `:admin`.
 
-```
+```ruby
+#spec/factories/admin_artists.rb
+
 FactoryBot.define do
   factory :admin, class: Artist do
     name "Queen"
