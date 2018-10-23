@@ -22,6 +22,7 @@ title: Module 1 Lessons
 * [Inheritance](./inheritance)
 * [Class Methods](class_methods)
 * [Enumerables III](./advanced_enumerables)
+* [Enumerables Review](./enumerables_review)
 * [Memory Allocation](./memory_allocation)
 * [Understanding the Call Stack](./stacks_methods_flow_control)
 
