@@ -41,12 +41,8 @@ class User
     @name = name
   end
 
-  def describe_yourself
-    "I'm a user! My name is #{@name}"
-  end
-
   def self.describe_yourself
-    "I'm the user class! I don't have a name."
+    "I'm the user class!"
   end
 end
 ```
@@ -55,31 +51,57 @@ end
 
 # Practical Use
 
+* Track information about instances
+* Create multiple instances at once
+
+---
+
+# Example
+
 ```ruby
-class Museum
-  def self.all
-    @@museums
+# user.rb
+class User
+  def initialize(name)
+    @name = name
   end
 
-  def self.count
-    @@museums.count
-  end
-
-  attr_reader :name
-
-  def initialize(arguments)
-    @name = arguments[:name]
-    @@museums ||= []
-    @id = @@museums.count + 1
-    @@museums << self
+  def self.create_multiple(users)
+    users.map do |user|
+      User.new(user[:name])
+    end
   end
 end
+
+# runner.rb
+users = [
+    {name: "Sal"}
+    {name: "Brian"}
+    {name: "Megan"}
+  ]
+
+User.create_multiple(users)
 ```
 
 ---
 
 # Practice
 
-* Create a Photograph class that has class methods to store the number of Photographs created.
-* Create an Artist class that has class methods to store the number of Artists created.
+* Create a House class that has a method that will return a collection of Houses when passed an array of hashes.
+
+---
+
+# Exploration
+
+* What happens if you create a class method and an instance method with the same name?
+* What happens if you call an instance method from within a class method?
+* What about a class method from within another class method?
+* How would you explain the difference between class and instance methods to someone else?
+* Can you think of a metaphor for classes that includes a description of class and instance methods?
+
+---
+
+# Wrap Up
+
+* What is the syntactic difference between class methods & instance methods?
+* Why might you use a class method instead of an instance method?
 

@@ -8,25 +8,34 @@ tags: ruby, class methods, OOP
 
 ## Learning Goals
 
-*  Explain the syntactic difference between class and instance methods
-*  Explain when a developer might use a class method
-*  Use a class method to create an instance
+* Explain the difference between class and instance methods.
+* Use a class method to create instances of that class.
+* Distinguish between class and instance methods with the same name.
 
 ## Structure
-5 min - Warm Up
-10 min - Classes as we know them
-10 min - Class vs Instance Methods
-5 min - Break
-10 min - Use of Class Methods
-10 min - Independent Practice
-5 min - Wrap Up
+
+* First Thirty
+    *  5 min - Warm Up
+    * 10 min - Share
+    * 10 min - Introduce Syntax/Discuss Uses/Think about SRP
+    *  5 min - Break
+* Second Thirty
+    * 10 min - Demo creating instances from a class method
+    * 15 min - Practice creating instances from a class method
+    *  5 min - Break
+* Third Thirty
+    * 15 min - Exploration
+    * 10 min - Share
 
 ## Vocabulary
+
 * Instance Method
 * Class Method
-* Ruby Object
 
-## Warm Up
+## Lesson
+
+### Warm Up
+
 ```ruby
 > sam = User.new("Sam")
 # => #<User:0x007f94e3ab6218 @name="Sam">
@@ -37,148 +46,68 @@ tags: ruby, class methods, OOP
 * What do we call the method `#say_hello` on? What do we call the method `::new` on?
 * In the method list in the Ruby docs page for Array, what is the difference between methods with a `#` prefix and those with a `::` prefix?
 
-## Classes as we Know Them
+### Discussion
 
-**Turn & Talk**
-Turn to a partner and define what a class is. Explain how you use one and why. Try to incorporate as much of the technical language as you can.
+Up to this point we have primarily used classes as factories for instances of that class. We define methods in our class, we store some state in our instance variables, we call `.new`, and then we can use them. In Ruby, classes are also objects themselves. We can call methods on classes the same way that we call methods on instances of that class (think about `.new`), the difference is how we define those methods.
 
-#### Uses for Classes
-* Factories for instances of a thing
-* Hold blueprints.
-    * Instance Variables (State)
-    * Methods (Behavior)
+#### Syntax & Uses
 
-#### Classes are Objects Too
-Imagine you are building out a collection of users of your program.
+In order to define a class method, we prepend the method name with `self.`. So, for example, if we wanted to define a method called `say_hello` as a class method, we could do something like the following:
 
-```
-# user.rb
-
+```ruby
 class User
-
+  def self.say_hello
+    puts "Hello!"
+  end
 end
-
-
-# pry
-require "./user"
-
-User
-=> User
-
-User.object_id
-=> 70334065129900
-
-users = User
-=> User
-
-users.object_id
-=> 70334065129900
-
-tanya = User.new
-tanya.object_id
-=> 70334063539260
 ```
 
-## Class Methods
-Okay, so classes are objects too. But what does this mean in practice? How do you use a Class object?
+Then, in order to call that method we could use `User.say_hello`. Note that we don't have to create an instance of this class to do this.
 
-### Class Methods vs Instance Methods
+Why would we do this? There are a number of pieces of functionality that we might want to ascribe to a Class over a specific instance of a class. We could use the class to track information about all instances of a class, or make it so that a class is in charge of creating instances of itself in those cases where creation is not as straightforward as calling `new` and passing some variables.
+
+### Demo
+
+For example, let's say that we wanted to create not just one instance of a User, but a collection of Users. We could certainly iterate over a collection of attributes and create a new instance of an object each time, but who's responsibility is it to do that work? We could do it in a runner file or in a class that was specifically responsible for setting up this collection of objects, *or* now that we have the syntax for a class method, we could assign that responsibility to the class itself and then return a collection of User objects.
+
 ```ruby
 # user.rb
-
 class User
-
-  def self.description
-    "I'm the User class! I don't have a name."
-  end
-
-  def self.print_self
-    puts self
-  end
-
   def initialize(name)
     @name = name
   end
 
-  def description
-    "I'm a User! My name is #{@name}"
+  def self.create_multiple(users)
+    users.map do |user|
+      User.new(user[:name])
+    end
   end
-
-  def print_self
-    puts self
-  end
-
 end
 
-# pry
-reqiure "./user.rb"
+# runner.rb
+users = [
+    {name: "Sal"}
+    {name: "Brian"}
+    {name: "Megan"}
+  ]
 
-User.description
-=> "I'm the User class! I don't have a name."
-
-tanya = User.new("Tanya")
-tanya.description
-=> "I'm a User! My name is #{@name}"
+User.create_multiple(users)
 ```
 
-** break **
+### Practice
 
-**Turn & Talk**
-How do you define a class method? How do you call a class method?
+With your neighbor, see if you can create a House class that will return a collection of Houses when passed an array of hashes.
 
-### Use of Class Methods
-What if we are getting user data from disparate sources. Maybe some users are being ported in though a CSV of user data, others are coming in as JSON (think hash format), others are being created by signing up from an account and therefore our program is creating users directly.
+### Exploration
 
-
-```ruby
-# user.rb
-
-class User
-
-  def self.load_from_hash(user_info)
-  	name = user_info["name"]
-  	email = user_info["email"]
-  	address = user_info["address"]
-	  User.new(name, email, address)
-  end
-
-  def self.load_from_csv(user_info)
-  	name = user_info[:name]
-  	email = user_info[:email]
-  	address = user_info[:address]
-	  User.new(name, email, address)
-  end
-
-  def initialize(name, email, address)
-    @name = name
-    @email = email
-    @address = address
-  end
-
-end
-
-# pry
-reqiure "./user.rb"
-
-users = []
-
-users << User.load_from_hash({"name" => "Ariana", "email" => "ariana@email.com", "address" => "1874 Market St, Denver CO 80203"})
-
-CSV.foreach('./users.csv', headers: true, header_converters: :symbol) do |row|
-   users << User.load_from_csv(row)
-end
-
-users << User.new("Tanya","tanya@email.com", "8293 Colorado Blvd, Denver, CO 89374")
-
-puts users
-
-```
-
-### Independent Practice
-Suppose you are collecting Jokes for a joke telling application. Create a Joke class so that you can load information via .new, .from_hash, & .from_csv. Expect jokes to have an id, a question, and an answer as their state.
-
+* What happens if you create a class method and an instance method with the same name?
+* What happens if you call an instance method from within a class method?
+* What about a class method from within another class method?
+* How would you explain the difference between class and instance methods to someone else?
+* Can you think of a metaphor for classes that includes a description of class and instance methods?
 
 ## Wrap Up
+
 * What is the syntactic difference between class methods & instance methods?
 * Why might you use a class method instead of an instance method?
 
@@ -187,3 +116,4 @@ Suppose you are collecting Jokes for a joke telling application. Create a Joke c
 
 [Class Methods Review w/ Launch School](https://launchschool.com/books/oo_ruby/read/classes_and_objects_part2)
 [Dig Deeper On Class Methods w/ ThoughtBot](https://robots.thoughtbot.com/meditations-on-a-class-method)
+
