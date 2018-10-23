@@ -210,6 +210,7 @@ use `{Time.now}` instead of `"2015-03-05 11:14:47 -0700"`
 
 ### Additional Resources
 
+- [FactoryBot Getting Started Guide](https://www.rubydoc.info/gems/factory_bot/file/GETTING_STARTED.md)
 - Work through this [playlist](https://www.youtube.com/playlist?list=PLf6E_SWaTZjH9V9-eeqH5oAXL-q7GcBm9) of tutorials alongside this clone [repository](https://github.com/turingschool-examples/factory_girl_intro).
   * **TIP**: Try increasing the speed of the videos once you get the hang of FactoryBot (settings in the gear button on the YouTube video frame).
 
