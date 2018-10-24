@@ -129,4 +129,4 @@ Evaluation will take place Wednesday afternoon of week 6. Each team will meet wi
 * Show application is using continuous integration
 * Talk about lessons learned
 
-Teams - it's your responsibility to keep an ensure you are on track to meet expectations of the rubric, which can be found here.
+Teams - it's your responsibility to keep an ensure you are on track to meet expectations of the rubric, which can be found [here](./cross_pollination_rubric).
