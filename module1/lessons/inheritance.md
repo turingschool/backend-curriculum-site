@@ -13,8 +13,8 @@ tags: ruby, inheritance
 
 ## Vocabulary
 * Inheritance
-* Parent
-* Child
+* Parent/Superclass
+* Child/Subclass
 
 ## Slides
 
@@ -22,7 +22,6 @@ Available [here](../slides/inheritance)
 
 ## Warmup
 
-* What have you done up to this point when you noticed duplication in your code?
 * What do you think of when you hear the word inheritance?
 * Create a new test file for a `Node` class with a single test to see if the class `Node` exists.
 * Where do you think we get the ability to call the method `assert_equal` or `assert_instance_of`, etc?
@@ -115,7 +114,25 @@ With a partner:
 
 When called inside a method, the keyword `super` calls the method from the superclass with the same name. For instance if you call super in the `initialize` method, it will call the superclass's `initialize` method.
 
-Let's say we don't want every `Ceo` to have the same title, so we will pass it in to the initialize as an argument:
+Let's say we want every `Employee` to have a name and an id.  First, we need to update our `Employee` superclass to take name and id on instantiation:
+
+```ruby
+#employee.rb
+class Employee
+  attr_reader :name, :id
+
+  def initialize(name, id)
+    @name = name
+    @id = id
+  end
+
+  def total_compensation
+    base_salary + bonus
+  end
+end  
+```
+
+Now, we can update our `Ceo` to take name and id as well. Rather than recreating the instance variable setup in the `Ceo`'s initialize, we can use `super` to fetch the additional setup we want from the `Employee` superclass:
 
 ```ruby
 #ceo.rb
