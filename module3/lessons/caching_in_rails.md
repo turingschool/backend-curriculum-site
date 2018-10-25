@@ -1,26 +1,12 @@
 ---
 layout: page
 title: Intro to Caching in Rails
-length: 180
+length: 120
 tags: rails, caching, performance
 ---
 
 
-## Structure
-
-* 25 mins -- Start Discussion: What is Caching?
-* 5 mins -- break
-* 15 mins -- finish Discussion and IRB demo
-* 10 mins -- Start Caching workshop
-* 5 mins -- break
-* 25 mins -- Workshop
-* 5 mins -- break
-* 25 mins -- Workshop, cont.
-* 5 mins -- break
-* 25 mins -- Workshop, cont.
-* 5 mins -- break
-* 25 mins -- Finish workshop and wrap-up
-
+This lesson plan last updated to work with Rails 5.1.2 and Ruby 2.4.1
 
 ## Learning Goals
 
@@ -145,10 +131,10 @@ For this exercise we'll use the storedom repo. Get set up with it via the
 ever-familiar process:
 
 ```
-git clone https://github.com/turingschool-examples/storedom caching_strategies
+git clone https://github.com/turingschool-examples/storedom-5 caching_strategies
 cd caching_strategies
 bundle
-rake db:drop db:setup
+bundle exec rake db:{drop,setup}
 ```
 
 __Demo -- looking for performance bottlenecks__
@@ -161,13 +147,44 @@ Looks like we got some issues in the `Items#index` action. Let's cache it
 
 (by default rails turns off caching in development, so let's turn that on)
 
-In `config/environments/development.rb`, update the setting `config.action_controller.perform_caching` to:
+In `config/environments/development.rb`:
 
+Change this:
 ```ruby
-  config.action_controller.perform_caching = true
+  if Rails.root.join('tmp/caching-dev.txt').exist?
+    config.action_controller.perform_caching = true
+
+    config.cache_store = :memory_store
+    config.public_file_server.headers = {
+      'Cache-Control' => "public, max-age=#{2.days.seconds.to_i}"
+    }
+  else
+    config.action_controller.perform_caching = false
+
+    config.cache_store = :null_store
+  end
+
 ```
 
+to:
+
+```ruby
+    config.action_controller.perform_caching = true
+
+    config.cache_store = :memory_store
+    config.public_file_server.headers = {
+      'Cache-Control' => "public, max-age=#{2.days.seconds.to_i}"
+    }
+
+```
+
+What does `'Cache-Control' => "public, max-age=#{2.days.seconds.to_i}"` do?
+
+
 (Don't forget to restart your server after making this change)
+
+Why do you need to restart your server?
+
 
 ### Step 2 -- cache those items
 
@@ -327,61 +344,11 @@ Apply the same techniques we just used on Items#index to Orders#index
   see fewer SQL queries and probably also a small improvement in response time.
 
 
-### Step 5 -- Cache Invalidation
-
-_Demo_ - Observe as I demonstrate the flaws in our current setup by making items
-
-We're caching the markup for displaying all of our items, but what happens
-when a new item is created?
-
-At the moment...nothing. The cached data is still
-valid as far as the cache is concerned, so it continues to display it even though
-it's now inaccurate.
-
-What we need is a mechanism to invalidate the cached markup when the underlying data
-(in the database) changes. One easy place to do this would be in model callbacks.
-
-Consider the times when our overall collection of Items might change:
-
-* An item is created
-* An item is saved
-* An item is destroyed
-
-Let's practice using them in our Item callbacks to expire the related fragments.
-
-In `app/models/item.rb`:
-
-```ruby
-  after_create :clear_cache
-  after_save :clear_cache
-  after_destroy :clear_cache
-
-  def clear_cache
-    Rails.cache.clear
-  end
-```
-
-Reload console code, create an item, load the items index, and you should see that the count and items
-list are both updated to reflect the new item.
-
-## Your Turn -- Order Cache Invalidation
-
-Create a new order, reload the Orders#index, and see if your markup updates (it should not).
-
-Apply the same techniques we used with Items to the Order model. Add `after_create`, `after_save`, and `after_destroy`
-callbacks to clear the cache.
-
-Once you're done, verify that loading the Orders#index after creating, updating, or destroying a new order
-updates the markup appropriately.
 
 ### Step 6 -- Cache Invalidation: A Better Way
 
-__Discussion__ - Can you think of any problems with our current approach to invalidating the cache?
 
-__Solutions__: It would actually be cleaner if we could have the cache somehow update itself based
-on the underlying data.
-
-To do this, we'll actually want to look at another caching mechanism -- using an explicit cache key.
+We'll actually want to look at another caching mechanism -- using an explicit cache key.
 Using an explicit key requires a bit more forethought, but it gives us more control over the expiry
 conditions.
 
