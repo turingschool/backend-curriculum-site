@@ -17,7 +17,7 @@ Complete this [exercise](https://gist.github.com/case-eee/6a5b06bf88c3fa82d9498c
 
 ## 2. Number Guesser
 
-Complete phases 1-3 of [Number Guesser](./number_guesser.md). You _can_ use jQuery for this.
+Complete phases 1-3 of [Number Guesser](./number_guesser.md). You _can_ use jQuery for this. The project spec provides a layout comp - we advise you do _some_ work to make your app resemble the app, but the bulk of your time should be spent on learning to manipulate the DOM with JavaScript.
 
 On a branch called `annotated`, annotate every line of JavaScript (either below/above the line in a comment) to explain what the code is doing. Include any explanation as to why you used ES5 vs. ES6 functions, var vs. let vs. const, etc.
 
