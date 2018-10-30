@@ -5,59 +5,20 @@ title: Mocks and Stubs
 
 ## Learning Goals
 
-*   Understand what stubbing is, how to stub in Ruby with Minitest, when to use it
-*   Understand what mocking is, how to mock in Ruby with Minitest, and when to use it
-*   What’s the difference between behavior and state testing
+* Understand what mocking and stubbing is and why we would use it.
 
 ## Vocabulary
-* Mock Object
+* Mock
 * Stub
-* Test Optimization
-
-## Slides
-
-Available [here](../slides/mocks_stubs)
 
 ## Warmup
 
-* Why do we write tests?
-* In Black Thursday, how many of your tests are loading CSV data?
+* In Black Thursday, how many of your tests are loading CSV data? How many tests rely on other classes?
 * Have you attempted to adjust those tests/your code to not rely on CSV data? Had any luck?
 
-### Mocks
+## Paired Exercise
 
-Mocks are objects that stand in for other objects. The other object might be one that's not implemented yet, doesn't yet have the functionality we need, or maybe we just want to work with a simpler situation.
-
-```ruby
-my_mock = mock("paint")
-```
-
-### Stubs
-
-A stub is a fake method added to or overriding an existing method on an object. It can exist as a method on an existing mock, or be created on its own as an object that will return a value that you provide when a specific method that you identify is called.
-
-```ruby
-my_stub = stub(color: "Alizarin Crimson")
-my_mock = mock("paint")
-my_mock.stubs(:color).returns("Van Dyke Brown")
-```
-
-### Mock Expectations
-
-Mocks can do more than just stand there. They can also verify tht they have been called:
-
-```ruby
-my_mock = mock("paint")
-my_mock.expects(:color).returns("Van Dyke Brown")
-```
-
-### Paired Exercise
-
-We're going to be creating a `Bob` class that can store a collection of instances of a `Paint` class (in a bit of an homage to [Bob Ross](https://en.wikipedia.org/wiki/Bob_Ross)).
-
-We want to explore and push on this idea of using mocks and stubs in place of live objects.
-
-#### Getting Started
+### Setup
 
 To get access to methods that create mocks and stubs, we'll need to install and require `mocha`.
 
@@ -65,30 +26,32 @@ To get access to methods that create mocks and stubs, we'll need to install and 
 gem install mocha
 ```
 
-Once that's set, create a `bob_ross` directory with `lib` and `test` sub-directories. Create a `bob_test.rb` file in your `test` directory.
-
-#### Testing for Bob
-
-Let's start by adding a test for Bob. Inside of our `bob_test.rb` file, add the following code.
+Once that's set, create a `bob_ross` directory with `lib` and `test` sub-directories. Create a `bob_test.rb` file in your `test` directory with the following code:
 
 ```ruby
 require 'minitest/autorun'
 require 'minitest/pride'
+require 'mocha/minitest'
 require './lib/bob'
 
 class BobTest < Minitest::Test
   def test_it_exists
     bob = Bob.new
-
     assert_instance_of Bob, bob
+  end
+
+  def test_it_starts_with_no_paints
+    bob = Bob.new
     assert_equal [], bob.paints
   end
 end
 ```
 
-Work with your partner to make that test pass.
+Note that we have required `mocha/minitest` at the top of the file.
 
-#### Testing that Bob Can Add Paints
+**Pair Work:** Work with your partner to make the first tests pass. **You should not create a Paint class at any point during this lesson**.
+
+### Mocks
 
 Let's imagine we wanted to test `Bob`'s `paints` method to see that it returns a collection of `Paint` instances. We might write a test like the following.
 
@@ -105,64 +68,37 @@ def test_it_can_have_paint
 end
 ```
 
-Go ahead and write that test. Run it. *Don't create a Paint class at this time!*
+**Turn and Talk:** What would we have to do to make this test pass?
 
-* What happens?
-* Why?
-* What would you need to do to make this test pass?
+In this particular example, we could go work to make the Paint class to move this test forward. That wouldn't be too bad because this example is pretty short. Imagine if the Paint class needed to hit an API in order to retrieve its color. Then we would have to implement all of that functionality before we could move forward with the Bob class. We might have a case where our teammate is already working on the Paint class and we don't want to duplicate work. We may also want to isolate this test from that particular interaction so that if a test breaks it is easier to identify what exactly has broken.
 
-#### A First Mock
+Mocks are objects that stand in for other objects. The other object might be one that's not implemented yet, doesn't yet have the functionality we need, or maybe we just want to work with a simpler situation. You can think of a mock as fake or a dummy object.
 
-In this particular example, we could go work to make the Paint class to move this test forward. That wouldn't be too bad. However, we might have a case where our teammate is already working on that class and we don't want to duplicate work. We may also want to isolate this test from that particular interaction so that if a test breaks it is easier to identify what exactly has broken.
-
-Instead of moving to build out the paint class, we're going to use a mock.
-
-Remember, a mock is a simple object that stands in for another object. At the base level, a mock is just a "thing" -- a blank canvas that we can use for just about anything. You create a mock like this:
+In the test above, we would have to create a Paint class in order to make this test pass. Instead, we are going to use a Mock object to stand in for a Paint object.
 
 ```ruby
-my_thing = mock('name')
+paint_1 = mock("paint")
 ```
 
-Looks weird, right? Read this code carefully and figure out:
-
-* what is `mock`, from a Ruby perspective? (like an "object", "integer", what?)
-* what type thing is `'name'`?
-
-Let's try to put it to use. Add the following line under your existing require statements in your test:
+The argument to the `mock` method is an identifier. You can leave it out:
 
 ```ruby
-require 'mocha/minitest'
+paint_2 = mock
 ```
 
-Replace the existing lines creating instances of Paint within our `test_it_can_have_paint` method with the following:
+Remember, a mock is a simple object that stands in for another object. At the base level, a mock is just a "thing" -- a blank canvas that we can use for just about anything.
 
-```ruby
-paint_1 = mock('paint')
-paint_2 = mock('paint')
-binding.pry
-```
+**Pair Work:** Update this test so that it uses Mocks instead of Paints. Make the test pass.
 
-Run your test and pry should pause things. Identify the class of `paint_1` and `paint_2` is. Find the documentation for this class on the web to get an idea of what's possible. Query the `paint_1` object to find out what methods it has. Exit pry.
+### Stubs
 
-Remove the `binding.pry`, run the test, and it still fails.
-
-Add the functionality needed to `Bob` to make it work!
-
-Now that your tests are passing, notice how the mocks allowed you to build out the `Bob` functionality without actually implementing a `Paint` class.
-
-#### Returning Colors
-
-Imagine we want to test a `paint_colors` method that returns an array of colors as strings.
-
-Also imagine our future `Paint` class will be initialized with a parameter of `color` that will be returned to us by a `color` method on it.
-
-A test for this functionality might look something like this:
+Let's add another test:
 
 ```ruby
 def test_it_can_return_colors
   bob = Bob.new
-  paint_1 = Paint.new("Alizarin Crimson")
-  paint_2 = Paint.new("Van Dyke Brown")
+  paint_1 = mock("paint 1")
+  paint_2 = mock("paint 2")
   bob.add_paint(paint_1)
   bob.add_paint(paint_2)
 
@@ -170,38 +106,21 @@ def test_it_can_return_colors
 end
 ```
 
-Run this test to see what happens.
-
-Again, we're focusing on tests for `Bob`, so we shouldn't get sidetracked by the `Paint` class requirements.
-
-Try to implement a mock as we did above. You should be able to start building out the method `paint_colors`. What happens?
-
-#### A First Stub
-
-Here we need something slightly smarter than our original mock. We need some sort of object that can respond to a method call. We're going to start with a stub.
-
-Replace your test of `paint_colors` with the following.
+A stub is a fake method. It can be added to an object that doesn't have that method, or it can override an existing method. We can add a stub to a mock so our fake object will now have a fake method:
 
 ```ruby
-def test_it_can_return_colors
-  bob = Bob.new
-  paint_1 = stub(color: "Alizarin Crimson")
-  paint_2 = stub(color: "Van Dyke Brown")
-
-  bob.add_paint(paint_1)
-  bob.add_paint(paint_2)
-
-  assert_equal ["Alizarin Crimson", "Van Dyke Brown"], bob.paint_colors
-end
+paint_1 = mock
+paint_1.stubs(:color).returns("Van Dyke Brown")
 ```
 
-Now, run your test. If you haven't yet made a `paint_colors` method that works, go ahead and finish it now.
+Now, whenever we call `paint_1.color` it will return `"Van Dyke Brown"`.
 
-#### Doing Terrible Things
 
-That's great. We can test our Bob class without creating a Paint class, and we can even have imagined methods on Paint. But what if we implemented some code that didn't actually do what we wanted?
+**Pair Work:** Update this test so that it stubs out the color method for the Mock objects. Make the test pass.
 
-Replace your existin `paint_colors` method with the following:
+### Mock Expectations
+
+Replace your existing `paint_colors` method with the following:
 
 ```ruby
 def paint_colors
@@ -211,59 +130,31 @@ end
 
 Run your test. What happens?
 
-#### Adding Expectations to Our Mocks
-
-We want to make sure that our implementation of `paint_colors` actually uses our Paint object. How can we do this? By adding expectations to our Mock.
-
-When you look at the mocha documentation you'll find that a mock has methods we can call on it.
-
-* `.expects` defines a method that can be called on the mock
-* `.returns` defines the value that the expected method should return
-
-Putting that together we can do the following within `BobTest`:
+Mocks can do more than just stand there. They can also verify that they have been called:
 
 ```ruby
-def test_it_can_return_colors
-  bob = Bob.new
-  paint_1 = mock("paint")
-  paint_1.expects(:color).returns("Alizarin Crimson")
-  paint_2 = mock("paint")
-  paint_2.expects(:color).returns("Van Dyke Brown")
-  require 'pry'; binding.pry
-
-  bob.add_paint(paint_1)
-  bob.add_paint(paint_2)
-
-  assert_equal ["Alizarin Crimson", "Van Dyke Brown"], bob.paint_colors
-end
+paint_1 = mock
+paint_1.expects(:color).returns("Van Dyke Brown")
 ```
 
-Once you're in pry, try calling the `color` method on `paint_1`. Does it work? Call it again? Does it work?
+Run your tests and you will notice they now fail. Read the failure carefully.
 
-Run your test again. What happens? A failure? Great!
+Change your `paint_colors` method to pass the test.
 
-Read the error. What is happening? Why is this test failing?
-
-Now change your existing method back so that it uses the `color` method that we expect to be implemented on Paint.
-
-Run the test again. What happens? A pass? Great!
-
-That's how mocks work. You create a mock to stand in for other objects and can add some simple capabilities to get you the functionality you need.
-
-#### A Second Stub
-
-You can also create stubs on existing mock objects.
-
-Let's create another test for `Bob` that checks how much paint he has left with a `paint_amount` method.
-
-Let's set up our `Paint` instances with an `amount` method that returns something numeric.
+**Pair Work:** Add the following test. Update it to use mocks and stubs so that you can make it pass without creating the Paint class. Then make the test pass:
 
 ```ruby
-paint_1.stubs(:amount).returns(22)
-paint_2.stubs(:amount).returns(40)
-```
+  def test_it_can_total_paint_amount
+    bob = Bob.new
+    paint_1 = Paint.new("Alizarin Crimson", 42)
+    paint_2 = Paint.new("Van Dyke Brown", 25)
 
-With these in place, let's leverage our advanced enum knowledge to get this test to pass with a total `paint_amount` of 62.
+    bob.add_paint(paint_1)
+    bob.add_paint(paint_2)
+
+    assert_equal 67, bob.total_paint_amount
+  end
+```
 
 ### Check for Understanding
 
