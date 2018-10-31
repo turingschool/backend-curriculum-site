@@ -38,6 +38,7 @@ title: Module 4 Lessons
 * [Technical Challenges](./link_will_come_later)
 * [Dream Job Interview Prep](./link_will_come_later)
 * [Big-O Notation](./)
+* [Wheel of Jeopardy](./jeopardy)
 
 ## Other
 
