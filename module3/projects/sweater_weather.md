@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Sweater Weather
+title: Sweater Weather Project Spec
 length: 1 week
 tags:
 type: project
@@ -16,11 +16,11 @@ Content-Type: application/json
 Accept: application/json
 ```
 
-*Response:*
+**Response:**
 
 There is room for personal preference for this response body. Use the mock ups to see what data is required on the front end to decide what you would like to include in your response. If you'd like more of a challenge, you might consider using [Fast JSON API](https://github.com/Netflix/fast_jsonapi) and consider trying to stick to the [JSON 1.0 spec](https://jsonapi.org/).
 
-*Requirements:*
+**Requirements:**
 
 - Needs to pull out the city and state from the GET request and send it to Google's Geocoding API to retrieve the lat and long for the city (this can be it's own story)
 - Retrieve forecast data from the Darksky API using the lat and long
@@ -35,17 +35,17 @@ Content-Type: application/json
 Accept: application/json
 ```
 
-*Response:*
+**Response:**
 
 Room for personal preference on how you structure this response.
 
-*Requirements:*
+**Requirements:**
 
 - Returns a random image from a collection of images.
 - The collection of images must be limited to the city being viewed.
 - Must use an external API to retrieve these images.
 
-*Possibilities:*
+**Possibilities:**
 
 - Use Flickr:
   - [search](https://www.flickr.com/services/api/flickr.photos.search.html)
@@ -70,7 +70,7 @@ Accept: application/json
   "password_confirmation": "password"
 }
 ```
-*Response:*
+**Response:**
 
 ```
 status: 201
@@ -96,7 +96,7 @@ Accept: application/json
 }
 ```
 
-*Response:*
+**Response:**
 
 ```
 status: 200
@@ -108,3 +108,102 @@ body:
 ```
 
 ![Login Mockup](./images/sweater_weather/login.png)
+
+### 5. Favoriting Locations
+
+```
+POST /api/v1/favorites
+Content-Type: application/json
+Accept: application/json
+
+body:
+
+{
+  "location": "Denver, CO", # If you decide to store cities in your database you can send an id if you prefer
+  "api_key": "jgn983hy48thw9begh98h4539h4"
+}
+```
+
+**Requirements:**
+
+- API key must be sent
+- If no API key or an incorrect key is provided return 401 (Unauthorized)
+
+### 6. Listing Favorite Locations
+
+```
+GET /api/v1/favorites
+Content-Type: application/json
+Accept: application/json
+
+body:
+
+{
+  "api_key": "jgn983hy48thw9begh98h4539h4"
+}
+```
+
+**Requirements:**
+
+- API key must be sent
+- If no API key or an incorrect key is provided return 401 (Unauthorized)
+
+**Response:**
+
+```
+status: 200
+body:
+[
+  {
+    "location": "Denver, CO",
+    "current_weather": {
+      # This can vary but try to keep it consistent with the
+      # structure of the response from the /forecast endpoint
+    },
+    "location": "Golden, CO",
+    "current_weather": {
+       {...}
+    }
+  }
+]
+```
+
+### 6. Removing Favorite Locations
+
+```
+DELETE /api/v1/favorites
+Content-Type: application/json
+Accept: application/json
+
+body:
+
+{
+  "location": "Denver, CO", # If you decide to store cities in your database you can send an id if you prefer
+  "api_key": "jgn983hy48thw9begh98h4539h4"
+}
+```
+
+**Requirements:**
+
+- API key must be sent
+- If no API key or an incorrect key is provided return 401 (Unauthorized)
+
+**Response:**
+
+```
+status: 200
+body:
+[
+  {
+    "location": "Denver, CO",
+    "current_weather": {
+      # This can vary but try to keep it consistent with the
+      # structure of the response from the /forecast endpoint
+    },
+    "location": "Golden, CO",
+    "current_weather": {
+       {...}
+    }
+  }
+]
+```
