@@ -1,67 +1,12 @@
 ---
 layout: page
 title: Sweater Weather
-length: 1 weeks
+length: 1 week
 tags:
 type: project
 ---
 
-
-### Account Creation
-
-![Sign Up Mockup](./images/sweater_weather/sign_up.png)
-
-```
-POST /api/v1/users
-Content-Type: application/json
-Accept: application/json
-
-{
-  "email": "whatever@example.com",
-  "password": "password"
-  "password_confirmation": "password"
-}
-```
-*Response:*
-
-```
-status: 201
-body:
-
-{
-  "api_key": "jgn983hy48thw9begh98h4539h4",
-}
-```
-
-### Login
-
-![Login Mockup](./images/sweater_weather/login.png)
-
-```
-POST /api/v1/sessions
-Content-Type: application/json
-Accept: application/json
-
-{
-  "email": "whatever@example.com",
-  "password": "password"
-}
-```
-
-*Response:*
-
-```
-status: 200
-body:
-
-{
-  "api_key": "jgn983hy48thw9begh98h4539h4",
-}
-```
-
-### Weather for a City
-
-![Root Page](./images/sweater_weather/root.png)
+### 1. Weather for a City
 
 The functionality for this page should be split into multiple user stories.
 
@@ -80,7 +25,9 @@ There is room for personal preference for this response body. Use the mock ups t
 - Needs to pull out the city and state from the GET request and send it to Google's Geocoding API to retrieve the lat and long for the city (this can be it's own story)
 - Retrieve forecast data from the Darksky API using the lat and long
 
-### Retrieve Background Image Based on Location
+![Root Page](./images/sweater_weather/root.png)
+
+### 2. Retrieve Background Image Based on Location
 
 ```
 GET /api/v1/backgrounds?location=denver,co
@@ -108,3 +55,56 @@ Room for personal preference on how you structure this response.
     - Probably not necessary to hit this endpoint but wanted to include it in case you needed more info for a specific photo. Check out the documentation for `extras` in the API call above.
 - Stretch goal:
   - Write a rake task that caches photos for the 50 largest U.S. cities to improve page load times (this should be a separate user story)
+
+
+### 3. Account Creation
+
+```
+POST /api/v1/users
+Content-Type: application/json
+Accept: application/json
+
+{
+  "email": "whatever@example.com",
+  "password": "password"
+  "password_confirmation": "password"
+}
+```
+*Response:*
+
+```
+status: 201
+body:
+
+{
+  "api_key": "jgn983hy48thw9begh98h4539h4",
+}
+```
+
+![Sign Up Mockup](./images/sweater_weather/sign_up.png)
+
+### 4. Login
+
+```
+POST /api/v1/sessions
+Content-Type: application/json
+Accept: application/json
+
+{
+  "email": "whatever@example.com",
+  "password": "password"
+}
+```
+
+*Response:*
+
+```
+status: 200
+body:
+
+{
+  "api_key": "jgn983hy48thw9begh98h4539h4",
+}
+```
+
+![Login Mockup](./images/sweater_weather/login.png)
