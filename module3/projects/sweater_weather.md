@@ -9,6 +9,7 @@ type: project
 
 ### Account Creation
 
+```
 POST /api/v1/users
 Content-Type: application/json
 Accept: application/json
@@ -18,19 +19,21 @@ Accept: application/json
   "password": "password"
   "password_confirmation": "password"
 }
-
+```
 *Response:*
 
+```
 status: 201
 body:
 
 {
   "api_key": "jgn983hy48thw9begh98h4539h4",
 }
-
+```
 
 ### Login
 
+```
 POST /api/v1/sessions
 Content-Type: application/json
 Accept: application/json
@@ -39,23 +42,28 @@ Accept: application/json
   "email": "whatever@example.com",
   "password": "password"
 }
+```
 
 *Response:*
 
+```
 status: 200
 body:
 
 {
   "api_key": "jgn983hy48thw9begh98h4539h4",
 }
+```
 
 ### Weather for a City
 
 The functionality for this page should be split into multiple user stories.
 
+```
 GET /api/v1/forecast?location=denver,co
 Content-Type: application/json
 Accept: application/json
+```
 
 *Response:*
 
@@ -68,9 +76,11 @@ There is room for personal preference for this response body. Use the mock ups t
 
 ### Retrieve Background Image Based on Location
 
+```
 GET /api/v1/backgrounds?location=denver,co
 Content-Type: application/json
 Accept: application/json
+```
 
 *Response:*
 
