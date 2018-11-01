@@ -307,7 +307,7 @@ puts "New value of @filling is #{taco_1.filling.inspect}"
 <br />
 <br />
 
-Run this code and you will see that changing `taco_1.filling` changed `spicy_sausage`. This can be a very intimidating concept at first, but it is very important. These variable names are ways of referencing Objects that live in memory. You can have many different variable names that reference the same Object. When we change an Object, all the variables that point to it will see the change.
+Run this code and you will see that changing `taco_1.filling.name` changed `spicy_sausage.name`. This can be a very intimidating concept at first, but it is very important. These variable names are ways of referencing Objects that live in memory. You can have many different variable names that reference the same Object. When we change an Object, all the variables that point to it will see the change.
 
 In your Sheet, update cell C3 with the new value for `spicy_sausage` AND `@filling`. Your sheet should look like this:
 
