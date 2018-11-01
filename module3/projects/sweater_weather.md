@@ -9,7 +9,7 @@ type: project
 
 ### Account Creation
 
-[Sign Up Mockup]: ./images/sweater_weather/sign_up.png
+![Sign Up Mockup](./images/sweater_weather/sign_up.png)
 
 ```
 POST /api/v1/users
@@ -35,7 +35,7 @@ body:
 
 ### Login
 
-[Login Mockup]: ./images/sweater_weather/login.png
+![Login Mockup](./images/sweater_weather/login.png)
 
 ```
 POST /api/v1/sessions
@@ -61,7 +61,7 @@ body:
 
 ### Weather for a City
 
-[Root Page]: ./images/sweater_weather/root.png
+![Root Page](./images/sweater_weather/root.png)
 
 The functionality for this page should be split into multiple user stories.
 
