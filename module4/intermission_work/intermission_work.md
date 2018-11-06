@@ -9,13 +9,19 @@ To prepare for Module 4, please complete & submit the following before 12 noon S
 
 1806 - Submit all links [here](https://goo.gl/forms/3cD42fuJC7Ar4XQ62).
 
-## 1. Reflection on Learning Experiences
+## 1. Cover Letter
+
+Complete a cover letter for a real position (no, you cannot make one up), tailored accordingly. The letter should be formatted professionally and look just as a good as one you would submit for a dream job.
+
+Note - you will be required to submit the link for the job posting.
+
+## 2. Reflection on Learning Experiences
 
 Complete this [exercise](https://gist.github.com/case-eee/6a5b06bf88c3fa82d9498c6763314ae4) to reflect on your learning experience thus far here at Turing.
 
 **Submit: Link to gist.**
 
-## 2. Number Guesser
+## 3. Number Guesser
 
 Complete phases 1-3 of [Number Guesser](./number_guesser.md). You _can_ use jQuery for this. The project spec provides a layout comp - we advise you do _some_ work to make your app resemble the app, but the bulk of your time should be spent on learning to manipulate the DOM with JavaScript.
 
@@ -23,7 +29,7 @@ On a branch called `annotated`, annotate every line of JavaScript (either below/
 
 **Submit: Link to Number Guesser Repo AND GitHub Pages deployment link. Make sure this includes the `annotated` branch.**
 
-## 3. JavaScript without a Browser
+## 4. JavaScript without a Browser
 
 While JavaScript was originally intended to be a client-side scripting language, it has since made its way server-side thanks to Node.js. We're now able to use the same language for browser-based interactions as well as server-side scripts.
 
@@ -31,7 +37,7 @@ Let's get introduced to JavaScript without a browser. Work through [this lesson]
 
 **Submit: Nothing. But you should still do it.**
 
-## 4. Sorting Suite
+## 5. Sorting Suite
 
 Complete Sorting Suite in Javascript [here](http://frontend.turing.io/projects/sorting-suite.html). Choose **one** out of the three fundamental sorting algorithms to complete. Use Node.js to run your code, and Mocha/Chai to write your tests. FE2 gets this as a project, so we'll use their project requirements, but you can ignore the rubric. You won't be graded. We just want you to get some practice testing and writing JavaScript.
 
