@@ -35,16 +35,16 @@ layout: page
 
 ## Application Basics
 
-- [Intro to REST & CRUD](../lessons/restful_routes_and_crud)
-- [Intro to MVC](../lessons/intro_to_mvc)
+- [Intro to REST & CRUD](http://backend.turing.io/module2/lessons/restful_routes_and_crud)
+- [Intro to MVC](http://backend.turing.io/module2/lessons/intro_to_mvc)
 - [REST, Controllers & Routing in Rails](http://backend.turing.io/module2/lessons/rest_routing_and_controllers_in_rails)
 - [Route Helpers in Rails](http://backend.turing.io/module2/lessons/route_helpers)
 - [Nested Resources in Rails](http://backend.turing.io/module2/lessons/nested_resources)
 - [Namespacing Routes in Rails](http://backend.turing.io/module2/lessons/namespacing)
 - [Authentication](http://backend.turing.io/module2/lessons/authentication)
 - [Authorization](http://backend.turing.io/module2/lessons/authorization)
-- [Cart & Order Lifecycle](../lessons/cart_implementation)
-- [Intro to the Asset Pipeline](../lessons/asset_pipeline)
+- [Cart & Order Lifecycle](http://backend.turing.io/module2/lessons/cart_implementation)
+- [Intro to the Asset Pipeline](http://backend.turing.io/module2/lessons/asset_pipeline)
 
 
 ## Testing
