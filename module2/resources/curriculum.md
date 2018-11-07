@@ -11,7 +11,8 @@ layout: page
 ## Explorations
 
 - [Sinatra vs. Rails Exploration](http://backend.turing.io/module2/misc/sinatra_vs_rails_exploration)
-- [How the Web Works](../lessons/how_the_web_works)
+- [How the Web Works, HTTP Request/Response](../lessons/how_the_web_works_http)
+- [How the Web Works, DNS Edition](../lessons/how_the_web_works_dns)
 - [Diagramming the Request Response Cycle](http://backend.turing.io/module2/lessons/diagramming_request_response_cycle)
 - [Git Shortcuts and Professionalism](http://backend.turing.io/module2/lessons/additional_github)
 - [Remembering Ruby](../misc/violations)
