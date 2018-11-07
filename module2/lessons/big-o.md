@@ -136,8 +136,7 @@ __break__
 
 Cover the following key points in a whole-group lecture with questions:
 
-* Big-O is how we refer to the algorithmic complexity
-* The important part of complexity is how it scales with the number of inputs
+* Big-O is how we explain how the complexity of executing an algorithm scales with the number of inputs to the algorithm
 * If we only have a dozen or few hundred inputs, complexity usually doesn't matter
 * But what about thousands or millions?
 * Draw the graph of complexity with a logarithmic Y axis
@@ -151,7 +150,9 @@ Cover the following key points in a whole-group lecture with questions:
   * But if you have N calls for N pieces of data, or 2N, or N^2, you're in trouble
   * Consider: N+1 example like that a news site that lists the top articles on the front page and does a follow up query for each article to get the number of comments
 
-With five minutes left, get into these key understandings:
+#### Key Closing Points
+
+In the last 5 minutes...
 
 * There's often more than one way to solve a problem
 * Everything in software is a collection of tradeoffs
@@ -164,8 +165,10 @@ With five minutes left, get into these key understandings:
   
 #### Exit Step
 
-_Prep:_ Seed a binary tree near the door with six random but balanced nodes
+_Prep:_ Seed a binary tree near the front with six random but balanced nodes
 
-* Grab 6 of your numbers at random and shuffle them
-* Insert them into the Binary Tree on the table near the door
-* Notice how the tree is or isn't balanced
+1. As a pair, bring your numbers to the front
+2. Each member of the pair should pull two numbers randomly from your set
+3. Put the rest in the collection pile
+4. Insert your two numbers into the binary tree on the front table while counting out loud the number of comparisons it takes you to insert the new node
+5. Discuss with your pair: why are people who are inserting nodes at basically the same time getting very different numbers of operations?
