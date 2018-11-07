@@ -20,16 +20,18 @@
 ### Prep Needs
 
 * Cut/banded number cards like 1-27
-* Post-It notes of 1-27 for instructor board demos
+* Snack trays to hold number cards
+* Post-It notes of 1-12 for instructor board demos
+* Printed copies of the algorithm break-out pages
 
-### Warm-up
+### Pre-Class & Warm-up
 
 Post on the board before class:
 
 * https://www.youtube.com/watch?v=XaqR3G_NVoo on the TV
 * Pairings for sitting / Part 1
+* Pickup instructions for number cards and trays
 * Write your answer in your notebook: why does the speed of software matter?
-* Distribute the number cards
 
 ### Part 1: Revisiting Algorithms *(20 Minutes)*
 
