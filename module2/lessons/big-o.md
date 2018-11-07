@@ -3,7 +3,6 @@
 ## Revisions & To-Dos
 
 - [ ] Set up explicit roles for co-teaching
-- [ ] Redo the pseudo-code algorithms for merge and binary sorts
 - [ ] Recap/review the plan with co-teacher
 - [ ] Come up with an intentional strategy for pairing and sitting
 - [ ] Build slides for the questions/processes
