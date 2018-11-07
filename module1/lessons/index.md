@@ -27,7 +27,7 @@ title: Module 1 Lessons
 * [Understanding the Call Stack](./stacks_methods_flow_control)
 
 ### Design
-* [Ruby Project Etiquette](./ruby_project_etiquette)
+* [Ruby Project Etiquette](./project_etiquette)
 * [Design Principles](design_principles)
 * [Problem Solving](./problems_solutions_algorithms)
 * [Programming with Values](./programming_with_values)
