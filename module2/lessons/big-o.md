@@ -1,5 +1,14 @@
 # Big-O Analysis
 
+## Revisions & To-Dos
+
+[] Set up explicit roles for co-teaching
+[] Find/link the number cards
+[] Redo the pseudo-code algorithms for merge and binary sorts
+[] Find/review the written changes from last execution of the class
+[] Recap/review the plan with co-teacher
+[] Come up with an intentional strategy for pairing and sitting
+
 ## Learning Goals
 
 * Be able to explain why we care about the algorithmic complexity of our programs on a practical level
