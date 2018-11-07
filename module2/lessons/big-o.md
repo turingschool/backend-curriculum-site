@@ -29,7 +29,7 @@ Post on the board before class:
 
 * https://www.youtube.com/watch?v=XaqR3G_NVoo on the TV
 * Pairings for sitting / Part 1
-* Pickup instructions for number cards and trays: each pair should have one tray and pick 12 random number cards
+* Pickup instructions for number cards and trays: each pair should have one tray and pick 10 random number cards
 * Write your answer in your notebook: why does the speed of software matter?
 
 ### Part 1: Revisiting Algorithms *(25 Minutes)*
