@@ -3,7 +3,6 @@
 ## Revisions & To-Dos
 
 - [ ] Set up explicit roles for co-teaching
-- [ ] Find/link the number cards
 - [ ] Redo the pseudo-code algorithms for merge and binary sorts
 - [ ] Recap/review the plan with co-teacher
 - [ ] Come up with an intentional strategy for pairing and sitting
@@ -19,7 +18,7 @@
 
 ### Prep Needs
 
-* Cut/banded number cards like 1-27
+* Cut number cards. Use [this document](https://docs.google.com/document/d/1JPCqs418QEbhbUUdqESzkilB7RcOl6CXw8gP2ncqKiU/edit?usp=sharing) with 216 random numbers for at least 10 pairs
 * Snack trays to hold number cards
 * Post-It notes of 1-12 for instructor board demos
 * Printed copies of the algorithm break-out pages
@@ -30,7 +29,7 @@ Post on the board before class:
 
 * https://www.youtube.com/watch?v=XaqR3G_NVoo on the TV
 * Pairings for sitting / Part 1
-* Pickup instructions for number cards and trays
+* Pickup instructions for number cards and trays: each pair should have one tray and pick 12 random number cards
 * Write your answer in your notebook: why does the speed of software matter?
 
 ### Part 1: Revisiting Algorithms *(25 Minutes)*
