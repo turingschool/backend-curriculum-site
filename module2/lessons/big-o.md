@@ -35,7 +35,13 @@ Post on the board before class:
 
 ### Part 1: Revisiting Algorithms *(20 Minutes)*
 
-* Recap: why speed matters -- fast software makes people happy, slow software makes people sad, happy people pay money, developers like having jobs
+#### Why Speed Matters
+
+* fast software makes people happy
+* slow software makes people sad
+* happy people pay money or pay with their attention
+* developers like having jobs
+* fast software leads allows you to have a job
 
 #### Collective Bubble-Sort Exercise
 
@@ -43,38 +49,40 @@ Together, illustrate the steps of a bubble sort on the board:
 
 * Post six random post-it numbers
 * Eval left to right
-* Maintain a current and previous
+* Maintain a CURRENT and PREVIOUS
 * Follow this algorithm:
 
 ```
-1. Start with previous at element-0, current at element-1
-2. If current is > previous
-  * Move previous = current, current = current + 1
-  * If current = nil, you're done!
-  * Else, go to Step 2
-3. Else (current < previous)
-  * Swap current and previous in the set
+1. Start with PREVIOUS pointing at element-0, CURRENT at element-1
+2. If CURRENT is > PREVIOUS
+  * Move PREVIOUS = CURRENT, CURRENT = CURRENT + 1
+  * If CURRENT = nil, you're done!
+  * Else, restart Step 2
+3. Else (when CURRENT < PREVIOUS)
+  * Swap CURRENT and PREVIOUS in the set
   * Return to Step 2
 ```
 
+##### Check Your Understanding
+
+1. Assuming you have six numbers to sort with this algorithm, what would be the best-case scenario where this algorithm finishes in as little time as possible?
+2. What would be the worst-case that takes as long as possible?
+
 #### Paired Bubble-Sort Exercise
 
-##### Round 1
+##### Round 1: Random Case
 
 * Person on the right is the RECORDER, person on the left is the WORKER
 * RECORDER should select six random number cards, shuffle them, hand them to the WORKER
 * WORKER lays out the cards in their current order left to right
-* RECORDER is going to track how many "operations" it takes to sort the numbers fully
-  * Make a tally for each comparison (a >?< b) and each swap
+* RECORDER is going to track how many "operations" it takes to sort the numbers using the Bubble Sort algorithm
+  * Make a tally for each *comparison* (a >?< b) and each *swap*
 * WORKER executes the bubble sort algorithm talking out loud
 * RECORDER notes the total number of operations
 
-Group questions:
+*DEMO* with three random numbers with both instructors on the whiteboard
 
-* How many operations did it take? (lots of different answers)
-* What does this tell you about bubble sort? (nothing)
-
-##### Round 2
+##### Round 2: Random Case Again
 
 * RECORDER shuffles the same six cards
 * Repeat the process and get the new operation count
@@ -84,20 +92,27 @@ Group questions:
 * How did the count of operations differ from your first run? (lots of different answers)
 * What does this tell you about bubble sort? (still nothing)
 
-##### Round 3
+##### Round 3: Measuring Worst-Case
 
-* Tell the RECORDER to select four cards from the six at random and put them in the worst-possible order for this algorithm
-* WORKER should sort them while RECORDER counts
+* RECORDER selects three cards from the six at random and puts them in the worst-possible order for this algorithm
+* WORKER should sort them while RECORDER tracks the number of operations
 * RECORDER adds in one more card and puts them back in the worst order
 * WORKER should sort them while RECORDER counts
-* RECORDER adds in sixth card and puts them back in the worst order
+* RECORDER adds in fifth card and puts them back in the worst order
 * WORKER should sort them while RECORDER counts
 
-Pair Questions:
+##### Hypotheses & Conclusions
 
-* How did the operation count grow from 4 to 5 to 6 cards?
-* What would you guess about how many operations 7 cards would take? 10?
-* What does this tell you about bubble sort?
+_Answer these questions then take a short break_
+
+1. Why did your random-sorted sets take different numbers of operations to sort out?
+2. Think about the best-case input for a three element set. How many steps would it take to sort it? 
+3. If you add one element to the set and it's still in the best-case order, how does that change the number of steps to sort the set? 
+4. What algabraic equation would explain how this best case number changes with change to the number of elements in the set?
+5. Based on your observations in Round 3, what equation could characterize how many operations are required to sort the worst-case input of *N* elements?
+6. Bringing together 4 and 5, what can you confidently say about how many operations it takes to sort a set with 10 elements using Bubble Sort?
+7. How would your answer to 6 change if you consider 100 elements?
+8. What does your answer to 6 and 7 tell you about the viability of bubble sort?
 
 __break__ and set up for station activity
 
