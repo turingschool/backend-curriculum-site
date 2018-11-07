@@ -5,9 +5,9 @@
 - [ ] Set up explicit roles for co-teaching
 - [ ] Find/link the number cards
 - [ ] Redo the pseudo-code algorithms for merge and binary sorts
-- [ ] Find/review the written changes from last execution of the class
 - [ ] Recap/review the plan with co-teacher
 - [ ] Come up with an intentional strategy for pairing and sitting
+- [ ] Build slides for the questions/processes
 
 ## Learning Goals
 
@@ -33,7 +33,7 @@ Post on the board before class:
 * Pickup instructions for number cards and trays
 * Write your answer in your notebook: why does the speed of software matter?
 
-### Part 1: Revisiting Algorithms *(20 Minutes)*
+### Part 1: Revisiting Algorithms *(25 Minutes)*
 
 #### Why Speed Matters
 
@@ -122,7 +122,7 @@ __break__ and set up for station activity
 
 * Post the sequences for each pair on the board
 * Lay out three stations with the sort documents below
-* Each station they have ~12 minutes to complete the exercises, then rotate
+* Each station they have ~13 minutes to complete the exercises, then rotate
 
 #### Materials
 
@@ -132,7 +132,7 @@ __break__ and set up for station activity
 
 __break__
 
-### Part 3: Talking about Big O *(20 Minutes)*
+### Part 3: Talking about Big O *(10 Minutes)*
 
 Cover the following key points in a whole-group lecture with questions:
 
@@ -150,9 +150,7 @@ Cover the following key points in a whole-group lecture with questions:
   * But if you have N calls for N pieces of data, or 2N, or N^2, you're in trouble
   * Consider: N+1 example like that a news site that lists the top articles on the front page and does a follow up query for each article to get the number of comments
 
-#### Key Closing Points
-
-In the last 5 minutes...
+#### Key Closing Points (3 Minutes)
 
 * There's often more than one way to solve a problem
 * Everything in software is a collection of tradeoffs
@@ -163,7 +161,7 @@ In the last 5 minutes...
   * Best-case run time? Worse-case run time?
   * How will the run time change with an increase of N?
   
-#### Exit Step
+#### Exit Step (2 Minutes)
 
 _Prep:_ Seed a binary tree near the front with six random but balanced nodes
 
