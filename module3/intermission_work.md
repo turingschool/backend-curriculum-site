@@ -17,7 +17,7 @@ Entering Module 3 with a solid understanding of ActiveRecord and SQL is key to g
 
 1. Complete and understand the [Intermediate SQL I](https://github.com/turingschool/lesson_plans/blob/master/ruby_03-professional_rails_applications/intermediate_sql.md) challenges.
 1. Complete and understand the [Intermediate SQL II](https://gist.github.com/case-eee/5affe7fd452336cef2c88121e8d49f5d) challenges.
-1. Complete and understand [ActiveRecord American Gladiators](https://github.com/turingschool/lesson_plans/blob/master/ruby_03-professional_rails_applications/active_record_american_gladiators.md). If you have not completed, (http://backend.turing.io/module2/misc/active_record_obstacle_course)[ActiveRecord Obstacle Course], we recommend reviewing/completing that prior to tackling this.
+1. Complete and understand [ActiveRecord American Gladiators](https://github.com/turingschool/lesson_plans/blob/master/ruby_03-professional_rails_applications/active_record_american_gladiators.md). Make sure that you review, (http://backend.turing.io/module2/misc/active_record_obstacle_course)[ActiveRecord Obstacle Course].
 
 ### APIs
 
@@ -27,7 +27,7 @@ Additionally, in Module 3 we will be creating applications to deliver and consum
 
 ### Rails Routing
 
-Rewrite your Bike Share `routes.rb`:
+Rewrite your Book Club `routes.rb`:
 
 Module 3 requires you to know URLs, paths and HTTP verbs inside and out. Rewrite the routes file for your Book Club to use only methods that map directly to HTTP verbs: `get`, `post`, `put`, `patch` and `delete`. You will probably need to add `to:` and `as:` parameters to make sure your apps continue to work, and tests continue to pass.
 
