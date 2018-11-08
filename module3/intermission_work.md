@@ -29,13 +29,21 @@ Additionally, in Module 3 we will be creating applications to deliver and consum
 
 Rewrite your Bike Share `routes.rb`:
 
-Module 3 requires you to know URLs, paths and HTTP verbs inside and out. Rewrite the routes file for your Bike Share to use only methods that map directly to HTTP verbs: `get`, `post`, `put`, `patch` and `delete`. You will probably need to add `to:` and `as:` parameters to make sure your apps continue to work, and tests continue to pass.
+Module 3 requires you to know URLs, paths and HTTP verbs inside and out. Rewrite the routes file for your Book Club to use only methods that map directly to HTTP verbs: `get`, `post`, `put`, `patch` and `delete`. You will probably need to add `to:` and `as:` parameters to make sure your apps continue to work, and tests continue to pass.
 
 If you wrote your routes that way already, replace them using `resources`.
 
 If you do not own the repo for your project, fork it, and rewrite the routes file individually.
 
 NOTE: This is not because one way is better, but it's extremely important to understand what every line of your routes file is doing. Rails Engine demands a solid understanding of Rails routing.
+
+### Deeply Nested Hashes
+
+This will be important for when you start consuming APIs.
+
+Fork and clone [Here Be Dragons](https://github.com/turingschool-examples/here-be-dragons) 
+
+Complete the exercises within and submit a link to your repo no later than Saturday before the first day of class. 
 
 ## Optional (Choose Your Own Adventure)
 
