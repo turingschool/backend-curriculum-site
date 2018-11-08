@@ -13,7 +13,7 @@ To prepare for Module 4, please complete & submit the following before 12 noon S
 
 Complete a cover letter for a real position (no, you cannot make one up), tailored accordingly. The letter should be formatted professionally and look just as a good as one you would submit for a dream job.
 
-Note - you will be required to submit the link for the job posting.
+**Submit: Link to job posting and upload letter.**
 
 ## 2. Reflection on Learning Experiences
 
