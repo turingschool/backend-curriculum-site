@@ -103,14 +103,16 @@ Group questions:
 
 _Answer these questions then take a short break_
 
-1. Why did your random-sorted sets take different numbers of operations to sort out?
-2. Think about the best-case input for a three element set. How many steps would it take to sort it? 
-3. If you add one element to the set and it's still in the best-case order, how does that change the number of steps to sort the set? 
-4. What algabraic equation would explain how this best case number changes with change to the number of elements in the set?
-5. Based on your observations in Round 3, what equation could characterize how many operations are required to sort the worst-case input of *N* elements?
-6. Bringing together 4 and 5, what can you confidently say about how many operations it takes to sort a set with 10 elements using Bubble Sort?
-7. How would your answer to 6 change if you consider 100 elements?
-8. What does your answer to 6 and 7 tell you about the viability of bubble sort?
+1. Think about the best-case input for a three element set. How many steps would it take to sort it? 
+2. If you add one element to the set and it's still in the best-case order, how does that change the number of steps to sort the set? 
+3. What algabraic equation would explain how this best case number changes with change to the number of elements in the set?
+4. Based on your observations in Round 3, what equation could characterize how many operations are required to sort the worst-case input of *N* elements?
+
+Extension Questions:
+
+1. Bringing together 4 and 5, what can you confidently say about how many operations it takes to sort a set with 10 elements using Bubble Sort?
+2. How would your answer to 6 change if you consider 100 elements?
+3. What does your answer to 6 and 7 tell you about the viability of bubble sort?
 
 __break__ and set up for station activity
 
