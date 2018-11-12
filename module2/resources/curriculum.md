@@ -50,8 +50,8 @@ layout: page
 
 ## Testing
 
-- [Model Testing in Sinatra](../lessons/model_testing_in_sinatra)
-- [Feature Testing in Sinatra](../lessons/feature_testing_in_sinatra)
+- [Model Testing in RSpec](../lessons/model_testing_in_rspec_for_a_sinatra_app)
+- [Feature Testing in RSpec](../lessons/feature_testing_in_rspec_for_a_sinatra_app)
 - [Factory Bot](http://backend.turing.io/module2/lessons/factory_bot)
 
 
