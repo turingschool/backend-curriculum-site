@@ -1,5 +1,5 @@
 ---
-title: Feature Testing in Sinatra
+title: Feature Testing in RSpec for a Sinatra App
 length: 120
 tags: capybara, user stories, feature tests, testing, sinatra
 ---
