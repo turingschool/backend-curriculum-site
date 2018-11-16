@@ -70,7 +70,10 @@ When all the Turns have been made, the game will end and will present the user w
 
 ```
 ****** Game over! ******
-You had 3 correct guesses out of 4 for a score of 75%.
+You had 3 correct guesses out of 4 for a total score of 75%.
+STEM - 100% correct
+Turing Staff - 50% correct
+Pop Culture - 100% correct
 ```
 
 Seen together, the CLI will look something like this when the game is over:
@@ -95,5 +98,8 @@ Question: What cardboard cutout lives at Turing?
 Justin Bieber
 Correct!
 ****** Game over! ******
-You had 3 correct guesses out of 4 for a score of 75%.
+You had 3 correct guesses out of 4 for a total score of 75%.
+STEM - 100% correct
+Turing Staff - 50% correct
+Pop Culture - 100% correct
 ```
