@@ -67,7 +67,7 @@ Students will use these exercises to practice the material covered in module 1. 
 
 **Student Support**: Students can request paired work time with Turing's Student Support Fellow.
 
-**Feedback from Instructors**: Students will receive feedback from instructors for each project, independent timed challenge and paired assessments.  In addition, students will receive a message from the instructors at the end of each week indicating if there are any topics or assignments that did not meet our expectations. If necessary, this message will include suggested actions for improvement.
+**Feedback from Instructors**: Students will receive feedback from instructors for each project, independent timed challenge and paired assessment.  In addition, students will receive a message from the instructors at the end of each week indicating if there are any topics or assignments that did not meet our expectations. If necessary, this message will include suggested actions for improvement.
 
 ## Lightning Talks
 
