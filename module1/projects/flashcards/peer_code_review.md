@@ -9,6 +9,9 @@ With your partner, please answer the following questions.  Take notes and share 
 1. Review the `number_correct` method on the Round class:
     * Discuss the decisions you made to either store this information as an instance variable, or calculate the number any time the method is called.
     * What are some pros and cons to each approach?
+1. Review the `percent_correct_by_category` on the Round class:
+    * Can you identify major differences in each approach to the implementation?
+    * Discuss the scalability of each approach.
 1. Review each persons CLI:
     * Are your runner files similar or different?
     * What are some pros and cons to each person's approach?
