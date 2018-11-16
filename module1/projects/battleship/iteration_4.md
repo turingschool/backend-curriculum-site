@@ -1,16 +1,16 @@
 ---
 layout: page
-title: BattleShip - Iteration 4
+title: Iteration 4 - Additional Features
 ---
 
-## Iteration 4
+## Variable Board Size
 
-Complete one or more of the following extensions:
+When starting a game, a user should be able to indicate the height and width of the board. All of your validations should still work with these variable board dimensions
 
-* When starting the game, a player should be able to indicate a size for the board, and what ships they will play with.
+## Custom Ships
 
-* Add some 'intelligence' to your computer so that it is not making shots at random, but making an 'educated' guess at the best shot location.
+When starting a game, a user can optionally create the ships they will play with. They should be able to give each ship a name and length, and be able to create as many of these ships as they want.
 
-* Make it a two player game.
+## Intelligent Computer
 
-* Make your game playable through a web browser. You may find [This Tutorial](/module1/projects/http_tutorial) helpful.
+The computer should make an educated guess of what coordinate to fire on.

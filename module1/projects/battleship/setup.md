@@ -17,14 +17,3 @@ Because this is a paired project, you will want to choose one person to create t
     * Clone the repository to your local machine.
 
 Once this setup is complete, both partners will be able to push to the GitHub repository, create Pull Requests and Merge the Pull Requests.
-
-
-## Design Diagram
-
-Once you have your repository set up, you and your partner will need to create a class diagrams for all of the classes that you think you will need for this project.  A class diagram is a visual way to represent a class. It includes:
-
-* Class Name
-* Instance Variables
-* Methods
-
-![Class Diagram](../../lessons/assets/dog_class_diagram.jpg)

@@ -10,7 +10,7 @@ This project will be evaluated in two ways:
 * Project Demo
 * Asynchronous Instructor Code Review
 
-When you are finished, make sure your code is pushed up to your master branch on your repository on Github. Send a link to your repository to all three instructors in a Slack direct message.
+When you are finished, make sure your code is pushed up to your master branch on your repository on Github. Send a link to your repository to all instructors in a Slack direct message.
 
 ### Project Demo
 
@@ -18,7 +18,7 @@ Each pair will demo their finished game for a small group of your classmates.  D
 
 * Play your game
 * Walk through the code that you implemented to validate ship placement
-* Show a diagram and briefly describe your classes and how they should interact. This can be a drawing on the board.
+* Show a diagram and briefly describe your classes and how they interact. This can be a drawing on the board.
 
 Your demos should be 10 minutes with an additional 5 minutes for questions from the audience.
 
