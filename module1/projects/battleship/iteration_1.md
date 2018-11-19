@@ -3,6 +3,10 @@ layout: page
 title: Iteration 1 - Ships and Cells
 ---
 
+## Test Driven Development
+
+In this iteration, you are required to use TDD to create your classes. Use the interaction pattern to determine what a method should do and write one or more tests to verify that expected behavior. Then you can implement the method. You should always write code with the purpose of making a test pass.
+
 ## Ship
 
 A Ship object will represent a single ship on the board. It will be able to keep track of how much health it has, take hits, and report if it is sunk or not. A ship should start off with health equal to it's length.

@@ -3,6 +3,10 @@ layout: page
 title: Iteration 2 - The Board
 ---
 
+## Test Driven Development
+
+In this iteration, you are required to use TDD to create your classes. Use the interaction pattern to determine what a method should do and write one or more tests to verify that expected behavior. Then you can implement the method. You should always write code with the purpose of making a test pass.
+
 ## Board
 
 The Board class is responsible for keeping track of cells, validating coordinates, validating ship placements, placing ships, and rendering a visual representation of itself.
