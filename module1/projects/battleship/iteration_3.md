@@ -22,7 +22,7 @@ Enter p to play. Enter q to quit.
 
 ## Setup
 
-You need to place the computer's ships and the players ships to set up the game
+Once the User has chosen to play, you need to place the computer's ships and the players ships to set up the game.
 
 ### Computer Ship Placement
 
