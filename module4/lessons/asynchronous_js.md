@@ -9,6 +9,8 @@ layout: page
 - Students can read and explain JavaScript that executes asynchronously
 - Students are able to explain how asynchronous JavaScript can be handled
 
+[Instructor Materials](./asynchronous_js_instructor)
+
 ## Vocabulary
 
 - synchronous
