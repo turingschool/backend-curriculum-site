@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Fetch Refresher
+title: Fetch Intro & jQuery Refresher
 length: 120 minutes
 ---
 
@@ -15,6 +15,34 @@ By the end of this lesson, you will ...
 
 ## Promises
 
+Promises allow us to kick off an asynchronous process in the background and respond to its result when it becomes available. Using a Promise typically looks like this:
+
+```js
+getProjectsForStudents(students)
+  .then(projects => {
+    renderDetailsForProjects(projects);
+  })
+  .catch(error => {
+    console.log(error);
+  });
+
+doOtherThings();
+noneOfTheseFunctions();
+willBeBlocked();
+fromExecuting();
+whileWeWait();
+forProjectsToBeRetrieved();
+```
+
+In this example, we call a function: `getProjectsForStudents`. Though this might look like a typical function, the developer who wrote it decided that it would return a Promise object. By returning a Promise object, this function does two very important things:
+
+  1. It automatically becomes asynchronous, allowing it to run in the background and giving the rest of our code a chance to continue execution.
+  2. It gives us access to two methods: `.then()` and `.catch()`.
+
+If the function completes successfully, the Promise object is considered resolved, and our `.then()` block will execute. Within this block, we are automatically given a result that we can work with (e.g. data from an API endpoint). In this example, we are given project data for our students and we’ll render them to the DOM.
+
+If the function fails for any reason, our Promise object is considered rejected, and our `.catch()` block will execute instead. Within this block, we are automatically given an error that we can use to notify the user that something went wrong.
+
 > A Promise is an object that represents the eventual completion or failure of an asynchronous operation, and it's returning value.
 
 3 states of Promises:
@@ -22,6 +50,15 @@ By the end of this lesson, you will ...
 - Pending
 - Resolved/Fulfilled (with a return value from your async operation)
 - Rejected (with an error message from your async operation)
+
+## What do Promises Give Us?
+
+By using a Promise object, a function does two things:
+
+1. It automatically becomes asynchronous, allowing it to run in the background and giving the rest of our code a change to continue execution.
+2. It gives us access to two methods - `.then` and `.catch`
+
+![inline](https://wtcindia.files.wordpress.com/2016/06/promises.png?w=605)
 
 ## Why Use Promises?
 
@@ -49,12 +86,6 @@ But wait, there's more.
 
 ## Promises with Fetch Requests
 
-3 states of Promises:
-
-- Pending
-- Resolved/Fulfilled (with a return value from your async operation)
-- Rejected (with an error message from your async operation)
-
 Every fetch request we make will return a Promise object that contains our response data. This allows us to easily react to the type of response we get once it's available.
 
 Handling the response of a fetch request might look something like this:
@@ -73,15 +104,6 @@ Converting the body to a JSON data structure with `response.json()` actually r
 If for any reason the request failed, the `.catch()` block will be fired and we will log the error to the console.
 
 [Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
-
-## What do Promises Give Us?
-
-By using a Promise object, a function does two things:
-
-1. It automatically becomes asynchronous, allowing it to run in the background and giving the rest of our code a change to continue execution.
-2. It gives us access to two methods - `.then` and `.catch`
-
-![inline](https://wtcindia.files.wordpress.com/2016/06/promises.png?w=605)
 
 ## A Typical Fetch Request
 
@@ -116,13 +138,17 @@ DISCUSS: What differences do you notice between a GET and POST?
 
 ## Hedgehog Party
 
-Clone down the Hedgehog Party Repo. Look through the JavaScript in `public/index.js` - we already have a get request up and running to get, then append, all the hedgies in the database onto the DOM. Make sure you open up the app in the browser and keep your Dev Tools open while working. You should be pairing with your Quantified Self partner for this activity.
+Clone down the [Hedgehog Party Repo](https://github.com/ameseee/fetch-hedgehog-party).
 
-**Step 1:** Choose a driver. Together, write the request to POST a new hedgehog. See the README for info on what is expected in the request.
+**Step 1:** Choose a driver. Look through the JavaScript in `public/index.js` - we already have a get request up and running to get, then append, all the hedgies in the database onto the DOM. Make sure you open up the app in the browser and keep your Dev Tools open while working. Now, in `public/index.js`, anootate lines 4-7. Make sure you and your partner can explain the role of `appendHedgehogs` and `appendHedgehog`.
 
-**Step 2:** Now, the other partner should drive. Work together to write the request to DELETE a hedgehog from the invite list.
+_We will pause here for a class discussion to make sure everyone fully understands how this GET request works._
 
-NOTE: Both tasks require network requests as well as DOM manipulation. This is good practice for Quantified Self😊
+**Step 2:** Now, write the request to POST a new hedgehog. See the README for info on what is expected in the request. An event listener has already been written for you on line 42.
+
+**Step 3:** Now, the other partner should drive. Work together to write the request to DELETE a hedgehog from the invite list.
+
+NOTE: Both tasks require network requests as well as DOM manipulation. This is good practice for Play😊
 
 ## Error Checking
 
@@ -261,10 +287,9 @@ const postArticle = (event) => {
 }
 ```
 
-
 ## Interview Questions
 
-Pair up with your Quantified Self partner and practice answering the following interview questions:
+Pair up with your Play partner and practice answering the following interview questions:
 
 * What are the advantages of using fetch?
 * What are promises used for? Can you give an example of when you've used one?
@@ -276,4 +301,4 @@ Be ready to share you answer(s) with the class when we wrap up.
 * [David Walsh fetch API](https://davidwalsh.name/fetch)
 * [CSS Tricks Using Fetch](https://css-tricks.com/using-fetch/)
 
-Be aware that AJAX can also be used to make client side request to a server. Fetch has become more poplar in recent years as it is built into Javascript, works on almost all browsers, and doesn't require jQuery. If you want to learn more check out this old lesson [AJAX Refresher](./archive/ajax-refresher.md)
+Be aware that AJAX can also be used to make client side request to a server. Fetch has become more popular in recent years as it is built into Javascript, works on almost all browsers, and doesn't require jQuery. If you want to learn more check out this old lesson [AJAX Refresher](./archive/ajax-refresher.md)
