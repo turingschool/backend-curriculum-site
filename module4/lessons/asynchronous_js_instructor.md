@@ -21,8 +21,9 @@ layout: page
 
 ## Materials
 
-- Partners, one with a * for who should have computer open
+- Assign partners, one with a * for who should have computer open in warm-up
 - Print out Starbucks customer roles/functions, cut in strips
+- Print out and cut up the 4 "Experiments in Ordering" code snippets
 
 ## Warm Up
 
