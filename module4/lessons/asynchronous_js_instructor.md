@@ -1,5 +1,5 @@
 ---
-title: Asynchronicity in JavaScript
+title: Asynchronicity in JavaScript - Instructor
 layout: page
 ---
 
