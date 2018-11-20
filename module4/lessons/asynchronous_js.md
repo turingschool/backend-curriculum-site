@@ -21,40 +21,35 @@ layout: page
 
 ## Warm Up
 
-DISCUSS: If we ran this code, what would you expect to see in the console? Why?
+Take 5 minutes to do some research with your partner on the `setTimeout` Web API. Feel free to go straight to the docs, or use this code snippet below to play around with it in the console. (You can copy and paste it into the console tab of the browser!). During this time, only one computer should be open.
 
 ```js
-function firstFunction() {
-  console.log("first");
+function waitTwoSeconds() {
+  console.log("I am starting to wait...");
+  setTimeout(function() {
+    console.log("I've waited two seconds");  
+  }, 2000);
 }
 
-function secondFunction() {
-  console.log("second");
-}
-
-function thirdFunction() {
-  console.log("third");
-}
-
-firstFunction()
-secondFunction()
-thirdFunction()
+waitTwoSeconds();
 ```
+
+- What does `setTimeout` do?
+- In the snippet above...
+    * which `console.log` will print first?
+    * Will they both print immediately? Why or why not? If not, how long will we have to wait?
+
 
 ### Synchronous vs. Asynchronous
 
 #### Synchronous JavaScript
 
-Let's run the code from the Warm Up and verify our assumptions.
+Let's talk about the drive-thru at Starbucks.
 
-Now consider:
-- What if that second function was making a big network request?
-- What if it was the second of 200 functions?
-- What implications does that have for a user?
+#### Asynchronous JavaScript
 
-BOTTOM LINE: If we could only run synchronous code in the browser, we couldn't keep up with what users expect from applications. Say hello to asynchronous code, brought to you by your browser!
+Let's talk about ordering inside the store at Starbucks.
 
-## Intro
 
 ### When Will We Need This?
 
@@ -62,6 +57,8 @@ The concepts we're going to talk about happen most often in the following situat
 
 - Loading external data (APIs, files, databases)
 - Events (clicks, keydowns, scrolls, etc)
+
+Asynchronous code allows us to keep up with the expectations of users.
 
 #### The Event Loop
 
@@ -124,6 +121,26 @@ fetch("https://api.github.com/users/turingschool/repos")
 
 console.log(repos);
 ```
+
+4. Dinner Time
+
+```js
+var hungry = "very";
+console.log(hungry);
+
+setTimeout(function() {
+  hungry = "a little";
+  console.log(`async hungry is ${hungry}`);
+}, 1000);
+
+setTimeout(function() {
+  hungry = "stuffed";
+  console.log(`async hungry is ${hungry}`);
+}, 5000);
+
+console.log(hungry);
+```
+
 Once you've made sense of why this worked the way it did, whiteboard (or make a poster) a visual to show what happened with the call stack in the code snippet you chose.
 
 ### Callbacks
@@ -155,49 +172,19 @@ $("#my-button").on('click', function() {
 You've probably seen a click event handled like this before. You pass a function to be executed later upon a `'click'` event. I want to frame this in a slightly different way to help you understand how JavaScript interprets this. I'm going to write the same thing in without jQuery to help illustrate.
 
 ```js
-document.getElementById('my-button').addEventListener('click', function() {
+document.getElementById('.my-button').addEventListener('click', function() {
   alert("You clicked by button!");
 })
 ```
 
 The method `addEventListener()` does a better job of telling you what's actually happening. When writing asynchronous JavaScript, it can sometimes feel like your code is being run out of order. JavaScript is still being read from top to bottom. When it gets to the `addEventListener()`, it does just that. It adds a listener to the element, and it moves on to its next instruction. It's not that JavaScript comes back to this code later. You packed it up and sent it off. Your callback function now exists all alone, waiting to be invoked by the browser upon a 'click' event.
 
-
-#### Callbacks with Asynchronicity
-
-`setTimeout()` is another function that takes a callback. It's an easy way to play around with asynchronicity. It is also tied to an event, but that event happens to be "some number of milliseconds passed".
-
-```js
-setTimeout(function() {
-  alert("1 second has passed");
-}, 1000);
-```
-
-`setTimeout()` sends its callback function to the event loop. After 1000 milliseconds (2nd parameter), the callback function (1st parameter) is then added back to the queue, ready to be added back to the stack once the stack is free.
-
-### [Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
-
-Promises solve a similar problem as callbacks. They execute an asynchronous processes and can handle both the finished success or failure of said process. The technical definition of a promise is: `an object representing the eventual completion or error of an operation, along with a value.` A couple things to keep in mind about promises while we're seeing them in action:
-
-- A `Promise` is yet another data type in JavaScript. You can assign it to a variable, it has methods and you can create new instances of it.
-- The methods of `Promise` (specifically `.then()`) make more sense in the context of "executing things in order" rather than "packing up code for later"
-
-Let's take a few minutes to read through MDN's [Promise documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise). Pay attention to the structure you see implemented in their examples.
-
-To reiterate, a promise is like an egg. It's in one of three states:
-- Growing a little chicken (pending)
-- Hatched as a chicken (fulfilled, resolved)
-- On my breakfast plate (rejected, failed)
-
-![inline](http://www.tashakheiriddin.com/wp-content/uploads/2016/12/chicken-or-egg2.jpg)
-
 #### Wrap Up
 
 Write your answers to the following in your notebook:
 
-- What's something you can do with promises that you can't do with callbacks?
-- How would you describe asynchronicity to a 5 year old?
-
+- When an asynchronous function is called, what does the JavaScript engine do with it?
+- When you get asked in an interview: "What do you know about asynchronous JavaScript?" - what will you say? Don't paraphrase, literally prepare yourself for how you will answer that (pretty big) question!
 
 ## Going Further
 
