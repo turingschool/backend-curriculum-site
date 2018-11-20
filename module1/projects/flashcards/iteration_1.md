@@ -7,7 +7,7 @@ title: FlashCards - Iteration 1
 
 ### Cards
 
-A `Card` represents a single flashcard in our set. It stores a question and an answer.
+A `Card` represents a single flashcard in our set. It stores a question, an answer, and a category.
 
 Use the tests provided to drive the development of your `Card` class. From the root directory of your project, run the test like this:
 
@@ -21,9 +21,10 @@ If you haven't already, you will need to install minitest:
 gem install minitest
 ```
 
-If your `Card` class is written properly, you should be able to open a pry session and interact with it like so:
+If your `Card` class is written properly and is located at `./lib/card.rb`, you should be able to open a pry session from your `flashcards` directory and interact with it like so:
 
 ```ruby
+# double check that you are in your flashcards project directory!
 pry(main)> require './lib/card'
 #=> true
 
@@ -39,8 +40,6 @@ pry(main)> card.answer
 pry(main)> card.category
 #=> "Geography"
 ```
-
-This interaction pattern assumes your `Card` class is in a file located at `./lib/card.rb`.
 
 
 ### Turns

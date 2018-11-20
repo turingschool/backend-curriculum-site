@@ -9,3 +9,12 @@ In order to help you to organize your project, we have broken the requirements i
 * [Iteration 2](./iteration_2)
 * [Iteration 3](./iteration_3)
 * [Iteration 4](./iteration_4)
+
+In addition to the functionality outlined in these iterations, we will expect the you to do the following:
+
+* write tests for each class
+* write readable code
+* make frequent commits
+* use pull requests
+
+For more detailed information about what we expect, please review the [rubric](./rubric) before starting this project!

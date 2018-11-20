@@ -50,7 +50,7 @@ pry(main)> deck.cards_in_category("Pop Culture")
 
 A `Round` will be the object that processes responses and records guesses. A `Round` is initialized with a `Deck`. The idea is that when we start a Round, the current card is the first in the deck (the first in the Deck's array of Cards). When we make a guess, the guess is recorded, and the next card in the deck becomes the current card.
 
-The `record_guess` method is the crux of this problem. The `record_guess` method takes a string representing the guess. It should create a new `Turn` object with the appropriate guess and Card. It should store this new Turn, as well as return it from the `record_guess` method. Also, when the `record_guess` method is called, the `Round` should move on to the next card in the deck.
+The `take_turn` method is the crux of this problem. The `take_turn` method takes a string representing the guess. It should create a new `Turn` object with the appropriate guess and Card. It should store this new Turn, as well as return it from the `take_turn` method. Also, when the `take_turn` method is called, the `Round` should move on to the next card in the deck.
 
 A `Round` should respond to the following interaction pattern:
 
@@ -82,13 +82,13 @@ pry(main)> round = Round.new(deck)
 pry(main)> round.deck
 #=> #<Deck:0x00007fa160a38ed8...>
 
-pry(main)> round.guesses
+pry(main)> round.turns
 #=> []
 
 pry(main)> round.current_card
 #=> #<Card:0x00007fa16104e160 @answer="Juneau", @question="What is the capital of Alaska?">
 
-pry(main)> new_turn = round.record_guess("Juneau")
+pry(main)> new_turn = round.take_turn("Juneau")
 #=> #<Turn:0x00007f99842f09e8 @card=#<Card:0x00007f800e29f0c9 @question=""What is the capital of Alaska?", @answer="Juneau", @category="Geography">, @guess="Juneau">
 
 pry(main)> new_turn.class
@@ -97,7 +97,7 @@ pry(main)> new_turn.class
 pry(main)> new_turn.correct?
 #=> true
 
-pry(main)> round.guesses
+pry(main)> round.turns
 #=> [#<Turn:0x00007f99842f09e8 @card=#<Card:0x00007f800e29f0c9 @question=""What is the capital of Alaska?", @answer="Juneau", @category="Geography">, @guess="Juneau">]
 
 pry(main)> round.number_correct
@@ -106,7 +106,7 @@ pry(main)> round.number_correct
 pry(main)> round.current_card
 #=> #<Card:0x00007fa160a62e90 @answer="Mars", @question="The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", @category="STEM">
 
-pry(main)> round.record_guess("Venus")
+pry(main)> round.take_turn("Venus")
 #=> #<Turn:0x00007f972a215b38...>
 
 pry(main)> round.guesses.count

@@ -12,7 +12,7 @@ So far we've focused on modelling the data, classes, and methods that make up ou
 
 A few key points to keep in mind as you work on this iteration:
 
-* We'll abandon TDD for this bit -- the techniques for testing this kind of input/output behavior are somewhat involved and are beyond the scope of this project
+* We'll abandon testing for this bit -- the techniques for testing this kind of input/output behavior are somewhat involved and are beyond the scope of this project
 * Use `puts` to display a line of text output to the user
 * Use `gets` to read a line of text input from the user (this will be important to allow users to enter guesses)
 * In this iteration we'll introduce a new file called a "runner" -- its job is to serve as the main entry point to our program by starting up a new game
