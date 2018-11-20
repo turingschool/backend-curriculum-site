@@ -60,7 +60,7 @@ The concepts we're going to talk about happen most often in the following situat
 - Loading external data (APIs, files, databases)
 - Events (clicks, keydowns, scrolls, etc)
 
-Asynchronous code allows us to keep up with the expectations of users.
+Asynchronous code allows us to keep up with the expectations of users. If we could only run synchronous code in the browser, we couldn’t keep up with what users expect from applications. Say hello to asynchronous code, brought to you by your browser!
 
 #### The Event Loop
 
