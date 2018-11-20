@@ -35,7 +35,7 @@ title: Module 4 Lessons
 ## Job Ready
 
 * [Project Polish](./project_polish)
-* [Technical Challenges](./link_will_come_later)
+* [Technical Challenges](./technical_challenges)
 * [Dream Job Interview Prep](./link_will_come_later)
 * [Big-O Notation](./)
 * [Wheel of Jeopardy](./jeopardy)
