@@ -5,7 +5,7 @@ title: Independent Challenges
 
 In week 6, students will participate in the Final Independent Assessment that will count towards the promotion decision. This is a 3 hour code challenge students will complete independently, meaning the student cannot seek help from other students, mentors, etc. Students are allowed to reference notes, other projects, and the internet.
 
-In order to practice for the Final Independent Assessment in week 6, students will be given a weekly practice Independent Challenge starting in week 2. They will be submitted using a Github Pull Request, and instructors will give feedback in the form of comments on the Pull Request. These are not formal assessments, but an opportunity for the student to practice their problem solving skills and receive feedback from instructors.
+In order to practice for the Final Independent Assessment in week 6, students will be given a weekly practice Independent Challenge starting in week 2. They will be submitted using a Github Pull Request, and instructors will give feedback in the form of comments on the Pull Request. These are not formal assessments, but an opportunity for the student to practice their problem solving skills and receive feedback from instructors. Students are expected to complete the first three iterations.
 
 The progression of difficulty for the independent challenges along with an example challenge is described below.
 
