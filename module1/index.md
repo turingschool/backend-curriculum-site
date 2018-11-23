@@ -10,6 +10,8 @@ In Module 1, students will learn to use Ruby and object-oriented programming to 
 
 ### [Lessons](./lessons)
 
+### [Independent Challenges](./independent_challenges)
+
 ### [Exercises](./exercises)
 
 ### [Learning Goals](./learning_goals)
