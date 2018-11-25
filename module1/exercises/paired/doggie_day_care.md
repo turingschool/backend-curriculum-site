@@ -1,14 +1,13 @@
 ---
 layout: page
-title: Practice Paired Assessment
+title: Sample Paired Assessment
 ---
 
-Clone this Repo: git@github.com:turingschool-examples/doggie-day-care.git
+# Doggie Day Care
 
-### Iteration 1 (Tests provided)
+### Iteration 1
 
 ```ruby
-
 doggie = Dog.new("Comet", "German Shepherd")
 # => <#Dog...>
 doggie.name
@@ -44,39 +43,17 @@ customer.dogs
 
 ### Iteration 3
 
-```ruby
-doggie_1 = Dog.new("Comet", "German Shepherd")
-# => <#Dog...>
-customer_1 = Customer.new("Alice", "Jones", "2")
-# => <#Customer...>
-customer_1.add_dog(doggie_1)
-# => <#Dog...>
-doggie_2 = Dog.new("Lassie", "Collie")
-# => <#Dog...>
-doggie_3 = Dog.new("Martha", "Bernese Mountain Dog")
-# => <#Dog...>
-customer_2 = Customer.new("Tracy", "Nguyen", "5")
-# => <#Customer...>
-customer_2.add_dog(doggie_2)
-# => <#Dog...>
-customer_2.add_dog(doggie_3)
-# => <#Dog...>
-day_care = DayCare.new("The Dog Spot")
-# => <#DayCare...>
-day_care.add_customer(customer_1)
-# => <#Customer...>
-day_care.add_customer(customer_2)
-# => <#Customer...>
-day_care.list_dogs
-# => "Comet, Lassie, Martha"
-day_care.unfed_dogs
-# => [<#Dog...>, <#Dog...>, <#Dog...>]
-doggie_1.feed
-# => "Yum!"
-day_care.unfed_dogs
-# => [<#Dog...>, <#Dog...>]
-```
+A client has contracted you to build a software system for a network of pet day care centers that can track its Customers and their Dogs. Specifically, they need the following features:
+
+  * Each day care has a unique name.
+  * A day care enrolls customers.
+  * A day care can list all its dogs
+  * A day care can list all its dogs that need to be fed.
+
+Build on your code from the previous two iterations to implement this functionality
 
 ### Iteration 4
 
-Write a method to charge customers $5 each time their dog is fed.
+Implement the following functionality:
+
+  * Every time a dog is fed, a customer is charged a fee.
