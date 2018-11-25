@@ -12,6 +12,15 @@ You will be graded by an instructor on the criteria below. The rubric below outl
 
 - 1: Developer creates an agile board but doesn't utilize it for the duration of the project.
 
+### Git Workflow
+
+- 4: Developer satisfies all criteria below in section three. Developer demonstrates their git workflow as being 100% consistent in regards to the creation of branches, issuing pull requests, using PR templates, asking for feedback, and writing clear and concise commit messages.  
+
+- 3: For each feature listed on their agile board, the developer has created a branch on git. Developer pushes their changes to their respective branches found on Github. Developer opens pull requests for every branch they create. All commit messages will be in present tense, start with a capital letter, and be consistent for the duration of the project. If on a paired or group project, developers must tag other collaborators in their PR's and ask for feedback before merging in their changes.
+
+- 2: Developer creates pull requests on separate branches but often pushes directly to master. Developer is inconsistent in how they write commit messages. Some commit messages lack clarity and purpose for the code submitted. Developer may tag collaborators at times.
+
+- 1: Developer only pushes to master, never creates branches for their features work, and has very few commit messages at the end of the project. Commit messages are not informative and lack clarity as to what each piece of code is focused on. Commit messages are not consistent and lack proper structure across the project history.
 
 ## UI/UX
 
