@@ -36,18 +36,18 @@ In week 6, students will participate in the Final Paired Assessment that will co
 
 In order to practice for the Final Paired Assessment in week 6, students will participate in the Mid Module Paired Assessment in week 4.
 
-Students can find examples of Paired Assessment challenges [here](./exercises)
+Students can reference [Doggie Day Care](./exercises/paired/doggie_day_care) as an example of a paired assessment.
 
 ## Scores
 
 Projects, Paired Assessments, and Independent Assessments will be scored on a 4 point scale:
 
-1. Well Below Expectations
-2. Below Expectations
-3. Meets Expectations
-4. Well Above expectations
+4. Exceptional
+3. Passing
+2. Passing with concern
+1. Failing
 
-Scores reflect the instructor's expectations for the student’s progress at that moment in time, not the expectations for the end of the mod. Assessments will be broken into iterations. A student is expected to complete the project or assessment through iteration 3.
+Projects, Independent Challenges, and Paired Assessments will be broken into 4 iterations. Students are expected to complete the first 3 iterations to receive a score of 3 (passing), while iteration 4 provides opportunities for further learning and exploration.
 
 ## Written CFU (Check for Understanding)
 
@@ -71,7 +71,7 @@ Students will use these exercises to practice the material covered in module 1. 
 
 ## Lightning Talks
 
-Each student will give a 5 minute presentation on a topic of their choosing. This topic does not have to be technical, but must be approved by instructors.
+Each student will give a 5 minute presentation on a topic of their choosing. This topic does not have to be technical, but must be approved by instructors and must includes slides.
 
 ## Portfolios
 
