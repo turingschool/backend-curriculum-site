@@ -24,14 +24,15 @@ The project requirements are listed below:
 * Learn how to use controller tests to drive your design.
 * Use Ruby and ActiveRecord to perform more complicated business intelligence.
 
-## Technical Expectations
 
+## Technical Expectations
 * All endpoints will expect to return JSON data
 * All endpoints should be exposed under an `api` and version (`v1`)
 namespace (e.g. `/api/v1/merchants.json`)
 * JSON responses should include `ids` only for associated records unless otherwise indicated (that is, don't embed the whole associated record, just the id)
 * Prices are in cents, therefore you will need to transform them in dollars. (`12345` becomes `123.45`)
 * Remember that for a JSON string to be valid, it needs to contain a key and a value.
+* API will be compliant to the JSON API spec. [Documentation](https://jsonapi.org/)
 
 ### Data Importing
 
@@ -55,20 +56,24 @@ renders a JSON representation of all the appropriate records:
 (The following is an example of a response if only three records were saved in the database)
 
 ```json
-[
-  {
-    "id":1,
-    "name":"Schroeder-Jerde"
-  },
-  {
-    "id":2,
-    "name":"Klein, Rempel and Jones"
-  },
-  {
-    "id":3,
-    "name":"Willms and Sons"
-  }
-]
+{ 
+"data":
+  [
+    {
+      "id":1,
+      "name":"Schroeder-Jerde"
+    },
+    {
+      "id":2,
+      "name":"Klein, Rempel and Jones"
+    },
+    {
+      "id":3,
+      "name":"Willms and Sons"
+    }
+
+  ]
+}
 ```
 
 #### Show Record
@@ -83,9 +88,12 @@ renders a JSON representation of the appropriate record:
 ##### JSON Output
 
 ```json
-{
-  "id":1,
-  "name":"Schroeder-Jerde"
+{ 
+  "data":
+    {
+      "id":1,
+      "name":"Schroeder-Jerde"
+    }
 }
 ```
 
@@ -114,9 +122,12 @@ GET /api/v1/merchants/find?parameters
 `GET /api/v1/merchants/find?name=Schroeder-Jerde`
 
 ```json
-{  
-   "id":1,
-   "name":"Schroeder-Jerde"
+{ 
+  "data":
+  {  
+     "id":1,
+     "name":"Schroeder-Jerde"
+  }
 }
 ```
 
@@ -142,12 +153,15 @@ Each category should offer `find_all` finders which should return all matches fo
 `GET /api/v1/merchants/find_all?name=Cummings-Thiel`
 
 ```json
-[  
-   {  
-      "id":4,
-      "name":"Cummings-Thiel"
-   }
-]
+{
+  "data":
+  [  
+     {  
+        "id":4,
+        "name":"Cummings-Thiel"
+     }
+  ]
+}
 ```
 
 Note: Although this search returns one record, it comes back in an array.
@@ -161,9 +175,12 @@ Returns a random resource.
 `api/v1/merchants/random.json`
 
 ```json
-{
-  "id": 50,
-  "name": "Nader-Hyatt"
+{ 
+  "data":
+  {
+    "id": 50,
+    "name": "Nader-Hyatt"
+  }
 }
 ```
 
