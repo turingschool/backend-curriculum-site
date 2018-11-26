@@ -42,10 +42,10 @@ Students can reference [Doggie Day Care](./exercises/paired/doggie_day_care) as 
 
 Projects, Paired Assessments, and Independent Assessments will be scored on a 4 point scale:
 
-4. Exceptional
-3. Passing
-2. Passing with concern
 1. Failing
+2. Passing with concern
+3. Passing
+4. Exceptional
 
 Projects, Independent Challenges, and Paired Assessments will be broken into 4 iterations. Students are expected to complete the first 3 iterations to receive a score of 3 (passing), while iteration 4 provides opportunities for further learning and exploration.
 
