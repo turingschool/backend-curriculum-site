@@ -86,7 +86,7 @@ pry(main)> round.turns
 #=> []
 
 pry(main)> round.current_card
-#=> #<Card:0x00007fa16104e160 @answer="Juneau", @question="What is the capital of Alaska?">
+#=> #<Card:0x00007fa16104e160 @answer="Juneau", @question="What is the capital of Alaska?", @category=:Geography>
 
 pry(main)> new_turn = round.take_turn("Juneau")
 #=> #<Turn:0x00007f99842f09e8 @card=#<Card:0x00007f800e29f0c9 @question=""What is the capital of Alaska?", @answer="Juneau", @category=:Geography>, @guess="Juneau">
