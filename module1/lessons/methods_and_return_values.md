@@ -14,8 +14,8 @@ tags: ruby, methods, return, argument
 * Understand how abstraction helps us program
 
 ## Vocabulary
-* Return
 * Method
+* Return
 * Argument (Parameter)
 * Parse
 * Execute
@@ -30,11 +30,16 @@ With your partner define the following terms in your own words:
 * Return Value
 * Object
 
-Then, for each of the terms above, identify examples in this pry snippet:
+Then, for each of the terms above, identify examples in this pry snippets below:
 
 ```ruby
 pry(main)> "Hello World".upcase
 => "HELLO WORLD"
+```
+
+``` ruby
+pry(main)> "Hello World".include?("Hello")
+=> true
 ```
 
 ## Methods
