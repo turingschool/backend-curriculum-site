@@ -5,6 +5,7 @@ title: Module 1 Lessons
 
 ### Ruby Mechanics
 
+* [Pre-Work Code Share](./code_share)
 * [Ruby Data Types](./datatypes)
 * [Flow Contol](./flow_control)
 * [#each](./each)
