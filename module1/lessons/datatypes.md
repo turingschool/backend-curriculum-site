@@ -50,22 +50,7 @@ Variables are used to store data. You make a variable by using the **Assignment 
 greeting = "Hello World!"
 ```
 
-Ruby evaluates assignments from right to left. This means Ruby will evaluate whatever code is on the right side of the `=`, and then store that in the variable on the left side of the `=`. In the previous example, when Ruby hits that line of code, it first evaluates `"Hello World!"`, which just evaluates to the String `"Hello World!"`, and stores it in the variables `greeting`.
-
-For now, all the variables we will be using are **Local Variables**. Local variables must start with a lowercase letter, and can only contain letters, numbers, and underscores `_`. In Ruby, the convention is to name variables using "Snake Case", which is all lowercase letters with words separated by underscores. For example, this is a good variable name:
-
-```ruby
-things_i_like
-```
-
-And these are bad variable names:
-
-```ruby
-thingsILike
-things_I_Like
-```
-
-Another good practice is to name your variables as specifically as possible. Ideally, someone reading your code could read just the variable name and know what data it holds. However, you should try not to use the datatype in the variable name. For instance, prefer `greeting = "hello world!"` over `greeting_string = "hello world!"`.
+Ruby evaluates assignments from right to left. This means Ruby will evaluate whatever code is on the right side of the `=`, and then store that in the variable on the left side of the `=`. In the previous example, when Ruby hits that line of code, it first evaluates `"Hello World!"`, which just evaluates to the String `"Hello World!"`, and stores it in the variable `greeting`.
 
 Variables in Ruby can hold any datatype. You can also switch a variable to a completely different datatype. This is known as "Dynamic Typing". For example:
 
@@ -82,6 +67,25 @@ greeting = "Hello World!"
 ```
 
 the variable `greeting` is holding a `String` object.
+
+
+## Naming Variables
+
+For now, all the variables we will be using are **Local Variables**. Local variables must start with a lowercase letter, and can only contain letters, numbers, and underscores `_`. In Ruby, the convention is to name variables using "Snake Case", which is all lowercase letters with words separated by underscores. For example, this is a good variable name:
+
+```ruby
+things_i_like
+```
+
+And these are bad variable names:
+
+```ruby
+thingsILike
+things_I_Like
+```
+
+Another good practice is to name your variables as specifically as possible. Ideally, someone reading your code could read just the variable name and know what data it holds. For example, if you are keeping a running total of numbers, you could name that variable `sum` or `count`, but you should name it `num` or `x`.
+
 
 # Integers
 

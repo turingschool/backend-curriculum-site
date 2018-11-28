@@ -16,13 +16,11 @@ When you are finished, make sure your code is pushed up to your master branch on
 
 Each pair will demo their finished game for a small group of your classmates.  During the demo, you will be asked to do the following:
 
-* Play a round of the game
-* Walk through the code that you implemented to:
-    * validate ship placement
-    * track when a ship is hit/sunk
+* Play your game
+* Walk through the code that you implemented to validate ship placement
+* Show a diagram and briefly describe your classes and how they should interact. This can be a drawing on the board.
 
-Your demos should be 20 minutes with an additional 5 - 10 minutes for questions from the audience.
-
+Your demos should be 10 minutes with an additional 5 minutes for questions from the audience.
 
 ### Asynchronous Code Review
 

@@ -26,9 +26,9 @@ Projects require students to apply new concepts from class and build on existing
 
 In week 6, students will participate in the Final Independent Assessment that will count towards the promotion decision. This is a 3 hour code challenge students will complete independently, meaning the student cannot seek help from other students, mentors, etc. Students are allowed to reference notes, other projects, and the internet.
 
-In order to practice for the Final Independent Assessment in week 6, students will be given a practice Independent Challenge most weeks. They will be submitted using a Github Pull request, and instructors will give feedback in the form of comments on the Pull Request. These are not formal assessments, but an opportunity for the student to practice their problem solving skills and receive feedback from instructors.
+In order to practice for the Final Independent Assessment in week 6, students will be given a weekly practice Independent Challenge starting in week 2. They will be submitted using a Github Pull Request, and instructors will give feedback in the form of comments on the Pull Request. These are not formal assessments, but an opportunity for the student to practice their problem solving skills and receive feedback from instructors. Students are expected to complete the first three iterations.
 
-Students can find examples of Independent Challenges [here](./exercises)
+Students can find examples of Independent Challenges [here](./independent_challenges)
 
 ## Paired Assessments
 
@@ -36,18 +36,18 @@ In week 6, students will participate in the Final Paired Assessment that will co
 
 In order to practice for the Final Paired Assessment in week 6, students will participate in the Mid Module Paired Assessment in week 4.
 
-Students can find examples of Paired Assessment challenges [here](./exercises)
+Students can reference [Doggie Day Care](./exercises/paired/doggie_day_care) as an example of a paired assessment.
 
 ## Scores
 
 Projects, Paired Assessments, and Independent Assessments will be scored on a 4 point scale:
 
-1. Well Below Expectations
-2. Below Expectations
-3. Meets Expectations
-4. Well Above expectations
+1. Failing
+2. Passing with concern
+3. Passing
+4. Exceptional
 
-Scores reflect the instructor's expectations for the student’s progress at that moment in time, not the expectations for the end of the mod. Assessments will be broken into iterations. A student is expected to complete the project or assessment through iteration 3.
+Projects, Independent Challenges, and Paired Assessments will be broken into 4 iterations. Students are expected to complete the first 3 iterations to receive a score of 3 (passing), while iteration 4 provides opportunities for further learning and exploration.
 
 ## Written CFU (Check for Understanding)
 
@@ -67,9 +67,11 @@ Students will use these exercises to practice the material covered in module 1. 
 
 **Student Support**: Students can request paired work time with Turing's Student Support Fellow.
 
+**Feedback from Instructors**: Students will receive feedback from instructors for each project, independent timed challenge and paired assessment.  In addition, students will receive a message from the instructors at the end of each week indicating if there are any topics or assignments that did not meet our expectations. If necessary, this message will include suggested actions for improvement.
+
 ## Lightning Talks
 
-Each student will give a 5 minute presentation on a topic of their choosing. This topic does not have to be technical, but must be approved by instructors.
+Each student will give a 5 minute presentation on a topic of their choosing. This topic does not have to be technical, but must be approved by instructors and must includes slides.
 
 ## Portfolios
 

@@ -28,10 +28,11 @@ $ psql
 CREATE DATABASE publications;
 ```
 
-Create a new directory and cd into it, then run `npm init --yes`. Install knex globally and in your project, and pg (postgres) in your project from npm:
+Create a new directory and cd into it, then initialize NPM. Install knex globally and in your project, and pg (postgres) in your project from npm:
 
 ```
-npm install -g knex
+npm init --yes
+npm install knex -g
 npm install knex --save
 npm install pg --save
 ```
@@ -42,6 +43,8 @@ We will use a knexfile to configure our database for all of our environments. Cr
 → knex init
 Created ./knexfile.js
 ```
+
+Now, open the project in your text editor.
 
 ## Configuring the Database
 
@@ -173,6 +176,7 @@ exports.down = function(knex, Promise) {
     knex.schema.dropTable('footnotes'),
     knex.schema.dropTable('papers')
   ]);
+}
   ```
 
 But, why is `Promise` passed in as a second argument? Knex is expecting that these methods return a promise of some sort. All Knex methods return a promise, so we fulfilled our end of the bargin in the example above. `Promise.all` allows you to do multiple things and return one promise. Knex passes us a reference to `Promise`, because it's not natively supported in some previous versions of Node. We're not using it at this moment, but we will in a second.
@@ -424,18 +428,12 @@ app.get('/api/v1/papers', (request, response) => {
 If we check this in Postman we should get back an array of all our papers that looks something like this:
 
 ```js
-[{
-  id: 1,
-  author: 'Amy',
-  title: 'Lorem Ipsum',
-  publisher: 'University of Minnesota'
-},
-{
-  id: 2,
-  author: 'Cory',
-  title: 'Dolor Set Amet',
-  publisher: 'University of Michigan'
-}]
+[ { id: 1,
+    title: 'Foo',
+    author: 'Bob',
+    created_at: 2018-10-10T16:59:59.071Z,
+    updated_at: 2018-10-10T16:59:59.071Z,
+    publisher: 'Minnesota' } ]
 ```
 
 Now let's say we decided we *didn't* need that publisher column, and we wanted to get rid of it. We could rollback that change to our schema by running:
@@ -443,20 +441,8 @@ Now let's say we decided we *didn't* need that publisher column, and we wanted t
 ```bash
 knex migrate:rollback
 ```
-Our GET request would now return the same array without publisher columns:
+Our GET request would now return the same array without publisher columns.
 
-```js
-[{
-  id: 1,
-  author: 'Amy',
-  title: 'Lorem Ipsum'
-},
-{
-  id: 2,
-  author: 'Cory',
-  title: 'Dolor Set Amet'
-}]
-```
 
 #### On Your Own
 

@@ -7,7 +7,7 @@ title: Module 4 Lessons
 
 * [Debugging Client Side Code](./fe_dev_tool_debugging)
 * [Object Oriented JavaScript](./intro_to_oojs)
-* [Asynchronous JavaScript](./asynchronicity_in_javascript)
+* [Asynchronous JavaScript](./asynchronous_js)
 * [Fetch & jQuery Refresher](./fetch_refresher)
 * [Event Bubbling & Delegation](./event_bubbling_and_delegation)
 
@@ -35,9 +35,10 @@ title: Module 4 Lessons
 ## Job Ready
 
 * [Project Polish](./project_polish)
-* [Technical Challenges](./link_will_come_later)
+* [Technical Challenges](./technical_challenges)
 * [Dream Job Interview Prep](./link_will_come_later)
 * [Big-O Notation](./)
+* [Wheel of Jeopardy](./jeopardy)
 
 ## Other
 

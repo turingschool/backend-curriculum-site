@@ -182,9 +182,9 @@ Note that there are some lines where we don't provide a return value. Pry will a
 
 You will not always have interaction patterns to guide your testing. In these cases, you'll need to decide for yourself what you'll name the methods and how you'll decide to implement its functionality.
 
-* When you start a car it returns a string that says "Starting up!"
-* If you try to start the car when it's already running it returns the string "BZZZT!"
-* If you stop a car that's running it returns the string "Stopping."
+Create a `Mechanic` class. The primary responsibility of a mechanic is to takea  list of cars and determine which of those cars is due for an oil change (greater than 3,000 miles).
+
+Write a series of tests and create a Mechanic class.
 
 Share out with the class!
 

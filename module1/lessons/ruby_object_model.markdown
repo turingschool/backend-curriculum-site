@@ -2,7 +2,7 @@
 layout: page
 title: Ruby Object Model
 length: 90 min
-tags: ruby, OOP, CS, inheritance 
+tags: ruby, OOP, CS, inheritance
 ---
 
 ## Learning Goals
@@ -15,10 +15,13 @@ tags: ruby, OOP, CS, inheritance
 
 * Scope
 * Inheritance
-* Look Up Chain 
+* Look Up Chain
 * Superclass
 * Binding
 
+## Slides
+
+* Available [here](../slides/ruby_object_model)
 
 ## WarmUp
 
@@ -48,13 +51,13 @@ Using `.class`, `.ancestors`, `.included_modules`, and `.superclass`, diagram th
 
 ![Ruby Inheritance Diagram](https://docs.google.com/drawings/d/e/2PACX-1vSh1z2yb089aMCD1pp5idcFcfvZdQt5vJH3cOAas22hI5mrIO83WrrrXdGZy6sWZuu9UALMEJeXX_JX/pub?w=952&h=728)
 
-Now check out some Ruby classes and Modules you don't interface with often, but use all the time. Try using `.class`, `.ancestors`, `.included_modules`, and `.superclass` to diagram `Object`, `Kernal`, and `BasicObject`.
+Now check out some Ruby classes and Modules you don't interface with often, but use all the time. Try using `.class`, `.ancestors`, `.included_modules`, and `.superclass` to diagram `Object`, `Kernel`, and `BasicObject`.
 
-## Scope with Variables & Methods 
+## Scope with Variables & Methods
 
 ### The Lookup Chain
 
-```ruby 
+```ruby
 class WoodThings
 
   def soft
@@ -86,7 +89,7 @@ module ChairModule
 end
 ```
 
-```ruby 
+```ruby
 require "./chair_module"
 require "./furniture"
 
@@ -95,7 +98,7 @@ class Chair < Furniture
 
   def initialize
     @motto = "I'm a chair!"
-  end 
+  end
 
   def chair_type
     short = "variable"
@@ -116,10 +119,10 @@ end
 Chair.new.chair_type
 ```
 
-When I call `Chair.new.chair_type` what will be my output? 
-How could I get it to print module? 
+When I call `Chair.new.chair_type` what will be my output?
+How could I get it to print module?
 
-#### Independent Practice 
+#### Independent Practice
 How could I get `Chair.new.chair_type` to print `method`?
 How could I get `Chair.new.chair_type` to print `superclass`?
 How could I get `Chair.new.chair_type` to print `superclass's superclass`?
@@ -169,14 +172,14 @@ josh.get_binding.eval('self') # => #<Person:0x007fe6348454f0 @name="Josh">
 As this example shows, you can access the binding by calling `binding`.
 
 #### Paired exercise
-* Using the code above, play around to see what your binding is in various places. 
+* Using the code above, play around to see what your binding is in various places.
 * Experiment with bindings and articulate two new things you've learned about how they work. You can use [the docs](https://ruby-doc.org/core-2.4.1/Binding.html), or just type `binding.methods` to see what you _can_ do.
 
 ### WrapUp
 * How does Ruby's look up chain work? What is the order it checks things?
-* What are three methods you can use to learn about where a built in Ruby method gets its components? 
+* What are three methods you can use to learn about where a built in Ruby method gets its components?
 * Draw a diagram of where Ruby would look for the method `::new`
-* What is a binding? 
+* What is a binding?
 
 ### Additional Resources
 * Test your understanding of this material with this quiz: [http://quiz-ruby-object-model.herokuapp.com/](http://quiz-ruby-object-model.herokuapp.com/).

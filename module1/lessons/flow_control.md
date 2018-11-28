@@ -279,14 +279,3 @@ end
 ```
 
 If you accidentally get stuck in an infinite loop, use `control + c` to stop it.
-
-# Exercise
-
-With a partner, each of you creating a version on your computer:
-
-* Write a program that will ask the user to enter some text
-* If the text has an odd number of characters, print "ODD!"
-* If the text has an even number of characters, print "EVEN!"
-* The program should repeat this process until the user enters "q" or "quit"
-
-**Bonus**: Create three versions of this program that use three different types of loops: `while`, `until`, and `loop do`

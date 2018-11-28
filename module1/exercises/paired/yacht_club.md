@@ -95,6 +95,3 @@ yacht_club.ship_log
 # => {"S.S. Minnow" => "Thurston Howell", "Voyager" => "Kathryn Janeway"}
 ```
 
-## Iteration 5
-
-Create a runner which will read a spies.txt file and create spy objects accordingly.

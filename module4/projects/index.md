@@ -1,11 +1,12 @@
 ---
 layout: page
-title: Module 4 Lessons
+title: Module 4 Projects
 ---
 
 ## Projects
 
+* [Self-Directed Project - FE](./self_directed_fe/self_directed_fe_spec)
 * [Quantified Self - Rails](./quantified_self/quantified_self_rails)
 * [Quantified Self - Full Stack JavaScript](./quantified_self/quantified_self_full_stack)
-* [Cross-Pollination](../capstone_project_overview)
-* [Final Project](./link_coming)
+* [Cross-Pollination](./cross_pollination/cross_pollination_spec)
+* [Take Home Challenge](./take_home_challenge/take_home_challenge_spec)

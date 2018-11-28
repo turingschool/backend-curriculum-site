@@ -11,6 +11,7 @@ layout: page
 
 ## Vocabulary
 
+- synchronous
 - asynchronous
 - call stack
 - queue
@@ -18,9 +19,7 @@ layout: page
 - Event Loop
 - JS Engine/runtime
 
-### Synchronous vs. Asynchronous
-
-#### Synchronous JavaScript
+## Warm Up
 
 DISCUSS: If we ran this code, what would you expect to see in the console? Why?
 
@@ -42,7 +41,11 @@ secondFunction()
 thirdFunction()
 ```
 
-Let's run the code and verify our assumptions.
+### Synchronous vs. Asynchronous
+
+#### Synchronous JavaScript
+
+Let's run the code from the Warm Up and verify our assumptions.
 
 Now consider:
 - What if that second function was making a big network request?

@@ -1,6 +1,6 @@
 ---
 title: Each
-length: 90
+length: 60
 tags: enumerable, ruby, collections, arrays, each,
 ---
 
@@ -9,15 +9,16 @@ tags: enumerable, ruby, collections, arrays, each,
 * Understand how to use #each to iterate over a collection
 * Recognize the "map" and "inject" patterns used in iteration
 
+## Slides
+
+Available [here](../slides/each)
+
 ## Vocabulary
 
 * Collection
 * Iteration
 * Block
 * Block Variable
-* Map
-* Inject/Reduce
-* Modulo
 
 # Scalability
 
@@ -81,67 +82,93 @@ students.each {|student_name| puts student_name }
 
 Generally, we avoid using single-line syntax unless the operation inside the block is *very* short. In this example, it is appropriate.
 
-# Credit Check Example
+# When to use \#each
 
-Let's use the [Credit Check Project](../projects/credit_check) as an example problem where we'll need to do some iteration. We'll follow along with the given example to write our Luhn Algorithm to validate the number `5541808923795240`.
+Aside from printing all of the elements in a list, there are **a lot** of situations where we would need to use \#each.  You can use \#each to transform elements within a collection, transform the collection itself into a new collection, locate specific elements from a collection, or create something new with some or all of the elements in a collection.  The possibilities are really endless, which makes \#each (and iteration in general) one of the most useful tools in a developers skillset.
 
-## Getting the Digits
+## Transform Every Element
 
-The first step is to double every other digit. For now, we'll double every digit, and then worry about every other. Because we need to do something for every element, this indicates to us that we need to use iteration. However, we can only iterate over collections, and what we have is a String. So, we need to change our String into an Array of characters using the `.chars` method:
-
-```ruby
-card_number = "5541808923795240"
-characters = card_number.chars
-p characters
-```
-
-We are using the `p` to print our `characters` array to the screen to check and see if it's what we want. `p` is a combination of `puts` and `inspect`. It is more useful to use `p` over `puts` when printing an array because it prints it in a format that is easier to read.
-
-We now have characters, but what we want is an Array of Integers so we can do some math:
+Often, you will have a collection of objects that you need to transform, or map, into a new collection.  For example, if you had the array `['megan', 'brian', 'sal']` and you needed the array `['Megan', 'Brian', 'Sal']` you could use \#each to accomplish this goal.  Let's open a playground.rb file and take a look:
 
 ```ruby
-card_number = "5541808923795240"
-characters = card_number.chars
-digits = []
-characters.each do |character|
-  digits << character.to_i
+#playground.rb
+names = ['megan', 'brian', 'sal']
+
+names.each do |name|
+  name.capitalize
 end
-p digits
+
+puts names
 ```
 
-The first step is to create a container to hold our Integers, which we do with `digits = []`.
+Run the playground file - what happens? Is this what you expected? Most students would expect to see `['Megan', 'Brian', 'Sal']`, so why is that not the case? **Return Value**
 
-Then, for each character, we change it to an Integer, and then put it in our `digits` Array.
-
-Run this code and you'll see an Array of Integers printed to the screen.
-
-## Map
-
-What we just did is known as the **Map** pattern. It is a very common pattern used when iterating over a collection. Mapping is when you take each value in the collection and change it using some rule or operation. In this case, we mapped each String in the Array to an Integer using the `to_i` method. We will learn later how to do this with the enumerable `map`, but for now it is important to understand how mapping works at the low level before getting fancy with enumerables.
-
-A good indication that you need to use the map pattern is when the Array that you start with has the same number of elements as the Array you are trying to create. Our next task is to double every digit. The Array we start with is an Array of the 16 digits. The Array we want is an Array of 16 digits with the numbers doubled. This is another map:
+The most important thing to learn about using \#each is it's _return value_ which is **the original array**.  \#each will always return **the original array**. So, how do we use \#each to really accomplish what we are trying to do? Take a look at the updated example below:
 
 ```ruby
-card_number = "5541808923795240"
-characters = card_number.chars
-digits = []
-characters.each do |character|
-  digits << character.to_i
+names = ['megan', 'brian', 'sal']
+
+capitalized_names = []
+
+names.each do |name|
+  capitalized_names << name
 end
 
-doubled = []
-digits.each do |digit|
-  doubled << digit * 2
-end
-
-p doubled
+puts capitazed_names
 ```
+
+Since we know that **each returns the original array** we need to create some placeholder container to store our _new_ collection. In Mod 1, you may hear this placeholder called the accumulator or the aggregator. The thing to remember is that when you are using \#each, you will almost always use some sort of placeholder to preserve the result that you want - in this case, the names capitalized.  Without the placeholder, you will not be able to access the information that you want!
+
+## Get a Subset of a Collection
+
+In the example above, we are using \#each to create a new array that is the same length as the original array - we are doing something to and storing _each and every_ element in the array. But what if we wanted to return only a subsection of a collection? We can still use \#each!
+
+Take a look at the example below - what do you think will be printed to the terminal when you this file is executed?
+
+```ruby
+#playground.rb
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+odd_numbers = []
+
+numbers.each do |number|
+  if number.odd?
+    odd_numbers << number
+  end
+end
+
+puts odd_numbers
+
+```
+
+In this example, we can see how the addition of a simple boolean statement can help us use \#each to accomplish a more complex task - grabbing only _some_ of the elements in the array.
+
+## Create Something New
+
+What if we want to use a collection to build something new? Say we have a collection of integers and we want to know the sum of all of those integers? Let's take a look:
+
+```ruby
+#playground.rb
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+total = 0
+
+numbers.each do |number|
+  total += number
+end
+
+puts total
+```
+
+Unlike our previous examples, here we can see how \#each can be used to create something other than another collection.  In this case, we are using \#each to collect a running total (or sum) of each of the elements within the original collection, `numbers`.
+
+The examples we have outlined are by no means a complete list of the ways that \#each can be used; they are only illustrations of the types of things you can accomplish with \#each.  As you grow your skills as a programmer, you will find more and more complex uses for \#each and iteration in general.
 
 ## with_index
 
-Now that we can double our digits, we want to be able to double every other digit. We can do this by getting the **Index** of our iteration. The index tells us which number iteration is currently running. Indexing starts at 0, so the first iteration is index 0, the second iteration is index 1, etc.
+Often, when iterating over a collection, it will be helpful to know the index of each element as you iterate. The index tells us which number iteration is currently running. Indexing starts at 0, so the first iteration is index 0, the second iteration is index 1, etc.
 
-In order to access the index, we chain the `.with_index` method onto the each and add a second block variable. It's general form looks like:
+In order to access the index, we can chain the `.with_index` method onto the each and add a second block variable. It's general form looks like:
 
 ```ruby
 collection.each.with_index do |element, index|
@@ -151,143 +178,25 @@ end
 
 On the first iteration, the value of index will be 0, on the second it will be 1, and so on. Notice that in order to use multiple block variables we separate them with a comma. This is true for any block that takes multiple variables.
 
-According to our algorithm, we want to double the digits on the 0th, 2nd, 4th, 6th, etc. iterations. Notice that these are the even iterations. We can use this information to update our code to only double the even indexed numbers:
+To see this in action, lets say we have a collection of numbers, and we want to double only the numbers at an odd index.  It would look something like this:
 
 ```ruby
-card_number = "5541808923795240"
-characters = card_number.chars
-digits = []
-characters.each do |character|
-  digits << character.to_i
-end
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 doubled = []
-digits.each.with_index do |digit, index|
-  if index.even?
-    doubled << digit * 2
+
+numbers.each.with_index do |number, index|
+  if index.odd?
+    doubled << number * 2
   else
-    doubled << digit
+    doubled << number
   end
 end
 
 p doubled
 ```
 
-## Summing digits over 10
-
-The next step is to sum the digits over ten. We can use a handy shortcut that summing the digits together is the same as subtracting 9. Once again, this follows the map pattern:
-
-```ruby
-card_number = "5541808923795240"
-characters = card_number.chars
-digits = []
-characters.each do |character|
-  digits << character.to_i
-end
-
-doubled = []
-digits.each.with_index do |digit, index|
-  if index.even?
-    doubled << digit * 2
-  else
-    doubled << digit
-  end
-end
-
-summed_over_ten = []
-doubled.each do |digit|
-  if digit > 9
-    summed_over_ten << digit - 9
-  else
-    summed_over_ten << digit
-  end
-end
-
-p summed_over_ten
-```
-
-## Summing the digits
-
-Now we need to add all the digits together. Finally, something doesn't follow the map pattern! This pattern is the **inject** or **reduce** pattern. We want to take all the elements of the collection and combine them to create a single value. In this case, we want to add them all together:
-
-```ruby
-card_number = "5541808923795240"
-characters = card_number.chars
-digits = []
-characters.each do |character|
-  digits << character.to_i
-end
-
-doubled = []
-digits.each.with_index do |digit, index|
-  if index.even?
-    doubled << digit * 2
-  else
-    doubled << digit
-  end
-end
-
-summed_over_ten = []
-doubled.each do |digit|
-  if digit > 9
-    summed_over_ten << digit - 9
-  else
-    summed_over_ten << digit
-  end
-end
-
-sum = 0
-summed_over_ten.each do |digit|
-  sum += digit
-end
-
-p sum
-```
-
-## Checking Validity
-
-The final step of the algorithm is to check if the number is divisible by ten. We will do this finding the **Modulo**, more commonly known as the remainder. You can find the modulo using the `%` operator:
-
-```ruby
-card_number = "5541808923795240"
-characters = card_number.chars
-digits = []
-characters.each do |character|
-  digits << character.to_i
-end
-
-doubled = []
-digits.each.with_index do |digit, index|
-  if index.even?
-    doubled << digit * 2
-  else
-    doubled << digit
-  end
-end
-
-summed_over_ten = []
-doubled.each do |digit|
-  if digit > 9
-    summed_over_ten << digit - 9
-  else
-    summed_over_ten << digit
-  end
-end
-
-sum = 0
-
-summed_over_ten.each do |digit|
-  sum += digit
-end
-
-if sum % 10 == 0
-  puts "The number #{card_number} is valid"
-else
-  puts "The number #{card_number} is invalid"
-end
-```
-
-This code prints `The number 5541808923795240 is valid`, which is what we would expect. Our Luhn Algorithm is complete.
+Pretty cool, right? Well, it may not seem _that_ great to you know, but \#with_index **will** come in handy at some point, so it is a good tool to keep in mind!
 
 # Practice
 
@@ -303,9 +212,10 @@ With your new best friend sitting next to you, with this following array use
 3. Can you print out their names but reversed?
 4. Can you create a new array with only the names that are longer than four letters in length?
 5. Can you create a new array with the lengths of their names?
+6. Can you create a new array with only the names that are at even indexes?
 
 
-Now with this array can you do the following with `.each`?
+Now, with this array can you do the following with `.each`?
 
 `array = [1,2,3,4,5]`
 

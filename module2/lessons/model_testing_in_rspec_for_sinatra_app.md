@@ -1,5 +1,5 @@
 ---
-title: Model Testing in Sinatra with RSpec
+title: Model Testing in RSpec for a Sinatra App
 length: 120
 tags: sinatra, models, tdd, validations, scopes, testing
 ---

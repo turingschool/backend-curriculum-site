@@ -16,16 +16,17 @@ tags: api, graphql
 Write your answer to the following:
 - Why do we use APIs?
 - What makes an API RESTful?
+- Why do we commonly see `/api/v1/` included in RESTful API endpoints?
 
 ## Why GraphQL?
 
 Let's say we are building LinkedIn for Puppies. Each puppy-user would have a name, company, title, education, favorite treat, parent names, and best friends.
 
-With a partner, whiteboard the JSON response from `api/v1/users/:id`.
+With a partner, whiteboard the JSON response from `api/v1/puppy/:id`.
 
-Considering this response (and we can pretty easily imagine what the JSON response for `api/v1/users` would look like),
+Considering this response (and we can pretty easily imagine what the JSON response for `api/v1/puppy-users` would look like),
 - What would a developer need to do to access a list of all the puppy names?
-- What would a developer need to do to access a list of users, and the name of their company (assuming that's a property on the company)?
+- What would a developer need to do to access a list of puppies, and the name of their company (assuming that's a property on the company)?
 - What _isn't ideal_ about both of these situations?
 
 ### Disadvantages to REST
@@ -87,13 +88,13 @@ const RootQuery = new GraphQLObjectType({
 ```
 
 The GraphQLObjectType has two required properties:
-- `name` - will always be a string that describes the type being defined. By convention, we would use 'Pet' here (notice the capital R)
+- `name` - will always be a string that describes the type being defined. By convention, we would use 'Pet' here (notice the capital P)
 - `fields` - an object that tells GraphQL about all of the properties on this type. For a RootQuery,
 
 ```js
 const RootQuery = new GraphQLObjectType({
-  name: 'RootQueryType',      // name is a required property
-  fields: {                   // fields is a required property
+  name: 'RootQueryType',   // name is a required property
+  fields: {                // fields is a required property
 
   }
 });
@@ -105,9 +106,9 @@ Let's start by building a Root Query for a specific pet, so someone can jump int
 const RootQuery = new GraphQLObjectType({
   name: 'RootQueryType',
   fields: {
-    pet: {                                   // an object
-      type: PetType,                         // indicating the type of object that will be given back
-      args: { id: { type: GraphQLString }}   // expects an argument of ID
+    pet: {                                // an object
+      type: PetType,                      // indicating the type of object that will be given back
+      args: { id: { type: GraphQLString }}// expects an argument of ID
     }
   }
 });
@@ -190,8 +191,8 @@ const PetType = new GraphQLObjectType({
     id: { type: GraphQLString },
     firstName: { type: GraphQLString },
     age: { type: GraphQLInt },
-    company: {                        // company !== companyId which our model has - why we need to resolve
-      type: CompanyType,              // expecting a CompanyType when we get the data back
+    company: {            // company !== companyId which our model has - why we need to resolve
+      type: CompanyType,  // expecting a CompanyType when we get the data back
       resolve(parentValue, args) {
         return axios.get(`http://localhost:3000/companies/${parentValue.companyId}`)
           .then(response => response.data);
@@ -311,6 +312,17 @@ module.exports = new GraphQLSchema({
   query: RootQuery,
   mutation
 });
+```
+
+
+In GraphiQl, make a mutation query with something like this:
+
+```
+mutation {
+  addPet(firstName: "Buddy", age: 10) {
+    id
+  }
+}
 ```
 
 Try adding a pet in GraphiQL. Think about how your mutation request might need to be different from a query. If you're stuck on this - [read this blog](https://hackernoon.com/mutations-in-graphql-9ac6a28202a2). If you run into errors - read carefully as they are usually quite helpful.

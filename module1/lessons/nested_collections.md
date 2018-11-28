@@ -154,4 +154,4 @@ e.g. `{24 => ['Juan', 'Steve', 'Jill']...}`
 
 ## Homework
 
-* Complete the `core-types/collections/nested_collections_test.rb` in ruby-exercises
+* Complete the `data-types/collections/nested_collections_test.rb` in [ruby-exercises](https://github.com/turingschool/ruby-exercises)

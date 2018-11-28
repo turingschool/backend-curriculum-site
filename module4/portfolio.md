@@ -21,6 +21,7 @@ title: Module 4 Portfolio Requirements
 * What have you done this inning that sets you apart from your peers?
 * How did your Mod 4 experience with this part of the stack (e.g. front-end technologies for BE students/back-end technologies for FE students) impact what you wanted to be doing after Turing? How did it reframe what you learned in previous modules?
 * What is the most important skill or lesson that you will take from Turing into your next job?
+* What was your biggest takeaway from Gear Ups while at Turing? How has that impacted you and how will it impact you and your co-workers when you are on the job? 
 
 #### The presentation should not only be a series of slides that directly answers each of these questions with bullet points, but instead should:
 

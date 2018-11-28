@@ -25,10 +25,11 @@ Additional [resources are provided](resources/index.md), and we encourage studen
 
 The following items are evaluated and assessed by instructors as part of consideration to promote you on to Module 3:
 
+* [Intermission Pre-Work](https://github.com/turingschool/intermission-assignments/blob/master/2be/index.markdown) Submission instructions are included in the pre-work.
 * [Laugh Tracks](https://github.com/turingschool-projects/LaughTracks), solo project, week 1
 * [Book Club](https://github.com/turingschool-projects/BookClub), paired project, week 2 and 3
-* Little Shop, group project, week 4 and 5
-* [JobTracker](https://github.com/turingschool-projects/job-tracker), solo project, week 6
+* [Little Shop](https://github.com/turingschool-projects/little_shop_v2), group project, week 4 and 5
+* [Little Shop Extensions](https://github.com/turingschool-projects/little_shop_v2/blob/master/extensions.md), solo project, week 6
 * [Write a technical blog post](success/#blog-post), due by week 6
 * [ActiveRecord Obstacle Course](misc/active_record_obstacle_course), due by week 6
 * Mid-Mod Evaluation

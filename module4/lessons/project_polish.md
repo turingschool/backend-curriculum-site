@@ -84,7 +84,7 @@ Sometimes projects can get a little crazy and we commit code with messages that 
 
 ## Work Time
 
-Take the next ~45 minutes to start working on one bite-sized piece of polishing based on your partners feedback!
+Take the next ~1 hour to start working on one bite-sized piece of polishing based on your partners feedback!
 
 ## Wrap Up
 

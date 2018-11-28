@@ -5,20 +5,27 @@ length: 90
 tags: javascript, dom, browser, events
 ---
 
-Learning Goals
------------
+## Learning Goals
 
-*   Understand event bubbling
-*   Learn to use event bubbling to set event listeners
+* Understand event bubbling
+* Learn to use event bubbling to set event listeners
 
-Warm Up
------------
-* What is an event?
-* Read the "Bubbling" and "event.target" section [here](https://javascript.info/bubbling-and-capturing)
-* What is event bubbling?
+## Vocabulary
 
-Event Basics
--------
+* event
+* DOM
+* DOM node
+* event listener
+* capture, target, bubble
+* child, parent, grandparent
+
+## Warm Up
+
+* When thinking about front-end interactions, what is an event?
+* What are some events that typically take place on a webpage?##
+* What is the DOM?
+
+## Event Basics
 
 Events are happening all the time in the browser. When the browser has finished loading the page, an event is fired. Every time the user moves their mouse, hovers over an element, clicks or taps, submits a form, presses down on a key or takes their finger off that key — an event is fired. Some of these events are very easy to spot when they occur (e.g. the user clicks on a hyperlink), but many go by completely unnoticed.
 
@@ -36,8 +43,7 @@ Event propagation is an important yet misunderstood topic/term when talking abou
 * **Event bubbling phase** - This is the final phase to occur, although many people think this is the first phase. In the bubbling phase a notice is passed from the target Node up through all of the parent Nodes all the way back to the top root of the DOM
 
 
-Event Bubbling
-------------
+## Event Bubbling
 
 Now we've talked about the very basics of events, let's turn our attention to event bubbling, which refers to the ability of events set on DOM nodes to "bubble up" and also apply to children of those nodes. We'll start with a quick experiment.
 
@@ -82,7 +88,7 @@ Draw a diagram to explain what is happening and write your code out on your post
   * event.currentTarget
 
 
-### Discussion
+### Partner Experiment
 
 You may have noticed that the event listeners on a parent element are fired whenever the action occurs on one of its children.
 
@@ -104,7 +110,20 @@ Try out the following code in your forked CodePen:
   });
 ```
 
-If you click on the button, you'll see that the events all bubble up through the `.parent` and `.grandparent` elements — this provides a more explicit proof than the solutions you may come up with for the previous question.
+#### Turn & Talk
+- What happens when the button is clicked, and why? What technical vocabulary help you explain that.
+- What happens when the grandparent is clicked? Why is that all that happens?
+
+### Why Do We Care?
+
+![inline](./assets/event_example.png)
+
+In the screenshot above, the "Recent Selections" card has a table-like structure, where each row has data and several buttons. What can't be illustrated in a screenshot is that the row itself can be clicked on to be expanded. Turing, Imperatives, and the two icons on the right can also be clicked on to navigate to another screen.
+
+In your notebook, write your answers/sketch out:
+- What relationship does the row have to the icons?
+- Which nodes need an event listener?
+- Where may event bubbling cause a problem? What would the experience be like for the user?
 
 ### The Event Object
 
@@ -128,14 +147,14 @@ would be the `div`.
 ```js
 // scripts.js
 $(".container").on("click", function (event) {
-    console.log(event.currentTarget) // With only one event listener registered,
+    console.log(event.currentTarget); // With only one event listener registered,
       // this will always be the div.container node
 
-    console.log(event.target) // if you click the button, this will be the
+    console.log(event.target); // if you click the button, this will be the
       // button.submit node
       // if you click outside of the button, but still in the .container space,
       // it will log the div.container node
-  })
+  });
 ```
 
 Let's make some changes to the code from earlier. Instead of logging a description of each element where an event was triggered, either by a click or through event bubbling, let's log the `target` and `currentTarget` of the event.
@@ -162,20 +181,19 @@ $('#click-me').on('click', function (event) {
 Just because we are in JavaScriptopolis doesn't mean we have to write WET ("Woo! Extra Typing!") code! In the interest of always keeping an eye out for repetitive tasks, let's see that previous snippet refactored with a `forEach` call:
 
 ```js
-const selectors = [".grandparent", ".parent", "#click-me"]
+const selectors = [".grandparent", ".parent", "#click-me"];
 
 selectors.forEach(function (selector) {
   $(selector).on("click", function (event) {
-      console.log("target", event.target)
-      console.log("currentTarget", event.currentTarget)
-    })
-})
+      console.log("target", event.target);
+      console.log("currentTarget", event.currentTarget);
+    });
+});
 ```
 
 ## Back to Events
 
-Adding and Removing Event Listeners
-----------------
+### Adding and Removing Event Listeners
 
 A common obstacle that many JavaScript developers struggle with is understanding the timing in which they bind event listeners to DOM nodes. When we add event listeners to DOM nodes, we're only adding them to the nodes that are currently on the page. We are _not_ adding listeners to nodes that may be added to the page in the future.
 
@@ -190,16 +208,15 @@ You should see 2 tasks in our To-do List labeled "Task 1" and "Task 2" as well a
 2.  Add an additional task using the "Add new task" button.
 3.  Click on the new task and observe the results.
 
-What did you notice?
+What did you notice? What is your prediction about why this is happening?
 
 The event listeners are only bound to the li elements that were present when the page code was first loaded. The li elements we added later were not around when we added the listeners.
 
 **What could we do to fix this?**
 
-Work with your partner to modify the function that adds new buttons so that it adds an event listener to the element before appending it to the page.
+Work with your partner to modify the function that adds new buttons so that it adds an event listener to the element before appending it to the page. Some googling will probably be involved.
 
-Event Delegation
-------------------
+## Event Delegation
 
 Setting event listeners on specific newly created DOM nodes is one way to set event listeners. However, if you're not careful, you may end up setting multiple listeners on the same node.
 
@@ -214,15 +231,14 @@ From the jQuery documentation: "Event delegation refers to the process of using 
 Event delegation in tandem with `target` and `currentTarget` allows you to have more articulate control over what events actually execute your JavaScript.
 
 
-Extra: Enough with the Bubbles
--
+## Extra: Enough with the Bubbles
 
 You have already come across `event.preventDefault()`, which does exactly what its name implies.
 
 In the context of event bubbling and delegation, there is another function on the `Event` object that is useful for controlling event flow:
 
 ```js
-event.stopPropagation()
+event.stopPropagation();
 ```
 
 As you might expect, this prevents the event from traveling up the ancestral node path.
@@ -234,15 +250,15 @@ This is helpful if a parent and child both have listeners, but should be execute
 Coming back to this generic logging example, what happens if you stop propagation after the `console.log()` lines?
 
 ```js
-const selectors = [".grandparent", ".parent", "#click-me"]
+const selectors = [".grandparent", ".parent", "#click-me"];
 
 selectors.forEach(function (selector) {
   $(selector).on("click", function (event) {
-      console.log("target", event.target)
-      console.log("currentTarget", event.currentTarget)
-      event.stopPropagation()
-    })
-})
+      console.log("target", event.target);
+      console.log("currentTarget", event.currentTarget);
+      event.stopPropagation();
+    });
+});
 ```
 
 Click around the DOM to see the results.
@@ -250,11 +266,8 @@ Click around the DOM to see the results.
 
 ## Review
 
-* When an element is bound to an event listener, what besides that element can trigger the event?
-* How does this relate to "event bubbling"?
-* When do we want to utilize event delegation?
-* What is the difference between `target` and `currentTarget`?
-
-## Interview Question
-
+* What is the DOM?
+* List two different events that can occur on the DOM.
+* What is an event listener?
+* When an element is bound to a listener, what besides that element can trigger an event?
 * What does event bubbling or event propagation mean?

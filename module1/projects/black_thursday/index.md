@@ -52,14 +52,14 @@ From a technical perspective, this project will emphasize:
 Because the requirements for this project are lengthy and complex, we've broken
 them into Iterations in their own files. Your project *must* implement iterations 0 through 3 and either 4 or 5.
 
-*   [Iteration 0](black_thursday_iterations/iteration_0) - Merchants & Items
-*   [Iteration 1](black_thursday_iterations/iteration_1) - Beginning Relationships and Business Intelligence
-*   [Iteration 2](black_thursday_iterations/iteration_2) - Basic Invoices
-*   [Iteration 3](black_thursday_iterations/iteration_3) - Item Sales
-*   [Iteration 4](black_thursday_iterations/iteration_4) - Merchant Analytics
-*   [Iteration 5](black_thursday_iterations/iteration_5) - Customer Analytics
+*   [Iteration 0](./iteration_0) - Merchants & Items
+*   [Iteration 1](./iteration_1) - Beginning Relationships and Business Intelligence
+*   [Iteration 2](./iteration_2) - Basic Invoices
+*   [Iteration 3](./iteration_3) - Item Sales
+*   [Iteration 4](./iteration_4) - Merchant Analytics
+*   [Iteration 5](./iteration_5) - Customer Analytics
 
 
 ## Evaluation Rubric
 
-Your project will be assessed using [this rubric](../project_rubric)
+Your project will be assessed using [this rubric](./rubric)

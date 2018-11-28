@@ -393,7 +393,7 @@ But what should `some_path` be? Look at the routes table with `rake routes`. The
 The helper method for the destroy-triggering route is `article_path`. It needs to know which article to delete since there's an `:id` in the path, so our link will look like this:
 
 ```erb
-<%= link_to "delete", article_path(@article) %>
+<%= link_to "Delete", article_path(@article) %>
 ```
 
 Add that to `app/views/articles/show.html.erb`.
@@ -517,14 +517,6 @@ Again in `show.html.erb`, let's add this:
 Trigger the `edit_article` route and pass in the `@article` object. When you run your tests you should get an `ActionNotFound` message or edit.
 
 #### Implementing the `edit` Action
-
-The router is expecting to find an action in `ArticlesController` named `edit`, so let's add this:
-
-```ruby
-def edit
-  @article = Article.find(params[:id])
-end
-```
 
 The router is expecting to find an action in `ArticlesController` named `edit`, so let's add this:
 

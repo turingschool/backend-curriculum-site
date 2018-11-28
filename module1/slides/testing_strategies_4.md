@@ -87,22 +87,6 @@ car.odometer.class
 
 ---
 
-# Interaction Patterns: Paired
-
-```
-car = Car.new("Toyota", "Camry")
-car.horn
-#=> "BEEEEEEEEP"
-car.drive(12)
-#=> "I'm driving 12 miles"
-car.drive(6)
-#=> "I'm driving 6 miles"
-car.odometer
-#=> 18
-```
-
----
-
 # Interactions in Pry
 
 * Can use our interaction patterns in `pry`
@@ -120,9 +104,9 @@ car.odometer
 
 # Descriptions: With a Partner
 
-* When you start a car it returns a string that says "Starting up!"
-* If you try to start the car when it's already running it returns the string "BZZZT!"
-* If you stop a car that's running it returns the string "Stopping."
+Create a `Mechanic` class. The primary responsibility of a mechanic is to takea  list of cars and determine which of those cars is due for an oil change (greater than 3,000 miles).
+
+* Write a series of tests and create a Mechanic class.
 
 ---
 

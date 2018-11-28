@@ -19,15 +19,23 @@ Available [here](../slides/objects_classes_instances)
 
 ## Warmup
 
-In your notebook brainstorm five **types** of objects and **specific** instances of that object that are at Turing.
+In your notebook brainstorm a **type** of object and **specific** instances of that object that are at Turing. Then brainstorm 3 different **attributes** for those objects and 3 different **behaviors** of those objects.
 
 For example:
 
-* Type of object: Cubby
+* Type of object: Refrigerator
 * Specific instances:
-    * Brian's cubby
-    * Megan's cubby
-    * Sal's cubby
+    * Staff Fridge
+    * Small Fridge in Student Kitchen
+    * Large Fridge in Student Kitchen
+* Attributes
+  * Brand
+  * Color
+  * Temperature
+* Behaviors
+  * Add Food
+  * Remove Food
+  * Change Temperature
 
 ## Classes in Ruby
 
@@ -38,9 +46,9 @@ In programming, a *Class* is something that models:
 1. State
 1. Behavior
 
-State is what something *is*. Behavior is what something *does*. In the previous activity, our *Class* was refrigerator. We modeled the state of a refrigerator by defining the attributes "color", "size", and "food items". We modeled the behavior of a refrigerator by defining the methods "add food", "remove food", and "change temperature".
+State is what something *is*. Behavior is what something *does*. In the previous activity, our *Class* was refrigerator. We modeled the state of a refrigerator by defining the attributes "brand", "color", and "temperature". We modeled the behavior of a refrigerator by defining the methods "add food", "remove food", and "change temperature".
 
-An *Instance* or *Object* is a concrete representation of a *Class*. In the previous activity, "small staff refrigerator" is a specific *Instance* of the Fridge *Class*. We can also say that "small staff refrigerator" is a Fridge *Object*. Do not get confused by the terms *Instance* an *Object*. They mean the exact same thing (for now).
+An *Instance* or *Object* is a concrete representation of a *Class*. In the previous activity, "staff refrigerator" is a specific *Instance* of the Fridge *Class*. We can also say that "staff refrigerator" is a Fridge *Object*. Do not get confused by the terms *Instance* and *Object*. They mean the exact same thing (for now).
 
 Think of a Class like a blueprint for a house and an Instance as an actual house. The blueprint is a just an idea of how the house should be built, and the house is the realization of that blueprint.
 
@@ -65,7 +73,7 @@ Generally we will want to put more information in our classes to make them usefu
 
 ### Practice
 
-Let's practice together with a Fridge class. Create a directory in your classwork directory called `objects_classes_and_instances`. Within that directory create a `fridge.rb` file, and put the folling information into that file.
+Let's practice together with a Fridge class. Create a directory in your classwork directory called `objects_classes_and_instances`. Within that directory create a `fridge.rb` file, and put the following information into that file.
 
 ```ruby
 # ~/turing/1module/classwork/objects_classes_and_instances/fridge.rb
@@ -99,7 +107,7 @@ Your computer should open up a pry session. Inside of that pry session type `fri
 
 ## Attributes in Ruby Classes
 
-Above we created a Fridge class and then also created specific intsnaces of the fridge class that we held in the variables `fridge_1` and `fridge_2`. Generally the objects we create will come from the same template, but each instance will be different in some way.
+Above we created a Fridge class and then also created specific instances of the fridge class that we held in the variables `fridge_1` and `fridge_2`. Generally the objects we create will come from the same template, but each will be a unique object.
 
 Think about the refrigerators here in the Turing basement.
 
@@ -112,8 +120,6 @@ Each one is different in important ways. For example, each one has its own:
 * brand
 * color
 * temperature
-* plugged_in
-* contents
 
 We can model these attributes in code by using *instance variables*. Generally we define these instance variables in a special method called `initialize` that is run every time a new instance of a class is created.
 
@@ -131,7 +137,17 @@ end
 ...
 ```
 
-This method is run once and only once during an Object's lifetime, when we call `new`.
+This method is run once and only once during an Object's lifetime, when we call `new`. Other than that, initialize is like any other method where we can put Ruby code:
+
+```ruby
+class Fridge
+  def initialize
+    puts "A new Fridge Object has been created"
+  end
+end
+
+...
+```
 
 ### Modeling State with Attributes
 
@@ -141,37 +157,50 @@ Remember, a class models *State* and *Behavior*. Let's give our refrigerator som
 
 ### Practice
 
-In our playground file, we'll add some attributes to the `Fridge` class. The @ symbol before a variable name indicates that it is an *Attribute* or *Instance Variable*. These two terms mean the exact same thing.
+Let's add some attributes to the `Fridge` class. The `@` symbol before a variable name indicates that it is an *Attribute* or *Instance Variable*. These two terms mean the exact same thing.
 
 ```ruby
 class Fridge
-  def initialize(brand, color, temperature, plugged_in, contents)
-    @brand       = brand
-    @color       = color
-    @temperature = temperature
-    @plugged_in  = plugged_in
-    @contents    = contents
+  def initialize(brand_argument, color_argument, temperature_argument)
+    @brand       = brand_argument
+    @color       = color_argument
+    @temperature = temperature_argument
   end
 end
 ```
 
-we have now created a method class that will allow us to create many different instances of Fridge, each one slightly different from the last. How do we do that in practice? Update your runner file so that it includes the following:
+Because Attributes are something we want to persist throughout an object's lifetime, we typically define them inside the initialize method because we want them to exist as soon as the object is created.
 
-```
-fridge_1  = Fridge.new("Maytag", "white", 36, true, ["leftover pizza", "yogurt", "soylent"])
+We have now created a method class that will allow us to create many different instances of Fridge, each one slightly different from the last. How do we do that in practice? Update your runner file so that it includes the following:
+
+```ruby
+fridge_1  = Fridge.new("Maytag", "white", 36)
 puts "Number 1: #{fridge_1}"
 
-fridge_2   = Fridge.new("", "black", 40, true, [])
+fridge_2   = Fridge.new("", "black", 40)
 puts "Number 2: #{fridge_2}"
 
 require 'pry'; binding.pry
 ```
 
-Note that the arguments that we pass to `new` are order dependent. So, in the first example when we pass `"Maytag"` as the first argument, we are saying that the brand of the Fridge we are creating is Maytag. When we pass an empty string (`""`) the second time we call `new` we are saying that the Fridge that we created doesn't have a name brand.
+When we include the arguments to `.new`, Ruby will pass those arguments to the initialize method for us. Note that the arguments that we pass to `new` are order dependent. So, in the first example when we pass `"Maytag"` as the first argument, we are saying that the brand of the Fridge we are creating is Maytag. When we pass an empty string (`""`) the second time we call `new` we are saying that the Fridge that we created doesn't have a name brand.
+
+What we have just done is a very common pattern. We gave our initialize method some arguments and we saved those arguments to instance variables. While this is a strong pattern, it is not a rule. For instance, you may want to set a variable in your initialize that has a default value that isn't set using an argument:
+
+```ruby
+class Fridge
+  def initialize(brand, color, temperature)
+    @brand       = brand
+    @color       = color
+    @temperature = temperature
+    @contents    = []
+  end
+end
+```
 
 ### Independent Practice
 
-**TRY IT**: With your pair, give your Person class some attributes and create some instances of Person.
+**TRY IT**: With your pair, give your Person class some attributes that are set using arguments to initialize and some attributes that have default values. Make some instances of your Person class.
 
 ## Accessing Attributes
 
@@ -200,17 +229,18 @@ class Fridge
               :temperature,
               :contents
 
-  def initialize(brand, color, temperature, plugged_in, contents)
+  def initialize(brand, color, temperature)
     @brand       = brand
     @color       = color
     @temperature = temperature
-    @plugged_in  = plugged_in
-    @contents    = contents
+    @contents    = []
   end
 end
 ```
 
 Run your runner file again and now see if you can call `fridge_1.brand`. Try to see if you can access other attributes as well.
+
+An important thing to remember is that although there is a special syntax for creating `attr_reader`s, they are still just methods. Remember the error we got earlier was a no method error for `brand`.
 
 ### Independent Practice
 
@@ -238,12 +268,52 @@ Update your runner file so that you:
 
 1. Create a new instance of Fridge.
 1. Print the contents of that Fridge.
-1. Add something to the contents of the Fridge.
+1. Add some food to the contents of the fridge using the method you just created. You can represent a food as a String.
 1. Print the new contents of the Fridge.
 
 ### Independent Practice
 
 **TRY IT**: With your pair, create a `have_birthday` method for your Person class. This should increase the age of that person by 1.
+
+## Object Interaction
+
+When we build more complex programs, we typically have many classes, and the instances of those classes interact in some way.
+
+### Practice
+
+Instead of representing food as a String, let's create a Food class to represent a food.
+
+```ruby
+class Food
+  attr_reader :name,
+              :calories
+
+  def initialize(name, calories)
+    @name = name
+    @calories = calories
+  end
+end
+```
+
+Update your runner file to add Food objects to the contents of your fridge.
+
+Now let's add a method for a fridge to total the number of calories in the fridge:
+
+```ruby
+class Fridge
+# ... attr_readers & other methods
+
+  def total_calories
+    calories = 0
+    @contents.each do |food|
+      calories += food.calories
+    end
+    calories
+  end
+end
+```
+
+Update your runner file to call this method.
 
 ## In Pairs
 

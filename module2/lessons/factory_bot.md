@@ -92,72 +92,108 @@ spec/factories.rb
 spec/factories/*.rb
 ```
 
-### Example of `spec/factories/artists.rb`:
+### Example of Making an Artist
+
+`spec/factories/artists.rb`:
 
 ```ruby
 FactoryBot.define do
   factory :artist do
-    name "Imagine Dragons"
+    name { "Imagine Dragons" }
   end
 end
 ```
 
-Pull up your `user_creates_song_spec.rb`. Within this test you likely are creating a artist with something like `artist = Artist.create(name: "ArtistName")`
+Pull up your feature test about "a user can create a song". Within this test you likely are creating a artist with something like `artist = Artist.create(name: "ArtistName")`
 
 Having the above factory allows you to do this:
 
 ```ruby
-#from user_creates_song_spec.rb
-
-# Unsaved artist (Ruby land):
+# Unsaved artist, like doing Artist.new
 artist = build(:artist)
 
-# Saved artist (Ruby and database land):
+# Saved artist, like doing Artist.create
 artist = create(:artist)
 ```
 
 **Overriding**  
+
 When creating a new instance you can override attributes in factories `create(:artist, name: "Journey")`
 
 **Lists**  
+
 Want to create multiple of the same type of resource?
-Let's look at our `spec/features/users_sees_all_songs_spec.rb`.
+
+Let's look at our feature test about "users see all songs".
+
 Here we are creating two songs. Let's DRY this up a bit.
+
+We need to create the "factory" for it first in `spec/factories/songs.rb`:
+
+```ruby
+FactoryBot.define do
+  factory :song do
+    title { "Billie Jean" }
+    length { 5 }
+    play_count { 0 }
+  end
+end
+```
 
 `songs = create_list(:songs, 2)`
 or
 `songs_1, songs_2 = create_list(:song, 2)`
 
+In this case, this WON'T work for us, because Songs require that we have an artist associated with them (because of nested resources), so we need to associate these in a relationship check:
+
+
 **Relationships**  
+
 Want to create an object but it has a belongs_to and needs an associated object to be created? Now we have a artist or two created and two songs. We have more tools to DRY this up even more. If we create our song prepopulated with a artist, we don't need to create artists in our song index test.
 
 ```ruby
 #spec/factories/songs.rb
-factory :song do
-  title "Billie Jean"
-  length 5
-  play_count 0
-  artist
+
+FactoryBot.define do
+  factory :song do
+    title { "Billie Jean" }
+    length { 5 }
+    play_count { 0 }
+    artist
+  end
 end
 ```
 
+The benefit to this is that our test no longer has to `create(:artist)`, just making a song will generate an artist for us as part of creating a song!
+
+
 **Sequences**  
+
 Want to create unique content? You might use a sequence to put a number in each value.
 What if we want our songs to have different titles?
 
 ```ruby
-factory :song do
-  sequence(:title) {|n| "Title #{n}" }
-  sequence(:length) {|n| n*60}" }
+#spec/factories/songs.rb
+
+FactoryBot.define do
+  factory :song do
+    sequence(:title) {|n| "Title #{n}" }
+    sequence(:length) {|n| n*10 }
+    play_count { 0 }
+    artist
+  end
 end
 ```
 
 **Alias**  
+
 Want to call your factory "admin" but use the `Artist` class? Use an alias like this. You can call create(:admin) and it will give you a Artist object.
 
 Maybe you want to be able to create a regular old artist as well as a super-artist of sorts, an `:admin`.
 
-```
+```ruby
+#spec/factories/admin_artists.rb
+
 FactoryBot.define do
   factory :admin, class: Artist do
     name "Queen"
@@ -166,16 +202,20 @@ end
 ```
 
 **Dynamic Values**
+
 Want to be able to dynamically create values?
+
 use `{Time.now}` instead of `"2015-03-05 11:14:47 -0700"`
 
 
 ### Additional Resources
 
-- Work through this [playlist](https://www.youtube.com/playlist?list=PLf6E_SWaTZjH9V9-eeqH5oAXL-q7GcBm9) of tutorials alongside this clone [repository](https://github.com/turingschool-examples/factory_girl_intro) .
+- [FactoryBot Getting Started Guide](https://www.rubydoc.info/gems/factory_bot/file/GETTING_STARTED.md)
+- Work through this [playlist](https://www.youtube.com/playlist?list=PLf6E_SWaTZjH9V9-eeqH5oAXL-q7GcBm9) of tutorials alongside this clone [repository](https://github.com/turingschool-examples/factory_girl_intro).
   * **TIP**: Try increasing the speed of the videos once you get the hang of FactoryBot (settings in the gear button on the YouTube video frame).
 
 ## WrapUp
+
 * How do you create a factory for a single resource?
 * How do you create a factory for a resource that belongs_to another resource?
 * Why might you use a tool like FactoryBot?
