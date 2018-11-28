@@ -70,21 +70,21 @@ Sample courses table:
 | id | title | description                             |
 |----|-------|-----------------------------------------|
 | 1  | BE M1 | OOP with Ruby                           |
-| 2  | BE M2 | Web Applications with Ruby              |
-| 3  | BE M3 | Professional Rails Applications         |
-| 4  | BE M4 | Client-Side Development with JavaScript |
+| 2  | BE M2 | Intro to Rails                          |
+| 3  | BE M3 | APIs in Rails                           |
+| 4  | BE M4 | JavaScript                              |
 
 Sample students table:
 
 | id | first_name | last_name | course_id |
 |----|------------|-----------|-----------|
-| 1  | Sal        | Espinosa  | 2         |
-| 2  | Ilana      | Corson    | 2         |
+| 1  | Sal        | Espinosa  | 4         |
+| 2  | Ian        | Douglas   | 2         |
 | 3  | Josh       | Mejia     | 3         |
-| 4  | Casey      | Cumbow    | 4         |
-| 5  | Ali        | Schlereth | 1         |
-| 6  | Victoria   | Vasys     | 1         |
-| 7  | Mike       | Dao       | 1         |
+| 4  | Megan      | McMahon   | 1         |
+| 5  | Dione      | Wilson    | 2         |
+| 6  | Brian      | Zanti     | 1         |
+| 7  | Mike       | Dao       | 3         |
 
 We can use this same pattern to create a one-to-one relationship, though we would need to validate the uniqueness of the foreign key (e.g. `course_id`) above.
 
@@ -115,10 +115,10 @@ m2 = Course.find(2)
 m2.students
 
 m4 = Course.find(4)
-jeff = m4.students.create(first_name: "Jeff", last_name: "Casimir")
+amy = m4.students.create(first_name: "Amy", last_name: "Holt")
 
-jorge = Student.create(first_name: "Jorge", last_name: "Tellez")
-m4.students << jorge
+cory = Student.create(first_name: "Cory", last_name: "Westerfield")
+m4.students << cory
 ```
 
 ## Practice (~30 min)
