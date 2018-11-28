@@ -46,7 +46,7 @@ pry(main)> card.category
 
 Create a `Turn` class and an accompanying test file with the following methods:
 
-* `initialize(string, Card)` - A turn is initialized with two arguments. The first is a string representing a guess to a card's question. The second argument is a `Card` object representing the current flashcard being shown.
+* `initialize(string, card)` - A turn is initialized with two arguments. The first is a string representing a guess to a card's question. The second argument is a `Card` object representing the current flashcard being shown.
 * `guess` - This method returns the guess
 * `card` - This method returns the Card
 * `correct?` - This method returns a boolean indicating if the guess matched the answer on the Card.
@@ -83,7 +83,7 @@ pry(main)> turn.feedback
 We also want to make sure that incorrect guesses are handled properly.
 
 ```ruby
-pry(main)> require './lib/guess'
+pry(main)> require './lib/turn'
 #=> true
 
 pry(main)> require './lib/card'
