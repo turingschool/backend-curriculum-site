@@ -138,6 +138,53 @@ function orderDoubleFrapWithExtraWhipAndTenCakePops() {
 
 ## Debrief Drive-Thru
 
+Prep this in your console or a repl:
+
+```js
+function orderCakePop() {
+  console.log("Your cakepop is ready!");  
+}
+
+function orderThreeLattes() {
+  console.log("Your lattes are ready!");  
+}
+
+function orderPike() {
+  console.log("Your coffee is ready!");
+}
+
+function orderBreakfastSandwichandLatte() {
+  console.log("Your sandwich and latte are ready!");  
+}
+
+function orderBreakfastSandwich() {
+  console.log("Your sandwich is ready!");  
+}
+
+orderBreakfastSandwich();
+
+function orderOneLatte() {
+  console.log("Your latte is ready!");  
+}
+
+function orderPike() {
+  console.log("Your coffee is ready!");
+}
+
+function orderDoubleFrapWithExtraWhipAndTenCakePops() {
+  console.log("Your double frap with extra whip and ten cake pops are ready!");  
+}
+
+orderCakePop();
+orderThreeLattes();
+orderPike();
+orderBreakfastSandwichandLatte();
+orderBreakfastSandwich();
+orderOneLatte();
+orderPike();
+orderDoubleFrapWithExtraWhipAndTenCakePops();
+```
+
 Now, show the code that this illustrates:
 
 ```
