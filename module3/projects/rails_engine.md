@@ -13,68 +13,74 @@ In this project, you will use Rails and ActiveRecord to build a JSON API which e
 
 The project requirements are listed below:
 
-* [Learning Goals](#learning-goals)
-* [Technical Expectations](#technical-expectations)
-* [Check-ins](#check-ins-and-milestones)
-* [Evaluation](#evaluation)
+  * [Learning Goals](#learning-goals)
+  * [Technical Expectations](#technical-expectations)
+  * [Check-ins](#check-ins-and-milestones)
+  * [Evaluation](#evaluation)
 
 ## Learning Goals
 
-* Learn how to to build Single-Responsibility controllers to provide a well-designed and versioned API.
-* Learn how to use controller tests to drive your design.
-* Use Ruby and ActiveRecord to perform more complicated business intelligence.
+  * Learn how to to build Single-Responsibility controllers to provide a well-designed and versioned API.
+  * Learn how to use controller tests to drive your design.
+  * Use Ruby and ActiveRecord to perform more complicated business intelligence.
 
 
 ## Technical Expectations
-* All endpoints will expect to return JSON data
-* All endpoints should be exposed under an `api` and version (`v1`)
+  * All endpoints will expect to return JSON data
+  * All endpoints should be exposed under an `api` and version (`v1`)
 namespace (e.g. `/api/v1/merchants.json`)
-* JSON responses should include `ids` only for associated records unless otherwise indicated (that is, don't embed the whole associated record, just the id)
+  * JSON responses should include `ids` only for associated records unless otherwise indicated (that is, don't embed the whole associated record, just the id)
 * Prices are in cents, therefore you will need to transform them in dollars. (`12345` becomes `123.45`)
-* Remember that for a JSON string to be valid, it needs to contain a key and a value.
-* API will be compliant to the JSON API spec. [Documentation](https://jsonapi.org/)
+  * Remember that for a JSON string to be valid, it needs to contain a key and a value.
+  * API will be compliant to the JSON API spec. [Documentation](https://jsonapi.org/)
 
 ### Data Importing
 
-* You will create an ActiveRecord model for each
-entity included in the [sales engine data](https://github.com/turingschool/sales_engine/tree/master/data).
-* Your application should include a rake task which imports all of the CSV's and creates the corresponding records.
+  * You will create an ActiveRecord model for each
+  entity included in the [sales engine data](https://github.com/turingschool/sales_engine/tree/master/data).
+  * Your application should include a rake task which imports all of the CSV's and creates the corresponding records.
 
 ### Record Endpoints
 
 #### Index of Record
 
-Each data category should include an `index` action which
-renders a JSON representation of all the appropriate records:
+  Each data category should include an `index` action which
+  renders a JSON representation of all the appropriate records:
 
 ##### Request URL
 
-`GET /api/v1/merchants.json`
+  `GET /api/v1/merchants.json`
 
 ##### JSON Output
 
 (The following is an example of a response if only three records were saved in the database)
 
-```json
-{ 
-"data":
-  [
-    {
-      "id":1,
-      "name":"Schroeder-Jerde"
-    },
-    {
-      "id":2,
-      "name":"Klein, Rempel and Jones"
-    },
-    {
-      "id":3,
-      "name":"Willms and Sons"
+  ```json
+{
+  "data": [
+  {
+    "id": "1",
+      "type": "merchant",
+      "attributes": {
+        "name": "Mike's Awesome Store",
+      }
+  },
+  {
+    "id": "2",
+    "type": "merchant",
+    "attributes": {
+      "name": "Store of Fate",
     }
-
+  },
+  {
+    "id": "3",
+    "type": "merchant",
+    "attributes": {
+      "name": "This is the limit of my creativity",
+    }
+  }
   ]
 }
-```
 
 #### Show Record
 
@@ -88,12 +94,14 @@ renders a JSON representation of the appropriate record:
 ##### JSON Output
 
 ```json
-{ 
-  "data":
-    {
-      "id":1,
-      "name":"Schroeder-Jerde"
+{
+  "data": {
+    "id": "1",
+    "type": "merchant",
+    "attributes": {
+      "name": "Store Name"
     }
+  }
 }
 ```
 
@@ -122,11 +130,13 @@ GET /api/v1/merchants/find?parameters
 `GET /api/v1/merchants/find?name=Schroeder-Jerde`
 
 ```json
-{ 
-  "data":
-  {  
-     "id":1,
-     "name":"Schroeder-Jerde"
+{
+  "data": {
+    "id": "1",
+    "type": "merchant",
+    "attributes": {
+      "name": "Schroeder-Jerde"
+    }
   }
 }
 ```
@@ -155,11 +165,14 @@ Each category should offer `find_all` finders which should return all matches fo
 ```json
 {
   "data":
-  [  
-     {  
-        "id":4,
-        "name":"Cummings-Thiel"
-     }
+  [
+  {
+    "id": "4",
+    "type": "merchant",
+    "attributes": {
+      "name": "Cummings-Thiel"
+    }
+  }
   ]
 }
 ```
@@ -175,11 +188,13 @@ Returns a random resource.
 `api/v1/merchants/random.json`
 
 ```json
-{ 
-  "data":
-  {
-    "id": 50,
-    "name": "Nader-Hyatt"
+{
+  "data": {
+    "id": "23",
+    "type": "merchant",
+    "attributes": {
+      "name": "Thing Thingers"
+    }
   }
 }
 ```
@@ -269,14 +284,14 @@ For endpoints such as `GET /api/v1/merchants/find?parameters` the initial though
 
 ```
 module Api
-  module V1
-    class MerchantsController
-      # code omitted
-      def find
-        # code omitted
-      end
-    end
-  end
+module V1
+class MerchantsController
+# code omitted
+def find
+# code omitted
+end
+end
+end
 end
 ```
 
@@ -286,15 +301,15 @@ Instead try something like this which adheres to the above approach of only usin
 
 ```
 module Api
-  module V1
-    module Merchants
-      class SearchController
-        def show
-          # code omitted
-        end
-      end
-    end
-  end
+module V1
+module Merchants
+class SearchController
+def show
+# code omitted
+end
+end
+end
+end
 end
 ```
 
@@ -313,6 +328,22 @@ There will not be formal check-ins for this project. Instructors will generally 
 In their reviews, instructors will go over whatever technical, planning or other challenges you're having. They also may give you feedback, or suggest a different path than the one you're on.
 
 ## <a name="evaluation"></a> Evaluation
+
+Blog Post Deliverable
+
+At the end of this project, write a reflection on what you learned and implemented. This will help you review your own code and gain practice explaining/talking through the code and the process/decisions that were made along the way. Include code snippets from the project in your explanations.
+
+We reccommend writing your blog on Medium, but if you have a blog site that you already use that is okay too. However, it must be publically accessible and the link should be submitted to your instructors via Direct Message.
+
+Here are some questions to think about as you write your post:
+
+* How did you approach this project? What sort of planning did you do?
+* What was the most challenging part of the project? How did you deal with that challenge? Were you able to overcome it? If yes, how did you overcome it? If no, what do you think is the reason for not being able to and what would you do differenlty?
+* What did you enjoy most about the project?
+* What part of the project are you most proud of and why?
+* If you had to do this project again, what would you want to change? (This could be your process, organization of code, particular piece of code that you would want to write differently etc.)
+* What is one specific thing that you want to take from this project and implement in your next project? (This could be something that worked well for you or something that didn't go well, but you learned from it.)
+
 
 ### Feature Delivery
 
