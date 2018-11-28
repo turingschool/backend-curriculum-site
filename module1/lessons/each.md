@@ -9,6 +9,10 @@ tags: enumerable, ruby, collections, arrays, each,
 * Understand how to use #each to iterate over a collection
 * Recognize the "map" and "inject" patterns used in iteration
 
+## Slides
+
+Available [here](../slides/each)
+
 ## Vocabulary
 
 * Collection
