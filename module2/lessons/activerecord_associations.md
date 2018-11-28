@@ -20,11 +20,6 @@ tags: activerecord, migrations, sinatra, relational_database
 * one-to-many
 * many-to-many
 
-
-## Repository
-
-We'll use the [Set List repo](https://github.com/turingschool-examples/set-list).
-
 ## Warmup
 
 Describe the relationship between the following entities. Consider the relationship from both sides.
@@ -35,7 +30,7 @@ Describe the relationship between the following entities. Consider the relations
 * Film and genre
 * Book and author
 
-## Lecture
+## Lecture (~30 min)
 
 Thus far we've talked about tables in relational databases, but we haven't talked about how to create the relationships between those tables. These relationships actually  exist at two levels: 1) the database, 2) the ActiveRecord model.
 
@@ -126,7 +121,9 @@ jorge = Student.create(first_name: "Jorge", last_name: "Tellez")
 m4.students << jorge
 ```
 
-## Code Along
+## Practice (~30 min)
+
+We'll use the [Set List repo](https://github.com/turingschool-examples/set-list).
 
 Let's add an `playlist` table to our app and then create relationships between the existing songs and their playlist.
 
@@ -206,35 +203,6 @@ classic_rock = Playlist.create(name: "Classic Rock")
 Let's assume that a song can only belongs to a single playlist, and a playlist has many songs. How will we connect these two tables?
 
 If a playlist has many songs, then we'll add a foreign key **on the song** model. This allows a song to **belong** to a playlist.
-
-Let's add some testing first! Inside of `spec/models/song_spec.rb` in our "Validations" block, let's add this new test:
-
-```ruby
-describe "Validations" do
-  # the other tests are here
-  it "has one playlist" do
-    association = described_class.reflect_on_association(:playlist)
-    expect(association.macro).to eq :belongs_to
-  end
-end
-```
-
-We should also make a test file for our Playlist model as well:
-
-```ruby
-# spec/models/playlist_spec.rb
-
-RSpec.describe Playlist, :type => :model do
-  describe "Validations" do
-    it "has many songs" do
-      association = Playlist.reflect_on_association(:songs)
-      expect(association.macro).to eq :has_many
-    end
-  end
-end
-```
-
-The error we get when we run `rspec` is a weird message about `undefined method 'macro' for nil:NilClass`. That means our `association` variable, which we're telling to "reflect" on its model associations, is coming back `nil`. This is our hint that the relationship is not set up properly.
 
 #### Relating the data at the database level first
 
@@ -382,9 +350,10 @@ Run `shotgun` from the command line, then navigate to `localhost:9393/songs`. Yo
 
 What would this look like for a many-to-many relationship? How do you structure the tables in the database? What do the migrations look like to get this done? How are your models impacted? How will this impact data prep in tests or controller methods?
 
-## WrapUP
+## WrapUp (~30 min)
 
 * How do you associate two resources on the database level?
 * How do you associate two resources on the model level?
 * How do you associate two resources when doing data prep in a test or controller?
 * Compare and contrast a primary key and foreign key. Where do each live?
+* Write out the steps you took to create the relationship and display the information for playlists and songs.
