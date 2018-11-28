@@ -53,16 +53,9 @@ On the back of this second card, you should write the name of the method - \#eac
 
 By the end of the lesson, you will have a good stack of Enumerable flashcards that will help you learn when and how to use them as a better option than \#each.  For each method, the first flashcard (with the method name on the front) will help you learn _how_ to use the method and the second flashcard (with the use-case on the front) will help you learn _when_ to use the method. This second card will most closely mimic the challenges you will face when coding and trying to decide which method to use.
 
+### Return Values
 
-### `map` / `collect`
-
-`map` is a lot like `each`.
-
-The difference is that `map` actually _returns whatever we do in the block_. Think about how this is different from each which will always return the content of the _original_ array.
-
-#### Return Values
-
-Let's return to _return values_ for just a moment.  When we were learning about \#each, we learned that \#each will always return the **original array**, and we saw that when we use \#each, we need to use a placeholder to preserve the return value we are looking for, like this:
+When we were learning about \#each, we learned that \#each will always return the **original array**, and we saw that when we use \#each, we need to use a placeholder to preserve the return value we are looking for, like this:
 
 ```ruby
 numbers = [1, 2, 3, 4, 5]
@@ -79,94 +72,102 @@ p doubles
 Knowing what we do about return values, can you guess what the following code snippet would return? Run the code in a playground.rb file and see if your guess was correct.
 
 ```ruby
-def doubles
+def double
   numbers = [1, 2, 3, 4, 5]
+
+  doubles = []
+
   numbers.each do |number|
-    number * 2
+    doubles << number * 2
   end
+end
+
+p double
+```
+
+Even when we wrap an \#each block inside a method, we need a placeholder to keep track of the return value that we want.  This is because the return value of a method will generally be the last line of code that is run, and we can consider the \#each block from `do` to `end` as a single line of code.  Remember that each can be written on a single line like this: `numbers.each { |number| doubles << number * 2 }`
+
+So, we would want to revise the code above to something like this to get the method to return doubles:
+
+```ruby
+def double
+  numbers = [1, 2, 3, 4, 5]
+
+  doubles = []
+
+  numbers.each do |number|
+    doubles << number * 2
+  end
+
+  doubles
+end
+
+p double
+```
+
+Now, our last line of code is `doubles` instead of the \#each block, and the method will return what we expect.
+
+We can also see the return value of `#each` if we save it to a variable:
+
+```ruby
+numbers = [1, 2, 3, 4, 5]
+
+doubles = []
+
+original = numbers.each do |number|
+  doubles << number * 2
+end
+
+p doubles
+p original
+```
+
+### `map` / `collect`
+
+`map` is a lot like `each`.
+
+The difference is that `map` actually _returns whatever we do in the block_. Think about how this is different from each which will always return the content of the _original_ array.
+
+First, let's look at the example we used above - taking an array of the numbers, we want to end up with an array with the doubles of each of those numbers. With `each`, we would do it like this:
+
+```ruby
+numbers = [1, 2, 3, 4, 5]
+
+doubles = []
+
+numbers.each do |number|
+  doubles << number * 2
 end
 
 p doubles
 ```
 
-Even when we wrap an \#each block inside a method, we need a placeholder to keep track of the return value that we want.  This is because the return value of a method will generally be the last line of code that is run, and we can consider the \#each block from `do` to `end` as a single line of code.  Remember that each can be written on a single line like this: `numbers.each { |number| number * 2 }`
-
-So, we would want to revise the code above to something like this to get the method to return doubles:
+Using map can make this much simpler:
 
 ```ruby
-def doubles
-  numbers = [1, 2, 3, 4, 5]
-  result = []
-  numbers.each do |number|
-    result << number * 2
-  end
-  result
+numbers = [1, 2, 3, 4, 5]
+doubles = numbers.map do |number|
+  number * 2
 end
+
+p doubles
 ```
 
-Now, our last line of code is `result` instead of the \#each block, and the method will return what we expect.
-
-Ok, now that we have refreshed ourselves on return values, let's get back to \#map!
-
-First, let's look at the example we used above - taking an array of the numbers, we want to end up with an array with the doubles of each of those numbers. With `each`, we would do it like this:
-
-```ruby
-def double                    # define a method called double
-  numbers = [1, 2, 3, 4, 5]   # declare a numbers variable with the value of an array
-
-  result = []                 # declare a variable, results, with the value of an empty array
-
-  numbers.each do |num|       # use `.each` to iterate over the numbers array
-    result << num * 2         # shovel the current number x 2 into the result array
-  end                         # end the `.each` method
-
-  result                      # return the result array
-end                           # end the double method
-
-result
-=> [2, 4, 6, 8, 10]           # our array of doubles
-
-numbers
-=> [1, 2, 3, 4, 5]            # numbers array, which is unchanged
-```
-
-We've written a method called `double`. We start off with `result`, which we set to an empty array. With each, we iterate through each item of `numbers`, and with each element, we are doubling the number and we are putting it into the `result` array. At the end, we are returning the `result` variable, which should now contain [2, 4, 6, 8, 10].
-
-This code is decent. But there are things about it I'm not entirely thrilled about. For example, we are temporarily storing things in a variable, `result`, which is inefficient. You want to avoid the use of unnecessary variables when you can. This is how we can achieve the same result using `.map`.
-
-```ruby
-def double                # define a method called double
-  numbers = [1, 2, 3, 4, 5]   # declare a numbers variable with the value of an array
-
-  numbers.map do |num|    # iterate over numbers with `.map`
-    num * 2               # number x 2
-  end                     # end the `.map` method
-
-end                       # end the double method
-
-double
-=> [2, 4, 6, 8, 10]       # our numbers array has been changed!
-```
-
-Instinctually, this should look better to you. We don't have any unnecessary variable assignment and `map` is handling all we need to return.
+Because `#map` returns the new array, we can easily return it from a method like so:
 
 ```ruby
 def double
-  numbers = [1, 2, 3 ,4, 5]
-
-  numbers.map do |num|
-    num * 2
-    puts "I really love math"
+  numbers = [1, 2, 3, 4, 5]
+  doubles = numbers.map do |number|
+    number * 2
   end
-
 end
+
+p double
 ```
 
-#### Discuss:
-* With this code, what do you think this method returns? Why?  
-* Many folks are tempted to save the result of map to a variable. Why might I disagree with this choice?  
-
 #### Independent Practice
+
 The method below returns an array of the brothers names in all caps; your job is to write one using the `map` method. (Touch an `enums_practice.rb` file in your M1 directory and write the code in that file)
 
 ```ruby
@@ -238,11 +239,10 @@ Find the first sister over four letters in length.
 def find_sisters
   sisters = ["Rose", "Kathleen", "Eunice", "Patricia", "Jean"]
 
-  sisters.find do |sister|
-    # YOUR CODE HERE
-  end
+  ### YOUR CODE HERE
 end
 ```
+
 **FlashCard**
 
 Its time to create your next flashcard!  Using the same format that we used for \#map, create a flashcard for \#find - including syntax, return value, and use-cases.
