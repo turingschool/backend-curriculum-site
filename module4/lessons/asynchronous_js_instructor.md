@@ -138,7 +138,7 @@ function orderDoubleFrapWithExtraWhipAndTenCakePops() {
 
 ## Debrief Drive-Thru
 
-Prep this in your console or a repl:
+Prep this in your console or a repl (or use [this link](https://repl.it/@ameseee/Sync-Starbucks?language=javascript))
 
 ```js
 function orderCakePop() {
@@ -160,8 +160,6 @@ function orderBreakfastSandwichandLatte() {
 function orderBreakfastSandwich() {
   console.log("Your sandwich is ready!");  
 }
-
-orderBreakfastSandwich();
 
 function orderOneLatte() {
   console.log("Your latte is ready!");  
@@ -310,7 +308,7 @@ Explain that this models **asynchronous** JavaScript. To show the connection to 
 After this, students should now get the general idea of synchronous vs. asynchronous code, and understand setTimeouts. They should probably take a pom.
 
 
-Code for instructor to run in browser (recommend you tee this up before class to avoid wasting time coy and pasting):
+Code for instructor to run in browser (recommend you tee this up before class to avoid wasting time coy and pasting - or use [this link](https://repl.it/@ameseee/Async-Starbucks?language=javascript)):
 
 ```js
 function orderCakePop() {
