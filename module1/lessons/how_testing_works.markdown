@@ -12,10 +12,15 @@ tags: ruby, testing, tdd
 * Implement new assertion methods
 * Identify best testing practices
 
-## Vocabulary 
+## Vocabulary
+
 * Testing
 * Assertion
-* TDD 
+* TDD
+
+## Slides
+
+Available [here](../slides/how_testing_works)
 
 ## Warm Up
 
@@ -25,11 +30,12 @@ Assume all dogs have owners.
 * How might you represent the idea of a dog having an owner in code?
 * Write an `initialize` method for `Dog`
 * What do you need to put in a runner file to access both classes?
-* Up to now, how have you identified if your programs were working correctly? What are the downsides to this approach? 
+* Up to now, how have you identified if your programs were working correctly? What are the downsides to this approach?
 
 ## Test Etiquette
 
 ### File Structure
+
 - Test files live in their own `test` directory
 - Implementation code files live in a sibling `lib` directory
 - Test files should reflect the class they're testing with `_test` appended to the file name, e.g. `test/name_of_class_test.rb`
@@ -70,6 +76,7 @@ assert_equal 'expected', 'actual'
 ```
 
 ## Code-Along
+
 ### Scenario Specifications
 
 * Students have names
@@ -146,7 +153,7 @@ end
 ```ruby
 class Student
   attr_reader :name
-  
+
   def initialize(name)
     @name = name
   end
@@ -167,15 +174,15 @@ What do you think the following assertion methods do?
 - Tests will overwrite previous tests with the same name; **give each test a new name**
 - Each test is independent of the next; **don't depend on tests to run in order** of how they're written
   - However, it clarifies your code to other humans to write in order of complexity; aim to start from most basic to most complex functionality and keep tests grouped by method
-- You can create a setup method 
+- You can create a setup method
 - Tests will generally return an `E` for error, `F` for failure & `.` for passing
 
 ```ruby
-class LinkedListClass < Minitest::Test
-  attr_reader :list
-  
+class StudentTest < Minitest::Test
+  attr_reader :student
+
   def setup
-    @list = LinkedList.new
+    @student = Student.new
   end
   ...
 end
@@ -201,7 +208,7 @@ class StudentTest < Minitest::Test
     student = Student.new("Penelope")
     assert_equal "Penelope", student.name
   end
-  
+
   def test_student_can_have_a_different_name
     student = Student.new("Hermione")
     assert_equal "Hermione", student.name
@@ -231,12 +238,12 @@ class StudentTest < Minitest::Test
     student = Student.new("Penelope")
     assert_equal "Penelope", student.name
   end
-  
+
   def test_student_can_have_a_different_name
     student = Student.new("Hermione")
     assert_equal "Hermione", student.name
   end
-  
+
   def test_student_cant_be_created_with_integer_name
     student = Student.new(13)
     assert_equal "Name not Provided", student.name
@@ -267,7 +274,7 @@ Let's explore how our code breaks when we don't follow the Test Etiquette rules 
 ## Recap
 
 * What 2 directories should we have within our project directory?
-* `minitest` setup 
+* `minitest` setup
   * What do you have to require in a test file?
   * What does your test class inherit from?
   * What is the syntax for a minitest test? What's the best name for a test?
