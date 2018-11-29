@@ -109,10 +109,10 @@ pry(main)> round.current_card
 pry(main)> round.take_turn("Venus")
 #=> #<Turn:0x00007f972a215b38...>
 
-pry(main)> round.turn.count
+pry(main)> round.turns.count
 #=> 2
 
-pry(main)> round.turn.last.feedback
+pry(main)> round.turns.last.feedback
 #=> "Incorrect."
 
 pry(main)> round.number_correct
