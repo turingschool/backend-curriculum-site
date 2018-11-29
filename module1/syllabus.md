@@ -36,7 +36,7 @@ In week 6, students will participate in the Final Paired Assessment that will co
 
 In order to practice for the Final Paired Assessment in week 6, students will participate in the Mid Module Paired Assessment in week 4.
 
-Students can reference [Doggie Day Care](./exercises/paired/doggie_day_care) as an example of a paired assessment.
+Students can reference [This Example](https://github.com/turingschool-examples/pets_and_customers) of a paired assessment.
 
 ## Scores
 
