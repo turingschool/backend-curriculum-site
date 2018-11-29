@@ -13,7 +13,6 @@
 
 # Many of these may be obvious to you...
 
-
 - Many projects are littered with issues!
 - But there are many opportunities to make amazing software a reality.
 - The exercise of building software is never ending.
@@ -92,7 +91,6 @@ For the next 30 minutes or so, you will get the opportunity to audit a peer's pr
 
 ---
 
-
 # Pick a Project
 
 - Pick a project from your resume
@@ -106,3 +104,12 @@ For the next 30 minutes or so, you will get the opportunity to audit a peer's pr
 - Go through your partners deployed project and complete the audit worksheet.
 - The more info you give, the more helpful! Ideas for solutions, give them please!
 - Please give feedback with love.
+
+---
+
+## Small Group Share Out
+
+- The feedback I got
+- The area I focused on
+- The steps I took, the outcome (show your group!)
+- The steps I plan to take in the future (and where they are documented)

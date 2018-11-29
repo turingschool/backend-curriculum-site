@@ -89,10 +89,10 @@ Take the next ~1 hour to start working on one bite-sized piece of polishing base
 ## Wrap Up
 
 DM your career coach and instructors letting us know...
-- What project was audited today
-- 2-3 major takeaways from the feedback
-- What polishing you have already done
-- Any polishing you would like to continue
+  - The feedback I got
+  - The area I focused on
+  - The steps I took, the outcome (show your group!)
+  - The steps I plan to take in the future (and where they are documented)
 
 
 ### Audit Rubric

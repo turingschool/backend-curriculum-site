@@ -3,7 +3,6 @@
 Materials:
 - Printouts of Audit Rubric (below) - 1 per student
 
-
 This workshop gives students the opportunity to:
 - Go in depth with another person's work - see what they like/would change
 - Get feedback on a project from someone who (ideally) doesn't know the project as well, an outsider's perspective!
@@ -21,7 +20,11 @@ General flow of the workshop:
 - 10-15 minutes feedback
   - Set a 5 minute timer for one to share, stop, then the other.
 - 1 hour+ Implement Feedback
-- Quick Wrap Up/Reflection/Thank partners for feedback
+- In Small Groups, give each person 2 minutes to share out on:
+  - The feedback I got
+  - The area I focused on
+  - The steps I took, the outcome (show your group!)
+  - The steps I plan to take in the future (and where they are documented)
 
 
 ### Audit Rubric
@@ -63,13 +66,17 @@ General flow of the workshop:
 - What are 2-3 main takeaways from this feedback?
 
 
+
 - What feels most urgent to you?
+
 
 
 - What feels highest leverage?
 
 
+
 - What are you going to start on today (~1 hour of work time)?
+
 
 
 - What other pieces would you like to continue polishing?
