@@ -20,7 +20,7 @@ tags: enumerables, map, select, find, each
 ## Warm Up  
 * What is **iteration** and when do we use it?
 * In your notebook, write the code to that you would use to print each of the letters in this array: `dynasty_1 = ["K", "e", "n", "n", "e", "d", "y"]`.  Write the code so that `dynasty_1` could be replaced with an array of any length.
-* In your notebook, write the code that you would use to create a new array with capitalized versions of the following names.: `names = ['Jack', 'Bobby', 'Teddy']`
+* In your notebook, write the code that you would use to create a new array with capitalized versions of the following names.: `names = ['jack', 'bobby', 'teddy']`
 
 ## Intro
 
