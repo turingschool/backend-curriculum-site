@@ -9,7 +9,7 @@ title: FlashCards
 * Write readable code that adheres to Ruby convention
 * Write tests
 * Create an Object Oriented Solution to a problem (objects should interact to achieve the stated goal)
-* Host code on Github
+* Host code on Github and submit a Pull Request
 
 ## Overview
 
