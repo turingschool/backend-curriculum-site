@@ -226,6 +226,6 @@ Do what we did to `Order`, but on `Item` now.
 
 ## Additional Resources
 
-* Jbuilder
-* Fast_JSONAPI
-* Relationships with Fast_JSONAPI
+* [Jbuilder](https://github.com/rails/jbuilder)
+* [fast_jsonapi](https://github.com/rails/jbuilder)
+* [Nested Includes with fast_jsonapi](https://github.com/Netflix/fast_jsonapi/pull/152)
