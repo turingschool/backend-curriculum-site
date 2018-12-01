@@ -1,3 +1,5 @@
+# Customizing JSON In Your API
+
 ---
 title: Customizing JSON in your API
 length: 90
@@ -12,21 +14,18 @@ This lesson plan was last verified to have worked with Ruby v2.4.1 and Rails v5.
 * Discuss other serialization options, like Jbuilder
 * Understand what constitutes presentation logic in the context of serving a JSON API and why formatting in the model is not the right place
 
-## Slides
-
-Available [here](../slides/customizing_json)
 
 ## Warmup
 
-Research ActiveModel Serializers
+On your own, research serializers. In your notebook, write down the answers to these questions:
 
 * What do serializers allow us to do?
 * What resources were you able to find? Which seem most promising?
 * What search terms did you use that gave the best results?
 
-## Active Model Serializers
+## Serializers
 
-AMS allow us to break from the concept of views fully with our API, and instead, mold that data in an object-oriented fashion.
+Serializers allow us to break from the concept of views fully with our API, and instead, mold that data in an object-oriented fashion. We don’t have views to do our dirty work for us anymore, so we rely on serializers in order to present to whomever is consuming our API what we want them to see.
 
 When we call `render json:`, Rails makes a call to `as_json` under the hood unless we have a serializer set up. Eventually, `as_json` calls `to_json` and our response is generated.
 
@@ -34,17 +33,6 @@ With how we've used `render json:` up til now, all data related with the resourc
 
 Let's imagine that you don't just want the raw guts of your model converted to JSON and sent out to the user -- maybe you want to customize what you send back.
 
-## Scavenger Hunt
-
-With a partner, based on the resources you found, how do you:
-
-* set up AMS in your Rails project?
-* create a new serializer?
-* tell a serializer which attributes to display?
-* tell a serializer to display related objects?
-* tell a serializer to display a calculated value?
-
-Share your findings with the class.
 
 ## Code Along
 
@@ -52,29 +40,29 @@ Share your findings with the class.
 
 We're going to start where we left off in the internal API testing lesson. Feel free to use the repository that you created yesterday. Otherwise, you can clone the repo below as a starting place.
 
-```bash
+`bash
 git clone https://github.com/turingschool-examples/building_internal_apis.git
 bundle
 git checkout building_api_complete
-```
+`
 
 We want to work with objects that have related models, so let's add an `Order` model:
 
-```bash
+`bash
 rails g model order order_number
 rails g model order_item order:references item:references item_price:integer quantity:integer
 bundle exec rake db:migrate
-```
+`
 
 Add `gem 'faker'`:
 
-```bash
+`bash
 bundle
-```
+`
 
 Add relationships to your models:
 
-```ruby
+`ruby
 # in item.rb
 has_many :order_items
 has_many :orders, through: :order_items
@@ -82,11 +70,11 @@ has_many :orders, through: :order_items
 # in order.rb
 has_many :order_items
 has_many :items, through: :order_items
-```
+`
 
 And whip together a quick seed file:
 
-```ruby
+`ruby
 10.times do
   Item.create!(
     name: Faker::Commerce.product_name,
@@ -106,131 +94,124 @@ end
     quantity: rand(1..10)
   )
 end
-```
+`
 
 And seed
 
-```ruby
+`ruby
 bundle exec rake db:seed
-```
+`
 
 Create your controller:
 
   - `rails g controller api/v1/orders index show`
-  - Create routes.
-  - Set `index` and `show` methods to render appropriate json
+  - Note that the generator throws in some routes at the top. This is not great.
+  - Set `index` and `show` methods to render appropriate json.
 
 ### Desired Responses
 
 Use Postman or your browser to view the current responses that your API is providing to the routes listed below:
 
-* api/v1/items
-* api/v1/items/:id
 * api/v1/orders
 * api/v1/orders/:id
 
-Compare those responses to the responses below. How do they differ?
+So we have our responses from our server, but it isn’t JSON API 1.0 And it has this created at and updated at stuff which we don’t want. So what do we do? We need to use a serializer.
 
-**api/v1/items**
 
-```javascript
-[
-  {
-    "id": 1,
-    "name": "Hammer",
-  },
-  {...}
-]
-```
 
-**api/v1/items/:id**
+### Using FastJSONAPI to modify `as_json`
 
-```javascript
-{
-  "id": 1,
-  "name": "Hammer",
-  "num_orders": 5,
-  "orders": [
-    {"order_number": "12345ABC"},
-    {...}
-  ]
-}
-```
+Add this line to your Gemfile.
 
-**api/v1/orders**
+`
+gem 'fast_jsonapi'
+`
 
-```javascript
-[
-  {
-    "id": 1,
-    "order_number": "12345ABC",
-  },
-  {...}
-]
-```
+And then `bundle install`
 
-**api/v1/orders/:id**
 
-```javascript
-{
-  "id": 1,
-  "order_number": "12345ABC",
-  "num_items": 5,
-  "items": [
-    {
-      "id": 1,
-      "name": "Hammer",
-      "price": 11
-    },
-    {...}
-  ]
-}
-```
+We can now use the built in generator in order to make ourselves a serialized.
 
-### Using Active Model Serializers to modify `as_json`
+`rails g serializer Order id order_number`
 
-Install AMS with a gem: `gem 'active_model_serializers', '~> 0.10.0'`
+This will add the appropriate attributes from the  Order model.  And give us only the id and order number.
 
-We're going to create a serializer for `Order`.
+Let’s check out what is in the Serializer.
 
-- Create your serializer
-  - `rails g serializer order`
+`ruby
+class OrderSerializer
+  include FastJsonapi::ObjectSerializer
+  attributes :id, :order_number
+end
+`
 
-- Add a few attributes
-  - Some existing fields
-    - `id`, `order_number`
-  - Some custom fields
-    - `num_items`
-  - A relationship
-    - `items`
+So now we have this serializer, and we need to modify our controller.
 
-Our final product should look something like this:
-
-```ruby
-# controllers/api/v1/orders_controller.rb
+`ruby
 class Api::V1::OrdersController < ApplicationController
   def index
-    render json: Order.all
+    render json: OrderSerializer.new(Order.all)
   end
 
   def show
-    render json: Order.find(params[:id])
+    render json: OrderSerializer.new(Order.find(params[:id]))
   end
 end
-```
+`
 
-```ruby
-# serializers/order_serializer.rb
-class OrderSerializer < ActiveModel::Serializer
-  attributes :id, :order_number, :num_items
+So what we are doing is instead of rendering the ActiveRecord stuff in json, we are sending it to the serializer, where the stuff gets serialized, and then that gets rendered as json.
+
+But what if we wanted to show some awesome relationship action?
+
+Easy.
+
+`ruby
+class OrderSerializer
+  include FastJsonapi::ObjectSerializer
+  attributes :id, :order_number
 
   has_many :items
+end
+`
 
-  def num_items
+Add that to your serializer and refresh.
+
+What if we wanted a custom attribute? We can do so using this format.
+
+Let’s say we wanted an attribute with the number of items
+
+`ruby
+class OrderSerializer
+  include FastJsonapi::ObjectSerializer
+  has_many :items
+  attributes :id, :order_number
+
+  attribute :num_items do |object|
     object.items.count
   end
 end
-```
+`
+
+This syntax is a bit different from what we are used to. We use `attribute` singular, and then as a symbol we pick the name of what we want our attribute to be. We use a do end block similar to an enumerable with a block parameter. Now the block parameter, `object` is a lot like self. We get to use it for each single thing of a collection we pass to the serializer. We are essentially saying for each thing you serialize, grab the items and count them too. In this manner we can add a custom generated value for each item.
+
+We can also have a custom static attribute like so:
+
+`ruby`
+class OrderSerializer
+  include FastJsonapi::ObjectSerializer
+  has_many :items
+  attributes :id, :order_number
+
+  attribute :num_items do |object|
+    object.items.count
+  end
+
+  attribute :greeting do
+    "HELLO FRIENDS"
+  end
+end
+
+`
 
 ## Lab
 
@@ -243,11 +224,8 @@ Do what we did to `Order`, but on `Item` now.
 - A relationship
   - `orders`
 
-
 ## Additional Resources
 
-Here's some branches of Storedom with customized JSON:
-
-- [Active Model Serializer Docs](https://github.com/rails-api/active_model_serializers/tree/0-10-stable)
-- Storedom branch for [Serializers](https://github.com/turingschool-examples/storedom/tree/custom_json_serializers)
-- Storedom branch for [Jbuilder](https://github.com/turingschool-examples/storedom/tree/custom_json_jbuilder)
+* Jbuilder
+* Fast_JSONAPI
+* Relationships with Fast_JSONAPI
