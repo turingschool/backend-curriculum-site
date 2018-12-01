@@ -103,7 +103,6 @@ Your idea must be approved by an instructor and should be supplied in a gist usi
 ### Integrations
 
 * Which APIs will you use?
-* Which OAuth integration are you planning to use?
 ```
 
 ### Setup
