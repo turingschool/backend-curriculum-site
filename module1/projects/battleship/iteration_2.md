@@ -44,7 +44,7 @@ pry(main)> board.cells
 }
 ```
 
-Testing the `#cells` method is a bit tricky. We can't specify exactly what the return value should be because we don't have reference to the exact cell objects we expect in the hash. Instead, we can assert what we do know about this hash. It's a hash, it should have 16 key/value pairs, and those keys point to cell objects.
+Testing the `#cells` method is a bit tricky because the Cell objects are created in the Board class and not in our tests. We can't specify exactly what the return value should be because we don't have reference to the exact cell objects we expect in the hash. Instead, we can assert what we do know about this hash. It's a hash, it should have 16 key/value pairs, and those keys point to cell objects.
 
 
 ### Validating Coordinates
