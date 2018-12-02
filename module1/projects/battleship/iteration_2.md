@@ -275,7 +275,7 @@ Our board needs to be able to render a String representation of itself to displa
 * "." if the cell has not been fired upon.
 * "M" if the cell has been fired upon and it does not contain a ship (the shot was a miss).
 * "H" if the cell has been fired upon and it contains a ship (the shot was a hit).
-* "X" if the cell has been fired upon and its ship has been sunk.
+* "X" if the cell has been fired upon and its ship has been sunk. Note that all of the cells that contain that sunken ship should render as an "X", not just the cell that resulted in the ship being sunk.
 
 And just like with cells, we will include an optional argument to indicate whether we want to show hidden ships.
 
@@ -301,7 +301,7 @@ pry(main)> board.render(true)
 # => "  1 2 3 4 \nA S S S . \nB . . . . \nC . . . . \nD . . . . \n"
 ```
 
-You can format strings on multiple lines using concatenation to make them more readable:
+You can format strings on multiple lines using concatenation to make them more readable. The two return values from above can be written as:
 
 ```ruby
 "  1 2 3 4 \n" +
