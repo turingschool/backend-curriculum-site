@@ -137,7 +137,7 @@ pry(main)> board.valid_placement?(cruiser, ["B1", "C1", "D1"])
 # => true
 ```
 
-Note that all of the different cases listed above should be their own tests. You should not have one big test for validating placement.
+Note that all of the different cases listed above should be their own tests. This will help you break this problem down into small steps and working on them one at a time. You should not have one big test for validating placement.
 
 ### Tools for validation
 
