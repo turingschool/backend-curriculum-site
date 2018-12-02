@@ -1,103 +1,171 @@
 ---
 layout: page
-title: BattleShip - Iteration 1
+title: Iteration 1 - Ships and Cells
 ---
 
-## Iteration 1
+## Test Driven Development
 
-1. [Start Game Sequence](#start-game-sequence)
-1. Setup [SimpleCov](https://github.com/colszowka/simplecov) to monitor test coverage along the way
-1. [Computer Ship Placement](#computer-ship-placement)
-1. [Player Ship Placement](#player-ship-placement)
+In this iteration, you are required to use TDD to create your classes. Use the interaction pattern to determine what a method should do and write one or more tests to verify that expected behavior. Then you can implement the method. You should always write code with the purpose of making a test pass.
 
+## Ship
 
-### Start Game Sequence
+A Ship object will represent a single ship on the board. It will be able to keep track of how much health it has, take hits, and report if it is sunk or not. A ship should start off with health equal to it's length.
 
-* The player starts the game by running `ruby battleship.rb` from within your project directory
-* Then they see:
+The Ship class should follow this interaction pattern:
 
-```
-Welcome to BATTLESHIP
+```ruby
+pry(main)> require './lib/ship'
+#=> true
 
-Would you like to (p)lay, read the (i)nstructions, or (q)uit?
->
-```
+pry(main)> cruiser = Ship.new("Cruiser", 3)
+#=> #<Ship:0x00007feb05112d10...>
 
-* If they enter `p` or `play` then they enter the *ship layout* described below.
-* If they enter `i` or `instructions` they should be presented with a short explanation of how
-the game is played.
-* If they enter `q` or `quit` then the game should exit
+pry(main)> cruiser.name
+#=> "Cruiser"
 
-### Computer Ship Placement
+pry(main)> cruiser.length
+#=> 3
 
-When the player decides to start a game, the computer player should place
-their ships. The baseline computer should simply use random placements,
-but still obey these constraints:
+pry(main)> cruiser.health
+#=> 3
 
-#### Validating Ship Coordinates
+pry(main)> cruiser.sunk?
+#=> false
 
-Note that there are certain restrictions on where a ship can be placed.
-Specifically:
+pry(main)> cruiser.hit
 
-* Ships cannot wrap around the board
-* Ships cannot overlap
-* Ships can be laid either horizontally or vertically
-* Coordinates must correspond to the first and last units of the ship.
-(IE: You can't place a two unit ship at "A1 A3")
+pry(main)> cruiser.health
+#=> 2
 
-### Player Ship Placement
+pry(main)> cruiser.hit
 
-After the computer has placed its ships, the player should see:
+pry(main)> cruiser.health
+#=> 1
 
-```
-I have laid out my ships on the grid.
-You now need to layout your two ships.
-The first is two units long and the
-second is three units long.
-The grid has A1 at the top left and D4 at the bottom right.
+pry(main)> cruiser.sunk?
+#=> false
 
-Enter the squares for the two-unit ship:
+pry(main)> cruiser.hit
+
+pry(main)> cruiser.sunk?
+#=> true
 ```
 
-#### Player Entering Ship Coordinates
+## Cell
 
-Then they enter coordinates like this:
+A Cell object is a single cell on our board. A Cell can either contain a Ship or nothing.
 
-```text
-A1 A2
+```ruby
+pry(main)> require './lib/ship'
+# => true
+
+pry(main)> require './lib/cell'
+# => true
+
+pry(main)> cell = Cell.new("B4")
+# => #<Cell:0x00007f84f0ad4720...>
+
+pry(main)> cell.coordinate
+# => "B4"
+
+pry(main)> cell.ship
+# => nil
+
+pry(main)> cell.empty?
+# => true
+
+pry(main)> cruiser = Ship.new("Cruiser", 3)
+# => #<Ship:0x00007f84f0891238...>
+
+pry(main)> cell.place_ship(cruiser)
+
+pry(main)> cell.ship
+# => #<Ship:0x00007f84f0891238...>
+
+pry(main)> cell.empty?
+# => false
 ```
 
-Which places the two element ship on squares A1 and A2. Then it asks for the
-coordinates for the three-unit ship.
+Additionally, a cell knows when it has been fired upon. When it is fired upon, the cell's ship should be damaged if it has one:
 
-Player ship positions should be validated according to the same rules
-listed above. If a user enters an invalid ship coordinate, the game should display a
-message explaining which of the rules their choice violated, then
-ask them to re-enter all coordinates for that specific ship. (Any previous
-ship placements should still be retained)
+```ruby
+pry(main)> require './lib/ship'
+# => true
 
-Once all ships have been placed, the user can enter the main game flow
-phase.
+pry(main)> require './lib/cell'
+# => true
 
-### Game Flow (Main Phase)
+pry(main)> cell = Cell.new("B4")
+# => #<Cell:0x00007f84f0ad4720...>
 
-During the main game, players take turns firing
-at one another by selecting positions on the grid to attack.
+pry(main)> cruiser = Ship.new("Cruiser", 3)
+# => #<Ship:0x00007f84f0891238...>
 
-#### Rendering the Game Grid
+pry(main)> cell.place_ship(cruiser)
 
-During this phase the game will frequently need to display
-the current game view. We'll use a simple ASCII text grid
-of letters (to indicate rows) and numbers (to indicate columns).
+pry(main)> cell.fired_upon?
+# => false
 
-Your board will look something like this:
+pry(main)> cell.fire_upon
 
+pry(main)> cell.ship.health
+# => 2
+
+pry(main)> cell.fired_upon?
+# => true
 ```
-===========
-. 1 2 3 4
-A
-B
-C
-D
-===========
+
+Finally, a Cell will have a method called `render` which returns a String representation of the Cell for when we need to print the board. A cell can potentially be rendered as:
+
+* "." if the cell has not been fired upon.
+* "M" if the cell has been fired upon and it does not contain a ship (the shot was a miss).
+* "H" if the cell has been fired upon and it contains a ship (the shot was a hit).
+* "X" if the cell has been fired upon and its ship has been sunk.
+
+Additionally, we will include an optional boolean argument to indicate if we want to reveal a ship in the cell even if it has not been fired upon. This should render a cell that has not been fired upon and contains a ship as an "S". This will be useful for showing the user where they placed their ships and for debugging.
+
+```ruby
+pry(main)> cell_1 = Cell.new("B4")
+# => #<Cell:0x00007f84f11df920...>
+
+pry(main)> cell_1.render
+# => "."
+
+pry(main)> cell_1.fire_upon
+
+pry(main)> cell_1.render
+# => "M"
+
+pry(main)> cell_2 = Cell.new("C3")
+# => #<Cell:0x00007f84f0b29d10...>
+
+pry(main)> cruiser = Ship.new("Cruiser", 3)
+# => #<Ship:0x00007f84f0ad4fb8...>
+
+pry(main)> cell_2.place_ship(cruiser)
+
+pry(main)> cell_2.render
+# => "."
+
+# Indicate that we want to show a ship with the optional argument
+pry(main)> cell_2.render(true)
+# => "S"
+
+pry(main)> cell_2.fire_upon
+
+pry(main)> cell_2.render
+# => "H"
+
+pry(main)> cruiser.sunk?
+# => false
+
+pry(main)> cruiser.hit
+
+pry(main)> cruiser.hit
+
+pry(main)> cruiser.sunk?
+# => true
+
+pry(main)> cell_2.render
+# => "X"
 ```
