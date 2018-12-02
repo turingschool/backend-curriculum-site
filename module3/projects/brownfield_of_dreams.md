@@ -73,7 +73,7 @@ Project should use [CodeClimate](https://codeclimate.com/) to measure lines of c
 - [ ] **3:** Team can demonstrate how API consumption portions of the project demonstrate 2 of pillars listed below, there are 2 methods that exceed 5 lines, and no methods that exceed 10 lines.
 - [ ] **4:** Team can demonstrate how API consumption portions of the project demonstrate all of the four pillars listed below and there are no methods that exceed 5 lines.
 
-** 4 Pillars of OO**
+**4 Pillars of OO**
 
 - [ ] Project uses polymorphism
 - [ ] Project uses encapsulation
