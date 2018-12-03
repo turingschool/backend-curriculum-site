@@ -11,9 +11,6 @@ layout: page
 * [Fundamental Rails Security](../lessons/fundamental_rails_security)
 * Career Q&A
 * [Mock Assessment](../lessons/diagnostic)
-* 80202 Re-DTR
-* Mock Assessment Roadshow
 
 ### Projects
 
-* [Battleshift](../projects/battleshift)

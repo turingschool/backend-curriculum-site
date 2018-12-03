@@ -7,13 +7,11 @@ layout: page
 
 ### Classes
 
-* [Understanding Multitenancy](../lessons/understanding_multitenancy)
-* [Multitenancy Authorization](../lessons/multitenancy_authorization)
+* [Caching](../lessons/caching_in_rails)
 * [Intro to Professional Workflow](../lessons/intro_to_professional_workflow)
-* [Introduction to JavaScript](../lessons/intro_to_javascript)
-* [Practice Assessment](../lessons/practice_assessment)
-* [Asset Pipeline Review](../lessons/understanding_the_asset_pipeline)
+* [Introduction to JavaScript](../lessons/jquery_and_dom)
+* [Presenters and Decorators](../lessons/presenters_and_decorators)
 
 ### Projects
 
-* [Self-Directed Project](../projects/self_directed_project)
+* [Terrificus](../projects/terrificus)
