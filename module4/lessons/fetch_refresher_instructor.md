@@ -46,7 +46,7 @@ const fetchDiscussions = () => {
 DISCUSS:
 
 - ask 4 different students what is happening at lines 1-4
-- response.json() - parses it FROM json into a JavaScript object
+- response.json() - parses it from response stream to a JSON object
 - cleanDiscussions - we can assume that's a helper function somewhere else in the project
 
 ## Promises

@@ -29,6 +29,8 @@ You will use and consume the [Musixmatch API](https://developer.musixmatch.com/)
 7. Clicking add to playlist will add songs into the newly created playlist
 8. Clicking the title of a playlist will take the user to the list of songs in the playlist
 
+It is required that each group complete one (or both!) of the following extensions:
+
 #### Extension Option 1:
 1. User can click into each song in a playlist and find lyrics, images, and additional information on the particular song.
 
