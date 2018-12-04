@@ -19,6 +19,8 @@ Straight from the docs, Knex.js is a "batteries included" SQL query builder for 
 
 What Knex really is is Javascript instead of raw SQL.
 
+A favorite resource is [DevHints](https://devhints.io/knex).
+
 ## Getting Started
 
 Make sure Postgres is installed and running. We will prep our app by creating a single database in Postgres. Don't forget the semicolons in the the CREATE DATABASE command!
