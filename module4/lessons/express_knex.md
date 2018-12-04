@@ -315,69 +315,6 @@ You can run your seeds (again, similar to migrations) with:
 knex seed:run
 ```
 
-### Seeding Large Datasets - A Note
-
-When you have a large dataset that needs to be seeded, you'll often want to simplify your code by iterating over your dataset and inserting each record and any of its dependents, rather than having to manually write an `insert` for each one. This can get a little hairy when we're using Promises. We can't simply nest Promises within a `forEach` loop because our code will run through the loop without recognizing that it needs to wait for each insertion promise to resolve before ending the seed execution.
-
-To get around this, we can break our insertion logic out into a separate function. For example, given the following dataset:
-
-```js
-let papersData = [{
-  author: 'Amy',
-  title: 'Lorem Ipsum',
-  footnotes: ['one', 'two', 'three']
-},
-{
-  author: 'Cory',
-  title: 'Dolor Set Amet',
-  footnotes: ['four', 'five', 'six']
-}]
-```
-
-We could write a function that appropriately seeds a paper into the `papers` table and all of it's footnotes into the `footnotes` table:
-
-```js
-const createPaper = (knex, paper) => {
-  return knex('papers').insert({
-    title: paper.title,
-    author: paper.author
-  }, 'id')
-  .then(paperId => {
-    let footnotePromises = [];
-
-    paper.footnotes.forEach(footnote => {
-      footnotePromises.push(
-        createFootnote(knex, {
-          note: footnote,
-          paper_id: paperId[0]
-        })
-      )
-    });
-
-    return Promise.all(footnotePromises);
-  })
-};
-
-const createFootnote = (knex, footnote) => {
-  return knex('footnotes').insert(footnote);
-};
-
-exports.seed = (knex, Promise) => {
-  return knex('footnotes').del() // delete footnotes first
-    .then(() => knex('papers').del()) // delete all papers
-    .then(() => {
-      let paperPromises = [];
-
-      papersData.forEach(paper => {
-        paperPromises.push(createPaper(knex, paper));
-      });
-
-      return Promise.all(paperPromises);
-    })
-    .catch(error => console.log(`Error seeding data: ${error}`));
-};
-```
-
 ## Fetching From the Database
 
 Let's write some express code to interact with our newly seeded database. Set up a simple express server and we'll add some configuration to work with the knex database:
