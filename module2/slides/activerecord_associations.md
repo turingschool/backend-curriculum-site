@@ -45,12 +45,12 @@ Describe the relationship between the following entities. Consider the relations
 
 | id | first_name | last_name | module_id |
 |----|------------|-----------|-----------|
-| 1  | Sal        | Espinosa  | 2         |
-| 2  | Ilana      | Corson    | 2         |
+| 1  | Sal        | Espinosa  | 4         |
+| 2  | Ian     | Douglas   | 2         |
 | 3  | Josh       | Mejia     | 3         |
-| 4  | Casey      | Cumbow    | 4         |
-| 5  | Ali        | Schlereth | 1         |
-| 6  | Victoria   | Vasys     | 1         |
+| 4  | Megan      | McMahon    | 4         |
+| 5  | Dione        | Wilson | 1         |
+| 6  | Brian  | Zanti    | 1         |
 | 7  | Mike       | Dao       | 1         |
 
 ---
@@ -118,3 +118,10 @@ m4.students << jorge
 # Practice using the Set List Repo
 
 ---
+
+
+
+
+
+
+file = File.read('comedian.csv')
