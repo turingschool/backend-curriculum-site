@@ -478,7 +478,7 @@ greeting
 
 **Turn and Talk**: What output do you expect to see when you run this file?
 
-The `greeting` method is not available in the global scope. When you create a class, only an instance of that class can call that method. That is why the previous example worked, but this one did not.
+The `greeting` method is not available in the global scope. When you create a class, only an instance of that class can call that class' methods. That is why the previous example worked, but this one did not.
 
 Use what you've learned about scope to predict the output of the following examples.
 
