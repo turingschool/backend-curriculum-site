@@ -280,6 +280,7 @@ How does this apply to arguments? Change `scope.rb` to this:
 
 **Turn and Talk**: What output do you expect to see when you run this file?
 
+
 <br>
 <br>
 <br>
