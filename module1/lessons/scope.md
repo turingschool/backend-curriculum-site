@@ -20,13 +20,27 @@ tags: methods, scopes, arguments, ruby
 
 # Lesson
 
-**Scope** - What you have access to and where you have access to it.
+**Scope** is what you have access to and where you have access to it.
 
 Scope is the kind of thing that you think you don't need to know until it starts causing you trouble. Even then, it is generally unnecessary to know the rules of how scope works in Ruby. It's more important that when you see unexpected behavior, that scope of your variables/method names is one of the things on your list to check.
 
+Today, we will be exploring several different elements of Ruby that have different scopes:
+
+* Local Variables
+* Methods
+* Instance Variables
+
 While you are working through these activities, copy and paste the code rather than typing it. It is important to discuss with your partner what you think will happen before you run each code snippet.
 
-## Global Scope
+## Local Variables
+
+When you create a variable like `x = 4`, you are creating a **local variable**. You create it using the **assignment operator** `=`. Local variables are available in whatever scope you define them. That's what local means in this context. It is local to where you define it. We will go through several different scopes where you could define a local variable:
+
+* The **Global Scope**
+* A **Method Scope**
+* A **Block Scope**
+
+### Local Variables in Global Scope
 
 Create a file called `scope.rb` on your machine and add the following code:
 
@@ -37,11 +51,17 @@ Create a file called `scope.rb` on your machine and add the following code:
 
 **Turn and Talk**: What output do you expect to see when you run this file?
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 Run the file (`ruby scope.rb`) and see if your expectations were correct.
 
-In this example, `x` is functioning as a **local variable**. We created it using the **assignment operator** `=`.
-
-So far we have not created any additional **scopes** such as classes, methods, blocks, etc. We refer to this as **global scope**. `x` is currently defined in the **global scope**. This is also sometimes referred to as "top-level scope".
+So far we have not created any additional **scopes** such as classes, methods, blocks, etc. We refer to this as **global scope** (sometimes referred to as "top-level scope"). `x` is currently defined in the **global scope**, so it is available in the global scope (and nowhere else).
 
 Now change the code to this:
 
@@ -53,6 +73,11 @@ Now change the code to this:
 
 **Turn and Talk**: What output do you expect to see when you run this file?
 
+<br>
+<br>
+<br>
+<br>
+<br>
 <br>
 <br>
 
@@ -93,21 +118,6 @@ There are two ways to fix an error like this. We either need to make a **local v
 
 **Turn and Talk**: What output do you expect to see when you run this file?
 
-Now let's create a method `y`. Change your code to this:
-
-```ruby
-  x = 10
-  puts x
-  def y
-    20
-  end
-  puts y
-```
-
-**Turn and Talk**: What output do you expect to see when you run this file?
-
-Remember the original error that you saw when y wasn't defined? It said undefined local variable or method 'y'. From Ruby's perspective looking up a variable or looking up a method are very similar things (though there are differences we will get into below!). Here, we're using a method named y instead of a variable named y. The method only has one line, and since methods return their last line in Ruby, the value (20) is what is being returned from that method.
-
 It's also important to note that Ruby reads your file sequentially. Change your code to this:
 
 ```ruby
@@ -119,28 +129,95 @@ It's also important to note that Ruby reads your file sequentially. Change your 
 
 **Turn and Talk**: What output do you expect to see when you run this file?
 
-**Check for Understanding**:
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
-* What is **scope**?
-* What is a **local variable**?
-* How do you create a **local variable**?
-* What is **global scope**?
-* In your own words, what is `vehicle.rb:29:in '<main>': undefined local variable or method 'start' for main:Object (NameError)` telling you?
+Now change your code to this:
 
-## Method Scopes
+```ruby
+x = 10
+def say_hello
+  puts "Hello World!"
+end
+puts x
+```
+
+**Turn and Talk**: What output do you expect to see when you run this file?
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+In this example, the line `puts x` is still in the global scope.
+
+### Local Variables in Method Scope
+
+Change `scope.rb` to:
+
+```ruby
+x = 10
+def print_variable
+  puts x
+end
+print_variable
+```
+
+**Turn and Talk**: What output do you expect to see when you run this file?
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+When we define a method, we create a whole new scope referred to as a **method scope**. Remember, local variables are local to wherever you define them, so the variable defined in the **global scope** is not available not available in the **method scope**. This works the other way around:
+
+```ruby
+def print_variable
+  x = 10
+  puts x
+end
+print_variable
+puts x
+```
+
+The line `puts x` on line 6 is in the **global scope**. There is a variable `x` defined inside the **method scope** of the print_variable method (`x = 10`). Because local variables are only available in the scope they are defined, trying to call `x` in the **global scope** throws an error.
+
+Remember, what is important here is that you get a feel for where variables are available to you. You don't need to be able to quote the intricacies of scope verbatim.
+
+In this example, we try to call `puts x` from within the `say_hello` method, which is no longer in the global scope. Since `x` is local to the global scope, trying to call it in a method scope throws an error.
 
 Change `scope.rb` to this:
 
 ```ruby
-  def print_variable
-    x = 4
-    puts x
-  end
+def print_variable
+  x = 4
+  puts x
+end
 
-  print_variable
+print_variable
 ```
 
 **Turn and Talk**: What output do you expect to see when you run this file?
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 Now change `scope.rb` to this:
 
@@ -156,40 +233,39 @@ Now change `scope.rb` to this:
 
 **Turn and Talk**: What output do you expect to see when you run this file?
 
-In this example, there are *two different* local variables called `x`. One of them is defined in the **global scope** on line 6: `x = 2`. The other one is defined inside the `print_variable` method on line 2: `x = 4`, in the **method scope**.
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
-**method scopes** are independent from surrounding scopes. Local variables defined within the **method scope** are not available in surrounding scopes, and local variables defined in surrounding scopes are not available within the **method scope**.
 
-In this example, the **method scope** of the `print_variable` method is independent from the surrounding **global scope**. This means that local variables defined in the **global scope** cannot be seen in the `print_variable` method, and vice versa.
-
-Remember, what is important here is that you get a feel for where variables are available to you. You don't need to be able to quote the intricacies of scope verbatim.
-
-To Illustrate this, change `scope.rb` to this:
-
-```ruby
-  def print_variable
-    puts x
-  end
-
-  x = 2
-  print_variable
-```
-
-**Turn and Talk**: What output do you expect to see when you run this file?
-
-Now, change `scope.rb` to this:
+Now change `scope.rb` to this:
 
 ```ruby
   def print_variable
     x = 4
-    puts x
   end
 
+  x = 2
   print_variable
   puts x
 ```
 
 **Turn and Talk**: What output do you expect to see when you run this file?
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+### Arguments
 
 How does this apply to arguments? Change `scope.rb` to this:
 
@@ -203,6 +279,14 @@ How does this apply to arguments? Change `scope.rb` to this:
 ```
 
 **Turn and Talk**: What output do you expect to see when you run this file?
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 This is very similar. There are *two different* `x`s in this example, except this time instead of creating a local variable inside the method using the **assignment operator** `=`, we are creating it using an **argument**. They both behave the same way.
 
@@ -236,10 +320,26 @@ What about other methods? Change `scope.rb` to this:
   print_variable
 ```
 
+
+
+
+
+
+
+
+
+
+
 **Turn and Talk**: What output do you expect to see when you run this file?
 
 Methods behave differently than variables. **Method scope** doesn't prevent you from accessing other methods that are defined in the same scope. This example works because both of these methods are defined in the **global scope**
+**Check for Understanding**:
 
+* What is **scope**?
+* What is a **local variable**?
+* How do you create a **local variable**?
+* What is **global scope**?
+* In your own words, what is `vehicle.rb:29:in '<main>': undefined local variable or method 'start' for main:Object (NameError)` telling you?
 **Check for Understanding**:
 
 * What is **method scope**?
@@ -247,6 +347,8 @@ Methods behave differently than variables. **Method scope** doesn't prevent you 
 * When you define a method, what methods do you have access to within that method?
 * When you create a variable inside a method, where do you have access to that variable?
 * If you have a method
+
+Remember the original error that you saw when y wasn't defined? It said undefined local variable or method 'y'. From Ruby's perspective looking up a variable or looking up a method are very similar things (though there are differences we will get into below!). Here, we're using a method named y instead of a variable named y. The method only has one line, and since methods return their last line in Ruby, the value (20) is what is being returned from that method.
 
 ```ruby
 def cook_pizza(toppings)
@@ -342,7 +444,7 @@ end
 **Check for Understanding**
 
 * What is **block scope**?
-* Compare and contract **block scope** with **method scope**
+* Compare and contrast **block scope** with **method scope**
 
 ## Objects
 
