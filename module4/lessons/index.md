@@ -36,6 +36,7 @@ title: Module 4 Lessons
 
 * [Project Polish](./project_polish)
 * [Technical Challenges](./technical_challenges)
+* [Whiteboarding](./whiteboarding)
 * [Dream Job Interview Prep](./link_will_come_later)
 * [Big-O Notation](./)
 * [Wheel of Jeopardy](./jeopardy)
