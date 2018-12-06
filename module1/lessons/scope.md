@@ -8,6 +8,7 @@ tags: methods, scopes, arguments, ruby
 ## Learning Goals
 
 * Define scope
+* Understand scope as it relates to local variables, methods, and instance variables
 * Predict how variables will behave when multiple scopes are involved
 * Be able to debug scope issues
 
