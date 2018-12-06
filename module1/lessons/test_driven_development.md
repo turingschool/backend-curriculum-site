@@ -50,7 +50,7 @@ It can be especially difficult to get started on a new project or even a new ite
 
 ### Why do we write tests?
 
-Having tests a robust test suite is a way for us to be good to our future selves. Having a robust test suite provides us with two advantages:
+Having a robust test suite is a way for us to be good to our future selves; and provides us with two advantages:
 
 * *Refactor with Confidence:* When we decide we want to make a change to how we've implemented our code, we can make that change making sure that we know that the code as a whole still works.
 * *Add new features with confidence:* This also allows us to add new features with confidence. Sometimes it's difficult to know how code we add may impact functionality that we've already provided. A test suite tells us when something new we've done has broken something else we did before.
