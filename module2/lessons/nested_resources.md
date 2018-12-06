@@ -7,8 +7,8 @@ title: Nested Resources in Rails
 
 ## Learning Goals
 
-- How do you use nested resources in Rails?
-- When should you use Nested Resources?
+- Understand how to use nested resources in Rails
+- Understand when you should use Nested Resources
 
 ## Warm Up
 
@@ -36,7 +36,7 @@ POST /artists/1/songs
 
 Indentation and a do/end marker!
 
-```
+```ruby
 # config/routes.rb
 resources :artists do
   resources :songs
@@ -73,7 +73,7 @@ end
   * the array HAS to be in the correct order!
 * Need to update both our controller and our view
 
-## Let's code along:
+## Practice
 
 - You should have a test already to see the form for a new song.
 - Now let's create a new song with an artist.
@@ -83,16 +83,19 @@ Based on what we know about nested routes, let's start here:
 ```ruby
   #spec/features/user_can_create_a_new_song_spec.rb
   artist = Artist.create(name: "Journey")
-  visit "/artists/#{artist.id}/songs/new"
   title = "Don't Stop Believin'"
   length = 231
-  
+
+  visit new_artist_song_path(artist)
+
   fill_in :song_title, with: title
   fill_in :song_length, with: length
 
   click_on "Create Song"
 
-  expect(current_path).to eq("/songs/#{Song.last.id}")
+  new_song = Song.last
+
+  expect(current_path).to eq(song_path(new_song))
   expect(page).to have_content(title)
   expect(page).to have_content(length)
   expect(page).to have_content(artist.name)
@@ -112,11 +115,18 @@ end
 - And our view like this:
 
 ```html
-<form action="/songs" method="post">
-  <input type="text" name="song[title]" value="Title">
-  <input type="number" name="song[length]" value="Length">
-  <input type="submit" value="Create Song">
-</form>
+# app/views/songs/new.html.erb
+<h1>Create a New Song</h1>
+
+<%= form_for  @song do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :length %>
+  <%= f.number_field :length %>
+  <%= f.label :play_count %>
+  <%= f.number_field :play_count %>
+  <%= f.submit %>
+<% end %>
 ```
 
 - This should take us all the way to a failing test:
@@ -130,7 +140,7 @@ Failure/Error: click_on "Create Song"
 
 Hmmmm, but we have opened the routes for making a new song for an artist.
 
-Let's check out `rake routes` output to see what route we are actually trying to hit. 
+Let's check out `rake routes` output to see what route we are actually trying to hit.
 
 * What are we looking for? A route that creates our new song.
 * Which HTTP verb do we use when we create a new resource?
@@ -175,7 +185,7 @@ Let's run RSpec and adjust our `SongsController` so we can point the form to its
 def create
   artist = Artist.find(params[:artist_id])
   song = artist.songs.create(song_params)
-  redirect_to "/songs/#{song.id}"
+  redirect_to song_path(song)
 end
 ```
 
