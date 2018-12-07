@@ -423,23 +423,6 @@ person = Person.new
 puts greeting
 ```
 
-And similarly, you can't call methods defined outside the class inside the class:
-
-```ruby
-class Person
-  def greeting
-    "Hello! My name is #{name}"
-  end
-end
-
-def name
-  "Bob Ross"
-end
-
-person = Person.new
-puts person.greeting
-```
-
 ## Instance Variables
 
 Instance variables are available within the class scope. This includes any methods within the class:
