@@ -67,13 +67,14 @@ This is the query (and response) that we would have to write in GraphQL!
 
 To get started, clone down [this repo](https://github.com/ameseee/graphql-pets) and follow the directions on the README.
 
-### Familiarize yourself with the boilerplate code
+### Familiarize yourself with the boilerplate code & servers
 
+- What do you have in localhost:3000? 4000? Are you clear on where those are coming from? If not (yet), that's ok.
 - First, investigate the dependencies in the `package.json` - what has been installed, and what job do you think each dependency has?
 - As mentioned in the README of the repo, a JSON DB is being used to avoid time spent on setting up databases on machines for this lesson. Take a look at `db.json` to familiarize yourself with our initial data.
 - Now, let's take a look at `server.js` - this is an Express server built _with_ GraphQL, so you'll still see some of the things you're familiar with!
 - Lastly, let's check out `schema.js` - this file is where we will be doing all our work today.
-
+- Now, are you clear on what you have in localhost:3000 and 400 and where those are coming from?
 
 ### Building our Schema - Root Query
 
