@@ -3,15 +3,6 @@ slidenumbers: true
 
 # GraphQL
 
-Please sit with these partners:
-
-- Chris & Connor
-- Emmie & Colin
-- Stephen & Angela
-- Seth & Lucas
-- Tristan & Keegan
-- Matt & JP & John
-
 ---
 
 # Learning Goals
@@ -134,6 +125,7 @@ ___
 
 # Familiarize Yourself with Starter Repo
 
+- What do you have at localhost:3000? 4000? Where are those things coming from?
 - `package.json` - what has been installed, and what job do you think each dependency has?
 - `db.json` - familiarize yourself with our initial data.
 - `server.js` - this is an Express server built _with_ GraphQL, so you'll still see some of the things you're familiar with!
