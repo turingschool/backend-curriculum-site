@@ -57,7 +57,7 @@ $ mkdir lib/models
 $ touch models/paper.js
 ```
 
-Let's start by extracting our SQL out of our handlers and into `secret.js`
+Let's start by extracting our SQL out of our handlers and into `paper.js`
 
 ```js
 // paper.js
