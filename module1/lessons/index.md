@@ -16,7 +16,7 @@ title: Module 1 Lessons
 * [Scope](./scope)
 * [Working with Files](./working_with_files)
 * [Nested Collections](./nested_collections)
-* [Enumerables II](./intermediate_enumerables)
+* [Enumerables II](./advanced_enumerables)
 * [Boolean Logic](./boolean_logic)
 * [Object Oriented Programming](./object_oriented_programming)
 * [Modules](./modules)
