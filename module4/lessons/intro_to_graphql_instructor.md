@@ -10,6 +10,7 @@ tags: api, graphql
 - Slide deck
 - White boards around room (for Why GraphQL? activity)
 - Posters (for closing activity)
+- Print outs of each situation - probably 3 of each (for closing activity)
 
 ## Learning Goals
 
@@ -344,7 +345,9 @@ Congrats, you've written your first GraphQL server and tested it out in GraphiQL
 
 ## Closing Activity
 
-Split the class into three groups (or more), each group gets one topic and 10 minutes to plan a pitch and poster/whiteboard to use as a visual.
+Split the class into three groups (or more), each group gets one topic and 6-8 minutes to plan a pitch and poster/whiteboard to use as a visual.
+
+Once time is up, have each group present their pitch!
 
 ### Making the case for GraphQL
 
