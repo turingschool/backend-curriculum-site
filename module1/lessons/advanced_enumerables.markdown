@@ -1,20 +1,20 @@
 ---
 title: Advanced Enumerables
 length: 90
-tags: enumerables, ruby, zip, group_by, reduce
+tags: enumerables, ruby, zip, group_by, inject
 ---
 
 ## Learning Goals
 
 * Be able to explain the difference between the Enumerable module and Enumerator class
-* Understand when and how to use `zip`, `group_by`, and `reduce`/`inject` appropriately
+* Understand when and how to use `zip`, `group_by`, and `inject`/`inject` appropriately
 
-## Vocabulary 
+## Vocabulary
 * Enumerable
 * Enumerator
 * zip
 * group_by
-* reduce
+* inject
 
 ## Hook
 
@@ -29,44 +29,6 @@ enumerable | what it's used for | return value
            |                    |
 ```
 
-## Basics: Enumerable and Enumerators
-
-Ruby collections (Array, Hash, Range) have access to the [Enumerable](http://ruby-doc.org/core-2.3.1/Enumerable.html) module.
-
-```ruby
-Array.included_modules
-=> [Enumerable, PP::ObjectMixin, Kernel]
-```
-
-The Enumerable module gives Array access to many enumerable methods.
-
-```ruby
-Enumerable.instance_methods # 55 total
-=> [:max, :min, :to_a, :to_h, :include?, :find, :entries, :sort, :sort_by, :grep, :grep_v, :count, :detect, :find_index, :find_all, :select, :reject, :collect, :map, :flat_map, :collect_concat, :inject, :reduce, :partition, :group_by, :first, :all?, :any?, :one?, :none?, :minmax, :min_by, :max_by, :minmax_by, :member?, :each_with_index, :reverse_each, :each_entry, :each_slice, :each_cons, :each_with_object, :zip, :take, :take_while, :drop, :drop_while, :cycle, :chunk, :slice_before, :slice_after, :slice_when, :chunk_while, :sum, :uniq, :lazy]
-
-Array.instance_methods # 185 total
-=> [:join, :rotate, :rotate!, :sort!, :sort_by!, :collect!, :map!, :select!, :keep_if, :values_at, :delete_at, :delete_if, :to_h, :reject!, :transpose, :fill, :include?, :uniq!, :compact, :rassoc, :compact!, :flatten, :shuffle!, :shuffle, :sample, :assoc, :combination, :repeated_permutation, :permutation, :repeated_combination, :product, :flatten!, :bsearch_index, :bsearch, :&, :*, :+, :-, :sort, :shelljoin, :count, :find_index, :select, :reject, :collect, :map, :first, :any?, :pack, :pretty_print_cycle, :reverse_each, :zip, :take, :take_while, :drop, :drop_while, :cycle, :sum, :uniq, :|, :insert, :index, :rindex, :<=>, :<<, :clear, :replace, :==, :[], :[]=, :empty?, :eql?, :reverse, :reverse!, :concat, :pretty_print, :max, :min, :inspect, :length, :size, :each, :delete, :to_ary, :slice, :slice!, :to_a, :to_s, :dig, :hash, :frozen?, :at, :fetch, :last, :push, :pop, :shift, :unshift, :each_index, :find, :entries, :sort_by, :grep, :grep_v, :detect, :find_all, :flat_map, :collect_concat, :inject, :reduce, :partition, :group_by, :all?, :one?, :none?, :minmax, :min_by, :max_by, :minmax_by, :member?, :each_with_index, :each_entry, :each_slice, :each_cons, :each_with_object, :chunk, :slice_before, :slice_after, :slice_when, :chunk_while, :lazy, :pry, :__binding__, :pretty_print_instance_variables, :pretty_print_inspect, :instance_of?, :kind_of?, :is_a?, :tap, :public_send, :remove_instance_variable, :singleton_method, :instance_variable_set, :define_singleton_method, :method, :public_method, :extend, :to_enum, :enum_for, :pretty_inspect, :===, :=~, :!~, :respond_to?, :freeze, :object_id, :send, :display, :nil?, :class, :singleton_class, :clone, :dup, :itself, :taint, :tainted?, :untaint, :untrust, :untrusted?, :trust, :methods, :singleton_methods, :protected_methods, :private_methods, :public_methods, :instance_variable_get, :instance_variables, :instance_variable_defined?, :!, :!=, :__send__, :equal?, :instance_eval, :instance_exec, :__id__]
-```
-
-When an array _instance_ uses an Enumerable method, the enumerator creates an instance of [Enumerator](http://ruby-doc.org/core-2.3.1/Enumerator.html) from the array.
-
-```ruby
-array = [1,2,3]
-=> [1,2,3]
-
-array.each
-=> #<Enumerator: ...>
-
-array.select
-=> #<Enumerator: ...>
-```
-
-This allows for internal and external iteration. We're most familiar with internal iteration with blocks, but check out the Ruby docs for ideas of external enumeration.
-
-### Turn and Talk
-
-Turn to your neighbor and discuss the differences between Enumerator and Enumerable.
-
 ## `zip`
 
 We have two arrays. We want to put them together, but how can we do that? We would use the enumerable `zip`. Similar to the way a zipper works: when we zip up a zipper, we tooth by tooth combine a tooth from the left side and a tooth from the right side and then a tooth from the left side and so on until we are all zipped up.
@@ -76,8 +38,8 @@ We have two arrays. We want to put them together, but how can we do that? We wou
 That's complicated so let's just see it in action.
 
 ```ruby
-a = %w(1 2 3)
-b = %w(a b c)
+a = ["1", "2", "3"]
+b = ["a", "b", "c"]
 
 a.zip(b)
 => [["1", "a"], ["2", "b"], ["3", "c"]]
@@ -106,7 +68,6 @@ peanut_butter = [ "Peter Pan",
 # ...and so on and so forth.
 ```
 
-*Skip if 60min lesson*
 **Challenge #2:** Let's practice with some real world data. This is something that you'll often get. Someone writes some pretty poor software, and you get two associated arrays, but you need to actually put it together. People are the worst.
 
 ```ruby
@@ -128,6 +89,10 @@ houses = ["Hufflepuff",
 "Penelope is in Ravenclaw."
 # ...and so on and so forth.
 ```
+
+**FlashCard**
+
+Let's make a \#zip flashcard! Following the format that we used for our previous enumerables, create two flashcards for the enumerable \#zip.
 
 ## `group_by`
 
@@ -162,9 +127,37 @@ This is cool but kind of useless. What else can we do? How about first letters?
 
 Using `group_by` on this array (`array = ["aardvark", "art", "airplane", "boy", "burp", "boot", "green", "goop", "super"]`), create a Hash where the keys are the first letter of words, and the values are the list of words that share that first letter.
 
-## `reduce`/`inject`
+### Group Discussion
 
-Reduce can be very powerful. It allows us to **reduce** something to a single value. To know how to use it, we'll need these three things:
+* Given what you now know about \#group_by, what might be some limitations of this method?  
+* If you were given the array of Record objects created with the class below, how would you produce a hash where the keys are the artist and the values are the array of songs for that artist?
+
+```ruby
+class Record
+  attr_reader :title,
+              :artist,
+              :songs
+  def initialize(title, artist, songs)
+    @title = title
+    @artist = artist
+    @songs = songs
+  end
+end
+
+abbey_road = Record.new("Abbey Road", "the Beatles", ["Come Together", "Here Comes the Sun", "Because"])
+sgt_pepper = Record.new("Sgt Peppers", "the Beatles", ["Sgt. Pepper's Lonely Hearts Club Band", "With a Little Help from My Friends", "Lucy in the Sky with Diamods"])
+out_of_our_heads = Record.new("Out of Our Heads", "the Rolling Stones", ["Mercy Mercy", "Hitch Hike", "The Last Time"])
+
+records = [abbey_road, sgt_pepper, out_of_our_heads]
+```
+
+**FlashCard**
+
+Let's make a \#group_by flashcard! Following the format that we used for our previous enumerables, create two flashcards for the enumerable \#group_by.
+
+## `inject`
+
+Inject can be very powerful. It allows us to **inject** something to a single value. To know how to use it, we'll need these three things:
 
 1) The starting value in parens. This isn't always required, but it defaults to the first element of the collection.
 2) The block's first argument, which will act as a memory/storage holder. Begins as the starting value.
@@ -181,27 +174,30 @@ Now, in practice.
 array = [1,2,3,4,5]
 => [1,2,3,4,5]
 
-array.reduce(0) do |sum, num|
+array.inject(0) do |sum, num|
    sum + num
 end
 => 15
 ```
 
-### Exercise: `reduce`
+### Exercise: `inject`
 
-Summing is easy, but we can also use `reduce` to build other things.
+Summing is easy, but we can also use `inject` to build other things.
 
-**Challenge #1:** Start with a array of 6 words, and write a `reduce` block that returns a string with the first letter of all the words in the array.
+**Challenge #1:** Start with a array of 6 words, and write a `inject` block that returns a string with the first letter of all the words in the array.
 
-**Challenge #2:** Start with a string of one long word (your choice). Write a `reduce` block that returns a count of all the letters in the word.
+**Challenge #2:** Start with a string of one long word (your choice). Write a `inject` block that returns a count of all the letters in the word.
 
 **Challenge #3:** Given an array of the numbers 1 through ten, use inject to return the sum of all even numbers.
+
+**FlashCard**
+
+Let's make an \#inject flashcard! Following the format that we used for our previous enumerables, create two flashcards for the enumerable \#inject.
 
 
 ## WrapUp  
 
-* What do zip, group_by, and reduce do?  What are the gotchas for each?  
-* What is the difference between the Enumerable Module and Enumerator Class?
+* What do zip, group_by, and inject do?  What are the gotchas for each?  
 
 ## Additional Reading
 
