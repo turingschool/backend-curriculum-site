@@ -337,3 +337,10 @@ The schema file is getting a little lengthy - can you pull each type, the RootQu
 ## Complete GraphQL Server
 
 Congrats, you've written your first GraphQL server and tested it out in GraphiQL! You can see it takes a bit of setup, but the long term benefits are something many companies seeing are very much worth it.
+
+## Wrap Up Activity 
+
+Your instructor will assign to you to small group and an "opinion" to pitch. Spend the alotted time to make a poster and develop a pitch you will give you to your engineering team. 
+
+Instructor - see [the instructor guide](http://backend.turing.io/module4/lessons/intro_to_graphql_instructor) for specific directions.
+
