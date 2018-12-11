@@ -7,7 +7,7 @@ tags: enumerables, ruby, zip, group_by, inject
 ## Learning Goals
 
 * Be able to explain the difference between the Enumerable module and Enumerator class
-* Understand when and how to use `zip`, `group_by`, and `inject`/`inject` appropriately
+* Understand when and how to use `zip`, `group_by`, and `inject` appropriately
 
 ## Vocabulary
 * Enumerable
