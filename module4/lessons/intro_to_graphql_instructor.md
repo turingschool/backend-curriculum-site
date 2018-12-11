@@ -37,7 +37,9 @@ Write your answer to the following:
 Let's say we are building LinkedIn for Puppies. Each puppy-user would have a name, company, title, education, favorite treat, parent names, and best friends.
 
 - With a partner, whiteboard the JSON response from `api/v1/puppy/:id`.
-- Each person should have a sheet of paper with one puppy-user attribute written on it.
+- Class should come back together and discuss very quickly.
+- Instructor needs to give directions to facilitate the following:
+- Each person should have a sheet of paper with one puppy-user attribute written on it. (Instructor will need to assign so we don't overlap. Make sure you have something like `company` - where we'd get an ID back then need to make another request)
 - The class needs to group together like a big JSON object.
 - Once the group is together like a JSON object on one side of the room, instructor is on other side of the room.
   - Over-Fetching: Instructor says: I need the puppy-user name - what are you going to send me, server? (The whole group should walk over together.) Well, I didn't want all of you, but I guess I can just weed the rest of you out. I need the puppy-user name and favorite toys. What are you going to send me? (The whole group should walk over.) I didn't want everyone!STAMP the idea: We are currently OVER-FETCHING. Only want one thing but get a bunch back.
