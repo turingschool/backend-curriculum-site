@@ -86,9 +86,9 @@ end
 
 # runner.rb
 users = [
-    {name: "Sal"}
-    {name: "Brian"}
-    {name: "Megan"}
+    {name: "Sal"},
+    {name: "Brian"},
+    {name: "Megan"},
   ]
 
 User.create_multiple(users)
