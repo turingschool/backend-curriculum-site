@@ -41,6 +41,8 @@ title: Backend Module 1 Projects
 
 #### [Sorting Suite](./sorting_suite)
 
+#### [Stat Tracker](./stat_tracker)
+
 #### [Super Sports Games](./super_sports_games)
 
 #### [Wizarding Bank](./wizarding_bank)
