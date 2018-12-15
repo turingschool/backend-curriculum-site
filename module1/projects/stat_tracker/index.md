@@ -15,7 +15,7 @@ Let's build a system to do some analysis on NHL team performance.
 
 ## Project Description
 
-We will be using data from the National Hockey League to make analyze team performance for specific seasons and across seasons. We want to see who the best and worst performers are, as well as be able to pull statistics for individual teams. To that end we will create a `StatTracker` class that will provide us with the information we need.
+We will be using data from the National Hockey League to analyze team performance for specific seasons and across seasons. We want to see who the best and worst performers are, as well as be able to pull statistics for individual teams. To that end we will create a `StatTracker` class that will provide us with the information we need.
 
 We have separated the methods required for this project into sections below.
 
