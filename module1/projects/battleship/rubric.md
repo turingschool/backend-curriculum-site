@@ -3,6 +3,8 @@ layout: page
 title: Battleship - Evaluation Rubric
 ---
 
+_[Back to Battleship Home](./index)_
+
 <br> | **4: Exceptional** | **3: Passing** | **2: Passing with Concern** | **1: Failing**
 -- | --- | --- | --- | ---
 **Functionality** | 2 of the features in Iteration 4 are complete | All of the functionality in Iteration 3 is complete | Some of the functionality in Iteration 3 is not complete | Game cannot execute ship placement or iteration 2 is not complete |

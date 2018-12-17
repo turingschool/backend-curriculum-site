@@ -3,6 +3,8 @@ layout: page
 title: BattleShip - Submission and Demo
 ---
 
+_[Back to Battleship Home](./index)_
+
 ## Submission and Project Demo
 
 This project will be evaluated in two ways:
