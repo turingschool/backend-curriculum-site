@@ -3,6 +3,9 @@ layout: page
 title: FlashCards - Submission
 ---
 
+_[Back to FlashCards Home](./index)_
+
+
 When you are finished, make sure your code is pushed up to your repository on Github. All the code for your submission should be on the master branch. Then, follow these steps to submit a Pull Request to the turingschool-examples repository:
 
 1. Go to your projects Github page

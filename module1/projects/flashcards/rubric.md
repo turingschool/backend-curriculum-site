@@ -3,6 +3,9 @@ layout: page
 title: FlashCards Rubric
 ---
 
+_[Back to FlashCards Home](./index)_
+
+
 ## Learning Goals
 
 * Follow an interaction pattern
