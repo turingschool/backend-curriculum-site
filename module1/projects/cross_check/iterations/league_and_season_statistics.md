@@ -5,8 +5,6 @@ title: League and Season Statistics
 
 ## League Statistics
 
-These statistics are calculated
-
 | Method | Description | Return Value |
 | ------ | ----------- | ------------ |
 |`count_of_teams`| Total number of teams in the data. | Integer |

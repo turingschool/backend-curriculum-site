@@ -7,9 +7,11 @@ Let's build a system to do some analysis on NHL team performance.
 
 ## Learning Goals
 
+* Build classes with single responsibilities.
+* Write organized readable code.
+* Use TDD as a design strategy
 * Design an Object Oriented Solution to a problem
 * Practice algorithmic thinking
-* Use TDD as a design strategy
 * Work in a group
 * Use Pull Requests to collaborate among multiple partners
 

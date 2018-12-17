@@ -15,9 +15,9 @@ In order to complete your setup:
 * One team member forks the repository [here](https://github.com/turingschool-examples/stat_tracker) and adds the other(s) as collaborators.
 * Each of the other team members accepts the invitation to collaborate and then clones the repository.
 * Setup [SimpleCov](https://github.com/colszowka/simplecov) to monitor test coverage along the way.
-* Create a [Rakefile](https://github.com/ruby/rake) that will run each of your test files without having to run them individually.
+* Create a [Rakefile](https://github.com/ruby/rake) that will run each of your test files without having to run them individually. See [this lesson plan](http://backend.turing.io/module1/lessons/project_etiquette) for more details.
 
-Note: we have linked the GitHub repositories for SimpleCov and Rake above, but you should not expect that those are the only resources you will use to set up these tools in your project. Use your research skills to find other resources to help you determine how to use these tools.
+Note: we have linked the GitHub repositories for SimpleCov and Rake above, but you should not expect that those are the only resources you will use to set up these tools in your project. Use your research skills to find other resources to help you determine how to use these tools. You may want to consider using [Rubys CSV class](https://ruby-doc.org/stdlib-2.0.0/libdoc/csv/rdoc/CSV.html).
 
 ## File I/O
 
