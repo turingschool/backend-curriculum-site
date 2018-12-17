@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Stat Tracker
+title: Cross-Check
 ---
 
 Let's build a system to do some analysis on NHL team performance.

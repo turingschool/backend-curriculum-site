@@ -13,8 +13,8 @@ Create the following methods.
 |`count_of_ties`| Number of ties across all seasons and games | Integer |
 |`most_popular_venue`| Name of the venue with the most total games played | String |
 |`least_popular_venue`| Name of the venue with the fewest total games played|  String |
-|`percentage_home_wins`| Percentage of time that a home team has won a game (rounded to the nearest 100th) | Decimal |
-|`percentage_visitor_wins`| Percentage of games that a visitor wins (rounded to the nearest 100th)  |  Decimal |
+|`percentage_home_wins`| Percentage of games that a home team has won (rounded to the nearest 100th) | Decimal |
+|`percentage_visitor_wins`| Percentage of games that a visitor has won (rounded to the nearest 100th)  |  Decimal |
 |`percentage_ties`| Percentage of games that ended in a tie (rounded to the nearest 100th) |  Decimal |
 |`season_with_most_games`| Integer representation (e.g. 20122013) of the season in which the most games were held | Integer |
 |`season_with_fewest_games`| Integer representation (e.g. 20122013) of the season with the fewest games | Integer |

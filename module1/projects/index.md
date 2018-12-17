@@ -15,6 +15,8 @@ title: Backend Module 1 Projects
 
 #### [Credit Check](./credit_check)
 
+#### [Cross-Check](./cross_check)
+
 #### [Date Night](./date_night)
 
 #### [Enigma](./enigma)
@@ -40,8 +42,6 @@ title: Backend Module 1 Projects
 #### [Sorting Cards](./sorting_cards)
 
 #### [Sorting Suite](./sorting_suite)
-
-#### [Stat Tracker](./stat_tracker)
 
 #### [Super Sports Games](./super_sports_games)
 
