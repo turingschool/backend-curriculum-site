@@ -3,6 +3,8 @@ layout: page
 title: BattleShip - Setup
 ---
 
+_[Back to Battleship Home](./index)_
+
 ## Repository Setup
 
 Because this is a paired project, you will want to choose one person to create the project repository and invite the other person as a collaborator using the following steps:

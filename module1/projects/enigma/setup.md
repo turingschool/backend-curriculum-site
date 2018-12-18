@@ -3,6 +3,8 @@ layout: page
 title: Enigma - Setup
 ---
 
+_[Back to Enigma Home](./index)_
+
 ## SimpleCov
 
 Please make sure that your project uses [SimpleCov](https://github.com/colszowka/simplecov). You should be able to demonstrate in you evaluation that SimpleCov reports accurate test coverage statistics at 95% coverage or above.

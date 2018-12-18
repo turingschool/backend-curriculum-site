@@ -3,6 +3,9 @@ layout: page
 title: FlashCards - Setup
 ---
 
+_[Back to FlashCards Home](./index)_
+
+
 * Fork [this repository](https://github.com/turingschool-examples/flash_cards)
 * Clone YOUR fork to your computer
 * Make sure you don't clone the turingschool-examples repository
