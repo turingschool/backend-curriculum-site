@@ -12,15 +12,6 @@ tags: jquery, javascript
 
 jQuery is a library that allows us to use CSS selectors to find elements on the page and then interact with them. Under the hood, **it's JavaScript**. It's used on about 78% of the top million web pages, so it's worth while getting comfortable with it.
 
-#### Loading the jQuery library
-
-To use the jQuery library, you'll need to include the following lines right above the closing body tag in your HTML:
-
-```html
-  <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'>
-  </script>
-  <script src="<YOUR INDEX.JS FILE HERE>"></script>
-```
 
 ## First Lines of jQuery
 
@@ -42,8 +33,8 @@ Play around with the following example using jQuery.
 - Change the `h1` selector to `.important-header`
 - Add the following line of code: `$('h1').css('color', '#FC17A5');`
 
-<p data-height="265" data-theme-id="0" data-slug-hash="XZepGP" data-default-tab="html,result" data-user="ameseee" data-embed-version="2" data-pen-title="Dino 1" class="codepen">See the Pen <a href="https://codepen.io/ameseee/pen/XZepGP/">Dino 1</a> by Amy Holt (<a href="https://codepen.io/ameseee">@ameseee</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+<p data-height="265" data-theme-id="0" data-slug-hash="WLoorZ" data-default-tab="html,result" data-user="mikedao" data-pen-title="Dino 1" class="codepen">See the Pen <a href="https://codepen.io/mikedao/pen/WLoorZ/">Dino 1</a> by Michael Dao (<a href="https://codepen.io/mikedao">@mikedao</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 ## Responding to User Events
 
@@ -53,8 +44,8 @@ This is the crux of front-end engineering. We present a user interface and then 
 
 Let's take a look at the jQuery syntax and then we'll talk about what's happening.
 
-<p data-height="265" data-theme-id="0" data-slug-hash="aqLJRO" data-default-tab="html,result" data-user="ameseee" data-embed-version="2" data-pen-title="Dino 2" class="codepen">See the Pen <a href="https://codepen.io/ameseee/pen/aqLJRO/">Dino 2</a> by Amy Holt (<a href="https://codepen.io/ameseee">@ameseee</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+<p data-height="265" data-theme-id="0" data-slug-hash="dwOOGy" data-default-tab="css,result" data-user="mikedao" data-pen-title="Dino 2" class="codepen">See the Pen <a href="https://codepen.io/mikedao/pen/dwOOGy/">Dino 2</a> by Michael Dao (<a href="https://codepen.io/mikedao">@mikedao</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 The following things are happening in the example above:
 
@@ -86,8 +77,8 @@ Take a moment to investigate and play with some of them.
 
 Open the example below in CodePen using the "Edit on CodePen."
 
-<p data-height="265" data-theme-id="0" data-slug-hash="rJGJjO" data-default-tab="css,result" data-user="ameseee" data-embed-version="2" data-pen-title="Dino 3" class="codepen">See the Pen <a href="https://codepen.io/ameseee/pen/rJGJjO/">Dino 3</a> by Amy Holt (<a href="https://codepen.io/ameseee">@ameseee</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+<p data-height="265" data-theme-id="0" data-slug-hash="aPBBNx" data-default-tab="css,result" data-user="mikedao" data-pen-title="Dino 3" class="codepen">See the Pen <a href="https://codepen.io/mikedao/pen/aPBBNx/">Dino 3</a> by Michael Dao (<a href="https://codepen.io/mikedao">@mikedao</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 We're using a jQuery method called `toggleClass()`. When the user clicks on the button, it either adds or remove the class `upside-down` depending on whether or not it was already there.
 
@@ -104,8 +95,8 @@ We're getting somewhere! We can respond to actions and change elements. It would
 
 Let's explore the following example.
 
-<p data-height="265" data-theme-id="0" data-slug-hash="qxPxPj" data-default-tab="css,result" data-user="ameseee" data-embed-version="2" data-pen-title="Dino 4" class="codepen">See the Pen <a href="https://codepen.io/ameseee/pen/qxPxPj/">Dino 4</a> by Amy Holt (<a href="https://codepen.io/ameseee">@ameseee</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+<p data-height="265" data-theme-id="0" data-slug-hash="vvyyKL" data-default-tab="css,result" data-user="mikedao" data-pen-title="Dino 4" class="codepen">See the Pen <a href="https://codepen.io/mikedao/pen/vvyyKL/">Dino 4</a> by Michael Dao (<a href="https://codepen.io/mikedao">@mikedao</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 In this example, we're doing the following:
 
@@ -119,8 +110,8 @@ JavaScript has two ways of seeing if two values are equal: `==` and `===`. `==` 
 
 Let's consider the following example:
 
-<p data-height="265" data-theme-id="0" data-slug-hash="rJGJYe" data-default-tab="css,result" data-user="ameseee" data-embed-version="2" data-pen-title="Game 1 (Non-Working)" class="codepen">See the Pen <a href="https://codepen.io/ameseee/pen/rJGJYe/">Game 1 (Non-Working)</a> by Amy Holt (<a href="https://codepen.io/ameseee">@ameseee</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+<p data-height="265" data-theme-id="0" data-slug-hash="oJYYYN" data-default-tab="css,result" data-user="mikedao" data-pen-title="Game 1 (Non-Working)" class="codepen">See the Pen <a href="https://codepen.io/mikedao/pen/oJYYYN/">Game 1 (Non-Working)</a> by Michael Dao (<a href="https://codepen.io/mikedao">@mikedao</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 Hmm—that's curious. It doesn't seem to work. You may have encountered this in a previous project. No matter what, input fields always hold **strings** of text. So, we're actually getting the string `"2"` from the input element and not the integer `2`. It makes sense that those things are not strictly equal. What we need to do is turn that string into a number before we compare it.
 
@@ -129,6 +120,8 @@ This is pretty common, so JavaScript gives us a function for doing it called `pa
 ```js
 parseInt("2") === 2; // true!
 ```
+
+TURN AND TALK - What is the equivalent of this in ruby?
 
 Now, we can update our conditional as follows:
 
@@ -142,12 +135,9 @@ if (parseInt(number) === 2) {
 
 It works now!
 
-<p data-height="265" data-theme-id="0" data-slug-hash="OQxQzr" data-default-tab="css,result" data-user="ameseee" data-embed-version="2" data-pen-title="Game 1 (working)" class="codepen">See the Pen <a href="https://codepen.io/ameseee/pen/OQxQzr/">Game 1 (working)</a> by Amy Holt (<a href="https://codepen.io/ameseee">@ameseee</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+<p data-height="265" data-theme-id="0" data-slug-hash="REoopR" data-default-tab="css,result" data-user="mikedao" data-pen-title="Game 1 (working)" class="codepen">See the Pen <a href="https://codepen.io/mikedao/pen/REoopR/">Game 1 (working)</a> by Michael Dao (<a href="https://codepen.io/mikedao">@mikedao</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-### Try It: Secret Passcode Time
-
-Can you change the code above so that it's looking for a secret passcode before it prints a hidden message to the screen? It's totally your call on what the password is and what the message should be. I don't want to steal your creative thunder.
 
 ## Knowing Which Element We Clicked - THIS!
 
@@ -157,8 +147,8 @@ It turns out that when we add an event listener using jQuery, we get a special v
 
 Let's take a look at the example below:
 
-<p data-height="265" data-theme-id="0" data-slug-hash="KQXjwV" data-default-tab="css,result" data-user="ameseee" data-embed-version="2" data-pen-title="$(this)" class="codepen">See the Pen <a href="https://codepen.io/ameseee/pen/KQXjwV/">$(this)</a> by Amy Holt (<a href="https://codepen.io/ameseee">@ameseee</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+<p data-height="265" data-theme-id="0" data-slug-hash="maOOmr" data-default-tab="css,result" data-user="mikedao" data-pen-title="$(this)" class="codepen">See the Pen <a href="https://codepen.io/mikedao/pen/maOOmr/">$(this)</a> by Michael Dao (<a href="https://codepen.io/mikedao">@mikedao</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 #### Try It
 
@@ -172,8 +162,8 @@ Let's work through a box example again.
 
 We want each box to have a button inside of it. When the user clicks the button, it should rotate the entire box. (We're rotating the box with a CSS class called `clicked`.)  
 
-<p data-height="265" data-theme-id="0" data-slug-hash="YeroWR" data-default-tab="css,result" data-user="ameseee" data-embed-version="2" data-pen-title="Rotating Buttons" class="codepen">See the Pen <a href="https://codepen.io/ameseee/pen/YeroWR/">Rotating Buttons</a> by Amy Holt (<a href="https://codepen.io/ameseee">@ameseee</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+<p data-height="265" data-theme-id="0" data-slug-hash="ebBBRb" data-default-tab="css,result" data-user="mikedao" data-pen-title="Rotating Buttons" class="codepen">See the Pen <a href="https://codepen.io/mikedao/pen/ebBBRb/">Rotating Buttons</a> by Michael Dao (<a href="https://codepen.io/mikedao">@mikedao</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 This code _does not_ work the way we'd like - right now when we click on the button, the button itself is rotating instead of the entire box. What we need to do is when the user clicks on a button, go up and find the box that it lives in (the parent element) and add the class to _that_ element.
 
@@ -270,29 +260,29 @@ Here are some of the all-stars of the DOM traversing world:
 
 The `parent()` method will take the currently selected element and go one level up the DOM tree.
 
-<p data-height="265" data-theme-id="0" data-slug-hash="NyaZbq" data-default-tab="html,result" data-user="ameseee" data-embed-version="2" data-pen-title="jQuery Parent" class="codepen">See the Pen <a href="https://codepen.io/ameseee/pen/NyaZbq/">jQuery Parent</a> by Amy Holt (<a href="https://codepen.io/ameseee">@ameseee</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+<p data-height="265" data-theme-id="0" data-slug-hash="aPBBVe" data-default-tab="html,result" data-user="mikedao" data-pen-title="jQuery Parent" class="codepen">See the Pen <a href="https://codepen.io/mikedao/pen/aPBBVe/">jQuery Parent</a> by Michael Dao (<a href="https://codepen.io/mikedao">@mikedao</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 ### `parents()`
 
 This one will include all of the parents—all the way up to the `<body>` of the page. Additionally, you can pass it a selector. `$('.some-selector').parents('.active')` will traverse up the DOM, but only return the elements with the class of `.active`.
 
-<p data-height="265" data-theme-id="0" data-slug-hash="vdeqxb" data-default-tab="html,result" data-user="ameseee" data-embed-version="2" data-pen-title="jQuery Parents" class="codepen">See the Pen <a href="https://codepen.io/ameseee/pen/vdeqxb/">jQuery Parents</a> by Amy Holt (<a href="https://codepen.io/ameseee">@ameseee</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+<p data-height="265" data-theme-id="0" data-slug-hash="Vqmmya" data-default-tab="html,result" data-user="mikedao" data-pen-title="jQuery Parents" class="codepen">See the Pen <a href="https://codepen.io/mikedao/pen/Vqmmya/">jQuery Parents</a> by Michael Dao (<a href="https://codepen.io/mikedao">@mikedao</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 ### `children()`
 
 This method returns all of the direct childen of the given selection. It will _not_ search their children. Like `parents()`, `children()` will also take a selector. `$('.some-selector').children('.active')` will go through the children of the current query and only return the elements with the class of `.active`.
 
-<p data-height="265" data-theme-id="0" data-slug-hash="VQMJWq" data-default-tab="html,result" data-user="ameseee" data-embed-version="2" data-pen-title="jQuery Children" class="codepen">See the Pen <a href="https://codepen.io/ameseee/pen/VQMJWq/">jQuery Children</a> by Amy Holt (<a href="https://codepen.io/ameseee">@ameseee</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+<p data-height="265" data-theme-id="0" data-slug-hash="PXbbEj" data-default-tab="html,result" data-user="mikedao" data-pen-title="jQuery Children" class="codepen">See the Pen <a href="https://codepen.io/mikedao/pen/PXbbEj/">jQuery Children</a> by Michael Dao (<a href="https://codepen.io/mikedao">@mikedao</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 ### `siblings()`
 
 `siblings()` will select all of the sibling elements based on the current query. Like its friends, it will also take a selector if you're polite.
 
-<p data-height="265" data-theme-id="0" data-slug-hash="wyrLra" data-default-tab="html,result" data-user="ameseee" data-embed-version="2" data-pen-title="jQuery Siblings" class="codepen">See the Pen <a href="https://codepen.io/ameseee/pen/wyrLra/">jQuery Siblings</a> by Amy Holt (<a href="https://codepen.io/ameseee">@ameseee</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+<p data-height="265" data-theme-id="0" data-slug-hash="WLoodz" data-default-tab="html,result" data-user="mikedao" data-pen-title="jQuery Siblings" class="codepen">See the Pen <a href="https://codepen.io/mikedao/pen/WLoodz/">jQuery Siblings</a> by Michael Dao (<a href="https://codepen.io/mikedao">@mikedao</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 ### `find()`
 
@@ -300,8 +290,8 @@ One you have queried for some elements using jQuery, you can use `find()` to dri
 
 It's useful to think of `find()` as a more powerful alternative for `children()`. The `children()` method will look only one level down the tree. `find()` will search the children, the grandchildren, the great-grandchildren, and so on. The method will look at anything you currently have selected and then search within those results.
 
-<p data-height="265" data-theme-id="0" data-slug-hash="jZGjaV" data-default-tab="html,result" data-user="ameseee" data-embed-version="2" data-pen-title="jQuery Find" class="codepen">See the Pen <a href="https://codepen.io/ameseee/pen/jZGjaV/">jQuery Find</a> by Amy Holt (<a href="https://codepen.io/ameseee">@ameseee</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+<p data-height="265" data-theme-id="0" data-slug-hash="roWWpR" data-default-tab="html,result" data-user="mikedao" data-pen-title="jQuery Find" class="codepen">See the Pen <a href="https://codepen.io/mikedao/pen/roWWpR/">jQuery Find</a> by Michael Dao (<a href="https://codepen.io/mikedao">@mikedao</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 Which one do you use? It depends, do you want to traverse all the way down the tree or just down one level.
 
