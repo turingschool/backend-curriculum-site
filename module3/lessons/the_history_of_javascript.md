@@ -26,9 +26,9 @@ The word that Matz uses when talking about the creation of Ruby is joy. "For me,
 
 JavaScript was created by Brendan Eich, a Netscape employee in 1995. It was known then as Mocha, and essentially Eich was given ten days to write a whole new programming language, and it had to look like Java, which was the hotness at the time. (The two are actually unrelated).
 
-And so, let us return and think on the lessons about empathy that we have learned during BattleShift. 
+And so, let us return and think on the lessons about empathy that we have learned during your last project.
 
-You had a bit over ten days to do that project. Can you imagine writing an entire programming language in the same amount of time? What sins did you commit in BattleShift? What sins do you think Eich committed in ten days?
+You had a bit over ten days to do that project. Can you imagine writing an entire programming language in the same amount of time? What sins did you commit in Brownfield of Dreams? What sins do you think Eich committed in ten days?
 
 Example. What number do we associate with the month January? 1? Not in JavaScript - it's zero. And knowing what we know about programming, one could say that it kind of makes sense that January would be zero. Buuuuu that's not how the real world works. 
 
