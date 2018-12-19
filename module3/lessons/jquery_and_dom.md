@@ -346,7 +346,7 @@ In order to take both `append()` and `prepend()` for a spin, let's try the follo
 
 ## DOM Competition
 
-With your partner, you have 10 minutes to create the most impressive CodePen. Create a new pen, and use jQuery to manipulate the DOM in at least FOUR different ways. Extra points for 🦄Sparkle and Delight🦄.
+With your partner, you have 10 minutes to create the most impressive CodePen. Create a new pen, and use jQuery to manipulate the DOM in at least FOUR different ways. Extra points for 🦄Sparkle Magic🦄.
 
 ## Final CFU
 
