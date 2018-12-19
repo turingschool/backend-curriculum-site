@@ -35,3 +35,7 @@ Example. What number do we associate with the month January? 1? Not in JavaScrip
 "Working with JavaScript has traditionally involved memorizing a bunch of weird tricks and hacks."
 
 An example of this is the dunder prototype. This was something added to let people know what prototype a thing came from, never expecting it to be a _thing_ and it was added. They then planned on taking out later as it got replaced with a better implementation, but when they went to do so, people freaked out because they were used to doing it in the old stopgap measure. So, right now, if you check the documentation for the dunder prototype, it says you shouldn't use it because it may get deprecated and removed at any point. No firm date or anything, just sometime soon. Maybe tomorrow. Maybe next year. [Further Reading](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/proto)
+
+#### Resources
+
+* [Slide Deck](https://docs.google.com/presentation/d/1DQ_Llv3YWpXevqhJMnDx_cO3Utf59eZRGyt4eDVV5Es/edit?usp=sharing)
