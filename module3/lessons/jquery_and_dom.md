@@ -31,7 +31,7 @@ So that’s a brief history of how the architecture and paradigms of doing thing
 
 Let’s imagine the best web app. You visit `catsarelame.com`.  There’s some text, it reads, “CATS RULE” You click a button on the screen. Now the webpage says, “NO CATS ARE LAME DOGS RULE”.
 
-With the context of the HTTP response cycle, and what you know about rails, take five minutes and write down what happens in this scenario.
+With the context of the HTTP response cycle, and what you know about rails, take five minutes and diagram out what happens in this scenario.
 
 Take three minutes and in your pair, the person who has the cooler shoes shares first.
 
