@@ -17,7 +17,7 @@ Each student will deliver a 5 minute slide presentation in front of your instruc
 
 * A student who **will repeat the current module** uses their presentation time to explore why they struggled, discuss the lessons learned, and lay out a plan for what will be different next time.
 * A student who is **repeating unsuccessfully** and will leave the program is excused from the presentation and can use the entire portfolio time for feedback and discussion.
-* A student who passes the module will present the following:
+* A student who **passes the module** will present the following:
   * Why have you been successful up to this point at Turing?
   * How are you able to learn new technologies and grow new skills on your own?
   * What areas of your technical practice feel most engaging? When do you do your best work?
