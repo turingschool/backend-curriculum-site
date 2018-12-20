@@ -40,5 +40,5 @@ The following items are evaluated and assessed by instructors as part of conside
 ## Important Links
 
 * [__Mod 2 Success__](./success)
-* [__Mod 2 Portfolio Requirements__](./portfolios)
+* [__Mod 2 Portfolio Requirements__](./portfolios/portfolio_requirements)
 * [__Mod 2 Professional Development Curriculum__](https://github.com/turingschool/career-development-curriculum/tree/master/module_two)
