@@ -3,6 +3,9 @@ layout: page
 title: Iteration 4 - Additional Features
 ---
 
+_[Back to Battleship Home](./index)_
+_[Back to Requirements](./requirements)_
+
 ## Variable Board Size
 
 When starting a game, a user should be able to indicate the height and width of the board. All of your validations should still work with these variable board dimensions

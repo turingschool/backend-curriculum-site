@@ -12,15 +12,44 @@ tags: jquery, javascript
 
 jQuery is a library that allows us to use CSS selectors to find elements on the page and then interact with them. Under the hood, **it's JavaScript**. It's used on about 78% of the top million web pages, so it's worth while getting comfortable with it.
 
-#### Loading the jQuery library
+## Practical jQuery
 
-To use the jQuery library, you'll need to include the following lines right above the closing body tag in your HTML:
+### The Swing Between the Client and The Server
 
-```html
-  <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'>
-  </script>
-  <script src="<YOUR INDEX.JS FILE HERE>"></script>
-```
+Throughout history, there's been some swings between things running on the server, things running on clients, and theres been ideas of thin clients and thick clients and dummy terminals, and all sorts of things. We're going to take a look at this. 
+
+In the early days of computing there was just big giant computers. Essentially, if you wanted to run software on the computers, you had to write your code on these punch cards, hand in the cards to the computer technician, and later at some point, you'd get the results of your program. Note: This would really suck if you had a bug in your code. Computers were so slow back then and you had to make an appointment for time for your computer to run. So if you did something wrong in your code, you had to fix it, get it on punch cards, and then make an appointment to run it at some later date. We are truly spoiled by the fact that we can just run our code all day every day and its fine.
+
+As computers got faster, and technology advanced, we got to the point to where we no longer had to make appointments for computer time, computers could essentially time share, so it could be set up so that many people could use a computer at what appeared to them to be at the same time. The first iteration of this were dummy terminals, which were essentially a keyboard and screen connected via a VERY long cable to the server, also known then as possibly a mainframe. The computer wasnt doing multiple things at a time, it was essentially multitasking, but moving so fast that it felt like things were happening simultaneously. And of course, the more people using terminals at the time, the more things would slow down, as a finite number of computing resources are now allocated to more and more users. 
+
+We took this approach out to its logical conclusion, as the terminals were able to go further and further away from the mainframe, to the point where terminals were able to connect to the mainframe via phone lines. But then there started a shift with the advent of the personal computer.  Home computers were now more and more prevalent as the cost of computers came down and the machines people had in their homes got more powerful, we see this shift. Instead of running programs on a remote server somewhere, we install software on our computers at home and that does the heavy lifting, freeing up computing power on the mainframe. Who here has installed some kind of software on their computer using floppy disks or CD-ROMs back in the day? This was kind of a consequence of the fact that network speeds were so slow back then. It made time-sense and money sense to offload more things to the desktop as it could handle them.
+
+This was the status quo until the internet became a thing. Not just the internet, but the internet and fast connection speeds and always on internet connections. I recall getting a copy of Microsoft Office, and it was something like six CDs. What do you do now if you want to run a copy of Microsoft Office? You sign up for an account for Office 365, and you log in using your Web Browser. Google Docs, whatever. But the model has changed a bit. We’re not connecting to a single server, we’re connecting to _the cloud_. In OOP terms, what do you think we would call _the cloud_?
+
+#### TIPS
+So that’s a brief history of how the architecture and paradigms of doing things on the internet has changed over the years. 
+
+Let’s imagine the best web app. You visit `catsarelame.com`.  There’s some text, it reads, “CATS RULE” You click a button on the screen. Now the webpage says, “NO CATS ARE LAME DOGS RULE”.
+
+With the context of the HTTP response cycle, and what you know about rails, take five minutes and diagram out what happens in this scenario.
+
+Take three minutes and in your pair, the person who has the cooler shoes shares first.
+
+#### I want to go fast
+![i want to go fast]
+
+Why do we want our websites to go fast?
+
+In the example you discussed, how long do you think that would take to complete? Is that best case scenario? Worst case scenario?
+
+How long do you wait for a web page to load before you give up?
+
+How much do you think Amazon spends on making their website fast. This is literally a situation where each millisecond can cost millions of dollars.
+
+How can we speed up this situation? This is what JavaScript was made for. It ads interactivity and allows you to make changes to the displayed web site all on the browser without having to reach out to the server.
+
+
+
 
 ## First Lines of jQuery
 
@@ -42,8 +71,8 @@ Play around with the following example using jQuery.
 - Change the `h1` selector to `.important-header`
 - Add the following line of code: `$('h1').css('color', '#FC17A5');`
 
-<p data-height="265" data-theme-id="0" data-slug-hash="XZepGP" data-default-tab="html,result" data-user="ameseee" data-embed-version="2" data-pen-title="Dino 1" class="codepen">See the Pen <a href="https://codepen.io/ameseee/pen/XZepGP/">Dino 1</a> by Amy Holt (<a href="https://codepen.io/ameseee">@ameseee</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+<p data-height="265" data-theme-id="0" data-slug-hash="WLoorZ" data-default-tab="html,result" data-user="mikedao" data-pen-title="Dino 1" class="codepen">See the Pen <a href="https://codepen.io/mikedao/pen/WLoorZ/">Dino 1</a> by Michael Dao (<a href="https://codepen.io/mikedao">@mikedao</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 ## Responding to User Events
 
@@ -53,8 +82,8 @@ This is the crux of front-end engineering. We present a user interface and then 
 
 Let's take a look at the jQuery syntax and then we'll talk about what's happening.
 
-<p data-height="265" data-theme-id="0" data-slug-hash="aqLJRO" data-default-tab="html,result" data-user="ameseee" data-embed-version="2" data-pen-title="Dino 2" class="codepen">See the Pen <a href="https://codepen.io/ameseee/pen/aqLJRO/">Dino 2</a> by Amy Holt (<a href="https://codepen.io/ameseee">@ameseee</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+<p data-height="265" data-theme-id="0" data-slug-hash="dwOOGy" data-default-tab="css,result" data-user="mikedao" data-pen-title="Dino 2" class="codepen">See the Pen <a href="https://codepen.io/mikedao/pen/dwOOGy/">Dino 2</a> by Michael Dao (<a href="https://codepen.io/mikedao">@mikedao</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 The following things are happening in the example above:
 
@@ -86,8 +115,8 @@ Take a moment to investigate and play with some of them.
 
 Open the example below in CodePen using the "Edit on CodePen."
 
-<p data-height="265" data-theme-id="0" data-slug-hash="rJGJjO" data-default-tab="css,result" data-user="ameseee" data-embed-version="2" data-pen-title="Dino 3" class="codepen">See the Pen <a href="https://codepen.io/ameseee/pen/rJGJjO/">Dino 3</a> by Amy Holt (<a href="https://codepen.io/ameseee">@ameseee</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+<p data-height="265" data-theme-id="0" data-slug-hash="aPBBNx" data-default-tab="css,result" data-user="mikedao" data-pen-title="Dino 3" class="codepen">See the Pen <a href="https://codepen.io/mikedao/pen/aPBBNx/">Dino 3</a> by Michael Dao (<a href="https://codepen.io/mikedao">@mikedao</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 We're using a jQuery method called `toggleClass()`. When the user clicks on the button, it either adds or remove the class `upside-down` depending on whether or not it was already there.
 
@@ -104,8 +133,8 @@ We're getting somewhere! We can respond to actions and change elements. It would
 
 Let's explore the following example.
 
-<p data-height="265" data-theme-id="0" data-slug-hash="qxPxPj" data-default-tab="css,result" data-user="ameseee" data-embed-version="2" data-pen-title="Dino 4" class="codepen">See the Pen <a href="https://codepen.io/ameseee/pen/qxPxPj/">Dino 4</a> by Amy Holt (<a href="https://codepen.io/ameseee">@ameseee</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+<p data-height="265" data-theme-id="0" data-slug-hash="vvyyKL" data-default-tab="css,result" data-user="mikedao" data-pen-title="Dino 4" class="codepen">See the Pen <a href="https://codepen.io/mikedao/pen/vvyyKL/">Dino 4</a> by Michael Dao (<a href="https://codepen.io/mikedao">@mikedao</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 In this example, we're doing the following:
 
@@ -119,8 +148,8 @@ JavaScript has two ways of seeing if two values are equal: `==` and `===`. `==` 
 
 Let's consider the following example:
 
-<p data-height="265" data-theme-id="0" data-slug-hash="rJGJYe" data-default-tab="css,result" data-user="ameseee" data-embed-version="2" data-pen-title="Game 1 (Non-Working)" class="codepen">See the Pen <a href="https://codepen.io/ameseee/pen/rJGJYe/">Game 1 (Non-Working)</a> by Amy Holt (<a href="https://codepen.io/ameseee">@ameseee</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+<p data-height="265" data-theme-id="0" data-slug-hash="oJYYYN" data-default-tab="css,result" data-user="mikedao" data-pen-title="Game 1 (Non-Working)" class="codepen">See the Pen <a href="https://codepen.io/mikedao/pen/oJYYYN/">Game 1 (Non-Working)</a> by Michael Dao (<a href="https://codepen.io/mikedao">@mikedao</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 Hmm—that's curious. It doesn't seem to work. You may have encountered this in a previous project. No matter what, input fields always hold **strings** of text. So, we're actually getting the string `"2"` from the input element and not the integer `2`. It makes sense that those things are not strictly equal. What we need to do is turn that string into a number before we compare it.
 
@@ -129,6 +158,8 @@ This is pretty common, so JavaScript gives us a function for doing it called `pa
 ```js
 parseInt("2") === 2; // true!
 ```
+
+TURN AND TALK - What is the equivalent of this in ruby?
 
 Now, we can update our conditional as follows:
 
@@ -142,12 +173,9 @@ if (parseInt(number) === 2) {
 
 It works now!
 
-<p data-height="265" data-theme-id="0" data-slug-hash="OQxQzr" data-default-tab="css,result" data-user="ameseee" data-embed-version="2" data-pen-title="Game 1 (working)" class="codepen">See the Pen <a href="https://codepen.io/ameseee/pen/OQxQzr/">Game 1 (working)</a> by Amy Holt (<a href="https://codepen.io/ameseee">@ameseee</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+<p data-height="265" data-theme-id="0" data-slug-hash="REoopR" data-default-tab="css,result" data-user="mikedao" data-pen-title="Game 1 (working)" class="codepen">See the Pen <a href="https://codepen.io/mikedao/pen/REoopR/">Game 1 (working)</a> by Michael Dao (<a href="https://codepen.io/mikedao">@mikedao</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-### Try It: Secret Passcode Time
-
-Can you change the code above so that it's looking for a secret passcode before it prints a hidden message to the screen? It's totally your call on what the password is and what the message should be. I don't want to steal your creative thunder.
 
 ## Knowing Which Element We Clicked - THIS!
 
@@ -157,8 +185,8 @@ It turns out that when we add an event listener using jQuery, we get a special v
 
 Let's take a look at the example below:
 
-<p data-height="265" data-theme-id="0" data-slug-hash="KQXjwV" data-default-tab="css,result" data-user="ameseee" data-embed-version="2" data-pen-title="$(this)" class="codepen">See the Pen <a href="https://codepen.io/ameseee/pen/KQXjwV/">$(this)</a> by Amy Holt (<a href="https://codepen.io/ameseee">@ameseee</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+<p data-height="265" data-theme-id="0" data-slug-hash="maOOmr" data-default-tab="css,result" data-user="mikedao" data-pen-title="$(this)" class="codepen">See the Pen <a href="https://codepen.io/mikedao/pen/maOOmr/">$(this)</a> by Michael Dao (<a href="https://codepen.io/mikedao">@mikedao</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 #### Try It
 
@@ -172,8 +200,8 @@ Let's work through a box example again.
 
 We want each box to have a button inside of it. When the user clicks the button, it should rotate the entire box. (We're rotating the box with a CSS class called `clicked`.)  
 
-<p data-height="265" data-theme-id="0" data-slug-hash="YeroWR" data-default-tab="css,result" data-user="ameseee" data-embed-version="2" data-pen-title="Rotating Buttons" class="codepen">See the Pen <a href="https://codepen.io/ameseee/pen/YeroWR/">Rotating Buttons</a> by Amy Holt (<a href="https://codepen.io/ameseee">@ameseee</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+<p data-height="265" data-theme-id="0" data-slug-hash="ebBBRb" data-default-tab="css,result" data-user="mikedao" data-pen-title="Rotating Buttons" class="codepen">See the Pen <a href="https://codepen.io/mikedao/pen/ebBBRb/">Rotating Buttons</a> by Michael Dao (<a href="https://codepen.io/mikedao">@mikedao</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 This code _does not_ work the way we'd like - right now when we click on the button, the button itself is rotating instead of the entire box. What we need to do is when the user clicks on a button, go up and find the box that it lives in (the parent element) and add the class to _that_ element.
 
@@ -270,29 +298,29 @@ Here are some of the all-stars of the DOM traversing world:
 
 The `parent()` method will take the currently selected element and go one level up the DOM tree.
 
-<p data-height="265" data-theme-id="0" data-slug-hash="NyaZbq" data-default-tab="html,result" data-user="ameseee" data-embed-version="2" data-pen-title="jQuery Parent" class="codepen">See the Pen <a href="https://codepen.io/ameseee/pen/NyaZbq/">jQuery Parent</a> by Amy Holt (<a href="https://codepen.io/ameseee">@ameseee</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+<p data-height="265" data-theme-id="0" data-slug-hash="aPBBVe" data-default-tab="html,result" data-user="mikedao" data-pen-title="jQuery Parent" class="codepen">See the Pen <a href="https://codepen.io/mikedao/pen/aPBBVe/">jQuery Parent</a> by Michael Dao (<a href="https://codepen.io/mikedao">@mikedao</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 ### `parents()`
 
 This one will include all of the parents—all the way up to the `<body>` of the page. Additionally, you can pass it a selector. `$('.some-selector').parents('.active')` will traverse up the DOM, but only return the elements with the class of `.active`.
 
-<p data-height="265" data-theme-id="0" data-slug-hash="vdeqxb" data-default-tab="html,result" data-user="ameseee" data-embed-version="2" data-pen-title="jQuery Parents" class="codepen">See the Pen <a href="https://codepen.io/ameseee/pen/vdeqxb/">jQuery Parents</a> by Amy Holt (<a href="https://codepen.io/ameseee">@ameseee</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+<p data-height="265" data-theme-id="0" data-slug-hash="Vqmmya" data-default-tab="html,result" data-user="mikedao" data-pen-title="jQuery Parents" class="codepen">See the Pen <a href="https://codepen.io/mikedao/pen/Vqmmya/">jQuery Parents</a> by Michael Dao (<a href="https://codepen.io/mikedao">@mikedao</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 ### `children()`
 
 This method returns all of the direct childen of the given selection. It will _not_ search their children. Like `parents()`, `children()` will also take a selector. `$('.some-selector').children('.active')` will go through the children of the current query and only return the elements with the class of `.active`.
 
-<p data-height="265" data-theme-id="0" data-slug-hash="VQMJWq" data-default-tab="html,result" data-user="ameseee" data-embed-version="2" data-pen-title="jQuery Children" class="codepen">See the Pen <a href="https://codepen.io/ameseee/pen/VQMJWq/">jQuery Children</a> by Amy Holt (<a href="https://codepen.io/ameseee">@ameseee</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+<p data-height="265" data-theme-id="0" data-slug-hash="PXbbEj" data-default-tab="html,result" data-user="mikedao" data-pen-title="jQuery Children" class="codepen">See the Pen <a href="https://codepen.io/mikedao/pen/PXbbEj/">jQuery Children</a> by Michael Dao (<a href="https://codepen.io/mikedao">@mikedao</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 ### `siblings()`
 
 `siblings()` will select all of the sibling elements based on the current query. Like its friends, it will also take a selector if you're polite.
 
-<p data-height="265" data-theme-id="0" data-slug-hash="wyrLra" data-default-tab="html,result" data-user="ameseee" data-embed-version="2" data-pen-title="jQuery Siblings" class="codepen">See the Pen <a href="https://codepen.io/ameseee/pen/wyrLra/">jQuery Siblings</a> by Amy Holt (<a href="https://codepen.io/ameseee">@ameseee</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+<p data-height="265" data-theme-id="0" data-slug-hash="WLoodz" data-default-tab="html,result" data-user="mikedao" data-pen-title="jQuery Siblings" class="codepen">See the Pen <a href="https://codepen.io/mikedao/pen/WLoodz/">jQuery Siblings</a> by Michael Dao (<a href="https://codepen.io/mikedao">@mikedao</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 ### `find()`
 
@@ -300,8 +328,8 @@ One you have queried for some elements using jQuery, you can use `find()` to dri
 
 It's useful to think of `find()` as a more powerful alternative for `children()`. The `children()` method will look only one level down the tree. `find()` will search the children, the grandchildren, the great-grandchildren, and so on. The method will look at anything you currently have selected and then search within those results.
 
-<p data-height="265" data-theme-id="0" data-slug-hash="jZGjaV" data-default-tab="html,result" data-user="ameseee" data-embed-version="2" data-pen-title="jQuery Find" class="codepen">See the Pen <a href="https://codepen.io/ameseee/pen/jZGjaV/">jQuery Find</a> by Amy Holt (<a href="https://codepen.io/ameseee">@ameseee</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+<p data-height="265" data-theme-id="0" data-slug-hash="roWWpR" data-default-tab="html,result" data-user="mikedao" data-pen-title="jQuery Find" class="codepen">See the Pen <a href="https://codepen.io/mikedao/pen/roWWpR/">jQuery Find</a> by Michael Dao (<a href="https://codepen.io/mikedao">@mikedao</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 Which one do you use? It depends, do you want to traverse all the way down the tree or just down one level.
 
@@ -356,7 +384,7 @@ In order to take both `append()` and `prepend()` for a spin, let's try the follo
 
 ## DOM Competition
 
-With your partner, you have 10 minutes to create the most impressive CodePen. Create a new pen, and use jQuery to manipulate the DOM in at least FOUR different ways. Extra points for 🦄Sparkle and Delight🦄.
+With your partner, you have 10 minutes to create the most impressive CodePen. Create a new pen, and use jQuery to manipulate the DOM in at least FOUR different ways. Extra points for 🦄Sparkle Magic🦄.
 
 ## Final CFU
 

@@ -3,6 +3,8 @@ layout: page
 title: Cross-Check - Rubric
 ---
 
+_[Back to Cross Check Home](./index)_
+
 | Category | **4: Well Above Expectations** | **3: Meets Expectations** | **2: Below Expectations** | **1: Well Below Expectations** |
 | -------- | ------------------------------ | ------------------------- | ------------------------- | ------------------------------ |
 | **Functionality** | Completes all functionality in iterations 1 through 4 and either Iteration 5 or Iteration 6. | Completes all functionality in iterations 1 through 4. | Completes iteration 1 and only two of the following: iteration 2, iteration 3, iteration 4. | Completes iteration 1 and only one of the following: iteration 2, iteration 3, iteration 4. |

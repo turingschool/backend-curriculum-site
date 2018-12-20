@@ -38,7 +38,7 @@ class NodeTest < Minitest::Test
 end
 ```
 
-In the snippet above, `< Minitest::Test` means `inherit from the Test module of Minitest` (we'll talk about modules later).
+In the snippet above, `< Minitest::Test` means `inherit from the Test class of the Minitest module`. It is important to note that this is not the same as mixing in a Module. This is a completely different use of Modules called **namespacing**.
 
 A couple rules of inheritance in Ruby:
 

@@ -3,6 +3,8 @@ layout: page
 title: League and Season Statistics
 ---
 
+_[Back to Cross Check Home](../index)_
+
 ## League Statistics
 
 | Method | Description | Return Value |

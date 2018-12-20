@@ -3,6 +3,7 @@ layout: page
 title: Enigma - Evaluation Rubric
 ---
 
+_[Back to Enigma Home](./index)_
 
 <br> | **4: Well Above Expectations** | **3: Meets Expectations** | **2: Below Expectations** | **1: Well Below Expectations**  
 -- | --- | --- | --- | ---

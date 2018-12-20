@@ -3,6 +3,9 @@ layout: page
 title: FlashCards - Iteration 4
 ---
 
+_[Back to FlashCards Home](./index)_
+_[Back to Requirements](./requirements)_
+
 ## Iteration 4
 
 ### Loading Text Files

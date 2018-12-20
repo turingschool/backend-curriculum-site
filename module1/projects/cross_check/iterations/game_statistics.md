@@ -3,6 +3,8 @@ layout: page
 title: Game Statistics
 ---
 
+_[Back to Cross Check Home](../index)_
+
 Each of the methods described below and in future iterations should be implemented as instance methods on StatTracker.
 
 | Method | Description | Return Value |

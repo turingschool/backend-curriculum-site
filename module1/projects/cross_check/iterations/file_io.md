@@ -3,6 +3,8 @@ layout: page
 title: File I/O and Setup
 ---
 
+_[Back to Cross Check Home](../index)_
+
 ## Setup
 
 We have provided a starting repository for this project. That repository has the usual `lib` and `test` directories that you have seen in the past, but also includes a `data` directory that includes three `.csv` files. These files are text files that include tables represented as comma separated values (hence `.csv`). The first row includes headers, while every other row includes entries in the table.
