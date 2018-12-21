@@ -16,4 +16,7 @@ Module 4 is the capstone: a demonstration of the best of what students are capab
 * [Lessons](./lessons)
 * [Projects](./projects)
 * [Intermission Work](./intermission_work/intermission_work)
+
+## Important Links
+* [Portfolio Requirements](./misc/portfolio_requirements)
 * [Graduation Requirements](./graduation_requirements)
