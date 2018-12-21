@@ -75,7 +75,7 @@ Your application **must make good use of one external dataset or API**. Some exa
 
 However, the list is not limited to these. You can choose to integrate with a service of your choosing, as long as it is approved by your client.
 
-## <a name="project-concepts"></a> Project Concepts
+## <a name="project-concepts"></a>Project Concepts
 
 Your idea must be approved by an instructor and should be supplied in a gist using the following template...
 
