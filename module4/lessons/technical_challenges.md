@@ -12,7 +12,7 @@ As you are preparing for technical interviews, there is a myriad of things you c
   - 1 white-boarding session (in-class)
   - Wheel of Jeopardy (practice answering questions on the spot, for technical accuracy and eloquence, in-class)
   - Weekly Interview Questions/Flashcards
-  - Utilize the [Turing Interview Prep Resources](https://www.net-a-porter.com/us/en/porter/article-1edbfa7cad43f700/incredible-women/incredible-women/unsung-heroes-2018)
+  - Utilize the [Turing Interview Prep Resources](https://github.com/turingschool/career-development-curriculum/blob/master/module_four/interview_prep_resources.md)
   
 2. Practice answering weekly interview questions, out loud. To a human (or canine). Practice what you will do when you don't know the answer to a question. This should include behavioral and technical questions.
 
