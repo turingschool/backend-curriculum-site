@@ -15,4 +15,5 @@ layout: page
 
 ### Projects
 
-* [Self-Directed Project Intro](../projects/self_directed_project)
+* [Terrificus](../projects/terrificus)
+* [Sweater Weather](../projects/sweater_weather)

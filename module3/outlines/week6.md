@@ -12,4 +12,4 @@ layout: page
 
 ### Projects
 
-* [Self-Directed Project Intro](../projects/self_directed_project) (continued)
+* [Sweater Weather](../projects/sweater_weather) (continued)
