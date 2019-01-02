@@ -13,14 +13,14 @@ In order to graduate from Module 4, students must successfully complete **each**
 
 ### Ongoing Work
 
-* Weekly Checks for Understanding (weeks 1-4)
+* Weekly Interview Questions
 
 ### Projects
 
-* [Quantified Self Rails ](./projects/quantified_self/quantified_self_rails)
-* [Quantified Self Full-Stack](./projects/quantified_self/quantified_self_full_stack)
-* [Capstone Project](./capstone_project_overview)
-* [Final: Take-Home Code Challenge](./link-coming)
+* Week 1: Solo - [Sweater Weather](./projects/self_directed_fe/self_directed_fe_spec)
+* Weeks 2-3: Pair - [Quantified Self](./projects/quantified_self/quantified_self_full_stack) or [Play](./projects/play/play)
+* Weeks 4-5: Group - [Capstone](./capstone_project_overview)
+* Week 6: Solo - [Take Home Challenge](./projects/take_home_challenge/take_home_challenge_spec)
 
 ### Assessments
 
