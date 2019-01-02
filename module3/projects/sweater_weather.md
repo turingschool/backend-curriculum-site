@@ -178,3 +178,26 @@ body:
   }
 ]
 ```
+
+## Evaluation Rubric
+
+### Feature Delivery
+
+* **1:** Project fell well short of agreed upon expectations.
+* **2:** Project completed most user stories set out but fell short of agreed upon expectations.
+* **3:** Project completed all the user stories and requirements agreed upon.
+* **4:** Project well exceeded expectations.
+
+### Technical Quality
+
+* **1:**  Project has significant gaps in understanding of MVC with several examples of logic or hashes in the view/presentation layer (e.g. serializers), controllers remain un-refactored, and models are used for formatting.
+* **2:**  MVC is overall good but might has 1 or 2 examples of logic or hashes in the view/presentation layer (e.g. serializers), formatting in models, or controllers with complex logic.
+* **3:**  Project uses abstraction in ways that make it easy to change (example: if an API changes, Propublica to Google Civic, we make changes in as few places as possible. Or POROs can be used in custom API or in standard views). Project shows a solid understanding of MVC principles (this may include but is not limited to: no logic in view/presentation layer (e.g. serializers), clean controllers, serializers and presenters to handle formatting rather than models etc.) and includes all expectations of numbers 1 and 2 above.
+* **4:**  Project meets expectations from number 3 above and takes on at least one new technology outside the required scope. Examples include: background workers, caching in Redis, GraphQL, etc.
+
+### Testing
+
+* **1:** Test suite coverage is low (less than 80%).
+* **2:** Test suite coverage is greater than 80% but misses the most meaningful functionality and I would not be happy paying for/inheriting it.
+* **3:** Project demonstrates high value testing at different layers (above 90%). If I were inheriting or paying someone to build this app I would be happy with the coverage.
+* **4:** Project demonstrates exceptional testing using advanced techniques such as spies. Meets expectations of point 3 above.
