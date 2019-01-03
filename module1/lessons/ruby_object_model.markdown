@@ -17,7 +17,6 @@ tags: ruby, OOP, CS, inheritance
 * Inheritance
 * Look Up Chain
 * Superclass
-* Binding
 
 ## Slides
 
@@ -38,20 +37,21 @@ These three methods can help you investigate the relationships between classes a
 * `.superclass`: returns the superclass of the class. See [docs](https://ruby-doc.org/core-2.4.1/Class.html#method-i-superclass).
 
 ## Mapping Ruby's Object Model
-### Definitions and Rules
+
+### Exercise
+Using `.class`, `.ancestors`, `.included_modules`, and `.superclass`, diagram the ancestors and superclasses of Modules and Classes of these several commonly-used Ruby classes: Hash, Array, String, Integer, and Float.
+
+![Ruby Inheritance Diagram](https://docs.google.com/drawings/d/e/2PACX-1vSh1z2yb089aMCD1pp5idcFcfvZdQt5vJH3cOAas22hI5mrIO83WrrrXdGZy6sWZuu9UALMEJeXX_JX/pub?w=952&h=728)
+
+Now check out some Ruby classes and Modules you don't interface with often, but use all the time. Try using `.class`, `.ancestors`, `.included_modules`, and `.superclass` to diagram `Object`, `Kernel`, and `BasicObject`.
+
+#### Definitions and Rules
 * `Classes`: store instance methods, have a superclass pointer
 * `Instances`: store instance variables, have a class pointer
 * `Classes` are also instances (of Class)
 * `Classes` can only inherit from one other class (its 'superclass')
 * `Classes` can include multiple Modules.
 * `Modules` can be mixed-in to multiple classes (mixins)
-
-#### Exercises
-Using `.class`, `.ancestors`, `.included_modules`, and `.superclass`, diagram the ancestors and superclasses of Modules and Classes of these several commonly-used Ruby classes: Hash, Array, String, Integer, and Float.
-
-![Ruby Inheritance Diagram](https://docs.google.com/drawings/d/e/2PACX-1vSh1z2yb089aMCD1pp5idcFcfvZdQt5vJH3cOAas22hI5mrIO83WrrrXdGZy6sWZuu9UALMEJeXX_JX/pub?w=952&h=728)
-
-Now check out some Ruby classes and Modules you don't interface with often, but use all the time. Try using `.class`, `.ancestors`, `.included_modules`, and `.superclass` to diagram `Object`, `Kernel`, and `BasicObject`.
 
 ## Scope with Variables & Methods
 
