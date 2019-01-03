@@ -25,7 +25,7 @@ tags: ruby, OOP, CS, inheritance
 
 ## WarmUp
 
-- What is a superclass and how is it implemented?
+- What is class inheritance and how is it implemented?
 - What is a module and how is it implemented?
 - How do you know what variables, methods and classes you have available at any given time?
 
