@@ -25,8 +25,8 @@ tags: ruby, OOP, CS, inheritance
 
 ## WarmUp
 
-- What's the difference between a class and an instance from Ruby's perspective?
-- How are modules used as "mix-ins"?
+- What is a superclass and how is it implemented?
+- What is a module and how is it implemented?
 - How do you know what variables, methods and classes you have available at any given time?
 
 ## Investigative Methods
@@ -127,59 +127,11 @@ How could I get `Chair.new.chair_type` to print `method`?
 How could I get `Chair.new.chair_type` to print `superclass`?
 How could I get `Chair.new.chair_type` to print `superclass's superclass`?
 
-### Bindings
-When you invoke a method on an instance, Ruby follows a pattern for locating the definition of that method.
-
-* Start by looking for a local variable
-* Check its class for a method
-* Look to that class's included_modules
-* Until it finds the method, go to the superclass
-* Once you find it, create a scope for that object
-
-After Ruby traverses modules and superclasses and locates the source of a method, a scope is created called a `Binding`. [Binding](https://ruby-doc.org/core-2.4.1/Binding.html) is an actual Ruby class that captures the context in which code is executed. The binding retains the context for future use, including relevant variables, methods, the value of self (the instance in which they are operating), and some other contextual details.
-
-``` ruby
-class Person
-  def get_name
-    @name
-  end
-
-  def get_binding
-    binding
-  end
-end
-
-class Employee < Person
-  attr_reader :name
-
-  def initialize(name)
-    @name = name
-  end
-
-  def get_first_initial
-    get_name[0]
-  end
-end
-
-joshs_name = "Josh"
-josh = Person.new(joshs_name)
-josh.get_name                 # => "Josh"
-josh.get_first_initial              # => "J"
-josh.get_binding              # => #<Binding:0x007f879cc62250>
-josh.get_binding.eval('self') # => #<Person:0x007fe6348454f0 @name="Josh">
-```
-
-As this example shows, you can access the binding by calling `binding`.
-
-#### Paired exercise
-* Using the code above, play around to see what your binding is in various places.
-* Experiment with bindings and articulate two new things you've learned about how they work. You can use [the docs](https://ruby-doc.org/core-2.4.1/Binding.html), or just type `binding.methods` to see what you _can_ do.
 
 ### WrapUp
 * How does Ruby's look up chain work? What is the order it checks things?
 * What are three methods you can use to learn about where a built in Ruby method gets its components?
 * Draw a diagram of where Ruby would look for the method `::new`
-* What is a binding?
 
 ### Additional Resources
 * Test your understanding of this material with this quiz: [http://quiz-ruby-object-model.herokuapp.com/](http://quiz-ruby-object-model.herokuapp.com/).
