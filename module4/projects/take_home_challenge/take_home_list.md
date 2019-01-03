@@ -1,3 +1,10 @@
+## NASA Follower 
+Build a web app for NASA lovers that has the following features:
+- A user arrives to your page and sees the NASA picture of the day and NASA's tweets.
+- A user has the option to search specific information related to NASA - once the search is made they should see relevant tweets and data (probably including images) from NASA. 
+- A user should be able to favorite the picture of the day, and go back to view all of their favorites.
+https://api.nasa.gov/index.html
+
 ## MoveTime
 Create a tool that people who are considering moving can get some data points on for a prospective city:
 - What is the cost of living?
@@ -65,7 +72,8 @@ Use the Cat API - https://thecatapi.com/ - to:
 • let them save/favorite cat photos
 • add one more feature of your choice!
 
-## DogCEOTime - https://dog.ceo/dog-api/
+## DogCEOTime
+Use this API (https://dog.ceo/dog-api/) to build an app that... 
 • Option 1: Setup Auth somehow so that step 3 can be saved for each user. A user should get some (you choose how many) photos of dogs, and should have the option to "like" them. A user can see all photos they've liked, and unlike if they change their mind.
 • Option 2: No auth; anyone who goes to the sit sees the same thing. Visitors can rate dog photos cuteness 11/10, 12/10, 13/10 or higher! They can then filter dog photos by cuteness level.
 
