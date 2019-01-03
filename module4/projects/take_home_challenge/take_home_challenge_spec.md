@@ -10,7 +10,7 @@ Another note - at first glance, your challenge may not appear to require the ski
 
 ## Timeline
 
-The challenges will be provided to you between 11-12 on Thursday of Week 5, and are due by 8am on Wednesday of Week 6. One of your instructors will meet with you sometime Wednesday for you to present what you built to us, as you would to a prospective employee in a final interview.
+The challenges will be provided to you between 10-10:30 on Friday of Week 5, and are due by 8am on Wednesday of Week 6. One of your instructors will meet with you sometime Wednesday for you to present what you built to us, as you would to a prospective employee in a final interview.
 
 ## Submission
 

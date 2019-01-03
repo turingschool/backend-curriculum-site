@@ -3,32 +3,43 @@ layout: page
 title: Module 4 Portfolio Requirements
 ---
 
-## Learning Goals
+# M4 Portfolio Requirements
 
-* Gain comfort speaking about and defending their work and code using correct technical vocabulary
-* Practice speaking in front of a group
-* Build the skill of storytelling by presenting a compelling story about themselves and their work
+## Purpose
+
+* **Acknowledging Progress:** portfolios give students the opportunity to understand their own progress in pursuit of their career as a software developer.
+* **Practicing Narrative:** portfolio presentation pushes students to articulate their narrative of their technical and professional journey.
+* **Direct Feedback:** portfolio feedback allows students to receive a summative perspective of their performance, including threads of successes and areas of growth.
+
+## Structure
+
+* Student-directed presentation (5 minutes)
+* Instructor feedback (5 minutes)
 
 ## Requirements
 
-* Students will prepare a markdown document and submit a pull request to the Turing Portfolios Repository using the template provided (more detail below under ***Submittal***).
-* Students will also prepare a 10-12 minute slide presentation to give to a panel of 3-4 reviewers.
+Each student will deliver a 5 minute slide presentation in front of your instructors.
 
-#### Both markdown document and slide presentation are to tell the same story, and should address the following questions:
+* A student who **will repeat the current module** uses their presentation time to explore why they struggled, discuss the lessons learned, and lay out a plan for what will be different next time.
+* A student who is **repeating unsuccessfully** and will leave the program is excused from the presentation and can use the entire portfolio time for feedback and discussion.
+* A student who **passes the module** will present the following:
+  - What is one thing you learned in Mod 4 that you will take with you into the job?
+  - Weaving it all together, how will you be successful in the workplace?
+  - What makes you particularly stand out as a candidate?
+  - What will make a company and role the perfect fit for you?
+  - How will you share your learning from Gear Up with your future company?
 
-* What was your biggest achievement of the module?
-* What provided you with the most struggle? What did you learn from that struggle?
-* What have you done this inning that sets you apart from your peers?
-* How did your Mod 4 experience with this part of the stack (e.g. front-end technologies for BE students/back-end technologies for FE students) impact what you wanted to be doing after Turing? How did it reframe what you learned in previous modules?
-* What is the most important skill or lesson that you will take from Turing into your next job?
-* What was your biggest takeaway from Gear Ups while at Turing? How has that impacted you and how will it impact you and your co-workers when you are on the job? 
-
-#### The presentation should not only be a series of slides that directly answers each of these questions with bullet points, but instead should:
+#### The presentation should not be a series of slides that directly answers each of these questions with bullet points, but instead should:
 
 * Follow a narrative format -- this is an opportunity to fine tune your story and how you speak about your work. Slides should flow naturally from one to the next.
 * Include images and graphics to illustrate the concepts you plan to discuss. These may include screenshots/animated gifs of an application you created, snippets of code from your projects, diagrams of interesting concepts/structures that you used in your project(s).
 
 ## Submittal
 
-* Students will submit a pull request of their markdown document to the [Turing Portfolios Repository](https://github.com/turingschool/portfolios) no later than 8:30 am on Thursday of Week 6.
-* The pull request will add a single file in a directory with their name in their cohort directory and will be named with the date, their name, and their module (e.g. `/students/1708-back/jeff-casimir/20180301-jeff-casimir-m4.md`). Pull requests that change/delete the existing template, or add/remove/edit other files will be closed.
+* Students are not required to submit any documents but instead should be prepared to give their presentation to their instructors and engage in a follow up conversation.
+
+## Potential Outcomes
+
+* If everything goes to plan: good luck in next mod!
+* If a student fails to present a portfolio (due to illness, etc): need to present it in Week 1 of the next inning
+* If a student delivers an exceptionally poor portfolio: we'll determine next steps, possible PIP, etc
