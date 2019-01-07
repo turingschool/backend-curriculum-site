@@ -126,31 +126,28 @@ pry(main)> require './lib/enigma'
 pry(main)> enigma = Enigma.new
 #=> #<Enigma:0x00007ff90f24cb78...>
 
-pry(main)> enigma.encrypt("hello world", "02715", "040895")
+pry(main)> enigma.encrypt("hello world end", "08304", "291018")
 #=>
 #   {
-#     encryption: "keder ohulw",
-#     key: "02715",
-#     date: "040895"
+#     encryption: "vjqtbeaweqihssi",
+#     key: "08304",
+#     date: "291018"
 #   }
 
 # crack an encryption with a date
-pry(main)> enigma.crack("keder ohulw", "040895")
+pry(main)> enigma.crack("vjqtbeaweqihssi", "291018")
 #=>
 #   {
-#     decryption: "hello world",
-#     date: "040895",
-#     key: "02715"
+#     decryption: "hello world end",
+#     date: "291018",
+#     key: "08304"
 #   }
 
-pry(main)> encrypted = enigma.encrypt("hello world")
-#=> # encryption hash here
-
 # crack an encryption (uses today's date)
-pry(main)> enigma.crack(encrypted[:encryption])
+pry(main)> enigma.crack("vjqtbeaweqihssi")
 #=>
 #   {
-#     decryption: "hello world",
+#     decryption: "hello world end",
 #     date: # todays date in the format DDMMYY,
 #     key: # key used for encryption
 #   }
