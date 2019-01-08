@@ -22,6 +22,8 @@ In Module 1, students will learn to use Ruby and object-oriented programming to 
 
 ### [Promotion to Module 2](./promotion)
 
+### [Portfolio](./portfolios)
+
 <br>
 
 <iframe src="https://calendar.google.com/calendar/embed?src=casimircreative.com_59k8msrrc2ddhcv787vubvp0s4@group.calendar.google.com&ctz=America/Denver&mode=week" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
