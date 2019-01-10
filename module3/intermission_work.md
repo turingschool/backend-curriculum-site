@@ -7,7 +7,8 @@
 **Using paper and a writing utensil:**
 
 * On one piece of paper, write out all of the parts of an example HTTP GET request
-* On a separate piece of paper, write out an example 200 response to that request with all of the parts.
+* On a separate piece of paper, write out an example 200 response to that request with all of the parts
+* **Bonus** write your explanation as a metaphor
 * Bring this to class day 1. This is your ticket into Mod 3 :)
 
 
