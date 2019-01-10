@@ -6,8 +6,8 @@ tags: enumerable, ruby, collections, arrays, each,
 
 ## Learning Goals
 
-* Understand how to use #each to iterate over a collection
-* Recognize the "map" and "inject" patterns used in iteration
+* Understand how to use #each to iterate over an array
+* Recognize and implement the "map" and "inject" patterns used in iteration
 
 ## Slides
 
@@ -38,7 +38,7 @@ puts students[2]
 
 And that works, right?
 
-But what are some of the problems inherent to this approach? It wasn't too terrible to do with just three students in this array, but what if we had ten students? A hundred? A thousand? A million?
+What are some of the problems inherent to this approach? It wasn't too terrible to do with just three students in this array, but what if we had ten students? A hundred? A thousand? A million?
 
 When we have a solution that works for a small number of items, but it doesn't work for a large number of items, we say that _it doesn't scale_. We want to design solution that are dynamic, meaning they can work for various inputs.
 
@@ -52,6 +52,7 @@ A **Collection** in Ruby is an Array or Hash. For now, we will be focusing on Ar
 
 ```ruby
 students = ["Katie Bell", "Neville Longbottom", "Luna Lovegood"]
+
 students.each do |student_name|
   puts student_name
 end
@@ -68,6 +69,7 @@ In general, the format for using `.each` looks like this.
 ```ruby
 collection.each do |block_variable|
   # Code here runs for each element
+  # the current element's value is stored in the block_variable variable
 end
 ```
 
@@ -77,10 +79,10 @@ You can replace a `do`/`end` with `{`/`}`. This allows you to write `each` on a 
 
 ```ruby
 students = ["Katie Bell", "Neville Longbottom", "Luna Lovegood"]
-students.each {|student_name| puts student_name }
+students.each { |student_name| puts student_name }
 ```
 
-Generally, we avoid using single-line syntax unless the operation inside the block is *very* short. In this example, it is appropriate.
+Generally, we avoid using single-line syntax unless the operation inside the block is *very* short. In this example, it is appropriate since we have a short and simple operation. "Programming is not like being in the CIA, you don't get credit for being sneaky" - Justin Etheredge.
 
 # When to use \#each
 
@@ -114,7 +116,7 @@ names.each do |name|
   capitalized_names << name
 end
 
-puts capitazed_names
+puts capitalized_names
 ```
 
 Since we know that **each returns the original array** we need to create some placeholder container to store our _new_ collection. In Mod 1, you may hear this placeholder called the accumulator or the aggregator. The thing to remember is that when you are using \#each, you will almost always use some sort of placeholder to preserve the result that you want - in this case, the names capitalized.  Without the placeholder, you will not be able to access the information that you want!
@@ -209,13 +211,12 @@ With your new best friend sitting next to you, with this following array use
 
 1. Can you print out their names capitalized?
 2. Can you print out their names in all caps?
-3. Can you print out their names but reversed?
+3. Can you print out their names but reversed? (`["carly", "demi", "selena", "justin"]`)
 4. Can you create a new array with only the names that are longer than four letters in length?
 5. Can you create a new array with the lengths of their names?
 6. Can you create a new array with only the names that are at even indexes?
 
-
-Now, with this array can you do the following with `.each`?
+Now, with this array can you do the following using `.each`?
 
 `array = [1,2,3,4,5]`
 
