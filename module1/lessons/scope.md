@@ -107,7 +107,7 @@ print_variable
 puts x
 ```
 
-### Global Scope
+### Global Scope - Part 1 Debrief
 
 Let's look at this code:
 
@@ -169,7 +169,7 @@ print_variable
 puts x
 ```
 
-### Method Scope
+### Method Scope - Part 2 Debrief
 
 If we create a method, we are creating a new scope called a **method** scope:
 
@@ -247,7 +247,7 @@ print_variable(2)
 puts x
 ```
 
-### Arguments
+### Arguments - Part 3 Debrief
 
 An argument implicitly creates a local variable. So if you define an argument on a method, you are essentially creating a local variable.
 
@@ -334,7 +334,7 @@ numbers.each do |number|
 end
 ```
 
-### Block Scope
+### Block Scope - Part 4 Debrief
 
 **Block Scope** refers to what is available inside a block (everything between the `do` and `end`). Remember what we've been saying: **local variables** are local to wherever you define them. But blocks are special. Blocks *DO* allow you to access variables created outside of them, however, they work the same as methods in that any local variable created *inside* the block is local to the block. This applies to the block variable as well. You can think of a block variable like an argument to the block.
 
