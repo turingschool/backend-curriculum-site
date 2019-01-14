@@ -26,7 +26,7 @@ tags: methods, scopes, arguments, ruby
 
 Have you ever written code in one place, but have had trouble accessing it? What are some ways to solve those problems?
 
-# Lesson
+# Into
 
 **Scope** is what you have access to and where you have access to it.
 
@@ -50,89 +50,11 @@ When you create a variable like `x = 4`, you are creating a **local variable**. 
 
 Remember, the key to understanding how the local variable will behave is that **local variables are LOCAL to whatever scope you define them in**
 
-### Global and Method Scope
+## Exploration - Part 1
 
-Let's look at this code:
+Work through the following examples with a partner. For each example, copy and paste the code into a file rather than typing it to save time. Take a moment to examine the code individually, and then discuss with your partner what you think the output will be. Once you've had a moment to discuss, run the code and check your predictions. If your predictions were right or wrong, make sure to take a minute and try to make sense of and explain why the outcome was what it was.
 
-```ruby
-  x = 10
-  puts x
-```
-
-Every time you create a class, method, or block you create a new **scope**. Anything that is not inside one of those is in a default scope known as the **global scope** (sometimes referred to as "top-level scope"). Every program has exactly 1 **global scope**. Since we will almost always write code that is contained in a class or method, working in the **global scope** is rare, but it does happen.
-
-`x` is currently defined in the **global scope**, so it is available in the global scope (and nowhere else).
-
-If we create a method, we are creating a new scope called a **method** scope:
-
-```ruby
-x = 10
-def print_variable
-  puts x
-end
-print_variable
-```
-
-Remember, local variables are local to whatever **scope** you define them in. Because `x` is defined in the global scope, trying to call it in the `print_variable` **method scope** will throw an error. This works the other way around:
-
-```ruby
-def print_variable
-  x = 10
-  puts x
-end
-print_variable
-puts x
-```
-
-When `x` is defined in the **method scope**, it is not available in the **global scope**.
-
-It's also important to note that Ruby reads through a scope sequentially. So if something hasn't been defined in the scope before you try to call it, it will throw an error:
-
-```ruby
-puts x
-x = 10
-```
-
-### Arguments
-
-An argument implicitly creates a local variable. So if you define an argument on a method, you are essentially creating a local variable.
-
-```ruby
-  def print_variable(x)
-    puts x
-  end
-
-  print_variable(4)
-```
-
-The argument `x` on the `print_variable` method creates a local variable inside that method. When we call `print_variable(4)`, we are giving that variable `x` the value of `4`. It is as if `x = 4` is happening in the background.
-
-Arguments allow us to pass data between scopes.
-
-### Block Scope
-
-**Block Scope** refers to what is available inside a block (everything between the `do` and `end`). Remember what we've been saying: **local variables** are local to wherever you define them. But blocks are special. Blocks *DO* allow you to access variables created outside of them, however, they work the same as methods in that any local variable created *inside* the block is local to the block. This applies to the block variable as well. You can think of a block variable like an argument to the block.
-
-```ruby
-numbers = [1,2,3]
-total = 0
-numbers.each do |number|
-  greeting = "hello"
-  total += number
-end
-
-p total
-```
-
-In this example, we'll see that even though we created `total` outside the block, it is still available inside the block. However, if we try to print the variable `greeting` or the block variable `number` after the block we will get an error.
-
-A block is a type of **closure**. It encloses the surrounding variables. That isn't essential information, but it's nice to know.
-
-## Activity
-
-Using the rules of **local variable** scope discussed above, work through the following examples with a partner. For each example, copy and paste the code into a file rather than typing it to save time. Take a moment to examine the code individual, and then discuss with your partner what you think the output will be. Once you've had a moment to discuss, run the code and check your predictions.
-
-Remember, what is important here is that you get a feel for where variables are available to you. You don't need to be able to quote the intricacies of scope verbatim. Some of these examples get weird and do things that you just shouldn't do... but we're gonna do them and see what happens.
+Remember, what is important here is that you get a feel for where variables are available to you. You don't need to be able to quote the intricacies of scope verbatim. Some of these examples get weird and do things that you just shouldn't do... but we're going to do them and see what happens.
 
 #### Example 1
 
@@ -160,6 +82,46 @@ def say_hello
 end
 puts x
 ```
+
+#### Example 4
+
+```ruby
+  def print_variable
+    x = 4
+    puts x
+  end
+
+  x = 2
+  print_variable
+```
+
+#### Example 5
+
+```ruby
+  def print_variable
+    x = 4
+  end
+
+  x = 2
+  print_variable
+  puts x
+```
+
+### Global Scope
+
+Let's look at this code:
+
+```ruby
+  x = 10
+  puts x
+```
+
+Every time you create a class, method, or block you create a new **scope**. Anything that is not inside one of those is in a default scope known as the **global scope** (sometimes referred to as "top-level scope"). Every program has exactly 1 **global scope**. Since we will almost always write code that is contained in a class or method, working in the **global scope** is rare, but it does happen.
+
+`x` is currently defined in the **global scope**, so it is available in the global scope (and nowhere else).
+
+
+## Exploration - Part 2
 
 #### Example 4
 
@@ -207,6 +169,40 @@ print_variable
   puts x
 ```
 
+### Method Scope
+
+If we create a method, we are creating a new scope called a **method** scope:
+
+```ruby
+x = 10
+def print_variable
+  puts x
+end
+print_variable
+```
+
+Remember, local variables are local to whatever **scope** you define them in. Because `x` is defined in the global scope, trying to call it in the `print_variable` **method scope** will throw an error. This works the other way around:
+
+```ruby
+def print_variable
+  x = 10
+  puts x
+end
+print_variable
+puts x
+```
+
+When `x` is defined in the **method scope**, it is not available in the **global scope**.
+
+It's also important to note that Ruby reads through a scope sequentially. So if something hasn't been defined in the scope before you try to call it, it will throw an error:
+
+```ruby
+puts x
+x = 10
+```
+
+## Exploration - Part 3
+
 #### Example 8
 
 ```ruby
@@ -216,7 +212,6 @@ print_variable
 
   print_variable(4)
 ```
-
 
 #### Example 9
 
@@ -252,6 +247,23 @@ print_variable
   puts x
 ```
 
+### Arguments
+
+An argument implicitly creates a local variable. So if you define an argument on a method, you are essentially creating a local variable.
+
+```ruby
+  def print_variable(x)
+    puts x
+  end
+
+  print_variable(4)
+```
+
+The argument `x` on the `print_variable` method creates a local variable inside that method. When we call `print_variable(4)`, we are giving that variable `x` the value of `4`. It is as if `x = 4` is happening in the background.
+
+Arguments allow us to pass data between scopes.
+
+## Exploration - Part 4
 
 #### Example 12
 
@@ -265,7 +277,6 @@ end
 p total
 ```
 
-
 #### Example 13
 
 ```ruby
@@ -278,7 +289,6 @@ end
 
 p pizza
 ```
-
 
 #### Example 14
 
@@ -323,6 +333,25 @@ numbers.each do |number|
   puts number
 end
 ```
+
+### Block Scope
+
+**Block Scope** refers to what is available inside a block (everything between the `do` and `end`). Remember what we've been saying: **local variables** are local to wherever you define them. But blocks are special. Blocks *DO* allow you to access variables created outside of them, however, they work the same as methods in that any local variable created *inside* the block is local to the block. This applies to the block variable as well. You can think of a block variable like an argument to the block.
+
+```ruby
+numbers = [1,2,3]
+total = 0
+numbers.each do |number|
+  greeting = "hello"
+  total += number
+end
+
+p total
+```
+
+In this example, we'll see that even though we created `total` outside the block, it is still available inside the block. However, if we try to print the variable `greeting` or the block variable `number` after the block we will get an error.
+
+A block is a type of **closure**. It encloses the surrounding variables. That isn't essential information, but it's nice to know.
 
 ## Methods
 
@@ -463,47 +492,23 @@ p @name
 
 Notice that unlike local variables and methods, when an instance variable is out of scope, Ruby won't give you an error. Instead, that instance variable will default to `nil`. This can be very dangerous.
 
-## Activity
+## Turn & Talk
 
-Clone [this repository](https://github.com/turingschool-examples/scope_exercise)
-
-Follow the instructions in the README
-
-### Check for Understanding
-
-* What is scope?
-* For each of the following types of scope, what are the Ruby key words that begin and end the scope?
+* For each of the following types of scope, what are the Ruby keywords that begin and end the scope?
   * Method Scope
   * Block Scope
   * Class Scope
   * Global Scope
-* For each of the following, describe how you create one and what its scope is:
-  * local variable
-  * method
-  * instance variable
-* In a test file, why does a setup method need to use instance variables?
-* Write out the following code snippet in your notebook:
 
-```ruby
-class Person
-  def initialize(name)
-    @name = name
-  end
+## Activity
 
-  def say_hello
-    greeting = "Hello, my name is "
-    greeting + @name
-  end
-end
-```
+Clone [this repository](https://github.com/turingschool-examples/scope_exercise)
 
-Then, for each of the following, diagram where that thing is available:
+Follow the instructions in the README.
 
-* `@name`
-* `name`
-* `greeting`
-* `say_hello`
+### Exit Ticket
 
+You'll have 10 minutes to complete the exit ticket independently.
 
 ## Conclusion
 
