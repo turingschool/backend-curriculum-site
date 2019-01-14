@@ -17,6 +17,17 @@ tags: ruby, object-oriented programming
 
 Available [here](../slides/objects_classes_instances)
 
+## Vocabulary
+
+* Class
+* Object
+* Instance
+* State
+* Attribute
+* Instance Variable
+* Behavior
+* Method
+
 ## Warm Up
 
 In your notebook brainstorm a **type** of object and **specific** instances of that object that are at Turing. Then brainstorm 3 different **attributes** for those objects and 3 different **behaviors** of those objects.
