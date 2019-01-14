@@ -52,25 +52,25 @@ Remember, the key to understanding how the local variable will behave is that **
 
 ## Exploration - Part 1
 
-Work through the following examples with a partner. For each example, copy and paste the code into a file rather than typing it to save time. Take a moment to examine the code individually, and then discuss with your partner what you think the output will be. Once you've had a moment to discuss, run the code and check your predictions. If your predictions were right or wrong, make sure to take a minute and try to make sense of and explain why the outcome was what it was.
+Work through the following examples with a partner. For each example, copy and paste the code into a repl.it file rather than typing it to save time. Take a moment to examine the code individually, and then discuss with your partner what you think the output will be. Once you've had a moment to discuss, run the code and check your predictions. If your predictions were right or wrong, make sure to take a minute and try to make sense of and explain why the outcome was what it was.
 
 Remember, what is important here is that you get a feel for where variables are available to you. You don't need to be able to quote the intricacies of scope verbatim. Some of these examples get weird and do things that you just shouldn't do... but we're going to do them and see what happens.
 
 #### Example 1
 
 ```ruby
-  x = 10
-  puts x
-  puts y
+x = 10
+puts x
+puts y
 ```
 
 #### Example 2
 
 ```ruby
-  x = 10
-  puts x
-  puts y
-  y = 20
+x = 10
+puts x
+puts y
+y = 20
 ```
 
 #### Example 3
@@ -86,25 +86,25 @@ puts x
 #### Example 4
 
 ```ruby
-  def print_variable
-    x = 4
-    puts x
-  end
+def print_variable
+  x = 4
+  puts x
+end
 
-  x = 2
-  print_variable
+x = 2
+print_variable
 ```
 
 #### Example 5
 
 ```ruby
-  def print_variable
-    x = 4
-  end
+def print_variable
+  x = 4
+end
 
-  x = 2
-  print_variable
-  puts x
+x = 2
+print_variable
+puts x
 ```
 
 ### Global Scope
@@ -112,8 +112,8 @@ puts x
 Let's look at this code:
 
 ```ruby
-  x = 10
-  puts x
+x = 10
+puts x
 ```
 
 Every time you create a class, method, or block you create a new **scope**. Anything that is not inside one of those is in a default scope known as the **global scope** (sometimes referred to as "top-level scope"). Every program has exactly 1 **global scope**. Since we will almost always write code that is contained in a class or method, working in the **global scope** is rare, but it does happen.
@@ -148,25 +148,25 @@ print_variable
 #### Example 6
 
 ```ruby
-  def print_variable
-    x = 4
-    puts x
-  end
+def print_variable
+x = 4
+puts x
+end
 
-  x = 2
-  print_variable
+x = 2
+print_variable
 ```
 
 #### Example 7
 
 ```ruby
-  def print_variable
-    x = 4
-  end
+def print_variable
+x = 4
+end
 
-  x = 2
-  print_variable
-  puts x
+x = 2
+print_variable
+puts x
 ```
 
 ### Method Scope
@@ -206,45 +206,45 @@ x = 10
 #### Example 8
 
 ```ruby
-  def print_variable(x)
-    puts x
-  end
+def print_variable(x)
+puts x
+end
 
-  print_variable(4)
+print_variable(4)
 ```
 
 #### Example 9
 
 ```ruby
-  def print_variable(x)
-    puts x
-  end
+def print_variable(x)
+  puts x
+end
 
-  x = 4
-  print_variable(x)
+x = 4
+print_variable(x)
 ```
 
 #### Example 10
 
 ```ruby
-  def print_variable(x)
-    puts x
-  end
-
-  print_variable(2)
+def print_variable(x)
   puts x
+end
+
+print_variable(2)
+puts x
 ```
 
 #### Example 11
 
 ```ruby
-  def print_variable(x)
-    x = 4
-    puts x
-  end
+def print_variable(x)
+x = 4
+puts x
+end
 
-  print_variable(2)
-  puts x
+print_variable(2)
+puts x
 ```
 
 ### Arguments
@@ -252,11 +252,11 @@ x = 10
 An argument implicitly creates a local variable. So if you define an argument on a method, you are essentially creating a local variable.
 
 ```ruby
-  def print_variable(x)
-    puts x
-  end
+def print_variable(x)
+puts x
+end
 
-  print_variable(4)
+print_variable(4)
 ```
 
 The argument `x` on the `print_variable` method creates a local variable inside that method. When we call `print_variable(4)`, we are giving that variable `x` the value of `4`. It is as if `x = 4` is happening in the background.
@@ -362,27 +362,27 @@ In the previous activity, we learned that methods create a scope called the **me
 Let's revisit our example from earlier. Change `scope.rb` to the following, run the file, and examine the error.
 
 ```ruby
-  x = 10
-  puts x
-  puts y
+x = 10
+puts x
+puts y
 ```
 
 The error is undefined local variable *or* method `y`. From Ruby's perspective looking up a variable or looking up a method are very similar things. Before we defined a local variable to fix this problem. Let's define a method:
 
 ```ruby
-  def y
-    20
-  end
-  puts y
+def y
+20
+end
+puts y
 ```
 
 But just like with local variables, methods need to have been defined in the scope before you call them:
 
 ```ruby
-  puts y
-  def y
-    20
-  end
+puts y
+def y
+  20
+end
 ```
 
 This will throw an error because when we call `y` on line 1, `y` hasn't been defined yet.
@@ -391,15 +391,15 @@ Methods can call other methods in the same scope:
 
 
 ```ruby
-  def print_variable
-    puts y
-  end
+def print_variable
+  puts y
+end
 
-  def y
-    20
-  end
+def y
+  20
+end
 
-  print_variable
+print_variable
 ```
 
 This is how calling a method is different than calling a local variable. The above example works, but if we change `y` to a local variable:
