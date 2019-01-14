@@ -78,9 +78,9 @@ Notice the use of `UpperCamelCase` for the class name.
 
 Generally we will want to put more information in our classes to make them useful to us, but those two lines (even with no other information) will create a class.
 
-### Practice
+### Example - Class/Instance Syntax
 
-Let's follow a class exmample with a Fridge class. I will create a directory in the classwork directory called `objects_classes_and_instances`. Within that directory, I'll create a `fridge.rb` file, and put the following information into that file. (You will take these same steps later for a different class😉)
+Let's follow a class example with a Fridge class. I will create a directory in the classwork directory called `objects_classes_and_instances`. Within that directory, I'll create a `fridge.rb` file, and put the following information into that file. (You will take these same steps later for a different class😉)
 
 ```ruby
 # ~/turing/1module/classwork/objects_classes_and_instances/fridge.rb
@@ -96,10 +96,10 @@ In the same `objects_instances_and_classes` directory, let's create a `runner.rb
 # ~/turing/1module/classwork/objects_classes_and_instances/runner.rb
 require './fridge'
 
-fridge_1  = Fridge.new
+fridge_1 = Fridge.new
 puts "Number 1: #{fridge_1}"
 
-fridge_2   = Fridge.new
+fridge_2 = Fridge.new
 puts "Number 2: #{fridge_2}"
 
 require 'pry'; binding.pry
@@ -107,7 +107,7 @@ require 'pry'; binding.pry
 
 We can run the `runner.rb` file from the command line if we are inside of our `objects_classes_and_instances` directory by typing the following: `ruby runner.rb`.
 
-When we run this file, our computer should open up a pry session when it reads the line: `binding.pry`. Inside of that pry session, we'll type `fridge_1` and hit return to see what the variable `fridge_1` is holding. Then, we'll type `fridge_2` to see what that variable is holding.
+When we run this file, our terminal should open up a pry session when it reads the line: `binding.pry`. Inside of that pry session, we'll type `fridge_1` and hit return to see what the variable `fridge_1` is holding. Then, we'll type `fridge_2` to see what that variable is holding.
 
 ## Turn & Talk
 
@@ -168,7 +168,7 @@ The instances of the classes we've defined so far are basically useless. Aside f
 
 Remember, a class models *State* and *Behavior*. Let's give our refrigerator some state.
 
-### Practice
+### Example - Attributes
 
 Let's add some attributes to the `Fridge` class. The `@` symbol before a variable name indicates that it is an *Attribute* or *Instance Variable*. These two terms mean the exact same thing.
 
@@ -231,7 +231,7 @@ We should get an error that says something about the method `.brand` not existin
 
 We can do that with methods like the ones we've seen before, but attributes stored as instance variables are special. We can tell our class to provide access to them using attribute readers. Let's do that now.
 
-### Practice
+### Example - Accessing Attributes
 
 Let's update our Fridge class to include the lines below.
 
@@ -325,7 +325,7 @@ Let's update our runner file so that you:
 
 When we build more complex programs, we typically have many classes, and the instances of those classes `interact` in some way.
 
-### Practice
+### Example - Object Interaction
 
 Instead of representing food as a String, let's create a Food class to represent a food.
 
