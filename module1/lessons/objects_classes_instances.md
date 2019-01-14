@@ -17,7 +17,7 @@ tags: ruby, object-oriented programming
 
 Available [here](../slides/objects_classes_instances)
 
-## Warmup
+## Warm Up
 
 In your notebook brainstorm a **type** of object and **specific** instances of that object that are at Turing. Then brainstorm 3 different **attributes** for those objects and 3 different **behaviors** of those objects.
 
@@ -25,32 +25,26 @@ For example:
 
 * Type of object: Refrigerator
 * Specific instances:
-    * Staff Fridge
-    * Small Fridge in Student Kitchen
-    * Large Fridge in Student Kitchen
-* Attributes
-  * Brand
-  * Color
-  * Temperature
-* Behaviors
-  * Add Food
-  * Remove Food
-  * Change Temperature
+    * Staff Fridge, Small Fridge in Student Kitchen, Large Fridge in Student Kitchen
+* Attributes:
+  * Brand, Color, Temperature
+* Behaviors:
+  * Add Food, Remove Food, Change Temperature
 
 ## Classes in Ruby
 
 ### Overview
 
-In programming, a *Class* is something that models:
+In programming, a **Class** is something that models:
 
 1. State
-1. Behavior
+2. Behavior
 
 State is what something *is*. Behavior is what something *does*. In the previous activity, our *Class* was refrigerator. We modeled the state of a refrigerator by defining the attributes "brand", "color", and "temperature". We modeled the behavior of a refrigerator by defining the methods "add food", "remove food", and "change temperature".
 
-An *Instance* or *Object* is a concrete representation of a *Class*. In the previous activity, "staff refrigerator" is a specific *Instance* of the Fridge *Class*. We can also say that "staff refrigerator" is a Fridge *Object*. Do not get confused by the terms *Instance* and *Object*. They mean the exact same thing (for now).
+An **Instance** or **Object** is a concrete representation of a Class. In the previous activity, "staff refrigerator" is a specific Instance of the Fridge Class. We can also say that "staff refrigerator" is a Fridge Object. Do not get confused by the terms Instance and Object. They mean the exact same thing (for now).
 
-Think of a Class like a blueprint for a house and an Instance as an actual house. The blueprint is a just an idea of how the house should be built, and the house is the realization of that blueprint.
+Think of a **Class** like a blueprint for a house and an **Instance** as an actual house. The blueprint is a just an idea of how the house should be built, and the house is the realization of that blueprint.
 
 ### Syntax
 
@@ -69,25 +63,28 @@ class Dog
 end
 ```
 
+Notice the use of `UpperCamelCase` for the class name.
+
 Generally we will want to put more information in our classes to make them useful to us, but those two lines (even with no other information) will create a class.
 
 ### Practice
 
-Let's practice together with a Fridge class. Create a directory in your classwork directory called `objects_classes_and_instances`. Within that directory create a `fridge.rb` file, and put the following information into that file.
+Let's follow a class exmample with a Fridge class. I will create a directory in the classwork directory called `objects_classes_and_instances`. Within that directory, I'll create a `fridge.rb` file, and put the following information into that file. (You will take these same steps later for a different class😉)
 
 ```ruby
 # ~/turing/1module/classwork/objects_classes_and_instances/fridge.rb
-# Notice that `class` is lowercase while `NameOfClass` is CamelCased.
+# Notice that `class` is lowercase while `NameOfClass` is UpperCamelCased.
 
 class Fridge
 end
 ```
 
-In the same `objects_instances_and_classes` directory create a `runner.rb` file and put the code below into that.
+In the same `objects_instances_and_classes` directory, let's create a `runner.rb` file and put the code below into that.
 
 ```ruby
 # ~/turing/1module/classwork/objects_classes_and_instances/runner.rb
 require './fridge'
+
 fridge_1  = Fridge.new
 puts "Number 1: #{fridge_1}"
 
@@ -97,13 +94,18 @@ puts "Number 2: #{fridge_2}"
 require 'pry'; binding.pry
 ```
 
-We can run the `runner.rb` file from the command line if we are inside of our `objects_classes_and_instances` directory by typing the following: `ruby runner.rb`. Do that now.
+We can run the `runner.rb` file from the command line if we are inside of our `objects_classes_and_instances` directory by typing the following: `ruby runner.rb`.
 
-Your computer should open up a pry session. Inside of that pry session type `fridge_1` and hit return to see what the variable `fridge_1` is holding. Then type `fridge_2` to see what that variable is holding. How are those two things the same? How are they different?
+When we run this file, our computer should open up a pry session when it reads the line: `binding.pry`. Inside of that pry session, we'll type `fridge_1` and hit return to see what the variable `fridge_1` is holding. Then, we'll type `fridge_2` to see what that variable is holding.
 
-### Independent Practice
+## Turn & Talk
 
-**TRY IT**: With your pair, define a Person class in your `objects_classes_and_instances` directory and create instances of that class in your runner file.
+- How are those two things the same?
+- How are they different?
+
+### Partner Practice
+
+With your pair, create an `objects_classes_and_instances` directory, then define a Person class in it and create instances of that class in your runner file.
 
 ## Attributes in Ruby Classes
 
@@ -121,16 +123,16 @@ Each one is different in important ways. For example, each one has its own:
 * color
 * temperature
 
-We can model these attributes in code by using *instance variables*. Generally we define these instance variables in a special method called `initialize` that is run every time a new instance of a class is created.
+We can model these attributes in code by using *instance variables*. Generally we define these instance variables in a special method called `initialize` that is run every time a new instance of a class is created. Make sure to spell it correctly😬.
 
 ### Initialize
 
-When we run Fridge.new in Ruby, what actually happens? We can see from the last example that different Fridge objects (or instances) are created. Other than that, nothing happens. If we want some specific code to run when we first create a new Fridge, we need to tell Ruby what should happen when a new Fridge instance (or object) is created. We do this with the initialize method.
+When we run `Fridge.new` in Ruby, what actually happens? We can see from the last example that different Fridge objects (or instances) are created. Other than that, nothing happens. If we want some specific code to run when we first create a new Fridge, we need to tell Ruby what should happen when a new Fridge instance (or object) is created. We do this with the initialize method.
 
 ```ruby
 class Fridge
   def initialize
-    #Initialize code here
+    #any code here will run each time a new instance is created
   end
 end
 
@@ -171,7 +173,7 @@ end
 
 Because Attributes are something we want to persist throughout an object's lifetime, we typically define them inside the initialize method because we want them to exist as soon as the object is created.
 
-We have now created a method class that will allow us to create many different instances of Fridge, each one slightly different from the last. How do we do that in practice? Update your runner file so that it includes the following:
+We have now created a method class that will allow us to create many different instances of Fridge, each one slightly different from the last. How do we do that in practice? Let's update the runner file so that it includes the following:
 
 ```ruby
 fridge_1  = Fridge.new("Maytag", "white", 36)
@@ -198,9 +200,9 @@ class Fridge
 end
 ```
 
-### Independent Practice
+### Partner Practice
 
-**TRY IT**: With your pair, give your Person class some attributes that are set using arguments to initialize and some attributes that have default values. Make some instances of your Person class.
+With your pair, give your Person class some attributes that are set using arguments to initialize and some attributes that have default values. Make some instances of your Person class, and run you runner file.
 
 ## Accessing Attributes
 
@@ -208,19 +210,51 @@ That's all well and good, but what can we do with all these attributes that we'v
 
 Generally, the way that we access information stored in a class is by *sending it messages* or *calling methods* on that class. We do that using `.` syntax.
 
-Run your runner file again and check to see what this returns:
+Let's run our runner file again and check to see what this returns:
 
 ```ruby
 fridge_1.brand
 ```
 
-You should get an error that says something about the method `.brand` not existing (a `no method` error). The syntax here is correct, but we haven't told our `Fridge` class how to respond when it receives the message `brand`.
+We should get an error that says something about the method `.brand` not existing (a `no method` error). The syntax here is correct, but we haven't told our `Fridge` class how to respond when it receives the message `brand`.
 
 We can do that with methods like the ones we've seen before, but attributes stored as instance variables are special. We can tell our class to provide access to them using attribute readers. Let's do that now.
 
 ### Practice
 
-Update your Fridge class to include the lines below.
+Let's update our Fridge class to include the lines below.
+
+```ruby
+class Fridge
+
+  def initialize(brand, color, temperature)
+    @brand       = brand
+    @color       = color
+    @temperature = temperature
+    @contents    = []
+  end
+
+  def brand
+    @brand
+  end
+
+  def color
+    @color
+  end
+
+  def temperature
+    @temperature
+  end
+
+  def contents
+    @contents
+  end
+end
+```
+
+Let's run our runner file again and see if you can now call `fridge_1.brand`.
+
+Now, I should be able to call `fridge_1.brand` and get back whatever was stored in the instance variable. But wow, this class is suddenly lengthy, harder to read, and has a lot of similar work happening. A method called `brand` returns `@brand`, `color` returns `@color`, etc. There's a cleaner way to do the same thing:
 
 ```ruby
 class Fridge
@@ -238,19 +272,18 @@ class Fridge
 end
 ```
 
-Run your runner file again and now see if you can call `fridge_1.brand`. Try to see if you can access other attributes as well.
+Let's run our runner file again and see if you can still call `fridge_1.brand` and the other attributes.
 
-An important thing to remember is that although there is a special syntax for creating `attr_reader`s, they are still just methods. Remember the error we got earlier was a no method error for `brand`.
+An important thing to remember is that although there is a special syntax for creating `attr_reader`s, they are still just methods. Remember the error we got earlier was a **no method error** for `brand`.
 
-### Independent Practice
+### Partner Practice
 
-**TRY IT**: With your pair, create `attr_reader`s for the attributes in your `Person` class.
+- With your pair, create `attr_reader`s for the attributes in your `Person` class.
+- Practice explaining to your partner what is happening _under the hood_ with the `attr_reader`s
 
 ## Other Methods
 
-We can also create other methods that will allow us to send other messages to our Fridge class. For example, let's say we wanted to add eggs to our Fridge. We currently have a way to see what the `contents` of the Fridge are, but we don't have any way to add to it. Let's do that by creating a method called `add_food` that will add a food to the `contents` array.
-
-### Practice
+We can also create other methods that will allow us to send other messages to our Fridge class. For example, let's say we wanted to add eggs to our Fridge. We currently have a way to see what the `contents` of the Fridge are, but we don't have any way to _add_ to it. Let's do that by creating a method called `add_food` that will add a food to the `contents` array.
 
 Define an `add_food` method that allows you to put foods in your fridge. Note that we can access the `@contents` instance variable from anywhere within the class just by using the `@` symbol.
 
@@ -261,23 +294,25 @@ class Fridge
   def add_food(food)
     @contents << food
   end
+
 end
 ```
 
-Update your runner file so that you:
+Let's update our runner file so that you:
 
 1. Create a new instance of Fridge.
-1. Print the contents of that Fridge.
-1. Add some food to the contents of the fridge using the method you just created. You can represent a food as a String.
-1. Print the new contents of the Fridge.
+2. Print the contents of that Fridge.
+3. Add some food to the contents of the fridge using the method you just created. You can represent a food as a String.
+4. Print the new contents of the Fridge.
 
-### Independent Practice
+### Partner Practice
 
-**TRY IT**: With your pair, create a `have_birthday` method for your Person class. This should increase the age of that person by 1.
+- With your pair, create a `have_birthday` method for your Person class. This should increase the age of that person by 1.
+- Update your runner file in a similar fashion to steps 1-4 for your Person class.
 
 ## Object Interaction
 
-When we build more complex programs, we typically have many classes, and the instances of those classes interact in some way.
+When we build more complex programs, we typically have many classes, and the instances of those classes `interact` in some way.
 
 ### Practice
 
@@ -295,7 +330,7 @@ class Food
 end
 ```
 
-Update your runner file to add Food objects to the contents of your fridge.
+Let's update our runner file to add Food objects to the contents of your fridge.
 
 Now let's add a method for a fridge to total the number of calories in the fridge:
 
@@ -305,27 +340,33 @@ class Fridge
 
   def total_calories
     calories = 0
+
     @contents.each do |food|
       calories += food.calories
     end
+
     calories
   end
 end
 ```
 
-Update your runner file to call this method.
+Update the runner file to call this method.
 
-## In Pairs
+## Solo Practice
 
 ### Create a Book Class
 
-With your partner, create a book class. Make sure that your book class has at least 3 attributes and 2 methods.
+Create a book class. Make sure that your book class has at least 3 attributes and 2 methods.
 
 Once you've created your class, create a runner file that creates three separate instances of book and saves them to variables.
 
+**Check in** with your partner that you're in a similar place. Discuss an differences you have in your code.
+
 ### Create a Library Class
 
-With your partner, create a Library class. Add attributes as you wish, but the be sure to include a `@collection` instance variable that starts as an empty array.
+Create a Library class. Add attributes as you wish, but the be sure to include a `@collection` instance variable that starts as an empty array.
+
+**Check in** with your partner that you're in a similar place. Discuss an differences you have in your code.
 
 If you have time:
 
