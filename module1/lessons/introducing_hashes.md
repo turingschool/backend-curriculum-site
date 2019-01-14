@@ -6,7 +6,7 @@ tags: ruby, hashes, data structures, key, value
 ---
 
 ## Learning Goals
-
+???EDIT???
 *   Understand that there are multiple types of collections
 *   Develop a mental model to understand hashes
 *   Gain some familiarity with common hash methods
@@ -26,19 +26,10 @@ Available [here](../slides/introducing_hashes)
 
 ## Warm Up
 
-Would you rather store the list of fridge items in `fridge_items_1` or `fridge_items_2`? Why? Discuss with your partner.
+What's problematic about using `fridge_items_1` as a grocery list? How would you prefer to structure a grocery list? Discuss with your partner.
 
 ```
 fridge_items_1 = ["milk", "eggs", "eggs", "eggs", "eggs", "eggs", "eggs", "avocado", "avocado", "tortilla", "tortilla", "tortilla", "tortilla", "tortilla", "tortilla", "tortilla", "tortilla", "tortilla"]
-```
-
-```
-fridge_items_2 = {
-	"milk" => 1,
-	"eggs" => 6,
-	"avocado" => 2,
-	"tortilla" => 9
-}
 ```
 
 ## Intro - Hash Properties
@@ -46,15 +37,6 @@ fridge_items_2 = {
 Like an Array, a Hash is a data structure used for representing a _collection_ of things. But whereas an Array generally represents a list of ordered, indexed values, **a Hash represents a collection of *named* values**. These names are called **keys**, and each key has a corresponding **value**. In a Hash, we can insert data by assigning it to a name and later retrieving it using the same name.
 
 Some languages call their Hashes *dictionaries* for this reason -- you look up a word (the label) to retrieve its definition (the data or value with which the label was associated).
-
-Key ideas:
-
-*   Ordered vs. Unordered
-*   Pairs
-*   Choosing a hash vs an array
-*   Symbols vs. Strings
-*   Performance characteristics
-
 
 ## Working with a Hash
 
@@ -70,14 +52,14 @@ Key ideas:
 					"boolean_value": true
 				}
 	```
-
 - Values can be accessed with bracket notation:
 	- given ``` shih_tzu = { "name"=> "Sodie" } ```
 	- ``` shih_tzu["name"]``` _returns_```"Sodie" ```
 
 Let's say we are making a list of items to pack for a trip. Why is a hash a good choice for storing this information?
 
-**THINK ABOUT IT**: With your partner, brainstorm another collection of data that could be stored in a hash.
+**THINK ABOUT IT**: With your partner, brainstorm another collection of data that could be stored in a hash. Be able to justify why a hash is a better option than an array.
+
 **WRITE:** What is **your** definition of a hash?
 
 ### Creating a Hash
@@ -98,7 +80,7 @@ When using the `Hash.new`, syntax, we're able to pass a default hash value in as
 new_hash = Hash.new(0)
 ```
 
-In the above declaration, the default value of any key created for `new_hash` has a default value of 0. Keep this in mind for the future - you may find it helpful down the road.
+In the above declaration, the default value of any key created for `new_hash` has a default value of 0. Keep this in mind for the future - you may find it helpful down the road🍕.
 
 We can also create a hash with some initial key/value pairs. Let's use this syntax to create our stew hash:
 
@@ -112,6 +94,7 @@ suitcase = {
 The `=>` is called a hash rocket.
 
 ### Explore
+
 With your partner, explore the following challenges. One partner should be typing (make sure the other can see the screen) and the other should talk. This is a paired programming technique called driver/navigator.
 
 * Start with the hash: suitcase = { "socks" => 4, "jeans" => 1 }
@@ -203,7 +186,7 @@ suitcase.values
 => [4, 1, 4]
 ```
 
-The .keys and .values methods return an array of all the keys and values, respectively, of the hash.
+The `.keys` and `.values` methods return an array of all the keys and values, respectively, of the hash.
 
 
 #### Check for Understanding
@@ -392,6 +375,8 @@ pets = {
 
 ## Exit Ticket
 
+You'll have 10 minutes to complete the exit ticket independently.
+
 <!-- print out to ensure this is closed book
 - In your own words, define a hash
 - Venn Diagram of arrays and hashes
@@ -402,7 +387,6 @@ pets = {
 - What is a symbol?
 - for all of your examples, did you use symbols? If you did - re-write your original hash without symbols. If you didn't, re-write your original hash with symbols.
 -  -->
-
 
 ## Further Practice/Resources
 
@@ -417,4 +401,4 @@ Now that we've worked through the basics, complete [Challenge 2 from the Collect
 ### From the Top
 
 Now you've got a decent understanding of hashes. Let's go at it from the
-beginning and try to fill a few of the gaps: work through the [Hashes section of Ruby in 100 Minutes](http://tutorials.jumpstartlab.com/projects/ruby_in_100_minutes.html#8.-hashes) to pickup a bit more.
+beginning and try to fill a few of the gaps: work through the [Hashes section of Ruby in 100 Minutes](http://tutorials.jumpstartlab.com/projects/ruby_in_100_minutes.html#8.-hashes) to pick up a bit more.
