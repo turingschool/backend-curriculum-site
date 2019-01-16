@@ -1,15 +1,14 @@
 ---
 layout: page
 title: Introducing Hashes
-length: 60
+length: 120
 tags: ruby, hashes, data structures, key, value
 ---
 
 ## Learning Goals
-???EDIT???
-*   Understand that there are multiple types of collections
-*   Develop a mental model to understand hashes
-*   Gain some familiarity with common hash methods
+
+*   Explain the difference between arrays and hashes, and determine when to use which
+*   Use common hash methods to access and update data in a hash
 
 ## Slides
 
@@ -241,7 +240,6 @@ Let's recreate our suitcase hash using symbols instead of strings.
 suitcase = {
   :socks => 4,
   :jeans => 1,
-  :shirts => 3  
 }
 ```
 
@@ -251,51 +249,50 @@ Ruby gives us a handy shortcut for creating a hash with symbol keys:
 suitcase = {
   socks: 4,
   jeans: 1,
-  shirts: 3
 }
 ```
 
-These two definitions for our suitcase hash produce the exact same hash, however the second is the preferred syntax. Be careful... The colon must immediately follow the name of the key without any spaces in between.
+These two definitions for our suitcase hash produce the exact same hash, however the second is the preferred syntax. Be careful... The colon must _immediately_ follow the name of the key without any spaces in between.
 
-Let's again add 2 potatoes:
+### Solidify
+
+Switch driver/navigator and complete the following (same as our last pairing exploration) using this hash: `suitcase = { socks: 4, jeans: 1 }`
+
+For each bullet point, pay close attention to the _return value_ as well as the impact on the original hash (ie be ready to share out with the class!)
+
+* Add 3 shirts to your suitcase
+* Add a key value pair of swimsuit/true to your suitcase
+* Take the socks out of your suitcase
+* Check for how many jackets you have in your suitcase
+* Check how many shirts (and only shirts) are in your suitcase
+* Call `.keys` and `.values` on your hash - what is returned? Why might this be useful?
+
+Add new key/value pair:
 
 ```ruby
+suitcase[:shirts] = 3
 suitcase[:swimsuit] = true
 ```
 
-Get the number of socks:
+Remove key/value pair:
 
 ```ruby
-suitcase[:socks]
-=> 4
+suitcase.delete(:socks)
 ```
 
-Check if we are packing any jackets:
+Access value of a specific key:
 
 ```ruby
 suitcase[:jackets]
-=> nil
+suitcase[:shirts]
 ```
 
-And increase the amount of shirts by 1:
+Check keys/values:
 
-```ruby
-suitcase[:shirts] = suitcase[:shirts] + 1
-```
-or
-```ruby
-suitcase[:shirts] += 1
-```
-
-If we want to see all of our keys/values...
 ```ruby
 suitcase.keys
-=> [:socks, :jeans, :shirts, :swimsuit]
 suitcase.values
-=> [4, 1, 4, true]
 ```
-
-What type of Objects do these methods return?
 
 #### Check for Understanding
 
@@ -321,7 +318,7 @@ What type of Objects do these methods return?
 7. Get all the keys in your Hash. What kind of object does that method return?
 8. Get all the values in your Hash. What kind of object does that method return?
 9. Assign a new value to the `:vocalist` key of your hash.
-10. How has `keys` changed after the last step? How has `values` changed? What
+10. How has `keys` changed after the last step? How has `values` changed?
 
 ## Extension Practice
 
@@ -331,7 +328,7 @@ Finally let's break up for some independent work with Hashes and Arrays.
 
 Remember, keys/values can be any type of object, including Hashes and Arrays!
 
-As our programs get more complex, we'll encounter more sophisticated combinations of these structures. Consider the following scenarios:
+As our programs get more complex, we'll encounter more sophisticated combinations of these structures. Make a prediction about each scenario, then run in a pry session to verify:
 
 #### Array within an Array
 
@@ -349,9 +346,9 @@ a = [[1, 2, 3], [4, 5, 6]]
 italian = [{ pizza: "tasty" }, { calzone: "also tasty" }]
 ```
 
-* what is `italian.count`
-* what is `italian.first.count`
-* how can I access the value `"also tasty"`
+* what is `italian.count`?
+* what is `italian.first.count`?
+* how can I access the value `"also tasty"`?
 
 #### Hash within a Hash
 
