@@ -6,36 +6,31 @@ length: 60
 
 ## Learning Goals
 
-Students will
-
-* Research and describe different programming principles
-* Create diagrams of classes that outline their state and behavior
-* Review code and form opinions on that code
-
-## Slides
-
-Available [here](../slides/design_principles)
+Students will:
+* Research and articulate different programming principles
 
 ## Part 1: Research (10 mins)
 
-Get into groups of 6. For each of the following topics, assign one person to research the topic and become the expert.
+Count off into groups of 6.
+Each group of 1-6 will go their separate ways for now, but will come back together later. Remember who your group is, then go to your topic group (all the 1's should be together, 5's together, etc.)
 
-* Code Smells
-* Single Responsibility Principle
-* Abstraction
-* Encapsulation
-* Law of Demeter
-* DRY/YAGNI
+For each of the following topics, work with your topic group to research the following:
 
-## Part 2: Share (15 mins)
+1. Code Smells
+2. Single Responsibility Principle
+3. Abstraction
+4. Encapsulation
+5. Law of Demeter
+6. DRY/YAGNI
 
-For each topic, the expert should take two minutes to share:
+## Part 2: Solidify & Communicate (15 mins)
+
+Each group should make a Chart Paper summarizing the assigned principle and why it is important.
+Example, analogies, and diagrams are encouraged!
+
+## Part 3: Share (20 mins)
+
+Come back together with your 1-6 group. Each member should have researched a different topic. You are now the expert - take 2 minutes to share the following on your topic:
 
 1. What is it?
 2. Why is it important?
-
-## Break (5 mins)
-
-## Part 3: Arts and Crafts
-
-Each group should make a Chart Paper summarizing each principle and why it is important.
