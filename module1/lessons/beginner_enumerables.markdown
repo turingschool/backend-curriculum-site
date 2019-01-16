@@ -12,15 +12,19 @@ tags: enumerables, map, select, find, each
 
 
 ## Vocabulary  
+
 * enumerable  
 * iterate  
 * map, find, find_all
 * return value
 
-## Warm Up  
+
+## Warm Up
+
 * What is **iteration** and when do we use it?
 * In your notebook, write the code to that you would use to print each of the letters in this array: `dynasty_1 = ["K", "e", "n", "n", "e", "d", "y"]`.  Write the code so that `dynasty_1` could be replaced with an array of any length.
 * In your notebook, write the code that you would use to create a new array with capitalized versions of the following names.: `names = ['jack', 'bobby', 'teddy']`
+
 
 ## Intro
 
@@ -53,6 +57,7 @@ On the back of this second card, you should write the name of the method - \#eac
 
 By the end of the lesson, you will have a good stack of Enumerable flashcards that will help you learn when and how to use them as a better option than \#each.  For each method, the first flashcard (with the method name on the front) will help you learn _how_ to use the method and the second flashcard (with the use-case on the front) will help you learn _when_ to use the method. This second card will most closely mimic the challenges you will face when coding and trying to decide which method to use.
 
+
 ### Return Values
 
 When we were learning about \#each, we learned that \#each will always return the **original array**, and we saw that when we use \#each, we need to use a placeholder to preserve the return value we are looking for, like this:
@@ -69,7 +74,7 @@ end
 p doubles
 ```
 
-Knowing what we do about return values, can you guess what the following code snippet would return? Run the code in a playground.rb file and see if your guess was correct.
+Knowing what we do about return values, can you guess what the following code snippet would return? Discuss with your parter, then we'll run the code for the class.
 
 ```ruby
 def double
@@ -168,7 +173,7 @@ p double
 
 #### Independent Practice
 
-The method below returns an array of the brothers names in all caps; your job is to write one using the `map` method. (Touch an `enums_practice.rb` file in your M1 directory and write the code in that file)
+The method below returns an array of the brothers names in all caps; your job is to write one using the `map` method in your notebook.
 
 ```ruby
 def kennedy_brothers
@@ -186,7 +191,6 @@ end
 ```
 
 **FlashCard**
-
 Its time to create your next flashcard!  Using the same format that we used for \#each, create a flashcard for \#map - including syntax, return value, and use-cases.
 
 **Turn & Talk**  
@@ -233,7 +237,8 @@ end
 Oh just look at that, so nice. Remember, it will return the **first** item for which the block returns a truthy value.
 
 #### Independent Practice  
-Find the first sister over four letters in length.
+
+In your notebook, write the code to find the first sister over four letters in length.
 
 ```ruby
 def find_sisters
@@ -244,7 +249,6 @@ end
 ```
 
 **FlashCard**
-
 Its time to create your next flashcard!  Using the same format that we used for \#map, create a flashcard for \#find - including syntax, return value, and use-cases.
 
 **Turn & Talk**  
@@ -287,7 +291,6 @@ end
 ```
 
 **FlashCard**
-
 Its time to create your next flashcard!  Using the same format that we used for \#find, create a flashcard for \#find_all - including syntax, return value, and use-cases.
 
 **Turn & Talk**  
@@ -309,6 +312,7 @@ Now that we have walked through 3 of the most common Enumerables as a class, its
 
 
 ## Final CFU
+
 * What do map, find, and select do? What do they return?
 * What do max, max_by, their opposites, and sort_by return?
 * What makes an enumerable preferable to each?
