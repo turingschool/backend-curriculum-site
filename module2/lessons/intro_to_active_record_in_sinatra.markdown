@@ -179,6 +179,8 @@ Song.create(title: "Chicken Fried", length: 183, play_count: 521771)
 Song.create(title: "Radioactive", length: 10000, play_count: 623547)
 ```
 
+To quit tux, use the command `exit`.
+
 ### Updating the Controller
 
 Now that we have some songs, let's check our controller to see that we're doing the database prep that we need to do in order to see our songs.
