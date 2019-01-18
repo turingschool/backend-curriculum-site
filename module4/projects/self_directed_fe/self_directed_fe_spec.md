@@ -4,7 +4,7 @@ For your Week 1 solo project, you will build out a front-end application that co
 
 ## Learning Goals
 
-* Create an vanilla JS or jQuery front-end application that makes network requests to an API
+* Create a vanilla JS or jQuery front-end application that makes network requests to an API
 * Form opinions and make/defend decisions about how to organize the code in the front-end application
 
 ### Requirements Overview
@@ -34,7 +34,7 @@ This includes attention to branches, commit messages, and yes, PRs. Think of PRs
 
 Since you are working solo on this, we are providing two requirements (opportunities!) for feedback from others on your code. By 9:30am on Friday of the project, you need to have made at least two PRs that tag and ask for specific feedback from one instructor and one peer or mentor. You are more than welcome to make a FE friend in Mods 3 or 4 and ask them to review it. You can ask a mentor, someone who graduated in the last couple innings and doesn't have a job so will want something to do, or one of your cohort mates! In order for this requirement to be fulfilled,
 - You need to make the PR and tag them with a specific review ask
-- They need to response in the PR conversation with actionable feedback
+- They need to respond in the PR conversation with actionable feedback
 - You need to make a change, tag them again for their review (you may need to ask a clarifying question before doing so, if that's the case, ask in the PR conversation instead of Slack or in person)
 - If they continue the conversation great, if not, that's fine at this point
 

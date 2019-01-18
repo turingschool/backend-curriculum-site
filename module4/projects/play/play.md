@@ -53,7 +53,7 @@ At a high level, developers will be able to:
 
 - CRUD songs
 - CRUD playlists
-- Add an song to a playlist
+- Add a song to a playlist
 - See data persist across refreshes
 - Manipulate data asynchronously
 
