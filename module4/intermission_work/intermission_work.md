@@ -52,7 +52,7 @@ Suggested resources to utilize:
 * [Data Types, Variables, Conditionals, Function Basics](http://frontend.turing.io/lessons/module-1/js-1.html)
 * [Function Fundamentals, Variable Scope, Loops, Arrays](http://frontend.turing.io/lessons/module-1/js-2.html)
 * [Objects, This, Data Structures](http://frontend.turing.io/lessons/module-1/js-4.html)
-* [Array Prototype Methods](http://frontend.turing.io/lessons/module-1/array-prototype-methods-intro)
+* [Array Prototype Methods](http://frontend.turing.io/lessons/module-1/intro-to-array-prototype-methods.html)
 * [ES6, Webpack Tutorial](http://ccoenraets.github.io/es6-tutorial/)
 
 [JavaScript 30](https://javascript30.com/):
