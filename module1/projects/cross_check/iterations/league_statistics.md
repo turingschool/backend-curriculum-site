@@ -21,13 +21,3 @@ _[Back to Cross Check Home](../index)_
 | `winningest_team` | Name of the team with the highest win percentage across all seasons. | String |
 | `best_fans` | Name of the team with biggest difference between home and away win percentages. | String |
 | `worst_fans` | List of names of all teams with better away records than home records. | Array |
-
-## Season Statistics
-
-These methods each take a season id as an argument and return the values described below. The last method also takes a second argument representing the team id and the hash returned is specific to that team.
-
-| Method | Description | Return Value |
-| ------ | ----------- | ------------ |
-| `biggest_bust` | Name of the team with the biggest decrease between preseason and regular season win percentage. | String |
-| `biggest_surprise` | Name of the team with the biggest increase between preseason and regular season win percentage. | String |
-| `season_summary` | A hash with two keys (`:preseason`, and `:regular_season`) each pointing to a hash with the keys `:win_percentage`, `:goals_scored`, and `:goals_against` | Hash |

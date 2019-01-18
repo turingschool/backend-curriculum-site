@@ -27,6 +27,10 @@ In order to get data into the system we're going to create, we're going to read 
 
 At a high level, if you create a runner file including the code below, you should drop into a pry session with an instance of StatTracker held in the `stat_tracker` variable.
 
+Note that `from_csv` is a method you have defined called directly on the StatTracker class, and not an instance of StatTracker.
+
+`::from_csv` returns an instance of StatTracker. That instance of StatTracker will hold all of the information you need for the methods included in the remainder of the project description.
+
 ```ruby
 # runner.rb
 require './lib/stat_tracker'
@@ -45,7 +49,3 @@ stat_tracker = StatTracker.from_csv(locations)
 
 require 'pry'; binding.pry
 ```
-
-Note that `from_csv` is a method you have defined called directly on the StatTracker class, and not an instance of StatTracker.
-
-`::from_csv` returns an instance of StatTracker. That instance of StatTracker will hold all of the information you need for the methods included in the remainder of the project description.
