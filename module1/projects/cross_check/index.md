@@ -40,7 +40,6 @@ We have separated the methods required for this project into sections below.
 * **Iteration 3:** [League Statistics](./iterations/league_statistics)
 * **Iteration 4:** [Team Statistics](./iterations/team_statistics)
 * **Iteration 5:** [Season Statistics](./iterations/season_statistics)
-* **Iteration 5:** [Create a CLI](./iterations/command_line)
 * **Iteration 6:** [Create a Website](./iterations/website)
 
 ## Evaluation Rubric
