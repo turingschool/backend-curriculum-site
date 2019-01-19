@@ -226,6 +226,8 @@ converter = Converter.new
 converter.convert_to_celsius(32)
 ```
 
+You can think of an argument as a variable that is created right at the start of the method.
+
 ## Defining Return Values
 
 We want this method to output, or **Return** the Celsius temperature. How does Ruby know what value to return?
