@@ -123,7 +123,7 @@ puts parsed_person['pets']
 
 ## Practice
 
-Complete the exercise [here](./exercises/building_an_api.md)
+Complete the exercise [here](./exercises/building_an_api)
 
 ## Checks for Understanding
 
