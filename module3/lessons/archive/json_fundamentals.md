@@ -1,5 +1,3 @@
-# JSON Fundamentals
-
 ---
 title: JSON Fundamentals
 length: 60
