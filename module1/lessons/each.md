@@ -80,6 +80,8 @@ collection.each do |block_variable|
 end
 ```
 
+One very important thing to remember: **each returns the original array**. This will make more sense as we learn more about enumerables during a later lesson.
+
 ## Single-Line Syntax
 
 You can replace a `do`/`end` with `{`/`}`. This allows you to write `each` on a single line. Our example from before could also be written as:
@@ -110,9 +112,9 @@ end
 puts names
 ```
 
-Run the playground file - what happens? Is this what you expected? Most students would expect to see `['Megan', 'Brian', 'Sal']`, so why is that not the case? **Return Value**
+Run the playground file - what happens? Is this what you expected? Most students would expect to see `['Megan', 'Brian', 'Sal']`, so why is that not the case? Each gives us *access* to every element, but it doesn't save anything for us. If we want to save the capitalization, we need to create a place to save it:
 
-The most important thing to learn about using \#each is it's _return value_ which is **the original array**.  \#each will always return **the original array**. So, how do we use \#each to really accomplish what we are trying to do? Take a look at the updated example below:
+
 
 ```ruby
 names = ['megan', 'brian', 'sal']
@@ -126,7 +128,7 @@ end
 puts capitalized_names
 ```
 
-Since we know that **each returns the original array** we need to create some placeholder container to store our _new_ collection. In Mod 1, you may hear this placeholder called the accumulator or the aggregator. The thing to remember is that when you are using \#each, you will almost always use some sort of placeholder to preserve the result that you want - in this case, the names capitalized.  Without the placeholder, you will not be able to access the information that you want!
+Since we know that each won't save anything for us, we need to create some placeholder container to store our _new_ collection. In Mod 1, you may hear this placeholder called the accumulator or the aggregator. The thing to remember is that when you are using \#each, you will almost always use some sort of placeholder to preserve the result that you want - in this case, the names capitalized.  Without the placeholder, you will not be able to access the information that you want!
 
 ## Get a Subset of a Collection
 
