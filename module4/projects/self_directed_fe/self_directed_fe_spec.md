@@ -20,9 +20,8 @@ You will be creating a front-end to consume your fully-tested Rails API from Mod
 
 As many of you chose your own topic and data, the exact feature set may vary. Even within Sweater Weathers, some applications may behave slightly differently from others - which is ok! Some things to consider:
 
-- You must use the Fetch API to make requests to your API
+- You must perform AJAX requests to your API using jQuery
 - You should have at least three buttons on the page that are listening for a click - maybe it's to get additional information from the API, to hide or show something, to trigger a search/filter, to favorite a location or to navigate to a different page.
-- Since users are logging in, when they are logged in, they should have a visual indicator somewhere on the main page to let them know they are in their account. There should also be a way for them to log out.
 - "Don't Make Me Think" by Steve Krug is a great book for UI/UX best practices. Dribbble.com is also a great place for inspiration. Lastly, [Canva](https://www.canva.com/color-palette/) can help you determine a color palette with a photo, and [Color Space](https://mycolor.space/) will generate multiple palettes for you when you provide one color.
 
 ### Workflow Expectations
