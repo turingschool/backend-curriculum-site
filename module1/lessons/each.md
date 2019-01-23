@@ -20,7 +20,13 @@ Available [here](../slides/each)
 * Block
 * Block Variable
 
-# Scalability
+## Warm Up
+In your notebook, write your answer to the following:
+- What is an array?
+- Why are array's useful?
+- What can we do with arrays?
+
+## Scalability
 
 Let's pretend that we've just graduated from Turing, and that we've landed our first sweet job at Hogwarts School of Witchcraft and Wizardry. Let's say that we've got an array of student names:
 
