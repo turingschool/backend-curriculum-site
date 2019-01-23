@@ -21,9 +21,10 @@ Available [here](../slides/each)
 * Block Variable
 
 ## Warm Up
+
 In your notebook, write your answer to the following:
 - What is an array?
-- Why are array's useful?
+- Why are arrays useful?
 - What can we do with arrays?
 
 ## Scalability
