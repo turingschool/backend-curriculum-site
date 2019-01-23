@@ -183,7 +183,7 @@ To quit tux, use the command `exit`.
 
 ### Updating the Controller
 
-Now that we have some songs, let's check our controller to see that we're doing the database prep that we need to do in order to see our songs.
+Now that we have some songs, let's update our controller so that we are doing the database prep that we need to do in order to see our songs.
 
 ```ruby
 class SetList < Sinatra::Base
@@ -193,6 +193,8 @@ class SetList < Sinatra::Base
   end
 end
 ```
+
+Using Active Record, we no longer need to build the `::all` method as we did in Task Manager; `::all` is one of the built in Active Record methods.
 
 ### Creating the View
 
