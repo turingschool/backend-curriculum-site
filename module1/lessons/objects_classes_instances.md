@@ -114,10 +114,6 @@ When we run this file, our terminal should open up a pry session when it reads t
 - How are those two things the same?
 - How are they different?
 
-### Partner Practice
-
-With your pair, create an `objects_classes_and_instances` directory, then touch a `person.rb` file and a `runner.rb` file. Define a Person class in it and create instances of that class in your runner file.
-
 ## Attributes in Ruby Classes
 
 Above we created a Fridge class and then also created specific instances of the fridge class that we held in the variables `fridge_1` and `fridge_2`. Generally the objects we create will come from the same template, but each will be a unique object.
@@ -213,7 +209,9 @@ end
 
 ### Partner Practice
 
-With your pair, give your Person class some attributes that are set using arguments to initialize and some attributes that have default values. Make some instances of your Person class, and run you runner file.
+With your pair, create an `objects_classes_and_instances` directory, then touch a `person.rb` file and a `runner.rb` file. Define a Person class in it and create instances of that class in your runner file.
+
+Now, give your Person class some attributes that are set using arguments to initialize and some attributes that have default values. Make some instances of your Person class, and run you runner file.
 
 ## Accessing Attributes
 
