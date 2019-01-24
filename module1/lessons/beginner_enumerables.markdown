@@ -313,8 +313,7 @@ Now that we have walked through 3 of the most common Enumerables as a class, its
 
 ## Final CFU
 
-* What do map, find, and select do? What do they return?
-* What do max, max_by, their opposites, and sort_by return?
+* What do map, find, and find_all do? What do they return?
 * What makes an enumerable preferable to each?
 * What does the `?` on the end of a method indicate?  
 
