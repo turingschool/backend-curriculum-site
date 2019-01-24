@@ -1,8 +1,22 @@
-# Advanced ActiveRecord
-
+---
+layout: page
+title: Advanced ActiveRecord
+length: 180
+tags: rails, active record
 ---
 
-# Warmup
+## Learning Goals
+
+* Students can diagram database relationships.
+* Students can identify the tables in a database that hold information required to complete complex queries.
+* Students can generate complex ActiveRecord queries using joins, group, order, select, and merge.
+* Students can use the rails dbconsole  and rails console to generate ActiveRecord queries.
+
+## Slides
+
+Available [here](../slides/advanced_activerecord)
+
+## Warmup (5 mins)
 
 * What are the tables in our RailsEngine project?
 * What information is in each table?
@@ -11,11 +25,11 @@
     * What tables would we need to query?
     * What information would we need from each table?
     * What calculations would we need to perform?
-    * Can you generate a SQL query for this?
+    * What SQL would we be able to use to create a table with this information?
 
----
+## Lecture
 
-# SQL Is Fun
+The SQL we might use to get those top five invoices might look something like this:
 
 ```sql
 SELECT invoices.*, sum(invoice_items.quantity * invoice_items.unit_price) AS revenue FROM invoices
@@ -27,20 +41,11 @@ ORDER BY revenue DESC
 LIMIT 5;
 ```
 
----
+That's great. We could use `find_by_sql`, pass that as an argument, and be done. However, inside of Rails it can sometimes be a little jarring to see raw SQL, and some of our teammates might be more accustomed to ActiveRecord. How can we translate that query into ActiveRecord?
 
-# Working with IDs
+Let's review some tools that we have at our disposal.
 
-* Lots of code snippets in the next section
-* Often returning IDs instead of objects
-* Learning tool that we're using temporarily
-* Showing in context of models
-* Don't recommend actually adding these methods
-* Can practice in the console
-
----
-
-# Group
+### Group
 
 * Used to group by a characteristic
 * Needs an aggregate function
@@ -53,9 +58,7 @@ def self.results_counts
 end
 ```
 
----
-
-# Group With Calculation
+### Group With Calculation
 
 * Can use calculations as aggregate funcitons
 
@@ -67,9 +70,7 @@ def self.invoice_totals
 end
 ```
 
----
-
-# Group With Order
+### Group With Order
 
 ```ruby
 # On Invoice
@@ -79,9 +80,7 @@ def self.merchant_count_of_invoices
 end
 ```
 
----
-
-# Group With Order Calculation
+### Group With Order Calculation
 
 ```ruby
 # On InvoiceItem
@@ -90,9 +89,7 @@ def self.invoices_by_cost
 end
 ```
 
----
-
-# Joins
+### Joins
 
 * Class method
 * Pull multiple records on originating model
@@ -105,9 +102,7 @@ def self.invoices_with_a_transaction
 end
 ```
 
----
-
-# Merge
+### Merge
 
 * Use with a `.joins` to apply a method from the joined model
 
@@ -118,9 +113,7 @@ def self.successful_invoices
 end
 ```
 
----
-
-# Select
+### Select
 
 ```ruby
 # On Merchant
@@ -129,9 +122,7 @@ def self.no_dates
 end
 ```
 
----
-
-# Select (So what?)
+Cool. That's great. I can select only certain elemetns from a table and not others. What good does that do me? Well, in SQL, we can also pass calculations to our SELECT queries.
 
 ```ruby
 # On Merchant
@@ -142,11 +133,11 @@ def self.merchant_plus_invoices
 end
 ```
 
----
+There's also a `count` method, but it (and other similar aggregate functions like `sum`, `average`, etc.) will return an integer or float in a way that doesn't allow us to dig down further.
 
-# Putting it All Together
+### Putting it All Together
 
-* Invoices with the highest total cost
+Using the methods we've explored up to this point, we should be able to get a collection of invoices with the highest total cost.
 
 ```ruby
 # On the Invoice model
@@ -160,9 +151,9 @@ def self.expensive_invoices
 end
 ```
 
----
+### Potential Refactor
 
-# Potential Refactor
+There's a portion of this query that we might want to use a lot: finding those invoices that have a successful transaction. One of the neat things about ActiveRecord is that it takes an entire chain of commands and evaluates them before executing a query to our database. Because of that, we can extract a portion of our query to another method or a scope. Then we can rewrite our query to something like the following:
 
 ```ruby
 def self.expensive_invoices
@@ -174,9 +165,11 @@ def self.expensive_invoices
 end
 ```
 
----
+## Other Things to Know
 
-# Find By SQL
+### Find By SQL
+
+If you're more comfortable in SQL and pressed for time, or if your team generally feels more comfortable in SQL and has decided as a group that the norm will be to use raw SQL for most queries, you can use `find_by_sql` to execute SQL queries against your database.
 
 ```ruby
 # On the invoice model
@@ -187,14 +180,17 @@ def self.successful_invoices
 end
 ```
 
----
+## Practice
 
-# Partner Practice
-
-Find the 5 customers who have spent the most money
+With a partner, see if you can find the five customers who have spent the most money.
 
 * What tables will be involved?
 * What is the important information from those tables?
 * Why?
 * Where will this method likely live?
+
+## Resources
+
+* [Video](https://www.youtube.com/watch?v=OccKyvGvLKE&t=1329s) from a past class and the core ideas
+
 
