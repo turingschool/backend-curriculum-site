@@ -3,10 +3,6 @@ title: Module 1 Syllabus
 layout: page
 ---
 
-## Overview
-
-In Module 1, students will learn to use Ruby and object-oriented programming to build software. They will develop skills to write automated tests, pseudocode, write implementation code, and refactor code to meet Ruby conventions. Through several large group projects and regular pairing exercises, students will learn skills and procedures for effectively collaborating and pairing with other developers.
-
 ## Projects
 
 Projects require students to apply new concepts from class and build on existing knowledge. Students will have a total of 4 projects in Module 1:
@@ -28,7 +24,7 @@ In week 6, students will participate in the Final Independent Assessment that wi
 
 In order to practice for the Final Independent Assessment in week 6, students will be given a weekly practice Independent Challenge starting in week 2. They will be submitted using a Github Pull Request, and instructors will give feedback in the form of comments on the Pull Request. These are not formal assessments, but an opportunity for the student to practice their problem solving skills and receive feedback from instructors. Students are expected to complete the first three iterations.
 
-Students can find examples of Independent Challenges [here](./independent_challenges)
+Students can find examples of Independent Challenges [here](./practice_assessments)
 
 ## Paired Assessments
 

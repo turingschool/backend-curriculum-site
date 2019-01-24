@@ -22,6 +22,7 @@ title: Module 1 Lessons
 * [Modules](./modules)
 * [Inheritance](./inheritance)
 * [Class Methods](class_methods)
+* [Ruby Object Model](./ruby_object_model)
 * [Enumerables Review](./enumerables_review)
 * [Memory Allocation](./memory_allocation)
 * [Understanding the Call Stack](./stacks_methods_flow_control)
@@ -31,7 +32,6 @@ title: Module 1 Lessons
 * [Design Principles](design_principles)
 * [Problem Solving](./problems_solutions_algorithms)
 * [Programming with Values](./programming_with_values)
-* [Ruby Object Model](./ruby_object_model)
 
 ### Testing
 * [How Testing Works](./how_testing_works)
