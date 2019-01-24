@@ -365,7 +365,7 @@ Update the runner file to call this method.
 
 ### Create a Book Class
 
-Create a book class. Make sure that your book class has at least 3 attributes and 2 methods.
+Create a book class. Make sure that your book class with `title`, `author`, and `genre` attributes.
 
 Once you've created your class, create a runner file that creates three separate instances of book and saves them to variables.
 
