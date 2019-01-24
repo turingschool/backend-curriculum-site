@@ -190,7 +190,7 @@ def kennedy_brothers
 end
 ```
 
-**FlashCard**
+**FlashCard**  
 Its time to create your next flashcard!  Using the same format that we used for \#each, create a flashcard for \#map - including syntax, return value, and use-cases.
 
 **Turn & Talk**  
@@ -248,7 +248,7 @@ def find_sisters
 end
 ```
 
-**FlashCard**
+**FlashCard**  
 Its time to create your next flashcard!  Using the same format that we used for \#map, create a flashcard for \#find - including syntax, return value, and use-cases.
 
 **Turn & Talk**  
@@ -290,7 +290,7 @@ def all_the_odds
 end
 ```
 
-**FlashCard**
+**FlashCard**  
 Its time to create your next flashcard!  Using the same format that we used for \#find, create a flashcard for \#find_all - including syntax, return value, and use-cases.
 
 **Turn & Talk**  
