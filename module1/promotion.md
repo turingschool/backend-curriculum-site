@@ -21,7 +21,7 @@ In week 6, students will complete two assessments:
 1. Paired Assessment
 1. Independent Assessment
 
-Students can reference the [Module 1 Syllabus](./syllabus) for more details on these assessments.
+Students can reference the [Module 1 Syllabus](./syllabus) for more details on these assessments. Students can reference the [Practice Assessments](./practice_assessments) page for example assessments.
 
 ## Professional Development
 
