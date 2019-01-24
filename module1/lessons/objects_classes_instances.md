@@ -116,7 +116,7 @@ When we run this file, our terminal should open up a pry session when it reads t
 
 ### Partner Practice
 
-With your pair, create an `objects_classes_and_instances` directory, then define a Person class in it and create instances of that class in your runner file.
+With your pair, create an `objects_classes_and_instances` directory, then touch a `person.rb` file and a `runner.rb` file. Define a Person class in it and create instances of that class in your runner file.
 
 ## Attributes in Ruby Classes
 
@@ -405,4 +405,4 @@ On your own, answer the questions below.
     * What are parameters? How do we add parameters to methods?
     * What is a return value? How do you know what the return value of a method is? Do all methods have return values?
 
-If you are struggling a bit to answer any of these, take some time after this lesson to google or talk with a classmate. If you feel absolutely lost in these, set up a time to pair with a Mod2 student/mentor/instructor. 
+If you are struggling a bit to answer any of these, take some time after this lesson to google or talk with a classmate. If you feel absolutely lost in these, set up a time to pair with a Mod2 student/mentor/instructor.
