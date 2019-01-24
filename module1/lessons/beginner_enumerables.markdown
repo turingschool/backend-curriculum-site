@@ -1,13 +1,13 @@
 ---
 title: Beginner Enumerables
 length: 120
-tags: enumerables, map, select, find, each
+tags: enumerables, map, find_all, find, each
 ---
 
 ## Learning Goals
 
-* Learn how to use & recreate the functionality of `.map`, `.select` and `.find` using `.each`
-* Understand when to use `.map`, `.select` and `.find` appropriately.
+* Learn how to use & recreate the functionality of `.map`, `.find_all` and `.find` using `.each`
+* Understand when to use `.map`, `.find_all` and `.find` appropriately.
 * Learn how to explore new enumerables using Ruby docs.
 
 
