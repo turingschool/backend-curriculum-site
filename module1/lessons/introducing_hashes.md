@@ -92,9 +92,13 @@ suitcase = {
 
 The `=>` is called a hash rocket.
 
+### Hashes vs. Arrays
+
+Let's take a few minutes to document the similarities and differences between arrays and hashes.
+
 ### Explore
 
-With your partner, explore the following challenges. One partner should be typing (make sure the other can see the screen) and the other should talk. This is a paired programming technique called driver/navigator.
+With your partner, explore the following challenges. One partner should be typing _in a file_ (make sure the other can see the screen) and the other should talk. This is a paired programming technique called driver/navigator.
 
 * Start with the hash: suitcase = { "socks" => 4, "jeans" => 1 }
 * Add 3 shirts to your suitcase
@@ -304,7 +308,7 @@ suitcase.values
 ## Pair Exercise
 
 * Person `A` is in charge of reading the instructions
-* Person `B` is in charge of working in pry (in such a way that their partner can see)
+* Person `B` is in charge of working in a file (in such a way that their partner can see)
 * You should be using symbols for the keys in this exercise
 
 ### Steps
