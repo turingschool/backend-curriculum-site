@@ -67,8 +67,8 @@ Instead of "Foods", you may want to call it "Pantry"... going down the recipes r
 For your Express back end:
 
 - You'll start the repository from scratch.
-- Create a Pivotal Tracker board and write stories for each of your endpoints.
-- Add your assigned Technical Lead to your Pivotal Tracker and your repository.
+- Create an agile board and write stories for each of your endpoints. Choose between Github Projects, Waffle, Trello, or Pivotal Tracker.
+- Add your assigned Technical Lead to your agile board and your repository.
 
 You will need to build the same foods and meals endpoints as you did in the Rails application (listed below). Based on the option you choose (calendar or recipes) you may need to modify the endpoints listed in project spec - do so as needed. You will definitely need to add some.
 
