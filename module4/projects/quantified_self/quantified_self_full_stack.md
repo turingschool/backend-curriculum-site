@@ -52,6 +52,8 @@ At a high level, users will be able to:
 * User should NEVER have to 'refresh' the page to get updated data, and user should NEVER have to type something into the URL bar once they are on your page.
 * While you are developing the front-end before you have your Express server deployed, feel free to use `https://fast-meadow-36413.herokuapp.com/` as your base URL for requests.
 
+### Required extension - Pick one option! 
+
 ### Option 1 - Calendar
 
 What's the point of this app if one can't look back in time and see what eating habits they have? If you select this option, you need to build out another page on the front-end that lists all dates the user has recorded meals, and what they ate for each meal.
