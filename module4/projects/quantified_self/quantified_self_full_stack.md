@@ -70,9 +70,9 @@ For your Express back end:
 - Create an agile board and write stories for each of your endpoints. Choose between Github Projects, Waffle, Trello, or Pivotal Tracker.
 - Add your assigned Technical Lead to your agile board and your repository.
 
-You will need to build the same foods and meals endpoints as you did in the Rails application (listed below). Based on the option you choose (calendar or recipes) you may need to modify the endpoints listed in project spec - do so as needed. You will definitely need to add some.
+You will need to build the following foods and meals endpoints for your application (listed below). Based on the option you choose (calendar or recipes) you may need to modify the endpoints listed in project spec - do so as needed. You will definitely need to add some.
 
-There may be different architectural decisions you make with your server because of this addition from the Rails app; take you time to plan this out thoughtfully.
+There may be different architectural decisions you make with your server because of this addition; take you time to plan this out thoughtfully.
 
 #### Food Endpoints:
 
