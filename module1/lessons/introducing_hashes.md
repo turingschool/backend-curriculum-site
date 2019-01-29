@@ -45,14 +45,15 @@ Some languages call their Hashes *dictionaries* for this reason -- you look up a
 	- If you try to add a new key/value pair using a key that already exists, that new key/value pair will overwrite the previous one - dangerous.
 - Keys and values can be any type of object:
 	```
-	example = {	"string_value": "this value is a string",
-					"array_value": ["this", "value", "is", "an", "array"],
-					3: "this values' key is an integer",
-					"boolean_value": true
-				}
+	example = {
+		"string_value" => "this value is a string",
+		"array_value" => ["this", "value", "is", "an", "array"],
+		3 => "this values' key is an integer",
+		"boolean_value" => true
+	}
 	```
 - Values can be accessed with bracket notation:
-	- given ``` shih_tzu = { "name"=> "Sodie" } ```
+	- given ``` shih_tzu = { "name" => "Sodie" } ```
 	- ``` shih_tzu["name"]``` _returns_```"Sodie" ```
 
 Let's say we are making a list of items to pack for a trip. Why is a hash a good choice for storing this information?
