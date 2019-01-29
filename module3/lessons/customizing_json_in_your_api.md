@@ -40,29 +40,29 @@ Let's imagine that you don't just want the raw guts of your model converted to J
 
 We're going to start where we left off in the internal API testing lesson. Feel free to use the repository that you created yesterday. Otherwise, you can clone the repo below as a starting place.
 
-`bash
+```bash
 git clone https://github.com/turingschool-examples/building_internal_apis.git
 bundle
 git checkout building_api_complete
-`
+```
 
 We want to work with objects that have related models, so let's add an `Order` model:
 
-`bash
+```bash
 rails g model order order_number
 rails g model order_item order:references item:references item_price:integer quantity:integer
 bundle exec rake db:migrate
-`
+```
 
 Add `gem 'faker'`:
 
-`bash
+```bash
 bundle
-`
+```
 
 Add relationships to your models:
 
-`ruby
+```ruby
 # in item.rb
 has_many :order_items
 has_many :orders, through: :order_items
@@ -70,11 +70,11 @@ has_many :orders, through: :order_items
 # in order.rb
 has_many :order_items
 has_many :items, through: :order_items
-`
+```
 
 And whip together a quick seed file:
 
-`ruby
+```ruby
 10.times do
   Item.create!(
     name: Faker::Commerce.product_name,
@@ -94,13 +94,13 @@ end
     quantity: rand(1..10)
   )
 end
-`
+```
 
 And seed
 
-`ruby
+```ruby
 bundle exec rake db:seed
-`
+```
 
 Create your controller:
 
@@ -123,31 +123,31 @@ So we have our responses from our server, but it isn’t JSON API 1.0 And it has
 
 Add this line to your Gemfile.
 
-`
+```
 gem 'fast_jsonapi'
-`
+```
 
 And then `bundle install`
 
 
 We can now use the built in generator in order to make ourselves a serialized.
 
-`rails g serializer Order id order_number`
+```rails g serializer Order id order_number```
 
 This will add the appropriate attributes from the  Order model.  And give us only the id and order number.
 
 Let’s check out what is in the Serializer.
 
-`ruby
+```ruby
 class OrderSerializer
   include FastJsonapi::ObjectSerializer
   attributes :id, :order_number
 end
-`
+```
 
 So now we have this serializer, and we need to modify our controller.
 
-`ruby
+```ruby
 class Api::V1::OrdersController < ApplicationController
   def index
     render json: OrderSerializer.new(Order.all)
@@ -157,7 +157,7 @@ class Api::V1::OrdersController < ApplicationController
     render json: OrderSerializer.new(Order.find(params[:id]))
   end
 end
-`
+```
 
 So what we are doing is instead of rendering the ActiveRecord stuff in json, we are sending it to the serializer, where the stuff gets serialized, and then that gets rendered as json.
 
@@ -165,14 +165,14 @@ But what if we wanted to show some awesome relationship action?
 
 Easy.
 
-`ruby
+```ruby
 class OrderSerializer
   include FastJsonapi::ObjectSerializer
   attributes :id, :order_number
 
   has_many :items
 end
-`
+```
 
 Add that to your serializer and refresh.
 
@@ -180,7 +180,7 @@ What if we wanted a custom attribute? We can do so using this format.
 
 Let’s say we wanted an attribute with the number of items
 
-`ruby
+```ruby
 class OrderSerializer
   include FastJsonapi::ObjectSerializer
   has_many :items
@@ -190,13 +190,13 @@ class OrderSerializer
     object.items.count
   end
 end
-`
+```
 
 This syntax is a bit different from what we are used to. We use `attribute` singular, and then as a symbol we pick the name of what we want our attribute to be. We use a do end block similar to an enumerable with a block parameter. Now the block parameter, `object` is a lot like self. We get to use it for each single thing of a collection we pass to the serializer. We are essentially saying for each thing you serialize, grab the items and count them too. In this manner we can add a custom generated value for each item.
 
 We can also have a custom static attribute like so:
 
-`ruby`
+```ruby
 class OrderSerializer
   include FastJsonapi::ObjectSerializer
   has_many :items
@@ -211,7 +211,7 @@ class OrderSerializer
   end
 end
 
-`
+```
 
 ## Lab
 

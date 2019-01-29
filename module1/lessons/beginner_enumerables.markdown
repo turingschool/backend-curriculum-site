@@ -1,13 +1,13 @@
 ---
 title: Beginner Enumerables
 length: 120
-tags: enumerables, map, select, find, each
+tags: enumerables, map, find_all, find, each
 ---
 
 ## Learning Goals
 
-* Learn how to use & recreate the functionality of `.map`, `.select` and `.find` using `.each`
-* Understand when to use `.map`, `.select` and `.find` appropriately.
+* Learn how to use & recreate the functionality of `.map`, `.find_all` and `.find` using `.each`
+* Understand when to use `.map`, `.find_all` and `.find` appropriately.
 * Learn how to explore new enumerables using Ruby docs.
 
 
@@ -190,7 +190,7 @@ def kennedy_brothers
 end
 ```
 
-**FlashCard**
+**FlashCard**  
 Its time to create your next flashcard!  Using the same format that we used for \#each, create a flashcard for \#map - including syntax, return value, and use-cases.
 
 **Turn & Talk**  
@@ -248,7 +248,7 @@ def find_sisters
 end
 ```
 
-**FlashCard**
+**FlashCard**  
 Its time to create your next flashcard!  Using the same format that we used for \#map, create a flashcard for \#find - including syntax, return value, and use-cases.
 
 **Turn & Talk**  
@@ -290,7 +290,7 @@ def all_the_odds
 end
 ```
 
-**FlashCard**
+**FlashCard**  
 Its time to create your next flashcard!  Using the same format that we used for \#find, create a flashcard for \#find_all - including syntax, return value, and use-cases.
 
 **Turn & Talk**  
@@ -313,8 +313,7 @@ Now that we have walked through 3 of the most common Enumerables as a class, its
 
 ## Final CFU
 
-* What do map, find, and select do? What do they return?
-* What do max, max_by, their opposites, and sort_by return?
+* What do map, find, and find_all do? What do they return?
 * What makes an enumerable preferable to each?
 * What does the `?` on the end of a method indicate?  
 

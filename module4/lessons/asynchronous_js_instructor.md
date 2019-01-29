@@ -132,8 +132,9 @@ Customer 8:
 function orderDoubleFrapWithExtraWhipAndTenCakePops() {
   console.log("Your double frap with extra whip and ten cake pops are ready!");  
 }
+
+orderDoubleFrapWithExtraWhipAndTenCakePops();
 ```
-`orderDoubleFrapWithExtraWhipAndTenCakePops();`
 
 
 ## Debrief Drive-Thru

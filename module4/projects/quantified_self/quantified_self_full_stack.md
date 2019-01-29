@@ -52,6 +52,8 @@ At a high level, users will be able to:
 * User should NEVER have to 'refresh' the page to get updated data, and user should NEVER have to type something into the URL bar once they are on your page.
 * While you are developing the front-end before you have your Express server deployed, feel free to use `https://fast-meadow-36413.herokuapp.com/` as your base URL for requests.
 
+### Required extension - Pick one option! 
+
 ### Option 1 - Calendar
 
 What's the point of this app if one can't look back in time and see what eating habits they have? If you select this option, you need to build out another page on the front-end that lists all dates the user has recorded meals, and what they ate for each meal.
@@ -65,12 +67,12 @@ Instead of "Foods", you may want to call it "Pantry"... going down the recipes r
 For your Express back end:
 
 - You'll start the repository from scratch.
-- Create a Pivotal Tracker board and write stories for each of your endpoints.
-- Add your assigned Technical Lead to your Pivotal Tracker and your repository.
+- Create an agile board and write stories for each of your endpoints. Choose between Github Projects, Waffle, Trello, or Pivotal Tracker.
+- Add your assigned Technical Lead to your agile board and your repository.
 
-You will need to build the same foods and meals endpoints as you did in the Rails application (listed below). Based on the option you choose (calendar or recipes) you may need to modify the endpoints listed in project spec - do so as needed. You will definitely need to add some.
+You will need to build the following foods and meals endpoints for your application (listed below). Based on the option you choose (calendar or recipes) you may need to modify the endpoints listed in project spec - do so as needed. You will definitely need to add some.
 
-There may be different architectural decisions you make with your server because of this addition from the Rails app; take you time to plan this out thoughtfully.
+There may be different architectural decisions you make with your server because of this addition; take you time to plan this out thoughtfully.
 
 #### Food Endpoints:
 
@@ -277,7 +279,6 @@ If successful, this request will return:
 - Tag instructors in PRs on Github wherever you'd like feedback.
 - Reach out for extra support if you feel like your team is falling behind.
 - If there's any question about functionality, ASK.
-- To submit, tag your instructor in a PR using [this template](https://gist.github.com/ameseee/c4f0b2e1bb3f41661a7de8574ba3992c).
 
 ## Rubric
 

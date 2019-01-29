@@ -30,7 +30,7 @@ Available [here](../slides/objects_classes_instances)
 
 ## Warm Up
 
-In your notebook brainstorm a **type** of object and **specific** instances of that object that are at Turing. Then brainstorm 3 different **attributes** for those objects and 3 different **behaviors** of those objects.
+In your notebook brainstorm a **type** of object and **specific** instances of that object. Then brainstorm 3 different **attributes** for those objects and 3 different **behaviors** of those objects.
 
 For example:
 
@@ -51,7 +51,7 @@ In programming, a **Class** is something that models:
 1. State
 2. Behavior
 
-State is what something *is*. Behavior is what something *does*. In the previous activity, our *Class* was refrigerator. We modeled the state of a refrigerator by defining the attributes "brand", "color", and "temperature". We modeled the behavior of a refrigerator by defining the methods "add food", "remove food", and "change temperature".
+State is what something *is*. Behavior is what something *does*. In the warm up, our *Class* was refrigerator. We modeled the state of a refrigerator by defining the attributes "brand", "color", and "temperature". We modeled the behavior of a refrigerator by defining the methods "add food", "remove food", and "change temperature".
 
 An **Instance** or **Object** is a concrete representation of a Class. In the previous activity, "staff refrigerator" is a specific Instance of the Fridge Class. We can also say that "staff refrigerator" is a Fridge Object. Do not get confused by the terms Instance and Object. They mean the exact same thing (for now).
 
@@ -113,10 +113,6 @@ When we run this file, our terminal should open up a pry session when it reads t
 
 - How are those two things the same?
 - How are they different?
-
-### Partner Practice
-
-With your pair, create an `objects_classes_and_instances` directory, then define a Person class in it and create instances of that class in your runner file.
 
 ## Attributes in Ruby Classes
 
@@ -213,7 +209,9 @@ end
 
 ### Partner Practice
 
-With your pair, give your Person class some attributes that are set using arguments to initialize and some attributes that have default values. Make some instances of your Person class, and run you runner file.
+With your pair, create an `objects_classes_and_instances` directory, then touch a `person.rb` file and a `runner.rb` file. Define a Person class in it and create instances of that class in your runner file.
+
+Now, give your Person class some attributes that are set using arguments to initialize and some attributes that have default values. Make some instances of your Person class, and run you runner file.
 
 ## Accessing Attributes
 
@@ -367,7 +365,7 @@ Update the runner file to call this method.
 
 ### Create a Book Class
 
-Create a book class. Make sure that your book class has at least 3 attributes and 2 methods.
+Create a book class. Make sure that your book class with `title`, `author`, and `genre` attributes.
 
 Once you've created your class, create a runner file that creates three separate instances of book and saves them to variables.
 
@@ -390,7 +388,7 @@ Update your runner file to create a new library, add some books to the library, 
 
 ### Check for Understanding
 
-With your partner, answer the questions below.
+On your own, answer the questions below.
 
 * Classes, instances, objects
     * What is a Class?
@@ -404,3 +402,5 @@ With your partner, answer the questions below.
     * What is a method? How do we write methods?
     * What are parameters? How do we add parameters to methods?
     * What is a return value? How do you know what the return value of a method is? Do all methods have return values?
+
+If you are struggling a bit to answer any of these, take some time after this lesson to google or talk with a classmate. If you feel absolutely lost in these, set up a time to pair with a Mod2 student/mentor/instructor.

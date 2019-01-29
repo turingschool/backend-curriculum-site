@@ -226,6 +226,8 @@ converter = Converter.new
 converter.convert_to_celsius(32)
 ```
 
+You can think of an argument as a variable that is created right at the start of the method.
+
 ## Defining Return Values
 
 We want this method to output, or **Return** the Celsius temperature. How does Ruby know what value to return?
@@ -514,7 +516,7 @@ converter.convert(12, 45, 65)
 
 A note on order: The order of your _methods_ does not matter.  Ruby will **parse** each method in the class and then when a method is **called** Ruby will **execute** the parsed methods accordingly.
 
-## WrapUp
+## Checks for Understanding
 
 * What is a method? An argument? A return value?
 * What keywords do we use to create methods?
