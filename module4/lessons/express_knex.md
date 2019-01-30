@@ -32,7 +32,9 @@ CREATE DATABASE publications;
 
 If you are running into errors by running the above, see if this [website](https://www.revsys.com/writings/postgresql/errors.html) can help.
 
-Create a new directory and cd into it, then initialize NPM. Install knex globally and in your project, express globally and in your project, and pg (postgres) in your project from npm:
+Create a new directory and cd into it, then initialize NPM. Now let's install some packages:
+We are installing knex and experss globally `-g` and in our project `--save`.
+The other packages we are going to include will just in our project `--save`.
 
 ```
 npm init --yes
@@ -41,6 +43,7 @@ npm install knex --save
 npm install express -g
 npm install express --save
 npm install pg --save
+npm install body-parser --save
 ```
 
 We will use a knexfile to configure our database for all of our environments. Create that file using the below command with some default values:
