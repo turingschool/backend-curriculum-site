@@ -18,8 +18,8 @@ The following items are evaluated and assessed by instructors as part of conside
 * [Book Club](https://github.com/turingschool-projects/BookClub), paired project, week 2 and 3
 * [Little Shop](https://github.com/turingschool-projects/little_shop_v2), group project, week 4 and 5
 * [Little Shop Extensions](https://github.com/turingschool-projects/little_shop_v2/blob/master/extensions.md), solo project, week 6
-* [Write a technical blog post](success/#blog-post), due by week 6
-* [ActiveRecord Obstacle Course](misc/active_record_obstacle_course), due by week 6
+* [Write a technical blog post](./#blog-post), due by week 6
+* [ActiveRecord Obstacle Course](../misc/active_record_obstacle_course), due by week 6
 * Mid-Mod Evaluation
 * Final Coding Assessment
 * Final Technical Communication Assessment
