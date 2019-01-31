@@ -96,7 +96,7 @@ When you test your application, especially when you have some sort of user inter
 
 Given the following interaction pattern, what tests would I write?
 
-```
+```ruby
 > car = Car.new("Toyota", "Camry")
 => #<Node:0x007fa2e9acd738>
 car.make
@@ -142,7 +142,7 @@ end
 
 See if you can write a test suite for the interaction pattern below.
 
-```
+```ruby
 car = Car.new("Toyota", "Camry")
 car.color
 #=> "white"
@@ -161,7 +161,7 @@ Share out with the class!
 
 The interaction patterns you've seen up to this point have been intended to offer you snippets of code that you could run in pry if you wanted. You'll need to remember to require the class that you're using, but after that each of the lines should run pretty much as described. Go ahead and try it! Open up a pry session and run the following lines. See if they return what you would expect.
 
-```
+```ruby
 require './lib/car'
 #=> true
 car = Car.new("Toyota", "Camry")
@@ -176,7 +176,16 @@ car.odometer.class
 #=> Integer
 ```
 
-Note that there are some lines where we don't provide a return value. Pry will always show you what the return value of a method is. If we haven't included a return value, it means that we are not concerned with what the method returns. That's a pretty good indicator that it's a `command` method, designed to change some aspect of a class's state.
+Note that there are some lines where we don't provide a return value. Pry will always show you what the return value of a method is. If we haven't included a return value, it means that we are not concerned with what the method returns. That's a pretty good indicator that it's a `command` method, designed to change some aspect of a class's state. Here's an example:
+
+```ruby
+car.drive(10)
+
+car.drive(7)
+
+car.odometer
+# => 17
+```
 
 ### With a Partner
 
