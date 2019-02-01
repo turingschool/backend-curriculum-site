@@ -7,7 +7,7 @@ tags: node, express, knex, database, SQL, http
 
 By the end of this lesson, you will:
 
-*   Understand how to make code organization decisions in an unopinionated framework.
+*   Understand how to make code organization decisions in an un-opinionated framework.
 
 ## Slides
 
@@ -17,7 +17,7 @@ Available [here](../slides/organizing_an_express_app)
 
 We're going to start from the end of the [Building an Express App](http://backend.turing.io/module4/lessons/express_knex)
 
-If you need it, you can clone [this](https://github.com/turingschool-examples/library) repo, which has a branch `01_build_express_app_complete` that represents the code that we expect to have been completed at the end of that lesson.
+If you need it, you can clone [this](https://github.com/turingschool-examples/publications) repo, which has a branch `01_build_express_app_complete` that represents the code that we expect to have been completed at the end of that lesson.
 
 ## Warmup
 
