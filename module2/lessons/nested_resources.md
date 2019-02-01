@@ -49,8 +49,8 @@ end
 
 ```ruby
 # config/routes.rb
-resources :artists, shallow: true do
-  resources :songs
+resources :artists
+  resources :songs, shallow: true do
 end
 ```
 
@@ -206,8 +206,8 @@ Creating a New Song via localhost
 
 ```ruby
 # config/routes.rb
-resources :artists, shallow: true do
-  resources :songs
+resources :artists
+  resources :songs, shallow: true do
 end
 
 resources :songs, only: [:index]
