@@ -494,6 +494,7 @@ Notice that unlike local variables and methods, when an instance variable is out
 
 ## Turn & Talk
 
+* What is scope?
 * For each of the following types of scope, what are the Ruby keywords that begin and end the scope?
   * Method Scope
   * Block Scope
