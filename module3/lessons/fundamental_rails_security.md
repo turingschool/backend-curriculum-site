@@ -43,7 +43,7 @@ Get into groups of three and assign each person a number.
 Each person will complete the task below on their topic.
 
 * Draft a high level definition of the security exploit.
-* Provide an example of how we might exposer ourselves to this exploit in a Rails application.
+* Provide an example of how we might expose ourselves to this exploit in a Rails application.
 * Provide an example of steps we might take to prevent this exploit.
 
 Share with your group, then we will share with the class.
