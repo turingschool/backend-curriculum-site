@@ -33,13 +33,11 @@ Let's do some refactoring. Right now, `/index.js` is hard to read and its method
 
 Think of the last Rails app you've built. You probably spent a very small amount of time making structural and design decisions (think routes, controllers, models). Just because the framework we're currently using doesn't prepackage our structure, doesn't mean we shouldn't implement something that's still quite helpful. Therefore, we'll be aiming to add some lightweight MVC structure to our Express apps.
 
-> Note: The models and controllers we initially create will not be structured by classes, but we will eventually refactor them to be so. In the meantime, something like our `models/secret.js` file itself will be required in as a pseudo model and used as such.
-
 ## Models
 
 ### Discuss: Where Can We Refactor?
 
-Take 3 minutes to answer the following questions with a partner assuming you were going to create a new file to act as a model in your application:
+Take 3 minutes to answer the following questions with a partner assuming you were going to create a new file to act as a Paper Model in your application:
 
 * What will this file be called?
 * Where will you put it?
@@ -91,10 +89,6 @@ app.get('/api/v1/papers', (request, response) => {
 })
 ```
 
-### Your Turn
-
-- Can you extract the rest of the Knex calls from your `index.js` file?
-
 ## Controllers
 
 Our `index.js` is still a little bulky. Something I've noticed is that each block of code in this file is mostly comprised of a function to handle the request.
@@ -109,7 +103,7 @@ Take 3 minutes and discuss with a partner:
 
 ### Your Turn
 
-Given that the second parameter of your `.get()` and `.post()` methods are just functions, try to extract them to a module in `lib/controllers` and reference them from `routes/api/secrets.js`
+Given that the second parameter of your `.get()` and `.post()` methods are just functions, try to extract them to a module in `lib/controllers`.
 
 For example:
 
@@ -137,29 +131,35 @@ module.exports = {
 As our application accrues more routes, it might also be nice to move our routes out to separate files. Express will let us do that using Express Router. Create a new file to hold the code below:
 
 ```
-# lib/routes/api/v1/footnotes.js
+# lib/routes/api/v1/papers.js
 
 const express = require('express');
 const router  = express.Router();
-const footnotesController = require('../../../controllers/footnotes_controller')
+const papersController = require('../../../controllers/papers_controller')
 
-router.get('/', footnotesController.index);
+router.get('/', papersController.index);
 
 module.exports = router
 ```
 
-And update `index.js` by taking out the footnotesController and the get route for footnotes. Replace with the following:
+And update `index.js` by taking out the papersController and the get route for papers. Replace with the following:
 
 ```
 # index.js
-const footnotes = require('./lib/routes/api/v1/footnotes')
+const papers = require('./lib/routes/api/v1/papers')
 
-app.use('/api/v1/footnotes', footnotes)
+app.use('/api/v1/papers', papers)
 ```
+
+### Check Your Refactor
+
+Start our application by spinning up our server `node index.js` & visit `localhost:3000/api/v1/papers` in Postman.
+You should see all the papers in you database.
 
 ### Your Turn
 
-Refactor to pull the routes that you have for papers out to a separate file as well or put all of your routes in a separate file.
+Refactor to pull the remaining routes into the necessary files following the same pattern as above.
+Check to see if your routes are still working after you refactor by using Postman.
 
 ## Going Further
 
