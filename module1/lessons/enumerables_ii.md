@@ -16,22 +16,110 @@ Available [here](../slides/intermediate_enumerables)
 
 ## Vocabulary
 * Enumerable
-* Iterate
+* Iterate/Iteration
 * Return Value
 * Block
-* max, max_by, min, min_by, sort_by
 
 ## Warm Up
 
-Given the array `kardashians = ["Khloe", "Kim", "Kris", "Kourtney"]`
+Given the array `kardashians = ["Khloe", "Kim", "Kris", "Kourtney"]`, use `find`, `find_all`, or `map` to:
 
-* Find all the Kardashians with 3 or more letters
-* Find `"Kris"`
-* Create a new array with all the names upcased
+1. Find all the Kardashians with 3 or more letters
+1. Find `"Kris"`
+1. Create a new array with all the names upcased
 
-# Lesson
+## Exploration: Block Return Values
 
-We've got a handle on the beginner enumerables, and you've probably discovered some more on your own. In class so far, we've learned how to create a new collection, and how to search in the selection returning us either a single item or multiple items.
+How do the enumerables we know so far work under the hood? Work through this section with a partner to explore this question. Before you run each code snippet, try to predict the output.
+
+#### map
+
+Run each of the following examples and think about how map works.
+
+```ruby
+numbers = [1, 2, 3, 4]
+doubled = numbers.map do |number|
+  number * 2
+end
+p doubled
+```
+
+```ruby
+numbers = [1, 2, 3, 4]
+doubled = numbers.map do |number|
+  number * 2
+  0
+end
+p doubled
+```
+
+```ruby
+numbers = [1, 2, 3, 4]
+doubled = numbers.map do |number|
+  0
+  number * 2
+end
+p doubled
+```
+
+#### find_all
+
+Run each of the following examples and think about how find_all works.
+
+```ruby
+numbers = [1, 2, 3, 4]
+evens = numbers.find_all do |number|
+  number.even?
+end
+p evens
+```
+
+```ruby
+numbers = [1, 2, 3, 4]
+evens = numbers.find_all do |number|
+  number.even?
+  true
+end
+p evens
+```
+
+```ruby
+numbers = [1, 2, 3, 4]
+evens = numbers.find_all do |number|
+  true
+  number.even?
+end
+p evens
+```
+
+```ruby
+numbers = [1, 2, 3, 4]
+evens = numbers.find_all do |number|
+  false
+end
+p evens
+```
+
+```ruby
+numbers = [1, 2, 3, 4]
+evens = numbers.find_all do |number|
+  1 + 1
+  number.even?
+  "This is a string"
+  ["This", "is", "an", "array"]
+  true
+end
+p evens
+```
+
+#### Check for Understanding
+
+Discuss the following questions with a partner and answer in your notebooks:
+
+1. How does `map` know what value to map to?
+1. How does `find_all` know which elements will be returned?
+1. How do you think `find` knows which element to return?
+1. Read the descriptions for `map`, `find`, and `find_all` in the [Ruby Docs Enumerables Page](https://ruby-doc.org/core-2.4.0/Enumerable.html). How are these descriptions similar/different to your answers to the first 3 questions?
 
 ## min / max
 
@@ -212,6 +300,65 @@ So let's simplify the problem.
 
 To find the youngest person, I would use the `min_by` method.
 
+## sort
+
+We've worked on grabbing the largest thing or smallest thing out of a collection, and that's great. But the next logical step is to sort them.
+
+Essentially, it works very similarly to the enumerable methods that we've been talking about so far. The main difference is that instead of returning a single object, it returns an array of sorted objects, sorted by the criteria that you select IN ASCENDING ORDER.
+
+Just like with `max`, ruby Arrays have a method `sort` that will sort based on the default comparison. For Integers, this is simply sorting based on value:
+
+```ruby
+[2,4,3,1].sort
+=> [1,2,3,4]
+```
+
+For Strings, it will sort alphabetically:
+
+```ruby
+["Brian", "Mike", "Amy"].sort
+=> ["Amy", "Brian", "Mike"]
+```
+
+## sort_by
+
+Just like with `max` and `min`, sometimes the default comparison isn't good enough, and we want to override how ruby will compare our objects. For instance, if we want to sort Strings based on their length:
+
+```ruby
+names = ["Khloe", "Kim", "Kris", "Kourtney"]
+sorted = names.sort_by do |name|
+  name.length
+end
+```
+
+## all?
+
+And now, for something completely different.
+
+We're going to look at one of the enumerables that returns a simple true or false. This is  indicated by the method ending with a `?`.
+
+Let's look at the name of this enumerable, `all?`. Under the hood, it's an enumerable with a conditional in the block. If **every** item in a collection returns `true` when going through the block, the entire method returns `true`. Otherwise, it will return `false`.
+
+Example:
+
+```ruby
+[1,1,1,1].all? do |num|
+  num == 1
+end
+```
+
+This returns `true`.
+
+```ruby
+["dog","cat","pig","hippopotamus"].all? do |word|
+  word.length == 3
+end
+```
+
+This would return false.
+
+Given what you just learned about `all?` - can make an educated guess about what `any?`, `none?`, and `one?` do/return?
+
 #### Now you try:
 
 ```ruby
@@ -235,100 +382,13 @@ kardashians << Person.new("Khloe", 33)
 
 Write code to:
 
-* Get the youngest member
-* Get the person with the shortest name
+1. Get the youngest member
+1. Get the person with the shortest name
+1. Sort them by age
+1. Check if all their names start with a `k`
+1. Check if any of them are younger than 18
+1. Sort them by the last letter of their name, descending (Should be "Kourtney", "Kris", "Kim", "Khloe") 
 
-## Sort
-
-We've worked on grabbing the largest thing or smallest thing out of a
-collection, and that's great. But the next logical step is to sort them.
-
-Essentially, it works very similarly to the enumerable methods that we've
-been talking about so far. The main difference is that instead of
-returning a single object, it returns an array of sorted objects, sorted
-by the criteria that you select IN ASCENDING ORDER.
-
-Just like with `max`, ruby Arrays have a method `sort` that will sort based on the default comparison. For Integers, this is simply sorting based on value:
-
-```ruby
-[2,4,3,1].sort
-=> [1,2,3,4]
-```
-
-For Strings, it will sort alphabetically:
-
-```Ruby
-["Brian", "Mike", "Amy"].sort
-=> ["Amy", "Brian", "Mike"]
-```
-
-## sort_by
-
-Just like with `max` and `min`, sometimes the default comparison isn't good enough, and we want to override how ruby will compare our objects. For instance, if we want to sort Strings based on their length:
-
-```ruby
-names = ["Khloe", "Kim", "Kris", "Kourtney"]
-sorted = names.sort_by do |name|
-  name.length
-end
-```
-
-That's a simple array, we can take it to the next level by using
-our previous example.
-
-```ruby
-class Person
-  attr_reader :name,
-              :age
-
-  def initialize(name, age)
-    @name = name
-    @age  = age
-  end
-end
-
-kardashians = []
-
-kardashians << Person.new("Kourtney", 39)
-kardashians << Person.new("Kim", 37)
-kardashians << Person.new("Kris", 62)
-kardashians << Person.new("Khloe", 33)
-```
-
-Using this, how do you think we can sort by their names alphabetically?
-Do this on paper. Check your work with your BFF.
-
-Extension: How could you create a list of names going in the opposite order?
-
-**CFU:** What is the return value of `sort_by`?
-
-## all?
-
-And now, for something completely different.
-
-We're going to look at one of the enumerables that returns a simple true or false. This is  indicated by the method ending with a '?'.
-
-Let's look at the name of this enumerable, `all?`. Under the hood, it's an enumerable with a conditional in the block. If **every** item in a collection returns `true` when going through the block, the entire method returns `true`. Otherwise, it will return `false`.
-
-Example:
-
-```ruby
-[1,1,1,1].all? do |num|
-  num == 1
-end
-```
-
-This returns `true`.
-
-```ruby
-["dog","cat","pig","hippopotamus"].all? do |word|
-  word.length == 3
-end
-```
-
-This would return false.
-
-Given what you just learned about `all?` - can make an educated guess about what `any?`, `none?`, and `one?` do/return?
 
 ## Wrap Up
 
