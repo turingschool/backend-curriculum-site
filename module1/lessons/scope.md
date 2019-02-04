@@ -26,7 +26,7 @@ tags: methods, scopes, arguments, ruby
 
 Have you ever written code in one place, but have had trouble accessing it? What are some ways to solve those problems?
 
-# Into
+# Intro
 
 **Scope** is what you have access to and where you have access to it.
 
@@ -494,6 +494,7 @@ Notice that unlike local variables and methods, when an instance variable is out
 
 ## Turn & Talk
 
+* What is scope?
 * For each of the following types of scope, what are the Ruby keywords that begin and end the scope?
   * Method Scope
   * Block Scope

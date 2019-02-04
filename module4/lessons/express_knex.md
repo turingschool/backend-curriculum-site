@@ -30,13 +30,20 @@ $ psql
 CREATE DATABASE publications;
 ```
 
-Create a new directory and cd into it, then initialize NPM. Install knex globally and in your project, and pg (postgres) in your project from npm:
+If you are running into errors by running the above, see if this [website](https://www.revsys.com/writings/postgresql/errors.html) can help.
+
+Create a new directory and cd into it, then initialize NPM. Now let's install some packages:
+We are installing knex and experss globally `-g` and in our project `--save`.
+The other packages we are going to include will just in our project `--save`.
 
 ```
 npm init --yes
 npm install knex -g
 npm install knex --save
+npm install express -g
+npm install express --save
 npm install pg --save
+npm install body-parser --save
 ```
 
 We will use a knexfile to configure our database for all of our environments. Create that file using the below command with some default values:
@@ -179,7 +186,7 @@ exports.down = function(knex, Promise) {
     knex.schema.dropTable('papers')
   ]);
 }
-  ```
+```
 
 But, why is `Promise` passed in as a second argument? Knex is expecting that these methods return a promise of some sort. All Knex methods return a promise, so we fulfilled our end of the bargin in the example above. `Promise.all` allows you to do multiple things and return one promise. Knex passes us a reference to `Promise`, because it's not natively supported in some previous versions of Node. We're not using it at this moment, but we will in a second.
 

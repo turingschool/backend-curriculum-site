@@ -22,7 +22,7 @@ What about the response should we test?
 * What should be contained in the body?
   - If it's an array, how many elements should be in the array?
   - If it's an object, what properties and values should the object have?
-  
+
 ### Packages we will use to test
 
 We will use the following packages to write and run our tests:
@@ -35,7 +35,7 @@ We will use the following packages to write and run our tests:
 npm install -D mocha chai chai-http
 ```
 
-In publications, create a directory called tests and inside of it, touch a file call `routes.spec.js`. At the top of the `routes.spec.js` file, add:
+Use your publications app or you can clone down this [one](https://github.com/turingschool-examples/publications). Then, create a directory called tests and inside of it, touch a file called `routes.spec.js`. At the top of the `routes.spec.js` file, add:
 
 ```js
 const chai = require('chai');
@@ -54,7 +54,7 @@ describe('API Routes', () => {
 });
 ```
 
-Run the test suite with the command `mocha` (you'll have to have omcha installed globally to run this command in ther terminal). The test should output something like:
+Run the test suite with the command `mocha` (you'll have to have mocha installed globally to run this command in the terminal). The test should output something like:
 
 ```shell
 0 passing (3ms)
@@ -161,7 +161,7 @@ Let’s write these methods within the describe('API Routes', ... block.
   });
 ```
 
-Don't forget to bring in your environment, configuration, and database variables into this file, just like you did in `server.js`. 
+Don't forget to bring in your environment, configuration, and database variables into this file, just like you did in `server.js`.
 
 ## Test an API Call (GET Request)
 
@@ -286,6 +286,6 @@ There are many more possibilities for route sad paths. Some could be:
 ## In true TDD style...
 Add tests for these requests, and then implement the routes:
 
-- GET request to retieve the footnotes of a specified paper - api/v1/papers/:id/footnotes
+- GET request to retrieve the footnotes of a specified paper - api/v1/papers/:id/footnotes
 - PUT request to change the title of a paper
 - DELETE request to destroy a paper

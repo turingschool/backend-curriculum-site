@@ -9,29 +9,9 @@ tags: rails, pivot, security
 
 * Understanding the importance of security in software development
 * Learning how to avoid common security exploits
-  * Privilege escalation
-  * Mass Assignment
-  * Cross-site Scripting
-
-## Slides
-
-Available [here](../slides/fundamental_rails_security)
-
-## Structure
-
-* 25 - Lecture: Introduction to Security
-* 5 - Break
-* 15 - Lecture: Privilege Escalation
-* 15 - Lecture: Mass Assignment
-* 5 - Break
-* 35 - Code Time & Workshop: Mass Assignment
-* 5 - Break
-* 10 - Lecture: Cross-site Scripting
-* 35 - Code Time & Workshop: Cross-site Scripting
-* 5 - Break
-* 5 - Questions & Recap
-* 5 - Install Brakeman
-* 15 - Auditing Projects
+    * Privilege escalation
+    * Mass Assignment
+    * Cross-site Scripting
 
 ## Setup Prior to Class
 
@@ -40,54 +20,75 @@ Available [here](../slides/fundamental_rails_security)
 
 `$ git clone https://github.com/turingschool-examples/store_engine.git fundamental_security`
 
-## Procedure
+## Slides
 
-1. Mass Assignment
-  1. Create an account
-  2. Create some orders
-  3. Look at the update method in the orders_controller
-  4. Look at the routes
-  5. Change the total cost of an order
-  6. Delete an order
-  7. Workshop 1
-2. Cross-site Scripting
-  1. Open app/views/products/\_sm_product.html.erb.
-  2. Change line 4 from <%= p.name %> to <%= p.name.html_safe %>
-  3. Run the server and navigate to http://localhost:3000/categories/2
-  4. Visit the admin page at /admin
-  5. In the "Product Management" section, go to the "Grub" tab and find "Rations"
-  6. Edit the name to be Rations&lt;script&rt;alert("BOOM!")&lt;/script&rt;
-  7. Visit/refresh http://localhost:3000/categories/1 and you should see a JavaScript alert box saying "BOOM!"
-  8. Workshop 2
-3. Install Brakeman
+Available [here](../slides/fundamental_rails_security)
 
-## Workshops
+## Structure
 
-### Workshop 1
+* Warmup
+* Share
+* Exploit an Existing Application
+* Share
+* Review Prevention Tools
 
-1. Create two users.
-2. Create various orders with one user.
-3. Can you change an order to a different user?
-4. Can you change the status of an order?
-5. Can you destroy an order?
+## Warmup
 
-### Workshop 2.1
+Get into groups of three and assign each person a number.
 
-1. Change a product or user description in the view to accept html_safe or raw.
-2. Modify an article’s name or description and inject some JavaScript.
-3. Can you make the page alert some text when it loads?
-4. Can you print some output to the console when the page loads?
-  1. Can you make the body fade out?
-  2. Can you make item titles bigger and change their color?
-  3. Can you make buttons blink?
+* Person 1 will research Privilege Escalation.
+* Person 2 will research Mass Assignment.
+* Person 3 will research Cross Site Scripting.
+
+Each person will complete the task below on their topic.
+
+* Draft a high level definition of the security exploit.
+* Provide an example of how we might expose ourselves to this exploit in a Rails application.
+* Provide an example of steps we might take to prevent this exploit.
+
+Share with your group, then we will share with the class.
+
+## Attempting an Exploit
+
+In your group, using only tools available to a visitor to your page, see if you can do the following:
+
+* Mass Assignment
+    * Create an account and some orders associated with that account in the browser.
+    * Using Postman or cURL:
+        * change the total for that order to $0.
+        * change the status of an order.
+        * delete an order
+* Mass Assignment/Privilege Escalation
+    * See if you can find a way to access admin functionality.
+    * *Tip:* where might you be able to set a users role?
+* Cross-Site Scripting
+    * Adjust the application so that users can use HTML in their comments (e.g. bold certain words, include links, etc.).
+    * Create a comment that shows a pop-up message each time users visit a page with that comment on it.
+    * *Tip:* `<script>` tags will allow you to embed JavaScript directly into a page. Look into the JavaScript `alert` function.
+    * Try to see if you can make other adjustments to the site (e.g. make the body fade out, make item titles bigger/change their color, make buttons blink)
+
+## Prevention
+
+One tool that you can use to help identify vulnerabilities is [Brakeman](https://github.com/presidentbeef/brakeman). Install that now:
+
+```
+gem install brakeman
+```
+
+This will allow us to run the command `brakeman` from our command line. This should give us a list of potential security vulnerabilities.
+
+One note: Brakeman is a static analysis tool. At a high level, this means that Brakeman will look at our code and report on what it finds. It *will not* monitor traffic to our site or notify us of suspicious activity.
+
+## Things to Remember
+
+* Be suspicious of any class method in a controller.
+* Scope all queries to a trusted object, like the current user.
+* Be careful with your order of operations, don’t change any data until you've found a specified record.
 
 ## Supporting Materials
 
-* [Tutorial](http://tutorials.jumpstartlab.com/topics/fundamental_security.html)
+* [Tutorial](http://tutorials.jumpstartlab.com/topics/architecture/fundamental_security.html)
 * [Notes](https://drive.google.com/open?id=0B4C6lfVKu-E7V2F1SzRlQl8wRUk)
 * [Slides](https://drive.google.com/open?id=0B4C6lfVKu-E7UGxzdHYyNFBFTVU)
 * [Video 1502](https://vimeo.com/129022094)
 
-## Corrections & Improvements for Next Time
-
-* None

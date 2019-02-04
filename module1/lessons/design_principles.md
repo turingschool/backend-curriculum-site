@@ -26,7 +26,7 @@ For each of the following topics, work with your topic group to research the fol
 ## Part 2: Solidify & Communicate (15 mins)
 
 Each group should make a Chart Paper summarizing the assigned principle and why it is important.
-Example, analogies, and diagrams are encouraged!
+Examples, analogies, and diagrams are encouraged!
 
 ## Part 3: Share (20 mins)
 
