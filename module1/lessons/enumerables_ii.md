@@ -375,7 +375,7 @@ end
 kardashians = []
 
 kardashians << Person.new("Kourtney", 39)
-kardashians << Person.new("Kim", 37)
+kardashians << Person.new("kim", 37)
 kardashians << Person.new("Kris", 62)
 kardashians << Person.new("Khloe", 33)
 ```
@@ -383,12 +383,12 @@ kardashians << Person.new("Khloe", 33)
 Write code to:
 
 1. Get the youngest member
-1. Get the person with the shortest name
+1. Get the person with the longest name
 1. Sort them by age
-1. Check if all their names start with a `k`
+1. Check if all their names start with a `k` (case insensitive)
 1. Check if any of them are younger than 18
-1. Sort them by the last letter of their name, descending (Should be "Kourtney", "Kris", "Kim", "Khloe") 
-
+1. Sort them by the last letter of their name, descending (Should be "Kourtney", "Kris", "Kim", "Khloe")
+1. Check if exactly one Person is neither "Kris" nor younger than 38 (Should be true)
 
 ## Wrap Up
 
