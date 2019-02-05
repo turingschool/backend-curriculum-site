@@ -318,6 +318,6 @@ Now that we have walked through 3 of the most common Enumerables as a class, its
 * What does the `?` on the end of a method indicate?  
 
 
-### Additional Practice
+## Exercises
 
-[Enums-Exercises](https://github.com/turingschool/enums-exercises).
+The [Enums-Exercises](https://github.com/turingschool/enums-exercises) are a great resource to get familiarized with enumerables. Read the README to get a handle on how the exercises work, then complete the `map`, `select`, and `find` exercises.  
