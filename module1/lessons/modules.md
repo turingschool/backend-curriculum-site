@@ -225,10 +225,12 @@ class Jeep
 end
 ```
 
-Together with a partner create an `Engine` module to extract the `start` and `stop` methods.
+* Create an `Engine` module to extract the `start` and `stop` methods.
+* Take the code from the discussion and implement a `AirConditioning` module that is mixed into both classes.
+* Instances of either class should be able to turn the AC on (`Chilly air coming your way!`) or off (`Temp is fine in here.`).
 
-Take the code from the discussion and implement a `AirConditioning` module that is mixed into both classes.
-Instances of either class should be able to turn the AC on (`Chilly air coming your way!`) or off (`Temp is fine in here.`).
+BONUS: 
+* Now that stop and start are extracted to the module, add back in a start or stop method in one of your class. Have it return the string "WAIIIIIIIT". What happens when you run this method? Why?
 
 ## Summary
 * What is a module? How is it different than a class? 
