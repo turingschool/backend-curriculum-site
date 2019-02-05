@@ -7,7 +7,7 @@ title: Module 1 Lessons
 
 * [Pre-Work Code Share](./code_share)
 * [Ruby Data Types](./datatypes)
-* [Flow Contol](./flow_control)
+* [Flow Control](./flow_control)
 * [#each](./each)
 * [Methods, Arguments, Return Values](./methods_and_return_values)
 * [Objects, Instances and Classes](./objects_classes_instances)
