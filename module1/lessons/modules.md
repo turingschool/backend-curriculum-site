@@ -6,9 +6,8 @@ tags: ruby, mixins
 ---
 
 ## Learning Goals
-
-* understand that modules fill various roles in Ruby.
-* use a module to create a mixin to be DRY (Don't Repeat Yourself)
+* understand the role the Modules play in Ruby
+* use a module to create a mixin to make our code DRYer (Don't Repeat Yourself)
 
 ## Vocabulary  
 * Module
