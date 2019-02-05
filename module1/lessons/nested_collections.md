@@ -90,8 +90,18 @@ pizza_toppings = {veggies: ["green peppers", "jalapeño", "mushrooms"],
 * How can I access the element `"pineapple"`
 * How can I add the element `"olives"` to they key `"veggies"`
 
+## Practice
 
-### Pair Practice with Hashes and Nesting
+Break into small groups based on how far you've worked on the "collections" exercises from the [ruby-exercises](https://github.com/turingschool/ruby-exercises):
+
+1. Finished all exercises
+1. Finished "nested_collections"
+1. Finished "arrays" and "hashes"
+1. Working on "arrays" and "hashes"
+
+Find a partner in your group and work on the exercises.
+
+## More Practice
 
 ### 1: State Capitals
 
@@ -154,4 +164,4 @@ e.g. `{24 => ['Juan', 'Steve', 'Jill']...}`
 
 ## Homework
 
-* Complete the `data-types/collections/nested_collections_test.rb` in [ruby-exercises](https://github.com/turingschool/ruby-exercises)
+* Complete the `data-types/collections` exercises in [ruby-exercises](https://github.com/turingschool/ruby-exercises)
