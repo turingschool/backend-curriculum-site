@@ -25,7 +25,7 @@ Available [here](../slides/mixins)
 
 Spend the first five minutes writing answers to the following questions:
 
-* What do you know about modules already? If little, what would you guess modules are all about?
+* What do you know about modules already? If little, what would you guess modules are all about based on the name?
 * Football players and soccer players both have unique attributes. What behaviors might they share?
 
 ## Introduction
@@ -39,7 +39,7 @@ We're going to learn about Modules, a simple tool that will does a few completel
 
 ### Modules 
 
-* Modules are like classes except you can't instantiate them
+* Modules may look like classes, but they only hold methods
 * Modules only store behavior
 * Modules *do not* store state
 
