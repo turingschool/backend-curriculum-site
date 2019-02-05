@@ -26,7 +26,7 @@ Available [here](../slides/mixins)
 Spend the first five minutes writing answers to the following questions:
 
 * What do you know about modules already? If little, what would you guess modules are all about?
-* Football and soccer both use a ball, but each has its own attributes. What behaviors might they share?
+* Football players and soccer players both have unique attributes. What behaviors might they share?
 
 ## Introduction
 
@@ -43,14 +43,14 @@ We're going to learn about Modules, a simple tool that will does a few completel
 * Modules only store behavior
 * Modules *do not* store state
 
-Let's look at an example.
+Let's make some online orders - **Take 1**.
 
 `touch grubhub_order.rb`
 
 ```ruby
 class GrubhubOrder
-  def confirmation(thing)
-    puts "You got #{thing}."
+  def confirmation(item)
+    puts "You got #{item}."
   end
 
   def review
@@ -67,8 +67,8 @@ end
 
 ```ruby
 class AmazonOrder
-  def confirmation(thing)
-    puts "You got #{thing}."
+  def confirmation(item)
+    puts "You got #{item}."
   end
 
   def review
@@ -93,25 +93,29 @@ require "./grubhub_order.rb"
 amazon = AmazonOrder.new
 grub   = GrubHubOrder.new
 
-amazon.delivery
-grub.delivery
+amazon.confirmation('chocolate')
+grub.confirmation('chocolate')
 
 amazon.review
 grub.review
+
+amazon.delivery
+grub.delivery
 ```
 
-**Turn & Talk:** How can we use modules to make this code better?
+**Turn & Talk:** 
 
-Well there's repetition in there, and one of the hallmarks of good programming is DRY, which stands for **Don't Repeat Yourself**.
+- What is similar/different between the two classes (GrubHub v Amazon)?
+- What design principle(s) are we breaking with these two classes? Explain.
 
-Let's extract the duplication.
+Let's extract the duplication using Modules - online orders **Take 2**.
 
 `touch online_order.rb`
 
 ```ruby
 module OnlineOrder
-  def confirmation(thing)
-    puts "You got #{thing}."
+  def confirmation(item)
+    puts "You got #{item}."
   end
 
   def review
@@ -119,6 +123,7 @@ module OnlineOrder
   end
 end
 ```
+
 To get access to the methods defined in the module, you will include the module at the beginning of the class. Using include allows you to call the module methods on an instance. 
 
 In `amazon_order.rb`
@@ -162,16 +167,27 @@ require "./grubhub_order.rb"
 amazon = AmazonOrder.new
 grub = GrubhubOrder.new
 
+amazon.confirmation('chocolate')
+grub.confirmation('chocolate')
+
+amazon.review
+grub.review
+
 amazon.delivery
 grub.delivery
-
-amazon.review
-amazon.review
 ```
 
-Turn & Talk: What just happened there?
+**Turn & Talk:**
 
-And now we just treat it as if the `confirmation` and `review` methods were part of our other classes, where you call the methods on an instance of an class. 
+What just happened there?
+
+
+### Key Points
+
+- Once a module is included in a class, any object created from that class can call the method in the module (we just treat it as if the `confirmation` and `review` methods were part of our other classes, where you call the methods on an instance of an class.)
+- Many classes can include the same module
+- Each class can include many modules
+
 
 ## Exercise: Modules
 
@@ -212,16 +228,12 @@ end
 
 Together with a partner create an `Engine` module to extract the `start` and `stop` methods.
 
-## Further Practice
-
 Take the code from the discussion and implement a `AirConditioning` module that is mixed into both classes.
-
 Instances of either class should be able to turn the AC on (`Chilly air coming your way!`) or off (`Temp is fine in here.`).
 
 ## Summary
 * What is a module? How is it different than a class? 
 * How do you use a module? 
-* Why would you use a module vs class inheritance? 
 
 ## Additional Reading
 
@@ -230,9 +242,3 @@ Module Resources:
 * [Modules](http://ruby-doc.com/docs/ProgrammingRuby/html/tut_modules.html) in Programming Ruby / RubyDoc
 * [Ruby Class, Module, and Mixin](http://matt.aimonetti.net/posts/2012/07/30/ruby-class-module-mixins/) by Matt Aimonetti
 
-Intro to Functional Programming(FP) Resources:
-* [Clojure for the Brave and True](http://www.braveclojure.com/)
-* [The Rise and Fall of Functional Programming](https://medium.com/javascript-scene/the-rise-and-fall-and-rise-of-functional-programming-composable-software-c2d91b424c8c)
-
-Deep Dive into Functional Programming (FP):
-  * [SICP](https://github.com/sarabander/sicp-pdf)
