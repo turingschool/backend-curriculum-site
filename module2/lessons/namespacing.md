@@ -34,7 +34,7 @@ Let's explore this functionality in a new project, first individually, then all 
 Let's create an app for CRUDding some cats. Yes, it sounds weird. Yes, it is weird. Weird is good.
 
 ```bash
-rails new cats -T -d=postgresql
+rails new cats -T -d="postgresql" --skip-spring --skip-turbolinks
 ```
 
 ### Resource Routes Recap:
