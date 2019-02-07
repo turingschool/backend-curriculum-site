@@ -36,7 +36,7 @@ We're going to learn about Modules, a simple tool that will does a few completel
 * Mixins allow us to share behavior between classes
 * Ruby implements mixins with Modules
 
-### Modules 
+### Modules
 
 * Modules may look like classes, but they only hold methods
 * Modules only store behavior
@@ -102,7 +102,7 @@ amazon.delivery
 grub.delivery
 ```
 
-**Turn & Talk:** 
+**Turn & Talk:**
 
 - What is similar/different between the two classes (GrubHub v Amazon)?
 - What design principle(s) are we breaking with these two classes? Explain.
@@ -123,7 +123,7 @@ module OnlineOrder
 end
 ```
 
-To get access to the methods defined in the module, you will include the module at the beginning of the class. Using include allows you to call the module methods on an instance. 
+To get access to the methods defined in the module, you will include the module at the beginning of the class. Using include allows you to call the module methods on an instance.
 
 In `amazon_order.rb`
 
@@ -229,12 +229,14 @@ end
 * Take the code from the discussion and implement a `AirConditioning` module that is mixed into both classes.
 * Instances of either class should be able to turn the AC on (`Chilly air coming your way!`) or off (`Temp is fine in here.`).
 
-BONUS: 
+DISCUSS: Why didn't I just tell you to have a 'Vehicle' module that could hold engine and AC? What might the benefit of those being separated be?
+
+BONUS:
 * Now that stop and start are extracted to the module, add back in a start or stop method in one of your class. Have it return the string "WAIIIIIIIT". What happens when you run this method? Why?
 
 ## Summary
-* What is a module? How is it different than a class? 
-* How do you use a module? 
+* What is a module? How is it different than a class?
+* How do you use a module?
 
 ## Additional Reading
 
@@ -242,4 +244,3 @@ Module Resources:
 * [Include vs Extend in Ruby](http://www.railstips.org/blog/archives/2009/05/15/include-vs-extend-in-ruby/) from John Nunemaker
 * [Modules](http://ruby-doc.com/docs/ProgrammingRuby/html/tut_modules.html) in Programming Ruby / RubyDoc
 * [Ruby Class, Module, and Mixin](http://matt.aimonetti.net/posts/2012/07/30/ruby-class-module-mixins/) by Matt Aimonetti
-
