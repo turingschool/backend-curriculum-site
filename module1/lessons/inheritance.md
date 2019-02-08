@@ -23,7 +23,6 @@ Available [here](../slides/inheritance)
 ## Warmup
 
 * What do you think of when you hear the word inheritance?
-* Create a new test file for a `Node` class with a single test to see if the class `Node` exists.
 * Where do you think we get the ability to call the method `assert_equal` or `assert_instance_of`, etc?
 
 ## Inheritance
