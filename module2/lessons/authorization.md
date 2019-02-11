@@ -359,4 +359,4 @@ end
 
 ## Work Time
 
-Add admin functionality to your Rails Mini-Project and be sure to authorize an admin correctly.
+Add admin functionality to your current group project and be sure to authorize an admin correctly.
