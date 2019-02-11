@@ -32,11 +32,20 @@ All team members are responsible for these scores on both repos.
 * 1: A README is present in all repos, but has minimal-no relevant information.
 
 ## Back End Criteria
-The back-end team members are responsible for meeting this requirement:
+
+**Testing**
+
+If your product is heavily focused on Rails, your testing coverage expectation will be at 80% and higher. This includes happy and sad paths. If your product pulls in a language that you are unfamiliar with, the expection of testing rests at 25% and higher. 
+
+In addition to testing, the back-end team members are responsible for meeting at least one of these extension requirements:
 
 **Service-Oriented Architecture**
 
-**Back-End Code Quality & Testing**
+Create a micro service and abstract out functionality into a separate application. 
+
+**Pick a new language**
+
+Pick a new language that isn't explcitly taught at Turing. This could include Python, Go, or Elixir. 
 
 
 ## Front End Criteria
