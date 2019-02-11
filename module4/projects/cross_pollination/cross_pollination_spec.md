@@ -53,7 +53,7 @@ If you do not see your project following this outline, then speak to your instru
 * Use service oriented architecture patterns that split the application into their respective parts and responsibilities
 * Create various services that serve up JSON, so that an FE system can effectively utilize the data from the BE
 * Test the BE:
-  * If you use Rails for your BE, then we expect above 85% test coverage
+  * If you use Rails for your BE, then we expect above 80% test coverage
   * If you experiment with a new BE language/framework outside of Rails, then BE test coverage is expected to be at least 25%
 * Implement a stretch goal (listed below)
 
@@ -63,6 +63,7 @@ Possible stretch goals:
 * Utilize background workers and caching mechanisms for the sake of performance gains, if applicable
 * Utilize websockets rather than traditional HTTP/HTTPS
 * Set up a Content Delivery Network (CDN) to serve up assets that the front-end portion of the application can utilize
+* Create a micro service and abstract out functionality into a separate application.
 
 ### Front-End Creators
 
