@@ -22,7 +22,6 @@ tags: rails, authentication, bcrypt, ruby, sessions, helper_methods
 
 ## Warm Up
 
-* What questions do you have about authentication?
 * What is the purpose of authentication? When might you use it?
 * What is a session? How do you use one in Rails?
 * What attributes did you give a user?
@@ -59,19 +58,26 @@ and my user details have been saved in the database.
 ```
 
 ```ruby
-  username = "funbucket13"
-  visit '/'
+require 'rails_helper'
 
-  click_on "Sign Up to Be a User"
+RSpec.describe "User registration form" do
+  it "creates new user" do
+    visit root_path
 
-  expect(current_path).to eq(new_user_path)
+    click_on "Register as a User"
 
-  fill_in :user_username, with: username
-  fill_in :user_password, with: "test"
+    expect(current_path).to eq(new_user_path)
 
-  click_on "Create User"
+    fill_in "User Name", with: "funbucket13"
+    fill_in "Password", with: "test"
 
-  expect(page).to have_content("Welcome, #{username}!")
+    click_on "Create User"
+
+    new_user = User.last
+
+    expect(page).to have_content("Welcome, #{new_user.user_name}!")
+  end
+end
 ```
 
 At this point, we do not have a root-level page that supports this interaction. (We should also allow existing users to sign in with their credentials)
@@ -410,7 +416,7 @@ and I should see a link that says "Log out"
 ```ruby
   user = User.create(username: "funbucket13", password: "test")
 
-  visit '/'
+  visit root_path
 
   click_on "I already have an account"
 
