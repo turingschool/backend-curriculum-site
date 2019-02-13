@@ -1,3 +1,9 @@
+---
+layout: page
+title: Module 3
+subheading: Portfolio Requirements
+---
+
 # M3 Portfolio Requirements
 
 ## Purpose

@@ -1,3 +1,9 @@
+---
+layout: page
+title: Module 3
+subheading: Intermission Work
+---
+
 # Assignments to Prep for Module 3
 
 ## Most Important
@@ -42,9 +48,9 @@ NOTE: This is not because one way is better, but it's extremely important to und
 
 This will be important for when you start consuming APIs.
 
-Fork and clone [Here Be Dragons](https://github.com/turingschool-examples/here-be-dragons) 
+Fork and clone [Here Be Dragons](https://github.com/turingschool-examples/here-be-dragons)
 
-Complete the exercises within and submit a link to your repo no later than Saturday before the first day of class. 
+Complete the exercises within and submit a link to your repo no later than Saturday before the first day of class.
 
 ## Optional (Choose Your Own Adventure)
 
@@ -79,7 +85,7 @@ Complete the exercises within and submit a link to your repo no later than Satur
 
 JavaScript is the scripting language of web browsers. During Module 3 we'll start getting our first introductions to JS and we'd like you to work through some basic materials as a preparation.
 
-This JavaScript Course is estimated at 35 hours in length. YOU DO NOT HAVE TO COMPLETE IT. We would suggest that you work on it throughout the next month. It should go more quickly than you expect because you have some programming experience, and this is written for people who do not have experience. 
+This JavaScript Course is estimated at 35 hours in length. YOU DO NOT HAVE TO COMPLETE IT. We would suggest that you work on it throughout the next month. It should go more quickly than you expect because you have some programming experience, and this is written for people who do not have experience.
 
 We are mainly looking for you to get experience with the syntax, and at a minimumum you should understand the JS Data Types, Conditionals, and Looping.
 
