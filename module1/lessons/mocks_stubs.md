@@ -23,7 +23,7 @@ With your partner, take 3 minutes to google an ‘action’ actor or movie you l
 
 ## Paired Exercise
 
-### Setup
+### Step 1: Setup
 
 To get access to methods that create mocks and stubs, we'll need to install and require the `mocha` gem. A gem is a package of code that someone else wrote. We bring them in to projects to make our lives easier!
 
@@ -58,7 +58,7 @@ Note that we have required `mocha/minitest` at the top of the file.
 
 Work with your partner to make the first tests pass. **You should not create a Paint class at any point during this lesson**.
 
-### Mocks
+### Step 2: Mocks
 
 Let's imagine we wanted to test `Bob`'s `paints` method to see that it returns a collection of `Paint` instances. We might write a test like the following.
 
@@ -101,7 +101,7 @@ Remember, a mock is a simple object that stands in for another object. At the ba
 
 Update this test so that it uses Mocks instead of Paints. Make the test pass.
 
-### Stubs
+### Step 3: Stubs
 
 Let's add another test:
 
@@ -131,7 +131,7 @@ Now, whenever we call `paint_1.color` it will return `"Van Dyke Brown"`.
 
 Update this test so that it stubs out the color method for the Mock objects. Make the test pass.
 
-### Mock Expectations
+### Step 4: Mock Expectations
 
 Replace your existing `paint_colors` method with the following:
 
