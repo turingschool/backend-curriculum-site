@@ -6,7 +6,6 @@
 
 * What have you done up to this point when you noticed duplication in your code?
 * What do you think of when you hear the word inheritance?
-* Create a new test file for a `Node` class with a single test to see if the class `Node` exists.
 * Where do you think we get the ability to call the method `assert_equal` or `assert_instance_of`, etc?
 
 ---
@@ -24,42 +23,17 @@
 
 ---
 
-# Syntax
+# Inheritance rules:
 
-```ruby
-# employee.rb
-class Employee
-  def total_compensation
-    base_salary + bonus
-  end
-end
-
-# ceo.rb
-require './employee'
-
-class Ceo < Employee
-  attr_reader :base_salary,
-              :bonus
-
-  def initialize(base_salary, bonus)
-    @base_salary = base_salary
-    @bonus       = bonus
-  end
-end
-```
+- When a class inherits from another, it receives all methods from other class
+- The inheriting class is called the *child* or *subclass*
+- The class being inherited from is called the *parent* or *superclass*
+- A class can only inherit from one parent
+- Any number of classes can inherit from a single superclass
 
 ---
 
-# Runner File
-
-```ruby
-# runner.rb
-require './ceo'
-
-ali = Ceo.new(15, 20)
-
-puts ali.total_compensation
-```
+# Diagram
 
 ---
 
@@ -68,6 +42,7 @@ puts ali.total_compensation
 * Create a `SalesManager` class that inherits from `Employee`, and takes `base_salary`, and `estimated_annual_sales` as arguments when you initialize.
 * Create a `bonus` method on `SalesManager` that returns 10% of `estimated_annual_sales`
 * Create a new `SalesManager` in your runner file and print their total compensation to the terminal
+* Be ready to airplay your code and share with the class!
 
 ---
 
@@ -182,4 +157,3 @@ Using either `super` or overriding a method, make it so that when you call `#tot
 * What is the syntax for creating a class that inherits from another class?
 * What does `super`, do and what are the differences between the three different ways you can call it?
 * What does it mean to override a method in Ruby?
-

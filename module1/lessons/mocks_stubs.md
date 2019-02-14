@@ -8,19 +8,24 @@ title: Mocks and Stubs
 * Understand what mocking and stubbing is and why we would use it.
 
 ## Vocabulary
+
 * Mock
 * Stub
 
 ## Warmup
 
-* In Black Thursday, how many of your tests are loading CSV data? How many tests rely on other classes?
-* Have you attempted to adjust those tests/your code to not rely on CSV data? Had any luck?
+With your partner, take 3 minutes to google an ‘action’ actor or movie you like, and find a picture of the actor(s) and their stunt double(s). Answer these questions…
+- What do they have in common?
+- What is different about their jobs?
+- Why does the production company hire this double? How does it impact the actors job?
+- When you watch a movie, it is usually obvious that a different human is acting a scene out? Does it change your movie-watching experience? Explain.
+
 
 ## Paired Exercise
 
 ### Setup
 
-To get access to methods that create mocks and stubs, we'll need to install and require `mocha`.
+To get access to methods that create mocks and stubs, we'll need to install and require the `mocha` gem. A gem is a package of code that someone else wrote. We bring them in to projects to make our lives easier!
 
 ```bash
 gem install mocha
@@ -49,7 +54,9 @@ end
 
 Note that we have required `mocha/minitest` at the top of the file.
 
-**Pair Work:** Work with your partner to make the first tests pass. **You should not create a Paint class at any point during this lesson**.
+**Pair Work:**
+
+Work with your partner to make the first tests pass. **You should not create a Paint class at any point during this lesson**.
 
 ### Mocks
 
@@ -68,11 +75,13 @@ def test_it_can_have_paint
 end
 ```
 
-**Turn and Talk:** What would we have to do to make this test pass?
+**Turn and Talk:**
+
+What would we have to do to make this test pass?
 
 In this particular example, we could go work to make the Paint class to move this test forward. That wouldn't be too bad because this example is pretty short. Imagine if the Paint class needed to hit an API in order to retrieve its color. Then we would have to implement all of that functionality before we could move forward with the Bob class. We might have a case where our teammate is already working on the Paint class and we don't want to duplicate work. We may also want to isolate this test from that particular interaction so that if a test breaks it is easier to identify what exactly has broken.
 
-Mocks are objects that stand in for other objects. The other object might be one that's not implemented yet, doesn't yet have the functionality we need, or maybe we just want to work with a simpler situation. You can think of a mock as fake or a dummy object.
+**Mocks are objects that stand in for other objects.** The other object might be one that's not implemented yet, doesn't yet have the functionality we need, or maybe we just want to work with a simpler situation. You can think of a mock as fake or a dummy object.
 
 In the test above, we would have to create a Paint class in order to make this test pass. Instead, we are going to use a Mock object to stand in for a Paint object.
 
@@ -88,7 +97,9 @@ paint_2 = mock
 
 Remember, a mock is a simple object that stands in for another object. At the base level, a mock is just a "thing" -- a blank canvas that we can use for just about anything.
 
-**Pair Work:** Update this test so that it uses Mocks instead of Paints. Make the test pass.
+**Pair Work:**
+
+Update this test so that it uses Mocks instead of Paints. Make the test pass.
 
 ### Stubs
 
@@ -106,7 +117,7 @@ def test_it_can_return_colors
 end
 ```
 
-A stub is a fake method. It can be added to an object that doesn't have that method, or it can override an existing method. We can add a stub to a mock so our fake object will now have a fake method:
+**A stub is a fake method.** It can be added to an object that doesn't have that method, or it can override an existing method. We can add a stub to a mock so our fake object will now have a fake method:
 
 ```ruby
 paint_1 = mock
@@ -116,7 +127,9 @@ paint_1.stubs(:color).returns("Van Dyke Brown")
 Now, whenever we call `paint_1.color` it will return `"Van Dyke Brown"`.
 
 
-**Pair Work:** Update this test so that it stubs out the color method for the Mock objects. Make the test pass.
+**Pair Work:**
+
+Update this test so that it stubs out the color method for the Mock objects. Make the test pass.
 
 ### Mock Expectations
 
@@ -130,7 +143,7 @@ end
 
 Run your test. What happens?
 
-Mocks can do more than just stand there. They can also verify that they have been called:
+Mocks can do more than just stand there. **They can also verify that they have been called.** Why might we want that functionality when using stubs?
 
 ```ruby
 paint_1 = mock
@@ -141,7 +154,9 @@ Run your tests and you will notice they now fail. Read the failure carefully.
 
 Change your `paint_colors` method to pass the test.
 
-**Pair Work:** Add the following test. Update it to use mocks and stubs so that you can make it pass without creating the Paint class. Then make the test pass:
+**Pair Work:**
+
+Add the following test. Update it to use mocks and stubs so that you can make it pass without creating the Paint class. Then make the test pass:
 
 ```ruby
   def test_it_can_total_paint_amount
@@ -156,13 +171,13 @@ Change your `paint_colors` method to pass the test.
   end
 ```
 
-### Check for Understanding
+### Interview Question
 
-With your partners, teach back the difference between stubs and mocks. Check the [mocha docs](https://github.com/freerange/mocha) for more details.
+What are mocks and stubs? When have you used them?
 
 ## The Ultimate CFU
 
-* Can you think of a Black Thursday test you've already written that could use mocks and stubs instead?
+* Can you think of a Cross Check test you've already written that could use mocks and stubs instead?
 * When would you use a stub over a mock with expectations and returns?
 
 ## Further Reading
