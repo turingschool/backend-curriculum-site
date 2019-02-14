@@ -29,7 +29,7 @@ The assignments below will be submitted in gists that you will create on your Gi
 * click Create Public Gist
 * You can also visit [This Link](https://gist.github.com/)
 
-#### [Professional Development Assignment](https://github.com/turingschool/career-development-curriculum/blob/master/prework/pd_prework.md)
+#### [Professional Development Assignment](https://github.com/turingschool/career-development-curriculum/blob/master/module-0-capstone/pd_prework.md)
 
 #### [Gear Up Assignment](https://github.com/turingschool/career-development-curriculum/blob/master/prework/gear_up_prework.md)
 
