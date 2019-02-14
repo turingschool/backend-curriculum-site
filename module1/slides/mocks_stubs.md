@@ -3,9 +3,9 @@
 ---
 # Speed (94) Wins
 
-![Keanu Reeves and his Stunt Double for Speed](https://i.pinimg.com/originals/eb/c8/ec/ebc8eca795d22a94231f0091def4ab73.jpg)
+![inline](https://i.pinimg.com/originals/eb/c8/ec/ebc8eca795d22a94231f0091def4ab73.jpg)
 
-> Computers should be closed
+^ Computers should be closed
 
 ---
 
@@ -16,7 +16,7 @@
 - Why does the production company hire this double? How does it impact the actors job?
 - When you watch a movie, it is usually obvious that a different human is acting a scene out? Does it change your movie-watching experience? Explain.
 
-> Should have already given into on stunt doubles and directions to google and find images of your favorite action actor.
+^ Should have already given into on stunt doubles and directions to google and find images of your favorite action actor.
 
 ---
 
@@ -26,7 +26,7 @@
 
 * Have a framework for how/why to use mocks and stubs, but you are not expected to be an expert. You do NOT have to implement these in Cross Check; can if you want to play around with them. Megan and Ian will expect that you have the basics from this lesson down when you walk into Mod2.
 
-> Touch on what a lot of them are already using - FIXTURES to bring in small CSVs
+^ Touch on what a lot of them are already using - FIXTURES to bring in small CSVs
 
 ---
 
@@ -37,7 +37,7 @@
 * What does `mocha` do for us?
 * How to install
 
-> Explain what a gem is, what mocha does for us and how to install
+^ Explain what a gem is, what mocha does for us and how to install
 
 ---
 
@@ -48,7 +48,7 @@
 * Inside, lib and test directories
 * Inside, `bob` and `bob_test` files
 
-> Quick run down of files structure they will be creating
+^ Quick run down of files structure they will be creating
 
 ---
 
@@ -58,7 +58,7 @@
 
 NOTE: You should not create a Paint class at any point during this lesson.
 
-> Slack out directions copy-pasted from lesson to students NOW.
+^ Slack out directions copy-pasted from lesson to students NOW.
 
 ---
 
@@ -85,7 +85,7 @@ def test_it_can_have_paint
 end
 ```
 
-> Let's imagine we wanted to test `Bob`'s `paints` method to see that it returns a collection of `Paint` instances. We might write a test like the following. WHAT WOULD WE HAVE TO DO TO MAKE THIS TEST PASS???
+^ Let's imagine we wanted to test `Bob`'s `paints` method to see that it returns a collection of `Paint` instances. We might write a test like the following. WHAT WOULD WE HAVE TO DO TO MAKE THIS TEST PASS???
 
 ---
 
@@ -93,7 +93,7 @@ end
 
 Mocks are objects that stand in for other objects.
 
-> The other object might be one that's not implemented yet, doesn't yet have the functionality we need, or maybe we just want to work with a simpler situation. You can think of a mock as fake or a dummy object.
+^ The other object might be one that's not implemented yet, doesn't yet have the functionality we need, or maybe we just want to work with a simpler situation. You can think of a mock as fake or a dummy object.
 
 ---
 
@@ -124,8 +124,7 @@ paint_1 = mock
 paint_1.stubs(:color).returns("Van Dyke Brown")
 ```
 
-> Now, whenever we call `paint_1.color` it will return `"Van Dyke Brown"`.
-
+^ Now, whenever we call `paint_1.color` it will return `"Van Dyke Brown"`.
 
 ---
 
