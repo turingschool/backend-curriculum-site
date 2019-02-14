@@ -7,9 +7,8 @@ tags: ruby, OOP, CS, inheritance
 
 ## Learning Goals
 
-- Understand how Ruby manages scope
-- Understand how Ruby manages inheritance
-- Understand how Ruby manages instances
+- Develop a mental model for how Ruby manages instances, classes, superclasses, and modules
+- Understand Ruby's Lookup Chain for methods
 
 ## Vocabulary
 
@@ -57,76 +56,9 @@ Now check out some Ruby classes and Modules you don't interface with often, but 
 
 ### The Lookup Chain
 
-```ruby
-class WoodThings
+Complete [this activity](https://github.com/turingschool-examples/lookup_chain_exercise).
 
-  def soft
-    "superclass's superclass"
-  end
-
-end
-```
-
-```ruby
-require "./wood_things"
-
-class Furniture < WoodThings
-
-  def soft
-    "superclass"
-  end
-
-end
-```
-
-```ruby
-module ChairModule
-
-  def soft
-    "module"
-  end
-
-end
-```
-
-```ruby
-require "./chair_module"
-require "./furniture"
-
-class Chair < Furniture
-  include ChairModule
-
-  def initialize
-    @motto = "I'm a chair!"
-  end
-
-  def chair_type
-    short = "variable"
-    puts short
-    puts soft
-  end
-
-  def short
-    "method"
-  end
-
-  def soft
-    "class"
-  end
-
-end
-
-Chair.new.chair_type
-```
-
-When I call `Chair.new.chair_type` what will be my output?
-How could I get it to print module?
-
-#### Independent Practice
-How could I get `Chair.new.chair_type` to print `method`?
-How could I get `Chair.new.chair_type` to print `superclass`?
-How could I get `Chair.new.chair_type` to print `superclass's superclass`?
-
+Then, diagram Ruby's lookup chain (the order in which Ruby looks for a method)
 
 ### WrapUp
 * How does Ruby's look up chain work? What is the order it checks things?
