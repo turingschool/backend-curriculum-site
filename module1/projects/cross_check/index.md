@@ -31,6 +31,10 @@ See [the evaluation rubric](../rubric) for more details and what exactly you sho
 
 Another key goal of this project is to utilize Test Driven Development. Because the data set is so large, you will not be able to use the actual dataset as your test data. Instead, you should make up your own test data. You can do this either by creating dummy CSV files, known as fixture files, or you can create dummy data within your test files. Either is a valid approach.
 
+### Spec Harness
+
+In addition to your own tests, instructors will use [This Spec Harness](https://github.com/turingschool-examples/cross_check_spec_harness) to assess the completion of your project. Prior to your evaluation, follow the direction in the README to set up the spec harness and verify that your code passes the tests. **NOTE: the spec harness is not a replacement for writing your own tests**.
+
 ## Iterations
 
 We have separated the methods required for this project into sections below.
