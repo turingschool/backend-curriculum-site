@@ -9,7 +9,8 @@ In order to graduate from Module 4, students must successfully complete **each**
 
 ## Attendance
 
-* Be on time and present for 90%+ of scheduled classes, check-ins, and evals.
+* Be on time and present for scheduled classes, check-ins, and evals.
+* If for some reason you will be late or absent, communicate via a DM to both instructors.
 
 ### Ongoing Work
 
