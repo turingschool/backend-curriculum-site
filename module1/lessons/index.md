@@ -25,7 +25,7 @@ title: Module 1 Lessons
 * [Ruby Object Model](./ruby_object_model)
 * [Enumerables Review](./enumerables_review)
 * [Memory Allocation](./memory_allocation)
-* [Understanding the Call Stack](./stacks_methods_flow_control)
+* [The Call Stack](./call_stack)
 
 ### Design
 * [Ruby Project Etiquette](./project_etiquette)
