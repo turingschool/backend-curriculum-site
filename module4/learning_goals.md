@@ -55,10 +55,10 @@ title: Module 4 Learning Goals
 
 #### Mastery
 
-* Students apply knowledge of Ruby collections to JavaScript arrays *(mastery)*
-* Students create and use functions with parameters *(mastery)*
-* Students apply good development patterns, like DRY and separation of concerns, to JavaScript functions *(mastery)*
-* Students differentiate between JavaScript written in ES5 and ES6 *(mastery)*
+* Students apply knowledge of Ruby collections to JavaScript arrays
+* Students create and use functions with parameters
+* Students apply good development patterns, like DRY and separation of concerns, to JavaScript functions
+* Students differentiate between JavaScript written in ES5 and ES6
 
 #### Functional
 
