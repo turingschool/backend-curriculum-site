@@ -18,6 +18,7 @@ In Module 3, we will look beyond the basics of building Rails web applications w
 ## Resources
 
 * [Practice Assessments](./practice_assessments)<br>
+* [Exercises](https://github.com/turingschool-examples/m3_exercises)<br>
 
 ## Requirements
 
