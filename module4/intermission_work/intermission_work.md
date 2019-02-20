@@ -7,7 +7,7 @@ layout: page
 
 To prepare for Module 4, please complete & submit the following before 12 noon Sunday, the day before the inning begins. This will allow instructors time to review and provide feedback.
 
-1808 - Submit all links [here](https://docs.google.com/forms/d/e/1FAIpQLSfkVqfbTiCuZ71O-aFa24G4bwAhVDw69dcUB29PIN4vF5ZWxw/viewform).
+1808 - Submit all links [here](https://goo.gl/forms/UpAhJDBWEwu3yR0Z2).
 
 ## 1. Cover Letter
 
