@@ -5,7 +5,7 @@ layout: page
 
 ## Required Work
 
-To prepare for Module 4, please complete & submit the following before 12 noon Monday, the day before the inning begins. This will allow instructors time to review and provide feedback.
+To prepare for Module 4, please complete & submit the following before 12 noon Sunday, the day before the inning begins. This will allow instructors time to review and provide feedback.
 
 1808 - Submit all links [here](https://docs.google.com/forms/d/e/1FAIpQLSfkVqfbTiCuZ71O-aFa24G4bwAhVDw69dcUB29PIN4vF5ZWxw/viewform).
 
@@ -72,4 +72,4 @@ Google is your friend. It's totally reasonable to type things like ".each in jav
 
 ### Looking for more?
 
-Check out [these](./additional_resources.md) additional resources to help prepare you.
+Check out [these](./additional_resources.md) additional resources to be even more prepared.
