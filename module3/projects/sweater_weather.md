@@ -183,10 +183,10 @@ body:
 
 ### Feature Delivery
 
-* **1:** Project fell well short of agreed upon expectations.
-* **2:** Project completed most user stories set out but fell short of agreed upon expectations.
-* **3:** Project completed all the user stories and requirements agreed upon.
-* **4:** Project well exceeded expectations.
+* **1:** Project fell well short of agreed upon expectations. Project not in production.
+* **2:** Project completed most user stories set out but fell short of agreed upon expectations. Project is in production.
+* **3:** Project completed all the user stories and requirements agreed upon. Project is in production, and a page visit does not always make an API call.
+* **4:** Project well exceeded expectations. Project is in production, a page visit does not make an API call.
 
 ### Technical Quality
 
