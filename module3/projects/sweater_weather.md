@@ -185,8 +185,8 @@ body:
 
 * **1:** Project fell well short of agreed upon expectations. Project not in production.
 * **2:** Project completed most user stories set out but fell short of agreed upon expectations. Project is in production.
-* **3:** Project completed all the user stories and requirements agreed upon. Project is in production, and a page visit does not always make an API call.
-* **4:** Project well exceeded expectations. Project is in production, a page visit does not make an API call.
+* **3:** Project completed all the user stories and requirements agreed upon. Project is in production, and a call to an internal API endpoint does not always make an external API call.
+* **4:** Project well exceeded expectations. Project is in production, a call to an internal API endpoint does not make an external API call.
 
 ### Technical Quality
 
