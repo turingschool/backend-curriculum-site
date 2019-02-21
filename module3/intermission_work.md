@@ -8,6 +8,10 @@ subheading: Intermission Work
 
 ## Most Important
 
+### Professional Development
+
+* Do [this](https://github.com/turingschool/career-development-curriculum/blob/master/module_three/pre_work.md)
+
 ### HTTP Request/Response
 
 **Using paper and a writing utensil:**
