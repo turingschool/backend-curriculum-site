@@ -151,3 +151,14 @@ You goal is to be able to answer:
 What are mocks and stubs? When have you used them?
 
 ---
+
+
+```ruby
+
+logged_in == true
+
+while logged_in
+  "Welcome to your account"
+end
+
+```
