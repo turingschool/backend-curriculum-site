@@ -11,7 +11,7 @@ In Module 1, students will learn to use Ruby and object-oriented programming to 
 ## Curriculum
 
 * [Learning Goals](./learning_goals)
-* [Prework](../prework)
+* [Mod 0 Capstone](../capstone)
 * [Lessons](./lessons)
 * [Projects](./projects)
 
