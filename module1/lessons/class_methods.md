@@ -41,7 +41,7 @@ Up to this point we have primarily used classes as factories for instances of th
 
 Using the following Hedgehog class, you'll be asked to work with your partner to make some predictions and record them on your worksheet.
 
-```Ruby
+```ruby
 class Hedgehog
 
   def initialize(name, age, allergies)
