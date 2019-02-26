@@ -21,7 +21,11 @@ Complete this [exercise](./reflections_on_learning.md) to reflect on your learni
 
 **Submit: Link to gist.**
 
-## 3. Number Guesser
+## 3. Cross Pollination Project Idea
+
+During Mod 4 you have the opportunity to work with Frontend students for about one and a half weeks to build out your group project. Now is the opportunity to be thinking about what you would be interested in building and potentially the tech stack you'd like to use. As part of your intermission work form, there is a section to fill out with details about your project idea. Please be as detailed as possible and include the tech stack you are considering. You will have an opportunity to review the project ideas that have been submitted, as well as, add to this list later in the mod should you have another idea that interests you. We look forward to seeing your ideas!
+
+## 4. Number Guesser
 
 Complete phases 1-3 of [Number Guesser](./number_guesser.md). You _can_ use jQuery for this. The project spec provides a layout comp - we advise you do _some_ work to make your app resemble the app, but the bulk of your time should be spent on learning to manipulate the DOM with JavaScript.
 
@@ -29,7 +33,7 @@ On a branch called `annotated`, annotate every line of JavaScript (either below/
 
 **Submit: Link to Number Guesser Repo AND GitHub Pages deployment link. Make sure this includes the `annotated` branch.**
 
-## 4. JavaScript without a Browser
+## 5. JavaScript without a Browser
 
 While JavaScript was originally intended to be a client-side scripting language, it has since made its way server-side thanks to Node.js. We're now able to use the same language for browser-based interactions as well as server-side scripts.
 
@@ -37,7 +41,7 @@ Let's get introduced to JavaScript without a browser. Work through [this lesson]
 
 **Submit: Nothing. But you should still do it.**
 
-## 5. Sorting Suite
+## 6. Sorting Suite
 
 Complete Sorting Suite in Javascript [here](http://frontend.turing.io/projects/sorting-suite.html). Choose **one** out of the three fundamental sorting algorithms to complete. Use Node.js to run your code, and Mocha/Chai to write your tests. FE2 gets this as a project, so we'll use their project requirements, but you can ignore the rubric. You won't be graded. We just want you to get some practice testing and writing JavaScript.
 
