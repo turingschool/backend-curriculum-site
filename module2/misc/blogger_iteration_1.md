@@ -441,7 +441,7 @@ You can't, exactly. While most browsers support all four verbs, `GET`, `PUT`, `P
 Rails' solution to this problem is to *fake* a `DELETE` verb. In your view template, you can add another attribute to the link like this:
 
 ```erb
-<%= link_to "delete", article_path(@article), method: :delete %>
+<%= link_to "Delete", article_path(@article), method: :delete %>
 ```
 
 Through some JavaScript tricks, Rails can now pretend that clicking this link triggers a `DELETE`. Try your tests again, and say hello to your old friend, "ActionNotFound" error.
