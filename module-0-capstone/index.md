@@ -56,6 +56,6 @@ Before moving any further, complete all of the projects listed in Day 7 of the M
 
 1. Get started on the [Ruby Exercises](https://github.com/turingschool/ruby-exercises). These exercises are used by Module 1 students to practice key skills. Follow the instructions in the README to get started.
 1. Complete the [Railsbridge Curriculum](http://curriculum.railsbridge.org/ruby/)
-1. Work on the [Credit Check Project](http://localhost:4000/module1/projects/credit_check)
+1. Work on the [Credit Check Project](http://backend.turing.io/module1/projects/credit_check)
 1. Dive deeper into Ruby with [Launch School's Ruby Book](https://launchschool.com/books/ruby)
 1. Become a command line master by working through [Michael Hartl's command line book](https://www.learnenough.com/command-line-tutorial)
