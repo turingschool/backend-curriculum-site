@@ -1129,11 +1129,11 @@ We'll need to write a new test for this since we're building out functionality o
 require "rails_helper"
 
 describe "user sees one article" do
-	describe "they link from the articles index" do
-		it "displays information for one article" do
+  describe "they link from the articles index" do
+    it "displays information for one article" do
 
-		end
-	end
+    end
+  end
 end
 ```
 
