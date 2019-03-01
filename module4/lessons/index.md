@@ -22,15 +22,13 @@ title: Module 4 Lessons
 * [Webpack and NPM](./npm_and_webpack)
 * [Project Planning](./project_planning)
 * [Continuous Integration](./continuous_integration)
-* [Third Party Code Review  - QS](./link_will_come_later)
-* [Third Party Code Review  - Cross Pollination](./link_will_come_later)
 
 ## General Web
 
-* [Service Oriented Architecture](./)
-* [HTTP vs. HTTPS](./)
-* [All About CDNs](./)
-* [API Design Best Practices](./)
+* Service Oriented Architecture
+* HTTP vs. HTTPS
+* All About CDNs
+* API Design Best Practices
 
 ## Job Ready
 
@@ -38,7 +36,7 @@ title: Module 4 Lessons
 * [Technical Challenges](./technical_challenges)
 * [Whiteboarding](./whiteboarding)
 * [Dream Job Interview Prep](./link_will_come_later)
-* [Big-O Notation](./)
+* [Big-O Notation](bigocheatsheet.com)
 * [Wheel of Jeopardy](./jeopardy)
 
 ## Other
