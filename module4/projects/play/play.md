@@ -43,7 +43,7 @@ Main page will show the following:
 2. List of playlists (ranked or not)
 3. Results of an artist search. This section should be hidden when no search has been conducted. This section should populate once a search has been made and disappears upon each page refresh.   
 
-#### **Manage Songs**
+#### **Manage Favorites**
 
 - CRUD songs with basic information, such as name, artist name, genre, and song rating.
 
@@ -98,7 +98,7 @@ The index of songs will be returned in the following format:
 ]
 ```
 
-**GET /api/v1/songs/:id**
+**GET /api/v1/favorites/:id**
 
 Returns the song object with the specific `:id` you've passed in. A 404 is returned if the song is not found.
 
@@ -114,7 +114,7 @@ Returns the song object with the specific `:id` you've passed in. A 404 is retur
 ]
 ```
 
-**POST /api/v1/songs**
+**POST /api/v1/favorites**
 
 This end point creates a new song for your database. Pleae note that the rating system should only allow for a number between 1-100.   
 
@@ -134,7 +134,7 @@ To create a new song, use the following parameters:
 
 If a song is successfully created, the song item will be returned. If the song is not successfully created, a 400 status code will be returned. All fields are required.
 
-**PATCH /api/v1/songs/:id**
+**PUT /api/v1/favorites/:id**
 
 Allows one to update an existing song with the following parameters:
 
@@ -152,7 +152,7 @@ Allows one to update an existing song with the following parameters:
 
 If a song is successfully updated (All fields are required), the song item will be returned. If the song is not successfully updated, a 400 status code will be returned.
 
-**DELETE /api/v1/songs/:id**
+**DELETE /api/v1/favorites/:id**
 
 Will delete the song with the id passed in and return a 204 status code. If the song can't be found, a 404 will be returned.
 
@@ -209,7 +209,7 @@ If successful, this request will return a response in the following format:
 ]
 ```
 
-**GET /api/v1/playlists/:playlist_id/songs**
+**GET /api/v1/playlists/:playlist_id/favorites**
 
 Returns all the songs associated with the playlist with an id specified by :playlist_id or a 404 if the playlist is not found
 
@@ -238,7 +238,7 @@ If successful, this request will return a response in the following format:
 }
 ```
 
-**POST /api/v1/playlists/:playlist_id/songs/:id**
+**POST /api/v1/playlists/:playlist_id/favorites/:id**
 
 Adds the song with :id to the playlist with :playlist_id
 
@@ -252,7 +252,7 @@ If successful, this request will return a status code of 201 with the following 
 }
 ```
 
-**DELETE /api/v1/playlists/:playlist_id/songs/:id**
+**DELETE /api/v1/playlists/:playlist_id/favorites/:id**
 
 Removes the song with :id from the playlist with :playlist_id
 
