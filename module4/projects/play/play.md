@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Play - Full-Stack
+title: Play Play - Full-Stack
 subheading: A song playlist creator project for Module 4 BE
 ---
 
@@ -45,15 +45,14 @@ Main page will show the following:
 
 #### **Manage Favorites**
 
-- CRUD songs with basic information, such as name, artist name, genre, and song rating.
+- CRUD favorites with basic information, such as name, artist name, genre, and song rating.
 
 #### **Playlists**
 
 At a high level, developers will be able to:
 
-- CRUD songs
 - CRUD playlists
-- Add a song to a playlist
+- Add a favorite to a playlist
 - See data persist across refreshes
 - Manipulate data asynchronously
 
