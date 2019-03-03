@@ -20,7 +20,7 @@ Turing moves at an accelerated pace and missing classroom content can make topic
 
 ##  Tardiness
 
-Class begins at 9am and after lunch at 1pm (always check the calendar for more detailed schedule information). Plan to be ready for instruction, in your classroom, at that time. If you are running late to class, let your instructors know.
+Class begins at 9am and after lunch at 1pm (always check the calendar for more detailed schedule information). Plan to be ready for instruction, in your classroom, BEFORE that time. If you are running late to class, let your instructors know.
 
 #### Why?
 

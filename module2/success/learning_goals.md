@@ -29,7 +29,7 @@ The expected mastery level can be understood with the following scale:
 ##### Mastery in the following skills
 
 - Template a view in Rails using a templating language (eg, `erb`)
-- How to create a form in a view using Rails, including a form using nested resources.
+- How to create a form in a view using Rails, including a form using nested resources and namespacing.
 
 ## Controllers
 
@@ -37,6 +37,7 @@ The expected mastery level can be understood with the following scale:
 
 - Understand the controller's role as a dispatcher between client and server
 - Be able to build RESTful CRUD actions: `index`, `show`, `new`, `create`, `edit`, `update`, `destroy`
+
 
 ## Routing
 
@@ -49,6 +50,7 @@ The expected mastery level can be understood with the following scale:
 - Implement RESTful routes for resources
 - Implement and understand namespace and nested routes
 
+
 ## HTTP
 
 ##### Mastery in the following skills
@@ -57,35 +59,46 @@ The expected mastery level can be understood with the following scale:
 
 ##### Functional in the following skills
 
-- Understand the different segments of a URL (protocol, host, path, query params)
+- Understand the different segments of a URL (protocol, domain, path, query params)
 - Understand application state and sessions
 
 ##### Familiarity in the following skills
 
-- Understand what headers, body and status codes are in this context
+- Understand what headers, body and status codes are in the context of the HTTP Request/Response cycle
 
-- Have deep understanding ActiveRecord query methods, including differences between `find` `find_by` and `where`
-- Understand how to CRUD resources with ActiveRecord
-- Create relationships between resources using ActiveRecord
+
+## Software Testing
 
 ##### Mastery in the following skills
 
 - Model testing with RSpec including validations, and class and instance methods
 - Feature testing with RSpec / Capybara
 
+
 ## SQL and Database Planning
 
 ##### Mastery in the following skills
 
-- Articulately speak to one-to-one, one-to-many, many-to-many relationships
+- Articulately speak to, and be able to diagram, one-to-one, one-to-many, and many-to-many relationships
+
+##### Functional in the following skills
+
+- Be able to design database schemas that represent relationships between resources
+
+##### Familiarity in the following skills
+
+- Writing and executing 'raw' SQL statements that insert, select, calculate, join, order and group
+
 
 ## ActiveRecord
 
 ##### Mastery in the following skills
 
-- Have deep understanding ActiveRecord query methods, including differences between `find` `find_by` and `where`
+- Have a deep understanding ActiveRecord query methods, including differences between `find` and `where`
+- Deep understanding of how to use ActiveRecord to join multiple tables of data, calculating basic statistics, filtering and sorting of data, and building collections of data grouped by one or more attributes
 - Understand how to CRUD resources with ActiveRecord
 - Create relationships between resources using ActiveRecord
+
 
 ## HTML, CSS
 
@@ -98,21 +111,12 @@ The expected mastery level can be understood with the following scale:
 
 - Basic use and understanding of modern CSS grid systems
 
-## SQL and Database Planning
-
-##### Functional in the following skills
-
-- Be able to design database schemas that represent relationships between resources
-
-##### Familiarity in the following skills
-
-- Writing and executing 'raw' SQL statements that insert, select, calculate, join, order and group
 
 ## General Topics
 
 ##### Mastery in the following skills
 
-- Diagram and explain the MVC model
+- Diagram and explain the MVC design pattern in Rails and how data is passed throughout
 
 ##### Functional in the following skills
 
