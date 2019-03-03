@@ -33,6 +33,9 @@ We will continue to use the [Set List repository](https://github.com/turingschoo
     * `scenario` blocks to indicate an outcome (something to test)
     * `expect` instead of assert
 
+* Model testing describes our "bottom-up" design, and shows other developers how our model code should work within our application.
+
+
 ## Code-Along
 
 ### Setting up Model Tests

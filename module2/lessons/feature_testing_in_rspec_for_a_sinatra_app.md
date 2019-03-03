@@ -38,6 +38,7 @@ You should be able to use the SetList repository that we have been using this we
 * A tool used to communicate user needs to software developers.
 * They are used in Agile Development, and it was first introduced in 1998 by proponents of Extreme Programming.
 * They describe what a user needs to do in order to fulfill a function.
+* They are part of our "top-down" design.
 
 ```txt
 As a user
@@ -81,13 +82,16 @@ It provides a DSL (domain specific language) to help you query and interact with
 
 For example, the following methods are included in the Capybara DSL:
 
-* `visit(path)`
+* `visit '/path'`
 * `expect(page).to have_content("Content")`
-* `within("CSS") { Assertions here }`
-* `fill_in("identifier", with: "Content")`
-* `click_link("identifier")`
-* `click_button("identifier")`
-* `click_on("identifier")`
+* `within ".css-class"  { Assertions here }`
+* `within "#css-id"  { Assertions here }`
+* `fill_in "identifier", with: "Content"`
+* `expect(page).to have_link("Click here")`
+* `click_link "Click Here"`
+* `expect(page).to have_button("Submit")`
+* `click_button "Submit"`
+* `click_on "identifier"`
 * `expect(current_path).to eq('/')`
 
 ### Important Setup Things
@@ -119,7 +123,7 @@ Capybara.save_path = 'tmp/capybara'
 
   c.include Capybara::DSL
 ```
-NOTE: If you do not have a spec/spec_helper.rb follow the set up directions found [here](https://github.com/turingschool/backend-curriculum-site/blob/gh-pages/module2/lessons/model_testing_in_sinatra.md)
+NOTE: If you do not have a `spec/spec_helper.rb` follow the set up directions found [here](https://github.com/turingschool/backend-curriculum-site/blob/gh-pages/module2/lessons/model_testing_in_sinatra.md)
 
 ### Writing the Test
 
@@ -133,8 +137,8 @@ $ touch spec/features/user_sees_welcome_spec.rb
 In that new file add the following:
 
 ```ruby
-RSpec.describe "an unauthenticated user visits welcome page" do
-  it "they see a welcome message" do
+RSpec.describe "an unauthenticated user visiting welcome page" do
+  it "should see a welcome message" do
     # Your code here.
   end
 end
@@ -154,7 +158,7 @@ RSpec.describe "an unauthenticated user visits welcome page" do
     scenario "they see a welcome message" do
       visit '/'
 
-      within("#greeting") do
+      within "#greeting" do
         expect(page).to have_content("Welcome!")
       end
     end
@@ -180,15 +184,44 @@ Then, inside that file, add:
 
 This will tell git to ignore everything inside of the `tmp` directory.
 
+## Notes about feature test file organization
+
+The names of the files you create for feature testing MUST end in `_spec.rb`. Without that 'spec' part of the filename, RSpec will completely ignore the file.
+
+How many tests should go in one file? It's totally up to you, but having multiple tests in a file is marginally faster than putting a single test in a single file. Also, grouping lots of tests into one file allows you to share the setup across your tests.
+
+You can group your test files into subfolders to organize them in a similar format to your `/app/views` folder, and can help with strong organization. Every team you work on, every job you have, could have a completely different organizational method for test files, so keep that 'growth mindset' and be flexible!
+
+```
+/spec
+/spec/features
+/spec/features/songs
+/spec/features/songs/index_spec.rb # all tests about the index page
+/spec/features/songs/show_spec.rb  # all tests about the show page
+etc
+```
+
 ## Workshop
 
-Write a test for:
+Since we've built a LOT of code in our previous lessons WITHOUT feature tests, let's back-fill some tests to make sure all of our functionality works for our users. Write tests for the following user stories:
 
-* The process of creating a song
-* That all songs are displayed on the song index
-* That a playlists total song lengths are displayed on their page
+```
+As a visitor to the web site
+When I visit '/songs/new'
+And I fill in the form completely and click the Submit button
+Then I return to the index page
+And I see my new song on the page
+```
+
+```
+As a visitor to the web site
+When I visit '/songs'
+Then I see all songs in the database
+Each song shows its title, length, and play count
+```
 
 ## Wrap Up
+
 * What is the difference between a model and feature test?
 * What are the 4 main methods (blocks) for a test? Why/when would you use each one?
 * What is the general structure of a user story?
