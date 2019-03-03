@@ -30,13 +30,14 @@ We will continue to use the [Set List repository](https://github.com/turingschoo
     * `describe` blocks as an outside wrapper to group related tests: use for *things*
     * `context` blocks to add... context (but technically the same method as `describe`): use for *states*
     * `it` blocks to indicate an outcome (something to test)
+    * `scenario` blocks to indicate an outcome (something to test)
     * `expect` instead of assert
 
 ## Code-Along
 
 ### Setting up Model Tests
 
-**STEP 1**: Install rspec
+**STEP 1**: Install `rspec`
 
 Add the following line to the block labeled `group :development, :test` in your `Gemfile`
 
@@ -60,10 +61,12 @@ Make sure you are in the root of your app.
 
 Your `.rspec` file can contain certain flags that are helpful when you run your tests.
 
-    --require spec_helper
-    --color
-    --format=documentation
-    --order=random
+```
+--require spec_helper
+--color
+--format=documentation
+--order=random
+```
 
 **STEP 4**: Set up the `spec_helper.rb` file:
 
@@ -86,7 +89,7 @@ In `spec/models/song_spec.rb`:
 There are many ways we could choose to use RSpec `describe` and `context` blocks to organize our tests, but for our purposes today, we're going to use the following:
 
 ```ruby
-RSpec.describe Song do
+RSpec.describe Song, type: :model do
   describe "Class Methods" do
     describe ".total_play_count" do
       it "returns total play counts for all songs" do
@@ -140,13 +143,15 @@ rspec ./spec/models/song_spec.rb:5 # Song Class Methods .total_play_count return
 Randomized with seed 28022
 ```
 First we see the Randomized seed, which is a record of the random order the tests were run this time around.
-Next we see the descriptors from our describe, context, and it blocks. Now we see a failure which should be a bit more familiar to you.
+
+Next we see the descriptors from our describe, context, and it blocks. Now we see a failure which should be a bit more familiar to you:
 
 ```ruby
 NoMethodError:
        undefined method `total_play_count' for #<Class:0x007fea2ab582d8>
 ```
-Let's add that method now.
+
+Add that method into our Song model.
 
 ```ruby
 # app/models/song.rb
@@ -157,15 +162,6 @@ end
 Run our spec again and it tells us:
 
 ```ruby
-Randomized with seed 33027
-
-Song
-  Class Methods
-    .total_play_count
-      returns total play counts for all songs (FAILED - 1)
-
-Failures:
-
   1) Song Class Methods .total_play_count returns total play counts for all songs
      Failure/Error: expect(Song.total_play_count).to eq(7)
 
@@ -174,26 +170,10 @@ Failures:
 
        (compared using ==)
      # ./spec/models/song_spec.rb:9:in `block (4 levels) in <top (required)>'
-
-Finished in 0.08559 seconds (files took 0.80613 seconds to load)
-1 example, 1 failure
-
-Failed examples:
-
-rspec ./spec/models/song_spec.rb:5 # Song Class Methods .total_play_count returns total play counts for all songs
-
-Randomized with seed 33027
 ```
 
-These error messsages are a lot longer, but in the middle we see
-
-```ruby
-expected: 7
-     got: nil
-```
-
-Which should be pretty familiar. What is causing our method to return nil instead of 7?
-We need to populate it with something, the sum of the play_count for each Song in the database.
+The error we see now should be pretty familiar. What is causing our method to return `nil` instead of 7?
+We need to populate it with something -- the sum of the play_count for each Song in the database.
 
 ActiveRecord has just what we need:
 
@@ -204,49 +184,23 @@ def self.total_play_count
 end
 ```
 
-What's happening here? Well, `sum` is an ActiveRecord method that will sum a particular column of values in our database. How does it know which column? We pass it the column name as a symbol as an argument.
+What's happening here? Well, `sum` is an ActiveRecord method that will sum a particular column of values in a single table within our database (it can't sum things across different tables). How does it know which column? We pass it the column name as an argument using 'symbol notation'.
 
-How does it know that we're trying to call this method on our `songs` table? The implicit receiver of the `sum` method is `self`, which in this case is the class Song.
+How does it know that we're trying to call this method on our `songs` table? The implicit receiver of the `sum` method is `self` in the method definition, which in this case is the class Song.
 
 **This is an example of a Class Method -- ActiveRecord calls on the entire class are usually used for performing work on EVERY row in the Class' table**
 
 Great! Run our tests again, and we still get an error.
 
 ```ruby
-Randomized with seed 56601
-
-Song
-  Class Methods
-    .total_play_count
-(you might see some debug information here showing the songs being created)
-returns total play counts for all songs (FAILED - 1)
-
-Failures:
-
   1) Song Class Methods .total_play_count returns total play counts for all songs
      Failure/Error: expect(Song.total_play_count).to eq(7)
 
        expected: 7
             got: 1972034
-
-       (compared using ==)
-     # ./spec/models/song_spec.rb:8:in `block (4 levels) in <top (required)>'
-
-Finished in 0.04993 seconds (files took 1.05 seconds to load)
-1 example, 1 failure
-
-Failed examples:
-
-rspec ./spec/models/song_spec.rb:4 # Song Class Methods .total_play_count returns total play counts for all songs
-
-Randomized with seed 56601
 ```
 
-What's going on here? Let's try to focus in on the important part of the error.
-```ruby 
-  expected: 7
-       got: 1972034
-```
+What's going on here?
 
 It looks like the total that's being reported by our test is the full total of our all the songs currently in our database.
 
@@ -324,44 +278,18 @@ end
 Run your test suite from the command line with `rspec` and look for the new failure.
 
 ```ruby
-Randomized with seed 20037
-
-Song
-  Validations
-    is invalid without a title (FAILED - 1)
-  Class Methods
-    .total_play_count
-      returns total play counts for all songs
-
-Failures:
-
   1) Song Validations is invalid without a title
      Failure/Error: expect(song).to_not be_valid
        expected `#<Song id: nil, title: nil, year: 207, play_count: 2, created_at: nil, updated_at: nil>.valid?` to return false, got true
      # ./spec/models/song_spec.rb:7:in `block (3 levels) in <top (required)>'
-
-Finished in 0.07235 seconds (files took 0.81411 seconds to load)
-2 examples, 1 failure
-
-Failed examples:
-
-rspec ./spec/models/song_spec.rb:4 # Song Validations is invalid without a title
-
-Randomized with seed 20037
 ```
 
 - Under Song, Class Methods, .total_play_count you should see a green `returns total play counts for all songs`. That is our old test still passing.   
 - Under Song, Validations, you should see a red `is invalid without a title (FILED -1)`  
-- Then when we look under the `Failures:` section it tells us:
 
-```ruby
-Failure/Error: expect(song).to_not be_valid
-       expected `#<Song id: nil, title: nil, length: 207, play_count: 2, created_at: nil, updated_at: nil>.valid?` to return false, got true
-```
+The output of this error is telling us that it expected `.valid?` to return `false` when called on our new song, and instead got `true`.
 
-The heart of this error is telling us that it expected `.valid?` to return false when called on our new song, and instead got true.
-
-Great! It seems like this is testing what we want, but how can we actually make this pass?
+Great! It seems like this is testing what we want, but how can we actually make this test pass?
 
 ### Writing Validations
 
@@ -391,5 +319,6 @@ Remember to use your four phases of testing!
 * Check out the [RSpec Documentation](http://rspec.info/documentation/): For now you'll likely be most interested in the `rspec-core`, and `rspec-expectations` links.
 
 ## Recap
+
 * What goes into your spec_helper in a Sintra app? What does each piece do?
 * Create a Venn Diagram comparing MiniTest & RSpec. Think about set up of methods and how you check expected outcomes.

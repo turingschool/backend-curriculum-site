@@ -11,6 +11,7 @@ tags: parameters, sinatra
 * Access form parameters in a controller.
 
 ## Vocab
+
 * parameters
 * params
 * dynamic parameters
@@ -18,7 +19,7 @@ tags: parameters, sinatra
 
 ## WarmUp
 
-* Add the ability for a user to visit `/songs/1` and see the information for a Song with the id of 1
+* Today we're going to add the ability for a user to visit `/songs/1` and see the information for a Song with the id of 1
 
 ## Passing Data with Sinatra
 
@@ -36,32 +37,34 @@ tags: parameters, sinatra
 
 ### Dynamic Parameters
 
-  - In the set-list repo, create a route to get the first song populated on the page `/songs/1`.
+- In the [set-list](https://github.com/turingschool-examples/set-list) repo, create a route to get the first song populated on the page `/songs/1`.
 
-  ```ruby
-  get '/songs/1' do
-    @song = Song.find(1)
-    erb :"songs/show"
-  end
-  ```
-  - Let's talk about how to make this dynamic.
+```ruby
+get '/songs/1' do
+  @song = Song.find(1)
+  erb :"songs/show"
+end
+```
+
+- Let's talk about how to make this dynamic.
+
+```ruby
+get '/songs/:id' do
+  @song = Song.find(params[:id])
+  erb :"songs/show"
+end
+```
+
+- We often refer to the `:id` part as a wildcard. It doesn't have to say `:id` instead you could put in `:bananas`. In which case we'd see `{"bananas" => 1}` in our `params` hash. We typically use `:id` though, as it is more descriptive of what information is coming through.
+
+
+### Query String Parameters
+  - add `gem 'pry'` in your Gemfile within the development/test block, and run `bundle install` again.
+  - Put a pry in your above method:
 
   ```ruby
   get '/songs/:id' do
-    @song = Song.find(params[:id])
-    erb :"songs/show"
-  end
-  ```
-  - We often refer to the `:id` part as a wildcard. It doesn't have to say `:id` instead you could put in `:bananas`. In which case we'd see `{"bananas" => 1}` in params. We typically use :id though, as it is more descriptive of what information is coming through. 
-  
-  
-### Query String Parameters
-
-  - Put a pry in your above method
-
-  ```ruby
-   get '/songs/:id' do
-   require 'pry' ; binding.pry
+    require 'pry' ; binding.pry
     @songs = Song.find(params[:id])
     erb :"songs/show"
   end
@@ -71,38 +74,44 @@ tags: parameters, sinatra
   - Switch to terminal and check out what we have in params in our pry session
 
  **Turn & Talk**
+
  How might this be useful?
 
 
 ### Form Parameters
-
-  - Switch to the branch `input_params_example`
-  - Inspect the `views/songs/new` file:
+  - create a new 'get' operation in our controller somewhere ABOVE the `get '/songs/:id' do` code:
+  ```ruby
+  get '/songs/new' do
+    erb :"songs/new"
+  end
+  ```
+  - create `views/songs/new` file:
 
   ```html
-    <form class="new-song" action="" method="">
-      <input type="text" name="song[title]" value="Title">
-      <input type="text" name="song[length]" value="Length">
-      <input type="text" name="song[play_count]" value="Play Count">
-      <input type="submit" value="Submit">
-    </form>
+<form class="new-song" action="/songs" method="post">
+  <input type="text" name="song[title]" value="Title">
+  <input type="text" name="song[length]" value="Length">
+  <input type="text" name="song[play_count]" value="Play Count">
+  <input type="submit" value="Submit">
+</form>
   ```
 
-  - What resource are we trying to create?
-  - Based on REST:
-    - What verb should we use?
-    - What route should we send it to?
+- What resource are we trying to create?
+- Based on REST:
+  - What verb should we use?
+  - What route should we send it to?
 
-  ```ruby
-    post "/songs" do
-      require 'pry'; binding.pry
-    end
-  ```
+- let's add a 'post' operation and a binding pry
+```ruby
+post "/songs" do
+  require 'pry'; binding.pry
+end
+```
 
-  - Let's shotgun. Navigate to `/songs/new` to see our form and fill it in. Click Submit.
-  - Clicking submit stops our program and allows us to utilize our favorite tool, PRY!
-  - Now that we are here, we can see the output of `params`
-  - Nesting our parameters with `song[title]` will help us if we ever have multiple resources' inputs on our page
+- Let's shotgun. Navigate to `/songs/new` to see our form and fill it in. Click Submit.
+- Clicking submit stops our program and allows us to utilize our favorite tool, PRY!
+- Now that we are here, we can see the output of `params`
+- Nesting our parameters with `song[title]` will help us if we ever have multiple resources' inputs on our page
 
 **Partner Practice**  
 Test your knowledge by finishing the exercise so that your new song shows on the "songs/index"
@@ -118,19 +127,19 @@ Try this out:
 ```ruby
 get '/songs' do
   songs = Song.all
-  erb :"songs/index", :locals => { :songs => songs }
+  erb :"songs/index", :locals => { :song_list => songs }
 end
 ```
 
-2) Go to your `index.erb` view and remove the `@` from `@songs`. It should now just say `songs.each do...`. Does it work? Can you think of pros and cons for this versus the way we originally had it?
+2) Go to your `index.erb` view and `@songs.each` to `song_list.each`. It should now just say `song_list.each do...`. Does it work? Can you think of pros and cons for this versus the way we originally had it?
 
 ### Notes: Locals vs. Instance Variables
 
-With Sinatra, we're allowed to pass variables to rendered views with the `:locals` option. This is handy, but adds more overhead than is necessary.
+With Sinatra, we *can* pass variables to rendered views with the `:locals` option. This is handy, but adds more overhead than is necessary.
 
-Sinatra allows us to access instance variables defined in a particular route within that route's corresponding rendered view. Not only does this save us a little bit of code to write, this is very in line with how things work in Rails! For that reason alone, let's get into this habit, rather than use `:locals`.
+Sinatra allows us to access *instance* variables defined in a particular route within that route's corresponding rendered view. Not only does this save us a little bit of code to write, this is how things work in Rails! For that reason alone, let's get into this habit, rather than use `:locals`.
 
-To test out how well you understand what pieces were affected by our changes, go ahead and switch back to using the instance variable instead of the locals hash.
+To test out how well you understand what pieces were affected by our changes, go ahead and switch back to using the instance variable `@songs` instead of the locals hash.
 
 
 ## Workshop/Homework
@@ -213,5 +222,5 @@ If you're finished, here are some ideas:
 ## WrapUp
 * What are dynamic parameters and why would you use them?
 * What are query string parameters and why would you use them?
-* How do you get access in your controller to information submitted in a form? 
+* How do you get access in your controller to information submitted in a form?
 * How do you pass local variables to a view? Should we use them? Why? Why not?
