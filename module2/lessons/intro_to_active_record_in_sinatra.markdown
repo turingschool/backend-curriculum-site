@@ -208,8 +208,8 @@ Enter the following HTML into `/app/views/songs/index.erb`:
 <% @songs.each do |song| %>
 <ul>
   <li><%= song.title %></li>
-  <li><%= song.length %></li>
-  <li><%= song.play_count %></li>
+  <li>Length: <%= song.length %></li>
+  <li>Play Count: <%= song.play_count %></li>
 </ul>
 <% end %>  
 ```
