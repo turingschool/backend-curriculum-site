@@ -60,10 +60,14 @@ Your `.rspec` file can contain certain flags that are helpful when you run your 
 
 ```
 --require spec_helper
---color
 --format=documentation
 --order=random
 ```
+
+*Note*: `rspec` can take command-line flags also take some flags to change its output. For a full list run `rspec --help | less`. These flags can be stored within this `.rspec` file to be used each time.
+
+See [this](http://stackoverflow.com/questions/1819614/how-do-i-globally-configure-rspec-to-keep-the-color-and-format-specdoc-o) Stack Overflow answer for additional details.
+
 
 **STEP 3**: Set up the `spec_helper.rb` file:
 
@@ -112,8 +116,6 @@ Let's discuss:
 * the space between the created songs and the expectation
 
 At this point you should be able to run your tests from the command line using the command `rspec`.
-
-*Note*: `rspec` will also take some flags to change the output. For a full list run `rspec --help | less`. For example, run `rspec -c -f d` to see how the output differs. If you find yourself consistently using flags you can save them to a `.rspec` file in your home directory. See [this](http://stackoverflow.com/questions/1819614/how-do-i-globally-configure-rspec-to-keep-the-color-and-format-specdoc-o) Stack Overflow answer for additional details.
 
 ### Make it Pass
 
@@ -243,6 +245,8 @@ In the test/development section of your Gemfile add the following line:
   gem 'database_cleaner'
 ```
 
+Run `bundle install`
+
 Then in your `spec_helper.rb`, add the following after your current `require` lines:
 
 ```ruby
@@ -288,7 +292,7 @@ Run your test suite from the command line with `rspec` and look for the new fail
 ```
 
 - Under Song, Class Methods, .total_play_count you should see a green `returns total play counts for all songs`. That is our old test still passing.   
-- Under Song, Validations, you should see a red `is invalid without a title (FILED -1)`  
+- Under Song, Validations, you should see a red `is invalid without a title (FAILED -1)`  
 
 The output of this error is telling us that it expected `.valid?` to return `false` when called on our new song, and instead got `true`.
 
