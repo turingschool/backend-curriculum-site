@@ -50,17 +50,11 @@ gem 'rspec'
 
 Run `bundle`.
 
-**STEP 2**: Create File structure
+Next, make sure you are in the root folder of your app.
 
-Make sure you are in the root of your app.
+**STEP 2**: Configurations in .rspec file
 
 * `touch .rspec`
-* `mkdir spec`
-* `touch spec/spec_helper.rb`
-* `mkdir spec/models`
-* `touch spec/models/song_spec.rb`
-
-**STEP 3**: Configurations in .rspec file
 
 Your `.rspec` file can contain certain flags that are helpful when you run your tests.
 
@@ -71,7 +65,10 @@ Your `.rspec` file can contain certain flags that are helpful when you run your 
 --order=random
 ```
 
-**STEP 4**: Set up the `spec_helper.rb` file:
+**STEP 3**: Set up the `spec_helper.rb` file:
+
+* `mkdir spec`
+* `touch spec/spec_helper.rb`
 
 Add the following to your `spec_helper.rb` file:
 
@@ -86,6 +83,9 @@ First this will require the `bundler` gem, then use that gem to require the othe
 Finally, we require the `environment.rb` file, which loads up the rest of our application so that we can use it in our tests.
 
 ### Create a Model Spec
+
+* `mkdir spec/models`
+* `touch spec/models/song_spec.rb`
 
 In `spec/models/song_spec.rb`:
 
