@@ -13,11 +13,13 @@ tags: capybara, user stories, feature tests, testing, sinatra
 ## Vocabulary
 * feature test
 * user story
+* "top-down" design
 * DSL (Domain Specific Language)
 
 ## Repository
 
-You should be able to use the SetList repository that we have been using this week. If you have not yet cloned it down, you can find it [here](https://github.com/turingschool-examples/set-list).
+You should be able to use the `Set List` repository that we have been using this week.
+* https://github.com/turingschool-examples/set-list
 
 ## Warmup
 
@@ -43,12 +45,11 @@ You should be able to use the SetList repository that we have been using this we
 ```txt
 As a user
 When I visit the home page
-And I fill in title
-And I fill in description
-And I click submit
+  And I fill in title
+  And I fill in description
+  And I click submit
 Then my task is saved
 ```
-
 
 We can generalize this pattern as follows:
 
@@ -61,7 +62,7 @@ And I [action]
 Then [expected result]
 ```
 
-Depending on how encompassing a user story is, you may want to make multiple Waffle cards from a single story.
+Depending on how encompassing a user story is, you may want to break a single user story into multiple, smaller user stories.
 
 ### Exercise: Create User Stories
 
@@ -104,7 +105,7 @@ gem 'launchy'
 gem 'simplecov'
 ```
 
-Run `bundle`
+Run `bundle install`
 
 Update your `spec/spec_helper.rb` file to include the following:
 
@@ -127,11 +128,19 @@ NOTE: If you do not have a `spec/spec_helper.rb` follow the set up directions fo
 
 ### Writing the Test
 
+Based on the following user story, let's learn how to write a feature test:
+
+```
+As an unauthenticated user
+When I visit the home page of the site
+Then I see a "welcome" message
+```
+
 Since we're going to be creating a new type of test, let's add a new folder to separate them from our model tests. The test that we're about to create is probably *not* a test you'd actually write in your project, but it's a simple example to show how Capybara works.
 
 ```bash
 $ mkdir spec/features/
-$ touch spec/features/user_sees_welcome_spec.rb
+$ touch spec/features/user_sees_welcome_message_spec.rb
 ```
 
 In that new file add the following:
@@ -166,6 +175,12 @@ RSpec.describe "an unauthenticated user visits welcome page" do
 end
 ```
 
+### Debugging tools
+
+* use 'binding.pry' in your controller code, model code, tests
+* use `save_and_open_page` to debug a view
+
+
 ### What about all of those html files from save_and_open_page?
 
 If you used `save_and_open_page` in your test as you were trying to determine what should be included in your view, Launchy will have generated a number of files and saved them. They should be living in your `tmp/capybara` directory since you used this line in your spec_helper: `Capybara.save_path = 'tmp/capybara'`
@@ -179,10 +194,13 @@ $ touch .gitignore
 Then, inside that file, add:
 
 ```
-/tmp
+tmp/
 ```
 
 This will tell git to ignore everything inside of the `tmp` directory.
+
+Do the same for the `coverage/` folder to avoid saving SimpleCov coverage files to Git.
+
 
 ## Notes about feature test file organization
 
@@ -200,6 +218,13 @@ You can group your test files into subfolders to organize them in a similar form
 /spec/features/songs/show_spec.rb  # all tests about the show page
 etc
 ```
+
+## Wrap Up
+
+* What is the difference between a model and feature test?
+* What are the 4 main methods (blocks) for a test? Why/when would you use each one?
+* What is the general structure of a user story?
+
 
 ## Workshop
 
@@ -220,11 +245,6 @@ Then I see all songs in the database
 Each song shows its title, length, and play count
 ```
 
-## Wrap Up
-
-* What is the difference between a model and feature test?
-* What are the 4 main methods (blocks) for a test? Why/when would you use each one?
-* What is the general structure of a user story?
 
 ## Resources
 
