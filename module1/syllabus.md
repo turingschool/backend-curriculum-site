@@ -7,15 +7,15 @@ layout: page
 
 Projects require students to apply new concepts from class and build on existing knowledge. Students will have a total of 4 projects in Module 1:
 
-* Independent Project - Begin Monday week 1, due Monday week 2.
+* **Independent Project** - Begin Monday week 1, due Monday week 2.
   * The goal of this project is for students to practice all of the key concepts of module 1 covered in the prework and week 1.
   * This project is safe to fail, meaning it will not count towards the final promotion decision at the end of the module.
   * Students will be given feedback on their project, but scores will not be recorded.
-* Paired Project - Begin Monday week 2, due Thursday week 3.
+* **Paired Project** - Begin Monday week 2, due Thursday week 3.
   * This project will count towards the final promotion decision.
-* Group Project - Begin Monday week 4, due Thursday week 5.
+* **Group Project** - Begin Monday week 4, due Thursday week 5.
   * This project will count towards the final promotion decision.
-* Independent Project - Begin Friday week 5, due Wednesday week 6.
+* **Independent Project** - Begin Friday week 5, due Wednesday week 6.
   * This project will count towards the final promotion decision.
 
 ## Independent Challenges
@@ -47,13 +47,14 @@ Projects, Independent Challenges, and Paired Assessments will be broken into 4 i
 
 ## Written CFU (Check for Understanding)
 
-Students will receive a weekly CFU (check for understanding). This CFU will cover the material up to that week. It is to be completed independently, and is closed note, closed internet.
+Students will receive a weekly CFU (check for understanding). This CFU will cover the material up to that week. It is to be completed independently, and is closed note, closed internet. Upon completion, you will receive a copy of the 'key' or correct/ideal answers - while there will not be a formal part of class set aside to review this content, use this as a resource to guide your studying/work with mentors.
 
-## Ruby Exercises
+## Exercises
 
-[Link to Repo](https://github.com/turingschool/ruby-exercises)
+- [Ruby Exercises](https://github.com/turingschool/ruby-exercises)
+- [Enum Exercises](https://github.com/turingschool/enums-exercises)
 
-Students will use these exercises to practice the material covered in module 1. While the projects require synthesizing many concepts, the Ruby Exercises are meant to practice a concept in isolation. Successful students will reinforce their skills through both projects and exercises. Exercises will not be assigned or graded, however instructors will provide a weekly list of suggested exercises to practice the material.
+Students will use these exercises to practice the material covered in Module 1. While the projects require synthesizing many concepts, the Ruby Exercises are meant to practice a concept in isolation. Successful students will reinforce their skills through both projects and exercises. Exercises will not be assigned or graded, however instructors will provide a weekly list of suggested exercises to practice the material.
 
 ## Support
 
@@ -61,9 +62,11 @@ Students will use these exercises to practice the material covered in module 1. 
 
 **Instructor Pairing**: Students can request paired work time with an instructor.
 
-**Student Support**: Students can request paired work time with Turing's Student Support Fellow.
-
 **Feedback from Instructors**: Students will receive feedback from instructors for each project, independent timed challenge and paired assessment.  In addition, students will receive a message from the instructors at the end of each week indicating if there are any topics or assignments that did not meet our expectations. If necessary, this message will include suggested actions for improvement.
+
+**Mentors**: Upon entering Module 1, students should have been paired with a mentor if for students who opted into the mentorship program. It is highly recommended that students set a weekly time to work with their mentor on _technical_ work.
+
+**The Rock & Pebble Program**: Similar to mentorship with an alum, students can opt into a program where they are matched with a Module 2 student.
 
 ## Lightning Talks
 
