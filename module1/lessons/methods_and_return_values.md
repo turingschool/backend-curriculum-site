@@ -349,12 +349,20 @@ thing = Thing.new
 thing.some_random_method
 ```
 
-**Turn and Talk**: Where would you go to find out what the `some_random_method` method does?
+**Turn and Talk**:
+
+Where would you go to find out what the `some_random_method` method does?
+
+<br>
+<br>
+<br>
+<br>
 
 Remember, methods run on objects. In order to find where a method is defined, we need to first ask ourselves what type of object it is being called on. Look in the class file for that object's class type, and you might find it there. We say *might* because there's actually a long list of places that Ruby can look for a method. For right now, what you need to know is that when looking for a method, the first thing Ruby will do is look in the class of the object it is being called on.
 
-**Turn and Talk**: Where would you look to figure out how the slice method works?
+**Turn and Talk**:
 
+Where would you look to figure out how the slice method works?
 ```ruby
 nums = [1, 2, 3, 4]
 nums.slice(1, 1)
@@ -428,11 +436,11 @@ converter.convert(12, 45, 65)
 
 A note on order: The order of your _methods_ does not matter.  Ruby will **parse** each method in the class and then when a method is **called** Ruby will **execute** the parsed methods accordingly.
 
-## Checks for Understanding
+## Check for Understanding
 
-* What is a method? An argument? A return value?
-* What keywords do we use to create methods?
-* How does Ruby know what to return from a method?
-* How do you call one method from within another method?
-* Why do we use methods?
-* What is abstraction?
+1. What is a method? An argument? A return value?
+2. What keywords do we use to create methods?
+3. How does Ruby know what to return from a method?
+4. How do you call one method from within another method?
+5. Why do we use methods?
+6. What is abstraction?
