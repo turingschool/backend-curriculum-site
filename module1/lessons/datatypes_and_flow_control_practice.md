@@ -20,9 +20,10 @@ The output in the angle brackets `< >` should change depending on the values in 
 
 With a partner, share the code you wrote for exercise 1.
 
+
 ## Exercise 2
 
-Write a program that will ask the user to enter some text
+Write a program that will ask the user to enter some text.
 
 * If the text has an odd number of characters, print "ODD!"
 * If the text has an even number of characters, print "EVEN!"
@@ -33,3 +34,24 @@ Write a program that will ask the user to enter some text
 ## Code Share
 
 With a partner, share the code you wrote for exercise 2.
+
+
+## Extension
+
+Write a program that will count the number of times a word is used in a sentence. It is recommended that you pseudo-code this out with your partner before actually attacking this challenge with Ruby.
+
+* If the input is "My dogs are the best dogs in the world",
+* The output should be:
+
+```ruby
+{
+  "My": 1,
+  "dogs": 2,
+  "are": 1,
+  "the": 1,
+  "best": 1,
+  "in": 1,
+  "the": 1,
+  "world": 1
+}
+```
