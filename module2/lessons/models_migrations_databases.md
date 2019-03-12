@@ -4,12 +4,6 @@ title: Models, Migrations, and Databases
 tags: migrations, databases, relationships, rails, activerecord
 ---
 
-## Models, Migrations, and Databases in Rails
-
-In this lesson, we'll be adding to our new SetList Rails app to demonstrate a one-to-many and a many-to-many relationship.
-
-We'll add two tables (`artists`, and `playlists`) to our database, and connect them to our existing `songs` table. What might the relationships look like?
-
 ## Learning Goals
 
 * Write migrations in Rails
@@ -27,7 +21,13 @@ We'll add two tables (`artists`, and `playlists`) to our database, and connect t
 * In your own words, what is a migration?
 * What are some things that we can do with a migration?
 * What is the relationship between a migration, our database, and our schema?
-* What does `rake db:rollback` do? When **wouldn't** I want to use it?
+
+
+## Models, Migrations, and Databases in Rails
+
+In this lesson, we'll be adding to our new SetList Rails app to demonstrate a one-to-many and a many-to-many relationship.
+
+We'll add two tables (`artists`, and `playlists`) to our database, and connect them to our existing `songs` table. What might the relationships look like?
 
 ## One-to-Many Relationships
 
@@ -42,19 +42,13 @@ We want to create some artists with a name. Let's add a test for that! Since thi
 We're going to use the handy dandy gem [shoulda-matchers](https://github.com/thoughtbot/shoulda-matchers) to give us some streamlined syntax to use in testing our validations and relationships.
 
 - Add `gem 'shoulda-matchers', '~> 3.1'` to `group :development, :test` in your `Gemfile`  
-- run `bundle update`
+- run `bundle install`
 - Put the following in `rails_helper.rb`:
 
 ```ruby
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|
     with.test_framework :rspec
-
-    # Choose one or more libraries:
-    with.library :active_record
-    with.library :active_model
-    with.library :action_controller
-    # Or, choose the following (which implies all of the above):
     with.library :rails
   end
 end
@@ -67,7 +61,7 @@ require 'rails_helper'
 
 describe Artist, type: :model do
   describe "validations" do
-    it {should validate_presence_of(:name)}
+    it { should validate_presence_of :name }
   end
 end
 
@@ -88,11 +82,7 @@ Let's make an Artist!:
 
 1. First, we'll create a migration and a model:
 
-`rails generate migration CreateArtists name:string`
-
-or
-
-`rails g migration CreateArtists name`
+`rails g migration CreateArtists name:string`
 
 The migration generator creates a migration and if we follow the working convention for rails the migration will be pre-populated.
 
@@ -153,7 +143,7 @@ Let's create a test to help us drive this out.  Add the following to your `artis
 
 ```ruby
 describe 'relationships' do
-  it {should have_many(:songs)
+  it { should have_many :songs }
 end
 ```
 
@@ -241,7 +231,7 @@ require "rails_helper"
 
 describe Playlist, type: model do
   describe "relationships" do
-    it {should have_many(:songs).through(:playlist_songs}
+    it { should have_many(:songs).through(:playlist_songs) }
   end
 end
 ```
@@ -302,8 +292,7 @@ Need a refresher on associations? Click [here](http://guides.rubyonrails.org/ass
 ## Notes
 
 * common column types: `boolean`, `string`, `text`, `integer`, `date`, `datetime`
-* `rake db:migrate` migrates development
-* you (generally) don't need to run `rake db:test:prepare`; running `rake test` will load the schema to the test database
+* `rake db:migrate` applies our database changes
 
 ## WrapUp
 
