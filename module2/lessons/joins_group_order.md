@@ -39,16 +39,16 @@ The `.joins` method creates a `JOIN` query at the SQL level. What does this do?
 Assume we have the following tables.
 
 courses:
-
+```
 | id | title | description                             |
 |----|-------|-----------------------------------------|
 | 1  | BE M1 | OOP with Ruby                           |
 | 2  | BE M2 | Web Applications with Ruby              |
 | 3  | BE M3 | Professional Rails Applications         |
 | 4  | BE M4 | Client-Side Development with JavaScript |
-
+```
 students:
-
+```
 | id | first_name | last_name   | course_id | score |
 |----|------------|-------------|-----------|-------|
 | 1  | Brian      | Zanti       | 1         | 3     |
@@ -59,7 +59,7 @@ students:
 | 6  | Dione      | Wilson      | 2         | 4     |
 | 7  | Cory       | Westerfield | 4         | 3     |
 | 8  | Sal        | Espinosa    | 1         | 2     |
-
+```
 
 In another tab, let's open a connection to `psql`
 ```
@@ -80,6 +80,7 @@ SELECT * FROM courses JOIN students ON students.course_id = courses.id;
 
 And it would result in a table like the following:
 
+```
 | id | title | description                             | id | first_name | last_name   | course_id | score |
 |----|-------|-----------------------------------------|----|------------|-------------|-----------|-------|
 | 1  | BE M1 | OOP with Ruby                           | 1  | Brian      | Zanti       | 1         | 3     |
@@ -90,7 +91,7 @@ And it would result in a table like the following:
 | 2  | BE M2 | Web Applications with Ruby              | 6  | Dione      | Wilson      | 2         | 2     |
 | 4  | BE M4 | Client-Side Development with JavaScript | 7  | Cory       | Westerfield | 4         | 3     |
 | 1  | BE M1 | OOP with Ruby                           | 8  | Sal        | Espinosa    | 1         | 2     |
-
+```
 Notice that there is duplicated information in the table that resulted from this JOIN.
 
 How does this look in ActiveRecord?
@@ -140,7 +141,11 @@ More on how we might use `.joins` shortly.
 
 ### Group
 
-Group will take the results and group them by a particular attribute. So, for example:
+* Group will take the result set and condense common rows by performing a calculation on the data.
+* We can only group on columns that are part of our "select" statement.
+* **We can't group data without a calculation (count, sum, average, etc).**
+
+Example:
 
 ```SQL
 # In SQL:
@@ -172,6 +177,25 @@ Will return a hash like the following:
 ```
 
 The keys are the course_id and the values are the count of how many students in that course.
+
+**ActiveRecord will return a hash if we include a .group instruction, and then end our statement with an 'aggregation' instruction like .count, .sum or .average** Once ActiveRecord sees that aggregation command, a hash object is returned and no further ActiveRecord commands will work.
+
+* in `tux`
+`Student.group(:course_id).count.order(:course_id)`
+
+If we don't want a hash, we have to build our own `.select()` statement instead to get an array of objects instead:
+
+```ruby
+Course.joins(:students).select("courses.id, count(students.id) AS student_count").group(:id)
+or
+Student.select("course_id, count(id) AS student_count").group(:course_id)
+```
+
+Likewise, using an aggregate function earlier in the "chain" of commands can return a calculation result instead of allowing us to chain additional instructions.
+
+Example in `tux`: `Student.count.group(:course_id)`
+* tells us we can't do a `group` operation on an integer because `Student.count` returned an integer
+
 
 ### Order
 
@@ -217,6 +241,13 @@ Course.select("courses.*, avg(score) AS avg_score")
 ```
 
 This query will return a collection of Course objects. The first will be the Course with the highest avg_score.
+
+We can order by multiple attributes, for example we could order students by last name then first name:
+`Student.order("last_name desc, first_name asc")`
+
+We can also write this in hash notation:
+`Student.order(last_name: :desc, first_name: :asc)`
+
 
 ## Checks for Understanding
 
