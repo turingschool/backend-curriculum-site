@@ -13,16 +13,25 @@ In order to graduate from Module 2, students must complete each of the following
 
 The following items are evaluated and assessed by instructors as part of consideration to promote you on to Module 3:
 
-* [Intermission Pre-Work](https://github.com/turingschool/intermission-assignments/blob/master/2be/index.markdown) Submission instructions are included in the pre-work.
+* Successful completion of the following deliverables:
+  * [Intermission Pre-Work](https://github.com/turingschool/intermission-assignments/blob/master/2be/index.markdown) Submission instructions are included in the pre-work.
+  * Weekly Checks for Understanding (CFUs)
+
 * [Laugh Tracks](https://github.com/turingschool-projects/LaughTracks), solo project, week 1
-* [Book Club](https://github.com/turingschool-projects/BookClub), paired project, week 2 and 3
-* [Little Shop](https://github.com/turingschool-projects/little_shop_v2), group project, week 4 and 5
-* [Little Shop Extensions](https://github.com/turingschool-projects/little_shop_v2/blob/master/extensions.md), solo project, week 6
-* [Write a technical blog post](./#blog-post), due by week 6
+  * does NOT count toward promotion
+
+* One or more of the following projects must be fully completed and given a "passing" grade
+  * [Book Club](https://github.com/turingschool-projects/BookClub), paired project, week 2 and 3
+  * [Little Shop](https://github.com/turingschool-projects/little_shop_v2), group project, week 4 and 5
+
+* [Little Shop Extensions](https://github.com/turingschool-projects/little_shop_v2/blob/master/extensions.md), solo project, week 6, must be completed and given a "passing" grade
+
+* [Write a technical blog post](./#blog-post), due by week 2
 * [ActiveRecord Obstacle Course](../misc/active_record_obstacle_course), due by week 6
-* Mid-Mod Evaluation
-* Final Coding Assessment
+* Mid-Mod Evaluation, does NOT count toward promotion
+* Final Coding Assessment must be given a "passing" grade, or a retake must be successfully completed
 * Final Technical Communication Assessment
+
 
 ### Assessments and Final Project
 
@@ -34,6 +43,7 @@ Each student will be required to complete a final solo project which will is a m
 ### Class Participation
 
 Students are expected to follow Turing's Code of Conduct and be respectful in class with regards to timeliness, paying attention to instructors, and contributing well in class for turn-and-talk sessions, journaling and note-taking, and answering prompted questions.
+
 
 ### Group Projects
 
@@ -47,7 +57,7 @@ Write a minimum of 1 technical blog post about a topic of your choice, must incl
 
 ### Professional Development
 
-Students are expected to contribute during the Professional Development session and deliver deliverables from that session (see goals below).
+Students are expected to contribute during the Professional Development session and submit deliverables from that session (see goals below).
 
 
 -------

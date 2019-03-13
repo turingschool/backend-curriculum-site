@@ -140,7 +140,7 @@ group :development, :test do
 end
 ```
 
-In this section add `gem rspec-rails` `gem capybara`, `gem launchy`, `gem shoulda-matchers` and `gem pry`. Then run `bundle` from your command line. You should see a long print out of gems being bundled for use in your project. The end result of your bundle should look something like this:
+In this section add `gem rspec-rails` `gem capybara`, `gem launchy`, `gem shoulda-matchers`, `gem pry` and `gem active_designer`. Then run `bundle` from your command line. You should see a long print out of gems being bundled for use in your project. The end result of your bundle should look something like this:
 
 ```ruby
 Bundle complete! 14 Gemfile dependencies, 71 gems now installed.
@@ -1129,11 +1129,11 @@ We'll need to write a new test for this since we're building out functionality o
 require "rails_helper"
 
 describe "user sees one article" do
-	describe "they link from the articles index" do
-		it "displays information for one article" do
+  describe "they link from the articles index" do
+    it "displays information for one article" do
 
-		end
-	end
+    end
+  end
 end
 ```
 

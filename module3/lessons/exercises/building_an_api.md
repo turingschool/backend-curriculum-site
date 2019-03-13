@@ -8,13 +8,13 @@ tags: apis, testing, requests, rails
 
 * Versioned APIs
 * Tutorial
-    * 0. RSpec & FactoryBot Setup
-    * 1. Creating Our First Test and Factory
-    * 2. Api::V1::ItemsController#index
-    * 3. Api::V1::ItemsController#show
-    * 4. Api::V1::ItemsController#create
-    * 5. Api::V1::ItemsController#update
-    * 6. Api::V1::ItemsController#destroy
+    1. RSpec & FactoryBot Setup
+    1. Creating Our First Test and Factory
+    1. Api::V1::ItemsController#index
+    1. Api::V1::ItemsController#show
+    1. Api::V1::ItemsController#create
+    1. Api::V1::ItemsController#update
+    1. Api::V1::ItemsController#destroy
 
 ## Background: Versioned APIs
 
@@ -131,8 +131,8 @@ Before we run our test again, let's take a look at the Item Factory that was gen
 ```rb
 FactoryBot.define do
   factory :item do
-    name "MyString"
-    description "MyText"
+    name { "MyString" }
+    description { "MyText" }
   end
 end
 ```
@@ -145,8 +145,8 @@ This is boring. Let's change it to reflect a real item.
 ```rb
 FactoryBot.define do
   factory :item do
-    name "Banana Stand"
-    description "There's always money in the banana stand."
+    name { "Banana Stand" }
+    description { "There's always money in the banana stand." }
   end
 end
 ```
@@ -245,7 +245,7 @@ And... our test is passing again.
 
 Let's take a closer look at the response. Put a pry on line eight in the test, right below where we make the request.
 
-If you just type `response` you can take a look at the entire response object. We care about the response body. If you enter `response.body` you can see the data that is returned from the endpoint. We are getting back two items that we never created - this is data served from fixtures. Please feel free to edit the data in the fixtures file as you see fit.
+If you just type `response` you can take a look at the entire response object. We care about the response body. If you enter `response.body` you can see the data that is returned from the endpoint.
 
 The data we got back is json, and we need to parse it to get a Ruby object. Try entering `JSON.parse(response.body)`. As you see, the data looks a lot more like Ruby after we parse it. Now that we have a Ruby object, we can make assertions about it.
 
@@ -444,7 +444,7 @@ We can also use RSpec's [expect change](https://www.relishapp.com/rspec/rspec-ex
 it "can destroy an item" do
   item = create(:item)
 
-  expect{delete "/api/v1/items/#{item.id}"}.to change(Item, :count).by(-1)
+  expect{ delete "/api/v1/items/#{item.id}" }.to change(Item, :count).by(-1)
 
   expect(response).to be_success
   expect{Item.find(item.id)}.to raise_error(ActiveRecord::RecordNotFound)
@@ -477,5 +477,3 @@ Pat yourself on the back. You just built an API. And with TDD. Huzzah! Now go ca
 * [Getting started with Factory Bot](https://github.com/thoughtbot/factory_bot/blob/master/GETTING_STARTED.md)
 * [Use Factory Bot's Build Stubbed for a Faster Test](https://robots.thoughtbot.com/use-factory-girls-build-stubbed-for-a-faster-test) (Note that this post uses `FactoryGirl` instead of `FactoryBot`. `FactoryGirl` is the old name.)
 * [Building an Internal API Short Tutorial](https://vimeo.com/185342639)
-
-

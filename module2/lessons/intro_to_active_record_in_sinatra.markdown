@@ -122,7 +122,7 @@ class CreateSongs < ActiveRecord::Migration[5.1]
       t.integer :length
       t.integer :play_count
 
-      t.timestamps null: false
+      t.timestamps
     end
   end
 end
@@ -152,6 +152,8 @@ Now that we have a `songs` table, we'll want to create a Song model to interact 
 ```
 $ touch app/models/song.rb
 ```
+
+**We name our Model files in a singular name, not a plural name, like "songs". Remember it this way: when you 'new' up a model class, you have one "song".**
 
 Inside of that file:
 
@@ -200,17 +202,16 @@ Using Active Record, we no longer need to build the `::all` method as we did in 
 
 We are going to start to have LOTS of resources as our apps get bigger so let's start to organize our views. Let's create a `songs` folder in `views` with an `index.erb` file.
 
-Throw this html in that file:
+Enter the following HTML into `/app/views/songs/index.erb`:
 
 ```html
-  <!-- views/songs/index.erb -->
-   <% @songs.each do |song| %>
-    <ul>
-      <li><%= song.title %></li>
-      <li><%= song.length %></li>
-      <li><%= song.play_count %></li>
-    </ul>
-   <% end %>  
+<% @songs.each do |song| %>
+<ul>
+  <li><%= song.title %></li>
+  <li>Length: <%= song.length %></li>
+  <li>Play Count: <%= song.play_count %></li>
+</ul>
+<% end %>  
 ```
 
 Run `shotgun` from the command line. Visit `localhost:9393/songs` and see your songs.

@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Play - Full-Stack
+title: Play Play - Full-Stack
 subheading: A song playlist creator project for Module 4 BE
 ---
 
@@ -26,7 +26,7 @@ You will use and consume the [Musixmatch API](https://developer.musixmatch.com/)
 4. When a song is favorited, the song information is stored in a database.
 5. A user can see all of their saved (favorited) songs on the index page of the application.
 6. A user can click the "Add to playlist" button once songs have been added as a favorite. This button is hidden until songs have been favorited.
-7. Clicking add to playlist will add songs into the newly created playlist
+7. Clicking add to playlist will add favorited songs into the newly created playlist
 8. Clicking the title of a playlist will take the user to the list of songs in the playlist
 
 It is required that each group complete one (or both!) of the following extensions:
@@ -39,21 +39,20 @@ It is required that each group complete one (or both!) of the following extensio
 
 Main page will show the following:
 
-1. List of saved songs
+1. List of favorited songs
 2. List of playlists (ranked or not)
 3. Results of an artist search. This section should be hidden when no search has been conducted. This section should populate once a search has been made and disappears upon each page refresh.   
 
-#### **Manage Songs**
+#### **Manage Favorites**
 
-- CRUD songs with basic information, such as name, artist name, genre, and song rating.
+- CRUD favorites with basic information, such as name, artist name, genre, and song rating.
 
 #### **Playlists**
 
 At a high level, developers will be able to:
 
-- CRUD songs
 - CRUD playlists
-- Add a song to a playlist
+- Add a favorite to a playlist
 - See data persist across refreshes
 - Manipulate data asynchronously
 
@@ -71,13 +70,13 @@ For your Express back end:
 
 Take you time to plan out your endpoints and any additional endpoints that may be required for this project.
 
-#### Song Endpoints:
+#### Favorite Endpoints:
 
 **GET /api/v1/favorites**
 
 Returns all favorited songs currently in the database.
 
-The index of songs will be returned in the following format:
+The index of favorites will be returned in the following format:
 
 ```js
 [
@@ -86,21 +85,21 @@ The index of songs will be returned in the following format:
     "name": "We Will Rock You",
     "artist_name": "Queen"
     "genre": "Rock",
-    "song_rating": 88
+    "rating": 88
   },
   {
     "id": 2,
     "name": "Careless Whisper",
     "artist_name": "George Michael"
     "genre": "Pop",
-    "song_rating": 93
+    "rating": 93
   },
 ]
 ```
 
-**GET /api/v1/songs/:id**
+**GET /api/v1/favorites/:id**
 
-Returns the song object with the specific `:id` you've passed in. A 404 is returned if the song is not found.
+Returns the favorite object with the specific `:id` you've passed in. A 404 is returned if the favorite is not found.
 
 ```js
 [
@@ -109,58 +108,58 @@ Returns the song object with the specific `:id` you've passed in. A 404 is retur
     "name": "We Will Rock You",
     "artist_name": "Queen"
     "genre": "Rock",
-    "song_rating": 88
+    "rating": 88
   }
 ]
 ```
 
-**POST /api/v1/songs**
+**POST /api/v1/favorites**
 
-This end point creates a new song for your database. Pleae note that the rating system should only allow for a number between 1-100.   
+This end point creates a new favorite for your database. Please note that the rating system should only allow for a number between 1-100.   
 
-To create a new song, use the following parameters:
+To create a new favorite, use the following parameters:
 
 ```js
 {
-  "songs": {
+  "favorites": {
     "id": 1,
     "name": "We Will Rock You",
     "artist_name": "Queen"
     "genre": "Rock",
-    "song_rating": 88
+    "rating": 88
   }
 }
 ```
 
-If a song is successfully created, the song item will be returned. If the song is not successfully created, a 400 status code will be returned. All fields are required.
+If a favorited song is successfully created, the item will be returned. If the favorite is not successfully created, a 400 status code will be returned. All fields are required.
 
-**PATCH /api/v1/songs/:id**
+**PUT /api/v1/favorites/:id**
 
-Allows one to update an existing song with the following parameters:
+Allows one to update an existing favorited song with the following parameters:
 
 ```js
 {
-  "songs": {
+  "favorites": {
     "id": 1,
     "name": "We Are the Champions",
     "artist_name": "Queen"
     "genre": "Rock",
-    "song_rating": 77
+    "rating": 77
   }
 }
 ```
 
-If a song is successfully updated (All fields are required), the song item will be returned. If the song is not successfully updated, a 400 status code will be returned.
+If a favorite is successfully updated (All fields are required), the favorite item will be returned. If the favorite is not successfully updated, a 400 status code will be returned.
 
-**DELETE /api/v1/songs/:id**
+**DELETE /api/v1/favorites/:id**
 
-Will delete the song with the id passed in and return a 204 status code. If the song can't be found, a 404 will be returned.
+Will delete the favorite with the id passed in and return a 204 status code. If the favorite can't be found, a 404 will be returned.
 
 #### Playlist Endpoints:
 
 **GET /api/v1/playlists**
 
-Returns all the playlists in the database along with their associated songs
+Returns all the playlists in the database along with their associated favorited songs
 
 If successful, this request will return a response in the following format:
 
@@ -169,49 +168,49 @@ If successful, this request will return a response in the following format:
     {
         "id": 1,
         "playlist_name": "Favorite songs of all time",
-        "songs": [
+        "favorites": [
           {
             "id": 1,
             "name": "We Will Rock You",
             "artist_name": "Queen"
             "genre": "Rock",
-            "song_rating": 88
+            "rating": 88
           },
           {
             "id": 2,
             "name": "Careless Whisper",
             "artist_name": "George Michael"
             "genre": "Pop",
-            "song_rating": 93
+            "rating": 93
           }
         ]
     },
     {
         "id": 2,
         "name": "Other amazing songs",
-        "songs": [
+        "favorites": [
           {
             "id": 1,
             "name": "We Will Rock You",
             "artist_name": "Queen"
             "genre": "Rock",
-            "song_rating": 88
+            "rating": 88
           },
           {
             "id": 2,
             "name": "Careless Whisper",
             "artist_name": "George Michael"
             "genre": "Pop",
-            "song_rating": 93
+            "rating": 93
           },
         ]
     },
 ]
 ```
 
-**GET /api/v1/playlists/:playlist_id/songs**
+**GET /api/v1/playlists/:playlist_id/favorites**
 
-Returns all the songs associated with the playlist with an id specified by :playlist_id or a 404 if the playlist is not found
+Returns all the favorites associated with the playlist with an id specified by :playlist_id or a 404 if the playlist is not found
 
 If successful, this request will return a response in the following format:
 
@@ -219,30 +218,30 @@ If successful, this request will return a response in the following format:
 {
     "id": 1,
     "playlist_name": "Favorite songs of all time",
-    "songs": [
+    "favorites": [
       {
         "id": 1,
         "name": "We Will Rock You",
         "artist_name": "Queen"
         "genre": "Rock",
-        "song_rating": 88
+        "rating": 88
       },
       {
         "id": 2,
         "name": "Careless Whisper",
         "artist_name": "George Michael"
         "genre": "Pop",
-        "song_rating": 93
+        "rating": 93
       }
     ]
 }
 ```
 
-**POST /api/v1/playlists/:playlist_id/songs/:id**
+**POST /api/v1/playlists/:playlist_id/favorites/:id**
 
-Adds the song with :id to the playlist with :playlist_id
+Adds the favorite with :id to the playlist with :playlist_id
 
-This creates a new record in the Playlist Songs table to establish the relationship between this song and playlist. If the playlist/song cannot be found, a 404 will be returned.
+This creates a new record in the Playlist Favorites table to establish the relationship between this song favorite and playlist. If the playlist/favorite cannot be found, a 404 will be returned.
 
 If successful, this request will return a status code of 201 with the following body:
 
@@ -252,11 +251,11 @@ If successful, this request will return a status code of 201 with the following 
 }
 ```
 
-**DELETE /api/v1/playlists/:playlist_id/songs/:id**
+**DELETE /api/v1/playlists/:playlist_id/favorites/:id**
 
-Removes the song with :id from the playlist with :playlist_id
+Removes the favorite with :id from the playlist with :playlist_id
 
-This deletes the existing record in the Playlist Songs table that creates the relationship between this song and playlist. If the playlist/song cannot be found, a 404 will be returned.
+This deletes the existing record in the Playlist Favorites table that creates the relationship between this song favorite and playlist. If the playlist/favorite cannot be found, a 404 will be returned.
 
 If successful, this request will return:
 

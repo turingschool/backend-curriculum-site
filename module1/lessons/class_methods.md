@@ -4,28 +4,15 @@ length: 60min
 tags: ruby, class methods, OOP
 ---
 
-### Slides available [here.](../slides/class_methods)
-
 ## Learning Goals
 
 * Explain the difference between class and instance methods.
 * Use a class method to create instances of that class.
 * Distinguish between class and instance methods with the same name.
 
-## Structure
+## Agenda
 
-* First Thirty
-    *  5 min - Warm Up
-    * 10 min - Share
-    * 10 min - Introduce Syntax/Discuss Uses/Think about SRP
-    *  5 min - Break
-* Second Thirty
-    * 10 min - Demo creating instances from a class method
-    * 15 min - Practice creating instances from a class method
-    *  5 min - Break
-* Third Thirty
-    * 15 min - Exploration
-    * 10 min - Share
+
 
 ## Vocabulary
 
@@ -49,6 +36,36 @@ tags: ruby, class methods, OOP
 ### Discussion
 
 Up to this point we have primarily used classes as factories for instances of that class. We define methods in our class, we store some state in our instance variables, we call `.new`, and then we can use them. In Ruby, classes are also objects themselves. We can call methods on classes the same way that we call methods on instances of that class (think about `.new`), the difference is how we define those methods.
+
+### Exploration/Hedgehog Time
+
+Using the following Hedgehog class, you'll be asked to work with your partner to make some predictions and record them on your worksheet.
+
+```ruby
+class Hedgehog
+
+  def initialize(name, age, allergies)
+    @name = name
+    @age = age
+    @allergies = allergies
+  end
+
+  def invite_to_party
+     "#{@name} is invited to the party!"
+  end
+
+  def self.confirm_attendee
+    "Another hedgie is coming to the party!"
+  end
+
+  def check_for_allergies
+    "Make sure to not serve any #{@allergies}."
+  end
+
+end
+```
+
+Once you have made your predictions, run the code and verify your predictions! If you finish before the class is brought back together, write your answers to the questions that are printed on the back of your worksheet.
 
 #### Syntax & Uses
 
@@ -106,14 +123,12 @@ With your neighbor, see if you can create a House class that will return a colle
 * How would you explain the difference between class and instance methods to someone else?
 * Can you think of a metaphor for classes that includes a description of class and instance methods?
 
-## Wrap Up
+## Post It CFU
 
-* What is the syntactic difference between class methods & instance methods?
-* Why might you use a class method instead of an instance method?
-
+* Answer both questions assigned to your group
+* Add your sticky to the chart of the board
 
 ## Additional Resources
 
 [Class Methods Review w/ Launch School](https://launchschool.com/books/oo_ruby/read/classes_and_objects_part2)
 [Dig Deeper On Class Methods w/ ThoughtBot](https://robots.thoughtbot.com/meditations-on-a-class-method)
-

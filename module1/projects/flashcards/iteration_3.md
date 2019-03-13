@@ -11,7 +11,7 @@ _[Back to Requirements](./requirements)_
 
 ### Playing the Game!
 
-So far we've focused on modelling the data, classes, and methods that make up our game. However we haven't done much to put any kind of useable **interface** onto the game. In this iteration, let's remedy this by adding a simple Command-Line-Interface (CLI) to the game.
+So far we've focused on modeling the data, classes, and methods that make up our game. However we haven't done much to put any kind of useable **interface** onto the game. In this iteration, let's remedy this by adding a simple Command-Line-Interface (CLI) to the game.
 
 A few key points to keep in mind as you work on this iteration:
 

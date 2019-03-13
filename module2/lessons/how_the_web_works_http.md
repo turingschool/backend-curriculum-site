@@ -48,7 +48,7 @@ When a "client" (like a web browser) retrieves information, it sends a payload o
   - the HTTP method (also called a "verb") for sending or retrieving information
   - the URI "path" of the resource where we're sending or retrieving information
   - the version of the HTTP protocol our "client" software is using
-  
+
 - Headers, which is a key/value pair, which contain supplimental information about our request
 
 - An optional body; we only send data to the server in the body when we are creating or modifying something
@@ -62,7 +62,7 @@ When the server or web application is finished processing our request, it will s
   - The version of the HTTP protocol that this response is using
   - a 3-digit numeric "status code"
   - a user-friendly string description of what the "status code" means
-  
+
 - Headers, also sent as key/value pairs similar to the HTTP request
 
 - An optional body; almost all responses will contain additional data in the body. In mod 2, our "body" payload will almost always be HTML.

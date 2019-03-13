@@ -13,11 +13,13 @@ tags: capybara, user stories, feature tests, testing, sinatra
 ## Vocabulary
 * feature test
 * user story
+* "top-down" design
 * DSL (Domain Specific Language)
 
 ## Repository
 
-You should be able to use the SetList repository that we have been using this week. If you have not yet cloned it down, you can find it [here](https://github.com/turingschool-examples/set-list).
+You should be able to use the `Set List` repository that we have been using this week.
+* https://github.com/turingschool-examples/set-list
 
 ## Warmup
 
@@ -38,16 +40,16 @@ You should be able to use the SetList repository that we have been using this we
 * A tool used to communicate user needs to software developers.
 * They are used in Agile Development, and it was first introduced in 1998 by proponents of Extreme Programming.
 * They describe what a user needs to do in order to fulfill a function.
+* They are part of our "top-down" design.
 
 ```txt
 As a user
 When I visit the home page
-And I fill in title
-And I fill in description
-And I click submit
+  And I fill in title
+  And I fill in description
+  And I click submit
 Then my task is saved
 ```
-
 
 We can generalize this pattern as follows:
 
@@ -60,7 +62,7 @@ And I [action]
 Then [expected result]
 ```
 
-Depending on how encompassing a user story is, you may want to make multiple Waffle cards from a single story.
+Depending on how encompassing a user story is, you may want to break a single user story into multiple, smaller user stories.
 
 ### Exercise: Create User Stories
 
@@ -81,13 +83,16 @@ It provides a DSL (domain specific language) to help you query and interact with
 
 For example, the following methods are included in the Capybara DSL:
 
-* `visit(path)`
+* `visit '/path'`
 * `expect(page).to have_content("Content")`
-* `within("CSS") { Assertions here }`
-* `fill_in("identifier", with: "Content")`
-* `click_link("identifier")`
-* `click_button("identifier")`
-* `click_on("identifier")`
+* `within ".css-class"  { Assertions here }`
+* `within "#css-id"  { Assertions here }`
+* `fill_in "identifier", with: "Content"`
+* `expect(page).to have_link("Click here")`
+* `click_link "Click Here"`
+* `expect(page).to have_button("Submit")`
+* `click_button "Submit"`
+* `click_on "identifier"`
 * `expect(current_path).to eq('/')`
 
 ### Important Setup Things
@@ -100,7 +105,7 @@ gem 'launchy'
 gem 'simplecov'
 ```
 
-Run `bundle`
+Run `bundle install`
 
 Update your `spec/spec_helper.rb` file to include the following:
 
@@ -119,22 +124,30 @@ Capybara.save_path = 'tmp/capybara'
 
   c.include Capybara::DSL
 ```
-NOTE: If you do not have a spec/spec_helper.rb follow the set up directions found [here](https://github.com/turingschool/backend-curriculum-site/blob/gh-pages/module2/lessons/model_testing_in_sinatra.md)
+NOTE: If you do not have a `spec/spec_helper.rb` follow the set up directions found [here](http://backend.turing.io/module2/lessons/model_testing_in_rspec_for_sinatra_app)
 
 ### Writing the Test
+
+Based on the following user story, let's learn how to write a feature test:
+
+```
+As an unauthenticated user
+When I visit the home page of the site
+Then I see a "welcome" message
+```
 
 Since we're going to be creating a new type of test, let's add a new folder to separate them from our model tests. The test that we're about to create is probably *not* a test you'd actually write in your project, but it's a simple example to show how Capybara works.
 
 ```bash
 $ mkdir spec/features/
-$ touch spec/features/user_sees_welcome_spec.rb
+$ touch spec/features/user_sees_welcome_message_spec.rb
 ```
 
 In that new file add the following:
 
 ```ruby
-RSpec.describe "an unauthenticated user visits welcome page" do
-  it "they see a welcome message" do
+RSpec.describe "an unauthenticated user visiting welcome page" do
+  it "should see a welcome message" do
     # Your code here.
   end
 end
@@ -154,13 +167,19 @@ RSpec.describe "an unauthenticated user visits welcome page" do
     scenario "they see a welcome message" do
       visit '/'
 
-      within("#greeting") do
+      within "#greeting" do
         expect(page).to have_content("Welcome!")
       end
     end
   end
 end
 ```
+
+### Debugging tools
+
+* use 'binding.pry' in your controller code, model code, tests
+* use `save_and_open_page` to debug a view
+
 
 ### What about all of those html files from save_and_open_page?
 
@@ -175,23 +194,57 @@ $ touch .gitignore
 Then, inside that file, add:
 
 ```
-/tmp
+tmp/
 ```
 
 This will tell git to ignore everything inside of the `tmp` directory.
 
-## Workshop
+Do the same for the `coverage/` folder to avoid saving SimpleCov coverage files to Git.
 
-Write a test for:
 
-* The process of creating a song
-* That all songs are displayed on the song index
-* That a playlists total song lengths are displayed on their page
+## Notes about feature test file organization
+
+The names of the files you create for feature testing MUST end in `_spec.rb`. Without that 'spec' part of the filename, RSpec will completely ignore the file.
+
+How many tests should go in one file? It's totally up to you, but having multiple tests in a file is marginally faster than putting a single test in a single file. Also, grouping lots of tests into one file allows you to share the setup across your tests.
+
+You can group your test files into subfolders to organize them in a similar format to your `/app/views` folder, and can help with strong organization. Every team you work on, every job you have, could have a completely different organizational method for test files, so keep that 'growth mindset' and be flexible!
+
+```
+/spec
+/spec/features
+/spec/features/songs
+/spec/features/songs/index_spec.rb # all tests about the index page
+/spec/features/songs/show_spec.rb  # all tests about the show page
+etc
+```
 
 ## Wrap Up
+
 * What is the difference between a model and feature test?
 * What are the 4 main methods (blocks) for a test? Why/when would you use each one?
 * What is the general structure of a user story?
+
+
+## Workshop
+
+Since we've built a LOT of code in our previous lessons WITHOUT feature tests, let's back-fill some tests to make sure all of our functionality works for our users. Write tests for the following user stories:
+
+```
+As a visitor to the web site
+When I visit '/songs/new'
+And I fill in the form completely and click the Submit button
+Then I return to the index page
+And I see my new song on the page
+```
+
+```
+As a visitor to the web site
+When I visit '/songs'
+Then I see all songs in the database
+Each song shows its title, length, and play count
+```
+
 
 ## Resources
 
