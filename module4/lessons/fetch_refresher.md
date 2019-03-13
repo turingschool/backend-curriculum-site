@@ -289,7 +289,7 @@ const postArticle = (event) => {
 
 If you want to use _Postman_ to check your endpoints, be sure for the POST method that it looks like this:
 
-![Postman Post Example](https://github.com/turingschool/backend-curriculum-site/blob/gh-pages/module4/lessons/assets/hedgie_post.png)
+![Postman POST Example](../lessons/assets/hedgie_post.png)
 
 
 ## Interview Questions
