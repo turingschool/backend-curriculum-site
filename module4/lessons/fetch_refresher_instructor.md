@@ -17,7 +17,7 @@ Have the following tabs open in browser:
 - Hedgehog Party Repo
 - CSS Tricks article on Error Handling - https://css-tricks.com/using-fetch/#article-header-id-5
 
-Prep a message to cohort with Hedgehog Party Repo - https://github.com/ameseee/fetch-hedgehog-party
+Prep a message to cohort with Hedgehog Party Repo - https://github.com/turingschool-examples/fetch-hedgehog-party
 
 ## Learning Goals
 
