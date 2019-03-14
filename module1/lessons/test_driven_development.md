@@ -8,8 +8,8 @@ length: 60
 ## Learning Goals
 
 * Understand that TDD is about asking questions and making decisions
-* Understand the role of TDD in streamlining the problem-solving and design process.
-* Be able to name and explain the four key types of tests
+* Understand the role of TDD in streamlining the problem-solving and design process
+* Be able to name and explain the differences between unit and integration tests
 
 ## Vocabulary
 
@@ -17,13 +17,6 @@ length: 60
 * Integration Tests
 * Feature Tests
 * Acceptance Tests
-
-## Structure
-
-
-## Slides
-
-Available [here](../slides/testing_strategies_4)
 
 ## Warm Up
 
