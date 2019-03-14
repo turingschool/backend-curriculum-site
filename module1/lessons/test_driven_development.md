@@ -95,7 +95,42 @@ car.color
 
 **Stuck?** As I read through this I see a Car class that implements four methods that I will need to test: `new`, `make`, `model`, and `color`.
 
-### Example
+## Command vs. Query Methods
+
+Methods either do one of two things for us:
+- Give us information about an object
+- Change something about an object
+
+When testing, it's really important to keep in mind what a method should be doing, to ensure we test it well. Stepping out of TDD just for a minute so we can illustrate this, let's look at this example:
+
+```ruby
+class Car
+  attr_reader :make, :model, :engine_on
+
+  def initialize(make, model)
+    @make = make
+    @model = model
+    @engine_on = false
+  end
+
+  def start
+    @engine_on
+  end
+
+end
+```
+
+Discuss with your partner:
+- What are all the methods we have on an instance of this class?
+- Which methods give us information about a car object?
+- Which methods change something about a car object?
+- How would you go about testing that the `start` method does what it is supposed to?
+
+To make sure we're all the same page, let's write this test together.
+
+### Partner Practice
+
+Given the following interaction pattern, build on your test file for this (not yet existent) class, Car.
 
 ```ruby
 car = Car.new("Toyota", "Camry")
@@ -108,22 +143,13 @@ car.color
 #=> "blue"
 car.odometer
 #=> 0
-car.odometer.class
-#=> Integer
-```
-
-### Partner Practice
-
-Given the following interaction pattern, build on your test file for this (not yet existent) class, Car.
-
-```ruby
-car.odometer
-#=> 0
 car.drive(10)
 car.drive(7)
 car.odometer
 # => 17
 ```
+
+Be ready to share your code with the rest of class!
 
 ### With a Partner
 
@@ -137,5 +163,6 @@ Share out with the class!
 
 ### Wrap Up
 
+* Why is a thorough test suite important to have?
 * How does letting tests drive your development lead you to stronger code?
 * What tradeoffs do you face when working with unit vs integration tests?
