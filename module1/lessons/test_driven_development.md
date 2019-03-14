@@ -80,16 +80,15 @@ A Turing Version of [Martin Fowler's test pyramid](http://martinfowler.com/bliki
 
 ![TestPyramid](https://goo.gl/NYQcSd)
 
+## Implementation
 
-## Practice
+### Partner Practice
 
-### Observe
-
-Given the following interaction pattern, what tests would I write?
+Given the following interaction pattern, write a test file for this (not yet existent) class, Car.
 
 ```ruby
 > car = Car.new("Toyota", "Camry")
-=> #<Node:0x007fa2e9acd738>
+=> #<Car:0x007fa2e9acd738>
 car.make
 => "Toyota"
 car.model
@@ -98,43 +97,17 @@ car.color
 => "white"
 ```
 
-As I read through this I see a Car class that implements four methods that I will need to test: `new`, `make`, `model`, and `color`.
+<br>
+<br>
 
-My test file would likely end up looking like this, though I would write each one of these tests and make them pass one at a time.
+**Stuck?** As I read through this I see a Car class that implements four methods that I will need to test: `new`, `make`, `model`, and `color`.
 
-```ruby
-require 'minitest/autorun'
-require 'minitest/pride'
-require './lib/car'
-
-class CarTest < Minitest::Test
-  def test_it_exists
-    car = Car.new("Toyota", "Camry")
-
-    assert_instance_of Car, car
-  end
-
-  def test_it_has_attributes
-    car = Car.new("Toyota", "Camry")
-
-    assert_equal "Toyota", car.make
-    assert_equal "Camry", car.model
-  end
-
-  def test_it_is_white_by_default
-    car = Car.new("Toyota", "Camry")
-
-    assert_equal "white", car.color
-  end
-end
-```
-
-### With a Partner
-
-See if you can write a test suite for the interaction pattern below.
+### Example
 
 ```ruby
 car = Car.new("Toyota", "Camry")
+#=> #<Car:0x007fa2e9acd738>
+
 car.color
 #=> "white"
 car.paint("blue")
@@ -146,34 +119,15 @@ car.odometer.class
 #=> Integer
 ```
 
-Share out with the class!
+### Partner Practice
 
-### Detour: Interaction Patterns in Pry
-
-The interaction patterns you've seen up to this point have been intended to offer you snippets of code that you could run in pry if you wanted. You'll need to remember to require the class that you're using, but after that each of the lines should run pretty much as described. Go ahead and try it! Open up a pry session and run the following lines. See if they return what you would expect.
+Given the following interaction pattern, build on your test file for this (not yet existent) class, Car.
 
 ```ruby
-require './lib/car'
-#=> true
-car = Car.new("Toyota", "Camry")
-car.color
-#=> "white"
-car.paint("blue")
-car.color
-#=> "blue"
 car.odometer
 #=> 0
-car.odometer.class
-#=> Integer
-```
-
-Note that there are some lines where we don't provide a return value. Pry will always show you what the return value of a method is. If we haven't included a return value, it means that we are not concerned with what the method returns. That's a pretty good indicator that it's a `command` method, designed to change some aspect of a class's state. Here's an example:
-
-```ruby
 car.drive(10)
-
 car.drive(7)
-
 car.odometer
 # => 17
 ```
@@ -182,13 +136,13 @@ car.odometer
 
 You will not always have interaction patterns to guide your testing. In these cases, you'll need to decide for yourself what you'll name the methods and how you'll decide to implement its functionality.
 
-Create a `Mechanic` class. The primary responsibility of a mechanic is to takea  list of cars and determine which of those cars is due for an oil change (greater than 3,000 miles).
+You are planning to create a `Mechanic` class. The mechanic has a name and a shop they work at. The primary responsibility of a mechanic is to take a list of cars and determine which of those cars is due for an oil change (greater than 3,000 miles).
 
-Write a series of tests and create a Mechanic class.
+Write a series of tests and THEN create a Mechanic class.
 
 Share out with the class!
 
-### WrapUp
+### Wrap Up
 
 * How does letting tests drive your development lead you to stronger code?
 * What tradeoffs do you face when working with unit vs integration tests?
