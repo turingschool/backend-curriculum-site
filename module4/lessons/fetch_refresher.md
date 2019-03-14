@@ -55,7 +55,7 @@ If the function fails for any reason, our Promise object is considered rejected,
 
 By using a Promise object, a function does two things:
 
-1. It automatically becomes asynchronous, allowing it to run in the background and giving the rest of our code a change to continue execution.
+1. It automatically becomes asynchronous, allowing it to run in the background and giving the rest of our code a chance to continue execution.
 2. It gives us access to two methods - `.then` and `.catch`
 
 ![inline](https://wtcindia.files.wordpress.com/2016/06/promises.png?w=605)
@@ -152,7 +152,7 @@ NOTE: Both tasks require network requests as well as DOM manipulation. This is g
 
 ## Error Checking
 
-Read about error handling [here](https://css-tricks.com/using-fetch/#article-header-id-5), then try to implement similar error handling in our GET request.
+Read about error handling [here](https://css-tricks.com/using-fetch/#article-header-id-3), then try to implement similar error handling in our GET request.
 
 Check out the example below. Our second button makes an unsuccessful request with a 404 response so why does it seem to still succeed?
 
