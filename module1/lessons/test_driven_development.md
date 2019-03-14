@@ -80,9 +80,6 @@ A Turing Version of [Martin Fowler's test pyramid](http://martinfowler.com/bliki
 
 ![TestPyramid](https://goo.gl/NYQcSd)
 
-### Sad Path Testing
-
-When you test your application, especially when you have some sort of user interaction, be sure that you include tests to see what will happen when a user does not behave as you would expect them to. We sometimes refer to this as sad-path testing. What happens when things go wrong? Do our applications completely error out or do they give our users feedback that they can use to determine what to do next?
 
 ## Practice
 
