@@ -13,7 +13,6 @@ length: 60
 
 ## Vocabulary
 
-* Encapsulation
 * Unit Tests
 * Integration Tests
 * Feature Tests
@@ -21,24 +20,18 @@ length: 60
 
 ## Structure
 
-* 5min - WarmUp
-* Testing Patterns
-* Hierarchy of Tests
-* 5min - WrapUp
 
 ## Slides
 
 Available [here](../slides/testing_strategies_4)
 
-## WarmUp
+## Warm Up
 
-* Why do we write tests?
-* What are the benefits of having a test suite?
-* How do you decide what to test?
-* What is your process for writing test?
-* What has been the most difficult part of testing so far?
+With your partner, look over the test file you have printed out, and answer the following questions:
+- For each test (between `def` and `end`), what piece of functionality foes that tell you this class has? The first two are answered/annotated for you, it's your job to jot down notes for the remaining tests.
+- How would you explain, in 1-2 sentences, what the House class does?
+- Why do you think you were you able to say so much about this House class without even looking at the actual code?
 
-## Lecture
 
 ### Overview
 
@@ -50,10 +43,11 @@ It can be especially difficult to get started on a new project or even a new ite
 
 ### Why do we write tests?
 
-Having a robust test suite is a way for us to be good to our future selves; and provides us with two advantages:
+Having a robust test suite is a way for us to be good to our future selves; and provides us with several advantages:
 
 * *Refactor with Confidence:* When we decide we want to make a change to how we've implemented our code, we can make that change making sure that we know that the code as a whole still works.
 * *Add new features with confidence:* This also allows us to add new features with confidence. Sometimes it's difficult to know how code we add may impact functionality that we've already provided. A test suite tells us when something new we've done has broken something else we did before.
+* *Roadmap to future collaborators:* It's very rare that someone will work on code alone - and if they do, they may be doing it over time. Your test suite serves as a roadmap of the codebase; another developer or future-you should be able to skim through the code base and get a feel for what the code does, and where to find certain things in it.
 
 ### Okay, sure, but why do we write tests first?
 
