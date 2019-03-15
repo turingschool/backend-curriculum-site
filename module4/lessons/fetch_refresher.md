@@ -55,7 +55,7 @@ If the function fails for any reason, our Promise object is considered rejected,
 
 By using a Promise object, a function does two things:
 
-1. It automatically becomes asynchronous, allowing it to run in the background and giving the rest of our code a change to continue execution.
+1. It automatically becomes asynchronous, allowing it to run in the background and giving the rest of our code a chance to continue execution.
 2. It gives us access to two methods - `.then` and `.catch`
 
 ![inline](https://wtcindia.files.wordpress.com/2016/06/promises.png?w=605)
@@ -138,7 +138,7 @@ DISCUSS: What differences do you notice between a GET and POST?
 
 ## Hedgehog Party
 
-Clone down the [Hedgehog Party Repo](https://github.com/ameseee/fetch-hedgehog-party).
+Fork and clone down the [Hedgehog Party Repo](https://github.com/ameseee/fetch-hedgehog-party).
 
 **Step 1:** Choose a driver. Look through the JavaScript in `public/index.js` - we already have a get request up and running to get, then append, all the hedgies in the database onto the DOM. Make sure you open up the app in the browser and keep your Dev Tools open while working. Now, in `public/index.js`, anootate lines 4-7. Make sure you and your partner can explain the role of `appendHedgehogs` and `appendHedgehog`.
 
@@ -152,7 +152,7 @@ NOTE: Both tasks require network requests as well as DOM manipulation. This is g
 
 ## Error Checking
 
-Read about error handling [here](https://css-tricks.com/using-fetch/#article-header-id-5), then try to implement similar error handling in our GET request.
+Read about error handling [here](https://css-tricks.com/using-fetch/#article-header-id-3), then try to implement similar error handling in our GET request.
 
 Check out the example below. Our second button makes an unsuccessful request with a 404 response so why does it seem to still succeed?
 
@@ -289,7 +289,7 @@ const postArticle = (event) => {
 
 If you want to use _Postman_ to check your endpoints, be sure for the POST method that it looks like this:
 
-![Postman Post Example](https://github.com/turingschool/backend-curriculum-site/blob/gh-pages/module4/lessons/assets/hedgie_post.png)
+![Postman POST Example](../lessons/assets/hedgie_post.png)
 
 
 ## Interview Questions

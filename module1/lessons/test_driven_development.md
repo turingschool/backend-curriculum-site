@@ -8,37 +8,23 @@ length: 60
 ## Learning Goals
 
 * Understand that TDD is about asking questions and making decisions
-* Understand the role of TDD in streamlining the problem-solving and design process.
-* Be able to name and explain the four key types of tests
+* Understand the role of TDD in streamlining the problem-solving and design process
+* Be able to name and explain the differences between unit and integration tests
 
 ## Vocabulary
 
-* Encapsulation
 * Unit Tests
 * Integration Tests
 * Feature Tests
 * Acceptance Tests
 
-## Structure
+## Warm Up
 
-* 5min - WarmUp
-* Testing Patterns
-* Hierarchy of Tests
-* 5min - WrapUp
+With your partner, look over the test file you have printed out, and answer the following questions:
+- For each test (between `def` and `end`), what piece of functionality foes that tell you this class has? The first two are answered/annotated for you, it's your job to jot down notes for the remaining tests.
+- How would you explain, in 1-2 sentences, what the House class does?
+- Why do you think you were you able to say so much about this House class without even looking at the actual code?
 
-## Slides
-
-Available [here](../slides/testing_strategies_4)
-
-## WarmUp
-
-* Why do we write tests?
-* What are the benefits of having a test suite?
-* How do you decide what to test?
-* What is your process for writing test?
-* What has been the most difficult part of testing so far?
-
-## Lecture
 
 ### Overview
 
@@ -50,10 +36,11 @@ It can be especially difficult to get started on a new project or even a new ite
 
 ### Why do we write tests?
 
-Having a robust test suite is a way for us to be good to our future selves; and provides us with two advantages:
+Having a robust test suite is a way for us to be good to our future selves; and provides us with several advantages:
 
 * *Refactor with Confidence:* When we decide we want to make a change to how we've implemented our code, we can make that change making sure that we know that the code as a whole still works.
 * *Add new features with confidence:* This also allows us to add new features with confidence. Sometimes it's difficult to know how code we add may impact functionality that we've already provided. A test suite tells us when something new we've done has broken something else we did before.
+* *Roadmap to future collaborators:* It's very rare that someone will work on code alone - and if they do, they may be doing it over time. Your test suite serves as a roadmap of the codebase; another developer or future-you should be able to skim through the code base and get a feel for what the code does, and where to find certain things in it.
 
 ### Okay, sure, but why do we write tests first?
 
@@ -86,19 +73,15 @@ A Turing Version of [Martin Fowler's test pyramid](http://martinfowler.com/bliki
 
 ![TestPyramid](https://goo.gl/NYQcSd)
 
-### Sad Path Testing
+## Implementation
 
-When you test your application, especially when you have some sort of user interaction, be sure that you include tests to see what will happen when a user does not behave as you would expect them to. We sometimes refer to this as sad-path testing. What happens when things go wrong? Do our applications completely error out or do they give our users feedback that they can use to determine what to do next?
+### Partner Practice
 
-## Practice
-
-### Observe
-
-Given the following interaction pattern, what tests would I write?
+Given the following interaction pattern, write a test file for this (not yet existent) class, Car.
 
 ```ruby
 > car = Car.new("Toyota", "Camry")
-=> #<Node:0x007fa2e9acd738>
+=> #<Car:0x007fa2e9acd738>
 car.make
 => "Toyota"
 car.model
@@ -107,43 +90,52 @@ car.color
 => "white"
 ```
 
-As I read through this I see a Car class that implements four methods that I will need to test: `new`, `make`, `model`, and `color`.
+<br>
+<br>
 
-My test file would likely end up looking like this, though I would write each one of these tests and make them pass one at a time.
+**Stuck?** As I read through this I see a Car class that implements four methods that I will need to test: `new`, `make`, `model`, and `color`.
+
+## Command vs. Query Methods
+
+Methods either do one of two things for us:
+- Give us information about an object
+- Change something about an object
+
+When testing, it's really important to keep in mind what a method should be doing, to ensure we test it well. Stepping out of TDD just for a minute so we can illustrate this, let's look at this example:
 
 ```ruby
-require 'minitest/autorun'
-require 'minitest/pride'
-require './lib/car'
+class Car
+  attr_reader :make, :model, :engine_on
 
-class CarTest < Minitest::Test
-  def test_it_exists
-    car = Car.new("Toyota", "Camry")
-
-    assert_instance_of Car, car
+  def initialize(make, model)
+    @make = make
+    @model = model
+    @engine_on = false
   end
 
-  def test_it_has_attributes
-    car = Car.new("Toyota", "Camry")
-
-    assert_equal "Toyota", car.make
-    assert_equal "Camry", car.model
+  def start
+    @engine_on
   end
 
-  def test_it_is_white_by_default
-    car = Car.new("Toyota", "Camry")
-
-    assert_equal "white", car.color
-  end
 end
 ```
 
-### With a Partner
+Discuss with your partner:
+- What are all the methods we have on an instance of this class?
+- Which methods give us information about a car object?
+- Which methods change something about a car object?
+- How would you go about testing that the `start` method does what it is supposed to?
 
-See if you can write a test suite for the interaction pattern below.
+To make sure we're all the same page, let's write this test together.
+
+### Partner Practice
+
+Given the following interaction pattern, build on your test file for this (not yet existent) class, Car.
 
 ```ruby
 car = Car.new("Toyota", "Camry")
+#=> #<Car:0x007fa2e9acd738>
+
 car.color
 #=> "white"
 car.paint("blue")
@@ -151,53 +143,26 @@ car.color
 #=> "blue"
 car.odometer
 #=> 0
-car.odometer.class
-#=> Integer
-```
-
-Share out with the class!
-
-### Detour: Interaction Patterns in Pry
-
-The interaction patterns you've seen up to this point have been intended to offer you snippets of code that you could run in pry if you wanted. You'll need to remember to require the class that you're using, but after that each of the lines should run pretty much as described. Go ahead and try it! Open up a pry session and run the following lines. See if they return what you would expect.
-
-```ruby
-require './lib/car'
-#=> true
-car = Car.new("Toyota", "Camry")
-car.color
-#=> "white"
-car.paint("blue")
-car.color
-#=> "blue"
-car.odometer
-#=> 0
-car.odometer.class
-#=> Integer
-```
-
-Note that there are some lines where we don't provide a return value. Pry will always show you what the return value of a method is. If we haven't included a return value, it means that we are not concerned with what the method returns. That's a pretty good indicator that it's a `command` method, designed to change some aspect of a class's state. Here's an example:
-
-```ruby
 car.drive(10)
-
 car.drive(7)
-
 car.odometer
 # => 17
 ```
+
+Be ready to share your code with the rest of class!
 
 ### With a Partner
 
 You will not always have interaction patterns to guide your testing. In these cases, you'll need to decide for yourself what you'll name the methods and how you'll decide to implement its functionality.
 
-Create a `Mechanic` class. The primary responsibility of a mechanic is to takea  list of cars and determine which of those cars is due for an oil change (greater than 3,000 miles).
+You are planning to create a `Mechanic` class. The mechanic has a name and a shop they work at. The primary responsibility of a mechanic is to take a list of cars and determine which of those cars is due for an oil change (greater than 3,000 miles).
 
-Write a series of tests and create a Mechanic class.
+Write a series of tests and THEN create a Mechanic class.
 
 Share out with the class!
 
-### WrapUp
+### Wrap Up
 
+* Why is a thorough test suite important to have?
 * How does letting tests drive your development lead you to stronger code?
 * What tradeoffs do you face when working with unit vs integration tests?
