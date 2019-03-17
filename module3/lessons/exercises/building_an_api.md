@@ -466,7 +466,7 @@ end
 ```rb
 # app/controllers/api/v1/items_controller.rb
 def destroy
-  Item.delete(params[:id])
+  render json: Item.delete(params[:id])
 end
 ```
 
