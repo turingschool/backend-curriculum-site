@@ -22,34 +22,22 @@ Available [here](../slides/each)
 
 ## Warm Up
 
-In your notebook, write your answer to the following:
-- What is an array?
-- Why are arrays useful?
-- What can we do with arrays?
-
-## Scalability
-
-Let's pretend that we've just graduated from Turing, and that we've landed our first sweet job at Hogwarts School of Witchcraft and Wizardry. Let's say that we've got an array of student names:
+* What do you notice about the code below?
+* What issues could potentially crop up?
+* Is there any alternative you could propose?
 
 ```ruby
 students = ["Katie Bell", "Neville Longbottom", "Luna Lovegood"]
-```
-
-What if we wanted to print out all of the items in this array? If we didn't know what loops were we might do something like this.
-
-```ruby
 puts students[0]
 puts students[1]
 puts students[2]
 ```
 
-And that works, right?
-
-What are some of the problems inherent to this approach? It wasn't too terrible to do with just three students in this array, but what if we had ten students? A hundred? A thousand? A million?
+## Lesson
 
 When we have a solution that works for a small number of items, but it doesn't work for a large number of items, we say that _it doesn't scale_. We want to design solution that are dynamic, meaning they can work for various inputs.
 
-# \#each
+### Introduction
 
 A **Collection** in Ruby is an Array or Hash. For now, we will be focusing on Arrays.
 
@@ -82,20 +70,11 @@ end
 
 One very important thing to remember: **each returns the original array**. This will make more sense as we learn more about enumerables during a later lesson.
 
-## Single-Line Syntax
-
-You can replace a `do`/`end` with `{`/`}`. This allows you to write `each` on a single line. Our example from before could also be written as:
-
-```ruby
-students = ["Katie Bell", "Neville Longbottom", "Luna Lovegood"]
-students.each { |student_name| puts student_name }
-```
-
-Generally, we avoid using single-line syntax unless the operation inside the block is *very* short. In this example, it is appropriate since we have a short and simple operation. "Programming is not like being in the CIA, you don't get credit for being sneaky" - Justin Etheredge.
-
-# When to use \#each
+### When to use \#each
 
 Aside from printing all of the elements in a list, there are **a lot** of situations where we would need to use \#each.  You can use \#each to transform elements within a collection, transform the collection itself into a new collection, locate specific elements from a collection, or create something new with some or all of the elements in a collection.  The possibilities are really endless, which makes \#each (and iteration in general) one of the most useful tools in a developers skillset.
+
+Ruby has other methods that allow you to manipulate arrays. We will learn more about them later, but each is the workhorse of the array world. If you ever aren't quite sure if there's a method to do specifically what you want, you can always use each.
 
 ## Transform Every Element
 
@@ -208,6 +187,18 @@ p doubled
 ```
 
 Pretty cool, right? Well, it may not seem _that_ great to you know, but \#with_index **will** come in handy at some point, so it is a good tool to keep in mind!
+
+## Single-Line Syntax
+
+You can replace a `do`/`end` with `{`/`}`. This allows you to write `each` on a single line. Our example from before could also be written as:
+
+```ruby
+students = ["Katie Bell", "Neville Longbottom", "Luna Lovegood"]
+students.each { |student_name| puts student_name }
+```
+
+Generally, we avoid using single-line syntax unless the operation inside the block is *very* short. In this example, it is appropriate since we have a short and simple operation. "Programming is not like being in the CIA, you don't get credit for being sneaky" - Justin Etheredge.
+
 
 # Practice
 
