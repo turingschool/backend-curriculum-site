@@ -31,7 +31,7 @@ Inside of this file, write the code to do the following:
 * Create some Cards
 * Put those card into a Deck
 * Create a new Round using the Deck you created
-* **Start** the round using a new method called `start` (`round.start`)
+* **Start** the round using a new method called `start`
 
 **Keep in mind** that your existing objects should already contain, more or less, the data and methods needed to manage this process. Your challenge in this iteration is to build out the input/output messaging to support the user's card experience *using your existing pieces to store and manage all the necessary data*.
 
