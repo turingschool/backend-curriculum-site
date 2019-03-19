@@ -127,7 +127,7 @@ class Car
   end
 
   def start
-    @engine_on
+    @engine_on = true
   end
 
 end
