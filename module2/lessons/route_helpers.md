@@ -15,9 +15,10 @@ By the end of this lesson, you will know/be able to:
 * Understand how to use link_to and button_to view helpers.
 
 ## Vocab
+
 * routes
-* path_helper
-* url_helper
+* path helper
+* url helper
 
 ## WarmUp
 
@@ -35,10 +36,65 @@ With your partner, take a look at the entries in the table that `rake routes` gi
 Fill in your answers [here](https://docs.google.com/spreadsheets/d/1AGjUE49UJajPEQHvh3plKjaem5RAGvuv5SNjZzvjD9U/edit#gid=0).
 
 #### Large group share
+
 * What is the path helper for each CRUD action? Which ones take an argument?
 * What is the url helper for each? How do these compare to the path helpers?
 
+### Using prefix names to make path helpers
+
+- Rails will use the "prefix" column to build our "path helpers", we just need to add `_path` to the end of the prefix name
+- Generally, any row that does not include a "prefix" uses the same "prefix" as the line above it
+
+
+## Passing Parameters to Path Helpers
+
+Any time a path helper needs a dynamic parameter, like `:id` we MUST pass a value to the path helper.
+
+Best practice is to pass the entire object to the path helper, such as:
+
+```ruby
+journey = Artist.create(name: 'Journey')
+visit artist_path(journey)
+```
+
+Rails will check if the object has an ID value and build the path helper appropriately.
+
+**Turn & Talk**
+
+- What happens if we forget to pass a parameter to a path helper that needs it?
+- What error do we see?
+- Practice reading the ENTIRE error message to understand what's going on
+
+Point out to students that the error message will start to look like a "missing route" error, but when they read the ENTIRE error, it will actually tell them the path helper is missing a parameter.
+
+
+### Using `rake routes` as a debugging tool
+
+We can use `rake routes` as a debugging tool for our path helpers:
+
+- examine the `edit` path helper for an album:
+
+`edit_album GET    /albums/:id/edit(.:format) albums#edit`
+
+We can see in the `rake routes` output that we need a "dynamic parameter" in our URI path, called `/:id/`. Here, `rake routes` is telling us exactly what the parameter is called, and that also indicates how we can access this value in our params hash: `params[:id]`
+
+If you add a custom route to `config/routes.rb` with its own "dynamic parameter", like:
+- `get '/albums/:album_id', to: 'albums#show'`
+and run `rake routes` again
+- `GET    /albums/:album_id(.:format) albums#show`
+
+Again, `rake routes` shows us a dynamic parameter in the URI path, called `:album_id`, and we would also access this as `params[:album_id]`
+
+**Be sure to remove any custom routes for albums**
+
+---
+
+# We only want to see you using path helpers moving forward, no exceptions
+
+---
+
 #### Independent Practice
+
 Update your test suite to use path helpers instead of direct paths (i.e. "/songs")
 
 #### Partnered Workshop

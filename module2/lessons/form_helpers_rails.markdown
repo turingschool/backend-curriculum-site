@@ -10,7 +10,7 @@ title: Forms in Rails
 * Construct a basic form with the help of documentation/references
 * Practice building the C portion of a CRUD application with a form
 
-## Vocab 
+## Vocab
 * form_for
 * params
 * strong params
@@ -31,15 +31,15 @@ title: Forms in Rails
 ### User Story
 
 1. ```
-    As a user, 
-    When I visit "/artists/new" 
+    As a user,
+    When I visit "/artists/new"
     Then I see a form where I can create a new artist`
     ```
 
 2. ```
     As a user,
-    When I visit "/artists/new" 
-    And I fill in name 
+    When I visit "/artists/new"
+    And I fill in name
     And I click "Create Artist"
     Then I am taken to the show page for the new artist`
     ```
@@ -47,27 +47,29 @@ title: Forms in Rails
 ### Tests
 
 - First things first, let's run our test suite since we added our Artists table. Why isn't it passing?
-- Our songs now require a artist. Lets go into our test suite and add a artist to our songs.
+- Answer: Our songs now require a artist, we can't create songs by themselves any more.
+- Lets go into our test suite and add a artist to our songs in our test setup.
 
 ```ruby
-  artist = Artist.create(name: "Journey")
-  song = Song.create(title: "Don't Stop Believin'", length: 231, play_count: 0, artist: artist)
+  journey = Artist.create(name: "Journey")
+  song = journey.songs.create(title: "Don't Stop Believin'", length: 231, play_count: 0)
 ```
 
-Now that we have fixed those errors, lets add a new test.  
-`touch spec/features/user_creates_a_new_artist_spec.rb`
+Now that we have fixed those errors, lets add a new test:
+`touch spec/features/artists/new_spec.rb`
 
 #### New Artist Test
 
 ```ruby
-artist_name = "Journey"
+# put this content into a new test, don't forget to do your describes, etc
+new_artist = "Journey"
 
 visit "/artists/new"
 
-fill_in "artist[name]", with: artist_name
+fill_in "artist[name]", with: new_artist
 click_on "Create Artist"
 
-expect(page).to have_content(artist_name)
+expect(page).to have_content(new_artist)
 ```
 
 ### Code Along
@@ -90,11 +92,8 @@ So we need to add the route, in fact, lets open up all our artists resources:
 Now if we run RSpec again, we get a different error:
 
 ```bash
- # ------------------
-     # --- Caused by: ---
      # NameError:
      #   uninitialized constant ArtistsController
-     #   /Users/ian/.rvm/gems/ruby-2.4.0/gems/rack-2.0.3/lib/rack/etag.rb:25:in `call'
 ```
 
 This is telling us that we need a ArtistsController, let's go make that.  
@@ -147,9 +146,9 @@ touch app/views/artists/new.html.erb
 <!-- #views/artists/new.html.erb -->
 
   <%= form_for Artist.new do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-    <%= f.submit %>
+    <p><%= f.label :name %><br/>
+    <%= f.text_field :name %></p>
+    <p><%= f.submit %></p>
   <% end %>
 ```
 
@@ -164,21 +163,18 @@ touch app/views/artists/new.html.erb
   end
 ```
 
-- A `form_for` is this: `<%= form_for @artist, :as => :artist, :url => artists_path, :html => { :class => "new_artist", :id => "new_artist" } do |f| %>`
-- What is all this??
-* How does this form know where to submit to?
-  - It is using the instance variable to determine whether it is a form for a new object or to edit an object.
-  - If the object has a value i.e. `Artist.find(params[:id])` then Rails knows that we are looking to edit a resource and pre-populated the form with all of that object's data. (this is super handy!)
-  - If the instance variable holds no information, Rails interprets that as wanting to create a new resource.
-  - Finally, the `form_for` line tells us the url (which we can also set manually if we want to through an options hash)
-  - `:as => :artist`, creates the nested names such as `name="artist[name]"`
-  - `:url => artists_path` tells Rails which route the request is being sent to
-  - `:html {:class => "new_artist", :id => "new_artist}` are an automatically-generated class and id, the names come from the new route and the `:as` attribute. You can overide the default with this `:html` hash
-  - Based on the above, the submit button will be rendered with text reflecting the form's intention.
-    - If it is a new form, it says "Create (Resource)"
-    - If we're editing an existing resource, the button says "Update (Resource)".
-    - We can change that by adding a string to the `f.submit` line.
-  - Notice that `form_for` is a method, we pass it some arguments (a bunch of them in an options hash) and then pass it a block of code. `f` is a block parameter that we then use throughout the rest of the block.
+`form_for` figures out where the browser should submit the form, and which HTTP verb to use, based on the object we pass:
+
+* if the object does not have an `id`:
+  * form_form will use a POST verb and the action path will be `/resources`
+  * the form will start out empty
+  * the submit button will say 'Create (resource name)'
+  * the action method we need to process the form data will be called `create`
+* if the object has an `id`:
+  * form_for will use a PUT verb and the action path will be something like `/resources/:id`
+  * the form will pre-populate the fields with the data from the database
+  * the submit button will say 'Update (resource name)'
+  * the action method we need to to process the form data will be called `update`
 
 By creating this form, we should now be further along in our errors:
 
@@ -222,6 +218,7 @@ But there is some other junk in there too, how can we separate out the things we
         redirect_to "/artists/#{artist.id}"
       else
         # we were unable to save, so show the user the `new` form again
+        # remember to write a test for this !!!
         render :new
       end
     end
@@ -236,23 +233,8 @@ But there is some other junk in there too, how can we separate out the things we
 
   - `params.require(:artist).permit(:name)` - when the params come through, we are going to require that the key of `artist` is present, and ONLY create the object if we see that key. When we see that key, we now are going to only allow ("permit") the attributes that we explicitly list there, like `:name`.
 
-### `form_for` vs `form_tag`
-
-**Turn and talk** 
-
-With your neighbor discuss the following.
-
-*   What is `form_for`? How is this different from a [`form_tag`](http://api.rubyonrails.org/v5.1/classes/ActionView/Helpers/FormTagHelper.html#method-i-form_tag)?
-  - Form_for deals with model/resource attributes while form_tag does not.
-*   When would we want to use one over the other?
-  - A form that isn't related to a model/resource would be a good place to use a form_tag.
 
 ### Exercise: Finish Create Artists and Add Create Playlists
 
 - You're likely still getting a failing test from our last user story. Finish out the actions/view combo to get a passing test.
-- We also have Playlists. Add the functionality for a user to add a new playlist. Don't forget - you'll need two routes for this!
-
-
-## WrapUp
-
-Create a Venn Diagram comparing a form made in raw HTML and one made with a Rails form_helper
+- Add the functionality for a user to add a new playlist name in a form, including routes
