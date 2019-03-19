@@ -67,13 +67,23 @@ Especially when you move into web development projects in later modules you'll r
 In Module 1, on the other hand, we will rely much more heavily on **Unit** and **Integration** tests -- and it's very
 important to have a good mix of both!
 
-### Hierarchy of Tests
-
-A Turing Version of [Martin Fowler's test pyramid](http://martinfowler.com/bliki/TestPyramid.html):
-
-![TestPyramid](https://goo.gl/NYQcSd)
-
 ## Implementation
+
+### Example
+
+Given the following interaction pattern, I'll write a test file for this (not yet existent) class, Car.
+
+```ruby
+> car = Car.new("Toyota", "Camry")
+=> #<Car:0x007fa2e9acd738>
+car.make
+=> "Toyota"
+car.model
+=> "Camry"
+
+car.drive
+=> "The Camry is driving"
+```
 
 ### Partner Practice
 
@@ -88,12 +98,13 @@ car.model
 => "Camry"
 car.color
 => "white"
+
+car.drive
+=> "The Camry is driving"
+
+car.stop
+=> "The Camry has stopped"
 ```
-
-<br>
-<br>
-
-**Stuck?** As I read through this I see a Car class that implements four methods that I will need to test: `new`, `make`, `model`, and `color`.
 
 ## Command vs. Query Methods
 
