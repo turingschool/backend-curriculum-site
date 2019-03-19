@@ -21,7 +21,9 @@ length: 60
 ## Warm Up
 
 With your partner, look over the test file you have printed out, and answer the following questions:
-- For each test (between `def` and `end`), what piece of functionality foes that tell you this class has? The first two are answered/annotated for you, it's your job to jot down notes for the remaining tests.
+- For each test (between `def` and `end`), what is the name of the test? 
+- For each test (between `def` and `end`), what piece of functionality does that tell you this class has? The first two are answered/annotated for you, it's your job to jot down notes for the remaining tests.
+- Now, look back at your notes and the name of each test. Does the naming appropriately explain what the test tests?
 - How would you explain, in 1-2 sentences, what the House class does?
 - Why do you think you were you able to say so much about this House class without even looking at the actual code?
 
