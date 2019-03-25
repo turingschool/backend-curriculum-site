@@ -138,7 +138,7 @@ DISCUSS: What differences do you notice between a GET and POST?
 
 ## Hedgehog Party
 
-Fork and clone down the [Hedgehog Party Repo](https://github.com/ameseee/fetch-hedgehog-party).
+Fork and clone down the [Hedgehog Party Repo](https://github.com/turingschool-examples/fetch-hedgehog-party).
 
 **Step 1:** Choose a driver. Look through the JavaScript in `public/index.js` - we already have a get request up and running to get, then append, all the hedgies in the database onto the DOM. Make sure you open up the app in the browser and keep your Dev Tools open while working. Now, in `public/index.js`, anootate lines 4-7. Make sure you and your partner can explain the role of `appendHedgehogs` and `appendHedgehog`.
 

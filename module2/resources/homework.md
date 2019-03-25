@@ -6,7 +6,7 @@ layout: page
 # Weekly Homework:
 
 - Checks for Understanding
-  - [https://github.com/turingschool/checks-for-understanding/blob/master/module-2/backend](https://github.com/turingschool/checks-for-understanding/blob/master/module-2/backend)
+  - CFUs will be distributed via Google forms each Friday
   - **due every Monday at 8:30am**
 - Static Comp Challenge, unless told otherwise by instructors
   - **due Monday at 8:30am or during class work time**

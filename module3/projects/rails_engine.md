@@ -385,3 +385,94 @@ Feature completeness will be determined using the [spec harness](https://github.
 * 3: Project makes good use of `ActiveRecord`, but drops to ruby enumerables for some query methods.
 * 2: Project has some gaps in ActiveRecord usage, including numerous business methods that rely on ruby enumerables to find the appropriate data.
 * 1: Project struggles to establish a coherent ActiveRecords schema, including missing relationships or dysfunctional queries.
+
+## Peer Review
+
+### Independent Review of Your Partner's Code
+
+Clone and setup your parter's code on your machine.
+
+* Is their README clear?
+* Would a potential employer be able to understand the setup instructions and easily get this running on their machine?
+
+#### Scaling Back the Number of Queries
+
+When writing Ruby, we should generally prefer to work with instance methods since this tends to lead to object oriented code. However, SQL isn't object oriented and therefore ActiveRecord isn't truly OO. For this reason class methods tend to be more performant when writing ActiveRecord queries.
+
+Example:
+
+```ruby
+class User < ApplicationRecord
+  has_many :articles
+
+  def animal_articles
+    articles.where(category: "animals")
+  end
+end
+
+# makes two queries
+user = User.find 1 # first query
+animal_articles = user.animal_articles # second query
+```
+
+```ruby
+class Article < ApplicationRecord
+  def self.animals(filter = {})
+    where(category: "animals").where(filter)
+  end
+end
+
+# This example makes one query
+animal_articles = Article.animals(user_id: 1)
+```
+
+**Put it into Practice**
+
+* Using this technique, are there any places in your partner's codebase where we can cut back on the number of queries being made?
+* If not, are there any places you see they were able to cut back on queries that you might have missed in your own codebase?
+
+#### Making Code More Flexible
+
+Possibly the most important thing to strive for when building software is for it to be maintainable and easy to expand.
+
+In the `Article` class above...
+* what happens if we call `Article.animals` with no parameter? *Hint:* If you want to try this in your app, call `.where({})` or `.where(nil)` on any ActiveRecord class and look at the SQL that gets generated.
+* does `.animals` limit what attributes we can filter by?
+* how many filters can we send `.animals` at once?
+
+**Put it into Practice**
+
+Business concepts are frequently reusable and it's common to find variations of the same business intelligence logic in multiple places. Repeating logic leads to maintenance difficulties and sometimes inconsistent ways of accomplishing the same task.
+
+* Does the project call two separate methods in `Merchant` for the `GET /api/v1/merchants/:id/revenue` and `GET /api/v1/merchants/:id/revenue?date=x` endpoints?
+* If yes, how much of the logic is the same?
+* If no, is there a conditional statement with most of the same logic in each branch?
+* Can you refactor this method in a way that makes use of the `.where({})` technique above?
+* What else will this allow you to filter the `revenue` by?
+
+#### Dealing with Random
+
+* Why do models inherit from `ApplicationRecord` instead of `ActiveRecord::Base`?
+
+**Put it into Practice**
+
+* Does this project define a `.random` method in `ApplicationRecord`?
+  - If no...
+    * Create one.
+  - If yes...
+    * Did you do this in your project?
+      - No...
+        * Add it to your project.
+      - Yes...
+        * Does your definition look the same?
+* Different ways to define `random`
+  * Postgres has a `RANDOM` function you can use.
+  * That's specific to this database and isn't flexible if we ever need to switch it to MySQL.
+  * On small datasets `RANDOM` is usually faster. On large datasets it can be slower than [using an offset based on count](https://stackoverflow.com/questions/2752231/random-record-in-activerecord).
+  * What could we do if we've defined `.random` in `ApplicationRecord` but one model is experiencing a performance issue with that definition due to a different size of dataset?
+
+### With Your Partner
+
+* Go through each section above and discuss your findings.
+* Did you come to the same conclusions?
+* Is there anything that is still fuzzy?

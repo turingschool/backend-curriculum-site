@@ -40,27 +40,6 @@ end
 
 # Transform a Collection
 
-What will the code below print out?
-
-```ruby
-#playground.rb
-names = ['megan', 'brian', 'sal']
-
-names.each do |name|
-  name.capitalize
-end
-
-puts names
-```
-
----
-
-# Each Doesn't Change the Original Array
-
----
-
-# Transform a Collection (really)
-
 ```ruby
 names = ['megan', 'brian', 'sal']
 

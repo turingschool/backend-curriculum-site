@@ -183,7 +183,7 @@ The keys are the course_id and the values are the count of how many students in 
 * in `tux`
 `Student.group(:course_id).count.order(:course_id)`
 
-If we don't want a hash, we have to build our own `.select()` statement instead to get an array of objects instead:
+If we don't want a hash, we have to build our own `.select()` statement to get an array of objects instead:
 
 ```ruby
 Course.joins(:students).select("courses.id, count(students.id) AS student_count").group(:id)

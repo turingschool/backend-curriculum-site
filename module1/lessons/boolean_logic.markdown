@@ -1,6 +1,6 @@
 ---
 title: Boolean Logic
-length: 90
+length: 60
 tags: ruby, computer science, logic
 ---
 
@@ -165,6 +165,10 @@ For example, `false && x # => false` without needing to know what `x` equals.
 ### Independent Practice
 
 By yourself or with a partner:
+1. Clone the [Boolean Logic Practice Repo](https://github.com/turingschool-examples/vehicle_boolean) onto your local machine
+2. cd vehicle_boolean
+3. ruby test/vehicle_analysis_test.rb (make sure all tests start out passing)
+3. Complete Activity 1 and Activity 2 (see below)
 
 #### Activity 1: Vehicle
 

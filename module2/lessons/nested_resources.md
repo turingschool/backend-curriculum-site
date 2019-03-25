@@ -12,11 +12,9 @@ title: Nested Resources in Rails
 
 ## Warm Up
 
-Create a table containing all of the HTTP verbs, URI patterns, and controller actions that Rails gives you when you have the following:
+Create a table containing all of the HTTP verbs, URI patterns, and controller actions that Rails gives you when you have the following in `config/routes.rb`:
 
 ```ruby
-# config/routes.rb
-
 resources :muffins
 ```
 
@@ -32,6 +30,9 @@ GET  /artists/1/songs/new
 POST /artists/1/songs
 ```
 
+To be brief, any time we need to know one resource in order to create a different kind of resource, that's a good signal to use nested resources.
+
+
 ## How do we Create Nested Routes?
 
 Indentation and a do/end marker!
@@ -43,7 +44,7 @@ resources :artists do
 end
 ```
 
-* Run `rake routes`
+* Run `rake routes` -- what's different now?
 
 ## Shallow Nesting
 
@@ -71,6 +72,7 @@ end
 * Need to pass **BOTH** the initial resource as well as the nested resource (eg, both `artists` and `songs`)
 * Will provide them in an array as an argument
   * the array HAS to be in the correct order!
+  * `rake routes` as a debugger will show us in the prefix what order these need to be!
 * Need to update both our controller and our view
 
 ## Practice
@@ -80,25 +82,28 @@ end
 
 Based on what we know about nested routes, let's start here:
 
+Create `spec/features/songs/new_spec.rb` and add the following content into a new test (don't forget your describe blocks, etc)
+
+* note that our test setup needs to create the artist to whom we're assigning this new song
+
 ```ruby
-  #spec/features/user_can_create_a_new_song_spec.rb
-  artist = Artist.create(name: "Journey")
-  title = "Don't Stop Believin'"
-  length = 231
+artist = Artist.create(name: "Journey")
+title = "Don't Stop Believin'"
+length = 231
 
-  visit new_artist_song_path(artist)
+visit new_artist_song_path(artist)
 
-  fill_in :song_title, with: title
-  fill_in :song_length, with: length
+fill_in :song_title, with: title
+fill_in :song_length, with: length
 
-  click_on "Create Song"
+click_on "Create Song"
 
-  new_song = Song.last
+new_song = Song.last
 
-  expect(current_path).to eq(song_path(new_song))
-  expect(page).to have_content(title)
-  expect(page).to have_content(length)
-  expect(page).to have_content(artist.name)
+expect(current_path).to eq(song_path(new_song))
+expect(page).to have_content(title)
+expect(page).to have_content(length)
+expect(page).to have_content(artist.name)
 ```
 
 - What is in your controller? What is in your view?
@@ -177,7 +182,7 @@ end
 <% end %>
 ```
 
-Let's run RSpec and adjust our `SongsController` so we can point the form to its `create` method:
+Run `rspec` and adjust our `SongsController` so we can process the form input in a `create` action method
 
 ```ruby
 # app/controllers/songs_controller.rb
@@ -189,12 +194,17 @@ def create
 end
 ```
 
-- LAST: Adjust your song show page view to show the artist of the song!
 - We should have a passing test!!!
 
-Creating a New Song via localhost
+#### Bonus Points
 
-* Be sure you have at least one artist in your database
+Have the song page show the artist name!
+
+## Checking our work in Development Mode:
+
+Creating a New Song via localhost:3000
+
+* Be sure you have at least one artist in your database (use `rails console` if you need to)
 * Run `rails s`
 * Visit `/artists/1/songs/new`
 
@@ -202,7 +212,11 @@ Creating a New Song via localhost
 
 # Mixing Nested and Non-Nested Routes
 
-* What if we want to see a list of all songs?
+What if we want to see a list of all songs?
+
+Because we have `songs` nested under `artists`, we've lost our `/index` path, so not every test is going to pass!
+
+Let's add one more route:
 
 ```ruby
 # config/routes.rb
@@ -214,6 +228,8 @@ resources :songs, only: [:index]
 ```
 
 Visit `/songs` and you should see all songs.
+
+## be sure to replace the missing 'only' commands in your routes file so we don't expose routes to malicious users!
 
 ---
 

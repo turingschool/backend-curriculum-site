@@ -66,12 +66,12 @@ View the [README on Github](https://github.com/turingschool-examples/brownfield-
 
 ### Code Quality
 
-Project should use [CodeClimate](https://codeclimate.com/) to measure lines of code.
+Project should use [RuboCop](https://github.com/rubocop-hq/rubocop) to measure code quality.
 
-- [ ] **1:** Team can demonstrate how API consumption portions of the project demonstrate 1 of the pillars listed below, or there are more than 5 methods that exceed 5 lines, or multiple methods that exceed 10 lines.
-- [ ] **2:** Team can demonstrate how API consumption portions of the project demonstrate 2 of pillars listed below, there are 5 methods that exceed 5 lines, and 1 method that exceed 10 lines.
-- [ ] **3:** Team can demonstrate how API consumption portions of the project demonstrate 2 of pillars listed below, there are 2 methods that exceed 5 lines, and no methods that exceed 10 lines.
-- [ ] **4:** Team can demonstrate how API consumption portions of the project demonstrate all of the four pillars listed below and there are no methods that exceed 5 lines.
+- [ ] **1:** Team can demonstrate how API consumption portions of the project demonstrate 1 of the pillars listed below, or RuboCop complains about 5 or more violations.
+- [ ] **2:** Team can demonstrate how API consumption portions of the project demonstrate 2 of pillars listed below, and RuboCop complains about 4 or less violations.
+- [ ] **3:** Team can demonstrate how API consumption portions of the project demonstrate 2 of pillars listed below, and RuboCop complains about 3 or less violations.
+- [ ] **4:** Team can demonstrate how API consumption portions of the project demonstrate all of the four pillars listed below and RuboCop has no complaints.
 
 **4 Pillars of OO**
 
