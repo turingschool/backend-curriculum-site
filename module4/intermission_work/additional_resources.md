@@ -2,6 +2,22 @@
 
 All of these things were at one time part of the intermission week work. We've retooled the module, and are focused on getting you coding during intermission week. However, there's some good resources below if you want to pick and choose the things that seem interesting to you.
 
+
+### Suggested resources to utilize:
+
+* [Data Types, Variables, Conditionals, Function Basics](http://frontend.turing.io/lessons/module-1/js-1.html)
+* [Function Fundamentals, Variable Scope, Loops, Arrays](http://frontend.turing.io/lessons/module-1/js-2.html)
+* [Objects, This, Data Structures](http://frontend.turing.io/lessons/module-1/js-4.html)
+* [Array Prototype Methods](http://frontend.turing.io/lessons/module-1/intro-to-array-prototype-methods.html)
+* [ES6, Webpack Tutorial](http://ccoenraets.github.io/es6-tutorial/)
+
+[JavaScript 30](https://javascript30.com/):
+  - Array Cardio Days 1
+  - Array Cardio Day 2
+  - Objects and Arrays
+  - Tally String Times with Reduce
+
+
 ### Introduction to JavaScript Topics Reading
 
 **Read** the following selections from [Speaking JavaScript](http://speakingjs.com/es5/) & [Eloquent JavaScript](http://eloquentjavascript.net//):

@@ -7,7 +7,7 @@ layout: page
 
 To prepare for Module 4, please complete & submit the following before 12 noon Sunday, the day before the inning begins. This will allow instructors time to review and provide feedback.
 
-1808 - Submit all links [here](https://goo.gl/forms/UpAhJDBWEwu3yR0Z2).
+1811 - Submit all links [here](https://goo.gl/forms/UpAhJDBWEwu3yR0Z2).
 
 ## 1. Cover Letter
 
@@ -25,45 +25,10 @@ Complete this [exercise](./reflections_on_learning.md) to reflect on your learni
 
 During Mod 4 you have the opportunity to work with Frontend students for about one and a half weeks to build out your group project. Now is the opportunity to be thinking about what you would be interested in building and potentially the tech stack you'd like to use. As part of your intermission work form, there is a section to fill out with details about your project idea. Please be as detailed as possible and include the tech stack you are considering. You will have an opportunity to review the project ideas that have been submitted, as well as, add to this list later in the mod should you have another idea that interests you. We look forward to seeing your ideas!
 
-## 4. Number Guesser
+## 4. 
 
-Complete phases 1-3 of [Number Guesser](./number_guesser.md). You _can_ use jQuery for this. The project spec provides a layout comp - we advise you do _some_ work to make your app resemble the app, but the bulk of your time should be spent on learning to manipulate the DOM with JavaScript.
-
-On a branch called `annotated`, annotate every line of JavaScript (either below/above the line in a comment) to explain what the code is doing. Include any explanation as to why you used ES5 vs. ES6 functions, var vs. let vs. const, etc.
-
-**Submit: Link to Number Guesser Repo AND GitHub Pages deployment link. Make sure this includes the `annotated` branch.**
-
-## 5. JavaScript without a Browser
-
-While JavaScript was originally intended to be a client-side scripting language, it has since made its way server-side thanks to Node.js. We're now able to use the same language for browser-based interactions as well as server-side scripts.
-
-Let's get introduced to JavaScript without a browser. Work through [this lesson](http://backend.turing.io/module4/lessons/javascript_without_a_browser). It will introduce you to Node.js and basic unit-testing using Mocha.
-
-**Submit: Nothing. But you should still do it.**
-
-## 6. Sorting Suite
-
-Complete Sorting Suite in Javascript [here](http://frontend.turing.io/projects/sorting-suite.html). Choose **one** out of the three fundamental sorting algorithms to complete. Use Node.js to run your code, and Mocha/Chai to write your tests. FE2 gets this as a project, so we'll use their project requirements, but you can ignore the rubric. You won't be graded. We just want you to get some practice testing and writing JavaScript.
-
-**Submit: Link to repo for Sorting Suite.**
-
-___
 
 ### Tips for JS success
-
-Suggested resources to utilize:
-
-* [Data Types, Variables, Conditionals, Function Basics](http://frontend.turing.io/lessons/module-1/js-1.html)
-* [Function Fundamentals, Variable Scope, Loops, Arrays](http://frontend.turing.io/lessons/module-1/js-2.html)
-* [Objects, This, Data Structures](http://frontend.turing.io/lessons/module-1/js-4.html)
-* [Array Prototype Methods](http://frontend.turing.io/lessons/module-1/intro-to-array-prototype-methods.html)
-* [ES6, Webpack Tutorial](http://ccoenraets.github.io/es6-tutorial/)
-
-[JavaScript 30](https://javascript30.com/):
-  - Array Cardio Days 1
-  - Array Cardio Day 2
-  - Objects and Arrays
-  - Tally String Times with Reduce
 
 Some biggies if you're coming from Ruby:
 
