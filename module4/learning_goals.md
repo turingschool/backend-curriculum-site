@@ -3,97 +3,59 @@ layout: page
 title: Module 4 Learning Goals
 ---
 
-## Professional Skills
+## Skill Proficiencies
+Academic success in B4 means that students demonstrate proficiency and comfort with the concepts below. The expected mastery level can be understood with the following scale:
+  + __Mastery:__ Student is able to explain and implement the concept independently or with light reference
+  + __Functional:__ Student recognizes when to use the concept and can implement it with the support of documentation and/or a collaborator
+  + __Familiarity:__ Student can recognize and describe the concept when needed/appropriate, but is not able to implement the technology/technique
 
-### Agile Processes
+Mastery
+---
+#### Project Planning
+  - Create detailed user stories from project acceptance requirements
+  - Track project progress using an Agile board
 
-#### Mastery
+#### Technical Communication
+  - Document intent, set-up, and usage of their code for effective collaboration
+  - Use pull requests to organize and effectively communicate updates and changes to code base
+  - Explain intent and execution of code
 
-* Students use an agile process to turn acceptance requirements into deployed software
-* Students translate acceptance requirements into user stories that are ready for work
-* Students verify acceptance requirements using automated testing
+#### JavaScript Fundamentals
+  - Apply good development patterns (DRY, SRP, etc.) to JavaScript functions
+  - Create and use functions with parameters
+  - Apply and articulate differences between a function expression and a function declaration
+  - Describe different variable declarations and scoping
 
-#### Functional
+#### GraphQL
+  - Explain GraphQL and REST API standards
 
-* Students estimate complexity of user stories
+Functional
+---
+#### Technical Communication
+  - Formulate questions by synthesizing what was expected versus what was observed
+  - Apply feedback from a code review to improve quality
 
-### Technical Communication
+#### JavaScript
+  - Write unit tests for JavaScript
+  - Organize functions into classes and objects
 
-#### Mastery
+#### JavaScript Tools & Libraries
+  - Implement a stand-alone web service with Node and Express
+  - Use the Node Package Manager to manage dependencies
 
-* Students formulate questions by synthesizing what was expected vs what was observed
-* Students explain intent and execution of their code
+#### GraphQL
+  - Implement a Node and GraphQL API server
 
-#### Functional
+#### Technical Skills
+  - Coordinate data and events across applications
+  - Build applications that execute in multiple environments (development, test, continuous integration, and production)
 
-* Students document intent and usage of their code for effective collaboration
-* Students use pull requests to organize discussion about features
-* Students implement feedback from a code review to improve quality
+Familiarity
+---
+#### JavaScript Fundamentals
+  - Translate between JavaScript written in ES5 and ES6
 
-#### Familiarity
-
-* Students provide feedback in the form of a code review to improve quality and share knowledge
-
-## Core Technical Skills
-
-### Architecting for Scalability
-
-#### Functional
-
-* Students divide applications into components and domains of responsibilities to facilitate multi-developer teams
-* Students integrate outside data sources (Files, APIs, databases)
-* Students coordinate data and events across applications
-* Students build applications that execute in development, test, CI and production environments
-* Students securely apply authentication and authorization patterns
-
-#### Familiarity
-
-* Students apply cacheing patterns to improve application performance
-* Students abstract external dependencies and services to provide flexibility
-
-### JavaScript Essentials
-
-#### Mastery
-
-* Students apply knowledge of Ruby collections to JavaScript arrays
-* Students create and use functions with parameters
-* Students apply good development patterns, like DRY and separation of concerns, to JavaScript functions
-* Students differentiate between JavaScript written in ES5 and ES6
-
-#### Functional
-
-* Students organize functions into classes and objects
-* Students unit test JavaScript
-* Students make effective use of `this` in multiple contexts
-
-#### Familiarity
-
-* Students translate between JavaScript written in ES5 and ES6
-
-### JavaScript in the Browser
-
-#### Functional
-
-* Students use event listeners to attach code to event-element combinations including document-ready and element-click
-* Students write precise CSS-style selectors in multiple contexts like DOM manipulation and integration testing
-* Students read form content and manipulate DOM via JavaScript
-* Students integrate outside data sources in the browser (Fetch, local storage)
-* Students use integration testing to verify JavaScript functionality
-
-### JavaScript Tools and Libraries
-
-#### Functional
-
-* Students implement a stand-alone web service with Node and Express
-* Students use the Node Package Manager to manage dependencies
-* Students use WebPack as a build tool for organizing their code into modules
-
-### PostgreSQL & SQL
-
-#### Functional
-
-* Students write basic SQL statements without the assistance of an ORM
-
-#### Familiarity
-
-* Students use the CLI to understand the structure and data of their database (ex: list databases, tables, table structure)
+#### JavaScript in the Browser
+  - Read form content and manipulate DOM via JavaScript
+  - Integrate outside data sources in the browser (Fetch)
+  - Utilize event listeners to attach code to even-element combinations including document-ready and element-click
