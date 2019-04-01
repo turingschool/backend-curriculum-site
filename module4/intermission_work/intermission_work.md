@@ -24,7 +24,7 @@ Reflection questions](./reflections_on_learning.md) on your learning experience 
 
 ## 3. Cross Pollination Project Idea
 
-During Mod 4 you have the opportunity to collaborate with Frontend students to build out applications. Now is the opportunity to be thinking about what you would be interested in building and potentially the tech stack you'd like to use. As part of your intermission work form, there is a section to fill out with details about your project idea. Please be as detailed as possible and include the tech stack you are considering. You will have an opportunity to review the project ideas that have been submitted, as well as, add to this list later in the mod should you have another idea that interests you. We look forward to seeing your ideas!
+During Mod 4 you have the opportunity to collaborate with Frontend students to build out applications. Now is the opportunity to be thinking about what you would be interested in building and potentially the tech stack you'd like to use. As part of your intermission work form, there is a section to include a gist with details about your project idea. Please be as detailed as possible and include the tech stack you are considering. You will have an opportunity to review the project ideas that have been submitted, as well as, add to this list later in the mod should you have another idea that interests you. We look forward to seeing your ideas!
 
 **Submit: Link to gist with your idea and tech stack.**
 
