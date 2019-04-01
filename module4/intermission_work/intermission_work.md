@@ -17,7 +17,7 @@ Complete a cover letter for a real position (no, you cannot make one up), tailor
 
 ## 2. Reflection on Learning Experiences
 
-Please take time to really think about your answers to the attached questions questions. These questions are potentially what you would be talking about at coffee meetings, meet-ups, interviews, etc. If you think about your answers now, you'll be much more comfortable answering them later.
+Please take time to really think about your answers to the attached questions. These are potentially what you would be talking about at coffee meetings, meet-ups, interviews, etc. If you think about your answers now, you'll be much more comfortable answering them later. Also, at the end of Mod 4 we ask for a presentation and your answers can be a great place to start for that presentation.
 Reflection questions](./reflections_on_learning.md) on your learning experience thus far here at Turing.
 
 **Submit: Link to gist.**
@@ -30,9 +30,9 @@ During Mod 4 you have the opportunity to collaborate with Frontend students to b
 
 ## 4. _Eloquent JavaScript_ Written by Marijn Haverbeke
 
-Let's take some time to get familiar with JavaScript as a language before we dive straight into code.
+Let's take some time to get familiar with JavaScript as a language before we dive straight into writing code.
 Read the following chapters, and after _each_ chapter write a summary in a gist of what you took from that chapter.
-__Important__ It is okay if you do not completely understand all the ideas you just read. We will have some time to go over these topics in class, but what you to be exposed to these concepts now.
+__Important__ It is okay if you do not completely understand all the ideas you just read. We will have time to go over these topics in class, but want you to be exposed to these concepts and start getting familiar with them now.
 
   1. [Values, Types, and Operators](https://eloquentjavascript.net/01_values.html)
   2. [Program Structure](https://eloquentjavascript.net/02_program_structure.html)
