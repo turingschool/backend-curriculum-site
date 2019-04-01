@@ -49,6 +49,12 @@ Let's get introduced to JavaScript without a browser. Work through [this lesson]
 
 **Submit: Link to your repo.**
 
+## 6. Apply for Yummly API key
+
+For our paired project, we will be using the Yummly API. Please apply for your API key now, so if there are any issues getting one we can address them sooner rather than later. Sign up for the Academic plan [here](https://developer.yummly.com/#plans).
+
+**No Submission**
+
 ## High Level Concepts to Keep in Mind
   -   Methods are called Functions
   -   You should know the difference between `undefined` and `null`; JS does not have a `nil` like Ruby does
