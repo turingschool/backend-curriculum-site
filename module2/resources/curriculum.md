@@ -43,6 +43,7 @@ layout: page
 - [Route Helpers in Rails](http://backend.turing.io/module2/lessons/route_helpers)
 - [Nested Resources in Rails](http://backend.turing.io/module2/lessons/nested_resources)
 - [Namespacing Routes in Rails](http://backend.turing.io/module2/lessons/namespacing)
+- [Cookies and Sessions in Rails](http://backend.turing.io/module2/lessons/cookies_sessions_in_rails)
 - [Authentication](http://backend.turing.io/module2/lessons/authentication)
 - [Authorization](http://backend.turing.io/module2/lessons/authorization)
 - [Cart & Order Lifecycle](http://backend.turing.io/module2/lessons/cart_implementation)
