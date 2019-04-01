@@ -122,7 +122,7 @@ Wednesday morning of week 6 your team will demo your application to the class an
 
 ### Evaluation
 
-Evaluation will take place Wednesday afternoon of week 6. Each team will meet with a BE and FE instructor to:
+Evaluation will take place Thursday afternoon of week 5. Each team will meet with a BE and FE instructor to:
 
 * Walk through the application (FE and BE) and justifications of code
 * Run the test suites
