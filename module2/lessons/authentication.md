@@ -10,7 +10,7 @@ tags: rails, authentication, bcrypt, ruby, sessions, helper_methods
 ## Learning Goals
 * explain the use of Authentication and why it's important
 * implement Authentication using BCrypt
-* utilize Sessions in a Rails app 
+* utilize Sessions in a Rails app
 * Utilize `helper_method` for use in views and controllers
 
 ## Vocabulary
@@ -134,7 +134,7 @@ Let's add the link to sign up in the `app/views/welcome/index.html.erb` file
 
 But which URI path will be send a user to who clicks on this link?
 
-We need to create a "new user" resource. 
+We need to create a "new user" resource.
 
 **Notice we are treating this resource as any other resource.**
 
@@ -142,7 +142,7 @@ We need to create a "new user" resource.
 <%= link_to "Sign Up to Be a User", new_user_path %>
 ```
 
-When we run our tests we get this error: 
+When we run our tests we get this error:
 
 ```bash
 Failure/Error: <%= link_to "Sign Up to Be a User", new_user_path %>
@@ -212,7 +212,7 @@ end
 
 We have our form set up to take in the information that we want to create our user object with (username and password).
 
-Our tests will now complain about an `uninitialized constant UsersController::User`. This error means this class can't be found, whether through routing rules problems, or because it doesn't exist yet. 
+Our tests will now complain about an `uninitialized constant UsersController::User`. This error means this class can't be found, whether through routing rules problems, or because it doesn't exist yet.
 
 Why are we getting this error? We have set up an object called `@user = User.new` but that kind of object does not exist in our database! If we follow this error, we can add our `User` model and then run the tests again.
 
@@ -297,7 +297,7 @@ We now need to tell our model that it will be expecting a field `password` (and 
 class User < ApplicationRecord
   validates :username, uniqueness: true, presence: true
   validates_presence_of :password, require: true
-  
+
   has_secure_password
 end
 ```
@@ -319,13 +319,13 @@ When reading this error, `undefined method users_path` sticks out to me as the i
 
 Anything with `_path` at the end is probably a "path helper" from Rails, and the place those get created is in our `config/routes.rb`.
 
-We also know that `users_path` could be used either for an index page or to create a new user. I know I want to use the `create` route because I'm trying to `POST` from my form. 
+We also know that `users_path` could be used either for an index page or to create a new user. I know I want to use the `create` route because I'm trying to `POST` from my form.
 
-### Independent Practice 
+### Independent Practice
 
 Go ahead and create the user :create route and the associated action in the `UsersController` as well as the associated show pieces. Make sure you test all pieces!
 
-You should end up with something like this: 
+You should end up with something like this:
 
 ```ruby
   #routes.rb
@@ -338,7 +338,7 @@ You should end up with something like this:
   def show
     @user = User.find(params[:id])
   end
-  
+
   def create
     @user = User.new(user_params)
     if user.save
@@ -358,12 +358,12 @@ You should end up with something like this:
 ```html
   <h1>Welcome, <%= @user.username %>!</h1>
 ```
-Now when we run our tests, all should pass. 
+Now when we run our tests, all should pass.
 
 
 ### Sessions
 
-Except we don't **WANT** them to pass just yet. We need to add our user's information to a session so our user doesn't have to log in for each page they want to visit. 
+Except we don't **WANT** them to pass just yet. We need to add our user's information to a session so our user doesn't have to log in for each page they want to visit.
 
 HTTP is a stateless protocol, which means there is no connection between each request sent. Nothing is being "remembered" by the server from one request to another. Sessions make it seem stateful. Without the idea of sessions, the user may have to probably authenticate on every request.
 
@@ -447,7 +447,7 @@ The html in our root view should have a link like this:
   <%= link_to "I already have an account", login_path %>
 ```
 
-When running our tests, our test gets tripped up because `login_path` has not been defined in our routes. 
+When running our tests, our test gets tripped up because `login_path` has not been defined in our routes.
 
 ```bash
 Failure/Error: expect(current_path).to eq(login_path)
@@ -571,10 +571,11 @@ class ApplicationController < ActiveRecord::Base
 end
 ```
 
-`helper_method` is an ActiveRecord method which we pass a symbol by the same name as our method. 
+`helper_method` is an ActiveRecord method which we pass a symbol by the same name as our method.
 Let's deconstruct the current_user method.  
-* ||= is [memoization](http://gavinmiller.io/2013/basics-of-ruby-memoization/). Ruby will look to see if the variable on the left exists, if it does it uses that value. If it doesn't exist it preforms the opperation on the right. 
-* You'll want that guard clause in there for the instance where session[:user_id] hasn't been set yet. If it's not set yet you'll error out without that guard clause. 
+
+* `||=` is [memoization](http://gavinmiller.io/2013/basics-of-ruby-memoization/). Ruby will look to see if the variable on the left exists, if it does it uses that value. If it doesn't exist it preforms the opperation on the right. 
+* You'll want that guard clause in there for the instance where session[:user_id] hasn't been set yet. If it's not set yet you'll error out without that guard clause.
 
 If you run your tests again, you should get passing tests. However, I want to implement one more refactor. In your `UsersController` `show` action, you can delete User.find since you're view now uses current_user. This implementation is more DRY but it is also more secure. Think about other ways you might use current_user in your controllers and views.
 
@@ -596,4 +597,3 @@ If you run your tests again, you should get passing tests. However, I want to im
 * What are the steps to implementing Authentication in a Rails app? I counted 5 main steps. How many do you come up with?
 * How might you use Sessions to help with Authentication? Why is this an important piece?
 * What is a helper_method? Why might we use them?
-
