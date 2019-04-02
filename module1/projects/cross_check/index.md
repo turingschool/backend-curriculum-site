@@ -39,6 +39,8 @@ In addition to your own tests, instructors will use [This Spec Harness](https://
 
 We have separated the methods required for this project into sections below.
 
+For each of the iterations below, where a method requires you to perform a calculation with *goals*, use the goal count included in the Games CSV *except for iteration 5*.
+
 * **Iteration 1:** [Setup and File I/O](./iterations/file_io)
 * **Iteration 2:** [Game Statistics](./iterations/game_statistics)
 * **Iteration 3:** [League Statistics](./iterations/league_statistics)
