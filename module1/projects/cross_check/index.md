@@ -25,7 +25,7 @@ A key goal of this project is to write readable, organized, object-oriented code
 
 We recommend taking a "red, green, refactor" approach. First, write tests, write code that makes the tests pass, and then focus on refactoring and organizing after you have working tests and code. It will be easier to make decisions about new classes, modules, methods, etc. when you have seen working code.
 
-See [the evaluation rubric](../rubric) for more details and what exactly you should accomplish in this project.
+See [the evaluation rubric](./rubric) for more details and what exactly you should accomplish in this project.
 
 ## Testing
 
