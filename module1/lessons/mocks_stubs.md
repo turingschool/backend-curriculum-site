@@ -14,12 +14,9 @@ title: Mocks and Stubs
 
 ## Warmup
 
-With your partner, take 3 minutes to google an ‘action’ actor or movie you like, and find a picture of the actor(s) and their stunt double(s). Answer these questions…
-- What do they have in common?
-- What is different about their jobs?
-- Why does the production company hire this double? How does it impact the actors job?
-- When you watch a movie, it is usually obvious that a different human is acting a scene out? Does it change your movie-watching experience? Explain.
-
+With your partner, take 3 minutes to answer the following questions: 
+  - In the regular world, outside of coding, what does it mean to "mock" something?
+  - What do you already know about mocks and/or stubs? (What are they? Where are they implemented? Why are they useful?)
 
 ## Paired Exercise
 
