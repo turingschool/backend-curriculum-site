@@ -158,19 +158,19 @@ With that last test, update it to use mocks and stubs so that you can make it pa
 
 ### Individiual Practice: 
 
-**Setup: **
+**Setup:**
 
 Clone down the [museum_mocks_stubs repo](https://github.com/turingschool/museum_mocks_stubs). 
 cd museum_mocks_stubs
 gem install mocha
 require 'mocha/minitest' (at the top of your test file)
 
-**Directions: ** 
+**Directions:** 
 
 The museum_test.rb has 8 skipped tests in it. One by one, unskip the tests, and use mocks and stubs to make your tests pass. 
 
-For tests 1-5, use mocks. 
-For tests 6-8, use mocks and stubs. 
+- For tests 1-5, use mocks. 
+- For tests 6-8, use mocks and stubs. 
 
 
 ### Interview Question
