@@ -183,8 +183,10 @@ What are mocks and stubs? When have you used them?
 
 ## The Ultimate CFU
 
-* Can you think of a Cross Check test you've already written that could use mocks and stubs instead?
-* When would you use a stub over a mock with expectations and returns?
+Sit in your Cross Check Groups and answer the following questions: 
+
+- Can you find a Cross Check test you've already written that could use mocks and stubs instead?
+- Create a slack message with everyone in your team, including me, and have one person send a code snippet of a test, and an action plan for how mocks/stubs can be used in that test. 
 
 ## Further Reading
 
