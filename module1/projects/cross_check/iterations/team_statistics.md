@@ -19,5 +19,5 @@ Each of the methods below take a team id as an argument. Using that team id, you
 | `rival` | Name of the opponent that has the highest win percentage against the given team. | String |
 | `biggest_team_blowout` | Biggest difference between team goals and opponent goals for a win for the given team. | Integer |
 | `worst_loss` | Biggest difference between team goals and opponent goals for a loss for the given team. | Integer |
-| `head_to_head` | Record (as a hash - win/loss) against a specific opponent  | Hash |
-| `seasonal_summary`| For each season that the team has played, a hash that has two keys (`:preseason`, and `:regular_season`), that each point to a hash with the following keys: `:win_percentage`, `:total_goals_scored`, `:total_goals_against`, `:average_goals_scored`, `:average_goals_against` | Hash |
+| `head_to_head` | Record (as a hash - win/loss) against all opponents with the opponents' names as keys and the win percentage against that opponent as a value.  | Hash |
+| `seasonal_summary`| For each season that the team has played, a hash that has two keys (`:regular_season` and `:postseason`), that each point to a hash with the following keys: `:win_percentage`, `:total_goals_scored`, `:total_goals_against`, `:average_goals_scored`, `:average_goals_against`. | Hash |

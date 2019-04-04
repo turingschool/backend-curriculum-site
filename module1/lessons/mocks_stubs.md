@@ -7,6 +7,10 @@ title: Mocks and Stubs
 
 * Understand what mocking and stubbing is and why we would use it.
 
+## Slides 
+
+Find slides [here](https://docs.google.com/presentation/d/1TcJhktMttcVNhq9Z53MsM14b_skLTRs00FvKjqN8wj0/edit?usp=sharing)
+
 ## Vocabulary
 
 * Mock
@@ -14,16 +18,16 @@ title: Mocks and Stubs
 
 ## Warmup
 
-With your partner, take 3 minutes to google an ‘action’ actor or movie you like, and find a picture of the actor(s) and their stunt double(s). Answer these questions…
-- What do they have in common?
-- What is different about their jobs?
-- Why does the production company hire this double? How does it impact the actors job?
-- When you watch a movie, it is usually obvious that a different human is acting a scene out? Does it change your movie-watching experience? Explain.
-
+With your partner, take 3 minutes to answer the following questions: 
+  - In the regular world, outside of coding, what does it mean to "mock" something?
+  - What do you already know about mocks and/or stubs? (What are they? Where are they implemented? Why are they useful?)
 
 ## Paired Exercise
 
 ### Step 1: Setup
+
+1. Clone the [Bob Ross repo](https://github.com/turingschool/bob_ross) onto your local computer.
+2. cd bob_ross 
 
 To get access to methods that create mocks and stubs, we'll need to install and require the `mocha` gem. A gem is a package of code that someone else wrote. We bring them in to projects to make our lives easier!
 
@@ -31,7 +35,7 @@ To get access to methods that create mocks and stubs, we'll need to install and 
 gem install mocha
 ```
 
-Once that's set, create a `bob_ross` directory with `lib` and `test` sub-directories. Create a `bob_test.rb` file in your `test` directory with the following code:
+Once that's set, we can now require mocha at the top of our bob_test.rb: 
 
 ```ruby
 require 'minitest/autorun'
@@ -39,28 +43,16 @@ require 'minitest/pride'
 require 'mocha/minitest'
 require './lib/bob'
 
-class BobTest < Minitest::Test
-  def test_it_exists
-    bob = Bob.new
-    assert_instance_of Bob, bob
-  end
-
-  def test_it_starts_with_no_paints
-    bob = Bob.new
-    assert_equal [], bob.paints
-  end
-end
 ```
 
-Note that we have required `mocha/minitest` at the top of the file.
 
 **Pair Work:**
 
-Work with your partner to make the first tests pass. **You should not create a Paint class at any point during this lesson**.
+Work with your partner to make the first two tests pass. **You should not create a Paint class at any point during this lesson**.
 
 ### Step 2: Mocks
 
-Let's imagine we wanted to test `Bob`'s `paints` method to see that it returns a collection of `Paint` instances. We might write a test like the following.
+The next test that we have tests `Bob`'s `paints` method to see that it returns a collection of `Paint` instances. 
 
 ```ruby
 def test_it_can_have_paint
@@ -97,13 +89,12 @@ paint_2 = mock
 
 Remember, a mock is a simple object that stands in for another object. At the base level, a mock is just a "thing" -- a blank canvas that we can use for just about anything.
 
-**Pair Work:**
 
-Update this test so that it uses Mocks instead of Paints. Make the test pass.
+Let's update this test so that it uses Mocks instead of Paints.
 
 ### Step 3: Stubs
 
-Let's add another test:
+In our next test, we want to test that we can get an array of the paint colors (not just paint objects).
 
 ```ruby
 def test_it_can_return_colors
@@ -127,9 +118,7 @@ paint_1.stubs(:color).returns("Van Dyke Brown")
 Now, whenever we call `paint_1.color` it will return `"Van Dyke Brown"`.
 
 
-**Pair Work:**
-
-Update this test so that it stubs out the color method for the Mock objects. Make the test pass.
+Let's update this test so that it stubs out the color method for the Mock objects. 
 
 ### Step 4: Mock Expectations
 
@@ -156,7 +145,7 @@ Change your `paint_colors` method to pass the test.
 
 **Pair Work:**
 
-Add the following test. Update it to use mocks and stubs so that you can make it pass without creating the Paint class. Then make the test pass:
+With that last test, update it to use mocks and stubs so that you can make it pass without creating the Paint class. Then make the test pass:
 
 ```ruby
   def test_it_can_total_paint_amount
@@ -171,14 +160,33 @@ Add the following test. Update it to use mocks and stubs so that you can make it
   end
 ```
 
+### Individiual Practice: 
+
+**Setup:**
+
+1. Clone down the [museum_mocks_stubs repo](https://github.com/turingschool/museum_mocks_stubs). 
+2. cd museum_mocks_stubs
+3. gem install mocha
+4. require 'mocha/minitest' (at the top of your test file)
+
+**Directions:** 
+
+The museum_test.rb has 8 skipped tests in it. One by one, unskip the tests, and use mocks and stubs to make your tests pass. 
+
+- For tests 1-5, use mocks. 
+- For tests 6-8, use mocks and stubs. 
+
+
 ### Interview Question
 
 What are mocks and stubs? When have you used them?
 
 ## The Ultimate CFU
 
-* Can you think of a Cross Check test you've already written that could use mocks and stubs instead?
-* When would you use a stub over a mock with expectations and returns?
+Sit in your Cross Check Groups and answer the following questions: 
+
+- Can you find a Cross Check test you've already written that could use mocks and stubs instead?
+- Create a slack message with everyone in your team, including me, and have one person send a code snippet of a test, and an action plan for how mocks/stubs can be used in that test. 
 
 ## Further Reading
 

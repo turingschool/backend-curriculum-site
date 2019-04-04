@@ -25,7 +25,7 @@ A key goal of this project is to write readable, organized, object-oriented code
 
 We recommend taking a "red, green, refactor" approach. First, write tests, write code that makes the tests pass, and then focus on refactoring and organizing after you have working tests and code. It will be easier to make decisions about new classes, modules, methods, etc. when you have seen working code.
 
-See [the evaluation rubric](../rubric) for more details and what exactly you should accomplish in this project.
+See [the evaluation rubric](./rubric) for more details and what exactly you should accomplish in this project.
 
 ## Testing
 
@@ -38,6 +38,8 @@ In addition to your own tests, instructors will use [This Spec Harness](https://
 ## Iterations
 
 We have separated the methods required for this project into sections below.
+
+For each of the iterations below, where a method requires you to perform a calculation with *goals*, use the goal count included in the Games CSV *except for iteration 5*.
 
 * **Iteration 1:** [Setup and File I/O](./iterations/file_io)
 * **Iteration 2:** [Game Statistics](./iterations/game_statistics)
