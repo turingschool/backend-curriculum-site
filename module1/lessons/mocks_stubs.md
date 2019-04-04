@@ -160,10 +160,10 @@ With that last test, update it to use mocks and stubs so that you can make it pa
 
 **Setup:**
 
-Clone down the [museum_mocks_stubs repo](https://github.com/turingschool/museum_mocks_stubs). 
-cd museum_mocks_stubs
-gem install mocha
-require 'mocha/minitest' (at the top of your test file)
+1. Clone down the [museum_mocks_stubs repo](https://github.com/turingschool/museum_mocks_stubs). 
+2. cd museum_mocks_stubs
+3. gem install mocha
+4. require 'mocha/minitest' (at the top of your test file)
 
 **Directions:** 
 
