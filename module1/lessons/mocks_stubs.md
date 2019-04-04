@@ -7,6 +7,10 @@ title: Mocks and Stubs
 
 * Understand what mocking and stubbing is and why we would use it.
 
+## Slides 
+
+Find slides [here](https://docs.google.com/presentation/d/1TcJhktMttcVNhq9Z53MsM14b_skLTRs00FvKjqN8wj0/edit?usp=sharing)
+
 ## Vocabulary
 
 * Mock
