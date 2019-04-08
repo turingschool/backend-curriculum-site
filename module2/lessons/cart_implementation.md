@@ -465,8 +465,7 @@ class Cart
 end
 ```
 
-
-And now, our newest test passes, but if you run all the tests you'll see a lot of failures. It's from the line in our `application.html.erb` where we call `@cart.total_count`. `@cart` is nil because, although we set it in our `SongsController#index` and `CartsController#create`, we didn't set it every action. We *could* go through every action and add the line `@cart = Cart.new(session[:cart])` to each one, but that wouldn't be very DRY. Instead, let's do some refactoring.
+And now, our newest test passes, but we have more refactoring and cleanup to do so every other test can pass.
 
 ### Refactoring CartsController
 
@@ -602,9 +601,7 @@ And our PORO tests are all passing!
 
 ### Controller Cleanup
 
-Our feature tests are still in bad shape.
-
-Notice that in both our CartsController and our SongsController we're setting `@cart` as one of our first actions. This is likely something that we'll continue to want to have access to across our app, particularly in our views since we reference `@cart` in our `application.html.erb` which is what's causing all other feature tests to fail.
+Our feature tests are still in bad shape. Our newest test should pass, but if you run all the tests you'll see a lot of failures. It's from the line in our `application.html.erb` where we call `@cart.total_count`. `@cart` is nil because, although we set it in our `SongsController#index` and `CartsController#create`, we didn't set it in every action. We *could* go through every action and add the line `@cart = Cart.new(session[:cart])` to each one, but that wouldn't be very DRY. Instead, let's do some refactoring.
 
 Instead of creating an `@cart` all over the place, we'll make a method on our `ApplicationController` that will handle creating the `Cart` object:
 
@@ -626,7 +623,7 @@ Now we can delete the following line from both the SongsController and CartsCont
   @cart = Cart.new(session[:cart])
 ```
 
-And now change all your references from `@cart` to `cart`.
+And now change all the references from `@cart` to `cart`.
 
 Double check to see that our tests are still passing, and we should be in good shape!
 
