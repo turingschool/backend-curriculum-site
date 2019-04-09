@@ -19,6 +19,10 @@ length: 120
 * The Call Stack (The Stack)
 * Stack Frame
 
+## Slides
+
+Available [here](../slides/call_stack)
+
 
 # The Stack Data Structure
 
