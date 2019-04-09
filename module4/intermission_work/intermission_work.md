@@ -45,6 +45,16 @@ For our paired project, we will be using the Yummly API. Please apply for your A
 
 **No Submission**
 
+## 5. Gear Up Lightening Talk
+
+Submit your talk topic with a brief description [here](https://turingtalks.herokuapp.com/projects/new) by **9:00 am Monday of week 1**.
+Example Submission:  
+  - TOPIC: Bias in Facial Recognition Software
+  - DESCRIPTION:  An overview of how facial recognition software was created, how it is used today, and what needs to change in order to ensure positive outcomes
+
+**Duplicate topics will not be accepted, so submit early in order to secure your choice!**
+
+
 ## High Level Concepts to Keep in Mind
   -   Methods are called Functions
   -   You should know the difference between `undefined` and `null`; JS does not have a `nil` like Ruby does
