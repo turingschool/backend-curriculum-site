@@ -22,16 +22,6 @@ You will be graded by an instructor on the criteria below. The rubric below outl
 
 - 1: Developer only pushes to master, never creates branches for their features work, and has very few commit messages at the end of the project. Commit messages are not informative and lack clarity as to what each piece of code is focused on. Commit messages are not consistent and lack proper structure across the project history.
 
-## UI/UX
-
-- 4: Developer is able to speak to two intentional decisions and how they were implemented to create an excellent UX. These decisions should be based in data, not just your opinion (we recommend you refer to "Don't Make Me Think by Steve Krug"). The application also meets all the expectations listed to earn a 3.
-
-- 3: User is able to fully utilize every feature of the app with NO direction from the developer or someone who knows the application. If it about a specific subject matter that the average person might not know, an explanation of the purpose of the application is present in a place that is easy to find/see. The user is not confused as to how to use the app. The user never has to type/delete anything from the url bar once visiting the site initially. Error messaging is helpful and is not in the form of browser alerts. Developer provided two professional sites that were used as inspiration and used a color palette.
-
-- 2: One or two features are difficult to take advantage of because of a confusing UX. The look and feel of the application generally follows what one would expect of a real web app.
-
-- 1: Little consideration was made to make a smooth experience for a user. Fully utilizing the app without direction is difficult for a user. The look and feel of the application is not something we would expect when we visit a real web app.
-
 ### Documentation
 
 NOTE - we will be evaluating both your FE project from Mod4 and your API completed in Mod3 for this category.
@@ -46,9 +36,9 @@ NOTE - we will be evaluating both your FE project from Mod4 and your API complet
 
 ### Communication
 
-- 4: The developer requested a PR review from an instructor and a peer/mentor, implemented the feedback and communicated back to the reviewer what changes were made and was able to speak to that experience, whether it be technical learning focused or workflow focused.
+- 4: The developer requested a PR review from a peer, implemented the feedback and communicated back to the reviewer what changes were made and was able to speak to that experience, whether it be technical learning focused or workflow focused.
 
-- 3: The developer requested a PR review from an instructor and a peer/mentor, implemented the feedback and communicated back to the reviewer what changes were made. The developer was prepared during all check-ins and reached out to instructors if at any time there were blockers they thought might prevent them from meeting any deadlines. The developer presented their application and workflow in the evaluation in a way that was professional (think - how would you talk about this application, the challenges and decisions, etc. in an interview?).
+- 3: The developer requested a PR review from a peer, implemented the feedback and communicated back to the reviewer what changes were made. The developer was prepared during all check-ins and reached out to instructors if at any time there were blockers they thought might prevent them from meeting any deadlines. The developer presented their application and workflow in the evaluation in a way that was professional (think - how would you talk about this application, the challenges and decisions, etc. in an interview?).
 
 - 2: The developer requested a PR review from one individual, implemented the feedback and communicated back to the reviewer what changes were made. The developer was prepared during all check-ins and reached out to instructors if at any time there were blockers they thought might prevent them from meeting any deadlines. The developer was able to speak to their application, challenges, decisions, etc. but required some prompting from the instructor.
 

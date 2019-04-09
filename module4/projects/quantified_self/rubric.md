@@ -30,7 +30,7 @@ Project management will also be required. It is one of the most essential elemen
 
 ### Software Quality/Feature Functionality
 
-- 4: Developer satisfies all criteria below in section three. Developer demonstrates additional features that goes beyond the standard scope of the project. This could include adding more functionality that was not outlined by the standard back-end spec or putting more focus onto the overall user experience on the front-end.
+- 4: Developer satisfies all criteria below in section three. Developer demonstrates additional features that goes beyond the standard scope of the project. This could include adding more functionality that was not outlined by the standard back-end spec.
 
 - 3: Developer demos their application and proves that all specified functionality works properly. This includes any extensions that are required of the developer. Developer demonstrates that no bugs are present and that edge cases have been accounted for. This also includes demonstrating that the application has been deployed to a production server.
 
