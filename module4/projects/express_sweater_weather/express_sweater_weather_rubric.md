@@ -46,11 +46,11 @@ NOTE - we will be evaluating both your FE project from Mod4 and your API complet
 
 ### Features and Testing
 
-- 4. Requirements listed below are complete and student has additional endpoints completed for project. All endpoints include happy and sad path testing.
+- 4: Requirements listed below are complete and student has additional endpoints completed for project. All endpoints include happy and sad path testing.
 
-- 3. All endpoints are complete, formatted correctly, and deployed to production. All endpoints include happy and sad path testing.
+- 3: All endpoints are complete, formatted correctly, and deployed to production. All endpoints include happy and sad path testing.
 
-- 2. At least 4 endpoints are complete and deployed to production.
+- 2: At least 4 endpoints are complete and deployed to production.
 The completed endpoints are partially tested.
 
-- 1. Fewer than 4 endpoints are complete and the project may not be  deployed to production. Not all completed endpoints have testing.
+- 1: Fewer than 4 endpoints are complete and the project may not be  deployed to production. Not all completed endpoints have testing.
