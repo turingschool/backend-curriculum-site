@@ -43,3 +43,14 @@ NOTE - we will be evaluating both your FE project from Mod4 and your API complet
 - 2: The developer requested a PR review from one individual, implemented the feedback and communicated back to the reviewer what changes were made. The developer was prepared during all check-ins and reached out to instructors if at any time there were blockers they thought might prevent them from meeting any deadlines. The developer was able to speak to their application, challenges, decisions, etc. but required some prompting from the instructor.
 
 - 1: The developer did not have any successful PR requests.
+
+### Features and Testing
+
+- 4. Requirements listed below are complete and student has additional endpoints completed for project. All endpoints include happy and sad path testing.
+
+- 3. All endpoints are complete, formatted correctly, and deployed to production. All endpoints include happy and sad path testing.
+
+- 2. At least 4 endpoints are complete and deployed to production.
+The completed endpoints are partially tested.
+
+- 1. Fewer than 4 endpoints are complete and the project may not be  deployed to production. Not all completed endpoints have testing.

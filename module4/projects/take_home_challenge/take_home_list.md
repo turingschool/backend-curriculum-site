@@ -22,19 +22,14 @@ This API should help you get started - https://public.opendatasoft.com/explore/d
 Using the Dark Sky API, build a weather app. We'd like to see what you do with the data to build an app that doesn't just mimic the apple weather app.
 https://darksky.net/dev
 
-## SurfTime
-Build an app for surfers who want to check wave heights,  wind, and temperature. Localize the application so users all over the world have relevant information at their fingertips.
-https://magicseaweed.com/developer/api
 
 ## RecoTime
 Use the TasteDive API to create a recommendations app based on users preferences.
 https://tastedive.com/read/api
 
 ## HubbleTime
-Build a nerd app - show users images from the Hubble API and allow them to favorite images. They should be able to toggle between "all" and "favorites" on the same screen.
+Build a nerd app - show users images from the [Hubble API](http://hubblesite.org/api/documentation) and allow them to favorite images. They should be able to toggle between "all" and "favorites" on the same screen.
 
-## HolidayTime
-Build a fun little app that lets a user know what holiday the current day is. Also, let the user search for keywords (i.e. ice cream) and find out if a there is a holiday for that, and if so, when. Finally, let the user favorite holidays and receive some sort of notification as their favorite(s) is/are approaching.
 
 ## NewsTime
 Using the NewsAPI, build a news app about a topic you are passionate about. Allow a user to start favorite articles so they can come back and view them later.
@@ -55,9 +50,6 @@ Use this API (https://dog.ceo/dog-api/) to build an app that...
 • Option 1: Setup Auth somehow so that step 3 can be saved for each user. A user should get some (you choose how many) photos of dogs, and should have the option to "like" them. A user can see all photos they've liked, and unlike if they change their mind.
 • Option 2: No auth; anyone who goes to the site sees the same thing. Visitors can rate dog photos cuteness 11/10, 12/10, 13/10 or higher! They can then filter dog photos by cuteness level.
 
-## SportsTime
-- https://fantasydata.com/sports-data or https://www.mysportsfeeds.com/data-feeds/ might be a good start
-- Also a sports fan with a very niche interest to get all the info they care about at their fingertips. The world is your oyster, have fun.
 
 ## NumberTime
 - Use the NumbersAPI http://numbersapi.com to build an interactive app. We don't want to limit you with specific user stories; would like to see the spin that you choose to put on it!
