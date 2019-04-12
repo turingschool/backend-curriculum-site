@@ -29,23 +29,17 @@ __Important__ It is okay if you do not completely understand all the ideas you j
 
 **Submit: Link to your gist containing your 4 summaries.**
 
-## 3. JavaScript Server-Side
+## 3. Server-Side JavaScript
 
 - Intro to Express Prep Work -
 
 While JavaScript was originally intended to be a client-side scripting language, it has since made its way server-side thanks to Node.js. We're now able to use the same language for browser-based interactions as well as server-side scripts.
 
-Let's get introduced to JavaScript without a browser. Work through [this lesson](../lessons/javascript_without_a_browser). It will introduce you to Node.js and basic testing.
+Let's get introduced to JavaScript without a browser. Work through [this lesson](../lessons/server_side_javascript). It will introduce you to Node.js and basic testing.
 
 **Submit: Link to your repo.**
 
-## 4. Apply for Yummly API key
-
-For our paired project, we will be using the Yummly API. Please apply for your API key now, so if there are any issues getting one we can address them sooner rather than later. Sign up for the Academic plan [here](https://developer.yummly.com/#plans).
-
-**No Submission**
-
-## 5. Gear Up Lightening Talk
+## 4. Gear Up Lightening Talk
 
 Submit your talk topic with a brief description [here](https://turingtalks.herokuapp.com/projects/new) by **9:00 am Monday of week 1**.
 Example Submission:  
