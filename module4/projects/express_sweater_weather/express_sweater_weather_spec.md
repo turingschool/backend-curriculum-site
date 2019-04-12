@@ -269,7 +269,7 @@ body:
 #### Response
 
 ```json
-status: 200
+status: 204
 ```
 
 ### Workflow Expectations
