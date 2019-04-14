@@ -21,7 +21,7 @@ Work on the following assignments in order. Each assignment will assume that you
 
 1. [Intro to HTML](./html)
 1. [Intro to CSS](./css)
-1. [Static Challenge]()
+1. [Static Challenge](./static_challenge)
 1. [Intro SQL](./sql)
 1. [Rack Tutorial]()
 1. [Rails Tutorial]()
