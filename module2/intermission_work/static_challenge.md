@@ -5,7 +5,7 @@ layout: page
 
 ## What is a Static Challenge?
 
-A Static Challenge is practice using HTML and CSS. You are given an image a webpage and must recreate that page using HTML and CSS.
+A Static Challenge is practice using HTML and CSS. You are given an image of a webpage and must recreate that page using HTML and CSS.
 
 ## How much time should I spend doing the Static Challenge?
 
