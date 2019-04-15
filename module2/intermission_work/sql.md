@@ -34,6 +34,8 @@ Work through the three following sections (Basic, Joins, Aggregates) of exercise
 
 To reiterate from before, you do not need to be a master of SQL coming out these exercises, so you should **timebox these exercises**. Timebox each of the three sections to **no more than 2 hours** for a maximum of 6 hours spent on these exercises. There will likely be exercises that you have difficulty completing, and that's okay! Use the provided hints, give it your best effort, and skip to the answer if you can't get it. Just make sure you read and understand the answer before moving on.
 
+After you complete the exercises, answer the Checks for Understanding.
+
 ### Basics
 
 1. [Getting Started](https://pgexercises.com/gettingstarted.html). Skip the "I want to use my own Postgres system" at the end.
@@ -76,3 +78,4 @@ To reiterate from before, you do not need to be a master of SQL coming out these
 1. What is an aggregate function?
 1. List three aggregate functions and what they do.
 1. What does the `group` statement do?
+1. How does the `group` statement relate to aggregates?
