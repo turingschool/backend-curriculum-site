@@ -1,14 +1,25 @@
-# Get Module 2 Tools
+---
+title: Get Module 2 Tools
+layout: page
+---
 
 ## Install Rails
 
-If you don't already have it: 
+First, check if you have Rails. From the command line:
+
 ```bash
-gem install rails --version 5.1.6
+$ rails -v
+```
+
+If you get a message saying rails is not installed, run
+
+```bash
+gem install rails --version 5.1.7
 ```
 
 Be careful not to install Rails 5.2 by only doing `gem install rails` -- our curriculum is not up to date with 5.2 changes, and you will need to uninstall 5.2.
 
+If you instead get a version of Rails besides `5.1.x`, follow [these instructions](https://github.com/turingschool-examples/task_manager_rails/blob/master/rails_uninstall.md).
 
 ## Download PostgreSQL
 
@@ -21,7 +32,6 @@ brew update
 brew install postgresql
 brew services start postgresql
 ```
-[want to know a little more?](http://www.fyquah.me/setup-postgresql-on-os-x)
 
 After this step, try running `gem install pg -v 1.1.4`
 
@@ -29,7 +39,6 @@ After this step, try running `gem install pg -v 1.1.4`
 If you get errors installing the "pg" gem, try installing PostgreSQL from https://postgresapp.com/
 
 Follow the instructions on their site to install the application and run the database, then try `gem install pg -v 1.1.4` again.
-
 
 ## Install Postico
 
