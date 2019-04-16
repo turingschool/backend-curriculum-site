@@ -11,7 +11,7 @@ In Module 2, we expand upon fundamental Ruby skills by building database-backed 
 ## Curriculum
 
 * [Learning Goals](./success/learning_goals)<br>
-* [Intermission Work](https://github.com/turingschool/intermission-assignments/blob/master/2be/index.markdown)<br>
+* [Intermission Work](./intermission_work)<br>
 * [Lessons](resources/curriculum)<br>
 * [Projects](projects/index)<br>
 
