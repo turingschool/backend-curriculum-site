@@ -1,4 +1,4 @@
-# Self Directed Project / Sweater Weather
+# Express Sweater Weather
 
 For your Week 1 solo project, you will replicate Sweater Weather as an Express API.
 
@@ -269,7 +269,7 @@ body:
 #### Response
 
 ```json
-status: 200
+status: 204
 ```
 
 ### Workflow Expectations

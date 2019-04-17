@@ -46,13 +46,15 @@ We are going to use the `Jukebox` project for this example.
 require 'rails_helper'
 
 RSpec.describe "When a user adds songs to their cart" do
-  it "a message is displayed" do
+  it "displays a message" do
     artist = Artist.create(name: 'Rick Astley')
     song = artist.songs.create(title: 'Never Gonna Give You Up', length: 250, play_count: 1000000)
-    
+
     visit songs_path
 
-    click_button "Add Song"
+    within("#song-#{song.id}") do
+      click_button "Add Song"
+    end
 
     expect(page).to have_content("You now have 1 copy of #{song.title} in your cart.")
   end
@@ -61,7 +63,24 @@ end
 
 ### Creating a Cart and Adding a Flash Message
 
-Run the test and it complains about not having an "Add Song" button. Let's make a button and talk about what the path should be. Inside of `views/songs/index.html.erb`:
+Run the test and it complains about not finding the css with the song id. Inside of `views/songs/index.html.erb`:
+
+```erb
+<h1>All Songs</h1>
+
+<% @songs.each do |song| %>
+  <ul>
+    <div id="song-<%= song.id %>">
+      <li>
+        <%= link_to song.title, song_path(song) %>
+        Play Count: <%= song.play_count %>
+      </li>
+    </div>
+  </ul>
+<% end %>
+```
+
+Now the test isn't finding the button. Let's add a button inside our `<li>` tags and talk about what the path should be.
 
 ```erb
 <%= button_to "Add Song", carts_path %>
@@ -73,7 +92,7 @@ Our error now is:
 undefined local variable or method `carts_path'
 ```
 
-So we need a cart resource because although we do not want to store the cart information (it changes a lot), it will still need a controller.
+So we need a cart resource because although we do not want to store the cart information (it changes a lot), it will still need a route and a controller.
 
 ```ruby
 # config/routes.rb
@@ -138,13 +157,15 @@ class CartsController < ApplicationController
 end
 ```
 
-And display the flash notice using a content tag in the `app/views/application.html.erb` file:
+And display the flash notice using a content tag in the `app/views/application.html.erb` file. Add this code right before the `yield` tag.
 
 ```erb
 <% flash.each do |type, message| %>
   <%= content_tag :div, message, class: type %>
 <% end %>
 ```
+
+Because we put this code in `application.html.erb`, we can put a flash message in any controller action and it will appear in any view!
 
 Great! That test is passing. But what happens if we add two songs?
 
@@ -156,23 +177,30 @@ Let's update our test to check and see.
 spec/features/user_can_add_songs_to_their_cart_spec.rb
 
 RSpec.describe "When a user adds songs to their cart" do
-  it "a message is displayed" do
+  it "displays a message" do
     ...
   end
 
   it "the message correctly increments for multiple songs" do
     artist = Artist.create(name: 'Rick Astley')
-    song = artist.songs.create(title: 'Never Gonna Give You Up', length: 250, play_count: 1000000)
-    
+    song_1 = artist.songs.create(title: 'Never Gonna Give You Up', length: 250, play_count: 1000000)
+    song_2 = artist.songs.create(title: "Don't Stop Believin'", length: 300, play_count: 1)
+
     visit songs_path
 
-    click_button "Add Song"
+    within("#song-#{song_1.id}") do
+      click_button "Add Song"
+    end
 
-    expect(page).to have_content("You now have 1 copy of #{song.title} in your cart.")
+    within("#song-#{song_2.id}") do
+      click_button "Add Song"
+    end
 
-    click_button "Add Song"
+    within("#song-#{song_1.id}") do
+      click_button "Add Song"
+    end
 
-    expect(page).to have_content("You now have 2 copies of #{song.title} in your cart.")
+    expect(page).to have_content("You now have 2 copies of #{song_1.title} in your cart.")
   end
 end
 
@@ -249,7 +277,7 @@ First, let's update our feature test.
 require 'rails_helper'
 
 RSpec.feature "When a user adds songs to their cart" do
-  it "a message is displayed" do
+  it "displays a message" do
     ...
   end
 
@@ -257,17 +285,32 @@ RSpec.feature "When a user adds songs to their cart" do
     ...
   end
 
-  it "the total number of songs in the cart increments" do
+  it "displays the total number of songs in the cart" do
     artist = Artist.create(name: 'Rick Astley')
-    song = artist.songs.create(title: 'Never Gonna Give You Up', length: 250, play_count: 1000000)
+    song_1 = artist.songs.create(title: 'Never Gonna Give You Up', length: 250, play_count: 1000000)
+    song_2 = artist.songs.create(title: "Don't Stop Believin'", length: 300, play_count: 1)
 
     visit songs_path
 
     expect(page).to have_content("Cart: 0")
 
-    click_button "Add Song"
+    within("#song-#{song_1.id}") do
+      click_button "Add Song"
+    end
 
     expect(page).to have_content("Cart: 1")
+
+    within("#song-#{song_2.id}") do
+      click_button "Add Song"
+    end
+
+    expect(page).to have_content("Cart: 2")
+
+    within("#song-#{song_1.id}") do
+      click_button "Add Song"
+    end
+
+    expect(page).to have_content("Cart: 3")
   end
 end
 
@@ -302,7 +345,7 @@ Sure enough, that gets us to a new error where now our test is looking for "Cart
 
 We could potentially pass in a count specifically to use in that slot, but it's starting to feel like we're doing a LOT of logic with this cart. More than should probably just be handled in the controller.
 
-What we *really* want to do here is to have some sort of an object that I can call `#total` on to get the number of objects in the cart. I don't have a model to use since we're not saving the cart in the database, but that doesn't stop me from creating a `Cart` PORO. The question becomes where to start, and what to refactor.
+What we *really* want to do here is to have some sort of an object that I can call `#total` on to get the number of objects in the cart. I don't have a model to use since we're not saving the cart in the database, but that doesn't stop me from creating a `Cart` class that doesn't interact with the database. We call these types of classes "POROS" (Plain Old Ruby Objects). The question becomes where to start, and what to refactor.
 
 Since we're thinking of implementing this here in the view, let's start there with how we'd *like* this object to behave. Change the new line that we added to the view to the following:
 
@@ -326,7 +369,7 @@ In our SongsController, let's go ahead and add the instance variable `@cart`. Le
 
 ```ruby
   def index
-    @items = Song.all
+    @songs = Song.all
     @cart = Cart.new(session[:cart])
   end
 ```
@@ -344,7 +387,7 @@ At this point, we're going to have to create our PORO, so let's start with a mod
 
 ### Creating Our Cart PORO
 
-In our `spec/models` folder, and a new test for our Cart class: `spec/models/cart_spec.rb`. Within our new test file, add the following:
+In our `spec/models` folder, add a new test for our Cart class: `spec/models/cart_spec.rb`. Within our new test file, add the following:
 
 ```ruby
 require 'rails_helper'
@@ -390,24 +433,13 @@ end
 
 #### Side note
 
-Our PORO does not inherit from ApplicationRecord (or ActiveRecord::Base) because we don't store PORO's in our database. They're use "in transit" for one request/response life cycle and then discarded.
+Our PORO does not inherit from ApplicationRecord (or ActiveRecord::Base) because we don't store PORO's in our database. They're used "in transit" for one request/response life cycle and then discarded.
 
 #### Back to code...
 
 And that makes our model test pass!
 
 Unfortunately, our feature tests still don't pass for us.
-
-```
-Failure/Error: <p>Cart: <%= @cart.total_count %></p>
-
-      ActionView::Template::Error:
-        undefined method `total_count' for nil:NilClass
-```
-
-We'll fix all of these in a moment.
-
-Our newest test fails for a different reason though:
 
 ```
   3) User adds a song to their cart the total number of songs in the cart increments
@@ -435,7 +467,6 @@ end
 
 And now, our newest test passes, but we have more refactoring and cleanup to do so every other test can pass.
 
-
 ### Refactoring CartsController
 
 Let's take another look at the current status of our CartsController
@@ -443,7 +474,7 @@ Let's take another look at the current status of our CartsController
 ```ruby
 class CartsController < ApplicationController
   include ActionView::Helpers::TextHelper
-  
+
   def create
     song = Song.find(params[:song_id])
     song_id_str = song.id.to_s
@@ -467,6 +498,7 @@ class CartsController < ApplicationController
 
   def create
     song = Song.find(params[:song_id])
+    @cart = Cart.new(session[:cart])
     @cart.add_song(song.id)
     session[:cart] = @cart.contents
     quantity = @cart.count_of(song.id)
@@ -498,10 +530,10 @@ RSpec.describe Cart do
         '1' => 2,  # two copies of song 1
         '2' => 3   # three copies of song 2
       })
-      cart.add_song(1)
-      cart.add_song(2)
+      subject.add_song(1)
+      subject.add_song(2)
 
-      expect(cart.contents).to eq({'1' => 3, '2' => 4})
+      expect(subject.contents).to eq({'1' => 3, '2' => 4})
     end
   end
 end
@@ -511,7 +543,6 @@ In order to get the Cart PORO tests to pass, add the following method to our Car
 
 ```ruby
 def add_song(id)
-  
   @contents[id.to_s] = @contents[id.to_s] + 1
 end
 ```
@@ -519,14 +550,16 @@ end
 What if we ask for the count of a non-existent song? Let's add a test:
 
 ```ruby
-  describe "#count_of" do
+describe "#count_of" do
+  it "returns the count of all songs in the cart" do
     cart = Cart.new({})
 
     expect(cart.count_of(5)).to eq(0)
   end
+end
 ```
 
-Add `expect(subject.count_of(0)).to eq(0)` to your test for the `count_of` method. What's the matter, got `nil`? Let's **coerce** `nil` values to `0` with `#to_i`.
+Let's add a `count_of` method that **coerces** `nil` values to `0` with `#to_i`.
 
 ```ruby
 class Cart
@@ -538,34 +571,59 @@ class Cart
   end
 ```
 
-And our PORO tests are all passing!
+What if we want to add a song that hasn't been added yet?
 
+```ruby
+describe "#add_song" do
+  it "adds a song to its contents" do
+    ...
+  end
+
+  it "adds a song that hasn't been added yet" do
+    subject.add_song('3')
+
+    expect(subject.contents).to eq({'1' => 2, '2' => 3, '3' => 1})
+  end
+end
+```
+
+We need this test for the case when a user has added some songs and tries to add a new song. Remember, when we initialize a new Cart, we pass it the contents of `session[:cart]`, which acts like a Hash, but it doesn't have a default value. The default value gets lost in translation between our app and the client's cookies.
+
+This test is giving us an `undefined method '+' for nil:NilClass` error because `@contents[id.to_s]` is coming back as nil when a song hasn't been set yet.  Let's use our handy new `count_of` method that coerces `nil`s to 0 to fix this:
+
+```ruby
+def add_song(id)
+  @contents[id.to_s] = count_of(id) + 1
+end
+```
+
+And our PORO tests are all passing!
 
 ### Controller Cleanup
 
-Our feature tests are still in bad shape.
+Our feature tests are still in bad shape. Our newest test should pass, but if you run all the tests you'll see a lot of failures. It's from the line in our `application.html.erb` where we call `@cart.total_count`. `@cart` is nil because, although we set it in our `SongsController#index` and `CartsController#create`, we didn't set it in every action. We *could* go through every action and add the line `@cart = Cart.new(session[:cart])` to each one, but that wouldn't be very DRY. Instead, let's do some refactoring.
 
-Notice that in both our CartsController and our SongsController we're setting `@cart` as one of our first actions. This is likely something that we'll continue to want to have access to in ALL of our controllers, particularly since we've put a reference to `@cart` in our `application.html.erb` which is what's causing all other feature tests to fail.
-
-Let's move that action out to our ApplicationController to ensure that it always gets set.
-
-In `ApplicationController`, add the following:
+Instead of creating an `@cart` all over the place, we'll make a method on our `ApplicationController` that will handle creating the `Cart` object:
 
 ```ruby
-  before_action :set_cart
+  helper_method :cart
 
-  def set_cart
+  def cart
     @cart ||= Cart.new(session[:cart])
   end
 ```
 
 If for some reason we access the cart more than once in a given request/response cycle, the cart object is memoized with `||=`.
 
-Then delete the following line from both your SongsController and CartsController:
+We make this new method a helper_method so that we can access it in the views.
+
+Now we can delete the following line from both the SongsController and CartsController:
 
 ```ruby
   @cart = Cart.new(session[:cart])
 ```
+
+And now change all the references from `@cart` to `cart`.
 
 Double check to see that our tests are still passing, and we should be in good shape!
 
@@ -591,7 +649,7 @@ Let's say that you wanted users to be able to click on "View Cart" (similar to "
 What about allowing users to save their cart songs as a package? You might approach it something like this:
 
 ```erb
-  Cart: <%= @cart.total_count %>
+  Cart: <%= cart.total_count %>
   <%= button_to "Save Package", packages_path %>
 ```
 

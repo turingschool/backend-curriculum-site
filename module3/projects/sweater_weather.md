@@ -22,10 +22,21 @@ There is room for personal preference for this response body. Use the mock ups t
 
 **Requirements:**
 
-- Needs to pull out the city and state from the GET request and send it to Google's Geocoding API to retrieve the lat and long for the city (this can be it's own story)
+- Needs to pull out the city and state from the GET request and send it to Google's Geocoding API to retrieve the lat and long for the city (this can be its own story). Use of the Google Geocoding API is a hard requirement.
 - Retrieve forecast data from the Darksky API using the lat and long
 
 ![Root Page](./images/sweater_weather/root.png)
+
+### 1. Part Two - Background Image for a City
+
+```
+GET /api/v1/backgrounds?location=denver,co
+Content-Type: application/json
+Accept: application/json
+```
+**Response:**
+
+This will search the Flickr API or any other images API for images associated with the location. This may not return images as intended, you can feel free to add search terms to your query to the Flickr API such as Parks or nature or skyline or whatever in order to return more appropriate images.
 
 
 ### 2. Account Creation

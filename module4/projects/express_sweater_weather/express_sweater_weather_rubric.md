@@ -24,11 +24,9 @@ You will be graded by an instructor on the criteria below. The rubric below outl
 
 ### Documentation
 
-NOTE - we will be evaluating both your FE project from Mod4 and your API completed in Mod3 for this category.
-
 - 4: Developer satisfies all criteria below in section three. Developer contributes additional information. This includes links to their agile board and any available production links.
 
-- 3: A thorough README is found in all related repositories. A README contains sections such as Introduction, Initial Setup, How to Use, Known Issues, Running Tests, How to Contribute, Core Contributors, Schema Design, and Tech Stack List. If the product is front-end focused, screenshots of the application will be required. Each section is thoroughly filled in with important information for visitors of your application's repo.
+- 3: A thorough README is found in all related repositories. A README contains sections such as Introduction, Initial Setup, How to Use, Known Issues, Running Tests, How to Contribute, Core Contributors, Schema Design, and Tech Stack List. Each section is thoroughly filled in with important information for visitors of your application's repo.
 
 - 2: A thorough README is found in all related repositories. A README contains sections such as Introduction, Initial Setup, How to Use, Known Issues, Running Tests, How to Contribute, Core Contributors, Schema Design, and Tech Stack List. Each section is not filled out thoroughly, or some are missing.
 
@@ -46,11 +44,11 @@ NOTE - we will be evaluating both your FE project from Mod4 and your API complet
 
 ### Features and Testing
 
-- 4. Requirements listed below are complete and student has additional endpoints completed for project. All endpoints include happy and sad path testing.
+- 4: Requirements listed below are complete and student has additional endpoints completed for project. All endpoints include happy and sad path testing.
 
-- 3. All endpoints are complete, formatted correctly, and deployed to production. All endpoints include happy and sad path testing.
+- 3: All endpoints are complete, formatted correctly, and deployed to production. All endpoints include happy and sad path testing.
 
-- 2. At least 4 endpoints are complete and deployed to production.
+- 2: At least 4 endpoints are complete and deployed to production.
 The completed endpoints are partially tested.
 
-- 1. Fewer than 4 endpoints are complete and the project may not be  deployed to production. Not all completed endpoints have testing.
+- 1: Fewer than 4 endpoints are complete and the project may not be  deployed to production. Not all completed endpoints have testing.
