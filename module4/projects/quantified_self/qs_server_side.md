@@ -18,6 +18,8 @@ You are going to build a calorie tracker using Javascript. You'll primarily be u
 
 You will be creating a front-end to consume your fully-tested Express API that users will utilize to track calories in meals that they eat. You can use [this](https://github.com/turingschool-examples/qs-fe-starter-kit) as a starter kit.
 
+You can also use [this Webpack starter kit](https://github.com/wbkd/webpack-starter) that may be a bit more robust than the one we have provided above.
+
 * All applications should be deployed with Heroku. For more information on how to do this, look [here](https://codeburst.io/deploy-your-webpack-apps-to-heroku-in-3-simple-steps-4ae072af93a8)
 
 ### Back End Features
@@ -25,10 +27,10 @@ You will be creating a front-end to consume your fully-tested Express API that u
 For your Express back end:
 
 - You'll use the given Webpack starter pack to get started. Run through the setup instructions and fire up the application.
-- Create an agile board and write stories for each of your endpoints. Choose between Github Projects, Waffle, Trello, or Pivotal Tracker. Use [this as a reference point](https://www.pivotaltracker.com/blog/principles-of-effective-story-writing-the-pivotal-labs-way) on how to write stories. We'll go into more detail on this.  
+- Create an agile board and write stories for each of your endpoints. Choose between Github Projects, Waffle, or Trello. Use [this as a reference point](https://www.pivotaltracker.com/blog/principles-of-effective-story-writing-the-pivotal-labs-way) on how to write stories. We'll go into more detail on this.  
 - Send your agile board, repo, and production links to your instructors.
 
-You will need to build the following foods and meals endpoints for your application (listed below). Based on the option you choose (calendar or recipes) you may need to modify the endpoints listed in project spec - do so as needed. You will definitely need to add some.
+You will need to build the following foods and meals endpoints for your application (listed below). Based on the extensions below you may need to modify and add the endpoints listed in project spec - do so as needed. You will definitely need to add some.
 
 There may be different architectural decisions you make with your server because of this addition; take you time to plan this out thoughtfully.
 
@@ -227,13 +229,19 @@ If successful, this request will return a 204 status code.
 
 ### Required extensions
 
-### Calendar - Additional endpoints
-
-What's the point of this app if one can't look back in time and see what eating habits they have? You'll need to build out another page on the front-end that lists all dates the user has recorded meals, and what they ate for each meal.
-
 ### Recipes with Yummly - Microservice
 
+This extension will be your first experience using an independent microservice. This means that you'll need to pull down the Webpack starter pack as you did above, and create a brand new API. This microservice API will be created and deployed, just as your first one was. 
+
+**GET /api/v1/recipes/search?=food_type**
+
 Instead of "Foods", you may want to call it "Pantry"... going down the recipes route means you need to allow your user to select one or more foods from the "manage foods" page, then be shown recipes that can be made with the selected food(s). The recipes should probably be shown on another page for a smooth UI, and should be pulled from the Yummly API.
+
+### Optional extension
+
+### Calendar - Additional endpoints
+
+What's the point of this app if one can't look back in time and see what eating habits they have? You'll need to build out additional endpoints that lists all dates a user has recorded meals, and what they ate for each meal. Please note that this extension will require you to create additional endpoints that include the creation of users.
 
 ### Expectations
 
