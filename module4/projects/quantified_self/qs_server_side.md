@@ -14,27 +14,27 @@ You are going to build a calorie tracker using Javascript. You'll primarily be u
 * Create a microservice that interfaces with the Yummly API.
 * Integrate both apps together and complete the quantified self experience
 
-### Requirements Overview
+## Requirements Overview
 
-You will be creating a front-end to consume your fully-tested Express API that users will utilize to track calories in meals that they eat. You can use [this](https://github.com/turingschool-examples/qs-fe-starter-kit) as a starter kit.
+You will be creating a fully-tested Express API that users will utilize to track calories in meals that they eat. You can use [this](https://github.com/turingschool-examples/qs-fe-starter-kit) as a starter kit.
 
-You can also use [this Webpack starter kit](https://github.com/wbkd/webpack-starter) that may be a bit more robust than the one we have provided above.
+You may also use [this Webpack starter kit](https://github.com/wbkd/webpack-starter). This one may be a bit more robust than the one we have provided above. It includes more configuration for transpiling, linting, and environment-specific configuration.  
 
 * All applications should be deployed with Heroku. For more information on how to do this, look [here](https://codeburst.io/deploy-your-webpack-apps-to-heroku-in-3-simple-steps-4ae072af93a8)
 
-### Back End Features
+## Back End Features
 
 For your Express back end:
 
 - You'll use the given Webpack starter pack to get started. Run through the setup instructions and fire up the application.
-- Create an agile board and write stories for each of your endpoints. Choose between Github Projects, Waffle, or Trello. Use [this as a reference point](https://www.pivotaltracker.com/blog/principles-of-effective-story-writing-the-pivotal-labs-way) on how to write stories. We'll go into more detail on this.  
+- Create an agile board and write stories for each of your endpoints. Choose between Github Projects, Waffle, or Trello. Use [this as a reference point](https://www.pivotaltracker.com/blog/principles-of-effective-story-writing-the-pivotal-labs-way) on how to write effective stories. We'll go into more detail on this.  
 - Send your agile board, repo, and production links to your instructors.
 
 You will need to build the following foods and meals endpoints for your application (listed below). Based on the extensions below you may need to modify and add the endpoints listed in project spec - do so as needed. You will definitely need to add some.
 
 There may be different architectural decisions you make with your server because of this addition; take you time to plan this out thoughtfully.
 
-#### Food Endpoints:
+### Food Endpoints (week 1):
 
 **GET /api/v1/foods**
 
@@ -78,7 +78,7 @@ If food is successfully updated (name and calories are required fields), the foo
 
 Will delete the food with the id passed in and return a 204 status code. If the food can't be found, a 404 will be returned.
 
-#### Meal Endpoints:
+### Meal Endpoints (week 1):
 
 **GET /api/v1/meals**
 
@@ -177,7 +177,7 @@ If successful, this request will return a response in the following format:
 
 **GET /api/v1/meals/:meal_id/foods**
 
-Returns all the foods associated with the meal with an id specified by :meal_id or a 404 if the meal is not found
+Returns all the foods associated with the meal with an id specified by `:meal_id` or a 404 if the meal is not found
 
 If successful, this request will return a response in the following format:
 
@@ -207,7 +207,7 @@ If successful, this request will return a response in the following format:
 
 **POST /api/v1/meals/:meal_id/foods/:id**
 
-Adds the food with :id to the meal with :meal_id
+Adds the food with :id to the meal with `:meal_id`
 
 This creates a new record in the MealFoods table to establish the relationship between this food and meal. If the meal/food cannot be found, a 404 will be returned.
 
@@ -221,29 +221,55 @@ If successful, this request will return a status code of 201 with the following 
 
 **DELETE /api/v1/meals/:meal_id/foods/:id**
 
-Removes the food with :id from the meal with :meal_id
+Removes the food with `:id` from the meal with `:meal_id`
 
 This deletes the existing record in the MealFoods table that creates the relationship between this food and meal. If the meal/food cannot be found, a 404 will be returned.
 
 If successful, this request will return a 204 status code.
 
-### Required extensions
+## Required extension (week 2):
 
 ### Recipes with Yummly - Microservice
 
-This extension will be your first experience using an independent microservice. This means that you'll need to pull down the Webpack starter pack as you did above, and create a brand new API. This microservice API will be created and deployed, just as your first one was. 
+This extension will be your first experience in creating and using an independent microservice that you've built yourself. This means that you'll need to pull down the Webpack starter pack as you did above, and create a brand new API. This new microservice will be created and deployed, just as your first one above.
+
+So let's break this down. You'll need to do a few things to get everything set up.
+
+* Look over the Yummly documentation on how to search for recipes.
+* Use the Yummly API to search for a particular kind of food (for example, soup or sandwiches).
+* Build a recipes table in your new microservice. Look below to see what an example recipes response would look like. This may show you what your database should look like. 
+
+Name STRING (name is also the ID of the recipe)
+Rating FLOAT
+totalTimeInSeconds INT
+Ingredient Count INT
+Cuisine: STRING (take first one)
+
+RecipeFlavors Table:
+Salty: FLOAT
+Sour: FLOAT
+Sweet: FLOAT
+Bitter: FLOAT
+Meaty: FLOAT
+Piquant: FLOAT
+Recipe_id: FK
 
 **GET /api/v1/recipes/search?=food_type**
 
-Instead of "Foods", you may want to call it "Pantry"... going down the recipes route means you need to allow your user to select one or more foods from the "manage foods" page, then be shown recipes that can be made with the selected food(s). The recipes should probably be shown on another page for a smooth UI, and should be pulled from the Yummly API.
+### Your turn. Be creative and create three new endpoints 
+**GET /api/v1/recipes/your_choice**
+**GET /api/v1/recipes/your_choice**
+**GET /api/v1/recipes/your_choice**
 
-### Optional extension
+Once you have seeded your database with recipe information from the Yummly API,
+
+## Optional extension:
 
 ### Calendar - Additional endpoints
 
 What's the point of this app if one can't look back in time and see what eating habits they have? You'll need to build out additional endpoints that lists all dates a user has recorded meals, and what they ate for each meal. Please note that this extension will require you to create additional endpoints that include the creation of users.
 
-### Expectations
+## Expectations
 
 - Reach out to instructors on Slack wherever you'd like feedback.
 - Reach out for extra support if you feel like your team is falling behind.
