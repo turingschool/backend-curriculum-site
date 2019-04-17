@@ -237,29 +237,33 @@ So let's break this down. You'll need to do a few things to get everything set u
 
 * Look over the Yummly documentation on how to search for recipes.
 * Use the Yummly API to search for a particular kind of food (for example, soup or sandwiches).
-* Build a recipes table in your new microservice. Look below to see what an example recipes response would look like. This may show you what your database should look like. 
+* Build a recipes table in your new microservice. Look below to see what an example recipes response would look like. This may show you what your database should look like.
 
-Name STRING (name is also the ID of the recipe)
-Rating FLOAT
-totalTimeInSeconds INT
-Ingredient Count INT
-Cuisine: STRING (take first one)
-
-RecipeFlavors Table:
-Salty: FLOAT
-Sour: FLOAT
-Sweet: FLOAT
-Bitter: FLOAT
-Meaty: FLOAT
-Piquant: FLOAT
-Recipe_id: FK
+```js
+{
+    "id": 1,
+    "name": "Vegetarian-Cabbage-Soup-Recipezaar",
+    "rating": 4.6,
+    "totalTimeInSeconds": 4500,
+    "ingredientCount": 10,
+    "cuisine": "Italian"
+    "flavorScale": {
+      "salty": 0.6666666666666666,
+      "sour": 0.8333333333333334,
+      "sweet": 0.6666666666666666,
+      "bitter": 0.5,
+      "meaty": 0.16666666666666666,
+      "piquant": 0.5
+    }
+}
+```
 
 **GET /api/v1/recipes/search?=food_type**
 
-### Your turn. Be creative and create three new endpoints 
-**GET /api/v1/recipes/your_choice**
-**GET /api/v1/recipes/your_choice**
-**GET /api/v1/recipes/your_choice**
+### Your turn. Be creative and create three new endpoints
+**GET /api/v1/recipes/search?=food_type**
+**GET /api/v1/recipes/search?=food_type**
+**GET /api/v1/recipes/search?=food_type**
 
 Once you have seeded your database with recipe information from the Yummly API,
 
