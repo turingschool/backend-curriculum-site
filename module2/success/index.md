@@ -17,7 +17,7 @@ The following items are evaluated and assessed by instructors as part of conside
   * [Intermission Pre-Work](../intermission_work) Submission instructions are included in the pre-work.
   * Weekly Checks for Understanding (CFUs)
 
-* [Laugh Tracks](https://github.com/turingschool-projects/LaughTracks), solo project, week 1
+* [Laugh Tracks](https://github.com/turingschool-projects/laugh_tracks), solo project, week 1
   * does NOT count toward promotion
 
 * One or more of the following projects must be fully completed and given a "passing" grade
