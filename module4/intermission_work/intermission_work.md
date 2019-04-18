@@ -18,7 +18,7 @@ __Submit: Link to gist with your idea and tech stack.__
 ## 2. _Eloquent JavaScript_ Written by Marijn Haverbeke
 
 Let's take some time to get familiar with JavaScript as a language before we dive straight into writing code.
-Read the following chapters, and after __each__ chapter write a summary in a gist of what you took from that chapter. Your summary per chapter should not exceed 2 paragraphs. 
+Read the following chapters, and after __each__ chapter write a summary in a gist of what you took from that chapter. Your summary per chapter should not exceed 2 paragraphs.
 __Important:__ It is okay if you do not completely understand all the ideas you just read. We will have time to go over these topics in class, but want you to be exposed to these concepts and start getting familiar with them now.
 
   1. [Values, Types, and Operators](https://eloquentjavascript.net/01_values.html)
@@ -35,7 +35,7 @@ __Submit: Link to your gist containing your 4 summaries.__
 
 While JavaScript was originally intended to be a client-side scripting language, it has since made its way server-side thanks to Node.js. We're now able to use the same language for browser-based interactions as well as server-side scripts.
 
-Let's get introduced to JavaScript without a browser. Work through [this lesson](../lessons/server_side_javascript). It will introduce you to Node.js and basic testing.
+Let's get introduced to JavaScript without a browser. Work through [this lesson](../lessons/server_side_javascript). It will introduce you to Node.js, Express, and Sequelize.
 
 __Submit: Link to your repo.__
 
