@@ -37,7 +37,7 @@ Let's get introduced to JavaScript without a browser. Work through [this lesson]
 
 __Submit: Link to your repo.__
 
-## 4. Gear Up Lightening Talk
+## 4. Gear Up Lightning Talk
 
 Submit your talk topic with a brief description [here](https://turingtalks.herokuapp.com/projects/new) by __9:00 am Monday of week 1__.
 Example Submission:  
