@@ -70,7 +70,7 @@ Now `cd arcade` and open the app in your text editor. Run `npm install` and then
 
 Currently the structure of our app should look like this:
 
-<img src='./assets/express_app_directories.png' width=150>
+<img src='./assets/server_side_js_images/express_app_directories.png' width=150>
 
 We won't need `users.js` so go ahead and delete it. Next open up the `app.js` file and remove these two lines:
 
@@ -91,11 +91,11 @@ npx sequelize init
 
 The first command is installing the necessary dependencies for our app so that our app can use sequelize and interact with a postgres database. After you run it, you should see a `package-lock.json` file and if you open `package.json` it should look similar to this:
 
-<img src='./assets/express_app_package_json.png' width=250>
+<img src='./assets/server_side_js_images/express_app_package_json.png' width=250>
 
 The second command will add some folders and files so that our file structure should look similar to this:
 
-<img src='./assets/express_app_after_sequelize_init.png' width=150>
+<img src='./assets/server_side_js_images/express_app_after_sequelize_init.png' width=150>
 
 Next open up `config/config.json`. We are going to update `username`, `database` and `dialect` in the development, test and production sections.
 
@@ -274,7 +274,9 @@ module.exports = {
 ```
 Awesome job! The `seeds` branch is complete. Merge it into `master`.
 
-#### Game Routes
+#### Games Routes
+
+##### Read Routes
 
 Alright it's time to code our CRUD routes. We are going to start by creating our read routes first. Create a new branch `read_routes`. Take a moment and think about what our paths should look like for retrieving all games and retrieving one game.
 
@@ -287,7 +289,7 @@ Alright it's time to code our CRUD routes. We are going to start by creating our
 
 Knowing how we want our paths, structure the directories within the `routes` folder to match and create a `games.js` file.
 
-<img src='./assets/games_routes_file_structure.png' width=150>
+<img src='./assets/server_side_js_images/games_routes_file_structure.png' width=150>
 
 
 Open up `app.js` and add the following
@@ -311,7 +313,7 @@ var Game = require('../../../models').Game;
 ```
 This makes all the necessary connections we will need so we can talk to the database and receive and respond to requests appropriately.
 
-Now we can write a method to handle a request to retrieve all games. That method should look like
+Now we can write a function to handle a request to retrieve all games. That function should look like
 ```javascript
 /* GET all games */
 router.get("/", function(req, res, next) {
@@ -325,7 +327,10 @@ router.get("/", function(req, res, next) {
       res.status(500).send({error})
     });
 });
+
+module.exports = router; //this should stay at the bottom of the file
 ```
+
 Take a minute and see if you can read the code and figure out what is going on here.
 
 <details><summary>Breakdown</summary>
@@ -334,6 +339,68 @@ Take a minute and see if you can read the code and figure out what is going on h
 
     `Game` is the variable that we defined at the top of the file that is accessing our model. `findAll` is the function that Sequelize has defined for us to retrieve all instance in our games table.
 
-    What's with then and catch? These are related to promises. Will talk abou that during week one. For now, then is the code that will execute if the database successfully returned the information that we want. We are calling that information `games` here and formatting our response in the 
+    What's with then and catch? These are related to promises. Will talk abou that during week one. For now, then is the code that will execute if the database successfully returned the information that we want. We are calling that information `games` here and formatting our response. The catch is what will happen if it fails. Calling the information error and formatting that error response.
   </p>
+</details>
+
+Spin up the server with `npm start`
+
+Using Postman visit `http://localhost:3000/api/v1/games` and you should see the games from our seed file.
+
+See if you can write the function to handle a request to retrieve a single games.
+
+<details><summary>Answer</summary>
+  <img src='./assets/server_side_js_images/single_game.png' width=350>
+</details>
+
+Awesome job! You've finished the read routes. Merge that branch into master. **Now might be another good opportunity to let that sink in and take a POM.**
+
+##### Create Route
+
+By now you know the deal, create a new branch `create_route`. Our post route is where we will be able to add a new game to our arcade. We are still working in the `routes/api/v1/games.js` file.
+
+Add the following code:
+```javascript
+/*POST new game*/
+router.post("/", function(req, res, next) {
+  Game.create({
+          title: req.body.title,
+          price: req.body.price,
+          releaseYear: req.body.releaseYear,
+          active: req.body.active
+    })
+    .then(game => {
+      res.setHeader("Content-Type", "application/json");
+      res.status(201).send(JSON.stringify(game));
+    })
+    .catch(error => {
+      res.setHeader("Content-Type", "application/json");
+      res.status(500).send({ error });
+    });
+});
+```
+
+Run `npm start` to start your server and use Postman to make a POST request. Feel free to come up with your own info or you can use:
+```javascript
+  title: 'Frogger',
+  price: 150,
+  releaseYear: 1981,
+  active: true
+```
+
+__Be sure to pass this information in the body and to have x-www-form-urlencoded selected before you hit send on your request.__
+
+The `create_route` is complete! Merge it into `master`.
+
+
+##### Remaining Routes
+
+There are two final routes to think about, Update and Delete. See if you can implement these on your own. [Here](http://docs.sequelizejs.com/) is the Sequelize docs. If you get stuck don't struggle for too long. The answers can be found below.
+
+<details><summary>Update Route Answer</summary>
+  <img src='./assets/server_side_js_images/update_game.png' width=350>
+</details>
+
+<details><summary>Delete Route Answer</summary>
+  <img src='./assets/server_side_js_images/delete_game.png' width=350>
 </details>
