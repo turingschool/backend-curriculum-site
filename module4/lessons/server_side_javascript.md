@@ -10,11 +10,11 @@ Traditionally JavaScript is executed client-side, or in the browser on the consu
 
 ### What is node.js?
 
-According to [nodejs.org](nodejs.org) node, in it's most basic form, "is a JavaScript runtime built on Chrome's V8 JavaScript engine."
+According to [nodejs.org](https://nodejs.org) node, in it's most basic form, "is a JavaScript runtime built on Chrome's V8 JavaScript engine."
 
 ### Installing Node:
 
-* Jump over to [https://nodejs.org/en/](https://nodejs.org/en/) and download the _Recommended for Most Users_ version of node.
+* Jump over to [node](https://nodejs.org/en/) and download the _Recommended for Most Users_ version of node.
 * Pat yourself on the back you've completed installation :smile:
 
 Also, when you download node - you also get npm
@@ -282,8 +282,8 @@ Alright it's time to code our CRUD routes. We are going to start by creating our
 
 <details><summary>Answer</summary>
   <ul>
-    <li>`/api/v1/games` </li>
-    <li>`/api/v1/games/:id`</li>
+    <li> /api/v1/games </li>
+    <li> /api/v1/games/:id </li>
   </ul>
 </details>
 
