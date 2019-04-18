@@ -17,7 +17,6 @@ In Module 2, we expand upon fundamental Ruby skills by building database-backed 
 
 ## Resources
 * [Excercises](resources/index)<br>
-* [Homework](resources/homework)<br>
 
 ## Requirements
 * [Portfolio](./portfolios/portfolio_requirements)<br>
