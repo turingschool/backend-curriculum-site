@@ -3,16 +3,14 @@ title: Module 2 Resources
 layout: page
 ---
 
-* [Module 2 Pre-Work](https://github.com/turingschool/intermission-assignments/blob/master/2be/index.markdown)
-* [Homework](homework)
+* [Module 2 Pre-Work](../intermission_work/index.md)
 
 
 ## Practice Exercises and Projects
 
-* [Laugh Tracks, Friday Challenge edition](https://github.com/turingschool-projects/laugh_tracks_timed_challenge)
-  * extension: build it in Rails
+
 * [Mix Master](../projects/mix_master/1_getting_started.markdown)
-* [Task Manager](https://github.com/turingschool-examples/task_manager_redux), but do it in Rails
+
 
 
 ## HTML, CSS, Design
@@ -22,11 +20,6 @@ layout: page
 - [CSS Zen Garden](http://www.csszengarden.com/)
 - Experiment with [Bootstrap](http://getbootstrap.com/) or another CSS framework.
 * [Intro to Sass](../lessons/intro_to_sass)
-
-
-## Application Development
-
-- [CRUD in Sinatra Workshop](../misc/crud_in_sinatra_workshop)
 
 
 ## Database Practice
