@@ -31,8 +31,6 @@ __Submit: Link to your gist containing your 4 summaries.__
 
 ## 3. Server-Side JavaScript
 
-- Intro to Express Prep Work -
-
 While JavaScript was originally intended to be a client-side scripting language, it has since made its way server-side thanks to Node.js. We're now able to use the same language for browser-based interactions as well as server-side scripts.
 
 Let's get introduced to JavaScript without a browser. Work through [this lesson](../lessons/server_side_javascript). It will introduce you to Node.js, Express, and Sequelize.
