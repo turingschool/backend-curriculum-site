@@ -14,7 +14,7 @@ In order to graduate from Module 2, students must complete each of the following
 The following items are evaluated and assessed by instructors as part of consideration to promote you on to Module 3:
 
 * Successful completion of the following deliverables:
-  * [Intermission Pre-Work](https://github.com/turingschool/intermission-assignments/blob/master/2be/index.markdown) Submission instructions are included in the pre-work.
+  * [Intermission Pre-Work](../intermission_work) Submission instructions are included in the pre-work.
   * Weekly Checks for Understanding (CFUs)
 
 * [Laugh Tracks](https://github.com/turingschool-projects/LaughTracks), solo project, week 1
