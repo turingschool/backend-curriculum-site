@@ -70,7 +70,7 @@ Now `cd arcade` and open the app in your text editor. Run `npm install` and then
 
 Currently the structure of our app should look like this:
 
-<img src='./assets/server_side_js_images/express_app_directories.png' width=150>
+![express_app_directories](./assets/server_side_js_images/express_app_directories.png)
 
 We won't need `users.js` so go ahead and delete it. Next open up the `app.js` file and remove these two lines:
 
@@ -91,11 +91,11 @@ npx sequelize init
 
 The first command is installing the necessary dependencies for our app so that our app can use sequelize and interact with a postgres database. After you run it, you should see a `package-lock.json` file and if you open `package.json` it should look similar to this:
 
-<img src='./assets/server_side_js_images/express_app_package_json.png' width=250>
+![package_json](./assets/server_side_js_images/express_app_package_json.png)
 
 The second command will add some folders and files so that our file structure should look similar to this:
 
-<img src='./assets/server_side_js_images/express_app_after_sequelize_init.png' width=150>
+![after_sequelize](./assets/server_side_js_images/express_app_after_sequelize_init.png)
 
 Next open up `config/config.json`. We are going to update `username`, `database` and `dialect` in the development, test and production sections.
 
@@ -289,7 +289,7 @@ Alright it's time to code our CRUD routes. We are going to start by creating our
 
 Knowing how we want our paths, structure the directories within the `routes` folder to match and create a `games.js` file.
 
-<img src='./assets/server_side_js_images/games_routes_file_structure.png' width=150>
+![games_routes](./assets/server_side_js_images/games_routes_file_structure.png)
 
 
 Open up `app.js` and add the following
@@ -335,11 +335,11 @@ Take a minute and see if you can read the code and figure out what is going on h
 
 <details><summary>Breakdown</summary>
   <p>
-    `get` is a function that is being called on router and takes two arguments. The first is the path that it is "handling" and the second is a function which tells it what to do once it has received a request. `get` handles an HTTP __GET__ request. Notice the first argument is `"/"`. This does not mean the "root" path though, it is actually any path that is `/api/v1/games`. Why? If you look back at `app.js` you see that the base path that you are telling `app.use` to use is `/api/v1/games`, so the `"/"` is really referencing the base path that was defined in `app.js`.
+ <i>get</i> is a function that is being called on router and takes two arguments. The first is the path that it is "handling" and the second is a function which tells it what to do once it has received a request. <i>get</i> handles an HTTP <b>GET</b> request. Notice the first argument is <i>/</i>. This does not mean the "root" path though, it is actually any path that is <i>/api/v1/games</i>. Why? If you look back at <i>app.js</i> you see that the base path that you are telling <i>app.use</i> to use is <i>/api/v1/games</i>, so the <i>/</i> is really referencing the base path that was defined in <i>app.js</i>.
 
-    `Game` is the variable that we defined at the top of the file that is accessing our model. `findAll` is the function that Sequelize has defined for us to retrieve all instance in our games table.
+ <i>Game</i> is the variable that we defined at the top of the file that is accessing our model. <i>findAll</i> is the function that Sequelize has defined for us to retrieve all instance in our games table.
 
-    What's with then and catch? These are related to promises. Will talk abou that during week one. For now, then is the code that will execute if the database successfully returned the information that we want. We are calling that information `games` here and formatting our response. The catch is what will happen if it fails. Calling the information error and formatting that error response.
+What's with then and catch? These are related to promises. Will talk abou that during week one. For now, then is the code that will execute if the database successfully returned the information that we want. We are calling that information <i>games</i> here and formatting our response. The catch is what will happen if it fails. Calling the information error and formatting that error response.
   </p>
 </details>
 
@@ -350,7 +350,7 @@ Using Postman visit `http://localhost:3000/api/v1/games` and you should see the 
 See if you can write the function to handle a request to retrieve a single games.
 
 <details><summary>Answer</summary>
-  <img src='./assets/server_side_js_images/single_game.png' width=350>
+ <img src='./assets/server_side_js_images/single_game.png'>
 </details>
 
 Awesome job! You've finished the read routes. Merge that branch into master. **Now might be another good opportunity to let that sink in and take a POM.**
@@ -398,9 +398,9 @@ The `create_route` is complete! Merge it into `master`.
 There are two final routes to think about, Update and Delete. See if you can implement these on your own. [Here](http://docs.sequelizejs.com/) is the Sequelize docs. If you get stuck don't struggle for too long. The answers can be found below.
 
 <details><summary>Update Route Answer</summary>
-  <img src='./assets/server_side_js_images/update_game.png' width=350>
+  <img src='./assets/server_side_js_images/update_game.png'>
 </details>
 
 <details><summary>Delete Route Answer</summary>
-  <img src='./assets/server_side_js_images/delete_game.png' width=350>
+  <img src='./assets/server_side_js_images/delete_game.png'>
 </details>
