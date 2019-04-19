@@ -12,7 +12,7 @@ In Module 2, we expand upon fundamental Ruby skills by building database-backed 
 
 * [Learning Goals](./success/learning_goals)<br>
 * [Intermission Work](./intermission_work)<br>
-* [Lessons](resources/curriculum)<br>
+* [Lessons](./lessons)<br>
 * [Projects](projects/index)<br>
 
 ## Resources
