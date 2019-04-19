@@ -6,7 +6,7 @@ title: Introduction to MVC
 ## Learning Goals
 
 * Identify the elements of the MVC design pattern
-* Describe the single responsibility of the each of the Model, View, and Controller
+* Describe the single responsibility of each of the Model, View, and Controller
 * Describe how data is passed through the MVC pattern
 
 ## Vocabulary
@@ -24,58 +24,51 @@ title: Introduction to MVC
 
 ### Overview
 
-* Controllers - Coordinate the response to an HTTP request. It is common to have multiple controllers. In Task Manager, we only utilized one controller.
+* Controllers - Coordinate the response to an HTTP request. In Task Manager, we just had one, but it is common to have multiple controllers.
 * Models - Interact with the database. Holds other methods related to a particular resource (e.g. a `task`)
 * Views - Templates for pages that we will display to our user. Frequently contain placeholders for data, making them dynamic.
 
 ### Controller
 
-Look at your Task Manager controller.
+Look at your Task Manager `routes.rb`.
 
-* Routes in Sinatra are defined as part of its DSL (Domain Specific Language).
-* These routes should look similar to other `do`/`end` blocks you're used to from Ruby.
+* Routes in Rails are defined as part of its DSL (Domain Specific Language).
 * The first keyword, a predefined method, of these routes corresponds with the **HTTP verb** the request is making to the route.
 * The argument this method takes is a string version of the **path** the request is being made to.
-* Inside the block, we tell Sinatra how to handle the request.
+* The second argument specifies which controller action should handle the request. The DSL syntax is `<controller>#<action>`
 
 ### Model
 
 Look at your Task model.
 
-* Includes methods to interact with the database
-    * `::all`
-    * `::find(id)`
-    * `::update(id, task_params)`
-    * `::destroy(id)`
-    * `#save`
+* Nothing! So where do we get the ability to call methods like `Task.all` and `Task.find`?
 * Every controller within the controllers directory will have access to EVERY model in the database.
 * The file naming conventions for models is singular.
-* We will be replacing these methods with ActiveRecord in an upcoming lesson
+* A model that inherits from `ApplicationRecord` should have a corresponding table in the Database.
 
 ### View
 
 Look at a view from Task Manager
 
-* By default, Sinatra looks for our views in a `/views` directory.
+* By default, Rails looks for our views in a `/views` directory.
 * Use ERB (embedded ruby) to describe how data should be used to create HTML
-    * `<%= %>` renders the return value of the enclosed statement
-    * `<% %>` does not render the return value
-
-We can also embed blocks with erb. Here’s an example using if/else:
-
-```erb
-<% if @tasks %>
-  # do something
-<% end %>
-```
+    * `<%= %>` renders the return value of the enclosed statement. Use this when you need something to be a part of the HTML document sent to the User.
+      * ex: `<p><%= task.description %></p>`
+      * ex: `<div id="task-<%= task.id %> >"`
+    * `<% %>` does not render the return value. Use this when you don't want the return value to become part of the HTML. Typically, these are used for Ruby statements that control other statements.
+      * ex: `<% tasks.each do |task| %>` ... `<% end %>`
+      * ex: `<% if @tasks %>` ... `<% end %>`
 
 ### Putting it All Together
 
-* Sinatra determines the method to call by inspecting the verb/URI of the request
-* Within that method, we:
+* Someone sends a request to your application. That request includes:
+  * An HTTP verb (GET, POST, etc.)
+  * A URI path (`/tasks`, `/`, `/tasks/2`)
+* Rails inspects the verb/path combo and determines what controller action to call based on what routes you've defined in `routes.rb`
+* Within that controller action, we:
     1. Perform any data manipulation we need using our model
     1. Collect any data we need to use in our view (using a model as a go-between)
-    1. Render a view or redirect (using `erb` or `redirect`)
+    1. Render a view or redirect
 
 Let's draw a diagram to represent this process.
 
@@ -102,7 +95,6 @@ If a View has access to an instance variable, or a collection of instances in an
 Our Controllers are the "traffic cop" between our Models and our Views. Based on the incoming request, each controller method knows precisely which Model(s) it needs to utilize to fetch or write data, and will generally hand that data off to a View for presentation.
 
 Controllers should limit their database actions to very simple lookups, or creation of a resource. A controller should not do very much data manipulation, that "data logic" is the role of the Model. Likewise, the controller should pre-fetch as much data as possible so the View does not call Class methods from the Models.
-
 
 ### Experiment
 
