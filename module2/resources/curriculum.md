@@ -60,6 +60,7 @@ layout: page
 ## Database Lessons
 
 - [Intro to SQL](http://backend.turing.io/module2/lessons/archive/introduction_to_sql)
+- [One to Many Relationships](../lessons/one_to_many_relationships)
 - [Intro to ActiveRecord in Sinatra](http://backend.turing.io/module2/lessons/intro_to_active_record_in_sinatra)
 - [ActiveRecord Associations](http://backend.turing.io/module2/lessons/activerecord_associations)
 - [Joins, Group, Order](http://backend.turing.io/module2/lessons/joins_group_order)
