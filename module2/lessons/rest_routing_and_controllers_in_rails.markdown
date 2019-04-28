@@ -4,31 +4,31 @@ length: 90
 tags: rest, routing, controllers, routes, rspec
 ---
 
-## Prework
-
-Read [this article](https://www.theodinproject.com/courses/ruby-on-rails/lessons/routing).
-
 ## Learning Goals
 
+* create a new rails app
+* explain/implement feature tests
 * explain the purpose of the `routes.rb` file
 * interpret the output of `rake routes`
 * explain the connection between `routes.rb` and controller files
 * create routes by hand
-* create routes using `resources :songs`
+* create and migrate a database
+* create a basic view to render some data
 
 ## Vocabulary
 
-- `routes.rb`
-- `rake routes`
-- CRUD
-- MVC
+* CRUD
+* MVC
+* Migration
+* HTTP Request
+* HTTP Response
+* route
+* action
 
 ## Warm Up
 
 - What is REST?
-- How are routes applied in Sinatra?
 - Where do our routes live?
-- How is MVC implemented in Sinatra?
 
 ## Reminder - REST
 
@@ -43,9 +43,11 @@ Want to know more about REST? Check out [this video](https://www.youtube.com/wat
 
 "Convention over configuration"
 
-## Starting a New Project
+# Starting a New Project
 
-Let's create a whole new Rails app. We're going to use this codebase for the rest of the inning in mod 2. We're going to recreate an app very similar to what we started in Sinatra, but we'll be adding a LOT more to this version!
+## Create your app
+
+Let's create a whole new Rails app. We're going to use this codebase for the rest of the inning in mod 2.
 
 ```bash
 $ rails new set_list -T -d="postgresql" --skip-spring --skip-turbolinks
@@ -57,19 +59,33 @@ $ cd set_list
 - `--skip-spring` - Spring is a Rails application preloader. It speeds up development by keeping your application running in the background so you don't need to boot it every time you run a test, rake task or migration but it benefits more advanced developers the most. We are going to not include it in our Gemfile.
 - `--skip-turbolinks` - Enables faster page loading by using AJAX call behind the scenes but has some nasty/subtle edge cases where your app will not work as expected. For those reasons, we don't enable it by default.
 
-Take a few minutes to explore what `rails new` generates. Which parts are the same as a Sinatra application?
+Take a few minutes to explore what `rails new` generates.
 
-## Start with a Test
+## Gems
 
-Let's install RSpec and dream drive our application!
+Add the following Gems to your Gemfile. Since these are all testing/debugging tools, we will add them inside the existing `group :development, :test` block:
 
-### Add gems to Gemfile and run `bundle install`:
-  - `rspec-rails` = rspec test suite
-  - `capybara` = allows us to interact with the DOM
+  - `rspec-rails` = our test suite
+  - `capybara` = gives us tools for feature testing
   - `launchy` = allows us to save_and_open_page to see a live version on the browser
   - `pry` = debugging tool
+  - `simplecov` = track test coverage
 
-### Install and set up RSpec
+Your Gemfile should now have:
+
+```ruby
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'pry'
+  gem 'simplecov'
+end
+```
+
+Always run `bundle install` whenever you update your Gemfile.
+
+## Install and set up RSpec
 
 ```bash
 $ rails g rspec:install
@@ -82,18 +98,129 @@ What new files did this generate?
 - `./spec/rails_helper.rb` is the new `spec_helper`, holds Rails-specific configurations
 - `./spec/spec_helper.rb` - where we keep all specs that don't depend on rails
 
+## Configure SimpleCov
 
-### Now lets write a test!
+At the top of your `rails_helper.rb`, add these lines:
 
-`$ atom spec/features/songs/index_spec.rb`
+```ruby
+require 'simplecov'
+SimpleCov.start
+```
+
+# Feature Testing
+
+## What are Feature Tests?
+
+* Feature tests mimic the behavior of the user: In the case of web apps, this behavior will be clicking, filling in forms, visiting new pages, etc.
+* Just like a user, the feature test should not need to know about underlying code
+* Based on user stories
+
+## What are User Stories?
+
+* A tool used to communicate user needs to software developers.
+* They are used in Agile Development, and it was first introduced in 1998 by proponents of Extreme Programming.
+* They describe what a user needs to do in order to fulfill a function.
+* They are part of our "top-down" design.
+
+```txt
+As a user
+When I visit the home page
+  And I fill in title
+  And I fill in description
+  And I click submit
+Then my task is saved
+```
+
+We can generalize this pattern as follows:
+
+```
+As a [user/user-type]
+When I [action]
+And I [action]
+And I [action]
+...
+Then [expected result]
+```
+
+Depending on how encompassing a user story is, you may want to break a single user story into multiple, smaller user stories.
+
+## Capybara: Feature Testing Tools
+
+[Capybara](https://github.com/teamcapybara/capybara#using-capybara-with-rspec)
+
+Capybara is a Ruby test framework that allows you to feature test any RACK-based app.
+
+It provides a DSL (domain specific language) to help you query and interact with the DOM.
+
+For example, the following methods are included in the Capybara DSL:
+
+* `visit '/path'`
+* `expect(current_path).to eq('/')`
+* `expect(page).to have_content("Content")`
+* `within ".css-class"  { Assertions here }`
+* `within "#css-id"  { Assertions here }`
+* `fill_in "identifier", with: "Content"`
+* `expect(page).to have_link("Click here")`
+* `click_link "Click Here"`
+* `expect(page).to have_button("Submit")`
+* `click_button "Submit"`
+* `click_on "identifier"`
+
+## Always, Always, Always, Write Tests First
+
+As usual, we are going to TDD our applications. There are two approaches we could take here:
+
+1. Bottom Up: Start with the smallest thing you can build and work your way up. In the context of a web app, this means you start at the database level (model tests).
+1. Top Down: Start at the end goal and work your way down. In the context of a web app, this means you start by thinking about how a user interacts with the application (feature tests).
+
+Both are valid approaches. We are going to work Top Down.
+
+## Create the test file
+
+First, let's make a directory for our feature tests:
+
+```bash
+$ mkdir spec/features
+```
+
+And a directory for all features related to `songs`:
+
+```bash
+$ mkdir spec/features/songs
+```
+
+Finally, create your test file:
+
+```bash
+$ touch spec/features/songs/index_spec.rb
+```
+
+The names of the files you create for feature testing MUST end in `_spec.rb`. Without that 'spec' part of the filename, RSpec will completely ignore the file.
+
+How many tests should go in one file? It's totally up to you, but having multiple tests in a file is marginally faster than putting a single test in a single file. Also, grouping lots of tests into one file allows you to share the setup across your tests.
+
+You can group your test files into subfolders to organize them in a similar format to your `/app/views` folder, and can help with strong organization. Every team you work on, every job you have, could have a completely different organizational method for test files, so keep that 'growth mindset' and be flexible!
+
+```
+/spec
+/spec/features
+/spec/features/songs
+/spec/features/songs/index_spec.rb # all tests about the index page
+/spec/features/songs/show_spec.rb  # all tests about the show page
+etc
+```
+
+## Writing the Test
+
+Inside our `index_spec.rb`:
 
 ```ruby
 require "rails_helper"
 
-RSpec.describe "user_index", type: :feature do
-  it "user_can_see_all_songs" do
-    song_1 = Song.create(title: "Don't Stop Believin'", length: 303, play_count:123456)
-    song_2 = Song.create(title: "Never Gonna Give You Up", length: 253, play_count:987654321)
+RSpec.describe "songs index page", type: :feature do
+  it "user can see all songs" do
+    song_1 = Song.create(title: "Don't Stop Believin'", length: 303, play_count: 123456)
+    song_2 = Song.create(title: "Never Gonna Give You Up", length: 253, play_count: 987654321)
 
     visit "/songs"
 
@@ -105,6 +232,10 @@ RSpec.describe "user_index", type: :feature do
 end
 ```
 
+# Developing the Index Page
+
+## Set up the Database
+
 Run `rspec`, what happens?
 
 ```bash
@@ -112,15 +243,23 @@ ActiveRecord::NoDatabaseError:
   FATAL:  database "set_list_test" does not exist
 ```
 
-How do we create a new database? Run `rake db:create`
+Currently, our database does not exist. In order to create your database, run:
+
+```bash
+rake db:create
+```
 
 Running Rspec again gives me this error `Uninitialized Constant Song`.
 
 Since this is happening on a line of code that does `Song.create` that tells us that we don't have a `Song` model, so let's go make one.
 
-Our Rails app has an `/app/` folder just like Sinatra, and `/app/models/` is where our model files go. Just like Sinatra, we want to create these, generally, in a singular form, not pluralized. `song.rb`, not `songs.rb`
+```bash
+$ touch app/models/song.rb
+```
 
-Create `app/models/song.rb` and add the following code:
+Note that our model files will always be named in singular form (`song.rb`, not `songs.rb`)
+
+In `song.rb`:
 
 ```ruby
 class Song < ApplicationRecord
@@ -148,19 +287,55 @@ Errors that start with "PG::" from ActiveRecord failures can indicate problems a
 
 In this case, PostgreSQL is telling us that we have an "undefined table". We have to create an actual table for songs in the database.
 
-In Sinatra we created an empty migration using this command: `rake db:create_migration NAME=create_table`
+We are going to need a **migration** in order to create a table. Any time we need to alter the structure of our database, we are going to do so with a migration. Other examples of what you might need a migration for:
 
-In Rails we're going to do this in a different way:
+* Creating a Table
+* Adding/removing a column from a table
+* Renaming a table/column
+
+Luckily, Rails gives us some built in syntax for generating migrations:
 
 ```bash
 $ rails g migration CreateSongs title:string length:integer play_count:integer
 ```
 
-**Examine the new migration file that was built in `/db/migrate` -- how is it different from what we had to do in Sinatra?**
+Look inside the `db/migrate` folder and you should see a file named something like `20190422213736_create_songs.rb`. That number at the beginning is a timestamp, so yours will be different. Inside it, you should see:
 
-Add timestamps to the migration as well.
+```ruby
+class CreateSongs < ActiveRecord::Migration[5.1]
+  def change
+    create_table :songs do |t|
+      t.string :title
+      t.integer :length
+      t.integer :play_count
+    end
+  end
+end
+```
 
-We have written the instructions for our database but haven't executed those instructions. Run `rake db:migrate`
+We're also going to add timestamps to our Song model, so add that line to the `create_table` block:
+
+```ruby
+create_table :songs do |t|
+  t.string :title
+  t.integer :length
+  t.integer :play_count
+
+  t.timestamps
+end
+```
+
+We have written the instructions for our database but haven't executed those instructions. Run `rake db:migrate`.
+
+Our Database should be good to go.
+
+
+
+
+
+
+
+## Route the Request
 
 Let's run RSpec again and see our error:
 
@@ -172,7 +347,9 @@ Failure/Error: visit "/songs"
      # ./spec/features/user_sees_all_songs_spec.rb:8:in `block (2 levels) in <top (required)>'
 ```
 
-Now we need to go build some routing in Rails. This isn't done in the controller code any more, we have a configuration file to hold all of these now: `config/routes.rb`
+Rails doesn't know how to route a `GET` request to `/songs`, so let's tell it how to do that:
+
+In `config/routes.rb`:
 
 ```ruby
 Rails.application.routes.draw do
@@ -180,7 +357,11 @@ Rails.application.routes.draw do
 end
 ```
 
-From the command line, we can see which routes we have available: `$ rake routes`. We should see this output:
+Remember, an HTTP request includes both the verb (`GET` in this case) and the path (`/songs`).
+
+The second argument, `to: 'songs#index'`, tells rails what controller action should handle the request.
+
+From the command line, we can see which routes we have available by running `$ rake routes`. We should see this output:
 
 ```
 Prefix Verb URI Pattern      Controller#Action
@@ -220,17 +401,28 @@ class SongsController < ApplicationController
 end
 ```
 
-When we RSpec now, we get another error:
+Notice that the name of the class matches the name of the file (`songs_controller.rb` => `class SongsController`), the file is "snake-cased" and the class name is "camel-cased".
+
+What is ApplicationController? Look at the controllers folder and you should see an `application_controller.rb` file. This file defines the `ApplicationController` class, which (generally) all of your other controllers will inherit from. This is very similar to how we have an `ApplicationRecord` which all of our models inherit from.
+
+When we run RSpec now, we get another error:
 
 ```bash
 The action 'index' could not be found for SongsController
 ```
 
-Let's add the index method:
+Let's add the index action:
 
-What is ApplicationController? Look at the controllers folder and you should see an `application_controller.rb` file. This file defines the `ApplicationController` class, which (generally) all of your other controllers will inherit from.
+```ruby
+class SongsController < ApplicationController
+  def index
+  end
+end
+```
 
-Notice that the name of the class matches the name of the file (`songs_controller.rb` => `class SongsController`), the file is "snake-cased" and the class name is "camel-cased".
+An `action` in the context of a rails app is just a method defined inside a Controller.
+
+### Rendering the View
 
 Running Rspec again gives us this error:
 
@@ -244,20 +436,32 @@ ActionController::UnknownFormat:
     NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.
 ```
 
-Without a specific command in our action method to render a specific ERB file, Rails will automatically look for a view folder with the same name as the controller (`app/views/songs` folder), then look for a template file with the same name as the action method (`index.html.erb`).
+Remember, HTTP consists of both requests and **responses**. At this point, we have set up our App to receive a request, but haven't told it how to respond. By default, rails will try to respond by rendering a view. It automatically looks for a view folder with the same name as the controller (`app/views/songs` folder), then look for a template file with the same name as the action method (`index.html.erb`). We can override this behavior by using the `render` or `redirect` commands, but for now we will follow the Rails convention:
 
-What is this funny error?? We see a line `SongsController#index is missing a template for this request format and variant.`. Template refers to an erb/html file. This means we are missing a erb/html file. The "request.formats" portion of our error output shows us it's looking for HTML, which is the default output for our Mod 2 applications, so we need to end our files with `.html.erb`
+```bash
+$ mkdir app/views/songs
+$ touch app/views/songs/index.html.erb
+```
 
-Rails convention says that we should include the output format type in the filename and then the `.erb` extension.
+Rails convention says that we should include the output format type in the filename and then the `.erb` extension. That's why this file is `index.html.erb` rather than `index.erb`. The latter would work, but it would not be following convention.
 
-Within `views/songs/index.html.erb`, add this code:
+Now that we've give our action a template, let's see what RSpec gives us:
+
+```bash
+1) songs index page user can see all songs
+   Failure/Error: expect(page).to have_content(song_1.title)
+     expected to find text "Don't Stop Believin'" in ""
+   # ./spec/features/songs/index_spec.rb:10:in `block (2 levels) in <top (required)>'
+```
+
+Capybara isn't finding the text we expect because our view is empty. Within `app/views/songs/index.html.erb`, add this code:
 
 ```html
 <h1>All Songs</h1>
 
 <% @songs.each do |song| %>
   <h2><%= song.title %></h2>
-  <p>Plays: <%= song.play_count %></p>
+  <p>Play Count: <%= song.play_count %></p>
 <% end %>  
 ```
 
@@ -267,7 +471,7 @@ Now when we run our tests, we see a new error:
 undefined method 'each' for nil:NilClass
 ```
 
-We have not defined our instance variable `@songs` so this makes sense! Let's do that:
+We have not defined our instance variable `@songs` so this makes sense! Remember, we can define instance variables in our controller action to make them available in views. Lets go do that:
 
 ```ruby
 #controllers/songs_controller.rb
@@ -280,156 +484,42 @@ end
 
 Run RSpec one last time and we have a passing test!
 
+### Checking our work in the Development Environment
+
+Everything seems to be working in our "Test" environment, but we should also check our "Development" environment.
+
 Start up your rails server: `rails server` or `rails s` from the command line.
 
 Navigate to `localhost:3000/songs` and what do you see? NOTHING!
 
-#### Check for Understanding
-
 Why don't we have any data on our page even though we created data in our test?
 
-### Rails has a built-in version of "tux" that we used with Sinatra
+### Adding data to our Development Environment
 
-Let's add some songs in `rails console`, and start the server again to see our songs!
+Run `rails console` or `rails c` form the command line. The Rails Console allows us to interact with our app directly in Development. Let's add some songs and start the server again to see our songs!
 
-```
+```ruby
 Song.create(title: "Don't Stop Believin'", length: 251, play_count: 760847)
 Song.create(title: "Don't Worry Be Happy", length: 280, play_count: 65862)
 Song.create(title: "Chicken Fried", length: 183, play_count: 521771)
 Song.create(title: "Radioactive", length: 10000, play_count: 623547)
 ```
 
-### Workshop
+## Checks for Understanding
 
-Write some feature tests for the following user stories:
-
-**You are not writing implementation code, you're only adding tests!**
-
-- what will you call the test files?
-- where will you put the test files?
-- which Capybara commands will you use to test what needs to happen?
-- Be sure to use `pry` and `save_and_open_page` for debugging
-
-Review [feature testing in Sinatra](http://backend.turing.io/module2/lessons/feature_testing_in_rspec_for_a_sinatra_app) and scroll down to the section
-titled "Creating Our Feature Test" to see a list of Capybara commands we want
-you to get used to using.
-
-```
-As a user
-When I visit a "new song" route
-Then I see a form with fields for title and length
-```
-- what will your URI path look like in the test for your `visit` command?
-- what will it look like to expect to see form fields on the page?
-
----
-
-```
-As a user
-When I visit a "show" route for a song
-Then I see the title of a song
-Then I see the length of a song
-```
-- the URI path you `visit` will need a dynamic parameter for the song `:id`
-
----
-
-```
-As a user
-When I visit an "edit" route for a specific song
-Then I see a form with a title field
-Then I see a form with a length field
-Then I see each field pre-populated with the song's data
-```
-- again, the URI path you `visit` will need a dynamic parameter for the song `:id`
-
----
-
-### Using Resources in the Routes File
-
-**Turn & Talk**: What are the common CRUD actions? They match up to eight routes. Can you name all of them?
-
-Since Rails is all about "convention over configuration", it has a nice way of allowing us to easily create all eight RESTful routes at one time via a shortcut.
-
-We can use the shortcut `resources`. As an example, we can change our `config/routes.rb` file to to look like this:
-
-```ruby
-Rails.application.routes.draw do
-  resources :songs
-end
-```
-
-Now let's look at the routes we have available: `$ rake routes`.
-
-Using `resources :songs` gives us eight RESTful routes that correspond to CRUD functionality.
-
-```
-   Prefix Verb   URI Pattern               Controller#Action
-    songs GET    /songs(.:format)          songs#index
-          POST   /songs(.:format)          songs#create
- new_song GET    /songs/new(.:format)      songs#new
-edit_song GET    /songs/:id/edit(.:format) songs#edit
-     song GET    /songs/:id(.:format)      songs#show
-          PATCH  /songs/:id(.:format)      songs#update
-          PUT    /songs/:id(.:format)      songs#update
-          DELETE /songs/:id(.:format)      songs#destroy
-```
-
-Any methods with `:id` **require** that an id value is passed as part of the URI path. These values are dynamically added (like viewing the seventh song via `/songs/7`).
-
-#### Questions:
-
-* What actions (methods) would we need in our `SongsController` in order to handle the tests we just wrote?
-* Which actions would render a form and which actions would redirect?
-
-If you add a whole bunch of `resources :things` to your routes file, it will generate these eight routes for all of the things you've specified:
-
-```ruby
-Rails.application.routes.draw do
-  resources :songs
-  resources :artists
-  resources :playlists
-end
-```
-
-Now try `$ rake routes`.
-
-### Security!
-
-- What if our application doesn't implement certain routes?
-- What happens if we run `rails s` and access a GET endpoint where we don't a controller or action method yet?
-
-We can limit our routing to restrict which routes are generated using two additional options: `only` and `except` and it looks like this in our `config/routes.rb` file:
-
-```ruby
-Rails.application.routes.draw do
-  resources :songs, only: [:index, :show]
-end
-```
-
-What do you see when you run `rake routes` now?
-
-It is **STRONGLY** encouraged to use `only` so that you don't accidentally expose endpoints where your application is not ready to accept requests.
-
-### Other things
-
-* We can add a route for a "home page" of our app (a URI path of just '/') with:
-
-```ruby
-Rails.application.routes.draw do
-  root 'songs#index'
-end
-```
-
-This will direct any get request to `http://localhost:3000/` to the `index` action within `songs_controller.rb`
-
-
-## Wrap Up Questions
-
-- How are routes applied in Rails?
+- What setup do you need to do to start a new Rails application?
+- What is a feature test?
+- What is Capybara?
+- What is a migration?
+- What `rake` command do you use to create a database?
+- What `rake` command do you use to apply migrations?
 - Where do our routes live?
+- What is the syntax to define a route?
 - How is MVC implemented in Rails?
+- Explain the four pieces of information that `rake routes` give us.
+- In a Rails app, what is an "action"?
+- Where does Rails look for a view by default?
 
-### Homework
+### More Reading
 
-* [Routes and Controllers Assignment](https://github.com/turingschool/challenges/blob/master/routes_controllers_rails.markdown)
+Read [this article](https://www.theodinproject.com/courses/ruby-on-rails/lessons/routing).
