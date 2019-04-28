@@ -52,3 +52,38 @@ layout: page
 ## Preparing for Module 3
 
 - Experimenting with APIs: Work through [this tutorial and workshop](http://backend.turing.io/module2/misc/exploring_apis_workshop)
+
+
+#### Bootstrap Resources
+
+[Bootstrap Docs](https://getbootstrap.com/)
+
+[How to Start with Bootstrap](https://www.taniarascia.com/what-is-bootstrap-and-how-do-i-use-it/)
+
+
+#### Other Resources
+[CSS Basics](https://thecssworkshop.com/css-basics)
+
+[CSS Zen Garden](http://www.csszengarden.com/)
+
+[CSS Psuedo-Classes & Psuedo-Elements](http://www.growingwiththeweb.com/2012/08/pseudo-classes-vs-pseudo-elements.html)
+
+[Sass](https://sass-lang.com/guide)
+
+
+#### Grid Resources
+
+[Grid Guide](https://css-tricks.com/snippets/css/complete-guide-grid/)
+
+[Grid Tutorial](https://cssgridgarden.com/)
+
+
+#### Flexbox Resources
+
+[Flexbox Guide](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+
+[Flexbox Visualization](https://medium.freecodecamp.org/an-animated-guide-to-flexbox-d280cf6afc35)
+
+[Flexbox Tutorial](https://mastery.games/p/flexbox-zombies)
+
+[Another Flexbox Tutorial](https://flexboxfroggy.com/)
