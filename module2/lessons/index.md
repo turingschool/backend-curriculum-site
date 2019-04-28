@@ -26,9 +26,7 @@ layout: page
 
 ## Web Development Basics
 
-- [Intro to HTML](./intro_to_html)
-- [Intro to HTML Exploration](./intro_to_html_interactive_lesson)
-- [Intro to CSS & Bootstrap](./intro_to_css_and_bootstrap)
+- [HTML and CSS](./html_and_css)
 - [Design Principles](./design_principles)
 - [Passing Data with Sinatra](./passing_data_with_sinatra)
 - [Forms in Rails](./form_helpers_rails)
@@ -58,7 +56,7 @@ layout: page
 
 ## Database Lessons
 
-- [Intro to SQL](./archive/introduction_to_sql)
+- [SQL and ActiveRecord](./sql_and_active_record)
 - [Intro to ActiveRecord in Sinatra](./intro_to_active_record_in_sinatra)
 - [ActiveRecord Associations](./activerecord_associations)
 - [Joins, Group, Order](./joins_group_order)
