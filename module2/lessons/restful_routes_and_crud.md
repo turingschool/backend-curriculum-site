@@ -21,7 +21,7 @@ title: RESTful Routes and CRUD
 Based on your intermission work:
 
 * What does CRUD stand for?
-* Look at your Task Manager controller: what are the eight different method/argument combinations contained there?
+* Look at your Task Manager routes: what are the eight different method/path/controller#action combinations contained there?
 * What does each one do?
 
 ## CRUD
@@ -69,7 +69,7 @@ What is the URI for this address? `http://www.tatteredcover.com/book/97816267229
 
 ### Seven RESTful Routes
 
-Pull up the controller from Task Manager. Let's see if we can create a [table](https://docs.google.com/spreadsheets/d/1AGjUE49UJajPEQHvh3plKjaem5RAGvuv5SNjZzvjD9U/edit?usp=sharing) for seven RESTful routes allowing us to perform all CRUD actions on a Task. Include the following:
+Pull up the routes and TaskController from Task Manager. Let's see if we can create a [table](https://docs.google.com/spreadsheets/d/1AGjUE49UJajPEQHvh3plKjaem5RAGvuv5SNjZzvjD9U/edit?usp=sharing) for seven RESTful routes allowing us to perform all CRUD actions on a Task. Include the following:
 
 * What a user wants
 * Method (verb)
