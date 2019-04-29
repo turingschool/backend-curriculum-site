@@ -37,6 +37,18 @@ Look at your Task Manager `routes.rb`.
 * The argument this method takes is a string version of the **path** the request is being made to.
 * The second argument specifies which controller action should handle the request. The DSL syntax is `<controller>#<action>`
 
+Look at your `tasks_controller.rb`:
+
+* Each route maps to a controller action (a method defined in the controller class)
+* Controllers send commands to models to perform database interactions
+  * ex: the `index` action retrieves all the tasks
+  * ex: the `create` action saves a new task
+* Controllers pass data to views via instance variables
+* Controllers can either render a view or redirect
+  * by default, a controller will render a view file with the same name as the action. It will look for the file in a folder named the same as the resource (in this case "tasks") in the `views` folder.
+  * You can redirect using the `redirect` method.
+  * You can also manually say which view you want to render using the `render` method, but it's best to use the default convention when it applies.
+
 ### Model
 
 Look at your Task model.
