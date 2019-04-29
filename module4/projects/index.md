@@ -7,6 +7,6 @@ title: Module 4 Projects
 
 * [Express Sweater Weather](./express_sweater_weather/express_sweater_weather_spec)
 * [Play - Full Stack](./play/play)
-* [Quantified Self - Full Stack JavaScript](./quantified_self/quantified_self_full_stack)
+* [Quantified Self](./quantified_self/qs_server_side)
 * [Cross-Pollination](./cross_pollination/cross_pollination_spec)
 * [Take Home Challenge](./take_home_challenge/take_home_challenge_spec)
