@@ -32,7 +32,7 @@ For your Express back end:
 
 You will need to build the following foods and meals endpoints for your application (listed below). Based on the extensions below you may need to modify and add the endpoints listed in project spec - do so as needed. You will definitely need to add some.
 
-There may be different architectural decisions you make with your server because of this addition; take you time to plan this out thoughtfully.
+There may be different architectural decisions you make with your server because of this addition; take your time to plan this out thoughtfully.
 
 ### Food Endpoints (week 1):
 
