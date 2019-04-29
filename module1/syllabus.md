@@ -52,9 +52,8 @@ Students will receive a weekly CFU (check for understanding). This CFU will cove
 ## Exercises
 
 - [Ruby Exercises](https://github.com/turingschool/ruby-exercises)
-- [Enum Exercises](https://github.com/turingschool/enums-exercises)
 
-Students will use these exercises to practice the material covered in Module 1. While the projects require synthesizing many concepts, the Ruby Exercises are meant to practice a concept in isolation. Successful students will reinforce their skills through both projects and exercises. Exercises will not be assigned or graded, however instructors will provide a weekly list of suggested exercises to practice the material.
+Students will use these Ruby Exercises to practice the material covered in Module 1. While the projects require synthesizing many concepts, the Ruby Exercises are meant to practice a concept in isolation. Successful students will reinforce their skills through both projects and exercises. Exercises will not be assigned or graded, however instructors will provide a weekly list of suggested exercises to practice the material.
 
 ## Support
 
