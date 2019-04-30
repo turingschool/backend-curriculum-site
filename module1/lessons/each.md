@@ -154,40 +154,6 @@ Unlike our previous examples, here we can see how \#each can be used to create s
 
 The examples we have outlined are by no means a complete list of the ways that \#each can be used; they are only illustrations of the types of things you can accomplish with \#each.  As you grow your skills as a programmer, you will find more and more complex uses for \#each and iteration in general.
 
-## with_index
-
-Often, when iterating over a collection, it will be helpful to know the index of each element as you iterate. The index tells us which number iteration is currently running. Indexing starts at 0, so the first iteration is index 0, the second iteration is index 1, etc.
-
-In order to access the index, we can chain the `.with_index` method onto the each and add a second block variable. It's general form looks like:
-
-```ruby
-collection.each.with_index do |element, index|
-
-end
-```
-
-On the first iteration, the value of index will be 0, on the second it will be 1, and so on. Notice that in order to use multiple block variables we separate them with a comma. This is true for any block that takes multiple variables.
-
-To see this in action, lets say we have a collection of numbers, and we want to double only the numbers at an odd index.  It would look something like this:
-
-```ruby
-numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-
-doubled = []
-
-numbers.each.with_index do |number, index|
-  if index.odd?
-    doubled << number * 2
-  else
-    doubled << number
-  end
-end
-
-p doubled
-```
-
-Pretty cool, right? Well, it may not seem _that_ great to you know, but \#with_index **will** come in handy at some point, so it is a good tool to keep in mind!
-
 ## Single-Line Syntax
 
 You can replace a `do`/`end` with `{`/`}`. This allows you to write `each` on a single line. Our example from before could also be written as:
@@ -214,7 +180,6 @@ With your new best friend sitting next to you, with this following array use
 3. Can you print out their names but reversed? (`["carly", "demi", "selena", "justin"]`)
 4. Can you create a new array with only the names that are longer than four letters in length?
 5. Can you create a new array with the lengths of their names?
-6. Can you create a new array with only the names that are at even indexes?
 
 Now, with this array can you do the following using `.each`?
 
