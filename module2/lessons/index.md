@@ -57,6 +57,7 @@ layout: page
 
 ## Database Lessons
 
+- [One to Many Relationships](./one_to_many_relationships)
 - [SQL and ActiveRecord](./sql_and_active_record)
 - [Intro to ActiveRecord in Sinatra](./intro_to_active_record_in_sinatra)
 - [ActiveRecord Associations](./activerecord_associations)
