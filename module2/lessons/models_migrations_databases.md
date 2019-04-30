@@ -8,8 +8,7 @@ tags: migrations, databases, relationships, rails, activerecord
 
 * Write migrations in Rails
 * Create one-to-many relationships at the database level using foreign keys.
-* Create many-to-many relationships at the database level using join tables with foreign keys.
-* Use `has_many` and `belongs_to` to create one-to-many and many-to-many relationships at the model level.
+* Use `has_many` and `belongs_to` to create one-to-many relationship at the model level.
 
 ## Vocab
 * Migration
@@ -25,9 +24,9 @@ tags: migrations, databases, relationships, rails, activerecord
 
 ## Models, Migrations, and Databases in Rails
 
-In this lesson, we'll be adding to our new SetList Rails app to demonstrate a one-to-many and a many-to-many relationship.
+In this lesson, we'll be adding to our new SetList Rails app to demonstrate a one-to-many relationship.
 
-We'll add two tables (`artists`, and `playlists`) to our database, and connect them to our existing `songs` table. What might the relationships look like?
+We'll add a table `artists` to our database, and connect them to our existing `songs` table. What might the relationships look like?
 
 ## One-to-Many Relationships
 
@@ -208,97 +207,10 @@ Before we move on, let's make sure to circle back and add a relationship validat
 
 ---
 
-## Many-to-Many: Songs and Playlists?
-
-Let's first add to our diagram the relationship for `songs` and `playlists`.
-
-A playlist can have many songs in it, but an song can ALSO be in many playlists. This is what constitutes a many-to-many relationship. Since neither the song nor the playlist has only ONE of the other (and therefore can't have a foreign key on it) we're going to create a join table `playlist_songs`.
-
-### WAIT: does it matter what we call the join table??
-
-The join table's name doesn't really matter, we could call it `song_playlists` or `playlist_songs`, it's really up to you as the developer. You could even choose to name it `happy_fun_times` but that would be confusing.
-
-When you're thinking about what to call this table, think about how you're likely to use it most within your application. Since our app's goal will be to show a playlist of songs more often, we're going to call it `playlist_songs`.
-
-### Now, where were we?
-
-Let's create a test.
-
-```ruby
-# spec/models/playlist_spec.rb
-
-require "rails_helper"
-
-describe Playlist, type: model do
-  describe "relationships" do
-    it { should have_many(:songs).through(:playlist_songs) }
-  end
-end
-```
-
-When we run this, what error do we get?
-
-```ruby
-# --- Caused by: ---
-     # PG::UndefinedTable:
-     #   ERROR:  relation "playlist" does not exist
-     #   LINE 8:                WHERE a.attrelid = '"playlist"'::regclass
-     #                                             ^
-     #   ./spec/models/playlist_spec.rb:5:in `block (2 levels) in <top (required)>'
-```
-
-Let's write a migration to create Playlists and PlaylistSongs.
-
-```bash
-rails g migration CreatePlaylists name:string
-```
-
-If we run rspec again, we'll likely get something like this:
-
-```ruby
-# --- Caused by: ---
-     # PG::UndefinedTable:
-     #   ERROR:  relation "playlist_songs" does not exist
-     #   LINE 8:                WHERE a.attrelid = '"playlist_songs"'::regclass
-     #                                             ^
-     #   ./spec/models/playlist_spec.rb:5:in `block (2 levels) in <top (required)>'
-```
-
-Let's create that join table now.
-
-```bash
-rails g migration CreatePlaylistSongs playlist:references song:references
-
-rake db:migrate
-```
-
-Now create the models to go with these new tables.
-
-How can we get access to another resource through our join table?  
-
-* `has_many :plural_table_name, through: :name_of_joins_table`
-* `belongs_to`
-
-Run rspec again. Passing tests?
-
-*In the console*:
-
-Create a playlist.
-
-What are different ways to associate playlists with songs?
-
-Need a refresher on associations? Click [here](http://guides.rubyonrails.org/association_basics.html).
-
-## Notes
-
-* common column types: `boolean`, `string`, `text`, `integer`, `date`, `datetime`
-* `rake db:migrate` applies our database changes
-
 ## WrapUp
 
-* What are three different types of table relationships that you might need to implement? In what scenario would you use each?
+* What are two different types of table relationships that you might need to implement? In what scenario would you use each?
 * What is the syntax for the following migrations in Rails?
   * Create a table
   * Add a column to a table, with or without a data type
   * Add a reference from one table to another
-  * Create a joins table
