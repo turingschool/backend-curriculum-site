@@ -37,6 +37,7 @@ layout: page
 - [Intro to REST & CRUD](./restful_routes_and_crud)
 - [Intro to MVC](./intro_to_mvc)
 - [REST, Controllers & Routing in Rails](./rest_routing_and_controllers_in_rails)
+- [MVC in Action](./mvc_in_action)
 - [Route Helpers in Rails](./route_helpers)
 - [Nested Resources in Rails](./nested_resources)
 - [Namespacing Routes in Rails](./namespacing)
