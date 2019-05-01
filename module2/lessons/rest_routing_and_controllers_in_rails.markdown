@@ -173,7 +173,13 @@ As usual, we are going to TDD our applications. There are two approaches we coul
 1. Bottom Up: Start with the smallest thing you can build and work your way up. In the context of a web app, this means you start at the database level (model tests).
 1. Top Down: Start at the end goal and work your way down. In the context of a web app, this means you start by thinking about how a user interacts with the application (feature tests).
 
-Both are valid approaches. We are going to work Top Down.
+Both are valid approaches. We are going to work Top Down. We will start with this user story:
+
+```text
+As a user,
+when I visit '/songs'
+I see each songs title and play count
+```
 
 ## Create the test file
 
