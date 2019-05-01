@@ -3,6 +3,13 @@
 ## Shared Criteria
 All team members are responsible for these scores on both repos.
 
+**Agile Process**
+
+* 4: Nothing exists in the code that was not referenced on the board. All cards are precise, and a history of who wrote what code is clear.  Agile Processes (2-3 day sprints, retros, user testing at end of sprint, etc.) are implemented.
+* 3: Cards are descriptive and each PR references the scrum card. Each card should only contain a single feature. Team are in the habit of referencing board before, during, and after a work session.
+* 2: Teams setup a board and utilize it as a to-do list.
+* 1: Team setup a board then abandoned it.
+
 **Git Workflow**
 
 * 4: Regularly holding discussions in PRs, and/or requesting code review from mentor. All team members use git hooks to standardize commit messages and expectations (linter, tests).
@@ -10,12 +17,6 @@ All team members are responsible for these scores on both repos.
 * 2: PR templates were used, but no actionable code review took place. Commit messages are clear, professional, and usually atomic.
 * 1: No PR template was used. Commits have large unrelated pieces of code and/or have unprofessional messages.
 
-**Agile Process**
-
-* 4: Nothing exists in the code that was not referenced on the board. All cards are precise, and a history of who wrote what code is clear.  Agile Processes (2-3 day sprints, retros, user testing at end of sprint, etc.) are implemented.
-* 3: Cards are descriptive and each PR references the scrum card. Each card should only contain a single feature. Team are in the habit of referencing board before, during, and after a work session.
-* 2: Teams setup a board and utilize it as a to-do list.
-* 1: Team setup a board then abandoned it.
 
 **CI & Deployment**
 
@@ -33,7 +34,19 @@ All team members are responsible for these scores on both repos.
 
 ## Back End Criteria
 
-**Pick at least one of the stretch goals in the project spec**
+**Testing**
+
+* 4: Developer satisfies all criteria below in section three. Test coverage is at 90% and above. This coverage includes happy/sad path and a majority of edge cases.
+* 3: If you use Rails for your BE, then we expect above 80% test coverage _OR_ If you experiment with a new BE language/framework outside of Rails, then BE test coverage is expected to be at least 25%
+* 2: Developer codes and uses test driven development during some iterations. Test coverage must be at 25%(if using Rails) _OR_  If using a new language, tests have been attempted, but less than 25% coverage.
+* 1: Developer codes and does not use test driven development for the duration of the project. No specs can be run at any time.
+
+**Stretch Goal**
+
+* 4: Completed both stretch goals successfully.
+* 3: Completed one stretch goal successfully and attempted the second stretch goal.
+* 2: Attempted one stretch goal
+* 1: No stretch goals were attempted :cry:
 
 ## Front End Criteria
 The front-end team members are responsible for meeting these requirements:

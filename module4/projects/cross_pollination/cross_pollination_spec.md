@@ -38,8 +38,7 @@ This is a unique opportunity that presents some valuable goals:
 Generally, this project will consist of a front-end (FE) and back-end (BE) with the following:
 
 * The FE and BE applications live in separate repositories that communicate to each other using API requests
-* FE and BE teams utilize a scrum board, like [Waffle.io](https://waffle.io/), and tasks/stories updated accordingly on a daily basis as they are initialized, implemented, and deployed
-* Midway through the project, you will give a presentation on your team's progression
+* FE and BE teams utilize a scrum board and tasks/stories updated accordingly on a daily basis as they are initialized, implemented, and deployed
 * Both the FE and BE should be deployed to production and using continuous integration (like TravicCI) for automated deployment
 * Early and consistent deployment to production (instructors will check build history)
 * In-depth `README.md` for each repository describing the project, setup procedure, testing procedure, and screenshots, if applicable (API documentation, if applicable)
@@ -57,13 +56,12 @@ If you do not see your project following this outline, then speak to your instru
   * If you experiment with a new BE language/framework outside of Rails, then BE test coverage is expected to be at least 25%
 * Implement a stretch goal (listed below)
 
-Possible stretch goals:
+Pick **2** of the following stretch goals:
 
 * Implement BE in a framework or language you have not used before in a project
-* Utilize background workers and caching mechanisms for the sake of performance gains, if applicable
+* Create a Backend API using GraphQL
+* Create a micro service or two and abstract out functionality into a separate application
 * Utilize websockets rather than traditional HTTP/HTTPS
-* Set up a Content Delivery Network (CDN) to serve up assets that the front-end portion of the application can utilize
-* Create a micro service and abstract out functionality into a separate application.
 
 ### Front-End Creators
 
@@ -112,9 +110,6 @@ Instructors will serve as project managers and hold check-ins with teams at leas
 * Spikes (dedicated time for research and experiments)
 * Next steps
 
-### Mid-Project Presentations
-
-Midway through the project, each team will present to the class and instructors about their progress toward MVP as well as difficulties/roadblocks they’ve encountered.
 
 ### End-of-Project Demos
 
