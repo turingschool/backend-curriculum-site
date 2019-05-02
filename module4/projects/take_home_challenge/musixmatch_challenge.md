@@ -13,6 +13,7 @@ If you do complete everything and have time for an extension, then you can imple
 
 Create a service or background worker that will randomly pick a 'song of the day' and send it in an email **or** text notification.
 
+Your application should be deployed to production.
 
 ## Challenge 2
 
@@ -24,3 +25,5 @@ Use the [musicxmatch api](https://developer.musixmatch.com/) to interact with, a
 If you do complete everything and have time for an extension, then you can implement authentication.
 
 Create a separate single page, frontend application that will interact with your API. The frontend application can be written using jQuery and vanilla JavaScript. _It is not necessary for you to use a frontend framework._ This single page application should have some styling and should update the information on the page without needing to refresh the entire page. 
+
+Both your backend and frontend application should be deployed to production.
