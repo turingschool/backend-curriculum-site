@@ -1,6 +1,6 @@
 ## Rubric
 
-You will be graded by an instructor on the criteria below. The rubric below outlines the key areas in which you will be graded. The rubric items below are in order of importance in how you will be graded for this final project.
+Your application will be reviewed by an instructor during week 6. The below rubric outlines the key areas in which you will be assessed.
 
 #### Important:
 
@@ -22,7 +22,7 @@ Project management will also be required. It is one of the most essential elemen
 
 - 4: Developer satisfies all criteria below in section three. Developer demonstrates their git workflow as being 100% consistent in regards to the creation of branches, issuing pull requests, using PR templates, asking for feedback, and writing clear and concise commit messages.  
 
-- 3: For each feature listed on their agile board, the developer has created a branch on git. Developer pushes their changes to their respective branches found on Github. Developer opens pull requests for every branch they create. All commit messages will be in present tense, start with a capital letter, and be consistent for the duration of the project. If on a paired or group project, developers must tag other collaborators in their PR's and ask for feedback before merging in their changes.
+- 3: For each feature listed on their agile board, the developer has created a branch on git. Developer pushes their changes to their respective branches found on Github. Developer opens pull requests for every branch they create. All commit messages will be in present tense, start with a capital letter, and be consistent for the duration of the project.
 
 - 2: Developer creates pull requests on separate branches but often pushes directly to master. Developer is inconsistent in how they write commit messages. Some commit messages lack clarity and purpose for the code submitted. Developer may tag collaborators at times.
 
@@ -30,11 +30,11 @@ Project management will also be required. It is one of the most essential elemen
 
 ### Software Quality/Feature Functionality
 
-- 4: Developer satisfies all criteria below in section three. Developer demonstrates additional features that goes beyond the standard scope of the project. This could include adding more functionality that was not outlined by the standard back-end spec.
+- 4: Developer satisfies all criteria below in section three. Developer demonstrates additional features that goes beyond the standard scope of the project. This could include adding more functionality that was not outlined by the standard backend spec.
 
 - 3: Developer demos their application and proves that all specified functionality works properly. This includes any extensions that are required of the developer. Developer demonstrates that no bugs are present and that edge cases have been accounted for. This also includes demonstrating that the application has been deployed to a production server.
 
-- 2: Developer demos their application and proves that the specified functionality does not work properly. For specifically, this may include one to many features not working properly. Developer demonstrates that bugs still exist in their application. The application has not been deployed to a production server.  
+- 2: Developer demos their application and proves that the specified functionality does not work properly. Specifically, this may include one to many features not working properly. Developer demonstrates that bugs still exist in their application. The application has not been deployed to a production server.  
 
 - 1: Developer demonstrates that the majority of the application's core functionality does not work. The application has not been deployed in any capacity.  
 
@@ -52,9 +52,9 @@ Project management will also be required. It is one of the most essential elemen
 
 - 4: Developer satisfies all criteria below in section three. Test coverage is at 90% and above. This coverage includes happy/sad path and a majority of edge cases.
 
-- 3: Developer codes and uses test driven development during all iterations. Test coverage must be at 75% and include happy/sad paths. Tests will also be run using a continuous integration tool such as TravisCI.
+- 3: Developer codes and uses test driven development during all iterations. Test coverage must be at 75% and include happy/sad paths.
 
-- 2: Developer codes and uses test driven development during some iterations. Test coverage must be at 25% and include happy paths. A continuous integration tool such as TravisCI is not used for the duration of the project.
+- 2: Developer codes and uses test driven development during some iterations. Test coverage must be at 25% and include happy paths.
 
 - 1: Developer codes and does not use test driven development for the duration of the project. No specs can be run at any time.  
 
