@@ -64,7 +64,7 @@ layout: page
 - [Intro to ActiveRecord in Sinatra](./intro_to_active_record_in_sinatra)
 - [ActiveRecord Associations](./activerecord_associations)
 - [Joins, Group, Order](./joins_group_order)
-- [Database Relationships and Visualizations](./database_relationships_and_visualizations)
+- [Many to Many Relationships](./many_to_many)
 - [Database Normalization and Optimization](./database_normalization_and_optimization)
 - [SQL Refresher](./sql_refresher)
 - [Callbacks & Refactoring](./callbacks_and_refactoring)
