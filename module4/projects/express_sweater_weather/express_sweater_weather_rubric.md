@@ -42,13 +42,12 @@ You will be graded by an instructor on the criteria below. The rubric below outl
 
 - 1: The developer did not have any successful PR requests.
 
-### Features and Testing
+### Features
 
-- 4: Requirements listed below are complete and student has additional endpoints completed for project. All endpoints include happy and sad path testing.
+- 4: Requirements listed below are complete and student has additional endpoints completed for project. Endpoints include happy path testing.
 
-- 3: All endpoints are complete, formatted correctly, and deployed to production. All endpoints include happy and sad path testing.
+- 3: All endpoints are complete, formatted correctly, and deployed to production. 
 
 - 2: At least 4 endpoints are complete and deployed to production.
-The completed endpoints are partially tested.
 
-- 1: Fewer than 4 endpoints are complete and the project may not be  deployed to production. Not all completed endpoints have testing.
+- 1: Fewer than 4 endpoints are complete and the project may not be deployed to production.
