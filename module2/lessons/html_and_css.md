@@ -21,15 +21,6 @@ title: HTML and CSS
   - Block
   - Inline
 
-## Review Intermission Work
-
-* With a partner:
-  * Review the "Checks for Understanding" from the [HTML Intermission Work](../intermission_work/html)
-  * Review the "Checks for Understanding" from the [CSS Intermission Work](../intermission_work/css)
-* Review CFU questions as a class
-* Peer code share for [Static Challenge](https://github.com/turingschool-examples/static_challenges)
-
-
 # Hyper Text Markup Language
 
 A Markup Language used for describing the structure/layout of web pages.
