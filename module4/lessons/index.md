@@ -13,7 +13,7 @@ title: Module 4 Lessons
 
 ## Server Side JavaScript
 
-* [Express and Sequelize One-to-Many](./express_and_sequelize)
+* [Express and Sequelize](./express_and_sequelize)
 * [Jest Integration Testing](./jest_testing)
 * [Organizing an Express App](./organize_an_express_app)
 
