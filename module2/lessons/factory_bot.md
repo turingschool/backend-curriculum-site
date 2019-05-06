@@ -94,7 +94,7 @@ spec/factories/*.rb
 
 ### Example of Making an Artist
 
-`spec/factories/artists.rb`:
+`spec/factories/artist.rb`:
 
 ```ruby
 FactoryBot.define do
@@ -128,7 +128,7 @@ Let's look at our feature test about "users see all songs".
 
 Here we are creating two songs. Let's DRY this up a bit.
 
-We need to create the "factory" for it first in `spec/factories/songs.rb`:
+We need to create the "factory" for it first in `spec/factories/song.rb`:
 
 ```ruby
 FactoryBot.define do
@@ -152,7 +152,7 @@ In this case, this WON'T work for us, because Songs require that we have an arti
 Want to create an object but it has a belongs_to and needs an associated object to be created? Now we have a artist or two created and two songs. We have more tools to DRY this up even more. If we create our song prepopulated with a artist, we don't need to create artists in our song index test.
 
 ```ruby
-#spec/factories/songs.rb
+#spec/factories/song.rb
 
 FactoryBot.define do
   factory :song do
@@ -173,7 +173,7 @@ Want to create unique content? You might use a sequence to put a number in each 
 What if we want our songs to have different titles?
 
 ```ruby
-#spec/factories/songs.rb
+#spec/factories/song.rb
 
 FactoryBot.define do
   factory :song do
@@ -192,7 +192,7 @@ Want to call your factory "admin" but use the `Artist` class? Use an alias like 
 Maybe you want to be able to create a regular old artist as well as a super-artist of sorts, an `:admin`.
 
 ```ruby
-#spec/factories/admin_artists.rb
+#spec/factories/admin_artist.rb
 
 FactoryBot.define do
   factory :admin, class: Artist do
