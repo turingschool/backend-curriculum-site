@@ -14,7 +14,7 @@ title: Module 4 Lessons
 ## Server Side JavaScript
 
 * [Express and Sequelize](./express_and_sequelize)
-* [Jest Integration Testing](./jest_testing)
+* [Jest Testing](./jest_testing)
 * [Organizing an Express App](./organize_an_express_app)
 
 ## Build Tools & Workflow
