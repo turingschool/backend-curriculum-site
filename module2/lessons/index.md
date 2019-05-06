@@ -54,6 +54,7 @@ layout: page
 
 - [Model Testing in RSpec](./model_testing_in_rspec_for_sinatra_app)
 - [Feature Testing in RSpec](./feature_testing_in_rspec_for_a_sinatra_app)
+- [Testing Best Practices](./testing_best_practices)
 - [Factory Bot](./factory_bot)
 
 
