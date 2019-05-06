@@ -13,8 +13,8 @@ title: Module 4 Lessons
 
 ## Server Side JavaScript
 
-* [Build an Express App](./express_knex)
-* [Test an Express App](./express_testing)
+* [Express and Sequelize One-to-Many](./express_and_sequelize)
+* [Jest Integration Testing](./jest_testing)
 * [Organizing an Express App](./organize_an_express_app)
 
 ## Build Tools & Workflow
