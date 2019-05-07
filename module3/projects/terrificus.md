@@ -27,6 +27,10 @@ a project.
 * Use an agile process as you develop features
 * Configure a continuous integration server
 
+## <a name="meeting-schedule"></a> Meeting Schedule
+
+Projects with open ended requirements are frequently the most enjoyable and strongest projects at Turing. With the freedom comes the possibility of different opinions that lead to tension and possible conflict. Some of this tension can be good but it can also prevent a team from being productive. Use [this meeting template](../materials/terrificus_meeting_schedule) to use this tension in a positive way. Our goal is for every group to have made the difficult decisions by the end of day two and for everyone to be coding on day three.
+
 ## <a name="technical-expectations"> Technical Expectations
 
 Every project will be a bit different, but they need to share some
@@ -180,4 +184,3 @@ You will meet with instructors periodically during the project. The goals of eac
 * **3:** Yes, I think I would enjoy working with them.
 * **2:** I would prefer not to.
 * **1:** I would actively avoid working with them again.
-
