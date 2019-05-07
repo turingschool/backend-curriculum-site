@@ -146,4 +146,4 @@ Let's add our test for `/api/v1/games`. This is going to be similar to our root 
   });
 ```
 
-_On your Own:_ Try writing tests for the remainder of the `/api/v1/game/endpoints`
+_On your Own:_ Try writing tests for the remainder of the `/api/v1/games` endpoints.
