@@ -16,6 +16,14 @@ The expected mastery level can be understood with the following scale:
 * **Functional**: student recognizes when to use the concept and can implement it with the support of documentation and/or a collaborator
 * **Familiarity**: student can recognize and describe the concept when needed/appropriate, but is not able to implement the technology/technique
 
+## Changes
+
+* Add
+  * Functional describing ORM
+  * Mastery Migrating
+  * Familiarity Normalization
+  * Familiarity with DNS
+* Reformat
 
 ## Models
 
@@ -84,9 +92,6 @@ The expected mastery level can be understood with the following scale:
 ##### Functional in the following skills
 
 - Be able to design database schemas that represent relationships between resources
-
-##### Familiarity in the following skills
-
 - Writing and executing 'raw' SQL statements that insert, select, calculate, join, order and group
 
 
@@ -104,7 +109,7 @@ The expected mastery level can be understood with the following scale:
 
 ##### Functional in the following skills
 
-- Understand basic HTML tabs, elements, nodes
+- Understand basic HTML tags, elements, nodes
 - Target specific HTML content with CSS selectors
 
 ##### Familiarity in the following skills
