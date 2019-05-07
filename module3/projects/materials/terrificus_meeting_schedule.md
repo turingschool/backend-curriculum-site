@@ -10,7 +10,7 @@ Each meeting/section has a purpose (Brainstorm, Decide, Solve) and everyone shou
 
 Conflict and tension tends to arise in groups when there are differing expectations of these meetings. Some want to debate and explore different outcomes while others see that as a waste of time and want to make a decision. The reality is both are important for making sound decisions and the following is a template to do both and get your project off to a strong start.
 
-### Product Vision - Brainstorm
+### (Meeting) Product Vision - Brainstorm
 
 * **Time Limit:** 30 minutes (More ideas will come up throughout the project and that's OK.)
 * **Objective:** Discuss and debate the most important features your group is interested in building.
@@ -43,7 +43,7 @@ If you need questions guiding the discussion:
 **Notes Below:**
 
 
-### Product Vision - Decide
+### (Meeting) Product Vision - Decide
 
 * **Time Limit:** 15-30 minutes
 * **Objective:** Decide what your minimum viable product is.
@@ -63,7 +63,7 @@ One way to quickly exhaust a group is to allow debates to go on too long. Have t
 
 **Notes Below:**
 
-### Wireframes - Solve
+### (Meeting) Wireframes - Solve
 
 * **Time Limit:** 30 minutes
 * **Objective:** Build wireframes that capture the user's experience of the three most important features decided above.
@@ -78,7 +78,7 @@ One way to quickly exhaust a group is to allow debates to go on too long. Have t
 
 One way to quickly exhaust a group is to allow debates to go on too long. Have the team vote if any decision takes more than 10 minutes. If the team can't decide bring in an instructor and they'll be the deciding vote.
 
-### Story Writing - Solve
+### (Meeting) Story Writing - Solve
 
 **Objective:** Use the wireframes to guide you while you write user stories. Stories should not focus on implementation details, just the user experience.
 
@@ -94,7 +94,7 @@ This can be done as a whole group but this tends to lead to some people doing al
 
 This can be done as a whole group but this tends to lead to some people doing all of the work while others might just be sitting and watching. Probably best done in pairs while the others work on writing stories.
 
-### Architecture and Schema - Brainstorming
+### (Meeting) Architecture and Schema - Brainstorming
 
 * **Time Limit:** 30-45 minutes
 * **Objective:** Explore different possibilities for how you might build your MVP. Note: It's important this happens after you've built your wireframes.
@@ -116,7 +116,7 @@ This can be done as a whole group but this tends to lead to some people doing al
 
 **Notes Below:**
 
-### Architecture and Schema - Decide
+### (Meeting) Architecture and Schema - Decide
 
 * **Time Limit:** 30-60 minutes
 * **Objective:** Decide on the architecture and schema. Similar to a detour on a road trip, it's OK to deviate from this plan if you realize things are different than you were expecting. You'll never know less about the problem than you do right now. But you should at least have a map/idea of where you are going so the team can move in the same direction.
@@ -137,7 +137,7 @@ One way to quickly exhaust a group is to allow debates to go on too long. Have t
 
 **Notes Below:**
 
-### Prioritization - Solve
+### (Meeting) Prioritization - Solve
 
 * **Time Limit:** 30-60 minutes
 * **Objective:** After looking at the same problems from both product and technical perspectives you should now resolve the tension between the two. Stack the stories and cards in order of importance while balancing this tension in a way that would keep stakeholders happy and minimizes idle time for developers.
