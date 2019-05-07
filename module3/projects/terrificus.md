@@ -29,7 +29,7 @@ a project.
 
 ## <a name="meeting-schedule"></a> Meeting Schedule
 
-Projects with open ended requirements are frequently the most enjoyable and strongest projects at Turing. With the freedom comes the possibility of different opinions that lead to tension and possible conflict. Some of this tension can be good but it can also prevent a team from being productive. Use [this meeting template](../materials/terrificus_meeting_schedule) to use this tension in a positive way. Our goal is for every group to have made the difficult decisions by the end of day two and for everyone to be coding on day three.
+Projects with open ended requirements are frequently the most enjoyable and strongest projects at Turing. With the freedom comes the possibility of different opinions that lead to tension and possible conflict. Some of this tension can be good but it can also prevent a team from being productive. Use [this meeting template](../projects/materials/terrificus_meeting_schedule) to use this tension in a positive way. Our goal is for every group to have made the difficult decisions by the end of day two and for everyone to be coding on day three.
 
 ## <a name="technical-expectations"> Technical Expectations
 
