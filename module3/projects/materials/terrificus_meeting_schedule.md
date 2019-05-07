@@ -12,14 +12,14 @@ Conflict and tension tends to arise in groups when there are differing expectati
 
 ### Product Vision - Brainstorm
 
-**Time Limit:** 30 minutes (More ideas will come up throughout the project and that's OK.)
-**Objective:** Discuss and debate the most important features your group is interested in building.
+* **Time Limit:** 30 minutes (More ideas will come up throughout the project and that's OK.)
+* **Objective:** Discuss and debate the most important features your group is interested in building.
 
-**Assigned Roles**
+#### Assigned Roles
 
-Time Cop:
-Notetaker:
-Facilitator:
+* Time Cop:
+* Notetaker:
+* Facilitator:
 
 **Facilitator notes:**
 
@@ -45,14 +45,14 @@ If you need questions guiding the discussion:
 
 ### Product Vision - Decide
 
-**Time Limit:** 15-30 minutes
-**Objective:** Decide what your minimum viable product is.
+* **Time Limit:** 15-30 minutes
+* **Objective:** Decide what your minimum viable product is.
 
-**Assigned Roles**
+#### Assigned Roles
 
-Time Cop:
-Notetaker:
-Facilitator:
+* Time Cop:
+* Notetaker:
+* Facilitator:
 
 **Facilitator notes:**
 
@@ -63,28 +63,26 @@ One way to quickly exhaust a group is to allow debates to go on too long. Have t
 
 **Notes Below:**
 
-
 ### Wireframes - Solve
 
-**Time Limit:** 30 minutes
-**Objective:** Build wireframes that capture the user's experience of the three most important features decided above.
+* **Time Limit:** 30 minutes
+* **Objective:** Build wireframes that capture the user's experience of the three most important features decided above.
 
-**Assigned Roles**
+#### Assigned Roles
 
-Time Cop:
-Notetaker (builds the wireframes):
-Facilitator:
+* Time Cop:
+* Notetaker (builds the wireframes):
+* Facilitator:
 
 **Facilitator notes:**
 
 One way to quickly exhaust a group is to allow debates to go on too long. Have the team vote if any decision takes more than 10 minutes. If the team can't decide bring in an instructor and they'll be the deciding vote.
 
-
 ### Story Writing - Solve
 
 **Objective:** Use the wireframes to guide you while you write user stories. Stories should not focus on implementation details, just the user experience.
 
-**Assigned Roles**
+#### Assigned Roles
 
 This can be done as a whole group but this tends to lead to some people doing all of the work while others might just be sitting and watching. Probably best done in pairs while the others work on design and branding.
 
@@ -92,20 +90,20 @@ This can be done as a whole group but this tends to lead to some people doing al
 
 **Objective:** Use the wireframes to guide you while you build out the design. Select color scheme, fonts, and logo. If you are particularly ambitious you might even code out the main pages using plain HTML and CSS (note: this doesn't need to be in Rails). This will really speed up development.
 
-**Assigned Roles**
+#### Assigned Roles
 
 This can be done as a whole group but this tends to lead to some people doing all of the work while others might just be sitting and watching. Probably best done in pairs while the others work on writing stories.
 
 ### Architecture and Schema - Brainstorming
 
-**Time Limit:** 30-45 minutes
-**Objective:** Explore different possibilities for how you might build your MVP. Note: It's important this happens after you've built your wireframes.
+* **Time Limit:** 30-45 minutes
+* **Objective:** Explore different possibilities for how you might build your MVP. Note: It's important this happens after you've built your wireframes.
 
-**Assigned Roles**
+#### Assigned Roles
 
-Time Cop:
-Notetaker:
-Facilitator:
+* Time Cop:
+* Notetaker:
+* Facilitator:
 
 **Facilitator notes:**
 
@@ -120,14 +118,14 @@ Facilitator:
 
 ### Architecture and Schema - Decide
 
-**Time Limit:** 30-60 minutes
-**Objective:** Decide on the architecture and schema. Similar to a detour on a road trip, it's OK to deviate from this plan if you realize things are different than you were expecting. You'll never know less about the problem than you do right now. But you should at least have a map/idea of where you are going so the team can move in the same direction.
+* **Time Limit:** 30-60 minutes
+* **Objective:** Decide on the architecture and schema. Similar to a detour on a road trip, it's OK to deviate from this plan if you realize things are different than you were expecting. You'll never know less about the problem than you do right now. But you should at least have a map/idea of where you are going so the team can move in the same direction.
 
-**Assigned Roles**
+#### Assigned Roles
 
-Time Cop:
-Notetaker:
-Facilitator:
+* Time Cop:
+* Notetaker:
+* Facilitator:
 
 **Facilitator notes:**
 
@@ -141,16 +139,16 @@ One way to quickly exhaust a group is to allow debates to go on too long. Have t
 
 ### Prioritization - Solve
 
-**Time Limit:** 30-60 minutes
-**Objective:** After looking at the same problems from both product and technical perspectives you should now resolve the tension between the two. Stack the stories and cards in order of importance while balancing this tension in a way that would keep stakeholders happy and minimizes idle time for developers.
+* **Time Limit:** 30-60 minutes
+* **Objective:** After looking at the same problems from both product and technical perspectives you should now resolve the tension between the two. Stack the stories and cards in order of importance while balancing this tension in a way that would keep stakeholders happy and minimizes idle time for developers.
 
-**Assigned Roles**
+#### Assigned Roles
 
-Product Representative (probably someone who was writing the user stories):
-Technical Representative:
-Time Cop: Everyone
-Notetaker:
-Facilitator:
+* Product Representative (probably someone who was writing the user stories):
+* Technical Representative:
+* Time Cop: Everyone
+* Notetaker:
+* Facilitator:
 
 **Facilitator notes:**
 
