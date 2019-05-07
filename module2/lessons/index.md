@@ -66,6 +66,7 @@ layout: page
 - [ActiveRecord Associations](./activerecord_associations)
 - [Joins, Group, Order](./joins_group_order)
 - [Many to Many Relationships](./many_to_many)
+- [Joins](./joins)
 - [Database Normalization and Optimization](./database_normalization_and_optimization)
 - [SQL Refresher](./sql_refresher)
 - [Callbacks & Refactoring](./callbacks_and_refactoring)
