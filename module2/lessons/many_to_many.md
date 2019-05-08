@@ -407,9 +407,9 @@ RSpec.describe "the Playlist index page" do
     country = Playlist.create!(name: "Country")
     jams = Playlist.create!(name: "Favorite Jams")
 
-    talking_heads = Artist.create(name: "Talking Heads")
-    journey = Artist.create(name: "Journey")
-    zac_brown = Artist.create(name: "Zac Brown Band")
+    talking_heads = Artist.create!(name: "Talking Heads")
+    journey = Artist.create!(name: "Journey")
+    zac_brown = Artist.create!(name: "Zac Brown Band")
 
     place = rock.songs.create!(title: "This Must Be The Place", length: 832, play_count: 83209, artist: talking_heads)
     heaven = rock.songs.create!(title: "Heaven", length: 832, play_count: 83209, artist: talking_heads)
@@ -458,7 +458,7 @@ RSpec.describe "the Playlist index page" do
 end
 ```
 
-In the setup portion of the test, we are creating the relationships in a couple different ways. Normally, you would want to be more consistent with your syntax, but in this case we want to show a couple different ways to create relationships. Take a minute to digest all these different strategies.
+In the setup portion of the test, we are creating the relationships in a couple different ways. Normally, you would want to be more consistent with your syntax, but in this case we want to show a couple different ways to create relationships. Take a minute to review all these different strategies.
 
 In the assertion portion of the test, we want to use the `within` as much as possible to identify specific songs and playlists.
 
