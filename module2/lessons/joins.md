@@ -10,7 +10,7 @@ title: Joins in SQL and Active Record
 
 ## Warm Up
 
-For each of the following, what are the SQL and ActiveRecord commands we would use to get this information (in our SetList app):
+For each of the following, what are the SQL and ActiveRecord commands we would use to get this information (in our SetList app):  
     - Get all songs  
     - Get the lengths of all songs  
     - Get the songs with a play count greater than 0  
