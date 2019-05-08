@@ -23,7 +23,12 @@ By the end of this lesson, you will know/be able to:
 ## WarmUp
 
 * How have you been sending a user to another route, say in your tests or in a controller?
-* What is the syntax for hand rolling a route?
+* Read the following sections of the Rails Guides for Routing:
+    - [1.1 Connecting URLs to Code](https://guides.rubyonrails.org/routing.html#connecting-urls-to-code)
+    - [2.1 Resources on the Web](https://guides.rubyonrails.org/routing.html#resources-on-the-web)
+    - [2.2 CRUD, Verbs and Actions](https://guides.rubyonrails.org/routing.html#crud-verbs-and-actions)
+    - [4.6 Restricting the Routes Created](https://guides.rubyonrails.org/routing.html#restricting-the-routes-created)
+* What is the syntax for creating a single route?
 * What shortcut does Rails give us to create multiple routes at once?
 
 ## Routes
