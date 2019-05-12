@@ -92,17 +92,6 @@ pizza_toppings = {veggies: ["green peppers", "jalapeño", "mushrooms"],
 
 ## Practice
 
-Break into small groups based on how far you've worked on the "collections" exercises from the [ruby-exercises](https://github.com/turingschool/ruby-exercises):
-
-1. Finished all exercises
-1. Finished "nested_collections"
-1. Finished "arrays" and "hashes"
-1. Working on "arrays" and "hashes"
-
-Find a partner in your group and work on the exercises.
-
-## More Practice
-
 ### 1: State Capitals
 
 You have 2 hashes, one which maps state names to state abbreviations,
@@ -160,6 +149,17 @@ ascending age
 * Level 4: Write code to automatically build a hash with the age as the key and
 an array of names as the value (all the people who are that age).
 e.g. `{24 => ['Juan', 'Steve', 'Jill']...}`
+
+## More Practice
+
+Break into small groups based on how far you've worked on the "collections" exercises from the [ruby-exercises](https://github.com/turingschool/ruby-exercises):
+
+1. Finished all exercises
+1. Finished "nested_collections"
+1. Finished "arrays" and "hashes"
+1. Working on "arrays" and "hashes"
+
+Find a partner in your group and work on the exercises.
 
 
 ## Homework
