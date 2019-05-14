@@ -393,6 +393,109 @@ Run the test again and it passes.
 
 Open up `schema.rb`. Compare what is in this file with our original diagram of the many-to-many relationship.
 
+## Playlist Index Page
+
+Now that we have playlists, let's add an index page to view all our playlists:
+
+```ruby
+# spec/features/playlists/index_spec.rb
+require 'rails_helper'
+
+RSpec.describe "the Playlist index page" do
+  it "should display all playlists" do
+    rock = Playlist.create!(name: "Classic Rock")
+    country = Playlist.create!(name: "Country")
+    jams = Playlist.create!(name: "Favorite Jams")
+
+    talking_heads = Artist.create!(name: "Talking Heads")
+    journey = Artist.create!(name: "Journey")
+    zac_brown = Artist.create!(name: "Zac Brown Band")
+
+    place = rock.songs.create!(title: "This Must Be The Place", length: 832, play_count: 83209, artist: talking_heads)
+    heaven = rock.songs.create!(title: "Heaven", length: 832, play_count: 83209, artist: talking_heads)
+    dont_stop = rock.songs.create!(title: "Don't Stop Believin'", length: 832, play_count: 83209, artist: journey)
+
+    chicken = zac_brown.songs.create!(title: "Chicken Fried", length: 4378, play_count: 7453689)
+    country.songs << chicken
+    jams.songs << chicken
+    jams.songs.push(place)
+
+    visit '/playlists'
+
+    within("#playlist-#{rock.id}") do
+      expect(page).to have_content(rock.name)
+
+      within("#song-#{place.id}") do
+        expect(page).to have_content(place.title)
+      end
+      within("#song-#{heaven.id}") do
+        expect(page).to have_content(heaven.title)
+      end
+      within("#song-#{dont_stop.id}") do
+        expect(page).to have_content(dont_stop.title)
+      end
+    end
+
+    within("#playlist-#{country.id}") do
+      expect(page).to have_content(country.name)
+
+      within("#song-#{chicken.id}") do
+        expect(page).to have_content(chicken.title)
+      end
+    end
+
+    within("#playlist-#{jams.id}") do
+      expect(page).to have_content(jams.name)
+
+      within("#song-#{chicken.id}") do
+        expect(page).to have_content(chicken.title)
+      end
+      within("#song-#{place.id}") do
+        expect(page).to have_content(place.title)
+      end
+    end
+  end
+end
+```
+
+In the setup portion of the test, we are creating the relationships in a couple different ways. Normally, you would want to be more consistent with your syntax, but in this case we want to show a couple different ways to create relationships. Take a minute to review all these different strategies.
+
+In the assertion portion of the test, we want to use the `within` as much as possible to identify specific songs and playlists.
+
+Run this test and you should get an error for a missing route. In `routes.rb`, add:
+
+```ruby
+get '/playlists', to: "playlists#index"
+```
+
+Run the test again and you'll get an undefined constant for the controller, so we'll add the controller with the index action:
+
+```ruby
+# app/controllers/playlists_controller.rb
+class PlaylistsController < ApplicationController
+  def index
+    @playlists = Playlist.all
+  end
+end
+```
+
+Running the tests now will give us a missing template error, so go create `app/views/playlists/index.html.erb` and add the view:
+
+```erb
+<% @playlists.each do |playlist| %>
+  <section id="playlist-<%= playlist.id %>">
+    <h1><%= playlist.name %></h1>
+    <% playlist.songs.each do |song| %>
+      <section id="song-<%= song.id %>">
+        <p><%= song.title %></p>
+      </section>
+    <% end %>
+  </section>
+<% end %>
+```
+
+ We should now have a passing test. Check your work in development by adding some playlists to the seeds file, seeding the db with `rake db:seed`, and running your server.
+
 ## Checks for Understanding
 
 * How is a one-to-many relationship set up in a database?
