@@ -18,7 +18,7 @@ layout: page
 - [How To Write a Great README](./how_to_write_a_great_readme)
 - [How to use Waffle for Project Management](https://help.waffle.io/getting-started/how-to-get-started-using-waffle)
 - [Exploration: Sessions, Cookies and Flash Messages](../misc/sessions_cookies_and_flashes)
-- [Exploration: Authentication/Autorization](../misc/auth_exploration)
+- [Exploration: Authentication/Autorization](../explorations/auth_exploration)
 - [Exploration: How the Web Works](../misc/exploration_how_the_web_works)
 - [Exploration: Shopping Cart Best Practices](../misc/cart_exploration)
 - Exploration: OWASP Top Ten Web Security (coming soon)
