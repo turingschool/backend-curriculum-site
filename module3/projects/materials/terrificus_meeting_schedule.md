@@ -17,7 +17,7 @@ Conflict and tension tends to arise in groups when there are differing expectati
 
 #### Assigned Roles
 
-* Time Cop:
+* Time Enforcer:
 * Notetaker:
 * Facilitator:
 
@@ -36,7 +36,7 @@ If you need questions guiding the discussion:
 * What features or technology choices would spark interesting discussions during job interviews?
 * Would you use this product? If not, what is it missing?
 
-**Time Cop notes:**
+**Time Enforcer notes:**
 
 * If debating a single idea goes longer than 5 minutes point it out. There's no need to make a decision now and allowing one idea to dominate the discussion can hinder creativity and cause frustration.
 
@@ -50,7 +50,7 @@ If you need questions guiding the discussion:
 
 #### Assigned Roles
 
-* Time Cop:
+* Time Enforcer:
 * Notetaker:
 * Facilitator:
 
@@ -70,7 +70,7 @@ One way to quickly exhaust a group is to allow debates to go on too long. Have t
 
 #### Assigned Roles
 
-* Time Cop:
+* Time Enforcer:
 * Notetaker (builds the wireframes):
 * Facilitator:
 
@@ -101,7 +101,7 @@ This can be done as a whole group but this tends to lead to some people doing al
 
 #### Assigned Roles
 
-* Time Cop:
+* Time Enforcer:
 * Notetaker:
 * Facilitator:
 
@@ -123,7 +123,7 @@ This can be done as a whole group but this tends to lead to some people doing al
 
 #### Assigned Roles
 
-* Time Cop:
+* Time Enforcer:
 * Notetaker:
 * Facilitator:
 
@@ -146,7 +146,7 @@ One way to quickly exhaust a group is to allow debates to go on too long. Have t
 
 * Product Representative (probably someone who was writing the user stories):
 * Technical Representative:
-* Time Cop: Everyone
+* Time Enforcer: Everyone
 * Notetaker:
 * Facilitator:
 
