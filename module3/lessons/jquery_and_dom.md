@@ -17,6 +17,9 @@ tags: jquery, javascript
 - DOM Manipulation
 - DOM Traversal
 
+## Warm Up
+
+
 ## What is the DOM?
 
 The DOM, or Document Object Model, represents how HTML is read by the browser. It allows JavaScript to manipulate, structure, and style your website. After the browser reads your HTML document, it creates a representational tree called the `Document Object Model` and defines how that tree can be accessed.
@@ -45,7 +48,9 @@ We can also access elements by **selectors** (classes and IDs). Instead of ('h1'
 
 ## What is jQuery?
 
-jQuery is a _library_ that allows us to access DOM elements on the page and then interact with them. Under the hood, **it's JavaScript**. It is used by 97.4% of all the websites whose JavaScript library we know. This is 73.9% of all websites. It is currently being used by Google, Microsoft, Quizlet, Home Depot, and more.
+jQuery is a _library_ that allows us to access DOM elements on the page and then interact with them. Under the hood, **it's JavaScript**. Since it is just JavaScript, it is executed in the browser. It is used by 97.4% of all the websites whose JavaScript library we know. This is 73.9% of all websites. It is currently being used by Google, Microsoft, Quizlet, Home Depot, and more.
+
+In addition to providing a syntax that makes reading and writing code easier and faster, jQuery is used to improve browser compatibility.
 
 <!-- ## Practical jQuery
 
@@ -111,6 +116,8 @@ $('h1').text('I AM A DINOSAUR.');                             // jQuery
 
 <p data-height="265" data-theme-id="0" data-slug-hash="WLoorZ" data-default-tab="html,result" data-user="mikedao" data-pen-title="Dino 1" class="codepen">See the Pen <a href="https://codepen.io/mikedao/pen/WLoorZ/">Dino 1</a> by Michael Dao (<a href="https://codepen.io/mikedao">@mikedao</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+**Fun Fact**: Accessing DOM elements by ID and element is much faster than by class.
 
 ## Responding to User Events
 
@@ -231,7 +238,7 @@ Let's take a look at the example below:
 
 <div class="try-it-section">
   <h2>Try It: Event Object</h2>
-  <p>Implement the following functionality:</p>
+  <p>Fork the CodePen above, then implement the following functionality:</p>
   <ul>
     <li>When the user hovers over a given box, that box appears to grow in size.</li>
     <li>When the mouse leaves that hover state, that box returns to its original size.</li>
@@ -254,12 +261,17 @@ This code _does not_ work the way we'd like - right now when we click on the but
 <div class="try-it-section">
   <h2>Try It: DOM Traversal</h2>
   <p>Do some research and work to make the entire box rotate, rather than just the button.</p>
+  <p>You can see all of ways we can move around the DOM tree in <a target="blank" href="https://api.jquery.com/category/traversing/tree-traversal/.">jQuery documentation.</a></p>
 </div>
 
-You can see all of ways we can move around the DOM tree in <a target="blank" href="https://api.jquery.com/category/traversing/tree-traversal/.">jQuery documentation.</a>
+## Final CFU
+
+* What is jQuery?
+* Why is jQuery needed?
+* What are the advantages of jQuery?
 
 
-# A Deeper Dive
+<!-- # A Deeper Dive
 
 Let's take a closer look at how we can use the jQuery library!
 
@@ -433,10 +445,4 @@ In order to take both `append()` and `prepend()` for a spin, let's try the follo
 
 ## DOM Competition
 
-With your partner, you have 10 minutes to create the most impressive CodePen. Create a new pen, and use jQuery to manipulate the DOM in at least FOUR different ways. Extra points for 🦄Sparkle Magic🦄.
-
-## Final CFU
-
-* What is jQuery? What is it so popular?
-* What's an example of a way jQuery can be used?
-* Why is it important to use precise selectors?
+With your partner, you have 10 minutes to create the most impressive CodePen. Create a new pen, and use jQuery to manipulate the DOM in at least FOUR different ways. Extra points for 🦄Sparkle Magic🦄. -->
