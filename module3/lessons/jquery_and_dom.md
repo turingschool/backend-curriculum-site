@@ -264,7 +264,16 @@ This code _does not_ work the way we'd like - right now when we click on the but
   <p>You can see all of ways we can move around the DOM tree in <a target="blank" href="https://api.jquery.com/category/traversing/tree-traversal/.">jQuery documentation.</a></p>
 </div>
 
-## Final CFU
+## Implementation
+
+Now that you've had some time to familiarize yourself with jQuery, let's implement it into a real application.
+
+<div class="try-it-section">
+  <h2>Practice</h2>
+  <p></p>
+</div>
+
+## Interview Questions
 
 * What is jQuery?
 * Why is jQuery needed?
