@@ -21,3 +21,22 @@ pre {
     white-space: pre-wrap;
   }
 }
+
+.try-it-section {
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
+  border-top: 8px solid $teal;
+  margin-bottom: 40px;
+  padding: 0.25em 1.5em;
+
+  pre {
+    border: 1px solid black;
+    background-color: rgb(50, 50, 50);
+    color: white;
+  }
+
+}
+
+.try-it-code {
+  background-color: #fff;
+  color: $teal;
+}

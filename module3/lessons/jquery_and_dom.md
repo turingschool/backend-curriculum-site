@@ -4,30 +4,65 @@ length: 180
 tags: jquery, javascript
 ---
 
-### Learning Goals
+## Learning Goals
 
 * Student can navigate and select/alter content on an HTML page using jQuery
 * Begin recognizing patterns involved with using jQuery
 * Explain what jQuery is, and it's benefits
 
-jQuery is a library that allows us to use CSS selectors to find elements on the page and then interact with them. Under the hood, **it's JavaScript**. It's used on about 78% of the top million web pages, so it's worth while getting comfortable with it.
+## Vocabulary
 
-## Practical jQuery
+- selector
+- DOM
+- DOM Manipulation
+- DOM Traversal
+
+## What is the DOM?
+
+The DOM, or Document Object Model, represents how HTML is read by the browser. It allows JavaScript to manipulate, structure, and style your website. After the browser reads your HTML document, it creates a representational tree called the `Document Object Model` and defines how that tree can be accessed.
+
+**Manipulating the DOM** refers to changes that are made in the browser, that are prompted but not directly made by the user. If I type my email in a form then click “Submit”, I might see a message like “Thanks for signing up!”. I clicked the button and in response, JavaScript made that message appear. That is an example of DOM manipulation. Today we will learn how to change something on our site based on user interaction.
+
+## Access Elements from the DOM
+
+JavaScript has some built-in functions that allow us to access elements from the DOM. Here’s an example of accessing an h1 element.
+
+```js
+var header = document.querySelector('h1');
+console.log(header);
+//=> "<h1>hello</h1>"
+```
+
+Let’s break this down:
+
+* `document` - this tells the computer: please go over to the HTML document
+* `.querySelector` - now that the computer is looking at the HTML document, this instruction says: I’d like you to look for something specific
+* `('h1')` - this is the argument passed to the .querySelector function. It says: go look in the HTML document for the first h1 that you find.
+
+Since we stored the value of this in the header variable, we can `console.log()` this and see the HTML element.
+
+We can also access elements by **selectors** (classes and IDs). Instead of ('h1') we would need to write something like `('.class-name')` or `('#id-name')`, using the same selectors we would when writing CSS rules for classes or IDs.
+
+## What is jQuery?
+
+jQuery is a _library_ that allows us to access DOM elements on the page and then interact with them. Under the hood, **it's JavaScript**. It is used by 97.4% of all the websites whose JavaScript library we know. This is 73.9% of all websites. It is currently being used by Google, Microsoft, Quizlet, Home Depot, and more.
+
+<!-- ## Practical jQuery
 
 ### The Swing Between the Client and The Server
 
-Throughout history, there's been some swings between things running on the server, things running on clients, and theres been ideas of thin clients and thick clients and dummy terminals, and all sorts of things. We're going to take a look at this. 
+Throughout history, there's been some swings between things running on the server, things running on clients, and theres been ideas of thin clients and thick clients and dummy terminals, and all sorts of things. We're going to take a look at this.
 
 In the early days of computing there was just big giant computers. Essentially, if you wanted to run software on the computers, you had to write your code on these punch cards, hand in the cards to the computer technician, and later at some point, you'd get the results of your program. Note: This would really suck if you had a bug in your code. Computers were so slow back then and you had to make an appointment for time for your computer to run. So if you did something wrong in your code, you had to fix it, get it on punch cards, and then make an appointment to run it at some later date. We are truly spoiled by the fact that we can just run our code all day every day and its fine.
 
-As computers got faster, and technology advanced, we got to the point to where we no longer had to make appointments for computer time, computers could essentially time share, so it could be set up so that many people could use a computer at what appeared to them to be at the same time. The first iteration of this were dummy terminals, which were essentially a keyboard and screen connected via a VERY long cable to the server, also known then as possibly a mainframe. The computer wasnt doing multiple things at a time, it was essentially multitasking, but moving so fast that it felt like things were happening simultaneously. And of course, the more people using terminals at the time, the more things would slow down, as a finite number of computing resources are now allocated to more and more users. 
+As computers got faster, and technology advanced, we got to the point to where we no longer had to make appointments for computer time, computers could essentially time share, so it could be set up so that many people could use a computer at what appeared to them to be at the same time. The first iteration of this were dummy terminals, which were essentially a keyboard and screen connected via a VERY long cable to the server, also known then as possibly a mainframe. The computer wasnt doing multiple things at a time, it was essentially multitasking, but moving so fast that it felt like things were happening simultaneously. And of course, the more people using terminals at the time, the more things would slow down, as a finite number of computing resources are now allocated to more and more users.
 
 We took this approach out to its logical conclusion, as the terminals were able to go further and further away from the mainframe, to the point where terminals were able to connect to the mainframe via phone lines. But then there started a shift with the advent of the personal computer.  Home computers were now more and more prevalent as the cost of computers came down and the machines people had in their homes got more powerful, we see this shift. Instead of running programs on a remote server somewhere, we install software on our computers at home and that does the heavy lifting, freeing up computing power on the mainframe. Who here has installed some kind of software on their computer using floppy disks or CD-ROMs back in the day? This was kind of a consequence of the fact that network speeds were so slow back then. It made time-sense and money sense to offload more things to the desktop as it could handle them.
 
 This was the status quo until the internet became a thing. Not just the internet, but the internet and fast connection speeds and always on internet connections. I recall getting a copy of Microsoft Office, and it was something like six CDs. What do you do now if you want to run a copy of Microsoft Office? You sign up for an account for Office 365, and you log in using your Web Browser. Google Docs, whatever. But the model has changed a bit. We’re not connecting to a single server, we’re connecting to _the cloud_. In OOP terms, what do you think we would call _the cloud_?
 
 #### TIPS
-So that’s a brief history of how the architecture and paradigms of doing things on the internet has changed over the years. 
+So that’s a brief history of how the architecture and paradigms of doing things on the internet has changed over the years.
 
 Let’s imagine the best web app. You visit `catsarelame.com`.  There’s some text, it reads, “CATS RULE” You click a button on the screen. Now the webpage says, “NO CATS ARE LAME DOGS RULE”.
 
@@ -47,9 +82,7 @@ How long do you wait for a web page to load before you give up?
 How much do you think Amazon spends on making their website fast. This is literally a situation where each millisecond can cost millions of dollars.
 
 How can we speed up this situation? This is what JavaScript was made for. It ads interactivity and allows you to make changes to the displayed web site all on the browser without having to reach out to the server.
-
-
-
+ -->
 
 ## First Lines of jQuery
 
@@ -59,17 +92,22 @@ Let's say that we have a page with the following markup:
 <h1 class="important-header">Dinosaurs are awesome.</h1>
 ```
 
-Just like with plain ol' JavaScript, jQuery lets us change the text programatically. The neat thing about jQuery, though, is that it significantly reduces the amount of code we have to write.
+Just like with vanilla JavaScript, jQuery lets us change the text programatically. The neat thing about jQuery, though, is that it significantly reduces the amount of code we have to write.
 
 ```js
-$('h1').text('I AM A DINOSAUR.');
+document.querySelector('h1').innerText = 'I AM A DINOSAUR.');  // vanilla JS
+$('h1').text('I AM A DINOSAUR.');                             // jQuery
 ```
 
-Play around with the following example using jQuery.
-
-- Change the replacement text to something else.
-- Change the `h1` selector to `.important-header`
-- Add the following line of code: `$('h1').css('color', '#FC17A5');`
+<div class="try-it-section">
+  <h2>Try It</h2>
+  <p>Play around with the CodePen below using jQuery:</p>
+  <ul>
+    <li>Change the replacement text to something else.</li>
+    <li>Change the <code class="try-it-code">h1</code> selector to <code class="try-it-code">.important-header</code></li>
+    <li>Add the following line of code: <code class="try-it-code">$('h1').css('color', '#FC17A5');</code></li>
+  </ul>
+</div>
 
 <p data-height="265" data-theme-id="0" data-slug-hash="WLoorZ" data-default-tab="html,result" data-user="mikedao" data-pen-title="Dino 1" class="codepen">See the Pen <a href="https://codepen.io/mikedao/pen/WLoorZ/">Dino 1</a> by Michael Dao (<a href="https://codepen.io/mikedao">@mikedao</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
@@ -78,7 +116,7 @@ Play around with the following example using jQuery.
 
 jQuery and, of course, JavaScript are used to change and manipulate web pages. Just like JavaScript, jQuery has the ability to add event listeners based on user interaction.
 
-This is the crux of front-end engineering. We present a user interface and then as the user interacts with the UI, we change and update what the user sees.
+**DOM Manipulation** is the crux of front-end engineering. We present a user interface and then as the user interacts with the UI, we change and update what the user sees.
 
 Let's take a look at the jQuery syntax and then we'll talk about what's happening.
 
@@ -88,7 +126,7 @@ Let's take a look at the jQuery syntax and then we'll talk about what's happenin
 The following things are happening in the example above:
 
 - We're querying for any elements with the class of `change-me`.
-- We're adding an "event listener" to those elements. (There is just one in this case.)
+- We're adding an `event listener` to those elements. (There is just one in this case.)
 - We're listening for a user's mouse click.
 - We're providing an anonymous function.
 - In this example, the function will add a line through the `h1` and add text to the `h2`.
@@ -111,21 +149,24 @@ We can also listen for things other than clicks. Here are some other events from
 
 Take a moment to investigate and play with some of them.
 
-## Try It: Adding a CSS Class
+## Adding a CSS Class
 
-Open the example below in CodePen using the "Edit on CodePen."
+Open the example below in CodePen using the `Edit on CodePen` button in the top right corner.
 
 <p data-height="265" data-theme-id="0" data-slug-hash="aPBBNx" data-default-tab="css,result" data-user="mikedao" data-pen-title="Dino 3" class="codepen">See the Pen <a href="https://codepen.io/mikedao/pen/aPBBNx/">Dino 3</a> by Michael Dao (<a href="https://codepen.io/mikedao">@mikedao</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 We're using a jQuery method called `toggleClass()`. When the user clicks on the button, it either adds or remove the class `upside-down` depending on whether or not it was already there.
 
-- Can you create some additional CSS classes and toggle them?
-- Can you also change the text?
-- Try out the following methods:
-  - `toggle()`
-  - `slideToggle()`
-  - `fadeToggle()`
+<div class="try-it-section">
+  <h2>Try It</h2>
+  <p>First, fork this CodePen to your account so you can edit it.</p>
+  <ul>
+    <li>Can you create some additional CSS classes and toggle them?</li>
+    <li>Can you also change the text?</li>
+    <li>Try out the following methods: <code class="try-it-code">toggle()</code>, <code class="try-it-code">slideToggle()</code>, <code class="try-it-code">fadeToggle()</code>.</li>
+  </ul>
+</div>
 
 ## Getting Values from the User
 
@@ -136,11 +177,10 @@ Let's explore the following example.
 <p data-height="265" data-theme-id="0" data-slug-hash="vvyyKL" data-default-tab="css,result" data-user="mikedao" data-pen-title="Dino 4" class="codepen">See the Pen <a href="https://codepen.io/mikedao/pen/vvyyKL/">Dino 4</a> by Michael Dao (<a href="https://codepen.io/mikedao">@mikedao</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-In this example, we're doing the following:
-
-- We're adding an event listener to the "Change Me" button.
-- When it's clicked, we're grabbed the value of the input field and storing it into a variable.
-- We're then updating the contents of the `<h1>` to the value we stored from the input field.
+<div class="try-it-section">
+  <h2>Turn & Talk</h2>
+  <p>Talk through each line of JavaScript. For the parts that are new - make your best guess as to what the code is doing. For the part that are review - use precise technical vocabulary to explain what the code is doing.</p>
+</div>
 
 ### A Note on Working with Numbers
 
@@ -159,8 +199,6 @@ This is pretty common, so JavaScript gives us a function for doing it called `pa
 parseInt("2") === 2; // true!
 ```
 
-TURN AND TALK - What is the equivalent of this in ruby?
-
 Now, we can update our conditional as follows:
 
 ```js
@@ -176,38 +214,50 @@ It works now!
 <p data-height="265" data-theme-id="0" data-slug-hash="REoopR" data-default-tab="css,result" data-user="mikedao" data-pen-title="Game 1 (working)" class="codepen">See the Pen <a href="https://codepen.io/mikedao/pen/REoopR/">Game 1 (working)</a> by Michael Dao (<a href="https://codepen.io/mikedao">@mikedao</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-
-## Knowing Which Element We Clicked - THIS!
+## Event Object
 
 Consider a situation where we have three boxes. When that particular box is clicked, we want to toggle a class on that box only. How do we know which box was clicked?
 
-It turns out that when we add an event listener using jQuery, we get a special variable called `this`. Although the concept of the JavaScript `this` can get quite complicated, for our purposes the variable `this` is assigned to the context within which it is called.
+It turns out that when we add an event listener using jQuery, we get access to the `event` object. The event object is a JavaScript object that represents the event (think click, mouseover, etc.) that triggered the listener. We typically name this variable `event` or `e`. We are provided with many properties and methods on the object. Most commonly used is the `target` property. The CodePen and Try It sections below will illustrate what it information it provides us with.
 
 Let's take a look at the example below:
 
-<p data-height="265" data-theme-id="0" data-slug-hash="maOOmr" data-default-tab="css,result" data-user="mikedao" data-pen-title="$(this)" class="codepen">See the Pen <a href="https://codepen.io/mikedao/pen/maOOmr/">$(this)</a> by Michael Dao (<a href="https://codepen.io/mikedao">@mikedao</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<p class="codepen" data-height="265" data-theme-id="0" data-default-tab="css,result" data-user="ameseee" data-slug-hash="NVwdOB" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="event object">
+  <span>See the Pen <a href="https://codepen.io/ameseee/pen/NVwdOB/">
+  event object</a> by Amy Holt (<a href="https://codepen.io/ameseee">@ameseee</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-#### Try It
-
-Can you create a class that adds a border and then toggle that class on the specific box that is hovered over? (For your own sanity, you probably want to remove the alert!)  
+<div class="try-it-section">
+  <h2>Try It: Event Object</h2>
+  <p>Implement the following functionality:</p>
+  <ul>
+    <li>When the user hovers over a given box, that box appears to grow in size.</li>
+    <li>When the mouse leaves that hover state, that box returns to its original size.</li>
+  </ul>
+</div>
 
 ## Traversing the DOM
 
-A little while ago, we wanted to figure out how to tell which element we clicked. But, what if we wanted to find an element in relation to the element we clicked? jQuery lets us navigate from one element to another. When the browser parses our HTML, it creates a big tree-like structure. jQuery lets us hop from branch to branch.
+The `event` object comes with a lot of properties and methods that we can use to our advantage. In the example above, we wanted to target the element that was clicked on, so used `e.target`. jQuery also allows us to find an element _in relation_ to the element we clicked. When the browser parses our HTML, it creates a big tree-like structure. jQuery lets us hop from branch to branch.
 
-Let's work through a box example again.  
+Where will we need this? In a classic To-Do List, we want to be able to click a delete button associated with a to-do, then have that entire to-do deleted.
 
-We want each box to have a button inside of it. When the user clicks the button, it should rotate the entire box. (We're rotating the box with a CSS class called `clicked`.)  
+Let's work through a box example again. We want each box to have a button inside of it. When the user clicks the button, it should rotate the entire box. (We're rotating the box with a CSS class called `clicked`.)  
 
 <p data-height="265" data-theme-id="0" data-slug-hash="ebBBRb" data-default-tab="css,result" data-user="mikedao" data-pen-title="Rotating Buttons" class="codepen">See the Pen <a href="https://codepen.io/mikedao/pen/ebBBRb/">Rotating Buttons</a> by Michael Dao (<a href="https://codepen.io/mikedao">@mikedao</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 This code _does not_ work the way we'd like - right now when we click on the button, the button itself is rotating instead of the entire box. What we need to do is when the user clicks on a button, go up and find the box that it lives in (the parent element) and add the class to _that_ element.
 
-Work with your partner to make the entire box rotate, rather than just the button.
+<div class="try-it-section">
+  <h2>Try It: DOM Traversal</h2>
+  <p>Do some research and work to make the entire box rotate, rather than just the button.</p>
+</div>
 
-You can see all of ways we can move around the DOM tree in [jQuery documentation](https://api.jquery.com/category/traversing/tree-traversal/).
+You can see all of ways we can move around the DOM tree in <a target="blank" href="https://api.jquery.com/category/traversing/tree-traversal/.">jQuery documentation.</a>
+
 
 # A Deeper Dive
 
@@ -236,7 +286,6 @@ There are a few different ways to chain selectors to use them together. You can 
 * Comma: `$('p, #heading, .important')` just combines all of the selectors together.
 * Space: `$('p #heading .important')` treats each selector as a child of the previous. This will give you items of the class `important` that are children of the id `heading` which are inside a `<p>` tag.
 * Nothing: * `$('p#heading.important')` matches elements that have all three selectors. This selector would select a paragraph which was defined like this: `<p id="heading" class="important">`
-
 
 ## Exercise, Part One: The Presidents
 
