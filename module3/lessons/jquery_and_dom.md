@@ -270,7 +270,7 @@ Now that you've had some time to familiarize yourself with jQuery, let's impleme
 
 <div class="try-it-section">
   <h2>Practice</h2>
-  <p></p>
+  <p>Fork <a target="blank" href="https://codepen.io/ameseee/pen/zQppKx">this CodePen</a> and write jQuery to make this a working ToDo List.</p>
 </div>
 
 ## Interview Questions
