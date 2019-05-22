@@ -623,7 +623,7 @@ The router is looking for an action named `update`. Just like the `new` action s
 First, since we'll need to find an article by `id`, let's add `update` to our `before_action`:
 
 ```ruby
-before_action :set_article, only: [:destroy, :edit, :update]
+before_action :set_article, only: [:show, :destroy, :edit, :update]
 ```
 
 With `@article` set:
