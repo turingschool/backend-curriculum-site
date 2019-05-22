@@ -36,7 +36,7 @@ layout: page
 
 ## JavaScript
 
-* [Introduction to JavaScript](../lessons/jquery_and_dom)
+* [Introduction to JavaScript](../lessons/babbys_first_javascript)
 * [jQuery DOM Traversal and Manipulation](../lessons/jquery_and_dom)
 * [Intro to Fetch](../lessons/getting_started_with_fetch)
 
