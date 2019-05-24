@@ -1,164 +1,333 @@
 ---
 layout: page
-title: Terrificus
-length: 2 weeks
-tags:
-type: project
+title: Multitenancy Authorization
+length: 180
+tags: rails, controllers, models, routes, multitenancy, security
 ---
 
-## Project Description
+## Learning Goals
 
-The goal of this project is to create a successful web application from a project idea. You will create an app that will authenticate with a third-party service, consume an api, and solve an actual problem.
+* Recognize the limitations of single role / column-based authorization strategies
+* Discuss patterns for implementing more sophisticated authorization strategies
+* Practice using ActiveRecord models to implement an authorization strategy from scratch
 
-The project requirements are listed below:
+## Slides
 
-* [Learning Goals](#learning-goals)
-* [Technical Expectations](#technical-expectations)
-* [Project Concepts](#project-concepts)
-* [Check-ins](#check-ins-and-milestones)
-* [Evaluation](#evaluation)
+Available [here](../slides/multitenancy_authorization)
 
-## <a name="learning-goals"></a> Learning Goals
+## Warmup
 
-* Learning how to build a full Rails app from idea to delivery
-* Revisiting previous concepts such as APIs and OAuth
-* Finding the strengths and gaps in your knowledge of Ruby, Rails, and organizing
-a project.
-* Use an agile process as you develop features
-* Configure a continuous integration server
+* Describe the authorization strategy that you used in your Little Shop project?
+* Was there anything that frustrated you about this strategy?
+* What would you need to do if you added another level of access to that application?
 
-## <a name="technical-expectations"> Technical Expectations
+## Limitations of Column-Based role modeling
 
-Every project will be a bit different, but they need to share some
-common technical characteristics:
+There's a good chance your previous attempts used some sort of column on the users table
+to track whether a given user was an "admin" and maybe also a "platform admin".
 
-* Use an external OAuth provider to authenticate users
-* Consume an external API
-* Expose an internal API
-* Implement a production quality user interface
-* Optimize your application optimizing your database, implementing caching, using background workers, and sending AJAX or fetch requests
+This strategy has few moving parts, making it simple. But what are the limitations?
 
-### Project Scope
+What did you have to do when a new role was needed?
 
-A good project idea should:
+Alternatively, we could have had a second table -- "admins" -- and inserted
+simple records for each user that we want to mark as an admin (with "id" and "user_id" as the only columns).
 
-* Break down into logical iterations so that you can deliver a strong product on  every checkin
-* Be something that real people would want to use to solve a problem
-* Have enough *technical* challenge to be worth your time (as opposed to a *content* challenge)
+But we still run into the same fundamental problems -- adding more roles requires modifications
+to our schema since we need to add more tables or columns to represent the new information.
 
-### APIs
+## A more flexible approach to modeling application roles
 
-Your application **must make good use of one external dataset or API**. Some examples include:
+This is actually a very common problem in larger applications. Just about any
+sophisticated business will need to track various "roles" within their organization.
+Additionally, you'll frequently need to create these on the fly, perhaps even
+letting non-technical users do this through a web interface of some sort.
 
-#### Government Data
+So let's talk about what it would look like. What are the concepts we're dealing with?
 
-* [Data.gov](https://www.data.gov/)
-* [ProPublica](http://www.propublica.org/tools/)
-* [NASA](http://data.nasa.gov/api-info/)
-* [US Census](http://www.census.gov/data/developers/data-sets.html)
-* [Socrata Listings](https://opendata.socrata.com/dataset/Socrata-Customer-Spotlights/6wk3-4ija)
-* [Bureau of Labor & Statistics](http://www.bls.gov/developers/api_ruby.htm)
-* [United Nations](https://www.undata-api.org/) (3rd party API)
-* [Google's Directory of Public Data](http://www.google.com/publicdata/directory)
-* [OpenColorado](http://data.opencolorado.org/)
-* [Denver Regional Council of Governments](https://drcog.org/services-and-resources/data-maps-and-modeling)
+* "Roles" or "Permissions" - Some notion of multiple levels of access within the app
+and the need to store these independently
+* "Users" - Existing idea of user accounts. Remember that an account largely
+handles the problem of authentication rather than authorization.
+* "User-Roles" - Once we've come up with a separate way of modeling the roles
+themselves, we need a way to flexibly associate multiple users to multiple roles.
 
-#### Corporate Data
+Hopefully this shape is starting to make sense as a normal many-to-many relationship
+using a join table to connect betwen the 2 record types. Modeling roles in this way
+will allow us to re-use a handful of roles for a large number of user accounts.
 
-* [Twitter](https://dev.twitter.com)
-* [Facebook](https://developers.facebook.com)
-* [Instagram](https://instagram.com/developer)
-* [Github](https://developer.github.com/v3)
-* [FitBit](https://dev.fitbit.com)
-* [Spotify](https://developer.spotify.com/web-api)
-* [Strava](https://www.strava.com/developers)
-* [Google Maps](https://developers.google.com/maps)
+## Implementing Role-based Authorization
 
-However, the list is not limited to these. You can choose to integrate with a service of your choosing, as long as it is approved by your client.
+Let's walk through the process of implementing role-based authorization.
 
-## <a name="project-concepts"></a> Project Concepts
+Here's a short list of goals we'd like to enable
 
-Your idea must be approved by an instructor and should be supplied in a gist using the following template...
+1. Add a separate Roles table to track the existing roles
+1. Add a capability to grant a user a role (at least in `rails c`)
+1. Add methods to users to let us inquire about their permissions
+1. Make it so that guest users have to check in
+1. Add a route to create items that can only be accessed by store admins
+1. Add a route to edit and update items that can be accessed by either "admins" or "inventory managers"
 
-### Project Template
+__Setup__
 
-```markdown
-### [Project Title]
+For this workshop, let's use a branch of storedom that already has basic store-based
+multitenancy set up:
 
-### Pitch
-
-1 sentence that explains the value proposition of the application. How would you explain it to a potential business partner, team member, or investor?
-
-### Problem
-
-1-3 sentences describing the problem that you are trying to solve.
-
-### Solution
-
-1-3 sentences describing how your application will solve that problem.
-
-### Target Audience
-
-1-3 sentences describing what type of user your app would be applicable to.
-
-### Integrations
-
-* Which APIs will you use?
-* Which OAuth integration are you planning to use?
+```
+git clone -b multitenancy_authorization https://github.com/turingschool-examples/storedom.git multitenancy_authorization
+cd multitenancy_authorization
+bundle
+bundle exec rake db:drop db:setup
 ```
 
-## Milestones & Agile Process
+## Scoping Permissions by Store
 
-You will meet with instructors periodically during the project. The goals of each check-in roughly what should be completed before the check-in is listed below.
+### Discussion
 
-### Setup
+So we've added a flexible permissions model and refactored it to better encapsulate
+the logic within a dedicated object.
 
-* Create a board on Pivotal Tracker and invite your PM as a contributor.
-* Before you begin to implement code, write up 5-10 stories on your new Pivotal Tracker board. These stories must be written in present tense.
-* Once step two is complete, send your tracker board over to your PM.
-* Setup a [CI Server](http://backend.turing.io/module3/lessons/ci_and_staging_environments)
+But something is still missing. We haven't yet tackled the problem of authorizing users
+across multiple stores. That is, we need a way to ensure that a user who's
+authorized as an admin for Store A can't manipulate the items of Store B.
 
-### Pull Requests
+Can we boil down the main component missing from our authorization system?
 
-* For each story you create, there will be an associated story ID number. You'll use this in your pull requests.
-* PR's must be formatted as the following: 123456: Add user to database table, 789101: Add get_all action for user resource, 194385: Add create action for user resource, etc
-* Copy and paste the story URL into the PR. Tag your PM if you have specific questions. No need to have our approval to merge unless there is an issue that needs to be resolved.
-* Once you have run through and completed your original story list, write an additional 5-10 stories and send us a notification that they have been written. We'll be expecting to see consistent updates.
+* How can we modify the relationship so that roles can be connected to users
+as well as to specific stores?
+* What changes in our authorization logic are needed to account for this new information?
 
-### "Standup" and Checkins
+### Workshop
 
-* Every weekday at 2PM send your PM a remote "daily standup" style update via Slack that answers the following questions:
-  * What have you been working on?
-  * What are you going to be working on?
-  * Is anything blocking you?
-* Every two days you will commit to the work you will have complete over the next two days and a specific time it will be complete. Work with your PM to determine when this will be.
+With a partner, modify the existing authorization model to account
+for store-based as well as user-based authorization:
 
-## <a name="evaluation"></a> Evaluation
+1. Add a `store_id` column to the UserRoles table
+1. Add a test to verify that a user authorized for one store can't
+edit items of another store
+1. Modify the `Permissions` object to account for this additional logic. You
+may need to modify its existing APIs. Don't forget to add unit tests for this step.
 
+*Specific Functionality*
 
-### Feature Delivery
+1. The store admin will have access to the stores, sessions, items, and orders controllers.
+1. However, he won’t have access to the users controller.
+1. Can you create a helper that will hide that functionality from the navbar?
 
-* **4:** Team well exceeded project manager's expectations.
-* **3:** Team completed all the user stories and requirements set by the project manager.
-* **2:** Team completed most user stories set out but fell short of project manager's expectations.
-* **1:** Team fell well short of project manager's expectations.
+## Implementation Overview
 
-### Technical Quality
+### Initial Repository
 
-* **4:**  Project demonstrates extractions that are above and beyond and might include SOA (Service Oriented Architecture) or takes on a new technology that outside the scope of the curriculum and includes all below expectations.
-* **3:**  Project uses abstraction in ways that make it easy to change (example: if an API changes, Propublica to Google Civic, we make changes in as few places as possible). Project shows a solid understanding of MVC principles (this may include but is not limited to: no logic in views, clean controllers, serializers and presenters to handle formatting rather than models etc.) and includes all below expectations.
-* **2:**  MVC is overall good but might have logic or hashes in views, formatting in models, or controllers with complex logic and includes all below expectations.
-* **1:**  Project has significant gaps in understanding of MVC and with several examples of logic or hashes in view, controllers remain un-refactored, and models are used for formatting.
+git clone -b multitenancy_authorization https://github.com/turingschool-examples/storedom.git multitenancy_authorization
 
-### Testing
-* **4:** Project demonstrates exceptional testing using advanced techniques such as spies. And includes below expectations.
-* **3:** Project demonstrates high value testing at different layers (above 90%) and I would be happy paying for the test suite. And includes below expectations.
-* **2:** Test suite coverage is greater than 80% but misses the most meaningful functionality and I would not be happy paying for/inheriting it. And includes below expectations.
-* **1:** Test suite coverage is low (less than 80%). And includes below expectations.
+### Final Repository
 
-### Product Experience
+git checkout —track https://github.com/turingschool-examples/storedom.git multitenancy_authorization_final
 
-* **4:** User experience is exceptional, page is easy to use, responsive, and meets all of the criteria in 3. Page load times average under 300 milliseconds.
-* **3:** Project is ready to demo. Page load times average under 500 milliseconds with a max page load time of 600 milliseconds using New Relic or Skylight.io in production on a hosted service.
-* **2:** Project is not ready to demo or page load times average are slower than 600 milliseconds on average.
-* **1:** Project is not ready to demo, does not measure page load times, page load times are over 700 milliseconds on average, or max page load takes longer than 1000 milliseconds.
+### Procedure
+
+* `rails g model Role name:string`
+* `rails g model UserRole user:references role:references`
+* Add UserRole relationship in Role
+* Add UserRole relationship in User
+* rake db:migrate
+* Create three roles
+  1. platform_admin
+  1. store_admin
+  1. registered_user
+* Add Permission methods in user model
+  1. platform_admin?
+  1. store_admin?
+  1. registered_user?
+* Create services folder
+* Create Permission service
+* initialize the object with a user
+* implement #allow? method
+* Only allow users to visit the stores controller
+* Add additional permissions
+* Add guest_user and add conditional
+* Abstract permissions into private methods
+* Add Permission methods in ApplicationController
+  1. current_permission
+  1. authorize!
+  1. before_action :authorize!
+  1. private method :authorize?
+* Add helpers in ApplicationHelpers
+  1. platform_admin?
+  1. store_admin?
+  1. registered_user?
+
+#### Implementation
+
+app/model/user.rb
+
+```ruby
+class User < ActiveRecord::Base
+  has_secure_password
+
+  has_many :user_roles
+  has_many :roles, through: :user_roles
+
+  belongs_to :store
+  has_many :orders
+
+  def platform_admin?
+    roles.exists?(name: "platform_admin")
+  end
+
+  def store_admin?
+    roles.exists?(name: "store_admin")
+  end
+
+  def registered_user?
+    roles.exists?(name: “registered_user”)
+  end
+end
+```
+
+app/model/user_role.rb
+
+```ruby
+class UserRole < ActiveRecord::Base
+  belongs_to :user
+  belongs_to :role
+end
+```
+
+app/model/role.rb
+
+```ruby
+class Role < ActiveRecord::Base
+  validates :name, uniqueness: true
+
+  has_many :user_roles
+  has_many :users, through: :user_roles
+end
+```
+
+app/services/permission.rb
+
+```ruby
+class Permission
+  extend Forwardable
+
+  attr_reader :user, :controller, :action
+
+  def_delegators :user, :platform_admin?,
+                        :store_admin?,
+                        :registered_user?
+
+  def initialize(user)
+    @user = user || User.new
+  end
+
+  def allow?(controller, action)
+    @controller = controller
+    @action     = action
+
+    case
+    when platform_admin?
+      platform_admin_permissions
+    when store_admin?
+      store_admin_permissions
+    when registered_user?
+      registered_user_permissions
+    else
+      guest_user_permissions
+    end
+  end
+
+  private
+
+  def platform_admin_permissions
+    return true if controller == "sessions"
+    return true if controller == "items"  && action.in?(%w(index show))
+    return true if controller == "stores" && action.in?(%w(index show))
+    return true if controller == "orders" && action.in?(%w(index show))
+    return true if controller == "users"  && action.in?(%w(index show))
+  end
+
+  def store_admin_permissions
+    return true if controller == "sessions"
+    return true if controller == "items"  && action.in?(%w(index show))
+    return true if controller == "stores" && action.in?(%w(index show))
+    return true if controller == "orders" && action.in?(%w(index show))
+  end
+
+  def registered_user_permissions
+    return true if controller == "sessions"
+    return true if controller == "items"  && action.in?(%w(index show))
+    return true if controller == "stores" && action.in?(%w(index show))
+  end
+
+  def guest_user_permissions
+    return true if controller == "sessions"
+    return true if controller == "items"  && action.in?(%w(index show))
+    return true if controller == "stores" && action.in?(%w(index))
+  end
+end
+```
+
+app/controllers/application_controller.rb
+
+```ruby
+class ApplicationController < ActionController::Base
+  # Prevent CSRF attacks by raising an exception.
+  # For APIs, you may want to use :null_session instead.
+
+  protect_from_forgery with: :exception
+
+  before_action :authorize!
+
+  add_flash_types :success,
+                  :info,
+                  :warning,
+                  :danger
+
+  helper_method :current_user
+
+  def current_user
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  end
+
+  def current_permission
+    @current_permission ||= Permission.new(current_user)
+  end
+
+  def authorize!
+    unless authorized?
+      redirect_to root_url, danger: "You are not authorized to visit this page"
+
+    end
+  end
+
+  def authorized?
+    current_permission.allow?(params[:controller], params[:action])
+  end
+end
+```
+
+app/helpers/application_helper.rb
+
+```ruby
+module ApplicationHelper
+  def platform_admin?
+    current_user && current_user.platform_admin?
+  end
+
+  def store_admin?
+    current_user && current_user.store_admin?
+  end
+
+  def registered_user?
+    current_user && current_user.registered_user?
+  end
+end
+```
+
+## Supporting Materials
+
+* [Video 1502](https://vimeo.com/128915494)
+* [Video 1505](https://vimeo.com/137451107)
+* [Repo from 1503 Session](https://github.com/NYDrewReynolds/multitenancy_auth)
