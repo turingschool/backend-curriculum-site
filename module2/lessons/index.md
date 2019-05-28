@@ -30,6 +30,7 @@ layout: page
 - [Design Principles](./design_principles)
 - [Passing Data with Sinatra](./passing_data_with_sinatra)
 - [Forms in Rails](./form_helpers_rails)
+- [HTTP](./http)
 
 
 ## Application Basics
