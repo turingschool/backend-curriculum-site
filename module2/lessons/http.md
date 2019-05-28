@@ -607,3 +607,12 @@ Now that we have multiple path/verb combinations implemented, let's refactor our
 * Make a separate method for each type of response
 * Make a method that takes a verb/path combo and routes it to the appropriate response method.
 * Make request/response objects.
+
+
+## Checks for Understanding
+
+* What information is included in a request and in a response?  What is the format of this information?
+* Thinking about the Rails apps that you have built - can you label the methods and code that we created today with the Rails tools that accomplishes the same goal?
+* What are query params and how are they sent in a request?
+* What type of requests typically contain a body? How do we access information in that body?
+* When a redirect response is sent, what does that tell a client? Or, how does a client handle that response?
