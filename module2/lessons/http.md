@@ -62,6 +62,50 @@ Metaphor aside, let's run through the protocol as executed by computers:
 
 That's HTTP. At its core, it is a bunch of formatting rules that Clients and Servers use to talk to each other. You can read more on the [wikipedia page](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol) or the [IETF specification](https://tools.ietf.org/html/rfc2616).
 
+### The Request
+
+When you enter `localhost:9292` into your address bar, your browser will build an HTTP Request. Here is what an actual request looks like. Note that it's just a single highly-formatted string:
+
+```
+GET / HTTP/1.1
+Host: 127.0.0.1:9292
+Connection: keep-alive
+Cache-Control: max-age=0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.80 Safari/537.36
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: en-US,en;q=0.8
+```
+
+The parts we're most interested in are:
+
+* The first line, `GET / HTTP/1.1`, which specifies the *verb*, *path*, and *protocol* which we'll pick apart later
+* `Host` which is where the request is sent to
+* `Accept` which specifies what format of data the client wants back in the response
+
+With those pieces of information a typical server can generate a response.
+
+### The Response
+
+The Server generates and transmits a response that looks like this:
+
+```
+http/1.1 200 ok
+date: Sun,  1 Nov 2015 17:25:48 -0700
+server: ruby
+content-type: text/html; charset=iso-8859-1
+content-length: 27
+
+The response body goes here
+```
+
+The parts we're most interested in are:
+
+* The first line, `HTTP/1.1 200 ok`, which has the *protocol* and the *response code*
+* The unmarked lines at the end which make up the *body* of the response
+* `content-length` which tells the client when to stop listening
+
 ## Starting a Server
 
 In this tutorial, we will play the part of both the Server and Client. We will write the server in Ruby, and we will use a web browser, like Chrome or Safari, as the Client.
@@ -82,7 +126,7 @@ TCPServer is the Class we will use to create a new Server.
 
 9292 is the **Port** that the Server runs on. The Port uniquely identifies a program running on a computer. Back to our penpal analogy, imagine your penpal lives in a large apartment building. You have to specify both the street address and the apartment number. In HTTP, we have to specify both the Server and the program within the Server we want to send our Request to.
 
-Nothing is special about the Port we specified, 9292. It is just a number. You could just as easily change this number to 8181. There are some Ports that are special, however. Change the Port from 9292 to 1, run the file, and see what happens.
+Nothing is special about the Port we specified, 9292. It is just a number. You could just as easily change this number to 8181.
 
 Update the file like so:
 
@@ -100,8 +144,6 @@ connection = server.accept
 ```
 
 The last line is telling the server to wait for a Request. When our server gets a Request, we are saving the connection to a variable called `connection`. This connection is an open door between our Server and Client that the Server will use to read the Request and send back the Response. If you run the file now, you should see `Waiting for Request...` printed to your terminal which then hangs. Success! Your Server is now running. Use `ctrl + c` to stop the Server.
-
-
 
 ## Address In Use Errors
 
@@ -130,7 +172,7 @@ kill -9 63015
 
 Run your server file again and everything should be okay.
 
-### Reading the Request
+## Reading the Request
 
 Update your file to look like this:
 
@@ -185,11 +227,11 @@ What got printed to the screen is the **HTTP Request**. It is just a highly form
 
 The first line is called the **Request Line**. It contains:
 
-* The **Verb**, in this case `GET`. The Verb indicates what type of Request are you sending. `GET` is the most basic HTTP Verb. A Get Request is just asking for information. In this tutorial, we will only be concerned with GET Requests.
+* The **Verb**, in this case `GET`. The Verb indicates what type of Request are you sending. `GET` is the most basic HTTP Verb. A Get Request is just asking for information.
 * The **Path**, in this case `/`. The Path specifies where the request should go. Together, the first two words are saying "Get me the information located at `/`".
 * The Protocol, in this case `HTTP/1.1`. It specifies which version of the HTTP protocol we are using.
 
-All of the following lines are **Headers**. The first word is the name of the Header, and everything after is the value of the Header. The first Header is the `host` header that has a value of `localhost:9292`. Notice that this is very similar to a Hash. These Headers are unimportant for this tutorial, but other types of Requests may put critical information in the Headers.
+All of the following lines are **Headers**. The first word is the name of the Header, and everything after is the value of the Header. The first Header is the `host` header that has a value of `localhost:9292`. Notice that this is very similar to a Hash.
 
 ### Generating the Response
 
@@ -397,7 +439,7 @@ def start
 
    # Generate the Response
 
-   response = guess_response(guess, answer)
+   response = generate_response(guess, answer)
 
    # Send the Response
    puts "Sending response."
@@ -552,9 +594,16 @@ X-Frame-Options: SAMEORIGIN
 
 Add functionality to your app to redirect the user to a special Congratulations page when they guess the correct answer. For example, your redirect can send them to `/congrats`.
 
+## Cookies
+
+Right now, every user who visits our app will have the same number they are guessing. For example, if you open up two browsers (like Chrome and Safari), and play the game, you'll notice you'll be playing the same game on both of them.
+
+We can store information for each client in the client's cookies. See if you can update your app to give each client a different number they are guessing. See [this Stack Overflow post](https://stackoverflow.com/questions/3467114/how-are-cookies-passed-in-the-http-protocol) for some more info on setting cookies.
+
 ## Refactor
 
 Now that we have multiple path/verb combinations implemented, let's refactor our app to be more generalized. We'll leave this up to you to decide what direction you take it, but here are some suggestions:
 
 * Make a separate method for each type of response
 * Make a method that takes a verb/path combo and routes it to the appropriate response method.
+* Make request/response objects.
