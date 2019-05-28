@@ -402,7 +402,7 @@ Go to your browser and enter `localhost:9292?guess=50`. You should now be playin
 
 At this point, we have a functioning game, but it could use a refactor. We're going to take a second to refactor:
 
-Start with this file and implement the four empty methods. If working, you should be able to run your server and play the guessing game just like before.
+Start with this file and implement the empty method. If working, you should be able to run your server and play the guessing game just like before.
 
 ```ruby
 # Library that contains TCPServer
