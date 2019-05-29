@@ -64,7 +64,7 @@ Endpoint Specifications
 }
 ```
 
-* 'GET api/v1/olympian_stats'
+* `GET api/v1/olympian_stats`
 
 ```javascript
   {
