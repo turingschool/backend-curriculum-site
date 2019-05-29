@@ -6,8 +6,6 @@ For your Week 6 solo project, you will complete, submit, and defend a 'take home
 
 Your challenge will be sent to you via DM from your instructors. You are welcome to respond to the DM with a couple of clarifying questions, but keep in mind that you are treating this like an actual interview process - the questions should be as clearly and professionally asked as you would in an email, as well as your responses to whatever answer you get. It probably wouldn't be ideal that you attempt to have several back-and-forths with a potential employer - part of what they are looking for in you, especially as a junior, is how much initiative you can take without hand-holding. Not having over-clarification, like you commonly do on curriculum projects, may raise concern for you about 'passing' the project. We have provided a rubric so you know how you will be evaluated, and you know the general expectations at Turing. We are looking for your best work and presentation of yourself and your work. _Build something you are proud of and you will pass._
 
-Another note - at first glance, your challenge may not appear to require the skills you have that you believe to be most valuable. **Be creative** - how can you design an app that meets this criteria AND displays your skills? Without complete over-engineering, it is totally possible to 'spin' the prompt provided to show your technical strengths, we promise. 😊
-
 ## Timeline
 
 The challenge will be due by 8am on Wednesday of Week 6. One of your instructors will meet with you Wednesday morning for you to present what you've built, as you would to a prospective employer in a final interview.
