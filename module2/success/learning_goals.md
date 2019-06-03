@@ -16,114 +16,93 @@ The expected mastery level can be understood with the following scale:
 * **Functional**: student recognizes when to use the concept and can implement it with the support of documentation and/or a collaborator
 * **Familiarity**: student can recognize and describe the concept when needed/appropriate, but is not able to implement the technology/technique
 
-## Changes
 
-* Add
-  * Functional describing ORM
-  * Mastery Migrating
-  * Familiarity Normalization
-  * Familiarity with DNS
-* Reformat
+# Mastery
 
-## Models
+## Web Applications
 
-##### Mastery in the following skills
+* Describe and implement ReSTful routing
+* Describe the HTTP request/response cycle
+* Describe the different parts of HTTP requests and responses
+* Identify the different components of URLs(protocol, domain, path, query params)
 
-- Differences and use cases between a model that inherits from ActiveRecord vs a PORO
-- Class methods vs. instance methods
+## Rails Application Development
 
-## Views
+* Implement CRUD functionality for a resource
+* Describe the MVC design pattern
+* Effectively organize code using a design pattern
+* Implement routes for
+  * standalone resources
+  * nested resources
+  * namespaced routes
+* Describe use cases for a model that inherits from ApplicationRecord vs. a PORO
+* Write feature tests utilizing:
+  * RSpec and Capybara
+  * CSS selectors to target specific areas of a page
+  * Sad Path Testing
+* Write model tests with RSpec including validations, and class and instance methods
+* Describe use cases for a model instance method vs. a model class method
+* Use ActiveRecord associations
+* Template a view in Rails using a templating language (eg, `erb`)
 
-##### Mastery in the following skills
+## Databases
 
-- Template a view in Rails using a templating language (eg, `erb`)
-- How to create a form in a view using Rails, including a form using nested resources and namespacing.
+* Describe Database Relationships, including the following terms:
+  * Foreign Key
+  * Primary Key
+  * One to Many
+  * Many to Many
+  * Join Table
+* Write queries that calculate, select, filter, and order data from a single table
+* Write migrations to create tables and relationships between tables
 
-## Controllers
+# Functional
 
-##### Mastery in the following skills
+## Web Applications
 
-- Understand the controller's role as a dispatcher between client and server
-- Be able to build RESTful CRUD actions: `index`, `show`, `new`, `create`, `edit`, `update`, `destroy`
+* Explain how Cookies are used to create application state
 
+## Rails Application Development
 
-## Routing
+* Use path helpers
+* Make use of flash messages
+* Implement CRUD functionality for nested resources
+* Use sessions to implement login/logout functionality
+* Limit functionality to authorized users
 
-##### Mastery in the following skills
+## Databases
 
-- Understand best use of route helpers and path helpers
+* Write queries to join multiple tables of data, calculate statistics and build collections of data grouped by one or more attributes
+* Design a Database Schema
+* Describe ORMs and their advantages and use cases
+* Write migrations to alter existing database tables
 
-##### Functional in the following skills
+## Styling
 
-- Implement RESTful routes for resources
-- Implement and understand namespace and nested routes
-
-
-## HTTP
-
-##### Mastery in the following skills
-
-- Diagram and explain the HTTP request/response cycle
-
-##### Functional in the following skills
-
-- Understand the different segments of a URL (protocol, domain, path, query params)
-- Understand application state and sessions
-
-##### Familiarity in the following skills
-
-- Understand what headers, body and status codes are in the context of the HTTP Request/Response cycle
-
-
-## Software Testing
-
-##### Mastery in the following skills
-
-- Model testing with RSpec including validations, and class and instance methods
-- Feature testing with RSpec / Capybara
-
-
-## SQL and Database Planning
-
-##### Mastery in the following skills
-
-- Articulately speak to, and be able to diagram, one-to-one, one-to-many, and many-to-many relationships
-
-##### Functional in the following skills
-
-- Be able to design database schemas that represent relationships between resources
-- Writing and executing 'raw' SQL statements that insert, select, calculate, join, order and group
+* Create basic Web Pages using the following tags
+  * `<h1>`, `<h2>`, etc.
+  * `<p>`
+  * `<body>`
+  * `<a>` and the `href` attribute
+  * `<img>` and the `src` attribute
+  * `<div>`
+  * `<section>`
+  * `<ul>`, `<ol>`, and `<li>`
+  * `<form>`
+  * `<input>`
+* Select HTML elements using classes and ids
 
 
-## ActiveRecord
+# Familiar
 
-##### Mastery in the following skills
+## Web Applications
 
-- Have a deep understanding ActiveRecord query methods, including differences between `find` and `where`
-- Deep understanding of how to use ActiveRecord to join multiple tables of data, calculating basic statistics, filtering and sorting of data, and building collections of data grouped by one or more attributes
-- Understand how to CRUD resources with ActiveRecord
-- Create relationships between resources using ActiveRecord
+* Describe how DNS works
 
+## Databases
 
-## HTML, CSS
+* Describe database normalization
 
-##### Functional in the following skills
+## Styling
 
-- Understand basic HTML tags, elements, nodes
-- Target specific HTML content with CSS selectors
-
-##### Familiarity in the following skills
-
-- Basic use and understanding of modern CSS grid systems
-
-
-## General Topics
-
-##### Mastery in the following skills
-
-- Diagram and explain the MVC design pattern in Rails and how data is passed throughout
-
-##### Functional in the following skills
-
-- Be able to implement authentication and authorization within a Rails application
-- Make use of flash messages
+* Basic use and understanding of modern CSS grid systems
