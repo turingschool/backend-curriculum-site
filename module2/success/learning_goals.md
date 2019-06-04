@@ -65,6 +65,7 @@ The expected mastery level can be understood with the following scale:
 ## Rails Application Development
 
 * Use path helpers
+* Implement partials for presentation logic
 * Make use of flash messages
 * Implement CRUD functionality for nested resources
 * Use sessions to implement login/logout functionality
