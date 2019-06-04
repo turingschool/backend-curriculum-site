@@ -27,7 +27,7 @@ The expected mastery level can be understood with the following scale:
 
 ## Rails Application Development
 
-* Implement CRUD functionality for a resource
+* Implement CRUD functionality for a resource using forms (form_tag or form_for), buttons, and links
 * Describe the MVC design pattern
 * Use MVC to organize code effectively, limiting the amount of logic included in views and controllers
 * Create routes for
@@ -36,7 +36,6 @@ The expected mastery level can be understood with the following scale:
   * namespaced routes
 * Describe use cases for a model that inherits from ApplicationRecord vs. a PORO
 * Template a view in Rails using a templating language (eg, `erb`)
-* Use `form_for` to create forms in a Rails view
 * Use path helpers
 
 ## ActiveRecord
