@@ -1,6 +1,6 @@
 title: "Back-End Engineering Curriculum - Turing School of Software and Design"
 description: "Open source curriculum for the Turing School of Software and Design's back end engineering program."
-url: "http://backend.turing.io/"
+url: "https://backend.turing.io/"
 
 baseurl: ''
 permalink: /:title
