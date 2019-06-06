@@ -59,11 +59,11 @@ We are going to be covering various data structures to prepare you for the job h
 
 ### JavaScript/JQuery (What's this JavaScript I keep hearing about?)
 
-[Codecademy Introduction to JavaScript](https://www.codecademy.com/learn/introduction-to-javascript)
+[Eloquent JavaScript](http://eloquentjavascript.net/)
 
 JavaScript is the scripting language of web browsers. During Module 3 we'll start getting our first introductions to JS and we'd like you to work through some basic materials as a preparation.
 
-This JavaScript Course is estimated at 35 hours in length. YOU DO NOT HAVE TO COMPLETE IT. We would suggest that you work on it throughout the next month. It should go more quickly than you expect because you have some programming experience, and this is written for people who do not have experience.
+You are to complete Chapters 1-5 of Eloquent Javascript. 
 
 We are mainly looking for you to get experience with the syntax, and at a minimumum you should understand the JS Data Types, Conditionals, and Looping.
 
@@ -73,7 +73,7 @@ Jquery is a popular javascript library for manipulating the content of web pages
 
 ### Submission
 
-Submit your work here: [Survey Link](https://forms.gle/zir1MVTvs7brafUA9)
+Submit your work here: [Survey Link](https://forms.gle/coP8xGe4r7d2hW2w5)
 
-*It is due Saturday April 29th, at 5pm*
+*It is due Saturday June 22nd, at 5pm*
 
