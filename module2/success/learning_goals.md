@@ -28,6 +28,7 @@ The expected mastery level can be understood with the following scale:
 * Create routes for
   * standalone resources
   * nested resources
+  * non-ReSTful actions
   * namespaced routes
 * Describe use cases for a model that inherits from ApplicationRecord vs. a PORO
 * Template a view in Rails using a templating language (eg, `erb`)
