@@ -10,17 +10,18 @@ In Module 2, we expand upon fundamental Ruby skills by building database-backed 
 
 ## Curriculum
 
-* [Learning Goals](./success/learning_goals)<br>
-* [Intermission Work](./intermission_work)<br>
-* [Lessons](./lessons)<br>
-* [Projects](projects/index)<br>
+* [Learning Goals](./success/learning_goals)
+* [Intermission Work](./intermission_work)
+* [Lessons](./lessons)
+* [Projects](projects/index)
 
 ## Resources
-* [Excercises](resources/index)<br>
+* [Resources](./resources)
+* [Excercises](./exercises)
 
 ## Requirements
-* [Portfolio](./portfolios/portfolio_requirements)<br>
-* [Promotion](./success)<br>
+* [Portfolio](./portfolios/portfolio_requirements)
+* [Promotion](./success)
 * [Mod 2 Professional Development Curriculum](https://github.com/turingschool/career-development-curriculum/tree/master/module_two)
 
 <br>
