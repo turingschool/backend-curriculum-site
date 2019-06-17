@@ -1,3 +1,8 @@
+---
+title: Additional Github
+layout: page
+---
+
 # Cool Git Stuff, and a Reminder to be Professional
 
 ## Learning Goals
@@ -112,7 +117,7 @@ This is **extremely** helpful when rebasing as well, so you can squash all featu
 
 ### Disadvantages
 
-- You lose the incremental work history of how you've built your project. 
+- You lose the incremental work history of how you've built your project.
   - You can still find them in your local work history (sometimes) but work you push to GitHub will lose that history.
 - Hiring managers and tech leads who evaluate your GitHub history may want to see your actual workflow so it doesn't appear that you created all portions of a feature in one "perfect" commit.
 
