@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Models, Migrations, and Databases
+title: ActiveRecord Associations
 tags: migrations, databases, relationships, rails, activerecord
 ---
 
