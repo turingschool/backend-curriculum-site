@@ -7,9 +7,9 @@ layout: page
 ## Database Practice
 
 - [ActiveRecord Obstacle Course](https://github.com/turingschool-projects/activerecord-obstacle-course)
-- [Complex SQL Queries Workshop](http://backend.turing.io/module2/misc/complex_queries)
+- [Complex SQL Queries Workshop](./misc/complex_queries)
 - [PostgreSQL Exercises](https://pgexercises.com/questions/basic/)
-- [SQL Refresher](./sql_refresher)
+- [SQL Refresher](./lessons/sql_refresher)
 
 
 ## Rails Practice
@@ -19,8 +19,8 @@ layout: page
 
 ## Ruby
 
-- [Remembering Ruby](../misc/violations)
+- [Remembering Ruby](./misc/violations)
 
 ## Web Applications
 
-- [Diagramming the Request Response Cycle](./diagramming_request_response_cycle)
+- [Diagramming the Request Response Cycle](./lessons/diagramming_request_response_cycle)
