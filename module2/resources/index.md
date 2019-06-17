@@ -7,13 +7,30 @@ layout: page
 
 - [1 of 8 Intro to Database Series. by Dr. Daniel Soper](https://www.youtube.com/watch?v=4Z9KEBexzcM)
 - [Advanced SQL practice](https://github.com/turingschool/lesson_plans/blob/master/ruby_03-professional_rails_applications/intermediate_sql.md)
+- [Database Normalization and Optimization](../lessons/database_normalization_and_optimization)
+- [Intermediate ActiveRecord](../lessons/intermediate_active_record)
 
+## Rails
+
+- [Callbacks & Refactoring](../lessons/callbacks_and_refactoring)
+- [Intro to the Asset Pipeline](../lessons/asset_pipeline)
+- [Exploration: Shopping Cart Best Practices](../misc/cart_exploration)
+- [Exploration: Authentication/Autorization](../explorations/auth_exploration)
 
 ## Testing
 
+- [Factory Bot](../lessons/factory_bot)
 - [Capybara (software) - Wikipedia](https://en.wikipedia.org/wiki/Capybara_(software))
 - [The Basics of Capybara and Improving your Tests](https://www.sitepoint.com/basics-capybara-improving-tests/)
 - [Testing your App with Capybara](https://github.com/teamcapybara/capybara)
+
+## Git and Github
+
+- [Git Shortcuts and Professionalism](../lessons/additional_github)
+
+## Design
+
+- [Design Principles](../lessons/design_principles)
 
 
 ## HTML, CSS, and Other Styling Resources
@@ -37,3 +54,7 @@ layout: page
 ## Preparing for Module 3
 
 - Experimenting with APIs: Work through [this tutorial and workshop](http://backend.turing.io/module2/misc/exploring_apis_workshop)
+
+## Misc.
+
+- [How To Write a Great README](../lessons/how_to_write_a_great_readme)
