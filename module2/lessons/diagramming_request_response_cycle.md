@@ -13,9 +13,9 @@ tags: ruby, http, request_response_cycle
 ## Structure  
 5 min - Warm Up  
 10 min - Diagram Request/Response  
-20 min - User Stories and the Request/Response Cycle 
+20 min - User Stories and the Request/Response Cycle
 5 min - Break  
-15 min - Large Group Share 
+15 min - Large Group Share
 5 min - Wrap Up
 
 ## Vocabulary  
@@ -32,19 +32,19 @@ tags: ruby, http, request_response_cycle
 
 
 ## The Request Response Cycle
-With a group of 3-4 people, draw out a diagram on a poster of how a client and server interact. 
+With a group of 3-4 people, draw out a diagram on a poster of how a client and server interact.
 
 #### Walk the Room    
 Take a minute to circulate through the room. Mentally compare and contrast the other posters to the diagram made by your own group. What differences do you see? Which details are included that your group forgot?
 
 ** break **
 
-## Following the Bread Crumbs 
+## Following the Bread Crumbs
 Following the user stories listed below, take turns talking through the steps of how the process works starting with the user clicking a button on their browser. Physically utilize the diagram your group created.
 
 
 ```
-As a user, 
+As a user,
 When I visit /songs,
 Then I see a listing of each song, its title, length, and play count
 ```

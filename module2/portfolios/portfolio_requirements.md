@@ -1,4 +1,7 @@
-# M2 Portfolio Requirements
+---
+layout: page
+title: M2 Portfolio Requirements
+---
 
 ## Purpose
 
