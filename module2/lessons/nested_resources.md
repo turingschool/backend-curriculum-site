@@ -5,139 +5,57 @@ title: Nested Resources in Rails
 
 ## Learning Goals
 
-- Understand the `resources` syntax for routes
-- Understand how to use nested resources in Rails
-- Understand when you should use Nested Resources
+- Understand what nested resources are
+- Understand the routes and requests needed to create nested resources
 
-## Warm Up
+## Warm up
 
-Fill out this table for the eight restful actions we could perform on a  `muffin` resource (the first is done for you):
+Discuss with a partner:
 
-| HTTP Verb | URI Pattern | Controller Action | What does it do? |
-| --------- | ----------- | ----------------- | ---------------- |
-| GET | `/muffins` | `muffins#index` | Shows all the muffins |
-| | | | |
-| | | | |
-| | | | |
-| | | | |
-| | | | |
-| | | | |
-| | | | |
+In SetList, when we fill out the form to create a new Artist and click the submit button, what does the resulting request look like? What information does it contain? To what path is it sent? What verb does it use?
 
-## Resources Syntax for Restful Routes
+## Nested Resources
 
-In SetList, open up `routes.rb`. Up until this point, we have been explicitly stating the verb, uri pattern, and controller action for each route (we often refer to this as "handrolling" a route).
+Sometimes in our applications we will have resources that are essentially tied to each other, meaning one cannot exist without the other. We refer to these as **Nested Resources**. In our SetList app, our Song model says that it `belongs_to` an Artist. That means that it has to have an Artist. We say that `Songs` are **nested** under `Artists`. So, for some actions we want to take on a Song, we have to know which Artist it belongs to.
 
-Rails gives us a shortcut for defining restful routes. Update the `routes.rb` file to:
-
-```ruby
-Rails.application.routes.draw do
-  resources :songs
-end
-```
-
-Run `rake routes` and compare this output to the table you filled out in the warm up.
-
-Whenever we are defining routes, we only want to expose routes that we need. We can do that with an `only` argument:
-
-```ruby
-resources :songs, only: [:index, :show]
-```
-
-Run `rake routes`. What did this do?
-
-We can do the same thing with `except`:
-
-```ruby
-resources :songs, except: [:index, :show]
-```
-
-Run `rake routes`. What did this do?
-
-It is important to note that the `resources` syntax only creates restful routes. If you need a non restful route, you will have to handroll it.
-
-### Practice
-
-Recreate the handrolled routes in SetList using the `resources` syntax.
-
-# Nested Resources
-
-## Background
-
-Read [this](http://guides.rubyonrails.org/routing.html#nested-resources) section of the Rails routing documentation and discuss with the person next to you.
-
-To be brief, any time we need to know one resource in order to create a different kind of resource, that's a good signal to use nested resources.
-
-## Creating a New Song for an Artist
-
-In SetList, we want users to be able to create new songs, but we have to know which artist the song is being created for. We're going to utilize nested resources to accomplish this.
-
-Our application will need these routes to create a song:
+In SetList, we want users to be able to create new songs, but we have to know which artist the song is being created for. So, when we send a request to create a new song, we will use these routes:
 
 ```
 GET  /artists/:artist_id/songs/new   #new song form
 POST /artists/:artist_id/songs       #create a song
 ```
 
-### Practice
-
-Change your routes file to:
-
-```ruby
-# config/routes.rb
-Rails.application.routes.draw do
-  resources :artists do
-    resources :songs
-  end
-end
-```
-
-Run `rake routes`. With a partner, discuss:
-
-* What routes did this give us?
-* Did this generate the routes we need to create a new song?
-
-Now change the routes to:
-
-```ruby
-# config/routes.rb
-Rails.application.routes.draw do
-  resources :artists do
-    resources :songs, shallow: true
-  end
-end
-```
-
-Run `rake routes` again. With a partner, discuss:
-
-* How does this differ from what was generated without shallow: true?
-* Did this generate the routes we need to create a new song?
-
 ## Writing the test
 
 ```ruby
 # spec/features/songs/new_spec.rb
 
-artist = Artist.create(name: "Journey")
-title = "Don't Stop Believin'"
-length = 231
-play_count = 7849
+require 'rails_helper'
 
-visit new_artist_song_path(artist)
+RSpec.describe "creating a new song" do
+  it "can create a song" do
+    artist = Artist.create(name: "Journey")
+    title = "Don't Stop Believin'"
+    length = 231
+    play_count = 7849
 
-fill_in :song_title, with: title
-fill_in :song_length, with: length
-fill_in :song_play_count, with: play_count
+    visit "/artists/#{artist.id}/songs/new"
 
-click_on "Create Song"
+    fill_in "song[title]", with: title
+    fill_in "song[length]", with: length
+    fill_in "song[play_count]", with: play_count
 
-new_song = Song.last
+    click_on "Create Song"
 
-expect(current_path).to eq(song_path(new_song))
-expect(page).to have_content(title)
-expect(page).to have_content(length)
-expect(page).to have_content(play_count)
-expect(page).to have_content(artist.name)
+    new_song = Song.last
+
+    expect(current_path).to eq("/songs/#{new_song.id}")
+    expect(page).to have_content(title)
+    expect(page).to have_content(length)
+    expect(page).to have_content(play_count)
+    expect(page).to have_content(artist.name)
+  end
+end
 ```
 
 Discuss with the person next to you:
@@ -145,42 +63,18 @@ Discuss with the person next to you:
 * What route are we visiting?
 * What should happen when we click submit?
 
-When we run the test, we see that our path helper is undefined.
+When we run the test, we see that no route exists for our new song form.
 
 ## Creating the Nested Routes
 
-First, let's nest our Songs inside Artists:
+Let's add that nested route now:
 
 ```ruby
 # config/routes.rb
-resources :artists do
-  resources :songs
-end
+get '/artists/:artist_id/songs/new', to: 'songs#new'
 ```
 
 Run `rake routes` and examine what routes this generated for us.
-
-If you run only the new test, you'll see that we did indeed fix the undefined path helper error, but if you run all the tests you'll notice that many of them are broken. This is because *all* our routes for Songs are now dependent on an Artist. We've lost our Songs index and show pages. Let's fix this using `only`/`except`:
-
-```ruby
-resources :artists do
-  resources :songs, only: [:new]
-end
-
-resources :songs, only: [:index, :show]
-```
-
-In order to only expose the   we need, we'll add an `only` to `:artists`:
-
-```ruby
-resources :artists, only: [:new, :create, :show] do
-  resources :songs, only: [:new]
-end
-
-resources :songs, only: [:index, :show]
-```
-
-In this case, we're not using the `shallow: true` syntax since that will generate  an `index` route that is also nested. This would mean that our songs index pages only show songs for a specific artist. Since we want to keep our index page for *all* songs, we will skip the `shallow: true` syntax.
 
 ## Creating the Form
 
@@ -201,85 +95,49 @@ Next we'll get a missing template error, so go create the view:
 touch app/views/songs/new.html.erb
 ```
 
-Now the tests are telling us that it can find the form fields.
+Now the tests are telling us that it can't find the form fields.
 
-### `form_for` with an un-nested resource
+## Creating the Form
 
-Let's try to create a new form with the pattern we've seen before. In the `songs_controller`:
-
-```ruby
-def new
-  @song = Song.new
-end
-```
-
-and in `new.html.erb`:
+First, let's think about where we want this path to submit. Thinking back to our discussion at the beginning, what verb/path combo should we use?
 
 ```erb
-<%= form_for @song do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-
-  <%= f.label :title %>
-  <%= f.number_field :length %>
-
-  <%= f.label :title %>
-  <%= f.number_field :play_count %>
-
-  <%= f.submit %>
+<%= form_tag("/artists/#{@artist_id}/songs", method: :post) do %>
 <% end %>
 ```
 
-Run this test and we'll get this error:
-
-```
-ActionController::RoutingError:
-  No route matches [POST] "/songs"
-```
-
-This error is happening in our tests when we try to submit the form.
-
-`form_for` is using the object passed to it as an argument to determine where to submit the form. In this case, the object passed to it is `@song` which was defined in our controller as `Song.new`. It first builds a path helper to determine the path to submit. Since `@song` is an instance of `Song`, it builds `songs_path` as the path helper. `form_for` is also determining that since this is a new Song (a song without an id), it should be a `POST` request. That's where `No route matches [POST] "/songs"` is coming from.
-
-`POST /songs` is not what we want. Where we really want the form to submit is `POST /artists/:artist_id/songs`.
-
-### `form_for` with Nested Resources
-
-When creating a `form_for` a nested resource, we need to pass **BOTH** the  resource we are trying to create as well as the nested resource. We'll provide them in an array as an argument:
-
-```erb
-<%= form_for [@artist, @song] do |f| %>
-```
-
-This array HAS to be in the correct order! We can use `rake routes` as a debugger to show us in the prefix what order these need to be!
-
-We'll also have to define `@artist` in our controller. We should have access to the Artist id in our path because of our nested routes which we can access through `params`. Run `rake routes` to figure out the name of this parameter.
+Notice that we have used `@artist_id` in the path, so let's add that instance variable to our action. Where does that information come from? From the path! Take a look back at `routes.rb` to remind yourself what the route to show this form looks like.
 
 ```ruby
 def new
-  @song = Song.new
-  @artist = Artist.find(params[:artist_id])
+  @artist_id = params[:artist_id]
 end
 ```
 
-Now when we run the test, we get:
+If we run the test again, we'll still get our error for missing fields, so let's add those fields:
 
+```erb
+<%= label_tag "Title" %>
+<%= text_field_tag "song[title]" %>
+
+<%= label_tag "Length" %>
+<%= number_field_tag "song[length]" %>
+
+<%= label_tag "Play Count" %>
+<%= number_field_tag "song[play_count]" %>
+
+<%= submit_tag "Create Song"%>
 ```
-ActionView::Template::Error:
-      undefined method `artist_songs_path' for #<#<Class:0x00007fa78a335480>:0x00007fa78a4581f0>
-```
 
-Since we are now passing an array of two objects to `form_for`, it is trying to use both of them to build the path helper to submit the form. An Artist object plus a Song object builds `artist_songs_path` as the path to submit to. We can create this route (and the corresponding path helper) in our `routes.rb` file by adding `:create` to our nested songs routes:
-
-```ruby
-resources :artists, only: [:new, :create, :show] do
-  resources :songs, only: [:new, :create]
-end
-```
-
-Now we can an error for undefined action `create`.
+Now when we run the test, we'll see no route matches when we submit the form.
 
 ## Creating the New Song
+
+Let's add the route to create a song:
+
+```ruby
+post '/artists/:artist_id/songs', to: 'songs#create'
+```
 
 Let's add our create action:
 
@@ -292,68 +150,98 @@ end
 Running the test will give us:
 
 ```
-ActionController::UrlGenerationError:
-       No route matches {:action=>"show", :controller=>"songs", :id=>nil}, possible unmatched constraints: [:id]
+NoMethodError:
+      undefined method `id' for nil:NilClass
 ```
 
-Looking closely at this error, we can see that we're trying to go to a song show page, but the `id` is `nil`. The error is even giving us a hint in `possible unmatched constraints: [:id]`. Looking at the stack trace, this happening on this line in our test:
+Follow the stack trace for this error to figure why this is happening.
+
+We haven't actually created our Song, so let's do that in our Songs controller. As always with handling form data, we are going to use strong params:
 
 ```ruby
-new_song = Song.last
-
-expect(current_path).to eq(song_path(new_song))
-```
-
-Since we haven't actually created `new_song` yet, we don't have any Songs in our db, and so `Song.last` is giving us nothing. Let's actually create the song. First, we'll need to find the artist associated with this song to properly set up the relationship. This is why it is so important that our route is nested.
-
-```ruby
-def create
-  artist = Artist.find(params[:artist_id])
-  artist.songs.create(song_params)
-end
-
 private
 
-def song_params
-  params.require(:song).permit(:title, :length, :play_count)
+  def song_params
+    params.require(:song).permit(:title, :length, :play_count)
+  end
+```
+
+Let's try to create our Song with these strong params:
+
+```ruby
+def create
+  song = Song.create!(song_params)
 end
 ```
 
-As always, we are using **strong params** when accessing our form data.
+Notice how we are using `create!` rather than `create`. The bang (`!`) will give us an error if our creation is unsuccessful, which is useful when developing. It is always a good idea to start with `create!` first to make sure everything is working correctly.
 
-Run this test, and we will get:
+Run the test and, sure enough, our Song was not created successfully. Our error should be
 
 ```
-Failure/Error: expect(current_path).to eq(song_path(new_song))
-
-     expected: "/songs/495"
-          got: "/artists/295/songs"
+ActiveRecord::RecordInvalid:
+      Validation failed: Artist must exist
 ```
 
-We're no longer getting that `nil` id in our route, so our Song has been successfully created. The last thing we need to do is redirect our user to the song show page:
+Finally, we are seeing the implications of our nested resources. A Song can't exist on its own, it needs an artist. This is why we've been passing the `artist_id` in our path:
 
 ```ruby
 def create
   artist = Artist.find(params[:artist_id])
-  song = artist.songs.create(song_params)
-  redirect_to song_path(song)
+  song = artist.songs.create!(song_params)
 end
 ```
 
-## Checking our work in Development Mode:
+Run the test again and we no longer get an error that our Song couldn't be created, so it looks like that is working.
 
-Creating a New Song via `localhost:3000`
+Now we get a failure in our test saying the path is wrong, so all that's left to do is redirect the request:
+
+```ruby
+def create
+  artist = Artist.find(params[:artist_id])
+  song = artist.songs.create!(song_params)
+  redirect_to "/songs/#{song.id}"
+end
+```
+
+It is important to note that the way we've set up the relationship is not the only way to do it. For instance, we don't **have** to find the Artist object to set up the relationship. We could manually use the artist's id to associate it with the song:
+
+```ruby
+def create
+  song = Song.new(song_params)
+  song.artist_id = params[:artist_id]
+  song.save!
+  redirect_to "/songs/#{song.id}"
+end
+```
+
+In this case, we have to first do `Song.new`, then change the artist_id, then save the song. `create` will do a `new/save` all at once.
+
+As usual, there are many ways of doing something in Rails. You should be comfortable with using either of these two options we've shown here.
+
+## Checking our work in Development Mode:
 
 * Be sure you have at least one artist in your database (use `rails console` if you need to)
 * Run `rails s`
 * Visit `/artists/1/songs/new`
+* See if it works!
+
+## Independent Practice
+
+Write a test and implement the code for an Artist's Song index page. This page will show all the songs for a particular artist. It should use this route: `get /artists/:artist_id/songs`.
 
 # Checks for Understanding
 
 Turn and talk to your neighbor and discuss:
 
-* When would you use a nested resource?
-* How do you nest a resource in your routes file?
-* How does that change your routes?
-* What does it mean to use shallow nesting? Why would you do this?
-* What changes do you need to make in your controller when you nest a resource?
+* What is a nested resource?
+* What does the route look like for a nested resource?
+* Consider the following features we could add in our app:
+  * show a song
+  * show all songs
+  * delete a song
+  * show a particular artist's songs
+  * create a song
+  * update a song
+
+Which of them would require a nested route?
