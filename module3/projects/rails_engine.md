@@ -186,7 +186,7 @@ Note: Although this search returns one record, it comes back in an array.
 
 Returns a random resource.
 
-`api/v1/merchants/random.json`
+`api/v1/merchants/random`
 
 ```json
 {
