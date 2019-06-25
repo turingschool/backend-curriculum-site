@@ -49,7 +49,7 @@ namespace (e.g. `/api/v1/merchants.json`)
 
 ##### Request URL
 
-  `GET /api/v1/merchants.json`
+  `GET /api/v1/merchants`
 
 ##### JSON Output
 
@@ -89,7 +89,7 @@ renders a JSON representation of the appropriate record:
 
 ##### Request URL
 
-`GET /api/v1/merchants/1.json`
+`GET /api/v1/merchants/1`
 
 ##### JSON Output
 
