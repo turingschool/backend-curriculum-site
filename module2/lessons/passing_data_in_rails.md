@@ -6,16 +6,19 @@ length: 180
 
 ## Learning Goals
 * Understand how a user specifies a particular resource for a show page
-* Implement `form_for` to create a new resource
+* Implement `form_tag` to create a new resource
+* Implement `form_tag` to update a new resource
+* Implement `link_to` to destroy a resource
 * Define Query Parameters
 
 ## Vocabulary
-* `form_for`
+* `form_tab`
+* `link_to`
 * query parameters
 
 ## WarmUp
 
-* With a partner, review your TaskManager app and walk through how a new task is created by a user.
+* With a partner, review your TaskManager app and walk through how a new task is created by a user
 
 ## Getting Data from Users
 
@@ -170,14 +173,17 @@ RSpec.describe 'New Artist' do
   describe 'As a visitor' do
     describe 'When I visit the new artist form' do
       it 'I can create a new artist' do
-        visit '/artists/new'
+        visit '/artists'
+
+        click_link 'New Artist'
+
+        expect(current_path).to eq('/artists/new')
 
         fill_in 'Name', with: 'Megan'
         click_on 'Create Artist'
 
-        new_artist = Artist.last
-
-        expect(current_path).to eq("/artists/#{new_artist.id}")
+        expect(current_path).to eq("/artists")
+        expect(page).to have_content('Megan')
       end
     end
   end
@@ -187,12 +193,30 @@ end
 Use TDD and what we know about Rails so far to TDD until you reach the following error:
 
 ```
+Failure/Error: click_link 'New Artist'
+
+Capybara::ElementNotFound:
+  Unable to find link "New Artist"
+# ./spec/features/artists/new_spec.rb:9:in `block (4 levels) in <top (required)>'
+```
+
+What is this error telling us?  We don't have a link on our index page!  Let's go ahead and include that link in our `views/artists/index.html.erb`:
+
+```erb
+<%= link_to 'New Artist', '/artists/new' %>
+```
+
+**link_to** is a method that Rails gives us, which we can use to create html links.  link_to takes 2 or more arguments; the first is the label the link should have (what a user sees), and the second is the path the link should request.  A link defaults to use the verb (or method) `GET`.
+
+Run the tests again, and use TDD and what we know so far to implement code until you reach the following error:
+
+```
 1) New Artist As a visitor When I visit the new artist form I can create a new artist
    Failure/Error: fill_in 'Name', with: 'Megan'
 
    Capybara::ElementNotFound:
      Unable to find field "Name" that is not disabled
-   # ./spec/features/artists/new_spec.rb:9:in `block (4 levels) in <top (required)>'
+   # ./spec/features/artists/new_spec.rb:13:in `block (4 levels) in <top (required)>'
 ```
 
 You should now have a route for `get '/artists/new', to: 'artists#new'`, an `ArtistsController`, a `new` action in that controller and a view for `view/artists/new.html.erb`.  Now its time to build out our form!
@@ -209,58 +233,51 @@ Looking back at your Task Manager from the intermission work, we see a form that
 </form>
 ```
 
-We could use this same form structure to build out our new artist form; but, wouldn't it be nice if rails gave us some help so we didn't have to build this form by hand?  The good news is, it does!  Rails gives us `form_for` to help us build forms:
+We could use this same form structure to build out our new artist form; but, wouldn't it be nice if rails gave us some help so we didn't have to build this form by hand?  The good news is, it does!  Rails gives us `form_tag` to help us build forms:
 
 
 ```erb
-<%= form_for Artist.new do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+<%= form_tag '/artists' do %>
+  <%= label_tag :name %>
+  <%= text_field_tag :name %>
 
-  <%= f.submit %>
+  <%= submit_tag 'Create Artist' %>
 <% end %>
 ```
 
 Much simpler, right? But do we still have all the information we need? Let's break it down, line by line.
 
-The first line in our HTML form for tasks `<form action="/tasks" method="post">` tells the form the verb and path it should request when the form is submitted.  In `form_for`, Rails will build out this path based on the object that you pass it, in this case `Artist.new`; because we are passing the form a new (but empty) Artist, Rails will assume that we will want to `POST` to `/artists` based on the conventions of ReSTful routes.
+The first line in our HTML form for tasks `<form action="/tasks" method="post">` tells the form the verb and path it should request when the form is submitted.  In `form_tag`, Rails assumes that you are making a `POST` request to the path provided as an argument to the form_for method; in this case, '/artists'.
 
-The next line, `<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">`, is a security setting that Rails requires on all forms, and `form_for` gives us this out of the box.
+The next line, `<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">`, is a security setting that Rails requires on all forms, and `form_tag` gives us this out of the box.
 
 The next three lines set up what a user sees in and around an input area, and the button to submit the form.  These three lines are replaced with:
 
 ```erb
-<%= f.label :name %>
-<%= f.text_field :name %>
+<%= label_tag :name %>
+<%= text_field_tag :name %>
 
-<%= f.submit %>
+<%= submit_tag 'Create Artist' %>
 ```
 
-Now that we have a better understanding of `form_for`, let's run our test and we should be getting the following error:
+Now that we have a better understanding of `form_tab`, let's run our test and we should be getting the following error:
 
 ```
-Failure/Error: <%= form_for Artist.new do |f| %>
+Failure/Error: click_on 'Create Artist'
 
-     ActionView::Template::Error:
-       undefined method `artists_path' for #<#<Class:0x007f83a7bae988>:0x007f83a7b96c98>
-       Did you mean?  artists_new_path
-     # ./app/views/artists/new.html.erb:1:in `_app_views_artists_new_html_erb___3306135970899696149_70101715771920'
-     # ./spec/features/artists/new_spec.rb:7:in `block (4 levels) in <top (required)>'
-     # ------------------
-     # --- Caused by: ---
-     # NoMethodError:
-     #   undefined method `artists_path' for #<#<Class:0x007f83a7bae988>:0x007f83a7b96c98>
-     #   Did you mean?  artists_new_path
-     #   ./app/views/artists/new.html.erb:1:in `_app_views_artists_new_html_erb___3306135970899696149_70101715771920'
+ActionController::RoutingError:
+  No route matches [POST] "/artists"
+# ./spec/features/songs/index_spec.rb:26:in `block (4 levels) in <top (required)>'
 ```
 
-Yikes! What does this mean?  It means that rails is trying to build a form to post to a route that doesn't exist. So, let's go make that route:
+What does this mean?  It means that rails is trying to build a form to post to a route that doesn't exist. So, let's go make that route:
 
 ```ruby
 Rails.application.routes.draw do
 
   get '/songs', to: 'songs#index'
   get '/songs/:id', to: 'songs#show'
+  get '/artists', to: 'artists#index'
   get '/artists/new', to: 'artists#new'
   post '/artists', to: 'artists#create'
 end
@@ -270,6 +287,9 @@ Now, let's add the `create` action to our controller, and put a pry in that meth
 
 ```ruby
 class ArtistsController < ApplicationController
+  def index
+  end
+
   def new
   end
 
@@ -303,20 +323,20 @@ class ArtistsController < ApplicationController
 
   private
   def artist_params
-    params.require(:artist).permit(:name)
+    params.permit(:name)
   end
 end
 ```
 
-Woah, where did this `artist_params` method come from?  Why couldn't we just use `Artist.create(params[:artist])`?  Let's try it and see what happens... errors!  Rails is trying to protect us from malicious users by not allowing us to drop our `params[:artist]` sub-hash directly into a new object in our database, so we need to create a method that is often referred to as **strong params** to effectively use the information we are getting from our form to create a new object.
+Woah, where did this `artist_params` method come from?  Why couldn't we just use `Artist.create(params)`?  Let's try it and see what happens... errors!  Take a closer look at that `params` object, using a `binding.pry` - at the very end, you will see `permitted: false`.  This means that we cannot use the params 'hash' directly to create or update records in our database. Rails is trying to protect us from malicious users by not allowing us to drop our `params[:artist]` sub-hash directly into a new object in our database, so we need to create a method that is often referred to as **strong params** to effectively use the information we are getting from our form to create a new object.
 
-Go ahead and run the test again, and let's see if we've got a passing test. Not yet - we need to tell our create action where to redirect to after creating the artist!  Based on our User Story, we want it to redirect to that artists show page, so let's add the following to make that happen:
+Go ahead and run the test again, and let's see if we've got a passing test. Not yet - we need to tell our create action where to redirect to after creating the artist!  Based on our User Story, we want it to redirect to that artists index page, so let's add the following to make that happen:
 
 ```ruby
 # app/controllers/artists_controller.rb
 
 class ArtistsController < ApplicationController
-  def show
+  def index
   end
 
   def new
@@ -324,12 +344,12 @@ class ArtistsController < ApplicationController
 
   def create
     artist = Artist.create(artist_params)
-    redirect_to "/artists/#{artist.id}"
+    redirect_to '/artists'
   end
 
   private
   def artist_params
-    params.require(:artist).permit(:name)
+    params.permit(:name)
   end
 end
 ```
@@ -340,9 +360,9 @@ Rails.application.routes.draw do
 
   get '/songs', to: 'songs#index'
   get '/songs/:id', to: 'songs#show'
+  get '/artists', to: 'artists#index'
   get '/artists/new', to: 'artists#new'
   post '/artists', to: 'artists#create'
-  get '/artists/:id', to: 'artists#show'
 end
 ```
 
@@ -350,43 +370,180 @@ end
 touch app/views/artists/show.html.erb
 ```
 
-Your test should now be passing - you have successfully created a new object with `form_for`!
+We are getting so close!  Run our tests again, and you will see that capybara is unable to find that new artist's information on the index page.  Let's make sure we are displaying that information:
 
-BUT - before we move on, let's clean things up a bit so that we are sticking to MVC.  Right now, in our `app/views/artists/new.html.erb`, we are making a call directly from a view to our database by using `Artist.new`. Let's refactor so that our form is relying on an instance variable that our controller sends down to it:
+```erb
+<%= link_to 'New Artist', '/artists/new' %>
+
+<% @artists.each do |artist| %>
+  <h2><%= artist.name %></h2>
+<% end %>
+```
+
+And since we are iterating over `@artists`, we will need to define that in our `artists#index` action as `@artists = Artist.all`
+
+Your test should now be passing - you have successfully created a new object with `form_tag`!
+
+## Destroying an Artist
+
+Now that we have used a form to manipulate data in our database, let's take a look at how a link or button could be used to manipulate data.  To illustrate this, let's implement a button that will allow a user to destroy an artist from the database.
+
+```
+As a visitor
+When I visit the artists index page
+And click a button 'Delete' next to an artist
+Then I am redirected back to the artists index page
+And I no longer see that artist
+```
 
 ```ruby
-class ArtistsController < ApplicationController
-  def show
-  end
+require 'rails_helper'
 
-  def new
-    @artist = Artist.new
-  end
+RSpec.describe 'As a Visitor' do
+  it 'I can delete an artist' do
+    talking_heads = Artist.create(name: 'Talking Heads')
 
-  def create
-    artist = Artist.create(artist_params)
-    redirect_to "/artists/#{artist.id}"
-  end
+    visit '/artists'
 
-  private
-  def artist_params
-    params.require(:artist).permit(:name)
+    click_button 'Delete'
+
+    expect(current_path).to eq('/artists')
+    expect(page).to_not have_content(talking_heads.name)
+    expect(page).to_not have_button('Delete')
   end
 end
 ```
 
+What do you think your first error is going to be?
+
+Run your tests, were you right?  Capybara can't find a button called 'Delete'.  Rails gives us a method for creating buttons - **button_to**.  button_to works just like link_to, with one big difference; the default verb (or method) for button_to, is `POST`.  So, in order to be more explicit with what we want our button to do, we will want to override the default method to `DELETE` (DELETE is the common verb used when we need to Destroy something from a database).
+
+
 ```erb
-# app/views/artists/new.html.erb
+<%= link_to 'New Artist', '/artists/new' %>
 
-<%= form_for @artist do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-
-  <%= f.submit %>
+<% @artists.each do |artist| %>
+  <h2><%= artist.name %></h2>
+  <%= button_to 'Delete', "/artists/#{artist.id}", method: :delete %>
 <% end %>
 ```
 
-Much better!
+Now, we have a button that indicates which artist we are going to delete by giving our path an artist id.
+
+Can you guess what our next error is going to be?
+
+Run your tests, and you should see something like this:
+
+Failure/Error: click_button 'Delete'
+
+```
+ActionController::RoutingError:
+  No route matches [DELETE] "/artists/34"
+# ./spec/features/artists/delete_spec.rb:9:in `block (2 levels) in <top (required)>'
+```
+
+No problem - we have seen errors like this before; our application doesn't know how to handle this request, so let's update our routes.rb:
+
+```ruby
+# config/routes.rb
+Rails.application.routes.draw do
+
+  get '/songs', to: 'songs#index'
+  get '/songs/:id', to: 'songs#show'
+  get '/artists', to: 'artists#index'
+  get '/artists/new', to: 'artists#new'
+  post '/artists', to: 'artists#create'
+  delete '/artists/:id', to: 'artists#destroy'
+end
+```
+
+Now, we have a route which will respond to a `DELETE` with the path of `'/artists/2' or 'artists/45'` where 2 and 45 are ids of existing artists.
+
+Finally, our test will tell us to go create that `destroy` action on our artists controller:
+
+```ruby
+# app/controllers/artists_controller.rb
+
+class ArtistsController < ApplicationController
+  def index
+  end
+
+  def new
+  end
+
+  def create
+    artist = Artist.create(artist_params)
+    redirect_to '/artists'
+  end
+
+  def destroy
+    Artist.destroy(params[:id])
+    redirect_to '/artists'
+  end
+
+  private
+  def artist_params
+    params.permit(:name)
+  end
+end
+```
+
+Now, we should have a passing test!
+
+
+## Edit Artist Form
+
+Now that we have created an artist with `form_tag`, and used a button to send a `DELETE` request (overriding its default method), we are ready to tackle updating an artist using form_tag.  Thinking back to the explanation of form_tag, we know that it will always default to making a `POST` request, but when updating something in our database, the common verb that we use is `PATCH`.  Keep this in mind as you build out the following user story and test:
+
+```
+As a visitor
+When I visit the artists index
+And click 'Edit' next to an artist
+Then I am taken to an edit artist form
+When I enter a new name for the artist
+And click a button to 'Update Artist'
+Then I am redirected back to the artists index
+And I see the updated name
+```
+
+```ruby
+# spec/features/artists/edit_spec.rb
+
+require 'rails_helper'
+
+RSpec.describe 'New Artist' do
+  describe 'As a visitor' do
+    describe 'When I visit the artists index' do
+      it 'I can update an artist' do
+        beatles = Artist.create(name: 'Beatles')
+
+        visit '/artists'
+
+        click_link 'Edit'
+
+        expect(current_path).to eq('/artists/edit')
+
+        fill_in 'Name', with: 'The Beatles'
+        click_on 'Create Artist'
+
+        expect(current_path).to eq("/artists")
+        expect(page).to have_content('The Beatles')
+      end
+    end
+  end
+end
+```
+
+See if you can get this test passing without looking at the hint below.
+
+<br>
+<br>
+<br>
+
+
+Hint: The first line of your form will likely include something like this `form_tag "/artists/#{@artist.id}", method: :patch`
+
+If you haven't quite been able to make this update work, check in with your instructor's repo later today - we will post a solution for updating an artist.
 
 ## Query Params
 
@@ -412,5 +569,5 @@ Now, our params include the key/value pair from the query params and we can use 
 ## Checks for Understanding
 
 1. What is the syntax for creating a route for a show page for a `zebra` resource?
-1. How does `form_for` know what method/path combination to use when submitted?
+1. How does `form_tag` know what method/path combination to use when submitted?
 1. What is a query parameter, and how do we identify one within a URL?
