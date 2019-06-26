@@ -23,24 +23,24 @@ layout: page
 
 ## Warm Up
 
-Take 5 minutes to do some research with your partner on the `setTimeout` Web API. Feel free to go straight to the docs, or use this code snippet below to play around with it in the console. (You can copy and paste it into the console tab of the browser!). During this time, only one computer should be open.
+* What is your version of a ten second history of JavaScript? Where did it start?
+* Review the code below:
 
 ```js
 function waitTwoSeconds() {
   console.log("I am starting to wait...");
   setTimeout(function() {
-    console.log("I've waited two seconds");  
+    console.log("I've waited two seconds");
   }, 2000);
+  console.log("Done waiting.")
 }
 
 waitTwoSeconds();
 ```
 
-- What does `setTimeout` do?
-- In the snippet above...
-    * which `console.log` will print first?
-    * Will they both print immediately? Why or why not? If not, how long will we have to wait?
-
+* What do you expect the output to be?
+* Type the code into a file called `async.js` and run it using `node async.js`
+* What happens? How could you use this behavior to your advantage? What might be some pitfalls?
 
 ### Synchronous vs. Asynchronous
 
