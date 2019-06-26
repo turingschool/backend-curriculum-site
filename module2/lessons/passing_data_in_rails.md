@@ -42,7 +42,7 @@ And I do not see any of the other songs in my database
 First, a test!
 
 ```ruby
-# spec/features/songs/show.html.erb
+# spec/features/songs/show_spec.rb
 
 require 'rails_helper'
 
@@ -523,7 +523,7 @@ RSpec.describe 'New Artist' do
 
         click_link 'Edit'
 
-        expect(current_path).to eq('/artists/edit')
+        expect(current_path).to eq("/artists/#{beatles.id}/edit")
 
         fill_in 'Name', with: 'The Beatles'
         click_on 'Create Artist'
