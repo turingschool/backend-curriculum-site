@@ -67,6 +67,17 @@ Query params are sent to the server as part of the URL itself.  A URL can (and u
 
 The "Domain", "Path", and "Query String" combined indicate a unique "identifier" for a resource, and all three of these pieces are a "URI".
 
+### How do We Create Requests
+
+Requests are created in 4 main ways:
+- Through a browser address bar
+    - Always a `GET` request
+    - Query Params must be hand-typed
+- Links or Buttons
+    - The developer decides what Verb, Path and Query Params are included
+- Form submission
+    - Developer decides on Verb and Path
+    - User inputs information to be included in the body of the request
 
 ## HTTP Response
 
