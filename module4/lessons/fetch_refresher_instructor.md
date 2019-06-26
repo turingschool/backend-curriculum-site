@@ -19,6 +19,10 @@ Have the following tabs open in browser:
 
 Prep a message to cohort with Hedgehog Party Repo - https://github.com/turingschool-examples/fetch-hedgehog-party
 
+## Slides
+
+* Available [here](../slides/fetch)
+
 ## Learning Goals
 
 By the end of this lesson, you will ...

@@ -25,6 +25,10 @@ layout: page
 - Print out Starbucks customer roles/functions, cut in strips
 - Print out and cut up the 4 "Experiments in Ordering" code snippets
 
+## Slides
+
+* Available [here](../slides/async_js_and_promises)
+
 ## Warm Up
 
 Take 4 minutes to do some research with your partner on the `setTimeout` Web API. Feel free to go straight to the docs, or use this code snippet below to play around with it in the console. (You can copy and paste it into the console tab of the browser!). During this time, only one computer should be open.
