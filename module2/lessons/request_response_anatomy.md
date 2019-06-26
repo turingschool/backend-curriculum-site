@@ -21,6 +21,7 @@ layout: page
 
 - What is included in the Request Line (the first line) of an HTTP request?
 - What are the 5 common HTTP verbs? And, which CRUD actions do they correspond to?
+- In your notebooks, diagram the request/response cycle.
 
 
 ## HTTP Requests and Responses
