@@ -61,6 +61,9 @@ A `Round` should respond to the following interaction pattern:
 pry(main)> require './lib/card'
 #=> true
 
+pry(main)> require './lib/turn'
+#=> true
+
 pry(main)> require './lib/deck'
 #=> true
 
