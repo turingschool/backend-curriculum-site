@@ -16,7 +16,7 @@ You are going to build a calorie tracker using Javascript. You'll primarily be u
 
 ## Requirements Overview
 
-You will be creating a fully-tested Express API that users will utilize to track calories in meals that they eat. You can use [this](https://github.com/turingschool-examples/qs-fe-starter-kit) as a starter kit.
+You will be creating a tested Express API that users will utilize to track calories in meals that they eat. You can use [this](https://github.com/turingschool-examples/qs-fe-starter-kit) as a starter kit.
 
 You may also use [this Webpack starter kit](https://github.com/wbkd/webpack-starter). This one may be a bit more robust than the one we have provided above. It includes more configuration for transpiling, linting, and environment-specific configuration.  
 
@@ -24,7 +24,7 @@ You may also use [this Webpack starter kit](https://github.com/wbkd/webpack-star
 
 ## Back End Features
 
-For your Express back end:
+For your Express backend:
 
 - You'll use the given Webpack starter pack to get started. Run through the setup instructions and fire up the application.
 - Create an agile board and write stories for each of your endpoints. Choose between Github Projects, Waffle, or Trello. Use [this as a reference point](https://www.pivotaltracker.com/blog/principles-of-effective-story-writing-the-pivotal-labs-way) on how to write effective stories. We'll go into more detail on this.  
@@ -227,11 +227,11 @@ This deletes the existing record in the MealFoods table that creates the relatio
 
 If successful, this request will return a 204 status code.
 
-## Required extension (week 2):
+## Week 2 Choose your own adventure from the following two options: 
 
-### Recipes with the Edamam API - Microservice
+## Option 1: Recipes with the Edamam API - Microservice
 
-This extension will be your first experience in creating and using an independent microservice that you've built yourself. This means that you'll need to pull down the Webpack starter pack as you did above, and create a brand new API. This new microservice will be created and deployed, just as your first one above.
+This extension will is to create and use an independent microservice that you've built yourself. This means that you'll need to pull down the Webpack starter pack as you did above, and create a brand new API. This new microservice will be created and deployed, just as your first one above.
 
 So let's break this down. You'll need to do a few things to get everything set up.
 
@@ -857,11 +857,14 @@ For example, create an endpoint where the user can search for recipes by food ty
 - With a list of recipes, create an endpoint that orders recipes from least to greatest amount of ingredients
 - With a list of recipes, create an endpoint that orders recipes from least to great amount of time it takes to prepare the meal
 
-## Optional extension:
+## Option 2 Build a Frontend for your application
 
-### Build a frontend
+Create a simple frontend that consumes both of your new APIs. This frontend can be a single page application and shouldn't require the user to refresh the page at any time. This means that data will load dynamically. _You do not have to write tests for your frontend, but should test features manually to ensure they work as expected._
 
-Create a simple frontend that consumes both of your new APIs. This frontend will need to be a single page application and shouldn't require the user to refresh the page at any time. This means that data will load dynamically.
+
+## Potential Extensions
+
+### Complete the other option you did not choose. 
 
 ### Calendar - Additional endpoints
 
