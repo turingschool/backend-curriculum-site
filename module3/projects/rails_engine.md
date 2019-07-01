@@ -334,7 +334,7 @@ Blog Post Deliverable
 
 At the end of this project, write a reflection on what you learned and implemented. This will help you review your own code and gain practice explaining/talking through the code and the process/decisions that were made along the way. Include code snippets from the project in your explanations.
 
-We reccommend writing your blog on Medium, but if you have a blog site that you already use that is okay too. However, it must be publically accessible and the link should be submitted to your instructors via Direct Message.
+We reccommend writing your blog on Medium, but if you have a blog site that you already use that is okay too. However, it must be publically accessible and the link should be submitted with your repo.
 
 Here are some questions to think about as you write your post:
 
