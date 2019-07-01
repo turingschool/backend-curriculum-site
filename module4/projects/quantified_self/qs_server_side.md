@@ -34,9 +34,11 @@ You will need to build the following foods and meals endpoints for your applicat
 
 There may be different architectural decisions you make with your server because of this addition; take your time to plan this out thoughtfully.
 
-### Food Endpoints (week 1):
+### Week 1 Endpoints (Foods & Meals)
 
-**GET /api/v1/foods**
+__Foods Endpoints__
+
+_GET /api/v1/foods_
 
 Returns all foods currently in the database
 
@@ -50,11 +52,11 @@ Each individual food will be returned in the following format:
 },
 ```
 
-**GET /api/v1/foods/:id**
+_GET /api/v1/foods/:id_
 
 Returns the food object with the specific `:id` you've passed in or 404 if the food is not found
 
-**POST /api/v1/foods**
+_POST /api/v1/foods_
 
 Allows creating a new food with the parameters:
 
@@ -64,7 +66,7 @@ Allows creating a new food with the parameters:
 
 If food is successfully created, the food item will be returned. If the food is not successfully created, a 400 status code will be returned. Both name and calories are required fields.
 
-**PATCH /api/v1/foods/:id**
+_PATCH /api/v1/foods/:id_
 
 Allows one to update an existing food with the parameters:
 
@@ -74,13 +76,13 @@ Allows one to update an existing food with the parameters:
 
 If food is successfully updated (name and calories are required fields), the food item will be returned. If the food is not successfully updated, a 400 status code will be returned.
 
-**DELETE /api/v1/foods/:id**
+_DELETE /api/v1/foods/:id_
 
 Will delete the food with the id passed in and return a 204 status code. If the food can't be found, a 404 will be returned.
 
-### Meal Endpoints (week 1):
+__Meals Endpoints__
 
-**GET /api/v1/meals**
+_GET /api/v1/meal_
 
 Returns all the meals in the database along with their associated foods
 
@@ -175,7 +177,7 @@ If successful, this request will return a response in the following format:
 ]
 ```
 
-**GET /api/v1/meals/:meal_id/foods**
+_GET /api/v1/meals/:meal_id/foods_
 
 Returns all the foods associated with the meal with an id specified by `:meal_id` or a 404 if the meal is not found
 
@@ -205,7 +207,7 @@ If successful, this request will return a response in the following format:
 }
 ```
 
-**POST /api/v1/meals/:meal_id/foods/:id**
+_POST /api/v1/meals/:meal_id/foods/:id_
 
 Adds the food with :id to the meal with `:meal_id`
 
@@ -219,7 +221,7 @@ If successful, this request will return a status code of 201 with the following 
 }
 ```
 
-**DELETE /api/v1/meals/:meal_id/foods/:id**
+_DELETE /api/v1/meals/:meal_id/foods/:id_
 
 Removes the food with `:id` from the meal with `:meal_id`
 
@@ -227,9 +229,10 @@ This deletes the existing record in the MealFoods table that creates the relatio
 
 If successful, this request will return a 204 status code.
 
+
 ## Week 2 Choose your own adventure from the following two options: 
 
-## Option 1: Recipes with the Edamam API - Microservice
+### Option 1: Recipes with the Edamam API - Microservice
 
 This extension will is to create and use an independent microservice that you've built yourself. This means that you'll need to pull down the Webpack starter pack as you did above, and create a brand new API. This new microservice will be created and deployed, just as your first one above.
 
@@ -240,10 +243,11 @@ So let's break this down. You'll need to do a few things to get everything set u
 * Build a recipes table in your new microservice.
 * Look below to see what an example recipes response would look like. You may not need all of the information that the Edamam API gives back to you. Pick out the most important data and seed your database with at least 10 results per food item. We'd suggest that you search and seed your database with at least three food types.  
 
-### Example query:
+_Example query:_
+
 `curl "https://api.edamam.com/search?q=chicken&app_id=API_ID&app_key=API_KEY&from=0&to=1&calories=591-722&health=alcohol-free"`
 
-### Example result:
+_Example result:_
 
 ```js
 
@@ -843,31 +847,29 @@ So let's break this down. You'll need to do a few things to get everything set u
 }
 ```
 
-### Your turn. Be creative and create new endpoints in your Edamam Recipe Service
+__Be creative and create 3 new endpoints in your Edamam Recipe Service. For example, create an endpoint where the user can search for recipes by food type, calorie amount, preparation time, number of ingredients, or cuisine type.__
 
-For example, create an endpoint where the user can search for recipes by food type, calorie amount, preparation time, number of ingredients, or cuisine type.
+_Example Enpoints_
+* GET /api/v1/recipes/food_search?q=food_type
+* GET /api/v1/recipes/calorie_search?q=calorie_count
+* GET /api/v1/recipes/ingredient_search?q=num_of_ingredients
 
-**GET /api/v1/recipes/food_search?q=food_type**
-**GET /api/v1/recipes/calorie_search?q=calorie_count**
-**GET /api/v1/recipes/ingredient_search?q=num_of_ingredients**
-
-### Create three additional endpoints that will analyze your recipe results. For example:
+__Now create 2 additional endpoints that will analyze your recipe results. For example__
 
 - With a list of recipes, create an endpoint that finds the average calorie total based off food type
 - With a list of recipes, create an endpoint that orders recipes from least to greatest amount of ingredients
 - With a list of recipes, create an endpoint that orders recipes from least to great amount of time it takes to prepare the meal
 
-## Option 2 Build a Frontend for your application
+### Option 2 Build a Frontend for your application
 
 Create a simple frontend that consumes both of your new APIs. This frontend can be a single page application and shouldn't require the user to refresh the page at any time. This means that data will load dynamically. _You do not have to write tests for your frontend, but should test features manually to ensure they work as expected._
 
 
 ## Potential Extensions
 
-### Complete the other option you did not choose. 
+1. Complete the other option you did not choose. 
 
-### Calendar - Additional endpoints
-
+1. Calendar - Additional endpoints
 What's the point of this app if one can't look back in time and see what eating habits they have? You'll need to build out additional endpoints that lists all dates a user has recorded meals, and what they ate for each meal. Please note that this extension will require you to create additional endpoints that include the creation of users.
 
 ## Expectations
