@@ -19,7 +19,7 @@
 
 GraphQL is a query language for APIs *not databases*. It's a specification for how clients can query the API for information. Since, it is a specification for interacting with an API, it is database, programming language, and network transport(HTTP, TCP, etc.) agnostic.
 
-## Why does it matter? (20 minutes)
+## Why does it matter? 
 
 ### What problems are being solved by GraphQL?
 
@@ -119,8 +119,42 @@ The other important piece for our schema is to define the entry points using que
 
 Having `user` defined here means that it can be at the root of the query.
 
-## Practice
+Take notes as we go over setting up a schema, how to handle a query, and how to write a mutation.
 
+## Practice
+The set up instructions can be found here: 
+<details><summary>Getting Started</summary>
+<p>
+
+From the command line:
+```bash
+mkdir graphql_example
+npm init (yes to all)
+touch index.js
+npm install graphql express express-graphql
+```
+Within index.js add:
+```javascript
+const express = express = require("express");
+const express_graphql = express_graphql = require("express-graphql");
+const {buildSchema} = { buildSchema } = require("graphql");
+
+const app = express();
+
+app.use('/graphql', express_graphql({
+  schema: schema,
+  rootValue: root,
+  graphiql: true
+}));
+
+app.listen(3000, ()=> console.log('Express GraphQL Server Now Running On localhost:3000/graphql'));
+```
+</p>
+</details>
+
+Set up a simple graphql server for pets. Write out the schema, a query to find one pet, a query to find multiple pets. Then try to write a mutation. If you complete this, then add owners. Owners can have multiple pets, but a pet can only belong to one owner. See if you can return the owner name when querying for a single pet.
+
+###
 
 #### Additional Resource
 [GraphQL](https://graphql.org/learn/)
