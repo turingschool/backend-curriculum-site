@@ -127,37 +127,36 @@ The set up instructions can be found here:
 <p>
 
 From the command line:
+</br>
+<i>mkdir graphql_example</i>
+</br>
+<i>npm init (yes to all)</i>
+</br>
+<i>touch index.js</i>
+</br>
+<i>npm install graphql express express-graphql</i>
+</br>
 
-`mkdir graphql_example`
-
-`npm init (yes to all)`
-
-`touch index.js`
-
-`npm install graphql express express-graphql`
-
-
-__Within index.js add:__
+</b>Within index.js add:</b>
 
 const express = express = require("express");
-
+</br>
 const express_graphql = express_graphql = require("express-graphql");
-
+</br>
 const {buildSchema} = { buildSchema } = require("graphql");
-
+</br>
 const app = express();
-
+</br>
 app.use('/graphql', express_graphql({
-
+</br>
   schema: schema,
-
+</br>
   rootValue: root,
-
+</br>
   graphiql: true
 }));
-
+</br>
 app.listen(3000, ()=> console.log('Express GraphQL Server Now Running On localhost:3000/graphql'));
-
 
 </p>
 </details>
