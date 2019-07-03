@@ -43,6 +43,7 @@ layout: page
 
 * [Handling Requests](./handling_requests)
 * [ActiveRecord Associations](./active_record_associations)
+* [Sad Path & Flash Messages](./sad_path_and_flash)
 * [Testing Best Practices](./testing_best_practices)
 
 ## Styling
