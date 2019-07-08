@@ -54,7 +54,7 @@ To better follow your progress over the 2 hours we expect that you commit every 
 ## Setup
 
 1. Set up a [new project](https://github.com/new) titled `module_3_diagnostic` associated with your Github account.
-1. Clone down [AltFuelFinder](https://github.com/turingschool-examples/alt-fuel-finder). Take a look at the Gemfile and add any gems you'd like to use.
+1. Clone down [WhatsInMyFood](https://github.com/turingschool-examples/whats-in-my-food). Take a look at the Gemfile and add any gems you'd like to use.
 
 
 **NOTE:** Delete `Gemfile.lock` before you bundle to avoid version conflicts.
@@ -69,7 +69,7 @@ $ git remote add upstream git@github.com:YOUR-GITHUB-USERNAME/module_3_diagnosti
 
 **The morning of the assessment you will be asked to get keys for the API you will be working with.**
 
-Confirm the project is setup properly by running your tests using `rspec` (there should be one passing test). You should also start your Rails server and navigate to the root page in the browser.
+You should also start your Rails server and navigate to the root page in the browser. The root page should throw you an error.
 
 Once you have your project ready to go, commit and push to your remote repo to confirm everything is set up correctly using something similar to the following:
 
