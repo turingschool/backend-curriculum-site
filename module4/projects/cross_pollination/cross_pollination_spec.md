@@ -21,15 +21,14 @@ This is a unique opportunity that presents some valuable goals:
 
 ### Schedule
 
-1. Any new pitches for projects you want to work on?
-1. Group forming
-1. Instructors finalize teams
+1. Submit Capston Pitches by Thursday morning at 8am via form
+1. Meet as group to go over any questions that came from reading the spec
+1. Vote for which projects you would like to work on (If the project, is your idea please indicate with your vote)
+1. Instructors will form teams
 1. Gather into your teams
-1. Go through project expectations
 1. Start working on Day 1 deliverables!
   * Go through project expectations again with your team
   * Ask us any questions along the way!
-1. Instructors meet with teams to look through Day 1 deliverables
 
 ## Expectations
 
@@ -113,7 +112,7 @@ Instructors will serve as project managers and hold check-ins with teams at leas
 
 ### End-of-Project Demos
 
-Wednesday morning of week 6 your team will demo your application to the class and instructors (the application should be demo'd using _production_). It will be a great preparation for demo night so you can nail your demos!
+Thursday morning of week 6 your team will demo your application to the class and instructors (the application should be demo'd using _production_). It will be a great preparation for demo night so you can nail your demos!
 
 ### Evaluation
 
