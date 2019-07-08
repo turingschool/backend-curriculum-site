@@ -156,6 +156,7 @@ app.listen(3000, ()=> console.log('Express GraphQL Server Now Running On localho
 
 Set up a simple graphql server for pets. Write out the schema, a query to find one pet, a query to find multiple pets. Then try to write a mutation. If you complete this, then add owners. Owners can have multiple pets, but a pet can only belong to one owner. See if you can return the owner name when querying for a single pet.
 
+[Completed Example](https://github.com/turingschool-examples/gql_example/tree/master)
 
 #### Additional Resource
 [GraphQL](https://graphql.org/learn/)
