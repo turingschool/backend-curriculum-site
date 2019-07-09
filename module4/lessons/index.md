@@ -29,6 +29,7 @@ title: Module 4 Lessons
 * HTTP vs. HTTPS
 * All About CDNs
 * API Design Best Practices
+* [CORS](./cors)
 
 ## Job Ready
 
