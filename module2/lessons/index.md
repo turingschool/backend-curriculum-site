@@ -25,6 +25,7 @@ layout: page
 * [Authentication](./authentication)
 * [Authorization](./authorization)
 * [Cart & Order Lifecycle](./cart_implementation)
+* [Partials](./partials)
 
 ## ActiveRecord
 
