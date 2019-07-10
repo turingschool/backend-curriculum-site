@@ -224,9 +224,11 @@ $ heroku run rake db:migrate
 
 Now, let's walk through the [SendGrid/Heroku Docs](https://devcenter.heroku.com/articles/sendgrid#ruby), scroll down to the 'ActionMailer' section
 
-Some stuff to copy and paste into your application.rb file:
+Some stuff to copy and paste:
 
 ```rb
+#application.rb
+
 module YouveChangedV2
   class Application < Rails::Application
     config.action_mailer.delivery_method = :smtp
