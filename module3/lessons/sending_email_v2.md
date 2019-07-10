@@ -7,7 +7,7 @@ tags: rails, email, sendgrid, smtp, action mailer
 
 This lesson was last updated to work with Rails 5.2.0 and Ruby 2.4.1.
 
-## WarmUp 
+## WarmUp
 
 * Let's define email.
 * What do emails have to do with web apps?
@@ -36,7 +36,7 @@ What we'd like our app to do:
 2. Allow us to enter a friend's email address
 3. Send that friend a passive-aggressive email notifying them that
    "You've changed".  
-   
+
 ## Researching with the Docs  
 * [What is SMTP?](http://whatismyipaddress.com/smtp)
 * [Action Mailer](http://guides.rubyonrails.org/action_mailer_basics.html)
@@ -44,7 +44,7 @@ What we'd like our app to do:
 ### SMTP
 
 * Simple Mail Transfer Protocol
-* Protocol used only to send emails. 
+* Protocol used only to send emails.
 * Often limited. Comcast customers cap at 1,000 outgoing emails a day
 * Gmail caps at 150 a day using a client, and 500 through the web.
 * Why be there caps?
@@ -108,9 +108,9 @@ Looks like our steps are as follows:
 * Edit the mailer
 * Edit the mailer view
 
-At this point we are going to kind of work backwards from our pseudo view in a similar vein to how we did things with our consuming an API. 
+At this point we are going to kind of work backwards from our pseudo view in a similar vein to how we did things with our consuming an API.
 
-Let's use the generator to set up our mailer, because it'll create a bunch of files for us. 
+Let's use the generator to set up our mailer, because it'll create a bunch of files for us.
 
 ```
 rails g mailer FriendNotifier
@@ -122,7 +122,7 @@ We're going to say that the email is going to inform them, so, in app/views/frie
 
 Depending on the person's email client you're sending the email to, it will render either the plain text or the html view. We don't have control over that, so we'll make them have the same content.
 
-We are going to make the decision here that the recipient should know who wants them to change. For extra fun, you could probably bring in the Faker gem. 
+We are going to make the decision here that the recipient should know who wants them to change. For extra fun, you could probably bring in the Faker gem.
 
 ```rb
 # inform.html.erb and inform.text.erb
@@ -222,9 +222,9 @@ $ git push heroku master
 $ heroku run rake db:migrate
 ```
 
-Now, let's walk through the [SendGrid/Heroku Docs](https://devcenter.heroku.com/articles/sendgrid)
+Now, let's walk through the [SendGrid/Heroku Docs](https://devcenter.heroku.com/articles/sendgrid#ruby), scroll down to the 'ActionMailer' section
 
-Some stuff to copy and paste:
+Some stuff to copy and paste into your application.rb file:
 
 ```rb
 module YouveChangedV2
@@ -240,14 +240,11 @@ module YouveChangedV2
       authentication:       'plain',
       enable_starttls_auto: true
     }
-
-
   end
 end
 ```
 
 ### Don't Forget Figaro
-
 
 Let's setup figaro so that we can add our username and password we got above in our command line to our application.yml file.
 
