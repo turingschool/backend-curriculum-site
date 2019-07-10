@@ -46,6 +46,10 @@ layout: page
 * [Sad Path & Flash Messages](./sad_path_and_flash)
 * [Testing Best Practices](./testing_best_practices)
 
+## Algorithms
+
+* [Hash Functions](./hash_functions)
+
 ## Styling
 
 * [HTML and CSS](./html_and_css)
