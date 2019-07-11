@@ -9,25 +9,35 @@ tags: ruby, inheritance
 
 * identify inheritance as an essential principle of OOP
 * explain what is inheritance and why we use it
-* identify that you can over-write a method locally (polymorphism?)
+* identify that you can over-write a method locally
+* write code that demonstrates the single inheritance principle
 
 ## Vocabulary
+
 * Inheritance
 * Parent/Superclass
 * Child/Subclass
 
-## Slides
-
-Available [here](../slides/inheritance)
-
 ## Warmup
 
+In your notebook, jot down your thoughts for the following questions. Be ready to share.
+
 * What do you think of when you hear the word inheritance?
-* Where do you think we get the ability to call the method `assert_equal` or `assert_instance_of`, etc?
+* Where do you think we get the ability to call the method `attr_reader` or `assert_equal`, etc? Where are they defined? 
 
 ## Inheritance
 
-In Ruby, inheritance is one way that we can use code defined in one class in multiple classes. One of the benefits of inheritance is the reduction in duplication that comes from defining methods on a **Parent** class that can then be used across many child classes. You've already seen inheritance in your testing suite.
+In Ruby, inheritance is one way that we can use code defined in one class in multiple classes. One of the benefits of inheritance is the reduction in duplication that comes from defining methods on a **Parent** class that can then be used across many child classes. 
+
+From [Sandi Metz's Practical Object Oriented Programming in Ruby](https://www.poodr.com/), here is a more techincal definition of inheritance:
+
+> Inheritance is, at its core, a mechanism for automatic message delegation. It defines a forwarding path for not-understood messages.
+
+And again from Metz, here is a practical application of inheritance: 
+
+> Some of [a] bicycle’s behavior applies to all bicycles, some only to road bikes, and some only to mountain bikes. This single class contains several different, but related, types. This is the exact problem that inheritance solves; that of highly related types that share common behavior but differ along some dimension.
+
+You've already seen inheritance in your testing suite:
 
 ```ruby
 require 'minitest'
@@ -37,25 +47,35 @@ class NodeTest < Minitest::Test
 end
 ```
 
-In the snippet above, `< Minitest::Test` means `inherit from the Test class of the Minitest module`. It is important to note that this is not the same as mixing in a Module. This is a completely different use of Modules called **namespacing**.
+In the snippet above, `< Minitest::Test` means `inherit characteristics and behavior from the Test class of the Minitest module`. (Sidenote: It is important to note that this is not the same as mixing in a Module. This is a completely different use of Modules called **namespacing**.)
 
 A couple rules of inheritance in Ruby:
 
-* When a class inherits from another class, it receives all of the methods from that other class
+* The objects modeled using inheritance must demonstrate a "generalization–specialization" relationship
+* When a class inherits from another class, it receives access to all of the methods and instance variables from that other class
 * The inheriting class is called the **child** or **subclass**
 * The class being inherited from is called the **parent** or **superclass**
 * A class can only inherit from one parent
+* The chain of a parent's parents (and parent's parent's parents, etc.) is called **ancestors**
 * Any number of classes can inherit from a single superclass
 
 Since inheritance is one of a few ways we can share code across classes, it's convention to use it when there is a **is-a** relationship between two things. For example, a dog **is a** mammal, a CEO **is an** employee.
 
-One note: a class can only inherit from one other class. Be sure that when you use inheritance the class you are choosing to inherit from has the strongest relationship with the child classes.
+One note: a class can only inherit directly from **one** other class, though it will also receive access to the ancestor's methods and instance variables as well. Be sure that when you use inheritance the class you are choosing to inherit from has the strongest relationship with the child classes.
 
 ## Creating a Subclass
 
-### Syntax
+### Demo
 
-If we have a file `employee.rb` that contains this class:
+Take notes while we discuss, diagram, and demonstrate these concepts:
+
+* `#superclass` method on objects
+* the missing method lookup chain
+* difference between number of methods on instance and number of methods on instance's parent
+
+### Group Practice
+
+In a new directory, let's create a file `employee.rb` that contains this class:
 
 ```ruby
 # employee.rb
@@ -84,7 +104,7 @@ end
 
 ```
 
-Let's test this in a separate file called `runner.rb`:
+We'll try this out in a separate file called `runner.rb`:
 
 ```ruby
 #runner.rb
@@ -97,7 +117,9 @@ puts ali.total_compensation
 
 You can see that even though we didn't define `total_compensation` in our `Ceo` class, the `Ceo` object still responded to this methods because it inherited them from `Employee`. In this example, `Ceo` is the **subclass** or **child**, and `Employee` is the **superclass** or **parent**.
 
-Note, we can still define methods in our `Ceo` class just like with any other class.
+We can still define methods in our `Ceo` class just like with any other class.
+
+**NOTE**: It's tempting to think of inheritance as methods getting "passed down" to a child (as you would when thinking about genetics in living creatures); however, technically, the method calls on the child object are "passed up" to the parent class. When a method is called on the child that only exists in the parent class, that message is automatically delegated to the parent class. 
 
 ### Try It!
 
@@ -161,7 +183,9 @@ Here, we specified the arguments to `super`. There are actually three forms of t
 
 In Ruby we can also override a method from our parent class by re-defining it in our child class. Doing this implies that there is some exception to a general rule. A `Mammal` class might have a method `lays_eggs?` that returns false that would work on most child classes, but we would then need to override that method on `Platypus` to return true.
 
-Let's take a look at an Intern class. Let's assume that at this company interns are paid an hourly wage, but are not paid a bonus. Their compensation would no longer be calculated as `base_salary + bonus`. Instead, we can redefine that method on `Intern`, and override the method of the same name on `Employee`.
+We'll diagram this concept before moving on.
+
+Look at an Intern class below. Let's assume that at this company interns are paid an hourly wage, but are not paid a bonus. Their compensation would no longer be calculated as `base_salary + bonus`. Instead, we can redefine that method on `Intern`, and override the method of the same name on `Employee`.
 
 ```ruby
 require './employee'
@@ -180,13 +204,92 @@ class Intern < Employee
 end
 ```
 
+We can also combine `super` and overriding. Imagine that you wanted to use a method from the superclass, but you needed to modify something about the return value. Take a look at the `benefits` method in both this parent class and the child class:
+
+```ruby
+#employee.rb
+class Employee
+  attr_reader :name, :id
+
+  def initialize(name, id)
+    @name = name
+    @id = id
+  end
+
+  def total_compensation
+    base_salary + bonus
+  end
+
+  def benefits
+    [:sick_leave]
+  end
+end  
+```
+
+```ruby
+#ceo.rb
+require './employee'
+
+class Ceo < Employee
+  attr_reader :base_salary,
+              :bonus
+
+  def initialize(base_salary, bonus, name, id)
+    @base_salary = base_salary
+    @bonus       = bonus
+    super(name, id)
+  end
+
+  def benefits
+    super.append(:health_insurance)
+  end
+end
+```
+
 ### Try It
 
-Using either `super` or overriding a method, make it so that when you call `#total_compensation` on `Ceo` it adds a dollar to their `base_salary` before returning the total compensation
+Override a method and/or use `super` so that when you call `#total_compensation` on `Ceo` it adds a dollar to their `base_salary` before returning the total compensation.
 
-## Summary
+## Words of Caution
+
+In the examples we did today, we created just two subclasses for a `Employee` superclass.
+
+* While it may be tempting to immediately create a parent class for 1-2 subclasses (for example: `Animal` as the parent class and `Dog` and `Cat` as child classes), creating this hierarchy adds overhead. It *may* end up being less technically expensive to duplicate some functionality initially until you have a better sense of what the potential superclass of *many* subclasses (`Mouse`, `Lizard`, `Coral`, etc.) should do. Sometimes it is easier to promote the more abstract parts of the code UP to a superclass than it is to move concrete parts of a superclass down to a subclass. 
+
+* While subclasses can and should rely on functionality from the parent class, a parent class should not use methods that are not defined within the parent class. For example, our `Employee` class relies on `base_salary` and `bonus`. In the event that later on, another child class `Manager` is created, the parent class imposes that `base_salary` and `bonus` *must* be defined within the subclass since the parent class uses those to calculate `total_compensation`. In order to provide documentation for future developers using your parent class template, you can follow this pattern, as recommended in Metz's OOP book:
+
+```ruby
+#employee.rb
+class Employee
+  attr_reader :name, :id
+
+  def initialize(name, id)
+    @name = name
+    @id = id
+  end
+
+  def total_compensation
+    base_salary + bonus
+  end
+
+  def base_salary
+    raise NotImplementedError, "This #{self.class} cannot respond to:"
+  end
+
+  def bonus
+    raise NotImplementedError, "This #{self.class} cannot respond to:"
+  end
+end  
+```
+
+## Discussion
 
 * Why might we decide to use inheritance?
+* Can you think of times that inheritance might not be the right choice? 
 * What is the syntax for creating a class that inherits from another class? How many classes can you inherit from and how do you decide which should inherit from which?
-* What does `super`, do and what are the differences between the three different ways you can call it?
+* What does `super` do, and what are the differences between the three different ways you can call it?
 * What does it mean to override a method in Ruby?
+
+## Optional Next Steps
+
+Check out Chapter 6 (pages 105 - 139) of [Sandi Metz's Practical Object Oriented Design in Ruby](http://www.r-5.org/files/books/computers/dev-teams/diagrams/Sandi_Metz-Practical_Object-Oriented_Design_in_Ruby-EN.pdf). Toward the end of the chapter, Metz talks about an alternative design pattern to using `super` which is beyond the scope of today's lesson but that you may find interesting. 
