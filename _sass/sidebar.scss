@@ -1,115 +1,88 @@
-$sidebar-color: rgb(245, 245, 245);
+/* NavBar */
 
-.sidebar-navigation--logo {
-  background-color: $dark-gray;
-  padding: 1em;
-  width: $sidebar-width;
-
-  @media (max-width: $tablet-width) {
-    width: 100%;
-  }
+nav {
+  border-bottom: 2px solid $light-gray;
+  font-family: $standard-copy;
+  font-weight: 700;
 }
 
-.turing-logo {
-  margin: 0;
-  max-width: 97%;
-  display: block;
+.nav-links {
+  display: grid;
+  grid-template-columns: auto 100px 100px 100px 100px;
+  grid-template-rows: 120px;
+  align-items: center;
+  justify-items: center;
+  grid-gap: 0 10px;
 
-  @media (max-width: $tablet-width) {
-    max-width: 200px;
-    margin: 0 auto;
-  }
-}
+  list-style: none;
+  margin: 0 50px;
+  padding-left: 0;
 
-.sidebar {
-  min-width: $sidebar-width;
-  max-width: $sidebar-width;
-
-  background-color: $sidebar-color;
-  color: invert($sidebar-color);
-  border-right: 1px solid darken($sidebar-color, 20);
-  box-shadow: 1px 1px 2px #eee;
-
-  @media (max-width: $tablet-width) {
-    font-size: 0.85em;
-    min-width: 100%;
-    max-width: 100%;
-    padding-top: 0;
-    border-right: none;
-    border-top: 1px solid darken($sidebar-color, 20);
-    border-bottom: 1px solid darken($sidebar-color, 20);
+  li:first-child {
+    justify-self: left;
+    margin: 5px 0;
   }
 
-  h1 {
-    padding-left: 1em;
-    padding-top: 0.75em;
-    padding-bottom: 0.75em;
-
-    background-color: lighten($sidebar-color, 5);
-    border-bottom: 1px solid $teal;
-    font-size: 1.1em;
-    margin: 0;
-
-    @media (max-width: $tablet-width) {
-      text-align: center;
-    }
-  }
-
-  ul, ol {
-    list-style: none;
-    padding-left: 0;
-
-    @media (max-width: $tablet-width) {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-  }
-
-  li {
-    margin-bottom: 0;
-
-    line-height: 1.8em;
-  }
-}
-
-.sidebar-navigation--links {
   a {
+    color: $dark-gray;
+    border-bottom: 3px solid transparent;
+    transition: border-color 0.3s;
+  }
+
+  li:not(:first-child) {
+    // Hover border does not apply to logo
+    a:hover {
+      border-bottom: 3px solid lighten($turing-secondary, 25%);;
+    }
+  }
+
+  .home-logo-link img {
     display: block;
-    padding: 0.5em 1.1em;
-    border-bottom: none;
-
-    color: invert($sidebar-color);
-
-    &:hover {
-      background-color: darken($sidebar-color, 10);
-    }
-
-    &:active {
-      background-color: $teal;
-      box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
-    }
-  }
-
-  @media (max-width: $tablet-width) {
-    display: flex;
-    flex-wrap: wrap;
-
-    section {
-      min-width: 300px;
-      width: 50%;
-
-      @media (max-width: $tablet-width - 50px) {
-        width: auto;
-      }
-    }
-  }
-
-  @media (max-width: $tablet-width - 50px) {
-    flex-direction: column;
+    height: 80px;
+    width: 80px;
   }
 }
 
-.active-link {
-  background-color: lighten(#98a1a2, 20);
+.nav-links a.active-link {
+  // This border does not get applied to logo
+  // because of code in active-links.js file
+  border-bottom: 3px solid $turing-primary;
+}
+
+@media (max-width: $tablet-width) {
+  .nav-links {
+    margin: 0 35px;
+    font-size: 0.9rem;
+    grid-template-columns: auto 75px 75px 75px 150px;
+    grid-template-rows: 90px;
+
+    .home-logo-link img {
+      height: 55px;
+      width: 55px;
+    }
+  }
+}
+
+@media (max-width: $phone-width) {
+  .nav-links {
+    margin: 15px;
+    font-size: 1rem;
+    grid-template-columns: auto 200px;
+    grid-template-rows: 35px 35px 35px 55px;
+    justify-items: right;
+
+    li {
+      grid-column: 2;
+    }
+
+    li:first-child {
+      grid-column: 1;
+      grid-row: 1 / 5;
+    }
+
+    .home-logo-link img {
+      height: 70px;
+      width: 70px;
+    }
+  }
 }
