@@ -33,10 +33,6 @@ From [Sandi Metz's Practical Object Oriented Programming in Ruby](https://www.po
 
 > Inheritance is, at its core, a mechanism for automatic message delegation. It defines a forwarding path for not-understood messages.
 
-And again from Metz, here is a practical application of inheritance: 
-
-> Some of [a] bicycle’s behavior applies to all bicycles, some only to road bikes, and some only to mountain bikes. This single class contains several different, but related, types. This is the exact problem that inheritance solves; that of highly related types that share common behavior but differ along some dimension.
-
 You've already seen inheritance in your testing suite:
 
 ```ruby
@@ -55,13 +51,17 @@ A couple rules of inheritance in Ruby:
 * When a class inherits from another class, it receives access to all of the methods and instance variables from that other class
 * The inheriting class is called the **child** or **subclass**
 * The class being inherited from is called the **parent** or **superclass**
-* A class can only inherit from one parent
+* A class can only inherit from **one** parent
 * The chain of a parent's parents (and parent's parent's parents, etc.) is called **ancestors**
 * Any number of classes can inherit from a single superclass
 
 Since inheritance is one of a few ways we can share code across classes, it's convention to use it when there is a **is-a** relationship between two things. For example, a dog **is a** mammal, a CEO **is an** employee.
 
-One note: a class can only inherit directly from **one** other class, though it will also receive access to the ancestor's methods and instance variables as well. Be sure that when you use inheritance the class you are choosing to inherit from has the strongest relationship with the child classes.
+Again from Metz, here is a practical application of inheritance: 
+
+> Some of [a] bicycle’s behavior applies to all bicycles, some only to road bikes, and some only to mountain bikes. This single class contains several different, but related, types. This is the exact problem that inheritance solves; that of highly related types that share common behavior but differ along some dimension.
+
+With a partner, brainstorm what Metz might be talking about when she refers to some behavior applying to all bikes, and some behavior only applying to certain types of bikes. Feel free to check out [this site](https://thebicycleescape.com/resources/types-of-bikes/) for photos that might help you brainstorm.
 
 ## Creating a Subclass
 
@@ -134,6 +134,8 @@ With a partner:
 ### Overview
 
 When called inside a method, the keyword `super` calls the method from the superclass with the same name. For instance if you call super in the `initialize` method, it will call the superclass's `initialize` method.
+
+`super` is kind of a confusing word for this behavior. It might help to think of it as "call parent's method". 
 
 Let's say we want every `Employee` to have a name and an id.  First, we need to update our `Employee` superclass to take name and id on instantiation:
 
@@ -292,4 +294,5 @@ end
 
 ## Optional Next Steps
 
-Check out Chapter 6 (pages 105 - 139) of [Sandi Metz's Practical Object Oriented Design in Ruby](http://www.r-5.org/files/books/computers/dev-teams/diagrams/Sandi_Metz-Practical_Object-Oriented_Design_in_Ruby-EN.pdf). Toward the end of the chapter, Metz talks about an alternative design pattern to using `super` which is beyond the scope of today's lesson but that you may find interesting. 
+* Check out Chapter 6 (pages 105 - 139) of [Sandi Metz's Practical Object Oriented Design in Ruby](http://www.r-5.org/files/books/computers/dev-teams/diagrams/Sandi_Metz-Practical_Object-Oriented_Design_in_Ruby-EN.pdf). Toward the end of the chapter, Metz talks about an alternative design pattern to using `super` which is beyond the scope of today's lesson but that you may find interesting. 
+* Google "Composition vs. Inheritance in Ruby" for some more perspectives on when to use inheritance and when to include a module. 
