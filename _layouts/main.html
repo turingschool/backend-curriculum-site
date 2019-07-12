@@ -6,11 +6,8 @@
   </head>
 
   <body>
+    {% include navigation.html %}
     <div class="container">
-      <section class="sidebar">
-        {% include header.html %}
-        {% include navigation.html %}
-      </section>
       <section class="content">
         <article>
           <header>
@@ -19,61 +16,11 @@
               <small>Back-End Engineering Program</small>
             </h1>
           </header>
-          <section class="main-content">
-            {{ content }}
-          </section>
-
-          <section id="module-list">
-            <h3 class="title">Modules</h3>
-            <ul class="outlines">
-              <a href="/module1">
-                  <li class="outline">
-                    Module 1
-                  </li>
-                </a>
-                <a href="/module2">
-                  <li class="outline">
-                    Module 2
-                  </li>
-                </a>
-                <a href="/module3">
-                  <li class="outline">
-                    Module 3
-                  </li>
-                </a>
-                <a href="/module4">
-                  <li class="outline">
-                    Module 4
-                  </li>
-                </a>
-                <a href="https://calendar.google.com/calendar/embed?src=casimircreative.com_ronr9dk92ndvlhsk03kf8jd2ro%40group.calendar.google.com&ctz=America/Denver&mode=week" target="_blank" onclick="trackOutboundLink('https://calendar.google.com/calendar/embed?src=casimircreative.com_ronr9dk92ndvlhsk03kf8jd2ro%40group.calendar.google.com&ctz=America/Denver&mode=week'); return false;">
-                    <li class="outline">
-                      Community Calendar
-                    </li>
-                </a>
-            </ul>
-          </section>
+          {{content}}
         </article>
-        {% include footer.html %}
       </section>
     </div>
     <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
-    {% if jekyll.environment == 'production' %}
-    {% include analytics.html %}
-    {% endif %}
-    <script>
-    /**
-    * Function that tracks a click on an outbound link in Analytics.
-    * This function takes a valid URL string as an argument, and uses that URL string
-    * as the event label. Setting the transport method to 'beacon' lets the hit be sent
-    * using 'navigator.sendBeacon' in browser that support it.
-    */
-    var trackOutboundLink = function(url) {
-       ga('send', 'event', 'outbound', 'click', url, {
-         'transport': 'beacon',
-         'hitCallback': function(){document.location = url;}
-       });
-    }
-    </script>
+    <script src="/public/js/active-links.js"></script>
   </body>
 </html>
