@@ -74,7 +74,7 @@ require 'socket'
 server = TCPServer.new(9292)
 ```
 
-Run the file with `Ruby <filename>` and you should see that nothing happens. So what do these lines of code do?
+Run the file with `ruby <filename>` and you should see that nothing happens. So what do these lines of code do?
 
 TCPServer is the Class we will use to create a new Server.
 
