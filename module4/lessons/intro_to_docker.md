@@ -5,7 +5,6 @@ The purpose of this lesson is to introduce you to Docker and some of the benefit
 ## Vocab
 - Container
 - Images
-- Tag
 
 ## What is Docker and Why do people use it?
 
