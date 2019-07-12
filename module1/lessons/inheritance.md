@@ -243,7 +243,7 @@ class Ceo < Employee
   end
 
   def benefits
-    super.append(:health_insurance)
+    super.push(:health_insurance)
   end
 end
 ```
