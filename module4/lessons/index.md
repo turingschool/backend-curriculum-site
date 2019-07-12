@@ -42,5 +42,5 @@ title: Module 4 Lessons
 
 ## Other
 
-* [Getting Started with Docker](./docker_and_you)
+* [Getting Started with Docker](./intro_to_docker)
 * [Intro to GraphQL](./graphql)
