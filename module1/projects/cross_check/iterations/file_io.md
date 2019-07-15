@@ -14,7 +14,7 @@ Once one of you has forked the repository, each of the other team members should
 
 In order to complete your setup:
 
-* One team member forks the repository [here](https://github.com/turingschool-examples/stat_tracker) and adds the other(s) as collaborators.
+* One team member forks the repository [here](https://github.com/turingschool-examples/cross_check) and adds the other(s) as collaborators.
 * Each of the other team members accepts the invitation to collaborate and then clones the repository.
 * Setup [SimpleCov](https://github.com/colszowka/simplecov) to monitor test coverage along the way.
 * Create a [Rakefile](https://github.com/ruby/rake) that will run each of your test files without having to run them individually. See [this lesson plan](http://backend.turing.io/module1/lessons/project_etiquette) for more details.
