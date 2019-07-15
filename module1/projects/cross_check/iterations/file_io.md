@@ -9,7 +9,7 @@ _[Back to Cross Check Home](../index)_
 
 We have provided a starting repository for this project. That repository has the usual `lib` and `test` directories that you have seen in the past, but also includes a `data` directory that includes three `.csv` files. These files are text files that include tables represented as comma separated values (hence `.csv`). The first row includes headers, while every other row includes entries in the table.
 
-Begin by picking one team member to fork the project repository [here](https://github.com/turingschool-examples/stat_tracker).
+Begin by picking one team member to fork the project repository [here](https://github.com/turingschool-examples/cross_check).
 Once one of you has forked the repository, each of the other team members should clone that repository.
 
 In order to complete your setup:
