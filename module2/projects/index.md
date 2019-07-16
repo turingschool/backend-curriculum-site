@@ -5,8 +5,8 @@ title: Module 2 - Projects
 **Current**
 
 [Mini Shop](https://github.com/turingschool-examples/mini_shop), solo project, week 1  
-[Little Shop](https://github.com/turingschool-examples/little_shop), paired project, weeks 2-3
-[Monster Shop](https://github.com/turingschool-examples/monster_shop)
+[Little Shop](https://github.com/turingschool-examples/little_shop), paired project, weeks 2-3  
+[Monster Shop](https://github.com/turingschool-examples/monster_shop), group project, weeks 4-5
 
 **To Be Archived**
 
