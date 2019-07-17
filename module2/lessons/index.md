@@ -27,6 +27,7 @@ layout: page
 * [Authorization](./authorization)
 * [Cart & Order Lifecycle](./cart_implementation)
 * [Partials](./partials)
+* [.form_for](./form_for)
 
 ## ActiveRecord
 
