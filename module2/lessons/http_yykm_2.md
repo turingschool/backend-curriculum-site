@@ -6,6 +6,6 @@ subheading: HTTP Yeah You Know Me, Part 2
 
 ## Activity
 
-[Clone this repo.](https://github.com/turingschool-examples/http_yeah_you_know_me)
+[Click this.](https://github.com/turingschool-examples/http_yeah_you_know_me)
 
 Follow the instructions in the README.
