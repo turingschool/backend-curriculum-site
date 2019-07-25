@@ -120,6 +120,7 @@ _Demo Expectations:_
 1. Include the challenges on the Frontend and Backend and solutions to those challenges
 1. Have your application up and ready to go when you start. Other windows should be closed, be logged in(if applicable), etc.
 1. Be proud of your applications! You've spent a lot of hard work on this now is your change to show it off. Your demo should really showcase that hardwork and accomplishments.
+
 _We recommend that you have a quick 30 sec - 1 min statement about what your app is and then jump straight into your demo._ After the demo is complete, you can go in more depth and talk about the other points.
 
 ### Evaluation
