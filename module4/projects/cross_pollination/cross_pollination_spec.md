@@ -114,6 +114,14 @@ Instructors will serve as project managers and hold check-ins with teams at leas
 
 Thursday morning of week 6 your team will demo your application to the class and instructors (the application should be demo'd using _production_). It will be a great preparation for demo night so you can nail your demos!
 
+_Demo Expectations:_
+1. Live demo your application in production (Have a recording as a back-up)
+1. Include the problem you are trying to solve and how your application does that
+1. Include the challenges on the Frontend and Backend and solutions to those challenges
+1. Have your application up and ready to go when you start. Other windows should be closed, be logged in(if applicable), etc.
+1. Be proud of your applications! You've spent a lot of hard work on this now is your change to show it off. Your demo should really showcase that hardwork and accomplishments.
+_We recommend that you have a quick 30 sec - 1 min statement about what your app is and then jump straight into your demo._ After the demo is complete, you can go in more depth and talk about the other points.
+
 ### Evaluation
 
 Evaluation will take place Thursday afternoon of week 5. Each team will meet with a BE and FE instructor to:
