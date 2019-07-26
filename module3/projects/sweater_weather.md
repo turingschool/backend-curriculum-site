@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Sweater Weather Project Spec
+title: Whether, Sweater? Project Spec
 length: 1 week
 tags:
 type: project
