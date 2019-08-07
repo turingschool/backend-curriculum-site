@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Sweater Weather Project Spec
+title: Whether, Sweater? Project Spec
 length: 1 week
 tags:
 type: project
@@ -91,17 +91,18 @@ body:
 
 ![Login Mockup](./images/sweater_weather/login.png)
 
-### 4. Favoriting Locations
+### 4. Road Trip
 
 ```
-POST /api/v1/favorites
+POST /api/v1/road_trip
 Content-Type: application/json
 Accept: application/json
 
 body:
 
 {
-  "location": "Denver, CO", # If you decide to store cities in your database you can send an id if you prefer
+  "origin": "Denver,CO", 
+  "destination": "Pueblo,CO",
   "api_key": "jgn983hy48thw9begh98h4539h4"
 }
 ```
@@ -110,85 +111,11 @@ body:
 
 - API key must be sent
 - If no API key or an incorrect key is provided return 401 (Unauthorized)
+- You will use the Google Directions API:  https://developers.google.com/maps/documentation/directions/start
+in order to find out how long it will take to travel from the two locations, and then deliver the weather forecast for the hour
+of arrival. For example, Denver to Pueblo would take two hours. You will deliver a forecast two hours in the future that includes the temperature and summary, and estimated travel time.
+- The structure of the response is up to you, but should be JSON API 1.0 Compliant.
 
-### 5. Listing Favorite Locations
-
-```
-GET /api/v1/favorites
-Content-Type: application/json
-Accept: application/json
-
-body:
-
-{
-  "api_key": "jgn983hy48thw9begh98h4539h4"
-}
-```
-
-**Requirements:**
-
-- API key must be sent
-- If no API key or an incorrect key is provided return 401 (Unauthorized)
-
-**Response:**
-
-```
-status: 200
-body:
-[
-  {
-    "location": "Denver, CO",
-    "current_weather": {
-      # This can vary but try to keep it consistent with the
-      # structure of the response from the /forecast endpoint
-    },
-    "location": "Golden, CO",
-    "current_weather": {
-       {...}
-    }
-  }
-]
-```
-
-### 6. Removing Favorite Locations
-
-```
-DELETE /api/v1/favorites
-Content-Type: application/json
-Accept: application/json
-
-body:
-
-{
-  "location": "Denver, CO", # If you decide to store cities in your database you can send an id if you prefer
-  "api_key": "jgn983hy48thw9begh98h4539h4"
-}
-```
-
-**Requirements:**
-
-- API key must be sent
-- If no API key or an incorrect key is provided return 401 (Unauthorized)
-
-**Response:**
-
-```
-status: 200
-body:
-[
-  {
-    "location": "Denver, CO",
-    "current_weather": {
-      # This can vary but try to keep it consistent with the
-      # structure of the response from the /forecast endpoint
-    },
-    "location": "Golden, CO",
-    "current_weather": {
-       {...}
-    }
-  }
-]
-```
 
 ## Evaluation Rubric
 
@@ -196,8 +123,8 @@ body:
 
 * **1:** Project fell well short of agreed upon expectations. Project not in production.
 * **2:** Project completed most user stories set out but fell short of agreed upon expectations. Project is in production.
-* **3:** Project completed all the user stories and requirements agreed upon. Project is in production, and a call to an internal API endpoint does not always make an external API call.
-* **4:** Project well exceeded expectations. Project is in production, a call to an internal API endpoint does not make an external API call.
+* **3:** Project completed all the user stories and requirements agreed upon. Project is in production, and a call to an internal API endpoint does not always make an external API call. Project implements background workers to assist in this.
+* **4:** Project well exceeded expectations. Project is in production, a call to an internal API endpoint does not make an external API call. Project implements background workers to assist in this.
 
 ### Technical Quality
 

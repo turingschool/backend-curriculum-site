@@ -33,7 +33,6 @@ Work on the following assignments in order. Each assignment will assume that you
     * [Intro to CSS](./css)
     * [Static Challenge](./static_challenge)
 1. [Intro to SQL](./sql)
-1. [Rack Tutorial](https://github.com/turingschool-examples/rack_server)
 1. [Rails Tutorial: Task Manager](https://github.com/turingschool-examples/task_manager_rails)
 
 ## Submission

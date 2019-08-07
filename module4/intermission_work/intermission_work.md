@@ -7,7 +7,7 @@ layout: page
 
 To prepare for Module 4, please complete & submit the following before __11:59pm Saturday__, the Saturday day before the inning begins. This will ensure that you have a full day off before starting the mod. The pre-work should take a __maximum__ of 20 hours. __If you feel that you are struggling to understand fundamental JavaScript concepts, please reach out to your instructors for support.__ This is meant to be an introduction to the topics we will begin covering in week 1. _It is perfectly okay if these topics still feel a bit fuzzy at the end of the week._
 
-1901 - Submit all links [here](https://forms.gle/87yPSy5wkyTa9AANA).
+1903 - Submit all links [here](https://forms.gle/u2HenCk5vNFHLp5s8).
 
 ## 1. Cross Pollination Project Idea
 
@@ -17,17 +17,25 @@ __Submit: Link to gist with your idea and tech stack.__
 
 ## 2. _Eloquent JavaScript_ Written by Marijn Haverbeke
 
-Let's take some time to get familiar with JavaScript as a language before we dive straight into writing code.
-Read the following chapters, and after __each__ chapter write a summary in a gist of what you took from that chapter. Your summary per chapter should not exceed 2 paragraphs.
+You may already be familiar with this book from the Mod 3 pre-work, which is great! If you are feeling comfortable and would enjoy exploring a little further there is an outline of additional chapters below. __The additional chapters are NOT required.__ However, if you are not feeling comfortable, or just want to revisit these first chapters that is perfectly okay.
 __Important:__ It is okay if you do not completely understand all the ideas you just read. We will have time to go over these topics in class, but want you to be exposed to these concepts and start getting familiar with them now.
+
+For a deliverable, please create a gist and write a short summary of what you are taking away from the chapters you've read.
 
   1. [Values, Types, and Operators](https://eloquentjavascript.net/01_values.html)
   2. [Program Structure](https://eloquentjavascript.net/02_program_structure.html)
   3. [Functions](https://eloquentjavascript.net/03_functions.html)
   4. [Data Structures: Objects and Arrays](https://eloquentjavascript.net/04_data.html)
   5. [The Secret Life of Objects](https://eloquentjavascript.net/06_object.html)
+  
+  _Additional Exploration_
+  1. [Bugs & Errors](https://eloquentjavascript.net/08_error.html)
+  2. [Modules](https://eloquentjavascript.net/10_modules.html)
+  3. [Asynchronous Programming](https://eloquentjavascript.net/11_async.html)
+  4. [Node.js](https://eloquentjavascript.net/20_node.html)
+  
 
-__Submit: Link to your gist containing your 4 summaries.__
+__Submit: Link to your gist containing your summaries.__
 
 ## 3. Server-Side JavaScript
 
