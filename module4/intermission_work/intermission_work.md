@@ -47,7 +47,7 @@ __Submit: Link to your repo.__
 
 ## 4. Gear Up Lightning Talk
 
-Submit your talk topic with a brief description [here](https://turingtalks.herokuapp.com/projects/new) by __9:00 am Monday of week 1__.
+Submit your talk topic with a brief description by __9:00 am Monday of week 1__.
 Example Submission:  
   - TOPIC: Bias in Facial Recognition Software
   - DESCRIPTION:  An overview of how facial recognition software was created, how it is used today, and what needs to change in order to ensure positive outcomes
