@@ -17,7 +17,7 @@ This lesson plan last updated with Ruby 2.4.1 and Rails 5.2.0
 
 ## Slides
 
-Available [here](../slides/building_an_internal_api)
+Available [here](../slides/building_an_internal_api_alex)
 
 ## Warmup
 
@@ -130,4 +130,3 @@ Complete the exercise [here](./exercises/building_an_api)
 * What are some reasons you'd want to create an API?
 * At its core, what is JSON?
 * What are the main differences between creating a traditional Rails application and creating an API?
-
