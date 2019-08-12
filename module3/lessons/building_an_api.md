@@ -17,7 +17,7 @@ This lesson plan last updated with Ruby 2.4.1 and Rails 5.2.0
 
 ## Slides
 
-Available [here](../slides/building_an_internal_api_alex)
+Available [here](../slides/build_an_internal_api_alex)
 
 ## Warmup
 
