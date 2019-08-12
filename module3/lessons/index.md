@@ -28,7 +28,6 @@ layout: page
 * [Getting Started with Workers](../lessons/intro_to_background_workers)
 * [Optimization Dojo](../lessons/performance_dojo)
 * [Caching Strategies in Rails](../lessons/caching_in_rails)
-* [Application Coordination with Messaging Queues](../lessons/application_coordination_with_message_queues)
 
 ## Security
 
@@ -40,8 +39,12 @@ layout: page
 * [jQuery DOM Traversal and Manipulation](../lessons/jquery_and_dom)
 * [Intro to Fetch](../lessons/getting_started_with_fetch)
 
-## Other
+## Email
+
+* [Sending Email](../lessons/sending_email_v2)
+
+## Additional Resources
 
 * [Intro to Professional Workflow](../lessons/intro_to_professional_workflow)
 * [Presenters and Decorators](../lessons/presenters_and_decorators)
-* [Sending Email](../lessons/sending_email_v2)
+* [Application Coordination with Messaging Queues](../lessons/application_coordination_with_message_queues)
