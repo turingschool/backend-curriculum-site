@@ -7,7 +7,6 @@ title: Express & Sequelize One-to-Many Relationship
 
 * Understand when and why to use Express.js in the backend of an application
 * Discuss how to create database migrations, seed files & create/retrieve data using Sequelize
-* Write tests for an application using Jest
 
 ## What is Node?
 
