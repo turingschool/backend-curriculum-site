@@ -107,7 +107,7 @@ Another good practice is to name your variables as specifically as possible. Ide
 #=> 0
 ```
 
-## Ingeter Methods
+## Integer Methods
 
 * `#even?`
 * `#odd?`
