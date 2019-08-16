@@ -9,6 +9,8 @@ layout: page
 
 ## Consuming APIs
 
+* [Intro to Postman and Faraday](../lessons/intro_to_postman_and_faraday)
+* [Consuming APIs: Part 2](../lessons/consuming_an_api_part_2)
 * [Consuming APIs: Part 1](../lessons/consuming_an_api_part_1)
 * [Consuming APIs: Part 2](../lessons/consuming_an_api_part_2)
 * [Getting Started with OAuth](../lessons/getting_started_with_oauth)
