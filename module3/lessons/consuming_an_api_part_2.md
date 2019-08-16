@@ -7,7 +7,7 @@ tags: apis, rails, faraday, refactoring, VCR
 
 ### Resources
 
-* [Video](https://www.youtube.com/watch?v=FUYoJTtfJ20) showing how to setup Webmock and VCR
+* [Video](https://youtu.be/Okck4Fc557o) showing how to setup Webmock and VCR
 
 ### Learning Goals
 
@@ -370,4 +370,4 @@ and might take several minutes or longer to complete. For this reason we should
 not memoize in this service.
 
 Finally, all of our tests are making real API calls which is not good. There are
-multiple ways to get around this. Use this video on [Stubbing External API calls with Webmock and VCR](https://www.youtube.com/watch?v=FUYoJTtfJ20).
+multiple ways to get around this. Use this video on [Stubbing External API calls with Webmock and VCR](https://youtu.be/Okck4Fc557o).
