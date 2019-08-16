@@ -424,5 +424,7 @@ There are two final routes to think about, Update and Delete. See if you can imp
 </details>
 
 <details><summary>Delete Route Answer</summary>
+  *Warning* if you're viewing this and you type this out, there's an intentional bug in the code that you'll need to fix before this will work correctly.
+	
   <img src='./assets/server_side_js_images/delete_game.png'>
 </details>
