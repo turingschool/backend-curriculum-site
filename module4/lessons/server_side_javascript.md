@@ -6,7 +6,7 @@ subheading: with node.js
 
 ## Let's Talk about JavaScript
 
-Traditionally JavaScript is executed client-side, or in the browser on the consumers own computer. This is made possible by a browsers JavaScript Engine. Firefox's engine is called SpiderMonkey, and Chrome's is called V8.
+Traditionally JavaScript is executed client-side, or in the browser on the consumer's own computer. This is made possible by a browsers JavaScript Engine. Firefox's engine is called SpiderMonkey, and Chrome's is called V8.
 
 ### What is node.js?
 
@@ -29,12 +29,12 @@ Express is a small framework built on top of the web server functionality provid
 
 ### Sequelize: What is it good for?
 
-Sequelize is a promise based ORM that we will be using in our Express app.
-If you would like to explore the documentation for Sequelize it can be found [here](http://docs.sequelizejs.com/)
+Sequelize is a "Promise" based ORM that we will be using in our Express app.
+If you would like to explore the documentation for Sequelize, it can be found [here](http://docs.sequelizejs.com/)
 
 ## Moving on to building an Express App
 
-Alright now that you have been introduced at a high level to node.js, Express, and Sequelize, let's use them to build out a simple CRUD app. _Don't worry we are going to dive deeper into these topics in class._ The intros above are just meant to give you some context.
+Alright, now that you have been introduced at a high level to node.js, Express, and Sequelize, let's use them to build out a simple CRUD app. _Don't worry we are going to dive deeper into these topics in class._ The intros above are just meant to give you some context.
 
 
 ### Where to begin
@@ -72,7 +72,9 @@ Currently the structure of our app should look like this:
 
 ![express_app_directories](./assets/server_side_js_images/express_app_directories.png)
 
-We won't need `users.js` so go ahead and delete it. Next open up the `app.js` file and remove these two lines:
+We won't need `users.js` so go ahead and delete it.
+
+Next open up the `app.js` file and remove these two lines:
 
 ```javascript
 //line 7
@@ -106,6 +108,7 @@ Change:
 
 _If you do not know what your postgres username is, in the command line type `psql`. Likely the name that shows up before the `=#`is your username or you can type `\du` to get a list of users. To exit type `\q`._
 
+If you get an error that a "role" is not known with your laptop username, if you installed PostgreSQL using Homebrew, it's possible that the username you use below will be `null` like the password.
 
 When you are done making changes `config.js` should look like:
 ```javascript
@@ -135,13 +138,15 @@ When you are done making changes `config.js` should look like:
 }
 ```
 
-The last piece of our set-up is going to be including git in our app. Run `git init`. Add `node_modules` to your `.gitignore`. Stage your changes and complete you initial commit.
+The last piece of our set-up is going to be including git in our app. Run `git init`. Add `node_modules` to your `.gitignore`. Stage your changes and complete your initial commit.
 
 **If you have not taken a break since you've started, now is a great opportunity for a POM**
 
 #### Creating our Game Model
 
-Welcome back from you break! :sunglasses: We've gotten our setup out of the way and now we can get to some of the good stuff. First, create and checkout a branch named `game_model`.
+Welcome back from you break! :sunglasses: We've gotten our setup out of the way and now we can get to some of the good stuff.
+
+First, create and checkout a branch named `game_model`.
 
 Next, we are going to actually create our database by running
 ```bash
@@ -164,14 +169,15 @@ What if we made a typo or need to undo this migration?!? Fortunately, Sequelize 
 ```bash
 npx sequelize db:migrate:undo
 ```
-If you don't believe me, give it a try.
+If you don't believe me, give it a try. Be sure to run the `db:migrate` command again to re-apply the changes.
 
 Alright that completes our `game_model` branch. Merge into master and then we will move on to the next step.
 
 #### Seeds
 
 Continuing with the good git workflow, checkout a new branch `seeds`.
-So that we have some data to work with when we start creating end-points, we are going make up some seeds for our games table.
+
+We need to have some data to work with when we start creating end-points, so we are going make up some seeds for our games table.
 
 ```bash
 npx sequelize seed:generate --name game_seed
@@ -208,9 +214,9 @@ module.exports = {
 };
 ```
 
-In the up section, we are going to provide information to insert into our games table. The down section is where we will write the code necessary to delete all our game seeds from the table. Up and down should balance one another by being equal and opposite of one another.
+In the "up" section, we are going to provide information to insert into our games table. The "down" section is where we will write the code necessary to delete all our game seeds from the table. Up and down should balance one another by being equal and opposite of one another.
 
-Within up we are going to
+Within up we are going to do the following:
 
 ```javascript
 return queryInterface.bulkInsert('Games', [{...}])
@@ -236,7 +242,7 @@ module.exports = {
       title: 'Fix it Felix Jr.',
       price: 50,
       releaseYear: 1982,
-      active: true
+      active: true,
       createdAt: new Date(),
       updatedAt: new Date()
     },
@@ -244,7 +250,7 @@ module.exports = {
       title: 'Ms. Pac Man',
       price: 100,
       releaseYear: 1981,
-      active: true
+      active: true,
       createdAt: new Date(),
       updatedAt: new Date()
     },
@@ -252,7 +258,7 @@ module.exports = {
       title: 'Dig Dug',
       price: 75,
       releaseYear: 1982,
-      active: false
+      active: false,
       createdAt: new Date(),
       updatedAt: new Date()
     },
@@ -260,7 +266,7 @@ module.exports = {
       title: 'Galaga',
       price: 125,
       releaseYear: 1981,
-      active: true
+      active: true,
       createdAt: new Date(),
       updatedAt: new Date()
     }
@@ -272,13 +278,25 @@ module.exports = {
   }
 };
 ```
+
+*Go find some documentation on how to seed the data!*
+
 Awesome job! The `seeds` branch is complete. Merge it into `master`.
+
 
 #### Games Routes
 
 ##### Read Routes
 
-Alright it's time to code our CRUD routes. We are going to start by creating our read routes first. Create a new branch `read_routes`. Take a moment and think about what our paths should look like for retrieving all games and retrieving one game.
+Alright it's time to code our CRUD routes. We are going to start by creating our read routes first.
+
+Create a new branch `read_routes`.
+
+---
+
+*Pop Quiz*
+
+Take a moment and think about what our paths should look like for retrieving all games and retrieving one game.
 
 <details><summary>Answer</summary>
   <ul>
@@ -286,6 +304,8 @@ Alright it's time to code our CRUD routes. We are going to start by creating our
     <li> /api/v1/games/:id </li>
   </ul>
 </details>
+
+---
 
 Knowing how we want our paths, structure the directories within the `routes` folder to match and create a `games.js` file.
 
@@ -297,7 +317,7 @@ Open up `app.js` and add the following
 // add on line 7
 var gamesRouter = require('./routes/api/v1/games');
 // add on line 18
-app.use('/api/v1/games', gamesRouter)
+app.use('/api/v1/games', gamesRouter);
 ```
 
 The first line is setting the variable `gamesRouter` as a connection to the new `games.js` file.
@@ -351,6 +371,8 @@ See if you can write the function to handle a request to retrieve a single games
 
 <details><summary>Answer</summary>
  <img src='./assets/server_side_js_images/single_game.png'>
+	
+You can also substitute `findOne` instead of `findAll` to avoid having an array of only one element.
 </details>
 
 Awesome job! You've finished the read routes. Merge that branch into master. **Now might be another good opportunity to let that sink in and take a POM.**
