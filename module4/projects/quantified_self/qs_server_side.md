@@ -18,7 +18,7 @@ You are going to build a calorie tracker using Javascript. You'll primarily be u
 
 You will be creating a tested Express API that users will utilize to track calories in meals that they eat. 
 
-_If you are building a frontend._
+_If you are building a frontend,_
 You can use [this](https://github.com/turingschool-examples/qs-fe-starter-kit) as a starter kit.
 You may also use [this Webpack starter kit](https://github.com/wbkd/webpack-starter). This one may be a bit more robust than the one we have provided above. It includes more configuration for transpiling, linting, and environment-specific configuration.  
 
