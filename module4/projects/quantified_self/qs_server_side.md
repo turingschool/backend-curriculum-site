@@ -84,7 +84,7 @@ Will delete the food with the id passed in and return a 204 status code. If the 
 
 __Meals Endpoints__
 
-_GET /api/v1/meal_
+_GET /api/v1/meals_
 
 Returns all the meals in the database along with their associated foods
 
