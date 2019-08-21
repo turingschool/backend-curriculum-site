@@ -146,7 +146,7 @@ users on our behalf.
 
 To register a new application, follow these steps:
 
-1. Go to [www.github.com](www.github.com) and login.
+1. Go to [www.github.com](https://www.github.com) and login.
 2. Go to your settings.
 3. Under `Developer settings`, check to see that you're in the `OAuth Apps` section.
 4. Click on `New OAuth App`.
