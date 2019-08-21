@@ -3,7 +3,7 @@ layout: page
 title: FlashCards - Iteration 3
 ---
 
-_[Back to FlashCards Home](./index)_
+_[Back to FlashCards Home](./index)_  
 _[Back to Requirements](./requirements)_
 
 ## Iteration 3
