@@ -25,7 +25,7 @@ title: Module 4 Lessons
 
 ## General Web
 
-* Service Oriented Architecture
+* [Service Oriented Architecture](./soa)
 * HTTP vs. HTTPS
 * All About CDNs
 * API Design Best Practices
