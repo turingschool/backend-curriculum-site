@@ -36,4 +36,4 @@ If you only have aa single point of failure when attempting to access important 
 2. Open up the link below and follow the directions of how to set one up. 
 3. When you’re finished, you’ll see in your network tab in the console that your assets will be pointing to Amazon’s CloudFront service instead of your Heroku instance. 
 
-[Using Amazon CloudFront CDN | Heroku Dev Center](https://devcenter.heroku.com/articles/using-amazon-cloudfront-cdn)
+[Using Amazon CloudFront CDN](https://devcenter.heroku.com/articles/using-amazon-cloudfront-cdn)
