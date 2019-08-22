@@ -1,9 +1,9 @@
 ---
 layout: page
-title: Cross-Check - Rubric
+title: Futbol - Rubric
 ---
 
-_[Back to Cross Check Home](./index)_
+_[Back to Futbol Home](./index)_
 
 | Category | **4: Exceptional** | **3: Passing** | **2: Passing with Concern** | **1: Failing** |
 | -------- | ------------------------------ | ------------------------- | ------------------------- | ------------------------------ |

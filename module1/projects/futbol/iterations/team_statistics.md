@@ -3,7 +3,7 @@ layout: page
 title: Team Statistics
 ---
 
-_[Back to Cross Check Home](../index)_
+_[Back to Futbol Home](../index)_
 
 Each of the methods below take a team id as an argument. Using that team id, your instance of StatTracker will provide statistics for a specific team.
 

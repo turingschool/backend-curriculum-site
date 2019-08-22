@@ -1,9 +1,9 @@
 ---
 layout: page
-title: Cross-Check
+title: Futbol
 ---
 
-Let's build a system to do some analysis on NHL team performance.
+Let's build a system to do some analysis on futbol team performance.
 
 ## Learning Goals
 
@@ -17,7 +17,7 @@ Let's build a system to do some analysis on NHL team performance.
 
 ## Project Description
 
-We will be using data from the National Hockey League to analyze team performance for specific seasons and across seasons. We want to see who the best and worst performers are, as well as be able to pull statistics for individual teams. To that end we will create a `StatTracker` class that will provide us with the information we need.
+We will be using data from the a fictional soccer league to analyze team performance for specific seasons and across seasons. We want to see who the best and worst performers are, as well as be able to pull statistics for individual teams. To that end we will create a `StatTracker` class that will provide us with the information we need.
 
 ## Organization
 
@@ -29,17 +29,15 @@ See [the evaluation rubric](./rubric) for more details and what exactly you shou
 
 ## Testing
 
-Another key goal of this project is to utilize Test Driven Development. Because the data set is so large, you will not be able to use the actual dataset as your test data. Instead, you should make up your own test data. You can do this either by creating dummy CSV files, known as fixture files, or you can create dummy data within your test files. Either is a valid approach.
+Another key goal of this project is to utilize Test Driven Development. Because the data set is so large, it will be inefficient to use the actual dataset as your test data. Instead, you should make up your own test data. You can do this either by creating dummy CSV files, known as fixture files, or you can create dummy data within your test files. Either is a valid approach.
 
 ### Spec Harness
 
-In addition to your own tests, instructors will use [This Spec Harness](https://github.com/turingschool-examples/cross_check_spec_harness) to assess the completion of your project. Prior to your evaluation, follow the direction in the README to set up the spec harness and verify that your code passes the tests. **NOTE: the spec harness is not a replacement for writing your own tests**.
+In addition to your own tests, instructors will use [This Spec Harness](https://github.com/turingschool-examples/futbol_spec_harness) to assess the completion of your project. Prior to your evaluation, follow the direction in the README to set up the spec harness and verify that your code passes the tests. **NOTE: the spec harness is not a replacement for writing your own tests**.
 
 ## Iterations
 
 We have separated the methods required for this project into sections below.
-
-For each of the iterations below, where a method requires you to perform a calculation with *goals*, use the goal count included in the Games CSV *except for iteration 5*.
 
 * **Iteration 1:** [Setup and File I/O](./iterations/file_io)
 * **Iteration 2:** [Game Statistics](./iterations/game_statistics)

@@ -3,7 +3,7 @@ layout: page
 title: Build a Command Line Interface
 ---
 
-_[Back to Cross Check Home](../index)_
+_[Back to Futbol Home](../index)_
 
 Now that we have an object that provides us with methods that we can use to analyze this data, we'd like to present it to people in a way they can understand without having to know how to code.
 

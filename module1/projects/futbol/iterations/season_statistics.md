@@ -3,9 +3,9 @@ layout: page
 title: Season Statistics
 ---
 
-These methods each take a season id as an argument and return the values described below.
+_[Back to Futbol Home](../index)_
 
-For the purposes of the methods in this section *only* use the goals as recorded in the GameTeams CSV file.
+These methods each take a season id as an argument and return the values described below.
 
 | Method | Description | Return Value |
 | ------ | ----------- | ------------ |
@@ -15,6 +15,5 @@ For the purposes of the methods in this section *only* use the goals as recorded
 | `worst_coach` | Name of the Coach with the worst win percentage for the season | String |
 | `most_accurate_team` | Name of the Team with the best ratio of shots to goals for the season | String |
 | `least_accurate_team` | Name of the Team with the worst ratio of shots to goals for the season | String |
-| `most_hits` | Name of the Team with the most hits in the season | String |
-| `fewest_hits` | Name of the Team with the fewest hits in the season | String |
-| `power_play_goal_percentage` | Percentage of goals that were power play goals for the season (rounded to the nearest 100th) | Float |
+| `most_tackles` | Name of the Team with the most tackles in the season | String |
+| `fewest_tackles` | Name of the Team with the fewest tackles in the season | String |

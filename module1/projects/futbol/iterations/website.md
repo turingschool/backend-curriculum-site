@@ -3,7 +3,7 @@ layout: page
 title: Build a Website
 ---
 
-_[Back to Cross Check Home](../index)_
+_[Back to Futbol Home](../index)_
 
 Creating a website will require you to explore some topics not covered in class or in previous projects. There are many different ways to achieve this goal, but we're going to recommend that you use Embedded Ruby (ERB) along with HTML and CSS to create a simple web page that includes the information that you gathered in your StatTracker class.
 

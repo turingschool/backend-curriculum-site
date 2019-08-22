@@ -1,11 +1,11 @@
-# Cross-Check
+# Futbol
 
 ---
 
 # Overview
 
-* Create a StatTracker class that analyzes NHL data from previous seasons.
-* Three `.csv` files of NHL data pulled from [Kaggle](https://www.kaggle.com/martinellis/nhl-game-data).
+* Create a StatTracker class that analyzes futbol data from previous seasons.
+* Three `.csv` files of fictitious data.
 * Open ended - up to you to determine classes and organize the project.
 
 ---
@@ -32,9 +32,9 @@
 
 # Files
 
-* `game.csv`
-* `team_info.csv`
-* `game_teams_stats.csv`
+* `games.csv`
+* `teams.csv`
+* `game_teams.csv`
 
 ---
 
@@ -42,9 +42,9 @@
 
 * "team_id"
 * "franchiseId"
-* "shortName"
 * "teamName"
 * "abbreviation"
+* "Stadium"
 * "link"
 
 ---
@@ -54,8 +54,11 @@
 * "game_id"
 * "team_id"
 * "HoA"
-* "won"
+* "result"
 * "goals"
+* "head_coach"
+* "shots"
+* "tackles"
 
 ---
 
@@ -68,7 +71,6 @@
 * "home_team_id"
 * "away_goals"
 * "home_goals"
-* "outcome"
 * "venue"
 
 ---
