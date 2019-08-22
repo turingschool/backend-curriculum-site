@@ -28,7 +28,7 @@ title: Module 4 Lessons
 * [Service Oriented Architecture](./soa)
 * HTTP vs. HTTPS
 * All About CDNs
-* API Design Best Practices
+* [API Design Best Practices](./api_design)
 * [CORS](./cors)
 
 ## Job Ready
