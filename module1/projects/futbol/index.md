@@ -25,11 +25,15 @@ A key goal of this project is to write readable, organized, object-oriented code
 
 We recommend taking a "red, green, refactor" approach. First, write tests, write code that makes the tests pass, and then focus on refactoring and organizing after you have working tests and code. It will be easier to make decisions about new classes, modules, methods, etc. when you have seen working code.
 
+We also encourage you to track your progress by utilizing a project management tool such as GitHub Projects; we will not be requiring a project management tool for the project, but it is a good habit to get into!
+
 See [the evaluation rubric](./rubric) for more details and what exactly you should accomplish in this project.
 
 ## Testing
 
 Another key goal of this project is to utilize Test Driven Development. Because the data set is so large, it will be inefficient to use the actual dataset as your test data. Instead, you should make up your own test data. You can do this either by creating dummy CSV files, known as fixture files, or you can create dummy data within your test files. Either is a valid approach.
+
+Later in the mod, we will be introducing [Mocks and Stubs](../../lessons/mocks_stubs), which is another testing strategy that may come in handy during this project.  We recommend starting with fixture files or dummy data in the test setup, and refactoring to using mocks and stubs if you feel comfortable with those tools.
 
 ### Spec Harness
 
