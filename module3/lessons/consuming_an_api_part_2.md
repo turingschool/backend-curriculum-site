@@ -7,7 +7,7 @@ tags: apis, rails, faraday, refactoring, VCR
 
 ### Resources
 
-* [Video](https://www.youtube.com/watch?v=FUYoJTtfJ20) showing how to setup Webmock and VCR
+* [Video](https://youtu.be/Okck4Fc557o) showing how to setup Webmock and VCR
 
 ### Learning Goals
 
@@ -18,269 +18,356 @@ external APIs.
 * Understand that stubbing can also help testing APIs.
 * Configure and set up tests using VCR.
 
-Right now, we should be very unhappy with how our app looks. Not in terms of what it does, but how it looks. How fat is our controller? Very.
+Right now, our app does what it's supposed to do but there's a good chance that
+it doesn't "feel" right. Specifically, our `members` method in
+`HouseMemberSearchResults` is long, violates SRP, and the logic that lives in it
+isn't reusable. Time to refactor.
 
-We want to make it so that we have skinny controllers and fat models. So let's
-just pull things out of our controller and into our model.
+```ruby
+class HouseMemberSearchResults
+  # code omitted
 
-So let's just do a bit of dream driven development here.
-
-What if our controller index action looked like this:
-
-```
-# app/controllers/search_controller.rb
-
-class SearchController < ApplicaitonController
-
-  def index
-    @members = Member.find_all(params[:state])
-  end
-end
-
-```
-
-So now, we have to move our code into the model, and that should look like this.
-
-```
-# app/models/member.rb
-
-def find_all(state)
-
-    @conn = Faraday.new(url: "https://api.propublica.org") do |faraday|
-      faraday.headers["X-API-KEY"] = ENV["propublica_key"]
+  def members
+    conn = Faraday.new(url: "https://api.propublica.org") do |faraday|
+      faraday.headers["X-API-KEY"] = ENV['PROPUBLICA_API_KEY']
       faraday.adapter Faraday.default_adapter
     end
 
-    response = @conn.get("/congress/v1/members/house/#{state}/current.json")
+    response = conn.get("/congress/v1/members/house/#{state}/current.json")
 
-    results = JSON.parse(response.body, symbolize_names: true)[:results]
+    member_search_data = JSON.parse(response.body, symbolize_names: true)[:results]
 
-    @members  = results.map do |result|
-      Member.new(result)
-    end
-end
-
-```
-
-This is a bit better, but it isn't completely what we want. We have moved code out of
-the controller but the find_all method here is still a bit much. It's setting up a
-connection to the API endpoint, and getting a response, and then parsing it.
-
-We need to pull more out. This is where we implement a service.
-
-We want to pull out all of the code that is involved with the API to a service.
-
-Let's think about what should be in `member.rb` and what should not be in there.
-
-Stuff dealing with contacting the API should be pulled out. Stuff dealing with sorting
-and converting to the proper object should remain the same.
-
-Let's do some DDD. We want to call a method on a service that will return us an
-array of hashes of raw member info like we had previously.
-
-It should look like this.
-
-```
-def find_all(state)
-  members = PropublicaService.find_house_members(state).map do |raw_member|
-    Member.new(raw_member)
-  end
-
-  sort_members(members)
-end
-
-```
-
-And we are pulling everything out to a service which will look like this
-
-```
-# app/services/propublica_service.rb
-
-class PropublicaService
-
-  def self.find_house_members(state)
-    @conn = Faraday.new(url: "https://api.propublica.org") do |faraday|
-      faraday.headers["X-API-Key"] = ""
-      faraday.adapter  Faraday.default_adapter
-    end
-
-    response = @conn.get("/congress/v1/members/house/#{state}/current.json")
-
-    results = JSON.parse(response.body, symbolize_names: true)[:results]
-  end
-end
-
-```
-
-This is great - we have all of our stuff concerning the connection to the API
-and getting information from it in a single place.
-
-But we have to ask the same thing that we did earlier - are we happy with
-this method? It's still doing a bit much, so let's pull some stuff out.
-
-```
-class PropublicaService
-
-  def initialize(state)
-    @state = state
-    @conn = Faraday.new(url: "https://api.propublica.org") do |faraday|
-      faraday.headers["X-API-Key"] = ENV["propublica_key"]
-      faraday.adapter  Faraday.default_adapter
+    member_search_data.map do |member_data|
+      Member.new(member_data)
     end
   end
 
-  def find_house_members
-    response = @conn.get("/congress/v1/members/house/#{state}/current.json")
-    JSON.parse(response.body, symbolize_names: true)[:results]
-  end
-
-  def self.find_house_members(state)
-    new(state).find_house_members
-  end
+  private
+  attr_reader :state
 end
 ```
 
-This is great, but we can do one step better.
+A great way to approach refactoring in Ruby is to keep the working code at the
+bottom of the method and write the refactored code above the working
+implementation in that same method. Let's add several newlines so it's clear
+where the refactor attempt ends and the older implementation begins. This creates
+a nice safety net if the refactor goes poorly and prevents us from trying to
+remember what used to work.
+
+```ruby
+class HouseMemberSearchResults
+  # code omitted
+
+  def members
+    # Declaring what we wish existed
+    service.members_by_state(state).map do |member_data|
+      Member.new(member_data)
+    end
 
 
-```
-class PropublicaService
 
-  def initialize(state)
-    @state = state
-    @conn = Faraday.new(url: "https://api.propublica.org") do |faraday|
-      faraday.headers["X-API-Key"] = ENV["propublica_key"]
-      faraday.adapter  Faraday.default_adapter
+    # Current working implementation
+    conn = Faraday.new(url: "https://api.propublica.org") do |faraday|
+      faraday.headers["X-API-KEY"] = ENV['PROPUBLICA_API_KEY']
+      faraday.adapter Faraday.default_adapter
+    end
+
+    response = conn.get("/congress/v1/members/house/#{state}/current.json")
+
+    member_search_data = JSON.parse(response.body, symbolize_names: true)[:results]
+
+    member_search_data.map do |member_data|
+      Member.new(member_data)
     end
   end
 
-  def find_house_members
-    get_url("/congress/v1/members/house/#{state}/current.json")
-  end
-
-  def get_url(url)
-    response = @conn.get(url)
-    JSON.parse(response.body, symbolize_names: true)[:results]
-  end
-
-  def self.find_house_members(state)
-    new(state).find_house_members
-  end
+  private
+  attr_reader :state
 end
 ```
 
-What we've done here is created a get_url method which is a very
-general method that will take an endpoint, grab the data, parse it, and
-send it back.
+Why did we settle on using a local variable of `service`? Service objects are a
+way of encapsulating logic that doesn't quite fit into our current MVC structure.
+We use service objects extensively in Rails applications, especially when we are
+dealing with logic that interacts with several objects or the complexity of a task
+doesn't fit neatly into any of the MVC layers we currently have.
 
+Of course `service` isn't defined so let's do that.
 
+```ruby
+class HouseMemberSearchResults
+  # code omitted
 
-### Testing
+  def members
+    # Declaring what we wish existed
+    service = PropublicaService.new
+    service.members_by_state(state).map do |member_data|
+      Member.new(member_data)
+    end
 
-
-So we've got everything working, but we haven't really considered testing.
-
-Let's add some gems to our Gemfile.
-
-```
-group :test do
-  gem 'vcr'
-  gem 'webmock'
-end
-```
-
-We need to configure webmock and VCR in our spec/rails_helper.rb. Below the line that requires rspec/rails, add lines to include webmock/rspec and vcr. We also add a VCR configuration block where we declare where it should look for cassettes (more on cassettes below).
-
-
-```
-# spec/rails_helper.rb
-
-ENV['RAILS_ENV'] ||= 'test'
-require File.expand_path('../../config/environment', __FILE__)
-require 'spec_helper'
-require 'rspec/rails'
-require 'webmock/rspec'
-require 'vcr'
-
-VCR.configure do |config|
-  config.cassette_library_dir = "spec/cassettes"
-  config.hook_into :webmock
-end
+    # Current working implementation
+    # code omitted
 ```
 
-Add this line to your .gitignore
+And now we need to define `PropublicaService`. Let's write a test for that.
 
-```
-/spec/cassettes
-```
-
-
-So now, let's write a test for our service.
-
-```
-# spec/services/propublica_service_spec.rb
+```ruby
+# /spec/services/propublica_service_spec.rb
 
 require 'rails_helper'
 
 describe PropublicaService do
+  context "instance methods" do
+    context "#members_by_state" do
+      it "returns member data" do
+        search = subject.members_by_state("CO")
+        expect(search).to be_a Hash
+        expect(search[:results]).to be_an Array
+        expect(search[:results].count).to eq 7
+        member_data = search[:results].first
 
-  describe "members" do
-    it "finds all CO members" do
-      VCR.use_cassette("services/find_co_members") do
-        members = PropublicaService.find_house_members("CO")
-        member = members.first
-
-        expect(members.count).to eq(7)
-        expect(member[:name]).to eq("Diana DeGette")
-        expect(member[:party]).to eq("D")
-        expect(member[:district]).to eq("1")
+        expect(member_data).to have_key :name
+        expect(member_data).to have_key :role
+        expect(member_data).to have_key :district
+        expect(member_data).to have_key :party
       end
     end
   end
 end
 ```
 
-Notice that we've wrapped our standard test in this `VCR.use_cassette`
-block. This is the bit of code that is going to depend on VCR to provide
-the stuff for us.
+This test makes sure we are getting back all of the name/value pairs we are
+dependent on within our app. Let's run it and make it pass.
 
-We also need to update our previous test.
+We already have the code written to make this pass. We just need to get it into
+the right place.
 
+```ruby
+# app/services/propublica_service.rb
+
+class PropublicaService
+  def members_by_state(state)
+    conn = Faraday.new(url: "https://api.propublica.org") do |faraday|
+      faraday.headers["X-API-KEY"] = ENV['PROPUBLICA_API_KEY']
+      faraday.adapter Faraday.default_adapter
+    end
+
+    response = conn.get("/congress/v1/members/house/#{state}/current.json")
+
+    JSON.parse(response.body, symbolize_names: true)[:results]
+  end
+end
 ```
-# spec/features/user_can_search_by_state_spec.rb
 
-require 'rails_helper'
+You'll notice we didn't move over the instantiating of the `Member` objects.
+This is because we want the only job of this service to be to talk to Propublica (SRP).
+If this class needs to know about the `Member` class it now has an unnecessary
+dependency. The facade needs the `Member` class and while it's a dependency it
+isn't unnecessary.
 
-feature "user can search for house members" do
+Run our service test and we should be good. Now run the feature test. When
+it passes we can update out facade. Before deleting code, let's comment it out.
 
-  scenario "user submits valid state name" do
-    # As a user
-    # When I visit "/"
-    visit '/'
+```ruby
+class HouseMemberSearchResults
+  # code omitted
 
-    # And I select "Colorado from the dropdown
-    select "Colorado", from: :state
+  def members
+    service.members_by_state(state).map do |member_data|
+      Member.new(member_data)
+    end
 
-    # And I click on Locate Members of the house"
-    VCR.use_cassette("features/user_can_search_by_state") do
-      click_on "Locate Members of the House"
 
-      # Then my path should be "/search" with "state=CO" in the params
-      expect(current_path).to eq(search_path)
 
-      # And I should see a message "7 results"
-      expect(page).to have_content("7 Results")
 
-      # And i should see name, role, party, district
-      within(first(".member")) do
-        expect(page).to have_css(".name")
-        expect(page).to have_css(".role")
-        expect(page).to have_css(".party")
-        expect(page).to have_css(".district")
-      end
+    # conn = Faraday.new(url: "https://api.propublica.org") do |faraday|
+    #   faraday.headers["X-API-KEY"] = ENV['PROPUBLICA_API_KEY']
+    #   faraday.adapter Faraday.default_adapter
+    # end
+    #
+    # response = conn.get("/congress/v1/members/house/#{state}/current.json")
+    #
+    # member_search_data = JSON.parse(response.body, symbolize_names: true)[:results]
+    #
+    # member_search_data.map do |member_data|
+    #   Member.new(member_data)
+    # end
+  end
+
+  private
+  attr_reader :state
+end
+```
+
+Run the tests and they should pass. Now it's safe to delete.
+
+```ruby
+class HouseMemberSearchResults
+  def member_count
+    members.count
+  end
+
+  def members
+    service.members_by_state(state).map do |member_data|
+      Member.new(member_data)
     end
   end
 
+  private
+  attr_reader :state
 end
-
 ```
+
+We're getting close but notice that each time we call the `members` method we
+will make an API call despite the fact that the info will be the same. Let's use
+memoization to make fewer API calls.
+
+```ruby
+class HouseMemberSearchResults
+  def member_count
+    members.count
+  end
+
+  def members
+    @members ||= service.members_by_state(state).map do |member_data|
+      Member.new(member_data)
+    end
+  end
+
+  private
+  attr_reader :state
+end
+```
+
+There, that's better. Next up: We need to finish refactoring our service.
+There's a bit too much logic in one method. One easy refactor is to take local
+variables that are reusable and split them into their own methods. The `conn`
+variable is great for this.
+
+
+
+```ruby
+# app/services/propublica_service.rb
+
+class PropublicaService
+  def members_by_state(state)
+    response = conn.get("/congress/v1/members/house/#{state}/current.json")
+
+    JSON.parse(response.body, symbolize_names: true)[:results]
+  end
+
+  private
+
+  def conn
+    Faraday.new(url: "https://api.propublica.org") do |faraday|
+      faraday.headers["X-API-KEY"] = ENV['PROPUBLICA_API_KEY']
+      faraday.adapter Faraday.default_adapter
+    end
+  end
+end
+```
+
+We could also break out `response` but there's a good chance that we might want
+to make other API calls from this same class and then calling it response wouldn't
+make much sense.
+
+Making a `GET` request and parsing JSON seems like a thing we might do over and
+over. Let's see if we can share that logic using declarative programming.
+
+```ruby
+# app/services/propublica_service.rb
+
+class PropublicaService
+  def members_by_state(state)
+    # What we wish existed
+    get_json("/congress/v1/members/house/#{state}/current.json")
+
+
+
+
+    # Working implementation
+    response = conn.get("/congress/v1/members/house/#{state}/current.json")
+
+    JSON.parse(response.body, symbolize_names: true)[:results]
+  end
+
+  private
+
+  def conn
+    Faraday.new(url: "https://api.propublica.org") do |faraday|
+      faraday.headers["X-API-KEY"] = ENV['PROPUBLICA_API_KEY']
+      faraday.adapter Faraday.default_adapter
+    end
+  end
+end
+```
+
+Run the tests and watch them fail. Let's follow the errors...
+
+```ruby
+class PropublicaService
+  def members_by_state(state)
+    # What we wish existed
+    get_json("/congress/v1/members/house/#{state}/current.json")
+
+
+
+
+    # Working implementation
+    response = conn.get("/congress/v1/members/house/#{state}/current.json")
+
+    JSON.parse(response.body, symbolize_names: true)[:results]
+  end
+
+  private
+
+  def get_json(url)
+    response = conn.get(url)
+    JSON.parse(response.body, symbolize_names: true)[:results]
+  end
+
+  def conn
+    Faraday.new(url: "https://api.propublica.org") do |faraday|
+      faraday.headers["X-API-KEY"] = ENV['PROPUBLICA_API_KEY']
+      faraday.adapter Faraday.default_adapter
+    end
+  end
+end
+```
+
+Tests are passing so let's comment out the previous implementation and confirm
+this works. Once it does delete the commented out code.
+
+```ruby
+class PropublicaService
+  def members_by_state(state)
+    get_json("/congress/v1/members/house/#{state}/current.json")
+  end
+
+  private
+
+  def get_json(url)
+    response = conn.get(url)
+    JSON.parse(response.body, symbolize_names: true)[:results]
+  end
+
+  def conn
+    Faraday.new(url: "https://api.propublica.org") do |faraday|
+      faraday.headers["X-API-KEY"] = ENV['PROPUBLICA_API_KEY']
+      faraday.adapter Faraday.default_adapter
+    end
+  end
+end
+```
+
+Much better. There's an opportunity to split the `get_json` method into
+a module so it's reusable in other services but we'll stop here. It's also worth
+noting that memoizing at the service layer can lead to unintended consequences
+since the data we get back might become stale. This is particularly problematic
+when we are run code that might last longer than the typical HTTP request/response
+cycle. An example of this might be a report that needs to run in the background
+and might take several minutes or longer to complete. For this reason we should
+not memoize in this service.
+
+Finally, all of our tests are making real API calls which is not good. There are
+multiple ways to get around this. Use this video on [Stubbing External API calls with Webmock and VCR](https://youtu.be/Okck4Fc557o).

@@ -23,7 +23,7 @@ With your partner, please answer the following questions.  Take notes and share 
     * Where are there areas for improvement in design or readability?
 1. Compare each other git history (this will be easiest to do by reviewing the commits/branches on GitHub)
     * What did you find most challenging about using git/GitHub?
-1. Review the tests that your partner wrote for the `record_guess` method.
+1. Review the tests that your partner wrote for the `take_turn` method.
     * Is the method well tested?
     * Provide feedback on aspects of the test(s) that are particularly good, and provide constructive feedback on how the test(s) could be improved.
 1. Discuss what you each found most difficult about the project.

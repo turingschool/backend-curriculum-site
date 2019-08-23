@@ -16,6 +16,7 @@ layout: page
 - [Intro to the Asset Pipeline](../lessons/asset_pipeline)
 - [Exploration: Shopping Cart Best Practices](../misc/cart_exploration)
 - [Exploration: Authentication/Autorization](../explorations/auth_exploration)
+- [Rack Tutorial](https://github.com/turingschool-examples/rack_server)
 
 ## Testing
 

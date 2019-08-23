@@ -7,7 +7,6 @@ title: Express & Sequelize One-to-Many Relationship
 
 * Understand when and why to use Express.js in the backend of an application
 * Discuss how to create database migrations, seed files & create/retrieve data using Sequelize
-* Write tests for an application using Jest
 
 ## What is Node?
 
@@ -140,7 +139,7 @@ Replace the `associations can be defined here` comment with `Game.belongsTo(mode
 
 ```javascript
 Game.associate = function(models) {
-  Game.belongsTo(models.Store)
+  Game.belongsTo(models.Store, {foreignKey: 'StoreId', as: 'store'})
 };
 ```
 
@@ -148,7 +147,7 @@ Next add the has many to the store model. Open up `store.js` and update it the a
 
 ```javascript
 Store.associate = function(models) {
-  Store.hasMany(models.Game)
+  Store.hasMany(models.Game, {as: 'games'})
 };
 ```
 

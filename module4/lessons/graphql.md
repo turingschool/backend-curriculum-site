@@ -71,6 +71,7 @@ Looking at our GraphQL example from above let's identify the `operation type`, `
     	createPost(user: $user, post: $post) {
     		title
     		content
+        }
     }
 
 
@@ -140,9 +141,9 @@ From the command line:
 _Within index.js add:_
 
 ```javascript
-const express = express = require("express");
-const express_graphql = express_graphql = require("express-graphql");
-const {buildSchema} = { buildSchema } = require("graphql");
+const express = require("express");
+const express_graphql = require("express-graphql");
+const {buildSchema} = require("graphql");
 const app = express();
 
 app.use('/graphql', express_graphql({
