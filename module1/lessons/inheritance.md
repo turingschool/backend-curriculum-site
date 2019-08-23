@@ -69,7 +69,7 @@ With a partner, brainstorm what Metz might be talking about when she refers to s
 
 Take notes while we discuss, diagram, and demonstrate these concepts:
 
-* `#superclass` method on objects
+* the `superclass` method
 * the missing method lookup chain
 * difference between number of methods on instance and number of methods on instance's parent
 

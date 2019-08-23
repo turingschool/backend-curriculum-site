@@ -8,7 +8,8 @@ layout: page
 * [How the Web Works I: HTTP Request/Response Cycle](./how_the_web_works_http)
 * [How the Web Works II: Request/Response Anatomy](./request_response_anatomy)
 * [How the Web Works III: HTTP Yeah You Know Me Part I](./http_yykm_1)
-* [How the Web Works, DNS Edition](../misc/lessons/how_the_web_works_dns)
+* [How the Web Works IV: HTTP Yeah You Know Me Part II](./http_yykm_2)
+* [How the Web Works, DNS Edition](./how_the_web_works_dns)
 * [REST & CRUD](./restful_routes_and_crud)
 
 ## Rails Application Development
@@ -27,6 +28,7 @@ layout: page
 * [Authorization](./authorization)
 * [Cart & Order Lifecycle](./cart_implementation)
 * [Partials](./partials)
+* [.form_for](./form_for)
 
 ## ActiveRecord
 
