@@ -41,7 +41,7 @@ We are going to use the `SetList` project for this example.
 ### Writing a Test
 
 ```ruby
-# spec/features/user_can_add_songs_to_their_cart_spec.rb
+# spec/features/cart/add_song_spec.rb
 
 require 'rails_helper'
 
@@ -50,7 +50,7 @@ RSpec.describe "When a user adds songs to their cart" do
     artist = Artist.create(name: 'Rick Astley')
     song = artist.songs.create(title: 'Never Gonna Give You Up', length: 250, play_count: 1000000)
 
-    visit songs_path
+    visit "/songs"
 
     within("#song-#{song.id}") do
       click_button "Add Song"
@@ -63,57 +63,69 @@ end
 
 ### Creating a Cart and Adding a Flash Message
 
-Run the test and it complains about not finding the css with the song id. Inside of `views/songs/index.html.erb`:
+Run the test and it complains about not finding the css with the song id. Inside of `views/songs/index.html.erb`, wrap each song in a section with that id:
 
 ```erb
 <h1>All Songs</h1>
 
 <% @songs.each do |song| %>
   <ul>
-    <div id="song-<%= song.id %>">
+    <section id="song-<%= song.id %>">
       <li>
-        <%= link_to song.title, song_path(song) %>
+        <%= link_to song.title, "/songs/#{song.id}" %>
         Play Count: <%= song.play_count %>
       </li>
-    </div>
+    </section>
   </ul>
 <% end %>
 ```
 
-Now the test isn't finding the button. Let's add a button inside our `<li>` tags and talk about what the path should be.
+Now the test isn't finding the button. Let's add a button inside our section:
 
 ```erb
-<%= button_to "Add Song", carts_path %>
+<%= button_to "Add Song" %>
 ```
 
 Our error now is:
 
 ```
-undefined local variable or method `carts_path'
+No route matches [POST] "/songs"
 ```
 
-So we need a cart resource because although we do not want to store the cart information (it changes a lot), it will still need a route and a controller.
+`button_to`, by default, will send a `POST` request, and since we haven't specified the path, it uses the current path which is `/songs`.
 
-```ruby
-# config/routes.rb
-resources :carts, only: [:create]
+So we need a route to handle adding a song, but what route should it be? We aren't going to store Carts in our database, so there's no ReSTful routing convention to follow in this case. Let's try to make our route look as ReSTful as possible. If you think about every user having an empty cart by default, what we want to do is update that cart, so it would make sense to use a `PATCH` verb. Since we are updating the cart, it also makes sense that our path includes `/cart`. Finally, we need to know what song we are putting in the cart, so we'll include a `:song_id` parameter in our route. Putting this all together, we'll use the route:
+
+```
+patch '/cart/:song_id'
+```
+
+Our route will also need a controller and action to route to. Since we're updating the cart, it makes sense to create a new `cart` controller with an `update` action. Add this to your routes file:
+
+```
+patch '/cart/:song_id', to: 'cart#update'
+```
+
+As always, run `rake routes` and make sure your new route is there.
+
+Now that we have a route, let's  make our button go to this route:
+
+```
+<%= button_to "Add Song", "/cart/#{song.id}", method: :patch %>
 ```
 
 Now we get a new error:
 
 ```
-  1) User adds a pen to their cart a message is displayed
-     Failure/Error: click_button "Add Song"
-
-     ActionController::RoutingError:
-       uninitialized constant CartsController
+ActionController::RoutingError:
+     uninitialized constant CartController
 ```
 
-Make a controller: `touch app/controllers/carts_controller.rb`. If you run the test again, it will complain about missing the action `create`. So, inside of the controller file:
+Make a controller: `touch app/controllers/cart_controller.rb` and add the `CartController class`. If you run the test again, it will complain about missing the action `update`. So, inside of the controller file:
 
 ```ruby
-class CartsController < ApplicationController
-  def create
+class CartController < ApplicationController
+  def update
   end
 end
 ```
@@ -124,44 +136,37 @@ And now our error is funky, harder to decipher:
 Unable to find visible xpath "/html"
 ```
 
-This is because we are sending this action nowhere; Capybara cannot see any HTML to parse. There is no direct view that corresponds with `create` so we need to redirect it somewhere. Let's bring the user back to the songs index.
-
+This is because we are sending this action nowhere; Capybara cannot see any HTML to parse. There is no direct view that corresponds with `update` so we need to redirect it somewhere. Let's bring the user back to the songs index.
 
 ```ruby
-class CartsController < ApplicationController
-  def create
-    redirect_to songs_path
+class CartController < ApplicationController
+  def update
+    redirect_to '/songs'
   end
 end
 ```
 
 Does it work? Start up your server, visit the songs index page, and click the "Add Song" button. Does it redirect you back to the same page? Good.
 
-When you run the test, it fails looking for the content "You now have 1 of #{@song.title} in your cart." This should be a flash message, but right now we don't know which song was added when we click the "Add Song" button. How do we pass a Song ID to the create action? Let's modify our button:
-
-```erb
-  <%= button_to "Add Song", carts_path(song_id: song.id) %>
-```
-
-We can pass key/value pairs in our path helpers, and they get added as query params at the end of our URI path!
-
-And modify our `create` action in the controller:
+When you run the test, it fails looking for the content "You now have 1 of #{@song.title} in your cart." This should be a flash message. Let's update our action to find the requested song and display the message
 
 ```ruby
-class CartsController < ApplicationController
-  def create
+class CartController < ApplicationController
+  def update
     song = Song.find(params[:song_id])
     flash[:notice] = "You now have 1 copy of #{song.title} in your cart."
-    redirect_to songs_path
+    redirect_to '/songs'
   end
 end
 ```
 
-And display the flash notice using a content tag in the `app/views/application.html.erb` file. Add this code right before the `yield` tag.
+If you don't already have something to render flash messages, you will need to add one. In the `/app/views/layouts/application.html.erb` file, add this code right before the `yield` tag.
 
 ```erb
 <% flash.each do |type, message| %>
-  <%= content_tag :div, message, class: type %>
+    <section class=<%= type %>>
+      <p><%= message %></p>
+    </section>
 <% end %>
 ```
 
@@ -174,7 +179,7 @@ Great! That test is passing. But what happens if we add two songs?
 Let's update our test to check and see.
 
 ```ruby
-spec/features/user_can_add_songs_to_their_cart_spec.rb
+#spec/features/cart/add_song_spec.rb
 
 RSpec.describe "When a user adds songs to their cart" do
   it "displays a message" do
@@ -186,7 +191,7 @@ RSpec.describe "When a user adds songs to their cart" do
     song_1 = artist.songs.create(title: 'Never Gonna Give You Up', length: 250, play_count: 1000000)
     song_2 = artist.songs.create(title: "Don't Stop Believin'", length: 300, play_count: 1)
 
-    visit songs_path
+    visit '/songs'
 
     within("#song-#{song_1.id}") do
       click_button "Add Song"
@@ -216,18 +221,18 @@ Thinking through this a little bit, we could store something in the database eve
 
 Instead, we need to find a way to store the state of a cart (which songs have been added to our cart and how many of each type). Can we store data in a session?
 
-Let's go back into the CartsController:
+Let's go back into the CartController:
 
 ```ruby
-class CartsController < ApplicationController
-  def create
+class CartController < ApplicationController
+  def update
     song = Song.find(params[:song_id])
     song_id_str = song.id.to_s
     session[:cart] ||= Hash.new(0)
     session[:cart][song_id_str] ||= 0
     session[:cart][song_id_str] = session[:cart][song_id_str] + 1
     flash[:notice] = "You now have #{session[:cart][song_id_str]} copy of #{song.title} in your cart."
-    redirect_to songs_path
+    redirect_to "/songs"
   end
 end
 ```
@@ -249,10 +254,10 @@ This is close. Our test will still fail, but it looks like our number is increme
 It's the plural of "copy/copies" that's giving us a hard time. Luckily we have a tool for that with `#pluralize`. This is a view helper method, so in order to use it here in our controller to set a flash message, we'll need to include `ActionView::Helpers::TextHelper` explicitly in our controller.
 
 ```ruby
-class CartsController < ApplicationController
+class CartController < ApplicationController
   include ActionView::Helpers::TextHelper
 
-  def create
+  def update
     song = Song.find(params[:song_id])
     song_id_str = song.id.to_s
     session[:cart] ||= Hash.new(0)
@@ -260,7 +265,7 @@ class CartsController < ApplicationController
     session[:cart][song_id_str] = session[:cart][song_id_str] + 1
     quantity = session[:cart][song_id_str]
     flash[:notice] = "You now have #{pluralize(quantity, "copy")} of #{song.title} in your cart."
-    redirect_to songs_path
+    redirect_to "/songs"
   end
 end
 ```
@@ -290,7 +295,7 @@ RSpec.feature "When a user adds songs to their cart" do
     song_1 = artist.songs.create(title: 'Never Gonna Give You Up', length: 250, play_count: 1000000)
     song_2 = artist.songs.create(title: "Don't Stop Believin'", length: 300, play_count: 1)
 
-    visit songs_path
+    visit "/songs"
 
     expect(page).to have_content("Cart: 0")
 
@@ -313,32 +318,12 @@ RSpec.feature "When a user adds songs to their cart" do
     expect(page).to have_content("Cart: 3")
   end
 end
-
 ```
 
 If we run our test now, we'll see that we have not included "Cart: 0" in our view or main app layout. It's easy enough to get past that error. Let's open the `app/views/layouts/application.html.erb` file and add a paragraph tag with the cart information just below our flash message. For now let's hardcode it so that we can see what happens, then think through how we want to implement this permanently.
 
 ```html
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>SetList</title>
-    <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
-  </head>
-
-  <body>
-    <% flash.each do |type, message| %>
-      <%= content_tag :div, message, class: type %>
-    <% end %>
-
-    <p>Cart: 0</p>
-
-    <%= yield %>
-  </body>
-</html>
+<p>Cart: 0</p>
 ```
 
 Sure enough, that gets us to a new error where now our test is looking for "Cart: 1" and not finding it on our page (because we're still displaying "Cart: 0" since it's hard-coded in our view).
@@ -467,15 +452,15 @@ end
 
 And now, our newest test passes, but we have more refactoring and cleanup to do so every other test can pass.
 
-### Refactoring CartsController
+### Refactoring CartController
 
-Let's take another look at the current status of our CartsController
+Let's take another look at the current status of our CartController
 
 ```ruby
-class CartsController < ApplicationController
+class CartController < ApplicationController
   include ActionView::Helpers::TextHelper
 
-  def create
+  def update
     song = Song.find(params[:song_id])
     song_id_str = song.id.to_s
     session[:cart] ||= Hash.new(0)
@@ -483,20 +468,21 @@ class CartsController < ApplicationController
     session[:cart][song_id_str] = session[:cart][song_id_str] + 1
     quantity = session[:cart][song_id_str]
     flash[:notice] = "You now have #{pluralize(quantity, "copy")} of #{song.title} in your cart."
-    redirect_to songs_path
+    redirect_to "/songs"
   end
 end
+
 ```
 
 Currently we're doing a lot of work in this controller with our cart. Now that we have a Cart PORO, it seems like we could refactor this to have the PORO take on some of that load.
 
-Let's refactor the CartsController so that it looks like this:
+Let's refactor the CartController so that it looks like this:
 
 ```ruby
-class CartsController < ApplicationController
+class CartController < ApplicationController
   include ActionView::Helpers::TextHelper
 
-  def create
+  def update
     song = Song.find(params[:song_id])
     @cart = Cart.new(session[:cart])
     @cart.add_song(song.id)
@@ -601,7 +587,7 @@ And our PORO tests are all passing!
 
 ### Controller Cleanup
 
-Our feature tests are still in bad shape. Our newest test should pass, but if you run all the tests you'll see a lot of failures. It's from the line in our `application.html.erb` where we call `@cart.total_count`. `@cart` is nil because, although we set it in our `SongsController#index` and `CartsController#create`, we didn't set it in every action. We *could* go through every action and add the line `@cart = Cart.new(session[:cart])` to each one, but that wouldn't be very DRY. Instead, let's do some refactoring.
+Our feature tests are still in bad shape. Our newest test should pass, but if you run all the tests you'll see a lot of failures. It's from the line in our `application.html.erb` where we call `@cart.total_count`. `@cart` is nil because, although we set it in our `SongsController#index` and `CartController#update`, we didn't set it in every action. We *could* go through every action and add the line `@cart = Cart.new(session[:cart])` to each one, but that wouldn't be very DRY. Instead, let's do some refactoring.
 
 Instead of creating an `@cart` all over the place, we'll make a method on our `ApplicationController` that will handle creating the `Cart` object:
 
@@ -617,7 +603,7 @@ If for some reason we access the cart more than once in a given request/response
 
 We make this new method a helper_method so that we can access it in the views.
 
-Now we can delete the following line from both the SongsController and CartsController:
+Now we can delete the following line from both the SongsController and CartController:
 
 ```ruby
   @cart = Cart.new(session[:cart])
