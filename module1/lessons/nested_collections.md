@@ -11,10 +11,12 @@ tags: ruby, hashes, data structures
 * Describe strategies for navigating nested collections
 
 ## Vocabulary
-* Collection
-* Data Structure
-* Nested Array
-* Nested Hash
+* Key & Value: a paired combination of pieces of data that exist in a hash (think dictionary)
+* Element/Item: a piece of data within an array
+* Collection: a container for 0 or more pieces of data
+* Data Structure: a data organization/storage format that allows for efficient retrieval and modification of pieces of data
+* Nested Array: an array that exists as an element within another (outer) array
+* Nested Hash: a hash that exists as the value of a key within another hash
 
 ## Slides
 
