@@ -10,8 +10,8 @@ tags: ruby, mixins
 * use a module to create a mixin to make our code DRYer (Don't Repeat Yourself)
 
 ## Vocabulary  
-* Module
 * Mixin
+* Module
 * Instantiate
 * State
 * Behavior
@@ -22,18 +22,19 @@ Available [here](../slides/mixins)
 
 ## Warm Up
 
-Spend the first five minutes writing answers to the following questions:
+Jot down your thoughts for the following questions. Be ready to share.
 
 * What do you know about modules already? If little, what would you guess modules are all about based on the name?
 * Football players and soccer players both have unique attributes. What behaviors might they share?
+* What behaviors/abilities might be shared between an instructor and a student?
 
 ## Introduction
 
-We're going to learn about Modules, a simple tool that will does a few completely different things in Ruby. Today we are going to talk about using them as Mixins. They are pretty awesome.
+We're going to learn about Modules, a simple tool that will do a few completely different things in Ruby. Today we are going to talk about using them as Mixins. 
 
 ### Mixins
 
-* Mixins allow us to share behavior between classes
+* Mixins allow us to share behavior between objects
 * Ruby implements mixins with Modules
 
 ### Modules
@@ -41,149 +42,143 @@ We're going to learn about Modules, a simple tool that will does a few completel
 * Modules may look like classes, but they only hold methods
 * Modules only store behavior
 * Modules *do not* store state
+* Modules cannot be instantiated. This means that you cannot type somethinglike `MyModule.new`
 
-Let's make some online orders - **Take 1**.
+Let's look at two separate classes to start exploring the idea of modules. Clone down [this repo](https://github.com/turingschool-examples/ruby-module-example).
 
-`touch grubhub_order.rb`
-
-```ruby
-class GrubhubOrder
-  def confirmation(item)
-    puts "You got #{item}."
-  end
-
-  def review
-    puts "Please rate your order within 30 days."
-  end
-
-  def delivery
-    puts "Your food will arrive in 45-60 minutes."
-  end
-end
-```
-
-`touch amazon_order.rb`
-
-```ruby
-class AmazonOrder
-  def confirmation(item)
-    puts "You got #{item}."
-  end
-
-  def review
-    puts "Please rate your order within 30 days."
-  end
-
-  def delivery
-    puts "Your order will arrive in 2 business days."
-  end
-end
-```
+First, we'll experiment with the `StatusUpdate` class. 
 
 `pry`
 
 ```ruby
-require "./amazon_order.rb"
+require "./status_update.rb"
 => true
 
-require "./grubhub_order.rb"
+status = StatusUpdate.new("I'm learning about modules in Ruby #nbd")
+
+status.display
+
+status.add_comment("Oh cool!")
+status.add_comment("Just wait until you learn about inheritance.")
+status.add_comment("What is a module?")
+status.add_comment("I'm so proud of you! Love, mom.")
+
+status.display
+
+status.remove_comment(3)
+
+status.display
+```
+
+Now, let's experiment with the `Photo` class.
+
+
+```ruby
+require "./photo.rb"
 => true
 
-amazon = AmazonOrder.new
-grub   = GrubHubOrder.new
+photo = Photo.new("https://images.pexels.com/photos/2280545/pexels-photo-2280545.jpeg", "This is what I ate for breakfast #yum #hashtag")
 
-amazon.confirmation('chocolate')
-grub.confirmation('chocolate')
+photo.display
 
-amazon.review
-grub.review
+photo.add_comment("That looks delicious!")
+photo.add_comment("Ooooh, will you cook for me?")
+photo.add_comment("Brunch next Sunday?")
 
-amazon.delivery
-grub.delivery
+photo.display
+
+photo.remove_comment(1)
+
+photo.display
 ```
 
 **Turn & Talk:**
 
-- What is similar/different between the two classes (GrubHub v Amazon)?
+- What is similar/different between the two classes (StatusUpdate and Photo)?
 - What design principle(s) are we breaking with these two classes? Explain.
 
-Let's extract the duplication using Modules - online orders **Take 2**.
+### Modules
 
-`touch online_order.rb`
+We can extract this duplication into a **module** which we'll include within each class. Oftentimes, you'll see modules named with the convention "-able", like [Comparable](https://docs.ruby-lang.org/en/2.5.0/Comparable.html) or [Enumerable](https://docs.ruby-lang.org/en/2.5.0/Enumerable.html). 
+
+`touch commentable.rb`
 
 ```ruby
-module OnlineOrder
-  def confirmation(item)
-    puts "You got #{item}."
-  end
-
-  def review
-    puts "Please rate your order within 30 days."
-  end
+module Commentable
+  # what extracted code goes here? 
 end
 ```
 
-To get access to the methods defined in the module, you will include the module at the beginning of the class. Using include allows you to call the module methods on an instance.
+To get access to the methods defined in the module, you will include the module at the beginning of the class. Using include allows you to call the module methods on an instance of the class where it is included.
 
-In `amazon_order.rb`
+In `status_update.rb`
 
 ```ruby
-require "./online_order"
+require "./commentable"
 
-class Amazon
-  include OnlineOrder
+class StatusUpdate
+  include Commentable
 
-  def delivery
-    puts "Your order will arrive in 2 business days."
-  end
+  # ... other code
 end
 ```
 
-In `grubhub_order.rb`
+In `photo.rb`
 
 ```ruby
-require "./online_order"
+require "./commentable"
 
-class Grubhub
-  include OnlineOrder
+class Photo
+  include Commentable
 
-  def delivery
-    puts "Your food will arrive in 45-60 minutes."
-  end
+  # ... other code
 end
 ```
 
-What will happen when we hop into Pry?
+Get back into Pry and try out the interaction pattern below:
 
-`pry`
 
 ```ruby
-require "./amazon_order.rb"
-=> true
-require "./grubhub_order.rb"
-=> true
+require "./status_update.rb"
+require "./photo.rb"
 
-amazon = AmazonOrder.new
-grub = GrubhubOrder.new
+status = StatusUpdate.new("I'm learning about modules in Ruby #nbd")
 
-amazon.confirmation('chocolate')
-grub.confirmation('chocolate')
+status.display
 
-amazon.review
-grub.review
+status.add_comment("Oh cool!")
+status.add_comment("Whoa...")
 
-amazon.delivery
-grub.delivery
+status.display
+
+status.remove_comment(1)
+
+status.display
+
+
+photo = Photo.new("https://images.pexels.com/photos/2280545/pexels-photo-2280545.jpeg", "This is what I ate for breakfast #yum #hashtag")
+
+photo.display
+
+photo.add_comment("That looks delicious!")
+photo.add_comment("Pancakes!")
+
+photo.display
+
+photo.remove_comment(2)
+
+photo.display
 ```
 
 **Turn & Talk:**
 
-What just happened there?
-
+- What just happened there?
+- What would be the benefit of a module? 
+- Where else might you be able to reuse `Commentable`? 
 
 ### Key Points
 
-- Once a module is included in a class, any object created from that class can call the method in the module (we just treat it as if the `confirmation` and `review` methods were part of our other classes, where you call the methods on an instance of an class.)
+- Once a module is included in a class, any object created from that class can call the method in the module (we just treat it as if the `add_comment` and `remove_comment` methods were part of our other classes, where you call the methods on an instance of an class.)
 - Many classes can include the same module
 - Each class can include many modules
 
@@ -225,18 +220,14 @@ class Jeep
 end
 ```
 
-* Create an `Engine` module to extract the `start` and `stop` methods.
-* Take the code from the discussion and implement a `AirConditioning` module that is mixed into both classes.
-* Instances of either class should be able to turn the AC on (`Chilly air coming your way!`) or off (`Temp is fine in here.`).
-
-DISCUSS: Why didn't I just tell you to have a 'Vehicle' module that could hold engine and AC? What might the benefit of those being separated be?
-
-BONUS:
+* Create an `Engine` module to extract the `start` and `stop` methods. (Yes, we know this isn't following the "-able" naming conventions, but this is not a rule).
+* Create an `Airconditionable` module that is mixed into both classes. Instances of either class should be able to turn the AC on (`Chilly air coming your way!`) or off (`Temp is fine in here.`). It's up to you what you want to name these methods.
 * Now that stop and start are extracted to the module, add back in a start or stop method in one of your class. Have it return the string "WAIIIIIIIT". What happens when you run this method? Why?
 
 ## Summary
+* In the exercise above, why didn't we just tell you to have a 'Vehicle' module that could hold engine and AC? What might the benefit of those being separated be?
 * What is a module? How is it different than a class?
-* How do you use a module?
+* How do you allow a class to have access to module methods? 
 
 ## Additional Reading
 
