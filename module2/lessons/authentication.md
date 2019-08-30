@@ -11,22 +11,19 @@ tags: rails, authentication, bcrypt, ruby, sessions, helper_methods
 * explain the use of Authentication and why it's important
 * implement Authentication using BCrypt
 * utilize Sessions in a Rails app
-* Utilize `helper_method` for use in views and controllers
+* Utilize `helper_method` in ApplicationController for use in views and controllers
 
 ## Vocabulary
 * authentication
 * session
 * hash
 * helper_method
-* current_user
 
 ## Warm Up
 
-* What is the purpose of authentication? When might you use it?
-* What is a session? How do you use one in Rails?
-* What attributes did you give a user?
-* What controller actions did you have for User?
-* How did you handle logging a user in?
+* What is a cookie? What is a session?
+* How could we use sessions to implement authentication?
+
 
 ## Overview
 
@@ -35,7 +32,6 @@ tags: rails, authentication, bcrypt, ruby, sessions, helper_methods
 * Creating *custom routes* to login/logout
 * Creating and destroying a *session*
 * Using a *helper_method* to access *current_user* in views
-* Using *form_tag* and a Controller with no associated model
 
 ## What is Authentication?
 
@@ -43,7 +39,7 @@ Authentication is the client proving to the application that they are who they s
 
 ## Code Along
 
-In SetList, our next goal is to create a user who can reserve songs in our application. This will require a way for a user to log in to our application, and for our application to "remember" that user.
+In SetList, our next goal is to create users who can reserve songs in our application. This will require a way for a user to log in to our application, and for our application to "remember" that user.
 
 ### Creating a User Test
 
@@ -62,25 +58,24 @@ require 'rails_helper'
 
 RSpec.describe "User registration form" do
   it "creates new user" do
-    visit root_path
+    visit "/"
 
     click_on "Register as a User"
 
-    expect(current_path).to eq(new_user_path)
+    expect(current_path).to eq("/users/new")
 
-    fill_in "User Name", with: "funbucket13"
-    fill_in "Password", with: "test"
+    username = "funbucket13"
+    password = "test"
+
+    fill_in :username, with: username
+    fill_in :password, with: password
 
     click_on "Create User"
 
-    new_user = User.last
-
-    expect(page).to have_content("Welcome, #{new_user.user_name}!")
+    expect(page).to have_content("Welcome, #{username}!")
   end
 end
 ```
-
-At this point, we do not have a root-level page that supports this interaction. (We should also allow existing users to sign in with their credentials)
 
 When we run our test, we get a failure because we do not have a root path defined in our `routes.rb` file.
 
@@ -90,6 +85,16 @@ Failure/Error: visit "/"
      ActionController::RoutingError:
        No route matches [GET] "/"
 ```
+
+We can handroll this route like so:
+
+```ruby
+  #routes.rb
+
+  get "/", to: "welcome#index"
+```
+
+Or we can use the handy `root` method that Rails gives us to create a route for the root path ("/"):
 
 ```ruby
   #routes.rb
@@ -123,66 +128,53 @@ We get a new error if we run our test:
 
 ```bash
 Capybara::ElementNotFound:
-       Unable to find visible link or button "Sign Up to Be a User"
+       Unable to find visible link or button "Register as a User"
 ```
 
 Let's add the link to sign up in the `app/views/welcome/index.html.erb` file
 
 ```html
-<%= link_to "Sign Up to Be a User" %>
+<%= link_to "Register as a User" %>
 ```
 
-But which URI path will be send a user to who clicks on this link?
+But which URI path should we send a user to who clicks on this link?
 
-We need to create a "new user" resource.
+Our goal here is to create a "new user" resource.
 
 **Notice we are treating this resource as any other resource.**
 
 ```html
-<%= link_to "Sign Up to Be a User", new_user_path %>
+<%= link_to "Register as a User", "/users/new" %>
 ```
 
 When we run our tests we get this error:
 
 ```bash
-Failure/Error: <%= link_to "Sign Up to Be a User", new_user_path %>
-
-     ActionView::Template::Error:
-       undefined local variable or method `new_user_path' for #<#<Class:0x007ffe993dc530>:0x007ffe993e7458>
-       Did you mean?  new_song_path
+ActionController::RoutingError:
+       No route matches [GET] "/users/new"
 ```
 
-We still need to define this routes in our `routes.rb` file. We only need a `new` method though, so let's restrict that while we're there:
+We still need to define this routes in our `routes.rb` file:
 
 ```ruby
-#routes.rb
-root "welcome#index"
-
-resources :users, only: [:new]
+get "/users/new", to: "users#new"
 ```
 
 If we run our test again we'll get this succession of errors:
 
 ```bash
-Failure/Error: click_on "Sign Up to Be a User"
-
-     ActionController::RoutingError:
-       uninitialized constant UsersController
+ActionController::RoutingError:
+ uninitialized constant UsersController
 ```
 
 ```bash
-Failure/Error: click_on "Sign Up to Be a User"
-
-     AbstractController::ActionNotFound:
-       The action 'new' could not be found for UsersController
+AbstractController::ActionNotFound:
+ The action 'new' could not be found for UsersController
 ```
 
 ```bash
-Failure/Error: click_on "Sign Up to Be a User"
-
-     ActionController::UnknownFormat:
-       UsersController#new is missing a template for this request format and variant.
-...
+ ActionController::UnknownFormat:
+   UsersController#new is missing a template for this request format and variant.
 ```
 
 Let's define the action and template that go along with our new user path.
@@ -193,7 +185,6 @@ Let's define the action and template that go along with our new user path.
 
 class UsersController < ApplicationController
   def new
-    @user = User.new
   end
 end
 ```
@@ -201,20 +192,80 @@ end
 ```html
 <!-- views/users/new.html.erb -->
 
-<%= form_for @user do |f| %>
-  <%= f.label :username %>
-  <%= f.text_field :username %>
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-  <%= f.submit %>
+<%= form_tag '/users', method: :post do %>
+  <%= label_tag :username %>
+  <%= text_field_tag :username %>
+  <%= label_tag :password %>
+  <%= password_field_tag :password %>
+  <%= submit_tag "Create User" %>
 <% end %>
 ```
 
 We have our form set up to take in the information that we want to create our user object with (username and password).
 
-Our tests will now complain about an `uninitialized constant UsersController::User`. This error means this class can't be found, whether through routing rules problems, or because it doesn't exist yet.
+Run the tests again and the error is
 
-Why are we getting this error? We have set up an object called `@user = User.new` but that kind of object does not exist in our database! If we follow this error, we can add our `User` model and then run the tests again.
+```
+ActionController::RoutingError:
+       No route matches [POST] "/users"
+```
+
+Let's add this route to our `routes.rb`:
+
+```ruby
+post "/users", to: "users#create"
+```
+
+Now we get:
+
+```
+AbstractController::ActionNotFound:
+  The action 'create' could not be found for UsersController
+```
+
+Add the create action to the UsersController:
+
+```ruby
+class UsersController < ApplicationController
+  def new
+  end
+
+  def create
+  end
+end
+```
+
+Our error is now:
+
+```
+Capybara::ElementNotFound:
+  Unable to find xpath "/html"
+```
+
+We haven't rendered a view, so let's redirect back to the home page:
+
+```ruby
+def create
+  redirect_to "/"
+end
+```
+
+Now our test can't find the username, so let's try to create the User. We are "dream driving" at this point. I really wish I had a user class that I could use to create users:
+
+
+```ruby
+def create
+  User.create(user_params)
+  redirect_to "/"
+end
+
+private
+def user_params
+  params.permit(:username, :password)
+end
+```
+
+Our tests will now complain about an `uninitialized constant UsersController::User`. Let's create a User model:
 
 ```ruby
 # app/models/user.rb
@@ -226,8 +277,6 @@ end
 Next we get this whopper of an error:
 
 ```bash
-Failure/Error: @user = User.new
-
      ActiveRecord::StatementInvalid:
        PG::UndefinedTable: ERROR:  relation "users" does not exist
        LINE 8:                WHERE a.attrelid = '"users"'::regclass
@@ -252,7 +301,7 @@ We still have to make the database portions (migration, etc) but it doesn't feel
 rails g migration CreateUsers username:string password_digest:string
 ```
 
-Apply that migration (`rake db:{drop,create,migrate,seed}`).
+Apply that migration (`rake db:migrate`).
 
 We'll get back to why we called the field `password_digest` in a moment -- we should also make sure that our User model requires that the username and password fields be populated by adding validations.
 
@@ -306,60 +355,24 @@ Now we can create the user as we would with standard CRUD functionality, with on
 
 From a User Experience perspective, it feels weird to make a user sign up, but then they have to log in again after registering. A better User Experience is this: When a new user signs up, we want them to be logged in automatically. So how do we do that? What tool in Rails might we be able to use to store information about our user as they are visiting our application?
 
-When we run our test again we get this error:
+When we run our feature test again we get this error:
 
 ```bash
-Failure/Error: <%= form_for @user do |f| %>
-
-     ActionView::Template::Error:
-       undefined method `users_path' for #<#<Class:0x007fc37ffabb68>:0x007fc37ffaa8f8>
+Failure/Error: expect(page).to have_content("Welcome, #{username}!")
+  expected to find text "Welcome, funbucket13!" in "Register as a User"
 ```
 
-When reading this error, `undefined method users_path` sticks out to me as the important part.
-
-Anything with `_path` at the end is probably a "path helper" from Rails, and the place those get created is in our `config/routes.rb`.
-
-We also know that `users_path` could be used either for an index page or to create a new user. I know I want to use the `create` route because I'm trying to `POST` from my form.
-
-### Independent Practice
-
-Go ahead and create the user :create route and the associated action in the `UsersController` as well as the associated show pieces. Make sure you test all pieces!
-
-You should end up with something like this:
+Let's look back at the UsersController. It looks like the new user is being created, so let's add a flash message to show the welcome message:
 
 ```ruby
-  #routes.rb
-
-  resources :users, only: [:new, :create, :show]
+def create
+  new_user = User.create(user_params)
+  flash[:success] = "Welcome, #{new_user.username}!"
+  redirect_to "/"
+end
 ```
 
-```ruby
-# app/controllers/users_controller.rb
-  def show
-    @user = User.find(params[:id])
-  end
-
-  def create
-    @user = User.new(user_params)
-    if user.save
-      redirect_to user_path(@user)
-    else
-      render :new
-    end
-  end
-
-  private
-
-    def user_params
-      params.require(:user).permit(:username, :password)
-    end
-```
-
-```html
-  <h1>Welcome, <%= @user.username %>!</h1>
-```
-Now when we run our tests, all should pass.
-
+Our test should now be passing!
 
 ### Sessions
 
@@ -416,7 +429,7 @@ and I should see a link that says "Log out"
 ```ruby
   user = User.create(username: "funbucket13", password: "test")
 
-  visit root_path
+  visit "/"
 
   click_on "I already have an account"
 
@@ -574,7 +587,7 @@ end
 `helper_method` is an ActiveRecord method which we pass a symbol by the same name as our method.
 Let's deconstruct the current_user method.  
 
-* `||=` is [memoization](http://gavinmiller.io/2013/basics-of-ruby-memoization/). Ruby will look to see if the variable on the left exists, if it does it uses that value. If it doesn't exist it preforms the opperation on the right. 
+* `||=` is [memoization](http://gavinmiller.io/2013/basics-of-ruby-memoization/). Ruby will look to see if the variable on the left exists, if it does it uses that value. If it doesn't exist it preforms the opperation on the right.
 * You'll want that guard clause in there for the instance where session[:user_id] hasn't been set yet. If it's not set yet you'll error out without that guard clause.
 
 If you run your tests again, you should get passing tests. However, I want to implement one more refactor. In your `UsersController` `show` action, you can delete User.find since you're view now uses current_user. This implementation is more DRY but it is also more secure. Think about other ways you might use current_user in your controllers and views.
