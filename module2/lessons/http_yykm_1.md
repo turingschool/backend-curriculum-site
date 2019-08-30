@@ -219,7 +219,7 @@ Run this file and send a Request to `localhost:9292` from the browser just like 
 
 **Answer the following questions in your notebook:**
 
-1. For the response we generated, identify each part of the request line.
+1. For the response we generated, identify each part of the status line.
 1. Identify the headers we sent in the response.
 1. Identify the response body.
 
