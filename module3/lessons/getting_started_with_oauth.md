@@ -365,7 +365,7 @@ def create
     response_hash[key] = value
   end
 
-  token = response_hash["token"]
+  token = response_hash["access_token"]
 
   binding.pry
 end
@@ -392,7 +392,7 @@ def create
     response_hash[key] = value
   end
 
-  token = response_hash["token"]
+  token = response_hash["access_token"]
 
   oauth_response = Faraday.get("https://api.github.com/user?access_token=#{token}")
   binding.pry
@@ -463,7 +463,7 @@ def create
     response_hash[key] = value
   end
 
-  token = response_hash["token"]
+  token = response_hash["access_token"]
 
   oauth_response = Faraday.get("https://api.github.com/user?access_token=#{token}")
 
@@ -512,7 +512,7 @@ def create
     response_hash[key] = value
   end
 
-  token = response_hash["token"]
+  token = response_hash["access_token"]
 
   oauth_response = Faraday.get("https://api.github.com/user?access_token=#{token}")
 
@@ -546,7 +546,7 @@ def create
     response_hash[key] = value
   end
 
-  token = response_hash["token"]
+  token = response_hash["access_token"]
 
   oauth_response = Faraday.get("https://api.github.com/user?access_token=#{token}")
 
@@ -578,7 +578,7 @@ def create
     response_hash[key] = value
   end
 
-  token = response_hash["token"]
+  token = response_hash["access_token"]
 
   oauth_response = Faraday.get("https://api.github.com/user?access_token=#{token}")
 
@@ -664,7 +664,7 @@ def create
     response_hash[key] = value
   end
 
-  token = response_hash["token"]
+  token = response_hash["access_token"]
 
   oauth_response = Faraday.get("https://api.github.com/user?access_token=#{token}")
 
