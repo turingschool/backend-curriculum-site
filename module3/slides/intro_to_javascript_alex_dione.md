@@ -48,7 +48,6 @@
 ## Client-side and Server-side JavaScript
 - Client-side: Code that is run on the user's computer
   - When a webpage is viewed, the page's client-side code is downloaded, then run and displayed in the browser.
-
 - Server-side: Code that is run on a Server
   - The code is executed on the server, then downloaded and displayed in the browser
 
@@ -65,7 +64,7 @@
 
 ---
 
-## How does Javscript compare to Ruby?
+## How does JavaScript compare to Ruby?
 
 ---
 
