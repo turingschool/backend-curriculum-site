@@ -14,6 +14,7 @@ layout: page
 
 ## Rails Practice
 
+- [Rails Exercises](https://github.com/turingschool/rails_exercises)
 - [Day Hike](https://github.com/turingschool-projects/day_hike)
 - [Blogger](http://backend.turing.io/module2/misc/blogger)
 - [Bakery](https://github.com/earl-stephens/bakery)
