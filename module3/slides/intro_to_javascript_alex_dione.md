@@ -66,11 +66,20 @@
 
 ## How does JavaScript compare to Ruby?
 
+- Group 1: Compare how variables are declared 
+    - Research `const`, `var`, `let` in JavaScript
+- Group 2: Compare Ruby methods and JavaScript functions 
+    - Research es5 function declarations
+    - What is the differience between a function declaration vs. function expression?
+- Group 3: Compare how to iterate over arrays
+    - Research `map` & `forEach` & `reduce`
+- Group 4: Compare loops Ruby `for` loops and JavaScript `for in loop` 
+
 ---
 
 ## How do we write Javascript?
 
-- Let's do some activities!
+- Each group has 2 minutes to present their chart
 
 ---
 
