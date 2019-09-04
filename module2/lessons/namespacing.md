@@ -37,7 +37,7 @@ Let's create an app for CRUDding some cats. Yes, it sounds weird. Yes, it is wei
 rails new cats -T -d="postgresql" --skip-spring --skip-turbolinks
 ```
 
-### Resource Routes Recap:
+### Routes Recap:
 
 Let's add some routes to our `routes.rb` for `cats` that will show all cats, show one cat, delete a cat, and edit a cat.
 
