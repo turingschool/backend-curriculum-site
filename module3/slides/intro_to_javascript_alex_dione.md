@@ -116,6 +116,18 @@ With the person next to you discuss:
 3. Change the background color of the ".background" div to a different color
 4. On click of the button, make the H3 disappear
 
+Do this in the console of the browser first!
+- Open the vacation_spots.html page in the browser.
+- Right click on the page and select `Inspect` to open the Chrome dev tools
+- View the DOM tree in the `Elements` tab
+- Play around with manipulating the DOM nodes in the console first.
+
+Transition code from the console to the `vacationSpots.js` file once you know it works.
+
+Some additional resources for manipulating the DOM:
+- [Set and Get CSS styles of elements](https://plainjs.com/javascript/styles/set-and-get-css-styles-of-elements-53/)
+- [Selecting DOM Elements](https://plainjs.com/javascript/selecting/)
+
 ---
 
 ## Is the DOM ready?
@@ -136,7 +148,7 @@ With the person next to you discuss:
 
 ```
 document.addEventListener("DOMContentLoaded", function(event){
-  doSomethings();
+  doSomeThings();
 });
 ```
 
