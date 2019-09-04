@@ -13,7 +13,7 @@ tags: rails, authorization
 
 ## Slides
 
-Available [here](../slides/authorization)
+Available [here](https://docs.google.com/presentation/d/1HZcEWWeME-4IAKZZ-0fKJOqlSJz40dNCTg20PQwlzTM/edit?usp=sharing)
 
 ## Warmup
 * What does it mean to authorize something?
