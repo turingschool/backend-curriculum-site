@@ -70,7 +70,7 @@
     - Research `const`, `var`, `let` in JavaScript
 - Group 2: Compare Ruby methods and JavaScript functions
     - Research es5 function declarations
-    - What is the differience between a function declaration vs. function expression?
+    - What is the difference between a function declaration vs. function expression?
 - Group 3: Compare how to iterate over arrays
     - Research `map` & `forEach` & `reduce`
 - Group 4: Compare loops Ruby `for` loops and JavaScript `for in loop`
@@ -128,12 +128,9 @@ With the person next to you discuss:
 # The lifecycle of an HTML document
 
 - Three important Events in the lifecycle of an HTML page:
-1. DOMContentLoaded
-- the browser has fully loaded the HTML, and the DOM tree is built, but external resources like pictures <img> and stylesheets may not be loaded yet.
-2. load
-- the browser has fully loaded the HTML, DOM tree, and external resources i.e. images, stylesheets
-3. beforeunload/unload
-- the user is leaving the page
+1. *DOMContentLoaded* - the browser has fully loaded the HTML, and the DOM tree is built, but external resources like pictures <img> and stylesheets may not be loaded yet.
+2. *load* - the browser has fully loaded the HTML, DOM tree, and external resources i.e. images, stylesheets
+3. *beforeunload/unload* - the user is leaving the page
 
 ---
 
