@@ -74,6 +74,17 @@
 
 ---
 
+## The DOM!
+
+Take 10 minutes to read this article:
+https://www.digitalocean.com/community/tutorials/introduction-to-the-dom
+
+With the person next to you discuss:
+1. What is the DOM?
+2. How do you target DOM elements?
+
+---
+
 ## What is the DOM?
 
 - DOM - Document Object Model
@@ -89,6 +100,7 @@
 ---
 
 ## Let's practice!
+- https://github.com/turingschool-examples/vacation-spots
 
 ---
 
@@ -112,8 +124,20 @@
 ---
 
 ```
-window.onload = function() {
+document.addEventListener("DOMContentLoaded", function(event){
   doSomethings();
+});
+```
+
+```
+window.onload = function() {
+  doAllTheThings();
+}
+```
+
+```
+window.onunload = function() {
+  doSomethingElse();
 }
 ```
 
@@ -130,6 +154,14 @@ for more information: http://railsapps.github.io/rails-javascript-include-extern
 ---
 
 ## Let's add some javascript to a Rails App!
+https://github.com/scottalexandra/module_3_diagnostic_review
+
+---
+## Further learning and Exploration
+
+Intro to jQuery
+
+Intro to Fetch
 
 ---
 
@@ -138,4 +170,3 @@ for more information: http://railsapps.github.io/rails-javascript-include-extern
 1. Why is JavaScript useful?
 2. What are some ways that JavaScript is similar to Ruby?
 3. What is the DOM?
-4. Why don't we want to add <script> tags to the bottom of our views in rails?
