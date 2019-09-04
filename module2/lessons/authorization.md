@@ -16,13 +16,13 @@ tags: rails, authorization
 Available [here](../slides/authorization)
 
 ## Warmup
-
-* Any initial reflections on your auth exploration to share about what you've already learned about authorization?
+* What does it mean to authorize something?
+* What do you think the difference between authentication and authorization is?
 * Any thoughts on how we might use namespacing to help us organize our authorization strategy?
 
 ## Repo
 
-Continue working in your code-along application, or clone down the most recent version. A sample repo can be found [here](https://github.com/turingschool-examples/bad_tracks_1808).
+We will continue working in Set List, so pull down the most recent version of that [here](https://github.com/turingschool-examples/set_list_1906).
 
 ## Code Along
 
@@ -30,25 +30,25 @@ Continue working in your code-along application, or clone down the most recent v
 
 Let's create a test for the admin functionality we want to create.
 
-Our client has asked for categories (solo act, bands, etc) in this application, and only an admin should be able to access the categories index.
+Our client has asked for admin of the app to have the ability to email users. Only admin should be able to access this functionality.
 
 Let's write our test.
 
 ```ruby
-# spec/features/admin_sees_categories_index_spec.rb
+# spec/features/admin/email_spec.rb
 require "rails_helper"
 
-describe "User visits categories index page" do
-  context "as admin" do
-    it "allows admin to see all categories" do
-	   admin = User.create(username: "penelope",
+describe "Admin can email users" do
+  describe "As an admin" do
+    it "I can see a link on my dashboard to email a user" do
+	    admin = User.create(username: "penelope",
                         password: "boom",
                         role: 1)
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
-      visit admin_categories_path
-      expect(page).to have_content("Admin Categories")
+      visit "/admin/dashboard"
+      expect(page).to have_link("Email a User")
     end
   end
 end
@@ -90,7 +90,7 @@ end
 Our error should read something like this:
 
 ```
-An error occurred while loading ./spec/features/admin_seed_categories_index_spec.rb.
+An error occurred while loading ./spec/features/admin/email_spec.rb.
 Failure/Error: admin = User.create(username: "penelope", password: "boom", role: 1)
 
 ActiveModel::UnknownAttributeError:
@@ -143,7 +143,7 @@ Failures:
 At this point, let's add our `enum` to our `User` model.
 
 ```ruby
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   has_secure_password
   validates :username, presence: true,
                     uniqueness: true
@@ -155,11 +155,13 @@ end
 Let's check, and... a passing model test! With that out of the way, let's go back and tackle our the error that our integration test is throwing our way.
 
 ```ruby
-NameError:
-       undefined local variable or method 'admin_categories_path' for #<RSpec::ExampleGroups::AdminVisitsCategoriesIndexPage:0x007faa6e7f2b08>
+     Failure/Error: visit "/admin/dashboard"
+
+     ActionController::RoutingError:
+       No route matches [GET] "/admin/dashboard"
 ```
 
-We want admin functionality when it comes to `categories`. Only admins should be able to see the index view of all the categories.
+We want admin functionality when it comes to `dashboard`. Only admins should be able to see the index view for the dashboard and anything that's in the dashboard.
 
 Do you think we should we use nested resources here or namespace?
 
@@ -168,10 +170,10 @@ Since `admin` is never going to be its own entity (resource) within our applicat
 Add this `namespace` and the route for only the `index` to your routes (we may need to add other actions later, but for now, let's only create what we need).
 
 ```ruby
-namespace :admin do
-  # only admin users will be able to reach these resources
-  resources :categories, only: [:index]
-end
+  namespace :admin do
+    #only admin users will be able to reach this resource
+    get '/dashboard', to: "dashboard#index"
+  end
 ```
 
 Whenever we add something to our `routes.rb`, verify that your output via `rails routes` is what you expect.
@@ -183,8 +185,7 @@ Let's run `rails routes -c admin` to see just our admin routes.
 Routes are looking good. What about our specs?
 
 ```ruby
-ActionController::RoutingError:
- uninitialized constant Admin
+ActionController::RoutingError: uninitialized constant Admin
 ```
 
 Remember when we want to use namespace, its controllers need to be places within a folder that shares a name with the namespace.
@@ -196,27 +197,29 @@ $ mkdir app/controllers/admin
 Run our test, and we'll see that we're getting closer, but still not quite there.
 
 ```ruby
-ActionController::RoutingError:
- uninitialized constant Admin::CategoriesController
+     Failure/Error: visit "/admin/dashboard"
+
+     ActionController::RoutingError: uninitialized constant Admin::DashboardController
 ```
 
-The big piece of news in this error is that we don't have an `Admin::CategoriesController`. Let's go ahead and build that now.
+The big piece of news in this error is that we don't have an `Admin::DashboardController`. Let's go ahead and build that now.
 
 ```ruby
-$ touch app/controllers/admin/categories_controller.rb
+$ touch app/controllers/admin/dashboard_controller.rb
 ```
 
 And run our test suite to see what error we're getting now:
 
 ```ruby
-LoadError:
- Unable to autoload constant Admin::CategoriesController, expected /app/controllers/admin/categories_controller.rb to define it
+     Failure/Error: visit "/admin/dashboard"
+
+     ActionController::RoutingError: uninitialized constant Admin::DashboardController
 ```
 
 Errors like this are great. They reiterate to me that I've created the file that I wanted to, Rails is looking in that file, and it's just not finding what it expects. Let's populate that file now and help it out.
 
 ```ruby
-class Admin::CategoriesController < ApplicationController
+class Admin::DashboardController < ApplicationController
 
 end
 ```
@@ -225,13 +228,13 @@ And our new error:
 
 ```ruby
 AbstractController::ActionNotFound:
- The action 'index' could not be found for Admin::CategoriesController
+ The action 'index' could not be found for Admin::DashboardController
 ```
 
 So, let's add an `index` method to our controller.
 
 ```ruby
-class Admin::CategoriesController < ApplicationController
+class Admin::DashboardController < ApplicationController
 
   def index
   end
@@ -242,47 +245,47 @@ Running the test gives us the `Missing template` error that we'd expect. Let's a
 
 ```bash
 $ mkdir app/views/admin
-$ mkdir app/views/admin/categories
-$ touch app/views/admin/categories/index.html.erb
+$ mkdir app/views/admin/dashboard
+$ touch app/views/admin/dashboard/index.html.erb
 ```
 
-If we look back at our test we can start to figure out what might be happening. We need to add some text to our new page in order to make it pass.
+If we look back at our test we can start to figure out what might be happening. We need to add a link to our new page in order to make it pass.
 
-In `app/views/admin/categories/index.html.erb`:
+In `app/views/admin/dashboard/index.html.erb`:
 
 ```html
-<h1>Admin Categories</h1>
+<%= link_to "Email a User" %>
 ```
 
 Let's run our test... And it passes! Great! We're done here, right? I mean, passing test!
 
 Question: have we done anything up to this point that's really new? Anything that would give us any confidence that we've actually authorized a user? We've gone through the trouble of creating a place to put some of our admin functionality, but I don't see anywhere that we're actually limiting access to that space. Let's create a test to make sure a default user can't get to all this sweet admin goodness. If we can make that pass I'll start to feel a little bit better about our authentication.
 
-In our `admin_sees_categories_index_spec.rb` file let's add the following:
+In our `email_spec.rb` file let's add the following:
 
 ```ruby
-context "as default user" do
-  it 'does not allow default user to see admin categories index' do
-    user = User.create(username: "fern@gully.com",
-                       password: "password",
-                       role: 0)
+  describe "as default user" do
+    it 'does not allow default user to see admin dashboard index' do
+      user = User.create(username: "fern@gully.com",
+                         password: "password",
+                         role: 0)
 
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
-    visit admin_categories_path
+      visit "/admin/dashboard"
 
-    expect(page).to_not have_content("Admin Categories")
-    expect(page).to have_content("The page you were looking for doesn't exist.")
+      expect(page).to_not have_link("Email a User")
+      expect(page).to have_content("The page you were looking for doesn't exist.")
+    end
   end
-end
 ```
 
 Run that, and sure enough we have a failing test. Our regular old users can get to everything that our admin can. Let's change that.
 
-Inside of our `Admin::CategoriesController`, let's add a `before_action` to check to see if a user is an admin before they access any of the `Category` functionality.
+Inside of our `Admin::DashboardController`, let's add a `before_action` to check to see if a user is an admin before they access any of the `Dashboard` functionality.
 
 ```ruby
-class Admin::CategoriesController < ApplicationController
+class Admin::DashboardController < ApplicationController
   before_action :require_admin
 
   private
@@ -297,11 +300,10 @@ So, at a high level this makes sense: we've created a `before_action` to check t
 ```
 Failures:
 
-  1) admin sees categories index as admin they are allowed to see all categories
-     Failure/Error: render file: "/public/404" unless current_admin?
+  1) Failure/Error: render file: "/public/404" unless current_admin?
 
      NoMethodError:
-       undefined method `current_admin?' for #<Admin::CategoriesController:0x007fabfb9dfc70>
+       undefined method `current_admin?' for #<Admin::DashboardController:0x007fabfb9dfc70>
        Did you mean?  current_user
 ```
 
@@ -317,9 +319,9 @@ end
 
 What gives us access to `current_user.admin?`? Our enum!
 
-Our test should be passing at this point. And we're happy. We have some confidence that our regular old user can't access the categories functionality that we've namespaced to `admin`. How can we make this better?
+Our test should be passing at this point. And we're happy. We have some confidence that our regular old user can't access the dashboard functionality that we've namespaced to `admin`. How can we make this better?
 
-Let's refactor so that we're not limiting this functionality to just our `categories` controller. Then we should be able to stuff some more controllers into our namespace and give them the same level of protection.
+Let's refactor so that we're not limiting this functionality to just our `dashboard` controller. Then we should be able to stuff some more controllers into our namespace and give them the same level of protection.
 
 Create a new `BaseController` in our admin folder.
 
@@ -327,7 +329,7 @@ Create a new `BaseController` in our admin folder.
 $ touch app/controllers/admin/base_controller.rb
 ```
 
-Inside of `base_controller.rb`, copy in the `before_action` that we had previously put directly on our `Admin::CategoriesController`.
+Inside of `base_controller.rb`, copy in the `before_action` that we had previously put directly on our `Admin::DashboardController`.
 
 ```ruby
 class Admin::BaseController < ApplicationController
@@ -338,10 +340,10 @@ class Admin::BaseController < ApplicationController
   end
 end
 ```
-Now, delete that from our `Admin::CategoriesController`, and instead have it inherit from our newly created `Admin::BaseController`. When you're finished, your categories controller should look like this:
+Now, delete that from our `Admin::DashboardController`, and instead have it inherit from our newly created `Admin::BaseController`. When you're finished, your dashboard controller should look like this:
 
 ```ruby
-class Admin::CategoriesController < Admin::BaseController
+class Admin::DashboardController < Admin::BaseController
   def index
   end
 end
@@ -352,7 +354,6 @@ end
 *   What's the difference between Authentication and Authorization?
 *   Why are both necessary for securing our applications?
 *   What's a `before_action` filter in Rails?
-*   How can we scope a filter down to only work with specific actions?
 *   What's an `enum` attribute in ActiveRecord? Why would we ever want to use this?
 *   When thinking about Authorization, why might we want to namespace a resource?
 *   What does `allow_any_instance_of` in RSpec do?
