@@ -27,7 +27,7 @@ layout: page
 * [Authentication](./authentication)
 * [Namespacing Routes in Rails](./namespacing)
 * [Authorization](./authorization)
-* [Route Helpers in Rails](./route_helpers)
+* [Rails Resources](./rails_resources)
 * [.form_for](./form_for)
 
 
