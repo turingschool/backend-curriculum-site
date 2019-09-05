@@ -70,7 +70,7 @@
     - Research `const`, `var`, `let` in JavaScript
 - Group 2: Compare Ruby methods and JavaScript functions
     - Research es5 function declarations
-    - What is the differience between a function declaration vs. function expression?
+    - What is the difference between a function declaration vs. function expression?
 - Group 3: Compare how to iterate over arrays
     - Research `map` & `forEach` & `reduce`
 - Group 4: Compare loops Ruby `for` loops and JavaScript `for in loop`
@@ -116,6 +116,18 @@ With the person next to you discuss:
 3. Change the background color of the ".background" div to a different color
 4. On click of the button, make the H3 disappear
 
+Do this in the console of the browser first!
+- Open the vacation_spots.html page in the browser.
+- Right click on the page and select `Inspect` to open the Chrome dev tools
+- View the DOM tree in the `Elements` tab
+- Play around with manipulating the DOM nodes in the console first.
+
+Transition code from the console to the `vacationSpots.js` file once you know it works.
+
+Some additional resources for manipulating the DOM:
+- [Set and Get CSS styles of elements](https://plainjs.com/javascript/styles/set-and-get-css-styles-of-elements-53/)
+- [Selecting DOM Elements](https://plainjs.com/javascript/selecting/)
+
 ---
 
 ## Is the DOM ready?
@@ -128,18 +140,15 @@ With the person next to you discuss:
 # The lifecycle of an HTML document
 
 - Three important Events in the lifecycle of an HTML page:
-1. DOMContentLoaded
-- the browser has fully loaded the HTML, and the DOM tree is built, but external resources like pictures <img> and stylesheets may not be loaded yet.
-2. load
-- the browser has fully loaded the HTML, DOM tree, and external resources i.e. images, stylesheets
-3. beforeunload/unload
-- the user is leaving the page
+1. *DOMContentLoaded* - the browser has fully loaded the HTML, and the DOM tree is built, but external resources like pictures <img> and stylesheets may not be loaded yet.
+2. *load* - the browser has fully loaded the HTML, DOM tree, and external resources i.e. images, stylesheets
+3. *beforeunload/unload* - the user is leaving the page
 
 ---
 
 ```
 document.addEventListener("DOMContentLoaded", function(event){
-  doSomethings();
+  doSomeThings();
 });
 ```
 
