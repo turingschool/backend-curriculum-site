@@ -14,21 +14,23 @@ layout: page
 
 ## Rails Application Development
 
+* [Intro to MVC](./intro_to_mvc)
 * [Handling Requests](./handling_requests)
 * [ActiveRecord Associations](./active_record_associations)
-* [Intro to MVC](./intro_to_mvc)
 * [Passing Data in Rails](./passing_data_in_rails)
 * [MVC in Action](./mvc_in_action)
-* [Route Helpers in Rails](./route_helpers)
 * [Nested Resources in Rails](./nested_resources)
-* [Namespacing Routes in Rails](./namespacing)
-* [Cookies and Sessions in Rails](./cookies_sessions_in_rails)
 * [Exploration: Sessions, Cookies and Flash Messages](../misc/sessions_cookies_and_flashes)
-* [Authentication](./authentication)
-* [Authorization](./authorization)
+* [Cookies and Sessions in Rails](./cookies_sessions_in_rails)
 * [Cart & Order Lifecycle](./cart_implementation)
 * [Partials](./partials)
+* [Authentication](./authentication)
+* [Namespacing Routes in Rails](./namespacing)
+* [Authorization](./authorization)
+* [Route Helpers in Rails](./route_helpers)
 * [.form_for](./form_for)
+
+
 
 ## ActiveRecord
 
