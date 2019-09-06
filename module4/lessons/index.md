@@ -5,6 +5,7 @@ title: Module 4 Lessons
 ## JavaScript
   
 * [Intro to Object-Oriented JavaScript](./intro_to_oojs)
+* [Module Exporting and Require](./export_require.md)
 * [Asynchronicity in JavaScript](./asynchronous_js)
 * [Intro to Promises and Fetch](./fetch_refresher)
 * [Express and Sequelize](./express_and_sequelize)
