@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Express & Sequelize One-to-Many Relationship
+title: Express & Sequelize
 ---
 
 ## Learning Goals

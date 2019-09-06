@@ -1,4 +1,4 @@
-# API Design - Best Practices
+# API Design
 
 [Slides: API Design - Best Practices](https://docs.google.com/presentation/d/1zCMu9ihKhESM2VEsPZBaoBohzUHv03ARY-9pEWOr6lI/edit?usp=sharing)
 
