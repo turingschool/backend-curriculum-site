@@ -25,7 +25,7 @@ title: Module 4 Lessons
 
 ## General Web
 
-* [Service Oriented Architecture](./soa)
+* [Scaling Apps & Picking the Right Tool](./soa)
 * [HTTP vs. HTTPS](./http_refresh)
 * [All About CDNs](./cdns)
 * [API Design Best Practices](./api_design)
