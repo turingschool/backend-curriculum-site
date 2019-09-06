@@ -34,7 +34,7 @@ title: Module 4 Lessons
 ## Job Ready
 
 * [Project Polish](./project_polish)
-* [Technical Challenges](./technical_challenges)
+* [Technical and Whiteboarding Challenges](./technical_challenges)
 * [Whiteboarding](./whiteboarding)
 * [Dream Job Interview Prep](./link_will_come_later)
 * [Big-O Notation](bigocheatsheet.com)
