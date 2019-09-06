@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Fetch Intro & jQuery Refresher
+title: Intro to Promises and Fetch
 length: 120 minutes
 ---
 
