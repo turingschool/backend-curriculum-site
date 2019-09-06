@@ -1,4 +1,4 @@
-# GraphQL Lesson
+# Intro to GraphQL
 
 ### Vocabulary
 
