@@ -26,7 +26,7 @@ title: Module 4 Lessons
 ## General Web
 
 * [Scaling Apps & Picking the Right Tool](./soa)
-* [HTTP vs. HTTPS](./http_refresh)
+* [HTTP Refresher](./http_refresh)
 * [All About CDNs](./cdns)
 * [API Design Best Practices](./api_design)
 * [Intro to CORS](./cors)
