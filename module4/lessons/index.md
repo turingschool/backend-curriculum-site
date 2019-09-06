@@ -43,4 +43,4 @@ title: Module 4 Lessons
 
 * [Getting Started with Docker](./intro_to_docker)
 * [Intro to GraphQL](./graphql)
-* [Git 2.0](./git_2.0/instructor_set_up.md)
+* [Git 2.0](./git_2.0/git.md)
