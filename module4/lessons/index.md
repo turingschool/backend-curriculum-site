@@ -2,26 +2,14 @@
 layout: page
 title: Module 4 Lessons
 ---
-
-## Client Side JavaScript
-
-* [Debugging Client Side Code](./fe_dev_tool_debugging)
+## JavaScript
+  
 * [Intro to Object-Oriented JavaScript](./intro_to_oojs)
 * [Asynchronicity in JavaScript](./asynchronous_js)
 * [Intro to Promises and Fetch](./fetch_refresher)
-* [Event Bubbling & Delegation](./event_bubbling_and_delegation)
-
-## Server Side JavaScript
-
 * [Express and Sequelize](./express_and_sequelize)
 * [Testing with Jest](./jest_testing)
 * [Organizing an Express App](./organize_an_express_app)
-
-## Build Tools & Workflow
-
-* [Webpack and NPM](./npm_and_webpack)
-* [Project Planning](./project_planning)
-* [Continuous Integration](./continuous_integration)
 
 ## General Web
 
@@ -33,10 +21,8 @@ title: Module 4 Lessons
 
 ## Job Ready
 
-* [Project Polish](./project_polish)
 * [Technical and Whiteboarding Challenges](./technical_challenges)
-* [Dream Job Interview Prep](./link_will_come_later)
-* [Big-O Notation](bigocheatsheet.com)
+* [Big-O Notation](https://www.bigocheatsheet.com)
 * [Wheel of Jeopardy](./jeopardy)
 
 ## Other
@@ -44,3 +30,13 @@ title: Module 4 Lessons
 * [Getting Started with Docker](./intro_to_docker)
 * [Intro to GraphQL](./graphql)
 * [Git 2.0](./git_2.0/git.md)
+
+## Additional Reading/Resources
+
+* [Debugging Client Side Code](./fe_dev_tool_debugging)
+* [Event Bubbling & Delegation](./event_bubbling_and_delegation)
+* [Webpack and NPM](./npm_and_webpack)
+* [Project Planning](./project_planning)
+* [Continuous Integration](./continuous_integration)
+* [Project Polish](./project_polish)
+
