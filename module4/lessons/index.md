@@ -6,7 +6,7 @@ title: Module 4 Lessons
 ## Client Side JavaScript
 
 * [Debugging Client Side Code](./fe_dev_tool_debugging)
-* [Object Oriented JavaScript](./intro_to_oojs)
+* [Intro to Object-Oriented JavaScript](./intro_to_oojs)
 * [Asynchronicity in JavaScript](./asynchronous_js)
 * [Intro to Promises and Fetch](./fetch_refresher)
 * [Event Bubbling & Delegation](./event_bubbling_and_delegation)
