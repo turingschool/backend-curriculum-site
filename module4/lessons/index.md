@@ -44,6 +44,4 @@ title: Module 4 Lessons
 
 * [Getting Started with Docker](./intro_to_docker)
 * [Intro to GraphQL](./graphql)
-* [Git 2.0 - Git History](./git_2.0/station-1.md)
-* [Git 2.0 - Git Fixes](./git_2.0/station-2.md)
-* [Git 2.0 - Git Rebase](./git_2.0/station-3.md)
+* [Git 2.0](./git_2.0/instructor_set_up.md)
