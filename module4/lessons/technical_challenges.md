@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Technical Challenges
+title: Technical and Whiteboarding Challenges
 ---
 
 ## Welcome to Mod4 and Interview Prep time🎉
