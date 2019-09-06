@@ -1,4 +1,4 @@
-# Intro to Docker
+# Getting Started with Docker
 
 The purpose of this lesson is to introduce you to Docker and some of the benefits that it provides.
 

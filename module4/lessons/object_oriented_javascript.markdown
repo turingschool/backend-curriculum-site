@@ -1,12 +1,9 @@
 ---
 layout: page
-title: Object Oriented Javascript
+title: Intro to Object-Oriented JavaScript
 length: 150
 tags: javascript, object oriented programming, prototypes
 ---
-
-Object-Oriented Javascript
------------------
 
 In this lesson, we'll discuss some of the common techniques
 and idioms for writing Javascript in an object-oriented style.

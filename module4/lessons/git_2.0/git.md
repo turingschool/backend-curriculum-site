@@ -1,15 +1,9 @@
-# Git 2.0 Instructor Lesson Plan
+# Git 2.0
 
 ### Goals
 
 - Familiarize students with other Git commands that they can use in their Git workflow
 - Introduce Git rebase
-
-### Set Up
-
-- Print enough copies for each students to be able to work through the information on their own when at that station
-
-- Print out student exit tickets
 
 ### Kicking Off the Lesson
 
@@ -23,3 +17,15 @@
   - Begin with a Turn and Talk: What is one command you will incorporate in your workflow and why?
   - Review Git rebase workflow and have students talk about what they learned during their research
   - Answer post-it questions, if they haven't been answered already and any remaining student questions
+
+
+### Stations
+* [Git 2.0 - Git History](./station-1.md)
+* [Git 2.0 - Git Fixes](./station-2.md)
+* [Git 2.0 - Git Rebase](./station-3.md)
+
+
+### Instructor Set Up
+
+- Print enough copies for each students to be able to work through the information on their own when at that station
+- Print out student exit tickets

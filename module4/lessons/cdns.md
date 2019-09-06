@@ -1,4 +1,4 @@
-# All about content delivery networks (CDNs) 
+# Intro to content delivery networks (CDN) 
 
 ## Where are our assets being served from?
 1. Open up a deployed Rails application on Heroku with a frontend.
