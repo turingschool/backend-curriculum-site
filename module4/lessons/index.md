@@ -28,7 +28,7 @@ title: Module 4 Lessons
 * [Scaling Apps & Picking the Right Tool](./soa)
 * [HTTP Refresher](./http_refresh)
 * [Intro to content delivery networks (CDN)](./cdns)
-* [API Design Best Practices](./api_design)
+* [API Design](./api_design)
 * [Intro to CORS](./cors)
 
 ## Job Ready
