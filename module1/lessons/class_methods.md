@@ -171,8 +171,8 @@ class Name
 
 1. Add code to the `self.find_by_name` method, which builds an array of `Name` objects that match the name column from our CSV data.
   1. how many rows of data can you find for the following names:
-    1. Ian, Megan, Sal, Omar, Riley, Hunter, Lucas
-    1. Did you get 37 rows for Lucas? Why or why not?
+    1. Ian, MEGAN, Sal, Omar, Riley, HUNTER
+1. Build ONE alternative copy of `seld.find_by_name` for findind things specifically by another field, like `count`, `rank`, and `year`. These would be called, for instance, `self.find_by_year` etc.
 1. Create a new class method called `self.where` which takes a hash of details, and builds an array of `Name` objects that match the CSV data. This method will need to copy the `CSV.read` line from our `self.find_by_name` method.
   1. The 'key' of the hash will be a symbol that matches the name of the column in the CSV file.
   1. For example, we might call `results = Name.where( { rank: "15" } )`
@@ -207,6 +207,7 @@ p result.first
 - limit: takes an integer parameter and returns only that many objects, eg `Name.limit(10)`
 - average: takes a field name to average, returns a float, eg `Name.average("rank")`
 
+**The `ActiveRecord` library will also build methods on-the-fly based on the attribute names.** If there is a field called "name" it will build a method called "find_by_name". If there is a field called "ethnicity", it will build a method called "find_by_ethnicity" and so on.
 
 ## Additional Resources
 
