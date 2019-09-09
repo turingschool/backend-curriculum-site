@@ -9,7 +9,7 @@ Each of the methods below take a team id as an argument. Using that team id, you
 
 | Method | Description | Return Value |
 | ------ | ----------- | ------------ |
-| `team_info` | A hash with key/value pairs for each of the attributes of a team. | Hash |
+| `team_info` | A hash with key/value pairs for the following attributes: team_id, franchise_id, team_name, abbreviation, and link | Hash |
 | `best_season` | Season with the highest win percentage for a team. | Integer |
 | `worst_season` | Season with the lowest win percentage for a team. | Integer |
 | `average_win_percentage` | Average win percentage of all games for a team. | Float |
