@@ -10,11 +10,11 @@ Each of the methods below take a team id as an argument. Using that team id, you
 | Method | Description | Return Value |
 | ------ | ----------- | ------------ |
 | `team_info` | A hash with key/value pairs for the following attributes: team_id, franchise_id, team_name, abbreviation, and link | Hash |
-| `best_season` | Season with the highest win percentage for a team. | Integer |
-| `worst_season` | Season with the lowest win percentage for a team. | Integer |
+| `best_season` | Season with the highest win percentage for a team. | String |
+| `worst_season` | Season with the lowest win percentage for a team. | String |
 | `average_win_percentage` | Average win percentage of all games for a team. | Float |
-| `most_goals_scored` | Highest number of goals a particular team has scored in a single game. | String |
-| `fewest_goals_scored` | Lowest numer of goals a particular team has scored in a single game. | String |
+| `most_goals_scored` | Highest number of goals a particular team has scored in a single game. | Integer |
+| `fewest_goals_scored` | Lowest numer of goals a particular team has scored in a single game. | Integer |
 | `favorite_opponent` | Name of the opponent that has the lowest win percentage against the given team. | String |
 | `rival` | Name of the opponent that has the highest win percentage against the given team. | String |
 | `biggest_team_blowout` | Biggest difference between team goals and opponent goals for a win for the given team. | Integer |
