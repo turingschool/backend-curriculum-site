@@ -1,4 +1,7 @@
-# Intro to GraphQL
+---
+title: Intro to GraphQL
+layout: page
+---
 
 ### Vocabulary
 
