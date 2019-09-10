@@ -61,11 +61,47 @@ As we work through the next section we should update the diagram if our understa
 
 To start through this process let's fire up a Rails console. We'll start by building our query slowly, piece by piece. People often struggle with where to start. When we are writing a query that needs to return specific rows, invoices in this case, we should _start by writing our query from the Model representing those rows_. Sometimes, there will be a temptation to start with a join table since they are similar to a hub with spokes that branch out to the tables we need. Avoid this temptation. This will usually result in needing to make more queries than is necessary.
 
-The next thing that is usually good to try is to tack on the easiest portions of the query first and read the output in the console to make sure it matches our expectations.
+The next thing that is usually good to try is to tack on the easiest portions of the query first and read the output in the console to make sure it matches our expectations. One way to make this easier to read is to use the `.to_sql` method.
 
 ```
-irb(main):001:0>
+irb(main)> puts Invoice.joins(:invoice_items).to_sql
 ```
+
+We added the `puts` to make it easier to read which remove escape characters.
+
+The output should look something like this:
+
+```sql
+SELECT "invoices".* FROM "invoices" INNER JOIN "invoice_items" ON "invoice_items"."invoice_id" = "invoices"."id"
+```
+
+This looks the way we would expect. Another great tool to use as we're trying to solve these issues is the `rails db` command line tool which will connect us to the database specified in our `database.yml` file. Let's fire that up in another tab in our terminal. It's worth noting that this is going to have access to any SQL commands in a similar way to using something like `psql` but it does not have access to the Rails environment so we won't be able to write an Ruby. This can be a nice place to run your queries and have a table based representation of the output. This can be especially handy when you start adding aliases and things like that. If we paste that query, add on a semi-colon, and run it we should see something like this.
+
+```sql
+rales_engine_development=# SELECT "invoices".* FROM "invoices" INNER JOIN "invoice_items" ON "invoice_items"."invoice_id" = "invoices"."id";
+  id  | customer_id | merchant_id | status  |     created_at      |     updated_at
+------+-------------+-------------+---------+---------------------+---------------------
+    1 |           1 |          26 | shipped | 2012-03-25 09:54:09 | 2012-03-25 09:54:09
+    1 |           1 |          26 | shipped | 2012-03-25 09:54:09 | 2012-03-25 09:54:09
+    1 |           1 |          26 | shipped | 2012-03-25 09:54:09 | 2012-03-25 09:54:09
+    1 |           1 |          26 | shipped | 2012-03-25 09:54:09 | 2012-03-25 09:54:09
+    1 |           1 |          26 | shipped | 2012-03-25 09:54:09 | 2012-03-25 09:54:09
+    1 |           1 |          26 | shipped | 2012-03-25 09:54:09 | 2012-03-25 09:54:09
+    1 |           1 |          26 | shipped | 2012-03-25 09:54:09 | 2012-03-25 09:54:09
+    1 |           1 |          26 | shipped | 2012-03-25 09:54:09 | 2012-03-25 09:54:09
+    2 |           1 |          75 | shipped | 2012-03-12 05:54:09 | 2012-03-12 05:54:09
+```
+
+It's important to make sure we are seeing what we would expect. Why do we see multiples of the same record?
+
+This looks the way that we would expect. Mark it off on the diagram. Then, let's get to the next part of the query.
+
+```sql
+Invoice.joins(:invoice_items, :transactions)
+```
+
+1. Confirm the SQL looks the way it should.
+2. Mark it off on our diagram.
 
 
 
