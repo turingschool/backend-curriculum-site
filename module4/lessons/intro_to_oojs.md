@@ -1,10 +1,3 @@
----
-layout: page
-title: Object Oriented JavaScript
-length: 206
-tags: JavaScript, object oriented programming, prototypes
----
-
 # An Introduction to Object-Oriented JavaScript
 
 ## Learning Goals
