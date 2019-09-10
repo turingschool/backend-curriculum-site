@@ -1,4 +1,7 @@
-# An Introduction to Object-Oriented JavaScript
+---
+title: An Introduction to Object-Oriented JavaScript
+layout: page
+---
 
 ## Learning Goals
 
