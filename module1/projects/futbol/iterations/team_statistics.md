@@ -13,8 +13,8 @@ Each of the methods below take a team id as an argument. Using that team id, you
 | `best_season` | Season with the highest win percentage for a team. | Integer |
 | `worst_season` | Season with the lowest win percentage for a team. | Integer |
 | `average_win_percentage` | Average win percentage of all games for a team. | Float |
-| `most_goals_scored` | Highest number of goals a particular team has scored in a single game. | Integer |
-| `fewest_goals_scored` | Lowest numer of goals a particular team has scored in a single game. | Integer |
+| `most_goals_scored` | Highest number of goals a particular team has scored in a single game. | String |
+| `fewest_goals_scored` | Lowest numer of goals a particular team has scored in a single game. | String |
 | `favorite_opponent` | Name of the opponent that has the lowest win percentage against the given team. | String |
 | `rival` | Name of the opponent that has the highest win percentage against the given team. | String |
 | `biggest_team_blowout` | Biggest difference between team goals and opponent goals for a win for the given team. | Integer |
