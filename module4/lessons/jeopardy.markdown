@@ -1,4 +1,7 @@
-# Wheel of Jeopardy
+---
+title: Wheeel of Jeopardy
+layout: page
+---
 
 Students - to prepare for this, practice answering all the questions you've received in Weekly CFUs, participate in Mock Interviews. 50% of your points earned will be based on technical accuracy and the other 50% will be based on the eloquence with which you answer questions.
 
