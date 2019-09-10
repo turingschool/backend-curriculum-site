@@ -14,13 +14,19 @@ increased DB scale and load
 * See some techniques for handling less common, more complicated
   ActiveRecord queries
 
+## Instructor Notes
+
+The way we've been teaching this class lately is to start by attempting to load the root page and showing the n+1 queries in the Rails server. This leads into the discussion about how long it will take to load the page. The rest of the class focuses on optimizing this page load. As you encounter each problem or bottleneck, introduce different tools mentioned below to get through it. We've been having students work in pairs so when we encounter a bottleneck they work to resolve it on their own. We come back as a class and discuss solutions prior to moving to the next bottleneck.
+
+This uses an older version of NewRelic. Newer versions only support the web version and not using it locally which can be difficult to use in a classroom setting since the students each need to confirm their apps are able to communicate with an external API. This older version can be accessed at `/newrelic` when your Rails server is running.
+
 ## Setup - Blogger with DB Load
 
 For this lesson, we'll use a special branch of blogger configured with a large
 dataset. Set this up like so:
 
 ```
-git clone -b blogger-perf-workshop https://github.com/JumpstartLab/blogger_advanced.git
+git clone -b blogger-perf-workshop https://github.com/turingschool-examples/blogger_advanced.git
 cd blogger_advanced
 bundle
 rake sample_data:load
