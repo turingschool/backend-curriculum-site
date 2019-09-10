@@ -1,4 +1,7 @@
-# Writing Effective User Stories
+---
+title: Writing Effective User Stories
+layout: page
+---
 
 ### Intro
 
