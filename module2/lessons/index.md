@@ -36,6 +36,7 @@ layout: page
 
 * [ActiveRecord Associations](./active_record_associations)
 - [SQL and ActiveRecord](./sql_and_active_record)
+- [SQL and ActiveRecord Workshop](./sql_and_ar_workshop)
 
 ## Databases
 

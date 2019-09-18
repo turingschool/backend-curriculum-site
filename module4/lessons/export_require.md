@@ -1,4 +1,7 @@
-# Module Exporting and Require
+---
+title: Module Exporting and Require
+layout: page
+---
 
 *TL;DR*: Javascript doesn’t export/import files automatically for you. You’ll have to understand how to use `require` and `module.exports` in order to connect everything. 
 

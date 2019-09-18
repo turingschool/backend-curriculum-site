@@ -1,4 +1,7 @@
-# Git 2.0
+---
+title: Git 2.0
+layout: page
+---
 
 ### Goals
 

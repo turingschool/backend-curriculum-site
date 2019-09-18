@@ -1,4 +1,7 @@
-# Intro to content delivery networks (CDN) 
+---
+title: Intro to content delivery networks (CDN)
+layout: page
+---
 
 ## Where are our assets being served from?
 1. Open up a deployed Rails application on Heroku with a frontend.

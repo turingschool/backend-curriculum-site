@@ -1,4 +1,7 @@
-# Scaling Apps & Picking the Right Tool
+---
+title: Scaling Apps & Picking the Right Tool
+layout: page
+---
 
 Today we're going to talk about the basics of scaling an application. Up to this point, you've mostly been exposed to using Rails as your primary tool for building full stack applications. While Ruby and Ruby on Rails are considerably powerful, they may not always be the best tool for every job that you'll ever encounter. This lesson will look at various ideas that surround the idea of scaling an application and picking the right tool to do so.  
 

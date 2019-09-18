@@ -1,4 +1,7 @@
-# Intro to CORS
+---
+title: Intro to CORS
+layout: page
+---
 
 ## Learning Goals
 * Define CORS
