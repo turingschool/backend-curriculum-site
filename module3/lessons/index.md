@@ -21,7 +21,7 @@ layout: page
 
 ## ActiveRecord
 
-* [Advanced ActiveRecord](../lessons/advanced_activerecord_redux)
+* [Advanced ActiveRecord](../lessons/advanced_activerecord)
 
 ## Optimization
 
