@@ -32,6 +32,14 @@ Entering Module 3 with a solid understanding of ActiveRecord and SQL is key to g
 
 ## Next Most Important
 
+### Deeply Nested Hashes
+
+This will be important for when you start consuming APIs.
+
+Fork and clone [Here Be Dragons](https://github.com/turingschool-examples/here-be-dragons)
+
+Complete the exercises within and submit a link to your repo no later than Saturday before the first day of class.
+
 ### Rails Routing
 
 Rewrite your Monster Shop `routes.rb`:
@@ -44,18 +52,11 @@ If you do not own the repo for your project, fork it, and rewrite the routes fil
 
 NOTE: This is not because one way is better, but it's extremely important to understand what every line of your routes file is doing. Rails Engine demands a solid understanding of Rails routing.
 
-### Deeply Nested Hashes
-
-This will be important for when you start consuming APIs.
-
-Fork and clone [Here Be Dragons](https://github.com/turingschool-examples/here-be-dragons)
-
-Complete the exercises within and submit a link to your repo no later than Saturday before the first day of class.
-
-
 ### Data Structures And Algorithms
 
 We are going to be covering various data structures to prepare you for the job hunt and technical interviews. Complete this former M1 project, [Jungle Beats](https://backend.turing.io/module1/projects/jungle_beat)
+
+## For futher exploration
 
 ### JavaScript/JQuery (What's this JavaScript I keep hearing about?)
 
@@ -69,10 +70,10 @@ We are mainly looking for you to get experience with the syntax, and at a minimu
 
 [jQuery](https://www.codeschool.com/courses/try-jquery)
 
-Jquery is a popular javascript library for manipulating the content of web pages. Dip your toes in with this introductory Jquery class.
+JQuery is a popular javascript library for manipulating the content of web pages. Dip your toes in with this introductory Jquery class.
 
 ### Submission
 
-Submit your work here: [Survey Link](https://forms.gle/kMZHKfm6TxETynvNA)
+Submit your work here: [Survey Link](https://forms.gle/4HCHYoyeJtutRuV27)
 
-*It is due Saturday August 10th, at 5pm*
+*It is due Saturday September 28th, at 5pm*
