@@ -21,7 +21,8 @@ First, create a new [Gist on Github](https://gist.github.com/). Copy and paste t
 
 This Gist will be your submission for your intermission work. Each of the assignments includes a Check for Understanding that you must complete in your Gist. Some of the assignments will also ask you to include a link to a GitHub repo.
 
-**Deliverables are due 9:00 am the first day of the inning**
+**Deliverables are due 5:00 pm Saturday, September 28th. Submissions will not be accepted after that time.**
+
 
 ## Assignments
 
@@ -37,4 +38,4 @@ Work on the following assignments in order. Each assignment will assume that you
 
 ## Submission
 
-When you are finished, fill out [this form](https://docs.google.com/forms/d/e/1FAIpQLSdKKx6m5ZRRRLymH1P0lqDv_dx3vBjY9IDc_Qc9ezD7RSB_5w/viewform)
+When you are finished, fill out [this form](https://forms.gle/viGvsm53BYkKSEpM7)
