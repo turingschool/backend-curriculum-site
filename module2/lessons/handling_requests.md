@@ -257,7 +257,7 @@ ActiveRecord::NoDatabaseError:
 Currently, our database does not exist. In order to create your database, run:
 
 ```bash
-rake db:create
+rails db:create
 ```
 
 Running RSpec again gives me this error `Uninitialized Constant Song`.
@@ -336,7 +336,7 @@ create_table :songs do |t|
 end
 ```
 
-We have written the instructions for our database but haven't executed those instructions. Run `rake db:migrate`.
+We have written the instructions for our database but haven't executed those instructions. Run `rails db:migrate`.
 
 Our Database should be good to go.
 
