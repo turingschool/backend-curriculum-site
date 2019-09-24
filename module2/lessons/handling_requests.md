@@ -211,14 +211,14 @@ You can group your test files into subfolders to organize them in a similar form
 /spec
 /spec/features
 /spec/features/songs
-/spec/features/songs/index_spec.rb # all tests about the index page
-/spec/features/songs/show_spec.rb  # all tests about the show page
+/spec/features/songs/user_can_see_all_songs_spec.rb 
+/spec/features/songs/user_can_see_one_song_spec.rb
 etc
 ```
 
 ## Writing the Test
 
-Inside our `index_spec.rb`:
+Inside our `user_can_see_all_songs_spec.rb `:
 
 ```ruby
 require "rails_helper"
