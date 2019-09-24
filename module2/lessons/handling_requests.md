@@ -221,12 +221,16 @@ etc
 Inside our `user_can_see_all_songs_spec.rb `:
 
 ```ruby
-require "rails_helper"
+require 'rails_helper'
 
 RSpec.describe "songs index page", type: :feature do
-  it "user can see all songs" do
-    song_1 = Song.create(title: "Don't Stop Believin'", length: 303, play_count: 123456)
-    song_2 = Song.create(title: "Never Gonna Give You Up", length: 253, play_count: 987654321)
+  it "can see all songs titles and play count" do
+    song_1 = Song.create(title:       "I Really Like You",
+                         length:      208,
+                         play_count:  243810867)
+    song_2 = Song.create(title:       "Call Me Maybe",
+                         length:      199,
+                         play_count:  1214722172)
 
     visit "/songs"
 
@@ -236,6 +240,7 @@ RSpec.describe "songs index page", type: :feature do
     expect(page).to have_content("Play Count: #{song_2.play_count}")
   end
 end
+
 ```
 
 # Developing the Index Page
@@ -255,7 +260,7 @@ Currently, our database does not exist. In order to create your database, run:
 rake db:create
 ```
 
-Running Rspec again gives me this error `Uninitialized Constant Song`.
+Running RSpec again gives me this error `Uninitialized Constant Song`.
 
 Since this is happening on a line of code that does `Song.create` that tells us that we don't have a `Song` model, so let's go make one.
 
