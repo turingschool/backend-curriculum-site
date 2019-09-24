@@ -198,7 +198,7 @@ $ mkdir spec/features/songs
 Finally, create your test file:
 
 ```bash
-$ touch spec/features/songs/index_spec.rb
+$ touch spec/features/songs/user_can_see_all_songs_spec.rb
 ```
 
 The names of the files you create for feature testing MUST end in `_spec.rb`. Without that 'spec' part of the filename, RSpec will completely ignore the file.
