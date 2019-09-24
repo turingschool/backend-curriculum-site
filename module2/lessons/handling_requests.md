@@ -510,10 +510,10 @@ Why don't we have any data on our page even though we created data in our test?
 Run `rails console` or `rails c` form the command line. The Rails Console allows us to interact with our app directly in Development. Let's add some songs and start the server again to see our songs!
 
 ```ruby
-Song.create(title: "Don't Stop Believin'", length: 251, play_count: 760847)
-Song.create(title: "Don't Worry Be Happy", length: 280, play_count: 65862)
-Song.create(title: "Chicken Fried", length: 183, play_count: 521771)
-Song.create(title: "Radioactive", length: 10000, play_count: 623547)
+Song.create(title: "I Really Like You", length: 209, play_count: 760847)
+Song.create(title: "Call Me Maybe", length: 199, play_count: 65862)
+Song.create(title: "Run Away With Me", length: 253, play_count: 521771)
+Song.create(title: "Party For One", length: 269, play_count: 623547)
 ```
 
 ## Checks for Understanding
