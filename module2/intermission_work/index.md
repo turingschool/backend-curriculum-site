@@ -17,7 +17,7 @@ layout: page
 
 ## Deliverables:
 
-First, create a new [Gist on Github](https://gist.github.com/). Copy and paste the markdown from [this template](https://gist.github.com/BrianZanti/5f43760099d035c31b35a93808c00417) into your gist.
+First, create a new [Gist on Github](https://gist.github.com/). Copy and paste the markdown from [this template](https://gist.github.com/mikedao/cf0f63490a0ef91ac7d251e95fc410f7) into your gist.
 
 This Gist will be your submission for your intermission work. Each of the assignments includes a Check for Understanding that you must complete in your Gist. Some of the assignments will also ask you to include a link to a GitHub repo.
 
