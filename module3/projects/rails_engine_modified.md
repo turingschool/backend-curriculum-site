@@ -257,11 +257,6 @@ Assume the dates provided match the format of a standard ActiveRecord timestamp.
 #### Single Merchant
 
 * `GET /api/v1/merchants/:id/favorite_customer` returns the customer who has conducted the most total number of successful transactions.
-* **BOSS MODE:** `GET /api/v1/merchants/:id/customers_with_pending_invoices` returns a collection of customers which have pending (unpaid) invoices. A pending invoice has no transactions with a result of `success`. This means all transactions are `failed`. Postgres has an `EXCEPT` operator that might be useful. `ActiveRecord` also has a `find_by_sql` that might help.
-
-_NOTE_: Failed charges should never be counted in revenue totals or statistics.
-
-_NOTE_: All revenues should be reported as a float with two decimal places.
 
 #### Items
 
@@ -273,22 +268,28 @@ _NOTE_: All revenues should be reported as a float with two decimal places.
 
 * `GET /api/v1/customers/:id/favorite_merchant` returns a merchant where the customer has conducted the most successful transactions
 
+_NOTE_: Failed charges should never be counted in revenue totals or statistics.
 
-#### Extra Practice (optional)
+_NOTE_: All revenues should be reported as a float with two decimal places.
 
+#### Extensions
+<!--
 #### All Merchants
 
 * `GET /api/v1/merchants/most_items?quantity=x` returns the top `x` merchants
-ranked by total number of items sold
+ranked by total number of items sold -->
 
 #### Single Merchant
 
+* **BOSS MODE:** `GET /api/v1/merchants/:id/customers_with_pending_invoices` returns a collection of customers which have pending (unpaid) invoices. A pending invoice has no transactions with a result of `success`. This means all transactions are `failed`. Postgres has an `EXCEPT` operator that might be useful. `ActiveRecord` also has a `find_by_sql` that might help.
+
+<!--
 * `GET /api/v1/merchants/:id/revenue` returns the total revenue for that merchant across successful transactions
-* `GET /api/v1/merchants/:id/revenue?date=x` returns the total revenue for that merchant for a specific invoice date `x`
+* `GET /api/v1/merchants/:id/revenue?date=x` returns the total revenue for that merchant for a specific invoice date `x` -->
 
-#### Items
+<!-- #### Items
 
-* `GET /api/v1/items/most_items?quantity=x` returns the top `x` item instances ranked by total number sold
+* `GET /api/v1/items/most_items?quantity=x` returns the top `x` item instances ranked by total number sold -->
 
 
 ## Code Expectations
