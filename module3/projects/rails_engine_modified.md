@@ -250,15 +250,15 @@ using ActiveRecord queries.
 #### All Merchants
 
 * `GET /api/v1/merchants/most_revenue?quantity=x` returns the top `x` merchants ranked by total revenue
-* `GET /api/v1/merchants/most_items?quantity=x` returns the top `x` merchants ranked by total number of items sold
+<!-- * `GET /api/v1/merchants/most_items?quantity=x` returns the top `x` merchants ranked by total number of items sold -->
 * `GET /api/v1/merchants/revenue?date=x` returns the total revenue for date `x` across all merchants
 
 Assume the dates provided match the format of a standard ActiveRecord timestamp.
 
 #### Single Merchant
 
-* `GET /api/v1/merchants/:id/revenue` returns the total revenue for that merchant across successful transactions
-* `GET /api/v1/merchants/:id/revenue?date=x` returns the total revenue for that merchant for a specific invoice date `x`
+<!-- * `GET /api/v1/merchants/:id/revenue` returns the total revenue for that merchant across successful transactions
+* `GET /api/v1/merchants/:id/revenue?date=x` returns the total revenue for that merchant for a specific invoice date `x` -->
 * `GET /api/v1/merchants/:id/favorite_customer` returns the customer who has conducted the most total number of successful transactions.
 * **BOSS MODE:** `GET /api/v1/merchants/:id/customers_with_pending_invoices` returns a collection of customers which have pending (unpaid) invoices. A pending invoice has no transactions with a result of `success`. This means all transactions are `failed`. Postgres has an `EXCEPT` operator that might be useful. `ActiveRecord` also has a `find_by_sql` that might help.
 
@@ -269,7 +269,7 @@ _NOTE_: All revenues should be reported as a float with two decimal places.
 #### Items
 
 * `GET /api/v1/items/most_revenue?quantity=x` returns the top `x` items ranked by total revenue generated
-* `GET /api/v1/items/most_items?quantity=x` returns the top `x` item instances ranked by total number sold
+<!--  m -->
 * `GET /api/v1/items/:id/best_day` returns the date with the most sales for the given item using the invoice date. If there are multiple days with equal number of sales, return the most recent day.
 
 #### Customers
@@ -318,33 +318,17 @@ end
 
 #### Milestones
 
-The organization of this project spec is by feature type. However, much of the unfamiliar or more difficult work is in the business intelligence portion of the project. To the degree possible instructors encourage you to use an agile approach to completing this assignment. Furthermore, we encourage you review the work and develop estimated milestones before you begin. **Any good set of milestones will allow for some slippage before the project is due.**
+The organization of this project spec is by feature type. However, much of the unfamiliar or more difficult work is in the business intelligence portion of the project. To the degree possible instructors encourage you to use an agile approach to completing this assignment. Furthermore, we encourage you to review the work and develop estimated milestones before you begin. **Any good set of milestones will allow for some slippage before the project is due.**
 
 There is an Advanced ActiveRecord class scheduled for Wednesday. We *highly* encourage you to have attempted some of the business intelligence queries before that class.
 
 #### What to expect from instructors
 
-There will not be formal check-ins for this project. Instructors will generally be available during scheduled work time to discuss issues absent other commitments. Students should also view this as an opportunity to practice discussing code on GitHub, and instructors will prefer reviewing PRs to discussing code on Slack.
+There will be formal check-ins for this project. Instructors will generally be available during scheduled work time to discuss issues absent other commitments. Students should also view this as an opportunity to practice discussing code on GitHub, and instructors will prefer reviewing PRs to discussing code on Slack.
 
 In their reviews, instructors will go over whatever technical, planning or other challenges you're having. They also may give you feedback, or suggest a different path than the one you're on.
 
 ## <a name="evaluation"></a> Evaluation
-
-Blog Post Deliverable
-
-At the end of this project, write a reflection on what you learned and implemented. This will help you review your own code and gain practice explaining/talking through the code and the process/decisions that were made along the way. Include code snippets from the project in your explanations.
-
-We reccommend writing your blog on Medium, but if you have a blog site that you already use that is okay too. However, it must be publically accessible and the link should be submitted with your repo.
-
-Here are some questions to think about as you write your post:
-
-* How did you approach this project? What sort of planning did you do?
-* What was the most challenging part of the project? How did you deal with that challenge? Were you able to overcome it? If yes, how did you overcome it? If no, what do you think is the reason for not being able to and what would you do differenlty?
-* What did you enjoy most about the project?
-* What part of the project are you most proud of and why?
-* If you had to do this project again, what would you want to change? (This could be your process, organization of code, particular piece of code that you would want to write differently etc.)
-* What is one specific thing that you want to take from this project and implement in your next project? (This could be something that worked well for you or something that didn't go well, but you learned from it.)
-
 
 ### Feature Delivery
 
