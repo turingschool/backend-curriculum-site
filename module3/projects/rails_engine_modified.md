@@ -266,11 +266,30 @@ _NOTE_: All revenues should be reported as a float with two decimal places.
 #### Items
 
 * `GET /api/v1/items/most_revenue?quantity=x` returns the top `x` items ranked by total revenue generated
+
 * `GET /api/v1/items/:id/best_day` returns the date with the most sales for the given item using the invoice date. If there are multiple days with equal number of sales, return the most recent day.
 
 #### Customers
 
 * `GET /api/v1/customers/:id/favorite_merchant` returns a merchant where the customer has conducted the most successful transactions
+
+
+#### Extra Practice (optional)
+
+#### All Merchants
+
+* `GET /api/v1/merchants/most_items?quantity=x` returns the top `x` merchants
+ranked by total number of items sold
+
+#### Single Merchant
+
+* `GET /api/v1/merchants/:id/revenue` returns the total revenue for that merchant across successful transactions
+* `GET /api/v1/merchants/:id/revenue?date=x` returns the total revenue for that merchant for a specific invoice date `x`
+
+#### Items
+
+* `GET /api/v1/items/most_items?quantity=x` returns the top `x` item instances ranked by total number sold
+
 
 ## Code Expectations
 
