@@ -352,10 +352,10 @@ Feature completeness will be determined using the [spec harness](https://github.
 
 **1. Completion**
 
-* 4: Project completes all base requirements according to the spec harness.
-* 3: Project completes most requirements but fails 4 or fewer spec harness tests.
-* 2: Project completes most requirements but fails 5-8 spec harness tests.
-* 1: Project fails more than 9 spec harness tests.
+* 4: Project completes all base requirements according to the spec harness plus one or more extensions.
+* 3: Project completes all base requirements according to the spec harness.
+* 2: Project completes most requirements but fails 4 or fewer spec harness tests.
+* 1: Project fails more than 5-8 spec harness tests.
 
 ### Technical Quality
 
