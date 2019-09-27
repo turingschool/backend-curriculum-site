@@ -108,7 +108,7 @@ renders a JSON representation of the appropriate record:
 
 #### Single Finders
 
-Each data category should offer `find` finders to return a single object representation. The finder should work with any of the attributes defined on the data type and always be case insensitive.
+Each data category should offer a `find` endpoint to return a single object representation. The endpoint should work with any of the attributes defined on the data type and always be case insensitive.
 
 ##### Request URL
 
@@ -144,7 +144,7 @@ GET /api/v1/merchants/find?parameters
 
 #### Multi-Finders
 
-Each category should offer `find_all` finders which should return all matches for the given query. It should work with any of the attributes defined on the data type and always be case insensitive.
+Each category should offer a `find_all` endpoint which should return all matches for the given query. It should work with any of the attributes defined on the data type and always be case insensitive.
 
 ##### Request URL
 
@@ -250,15 +250,12 @@ using ActiveRecord queries.
 #### All Merchants
 
 * `GET /api/v1/merchants/most_revenue?quantity=x` returns the top `x` merchants ranked by total revenue
-<!-- * `GET /api/v1/merchants/most_items?quantity=x` returns the top `x` merchants ranked by total number of items sold -->
 * `GET /api/v1/merchants/revenue?date=x` returns the total revenue for date `x` across all merchants
 
 Assume the dates provided match the format of a standard ActiveRecord timestamp.
 
 #### Single Merchant
 
-<!-- * `GET /api/v1/merchants/:id/revenue` returns the total revenue for that merchant across successful transactions
-* `GET /api/v1/merchants/:id/revenue?date=x` returns the total revenue for that merchant for a specific invoice date `x` -->
 * `GET /api/v1/merchants/:id/favorite_customer` returns the customer who has conducted the most total number of successful transactions.
 * **BOSS MODE:** `GET /api/v1/merchants/:id/customers_with_pending_invoices` returns a collection of customers which have pending (unpaid) invoices. A pending invoice has no transactions with a result of `success`. This means all transactions are `failed`. Postgres has an `EXCEPT` operator that might be useful. `ActiveRecord` also has a `find_by_sql` that might help.
 
@@ -269,7 +266,6 @@ _NOTE_: All revenues should be reported as a float with two decimal places.
 #### Items
 
 * `GET /api/v1/items/most_revenue?quantity=x` returns the top `x` items ranked by total revenue generated
-<!--  m -->
 * `GET /api/v1/items/:id/best_day` returns the date with the most sales for the given item using the invoice date. If there are multiple days with equal number of sales, return the most recent day.
 
 #### Customers
