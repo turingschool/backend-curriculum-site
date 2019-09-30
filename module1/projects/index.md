@@ -12,6 +12,8 @@ The following projects will be assigned and their completion is required to be p
 * Week 4 - 5 (group): [Futbol](./futbol)
 * Week 6 (independent): [Enigma](./enigma)
 
+[Project Reflection Template](./project_reflection_template)
+
 ## Extension Projects
 
 The following projects are not required. Students can use these projects as an opportunity to explore concepts not covered in module 1.
