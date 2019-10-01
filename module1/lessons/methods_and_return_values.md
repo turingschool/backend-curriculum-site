@@ -45,8 +45,6 @@ pry(main)> "Hello World".include?("Hello")
 
 ## Define and Identify
 
-During this first section of the lesson, you have a worksheet to follow along with. Feel free to take notes as we go on that or in your notebook. At the end, you'll be given a minute or so to make sure you have notes on the worksheet.
-
 ## Methods
 
 A **Method** is a group of related instructions that achieves some purpose. If you open up pry and type:
@@ -99,7 +97,7 @@ You are calling the `upcase` **Method** on the string`"Hello World"`. The **Retu
 
 ## Arguments
 
-**Arguments** are the input to a method. They are also known as **Parameters**.
+**Arguments** are the input to a method. When you define a method, they are known as **Parameters**. (In other words, a parameter is a generic placeholder for a specific argument).
 
 If you open a pry session and type
 
@@ -136,24 +134,22 @@ pry(main)> "Hello World".gsub "World", "Turing"
 <br>
 <br>
 
-**Partner Practice Time**: On your worksheet.
-
 
 ## Defining our own Methods
 
 `.upcase`, `.include?`, and `.gsub` are all **Methods** built in to the string class. What if we want to create our own class with its own methods?
 
-Let's make a class that converts temperatures from Fahrenheit to Celsius. In a new file called `converter.rb`, we'll add the following lines of code and run this file from the command line using `ruby converter.rb`.
+Let's make a class that calculators values. In a new file called `calculator.rb`, we'll add the following lines of code and run this file from the command line using `ruby calculator.rb`.
 
 ```ruby
-class Converter
+class Calculator
   def print_welcome
-    puts "Welcome to Converter!"
+    puts "Welcome to Calculator!"
   end
 end
 ```
 
-**Turn and Talk**: What will happen when this code runs?
+**Turn and Talk**: What will happen when this code runs? What will the return value be?
 
 <br>
 <br>
@@ -164,47 +160,47 @@ We didn't we see `Welcome` printed to the screen because the `class` and `def` k
 
 
 ```ruby
-class Converter
+class Calculator
   def print_welcome
-    puts "Welcome to Converter!"
+    puts "Welcome to Calculator!"
   end
 end
 
-converter = Converter.new
-converter.print_welcome
+calculator = Calculator.new
+calculator.print_welcome
 ```
 
 ## Defining methods that take Arguments
 
-Let's now add a method that can convert a Fahrenheit temperature to Celsius.
+Let's now add a method that can add numbers.
 
 ```ruby
-class Converter
+class Calculator
   def print_welcome
-    puts "Welcome to Converter!"
+    puts "Welcome to Calculator!"
   end
 
-  def convert_to_celsius
+  def add
 
   end
 end
 ```
 
-We need to give this method the Fahrenheit temperature as an input. Therefore, we define an **Argument** called `fahrenheit`. Let's also call this method at the bottom of the file:
+We need to give this method numbers to add as an input. Therefore, we define an **Argument** called `num1` and another called `num2`. Let's also call this method at the bottom of the file:
 
 ```ruby
-class Converter
+class Calculator
   def print_welcome
-    puts "Welcome to Converter!"
+    puts "Welcome to Calculator!"
   end
 
-  def convert_to_celsius(fahrenheit)
+  def add(num1, num2)
 
   end
 end
 
-converter = Converter.new
-converter.convert_to_celsius
+calculator = Calculator.new
+calculator.add
 ```
 
 **Turn and Talk**: What will happen when we run this code?
@@ -219,38 +215,39 @@ The error we get is `ArgumentError: wrong number of arguments (given 0, expected
 Let's pass our method an argument:
 
 ```ruby
-class Converter
+class Calculator
   def print_welcome
-    puts "Welcome to Converter!"
+    puts "Welcome to Calculator!"
   end
 
-  def convert_to_celsius(fahrenheit)
+  def add(num1, num2)
 
   end
 end
 
-converter = Converter.new
-converter.convert_to_celsius(32)
+calculator = Calculator.new
+calculator.add(1,3)
 ```
 
 When we provide an argument to a method, we can reference it inside the method using the name we provided. For now, let's just print it:
 
 ```ruby
-class Converter
+class Calculator
   def print_welcome
-    puts "Welcome to Converter!"
+    puts "Welcome to Calculator!"
   end
 
-  def convert_to_celsius(fahrenheit)
-    puts fahrenheit
+  def add(num1, num2)
+    puts num1
+    puts num2
   end
 end
 
-converter = Converter.new
-converter.convert_to_celsius(32)
+calculator = Calculator.new
+calculator.add(1,3)
 ```
 
-You can think of an argument as a variable that is created right at the start of the method.
+You can think of an argument as a variable that is created right at the start of the method. You can use that variable anywhere INSIDE of the method.
 
 
 ## Defining Return Values
@@ -265,36 +262,36 @@ A return value is either:
 Let's create an **Explicit Return** like so:
 
 ```ruby
-class Converter
+class Calculator
   def print_welcome
-    puts "Welcome to Converter!"
+    puts "Welcome to Calculator!"
   end
 
-  def convert_to_celsius(fahrenheit)
-    celsius = ((fahrenheit - 32) * 5.0 / 9.0).round(2)
-    return celsius
+  def add(num1, num2)
+    sum = num1 + num2
+    return sum
   end
 end
 
-converter = Converter.new
-converter.convert_to_celsius(32)
+calculator = Calculator.new
+calculator.add(1,3)
 ```
 
 We could write the same method using an **Implicit Return**:
 
 ```ruby
-class Converter
+class Calculator
   def print_welcome
-    puts "Welcome to Converter!"
+    puts "Welcome to Calculator!"
   end
 
-  def convert_to_celsius(fahrenheit)
-    ((fahrenheit - 32) * 5.0 / 9.0).round(2)
+  def add(num1, num2)
+    num1 + num2
   end
 end
 
-converter = Converter.new
-converter.convert_to_celsius(32)
+calculator = Calculator.new
+calculator.add(1,3)
 ```
 
 Run either of these versions, and you won't see anything printed to the screen. We did everything else: we defined our class and method, we called it, and it returned the value we were looking for, but we didn't see it because we never told Ruby to print it. **THIS IS VERY IMPORTANT:** returning and printing are NOT the same!
@@ -302,36 +299,36 @@ Run either of these versions, and you won't see anything printed to the screen. 
 If we want to see the return value, we can save it to a variable and then print it:
 
 ```ruby
-class Converter
+class Calculator
   def print_welcome
-    puts "Welcome to Converter!"
+    puts "Welcome to Calculator!"
   end
 
-  def convert_to_celsius(fahrenheit)
-    ((fahrenheit - 32) * 5.0 / 9.0).round(2)
+  def add(num1, num2)
+    num1 + num2
   end
 end
 
-converter = Converter.new
-celsius = converter.convert_to_celsius(32)
-puts celsius
+calculator = Calculator.new
+sum = calculator.add(1,3)
+puts sum
 ```
 
 Or we can skip saving to a variable and print the return value directly:
 
 ```ruby
-class Converter
+class Calculator
   def print_welcome
-    puts "Welcome to Converter!"
+    puts "Welcome to Calculator!"
   end
 
-  def convert_to_celsius(fahrenheit)
-    ((fahrenheit - 32) * 5.0 / 9.0).round(2)
+  def add(num1, num2)
+    num1 + num2
   end
 end
 
-converter = Converter.new
-puts converter.convert_to_celsius(32)
+calculator = Calculator.new
+puts calculator.add(1,3)
 ```
 
 ## Practice
@@ -373,26 +370,24 @@ nums.slice(1, 1)
 We can also call methods from within other methods that are in the same class. Let's add a function that takes a number and then prints a more robust message.
 
 ```ruby
-class Converter
+class Calculator
   def print_welcome
-    puts "Welcome to Converter!"
+    puts "Welcome to Calculator!"
   end
 
-  def convert_to_celsius(fahrenheit)
-    ((fahrenheit - 32) * 5.0 / 9.0).round(2)
+  def add(num1, num2)
+    num1 + num2
   end
-
-  def print_celsius_converted(temperature)
-    converted = convert_to_celsius(temperature)
-    puts "#{temperature} degrees Fahrenheit is equal to #{converted} degrees Celsius"
+  
+  
+  def print_sum(first_number, second_number)
+    sum = add(first_number, second_number)
+    puts "The sum of #{first_number} and #{second_number} is #{sum}."
   end
 end
 
-converter = Converter.new
-converter.print_welcome
-converter.print_celsius_converted(32)
-converter.print_celsius_converted(35)
-converter.print_celsius_converted(100)
+calculator = Calculator.new
+calculator.print_sum(1,2)
 ```
 
 ## Layers of Abstraction
@@ -404,37 +399,16 @@ Think about how you drive a car. You don't need to know how a combustion engine 
 
 ![](https://camo.githubusercontent.com/07f5ef4748c194ee893c18089a2b6513d473ac37/687474703a2f2f6d696e6573662e636f6d2f7265736f75726365732f6363612f77702d636f6e74656e742f75706c6f6164732f323031302f30312f61627374726163742d6f2d6d65746572312e6a7067)
 
-If we look at our `converter.rb` file, what we really want to do is take three numbers, print a welcome, and then print a message for each of those numbers. We can create a method that does exactly that. Bundling these more detailed methods into more abstract methods can help us to create more complex programs.
+If we look at our `calculator.rb` file, what we really want to do is take two numbers, print a welcome, and then print the sum of those two numbers. `print_sum` is a method that does exactly that. Bundling methods into more abstract methods can help us to create more complex programs.  Tl;dr- Abstraction is an object-oriented programming concept that means that complexity is being hidden from the user. 
 
-```ruby
-class Converter
-  def print_welcome
-    puts "Welcome to Converter!"
-  end
 
-  def convert_to_celsius(fahrenheit)
-    ((fahrenheit - 32) * 5.0 / 9.0).round(2)
-  end
+A note on order: The way you define the order of your _methods_ does not matter.  The way you call them **does**. Ruby will **parse** each method in the class and then when a method is **called** Ruby will **execute** the parsed methods accordingly.
 
-  def print_celsius_converted(temperature)
-    converted = convert_to_celsius(temperature)
-    puts "#{temperature} degrees Fahrenheit is equal to #{converted} degrees Celsius"
-  end
 
-  def convert(first, second, third)
-    print_welcome
-    print_celsius_converted(first)
-    print_celsius_converted(second)
-    print_celsius_converted(third)
-  end
-end
+**Add to your calculator**:
 
-converter = Converter.new
-converter.convert(32, 35, 100)
-converter.convert(12, 45, 65)
-```
+Add an abstract method to your calculator (a method that calls at least one other method).
 
-A note on order: The order of your _methods_ does not matter.  Ruby will **parse** each method in the class and then when a method is **called** Ruby will **execute** the parsed methods accordingly.
 
 ## Check for Understanding
 
