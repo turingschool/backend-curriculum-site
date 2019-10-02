@@ -11,21 +11,6 @@ By the end of this lesson you should...
 * explain the difference between OOP and JavaScript's Prototypal Inheritance *(functional)*
 * better understand and make use of `this` in multiple contexts *(functional)*
 
-## Agenda
-
-|Time|Description|
-|---|---|
-|7 mins | Warm Up|
-|2 mins |Introduction|
-|10 mins |Constructors|
-|10 mins |Functions & this revisited|
-|20 mins |The prototype Property|
-|10 mins |ES6 Class syntax|
-|10 mins |An OO jQuery Example|
-|25 mins |Practice - Mod 1 Final Returns|
-|8 mins |Closing Reflection|
-
-
 ## Warm Up
 
 1. What are the main components of Object Oriented Programming?
