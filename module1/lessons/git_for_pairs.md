@@ -107,7 +107,7 @@ In order to fix it, you need to change the text of the file to include only the 
 
 #### Person B
 * accepts invitation
-* clones repo (`git cone <ssh key to repo>`)
+* clones repo (`git clone <ssh key to repo>`)
 * cds into cloned repo
 * checks out a new branch (`git checkout -b add_content`)
 * changes first line of file
