@@ -7,13 +7,13 @@ title: Testing Best Practices
 
 * Develop Strategies for file structure within the `spec` directory
 * Use capybara DSL to target specific elements on a page
-* Implement Factory Bot to create one or more resources
+
 
 ## Vocab
 
 * `within`
 * CSS class and id
-* Factory
+
 
 ## Warm Up
 
