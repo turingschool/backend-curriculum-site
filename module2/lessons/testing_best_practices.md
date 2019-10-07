@@ -17,7 +17,7 @@ title: Testing Best Practices
 
 ## Warm Up
 
-* In your notebook, list all the methods you have used in your spec files - see if you can categorize them by capybara vs not-capybara.
+* In your notebook, list all the methods you have used in your spec files - see if you can categorize them by capybara, shoulda-matchers, and what just comes with rails.
 
 ## Organizing Files and Running Your Test Suite.
 
