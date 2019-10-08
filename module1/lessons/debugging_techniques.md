@@ -116,6 +116,9 @@ When you see an error in your terminal, it can be tempting to read it as "blah b
 
 `syntax error, unexpected end-of-input, expecting keyword_end` - You are missing an `end`. Indenting your code properly will make it MUCH easier to hunt down the missing end.
 
+`syntax error, unexpected end-of-input, expecting keyword_end` - You have an extra `end` or an `end` in the wrong place. Indenting your code properly will make it MUCH easier to hunt down the offensive end.
+
+
 `require': cannot load such file -- file_name (LoadError)` - Ruby cannot load the file `file_name`. Make sure `file_name` is spelled correctly, the path is written correctly i.e. `./lib/file_name`, and that you are running from the root directory of your project.
 
 ## Verifying Your Assumptions
@@ -128,10 +131,10 @@ Let's run the Hippogriff test, and review the errors that are generated there:
 
 ```
 Error:
-HippogriffTest#test_when_it_files_it_collects_a_unique_moonrock:
+HippogriffTest#test_when_it_flies_it_collects_a_unique_moonrock:
 NoMethodError: undefined method `push' for nil:NilClass
     /Users/sespinos/Desktop/erroneous_creatures/hippogriff.rb:14:in `fly'
-    /Users/sespinos/Desktop/erroneous_creatures/hippogriff_test.rb:37:in `test_when_it_files_it_collects_a_unique_moonrock'
+    /Users/sespinos/Desktop/erroneous_creatures/hippogriff_test.rb:37:in `test_when_it_flies_it_collects_a_unique_moonrock'
 ```
 
 Let's start by reading that stack trace, and then answer the following questions with a partner:
