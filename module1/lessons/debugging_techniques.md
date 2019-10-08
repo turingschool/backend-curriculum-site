@@ -161,7 +161,7 @@ With a partner:
 
 * Read the stack trace to determine where the error is occurring.
 * Use pry in the test file to verify any assumptions you may have about what's happening.
-* Use pry in the Hydra class to see if you can determine how to implement this method before you enter any code into the Wizard class. Ask yourself: how can I get the return value that I want?
+* Use pry in the Wizard class to see if you can determine how to implement this method before you enter any code into the Wizard class. Ask yourself: how can I get the return value that I want?
 
 ## Exercise - Erroneous Creatures
 
