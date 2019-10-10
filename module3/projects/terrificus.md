@@ -77,6 +77,21 @@ Your application **must make good use of one external dataset or API**. Some exa
 * [Strava](https://www.strava.com/developers)
 * [Google Maps](https://developers.google.com/maps)
 
+#### Features/Technologies
+
+* SMS messaging
+* Email
+* Optical Character Recognition (OCR)
+* Natural Language Processing (NLP)
+* Machine Learning
+* Data Analytics
+* Websockets
+* Messaging Brokers/Queues
+* Data Visualization
+* Location Services (Google Maps/Directions)
+* IOT Hardware (ex: Raspberry PI)
+
+
 However, the list is not limited to these. You can choose to integrate with a service of your choosing, as long as it is approved by your client.
 
 ## <a name="project-concepts"></a> Project Concepts
@@ -103,6 +118,9 @@ Your idea must be approved by an instructor and should be supplied in a gist usi
 ### Target Audience
 
 1-3 sentences describing what type of user your app would be applicable to.
+
+### Features
+* What features will your app include to solve the problem?
 
 ### Integrations
 
