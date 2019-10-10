@@ -40,6 +40,20 @@ end
 
 # Transform a Collection
 
+Create a ruby file named playground.rb
+
+Given the following array use each to capitalize the names
+
+Display the array with capitalized names
+
+```ruby
+names = ['megan', 'brian', 'sal']
+```
+
+---
+
+# Transform a Collection Solution
+
 ```ruby
 names = ['megan', 'brian', 'sal']
 

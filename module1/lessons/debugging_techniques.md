@@ -110,13 +110,14 @@ When you see an error in your terminal, it can be tempting to read it as "blah b
 `undefined method 'some_method' for SomeObject:SomeClass (NoMethodError)` - you tried to call `some_method` on `SomeObject`, but `SomeObject` doesn't respond to that method. This means that `some_method` is not defined in `SomeClass`. This error can take several forms:
 
 1. If you didn't write `SomeClass`, you called a method that doesn't exist i.e. `"hello world".first`.
-1. If you did write `SomeClass`, you misspelled the name of the method or you didn't defined `some_method` for `SomeClass`
+1. If you did write `SomeClass`, you misspelled the name of the method or you didn't define `some_method` for `SomeClass`
 1. If `SomeObject:SomeClass` shows up as `nil:NilClass`, this means that something is nil that shouldn't be.
 1. Sometimes `SomeObject:SomeClass` looks like `#<SomeClass:0x00007f7fa21d5410>`. You can read this as "you tried to call `some_method` on a `SomeClass` object".
 
 `syntax error, unexpected end-of-input, expecting keyword_end` - You are missing an `end`. Indenting your code properly will make it MUCH easier to hunt down the missing end.
 
-`syntax error, unexpected keyword_end, expecting end-of-input` - You have an extra `end` or an `end` in the wrong place. Indenting your code properly will make it MUCH easier to hunt down the offensive end.
+`syntax error, unexpected end-of-input, expecting keyword_end` - You have an extra `end` or an `end` in the wrong place. Indenting your code properly will make it MUCH easier to hunt down the offensive end.
+
 
 `require': cannot load such file -- file_name (LoadError)` - Ruby cannot load the file `file_name`. Make sure `file_name` is spelled correctly, the path is written correctly i.e. `./lib/file_name`, and that you are running from the root directory of your project.
 
@@ -126,14 +127,14 @@ Not verifying your assumptions can be one of the costliest mistakes you make as 
 
 While it's nice to drop into IRB to see if there are methods that exist in Ruby that I can use to solve my problem, it's even better to put a `pry` *into my code* to see exactly what I can do given the other methods and variables I've defined.
 
-Let's run the Hippogriff test again, and review the errors that are generated there:
+Let's run the Hippogriff test, and review the errors that are generated there:
 
 ```
 Error:
-HippogriffTest#test_when_it_files_it_collects_a_unique_moonrock:
+HippogriffTest#test_when_it_flies_it_collects_a_unique_moonrock:
 NoMethodError: undefined method `push' for nil:NilClass
     /Users/sespinos/Desktop/erroneous_creatures/hippogriff.rb:14:in `fly'
-    /Users/sespinos/Desktop/erroneous_creatures/hippogriff_test.rb:37:in `test_when_it_files_it_collects_a_unique_moonrock'
+    /Users/sespinos/Desktop/erroneous_creatures/hippogriff_test.rb:37:in `test_when_it_flies_it_collects_a_unique_moonrock'
 ```
 
 Let's start by reading that stack trace, and then answer the following questions with a partner:
@@ -151,20 +152,19 @@ Let's start by reading that stack trace, and then answer the following questions
 
 One other thing we can do when we are trying to debug is to use `pry` to try something in our code before we actually commit to adding it to our class.
 
-Let's look at an error from our Hydra test suite:
+Let's look at an error from our Wizard test suite:
 
 ```
 Failure:
-HydraTest#test_it_dies_if_it_loses_all_heads [/Users/sespinos/Desktop/erroneous_creatures/hydra_test.rb:36]:
-Expected: true
-  Actual: 0
+WizardTest#test_is_not_always_bearded [test/wizard_test.rb:25]:
+Expected {:bearded=>false} to not be truthy.
 ```
 
 With a partner:
 
 * Read the stack trace to determine where the error is occurring.
 * Use pry in the test file to verify any assumptions you may have about what's happening.
-* Use pry in the Hydra class to see if you can determine how to implement this method before you enter any code into the Hydra class. Ask yourself: how can I get the return value that I want?
+* Use pry in the Wizard class to see if you can determine how to implement this method before you enter any code into the Wizard class. Ask yourself: how can I get the return value that I want?
 
 ## Exercise - Erroneous Creatures
 

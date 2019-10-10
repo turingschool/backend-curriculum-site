@@ -266,7 +266,11 @@ Now we'll generate the migration to create our join table:
 
 ```
 rails g migration CreatePlaylistSongs song:references playlist:references
+```
 
+Add timestamps to your table, and then migrate your database: 
+
+```
 rake db:migrate
 ```
 

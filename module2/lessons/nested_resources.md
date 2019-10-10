@@ -41,9 +41,9 @@ RSpec.describe "creating a new song" do
 
     visit "/artists/#{artist.id}/songs/new"
 
-    fill_in "song[title]", with: title
-    fill_in "song[length]", with: length
-    fill_in "song[play_count]", with: play_count
+    fill_in "Title", with: title
+    fill_in "Length", with: length
+    fill_in "Play count", with: play_count
 
     click_on "Create Song"
 
@@ -118,13 +118,13 @@ If we run the test again, we'll still get our error for missing fields, so let's
 
 ```erb
 <%= label_tag "Title" %>
-<%= text_field_tag "song[title]" %>
+<%= text_field_tag :title %>
 
 <%= label_tag "Length" %>
-<%= number_field_tag "song[length]" %>
+<%= number_field_tag :length %>
 
 <%= label_tag "Play Count" %>
-<%= number_field_tag "song[play_count]" %>
+<%= number_field_tag :play_count %>
 
 <%= submit_tag "Create Song"%>
 ```
@@ -162,7 +162,7 @@ We haven't actually created our Song, so let's do that in our Songs controller. 
 private
 
   def song_params
-    params.require(:song).permit(:title, :length, :play_count)
+    params.permit(:title, :length, :play_count)
   end
 ```
 

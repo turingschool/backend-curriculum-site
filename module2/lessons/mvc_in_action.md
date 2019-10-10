@@ -23,7 +23,7 @@ For each of the code snippets below, identify where we are breaking MVC logic co
 ```ruby
 class Comedian < ApplicationRecord
   def self.average_age
-    average(:age).round(2)
+    "#{average(:age).round(2)} Years"
   end
 end
 ```

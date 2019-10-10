@@ -7,17 +7,17 @@ title: Testing Best Practices
 
 * Develop Strategies for file structure within the `spec` directory
 * Use capybara DSL to target specific elements on a page
-* Implement Factory Bot to create one or more resources
+
 
 ## Vocab
 
 * `within`
 * CSS class and id
-* Factory
+
 
 ## Warm Up
 
-* In your notebook, list all the methods you have used in your spec files - see if you can categorize them by capybara vs not-capybara.
+* In your notebook, list all the methods you have used in your spec files - see if you can categorize them by capybara, shoulda-matchers, and what just comes with rails.
 
 ## Organizing Files and Running Your Test Suite.
 
