@@ -52,7 +52,7 @@ Remember, the key to understanding how the local variable will behave is that **
 
 ## Exploration - Part 1
 
-Work through the following examples with a partner. For each example, copy and paste the code into a repl.it file rather than typing it to save time. Take a moment to examine the code individually, and then discuss with your partner what you think the output will be. Once you've had a moment to discuss, run the code and check your predictions. If your predictions were right or wrong, make sure to take a minute and try to make sense of and explain why the outcome was what it was.
+Work through the following examples with a partner. For each example, copy and paste the code into a playground.rb file rather than typing it to save time. Take a moment to examine the code individually, and then discuss with your partner what you think the output will be. Once you've had a moment to discuss, run the code and check your predictions. If your predictions were right or wrong, make sure to take a minute and try to make sense of and explain why the outcome was what it was.
 
 Remember, what is important here is that you get a feel for where variables are available to you. You don't need to be able to quote the intricacies of scope verbatim. Some of these examples get weird and do things that you just shouldn't do... but we're going to do them and see what happens.
 
