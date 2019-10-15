@@ -38,7 +38,7 @@ Next, the user places their ships. They should receive a short explanation of ho
 ```
 I have laid out my ships on the grid.
 You now need to lay out your two ships.
-The Cruiser is two units long and the Submarine is three units long.
+The Cruiser is three units long and the Submarine is two units long.
   1 2 3 4
 A . . . .
 B . . . .
