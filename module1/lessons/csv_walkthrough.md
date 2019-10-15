@@ -48,7 +48,7 @@ CSV.foreach('./data/animal_lovers.csv', headers: true, header_converters: :symbo
 
   require 'pry'; binding.pry
 
-  puts "#{animal_lover.first_name} #{animal_lover.last_name} has been created!"
+  puts "#{animal_lover.full_name} has been created!"
 end
 ```
 
