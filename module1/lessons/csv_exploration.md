@@ -25,6 +25,8 @@ Fork and clone [this repo](https://github.com/turingschool-examples/csv_example)
 
 For the next 30 minutes, read and use the ruby docs for CSV found [here](https://ruby-doc.org/stdlib-2.6.5/libdoc/csv/rdoc/CSV.html#method-c-new). Within the `runner.rb` file write some code that will print each row from `animal_lovers.csv` to the terminal. If you've been able to print each row, now see if you can also print the header with the value for each row.
 
+If you complete the above, try doing the same for the `magical_pets.csv`.
+
 _The docs may not be the easiest to read, but do start there to gather information and get some practice reading documentation. After you've looked through the documentation, you can also google for additional resources to help you._
 
 
@@ -39,3 +41,44 @@ Let's all come back together and as group look at a few volunteers' soulution.
 <br>
 [Turing CSV walkthrough](./csv_walktrhough)
 </details>
+
+
+## Introduction to Black Thursday Lite
+
+Shortly you will be working through Black Thursday Lite. This is a mini-project for you to work through. It is okay if you do not complete this project, but please work through as much as possible because we will revisit it next week to do some code share and use as a reference in the Class Methods Lesson.
+
+### Class Methods at a High Level
+
+Currently in the projects you have completed the methods you have been creating are instance methods. This means that you call a method on an instance of an object. However, in order to create an instance of an object we call `new` on the class itself. `new` is a class.
+
+For example, `hagrid = AnimalLover.new(1,'Rebeus','Hagrid',60) harry = AnimalLover.new(3,'Harry','Potter',13)` the `new` is a class method because it is called on the name of the class `AnimalLover`.
+
+Now if we had, `hagrid.full_name` or `harry.full_name` this is an instance method. The method is called on a single instance method and the return would be different depending on which instance it is call on.
+
+When writing an instance method the format looks like this
+
+``` Ruby
+def name_of_method
+  #code here
+end
+```
+
+When writing a class method the format looks like this
+
+```Ruby
+def self.name_of_method
+  #code here
+end
+```
+
+Use this exploration as an opportunity to see how these behave differently. Tt's okay if it isn't completely clear during or at the end of this exploration. The goal is that you try it on your own for now and we will dive into the specifics in our Class Method Lesson.
+
+### ORM at a High Level
+
+ORM stands for Object Relational Mapper. Earlier we were worked through taking a package of information from each row and creating an object so that we could more easily use the information in our application. The idea of mapping each individual row to be an object that our code can now interact with is the concept of an ORM.
+
+### Go Forth and Explore
+
+Just to reiterate, work through the mini-project as much as you can and use this as an opportunity to think about the concepts we've introduced so far. We will revisit this next week, so you will have better context as we go through our classes next week. Have fun!
+
+[Black Thursday Lite](https://github.com/turingschool-examples/black_thursday_lite)
