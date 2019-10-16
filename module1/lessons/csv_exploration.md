@@ -11,7 +11,7 @@ Think back to your first two projects. How have you currently been making instan
 
 ### Using files to create objects
 
-Sometimes the data that we want to use will be stored in a CSV. CSV is a file type that stands for _comma separated values_. The information within these files can be organized in columns and rows and might look like this:
+Sometimes the data that we want to use will be stored in a CSV. CSV is a file type that stands for _comma separated values_. Think of it similar to a spreadsheet or an excel sheet. The information within these files can be organized in columns and rows and might look like this:
 
 ![Visualization of CSV](./assets/csv_example.png)
 
@@ -39,7 +39,7 @@ Let's all come back together and as group look at a few volunteers' soulution.
 <details open>
 <summary>Last Resort</summary>
 <br>
-[Turing CSV walkthrough](./csv_walktrhough)
+<a href="https://github.com/turingschool/backend-curriculum-site/blob/gh-pages/module1/lessons/csv_walkthrough.md">CSV Walkthrough</a>
 </details>
 
 
@@ -71,15 +71,15 @@ def self.name_of_method
 end
 ```
 
-Use this exploration as an opportunity to see how these behave differently. Tt's okay if it isn't completely clear during or at the end of this exploration. The goal is that you try it on your own for now and we will dive into the specifics in our Class Method Lesson.
+Use this exploration as an opportunity to see how these behave differently. It is okay if it isn't completely clear during or at the end of this exploration. The goal is that you try it on your own for now and we will dive into the specifics in our Class Method Lesson.
 
 ### ORM at a High Level
 
 ORM stands for Object Relational Mapper. Earlier we were worked through taking a package of information from each row and creating an object so that we could more easily use the information in our application. That idea--the idea of turning data (such as rows of data from a CSV) into objects and allowing you to interact with those objects is the concept of an ORM.
 
-Once you've done that, an ORM also allows you to *query* (ask for specific objects that meet certain criteria-- like a `find` or `find_all`, plus many, many more) all of that data, using the objects that you've created. 
+Once you've done that, an ORM also allows you to *query* (ask for specific objects that meet certain criteria-- like a `find` or `find_all`, plus many, many more) all of that data, using the objects that you've created.
 
-ORMs are good because: 
+ORMs are good because:
 1) DRY: It makes it easier to update, maintain, and reuse your code.
 2) A lot of stuff is done for you, behind the scenes
 3) You don't have to write SQL, which is a language for querying databases
@@ -87,20 +87,20 @@ ORMs are good because:
 5) It helps you follow the principles of OOP
 
 This is an example of something an ORM gives you: `Person.find(10)` --> It's nice, right? Pretty much human-readable.
-This is the alternative in SQL: `SELECT * FROM clients WHERE (clients.id = 10) LIMIT 1` --> Less nice. 
+This is the alternative in SQL: `SELECT * FROM clients WHERE (clients.id = 10) LIMIT 1` --> Less nice.
 
 ORMs can be tricky because:
 1) They can be pretty heavyweight, and require you to learn a new set of tools
 2) Performance is not as good as writing SQL
-3) It _abstracts_ your data, which means that it hides a lot of the work away from you. That's good in some ways, but it can make it harder to understand what's really happening behind the scenes. 
+3) It _abstracts_ your data, which means that it hides a lot of the work away from you. That's good in some ways, but it can make it harder to understand what's really happening behind the scenes.
 
-*Don't worry too much about the details here-- just remember that an ORM gives you the ability to interact with objects instead of raw data.* 
+*Don't worry too much about the details here-- just remember that an ORM gives you the ability to interact with objects instead of raw data.*
 
 
 ### Go Forth and Explore
 
-Ruby on Rails relies heavily on an ORM called Active Record (https://guides.rubyonrails.org/active_record_basics.html), which is really extensive and powerful.  It's a great tool, but it does hide away a lot of the work that it does.  We're going to have you build out a little mini-project that mimics the behavior of an ORM so you can see a little bit of how the under-the-hood concepts work. 
+Ruby on Rails relies heavily on an ORM called Active Record (https://guides.rubyonrails.org/active_record_basics.html), which is really extensive and powerful.  It's a great tool, but it does hide away a lot of the work that it does.  We're going to have you build out a little mini-project that mimics the behavior of an ORM so you can see a little bit of how the under-the-hood concepts work.
 
 Just to reiterate, work through the mini-project as much as you can and use this as an opportunity to think about the concepts we've introduced so far. We will revisit this next week, so you will have better context as we go through our classes next week. Have fun!
 
-[Black Thursday Lite](https://github.com/turingschool-examples/black_thursday_lite)
+## [Black Thursday Lite](https://github.com/turingschool-examples/black_thursday_lite)
