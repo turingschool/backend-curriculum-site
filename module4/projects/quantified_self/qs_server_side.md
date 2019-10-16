@@ -1,10 +1,9 @@
-# QS Update
-
 ---
 layout: page
 title: Quantified Self - Server-side Javascript
-subheading: A calorie tracker project for the fourth module
+subheading: A calorie tracker project for M4
 ---
+
 _Project spec updated on 10/15/2019_
 
 
