@@ -46,3 +46,6 @@ title: Module 1 Lessons
 * [Git and Github](./git_and_github)
 * [Git Review](./git_review)
 * [Git for Pairs](./git_for_pairs)
+
+### Exploration
+* [CSV Exploration](./csv_exploration)
