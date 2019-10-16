@@ -3,6 +3,11 @@ title: CSV Exploration
 tags: ruby, csv
 ---
 
+## Deliverables
+
+* Put in a pull request to https://github.com/turingschool-examples/csv_example with the code that you wrote for this exercise
+* Put in a pull request to https://github.com/turingschool-examples/black_thursday_lite with the code that you wrote for this mini-project
+
 ## CSV Exploration
 
 ### Introduction
