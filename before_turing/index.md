@@ -9,8 +9,7 @@ Below are a number of resources organized by topic for you to review once you've
 
 ### Terminal
 
-* [Terminal/ Command Line Tips](http://cli.learncodethehardway.org/bash_cheat_sheet.pdf)
-* [More Terminal/ Command Line Tips](https://github.com/turingschool/bootstrap_new_students/blob/master/cheetsheets/terminal.txt)
+* [Terminal/ Command Line Tips](https://github.com/turingschool/bootstrap_new_students/blob/master/cheetsheets/terminal.txt)
 * [Michael Hartl's command line book](https://www.learnenough.com/command-line-tutorial)
 
 ### Atom
