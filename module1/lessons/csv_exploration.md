@@ -92,6 +92,7 @@ ORM stands for Object Relational Mapper. Earlier we were worked through taking a
 Once you've done that, an ORM also allows you to *query* (ask for specific objects that meet certain criteria-- like a `find` or `find_all`, plus many, many more) all of that data, using the objects that you've created.
 
 ORMs are good because:
+
 1) DRY: It makes it easier to update, maintain, and reuse your code.
 2) A lot of stuff is done for you, behind the scenes
 3) You don't have to write SQL, which is a language for querying databases
@@ -102,6 +103,7 @@ This is an example of something an ORM gives you: `Person.find(10)` --> It's nic
 This is the alternative in SQL: `SELECT * FROM clients WHERE (clients.id = 10) LIMIT 1` --> Less nice.
 
 ORMs can be tricky because:
+
 1) They can be pretty heavyweight, and require you to learn a new set of tools
 2) Performance is not as good as writing SQL
 3) It _abstracts_ your data, which means that it hides a lot of the work away from you. That's good in some ways, but it can make it harder to understand what's really happening behind the scenes.
