@@ -56,7 +56,14 @@ Shortly you will be working through Black Thursday Lite. This is a mini-project 
 
 Currently in the projects you have completed the methods you have been creating are instance methods. This means that you call a method on an instance of an object. However, in order to create an instance of an object we call `new` on the class itself. `new` is a class.
 
-For example, `hagrid = AnimalLover.new(1,'Rebeus','Hagrid',60) harry = AnimalLover.new(3,'Harry','Potter',13)` the `new` is a class method because it is called on the name of the class `AnimalLover`.
+For example, in the following code:
+
+```ruby
+hagrid = AnimalLover.new(1,'Rebeus','Hagrid',60) 
+harry = AnimalLover.new(3,'Harry','Potter',13)
+```
+
+the `new` is a class method because it is called on the name of the class `AnimalLover`.
 
 Now if we had, `hagrid.full_name` or `harry.full_name` this is an instance method. The method is called on a single instance method and the return would be different depending on which instance it is call on.
 
