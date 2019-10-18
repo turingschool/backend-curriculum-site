@@ -37,7 +37,7 @@ _The docs may not be the easiest to read, but do start there to gather informati
 
 ### Sharing is Caring
 
-Let's all come back together and as group look at a few volunteers' soulution.
+Let's all come back together and as group look at a few volunteers' solutions.
 
 
  _If you've tried the docs and have googled additional resources and you are not making any progress try this_
