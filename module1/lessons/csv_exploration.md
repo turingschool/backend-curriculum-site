@@ -93,20 +93,28 @@ Once you've done that, an ORM also allows you to *query* (ask for specific objec
 
 ORMs are good because:
 
-1) DRY: It makes it easier to update, maintain, and reuse your code.
-2) A lot of stuff is done for you, behind the scenes
-3) You don't have to write SQL, which is a language for querying databases
-4) You can clean up the data that you're taking in very quickly and easily (data can be a real mess sometimes, with the crazy ways that people input things)
-5) It helps you follow the principles of OOP
+1. DRY: It makes it easier to update, maintain, and reuse your code.
+2. A lot of stuff is done for you, behind the scenes
+3. You don't have to write SQL, which is a language for querying databases
+4. You can clean up the data that you're taking in very quickly and easily (data can be a real mess sometimes, with the crazy ways that people input things)
+5. It helps you follow the principles of OOP
 
-This is an example of something an ORM gives you: `Person.find(10)` --> It's nice, right? Pretty much human-readable.
-This is the alternative in SQL: `SELECT * FROM clients WHERE (clients.id = 10) LIMIT 1` --> Less nice.
+This is an example of something an ORM gives you: 
+```
+Person.find(10)
+``` 
+✅ It's nice, right? Pretty much human-readable.
+This is the alternative in SQL: 
+```
+SELECT * FROM clients WHERE (clients.id = 10) LIMIT 1
+``` 
+😬 Less nice.
 
 ORMs can be tricky because:
 
-1) They can be pretty heavyweight, and require you to learn a new set of tools
-2) Performance is not as good as writing SQL
-3) It _abstracts_ your data, which means that it hides a lot of the work away from you. That's good in some ways, but it can make it harder to understand what's really happening behind the scenes.
+1. They can be pretty heavyweight, and require you to learn a new set of tools
+2. Performance is not as good as writing SQL
+3. It _abstracts_ your data, which means that it hides a lot of the work away from you. That's good in some ways, but it can make it harder to understand what's really happening behind the scenes.
 
 *Don't worry too much about the details here-- just remember that an ORM gives you the ability to interact with objects instead of raw data.*
 
