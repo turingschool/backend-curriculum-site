@@ -23,7 +23,7 @@ Congrats, you are reading a csv! Since, we know we have access to the informatio
 ```Ruby
 require 'CSV'
 # headers: true & header_converter: :symbol are optional arguments
-CSV.foreach('./data/animal_lovers.csv', headers: true, header_converter: :symbol) do |row|
+CSV.foreach('./data/animal_lovers.csv', headers: true, header_converters: :symbol) do |row|
   require 'pry'; binding.pry
 end
 ```
