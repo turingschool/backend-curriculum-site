@@ -40,7 +40,7 @@ We define methods in our class, we store some state in our instance variables, w
 
 In Ruby, classes are also objects themselves. We can call methods on full classes the same way that we call methods on instances of that class (think about `.new`), the difference is how we define those methods.
 
-### Exploration/Hedgehog Time
+### Exploration
 
 Using the following SocialMediaUser class, think about what you expect each method to return and why. If you have time, pseudocode what you think you'd do (in words/logic, not in code) to get that return value.
 
