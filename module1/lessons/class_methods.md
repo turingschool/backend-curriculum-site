@@ -30,12 +30,11 @@ tags: ruby, class methods, OOP
 # => "Hello, Jay!"
 ```
 
-* What do we call the method `#say_hello` on? What do we call the method `::new` on?
-* In the method list in the Ruby docs page for Array, what is the difference between methods with a `#` prefix and those with a `::` prefix?
+* What do we call the method `say_hello` on? What do we call the method `new` on?
 
 ### Discussion
 
-Up to this point we have primarily used classes as "factories" for instances of that class.
+Up to this point we have primarily used classes as blueprints for instances of that class.
 
 We define methods in our class, we store some state in our instance variables, we call `.new`, and then we can use them.
 
@@ -43,53 +42,53 @@ In Ruby, classes are also objects themselves. We can call methods on full classe
 
 ### Exploration/Hedgehog Time
 
-Using the following Hedgehog class, you'll be asked to work with your partner to make some predictions and record them on your worksheet.
+Using the following SocialMediaUser class, think about what you expect each method to return and why. If you have time, pseudocode what you think you'd do (in words/logic, not in code) to get that return value.
 
 ```ruby
-class Hedgehog
-
-  def initialize(name, age, allergies)
-    @name = name
-    @age = age
-    @allergies = allergies
+class SocialMediaUser
+  def initialize(id, rating)
+    @id = id
+    @rating = rating 
+  end
+  
+  def rating
   end
 
-  def invite_to_party
-     "#{@name} is invited to the party!"
+  def self.most_popular
   end
 
-  def self.confirm_attendee
-    "Another hedgie is coming to the party!"
+  def add_post(post)
   end
 
-  def check_for_allergies
-    "Make sure to not serve any #{@allergies}."
+  def self.find(id)
   end
-
 end
 ```
 
-Once you have made your predictions, run the code and verify your predictions! If you finish before the class is brought back together, write your answers to the questions that are printed on the back of your worksheet.
+What is the difference between these methods? 
 
 #### Syntax & Uses
 
 In order to define a class method, we prepend the method name with `self.`. So, for example, if we wanted to define a method called `say_hello` as a class method, we could do something like the following:
 
 ```ruby
-class User
+class Greeter
   def self.say_hello
     puts "Hello!"
   end
 end
 ```
 
-Then, in order to call that method we could use `User.say_hello`. Note that we don't have to create an instance of this class to do this.
+Then, in order to call that method we could use `Greeter.say_hello`. Note that we don't have to create an instance of this class to do this.
 
 Why would we do this? There are a number of pieces of functionality that we might want to ascribe to a Class over a specific instance of a class. We could use the class to track information about all instances of a class, or make it so that a class is in charge of creating instances of itself in those cases where creation is not as straightforward as calling `new` and passing some variables.
 
+
+Look above at our SocialMediaUser class-- why do you think we defined `most_popular` and `find` as class methods and not instance methods? 
+
 ### Demo
 
-For example, let's say that we wanted to create not just one instance of a User, but a collection of Users. We could certainly iterate over a collection of attributes and create a new instance of an object each time, but who's responsibility is it to do that work? We could do it in a runner file or in a class that was specifically responsible for setting up this collection of objects, *or* now that we have the syntax for a class method, we could assign that responsibility to the class itself and then return a collection of User objects.
+For example, let's say that we wanted to create not just one instance of a User, but a collection of Users. We could certainly iterate over a collection of attributes and create a new instance of an object each time, but whose responsibility is it to do that work? We could do it in a runner file or in a class that was specifically responsible for setting up this collection of objects, *or* now that we have the syntax for a class method, we could assign that responsibility to the class itself and then return a collection of User objects.
 
 ```ruby
 # user.rb
@@ -115,9 +114,6 @@ users = [
 User.create_multiple(users)
 ```
 
-### Practice
-
-With your neighbor, see if you can create a House class that will return a collection of Houses when passed an array of hashes.
 
 ### Exploration / CFU
 
@@ -125,7 +121,6 @@ With your neighbor, see if you can create a House class that will return a colle
 * What happens if you call an instance method from within a class method?
 * What about a class method from within another class method?
 * How would you explain the difference between class and instance methods to someone else?
-* Can you think of a metaphor for classes that includes a description of class and instance methods?
 
 ## Practical Use, Experimentation
 
