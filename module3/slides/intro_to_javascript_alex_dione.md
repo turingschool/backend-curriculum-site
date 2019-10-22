@@ -13,7 +13,7 @@
 1. Gain a high level understanding of how Javascript compares to Ruby
 2. Understand the difference between server-side and client-side JavaScript
 3. Gain familiarity with Javascript Syntax
-4. Understand what the DOM is and how to manipulate the DOM within a rails application
+4. Understand what the DOM is and how to manipulate the DOM
 
 ---
 
@@ -26,18 +26,8 @@
 
 ---
 
-## History of Javascript
-
-- Javascript was first released with Netscape 2 in 1996
-- Rumor has it that Brendan Eich wrote it in 10 days in 1995 while working as an engineer at Netscape
-- The name 'JavaScript' was a marketing push to try to pick up on the momentum of Sun Microsystem's popular language Java
-- Unfortunately it lead to many people being confused for a long time about the names of these two mostly unrelated programming languages
-
----
-
 ## Client-side and Server-side JavaScript
 
-- Take 5 minutes to research client-side and server-side JavaScript.
 - With the person next to you discuss:
 1. How is client-side JavaScript different from server-side JavaScript.
 2. Why is client-side JavaScript useful?
@@ -66,20 +56,13 @@
 
 ## How does JavaScript compare to Ruby?
 
-- Group 1: Compare how variables are declared
+- Activity 1: Compare how variables are declared in Ruby vs JS
     - Research `const`, `var`, `let` in JavaScript
-- Group 2: Compare Ruby methods and JavaScript functions
+- Activity 2: Compare Ruby methods and JavaScript functions
     - Research es5 function declarations
     - What is the difference between a function declaration vs. function expression?
-- Group 3: Compare how to iterate over arrays
+- Activity 3: Compare how to iterate over arrays
     - Research `map` & `forEach` & `reduce`
-- Group 4: Compare loops Ruby `for` loops and JavaScript `for in loop`
-
----
-
-## How do we write Javascript?
-
-- Each group has 2 minutes to present their chart
 
 ---
 

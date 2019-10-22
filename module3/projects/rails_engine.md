@@ -318,7 +318,7 @@ end
 
 #### Milestones
 
-The organization of this project spec is by feature type. However, much of the unfamiliar or more difficult work is in the business intelligence portion of the project. To the degree possible instructors encourage you to use an agile approach to completing this assignment. Furthermore, we encourage you review the work and develop estimated milestones before you begin. **Any good set of milestones will allow for some slippage before the project is due.**
+The organization of this project spec is by feature type. However, much of the unfamiliar or more difficult work is in the business intelligence portion of the project. To the degree possible instructors encourage you to use an agile approach to completing this assignment. Furthermore, we encourage you to review the work and develop estimated milestones before you begin. **Any good set of milestones will allow for some slippage before the project is due.**
 
 There is an Advanced ActiveRecord class scheduled for Wednesday. We *highly* encourage you to have attempted some of the business intelligence queries before that class.
 
