@@ -74,19 +74,18 @@ Possible stretch goals:
 
 * Implement FE in a framework you have not used before in a project
 * Utilize internationalization and localization tools to localize the FE based on the user's locale
-* Implement OAuth and store user data in the BE database as needed
 * Implement Progressive Web App (PWA) technologies like: background sync, IndexedDB, static assets caching using a Service Worker
 * Utilize websockets rather than traditional HTTP/HTTPS (maybe [socket.io](https://socket.io/))
 
 **Note:** FE students can be the BE creators and vice versa, if it fits into your learning goals
 
-## Day 1 Deliverables
+## Day 1 Deliverables (Friday)
 
 By the end of the kick-off session today, you should have a full proposal of your project, which should include:
 
 * DTR
 * Initialize your repositories (don't write any code just yet!)
-* Set up your scrum board and connect them to your repositories (you can have multiple repositories connected to a single Waffle board)
+* Set up your scrum board with Github projects. You'll be requireed to use a single board for all repos. This will make it easier to see what everyone is working on during the project. 
 * Each student create your goal for something you would like to learn about the other stack (BE student creates learning goal for something about the FE, and vice versa)
 * Normalize on git workflow (we recommend using a "rebase" workflow, as opposed to "merge", as it is most common on the job) - use a PR template
 * Determine MVP (knowing it could change as the project continues)

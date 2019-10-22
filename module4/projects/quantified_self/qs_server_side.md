@@ -1,26 +1,24 @@
 ---
 layout: page
 title: Quantified Self - Server-side Javascript
-subheading: A calorie tracker project for the fourth module
+subheading: A calorie tracker project for M4
 ---
 
-## Introduction
+_Project spec updated on 10/15/2019_
 
-You are going to build a calorie tracker using Javascript. You'll primarily be using NodeJS and Express to complete this project. This also includes you abstracting out additional APIs into their own respective microservices.
+
+## Introduction
+You are going to build a simple calorie tracker using Javascript and Express.  You will also have an opportunity to build out a second micro-services that focuses on recipes _or_ a frontend that will interface with your calorie tracker. 
 
 ## Learning Goals
 
 * Create an Express API given specified endpoints and response formats.
-* Create a microservice that interfaces with the Edamam API.
+* Create an optional micro-service that interfaces with the Edamam API.
 * Integrate both apps together and complete the quantified self experience
 
 ## Requirements Overview
 
 You will be creating a tested Express API that users will utilize to track calories in meals that they eat. 
-
-_If you are building a frontend,_
-You can use [this](https://github.com/turingschool-examples/qs-fe-starter-kit) as a starter kit.
-You may also use [this Webpack starter kit](https://github.com/wbkd/webpack-starter). This one may be a bit more robust than the one we have provided above. It includes more configuration for transpiling, linting, and environment-specific configuration.  
 
 * All applications should be deployed with Heroku. For more information on how to do this, look [here](https://codeburst.io/deploy-your-webpack-apps-to-heroku-in-3-simple-steps-4ae072af93a8)
 
@@ -28,15 +26,14 @@ You may also use [this Webpack starter kit](https://github.com/wbkd/webpack-star
 
 For your Express backend:
 
-- You'll use the given Webpack starter pack to get started. Run through the setup instructions and fire up the application.
-- Create an agile board and write stories for each of your endpoints. Choose between Github Projects, Waffle, or Trello. Use [this as a reference point](https://www.pivotaltracker.com/blog/principles-of-effective-story-writing-the-pivotal-labs-way) on how to write effective stories. We'll go into more detail on this.  
+- Make sure that you already have the express generator installed on your machine. If you don’t, you can run `npm install express-generator -g`
+- Use the express generator and run  `express —no-view <<INSERT APP NAME HERE>>` to get started
+- Create an agile board on Github Projects and write stories for each of your endpoints. Use [this as a reference point](https://www.pivotaltracker.com/blog/principles-of-effective-story-writing-the-pivotal-labs-way) on how to write effective stories. We'll go into more detail on this.  
 - Send your agile board, repo, and production links to your instructors.
 
 You will need to build the following foods and meals endpoints for your application (listed below). Based on the extensions below you may need to modify and add the endpoints listed in project spec - do so as needed. You will definitely need to add some.
 
-There may be different architectural decisions you make with your server because of this addition; take your time to plan this out thoughtfully.
-
-### Week 1 Endpoints (Foods & Meals)
+### Week 1 Endpoints
 
 __Foods Endpoints__
 
@@ -47,28 +44,59 @@ Returns all foods currently in the database
 Each individual food will be returned in the following format:
 
 ```js
-{
-    "id": 1,
-    "name": "Banana",
-    "calories": 150
-},
+[
+    {
+        "id": 1,
+        "name": "Banana",
+        "calories": 150
+    },
+    {
+        "id": 2,
+        "name": "Apple",
+        "calories": 100
+    },
+    {
+        "id": 1,
+        "name": "Meatloaf",
+        "calories": 700
+    }
+]
 ```
+]
 
 _GET /api/v1/foods/:id_
 
 Returns the food object with the specific `:id` you've passed in or 404 if the food is not found
+
+```js
+{
+    "id": 1,
+    "name": "Banana",
+    "calories": 150
+}
+```
 
 _POST /api/v1/foods_
 
 Allows creating a new food with the parameters:
 
 ```js
-{ "food": { "name": "Name of food here", "calories": "Calories here"} }
+{ "food": { "name": "Pear", "calories": 100} }
 ```
 
-If food is successfully created, the food item will be returned. If the food is not successfully created, a 400 status code will be returned. Both name and calories are required fields.
+If food is successfully created, the food item will be returned. 
 
-_PATCH /api/v1/foods/:id_
+```js
+{
+    "id": 1,
+    "name": "Banana",
+    "calories": 150
+}
+```
+
+If the food is not successfully created, a 400 status code will be returned. Both name and calories are required fields.
+
+_PUT /api/v1/foods/:id_
 
 Allows one to update an existing food with the parameters:
 
@@ -76,11 +104,21 @@ Allows one to update an existing food with the parameters:
 { "food": { "name": "Mint", "calories": "14"} }
 ```
 
-If food is successfully updated (name and calories are required fields), the food item will be returned. If the food is not successfully updated, a 400 status code will be returned.
+If food is successfully updated (name and calories are required fields), the food item will be returned. 
+
+```js
+{
+    "id": 2,
+    "name": "Mint",
+    "calories": 14
+}
+```
+
+If the food is not successfully updated, a 400 status code will be returned.
 
 _DELETE /api/v1/foods/:id_
 
-Will delete the food with the id passed in and return a 204 status code. If the food can't be found, a 404 will be returned.
+Will delete the food with the id passed in and return a 204 status code. No body will be returned after a deletion. If the food can't be found, a 404 will be returned.
 
 __Meals Endpoints__
 
@@ -229,21 +267,22 @@ Removes the food with `:id` from the meal with `:meal_id`
 
 This deletes the existing record in the MealFoods table that creates the relationship between this food and meal. If the meal/food cannot be found, a 404 will be returned.
 
-If successful, this request will return a 204 status code.
+If successful, this request will return a 204 status code and no body will be present. 
 
 
-## Week 2 Choose your own adventure from the following two options: 
+## Week 2 - Choose your own adventure from the following two options: 
 
-### Option 1: Recipes with the Edamam API - Microservice
+### Option 1 — A Recipe micro-service with the Edamam API
 
-This extension will is to create and use an independent microservice that you've built yourself. This means that you'll need to pull down the Webpack starter pack as you did above, and create a brand new API. This new microservice will be created and deployed, just as your first one above.
+This extension’s focus is to create and use an independent micro-service that you've built yourself. This means that you'll need to use the Express generator as you did above and create a brand new application This new micro-service will be created and deployed, just as you did with your first one. 
 
 So let's break this down. You'll need to do a few things to get everything set up.
 
+* Register for an API key from [Edamam](https://developer.edamam.com/edamam-recipe-api)
 * Look over the Edamam documentation on how to search for recipes.
-* Use the Edamam API to search for a particular kind of food (for example, chicken).
-* Build a recipes table in your new microservice.
-* Look below to see what an example recipes response would look like. You may not need all of the information that the Edamam API gives back to you. Pick out the most important data and seed your database with at least 10 results per food item. We'd suggest that you search and seed your database with at least three food types.  
+* Use the Edamam API to search for a particular kind of food (for example, bananas).
+* Build a recipes table in your new micro-service.
+* Look below to see what an example recipes response would look like. You may not need all of the information that the Edamam API gives back to you. Pick out the most important data and _seed your database with at least 10 results per food item_. In other words, you’ll seed your database with 10 recipes that include bananas. Then another 10 recipes that would include chicken. This will go on until you have successfully seeded your database with 100 recipes from 10 unique foods.  
 
 _Example query:_
 
@@ -849,36 +888,47 @@ _Example result:_
 }
 ```
 
-__Be creative and create 3 new endpoints in your Edamam Recipe Service. For example, create an endpoint where the user can search for recipes by food type, calorie amount, preparation time, number of ingredients, or cuisine type.__
+### Now it’s your turn to be creative with the API
+
+Choose and create three new endpoints in your Edamam Recipe Service. 
+
+For example, you could create an endpoint where the user can search for recipes by food type, calorie amount, preparation time, number of ingredients, or cuisine type.
 
 _Example Enpoints_
 * GET /api/v1/recipes/food_search?q=food_type
 * GET /api/v1/recipes/calorie_search?q=calorie_count
 * GET /api/v1/recipes/ingredient_search?q=num_of_ingredients
 
-__Now create 2 additional endpoints that will analyze your recipe results. For example__
+Now create _two_ additional endpoints that will analyze your recipe results. For example
 
 - With a list of recipes, create an endpoint that finds the average calorie total based off food type
 - With a list of recipes, create an endpoint that orders recipes from least to greatest amount of ingredients
 - With a list of recipes, create an endpoint that orders recipes from least to great amount of time it takes to prepare the meal
 
-### Option 2 Build a Frontend for your application
+### Option 2 — Build a Frontend for your application
 
-Create a simple frontend that consumes both of your new APIs. This frontend can be a single page application and shouldn't require the user to refresh the page at any time. This means that data will load dynamically. _You do not have to write tests for your frontend, but should test features manually to ensure they work as expected._
+You can use [this repo](https://github.com/turingschool-examples/qs-fe-starter-kit) as your FE starter kit. This starter kit is responsible for a setting up a simple server that will work in your browser. To get started, look inside the `lib` folder and you’ll find a file by the name of `index.js`. This is where you’ll want to write your Javascript code.     
+
+Create a simple frontend that consumes both of your new APIs. This frontend can be a single page application and shouldn't require the user to refresh the page at any time. This means that data will load dynamically. 
+
+Notice: You do _not_ have to write tests for your frontend, but should test features manually to ensure they work as expected.
 
 
 ## Potential Extensions
+If you get through your first week’s work and one extension, then you can work on any stretch goals you may have. Below are some options: 
 
 1. Complete the other option you did not choose. 
 
-1. Calendar - Additional endpoints
-What's the point of this app if one can't look back in time and see what eating habits they have? You'll need to build out additional endpoints that lists all dates a user has recorded meals, and what they ate for each meal. Please note that this extension will require you to create additional endpoints that include the creation of users.
+1. Add a calendar feature 
+What's the point of this app if one can't look back in time and see what eating habits they have? You'll need to build out additional endpoints that lists all dates a user has recorded meals, and what they ate for each meal. 
+
+Please note that this extension will require you to create additional endpoints that include the creation of users.
 
 ## Expectations
 
 - Reach out to instructors on Slack wherever you'd like feedback.
 - Reach out for extra support if you feel like your team is falling behind.
-- If there's any question about functionality, ASK.
+- If there's any question about functionality, let us know!
 
 ## Rubric
 
