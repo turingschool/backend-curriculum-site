@@ -171,15 +171,15 @@ With that last test, update it to use mocks and stubs so that you can make it pa
 
 **Directions:** 
 
-The museum_test.rb has 8 skipped tests in it. One by one, unskip the tests, and use mocks and stubs to make your tests pass. 
+The museum_test.rb has 6 skipped tests in it. One by one, unskip the tests, and use mocks and stubs to make your tests pass. 
 
-- For tests 1-5, use mocks. 
+- For tests 3-5, use mocks. 
 - For tests 6-8, use mocks and stubs. 
 
 
 ### Interview Question
 
-What are mocks and stubs? When have you used them?
+What are mocks and stubs? When would you use them?
 
 ## The Ultimate CFU
 
