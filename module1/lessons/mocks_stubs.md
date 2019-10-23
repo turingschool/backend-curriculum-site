@@ -173,7 +173,7 @@ With that last test, update it to use mocks and stubs so that you can make it pa
 
 The museum_test.rb has 6 skipped tests in it. One by one, unskip the tests, and use mocks and stubs to make your tests pass. 
 
-- For tests 3-5, use mocks. 
+- For tests 3 & 5, use mocks. 
 - For tests 6-8, use mocks and stubs. 
 
 
