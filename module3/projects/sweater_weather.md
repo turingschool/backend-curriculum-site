@@ -101,7 +101,7 @@ Accept: application/json
 body:
 
 {
-  "origin": "Denver,CO", 
+  "origin": "Denver,CO",
   "destination": "Pueblo,CO",
   "api_key": "jgn983hy48thw9begh98h4539h4"
 }
@@ -123,7 +123,7 @@ of arrival. For example, Denver to Pueblo would take two hours. You will deliver
 
 * **1:** Project fell well short of agreed upon expectations. Project not in production.
 * **2:** Project completed most user stories set out but fell short of agreed upon expectations. Project is in production.
-* **3:** Project completed all the user stories and requirements agreed upon. Project is in production, and a call to an internal API endpoint does not always make an external API call. Project implements background workers to assist in this.
+* **3:** Project completed all the user stories and requirements agreed upon. Project is in production.
 * **4:** Project well exceeded expectations. Project is in production, a call to an internal API endpoint does not make an external API call. Project implements background workers to assist in this.
 
 ### Technical Quality
