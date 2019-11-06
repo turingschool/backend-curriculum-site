@@ -18,7 +18,7 @@ In order to graduate from Module 4, students must successfully complete **each**
 
 ### Projects
 
-* Week 1: Solo - [Sweater Weather](./projects/self_directed_fe/self_directed_fe_spec) (completion, not scored)
+* Week 1: Solo - [Sweater Weather](./projects/express_sweater_weather/express_sweater_weather_spec)
 * Weeks 2-3: Pair - [Quantified Self](./projects/quantified_self/quantified_self_full_stack) or [Play](./projects/play/play)
 * Weeks 4-5: Group - [Capstone](./capstone_project_overview)
 * Week 6: Solo - [Take Home Challenge](./projects/take_home_challenge/take_home_challenge_spec)
