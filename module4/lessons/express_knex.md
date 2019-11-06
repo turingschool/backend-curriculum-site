@@ -8,9 +8,28 @@ By the end of this lesson, you will:
 * Build a simple Express app that implements all of the basic CRUD methods
 * Understand how to create database migrations, seed files & create/retrieve data using knex
 
-## Prep Work
+## First an Intro
 
-To be prepared to jump into this lesson, students need to have completed the [Express Prep Work](https://gist.github.com/ameseee/2315c59f2e36ac546bf60512734424c8) - approximately 30 minutes.
+Traditionally JavaScript is executed client-side, or in the browser on the consumer's own computer. This is made possible by a browsers JavaScript Engine. Firefox's engine is called SpiderMonkey, and Chrome's is called V8.
+
+### What is node.js?
+
+According to [nodejs.org](https://nodejs.org) node, in it's most basic form, "is a JavaScript runtime built on Chrome's V8 JavaScript engine."
+
+### Installing Node:
+
+* Jump over to [node](https://nodejs.org/en/) and download the _Recommended for Most Users_ version of node.
+* Pat yourself on the back you've completed installation :smile:
+
+Also, when you download node - you also get npm
+
+##### A Side Note about NPM
+
+NPM (Node Package Manger) allows for organization of outside packages much like Ruby Gems.
+
+### A little about Express
+
+Express is a small framework built on top of the web server functionality provided by Node.js. It helps to simplify and organize the server-side functionality of your application by providing abstractions over the more confusing parts of node.js, and adding helpful utilities and features.
 
 # Knex and Postgres
 
