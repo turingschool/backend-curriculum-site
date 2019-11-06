@@ -55,13 +55,11 @@ You will be graded by your instructors on the criteria below. This rubric outlin
 
 ### Project Professionalism
 
-Along with the technical, workflow, and project management requirements, we’ll also be looking at overall professionalism for the duration of the project. These follow aspects will be graded accordingly throughout the project’s duration: 
-
 #### Check-in one:
 
 - 4: Developer fulfills all requirements below, and has most of the project completed. Developer comes with a plan to refactor their current application or work on extensions during the checkin. 
 
-- 3: Developer communicates and turns in any additional deliverables by thee prescribed deadlines outlined by instructors. Developer has finished two endpoints and has their application deployed to production. 
+- 3: Developer communicates and turns in any additional deliverables by the prescribed deadlines outlined by instructors. Developer has finished two endpoints and has their application deployed to production. 
 
 - 2: At least three endpoints within the project spec are working and complete. Project is deployed to production on Heroku.
 
