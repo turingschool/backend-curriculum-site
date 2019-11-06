@@ -7,67 +7,16 @@ For your Week 1 solo project, you will replicate Sweater Weather as an Express A
 * Utilize a project board to create and track details for project completion
 * Practice written technical communication with concise and consistent git commits and clear pull requests
 * Clearly document Introduction, Initial Setup, How to Use, Known Issues, Running Tests, How to Contribute, Core Contributors, Schema Design, and Tech Stack List
-* Implement testing in JavaScript
-* Familiarize self with mechanics of building an Express API
+* Explore building an Express API
 
 ### Requirements Overview
 
-For this project we want you to practice both professional and technical skills. You should develop a good work flow to communicate and document technical information and take time to create a process for building and testing an Express API.
+For this project we want you to practice both professional and technical skills. You should develop a good work flow to communicate and document technical information and take time to create a process for building an Express API.
 
-Below are listed the six endpoints you are expected to create. You will be using [Google’s Geocoding API](https://developers.google.com/maps/documentation/geocoding/start) to retrieve the lat and long for the city and retrieve forecast data from the [Darksky API](https://darksky.net/dev) using the lat and long.
-
-#### 1. Account Creation
-*For storing passwords in your database, we suggest looking into [bcrypt](https://www.npmjs.com/package/bcrypt).*
+Below are the endpoints you are expected to create and You will be using [Google’s Geocoding API](https://developers.google.com/maps/documentation/geocoding/start) to retrieve the lat and long for the city and retrieve forecast data from the [Darksky API](https://darksky.net/dev) using the lat and long.
 
 
-```json
-POST /api/v1/users
-Content-Type: application/json
-Accept: application/json
-
-{
-  "email": "my_email@example.com",
-  "password": "password"
-  "password_confirmation": "password"
-}
-```
-
-#### Response
-
-```json
-status: 201
-body:
-
-{
-  "api_key": "jgn983hy48thw9begh98h4539h4",
-}
-```
-
-#### 2. Login
-
-```json
-POST /api/v1/sessions
-Content-Type: application/json
-Accept: application/json
-
-{
-  "email": "my_email@example.com",
-  "password": "password"
-}
-```
-
-#### Response
-
-```json
-status: 200
-body:
-
-{
-  "api_key": "jgn983hy48thw9begh98h4539h4",
-}
-```
-
-#### 3. Forecast for City
+#### 1. Forecast for City
 
 Requirements
 - API key must be sent
@@ -157,7 +106,7 @@ body:
 }
 ```
 
-#### 4. Favoriting Locations
+#### 2. Favoriting Locations
 
 Requirements
 - API key must be sent
@@ -187,7 +136,7 @@ body:
 }
 ```
 
-#### 5. Listing Favorite Locations
+#### 3. Listing Favorite Locations
 
 Requirements:
 - API key must be sent
@@ -246,7 +195,7 @@ body:
 ]
 ```
 
-6. Removing Favorite Locations
+4. Removing Favorite Locations
 
 Requirements:
 
