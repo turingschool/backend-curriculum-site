@@ -5,7 +5,7 @@ layout: page
 
 ## Intermission Work
 
-To prepare for Module 4, please complete & submit the following before __11:59pm Saturday__, the Saturday day before the inning begins. This will ensure that you have a full day off before starting the mod. The pre-work should take a __maximum__ of 20 hours. __If you feel that you are struggling to understand fundamental JavaScript concepts, please reach out to your instructors for support.__ This is meant to be an introduction to the topics we will begin covering in week 1. _It is perfectly okay if these topics still feel a bit fuzzy at the end of the week._
+To prepare for Module 4, please complete & submit the following before __11:59pm Saturday__, the Saturday day before the inning begins. This will ensure that you have a full day off before starting the mod. The pre-work should take a __maximum__ of 20 hours. This pre-work is meant to be an introduction to the topics we will begin covering in week 1. __It is perfectly okay if these topics still feel a bit fuzzy at the end of the week.__
 
 1906 Pre-work: Submit all links [here](https://forms.gle/Mtp2Mr4TFyqhTP9o6).
 
@@ -18,7 +18,7 @@ To prepare for Module 4, please complete & submit the following before __11:59pm
 
 Google is your friend and it is completely reasonable to type things like ".each in javascript" or "what is const in javascript".
 
-## 1. _Mythical Critters_
+## 1. Mythical Critters
 
 To get some practice writing JavaScript we are asking you to complete 8 [mythical critters](https://github.com/turingschool-examples/be-mythical-critters). The mythical critters we are asking you to complete are outlined in the Readme. The first one is Unicorn and is very simple to help you get started. The next seven are more complex so it may feel like a bit of leap from the first to the second one. Use the tests to help drive your development.
 _Note: These exercises are written using ES6 syntax which may be helpful to include if you are `googling`._
@@ -29,7 +29,7 @@ __Submit: Link to your mythical critters repo.__
 
 While JavaScript was originally intended to be a client-side scripting language, it has since made its way server-side thanks to Node.js. We're now able to use the same language for browser-based interactions as well as server-side scripts.
 
-Let's get introduced to JavaScript without a browser. Work through [this lesson](../lessons/server_side_javascript). It will introduce you to Node.js, Express, and Knex.
+Let's get introduced to JavaScript without a browser. Work through [this lesson](../lessons/express_knex). It will introduce you to Node.js, Express, and Knex.
 
 __Submit: Link to your server_side_javascript repo.__
 
