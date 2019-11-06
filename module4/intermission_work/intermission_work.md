@@ -18,7 +18,7 @@ To prepare for Module 4, please complete & submit the following before __11:59pm
 
 Google is your friend and it is completely reasonable to type things like ".each in javascript" or "what is const in javascript".
 
-## 1. _Mythical Critters_
+## 1. Mythical Critters
 
 To get some practice writing JavaScript we are asking you to complete 8 [mythical critters](https://github.com/turingschool-examples/be-mythical-critters). The mythical critters we are asking you to complete are outlined in the Readme. The first one is Unicorn and is very simple to help you get started. The next seven are more complex so it may feel like a bit of leap from the first to the second one. Use the tests to help drive your development.
 _Note: These exercises are written using ES6 syntax which may be helpful to include if you are `googling`._
