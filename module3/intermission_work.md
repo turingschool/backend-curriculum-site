@@ -33,15 +33,15 @@ NOTE: This is not because one way is better, but it's extremely important to und
 
 ### Intro to APIs
 
-Everything we build in Mod 3 will focus on building and consuming APIs. Work through [this tutorial](https://gist.github.com/BrianZanti/e9d73508062fdcb78225906a6d97686d) to get a brief into to APIs.
+Everything we build in Mod 3 will focus on building and consuming APIs.
+
+Work through [this tutorial](https://gist.github.com/BrianZanti/e9d73508062fdcb78225906a6d97686d) to get a brief intro to APIs.
 
 ### Deeply Nested Collections
 
-When consuming APIs, the data is often stored in deeply nested collections, so you will need to tap into your Mod 1 skills and practice digging through them to retrieve the data you need.
+When consuming APIs, the data is often returned in deeply nested collections, so you will need to tap into your Mod 1 skills to practice digging through them to retrieve the data you need.
 
 Fork and clone [Here Be Dragons](https://github.com/turingschool-examples/here-be-dragons)
-
-Complete the exercises within and submit a link to your repo no later than Saturday before the first day of class.
 
 ### SQL/ActiveRecord
 
@@ -52,7 +52,7 @@ Entering Module 3 with a solid understanding of ActiveRecord and SQL is key to g
 
 # For further exploration
 
-If you have time, here are some activities that will be valuable not only in Mod 3, but in Mod 4 and the Job Hunt as well.
+If you have time, here are some activities that will be valuable not only in Mod 3, but in Mod 4 and the job hunt as well.
 
 ### Data Structures And Algorithms
 
@@ -74,6 +74,6 @@ JQuery is a popular javascript library for manipulating the content of web pages
 
 ### Submission
 
-Submit your work here: [Survey Link](https://forms)
+Submit your work here: [Survey Link](https://docs.google.com/forms/d/e/1FAIpQLSfEpSfW6UkLNPiFU4HC3A7fiaEqv7Mij8fJtOHDdp35ETXDZQ/viewform?usp=sf_link)
 
 *It is due Saturday November 16th, at 5pm*
