@@ -55,7 +55,7 @@ Write a basic promise in JS is really simple. In our `scripts.js` file, let’s 
 promise = new Promise()
 ```
 
-If we return to our terminal and type in `open index.html`, a browser window will open with our new JS code loaded into the DOM. The way we can see this is if we type in `command` and the `i` key. This will open up up your inspector tool. 
+If we return to our terminal and type in `open index.html`, a browser window will open with our new JS code loaded into the DOM. The way we can see this is if we type in `command option i`. This will open up up your inspector tool. 
 
 Once you have this open, you’ll probably encounter an error message like:
 
