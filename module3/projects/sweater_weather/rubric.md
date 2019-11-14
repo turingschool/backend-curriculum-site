@@ -7,10 +7,10 @@ title: Whether, Sweater? Project Rubric
 
 ### Feature Delivery
 
-* **1:** Project did not complete two or more endpoints.
-* **2:** Project did not complete one endpoint. Project is in production.
-* **3:** Project completed all endpoints.
-* **4:** Project implements either caching or background workers.
+* **1:** One or more API endpoints is not functioning, or multiple endpoints do not satisfy the needs of the front-end developers.
+* **2:** One of the API endpoints does not completely satisfy the needs of the front-end developers.
+* **3:** API satisfies the needs of the frontend developers.
+* **4:** API completely satisfies the needs of the front-end developers and is very convenient and easy to use showing great developer empathy. Project implements either caching or background workers to optimize API consumption.
 
 ### Technical Quality
 
