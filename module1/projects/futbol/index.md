@@ -17,7 +17,7 @@ Let's build a system to do some analysis on futbol team performance.
 
 ## Project Description
 
-We will be using data from the a fictional soccer league to analyze team performance for specific seasons and across seasons. We want to see who the best and worst performers are, as well as be able to pull statistics for individual teams. To that end we will create a `StatTracker` class that will provide us with the information we need.
+We will be using data from a fictional soccer league to analyze team performance for specific seasons and across seasons. We want to see who the best and worst performers are, as well as be able to pull statistics for individual teams. To that end we will create a `StatTracker` class that will provide us with the information we need.
 
 ## Organization
 
@@ -33,7 +33,7 @@ See [the evaluation rubric](./rubric) for more details and what exactly you shou
 
 Another key goal of this project is to utilize Test Driven Development. Because the data set is so large, it will be inefficient to use the actual dataset as your test data. Instead, you should make up your own test data. You can do this either by creating dummy CSV files, known as fixture files, or you can create dummy data within your test files. Either is a valid approach.
 
-Later in the mod, we will be introducing [Mocks and Stubs](../../lessons/mocks_stubs), which is another testing strategy that may come in handy during this project.  We recommend starting with fixture files or dummy data in the test setup, and refactoring to using mocks and stubs if you feel comfortable with those tools.
+Later in the mod, we will be introducing [Mocks and Stubs](../../lessons/mocks_stubs), which is another testing strategy that may come in handy during this project. We recommend starting with fixture files or dummy data in the test setup, and refactoring to using mocks and stubs if you feel comfortable with those tools.
 
 ### Spec Harness
 
