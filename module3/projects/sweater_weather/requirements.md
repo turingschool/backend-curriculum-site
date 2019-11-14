@@ -3,7 +3,7 @@ layout: page
 title: Whether, Sweater? Project Requirements
 ---
 
-## Application Landing Page
+## 1. Application Landing Page
 
 The front-end team has drawn up this wireframe for the application's landing page:
 
@@ -11,7 +11,7 @@ The front-end team has drawn up this wireframe for the application's landing pag
 
 They need your API to expose two endpoints in order to populate this page with the necessary data.
 
-### 1. Retrieve weather for a city
+### 1a. Retrieve weather for a city
 
 **Request:**
 
@@ -30,7 +30,7 @@ There is room for personal preference for this response body. Use the wireframes
 - Needs to pull out the city and state from the GET request and send it to Google's Geocoding API to retrieve the lat and long for the city (this can be its own story). Use of the Google Geocoding API is a hard requirement.
 - Retrieve forecast data from the Darksky API using the lat and long
 
-### 2. Background Image for a City
+### 1b. Background Image for a City
 
 **Request:**
 
@@ -44,7 +44,7 @@ Accept: application/json
 
 This will return the url to an appropriate background image for a location.
 
-## Registration
+## 2. Registration
 
 The front-end team has drawn up this wireframe for registration:
 
@@ -77,7 +77,12 @@ body:
 }
 ```
 
-## Login
+**Requirements:**
+
+* A successful request creates a user and generates a unique api key associated with that user.
+* An unsuccessful request returns a 400 level status code and body with a description of why the request wasn't successful. Potential reasons a request would fail: passwords don't match, email has already been taken, missing a field, etc.
+
+## 3. Login
 
 The front-end team has drawn up this wireframe for log in:
 
@@ -109,6 +114,10 @@ body:
 }
 ```
 
+**Requirements:**
+
+* A successful request returns the user's api key.
+* An unsuccessful request returns a 400 level status code and body with a description of why the request wasn't successful. Potential reasons a request would fail: credentials are bad.
 
 ### 4. Road Trip
 
