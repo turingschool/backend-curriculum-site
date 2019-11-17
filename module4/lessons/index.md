@@ -6,8 +6,9 @@ title: Module 4 Lessons
   
 * [Intro to Object-Oriented JavaScript](./intro_to_oojs)
 * [Module Exporting and Require](./export_require)
-* [Asynchronicity in JavaScript](./asynchronous_js)
-* [Intro to Promises and Fetch](./fetch_refresher)
+* [Intro to Promises](./promises)
+* [Intro to Fetch](./fetch_refresher)
+* [Promises with async/await](./async_await.md)
 * [Express and Sequelize](./express_and_sequelize)
 * [Testing with Jest](./jest_testing)
 * [Organizing an Express App](./organize_an_express_app)
