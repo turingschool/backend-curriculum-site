@@ -35,8 +35,8 @@ $ pry
 
 Note that the backticks allow you to run terminal commands from within Ruby.
 
-The exact command that you need to run may differ based on what version of OS X 
-you have installed on your computer. The commands above will work on 10.13
+The exact command that you need to run may differ based on what version of OS X
+you have installed on your computer. The commands above will work on 10.13.
 
 ### Linked Lists
 
@@ -58,7 +58,7 @@ List -- (head) --> ["hello" | -]-- (link) --> ["world" | -]-- (link) --> ["!" | 
 
 The three nodes here hold the data "hello", "world", and "!". The first two nodes have links which point to other nodes. The last node, holding the data "!", has no reference in the link spot. This signifies that it is the end of the list.
 
-In other lower level languages, something called a pointer is what is used to ensure that a single link knows about the next link. In Ruby, we don't use pointers, so the link is literally its node. When we get to a node which is the last node, we call it the tail, and its link is nil. 
+In other lower level languages, something called a pointer is what is used to ensure that a single link knows about the next link. In Ruby, we don't use pointers, so the link is literally its node. When we get to a node which is the last node, we call it the tail, and its link is nil.
 
 A linked list should be able to do the following:
 
@@ -98,8 +98,8 @@ The point of this process is to help us focus on small pieces at a time without 
 * There are two main ways to implement Linked Lists: __iteration__ and __recursion__. Iterative solutions use looping structures (`while`, `for`) to walk through the nodes in the list. Recursive solutions use methods which call themselves to walk through nodes. It would be ideal to solve it each way.
 * Most of your methods will be defined on the `List` itself, but you will need to manipulate one or more `Node`s to implement them.
 * __TDD__ will be your friend in implementing the list. Remember to start small, work iteratively, and test all of your methods.
-* An __empty__ list has `nil` as its head
-* The __tail__ of a list is the node that has `nil` as its next node
+* An __empty__ list has `nil` as its head.
+* The __tail__ of a list is the node that has `nil` as its next node.
 
 ## Constraints
 
@@ -138,9 +138,9 @@ The project will be assessed with the following guidelines:
 
 ### 2. Breaking Logic into Components
 
-* Code is effectively broken into methods & classes 
-* Developer writes methods less than 10 lines 
-* No more than 3 methods break the principle of SRP 
+* Code is effectively broken into methods & classes
+* Developer writes methods less than 10 lines
+* No more than 3 methods break the principle of SRP
 
 
 ### 3. Test-Driven Development
@@ -150,7 +150,7 @@ The project will be assessed with the following guidelines:
 
 ### 4. Version Control
 
-Expectations: 
+Expectations:
 
 * Developer commits at a pace of at least 1 commit per hour
 * Developer implements branching and PRs
