@@ -10,6 +10,7 @@ title: Module 2 - Projects
 * [Monster Shop Extensions](https://github.com/turingschool-examples/monster_shop_final), solo project, week 6
 
 **To Be Archived**
+
 [Mini Shop](https://github.com/turingschool-examples/mini_shop), solo project, week 1  
 [Laugh Tracks](https://github.com/turingschool-projects/laugh_tracks), solo project, week 1  
 [Book Club](https://github.com/turingschool-projects/BookClub), paired project, week 2 and 3  
