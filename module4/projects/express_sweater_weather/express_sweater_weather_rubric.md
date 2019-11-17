@@ -1,6 +1,6 @@
 # Rubric
 
-You will be graded by your instructors on the criteria below. This rubric outlines the key areas in which you will be graded. Please note that ll areas will be graded with equal importance. If you have any specific questions in regards to any of these key areas, let us know at any time. 
+You will be graded by your instructors on the criteria below. This rubric outlines the key areas in which you will be graded. Please note that all areas will be graded with equal importance. If you have any specific questions in regards to any of these key areas, let us know at any time. 
 
 ### Project Management/Agile Practices
 
