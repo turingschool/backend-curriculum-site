@@ -20,6 +20,18 @@ All of these things were at one time part of the intermission week work. We've r
 
 ### Introduction to JavaScript Topics Reading
 
+**Read** the following selections are recommended from [Eloquent JavaScript](https://eloquentjavascript.net)
+
+1. [Values, Types, and Operators](https://eloquentjavascript.net/01_values.html)
+2. [Program Structure](https://eloquentjavascript.net/02_program_structure.html)
+3. [Functions](https://eloquentjavascript.net/03_functions.html)
+4. [Data Structures: Objects and Arrays](https://eloquentjavascript.net/04_data.html)
+5. [The Secret Life of Objects](https://eloquentjavascript.net/06_object.html)
+6. [Bugs & Errors](https://eloquentjavascript.net/08_error.html)
+7. [Modules](https://eloquentjavascript.net/10_modules.html)
+8. [Asynchronous Programming](https://eloquentjavascript.net/11_async.html)
+9. [Node.js](https://eloquentjavascript.net/20_node.html)
+
 **Read** the following selections from [Speaking JavaScript](http://speakingjs.com/es5/) & [Eloquent JavaScript](http://eloquentjavascript.net//):
 
 * [Chapter 3 (Speaking): The Nature of JavaScript](http://speakingjs.com/es5/ch03.html)

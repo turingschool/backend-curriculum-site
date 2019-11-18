@@ -163,7 +163,7 @@ This checklist summarizes all of the functionality you are expected to build. Th
 
 **Main Menu**:
 
-* User is show the main menu where they can play or quit
+* User is shown the main menu where they can play or quit
 
 **Setup**:
 
