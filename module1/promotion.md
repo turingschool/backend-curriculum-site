@@ -21,6 +21,8 @@ In week 6, students will complete two assessments:
 1. Paired Assessment
 1. Independent Assessment
 
+In order to be promoted to Mod2, the average score of these two assessments must be passing.
+
 Students can reference the [Module 1 Syllabus](./syllabus) for more details on these assessments. Students can reference the [Practice Assessments](./practice_assessments) page for example assessments.
 
 ## Professional Development

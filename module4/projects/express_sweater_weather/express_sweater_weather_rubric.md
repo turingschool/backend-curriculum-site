@@ -1,10 +1,10 @@
 # Rubric
 
-You will be graded by your instructors on the criteria below. This rubric outlines the key areas in which you will be graded. All areas will be graded with equal importance. If you have any specific questions in regards to any of these key areas, let us know at any time. 
+You will be graded by your instructors on the criteria below. This rubric outlines the key areas in which you will be graded. Please note that all areas will be graded with equal importance. If you have any specific questions in regards to any of these key areas, let us know at any time. 
 
 ### Project Management/Agile Practices
 
-- 4: Developer regularly uses Github Projects as their primary agile board. Before starting to code, they write user stories that focus on each individual feature that will be created in the application. Each user story will contain a descriptive title in relation to the feature being built. Each user story will also contain information pertaining to the feature being built within the description of the card. This may include steps that a user may need to do in order to achieve their goal, or expected request/response data that may be seen during the use of an API. Developer is able to articulate the agile process during the project evaluation.
+- 4: Developer regularly uses Github Projects as their primary agile board. Before starting to code, they write user stories that focus on each individual feature that will be created in the application. Each user story will contain a descriptive title in relation to the feature being built. Each user story will also contain information pertaining to the feature being built within the description of the card. For example, this could include steps that a user may need to do in order to achieve their goal, or expected request/response data that may be seen during the use of an API. Developer is able to articulate the agile process during the project evaluation.
 
 - 3: Developer regularly uses Github Projects as their primary agile board. Developer writes basic stories that convey what work will be done and what work has been finished. The developer uses the board regularly throughout the the duration of the project. 
 
@@ -36,21 +36,21 @@ You will be graded by your instructors on the criteria below. This rubric outlin
 
 - 4: The developer requested a PR review from a peer, implemented the feedback and communicated back to the reviewer what changes were made and was able to speak to that experience, whether it be technical learning focused or workflow focused.
 
-- 3: The developer requested a PR review from two peers, implemented the feedback and communicated back to the reviewer what changes were made. The developer reached out to instructors if at any time there were blockers they thought might prevent them from meeting any deadlines. 
+- 3: The developer requested a PR review from a peer, implemented the feedback and communicated back to the reviewer what changes were made. The developer reached out to instructors if at any time there were blockers they thought might prevent them from meeting any deadlines. 
 
 - 2: The developer requested a PR review from one individual, implemented the feedback and communicated back to the reviewer what changes were made. The developer did not consistently communicate with instructors about any blockers that prevented them from meeting prescribed deadlines. 
 
-- 1: The developer did not have any successful PR requests. The developer did not communicate with instructors about any blockers that prevented them from meeting prescribed deadlines. 
+- 1: The developer did not have any successful PR requests for review. The developer did not communicate with instructors about any blockers that prevented them from meeting prescribed deadlines. 
 
-### Completion of software functionality
+### Software functionality
 
 - 4: Requirements listed below are complete and student has additional endpoints completed for project. Endpoints include happy path testing.
 
 - 3: All endpoints within the project spec are working and complete. This also includes that endpoints are formatted correctly and deployed to production on Heroku. 
 
-- 2: At least four endpoints within the project spec are working and complete. Project is deployed to production on Heroku.
+- 2: At least two endpoints within the project spec are working and complete. Project is deployed to production on Heroku.
 
-- 1: Fewer than four endpoints within the project spec are working and completed. Project not be deployed to production on Heroku.
+- 1: Fewer than two endpoints within the project spec are working and completed. Project not be deployed to production on Heroku.
 
 
 ### Project Professionalism
@@ -61,6 +61,6 @@ You will be graded by your instructors on the criteria below. This rubric outlin
 
 - 3: Developer communicates and turns in any additional deliverables by the prescribed deadlines outlined by instructors. Developer has finished two endpoints and has their application deployed to production. 
 
-- 2: At least three endpoints within the project spec are working and complete. Project is deployed to production on Heroku.
+- 2: At least one endpoint within the project spec are working and complete. Project is deployed to production on Heroku.
 
-- 1: Developer misses instructor deadlines, has one endpoint completed, and doesn’t have their application deployed to Heroku. 
+- 1: Developer misses instructor deadlines, has zero endpoints completed, and doesn’t have their application deployed to Heroku. 

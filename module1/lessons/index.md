@@ -49,3 +49,6 @@ title: Module 1 Lessons
 
 ### Exploration
 * [CSV Exploration](./csv_exploration)
+
+### Good Practices & Process
+* [Productive Struggle](./productive_struggle)

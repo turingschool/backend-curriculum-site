@@ -1,13 +1,12 @@
 # Express Sweater Weather
-
-For your Week 1 solo project, you will replicate Sweater Weather as an Express API.
+For your week one solo project, you will replicate Sweater Weather using the lightweight Express framework.
 
 ## Learning Goals
 
-* Utilize a project board to create and track details for project completion
+* Utilize a project board using Github Projects to create and track details for project completion
 * Practice written technical communication with concise and consistent git commits and clear pull requests
-* Clearly document Introduction, Initial Setup, How to Use, Known Issues, Running Tests, How to Contribute, Core Contributors, Schema Design, and Tech Stack List
-* Explore building an Express API
+* Write clear documentation that conveys the important details of your project, how to get things set up, how things work, and what to expect when using your API. 
+* Explore and use a new language by building a simple API with the Express framework. 
 
 ### Requirements Overview
 
@@ -18,8 +17,8 @@ Below are the endpoints you are expected to create and You will be using [Google
 
 #### 1. Forecast for City
 
-Requirements
-- API key must be sent
+Requirements:
+- API key must be sent along with the request
 - If no API key or an incorrect key is provided return 401 (Unauthorized)
 
 ```json
@@ -33,7 +32,7 @@ body:
 }
 ```
 
-#### Response
+#### Expected successful response
 
  *The response below is an example that gives only 1 object in the data array for both the hourly and daily. Your response should contain at least __8 hourly objects__ and __7 daily objects__*
 
@@ -108,8 +107,8 @@ body:
 
 #### 2. Favoriting Locations
 
-Requirements
-- API key must be sent
+Requirements:
+- API key must be sent along with the request
 - If no API key or an incorrect key is provided return 401 (Unauthorized)
 
 ```json
@@ -125,7 +124,7 @@ body:
 }
 ```
 
-#### Successful Response
+#### Expected successful response
 
 ```json
 status: 200
@@ -139,7 +138,7 @@ body:
 #### 3. Listing Favorite Locations
 
 Requirements:
-- API key must be sent
+- API key must be sent along with the request
 - If no API key or an incorrect key is provided return 401 (Unauthorized)
 
 ```json
@@ -154,7 +153,7 @@ body:
 }
 ```
 
-#### Response
+#### Expected successful response
 
 ```json
 status: 200
@@ -198,9 +197,8 @@ body:
 4. Removing Favorite Locations
 
 Requirements:
-
-API key must be sent
-If no API key or an incorrect key is provided return 401 (Unauthorized)
+- API key must be sent along with the request
+- If no API key or an incorrect key is provided return 401 (Unauthorized)
 
 ```json
 DELETE /api/v1/favorites
@@ -215,42 +213,51 @@ body:
 }
 ```
 
-#### Response
+#### Expected successful response
 
 ```json
 status: 204
 ```
 
-### Workflow Expectations
+### Expectations on your workflow
 
-Even though this is a solo project, you are expected to maintain a professional workflow.
-This includes attention to branches, commit messages, and yes, PRs. Think of PRs as the story of your application - it is not for you as you build the application, it is for your later self or someone else potentially jumping into codebases. This is where we should see rationale for decisions, what other options you considered and the pros/cons, as well as notes about what is missing next, etc. Please see the rubric for details.
+Even though this is a solo project, you are expected to maintain a professional workflow for the duration of the week.
 
-### PR Reviews
+This includes careful attention to: 
+- Creating branches and commit work off of them
+- Writing concise yet informative commit messages that convey what task you completed 
+- Creating pull requests. Please note that PR names will often be the same as your branch name. Instead, you’ll want to update your PR name to reflect what that chunk of work/code did.  
 
-Since you are working solo on this, we are providing two requirements (opportunities!) for feedback from others on your code. By 8:00am on Monday of the project, you need to have made at least two PRs that tag and ask for specific feedback from two peers.
+Think of a PR and commits as a part of the story for your application. It is not just for you as you build the application but also for your later self or someone else potentially jumping into codebases. This is where we should see rationale for decisions, what other options you considered and the pros/cons, as well as notes about what is missing next, etc. Please see the project rubric for more details.
+
+### Expectations on pull request reviews
+
+Since you are working on this project by yourself, we are providing one requirement (opportunity!) for feedback from others on your code. By 8:00am on due date of the project, you need to have made at least one PR that tags and asks for specific feedback from a peer in your cohort.
+
 In order for this requirement to be fulfilled,
-- You need to make the PR and tag them with a specific review ask
-- They need to respond in the PR conversation with actionable feedback
+- You need to make the PR and tag them with a specific review request
+- They need to respond in the PR conversation with actionable feedback (Just a thumbs up won’t be counted as actionable feedback). 
 - You need to make a change, tag them again for their review (you may need to ask a clarifying question before doing so, if that's the case, ask in the PR conversation instead of Slack or in person)
 - If they continue the conversation great, if not, that's fine at this point
 
-### Check-In
 
-You will check in with one of your instructors on Monday and Thursday afternoons. At this time, instructors expect that you have the following in place/ready to show us:
+### Day 1 Deliverables
+After the product kick off, you’ll be expected to send both of your instructors the following links by and no later than 9PM of that same day: 
 
-Monday:
+- Link to your project’s repo on Github
+- Link to your sprint board on Github Projects with your first stories. If you want to know our expectations around this, please take a look at the rubric for more details.
+- Deployed production link on Heroku
 
-- Repo created - add your PM as a contributor
-- Agile board created, all user stories written in detail - invite your PM/send us the link
-- Project successfully deployed
-  -   Link:   
+### Expectations for your project check-in
 
-Thursday:
+This project will also include one check-in with one of your instructors. Please take a look at your calendar to see when check-ins will take place.
 
-- At least 3 of the endpoints are being hit successfully and the app is returning formatted data
-- Project is still successfully deployed
+Group checkin expectations:
+- At least two of the endpoints are being hit successfully and the app is returning formatted data
+- Project is successfully deployed on production
 
-### Evals
+### Expectations for project evaluations
 
-The evaluation for this project will be held on Monday of Week 2 from 9-12 - the last commit we will accept is at 8am. The rubric that will be used can be found [here](./express_sweater_weather_rubric) - it is highly recommended that you check in with this rubric regularly.
+- Make sure to take a look at the calendar for when your evaluations will be
+- The last commit that we will accept is at 8am on the morning that the project is due. 
+- The rubric that will be used can be found [here](./express_sweater_weather_rubric) - it is highly recommended that you check in with this rubric regularly.
