@@ -11,11 +11,11 @@ When working through a challenge - in programming or otherwise.  We often find o
 
 ### Identifying Productive Struggle
 
-With a small group, create a chart listing out behaviors that indicate when you are in productive struggle, and when you are in unproductive struggle.  Take 10 minutes to just list the behaviors for each form of struggle - we'll work on avoiding unproductive struggle next.
+With a small group, create a chart listing out behaviors that indicate when you are in productive struggle, and when you are in unproductive struggle.  Take 10 minutes to just list the behaviors for each form of struggle - we'll work on strategies for avoiding unproductive struggle next.
 
 Once you have your list, take another 15 minutes to brainstorm ways to avoid unproductive struggle, and ways to move from unproductive to productive struggle.  Create a separate chart listing out these strategies.
 
-## Strategies for Productive Struggle
+## Strategies for Breaking out of Unproductive Struggle
 
 **Clarify the Problem**  
 Revisit the project spec, interaction pattern, or any supporting documents to clarify the problem you are working on.  Ask questions if necessary, and restate the problem to yourself and others to make sure you are working on the correct task.
@@ -30,4 +30,10 @@ Write done what you know and what you have tried.  Writing down what you know (w
 This might seem like common sense, but it is also a common trap that we can get into - we want so much to use a specific method, that we can tie ourselves to something that isn't going to work.  For example - if you are using `.map` and it isn't working, try `.each`.  Focus on getting it working, rather than on using the *right* method.
 
 **Ask for Help**  
-Early! Don't spend too much time struggling before asking for help.  Ask a fellow student, mentors, upper mod students and your instructors.
+Early! Don't spend too much time struggling before asking for help-- if you've spent more than 20 minutes on unproductive struggle, ask a fellow student, mentors, upper mod students and/or your instructors.
+
+**Nuke It**
+CODE IS CHEAP. It's a tough lesson to learn, but a good one-- it costs nothing to delete and start over. All developers sometimes get stuck trying to force our code into a strategy, tool, or path that we're mentally stuck on and determined to make work. And sometimes, that just isn't the right direction.  It's okay (and sometimes, the best course of action) to delete what you've written, take a 5 minute pom, and start fresh when you get back as though it's the first time you've seen the problem. (Disclaimer: we're not talking about a whole project here-- don't delete your whole project the night before it's due).
+
+### Remember
+Unproductive struggle is independent of whether/how long it takes you to find a working solution.  It _is_, however, recognizing when you've stopped learning. 
