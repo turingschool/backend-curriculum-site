@@ -29,11 +29,12 @@ Write done what you know and what you have tried.  Writing down what you know (w
 **Try a Different Method**  
 This might seem like common sense, but it is also a common trap that we can get into - we want so much to use a specific method, that we can tie ourselves to something that isn't going to work.  For example - if you are using `.map` and it isn't working, try `.each`.  Focus on getting it working, rather than on using the *right* method.
 
+**Nuke It**  
+CODE IS CHEAP. It's a tough lesson to learn, but a good one-- it costs nothing to delete and start over. All developers sometimes get stuck trying to force our code into a strategy, tool, or path that we're mentally stuck on and determined to make work. And sometimes, that just isn't the right direction.  It's okay (and sometimes, the best course of action) to delete what you've written, take a 5 minute pom, and start fresh when you get back as though it's the first time you've seen the problem. (Disclaimer: we're not talking about a whole project here-- don't delete your whole project the night before it's due).
+
 **Ask for Help**  
 Early! Don't spend too much time struggling before asking for help-- if you've spent more than 20 minutes on unproductive struggle, ask a fellow student, mentors, upper mod students and/or your instructors.
 
-**Nuke It**
-CODE IS CHEAP. It's a tough lesson to learn, but a good one-- it costs nothing to delete and start over. All developers sometimes get stuck trying to force our code into a strategy, tool, or path that we're mentally stuck on and determined to make work. And sometimes, that just isn't the right direction.  It's okay (and sometimes, the best course of action) to delete what you've written, take a 5 minute pom, and start fresh when you get back as though it's the first time you've seen the problem. (Disclaimer: we're not talking about a whole project here-- don't delete your whole project the night before it's due).
 
 ### Remember
 Unproductive struggle is independent of whether/how long it takes you to find a working solution.  It _is_, however, recognizing when you've stopped learning. 
