@@ -7,7 +7,7 @@ tags: fundamentals, computer science
 
 ## But First, The Word Of The Day
 
-`equifinality (n): the property of allowing or having the same effect or result from different events`
+**equifinality (n):** `the property of allowing or having the same effect or result from different events`
 
 I think of this as multiple paths that end up at the same point or place or result.
 
