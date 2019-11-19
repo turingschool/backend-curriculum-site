@@ -92,6 +92,7 @@ end
 #=> false
 ```
 **not** `play_again` translates to **not** `true` which translates to `false`
+
 **not** `hungry?` translates to **not** `true` which translates to `false`
 
 There are also built-in ruby methods that can be used as conditions. Although it's not a rule, Rubyists typically end these methods with a `?` to imply that a boolean will be returned:
