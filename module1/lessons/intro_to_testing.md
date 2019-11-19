@@ -90,6 +90,8 @@ pry(main)> student.cookies
 => ["Chocolate Chunk", "Snickerdoodle"]
 ```
 
+Now, let's write tests based on the interaction pattern above.
+
 ```ruby
 # student_test.rb
 require 'minitest'
