@@ -70,9 +70,25 @@ assert_equal 'expected', 'actual'
 
 ### Scenario Specifications
 
-* Students have names
-* Students have laptops. The laptop is usually an Apple, but it can be any brand
-* Students can bring various flavors of cookies to their instructors, but double-chocolate brownie chunk flavor can never be wrong
+```ruby
+pry(main)> require './playground'
+=> true
+
+pry(main)> student = Student.new('Penelope')
+=> #<Student:0x007fa71e12c1f0 @cookies=[], @name="Penelope">
+
+pry(main)> student.name
+=> "Penelope"
+
+pry(main)> student.cookies
+=> []
+
+pry(main)> student.add_cookie('Chocolate Chunk')
+pry(main)> student.add_cookie('Snickerdoodle')
+
+pry(main)> student.cookies
+=> ["Chocolate Chunk", "Snickerdoodle"]
+```
 
 ```ruby
 # student_test.rb
@@ -83,8 +99,8 @@ require 'minitest/pride'
 class StudentTest < Minitest::Test
   # test it exists
   # test it has a name
-  # test it has a laptop
   # test it has cookies
+  # test it can add cookies
 end
 ```
 
@@ -98,12 +114,12 @@ require 'minitest/pride'
 
 class StudentTest < Minitest::Test
   def test_it_exists
-    student = Student.new
+    student = Student.new('Penelope')
     assert_instance_of Student, student
   end
   # test it has a name
-  # test it has a laptop
   # test it has cookies
+  # test it can add cookies
 end
 ```
 
@@ -136,17 +152,19 @@ class StudentTest < Minitest::Test
     student = Student.new("Penelope")
     assert_equal "Penelope", student.name
   end
-  # test it has a laptop
   # test it has cookies
+  # test it can add cookies
 end
 ```
 
 ```ruby
 class Student
-  attr_reader :name
-
   def initialize(name)
     @name = name
+  end
+
+  def name
+    @name
   end
 end
 ```
@@ -252,8 +270,8 @@ class StudentTest < Minitest::Test
     student = Student.new("Hermione")
     assert_equal "Hermione", student.name
   end
-  # test it has a laptop
   # test it has cookies
+  # test it can add cookies
 end
 ```
 
@@ -287,8 +305,8 @@ class StudentTest < Minitest::Test
     student = Student.new(13)
     assert_equal "Name not Provided", student.name
   end
-  # test it has a laptop
   # test it has cookies
+  # test it can add cookies
 end
 ```
 
