@@ -126,7 +126,7 @@ length = "letters".length
 length == 0 || 10
 ```
 
-This won't give you an error, but it isn't working like you expect. This condition will always evaluate to true, which probably isn't what you expect, and is not a very useful condition. If we read this as "length is equal to zero or ten", it makes sense to us, but that's not how Ruby reads it. Ruby evaluates each condition on the left and right independently and then combines them. So Ruby reads it as "Length is equal to zero; or ten.". The important point here is that both sides of an `||` or `&&` are valid conditions. This statement would be correctly written as:
+This won't give us an error, but it isn't working like we expect. This condition will always evaluate to true, which probably isn't what we expect, and thus is not a very useful condition. If we read this as "length is equal to zero or ten", it makes sense to us, but that's not how Ruby reads it. Ruby evaluates each condition on the left and right independently and then combines them. So Ruby reads it as "Length is equal to zero; or ten.". The important point here is that both sides of an `||` or `&&` are valid conditions. This statement would be correctly written as:
 
 ```ruby
 length = 5
@@ -157,6 +157,10 @@ if gpa >= 3.8
   invite_to_honor_roll
 end
 ```
+
+![inline](./assets/if_condition.jpg)
+
+
 - If you want to spend a lot of money for dinner, go to a fancy restaurant. Otherwise, cook at home. (Two branches)
 
 ```ruby
@@ -166,6 +170,9 @@ else
   cook_at_home
 end
 ```
+
+![inline](./assets/if_else_condition.jpg)
+
 
 ## `if`
 
