@@ -28,9 +28,9 @@ Available [here](../slides/each)
 
 ```ruby
 characters = ["Khaleesi", "Varys", "Little Finger"]
-puts students[0]
-puts students[1]
-puts students[2]
+puts characters[0]
+puts characters[1]
+puts characters[2]
 ```
 
 ## Lesson
@@ -184,7 +184,7 @@ With your new best friend sitting next to you, with this following array use
 
 1. Can you print out their names capitalized?
 2. Can you print out their names in all caps?
-3. Can you print out their names but reversed? (`["carly", "demi", "selena", "justin"]`)
+3. Can you print out their names but reversed? (justin first) (`["carly", "demi", "selena", "justin"]`)
 4. Can you create a new array with only the names that are longer than four letters in length?
 5. Can you create a new array with the lengths of their names?
 
