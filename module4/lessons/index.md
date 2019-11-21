@@ -3,13 +3,12 @@ layout: page
 title: Module 4 Lessons
 ---
 ## JavaScript
-  
+
 * [Intro to Object-Oriented JavaScript](./intro_to_oojs)
 * [Module Exporting and Require](./export_require)
 * [Intro to Promises](./promises)
 * [Intro to Fetch](./fetch_refresher)
 * [Promises with async/await](./async_await.md)
-* [Express and Sequelize](./express_and_sequelize)
 * [Testing with Jest](./jest_testing)
 * [Organizing an Express App](./organize_an_express_app)
 
@@ -36,10 +35,10 @@ title: Module 4 Lessons
 
 ## Additional Reading/Resources
 
+* [Express and Sequelize](./express_and_sequelize)
 * [Debugging Client Side Code](./fe_dev_tool_debugging)
 * [Event Bubbling & Delegation](./event_bubbling_and_delegation)
 * [Webpack and NPM](./npm_and_webpack)
 * [Project Planning](./project_planning)
 * [Continuous Integration](./continuous_integration)
 * [Project Polish](./project_polish)
-
