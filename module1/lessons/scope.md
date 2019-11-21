@@ -123,7 +123,7 @@ Every time you create a class, method, or block you create a new **scope**. Anyt
 
 ## Exploration - Part 2
 
-#### Example 4
+#### Example 6
 
 ```ruby
 def print_variable
@@ -134,7 +134,7 @@ print_variable
 puts x
 ```
 
-#### Example 5
+#### Example 7
 
 ```ruby
 def print_variable
@@ -145,7 +145,7 @@ end
 print_variable
 ```
 
-#### Example 6
+#### Example 8
 
 ```ruby
 def print_variable
@@ -157,7 +157,7 @@ x = 2
 print_variable
 ```
 
-#### Example 7
+#### Example 9
 
 ```ruby
 def print_variable
@@ -203,7 +203,7 @@ x = 10
 
 ## Exploration - Part 3
 
-#### Example 8
+#### Example 10
 
 ```ruby
 def print_variable(x)
@@ -213,7 +213,7 @@ end
 print_variable(4)
 ```
 
-#### Example 9
+#### Example 11
 
 ```ruby
 def print_variable(x)
@@ -224,7 +224,7 @@ x = 4
 print_variable(x)
 ```
 
-#### Example 10
+#### Example 12
 
 ```ruby
 def print_variable(x)
@@ -235,7 +235,7 @@ print_variable(2)
 puts x
 ```
 
-#### Example 11
+#### Example 13
 
 ```ruby
 def print_variable(x)
@@ -265,7 +265,7 @@ Arguments allow us to pass data between scopes.
 
 ## Exploration - Part 4
 
-#### Example 12
+#### Example 14
 
 ```ruby
 numbers = [1,2,3]
@@ -277,7 +277,7 @@ end
 p total
 ```
 
-#### Example 13
+#### Example 15
 
 ```ruby
 numbers = [1,2,3]
@@ -290,7 +290,7 @@ end
 p pizza
 ```
 
-#### Example 14
+#### Example 15
 
 ```ruby
 numbers = [1,2,3]
@@ -302,7 +302,7 @@ end
 p number
 ```
 
-#### Example 15
+#### Example 17
 
 ```ruby
 numbers = [1,2,3]
@@ -312,7 +312,7 @@ numbers.each do |number|
 end
 ```
 
-#### Example 16
+#### Example 18
 
 ```ruby
 numbers = [1,2,3]
@@ -322,7 +322,7 @@ numbers.each do |number|
 end
 ```
 
-#### Example 17
+#### Example 19
 
 ```ruby
 numbers = [1,2,3]
