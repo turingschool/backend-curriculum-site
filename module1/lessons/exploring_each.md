@@ -42,7 +42,7 @@ Let's use [this gist](https://gist.github.com/jmejia/04924190362f64fc49ab) as a 
 #### What are enumerable methods?
 
 * methods that can be used on arrays and hashes to go through each element or
-search for elements or  an element.
+search for elements or a specific element.
 
 #### What is .each?
 

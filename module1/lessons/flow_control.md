@@ -5,6 +5,15 @@ length: 60
 tags: fundamentals, computer science
 ---
 
+## But First, The Word Of The Day
+
+**equifinality (n):** `the property of allowing or having the same effect or result from different events`
+
+I think of this as multiple paths that end up at the same point or place or result.
+
+The result we are aiming for today is a functioning piece of software that forks or branches based on one or more conditions, and this lesson will show you a few of the logical tools that can help us arrive there.
+
+
 ## Learning Goals
 
 * explain the flow of execution through a chunk of code  
@@ -68,17 +77,25 @@ mood != "grumpy"
 #=> true
 ```
 
-You can also use the negation operator `!` (also known as a "bang") to reverse something from true to false. The "bang" will always return the opposite boolean of the method or variable it is called upon. I use the word `not` in my head in conjunction with the negation operator.
+You can also use the negation operator `!` (also known as a "bang") to reverse something from true to false. The "bang" will always return the opposite boolean of the boolean that is returned from a method or variable. I use the word `not` in my head in conjunction with the negation operator.
 
 ```ruby
+!false
+#=> true
 play_again = true
 !play_again
+#=> false
+def hungry?
+  true
+end
+!hungry?
 #=> false
 ```
 **not** `play_again` translates to **not** `true` which translates to `false`
 
+**not** `hungry?` translates to **not** `true` which translates to `false`
 
-There are also methods that can be used as conditions. Although it's not a rule, Rubyists typically end these methods with a `?` to imply that a boolean will be returned:
+There are also built-in ruby methods that can be used as conditions. Although it's not a rule, Rubyists typically end these methods with a `?` to imply that a boolean will be returned:
 
 ```ruby
 1.even?
@@ -109,7 +126,7 @@ length = "letters".length
 length == 0 || 10
 ```
 
-This won't give you an error, but it isn't working like you expect. This condition will always evaluate to true, which probably isn't what you expect, and is not a very useful condition. If we read this as "length is equal to zero or ten", it makes sense to us, but that's not how Ruby reads it. Ruby evaluates each condition on the left and right independently and then combines them. So Ruby reads it as "Length is equal to zero; or ten.". The important point here is that both sides of an `||` or `&&` are valid conditions. This statement would be correctly written as:
+This won't give us an error, but it isn't working like we expect. This condition will always evaluate to true, which probably isn't what we expect, and thus is not a very useful condition. If we read this as "length is equal to zero or ten", it makes sense to us, but that's not how Ruby reads it. Ruby evaluates each condition on the left and right independently and then combines them. So Ruby reads it as "Length is equal to zero; or ten.". The important point here is that both sides of an `||` or `&&` are valid conditions. This statement would be correctly written as:
 
 ```ruby
 length = 5
@@ -140,6 +157,10 @@ if gpa >= 3.8
   invite_to_honor_roll
 end
 ```
+
+![inline](./assets/if_condition.jpg)
+
+
 - If you want to spend a lot of money for dinner, go to a fancy restaurant. Otherwise, cook at home. (Two branches)
 
 ```ruby
@@ -149,6 +170,9 @@ else
   cook_at_home
 end
 ```
+
+![inline](./assets/if_else_condition.jpg)
+
 
 ## `if`
 
@@ -273,6 +297,8 @@ while parking_spot.full?
   keep_driving
 end
 ```
+
+The above code does not run. Why is this?
 
 ## `until`
 
