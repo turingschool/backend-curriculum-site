@@ -15,9 +15,9 @@ tags: apis, rails, faraday
 
 #### Warmup
 
-What is the purpose of an API?
-Why do we expose data through APIs?
-What format is the data in when it is exposed through an API endpoint?
+- What is the purpose of an API?
+- Why do we expose data through APIs?
+- What format is the data in when it is exposed through an API endpoint?
 
 ---
 
@@ -43,18 +43,18 @@ Using the browser, make a GET request to hit the [Github users](https://develope
 
 #### Exercise - HTTP Client 2: Postman
 
-- Download the [Postman API Client](https://www.getpostman.com/product/api-client)
+Download the [Postman API Client](https://www.getpostman.com/product/api-client)
 
-Using postman, make a GET request to hit the Github users API endpoint.
+- Using postman, make a GET request to hit the Github users API endpoint.
 
-- List out the parts of the http request made to hit the Github API endpoint.
-- List out the parts of the http response received from the Github API
+  - List out the parts of the http request made to hit the Github API endpoint.
+  - List out the parts of the http response received from the Github API
 
 ---
 
-### Whole Group
+#### Whole Group
 
-- What are benefits of using the Postman API client?
+What are benefits of using the Postman API client?
 
 ---
 
@@ -72,7 +72,7 @@ What is challenging about working with Faraday?
 
 ---
 
-### More API Consumption
+#### More API Consumption
 
 You now have experience building an API using Rails. In our next class we will be consuming an API in the context of Rails project. These next few exercises will prepare you for the most difficult concepts we cover in Mod 3. Struggle is more important than completion.
 
