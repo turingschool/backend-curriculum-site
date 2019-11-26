@@ -39,13 +39,11 @@ To create a new favorite, use the following parameters:
 
 ```js
 {
-  "favorites": {
-    "id": 1,
-    "title": "We Will Rock You",
-    "artist_name": "Queen"
-    "genre": "Rock",
-    "rating": 88
-  }
+  "id": 1,
+  "title": "We Will Rock You",
+  "artistName": "Queen"
+  "genre": "Rock",
+  "rating": 88
 }
 ```
 
@@ -62,14 +60,14 @@ The index of favorites will be returned in the following format:
   {
     "id": 1,
     "title": "We Will Rock You",
-    "artist_name": "Queen"
+    "artistName": "Queen"
     "genre": "Rock",
     "rating": 88
   },
   {
     "id": 2,
     "title": "Careless Whisper",
-    "artist_name": "George Michael"
+    "artistName": "George Michael"
     "genre": "Pop",
     "rating": 93
   },
@@ -86,7 +84,7 @@ A 404 is returned if the favorite is not found.
   {
     "id": 1,
     "title": "We Will Rock You",
-    "artist_name": "Queen"
+    "artistName": "Queen"
     "genre": "Rock",
     "rating": 88
   }
