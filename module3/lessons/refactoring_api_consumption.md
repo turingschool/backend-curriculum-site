@@ -5,7 +5,36 @@ length: 180
 tags: apis, rails, faraday
 ---
 
-When we write tests we should write code at the same layer of the application that the test is running. At this point it's common for students to jump to the controller and try to get everything to work. This approach tends to lead to code that is difficult to pull together, maintain, and reuse.
+## Learning Goals
+
+By the end of this class, a student should be able to:
+
+* Refactor code that reaches an API from the controller into single responsibility POROS.
+
+* Utilize two of the pillars of object oriented programming, abstraction and encapsulation, in order to guide their refactoring.
+
+
+Right now, our app does what it’s supposed to do but there’s a good chance that it doesn’t “feel” right. Specifically, our `index` action in the controller is long, violates SRP and MVC, and the logic that lives in it isn’t reusable. Time to refactor.
+
+```ruby
+class SearchController < ApplicationController
+  def index
+    state = params[:state]
+
+    conn = Faraday.new(url: "https://api.propublica.org") do |faraday|
+      faraday.headers["X-API-KEY"] = <YOUR API KEY>
+      faraday.adapter Faraday.default_adapter
+    end
+
+    response = conn.get("/congress/v1/members/house/#{state}/current.json")
+
+    json = JSON.parse(response.body, symbolize_names: true)
+    @members = json[:results]
+  end
+end
+
+```
+When we write tests we should write code at the same layer of the application that the test is running. At this point it's common for students to jump to the controller and start the refactor there. This approach tends to lead to code that is difficult to pull together, maintain, and reuse.
 
 Let's let our tests drive us and write the code we wish existed at the view layer.
 
@@ -14,8 +43,8 @@ Let's let our tests drive us and write the code we wish existed at the view laye
 ```
 # app/views/search/index.html.erb
 
-<%= facade.member_count %> Results
-<% facade.members.each do |member| %>
+<%= search_results.member_count %> Results
+<% search_results.members.each do |member| %>
 <ul class="member">
   <li class="name"><%= member.name %></li>
   <li class="role"><%= member.role %></li>
@@ -27,7 +56,7 @@ Let's let our tests drive us and write the code we wish existed at the view laye
 
 Here's the code we wish existed. Of course this doesn't work yet and we'll need to figure out how to make it work. This is often referred to as dream driven development at Turing and is more commonly referred to as [Declarative Programming](https://vimeo.com/131588133) outside of Turing. Simply put, we write code we wish existed and worry about implementation details later.
 
-We use this strategy in life all the time. A statement such as "I'm need to travel to New York City." is an example. There is no mention of _how_ we plan to get there. We could take a train, car, plane, bicycle, or some combination but those are details we will worry about later. Depending on your origin different strategies make more sense than others.
+We use this strategy in life all the time. A statement such as "I need to travel to New York City." is an example. There is no mention of _how_ we plan to get there. We could take a train, car, plane, bicycle, or some combination but those are details we will worry about later. Depending on your origin different strategies make more sense than others.
 
 It's less likely, although perhaps more exciting, to select a means of travel without knowing the final destination. "I'd like to ride a train for 12 hours, a bus for 3 hours, and a boat for 2 hours. Where can I go?" There's a good chance you won't end up in NYC.
 
@@ -37,27 +66,17 @@ For example, currently we are using Propublica to retrieve this data but this da
 
 ### `locals` Instead of Instance Variables
 
-The other thing that might stand out to you in the code above is the use of the local variable `facade`. We'll talk about what a facade is in just a bit. So why aren't we using an instance variable?
+The other thing that might stand out to you in the code above is the use of the local variable `search_results`. So why aren't we using an instance variable?
 
 As the applications you build grow in complexity you'll find yourself using more and more partials. Partials are generally shared between multiple views. And one view can load several partials. There's a good chance you will reuse variable names at some point in some of these partials. Why is this potentially bad?
 
 When you assign an instance variable in your controller it sets that value for _all_ of the views and partials associated with this page load. This makes it likely that someone will at some point override an instance variable accidentally. By using a local variable instead we will need to explicitly pass in our variables making for more robust code.
 
-Another bonus is the errors will also be more helpful and easier to troubleshoot. So why did we decide we wanted a local variable called `facade`?
-
-### The Facade Pattern
-
-The facade pattern is a design pattern common to object oriented programming. A facades is an object that serve as a front-facing interface that hides more complex behavior.
-
-It's common for pages to require data from multiple locations. For example, a dashboard might need to reach out to multiple tables and perhaps make some API calls in order to display all of the required data. One strategy is to send in several instance variables which is likely what you have done up until this point.
-
-Sandy Metz has a [list of rules for developers](https://thoughtbot.com/blog/sandi-metz-rules-for-developers) These rules are based on patterns observed through decades of object oriented programming with the intent of building applications that are less painful to maintain and change. One of those rules is "Controllers can instantiate only one object. Therefore, views can only know about one instance variable and views should only send messages to that object".
-
-The facade allows us to send one object into the view. We're going a step further here by not using an instance variable but the core principle of limiting the view to one object is the core concept of the facade. The blog post linked above discusses this more in depth and has further reading if you are interested.
+Another bonus is the errors will also be more helpful and easier to troubleshoot.
 
 ### The Law of Demeter
 
-You'll notice in the code we decided to go with `facade.member_count` instead of `facade.members.count`. As a general rule, it's good for the facade to adhere to the [Law of Demeter](https://en.wikipedia.org/wiki/Law_of_Demeter). While there are times to break this rule, it's best to get some experience following it prior to deciding to violate it. You'll have better intuitions around the benefits and when to break it.
+You'll notice in the code we decided to go with `search_results.member_count` instead of `search_results.members.count`. As a general rule, it's good for out PORO to adhere to the [Law of Demeter](https://en.wikipedia.org/wiki/Law_of_Demeter). While there are times to break this rule, it's best to get some experience following it prior to deciding to violate it. You'll have better intuitions around the benefits and when to break it.
 
 Here are the core concepts of the LoD.
 
@@ -65,40 +84,96 @@ Here are the core concepts of the LoD.
 * Each unit should only talk to its friends; don't talk to strangers.
 * Only talk to your immediate friends.
 
+So why did we decide we wanted a local variable called `search_results`?
+
+### The Four Pillars
+
+Remember the four pillars of object oriented programming? These were abstraction, encapsulation, polymorphism, and inheritance. We adhere to these principles in order to help us write code that is readable, easier to maintain, extend and test. Today we will focus on two of the pillars, abstraction and encapsulation.
+
+### Abstraction
+
+Abstraction is a technique common to object oriented programming. In this example we will use abstraction to create a PORO that serves as a front-facing interface that hides more complex behavior.
+
+It's common for pages to require data from multiple locations. For example, a dashboard might need to reach out to multiple tables and perhaps make some API calls in order to display all of the required data. One strategy is to send in several instance variables which is likely what you have done up until this point.
+
+Sandy Metz has a [list of rules for developers](https://thoughtbot.com/blog/sandi-metz-rules-for-developers) These rules are based on patterns observed through decades of object oriented programming with the intent of building applications that are less painful to maintain and change. One of those rules is "Controllers can instantiate only one object. Therefore, views can only know about one instance variable and views should only send messages to that object".
+
+Creating a PORO allows us to send one object into the view. We're going a step further here by not using an instance variable. The blog post linked above discusses this more in depth and has further reading if you are interested.
+
 ### Back to Coding
 
-When we run our feature test it complains that we haven't defined `facade`.
+When we run our feature test it complains that we haven't defined `search_results`.
 
 We need to do some work in our search controller. Sending in a local variable is a little different than sending in an instance variable.
 
-```ruby
-def index
-  render locals: {
-    facade: # ???
-  }
-end
-```
-
-What should we assign this local variable to be? This facade is going to be specific to this view so we should name it in a way that makes the intent clear. Let's continue our declarative programming approach and reference a class we wish existed. For this example, let's go with `HouseMemberSearchResults`.
+A great way to approach refactoring in Ruby is to keep the working code at the bottom of the method and write the refactored code above the working implementation in that same method. Let’s add several newlines so it’s clear where the refactor attempt ends and the older implementation begins. This creates a nice safety net if the refactor goes poorly and prevents us from trying to remember what used to work.
 
 ```ruby
 def index
+  #app/controllers/search_controller.rb
+
+  # dream driven code
+
   render locals: {
-    facade: HouseMemberSearchResults.new(params[:state])
+    search_results: # ???
   }
+
+
+
+
+  # old code
+  state = params[:state]
+
+  conn = Faraday.new(url: "https://api.propublica.org") do |faraday|
+    faraday.headers["X-API-KEY"] = <YOUR API KEY>
+    faraday.adapter Faraday.default_adapter
+  end
+
+  response = conn.get("/congress/v1/members/house/#{state}/current.json")
+
+  json = JSON.parse(response.body, symbolize_names: true)
+  @members = json[:results]
 end
 ```
 
-Of course this is going to error out since there is no such thing as `HouseMemberSearchResults`. We're going to store this in a new directory to help keep things organized. Create a file under the following path: `app/facades/house_member_search_results.rb`. Rails will automatically load anything in the `app` directory. However, you will need to restart your server if the `facades` directory is new. After the initial restart any new facades placed in there will be loaded and you _do not need to restart your server_.
+What should we assign this local variable to be? This POROS is going to be specific to this view so we should name it in a way that makes the intent clear. Let's continue our declarative programming approach and reference a class we wish existed. For this example, let's go with `HouseMemberSearchResults`.
 
-We're not going to unit test our facade. If we write a good feature tests and our facade simply calls out to other objects that are thoroughly unit tested the functionality should be well covered. There's nothing wrong with testing facades and some might prefer being more thorough.
+
+```ruby
+#app/controllers/search_controller.rb
+
+# dream driven code
+def index
+  render locals: {
+    search_results: HouseMemberSearch.new(params[:state])
+  }
+
+
+  # old code
+  state = params[:state]
+
+  conn = Faraday.new(url: "https://api.propublica.org") do |faraday|
+    faraday.headers["X-API-KEY"] = <YOUR API KEY>
+    faraday.adapter Faraday.default_adapter
+  end
+
+  response = conn.get("/congress/v1/members/house/#{state}/current.json")
+
+  json = JSON.parse(response.body, symbolize_names: true)
+  @members = json[:results]
+end
+```
+
+Of course this is going to error out since there is no such thing as `HouseMemberSearch`. We're going to store this in a new directory to help keep things organized. Create a file under the following path: `app/POROS/house_member_search.rb`. Rails will automatically load anything in the `app` directory. However, you will need to restart your server if the `POROS` directory is new. After the initial restart any new poros placed in there will be loaded and you _do not need to restart your server_.
+
+We're not going to unit test this PORO. If we write good feature tests and our PORO simply calls out to other objects that are thoroughly unit tested the functionality should be well covered. There's nothing wrong with testing POROS and some might prefer being more thorough.
 
 Let's create our class and run our tests.
 
 ```ruby
-# app/facades/house_member_search_results.rb
+# app/POROS/house_member_search_results.rb
 
-class HouseMemberSearchResults
+class HouseMemberSearch
   def initialize(state)
     @state = state
   end
@@ -110,10 +185,12 @@ We should be seeing an error mentioning something about an undefined method `mem
 Easy enough. Let's use declarative programming in this method as well...
 
 ```ruby
-# app/facades/house_member_search_results.rb
+# app/POROS/house_member_search.rb
 
-class HouseMemberSearchResults
-  # code omitted
+class HouseMemberSearch
+  def initialize(state)
+    @state = state
+  end
 
   def member_count
     members.count
@@ -124,10 +201,12 @@ end
 Now our tests want a `members` method.
 
 ```ruby
-# app/facades/house_member_search_results.rb
+# app/POROS/house_member_search.rb
 
-class HouseMemberSearchResults
-  # code omitted
+class HouseMemberSearch
+  def initialize(state)
+    @state = state
+  end
 
   def members
   end
@@ -136,7 +215,7 @@ end
 
 Of course this method is returning `nil` and `nil` doesn't have `each` defined
 on it which fails our test. Let's try writing an implementation that works first
-and refactor once we get things working. This is common in BDD and is frequently
+and refactor once we get things working. This is common in feature testing and is frequently
 referred to as Red, Green, Refactor.
 
 Before we write code that makes the API call, make sure you are able to access
@@ -148,7 +227,7 @@ Once you have a working API call let's transfer that knowledge into our Rails ap
 Let's dream drive, or declare, the code we wish existed.
 
 ```ruby
-class HouseMemberSearchResults
+class HouseMemberSearch
   # code omitted
 
   def members
@@ -171,11 +250,13 @@ class HouseMemberSearchResults
 end
 ```
 
-Our test now complains that we don't have `Member` defined. When using TDD and
+Our test now complains that we don't have `Member` defined. When using TDD
 we will frequently run into errors like this. This is the right moment to write
 a unit test to drive the design of this code.
 
 ```ruby
+# spec/models/member_spec.rb
+
 require "rails_helper"
 
 describe Member do
@@ -220,13 +301,11 @@ class Member
 end
 ```
 
-
 Right now, our app does what it's supposed to do but there's a good chance that
 it doesn't "feel" right. Specifically, our `members` method in
-`HouseMemberSearchResults` is long, violates SRP, and the logic that lives in it
-isn't reusable. Time to refactor.
+`HouseMemberSearch` is long, violates SRP, and the logic that lives in it isn't reusable. Time to refactor.
 
-```ruby
+<!-- ```ruby
 class HouseMemberSearchResults
   # code omitted
 
@@ -247,15 +326,8 @@ class HouseMemberSearchResults
 
   private
   attr_reader :state
-end
-```
-
-A great way to approach refactoring in Ruby is to keep the working code at the
-bottom of the method and write the refactored code above the working
-implementation in that same method. Let's add several newlines so it's clear
-where the refactor attempt ends and the older implementation begins. This creates
-a nice safety net if the refactor goes poorly and prevents us from trying to
-remember what used to work.
+end -->
+<!-- ``` -->
 
 ```ruby
 class HouseMemberSearchResults
