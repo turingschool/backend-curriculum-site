@@ -9,7 +9,7 @@ layout: page
 
 ## Consuming APIs
 
-* [Intro to Postman and Faraday](../lessons/intro_to_postman_and_faraday)
+* [Intro to Postman and Faraday](../lessons/intro_to_postman_and_faraday_alex)
 * [Consuming APIs](./consuming_an_api_part_1)
 * [Testing API Consumption](./consuming_an_api_part_2)
 * [Getting Started with OAuth](../lessons/getting_started_with_oauth)
