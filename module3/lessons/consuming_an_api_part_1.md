@@ -14,15 +14,10 @@ By the end of this class, a student will be able to:
 * Use Faraday to connect to and retrieve information from third party external
 APIs.
 * Parse the information retrieved from a third party API.
-* Create models to contain and model the information returned from an external
-API.
 
 ## Summary
 
-What we are going to be working on today is creating an app that reaches out
-and consumes data from an external API, and then displays and formats that
-data on a web page. The API we will be using is the ProPublica API, and we will
-be using it to grab a list of Representatives from Congress.
+What we are going to be working on today is creating an app that reaches out and consumes data from an external API, and then displays and formats that data on a web page. The API we will be using is the ProPublica API, and we will be using it to grab a list of Representatives from Congress.
 
 We will accomplish that by starting with a user story.
 
@@ -33,8 +28,7 @@ And I select "Colorado" from the dropdown
 And I click on "Locate Members of the House"
 Then my path should be "/search" with "state=CO" in the parameters
 And I should see a message "7 Results"
-And I should see a list of 7 the members of the house for Colorado
-And they should be ordered by seniority from most to least
+And I should see a list of the 7 members of the house for Colorado
 And I should see a name, role, party, and district for each member
 ```
 
@@ -44,8 +38,7 @@ As you can see, it lines out all that we will do. Let's get started.
 
 We start by spinning up our rails app. We are going to call it House Salad.
 
-Because we're getting information about the House of Representatives and we're
-gonna toss it around. Kind of.
+Because we're getting information about the House of Representatives and we're gonna toss it around. Kind of.
 
 ```sh
 $ git clone https://github.com/turingschool-examples/house-salad-base house-salad
@@ -57,9 +50,7 @@ $ rails db:create
 $ rails db:migrate
 ```
 
-Yes, we haven't created any migrations, but running rails db:migrate
-will generate the `schema.rb` so we don't get an error when we start running
-tests.
+Yes, we haven't created any migrations, but running rails db:migrate will generate the `schema.rb` so we don't get an error when we start running tests.
 
 ## Testing, All Day, Every Day
 
@@ -111,8 +102,7 @@ end
 
 And so we run our tests. We should get an error concerning a `search_path`.
 
-Our form is sad about where we are trying to send information. So we are
-going to have to add a route.
+Our form is sad about where we are trying to send information. So we are going to have to add a route.
 
 ```ruby
 get "/search", to: "search#index"
@@ -126,6 +116,11 @@ class SearchController < ApplicationController
   def index
   end
 end
+```
+
+```sh
+mkdir app/views/search
+touch app/views/search/index.html.erb
 ```
 
 Now we get the error `expected to find text "7 Results"`.
@@ -170,7 +165,11 @@ Let's run our tests to remind us of where we left off. Oh right, we're getting `
 
 Now that we know what request we want to send, we need to send it to get the data we want to display.
 
-We will be using the [Faraday Gem](https://github.com/lostisland/faraday) to make HTTP requests using Ruby. Rather than memorize the syntax we use in this tutorial, make sure you get used to referencing documentation.
+We will be using the [Faraday Gem](https://github.com/lostisland/faraday) to make HTTP requests using Ruby.
+
+First, we will need to add `gem 'faraday'` to our Gemfile. We don't want to add to a `:development`/`:test` block since we will need to make these API calls in all environments. After you add it to your Gemfile, run `bundle install`.
+
+Now that we have it installed, lets use Faraday to make the API call. Rather than memorizing the syntax we use in this tutorial, make sure you get used to referencing documentation.
 
 ```ruby
 class SearchController < ApplicationController
@@ -178,7 +177,7 @@ class SearchController < ApplicationController
     state = params[:state]
 
     conn = Faraday.new(url: "https://api.propublica.org") do |faraday|
-      faraday.headers["X-API-KEY"] = <YOUR API KEY>
+      faraday.headers["X-API-KEY"] = '<YOUR API KEY>'
       faraday.adapter Faraday.default_adapter
     end
 
@@ -193,7 +192,7 @@ Make sure you replace `<YOUR API KEY>` with the Propublica API key you signed up
 
 When we assign `conn`, does this make an HTTP request? What are these lines of code doing? (review the docs if you aren't sure)
 
-In the code above, we set up a variable to hold the connection information, we tell it the name of the server, and our API Key, which is our password to be able to access the API. And then we use the get method on the connection and pass it the end point we want to access. We store that in the response local variable, and then we parse it.
+In the code above, we set up a variable to hold the connection information, we tell it the name of the server, and our API Key, which is our password to be able to access the API. And then we use the `get` method on the connection and pass it the end point we want to access. We store that in the `response` local variable, and then we parse it.
 
 When we run the code and hit the pry, we can visually inspect `response` and `response.body` to make sure it contains data and not an error message or something else unexpected.
 
@@ -218,7 +217,7 @@ And then display it in the view:
 <% end %>
 ```
 
-And now our test is passing. As always, run your server and check your work by hand. It may not be pretty, but the data is there.
+And now our test is passing. As always, run your server and check your work by hand in your development environment. It may not be pretty, but the data is there.
 
 ### Environment Variables
 
@@ -227,7 +226,7 @@ There's one more improvement we should make to our code. If you look in the cont
 1. It isn't secure. If someone gets access to this code (you should always assume this is possible, even if your project is closed-source), someone could copy our API key and then would be able to masquerade as our application. They could, for example, spam the Propublica API with requests and force us over the rate limit we discussed earlier. If our API key has access to paid features, they could get this access for free.
 1. It isn't flexible. If we need to change the API key, we'd need to go into the code base and manually configure it. If we use this API key in multiple places, we'd need to change it in each place.
 
-What we want to do is store this key in a variable, specifically an [Environment Variable**](https://en.wikipedia.org/wiki/Environment_variable). Environment variables are slightly different from other variables in your code. They are part of the process running your program, rather than part of the program itself. We can define environment variables in our bash profile. Open it up with `atom ~/.bash_profile` and add an environment variable for the Propublica API key:
+What we want to do is store this key in a variable, specifically an [Environment Variable](https://en.wikipedia.org/wiki/Environment_variable). Environment variables are slightly different from other variables in your code. They are part of the process running your program, rather than part of the program itself. We can define environment variables in our bash profile. Open it up with `atom ~/.bash_profile` and add an environment variable for the Propublica API key:
 
 ```sh
 export PROPUBLICA_API_KEY="<YOUR API KEY>"
@@ -241,15 +240,17 @@ Whenever you edit your bash profile, you will need to restart your terminal for 
 faraday.headers["X-API-KEY"] = ENV["PROPUBLICA_API_KEY"]
 ```
 
-This is okay, but it feels weird to edit our bash profile, which affect **all** processes running our computer, to solve a problem for this specific project. What we really want is to only change the environment when running this application. Luckily there is a handy gem called [Figaro](https://github.com/laserlemon/figaro) that allows us to do just that. Read through the docs to figure out how it works.
+This is okay, but it feels weird to edit our bash profile, which affect **all** processes running on our computer, to solve a problem for this specific project. What we really want is to put our environment configuration somewhere that is specific to this project. Luckily there is a handy gem called [Figaro](https://github.com/laserlemon/figaro) that allows us to do just that. Read through the docs to figure out how it works.
 
-First we will need to add the Figaro gem to our Gemfile. Add `gem figaro` to your `:development, :test` block and `bundle install`. Then, run `bundle exec figaro install` from the command line. This will create a file `config/application.yml`. This file will contain our keys. We don't want to push this file to GitHub for the same reason we don't want the keys hard coded in our program, so this file should be added to the `gitignore`. Luckily, Figaro automatically adds this file to the gitignore for us. If you are using Atom, files in the `gitignore` don't show up in your file tree by default, so you may have to change your setting to make them visible.
+First we will need to add the Figaro gem to our Gemfile outside of the `:development`/`:test` blocks. Then, run `bundle exec figaro install` from the command line. This will create a file `config/application.yml`. This file will contain our keys. We don't want to push this file to GitHub for the same reason we don't want the keys hard coded in our program, so this file should be added to the `gitignore`. Luckily, Figaro automatically adds this file to the gitignore for us. If you are using Atom, files in the `gitignore` don't show up in your file tree by default, so you may have to change your settings to make them visible.
 
 Inside the `application.yml` file, add your API key:
 
 ```yml
 PROPUBLICA_API_KEY: <YOUR API KEY>
 ```
+
+and remove the line we added to the bash profile. Run the tests again to confirm everything is working.
 
 ### Checks for Understanding
 
@@ -260,6 +261,7 @@ PROPUBLICA_API_KEY: <YOUR API KEY>
 * What don't you like about this code?
 * Is our feature test enough?
 * What are we missing?
+* What do environment variables do? Why do we use them instead of hardcoding?
 * Do you like the index action in the search controller?
 * How would you start to refactor this?
 
