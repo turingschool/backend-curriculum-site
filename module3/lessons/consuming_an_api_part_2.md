@@ -1,373 +1,250 @@
 ---
 layout: page
-title: Consuming an API Part Two - Testing and Refactoring
+title: Testing API Consumption
 length: 90
 tags: apis, rails, faraday, refactoring, VCR
 ---
 
-### Resources
+## Resources
 
-* [Video](https://youtu.be/Okck4Fc557o) showing how to setup Webmock and VCR
+* [Video](https://youtu.be/Okck4Fc557o)
 
-### Learning Goals
+## Learning Goals
 
 After this class, a student should be able to:
-* Refactor code that reaches an API from the controller into its own service.
-* Understand the four main advantages of using a network mocking gem to test
-external APIs.
-* Understand that stubbing can also help testing APIs.
-* Configure and set up tests using VCR.
 
-Right now, our app does what it's supposed to do but there's a good chance that
-it doesn't "feel" right. Specifically, our `members` method in
-`HouseMemberSearchResults` is long, violates SRP, and the logic that lives in it
-isn't reusable. Time to refactor.
+* Explain why we don't want our tests to make real API calls
+* Understand how to stub network requests using WebMock and VCR
+
+## Mocking Network Requests
+
+[When last we met](./consuming_an_api_part_1), we got our code working, but our test is making a real API call which is not good. There are many reasons we wouldn't want to do this:
+
+1. We could hit API rate limits much faster.
+1. Our test suite will be slower.
+1. If someone working on our team doesn't have an API key set up, we make it that much harder for them to jump into our code base.
+1. If we ever need to work without WiFi, or if the WiFi is down, or if the API we're using goes down (for maintenance, for example), we make it impossible to keep working on the app.
+
+Rather than making real HTTP requests, we want to make Mock HTTP Requests.
+
+## WebMock
+
+We will be using [WebMock](https://github.com/bblimke/webmock) to mock our HTTP requests. As always, you should open up the docs to get an idea of how it works.
+
+### Install the Gem
+
+Looking at the "Installation" section of the docs, we can see we need to `gem install webmock`, but since we're using Bundler we can add it to our Gemfile which handles our gem installation. Add `gem 'webmock'` to the `:test` block of your Gemfile. DO NOT add it to the `:development, :test` block (more on that in a second). Run `bundle install`.
+
+Finally, we can see a section for "RSpec" in the Installation instructions. This tells us to add `require 'webmock/rspec'` to our `spec/spec_helper`. Do that now.
+
+Now, when we run our tests we can see a big error message:
+
+```sh
+WebMock::NetConnectNotAllowedError:
+      Real HTTP connections are disabled. Unregistered request: GET https://api.propublica.org/congress/v1/members/house/CO/current.json with headers {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'User-Agent'=>'Faraday v0.15.4', 'X-Api-Key'=>'opyjcKdEUKllG8P5V15kv3yKKbx1KwkGQwXbfCF3'}
+
+      You can stub this request with the following snippet:
+
+      stub_request(:get, "https://api.propublica.org/congress/v1/members/house/CO/current.json").
+        with(
+          headers: {
+         'Accept'=>'*/*',
+         'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+         'User-Agent'=>'Faraday v0.15.4',
+         'X-Api-Key'=>'opyjcKdEUKllG8P5V15kv3yKKbx1KwkGQwXbfCF3'
+          }).
+        to_return(status: 200, body: "", headers: {})
+
+      ============================================================
+```
+
+This means it's working! WebMock not only allows us to mock real HTTP requests, but also **prevents** us from making real HTTP requests. While this is good for our test suite (which we run very frequently), we do want to see the real requests being made at some point, so we want to allow HTTP requests in development. This is why we only added the gem to the `:test` block of our Gemfile and not `:development, :test`.
+
+### Stubbing the Request
+
+Looking at the docs, we can see some examples of how to stub requests. Let's add one to our test:
 
 ```ruby
-class HouseMemberSearchResults
-  # code omitted
+scenario "user submits valid state name" do
+    stub_request(:get, "https://api.propublica.org/congress/v1/members/house/CO/current.json").
+        to_return(status: 200, body: "")
+    # As a user
+    # When I visit "/"
+    visit '/'
+```
 
-  def members
-    conn = Faraday.new(url: "https://api.propublica.org") do |faraday|
-      faraday.headers["X-API-KEY"] = ENV['PROPUBLICA_API_KEY']
-      faraday.adapter Faraday.default_adapter
-    end
+Now when we run the tests, we get `JSON::ParserError: 743: unexpected token at ''`. The stack trace points us to the `SearchController` on the line where we do `json = JSON.parse(response.body, symbolize_names: true)`. If we look at the stub we just put in the test, we are returning an empty body, so it makes sense that we're getting an error when trying to parse the response body as JSON.
 
-    response = conn.get("/congress/v1/members/house/#{state}/current.json")
+We need to replace the empty body with an actual JSON response. We *could* copy and paste a body right into this test, but then our test file would get quite messy. What we'll do instead is make a `spec/fixtures` directory with a file that we can read:
 
-    member_search_data = JSON.parse(response.body, symbolize_names: true)[:results]
+```sh
+mkdir spec/fixtures
+touch spec/fixtures/members_of_the_house.json
+```
 
-    member_search_data.map do |member_data|
-      Member.new(member_data)
-    end
-  end
+And update our test:
 
-  private
-  attr_reader :state
+```ruby
+json_response = File.read('spec/fixtures/members_of_the_house.json')
+stub_request(:get, "https://api.propublica.org/congress/v1/members/house/CO/current.json").
+  to_return(status: 200, body: json_response)
+```
+
+We're still returning an empty body because our file is empty, so let's add some actual JSON data to that file. Use Postman to hit the ProPublica API to get a JSON response and copy and paste it in. Your test should be passing once again.
+
+If this is *really* working, we should be able to turn off our WiFi and see the test is still working.
+
+## VCR
+
+Another handy tool for mocking these requests is [VCR](https://github.com/vcr/vcr). You can think of it as an extension of WebMock. We will still be stubbing requests, but now rather than manually creating the mock JSON response, VCR will allow us to make one real HTTP request the first time, record its response, and use that response as the stub for future requests. VCR refers to these recorded responses as `cassettes`.
+
+### Setup
+
+First, add `gem 'vcr'` to the `:test` block of your Gemfile and `bundle install`.
+
+Then, add this at the bottom of your `rails_helper`:
+
+```ruby
+VCR.configure do |config|
+  config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
+  config.hook_into :webmock
 end
 ```
 
-A great way to approach refactoring in Ruby is to keep the working code at the
-bottom of the method and write the refactored code above the working
-implementation in that same method. Let's add several newlines so it's clear
-where the refactor attempt ends and the older implementation begins. This creates
-a nice safety net if the refactor goes poorly and prevents us from trying to
-remember what used to work.
+In the first line of the block, we tell VCR where we want to store the the `cassettes`. We are making use of the `spec/fixtures` folder we already created.
+
+The second line tells VCR what library it should use for intercepting these requests, which will be WebMock. So we are still using WebMock, but VCR is adding additional functionality for recording responses.
+
+Go back into the test and comment out the lines where we stubbed the request with WebMock:
 
 ```ruby
-class HouseMemberSearchResults
-  # code omitted
-
-  def members
-    # Declaring what we wish existed
-    service.members_by_state(state).map do |member_data|
-      Member.new(member_data)
-    end
-
-
-
-    # Current working implementation
-    conn = Faraday.new(url: "https://api.propublica.org") do |faraday|
-      faraday.headers["X-API-KEY"] = ENV['PROPUBLICA_API_KEY']
-      faraday.adapter Faraday.default_adapter
-    end
-
-    response = conn.get("/congress/v1/members/house/#{state}/current.json")
-
-    member_search_data = JSON.parse(response.body, symbolize_names: true)[:results]
-
-    member_search_data.map do |member_data|
-      Member.new(member_data)
-    end
-  end
-
-  private
-  attr_reader :state
-end
+scenario "user submits valid state name" do
+    # json_response = File.read('spec/fixtures/members_of_the_house.json')
+    # stub_request(:get, "https://api.propublica.org/congress/v1/members/house/CO/current.json").
+    #   to_return(status: 200, body: json_response)
+    # As a user
+    # When I visit "/"
+    visit '/'
 ```
 
-Why did we settle on using a local variable of `service`? Service objects are a
-way of encapsulating logic that doesn't quite fit into our current MVC structure.
-We use service objects extensively in Rails applications, especially when we are
-dealing with logic that interacts with several objects or the complexity of a task
-doesn't fit neatly into any of the MVC layers we currently have.
+Run the tests and you should see `VCR::Errors::UnhandledHTTPRequestError:`. That means it's working!
 
-Of course `service` isn't defined so let's do that.
+### Stubbing the Request
+
+In order to use VCR, we wrap our test in a `VCR.use_cassette` block:
 
 ```ruby
-class HouseMemberSearchResults
-  # code omitted
+scenario "user submits valid state name" do
+  # json_response = File.read('spec/fixtures/members_of_the_house.json')
+  # stub_request(:get, "https://api.propublica.org/congress/v1/members/house/CO/current.json").
+  #   to_return(status: 200, body: json_response)
+  # As a user
+  # When I visit "/"
 
-  def members
-    # Declaring what we wish existed
-    service = PropublicaService.new
-    service.members_by_state(state).map do |member_data|
-      Member.new(member_data)
+  VCR.use_cassette('propublica_members_of_the_house_for_co') do
+    visit '/'
+
+    select "Colorado", from: :state
+    # And I select "Colorado" from the dropdown
+    click_on "Locate Members of the House"
+    # And I click on "Locate Members from the House"
+    expect(current_path).to eq(search_path)
+    # Then my path should be "/search" with "state=CO" in the parameters
+    expect(page).to have_content("7 Results")
+    # And I should see a message "7 Results"
+    expect(page).to have_css(".member", count: 7)
+    # And I should see a list of 7 the members of the house for Colorado
+
+    within(first(".member")) do
+      expect(page).to have_css(".name")
+      expect(page).to have_css(".role")
+      expect(page).to have_css(".party")
+      expect(page).to have_css(".district")
     end
-
-    # Current working implementation
-    # code omitted
-```
-
-And now we need to define `PropublicaService`. Let's write a test for that.
-
-```ruby
-# /spec/services/propublica_service_spec.rb
-
-require 'rails_helper'
-
-describe PropublicaService do
-  context "instance methods" do
-    context "#members_by_state" do
-      it "returns member data" do
-        search = subject.members_by_state("CO")
-        expect(search).to be_a Hash
-        expect(search[:results]).to be_an Array
-        expect(search[:results].count).to eq 7
-        member_data = search[:results].first
-
-        expect(member_data).to have_key :name
-        expect(member_data).to have_key :role
-        expect(member_data).to have_key :district
-        expect(member_data).to have_key :party
-      end
-    end
-  end
-end
-```
-
-This test makes sure we are getting back all of the name/value pairs we are
-dependent on within our app. Let's run it and make it pass.
-
-We already have the code written to make this pass. We just need to get it into
-the right place.
-
-```ruby
-# app/services/propublica_service.rb
-
-class PropublicaService
-  def members_by_state(state)
-    conn = Faraday.new(url: "https://api.propublica.org") do |faraday|
-      faraday.headers["X-API-KEY"] = ENV['PROPUBLICA_API_KEY']
-      faraday.adapter Faraday.default_adapter
-    end
-
-    response = conn.get("/congress/v1/members/house/#{state}/current.json")
-
-    JSON.parse(response.body, symbolize_names: true)[:results]
-  end
-end
-```
-
-You'll notice we didn't move over the instantiating of the `Member` objects.
-This is because we want the only job of this service to be to talk to Propublica (SRP).
-If this class needs to know about the `Member` class it now has an unnecessary
-dependency. The facade needs the `Member` class and while it's a dependency it
-isn't unnecessary.
-
-Run our service test and we should be good. Now run the feature test. When
-it passes we can update out facade. Before deleting code, let's comment it out.
-
-```ruby
-class HouseMemberSearchResults
-  # code omitted
-
-  def members
-    service.members_by_state(state).map do |member_data|
-      Member.new(member_data)
-    end
-
-
-
-
-    # conn = Faraday.new(url: "https://api.propublica.org") do |faraday|
-    #   faraday.headers["X-API-KEY"] = ENV['PROPUBLICA_API_KEY']
-    #   faraday.adapter Faraday.default_adapter
-    # end
-    #
-    # response = conn.get("/congress/v1/members/house/#{state}/current.json")
-    #
-    # member_search_data = JSON.parse(response.body, symbolize_names: true)[:results]
-    #
-    # member_search_data.map do |member_data|
-    #   Member.new(member_data)
-    # end
-  end
-
-  private
-  attr_reader :state
-end
-```
-
-Run the tests and they should pass. Now it's safe to delete.
-
-```ruby
-class HouseMemberSearchResults
-  def member_count
-    members.count
-  end
-
-  def members
-    service.members_by_state(state).map do |member_data|
-      Member.new(member_data)
-    end
-  end
-
-  private
-  attr_reader :state
-end
-```
-
-We're getting close but notice that each time we call the `members` method we
-will make an API call despite the fact that the info will be the same. Let's use
-memoization to make fewer API calls.
-
-```ruby
-class HouseMemberSearchResults
-  def member_count
-    members.count
-  end
-
-  def members
-    @members ||= service.members_by_state(state).map do |member_data|
-      Member.new(member_data)
-    end
-  end
-
-  private
-  attr_reader :state
-end
-```
-
-There, that's better. Next up: We need to finish refactoring our service.
-There's a bit too much logic in one method. One easy refactor is to take local
-variables that are reusable and split them into their own methods. The `conn`
-variable is great for this.
-
-
-
-```ruby
-# app/services/propublica_service.rb
-
-class PropublicaService
-  def members_by_state(state)
-    response = conn.get("/congress/v1/members/house/#{state}/current.json")
-
-    JSON.parse(response.body, symbolize_names: true)[:results]
-  end
-
-  private
-
-  def conn
-    Faraday.new(url: "https://api.propublica.org") do |faraday|
-      faraday.headers["X-API-KEY"] = ENV['PROPUBLICA_API_KEY']
-      faraday.adapter Faraday.default_adapter
-    end
+    # And they should be ordered by seniority from most to least
+    # And I should see a name, role, party, and district for each member
   end
 end
 ```
 
-We could also break out `response` but there's a good chance that we might want
-to make other API calls from this same class and then calling it response wouldn't
-make much sense.
+The string we passed to `use_cassette` is an identifier for the cassette, so it doesn't really matter what you pass it.
 
-Making a `GET` request and parsing JSON seems like a thing we might do over and
-over. Let's see if we can share that logic using declarative programming.
+Run your tests and they should be passing. If you look under `spec/fixtures/vcr_cassettes` you should see a `.yml` file that contains your recorded response.
+
+### Filtering Sensitive Data
+
+If you look closely in that `.yml` file you can see our API key in there. We will be pushing these cassettes to GitHub, so we don't want the actual API key to be recorded for the same reasons we don't want our `application.yml` file pushed and we don't want to hardcode the API key in our code. We will use a VCR option to replace the actual API key with a placeholder. Open up your `rails_helper.rb` and add another line to the VCR configuration:
 
 ```ruby
-# app/services/propublica_service.rb
-
-class PropublicaService
-  def members_by_state(state)
-    # What we wish existed
-    get_json("/congress/v1/members/house/#{state}/current.json")
-
-
-
-
-    # Working implementation
-    response = conn.get("/congress/v1/members/house/#{state}/current.json")
-
-    JSON.parse(response.body, symbolize_names: true)[:results]
-  end
-
-  private
-
-  def conn
-    Faraday.new(url: "https://api.propublica.org") do |faraday|
-      faraday.headers["X-API-KEY"] = ENV['PROPUBLICA_API_KEY']
-      faraday.adapter Faraday.default_adapter
-    end
-  end
+VCR.configure do |config|
+  config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
+  config.hook_into :webmock
+  config.filter_sensitive_data('<PROPUBLICA_API_KEY>') { ENV['PROPUBLICA_API_KEY'] }
 end
 ```
 
-Run the tests and watch them fail. Let's follow the errors...
+Then, delete your VCR cassettes directory:
+
+```sh
+rm -rf spec/fixtures/vcr_cassettes
+```
+
+Run your test suite again, and you should see a new VCR cassette in the `vcr_cassettes` directory. Open it up and confirm that your api key is now being replaced with `<PROPUBLICA_API_KEY>`.
+
+### Using RSpec Metadata
+
+VCR has a handy feature that allows us to use the names of our tests to name cassettes rather than having to manually wrap each test in a `VCR.use_cassette` block and give the cassette a name. Add one more line to your VCR config block:
+
 
 ```ruby
-class PropublicaService
-  def members_by_state(state)
-    # What we wish existed
-    get_json("/congress/v1/members/house/#{state}/current.json")
-
-
-
-
-    # Working implementation
-    response = conn.get("/congress/v1/members/house/#{state}/current.json")
-
-    JSON.parse(response.body, symbolize_names: true)[:results]
-  end
-
-  private
-
-  def get_json(url)
-    response = conn.get(url)
-    JSON.parse(response.body, symbolize_names: true)[:results]
-  end
-
-  def conn
-    Faraday.new(url: "https://api.propublica.org") do |faraday|
-      faraday.headers["X-API-KEY"] = ENV['PROPUBLICA_API_KEY']
-      faraday.adapter Faraday.default_adapter
-    end
-  end
+VCR.configure do |config|
+  config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
+  config.hook_into :webmock
+  config.filter_sensitive_data('<PROPUBLICA_API_KEY>') { ENV['PROPUBLICA_API_KEY'] }
+  config.configure_rspec_metadata!
 end
 ```
 
-Tests are passing so let's comment out the previous implementation and confirm
-this works. Once it does delete the commented out code.
+Now in our tests, we can delete the `VCR.use_cassette` block and tell the test to use VCR by passing it `:vcr`:
 
 ```ruby
-class PropublicaService
-  def members_by_state(state)
-    get_json("/congress/v1/members/house/#{state}/current.json")
-  end
+scenario "user submits valid state name", :vcr do
+    # json_response = File.read('spec/fixtures/members_of_the_house.json')
+    # stub_request(:get, "https://api.propublica.org/congress/v1/members/house/CO/current.json").
+    #   to_return(status: 200, body: json_response)
+    # As a user
+    # When I visit "/"
 
-  private
+    visit '/'
 
-  def get_json(url)
-    response = conn.get(url)
-    JSON.parse(response.body, symbolize_names: true)[:results]
-  end
+    select "Colorado", from: :state
+    # And I select "Colorado" from the dropdown
+    click_on "Locate Members of the House"
+    # And I click on "Locate Members from the House"
+    expect(current_path).to eq(search_path)
+    # Then my path should be "/search" with "state=CO" in the parameters
+    expect(page).to have_content("7 Results")
+    # And I should see a message "7 Results"
+    expect(page).to have_css(".member", count: 7)
+    # And I should see a list of 7 the members of the house for Colorado
 
-  def conn
-    Faraday.new(url: "https://api.propublica.org") do |faraday|
-      faraday.headers["X-API-KEY"] = ENV['PROPUBLICA_API_KEY']
-      faraday.adapter Faraday.default_adapter
+    within(first(".member")) do
+      expect(page).to have_css(".name")
+      expect(page).to have_css(".role")
+      expect(page).to have_css(".party")
+      expect(page).to have_css(".district")
     end
+    # And they should be ordered by seniority from most to least
+    # And I should see a name, role, party, and district for each member
   end
-end
 ```
 
-Much better. There's an opportunity to split the `get_json` method into
-a module so it's reusable in other services but we'll stop here. It's also worth
-noting that memoizing at the service layer can lead to unintended consequences
-since the data we get back might become stale. This is particularly problematic
-when we are run code that might last longer than the typical HTTP request/response
-cycle. An example of this might be a report that needs to run in the background
-and might take several minutes or longer to complete. For this reason we should
-not memoize in this service.
+Run your tests again and you'll notice a new directory and file in your `vcr_cassettes` directory that matches the names of the blocks in the test. Now when we want a test to use VCR, we just have to pass it `:vcr` and we're good to go. Much easier!
 
-Finally, all of our tests are making real API calls which is not good. There are
-multiple ways to get around this. Use this video on [Stubbing External API calls with Webmock and VCR](https://youtu.be/Okck4Fc557o).
+## Checks for Understanding
+
+* What are some reasons we don't want our tests to make real API calls?
+* What does WebMock do?
+* What does VCR do?
+* Why don't we want VCR to record our API key?
+* How are WebMock and VCR similar? different?
