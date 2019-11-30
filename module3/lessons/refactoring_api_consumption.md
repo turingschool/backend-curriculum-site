@@ -36,7 +36,7 @@ end
 ```
 When we write tests we should write code at the same layer of the application that the test is running. At this point it's common for students to jump to the controller and start the refactor there. This approach tends to lead to code that is difficult to pull together, maintain, and reuse.
 
-Let's let our tests drive us and write the code we wish existed at the view layer.
+We will let our tests drive us and write the code we wish existed at the view layer.
 
 ### Declarative Programming
 
@@ -54,7 +54,7 @@ Let's let our tests drive us and write the code we wish existed at the view laye
 <% end %>
 ```
 
-Here's the code we wish existed. Of course this doesn't work yet and we'll need to figure out how to make it work. This is often referred to as dream driven development at Turing and is more commonly referred to as [Declarative Programming](https://vimeo.com/131588133) outside of Turing. Simply put, we write code we wish existed and worry about implementation details later.
+Here's the code we wish existed. Of course this doesn't work yet and we'll need to figure out how to make it work. This is often referred to as dream driven development at Turing and is more commonly referred to as [Declarative Programming](https://vimeo.com/131588133) outside of Turing. Simply put, we write the code we wish existed and worry about implementation details later.
 
 We use this strategy in life all the time. A statement such as "I need to travel to New York City." is an example. There is no mention of _how_ we plan to get there. We could take a train, car, plane, bicycle, or some combination but those are details we will worry about later. Depending on your origin different strategies make more sense than others.
 
@@ -76,7 +76,7 @@ Another bonus is the errors will also be more helpful and easier to troubleshoot
 
 ### The Law of Demeter
 
-You'll notice in the code we decided to go with `search_results.member_count` instead of `search_results.members.count`. As a general rule, it's good for out PORO to adhere to the [Law of Demeter](https://en.wikipedia.org/wiki/Law_of_Demeter). While there are times to break this rule, it's best to get some experience following it prior to deciding to violate it. You'll have better intuitions around the benefits and when to break it.
+You'll notice in the code we decided to go with `search_results.member_count` instead of `search_results.members.count`. As a general rule, it's good for our PORO to adhere to the [Law of Demeter](https://en.wikipedia.org/wiki/Law_of_Demeter). While there are times to break this rule, it's best to get some experience following it prior to deciding to violate it. You'll have better intuitions around the benefits and when to break it.
 
 Here are the core concepts of the LoD.
 
@@ -88,11 +88,11 @@ So why did we decide we wanted a local variable called `search_results`?
 
 ### The Four Pillars
 
-Remember the four pillars of object oriented programming? These were abstraction, encapsulation, polymorphism, and inheritance. We adhere to these principles in order to help us write code that is readable, easier to maintain, extend and test. Today we will focus on two of the pillars, abstraction and encapsulation.
+Remember the four pillars of object oriented programming? These are abstraction, encapsulation, polymorphism, and inheritance. We adhere to these principles in order to help us write code that is readable, easier to maintain, extend and test. Today we will focus on two of the pillars, abstraction and encapsulation.
 
 ### Abstraction
 
-Abstraction is a technique common to object oriented programming. In this example we will use abstraction to create a PORO that serves as a front-facing interface that hides more complex behavior.
+Abstraction is a technique common to object oriented programming that allows us to hide unnecessary details from the user. In this example we will use abstraction to create a PORO that serves as an interface that hides more complex behavior.
 
 It's common for pages to require data from multiple locations. For example, a dashboard might need to reach out to multiple tables and perhaps make some API calls in order to display all of the required data. One strategy is to send in several instance variables which is likely what you have done up until this point.
 
@@ -112,16 +112,13 @@ A great way to approach refactoring in Ruby is to keep the working code at the b
 def index
   #app/controllers/search_controller.rb
 
-  # dream driven code
-
+  # declaring what we wish existed
   render locals: {
     search_results: # ???
   }
 
 
-
-
-  # old code
+  # existing code
   state = params[:state]
 
   conn = Faraday.new(url: "https://api.propublica.org") do |faraday|
@@ -136,20 +133,21 @@ def index
 end
 ```
 
-What should we assign this local variable to be? This POROS is going to be specific to this view so we should name it in a way that makes the intent clear. Let's continue our declarative programming approach and reference a class we wish existed. For this example, let's go with `HouseMemberSearchResults`.
+What should we assign this local variable to be? This PORO is going to be specific to this view so we should name it in a way that makes the intent clear. Let's continue our declarative programming approach and reference a class we wish existed. For this example, let's go with `HouseMemberSearch`.
 
 
 ```ruby
 #app/controllers/search_controller.rb
 
-# dream driven code
 def index
+
+  # declaring what we wish existed
   render locals: {
     search_results: HouseMemberSearch.new(params[:state])
   }
 
 
-  # old code
+  # existing code
   state = params[:state]
 
   conn = Faraday.new(url: "https://api.propublica.org") do |faraday|
@@ -164,16 +162,18 @@ def index
 end
 ```
 
-Of course this is going to error out since there is no such thing as `HouseMemberSearch`. We're going to store this in a new directory to help keep things organized. Create a file under the following path: `app/POROS/house_member_search.rb`. Rails will automatically load anything in the `app` directory. However, you will need to restart your server if the `POROS` directory is new. After the initial restart any new poros placed in there will be loaded and you _do not need to restart your server_.
+Of course this is going to error out since there is no such thing as `HouseMemberSearch`. We're going to store this in a new directory to help keep things organized. Create a file under the following path: `app/poros/house_member_search.rb`. Rails will automatically load anything in the `app` directory. However, you will need to restart your server if the `poros` directory is new. After the initial restart any new poros placed in there will be loaded and you _do not need to restart your server_.
 
 We're not going to unit test this PORO. If we write good feature tests and our PORO simply calls out to other objects that are thoroughly unit tested the functionality should be well covered. There's nothing wrong with testing POROS and some might prefer being more thorough.
 
 Let's create our class and run our tests.
 
 ```ruby
-# app/POROS/house_member_search_results.rb
+# app/poros/house_member_search_results.rb
 
 class HouseMemberSearch
+  attr_reader :state
+
   def initialize(state)
     @state = state
   end
@@ -188,6 +188,8 @@ Easy enough. Let's use declarative programming in this method as well...
 # app/POROS/house_member_search.rb
 
 class HouseMemberSearch
+  attr_reader :state
+
   def initialize(state)
     @state = state
   end
@@ -201,11 +203,17 @@ end
 Now our tests want a `members` method.
 
 ```ruby
-# app/POROS/house_member_search.rb
+# app/poros/house_member_search.rb
 
 class HouseMemberSearch
+  attr_reader :state
+
   def initialize(state)
     @state = state
+  end
+
+  def member_count
+    members.count
   end
 
   def members
@@ -213,18 +221,9 @@ class HouseMemberSearch
 end
 ```
 
-Of course this method is returning `nil` and `nil` doesn't have `each` defined
-on it which fails our test. Let's try writing an implementation that works first
-and refactor once we get things working. This is common in feature testing and is frequently
-referred to as Red, Green, Refactor.
+Of course this method is returning `nil` and `nil` doesn't have `count` defined on it which fails our test. Let's try writing an implementation that works first and refactor once we get things working. This is common in feature testing and is frequently referred to as Red, Green, Refactor.
 
-Before we write code that makes the API call, make sure you are able to access
-the API using Postman or cURL.
-
-Once you have a working API call let's transfer that knowledge into our Rails app.
-
-
-Let's dream drive, or declare, the code we wish existed.
+Let's move the code that makes the api call from the controller into the `members` method
 
 ```ruby
 class HouseMemberSearch
@@ -232,7 +231,28 @@ class HouseMemberSearch
 
   def members
     conn = Faraday.new(url: "https://api.propublica.org") do |faraday|
-      faraday.headers["X-API-KEY"] = ENV['PROPUBLICA_API_KEY']
+      faraday.headers["X-API-KEY"] = <YOUR API KEY>
+      faraday.adapter Faraday.default_adapter
+    end
+
+    response = conn.get("/congress/v1/members/house/#{state}/current.json")
+
+    json = JSON.parse(response.body, symbolize_names: true)
+    json[:results]
+  end
+end
+```
+
+Our test now complains that we don't have a method `name` defined. When using TDD we will frequently run into errors like this. Our `members` method is returning a hash, however our test is looking for an object to be returned with a method name defined on it. Let's dream drive our object.
+
+
+```ruby
+class HouseMemberSearch
+  # code omitted
+
+  def members
+    conn = Faraday.new(url: "https://api.propublica.org") do |faraday|
+      faraday.headers["X-API-KEY"] = <YOUR API KEY>
       faraday.adapter Faraday.default_adapter
     end
 
@@ -244,15 +264,11 @@ class HouseMemberSearch
       Member.new(member_data)
     end
   end
-
-  private
-  attr_reader :state
 end
 ```
 
-Our test now complains that we don't have `Member` defined. When using TDD
-we will frequently run into errors like this. This is the right moment to write
-a unit test to drive the design of this code.
+Now our `members` method maps through the data returned from the api and returns an array of `Member` objects. Notice that as we dream drove we utilized more descriptive variables, changing our `json` variable to `member_search_data` so that you can easily tell what you are working with. Our test now complains that `Member` is undefined. Now is a great time to create a unit test to drive the design of our member object.
+
 
 ```ruby
 # spec/models/member_spec.rb
@@ -301,37 +317,57 @@ class Member
 end
 ```
 
-Right now, our app does what it's supposed to do but there's a good chance that
-it doesn't "feel" right. Specifically, our `members` method in
-`HouseMemberSearch` is long, violates SRP, and the logic that lives in it isn't reusable. Time to refactor.
-
-<!-- ```ruby
-class HouseMemberSearchResults
-  # code omitted
-
-  def members
-    conn = Faraday.new(url: "https://api.propublica.org") do |faraday|
-      faraday.headers["X-API-KEY"] = ENV['PROPUBLICA_API_KEY']
-      faraday.adapter Faraday.default_adapter
-    end
-
-    response = conn.get("/congress/v1/members/house/#{state}/current.json")
-
-    member_search_data = JSON.parse(response.body, symbolize_names: true)[:results]
-
-    member_search_data.map do |member_data|
-      Member.new(member_data)
-    end
-  end
-
-  private
-  attr_reader :state
-end -->
-<!-- ``` -->
+Our tests pass! Before we forget, let's remove the code we no longer need from the search controller. Before deleting the code, let's comment it out and make sure our tests still pass.
 
 ```ruby
-class HouseMemberSearchResults
-  # code omitted
+#app/controllers/search_controller.rb
+
+def index
+
+  render locals: {
+    search_results: HouseMemberSearch.new(params[:state])
+  }
+
+
+  # existing code
+  # state = params[:state]
+  #
+  # conn = Faraday.new(url: "https://api.propublica.org") do |faraday|
+  #   faraday.headers["X-API-KEY"] = <YOUR API KEY>
+  #   faraday.adapter Faraday.default_adapter
+  # end
+  #
+  # response = conn.get("/congress/v1/members/house/#{state}/current.json")
+  #
+  # json = JSON.parse(response.body, symbolize_names: true)
+  # @members = json[:results]
+end
+```
+
+Run the tests and they should pass. Now it's safe to delete.
+
+```ruby
+#app/controllers/search_controller.rb
+
+def index
+  render locals: {
+    search_results: HouseMemberSearch.new(params[:state])
+  }
+end
+
+```
+
+Right now, our app does what it's supposed to do but there's still a few things we need to clean up. Specifically, our `members` method in our `HouseMemberSearch` PORO is long, violates SRP, and the logic that lives in it isn't reusable. Time to refactor.
+
+```ruby
+class HouseMemberSearch
+  def initialize(state)
+    @state = state
+  end
+
+  def member_count
+    members.count
+  end
 
   def members
     # Declaring what we wish existed
@@ -341,9 +377,9 @@ class HouseMemberSearchResults
 
 
 
-    # Current working implementation
+    # existing code
     conn = Faraday.new(url: "https://api.propublica.org") do |faraday|
-      faraday.headers["X-API-KEY"] = ENV['PROPUBLICA_API_KEY']
+      faraday.headers["X-API-KEY"] = <YOUR API KEY>
       faraday.adapter Faraday.default_adapter
     end
 
@@ -361,11 +397,14 @@ class HouseMemberSearchResults
 end
 ```
 
-Why did we settle on using a local variable of `service`? Service objects are a
-way of encapsulating logic that doesn't quite fit into our current MVC structure.
-We use service objects extensively in Rails applications, especially when we are
-dealing with logic that interacts with several objects or the complexity of a task
-doesn't fit neatly into any of the MVC layers we currently have.
+The first thing you may have noticed is that we have changed `attr_reader :state` into a private method. By doing so, we have utilized encapsulation.
+
+### Encapsulation
+Encapsulation is an OOP principle that allows us to simplify how we interface with an object by defining public methods to interact with it and hiding the internal state and implementation logic. This prevents the internal state of the object from being modified unexpectedly by external code.
+
+### Service objects
+
+Why did we settle on using a local variable of `service`? Service objects are a way to create a layer of abstraction on top of logic that doesn't quite fit into our current MVC structure. We use service objects extensively in Rails applications, especially when we are dealing with logic that interacts with several objects or the complexity of a task doesn't fit neatly into any of the MVC layers we currently have.
 
 Of course `service` isn't defined so let's do that.
 
@@ -380,7 +419,7 @@ class HouseMemberSearchResults
       Member.new(member_data)
     end
 
-    # Current working implementation
+    # existing code
     # code omitted
 ```
 
@@ -411,11 +450,9 @@ describe PropublicaService do
 end
 ```
 
-This test makes sure we are getting back all of the name/value pairs we are
-dependent on within our app. Let's run it and make it pass.
+This test makes sure we are getting back all of the name/value pairs we are dependent on within our app. Let's run it and make it pass.
 
-We already have the code written to make this pass. We just need to get it into
-the right place.
+We already have the code written to make this pass. We just need to get it into the right place.
 
 ```ruby
 # app/services/propublica_service.rb
@@ -423,28 +460,22 @@ the right place.
 class PropublicaService
   def members_by_state(state)
     conn = Faraday.new(url: "https://api.propublica.org") do |faraday|
-      faraday.headers["X-API-KEY"] = ENV['PROPUBLICA_API_KEY']
+      faraday.headers["X-API-KEY"] = <YOUR API KEY>
       faraday.adapter Faraday.default_adapter
     end
 
     response = conn.get("/congress/v1/members/house/#{state}/current.json")
 
-    JSON.parse(response.body, symbolize_names: true)[:results]
-  end
+    member_search_data = JSON.parse(response.body, symbolize_names: true)[:results]
 end
 ```
 
-You'll notice we didn't move over the instantiating of the `Member` objects.
-This is because we want the only job of this service to be to talk to Propublica (SRP).
-If this class needs to know about the `Member` class it now has an unnecessary
-dependency. The facade needs the `Member` class and while it's a dependency it
-isn't unnecessary.
+You'll notice that we didn't move over the instantiating of the `Member` objects. This is because we want the only job of this service to be to talk to Propublica (SRP). If this class needs to know about the `Member` class it now has an unnecessary dependency. The `HouseMemberSearch` PORO needs the `Member` class and while it's a dependency it isn't unnecessary.
 
-Run our service test and we should be good. Now run the feature test. When
-it passes we can update out facade. Before deleting code, let's comment it out.
+Run our service test and we should be good. Now run the feature test. When it passes we can update out `HouseMemberSearch` PORO. Before deleting code, let's comment it out.
 
 ```ruby
-class HouseMemberSearchResults
+class HouseMemberSearch
   # code omitted
 
   def members
@@ -456,7 +487,7 @@ class HouseMemberSearchResults
 
 
     # conn = Faraday.new(url: "https://api.propublica.org") do |faraday|
-    #   faraday.headers["X-API-KEY"] = ENV['PROPUBLICA_API_KEY']
+    #   faraday.headers["X-API-KEY"] = <YOUR API KEY>
     #   faraday.adapter Faraday.default_adapter
     # end
     #
@@ -493,9 +524,7 @@ class HouseMemberSearchResults
 end
 ```
 
-We're getting close but notice that each time we call the `members` method we
-will make an API call despite the fact that the info will be the same. Let's use
-memoization to make fewer API calls.
+We're getting close but notice that each time we call the `members` method we will make an API call despite the fact that the info will be the same. Let's use memoization to make fewer API calls.
 
 ```ruby
 class HouseMemberSearchResults
@@ -514,12 +543,7 @@ class HouseMemberSearchResults
 end
 ```
 
-There, that's better. Next up: We need to finish refactoring our service.
-There's a bit too much logic in one method. One easy refactor is to take local
-variables that are reusable and split them into their own methods. The `conn`
-variable is great for this.
-
-
+There, that's better. Next up: We need to finish refactoring our service. There's a bit too much logic in one method. One easy refactor is to take local variables that are reusable and split them into their own methods. The `conn` variable is great for this.
 
 ```ruby
 # app/services/propublica_service.rb
@@ -542,25 +566,22 @@ class PropublicaService
 end
 ```
 
-We could also break out `response` but there's a good chance that we might want
-to make other API calls from this same class and then calling it response wouldn't
-make much sense.
+We could also break out `response` but there's a good chance that we might want to make other API calls from this same class and then calling it response wouldn't make much sense.
 
-Making a `GET` request and parsing JSON seems like a thing we might do over and
-over. Let's see if we can share that logic using declarative programming.
+Making a `GET` request and parsing JSON seems like a thing we might do over and over. Let's see if we can share that logic using declarative programming.
 
 ```ruby
 # app/services/propublica_service.rb
 
 class PropublicaService
   def members_by_state(state)
-    # What we wish existed
+    # Declaring what we wish existed
     get_json("/congress/v1/members/house/#{state}/current.json")
 
 
 
 
-    # Working implementation
+    # Existing code
     response = conn.get("/congress/v1/members/house/#{state}/current.json")
 
     JSON.parse(response.body, symbolize_names: true)[:results]
@@ -582,13 +603,13 @@ Run the tests and watch them fail. Let's follow the errors...
 ```ruby
 class PropublicaService
   def members_by_state(state)
-    # What we wish existed
+    # Declaring what we wish existed
     get_json("/congress/v1/members/house/#{state}/current.json")
 
 
 
 
-    # Working implementation
+    # Existing code
     response = conn.get("/congress/v1/members/house/#{state}/current.json")
 
     JSON.parse(response.body, symbolize_names: true)[:results]
@@ -610,8 +631,7 @@ class PropublicaService
 end
 ```
 
-Tests are passing so let's comment out the previous implementation and confirm
-this works. Once it does delete the commented out code.
+Tests are passing so let's comment out the previous implementation and confirm this works. Once it does delete the commented out code.
 
 ```ruby
 class PropublicaService
@@ -636,10 +656,18 @@ end
 ```
 
 Much better. There's an opportunity to split the `get_json` method into
-a module so it's reusable in other services but we'll stop here. It's also worth
-noting that memoizing at the service layer can lead to unintended consequences
-since the data we get back might become stale. This is particularly problematic
-when we are run code that might last longer than the typical HTTP request/response
-cycle. An example of this might be a report that needs to run in the background
-and might take several minutes or longer to complete. For this reason we should
+a module so it's reusable in other services but we'll stop here. It's also worth noting that memoizing at the service layer can lead to unintended consequences since the data we get back might become stale. This is particularly problematic when we run code that might last longer than the typical HTTP request/response cycle. An example of this might be a report that needs to run in the background and might take several minutes or longer to complete. For this reason we should
 not memoize in this service.
+
+TODO:
+Show the final code and talk through why it's good. (SRP, abstraction, encapsulation)
+Reveal the facade pattern in use
+
+
+### Checks for Understanding
+* What is declarative Programming?
+* What are the benefits of using local variables rather than instance variables?
+* How does the Law of Demeter help guide our use of POROS?
+* What are the benefits of Abstraction in OOP?
+* What are the beneftis of Encapsulation in OOP?
+* Why are Service objects useful?
