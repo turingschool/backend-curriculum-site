@@ -74,9 +74,25 @@ When you assign an instance variable in your controller it sets that value for _
 
 Another bonus is the errors will also be more helpful and easier to troubleshoot.
 
+So why did we decide we wanted an object called `search_results`?
+
+### The Four Pillars
+
+Remember the four pillars of object oriented programming? These are abstraction, encapsulation, polymorphism, and inheritance. We adhere to these principles in order to help us write code that is readable, easier to maintain, extend and test. Today we will focus on two of the pillars, abstraction and encapsulation. Let's talk about abstraction first.
+
+### Abstraction
+
+Abstraction is a technique common to object oriented programming that allows us to hide unnecessary details from the user. In this example we will use abstraction to create a PORO, `search_results`, that serves as an interface that hides more complex behavior.
+
+It's common for pages to require data from multiple locations. For example, a dashboard might need to reach out to multiple tables and perhaps make some API calls in order to display all of the required data. One strategy is to send in several instance variables which is likely what you have done up until this point.
+
+Sandy Metz has a [list of rules for developers](https://thoughtbot.com/blog/sandi-metz-rules-for-developers) These rules are based on patterns observed through decades of object oriented programming with the intent of building applications that are less painful to maintain and change. One of those rules is "Controllers can instantiate only one object. Therefore, views can only know about one instance variable and views should only send messages to that object".
+
+Creating a PORO allows us to send one object into the view. We're going a step further here by not using an instance variable. The blog post linked above discusses this more in depth and has further reading if you are interested.
+
 ### The Law of Demeter
 
-You'll notice in the code we decided to go with `search_results.member_count` instead of `search_results.members.count`. As a general rule, it's good for our PORO to adhere to the [Law of Demeter](https://en.wikipedia.org/wiki/Law_of_Demeter). While there are times to break this rule, it's best to get some experience following it prior to deciding to violate it. You'll have better intuitions around the benefits and when to break it.
+You'll also notice in the code we decided to go with `search_results.member_count` instead of `search_results.members.count`. This is in keeping with the second half of the rule above, `..views should only send messages to that object`. By defining a method in our PORO that contains the logic for counting members and calling that from the view as opposed to allowing the logic for counting members to reside in the view itself, our PORO is adhering to the [Law of Demeter](https://en.wikipedia.org/wiki/Law_of_Demeter).
 
 Here are the core concepts of the LoD.
 
@@ -84,21 +100,6 @@ Here are the core concepts of the LoD.
 * Each unit should only talk to its friends; don't talk to strangers.
 * Only talk to your immediate friends.
 
-So why did we decide we wanted a local variable called `search_results`?
-
-### The Four Pillars
-
-Remember the four pillars of object oriented programming? These are abstraction, encapsulation, polymorphism, and inheritance. We adhere to these principles in order to help us write code that is readable, easier to maintain, extend and test. Today we will focus on two of the pillars, abstraction and encapsulation.
-
-### Abstraction
-
-Abstraction is a technique common to object oriented programming that allows us to hide unnecessary details from the user. In this example we will use abstraction to create a PORO that serves as an interface that hides more complex behavior.
-
-It's common for pages to require data from multiple locations. For example, a dashboard might need to reach out to multiple tables and perhaps make some API calls in order to display all of the required data. One strategy is to send in several instance variables which is likely what you have done up until this point.
-
-Sandy Metz has a [list of rules for developers](https://thoughtbot.com/blog/sandi-metz-rules-for-developers) These rules are based on patterns observed through decades of object oriented programming with the intent of building applications that are less painful to maintain and change. One of those rules is "Controllers can instantiate only one object. Therefore, views can only know about one instance variable and views should only send messages to that object".
-
-Creating a PORO allows us to send one object into the view. We're going a step further here by not using an instance variable. The blog post linked above discusses this more in depth and has further reading if you are interested.
 
 ### Back to Coding
 
@@ -162,9 +163,9 @@ def index
 end
 ```
 
-Of course this is going to error out since there is no such thing as `HouseMemberSearch`. We're going to store this in a new directory to help keep things organized. Create a file under the following path: `app/poros/house_member_search.rb`. Rails will automatically load anything in the `app` directory. However, you will need to restart your server if the `poros` directory is new. After the initial restart any new poros placed in there will be loaded and you _do not need to restart your server_.
+Of course this is going to error out since there is no such thing as `HouseMemberSearch`. We're going to store this in a new directory to help keep things organized. Create a file under the following path: `app/poros/house_member_search.rb`. Rails will automatically load anything in the `app` directory. However, you will need to restart your server if the `poros` directory is new. After the initial restart any new POROS placed in there will be loaded and you _do not need to restart your server_.
 
-We're not going to unit test this PORO. If we write good feature tests and our PORO simply calls out to other objects that are thoroughly unit tested the functionality should be well covered. There's nothing wrong with testing POROS and some might prefer being more thorough.
+We're not going to unit test this PORO. This is because this particular PORO's job is to pull in information from different places and combine it, in order to pass a single object to the view. If we write good feature tests and our PORO simply calls out to other objects that are thoroughly unit tested the functionality should be well covered. However, there's nothing wrong with testing this PORO if you would like to and some might prefer being more thorough.
 
 Let's create our class and run our tests.
 
@@ -185,7 +186,7 @@ We should be seeing an error mentioning something about an undefined method `mem
 Easy enough. Let's use declarative programming in this method as well...
 
 ```ruby
-# app/POROS/house_member_search.rb
+# app/poros/house_member_search.rb
 
 class HouseMemberSearch
   attr_reader :state
@@ -243,7 +244,7 @@ class HouseMemberSearch
 end
 ```
 
-Our test now complains that we don't have a method `name` defined. When using TDD we will frequently run into errors like this. Our `members` method is returning a hash, however our test is looking for an object to be returned with a method name defined on it. Let's dream drive our object.
+Our test now complains that we don't have a method `name` defined. When using TDD we will frequently run into errors like this. Our `members` method is returning a hash, however our test is looking for an object to be returned with a method `name` defined on it. Let's dream drive our object.
 
 
 ```ruby
@@ -267,7 +268,7 @@ class HouseMemberSearch
 end
 ```
 
-Now our `members` method maps through the data returned from the api and returns an array of `Member` objects. Notice that as we dream drove we utilized more descriptive variables, changing our `json` variable to `member_search_data` so that you can easily tell what you are working with. Our test now complains that `Member` is undefined. Now is a great time to create a unit test to drive the design of our member object.
+Now our `members` method maps through the data returned from the api and returns an array of `Member` objects. Notice that as we dream drove we utilized more descriptive variables, changing our `json` variable to `member_search_data` so that you can easily tell what we are working with. Our test now complains that `Member` is undefined. Now is a great time to create a unit test to drive the design of our member object. we will place this PORO in our models directory because it's responsibility is to model or format the data we are receiving from the API.
 
 
 ```ruby
@@ -397,19 +398,19 @@ class HouseMemberSearch
 end
 ```
 
-The first thing you may have noticed is that we have changed `attr_reader :state` into a private method. By doing so, we have utilized encapsulation.
+One thing you may have noticed in the code above is that we have changed `attr_reader :state` into a private method. By doing so, we have utilized encapsulation.
 
 ### Encapsulation
-Encapsulation is an OOP principle that allows us to simplify how we interface with an object by defining public methods to interact with it and hiding the internal state and implementation logic. This prevents the internal state of the object from being modified unexpectedly by external code.
+Encapsulation is an OOP principle that allows us to simplify how we interface with an object by hiding the internal state and implementation details of the object and interacting only with public methods defined on the object. This prevents the internal state of the object from being modified unexpectedly by external code.
+
 
 ### Service objects
-
 Why did we settle on using a local variable of `service`? Service objects are a way to create a layer of abstraction on top of logic that doesn't quite fit into our current MVC structure. We use service objects extensively in Rails applications, especially when we are dealing with logic that interacts with several objects or the complexity of a task doesn't fit neatly into any of the MVC layers we currently have.
 
 Of course `service` isn't defined so let's do that.
 
 ```ruby
-class HouseMemberSearchResults
+class HouseMemberSearch
   # code omitted
 
   def members
@@ -470,9 +471,9 @@ class PropublicaService
 end
 ```
 
-You'll notice that we didn't move over the instantiating of the `Member` objects. This is because we want the only job of this service to be to talk to Propublica (SRP). If this class needs to know about the `Member` class it now has an unnecessary dependency. The `HouseMemberSearch` PORO needs the `Member` class and while it's a dependency it isn't unnecessary.
+You'll notice that we didn't move over the instantiating of the `Member` objects. This is because we want the only job of this service to be to talk to Propublica (SRP). Formatting the data is seperate responsibility and should be done elswhere.
 
-Run our service test and we should be good. Now run the feature test. When it passes we can update out `HouseMemberSearch` PORO. Before deleting code, let's comment it out.
+Run our service test and we should be good. Now run the feature test. When it passes we can update our `HouseMemberSearch` PORO. Before deleting code, let's comment it out.
 
 ```ruby
 class HouseMemberSearch
@@ -508,7 +509,7 @@ end
 Run the tests and they should pass. Now it's safe to delete.
 
 ```ruby
-class HouseMemberSearchResults
+class HouseMemberSearch
   def member_count
     members.count
   end
@@ -527,7 +528,7 @@ end
 We're getting close but notice that each time we call the `members` method we will make an API call despite the fact that the info will be the same. Let's use memoization to make fewer API calls.
 
 ```ruby
-class HouseMemberSearchResults
+class HouseMemberSearch
   def member_count
     members.count
   end
@@ -659,15 +660,23 @@ Much better. There's an opportunity to split the `get_json` method into
 a module so it's reusable in other services but we'll stop here. It's also worth noting that memoizing at the service layer can lead to unintended consequences since the data we get back might become stale. This is particularly problematic when we run code that might last longer than the typical HTTP request/response cycle. An example of this might be a report that needs to run in the background and might take several minutes or longer to complete. For this reason we should
 not memoize in this service.
 
-TODO:
-Show the final code and talk through why it's good. (SRP, abstraction, encapsulation)
-Reveal the facade pattern in use
+Now our code does what it is supposed to do and also looks great.
+
+As mentioned above developers have utilized the four pillars of OOP to drive the design and organization of code for several decades. Over time specific ways of organizing code have become industry standards. These are referred to as _design patterns_.
+
+### Design Patterns
+
+Design patterns are reusable solutions to commonly occuring problems. There are a lot of ruby design patterns that exist to solve all kinds of problems. You can find more information on design patterns in ruby in this [blog post](https://bogdanvlviv.com/posts/ruby/patterns/design-patterns-in-ruby.html). Let's focus on one design pattern in particular, the Facade pattern.
+
+### Facade Pattern
+
+The [Facade pattern](https://bogdanvlviv.com/posts/ruby/patterns/design-patterns-in-ruby.html#facade) is used to provide a single simplified interface for a more complex subsystem. Sound familiar? We implemented the Facade pattern when we created our `HouseMemberSearch` PORO. Using this pattern, We split the large multi-responsibility controller action into several well-tested single responsibility POROS while utilizing abstraction and encapsulation. This helped make our code more maintainable, extensible, and testable. Pretty fancy!
 
 
 ### Checks for Understanding
 * What is declarative Programming?
 * What are the benefits of using local variables rather than instance variables?
-* How does the Law of Demeter help guide our use of POROS?
-* What are the benefits of Abstraction in OOP?
-* What are the beneftis of Encapsulation in OOP?
+* What are the core concepts of the Law of Demeter?
+* What is Abstraction in OOP?
+* What is Encapsulation in OOP?
 * Why are Service objects useful?
