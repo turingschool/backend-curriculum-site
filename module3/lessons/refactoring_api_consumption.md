@@ -2,7 +2,7 @@
 layout: page
 title: Refactoring API Consumption
 length: 180
-tags: apis, rails, faraday
+tags: apis, rails, refactoring
 ---
 
 ## Learning Goals
