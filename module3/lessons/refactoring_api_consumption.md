@@ -13,6 +13,7 @@ By the end of this class, a student should be able to:
 
 * Utilize two of the pillars of object oriented programming, abstraction and encapsulation, in order to guide their refactoring.
 
+### Starting The Refactor
 
 Right now, our app does what it’s supposed to do but there’s a good chance that it doesn’t “feel” right. Specifically, our `index` action in the controller is long, violates SRP and MVC, and the logic that lives in it isn’t reusable. Time to refactor.
 
