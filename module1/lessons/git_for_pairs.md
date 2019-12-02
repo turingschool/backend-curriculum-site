@@ -10,14 +10,6 @@ tags: ruby, git, workflow
 * Describe how two people might work off the same repository
 * Describe steps to resolving a merge conflict
 
-## Structure
-
-* 5   - Warmup
-* 20  - Pairing Demonstration
-* 5   - Break
-* 25  - Resolve Merge Conflict Demonstration
-* 5   - Closing/Synthesis
-
 ## Vocabulary
 
 * Merge Conflict
@@ -151,17 +143,10 @@ From `new_feature` branch (should already be on this):
   * `git pull origin master`
 
 
-![Merging a Branch to Master](https://docs.google.com/drawings/d/e/2PACX-1vR6KtiUHn_LsBfxJRYUYwgT7KJClTVLajC3OzwME6RLF1HroCbOQGuRXUcgjI-I1xfZ-LuF4R5BGbi7/pub?w=960&h=720)
-
 ## Closing
 
 Talk with partner
-* What are the commands to do the following:
-   - Create a repo
-   - Connect a git repo to a GitHub repo
-   - Update your local git with new content
-   - Update GitHub with new content
-* What steps would you take if working with a partner on a separate computer? What are the pros/cons of this work flow?
+* What is the git workflow when working with a partner on a separate computer?
 * What is a merge conflict? How might you resolve a merge conflict?
 
 ### Additional Resources
