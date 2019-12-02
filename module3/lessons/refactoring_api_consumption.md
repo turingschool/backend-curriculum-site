@@ -79,7 +79,10 @@ So why did we decide we wanted an object called `search_results`?
 
 ### The Four Pillars
 
-Remember the four pillars of object oriented programming? These are abstraction, encapsulation, polymorphism, and inheritance. We adhere to these principles in order to help us write code that is readable, easier to maintain, extend and test. Today we will focus on two of the pillars, abstraction and encapsulation. Let's talk about abstraction first.
+Remember the four pillars of object oriented programming? These are abstraction, encapsulation, polymorphism, and inheritance. We adhere to these principles in order to help us write code that is readable, easier to maintain, extend and test. Today we will focus on two of the pillars, abstraction and encapsulation.
+
+### Encapsulation
+Encapsulation is an OOP principle that allows us to simplify how we interface with an object by hiding the internal state and implementation details of the object and interacting only with public methods defined on the object. This prevents the internal state of the object from being modified unexpectedly by external code.
 
 ### Abstraction
 
@@ -307,14 +310,12 @@ class Member
               :role,
               :party,
               :district,
-              :seniority
 
   def initialize(attributes = {})
     @name       = attributes[:name]
     @role       = attributes[:role]
     @party      = attributes[:party]
     @district   = attributes[:district]
-    @seniority  = attributes[:seniority].to_i
   end
 end
 ```
@@ -399,11 +400,7 @@ class HouseMemberSearch
 end
 ```
 
-One thing you may have noticed in the code above is that we have changed `attr_reader :state` into a private method. By doing so, we have utilized encapsulation.
-
-### Encapsulation
-Encapsulation is an OOP principle that allows us to simplify how we interface with an object by hiding the internal state and implementation details of the object and interacting only with public methods defined on the object. This prevents the internal state of the object from being modified unexpectedly by external code.
-
+One thing you may have noticed in the code above is that we have changed `attr_reader :state` into a private method. By doing so, we have made this method only accessible from within the house member object. This is encapsulation.
 
 ### Service objects
 Why did we settle on using a local variable of `service`? Service objects are a way to create a layer of abstraction on top of logic that doesn't quite fit into our current MVC structure. We use service objects extensively in Rails applications, especially when we are dealing with logic that interacts with several objects or the complexity of a task doesn't fit neatly into any of the MVC layers we currently have.
@@ -469,6 +466,7 @@ class PropublicaService
     response = conn.get("/congress/v1/members/house/#{state}/current.json")
 
     member_search_data = JSON.parse(response.body, symbolize_names: true)[:results]
+  end
 end
 ```
 
@@ -545,7 +543,7 @@ class HouseMemberSearch
 end
 ```
 
-There, that's better. Next up: We need to finish refactoring our service. There's a bit too much logic in one method. One easy refactor is to take local variables that are reusable and split them into their own methods. The `conn` variable is great for this.
+There, that's better. Next up: We need to finish refactoring our service. There's a bit too much logic in one method. One easy refactor is to take local variables that are reusable and split them into their own methods. The `conn` variable is great for this. We will also utilize encapsulation here and make this method a private method because it contains code for making the API calls specific to this service.
 
 ```ruby
 # app/services/propublica_service.rb
