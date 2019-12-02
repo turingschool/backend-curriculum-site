@@ -11,7 +11,7 @@ By the end of this class, a student should be able to:
 
 * Refactor code that reaches an API from the controller into single responsibility POROS.
 
-* Utilize two of the pillars of object oriented programming, abstraction and encapsulation, in order to guide their refactoring.
+* Utilize two of the pillars of object oriented programming, abstraction and encapsulation, to guide their refactoring.
 
 ### Starting The Refactor
 
@@ -37,7 +37,7 @@ end
 ```
 When we write tests we should write code at the same layer of the application that the test is running. At this point it's common for students to jump to the controller and start the refactor there. This approach tends to lead to code that is difficult to pull together, maintain, and reuse.
 
-We will let our tests drive us and write the code we wish existed at the view layer.
+We will let our feature test drive us and write the code we wish existed at the view layer.
 
 ### Declarative Programming
 
@@ -83,13 +83,13 @@ Remember the four pillars of object oriented programming? These are abstraction,
 
 ### Abstraction
 
-Abstraction is a technique common to object oriented programming that allows us to hide unnecessary details from the user. In this example we will use abstraction to create a PORO, `search_results`, that serves as an interface that hides more complex behavior.
+Abstraction is a technique that allows us to hide unnecessary details from the user. In this example we will use abstraction to create a PORO, `search_results`, that serves as an interface that hides more complex behavior.
 
 It's common for pages to require data from multiple locations. For example, a dashboard might need to reach out to multiple tables and perhaps make some API calls in order to display all of the required data. One strategy is to send in several instance variables which is likely what you have done up until this point.
 
 Sandy Metz has a [list of rules for developers](https://thoughtbot.com/blog/sandi-metz-rules-for-developers) These rules are based on patterns observed through decades of object oriented programming with the intent of building applications that are less painful to maintain and change. One of those rules is "Controllers can instantiate only one object. Therefore, views can only know about one instance variable and views should only send messages to that object".
 
-Creating a PORO allows us to send one object into the view. We're going a step further here by not using an instance variable. The blog post linked above discusses this more in depth and has further reading if you are interested.
+Creating a PORO allows us to send one object into the view. With this single object we can hide the implementation details from the view and shield it from changes that may occur in other parts of the application i.e if the JSON structure of our API response changes we do not need to change the view. We're going a step further here by not using an instance variable. The blog post linked above discusses this more in depth and has further reading if you are interested.
 
 ### The Law of Demeter
 
@@ -166,7 +166,7 @@ end
 
 Of course this is going to error out since there is no such thing as `HouseMemberSearch`. We're going to store this in a new directory to help keep things organized. Create a file under the following path: `app/poros/house_member_search.rb`. Rails will automatically load anything in the `app` directory. However, you will need to restart your server if the `poros` directory is new. After the initial restart any new POROS placed in there will be loaded and you _do not need to restart your server_.
 
-We're not going to unit test this PORO. This is because this particular PORO's job is to pull in information from different places and combine it, in order to pass a single object to the view. If we write good feature tests and our PORO simply calls out to other objects that are thoroughly unit tested the functionality should be well covered. However, there's nothing wrong with testing this PORO if you would like to and some might prefer being more thorough.
+We're not going to unit test this PORO. This is because this particular PORO's job is to pull in information from different places and combine it, in order to pass a single object to the view. If we write good feature tests and our PORO simply calls out to other objects that are thoroughly unit tested, the functionality should be well covered. However, there's nothing wrong with testing this PORO if you would like to and some might prefer being more thorough.
 
 Let's create our class and run our tests.
 
@@ -472,9 +472,9 @@ class PropublicaService
 end
 ```
 
-You'll notice that we didn't move over the instantiating of the `Member` objects. This is because we want the only job of this service to be to talk to Propublica (SRP). Formatting the data is seperate responsibility and should be done elswhere.
+You'll notice that we didn't move over the instantiating of the `Member` objects. This is because we want the only job of this service to be to talk to Propublica (SRP). Formatting the data is separate responsibility and should be done elsewhere.
 
-Run our service test and we should be good. Now run the feature test. When it passes we can update our `HouseMemberSearch` PORO. Before deleting code, let's comment it out.
+Run our service test and we should be good. Now run the feature test. When it passes we can update our `HouseMemberSearch` PORO. Before deleting code, let's comment it out and make sure the test still passes.
 
 ```ruby
 class HouseMemberSearch
