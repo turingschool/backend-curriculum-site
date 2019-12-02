@@ -156,12 +156,7 @@ From `new_feature` branch (should already be on this):
 ## Closing
 
 Talk with partner
-* What are the commands to do the following:
-   - Create a repo
-   - Connect a git repo to a GitHub repo
-   - Update your local git with new content
-   - Update GitHub with new content
-* What steps would you take if working with a partner on a separate computer? What are the pros/cons of this work flow?
+* What is the git workflow when working with a partner on a separate computer?
 * What is a merge conflict? How might you resolve a merge conflict?
 
 ### Additional Resources
