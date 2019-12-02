@@ -151,8 +151,6 @@ From `new_feature` branch (should already be on this):
   * `git pull origin master`
 
 
-![Merging a Branch to Master](https://docs.google.com/drawings/d/e/2PACX-1vR6KtiUHn_LsBfxJRYUYwgT7KJClTVLajC3OzwME6RLF1HroCbOQGuRXUcgjI-I1xfZ-LuF4R5BGbi7/pub?w=960&h=720)
-
 ## Closing
 
 Talk with partner
