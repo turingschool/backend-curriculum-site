@@ -100,6 +100,7 @@ If the favorite can't be found, a 404 will be returned.
 ### Communication Expectations
 
 - Communicate with your instructors if you feel like your team is falling behind or cannot complete the tasks assigned.
+- Communicate with your instructors if your team has completed all requirements before the deadline.
 - Tag instructors in pull requests on GitHub wherever you'd like feedback.
 - If there is any question about functionality, ASK.
 
