@@ -10,14 +10,6 @@ tags: ruby, git, workflow
 * Describe how two people might work off the same repository
 * Describe steps to resolving a merge conflict
 
-## Structure
-
-* 5   - Warmup
-* 20  - Pairing Demonstration
-* 5   - Break
-* 25  - Resolve Merge Conflict Demonstration
-* 5   - Closing/Synthesis
-
 ## Vocabulary
 
 * Merge Conflict
