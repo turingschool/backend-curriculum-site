@@ -5,7 +5,7 @@ layout: page
 
 ### Intro
 
-Breaking down what you want to build is incredibly important when it comes to software. Too often, we decide that we’re going to build an application that does something specific without much upfront planning. This is where we can utilize writing stories to help us what lego blocks we’ll need to build out in order to accomplish our final end goal.  
+Breaking down what you want to build is incredibly important when it comes to software. Too often, we decide that we’re going to build an application that does something specific without much upfront planning. This is where we can utilize writing stories to help us know what lego blocks we’ll need to build out in order to accomplish our final end goal.  
 
 ### Vocabulary
 
@@ -41,7 +41,7 @@ The titles of your user stories should convey what is being worked on and what t
 
 Each story should be descriptive and outline a few things: 
 
-* Is this a JSON endpoint? If so, what do the request and response payloads look like? What happens when the user is unsuccessful? 
+* Is this a JSON endpoint? If so, what does the request and response payloads look like? What happens when the user is unsuccessful? 
 * Is this a frontend story? If so, what is the entire workflow of the user when attempting to accomplish the stories task? 
 * Are there any additional resources that would make the story more clear? This could include wireframes, schema designs, etc. 
 * The more information given in the story will allow you to start working without the need to ask too many questions. 
