@@ -10,8 +10,9 @@ layout: page
 ## Consuming APIs
 
 * [Intro to Postman and Faraday](../lessons/intro_to_postman_and_faraday_alex)
-* [Consuming APIs: Part 1](../lessons/consuming_an_api_part_1)
-* [Consuming APIs: Part 2](../lessons/consuming_an_api_part_2)
+* [Consuming APIs](./consuming_an_api_part_1)
+* [Testing API Consumption](./consuming_an_api_part_2)
+* [Refactoring API Consumption](./refactoring_api_consumption)
 * [Getting Started with OAuth](../lessons/getting_started_with_oauth)
 
 ## Exposing APIs

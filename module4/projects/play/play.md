@@ -35,7 +35,13 @@ For the first sprint you will want to have the following completed:
 You will use the [Musixmatch API](https://developer.musixmatch.com/) to get song information to create a favorite.
 _Please note that the rating system should only allow for a number between 1-100. If a genre is not provided, the genre should be "Unknown"._   
 
-To create a new favorite, use the following parameters:
+To create a new favorite, use the following request parameters:
+
+```
+{ title: "We Will Rock You", artistName: "Queen" }
+```
+
+Response Body:
 
 ```js
 {
@@ -80,7 +86,7 @@ Returns the favorite object with the specific `:id` you've passed in.
 A 404 is returned if the favorite is not found.
 
 ```js
-[
+
   {
     "id": 1,
     "title": "We Will Rock You",
@@ -88,7 +94,7 @@ A 404 is returned if the favorite is not found.
     "genre": "Rock",
     "rating": 88
   }
-]
+
 ```
 
 **DELETE /api/v1/favorites/:id**
@@ -100,6 +106,7 @@ If the favorite can't be found, a 404 will be returned.
 ### Communication Expectations
 
 - Communicate with your instructors if you feel like your team is falling behind or cannot complete the tasks assigned.
+- Communicate with your instructors if your team has completed all requirements before the deadline.
 - Tag instructors in pull requests on GitHub wherever you'd like feedback.
 - If there is any question about functionality, ASK.
 
