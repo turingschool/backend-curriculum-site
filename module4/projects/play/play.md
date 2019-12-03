@@ -86,7 +86,7 @@ Returns the favorite object with the specific `:id` you've passed in.
 A 404 is returned if the favorite is not found.
 
 ```js
-[
+
   {
     "id": 1,
     "title": "We Will Rock You",
@@ -94,7 +94,7 @@ A 404 is returned if the favorite is not found.
     "genre": "Rock",
     "rating": 88
   }
-]
+
 ```
 
 **DELETE /api/v1/favorites/:id**
