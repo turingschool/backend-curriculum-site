@@ -35,7 +35,13 @@ For the first sprint you will want to have the following completed:
 You will use the [Musixmatch API](https://developer.musixmatch.com/) to get song information to create a favorite.
 _Please note that the rating system should only allow for a number between 1-100. If a genre is not provided, the genre should be "Unknown"._   
 
-To create a new favorite, use the following parameters:
+To create a new favorite, use the following request parameters:
+
+```
+{ title: "We Will Rock You", artistName: "Queen" }
+```
+
+Response Body:
 
 ```js
 {
