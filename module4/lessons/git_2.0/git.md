@@ -12,8 +12,8 @@ layout: page
 
 - Lesson should take 1.5 - 2 hours
 - 10 minutes to go over learning goals, structure of the lesson, and divide into groups
-- 20 minutes for everyone's first station to allow for them to get setup
-- 30 minutes total for the remaining stations (15 minutes per station)
+- 25 minutes for everyone's first station to allow for them to get setup
+- 40 minutes total for the remaining stations (20 minutes per station)
 - Leave post-its on the table for students to write questions on and collect between each station change (if possible)
 - Give pom after all stations have been completed
 - Whole Group Review:
