@@ -119,7 +119,13 @@ body:
 * A successful request returns the user's api key.
 * An unsuccessful request returns a 400 level status code and body with a description of why the request wasn't successful. Potential reasons a request would fail: credentials are bad.
 
-### 4. Road Trip
+## 4. Road Trip
+
+The front-end team has drawn up these wireframes for a feature where users can plan road trips:
+
+![Road Trip Mockup](./images/road_trip.png)
+
+**Request:**
 
 ```
 POST /api/v1/road_trip
@@ -135,11 +141,13 @@ body:
 }
 ```
 
+**Response:**
+
+Use the wireframes to see what data is required on the front end to decide what you would like to include in your response.
+
 **Requirements:**
 
 - API key must be sent
 - If no API key or an incorrect key is provided return 401 (Unauthorized)
 - You will use the Google Directions API:  https://developers.google.com/maps/documentation/directions/start
-in order to find out how long it will take to travel from the two locations, and then deliver the weather forecast for the hour
-of arrival. For example, Denver to Pueblo would take two hours. You will deliver a forecast two hours in the future that includes the temperature and summary, and estimated travel time.
 - The structure of the response is up to you, but should be JSON API 1.0 Compliant.
