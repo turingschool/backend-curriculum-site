@@ -63,7 +63,7 @@ pick a0c7de8 Remove new method from cart
 # Note that empty commits are commented out
 ```
 
-Now replace the word `pick` in front of `5186690` & `b35223d`.
+Now replace the word `pick` with `squash` in front of `5186690` & `b35223d`.
 
 _Note: If you are in the terminal, in order to edit anything first type i for insert. Once you are done editing, hit esc. Then type :wq (this will save our changes)._
 
