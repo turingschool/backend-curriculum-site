@@ -56,16 +56,16 @@ Inspect the Form/Input field, where does this route to?
 Make sure the route is in the routes file:
 
 ```rb
-post '/notification' => 'notification#create'
+post '/notifications' => 'notifications#create'
 ```
 
-Next we'll make a new controller that will call our mailer. Create a controller called NotificationController. The form asks for a post route so we'll need a create action where we will call our mailer.
+Next we'll make a new controller that will call our mailer. Create a controller called NotificationsController. The form asks for a post route so we'll need a create action where we will call our mailer.
 
 ```rb
 
-# app/controllers/notification_controller.rb
+# app/controllers/notifications_controller.rb
 
-class NotificationController < ApplicationController
+class NotificationsController < ApplicationController
   def create
     FriendNotifier.inform(current_user, params[:email]).deliver_now
     flash[:notice] = "Successfully told your friend that they've changed."
@@ -181,26 +181,22 @@ password
 
 ## Sending the emails in production
 
-In config/application.rb:
+In config/environments/production.rb:
 
 ```rb
-module YouveChanged
-  class Application < Rails::Application
-    config.action_mailer.delivery_method = :smtp
+  config.action_mailer.delivery_method = :smtp
 
-    config.action_mailer.smtp_settings = {
-      address:              'smtp.sendgrid.net',
-      port:                 '587',
-      domain:               'example.com',
-      user_name:            ENV["SENDGRID_USERNAME"],
-      password:             ENV["SENDGRID_PASSWORD"],
-      authentication:       'plain',
-      enable_starttls_auto: true
-    }
-    # Do not swallow errors in after_commit/after_rollback callbacks.
-    config.active_record.raise_in_transactional_callbacks = true
-  end
-end
+  config.action_mailer.smtp_settings = {
+    address:              'smtp.sendgrid.net',
+    port:                 '587',
+    domain:               'example.com',
+    user_name:            ENV["SENDGRID_USERNAME"],
+    password:             ENV["SENDGRID_PASSWORD"],
+    authentication:       'plain',
+    enable_starttls_auto: true
+  }
+  # Do not swallow errors in after_commit/after_rollback callbacks.
+  config.active_record.raise_in_transactional_callbacks = true
 ```
 
 Let's setup figaro so that we can add our username and password we got above in our command line to our application.yml file.
