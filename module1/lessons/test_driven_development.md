@@ -21,7 +21,7 @@ length: 60
 ## Warm Up
 
 With your partner, look over the test file you have printed out, and answer the following questions:
-- For each test (between `def` and `end`), what is the name of the test? 
+- For each test (between `def` and `end`), what is the name of the test?
 - For each test (between `def` and `end`), what piece of functionality does that tell you this class has? The first two are answered/annotated for you, it's your job to jot down notes for the remaining tests.
 - Now, look back at your notes and the name of each test. Does the naming appropriately explain what the test tests?
 - How would you explain, in 1-2 sentences, what the House class does?
@@ -78,7 +78,7 @@ class Round
   def initialize(deck)
     @deck = deck
   end
-  
+
   def current_card
     @deck.cards.first
   end
@@ -98,7 +98,7 @@ class RoundTest < Minitest::Test
 end
 ```
 
-Turn and Talk: what might be the pitfalls in a test like this?  How could we improve the test? 
+Turn and Talk: what might be the pitfalls in a test like this?  How could we improve the test?
 
 ### Testing Edge Cases
 
@@ -121,7 +121,7 @@ require 'minitest/pride'
 class CalculatorTest < Minitest::Test
   def test_divide
      calculator = Calculator.new
-     
+
      assert_equal 2, calculator.divide(8,4)
   end
 end
@@ -201,12 +201,15 @@ To make sure we're all the same page, let's write this test together.
 Given the following interaction pattern, build on your test file for this class.
 
 ```ruby
-> student = Student.new("Jesse")
+> student = Student.new("Sophocles")
 => #<Student:0x007fa2e9acd738>
+
 student.name
-=> "Jesse"
+=> "Sophocles"
+
 student.mod
 => "1"
+
 student.skills
 => []
 
@@ -214,13 +217,11 @@ student.say_mod
 => "I'm in Mod 1"
 
 student.learn("testing")
-=> "testing"
 
 student.skills
 => ["testing"]
 
 student.promote
-=> 2
 
 student.say_mod
 => "I'm in Mod 2"
@@ -232,15 +233,15 @@ Be ready to share your code with the rest of class!
 
 You will not always have interaction patterns to guide your testing. In these cases, you'll need to decide for yourself what you'll name the methods and how you'll decide to implement its functionality.
 
-You are planning to create an `Instructor` class. The instructor has a name, a mod they teach, and a class of students. The primary responsibility of a mechanic is to take a class of students and teach those students a skill. 
+You are planning to create an `Instructor` class. The instructor has a name, a mod they teach, and a class of students. The primary responsibility of a mechanic is to take a class of students and teach those students a skill.
 
 Write a series of tests and THEN create an Instructor class.
 
-*Extra Challenge:* 
+*Extra Challenge:*
 
-- An instructor's class could have students from different mods (why? I don't know, tbh...). An instructor should only be able to teach the students in _their_ mod a skill. 
+- An instructor's class could have students from different mods (why? I don't know, tbh...). An instructor should only be able to teach the students in _their_ mod a skill.
 
-- For an instructor, calculate the percentage of students in their class who know a given skill. 
+- For an instructor, calculate the percentage of students in their class who know a given skill.
 
 * TESTS FIRST*
 
