@@ -1,0 +1,22 @@
+/* Buttons */
+
+.btn {
+  font-family: $bold-copy, sans-serif;
+  font-size: 0.9em;
+  border: none;
+  border-radius: 50px;
+  display: inline-block;
+  text-transform: uppercase;
+  padding: 16px 30px 16px;
+  margin: 5px;
+}
+
+.btn-dark {
+  background-color: $dark-gray;
+  color: $light-gray;
+}
+
+.btn-light {
+  background-color: $light-gray;
+  color: $dark-gray;
+}
