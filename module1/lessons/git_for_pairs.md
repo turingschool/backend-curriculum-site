@@ -10,14 +10,6 @@ tags: ruby, git, workflow
 * Describe how two people might work off the same repository
 * Describe steps to resolving a merge conflict
 
-## Structure
-
-* 5   - Warmup
-* 20  - Pairing Demonstration
-* 5   - Break
-* 25  - Resolve Merge Conflict Demonstration
-* 5   - Closing/Synthesis
-
 ## Vocabulary
 
 * Merge Conflict
@@ -105,6 +97,15 @@ In order to fix it, you need to change the text of the file to include only the 
   - `git push origin master`
 * Add collaborator on github
 
+* Checks out new branch (`git checkout -b new_feature`)
+* Changes first line of file
+* Commits and pushes to branch
+  - `git status`
+  - `git add filename.rb`
+  - `git status`
+  - `git commit -m "change to first line"`
+  - `git push origin new_feature`
+
 #### Person B
 * accepts invitation
 * clones repo (`git clone <ssh key to repo>`)
@@ -120,42 +121,32 @@ In order to fix it, you need to change the text of the file to include only the 
 * Creates a Pull Request on Github
 
 #### Person A
-* checks out a new branch (`git checkout -b new_feature`)
-* changes first line of file
-* commits and pushes to branch
-  - `git status`
-  - `git add filename.rb`
-  - `git status`
-  - `git commit -m "different change to fist line"`
-  - `git push origin new_feature`
-* Creates a Pull Request on Github
+* Review and comment on Person B's Pull Request
+* Merge Person B's Pull Request
+
+Remote master is now updated
+
+From `new_feature` branch (should already be on this): 
+* pulls origin master into `new_feature`
+  - `git pull origin master`
+* fixes merge conflict
+* commits and pushes to remote `new_feature`
+* creates pull request on Github
 
 #### Person B
 * Review and comment on Person A's Pull Request
 * Merge Person A's Pull Request
 
-#### Person A
-* Review and comment on Person B's Pull Request
-* Fix Merge Conflict with Github Tool
-* Merge Person B's Pull Request
-
 #### Both
-* Checkout and pull from master
+* Checkout local master and pull from master
   * `git checkout master`
   * `git pull origin master`
 
 
-![Merging a Branch to Master](https://docs.google.com/drawings/d/e/2PACX-1vR6KtiUHn_LsBfxJRYUYwgT7KJClTVLajC3OzwME6RLF1HroCbOQGuRXUcgjI-I1xfZ-LuF4R5BGbi7/pub?w=960&h=720)
-
 ## Closing
 
 Talk with partner
-* What are the commands to do the following:
-   - Create a repo
-   - Connect a git repo to a GitHub repo
-   - Update your local git with new content
-   - Update GitHub with new content
-* What steps would you take if working with a partner on a separate computer? What are the pros/cons of this work flow?
+* What is the git workflow when working with a partner on a separate computer?
 * What is a merge conflict? How might you resolve a merge conflict?
 
 ### Additional Resources

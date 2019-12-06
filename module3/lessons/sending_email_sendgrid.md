@@ -10,8 +10,8 @@ tags: rails, email, sendgrid, smtp, action mailer
 We'll explore sending email in Rails by building a project that requires this functionality. By the end you should understand:
 
 * How to use ActionMailer
-* How to setup a third party email service
 * Send email locally using Mailcatcher
+* How to setup a third party email service
 
 ### You've Changed
 
@@ -28,7 +28,7 @@ What we'd like our app to do:
 2. Allow us to enter a friend's email address
 3. Send that friend a passive-aggressive email notifying them that
    "You've changed".  
-   
+
 ## Researching with the Docs  
 * [What is SMTP?](http://whatismyipaddress.com/smtp)
 * [Action Mailer](http://guides.rubyonrails.org/action_mailer_basics.html)  
@@ -52,7 +52,7 @@ Run your server to see what we've already got in our repo
 ```
 rails s
 ```  
-Inspect the Form/Input field, where does this route to? 
+Inspect the Form/Input field, where does this route to?
 Make sure the route is in the routes file:
 
 ```rb
@@ -95,7 +95,7 @@ class FriendNotifier < ApplicationMailer
 end
 ```
 
-Next we'll make the views that will determine the body of the email that is send. Similar to controllers, any instance variables in your mailer method will be available in your mailer view.  
+Next we'll make the views that will determine the body of the email that is sent. Similar to controllers, any instance variables in your mailer method will be available in your mailer view.
 
 When you generated your mailer, two layouts were added to app/views/layouts - mailer.html.erb and mailer.text.erb.  Take a look at these files, what are they doing? Why do we get both an HTML and txt layout?
 
@@ -103,7 +103,7 @@ In app/views/friend_notifier create two files, inform.html.erb and inform.text.e
 
 Depending on the person's email client you're sending the email to, it will render either the plain text or the html view. We don't have control over that, so we'll make them have the same content.
 
-```rb
+```
 # inform.html.erb and inform.text.erb
 
 Your "friend" <%= @user.name.capitalize %> wanted to let you know that you've changed. Tell someone else that they've changed. It's your duty.
@@ -124,7 +124,7 @@ end
 
 Take a moment to see what you can figure out from the [MailCatcher](https://mailcatcher.me/) docs.
 
-Mailcatcher allows you to test sending email. It is a simple SMTP server that receives emails, and it gives you a web interface that allows you to inspect outgoing emails. Mailcatcher does not allow the emails to actually go out, and so you are able to test that emails send, without having to worry about that email being flooded with emails.
+Mailcatcher allows you to test sending email. It is a simple SMTP server that intercepts (catches) outgoing emails, and it gives you a web interface that allows you to inspect them. Mailcatcher does not allow the emails to actually go out, and so you are able to test that emails send, without having to worry about that email being flooded with emails.
 
 Let's get it set up.
 
@@ -178,15 +178,6 @@ appXYZ@heroku.com
 $ heroku config:get SENDGRID_PASSWORD
 password
 ```
-
-Now that you have the login info, we want to obtain an api key from Sendgrid [here](https://www.sendgrid.com/login). Use the username and password from the steps above. Once logged in, follow these steps:
-
-1. Click on `Settings`
-2. Click on `Create API Key`
-3. Type in a name for the Key
-4. Select `FULL ACCESS` for `Mail Send`
-5. Save
-6. Copy the key and save it somewhere safe so we can add it to our application .yml file
 
 ## Sending the emails in production
 
