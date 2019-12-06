@@ -9,7 +9,7 @@ tags: ruby, object-oriented programming
 * Describe the difference between a class and an instance of that class
 * Define a class
 * Store state in instance variables defined in `initialize`
-* Provide access to state using `attr_reader`s
+* Provide access to state using `attr_reader`s and `attr_accessor`s
 * Use methods to provide behaviors to instances of a class
 * Create a new instance of a class and call methods on that instance
 
@@ -80,13 +80,13 @@ Generally we will want to put more information in our classes to make them usefu
 
 ### Example - Class/Instance Syntax
 
-Let's follow a class example with a Fridge class. I will create a directory in the classwork directory called `objects_classes_and_instances`. Within that directory, I'll create a `fridge.rb` file, and put the following information into that file. (You will take these same steps later for a different class😉)
+Let's follow a class example with a Unicorn class. I will create a directory in the classwork directory called `objects_classes_and_instances`. Within that directory, I'll create a `unicorn.rb` file, and put the following information into that file. (You will take these same steps later for a different class😉)
 
 ```ruby
-# ~/turing/1module/classwork/objects_classes_and_instances/fridge.rb
+# ~/turing/1module/classwork/objects_classes_and_instances/unicorn.rb
 # Notice that `class` is lowercase while `NameOfClass` is UpperCamelCased.
 
-class Fridge
+class Unicorn
 end
 ```
 
@@ -94,20 +94,17 @@ In the same `objects_instances_and_classes` directory, let's create a `runner.rb
 
 ```ruby
 # ~/turing/1module/classwork/objects_classes_and_instances/runner.rb
-require './fridge'
+require './unicorn'
 
-fridge_1 = Fridge.new
-puts "Number 1: #{fridge_1}"
-
-fridge_2 = Fridge.new
-puts "Number 2: #{fridge_2}"
+unicorn_1 = Unicorn.new
+unicorn_2 = Unicorn.new
 
 require 'pry'; binding.pry
 ```
 
 We can run the `runner.rb` file from the command line if we are inside of our `objects_classes_and_instances` directory by typing the following: `ruby runner.rb`.
 
-When we run this file, our terminal should open up a pry session when it reads the line: `binding.pry`. Inside of that pry session, we'll type `fridge_1` and hit return to see what the variable `fridge_1` is holding. Then, we'll type `fridge_2` to see what that variable is holding.
+When we run this file, our terminal should open up a pry session when it reads the line: `binding.pry`. Inside of that pry session, we'll type `unicorn_1` and hit return to see what the variable `unicorn_1` is holding. Then, we'll type `unicorn_2` to see what that variable is holding.
 
 ## Turn & Talk
 
@@ -116,28 +113,23 @@ When we run this file, our terminal should open up a pry session when it reads t
 
 ## Attributes in Ruby Classes
 
-Above we created a Fridge class and then also created specific instances of the fridge class that we held in the variables `fridge_1` and `fridge_2`. Generally the objects we create will come from the same template, but each will be a unique object.
+Above we created a Unicorn class and then also created specific instances of the unicorn class that we held in the variables `unicorn_1` and `unicorn_2`. Generally the objects we create will come from the same template, but each will be a unique object.
 
-Think about the refrigerators here in the Turing basement.
-
-* M1 BE refrigerator
-* M1 FE refrigerator
-* Staff refrigerator
+Take a look at these unicorns.
 
 Each one is different in important ways. For example, each one has its own:
 
-* brand
+* name
 * color
-* temperature
 
 We can model these attributes in code by using *instance variables*. Generally we define these instance variables in a special method called `initialize` that is run every time a new instance of a class is created. Make sure to spell it correctly😬.
 
 ### Initialize
 
-When we run `Fridge.new` in Ruby, what actually happens? We can see from the last example that different Fridge objects (or instances) are created. Other than that, nothing happens. If we want some specific code to run when we first create a new Fridge, we need to tell Ruby what should happen when a new Fridge instance (or object) is created. We do this with the initialize method.
+When we run `Unicorn.new` in Ruby, what actually happens? We can see from the last example that different Unicorn objects (or instances) are created. Other than that, nothing happens. If we want some specific code to run when we first create a new Unicorn, we need to tell Ruby what should happen when a new Unicorn instance (or object) is created. We do this with the initialize method.
 
 ```ruby
-class Fridge
+class Unicorn
   def initialize
     #any code here will run each time a new instance is created
   end
@@ -149,9 +141,9 @@ end
 This method is run once and only once during an Object's lifetime, when we call `new`. Other than that, initialize is like any other method where we can put Ruby code:
 
 ```ruby
-class Fridge
+class Unicorn
   def initialize
-    puts "A new Fridge Object has been created"
+    puts "A new Unicorn object has been created"
   end
 end
 
@@ -162,47 +154,43 @@ end
 
 The instances of the classes we've defined so far are basically useless. Aside from their `object_id`, there is nothing unique about these instances.
 
-Remember, a class models *State* and *Behavior*. Let's give our refrigerator some state.
+Remember, a class models *State* and *Behavior*. Let's give our unicorn some state.
 
 ### Example - Attributes
 
-Let's add some attributes to the `Fridge` class. The `@` symbol before a variable name indicates that it is an *Attribute* or *Instance Variable*. These two terms mean the exact same thing.
+Let's add some attributes to the `Unicorn` class. The `@` symbol before a variable name indicates that it is an *Attribute* or *Instance Variable*. These two terms mean the exact same thing.
 
 ```ruby
-class Fridge
-  def initialize(brand_argument, color_argument, temperature_argument)
-    @brand       = brand_argument
-    @color       = color_argument
-    @temperature = temperature_argument
+class Unicorn
+  def initialize(name_parameter, color_parameter)
+    @name       = name_parameter
+    @color      = color_parameter
   end
 end
 ```
 
-Because Attributes are something we want to persist throughout an object's lifetime, we typically define them inside the initialize method because we want them to exist as soon as the object is created.
+Because attributes are something we want to persist throughout an object's lifetime, we typically define them inside the initialize method because we want them to exist as soon as the object is created.
 
-We have now created a method class that will allow us to create many different instances of Fridge, each one slightly different from the last. How do we do that in practice? Let's update the runner file so that it includes the following:
+We have now created a method class that will allow us to create many different instances of Unicorn, each one slightly different from the last. How do we do that in practice? Let's update the runner file so that it includes the following:
 
 ```ruby
-fridge_1  = Fridge.new("Maytag", "white", 36)
-puts "Number 1: #{fridge_1}"
+unicorn_1  = Unicorn.new("Sparkle", "rainbow")
 
-fridge_2   = Fridge.new("", "black", 40)
-puts "Number 2: #{fridge_2}"
+unicorn_2   = Unicorn.new("", "white")
 
 require 'pry'; binding.pry
 ```
 
-When we include the arguments to `.new`, Ruby will pass those arguments to the initialize method for us. Note that the arguments that we pass to `new` are order dependent. So, in the first example when we pass `"Maytag"` as the first argument, we are saying that the brand of the Fridge we are creating is Maytag. When we pass an empty string (`""`) the second time we call `new` we are saying that the Fridge that we created doesn't have a name brand.
+When we include the arguments to `.new`, Ruby will pass those arguments to the initialize method for us. Note that the arguments that we pass to `new` are order dependent. So, in the first example when we pass `"Sparkle"` as the first argument, we are saying that the name of the Unicorn we are creating is Sparkle. When we pass an empty string (`""`) the second time we call `new` we are saying that the Unicorn that we created doesn't have a name.
 
 What we have just done is a very common pattern. We gave our initialize method some arguments and we saved those arguments to instance variables. While this is a strong pattern, it is not a rule. For instance, you may want to set a variable in your initialize that has a default value that isn't set using an argument:
 
 ```ruby
-class Fridge
-  def initialize(brand, color, temperature)
-    @brand       = brand
-    @color       = color
-    @temperature = temperature
-    @contents    = []
+class Unicorn
+  def initialize(name, color)
+    @name            = brand
+    @color           = color
+    @magical_powers  = []
   end
 end
 ```
@@ -222,68 +210,61 @@ Generally, the way that we access information stored in a class is by *sending i
 Let's run our runner file again and check to see what this returns:
 
 ```ruby
-fridge_1.brand
+unicorn_1.name
 ```
 
-We should get an error that says something about the method `.brand` not existing (a `no method` error). The syntax here is correct, but we haven't told our `Fridge` class how to respond when it receives the message `brand`.
+We should get an error that says something about the method `.name` not existing (a `no method` error). The syntax here is correct, but we haven't told our `Unicorn` class how to respond when it receives the message `name`.
 
 We can do that with methods like the ones we've seen before, but attributes stored as instance variables are special. We can tell our class to provide access to them using attribute readers. Let's do that now.
 
 ### Example - Accessing Attributes
 
-Let's update our Fridge class to include the lines below.
+Let's update our Unicorn class to include the lines below.
 
 ```ruby
-class Fridge
+class Unicorn
 
-  def initialize(brand, color, temperature)
-    @brand       = brand
-    @color       = color
-    @temperature = temperature
-    @contents    = []
+  def initialize(name, color)
+    @name            = name
+    @color           = color
+    @magical_powers  = []
   end
 
-  def brand
-    @brand
+  def name
+    @name
   end
 
   def color
     @color
   end
 
-  def temperature
-    @temperature
-  end
-
-  def contents
-    @contents
+  def magical_powers
+    @magical_powers
   end
 end
 ```
 
-Let's run our runner file again and see if you can now call `fridge_1.brand`.
+Let's run our runner file again and see if you can now call `unicorn_1.name`.
 
-Now, I should be able to call `fridge_1.brand` and get back whatever was stored in the instance variable. But wow, this class is suddenly lengthy, harder to read, and has a lot of similar work happening. A method called `brand` returns `@brand`, `color` returns `@color`, etc. There's a cleaner way to do the same thing:
+Now, I should be able to call `unicorn_1.name` and get back whatever was stored in the instance variable. But wow, this class is suddenly lengthy, harder to read, and has a lot of similar work happening. A method called `name` returns `@name`, `color` returns `@color`, etc. There's a cleaner way to do the same thing:
 
 ```ruby
-class Fridge
-  attr_reader :brand,
+class Unicorn
+  attr_reader :name,
               :color,
-              :temperature,
-              :contents
+              :magical_powers
 
-  def initialize(brand, color, temperature)
-    @brand       = brand
-    @color       = color
-    @temperature = temperature
-    @contents    = []
+  def initialize(name, color)
+    @name              = name
+    @color             = color
+    @magical_powers    = []
   end
 end
 ```
 
-Let's run our runner file again and see if you can still call `fridge_1.brand` and the other attributes.
+Let's run our runner file again and see if you can still call `unicorn_1.brand` and the other attributes.
 
-An important thing to remember is that although there is a special syntax for creating `attr_reader`s, they are still just methods. Remember the error we got earlier was a **no method error** for `brand`.
+An important thing to remember is that although there is a special syntax for creating `attr_reader`s, they are still just methods. Remember the error we got earlier was a **no method error** for `name`.
 
 ### Partner Practice
 
@@ -292,16 +273,16 @@ An important thing to remember is that although there is a special syntax for cr
 
 ## Other Methods
 
-We can also create other methods that will allow us to send other messages to our Fridge class. For example, let's say we wanted to add eggs to our Fridge. We currently have a way to see what the `contents` of the Fridge are, but we don't have any way to _add_ to it. Let's do that by creating a method called `add_food` that will add a food to the `contents` array.
+We can also create other methods that will allow us to send other messages to our Unicorn class. For example, let's say we wanted to add a magical power to our unicorn. We currently have a way to see what magical powers our unicorn has, but we don't have any way to _add_ to it. Let's do that by creating a method called `add_power` that will add a power to the `magical_powers` array.
 
-Define an `add_food` method that allows you to put foods in your fridge. Note that we can access the `@contents` instance variable from anywhere within the class just by using the `@` symbol.
+Define an `add_power` method that allows you to give your unicorn another magical power. Note that we can access the `@magical_powers` instance variable from anywhere within the class just by using the `@` symbol.
 
 ```ruby
-class Fridge
+class Unicorn
 # ... attr_readers & initialize method
 
-  def add_food(food)
-    @contents << food
+  def add_power(power)
+    @magical_powers << power
   end
 
 end
@@ -309,10 +290,10 @@ end
 
 Let's update our runner file so that you:
 
-1. Create a new instance of Fridge.
-2. Print the contents of that Fridge.
-3. Add some food to the contents of the fridge using the method you just created. You can represent a food as a String.
-4. Print the new contents of the Fridge.
+1. Create a new instance of Unicorn.
+2. Print the magical powers of that Unicorn.
+3. Add a power for that Unicorn, using the method you just created. You can represent a power as a String.
+4. Print the new powers of the Unicorn.
 
 ### Partner Practice
 
@@ -325,41 +306,22 @@ When we build more complex programs, we typically have many classes, and the ins
 
 ### Example - Object Interaction
 
-Instead of representing food as a String, let's create a Food class to represent a food.
+Instead of representing power as a String, let's create a Power class to represent a power.
 
 ```ruby
-class Food
+class Power
   attr_reader :name,
-              :calories
+              :energy_required
 
-  def initialize(name, calories)
+  def initialize(name, energy_required)
     @name = name
-    @calories = calories
+    @energy_required = energy_required
   end
 end
 ```
 
-Let's update our runner file to add Food objects to the contents of your fridge.
+Let's update our runner file to add Power objects to your unicorn.
 
-Now let's add a method for a fridge to total the number of calories in the fridge:
-
-```ruby
-class Fridge
-# ... attr_readers & other methods
-
-  def total_calories
-    calories = 0
-
-    @contents.each do |food|
-      calories += food.calories
-    end
-
-    calories
-  end
-end
-```
-
-Update the runner file to call this method.
 
 ## Solo Practice
 

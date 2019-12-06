@@ -28,7 +28,7 @@ The project requirements are listed below:
 ## Technical Expectations
   * All endpoints will expect to return JSON data
   * All endpoints should be exposed under an `api` and version (`v1`)
-namespace (e.g. `/api/v1/merchants.json`)
+namespace (e.g. `/api/v1/merchants`)
   * JSON responses should include `ids` only for associated records unless otherwise indicated (that is, don't embed the whole associated record, just the id)
 * Prices are in cents, therefore you will need to transform them in dollars. (`12345` becomes `123.45`)
   * Remember that for a JSON string to be valid, it needs to contain a key and a value.
@@ -283,16 +283,16 @@ _NOTE_: All revenues should be reported as a float with two decimal places.
 It's expected that you limit your controller actions to only the standard Rails actions.
 For endpoints such as `GET /api/v1/merchants/find?parameters` the initial thought might be to do something like this:
 
-```
+```ruby
 module Api
-module V1
-class MerchantsController
-# code omitted
-def find
-# code omitted
-end
-end
-end
+  module V1
+    class MerchantsController
+      # code omitted
+      def find
+        # code omitted
+      end
+    end
+  end
 end
 ```
 
@@ -300,17 +300,17 @@ This approach can lead to large controllers. For more info on the reasons why, c
 
 Instead try something like this which adheres to the above approach of only using RESTful actions:
 
-```
+```ruby
 module Api
-module V1
-module Merchants
-class SearchController
-def show
-# code omitted
-end
-end
-end
-end
+  module V1
+    module Merchants
+      class SearchController
+        def show
+        # code omitted
+        end
+      end
+    end
+  end
 end
 ```
 
@@ -318,7 +318,7 @@ end
 
 #### Milestones
 
-The organization of this project spec is by feature type. However, much of the unfamiliar or more difficult work is in the business intelligence portion of the project. To the degree possible instructors encourage you to use an agile approach to completing this assignment. Furthermore, we encourage you review the work and develop estimated milestones before you begin. **Any good set of milestones will allow for some slippage before the project is due.**
+The organization of this project spec is by feature type. However, much of the unfamiliar or more difficult work is in the business intelligence portion of the project. To the degree possible instructors encourage you to use an agile approach to completing this assignment. Furthermore, we encourage you to review the work and develop estimated milestones before you begin. **Any good set of milestones will allow for some slippage before the project is due.**
 
 There is an Advanced ActiveRecord class scheduled for Wednesday. We *highly* encourage you to have attempted some of the business intelligence queries before that class.
 

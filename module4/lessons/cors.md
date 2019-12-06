@@ -1,4 +1,7 @@
-# CORS
+---
+title: Intro to CORS
+layout: page
+---
 
 ## Learning Goals
 * Define CORS
@@ -36,7 +39,7 @@ The server will need to be setup to handle requests coming from different origin
 
 ![Express CORS Example](../lessons/assets/Express_CORS.png)
 
-In this example, `res.header('Access-Control-Allow-Origin', '*')`, the access control is open to any origic because it is set to `'*'`, which means _any_ origin is acceptable. To be more secure the `Access-Control-Allow-Origin` should be set to only accept requests from trusted domains. You can provide a list of domains if there are more than one. 
+In this example, `res.header('Access-Control-Allow-Origin', '*')`, the access control is open to any origin because it is set to `'*'`, which means _any_ origin is acceptable. To be more secure the `Access-Control-Allow-Origin` should be set to only accept requests from trusted domains. You can provide a list of domains if there are more than one. 
 
 On the next line, `res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,PATCH,OPTIONS');`, the accepted request methods are being defined. It is possible to restrict to as few or as many methods as you want to allow. 
 

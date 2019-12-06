@@ -21,7 +21,7 @@ length: 60
 ## Warm Up
 
 With your partner, look over the test file you have printed out, and answer the following questions:
-- For each test (between `def` and `end`), what is the name of the test? 
+- For each test (between `def` and `end`), what is the name of the test?
 - For each test (between `def` and `end`), what piece of functionality does that tell you this class has? The first two are answered/annotated for you, it's your job to jot down notes for the remaining tests.
 - Now, look back at your notes and the name of each test. Does the naming appropriately explain what the test tests?
 - How would you explain, in 1-2 sentences, what the House class does?
@@ -69,6 +69,65 @@ Especially when you move into web development projects in later modules you'll r
 In Module 1, on the other hand, we will rely much more heavily on **Unit** and **Integration** tests -- and it's very
 important to have a good mix of both!
 
+### Ensuring Dynamic Functionality
+
+We should make sure that all of our methods can handle different cases, ensuring that our implementation code is dynamic, e.g.:
+
+```ruby
+class Round
+  def initialize(deck)
+    @deck = deck
+  end
+
+  def current_card
+    @deck.cards.first
+  end
+end
+```
+
+```ruby
+# round_test.rb
+require 'minitest'
+require 'minitest/autorun'
+require 'minitest/pride'
+
+class RoundTest < Minitest::Test
+  def test_current_card
+     assert_equal @deck.cards.first, @round.current_card
+  end
+end
+```
+
+Turn and Talk: what might be the pitfalls in a test like this?  How could we improve the test?
+
+### Testing Edge Cases
+
+* Ensure that your implementation code can handle things we might not expect, e.g.:
+
+```ruby
+class Calculator
+  def divide(num1, num2)
+    num1 / num2
+  end
+end
+```
+
+```ruby
+# calculator_test.rb
+require 'minitest'
+require 'minitest/autorun'
+require 'minitest/pride'
+
+class CalculatorTest < Minitest::Test
+  def test_divide
+     calculator = Calculator.new
+
+     assert_equal 2, calculator.divide(8,4)
+  end
+end
+```
+Turn and Talk: what might be the pitfalls in a test like this?  How could we improve the test (and thus the behavior of our calculator?)
+
 ## Implementation
 
 ### Example
@@ -89,23 +148,21 @@ car.drive
 
 ### Partner Practice
 
-Given the following interaction pattern, write a test file for this (not yet existent) class, Car.
+Given the following interaction pattern, write a test file for this (not yet existent) class, Student.
 
 ```ruby
-> car = Car.new("Toyota", "Camry")
-=> #<Car:0x007fa2e9acd738>
-car.make
-=> "Toyota"
-car.model
-=> "Camry"
-car.color
-=> "white"
+> student = Student.new("Jesse")
+=> #<Student:0x007fa2e9acd738>
+student.name
+=> "Jesse"
+student.mod
+=> "1"
+student.skills
+=> []
 
-car.drive
-=> "The Camry is driving"
+student.say_mod
+=> "I'm in Mod 1"
 
-car.stop
-=> "The Camry has stopped"
 ```
 
 ## Command vs. Query Methods
@@ -117,62 +174,91 @@ Methods either do one of two things for us:
 When testing, it's really important to keep in mind what a method should be doing, to ensure we test it well. Stepping out of TDD just for a minute so we can illustrate this, let's look at this example:
 
 ```ruby
-class Car
-  attr_reader :make, :model, :engine_on
+class Student
+  attr_reader :name, :mod
 
-  def initialize(make, model)
-    @make = make
-    @model = model
-    @engine_on = false
+  def initialize(name_parameter, mod_parameter)
+    @name = name_parameter
+    @mod = mod_parameter
   end
 
-  def start
-    @engine_on = true
+  def say_mod
+    "I'm in Mod 1"
   end
-
 end
 ```
 
 Discuss with your partner:
 - What are all the methods we have on an instance of this class?
-- Which methods give us information about a car object?
-- Which methods change something about a car object?
-- How would you go about testing that the `start` method does what it is supposed to?
+- Which methods give us information about a student object?
+- Which methods change something about a student object?
+- How would you go about testing that the `say mod` method does what it is supposed to?
 
 To make sure we're all the same page, let's write this test together.
 
 ### Partner Practice
 
-Given the following interaction pattern, build on your test file for this (not yet existent) class, Car.
+Given the following interaction pattern, build on your test file for this class.
 
 ```ruby
-car = Car.new("Toyota", "Camry")
-#=> #<Car:0x007fa2e9acd738>
+> student = Student.new("Sophocles")
+=> #<Student:0x007fa2e9acd738>
 
-car.color
-#=> "white"
-car.paint("blue")
-car.color
-#=> "blue"
-car.odometer
-#=> 0
-car.drive(10)
-car.drive(7)
-car.odometer
-# => 17
+student.name
+=> "Sophocles"
+
+student.mod
+=> "1"
+
+student.skills
+=> []
+
+student.say_mod
+=> "I'm in Mod 1"
+
+student.learn("testing")
+
+student.skills
+=> ["testing"]
+
+student.promote
+
+student.say_mod
+=> "I'm in Mod 2"
+
 ```
-
 Be ready to share your code with the rest of class!
 
 ### With a Partner
 
 You will not always have interaction patterns to guide your testing. In these cases, you'll need to decide for yourself what you'll name the methods and how you'll decide to implement its functionality.
 
-You are planning to create a `Mechanic` class. The mechanic has a name and a shop they work at. The primary responsibility of a mechanic is to take a list of cars and determine which of those cars is due for an oil change (greater than 3,000 miles).
+You are planning to create an `Instructor` class. The instructor has a name, a mod they teach, and a class of students. The primary responsibility of a mechanic is to take a class of students and teach those students a skill.
 
-Write a series of tests and THEN create a Mechanic class.
+Write a series of tests and THEN create an Instructor class.
+
+*Extra Challenge:*
+
+- An instructor's class could have students from different mods (why? I don't know, tbh...). An instructor should only be able to teach the students in _their_ mod a skill.
+
+- For an instructor, calculate the percentage of students in their class who know a given skill.
+
+* TESTS FIRST*
 
 Share out with the class!
+
+
+## Exercise: TDD Calculator
+
+- Build a calculator class from scratch using TDD
+- Start with whiteboarding and pseudocode
+- Write pseudocode in the test file first for a few methods
+- Your calculator should be able to handle the following methods:
+  - .new
+  - #total
+  - #add
+  - #clear
+  - #subtract
 
 ### Wrap Up
 

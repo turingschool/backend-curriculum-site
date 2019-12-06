@@ -9,17 +9,12 @@ Promoted students will demonstrate proficiency in the material outlined in the [
 
 ## Projects
 
-* Week 1 Solo Project (completed, but not assessed)
+* Week 1 Solo Project 
 * Week 2 - 3 Paired Project
 * Week 4 - 5 Group Project
 * Week 6 Final Solo Project
 
-In order to be promoted, students must receive a passing grade on:
-
-* The Final Solo Project
-* **either** the Paired Project or the Group Project.
-
-For more info, see the [projects page](../projects)
+All projects are graded 
 
 ## Final Technical Assessment
 

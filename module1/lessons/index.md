@@ -34,7 +34,7 @@ title: Module 1 Lessons
 * [Programming with Values](./programming_with_values)
 
 ### Testing
-* [How Testing Works](./how_testing_works)
+* [Intro to Testing](./intro_to_testing)
 * [Test Driven Development](./test_driven_development)
 * [Mocks and Stubs](./mocks_stubs)
 
@@ -46,3 +46,9 @@ title: Module 1 Lessons
 * [Git and Github](./git_and_github)
 * [Git Review](./git_review)
 * [Git for Pairs](./git_for_pairs)
+
+### Exploration
+* [CSV Exploration](./csv_exploration)
+
+### Good Practices & Process
+* [Productive Struggle](./productive_struggle)

@@ -40,11 +40,11 @@ Project management will also be required. It is one of the most essential elemen
 
 ### Presentation and Defense
 
-- 4: Developer satisfies all criteria below in section three. Presentation is in line with one that would be presented during a demo competition. This includes slides that focus on their story, passion, and clarity in decision making.
+- 4: Developer satisfies all criteria below in section three. Presentation is in line with one that would be presented during a demo competition. This includes slides that focus on their story, passion, and clarity in decision making. It should include both slides and live coding in production only.
 
-- 3: Developer clearly presents their individual process and approach to how they completed the project. Developer comes to evaluation with a prepared presentation. Developer shares the pros and cons of their decision making for the duration of the project.
+- 3: Developer clearly presents their individual process and approach to how they completed the project. Developer comes to evaluation with a prepared presentation that is at least 10 minutes in length and include live coding or slides. Developer shares the pros and cons of their decision making for the duration of the project.
 
-- 2: With several prompts, the developer was able to speak to their development and decision making process. Developer was unable to defend their decisions with solid rational.
+- 2: With several prompts by the instructor, the developer was able to speak to their development and decision making process. Developer was unable to defend their decisions with solid reasoning. Slides do not clearly communicate the project, or live coding is not on production.
 
 - 1: Developer comes to evaluation unprepared with a structured presentation. Developer has a difficult time communicating their process.
 

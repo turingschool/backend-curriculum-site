@@ -11,7 +11,6 @@ title: HTML and CSS
   - Understand difference between block and inline elements
   - Understand difference between class and id selectors
   - Understand how to add CSS to our apps
-  - Introduce BootStrap
 
 ## Vocabulary
   - HTML

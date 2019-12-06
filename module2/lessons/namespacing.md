@@ -37,11 +37,28 @@ Let's create an app for CRUDding some cats. Yes, it sounds weird. Yes, it is wei
 rails new cats -T -d="postgresql" --skip-spring --skip-turbolinks
 ```
 
-### Resource Routes Recap:
+### Routes Recap:
 
-Let's add some resource routes to our `routes.rb` for `cats`.
+Let's add some routes to our `routes.rb` for `cats` that will show all cats, show one cat, delete a cat, and edit a cat.
 
-![Resources Cats](http://i.imgur.com/efXfyNW.png)
+```ruby
+    get '/cats', to: 'cats#index'
+    get '/cats/:id', to: 'cats#show'
+    patch '/cats', to: 'cats#update'
+    get '/cats/edit', to: 'cats#edit'
+    delete '/cats/:id', to: 'cats#destroy'
+```
+
+At this point, when we run `rake routes`, we get the following: 
+
+```ruby 
+   Prefix Verb   URI Pattern          Controller#Action
+     cats GET    /cats(.:format)      cats#index
+          GET    /cats/:id(.:format)  cats#show
+          PATCH  /cats(.:format)      cats#update
+cats_edit GET    /cats/edit(.:format) cats#edit
+          DELETE /cats/:id(.:format)  cats#destroy
+```
 
 ### Distinguishing Routes
 
@@ -62,14 +79,25 @@ What can we do?
 
 ```ruby
 	# config/routes.rb
+        get '/cats', to: 'cats#index'
+        get '/cats/:id', to: 'cats#show'
 	scope :admin do
-	  resources :cats
+	      patch '/cats', to: 'cats#update'
+   	      get '/cats/edit', to: 'cats#edit'
+    	      delete '/cats/:id', to: 'cats#destroy'
 	end
 ```
 
 Adding `scope` to our routes gives us the following when we run `rake routes`:
 
-![Scope 150%](http://i.imgur.com/O10zMLa.png)
+```ruby 
+   Prefix Verb   URI Pattern                Controller#Action
+     cats GET    /cats(.:format)            cats#index
+          GET    /cats/:id(.:format)        cats#show
+          PATCH  /admin/cats(.:format)      cats#update
+cats_edit GET    /admin/cats/edit(.:format) cats#edit
+          DELETE /admin/cats/:id(.:format)  cats#destroy
+```
 
 ### Potential Problems with **scope**
 
@@ -80,14 +108,24 @@ We want both `/admin/cats` and `/cats` to be handled by our controllers in diffe
 ### Scope and Module
 
 ```ruby
+	get '/cats', to: 'cats#index'
+        get '/cats/:id', to: 'cats#show'
 	scope :admin, module: :admin do
-	 resources :cats
+	 patch '/cats', to: 'cats#update'
+   	 get '/cats/edit', to: 'cats#edit'
+    	 delete '/cats/:id', to: 'cats#destroy'
 	end
 ```
 
 If we have `scope` with `module` in our routes, we will get the following `rake routes` output:
 
-![Scope-Module 150%](http://i.imgur.com/GvKOhiv.png)
+```ruby 
+     cats GET    /cats(.:format)            cats#index
+          GET    /cats/:id(.:format)        cats#show
+          PATCH  /admin/cats(.:format)      admin/cats#update
+cats_edit GET    /admin/cats/edit(.:format) admin/cats#edit
+          DELETE /admin/cats/:id(.:format)  admin/cats#destroy
+```
 
 By using `module`, Rails looks for our controller in a different place.
 
@@ -118,14 +156,26 @@ As you may have noticed, we don't have any path helpers that are specific to thi
 ### `scope`, `module` and `as`
 
 ```ruby
+	get '/cats', to: 'cats#index'
+    	get '/cats/:id', to: 'cats#show'
 	scope :admin, module: :admin, as: :admin do
-	 resources :cats
+         patch '/cats', to: 'cats#update'
+   	 get '/cats/edit', to: 'cats#edit'
+    	 delete '/cats/:id', to: 'cats#destroy'
 	end
 ```
 
 Let's run `rake routes` once again!
 
-![Scope-Module-As 150%](http://i.imgur.com/eY5o0wx.png)
+
+```ruby 
+         Prefix Verb   URI Pattern                Controller#Action
+           cats GET    /cats(.:format)            cats#index
+                GET    /cats/:id(.:format)        cats#show
+     admin_cats PATCH  /admin/cats(.:format)      admin/cats#update
+admin_cats_edit GET    /admin/cats/edit(.:format) admin/cats#edit
+          admin DELETE /admin/cats/:id(.:format)  admin/cats#destroy
+```
 
 So what does using `scope`, `module`, and `as` provide for us?
 
@@ -144,16 +194,24 @@ _Rad!_
 Update the routes file to the following:
 
 ```ruby
+	get '/cats', to: 'cats#index'
+    	get '/cats/:id', to: 'cats#show'
 	namespace :admin do
-	 resources :cats
+	 patch '/cats', to: 'cats#update'
+   	 get '/cats/edit', to: 'cats#edit'
+    	 delete '/cats/:id', to: 'cats#destroy'
 	end
 ```
 
 vs
 
 ```ruby
+        get '/cats', to: 'cats#index'
+    	get '/cats/:id', to: 'cats#show'
 	scope :admin, module: :admin, as: :admin do
-	 resources :cats
+	 patch '/cats', to: 'cats#update'
+   	 get '/cats/edit', to: 'cats#edit'
+    	 delete '/cats/:id', to: 'cats#destroy'
 	end
 ```
 

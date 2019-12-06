@@ -54,7 +54,6 @@ Based on the application you created last Thursday during evals:
 
 # 2. Start a New Rails App
 
-
 ---
 
 # 3. Authenticate User on GitHub

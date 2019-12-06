@@ -7,30 +7,36 @@ layout: page
 
 * [How the Web Works I: HTTP Request/Response Cycle](./how_the_web_works_http)
 * [How the Web Works II: Request/Response Anatomy](./request_response_anatomy)
-* [How the Web Works, DNS Edition](../misc/lessons/how_the_web_works_dns)
+* [How the Web Works III: HTTP Yeah You Know Me Part I](./http_yykm_1)
+* [How the Web Works IV: HTTP Yeah You Know Me Part II](./http_yykm_2)
+* [How the Web Works, DNS Edition](./how_the_web_works_dns)
 * [REST & CRUD](./restful_routes_and_crud)
 
 ## Rails Application Development
 
+* [Intro to MVC](./intro_to_mvc)
 * [Handling Requests](./handling_requests)
 * [ActiveRecord Associations](./active_record_associations)
-* [Intro to MVC](./intro_to_mvc)
 * [Passing Data in Rails](./passing_data_in_rails)
 * [MVC in Action](./mvc_in_action)
-* [Route Helpers in Rails](./route_helpers)
 * [Nested Resources in Rails](./nested_resources)
-* [Namespacing Routes in Rails](./namespacing)
-* [Cookies and Sessions in Rails](./cookies_sessions_in_rails)
 * [Exploration: Sessions, Cookies and Flash Messages](../misc/sessions_cookies_and_flashes)
-* [Authentication](./authentication)
-* [Authorization](./authorization)
+* [Cookies and Sessions in Rails](./cookies_sessions_in_rails)
 * [Cart & Order Lifecycle](./cart_implementation)
 * [Partials](./partials)
+* [Authentication](./authentication)
+* [Namespacing Routes in Rails](./namespacing)
+* [Authorization](./authorization)
+* [Rails Resources](./rails_resources)
+* [.form_for](./form_for)
+
+
 
 ## ActiveRecord
 
 * [ActiveRecord Associations](./active_record_associations)
 - [SQL and ActiveRecord](./sql_and_active_record)
+- [SQL and ActiveRecord Workshop](./sql_and_ar_workshop)
 
 ## Databases
 

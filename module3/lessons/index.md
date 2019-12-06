@@ -9,8 +9,10 @@ layout: page
 
 ## Consuming APIs
 
-* [Consuming APIs: Part 1](../lessons/consuming_an_api_part_1)
-* [Consuming APIs: Part 2](../lessons/consuming_an_api_part_2)
+* [Intro to Postman and Faraday](../lessons/intro_to_postman_and_faraday_alex)
+* [Consuming APIs](./consuming_an_api_part_1)
+* [Testing API Consumption](./consuming_an_api_part_2)
+* [Refactoring API Consumption](./refactoring_api_consumption)
 * [Getting Started with OAuth](../lessons/getting_started_with_oauth)
 
 ## Exposing APIs
@@ -20,7 +22,7 @@ layout: page
 
 ## ActiveRecord
 
-* [Advanced ActiveRecord](../lessons/advanced_activerecord_redux)
+* [Advanced ActiveRecord](../lessons/advanced_activerecord)
 
 ## Optimization
 
@@ -28,7 +30,6 @@ layout: page
 * [Getting Started with Workers](../lessons/intro_to_background_workers)
 * [Optimization Dojo](../lessons/performance_dojo)
 * [Caching Strategies in Rails](../lessons/caching_in_rails)
-* [Application Coordination with Messaging Queues](../lessons/application_coordination_with_message_queues)
 
 ## Security
 
@@ -36,12 +37,16 @@ layout: page
 
 ## JavaScript
 
-* [Introduction to JavaScript](../lessons/babbys_first_javascript)
+* [Introduction to JavaScript](../lessons/intro_to_javascript)
 * [jQuery DOM Traversal and Manipulation](../lessons/jquery_and_dom)
 * [Intro to Fetch](../lessons/getting_started_with_fetch)
 
-## Other
+## Email
+
+* [Sending Email](../lessons/sending_email_v2)
+
+## Additional Resources
 
 * [Intro to Professional Workflow](../lessons/intro_to_professional_workflow)
 * [Presenters and Decorators](../lessons/presenters_and_decorators)
-* [Sending Email](../lessons/sending_email_v2)
+* [Application Coordination with Messaging Queues](../lessons/application_coordination_with_message_queues)

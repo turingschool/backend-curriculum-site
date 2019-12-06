@@ -222,7 +222,7 @@ $ git push heroku master
 $ heroku run rake db:migrate
 ```
 
-Now, let's walk through the [SendGrid/Heroku Docs](https://devcenter.heroku.com/articles/sendgrid#ruby), scroll down to the 'ActionMailer' section
+Now, let's walk through the [SendGrid/Heroku Docs](https://devcenter.heroku.com/articles/sendgrid#actionmailer). Notice this link takes us to the `ActionMailer` section. You can send email using the SendGrid Ruby gem but we'll be using `ActionMailer` in combination with the gem. Make sure the documentation you are referencing is specific to `ActionMailer`.
 
 Some stuff to copy and paste:
 

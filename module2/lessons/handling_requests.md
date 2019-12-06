@@ -50,12 +50,12 @@ Want to know more about REST? Check out [this video](https://www.youtube.com/wat
 Let's create a whole new Rails app. We're going to use this codebase for the rest of the inning in mod 2.
 
 ```bash
-$ rails new set_list -T -d="postgresql" --skip-spring --skip-turbolinks
+$ rails new set_list -T --database=postgresql --skip-spring --skip-turbolinks
 $ cd set_list
 ```
 
 - `-T` - rails has minitest by default, when this flag is used, `gem 'minitest'` will not be in the Gemfile
-- `-d="postgresql"` - by default, Rails uses `sqlite3`. We want to tell it to use `postgresql` instead because platforms we use for deploying our projects will expect to use a PostgreSQL database.
+- `--database=postgresql` - by default, Rails uses `sqlite3`. We want to tell it to use `postgresql` instead because platforms we use for deploying our projects will expect to use a PostgreSQL database.
 - `--skip-spring` - Spring is a Rails application preloader. It speeds up development by keeping your application running in the background so you don't need to boot it every time you run a test, rake task or migration but it benefits more advanced developers the most. We are going to not include it in our Gemfile.
 - `--skip-turbolinks` - Enables faster page loading by using AJAX call behind the scenes but has some nasty/subtle edge cases where your app will not work as expected. For those reasons, we don't enable it by default.
 
@@ -198,7 +198,7 @@ $ mkdir spec/features/songs
 Finally, create your test file:
 
 ```bash
-$ touch spec/features/songs/index_spec.rb
+$ touch spec/features/songs/user_can_see_all_songs_spec.rb
 ```
 
 The names of the files you create for feature testing MUST end in `_spec.rb`. Without that 'spec' part of the filename, RSpec will completely ignore the file.
@@ -211,22 +211,26 @@ You can group your test files into subfolders to organize them in a similar form
 /spec
 /spec/features
 /spec/features/songs
-/spec/features/songs/index_spec.rb # all tests about the index page
-/spec/features/songs/show_spec.rb  # all tests about the show page
+/spec/features/songs/user_can_see_all_songs_spec.rb 
+/spec/features/songs/user_can_see_one_song_spec.rb
 etc
 ```
 
 ## Writing the Test
 
-Inside our `index_spec.rb`:
+Inside our `user_can_see_all_songs_spec.rb `:
 
 ```ruby
-require "rails_helper"
+require 'rails_helper'
 
 RSpec.describe "songs index page", type: :feature do
-  it "user can see all songs" do
-    song_1 = Song.create(title: "Don't Stop Believin'", length: 303, play_count: 123456)
-    song_2 = Song.create(title: "Never Gonna Give You Up", length: 253, play_count: 987654321)
+  it "can see all songs titles and play count" do
+    song_1 = Song.create(title:       "I Really Like You",
+                         length:      208,
+                         play_count:  243810867)
+    song_2 = Song.create(title:       "Call Me Maybe",
+                         length:      199,
+                         play_count:  1214722172)
 
     visit "/songs"
 
@@ -236,6 +240,7 @@ RSpec.describe "songs index page", type: :feature do
     expect(page).to have_content("Play Count: #{song_2.play_count}")
   end
 end
+
 ```
 
 # Developing the Index Page
@@ -252,10 +257,10 @@ ActiveRecord::NoDatabaseError:
 Currently, our database does not exist. In order to create your database, run:
 
 ```bash
-rake db:create
+rails db:create
 ```
 
-Running Rspec again gives me this error `Uninitialized Constant Song`.
+Running RSpec again gives me this error `Uninitialized Constant Song`.
 
 Since this is happening on a line of code that does `Song.create` that tells us that we don't have a `Song` model, so let's go make one.
 
@@ -331,7 +336,7 @@ create_table :songs do |t|
 end
 ```
 
-We have written the instructions for our database but haven't executed those instructions. Run `rake db:migrate`.
+We have written the instructions for our database but haven't executed those instructions. Run `rails db:migrate`.
 
 Our Database should be good to go.
 
@@ -505,10 +510,10 @@ Why don't we have any data on our page even though we created data in our test?
 Run `rails console` or `rails c` form the command line. The Rails Console allows us to interact with our app directly in Development. Let's add some songs and start the server again to see our songs!
 
 ```ruby
-Song.create(title: "Don't Stop Believin'", length: 251, play_count: 760847)
-Song.create(title: "Don't Worry Be Happy", length: 280, play_count: 65862)
-Song.create(title: "Chicken Fried", length: 183, play_count: 521771)
-Song.create(title: "Radioactive", length: 10000, play_count: 623547)
+Song.create(title: "I Really Like You", length: 209, play_count: 760847)
+Song.create(title: "Call Me Maybe", length: 199, play_count: 65862)
+Song.create(title: "Run Away With Me", length: 253, play_count: 521771)
+Song.create(title: "Party For One", length: 269, play_count: 623547)
 ```
 
 ## Checks for Understanding

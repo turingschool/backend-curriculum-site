@@ -164,7 +164,7 @@ When using a `where` in AR, you can use **keyword arguments** to specify a colum
 Our second example, however, is a bit different:
 
 ```ruby
-Song.where("length > 200")
+Song.where("length > 90")
 => #<ActiveRecord::Relation [#<Song id: 1, title: "Don't Stop Believin'", length: 251, play_count: 760847, created_at: "2019-04-22 22:22:00", updated_at: "2019-04-22 22:22:00">, #<Song id: 2, title: "Don't Worry Be Happy", length: 280, play_count: 65862, created_at: "2019-04-22 22:22:00", updated_at: "2019-04-22 22:22:00">, #<Song id: 4, title: "Radioactive", length: 10000, play_count: 623547, created_at: "2019-04-22 22:22:01", updated_at: "2019-04-22 22:22:01">]>
 ```
 

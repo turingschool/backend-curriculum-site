@@ -4,6 +4,8 @@ length: 60
 tags: javascript, introduction, foundation, variables
 ---
 
+
+
 ## Learning Goals
 
 In this lesson we'll cover:
@@ -13,6 +15,8 @@ In this lesson we'll cover:
 * Operators and how to use them
 * Conditionals and when to use them
 * How to declare and call functions with or without parameters
+
+[slides](../slides/intro_to_javascript_alex_dione.md)
 
 ## History of JavaScript
 

@@ -9,8 +9,10 @@ The following projects will be assigned and their completion is required to be p
 
 * Week 1 (independent): [Flashcards](./flashcards)
 * Week 2 - 3 (paired): [Battleship](./battleship)
-* Week 4 - 5 (group): [Cross-Check](./cross_check)
+* Week 4 - 5 (group): [Futbol](./futbol)
 * Week 6 (independent): [Enigma](./enigma)
+
+[Project Reflection Template](./project_reflection_template)
 
 ## Extension Projects
 

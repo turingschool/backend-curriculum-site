@@ -67,10 +67,6 @@ Academic success in B3 means that students demonstrate proficiency and comfort w
 * Students compose advanced ActiveRecord queries to analyze information stored in SQL databases.
 * Students utilize and debug the Rails asset pipeline locally and in production.
 
-### JavaScript in the Browser
-
-* Students are able to use jQuery to traverse and manipulate the DOM.
-
 ### PostgreSQL & SQL
 
 * Students write basic SQL statements without the assistance of an ORM.
@@ -100,6 +96,7 @@ Academic success in B3 means that students demonstrate proficiency and comfort w
 ### JavaScript in the Browser
 
 * Students are able to make API calls using `fetch` calls.
+* Students are able to use jQuery to traverse and manipulate the DOM.
 
 ### PostgreSQL & SQL
 

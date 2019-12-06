@@ -8,7 +8,7 @@ title: MVC in Action
 * In small groups, Diagram the MVC workflow and how each part relates to the others.
   - include which logic area belongs to each of the parts of MVC.
   - each area should have examples of what responsibilities should live there.
-  - bonus: include file names for each area from your Laugh Tracks project
+  - bonus: include file names for each area from your mini shop project
 
 * Gallery!
   - Post the diagrams around the room and circulate, discussing differences and similarities between diagrams.
@@ -23,7 +23,7 @@ For each of the code snippets below, identify where we are breaking MVC logic co
 ```ruby
 class Comedian < ApplicationRecord
   def self.average_age
-    average(:age).round(2)
+    "#{average(:age).round(2)} Years"
   end
 end
 ```
@@ -56,7 +56,7 @@ end
 
 ## Peer Code Review
 
-In pairs or small groups, review each other's Laugh Tracks projects.  Help each other identify places where there are MVC infractions similar to the infractions in the code snippets above.
+In pairs or small groups, review each other's mini shop projects.  Help each other identify places where there are MVC infractions similar to the infractions in the code snippets above.
 
 For additional guidance you can consider the following rules:
 

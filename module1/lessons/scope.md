@@ -52,7 +52,7 @@ Remember, the key to understanding how the local variable will behave is that **
 
 ## Exploration - Part 1
 
-Work through the following examples with a partner. For each example, copy and paste the code into a repl.it file rather than typing it to save time. Take a moment to examine the code individually, and then discuss with your partner what you think the output will be. Once you've had a moment to discuss, run the code and check your predictions. If your predictions were right or wrong, make sure to take a minute and try to make sense of and explain why the outcome was what it was.
+Work through the following examples with a partner. For each example, copy and paste the code into a playground.rb file rather than typing it to save time. Take a moment to examine the code individually, and then discuss with your partner what you think the output will be. Once you've had a moment to discuss, run the code and check your predictions. If your predictions were right or wrong, make sure to take a minute and try to make sense of and explain why the outcome was what it was.
 
 Remember, what is important here is that you get a feel for where variables are available to you. You don't need to be able to quote the intricacies of scope verbatim. Some of these examples get weird and do things that you just shouldn't do... but we're going to do them and see what happens.
 
@@ -123,7 +123,7 @@ Every time you create a class, method, or block you create a new **scope**. Anyt
 
 ## Exploration - Part 2
 
-#### Example 4
+#### Example 6
 
 ```ruby
 def print_variable
@@ -134,7 +134,7 @@ print_variable
 puts x
 ```
 
-#### Example 5
+#### Example 7
 
 ```ruby
 def print_variable
@@ -145,7 +145,7 @@ end
 print_variable
 ```
 
-#### Example 6
+#### Example 8
 
 ```ruby
 def print_variable
@@ -157,7 +157,7 @@ x = 2
 print_variable
 ```
 
-#### Example 7
+#### Example 9
 
 ```ruby
 def print_variable
@@ -203,7 +203,7 @@ x = 10
 
 ## Exploration - Part 3
 
-#### Example 8
+#### Example 10
 
 ```ruby
 def print_variable(x)
@@ -213,7 +213,7 @@ end
 print_variable(4)
 ```
 
-#### Example 9
+#### Example 11
 
 ```ruby
 def print_variable(x)
@@ -224,7 +224,7 @@ x = 4
 print_variable(x)
 ```
 
-#### Example 10
+#### Example 12
 
 ```ruby
 def print_variable(x)
@@ -235,7 +235,7 @@ print_variable(2)
 puts x
 ```
 
-#### Example 11
+#### Example 13
 
 ```ruby
 def print_variable(x)
@@ -265,7 +265,7 @@ Arguments allow us to pass data between scopes.
 
 ## Exploration - Part 4
 
-#### Example 12
+#### Example 14
 
 ```ruby
 numbers = [1,2,3]
@@ -277,7 +277,7 @@ end
 p total
 ```
 
-#### Example 13
+#### Example 15
 
 ```ruby
 numbers = [1,2,3]
@@ -290,7 +290,7 @@ end
 p pizza
 ```
 
-#### Example 14
+#### Example 15
 
 ```ruby
 numbers = [1,2,3]
@@ -302,7 +302,7 @@ end
 p number
 ```
 
-#### Example 15
+#### Example 17
 
 ```ruby
 numbers = [1,2,3]
@@ -312,7 +312,7 @@ numbers.each do |number|
 end
 ```
 
-#### Example 16
+#### Example 18
 
 ```ruby
 numbers = [1,2,3]
@@ -322,7 +322,7 @@ numbers.each do |number|
 end
 ```
 
-#### Example 17
+#### Example 19
 
 ```ruby
 numbers = [1,2,3]

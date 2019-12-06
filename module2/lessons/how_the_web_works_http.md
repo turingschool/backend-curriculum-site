@@ -1,5 +1,5 @@
 ---
-title: How the Web Works, HTTP Request/Response
+title: How the Web Works, HTTP Request/Response Cycle
 length: 60
 tags: http, servers
 ---
@@ -7,31 +7,78 @@ tags: http, servers
 ### Learning Goals
 
 * Define the 'Vocabulary' of the web
-* Describe the Request/Response Cycle
+* Describe the Request/Response Cycle at a high level
+* Describe the parts of a URL
 * Explain Verb/Path combinations
+* Describe the 5 common HTTP verbs
 
-### Vocab
+### Vocabulary
 
 * Client
 * Server
 * URL
 * URI
+* User
 * Request
 * Response
 * HTTP
 * Verb
 * Path
 
+## What is the Internet?
 
-## Client and Server
+The internet, which for most people is the web...how does that work?
 
-The basis of all web interactions is someone asking for information, and receiving information. In order to ask for and receive any information, we need two players - the asker and the producer. In basic web interactions, the 'asker' is a **client** and the 'producer' is a **server**.
+The basis of all web interactions is someone asking for information, and receiving information. In order to ask for and receive any information, we need two players - the asker and the producer. In basic web interactions, the 'asker' is a **client** and the 'producer' is a **server**. Clients send **Requests** to Servers asking for some kind of information. Upon receiving a Request, Servers send **Responses** back to the Client.
 
-In the web development world, a client is a web browser, not an individual person.  The person using the browser is referred to as a **user**.  Users tell a client to ask for information by giving it a **URL**.
+The **Internet** is the network between devices that allows clients and servers to exchange this information. **HTTP** is a set of rules for how this exchange of information happens. Clients and Servers adhere to these rules to ensure that they understand each other's Requests and Responses.
+
+In the web development world, a client is a web browser, not an individual person.  The person using the browser is referred to as a **user**.  
+
+## Penpal Analogy
+
+Okay, that was a lot of information. Let's break all of this down with a metaphor:
+
+Imagine you're writing to a penpal. The process would look something like this:
+
+1. Write a letter
+1. Specify your penpal's address
+1. Drop the letter in your mailbox
+1. The letter goes through the postal system and arrives at your penpal's mailbox
+
+Your penpal then goes through a very similar set of steps:
+
+1. Read your letter and write a response
+1. Specify your address
+1. Drop their letter in their mailbox
+1. The letter goes through the postal system and arrives at your mailbox
+
+In this analogy:
+
+* You are the **Client**
+* Your penpal is the **Server**
+* Your letter is the **Request**
+* Your penpal's letter is the **Response**
+* The postal system, the thing responsible for ensuring your letters are delivered, is **The Internet**
+
+**HTTP** is the language you write in so that your penpal can understand you. You may write in English because you know you both understand English. If you wrote a letter in Spanish and your penpal only spoke English, they might write you a letter back saying "Please write to me in English".
+
+Metaphor aside, let's run through the protocol as executed by computers:
+
+1. You open your browser, the Client, and type in a web address like `http://turing.io` and hit enter.
+1. The browser takes this address and builds an **HTTP Request**. It addresses it to the Server located at `http://turing.io`.
+1. The Request is handed off to your Internet Service Provider (ISP) (like CenturyLink or Comcast) and they send it through the Internet, mostly a series of wires and fiber optic cables, to the Server
+1. The Server reads the Request. It knows how to read it because it is formatted as an **HTTP Request**.
+1. The Server generates an **HTTP Response** to that Request.
+1. The server hands the Response off to their ISP and it goes through the internet to arrive at your computer.
+1. Your browser reads the Response. It knows how to read it because it is formatted as an **HTTP Response**.
+1. Your browser displays the data on your machine.
+
+That's the HTTP Request/Response cycle. At its core, it is a bunch of formatting rules that Clients and Servers use to talk to each other. You can read more on the [wikipedia page](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol) or the [IETF specification](https://tools.ietf.org/html/rfc2616).
 
 ## What is "URL"?
 
-- "Universal Resource Locator"
+Users tell a client to ask for information by giving it a **URL**: a Universal Resource Locator.
 
 A URL allows us to send data to, or retrieve, a "resource" on the Internet. A resource could be a page of HTML content, it could be an image or music file, or it could be part of a web application that will save data you send to it.
 
@@ -40,7 +87,6 @@ A URL allows us to send data to, or retrieve, a "resource" on the Internet. A re
 You may also hear the term "URI" when talking about things on the Internet. A "URI", or "Universal Resource Identifier" is not the same as a URL, but it's easy to confuse them.
 
 A URI is part of a URL. See below:
-
 
 #### Parts of a URL
 
@@ -52,7 +98,7 @@ A URL can be split into distinct parts:
 * Query String: `?title=New&task=Task` - Params that give our server additional information about what we would like to access.
 * Fragment Identifier: `#new_form_anchor` - An indicator of a specific section of a website we would like to view (e.g. if there is an anchor tag tied to a heading half way down the page). This can be seen by visiting [this](http://guides.rubyonrails.org/active_record_querying.html#array-conditions) link to the rails docs which references the `array-conditions` section of the Query Interface page.
 
-The "Domain", "Path", and "Query String" combined indicate a unique "identifier" for a resource, and all three of these pieces are a "URI".
+The "Domain", "Path", and "Query String" combined indicate a unique "identifier" for a resource, and all three of these pieces are a **URI**.
 
 We will be covering more specifics around these parts of the URL later in the module - for now, it is important that you know that these parts exist.
 
@@ -64,7 +110,7 @@ First a user gives a client a URL, the client builds a **request** for informati
 
 It is our job as web developers to build out and maintain servers that can successfully build responses based on standardized requests that will be received.  But, what does a standard request look like?  We need to know that before we can start building servers that will respond successfully.
 
-The standard, or **protocol** we use is **HTTP**.
+The standard, or protocol we use is **HTTP**.
 
 ## HTTP Requests and Responses
 
@@ -72,36 +118,19 @@ The HyperText Transfer Protocol gives us rules about how messages should be sent
 
 ### HTTP Request
 
-When a "client" (like a web browser) retrieves information, it sends a payload of data to a server as a "request". This request is made up of three main parts:
+When a "client" (like a web browser) retrieves information, it sends a payload of data to a server as a "request". This request has many parts, but for now we are going to focus on the verb and path.
 
-- A Request line, containing three piece of information:
-  - the HTTP method (also called a **verb**) for sending or retrieving information
-  - the URI **path** of the resource where we're sending or retrieving information
-  - the version of the HTTP protocol our "client" software is using
+### Verb and Path
 
-- Headers, which is a key/value pair, which contain supplimental information about our request
+Every request needs to be able to tell a server *what* information is requested and *how* that information is being requested.  The *what* is the **path**, the URI indicating what resource this request is referencing.
 
-- An optional body; we only send data to the server in the body when we are creating or modifying something
+Examples of a path:
 
+* `/tasks`
+* `/tasks/4`
+* `/items/6/reviews`
 
-### HTTP Response
-
-When the server or web application is finished processing our request, it will send back a response which is a payload of data, and is made up of three main parts:
-
-- a Status line, containing three pieces of information:
-  - The version of the HTTP protocol that this response is using
-  - a 3-digit numeric "status code"
-  - a user-friendly string description of what the "status code" means
-
-- Headers, also sent as key/value pairs similar to the HTTP request
-
-- An optional body; almost all responses will contain additional data in the body. In mod 2, our "body" payload will almost always be HTML.
-
-## Verb and Path
-
-For now, we are going to focus on the **verb** and **path** pieces of the HTTP request - they are the first pieces we will need to learn to deal with in order to make a successful response.
-
-Every request needs to be able to tell a server *what* information is requested and *how* that information is being requested.  The *what* is the **path**, the URI indicating what resource this request is referencing.  The *how* is the **verb**, indicating what actions the server should take regarding the requested resource.  While the path can vary greatly based on the application, the verbs follow common patterns.  There are 5 common HTTP verbs:
+The *how* is the **verb**, indicating what actions the server should take regarding the requested resource.  While the path can vary greatly based on the application, the verbs follow common patterns.  There are 5 common HTTP verbs:
 
 - GET - retrieve some information to be READ by the client/user
 - POST - CREATE a new resource with information contained in the request
@@ -109,62 +138,19 @@ Every request needs to be able to tell a server *what* information is requested 
 - PATCH - UPDATE a part of a resource with information contained in the request
 - DELETE - DESTROY a resource, typically indicating that it is removed from the database
 
-With these 5 verbs, we send requests that allow us to perform all CRUD functions for resources in a database!
+With these 5 verbs, we send requests that allow us to perform all CRUD functions (create, read, update, destroy) for resources in a database!
 
-## Seeing HTTP requests and responses in action
+## Checks for Understanding
 
-Let's open a terminal and run some commands to connect to Google's home page.
-
-Enter `curl google.com -v` in a terminal window and review the output.
-
-```
-* Rebuilt URL to: google.com/
-*   Trying 2607:f8b0:400f:800::200e...
-* Connected to google.com (2607:f8b0:400f:800::200e) port 80 (#0)
-> GET / HTTP/1.1
-> Host: google.com
-> User-Agent: curl/7.43.0
-> Accept: */*
->
-< HTTP/1.1 301 Moved Permanently
-< Location: http://www.google.com/
-< Content-Type: text/html; charset=UTF-8
-< Date: Thu, 31 Aug 2017 01:09:30 GMT
-< Expires: Sat, 30 Sep 2017 01:09:30 GMT
-< Cache-Control: public, max-age=2592000
-< Server: gws
-< Content-Length: 219
-< X-XSS-Protection: 1; mode=block
-< X-Frame-Options: SAMEORIGIN
-<
-<HTML><HEAD><meta http-equiv="content-type" content="text/html;charset=utf-8">
-<TITLE>301 Moved</TITLE></HEAD><BODY>
-<H1>301 Moved</H1>
-The document has moved
-<A HREF="http://www.google.com/">here</A>.
-</BODY></HTML>
-* Connection #0 to host google.com left intact
-```
-
-The `>` symbols indicate part of the request being sent to the server. The `<` symbols indicate the response coming back to our system. Notice:
-
-* Request
-    * The request line with a verb, URI path, and HTTP protocol.
-    * The headers providing a host, user agent (identifying the browser or client software), and an indication of the type of response the client will accept.
-    * Empty body.
-* Response
-    * The status line with an HTTP protocol, the status code and reason phrase.
-    * Headers.
-    * A Body with HTML.
-
-Sending a `curl` request to https://google.com will provide the actual site that is displayed when we visit google in a browser.
-
-#### curl Student Site
-
-Send a `curl` request to a web site of your choice. Note many of the same pieces from the request/response above, with slightly more HTML. Also note, the CSS is not in any way included in the response when you make a request to a student site (unless they used inline CSS). In order to get a CSS file we need to make a second request to something like `https://username.github.io/main.css`.
-
-### Questions
-
-* What are the parts of an HTTP request?
-* What are the parts of an HTTP response?
-* What is the purpose of the different parts of a URL?
+* Describe the HTTP request/response cycle. Use each of the following terms:
+  * User
+  * URL
+  * Client
+  * Server
+  * Request
+  * Response
+  * HTTP
+* What are the parts of a URL?
+* What is a path?
+* What is a verb?
+* What are the 5 common http verbs and what do they do?
