@@ -7,5 +7,3 @@ $('.nav-links a:not(.home-logo-link)').each(function(idx, link) {
     $(link).toggleClass('active-link');
   }
 });
-
-console.log("in nev links")
