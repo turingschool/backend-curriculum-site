@@ -30,6 +30,8 @@ title: Module 4 Lessons
 
 * [Getting Started with Docker](./intro_to_docker)
 * [Intro to GraphQL](./graphql)
+* [GraphQL Example Repo](https://github.com/turingschool-examples/pets_gql)
+    * Use this [walkthrough](./pets_gql_walkthrough) with the repo.
 * [Git 2.0](./git_2.0/git.md)
 * [Writing Effective User Stories](./user_stories.md)
 
@@ -45,4 +47,4 @@ title: Module 4 Lessons
 
 ## Thanksgiving Break Suggestions
 
-* [Optional Learning Opportunities](./during_module_break_suggestions) 
+* [Optional Learning Opportunities](./during_module_break_suggestions)
