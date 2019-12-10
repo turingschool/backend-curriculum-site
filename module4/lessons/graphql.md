@@ -22,7 +22,7 @@ layout: page
 
 GraphQL is a query language for APIs *not databases*. It's a specification for how clients can query the API for information. Since, it is a specification for interacting with an API, it is database, programming language, and network transport(HTTP, TCP, etc.) agnostic.
 
-## Why does it matter? 
+## Why does it matter?
 
 ### What problems are being solved by GraphQL?
 
@@ -164,3 +164,4 @@ Set up a simple graphql server for pets. Write out the schema, a query to find o
 
 #### Additional Resource
 [GraphQL](https://graphql.org/learn/)
+[GraphQL Mutations](https://medium.com/@HurricaneJames/graphql-mutations-fb3ad5ae73c4)
