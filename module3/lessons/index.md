@@ -43,7 +43,7 @@ layout: page
 
 ## Email
 
-* [Sending Email](../lessons/sending_email_v2)
+* [Sending Email](../lessons/sending_email_sendgrid)
 
 ## Additional Resources
 
