@@ -52,7 +52,6 @@ $(function(config){
 
   function renderHits(hits) {
     var documentFragment = $(document.createDocumentFragment());
-
     hits.forEach(function(hit) {
       documentFragment.append(hitTemplate(hit));
     });
@@ -61,7 +60,9 @@ $(function(config){
   };
 
   function hitTemplate(hit) {
-    console.log(hit)
+    if (!hit._highlightResult.title || !hit._highlightResult.content) {
+      return '';
+    }
     return `<li class="result">
               <a href="${hit.url}">${hit._highlightResult.title.value}</a>
               <p>${hit._highlightResult.content.value.replace('<script>','')}</p>

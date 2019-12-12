@@ -31,8 +31,9 @@ assets:
 images:
   root_url: '/assets/images'
 
-gems:
+plugins:
   - jemoji
+  - jekyll-algolia
 
 algolia:
   application_id: 'OOLQ64CUYT'
@@ -48,4 +49,22 @@ algolia:
     - _sass
     - _site
     - _templates
+    - archive/**/*
     - assets/**/*
+    - books/**/*
+    - calendars/**/*
+    - challenges/**/*
+    - lessons/module-1/archive/**/*
+    - lessons/module-2/archive/**/*
+    - lessons/module-3/archive/**/*
+    - lessons/module-4/archive/**/*
+    - mentor-posse-info/**/*
+    - portal/**/*
+    - postwork/**/*
+    - module-0-capstone/**/*
+    - professional-development/**/*
+    - projects/**/*
+    - public/**/*
+    - stylesheets/**/*
+    - today/**/*
+    - index.html
