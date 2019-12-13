@@ -17,6 +17,7 @@ title: Module 1 Lessons
 * [Working with Files](./working_with_files)
 * [Nested Collections](./nested_collections)
 * [Enumerables II](./enumerables_ii)
+* [Nested Iteration](./nested_iteration)
 * [Boolean Logic](./boolean_logic)
 * [Object Oriented Programming](./object_oriented_programming)
 * [Modules](./modules)
