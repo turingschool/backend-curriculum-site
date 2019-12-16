@@ -46,9 +46,9 @@ We have separated the methods required for this project into sections below.
 * **Iteration 1:** [Setup and File I/O](./iterations/file_io)
 * **Iteration 2:** [Game Statistics](./iterations/game_statistics)
 * **Iteration 3:** [League Statistics](./iterations/league_statistics)
-* **Iteration 4:** [Team Statistics](./iterations/team_statistics)
-* **Iteration 5:** [Season Statistics](./iterations/season_statistics)
-* **Iteration 6:** [Create a Website](./iterations/website)
+* **Iteration 4:** TBA
+* **Iteration 5:** TBA
+* **Iteration 6:** TBA
 
 ## Evaluation Rubric
 
