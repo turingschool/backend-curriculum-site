@@ -125,42 +125,12 @@ Having `user` defined here means that it can be at the root of the query.
 
 Take notes as we go over setting up a schema, how to handle a query, and how to write a mutation.
 
+Query Walkthrough: [queries](./pets_gql_walkthrough_queries)
+Mutation Walkthrough: [mutations](./pets_gql_walkthrough_mutations)
+
 ## Practice
-The set up instructions:
-
-From the command line:
-
-`mkdir graphql_example`
-
-`cd graphql_example`
-
-`npm init (yes to all)`
-
-`touch index.js`
-
-`npm install graphql express express-graphql`
-
-
-_Within index.js add:_
-
-```javascript
-const express = require("express");
-const express_graphql = require("express-graphql");
-const {buildSchema} = require("graphql");
-const app = express();
-
-app.use('/graphql', express_graphql({
-  schema: schema,
-  rootValue: root,
-  graphiql: true
-}));
-
-app.listen(3000, ()=> console.log('Express GraphQL Server Now Running On localhost:3000/graphql'));
-```
-
-Set up a simple graphql server for pets. Write out the schema, a query to find one pet, a query to find multiple pets. Then try to write a mutation. If you complete this, then add owners. Owners can have multiple pets, but a pet can only belong to one owner. See if you can return the owner name when querying for a single pet.
-
-[Completed Example](https://github.com/turingschool-examples/gql_example/tree/master)
+Use this repo: [pet_gql](https://github.com/turingschool-examples/pets_gql)
+Use the walkthrough and then try practice sections at the end.
 
 #### Additional Resource
 [GraphQL](https://graphql.org/learn/)
