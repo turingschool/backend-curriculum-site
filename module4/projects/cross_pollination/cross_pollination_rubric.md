@@ -43,8 +43,8 @@ All team members are responsible for these scores on both repos.
 
 **Stretch Goal**
 
-* 4: Completed both stretch goals successfully.
-* 3: Completed one stretch goal successfully and attempted the second stretch goal.
+* 4: Completed both stretch goals successfully
+* 3: Completed one stretch goal successfully
 * 2: Attempted one stretch goal
 * 1: No stretch goals were attempted :cry:
 
