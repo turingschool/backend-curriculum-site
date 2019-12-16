@@ -37,7 +37,7 @@ Later in the mod, we will be introducing [Mocks and Stubs](../../lessons/mocks_s
 
 ### Spec Harness
 
-In addition to your own tests, instructors will use [This Spec Harness](https://github.com/turingschool-examples/futbol_spec_harness) to assess the completion of your project. Prior to your evaluation, follow the direction in the README to set up the spec harness and verify that your code passes the tests. **NOTE: the spec harness is not a replacement for writing your own tests**.
+In addition to your own tests, instructors will use [This Spec Harness](https://github.com/turingschool-examples/1911_futbol_spec_harness) to assess the completion of your project. Prior to your evaluation, follow the direction in the README to set up the spec harness and verify that your code passes the tests. **NOTE: the spec harness is not a replacement for writing your own tests**.
 
 ## Iterations
 
