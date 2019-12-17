@@ -16,7 +16,7 @@ In this lesson we'll cover:
 * Conditionals and when to use them
 * How to declare and call functions with or without parameters
 
-[slides](../slides/intro_to_javascript_alex_dione.md)
+[slides](../slides/intro_to_javascript_alex.md)
 
 ## History of JavaScript
 
