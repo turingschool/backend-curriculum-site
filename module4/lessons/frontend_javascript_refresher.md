@@ -1,4 +1,4 @@
-# Frontend JavaScript Review
+# Frontend JavaScript Refresher
 
 ## Learning Goals
 
