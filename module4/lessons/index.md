@@ -11,6 +11,7 @@ title: Module 4 Lessons
 * [Promises with async/await](./async_await.md)
 * [Testing with Jest](./jest_testing)
 * [Organizing an Express App](./organize_an_express_app)
+* [Frontend JavaScript Refresher](./basic_frontend_js)
 
 ## General Web
 
