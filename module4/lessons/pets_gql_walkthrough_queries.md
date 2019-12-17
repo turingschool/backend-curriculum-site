@@ -1,4 +1,4 @@
-# Pets GraphQL Walkthrough
+# Pets GraphQL Walkthrough Queries
 
 ### Creating the Schema
 
@@ -381,3 +381,6 @@ We can now include the owner when querying for a pet.
 #### Bonus
 
 * Try to refactor the database queries to a Pet and Owner model
+
+Completed Example [here](https://github.com/turingschool-examples/pets_gql/tree/graphql-queries)
+Completed Example refactored [here](https://github.com/turingschool-examples/pets_gql/tree/graphql-queries-refactor)

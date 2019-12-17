@@ -37,7 +37,7 @@ Later in the mod, we will be introducing [Mocks and Stubs](../../lessons/mocks_s
 
 ### Spec Harness
 
-In addition to your own tests, instructors will use [This Spec Harness](https://github.com/turingschool-examples/futbol_spec_harness) to assess the completion of your project. Prior to your evaluation, follow the direction in the README to set up the spec harness and verify that your code passes the tests. **NOTE: the spec harness is not a replacement for writing your own tests**.
+In addition to your own tests, instructors will use [This Spec Harness](https://github.com/turingschool-examples/1911_futbol_spec_harness) to assess the completion of your project. Prior to your evaluation, follow the direction in the README to set up the spec harness and verify that your code passes the tests. **NOTE: the spec harness is not a replacement for writing your own tests**.
 
 ## Iterations
 
@@ -46,9 +46,9 @@ We have separated the methods required for this project into sections below.
 * **Iteration 1:** [Setup and File I/O](./iterations/file_io)
 * **Iteration 2:** [Game Statistics](./iterations/game_statistics)
 * **Iteration 3:** [League Statistics](./iterations/league_statistics)
-* **Iteration 4:** [Team Statistics](./iterations/team_statistics)
-* **Iteration 5:** [Season Statistics](./iterations/season_statistics)
-* **Iteration 6:** [Create a Website](./iterations/website)
+* **Iteration 4:** TBA
+* **Iteration 5:** TBA
+* **Iteration 6:** TBA
 
 ## Evaluation Rubric
 
