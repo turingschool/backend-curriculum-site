@@ -287,6 +287,9 @@ Inside of our `Admin::DashboardController`, let's add a `before_action` to check
 ```ruby
 class Admin::DashboardController < ApplicationController
   before_action :require_admin
+  
+  def index 
+  end 
 
   private
     def require_admin
