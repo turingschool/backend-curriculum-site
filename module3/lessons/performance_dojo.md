@@ -43,7 +43,7 @@ model. You should have a lot (300k+) of them.
 ### Decreasing response times
 * When your response times are lower you need fewer servers to handle the same amount of requests.
 * This is cheaper and avoids the architectural complexity of managing multiple servers.
-* Common techniques for decreasing response time  
+* Common techniques for decreasing response time include optimizing database queries and caching.
 
 
 ### Decreasing response times through database query optimization
@@ -232,10 +232,6 @@ finding articles by ID vs just grabbing 5 in order out of the table?
 An index is one of the easiest ways to improve performance when querying
 your tables.
 
-__Discussion: How is an Index like a Hash?__
-
-__Discussion: Instructor talks through the points about indices [here](http://tutorials.jumpstartlab.com/topics/performance/queries.html#indices)__
-
 __Exercise: Indexing Comments on Article ID__
 
 One of the most common types of columns to index is a foreign key. This
@@ -273,10 +269,6 @@ In your Rails console, write a piece of code that does the following:
 2. For each article: __a)__ Print its title to the terminal and __b)__ For each of its comments, print the comment's Author Name
 3. Scan through the terminal output this produces and pull out the lines
 indicating query executions. What do you notice about them?
-
-__Discussion: N+1 - name and symptoms__
-
-__Discussion: Includes as an ActiveRecord Feature__
 
 One thing to keep in mind is that many of the features (especially indexing
 and SQL explaining) we've been looked at are things baked into the
