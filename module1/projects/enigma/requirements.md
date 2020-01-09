@@ -7,7 +7,7 @@ _[Back to Enigma Home](./index)_
 
 ## Class Requirements
 
-You are required to build an `Enigma` class with the methods described below; you may find it useful to create additional classes. All classes and methods should have a single responsibility, and should be well organized and readable.
+You are required to build an `Enigma` class with the methods described below; you may find it useful to create additional classes and/or modules. All classes, modules and methods should have a single responsibility, and should be well organized and readable.
 
 ## Enigma Class
 
