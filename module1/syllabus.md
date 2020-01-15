@@ -38,8 +38,8 @@ Students can reference [This Example](https://github.com/turingschool-examples/p
 
 Projects, Paired Assessments, and Independent Assessments will be scored on a 4 point scale:
 
-1. Failing
-2. Passing with concern
+1. Far Below Expectations
+2. Below Expectations
 3. Passing
 4. Exceptional
 
