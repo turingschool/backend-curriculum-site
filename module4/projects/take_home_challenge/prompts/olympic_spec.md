@@ -35,15 +35,16 @@ Endpoint Specifications
 ```javascript
 //Response Format
 {
-  [
-    {
-      "name": "Ana Iulia Dascl",
-      "team": "Romania",
-      "age": 13,
-      "sport": "Swimming"
-      "total_medals_won": 0
-    }
-  ]
+  "olympians":
+    [
+      {
+        "name": "Ana Iulia Dascl",
+        "team": "Romania",
+        "age": 13,
+        "sport": "Swimming"
+        "total_medals_won": 0
+      }
+    ]
 }
 ```
 
@@ -52,15 +53,16 @@ Endpoint Specifications
 ```javascript
 //Response Format
 {
-  [
-    {
-      "name": "Julie Brougham",
-      "team": "New Zealand",
-      "age": 62,
-      "sport": "Equestrianism"
-      "total_medals_won": 0
-    }
-  ]
+  "olympians":
+    [
+      {
+        "name": "Julie Brougham",
+        "team": "New Zealand",
+        "age": 62,
+        "sport": "Equestrianism"
+        "total_medals_won": 0
+      }
+    ]
 }
 ```
 
