@@ -74,6 +74,6 @@ JQuery is a popular javascript library for manipulating the content of web pages
 
 ### Submission
 
-Submit your work here: [Survey Link](https://docs.google.com/forms/d/e/1FAIpQLSfEpSfW6UkLNPiFU4HC3A7fiaEqv7Mij8fJtOHDdp35ETXDZQ/viewform?usp=sf_link)
+Submit your work here: [Survey Link](https://forms.gle/3diHZf9byDzs327h8)
 
-*It is due Saturday November 16th, at 5pm*
+*It is due Saturday January 25th, at 5pm*
