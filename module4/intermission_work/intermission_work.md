@@ -7,7 +7,7 @@ layout: page
 
 To prepare for Module 4, please complete & submit the following before __11:59pm Saturday__, the Saturday day before the inning begins. This will ensure that you have a full day off before starting the mod. The pre-work should take a __maximum__ of 20 hours. This pre-work is meant to be an introduction to the topics we will begin covering in week 1. __It is perfectly okay if these topics still feel a bit fuzzy at the end of the week.__
 
-1906 Pre-work: Submit all links [here](https://forms.gle/Mtp2Mr4TFyqhTP9o6).
+Submit all links [here](https://forms.gle/Mtp2Mr4TFyqhTP9o6).
 
 ## High Level Concepts to Keep in Mind
   -   If you are _googling_ for answers in JavaScript, keep in mind if you are using ES5 vs. ES6 syntax (Classes are part of ES6 syntax)
