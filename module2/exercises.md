@@ -13,7 +13,7 @@ layout: page
 
 
 ## Rails Practice
-
+- [Debugging Exercise](https://github.com/turingschool-examples/debug_shop)
 - [Rails Exercises](https://github.com/turingschool/rails_exercises)
 - [Day Hike](https://github.com/turingschool-projects/day_hike)
 - [Blogger](http://backend.turing.io/module2/misc/blogger)
