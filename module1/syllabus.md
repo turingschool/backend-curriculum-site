@@ -15,7 +15,7 @@ Projects require students to apply new concepts from class and build on existing
   * This project will count towards the final promotion decision.
 * **Group Project** - Begin Monday week 4, due Thursday week 5.
   * This project will count towards the final promotion decision.
-* **Independent Project** - Begin Friday week 5, due Wednesday week 6.
+* **Independent Project** - Begin Friday week 5, due Tuesday week 6.
   * This project will count towards the final promotion decision.
 
 ## Independent Challenges
