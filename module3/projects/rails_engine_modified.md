@@ -31,7 +31,6 @@ The project requirements are listed below:
 namespace (e.g. `/api/v1/merchants`)
   * JSON responses should include `ids` only for associated records unless otherwise indicated (that is, don't embed the whole associated record, just the id)
   * Prices are in cents, therefore you will need to transform them in dollars. (`12345` becomes `123.45`)
-  * Remember that for a JSON string to be valid, it needs to contain a key and a value.
   * API will be compliant to the JSON API spec. [Documentation](https://jsonapi.org/)
 
 ### Data Importing
