@@ -9,7 +9,7 @@ tags: git, github
 
 After this lesson, students should be able to:
 
-* explain the difference between remote and local repositories
+* Explain the difference between remote and local repositories
 * Create a Git repository locally
 * Create a repository on GitHub
 * Link a local repository to a remote repository
