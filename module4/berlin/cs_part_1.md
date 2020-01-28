@@ -85,12 +85,58 @@ Live (in-person or remote) technical interviews generally fall into one of these
 
 * Technical interviews are not real programming, they are a circus trick
 * Like a Rubik's cube, if you know the right steps to take then you can look like a genius
-* You can practice and be prepared because success is dependent on process not knowledge
-* There is knowledge and familiarity worth building to solidify your confidence
+* You can practice and be prepared because success is mostly dependent on _process_ not _knowledge_
+* There is knowledge/familiarity worth building to solidify your confidence
 
-Discuss technical interviews and the main categories of challenges they can expect
-Explore the "computer science" category and what some typical questions might look like
-Introduce the general idea of data structures and why we (sometimes) care about them
-Work through an introductory data structure problem (adding, searching, counting a linked list)
-Work through an intermediate data structure problem (inserting, deleting, reversing a linked list)
-Review
+## S2: Linked Lists
+
+We'll use the rest of our time today doing some intentional practice using Linked Lists.
+
+### Conceptual Intro
+
+Let's diagram a Linked List. You should be comfortable defining/using/differentiating all of these terms:
+
+* List and Node
+* Data and Link
+* Head and Tail
+* Push and Pop
+
+Linked Lists can be implemented using an iterative method, a recursive method, or a hybrid of both.
+
+*In pairs*: In an interview, how would you describe the difference between an iterative approach and a recursive approach?
+
+### Setup
+
+Please follow all instructions carefully and completely.
+
+* Clone the repo at https://github.com/turingschool/data_structures_and_algorithms
+* Move into the `linked_lists` subdirectory
+* With your pair, add the day of the month that each of you were born _(ex: Feb 12 + Nov 23 = 35)_
+* If the result is >=31, you're working in JavaScript. <30 then you're working in Ruby
+* Move into the subdirectory for the language you'll be using
+
+### Work Challenge
+
+The repo you've cloned is an example of how some technical challenges are communicated. Rather than laying out complex
+instructions in English, it just gives you tests to pass. But our point here is to practice our *process* more than it is to complete building a Linked List. Instead of just pushing ahead as fast as you can, follow these steps:
+
+1. Write the class files you need to get the tests running with no errors (only skips)
+2. Unskip the tests that focus on the functionality of a `Node` (ruby) or `ListNode` (js)
+3. Work to make those tests pass
+4. Switch which of you is typing and who is talking
+5. Find the tests that focus on `push`ing a node onto the list. Work through making these pass.
+6. Delete your implementation of the `push` functionality. Yes, seriously. `skip` tests until you're back to the beginning of working on `push`
+7. Switch typer/talker (aka driver/navigator) roles. Rebuild the `push` functionality again.
+8. Stay with the same roles and work through the `pop` functionality until tests are passing
+9. Delete your `pop` functionality and switch roles, then rebuild it step by step.
+10. Stay in your roles and build the `lastNode` functionality.
+11. Swap roles and build the `include` functionality
+12. Swap roles and build the `find` functionality
+13. If time allows, continue to build out `delete` and `insert` operations
+
+### Review
+
+* Look at the code you've written. Is it complex? Which was slower, writing the code or figuring out what to write?
+* As the functions got more complicated, were you gaining momentum or slowing down?
+* How did the role reversals affect your process?
+* How does exploring a problem like this in pairs influence your ability to do it solo?
