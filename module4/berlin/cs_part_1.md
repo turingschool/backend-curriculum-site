@@ -115,7 +115,7 @@ Please follow all instructions carefully and completely.
 * If the result is >=31, you're working in JavaScript. <30 then you're working in Ruby
 * Move into the subdirectory for the language you'll be using
 
-### Work Challenge
+### Paired Work Challenge
 
 The repo you've cloned is an example of how some technical challenges are communicated. Rather than laying out complex
 instructions in English, it just gives you tests to pass. But our point here is to practice our *process* more than it is to complete building a Linked List. Instead of just pushing ahead as fast as you can, follow these steps:
@@ -140,3 +140,34 @@ instructions in English, it just gives you tests to pass. But our point here is 
 * As the functions got more complicated, were you gaining momentum or slowing down?
 * How did the role reversals affect your process?
 * How does exploring a problem like this in pairs influence your ability to do it solo?
+
+## S3: Intentional Practice
+
+Let's treat this period a little more like a technical interview.
+
+You *should not*...:
+
+* Use the web/Google. There are no complex methods or classes you need to implement these solutions and googling "recursive linked list in javascript" is just cheating ;)
+* Let yourself get stuck. You're practicing your problem solving. If you really can't get over it, move around it.
+
+You *should*...:
+
+* Work solo
+* `git reset --hard` to get back to a blank repo just like we started with
+* Code in the language of your choice
+
+You *may*...:
+
+* Ask staff members conceptual questions, but the programming us up to you.
+* Get asked clarifying questions by staff members probing to understand your thinking and process
+
+And to bring some real challenge into it: follow the flow of the test suite working through each feature one by one by *first implementing it using iteration* and making that pass, deleting that implementation, then reimplementing it using *recursion*.
+
+## S4: Closeout
+
+Let's spend 8 minutes to reflect on our work today:
+
+* What's one thing you thought you knew but it turned out you didn't?
+* Are you going to build Linked Lists on the job? Why learn them?
+* Why is practicing your process more powerful than building your knowledge?
+* How does today's session change your plan to prepare for technical interviews?
