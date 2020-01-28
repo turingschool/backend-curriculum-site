@@ -4,6 +4,8 @@ length: 90
 tags: rest, routing, controllers, routes, rspec
 ---
 
+This lesson plan last udpated to use Rails 5.1.7 and Ruby 2.5.3
+
 ## Learning Goals
 
 * create a new rails app
@@ -50,10 +52,11 @@ Want to know more about REST? Check out [this video](https://www.youtube.com/wat
 Let's create a whole new Rails app. We're going to use this codebase for the rest of the inning in mod 2.
 
 ```bash
-$ rails new set_list -T --database=postgresql --skip-spring --skip-turbolinks
+$ rails _5.1.7_ new set_list -T --database=postgresql --skip-spring --skip-turbolinks
 $ cd set_list
 ```
 
+- `_5.1.7_` Denotes that we want to use rails version 5.1.7. 
 - `-T` - rails has minitest by default, when this flag is used, `gem 'minitest'` will not be in the Gemfile
 - `--database=postgresql` - by default, Rails uses `sqlite3`. We want to tell it to use `postgresql` instead because platforms we use for deploying our projects will expect to use a PostgreSQL database.
 - `--skip-spring` - Spring is a Rails application preloader. It speeds up development by keeping your application running in the background so you don't need to boot it every time you run a test, rake task or migration but it benefits more advanced developers the most. We are going to not include it in our Gemfile.
