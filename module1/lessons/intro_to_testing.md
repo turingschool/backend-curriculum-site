@@ -71,7 +71,7 @@ assert_equal 'expected', 'actual'
 ### Scenario Specifications
 
 ```ruby
-pry(main)> require './playground'
+pry(main)> require './lib/student'
 => true
 
 pry(main)> student = Student.new('Penelope')
