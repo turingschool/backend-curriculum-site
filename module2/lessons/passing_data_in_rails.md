@@ -50,8 +50,8 @@ RSpec.describe 'As a visitor' do
   describe 'I visit a song show page' do
     it "then I see only that song's title and artist" do
       talking_heads = Artist.create!(name: 'Talking Heads')
-      she_was = talking_heads.songs.create(title: 'And She Was', length: 234 )
-      wild_life = talking_heads.songs.create(title: 'Wild Wild Life', length: 456 )
+      she_was = talking_heads.songs.create(title: 'And She Was', length: 234, play_count: 2994 )
+      wild_life = talking_heads.songs.create(title: 'Wild Wild Life', length: 456, play_count: 384889 )
 
       visit "/songs/#{she_was.id}"
 
@@ -149,6 +149,11 @@ When we run our tests now, we see that we need to add a view for this controller
 ```
 
 And, now we have a passing test!
+
+
+
+
+
 
 ## New Artist Form
 
