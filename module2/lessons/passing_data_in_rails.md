@@ -12,7 +12,7 @@ length: 180
 * Define Query Parameters
 
 ## Vocabulary
-* `form_tab`
+* `form_tag`
 * `link_to`
 * query parameters
 
