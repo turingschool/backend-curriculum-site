@@ -10,10 +10,11 @@ Let's talk about stacks.
 * Students will have practiced the basic principles of a Stack data structure
 * Students will have tried an example problem where knowledge of a specific data structure makes the work much easier
 
-## The Matching Problem
+## Well-Formed Strings
 
 * Read the [Well-Formed Strings challenge](https://github.com/turingschool/challenges/blob/master/well_formed_strings.markdown)
 * Think about or sketch pseudocode for how you'd go about solving it
+* Imagine real-world situations where you'd want to run this kind of validation on a chunk of text/data
 
 ## Quick Introduction to Stacks
 
