@@ -71,7 +71,7 @@ assert_equal 'expected', 'actual'
 ### Scenario Specifications
 
 ```ruby
-pry(main)> require './playground'
+pry(main)> require './lib/student'
 => true
 
 pry(main)> student = Student.new('Penelope')
@@ -94,7 +94,6 @@ Now, let's write tests based on the interaction pattern above.
 
 ```ruby
 # student_test.rb
-require 'minitest'
 require 'minitest/autorun'
 require 'minitest/pride'
 
