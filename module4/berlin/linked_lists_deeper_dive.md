@@ -73,17 +73,17 @@ _Part II:_ Group Synthesis (4 mins)
 
 #### # 1 Reverse a singly linked list (without recursion)
 
-[Repl.it - Reverse linked list](https://repl.it/@thatpamiam/Reverse-linked-list)
-*Example:*
-*Input:* 1->2->3->4->5->NULL
-*Output:* 5->4->3->2->1->NULL
+[Repl.it - Reverse linked list](https://repl.it/@thatpamiam/Reverse-linked-list)  
+*Example:*  
+*Input:* 1->2->3->4->5->NULL  
+*Output:* 5->4->3->2->1->NULL  
 
 #### # 2 Detecting a loop in a singly linked list
 
-[Repl.it - Detecting a loop](https://repl.it/@thatpamiam/Detecting-a-loop)
-*Example:*
-*Input:* 1->2->3->4->5->1->2->3->4->5->1…
-*Output:* TRUE
+[Repl.it - Detecting a loop](https://repl.it/@thatpamiam/Detecting-a-loop)  
+*Example:*  
+*Input:* 1->2->3->4->5->1->2->3->4->5->1…  
+*Output:* TRUE  
 
 ## Closing Reflection (8 mins)
 
