@@ -78,12 +78,16 @@ _Part II:_ Group Synthesis (4 mins)
 *Input:* 1->2->3->4->5->NULL  
 *Output:* 5->4->3->2->1->NULL  
 
+*Extension* _How would you reverse a doubly linked list?_ 
+
 #### # 2 Detecting a loop in a singly linked list
 
 [Repl.it - Detecting a loop](https://repl.it/@thatpamiam/Detecting-a-loop)  
 *Example:*  
 *Input:* 1->2->3->4->5->1->2->3->4->5->1…  
 *Output:* TRUE  
+
+*Extension* _How would you determine what node is the "start" of the loop?_ 
 
 ## Closing Reflection (8 mins)
 
