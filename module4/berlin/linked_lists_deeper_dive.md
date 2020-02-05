@@ -1,5 +1,5 @@
 ---
-title: linked_lists_deeper_dive
+title: Linked Lists Deeper Dive
 layout: page
 ---
 
@@ -60,7 +60,7 @@ _Part II:_ Group Synthesis (4 mins)
 
 * AKA Floyd’s Cycle Algorithm or Tortoise & Hare
 * Iterate through LL with 2 pointers simultaneously
-    
+
 ##### The algorithim
 
 1. Initialize two pointers (tortoise and hare) that both point to the head of the linked list
@@ -84,7 +84,7 @@ _Part II:_ Group Synthesis (4 mins)
 *Example:*
 *Input:* 1->2->3->4->5->1->2->3->4->5->1…
 *Output:* TRUE
-  
+
 ## Closing Reflection (8 mins)
 
 * Why use a linked list over an array? Or an array over a linked list?
