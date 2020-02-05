@@ -21,7 +21,7 @@ We used to teach this class using a gem since that’s how most of us do it on t
 
 ## Slides
 
-Available [here](../slides/getting_started_with_oauth)
+Available [here](../slides/getting_started_with_oauth_alex)
 
 ## Prework
 
