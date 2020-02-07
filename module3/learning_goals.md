@@ -38,7 +38,6 @@ Academic success in B3 means that students demonstrate proficiency and comfort w
 
 * Students use pull requests to organize discussion about features.
 * Students communicate with product owners with regard to missing deadlines.
-* Students introduce how acceptance requirements are turned into stories and feature requirements.
 * Students document intent and usage of their code for effective collaboration.
 * Students translate acceptance requirements into user stories that are ready for work.
 * Students utilize project management tools to communicate across technical teams and stakeholders/clients.
