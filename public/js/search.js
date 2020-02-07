@@ -60,12 +60,17 @@ $(function(config){
   };
 
   function hitTemplate(hit) {
-    if (!hit._highlightResult.title || !hit._highlightResult.content) {
-      return '';
+    var link = `<a href="${hit.url}">${hit._highlightResult.title.value}</a>`;
+    var content;
+    if (hit._highlightResult.content) {
+      content = `<p>${hit._highlightResult.content.value.replace('<script>','')}</p>`
+    }
+    else {
+      content = '<p></p>';
     }
     return `<li class="result">
-              <a href="${hit.url}">${hit._highlightResult.title.value}</a>
-              <p>${hit._highlightResult.content.value.replace('<script>','')}</p>
+              ${link}
+              ${content}
             </li>`
   };
 
