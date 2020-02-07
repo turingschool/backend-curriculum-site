@@ -13,93 +13,77 @@ Academic success in B3 means that students demonstrate proficiency and comfort w
 
 ## Mastery
 
-### Project Management
+### APIs
 
-* Students use pull requests to organize discussion about features.
+* Students are able to expose an API.
+* Students are able to use serializers to format json responses
+* Students are able to consume external APIs
 
-### Interpersonal Skills
+### Testing
 
-* Students formulate questions by synthesizing what was expected vs what was observed.
-* Students explain intent and execution of their code.
+* Students are able to test external API consumption
+* Students are able to test internal API exposure
+* Students are able to mock external HTTP requests using Webmock
 
-### Self-Directed Learning
+### Object Oriented Programming
 
-* Students find resources online or in print to help them learn new technologies.
-* Students read documentation and implement strategies described.
-* Students ask meaningful questions.
-    * Example: Don't ask "How do I get this to work?" Instead, mention what has been tried, what happened, what was expected with a goal of understanding where you have made a wrong assumption.
-
-### Agile Processes
-
-* Students verify acceptance requirements using automated testing.
-
-### Advanced Rails
-
-* Students are able to develop and test secure internal APIs using Rails.
-* Students are able to consume external APIs and test the consumption.
+* Students are able to use classes and methods to make abstractions that improve code quality
+* Students are able to write classes that demonstrate encapsulation of data
+* Students are able to explain how their code achieves abstraction and encapsulation
+* Students are able to apply MVC principles to separate responsibilities appropriately
 
 ## Functional
 
 ### Project Management
 
+* Students use pull requests to organize discussion about features.
 * Students communicate with product owners with regard to missing deadlines.
 * Students introduce how acceptance requirements are turned into stories and feature requirements.
-
-### Interpersonal Skills
-
-* Students collaborate with teammates with tools that could be used by remote teams.
-* Students communicate around code, explaining what it does and why.
 * Students document intent and usage of their code for effective collaboration.
-* Students use pull requests to organize discussion about features.
+* Students translate acceptance requirements into user stories that are ready for work.
+* Students utilize project management tools to communicate across technical teams and stakeholders/clients.
+* Students implement feedback from a code review to improve quality.
+* Students provide feedback in the form of a code review to improve quality and share knowledge.
+* Students are able to understand and build on an existing code base
 
 ### Self-Directed Learning
 
+* Students formulate questions by synthesizing what was expected vs what was observed.
+* Students find resources online or in print to help them learn new technologies.
+* Students read documentation and implement strategies described.
+* Students ask meaningful questions.
+    * Example: Don't ask "How do I get this to work?" Instead, mention what has been tried, what happened, what was expected with a goal of understanding where you have made a wrong assumption.
 * Students utilize mentors and other community members to identify and discuss the merits of various implementations.
 
-### Agile Processes
+### APIs
 
-* Students use an agile process to turn acceptance requirements into deployed software.
-* Students translate acceptance requirements into user stories that are ready for work.
+* Students are able to authenticate users via OAuth
+* Students are able to access the private resources of an OAuth-authenticated User
 
 ### Advanced Rails
 
 * Students are able to send email from a Rails app.
-* Students compose advanced ActiveRecord queries to analyze information stored in SQL databases.
 * Students utilize and debug the Rails asset pipeline locally and in production.
 
-### PostgreSQL & SQL
+### Databases
 
+* Students compose advanced ActiveRecord queries to analyze information stored in SQL databases.
 * Students write basic SQL statements without the assistance of an ORM.
+* Students implement indexes to address slow queries.
+* Students are able to avoid N + 1 queries
 
-## Familiarity
+## Familiar
 
-### Project Management
+### Security
 
-* Students understand the process by which business requirements are turned into acceptance requirements.
-* Students utilize project management tools to communicate across technical teams and stakeholders/clients.
-
-### Interpersonal Skills
-
-* Students implement feedback from a code review to improve quality.
-* Students provide feedback in the form of a code review to improve quality and share knowledge.
-
-### Advanced Rails
-
-* Students are able to contrast the different approaches between working on greenfield and brownfield projects.
 * Students are able to critique previous projects for fundamental security flaws and understand how to prevent them.
 
-### App Performance
+### Optimization
 
 * Students are able to explain when to use caching strategies to improve performance in Rails.
 * Students are able to explain the scenarios that would benefit from using background workers in Rails.
 
-### JavaScript in the Browser
+### Front End Javascript
 
 * Students are able to make API calls using `fetch` calls.
 * Students are able to use jQuery to traverse and manipulate the DOM.
-
-### PostgreSQL & SQL
-
-* Students intelligently structure/normalize data so as to maintain reasonable performance as the data size increases.
-* Students use the CLI to understand the structure and data of their database (ex: list databases, tables, table structure).
-* Students implement indexes to address slow queries.
