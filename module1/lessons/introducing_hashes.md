@@ -192,6 +192,20 @@ suitcase.values
 
 The `.keys` and `.values` methods return an array of all the keys and values, respectively, of the hash.
 
+## Iterating Over a Hash
+
+Turn and talk to the person next to you, if we had the following array - `clothes = ['jeans', 'socks', 'shirts']`, how would you print each value to the terminal?  Would your answer change if this array had 100 items of clothing in it?
+
+Often we will want to iterate over a Hash to do something with each key/value pair.  This works a lot like iterating over an Array, with one small exception.  Take a look at the code snippet below and see if you can identify the difference between iterating over a Hash vs over an Array:
+
+```ruby
+suitcase.each do |clothing_item, quantity|
+	p "I need #{quantity} #{clothing_item}"
+end
+```
+
+Now, instead of having one block variable to work with, we have 2!  The first represents the key, and the second represents the value.
+
 
 #### Check for Understanding
 

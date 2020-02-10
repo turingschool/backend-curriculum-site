@@ -27,7 +27,7 @@ Today you'll participate in three sessions as follows:
 
 ### Session Content
 
-* _Pam_ will run a deeper dive on Linked Lists in this Suite 300 main space
+* _Pam_ will run a [deeper dive on Linked Lists](https://backend.turing.io/module4/berlin/linked_lists_deeper_dive) in this Suite 300 main space
 * _Ian_ will run [Researching a Company](https://github.com/turingschool/career-development-curriculum/blob/master/module_four/researching_a_company.md) in Classroom F downstairs
 * _Jeff_ will run [Stacks for Problem Solving](stacks_for_problem_solving) in the Suite 300 Small Conference Room
 
