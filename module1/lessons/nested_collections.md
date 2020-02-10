@@ -90,7 +90,7 @@ pizza_toppings = {veggies: ["green peppers", "jalapeño", "mushrooms"],
 * What is `pizza_toppings.count`
 * What is `pizza_toppings.values`
 * How can I access the element `"pineapple"`
-* How can I add the element `"olives"` to they key `"veggies"`
+* How can I add the element `"olives"` to the key `"veggies"`
 
 ## Practice
 
