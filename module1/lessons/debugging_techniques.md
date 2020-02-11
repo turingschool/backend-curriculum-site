@@ -1,6 +1,6 @@
 ---
 title: Debugging Techniques
-length: 60
+length: 120
 tags: pry, debugging
 layout: page
 ---
@@ -54,11 +54,11 @@ A Stack Trace shows what line of code an error occurred on, and all the method c
 Let's look at an example. If we run the `hobbit_test.rb` test in our erroneous_creatures directory with `ruby test/hobbit_test.rb`, we will see this:
 
 ```
-Error:
+1) Error:
 HobbitTest#test_can_get_tired_if_play_3times:
 NoMethodError: undefined method `>=' for nil:NilClass
-    /Users/brian/turing/1module/exercises/erroneous_creatures/lib/hobbit.rb:18:in `adult?'
-    /Users/brian/turing/1module/exercises/erroneous_creatures/lib/hobbit.rb:22:in `play'
+    /Users/timo/staff_turing/lessons/debugging_techniques/erroneous_creatures/lib/hobbit.rb:18:in `adult?'
+    /Users/timo/staff_turing/lessons/debugging_techniques/erroneous_creatures/lib/hobbit.rb:22:in `play'
     test/hobbit_test.rb:75:in `block in test_can_get_tired_if_play_3times'
     test/hobbit_test.rb:74:in `times'
     test/hobbit_test.rb:74:in `test_can_get_tired_if_play_3times'
@@ -69,8 +69,8 @@ Let's break this down line by line:
 * `HobbitTest#test_can_get_tired_if_play_3times`: This is Minitest telling us what test was running when this error occurred.
 * `NoMethodError: undefined method '>=' for nil:NilClass`: This is the actual error that occurred
 * All of the following lines are part of the **Stack Trace**:
-  * `/Users/brian/turing/1module/exercises/erroneous_creatures/lib/hobbit.rb:18:in 'adult?'`: This is the first line of the stack trace, and is the line where the error actually happened. The first part is a big long file path to the file. Generally, we only care about the last part, the file name. In this case, it is `hobbit.rb:18`. This is telling us that the error occurred in the `hobbit.rb` file on line 18. The next part, `in 'adult?'` tells us that this error happened in the `adult?` method. `hobbit.rb:18` is the most important part of the whole stack trace. It tells us the exact location of the error.
-  * `/Users/brian/turing/1module/exercises/erroneous_creatures/lib/hobbit.rb:22:in 'play'`: The next line in the stack trace tells us where the `adult?` method was called from. Again, the most important part is the file and line number, `hobbit.rb` line 22. The last part, `in 'play'` is telling us that the `play` method was running when the `adult?` method was called.
+  * `/Users/timo/staff_turing/lessons/debugging_techniques/erroneous_creatures/lib/hobbit.rb:18:in 'adult?'`: This is the first line of the stack trace, and is the line where the error actually happened. The first part is a big long file path to the file. Generally, we only care about the last part, the file name. In this case, it is `hobbit.rb:18`. This is telling us that the error occurred in the `hobbit.rb` file on line 18. The next part, `in 'adult?'` tells us that this error happened in the `adult?` method. `hobbit.rb:18` is the most important part of the whole stack trace. It tells us the exact location of the error.
+  * `/Users/timo/staff_turing/lessons/debugging_techniques/erroneous_creatures/lib/hobbit.rb:22:in 'play'`: The next line in the stack trace tells us where the `adult?` method was called from. Again, the most important part is the file and line number, `hobbit.rb` line 22. The last part, `in 'play'` is telling us that the `play` method was running when the `adult?` method was called.
   * `test/hobbit_test.rb:75:in block in test_can_get_tired_if_play_3times`: The next line in the stack trace tells us where the `play` method was called from. It was called from the `hobbit_test.rb` file on line 75 in a block.
   * `test/hobbit_test.rb:74:in times` is telling us that that block was part of a `times` loop that started on line `74`
   * `test/hobbit_test.rb:74:in 'test_can_get_tired_if_play_3times'` is telling us that the `times` loop was called from `test_can_get_tired_if_play_3times`.
@@ -90,8 +90,8 @@ If we didn't find an error in the `play` method, we could take another step back
 When reading a stack trace, you should ignore references to code that you didn't write. For instance, run the `unicorn_test.rb` file and you will see this output:
 
 ```
-/Users/brian/.rbenv/versions/2.4.3/lib/ruby/2.4.0/rubygems/core_ext/kernel_require.rb:120:in `require': cannot load such file -- .lib/unicorn (LoadError)
-	from /Users/brian/.rbenv/versions/2.4.3/lib/ruby/2.4.0/rubygems/core_ext/kernel_require.rb:120:in `require'
+/Users/timo/.rvm/rubies/ruby-2.4.1/lib/ruby/site_ruby/2.4.0/rubygems/core_ext/kernel_require.rb:120:in `require': cannot load such file -- .lib/unicorn (LoadError)
+	from /Users/timo/.rvm/rubies/ruby-2.4.1/lib/ruby/site_ruby/2.4.0/rubygems/core_ext/kernel_require.rb:120:in `require'
 	from test/unicorn_test.rb:4:in `<main>'
 ```
 
@@ -99,7 +99,7 @@ Let's follow our same process for reading the Stack Trace (note that unlike befo
 
 ## Errors
 
-When you see an error in your terminal, it can be tempting to read it as "blah blah blah something isn't working, let me open up my code and fix it". Instead, you should read the error, the WHOLE error, maybe even read it twice, and really try to understand your problem before you try to fix it. Here are some common errors and how we can interpret them:
+When you see an error in your terminal, it can be tempting to read it as "blah blah blah something isn't working, let me open up my code and fix it". Instead, you should read the error, the **ENTIRE** error, maybe even read it twice, and really try to understand your problem before you try to fix it. Here are some common errors and how we can interpret them:
 
 `NameError: uninitialized constant SomeClass::SomeConstant` - Ruby doesn't know what `SomeConstant` is.
 
@@ -133,8 +133,8 @@ Let's run the Hippogriff test, and review the errors that are generated there:
 Error:
 HippogriffTest#test_when_it_flies_it_collects_a_unique_moonrock:
 NoMethodError: undefined method `push' for nil:NilClass
-    /Users/sespinos/Desktop/erroneous_creatures/hippogriff.rb:14:in `fly'
-    /Users/sespinos/Desktop/erroneous_creatures/hippogriff_test.rb:37:in `test_when_it_flies_it_collects_a_unique_moonrock'
+    /Users/timo/staff_turing/lessons/debugging_techniques/erroneous_creatures/lib/hippogriff.rb:14:in `fly'
+    test/hippogriff_test.rb:37:in `test_when_it_flies_it_collects_a_unique_moonrock'
 ```
 
 Let's start by reading that stack trace, and then answer the following questions with a partner:

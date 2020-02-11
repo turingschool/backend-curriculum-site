@@ -1,5 +1,5 @@
 ---
-title: CS for Interviews, Part 1: Base Understandings
+title: CS for Interviews, Part 1 -- Base Understandings
 layout: page
 ---
 
