@@ -49,7 +49,7 @@ To get around the stack overflow issue, one can use *tail call optimization*.  A
 return firstNumber + getSum(allNumbers);
 
 // Example suited for tail call optimization
-return getSum(nums, sum + number);
+return getSum(allNumbers, sum + firstNumber);
 ```
 
 Notice with the first example, we are returning an operation.  In this scenario, this would need to be added to the callstack because this cannot be executed until we know what `getSum(allNumbers)` returns.  In the second example, we are only returning the recursive function and passing what arguments we need to keep track of the sum, making this perfect for Tail Call Optimization so that it can execute immediately instead of stacking in memory. It's okay if this problem feels strange at first.  We'll dive deeper into the solution of this problem shortly!
