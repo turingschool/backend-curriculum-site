@@ -6,10 +6,11 @@ layout: page
 ## Learning Goals
 
 - Understand the concept of recursion
-- Be able to solve problems using recursion
 - Understand the limitations of recursion in JS & Ruby
+- Know the theory behind Tail Call Optimization
+- Be able to solve problems using recursion
 
-## Discussion on Reading (10 minutes)
+## Discussion on Reading
 
 Reflecting on the [article](https://www.sitepoint.com/recursion-functional-javascript/) you read earlier, discuss the following questions with the person next to you:
 
@@ -17,7 +18,7 @@ Reflecting on the [article](https://www.sitepoint.com/recursion-functional-javas
   * What are some scenarios that recursion is best for?
   * What performance issues does recursion have in languages like JavaScript & Ruby?
 
-## Reviewing Key Concepts (10 minutes)
+## Reviewing Key Concepts
 
 Recursion is an important programming technique in which a function calls itself.  
 
@@ -36,25 +37,28 @@ Recursion is an important programming technique in which a function calls itself
     * Memory consumption can lead to the `maximum call stack size being exceeded`.
     * Loops on the otherhand don't need to add functions to the call stack. (better memory management)
 
-### Tail Call Optimization (5 minutes)
+### Tail Call Optimization
 
-To get around the stack overflow issue, one can use *tail call optimization*.  A tail call is the last action that is **executed**, not necessarily the last line in a function. In other words, the recursive call must be the *last statement* of the recursive function.
+To get around the stack overflow issue, one can use *tail call optimization*.  A tail call refers to the last action that is **executed**. In this scenario, the recursive call must be the *last statement* of the recursive function.
 
 ```js
-// Example of tail call optimization
-return recursiveFn();
+// Example:
+// Create a getSum fn that adds all of the numbers in an array
 
-// Example that is not optimized due to it being an operation
-return recursiveFn() + n;
+// Example that is not optimized due to it returning an operation
+return firstNumber + getSum(allNumbers);
+
+// Example suited for tail call optimization
+return getSum(nums, sum + number);
 ```
 
-With this optimization, each cycle that is successful in a recursive function is executed immediately instead of stacking in memory.  
+Notice with the first example, we are returning an operation.  In this scenario, this would need to be added to the callstack because this cannot be executed until we know what `getSum(allNumbers)` returns.  In the second example, we are only returning the recursive function and passing what arguments we need to keep track of the sum, making this perfect for Tail Call Optimization so that it can execute immediately instead of stacking in memory. It's okay if this problem feels strange at first.  We'll dive deeper into the solution of this problem shortly!
 
 Note that for Javascript, this optimization is only available in Safari.  (Chrome, FireFox, and other browsers are not optimized currently).  Read [here](https://stackoverflow.com/questions/54719548/tail-call-optimization-implementation-in-javascript-engines) to understand more of the history about this.
 
 In Ruby, this optimization is not available by default.  You *can* configure the Ruby compiler to enable tail call optimization however.  If you're interested, follow the [article](https://nithinbekal.com/posts/ruby-tco/) here!
 
-## The anatomy of a recursive function (10 minutes)
+## The anatomy of a recursive function
 
 Every recursive function (reminder, just a function that calls itself) must have these two pieces:
 
@@ -63,7 +67,7 @@ Every recursive function (reminder, just a function that calls itself) must have
 
 Let's see this in action with a function that takes a number as an argument and counts down to zero.
 
-```
+```js
 countdown( 3 );
 
 // 3
@@ -73,7 +77,7 @@ countdown( 3 );
 ```
 
 **Solution:**
-```
+```js
 const countdown = number => {
   // check our base case, if statement
   if (!number) {
@@ -83,17 +87,17 @@ const countdown = number => {
   console.log(number);
   
   // recursive case moving towards base case
-  countdown(number - 1)
+  return countdown(number - 1)
 }
 
 countdown(3); // 3, 2, 1, 0
 ```
 
-## Diving Deeper Into The Process (10 minutes)
+## Diving Deeper Into The Process
 
 Let's work through one more together and write out a function that takes in an argument of an array of numbers and adds them together.
 
-```
+```js
 let numbers = [ 1, 2, 3, 4 ];
 
 sum(numbers); // 10
@@ -107,7 +111,7 @@ It can be helpful to break down what each step of this problem looks like. Here'
 
 **Solution:**
 ```js
-const sum = nums => {
+const getSum = nums => {
   // base case
   if (!nums.length) {
     return 0;
@@ -116,11 +120,26 @@ const sum = nums => {
   // get closer to base case
   let number = nums.shift();
   
-  return number + sum(nums);
+  return number + getSum(nums);
 }
 ```
 
-## Exercises (30 minutes)
+**Solution with Tail Call Optimization:**
+```js
+const getSum = (nums, sum=0) => {
+  // base case
+  if (!nums.length) {
+    return sum;
+  }
+  
+  // get closer to base case
+  let number = nums.shift();
+  
+  return getSum(nums, sum + number);
+}
+```
+
+## Exercises
 
 The best way to start understanding recursion is to just try doing it!  Feel free to work through these problems in either JavaScript or Ruby.
 
@@ -128,7 +147,7 @@ The best way to start understanding recursion is to just try doing it!  Feel fre
 
 Reverse a string.
 
-```
+```js
 // create a function which takes a string of characters and
 // recursively calls itself to reverse the string
 
@@ -143,7 +162,7 @@ console.log(reversedString); // leirA
 
 Calculate a number to a specific power.
 
-```
+```js
 // create a function which takes a number and an exponent and
 // recursively calls itself to calculate the product
 
@@ -167,7 +186,7 @@ Write a recursive function that calculates the factorial of a number.
 
 ### Exercise 4
 
-The Collatz conjecture applies to positive numbers and speculates that is alway possible to `get back to 1` if you follow these steps:
+The Collatz conjecture applies to positive numbers and speculates that it is always possible to `get back to 1` if you follow these steps:
 
 - If `n` is 1, stop.
 - Otherwise, if `n` is even, repeate this process on `n/2`
