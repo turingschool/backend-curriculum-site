@@ -37,27 +37,6 @@ Recursion is an important programming technique in which a function calls itself
     * Memory consumption can lead to the `maximum call stack size being exceeded`.
     * Loops on the otherhand don't need to add functions to the call stack. (better memory management)
 
-### Tail Call Optimization
-
-To get around the stack overflow issue, one can use *tail call optimization*.  A tail call refers to the last action that is **executed**. In this scenario, the recursive call must be the *last statement* of the recursive function.
-
-```js
-// Example:
-// Create a getSum fn that adds all of the numbers in an array
-
-// Example that is not optimized due to it returning an operation
-return firstNumber + getSum(allNumbers);
-
-// Example suited for tail call optimization
-return getSum(allNumbers, sum + firstNumber);
-```
-
-Notice with the first example, we are returning an operation.  In this scenario, this would need to be added to the callstack because this cannot be executed until we know what `getSum(allNumbers)` returns.  In the second example, we are only returning the recursive function and passing what arguments we need to keep track of the sum, making this perfect for Tail Call Optimization so that it can execute immediately instead of stacking in memory. It's okay if this problem feels strange at first.  We'll dive deeper into the solution of this problem shortly!
-
-Note that for Javascript, this optimization is only available in Safari.  (Chrome, FireFox, and other browsers are not optimized currently).  Read [here](https://stackoverflow.com/questions/54719548/tail-call-optimization-implementation-in-javascript-engines) to understand more of the history about this.
-
-In Ruby, this optimization is not available by default.  You *can* configure the Ruby compiler to enable tail call optimization however.  If you're interested, follow the [article](https://nithinbekal.com/posts/ruby-tco/) here!
-
 ## The anatomy of a recursive function
 
 Every recursive function (reminder, just a function that calls itself) must have these two pieces:
@@ -100,7 +79,7 @@ Let's work through one more together and write out a function that takes in an a
 ```js
 let numbers = [ 1, 2, 3, 4 ];
 
-sum(numbers); // 10
+getSum(numbers); // 10
 ```
 
 One of the most basic patterns of recursion is when you can reduce a problem to a smaller one and then keep reducing until you can't do it anymore. This is also known as natural recursion.
@@ -118,11 +97,28 @@ const getSum = nums => {
   }
   
   // get closer to base case
-  let number = nums.shift();
+  let firstNumber = nums.shift();
   
-  return number + getSum(nums);
+  return firstNumber + getSum(nums);
 }
 ```
+
+### Tail Call Optimization
+
+To get around the stack overflow issue, one can use *tail call optimization*.  A tail call refers to the last action that is **executed**. In this scenario, the recursive call must be the *last statement* of the recursive function.
+
+```js
+// Example:
+// Create a getSum fn that adds all of the numbers in an array
+
+// Example that is not optimized due to it returning an operation
+return firstNumber + getSum(nums);
+
+// Example suited for tail call optimization
+return getSum(nums, sum + firstNumber);
+```
+
+Notice with the first example, we are returning an operation.  In this scenario, this would need to be added to the callstack because this cannot be executed until we know what `getSum(allNumbers)` returns.  In the second example, we are only returning the recursive function and passing what arguments we need to keep track of the sum, making this perfect for Tail Call Optimization so that it can execute immediately instead of stacking in memory. Taking what we understand from this, let's make some adjustments to the solution we just worked through!
 
 **Solution with Tail Call Optimization:**
 ```js
@@ -133,11 +129,15 @@ const getSum = (nums, sum=0) => {
   }
   
   // get closer to base case
-  let number = nums.shift();
+  let firstNumber = nums.shift();
   
-  return getSum(nums, sum + number);
+  return getSum(nums, sum + firstNumber);
 }
 ```
+
+Note that for Javascript, this optimization is only available in Safari.  (Chrome, FireFox, and other browsers are not optimized currently).  Read [here](https://stackoverflow.com/questions/54719548/tail-call-optimization-implementation-in-javascript-engines) to understand more of the history about this.
+
+In Ruby, this optimization is not available by default.  You *can* configure the Ruby compiler to enable tail call optimization however.  If you're interested, follow the [article](https://nithinbekal.com/posts/ruby-tco/) here!
 
 ## Exercises
 
