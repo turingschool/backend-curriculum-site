@@ -178,7 +178,6 @@ class SearchController < ApplicationController
 
     conn = Faraday.new(url: "https://api.propublica.org") do |faraday|
       faraday.headers["X-API-KEY"] = '<YOUR API KEY>'
-      faraday.adapter Faraday.default_adapter
     end
 
     response = conn.get("/congress/v1/members/house/#{state}/current.json")
