@@ -24,7 +24,6 @@ class SearchController < ApplicationController
 
     conn = Faraday.new(url: "https://api.propublica.org") do |faraday|
       faraday.headers["X-API-KEY"] = <YOUR API KEY>
-      faraday.adapter Faraday.default_adapter
     end
 
     response = conn.get("/congress/v1/members/house/#{state}/current.json")
@@ -128,7 +127,6 @@ def index
 
   conn = Faraday.new(url: "https://api.propublica.org") do |faraday|
     faraday.headers["X-API-KEY"] = <YOUR API KEY>
-    faraday.adapter Faraday.default_adapter
   end
 
   response = conn.get("/congress/v1/members/house/#{state}/current.json")
@@ -157,7 +155,6 @@ def index
 
   conn = Faraday.new(url: "https://api.propublica.org") do |faraday|
     faraday.headers["X-API-KEY"] = <YOUR API KEY>
-    faraday.adapter Faraday.default_adapter
   end
 
   response = conn.get("/congress/v1/members/house/#{state}/current.json")
@@ -237,7 +234,6 @@ class HouseMemberSearch
   def members
     conn = Faraday.new(url: "https://api.propublica.org") do |faraday|
       faraday.headers["X-API-KEY"] = <YOUR API KEY>
-      faraday.adapter Faraday.default_adapter
     end
 
     response = conn.get("/congress/v1/members/house/#{state}/current.json")
@@ -258,7 +254,6 @@ class HouseMemberSearch
   def members
     conn = Faraday.new(url: "https://api.propublica.org") do |faraday|
       faraday.headers["X-API-KEY"] = <YOUR API KEY>
-      faraday.adapter Faraday.default_adapter
     end
 
     response = conn.get("/congress/v1/members/house/#{state}/current.json")
@@ -337,7 +332,6 @@ def index
   #
   # conn = Faraday.new(url: "https://api.propublica.org") do |faraday|
   #   faraday.headers["X-API-KEY"] = <YOUR API KEY>
-  #   faraday.adapter Faraday.default_adapter
   # end
   #
   # response = conn.get("/congress/v1/members/house/#{state}/current.json")
@@ -383,7 +377,6 @@ class HouseMemberSearch
     # existing code
     conn = Faraday.new(url: "https://api.propublica.org") do |faraday|
       faraday.headers["X-API-KEY"] = <YOUR API KEY>
-      faraday.adapter Faraday.default_adapter
     end
 
     response = conn.get("/congress/v1/members/house/#{state}/current.json")
@@ -460,7 +453,6 @@ class PropublicaService
   def members_by_state(state)
     conn = Faraday.new(url: "https://api.propublica.org") do |faraday|
       faraday.headers["X-API-KEY"] = <YOUR API KEY>
-      faraday.adapter Faraday.default_adapter
     end
 
     response = conn.get("/congress/v1/members/house/#{state}/current.json")
@@ -488,7 +480,6 @@ class HouseMemberSearch
 
     # conn = Faraday.new(url: "https://api.propublica.org") do |faraday|
     #   faraday.headers["X-API-KEY"] = <YOUR API KEY>
-    #   faraday.adapter Faraday.default_adapter
     # end
     #
     # response = conn.get("/congress/v1/members/house/#{state}/current.json")
@@ -560,7 +551,6 @@ class PropublicaService
   def conn
     Faraday.new(url: "https://api.propublica.org") do |faraday|
       faraday.headers["X-API-KEY"] = ENV['PROPUBLICA_API_KEY']
-      faraday.adapter Faraday.default_adapter
     end
   end
 end
@@ -592,7 +582,6 @@ class PropublicaService
   def conn
     Faraday.new(url: "https://api.propublica.org") do |faraday|
       faraday.headers["X-API-KEY"] = ENV['PROPUBLICA_API_KEY']
-      faraday.adapter Faraday.default_adapter
     end
   end
 end
@@ -625,7 +614,6 @@ class PropublicaService
   def conn
     Faraday.new(url: "https://api.propublica.org") do |faraday|
       faraday.headers["X-API-KEY"] = ENV['PROPUBLICA_API_KEY']
-      faraday.adapter Faraday.default_adapter
     end
   end
 end
@@ -649,7 +637,6 @@ class PropublicaService
   def conn
     Faraday.new(url: "https://api.propublica.org") do |faraday|
       faraday.headers["X-API-KEY"] = ENV['PROPUBLICA_API_KEY']
-      faraday.adapter Faraday.default_adapter
     end
   end
 end
