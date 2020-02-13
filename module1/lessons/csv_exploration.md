@@ -18,7 +18,7 @@ Think back to your first two projects. How have you currently been making instan
 
 Sometimes the data that we want to use will be stored in a CSV. CSV is a file type that stands for _comma separated values_. Think of it similar to a spreadsheet or an excel sheet. The information within these files can be organized in columns and rows and might look like this:
 
-![Visualization of CSV](./assets/csv_example.png)
+<img src='./assets/csv_example.png'/>
 
 The first row is the headers for each column which gives us information about the values in the rows below. Each row we can think of as being a package of information that belongs together. Looking at our example we should see the first package of information is `1, Rubeus, Hagrid, 60`. We know that `1` is the id, `Rubeus` is the first name, `Hagrid` is the last name and `60` is the age because of the header for each column in which the information is located.
 
@@ -59,7 +59,7 @@ Currently in the projects you have completed the methods you have been creating 
 For example, in the following code:
 
 ```ruby
-hagrid = AnimalLover.new(1,'Rebeus','Hagrid',60) 
+hagrid = AnimalLover.new(1,'Rebeus','Hagrid',60)
 harry = AnimalLover.new(3,'Harry','Potter',13)
 ```
 
@@ -99,15 +99,15 @@ ORMs are good because:
 4. You can clean up the data that you're taking in very quickly and easily (data can be a real mess sometimes, with the crazy ways that people input things)
 5. It helps you follow the principles of OOP
 
-This is an example of something an ORM gives you: 
+This is an example of something an ORM gives you:
 ```
 Person.find(10)
-``` 
+```
 ✅ It's nice, right? Pretty much human-readable.
-This is the alternative in SQL: 
+This is the alternative in SQL:
 ```
 SELECT * FROM clients WHERE (clients.id = 10) LIMIT 1
-``` 
+```
 😬 Less nice.
 
 ORMs can be tricky because:
