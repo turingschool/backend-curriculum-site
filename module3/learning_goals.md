@@ -22,7 +22,7 @@ Academic success in B3 means that students demonstrate proficiency and comfort w
 ### Testing
 
 * Students are able to test external API consumption
-* Students are able to test internal API exposure
+* Students are able to test API exposure
 * Students are able to mock external HTTP requests using Webmock
 
 ### Object Oriented Programming
