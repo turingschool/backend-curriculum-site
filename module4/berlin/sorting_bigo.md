@@ -9,7 +9,7 @@ In this session, we're going to examine a few different sorting algorithms, and 
 * [Heap Sort](https://en.wikipedia.org/wiki/Heapsort)
 
 
-## In Groups of 2-3 People
+## In Groups of 2 People at Each Table
 
 Research the sorting algorithms above (or your instructors will assign one algorithm to your group).
 
@@ -24,11 +24,12 @@ Determine a small pseudocode implementation of the algorithm. **Be prepared to s
 
 We would typically speak of "worst-case scenario" with Big O analysis of any algorithm.
 
-With sorting algorithms, though, we typically talk about "best case", "worst case" and "average case" scenarios so we can compare them more equally. The "best/worst/average" considerations are speaking to the **input data**, not the algortihm itself.
+With sorting algorithms, though, we typically talk about "best case", "worst case", and "average case" scenarios. This allows us to compare the sorting algorithms more equally across all use cases. The "best/worst/average" considerations are speaking to the **input data**, not the algortihm itself.
 
-* What would "best case" scenario be for this sorting algorithm?
-* What is the "worst case" scenario for this sorting algorithm?
+* What would "best case" scenario be for your sorting algorithm?
+* What is the "worst case" scenario for your sorting algorithm?
 
 ## Bonus Points:
 
 * Which sorting algorithm(s) does your program's primary language (Ruby, JavaScript) use internally?
+
