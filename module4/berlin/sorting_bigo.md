@@ -18,6 +18,7 @@ Determine a small pseudocode implementation of the algorithm. **Be prepared to s
 * How would you determine the "Big O" complexity of this algorithm?
 * Is the complexity better, or worse, if the data is already sorted? Why?
 * Does this algorithm need additional "space complexity" to do its work?
+* Does this complexity matter if the data is smaller, or larger?
 
 #### Analyzing the Complexity
 
@@ -28,3 +29,6 @@ With sorting algorithms, though, we typically talk about "best case", "worst cas
 * What would "best case" scenario be for this sorting algorithm?
 * What is the "worst case" scenario for this sorting algorithm?
 
+## Bonus Points:
+
+* Which sorting algorithm(s) does your program's primary language (Ruby, JavaScript) use internally?
