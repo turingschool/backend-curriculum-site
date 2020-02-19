@@ -6,7 +6,7 @@ In this session, we're going to examine a few different sorting algorithms, and 
 * [Insertion sort](https://en.wikipedia.org/wiki/Insertion_sort)
 * [Quick sort](https://en.wikipedia.org/wiki/Quicksort)
 * [Bubble Sort](https://en.wikipedia.org/wiki/Bubble_sort)
-* [Heap Sort](https://en.wikipedia.org/wiki/Heapsort)
+* [Tim Sort](https://en.wikipedia.org/wiki/Timsort)
 
 
 ## In Groups of 2 People at Each Table
