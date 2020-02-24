@@ -256,7 +256,7 @@ Now you can navigate to `http://localhost:3000/sidekiq/`. This dashboard is very
 * What is a background worker? Why would you use a background worker?
 * What is Sidekiq?
 * What is Redis?
-* Draw a diagram of how Sidekiq, Redis, and Rails are interacting.
+* How do Sidekiq, Redis, and Rails interact? Draw a diagram?
 
 ### Video
 
