@@ -260,7 +260,7 @@ So now, let's move onto the service.
 class StarWarService
   def ships
     response = Faraday.get("https://swapi.co/api/vehicles/")
-    JSON.parse(response.body, symoblize_names: true)
+    JSON.parse(response.body, symbolize_names: true)
   end
 end
 ```
@@ -275,7 +275,7 @@ class StarWarService
   end
 
   def get_url(url)
-    response Faraday.get(url)
+    response = Faraday.get(url)
     JSON.parse(response.body, symoblize_names: true)
   end
 end
@@ -295,7 +295,7 @@ class StarWarService
 
   def get_url(url)
     response = Faraday.get("https://swapi.co/api#{url}")
-    JSON.parse(response.body, symoblize_names: true)
+    JSON.parse(response.body, symbolize_names: true)
   end
 end
 ```
