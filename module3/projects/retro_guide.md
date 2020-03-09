@@ -13,5 +13,7 @@ Below are questions that everyone should address together as a team. Please make
 |   |What went well?|What could be improved?|What did not go well?|What feedback do you have for your teammate(s) that might help them in future projects/on the job?|
 |---|---|---|---|---|
 |Process|   |   |   |   |
+|   |   |   |   |   |   |
 |Communication|   |   |   |   |
+|   |   |   |   |   |   |
 |Other|   |   |   |   |   |
