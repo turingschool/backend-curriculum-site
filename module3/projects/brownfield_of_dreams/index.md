@@ -23,6 +23,7 @@ Up until now you have been building Rails apps from scratch, frequently referred
 * Empathy for teammates that might work with your code in the future (or future you!)
 * Prioritize what code is relevant to your immediate task (and ignore the rest)
 * Send email from a Rails application
+* Configure Continuous Integration using Travis CI
 
 ## Project Requirements
 
