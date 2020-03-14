@@ -78,10 +78,10 @@ The `Turn` is responsible for much of the logic of the game and will respond to 
   * A `:basic` turn is one in which the `rank_of_card_at(0)` from the players' decks are **not** the same rank.  
   * A `:war` turn occurs when both players' `rank_of_card_at(0)` are the **same**.
   * `:mutually_assured_destruction` occurs when both players' `rank_of_card_at(0)` AND `rank_of_card_at(2)` are the **same**.
-* `winner`: this method has three possible outcomes
-  * if the turn is `:basic`, it will return whichever `player` has a higher `rank_of_card_at(0)`
-  * if the turn is `:war` the winner will be whichever player has a higher `rank_of_card_at(2)`
-  * if the turn is `:mutually_assured_destruction` the method will return `No Winner`.
+* `winner`: this method will determine the winner of the turn.
+  * if the turn has a type of `:basic`, it will return whichever `player` has a higher `rank_of_card_at(0)`
+  * if the turn has a type of `:war` the winner will be whichever player has a higher `rank_of_card_at(2)`
+  * if the turn has a type of `:mutually_assured_destruction` the method will return `No Winner`.
 * `pile_cards`: when this method is called, cards will be sent from the players' decks into the `@spoils_of_war` based on these rules
   * for a `:basic` turn, each player will send one card (the top card) to the `spoils` pile
   * for a `:war` turn, each player will send three cards (the top three cards) to the `spoils` pile
