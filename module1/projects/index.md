@@ -7,7 +7,7 @@ title: Backend Module 1 Projects
 
 The following projects will be assigned and their completion is required to be promoted to module 2.
 
-* Week 1 (independent): [War or Peace](./war_or_peace)
+* Week 1 (independent): [War (or Peace)](./war_or_peace)
 * Week 2 - 3 (paired): [Battleship](./battleship)
 * Week 4 - 5 (group): [Futbol](./futbol)
 * Week 6 (independent): [Enigma](./enigma)
