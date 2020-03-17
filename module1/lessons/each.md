@@ -88,7 +88,7 @@ names.each do |name|
   name.capitalize
 end
 
-puts names
+p names
 ```
 
 Run the playground file - what happens?
@@ -108,7 +108,7 @@ names.each do |name|
   capitalized_names << name
 end
 
-puts capitalized_names
+p capitalized_names
 ```
 
 Since we know that each won't save anything for us, we need to create some placeholder container to store our _new_ collection. In Mod 1, you may hear this placeholder called the accumulator or the aggregator. The thing to remember is that when you are using \#each, you will almost always use some sort of placeholder to preserve the result that you want - in this case, the capitalized names.  Without the placeholder, you will not be able to access the information that you want!
@@ -131,7 +131,7 @@ numbers.each do |number|
   end
 end
 
-puts odd_numbers
+p odd_numbers
 
 ```
 
