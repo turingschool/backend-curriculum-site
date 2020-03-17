@@ -190,7 +190,7 @@ With your new best friend sitting next to you, with this following array use
 
 Now, with this array can you do the following using `.each`?
 
-`array = [1,2,3,4,5]`
+`numbers = [1,2,3,4,5]`
 
 1. Can you create a new array with only the odd numbers?
 2. Can you create a new array with only the even numbers?
