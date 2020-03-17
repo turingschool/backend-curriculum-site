@@ -27,7 +27,7 @@ gem install minitest
 If your `Card` class is written properly and is located at `./lib/card.rb`, you should be able to open a pry session from your `war_or_peace` directory and interact with it like so:
 
 ```ruby
-# double check that you are in your flashcards project directory!
+# double check that you are in your war_or_peace project directory!
 pry(main)> require './lib/card'
 #=> true
 
