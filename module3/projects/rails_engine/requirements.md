@@ -187,15 +187,6 @@ This endpoint should destroy the corresponding record and render a JSON represen
 
 The URI should follow this pattern: `DELETE /api/v1/<resource>/:id`
 
-The body should follow this pattern:
-
-```
-{
-  "attribute1": "value1",
-  "attribute2": "value2",
-}
-```
-
 Example JSON response for the Merchant resource:
 
 ```json
