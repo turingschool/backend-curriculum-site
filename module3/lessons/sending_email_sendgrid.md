@@ -13,21 +13,15 @@ We'll explore sending email in Rails by building a project that requires this fu
 * Send email locally using Mailcatcher
 * How to setup a third party email service
 
-### You've Changed
+### A Bit of Advice
 
-Sometimes in life, people change. Like a frog boiled slowly in a pot of
-water, they may not notice. It's our job as friends to let people know:
-"You've Changed".
-
-However in-person communication is sometimes a bit dicey. Let's build an
-app that lets us do this electronically via email.
+We are going to build an application that allows us to send our friend's a bit of advice via email.
 
 What we'd like our app to do:
 
 1. Allow us to sign up / log in
 2. Allow us to enter a friend's email address
-3. Send that friend a passive-aggressive email notifying them that
-   "You've changed".  
+3. Send that friend a some advice.  
 
 ## Researching with the Docs  
 * [What is SMTP?](http://whatismyipaddress.com/smtp)
@@ -42,10 +36,10 @@ For this tutorial, we are going to setup our emails to "send" through mailcatche
 First things first, go ahead and clone down the repo.
 
 ```shell
-$ git clone https://github.com/turingschool-examples/youve_changed.git youve_changed
-$ cd youve_changed
+$ git clone https://github.com/turingschool-examples/a_bit_of_advice.git a_bit_of_advice
+$ cd a_bit_of_advice
 $ bundle
-$ rake db:{create,migrate}
+$ rake db:create
 ```
 ### Rails Setup  
 Run your server to see what we've already got in our repo
@@ -56,27 +50,34 @@ Inspect the Form/Input field, where does this route to?
 Make sure the route is in the routes file:
 
 ```rb
-post '/notifications' => 'notifications#create'
+post '/advice' => 'advice#create'
 ```
 
-Next we'll make a new controller that will call our mailer. Create a controller called NotificationsController. The form asks for a post route so we'll need a create action where we will call our mailer.
+Next we'll make a new controller that will call our mailer. Create a controller called AdviceController. The form asks for a post route so we'll need to update our  create action where we will call our mailer.
 
 ```rb
 
-# app/controllers/notifications_controller.rb
+# app/controllers/advice_controller.rb
 
 class NotificationsController < ApplicationController
+
   def create
-    FriendNotifier.inform(current_user, params[:email]).deliver_now
-    flash[:notice] = "Successfully told your friend that they've changed."
-    redirect_to root_url
+    @advice = AdviceGenerator.new
+    friend_email = email: params[:friends_email]
+    email_info = {user: current_user,
+                  friend: params[:friends_name],
+                  message: @advice.message
+                 }
+    FriendNotifierMailer.inform(email_info, friend_email).deliver_now
+    flash[:notice] = "Thank you for sending a bit of advice."
+    redirect_to advice_url
   end
 end
 ```
 
 ### Creating the Mailer
 
-Our next step will be to create the Friend mailer to passive-aggressively inform our friends that they've changed.
+Our next step will be to create the Friend mailer to send our friends advice.
 
 ```shell
 rails g mailer FriendNotifier
@@ -85,12 +86,14 @@ rails g mailer FriendNotifier
 This creates a lot of files for you. Let's first start out with the FriendNotifier.
 
 ```rb
-# mailers/friend_notifier.rb
+# mailers/friend_notifier_mailer.rb
 
-class FriendNotifier < ApplicationMailer
-  def inform(user, friend_contact)
-    @user = user
-    mail(to: friend_contact, subject: "#{user.name} says you've changed.")
+class FriendNotifierMailer < ApplicationMailer
+  def inform(info, friend_email)
+    @user = info[:user]
+    @message = info[:message]
+    @friend = info[:friend]
+    mail(to: friend_email, subject: "#{@user} is sending you some advice")
   end
 end
 ```
@@ -99,14 +102,16 @@ Next we'll make the views that will determine the body of the email that is sent
 
 When you generated your mailer, two layouts were added to app/views/layouts - mailer.html.erb and mailer.text.erb.  Take a look at these files, what are they doing? Why do we get both an HTML and txt layout?
 
-In app/views/friend_notifier create two files, inform.html.erb and inform.text.erb
+In app/views/friend_notifier_mailer creates two files, inform.html.erb and inform.text.erb
 
 Depending on the person's email client you're sending the email to, it will render either the plain text or the html view. We don't have control over that, so we'll make them have the same content.
 
 ```
 # inform.html.erb and inform.text.erb
 
-Your "friend" <%= @user.name.capitalize %> wanted to let you know that you've changed. Tell someone else that they've changed. It's your duty.
+Hello <%=@friend%>!
+
+<%= @user.first_name %> has sent you some advice: <%= @message %>
 ```
 
 Let's also change the default address the email gets sent from:
@@ -115,7 +120,7 @@ Let's also change the default address the email gets sent from:
 # app/mailers/application_mailer.rb
 
 class ApplicationMailer < ActionMailer::Base
-  default from: "no-reply@youvechanged.io"
+  default from: "no-reply@advice.io"
   layout 'mailer'
 end
 ```
