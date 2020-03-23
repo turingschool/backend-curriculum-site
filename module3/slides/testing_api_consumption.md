@@ -24,11 +24,10 @@
 
 # Reasons to Mock API calls
 
-* Reasons to Mock API calls
-    1. Avoid hitting our API limit faster
-    2. Increase the speed of our tests
-    3. Allows teammates to jump into code even if they are waiting for an API Key
-    4. Able to continue working if there is no wifi or the API is under maintenance
+1. Avoid hitting our API limit faster
+2. Increase the speed of our tests
+3. Allows teammates to jump into code even if they are waiting for an API Key
+4. Able to continue working if there is no wifi or the API is under maintenance
 
 ---
 
