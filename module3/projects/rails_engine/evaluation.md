@@ -52,7 +52,10 @@ Then, answer the following questions:
 
 ### Rake Task
 
-Run your partner's rake task. Open up the rake task and look it over.
+First,
+
+* Run your partner's rake task
+* Open up the rake task and look it over.
 
 Then, answer the following questions:
 
@@ -61,7 +64,10 @@ Then, answer the following questions:
 
 ### Endpoints
 
-Run the spec harness in Rails Driver against your partner's app. Look through their code as well.
+First,
+
+* Run the spec harness in Rails Driver against your partner's app
+* Look through the code
 
 Then, answer the following questions:
 
