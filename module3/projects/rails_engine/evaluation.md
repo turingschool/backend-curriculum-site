@@ -33,3 +33,42 @@ type: project
 * 3: Project demonstrates good use of ActiveRecord using no ruby to process data that could otherwise be done by the database
 * 2: Project makes good use of `ActiveRecord`, but drops to ruby enumerables for some query methods.
 * 1: Project frequently uses Ruby where ActiveRecord could be used, or fails to use ActiveRecord effectively
+
+## Peer Review
+
+Complete the following sections independently.
+
+### Setup
+
+First,
+
+* Clone down your partner's project
+* Set up your partner's project
+
+Then, answer the following questions:
+
+* Was your partner's project easy to set up? Why or why not?
+* Do they have a clear README? What sort of things should be included to make the set up more clear?
+
+### Rake Task
+
+First,
+
+* Run your partner's rake task
+* Open up the rake task and look it over.
+
+Then, answer the following questions:
+
+* Does the rake task work? How do you know?
+* Is the rake task readable? Is it DRY? What are some improvements you could make to the rake task?
+
+### Endpoints
+
+First,
+
+* Run the spec harness in Rails Driver against your partner's app
+* Look through the code
+
+Then, answer the following questions:
+
+* How many endpoints failed the spec harness? Why did they fail?
