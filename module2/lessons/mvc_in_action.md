@@ -18,6 +18,8 @@ title: MVC in Action
 
 For each of the code snippets below, identify where we are breaking MVC logic conventions and talk with a partner about how we should fix each infraction.
 
+A bit of context. Imagine that you are working in an app that tracks comedians and their Netflix Specials. Comedians have an age and they also have specials, in a one to many relationship. Specials have a run time which is their length.
+
 ### Models
 
 ```ruby
