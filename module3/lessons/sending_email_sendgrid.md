@@ -21,7 +21,7 @@ What we'd like our app to do:
 
 1. Allow us to sign up / log in
 2. Allow us to enter a friend's email address
-3. Send that friend a some advice.  
+3. Send that friend some advice.  
 
 ## Researching with the Docs  
 * [What is SMTP?](http://whatismyipaddress.com/smtp)
