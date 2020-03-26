@@ -7,7 +7,7 @@ type: project
 We will be using an agile process during the development of this project. This will include:
 
 * Using GitHub
-* Setting up a [CI Server](http://backend.turing.io/module3/lessons/ci_and_staging_environments)
+* Setting up Continuous Integration
 * Using a project management tool such as Github Projects or Trello.
 * Conducting Story Grooming meetings
 * Doing daily Stand Ups
@@ -20,8 +20,13 @@ We will be using an agile process during the development of this project. This w
 * Make branches and submit Pull Requests for each new feature.
     * DO NOT commit directly to master
     * Keep your PRs as small as possible (one feature per PR)
-    * Give your team mates an opportunity to review your PR before it is merged.
+    * Your PR should be review by at least one team member before it is merged.
     * Tag your Project Manager if you have questions. DM your Project Manager letting them know you have tagged them.
+
+## Continuous Integration
+
+* Set up a [CI Server](http://backend.turing.io/module3/lessons/ci_and_staging_environments)
+* Timebox this activity to 2 hours. If you don't get it working in 2 hours, create a branch with your work, but don't merge it.
 
 ## Story Grooming
 
@@ -51,6 +56,7 @@ We will be using an agile process during the development of this project. This w
     * Show your up to date project board
     * Ask clarifying questions
     * Do a code review
+    * Set expectations for the following project check in
 
 ## Retros
 
