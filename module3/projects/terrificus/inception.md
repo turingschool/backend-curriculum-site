@@ -12,7 +12,7 @@ Usually this process takes several days involving many stakeholders such as the 
 
 ## Process
 
-Each of the following meetings has a purpose, Brainstorm or Decide. Everyone should try hard to stick to that purpose.
+Each of the following meetings has a purpose: Brainstorm, Decide, or Solve. Everyone should try hard to stick to that purpose.
 
 * Brainstorm - Explore what is possible, what can go wrong, what is not possible, debate, share counterpoints etc.
 * Decide - Follows brainstorming and requires the team to put aside their pride and make decisions for the sake of the team.
