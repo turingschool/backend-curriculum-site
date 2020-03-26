@@ -16,6 +16,7 @@ Each of the following meetings has a purpose, Brainstorm or Decide. Everyone sho
 
 * Brainstorm - Explore what is possible, what can go wrong, what is not possible, debate, share counterpoints etc.
 * Decide - Follows brainstorming and requires the team to put aside their pride and make decisions for the sake of the team.
+* Solve - Follows deciding. This is the execution of what was decided.
 
 Conflict and tension tends to arise in groups when there are differing expectations of these meetings. Some want to debate and explore different outcomes while others see that as a waste of time and want to make a decision. The reality is both are important for making sound decisions and the following is a template to do both and get your project off to a strong start.
 
@@ -93,3 +94,40 @@ Conflict and tension tends to arise in groups when there are differing expectati
     * If you are unsure about a feature, table the feature and come back to it at the end.
     * Repeat this process until you have gone through all of the sticky notes.
     * Once you are finished, you have your MVP definition.
+
+
+## Wireframing (Solve)
+
+* **Time Limit**
+    * 1 hour
+* **Objectives**
+    * Decide how users will interact with your application
+* **Instructions**
+    * Create a high level [user flow diagram](https://bashooka.com/inspiration/33-excellent-user-flow-examples-for-inspiration/) that lists the steps a user will take when interacting with your application.
+    * Make a list of all of the pages required for your application along with what features will exist on each page.
+    * For each page, create a [wireframe](https://www.usability.gov/how-to-and-tools/methods/wireframing.html) by sketching out what that user will see when they navigate to that page. Include details such as header text, buttons, drop downs, forms with the specific fields, graphs etc.
+    * Do a few pages together as a group, then divide and conquer the remaining pages.
+
+## Story Writing (Solve)
+
+* **Time Limit**
+    * 1 hour
+* **Objectives**
+    * Document technical requirements for the development team
+* **Instructions**
+    * Create a project board using Github Projects or Trello.
+    * Translate each of the features that were written on sticky notes during the feature dump exercise into a [user story](https://www.atlassian.com/agile/project-management/user-stories) in your project management tool.
+    * Every user story should be written from the perspective of the end user and should follow this format:  
+        * `As a ___, when I visit ___, I want to ____ so that I can ____.`
+    * For every user story include a list of subtasks required to complete the user story. This includes developer chores such as database migrations to add tables and columns, exposing API endpoints, creating mock data and fixtures to stub out an API call etc.
+    * For every user story, include the wire frame(s) from the associate page(s)
+    * An example user story is:
+        - Feature: User can log in
+        - User story: "As a user, when I visit the login page, I want to click the `login with Google` button so that I can login to the application using my google account."
+        - Wireframe: `<link to wireframe>`
+        - Subtasks:
+            1. Create user table with name, email, and token columns
+            2. Implement google Omniauth strategy
+            3. Route for login page is /login
+            4. User should be redirected to /dashboard after successful login
+            5. If user is not able to authenticate with google, user should see flash message that reads `Oops something went wrong!`
