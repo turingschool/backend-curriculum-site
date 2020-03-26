@@ -19,36 +19,17 @@ Fill out the following template for your project idea.
 
 ### Pitch
 
-1 sentence that explains the value proposition of the application. How would you explain it to a potential business partner, team member, or investor?
-
-### Problem
-
-1-3 sentences describing the problem that you are trying to solve.
-
-### Solution
-
-1-3 sentences describing how your application will solve that problem.
-
-### Target Audience
-
-1-3 sentences describing what type of user your app would be applicable to.
+2 - 3 sentences that explains what the application will do.
 
 ### Features
-* What features will your app include to solve the problem?
+
+* What features will your app include?
 
 ### Integrations
 
 * Which APIs will you use?
 * Which OAuth integration are you planning to use?
 ```
-
-### Project Scope
-
-A good project idea should:
-
-* Break down into logical iterations so that you can deliver a strong product on  every checkin
-* Be something that real people would want to use to solve a problem
-* Have enough *technical* challenge to be worth your time (as opposed to a *content* challenge)
 
 ### APIs
 
