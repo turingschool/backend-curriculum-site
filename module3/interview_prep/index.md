@@ -6,7 +6,7 @@ title: Interview Prep Overview
 # Activities
 
 * [How Databases Work](activities/databases)
-* [Transferrable Skils](activities/transferable_skills)
+* [Transferrable Skills](activities/transferable_skills)
 * [Buzzwords](activities/buzzwords)
 
 # Resources
@@ -14,19 +14,6 @@ title: Interview Prep Overview
 ## Interviews
 
 * [Video](https://www.youtube.com/watch?v=aXohtMcPT6I) from one of Ian Douglas' hangout sessions.
-* Mentors willing to conduct mock interviews
-    * Marina Corona
-    * Al Scott
-    * Emily Freeman
-    * Angela Lindow
-    * Marc Chung
-    * Austin Wood
-    * Brian Sayler
-    * Heidi Hoopes
-    * Jack Yeh
-    * Jason Noble
-    * Mark Miranda
-    * Michael Siegfried
 
 ## Tech Challenges
 
@@ -45,12 +32,14 @@ title: Interview Prep Overview
 * [Cracking the Code Interview](https://www.amazon.com/Cracking-Coding-Interview-Programming-Questions/dp/098478280X)
 
 ## General Tips
+
 * [Google Doc from Ian Douglas](https://docs.google.com/document/d/1yWfxxYoCkZgxQrJ5Bn6051OE9a6f7mm5zs72jvqGKx8/edit#heading=h.mcpfv1ztn6o)
 
 ## Big O Notations
+
 * [Rob Bell Blog Post](https://rob-bell.net/2009/06/a-beginners-guide-to-big-o-notation/)
 * [Interview Cake](https://www.interviewcake.com/article/java/big-o-notation-time-and-space-complexity)
 * [Khan Academy](https://www.khanacademy.org/computing/computer-science/algorithms/asymptotic-notation/a/big-o-notation)
 * [Justin Abrahms Blog Post](https://justin.abrah.ms/computer-science/big-o-notation-explained.html)
 * [Derek Banas Video](https://www.youtube.com/watch?v=V6mKVRU1evU)
-* [StackOverflow Phone Book Example] (http://stackoverflow.com/questions/2307283/what-does-olog-n-mean-exactly)
+* [StackOverflow Phone Book Example](http://stackoverflow.com/questions/2307283/what-does-olog-n-mean-exactly)

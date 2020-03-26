@@ -30,7 +30,7 @@ We'll be building a versioned API in this tutorial.
 
 ## Tutorial
 
-### 0. RSpec & Factory Girl Setup
+### 0. RSpec & Factory Bot Setup
 
 Let's start by creating a new Rails project. If you are creating an api only Rails project, you can append `--api` to your rails new line in the command line.
 Read [section 3 of the docs](http://edgeguides.rubyonrails.org/api_app.html) to see how an api-only rails project is configured.

@@ -11,7 +11,6 @@ This lesson plan was last verified to have worked with Ruby v2.4.1 and Rails v5.
 ## Learning Goals
 
 * Generate and customize Rails Serializers
-* Discuss other serialization options, like Jbuilder
 * Understand what constitutes presentation logic in the context of serving a JSON API and why formatting in the model is not the right place
 
 

@@ -30,3 +30,4 @@ type: project
 * **3:** Project is ready to demo. Page load times average under 500 milliseconds with a max page load time of 600 milliseconds using New Relic or Skylight.io in production on a hosted service.
 * **2:** Project is not ready to demo or page load times average are slower than 600 milliseconds on average.
 * **1:** Project is not ready to demo, does not measure page load times, page load times are over 700 milliseconds on average, or max page load takes longer than 1000 milliseconds.
+

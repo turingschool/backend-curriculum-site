@@ -8,7 +8,7 @@ title: MVC in Action
 * In small groups, Diagram the MVC workflow and how each part relates to the others.
   - include which logic area belongs to each of the parts of MVC.
   - each area should have examples of what responsibilities should live there.
-  - bonus: include file names for each area from your mini shop project
+  - bonus: include file names for each area from your project
 
 * Gallery!
   - Post the diagrams around the room and circulate, discussing differences and similarities between diagrams.
@@ -17,6 +17,8 @@ title: MVC in Action
 ## MVC in Action!
 
 For each of the code snippets below, identify where we are breaking MVC logic conventions and talk with a partner about how we should fix each infraction.
+
+A bit of context. Imagine that you are working in an app that tracks comedians and their Netflix Specials. Comedians have an age and they also have specials, in a one to many relationship. Specials have a run time which is their length.
 
 ### Models
 
@@ -56,7 +58,7 @@ end
 
 ## Peer Code Review
 
-In pairs or small groups, review each other's mini shop projects.  Help each other identify places where there are MVC infractions similar to the infractions in the code snippets above.
+In pairs or small groups, review each other's projects.  Help each other identify places where there are MVC infractions similar to the infractions in the code snippets above.
 
 For additional guidance you can consider the following rules:
 

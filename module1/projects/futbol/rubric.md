@@ -5,7 +5,7 @@ title: Futbol - Rubric
 
 _[Back to Futbol Home](./index)_
 
-| Category | **4: Exceptional** | **3: Passing** | **2: Passing with Concern** | **1: Failing** |
+| Category | **Exceptional** | **Meets Expectations** | **Below Expectations** | **Well Below Expectations** |
 | -------- | ------------------------------ | ------------------------- | ------------------------- | ------------------------------ |
 | **Functionality** | Completes all iterations | Completes all functionality in iterations 1 through 5. | Does not complete one of the following iterations: 2, 3, 4, 5 | Does not complete two or more of the following: iterations 1, 2, 3, 4, 5|
 | **Object Oriented Programming** | Students have implemented both inheritance and at least one module in a logical manner.  Students can speak as to how/why inheritance and modules made sense for the given implementations, why they improve the organization of the code, and the distinction between the two. | Students have implemented either inheritance or at least one module in a logical manner.  Students can speak as to how/why inheritance or modules made sense for the given implementation, and why it improves the organization of their code.  No class is over 150 lines long. | Students can clearly identify the responsibility of each class that they created and the methods that they wrote. Students are able to describe why they have organized their code in the way they did. No class is over 200 lines long. | Students have difficulty explaining the reason they have organized their code in the way that they did. They may have few files that seem to be doing the vast majority of the work in the project, and have not drawn clear lines between the responsibilities of different classes they have created. |

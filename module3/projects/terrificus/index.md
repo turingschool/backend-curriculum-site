@@ -32,4 +32,5 @@ a project.
 * [Ideation](./ideation)
 * [Inception](./inception)
 * [Development](./development)
+* [Retro](../retro_guide)
 * [Evaluation](./evaluation)
