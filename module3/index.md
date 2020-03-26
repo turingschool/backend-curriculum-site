@@ -25,7 +25,7 @@ In Module 3, we will look beyond the basics of building Rails web applications w
 
 * [Portfolio](./misc/portfolio_requirements)<br>
 * [Promotion](./promotion)<br>
-* [Mod 2 Professional Development Curriculum](https://github.com/turingschool/career-development-curriculum/tree/master/module_three)
+* [Mod 3 Professional Development Curriculum](https://github.com/turingschool/career-development-curriculum/tree/master/module_three)
 
 <br>
 

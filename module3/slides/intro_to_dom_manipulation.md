@@ -11,7 +11,7 @@ Review with your neighbor everything you know about JavaScript objects
 ## Learning Goals
 
 1. Introduction to Client-side JavaScript
-2. Understand what the Document Object Model(DOM) is
+2. Understand what the Document Object Model (DOM) is
 3. Practice manipulating the DOM with JavaScript
 
 ---
@@ -75,22 +75,26 @@ There are many ways to access elements in the DOM. Below are a few methods we wi
 ---
 
 `getElementById()`
+
 - selects a single element in the DOM by it's unique id
 
 ---
 
 `getElementsByClassName()`
+
 - selects on or more specific elements in the DOM by it's class.
 - returns an array-like object of DOM elements
 
 ---
 
 `querySelector()`
+
 - selects a single element with a matching selector
 
 ---
 
 `querySelectorAll()`
+
 - selects all of the elements with a matching selector
 - returns an array-like object of DOM elements
 

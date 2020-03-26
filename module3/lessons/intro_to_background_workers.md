@@ -251,11 +251,12 @@ mount Sidekiq::Web => '/sidekiq'
 
 Now you can navigate to `http://localhost:3000/sidekiq/`. This dashboard is very useful for testing out jobs and recieving confirmation that everything is queued according to plan.
 
-#### The Closing: ~5 min
+## Checks for Understanding
 
-* Check for understanding
-* Discuss any clarifications or student misconceptions
-* Review goals, further resources, and next steps
+* What is a background worker? Why would you use a background worker?
+* What is Sidekiq?
+* What is Redis?
+* How do Sidekiq, Redis, and Rails interact? Draw a diagram?
 
 ### Video
 

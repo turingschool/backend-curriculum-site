@@ -1,9 +1,9 @@
 ---
 layout: page
-title: FlashCards Rubric
+title: War or Peace - Rubric
 ---
 
-_[Back to FlashCards Home](./index)_
+_[Back to Project Home](./index)_
 
 
 ## Learning Goals
