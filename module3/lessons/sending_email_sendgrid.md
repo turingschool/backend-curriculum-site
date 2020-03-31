@@ -59,7 +59,7 @@ Next we'll make a new controller that will call our mailer. Create a controller 
 
 # app/controllers/advice_controller.rb
 
-class NotificationsController < ApplicationController
+class AdviceController < ApplicationController
 
   def create
     @advice = AdviceGenerator.new
