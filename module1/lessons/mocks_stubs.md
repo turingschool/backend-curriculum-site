@@ -6,28 +6,28 @@ title: Mocks and Stubs
 ## Learning Goals
 
 * Understand what mocking and stubbing is and why we would use it.
-
-## Slides 
-
-Find slides [here](https://docs.google.com/presentation/d/1TcJhktMttcVNhq9Z53MsM14b_skLTRs00FvKjqN8wj0/edit?usp=sharing)
+  * Understand the difference between a mock and a stub.
+* Learn the syntax for mocks and stubs with mocha.
+* Pracice creating stubs to help with integration tests.
 
 ## Vocabulary
 
 * Mock
 * Stub
+* Unit Test
+* Integration Test
 
 ## Warmup
 
-With your partner, take 3 minutes to answer the following questions: 
-  - In the regular world, outside of coding, what does it mean to "mock" something?
-  - What do you already know about mocks and/or stubs? (What are they? Where are they implemented? Why are they useful?)
+* Thinking back to your first two projects - was there any functionality for which you could **not** write tests?
+* Can you think of any scenarios where a method would return an _unknowable_ value?
 
-## Paired Exercise
+## Syntax Overview
 
-### Step 1: Setup
+### Setup
 
 1. Clone the [Bob Ross repo](https://github.com/turingschool/bob_ross) onto your local computer.
-2. cd bob_ross 
+2. cd bob_ross
 
 To get access to methods that create mocks and stubs, we'll need to install and require the `mocha` gem. A gem is a package of code that someone else wrote. We bring them in to projects to make our lives easier!
 
@@ -35,7 +35,7 @@ To get access to methods that create mocks and stubs, we'll need to install and 
 gem install mocha
 ```
 
-Once that's set, we can now require mocha at the top of our bob_test.rb: 
+Once that's set, we can now require mocha at the top of our bob_test.rb:
 
 ```ruby
 require 'minitest/autorun'
@@ -45,14 +45,9 @@ require './lib/bob'
 
 ```
 
+### Mocks
 
-**Pair Work:**
-
-Work with your partner to make the first two tests pass. **You should not create a Paint class at any point during this lesson**.
-
-### Step 2: Mocks
-
-The next test that we have tests `Bob`'s `paints` method to see that it returns a collection of `Paint` instances. 
+In the test below, we are testing `Bob`'s `paints` method to see that it returns a collection of `Paint` instances.
 
 ```ruby
 def test_it_can_have_paint
@@ -69,13 +64,13 @@ end
 
 **Turn and Talk:**
 
-What would we have to do to make this test pass?
+Run the test - why is it so slow?
 
-In this particular example, we could go work to make the Paint class to move this test forward. That wouldn't be too bad because this example is pretty short. Imagine if the Paint class needed to hit an API in order to retrieve its color. Then we would have to implement all of that functionality before we could move forward with the Bob class. We might have a case where our teammate is already working on the Paint class and we don't want to duplicate work. We may also want to isolate this test from that particular interaction so that if a test breaks it is easier to identify what exactly has broken.
+In this particular example, we are relying on creating an object that takes a loooong time to create.  In this example, we have forced the issue by putting a `sleep` in the Paint class; but in the real world, this kind of slow down could be caused by a lengthy API call, or perhaps another team is working on the Paint class, and we don't have the class yet (and it is not our task to create the class).  In order to focus our test more distincly on the Bob class, we can use a Mock.
 
 **Mocks are objects that stand in for other objects.** The other object might be one that's not implemented yet, doesn't yet have the functionality we need, or maybe we just want to work with a simpler situation. You can think of a mock as fake or a dummy object.
 
-In the test above, we would have to create a Paint class in order to make this test pass. Instead, we are going to use a Mock object to stand in for a Paint object.
+In the test above, we are going to use a Mock object to stand in for a Paint object.
 
 ```ruby
 paint_1 = mock("paint")
@@ -92,9 +87,9 @@ Remember, a mock is a simple object that stands in for another object. At the ba
 
 Let's update this test so that it uses Mocks instead of Paints.
 
-### Step 3: Stubs
+### Stubs
 
-In our next test, we want to test that we can get an array of the paint colors (not just paint objects).
+In our next test, we are testing that we can get an array of the paint colors (not just paint objects).
 
 ```ruby
 def test_it_can_return_colors
@@ -118,9 +113,9 @@ paint_1.stubs(:color).returns("Van Dyke Brown")
 Now, whenever we call `paint_1.color` it will return `"Van Dyke Brown"`.
 
 
-Let's update this test so that it stubs out the color method for the Mock objects. 
+Let's update this test so that it stubs out the color method for the Mock objects.
 
-### Step 4: Mock Expectations
+### Mock Expectations
 
 Replace your existing `paint_colors` method with the following:
 
@@ -145,7 +140,7 @@ Change your `paint_colors` method to pass the test.
 
 **Pair Work:**
 
-With that last test, update it to use mocks and stubs so that you can make it pass without creating the Paint class. Then make the test pass:
+With that last test, update it to use mocks and stubs so that you can make it pass without invoking the Paint class. (Your tests should run in under 1second)
 
 ```ruby
   def test_it_can_total_paint_amount
@@ -160,33 +155,23 @@ With that last test, update it to use mocks and stubs so that you can make it pa
   end
 ```
 
-### Individiual Practice: 
+### Individiual Practice:
 
 **Setup:**
 
-1. Clone down the [museum_mocks_stubs repo](https://github.com/turingschool/museum_mocks_stubs). 
-2. cd museum_mocks_stubs
+1. Clone down the [Number Generator](https://github.com/turingschool-examples/number_generator).
+2. cd number_generator
 3. gem install mocha
 4. require 'mocha/minitest' (at the top of your test file)
 
-**Directions:** 
+**Directions:**
 
-The museum_test.rb has 6 skipped tests in it. One by one, unskip the tests, and use mocks and stubs to make your tests pass. 
-
-- For tests 3 & 5, use mocks. 
-- For tests 6-8, use mocks and stubs. 
-
+* Review the NumberGenerator class to familiarize yourself with the functionality
+* Leveraging mocks and/or stubs, write tests for all methods in the NumberGenerator class - you should have at least 4 tests
 
 ### Interview Question
 
 What are mocks and stubs? When would you use them?
-
-## The Ultimate CFU
-
-Sit in your Cross Check Groups and answer the following questions: 
-
-- Can you find a Cross Check test you've already written that could use mocks and stubs instead?
-- Create a slack message with everyone in your team, including me, and have one person send a code snippet of a test, and an action plan for how mocks/stubs can be used in that test. 
 
 ## Further Reading
 
