@@ -6,6 +6,11 @@ tags:
 type: project
 ---
 
+# 0. Set Up
+
+1. Set Up [Rails Driver](https://github.com/turingschool-examples/rails_driver).
+2. Set Up [SimpleCov](https://github.com/colszowka/simplecov) to track test coverage.
+
 # 1. Data Importing
 
 Copy [these CSV files](https://github.com/turingschool/sales_engine/tree/master/data) into your project and create a Rake Task to seed your database using that data.
