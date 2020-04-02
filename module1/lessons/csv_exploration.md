@@ -5,7 +5,6 @@ tags: ruby, csv
 
 ## Deliverables (by 8:30AM on Monday)
 
-* Put in a pull request to https://github.com/turingschool-examples/csv_example with the code that you wrote for this exercise
 * Put in a pull request to https://github.com/turingschool-examples/black_thursday_lite with the code that you wrote for this mini-project
 
 ## CSV Exploration
@@ -18,7 +17,7 @@ Think back to your first two projects. How have you currently been making instan
 
 Sometimes the data that we want to use will be stored in a CSV. CSV is a file type that stands for _comma separated values_. Think of it similar to a spreadsheet or an excel sheet. The information within these files can be organized in columns and rows and might look like this:
 
-![Visualization of CSV](./assets/csv_example.png)
+<img src='./assets/csv_example.png'/>
 
 The first row is the headers for each column which gives us information about the values in the rows below. Each row we can think of as being a package of information that belongs together. Looking at our example we should see the first package of information is `1, Rubeus, Hagrid, 60`. We know that `1` is the id, `Rubeus` is the first name, `Hagrid` is the last name and `60` is the age because of the header for each column in which the information is located.
 

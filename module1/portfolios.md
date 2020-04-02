@@ -18,6 +18,13 @@ title: M1 Portfolio Requirements
 
 Each student will deliver a 5 minute slide presentation in front of your instructors.
 
+* All students will respond to the following prompt:
+  * How has feedback impacted your development in this module?
+  * How has feedback conversations with peers helped prepare you for your job/career?
+  * What is something you've learned about yourself in receiving project feedback?
+  * What has been the most valuable piece of feedback you have received?
+  * What specific actions are you planning on taking after receiving the feedback from this inning?
+
 * A student who **will repeat the current module** uses their presentation time to explore why they struggled, discuss the lessons learned, and lay out a plan for what will be different next time.
 * A student who is **repeating unsuccessfully** and will leave the program is excused from the presentation and can use the entire portfolio time for feedback and discussion.
 * A student who **passes the module** will present the following:

@@ -93,6 +93,7 @@ A student who promotes from this module will be able to do the following:
 * Students will be able to name and order tests so that a test file reads like documentation
 * Students will be able to explain what edge case testing is and write tests for those edge cases
 * Students will be able to explain the difference between unit and integration testing, and write both types of tests
+* Students will be able to implement a stub in an integration test
 
 **Debugging:**
 
