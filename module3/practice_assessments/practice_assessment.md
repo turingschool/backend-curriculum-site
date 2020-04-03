@@ -25,8 +25,8 @@ bundle exec rake db:{create,migrate,seed}
 bundle exec rails server
 ```
 
-Sign up for a Weather Underground developer key [here](https://www.wunderground.com/weather/api).
-> Note: Make sure you select a free plan!
+We will be using the [OpenWeatherMap API](https://openweathermap.org/api). Sign up for an api key and familiarize yourself with the documentation.
+
 
 ## Assessment Challenges
 
@@ -54,4 +54,4 @@ The forecast should include date (weekday, month and day), high and low temps (F
 
 ## Evaluation Criteria
 
-As a refresher, evaluation criteria is located in the [Assessment](https://github.com/turingschool/lesson_plans/blob/master/ruby_03-professional_rails_applications/diagnostic.md#evaluation-criteria) file.
+As a refresher, evaluation criteria is located [here](./practice_assessments/assessment_info).
