@@ -52,7 +52,6 @@ To better follow your progress over the 2 hours we expect that you commit every 
 These are recommended resources to look through before the assessment, and/or use during the assessment.
 
 * Request libraries such as [Faraday](https://github.com/lostisland/faraday) or [Net::HTTP](http://ruby-doc.org/stdlib-2.3.0/libdoc/net/http/rdoc/Net/HTTP.html)
-* [VCR](https://github.com/vcr/vcr)
 * [Ruby Docs](http://ruby-doc.org/)
 * [Rails Forms](http://guides.rubyonrails.org/form_helpers.html)
 * [Rails Docs](http://api.rubyonrails.org/)
