@@ -1,7 +1,7 @@
 ---
-title: Module 3 Exercises
+title: Module 3 Assessment Practice & Info
 layout: page
 ---
 
-[Mock Assessment](./diagnostic)
+[Assessment Info](./assessment_info)
 [Practice Assessment](./practice_assessment)
