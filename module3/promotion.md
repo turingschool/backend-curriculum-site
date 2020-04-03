@@ -7,16 +7,15 @@ layout: page
 
 Promoted students will demonstrate proficiency in the material outlined in the [Module 3 Learning Goals](./learning_goals).
 
-They will demonstrate these proficiencies through their performance on [projects](./projects), and the assessment
+They will demonstrate these proficiencies through their performance on [projects](./projects), and the final assessment.
 
 ## Completion Requirements
-
 
 In order to graduate from Module 3, students must complete each of the following:
 
 ### Final Assessment
 
-Students must meet the expectations laid out in the [final assessment rubric](./practice_assessments/diagnostic) document.
+Students must meet the expectations laid out in the [final assessment rubric](./practice_assessments/assessment_info#evaluation-criteria) document.
 
 ### Career Development
 

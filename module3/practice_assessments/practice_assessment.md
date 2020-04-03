@@ -54,4 +54,4 @@ The forecast should include date (weekday, month and day), high and low temps (F
 
 ## Evaluation Criteria
 
-As a refresher, evaluation criteria is located in the [Assessment](https://github.com/turingschool/lesson_plans/blob/master/ruby_03-professional_rails_applications/diagnostic.md#evaluation-criteria) file.
+As a refresher, evaluation criteria is located [here](./practice_assessments/assessment_info).
