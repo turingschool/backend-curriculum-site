@@ -47,7 +47,7 @@ We have separated the methods required for this project into sections below.
 
 * **Iteration 1:** [Setup and File I/O](./iterations/file_io)
 * **Iteration 2:** [Statistics](./iterations/statistics)
-* **Iteration 3:** [Re-Organization and More Statistics](./iterations/reorganization)
+* **Iteration 3:** [Re-Organization](./iterations/reorganization)
 * **Iteration 4:** [Build a Website](./iterations/website)
 
 ## Evaluation Rubric
