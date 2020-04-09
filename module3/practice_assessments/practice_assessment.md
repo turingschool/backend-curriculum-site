@@ -58,7 +58,7 @@ Then I should see an image related to the current weather at the destination
 
 ### 3. Create an External API for the `Destination` resource
 
--   RESTful routes should be created to `get`, `show`, `create`, `update`, and `destroy` destinations.
+-   RESTful routes should be created to `index`, `show`, `create`, `update`, and `destroy` destinations.
 -   Routes should render JSON or an HTTP status code depending on their purpose.
 -   These routes should be namespaced under `/api/v1/`.
 -   Request specs should be driving the creation of these routes.
