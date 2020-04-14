@@ -2,10 +2,10 @@
 
 ### Developer Empathy and Technical Debt
 
-- [ ] **1:** Meets less than three of the requirements below.
-- [ ] **2:** Meets 3 of the requirements below.
-- [ ] **3:** Meets all of the criteria below.
-- [ ] **4:** Meets all of the criteria below and went above and beyond to clean up and prevent technical debt.
+- **4:** Meets all of the criteria below and went above and beyond to clean up and prevent technical debt.
+- **3:** Meets all of the criteria below.
+- **2:** Meets 3 of the requirements below.
+- **1:** Meets less than three of the requirements below.
 
 **Empathy and Technical debt criteria**
 - [ ] Points out areas where they have created technical debt.
@@ -15,18 +15,17 @@
 
 ### Completion
 
-- [ ] **1:** More than 5 cards are incomplete.
-- [ ] **2:** Five cards are incomplete.
-- [ ] **3:** All user stories not labeled "extension" are complete. (You can negotiate with your instructor to set the requirements for a passing project, but this requires communication early on.)
-- [ ] **4:** All user stories complete and at least one extension.
+- **4:** All user stories complete and at least one extension.
+- **3:** All user stories not labeled "extension" are complete. (You can negotiate with your instructor to set the requirements for a passing project, but this requires communication early on.)
+- **2:** Five cards are incomplete.
+- **1:** More than 5 cards are incomplete.
 
 ### Testing
 
-- [ ] **1:** Project uses 1 or fewer testing techniques listed below and/or overall test coverage is below 85%.
-- [ ] **2:** Project uses 2 testing techniques listed below and/or overall test coverage is above 85%.
-- [ ] **3:** Project uses 3 testing techniques listed below, overall test coverage is above 90%, and unit testing is above 90%.
-- [ ] **4:** Project uses all testing techniques listed below, overall test coverage is above 95%, and unit testing is above 90%.
-
+- **4:** Project uses all testing techniques listed below, overall test coverage is above 95%, and unit testing is above 90%.
+- **3:** Project uses 3 testing techniques listed below, overall test coverage is above 90%, and unit testing is above 90%.
+- **2:** Project uses 2 testing techniques listed below and/or overall test coverage is above 85%.
+- **1:** Project uses 1 or fewer testing techniques listed below and/or overall test coverage is below 85%.
 
 **Testing Techniques**
 
@@ -40,10 +39,10 @@
 
 Project should use [RuboCop](https://github.com/rubocop-hq/rubocop) to measure code quality.
 
-- [ ] **1:** Team can demonstrate how API consumption portions of the project demonstrate 1 of the pillars listed below, or RuboCop complains about 5 or more violations.
-- [ ] **2:** Team can demonstrate how API consumption portions of the project demonstrate 2 of pillars listed below, and RuboCop complains about 4 or less violations.
-- [ ] **3:** Team can demonstrate how API consumption portions of the project demonstrate 2 of pillars listed below, and RuboCop complains about 3 or less violations.
-- [ ] **4:** Team can demonstrate how API consumption portions of the project demonstrate all of the four pillars listed below and RuboCop has no complaints.
+- **4:** Team can demonstrate how API consumption portions of the project demonstrate all of the four pillars listed below and RuboCop has no complaints.
+- **3:** Team can demonstrate how API consumption portions of the project demonstrate 2 of pillars listed below, and RuboCop complains about 3 or less violations.
+- **2:** Team can demonstrate how API consumption portions of the project demonstrate 2 of pillars listed below, and RuboCop complains about 4 or less violations.
+- **1:** Team can demonstrate how API consumption portions of the project demonstrate 1 of the pillars listed below, or RuboCop complains about 5 or more violations.
 
 **4 Pillars of OO**
 
