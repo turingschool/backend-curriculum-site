@@ -15,7 +15,7 @@ In order to graduate from Module 3, students must complete each of the following
 
 ### Final Assessment
 
-Students must meet the expectations laid out in the [final assessment rubric](./practice_assessments/assessment_info#evaluation-criteria) document.
+Students must meet the expectations laid out in the [final assessment info](./final_assessment).
 
 ### Career Development
 

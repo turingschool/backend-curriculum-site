@@ -18,13 +18,14 @@ In Module 3, we will look beyond the basics of building Rails web applications w
 
 ## Resources
 
-* [Practice Assessments](./practice_assessments)<br>
+* [Practice Assessments](./practice_assessments/practice_assessment)<br>
 * [Exercises](https://github.com/turingschool-examples/m3_exercises)<br>
 
 ## Requirements
 
 * [Portfolio](./misc/portfolio_requirements)<br>
 * [Promotion](./promotion)<br>
+* [Final Assessment](./final_assessment)
 * [Mod 3 Professional Development Curriculum](https://github.com/turingschool/career-development-curriculum/tree/master/module_three)
 
 <br>
