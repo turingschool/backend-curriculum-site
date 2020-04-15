@@ -8,7 +8,7 @@ GEM
       tzinfo (~> 1.1)
     colorator (0.1)
     concurrent-ruby (1.0.5)
-    ffi (1.9.18)
+    ffi (1.11.3)
     gemoji (3.0.0)
     html-pipeline (2.7.1)
       activesupport (>= 2)
