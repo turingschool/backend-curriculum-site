@@ -13,7 +13,8 @@ What we are going to do is we are going to write a bit of code which will get al
 So let's create a directory for our code.
 
 ```
-mkdir star_war
+mkdir ghibli
+cd ghibli
 ```
 
 And let's make a lib folder for our code.
@@ -44,32 +45,34 @@ bundle install
 
 Let's now make a file so that we can work.
 ```
-touch lib/crew_search.rb
+touch lib/ghibli_films.rb
 ```
 
-Calling it `crew_search` because I'm searching for the crews of ships.
+Calling it `ghibli_films` because I'm searching for all of the Studio Ghibli films.
 
 At the top, lets
 ```
 require 'faraday'
+require 'json' 
+require 'pry'
 ```
 
-We are going to use Faraday in order to reach out to our API and get the results. We look at the documentation for the Star Wars API, `https://swapi.co/documentation#vehicles` and we see that the endpoint we have to hit is `https://swapi.co/api/vehicles`
+We are going to use Faraday in order to reach out to our API and get the results. We look at the documentation for the Ghibli Films API, `https://ghibliapi.herokuapp.com/#tag/Films` and we see that the endpoint we have to hit is `https://ghibliapi.herokuapp.com/films`
 
 The basic syntax for how we can get a response from an API is `Faraday.get()`, where we pass the URL for the endpoint as an argument as a string.
 
 ```
-response = Faraday.get("https://swapi.co/api/vehicles/")
+response = Faraday.get("https://ghibliapi.herokuapp.com/films")
 ```
 
 The get method from Faraday returns us a special response object. Let's throw a binding.pry in there and see what we get.
 ```
-#<Faraday::Response:0x00007fbdf55d1550
+#<Faraday::Response:0x00007ff89e39b798
  @env=
   #<struct Faraday::Env
    method=:get,
    request_body=nil,
-   url=#<URI::HTTPS https://swapi.co/api/vehicles>,
+   url=#<URI::HTTPS https://ghibliapi.herokuapp.com/films>,
    request=
     #<struct Faraday::RequestOptions
      params_encoder=nil,
@@ -83,7 +86,7 @@ The get method from Faraday returns us a special response object. Let's throw a 
      oauth=nil,
      context=nil,
      on_data=nil>,
-   request_headers={"User-Agent"=>"Faraday v1.0.0"},
+   request_headers={"User-Agent"=>"Faraday v1.0.1"},
    ssl=
     #<struct Faraday::SSLOptions
      verify=true,
@@ -94,16 +97,7 @@ The get method from Faraday returns us a special response object. Let's throw a 
      client_cert=nil,
      client_key=nil,
      certificate=nil,
-     private_key=nil,
-     verify_depth=nil,
-     version=nil,
-     min_version=nil,
-     max_version=nil>,
-   parallel_manager=nil,
-   params=nil,
-   response=#<Faraday::Response:0x00007fbdf55d1550 ...>,
-   response_headers=
-    {"date"=>"Thu, 27 Feb 2020 14:38:55 GMT",
+ ...
 ```
 
 There's a lot of information in there, but we are really only concerned with the payload of the response, the meat, the information we are looking for, which is stored in the body.
@@ -111,7 +105,7 @@ There's a lot of information in there, but we are really only concerned with the
 So we look at what `response.body` will return.
 
 ```
-"{\"count\":39,\"next\":\"https://swapi.co/api/vehicles/?page=2\",\"previous\":null,\"results\":[{\"name\":\"Sand Crawler\",\"model\":\"Digger Crawler\",\"manufacturer\":\"Corellia Mining Corporation\",\"cost_in_credits\":\"150000\",\"length\":\"36.8\",\"max_atmosphering_speed\":\"30\",\"crew\":\"46\",\"passengers\":\"30\",\"cargo_capacity\":\"50000\",\"consumables\":\"2 months\",\"vehicle_class\":\"wheeled\",\"pilots\":[],\"films\":[\"https://swapi.co/api/films/5/\",\"https://swapi.co/api/films/1/\"],\"created\":\"2014-12-10T15:36:25.724000Z\",\"edited\":\"2014-12-22T18:21:15.523587Z\",\"url\":\"https://swapi.co/api/vehicles/4/\"},{\"name\":\"T-16 skyhopper\",\"model\":\"T-16 skyhopper\",\"manufacturer\":\"Incom Corporation\",\"cost_in_credits\":\"14500\",\"length\":\"10.4\",\"max_atmosphering_speed\":\"1200\",\"crew\":\"1\",\"passengers\":\"1\",\"cargo_capacity\":\"50\",\"consumables\":\"0\",\"vehicle_class\":\"repulsorcraft\",\"pilots\":[],\"films\":[\"https://swapi.co/api/films/1/\"],\"created\":\"2014-12-10T16:01:52.434000Z\",\"edited\":\"2014-12-22T18:21:15.552614Z\",\"url\":\"https://swapi.co/api/vehicles/6/\"},{\"name\":\"X-34 landspeeder\",\"model\":\"X-34 landspeeder\",\"manufacturer\":\"SoroSuub Corporation\",\"cost_in_credits\":\"10550\",\"length\":\"3.4\",\"max_atmosphering_speed\":\"250\",\"crew\":\"1\",\"passengers\":\"1\",\"cargo_capacity\":\"5\",\"consumables\":\"unknown\",\"vehicle_class\":\"repulsorcraft\",\"pilots\":[],\"films\":[\"https://swapi.co/api/films/1/\"],\"created\":\"2014-12-10T16:13:52.586000Z\",\"edited\":\"2014-12-22T18:21:15.583700Z\",\"url\":\"https://swapi.co/api/vehicles/7/\"},{\"name\":\"TIE/LN starfighter\",\"model\":\"Twin Ion Engine/Ln Starfighter\",\"manufacturer\":\"Sienar Fleet Systems\",\"cost_in_credits\":\"unknown\",\"length\":\"6.4\",\"max_atmosphering_speed\":\"1200\",\"crew\":\"1\",\"passengers\":\"0\",\"cargo_capacity\":\"65\",\"consumables\":\"2 days\",\"vehicle_class\":\"starfighter\",\"pilots\":[],\"films\":[\"https://swapi.co/api/films/2/\",\"https://swapi.co/api/films/3/\",\"https://swapi.co/api/films/1/\"],\"created\":\"2014-12-10T16:33:52.860000Z\",\"edited\":\"2014-12-22T18:21:15.606149Z\",\"url\":\"https://swapi.co/api/vehicles/8/\"},{\"name\":\"Snowspeeder\",\"model\":\"t-47 airspeeder\",\"manufacturer\":\"Incom corporation\",\"cost_in_credits\":\"unknown\",\"length\":\"4.5\",\"max_atmosphering_speed\":\"650\",\"crew\":\"2\",\"passengers\":\"0\",\"cargo_capacity\":\"10\",\"consumables\":\"none\",\"vehicle_class\":\"airspeeder\",\"pilots\":[\"https://swapi.co/api/people/1/\",\"https://swapi.co/api/people/18/\"],\"films\":[\"https://swapi.co/api/films/2/\"],\"created\":\"2014-12-15T12:22:12Z\",\"edited\":\"2014-12-22T18:21:15.623033Z\",\"url\":\"https://swapi.co/api/vehicles/14/\"},{\"name\":\"TIE bomber\",\"model\":\"TIE/sa bomber\",\"manufacturer\":\"Sienar Fleet Systems\",\"cost_in_credits\":\"unknown\",\"length\":\"7.8\",\"max_atmosphering_speed\":\"850\",\"crew\":\"1\",\"passengers\":\"0\",\"cargo_capacity\":\"none\",\"consumables\":\"2 days\",\"vehicle_class\":\"space/planetary bomber\",\"pilots\":[],\"films\":[\"https://swapi.co/api/films/2/\",\"https://swapi.co/api/films/3/\"],\"created\":\"2014-12-15T12:33:15.838000Z\",\"edited\":\"2014-12-22T18:21:15.667730Z\",\"url\":\"https://swapi.co/api/vehicles/16/\"},{\"name\":\"AT-AT\",\"model\":\"All Terrain Armored Transport\",\"manufacturer\":\"Kuat Drive Yards, Imperial Department of Military Research\",\"cost_in_credits\":\"unknown\",\"length\":\"20\",\"max_atmosphering_speed\":\"60\",\"crew\":\"5\",\"passengers\":\"40\",\"cargo_capacity\":\"1000\",\"consumables\":\"unknown\",\"vehicle_class\":\"assault walker\",\"pilots\":[],\"films\":[\"https://swapi.co/api/films/2/\",\"https://swapi.co/api/films/3/\"],\"created\":\"2014-12-15T12:38:25.937000Z\",\"edited\":\"2014-12-22T18:21:15.714673Z\",\"url\":\"https://swapi.co/api/vehicles/18/\"},{\"name\":\"AT-ST\",\"model\":\"All Terrain Scout Transport\",\"manufacturer\":\"Kuat Drive Yards, Imperial Department of Military Research\",\"cost_in_credits\":\"unknown\",\"length\":\"2\",\"max_atmosphering_speed\":\"90\",\"crew\":\"2\",\"passengers\":\"0\",\"cargo_capacity\":\"200\",\"consumables\":\"none\",\"vehicle_class\":\"walker\",\"pilots\":[\"https://swapi.co/api/people/13/\"],\"films\":[\"https://swapi.co/api/films/2/\",\"https://swapi.co/api/films/3/\"],\"created\":\"2014-12-15T12:46:42.384000Z\",\"edited\":\"2014-12-22T18:21:15.761584Z\",\"url\":\"https://swapi.co/api/vehicles/19/\"},{\"name\":\"Storm IV Twin-Pod cloud car\",\"model\":\"Storm IV Twin-Pod\",\"manufacturer\":\"Bespin Motors\",\"cost_in_credits\":\"75000\",\"length\":\"7\",\"max_atmosphering_speed\":\"1500\",\"crew\":\"2\",\"passengers\":\"0\",\"cargo_capacity\":\"10\",\"consumables\":\"1 day\",\"vehicle_class\":\"repulsorcraft\",\"pilots\":[],\"films\":[\"https://swapi.co/api/films/2/\"],\"created\":\"2014-12-15T12:58:50.530000Z\",\"edited\":\"2014-12-22T18:21:15.783232Z\",\"url\":\"https://swapi.co/api/vehicles/20/\"},{\"name\":\"Sail barge\",\"model\":\"Modified Luxury Sail Barge\",\"manufacturer\":\"Ubrikkian Industries Custom Vehicle Division\",\"cost_in_credits\":\"285000\",\"length\":\"30\",\"max_atmosphering_speed\":\"100\",\"crew\":\"26\",\"passengers\":\"500\",\"cargo_capacity\":\"2000000\",\"consumables\":\"Live food tanks\",\"vehicle_class\":\"sail barge\",\"pilots\":[],\"films\":[\"https://swapi.co/a
+"[\n  {\n    \"id\": \"2baf70d1-42bb-4437-b551-e5fed5a87abe\",\n    \"title\": \"Castle in the Sky\",\n    \"description\": \"The orphan Sheeta inherited a mysterious crystal that links her to the mythical sky-kingdom of Laputa. With the help of resourceful Pazu and a rollicking band of sky pirates, she makes her way to the ruins of the once-great civilization. Sheeta and Pazu must outwit the evil Muska, who plans to use Laputa's science to make himself ruler of the world.\",\n    \"director\": \"Hayao Miyazaki\",\n    \"producer\": \"Isao Takahata\",\n    \"release_date\": \"1986\",\n    \"rt_score\": \"95\",\n    \"people\": [\n      \"https://ghibliapi.herokuapp.com/people/\"\n    ],\n    \"species\": [\n      \"https://ghibliapi.herokuapp.com/species/af3910a6-429f-4c74-9ad5-dfe1c4aa04f2\"\n    ],\n    \"locations\": [\n      \"https://ghibliapi.herokuapp.com/locations/\"\n    ],\n    \"vehicles\": [\n      \"https://ghibliapi.herokuapp.com/vehicles/\"\n    ],\n    \"url\": \"https://ghibliapi.herokuapp.com/films/2baf70d1-42bb-4437-b551-e5fed5a87abe\"\n  },\n  {\n    \"id\": \"12cfb892-aac0-4c5b-94af-521852e46d6a\",\n    \"title\": \"Grave of the Fireflies\",\n    \"description\": \"In the latter part of World War II, a boy and his sister, orphaned when their mother is killed in the firebombing of Tokyo, are left to survive on their own in what remains of civilian life in Japan. The plot follows this boy and his sister as they do their best to survive in the Japanese countryside, battling hunger, prejudice, and pride in their own quiet, personal battle.\",\n    \"director\": \"Isao Takahata\",\n    \"producer\": \"Toru Hara\",\n    \"release_date\": \"1988\",\n    \"rt_score\": \"97\",\n    \"people\": [\n      \"https://ghibliapi.herokuapp.com/people/\"\n    ],\n    \"species\": [\n      \"https://ghibliapi.herokuapp.com/species/af3910a6-429f-4c74-9ad5-dfe1c4aa04f2\"\n    ],\n    \"locations\": [\n      \"https://ghibliapi.herokuapp.com/locations/\"\n    ],\n    \"vehicles\": [\n      \"https://ghibliapi.herokuapp.com/vehicles/\"\n    ],\n    \"url\": \"https://ghibliapi.herokuapp.com/films/12cfb892-aac0-4c5b-94af-521852e46d6a\"\n  },\n  {\n    \"id\": \"58611129-2dbc-4a81-a72f-77ddfc1b1b49\",\n    \"title\": \"My Neighbor Totoro\",\n    \"description\": \"Two sisters move to the country with their father in order to be closer to their hospitalized mother, and discover the surrounding trees are inhabited by Totoros, magical spirits of the forest. When the youngest runs away from home, the older sister seeks help from the spirits to find her.\",\n    \"director\": \"Hayao Miyazaki\",\n    \"producer\": \"Hayao Miyazaki\",\n    \"release_date\": \"1988\",\n    \"rt_score\": \"93\",\n    \"people\": [\n      \"https://ghibliapi.herokuapp.com/people/986faac6-67e3-4fb8-a9ee-bad077c2e7fe\",\n      \"https://ghibliapi.herokuapp.com/people/d5df3c04-f355-4038-833c-83bd3502b6b9\",\n      \"https://ghibliapi.herokuapp.com/people/3031caa8-eb1a-41c6-ab93-dd091b541e11\",\n
 ```
 
 That's a JSON object, which is fine, but we don't want to work in JSON, we want to work in something we are familiar with and easier to handle, a Ruby hash. So how can we convert one to the other?
@@ -125,63 +119,52 @@ The `symbolize_names: true` converts the keys to symbols so we can use symbols i
 So we now have this:
 
 ```
-{:count=>39,
- :next=>"https://swapi.co/api/vehicles/?page=2",
- :previous=>nil,
- :results=>
-  [{:name=>"Sand Crawler",
-    :model=>"Digger Crawler",
-    :manufacturer=>"Corellia Mining Corporation",
-    :cost_in_credits=>"150000",
-    :length=>"36.8",
-    :max_atmosphering_speed=>"30",
-    :crew=>"46",
-    :passengers=>"30",
-    :cargo_capacity=>"50000",
-    :consumables=>"2 months",
-    :vehicle_class=>"wheeled",
-    :pilots=>[],
-    :films=>["https://swapi.co/api/films/5/", "https://swapi.co/api/films/1/"],
-    :created=>"2014-12-10T15:36:25.724000Z",
-    :edited=>"2014-12-22T18:21:15.523587Z",
-    :url=>"https://swapi.co/api/vehicles/4/"},
-   {:name=>"T-16 skyhopper",
-    :model=>"T-16 skyhopper",
-    :manufacturer=>"Incom Corporation",
-    :cost_in_credits=>"14500",
-    :length=>"10.4",
-    :max_atmosphering_speed=>"1200",
-    :crew=>"1",
-    :passengers=>"1",
-    :cargo_capacity=>"50",
-    :consumables=>"0",
-    :vehicle_class=>"repulsorcraft",
-    :pilots=>[],
-    :films=>["https://swapi.co/api/films/1/"],
-    :created=>"2014-12-10T16:01:52.434000Z",
-    :edited=>"2014-12-22T18:21:15.552614Z",
-    :url=>"https://swapi.co/api/vehicles/6/"},
-   {:name=>"X-34 landspeeder",
-    :model=>"X-34 landspeeder",
-    :manufacturer=>"SoroSuub Corporation",
-    :cost_in_credits=>"10550",
+[{:id=>"2baf70d1-42bb-4437-b551-e5fed5a87abe",
+  :title=>"Castle in the Sky",
+  :description=>
+   "The orphan Sheeta inherited a mysterious crystal that links her to the mythical sky-kingdom of Laputa. With the help of resourceful Pazu and a rollicking band of sky pirates, she makes her way to the ruins of the once-great civilization. Sheeta and Pazu must outwit the evil Muska, who plans to use Laputa's science to make himself ruler of the world.",
+  :director=>"Hayao Miyazaki",
+  :producer=>"Isao Takahata",
+  :release_date=>"1986",
+  :rt_score=>"95",
+  :people=>["https://ghibliapi.herokuapp.com/people/"],
+  :species=>["https://ghibliapi.herokuapp.com/species/af3910a6-429f-4c74-9ad5-dfe1c4aa04f2"],
+  :locations=>["https://ghibliapi.herokuapp.com/locations/"],
+  :vehicles=>["https://ghibliapi.herokuapp.com/vehicles/"],
+  :url=>"https://ghibliapi.herokuapp.com/films/2baf70d1-42bb-4437-b551-e5fed5a87abe"},
+ {:id=>"12cfb892-aac0-4c5b-94af-521852e46d6a",
+  :title=>"Grave of the Fireflies",
+  :description=>
+   "In the latter part of World War II, a boy and his sister, orphaned when their mother is killed in the firebombing of Tokyo, are left to survive on their own in what remains of civilian life in Japan. The plot follows this boy and his sister as they do their best to survive in the Japanese countryside, battling hunger, prejudice, and pride in their own quiet, personal battle.",
+  :director=>"Isao Takahata",
+  :producer=>"Toru Hara",
+  :release_date=>"1988",
+  :rt_score=>"97",
+  :people=>["https://ghibliapi.herokuapp.com/people/"],
+  :species=>["https://ghibliapi.herokuapp.com/species/af3910a6-429f-4c74-9ad5-dfe1c4aa04f2"],
+  :locations=>["https://ghibliapi.herokuapp.com/locations/"],
+...
 ```
 
-When we look at the structure and shape of this parsed JSON, we see that what we really want is in the results key. The stuff outside of it has some data about the response, such as the total number of vehicles. But right now we just want the vehicles, so we can get to that array of vehicles with:
-
-```
-raw_vehicle_data = parsed[:results]
-```
+When we look at the structure and shape of this parsed JSON, we see that we are getting an array of hashes, and each hash appears to be information about an individual film.
 
 So now we have an array of hashes. Do we like this? Well hashes are fine, but what we want to really do is create an object to represent our ships.
 
 ```
-class Ship
-  attr_reader :name,
-              :crew
+class Film
+  attr_reader :title,
+              :description,
+              :director,
+              :producer,
+              :release_date,
+              :rotten_tomatoes
   def initialize(data)
-    @name = data[:name]
-    @crew = data[:crew]
+  	@title = data[:title]
+	@description = data[:description]
+	@director = data[:director]
+  	@producer = data[:producer]
+  	@release_date = data[:release_date]
+  	@rotten_tomatoes = data[:rt_score]
   end
 end
 ```
@@ -189,48 +172,52 @@ end
 And now we iterate over our array and create our objects.
 
 ```
-ships = raw_vehicle_data.map do |data|
-  Ship.new(data)
+films = parsed.map do |data|
+  Film.new(data)
 end
 ```
 
 And we can loop through our collection of ships, and print out the name and crew count of each.
 
 ```
-ships.each do |ship|
-  puts "Ship: #{ship.name} : #{ship.crew}"
+films.each do |film|
+  puts film.title
+  puts "Directed By: #{film.director}"
+  puts "Produced By: #{film.producer}"
+  puts "Rotten Tomatoes Score: #{film.rotten_tomatoes}"
+  puts "" 
 end
 ```
 Are we happy with the code that we've written here?
 
 How do you think it could be improved?
 
-Right now we can think of the work that is being done by this code and divide it up into three pieces, the display of the data, the creation of the `Ship` objects and the talking to the API.
+Right now we can think of the work that is being done by this code and divide it up into three pieces, the display of the data, the creation of the `Film` objects and the talking to the API.
 
 The first refactoring step would be to move everything into an object that will give us the results that we want.
 
 ```
-class StarWarSearch
-  def ship_crew_information
-    response = Faraday.get("https://swapi.co/api/vehicles/")
-    raw_ship_data = JSON.parse(response, symbolize_names: true)[:results]
-    raw_ship_data.map do |data|
-      Ship.new(data)
+class FilmSearch
+  def film_information
+    response = Faraday.get("https://ghibliapi.herokuapp.com/films")
+    parsed_films = JSON.parse(response, symbolize_names: true)
+    parsed_films.map do |data|
+      Film.new(data)
     end
   end
 end
 ```
 
-This is a step in the right direction. But if we were to describe the `ship_crew_information` method, it is still doing too much. The StarWarSearch class should be responsible for taking information and formatting it, not reaching out to the API to get the appropriate information. What should be in charge of talking to API is what we call a service. We want to move the API specific bits to a service, because we might want to contact the API to get other information later.
+This is a step in the right direction. But if we were to describe the `film_information` method, it is still doing too much. The FilmSearch class should be responsible for taking information and formatting it, not reaching out to the API to get the appropriate information. What should be in charge of talking to API is what we call a service. We want to move the API specific bits to a service, because we might want to contact the API to get other information later.
 
 Let's dream drive our Search object a bit to make the code look like how we would want it to look.
 
 ```
-class StarWarSearch
-  def ship_crew_information
-   service = StarWarService.new
-    service.ships.map do |data|
-      Ship.new(data)
+class FilmSearch
+  def film_information
+   service = GhibliService.new
+    service.films.map do |data|
+      Film.new(data)
     end
   end
 end
@@ -239,15 +226,15 @@ end
 This looks so much better. We're just instantiating a service and asking the service, hey get me the ships. We can take it one step further.
 
 ```
-class StarWarSearch
-  def ship_crew_information
-    service.ships.map do |data|
-      Ship.new(data)
+class FilmSearch
+  def films
+    service.films.map do |data|
+      Film.new(data)
     end
   end
 
   def service
-    StarWarService.new
+    GhibliService.new
   end
 end
 ```
@@ -257,10 +244,10 @@ This is a little more reusable.
 So now, let's move onto the service.
 
 ```
-class StarWarService
-  def ships
-    response = Faraday.get("https://swapi.co/api/vehicles/")
-    JSON.parse(response.body, symbolize_names: true)[:results]
+class GhibliService
+  def films
+    response = Faraday.get("https://ghibliapi.herokuapp.com/films")
+    JSON.parse(response.body, symbolize_names: true)
   end
 end
 ```
@@ -268,15 +255,14 @@ end
 This is good so far, but if we want to reuse the service, we want to reuse some code we can make this a bit more flexible.
 
 ```
-class StarWarService
-  def ships
-    get_url("https://swapi.co/api/vehicles/")
-
+class GhibliService
+  def films
+    get_url("https://ghibliapi.herokuapp.com/films")
   end
 
   def get_url(url)
     response = Faraday.get(url)
-    JSON.parse(response.body, symoblize_names: true)[:results]
+    JSON.parse(response.body, symoblize_names: true)
   end
 end
 ```
@@ -284,21 +270,15 @@ end
 An alternative:
 
 ```
-class StarWarService
-  def ships
-    get_url("/vehicles/")
-  end
-
-  def planets
-    get_url("/planets/")
+class GhibliService
+  def films
+    get_url("/films")
   end
 
   def get_url(url)
-    response = Faraday.get("https://swapi.co/api#{url}")
-    JSON.parse(response.body, symbolize_names: true)[:results]
+    response = Faraday.get("https://ghibliapi.herokuapp.com#{url}")
+    parsed = JSON.parse(response.body, symbolize_names: true)
   end
 end
 ```
-
-
 
