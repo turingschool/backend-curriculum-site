@@ -6,11 +6,29 @@ subheading: Intermission Work
 
 # Required
 
-You must complete and submit all of these assignments
+You must complete and submit all of these assignments. *It is due the Saturday before the start of the inning at 5pm*
+
+Submit your work here: [Survey Link](https://forms.gle/hNgNvexiatBAqepg7)
 
 ### Professional Development
 
 * Do [this](https://github.com/turingschool/career-development-curriculum/blob/master/module_three/pre_work.md)
+
+### Intro to APIs
+
+Everything we build in Mod 3 will focus on building and consuming APIs.
+
+Work through [this tutorial](https://gist.github.com/BrianZanti/e9d73508062fdcb78225906a6d97686d) to get a brief intro to APIs.
+
+### Deeply Nested Collections
+
+When consuming APIs, the data is often returned in deeply nested collections, so you will need to tap into your Mod 1 skills to practice digging through them to retrieve the data you need.
+
+Fork and clone [Here Be Dragons](https://github.com/turingschool-examples/here-be-dragons). Get the tests to pass.
+
+### Refactoring Workshop
+
+In Mod 3, we will focus not only on getting code to work but also writing high quality code. This will involve topics covered in mod 1 such as creating classes and methods, adhering to SRP, and general refactoring principles. Review these topics by forking and cloning [the refactoring workshop](https://github.com/turingschool-examples/neos). Work through the activity in the README. This was designed as a partnered activity. You may choose to pair with a classmate or work solo. If working alone, write answers to the questions in your notebook instead of discussing.
 
 ### HTTP Request/Response
 
@@ -30,18 +48,6 @@ If you wrote your routes that way already, replace them using `resources`.
 If you do not own the repo for your project, fork it, and rewrite the routes file individually.
 
 NOTE: This is not because one way is better, but it's extremely important to understand what every line of your routes file is doing. Rails Engine demands a solid understanding of Rails routing.
-
-### Intro to APIs
-
-Everything we build in Mod 3 will focus on building and consuming APIs.
-
-Work through [this tutorial](https://gist.github.com/BrianZanti/e9d73508062fdcb78225906a6d97686d) to get a brief intro to APIs.
-
-### Deeply Nested Collections
-
-When consuming APIs, the data is often returned in deeply nested collections, so you will need to tap into your Mod 1 skills to practice digging through them to retrieve the data you need.
-
-Fork and clone [Here Be Dragons](https://github.com/turingschool-examples/here-be-dragons)
 
 ### SQL/ActiveRecord
 
@@ -71,9 +77,3 @@ We are mainly looking for you to get experience with the syntax, and at a minimu
 [jQuery](https://www.codeschool.com/courses/try-jquery)
 
 JQuery is a popular javascript library for manipulating the content of web pages. Dip your toes in with this introductory Jquery class.
-
-### Submission
-
-Submit your work here: [Survey Link](https://forms.gle/iPZVknPKTVUmtx6b7)
-
-*It is due the Saturday before the start of the inning at 5pm*
