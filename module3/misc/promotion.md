@@ -15,7 +15,7 @@ In order to graduate from Module 3, students must complete each of the following
 
 ### Final Assessment
 
-Students must meet the expectations laid out in the [final assessment info](./final_assessment).
+Students must meet the expectations laid out in the [final assessment info](./misc/final_assessment).
 
 ### Career Development
 
@@ -23,4 +23,4 @@ The Mod 3 [career development](https://github.com/turingschool/career-developmen
 
 ### Portfolio
 
-Each student will prepare a presentation following the requirements outlined in the [Mod 3 Portfolio](./misc/portfolio_requirements) Document.
+Each student will prepare a presentation following the requirements outlined in the [Mod 3 Portfolio](./misc/portfolio_requirements).

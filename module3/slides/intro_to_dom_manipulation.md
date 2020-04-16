@@ -127,6 +127,6 @@ Intro to jQuery:
 https://backend.turing.io/module3/lessons/jquery_and_dom
 
 Intro to Fetch:
-https://backend.turing.io/module3/lessons/getting_started_with_fetch
+https://backend.turing.io/module3/lessons/fetch_in_javascript
 
 ---

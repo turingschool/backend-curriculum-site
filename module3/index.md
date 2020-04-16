@@ -10,8 +10,8 @@ In Module 3, we will look beyond the basics of building Rails web applications w
 
 ## Curriculum
 
-* [Learning Goals](./learning_goals)<br>
-* [Intermission Work](./intermission_work)<br>
+* [Learning Goals](./misc/learning_goals)<br>
+* [Intermission Work](./misc/intermission_work)<br>
 * [Lessons](./lessons)<br>
 * [Projects](./projects)
 * [Lightning Talk Requirements](https://github.com/turingschool/career-development-curriculum/blob/master/combined_module_sessions/lightning_talks.md)
@@ -24,8 +24,8 @@ In Module 3, we will look beyond the basics of building Rails web applications w
 ## Requirements
 
 * [Portfolio](./misc/portfolio_requirements)<br>
-* [Promotion](./promotion)<br>
-* [Final Assessment](./final_assessment)
+* [Promotion](./misc/promotion)<br>
+* [Final Assessment](./misc/final_assessment)
 * [Mod 3 Professional Development Curriculum](https://github.com/turingschool/career-development-curriculum/tree/master/module_three)
 
 <br>

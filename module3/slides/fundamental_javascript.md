@@ -4,7 +4,7 @@
 
 ## Warmup
 
-1. With the person next to you discuss two questions you are planning to ask on your job shadow.
+1. What are your thoughts about JavaScript?
 
 ---
 
@@ -213,6 +213,6 @@ For more information: http://railsapps.github.io/rails-javascript-include-extern
 ## Further Learning and Exploration
 
 Intro to Fetch:
-https://backend.turing.io/module3/lessons/getting_started_with_fetch
+https://backend.turing.io/module3/lessons/fetch_in_javascript
 
 ---
