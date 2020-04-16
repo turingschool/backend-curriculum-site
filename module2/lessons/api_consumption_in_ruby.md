@@ -8,7 +8,7 @@ tags: API, APIs, Ruby, refactoring, services
 
 Today we are going to consume an API in Ruby.
 
-What we are going to do is we are going to write a bit of code which will get all of the vehicles listed in the Star Wars api, and it will print out a name of the craft and the number of crew that it holds.
+What we are going to do is we are going to write a bit of code which will get all of the films listed in a Studio Ghibli api, and it will print out information about the films.
 
 So let's create a directory for our code.
 
