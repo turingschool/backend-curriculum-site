@@ -23,12 +23,12 @@ Accept: application/json
 
 **Response:**
 
-There is room for personal preference for this response body. Use the wireframes to see what data is required on the front end to decide what you would like to include in your response. If you'd like more of a challenge, you might consider using [Fast JSON API](https://github.com/Netflix/fast_jsonapi) and consider trying to stick to the [JSON 1.0 spec](https://jsonapi.org/).
+Use the wireframes to see what data is required on the front-end to decide what data should be included in your response. Use the [Fast JSON API](https://github.com/Netflix/fast_jsonapi) and the response should adhere to the [JSON 1.0 spec](https://jsonapi.org/).
 
 **Requirements:**
 
 - Needs to pull out the city and state from the GET request and send it to Google's Geocoding API to retrieve the lat and long for the city (this can be its own story). Use of the Google Geocoding API is a hard requirement.
-- Retrieve forecast data from the Darksky API using the lat and long
+- Retrieve forecast data from the [OpenWeather One Call API](https://openweathermap.org/api/one-call-api) using the lat and long
 
 ### 1b. Background Image for a City
 
@@ -73,7 +73,14 @@ status: 201
 body:
 
 {
-  "api_key": "jgn983hy48thw9begh98h4539h4",
+  "data": {
+    "type": "users",
+    "id": 1,
+    "attributes": {
+      "email": "whatever@example.com",
+      "api_key": "jgn983hy48thw9begh98h4539h4"
+    }
+  }
 }
 ```
 
@@ -110,7 +117,14 @@ status: 200
 body:
 
 {
-  "api_key": "jgn983hy48thw9begh98h4539h4",
+  "data": {
+    "type": "users",
+    "id": 1,
+    "attributes": {
+      "email": "whatever@example.com",
+      "api_key": "jgn983hy48thw9begh98h4539h4"
+    }
+  }
 }
 ```
 
@@ -143,11 +157,11 @@ body:
 
 **Response:**
 
-Use the wireframes to see what data is required on the front end to decide what you would like to include in your response.
+Use the wireframes to see what data is required on the front-end to decide what you would like to include in your response.
 
 **Requirements:**
 
 - API key must be sent
 - If no API key or an incorrect key is provided return 401 (Unauthorized)
 - You will use the Google Directions API:  https://developers.google.com/maps/documentation/directions/start
-- The structure of the response is up to you, but should be JSON API 1.0 Compliant.
+- The structure of the response should be JSON API 1.0 Compliant.
