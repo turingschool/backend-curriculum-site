@@ -5,7 +5,7 @@ layout: page
 
 ## General
 
-* [Intro to Mod 3](../lessons/intro_mod_three)
+* [Intro to Mod 3](./lessons/intro_mod_three)
 
 ## Consuming APIs
 

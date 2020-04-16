@@ -5,7 +5,7 @@ length: 180
 tags: rails, security, authentication, OAuth
 ---
 
-This lesson plan was last tested to work with Rails 5.2.1 and Ruby 4.2.1
+This lesson plan was last tested to work with Rails 5.2.1 and Ruby 2.4.1
 
 
 ## Historical Context for this lesson plan
@@ -21,7 +21,7 @@ We used to teach this class using a gem since that’s how most of us do it on t
 
 ## Slides
 
-Available [here](../slides/getting_started_with_oauth_alex)
+Available [here](../slides/oauth)
 
 ## Prework
 

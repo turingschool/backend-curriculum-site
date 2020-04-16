@@ -7,7 +7,7 @@ tags: Background Workers, sidekiq, queue, async
 
 This lesson plan was last updated to work with Rails 5.2.0 and Ruby 2.4.1
 
-[slides](../slides/intro-to-background-workers_alex)
+[slides](../slides/background_workers)
 
 ### Learning Goals
 

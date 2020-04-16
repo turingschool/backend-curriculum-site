@@ -5,7 +5,7 @@ length: 30
 tags: rails, email, sendgrid, smtp, action mailer
 ---
 
-## Sending Email with SendGrid
+## Sending Email
 
 We'll explore sending email in Rails by building a project that requires this functionality. By the end you should understand:
 
@@ -241,7 +241,6 @@ Now that this is all setup, go out to your production app, send an email to your
 
 ### Materials
 
-* [ Repo ](https://github.com/turingschool-examples/youve_changed)
+* [ Repo ](https://github.com/turingschool-examples/a_bit_of_advice)
 * [ Slides ](https://www.dropbox.com/s/ev7tya328sv9jyh/Turing%20-%20Sending%20Email.key?dl=0)
-* [ Notes ](https://www.dropbox.com/s/p496zd4xthyrnt6/Turing%20-%20Sending%20Email%20%28Notes%29.pages?dl=0)
 * [Heroku Docs for Sendgrid Addon](https://devcenter.heroku.com/articles/sendgrid#provisioning-the-add-on)

@@ -67,4 +67,4 @@ Then, discuss the following questions:
 
 * [Caching in Rails](./caching_in_rails)
 * [Optimization Dojo](./performance_dojo)
-* [Background Workers](./intro_to_background_workers)
+* [Background Workers](./background_workers)
