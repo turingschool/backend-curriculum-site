@@ -16,6 +16,10 @@ After this class, a student should be able to:
 * Explain why we don't want our tests to make real API calls
 * Understand how to stub network requests using WebMock and VCR
 
+## Slides
+
+Available [here](../slides/testing_api_consumption)
+
 ## Mocking Network Requests
 
 [When last we met](./consuming_an_api_part_1), we got our code working, but our test is making a real API call which is not good. There are many reasons we wouldn't want to do this:

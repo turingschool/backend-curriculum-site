@@ -15,6 +15,10 @@ By the end of this class, a student will be able to:
 APIs.
 * Parse the information retrieved from a third party API.
 
+## Slides
+
+Available [here](../slides/consuming_apis)
+
 ## Summary
 
 What we are going to be working on today is creating an app that reaches out and consumes data from an external API, and then displays and formats that data on a web page. The API we will be using is the ProPublica API, and we will be using it to grab a list of Representatives from Congress.

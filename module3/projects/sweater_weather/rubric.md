@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Whether, Sweater? Project Rubric
+title: Sweater Weather Project Rubric
 ---
 
 ## Evaluation Rubric

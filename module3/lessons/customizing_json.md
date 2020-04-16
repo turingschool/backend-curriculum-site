@@ -1,5 +1,3 @@
-# Customizing JSON In Your API
-
 ---
 title: Customizing JSON in your API
 length: 90
@@ -12,7 +10,6 @@ This lesson plan was last verified to have worked with Ruby v2.4.1 and Rails v5.
 
 * Generate and customize Rails Serializers
 * Understand what constitutes presentation logic in the context of serving a JSON API and why formatting in the model is not the right place
-
 
 ## Warmup
 

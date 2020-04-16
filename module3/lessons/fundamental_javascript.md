@@ -4,8 +4,6 @@ length: 60
 tags: javascript, introduction, foundation, variables
 ---
 
-
-
 ## Learning Goals
 
 In this lesson we'll cover:

@@ -1,5 +1,4 @@
 # Building an API
-
 ---
 
 # Warmup

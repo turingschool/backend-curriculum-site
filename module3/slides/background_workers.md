@@ -71,4 +71,4 @@ Turn to a neighbor and practice explaining how this works
 2. What is ActiveJob and how is it similar to ActiveRecord
 3. What is Sidekiq?
 4. What is Redis?
-5. Is it possible to define a job that doesn't get sent redis and a background worker? 
+5. Is it possible to define a job that doesn't get sent redis and a background worker?

@@ -1,3 +1,8 @@
+---
+layout: page
+title: Brownfield of Dreams Project Rubric
+---
+
 ## Brownfield of Dreams Rubric
 
 ### Developer Empathy and Technical Debt

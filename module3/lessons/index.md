@@ -14,7 +14,7 @@ layout: page
 ## Exposing APIs
 
 * [Building an API](./building_an_api)
-* [Customizing JSON in your API](./customizing_json_in_your_api)
+* [Customizing JSON in your API](./customizing_json)
 
 ## ActiveRecord
 
