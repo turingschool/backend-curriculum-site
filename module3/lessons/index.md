@@ -9,11 +9,11 @@ layout: page
 
 ## Consuming APIs
 
-* [Intro to Postman and Faraday](../lessons/intro_to_postman_and_faraday_alex)
+* [Intro to Postman and Faraday](../lessons/postman_and_faraday)
 * [Consuming APIs](./consuming_an_api_part_1)
 * [Testing API Consumption](./consuming_an_api_part_2)
 * [Refactoring API Consumption](./refactoring_api_consumption)
-* [Getting Started with OAuth](../lessons/getting_started_with_oauth)
+* [Getting Started with OAuth](../lessons/oauth)
 
 ## Exposing APIs
 
@@ -28,7 +28,7 @@ layout: page
 
 * [Intro to Optimization](../lessons/optimization)
 * [Caching](../lessons/caching_in_rails)
-* [Background Workers](../lessons/intro_to_background_workers)
+* [Background Workers](../lessons/background_workers)
 * [Optimization Dojo](../lessons/performance_dojo)
 
 ## Security
@@ -37,16 +37,15 @@ layout: page
 
 ## JavaScript
 
-* [Introduction to JavaScript](../lessons/intro_to_javascript)
+* [Introduction to JavaScript](../lessons/fundamental_javascript)
 * [jQuery DOM Traversal and Manipulation](../lessons/jquery_and_dom)
-* [Intro to Fetch](../lessons/getting_started_with_fetch)
+* [Intro to Fetch](../lessons/fetch_in_javascript)
 
 ## Email
 
-* [Sending Email](../lessons/sending_email_sendgrid)
+* [Sending Email](../lessons/actionmailer)
 
 ## Additional Resources
 
-* [Intro to Professional Workflow](../lessons/intro_to_professional_workflow)
 * [Presenters and Decorators](../lessons/presenters_and_decorators)
 * [Application Coordination with Messaging Queues](../lessons/application_coordination_with_message_queues)
