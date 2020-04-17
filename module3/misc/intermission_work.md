@@ -62,7 +62,7 @@ Entering Module 3 with a solid understanding of ActiveRecord and SQL is key to g
 
 ### Reading
 
-We will discuss the following on day of the inning:
+We will discuss the following on the first day of the inning:
 
 * [Thinking Fast and Slow](https://drive.google.com/file/d/1tBU_FF_kYLHltyvc6ZEPfb3LiYYQRreT/view?usp=sharing)
 
