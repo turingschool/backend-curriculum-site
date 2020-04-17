@@ -56,6 +56,12 @@ Entering Module 3 with a solid understanding of ActiveRecord and SQL is key to g
 1. Complete and understand the [Intermediate SQL I](https://github.com/turingschool/lesson_plans/blob/master/ruby_03-professional_rails_applications/intermediate_sql.md) challenges.
 1. Complete and understand the [Intermediate SQL II](https://gist.github.com/case-eee/5affe7fd452336cef2c88121e8d49f5d) challenges.
 
+### Reading
+
+We will discuss the following on day of the inning:
+
+* [Thinking Fast and Slow](https://drive.google.com/file/d/1tBU_FF_kYLHltyvc6ZEPfb3LiYYQRreT/view?usp=sharing)
+
 # For further exploration
 
 If you have time, here are some activities that will be valuable not only in Mod 3, but in Mod 4 and the job hunt as well.
