@@ -14,6 +14,10 @@ Submit your work here: [Survey Link](https://forms.gle/hNgNvexiatBAqepg7)
 
 * Do [this](https://github.com/turingschool/career-development-curriculum/blob/master/module_three/pre_work.md)
 
+### Ruby and Rails Versions
+
+Follow [this guide](./ruby_and_rails_versions) to make sure your versions are correct.
+
 ### Intro to APIs
 
 Everything we build in Mod 3 will focus on building and consuming APIs.
