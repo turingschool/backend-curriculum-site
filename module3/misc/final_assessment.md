@@ -9,12 +9,12 @@ For this assessment you will be complete a 3 hour independent challenge and pres
 
 In this assessment you will:
 
-* Work with a third party API
+* Consume multiple third party APIs
+* Expose an API endpoint
 * Build well tested features
 * Demonstrate mastery of all parts of the Rails stack
 * Demonstrate mastery of Ruby
 * Commit every 15 minutes to track your progress (details below)
-
 
 Post assessment you will:
 
@@ -28,6 +28,7 @@ Post assessment you will:
 The intent of this assessment is to demonstrate a solid working understanding of the following:
 
 * Consuming an API
+* Exposing an API
 * Writing tests that adequately test business value
 * Core concepts covered in the previous two Modules
 * Demonstrate good code quality using encapsulation and abstraction
