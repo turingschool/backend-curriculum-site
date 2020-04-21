@@ -1,2 +1,0 @@
-* Asking questions
-* Demonstrating knowledge
