@@ -38,6 +38,6 @@ Work on the following assignments in order. Each assignment will assume that you
 
 ## Submission
 
-When you are finished, fill out [this form](https://forms.gle/vq3R3kredf68zwdk6)
+When you are finished, fill out [this form](https://docs.google.com/forms/d/e/1FAIpQLSdS6PpC-tT5Azcf1EK5ECS27lp53dVXrg-CfOCjJHRFWOmc4w/viewform?usp=sf_link)
 
 
