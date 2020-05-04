@@ -27,18 +27,10 @@ title: Brownfield of Dreams Project Rubric
 
 ### Testing
 
-- **4:** Project uses all testing techniques listed below, overall test coverage is above 95%, and unit testing is above 90%.
-- **3:** Project uses 3 testing techniques listed below, overall test coverage is above 90%, and unit testing is above 90%.
-- **2:** Project uses 2 testing techniques listed below and/or overall test coverage is above 85%.
-- **1:** Project uses 1 or fewer testing techniques listed below and/or overall test coverage is below 85%.
-
-**Testing Techniques**
-
-- [ ] Fixtures
-- [ ] Mocks
-- [ ] Stubs
-- [ ] Doubles
-- [ ] Spies
+* **4:** Project achieves 100% test coverage and includes below expectations.
+* **3:** Project achieves 90% or greater test coverage. In addition to "happy path", project also includes "sad path"/edge case testing.
+* **2:** Project achieves 80-90% test coverage. Project may not include "sad path" or edge case testing.
+* **1:** Project does not achieve 80% test coverage.
 
 ### Code Quality
 
