@@ -6,8 +6,8 @@ layout: page
 ## Consuming APIs
 
 * [Intro to Postman and Faraday](./postman_and_faraday)
-* [Consuming APIs](./consuming_an_api_part_1)
-* [Testing API Consumption](./consuming_an_api_part_2)
+* [Consuming APIs](./consuming_an_api)
+* [Testing API Consumption](./testing_api_consumption)
 * [Refactoring API Consumption](./refactoring_api_consumption)
 * [Getting Started with OAuth](./oauth)
 
