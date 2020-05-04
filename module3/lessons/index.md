@@ -7,7 +7,7 @@ layout: page
 
 * [Intro to Postman and Faraday](./postman_and_faraday)
 * [Consuming APIs](./consuming_an_api)
-* [Testing API Consumption](./testing_api_consumption)
+* [Testing Tools for API Consumption](./testing_tools_for_api_consumption)
 * [Refactoring API Consumption](./refactoring_api_consumption)
 * [Getting Started with OAuth](./oauth)
 
