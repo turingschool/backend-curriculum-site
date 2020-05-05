@@ -27,12 +27,6 @@ List out the parts of a generic HTTP GET request and response
 
 ---
 
-#### Whole Group
-
-What did you all come up with?
-
----
-
 #### Exercise - HTTP Client 1: The Browser
 
 Using the browser, make a GET request to hit the [Github users](https://developer.github.com/v3/users/#get-a-single-user) API endpoint.
@@ -52,12 +46,6 @@ Download the [Postman API Client](https://www.getpostman.com/product/api-client)
 
 ---
 
-#### Whole Group
-
-What are benefits of using the Postman API client?
-
----
-
 #### Exercise - HTTP Client 3: Faraday
 
 * Install the [Faraday gem](https://github.com/lostisland/faraday)
@@ -66,15 +54,14 @@ What are benefits of using the Postman API client?
 
 ---
 
-#### Whole Group
+#### More Practice with Postman and Faraday
 
-What is challenging about working with Faraday?
+Complete the exercises included in this [README](https://github.com/turingschool-examples/pets_api)(https://github.com/turingschool-examples/pets_api)
 
----
 
 #### More API Consumption
 
-You now have experience building an API using Ruby. In our next class we will be consuming an API in the context of Rails project. These next few exercises will prepare you for the most difficult concepts we cover in Mod 3. Struggle is more important than completion.
+In our next class we will be consuming an API in the context of a Rails project. Take a look at the user story and try to complete the exercises to help you prepare for the class.
 
 The user story we will be working on during our next class is as follows:
 
