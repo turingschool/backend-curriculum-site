@@ -56,7 +56,7 @@ Download the [Postman API Client](https://www.getpostman.com/product/api-client)
 
 #### More Practice with Postman and Faraday
 
-Complete the exercises included in this [README](https://github.com/turingschool-examples/pets_api)(https://github.com/turingschool-examples/pets_api)
+Complete the exercises included in this [README](https://github.com/turingschool-examples/pets_api)
 
 
 #### More API Consumption
