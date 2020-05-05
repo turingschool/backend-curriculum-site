@@ -74,7 +74,7 @@ What is challenging about working with Faraday?
 
 #### More API Consumption
 
-You now have experience building an API using Rails. In our next class we will be consuming an API in the context of Rails project. These next few exercises will prepare you for the most difficult concepts we cover in Mod 3. Struggle is more important than completion.
+You now have experience building an API using Ruby. In our next class we will be consuming an API in the context of Rails project. These next few exercises will prepare you for the most difficult concepts we cover in Mod 3. Struggle is more important than completion.
 
 The user story we will be working on during our next class is as follows:
 
