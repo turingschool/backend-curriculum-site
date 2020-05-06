@@ -312,7 +312,7 @@ Our tests are back to green! Another refactor down. Our controller is now quite 
 
 We're not going to unit test our `SearchResults` PORO. This is because this particular PORO's job is to pull in information from different places and combine it, in order to pass a single object to the view. If we write good feature tests and our PORO simply calls out to other objects that are thoroughly unit tested, the functionality should be well covered. However, there's nothing wrong with testing this PORO if you would like to and some might prefer being more thorough.
 
-## Service Objects
+### Service Objects
 
 Looking at our `.members` method, we can see that it is still quite long, violating SRP, and not very abstract. Let's separate the responsibility of interacting with the API into a separate class. Let's use declarative programming again:
 
@@ -435,21 +435,11 @@ end
 
 Notice how we aren't expecting specific data from the API such as the names of the representatives. We don't want our test to be too dependent on an external API where we don't have full control over what data we'll get back.
 
-## Review
-
-Let's review what we've done so far.
-
-Looking at the controller, it is quite skinny. It is acting as a CEO that is coordinating other parts of the application: receiving the parameter, passing it to our `SearchResults`, receiving the members from `SearchResults` and passing them to the view. It is very high level, very abstract.
-
-Looking at our `SearchResults`, it is also a very high level, abstract class. It has a single responsibility of retrieving the members of the house, but it doesn't do a lot of the work itself. It simply calls the service to get the data and then maps the data to Member objects.
-
-Our `PropublicaService` class has a single responsibility of making calls to the Propublica API. It simply makes the call and returns the JSON.
-
-Finally, our `Member` objects are encapsulating member data. It is bundling the data (the instance variables) with the methods that operate on that data (the attr_readers). Another signal of good encapuslation is that we are only exposing what data is needed. We aren't exposing every attribute possible, and we are choosing to only expose through attr_readers as opposed to attr_writers or attr_accessors.
-
 ### Checks for Understanding
 
 * What is declarative Programming?
 * What is Red, Green, Refactor?
-* How does our code achieve Abstraction?
-* How does our code achieve Encapsulation?
+* For each file we've touched (Controller, SearchResults, Member, PropublicaService):
+    * Is it Single Responsibility? How would you describe its responsibility?
+    * Does it achieve Abstraction?
+    * Does it achieve Encapsulation?
