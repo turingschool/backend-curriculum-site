@@ -43,3 +43,7 @@ If you finish the requirements, work on the extensions found [here](./extensions
 ## Evaluation
 
 Evaluation details can be found [here](./evaluation)
+
+## Peer Code Review
+
+Instructions for the peer review can be found [here](./peer_code_review)
