@@ -4,8 +4,8 @@
 
 # Warmup
 
-* What are the parts of an HTTP request?
-* What are the parts of an HTTP response?
+* What is Postman and what is the benefit of using it?
+* What is Faraday and why would you use it?
 
 ---
 
