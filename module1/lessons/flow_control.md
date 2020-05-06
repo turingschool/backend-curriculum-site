@@ -242,6 +242,14 @@ else
 end
 ```
 
+What values would `play_again` and `lives` need to be assigned to in order to print each of the following to your terminal:
+  * "You Lose!"
+  * "Game Over!"
+  * "Welcome back!"
+  * "Invalid input
+
+
+
 ## Looping
 
 A loop is a set of instructions that is executed repeatedly until some condition is met. This condition may be a certain number of times that the loop is executed, for example:
