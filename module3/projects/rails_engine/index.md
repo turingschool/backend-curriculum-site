@@ -15,20 +15,16 @@ You are working for a company developing an E-Commerce Application. Your team is
 * Test API exposure
 * Compose advanced ActiveRecord queries to analyze information stored in SQL databases.
 * Write basic SQL statements without the assistance of an ORM.
+
+Completing the Extensions
 * Make API calls using javascript `fetch` calls.
 * Use jQuery to traverse and manipulate the DOM.
 
 ## Project Management
 
-The organization of this project spec is by feature type. However, much of the unfamiliar or more difficult work is in the business intelligence portion of the project. To the degree possible instructors encourage you to use an agile approach to completing this assignment. Furthermore, we encourage you to review the work and develop estimated milestones before you begin. **Any good set of milestones will allow for some slippage before the project is due.**
+The organization of this project spec is by feature type. However, it is encouraged that you work through a little of each feature type rather than trying to complete an entire feature type before moving to the next. To the degree possible instructors encourage you to use an agile approach to completing this assignment. Furthermore, we encourage you to review the work and develop estimated milestones before you begin. **Any good set of milestones will allow for some slippage before the project is due.**
 
-There is an Advanced ActiveRecord class scheduled for Wednesday. We *highly* encourage you to have attempted some of the business intelligence queries before that class.
-
-## What to expect from instructors
-
-There will not be formal check-ins for this project. Instructors will generally be available during scheduled work time to discuss issues absent other commitments. Students should also view this as an opportunity to practice discussing code on GitHub, and instructors will prefer reviewing PRs to discussing code on Slack.
-
-In their reviews, instructors will go over whatever technical, planning or other challenges you're having. They also may give you feedback, or suggest a different path than the one you're on.
+We *highly* encourage you to have attempted some of the business intelligence queries before that class.
 
 ## Rails Driver
 
