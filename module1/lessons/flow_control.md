@@ -346,3 +346,7 @@ end
 ```
 
 If you accidentally get stuck in an infinite loop, use `control + c` to stop it.
+
+### Check for Understanding
+
+Using `times`, `while`, `until` and `loop`, print "Beetlejuice" to the terminal 3 times. 🐝
