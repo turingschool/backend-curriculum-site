@@ -16,7 +16,7 @@ You are working for a company developing an E-Commerce Application. Your team is
 * Compose advanced ActiveRecord queries to analyze information stored in SQL databases.
 * Write basic SQL statements without the assistance of an ORM.
 
-Completing the Extensions
+##### Extension Learning Goals
 * Make API calls using javascript `fetch` calls.
 * Use jQuery to traverse and manipulate the DOM.
 
