@@ -13,9 +13,9 @@ We'll explore sending email in Rails by building a project that requires this fu
 * Send email locally using Mailcatcher
 * How to setup a third party email service
 
-### A Bit of Advice
+### Friendly Advice
 
-We are going to build an application that allows us to send our friend's a bit of advice via email.
+We are going to build an application that allows us to send our friend some friendly advice via email.
 
 What we'd like our app to do:
 
@@ -36,8 +36,8 @@ For this tutorial, we are going to setup our emails to "send" through mailcatche
 First things first, go ahead and clone down the repo.
 
 ```shell
-$ git clone https://github.com/turingschool-examples/a_bit_of_advice.git a_bit_of_advice
-$ cd a_bit_of_advice
+$ git clone https://github.com/turingschool-examples/friendly-advice.git friendly-advice
+$ cd friendly-advice
 $ bundle
 $ rake db:create
 ```
@@ -69,7 +69,7 @@ class AdviceController < ApplicationController
                   message: @advice.message
                  }
     FriendNotifierMailer.inform(email_info, friend_email).deliver_now
-    flash[:notice] = "Thank you for sending a bit of advice."
+    flash[:notice] = "Thank you for sending some friendly advice."
     redirect_to advice_url
   end
 end
