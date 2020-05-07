@@ -44,7 +44,7 @@ We start by spinning up our rails app. We are going to call it House Salad.
 Because we're getting information about the House of Representatives and we're gonna toss it around. Kind of.
 
 ```sh
-$ git clone https://github.com/turingschool-examples/house-salad-base house-salad
+$ git clone https://github.com/turingschool-examples/house-salad house-salad
 $ cd house-salad
 ```
 
