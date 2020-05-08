@@ -13,24 +13,22 @@ Academic success in B3 means that students demonstrate proficiency and comfort w
 
 ## Mastery
 
-### APIs
-
-* Students are able to expose an API.
-* Students are able to use serializers to format json responses
-* Students are able to consume external APIs
-
-### Testing
-
-* Students are able to test external API consumption
-* Students are able to test API exposure
-* Students are able to mock external HTTP requests using Webmock
-
 ### Object Oriented Programming
 
 * Students are able to use classes and methods to make abstractions that improve code quality
 * Students are able to write classes that demonstrate encapsulation of data
 * Students are able to explain how their code achieves abstraction and encapsulation
 * Students are able to apply MVC principles to separate responsibilities appropriately
+
+### APIs
+
+* Students are able to expose an API.
+* Students are able to consume external APIs
+
+### Testing
+
+* Students are able to test external API consumption
+* Students are able to test API exposure
 
 ## Functional
 
@@ -56,13 +54,17 @@ Academic success in B3 means that students demonstrate proficiency and comfort w
 
 ### APIs
 
+* Students are able to use serializers to format json responses
 * Students are able to authenticate users via OAuth
 * Students are able to access the private resources of an OAuth-authenticated User
 
 ### Advanced Rails
 
 * Students are able to send email from a Rails app.
-* Students utilize and debug the Rails asset pipeline locally and in production.
+
+### Testing
+
+* Students are able to mock external HTTP requests using Webmock & VCR
 
 ### Databases
 
@@ -72,10 +74,6 @@ Academic success in B3 means that students demonstrate proficiency and comfort w
 * Students are able to avoid N + 1 queries
 
 ## Familiar
-
-### Security
-
-* Students are able to critique previous projects for fundamental security flaws and understand how to prevent them.
 
 ### Optimization
 

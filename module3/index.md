@@ -6,7 +6,7 @@ subheading: Professional Rails Applications
 
 ## Overview
 
-In Module 3, we will look beyond the basics of building Rails web applications with the intent of taking a business need and turning it into working software. Students will be comfortable using agile processes to integrate third party APIs, produce APIs, build Rails applications that consume and process data beyond basic CRUD functionality, and improve the performance of their app through AJAX, caching, and background workers.
+In Module 3, we will look beyond the basics of building Rails web applications with the intent of taking a business need and turning it into working software. Students will be comfortable using agile processes to integrate third party APIs, produce APIs, build Rails applications that consume and process data beyond basic CRUD functionality, and improve the performance of their app through caching, background workers, front end JavaScript.
 
 ## Curriculum
 
