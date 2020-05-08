@@ -23,7 +23,6 @@ Academic success in B3 means that students demonstrate proficiency and comfort w
 ### APIs
 
 * Students are able to expose an API.
-* Students are able to use serializers to format json responses
 * Students are able to consume external APIs
 
 ### Testing
@@ -55,6 +54,7 @@ Academic success in B3 means that students demonstrate proficiency and comfort w
 
 ### APIs
 
+* Students are able to use serializers to format json responses
 * Students are able to authenticate users via OAuth
 * Students are able to access the private resources of an OAuth-authenticated User
 
