@@ -21,8 +21,9 @@ layout: page
 - [Routes and controllers](https://github.com/turingschool/challenges/blob/master/routes_controllers_rails.markdown).
 
 ## Independent Challenge Practices
-- [Vending Machine Tracker](https://github.com/turingschool-examples/vending-machine-tracker/tree/master)
-- [Apollo 14](https://github.com/turingschool-projects/apollo_14)
+- [Hogwarts](https://github.com/turingschool-examples/bloody_hogwarts) (Week 2)
+- [Apollo 14](https://github.com/turingschool-projects/apollo_14) (Week 2)
+- [Vending Machine Tracker](https://github.com/turingschool-examples/vending-machine-tracker/tree/master) (Week 4)
 - [The Final Rose](https://github.com/turingschool-examples/the_final_rose) - Longer than an actual in class challenge, but could be good preparation before Week 4 challenge, or prep for the final. 
 
 ## Ruby
