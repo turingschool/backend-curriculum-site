@@ -28,7 +28,7 @@ title: Brownfield of Dreams Project Rubric
 ### Testing
 
 * **4:** Project achieves 100% test coverage and includes below expectations.
-* **3:** Project achieves 90% or greater test coverage. In addition to "happy path", project also includes "sad path"/edge case testing.
+* **3:** Project achieves 90% or greater test coverage. In addition to "happy path", project also includes "sad path"/edge case testing. Feature Tests stub external HTTP requests.
 * **2:** Project achieves 80-90% test coverage. Project may not include "sad path" or edge case testing.
 * **1:** Project does not achieve 80% test coverage.
 
