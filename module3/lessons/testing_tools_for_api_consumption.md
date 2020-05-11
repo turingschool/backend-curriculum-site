@@ -22,7 +22,7 @@ Available [here](../slides/testing_api_consumption)
 
 ## Mocking Network Requests
 
-[When last we met](./consuming_an_api_part_1), we got our code working, but our test is making a real API call which is not good. There are many reasons we wouldn't want to do this:
+[When last we met](./consuming_an_api), we got our code working, but our test is making a real API call which is not good. There are many reasons we wouldn't want to do this:
 
 1. We could hit API rate limits much faster.
 1. Our test suite will be slower.
