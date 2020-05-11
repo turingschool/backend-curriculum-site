@@ -6,6 +6,24 @@ tags:
 type: project
 ---
 
+For the project eval, you should come prepared to present your code to an evaluator.
+The technical presentation portion is outlined below with what points should be covered. If you have questions about the presentation, please let an instructor know before the evaluation day.
+
+
+### Technical Presentation
+
+* 4: Student comes prepared with an 10 minute presentation on all of the presentation points. The student has a well organized presentation that addresses each point directly and uses technical vocabulary correctly throughout the presentation. 
+* 3: Student presents their code and is able to talk about all the presentation points.
+* 2: Student only discusses 3 of the presentation topics.
+* 1: Student is unprepared for the eval and requires prompts from the instructor to talk about the code.
+
+Presentation points:
+  [ ] Demonstration of functional completeness (Running the spec harness & Rails Driver)
+  [ ] Technical quality and organization of the code
+  [ ] Identifying code that should be refactored and how it would be refactored
+  [ ] Discussion of test coverage (happy and sad path and edge cases)
+  [ ] Approach to their ActiveRecord queries
+
 ### Feature Delivery
 
 * 4: Project completes all requirements and at least one extension.
