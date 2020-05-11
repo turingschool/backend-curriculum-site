@@ -7,12 +7,15 @@ type: project
 ---
 
 For the project eval, you should come prepared to present your code to an evaluator.
+
 The technical presentation portion is outlined below with what points should be covered. If you have questions about the presentation, please let an instructor know before the evaluation day.
+
+You should review each section of the rubric and strive to have a 3 in each section before attempting any 4s.
 
 
 ### Technical Presentation
 
-* 4: Student comes prepared with an 10 minute presentation on all of the presentation points. The student has a well organized presentation that addresses each point directly and uses technical vocabulary correctly throughout the presentation. 
+* 4: Student comes prepared with an 10 minute presentation on all of the presentation points. The student has a well organized presentation that addresses each point directly and uses technical vocabulary correctly throughout the presentation.
 * 3: Student presents their code and is able to talk about all the presentation points.
 * 2: Student only discusses 3 of the presentation topics.
 * 1: Student is unprepared for the eval and requires prompts from the instructor to talk about the code.
