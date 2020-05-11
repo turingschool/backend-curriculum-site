@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Testing API Consumption
+title: Testing Tools for API Consumption
 length: 90
 tags: apis, rails, faraday, refactoring, VCR
 ---
