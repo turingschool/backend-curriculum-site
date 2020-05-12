@@ -478,9 +478,7 @@ Running the tests now will give us a missing template error, so go create `app/v
   <section id="playlist-<%= playlist.id %>">
     <h1><%= playlist.name %></h1>
     <% playlist.songs.each do |song| %>
-      <section id="song-<%= song.id %>">
-        <p><%= song.title %></p>
-      </section>
+       <p><%= song.title %></p>
     <% end %>
   </section>
 <% end %>
