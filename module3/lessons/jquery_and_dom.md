@@ -108,6 +108,7 @@ $('h1').text('I AM A DINOSAUR.');                             // jQuery
   <h2>Try It</h2>
   <p>Play around with the CodePen below using jQuery:</p>
   <ul>
+    <li><b>Open the example below in CodePen using the `Edit on CodePen` button in the top right corner.</b></li>
     <li>Change the replacement text to something else.</li>
     <li>Change the <code class="try-it-code">h1</code> selector to <code class="try-it-code">.important-header</code></li>
     <li>Add the following line of code: <code class="try-it-code">$('h1').css('color', '#FC17A5');</code></li>
@@ -126,6 +127,8 @@ jQuery and, of course, JavaScript are used to change and manipulate web pages. J
 **DOM Manipulation** is the crux of front-end engineering. We present a user interface and then as the user interacts with the UI, we change and update what the user sees.
 
 Let's take a look at the jQuery syntax and then we'll talk about what's happening.
+
+**Open the example below in CodePen using the `Edit on CodePen` button in the top right corner.**
 
 <p data-height="265" data-theme-id="0" data-slug-hash="dwOOGy" data-default-tab="css,result" data-user="mikedao" data-pen-title="Dino 2" class="codepen">See the Pen <a href="https://codepen.io/mikedao/pen/dwOOGy/">Dino 2</a> by Michael Dao (<a href="https://codepen.io/mikedao">@mikedao</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
@@ -158,7 +161,7 @@ Take a moment to investigate and play with some of them.
 
 ## Adding a CSS Class
 
-Open the example below in CodePen using the `Edit on CodePen` button in the top right corner.
+**Open the example below in CodePen using the `Edit on CodePen` button in the top right corner.**
 
 <p data-height="265" data-theme-id="0" data-slug-hash="aPBBNx" data-default-tab="css,result" data-user="mikedao" data-pen-title="Dino 3" class="codepen">See the Pen <a href="https://codepen.io/mikedao/pen/aPBBNx/">Dino 3</a> by Michael Dao (<a href="https://codepen.io/mikedao">@mikedao</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
@@ -179,7 +182,9 @@ We're using a jQuery method called `toggleClass()`. When the user clicks on the 
 
 We're getting somewhere! We can respond to actions and change elements. It would be cool if we could also get some information from the user. If you recall, HTML provides `<input>` elements for just this kind of situation. jQuery helps out by providing the `.val()` method for getting the value out of a selected `<input>` element.
 
-Let's explore the following example.
+**Open the example below in CodePen using the `Edit on CodePen` button in the top right corner.**
+
+Let's explore the following example:
 
 <p data-height="265" data-theme-id="0" data-slug-hash="vvyyKL" data-default-tab="css,result" data-user="mikedao" data-pen-title="Dino 4" class="codepen">See the Pen <a href="https://codepen.io/mikedao/pen/vvyyKL/">Dino 4</a> by Michael Dao (<a href="https://codepen.io/mikedao">@mikedao</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
@@ -192,6 +197,8 @@ Let's explore the following example.
 ### A Note on Working with Numbers
 
 JavaScript has two ways of seeing if two values are equal: `==` and `===`. `==` is notoriously weird, so we tend to avoid it. But there is something with using `===` and getting numbers from input fields that we need to discuss.
+
+**Open the example below in CodePen using the `Edit on CodePen` button in the top right corner.**
 
 Let's consider the following example:
 
@@ -226,6 +233,8 @@ It works now!
 Consider a situation where we have three boxes. When that particular box is clicked, we want to toggle a class on that box only. How do we know which box was clicked?
 
 It turns out that when we add an event listener using jQuery, we get access to the `event` object. The event object is a JavaScript object that represents the event (think click, mouseover, etc.) that triggered the listener. We typically name this variable `event` or `e`. We are provided with many properties and methods on the object. Most commonly used is the `target` property. The CodePen and Try It sections below will illustrate what it information it provides us with.
+
+**Open the example below in CodePen using the `Edit on CodePen` button in the top right corner.**
 
 Let's take a look at the example below:
 
