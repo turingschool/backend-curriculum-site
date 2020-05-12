@@ -8,6 +8,7 @@ layout: page
 * [Intro to Postman and Faraday](./postman_and_faraday)
 * [Consuming APIs](./consuming_an_api)
 * [Testing Tools for API Consumption](./testing_tools_for_api_consumption)
+* [Abstraction and Encapsulation](./abstraction_and_encapsulation)
 * [Refactoring API Consumption](./refactoring_api_consumption)
 * [Getting Started with OAuth](./oauth)
 

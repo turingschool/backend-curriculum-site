@@ -70,8 +70,6 @@ Academic success in B3 means that students demonstrate proficiency and comfort w
 
 * Students compose advanced ActiveRecord queries to analyze information stored in SQL databases.
 * Students write basic SQL statements without the assistance of an ORM.
-* Students implement indexes to address slow queries.
-* Students are able to avoid N + 1 queries
 
 ## Familiar
 
@@ -79,6 +77,8 @@ Academic success in B3 means that students demonstrate proficiency and comfort w
 
 * Students are able to explain when to use caching strategies to improve performance in Rails.
 * Students are able to explain the scenarios that would benefit from using background workers in Rails.
+* Students are able to explain how indexes address slow queries.
+* Students are able to avoid N + 1 queries
 
 ### Front End Javascript
 
