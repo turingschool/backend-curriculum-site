@@ -39,7 +39,7 @@ The Technical Requirements for this project can be found [here](./requirements)
 ## Extensions
 
 Review the evaluation details to ensure you have completed each section of it before tackling any extensions.
-If all requreiments have been met, then please work on the extensions found [here](./extensions)
+If all requirements have been met, then please work on the extensions found [here](./extensions)
 
 ## Evaluation
 
