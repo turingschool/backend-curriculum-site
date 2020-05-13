@@ -33,6 +33,10 @@ View the [README on Github](https://github.com/turingschool-examples/brownfield-
 
 Use this [retro guide](../retro_guide) during the scheduled retros for this project.
 
+## Peer Code Share
+
+Complete the activity [here](./peer_code_share)
+
 ## Evaluation
 
 Your project will be evaluated based on [this rubric](./rubric).
