@@ -11,6 +11,7 @@ title: Module 4 Lessons
 * [Promises with async/await](./async_await.md)
 * [Testing with Jest](./jest_testing)
 * [Organizing an Express App](./organize_an_express_app)
+* [Frontend JavaScript Refresher](./frontend_javascript_refresher)
 
 ## General Web
 
@@ -30,6 +31,9 @@ title: Module 4 Lessons
 
 * [Getting Started with Docker](./intro_to_docker)
 * [Intro to GraphQL](./graphql)
+* [GraphQL Example Repo](https://github.com/turingschool-examples/pets_gql)
+    * Use this [queries walkthrough](./pets_gql_walkthrough_queries) with the repo
+    * Use this [mutations walkthrough](./pets_gql_walkthrough_mutations)with this repo
 * [Git 2.0](./git_2.0/git.md)
 * [Writing Effective User Stories](./user_stories.md)
 
@@ -45,4 +49,4 @@ title: Module 4 Lessons
 
 ## Thanksgiving Break Suggestions
 
-* [Optional Learning Opportunities](./during_module_break_suggestions) 
+* [Optional Learning Opportunities](./during_module_break_suggestions)

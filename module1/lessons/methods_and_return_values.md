@@ -7,7 +7,7 @@ tags: ruby, methods, return, argument
 
 ## Learning Goals
 
-* Define the terms Method, Argument, and Return Value
+* Define the terms Variable, Method, Argument, and Return Value
 * Explain why we use methods
 * Define methods in Ruby
 * Explain where Ruby looks for methods
@@ -15,6 +15,7 @@ tags: ruby, methods, return, argument
 
 ## Vocabulary
 
+* Variable
 * Method
 * Return
 * Argument (Parameter)
@@ -26,12 +27,13 @@ tags: ruby, methods, return, argument
 
 With your partner define the following terms in your own words:
 
+* Variable
 * Method
 * Argument
 * Return Value
 * Object
 
-Then, for each of the terms above, identify examples of the previous terms in the pry snippets below:
+Then, for each of the terms above, identify examples in the pry snippets below:
 
 ```ruby
 pry(main)> "Hello World".upcase
@@ -42,6 +44,15 @@ pry(main)> "Hello World".upcase
 pry(main)> "Hello World".include?("Hello")
 => true
 ```
+
+```ruby
+pry(main)> greeting = "Hello World".downcase
+=> "hello world"
+
+pry(main)> greeting
+=> "hello world"
+```
+
 
 ## Define and Identify
 
@@ -133,6 +144,43 @@ pry(main)> "Hello World".gsub "World", "Turing"
 <br>
 <br>
 <br>
+
+## Variables
+
+Variables are keywords that we create to hold or point to return values that we want to maintain and re-use.  In the example above, if we want to re-use the return value `"hello world"`, instead of calling `"Hello World".downcase` over and over again, we can assign the return value to a `variabl` to be used at later points in our code.
+
+```ruby
+pry(main)> greeting = "Hello World".downcase
+=> "hello world"
+
+pry(main)> greeting
+=> "hello world"
+
+pry(main)> "This is our greeting: #{greeting}"
+=> "This is our greeting: hello world"
+```
+
+Since *we* define variables, we can also reassign them.  Once reassigned, the original return value is gone - it can not be recalled with that variable.
+
+```ruby
+pry(main)> greeting = "Hello World".downcase
+=> "hello world"
+
+pry(main)> greeting
+=> "hello world"
+
+pry(main)> greeting == "Hello World".downcase
+=> true
+
+pry(main)> greeting = "Hello Universe"
+=> "Hello Universe"
+
+pry(main)> greeting
+=> "Hello Universe"
+
+pry(main)> greeting == "Hello World".downcase
+=> false
+```
 
 
 ## Defining our own Methods

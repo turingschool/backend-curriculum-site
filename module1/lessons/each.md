@@ -7,7 +7,7 @@ tags: enumerable, ruby, collections, arrays, each,
 ## Learning Goals
 
 * Understand how to use #each to iterate over an array
-* Recognize and implement the "map" and "inject" patterns used in iteration
+* Understand how to transform, create a subset, and  create something new with #each
 
 ## Slides
 
@@ -88,7 +88,7 @@ names.each do |name|
   name.capitalize
 end
 
-puts names
+p names
 ```
 
 Run the playground file - what happens?
@@ -108,7 +108,7 @@ names.each do |name|
   capitalized_names << name
 end
 
-puts capitalized_names
+p capitalized_names
 ```
 
 Since we know that each won't save anything for us, we need to create some placeholder container to store our _new_ collection. In Mod 1, you may hear this placeholder called the accumulator or the aggregator. The thing to remember is that when you are using \#each, you will almost always use some sort of placeholder to preserve the result that you want - in this case, the capitalized names.  Without the placeholder, you will not be able to access the information that you want!
@@ -131,7 +131,7 @@ numbers.each do |number|
   end
 end
 
-puts odd_numbers
+p odd_numbers
 
 ```
 
@@ -180,17 +180,17 @@ Now it's your turn to practice.
 With your new best friend sitting next to you, with this following array use
 `.each` to:
 
-`singers = ["justin", "selena", "demi", "carly"]`
+`singers = ["billie", "ariana", "lizzo", "leon"]`
 
 1. Can you print out their names capitalized?
 2. Can you print out their names in all caps?
-3. Can you print out their names but reversed? (justin first) (`["carly", "demi", "selena", "justin"]`)
+3. Can you print out their names but reversed? (billie first) (`["leon", "lizzo", "ariana", "billie"]`)
 4. Can you create a new array with only the names that are longer than four letters in length?
 5. Can you create a new array with the lengths of their names?
 
 Now, with this array can you do the following using `.each`?
 
-`array = [1,2,3,4,5]`
+`numbers = [1,2,3,4,5]`
 
 1. Can you create a new array with only the odd numbers?
 2. Can you create a new array with only the even numbers?

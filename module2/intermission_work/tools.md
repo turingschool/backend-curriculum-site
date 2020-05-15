@@ -23,17 +23,14 @@ If you instead get a version of Rails besides `5.1.x`, follow [these instruction
 
 ## Download PostgreSQL
 
-Download PostgreSQL from Homebrew.
+Download PostgreSQL from the Postgresapp.
 
-From your terminal, run:
+1. Visit the [postgresapp homepage](https://postgresapp.com/downloads.html) and download the latest version of Postgres.app 
+2. Open the downloaded file and drag it into your applications folder
+3. Open your applications and open the app 
+  - If you get a message around "'Postgres' can’t be opened because the identity of the developer cannot be confirmed.", make sure that you are opening the app from inside your applications folder. 
+4. Once the app opens, click "Initialize"
 
-```
-brew update
-brew install postgresql
-brew services start postgresql
-```
-
-After this step, try running `gem install pg -v 1.1.4`
 
 #### Gem errors?
 If you get errors installing the "pg" gem, try installing PostgreSQL from https://postgresapp.com/

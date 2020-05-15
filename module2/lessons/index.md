@@ -60,3 +60,7 @@ layout: page
 ## Styling
 
 * [HTML and CSS](./html_and_css)
+
+## Other
+
+* [API Consumption in Ruby](./api_consumption_in_ruby)

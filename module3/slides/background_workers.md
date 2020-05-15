@@ -1,35 +1,74 @@
 # Background Workers
+---
+
+## Warm Up
+
+1. What does it mean for a process to execute asynchronously?
+1. Why would we want something to execute asynchronously? What advantage does that give us?
 
 ---
 
-# Warmup
+### Doing Stuff In the background
 
-* What is the bare minimum amount of code that would go in a Item model in Rails?
-* What method do you create in a PORO if you want to be able to pass parameters to `.new`?
-* What does it mean for a process to execute `asynchronously`?
-* When might we want something to process asynchronously? What advantage does that give us?
+A background worker allows you to perform time consuming operations outside of
+the normal request-response loop.
 
----
+- Long-running requests are moved to threads outside of the main web application thread for processing,
 
-# Tools
-
-* Redis: Key/value store - database.
-* Sidekiq: Background processor designed to work with Rails
-* ActiveJob: Rails framework to interface with background processors.
+- This frees up the main web application to continue handling requests from the user.
 
 ---
 
-# Structure
+### Why do we need them?
+- Certain processes can take a long time and users get bored
 
-* Redis, Sidekiq, Rails all running in separate processes
-    * Rails sends (or persists) a job to Redis
-    * Sidekiq checks Redis for new jobs
-    * Sidekiq executes the jobs it finds in Redis using Rails codebase
+- Background workers are a way to optimize the perceived performance of your web application.
 
 ---
 
-# Questions?
+### What's good to do in the background?
+There are 2 main attributes that make something a good candidate for processing in the background:
+
+1. Slow
+2. Immediate user feedback is not crucial
 
 ---
 
-# Tutorial
+### Things In Rails Apps That Need Background workers
+
+- Email
+- Data Processing - Generating Reports
+- Payment processing
+- Maintenance - expiring old sessions, sweeping caches
+
+---
+
+### Our Tools
+1. Redis - Key/value store database
+2. Sidekiq - Background processor designed to work with rails
+3. ActiveJob - Rails framework to interface with background processors
+
+---
+
+### How it all works together
+1. Rails sends jobs to Redis
+2. Sidekiq checks Redis for new jobs
+3. Sidekiq executes the jobs it finds in Redis using code defined in Rails
+
+Turn to a neighbor and practice explaining how this works
+
+---
+
+## Questions?
+
+---
+
+## Workshop
+
+## Wrap up Questions
+
+1. When do you want to use a background worker?
+2. What is ActiveJob and how is it similar to ActiveRecord
+3. What is Sidekiq?
+4. What is Redis?
+5. Is it possible to define a job that doesn't get sent redis and a background worker?

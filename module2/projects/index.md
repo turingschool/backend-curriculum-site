@@ -4,10 +4,10 @@ title: Module 2 - Projects
 ---
 **Current**
 
-* [Adopt Don't Shop](https://github.com/turingschool-examples/adopt_dont_shop), solo project, week 1  
+* [Adopt Don't Shop](https://github.com/turingschool-examples/adopt_dont_shop_2003), solo project, week 1  
 * [Adopt Don't Shop Paired](https://github.com/turingschool-examples/adopt_dont_shop_paired), paired project, weeks 2-3
-* [Monster Shop](https://github.com/turingschool-examples/monster_shop_1906), group project, weeks 4-5
-* [Monster Shop Extensions](https://github.com/turingschool-examples/monster_shop_final), solo project, week 6
+* [Monster Shop Part](https://github.com/turingschool-examples/monster_shop_1911), group project, weeks 4-5
+* [Monster Shop Final - Bulk Discount](https://github.com/turingschool-examples/monster_shop_final)
 
 **To Be Archived**
 

@@ -1,6 +1,6 @@
 # Koroibos
 
-Thank you for taking the time to apply to our Junior Developer position here at Koroibos. Our company is currently working to build a live Olympic Analytics tracker for the 2020 Summer Games. As part of our application, we want to include historical data from the 2016 Summer Olympics. We have provided you a sample of the data [here](./olympic_data_2016.csv). For your technical challenge, we would like to see you use this data to build out some analytical endpoints. We have provided specifications for the endpoints that we are looking for, and would love to see your initiative for any other endpoints you think could provide interesting data analysis. We will meet on Wednesday to discuss your process, decisions, and code quality. Looking forward to our review!
+Thank you for taking the time to apply to our Junior Developer position here at Koroibos. Our company is currently working to build a live Olympic Analytics tracker for the 2020 Summer Games. As part of our application, we want to include historical data from the 2016 Summer Olympics. We have provided you a sample of the data [here](./olympic_data_2016.csv). For your technical challenge, we would like to see you use this data to build out some analytical endpoints in a Node API. We have provided specifications for the endpoints that we are looking for, and would love to see your initiative for any other endpoints you think could provide interesting data analysis. We will meet on Wednesday to discuss your process, decisions, and code quality. Looking forward to our review!
 
 Endpoint Specifications
 
@@ -35,15 +35,16 @@ Endpoint Specifications
 ```javascript
 //Response Format
 {
-  [
-    {
-      "name": "Ana Iulia Dascl",
-      "team": "Romania",
-      "age": 13,
-      "sport": "Swimming"
-      "total_medals_won": 0
-    }
-  ]
+  "olympians":
+    [
+      {
+        "name": "Ana Iulia Dascl",
+        "team": "Romania",
+        "age": 13,
+        "sport": "Swimming"
+        "total_medals_won": 0
+      }
+    ]
 }
 ```
 
@@ -52,15 +53,16 @@ Endpoint Specifications
 ```javascript
 //Response Format
 {
-  [
-    {
-      "name": "Julie Brougham",
-      "team": "New Zealand",
-      "age": 62,
-      "sport": "Equestrianism"
-      "total_medals_won": 0
-    }
-  ]
+  "olympians":
+    [
+      {
+        "name": "Julie Brougham",
+        "team": "New Zealand",
+        "age": 62,
+        "sport": "Equestrianism"
+        "total_medals_won": 0
+      }
+    ]
 }
 ```
 

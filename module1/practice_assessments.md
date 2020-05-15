@@ -26,6 +26,7 @@ Example: [World Cup](https://github.com/turingschool-examples/world_cup)
 The week 4 challenge will involve three classes with only partial specifications. Students must think algorithmically to build an Object Oriented solution that solves the problem. Students will also be required to build a hash.
 
 Example: [Boat Rental](https://github.com/turingschool-examples/boat_rental)
+Example: [Colorado Lottery](https://github.com/turingschool-examples/colorado_lottery_2003)
 
 **Weeks 5 and 6**
 
@@ -34,3 +35,4 @@ The week 5 and 6 challenges are a test of a student's knowledge of OOP and Ruby 
 The week 5 challenge will be a practice for the final in week 6.
 
 Example: [Reunion](https://github.com/turingschool-examples/reunion)
+Example: [Museo](https://github.com/turingschool-examples/museo)

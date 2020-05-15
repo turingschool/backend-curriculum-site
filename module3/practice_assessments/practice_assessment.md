@@ -10,8 +10,9 @@ In this assessment you will:
 
 *   Demonstrate mastery of all parts of the Rails stack
 *   Demonstrate mastery of Ruby throughout the process
-*   Integrate a 3rd Party API
+*   Integrate 3rd Party APIs
 *   Write tests for the added features
+*   Expose API endpoints
 
 ## Preparation
 
@@ -25,33 +26,48 @@ bundle exec rake db:{create,migrate,seed}
 bundle exec rails server
 ```
 
-Sign up for a Weather Underground developer key [here](https://www.wunderground.com/weather/api).
-> Note: Make sure you select a free plan!
+## Practice Challenges
 
-## Assessment Challenges
+### 1. Current Weather
 
-Work through the following challenges and get as far as you can in the allotted time.
-
-### 1. Search 10 Day Weather Forecasts for cities
+For this story, we will be using the [OpenWeatherMap API](https://openweathermap.org/api). Sign up for an api key and familiarize yourself with the documentation. Please note that it may take a while for your api key to be activated.
 
 ```
 As a user
 When I visit "/"
 And I click on a destination
 Then I should be on page "/destinations/:id"
-Then I should see the destination's name, zipcode, description, and 10 day weather forecast
+Then I should see the destination's name, zipcode, description, and current weather
 The weather forecast is specific to the destination whose page I'm on
-The forecast should include date (weekday, month and day), high and low temps (F), and weather conditions
+The forecast should include date (weekday, month and day), current, high and low temps in Fahrenheit, and a summary (for example "light rain", "clear sky", etc.)
 ```
 
-### 2. Create an External API for the `Destination` resource
+### 2. Weather Image
 
--   RESTful routes should be created to `get`, `show`, `create`, `update`, and `destroy` destinations.
+For this story, we will using the [Giphy API](https://developers.giphy.com/).
+
+```
+As a user
+When I visit "/"
+And I click on a destination
+Then I should be on page "/destinations/:id"
+Then I should see an image related to the current weather at the destination
+```
+
+**Note**: you have some flexibility here to determine what a "related" image might be.
+
+### 3. Create an External API for the `Destination` resource
+
+-   RESTful routes should be created to `index`, `show`, `create`, `update`, and `destroy` destinations.
 -   Routes should render JSON or an HTTP status code depending on their purpose.
 -   These routes should be namespaced under `/api/v1/`.
 -   Request specs should be driving the creation of these routes.
-- Make sure `create`, `update`, and `destroy` work through Postman
+-   Make sure `create`, `update`, and `destroy` work through Postman
 
-## Evaluation Criteria
+### 4. Create External API endpoints for Destination Weather
 
-As a refresher, evaluation criteria is located in the [Assessment](https://github.com/turingschool/lesson_plans/blob/master/ruby_03-professional_rails_applications/diagnostic.md#evaluation-criteria) file.
+-   Expose the information from challenges 1 and 2 in an api endpoint, including destination weather and a related image
+-   Routes should render JSON or an HTTP status code depending on their purpose.
+-   You have some freedom to determine what the JSON response looks like.
+-   These routes should be namespaced under `/api/v1/`.
+-   Request specs should be driving the creation of these routes.

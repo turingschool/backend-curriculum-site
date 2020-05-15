@@ -15,7 +15,7 @@ Projects require students to apply new concepts from class and build on existing
   * This project will count towards the final promotion decision.
 * **Group Project** - Begin Monday week 4, due Thursday week 5.
   * This project will count towards the final promotion decision.
-* **Independent Project** - Begin Friday week 5, due Wednesday week 6.
+* **Independent Project** - Begin Friday week 5, due Tuesday week 6.
   * This project will count towards the final promotion decision.
 
 ## Independent Challenges
@@ -38,8 +38,8 @@ Students can reference [This Example](https://github.com/turingschool-examples/p
 
 Projects, Paired Assessments, and Independent Assessments will be scored on a 4 point scale:
 
-1. Failing
-2. Passing with concern
+1. Far Below Expectations
+2. Below Expectations
 3. Passing
 4. Exceptional
 

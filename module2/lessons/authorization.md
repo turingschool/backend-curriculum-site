@@ -22,7 +22,7 @@ Available [here](https://docs.google.com/presentation/d/1HZcEWWeME-4IAKZZ-0fKJOq
 
 ## Repo
 
-We will continue working in Set List, so pull down the most recent version of that [here](https://github.com/turingschool-examples/set_list_1906).
+We will continue working in Set List, so pull down the most recent version of that [here](https://github.com/turingschool-examples/set_list_1909).
 
 ## Code Along
 
@@ -287,6 +287,9 @@ Inside of our `Admin::DashboardController`, let's add a `before_action` to check
 ```ruby
 class Admin::DashboardController < ApplicationController
   before_action :require_admin
+  
+  def index 
+  end 
 
   private
     def require_admin

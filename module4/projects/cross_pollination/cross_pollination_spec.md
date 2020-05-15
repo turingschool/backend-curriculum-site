@@ -45,7 +45,7 @@ If you have questions regarding this please reach out to your project managers.
   * If you use Rails for your BE, then we expect above 80% test coverage
   * If you experiment with a new BE language/framework outside of Rails, then BE test coverage is expected to be at least 25%
 
-* You must pick **2** of the following stretch goals:
+* You must pick **1** of the following stretch goals:
     * Implement BE in a framework or language you have not used before in a project
     * Create a Backend API using GraphQL
     * Create a micro service or two and abstract out functionality into a separate application
