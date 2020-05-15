@@ -60,18 +60,18 @@ $(function(config){
   };
 
   function hitTemplate(hit) {
-    var link = `<a href="${hit.url}">${hit._highlightResult.title.value}</a>`;
-    var content;
-    if (hit._highlightResult.content) {
-      content = `<p>${hit._highlightResult.content.value.replace('<script>','')}</p>`
+    try {
+      let link = `<a href="${hit.url}">${hit._highlightResult.title.value}</a>`;
+      let content = `<p>${hit._highlightResult.content.value.replace('<script>','')}</p>`
+      return `<li class="result">
+                ${link}
+                ${content}
+              </li>`
     }
-    else {
-      content = '<p></p>';
+    catch(err){
+      console.log(err)
+      return '<p></p>';
     }
-    return `<li class="result">
-              ${link}
-              ${content}
-            </li>`
   };
 
   function showSearch() {
