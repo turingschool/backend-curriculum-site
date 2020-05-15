@@ -20,11 +20,16 @@ You should review each section of the rubric and strive to have a 3 in each sect
 * 1: Student is unprepared for the presentation and requires prompts from the instructor to talk about the code.
 
 Presentation points:
-  [ ] Demonstration of functional completeness (Running the spec harness & Rails Driver)
-  [ ] Technical quality and organization of the code
-  [ ] Identifying code that should be refactored and how it would be refactored
-  [ ] Discussion of test coverage (happy and sad path and edge cases)
-  [ ] Approach to their ActiveRecord queries
+
+[ ] Demonstration of functional completeness (Running the spec harness & Rails Driver)
+  
+[ ] Technical quality and organization of the code
+  
+[ ] Identifying code that should be refactored and how it would be refactored
+  
+[ ] Discussion of test coverage (happy and sad path and edge cases)
+  
+[ ] Approach to their ActiveRecord queries
 
 ### Feature Delivery
 
