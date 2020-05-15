@@ -23,11 +23,11 @@ Your Rake Task should:
 * Convert all prices before storing. Prices are in cents, therefore you will need to transform them to dollars. (`12345` becomes `123.45`)
 * Reset the primary key sequence for each table you import so that new records will receive the next valid primary key.
 
-You do not need to test your Rake Task
+**You do not need to test your Rake Task**
 
 # 2. API Endpoints
 
-You will need expose the data through a multitude of API endpoints. All of your endpoints should follow these technical expectations:
+You will need to expose the data through a multitude of API endpoints. All of your endpoints should follow these technical expectations:
 
 * All endpoints should be fully tested. The Rails Driver Spec Harness is not a substitute for writing your own tests.
 * All endpoints will expect to return JSON data
@@ -278,7 +278,7 @@ Example JSON response for `GET /api/v1/merchants/find?name=ring`
 
 Expose the following business intelligence endpoints.
 
-**NOTE**: Only paid invoices should be counted in revenue totals or statistics. A paid invoice has at least one successful transaction
+**NOTE**: Only paid invoices should be counted in revenue totals or statistics. A paid invoice has at least one successful transaction.
 
 ### Merchants with Most Revenue
 

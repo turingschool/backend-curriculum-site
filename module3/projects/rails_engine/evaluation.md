@@ -2,9 +2,29 @@
 layout: page
 title: Rails Engine Evaluation
 length: 1 week
-tags:
 type: project
 ---
+
+For the project eval, you should come prepared for a 10 minute presentation of your code to an evaluator.
+
+The technical presentation portion is outlined below with what points should be covered. **You should be able to present on all points even if you did not implement in code.**  If you have questions about the presentation, please let an instructor know before the evaluation day.
+
+You should review each section of the rubric and strive to have a 3 in each section before attempting any 4s.
+
+
+### Technical Presentation
+
+* 4: The student has a well organized presentation that addresses each point directly and uses technical vocabulary correctly throughout the presentation.
+* 3: Student presents their code and is able to talk about all the presentation points.
+* 2: Student presents their code and is able to talk about 3-4 of the presentation points.
+* 1: Student is unprepared for the presentation and requires prompts from the instructor to talk about the code.
+
+Presentation points:
+  [ ] Demonstration of functional completeness (Running the spec harness & Rails Driver)
+  [ ] Technical quality and organization of the code
+  [ ] Identifying code that should be refactored and how it would be refactored
+  [ ] Discussion of test coverage (happy and sad path and edge cases)
+  [ ] Approach to their ActiveRecord queries
 
 ### Feature Delivery
 
@@ -33,42 +53,3 @@ type: project
 * 3: Project demonstrates good use of ActiveRecord using no ruby to process data that could otherwise be done by the database
 * 2: Project makes good use of `ActiveRecord`, but drops to ruby enumerables for some query methods.
 * 1: Project frequently uses Ruby where ActiveRecord could be used, or fails to use ActiveRecord effectively
-
-## Peer Review
-
-Complete the following sections independently.
-
-### Setup
-
-First,
-
-* Clone down your partner's project
-* Set up your partner's project
-
-Then, answer the following questions:
-
-* Was your partner's project easy to set up? Why or why not?
-* Do they have a clear README? What sort of things should be included to make the set up more clear?
-
-### Rake Task
-
-First,
-
-* Run your partner's rake task
-* Open up the rake task and look it over.
-
-Then, answer the following questions:
-
-* Does the rake task work? How do you know?
-* Is the rake task readable? Is it DRY? What are some improvements you could make to the rake task?
-
-### Endpoints
-
-First,
-
-* Run the spec harness in Rails Driver against your partner's app
-* Look through the code
-
-Then, answer the following questions:
-
-* How many endpoints failed the spec harness? Why did they fail?
