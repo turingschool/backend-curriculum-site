@@ -168,7 +168,8 @@ By yourself or with a partner:
 1. Clone the [Boolean Logic Practice Repo](https://github.com/turingschool-examples/vehicle_boolean) onto your local machine
 2. cd vehicle_boolean
 3. ruby test/vehicle_analysis_test.rb (make sure all tests start out passing)
-3. Complete Activity 1 and Activity 2 (see below)
+    * You may need to `gem install stringio` and/or `gem install o_stream_catcher`
+4. Complete Activity 1 and Activity 2 (see below)
 
 #### Activity 1: Vehicle
 
