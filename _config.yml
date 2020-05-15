@@ -39,8 +39,8 @@ algolia:
   application_id: 'OOLQ64CUYT'
   index_name:     'backend-curriculum-site'
   search_only_api_key: '5b955c38c514d8e5cb906c983c8c24db'
-  # nodes_to_index: 'p,blockquote,li,h1,h2,h3,h4,a,code.language-plaintext'
   extensions_to_index: 'html,md'
+  nodes_to_index: 'p,li'
   settings:
     attributeForDistinct: 'title'
     distinct: true
