@@ -1,8 +1,7 @@
 ---
 layout: page
+title: User Stories
 ---
-
-# User Stories
 
 ## Story 1: Create Wireframes for Most Important Views
 

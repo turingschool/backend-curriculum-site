@@ -31,5 +31,26 @@ assets:
 images:
   root_url: '/assets/images'
 
-gems:
+plugins:
   - jemoji
+  - jekyll-algolia
+
+algolia:
+  application_id: 'OOLQ64CUYT'
+  index_name:     'backend-curriculum-site'
+  search_only_api_key: '5b955c38c514d8e5cb906c983c8c24db'
+  extensions_to_index: 'html,md'
+  nodes_to_index: 'p,li'
+  settings:
+    attributeForDistinct: 'title'
+    distinct: true
+  files_to_exclude:
+    - _includes
+    - _layouts
+    - _plugins
+    - _sass
+    - _site
+    - _templates
+    - assets
+    - public
+    - stylesheets
