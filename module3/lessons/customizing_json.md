@@ -4,8 +4,6 @@ length: 90
 tags: json, javascript, rails, ruby, api
 ---
 
-This lesson plan was last verified to have worked with Ruby v2.4.1 and Rails v5.2.0
-
 ## Learning Goals
 
 * Generate and customize Rails Serializers
@@ -30,11 +28,11 @@ With how we've used `render json:` up til now, all data related with the resourc
 Let's imagine that you don't just want the raw guts of your model converted to JSON and sent out to the user -- maybe you want to customize what you send back.
 
 
-## Code Along
+## Exercise
 
 ### Adding to Our Existing Project
 
-We're going to start where we left off in the internal API testing lesson. Feel free to use the repository that you created yesterday. Otherwise, you can clone the repo below as a starting place.
+We're going to start where we left off in the building internal APIs lesson. Feel free to use the repository that you created yesterday. Otherwise, you can clone the repo below as a starting place.
 
 ```bash
 git clone https://github.com/turingschool-examples/building_internal_apis.git
@@ -126,7 +124,7 @@ gem 'fast_jsonapi'
 And then `bundle install`
 
 
-We can now use the built in generator in order to make ourselves a serialized.
+We can now use the built in generator in order to make ourselves a serializer.
 
 ```rails g serializer Order id order_number```
 
@@ -209,7 +207,7 @@ end
 
 ```
 
-## Lab
+## Extra Practice
 
 Do what we did to `Order`, but on `Item` now.
 
