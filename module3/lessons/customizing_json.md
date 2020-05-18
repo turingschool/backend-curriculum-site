@@ -37,7 +37,7 @@ We're going to start where we left off in the building internal APIs lesson. Fee
 ```bash
 git clone https://github.com/turingschool-examples/building_internal_apis.git
 bundle
-git checkout building_api_complete
+git checkout complete_building_apis
 ```
 
 We want to work with objects that have related models, so let's add an `Order` model:
