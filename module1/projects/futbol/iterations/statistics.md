@@ -5,7 +5,7 @@ title: Statistics
 
 _[Back to Futbol Home](../index)_
 
-**These Statistics are due the Monday after project kickoff by 8:30**
+**These Statistics should be done the Monday before the project is due!**
 
 Each of the methods described below should be implemented as instance methods on `StatTracker`.
 
