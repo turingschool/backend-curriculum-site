@@ -6,6 +6,7 @@ type: project
 
 We will be using an agile process during the development of this project. This will include:
 
+* Working in Sprints
 * Using GitHub
 * Setting up Continuous Integration
 * Using a project management tool such as Github Projects or Trello.
@@ -13,6 +14,40 @@ We will be using an agile process during the development of this project. This w
 * Doing daily Stand Ups
 * Demoing your project to your Project Manager
 * Holding Team Retros
+
+## Sprints
+
+In agile processes, a sprint is a single cycle of development. The most common length of a sprint is two weeks. During this cycle, teams will assign features, develop those features, demo their work, get feedback, and retro.
+
+**Sprint 1: User Interface and Microservice Spike**
+
+* Begin: Monday of Week 4
+* End: Monday of Week 5
+* Deliverables:
+    * **Working User Interface** - This interface should touch on all the features of your MVP. You should not build out your microservice yet. Rather, you should mock out the data you want returned from your microservice. Focusing on the user interface first will force you to think through what value your product is delivering through your features.
+    * **Microservice Spike** - Although we won't be building out the full microservice just yet, we do want to have a proof of concept that we can build it. This should be as simple as a single Ruby file. You should not spend a lot of time on this spike. What you are aiming to create is a proof of concept that you can supply the data that is needed on the front end.
+
+**Sprint 2: Final Product**
+
+* Begin: Monday Week 5
+* End: Friday Week 5
+* Deliverables:
+    * **Polished User Interface** - This should complete all the features discussed in your MVP.
+    * **Working Microservice**
+
+## Project Check Ins
+
+In addition to the End of Sprint Demos, you will also have two project check ins
+
+* Check In 1
+    * Wednesday or Thursday of Week 4
+    * During this meeting, you should be prepared to review the artifacts from your inception: MVP, wireframes, story board.
+    * During this meeting, your team will draw out the architecture of your application
+
+* Check In 2
+    * Wednesday Week 5
+    * During this check in, you will discuss with your project manager what the expectations are for your final demo on Friday
+    * You can also use this check in as an opportunity to ask any questions and get help for the final few days of the project.
 
 ## GitHub
 
@@ -48,15 +83,6 @@ We will be using an agile process during the development of this project. This w
     * What are you going to be working on?
     * Is anything blocking you?
 * Every weekday you should send your PM a summary of the day's stand up.
-
-## Project Check Ins
-
-* During a Project Check In, you should be prepared to:
-    * Demo your application in a deployed environment (Heroku)
-    * Show your up to date project board
-    * Ask clarifying questions
-    * Do a code review
-    * Set expectations for the following project check in
 
 ## Retros
 
