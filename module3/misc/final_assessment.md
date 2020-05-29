@@ -52,7 +52,7 @@ In addition, we expect you to:
 
 #### Note about the commit expectation:
 
-To better follow your progress over the 2 hours we expect that you commit every 15 minutes regardless of where you're at. Be sure to commit anything you may want to talk about later. For example: You get the first implementation working but want to refactor. If you don't commit the first implementation and don't finish the refactor there is no record of your initial solution.
+To better follow your progress over the 3 hours we expect that you commit every 15 minutes regardless of where you're at. Be sure to commit anything you may want to talk about later. For example: You get the first implementation working but want to refactor. If you don't commit the first implementation and don't finish the refactor there is no record of your initial solution.
 
 ## Evaluation Criteria
 
