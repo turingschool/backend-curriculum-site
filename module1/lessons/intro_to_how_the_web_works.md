@@ -149,3 +149,9 @@ Take turns with your group answering the questions below. Feel free to use/draw 
   * Response
   * HTTP
 * What are the parts of a URL?
+
+## Resources
+
+* [How the Web Works - MDN](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/How_the_Web_works)
+* [Anatomy of a URL](https://doepud.co.uk/blog/anatomy-of-a-url)
+* [More How the Web Works](https://www.freecodecamp.org/news/how-the-web-works-a-primer-for-newcomers-to-web-development-or-anyone-really-b4584e63585c/)
