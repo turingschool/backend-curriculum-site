@@ -11,8 +11,8 @@ In Module 2, we expand upon fundamental Ruby skills by building database-backed 
 ## Instructors
 
 * Meg Stang (Anchor)
-* Mike Dao
 * Cory Westerfield
+* Mike Dao
 
 ## Curriculum
 
