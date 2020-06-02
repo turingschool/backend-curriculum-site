@@ -11,8 +11,8 @@ In Module 1, students will learn to use Ruby and object-oriented programming to 
 ## Instructors
 
 * Megan McMahon (Anchor)
-* Tim Tyrrell
 * Kathleen Scriver
+* Tim Tyrrell
 
 ## Curriculum
 
