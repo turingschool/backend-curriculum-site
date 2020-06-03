@@ -27,6 +27,7 @@ title: Module 1 Lessons
 * [Enumerables Review](./enumerables_review)
 * [Memory Allocation](./memory_allocation)
 * [The Call Stack](./call_stack)
+* [Intro to How the Web Works](./intro_to_how_the_web_works)
 
 ### Design
 * [Ruby Project Etiquette](./project_etiquette)

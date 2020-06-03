@@ -61,7 +61,7 @@ You can replace a `do`/`end` with `{`/`}`. This allows you to write `each` on a 
 
 ```ruby
 names = ["Megan", "Brian", "Sal"]
-names.each {|name| puts student_name }
+names.each {|name| puts name }
 ```
 
 Generally, we avoid using single-line syntax unless the operation inside the block is *very* short. In this example, it is appropriate.

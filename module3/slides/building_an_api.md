@@ -1,21 +1,21 @@
 # Building an API
 ---
 
-# Warmup
-
-Take 5 minutes to use the internet to answer the following questions.
-
-* What is an API in the context of web development?
-* Why would we want to expose information in a database we control through an API?
-
----
-
 # Overview
 
 * API Basics
 * Review of New Tools
 * Tutorial
 * Share
+
+---
+
+# Warmup
+
+Take 5 minutes to use the internet to answer the following questions.
+
+* What is an API in the context of web development?
+* Why would we want to expose information in a database we control through an API?
 
 ---
 
@@ -78,21 +78,10 @@ Review the examples linked in the lesson with a partner.
 
 ---
 
-Take 5 minutes to use the internet to answer the following questions. Then discuss with the person next to you.
+Take 5 minutes to use the internet to answer the following questions.
 
 * What areas of our codebase do we need to test in an API?
 * How will our tests be different from feature tests we have implemented in the past?
-
----
-
-# Versioning APIs
-
-* APIs will need to be updated and improved over time
-* We version APIs by namespacing the API endpoints (routes)
-* For consumers the api endpoint has minimal changes and they have time to change their code to handle the new response.
-
-* `get 'api/v1/items', to: 'items#index'`
-* `get 'api/v2/items', to: 'items#index'`
 
 ---
 
@@ -110,6 +99,18 @@ Take 5 minutes to use the internet to answer the following questions. Then discu
 * `json: Item.all`
 
 ---
+
+# Versioning APIs
+
+* APIs will need to be updated and improved over time
+* We version APIs by namespacing the API endpoints (routes)
+* For consumers the api endpoint has minimal changes and they have time to change their code to handle the new response.
+
+* `get 'api/v1/items', to: 'items#index'`
+* `get 'api/v2/items', to: 'items#index'`
+
+---
+
 
 # Try It!
 
