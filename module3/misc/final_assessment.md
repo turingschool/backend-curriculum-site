@@ -16,13 +16,6 @@ In this assessment you will:
 * Demonstrate mastery of Ruby
 * Commit every 15 minutes to track your progress (details below)
 
-Post assessment you will:
-
-* Meet with an instructor
-* Demo your features in the development environment _No need to deploy to production_
-* Review & discuss your tests
-* Review & discuss your code quality
-
 ## Areas of Knowledge
 
 The intent of this assessment is to demonstrate a solid working understanding of the following:
