@@ -35,9 +35,10 @@ In addition, we expect you to:
 ## Expectations
 
 * As you work, you *should*:
-  * Commit and push your code every 15 minutes.
+  * Commit your code every 15 minutes.
   * Reference external public resources (ie: Google, Ruby API, etc)
 * As you work, you *should not*:
+  * Push your code until the end of the assessment
   * Copy code snippets
   * Review old projects for code implementations
   * Seek live support from individuals other than facilitators
