@@ -35,7 +35,8 @@ Each student will deliver a 5 minute slide presentation in front of your instruc
     - What is something you've learned about yourself in receiving project feedback?
     - What has been the most valuable piece of feedback you have received?
     - What specific actions are you planning on taking after receiving the feedback from this inning?
-
+* **Reflection on PD**
+    - Reflecting on your career journal from the module, what is your current vision for your career in the software industry? How has this vision changed since you started at Turing?
 
 #### The presentation should not be a series of slides that directly answers each of these questions with bullet points, but instead should:
 
