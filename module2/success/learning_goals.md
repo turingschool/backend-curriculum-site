@@ -24,6 +24,7 @@ The expected mastery level can be understood with the following scale:
 #### Rails Application Development
 
 * Implement CRUD functionality for a resource using forms (form_tag or form_for), buttons, and links
+* Implement CRUD functionality for nested resources
 * Use MVC to organize code effectively, limiting the amount of logic included in views and controllers
 * Create routes for
   * standalone resources
@@ -74,7 +75,6 @@ The expected mastery level can be understood with the following scale:
 
 * Implement partials to break a page into reusable components
 * Make use of flash messages
-* Implement CRUD functionality for nested resources
 * Use Sessions to store information about a user and implement login/logout functionality
 * Use filters (e.g. `before_action`) in a Rails controller
 * Use Inheritance from ApplicationController or a student created controller to store methods that will be used in multiple controllers
