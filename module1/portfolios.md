@@ -30,7 +30,7 @@ Each student will deliver a 5 minute slide presentation in front of your instruc
 * A student who **passes the module** will present the following:
   * How does your past experience link to your work at Turing and in the eventual career?
   * Why are you motivated to become a software developer?
-  * What’s your vision for a successful career in the software industry?
+  * Reflecting on your career journal from the module, what’s your current vision for a successful career in the software industry?
   * How will your Gear Up sessions impact you as a software developer?
 
 
