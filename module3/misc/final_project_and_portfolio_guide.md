@@ -17,7 +17,7 @@ subheading: Final Project & Portfolio Presentation
 
 ### Requirements
 
-Each student will deliver a 20 minute slide presentation in front of an instructor. The presentation consists of both a professional and final project presentation. 
+Each student will deliver a 20 minute slide presentation in front of an instructor. The presentation consists of both a professional and final project presentation. If you are repeating the module, see the instructions below for repeaters.
 
 Slides can include images and graphics to illustrate the concepts you plan to discuss. These may include screenshots/animated gifs of an application you created, snippets of code from your projects, diagrams of interesting concepts/structures that you used in your project(s). **Please do not just copy the questions onto the slide with bullet point answers.**
 
@@ -38,9 +38,23 @@ The professional presentation should follow a narrative format and address the f
 
 * What has your learning trajectory looked like over the past 6 weeks?
 
+
 #### Final Project Presentation Expectations
 
 Please see the presentation points listed in this [rubric](../projects/sweater_weather/rubric).
+
+#### Repeater Presentation
+
+* A student who **will repeat the current module** uses their presentation time to explore the following.
+  * Why did you struggle?
+  * What lessons did you learn?
+  * What will be different next time?
+  * How has feedback impacted your development in this module?
+    - How has feedback conversations with peers helped prepare you for your job/career?
+    - What is something you've learned about yourself in receiving project feedback?
+    - What has been the most valuable piece of feedback you have received?
+    - What specific actions are you planning on taking after receiving the feedback from this inning?
+* If you are repeating, you may or may not have code from your final project. If you would like, you can use some of your presentation time to receive feedback on this code or use it as a starting point for conversation.
 
 
 ### Submittal
