@@ -43,7 +43,7 @@ The professional presentation should follow a narrative format and address the f
 
 Please see the presentation points listed in this [rubric](../projects/sweater_weather/rubric).
 
-#### Repeater Presentation
+### Requirements if you will Repeat the Module
 
 * A student who **will repeat the current module** uses their presentation time to explore the following.
   * Why did you struggle?
