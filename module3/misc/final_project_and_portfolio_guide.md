@@ -27,6 +27,8 @@ The professional presentation should follow a narrative format and address the f
 * Given the Gear Up discussions you've had with peers what steps are you taking to becoming the developer you want to be?
 *For example, has this shaped your interactions in group projects and ensuring that all voices get to be heard or thinking about the accessibility for users and how they may interact with your application*
 
+* Reflecting on your career journal from the module, what is your current approach to pursuing your industries and companies of interest?
+
 * How has feedback impacted your development in this module?
   - How has feedback conversations with peers helped prepare you for your job/career?
   - What is something you've learned about yourself in receiving project feedback?
