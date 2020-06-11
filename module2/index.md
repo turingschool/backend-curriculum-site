@@ -12,7 +12,7 @@ In Module 2, we expand upon fundamental Ruby skills by building database-backed 
 
 * Meg Stang (Anchor)
 * Cory Westerfield
-* Mike Dao
+* Brian Zanti
 
 ## Curriculum
 
