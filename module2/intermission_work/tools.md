@@ -32,11 +32,6 @@ Download PostgreSQL from the Postgresapp.
 4. Once the app opens, click "Initialize"
 
 
-#### Gem errors?
-If you get errors installing the "pg" gem, try installing PostgreSQL from https://postgresapp.com/
-
-Follow the instructions on their site to install the application and run the database, then try `gem install pg -v 1.1.4` again.
-
 ## Install Postico
 
 https://eggerapps.at/postico/
