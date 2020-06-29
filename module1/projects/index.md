@@ -10,7 +10,7 @@ The following projects will be assigned and their completion is required to be p
 * Week 1 (independent): [War (or Peace)](./war_or_peace)
 * Week 2 - 3 (paired): [Battleship](./battleship)
 * Week 4 - 5 (group): [Futbol](./futbol)
-* Week 6 (independent): [Enigma](./enigma)
+* Week 6 (independent): [Night Writer](./night_writer)
 
 [Project Reflection Template](./project_reflection_template)
 
@@ -38,7 +38,7 @@ These projects are listed (roughly) in order of difficulty.
 * [Sorting Cards](./sorting_cards)
 * [Chisel](./chisel)
 * [Mastermind](./mastermind)
-* [Night Writer](./night_writer)
+* [Enigma](./enigma)
 * [Connect Four](./connect_four)
 * [Head Count](./headcount)
 * [Black Thursday](./black_thursday)
