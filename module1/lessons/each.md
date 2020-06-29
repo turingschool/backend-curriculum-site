@@ -9,9 +9,6 @@ tags: enumerable, ruby, collections, arrays, each,
 * Understand how to use #each to iterate over an array
 * Understand how to transform, create a subset, and  create something new with #each
 
-## Slides
-
-Available [here](../slides/each)
 
 ## Vocabulary
 
@@ -24,10 +21,10 @@ Available [here](../slides/each)
 
 * What do you notice about the code below?
 * What issues could potentially crop up?
-* Is there any alternative you could propose?
+* Is there an alternative you could propose?
 
 ```ruby
-characters = ["Khaleesi", "Varys", "Little Finger"]
+characters = ["Phoebe", "Rachel", "Joey"]
 puts characters[0]
 puts characters[1]
 puts characters[2]
@@ -35,7 +32,7 @@ puts characters[2]
 
 ## Lesson
 
-When we have a solution that works for a small number of items, but does not work for a large number of items, we say that _it doesn't scale_. We want to design solutions that are dynamic, meaning they can work for various inputs.
+When we have a solution that works for a small number of items, but does not work for a large number of items, we say that _it doesn't scale_. We want to design solutions that are dynamic, meaning they will work if we have 3 elements or 1 million elements.
 
 ### Introduction
 
@@ -43,13 +40,13 @@ A **Collection** in Ruby is an Array or a Hash. For now, we will be focusing on 
 
 **Iterating** is doing something several times.
 
-`each` is a method that iterates over a collection. This means that `each` allows us to do something for every element of an array. An **Iteration** is a single pass over an element. We can use `each` to print all of our GOT characters like this:
+`each` is a method that iterates over a collection. This means that `each` allows us to do something for every element of an array. An **Iteration** is a single pass over an element. We can use `each` to print all of our Friends characters like this:
 
 ```ruby
-characters = ["Khaleesi", "Varys", "Little Finger"]
+characters = ["Phoebe", "Rachel", "Joey"]
 
-characters.each do |character_name|
-  puts character_name
+characters.each do |character|
+  puts character
 end
 ```
 
@@ -57,7 +54,7 @@ Let's break this down. `characters` is our collection. It is an Array of three s
 
 Everything between the `do` and `end` is the **Block**. The **Block** is what runs for each element in the Array. Since we have three elements, this block will run a total of three times.
 
-`character_name` is the **Block Variable**. For each iteration, this variable will contain the current element we are iterating over. So for the first iteration, `character_name` holds the value `Khaleesi`, the second time it holds the value `Varys`, and the third time it holds the value `Little Finger`.
+`character` is the **Block Variable**. For each iteration, this variable will contain the current element we are iterating over. So for the first iteration, `character` holds the value `Phoebe`, the second time it holds the value `Rachel`, and the third time it holds the value `Joey`.
 
 In general, the format for using `.each` looks like this.
 
@@ -67,7 +64,7 @@ collection.each do |block_variable|
   # the current element's value is stored in the block_variable variable
 end
 ```
-
+**Return Values**
 One very important thing to remember: **each returns the original array**. This will make more sense as we learn more about enumerables during a later lesson.
 
 ### When to use \#each
@@ -78,11 +75,11 @@ Ruby has other methods that allow you to manipulate arrays. We will learn more a
 
 ## Transform Every Element
 
-Often, you will have a collection of objects that you need to transform, or map, into a new collection.  For example, if you had the array `['megan', 'tim', 'aurora']` and you needed the array `['Megan', 'Tim', 'Aurora']` you could use \#each to accomplish this goal.  Let's open a playground.rb file and take a look:
+Often, you will have a collection of objects that you need to transform, or map, into a new collection.  For example, if you had the array `['kat', 'tim', 'mike']` and you needed the array `['Kat', 'Tim', 'Mike']` you could use \#each to accomplish this goal.  Let's open a playground.rb file and take a look:
 
 ```ruby
 #playground.rb
-names = ['megan', 'tim', 'aurora']
+names = ['kat', 'tim', 'mike']
 
 names.each do |name|
   name.capitalize
@@ -95,12 +92,12 @@ Run the playground file - what happens?
 
 Is this what you expected?
 
-Most students would expect to see `['Megan', 'Tim', 'Aurora']`, so why is that not the case?
+Most students would expect to see `['Kat', 'Tim', 'Mike']`, so why is that not the case?
 
-Each gives us *access* to every element, but it doesn't save anything for us. If we want to save the capitalization, we need to create a place to save it:
+Each gives us *access* to every element, but it doesn't save anything for us. If we want to save the capitalization (or save the transformed information), we need to create a place to save it, enter the accumulator:
 
 ```ruby
-names = ['megan', 'tim', 'aurora']
+names = ['kat', 'tim', 'mike']
 
 capitalized_names = []
 
@@ -112,6 +109,8 @@ p capitalized_names
 ```
 
 Since we know that each won't save anything for us, we need to create some placeholder container to store our _new_ collection. In Mod 1, you may hear this placeholder called the accumulator or the aggregator. The thing to remember is that when you are using \#each, you will almost always use some sort of placeholder to preserve the result that you want - in this case, the capitalized names.  Without the placeholder, you will not be able to access the information that you want!
+
+Again - without the accumulator/placeholder/aggregator, you will NOT be able to access the information you want.
 
 ## Get a Subset of a Collection
 
@@ -163,8 +162,8 @@ The examples we have outlined are by no means a complete list of the ways that \
 You can replace a `do`/`end` with `{`/`}`. This allows you to write `each` on a single line. Our example from before could also be written as:
 
 ```ruby
-characters = ["Khaleesi", "Varys", "Little Finger"]
-characters.each { |character_name| puts character_name }
+characters = ["Phoebe", "Rachel", "Joey"]
+characters.each { |character| puts character }
 ```
 
 Generally, we avoid using single-line syntax unless the operation inside the block is *very* short. In this example, it is appropriate since we have a short and simple operation.
@@ -177,8 +176,8 @@ Readability matters more than being clever.
 
 Now it's your turn to practice.
 
-With your new best friend sitting next to you, with this following array use
-`.each` to:
+With your new best friends in your breakout room, use the following array with
+`.each` to complete the following:
 
 `singers = ["billie", "ariana", "lizzo", "leon"]`
 
