@@ -92,6 +92,12 @@ require 'minitest/autorun'
 require 'minitest/pride'
 
 class RoundTest < Minitest::Test
+  def setup
+    # cards set up here
+    @deck = Deck.new(@cards)
+    @round = Round.new(@deck)
+  end
+
   def test_current_card
      assert_equal @deck.cards.first, @round.current_card
   end
