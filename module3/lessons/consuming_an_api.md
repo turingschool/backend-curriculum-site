@@ -96,7 +96,6 @@ feature "user can search for house members" do
       expect(page).to have_css(".party")
       expect(page).to have_css(".district")
     end
-    # And they should be ordered by seniority from most to least
     # And I should see a name, role, party, and district for each member
 
   end
