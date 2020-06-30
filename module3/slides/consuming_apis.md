@@ -45,7 +45,7 @@ end
 
 # Third Party API Research
 
-* (Propublica API)[https://projects.propublica.org/api-docs/congress-api/]
+* Propublica API: https://projects.propublica.org/api-docs/congress-api
 * Does this API require authentication?
     * If yes, how do you authenticate?
 * What other information can you gather from the documentation?
