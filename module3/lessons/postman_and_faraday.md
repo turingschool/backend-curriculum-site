@@ -21,13 +21,14 @@ tags: apis, rails, faraday
 
 ---
 
-#### Exercise - HTTP Requests and Responses
+
+#### HTTP Requests and Responses
 
 List out the parts of a generic HTTP GET request and response
 
 ---
 
-#### Exercise - HTTP Client 1: The Browser
+#### HTTP Client 1: The Browser
 
 Using the browser, make a GET request to hit the [Github users](https://developer.github.com/v3/users/#get-a-single-user) API endpoint.
 
@@ -35,7 +36,7 @@ Using the browser, make a GET request to hit the [Github users](https://develope
 
 ---
 
-#### Exercise - HTTP Client 2: Postman
+#### HTTP Client 2: Postman
 
 Download the [Postman API Client](https://www.getpostman.com/product/api-client)
 
@@ -46,7 +47,7 @@ Download the [Postman API Client](https://www.getpostman.com/product/api-client)
 
 ---
 
-#### Exercise - HTTP Client 3: Faraday
+#### HTTP Client 3: Faraday
 
 * Install the [Faraday gem](https://github.com/lostisland/faraday)
 * Create a ruby file and require the Faraday library along with your debugger of choice.
@@ -59,7 +60,7 @@ Download the [Postman API Client](https://www.getpostman.com/product/api-client)
 Complete the exercises included in this [README](https://github.com/turingschool-examples/pets_api)
 
 
-#### More API Consumption
+#### Additional API Consumption practice
 
 In our next class we will be consuming an API in the context of a Rails project. Take a look at the user story and try to complete the exercises to help you prepare for the class.
 
