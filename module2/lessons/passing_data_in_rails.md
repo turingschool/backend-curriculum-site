@@ -18,7 +18,13 @@ length: 180
 
 ## WarmUp
 
-* With a partner, review your TaskManager app and walk through how a new task is created by a user
+* With a partner, complete the following User Story: 
+
+```
+As a visitor
+When I visit ‘/artists’
+I see a list of all artist names
+```
 
 ## Getting Data from Users
 
