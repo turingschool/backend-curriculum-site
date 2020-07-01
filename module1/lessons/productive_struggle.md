@@ -11,9 +11,9 @@ When working through a challenge - in programming or otherwise.  We often find o
 
 ### Identifying Productive Struggle
 
-With a small group, create a chart listing out behaviors that indicate when you are in productive struggle, and when you are in unproductive struggle.  Take 10 minutes to just list the behaviors for each form of struggle - we'll work on strategies for avoiding unproductive struggle next.
+With your breakout group, the tallest person will share their screen and take notes as you brainstorm. Create a chart listing out behaviors that indicate when you are in productive struggle, and when you are in unproductive struggle. Take 8 minutes to just list the behaviors for each form of struggle - we’ll work on strategies for avoiding unproductive struggle next.
 
-Once you have your list, take another 15 minutes to brainstorm ways to avoid unproductive struggle, and ways to move from unproductive to productive struggle.  Create a separate chart listing out these strategies.
+Once you have your list, take another 8 minutes to brainstorm ways to avoid unproductive struggle, and ways to move from unproductive to productive struggle. Create a separate chart listing out these strategies.
 
 ## Strategies for Breaking out of Unproductive Struggle
 
@@ -37,4 +37,4 @@ Early! Don't spend too much time struggling before asking for help-- if you've s
 
 
 ### Remember
-Unproductive struggle is independent of whether/how long it takes you to find a working solution.  It _is_, however, recognizing when you've stopped learning. 
+Unproductive struggle is independent of how long it takes you to find a working solution.  It _is_, however, recognizing when you've stopped learning.
