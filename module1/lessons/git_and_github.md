@@ -211,8 +211,6 @@ This is the final version of our workflow, and is what you should be doing on ev
 * Check out your main branch locally
 * Pull your changes into your main branch
 
-### Share
-SOME CHANGES
 ### Change Default Branch Name of Existing Repository
 
 * Locally:
