@@ -163,7 +163,7 @@ page so we can reference the `client_id` and `client_secret`.
 ### Step 2 - Creating a new Rails app
 
 ```ruby
-$ rails new oauth_workshop -T -d postgresql --skip-spring --skip-turbolinks
+$ rails _5.1.7_ new oauth_workshop -T -d postgresql --skip-spring --skip-turbolinks
 $ cd oauth_workshop
 $ bundle
 $ bundle exec rake db:create
