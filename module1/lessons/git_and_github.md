@@ -107,10 +107,10 @@ Once you've created a new repository on GitHub, you need to link that repository
 
 * `remote -v` - this will show you what your remote repository is configured as. This is helpful for debugging.
 * `remote add <remote name> <remote url>` - This adds a new remote. If you type `remote -v` and nothing shows up, it means you have no remotes and you will need to use this command to add one. Usually, you only need to do this once when you are setting up a project.
-* `push <remote name> <branch name>` - Update your remote repository to match your local repository. The remote name is almost always `origin`. The branch name is whatever branch you want to push to (more on branching further down). For instance, if you are working on the `master` branch, which is the default branch, the command would be:
-    * `git push origin master`
-* `pull <remote name> <branch name>` - update your local repository with the changes made to the remote. This will be important when you are working with someone else, and you want to get the changes they made. Similar to pushing, remote name will almost always be `origin`. Branch name is whatever branch you want to pull from. So if you wanted to get the recent changes to `master`, the command would be:
-    * `git pull origin master`
+* `push <remote name> <branch name>` - Update your remote repository to match your local repository. The remote name is almost always `origin`. The branch name is whatever branch you want to push to (more on branching further down). For instance, if you are working on the `main` branch, which is the default branch, the command would be:
+    * `git push origin main`
+* `pull <remote name> <branch name>` - update your local repository with the changes made to the remote. This will be important when you are working with someone else, and you want to get the changes they made. Similar to pushing, remote name will almost always be `origin`. Branch name is whatever branch you want to pull from. So if you wanted to get the recent changes to `main`, the command would be:
+    * `git pull origin main`
     * **note**: This will pull the changes in to whatever branch you are currently working in
 
 ### Git workflow with Github
@@ -124,7 +124,7 @@ Once you've created a new repository on GitHub, you need to link that repository
 1. `git remote -v`: this will tell us if we already have a remote repository for this local repository.
 1. `git remote add origin <YOUR_SSH_ADDRESS HERE>`
 1. `git log` make sure we have at least one commit
-1. `git push origin master`
+1. `git push origin main`
 
 #### To push to your remote repository
 
@@ -133,7 +133,7 @@ Once you've created a new repository on GitHub, you need to link that repository
 1. `git add <name of file we changed>` - stage those changes for commit. We need to do this for each file we changed.
 1. `git status` -  we should see the files we changed as staged for commit.
 1. `git commit -m "short message about the changes we made"` - commit the changes.
-1. `git push origin master`
+1. `git push origin main`
 
 It is important to note that you do not have to push every time you commit. You can make several commits, and `push` will send all the new commits you made at once.
 
@@ -148,9 +148,9 @@ It is important to note that you do not have to push every time you commit. You 
 
 ## Branching
 
-If you do `git status` you'll see part of the status is "On branch master". Branches represent a line of development. The master branch is the default branch, and is typically where the code works without known bugs.
+If you do `git status` you'll see part of the status is "On branch main". Branches represent a line of development. The main branch is the default branch, and is typically where the code works without known bugs.
 
-Switching to a branch is called a **checkout**. When you checkout a new branch, it can serve as a sandbox for development where you can make changes or experiment with a research spike without affecting the master branch. If whatever you are trying doesn't work, no big deal; your master branch remains intact.
+Switching to a branch is called a **checkout**. When you checkout a new branch, it can serve as a sandbox for development where you can make changes or experiment with a research spike without affecting the main branch. If whatever you are trying doesn't work, no big deal; your main branch remains intact.
 
 [This link](http://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging) shows some helpful visuals related to git branches.
 
@@ -162,16 +162,16 @@ Switching to a branch is called a **checkout**. When you checkout a new branch, 
 * `branch <branch name>` - create a new branch
     * ex: `git branch new_feature`
 * `checkout <branch name>` - switch to a branch
-    * ex: `git checkout master`
+    * ex: `git checkout main`
 * `checkout -b <branch name>` - create and switch to a branch in one command
     * ex: `git checkout -b new_feature`
 * `push <remote name> <branch name>` - push to a branch. If the branch doesn't exist in your remote, Github will create a new one for you.
     * ex: `git push origin new_feature`
-* `pull <remote name> <branch name>` - pull from a branch. Generally you want to be pushing to feature branches (branches where you're working on code) and pulling from master.
+* `pull <remote name> <branch name>` - pull from a branch. Generally you want to be pushing to feature branches (branches where you're working on code) and pulling from main.
 
 ### Pull Requests
 
-If what you did in a branch works and you want to add it to the master branch, you will `merge` that branch into the master branch.
+If what you did in a branch works and you want to add it to the main branch, you will `merge` that branch into the main branch.
 
 Pull Requests are a Github feature that allows us to merge code from one branch into another. The name "Pull Request" can be confusing because you are actually trying to merge code rather than pull it. Some other online systems such as Gitlab call them "Merge Requests" for this reason.
 
@@ -182,7 +182,7 @@ Not only do Pull Requests allow you to merge branches, they allow other collabor
 This is the final version of our workflow, and is what you should be doing on every project, partner or solo.
 
 1. `git status` - make sure our working directory is clean. If there are changes, we need to figure out what to do with them, either commit them or stash them.
-1. `git pull origin master` - Make sure you are up to date with the latest version of master.
+1. `git pull origin main` - Make sure you are up to date with the latest version of main.
 1. `git branch <feature name>` - make a new branch based on a feature you want to add. Alternatively, you can use `git checkout -b <feature name>` to create and checkout the branch in one command.
 1. `git checkout <feature name>` - Checkout the branch
 1. Make changes
@@ -192,10 +192,10 @@ This is the final version of our workflow, and is what you should be doing on ev
 1. `git commit -m "short message about the changes we made"` - commit the changes.
 1. `git push origin <feature name>` - Push your branch to Github.
 1. Repeat steps 4 - 10 until the feature is complete
-1. Put in a Pull Request (PR) to merge your branch into master.
-1. Visit GitHub and merge your pull request into master.
-1. `git checkout master` - Switch back to the master branch.
-1. `git pull origin master` - Make sure that you have the most recent changes that you made on your local master branch.
+1. Put in a Pull Request (PR) to merge your branch into main.
+1. Visit GitHub and merge your pull request into main.
+1. `git checkout main` - Switch back to the main branch.
+1. `git pull origin main` - Make sure that you have the most recent changes that you made on your local main branch.
 
 ### Practice
 
@@ -206,7 +206,7 @@ This is the final version of our workflow, and is what you should be doing on ev
 * Visit GitHub
 * Create a pull request
 * Merge your pull request
-* Check out your master branch locally
-* Pull your changes into your master branch
+* Check out your main branch locally
+* Pull your changes into your main branch
 
 ### Share
