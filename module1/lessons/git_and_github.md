@@ -60,6 +60,8 @@ Saving your work in git is known as **committing**. Even though you may change a
 1. Use `mkdir` to create a new directory if you have not already.
 1. `cd` into that directory.
 1. Run `git init` to make that directory a Git repository.
+1. The default branch created with git is named `master`. Rename this to `main` by running:
+`git symbolic-ref HEAD refs/heads/main`
 
 #### Committing Changes
 
@@ -210,3 +212,17 @@ This is the final version of our workflow, and is what you should be doing on ev
 * Pull your changes into your main branch
 
 ### Share
+
+### Change Default Branch Name of Existing Repository
+
+* Locally:
+  * git branch -m master main
+  * git push -u origin main
+
+* Github
+  * Head to the repository on github.com
+  * Click on the `Settings` Tab
+  * Click on `Branches` on the left panel
+  * Change the default branch to `main` and click `update`
+
+You can now safely delete both the local master and remote master branches. 
