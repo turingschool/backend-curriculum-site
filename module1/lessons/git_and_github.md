@@ -212,7 +212,7 @@ This is the final version of our workflow, and is what you should be doing on ev
 * Pull your changes into your main branch
 
 ### Share
-
+SOME CHANGES
 ### Change Default Branch Name of Existing Repository
 
 * Locally:
@@ -225,4 +225,4 @@ This is the final version of our workflow, and is what you should be doing on ev
   * Click on `Branches` on the left panel
   * Change the default branch to `main` and click `update`
 
-You can now safely delete both the local master and remote master branches. 
+You can now safely delete both the local master and remote master branches.
