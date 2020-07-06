@@ -33,7 +33,7 @@ What we'd like our app to do:
 
 For this tutorial, we are going to setup our emails to "send" through mailcatcher locally. And in production, the emails will actually send through Sendgrid. If you want to setup an account with Sendgrid in order to send emails both locally and in production, you can set up an account with them. Keep in mind that Sendgrid will provision your account at first so it might take some time to get the account set up. You should sign up for the free account.
 
-First things first, go ahead and clone down the repo.
+First things first, go ahead and clone down [this repo](https://github.com/turingschool-examples/friendly-advice)
 
 ```shell
 $ git clone https://github.com/turingschool-examples/friendly-advice.git friendly-advice
