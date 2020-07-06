@@ -2,7 +2,7 @@
 layout: page
 title: Sending Email Tutorial
 length: 30
-tags: rails, email, sendgrid, smtp, action mailer
+tags: rails, email, smtp, actionmailer
 ---
 
 ## Sending Email
@@ -169,4 +169,4 @@ If you open up the app in a browser locally, and run through the steps to send a
 
 * [ Repo ](https://github.com/turingschool-examples/a_bit_of_advice)
 * [ Slides ](https://www.dropbox.com/s/ev7tya328sv9jyh/Turing%20-%20Sending%20Email.key?dl=0)
-* [Heroku Docs for Sendgrid Addon](https://devcenter.heroku.com/articles/sendgrid#provisioning-the-add-on)
+* [Production Email Checklist](./production_email_checklist)
