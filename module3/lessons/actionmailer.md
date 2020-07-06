@@ -39,7 +39,7 @@ First things first, go ahead and clone down [this repo](https://github.com/turin
 $ git clone https://github.com/turingschool-examples/friendly-advice.git friendly-advice
 $ cd friendly-advice
 $ bundle
-$ rake db:create
+$ rake db:{create,migrate}
 ```
 ### Rails Setup  
 Run your server to see what we've already got in our repo
@@ -47,13 +47,14 @@ Run your server to see what we've already got in our repo
 rails s
 ```  
 Inspect the Form/Input field, where does this route to?
+
 Make sure the route is in the routes file:
 
 ```rb
 post '/advice' => 'advice#create'
 ```
 
-Next we'll make a new controller that will call our mailer. Create a controller called AdviceController. The form asks for a post route so we'll need to update our  create action where we will call our mailer.
+Next we'll open our advice controller. The form asks for a post route so we'll need to update the create action where we will call our mailer.
 
 ```rb
 
@@ -61,14 +62,20 @@ Next we'll make a new controller that will call our mailer. Create a controller 
 
 class AdviceController < ApplicationController
 
+  def show
+   redirect_to root_path unless logged_in?
+  end
+
   def create
     @advice = AdviceGenerator.new
-    friend_email = params[:friends_email]
-    email_info = {user: current_user,
-                  friend: params[:friends_name],
-                  message: @advice.message
+    # `recipient` is the email address that should be receiving the message
+    recipient = params[:friends_email]
+    # `email_info` is the information that we want to include in the email message.
+    email_info = { user: current_user,
+                   friend: params[:friends_name],
+                   message: @advice.message
                  }
-    FriendNotifierMailer.inform(email_info, friend_email).deliver_now
+    FriendNotifierMailer.inform(email_info, recipient).deliver_now
     flash[:notice] = "Thank you for sending some friendly advice."
     redirect_to advice_url
   end
@@ -77,34 +84,34 @@ end
 
 ### Creating the Mailer
 
-Our next step will be to create the Friend mailer to send our friends advice.
+Our next step will be to create the FriendNotifer mailer to send our friends advice.
 
 ```shell
 rails g mailer FriendNotifier
 ```
 
-This creates a lot of files for you. Let's first start out with the FriendNotifier.
+This creates our `friend_notifer_mailer` inside `app/mailers` and a `friend_notifer_mailer` folder in `app/views`. Let's first open the `friend_notifer_mailer` in mailers and add our inform method.
 
 ```rb
 # mailers/friend_notifier_mailer.rb
 
 class FriendNotifierMailer < ApplicationMailer
-  def inform(info, friend_email)
+  def inform(info, recipient)
     @user = info[:user]
     @message = info[:message]
     @friend = info[:friend]
-    mail(to: friend_email, subject: "#{@user.name} is sending you some advice")
+    mail(to: recipient, subject: "#{@user.name} is sending you some advice")
   end
 end
 ```
 
-Next we'll make the views that will determine the body of the email that is sent. Similar to controllers, any instance variables in your mailer method will be available in your mailer view.
+Next we'll make the views that will have the body of the email that is sent. Similar to controllers, any instance variables in your mailer method will be available in your mailer view.
 
-When you generated your mailer, two layouts were added to `app/views/layouts` - `mailer.html.erb` and `mailer.text.erb`.  Take a look at these files, what are they doing? Why do we get both an HTML and txt layout?
+When you generated your mailer, two layouts were added to `app/views/layouts` - `mailer.html.erb` and `mailer.text.erb`.  Take a look at these files, what are they doing? Why do we get both an HTML and text layout?
 
 In `app/views/friend_notifier_mailer` create two files, `inform.html.erb` and `inform.text.erb`
 
-Depending on the person's email client you're sending the email to, it will render either the plain text or the html view. We don't have control over that, so we'll make them have the same content.
+Depending on the person's email client you're sending the email to, it will render either the plain text or the html view. We don't have control over that, so we want to accomodate both and make them have the same content.
 
 ```
 # inform.html.erb and inform.text.erb
@@ -133,7 +140,7 @@ Mailcatcher allows you to test sending email. It is a simple SMTP server that in
 
 Let's get it set up.
 
-You want to install the Mailcatcher gem, but you do not want to add it to your gemfile in order to prevent conflicts with your applications gems.
+You want to install the Mailcatcher gem, **but you do not want to add it to your gemfile** in order to prevent conflicts with your applications gems.
 
 ```sh
 $ gem install mailcatcher
