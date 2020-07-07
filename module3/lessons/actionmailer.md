@@ -170,3 +170,4 @@ If you open up the app in a browser locally, and run through the steps to send a
 * [ Repo ](https://github.com/turingschool-examples/a_bit_of_advice)
 * [ Slides ](https://www.dropbox.com/s/ev7tya328sv9jyh/Turing%20-%20Sending%20Email.key?dl=0)
 * [Production Email Checklist](./production_email_checklist)
+* [Testing Emails](https://guides.rubyonrails.org/testing.html#testing-your-mailers)
