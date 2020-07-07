@@ -127,7 +127,7 @@ Let's also change the default address the email gets sent from:
 # app/mailers/application_mailer.rb
 
 class ApplicationMailer < ActionMailer::Base
-  default from: "no-reply@advice.io"
+  default from: "friendly@advice.io"
   layout 'mailer'
 end
 ```
