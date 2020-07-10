@@ -1,3 +1,5 @@
+Copy this code into a `rubocop.yml` at the root of your rails project.
+```yml
 require: rubocop-rails
 
 AllCops:
@@ -32,3 +34,4 @@ Metrics/AbcSize:
 
 Rails/UniqueValidationWithoutIndex:
   Enabled: false
+```
