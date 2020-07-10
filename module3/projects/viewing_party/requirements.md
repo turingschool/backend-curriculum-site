@@ -1,7 +1,14 @@
+---
+title: Viewing Party Requirements
+length: 2 weeks
+type: project
+---
+
+
 ## Viewing Party Requirements
 
 ### Requirement Overview
-- Include [rubocop](./assests/rubocop) in rails project
+- Include [rubocop](./assets/rubocop) in rails project
 - Deploy to Heroku
 - Set up TravisCI
 - Consume [The Movie DB API](https://developers.themoviedb.org/3/getting-started/introduction)

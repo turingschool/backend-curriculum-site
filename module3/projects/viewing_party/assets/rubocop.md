@@ -1,5 +1,13 @@
+---
+title: Viewing Party Rubocop File
+length: 2 weeks
+type: project
+---
+
 Copy this code into a `rubocop.yml` at the root of your rails project.
+
 ```yml
+
 require: rubocop-rails
 
 AllCops:
