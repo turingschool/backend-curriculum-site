@@ -48,8 +48,8 @@
 
 .note {
   @extend %call-to-action-shared;
-  border-left: 8px solid lighten($front-end-secondary, 25%);
-  background-color: lighten($front-end-primary, 40%);
+  border-left: 8px solid lighten($back-end-secondary, 25%);
+  background-color: lighten($back-end-primary, 40%);
 }
 
 .google-form {

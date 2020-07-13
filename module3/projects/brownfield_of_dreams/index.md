@@ -35,7 +35,7 @@ Use this [retro guide](../retro_guide) during the scheduled retros for this proj
 
 ## Peer Code Share
 
-Complete the activity [here](./peer_code_share)
+Complete the activity [here](../peer_code_share)
 
 ## Evaluation
 
