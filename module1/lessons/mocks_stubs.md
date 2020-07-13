@@ -166,7 +166,7 @@ With that last test, update it to use mocks and stubs so that you can make it pa
 **Directions:**
 
 * Review the Image Generator class and corresponding test file to familiarize yourself with the functionality
-* Leveraging stubs, write tests for ``#generate_images` and ``#change_max_size`
+* Leveraging stubs, write tests for `#generate_images` and `#change_max_size`
 * Move on to the `user_test.rb`
 * Run the tests, and read through the comments carefully
 * Using stubs and/or mocks, write the tests to confirm the rest of the functionality that exists in ``./lib/user.rb`
