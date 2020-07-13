@@ -13,53 +13,53 @@ Below is a general outline of when professional development and technical delive
 
 ## Deliverable Guide
 
-#### Week 2
+#### Due Week 2
   - Monday _Professional Development_
-    - Write & Upload your Resume to CV Compiler
-    - Set up Turing Alumni Portfolio
-    - Make copy of company research template
-    - Complete career journal questions for week 1
+    - [ ] Write & Upload your Resume to CV Compiler
+    - [ ] Set up Turing Alumni Portfolio
+    - [ ] Make copy of company research template
+    - [ ] Complete career journal questions for week 1
 
   - Thursday _Technical_
-    - Pair Project Submission
-    - Retro Notes
+    - [ ] Pair Project Submission
+    - [ ] Retro Notes
 
-#### Week 3
+#### Due Week 3
   - Monday _Professional Development_
-    - Write a cover letter
-    - Review cover letter with peer
-    - Complete career journal questions for week 2
+    - [ ] Write a cover letter
+    - [ ] Review cover letter with peer
+    - [ ] Complete career journal questions for week 2
 
   - Tuesday _Technical_
-    - Group Project Idea Pitch
+    - [ ] Group Project Idea Pitch
 
   - Thursday _Technical_
-    - Solo Project Submission
+    - [ ] Solo Project Submission
 
-#### Week 4
+#### Due Week 4
   - Monday _Professional Development_
-    - Complete career journal questions for week 3
-    - Make 1 network contact
+    - [ ] Complete career journal questions for week 3
+    - [ ] Make 1 network contact
 
   - Thursday _Technical_
-    - Project Checkin Deliverables
+    - [ ] Project Checkin Deliverables
 
-#### Week 5
+#### Due Week 5
   - Monday _Professional Development_
-    - Complete Job Shadow
-    - Complete career journal questions for week 4
+    - [ ] Complete Job Shadow
+    - [ ] Complete career journal questions for week 4
 
   - Monday _Technical_
-    - Project Checkin Deliverables
+    - [ ] Project Checkin Deliverables
 
   - Friday _Technical_
     - Group Project Submission
     - Group Retro Notes
 
-#### Week 6
+#### Due Week 6
   - Monday _Technical_
-    - Final Project: Application landing page should be complete
+    - [ ] Final Project: Application landing page should be complete
 
   - Wednesday _Technical_
-    - Final Project Submission
-    - Portfolio
+    - [ ] Final Project Submission
+    - [ ] Portfolio
