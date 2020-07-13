@@ -8,6 +8,7 @@ Below is a general outline of when professional development and technical delive
 
 ## Professional Development Deliverables
   [Career Development Overview](https://careerdev.turing.io/module_three/)
+  
   [Career Journal Prompts](https://github.com/turingschool/career-development-curriculum-site/blob/master/module_three/mod3_career_journal_prompts.md)
 
 #### Week 2
@@ -46,11 +47,11 @@ Below is a general outline of when professional development and technical delive
   - Thursday
     - Solo Project Submission
 
-### Week 4
+#### Week 4
   - Thursday
     - Project Checkin Deliverables
 
-### Week 5
+#### Week 5
   - Monday
     - Project Checkin Deliverables
   - Friday
