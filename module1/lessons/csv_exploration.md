@@ -45,7 +45,7 @@ Shortly you will be working through Black Thursday Lite. This is a mini-project 
 
 ### Class Methods at a High Level
 
-Currently in the projects you have completed the methods you have been creating are instance methods. This means that you call a method on an instance of an object. However, in order to create an instance of an object we call `new` on the class itself. `new` is a class.
+Currently in the projects you have completed the methods you have been creating are instance methods. This means that you call a method on an instance of an object. However, in order to create an instance of an object we call `new` on the class itself. `new` is a class method.
 
 For example, in the following code:
 
