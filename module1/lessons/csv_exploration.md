@@ -3,10 +3,6 @@ title: CSV Exploration
 tags: ruby, csv
 ---
 
-## Deliverables (by 8:30AM on Monday)
-
-* Put in a pull request to https://github.com/turingschool-examples/black_thursday_lite with the code that you wrote for this mini-project
-
 ## CSV Exploration
 
 ### Introduction
@@ -33,10 +29,6 @@ If you complete the above, try doing the same for the `magical_pets.csv`.
 
 _The docs may not be the easiest to read, but do start there to gather information and get some practice reading documentation. After you've looked through the documentation, you can also google for additional resources to help you._
 
-
-### Sharing is Caring
-
-Let's all come back together and as group look at a few volunteers' solutions.
 
 
  _If you've tried the docs and have googled additional resources and you are not making any progress try this_
