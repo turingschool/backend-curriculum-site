@@ -8,22 +8,22 @@ type: project
 ## Viewing Party Requirements
 
 ### Requirement Overview
-- Include [rubocop](./assets/rubocop) in rails project
+- Use RuboCop in project to enforce style guide
 - Deploy to Heroku
-- Set up TravisCI
+- Use TravisCI for Continuous Integration and Deployment
 - Consume [The Movie DB API](https://developers.themoviedb.org/3/getting-started/introduction)
-- Use [Google OAuth](https://developers.google.com/identity/protocols/oauth2) for authentication
-- Connect to [Google Calendar API](https://developers.google.com/calendar)
+- Implement [Google OAuth](https://developers.google.com/identity/protocols/oauth2) for authentication
+- Consume [Google Calendar API](https://developers.google.com/calendar)
 - Choose one exploration option to complete
 
-### Core Requirement Details
-- Should we list them here with descriptions?
-- Should we create a project board with user stories?
-- Should we use the wireframes as the requirements?
+
+### Requirements
+Project requirements can be found [here](https://github.com/turingschool-examples/viewing_party/projects/1)
 
 
-### Exploration Requirement Details
+### Exploration Topic Ideas
 - ActionCable
 - ActionMailer
 - Front-end JavaScript
 - Additional API consumption
+- Deployment with different service

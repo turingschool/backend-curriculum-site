@@ -7,9 +7,9 @@ title: Viewing Party Project Rubric
 
 ### Completion
 
-- **4:** All core requirements are complete and at least two exploration requirement.
-- **3:** All core requirements are complete and at least one exploration requirement.
-- **2:** All core requirements are complete but missing complete exploration story.
+- **4:** All core requirements are complete and at least two explorations.
+- **3:** All core requirements are complete and at least one explorations.
+- **2:** All core requirements are complete but missing exploration story.
 - **1:** Core requirements are incomplete.
 
 ### Testing
