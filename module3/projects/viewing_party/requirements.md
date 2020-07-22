@@ -18,7 +18,9 @@ type: project
 
 
 ### Requirements
-Project requirements can be found [here](https://github.com/turingschool-examples/viewing_party/projects/1)
+Project specification requirements can be found [here](https://github.com/turingschool-examples/viewing_party/projects/1)
+
+Wireframes found [here](./wireframes) can be used as an additional reference
 
 
 ### Exploration Topic Ideas

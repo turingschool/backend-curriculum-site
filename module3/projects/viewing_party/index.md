@@ -11,13 +11,12 @@ For this project, you will be building an application to explore movies and crea
 
 ## Learning Goals
 
-* Learn to consume JSON APIs
-* Make API calls to an authenticated API
+* Consume JSON APIs that require authentication
 * Build an application that authenticates using OAuth
 * Implement a self-referential relationship in ActiveRecord
-* Configure Continuous Integration using Travis CI
+* Utilize Continuous Integration using Travis CI
 * Organize and refactor code to be more maintainable
-* Utilize the provided [rubocop file](./assets/rubocop) for code quality
+* Apply RuboCop's style guide for code quality
 * Deploy to Heorku
 
 ### Possible Exploration Goals
@@ -25,6 +24,7 @@ For this project, you will be building an application to explore movies and crea
 * Use ActionCable for chat functionality
 * Implement front-end JavaScript for more dynamic pages
 * Extend movie exploration by consuming more API endpoints
+* Deploy with another production service
 
 ## Project Requirements
 
