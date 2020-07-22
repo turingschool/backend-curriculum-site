@@ -20,6 +20,8 @@ type: project
 ### Requirements
 Project specification requirements can be found [here](https://github.com/turingschool-examples/viewing_party/projects/1)
 
+__One__ member of your pair should fork the [Viewing Party Base Repo](https://github.com/turingschool-examples/viewing_party). Then each of you can clone the forked copy to work on. 
+
 Wireframes found [here](./wireframes) can be used as an additional reference
 
 
