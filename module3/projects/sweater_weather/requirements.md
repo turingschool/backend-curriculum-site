@@ -27,7 +27,7 @@ Use the wireframes to see what data is required on the front-end to decide what 
 
 **Requirements:**
 
-- Needs to pull out the city and state from the GET request and send it to MapQuest's Geocoding API to retrieve the lat and long for the city (this can be its own story). Use of the MapQuest's Geocoding API is a hard requirement.
+- Needs to pull out the city and state from the GET request and send it to [MapQuest's Geocoding API](https://developer.mapquest.com/documentation/geocoding-api/) to retrieve the lat and long for the city (this can be its own story). Use of the MapQuest's Geocoding API is a hard requirement.
 - Retrieve forecast data from the [OpenWeather One Call API](https://openweathermap.org/api/one-call-api) using the lat and long
 
 ### 1b. Background Image for a City
