@@ -27,7 +27,7 @@ Use the wireframes to see what data is required on the front-end to decide what 
 
 **Requirements:**
 
-- Needs to pull out the city and state from the GET request and send it to Google's Geocoding API to retrieve the lat and long for the city (this can be its own story). Use of the Google Geocoding API is a hard requirement.
+- Needs to pull out the city and state from the GET request and send it to MapQuest's Geocoding API to retrieve the lat and long for the city (this can be its own story). Use of the MapQuest's Geocoding API is a hard requirement.
 - Retrieve forecast data from the [OpenWeather One Call API](https://openweathermap.org/api/one-call-api) using the lat and long
 
 ### 1b. Background Image for a City
@@ -163,5 +163,5 @@ Use the wireframes to see what data is required on the front-end to decide what 
 
 - API key must be sent
 - If no API key or an incorrect key is provided return 401 (Unauthorized)
-- You will use the Google Directions API:  https://developers.google.com/maps/documentation/directions/start
+- You will use MapQuest's Directions API:  `https://developer.mapquest.com/documentation/directions-api/`
 - The structure of the response should be JSON API 1.0 Compliant.
