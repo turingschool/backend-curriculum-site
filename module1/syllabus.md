@@ -67,10 +67,6 @@ Students will use these Ruby Exercises to practice the material covered in Modul
 
 **The Rock & Pebble Program**: Similar to mentorship with an alum, students can opt into a program where they are matched with a Module 2 student.
 
-## Lightning Talks
-
-Each student will give a 5 minute presentation on a topic of their choosing. This topic does not have to be technical, but must be approved by instructors and must includes slides.
-
 ## Portfolios
 
 Students must complete a Portfolio, and participate in a Portfolio Review. Instructions for the Portfolio can be found [here](./portfolios)
@@ -83,4 +79,4 @@ When sending a direct message (DM), students must DM ALL instructors. Exceptions
 
 ## Attendance
 
-Attendance is required at 90% or above to pass Module 1. Attendance will be counted at all scheduled activities from 9:00 am to 4:00 pm not listed as "Project Work Time". Per the Student Course Catalog, tardiness will be counted as absence.
+Attendance is required at 90% or above to pass Module 1. Attendance will be counted at all scheduled activities from 9:00 am to 4:00 pm . Per the Student Course Catalog, tardiness will be counted as absence.
