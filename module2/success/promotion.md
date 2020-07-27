@@ -14,7 +14,7 @@ Promoted students will demonstrate proficiency in the material outlined in the [
 * Week 4 - 5 Group Project
 * Week 6 Final Solo Project
 
-All projects are graded 
+All projects are graded. Students must pass the Week 6 Final Solo Project in order to be promoted. 
 
 ## Final Technical Assessment
 
