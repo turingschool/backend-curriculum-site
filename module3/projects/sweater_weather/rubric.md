@@ -7,20 +7,20 @@ title: Sweater Weather Project Rubric
 
 ### Technical Presentation
 
-4: The student has a well organized presentation that addresses each point directly and uses technical vocabulary correctly throughout the presentation.
-3: Student presents their code and is able to talk about all the presentation points.
-2: Student presents their code and is able to talk about 3 of the presentation points, but does not discuss specific pieces of code.
-1: Student is unprepared for the presentation and requires prompts from the instructor to talk about the code.
+* **4:** The student has a well organized presentation that addresses each point directly and uses technical vocabulary correctly throughout the presentation.
+* **3:** Student presents their code and is able to talk about all the presentation points.
+* **2:** Student presents their code and is able to talk about 3 of the presentation points, but does not discuss specific pieces of code.
+* **1:** Student is unprepared for the presentation and requires prompts from the instructor to talk about the code.
 
 Presentation Points:
 
-[ ] Demonstration of understanding for project's [learning goals](./index)
+- [ ] Demonstration of understanding for project's [learning goals](./index)
 
-[ ] Demonstration of functional completeness
+- [ ] Demonstration of functional completeness
 
-[ ] Discussion of technical quality & code organization
+- [ ] Discussion of technical quality & code organization
 
-[ ] Discussion of test coverage (happy and sad path and edge case testing)
+- [ ] Discussion of test coverage (happy and sad path and edge case testing)
 
 ### Feature Delivery
 
