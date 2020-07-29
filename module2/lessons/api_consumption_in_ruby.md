@@ -4,8 +4,6 @@ title: API Consumption in Ruby
 tags: API, APIs, Ruby, refactoring, services
 ---
 
-
-
 Today we are going to consume an API in Ruby.
 
 What we are going to do is we are going to write a bit of code which will get all of the films listed in a Studio Ghibli api, and it will print out information about the films.
@@ -53,7 +51,7 @@ Calling it `ghibli_films` because I'm searching for all of the Studio Ghibli fil
 At the top, lets
 ```
 require 'faraday'
-require 'json' 
+require 'json'
 require 'pry'
 ```
 
@@ -185,7 +183,7 @@ films.each do |film|
   puts "Directed By: #{film.director}"
   puts "Produced By: #{film.producer}"
   puts "Rotten Tomatoes Score: #{film.rotten_tomatoes}"
-  puts "" 
+  puts ""
 end
 ```
 Are we happy with the code that we've written here?
@@ -282,3 +280,17 @@ class GhibliService
 end
 ```
 
+## Practice
+
+Write code to print out the names of all People from Studio Ghibili films
+
+Look through the [documentation](https://ghibliapi.herokuapp.com/) to find the new endpoint that will give you the data you need.
+
+## Extension
+
+In addition to printing the name for each person, print out the name of each film they appear in.
+
+There are multiple ways to go about this. Here are some tips:
+
+* Don't be afraid to make multiple API calls
+* Try to make the API do as much work for you as possible
