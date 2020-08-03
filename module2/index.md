@@ -29,7 +29,7 @@ In Module 2, we expand upon fundamental Ruby skills by building database-backed 
 * [Portfolio](./portfolios/portfolio_requirements)
 * [Promotion](./success/promotion)
 * [Assessments](./assessments)
-* [Mod 2 Professional Development Curriculum](https://github.com/turingschool/career-development-curriculum/tree/master/module_two)
+* [Mod 2 Professional Development Curriculum](https://careerdev.turing.io/module_two/)
 
 <br>
 
