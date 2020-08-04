@@ -227,7 +227,7 @@ This endpoint should:
 
 * work for any attribute of the corresponding resource including the `updated_at` and `created_at` timestamps.
 * find partial matches for strings and be case insensitive, for example a request to `GET /api/v1/merchants/find?name=ring` would match a merchant with the name `Turing` and a merchant with the name `Ring World`.
-* accept multiple attributes, for example `GET /api/v1/items/find?name=pen&description=blue`
+_Note: It does_ __NOT__ _need to accept multiple attributes, for example_ `GET /api/v1/items/find?name=pen&description=blue`
 
 Example JSON response for `GET /api/v1/merchants/find?name=ring`
 
