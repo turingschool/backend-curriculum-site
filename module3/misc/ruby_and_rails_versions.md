@@ -22,9 +22,9 @@ rbenv local 2.5.3
 
 Always double check that your Ruby version is correct after changing it with `ruby -v`
 
-## Rails 5.1.7
+## Rails 5.2.4.3
 
-We will use Rails version 5.1.7 in Module 3.
+We will use Rails version 5.2.4.3 in Module 3.
 
 Rails is a Gem, and if you are using `rbenv`, gems are specific to your current Ruby version, so you need to make sure you are on Ruby 2.5.3 before proceeding by following the instructions above.
 
@@ -34,12 +34,12 @@ Once you have verified your Ruby version is 2.5.3, check if you have Rails. From
 $ rails -v
 ```
 
-If you get a message saying rails is not installed, run
+If you get a message saying rails is not installed or you do not have version 5.2.4.3, run
 
 ```bash
-gem install rails --version 5.1.7
+gem install rails --version 5.2.4.3
 ```
 
 Be careful not to install the latest version of Rails by only doing `gem install rails` -- our curriculum is not up to date with the latest version and you will need to uninstall it.
 
-If you instead get a version of Rails besides `5.1.7`, follow [these instructions](https://github.com/turingschool-examples/task_manager_rails/blob/master/rails_uninstall.md).
+If you instead get a version of Rails besides `5.2.4.3`, follow [these instructions](https://github.com/turingschool-examples/task_manager_rails/blob/master/rails_uninstall.md).

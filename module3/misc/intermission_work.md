@@ -8,7 +8,7 @@ subheading: Intermission Work
 
 You must complete and submit all of these assignments. *It is due the Saturday before the start of the inning at 5pm*
 
-Submit your work here: [Survey Link](https://forms.gle/cFTQgtQbigRYDJri8)
+Submit your work here: [Survey Link](https://forms.gle/Etp7JfDCHEjba1N99)
 
 ### Professional Development
 
@@ -36,10 +36,10 @@ In Mod 3, we will focus not only on getting code to work but also writing high q
 
 ### HTTP Request/Response
 
-* On one piece of paper, write out all of the parts of an example HTTP GET request
+* On one piece of paper, write out all of the parts of an example `HTTP GET` request (Diagram the DNS look-up as well as how a Rails Application would handle the request via MVC)
 * On a separate piece of paper, write out an example 200 response to that request with all of the parts
 * **Bonus** write your explanation as a metaphor
-* Bring this to class day 1. This is your ticket into Mod 3 :)
+* Bring this to class day 1.
 
 ### Rails Routing
 
