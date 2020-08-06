@@ -37,7 +37,7 @@ $ rails -v
 If you get a message saying rails is not installed or you do not have version 5.2.4.3, run
 
 ```bash
-gem install rails --version 5.2.4.3
+$ gem install rails --version 5.2.4.3
 ```
 
 You may need to quit and restart your terminal session to see these changes show up when you check your rails version with:
