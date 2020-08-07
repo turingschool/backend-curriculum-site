@@ -12,6 +12,7 @@ Download PostgreSQL from the Postgresapp.
 3. Open your applications and open the app 
   - If you get a message around "'Postgres' can’t be opened because the identity of the developer cannot be confirmed.", make sure that you are opening the app from inside your applications folder. 
 4. Once the app opens, click "Initialize"
+5. [Install the CLI tools](https://postgresapp.com/documentation/cli-tools.html)
 
 
 ## Install Postico
