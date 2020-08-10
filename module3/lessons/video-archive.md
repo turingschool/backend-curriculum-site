@@ -17,9 +17,11 @@ We'll do our best to add videos to this list over time.
 
 * [Intro to Postman and Faraday; Dione Wilson, 2003 Cohort](https://vimeo.com/441936303/5a42f55a41)
 * [Consuming APIs; Ian Douglas, 2003 Cohort](https://vimeo.com/441933853/f2a98b9559)
+* [Consuming APIs; Josh Mejia and Mike Dao, June 2018](https://www.youtube.com/watch?v=FcgkfZEv_LI)
 * [Testing Tools for API Consumption; Ian Douglas, 2003 Cohort](https://vimeo.com/441938656/0234a0196b)
 * [Abstraction and Encapsulation; Ian Douglas, 2003 Cohort](https://vimeo.com/441937652/91941af0f8)
 * [Introduction to OAuth; Ian Douglas, 2003 Cohort](https://vimeo.com/441926366/3d1072226d)
+* [Refactoring APIs for Mocking/Stubbing; Josh Mejia, Aug 2019](https://www.youtube.com/watch?v=Okck4Fc557o)
 
 
 ## Exposing APIs
@@ -30,9 +32,11 @@ We'll do our best to add videos to this list over time.
 * [Customizing JSON in your API; Ian Douglas, 2003 Cohort](https://vimeo.com/441943509/16e0c5e8f1)
 
 
+
 ## ActiveRecord
 
 * [Advanced ActiveRecord; Ian Douglas, 2003 Cohort](https://vimeo.com/441945463/d090c702bb)
+* [Advanced ActiveRecord; Josh Mejia, Dec 2018](https://www.youtube.com/watch?v=OccKyvGvLKE)
 
 
 ## Optimization
