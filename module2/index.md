@@ -10,9 +10,8 @@ In Module 2, we expand upon fundamental Ruby skills by building database-backed 
 
 ## Instructors
 
-* Meg Stang (Anchor)
-* Cory Westerfield
-* Brian Zanti
+* Brian Zanti (Anchor)
+* Tim Tyrrell
 
 ## Curriculum
 
