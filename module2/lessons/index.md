@@ -50,7 +50,7 @@ layout: page
 
 ## Testing and Debugging
 
-* [Handling Requests](./handling_requests)
+* [Feature Testing with RSpec](./feature_testing)
 * [ActiveRecord Associations](./active_record_associations)
 * [Sad Path & Flash Messages](./sad_path_and_flash)
 * [Testing Best Practices](./testing_best_practices)
