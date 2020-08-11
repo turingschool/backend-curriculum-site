@@ -76,31 +76,6 @@ Metaphor aside, let's run through the protocol as executed by computers:
 
 That's the HTTP Request/Response cycle. At its core, it is a bunch of formatting rules that Clients and Servers use to talk to each other. You can read more on the [wikipedia page](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol) or the [IETF specification](https://tools.ietf.org/html/rfc2616).
 
-## What is "URL"?
-
-Users tell a client to ask for information by giving it a **URL**: a Universal Resource Locator.
-
-A URL allows us to send data to, or retrieve, a "resource" on the Internet. A resource could be a page of HTML content, it could be an image or music file, or it could be part of a web application that will save data you send to it.
-
-### URL vs URI
-
-You may also hear the term "URI" when talking about things on the Internet. A "URI", or "Universal Resource Identifier" is not the same as a URL, but it's easy to confuse them.
-
-A URI is part of a URL. See below:
-
-#### Parts of a URL
-
-A URL can be split into distinct parts:
-
-* Protocol: `http://` - Tells us the application protocol we will be using to interact on the web.
-* Domain: `task-manager.herokuapp.com` - Tells us where the resources we are trying to access are located (tied to an IP address using DNS).
-* Path: `/task/new` - The specific path for the resources that we are trying to access at that location.
-* Query String: `?title=New&task=Task` - Params that give our server additional information about what we would like to access.
-* Fragment Identifier: `#new_form_anchor` - An indicator of a specific section of a website we would like to view (e.g. if there is an anchor tag tied to a heading half way down the page). This can be seen by visiting [this](http://guides.rubyonrails.org/active_record_querying.html#array-conditions) link to the rails docs which references the `array-conditions` section of the Query Interface page.
-
-The "Domain", "Path", and "Query String" combined indicate a unique "identifier" for a resource, and all three of these pieces are a **URI**.
-
-We will be covering more specifics around these parts of the URL later in the module - for now, it is important that you know that these parts exist.
 
 ## The Request and Response Cycle
 
@@ -139,6 +114,33 @@ The *how* is the **verb**, indicating what actions the server should take regard
 - DELETE - DESTROY a resource, typically indicating that it is removed from the database
 
 With these 5 verbs, we send requests that allow us to perform all CRUD functions (create, read, update, destroy) for resources in a database!
+## What is "URL"?
+
+Users tell a client to ask for information by giving it a **URL**: a Universal Resource Locator.
+
+A URL allows us to send data to, or retrieve, a "resource" on the Internet. A resource could be a page of HTML content, it could be an image or music file, or it could be part of a web application that will save data you send to it.
+
+### URL vs URI
+
+You may also hear the term "URI" when talking about things on the Internet. A "URI", or "Universal Resource Identifier" is not the same as a URL, but it's easy to confuse them.
+
+A URI is part of a URL. See below:
+
+#### Parts of a URL
+
+For the URL
+
+```
+http://task-manager.herokuapp.com/task/new?title=New&task=Task#new_form_anchor
+```
+
+We can split it into distinct parts:
+
+* Protocol: `http://` - Tells us the application protocol we will be using to interact on the web.
+* Domain: `task-manager.herokuapp.com` - Tells us where the resources we are trying to access are located (tied to an IP address using DNS).
+* **URI** or "Path": `/task/new` - The specific path for the resources that we are trying to access at that location.
+* Query String: `?title=New&task=Task` - Params that give our server additional information about what we would like to access.
+* Fragment Identifier: `#new_form_anchor` - An indicator of a specific section of a website we would like to view (e.g. if there is an anchor tag tied to a heading half way down the page). This can be seen by visiting [this](http://guides.rubyonrails.org/active_record_querying.html#array-conditions) link to the rails docs which references the `array-conditions` section of the Query Interface page.
 
 ## Checks for Understanding
 

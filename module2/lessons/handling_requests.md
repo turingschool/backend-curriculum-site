@@ -1,17 +1,16 @@
 ---
-title: REST, Routing, and Controllers in Rails
+title: Handling Requests
 length: 90
 tags: rest, routing, controllers, routes, rspec
 ---
 
-This lesson plan last udpated to use Rails 5.1.7 and Ruby 2.5.3
+This lesson plan last updated to use Rails 5.2.4.3 and Ruby 2.5.3
 
 ## Learning Goals
 
 * create a new rails app
-* explain/implement feature tests
 * explain the purpose of the `routes.rb` file
-* interpret the output of `rake routes`
+* interpret the output of `rails routes`
 * explain the connection between `routes.rb` and controller files
 * create routes by hand
 * create and migrate a database
@@ -27,24 +26,6 @@ This lesson plan last udpated to use Rails 5.1.7 and Ruby 2.5.3
 * route
 * action
 
-## Warm Up
-
-- What is REST?
-- Where do our routes live?
-
-## Reminder - REST
-
-* Representational State Transfer is a web architecture style
-* Purpose: Aims to give a URI (uniform resource identifier) to everything that can be manipulated and let the software determine what to do from there
-* [Representational State Transfer](https://en.wikipedia.org/wiki/Representational_state_transfer) on Wikipedia
-* [What is Rest?](http://www.restapitutorial.com/lessons/whatisrest.html) from REST API Tutorial
-
-Want to know more about REST? Check out [this video](https://www.youtube.com/watch?v=2zz_XvKTVxI).
-
-## Routes + Controllers in Rails
-
-"Convention over configuration"
-
 # Starting a New Project
 
 ## Create your app
@@ -52,11 +33,11 @@ Want to know more about REST? Check out [this video](https://www.youtube.com/wat
 Let's create a whole new Rails app. We're going to use this codebase for the rest of the inning in mod 2.
 
 ```bash
-$ rails _5.1.7_ new set_list -T --database=postgresql --skip-spring --skip-turbolinks
+$ rails _5.2.4.3_ new set_list -T --database=postgresql --skip-spring --skip-turbolinks
 $ cd set_list
 ```
 
-- `_5.1.7_` Denotes that we want to use rails version 5.1.7. 
+- `_5.2.4.3_` Denotes that we want to use rails version 5.2.4.3.
 - `-T` - rails has minitest by default, when this flag is used, `gem 'minitest'` will not be in the Gemfile
 - `--database=postgresql` - by default, Rails uses `sqlite3`. We want to tell it to use `postgresql` instead because platforms we use for deploying our projects will expect to use a PostgreSQL database.
 - `--skip-spring` - Spring is a Rails application preloader. It speeds up development by keeping your application running in the background so you don't need to boot it every time you run a test, rake task or migration but it benefits more advanced developers the most. We are going to not include it in our Gemfile.
@@ -66,240 +47,151 @@ Take a few minutes to explore what `rails new` generates.
 
 ## Gems
 
-Add the following Gems to your Gemfile. Since these are all testing/debugging tools, we will add them inside the existing `group :development, :test` block:
-
-  - `rspec-rails` = our test suite
-  - `capybara` = gives us tools for feature testing
-  - `launchy` = allows us to save_and_open_page to see a live version on the browser
-  - `pry` = debugging tool
-  - `simplecov` = track test coverage
-
-Your Gemfile should now have:
+Add `pry` to your `group :development, :test` block in your Gemfile. You can also remove `byebug`:
 
 ```ruby
 group :development, :test do
-  gem 'rspec-rails'
-  gem 'capybara'
-  gem 'launchy'
   gem 'pry'
-  gem 'simplecov'
 end
 ```
 
-Always run `bundle install` whenever you update your Gemfile.
+Always run `bundle` or `bundle install` whenever you update your Gemfile.
 
-## Install and set up RSpec
+## Create the Database
 
-```bash
-$ rails g rspec:install
-```
-
-What new files did this generate?
-
-- `./.rspec` file
-- a whole `./spec/` directory
-- `./spec/rails_helper.rb` is the new `spec_helper`, holds Rails-specific configurations
-- `./spec/spec_helper.rb` - where we keep all specs that don't depend on rails
-
-## Configure SimpleCov
-
-At the top of your `rails_helper.rb`, add these lines:
-
-```ruby
-require 'simplecov'
-SimpleCov.start
-```
-
-# Feature Testing
-
-## What are Feature Tests?
-
-* Feature tests mimic the behavior of the user: In the case of web apps, this behavior will be clicking, filling in forms, visiting new pages, etc.
-* Just like a user, the feature test should not need to know about underlying code
-* Based on user stories
-
-## What are User Stories?
-
-* A tool used to communicate user needs to software developers.
-* They are used in Agile Development, and it was first introduced in 1998 by proponents of Extreme Programming.
-* They describe what a user needs to do in order to fulfill a function.
-* They are part of our "top-down" design.
-
-```txt
-As a user
-When I visit the home page
-  And I fill in title
-  And I fill in description
-  And I click submit
-Then my task is saved
-```
-
-We can generalize this pattern as follows:
+If you try to run your server with `rails s` and visit `localhost:3000` in your browser you will see the error:
 
 ```
-As a [user/user-type]
-When I [action]
-And I [action]
-And I [action]
-...
-Then [expected result]
+FATAL: database "set_list_development" does not exist
 ```
 
-Depending on how encompassing a user story is, you may want to break a single user story into multiple, smaller user stories.
-
-## Capybara: Feature Testing Tools
-
-[Capybara](https://github.com/teamcapybara/capybara#using-capybara-with-rspec)
-
-Capybara is a Ruby test framework that allows you to feature test any RACK-based app.
-
-It provides a DSL (domain specific language) to help you query and interact with the DOM.
-
-For example, the following methods are included in the Capybara DSL:
-
-* `visit '/path'`
-* `expect(current_path).to eq('/')`
-* `expect(page).to have_content("Content")`
-* `within ".css-class"  { Assertions here }`
-* `within "#css-id"  { Assertions here }`
-* `fill_in "identifier", with: "Content"`
-* `expect(page).to have_link("Click here")`
-* `click_link "Click Here"`
-* `expect(page).to have_button("Submit")`
-* `click_button "Submit"`
-* `click_on "identifier"`
-
-## Always, Always, Always, Write Tests First
-
-As usual, we are going to TDD our applications. There are two approaches we could take here:
-
-1. Bottom Up: Start with the smallest thing you can build and work your way up. In the context of a web app, this means you start at the database level (model tests).
-1. Top Down: Start at the end goal and work your way down. In the context of a web app, this means you start by thinking about how a user interacts with the application (feature tests).
-
-Both are valid approaches. We are going to work Top Down. We will start with this user story:
-
-```text
-As a user,
-when I visit '/songs'
-I see each songs title and play count
-```
-
-## Create the test file
-
-First, let's make a directory for our feature tests:
-
-```bash
-$ mkdir spec/features
-```
-
-And a directory for all features related to `songs`:
-
-```bash
-$ mkdir spec/features/songs
-```
-
-Finally, create your test file:
-
-```bash
-$ touch spec/features/songs/user_can_see_all_songs_spec.rb
-```
-
-The names of the files you create for feature testing MUST end in `_spec.rb`. Without that 'spec' part of the filename, RSpec will completely ignore the file.
-
-How many tests should go in one file? It's totally up to you, but having multiple tests in a file is marginally faster than putting a single test in a single file. Also, grouping lots of tests into one file allows you to share the setup across your tests.
-
-You can group your test files into subfolders to organize them in a similar format to your `/app/views` folder, and can help with strong organization. Every team you work on, every job you have, could have a completely different organizational method for test files, so keep that 'growth mindset' and be flexible!
+Let's create our app's database with
 
 ```
-/spec
-/spec/features
-/spec/features/songs
-/spec/features/songs/user_can_see_all_songs_spec.rb 
-/spec/features/songs/user_can_see_one_song_spec.rb
-etc
-```
-
-## Writing the Test
-
-Inside our `user_can_see_all_songs_spec.rb `:
-
-```ruby
-require 'rails_helper'
-
-RSpec.describe "songs index page", type: :feature do
-  it "can see all songs titles and play count" do
-    song_1 = Song.create(title:       "I Really Like You",
-                         length:      208,
-                         play_count:  243810867)
-    song_2 = Song.create(title:       "Call Me Maybe",
-                         length:      199,
-                         play_count:  1214722172)
-
-    visit "/songs"
-
-    expect(page).to have_content(song_1.title)
-    expect(page).to have_content("Play Count: #{song_1.play_count}")
-    expect(page).to have_content(song_2.title)
-    expect(page).to have_content("Play Count: #{song_2.play_count}")
-  end
-end
-
-```
-
-# Developing the Index Page
-
-## Set up the Database
-
-Run `rspec`, what happens?
-
-```bash
-ActiveRecord::NoDatabaseError:
-  FATAL:  database "set_list_test" does not exist
-```
-
-Currently, our database does not exist. In order to create your database, run:
-
-```bash
 rails db:create
 ```
 
-Running RSpec again gives me this error `Uninitialized Constant Song`.
+Refresh the page and you should see "Yay! You're on Rails!"
 
-Since this is happening on a line of code that does `Song.create` that tells us that we don't have a `Song` model, so let's go make one.
+# Developing the Index Page
 
-```bash
-$ touch app/models/song.rb
-```
+<blockquote>  
+"Convention over Configuration"
+</blockquote>  
 
-Note that our model files will always be named in singular form (`song.rb`, not `songs.rb`)
+\- From [The Rails Doctrine](https://rubyonrails.org/doctrine/#convention-over-configuration) by David Heinemeier Hansson (DHH) in January, 2016
 
-In `song.rb`:
+Our first feature of our SetList app will be a Songs index page. Using ReST as convention, we want our app to be able to:
+
+* Receive a GET request to /songs
+* Respond with a web page showing all songs
+
+We can simulate a GET request by typing the url into our web browser. Run your Rails server with `rails s` and navigate to `localhost:3000/songs`.
+
+## Routing the Request
+
+Our first error when we visit `localhost:3000/songs` is a RoutingError `No route matches [GET] "/songs"`.
+
+Rails doesn't know how to route a `GET` request to `/songs`, so let's tell it how to do that:
+
+In `config/routes.rb`:
 
 ```ruby
-class Song < ApplicationRecord
+Rails.application.routes.draw do
+  get '/songs', to: 'songs#index'
 end
 ```
 
-We want this model to inherit from `ActiveRecord` so why are we using `ApplicationRecord` instead? If we take a look around, we see a file in the `app/models` directory called `application_record.rb`. Open that and peek around:
+Remember, an HTTP request includes both the verb (`GET` in this case) and the path (`/songs`).
+
+The second argument, `to: 'songs#index'`, tells Rails what controller action should handle the request. The format is `<controller>#<action>`. In this format, the controller name is snaked case. Rails will interpret this snake case into a camel-cased controller name. For example, `to: snake_cased_names#index` would look for a `SnakeCasedNames` controller.
+
+From the command line, we can see which routes we have available by running `$ rails routes`. We should see this output:
+
+```
+Prefix Verb URI Pattern      Controller#Action
+songs  GET  /songs(.:format) songs#index
+```
+
+This means whenever a `get` VERB is used in a request to the path `/songs`, the application will look at a "Songs" controller, and look for an "action method" in there called `index`.
+
+Don't worry about the `(.:format)` piece on the end of the URI pattern. You'll use that more in mod3 and allows us to retrieve resource data in different formats than HTML, such as CSV or XML.
+
+**Based on our rails routes - what controller do we need? do we have it?**
+
+Let's refresh our browser request to `localhost:3000/songs`.
+
+```bash
+  uninitialized constant SongsController
+```
+
+Make a songs controller:
+
+```bash
+$ touch app/controllers/songs_controller.rb
+```
+
+Naming is important. The **name of the file should be the plural of what it is handling** (in this case, songs).
+
+Inside of that file:
 
 ```ruby
-class ApplicationRecord < ActiveRecord::Base
-  self.abstract_class = true
+class SongsController < ApplicationController
+
 end
 ```
 
-That file inherits from `ActiveRecord` already, so if we inherit from `ApplicationRecord` then we'll also inherit `ActiveRecord`. This allows us to have a master model that could contain some shared methods/behaviors.
+Notice that the name of the class matches the name of the file (`songs_controller.rb` => `class SongsController`), the file is "snake-cased" and the class name is "camel-cased".
 
-Run `rspec` again:
+What is ApplicationController? Look at the controllers folder and you should see an `application_controller.rb` file. This file defines the `ApplicationController` class, which (generally) all of your other controllers will inherit from. This is very similar to how we have an `ApplicationRecord` which all of our models inherit from.
+
+When we refresh our browser, we get this error:
 
 ```bash
-ActiveRecord::StatementInvalid:
-   PG::UndefinedTable: ERROR:  relation "songs" does not exist
+The action 'index' could not be found for SongsController
 ```
 
-Errors that start with "PG::" from ActiveRecord failures can indicate problems at a PostgreSQL database level.
+Let's add the index action:
 
-In this case, PostgreSQL is telling us that we have an "undefined table". We have to create an actual table for songs in the database.
+```ruby
+class SongsController < ApplicationController
+  def index
+  end
+end
+```
+
+An `action` in the context of a rails app is just a method defined inside a Controller.
+
+We have now successfully routed our request to a controller action.
+
+### Rendering the View
+
+Refresh the page again and you should see this error:
+
+```bash
+ActionController::UnknownFormat:
+    SongsController#index is missing a template for this request format and variant.
+
+    request.formats: ["text/html"]
+    request.variant: []
+
+    NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.
+```
+
+Remember, HTTP consists of both requests and **responses**. At this point, we have set up our App to receive a request, but haven't told it how to respond. By default, rails will try to respond by rendering a view. It automatically looks for a view folder with the same name as the controller (`app/views/songs` folder), then look for a template file with the same name as the action method (`index.html.erb`). We can override this behavior by using the `render` or `redirect` commands, but for now we will follow the Rails convention:
+
+```bash
+$ mkdir app/views/songs
+$ touch app/views/songs/index.html.erb
+```
+
+Rails convention says that we should include the output format type in the filename and then the `.erb` extension. That's why this file is `index.html.erb` rather than `index.erb`. The latter would work, but it would not be following convention.
+
+Refresh your page and you should see a blank page. We have successfully rendered a response.
+
+## Database Setup
+
+We want this page to show all the Songs from our database. Let's set up our Songs table.
 
 We are going to need a **migration** in order to create a table. Any time we need to alter the structure of our database, we are going to do so with a migration. Other examples of what you might need a migration for:
 
@@ -316,7 +208,7 @@ $ rails g migration CreateSongs title:string length:integer play_count:integer
 Look inside the `db/migrate` folder and you should see a file named something like `20190422213736_create_songs.rb`. That number at the beginning is a timestamp, so yours will be different. Inside it, you should see:
 
 ```ruby
-class CreateSongs < ActiveRecord::Migration[5.1]
+class CreateSongs < ActiveRecord::Migration[5.2]
   def change
     create_table :songs do |t|
       t.string :title
@@ -343,149 +235,67 @@ We have written the instructions for our database but haven't executed those ins
 
 Our Database should be good to go.
 
+## Song Model
 
-
-
-
-
-
-## Route the Request
-
-Let's run RSpec again and see our error:
+Now that we have our table set up, we will need to create a corresponding Model in order to interact with that table from our Ruby code.
 
 ```bash
-Failure/Error: visit "/songs"
-
-     ActionController::RoutingError:
-       No route matches [GET] "/songs"
-     # ./spec/features/user_sees_all_songs_spec.rb:8:in `block (2 levels) in <top (required)>'
+$ touch app/models/song.rb
 ```
 
-Rails doesn't know how to route a `GET` request to `/songs`, so let's tell it how to do that:
+Note that our model files will always be named in singular form (`song.rb`, not `songs.rb`)
 
-In `config/routes.rb`:
+In `song.rb`:
 
 ```ruby
-Rails.application.routes.draw do
-  get '/songs', to: 'songs#index'
+class Song < ApplicationRecord
 end
 ```
 
-Remember, an HTTP request includes both the verb (`GET` in this case) and the path (`/songs`).
-
-The second argument, `to: 'songs#index'`, tells rails what controller action should handle the request.
-
-From the command line, we can see which routes we have available by running `$ rake routes`. We should see this output:
-
-```
-Prefix Verb URI Pattern      Controller#Action
-songs  GET  /songs(.:format) songs#index
-```
-
-This means whenever a `get` VERB is used in a request to the path `/songs`, the application will look at a "Songs" controller, and look for an "action method" in there called `index`.
-
-Don't worry about the `(.:format)` piece on the end of the URI pattern. You'll use that more in mod3 and allows us to retrieve resource data in different formats than HTML, such as CSV or XML.
-
-**Based on our rake routes - what controller do we need? do we have it?**
-
-Now that we've made the route that RSpec was looking for, let's run `rspec` to see if the error changed.
-
-```bash
-Failure/Error: visit "/songs"
-
-   ActionController::RoutingError:
-     uninitialized constant SongsController
-```
-
-**TDD is now telling us step-by-step what to go build next.**
-
-Make a songs controller:
-
-```bash
-$ touch app/controllers/songs_controller.rb
-```
-
-Naming is important. The **name of the file should be the plural of what it is handling** (in this case, songs).
-
-Inside of that file:
+We want this model to inherit from `ActiveRecord` so why are we using `ApplicationRecord` instead? If we take a look around, we see a file in the `app/models` directory called `application_record.rb`. Open that and peek around:
 
 ```ruby
-class SongsController < ApplicationController
-
+class ApplicationRecord < ActiveRecord::Base
+  self.abstract_class = true
 end
 ```
 
-Notice that the name of the class matches the name of the file (`songs_controller.rb` => `class SongsController`), the file is "snake-cased" and the class name is "camel-cased".
+That file inherits from `ActiveRecord` already, so if we inherit from `ApplicationRecord` then we'll also inherit `ActiveRecord`. This allows us to have a parent model that could contain some shared methods/behaviors.
 
-What is ApplicationController? Look at the controllers folder and you should see an `application_controller.rb` file. This file defines the `ApplicationController` class, which (generally) all of your other controllers will inherit from. This is very similar to how we have an `ApplicationRecord` which all of our models inherit from.
+## Creating Songs
 
-When we run RSpec now, we get another error:
+In order to see Songs on our index page, we are going to need to create some Songs. We might later add in a feature where can create a new song with a form, but we don't have the feature yet, so we are going to have to insert Songs into our database manually.
 
-```bash
-The action 'index' could not be found for SongsController
+Let's open up the Rails console with `rails console` or `rails c` from the command line.
+
+The Rails console will give you access to your development database through your models. If you enter `Song.all` into the console, you should get back an empty ActiveRecord Relation. This is because we don't have any Songs in our database yet, so let's create some:
+
+
+```
+irb(main):015:0> Song.create(title: "I Really Like You", length: 208, play_count: 23546543)
+irb(main):016:0> Song.create(title: "Call Me Maybe", length: 431, play_count: 8759430)
 ```
 
-Let's add the index action:
+You should see this output:
 
-```ruby
-class SongsController < ApplicationController
-  def index
-  end
-end
+```
+   (0.3ms)  BEGIN
+  Song Create (0.5ms)  INSERT INTO "songs" ("title", "length", "play_count", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["title", "I Really Like You"], ["length", 208], ["play_count", 23546543], ["created_at", "2020-08-10 20:45:58.643242"], ["updated_at", "2020-08-10 20:45:58.643242"]]
+   (0.5ms)  COMMIT
+
+...
+   (0.4ms)  BEGIN
+  Song Create (0.4ms)  INSERT INTO "songs" ("title", "length", "play_count", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["title", "Call Me Maybe"], ["length", 431], ["play_count", 8759430], ["created_at", "2020-08-10 20:46:21.379206"], ["updated_at", "2020-08-10 20:46:21.379206"]]
+   (1.7ms)  COMMIT
 ```
 
-An `action` in the context of a rails app is just a method defined inside a Controller.
+You can see in this output that our ActiveRecord commands were translated into SQL to insert new rows into the database.
 
-### Rendering the View
+Now if we do `Song.all`, we should see some Songs coming back from our Database.
 
-Running Rspec again gives us this error:
+## Displaying Songs in the View
 
-```bash
-ActionController::UnknownFormat:
-    SongsController#index is missing a template for this request format and variant.
-
-    request.formats: ["text/html"]
-    request.variant: []
-
-    NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.
-```
-
-Remember, HTTP consists of both requests and **responses**. At this point, we have set up our App to receive a request, but haven't told it how to respond. By default, rails will try to respond by rendering a view. It automatically looks for a view folder with the same name as the controller (`app/views/songs` folder), then look for a template file with the same name as the action method (`index.html.erb`). We can override this behavior by using the `render` or `redirect` commands, but for now we will follow the Rails convention:
-
-```bash
-$ mkdir app/views/songs
-$ touch app/views/songs/index.html.erb
-```
-
-Rails convention says that we should include the output format type in the filename and then the `.erb` extension. That's why this file is `index.html.erb` rather than `index.erb`. The latter would work, but it would not be following convention.
-
-Now that we've give our action a template, let's see what RSpec gives us:
-
-```bash
-1) songs index page user can see all songs
-   Failure/Error: expect(page).to have_content(song_1.title)
-     expected to find text "Don't Stop Believin'" in ""
-   # ./spec/features/songs/index_spec.rb:10:in `block (2 levels) in <top (required)>'
-```
-
-Capybara isn't finding the text we expect because our view is empty. Within `app/views/songs/index.html.erb`, add this code:
-
-```html
-<h1>All Songs</h1>
-
-<% @songs.each do |song| %>
-  <h2><%= song.title %></h2>
-  <p>Play Count: <%= song.play_count %></p>
-<% end %>  
-```
-
-Now when we run our tests, we see a new error:
-
-```bash
-undefined method 'each' for nil:NilClass
-```
-
-We have not defined our instance variable `@songs` so this makes sense! Remember, we can define instance variables in our controller action to make them available in views. Lets go do that:
+Now that we have Songs in our Database, let's retrieve them in our controller action:
 
 ```ruby
 #controllers/songs_controller.rb
@@ -496,41 +306,34 @@ class SongsController < ApplicationController
 end
 ```
 
-Run RSpec one last time and we have a passing test!
+Remember, any instance variables you create in the controller action will be available in the view.
 
-### Checking our work in the Development Environment
+Let's display these songs in the view:
 
-Everything seems to be working in our "Test" environment, but we should also check our "Development" environment.
+```html
+# app/views/songs/index.html.erb
+<h1>All Songs</h1>
+
+<% @songs.each do |song| %>
+  <h2><%= song.title %></h2>
+  <p>Play Count: <%= song.play_count %></p>
+<% end %>  
+```
 
 Start up your rails server: `rails server` or `rails s` from the command line.
 
-Navigate to `localhost:3000/songs` and what do you see? NOTHING!
-
-Why don't we have any data on our page even though we created data in our test?
-
-### Adding data to our Development Environment
-
-Run `rails console` or `rails c` form the command line. The Rails Console allows us to interact with our app directly in Development. Let's add some songs and start the server again to see our songs!
-
-```ruby
-Song.create(title: "I Really Like You", length: 209, play_count: 760847)
-Song.create(title: "Call Me Maybe", length: 199, play_count: 65862)
-Song.create(title: "Run Away With Me", length: 253, play_count: 521771)
-Song.create(title: "Party For One", length: 269, play_count: 623547)
-```
+Navigate to `localhost:3000/songs` to see your songs.
 
 ## Checks for Understanding
 
 - What setup do you need to do to start a new Rails application?
-- What is a feature test?
-- What is Capybara?
 - What is a migration?
-- What `rake` command do you use to create a database?
-- What `rake` command do you use to apply migrations?
+- What command do you use to create a database?
+- What command do you use to apply migrations?
 - Where do our routes live?
 - What is the syntax to define a route?
 - How is MVC implemented in Rails?
-- Explain the four pieces of information that `rake routes` give us.
+- Explain the four pieces of information that `rails routes` give us.
 - In a Rails app, what is an "action"?
 - Where does Rails look for a view by default?
 
