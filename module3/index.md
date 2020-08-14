@@ -18,7 +18,8 @@ In Module 3, we will look beyond the basics of building Rails web applications w
 * [Learning Goals](./misc/learning_goals)<br>
 * [Intermission Work](./misc/intermission_work)<br>
 * [Lessons](./lessons)<br>
-* [Projects](./projects)
+* [Projects](./projects)<br>
+* [Extensions](./extensions)
 
 ## Resources
 
