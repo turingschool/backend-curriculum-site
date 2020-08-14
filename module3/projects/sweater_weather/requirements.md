@@ -5,7 +5,9 @@ title: Whether, Sweater? Project Requirements
 
 # Important Note about Getting Started
 
-This project is an API based application. Please use `rails new --api and other flags` when creating your application. Doing `rails new` which includes views, etc is not a correct project structure.
+1. This project is an API based application. Please use `rails new --api and other flags` when creating your application. Doing `rails new` which includes views, etc is not a correct project structure.
+
+2. We would like to see a README file included in your project that outlines the learning goals, how someone can clone and set up your application and where they can get their own API keys, and happy path endpoint use.
 
 
 ## 1. Application Landing Page
