@@ -69,7 +69,7 @@ When we normalize our database, we need to include some sort of marker for ourse
 
 This `artist_id` is the **foreign key** on our songs table that relates a song back to the `id` of an artist on the artists table - also referred to as the **primary key** of the artists table.
 
-As we build our our databases, we will want them to be as normalized as possible - only storing information from a single resource per table.
+As we build out our databases, we will want them to be as normalized as possible - only storing information from a single resource per table.
 
 ## Describing these Relationships
 
