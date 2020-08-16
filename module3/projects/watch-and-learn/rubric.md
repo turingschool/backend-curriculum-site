@@ -1,9 +1,9 @@
 ---
 layout: page
-title: Brownfield of Dreams Project Rubric
+title: Watch and Learn Project Rubric
 ---
 
-## Brownfield of Dreams Rubric
+## Watch and Learn Rubric
 
 ### Developer Empathy and Technical Debt
 
