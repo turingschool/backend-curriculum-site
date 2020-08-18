@@ -238,7 +238,7 @@ Replace `<YOUR API KEY>` with your Propublica API Key.
 Whenever you edit your bash profile, you will need to restart your terminal for the changes to take affect. Now, in your controller, you can use this environment variable instead of hardcoding the key:
 
 ```ruby
-faraday.headers["X-API-KEY"] = ENV["PROPUBLICA_API_KEY"]
+faraday.headers["X-API-Key"] = ENV["PROPUBLICA_API_KEY"]
 ```
 
 This is okay, but it feels weird to edit our bash profile, which affect **all** processes running on our computer, to solve a problem for this specific project. What we really want is to put our environment configuration somewhere that is specific to this project. Luckily there is a handy gem called [Figaro](https://github.com/laserlemon/figaro) that allows us to do just that. Read through the docs to figure out how it works.
