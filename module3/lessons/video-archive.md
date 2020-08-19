@@ -12,10 +12,18 @@ We believe very strongly in "perspective" and seeing/hearing many teachers shari
 
 We'll do our best to add videos to this list over time.
 
+## Module Kickoff
+
+* [2005 Cohort](https://vimeo.com/449077549/b4524552da)
+
+## Pair Project Kickoff
+
+* [Viewing Party Kickoff, 2005 Cohort](https://vimeo.com/449079054/c1ffb48831)
 
 ## Consuming APIs
 
 * [Intro to Postman and Faraday; Dione Wilson, 2003 Cohort](https://vimeo.com/441936303/5a42f55a41)
+* [Intro to Postman and Faraday; Ian Douglas, 2005 Cohort](https://vimeo.com/449074625/d13cf271f5)
 * [Consuming APIs; Ian Douglas, 2003 Cohort](https://vimeo.com/441933853/f2a98b9559)
 * [Consuming APIs; Josh Mejia and Mike Dao, June 2018](https://www.youtube.com/watch?v=FcgkfZEv_LI)
 * [Testing Tools for API Consumption; Ian Douglas, 2003 Cohort](https://vimeo.com/441938656/0234a0196b)
