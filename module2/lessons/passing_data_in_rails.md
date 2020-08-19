@@ -273,7 +273,7 @@ The next three lines set up what a user sees in and around an input area, and th
 <%= submit_tag 'Create Artist' %>
 ```
 
-Now that we have a better understanding of `form_tab`, let's run our test and we should be getting the following error:
+Now that we have a better understanding of `form_tag`, let's run our test and we should be getting the following error:
 
 ```
 Failure/Error: click_on 'Create Artist'
