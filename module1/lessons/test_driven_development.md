@@ -157,7 +157,7 @@ car.drive
 Given the following interaction pattern, write a test file for this (not yet existent) class, Student.
 
 ```ruby
-> student = Student.new("Jesse")
+> student = Student.new("Jesse", 1)
 => #<Student:0x007fa2e9acd738>
 student.name
 => "Jesse"
@@ -207,7 +207,7 @@ To make sure we're all the same page, let's write this test together.
 Given the following interaction pattern, build on your test file for this class.
 
 ```ruby
-> student = Student.new("Sophocles")
+> student = Student.new("Sophocles", 1)
 => #<Student:0x007fa2e9acd738>
 
 student.name
@@ -227,6 +227,11 @@ student.learn("testing")
 student.skills
 => ["testing"]
 
+student.learn("mocks")
+
+student.skills
+=> ["testing", "mocks"]
+
 student.promote
 
 student.say_mod
@@ -239,7 +244,7 @@ Be ready to share your code with the rest of class!
 
 You will not always have interaction patterns to guide your testing. In these cases, you'll need to decide for yourself what you'll name the methods and how you'll decide to implement its functionality.
 
-You are planning to create an `Instructor` class. The instructor has a name, a mod they teach, and a class of students. The primary responsibility of a mechanic is to take a class of students and teach those students a skill.
+You are planning to create an `Instructor` class. The instructor has a name, a mod they teach, and a class of students. The primary responsibility of an instructor is to take a class of students and teach those students a skill.
 
 Write a series of tests and THEN create an Instructor class.
 
@@ -254,7 +259,7 @@ Write a series of tests and THEN create an Instructor class.
 Share out with the class!
 
 
-## Exercise: TDD Calculator
+## Extra Exercise: TDD Calculator
 
 - Build a calculator class from scratch using TDD
 - Start with whiteboarding and pseudocode
