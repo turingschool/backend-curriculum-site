@@ -74,8 +74,6 @@ Every time you create a class, method, or block you create a new **scope**. Anyt
 
 ## Exploration - Part 2
 
-#### Example 6
-
 [View Method Scope Examples 6-9 Here](https://gist.github.com/megstang/e239c2dd61704e404f7c323416a97db7)
 
 ### Method Scope - Part 2 Debrief
