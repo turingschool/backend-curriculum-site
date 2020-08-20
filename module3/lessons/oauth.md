@@ -387,7 +387,7 @@ def create
         'Authorization': "token #{access_token}"
     }
   )
-  response = conn.get('/user/repos')
+  response = conn.get('/user')
   data = JSON.parse(response.body, symbolize_names: true)
 
   binding.pry
