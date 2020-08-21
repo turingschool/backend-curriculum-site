@@ -50,12 +50,12 @@ Introduction to OAuth
 ## Refactoring and OOP
 
 Refactoring APIs
-** [Dione Wilson, 2005 Cohort](https://vimeo.com/450270705/8b8f6a1202)
-** (archive) [Refactoring APIs for Mocking/Stubbing; Josh Mejia, Aug 2019](https://www.youtube.com/watch?v=Okck4Fc557o)
+* [Dione Wilson, 2005 Cohort](https://vimeo.com/450270705/8b8f6a1202)
+* (archive) [Refactoring APIs for Mocking/Stubbing; Josh Mejia, Aug 2019](https://www.youtube.com/watch?v=Okck4Fc557o)
 
 Abstraction and Encapsulation
-** [Ian Douglas, 2005 Cohort](https://vimeo.com/450267710/e1db4e3ca4)
-** [Ian Douglas, 2003 Cohort](https://vimeo.com/441937652/91941af0f8)
+* [Ian Douglas, 2005 Cohort](https://vimeo.com/450267710/e1db4e3ca4)
+* [Ian Douglas, 2003 Cohort](https://vimeo.com/441937652/91941af0f8)
 
 Intro to Optimization
 * [Ian Douglas, 2003 Cohort](https://vimeo.com/441953043/25ec05f260)
