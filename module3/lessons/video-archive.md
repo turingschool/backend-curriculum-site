@@ -12,63 +12,109 @@ We believe very strongly in "perspective" and seeing/hearing many teachers shari
 
 We'll do our best to add videos to this list over time.
 
-## Module Kickoff
 
+## Kickoff Meetings
+
+Module Kickoff
 * [2005 Cohort](https://vimeo.com/449077549/b4524552da)
 
-## Pair Project Kickoff
 
-* [Viewing Party Kickoff, 2005 Cohort](https://vimeo.com/449079054/c1ffb48831)
+#### Project Kickoff Meetings
 
-## Consuming APIs
+"Viewing Party" Kickoff, Paired Project
+* [2005 Cohort](https://vimeo.com/449079054/c1ffb48831)
 
-* [Intro to Postman and Faraday; Dione Wilson, 2003 Cohort](https://vimeo.com/441936303/5a42f55a41)
-* [Intro to Postman and Faraday; Ian Douglas, 2005 Cohort](https://vimeo.com/449074625/d13cf271f5)
-* [Consuming APIs; Ian Douglas, 2003 Cohort](https://vimeo.com/441933853/f2a98b9559)
-* [Consuming APIs; Josh Mejia and Mike Dao, June 2018](https://www.youtube.com/watch?v=FcgkfZEv_LI)
-* [Testing Tools for API Consumption; Ian Douglas, 2003 Cohort](https://vimeo.com/441938656/0234a0196b)
-* [Abstraction and Encapsulation; Ian Douglas, 2003 Cohort](https://vimeo.com/441937652/91941af0f8)
-* [Introduction to OAuth; Ian Douglas, 2003 Cohort](https://vimeo.com/441926366/3d1072226d)
-* [Refactoring APIs for Mocking/Stubbing; Josh Mejia, Aug 2019](https://www.youtube.com/watch?v=Okck4Fc557o)
+"Rails Engine" Kickoff, Solo Project
+* [2003 Cohort](https://vimeo.com/441945115/cad187f4f0)
 
 
-## Exposing APIs
+## APIs, Tooling and Testing
 
-* [Building an API; Dione Wilson, 2001 Cohort](https://vimeo.com/441936930/7f726f0ffd)
-* [Building an API; Ian Douglas, 2003 Cohort](https://vimeo.com/441942514/9a72728f22)
-* [Customizing JSON in your API; Dione Wilson, 2001 Cohort](https://vimeo.com/441935438/8fe924d4fd)
-* [Customizing JSON in your API; Ian Douglas, 2003 Cohort](https://vimeo.com/441943509/16e0c5e8f1)
+Intro to Postman and Faraday
+* [Ian Douglas, 2005 Cohort](https://vimeo.com/449074625/d13cf271f5)
+* [Dione Wilson, 2003 Cohort](https://vimeo.com/441936303/5a42f55a41)
 
+Consuming APIs
+* [Ian Douglas, 2005 Cohort](https://vimeo.com/450275848/9519c6410e)
+* [Ian Douglas, 2003 Cohort](https://vimeo.com/441933853/f2a98b9559)
+* (archive) [Josh Mejia and Mike Dao, June 2018](https://www.youtube.com/watch?v=FcgkfZEv_LI)
+
+Testing Tools for API Consumption
+* [Ian Douglas, 2003 Cohort](https://vimeo.com/441938656/0234a0196b)
+
+Introduction to OAuth
+* [Ian Douglas, 2005 Cohort](https://vimeo.com/450272502/a80eaf2b63)
+* [Ian Douglas, 2003 Cohort](https://vimeo.com/441926366/3d1072226d)
+
+
+## Refactoring and OOP
+
+Refactoring APIs
+** [Dione Wilson, 2005 Cohort](https://vimeo.com/450270705/8b8f6a1202)
+** (archive) [Refactoring APIs for Mocking/Stubbing; Josh Mejia, Aug 2019](https://www.youtube.com/watch?v=Okck4Fc557o)
+
+Abstraction and Encapsulation
+** [Ian Douglas, 2005 Cohort](https://vimeo.com/450267710/e1db4e3ca4)
+** [Ian Douglas, 2003 Cohort](https://vimeo.com/441937652/91941af0f8)
+
+Intro to Optimization
+* [Ian Douglas, 2003 Cohort](https://vimeo.com/441953043/25ec05f260)
+
+
+## Building/Exposing APIs
+
+Building an API
+* [Ian Douglas, 2003 Cohort](https://vimeo.com/441942514/9a72728f22)
+* [Dione Wilson, 2001 Cohort](https://vimeo.com/441936930/7f726f0ffd)
+
+Customizing JSON in your API
+* [Ian Douglas, 2003 Cohort](https://vimeo.com/441943509/16e0c5e8f1)
+* [Dione Wilson, 2001 Cohort](https://vimeo.com/441935438/8fe924d4fd)
 
 
 ## ActiveRecord
 
-* [Advanced ActiveRecord; Ian Douglas, 2003 Cohort](https://vimeo.com/441945463/d090c702bb)
-* [Advanced ActiveRecord; Josh Mejia, Dec 2018](https://www.youtube.com/watch?v=OccKyvGvLKE)
-
-
-## Optimization
-
-* [Intro to Optimization; Ian Douglas, 2003 Cohort](https://vimeo.com/441953043/25ec05f260)
+* [Ian Douglas, 2003 Cohort](https://vimeo.com/441945463/d090c702bb)
+* (archive) [Josh Mejia, Dec 2018](https://www.youtube.com/watch?v=OccKyvGvLKE)
 
 
 ## JavaScript
 
-* [Introduction to JavaScript; Ian Douglas, 2003 Cohort](https://vimeo.com/436181385)
-* [jQuery DOM Traversal and Manipulation; Dione Wilson, 2003 Cohort](https://vimeo.com/441944539/72f9a78438)
+Introduction to JavaScript
+* [Ian Douglas, 2003 Cohort](https://vimeo.com/436181385/e2ae732fcb)
+
+jQuery DOM Traversal and Manipulation
+* [Dione Wilson, 2003 Cohort](https://vimeo.com/441944539/72f9a78438)
 
 
 ## Email
 
-* [Sending Email; Dione Wilson, 2003 Cohort](https://vimeo.com/441941693/6f787c262f)
+Sending Email
+* [Dione Wilson, 2003 Cohort](https://vimeo.com/441941693/6f787c262f)
 
 
-## Additional Resources
+## Gear Up and PD
 
-* [Introduction to Big O Notation, Back-End; Ian Douglas, 2003 Cohort](https://vimeo.com/441946493/ac1ef11de7)
-* [Introduction to Big O Notation, Front-End; Ian Douglas, 2003 Cohort](https://vimeo.com/441951062/1516a80c38)
-* [Introduction to Big O Notation, Mod 4; Ian Douglas, 2001 Cohort](https://vimeo.com/415230957)
-* [Tech Interview Prep, Challenge Analysis; Ian Douglas, 2003 Cohort](https://vimeo.com/441948881/581b1edfbc)
-* [Tech Interview Prep, Challenge Analysis Mod 4; Ian Douglas, 2001 Cohort](https://vimeo.com/415197514)
+Gear Up
+* [Week 1, Developer Empathy and Code of Ethics; Ian Douglas, 2005 Cohort](https://vimeo.com/450267096/dd0b1bfa9d)
+* [Week 1, Developer Empathy and Code of Ethics; Ian Douglas, 2003 Cohort](https://vimeo.com/441940143/2cb38d9222)
 
-* PD Supplement: [Company Research; Ian Douglas, 2003 Cohort](https://vimeo.com/441941222/da3924f607)
+Career Development
+* ["Putting it All Together", Week 4; Ian Douglas, 2003 Cohort](https://vimeo.com/441953601/14fec97d65)
+
+PD Supplement: Company Research
+* [FE/BE Ian Douglas, 2005 Cohorts](https://vimeo.com/450272030/5870961a16)
+* [FE/BE Ian Douglas, 2003 Cohorts](https://vimeo.com/441941222/da3924f607)
+
+
+## Additional Topics
+
+Introduction to Big O Notation
+* [Back-End; Ian Douglas, 2003 Cohort](https://vimeo.com/441946493/ac1ef11de7)
+* [Front-End; Ian Douglas, 2003 Cohort](https://vimeo.com/441951062/1516a80c38)
+* [(Mod 4) Ian Douglas, 2001 Cohort](https://vimeo.com/415230957)
+
+Tech Interview Prep, Challenge Analysis
+* [Ian Douglas, 2003 Cohort](https://vimeo.com/441948881/581b1edfbc)
+* [(Mod 4) Ian Douglas, 2001 Cohort](https://vimeo.com/415197514)
+
