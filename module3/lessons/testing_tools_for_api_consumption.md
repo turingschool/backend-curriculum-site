@@ -195,6 +195,8 @@ rm -rf spec/fixtures/vcr_cassettes
 
 Run your test suite again, and you should see a new VCR cassette in the `vcr_cassettes` directory. Open it up and confirm that your api key is now being replaced with `<PROPUBLICA_API_KEY>`.
 
+**You will need to add a `filter_sensitive_data` block for EACH thing you want to filter. If you're building an app using several API keys, make sure you add a filter for each thing in your `config/application.yml` that you want to have hidden!**
+
 ### Using RSpec Metadata
 
 VCR has a handy feature that allows us to use the names of our tests to name cassettes rather than having to manually wrap each test in a `VCR.use_cassette` block and give the cassette a name. Add one more line to your VCR config block:
@@ -244,6 +246,36 @@ scenario "user submits valid state name", :vcr do
 ```
 
 Run your tests again and you'll notice a new directory and file in your `vcr_cassettes` directory that matches the names of the blocks in the test. Now when we want a test to use VCR, we just have to pass it `:vcr` and we're good to go. Much easier!
+
+
+## But ... manually deleting VCR cassettes is a pain!!!
+
+Thankfully the VCR team have come up with a way to set an expiration on our VCR cassettes, and we can do it one of two ways (or both)
+
+On a per-cassette level, we can set it up like this:
+
+```ruby
+VCR.use_cassette('name_of_cassette', re_record_interval: 7.days) do
+  # test code goes here
+end
+```
+
+There's no easy way to configure this on tests which use the `:vcr` flag, though. One way would be for one test to use the `:vcr` flag, and another test which makes the same API call to use the `VCR.use_cassette()` setting above. When the test executes which has the `re_record_interval` option set to a value, it may 'expire' cassette and re-record it if the cassette passes that threshold.
+
+We can also set a global configuration which will apply to all VCR-enabled tests, including those using the `:vcr` flag, but changing our `spec/rails_helper.rb` configuration slightly:
+
+```ruby
+VCR.configure do |config|
+  config.cassette_library_dir = 'spec/fixtures/vcr_cassettes'
+  config.hook_into :webmock
+  config.filter_sensitive_data('DONT_SHARE_MY_PROPUBLIC_SECRET_KEY') { ENV['PROPUBLICA_KEY'] }
+  config.default_cassette_options = { re_record_interval: 7.days }
+  config.configure_rspec_metadata!
+end
+```
+
+This example uses a "default cassette options" flag, setting a re-record interval of 7 days for all cassettes. You can still override this on individual tests which use `VCR.use_cassette()`, so you could set a general flag of, say, `30.days` but a particular test could be set to `7.days` instead to expire earlier.
+
 
 ## Checks for Understanding
 
