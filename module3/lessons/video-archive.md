@@ -40,6 +40,7 @@ Consuming APIs
 * (archive) [Josh Mejia and Mike Dao, June 2018](https://www.youtube.com/watch?v=FcgkfZEv_LI)
 
 Testing Tools for API Consumption
+* [Ian Douglas, 2005 Cohort](https://vimeo.com/451221711/1264ca6e7a)
 * [Ian Douglas, 2003 Cohort](https://vimeo.com/441938656/0234a0196b)
 
 Introduction to OAuth
