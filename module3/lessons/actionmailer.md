@@ -1,9 +1,11 @@
 ---
 layout: page
 title: Sending Email Tutorial
-length: 30
-tags: rails, email, smtp, actionmailer
+length: 60
+tags: rails, email, smtp, actionmailer, rspec
 ---
+
+Updated to work with Ruby 2.5.3 and Rails 5.2.4.3
 
 ## Sending Email
 
@@ -11,7 +13,8 @@ We'll explore sending email in Rails by building a project that requires this fu
 
 * How to use ActionMailer
 * Send email locally using Mailcatcher
-* How to setup a third party email service
+* How to test a mailer is working
+
 
 ### Friendly Advice
 
@@ -23,15 +26,18 @@ What we'd like our app to do:
 2. Allow us to enter a friend's email address
 3. Send that friend some advice.  
 
+
 ## Researching with the Docs  
 * [What is SMTP?](http://whatismyipaddress.com/smtp)
 * [Action Mailer](http://guides.rubyonrails.org/action_mailer_basics.html)  
 
-## Sending Email locally with the mailcatcher
+---
+
+## Sending Email locally with Mailcatcher
 
 ### Getting Started
 
-For this tutorial, we are going to setup our emails to "send" through mailcatcher locally. And in production, the emails will actually send through Sendgrid. If you want to setup an account with Sendgrid in order to send emails both locally and in production, you can set up an account with them. Keep in mind that Sendgrid will provision your account at first so it might take some time to get the account set up. You should sign up for the free account.
+For this tutorial, we are going to setup our emails to "send" through Mailcatcher locally. And in production, you'll want to set up your Rails environment to send all emails through a third-party service like SendGrid.
 
 First things first, go ahead and clone down [this repo](https://github.com/turingschool-examples/friendly-advice)
 
@@ -39,8 +45,9 @@ First things first, go ahead and clone down [this repo](https://github.com/turin
 $ git clone https://github.com/turingschool-examples/friendly-advice.git friendly-advice
 $ cd friendly-advice
 $ bundle
-$ rake db:{create,migrate}
+$ rake db:{drop,create,migrate,seed}
 ```
+
 ### Rails Setup  
 Run your server to see what we've already got in our repo
 ```
@@ -50,16 +57,13 @@ Inspect the Form/Input field, where does this route to?
 
 Make sure the route is in the routes file:
 
-```rb
-post '/advice' => 'advice#create'
+```ruby
+post '/advice', to: 'advice#create'
 ```
 
-Next we'll open our advice controller. The form asks for a post route so we'll need to update the create action where we will call our mailer.
+Next we'll open our Advice Controller. The form asks for a POST route so we'll need to update the create action where we will call our mailer.
 
-```rb
-
-# app/controllers/advice_controller.rb
-
+```ruby
 class AdviceController < ApplicationController
 
   def show
@@ -76,7 +80,7 @@ class AdviceController < ApplicationController
                    message: @advice.message
                  }
     FriendNotifierMailer.inform(email_info, recipient).deliver_now
-    flash[:notice] = "Thank you for sending some friendly advice."
+    flash[:notice] = 'Thank you for sending some friendly advice.'
     redirect_to advice_url
   end
 end
@@ -84,10 +88,24 @@ end
 
 ### Creating the Mailer
 
-Our next step will be to create the FriendNotifer mailer to send our friends advice.
+First, we set up our ApplicationMailer to set an automatic "From" address for every outgoing email. There's no easy way to change this in the default setup of Rails; you can do this with a third-party email service like SendGrid.
+
+The 'layout' option tells Rails where in `/app/views/layouts/` to look for layout files, similar to how `/app/views/layouts/application.html.erb` affects all HTML view pages with a `yield` command. In this case, we're configuring our setup to look for `/app/views/layouts/mailer.html.erb` and `/app/views/layouts/mailer.text.erb` for HTML-based emails and plaintext-based emails, respectively.
+
+```rb
+# app/mailers/application_mailer.rb
+
+class ApplicationMailer < ActionMailer::Base
+  default from: 'friendly@advice.io'
+  layout 'mailer'
+end
+```
+
+Our next step will be to create the FriendNotifer mailer to send our friends advice. We'll use a generator for this, but the generator will ignore the `-T` we used to create the Rails app and generate some scaffolding for tests under a `/test/` folder, which we can delete afterward.
 
 ```shell
 rails g mailer FriendNotifier
+rm -rf test/
 ```
 
 This creates our `friend_notifer_mailer` inside `app/mailers` and a `friend_notifer_mailer` folder in `app/views`. Let's first open the `friend_notifer_mailer` in mailers and add our inform method.
@@ -100,18 +118,23 @@ class FriendNotifierMailer < ApplicationMailer
     @user = info[:user]
     @message = info[:message]
     @friend = info[:friend]
-    mail(to: recipient, subject: "#{@user.name} is sending you some advice")
+
+    mail(
+      reply_to: @user.email,
+      to: recipient,
+      subject: "#{@user.name} is sending you some advice"
+    )
   end
 end
 ```
 
-Next we'll make the views that will have the body of the email that is sent. Similar to controllers, any instance variables in your mailer method will be available in your mailer view.
+Notice that in our call to `mail()` that we're setting a reply-to email address of our user. This allows the recipient to hit 'reply' on an email and their response will go back to our user, not to our "default" email address of "friendly@advice.io"
 
-When you generated your mailer, two layouts were added to `app/views/layouts` - `mailer.html.erb` and `mailer.text.erb`.  Take a look at these files, what are they doing? Why do we get both an HTML and text layout?
+Next we'll make the views that will have the body of the email that is sent. Similar to controllers, any instance variables you create in your mailer method will be available in your mailer view.
 
 In `app/views/friend_notifier_mailer` create two files, `inform.html.erb` and `inform.text.erb`
 
-Depending on the person's email client you're sending the email to, it will render either the plain text or the html view. We don't have control over that, so we want to accomodate both and make them have the same content.
+Depending on the person's email client you're sending the email to, it will render either the plain text or the HTML view. We don't have control over that, so we want to accomodate both and make them have the same content.
 
 ```
 # inform.html.erb and inform.text.erb
@@ -121,16 +144,12 @@ Hello <%=@friend%>!
 <%= @user.name %> has sent you some advice: <%= @message %>
 ```
 
-Let's also change the default address the email gets sent from:
+You can add VERY VERY simple HTML within the `.html.erb` file, but you cannot use the typical CSS layouts nor rely on class/id attributes of CSS. If you really want to style your email, you must look into "inline" styling like this:
 
-```rb
-# app/mailers/application_mailer.rb
-
-class ApplicationMailer < ActionMailer::Base
-  default from: "friendly@advice.io"
-  layout 'mailer'
-end
+```html
+<p style="background:yellow;">This background is yellow</p>
 ```
+
 
 ### Configuring Mailcatcher
 
@@ -146,7 +165,7 @@ You want to install the Mailcatcher gem, **but you do not want to add it to your
 $ gem install mailcatcher
 ```
 
-Now let's setup our development config to send the emails to the mailcatcher port. Add the following code to your `config/environments/development.rb` file.
+Now let's setup our development config to send the emails to the mailcatcher port. Add the following code to your `config/environments/development.rb` file, within the `Rails.application.configure` block of code where you see other `config.` settings.
 
 ```rb
 # config/environments/development.rb
@@ -155,7 +174,7 @@ config.action_mailer.delivery_method = :smtp
 config.action_mailer.smtp_settings = { :address => "localhost", :port => 1025 }
 ```
 
-The mail is sent through port 1025, but in order to view the mailcatcher interface we want to visit port 1080. To start up mailcatcher:
+The mail is sent through port 1025, but in order to view the Mailcatcher interface we want to visit port 1080. To start up Mailcatcher:
 
 ```sh
 $ mailcatcher
@@ -165,9 +184,98 @@ Now open up http://localhost:1080 and you should see the interface for where ema
 
 If you open up the app in a browser locally, and run through the steps to send an email, you should see the email come through on mailcatcher.
 
-### Materials
+## Testing
 
-* [ Repo ](https://github.com/turingschool-examples/a_bit_of_advice)
+I know, I know, TDD all the things, and we didn't do that here. Here are some helpful steps for testing that your mailer is working:
+
+#### spec/rails_helper.rb
+
+Within your `RSpec.configure` block, add the following line:
+```ruby
+config.action_mailer.delivery_method = :test
+```
+This ensures that we don't try to send real emails.
+
+#### in your test files
+
+```ruby
+expect(ActionMailer::Base.deliveries.count).to eq(1)
+email = ActionMailer::Base.deliveries.last
+```
+This will catch an email object of the last thing sent to ActionMailer
+
+Next, we can test that the subject line and Reply-To email address were set correctly
+```ruby
+expect(email.subject).to eq('Nancy Drew is sending you some advice')
+
+# note: the reply_to address will come through as an array, not a single string
+expect(email.reply_to).to eq(['nancydrew@detective.com'])
+```
+
+Finally, since we sent a multi-part email message with both plaintext and HTML parts, can test that the content came through correctly:
+
+```ruby
+# we can test that the plaintext portion of the email worked as intended
+expect(email.text_part.body.to_s).to include('Hello Leroy Brown')
+expect(email.text_part.body.to_s).to include('Nancy Drew has sent you some advice:')
+
+# we can test that the HTML portion of the email worked as intended
+expect(email.html_part.body.to_s).to include('Hello Leroy Brown')
+expect(email.html_part.body.to_s).to include('Nancy Drew has sent you some advice:')
+```
+
+#### Should that really be in a controller feature test though?
+
+Let's do this as a mailer spec test, within `spec/mailers/friendnotifier_mailer_spec.rb`
+
+This will feel more like a proper "unit test" of our mailer setup.
+
+```ruby
+require 'rails_helper'
+
+RSpec.describe FriendNotifierMailer, type: :mailer do
+  describe 'inform' do
+    sending_user = User.create(
+      first_name: 'Rey',
+      last_name: 'Palpatine',
+      email: 'rey@dropofgoldensun.com',
+      password: 'thebestjedi'
+    )
+
+    email_info = {
+      user: sending_user,
+      friend: 'Kylo Ren',
+      message: 'Work through your anger with exercise, and wear a mask'
+    }
+
+    let(:mail) { FriendNotifierMailer.inform(email_info, 'kyloren@besties.com') }
+
+    it 'renders the headers' do
+      expect(mail.subject).to eq('Rey Palpatine is sending you some advice')
+      expect(mail.to).to eq(['kyloren@besties.com'])
+      expect(mail.from).to eq(['friendly@advice.io'])
+      expect(mail.reply_to).to eq(['rey@dropofgoldensun.com'])
+    end
+
+    it 'renders the body' do
+      expect(mail.text_part.body.to_s).to include('Hello Kylo Ren')
+      expect(mail.text_part.body.to_s).to include('Rey Palpatine has sent you some advice: Work through your anger with exercise, and wear a mask')
+
+      expect(mail.html_part.body.to_s).to include('Hello Kylo Ren')
+      expect(mail.html_part.body.to_s).to include('Rey Palpatine has sent you some advice: Work through your anger with exercise, and wear a mask')
+
+      expect(mail.body.encoded).to include('Hello Kylo Ren')
+      expect(mail.body.encoded).to include('Rey Palpatine has sent you some advice: Work through your anger with exercise, and wear a mask')
+    end
+  end
+end
+
+```
+
+
+### Additional Resources
+
+
 * [ Slides ](https://www.dropbox.com/s/ev7tya328sv9jyh/Turing%20-%20Sending%20Email.key?dl=0)
-* [Production Email Checklist](../lessons/production_email_checklist)
-* [Testing Emails](https://guides.rubyonrails.org/testing.html#testing-your-mailers)
+* [Production Email Checklist using SendGrid](../lessons/production_email_checklist)
+* [Additional Rails docs on Testing Emails](https://guides.rubyonrails.org/testing.html#testing-your-mailers)
