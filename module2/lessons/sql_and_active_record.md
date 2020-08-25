@@ -280,7 +280,7 @@ limit 2;
 
 As your sql/AR statements get longer, it is helpful to write each clause on its own line.
 
-Once you know the sql you want to execute, translating to ActiveRecord is relatively easy. You just have to use the Syntax AR gives you for each clause and chain them together.
+Once you know the sql you want to execute, then we can translate to ActiveRecord. The below is the ActiveRecord version of the above. 
 
 ```ruby
 Song.select(:title)
