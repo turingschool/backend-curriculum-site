@@ -101,4 +101,4 @@ Note that the `flash` that you have been using is a special type of session that
 
 1. From a user's perspective, what are the differences between a cookie and a Rails session?
 2. What are some pros and cons to client-side session storage?
-3. What datatype to sessions and cookies mimic?
+3. What data type do sessions and cookies mimic?
