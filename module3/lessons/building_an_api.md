@@ -13,9 +13,13 @@ tags: apis, testing, requests, rails
 * Understand what makes a valid JSON data structure
 * Learn how to parse and create JSON in Ruby
 
-## Slides
+#### Exploration
 
-Available [here](../slides/building_an_api)
+Discuss the examples of JSON linked below with a partner and describe what you notice.
+
+* [Example 1](https://developer.github.com/v3/git/commits)
+* [Example 2](https://birdeck-api.herokuapp.com/api/v1/posts/2).
+
 
 ## Warmup
 
@@ -23,20 +27,56 @@ Available [here](../slides/building_an_api)
 * Why might we decide to expose information in a database we control through an API?
 * What do we need to test in an API?
 * How will our tests be different from feature tests we have implemented in the past?
+* What is REST and why do we need it?
 
-## Lecture
+---
 
-### APIs
+## Reviewing REST
+
+> It's a Concept, not a Law
+
+We want to practice REST as much as possible, but we should consider it a "very strongly encouraged guideline" and not a strict immovable law of how to develop software.
+
+REST, as a concept, came from the need to mimic some amount of "state" between HTTP requests and responses, since HTTP is a stateless protocol. It ties together the idea of HTTP verbs and URI paths/routes into a uniform interface by which we can state "I want to create a new resource" or "I want to change something about a specific resource".
+
+#### Rails likes RESTful things
+
+Rails makes it very easy to build CRUD interfaces for resources, and doesn't care if our response to a user is HTML, JSON, XML, plaintext, or something else.
+
+The controller actions (create, destroy, update, etc) aren't exactly the same as the HTTP verbs specified with a URI path, but it's easy to draw the comparison.
+
+In the end, though, as developers we have a choice to make around our development interface (sometimes called Developer Experience, similar to User Experience for UI), and making our code easy to maintain.
+
+#### RESTful Wrap-Up
+
+REST is language-agnostics, and is a standard we should continue to build, but we ARE allowed some flexibility.
+
+---
+
+## APIs
+
+API = Application Programming Interface
+
+An API is effectively a "domain specific language" (DSL) between a system which can perform an instruction, and a user who wants to perform that instruction.
+
+Ruby, as a language, has APIs. These are the Ruby methods like `.each` or `.new` or `def` to make methods. In this case, the "user" is you as a human, entering instructions for the Ruby interpreter to perform a task.
+
+There are also "external" APIs, which is the more common use of the "API" term, and pertains to Internet-based information systems, such as GitHub, Google, Yelp, and so on, from whom we can send/retrieve data to perform a task. In this case, a tool like Faraday is the "user", asking an external service to do an instruction like "fetch a list of public repos for the `turingschool` account"
+
+The rest of this lesson will discuss APIs in the context of these external Internet-based "services".
+
+## Why use (external, Intern-based) APIs?
 
 APIs provide a means for us to transmit data between web-based applications without worrying about all the overhead associated with HTML.
 
-Why would we create an API?
-
 * Create an application that uses client-side JavaScript to update a page without a full-page refresh.
+  * eg, the front-end developer only needs to fetch a little bit of data, not a whole HTML page
 * Provide a means for developers at other companies to use a service that we provide.
-* Split the work of our application into smaller applications that are each deployed separately (service oriented architecture)
+* Split the work of our application service into smaller application services that are each deployed separately (service-oriented architecture)
 
-### Background: JSON
+---
+
+## Background: JSON
 
 #### Exploration
 
@@ -45,49 +85,12 @@ Discuss the examples of JSON linked below with a partner and describe what you n
 * [Example 1](https://developer.github.com/v3/git/commits)
 * [Example 2](https://birdeck-api.herokuapp.com/api/v1/posts/2).
 
-#### Overview
+#### More Notes To Read Later
 
-When designing a service or an API, you need a machine-readable way to transmit data. Typically, machine-readable formats have been just that—machine-readable (Think zeros and ones).
+[Here are more notes about JSON for API Development](/module3/notes/json_for_api_development.html)
 
-At its core, JSON is an agreed upon format to represent data. It strikes a balance between being machine-readable, but also human-readable. It is frequently used as a language-neutral means to transmit data on the web.
 
-Because it's also more lightweight than XML (read: fewer characters) it's typically faster because it requires less bandwidth to transmit.
-
-Other notes:
-
-* JSON stands for "JavaScript Object Notation"
-* It is a string
-* It maps easily onto the data structures used by most programming languages (numbers, strings, booleans, nulls, arrays and hashes/dictionaries)
-* It looks and acts similarly like Ruby's hash syntax
-* It's lightweight and easy for humans to read and write
-* Most programming languages have a library for reading and writing JSON structures
-* It's a subset of the object syntax in JavaScript. All JSON is valid JavaScript, but not all JavaScript objects are valid JSON (functions, non-string keys, etc.)
-* When working in Ruby we will rarely work with JSON directly. Instead, we will parse JSON as a hash and access the elements of the hash as we have in our previous work.
-
-#### JSON Rules
-
-JSON data structures are typically string representations of either a single JavaScript object (similar to a Ruby hash) or an array of objects or other values.
-
-* Objects are made up of name/value pairs
-* Keys must be double-quoted and followed by a colon
-
-You also have a few types of values available in a JSON structure:
-
-* Numbers
-* Strings (in double quotes only)
-* Booleans (`true` and `false`)
-* Arrays
-* Objects (again, objects in JavaScript are similar to hashes in Ruby)
-* `null`
-
-#### Common Mistakes
-
-* Using single quotes instead of double quotes
-* Not using quotes at all (JavaScript doesn't require quotes on keys nor does Ruby's symbol shorthand)
-* Including a trailing comma in an array
-* Trying to break a string over multiple lines (`\n` is fine)
-
-### New Tools
+## New Tools
 
 Before we begin, let's take a look at some of the new tools you'll be using.
 
@@ -95,29 +98,87 @@ Before we begin, let's take a look at some of the new tools you'll be using.
 
 Let's play around with it in our `pry` consoles.
 
-```rb
+```ruby
+require 'json'
 my_hash = { hello: "goodbye" }
 puts JSON.generate(my_hash) #=> "{"hello":"goodbye"}"
 puts  my_hash.to_json #=> "{"hello":"goodbye"}"
 ```
 
-```rb
-person = '{"name":"Jennifer Johnson","street":"641 Pine St.","phone":true,"age":50,"pets":["cat","dog","fish"]}'
-parsed_person = JSON.parse(person) #=> {"name"=>"Jennifer Johnson", "street"=>"641 Pine St.", "phone"=>true, "age"=>50, "pets"=>["cat", "dog", "fish"]}
+```ruby
+person = '{"name":"Jennifer Lopez","street":"641 Pine St.","phone":true,"age":50,"pets":["cat","dog","fish"]}'
+parsed_person = JSON.parse(person) #=> {"name"=>"Jennifer Lopez", "street"=>"641 Pine St.", "phone"=>true, "age"=>50, "pets"=>["cat", "dog", "fish"]}
 puts parsed_person
 puts parsed_person['pets']
 ```
 
-#### JSON in Rails Testing
+---
+
+# Building an API in Rails -- what we really came here for!
+
+We will start by using a new `--api` flag when we call "rails new".
+
+**WE WILL REQUIRE THAT YOU USE --api FOR MOD 3 API PROJECTS -- DO NOT FORGET TO USE THIS FLAG!**
+
+This flag should only create the following paths inside `/app/`:
+* channels
+* controllers
+* jobs
+* mailers
+* models
+* views
+
+If you see /app/assets and /app/helpers in your project then you did not use the `--api` flag. You may get asked to start over!
+
+## Think about testing and TDD at a high level
+
+* Can more of our code be tested in a way that feels more like unit testing?
+* What kinds of Capybara syntax will we no longer need to use?
+
+#### Using JSON in Rails Testing
 
 * `get 'api/v1/items'`: submits a get request to your application (like `visit`, but without all of the Capybara bells and whistles)
 * `response`: captures the response to a given request (like `page` when using Capybara)
 * `JSON.parse(response)`: parses a JSON response
 
-### JSON in the Controller
+PLEASE PLEASE PLEASE use Faker and FactoryBot for your testing!
 
-* `render`: tells your controller what to render as a response
-* `json: Item.all`: hash argument for render - converts Item.all to valid JSON
+
+## Namespacing and Routing will be extra important!
+
+You'll be building lots of "versioning" into your routes, to make URI paths like "/api/v1/something"
+
+
+## Our controllers will be very different now, too
+
+Our controllers will no longer be calling a view which builds HTML, and we can no longer rely on the "magic" of Rails finding a "view" path named after our controller, and an ERB file named after our action.
+
+#### Using JSON in the Controller
+
+```ruby
+class MyController << ApplicationController
+
+  def index
+    render json: Item.all
+  end
+end
+```
+
+---
+
+# OOP Principles at Play
+
+Aim to have very "thin" controllers -- very little code. Any "helper" methods should be put into a "Facade", named after the controller, like a WeatherController would have a WeatherFacade.
+
+The Facade will be in charge of fetching data for the controller. The controller doesn't need to know where or how, we're going to "abstract" that away.
+
+The Facade may get data from a Model using ActiveRecord, or call a service using Faraday, for example a "WeatherService".
+
+The Facade's job, then, is to make sure the controller ONLY gets object data back. No JSON, no hashes. Just Objects, or arrays of Objects.
+
+The controller, then, will hand off that data to a Serializer, which can be appropriately-named for the data it contains like RoadTripWeatherSerializer or something like that, and given the Object data from 
+
+---
 
 ## Practice
 
