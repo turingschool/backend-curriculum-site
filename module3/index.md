@@ -15,23 +15,24 @@ In Module 3, we will look beyond the basics of building Rails web applications w
 
 ## Curriculum
 
-* [Learning Goals](./misc/learning_goals)<br>
-* [Intermission Work](./misc/intermission_work)<br>
-* [Lessons](./lessons)<br>
-* [Projects](./projects)<br>
+* [Learning Goals](./misc/learning_goals)
+* [Intermission Work](./misc/intermission_work)
+* [Lessons](./lessons)
+* [Projects](./projects)
 * [Extensions](./extensions)
 
 ## Resources
 
-
-* [Consuming APIs in Ruby Exercises](https://github.com/turingschool-examples/m3_exercises)<br>
+* [Additional Notes, Helpful Links, etc](./notes)
+* [Video Recordings of Remote Classes](./lessons/video-archive.html)
+* [Consuming APIs in Ruby Exercises](https://github.com/turingschool-examples/m3_exercises)
 * [Mid Mod Practice Assessment](https://github.com/turingschool-examples/parks_finder)
-* [Final Practice Assessment](./practice_assessments/practice_assessment)<br>
+* [Final Practice Assessment](./practice_assessments/practice_assessment)
 
 ## Requirements
 
-* [Final Project & Portfolio](./misc/final_project_and_portfolio_guide)<br>
-* [Promotion](./misc/promotion)<br>
+* [Final Project & Portfolio](./misc/final_project_and_portfolio_guide)
+* [Promotion](./misc/promotion)
 * [Final Assessment](./misc/final_assessment)
 * [Mod 3 Professional Development Curriculum](https://careerdev.turing.io/module_three/)
 * [Submission Guide](./misc/submission_guide)
