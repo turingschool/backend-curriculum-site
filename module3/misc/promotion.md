@@ -17,6 +17,10 @@ In order to graduate from Module 3, students must complete each of the following
 
 Students must meet the expectations laid out in the [final assessment info](./final_assessment).
 
+### Final Project
+
+Students should complete the final project expectations with a passing score. 
+
 ### Career Development
 
 The Mod 3 [career development](https://github.com/turingschool/career-development-curriculum/tree/master/module_three) curriculum centers around learning to tell your story and beginning your job hunt.
