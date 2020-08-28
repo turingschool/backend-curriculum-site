@@ -82,15 +82,18 @@ Customizing JSON in your API
 ## JavaScript
 
 Introduction to JavaScript
+* [Dione Wilson, 2005 Cohort](https://vimeo.com/452438318/9c8ba8bd78)
 * [Ian Douglas, 2003 Cohort](https://vimeo.com/436181385/e2ae732fcb)
 
 jQuery DOM Traversal and Manipulation
+* [Dione Wilson, 2005 Cohort](https://start.interviewing.io/feedback/ItDJUZNk04vT)
 * [Dione Wilson, 2003 Cohort](https://vimeo.com/441944539/72f9a78438)
 
 
 ## Email
 
 Sending Email
+* [Ian Douglas, 2005 Cohort](https://vimeo.com/452439130/9574785c24)
 * [Dione Wilson, 2003 Cohort](https://vimeo.com/441941693/6f787c262f)
 
 
