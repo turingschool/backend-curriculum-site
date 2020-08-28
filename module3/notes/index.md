@@ -3,4 +3,4 @@ layout: page
 title: Module 3 - Notes and Resources
 ---
 
-* [What is JSON](./what_is_json.html)
+* [JSON for API Development](./json_for_api_development.html)
