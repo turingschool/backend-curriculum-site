@@ -65,6 +65,7 @@ Intro to Optimization
 ## Building/Exposing APIs
 
 Building an API
+* [Ian Douglas, 2005 Cohort](https://vimeo.com/452734115/8b3bd1adf0)
 * [Ian Douglas, 2003 Cohort](https://vimeo.com/441942514/9a72728f22)
 * [Dione Wilson, 2001 Cohort](https://vimeo.com/441936930/7f726f0ffd)
 
