@@ -112,7 +112,33 @@ Use Postman or your browser to view the current responses that your API is provi
 So we have our responses from our server, but it isn’t JSON API 1.0 And it has this created at and updated at stuff which we don’t want. So what do we do? We need to use a serializer.
 
 
+### Customizing JSON
 
+1. Create an Order Serializer and try to build out a JSON return that will look like this __without__ using a gem:
+  ```ruby
+  {
+    "data": [
+      {
+        "type": "order",
+        "id": 1,
+        "attributes": {
+          "order_numer": "3656100700"
+        },
+        "relationships": {
+          "items": [
+            {
+              "date": {
+                "type": "item",
+                "id": 10
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+  ```
+  
 ### Using FastJSONAPI to modify `as_json`
 
 Add this line to your Gemfile.
