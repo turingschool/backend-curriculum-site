@@ -7,10 +7,10 @@ layout: page
 
 Read through these articles to get a sense of what an api is:
 
-* https://www.freecodecamp.org/news/what-is-an-api-in-english-please-b880a3214a82
-* https://medium.com/@perrysetgo/what-exactly-is-an-api-69f36968a41f
+* [What is an API in Plain English? (freecodecamp)](https://www.freecodecamp.org/news/what-is-an-api-in-english-please-b880a3214a82)
+* [What exactly is an API? (Medium article)](https://medium.com/@perrysetgo/what-exactly-is-an-api-69f36968a41f)
 
-Then, watch this video: https://www.youtube.com/watch?v=s7wmiS2mSXY
+Then, watch [this video](https://www.youtube.com/watch?v=s7wmiS2mSXY)
 
 ### APIs
 
