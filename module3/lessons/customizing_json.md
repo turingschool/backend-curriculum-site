@@ -69,6 +69,7 @@ has_many :items, through: :order_items
 And whip together a quick seed file:
 
 ```ruby
+#in seeds.rb
 10.times do
   Item.create!(
     name: Faker::Commerce.product_name,
@@ -102,7 +103,7 @@ Create your controller:
   - Note that the generator throws in some routes at the top. This is not great.
   - Set `index` and `show` methods to render appropriate json.
 
-### Desired Responses
+### Responses
 
 Use Postman or your browser to view the current responses that your API is providing to the routes listed below:
 
@@ -114,7 +115,7 @@ So we have our responses from our server, but it isn’t JSON API 1.0 And it has
 
 ### Customizing JSON
 
-1. Create an Order Serializer and try to build out a JSON return that will look like this __without__ using a gem:
+1. Create an Order Serializer and try to build out a hash that will look like this __without__ using a gem:
   ```ruby
   {
     "data": [
