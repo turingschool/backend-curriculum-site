@@ -329,8 +329,10 @@ Also note that we aren't parsing the response to access the last item we created
 # spec/requests/api/v1/items_request_spec.rb
 it "can create a new item" do
   item_params = { name: "Saw", description: "I want to play a game" }
+  headers = {"CONTENT_TYPE" => "application/json"}
 
-  post "/api/v1/items", params: {item: item_params}
+  # We include this header to make sure that these params are passed as JSON rather than as plain text
+  post "/api/v1/items", headers: headers, params: JSON.generate({item: item_params})
   item = Item.last
 
   expect(response).to be_successful
@@ -388,8 +390,10 @@ it "can update an existing item" do
   id = create(:item).id
   previous_name = Item.last.name
   item_params = { name: "Sledge" }
+  headers = {"CONTENT_TYPE" => "application/json"}
 
-  put "/api/v1/items/#{id}", params: {item: item_params}
+  # We include this header to make sure that these params are passed as JSON rather than as plain text
+  put "/api/v1/items/#{id}", headers: headers, params: JSON.generate({item: item_params})
   item = Item.find_by(id: id)
 
   expect(response).to be_successful
