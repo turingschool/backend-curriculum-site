@@ -188,23 +188,10 @@ Example JSON response for the Merchant resource:
 
 ### Destroy Record
 
-This endpoint should destroy the corresponding record and render a JSON representation of the destroyed record.
+This endpoint should destroy the corresponding record (and any associated data, eg if you delete a merchant you should delete their items too). Since this is a permanent destruction of data, we do not return any response body of any kind, and should send a 204 HTTP status code.
 
-The URI should follow this pattern: `DELETE /api/v1/<resource>/:id`
+*Extension*: when you delete an item, you will delete entries in the invoice_items table per the work above. This, however, might leave invoices in the database with no items at all, so you should find a way to clean those up, too.
 
-Example JSON response for the Merchant resource:
-
-```json
-{
-  "data": {
-    "id": "1",
-    "type": "merchant",
-    "attributes": {
-      "name": "Store Name"
-    }
-  }
-}
-```
 
 ## 2b. Relationships
 
