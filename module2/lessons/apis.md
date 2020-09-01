@@ -77,6 +77,7 @@ Give it a try. Using this data:
 
 * find your number of followers
 * find the date you joined GitHub
+* find some data of your choice!
 
 Congratulations! You just consumed an API.
 
