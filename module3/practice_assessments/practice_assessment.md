@@ -6,13 +6,16 @@ length: 90
 tags: json, javascript, rails, ruby, api
 ---
 
-In this assessment you will:
+Good to knows about this practice assessment:
 
-*   Demonstrate mastery of all parts of the Rails stack
-*   Demonstrate mastery of Ruby throughout the process
 *   Integrate 3rd Party APIs
 *   Write tests for the added features
 *   Expose API endpoints
+
+__Optional__
+  * Create JSON responses that follow [JSON:API Specs](https://jsonapi.org/format/#document-compound-documents)
+  * Use [fast_jsonapi gem](https://github.com/Netflix/fast_jsonapi) to format responses
+
 
 ## Preparation
 
