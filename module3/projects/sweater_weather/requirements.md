@@ -5,9 +5,11 @@ title: Whether, Sweater? Project Requirements
 
 # Important Note about Getting Started
 
-1. This project is an API based application. Please use `rails new --api and other flags` when creating your application. Doing `rails new` which includes views, etc is not a correct project structure.
+1. This project is an API based application. __Use__ the `rails new --api and other flags` when creating your application. _Doing `rails new` which includes views, etc is not a correct project structure._
 
 2. We would like to see a README file included in your project that outlines the learning goals, how someone can clone and set up your application and where they can get their own API keys, and happy path endpoint use.
+
+3. It is __optional__ to use the [Fast JSON API](https://github.com/Netflix/fast_jsonapi) 
 
 
 ## 1. Application Landing Page
@@ -31,7 +33,7 @@ Accept: application/json
 
 **Response:**
 
-Use the wireframes to see what data is required on the front-end to decide what data should be included in your response. Use the [Fast JSON API](https://github.com/Netflix/fast_jsonapi) and the response should adhere to the [JSON 1.0 spec](https://jsonapi.org/).
+Use the wireframes to see what data is required on the front-end to decide what data should be included in your response.
 
 **Requirements:**
 
@@ -134,7 +136,7 @@ body:
 * A successful request creates a user and generates a unique api key associated with that user, with a 201 status code. The response should NOT include the password in any way
 * An unsuccessful request returns an appropriate [400-level status code](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#4xx_Client_errors) and body with a description of why the request wasn't successful.
   * Potential reasons a request would fail: passwords don't match, email has already been taken, missing a field, etc.
-  
+
 ---
 
 ## 3. Login
