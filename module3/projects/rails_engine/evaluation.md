@@ -22,13 +22,13 @@ You should review each section of the rubric and strive to have a 3 in each sect
 Presentation points:
 
 [ ] Demonstration of functional completeness (Running the spec harness & Rails Driver)
-  
+
 [ ] Technical quality and organization of the code
-  
+
 [ ] Identifying code that should be refactored and how it would be refactored
-  
+
 [ ] Discussion of test coverage (happy and sad path and edge cases)
-  
+
 [ ] Approach to their ActiveRecord queries
 
 ### Feature Delivery
@@ -40,7 +40,7 @@ Presentation points:
 
 ### Test Driven Development
 
-* 4: Project achieves 100% test coverage at the unit and integration levels
+* 4: Project achieves 100% test coverage at the unit and integration levels. The tests include sad path and edge case testing.
 * 3: Project achieves greater than 90% test coverage
 * 2: Project achieves greater than 80% test coverage
 * 1: Project does not have 80% test coverage.
