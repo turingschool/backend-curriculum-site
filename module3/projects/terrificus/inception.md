@@ -20,6 +20,10 @@ Each of the following meetings has a purpose: Brainstorm, Decide, or Solve. Ever
 
 Conflict and tension tends to arise in groups when there are differing expectations of these meetings. Some want to debate and explore different outcomes while others see that as a waste of time and want to make a decision. The reality is both are important for making sound decisions and the following is a template to do both and get your project off to a strong start.
 
+## Tools
+
+- [Miro](www.miro.com) is an online team collaboration board. It will be a space where your team can brainstorm using sticky notes, take notes, wireframe, etc. _Note: There is a slack integration, but please do NOT add it. Staff will deny your request._  
+
 ## Problem Definition and Idea Sharing (Brainstorm)
 
 * **Time Limit:**
