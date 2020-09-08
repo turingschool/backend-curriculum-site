@@ -57,7 +57,6 @@ Conflict and tension tends to arise in groups when there are differing expectati
     * Each person should write out features on Sticky Notes
     * Only 1 feature per sticky note
     * Features should describe user interaction in 3-5 words max.
-    * Features should be written using a sharpie to help ensure the above word Limit
     * Examples include:
         * User profile creation
         * User sees stats over time
@@ -74,7 +73,13 @@ Conflict and tension tends to arise in groups when there are differing expectati
     * Share what came out of the feature dump
     * Group related ideas into broad categories (EPICs)
     * Eliminate duplicate ideas
-* **Instructions**
+* **Remote Instructions**
+  * You will be organizing these thoughts as a group in the project's Miro board
+  * Each person should present their features one at a time, giving a *brief* description of what that feature is, so it is clear for the whole group.
+  * After you have described the feature move the sticky note into a category. If it doesn't fit in an existing category, make one.
+  * As each person takes a turn you will notice that some of the features will be duplicates of previously shared features. If this is the case, simple delete that sticky note. _Don't spend time describing a feature if it is a duplicate._
+  * Come up with a name for each of the categories. These will be referred to as [EPICs](https://www.yodiz.com/blog/what-is-epic-in-agile-methodology-definition-and-template-of-epic/) and will be a way to organize your features in your project management tool.
+* **In-Person Instructions**
     * Utilize a large blank wall or sheet of chart paper
     * Each person should present their features one at a time, giving a *brief* description of what that feature is, so it is clear for the whole group.
     * After you have described the feature stick it on the wall or chart paper.
