@@ -26,6 +26,9 @@ In agile processes, a sprint is a single cycle of development. The most common l
 * Deliverables:
     * **Working User Interface** - This interface should touch on all the features of your MVP. You should not build out your microservice yet. Rather, you should mock out the data you want returned from your microservice. Focusing on the user interface first will force you to think through what value your product is delivering through your features.
     * **Microservice Spike** - Although we won't be building out the full microservice just yet, we do want to have a proof of concept that we can build it. This should be as simple as a single Ruby file. You should not spend a lot of time on this spike. What you are aiming to create is a proof of concept that you can supply the data that is needed on the front end.
+      * What is a Micro Service?
+        - [Video-What are microservices?](https://youtu.be/SouNISAnXlo)
+        - [Microservice Article](https://smartbear.com/solutions/microservices/)
 
 **Sprint 2: Final Product**
 
