@@ -70,12 +70,14 @@ Building an API
 * [Dione Wilson, 2001 Cohort](https://vimeo.com/441936930/7f726f0ffd)
 
 Customizing JSON in your API
+* [Dione Wilson, 2005 Cohort](https://vimeo.com/454946391/de0e9aa3d5)
 * [Ian Douglas, 2003 Cohort](https://vimeo.com/441943509/16e0c5e8f1)
 * [Dione Wilson, 2001 Cohort](https://vimeo.com/441935438/8fe924d4fd)
 
 
-## ActiveRecord
+## Advanced ActiveRecord
 
+* [Ian Douglas, 2005 Cohort](https://vimeo.com/454937871/e9c29ea5d7)
 * [Ian Douglas, 2003 Cohort](https://vimeo.com/441945463/d090c702bb)
 * (archive) [Josh Mejia, Dec 2018](https://www.youtube.com/watch?v=OccKyvGvLKE)
 
@@ -114,7 +116,15 @@ PD Supplement: Company Research
 
 ## Additional Topics
 
+Week 3 Open Office Q&A
+* [Ian Douglas, 2005 Cohort](https://vimeo.com/454938447/59913aba0e)
+  * testing a POST endpoint and sending a JSON body, instead of query params
+  * discussion of HTTP and how request bodies are sent in different types
+  * ActiveRecord model dependent destroys
+  * Rails routing and a 'find' endpoint, RESTful discussion
+
 Introduction to Big O Notation
+* [Combined FE/BE 2005, Ian Douglas](https://vimeo.com/454935670/de82b8741c)
 * [Back-End; Ian Douglas, 2003 Cohort](https://vimeo.com/441946493/ac1ef11de7)
 * [Front-End; Ian Douglas, 2003 Cohort](https://vimeo.com/441951062/1516a80c38)
 * [(Mod 4) Ian Douglas, 2001 Cohort](https://vimeo.com/415230957)
