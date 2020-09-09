@@ -4,7 +4,7 @@ length: 120
 tags: ruby, rails, activerecord, sql
 ---
 
-In this lesson, you will be explore an application with a large dataset. Production databases are often very large and present new challenges that we don't often face in our development environments. We will explore various parts of the application that are problematic, try to understand why they are problematic, and discuss some potential solutions to these problems. At the end of this lesson, you will find more resources to help implement those solutions.
+In this lesson, you will explore an application with a large dataset. Production databases are often very large and present new challenges that we don't often face in our development environments. We will explore various parts of the application that are problematic, try to understand why they are problematic, and discuss some potential solutions to these problems. At the end of this lesson, you will find more resources to help implement those solutions.
 
 ## Learning Goals
 
