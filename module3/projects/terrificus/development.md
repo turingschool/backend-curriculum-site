@@ -63,7 +63,7 @@ In addition to the End of Sprint Demos, you will also have two project check ins
 
 ## Continuous Integration
 
-* Set up a [CI Server](http://backend.turing.io/module3/lessons/ci_and_staging_environments)
+* Set up a [CI Server](http://backend.turing.io/module3/lessons/environments_and_ci)
 * Timebox this activity to 2 hours. If you don't get it working in 2 hours, create a branch with your work, but don't merge it.
 
 ## Story Grooming

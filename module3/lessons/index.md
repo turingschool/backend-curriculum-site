@@ -44,5 +44,6 @@ layout: page
 
 ## Additional Resources
 
+* [Continuous Integration and ]
 * [Presenters and Decorators](./presenters_and_decorators)
 * [Application Coordination with Messaging Queues](./application_coordination_with_message_queues)
