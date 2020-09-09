@@ -1,6 +1,6 @@
 ---
 layout: page
-title: CI and Staging Environments
+title: Environments & CI
 length: 105
 tags: workflow, professional skills
 ---
@@ -8,7 +8,7 @@ tags: workflow, professional skills
 
 ## Learning & Completion Goals
 
-*   Students build applications that execute in development, staging, CI and production environments *(functional)*
+* Students build applications that execute in development, staging, CI and production environments
 
 ### Learning Goals Breakdown
 
@@ -58,7 +58,7 @@ If you want to learn more about staging with Heroku - [check out this article.](
 
 There is yet another environment that is common on modern development teams: *Continuous Integration* (CI). It exists to run our tests, report back with success or failure, and in some cases, take additional action.
 
-We all know to run our tests before we push, or after we merge, or before we deploy, but a continuously integrated environment ensures that tests are run. It doesn't allow you to forget. You can even add CI tools to your production deployment process, such that any commit that doesn't pass its tests will be rejected.
+We all should run our tests before we push, or after we merge, or before we deploy, but a continuously integrated environment ensures that tests are run. It doesn't allow you to forget. You can even add CI tools to your production deployment process, such that any commit that doesn't pass its tests will be rejected.
 
 ## Modern Environments
 
@@ -122,7 +122,7 @@ A continuously integrated environment...
 We want to ensure that across environments we have:
 
 *   Consistent versions of Ruby/Node
-*   The same packages/gems installed
+*   The same gems/packages installed
 
 ### What's Different Across Environments?
 
