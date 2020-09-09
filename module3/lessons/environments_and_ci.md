@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Environments & CI
+title: Environments & Continuous Integration(CI)
 length: 105
 tags: workflow, professional skills
 ---
