@@ -45,5 +45,6 @@ layout: page
 ## Additional Resources
 
 * [Environments and Continuous Integration](./environments_and_ci)
+* [Running Production Locally](./running_production_locally)
 * [Presenters and Decorators](./presenters_and_decorators)
 * [Application Coordination with Messaging Queues](./application_coordination_with_message_queues)
