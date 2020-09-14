@@ -86,7 +86,7 @@ end
 
 ### Practice
 
-In our Set List app, update our artist creation and updating to use `form_for` instead of `form_tag` - see if you can keep using the partial!
+In our Set List app, update all of our forms to use `form_for` instead of `form_tag` - see if you can keep using the partial! Can you create another partial using form for?
 
 ## Checks for Understanding
 
