@@ -3,13 +3,19 @@ layout: page
 title: SQL and ActiveRecord Workshop
 ---
 
+## Learning Goals
+1. Get more practice using the more advanced SQL techniques like joins, grouping, and aggregating
+1. Use ActiveRecord, SQL, or both to implement queries
+
 ## Instructions
 
-Choose one of the following problem sets to work on. Group up with students who are working on the same problem set.
+Choose one of the following problem sets to work on. You will group up with students who are working on the same problem set.
 
-With your group, work on the problem set. Try to whiteboard the problem first, then check your solution using `rails dbconsole` or `rails c`.
+With your group, work on the problem set. Try to pseudocode the problem first, then check your solution using `rails dbconsole` or `rails c`.
 
-## Problem Set 1
+Work together to create the feature test and then the queries. You will likely have different data sets, that's okay. Based on how you set up the test, you should be able to reasonably expect a desired result.
+
+## Problem Set 1 (Spicy)
 
 As a merchant admin
 When I visit my dashboard, I see an area with statistics:
@@ -20,7 +26,7 @@ When I visit my dashboard, I see an area with statistics:
 1. List of all of my items that have an average rating of 4 or greater that were never ordered by one of my employees.
 1. top 3 users who have spent the most money on my items, and the total amount they've spent.
 
-## Problem Set 2
+## Problem Set 2 (Less Spicy)
 
 As any kind of user on the system
 When I visit the items index page ("/items")
