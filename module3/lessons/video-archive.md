@@ -59,6 +59,7 @@ Abstraction and Encapsulation
 * [Ian Douglas, 2003 Cohort](https://vimeo.com/441937652/91941af0f8)
 
 Intro to Optimization
+* [Dione Wilson, 2005 Cohort](https://vimeo.com/457602200/39e1b7b1c4)
 * [Ian Douglas, 2003 Cohort](https://vimeo.com/441953043/25ec05f260)
 
 
