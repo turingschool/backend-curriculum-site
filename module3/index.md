@@ -27,6 +27,7 @@ In Module 3, we will look beyond the basics of building Rails web applications w
 * [Consuming APIs in Ruby Exercises](https://github.com/turingschool-examples/m3_exercises)
 * [Mid Mod Practice Assessment](https://github.com/turingschool-examples/parks_finder)
 * [Final Practice Assessment](./practice_assessments/practice_assessment)
+* [Code Fair Guide](./misc/code_fair_guide)
 
 ## Requirements
 
