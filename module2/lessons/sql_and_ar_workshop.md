@@ -11,9 +11,11 @@ title: SQL and ActiveRecord Workshop
 
 Choose one of the following problem sets to work on. You will group up with students who are working on the same problem set.
 
-With your group, work on the problem set. Try to pseudocode the problem first, then check your solution using `rails dbconsole` or `rails c`.
+With your group, work on the problem set. Try to pseudocode the problem first, then check your solution using `rails dbconsole` or `rails c`. You will likely have different data sets, that's okay. But, you do need the database to have a reasonable amount of data to check that your queries are working properly.
 
-Work together to create the feature test and then the queries. You will likely have different data sets, that's okay. Based on how you set up the test, you should be able to reasonably expect a desired result.
+### Testing is optional. Say What? If you do decide to test...
+
+Work together to create the feature test and then the queries. Based on how you set up the data/objects in the test, you should be able to reasonably expect a desired result.
 
 ## Problem Set 1 (Spicy)
 
