@@ -5,7 +5,7 @@ title: Rails .form_for
 
 ## Warm Up
 
-- Thinking about our Set List application, what is the structure of the forms we use to create and edit artists?
+- Thinking about our Set List application, what is the structure of the forms we use to create and edit artists? (Share your screen and put them side by side)
     - How do we tell our forms the path and verb it should use when the form is submitted?
     - What connection exists between the form and the objects we are creating or updating?
 
