@@ -20,7 +20,7 @@ The priority of these goals are demonstrated using a star grading system.<br>
 
 * Consume JSON APIs that require authentication :star: :star: :star:
 * Build an application that requires basic authentication :star: :star: :star:
-* Organize and refactor code to be more maintainable :star: :star: :star: 
+* Organize and refactor code to be more maintainable :star: :star: 
 * Implement a self-referential relationship in ActiveRecord :star: :star:
 * Apply RuboCop's style guide for code quality :star:
 * Utilize Continuous Integration using Travis CI :star:
