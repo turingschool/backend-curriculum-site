@@ -1,23 +1,40 @@
 ---
 title: Viewing Party
 length: 2 weeks
-tags: API consumption, actionmailer, actioncable, paired project, javascript
+tags: API consumption, basic auth, paired project
 type: project
 ---
 
 ## Project Description
 
-For this project, you will be building an application to explore movies and create a viewing party event for you and your friends to watch a movie together. In this application you will authenticate using Google's OAuth so that as a user you can add these events to your Google Calendar.
+For this project, you will be building an application to explore movies and create a viewing party event for you and your friends to watch a movie together. The application will require basic authentication.
 
 ## Learning Goals
 
-* Consume JSON APIs that require authentication
-* Build an application that authenticates using OAuth
-* Implement a self-referential relationship in ActiveRecord
-* Utilize Continuous Integration using Travis CI
-* Organize and refactor code to be more maintainable
-* Apply RuboCop's style guide for code quality
-* Deploy to Heorku
+### Explicit 
+Below are technical goals that you should be applying in the project.<br>
+The priority of these goals are demonstrated using a star grading system.<br>
+  :star: :star: :star: Student should have a functional understanding of the concept<br>
+  :star: :star: Student should have a familiar understanding, but may still have questions<br>
+  :star: Student should know of the concept, but need further resources to implement
+
+* Consume JSON APIs that require authentication :star: :star: :star:
+* Build an application that requires basic authentication :star: :star: :star:
+* Organize and refactor code to be more maintainable :star: :star: :star: 
+* Implement a self-referential relationship in ActiveRecord :star: :star:
+* Apply RuboCop's style guide for code quality :star:
+* Utilize Continuous Integration using Travis CI :star:
+* Deploy to Heorku :star:
+
+### Implicit 
+Below are skills that are more general/necessary on the job that are practiced by completing the goals above.
+
+* Reading Documentation
+* Implementing concepts that are not explicitley taught
+* Pracitce individual reasearch (articles, videos, mentors)
+* Team communication
+* Prioritizing goals/user stories
+* Time management
 
 ### Possible Exploration Goals
 * Send email from a Rails application
