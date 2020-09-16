@@ -8,6 +8,10 @@ type: project
 
 ![welcome wireframe](./assets/welcome.png)
 
+### Registration
+
+![registration wireframe](./assets/registration.png)
+
 ### Dashboard
 
 ![dashboard wireframe](./assets/dashboard.png)
