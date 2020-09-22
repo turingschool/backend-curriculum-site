@@ -71,7 +71,7 @@ Students will be evaluated on 3 main criteria: feature completion, testing, and 
 
 ### Code Quality
 
-1. Completes only 2 checkboxes outlined below
+1. Completes less than 3 checkboxes outlined below
 2. Completes 3-4 checkboxes outlined below
 3. Completes all checkboxes outlined below
 4. Completes all checkboxes outlined below and implements inheritance or polymorphism
