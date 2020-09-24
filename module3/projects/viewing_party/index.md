@@ -39,13 +39,6 @@ Below are skills that are more general/necessary on the job that are practiced b
 * Prioritizing goals/user stories
 * Time management
 
-### Possible Exploration Goals
-* Send email from a Rails application
-* Use ActionCable for chat functionality
-* Implement front-end JavaScript for more dynamic pages
-* Extend movie exploration by consuming more API endpoints
-* Deploy with another production service
-
 ## Project Requirements
 
 Project requirements can be found [here](./requirements)
