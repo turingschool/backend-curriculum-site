@@ -84,6 +84,6 @@ You are to complete Chapters 1-5 of Eloquent Javascript.
 
 We are mainly looking for you to get experience with the syntax, and at a minimumum you should understand the JS Data Types, Conditionals, and Looping.
 
-[jQuery](https://www.codeschool.com/courses/try-jquery)
+[jQuery](https://www.tutorialrepublic.com/jquery-tutorial/jquery-syntax.php)
 
-JQuery is a popular javascript library for manipulating the content of web pages. Dip your toes in with this introductory Jquery class.
+JQuery is a popular javascript library for manipulating the content of web pages. Dip your toes in with this introductory Jquery tutorial.
