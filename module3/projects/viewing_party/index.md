@@ -15,9 +15,9 @@ For this project, you will be building an application to explore movies and crea
 Below are technical goals that you should be applying in this project.<br>
 The priority of these goals are demonstrated using a star grading system.<br>
 By the end of this project: <br>
-  ⭐ ⭐ ⭐ Student should have a functional understanding of the concept<br>
-  ⭐ ⭐ Student should have a familiar understanding, but may still have questions <br>
-  ⭐ Student should know of the concept, but need further resources to implement
+  Student should have a functional understanding of the concept ⭐ ⭐ ⭐ <br>
+  Student should have a familiar understanding, but may still have questions ⭐ ⭐ <br>
+  Student should know of the concept, but need further resources to implement ⭐ 
 
 * Consume JSON APIs that require authentication ⭐ ⭐ ⭐
 * Build an application that requires basic authentication ⭐ ⭐ ⭐
