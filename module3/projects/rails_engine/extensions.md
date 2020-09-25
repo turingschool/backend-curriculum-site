@@ -6,7 +6,20 @@ tags:
 type: project
 ---
 
-Complete the following stories on the Front End, Rails Driver:
+
+## Beginner Extension Learning Goals
+
+* Continue practicing exposing API endpoints
+
+Build out the CRUD functionality for Orders
+
+
+## Advanced Extension Learning Goals
+
+* Make API calls using javascript `fetch` calls.
+* Use jQuery to traverse and manipulate the DOM.
+
+Below are stories for you to try if you feel confident in the project learning goals. Complete the these stories on the Front End, Rails Driver:
 
 Story 1:
 

@@ -6,19 +6,38 @@ tags:
 type: project
 ---
 
+## Project Description
+
 You are working for a company developing an E-Commerce Application. Your team is working in a service-oriented architecture, meaning the front and back ends of this application are separate and communicate via APIs. Your job is to expose the data that powers the site through an API that the front end will consume.
 
 ## Learning Goals
 
-* Expose an API.
-* Use serializers to format json responses
-* Test API exposure
-* Compose advanced ActiveRecord queries to analyze information stored in SQL databases.
-* Write basic SQL statements without the assistance of an ORM.
+### Explicit
 
-##### Extension Learning Goals
-* Make API calls using javascript `fetch` calls.
-* Use jQuery to traverse and manipulate the DOM.
+Below are technical goals that you should be applying in this project.<br>
+The priority of these goals are demonstrated using a star grading system.<br>
+By the end of this project: <br>
+  Student should have a functional understanding of the concept ⭐ ⭐ ⭐ <br>
+  Student should have a familiar understanding, but may still have questions ⭐ ⭐ <br>
+  Student should know of the concept, but need further resources to implement ⭐
+
+* Expose an API ⭐ ⭐ ⭐
+* Use serializers to format JSON responses ⭐ ⭐ ⭐
+* Test API exposure ⭐ ⭐ ⭐
+* Compose advanced ActiveRecord queries to analyze information stored in SQL databases ⭐ ⭐
+* Write basic SQL statements without the assistance of an ORM ⭐
+
+_Note: See [Learning Goals](../../misc/learning_goals) to see at what level these skills need to be by the final._
+
+### Implicit
+Below are skills that are more general/necessary on the job that are practiced by completing the goals above.
+
+* Reading Documentation
+* Time Management
+* Prioritizing Work
+* Breaking down large project into small pieces
+* Breaking down a problem into small steps
+* Practice individual research (articles, videos, mentors)
 
 ## Project Management
 

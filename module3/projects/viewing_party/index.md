@@ -17,7 +17,7 @@ The priority of these goals are demonstrated using a star grading system.<br>
 By the end of this project: <br>
   Student should have a functional understanding of the concept ⭐ ⭐ ⭐ <br>
   Student should have a familiar understanding, but may still have questions ⭐ ⭐ <br>
-  Student should know of the concept, but need further resources to implement ⭐ 
+  Student should know of the concept, but need further resources to implement ⭐
 
 * Consume JSON APIs that require authentication ⭐ ⭐ ⭐
 * Build an application that requires basic authentication ⭐ ⭐ ⭐
@@ -33,8 +33,8 @@ _Note: See [Learning Goals](../../misc/learning_goals) to see at what level thes
 Below are skills that are more general/necessary on the job that are practiced by completing the goals above.
 
 * Reading Documentation
-* Implementing concepts that are not explicitley taught
-* Pracitce individual reasearch (articles, videos, mentors)
+* Implementing concepts that are not explicitly taught
+* Practice individual research (articles, videos, mentors)
 * Team communication
 * Prioritizing goals/user stories
 * Time management
