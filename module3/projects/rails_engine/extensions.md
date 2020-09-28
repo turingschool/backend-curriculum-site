@@ -6,6 +6,19 @@ tags:
 type: project
 ---
 
+Complete the following task for the Rails-Engine backend:
+
+```
+As a developer, I would like to make a rake task such as "rake seed:csv" which populates my database with the CSV data in a reproducable way.
+
+This Rake Task should:
+- Clear your Development database to prevent data duplication
+- Seed your Development database with the CSV data
+- Be invokable through Rake, i.e. you should be able to run `bundle exec rake <your_rake_task_name>` from the command line
+- Convert all prices before storing. Prices are in cents, therefore you will need to transform them to dollars. (`12345` becomes `123.45`)
+- Reset the primary key sequence for each table you import so that new records will receive the next valid primary key.
+```
+
 Complete the following stories on the Front End, Rails Driver:
 
 Story 1:
