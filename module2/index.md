@@ -12,6 +12,7 @@ In Module 2, we expand upon fundamental Ruby skills by building database-backed 
 
 * Brian Zanti (Anchor)
 * Tim Tyrrell
+* Alex Robinson
 
 ## Curriculum
 
