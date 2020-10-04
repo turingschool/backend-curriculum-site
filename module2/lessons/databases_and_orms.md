@@ -1,5 +1,6 @@
 ---
 title: Intro to Databases and ORMs
+length: 120
 layout: page
 ---
 
