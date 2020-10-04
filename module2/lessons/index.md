@@ -36,12 +36,14 @@ layout: page
 
 ## ActiveRecord
 
+- [Intro to Databases and ORMs](./databases_and_orms)
 * [ActiveRecord Associations](./active_record_associations)
 - [SQL and ActiveRecord](./sql_and_active_record)
 - [SQL and ActiveRecord Workshop](./sql_and_ar_workshop)
 
 ## Databases
 
+- [Intro to Databases and ORMs](./databases_and_orms)
 - [One to Many Relationships](./one_to_many_relationships)
 - [Many to Many Relationships](./many_to_many)
 - [SQL and ActiveRecord](./sql_and_active_record)
