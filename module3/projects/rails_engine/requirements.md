@@ -13,17 +13,8 @@ type: project
 
 # 1. Data Importing
 
-Copy [these CSV files](https://github.com/turingschool/sales_engine/tree/master/data) into your project and create a Rake Task to seed your database using that data.
+Copy [these CSV files](https://github.com/turingschool/sales_engine/tree/master/data) into your project folder, and determine a way to import that into your database. Be sure to use the ID values from the CSV data in your own database, and use ActiveRecord to reset the Primary Key sequences in PostgreSQL afterward.
 
-Your Rake Task should:
-
-* Clear your Development database to prevent data duplication
-* Seed your Development database with the CSV data
-* Be invokable through Rake, i.e. you should be able to run `bundle exec rake <your_rake_task_name>` from the command line
-* Convert all prices before storing. Prices are in cents, therefore you will need to transform them to dollars. (`12345` becomes `123.45`)
-* Reset the primary key sequence for each table you import so that new records will receive the next valid primary key.
-
-**You do not need to test your Rake Task**
 
 # 2. API Endpoints
 

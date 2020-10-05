@@ -1,17 +1,35 @@
 ---
 layout: page
 title: Refactoring API Consumption
-length: 60
+length: 120
 tags: apis, rails, refactoring
 ---
+
+## Vocabulary
+
+Refactor:
+- to change code in a way that the end functionality still works as intended, but reorganizes it in a way to make it easier to maintain, easier to test, etc
+
+SRP:
+- Single Responsibility Principle; the ideal that a piece of code should be responsible for one kind of task
+  - this can be at a class level, a method level, etc.
+
+Design Pattern:
+- an implementation of code which follows as much "industry standard" as possible to achieve clean organization of our code
+
+MVC:
+- Model, View, Controller design pattern; a way of organizing our code into logical portions where our "business logic" is managed by the Controller, the "data logic" is managed by the Models, and the "presentation logic" is managed by the Views
+
 
 ## Learning Goals
 
 By the end of this class, a student should be able to:
 
-* Refactor code that reaches an API from the controller into single responsibility POROS.
+* Refactor code that reaches an API from the controller
+  - Refactoring will include the Facade design pattern, the Service design pattern
 
 * Utilize two of the pillars of object oriented programming, abstraction and encapsulation, to guide their refactoring.
+
 
 ### Declarative Programming
 
@@ -31,7 +49,7 @@ We will also be using the Red, Green, Refactor technique. Red refers to a failin
 
 ### Member Objects
 
-Right now, our app does what it’s supposed to do but there’s a good chance that it doesn’t “feel” right. Specifically, our `index` action in the controller is long, violates SRP and MVC, isn't very abstract, the data isn't well encapsulated, and the logic that lives in it isn’t reusable. Time to refactor.
+Right now, our app does what it's supposed to do but there’s a good chance that it doesn’t "feel" right. Specifically, our `index` action in the controller is long, violates SRP and MVC, isn't very abstract, the data isn't well encapsulated, and the logic that lives in it isn’t reusable. Time to refactor.
 
 ```ruby
 class SearchController < ApplicationController
@@ -91,11 +109,11 @@ end
 
 Here, we are imagining that we can map our Array of Hashes to an Array of Member objects.
 
-When we run the tests, it complains that `Member` does't exist, so let's go make it:
+When we run the tests, it complains that `Member` does't exist, so let's go make it. We're going to create this as a Plain Old Ruby Object (PORO), and not as a Model, since we don't intend to store this data in our database:
 
 
 ```ruby
-# app/models/member.rb
+# app/poros/member.rb
 
 class Member
 end
@@ -127,7 +145,7 @@ Now our view is complaining about undefined method `[]` for a `Member` object. I
 Now we get undefined method `name` for our Member objects. All that's left to do is expose that data through `attr_readers`:
 
 ```ruby
-# app/models/member.rb
+# app/poros/member.rb
 
 class Member
   attr_reader :name,
@@ -147,11 +165,11 @@ end
 We should now be back to green! That's a successful refactor. It would also be a good idea to add a test for the Member class:
 
 ```ruby
-# spec/models/member_spec.rb
+# spec/poros/member_spec.rb
 
 require "rails_helper"
 
-describe Member do
+RSpec.describe Member do
   it "exists" do
     attrs = {
       name: "Leslie Knope",
@@ -171,7 +189,7 @@ describe Member do
 end
 ```
 
-### SearchResults Object
+### SearchFacade Object
 
 Let's look at our Controller in it's current state:
 
@@ -204,8 +222,7 @@ Let's declare what this might look like:
 class SearchController < ApplicationController
 
   def index
-    search_results = SearchResults.new
-    @members = search_results.members
+    @members = SearchFacade.members
 
     # state = params[:state]
     #
@@ -223,28 +240,38 @@ class SearchController < ApplicationController
 end
 ```
 
-We are imagining that we have this `SearchResults` object that can give us all of our members through a single method, `.members`. Notice that we've also commented out all the code that we want to abstract away.
+### What is a Facade?
 
-When we run the tests, it complains about not finding `SearchResults`, so let's go make it. First, we're going to create a new directory `app/poros`. POROs are Plain Old Ruby Objects:
+In construction and architecture, a "facade" is like a "faceplate" or something that covers something more complex underneath. In software design, a Facade is a front-facing interface masking more complex underlying or structural code. To use our CEO and "company structure" analogy, a Facade is like "middle management" who knows who to organize to get a job done.
+
+In our code, our Controllers will generally have one Facade, and the Facade should be named similarly to our Controller. In this case, our SearchController will call our SearchFacade.
+
+When we make Facades, we will generally not need to instantiate them, and instead call class methods within them. (all methods defined in the class will need to be prefixed with "self." This saves our Ruby interpreter from having to clean up a lot of leftover objects by the time we're done our code today!
+
+### Back to code:
+
+We are imagining that we have this `SearchFacade` object that can give us all of our members through a single class method, `self.members`. Notice that we've also commented out all the Controller code that we want to abstract away.
+
+When we run the tests, it complains about not finding `SearchFacade`, so let's go make it. First, we're going to create a new directory `app/facades`.
 
 ```ruby
-# app/poros/search_results.rb
+# app/facades/search_facade.rb
 
-class SearchResults
+class SearchFacade
 
 end
 ```
 
-Rails will automatically load anything in the `app` directory. However, you will need to restart your server if the `poros` directory is new. After the initial restart any new POROS placed in there will be loaded and you _do not need to restart your server_.
+Rails will automatically load anything in the `app` directory. However, you will need to restart your server if any directories created under /app/ are new. After the initial restart any new files placed in those directories will be loaded and you _do not need to restart your server_.
 
 When we run the tests, it complains about not having a `members` method:
 
 ```ruby
-# app/poros/search_results.rb
+# app/facades/search_facades.rb
 
-class SearchResults
+class SearchFacade
 
-  def members
+  def self.members
   end
 
 end
@@ -253,11 +280,11 @@ end
 Now our test says undefined method `size` for `nil`. This makes sense since our members method is return nothing. We want this method to return all of our members. We can accomplish this by moving all that code we commented out before into this members method:
 
 ```ruby
-# app/poros/search_results.rb
+# app/facades/search_facade.rb
 
-class SearchResults
+class SearchFacade
 
-  def members
+  def self.members
     state = params[:state]
 
     conn = Faraday.new(url: 'https://api.propublica.org') do |faraday|
@@ -275,24 +302,23 @@ class SearchResults
 end
 ```
 
-Now our tests give us the error `undefined local variable or method 'params'` for our SearchResults object. This is a Rails specific error: params are only accessible from the controller. So rather than trying to access them from inside this PORO, let's pass the parameter we want as an argument:
+Now our tests give us the error `undefined local variable or method 'params'` for our SearchFacade object. This is a Rails specific error: params are only accessible from the controller. So rather than trying to access them from inside this PORO, let's pass the parameter we want as an argument:
 
 ```ruby
 class SearchController < ApplicationController
 
   def index
-    search_results = SearchResults.new
-    @members = search_results.members(params[:state])
+    @members = SearchFacade.members(params[:state])
   end
 end
 ```
 
 ```ruby
-# app/poros/search_results.rb
+# app/facades/search_facade.rb
 
-class SearchResults
+class SearchFacade
 
-  def members(state)
+  def self.members(state)
     conn = Faraday.new(url: 'https://api.propublica.org') do |faraday|
       faraday.headers['X-API-Key'] = ENV["PROPUBLICA_API_KEY"]
       faraday.adapter Faraday.default_adapter
@@ -310,18 +336,18 @@ end
 
 Our tests are back to green! Another refactor down. Our controller is now quite skinny and is truly acting as that CEO.
 
-We're not going to unit test our `SearchResults` PORO. This is because this particular PORO's job is to pull in information from different places and combine it, in order to pass a single object to the view. If we write good feature tests and our PORO simply calls out to other objects that are thoroughly unit tested, the functionality should be well covered. However, there's nothing wrong with testing this PORO if you would like to and some might prefer being more thorough.
+We're not going to unit test our `SearchFacade` in this lesson, but it would be a really good idea to do so! Since it is a standalone class method which takes a string of input and returns a payload of data, it is very straightforward on how to write this kind of test and set expectations on what our data should look like. The good news is that if you unit test everything that the Facade interacts with, your Facade test can be quite short -- when I call a class method with this input, I expect to get back, in this case, an array of Member objects.
 
 ### Service Objects
 
-Looking at our `.members` method, we can see that it is still quite long, violating SRP, and not very abstract. Let's separate the responsibility of interacting with the API into a separate class. Let's use declarative programming again:
+Looking at our `.members` method, we can see that it is still quite long, violating SRP because it's also creating Member objects, and not very abstract. Let's separate the responsibility of interacting with the API into a separate class. Let's use declarative programming again:
 
 ```ruby
-# app/poros/search_results.rb
+# app/facades/search_facade.rb
 
-class SearchResults
+class SearchFacade
 
-  def members(state)
+  def self.members(state)
     # conn = Faraday.new(url: 'https://api.propublica.org') do |faraday|
     #   faraday.headers['X-API-Key'] = ENV["PROPUBLICA_API_KEY"]
     #   faraday.adapter Faraday.default_adapter
@@ -329,7 +355,7 @@ class SearchResults
     #
     # response = conn.get("/congress/v1/members/house/#{state}/current.json")
     # json = JSON.parse(response.body, symbolize_names: true)
-    json = PropublicaService.new.members_of_house(state)
+    json = PropublicaService.members_of_house(state)
 
     @members = json[:results].map do |member_data|
       Member.new(member_data)
@@ -339,7 +365,9 @@ class SearchResults
 end
 ```
 
-We're declaring that we have a `PropublicaService` object that has a method we can call that will give us all the data we need to create our `Member` objects. That `PropublicaService` object will handle all the details of how to interact with the Propublica API, abstracting away those details. It is convention to call these types of objects "Services".
+We're declaring that we have a `PropublicaService` object that has a class method we can call that will give us all the data we need to create our `Member` objects. (Again, we don't have to "new" up an object of our service). That `PropublicaService` method will handle all the details of how to interact with the Propublica API, abstracting away those details. It is convention to call these types of objects "Services".
+
+**Note: It's also good practice to abstract the NAME of the API from which we're gathering data so anything outside of this class doesn't even get a hint of how/where we're getting this data. For example, calling this `GovernmentDataService` might be better, because maybe Propublica goes offline, or gets bought by a giant company and shut down, and now we have a ton of refactoring to do to change the name of our service class.**
 
 When we run the tests, it doesn't know what `PropublicaService` is, so let's go make it. First, we will make a new folder `app/services`:
 
@@ -351,13 +379,13 @@ class PropublicaService
 end
 ```
 
-Next, we need a `members_of_house` method:
+Next, we need a `members_of_house` method, which we'll make as a class method:
 
 ```ruby
 # app/services/propublica_service.rb
 
 class PropublicaService
-  def members_of_house(state)
+  def self.members_of_house(state)
 
   end
 end
@@ -369,7 +397,7 @@ And finally, we need the code to actually hit the api, which is the code we comm
 # app/services/propublica_service.rb
 
 class PropublicaService
-  def members_of_house(state)
+  def self.members_of_house(state)
     conn = Faraday.new(url: 'https://api.propublica.org') do |faraday|
       faraday.headers['X-API-Key'] = ENV["PROPUBLICA_API_KEY"]
       faraday.adapter Faraday.default_adapter
@@ -385,18 +413,18 @@ And our test is passing again!
 
 You'll notice that we didn't move over the instantiating of the `Member` objects. This is because we want the only job of this service to be to talk to Propublica (SRP). Formatting the data is separate responsibility and should be done elsewhere.
 
-Let's make one more refactor in our service. If we ever need to hit a different Propublica endpoint, for instance members of the Senate, it would be nice if we could reuse that Faraday connection object. This object sets up the base url for the api and the api key, both things that will be consistent across API calls to Propublica, which makes it the perfect candidate to increase reusability:
+Let's make one more refactor in our service. If we ever need to hit a different Propublica endpoint, for instance, to get members of the Senate, it would be nice if we could reuse that Faraday connection object. This object sets up the base url for the api and the api key, both things that will be consistent across API calls to Propublica, which makes it the perfect candidate to increase reusability. Since our members_of_house method is a class method, our "conn" method will also need to be a class method.
 
 ```ruby
 # app/services/propublica_service.rb
 
 class PropublicaService
-  def members_of_house(state)
+  def self.members_of_house(state)
     response = conn.get("/congress/v1/members/house/#{state}/current.json")
     json = JSON.parse(response.body, symbolize_names: true)
   end
 
-  def conn
+  def self.conn
     Faraday.new(url: 'https://api.propublica.org') do |faraday|
       faraday.headers['X-API-Key'] = ENV["PROPUBLICA_API_KEY"]
       faraday.adapter Faraday.default_adapter
@@ -417,29 +445,35 @@ describe PropublicaService do
   context "instance methods" do
     context "#members_by_state" do
       it "returns member data" do
-        service = PropublicaService.new
-        search = service.members_of_house("CO")
+        search = PropublicaService.members_of_house("CO")
         expect(search).to be_a Hash
         expect(search[:results]).to be_an Array
         member_data = search[:results].first
 
         expect(member_data).to have_key :name
+        expect(member_data[:name]).to be_a(String)
+
         expect(member_data).to have_key :role
+        expect(member_data[:role]).to be_a(String)
+
         expect(member_data).to have_key :district
+        expect(member_data[:district]).to be_a(String)
+
         expect(member_data).to have_key :party
+        expect(member_data[:party]).to be_a(String)
       end
     end
   end
 end
 ```
 
-Notice how we aren't expecting specific data from the API such as the names of the representatives. We don't want our test to be too dependent on an external API where we don't have full control over what data we'll get back.
+Notice how we aren't expecting specific data from the API such as the names of the representatives. We don't want our test to be too dependent on an external API where we don't have full control over what data we'll get back. But we SHOULD test that the fields of that data match a data type that we expect, such as strings, integers, arrays, etc.
 
 ### Checks for Understanding
 
 * What is declarative Programming?
 * What is Red, Green, Refactor?
-* For each file we've touched (Controller, SearchResults, Member, PropublicaService):
+* For each file we've touched (Controller, SearchFacade, Member, PropublicaService):
     * Is it Single Responsibility? How would you describe its responsibility?
     * Does it achieve Abstraction?
     * Does it achieve Encapsulation?
