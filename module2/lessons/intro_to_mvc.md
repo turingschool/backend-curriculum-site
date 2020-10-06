@@ -117,10 +117,10 @@ Controllers should limit their database actions to very simple lookups, or creat
 
 ### Experiment
 
-1) Add a new route and view so that the user can successfully visit “localhost:9393/easteregg” and see a new view of your choice.
-2) Add a new route so that the user can go to “localhost:9393/showmethetasks” and be redirected to all of the tasks. NOTE: You should not have to create a new view, nor should you use the erb method.
+* Add a new route and view so that the user can successfully visit “localhost:9393/easteregg” and see a new view of your choice.
+* Add a new route so that the user can go to “localhost:9393/showmethetasks” and be redirected to all of the tasks. NOTE: You should not have to create a new view, nor should you use the erb method.
 
-Let’s also quickly talk about why the 2nd path isn’t a good idea.
+**Let’s also quickly talk about why the 2nd path isn’t a good idea.**
 
 ### Recap
 * What does MVC stand for?
