@@ -33,6 +33,7 @@ typically return a 401 status code.
 In Rails 5.x, we will typically build a login page using `form_tag`, which is
 being replaced with `form_with`:
 
+```ruby
 <%= form_with url: sessions_path, local: true do |form| %>
   <%= form.label :username %>
   <%= form.text_field :username %>
@@ -42,7 +43,7 @@ being replaced with `form_with`:
 
   <%= form.submit 'Log in' %>
 <% end %>
-
+```
 
 (The `local: true` flag will stop our form from using JavaScript to send our
 form as an AJAX call to our endpoint.)
