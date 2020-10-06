@@ -68,14 +68,12 @@ If you complete the activity and answer the follow up questions, try to execute 
 ## Rails Console Activity
 
 1. In TaskManager, open up the Rails console by running `rails c` from the command line (make sure that you navigate to your TaskManager repo first)
-1. Open up your `Tasks` table in Postico. Now run `tasks = Task.all` in your Rails console. Is this what you would expect? What type of object is returned from this method call?
-1. In Postico, add a new task to the Tasks Table. Now in your Rails console, check the value of your `tasks` variable. Did it change? Why do you think that is? Now run `tasks = Task.all` in your Rails Console. Did the `tasks` variable change? Why do you think that is?
-1. In the Rails Console, run `Task.create(title: "Laundry", description: "Clean the clothes")`. Now open up the Tasks table in Postico. Do you see your new Task? What does the `create` method do?
-1. In the Rails Console, run `task = Task.new(title: "Laundry", description: "Clean the clothes")`. What `id` do you see stored in the new Task object? Now open up the Tasks table in Postico. Do you see your new Task? In the Rails Console, run `task.save`. Now what `id` do you see for the Task object? Do you see it stored in the Tasks table in Postico? What is the difference between `new` and `create`?
-1. In the Rails Console, run `task.update(description: "Launder the laundry")`. Now check your Tasks table in Postico. Did it change? Is this what you expected?
+1. Open up your `Tasks` table in Postico. Now run `tasks = Task.all` in your Rails console. Is this what you would expect? What type of object is returned from this method call? What SQL query do you see in the Rails Console after running this command? Now run `Task.all.to_sql`. How does this compare to the SQL command you saw in the Rails Console?
+1. In the Rails Console, run `Task.create(title: "Laundry", description: "Clean the clothes")`. Now open up the Tasks table in Postico. Do you see your new Task? If not, try to refresh your table. What SQL query do you see in the Rails Console after running this command? What does the `create` method do?
+1. In the Rails Console, run `task = Task.new(title: "Grocery Shopping", description: "need to eat")`. What `id` do you see stored in the new Task object? Now open up the Tasks table in Postico. Do you see your new Task? In the Rails Console, run `task.save`. Now what `id` do you see for the Task object? Do you see it stored in the Tasks table in Postico? What is the difference between `new` and `create`?
+1. In the Rails Console, run `task.update(description: "go buy food")`. Now check your Tasks table in Postico. Did it change? Is this what you expected?
 1. In the Rails Console, run `task.destroy`. Now check your Tasks table in Postico. Did it change? Is this what you expected?
 1. In the Rails Console, run `Task.find(<id>)` where `<id>` is the `id` of a Task in your database. What does this return? Now run the same command with an `id` that is not in the database. What does this produce?
-1. In the Rails Console, run the following: `Task.all.to_sql`, `Task.create(title: "Laundry", description: "Clean the clothes").to_sql`, and `Task.destroy_all.to_sql`. What do these commands output?
 
 Key Takeaways:
 
