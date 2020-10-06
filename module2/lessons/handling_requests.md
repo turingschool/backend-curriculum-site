@@ -26,7 +26,7 @@ This lesson plan last updated to use Rails 5.2.4.3 and Ruby 2.5.3
 * route
 * action
 
-# Starting a New Project
+# Setup
 
 ## Create your app
 
@@ -72,6 +72,8 @@ rails db:create
 ```
 
 Refresh the page and you should see "Yay! You're on Rails!"
+
+# End of Setup
 
 # Developing the Index Page
 
