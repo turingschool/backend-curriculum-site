@@ -162,7 +162,7 @@ class SongsController < ApplicationController
 end
 ```
 
-An `action` in the context of a rails app is just a method defined inside a Controller.
+An `action` in the context of a rails app is a `method` defined inside a Controller.
 
 We have now successfully routed our request to a controller action.
 
@@ -191,15 +191,74 @@ Rails convention says that we should include the output format type in the filen
 
 Refresh your page and you should see a blank page. We have successfully rendered a response.
 
+Before we move on. Lets pry
+
+```ruby
+class SongsController < ApplicationController
+  def index
+    binding.pry
+  end
+end
+```
+
+Refresh the page and check the terminal where the server is running. You should see something like:
+
+```bash
+Started GET "/songs" for ::1 at 2020-10-06 15:58:55 -0600
+Processing by SongsController#index as HTML
+
+From: /Users/tim_tyrrell/staff_turing/2mod/explorations/set_list_2008/app/controllers/songs_controller.rb:3 SongsController#index:
+
+   2: def index
+=> 3:   require "pry"; binding.pry
+   4: end
+
+[1] pry(<SongsController>)>
+```
+
+Lets start here. Your controllers and views have access to both a **request** AND **response** object that Rails builds for you with each request.
+
+Type in `request` in your pry session.
+
+.....
+
+That's not incredibly helpful, because it's an overload of information that we need to parse through. But, what if we scope the inspection of this request object to be more specific?
+
+Type in `ls request` in your pry session.
+
+This will list all of the methods available for the `request` object
+
+Try these 3 methods in your pry session:
+`request.get?`
+`request.path`
+`request.base_url?`
+
+Now we're getting much more helpful information.
+
+Lets look at the **response** object:
+
+Type in `ls response` in your pry session.
+
+This will list all of the methods available for the `response` object
+
+Try these 3 methods in your pry session:
+`response.status`
+`response.body`
+`response.sent?`
+
+Remember that each of these objects will have a plethora of relevant information about the request/response cycle at any given time.
+
+
 ## Database Setup
 
 We want this page to show all the Songs from our database. Let's set up our Songs table.
 
-We are going to need a **migration** in order to create a table. Any time we need to alter the structure of our database, we are going to do so with a migration. Other examples of what you might need a migration for:
+We are going to need a **migration** in order to create a table. Any time we need to alter the structure of our database, we are going to do so with a migration. Some other examples of what you might need a migration for:
 
 * Creating a Table
 * Adding/removing a column from a table
 * Renaming a table/column
+* Much More
 
 Luckily, Rails gives us some built in syntax for generating migrations:
 
@@ -326,6 +385,12 @@ Start up your rails server: `rails server` or `rails s` from the command line.
 
 Navigate to `localhost:3000/songs` to see your songs.
 
+Put a pry in your views at any point to inspect your variables!
+
+```html
+<% binding.pry %>
+```
+
 ## Checks for Understanding
 
 - What setup do you need to do to start a new Rails application?
@@ -338,6 +403,7 @@ Navigate to `localhost:3000/songs` to see your songs.
 - Explain the four pieces of information that `rails routes` give us.
 - In a Rails app, what is an "action"?
 - Where does Rails look for a view by default?
+- Which helpful objects can we view in pry in both our views and controllers?
 
 ### More Reading
 
