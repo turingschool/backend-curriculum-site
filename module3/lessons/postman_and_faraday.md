@@ -12,17 +12,17 @@ tags: apis, rails, faraday
 
 ### Vocabulary Bank
 
-* API: Application Programming Interface
-* API Endpoint: An address to which a client can request information
-* JSON: JavaScript Object Notation
-* Client: A program that relies on requesting information from a server
-* HTTP: Hypertext Transfer Protocol
-* HTTP Verb: methods that define the intended action to be performed on a resource
-* HTTP request: A standard way to communicate information between a client _ex. Browser_ and a server
-* HTTP response: A standard way to return information from a server to a client based on the client's request
-* Postman: A tool that allows developers to visualize the parts of HTTP requests and responses
-* Faraday Gem: An HTTP client library that allows developers to more easily write requests and handle responses in Ruby
-* Response Status: A numerical code provided by a server to indicate the result of a request
+* __API__: Application Programming Interface
+* __API Endpoint__: An address to which a client can request information
+* __JSON__: JavaScript Object Notation
+* __Client__: A program that relies on requesting information from a server
+* __HTTP__: Hypertext Transfer Protocol
+* __HTTP Verb__: methods that define the intended action to be performed on a resource
+* __HTTP request__: A standard way to communicate information between a client _ex. Browser_ and a server
+* __HTTP response__: A standard way to return information from a server to a client based on the client's request
+* __Postman__: A tool that allows developers to visualize the parts of HTTP requests and responses
+* __Faraday Gem__: An HTTP client library that allows developers to more easily write requests and handle responses in Ruby
+* __Response Status__: A numerical code provided by a server to indicate the result of a request
 
 ### Warmup
 
