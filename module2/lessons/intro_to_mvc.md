@@ -14,7 +14,7 @@ title: Introduction to MVC
 * Model
 * View
 * Controller
-* DSL(Domain Specific Language)
+* DSL (Domain Specific Language)
 
 ## Warmup
 
@@ -24,9 +24,9 @@ title: Introduction to MVC
 
 ### Overview
 
-* Controllers - Coordinate the response to an HTTP request. In Task Manager, we just had one, but it is common to have multiple controllers.
-* Models - Interact with the database. Holds other methods related to a particular resource (e.g. a `task`)
-* Views - Templates for pages that we will display to our user. Frequently contain placeholders for data, making them dynamic.
+* **Models** - Interact with the database. Holds other methods related to a particular resource (e.g. a `task`)
+* **Views** - Templates for pages that we will display to our user. Frequently contain placeholders for data, making them dynamic.
+* **Controllers** - Coordinate the response to an HTTP request. In Task Manager, we just had one, but it is common to have multiple controllers.
 
 ### Controller
 
@@ -39,7 +39,9 @@ Look at your Task Manager `routes.rb`.
 
 Look at your `tasks_controller.rb`:
 
-* Each route maps to a controller action (a method defined in the controller class)
+* Each route maps to a controller **action**
+* A controller **action** is a **method** defined in a Controller class
+* Controller **methods** and **actions** are synonymous
 * Controllers send commands to models to perform database interactions
   * ex: the `index` action retrieves all the tasks
   * ex: the `create` action saves a new task
