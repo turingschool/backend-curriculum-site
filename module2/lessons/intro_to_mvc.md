@@ -87,6 +87,9 @@ Look at a view from Task Manager
 
 Let's draw a diagram to represent this process.
 
+<details><summary>MVC Diagram</summary>
+<img src='./images/mvc_rails.png'>
+</details>
 [MVC Diagram](https://www.bogotobogo.com/RubyOnRails/images/MVC/MVC_Rails.png)
 
 ### Logic "Responsibilities"
