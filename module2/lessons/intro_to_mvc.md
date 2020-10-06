@@ -88,7 +88,9 @@ Look at a view from Task Manager
 Let's draw a diagram to represent this process.
 
 <details><summary>MVC Diagram</summary>
-![MVC in Rails diagram](./images/mvc_rails.png "MVC in Rails")
+
+![MVC in Rails diagram](images/mvc_rails.png)
+
 </details>
 
 
