@@ -67,7 +67,8 @@ Look at a view from Task Manager
 * By default, Rails looks for our views in a `/views` directory.
 * Use ERB (embedded ruby) to describe how data should be used to create HTML
     * `<%= %>` renders the return value of the enclosed statement. Use this when you need something to be a part of the HTML document sent to the User.
-      * ex: `<p><%= task.description %></p>`
+      * ex: `<p><%= task.description %></p>`      
+      **This piece of code will be extremely useful for assigning** `id` **attributes dynamically, which is important for testing. Bookmark this piece of code!**
       * ex: `<div id="task-<%= task.id %> >"`
     * `<% %>` does not render the return value. Use this when you don't want the return value to become part of the HTML. Typically, these are used for Ruby statements that control other statements.
       * ex: `<% tasks.each do |task| %>` ... `<% end %>`
