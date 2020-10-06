@@ -9,92 +9,76 @@ tags: apis, rails, faraday
 
 - Understand how to consume API endpoints
 - Gain familiarity with the Faraday and Postman HTTP clients
-- Consume an API using different HTTP clients
 
----
+### Vocabulary Bank
 
-#### Warmup
+* API: Application Programming Interface
+* API Endpoint: An address to which a client can request information
+* JSON: JavaScript Object Notation
+* Client: A program that relies on requesting information from a server
+* HTTP: Hypertext Transfer Protocol
+* HTTP Verb: methods that define the intended action to be performed on a resource
+* HTTP request: A standard way to communicate information between a client _ex. Browser_ and a server
+* HTTP response: A standard way to return information from a server to a client based on the client's request
+* Postman: A tool that allows developers to visualize the parts of HTTP requests and responses
+* Faraday Gem: An HTTP client library that allows developers to more easily write requests and handle responses in Ruby
+* Response Status: A numerical code provided by a server to indicate the result of a request
+
+### Warmup
 
 - What is the purpose of an API?
 - Why do we expose data through APIs?
 - What format is the data in when it is exposed through an API endpoint?
 
----
 
+### Overview
 
-#### HTTP Requests and Responses
+In this lesson, we will review the anatomy of a HTTP request and response. In the intermission work, you were asked to write this out, so feel free to reference your diagram or create a new one from today's review. We will be looking at the types of requests & responses you made in Mod 2 for HTML and how they compare to the requests and responses from APIs.
+
+Throughout the lesson you will have the opportunity to explore how to make a `GET` request to an API using different clients: the browser, Postman, and a Ruby file using the Faraday gem. For each of these, we will look at how to make the request and how to understand the response that is returned. We will also discuss some of the benefits to using these tools and explore documentation.
+
+#### HTTP Request and Response Review
 
 List out the parts of a generic HTTP GET request and response
 
----
-
 #### HTTP Client 1: The Browser
 
-Using the browser, make a GET request to hit the [Github users](https://developer.github.com/v3/users/#get-a-single-user) API endpoint.
+Using the browser, make a GET request to hit the [GitHub users](https://developer.github.com/v3/users/#get-a-single-user) API endpoint.
 
 `https://api.github.com/users/<username>`
 
----
+
+* How did you make this request?
+* What does the response look like?
+* What information is included in the response?
+
 
 #### HTTP Client 2: Postman
 
-Download the [Postman API Client](https://www.getpostman.com/product/api-client)
+Download the [Postman API Client](https://www.getpostman.com/product/api-client) Take a minute to explore the different tabs and options in Postman.
 
-- Using postman, make a GET request to hit the Github users API endpoint.
+After you've explored Postman, try to make a GET request to hit the Github users API endpoint.
 
-  - List out the parts of the http request made to hit the Github API endpoint.
-  - List out the parts of the http response received from the Github API
+* How did you make this request in Postman?
+* What is the status of the response?
+* What is included in the response's Headers?
 
----
 
 #### HTTP Client 3: Faraday
 
-* Install the [Faraday gem](https://github.com/lostisland/faraday)
-* Create a ruby file and require the Faraday library along with your debugger of choice.
-* In this newly created Ruby file, make the same HTTP request as the two previous challenges.
+Explore the [Faraday Gem Docs](https://lostisland.github.io/faraday/). Then create a Ruby file and require the Faraday library and Pry at the top of it. In this newly created Ruby file, use the Faraday docs to make the same HTTP request to the GitHub users endpoint.
 
----
+* How did you make this request using Faraday?
+* What is the return of the of the request?
+* How can you access just the body of the response?
 
-#### More Practice with Postman and Faraday
 
+### Practice with Postman and Faraday
+
+We've practiced making a `GET` request, so now let's try making requests using other HTTP verbs.
 Complete the exercises included in this [README](https://github.com/turingschool-examples/pets_api)
 
 
-#### Additional API Consumption practice
-
-In our next class we will be consuming an API in the context of a Rails project. Take a look at the user story and try to complete the exercises to help you prepare for the class.
-
-The user story we will be working on during our next class is as follows:
-
-```
-As a user
-When I visit "/"
-And I select "Colorado" from the dropdown
-And I click on "Locate Members of the House"
-Then my path should be "/search" with "state=CO" in the parameters
-And I should see a message "7 Results"
-And I should see a list of 7 the members of the house for Colorado
-And I should see a name, role, party, and district for each member
-```
-
-This user story requires us to use the Propublica API to determine the members of the house for a given state. The [Lists of Members](https://projects.propublica.org/api-docs/congress-api/members/#lists-of-members) documentation tells us how to retrieve this data.
-
 ---
 
-#### Exercise - Make an API Call Using Postman
-
-1. Sign up for an API key [here](https://www.propublica.org/datastore/api/propublica-congress-api)
-
-2. Use Postman to make an API call to the [members endpoint](https://projects.propublica.org/api-docs/congress-api/members/#lists-of-members)
-
----
-
-#### Exercise - Make the Same API Call Using Faraday
-
-Do this in a similar way as the previous Faraday challenge where you write your code in a simple Ruby file.
-
----
-
-#### Whole Group
-
-Q&A
+Looking for more practice. Try [here](./exercises/additional_api_consumption_practice)
