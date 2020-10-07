@@ -14,9 +14,11 @@ By the end of this class, a student will be able to:
 APIs.
 * Parse the information retrieved from a third party API.
 
-## Slides
 
-Available [here](../slides/consuming_apis)
+## Warm Up
+
+* How does a developer interact with an API?
+* What are the benefits of using an API?
 
 ## Summary
 
@@ -179,7 +181,7 @@ class SearchController < ApplicationController
     state = params[:state]
 
     conn = Faraday.new(url: "https://api.propublica.org") do |faraday|
-      faraday.headers["X-API-KEY"] = '<YOUR API KEY>'
+      faraday.headers["X-API-Key"] = '<YOUR API KEY>'
     end
 
     response = conn.get("/congress/v1/members/house/#{state}/current.json")
