@@ -31,6 +31,7 @@ Module Kickoff
 ## APIs, Tooling and Testing
 
 Intro to Postman and Faraday
+* [Dione Wilson, 2006 Cohort](https://vimeo.com/465634409/53242dde2e)
 * [Ian Douglas, 2005 Cohort](https://vimeo.com/449074625/d13cf271f5)
 * [Dione Wilson, 2003 Cohort](https://vimeo.com/441936303/5a42f55a41)
 
