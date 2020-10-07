@@ -2,14 +2,25 @@
 
 ---
 
-# Warmup
+# Today's Agenda
 
-* What is Postman and what is the benefit of using it?
-* What is Faraday and why would you use it?
+* Warm Up
+* Lesson Goals
+* User Story
+* Go over what will be need to complete the user story & read some documentation
+* Small group exercise to implement concepts
+* Review of exercise/Questions
 
 ---
 
-# Today's Goals
+# Warmup
+
+* How does a developer interact with an API?
+* What are the benefits of using an API?
+
+---
+
+# Goals
 
 * Set up & Configure Faraday within our Rails Application
 * Use Faraday to connect to and retrieve information from a 3rd party external API
@@ -17,7 +28,22 @@
 
 ---
 
-# Tools
+# User Story
+
+```ruby
+As a user
+When I visit "/"
+And I select "Colorado" from the dropdown
+And I click on "Locate Members of the House"
+Then my path should be "/search" with "state=CO" in the parameters
+And I should see a message "7 Results"
+And I should see a list of the 7 members of the house for Colorado
+And I should see a name, role, party, and district for each member
+```
+
+---
+
+# What to use to accomplish this user story?
 
 * Faraday
 * Figaro
@@ -26,6 +52,16 @@
 ---
 
 # Faraday
+
+* Using the documentation answer the following
+  - How do we make a `get` request?
+  - How do we include headers in our request?
+  - How do we include params?
+  - How do we include a body?
+
+---
+
+# Faraday Continued
 
 ```ruby
 conn = Faraday.new(
