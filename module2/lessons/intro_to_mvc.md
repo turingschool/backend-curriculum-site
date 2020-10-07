@@ -14,7 +14,7 @@ title: Introduction to MVC
 * Model
 * View
 * Controller
-* DSL(Domain Specific Language)
+* DSL (Domain Specific Language)
 
 ## Warmup
 
@@ -24,9 +24,9 @@ title: Introduction to MVC
 
 ### Overview
 
-* Controllers - Coordinate the response to an HTTP request. In Task Manager, we just had one, but it is common to have multiple controllers.
-* Models - Interact with the database. Holds other methods related to a particular resource (e.g. a `task`)
-* Views - Templates for pages that we will display to our user. Frequently contain placeholders for data, making them dynamic.
+* **Models** - Interact with the database. Holds other methods related to a particular resource (e.g. a `task`)
+* **Views** - Templates for pages that we will display to our user. Frequently contain placeholders for data, making them dynamic.
+* **Controllers** - Coordinate the response to an HTTP request. In Task Manager, we just had one, but it is common to have multiple controllers.
 
 ### Controller
 
@@ -39,7 +39,9 @@ Look at your Task Manager `routes.rb`.
 
 Look at your `tasks_controller.rb`:
 
-* Each route maps to a controller action (a method defined in the controller class)
+* Each route maps to a controller **action**
+* A controller **action** is a **method** defined in a Controller class
+* Controller **methods** and **actions** are synonymous
 * Controllers send commands to models to perform database interactions
   * ex: the `index` action retrieves all the tasks
   * ex: the `create` action saves a new task
@@ -65,7 +67,8 @@ Look at a view from Task Manager
 * By default, Rails looks for our views in a `/views` directory.
 * Use ERB (embedded ruby) to describe how data should be used to create HTML
     * `<%= %>` renders the return value of the enclosed statement. Use this when you need something to be a part of the HTML document sent to the User.
-      * ex: `<p><%= task.description %></p>`
+      * ex: `<p><%= task.description %></p>`      
+      **This piece of code will be extremely useful for assigning** `id` **attributes dynamically, which is important for testing. Bookmark this piece of code!**
       * ex: `<div id="task-<%= task.id %> >"`
     * `<% %>` does not render the return value. Use this when you don't want the return value to become part of the HTML. Typically, these are used for Ruby statements that control other statements.
       * ex: `<% tasks.each do |task| %>` ... `<% end %>`
@@ -84,7 +87,11 @@ Look at a view from Task Manager
 
 Let's draw a diagram to represent this process.
 
-[MVC Diagram](https://www.bogotobogo.com/RubyOnRails/images/MVC/MVC_Rails.png)
+<details><summary>MVC Diagram</summary>
+<img src='./images/mvc_rails.png' alt='Rails MVC Diagram'>
+</details>
+
+
 
 ### Logic "Responsibilities"
 
@@ -110,10 +117,13 @@ Controllers should limit their database actions to very simple lookups, or creat
 
 ### Experiment
 
-1) Add a new route and view so that the user can successfully visit “localhost:9393/easteregg” and see a new view of your choice.
-2) Add a new route so that the user can go to “localhost:9393/showmethetasks” and be redirected to all of the tasks. NOTE: You should not have to create a new view, nor should you use the erb method.
+* Add a new route and view so that the user can successfully visit `localhost:3000/easteregg` and see a new view of your choice.
 
-Let’s also quickly talk about why the 2nd path isn’t a good idea.
+*  Add a new route so that the user can go to `localhost:3000/showmethetasks` and be redirected to all of the tasks.
+
+NOTE: For task 2, You should not have to create a new view.
+
+**Let’s also quickly talk about why the 2nd path isn’t a good idea.**
 
 ### Recap
 * What does MVC stand for?
