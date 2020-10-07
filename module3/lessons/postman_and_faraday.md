@@ -55,7 +55,7 @@ Using the browser, make a GET request to hit the [GitHub users](https://develope
 
 #### HTTP Client 2: Postman
 
-Download the [Postman API Client](https://www.getpostman.com/product/api-client) Take a minute to explore the different tabs and options in Postman.
+Download [Postman app](https://www.postman.com/downloads/) Take a minute to explore the different tabs and options in Postman.
 
 After you've explored Postman, try to make a GET request to hit the Github users API endpoint.
 
