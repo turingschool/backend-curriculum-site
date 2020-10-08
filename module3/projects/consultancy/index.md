@@ -6,15 +6,6 @@ tags:
 type: project
 ---
 
-## Learning Goals
-
-* Learning how to build a full application stack from idea to delivery
-* Revisiting previous concepts such as APIs and OAuth
-* Finding the strengths and gaps in your knowledge of Ruby, Rails, and organizing a project.
-* Use an Agile process as you develop features
-* Configure a continuous integration server with deployment to production
-
-
 ## Project Description
 
 The goal of this project is to create a successful web application from a student-led project idea. Your team will create an app that will solve a real world problem, and allow users to authenticate with a third-party service, and consume at least two other apis.
@@ -28,11 +19,11 @@ Our "Front End" application will be built in Rails, but could be substituted lat
   - this layer is responsible for authentication via OAuth
   - this application is not allowed to directly interact with a database
     - instead, it will implement a "DatabaseService" to do any CRUD behavior
-  
+
 Our "Back End" application will be an API built in Rails. It will act as the interface layer to our database
 - Rails "back end"
   - this is a "rails new --api" project
-  - it will have more thorough testing, follow our Facade and Service design patterns, and using Serializers
+  - it will have more thorough testing, follow our Facade and Service design patterns, and use Serializers
   - there is no ERB, HTML or CSS anywhere in this project
   - all input is received as JSON data; it only responds with JSON data
   - this layer will serve as our database interface for other applications
@@ -46,13 +37,38 @@ Our project will include at least two "microservices" -- a Service API which abs
 
 ---
 
-## Technical Expectations
+## Learning Goals
+Below are technical goals that you should be applying in this project.<br>
+The priority of these goals are demonstrated using a star grading system.<br>
+By the end of this project: <br>
+  Student should have a functional understanding of the concept ⭐ ⭐ ⭐ <br>
+  Student should have a familiar understanding, but may still have questions ⭐ ⭐ <br>
+  Student should be be aware of the concept, but may need further resources to implement ⭐
 
-* Use an external OAuth provider to authenticate users
-* Consume two or more external APIs
-* Utilize a Service-Oriented Architecture with a front-end, a back-end, and at least two microservices
-* Implement a production-quality user interface using Bootstrap or other common CSS styling framework
-* Optimize your application using at least one of the following: database indexing, eager loading, caching, background workers, or AJAX requests
+### Explicit Technical Expectations
+* Consume two or more external APIs ⭐ ⭐ ⭐
+* Build APIs that return JSON responses ⭐ ⭐ ⭐
+* Use an external OAuth provider to authenticate users ⭐ ⭐
+* Utilize a Service-Oriented Architecture with a front-end, a back-end, and at least two microservices ⭐ ⭐
+* Implement a production-quality user interface using Bootstrap or other common CSS styling framework ⭐ ⭐
+* Optimize your application using at least one of the following: database indexing, eager loading, caching, background workers, or AJAX requests ⭐
+
+### Explicit Professional Expectations
+
+* Practice good project management by using project boards, participating in daily stand-ups and team retros ⭐ ⭐ ⭐
+* Utilize quality workflow practices: small commits, descriptive pull requests, and code reviews ⭐ ⭐
+* Write thorough, understandable documentation ⭐ ⭐
+
+
+### Implicit Learning Goals
+
+* Reading Documentation
+* Time Management
+* Prioritizing Work
+* Breaking down large project into small pieces
+* Breaking down a problem into small steps
+* Practice individual research (articles, videos, mentors)
+* Self-advocacy in a team
 
 ## Phases
 
