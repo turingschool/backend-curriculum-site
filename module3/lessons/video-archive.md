@@ -36,11 +36,13 @@ Intro to Postman and Faraday
 * [Dione Wilson, 2003 Cohort](https://vimeo.com/441936303/5a42f55a41)
 
 Consuming APIs
+* [Dione Wilson, 2006 Cohort](https://vimeo.com/466302429/5efcbb88cf)
 * [Ian Douglas, 2005 Cohort](https://vimeo.com/450275848/9519c6410e)
 * [Ian Douglas, 2003 Cohort](https://vimeo.com/441933853/f2a98b9559)
 * (archive) [Josh Mejia and Mike Dao, June 2018](https://www.youtube.com/watch?v=FcgkfZEv_LI)
 
 Testing Tools for API Consumption
+* [Ian Douglas, 2006 Cohort](https://vimeo.com/466294376/6c0b235004)
 * [Ian Douglas, 2005 Cohort](https://vimeo.com/451221711/1264ca6e7a)
 * [Ian Douglas, 2003 Cohort](https://vimeo.com/441938656/0234a0196b)
 
@@ -117,6 +119,10 @@ PD Supplement: Company Research
 
 
 ## Additional Topics
+
+Week 1 Open Office Q&A
+* [Dione and Ian, Wed Week 1](https://vimeo.com/466299421/054dfdf3c2)
+* [Dione and Ian, Thu Week 1]() (coming soon)
 
 Week 3 Open Office Q&A
 * [Ian Douglas, 2005 Cohort](https://vimeo.com/454938447/59913aba0e)
