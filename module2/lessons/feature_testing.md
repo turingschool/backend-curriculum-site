@@ -74,9 +74,12 @@ SimpleCov.start
 ```txt
 As a user
 When I visit the home page
-  And I fill in title
-  And I fill in description
-  And I click submit
+And I click on the link New Task
+Then I see a form to create a task
+
+And I fill in title
+And I fill in description
+And I click submit
 Then my task is saved
 ```
 
