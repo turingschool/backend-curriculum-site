@@ -30,7 +30,7 @@
 
 # User Story
 
-```ruby
+```
 As a user
 When I visit "/"
 And I select "Colorado" from the dropdown
@@ -63,7 +63,7 @@ And I should see a name, role, party, and district for each member
 
 # Faraday Continued
 
-```ruby
+```
 conn = Faraday.new(
   url: 'http://sushi.com',
   params: {param: '1'},
@@ -71,7 +71,7 @@ conn = Faraday.new(
 )
 ```
 
-```ruby
+```
 resp = conn.get('search') do |req|
   req.params['limit'] = 100
   req.body = {query: 'salmon'}.to_json
