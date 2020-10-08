@@ -122,7 +122,21 @@ PD Supplement: Company Research
 
 Week 1 Open Office Q&A
 * [Dione and Ian, Wed Week 1](https://vimeo.com/466299421/054dfdf3c2)
-* [Dione and Ian, Thu Week 1]() (coming soon)
+  * API key security
+  * What kind of data should we store in our DB from an API call
+  * Database speed vs API speed
+  * Rails pluralization, database pluralization, and how to name things
+  * Clarification on some user stories
+  * Table field aliasing and table structures
+  * FactoryBot and Faker
+* [Dione and Ian, Thu Week 2](https://vimeo.com/466334275/f0d16f49db)
+  * Testing sad paths and redirecting users
+  * Query parameters and Controllers
+  * Defining Agile terminology, like "Spikes"
+  * Model validations, using 'validates' instead of 'validates_presence_of'
+  * At what point to store data from an API call (eg, movies)
+  * Double-checking API docs for headers vs query parameters, and debugging process, and when/how we consider DRY'ing up our code
+  
 
 Week 3 Open Office Q&A
 * [Ian Douglas, 2005 Cohort](https://vimeo.com/454938447/59913aba0e)
