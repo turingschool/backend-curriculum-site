@@ -51,7 +51,12 @@ By the end of this project: <br>
 * Use an external OAuth provider to authenticate users ⭐ ⭐
 * Utilize a Service-Oriented Architecture with a front-end, a back-end, and at least two microservices ⭐ ⭐
 * Implement a production-quality user interface using Bootstrap or other common CSS styling framework ⭐ ⭐
-* Optimize your application using at least one of the following: database indexing, eager loading, caching, background workers, or AJAX requests ⭐
+* Optimize your application using at least one of the following ⭐
+  - database indexing
+  - eager loading
+  - caching
+  - background workers
+  - AJAX requests
 
 ### Explicit Professional Expectations
 
