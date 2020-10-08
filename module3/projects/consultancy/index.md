@@ -49,6 +49,7 @@ By the end of this project: <br>
 * Consume two or more external APIs ⭐ ⭐ ⭐
 * Build APIs that return JSON responses ⭐ ⭐ ⭐
 * Use an external OAuth provider to authenticate users ⭐ ⭐
+* Refactor code for better code organization/readability ⭐ ⭐
 * Utilize a Service-Oriented Architecture with a front-end, a back-end, and at least two microservices ⭐ ⭐
 * Implement a production-quality user interface using Bootstrap or other common CSS styling framework ⭐ ⭐
 * Optimize your application using at least one of the following ⭐
