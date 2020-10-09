@@ -104,3 +104,54 @@ Other API Sources:
 - https://api.data.gov/list-of-apis/
 
 However, the list is not limited to these. You can choose to integrate with a service of your choosing, as long as it is approved ahead of time.
+
+---
+
+## Some Project Ideas to get the Creative Process Started
+
+#### Bus Tracker
+
+(this idea is not fully flushed out and may not be possible without transit-based APIs)
+
+Users authenticate to our application and get their current GPS location through the browser via JavaScript on a periodic basis, and send a bus number and latitude/longitude to our server. Other users, waiting on that bus, could look at a map and see where the bus currently is.
+
+would need an API to find bus routes on a map
+would need to 'average' locations of users on the same bus to triangulate the bus itself, plus the direction it's currently moving, etc
+
+
+#### License Plate Messenger
+
+Could we upload a picture of a license plate and leave a message for the driver(s) (not while driving of course!); use IBM Watson for sentiment analysis for whether the message is mean or not. Users would sign up and upload a photo of their own license plate to "register" and access their messages.
+
+- Google Vision API is free for 1000 calls per month
+- Cloudmersive has 50,000 free images
+- Microsoft Computer Vision is 5000 free images
+
+
+#### Pantry/Recipe "quick grocery run"
+
+Ian's unscientific survey (sample size: himself) shows that without a plan, wandering around a grocery store for long durations (a) exposes you to COVID-19 risks, and (b) makes you overspend on things you didn't really need, and (c) you're likely to forget some of the critical things you went to the store to purchase in the first place.
+
+Users can register, track what's in their pantry/fridge/freezer (bar code scanning maybe?), then search a database of recipes of meals they would like to make for the week. The app will scan the recipes, and generate a shopping list, but also use Kroger's grocery API to track where in the store these ingredients are found (ie, aisle numbers), to allow users to optimize their trip. Spend less, get out faster.
+
+- https://developer.kroger.com/
+- https://rapidapi.com/collection/food-apis
+
+
+#### Twitter Senitment
+
+Enter a person's Twitter handle, search their feed for a given topic or keywords, run those messages through IBM Watson for sentiment analysis, track the sentiment over time and chart the data of whether that user likes that topic/keyword more or less over time
+
+Students will need to work with Ian to get a new API key set up since Twitter takes a REALLY long time to approve new Twitter API applications, and Ian has an approved Twitter Developer account
+
+Extension idea: could we determine if the user is talking about a business, and check stock prices to see if the stock goes up or down soon after the user tweeted? (is there a correlation of a user tweeting about a business or ticker symbol, and the stock price changing?)
+
+#### Whose turn is it to do chores?
+
+Roommates register and add each other to a living space, then set up regular chores. Chores are added to each user's Google Calendar on alternating time periods to trade off whose turn it is to, say, clean the bathroom every 3rd day, track how long the chore should take. Second API could be to find a playlist of songs while working on the task (secondary OAuth through Spotify, for example), or send an SMS reminder (not through Google Calendar reminders)
+
+#### Holiday/birthday/anniversary gift lists
+
+Users can authenticate, build wishlists with URLs to items they want from multiple sites (ie, Amazon, Etsy, etc); family members and friends can friend each other in the app (maybe we scan the user's gmail account to link others who are registered on the site?), they can see your list of gift ideas, search for product reviews based on the item, and choose to buy the item, or split the cost with others; family members can see who is 'reserving' a gift or splitting the cost, but original person will not know. Perhaps set a calendar event for when to order the gift so it arrives in time for that holiday. Send notices to other family/friends via group email, perhaps.
+
+- https://rapidapi.com/collection/review-apis
