@@ -87,7 +87,11 @@ In addition to the End of Sprint Demos, you will also have some project check in
 ## Continuous Integration
 
 * Set up a [CI Server](http://backend.turing.io/module3/lessons/environments_and_ci)
-* Timebox this activity to ~2 hours. If you don't get it working in 2 hours, create a branch with your work, but don't merge it.
+
+## Continuous Deployment
+
+* Set up Travis-CI in such a way that it automatically deploys its code to Heroku when 'main' branch code is passing
+* Recommend setting up ENV variables for all service-layer hostnames to allow faster/easier deployment of services
 
 ## Story Grooming
 
