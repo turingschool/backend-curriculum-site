@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Consultancy - Evaluation(Testing)
+title: Consultancy - Evaluation
 type: project
 ---
 
@@ -23,6 +23,8 @@ Each Repo meets the following:
     - [ ] Rails Back End
     - [ ] Micro-Service 1
     - [ ] Micro-Service 2
+
+---
 
 __If the above criteria is met, below are additional points to achieve a 4__
 

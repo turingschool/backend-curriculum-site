@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Consultancy - Evaluation(Feature Delivery)
+title: Consultancy - Evaluation
 type: project
 ---
 
@@ -20,6 +20,8 @@ Rails Front End
 
 Rails Back End
 - [ ] Proxy for Rails Front End and Micro-Services
+
+---
 
 __If the above criteria is met, below are additional points to achieve a 4__
 

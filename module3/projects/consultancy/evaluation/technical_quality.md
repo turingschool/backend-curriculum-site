@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Consultancy - Evaluation(Technical Quality)
+title: Consultancy - Evaluation
 type: project
 ---
 
@@ -73,6 +73,7 @@ Rails Back End
 - [ ] Database migrations are managed well, database schema is well planned and executed
 - [ ] Facades read/write data from Models and Services as appropriate
 
+---
 
 __If the above criteria is met, below are additional points to achieve a 4__
 

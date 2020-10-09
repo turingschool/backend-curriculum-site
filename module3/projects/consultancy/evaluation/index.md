@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Consultancy -{}
+title: Consultancy - Evaluation
 type: project
 ---
 
@@ -11,11 +11,12 @@ Project evaluation will be done on a continual basis through check-ins and the f
 Typically, scores higher than 3.0 will be for going "above and beyond" expectations, learning tools and implementing concepts we don't teach in class. Each category has specific criteria to help guide the 'above and beyond' goals.
 
 However, we will not reward "heroics". Staying up late, pulling all-nighters, is not what this project is about. We're here to work together as a team, and solo efforts will generally be discouraged by your project managers.
----
 
-The rubric consists of four categories:
 
-[Feature Delivery](./evaluation/feature_delivery)
-[Technical Quality](./evaluation/technical_quality)
-[Testing](./evaluation/testing)
-[Presentation & Documentations](./evaluation/presentation_documentation)
+### Rubric
+The rubric consists of 4 categories. To see the check boxes for each category follow the links below:
+
+- [Feature Delivery](./feature_delivery)
+- [Technical Quality](./technical_quality)
+- [Testing](./testing)
+- [Presentation & Documentations](./presentation_documentation)

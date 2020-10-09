@@ -1,15 +1,10 @@
 ---
 layout: page
-title: Consultancy - Evaluation(Presentation & Documentation)
+title: Consultancy - Evaluation
 type: project
 ---
 
 ## Presentation and Documentation
-
-Slide Presentation
-- [ ] Outlines MVP of the project
-- [ ] Discusses end users, persona analysis
-- [ ] Discusses technical design choices made
 
 __Choose either Live Demo or Video Presentation to Complete:__
 
@@ -24,6 +19,15 @@ __Choose either Live Demo or Video Presentation to Complete:__
     - [ ] Video displays end-to-end application demo of happy path
     - [ ] Video discusses persona analysis and user empathy
     - [ ] Video discusses service-oriented architecture
+
+---
+
+Slide Presentation
+- [ ] Outlines MVP of the project
+- [ ] Discusses end users, persona analysis
+- [ ] Discusses technical design choices made
+
+---
 
 README and Documentation
 
@@ -42,9 +46,11 @@ Rails back-end
 - [ ] includes database schema
 - [ ] each endpoint is documented with example request & response
 
-README for Microservices:
+Microservices:
   - [ ] each endpoint exposed to the back-end
   - [ ] its use of external service API
+
+---
 
 __If the above criteria is met, below are additional points to acheive a 4__
 
