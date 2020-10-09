@@ -15,7 +15,7 @@ type: project
 Fill out the following template for your project idea.
 
 ```markdown
-### [Project Title]
+### [Project Name]
 
 ### Pitch
 
@@ -28,12 +28,12 @@ Fill out the following template for your project idea.
 ### Integrations
 
 * Which APIs will you use?
-* Which OAuth integration are you planning to use?
+* Which OAuth integration are you planning to use? How will you use OAuth to do something on the user's behalf?
 ```
 
 ### APIs
 
-Your application **must make good use of one external dataset or API**. Some examples include:
+Your application **must make good use of at least TWO external datasets or APIs**. Some examples include:
 
 #### Government Data
 
@@ -72,5 +72,35 @@ Your application **must make good use of one external dataset or API**. Some exa
 * Location Services (Google Maps/Directions)
 * IOT Hardware (ex: Raspberry PI)
 
+
+free/discounted apis for students:
+- https://rapidapi.com/collection/rapidapi-school
+
+free public APIs:
+- https://rapidapi.com/collection/list-of-free-apis
+
+covid-19 apis:
+- https://rapidapi.com/collection/coronavirus-covid-19
+
+job postings and job search data:
+- https://rapidapi.com/collection/job-search-apis
+
+fun apis like english-to-yoda:
+- https://rapidapi.com/collection/cool-apis
+
+google-specific apis:
+- https://rapidapi.com/collection/google-api
+
+online databases of collections of some sort of data (ie, movies, music, etc):
+- https://rapidapi.com/collection/database-apis
+
+alternatives to Google Maps:
+- https://rapidapi.com/collection/alternatives-to-google-maps-api
+
+Other API Sources:
+
+- https://apilist.fun/
+- https://github.com/public-apis/public-apis
+- https://api.data.gov/list-of-apis/
 
 However, the list is not limited to these. You can choose to integrate with a service of your choosing, as long as it is approved ahead of time.
