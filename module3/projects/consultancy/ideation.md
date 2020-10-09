@@ -155,3 +155,15 @@ Roommates register and add each other to a living space, then set up regular cho
 Users can authenticate, build wishlists with URLs to items they want from multiple sites (ie, Amazon, Etsy, etc); family members and friends can friend each other in the app (maybe we scan the user's gmail account to link others who are registered on the site?), they can see your list of gift ideas, search for product reviews based on the item, and choose to buy the item, or split the cost with others; family members can see who is 'reserving' a gift or splitting the cost, but original person will not know. Perhaps set a calendar event for when to order the gift so it arrives in time for that holiday. Send notices to other family/friends via group email, perhaps.
 
 - https://rapidapi.com/collection/review-apis
+
+#### What do you know?
+
+Users can authenticate, and receive a hisotrical fact about the today in history. Users can then complete a daily trivia quiz, track their scores over time, create friendly competitions between a registered friend and compete for highest weekly score to earn a "trophy".
+
+- [Trivia API](https://opentdb.com/api_config.php)
+- [Today in Histroy](https://history.muffinlabs.com/)
+
+
+### Olympic Fan
+
+Users can authenticate
