@@ -41,53 +41,15 @@ Our project will include at least two "microservices" -- a Service API which abs
   - extension: one microservice is hosted on an alternate service provider (AWS, Digital Ocean, etc)
 ---
 
-## Professional Development Goals
+## Professional Development Benefits
 
 You will be better prepared to hit the ground running in the workplace having worked on a larger team, in a much larger application base, with lots of moving pieces. Understanding the deeper impact of how a small change can have a cascading effect on other pieces of a system will be crucial.
 
 We'll also examine our end users on a deeper level to install a strong sense of developer empathy. We will do this by focusing time on "user personas" to answer questions like "who is our user", "what age range are we targeting", "how tech-savvy must the user be to use our app"
 
+Please see the technical and professional learning goals [here](* [Learning Goals](./project_goals)).
+
 ---
-
-## Learning Goals
-
-Below are technical goals that you should be applying in this project. The priority of these goals are demonstrated using a star grading system.
-
-By the end of this project:
-- Student should have a functional understanding of the concept ⭐ ⭐ ⭐, or
-- Student should have a familiar understanding, but may still have questions ⭐ ⭐, or
-- Student should be be aware of the concept, but may need further resources to implement ⭐
-
-### Explicit Technical Expectations
-* Consume two or more external APIs ⭐ ⭐ ⭐
-* Build APIs that return JSON responses ⭐ ⭐ ⭐
-* Use an external OAuth provider to authenticate users ⭐ ⭐
-* Refactor code for better code organization/readability ⭐ ⭐
-* Utilize a Service-Oriented Architecture with a front-end, a back-end, and at least two microservices ⭐ ⭐
-* Implement a production-quality user interface using Bootstrap or other common CSS styling framework ⭐ ⭐
-* Optimize your application using at least one of the following ⭐
-  - database indexing
-  - eager loading
-  - caching
-  - background workers
-  - AJAX requests
-
-### Explicit Professional Expectations
-
-* Practice good project management by using project boards, participating in daily stand-ups and team retros ⭐ ⭐ ⭐
-* Utilize quality workflow practices: small commits, descriptive pull requests, and code reviews ⭐ ⭐
-* Write thorough, understandable documentation ⭐ ⭐
-
-
-### Implicit Learning Goals
-
-* Reading Documentation
-* Time Management
-* Prioritizing Work
-* Breaking down large project into small pieces
-* Breaking down a problem into small steps
-* Practice individual research (articles, videos, mentors)
-* Self-advocacy in a team
 
 ## Phases
 
