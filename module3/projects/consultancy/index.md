@@ -15,10 +15,12 @@ This project will focus heavily on Service-Oriented Architecture (SOA), and will
 Our "Front End" application will be built in Rails, but could be substituted later for a JavaScript-based application in React, Angular, etc.
 - Rails "front end"
   - this is a typical "rails new" project
-  - it will have simple testing, and will mostly focus on View templates, HTML and CSS, maybe some JavaScript
+  - it will have simple testing, and will mostly focus on View templates, HTML and CSS, maybe some JavaScript, highly recommend Bootstrap
   - this layer is responsible for authentication via OAuth
+    - user's OAuth token must be stored in the 'back end' server database, and used within the application in some way
   - this application is not allowed to directly interact with a database
     - instead, it will implement a "DatabaseService" to do any CRUD behavior
+    - recommend using Rails caching to cache database reads from backend
 
 Our "Back End" application will be an API built in Rails. It will act as the interface layer to our database
 - Rails "back end"
@@ -26,7 +28,9 @@ Our "Back End" application will be an API built in Rails. It will act as the int
   - it will have more thorough testing, follow our Facade and Service design patterns, and use Serializers
   - there is no ERB, HTML or CSS anywhere in this project
   - all input is received as JSON data; it only responds with JSON data
-  - this layer will serve as our database interface for other applications
+  - this layer will serve as our database interface for other applications; recommend eager loading where possible
+  - recommend caching data fetched from microservices for a period of time where relevant
+  - could perhaps include a worker process for sending email (or this could be its own microservice)
 
 Our project will include at least two "microservices" -- a Service API which abstracts away a single responsibility.
 - Sinatra "microservice"
@@ -34,7 +38,7 @@ Our project will include at least two "microservices" -- a Service API which abs
   - receives JSON requests from the Rails back end only, responds only in JSON
   - responsible to talk to an external API to fetch data or do something on the user's behalf using their OAuth token
   - knows nothing about any other component/service in the system
-
+  - extension: one microservice is hosted on an alternate service provider (AWS, Digital Ocean, etc)
 ---
 
 ## Professional Development Goals
