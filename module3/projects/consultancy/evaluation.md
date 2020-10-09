@@ -159,19 +159,23 @@ Video Presentation (0.7 points)
 - [ ] Different team members presented this content than other areas of the presentation
 
 README and Documentation (1.96 points)
+
 Git repos for each codebase have README files which contain:
-  - [ ] links to other repos & production links
-  - [ ] contain a list of contributors, their GitHub profiles and LinkedIn profiles
-  - [ ] discuss the purpose of its repo's existence and how it fits into the project SOA
-  - [ ] how to install and test the repo
+- [ ] links to other repos & production links
+- [ ] contain a list of contributors, their GitHub profiles and LinkedIn profiles
+- [ ] discuss the purpose of its repo's existence and how it fits into the project SOA
+- [ ] how to install and test the repo
+    
 Rails front-end
-  - [ ] has screenshots
-  - [ ] discusses OAuth
-  - [ ] explains user personas and exhibits user empathy
+- [ ] has screenshots
+- [ ] discusses OAuth
+- [ ] explains user personas and exhibits user empathy
+    
 Rails back-end
-  - [ ] includes database schema
-  - [ ] each endpoint is documented with example request & response
-  - [ ] a Postman collection JSON file is included in the back-end service repo to test the back-end endpoints in production (except for any portion which needs OAuth)
+- [ ] includes database schema
+- [ ] each endpoint is documented with example request & response
+- [ ] a Postman collection JSON file is included in the back-end service repo to test the back-end endpoints in production (except for any portion which needs OAuth)
+
 README for Microservices:
   - [ ] each endpoint exposed to the back-end
   - [ ] its use of external service API
