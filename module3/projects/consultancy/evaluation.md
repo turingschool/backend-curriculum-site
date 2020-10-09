@@ -22,30 +22,30 @@ However, we will not reward "heroics". Staying up late, pulling all-nighters, is
 
 20 Points total, every checkbox is worth 0.2 points towards your score.
 
-Rails Front End
-- [ ] Professional quality HTML and CSS, color palette is pleasing and suitable to the target audience
-- [ ] Application works in multiple browsers (Chrome, Safari, Firefox, etc)
-- [ ] OAuth works error-free in incognito/private mode in multiple browsers
+Rails Front End (1.4 points)
 - [ ] Good integration tests are built to expect good user workflow within the application
 - [ ] No data storage (models, database schema, etc) is done at this layer; sessions and caching are the exception
 - [ ] 50% or more MVP stories are completed
 - [ ] 100% or more MVP stories are completed
+- [ ] OAuth works error-free in incognito/private mode in multiple browsers
+- [ ] Professional quality HTML and CSS, color palette is pleasing and suitable to the target audience
+- [ ] Application works in multiple browsers (Chrome, Safari, Firefox, etc)
 
-Rails Back End
+Rails Back End (1 points)
 - [ ] Database migrations are managed well, database schema is well planned and executed
 - [ ] Routes are nearly at least 75% RESTful (PMs have some discretion here)
 - [ ] Database CRUD endpoints built out properly and well tested
 - [ ] 50% or more MVP stories are completed
 - [ ] 100% or more MVP stories are completed
 
-Microservice 1
-- [ ] Endpoint reoutes attempt to use RESTful patterns (PMs have some discretion here)
+Microservice 1 (0.8 points)
+- [ ] Endpoint routes attempt to use RESTful patterns (PMs have some discretion here)
 - [ ] Sinatra code base is well organized
 - [ ] 50% or more MVP stories are completed
 - [ ] 100% or more MVP stories are completed
 
-Microservice 2
-- [ ] Endpoint reoutes attempt to use RESTful patterns (PMs have some discretion here)
+Microservice 2 (0.8 points)
+- [ ] Endpoint routes attempt to use RESTful patterns (PMs have some discretion here)
 - [ ] Sinatra code base is well organized
 - [ ] 50% or more MVP stories are completed
 - [ ] 100% or more MVP stories are completed
@@ -55,21 +55,20 @@ Microservice 2
 
 36 Points total, every checkbox is worth ~0.11 points towards your score.
 
-Rails Front End
+Rails Front End (1.1 points)
 - [ ] User-facing routes are friendly (not necessarily RESTful)
 - [ ] Application is easy to navigate for non-technical users
 - [ ] Bootstrap is utilized well for layout and styling
 - [ ] Caching is managed well
 - [ ] Controllers utilize Facades
-- [ ] Facades utilize Service calls well to store/retrieve data from backend
-- [ ] Facades and Services are written well with private methods as appropriate
-- [ ] Code follows strong DRY and SRP design
+- [ ] Facades utilize Service calls to store/retrieve data from backend
+- [ ] Facades and Services are written with private methods as appropriate
+- [ ] Code follows DRY and SRP design
 - [ ] Travis-CI is set up
 - [ ] Travis-CI deploys to Heroku
 
-Rails Back End
+Rails Back End (1.32 points)
 - [ ] Exposed API routes are versioned well using namespacing
-- [ ] Exposed API routes utilize more than one version (ie, an endpoint exists as both /v1/ and /v2/ that do something slightly different)
 - [ ] Caching or Background workers are implemented in some way
 - [ ] Database eager-loading is used to optimize database performance
 - [ ] Controllers utilize Facades and Serializers
@@ -77,25 +76,26 @@ Rails Back End
 - [ ] Facades read/write data from Models and Services as appropriate
 - [ ] Facades use POROs appropriately
 - [ ] Facades and Services are written well with private methods as appropriate
-- [ ] Code follows strong DRY and SRP design
+- [ ] Code follows DRY and SRP design
+- [ ] Exposed API routes utilize more than one version (ie, an endpoint exists as both /v1/ and /v2/ that do something slightly different)
 - [ ] Travis-CI is set up
 - [ ] Travis-CI deploys to Heroku
 
-Microservice 1
+Microservice 1 (0.77 points)
 - [ ] Exposed API routes are versioned well
+- [ ] Good serialization patterns are implemented to return JSON
+- [ ] Code follows DRY and SRP design
 - [ ] Exposed API routes utilize more than one version (ie, an endpoint exists as both /v1/ and /v2/ that do something slightly different)
 - [ ] Optimization techniques (ie, caching) are used within the code in some way
-- [ ] Good serialization patterns are implemented to return JSON
-- [ ] Code follows strong DRY and SRP design
 - [ ] Travis-CI is set up
 - [ ] Travis-CI deploys to Heroku
 
-Microservice 2
+Microservice 2 (0.77 points)
 - [ ] Exposed API routes are versioned well
+- [ ] Good serialization patterns are implemented to return JSON
+- [ ] Code follows DRY and SRP design
 - [ ] Exposed API routes utilize more than one version (ie, an endpoint exists as both /v1/ and /v2/ that do something slightly different)
 - [ ] Optimization techniques (ie, caching) are used within the code in some way
-- [ ] Good serialization patterns are implemented to return JSON
-- [ ] Code follows strong DRY and SRP design
 - [ ] Travis-CI is set up
 - [ ] Travis-CI deploys to Heroku
 
@@ -104,28 +104,28 @@ Microservice 2
 
 20 points total, each checkbox is worth 0.2 towards your score.
 
-Rails Front End
+Rails Front End (1 point)
 - [ ] API calls to backend, and OAuth, are tested using mocks/stubs
 - [ ] 50% or more test coverage of happy path expectations
 - [ ] 75% or more test coverage of happy path expectations
-- [ ] 90% or more test coverage, includes happy path and sad path expections
+- [ ] 90% or more test coverage, includes happy path and sad path expectations
 - [ ] 95% or more test coverage, every application feature and back-end endpoint has at least one sad path test
 
-Rails Back End
-- [ ] API calls to microservices are tested using mocks/stubs
+Rails Back End (1 point)
+- [ ] API calls to micro-services are tested using mocks/stubs
 - [ ] 50% or more test coverage of happy path expectations
 - [ ] 75% or more test coverage of happy path expectations
-- [ ] 90% or more test coverage, includes happy path and sad path expections for exposed endpoints
+- [ ] 90% or more test coverage, includes happy path and sad path expectations for exposed endpoints
 - [ ] 95% or more test coverage, every exposed endpoint and service consumption has at least one sad path test
 
-Microservice 1
+Microservice 1 (1 point)
 - [ ] calls to external API services are tested using mocks/stubs
 - [ ] 50% or more test coverage of happy path expectations
 - [ ] 75% or more test coverage of happy path expectations
-- [ ] 90% or more test coverage, includes happy path and sad path expections for exposed endpoints
+- [ ] 90% or more test coverage, includes happy path and sad path expectations for exposed endpoints
 - [ ] 95% or more test coverage, every exposed endpoint and API consumption endpoint has at least one sad path test
 
-Microservice 2
+Microservice 2 (1 point)
 - [ ] calls to external API services are tested using mocks/stubs
 - [ ] 50% or more test coverage of happy path expectations
 - [ ] 75% or more test coverage of happy path expectations
@@ -135,14 +135,14 @@ Microservice 2
 
 ### Presentation and Documentation
 
-28 points total, each checkbox is worth ~0.14 towards your score.
+29 points total, each checkbox is worth ~0.14 towards your score.
 
-Slide Presentation
+Slide Presentation (0.42 points)
 - [ ] Outlines MVP of the project
-- [ ] Discusses end users, persona alaysis
+- [ ] Discusses end users, persona analysis
 - [ ] Discusses technical choices made
 
-Live Demo
+Live Demo (0.98 points)
 - [ ] End-to-end demo of live application
 - [ ] End-to-end demo is done 100% in production via web browser
 - [ ] Postman is used on production to show backend service working
@@ -151,28 +151,33 @@ Live Demo
 - [ ] ENV variables are changed on Heroku to point to invalid backend/services or API keys; front-end shows a user-friendly error scenario
 - [ ] Different team members presented this content than other areas of the presentation
 
-Video Presentation
+Video Presentation (0.7 points)
 - [ ] Team has prepared a demonstration video
 - [ ] Video displays end-to-end application demo of happy path
-- [ ] Video discusses persona alaysis and user empathy
+- [ ] Video discusses persona analysis and user empathy
 - [ ] Video discusses service-oriented architecture
 - [ ] Different team members presented this content than other areas of the presentation
 
-README and Documentation
-- [ ] Git repos for each codebase have README files which contain:
-  - [ ] links to other repos
+README and Documentation (1.96 points)
+Git repos for each codebase have README files which contain:
+  - [ ] links to other repos & production links
   - [ ] contain a list of contributors, their GitHub profiles and LinkedIn profiles
-  - [ ] discuss the purpose of its repo's existance and how it fits into the project SOA
+  - [ ] discuss the purpose of its repo's existence and how it fits into the project SOA
   - [ ] how to install and test the repo
-- [ ] README for front-end has screenshots and discusses OAuth, user personas and exhibits user empathy
-- [ ] README for back-end includes database schema and each endpoint is documented
-- [ ] README for Microservice 1 documents:
+Rails front-end
+  - [ ] has screenshots
+  - [ ] discusses OAuth
+  - [ ] explains user personas and exhibits user empathy
+Rails back-end
+  - [ ] includes database schema
+  - [ ] each endpoint is documented with example request & response
+  - [ ] a Postman collection JSON file is included in the back-end service repo to test the back-end endpoints in production (except for any portion which needs OAuth)
+README for Microservices:
   - [ ] each endpoint exposed to the back-end
   - [ ] its use of external service API
-- [ ] a Postman collection JSON file is included in the back-end service repo to test the back-end endpoints in production (except for any portion which needs OAuth)
-- [ ] a Postman collection JSON file is included in the Microservice 1 repo to test the back-end endpoints in production (except for any portion which needs OAuth)
-- [ ] a Postman collection JSON file is included in the Microservice 2 repo to test the back-end endpoints in production (except for any portion which needs OAuth)
-  
+  - [ ] a Postman collection JSON file is included in the micro-service 1 repo to test the back-end endpoints in production (except for any portion which needs OAuth)
+  - [ ] a Postman collection JSON file is included in the Microservice 2 repo to test the back-end endpoints in production (except for any portion which needs OAuth)
+
 
 ---
 
