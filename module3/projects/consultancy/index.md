@@ -29,16 +29,17 @@ Our "Back End" application will be an API built in Rails. It will act as the int
   - there is no ERB, HTML or CSS anywhere in this project
   - all input is received as JSON data; it only responds with JSON data
   - this layer will serve as our database interface for other applications; recommend eager loading where possible
-  - recommend caching data fetched from microservices for a period of time where relevant
-  - could perhaps include a worker process for sending email (or this could be its own microservice)
+  - recommend caching data fetched from micro-services for a period of time where relevant
+  - could perhaps include a worker process for sending email (or this could be its own micro-service)
 
-Our project will include at least two "microservices" -- a Service API which abstracts away a single responsibility.
+Our project will include at least two "micro-services" - a Service API which abstracts away a single responsibility.
 - Sinatra "microservice"
   - no HTML, CSS or ERB of any kind
   - receives JSON requests from the Rails back end only, responds only in JSON
   - responsible to talk to an external API to fetch data or do something on the user's behalf using their OAuth token
   - knows nothing about any other component/service in the system
-  - extension: one microservice is hosted on an alternate service provider (AWS, Digital Ocean, etc)
+  - extension: one micro-service is hosted on an alternate service provider (AWS, Digital Ocean, etc)
+
 ---
 
 ## Professional Development Benefits
@@ -47,7 +48,7 @@ You will be better prepared to hit the ground running in the workplace having wo
 
 We'll also examine our end users on a deeper level to install a strong sense of developer empathy. We will do this by focusing time on "user personas" to answer questions like "who is our user", "what age range are we targeting", "how tech-savvy must the user be to use our app"
 
-Please see the technical and professional learning goals [here](* [Learning Goals](./project_goals)).
+Please see the technical and professional learning goals [here](./project_goals).
 
 ---
 
