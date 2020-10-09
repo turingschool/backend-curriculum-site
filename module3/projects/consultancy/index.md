@@ -43,7 +43,9 @@ Our project will include at least two "microservices" -- a Service API which abs
 
 ## Professional Development Goals
 
-You will be better prepared to hit the ground running in the workplace having worked on a larger team, in a much larger application base, with lots of moving pieces. Understanding the deeper impact of how a small change can have a cascading effect on other pieces of a system will be crucial. We'll also examine our end users on a deeper level to install a strong sense of developer empathy.
+You will be better prepared to hit the ground running in the workplace having worked on a larger team, in a much larger application base, with lots of moving pieces. Understanding the deeper impact of how a small change can have a cascading effect on other pieces of a system will be crucial.
+
+We'll also examine our end users on a deeper level to install a strong sense of developer empathy. We will do this by focusing time on "user personas" to answer questions like "who is our user", "what age range are we targeting", "how tech-savvy must the user be to use our app"
 
 ---
 
