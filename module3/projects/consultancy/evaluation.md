@@ -4,31 +4,175 @@ title: Consultancy - Evaluation
 type: project
 ---
 
+## Work in Progress
+
+This evaluation rubric is not yet finished.
+
+
+## Evaluation at a High Level
+
+Project evaluation will be done on a continual basis. Teams will have checkboxed items below which will sum up to total a quantity of points for each rubric item. Rubric items may have a different quantity of points to award, but will all divide into a floating-point score between 1.0 through 4.0.
+
+Typically, scores higher than 3.0 will be for going "above and beyond" expectations, learning tools and implementing concepts we don't teach in class.
+
+However, we will not reward "heroics". Staying up late, pulling all-nighters, is not what this project is about. We're here to work together as a team, and solo efforts will generally be discouraged by your project managers.
+
+
 ### Feature Delivery
 
-* **4:** Team well-exceeded project manager's expectations.
-* **3:** Team completed all user stories and requirements set by the project manager.
-* **2:** Team completed most user stories set out, but fell short of project manager's expectations.
-* **1:** Team fell well short of project manager's expectations.
+20 Points total, every checkbox is worth 0.2 points towards your score.
+
+Rails Front End
+- [ ] Professional quality HTML and CSS, color palette is pleasing and suitable to the target audience
+- [ ] Application works in multiple browsers (Chrome, Safari, Firefox, etc)
+- [ ] OAuth works error-free in incognito/private mode in multiple browsers
+- [ ] Good integration tests are built to expect good user workflow within the application
+- [ ] No data storage (models, database schema, etc) is done at this layer; sessions and caching are the exception
+- [ ] 50% or more MVP stories are completed
+- [ ] 100% or more MVP stories are completed
+
+Rails Back End
+- [ ] Database migrations are managed well, database schema is well planned and executed
+- [ ] Routes are nearly at least 75% RESTful (PMs have some discretion here)
+- [ ] Database CRUD endpoints built out properly and well tested
+- [ ] 50% or more MVP stories are completed
+- [ ] 100% or more MVP stories are completed
+
+Microservice 1
+- [ ] Endpoint reoutes attempt to use RESTful patterns (PMs have some discretion here)
+- [ ] Sinatra code base is well organized
+- [ ] 50% or more MVP stories are completed
+- [ ] 100% or more MVP stories are completed
+
+Microservice 2
+- [ ] Endpoint reoutes attempt to use RESTful patterns (PMs have some discretion here)
+- [ ] Sinatra code base is well organized
+- [ ] 50% or more MVP stories are completed
+- [ ] 100% or more MVP stories are completed
+
 
 ### Technical Quality
 
-* **4:**  Project demonstrates components that are "above and beyond", or takes on a new technology that outside the scope of the curriculum, and includes all below expectations.
-* **3:**  Project uses abstraction in ways that make it easy to change (example: if an API changes, Propublica to Google Civic, we make changes in as few places as possible). Project shows a solid understanding of MVC principles (this may include but is not limited to: no logic in views, clean controllers, serializers and presenters to handle formatting rather than models etc.) and includes all below expectations.
-* **2:**  MVC is overall good but might have Ruby processing over data or using hashes in presentation logic, formatting in models or services, or controllers with complex logic and includes all below expectations.
-* **1:**  Project has significant gaps in understanding of MVC and with several examples of logic or hashes in view, controllers remain un-refactored, and models are used for formatting.
+36 Points total, every checkbox is worth ~0.11 points towards your score.
+
+Rails Front End
+- [ ] User-facing routes are friendly (not necessarily RESTful)
+- [ ] Application is easy to navigate for non-technical users
+- [ ] Bootstrap is utilized well for layout and styling
+- [ ] Caching is managed well
+- [ ] Controllers utilize Facades
+- [ ] Facades utilize Service calls well to store/retrieve data from backend
+- [ ] Facades and Services are written well with private methods as appropriate
+- [ ] Code follows strong DRY and SRP design
+- [ ] Travis-CI is set up
+- [ ] Travis-CI deploys to Heroku
+
+Rails Back End
+- [ ] Exposed API routes are versioned well using namespacing
+- [ ] Exposed API routes utilize more than one version (ie, an endpoint exists as both /v1/ and /v2/ that do something slightly different)
+- [ ] Caching or Background workers are implemented in some way
+- [ ] Database eager-loading is used to optimize database performance
+- [ ] Controllers utilize Facades and Serializers
+- [ ] Facades and Serializers use 100% class methods so instantiation is unnecessary
+- [ ] Facades read/write data from Models and Services as appropriate
+- [ ] Facades use POROs appropriately
+- [ ] Facades and Services are written well with private methods as appropriate
+- [ ] Code follows strong DRY and SRP design
+- [ ] Travis-CI is set up
+- [ ] Travis-CI deploys to Heroku
+
+Microservice 1
+- [ ] Exposed API routes are versioned well
+- [ ] Exposed API routes utilize more than one version (ie, an endpoint exists as both /v1/ and /v2/ that do something slightly different)
+- [ ] Optimization techniques (ie, caching) are used within the code in some way
+- [ ] Good serialization patterns are implemented to return JSON
+- [ ] Code follows strong DRY and SRP design
+- [ ] Travis-CI is set up
+- [ ] Travis-CI deploys to Heroku
+
+Microservice 2
+- [ ] Exposed API routes are versioned well
+- [ ] Exposed API routes utilize more than one version (ie, an endpoint exists as both /v1/ and /v2/ that do something slightly different)
+- [ ] Optimization techniques (ie, caching) are used within the code in some way
+- [ ] Good serialization patterns are implemented to return JSON
+- [ ] Code follows strong DRY and SRP design
+- [ ] Travis-CI is set up
+- [ ] Travis-CI deploys to Heroku
+
 
 ### Testing
-* **4:** Project achieves 95% or better test coverage and includes below expectations.
-* **3:** Project achieves 90% or greater test coverage. In addition to "happy path", project also includes "sad path"/edge case testing.
-* **2:** Project achieves 80-90% test coverage. Project may not include "sad path" or edge case testing.
-* **1:** Project does not achieve 80% test coverage.
 
-### Presentation
-* **4:** Team includes a well-planned pre-recorded video of the end-to-end demo, showcasing strong user empathy in a cohesive manner; one part of the team records the video, another part of the team answers Q&A (all voices on the team are heard in some way), plus everything below
-* **3:** Team executes live demo of the MVP application from end to end, discusses SOA and OOP, plus everything below
-* **2:** Team demonstrates a demo of some components of the system through live demo of web browser and/or Postman, plus everything below
-* **1:** Team prepares a slide presentation outlining the MVP of the project
+20 points total, each checkbox is worth 0.2 towards your score.
+
+Rails Front End
+- [ ] API calls to backend, and OAuth, are tested using mocks/stubs
+- [ ] 50% or more test coverage of happy path expectations
+- [ ] 75% or more test coverage of happy path expectations
+- [ ] 90% or more test coverage, includes happy path and sad path expections
+- [ ] 95% or more test coverage, every application feature and back-end endpoint has at least one sad path test
+
+Rails Back End
+- [ ] API calls to microservices are tested using mocks/stubs
+- [ ] 50% or more test coverage of happy path expectations
+- [ ] 75% or more test coverage of happy path expectations
+- [ ] 90% or more test coverage, includes happy path and sad path expections for exposed endpoints
+- [ ] 95% or more test coverage, every exposed endpoint and service consumption has at least one sad path test
+
+Microservice 1
+- [ ] calls to external API services are tested using mocks/stubs
+- [ ] 50% or more test coverage of happy path expectations
+- [ ] 75% or more test coverage of happy path expectations
+- [ ] 90% or more test coverage, includes happy path and sad path expections for exposed endpoints
+- [ ] 95% or more test coverage, every exposed endpoint and API consumption endpoint has at least one sad path test
+
+Microservice 2
+- [ ] calls to external API services are tested using mocks/stubs
+- [ ] 50% or more test coverage of happy path expectations
+- [ ] 75% or more test coverage of happy path expectations
+- [ ] 90% or more test coverage, includes happy path and sad path expections for exposed endpoints
+- [ ] 95% or more test coverage, every exposed endpoint and API consumption endpoint has at least one sad path test
+
+
+### Presentation and Documentation
+
+28 points total, each checkbox is worth ~0.14 towards your score.
+
+Slide Presentation
+- [ ] Outlines MVP of the project
+- [ ] Discusses end users, persona alaysis
+- [ ] Discusses technical choices made
+
+Live Demo
+- [ ] End-to-end demo of live application
+- [ ] End-to-end demo is done 100% in production via web browser
+- [ ] Postman is used on production to show backend service working
+- [ ] Postman is used on production to show Microservice 1 working
+- [ ] Postman is used on production to show Microservice 2 working
+- [ ] ENV variables are changed on Heroku to point to invalid backend/services or API keys; front-end shows a user-friendly error scenario
+- [ ] Different team members presented this content than other areas of the presentation
+
+Video Presentation
+- [ ] Team has prepared a demonstration video
+- [ ] Video displays end-to-end application demo of happy path
+- [ ] Video discusses persona alaysis and user empathy
+- [ ] Video discusses service-oriented architecture
+- [ ] Different team members presented this content than other areas of the presentation
+
+README and Documentation
+- [ ] Git repos for each codebase have README files which contain:
+  - [ ] links to other repos
+  - [ ] contain a list of contributors, their GitHub profiles and LinkedIn profiles
+  - [ ] discuss the purpose of its repo's existance and how it fits into the project SOA
+  - [ ] how to install and test the repo
+- [ ] README for front-end has screenshots and discusses OAuth, user personas and exhibits user empathy
+- [ ] README for back-end includes database schema and each endpoint is documented
+- [ ] README for Microservice 1 documents:
+  - [ ] each endpoint exposed to the back-end
+  - [ ] its use of external service API
+- [ ] a Postman collection JSON file is included in the back-end service repo to test the back-end endpoints in production (except for any portion which needs OAuth)
+- [ ] a Postman collection JSON file is included in the Microservice 1 repo to test the back-end endpoints in production (except for any portion which needs OAuth)
+- [ ] a Postman collection JSON file is included in the Microservice 2 repo to test the back-end endpoints in production (except for any portion which needs OAuth)
+  
 
 ---
 
