@@ -37,13 +37,20 @@ Our project will include at least two "microservices" -- a Service API which abs
 
 ---
 
+## Professional Development Goals
+
+You will be better prepared to hit the ground running in the workplace having worked on a larger team, in a much larger application base, with lots of moving pieces. Understanding the deeper impact of how a small change can have a cascading effect on other pieces of a system will be crucial. We'll also examine our end users on a deeper level to install a strong sense of developer empathy.
+
+---
+
 ## Learning Goals
-Below are technical goals that you should be applying in this project.<br>
-The priority of these goals are demonstrated using a star grading system.<br>
-By the end of this project: <br>
-  Student should have a functional understanding of the concept ⭐ ⭐ ⭐ <br>
-  Student should have a familiar understanding, but may still have questions ⭐ ⭐ <br>
-  Student should be be aware of the concept, but may need further resources to implement ⭐
+
+Below are technical goals that you should be applying in this project. The priority of these goals are demonstrated using a star grading system.
+
+By the end of this project:
+- Student should have a functional understanding of the concept ⭐ ⭐ ⭐, or
+- Student should have a familiar understanding, but may still have questions ⭐ ⭐, or
+- Student should be be aware of the concept, but may need further resources to implement ⭐
 
 ### Explicit Technical Expectations
 * Consume two or more external APIs ⭐ ⭐ ⭐
