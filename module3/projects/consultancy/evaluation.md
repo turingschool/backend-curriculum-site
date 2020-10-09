@@ -24,6 +24,14 @@ type: project
 * **2:** Project achieves 80-90% test coverage. Project may not include "sad path" or edge case testing.
 * **1:** Project does not achieve 80% test coverage.
 
+### Presentation
+* **4:** Team includes a well-planned pre-recorded video of the end-to-end demo, showcasing strong user empathy in a cohesive manner; one part of the team records the video, another part of the team answers Q&A (all voices on the team are heard in some way), plus everything below
+* **3:** Team executes live demo of the MVP application from end to end, discusses SOA and OOP, plus everything below
+* **2:** Team demonstrates a demo of some components of the system through live demo of web browser and/or Postman, plus everything below
+* **1:** Team prepares a slide presentation outlining the MVP of the project
+
+---
+
 ## Peer Evaluation
 
 In addition to your instructor's scores, you will receive a peer evaluation from each group member with the following rubric:
