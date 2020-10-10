@@ -10,11 +10,11 @@ __Choose either Live Demo or Video Presentation to Complete:__
 
 - [ ] Team members who are not part of the demo/presentation, participate in Q&A
 
-    Live Demo
+- Live Demo
     - [ ] End-to-end demo on localhost
     - [ ] End-to-end demo in production
 
-    Video Presentation
+- Video Presentation
     - [ ] Team has prepared a demonstration video
     - [ ] Video displays end-to-end application demo of happy path
     - [ ] Video discusses persona analysis and user empathy
@@ -31,37 +31,36 @@ Slide Presentation
 
 README and Documentation
 
-Each Repo's ReadMe meets the following:
-- [ ] links to other repos & production links
-- [ ] contain a list of contributors, their GitHub profiles and LinkedIn profiles
-- [ ] discuss the purpose of its repo's existence and how it fits into the project SOA
-- [ ] how to install and test the repo
+Each Repo's README meets the following:
+- [ ] links to other project repos & production links
+- [ ] contains a list of contributors, their GitHub profiles and LinkedIn profiles
+- [ ] discusses the purpose of its purpose (how it fits into the project SOA)
+- [ ] discusses how to install and test the repo
 
-Rails front-end
+Rails front-end README:
 - [ ] has screenshots
 - [ ] discusses OAuth
 
-
-Rails back-end
+Rails back-end README:
 - [ ] includes database schema
 - [ ] each endpoint is documented with example request & response
 
-Microservices:
+Each of the Microservices READMEs:
   - [ ] each endpoint exposed to the back-end
   - [ ] its use of external service API
 
 ---
 
-__If the above criteria is met, below are additional points to acheive a 4__
+__When the above criteria is met, here are additional points to achieve a 4__
 
 Demo or Presentation
-- [ ] ENV variables are changed on Heroku to point to invalid backend/services or API keys; front-end shows a user-friendly error scenario
+- [ ] ENV variables are changed on Heroku to point to invalid backend/services or API keys, or backend services are somehow taken offline; front-end shows a user-friendly error scenario
 
 Documentation
 - A Postman collection JSON file is included in the following repos(except for any portion which needs OAuth)
     - [ ] Rails Back End
-    - [ ] Micro-Service 1
-    - [ ] Micro-Service 2
+    - [ ] Microservice 1
+    - [ ] Microservice 2
 
 - Explains user personas and exhibits user empathy
     - [ ] Rails Front End
