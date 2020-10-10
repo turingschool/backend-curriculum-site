@@ -11,8 +11,8 @@ Each Repo meets the following:
 - 50% or more MVP stories are completed
     - [ ] Rails Front End
     - [ ] Rails Back End
-    - [ ] Micro-Service 1
-    - [ ] Micro-Service 2
+    - [ ] Microservice 1
+    - [ ] Microservice 2
 
 Rails Front End
 - [ ] 100% or more MVP stories are completed
@@ -23,18 +23,18 @@ Rails Back End
 
 ---
 
-__If the above criteria is met, below are additional points to achieve a 4__
+__When the above criteria is met, here are additional points to achieve a 4__
 
 - Additional Stories/Features implemented above MVP
     - [ ] Rails Front End
     - [ ] Rails Back End
-    - [ ] Micro-Service 1
-    - [ ] Micro-Service 2
+    - [ ] Microservice 1
+    - [ ] Microservice 2
 
 - Exposed API routes utilize more than one version (ie, an endpoint exists as both /v1/ and /v2/ that do something slightly different)
     - [ ] Rails Back End
-    - [ ] Micro-Service 1
-    - [ ] Micro-Service 2
+    - [ ] Microservice 1
+    - [ ] Microservice 2
 
 - Rails Front End
     - [ ] Professional quality HTML and CSS, color palette is pleasing and suitable to the target audience
