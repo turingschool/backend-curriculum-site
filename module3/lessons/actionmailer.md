@@ -285,7 +285,6 @@ end
 
 ### Additional Resources
 
-
-* [ Slides ](https://www.dropbox.com/s/ev7tya328sv9jyh/Turing%20-%20Sending%20Email.key?dl=0)
+* [ Slides ](../slides/emails)
 * [Production Email Checklist using SendGrid](../lessons/production_email_checklist)
 * [Additional Rails docs on Testing Emails](https://guides.rubyonrails.org/testing.html#testing-your-mailers)
