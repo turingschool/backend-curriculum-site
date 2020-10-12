@@ -1,22 +1,29 @@
 ---
 layout: page
-title: Sending Email Tutorial
+title: Sending Email in Rails
 length: 60
 tags: rails, email, smtp, actionmailer, rspec
 ---
 
 Updated to work with Ruby 2.5.3 and Rails 5.2.4.3
 
-## Sending Email
+## Learning Goals
 
 We'll explore sending email in Rails by building a project that requires this functionality. By the end you should understand:
 
 * How to use ActionMailer
 * Send email locally using Mailcatcher
-* How to test a mailer is working
+* How to test that a mailer is working
 
+---
 
-### Friendly Advice
+## Warm Up
+
+* Why are emails important?
+
+---
+
+## Friendly Advice Exercise
 
 We are going to build an application that allows us to send our friend some friendly advice via email.
 
@@ -74,14 +81,14 @@ class AdviceController < ApplicationController
     @advice = AdviceGenerator.new
     # `recipient` is the email address that should be receiving the message
     recipient = params[:friends_email]
-    
+
     # `email_info` is the information that we want to include in the email message.
     email_info = {
       user: current_user,
       friend: params[:friends_name],
       message: @advice.message
     }
-    
+
     FriendNotifierMailer.inform(email_info, recipient).deliver_now
     flash[:notice] = 'Thank you for sending some friendly advice.'
     redirect_to advice_url
