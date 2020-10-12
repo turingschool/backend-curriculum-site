@@ -54,6 +54,7 @@ Introduction to OAuth
 ## Refactoring and OOP
 
 Refactoring APIs
+* [Ian Douglas, 2006 Cohort](https://vimeo.com/467506852/9d58994457)
 * [Dione Wilson, 2005 Cohort](https://vimeo.com/450270705/8b8f6a1202)
 * (archive) [Refactoring APIs for Mocking/Stubbing; Josh Mejia, Aug 2019](https://www.youtube.com/watch?v=Okck4Fc557o)
 
