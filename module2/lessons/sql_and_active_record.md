@@ -30,7 +30,7 @@ In this lesson, we will be writing both raw SQL and ActiveRecord. In order to se
 In the first tab, open a connection to our SetList database:
 
 ```
-$ psql --dbname set_list_development
+$ rails dbconsole
 ```
 
 The default convention for your database name is whatever your app name is appended with `_development`.
