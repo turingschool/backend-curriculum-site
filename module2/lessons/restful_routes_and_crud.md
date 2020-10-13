@@ -82,15 +82,6 @@ Complete the table. The first 2 examples are done for you, and you should add th
 
 Is there a command you can run from your terminal to help with the diagram? (HINT)
 
-|What does it do?|Verb|URI|Data Prep| Redirect or Render?|View|
-|:---:|:---:|:---:|:---:|:---:|:---:|
-|||||||
-|||||||
-|||||||
-|||||||
-|||||||
-|||||||
-|||||||
 
 ### Not So RESTful routes
 
