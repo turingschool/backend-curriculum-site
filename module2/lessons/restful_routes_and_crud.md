@@ -18,7 +18,7 @@ title: RESTful Routes and CRUD
 
 ## Warmup
 
-Based on your intermission work:
+Based on your Task Manager App:
 
 * What does CRUD stand for?
 * Look at your Task Manager routes: what are the eight different method/path/controller#action combinations contained there?
@@ -63,13 +63,13 @@ In this context, the portion of the URL after the domain.
 
 For the URL `https://en.wikipedia.org/wiki/Uniform_Resource_Identifier`, the URI would be `/wiki/Uniform_Resource_Identifier`.
 
-**Turn & Talk**
+**Think to yourself**
 
-What is the URI for this address? `http://www.tatteredcover.com/book/9781626722934` 
+What is the URI for this address? `http://www.tatteredcover.com/book/9781626722934`
 
 ### Seven RESTful Routes
 
-Pull up the routes and TaskController from Task Manager. Let's see if we can create a [table](https://docs.google.com/spreadsheets/d/1AGjUE49UJajPEQHvh3plKjaem5RAGvuv5SNjZzvjD9U/edit?usp=sharing) for seven RESTful routes allowing us to perform all CRUD actions on a Task. Include the following:
+Pull up the routes and TaskController from Task Manager. Let's see if you can create a [table](https://docs.google.com/spreadsheets/d/1AGjUE49UJajPEQHvh3plKjaem5RAGvuv5SNjZzvjD9U/edit?usp=sharing) for seven RESTful routes allowing us to perform all CRUD actions on a Task. Include the following:
 
 * What a user wants
 * Method (verb)
@@ -78,7 +78,9 @@ Pull up the routes and TaskController from Task Manager. Let's see if we can cre
 * Do we want to Redirect or Render erb
 * Name of View
 
-In small groups complete the table either on a computer or poster.
+Complete the table. The first 2 examples are done for you, and you should add the remaining RESTful routes. You can either make a copy of the spreadsheet, or diagram this in your notebook. Please post a link to your copy and/or a photo of your diagram at 2:00PM in the code-help thread.
+
+Is there a command you can run from your terminal to help with the diagram? (HINT)
 
 |What does it do?|Verb|URI|Data Prep| Redirect or Render?|View|
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -94,11 +96,13 @@ In small groups complete the table either on a computer or poster.
 
 * Do research. What is an example of a non-RESTful route?
   * `/tasks/add`
-  
-  
-## WrapUp 
-* What is each part of CRUD? 
-* What is REST? 
+  * `/tasks/show_all`
+  * etc
+
+
+## WrapUp
+* What is each part of CRUD?
+* What is REST?
 * How do we combine CRUD and REST in web applications?
 * Record a version of the restful routes table in your notes
 
