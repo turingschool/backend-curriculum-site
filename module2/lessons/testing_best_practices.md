@@ -160,7 +160,9 @@ Let's practice some of these concepts by updating our song index test in SetList
 it 'shows song information grouped by song' do
   artist = Artist.create!(name: '1903')
   song_1 = artist.songs.create(title: 'Testing', length: 90, play_count: 1)
-  song_1 = artist.songs.create(title: 'Testing Redux', length: 90, play_count: 10)
+  song_2 = artist.songs.create(title: 'Testing Redux', length: 90, play_count: 10)
+
+  visit '/songs'
 
   expect(page).to have_content(song_1.title)
   expect(page).to have_content("Play Count: #{song_1.play_count}")
