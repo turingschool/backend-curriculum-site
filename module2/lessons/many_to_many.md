@@ -46,8 +46,8 @@ In SetList:
 | id | title  | length  | play_count  | artist_id |
 |---|---|---|---|---|
 | 1 | This Must Be the Place | 345 | 23 | 1 |
-| 2 | Heaven | 432 | 12 | 1 |
-| 3 | Don't Stop Believin' | 367 | 45 | 2 |
+| 2 | Aint No Bread in the Breadbox | 432 | 12 | 1 |
+| 3 | Reuben and Cherise | 367 | 45 | 2 |
 | 4 | Chicken Fried | 183 | 49 | 3 |
 
 **Artists Table**
@@ -81,8 +81,8 @@ If we have Songs and Playlists tables that look like this:
 | id | title  | length  | play_count  | artist_id |
 |---|---|---|---|---|
 | 1 | This Must Be the Place | 345 | 23 | 1 |
-| 2 | Heaven | 432 | 12 | 1 |
-| 3 | Don't Stop Believin' | 367 | 45 | 2 |
+| 2 | Aint No Bread in the Breadbox | 432 | 12 | 1 |
+| 3 | Reuben and Cherise | 367 | 45 | 2 |
 | 4 | Chicken Fried | 183 | 49 | 3 |
 
 **Playlists Table**
@@ -90,10 +90,10 @@ If we have Songs and Playlists tables that look like this:
 | id | name  |
 |---|---|
 | 1 | Classic Rock |
-| 2 | Country |
+| 2 | Uplifting Sound |
 | 3 | Favorite Jams |
 
-We can imagine that the "Classic Rock" playlist could include the songs "This Must Be the Place", "Heaven", and "Don't Stop Believin'" (a playlist has many songs). We can also imagine that the song "Chicken Fried" could be in both the "Country" and "Favorite Jams" playlist (a song has many playlists).
+We can imagine that the "Classic Rock" playlist could include the songs "This Must Be the Place", "Aint No Bread in the Breadbox", and "Reuben and Cherise" (a playlist has many songs). We can also imagine that the song "Chicken Fried" could be in both the "Uplifting Sound" and "Favorite Jams" playlist (a song has many playlists).
 
 So far, we have used **foreign keys** to create relationships. The problem is that a **foreign key** can identify a *single* record from another table, but in a many-to-many both sides of the relationship need to reference *multiple* records. This means that we're going to need more than just foreign keys.
 
@@ -112,8 +112,8 @@ Since we can't achieve the many-to-many relationship with our given tables, we a
 | id | title  | length  | play_count  | artist_id |
 |---|---|---|---|---|
 | 1 | This Must Be the Place | 345 | 23 | 1 |
-| 2 | Heaven | 432 | 12 | 1 |
-| 3 | Don't Stop Believin' | 367 | 45 | 2 |
+| 2 | Aint No Bread in the Breadbox | 432 | 12 | 1 |
+| 3 | Reuben and Cherise | 367 | 45 | 2 |
 | 4 | Chicken Fried | 183 | 49 | 3 |
 
 **PlaylistSongs Table**
@@ -132,7 +132,7 @@ Since we can't achieve the many-to-many relationship with our given tables, we a
 | id | name  |
 |---|---|
 | 1 | Classic Rock |
-| 2 | Country |
+| 2 | Uplifting Sound |
 | 3 | Favorite Jams |
 
 
@@ -147,9 +147,9 @@ When you're thinking about what to call this table, think about how you're likel
 
 **Note**: Don't confuse **join table** with a sql joins operation. They are two different things.
 
-### Independent Practice - Photographs and Albums
+### Independent Practice
 
-Diagram the DB tables you would need to create a many-to-many relationship between Photographs and Albums. Include some example data in your tables.
+Diagram the DB tables you would need to create a many-to-many relationship between two tables that you think up on your own. Include some example data in your tables. If you can't come up with an example on your own, use Photographs and Albums.
 
 # Many-to-Many Relationships in Rails
 
@@ -268,7 +268,7 @@ Now we'll generate the migration to create our join table:
 rails g migration CreatePlaylistSongs song:references playlist:references
 ```
 
-Add timestamps to your table, and then migrate your database: 
+Add timestamps to your table, and then migrate your database:
 
 ```
 rake db:migrate
@@ -408,36 +408,36 @@ require 'rails_helper'
 RSpec.describe "the Playlist index page" do
   it "should display all playlists" do
     rock = Playlist.create!(name: "Classic Rock")
-    country = Playlist.create!(name: "Country")
+    uplifting_sound = Playlist.create!(name: "Uplifting Sound")
     jams = Playlist.create!(name: "Favorite Jams")
 
     talking_heads = Artist.create!(name: "Talking Heads")
-    journey = Artist.create!(name: "Journey")
+    jgb = Artist.create!(name: "Jerry Garcia Band")
     zac_brown = Artist.create!(name: "Zac Brown Band")
 
     place = talking_heads.songs.create!(title: "This Must Be The Place", length: 832, play_count: 83209)
-    heaven = talking_heads.songs.create!(title: "Heaven", length: 832, play_count: 83209)
-    dont_stop = journey.songs.create!(title: "Don't Stop Believin'", length: 832, play_count: 83209)
+    breadbox = jgb.songs.create!(title: "Aint No Bread in the Breadbox", length: 832, play_count: 83209)
+    r_and_c = jgb.songs.create!(title: "Reuben and Cherise", length: 832, play_count: 83209)
     chicken = zac_brown.songs.create!(title: "Chicken Fried", length: 4378, play_count: 7453689)
 
-    PlaylistSong.create!(song: chicken, playlist: country)
+    PlaylistSong.create!(song: chicken, playlist: uplifting_sound)
     PlaylistSong.create!(song: chicken, playlist: jams)
     PlaylistSong.create!(song: place, playlist: jams)
     PlaylistSong.create!(song: place, playlist: rock)
-    PlaylistSong.create!(song: heaven, playlist: rock)
-    PlaylistSong.create!(song: dont_stop, playlist: rock)
+    PlaylistSong.create!(song: breadbox, playlist: rock)
+    PlaylistSong.create!(song: r_and_c, playlist: rock)
 
     visit '/playlists'
 
     within("#playlist-#{rock.id}") do
       expect(page).to have_content(rock.name)
       expect(page).to have_content(place.title)
-      expect(page).to have_content(heaven.title)
-      expect(page).to have_content(dont_stop.title)
+      expect(page).to have_content(breadbox.title)
+      expect(page).to have_content(r_and_c.title)
     end
 
-    within("#playlist-#{country.id}") do
-      expect(page).to have_content(country.name)
+    within("#playlist-#{uplifting_sound.id}") do
+      expect(page).to have_content(uplifting_sound.name)
       expect(page).to have_content(chicken.title)
     end
 
