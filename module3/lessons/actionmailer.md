@@ -198,15 +198,7 @@ If you open up the app in a browser locally, and run through the steps to send a
 
 I know, I know, TDD all the things, and we didn't do that here. Here are some helpful steps for testing that your mailer is working:
 
-#### spec/rails_helper.rb
-
-Within your `RSpec.configure` block, add the following line:
-```ruby
-config.action_mailer.delivery_method = :test
-```
-This ensures that we don't try to send real emails.
-
-#### in your test files
+#### In your test files
 
 ```ruby
 expect(ActionMailer::Base.deliveries.count).to eq(1)
