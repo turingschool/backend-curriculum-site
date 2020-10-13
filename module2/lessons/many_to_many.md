@@ -169,7 +169,7 @@ RSpec.describe Playlist, type: :model do
 end
 ```
 
-The first thing we need to set up is the connection to the join table. Running this gives us:
+The first thing we need to set up is the connection between our model and our table. Running this gives us:
 
 ```bash
 NameError:
