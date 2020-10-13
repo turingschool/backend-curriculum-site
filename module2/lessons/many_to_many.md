@@ -55,7 +55,7 @@ In SetList:
 | id | name  |
 |---|---|
 | 1 | Talking Heads |
-| 2 | Journey |
+| 2 | Jerry Garcia Band |
 | 3 | Zac Brown Band |
 
 ### Independent Practice - Students and Modules
