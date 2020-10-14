@@ -19,6 +19,7 @@ tags: jquery, javascript
 
 ## Warm Up
 
+How do you as a user know how to interact with a website?
 
 ## What is the DOM?
 
