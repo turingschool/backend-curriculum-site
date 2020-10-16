@@ -12,7 +12,7 @@ tags: apis, testing, requests, rails
 * Use request specs to TDD an API
 * Understand what makes a valid JSON data structure
 * Learn how to parse and create JSON in Ruby
-<!--  -->
+
 ## Warmup
 
 * What is an API in the context of web development?
@@ -57,7 +57,7 @@ There are also "external" APIs, which is the more common use of the "API" term, 
 
 The rest of this lesson will discuss APIs in the context of these external Internet-based "services".
 
-## Why use (external, Intern-based) APIs?
+## Why use (external, Internet-based) APIs?
 
 APIs provide a means for us to transmit data between web-based applications without worrying about all the overhead associated with HTML.
 
