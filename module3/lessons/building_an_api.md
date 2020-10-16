@@ -12,15 +12,7 @@ tags: apis, testing, requests, rails
 * Use request specs to TDD an API
 * Understand what makes a valid JSON data structure
 * Learn how to parse and create JSON in Ruby
-
-#### Exploration
-
-Discuss the examples of JSON linked below with a partner and describe what you notice.
-
-* [Example 1](https://developer.github.com/v3/git/commits)
-* [Example 2](https://birdeck-api.herokuapp.com/api/v1/posts/2).
-
-
+<!--  -->
 ## Warmup
 
 * What is an API in the context of web development?
@@ -176,7 +168,7 @@ The Facade may get data from a Model using ActiveRecord, or call a service using
 
 The Facade's job, then, is to make sure the controller ONLY gets object data back. No JSON, no hashes. Just Objects, or arrays of Objects.
 
-The controller, then, will hand off that data to a Serializer, which can be appropriately-named for the data it contains like RoadTripWeatherSerializer or something like that, and given the Object data from 
+The controller, then, will hand off that data to a Serializer, which can be appropriately-named for the data it contains like RoadTripWeatherSerializer or something like that, and given the Object data from
 
 ---
 
