@@ -30,7 +30,7 @@ We'll be building a versioned API in this tutorial.
 
 ## Tutorial
 
-### 0. RSpec & Factory Bot Setup
+### 0. RSpec, Factory Bot Setup, & Faker
 
 Let's start by creating a new Rails project. If you are creating an api only Rails project, you can append `--api` to your rails new line in the command line.
 Read [section 3 of the docs](http://edgeguides.rubyonrails.org/api_app.html) to see how an api-only rails project is configured.
@@ -42,7 +42,7 @@ $ bundle
 $ bundle exec rake db:create
 ```
 
-Add `gem 'rspec-rails'` to your Gemfile.
+Add `gem 'rspec-rails'` to your :development, :test block in your Gemfile.
 
 ```sh
 $ bundle
@@ -51,7 +51,7 @@ $ rails g rspec:install
 
 Now let's get our factories set up!
 
-add `gem 'factory_bot_rails'` to your :development, :test block in your Gemfile.
+add `gem 'factory_bot_rails'`, `gem 'faker'` to your :development, :test block in your Gemfile.
 
 Inside of the rails_helper.rb file add this to the RSpec.configure block:
 
@@ -100,7 +100,8 @@ Let's make the test pass!
 The first error that we should receive is
 
 ```sh
-Failure/Error: create_list(:book, 3) ArgumentError: Factory not registered: book
+Failure/Error: create_list(:book, 3)  KeyError:
+       Factory not registered: "book"
 ```
 
 This is because we have not created a factory yet. The easiest way to create a factory is to generate the model.
@@ -130,25 +131,34 @@ Before we run our test again, let's take a look at the Book Factory that was gen
 
 ```rb
 FactoryBot.define do
-  factory :book do
-    name { "MyString" }
-    description { "MyText" }
+  FactoryBot.define do
+    factory :book do
+      title { "MyString" }
+      author { "MyString" }
+      genre { "MyString" }
+      summary { "MyText" }
+      number_sold { 1 }
+    end
   end
-end
+
 ```
 
 We can see that the attributes are created with auto-populated data using `My` and the attribute data type.
-This is boring. Let's change it to reflect a real book.
+This is boring. Let's user Faker to generate data for us.
 
 **spec/factories/books.rb**
 
 ```rb
 FactoryBot.define do
   factory :book do
-    name { "Banana Stand" }
-    description { "There's always money in the banana stand." }
+    title { Faker::Book.title }
+    author { Faker::Book.author }
+    genre { Faker::Book.genre }
+    summary { Faker::Lorem.paragraph }
+    number_sold { Faker::Number.within(range: 1..10) }
   end
 end
+
 ```
 
 ### 3. Api::V1::BooksController#index
@@ -257,13 +267,33 @@ describe "Books API" do
   it "sends a list of books" do
     create_list(:book, 3)
 
-    get "/api/v1/books"
+    get '/api/v1/books'
 
     expect(response).to be_successful
 
-    books = JSON.parse(response.body)
+    books = JSON.parse(response.body, symbolize_names: true)
 
     expect(books.count).to eq(3)
+
+    books.each do |book|
+      expect(book).to have_key(:id)
+      expect(book[:id]).to be_an(Integer)
+
+      expect(book).to have_key(:title)
+      expect(book[:title]).to be_a(String)
+
+      expect(book).to have_key(:author)
+      expect(book[:author]).to be_a(String)
+
+      expect(book).to have_key(:genre)
+      expect(book[:genre]).to be_a(String)
+
+      expect(book).to have_key(:summary)
+      expect(book[:summary]).to be_a(String)
+
+      expect(book).to have_key(:number_sold)
+      expect(book[:number_sold]).to be_an(Integer)
+    end
   end
 end
 ```
@@ -278,16 +308,33 @@ First, let's write the test. As you can see, we have added a key `id` in the req
 
 ```rb
 # spec/requests/api/v1/books_request_spec.rb
-  it "can get one book by its id" do
-    id = create(:book).id
+it "can get one book by its id" do
+  id = create(:book).id
 
-    get "/api/v1/books/#{id}"
+  get "/api/v1/books/#{id}"
 
-    book = JSON.parse(response.body)
+  book = JSON.parse(response.body, symbolize_names: true)
 
-    expect(response).to be_successful
-    expect(book["id"]).to eq(id)
-  end
+  expect(response).to be_successful
+
+  expect(book).to have_key(:id)
+  expect(book[:id]).to eq(id)
+
+  expect(book).to have_key(:title)
+  expect(book[:title]).to be_a(String)
+
+  expect(book).to have_key(:author)
+  expect(book[:author]).to be_a(String)
+
+  expect(book).to have_key(:genre)
+  expect(book[:genre]).to be_a(String)
+
+  expect(book).to have_key(:summary)
+  expect(book[:summary]).to be_a(String)
+
+  expect(book).to have_key(:number_sold)
+  expect(book[:number_sold]).to be_an(Integer)
+end
 ```
 
 Try to test drive the implementation before looking at the code below.
@@ -328,15 +375,25 @@ Also note that we aren't parsing the response to access the last book we created
 ```rb
 # spec/requests/api/v1/books_request_spec.rb
 it "can create a new book" do
-  book_params = { name: "Saw", description: "I want to play a game" }
+  book_params = ({
+                  title: 'Murder on the Orient Express',
+                  author: 'Agatha Christie',
+                  genre: 'mystery',
+                  summary: 'Filled with suspense.',
+                  number_sold: 432
+                })
   headers = {"CONTENT_TYPE" => "application/json"}
 
   # We include this header to make sure that these params are passed as JSON rather than as plain text
-  post "/api/v1/books", headers: headers, params: JSON.generate({book: book_params})
-  book = Book.last
+  post "/api/v1/books", headers: headers, params: JSON.generate(book: book_params)
+  created_book = Book.last
 
   expect(response).to be_successful
-  expect(book.name).to eq(book_params[:name])
+  expect(created_book.title).to eq(book_params[:title])
+  expect(created_book.author).to eq(book_params[:author])
+  expect(created_book.summary).to eq(book_params[:summary])
+  expect(created_book.genre).to eq(book_params[:genre])
+  expect(created_book.number_sold).to eq(book_params[:number_sold])
 end
 ```
 
@@ -388,17 +445,17 @@ This test looks very similar to the previous one we wrote. Note that we aren't m
 # spec/requests/api/v1/books_request_spec.rb
 it "can update an existing book" do
   id = create(:book).id
-  previous_name = Book.last.name
-  book_params = { name: "Sledge" }
+  previous_name = Book.last.title
+  book_params = { title: "Charlotte's Web" }
   headers = {"CONTENT_TYPE" => "application/json"}
 
   # We include this header to make sure that these params are passed as JSON rather than as plain text
-  put "/api/v1/books/#{id}", headers: headers, params: JSON.generate({book: book_params})
+  patch "/api/v1/books/#{id}", headers: headers, params: JSON.generate({book: book_params})
   book = Book.find_by(id: id)
 
   expect(response).to be_successful
-  expect(book.name).to_not eq(previous_name)
-  expect(book.name).to eq("Sledge")
+  expect(book.title).to_not eq(previous_name)
+  expect(book.title).to eq("Charlotte's Web")
 end
 ```
 
@@ -462,7 +519,7 @@ Make the test pass.
 # config/routes.rb
 namespace :api do
   namespace :v1 do
-    resources :books, except: [:new, :edit]
+    resources :books
   end
 end
 ```
