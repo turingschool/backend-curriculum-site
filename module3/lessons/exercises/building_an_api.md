@@ -10,11 +10,11 @@ tags: apis, testing, requests, rails
 * Tutorial
     1. RSpec & FactoryBot Setup
     1. Creating Our First Test and Factory
-    1. Api::V1::ItemsController#index
-    1. Api::V1::ItemsController#show
-    1. Api::V1::ItemsController#create
-    1. Api::V1::ItemsController#update
-    1. Api::V1::ItemsController#destroy
+    1. Api::V1::BooksController#index
+    1. Api::V1::BooksController#show
+    1. Api::V1::BooksController#create
+    1. Api::V1::BooksController#update
+    1. Api::V1::BooksController#destroy
 
 ## Background: Versioned APIs
 
@@ -22,9 +22,9 @@ In software (and probably other areas in life) you're never going to know less a
 
 When building APIs, we don't always know exactly how they will be used. Because of this, we should aim to build with the assumption that things will need to change.
 
-Imagine we are serving up an API that several other companies and developers are using. Let's think through a simple example. Let's say we have an API endpoint of `GET /api/items/1` that returns a JSON response that includes an `id`, `title`, `description`, and `number_sold`. Now imagine that at a later date we no longer want to provide `number_sold` and instead want to replace it with a new attribute called `popularity`. What happens to all of our consumers that were dependent on `number_sold`?
+Imagine we are serving up an API that several other companies and developers are using. Let's think through a simple example. Let's say we have an API endpoint of `GET /api/books/1` that returns a JSON response that includes an `id`, `title`, `author`, `genre`, `summary` and `number_sold`. Now imagine that at a later date we no longer want to provide `number_sold` and instead want to replace it with a new attribute called `popularity`. What happens to all of our consumers that were dependent on `number_sold`?
 
-We can provide a better experience for our clients (other developers) by versioning our API. Instead of our endpoint being `GET /api/items/1` we can add an extra segment to our URL with a version number. Something like `GET /api/v1/items/1`. If we ever want to change our API in the future we can simply change the segment to represent the new API `GET /api/v2/items/1`. The big advantage here is we can have both endpoints served simultaneously to allow our clients to transition their code bases to use the newest version. Usually the intent is to shutdown the initial API since maintaining multiple versions can be a drain on resources. Most companies will provide a date that the deprecated API will be shutdown.
+We can provide a better experience for our clients (other developers) by versioning our API. Instead of our endpoint being `GET /api/books/1` we can add an extra segment to our URL with a version number. Something like `GET /api/v1/books/1`. If we ever want to change our API in the future we can simply change the segment to represent the new API `GET /api/v2/books/1`. The big advantage here is we can have both endpoints served simultaneously to allow our clients to transition their code bases to use the newest version. Usually the intent is to shutdown the initial API since maintaining multiple versions can be a drain on resources. Most companies will provide a date that the deprecated API will be shutdown.
 
 We'll be building a versioned API in this tutorial.
 
@@ -68,25 +68,25 @@ our api, users are going to be sending HTTP requests to our app. For this reason
 
 ```sh
 $ mkdir -p spec/requests/api/v1
-$ touch spec/requests/api/v1/items_request_spec.rb
+$ touch spec/requests/api/v1/books_request_spec.rb
 ```
 
 Note that we are namespacing under `/api/v1`. This is how we are going to namespace our controllers, so we want to do the same in our tests.
 
-On the first line of our test, we want to set up our data. We configured Factory Bot so let's have it generate some items for us.
-We then want to make the request that a user would be making. We want a `get` request to `api/v1/items` and we would like to get
+On the first line of our test, we want to set up our data. We configured Factory Bot so let's have it generate some books for us.
+We then want to make the request that a user would be making. We want a `get` request to `api/v1/books` and we would like to get
 json back. At the end of the test we want to assert that the response was a success.
 
-**spec/requests/api/v1/items_request_spec.rb**
+**spec/requests/api/v1/books_request_spec.rb**
 
 ```rb
 require 'rails_helper'
 
-describe "Items API" do
-  it "sends a list of items" do
-    create_list(:item, 3)
+describe "Books API" do
+  it "sends a list of books" do
+    create_list(:book, 3)
 
-    get '/api/v1/items'
+    get '/api/v1/books'
 
     expect(response).to be_successful
   end
@@ -100,7 +100,7 @@ Let's make the test pass!
 The first error that we should receive is
 
 ```sh
-Failure/Error: create_list(:item, 3) ArgumentError: Factory not registered: item
+Failure/Error: create_list(:book, 3) ArgumentError: Factory not registered: book
 ```
 
 This is because we have not created a factory yet. The easiest way to create a factory is to generate the model.
@@ -108,29 +108,29 @@ This is because we have not created a factory yet. The easiest way to create a f
 Let's generate a model.
 
 ```sh
-$ rails g model Item name description:text
+$ rails g model Book name description:text
 ```
 
-Notice that not only was the Item model created, but a factory was created for the item in
-`spec/factories/items.rb`
+Notice that not only was the Book model created, but a factory was created for the book in
+`spec/factories/books.rb`
 
 Now let's migrate!
 
 ```sh
 $ bundle exec rake db:migrate
-== 20160229180616 CreateItems: migrating ======================================
--- create_table(:items)
+== 20160229180616 CreateBooks: migrating ======================================
+-- create_table(:books)
    -> 0.0412s
-== 20160229180616 CreateItems: migrated (0.0413s) =============================
+== 20160229180616 CreateBooks: migrated (0.0413s) =============================
 ```
 
-Before we run our test again, let's take a look at the Item Factory that was generated for us.
+Before we run our test again, let's take a look at the Book Factory that was generated for us.
 
-**spec/factories/items.rb**
+**spec/factories/books.rb**
 
 ```rb
 FactoryBot.define do
-  factory :item do
+  factory :book do
     name { "MyString" }
     description { "MyText" }
   end
@@ -138,24 +138,24 @@ end
 ```
 
 We can see that the attributes are created with auto-populated data using `My` and the attribute data type.
-This is boring. Let's change it to reflect a real item.
+This is boring. Let's change it to reflect a real book.
 
-**spec/factories/items.rb**
+**spec/factories/books.rb**
 
 ```rb
 FactoryBot.define do
-  factory :item do
+  factory :book do
     name { "Banana Stand" }
     description { "There's always money in the banana stand." }
   end
 end
 ```
 
-### 3. Api::V1::ItemsController#index
+### 3. Api::V1::BooksController#index
 
 We're TDD'ing so let's run our tests again.
 
-We should get the error `ActionController::RoutingError: No route matches [GET] "/api/v1/items"`
+We should get the error `ActionController::RoutingError: No route matches [GET] "/api/v1/books"`
 
 This is because we haven't yet set up our routing.
 
@@ -163,7 +163,7 @@ This is because we haven't yet set up our routing.
 # config/routes.rb
   namespace :api do
     namespace :v1 do
-      resources :items, only: [:index]
+      resources :books, only: [:index]
     end
   end
 ```
@@ -181,22 +181,22 @@ If you'd like, feel free to run your tests after creating the directory structur
 
 ```sh
 $ mkdir -p app/controllers/api/v1
-$ touch app/controllers/api/v1/items_controller.rb
+$ touch app/controllers/api/v1/books_controller.rb
 ```
 
 We can add the following to the controller we just made:
 
 ```rb
-# app/controllers/api/v1/items_controller.rb
-class Api::V1::ItemsController < ApplicationController
+# app/controllers/api/v1/books_controller.rb
+class Api::V1::BooksController < ApplicationController
 end
 ```
 
 Also, add the action in the controller:
 
 ```rb
-# app/controllers/api/v1/items_controller.rb
-class Api::V1::ItemsController < ApplicationController
+# app/controllers/api/v1/books_controller.rb
+class Api::V1::BooksController < ApplicationController
 
   def index
   end
@@ -210,18 +210,18 @@ will respond with `Status 204 No Content`. Since it's a `2xx` status code, it is
 Now lets see if we can actually get some data.
 
 ```rb
-# spec/requests/api/v1/items_request_spec.rb
+# spec/requests/api/v1/books_request_spec.rb
 require 'rails_helper'
 
-describe "Items API" do
-  it "sends a list of items" do
-     create_list(:item, 3)
+describe "Books API" do
+  it "sends a list of books" do
+     create_list(:book, 3)
 
-      get '/api/v1/items'
+      get '/api/v1/books'
 
       expect(response).to be_successful
 
-      items = JSON.parse(response.body)
+      books = JSON.parse(response.body)
    end
 end
 ```
@@ -231,11 +231,11 @@ When we run our tests again, we get a semi-obnoxious `JSON::ParserError`.
 Well that makes sense. We aren't actually rendering anything yet. Let's render some JSON from our controller.
 
 ```rb
-# app/controllers/api/v1/items_controller.rb
-class Api::V1::ItemsController < ApplicationController
+# app/controllers/api/v1/books_controller.rb
+class Api::V1::BooksController < ApplicationController
 
   def index
-    render json: Item.all
+    render json: Book.all
   end
 
 end
@@ -250,50 +250,50 @@ If you just type `response` you can take a look at the entire response object. W
 The data we got back is json, and we need to parse it to get a Ruby object. Try entering `JSON.parse(response.body)`. As you see, the data looks a lot more like Ruby after we parse it. Now that we have a Ruby object, we can make assertions about it.
 
 ```rb
-# spec/requests/api/v1/items_request_spec.rb
+# spec/requests/api/v1/books_request_spec.rb
 require 'rails_helper'
 
-describe "Items API" do
-  it "sends a list of items" do
-    create_list(:item, 3)
+describe "Books API" do
+  it "sends a list of books" do
+    create_list(:book, 3)
 
-    get "/api/v1/items"
+    get "/api/v1/books"
 
     expect(response).to be_successful
 
-    items = JSON.parse(response.body)
+    books = JSON.parse(response.body)
 
-    expect(items.count).to eq(3)
+    expect(books.count).to eq(3)
   end
 end
 ```
 
 Run your tests again and they should still be passing.
 
-### 4. ItemsController#show
+### 4. BooksController#show
 
-Now we are going to test drive the `/api/v1/items/:id` endpoint. From the `show` action, we want to return a single item.
+Now we are going to test drive the `/api/v1/books/:id` endpoint. From the `show` action, we want to return a single book.
 
 First, let's write the test. As you can see, we have added a key `id` in the request:
 
 ```rb
-# spec/requests/api/v1/items_request_spec.rb
-  it "can get one item by its id" do
-    id = create(:item).id
+# spec/requests/api/v1/books_request_spec.rb
+  it "can get one book by its id" do
+    id = create(:book).id
 
-    get "/api/v1/items/#{id}"
+    get "/api/v1/books/#{id}"
 
-    item = JSON.parse(response.body)
+    book = JSON.parse(response.body)
 
     expect(response).to be_successful
-    expect(item["id"]).to eq(id)
+    expect(book["id"]).to eq(id)
   end
 ```
 
 Try to test drive the implementation before looking at the code below.
 ---
 
-Run the tests and the first error we get is: `ActionController::RoutingError: No route matches [GET] "/api/v1/items/980190962"`, or some other similar route. Factory Bot has created an id for us.
+Run the tests and the first error we get is: `ActionController::RoutingError: No route matches [GET] "/api/v1/books/980190962"`, or some other similar route. Factory Bot has created an id for us.
 
 Let's update our routes.
 
@@ -301,46 +301,46 @@ Let's update our routes.
 # config/routes.rb
 namespace :api do
   namespace :v1 do
-    resources :items, only: [:index, :show]
+    resources :books, only: [:index, :show]
   end
 end
 ```
 
-Run the tests and... `The action 'show' could not be found for Api::V1::ItemsController`.
+Run the tests and... `The action 'show' could not be found for Api::V1::BooksController`.
 
 Add the action and declare what data should be returned from the endpoint:
 
 ```rb
 def show
-  render json: Item.find(params[:id])
+  render json: Book.find(params[:id])
 end
 ```
 
 Run the tests and... we should have two passing tests.
 
-### 5. ItemsController#create
+### 5. BooksController#create
 
-Let's start with the test. Since we are creating a new item, we need to pass data for the new item via the HTTP request.
+Let's start with the test. Since we are creating a new book, we need to pass data for the new book via the HTTP request.
 We can do this easily by adding the params as a key-value pair. Also note that we swapped out the `get` in the request for a `post` since we are creating data.
 
-Also note that we aren't parsing the response to access the last item we created, we can simply query for the last Item record created.
+Also note that we aren't parsing the response to access the last book we created, we can simply query for the last Book record created.
 
 ```rb
-# spec/requests/api/v1/items_request_spec.rb
-it "can create a new item" do
-  item_params = { name: "Saw", description: "I want to play a game" }
+# spec/requests/api/v1/books_request_spec.rb
+it "can create a new book" do
+  book_params = { name: "Saw", description: "I want to play a game" }
   headers = {"CONTENT_TYPE" => "application/json"}
 
   # We include this header to make sure that these params are passed as JSON rather than as plain text
-  post "/api/v1/items", headers: headers, params: JSON.generate({item: item_params})
-  item = Item.last
+  post "/api/v1/books", headers: headers, params: JSON.generate({book: book_params})
+  book = Book.last
 
   expect(response).to be_successful
-  expect(item.name).to eq(item_params[:name])
+  expect(book.name).to eq(book_params[:name])
 end
 ```
 
-Run the test and you should get `ActionController::RoutingError:No route matches [POST] "/api/v1/items"`
+Run the test and you should get `ActionController::RoutingError:No route matches [POST] "/api/v1/books"`
 
 First, we need to add the route and the action.
 
@@ -348,57 +348,57 @@ First, we need to add the route and the action.
 # config/routes.rb
 namespace :api do
   namespace :v1 do
-    resources :items, only: [:index, :show, :create]
+    resources :books, only: [:index, :show, :create]
   end
 end
 ```
 
 ```rb
-# app/controllers/api/v1/items_controller.rb
+# app/controllers/api/v1/books_controller.rb
 def create
 end
 ```
 
 Run the tests... and the test fails. You should get `NoMethodError: undefined method 'name' for nil:NilClass`. That's because we aren't actually creating anything yet.
 
-We are going to create an item with the incoming params. Let's take advantage of all the niceties Rails gives us and use strong params.
+We are going to create an book with the incoming params. Let's take advantage of all the niceties Rails gives us and use strong params.
 
 ```rb
-# app/controllers/api/v1/items_controller.rb
+# app/controllers/api/v1/books_controller.rb
 def create
-  render json: Item.create(item_params)
+  render json: Book.create(book_params)
 end
 
 private
 
-  def item_params
-    params.require(:item).permit(:name, :description)
+  def book_params
+    params.require(:book).permit(:name, :description)
   end
 ```
 
 Run the tests and we should have 3 passing tests.
 
-### 6. Api::V1::ItemsController#update
+### 6. Api::V1::BooksController#update
 
 Like before, let's add a test.
 
-This test looks very similar to the previous one we wrote. Note that we aren't making assertions about the response, instead we are accessing the item we updated from the database to make sure it actually updated the record.
+This test looks very similar to the previous one we wrote. Note that we aren't making assertions about the response, instead we are accessing the book we updated from the database to make sure it actually updated the record.
 
 ```rb
-# spec/requests/api/v1/items_request_spec.rb
-it "can update an existing item" do
-  id = create(:item).id
-  previous_name = Item.last.name
-  item_params = { name: "Sledge" }
+# spec/requests/api/v1/books_request_spec.rb
+it "can update an existing book" do
+  id = create(:book).id
+  previous_name = Book.last.name
+  book_params = { name: "Sledge" }
   headers = {"CONTENT_TYPE" => "application/json"}
 
   # We include this header to make sure that these params are passed as JSON rather than as plain text
-  put "/api/v1/items/#{id}", headers: headers, params: JSON.generate({item: item_params})
-  item = Item.find_by(id: id)
+  put "/api/v1/books/#{id}", headers: headers, params: JSON.generate({book: book_params})
+  book = Book.find_by(id: id)
 
   expect(response).to be_successful
-  expect(item.name).to_not eq(previous_name)
-  expect(item.name).to eq("Sledge")
+  expect(book.name).to_not eq(previous_name)
+  expect(book.name).to eq("Sledge")
 end
 ```
 
@@ -409,49 +409,49 @@ Try to test drive the implementation before looking at the code below.
 # config/routes.rb
 namespace :api do
   namespace :v1 do
-    resources :items, only: [:index, :show, :create, :update]
+    resources :books, only: [:index, :show, :create, :update]
   end
 end
 ```
 
 ```rb
-# app/controllers/api/v1/items_controller.rb
+# app/controllers/api/v1/books_controller.rb
 def update
-  render json: Item.update(params[:id], item_params)
+  render json: Book.update(params[:id], book_params)
 end
 ```
 
-### 7. Api::V1::ItemsController#destroy
+### 7. Api::V1::BooksController#destroy
 
 Ok, last endpoint to test and implement: destroy!
 
-In this test, the last line in this test is refuting the existence of the item we created at the top of this test.
+In this test, the last line in this test is refuting the existence of the book we created at the top of this test.
 
 ```rb
-# spec/requests/api/v1/items_request_spec.rb
-it "can destroy an item" do
-  item = create(:item)
+# spec/requests/api/v1/books_request_spec.rb
+it "can destroy an book" do
+  book = create(:book)
 
-  expect(Item.count).to eq(1)
+  expect(Book.count).to eq(1)
 
-  delete "/api/v1/items/#{item.id}"
+  delete "/api/v1/books/#{book.id}"
 
   expect(response).to be_successful
-  expect(Item.count).to eq(0)
-  expect{Item.find(item.id)}.to raise_error(ActiveRecord::RecordNotFound)
+  expect(Book.count).to eq(0)
+  expect{Book.find(book.id)}.to raise_error(ActiveRecord::RecordNotFound)
 end
 ```
 
-We can also use RSpec's [expect change](https://www.relishapp.com/rspec/rspec-expectations/v/2-0/docs/matchers/expect-change) method as an extra check. In our case, `change` will check that the numeric difference of `Item.count` before and after the block is run is `-1`.
+We can also use RSpec's [expect change](https://www.relishapp.com/rspec/rspec-expectations/v/2-0/docs/matchers/expect-change) method as an extra check. In our case, `change` will check that the numeric difference of `Book.count` before and after the block is run is `-1`.
 
 ```rb
-it "can destroy an item" do
-  item = create(:item)
+it "can destroy an book" do
+  book = create(:book)
 
-  expect{ delete "/api/v1/items/#{item.id}" }.to change(Item, :count).by(-1)
+  expect{ delete "/api/v1/books/#{book.id}" }.to change(Book, :count).by(-1)
 
   expect(response).to be_success
-  expect{Item.find(item.id)}.to raise_error(ActiveRecord::RecordNotFound)
+  expect{Book.find(book.id)}.to raise_error(ActiveRecord::RecordNotFound)
 end
 ```
 
@@ -462,15 +462,15 @@ Make the test pass.
 # config/routes.rb
 namespace :api do
   namespace :v1 do
-    resources :items, except: [:new, :edit]
+    resources :books, except: [:new, :edit]
   end
 end
 ```
 
 ```rb
-# app/controllers/api/v1/items_controller.rb
+# app/controllers/api/v1/books_controller.rb
 def destroy
-  render json: Item.delete(params[:id])
+  render json: Book.delete(params[:id])
 end
 ```
 
