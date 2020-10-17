@@ -16,6 +16,9 @@ tags: apis, testing, requests, rails
     1. Api::V1::BooksController#update
     1. Api::V1::BooksController#destroy
 
+* Going Above and Beyond
+  1. Add Api::V2::BooksController#index
+
 ## Background: Versioned APIs
 
 In software (and probably other areas in life) you're never going to know less about a problem than you do right now. Procrastination and being resolved to solve only immediate problems can be an effective strategy while writing software. Our assumptions are often wrong and we need to change what we build.
@@ -502,6 +505,7 @@ end
 We can also use RSpec's [expect change](https://www.relishapp.com/rspec/rspec-expectations/v/2-0/docs/matchers/expect-change) method as an extra check. In our case, `change` will check that the numeric difference of `Book.count` before and after the block is run is `-1`.
 
 ```rb
+# spec/requests/api/v1/books_request_spec.rb
 it "can destroy an book" do
   book = create(:book)
 
@@ -532,6 +536,188 @@ end
 ```
 
 Pat yourself on the back. You just built an API. And with TDD. Huzzah! Now go call a friend and tell them how cool you are.
+
+
+### One Step Further
+
+At the beginning of this exercise we discussed the importance of versioning. So let's implement a v2 route for our books index that will return book `popularity` and not `number_sold`.
+
+Let's begin by making a test. We will need to create a new `v2` directory to hold our `books_request_spec`.
+
+```sh
+$ mkdir -p spec/requests/api/v2
+$ touch spec/requests/api/v2/books_request_spec.rb
+```
+
+Now add the test in our spec.
+
+```rb
+# spec/requests/api/v2/books_request_spec.rb
+
+require 'rails_helper'
+
+describe "Books API" do
+  it "sends a list of books" do
+    create_list(:book, 3)
+
+    get '/api/v2/books'
+
+    expect(response).to be_successful
+
+    books = JSON.parse(response.body, symbolize_names: true)
+
+    expect(books.count).to eq(3)
+
+    books.each do |book|
+      expect(book).to have_key(:id)
+      expect(book[:id]).to be_an(Integer)
+
+      expect(book).to have_key(:title)
+      expect(book[:title]).to be_a(String)
+
+      expect(book).to have_key(:author)
+      expect(book[:author]).to be_a(String)
+
+      expect(book).to have_key(:genre)
+      expect(book[:genre]).to be_a(String)
+
+      expect(book).to have_key(:summary)
+      expect(book[:summary]).to be_a(String)
+
+      expect(book).to have_key(:popularity)
+      expect(book[:popularity]).to be_an(String)
+
+      expect(book).to_not have_key(:number_sold)
+    end
+  end
+end
+```
+
+We should see an error for the missing route.
+
+```sh
+ActionController::RoutingError:
+   No route matches [GET] "/api/v2/books"
+```
+
+Update the routes file to include the new `v2` namespace.
+
+```rb
+# config/routes.rb
+namespace :api do
+  namespace :v2 do
+    resources :books, only: [:index]
+  end
+end
+```
+
+We should see a new error:
+
+```sh
+ActionController::RoutingError:
+     uninitialized constant Api::V2
+```
+
+This error is telling us that we are missing a v2 directory in the api folder within app/controllers. Add a new `v2` directory and `books_controller.rb` file.
+
+```sh
+$ mkdir -p app/controllers/api/v2
+$ touch app/controllers/api/v2/books_controller.rb
+```
+
+Within the file we need to set up our controller with the index action.
+
+```ruby
+class Api::V2::BooksController < ApplicationController
+  def index
+  end
+end
+```
+
+Since we currently are not returning anything we will get that weird JSON error:
+
+```sh
+Failure/Error: books = JSON.parse(response.body, symbolize_names: true)
+
+ JSON::ParserError:
+   765: unexpected token at ''
+```
+
+To fix this let's return our books.
+
+```ruby
+class Api::V2::BooksController < ApplicationController
+  def index
+    render json: Book.all
+  end
+end
+```
+
+We are still missing our new attribute popularity. Create a migration to add it to our books table.
+
+```sh
+rails g migration AddPopularityToBooks popularity:string
+```
+
+Run the migration.
+
+We need a way to calculate popularity so we are going to use a callback on our model. Check out the [rails docs](https://guides.rubyonrails.org/active_record_callbacks.html) to learn more about callbacks.
+
+```rb
+# app/models/book.rb
+class Book < ApplicationRecord
+before_save { |book| book.popularity = calculate_popularity }
+
+private
+  def calculate_popularity
+    if number_sold > 5
+      'high'
+    else
+      'low'
+    end
+  end
+end
+```
+
+Awesome! Now we have our popularity attribute. Before we celebrate too early though, we still have a failing test because we are returning the `number_sold`. We need to customize our response a little bit more. For us to accomplish this, we are going to use something called a Serializer.
+
+```sh
+$ mkdir -p app/serializers
+$ touch app/serailizers/books_serializer.rb
+```
+
+```rb
+# app/serializers/books_serializer.rb
+class BookSerializer
+  def self.format_books(books)
+    books.map do |book|
+      {
+        id: book.id,
+        title: book.title,
+        author: book.author,
+        genre: book.genre,
+        summary: book.summary,
+        popularity: book.popularity
+      }
+    end
+  end
+end
+```
+
+Now that we have a serializer that formats our books for our json response we can use it in our controller.
+
+```rb
+# app/controllers/api/v2/bookscontroller.
+class Api::V2::BooksController < ApplicationController
+  def index
+    books = Book.all
+    render json: BookSerializer.format_books(books)
+  end
+end
+```
+
+Run our tests again and we should have a passing test! If you are still curious about serializers look ahead to the serializers lesson and do a little research.
+
 
 ## Supporting Materials
 
