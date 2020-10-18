@@ -229,7 +229,7 @@ The URI should follow this pattern: `GET /api/v1/<resource>/find_all?<attribute>
 
 This endpoint should follow all of the same requirements for matching as the Single Finder endpoints.
 
-Example JSON response for `GET /api/v1/merchants/find?name=ring`
+Example JSON response for `GET /api/v1/merchants/find_all?name=ring`
 
 ```json
 {
