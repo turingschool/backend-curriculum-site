@@ -170,27 +170,34 @@ So we have our responses from our server, but it isn’t JSON API 1.0 And it has
 
 1. Create a Store Serializer and try to build out a hash that will look like this __without__ using a gem:
 ```ruby
-  {
-    "data": [
-      {
-        "type": "store",
+{
+  "data": [
+    {
+      "id": "1",
+      "type": "store",
+      "attributes": {
         "id": 1,
-        "attributes": {
-          "name": "Book for All"
-        },
-        "relationships": {
-          "books": [
+        "name": "Toy, Steuber and Schinner",
+        "num_books": 8,
+        "active": true
+      },
+      "relationships": {
+        "books": {
+          "data": [
             {
-              "data": {
-                "type": "book",
-                "id": 3
-              }
+              "id": "1",
+              "type": "book"
+            },
+            {
+              "id": "4",
+              "type": "book"
             }
-          }
-        ]
+          ]
+        }
       }
-    ]
-  }
+    }
+  ]
+}
   ```
 
 ### Using FastJSONAPI to modify `as_json`
