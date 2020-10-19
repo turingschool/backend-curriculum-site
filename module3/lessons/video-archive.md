@@ -17,6 +17,10 @@ We'll do our best to add videos to this list over time.
 
 Module Kickoff
 * [2005 Cohort](https://vimeo.com/449077549/b4524552da)
+Week 2, Consultancy Ideation and Solo Project Kickoff
+* [Ian and Dione, 2006 Cohort, part 1 of 2](https://vimeo.com/469620874/af9045cc62)
+* [Ian and Dione, 2006 Cohort, part 2 of 2](https://vimeo.com/469620814/07802c0b12)
+
 
 
 #### Project Kickoff Meetings
@@ -70,6 +74,7 @@ Intro to Optimization
 ## Building/Exposing APIs
 
 Building an API
+* [Dione Wilson, 2006 Cohort](https://vimeo.com/469621034/d0d5febb9d)
 * [Ian Douglas, 2005 Cohort](https://vimeo.com/452734115/8b3bd1adf0)
 * [Ian Douglas, 2003 Cohort](https://vimeo.com/441942514/9a72728f22)
 * [Dione Wilson, 2001 Cohort](https://vimeo.com/441936930/7f726f0ffd)
@@ -90,6 +95,7 @@ Customizing JSON in your API
 ## JavaScript
 
 Introduction to JavaScript
+* [Ian Douglas, 2006 Cohort](https://vimeo.com/469624238/6b9c18151b)
 * [Dione Wilson, 2005 Cohort](https://vimeo.com/452438318/9c8ba8bd78)
 * [Ian Douglas, 2003 Cohort](https://vimeo.com/436181385/e2ae732fcb)
 
@@ -97,10 +103,14 @@ jQuery DOM Traversal and Manipulation
 * [Dione Wilson, 2005 Cohort](https://start.interviewing.io/feedback/ItDJUZNk04vT)
 * [Dione Wilson, 2003 Cohort](https://vimeo.com/441944539/72f9a78438)
 
+jQuery and Bootstrap
+* [Dione Wilson and Ian Douglas, 2006 Cohort](https://vimeo.com/469619809/17198d9e2b)
+
 
 ## Email
 
 Sending Email
+* [Dione Wilson, 2006 Cohort](https://vimeo.com/469619431/bc7900713b)
 * [Ian Douglas, 2005 Cohort](https://vimeo.com/452439130/9574785c24)
 * [Dione Wilson, 2003 Cohort](https://vimeo.com/441941693/6f787c262f)
 
