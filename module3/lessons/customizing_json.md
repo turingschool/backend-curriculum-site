@@ -30,7 +30,11 @@ Let's imagine that you don't just want the raw guts of your model converted to J
 
 ## Specifications for JSON response
 
-So that we have a standard for how our JSON responses, we are going to use the [json:api](https://jsonapi.org/). Take a minute to familiarize yourself with the documentation.
+Let's use the [json:api](https://jsonapi.org/) specification for our JSON responses. Take a minute to familiarize yourself with the documentation.
+
+- What is the root `key`?
+- How are the attributes formatted for a resource in a response?
+- How are a resource's relationships formatted?
 
 ## Exercise
 
