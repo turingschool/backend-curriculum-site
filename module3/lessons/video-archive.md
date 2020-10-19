@@ -81,10 +81,10 @@ Building an API
 * [Dione Wilson, 2001 Cohort](https://vimeo.com/441936930/7f726f0ffd)
 
 Customizing JSON in your API
+* [Dione Wilson, 2006 Cohort](https://vimeo.com/469977022/68ac068a2c)
 * [Dione Wilson, 2005 Cohort](https://vimeo.com/454946391/de0e9aa3d5)
 * [Ian Douglas, 2003 Cohort](https://vimeo.com/441943509/16e0c5e8f1)
 * [Dione Wilson, 2001 Cohort](https://vimeo.com/441935438/8fe924d4fd)
-
 
 ## Advanced ActiveRecord
 
@@ -148,7 +148,7 @@ Week 1 Open Office Q&A
   * Model validations, using 'validates' instead of 'validates_presence_of'
   * At what point to store data from an API call (eg, movies)
   * Double-checking API docs for headers vs query parameters, and debugging process, and when/how we consider DRY'ing up our code
-  
+
 
 Week 3 Open Office Q&A
 * [Ian Douglas, 2005 Cohort](https://vimeo.com/454938447/59913aba0e)
