@@ -13,8 +13,10 @@ type: project
 
 # 1. Data Importing
 
-Copy [these CSV files](https://github.com/turingschool/sales_engine/tree/master/data) into your project folder, and determine a way to import that into your database. Be sure to use the ID values from the CSV data in your own database, and use ActiveRecord to reset the Primary Key sequences in PostgreSQL afterward.
-
+Copy [these CSV files](https://github.com/turingschool/sales_engine/tree/master/data) into your project folder, and determine a way to import that into your database. Some things to be aware of:
+1. Be sure to use the ID values from the CSV data in your own database
+2. Use ActiveRecord to reset the Primary Key sequences in PostgreSQL afterward
+3. Convert all of your prices from pennies to dollars and pennies before they get put in the database. Otherwise, the spec harness will not work correctly
 
 # 2. API Endpoints
 
