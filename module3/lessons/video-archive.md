@@ -17,6 +17,7 @@ We'll do our best to add videos to this list over time.
 
 Module Kickoff
 * [2005 Cohort](https://vimeo.com/449077549/b4524552da)
+
 Week 2, Consultancy Ideation and Solo Project Kickoff
 * [Ian and Dione, 2006 Cohort, part 1 of 2](https://vimeo.com/469620874/af9045cc62)
 * [Ian and Dione, 2006 Cohort, part 2 of 2](https://vimeo.com/469620814/07802c0b12)

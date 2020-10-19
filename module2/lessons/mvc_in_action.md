@@ -3,20 +3,9 @@ layout: page
 title: MVC in Action
 ---
 
-## WarmUp
-
-* In small groups, Diagram the MVC workflow and how each part relates to the others.
-  - include which logic area belongs to each of the parts of MVC.
-  - each area should have examples of what responsibilities should live there.
-  - bonus: include file names for each area from your project
-
-* Gallery!
-  - Post the diagrams around the room and circulate, discussing differences and similarities between diagrams.
-
-
 ## MVC in Action!
 
-For each of the code snippets below, identify where we are breaking MVC logic conventions and talk with a partner about how we should fix each infraction.
+For each of the code snippets below, take a few minutes to identify where we are breaking MVC logic conventions and then we will talk as a class about how we should fix each infraction.
 
 A bit of context. Imagine that you are working in an app that tracks comedians and their Netflix Specials. Comedians have an age and they also have specials, in a one to many relationship. Specials have a run time which is their length.
 
@@ -24,8 +13,14 @@ A bit of context. Imagine that you are working in an app that tracks comedians a
 
 ```ruby
 class Comedian < ApplicationRecord
+  has_many :specials
+  
   def self.average_age
     "#{average(:age).round(2)} Years"
+  end
+
+  def average_special_runtime
+    specials.average(:runtime)
   end
 end
 ```
@@ -58,7 +53,11 @@ end
 
 ## Peer Code Review
 
-In pairs or small groups, review each other's projects.  Help each other identify places where there are MVC infractions similar to the infractions in the code snippets above.
+In small groups, review each other's projects.  Help each other identify places where there are MVC infractions similar to the infractions in the code snippets above.
+
+* Set a timer to ensure each group has equal time to share
+* DO NOT spend time attempting to refactor your code when you identify problem areas
+* Instead, write yourself a comment in your code like `#MVC`, so that you and your partner can come back to it on your own time
 
 For additional guidance you can consider the following rules:
 
