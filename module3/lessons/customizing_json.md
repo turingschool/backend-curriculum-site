@@ -28,66 +28,82 @@ With how we've used `render json:` up til now, all data related with the resourc
 Let's imagine that you don't just want the raw guts of your model converted to JSON and sent out to the user -- maybe you want to customize what you send back.
 
 
+## Specifications for JSON response
+
+So that we have a standard for how our JSON responses, we are going to use the [json:api](https://jsonapi.org/). Take a minute to familiarize yourself with the documentation.
+
 ## Exercise
 
 ### Adding to Our Existing Project
 
-We're going to start where we left off in the building internal APIs lesson. Feel free to use the repository that you created yesterday. Otherwise, you can clone the repo below as a starting place.
+We're going to start where we left off in the building internal APIs lesson. Feel free to use the repository that you created. Otherwise, you can clone [this](https://github.com/turingschool-examples/building-apis) repo. Below are instuctions for getting started.
 
 ```bash
-git clone https://github.com/turingschool-examples/building_internal_apis.git
+git clone https://github.com/turingschool-examples/building-apis.git
 bundle
-git checkout complete_building_apis
+git checkout complete-building-api-exercise
 ```
 
-We want to work with objects that have related models, so let's add an `Order` model:
+We want to work with objects that have related models, so let's add a `Store` model:
 
 ```bash
-rails g model order order_number
-rails g model order_item order:references item:references item_price:integer quantity:integer
+rails g model store name
+rails g model store_book store:references book:references book_price:integer quantity:integer
 bundle exec rake db:migrate
-```
-
-Add `gem 'faker'`:
-
-```bash
-bundle
 ```
 
 Add relationships to your models:
 
 ```ruby
-# in item.rb
-has_many :order_items
-has_many :orders, through: :order_items
+# in book.rb
+has_many :store_books
+has_many :stores, through: :store_books
 
-# in order.rb
-has_many :order_items
-has_many :items, through: :order_items
+# in stores.rb
+has_many :store_books
+has_many :books, through: :store_books
 ```
 
 And whip together a quick seed file:
 
 ```ruby
 #in seeds.rb
-10.times do
-  Item.create!(
-    name: Faker::Commerce.product_name,
-    description: Faker::ChuckNorris.fact,
+20.times do
+  Book.create!(
+    title: Faker::Book.title,
+    author: Faker::Book.author,
+    genre: Faker::Book.genre,
+    summary: Faker::Lorem.paragraph,
+    number_sold: Faker::Number.within(range: 1..10)
   )
 end
 
-10.times do
-  Order.create!(order_number: rand(100000..999999))
+5.times do
+  Store.create!(
+    name: Faker::Company.name
+  )
 end
 
-100.times do
-  OrderItem.create!(
-    item_id: rand(1..10),
-    order_id: rand(1..10),
-    item_price: rand(100..10000),
-    quantity: rand(1..10)
-  )
+books = Book.all
+
+books.each do |book|
+  store_id_1 = rand(1..5)
+  store_id_2 = rand(1..5)
+
+  StoreBook.create!([
+      {
+        book_id: book.id,
+        store_id: store_id_1,
+        book_price: rand(100..10000),
+        quantity: rand(1..10)
+      },
+      {
+        book_id: book.id,
+        store_id: store_id_2,
+        book_price: rand(100..10000),
+        quantity: rand(1..10)
+      }
+    ])
 end
 ```
 
@@ -97,40 +113,73 @@ And seed
 bundle exec rake db:seed
 ```
 
-Create your controller:
+Create the store controller and routes:
 
-  - `rails g controller api/v1/orders index show`
-  - Note that the generator throws in some routes at the top. This is not great.
+  - touch `controllers/api/v1/stores_controller.rb`
+  - add controller setup for index and show
+
+```ruby
+# stores_controller
+class Api::V1::StoresController < ApplicationController
+  def index
+  end
+
+  def show
+  end
+end
+```
+  - Add the routes to our routes file
+```ruby
+namespace :api do
+  namespace :v1 do
+    resources :books
+    resources :stores, only: [:index, :show]
+  end
+end
+```
   - Set `index` and `show` methods to render appropriate json.
+
+```ruby
+# stores_controller
+class Api::V1::StoresController < ApplicationController
+  def index
+    Store.all
+  end
+
+  def show
+    Store.find(params[:id])
+  end
+end
+```
 
 ### Responses
 
-Use Postman or your browser to view the current responses that your API is providing to the routes listed below:
+Use Postman to view the current responses that your API is providing to the routes listed below:
 
-* api/v1/orders
-* api/v1/orders/:id
+* api/v1/stores
+* api/v1/stores/:id
 
 So we have our responses from our server, but it isn’t JSON API 1.0 And it has this created at and updated at stuff which we don’t want. So what do we do? We need to use a serializer.
 
 
 ### Customizing JSON
 
-1. Create an Order Serializer and try to build out a hash that will look like this __without__ using a gem:
-  ```ruby
+1. Create a Store Serializer and try to build out a hash that will look like this __without__ using a gem:
+```ruby
   {
     "data": [
       {
-        "type": "order",
+        "type": "store",
         "id": 1,
         "attributes": {
-          "order_numer": "3656100700"
+          "name": "Book for All"
         },
         "relationships": {
-          "items": [
+          "books": [
             {
-              "date": {
-                "type": "item",
-                "id": 10
+              "data": {
+                "type": "book",
+                "id": 3
               }
             }
           }
@@ -139,7 +188,7 @@ So we have our responses from our server, but it isn’t JSON API 1.0 And it has
     ]
   }
   ```
-  
+
 ### Using FastJSONAPI to modify `as_json`
 
 Add this line to your Gemfile.
@@ -153,16 +202,16 @@ And then `bundle install`
 
 We can now use the built in generator in order to make ourselves a serializer.
 
-```rails g serializer Order id order_number```
+```rails g serializer Store id name```
 
-This will add the appropriate attributes from the  Order model.  And give us only the id and order number.
+This will add the appropriate attributes from the  Store model.  And give us only the id and store name.
 
 Let’s check out what is in the Serializer.
 
 ```ruby
-class OrderSerializer
+class StoreSerializer
   include FastJsonapi::ObjectSerializer
-  attributes :id, :order_number
+  attributes :id, :name
 end
 ```
 
@@ -171,11 +220,11 @@ So now we have this serializer, and we need to modify our controller.
 ```ruby
 class Api::V1::OrdersController < ApplicationController
   def index
-    render json: OrderSerializer.new(Order.all)
+    render json: StoreSerializer.new(Store.all)
   end
 
   def show
-    render json: OrderSerializer.new(Order.find(params[:id]))
+    render json: StoreSerializer.new(Store.find(params[:id]))
   end
 end
 ```
@@ -187,11 +236,11 @@ But what if we wanted to show some awesome relationship action?
 Easy.
 
 ```ruby
-class OrderSerializer
+class StoreSerializer
   include FastJsonapi::ObjectSerializer
-  attributes :id, :order_number
+  attributes :id, :name
 
-  has_many :items
+  has_many :books
 end
 ```
 
@@ -199,51 +248,52 @@ Add that to your serializer and refresh.
 
 What if we wanted a custom attribute? We can do so using this format.
 
-Let’s say we wanted an attribute with the number of items
+Let’s say we wanted an attribute with the number of books.
 
 ```ruby
-class OrderSerializer
+class StoreSerializer
   include FastJsonapi::ObjectSerializer
-  has_many :items
-  attributes :id, :order_number
+  attributes :id, :name
 
-  attribute :num_items do |object|
-    object.items.count
+  has_many :books
+
+  attribute :num_books do |object|
+    object.books.count
   end
 end
 ```
 
-This syntax is a bit different from what we are used to. We use `attribute` singular, and then as a symbol we pick the name of what we want our attribute to be. We use a do end block similar to an enumerable with a block parameter. Now the block parameter, `object` is a lot like self. We get to use it for each single thing of a collection we pass to the serializer. We are essentially saying for each thing you serialize, grab the items and count them too. In this manner we can add a custom generated value for each item.
+This syntax is a bit different from what we are used to. We use `attribute` singular, and then as a symbol we pick the name of what we want our attribute to be. We use a do end block similar to an enumerable with a block parameter. Now the block parameter, `object` is a lot like self. We get to use it for each single thing of a collection we pass to the serializer. We are essentially saying for each thing you serialize, grab the books and count them too. In this manner we can add a custom generated value for each book.
 
 We can also have a custom static attribute like so:
 
 ```ruby
-class OrderSerializer
+class StoreSerializer
   include FastJsonapi::ObjectSerializer
-  has_many :items
-  attributes :id, :order_number
+  attributes :id, :name
 
-  attribute :num_items do |object|
-    object.items.count
+  has_many :books
+
+  attribute :num_books do |object|
+    object.books.count
   end
 
-  attribute :greeting do
-    "HELLO FRIENDS"
+  attribute :active do
+    true
   end
 end
-
 ```
 
 ## Extra Practice
 
-Do what we did to `Order`, but on `Item` now.
+Do what we did to `Stores`, but for `Books` now.
 
 - Some existing fields
-  - `id`, `name`, `description`
+  - `id`, `title`, `author`, `genre`, `summary`, `num_sold`
 - Some custom fields
-  - `num_orders`
+  - `num_stores`
 - A relationship
-  - `orders`
+  - `stores`
 
 ## Additional Resources
 
