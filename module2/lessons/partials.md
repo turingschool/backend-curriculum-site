@@ -93,6 +93,8 @@ You should now have `artists/_form.html.erb`, `artists/new.html.erb` and `artist
 
 And our tests should still be passing!
 
+**We showed an example of refactoring a form, but partials are not limited to forms. Partials can be used for any repeated code in your views.**
+
 ## Checks for Understanding
 
 1. What are partials, and why do we use them?
