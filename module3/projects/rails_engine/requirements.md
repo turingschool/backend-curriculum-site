@@ -191,7 +191,7 @@ This endpoint should destroy the corresponding record (and any associated data, 
 These endpoints should show related records. The relationship endpoints you should expose are:
 
 * `GET /api/v1/merchants/:id/items` - return all items associated with a merchant.
-* `GET /api/v1/items/:id/merchant` - return the merchant associated with an item
+* `GET /api/v1/items/:id/merchants` - return the merchant associated with an item
 
 ## 2c. Find Endpoints
 
