@@ -9,7 +9,7 @@ The following projects will be assigned and their completion is required to be p
 
 * Week 1 (independent): [FlashCards](./flashcards)
 * Week 2-3 (paired): [Battleship](./battleship)
-
+* Week 3-5 (group): [Futbol](./futbol)
 
 [Project Reflection Template](./project_reflection_template)
 
