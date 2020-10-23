@@ -21,6 +21,7 @@ Module Kickoff
 Week 2, Consultancy Ideation and Solo Project Kickoff
 * [Ian and Dione, 2006 Cohort, part 1 of 2](https://vimeo.com/469620874/af9045cc62)
 * [Ian and Dione, 2006 Cohort, part 2 of 2](https://vimeo.com/469620814/07802c0b12)
+* [Everyone, 2006 Cohort, Project Pitches](https://vimeo.com/471223262/3a22855821)
 
 
 
@@ -88,6 +89,7 @@ Customizing JSON in your API
 
 ## Advanced ActiveRecord
 
+* [Ian Douglas, 2006 Cohort](https://vimeo.com/471221960/3ac89d5612)
 * [Ian Douglas, 2005 Cohort](https://vimeo.com/454937871/e9c29ea5d7)
 * [Ian Douglas, 2003 Cohort](https://vimeo.com/441945463/d090c702bb)
 * (archive) [Josh Mejia, Dec 2018](https://www.youtube.com/watch?v=OccKyvGvLKE)
@@ -126,6 +128,7 @@ Career Development
 * ["Putting it All Together", Week 4; Ian Douglas, 2003 Cohort](https://vimeo.com/441953601/14fec97d65)
 
 PD Supplement: Company Research
+* [FE/BE Ian Douglas and Khalid Williams, 2006 Cohorts](https://vimeo.com/471222685/045f09651e)
 * [FE/BE Ian Douglas, 2005 Cohorts](https://vimeo.com/450272030/5870961a16)
 * [FE/BE Ian Douglas, 2003 Cohorts](https://vimeo.com/441941222/da3924f607)
 
