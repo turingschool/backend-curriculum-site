@@ -18,6 +18,10 @@ title: Grouping and Aggregating
 * SQL Aggregate Function
 * ActiveRecord Calculation
 
+## Recording
+
+[YouTube Link](https://youtu.be/shUhwkiT2Jg)
+
 ## Aggregate Functions
 
 PostgresSQL comes with some handy built-in aggregate functions. From the [Postgresql Docs](https://www.postgresql.org/docs/9.5/functions-aggregate.html): `Aggregate functions compute a single result from a set of input values`. Basically, aggregate functions will do some math for us.
@@ -545,6 +549,21 @@ ActiveRecord::StatementInvalid: PG::GroupingError: ERROR:  column "artists.id" m
 ```
 
 Remember, we can only group on columns that are part of our `select` statement. Since we select `artists.id`, `artists.name`, and `songs.length`, we can't group on `artist_id` even though the `artist_id` is the same as `artists.id`.
+
+## Practice Problems
+
+Test your understanding by writing queries for the following in ActiveRecord:
+
+1. What is the length of the longest song?
+1. What is the length of each artist's longest song?
+1. What is the name of the artist with the longest song?
+1. What is the average length of each artists' songs?
+1. What is the name of the artist with longest average length of song?
+1. What are the names of the three artists with the least amount of total plays for all of their songs?
+
+**Extra Spicy Problem**
+
+1. Write a query to return each artist's name and a comma separated list of all their songs, for example "Talking Heads" would have "This must be the Place, Heaven"
 
 ## Checks for Understanding
 
