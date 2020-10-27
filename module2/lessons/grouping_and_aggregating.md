@@ -20,7 +20,7 @@ title: Grouping and Aggregating
 
 ## Recording
 
-[YouTube Link](https://youtu.be/shUhwkiT2Jg)
+[This recording](https://youtu.be/shUhwkiT2Jg) will cover the conceptual parts of the lesson, plus some bloopers at the beginning 😁
 
 ## Aggregate Functions
 
