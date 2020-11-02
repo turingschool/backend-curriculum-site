@@ -14,10 +14,10 @@ We used to teach this class using a gem since that’s how most of us do it on t
 
 ## Learning Goals
 
-* Can explain the tradeoffs of using OAuth vs. building authentication from scratch.
-* Can implement the OAuth handshake using an HTTP library.
-* Understands the value of using Omniauth to handle this handshake.
-* Understands where to store and how to use a user's access token
+* Explain the tradeoffs of using OAuth vs. building authentication from scratch.
+* Implement the OAuth handshake using an HTTP library.
+* Understand the value of using Omniauth to handle this handshake.
+* Understand where to store and how to use a user's access token
 
 ## Slides
 
@@ -331,7 +331,7 @@ def create
   client_id = YOUR_CLIENT_ID
   client_secret = YOUR_CLIENT_SECRET
   code = params[:code]
-  
+
   conn = Faraday.new(url: 'https://github.com', headers: {'Accept': 'application/json'})
 
   response = conn.post('/login/oauth/access_token') do |req|
@@ -404,39 +404,39 @@ You should now see something like this:
 
 ```sh
 data=> {
-  :login=>"iandouglas", 
-  :id=>168030, 
-  :node_id=>"MDQ6VXNlcjE2ODAzMA==", 
-  :avatar_url=>"https://avatars0.githubusercontent.com/u/168030?v=4", 
-  :gravatar_id=>"", 
-  :url=>"https://api.github.com/users/iandouglas", 
-  :html_url=>"https://github.com/iandouglas", 
-  :followers_url=>"https://api.github.com/users/iandouglas/followers", 
-  :following_url=>"https://api.github.com/users/iandouglas/following{/other_user}", 
-  :gists_url=>"https://api.github.com/users/iandouglas/gists{/gist_id}", 
-  :starred_url=>"https://api.github.com/users/iandouglas/starred{/owner}{/repo}", 
+  :login=>"iandouglas",
+  :id=>168030,
+  :node_id=>"MDQ6VXNlcjE2ODAzMA==",
+  :avatar_url=>"https://avatars0.githubusercontent.com/u/168030?v=4",
+  :gravatar_id=>"",
+  :url=>"https://api.github.com/users/iandouglas",
+  :html_url=>"https://github.com/iandouglas",
+  :followers_url=>"https://api.github.com/users/iandouglas/followers",
+  :following_url=>"https://api.github.com/users/iandouglas/following{/other_user}",
+  :gists_url=>"https://api.github.com/users/iandouglas/gists{/gist_id}",
+  :starred_url=>"https://api.github.com/users/iandouglas/starred{/owner}{/repo}",
   :subscriptions_url=>"https://api.github.com/users/iandouglas/subscriptions",
-  :organizations_url=>"https://api.github.com/users/iandouglas/orgs", 
+  :organizations_url=>"https://api.github.com/users/iandouglas/orgs",
   :repos_url=>"https://api.github.com/users/iandouglas/repos",
-  :events_url=>"https://api.github.com/users/iandouglas/events{/privacy}", 
-  :received_events_url=>"https://api.github.com/users/iandouglas/received_events", 
-  :type=>"User", 
-  :site_admin=>false, 
-  :name=>"ian douglas", 
-  :company=>"iandouglas.com", 
-  :blog=>"http://iandouglas.com", 
-  :location=>"Denver, CO", 
-  :email=>nil, 
-  :hireable=>nil, 
-  :bio=>"Sr Instructor @turingschool, open-source advocate, maker/teacher/trainer/learner", :twitter_username=>nil, 
-  :public_repos=>118, 
-  :public_gists=>21, 
-  :followers=>139, 
-  :following=>5, 
-  :created_at=>"2009-12-15T18:48:12Z", 
+  :events_url=>"https://api.github.com/users/iandouglas/events{/privacy}",
+  :received_events_url=>"https://api.github.com/users/iandouglas/received_events",
+  :type=>"User",
+  :site_admin=>false,
+  :name=>"ian douglas",
+  :company=>"iandouglas.com",
+  :blog=>"http://iandouglas.com",
+  :location=>"Denver, CO",
+  :email=>nil,
+  :hireable=>nil,
+  :bio=>"Sr Instructor @turingschool, open-source advocate, maker/teacher/trainer/learner", :twitter_username=>nil,
+  :public_repos=>118,
+  :public_gists=>21,
+  :followers=>139,
+  :following=>5,
+  :created_at=>"2009-12-15T18:48:12Z",
   :updated_at=>"2020-08-19T05:51:56Z"
 }
-[2] pry(#<SessionsController>)> 
+[2] pry(#<SessionsController>)>
 ```
 
 Update the code:
@@ -448,7 +448,7 @@ def create
   client_id = YOUR_CLIENT_ID
   client_secret = YOUR_CLIENT_SECRET
   code = params[:code]
-  
+
   conn = Faraday.new(url: 'https://github.com', headers: {'Accept': 'application/json'})
 
   response = conn.post('/login/oauth/access_token') do |req|
