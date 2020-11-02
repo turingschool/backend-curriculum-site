@@ -13,7 +13,7 @@ title: Rails form_with
 
 ### form_with syntax
 
-**form_with** is a Rails form helper, similar to `form_tag` - it is a method that allows us to use ruby code to build an HTML form.  The biggest difference between the two is that `form_with` generally binds the form to a model object - it uses an object to make some educated guesses about how the HTML form should be built.  If we were going to use `form_with` to create a Dog with name, breed, and age, our form would look something like this:
+**form_with** is a Rails form helper, similar to `form_tag` - it is a method that allows us to use ruby code to build an HTML form.  The biggest difference between the two is that `form_with` generally binds the form to a model object - it uses an object to make some educated guesses about how the HTML form should be built.  If we were going to use `form_with` to create a Dog with name, breed, and age attributes, our form would look something like this:
 
 ```html
 <!-- app/views/dogs/new.html.erb -->
