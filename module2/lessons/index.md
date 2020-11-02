@@ -30,7 +30,7 @@ layout: page
 * [Namespacing Routes in Rails](./namespacing)
 * [Authorization](./authorization)
 * [Rails Resources](./rails_resources)
-* [.form_for](./form_for)
+* [form_with](./form_with)
 
 
 
