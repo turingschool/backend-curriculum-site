@@ -77,7 +77,8 @@ end
   * There is a single hash of options. HTML options (except id and class) are passed in the :html hash
   * The form_with method yields a form builder object (the f variable)
   * If you wish to direct your form request to a particular URL, you would use form_with url: my_nifty_url_path instead. To see more in depth options on what form_with accepts be sure to check out the [API documentation](https://api.rubyonrails.org/v6.0.3.4/classes/ActionView/Helpers/FormHelper.html#method-i-form_with).
-  * Methods to create form controls are called on the form builder object f.
+  * Methods to create form controls are called on the form builder object `f`.
+  * `form_with` can be used to create forms that are not tied to a model
 
 ### Strong Params with form_with
 
