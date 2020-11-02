@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Rails .form_with
+title: Rails form_with
 ---
 
 ## Warm Up
