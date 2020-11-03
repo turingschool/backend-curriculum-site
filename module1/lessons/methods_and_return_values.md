@@ -147,7 +147,7 @@ pry(main)> "Hello World".gsub "World", "Turing"
 
 ## Variables
 
-Variables are keywords that we create to hold or point to return values that we want to maintain and re-use.  In the example above, if we want to re-use the return value `"hello world"`, instead of calling `"Hello World".downcase` over and over again, we can assign the return value to a `variabl` to be used at later points in our code.
+Variables are keywords that we create to hold or point to return values that we want to maintain and re-use.  In the example above, if we want to re-use the return value `"hello world"`, instead of calling `"Hello World".downcase` over and over again, we can assign the return value to a `variable` to be used at later points in our code.
 
 ```ruby
 pry(main)> greeting = "Hello World".downcase
@@ -160,7 +160,7 @@ pry(main)> "This is our greeting: #{greeting}"
 => "This is our greeting: hello world"
 ```
 
-Since *we* define variables, we can also reassign them.  Once reassigned, the original return value is gone - it can not be recalled with that variable.
+Since *we* define variables, we can also reassign them.  Once reassigned, the original return value is gone - it cannot be recalled with that variable.
 
 ```ruby
 pry(main)> greeting = "Hello World".downcase
@@ -185,9 +185,9 @@ pry(main)> greeting == "Hello World".downcase
 
 ## Defining our own Methods
 
-`.upcase`, `.include?`, and `.gsub` are all **Methods** built in to the string class. What if we want to create our own class with its own methods?
+`.upcase`, `.include?`, and `.gsub` are all **Methods** built into the string class. What if we want to create our own class with its own methods?
 
-Let's make a class that calculators values. In a new file called `calculator.rb`, we'll add the following lines of code and run this file from the command line using `ruby calculator.rb`.
+Let's make a class that calculates values. In a new file called `calculator.rb`, we'll add the following lines of code and run this file from the command line using `ruby calculator.rb`.
 
 ```ruby
 class Calculator
@@ -383,7 +383,7 @@ puts calculator.add(1,3)
 
 Following the directions in [this gist](https://gist.github.com/ameseee/c311860e9f6bc023036351f298907ccb), work with your partner through the activities.
 
-You focus should be exploring to build a deep understanding of these concepts, NOT to race through the activity for the sake of finishing it. Whether you know this stuff or not, there should be plenty for you and your partner to talk about/dig into during this time.
+Your focus should be exploring to build a deep understanding of these concepts, NOT to race through the activity for the sake of finishing it. Whether you know this stuff or not, there should be plenty for you and your partner to talk about/dig into during this time.
 
 ## Method Lookup
 
@@ -447,7 +447,7 @@ Think about how you drive a car. You don't need to know how a combustion engine 
 
 ![](https://camo.githubusercontent.com/07f5ef4748c194ee893c18089a2b6513d473ac37/687474703a2f2f6d696e6573662e636f6d2f7265736f75726365732f6363612f77702d636f6e74656e742f75706c6f6164732f323031302f30312f61627374726163742d6f2d6d65746572312e6a7067)
 
-If we look at our `calculator.rb` file, what we really want to do is take two numbers, print a welcome, and then print the sum of those two numbers. `print_sum` is a method that does exactly that. Bundling methods into more abstract methods can help us to create more complex programs.  Tl;dr- Abstraction is an object-oriented programming concept that means that complexity is being hidden from the user. 
+If we look at our `calculator.rb` file, what we really want to do is take two numbers, print a welcome message, and then print the sum of those two numbers. `print_sum` is a method that does exactly that. Bundling methods into more abstract methods can help us to create more complex programs.  Tl;dr- Abstraction is an object-oriented programming concept that means that complexity is being hidden from the user. 
 
 
 A note on order: The way you define the order of your _methods_ does not matter.  The way you call them **does**. Ruby will **parse** each method in the class and then when a method is **called** Ruby will **execute** the parsed methods accordingly.
