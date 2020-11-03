@@ -50,7 +50,7 @@ characters.each do |character|
 end
 ```
 
-Let's break this down. `characters` is our collection. It is an Array of three strings. `.each` is a method that we call on `characters`.
+Let's break this down. `characters` is our collection. It is an Array of three strings. `each` is a method that we call on `characters`.
 
 Everything between the `do` and `end` is the **Block**. The **Block** is what runs for each element in the Array. Since we have three elements, this block will run a total of three times.
 
@@ -71,7 +71,7 @@ One very important thing to remember: **each returns the original array**. This 
 
 Aside from printing all of the elements in a list, there are **a lot** of situations where we would need to use \#each.  You can use \#each to transform elements within a collection, transform the collection itself into a new collection, locate specific elements from a collection, or create something new with some or all of the elements in a collection.  The possibilities are really endless, which makes \#each (and iteration in general) one of the most useful tools in a developer's skillset.
 
-Ruby has other methods that allow you to manipulate arrays. We will learn more about them later, but each is the workhorse of the array world. If you ever aren't quite sure if there's a method to do specifically what you want, you can always use each.
+Ruby has other methods that allow you to manipulate arrays. We will learn more about them later, but \#each is the workhorse of the array world. If you ever aren't quite sure if there's a method to do specifically what you want, you can always use \#each.
 
 ## Transform Every Element
 
@@ -108,7 +108,7 @@ end
 p capitalized_names
 ```
 
-Since we know that each won't save anything for us, we need to create some placeholder container to store our _new_ collection. In Mod 1, you may hear this placeholder called the accumulator or the aggregator. The thing to remember is that when you are using \#each, you will almost always use some sort of placeholder to preserve the result that you want - in this case, the capitalized names.  Without the placeholder, you will not be able to access the information that you want!
+Since we know that \#each won't save anything for us, we need to create some placeholder container to store our _new_ collection. In Mod 1, you may hear this placeholder called the accumulator or the aggregator. The thing to remember is that when you are using \#each, you will almost always use some sort of placeholder to preserve the result that you want - in this case, the capitalized names.  Without the placeholder, you will not be able to access the information that you want!
 
 Again - without the accumulator/placeholder/aggregator, you will NOT be able to access the information you want.
 
@@ -159,7 +159,7 @@ The examples we have outlined are by no means a complete list of the ways that \
 
 ## Single-Line Syntax
 
-You can replace a `do`/`end` with `{`/`}`. This allows you to write `each` on a single line. Our example from before could also be written as:
+You can replace a `do`/`end` with `{`/`}`. This allows you to write \#each on a single line. Our example from before could also be written as:
 
 ```ruby
 characters = ["Phoebe", "Rachel", "Joey"]
@@ -177,7 +177,7 @@ Readability matters more than being clever.
 Now it's your turn to practice.
 
 With your new best friends in your breakout room, use the following array with
-`.each` to complete the following:
+\#each to complete the following:
 
 `singers = ["billie", "ariana", "lizzo", "leon"]`
 
@@ -187,7 +187,7 @@ With your new best friends in your breakout room, use the following array with
 4. Can you create a new array with only the names that are longer than four letters in length?
 5. Can you create a new array with the lengths of their names?
 
-Now, with this array can you do the following using `.each`?
+Now, with this array can you do the following using \#each?
 
 `numbers = [1,2,3,4,5]`
 
