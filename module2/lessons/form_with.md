@@ -56,7 +56,7 @@ If we were going to use `form_with` to create a Dog object with name, breed, and
 <% end %>
 ```
 
-Notice the `local: true` option.
+Notice the **`local: true`** option.
 **You must include this option for your form to work properly with the `form_with` helper**
 
 This helper is set to false by default when using the `form_with` helper. This is because `form_with` was built with performance improvements in mind. Within professional rails applications, this helper defaults to taking advantage of AJAX (Asynchronous JavaScript And XML) to send requests. We won't dive into the advantages and disadvantages of this just yet, but know that this option expects as JavaScript response as opposed to an HTML response. We aren't implementing JavaScript in our applications, so we want our request to be sent expecting an HTML response.
