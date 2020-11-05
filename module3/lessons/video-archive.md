@@ -172,3 +172,6 @@ Tech Interview Prep, Challenge Analysis
 
 Environments and Running Production Locally
 * [Dione Wilson, 2005 Cohort](https://vimeo.com/456725554/339676a33f)
+
+Data Structures & Algorithms
+* [Dione Wilson, 2006 Cohort](https://vimeo.com/475938278/b431f9b1ac)
