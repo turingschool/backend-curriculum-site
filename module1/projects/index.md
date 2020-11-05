@@ -11,6 +11,7 @@ The following projects will be assigned and their completion is required to be p
 * Week 2-3 (paired): [Battleship](./battleship)
 * Week 3-5 (group): [Futbol](./futbol)
 * Week 5-6 (individual): [Night Writer](./night_writer)
+
 [Project Reflection Template](./project_reflection_template)
 
 ## Extension Projects
