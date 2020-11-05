@@ -13,11 +13,36 @@ title: Rails form_with
 
 ### form_with syntax
 
-**form_with** is a Rails form helper, similar to `form_tag` - it is a method that allows us to use ruby code to build an HTML form.  The biggest difference between the two is that `form_with` generally binds the form to a model object - it uses an object to make some educated guesses about how the HTML form should be built.  If we were going to use `form_with` to create a Dog with name, breed, and age attributes, our form would look something like this:
+**form_with** is a Rails form helper, similar to `form_tag` and `form_for` which have both been soft deprecated. It is a form helper that allows us to use ruby code to build an HTML form.  `form_with` can bind a form to a model object or it can create a simple form that does not require a model. It uses a number of helper options to make some educated guesses about how the HTML form should be built.
+
+If we were going to use `form_with` without a model (like you've done with `form_tag`) to create a simple search form then we could do it like so:
+
+```html
+<%= form_with(url: "/search", method: "get") do %>
+  <%= label_tag(:q, "Search for:") %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Search") %>
+<% end %>
+```
+
+The resulting html:
+
+```html
+<form accept-charset="UTF-8" action="/search" data-remote="true" method="get">
+  <label for="q">Search for:</label>
+  <input id="q" name="q" type="text" />
+  <input name="commit" type="submit" value="Search" data-disable-with="Search" />
+</form>
+```
+
+For every form `input`, an ID attribute is generated from its name ("q" in above example). These IDs can be very useful for CSS styling or manipulation of form controls with JavaScript.
+
+
+If we were going to use `form_with` to create a Dog object with name, breed, and age attributes, our form would look something like this:
 
 ```html
 <!-- app/views/dogs/new.html.erb -->
-<%= form_with model: Dog.new do |f| %>
+<%= form_with model: Dog.new, local: true do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
 
@@ -31,7 +56,12 @@ title: Rails form_with
 <% end %>
 ```
 
-In this example, we are binding our form to a new Dog object `Dog.new`.  While this works from a functionality standpoint, we don't ever want to be reaching from our views into our database, so, we would want our controller to send this object to our views:
+Notice the `local: true` option.
+**You must include this option for your form to work properly with the `form_with` helper**
+
+This helper is set to false by default when using the `form_with` helper. This is because `form_with` was built with performance improvements in mind. Within professional rails applications, this helper defaults to taking advantage of AJAX (Asynchronous JavaScript And XML) to send requests. We won't dive into the advantages and disadvantages of this just yet, but know that this option expects as JavaScript response as opposed to an HTML response. We aren't implementing JavaScript in our applications, so we want our request to be sent expecting an HTML response.
+
+In the above example, we are binding our form to a new Dog object `Dog.new`.  While this works from a functionality standpoint, we don't ever want to be reaching from our views into our database, so, we would want our controller to send this object to our views:
 
 ```ruby
 # app/controllers/dogs_controller.rb
@@ -79,6 +109,7 @@ end
   * If you wish to direct your form request to a particular URL, you would use form_with url: my_nifty_url_path instead. To see more in depth options on what form_with accepts be sure to check out the [API documentation](https://api.rubyonrails.org/v6.0.3.4/classes/ActionView/Helpers/FormHelper.html#method-i-form_with).
   * Methods to create form controls are called on the form builder object `f`.
   * `form_with` can be used to create forms that are not tied to a model
+  * We need to pass the option `local: true` in order to avoid our form being submitted using AJAX
 
 ### Strong Params with form_with
 
@@ -91,6 +122,16 @@ def dog_params
   params.require(:dog).permit(:name, :breed, :age)
 end
 ```
+
+If we aren't using strong params, then we can access our form data by calling:
+```ruby
+params[:dog][:name]
+```
+
+from the controller action that the form submits to.
+
+Again, notice the nesting.
+
 
 ### Practice
 
