@@ -110,7 +110,7 @@ Use [This database design site](dbdesigner.net) to design your database with **2
 
 Here is an example:
 
-[Example Design](../misc/images/db_designer_example.pdf)
+![Example Design](../misc/images/db_designer_example.pdf)
 
 ```
 [ ] done
