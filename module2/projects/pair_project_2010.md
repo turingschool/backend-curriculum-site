@@ -1,4 +1,3 @@
-# Relate and Create
 BE Mod 2 Week 1-2 Pair Project
 
 ## Learning Goals
@@ -112,17 +111,23 @@ Here is an example:
 
 ![Example Design](../misc/images/db_example.png)
 
-```
+<code>
 [ ] done
 
 User Story 1, Schema Design
 
- You can create as many columns on each table as you would like, but we need one boolean column, one numeric column, and at least two datetime columns represented across all tables. And, each table must have a name column.
+ You can create as many columns on each table as you would like, but we need a few columns represented <b>On at least one table</b>
+
+ 1. One boolean column
+ 2. One numeric column
+ 3. Two datetime columns  
+
+ <b>Each table must have a name column</b>
 
  of a diagram made on dbdesigner.net
 
 This will be reviewed at our first check-in
-```
+</code>
 
 ## CRUD Functionality
 ### Parent
