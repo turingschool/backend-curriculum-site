@@ -106,7 +106,7 @@ Do not use Parent/Child as your relationship
 
 Each person will come up with their own one to many relationship. This should represent a real world example of your choice. An example would be Shelters and Pets. A Shelter has many Pets. And, thus, a Pet belongs to a Shelter. These relationships are yours to create, but we instructors are happy to provide feedback on the relationships if asked.
 
-Use [This database design site](dbdesigner.net) to design your database with **2** one to many relationships.
+Use [This database design site](https://www.dbdesigner.net/) to design your database with **2** one to many relationships.
 
 Here is an example:
 
