@@ -112,6 +112,7 @@ Here is an example:
 ![Example Design](../misc/images/db_example.png)
 
 <pre>
+  <code>
   [ ] done
 
   User Story 1, Schema Design
@@ -126,6 +127,7 @@ Here is an example:
    <b>Each table must have a name column</b>
 
   This will be reviewed at our first check-in
+  </code>
 </pre>
 
 ## CRUD Functionality
