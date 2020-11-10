@@ -181,7 +181,7 @@ Accept: application/json
 
 {
   "email": "whatever@example.com",
-  "password": "password"
+  "password": "password",
   "password_confirmation": "password"
 }
 ```
@@ -335,7 +335,7 @@ eg:
 - Your code should allow for the following:
   - Traveling from New York, NY to Los Angeles, CA, with appropriate weather in L.A. when you arrive 40 hours later
   - Traveling from New York, NY to London, UK, weather block should be empty and travel time should be "impossible"
-  
+   
 
 ## Extensions
 
