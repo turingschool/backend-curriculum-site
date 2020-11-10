@@ -111,24 +111,22 @@ Here is an example:
 
 ![Example Design](../misc/images/db_example.png)
 
-```html
-<code>
-[ ] done
+<pre>
+  [ ] done
 
-User Story 1, Schema Design
+  User Story 1, Schema Design
 
- You can create as many columns on each table as you would like, but we need a few columns represented <b>On at least one table</b>
+   You can create as many columns on each table as you would like, but we need a few columns represented <b>On at least one table</b>
 
-<ol>
- <li> One boolean column</li>
- <li> One numeric column</li>
- <li> Two datetime columns</li>
-</ol>
- <b>Each table must have a name column</b>
+  <ol>
+   <li> One boolean column</li>
+   <li> One numeric column</li>
+   <li> Two datetime columns</li>
+  </ol>
+   <b>Each table must have a name column</b>
 
-This will be reviewed at our first check-in
-</code>
-```
+  This will be reviewed at our first check-in
+</pre>
 
 ## CRUD Functionality
 ### Parent
