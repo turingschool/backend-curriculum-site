@@ -112,18 +112,18 @@ Here is an example:
 ![Example Design](../misc/images/db_example.png)
 
 ```
-  [ ] done
+[ ] done
 
-  User Story 1, Schema Design
+User Story 1, Schema Design
 
-   You can create as many columns on each table as you would like, but we need a few columns represented on at least one table:
+You can create as many columns on each table as you would like, but we need a few columns represented on at least one table:
     1. One boolean column
     2. One numeric column
     3. Two DateTime columns
 
-   `** Each table must have a name column **`
+Each table must have a name column
 
-  This will be reviewed at our first check-in
+This will be reviewed at our first check-in
 ```
 
 ## CRUD Functionality
