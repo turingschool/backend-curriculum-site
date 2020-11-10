@@ -109,7 +109,7 @@ Use [This database design site](https://www.dbdesigner.net/) to design your data
 
 Here is an example:
 
-![Example Design](../misc/images/db_example.png)
+![Example Design](../misc/images/db_designer.png)
 
 ```
 [ ] done
