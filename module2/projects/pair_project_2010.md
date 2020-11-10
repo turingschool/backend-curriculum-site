@@ -105,12 +105,13 @@ Do not use Parent/Child as your relationship
 
 Each person will come up with their own one to many relationship. This should represent a real world example of your choice. An example would be Shelters and Pets. A Shelter has many Pets. And, thus, a Pet belongs to a Shelter. These relationships are yours to create, but we instructors are happy to provide feedback on the relationships if asked.
 
-Use [This database design site](https://www.dbdesigner.net/) to design your database with **2** one to many relationships.
+Use [This database design site](https://www.dbdesigner.net/) to design your database with **2 one to many relationships.**
 
 Here is an example:
 
 ![Example Design](../misc/images/db_example.png)
 
+```html
 <code>
 [ ] done
 
@@ -118,16 +119,16 @@ User Story 1, Schema Design
 
  You can create as many columns on each table as you would like, but we need a few columns represented <b>On at least one table</b>
 
- 1. One boolean column
- 2. One numeric column
- 3. Two datetime columns  
-
+<ol>
+ <li> One boolean column</li>
+ <li> One numeric column</li>
+ <li> Two datetime columns</li>
+</ol>
  <b>Each table must have a name column</b>
-
- of a diagram made on dbdesigner.net
 
 This will be reviewed at our first check-in
 </code>
+```
 
 ## CRUD Functionality
 ### Parent
