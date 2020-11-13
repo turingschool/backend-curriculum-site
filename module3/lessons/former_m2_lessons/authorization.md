@@ -3,6 +3,7 @@ layout: page
 title: Authorization in Rails
 tags: rails, authorization
 ---
+<!-- Old Mod 2 lesson on authorization -->
 
 ### Learning Goals
 
@@ -287,9 +288,9 @@ Inside of our `Admin::DashboardController`, let's add a `before_action` to check
 ```ruby
 class Admin::DashboardController < ApplicationController
   before_action :require_admin
-  
-  def index 
-  end 
+
+  def index
+  end
 
   private
     def require_admin

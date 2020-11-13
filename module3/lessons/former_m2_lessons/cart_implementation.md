@@ -3,6 +3,7 @@ title: Cart Implementation
 length: 120
 tags: cart, order
 ---
+<!-- Old lesson from Mod 2 -->
 
 ## Goals
 
