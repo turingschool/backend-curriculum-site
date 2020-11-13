@@ -5,6 +5,8 @@ length: 120min
 tags: rails, authentication, bcrypt, ruby, sessions, helper_methods
 ---
 
+<!-- Old mod 2 lesson -->
+
 ### If you are who you say you are...
 
 ## Learning Goals
