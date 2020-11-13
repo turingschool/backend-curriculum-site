@@ -3,7 +3,7 @@ layout: page
 title: Sending Email in Production
 tags: rails, email, sendgrid, smtp, action mailer
 ---
-
+<!-- Included as link in Sending Emails in Rails lesson  -->
 #### Sending Email in Production Checklist
 
 - [ ] Create repo on GitHub & push up changes
