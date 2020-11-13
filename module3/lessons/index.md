@@ -50,6 +50,7 @@ layout: page
 
 ## Additional Resources
 
+* [Application Coordination with Message Queues](./application_coordination_with_message_queues)
 * [Hash Functions - MD5 and SHA-256](./hash_functions)
 * [Understanding Namespacing](./namespacing)
 * [Fundamental Rails Security](./fundamental_rails_security)
