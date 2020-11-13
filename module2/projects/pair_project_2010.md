@@ -1,4 +1,7 @@
-BE Mod 2 Week 1-2 Pair Project
+---
+layout: page
+title: BE Mod 2 Week 1-2 Pair Project
+---
 
 ## Learning Goals
 
