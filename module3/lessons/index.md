@@ -48,7 +48,7 @@ layout: page
 
 ---
 
-## Additional Resources
+## Additional Exploration Topics & Resources
 
 * [Application Coordination with Message Queues](./application_coordination_with_message_queues)
 * [Hash Functions - MD5 and SHA-256](./hash_functions)
