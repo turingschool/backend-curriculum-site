@@ -50,6 +50,7 @@ layout: page
 
 ## Additional Resources
 
+* [Hash Functions - MD5 and SHA-256](./hash_functions)
 * [Understanding Namespacing](./namespacing)
 * [Fundamental Rails Security](./fundamental_rails_security)
 * [Environments and Continuous Integration](./environments_and_ci)
