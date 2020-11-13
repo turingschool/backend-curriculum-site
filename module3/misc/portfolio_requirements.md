@@ -3,6 +3,8 @@ layout: page
 title: Module 3
 subheading: Portfolio Requirements
 ---
+<!-- Separate Portfolio from Project Presentation -->
+<!-- Previous way of doing portfolio before the combined format -->
 
 # M3 Portfolio Requirements
 
