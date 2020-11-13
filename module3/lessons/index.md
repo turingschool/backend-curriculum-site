@@ -50,6 +50,7 @@ layout: page
 
 ## Additional Resources
 
+* [Understanding Namespacing](./namespacing)
 * [Fundamental Rails Security](./fundamental_rails_security)
 * [Environments and Continuous Integration](./environments_and_ci)
 * [Running Production Locally](./running_production_locally)
