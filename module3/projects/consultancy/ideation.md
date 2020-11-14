@@ -33,7 +33,7 @@ Fill out the following template for your project idea.
 
 ### APIs
 
-Your application **must make good use of at least TWO external datasets or APIs**. Some examples include:
+Your application **must make good use of at least one external datasets or APIs**. Some examples include:
 
 #### Government Data
 
@@ -72,6 +72,8 @@ Your application **must make good use of at least TWO external datasets or APIs*
 * Location Services (Google Maps/Directions)
 * IOT Hardware (ex: Raspberry PI)
 
+
+The following links are catalogs of APIs on rapidapi.com. You will not implement RapidAPI, it's just a great place to find other APIs.
 
 free/discounted apis for students:
 - [https://rapidapi.com/collection/rapidapi-school](https://rapidapi.com/collection/rapidapi-school)
