@@ -20,6 +20,12 @@ We will be using an Agile process during the development of this project. This w
 
 In Agile processes, a sprint is a single cycle of development. The most common length of a sprint is two weeks. During this cycle, teams will assign features, develop those features, demo their work, get feedback, and retro.
 
+
+## Pairing Schedules
+
+Your PM will present a pairing schedule every other day, and rotate you to different areas of the project. If you are mid-way through a story, you must figure out how to hand off that work to another pair.
+
+
 #### Sprint 1: User Interface and Microservice Spike
 
 - Begin: Monday of Week 4
@@ -29,8 +35,8 @@ Day 1:
 - Your PM will split your team up to focus on each area of the project.
   - Front-end team
   - Back-end team
-  - Microservice 1
-  - Microservice 2
+  - Microservice(s)
+  
 - Each team will use a Miro board to brainstorm ideas
 - Each team member will set up [GitHub co-author commits]() for each member on the team (minus their project manager)
 - Your PM may delegate people to set up a GitHub organization, add other members, and set up the initial repos in a way that each team member gets co-author contribution on all repo setups
@@ -75,6 +81,10 @@ In addition to the End of Sprint Demos, you will also have some project check in
     * During this check in, you will discuss with your project manager what the expectations are for your final demo on Friday
     * You can also use this check in as an opportunity to ask any questions and get help for the final few days of the project.
 
+* Check In 3
+    * Review of near-final work, check for MVP
+    * Discuss presentation details
+    
 ## GitHub
 
 * Commit Frequently
@@ -83,6 +93,13 @@ In addition to the End of Sprint Demos, you will also have some project check in
     * Keep your PRs as small as possible (one feature / user story per PR)
     * Your PR should be reviewed by at least one team member before it is merged.
     * Tag your Project Manager if you have questions. DM your Project Manager letting them know you have tagged them.
+
+#### Co-Author Commits
+
+Teams are expected to utilize [co-authored commits](https://gist.github.com/iandouglas/6ff9428ca9e349118095ce7ed4a655bf) to give each other contribution for driver/navigator work.
+
+Your instructors will provide a full co-author commit message to each team. When you implement it, be sure to remove your own name from the list (your commit message should not include yourself).
+
 
 ## Continuous Integration
 
