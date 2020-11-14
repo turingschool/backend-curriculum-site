@@ -18,8 +18,9 @@ Our "Front End" application will be built in Rails, but could be substituted lat
   - it will have simple testing, and will mostly focus on View templates, HTML and CSS, maybe some JavaScript, highly recommend Bootstrap
   - this layer is responsible for authentication via OAuth
     - user's OAuth token must be stored in the 'back end' server database, and used within the application in some way
-  - this application is not allowed to directly interact with a database
-    - instead, it will implement a "DatabaseService" to do any CRUD behavior
+  - this application is only allowed to store user data in a local database
+    - all other database storage must go through a "DatabaseService" that you implement to do any CRUD behavior
+      - you will need HEAVY use of webmock to test expected results
     - recommend using Rails caching to cache database reads from backend
 
 Our "Back End" application will be an API built in Rails. It will act as the interface layer to our database
@@ -32,7 +33,7 @@ Our "Back End" application will be an API built in Rails. It will act as the int
   - recommend caching data fetched from micro-services for a period of time where relevant
   - could perhaps include a worker process for sending email (or this could be its own micro-service)
 
-Our project will include at least two "micro-services" - a Service API which abstracts away a single responsibility.
+Our project will include at least one "micro-services" - a Service API which abstracts away a single responsibility.
 - Sinatra "microservice"
   - no HTML, CSS or ERB of any kind
   - receives JSON requests from the Rails back end only, responds only in JSON
