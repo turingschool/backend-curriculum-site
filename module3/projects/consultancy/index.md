@@ -32,6 +32,7 @@ Our "Back End" application will be an API built in Rails. It will act as the int
   - this layer will serve as our database interface for other applications; recommend eager loading where possible
   - recommend caching data fetched from micro-services for a period of time where relevant
   - could perhaps include a worker process for sending email (or this could be its own micro-service)
+  - we recommend considering the use of GraphQL to reduce the amount of RESTful CRUD endpoints you'll need to build
 
 Our project will include at least one "micro-services" - a Service API which abstracts away a single responsibility.
 - Sinatra "microservice"
