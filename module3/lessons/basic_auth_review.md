@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Review: Authentication and Authorization in Rails
+title: "Review: Authentication and Authorization in Rails"
 tags: review, rails, authentication, authorization
 ---
 
