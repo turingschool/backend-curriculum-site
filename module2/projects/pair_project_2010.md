@@ -5,63 +5,11 @@ title: BE Mod 2 Week 1-2 Pair Project
 
 ## Learning Goals
 
-### Rails
-
-* Implement CRUD functionality for a resource using forms (form_tag), buttons, and links
-* Use MVC to organize code effectively, limiting the amount of logic included in views and controllers
-* Create routes for
-  - standalone resources
-  - nested resources
-* Template a view in Rails using a templating language (eg, `erb`)
-
-
-### ActiveRecord
-
-* Create instance methods on a Rails model that use ActiveRecord associations
-* Use ActiveRecord helpers
-* Create class methods on a Rails model that can perform basic queries for all records of that model
-* Use built-in ActiveRecord methods to:
-* create, read, update, and destroy records in a database
-* create records with relationships to other records in a database
-
-### Databases
-
-* Describe Database Relationships, including the following terms:
-* Primary Key
-* Foreign Key
-* One to Many
-* Write migrations to create tables and relationships between tables
-* Describe ORMs and their advantages and use cases
-
-### Testing and Debugging
-
-* Write feature tests utilizing:
-* RSpec and Capybara
-* Model testing
-* CSS selectors to target specific areas of a page
-* Use Pry in Rails files to get more information about an error
-* Use `save_and_open_page` to view the HTML generated when visiting a path in a feature test
-* Utilize the Rails console as a tool to get more information about the current state of a development database
-* Use `rails routes` to get additional information about the routes that exist in a Rails application
-
-### Layout
-
-* Create basic Web Pages using the following tags:
-* `<h1>`, `<h2>`, etc.
-* `<p>`
-* `<body>`
-* `<a>` and the `href` attribute
-* `<img>` and the `src` attribute
-* `<div>`
-* `<section>`
-* `<ul>`, `<ol>`, and `<li>`
-* `<form>`
-* `<input>`
-
-### Web Applications
-
-* Describe the HTTP request/response cycle
-* Describe the different parts of HTTP requests and responses
+* Design a one to many relationship using a schema designer
+* Write migrations to create tables with columns of varying data types and foreign keys.
+* Use Rails to create web pages that allow users to CRUD resources
+* Create instance and class methods on a Rails model that use ActiveRecord methods and helpers
+* Write model and feature tests that fully cover data logic and user behavior
 
 ## Requirements
 
