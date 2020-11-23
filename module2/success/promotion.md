@@ -20,6 +20,8 @@ All projects are graded. Students must pass the Week 6 Final Solo Project in ord
 
 In Week 6, students will independently complete the Final Technical Assessment. If a student does not receive a passing grade on the paired assessment, they will participate in the Final Retake Assessment. Students must pass **either** the paired assessment or the retake to be promoted.
 
+Additional information on assessments can be found [here](./assessments)
+
 ## Professional Development
 
 Promoted students will have successfully completed the [Module 2 Professional Development Curriculum](https://careerdev.turing.io/module_two/). This includes attending all sessions, making up any missed sessions, and completing all PD deliverables.
