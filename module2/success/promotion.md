@@ -26,4 +26,4 @@ Promoted students will have successfully completed the [Module 2 Professional De
 
 ## Portfolio
 
-Students will complete a portfolio, and participate in a portfolio review. Instructions for the portfolio can be found [here](../portfolios/portfolio_requirements)
+Students will complete a portfolio, and participate in a portfolio review. Instructions for the portfolio can be found [here](./portfolio_requirements)
