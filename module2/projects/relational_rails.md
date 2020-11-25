@@ -1,6 +1,6 @@
 ---
 layout: page
-title: BE Mod 2 Week 1-2 Pair Project
+title: Relational Rails
 ---
 
 ## Learning Goals
