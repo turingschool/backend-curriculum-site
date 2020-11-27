@@ -165,11 +165,6 @@ Students will need to work with Ian to get a new API key set up since Twitter ta
 Extension idea: could we determine if the user is talking about a business, and check stock prices to see if the stock goes up or down soon after the user tweeted? (is there a correlation of a user tweeting about a business or ticker symbol, and the stock price changing?)
 
 
-#### No More "Richard" Pics
-
-If you're tired of unwanted, unsolicited NSFW pictures, there's a free API that can scan images for nudity. Users could auth with Google/Apple, allowing access to their SMS history, scan incoming photos, auto-delete them and maybe block the sender, without needing further user intervention.
-
-
 #### Whose turn is it to do chores?
 
 Roommates register and add each other to a living space, then set up regular chores. Chores are added to each user's Google Calendar on alternating time periods to trade off whose turn it is to, say, clean the bathroom every 3rd day, track how long the chore should take. Second API could be to find a playlist of songs while working on the task (secondary OAuth through Spotify, for example), or send an SMS reminder (not through Google Calendar reminders)
