@@ -6,19 +6,53 @@ tags:
 type: project
 ---
 
-# 0. Set Up
+# 1. Set Up
 
-1. Set Up [Rails Driver](https://github.com/turingschool-examples/rails_driver).
-2. Set Up [SimpleCov](https://github.com/colszowka/simplecov) to track test coverage.
+1. Create a folder called "rails-engine" and inside of that folder, do the following:
+   1. Clone [Rails Driver](https://github.com/turingschool-examples/rails_driver).
+   2. Run your `rails new ...` instruction to create a project called `rails-engine`
+2. Set Up [SimpleCov](https://github.com/colszowka/simplecov) to track test coverage in your rails-engine API project.
 
-# 1. Data Importing
+# 2. Data Importing
 
-Copy [these CSV files](https://github.com/turingschool/sales_engine/tree/master/data) into your project folder, and determine a way to import that into your database. Some things to be aware of:
-1. Be sure to use the ID values from the CSV data in your own database
-2. Use ActiveRecord to reset the Primary Key sequences in PostgreSQL afterward
-3. Convert all of your prices from pennies to dollars and pennies before they get put in the database. Otherwise, the spec harness will not work correctly
+You will need to replace your `db/seeds.rb` file with the following content. When you run `rake db:{drop,create,migrate,seed}`, you will see some errors/warnings that you can safely ignore, but if think it didn't work properly, ask an instructor for guidance.
 
-# 2. API Endpoints
+**NOTE** We updated this process to avoid confusion and taking a significant amount of time; the main learning goals of the project are the Rails API endpoints and business intelligence endpoints in ActiveRecord, not the process of importing CSV data. Avoid starting out with a Rake task to do the import and follow these instructions instead. If in doubt, ask your instructors first.
+
+**NOTE** If your `rails new ...` project name from above is NOT exactly called "rails-engine" you will need to modify the `cmd` variable below to change the `-d` parameter from `rails-engine_development` to `<YOUR PROJECT NAME>_development` instead. If you have questions, ask your instructors.
+
+```ruby
+require 'csv'
+
+# before running "rake db:seed", do the following:
+# - put the "rails-engine-development.pgdump" file in db/data/
+# - put the "items.csv" file in db/data/
+
+cmd = "pg_restore --verbose --clean --no-acl --no-owner -h localhost -U $(whoami) -d rails-engine_development db/data/rails-engine-development.pgdump"
+puts "Loading PostgreSQL Data dump into local database with command:"
+puts cmd
+system(cmd)
+
+# TODO
+# - Import the CSV data into the Items table
+# - Add code to reset the primary key sequences on all 6 tables (merchants, items, customers, invoices, invoice_items, transactions)
+
+```
+
+- Create migration files for the 5 tables created by this `pg_restore` application. (merchants, customers, invoices, invoice_items, transactions)
+  - use a tool like Postico to examine the database tables for the correct data types and relationships
+- Create a migration file for the "items" table, based on the provided "items.csv" file
+
+Data Files: (put both of these inside a folder called `db/data` in your Rails API project)
+- [items.csv](https://raw.githubusercontent.com/turingschool/backend-curriculum-site/gh-pages/module3/projects/rails_engine/items.csv)
+  - be sure to use the ID values in this CSV file, or the database will not work correctly!
+  - convert all prices from pennies to dollars/cents before you save them in the database, or the spec harness tests will not succeed!
+- [rails-engine-development.pgdump](https://raw.githubusercontent.com/turingschool/backend-curriculum-site/gh-pages/module3/projects/rails_engine/rails-engine-development.pgdump)
+  - this file is in a binary format and your browser may try to automatically download the file instead of viewing it
+
+Once the "items.csv" file is finished importing in `db/seeds.rb`, add instructions in that file to use ActiveRecord to reset the Primary Key sequences in PostgreSQL for all 6 tables.
+
+# 3. API Endpoints
 
 You will need to expose the data through a multitude of API endpoints. All of your endpoints should follow these technical expectations:
 
@@ -59,7 +93,7 @@ module Api
 end
 ```
 
-## 2a. ReST Endpoints
+## 3a. ReST Endpoints
 
 You will need to expose Restful API endpoints for both **Items** and **Merchants**.
 
@@ -186,14 +220,14 @@ This endpoint should destroy the corresponding record (and any associated data, 
 *Extension*: when you delete an item, you will delete entries in the invoice_items table per the work above. This, however, might leave invoices in the database with no items at all, so you should find a way to clean those up, too.
 
 
-## 2b. Relationships
+## 3b. Relationships
 
 These endpoints should show related records. The relationship endpoints you should expose are:
 
 * `GET /api/v1/merchants/:id/items` - return all items associated with a merchant.
 * `GET /api/v1/items/:id/merchants` - return the merchant associated with an item
 
-## 2c. Find Endpoints
+## 3c. Find Endpoints
 
 In addition to the standard ReST endpoints, you will need to build "find" endpoints for both **Items** and **Merchants**.
 
@@ -254,11 +288,11 @@ Example JSON response for `GET /api/v1/merchants/find_all?name=ring`
 }
 ```
 
-## 2d. Business Intelligence Endpoints
+## 3d. Business Intelligence Endpoints
 
 Expose the following business intelligence endpoints.
 
-**NOTE**: Only paid invoices should be counted in revenue totals or statistics. A paid invoice has at least one successful transaction.
+**HINT**: Invoices must have a successful transaction and shipped to the customer to be considered as revenue.
 
 ### Merchants with Most Revenue
 

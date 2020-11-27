@@ -47,9 +47,9 @@ We *highly* encourage you to have attempted some of the business intelligence qu
 
 ## Rails Driver
 
-[Rails Driver](https://github.com/turingschool-examples/rails_driver) is the front end of the application. It includes a test suite as well as a front end to test your application. Instructors will use this to determine the completion of your project.
+[Rails Driver](https://github.com/turingschool-examples/rails_driver) is the front end of the application. It includes a test suite (called a "spec harness") as well as a front end to test your application. Instructors will use this to determine the completion of your project. No changes should be made to Rails Driver.
 
-It should be noted that in most professional applications, the front end would not be written in Rails. More likely, a pure front end application would use a Javascript framework such as React. However, in order to make this portion of the project more understandable to BEM3 students we have written it in Rails. The extensions for this project will build on this front end application.
+It should be noted that in most professional applications, the front end would not be written in Rails. More likely, a pure front end application would use a JavaScript framework such as React. However, in order to make this portion of the project more understandable to BEM3 students we have written it in Rails. The extensions for this project will build on this front end application.
 
 ## Technical Requirements
 
