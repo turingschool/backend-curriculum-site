@@ -4,7 +4,7 @@ title: Module 2
 subheading: Learning Goals
 ---
 
-In addition to our [guidlines and expectations](./guidelines_and_expectations), academic success in Module 2 means that students demonstrate proficiency and comfort with the concepts below.
+Academic success in Module 2 means that students demonstrate proficiency and comfort with the concepts below.
 
 The expected mastery level can be understood with the following scale:
 
@@ -14,36 +14,34 @@ The expected mastery level can be understood with the following scale:
 
 # Mastery
 
-#### Web Applications
+### Rails Application Development
 
-* Describe the HTTP request/response cycle
-* Describe the different parts of HTTP requests and responses
-* Describe and implement ReSTful routing
-* Identify the different components of URLs(protocol, domain, path, query params)
-
-#### Rails Application Development
-
-* Implement CRUD functionality for a resource using forms (form_tag or form_for), buttons, and links
+* Implement CRUD functionality for a resource using forms (form_tag or form_with), buttons, and links
 * Implement CRUD functionality for nested resources
 * Use MVC to organize code effectively, limiting the amount of logic included in views and controllers
 * Create routes for
-  * standalone resources
-  * nested resources
-  * non-ReSTful actions
-  * namespaced routes
+    * standalone resources
+    * nested resources
+    * non-ReSTful actions
+    * namespaced routes
+* Interpret the output of `rails routes` to get information about existing routes    
+* Use the Rails console to interact with a development database
 * Describe use cases for a model that inherits from ApplicationRecord vs. a PORO
-* Template a view in Rails using a templating language (eg, `erb`)
+* Template a view in Rails using `erb`
 * Use path helpers
 
-#### ActiveRecord
+### ActiveRecord
 
+* Create class and instance methods on a Rails Model to perform ActiveRecord queries
 * Create instance methods on a Rails model that use ActiveRecord associations
 * Use built-in ActiveRecord methods to:
-  * create queries that calculate, select, filter, and order data from a single table
-  * create, read, update, and destroy records in a database
-  * create records with relationships to other records in a database
+    * create queries that calculate, select, filter, and order data from a single table
+    * create, read, update, and destroy records in a database
+    * create records with relationships to other records in a database
+    * join multiple tables of data
+    * make calculations and build collections of data grouped by one or more attributes from multiple tables
 
-#### Databases
+### Databases
 
 * Describe Database Relationships, including the following terms:
   * Primary Key
@@ -53,71 +51,80 @@ The expected mastery level can be understood with the following scale:
   * Join Table
 * Write migrations to create tables and relationships between tables
 
-#### Testing & Debugging
+### Testing & Debugging
 
-* Write feature tests utilizing:
-  * RSpec and Capybara
-  * CSS selectors to target specific areas of a page
-  * Sad Path Testing
-* Write model tests with RSpec including validations, and class and instance methods
+* Write feature tests in RSpec that:
+    * Use Capybara to mimic the behavior of users
+    * Use CSS selectors to target specific elements of a page
+    * Test for Sad Paths
+* Write model tests in RSpec that:
+    * Use Shouldamatchers to test relationships and validations
+    * fully test custom-built model methods including edge cases
 * Use Pry or Byebug in Rails files to get more information about an error
-* Use `save_and_open_page` to view the HTML generated when visiting a path in a feature test
-* Utilize the Rails console as a tool to get more information about the current state of a development database
-* Use `rails routes` to get additional information about the routes that exist in a Rails application
+* Use `save_and_open_page` and Chrome Developer Tools to debug HTML
+
+### Web Applications
+
+* Describe and implement ReSTful routing
+* Identify the different components of URLs (protocol, domain, path, query params)
+* Deploy an application to Heroku
+
+### Project Management
+
+* Use GitHub Projects to create and track User Stories
 
 # Functional
 
-#### Web Applications
+### Web Applications
 
-* Explain how Cookies/Sessions are used to create and maintain application state
+* Describe the HTTP request/response cycle
+* Describe the different parts of HTTP requests and responses
+* Describe web APIs
 
-#### Rails Application Development
+### Rails Application Development
 
-* Implement partials to break a page into reusable components
-* Make use of flash messages
-* Use Sessions to store information about a user and implement login/logout functionality
-* Use filters (e.g. `before_action`) in a Rails controller
-* Use Inheritance from ApplicationController or a student created controller to store methods that will be used in multiple controllers
-* Limit functionality to authorized users
-* Use BCrypt to hash user passwords before storing in the database
+* Implement partials to break a view into reusable components
+* Use flash messages
+* Use Inheritance to share behavior across classes
 * Use POROs to logically organize code for objects not stored in the database
+* Use `Faraday` to consume an API
 
-#### ActiveRecord
-
-* Use built-in ActiveRecord methods to join multiple tables of data, calculate statistics and build collections of data grouped by one or more attributes
-
-#### Databases
+### Databases
 
 * Write raw SQL queries
 * Design and diagram a Database Schema
 * Describe ORMs and their advantages and use cases
 * Write migrations to alter existing database tables
 
-#### Styling
+### Testing & Debugging
 
-* Create basic Web Pages using the following tags
-  * `<h1>`, `<h2>`, etc.
-  * `<p>`
-  * `<body>`
-  * `<a>` and the `href` attribute
-  * `<img>` and the `src` attribute
-  * `<div>`
-  * `<section>`
-  * `<ul>`, `<ol>`, and `<li>`
-  * `<form>`
-  * `<input>`
-* Select HTML elements using classes and ids
+* Use WebMock to mock API calls
+
+### Styling
+
+* Create basic Web Pages using the following HTML tags
+    * `<h1>`, `<h2>`, etc.
+    * `<p>`
+    * `<body>`
+    * `<a>` and the `href` attribute
+    * `<img>` and the `src` attribute
+    * `<div>`
+    * `<section>`
+    * `<ul>`, `<ol>`, and `<li>`
+    * `<form>`
+    * `<input>`
+* Select and style HTML elements using their `class` or `id` attribute
 
 # Familiar
 
-#### Web Applications
+### Web Applications
 
 * Describe how DNS works
 
-#### Databases
+### Databases
 
 * Describe database normalization
 
-#### Styling
+### Styling
 
 * Describe modern CSS grid systems
