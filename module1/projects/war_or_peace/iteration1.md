@@ -15,16 +15,20 @@ A `Card` represents a single card that would be in a traditional deck of 52 card
 Use the tests provided to drive the development of your `Card` class. **From the root directory of your project, run the test like this**:
 
 ```
-ruby test/card_test.rb
+rspec
+```
+or
+```
+rspec spec/card_spec.rb
 ```
 
-If you haven't already, you will need to install minitest:
+If you haven't already, you will need to install rspec:
 
 ```
-gem install minitest
+gem install rspec
 ```
 
-If your `Card` class is written properly and is located at `./lib/card.rb`, you should be able to open a pry session from your `war_or_peace` directory and interact with it like so:
+If your `Card` class is written properly, and is located at `./lib/card.rb`, you should be able to open a pry session from your `war_or_peace` directory and interact with it like so:
 
 ```ruby
 # double check that you are in your war_or_peace project directory!
@@ -47,7 +51,7 @@ pry(main)> card.rank
 
 ### Deck
 
-Create a `Deck` class and an accompanying test file with the following instance methods:
+Create a `Deck` class and an accompanying tests with the following instance methods:
 
 * `initialize`: this method will take one argument - an array of cards.
 * `cards`: an attr_reader to read the `@cards` attribute
@@ -57,7 +61,7 @@ Create a `Deck` class and an accompanying test file with the following instance 
 * `remove_card`: this method will remove the top card from the deck
 * `add_card`: this method will add one card to the bottom (end) of the deck
 
-Use the interaction pattern below to help you build your `DeckTest` and `Deck` class.
+Use the interaction pattern below to help you build your `Deck` test and `Deck` class.
 
 Remember, `#<Card:0x00randomletters&nums...>` means "A Card Object" or "An Instance of the Card Class".  If you need to verify _which_ card object it is, you can refer to the last few digits of the 'random' letters and numbers and match those to a card that is created near the top of the interaction pattern.
 
