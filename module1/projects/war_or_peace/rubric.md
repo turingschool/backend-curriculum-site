@@ -23,5 +23,5 @@ _[Back to Project Home](./index)_
 **Ruby Conventions** | Classes, methods, and variables are well named so that they clearly communicate their purpose. Code is all properly indented and syntax is consistent. | Code is mostly properly indented, spaced, and lines are not excessively long. Class, method, variable, and file names follow convention | Code demonstrates some proper indenting and spacing. Class, method, variable, and file names inconsistently follow convention | Code is not properly indented and spaced and lines are excessively long. Class, method, variable, and file names do not follow convention |
 **Testing** | All methods that do not require command line input/output are accurately tested. Best use assertions are made. | Each class has its own test file. Every method listed on the specification is tested. Most tests are written to accurately verify expected behavior. | Tests are written for most methods listed on the specification, but the tests may be in an incorrect location or the tests may not accurately verify the expected behavior | Fewer than 7 tests written (in addition to the card tests provided) |
 
-
+## Version Control
 Code is required to be hosted on a GitHub repository, and will have at least 20 commits and one pull request.
