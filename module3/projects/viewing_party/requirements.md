@@ -14,6 +14,7 @@ type: project
 - Consume [The Movie DB API](https://developers.themoviedb.org/3/getting-started/introduction)
 - Implement Basic Auth
 - Choose one exploration option to complete
+- Use [co-authored commits](https://gist.github.com/iandouglas/6ff9428ca9e349118095ce7ed4a655bf) when doing driver/navigator pairing.
 
 
 ### Requirements
