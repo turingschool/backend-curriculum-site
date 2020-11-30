@@ -416,7 +416,7 @@ When I visit a parent show page ('/parents/:id')
 Then I see a link to take me to that parent's `child_table_name` page ('/parents/:id/child_table_name')
 ```
 
-Usability functionality will be reviewed at your second check-in
+**Usability functionality will be reviewed at your second check-in**
 
 ## Extensions
 
