@@ -79,7 +79,7 @@ Often, you will have a collection of objects that you need to transform, or map,
 
 ```ruby
 #playground.rb
-names = ['kat', 'tim', 'mike']
+names = ['mike', 'bob', 'megan']
 
 names.each do |name|
   name.capitalize
@@ -92,12 +92,12 @@ Run the playground file - what happens?
 
 Is this what you expected?
 
-Most students would expect to see `['Kat', 'Tim', 'Mike']`, so why is that not the case?
+Most students would expect to see `['Mike', 'Bob', 'Megan']`, so why is that not the case?
 
 Each gives us *access* to every element, but it doesn't save anything for us. If we want to save the capitalization (or save the transformed information), we need to create a place to save it, enter the accumulator:
 
 ```ruby
-names = ['kat', 'tim', 'mike']
+names = ['mike', 'bob', 'megan']
 
 capitalized_names = []
 
@@ -183,7 +183,7 @@ With your new best friends in your breakout room, use the following array with
 
 1. Can you print out their names capitalized?
 2. Can you print out their names in all caps?
-3. Can you print out their names but reversed? (billie first) (`["leon", "lizzo", "ariana", "billie"]`)
+3. Can you print out their names but reversed? (`["leon", "lizzo", "ariana", "billie"]`)
 4. Can you create a new array with only the names that are longer than four letters in length?
 5. Can you create a new array with the lengths of their names?
 
