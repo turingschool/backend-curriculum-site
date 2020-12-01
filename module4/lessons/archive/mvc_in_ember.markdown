@@ -1,3 +1,4 @@
+<!--
 ---
 layout: page
 title: MVC in Ember
@@ -5,6 +6,7 @@ length: 120
 tags: javascript, ember
 status: draft
 ---
+-->
 
 ## Learning Goals
 

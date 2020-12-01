@@ -1,7 +1,9 @@
+<!--
 ---
 layout: page
 title: Super Intro to Ember
 ---
+-->
 
 ## Prerequisites
 
