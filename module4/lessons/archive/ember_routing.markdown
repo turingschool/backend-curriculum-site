@@ -1,3 +1,4 @@
+<!--
 ---
 layout: page
 title: Ember Routing
@@ -5,6 +6,7 @@ length: 90
 tags: javascript, ember
 status: deprecated
 ---
+-->
 
 ## Lecture
 
