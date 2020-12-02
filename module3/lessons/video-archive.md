@@ -42,6 +42,7 @@ Intro to Postman and Faraday
 * [Dione Wilson, 2003 Cohort](https://vimeo.com/441936303/5a42f55a41)
 
 Consuming APIs
+* [Dione Wilson, 2008 Cohort](https://vimeo.com/486565253/1d0d280b5e)
 * [Dione Wilson, 2006 Cohort](https://vimeo.com/466302429/5efcbb88cf)
 * [Ian Douglas, 2005 Cohort](https://vimeo.com/450275848/9519c6410e)
 * [Ian Douglas, 2003 Cohort](https://vimeo.com/441933853/f2a98b9559)
@@ -55,6 +56,9 @@ Testing Tools for API Consumption
 Introduction to OAuth
 * [Ian Douglas, 2005 Cohort](https://vimeo.com/450272502/a80eaf2b63)
 * [Ian Douglas, 2003 Cohort](https://vimeo.com/441926366/3d1072226d)
+
+Basic Auth Review
+* [Dione Wilson, 2008 Cohort](https://vimeo.com/486566280/e53f0489f4)
 
 
 ## Refactoring and OOP
