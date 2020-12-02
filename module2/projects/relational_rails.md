@@ -44,12 +44,6 @@ title: Relational Rails
 
 ---
 
-## User Stories
-
-Use Pets/Shelters as example throughout
-
-Add in check-in expectations associated with story completion
-
 ## Relationships
 
 ### Design your database  
@@ -80,12 +74,14 @@ You can create as many columns on each table as you would like, but we need a fe
     3. Two DateTime columns
 
 Each table must have a name column
-
-This will be reviewed at our first check-in
 ```
+**Schema Design will be reviewed at our first check-in**
 
-## CRUD Functionality
-### Parent
+## User Stories
+
+### CRUD Functionality
+
+#### Parent
 ```
 [ ] done
 
@@ -158,7 +154,7 @@ and I am redirected to the parent index page where I no longer see this parent
 
 ---
 
-### Children
+#### Children
 Children can be associated to the Parent. Children belong to a parent.
 
 Anywhere you see `child_table_name` think `pets` from our Pets and Shelters example.
@@ -240,7 +236,8 @@ the child is deleted,
 and I am redirected to the child index page where I no longer see this child
 ```
 
-CRUD functionality will be reviewed at your first check-in
+**CRUD functionality will be reviewed at your first check-in**
+
 ---
 
 ## ActiveRecord
@@ -314,7 +311,7 @@ When I click on the link
 I'm taken back to the Parent's children Index Page where I see all of the parents in alphabetical order
 ```
 
-ActiveRecord functionality will be reviewed at your first and second check-in
+**ActiveRecord functionality will be reviewed at your first and second check-in**
 
 ---
 
@@ -419,7 +416,7 @@ When I visit a parent show page ('/parents/:id')
 Then I see a link to take me to that parent's `child_table_name` page ('/parents/:id/child_table_name')
 ```
 
-Usability functionality will be reviewed at your second check-in
+**Usability functionality will be reviewed at your second check-in**
 
 ## Extensions
 

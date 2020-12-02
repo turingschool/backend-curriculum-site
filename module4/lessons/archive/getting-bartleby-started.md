@@ -1,8 +1,10 @@
+<!--
 ---
 layout: page
 title: Fecho - Bartleby
 subheading: Getting Started
 ---
+-->
 
 ## Basic Setup and Installation
 
