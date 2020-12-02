@@ -15,13 +15,17 @@ A `Card` represents a single flashcard in our set. It stores a question, an answ
 Use the tests provided to drive the development of your `Card` class. From the root directory of your project, run the test like this:
 
 ```
-ruby test/card_test.rb
+rspec
+```
+or
+```
+rspec spec/card_spec.rb
 ```
 
-If you haven't already, you will need to install minitest:
+If you haven't already, you will need to install rspec:
 
 ```
-gem install minitest
+gem install rspec
 ```
 
 If your `Card` class is written properly and is located at `./lib/card.rb`, you should be able to open a pry session from your `flashcards` directory and interact with it like so:
