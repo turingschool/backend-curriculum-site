@@ -18,6 +18,14 @@ tags: migrations, databases, relationships, rails, activerecord
 * Schema
 * Relationships
 
+## Set Up
+
+This lesson builds off of the [Handling Requests Lessons](https://backend.turing.io/module2/lessons/handling_requests). You can find the completed code from this lesson on the `handling_requests` branch of [this repo](https://github.com/turingschool-examples/set_list/tree/handling_requests)
+
+## TDD Version
+
+This tutorial does not make use of any testing. You can find a version of this tutorial using the TDD workflow [here](./active_record_associations_tdd)
+
 ## WarmUp
 
 * In your own words, what is a migration?
