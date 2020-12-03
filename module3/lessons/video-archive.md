@@ -37,6 +37,7 @@ Week 2, Consultancy Ideation and Solo Project Kickoff
 ## APIs, Tooling and Testing
 
 Intro to Postman and Faraday
+* [Ian Douglas, 2008 Cohort]()
 * [Dione Wilson, 2006 Cohort](https://vimeo.com/465634409/53242dde2e)
 * [Ian Douglas, 2005 Cohort](https://vimeo.com/449074625/d13cf271f5)
 * [Dione Wilson, 2003 Cohort](https://vimeo.com/441936303/5a42f55a41)
@@ -49,6 +50,7 @@ Consuming APIs
 * (archive) [Josh Mejia and Mike Dao, June 2018](https://www.youtube.com/watch?v=FcgkfZEv_LI)
 
 Testing Tools for API Consumption
+* [Ian Douglas, 2008 Cohort](https://vimeo.com/487008398/f843814faa)
 * [Ian Douglas, 2006 Cohort](https://vimeo.com/466294376/6c0b235004)
 * [Ian Douglas, 2005 Cohort](https://vimeo.com/451221711/1264ca6e7a)
 * [Ian Douglas, 2003 Cohort](https://vimeo.com/441938656/0234a0196b)
@@ -91,8 +93,12 @@ Customizing JSON in your API
 * [Ian Douglas, 2003 Cohort](https://vimeo.com/441943509/16e0c5e8f1)
 * [Dione Wilson, 2001 Cohort](https://vimeo.com/441935438/8fe924d4fd)
 
-## Advanced ActiveRecord
+## Database Workshop and Advanced ActiveRecord
 
+Database Planning Workshop
+* [Ian Douglas, 2008 Cohort](https://vimeo.com/487013522/c271b5ccd0)
+
+Advanced ActiveRecord
 * [Ian Douglas, 2006 Cohort](https://vimeo.com/471221960/3ac89d5612)
 * [Ian Douglas, 2005 Cohort](https://vimeo.com/454937871/e9c29ea5d7)
 * [Ian Douglas, 2003 Cohort](https://vimeo.com/441945463/d090c702bb)
