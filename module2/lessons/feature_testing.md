@@ -200,11 +200,34 @@ end
 Write a test for this feature:
 
 ```
+Practice User Story 1
+
 As a user
 When I visit a Song show page
 Then I see the song's title, length, and play count
-I also see a link back to the songs index page
 ```
+
+```
+Practice User Story 2
+
+As a user
+When I visit a Song show page
+I see a link back to the songs index page
+When I click this link
+Then I am taken to the songs index
+```
+
+```
+Practice User Story 3
+
+As a user
+When I visit an Artist's show page
+Then I see the Artist's name
+And I see the Artist's average song lenth
+And I see the Artist's total song count
+```
+
+
 
 ## Checks for Understanding
 
