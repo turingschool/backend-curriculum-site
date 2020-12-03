@@ -145,7 +145,7 @@ prince_songs = Song.where(artist_id: prince.id)
 Similarly, we could find the Artist for a Song:
 
 ```ruby
-purple_rain = Song.find_by(name: 'Purple Rain')
+purple_rain = Song.find_by(title: 'Purple Rain')
 purple_rain_artist = Artist.find(purple_rain.artist_id)
 ```
 
@@ -256,6 +256,13 @@ end
 ```
 
 Because we have `has_many :songs` in this class, we can call `.songs` on an Artist instance, and because we have defined an instance method, we can call `songs` inside of it to get all the Songs associated to the Artist object. We can then chain on the ActiveRecord method `.average` to average the length column of all of those associated records.
+
+Let's open the rails console up again and try out our new method:
+
+```ruby
+prince = Artist.find_by(name: 'Prince')
+prince.average_song_length
+```
 
 ## Checks for Understanding
 
