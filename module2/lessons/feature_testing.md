@@ -197,7 +197,7 @@ end
 
 ## Practice
 
-Write a test for this feature:
+Write a test for the following user stories. Then, use TDD to implement the feature.
 
 ```
 Practice User Story 1
