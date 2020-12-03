@@ -52,6 +52,7 @@ layout: page
 
 ## Testing and Debugging
 
+* [Model Testing](./model_testing)
 * [Feature Testing with RSpec](./feature_testing)
 * [ActiveRecord Associations](./active_record_associations)
 * [Sad Path & Flash Messages](./sad_path_and_flash)
