@@ -103,3 +103,5 @@ Additionally, we said early that our model tests should **fully** cover our mode
 * Add a test for the `average_song_length` method that ensures that this method works when the result is not a whole number
 * Add a test for the `average_song_length` method that checks what value should be returned when an artist has no songs
 * Create a Song model test that includes a test for the relationship to an Artist
+* Create a test for a method on the Song model that finds the number of songs above a given threshold for play_count
+* Write a test that finds the two shortest songs by length
