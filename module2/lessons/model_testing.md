@@ -4,6 +4,14 @@ title: Model Testing
 tags: rails, models, testing
 ---
 
+## Learning Goals
+
+* Write model tests for relationships
+* Become familiar with the ShouldaMatchers gem
+* Write model tests for class and instance methods
+
+## Setup
+This lesson builds off of the [Active Record Associations](https://backend.turing.io/module2/lessons/active_record_associations). You can find the completed code from this lesson on the `ar_associations` branch of [this repo](https://github.com/turingschool-examples/set_list/tree/ar_associations)
 
 ## Why Model Test?
 
