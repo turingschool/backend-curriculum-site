@@ -211,7 +211,7 @@ The bang `!` on the end of the `create` method tells ActiveRecord to throw an er
 
 ## Seeds
 
-Now that our App is getting more complex, it would good to add some seeds. Seeding your database is when you insert a set of data into the database. It is useful to have some seed data when we are experimenting and developing. You could consider what we've done in the Rails Console so far as a type of seeding, but doing things manually in the Rails Console can get very tedious, so what we will do instead is write a script to seed our database that we can reuse. Rails comes with a file for us to write this script in `db/seeds.rb`. Open up that file and add the following:
+Now that our App is getting more complex, it would be good to add some seeds. Seeding your database is when you insert a set of data into the database. It is useful to have some seed data when we are experimenting and developing. You could consider what we've done in the Rails Console so far as a type of seeding, but doing things manually in the Rails Console can get very tedious, so what we will do instead is write a script to seed our database that we can reuse. Rails comes with a file for us to write this script in `db/seeds.rb`. Open up that file and add the following:
 
 ```ruby
 Song.destroy_all
