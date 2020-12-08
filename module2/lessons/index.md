@@ -39,6 +39,7 @@ layout: page
 - [Intro to Databases and ORMs](./databases_and_orms)
 * [ActiveRecord Associations](./active_record_associations)
 - [SQL and ActiveRecord](./sql_and_active_record)
+- [Class vs Instance Methods](./class_vs_instance_methods)
 - [SQL and ActiveRecord Workshop](./sql_and_ar_workshop)
 
 ## Databases
