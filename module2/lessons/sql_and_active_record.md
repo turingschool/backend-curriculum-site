@@ -312,3 +312,18 @@ Write the following in SQL, then ActiveRecord. See the beginning of the lesson p
 1. Get the titles of the songs with a play count greater than zero, sorted reverse alphabetically.
 1. Get the titles of the two songs with a play count greater than zero, sorted reverse alphabetically.
 1. Get the length of the song with the most plays.
+
+
+## Checks for Understanding
+
+In your own words, what do each of the following ActiveRecord methods do?
+
+* select
+* where
+* all
+* order
+* first
+* pluck
+* limit
+* distinct
+* last
