@@ -78,7 +78,7 @@ Pull up the routes and TaskController from Task Manager. Let's see if you can cr
 * Do we want to Redirect or Render erb
 * Name of View
 
-**Complete the table. The first 2 examples are done for you, and you should add the remaining RESTful routes. You can either make a copy of the spreadsheet, or diagram this in your notebook. Please post a link to your copy and/or a photo of your diagram at 2:00PM in the code-help thread.**
+**Complete the table. The first 2 examples are done for you, and you should add the remaining RESTful routes. You can either make a copy of the spreadsheet, or diagram this in your notebook. Please post a link to your copy and/or a photo of your diagram at 12:00PM in the code-help thread.**
 
 Is there a command you can run from your terminal to help with the diagram? (HINT)
 
