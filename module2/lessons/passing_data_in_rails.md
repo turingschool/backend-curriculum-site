@@ -343,7 +343,7 @@ end
 
 Woah, where did this `artist_params` method come from?  Why couldn't we just use `Artist.create(params)`?  Let's try it and see what happens... errors!  Take a closer look at that `params` object, using a `binding.pry` - at the very end, you will see `permitted: false`.  This means that we cannot use the params 'hash' directly to create or update records in our database. Rails is trying to protect us from malicious users by not allowing us to drop our `params[:artist]` sub-hash directly into a new object in our database, so we need to create a method that is often referred to as **strong params** to effectively use the information we are getting from our form to create a new object.
 
-Go ahead and run the test again, and let's see if we've got a passing test. Not yet - we need to tell our create action where to redirect to after creating the artist!  Based on our User Story, we want it to redirect to that artists index page, so let's add the following to make that happen:
+Go ahead and run the test again, and let's see if we've got a passing test. Not yet - we need to tell our create action where to redirect to after creating the artist!  Based on our User Story, we want it to redirect to the artists index page, so let's add the following to make that happen:
 
 ```ruby
 # app/controllers/artists_controller.rb
@@ -377,10 +377,6 @@ Rails.application.routes.draw do
   get '/artists/new', to: 'artists#new'
   post '/artists', to: 'artists#create'
 end
-```
-
-```bash
-touch app/views/artists/show.html.erb
 ```
 
 We are getting so close!  Run our tests again, and you will see that capybara is unable to find that new artist's information on the index page.  Let's make sure we are displaying that information:
