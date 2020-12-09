@@ -181,31 +181,35 @@ Example:
 ```
 - A lot of the tags we use are already semantic such as form, link, etc.
 
-## Display Properties: Block vs. Inline
-- The default value for all HTML tags is `inline`. Most "User Agent stylesheets" (the default styles the browser applies) reset many elements to `block`
-- The display value can be changed with the CSS property `display`.
-
-### Block
-- An element with a display of block will take up the entire width of the page, no matter how small the content is within the tag.
-- It will always start on a new line.
-- `p`, `form`, `h1 - h6`, `ul`, `section` and `div`s are all block elements
-
-### Inline
-- `link`, `a`, `span` are all inline by default.
-- They will only take up as much space as it needs.
-- It will not start on a new line.
-- You can set the margin and padding but it will only adjust horizontally. Will ignore any rules for width or height.
-
-### Inline-Block
-- Will situate itself inline, but can set a width and height.
-
 ## Class vs. ID
 
-- `<div class="songs">`
-  - `class` - used for several elements.
-- `<div id="song-4"`
-  - `id` - used for one element. Takes higher priority in CSS (more on this later).
-  - We often want to interpolate an id in our templates: `id="song-<%= song.id %>"`
+We can give our HTML elements **attributes**. These attributes appear inside the tag itself (in between the angle brackets `< >`). For example, the following `img` tag:
+
+```html
+<img src='https://cutedogs.com/1'>
+```
+
+Has an attribute of `src` with a value of `'https://cutedogs.com/1'`.
+
+Two very important attributes we can give our HTML elements are `class` and `id`.
+
+```html
+<div class="song" id="song-4">
+<div class="song" id="song-3">
+<div class="song" id="song-2">
+```
+
+* We use the `class` attribute to identify several related elements.
+* We use the `id` attribute to identify a single element.
+* `id` takes higher priority in CSS (more on this later).
+* Only one element should have a certain `id`. If two elements have the same `id`, your page will still display, but it may not work the way you expect.
+* We can use erb tags to interpolate an id in our views. The above example HTML could be rendered by the view with the following code:
+
+```html
+<% @songs.each do |song| %>
+  <div class="song" id="song-<%= song.id %>">
+<% end %>
+```
 
 # CSS
 
@@ -266,7 +270,16 @@ Check out the [Intro to the Asset Pipeline](./asset_pipeline) for more detail on
 
 ## Creating CSS Rules
 
-For example, you could place the following css directly into the `application.css` file:
+In order to style elements, you will need to target them with **CSS Selectors**. There are many selectors, but the ones you need to know are:
+
+* The pound `#` symbol targets an element by its `id` attribute
+* The dot `.` symbol targets elements by their `class` attribute
+* You can target all `<p>` elements with `p`, all `<div>` elements with `div`, etc.
+* You can combine selectors, for example the following would target only a `<p>` element with a class of `song` and an `id` of `song-4`: `p.song#song-4`
+
+For a complete reference of CSS Selectors, [see this W3Schools page](https://www.w3schools.com/cssref/css_selectors.asp)
+
+Once you have selected elements, you can specify styles for those elements in curly brackets `{}`. For example, you could place the following css directly into the `application.css` file:
 
 ```css
 /* element */
@@ -292,7 +305,25 @@ p {
 
 **Note:** It is convention to write classes and ids in `kabob-case`
 
-Capybara "within" statements use this same syntax for selecting elements in feature tests.
+Capybara "within" statements use this same CSS Selector syntax for selecting elements in feature tests.
+
+## Display Properties: Block vs. Inline
+- The default value for all HTML tags is `inline`. Most "User Agent stylesheets" (the default styles the browser applies) reset many elements to `block`
+- The display value can be changed with the CSS property `display`.
+
+### Block
+- An element with a display of block will take up the entire width of the page, no matter how small the content is within the tag.
+- It will always start on a new line.
+- `p`, `form`, `h1 - h6`, `ul`, `section` and `div`s are all block elements
+
+### Inline
+- `link`, `a`, `span` are all inline by default.
+- They will only take up as much space as it needs.
+- It will not start on a new line.
+- You can set the margin and padding but it will only adjust horizontally. Will ignore any rules for width or height.
+
+### Inline-Block
+- Will situate itself inline, but can set a width and height.
 
 ## DevTools
 Visit any web page, right click on any part of the page. A dropdown box will appear, with `inspect` towards the bottom. Click this will open your `Developer Tools`
@@ -321,6 +352,10 @@ In HTML, you can visualize each element as its own rectangular box. There are a 
 
 We have a `div` element that we gave a `width` of `400` and a `height` of `200`. However, we've also applied several additional properties that are affecting its size and positioning. The `padding` and `border` properties are both adding `20px` to the element's height and width. Now the actual *visible* dimensions of our element are `480x280`.
 
+# CSS Frameworks
+
+In modern web application development, we tend to rely on frameworks to style pages rather than plain HTML and CSS.
+
 ## Bootstrap
 
 Free front-end framework that includes HTML and CSS based design templates that have a mobile first approach. Bootstrap layouts are based on a grid design. It can be quickly and easily added to projects and does use jQuery to function.
@@ -342,6 +377,20 @@ Flexbox uses a horizontal axis and vertical axis to align items and create space
 Grid is used for a two-dimensional layout where both columns and rows are used. This allows us to break up the container into cells to align objects, but unlike a table, grid allows us to layer items if necessary.
 
 [Grid Guide](https://css-tricks.com/snippets/css/complete-guide-grid/)
+
+## Practice
+
+In SetList:
+
+* Add some HTML to `app/views/layouts/application.html.erb` to create element(s) that will be rendered on every page, for example a search bar, nav bar, an image, etc.
+* Style your Song index:
+    * Make sure you have a header at the top of the page. Give this header an `id`
+    * Wrap each Song in a semantic container element
+    * Give each container a class of "song"
+    * Give each container an id of `song-<id>` where `<id>` is the id of the song. This id should be dynamically assigned in the view.
+    * In your `application.css` file, target all of the classes and ids you made in the song index and add at least one new style for each
+
+**Extension**: Incorporate one of the CSS frameworks into your app
 
 ## Checks for Understanding
 
