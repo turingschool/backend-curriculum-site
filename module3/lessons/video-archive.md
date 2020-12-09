@@ -66,6 +66,7 @@ Basic Auth Review
 ## Refactoring and OOP
 
 Refactoring APIs
+* [Dione Wilson, 2008 Cohort](https://vimeo.com/488963770/236ef7c683)
 * [Ian Douglas, 2006 Cohort](https://vimeo.com/467506852/9d58994457)
 * [Dione Wilson, 2005 Cohort](https://vimeo.com/450270705/8b8f6a1202)
 * (archive) [Refactoring APIs for Mocking/Stubbing; Josh Mejia, Aug 2019](https://www.youtube.com/watch?v=Okck4Fc557o)
