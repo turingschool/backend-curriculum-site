@@ -74,50 +74,6 @@ A second option is to structure your feature tests in the same way we structure 
         new_spec.rb
 ```
 
-## Targeting Specific Elements
-
-Often, when we are testing for content on a page, we will need to be more specific than `expect(page).to have_content('some content')`.  There are three main ways to target more specific elements using capybara.
-
-### within
-
-Let's say we are looking at an index page that includes information about dozens of songs.  We want to expect that a song's information is showing on the page but not just anywhere on the page - we want it grouped together with the other information about that song.  In effect, we want all information for each song to be grouped together on the page.  To test for this, we use `within`.
-
-`within` allows us to target specific css selectors and then write expectations just for that area.  For example:
-
-```ruby
-within('#artist-13') do
-  expect(page).to have_content('content about this artist')
-end
-```
-
-In this example, the `within` method will look for the css id `artist-13` and run any expectation only for the elements included in the html tag with that css id.  We can also use `within` to target css classes or regular elements (like a `<p>`tag).  Most often, we see `within` used with css ids and classes.
-
-### have_content
-
-Another way we can target specific areas is by using something more specific than `have_content`.  The following methods could be interchanged to indicate a more specific content type:
-
-* `have_button` - is there a button with a particular label
-* `have_link` - is there a link with a particular label
-* `have_css` - is there a particular css selector (often used to verify images)
-
-### click_on
-
-Similar to `have_content`, we often will want to click on something and expect some result.  When we use `click_on('label')`, capybara will look for a link **or** button with a matching label. You will come across times where this will be not quite as specific as you need. To help with this, you can use `click_button` and `click_link`.
-
-## Testing for sorted elements
-
-One of the more challenging things for beginning web developers to test is the order that things are appearing on a page. If you need to have options for a user to sort an index page, you will also need to test for that!  Luckily, capybara gives us a tool to do this as well - `page.all('css selector')`.  `page.all` will return an array of the elements on the page that match that css selector, and we can use array methods to verify a specific order of those elements like this:
-
-```ruby
-within '.best-users' do
-  expect(page.all('li')[0]).to have_content("megan")
-  expect(page.all('li')[1]).to have_content("brian")
-  expect(page.all('li')[2]).to have_content("sal")
-end
-```
-
-In this example, we are verifying that within a tag with a css class of `best-user`, a list of users is showing up in a specific order.
-
 ## Before :each
 
 Up to this point, you have likely been creating the 'setup' portion of your tests over and over, using similar or identical setup for each test.  RSpec gives you a little help with this repetition with `before :each`.  `before :each` is a block that will run before every test (every `it` block).  You can use it to create setup for many tests and DRY up your test files.  It works in much the same way as the `setup` method in Minitest:
@@ -152,28 +108,90 @@ RSpec.describe "songs index page", type: :feature do
 end
 ```
 
-## Practice
+## Specific Expectations
 
-Let's practice some of these concepts by updating our song index test in SetList to include the following test:
+A lot of our expectations will make use of the `have_content` method:
 
 ```ruby
-it 'shows song information grouped by song' do
-  artist = Artist.create!(name: '1903')
-  song_1 = artist.songs.create(title: 'Testing', length: 90, play_count: 1)
-  song_2 = artist.songs.create(title: 'Testing Redux', length: 90, play_count: 10)
+expect(page).to have_content('some content')
+```
 
-  visit '/songs'
+On its own, this is not a very specific expectation since this is checking that some content appears **anywhere** on a page. We always want our expectations to be as specific as possible so that our tests catch any possible errors that may arise in our code.
 
-  expect(page).to have_content(song_1.title)
-  expect(page).to have_content("Play Count: #{song_1.play_count}")
-  expect(page).to have_content("Length: #{song_1.length}")
-  expect(page).to have_content(song_2.title)
-  expect(page).to have_content("Play Count: #{song_2.play_count}")
-  expect(page).to have_content("Length: #{song_2.length}")
+### have_content
+
+One way to make your tests more specific is by using something other than `have_content`.  The following methods could be interchanged to indicate a more specific content type:
+
+* `have_button` - is there a button with a particular label
+* `have_link` - is there a link with a particular label
+* `have_css` - is there a particular css selector (often used to verify images)
+
+### click_on
+
+Similar to `have_content`, we often will want to click on something and expect some result.  When we use `click_on('label')`, capybara will look for a link **or** button with a matching label. To be more specific, you can use `click_button` and `click_link`.
+
+### Targeting Elements with CSS Selectors
+
+Capybara gives us the ability to use [CSS Selectors](https://www.w3schools.com/cssref/css_selectors.asp) in our tests. This gives us the ability to target specific elements just like we do when styling. We can use this in several capybara methods to make our test expectations more specific.
+
+#### within
+
+Let's say we are looking at an index page that includes information about dozens of songs.  We want to expect that a song's information is showing on the page but not just anywhere on the page - we want it grouped together with the other information about that song.  In effect, we want all information for each song to be grouped together on the page.  To test for this, we use the Capybara method `within`.
+
+`within` allows us to use CSS Selectors to select elements and then write expectations just for that area of the page. For example,
+
+```ruby
+within('#artist-13') do
+  expect(page).to have_content('content about this artist')
 end
 ```
 
-Now go make this test pass! You may need to change implementation code, and you will definitely need to change the test.
+In this example, the `within` method will look for the HTML element with an id `artist-13` and run any expectation only for the elements nested under that element.  We can also use `within` to target css classes or regular elements (like a `<p>`tag) just like we do when styling. Most often, we see `within` used with css ids and classes.
+
+#### `find` and `all`
+
+Capybara also gives us the `find` and `all` methods. `find` will return a single element that matches a css selector, and `all` with return an array of all elements that match a css selector:
+
+```ruby
+page.find('#song-14')
+# => Capybara::Node::Element object. Represents HTML element with id of "song-14"
+page.all('.song')
+# => Array of Capybara::Node::Element objects. Represents all HTML elements with a class of "song"
+```
+
+Notice that HTML elements are represented in Ruby as `Capybara::Node::Element` objects. Now that we have access to these elements, we can check for content within those elements with:
+
+```ruby
+song_14 = page.find('#song-14')
+expect(song_14).to have_content('Raspberry Beret')
+
+all_songs = page.all('.song')
+expect(all_songs[2]).to have_content('Purple Rain')
+```
+
+## Testing for sorted elements
+
+One of the more challenging things for beginning web developers to test is the order that things are appearing on a page. If you need to have options for a user to sort an index page, you will also need to test for that!
+
+There are several ways to test this, but the one we will show you here makes use of the Capybara `all` method and css selectors. `page.all` will return an array of the elements on the page that match that css selector, and we can use array methods to verify a specific order of those elements like this:
+
+```ruby
+within '#best-users' do
+  expect(page.all('.user')[0]).to have_content("megan")
+  expect(page.all('.user')[1]).to have_content("brian")
+  expect(page.all('.user')[2]).to have_content("sal")
+end
+```
+
+In this example, we are verifying that within a tag with a css id of `best-users`, the first element with a class of `user` has the content `'megan'`, the second element with a class of `user` has the content `'brian'`, etc.
+
+## Practice
+
+In SetList:
+
+1. Update your songs index test to use within blocks to test that the song information appears in a specific place on the page. Then, make the test pass. You will most likely need to update your view for your tests to work.
+1. Write a new test for the songs index that tests that songs are shown in reverse alphabetical order. Then, make the test pass.
+1. Create a `before :each` block to share setup between those two tests
 
 ## Checks for Understanding
 
