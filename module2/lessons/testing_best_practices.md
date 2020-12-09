@@ -76,7 +76,7 @@ A second option is to structure your feature tests in the same way we structure 
 
 ## Targeting Specific Elements
 
-Often, when we are testing for content on a page, we will need to be more specific that `expect(page).to have_content('some content')`.  There are three main ways to target more specific elements using capybara.
+Often, when we are testing for content on a page, we will need to be more specific than `expect(page).to have_content('some content')`.  There are three main ways to target more specific elements using capybara.
 
 ### within
 
