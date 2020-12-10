@@ -112,7 +112,7 @@ This is because we have not created a factory yet. The easiest way to create a f
 Let's generate a model.
 
 ```sh
-$ rails g model Book name description:text
+$ rails g model Book title author genre summary:text number_sold:integer
 ```
 
 Notice that not only was the Book model created, but a factory was created for the book in
