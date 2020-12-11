@@ -24,13 +24,13 @@ Week 2, Consultancy Ideation and Solo Project Kickoff
 * [Everyone, 2006 Cohort, Project Pitches](https://vimeo.com/471223262/3a22855821)
 
 
-
 #### Project Kickoff Meetings
 
 "Viewing Party" Kickoff, Paired Project
 * [2005 Cohort](https://vimeo.com/449079054/c1ffb48831)
 
 "Rails Engine" Kickoff, Solo Project
+* [2008 Cohort](https://vimeo.com/489681223/2e9f73a42b)
 * [2003 Cohort](https://vimeo.com/441945115/cad187f4f0)
 
 
