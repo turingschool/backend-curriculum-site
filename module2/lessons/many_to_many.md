@@ -38,6 +38,7 @@ In SetList:
 
 * The relationship between `songs` and `artists` is a one-to-many relationship.
 * `songs` has a column called `artist_id` which refers to the primary key of the `artist` table.
+* `artist_id` is the foreign key
 
 **Songs Table**
 
