@@ -28,7 +28,6 @@ In SetList:
 
 1. What is the relationship between Songs and Artists?
 1. Diagram the database tables for Songs and Artists.
-1. What is the relationship between Songs and Playlists?
 
 ## Defining Key Terms
 
@@ -39,7 +38,6 @@ In SetList:
 
 * The relationship between `songs` and `artists` is a one-to-many relationship.
 * `songs` has a column called `artist_id` which refers to the primary key of the `artist` table.
-* Let's diagram the relationship using a schema designer.
 
 **Songs Table**
 
@@ -48,7 +46,7 @@ In SetList:
 | 1 | This Must Be the Place | 345 | 23 | 1 |
 | 2 | Aint No Bread in the Breadbox | 432 | 12 | 1 |
 | 3 | Reuben and Cherise | 367 | 45 | 2 |
-| 4 | Chicken Fried | 183 | 49 | 3 |
+| 4 | Purple Rain | 183 | 49 | 3 |
 
 **Artists Table**
 
@@ -56,7 +54,7 @@ In SetList:
 |---|---|
 | 1 | Talking Heads |
 | 2 | Jerry Garcia Band |
-| 3 | Zac Brown Band |
+| 3 | Prince |
 
 ### Independent Practice - Students and Modules
 
@@ -83,7 +81,7 @@ If we have Songs and Playlists tables that look like this:
 | 1 | This Must Be the Place | 345 | 23 | 1 |
 | 2 | Aint No Bread in the Breadbox | 432 | 12 | 1 |
 | 3 | Reuben and Cherise | 367 | 45 | 2 |
-| 4 | Chicken Fried | 183 | 49 | 3 |
+| 4 | Purple Rain | 183 | 49 | 3 |
 
 **Playlists Table**
 
@@ -91,9 +89,9 @@ If we have Songs and Playlists tables that look like this:
 |---|---|
 | 1 | Classic Rock |
 | 2 | Uplifting Sound |
-| 3 | Favorite Jams |
+| 3 | Jerry Jams |
 
-We can imagine that the "Classic Rock" playlist could include the songs "This Must Be the Place", "Aint No Bread in the Breadbox", and "Reuben and Cherise" (a playlist has many songs). We can also imagine that the song "Chicken Fried" could be in both the "Uplifting Sound" and "Favorite Jams" playlist (a song has many playlists).
+We can imagine that the "Classic Rock" playlist could include all of our current songs (a playlist has many songs). We can also imagine that the song "Reuben and Cherise" could be in both the "Classic Rock" and "Jerry Jams" playlists (a song has many playlists).
 
 So far, we have used **foreign keys** to create relationships. The problem is that a **foreign key** can identify a *single* record from another table, but in a many-to-many both sides of the relationship need to reference *multiple* records. This means that we're going to need more than just foreign keys.
 
@@ -114,7 +112,7 @@ Since we can't achieve the many-to-many relationship with our given tables, we a
 | 1 | This Must Be the Place | 345 | 23 | 1 |
 | 2 | Aint No Bread in the Breadbox | 432 | 12 | 1 |
 | 3 | Reuben and Cherise | 367 | 45 | 2 |
-| 4 | Chicken Fried | 183 | 49 | 3 |
+| 4 | Purple Rain | 183 | 49 | 3 |
 
 **PlaylistSongs Table**
 
@@ -133,7 +131,7 @@ Since we can't achieve the many-to-many relationship with our given tables, we a
 |---|---|
 | 1 | Classic Rock |
 | 2 | Uplifting Sound |
-| 3 | Favorite Jams |
+| 3 | Jerry Jams |
 
 
 
@@ -268,7 +266,7 @@ Now we'll generate the migration to create our join table:
 rails g migration CreatePlaylistSongs song:references playlist:references
 ```
 
-Add timestamps to your table, and then migrate your database:
+**Add timestamps to your table, and then migrate your database:**
 
 ```
 rake db:migrate
@@ -409,19 +407,19 @@ RSpec.describe "the Playlist index page" do
   it "should display all playlists" do
     rock = Playlist.create!(name: "Classic Rock")
     uplifting_sound = Playlist.create!(name: "Uplifting Sound")
-    jams = Playlist.create!(name: "Favorite Jams")
+    jams = Playlist.create!(name: "Jerry Jams")
 
     talking_heads = Artist.create!(name: "Talking Heads")
     jgb = Artist.create!(name: "Jerry Garcia Band")
-    zac_brown = Artist.create!(name: "Zac Brown Band")
+    prince = Artist.create!(name: "Prince")
 
     place = talking_heads.songs.create!(title: "This Must Be The Place", length: 832, play_count: 83209)
     breadbox = jgb.songs.create!(title: "Aint No Bread in the Breadbox", length: 832, play_count: 83209)
     r_and_c = jgb.songs.create!(title: "Reuben and Cherise", length: 832, play_count: 83209)
-    chicken = zac_brown.songs.create!(title: "Chicken Fried", length: 4378, play_count: 7453689)
+    purple = prince.songs.create!(title: "Purple Rain", length: 4378, play_count: 7453689)
 
-    PlaylistSong.create!(song: chicken, playlist: uplifting_sound)
-    PlaylistSong.create!(song: chicken, playlist: jams)
+    PlaylistSong.create!(song: purple, playlist: uplifting_sound)
+    PlaylistSong.create!(song: purple, playlist: jams)
     PlaylistSong.create!(song: place, playlist: jams)
     PlaylistSong.create!(song: place, playlist: rock)
     PlaylistSong.create!(song: breadbox, playlist: rock)
@@ -438,12 +436,12 @@ RSpec.describe "the Playlist index page" do
 
     within("#playlist-#{uplifting_sound.id}") do
       expect(page).to have_content(uplifting_sound.name)
-      expect(page).to have_content(chicken.title)
+      expect(page).to have_content(purple.title)
     end
 
     within("#playlist-#{jams.id}") do
       expect(page).to have_content(jams.name)
-      expect(page).to have_content(chicken.title)
+      expect(page).to have_content(purple.title)
       expect(page).to have_content(place.title)
     end
   end
@@ -493,3 +491,4 @@ Running the tests now will give us a missing template error, so go create `app/v
 * How do we test many-to-many relationships?
 * What migrations do we need to create to set up a many-to-many?
 * What do we need to add to our models to set up a many-to-many?
+* What is the relationship between Songs and Playlists?
