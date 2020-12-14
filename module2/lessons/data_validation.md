@@ -22,7 +22,7 @@ This lesson begins on the `validations` branch of our [set list repo](https://gi
 * Why do we need to validate data on the backend if we use form helpers to disallow input on the frontend?
 
 
-[FE form validation limitations screencast| 5 minutes](https://www.loom.com/share/8e4e5b831dd74a2885a5b403b7f494d9)
+[FE form validation limitations screencast 5 minutes](https://www.loom.com/share/8e4e5b831dd74a2885a5b403b7f494d9)
 
 From the Rails Guides:
 
