@@ -8,6 +8,9 @@ subheading: Winter Break
 
 It's important that you keep your skills sharp over the winter break, so we'd like you to spend a little bit of time doing some reading, research, and a little bit of coding.
 
+## PD Work
+
+Please make sure that you're caught up on all PD work, career journal, etc..
 
 ## Reading, 2 hours
 
@@ -23,7 +26,7 @@ Put your work in a gist.
 
 You know the top 4 projects for the upcoming "Consultancy" group project, but you don't know (yet) which team you'll be on.
 
-Over break, revisit [this page](https://backend.turing.io/module3/projects/consultancy/ideation) which outlines several places to read about available APIs, and come up with TWO different APIs that you think could be useful/helpful in each of the project ideas. You will discuss these APIs as a team on the first day back in January.
+Over break, revisit [this page](https://backend.turing.io/module3/projects/consultancy/ideation) which outlines several places to read about available APIs, and come up with TWO different APIs that you think could be useful/helpful in each of the project ideas. You will discuss these APIs as a team on the first day back in January. Try hitting a few API endpoints in Postman to see how they act, write up what's good/bad. Ideally, aim for 2-3 APIs per project.
 
 Put your work in a gist.
 
@@ -35,6 +38,26 @@ OAuth is an important skill to understand and implement. It will be required on 
 Build a VERY simple Rails app (not an `--api`), and implement GitHub OmniAuth to authenticate a user to view a list of their public repos and a separate list of their private repos. (free accounts include unlimited private repos; make a few private repos that just contain a README)
 
 Create a README for your project which includes screenshots of the functionality.
+
+## Review
+
+Students who would like to review any topics should look into the following:
+
+- Consuming APIs
+- Refactoring into the Facade and Service design patterns
+- Testing tools for API consumption
+- Testing endpoints you created in Rails Engine
+
+## Stretch Goals
+
+Once the above work is complete, if you have additional time that you want to spend exploring other topics, here are some suggestions:
+
+- Deeper styling, Bootstrap etc.
+- Try the other explorations from Viewing Party and/or Rails Engine
+- Add Endpoints for the other data/resources on those projects
+
+
+---
 
 
 ## Deliverables
