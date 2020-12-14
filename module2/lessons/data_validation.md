@@ -24,9 +24,10 @@ This lesson begins on the `validations` branch of our [set list repo](https://gi
 
 [FE form validation limitations screencast 5 minutes](https://www.loom.com/share/8e4e5b831dd74a2885a5b403b7f494d9)
 
-From the Rails Guides:
+[From the Rails Guides:](https://edgeguides.rubyonrails.org/active_record_validations.html)
 
 1.1 Why Use Validations?
+
 Validations are used to ensure that only valid data is saved into your database. For example, it may be important to your application to ensure that every user provides a valid email address and mailing address. Model-level validations are the best way to ensure that only valid data is saved into your database. They are database agnostic, cannot be bypassed by end users, and are convenient to test and maintain. Rails provides built-in helpers for common needs, and allows you to create your own validation methods as well.
 
 There are several other ways to validate data before it is saved into your database, including native database constraints, client-side validations and controller-level validations. Here's a summary of the pros and cons:
