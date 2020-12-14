@@ -30,49 +30,13 @@ Put your work in a gist.
 
 ## Coding, 16 hours
 
-OAuth is an important skill to understand and implement.
+OAuth is an important skill to understand and implement. It will be required on your group project coming up and everyone should have practice implementing it. You will be given some ideas on how to mock out the OAuth workflow before the break.
 
-Build a VERY simple Rails app (not an `--api`), and implement OmniAuth to authenticate a user to do one of the following tasks:
+Build a VERY simple Rails app (not an `--api`), and implement GitHub OmniAuth to authenticate a user to view a list of their public repos and a separate list of their private repos. (free accounts include unlimited private repos; make a few private repos that just contain a README)
 
-Using GitHub, show a user a list of all of their repos which are NOT a forked repo, and retrieve a commit count for each repo.
-* Aidan Murray
-* Austin Aspaas
-* Brett Sherman
-* Brian Liu
-* Carson Jardine
-* Christopher Allbritton
-* Connor Ferguson
-* Curtis Bartell
-* Dani Coleman
-* Eduardo Parra
-* Eugene Theriault
-* Garrett Cottrell
-* George Soderholm
-* Grant Dempsey
-* Greg Mitchell
-* Hanna Davis
-* Hope Gochnour
-* Jake Heft
-* James Belta
-* Jesse Mellinger
+Create a README for your project which includes screenshots of the functionality.
 
-Using GitHub, show a user a list of all of their repos which ARE a forked repo, and whether the original repo has new commits that their fork does not have.
-* John Kim
-* Jonathan Wilson
-* Jose Lopez
-* Joshua Carey
-* Kate Tester
-* Kevin Cuadros
-* Kiera Allen
-* Nick King
-* Phillip DeFraties
-* Roberto Basulto
-* Sage Freeman-Gonzales
-* Sean Steel
-* Shaun James
-* Shaunda Duckett
-* Sheryl Stillman
-* Taylor Phillips
-* Todd Estes
-* William Dunlap
-* Zachary Stearns
+
+## Deliverables
+
+Submit your work through [this Google Form](https://forms.gle/F1JT5gPcGbWDVUfX7)
