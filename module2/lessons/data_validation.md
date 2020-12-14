@@ -98,3 +98,21 @@ Use [ShouldaMatchers](https://github.com/thoughtbot/shoulda-matchers/blob/master
 * Add a validation for the play_count column that validates numericality
 * Add a new column to the playlists table that has a validation that only runs on an `update`
 * Add a custom validation method to assign a default length attribute for a Song when none is provided
+
+### Boolean Got Ya
+
+Since false.blank? is true, if you want to validate the presence of a boolean field you should use one of the following validations:
+
+```ruby
+validates :boolean_field_name, inclusion: [true, false]
+validates :boolean_field_name, exclusion: [nil]
+```
+
+By using one of these validations, you will ensure the value will NOT be nil which would result in a NULL value in most cases.
+
+## Checks for Understanding
+
+- Why do we use validations?
+- What are some common validation helpers?
+- When do validations happen?
+- Where do validations happen? (DB, Rails application, FE, etc)
