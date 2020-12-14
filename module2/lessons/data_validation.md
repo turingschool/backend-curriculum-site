@@ -93,7 +93,7 @@ Use [ShouldaMatchers](https://github.com/thoughtbot/shoulda-matchers/blob/master
 * Add a validation that validates the uniqueness of an Artist's name
 * Add a validation that validates the presence of a Playlist's name
 * Access validation errors when a validation fails on a model in your console
-* Access validation errors for a specific attributes when a validation fails on a model in your console
+* Access validation errors for a specific attribute when a validation fails on a model in your console
 * Add a validation that adds a max length for a Song title
 * Add a validation for the play_count column that validates numericality
 * Add a new column to the playlists table that has a validation that only runs on an `update`
