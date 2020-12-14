@@ -8,6 +8,14 @@ subheading: Winter Break
 
 It's important that you keep your skills sharp over the winter break, so we'd like you to spend a little bit of time doing some reading, research, and a little bit of coding.
 
+## Suggestions
+
+* come up with a plan to spread out the work over the break -- don't do it all in one or two days -- but you have to keep those skills sharp!
+* consider checking in with your Accountabilibuddy, share your schedule, and help encourage one another to work a little
+
+---
+
+
 ## PD Work
 
 Please make sure that you're caught up on all PD work, career journal, etc..
