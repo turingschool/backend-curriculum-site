@@ -84,7 +84,7 @@ The following methods trigger validations, and will save the object to the datab
 * update
 * update!
 
-The bang versions (e.g. save!) raise an exception if the record is invalid. The non-bang versions don't: save and update return false, and create returns the object.
+**The bang versions (e.g. save!) raise an exception if the record is invalid. The non-bang versions don't: save and update return false, and create returns the object.**
 
 ### Try It
 
