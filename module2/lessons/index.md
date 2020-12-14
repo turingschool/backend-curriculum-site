@@ -41,6 +41,7 @@ layout: page
 - [SQL and ActiveRecord](./sql_and_active_record)
 - [Class vs Instance Methods](./class_vs_instance_methods)
 - [SQL and ActiveRecord Workshop](./sql_and_ar_workshop)
+- [Data Validation](./data_validation)
 
 ## Databases
 
