@@ -65,7 +65,7 @@ irb> a.save
 => true
 # Validations were checked as part of the process for inserting a new record into the database.
 # Looking at our object now:
-a
+irb> a
 => <Artist id: 9, name: "Beach House", created_at: "2020-12-14 17:38:50", updated_at: "2020-12-14 17:38:50">
 irb> a.new_record?
 => false
