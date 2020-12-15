@@ -19,7 +19,7 @@ In Module 1, students will learn to use Ruby and object-oriented programming to 
 * [Learning Goals](./learning_goals)
 * [Lessons](./lessons)
 * [Projects](./projects)
-* [Winter 2011](./winter_2001)
+* [Winter 2011](./winter_2011)
 
 ## Resources
 
