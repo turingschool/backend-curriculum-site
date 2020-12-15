@@ -193,7 +193,16 @@ Since our flash object is a collection of key/value pairs, we can iterate over a
 
 Now, let's jump back to our artists controller - what's the deal with `render :new`?  We can use the `render` method anytime we want to override the default view in a rails controller action.  In this case, when an artist is not created, we want to respond to the client with the new form, rather than telling it to redirect to another action.
 
+## You Do
+- Write a test that uses a `within` block to test that a flash message is appearing when a user goes down a sad path in your project.
+- Display the errors attached to the model for the specific attribute in your flash message.
+- Think about how you could DRY this up
+- Read the [Guides on flash messages](https://guides.rubyonrails.org/action_controller_overview.html#the-flash)
+- Read [this blog post on the flash](https://www.rubyguides.com/2019/11/rails-flash-messages/)
+- Style your flash
+
 ## Checks for Understanding
 
 1. What is an example of a Sad Path - how does it differ from a Happy Path?
 1. When we create a flash message, what changes do we need to make in our views?
+1. How do you override the default view in Rails?
