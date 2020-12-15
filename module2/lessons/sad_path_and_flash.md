@@ -195,7 +195,7 @@ Now, let's jump back to our artists controller - what's the deal with `render :n
 
 ## You Do
 - Write a test that uses a `within` block to test that a flash message is appearing when a user goes down a sad path in your project.
-- Display the errors attached to the model for the specific attribute in your flash message.
+- Use validations to display the errors attached to the model for a specific attribute in your flash message.
 - Think about how you could DRY this up
 - Read the [Guides on flash messages](https://guides.rubyonrails.org/action_controller_overview.html#the-flash)
 - Read [this blog post on the flash](https://www.rubyguides.com/2019/11/rails-flash-messages/)
