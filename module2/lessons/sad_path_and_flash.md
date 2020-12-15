@@ -11,6 +11,9 @@ title: Sad Path Testing and Flash Messages
 * Sad Path
 * Flash
 
+## Set Up
+We will start from the `main` branch of our [Set List Repo](https://github.com/turingschool-examples/set_list)
+
 ## Warm Up
 * As developers, how do we know when our application isn't working properly?
 * As a user, how do we know when we have used an application in an unintended way?
