@@ -89,6 +89,7 @@ Building an API
 * [Dione Wilson, 2001 Cohort](https://vimeo.com/441936930/7f726f0ffd)
 
 Customizing JSON in your API
+* [Ian Douglas, 2008 Cohort](https://vimeo.com/491335822/81628c1524)
 * [Dione Wilson, 2006 Cohort](https://vimeo.com/469977022/68ac068a2c)
 * [Dione Wilson, 2005 Cohort](https://vimeo.com/454946391/de0e9aa3d5)
 * [Ian Douglas, 2003 Cohort](https://vimeo.com/441943509/16e0c5e8f1)
@@ -139,6 +140,7 @@ Career Development
 * ["Putting it All Together", Week 4; Ian Douglas, 2003 Cohort](https://vimeo.com/441953601/14fec97d65)
 
 PD Supplement: Company Research
+* [FE/BE Ian Douglas, 2008 Cohorts](https://vimeo.com/491332523/617a499019)
 * [FE/BE Ian Douglas and Khalid Williams, 2006 Cohorts](https://vimeo.com/471222685/045f09651e)
 * [FE/BE Ian Douglas, 2005 Cohorts](https://vimeo.com/450272030/5870961a16)
 * [FE/BE Ian Douglas, 2003 Cohorts](https://vimeo.com/441941222/da3924f607)
