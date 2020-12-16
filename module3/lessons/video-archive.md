@@ -101,6 +101,7 @@ Database Planning Workshop
 * [Ian Douglas, 2008 Cohort](https://vimeo.com/487013522/c271b5ccd0)
 
 Advanced ActiveRecord
+* [Dione Wilson, 2008 Cohort](https://vimeo.com/491764180/02ce3f7943)
 * [Ian Douglas, 2006 Cohort](https://vimeo.com/471221960/3ac89d5612)
 * [Ian Douglas, 2005 Cohort](https://vimeo.com/454937871/e9c29ea5d7)
 * [Ian Douglas, 2003 Cohort](https://vimeo.com/441945463/d090c702bb)
