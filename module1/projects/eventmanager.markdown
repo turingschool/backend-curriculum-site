@@ -695,7 +695,9 @@ def clean_zipcode(zipcode)
 end
 ```
 
-## Iteration 3: Using Sunlight
+## ~Iteration 3: Using Sunlight~
+
+### The Sunlight Foundation has deprecated their API. If you have reached this point and still wish to continue, work on [Event Reporter](https://backend.turing.io/module1/projects/event_reporter) instead.
 
 We now have our list of attendees with their valid zip codes (at least for most
 of them). Using their zip code and the
