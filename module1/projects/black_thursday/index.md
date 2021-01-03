@@ -28,7 +28,7 @@ Project Overview
 
 #### Special Notes
 
-This project will require you to be running version 2.3.x of Ruby. This will get you used to working in an older version of Ruby and you will learn how to work with different versions of Rubies using rbenv.
+This project will require you to be running version 2.5.x of Ruby. This will get you used to working in an older version of Ruby and you will learn how to work with different versions of Rubies using rbenv.
 
 Documentation for rbenv can be found [here](https://github.com/rbenv/rbenv/blob/master/README.md)
 
@@ -50,7 +50,7 @@ From a technical perspective, this project will emphasize:
 ### Project Iterations and Base Expectations
 
 Because the requirements for this project are lengthy and complex, we've broken
-them into Iterations in their own files. Your project *must* implement iterations 0 through 3 and either 4 or 5.
+them into Iterations in their own files. Your project *must* implement iterations 0 through 4. Iteration 5 is the Undiscovered Country.
 
 *   [Iteration 0](./iteration_0) - Merchants & Items
 *   [Iteration 1](./iteration_1) - Beginning Relationships and Business Intelligence
