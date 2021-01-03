@@ -59,6 +59,7 @@ Find the total revenue for a single merchant:
 sales_analyst.revenue_by_merchant(merchant_id) #=> $
 ```
 
+# The following two methods are not covered by the spec harness. As a group, write a blog post of approximately 500 words as to how these methods work.
 which item sold most in terms of quantity and revenue:
 
 ```rb
