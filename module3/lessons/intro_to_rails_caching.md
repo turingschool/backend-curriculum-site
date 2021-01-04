@@ -14,15 +14,17 @@ Warm-Up Prompts:
 
 Write out some answers to these questions before expanding the notes below!
 
+---
+
 <details>
   <summary>Click to expand!</summary>
 
-Cache:
+## Cache:
 * auxiliary memory from which high-speed retrieval is possible
 * storage of data so future requests for that data can be served faster
 * stored data might be the result of an earlier computation or a copy of data stored elsewhere
 
-Memoization:
+## Memoization:
 * an optimization technique used primarily to speed up computer programs by storing the results of expensive function calls and returning the cached result when the same inputs occur again
 
 ## Isn't that the same thing?
@@ -34,5 +36,6 @@ Back in the "old days" we had to look up people's phone numbers in a giant phone
 Memoization would be like the address books that had little letters/tabs on the side to skip to all of my friends who start with "S" to get Sal's phone number in a hurry. The book is the cache, but the lookup of that data from the cache is memoization.
 </details>
 
+---
 
 ## Benefits in Our Applications
