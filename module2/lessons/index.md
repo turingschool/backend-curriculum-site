@@ -31,6 +31,7 @@ layout: page
 * [Authorization](./authorization)
 * [Rails Resources](./rails_resources)
 * [form_with](./form_with)
+* [Advanced Routing](./advanced_routing)
 
 
 
