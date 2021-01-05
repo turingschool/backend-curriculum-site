@@ -36,11 +36,9 @@ Write out some answers to these questions before expanding the notes below!
 <p>No. Caching is STORING the data. Memoization is caching the RETURN VALUE of a function.</p>
 
 <code>
-cache = {}                   # this is our cache
-
-cache['jenny'] = '867-5309'  # this is "caching" the data
-
-puts cache['jenny']          # this is using "memoization" to retrieve the data
+  cache = {}                   # this is our cache
+  cache['jenny'] = '867-5309'  # this is "caching" the data
+  puts cache['jenny']          # this is using "memoization" to retrieve the data
 </code>
 
 <p>Back in the "old days" we had to look up people's phone numbers in a giant phone book. Caching would be like adding my favorite people in a smaller address book. Occasionally I might need to update their phone number from the bigger phone book, but now I have a smaller, easier-to-access book that I can maybe carry in my pocket.</p>
