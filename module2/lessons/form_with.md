@@ -5,6 +5,8 @@ title: Rails form_with
 
 ## Warm Up
 
+We'll start today from the [Set List main branch](https://github.com/turingschool-examples/set_list)
+
 - Thinking about our Set List application, what is the structure of the forms we use to create and update artists? (Share your screen and put them side by side)
     - How do we tell our forms the path and verb it should use when the form is submitted?
     - What connection exists between the form and the objects we are creating or updating?
@@ -59,7 +61,7 @@ If we were going to use `form_with` to create a Dog object with name, breed, and
 Notice the **`local: true`** option.
 **You must include this option for your form to work properly with the `form_with` helper**
 
-This helper is set to false by default when using the `form_with` helper. This is because `form_with` was built with performance improvements in mind. Within professional rails applications, this helper defaults to taking advantage of AJAX (Asynchronous JavaScript And XML) to send requests. We won't dive into the advantages and disadvantages of this just yet, but know that this option expects as JavaScript response as opposed to an HTML response. We aren't implementing JavaScript in our applications, so we want our request to be sent expecting an HTML response.
+This helper is set to false by default when using the `form_with` helper. This is because `form_with` was built with performance improvements in mind. Within professional rails applications, this helper defaults to taking advantage of AJAX (Asynchronous JavaScript And XML) to send requests. We won't dive into the advantages and disadvantages of this just yet, but know that this option expects a JavaScript response as opposed to an HTML response. We aren't implementing JavaScript in our applications, so we want our request to be sent expecting an HTML response.
 
 In the above example, we are binding our form to a new Dog object `Dog.new`.  While this works from a functionality standpoint, we don't ever want to be reaching from our views into our database, so, we would want our controller to send this object to our views:
 

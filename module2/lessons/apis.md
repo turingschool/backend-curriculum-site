@@ -83,9 +83,9 @@ Congratulations! You just consumed an API.
 
 ### Checks for Understanding
 
-1. How could you incorporate the GitHub API into a Rails Application?
+1. How could you incorporate the GitHub API into a Rails Application? Where should this functionality live?
 
-2. Think about how the HTTP request/response cycle works when building a "normal" Rails app, an application that is meant to be viewed by a human user.
+2. Think about how the HTTP request/response cycle works when building a "normal" Rails web application, an application that is meant to be viewed by a human user.
 
 * Who is the client?
 * Who is the server?
