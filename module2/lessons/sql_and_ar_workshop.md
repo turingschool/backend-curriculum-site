@@ -22,11 +22,11 @@ Work together to create the feature test and then the queries. Based on how you 
 As a merchant
 When I visit my dashboard, I see an area with statistics:
 
-1. top 5 items I have sold by quantity, and the quantity of each that I've sold. Only items on "shipped" orders should be considered sold.
-1. top 3 states where my items were shipped, and their quantities.
-1. top 3 city/state where my items were shipped, and their quantities (Springfield, MI should not be grouped with Springfield, CO)
-1. List of all of my items that have an average rating of 4 or greater that were never ordered by one of my employees.
-1. top 3 customers who have spent the most money on my items, and the total amount they've spent.
+1. Top 5 items I have sold by quantity, and the quantity of each that I've sold. Only items on "shipped" orders should be considered sold.
+1. Top 3 customers by morning revenue (Orders before 12:00PM)
+1. All customers with failed transactions ordered by name
+1. Top 3 merchants that have lost the most revenue because of failed transasctions
+1. Top 3 customers who have spent the most money on my items, and the total amount they've spent.
 
 ## Problem Set 2 (Less Spicy)
 
