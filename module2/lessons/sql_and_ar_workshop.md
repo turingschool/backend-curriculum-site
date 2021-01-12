@@ -25,7 +25,7 @@ When I visit my dashboard, I see an area with statistics:
 1. Top 5 items I have sold by quantity, and the quantity of each that I've sold. Only items on "shipped" orders should be considered sold.
 1. Top 3 customers by morning revenue (Orders before 12:00PM)
 1. All customers with failed transactions ordered by name
-1. Top 3 merchants that have lost the most revenue because of failed transasctions
+1. Top 3 merchants that have lost the most revenue because of failed transactions
 1. Top 3 customers who have spent the most money on my items, and the total amount they've spent.
 
 ## Problem Set 2 (Less Spicy)
