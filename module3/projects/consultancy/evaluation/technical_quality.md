@@ -12,19 +12,16 @@ Each Repo meets the following:
     - [ ] Rails Front End
     - [ ] Rails Back End
     - [ ] Microservice 1
-    - [ ] Microservice 2
 
 - Routes follow RESTful patterns (PMs have some discretion here)
     - [ ] Rails Front End, User-facing routes are friendly (not necessarily RESTful)
     - [ ] Rails Back End
     - [ ] Microservice 1
-    - [ ] Microservice 2
 
 - Optimization technique is implemented in one of the following:
     - [ ] Rails Front End
     - [ ] Rails Back End
     - [ ] Microservice 1
-    - [ ] Microservice 2
 
 - Controllers utilize Facades
     - [ ] Rails Front End
@@ -37,29 +34,24 @@ Each Repo meets the following:
 - Good serialization patterns are implemented to return JSON
     - [ ] Rails Back End
     - [ ] Microservice 1
-    - [ ] Microservice 2
 
 - Exposed API routes are versioned well
     - [ ] Rails Back End
     - [ ] Microservice 1
-    - [ ] Microservice 2
 
 - Facades, Services, and/or Serializers use 100% class methods so instantiation is unnecessary
     - [ ] Rails Back End
     - [ ] Microservice 1
-    - [ ] Microservice 2
 
 - Deploy to Heroku
     - [ ] Rails Front End
     - [ ] Rails Back End
     - [ ] Microservice 1
-    - [ ] Microservice 2
 
 - Travis CI is set up
     - [ ] Rails Front End
     - [ ] Rails Back End
     - [ ] Microservice 1
-    - [ ] Microservice 2
 
 
 Rails Front End
@@ -83,13 +75,11 @@ __When the above criteria is met, here are additional points to achieve a 4__
     - [ ] Rails Front End
     - [ ] Rails Back End
     - [ ] Microservice 1
-    - [ ] Microservice 2
 
 - Private methods in classes are used as appropriate
     - [ ] Rails Front End
     - [ ] Rails Back End
     - [ ] Microservice 1
-    - [ ] Microservice 2
 
 - Bootstrap is utilized well for layout and styling
     - [ ] Rails Front End

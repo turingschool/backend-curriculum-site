@@ -12,17 +12,17 @@ Each Repo meets the following:
     - [ ] Rails Front End
     - [ ] Rails Back End
     - [ ] Microservice 1
-    - [ ] Microservice 2
+
 - 75% or more test coverage of happy path expectations
     - [ ] Rails Front End
     - [ ] Rails Back End
     - [ ] Microservice 1
-    - [ ] Microservice 2
+
 - 90% or more test coverage, includes happy path and sad path expectations
     - [ ] Rails Front End
     - [ ] Rails Back End
     - [ ] Microservice 1
-    - [ ] Microservice 2
+
 
 ---
 
@@ -35,9 +35,8 @@ Rails Front End
 - 95% or more test coverage, every exposed API endpoint and microservice call has at least one sad path test
     - [ ] Rails Back End
     - [ ] Microservice 1
-    - [ ] Microservice 2
+
 
 - API calls to micro-services or external services are tested using mocks/stubs
     - [ ] Rails Back End
     - [ ] Microservice 1
-    - [ ] Microservice 2

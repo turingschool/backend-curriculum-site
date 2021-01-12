@@ -3,7 +3,8 @@
 ---
 
 # Warmup
-With the person next to you, take turns sharing your professional story in no more than 90 seconds.
+
+* Share in your groups what you took away from your job shadow experience yesterday.
 
 ---
 
@@ -21,19 +22,22 @@ With the person next to you, take turns sharing your professional story in no mo
 
 ---
 
-## Exercise 1
-Based on this [video](https://www.youtube.com/watch?v=tFYrq3d54Dc) and the [github oauth documentation](https://developer.github.com/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow)
+## Exploration
 
-In groups of 3, draw a diagram of the requests/responses that are involved in getting a token for a user.
+Watch & Explore
+1. [OAuth Overview](https://www.youtube.com/watch?v=tFYrq3d54Dc)
+2. [GitHub OAuth](https://vimeo.com/173947281)
+3. [GitHub OAuth Docs](https://docs.github.com/en/free-pro-team@latest/developers/apps/authorizing-oauth-apps#web-application-flow)
+
+Draw a diagram of the requests/responses that are involved in getting a token for a user.
     * What parties are involved?
-    * What are the URLs for each request?
+    * What information is included in the request/response?
 
 ---
 
-## Further Conceptual Discussion
+## Pros & Cons of OAuth
 * What are the advantages/disadvantages of using an outside party to verify someone's identity?
 * Why bother with the OAuth handshake? What's the purpose of the `code` the OAuth provider passes us?
-* Why not get a token directly from a user?
 
 ---
 
@@ -50,15 +54,9 @@ In groups of 3, draw a diagram of the requests/responses that are involved in ge
 
 ---
 
-## Workshop
-* consider ways to refactor OAuth logic out of the sessions controller.
-
----
-
 ## Omniauth
 * Take 5 minutes to read through this [blog post](https://medium.com/@ali_schlereth/omniauth-is-not-a-scary-monster-a23b21c4f739)
-* What is the value of using Omniauth to handle the OAuth handshake?
-* At what layer are the responses from the OAuth Provider being intercepted?
+* What is the value of using OmniAuth to handle the OAuth handshake?
 
 ---
 

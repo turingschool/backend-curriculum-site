@@ -45,7 +45,7 @@ Rails back-end README:
 - [ ] includes database schema
 - [ ] each endpoint is documented with example request & response
 
-Each of the Microservices READMEs:
+Microservice READMEs:
   - [ ] each endpoint exposed to the back-end
   - [ ] its use of external service API
 
@@ -60,7 +60,6 @@ Documentation
 - A Postman collection JSON file is included in the following repos(except for any portion which needs OAuth)
     - [ ] Rails Back End
     - [ ] Microservice 1
-    - [ ] Microservice 2
 
 - Explains user personas and exhibits user empathy
     - [ ] Rails Front End
