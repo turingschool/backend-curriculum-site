@@ -146,7 +146,7 @@ So we now have this:
 
 When we look at the structure and shape of this parsed JSON, we see that we are getting an array of hashes, and each hash appears to be information about an individual film.
 
-So now we have an array of hashes. Do we like this? Well hashes are fine, but what we want to really do is create an object to represent our ships.
+So now we have an array of hashes. Do we like this? Well hashes are fine, but what we want to really do is create an object to represent our films.
 
 ```
 class Film
@@ -175,7 +175,7 @@ films = parsed.map do |data|
 end
 ```
 
-And we can loop through our collection of ships, and print out the name and crew count of each.
+And we can loop through our collection of films, and print out the name and crew count of each.
 
 ```
 films.each do |film|
@@ -221,7 +221,7 @@ class FilmSearch
 end
 ```
 
-This looks so much better. We're just instantiating a service and asking the service, hey get me the ships. We can take it one step further.
+This looks so much better. We're just instantiating a service and asking the service, hey get me the films. We can take it one step further.
 
 ```
 class FilmSearch
