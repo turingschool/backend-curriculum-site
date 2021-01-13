@@ -4,11 +4,14 @@ layout: page
 tags: interview prep, sorting, linked list, binary tree
 ---
 
+aka "Data Structures Obstacle Course"
+
 ## Learning Goals
 
 * Introduce you to a few programming algorithms & data structures
 * Spark your curiosity to further explore these concepts
 * You may see these concepts as part of your interview process
+
 
 ## Sorting Algorithms
 
@@ -76,6 +79,8 @@ _Think About It_
 * How long would it take to complete a merge sort?
 * How does this sort compare to bubble and insertion?
 
+---
+
 ## Data Structures
 
 A data structure encompasses how the data is organized, managed, and what actions can be performed on the data. There are multiple types of data structures in programming and in order to determine the type of structure to use you might start by asking the following questions:
@@ -84,26 +89,43 @@ A data structure encompasses how the data is organized, managed, and what action
   * What is the relationship between the elements of the data?
   * How is the data used? What type of operations need to be performed to the data?
 
-We are only going to explore 2 data structures, binary trie & linked list. If you want to research the others [here](https://www.geeksforgeeks.org/data-structures/) might be a good place to start.
+We are only going to explore some data structures, binary tree, linked list, and hash maps.
 
-### Binary Trie
+Binary Trees and Linked Lists are both "node" based data structures, where each piece of data is a "node" which contains a value of some kind and a reference to one or more "next" nodes; the first node in a both is typically called the 'head' or 'root' node.
 
-A binary trie is a type of data structure that organizes data in a way that allows for faster look-ups when searching through the data. There are 3 main operations that can be performed on the data: insertion, deletion, and search. The data is structured so that there is a `root` node, the starting point, and each node can point to two other nodes. In order to travers the trie for a search, the element is compared to a node and determined whether it is greater than, less than, or equal to the element.
+Hash Maps (commonly just called "hashes" in Ruby) are the common key/value storage that we've used a lot at Turing so far, and not thought of to be node-based, but we'll examine more about it in a moment.
 
-<details open><summary><i>Binary Trie Search Compared to a Sorted Array Visual </i></summary>
+If you want to research other data structures, [here](https://www.geeksforgeeks.org/data-structures/) might be a good place to start.
+
+### Binary Tree
+
+A binary tree is a type of data structure that organizes data in a way that allows for faster look-ups when searching through the data. There are 3 main operations that can be performed on the data: insertion, deletion, and search. The data is structured so that there is a `root` node, the starting point, and each node can point to two other nodes. In order to traverse the tree for a search, the element is compared to a node and determined whether it is greater than, less than, or equal to the element.
+
+<details open><summary><i>Binary Tree Search Compared to a Sorted Array Visual </i></summary>
   <iframe src='https://gfycat.com/ifr/GrandShortCowrie' frameborder='0' scrolling='no' allowfullscreen width='640' height='582'></iframe>
   <p>
     <a href="https://gfycat.com/grandshortcowrie">via Gfycat</a>
   </p>
 </details>
 
+A Binary Tree gets it's "binary" name from the notion that each "node" points to two other nodes, typically programmed as a "left" and a "right" node.
+
 _Think About It_
-* When might a binary trie be a beneficial structure to use?
-* Why is it more advantageous to use a binary trie than an array?
+* When might a binary tree be a beneficial structure to use?
+* Why is it more advantageous to use a binary tree than an array?
+
+Work to do:
+
+1. Open [this gist](https://gist.github.com/iandouglas/21e56d1c07a65f66c23612a98ddca75e) and copy the contents into an appropriate folder structure:
+- `node.rb` and `binarytree.rb` will go in a `lib/` folder
+- `binary_tree_test.rb` will go in a `test/` folder
+2. Write some code to make the tests pass
+
+
 
 ### Linked List
 
-A linked list is a data structure that organizes the data as a linear collection. However, unlike arrays, linked lists do not need to be stored with the data all together in memory. It is able to achieve this because each node contains the element data and a pointer to the next node in the list. Linked list operations include appending, deleting, and inserting data. There are also different types of linked lists: singly linked, doubly linked, and circularly linked.
+A linked list is a data structure that organizes the data as a linear collection (like a binary tree, but it doesn't branch into left/right). However, unlike arrays, linked lists do not need to be stored with the data all together in memory. It is able to achieve this because each node contains the element data (value) and a reference to the "next" node in the list. Linked list operations include appending, deleting, and inserting data. There are also different types of linked lists: singly linked, doubly linked, and circularly linked.
 
 <details open><summary><i>Singly Linked List Example</i></summary>
 <br>
@@ -114,6 +136,67 @@ _Think About It_
 * What is the advantage of using a linked list?
 * What is the difference between a singly linked, doubly linked, and circularly linked list?
 
-#### Looking for More?
+Work to do:
+
+1. Open [this gist](https://gist.github.com/iandouglas/21479de34f46fc8955f7a7340b0187dc) and copy the contents into an appropriate folder structure:
+- `node.rb` and `linkedlist.rb` will go in a `lib/` folder
+- `linked_list_test.rb` will go in a `test/` folder
+2. Write some code to make the tests pass
+
+
+
+### Hash Maps
+
+Hashes, at a high level are "key-value" data structures, but how do they actually work?
+
+The "hash" name comes from a mathematical formula about how the hash knows where to store each piece of data in memory. The more complex a "hashing" algorithm is, the more easily things can be stored into "unique" places in memory, but will take longer to actually do the calculation. Less-complex hashing algorithms are much faster, but risk more "collisions" of data. (eg, if our "hashing" algorithm was only storing strings, and we used the first letter of the string to define where it was put in memory, and our strings were student names, then "James", "Jamal", "Jackie", etc would all "collide" in memory.
+
+So, hash maps use an array (commonly referred to as "buckets"), where each "bucket" is a "head" node of a linked list. Back to our "student names" example, we'd have 26 "buckets", one for each letter of the alphabet, and the "J" bucket would be a linked list where each node contains the names for James, Jamal, Jackie, etc.. This is the "map" explanation of the name of "hash map", it's using a "hash" algorithm to generate a "map" of where things get stored in memory. You might also hear the term "hash table".
+
+In a typical Hash Map, if there's a "collision" (ie, the letter "J"), every value is shifted to the right and the newer data is stored as the new start of that bucket's linked list.
+
+The main difference with this linked list, though, is that a hash has a name and a value.
+
+In our students example, we might want to store the ages of our students like this:
+
+```ruby
+{
+  'James': 27,
+  'Jamal': 31,
+  'Jackie': 29,
+  etc
+}
+```
+
+Since our Linked List only has a value, if we just stored "27", "31", and "29", we would lose track of which student had which age. So now our Hah Map's Linked List "node" has to be a little more advanced. We have to store the original "key" value, plus that key's "value" (in this example, the student age).
+
+```ruby
+class Node
+  attr_reader :key, :value
+  attr_accessor :next
+
+  def initialize(key, value)
+    @key = key
+    @value = value
+    @next = nil
+  end
+end
+```
+
+When we want to recall a student's age, say Jamal, we run our hash algorithm on the "key" ("Jamal"), which would produce our "J" value, go to our "J" bucket, and then traverse that linked list until we find a node which has a payload which includes a "key" attribute with "Jamal" in it, and then return the "value".
+
+Work to do:
+1. Build some Ruby code that does a very rudimentary "hashing" algorithm for a given string that just returns the first letter of the string, something like this should suffice:
+```ruby
+def hash(string)
+  string[0]
+end
+```
+2. Make an array of 26 Linked Lists, one for each letter of the alphabet, and write some code to insert and retrieve some key/value pairs from your hash.
+3. Hint: the word "Hash" will be reserved in Ruby, so call it something else
+
+---
+
+## Looking for More?
 
 [This repo](https://github.com/turingschool/data_structures_and_algorithms) has several computer science exercises to deepen your understanding.
