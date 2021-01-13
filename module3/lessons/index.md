@@ -13,7 +13,7 @@ layout: page
 
 * [Abstraction and Encapsulation](./abstraction_and_encapsulation)
 * [Refactoring API Consumption](./refactoring_api_consumption)
-* [Data Structures and Algorithms](./data_structures_and_algorihtms)
+* [Data Structures and Algorithms](./data_structures_and_algorithms)
 * [Introduction to Big O Notation]() (coming soon!)
 
 ## Exposing APIs
