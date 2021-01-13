@@ -149,6 +149,27 @@ PD Supplement: Company Research
 
 ## Additional Topics
 
+Data Structures & Algorithms
+* [Ian Douglas, 2008 Cohort](https://vimeo.com/500152824/c904e354dc)
+* [Dione Wilson, 2006 Cohort](https://vimeo.com/475938278/b431f9b1ac)
+
+
+Introduction to Big O Notation
+* [Combined FE/BE 2005, Ian Douglas](https://vimeo.com/454935670/de82b8741c)
+* [Back-End; Ian Douglas, 2003 Cohort](https://vimeo.com/441946493/ac1ef11de7)
+* [Front-End; Ian Douglas, 2003 Cohort](https://vimeo.com/441951062/1516a80c38)
+* [(Mod 4) Ian Douglas, 2001 Cohort](https://vimeo.com/415230957)
+
+
+Tech Interview Prep, Challenge Analysis
+* [Ian Douglas, 2003 Cohort](https://vimeo.com/441948881/581b1edfbc)
+* [(Mod 4) Ian Douglas, 2001 Cohort](https://vimeo.com/415197514)
+
+
+Environments and Running Production Locally
+* [Dione Wilson, 2005 Cohort](https://vimeo.com/456725554/339676a33f)
+
+
 Week 1 Open Office Q&A
 * [Dione and Ian, Wed Week 1](https://vimeo.com/466299421/054dfdf3c2)
   * API key security
@@ -173,19 +194,3 @@ Week 3 Open Office Q&A
   * discussion of HTTP and how request bodies are sent in different types
   * ActiveRecord model dependent destroys
   * Rails routing and a 'find' endpoint, RESTful discussion
-
-Introduction to Big O Notation
-* [Combined FE/BE 2005, Ian Douglas](https://vimeo.com/454935670/de82b8741c)
-* [Back-End; Ian Douglas, 2003 Cohort](https://vimeo.com/441946493/ac1ef11de7)
-* [Front-End; Ian Douglas, 2003 Cohort](https://vimeo.com/441951062/1516a80c38)
-* [(Mod 4) Ian Douglas, 2001 Cohort](https://vimeo.com/415230957)
-
-Tech Interview Prep, Challenge Analysis
-* [Ian Douglas, 2003 Cohort](https://vimeo.com/441948881/581b1edfbc)
-* [(Mod 4) Ian Douglas, 2001 Cohort](https://vimeo.com/415197514)
-
-Environments and Running Production Locally
-* [Dione Wilson, 2005 Cohort](https://vimeo.com/456725554/339676a33f)
-
-Data Structures & Algorithms
-* [Dione Wilson, 2006 Cohort](https://vimeo.com/475938278/b431f9b1ac)
