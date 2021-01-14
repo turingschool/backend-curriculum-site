@@ -142,7 +142,7 @@ Merchant Bulk Discount Show
 
 As a merchant
 When I visit my bulk discount show page
-Then I see the bulk discounts quantity and price
+Then I see the bulk discount's quantity threshold and percentage discount
 ```
 
 ```
