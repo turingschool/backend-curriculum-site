@@ -10,6 +10,7 @@ This project is an extension of the Little Esty Shop group project. You will add
 * Use built-in ActiveRecord methods to join multiple tables of data, make calculations, and group data based on one or more attributes
 * Write model tests that fully cover the data logic of the application
 * Write feature tests that fully cover the functionality of the application
+
 ## Setup
 
 This project is an extension of Little Esty Shop. Students have two options for setup:
