@@ -10,7 +10,7 @@ The following projects will be assigned and their completion is required to be p
 * Week 1 (independent): [War](./war_or_peace)
 * Week 2-3 (paired): [Battleship](./battleship)
 * Week 3-5 (group): [Black Thursday](./black_thursday)
-* Week 5-6 (individual): 
+* Week 5-6 (individual): [Enigma](./enigma)
 
 [Project Reflection Template](./project_reflection_template)
 
