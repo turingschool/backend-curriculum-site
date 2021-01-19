@@ -36,7 +36,14 @@ Work through [this tutorial](https://gist.github.com/BrianZanti/e9d73508062fdcb7
 
 ### Authentication / Authorization
 
-* TBD
+Write up some notes and ideas on the following:
+
+- you need to store a user in a database table; what do we need to know about them (ie, email, password)
+- how can we store a password in a secure way (ie, if our database is compromised, how can we protect their passwords from prying eyes)
+- how would we store the idea of what a user is allowed to do on a web site
+- how would we build a safe login page
+- how could we tell if a user is logged in since HTTP is "stateless"
+- how could we allow a user to "stay logged in for 7 days" even if your Rails app is restarted
 
 
 ### Deeply Nested Collections
@@ -45,9 +52,6 @@ When consuming APIs, the data is often returned in deeply nested collections, so
 
 Fork and clone [Here Be Dragons](https://github.com/turingschool-examples/here-be-dragons). Get the tests to pass.
 
-### Refactoring Workshop
-
-In Mod 3, we will focus not only on getting code to work but also writing high quality code. This will involve topics covered in mod 1 such as creating classes and methods, adhering to SRP, and general refactoring principles. Review these topics by forking and cloning [the refactoring workshop](https://github.com/turingschool-examples/neos). Work through the activity in the README. This was designed as a partnered activity. You may choose to pair with a classmate or work solo. If working alone, write answers to the questions in your notebook instead of discussing.
 
 ### HTTP Request/Response
 
@@ -56,6 +60,7 @@ In Mod 3, we will focus not only on getting code to work but also writing high q
 * **Bonus** write your explanation as a metaphor
 * Bring this to class day 1.
 
+
 ### Rails "params" magic.
 
 How does "params" get built in Rails, and what precidence is given for query parameters (ie `?id=5` in a URL) versus dynamic placeholders (ie `/book/:id`) versus data sent in the body of a request from a form.
@@ -63,17 +68,6 @@ How does "params" get built in Rails, and what precidence is given for query par
 Start writing up some notes based on the Rails documentation:
 * https://guides.rubyonrails.org/action_controller_overview.html#parameters
 
-### Rails Routing
-
-Rewrite your Monster Shop `routes.rb`:
-
-Module 3 requires you to know URLs, paths and HTTP verbs inside and out. Rewrite the routes file for your Monster Shop to use only methods that map directly to HTTP verbs: `get`, `post`, `put`, `patch` and `delete`. You will probably need to add `to:` and `as:` parameters to make sure your apps continue to work, and tests continue to pass.
-
-If you wrote your routes that way already, replace them using `resources`.
-
-If you do not own the repo for your project, fork it, and rewrite the routes file individually.
-
-NOTE: This is not because one way is better, but it's extremely important to understand what every line of your routes file is doing. Rails Engine demands a solid understanding of Rails routing.
 
 ### SQL/ActiveRecord
 
@@ -81,6 +75,7 @@ Entering Module 3 with a solid understanding of ActiveRecord and SQL is key to g
 
 1. Complete and understand the [Intermediate SQL I](https://github.com/turingschool/lesson_plans/blob/master/ruby_03-professional_rails_applications/intermediate_sql.md) challenges.
 1. Complete and understand the [Intermediate SQL II](https://gist.github.com/case-eee/5affe7fd452336cef2c88121e8d49f5d) challenges.
+
 
 ### Reading
 
