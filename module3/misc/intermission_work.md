@@ -18,11 +18,26 @@ Submit your work here: [Survey Link](https://forms.gle/XFpSYyKY3NtmWQVd8)
 
 Follow [this guide](./ruby_and_rails_versions) to make sure your versions are correct.
 
+## Core Learning Goals of Mod 3
+
+* API Development
+* Authentication / Authorization systems
+* Managing deeply-nested data collections
+* Refactoring code into new Design Patterns
+
+---
+
 ### Intro to APIs
 
-Everything we build in Mod 3 will focus on building and consuming APIs.
+Everything we build in Mod 3 will focus on the theme of building and consuming APIs.
 
-Work through [this tutorial](https://gist.github.com/BrianZanti/e9d73508062fdcb78225906a6d97686d) to get a brief intro to APIs.
+Work through [this tutorial](https://gist.github.com/BrianZanti/e9d73508062fdcb78225906a6d97686d) to review an intro to APIs.
+
+
+### Authentication / Authorization
+
+* TBD
+
 
 ### Deeply Nested Collections
 
@@ -40,6 +55,13 @@ In Mod 3, we will focus not only on getting code to work but also writing high q
 * On a separate piece of paper, write out an example 200 response to that request with all of the parts
 * **Bonus** write your explanation as a metaphor
 * Bring this to class day 1.
+
+### Rails "params" magic.
+
+How does "params" get built in Rails, and what precidence is given for query parameters (ie `?id=5` in a URL) versus dynamic placeholders (ie `/book/:id`) versus data sent in the body of a request from a form.
+
+Start writing up some notes based on the Rails documentation:
+* https://guides.rubyonrails.org/action_controller_overview.html#parameters
 
 ### Rails Routing
 
@@ -74,7 +96,7 @@ If you have time, here are some activities that will be valuable not only in Mod
 
 We are going to be covering various data structures to prepare you for the job hunt and technical interviews. Complete this former M1 project, [Jungle Beats](https://backend.turing.io/module1/projects/jungle_beat)
 
-### JavaScript/JQuery (What's this JavaScript I keep hearing about?)
+### JavaScript/jQuery (What's this JavaScript I keep hearing about?)
 
 [Eloquent JavaScript](http://eloquentjavascript.net/)
 
@@ -86,4 +108,9 @@ We are mainly looking for you to get experience with the syntax, and at a minimu
 
 [jQuery](https://www.tutorialrepublic.com/jquery-tutorial/jquery-syntax.php)
 
-JQuery is a popular javascript library for manipulating the content of web pages. Dip your toes in with this introductory Jquery tutorial.
+jQuery is a popular javascript library for manipulating the content of web pages. Dip your toes in with this introductory jQuery tutorial.
+
+
+## Optional Reading on Security topics
+
+* [Rails Security](https://guides.rubyonrails.org/security.html)
