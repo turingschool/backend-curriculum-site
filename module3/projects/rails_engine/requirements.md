@@ -8,51 +8,48 @@ type: project
 
 # 1. Set Up
 
-1. Create a folder called "rails-engine" and inside of that folder, do the following:
-   1. Clone [Rails Driver](https://github.com/turingschool-examples/rails_driver) and follow its README instructions.
-   2. Run your `rails new ...` instruction to create a project called `rails-engine`
+1. Create a Rails API project called `rails-engine` (make sure you do not set up a "traditional" Rails project with a frontend, this is an API-only project)
+
 2. Set Up [SimpleCov](https://github.com/colszowka/simplecov) to track test coverage in your rails-engine API project.
 
-# 2. Data Importing
-
-You will need to replace your `db/seeds.rb` file with the following content. When you run `rake db:{drop,create,migrate,seed}`, you will see some errors/warnings from pg_restore that you can safely ignore, but if you think it didn't work properly, ask an instructor for guidance.
-
-**NOTE** We updated this process to avoid confusion and taking a significant amount of time; the main learning goals of the project are the Rails API endpoints and business intelligence endpoints in ActiveRecord, not the process of importing CSV data. Avoid starting out with a Rake task to do the import and follow these instructions instead. If in doubt, ask your instructors first.
-
-**NOTE** If your `rails new ...` project name from above is NOT exactly called "rails-engine" you will need to modify the `cmd` variable below to change the `-d` parameter from `rails-engine_development` to `<YOUR PROJECT NAME>_development` instead. If you have questions, ask your instructors.
-
+3. Set up your `db/seeds.rb` file with the following content:
 ```ruby
-require 'csv'
-
 # before running "rake db:seed", do the following:
 # - put the "rails-engine-development.pgdump" file in db/data/
-# - put the "items.csv" file in db/data/
-
 cmd = "pg_restore --verbose --clean --no-acl --no-owner -h localhost -U $(whoami) -d rails-engine_development db/data/rails-engine-development.pgdump"
 puts "Loading PostgreSQL Data dump into local database with command:"
 puts cmd
 system(cmd)
-
-# TODO
-# - Import the CSV data into the Items table
-# - Add code to reset the primary key sequences on all 6 tables (merchants, items, customers, invoices, invoice_items, transactions)
-*   - look into `reset_pk_sequence`
 ```
 
-**Note: Resetting the Primary Key sequence is ONLY necessary to do within the `seeds.rb` file, it is not necessary anywhere in your application code.**
-
-- Create migration files for the other 5 tables created by this `pg_restore` application: merchants, customers, invoices, invoice_items, transactions
-  - use a tool like Postico to examine the database tables for the correct data types and relationships
-- Create a migration file for the "items" table, based on the provided "items.csv" file
-
-Data Files: (put both of these inside a folder called `db/data` in your Rails API project)
-- [items.csv](https://raw.githubusercontent.com/turingschool/backend-curriculum-site/gh-pages/module3/projects/rails_engine/items.csv)
-  - be sure to use the ID values in this CSV file, or the database will not work correctly!
-  - convert all prices from pennies to dollars/cents before you save them in the database, or the spec harness tests will not succeed!
-- [rails-engine-development.pgdump](https://raw.githubusercontent.com/turingschool/backend-curriculum-site/gh-pages/module3/projects/rails_engine/rails-engine-development.pgdump)
+4. Download [rails-engine-development.pgdump](https://raw.githubusercontent.com/turingschool/backend-curriculum-site/gh-pages/module3/projects/rails_engine/rails-engine-development.pgdump) and move it into the `/db/` folder in another folder called `/data/`, so your project files look like this:
+```
+/app
+/bin
+/config
+/db
+  /data                                     <-- create this folder
+    rails-engine-development.pgdump         <-- put the file in the data folder
+  seeds.rb
+/lib
+/log
+etc
+```
   - this file is in a binary format and your browser may try to automatically download the file instead of viewing it
 
-Once the "items.csv" file is finished importing in `db/seeds.rb`, add instructions in that file to use ActiveRecord to reset the Primary Key sequences in PostgreSQL for all 6 tables.
+5. Run `rake db:{drop,create,migrate,seed}` and you may see lots of output including some warnings/errors from `pg_restore` that you can ignore. If you're unsure about the errors you're seeing, ask an instructor.
+
+6. Use a tool like Postico to examine the 6 tables that were created, and build migration files for those tables. Pay careful attention to the data types of each field:
+  * items
+  * merchants
+  * orders
+  * order_items
+  * invoices
+  * transactions
+
+**NOTE** We updated this process to avoid confusion and taking a significant amount of time; the main learning goals of the project are the Rails API endpoints and business intelligence endpoints in ActiveRecord, not the process of importing CSV data. Avoid starting out with a Rake task to do the import and follow these instructions instead. If in doubt, ask your instructors first.
+
+**NOTE** If your `rails new ...` project name from above is NOT exactly called "rails-engine" you will need to modify the `cmd` variable below to change the `-d` parameter from `rails-engine_development` to `<YOUR PROJECT NAME>_development` instead. If you have questions, ask your instructors.
 
 ---
 
@@ -148,7 +145,7 @@ You will get to choose from the following list:
 
 * FOUR of the following endpoints:
   * find a quantity of merchants sorted by descending revenue
-  * find a quantity of merchants sorted by descending items sold
+  * find a quantity of merchants sorted by descending item quantity sold
   * total revenue generated in the whole system over a start/end date range
   * total revenue for a given merchant
   * find a quantity of items sorted by descending revenue
@@ -170,13 +167,14 @@ These "index" endpoints for items and merchants should:
 * NOT include dependent data of the resource (eg, if you're fetching merchants, do not send any data about merchant's items or invoices)
 * follow this pattern: `GET /api/v1/<resource>`
 * allow for the following OPTIONAL query parameters to be sent by the user:
-  * perPage, an integer value of how many resources should be in the output; defaults to 20 if not specified by the user
-  * page, an integer value of a "page" of resources to skip before returning data; defaults to 1 if not specified by the user
+  * `per_page`, an integer value of how many resources should be in the output; defaults to 20 if not specified by the user
+  * `page`, an integer value of a "page" of resources to skip before returning data; defaults to 1 if not specified by the user
+  * do not use any third-party gems for pagination
 
 Example use of query parameters:
 
-* `GET /api/v1/items?perPage=50&page=2`
-* `GET /api/v1/merchants?perPage=50&page=2`
+* `GET /api/v1/items?per_page=50&page=2`
+* `GET /api/v1/merchants?per_page=50&page=2`
 
 This should fetch items 51 through 100, since we're returning `50` per "page", and we want "page `2`" of data.
 
@@ -209,10 +207,11 @@ Example JSON response for the Merchant resource:
   ]
 }
 ```
+If a user tries to fetch a page for which there is no data, then `data` should report an empty array.
 
 ## RESTful: Fetch a single record
 
-This endpoint for items and merchants should:
+This endpoint for Items and Merchants should:
 
 * render a JSON representation of the corresponding record, if found
 * follow this pattern: `GET /api/v1/<resource>/:id`
@@ -226,7 +225,7 @@ Example JSON response for the Item resource:
     "type": "item",
     "attributes": {
       "name": "Super Widget",
-      "description": "A most excellent widget of the finest crafting"
+      "description": "A most excellent widget of the finest crafting",
       "unit_price": 109.99
     }
   }
@@ -443,16 +442,18 @@ Example JSON response for `GET /api/v1/merchants/most_revenue?quantity=2`
   "data": [
     {
       "id": "1",
-      "type": "merchant",
+      "type": "merchant_name_revenue",
       "attributes": {
-        "name": "Turing School"
+        "name": "Turing School",
+        "revenue": 512.256128
       }
     },
     {
       "id": "4",
-      "type": "merchant",
+      "type": "merchant_name_revenue",
       "attributes": {
-        "name": "Ring World"
+        "name": "Ring World",
+        "revenue": 245.130001
       }
     }
   ]
@@ -475,16 +476,18 @@ Example JSON response for `GET /api/v1/merchants/most_items?quantity=2`
   "data": [
     {
       "id": "1",
-      "type": "merchant",
+      "type": "items_sold",
       "attributes": {
-        "name": "Turing School"
+        "name": "Turing School",
+        "count": 512
       }
     },
     {
       "id": "4",
-      "type": "merchant",
+      "type": "items_sold",
       "attributes": {
-        "name": "Ring World"
+        "name": "Ring World",
+        "count": 128
       }
     }
   ]
@@ -520,17 +523,18 @@ Example JSON response for `GET /api/v1/revenue?start=2012-03-09&end=2012-03-24`
 
 This endpoint should return the total revenue for a single merchant.
 
-The URI should follow this pattern: `GET /api/v1/merchants/:id/revenue`  
+The URI should follow this pattern: `GET /api/v1/revenue/merchants/:id`  
 
-Example JSON response for `GET /api/v1/merchants/1/revenue`
+Example JSON response for `GET /api/v1/revenue/merchants/1`
 
 
 ```json
 {
   "data": {
-    "id": null,
+    "id": "42",
+    "type": "merchant_revenue",
     "attributes": {
-      "revenue"  : 43201227.8000003
+      "revenue"  : 532613.9800000001
     }
   }
 }
@@ -542,9 +546,11 @@ The endpoint will return a quantity of items ranked by descending revenue.
 
 The URI should follow this pattern: `GET /api/v1/items/revenue?quantity=x`
 
-where 'x' is the maximum count of results to return. The quantity should default to 5 if not provided, and return an error if it is not an integer greater than 0.
+where 'x' is the maximum count of results to return.
+* quantity should default to 10 if not provided
+* endpoint should return an error if it is not an integer greater than 0.
 
-Example JSON response for `GET /api/v1/items/revenue?quantity=2`
+Example JSON response for `GET /api/v1/items/revenue?quantity=1`
 
 
 ```json
@@ -552,33 +558,30 @@ Example JSON response for `GET /api/v1/items/revenue?quantity=2`
   "data": [
     {
       "id": 4,
+      "type": "item_revenue",
       "attributes": {
         "name": "Men's Titanium Ring",
         "description": "Fine titanium ring",
-        "unit_price": 299.99
-      }
-    },
-    {
-      "id": 2,
-      "attributes": {
-        "name": "Tennis Racket",
-        "description": "Only the finest materials",
-        "unit_price": 199.99
+        "unit_price": 299.99,
+        "merchant_id": 54,
+        "revenue": 19823.12985
       }
     }
   ]
 }
 ```
 
-## Non-RESTful: Merchants with unshipped invoices, ranked by "potential" Revenue
+## Non-RESTful: Potential Revenue of Unshipped Orders, ranked by "potential" Revenue
 
-Imagine that we want to build a report of the merchants who haven't shipped their merchandise yet. How much money is being left on the table for these merchants if they just called Federal Package Logistics to come pick up the boxes...
+Imagine that we want to build a report of the orders which have not yet shipped. How much money is being left on the table for these merchants if they just called Federal Package Logistics to come pick up the boxes...
 
-The URI should follow this pattern: `GET /api/v1/items/revenue?quantity=x`
+The URI should follow this pattern: `GET /api/v1/revenue/unshipped?quantity=x`
 
-where 'x' is the maximum count of results to return. The quantity should default to 5 if not provided, and return an error if it is not an integer greater than 0.
+where 'x' is the maximum count of results to return.
+* quantity should default to 10 if not provided
+* should return an error if it is not an integer greater than 0.
 
-Example JSON response for `GET /api/v1/items/revenue?quantity=2`
+Example JSON response for `GET /api/v1/revenue/unshipped?quantity=2`
 
 
 ```json
@@ -586,15 +589,15 @@ Example JSON response for `GET /api/v1/items/revenue?quantity=2`
   "data": [
     {
       "id": 834,
+      "type": "unshipped_order",
       "attributes": {
-        "name": "Ring World",
         "potential_revenue": 5923.78
       }
     },
     {
       "id": 28,
+      "type": "unshipped_order",
       "attributes": {
-        "name": "Rackets By Russ",
         "potential_revenue": 3298.63
       }
     }
@@ -605,37 +608,48 @@ Example JSON response for `GET /api/v1/items/revenue?quantity=2`
 
 ## Non-RESTful: Report by Month of Revenue Generated
 
-We would like a full report of all revenue, sorted by YYYY-MM
+We would like a full report of all revenue, sorted by week (the database can do this for you!). The dates you get back from PostgreSQL will represent the first day of the week
 
-The URI should follow this pattern: `GET /api/v1/monthly_revenue`
+The URI should follow this pattern: `GET /api/v1/revenue/weekly`
 
-Example JSON response for `GET /api/v1/items/revenue?quantity=2`
+Example JSON response for `GET /api/v1/revenue/weekly`
 
 
 ```json
 {
-  "data": [
-    {
-      "id": null,
-      "attributes": {
-        "month": "2020-01",
-        "revenue": 923.78
-      }
-    },
-    {
-      "id": null,
-      "attributes": {
-        "month": "2020-02",
-        "revenue": 3298.63
-      }
-    },
-    {
-      "id": null,
-      "attributes": {
-        "month": "2020-03",
-        "revenue": 2892.76
-      }
-    }
-  ]
+    "data": [
+        {
+            "id": null,
+            "type": "weekly_revenue",
+            "attributes": {
+                "week": "2012-03-05",
+                "revenue": 14981117.170000013
+            }
+        },
+        {
+            "id": null,
+            "type": "weekly_revenue",
+            "attributes": {
+                "week": "2012-03-12",
+                "revenue": 18778641.380000062
+            }
+        },
+        {
+            "id": null,
+            "type": "weekly_revenue",
+            "attributes": {
+                "week": "2012-03-19",
+                "revenue": 19106531.87999994
+            }
+        },
+        {
+            "id": null,
+            "type": "weekly_revenue",
+            "attributes": {
+                "week": "2012-03-26",
+                "revenue": 4627284.439999996
+            }
+        }
+    ]
 }
 ```
