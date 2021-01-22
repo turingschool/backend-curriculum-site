@@ -49,8 +49,3 @@ Complete the following sections of the [W3Schools HTML5 Tutorial](https://www.w3
 1. [Form Elements](https://www.w3schools.com/html/html_form_elements.asp)
 1. [Input Types](https://www.w3schools.com/html/html_form_input_types.asp)
 1. [Input Attributes](https://www.w3schools.com/html/html_form_attributes.asp)
-
-
-### Know that these exist
-
-Read through all the other section under the "HTML5 Tutorial" section (everything up to "XHTML"). You do not need to do any exercises or checks for understanding, just know that these things exist. Spend no more than 30 minutes reading through these sections.
