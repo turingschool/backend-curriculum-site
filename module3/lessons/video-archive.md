@@ -15,9 +15,6 @@ We'll do our best to add videos to this list over time.
 
 ## Kickoff Meetings
 
-Module Kickoff
-* [2005 Cohort](https://vimeo.com/449077549/b4524552da)
-
 Week 2, Consultancy Ideation and Solo Project Kickoff
 * [Ian and Dione, 2006 Cohort, part 1 of 2](https://vimeo.com/469620874/af9045cc62)
 * [Ian and Dione, 2006 Cohort, part 2 of 2](https://vimeo.com/469620814/07802c0b12)
@@ -37,7 +34,7 @@ Week 2, Consultancy Ideation and Solo Project Kickoff
 ## APIs, Tooling and Testing
 
 Intro to Postman and Faraday
-* [Ian Douglas, 2008 Cohort]()
+* [Ian Douglas, 2008 Cohort](https://vimeo.com/487011923/aed5264461)
 * [Dione Wilson, 2006 Cohort](https://vimeo.com/465634409/53242dde2e)
 * [Ian Douglas, 2005 Cohort](https://vimeo.com/449074625/d13cf271f5)
 * [Dione Wilson, 2003 Cohort](https://vimeo.com/441936303/5a42f55a41)
@@ -120,6 +117,9 @@ jQuery DOM Traversal and Manipulation
 * [Dione Wilson, 2003 Cohort](https://vimeo.com/441944539/72f9a78438)
 
 jQuery and Bootstrap
+* Dione Wilson and Ian Douglas, 2008 Cohort
+  * [part 1, jQuery and Bootstrap](https://vimeo.com/505401433/e4edcae66e)
+  * [part 2, more Bootstrap](https://vimeo.com/505404267/9844d1d3dc)
 * [Dione Wilson and Ian Douglas, 2006 Cohort](https://vimeo.com/469619809/17198d9e2b)
 
 
@@ -132,13 +132,6 @@ Sending Email
 
 
 ## Gear Up and PD
-
-Gear Up
-* [Week 1, Developer Empathy and Code of Ethics; Ian Douglas, 2005 Cohort](https://vimeo.com/450267096/dd0b1bfa9d)
-* [Week 1, Developer Empathy and Code of Ethics; Ian Douglas, 2003 Cohort](https://vimeo.com/441940143/2cb38d9222)
-
-Career Development
-* ["Putting it All Together", Week 4; Ian Douglas, 2003 Cohort](https://vimeo.com/441953601/14fec97d65)
 
 PD Supplement: Company Research
 * [FE/BE Ian Douglas, 2008 Cohorts](https://vimeo.com/491332523/617a499019)
@@ -155,6 +148,7 @@ Data Structures & Algorithms
 
 
 Introduction to Big O Notation
+* [Combined FE/BE 2008, Ian Douglas](https://vimeo.com/500549601/c46e9a38cd)
 * [Combined FE/BE 2005, Ian Douglas](https://vimeo.com/454935670/de82b8741c)
 * [Back-End; Ian Douglas, 2003 Cohort](https://vimeo.com/441946493/ac1ef11de7)
 * [Front-End; Ian Douglas, 2003 Cohort](https://vimeo.com/441951062/1516a80c38)
