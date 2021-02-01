@@ -60,6 +60,11 @@ You can create as many columns on each table as you would like, but we need a fe
 1. One numeric column
 1. Two DateTime columns: created_at and updated_at
 
+A couple of things to keep in mind as you're designing your schema:
+
+* Foreign Keys do not count as an integer column
+* You should not create columns that duplicate data. For example, in Pets/Shelters, a Shelter should not store a "pet_count" column since the count of Pets can also be found by counting the number of associated pets
+
 **Schema Design will be reviewed at our first check-in**
 
 ## User Stories
