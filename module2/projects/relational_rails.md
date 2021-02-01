@@ -13,23 +13,13 @@ title: Relational Rails
 
 ## Requirements
 
-- must use Rails 5.2.4.3
+- must use Rails 5.2.4.x
 - must use PostgreSQL
 - must "handroll" all routes (no use of `resources` syntax)
-- must use `form_tag` for all forms (no use of `form_for`)
-
-## Permitted
-
-- use FactoryBot to speed up your test development
-- use "rails generators" to speed up your app development
-
-## Not Permitted
-
-- do not use JavaScript for pagination or sorting controls
 
 ## Permission
 
-- if there is a specific gem you'd like to use in the project, please get permission from your instructors first
+- if there is a specific gem you'd like to use in the project that is not mentioned in this project page, please get permission from your instructors first
 
 ## Rubric
 
@@ -48,12 +38,12 @@ title: Relational Rails
 
 ### Design your database  
 
-Do not use Parent/Child as your relationship
-
 Each person will come up with their own one to many relationship. This should represent a real world example of your choice. An example would be:
 - Shelters and Pets
 - A Shelter has many Pets
-- A Pet belongs to a Shelter.
+- A Pet belongs to one Shelter.
+
+Do not use Parent/Child as your relationship
 
 These relationships are yours to create, but we instructors are happy to provide feedback on the relationships if asked.
 
@@ -63,25 +53,23 @@ Here is an example diagram:
 
 ![Example Design](../misc/images/db_designer.png)
 
-```
-[ ] done
+You can create as many columns on each table as you would like, but we need a few columns represented on each table:
 
-Schema Design
+1. One string column for a 'name'
+1. One boolean column
+1. One numeric column
+1. Two DateTime columns: created_at and updated_at
 
-You can create as many columns on each table as you would like, but we need a few columns represented on at least one table:
-    1. One boolean column
-    2. One numeric column
-    3. Two DateTime columns
-
-Each table must have a name column
-```
 **Schema Design will be reviewed at our first check-in**
 
 ## User Stories
 
+In these stories, we will refer to the "one" side of the relationship as the "parent" and the "many" side of the relationship as the "children/child". In the Pets/Shelters example, Shelter would be the Parent and Pets would be the Children.
+
 ### CRUD Functionality
 
 #### Parent
+
 ```
 [ ] done
 
@@ -155,6 +143,7 @@ and I am redirected to the parent index page where I no longer see this parent
 ---
 
 #### Children
+
 Children can be associated to the Parent. Children belong to a parent.
 
 Anywhere you see `child_table_name` think `pets` from our Pets and Shelters example.
