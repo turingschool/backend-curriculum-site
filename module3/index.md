@@ -10,8 +10,8 @@ In Module 3, we will look beyond the basics of building Rails web applications w
 
 ## Instructors
 
-* Dione Wilson (Anchor)
-* Ian Douglas
+* Ian Douglas (Anchor)
+* Tim Tyrrell
 
 ## Curriculum
 
