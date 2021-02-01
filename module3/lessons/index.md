@@ -5,35 +5,35 @@ layout: page
 
 ## Authentication
 
-** [Introduction to Basic Authentication](./_intro_to_basic_auth)
-** [Sessions, Cookies, Authorization](./sessions_cookies_authorization)
-** [Introduction to OAuth](./intro_to_oauth)
+* [Introduction to Basic Authentication](./_intro_to_basic_auth)
+* [Sessions, Cookies, Authorization](./sessions_cookies_authorization)
+* [Introduction to OAuth](./intro_to_oauth)
 
 ## API Development
 
-** [Faraday and Postman](./faraday_and_postman)
-** [Testing Tools for API Consumption](./testing_tools_for_api_consumption)
-** [Refactoring API Consumption](./refactoring_api_consumption)
-** [Building an API in Rails](./building_a_rails_api)
-** [Customizing your API's JSON Output](./customizing_json)
+* [Faraday and Postman](./faraday_and_postman)
+* [Testing Tools for API Consumption](./testing_tools_for_api_consumption)
+* [Refactoring API Consumption](./refactoring_api_consumption)
+* [Building an API in Rails](./building_a_rails_api)
+* [Customizing your API's JSON Output](./customizing_json)
 
 ## ActiveRecord
 
-** Database Planning Workshop for Paired Project
-** [Advanced ActiveRecord](./advanced_activerecord)
+* Database Planning Workshop for Paired Project
+* [Advanced ActiveRecord](./advanced_activerecord)
 
 ## JavaScript and Front-End Development
 
-** [Introduction to JavaScript](./fundamental_javascript)
-** [jQuery DOM Traversal and Manipulation, HTML Layout in Bootstrap](./jquery_and_bootstrap)
+* [Introduction to JavaScript](./fundamental_javascript)
+* [jQuery DOM Traversal and Manipulation, HTML Layout in Bootstrap](./jquery_and_bootstrap)
 
 ## Other Topics
 
-** [Sending Email in Rails](./sending_email_in_rails)
-** [Data Structures and Algorithms](./data_structures_and_algorithms)
-** Introduction to Big O Notation
-** Company Research (PD Supplement)
-** README Workshop
+* [Sending Email in Rails](./sending_email_in_rails)
+* [Data Structures and Algorithms](./data_structures_and_algorithms)
+* Introduction to Big O Notation
+* Company Research (PD Supplement)
+* README Workshop
 
 ---
 
