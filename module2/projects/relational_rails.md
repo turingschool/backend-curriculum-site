@@ -166,7 +166,7 @@ Then I see each Child in the system including the Child's attributes:
 ```
 [ ] done
 
-User Story 7, Parent Childs Index (x2)
+User Story 7, Parent Children Index (x2)
 
 As a visitor
 When I visit '/parents/:parent_id/child_table_name'
@@ -181,23 +181,6 @@ User Story 8, Child Show (x2)
 As a visitor
 When I visit '/child_table_name/:id'
 Then I see the child with that id including the child's attributes:
-```
-
-```
-[ ] done
-
-User Story 9, Parent Child Creation (x2)
-
-As a visitor
-When I visit a Parent Childs Index page
-Then I see a link to add a new adoptable child for that parent "Create Child"
-When I click the link
-I am taken to '/parents/:parent_id/child_table_name/new' where I see a form to add a new adoptable child
-When I fill in the form with the child's attributes:
-And I click the button "Create Child"
-Then a `POST` request is sent to '/parents/:parent_id/child_table_name',
-a new child object/row is created for that parent,
-and I am redirected to the Parent Childs Index page where I can see the new child listed
 ```
 
 ```
@@ -230,7 +213,26 @@ the child is deleted,
 and I am redirected to the child index page where I no longer see this child
 ```
 
-**CRUD functionality will be reviewed at your first check-in**
+
+```
+[ ] done
+
+User Story 9, Parent Child Creation (x2)
+
+As a visitor
+When I visit a Parent Childs Index page
+Then I see a link to add a new adoptable child for that parent "Create Child"
+When I click the link
+I am taken to '/parents/:parent_id/child_table_name/new' where I see a form to add a new adoptable child
+When I fill in the form with the child's attributes:
+And I click the button "Create Child"
+Then a `POST` request is sent to '/parents/:parent_id/child_table_name',
+a new child object/row is created for that parent,
+and I am redirected to the Parent Childs Index page where I can see the new child listed
+```
+
+
+**CRUD functionality will be reviewed at your second check-in**
 
 ---
 
@@ -239,13 +241,12 @@ and I am redirected to the child index page where I no longer see this child
 ```
 [ ] done
 
-User Story 12, Records with a DateTime Column Automatically Sort by the Most Recently Created Records on Their Index Page (x2)
+User Story 12, Parent Index sorted by Most Recently Created (x2)
 
 As a visitor
-When I visit the '/parents' or '/child_table_name' index page for a parent or child table that has a DateTime column
-I see the most recently created records in order by recency from top to bottom
-I also see the DateTime(s) next to each of the records in a reasonably formatted manner
-
+When I visit the parent index,
+I see that records are ordered by most recently created first
+And next to each of the records I see when it was created
 ```
 
 ```
@@ -254,19 +255,18 @@ I also see the DateTime(s) next to each of the records in a reasonably formatted
 User Story 13, Parent Child Count (x2)
 
 As a visitor
-When I visit a parent's `child_table_name` index page
-I see a count of the number of `child_table_name` associated with this parent
+When I visit a parent's show page
+I see a count of the number of children associated with this parent
 ```
 
 ```
 [ ] done
 
-User Story 14, Boolean Column `true` Records are Displayed First on All Index Pages
+User Story 14, Child Index only shows `true` Records (x2)
 
 As a visitor
-When I visit the '/parents' or '/child_table_name' index page for a parent or child table that has a boolean column
-I see the records that have a `true` above/before the records that have a false
-
+When I visit the child index
+Then I only see records where the boolean column is `true`
 ```
 
 ```
@@ -284,18 +284,6 @@ Then I am brought back to the current index page with only the records that meet
 ```
 [ ] done
 
-User Story 16, Sort Parents by Number of Children (x2)
-
-As a visitor
-When I visit the Parents Index Page
-Then I see a link to sort parents by the number of `child_table_name` they have
-When I click on the link
-I'm taken back to the Parent Index Page where I see all of the parents in order of their count of `child_table_name` (highest to lowest) And, I see the number of children next to each parent name
-```
-
-```
-[ ] done
-
 User Story 17, Sort Parent's Children in Alphabetical Order by name (x2)
 
 As a visitor
@@ -304,8 +292,6 @@ Then I see a link to sort children in alphabetical order
 When I click on the link
 I'm taken back to the Parent's children Index Page where I see all of the parents in alphabetical order
 ```
-
-**ActiveRecord functionality will be reviewed at your first and second check-in**
 
 ---
 
@@ -413,6 +399,17 @@ Then I see a link to take me to that parent's `child_table_name` page ('/parents
 **Usability functionality will be reviewed at your second check-in**
 
 ## Extensions
+```
+[ ] done
+
+User Story 16, Sort Parents by Number of Children (x2)
+
+As a visitor
+When I visit the Parents Index Page
+Then I see a link to sort parents by the number of `child_table_name` they have
+When I click on the link
+I'm taken back to the Parent Index Page where I see all of the parents in order of their count of `child_table_name` (highest to lowest) And, I see the number of children next to each parent name
+```
 
 ```
 [ ] done
