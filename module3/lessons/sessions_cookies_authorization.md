@@ -3,23 +3,29 @@ title: Cart Implementation
 length: 120
 tags: cart, order
 ---
-<!-- Old lesson from Mod 2 -->
 
-## Goals
+## What Are You Allowed to Do?
 
-* represent a cart using a PORO in Rails
-  * Start thinking about opportunities for using POROs to extract logic from the controller.
-* use a `flash` to send messages to the view
+## Learning Goals
+
+* utilize Sessions in a Rails app
+* Utilize `helper_method` in ApplicationController for use in views and controllers
+* learn how cookies are transmitted to/from Rails
 * load an object to be used throughout the app using a `before_action` filter in the ApplicationController
 
-## Structure
 
-* Warm Up
-* Code-along
+## Objectives
+
+* Using a *helper_method* to access *current_user* in views after our user logs in
+* Creating *custom routes* to log out of our application
+* Creating and destroying a *session*
+
+
 
 ## Vocabulary
 * Session
 * PORO
+
 
 ## Video
 

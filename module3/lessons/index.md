@@ -3,59 +3,51 @@ title: Module 3 Curriculum
 layout: page
 ---
 
-## Consuming APIs
+## Authentication
 
-* [Intro to Postman and Faraday](./postman_and_faraday)
-* [Consuming APIs](./consuming_an_api)
-* [Testing Tools for API Consumption](./testing_tools_for_api_consumption)
+** [Introduction to Basic Authentication](./_intro_to_basic_auth)
+** [Sessions, Cookies, Authorization](./sessions_cookies_authorization)
+** [Introduction to OAuth](./intro_to_oauth)
 
-## Object Oriented Programming Principles, Advanced Programming Topics
+## API Development
 
-* [Abstraction and Encapsulation](./abstraction_and_encapsulation)
-* [Refactoring API Consumption](./refactoring_api_consumption)
-* [Data Structures and Algorithms](./data_structures_and_algorithms)
-* [Introduction to Big O Notation]() (coming soon!)
-
-## Exposing APIs
-
-* [Building an API in Rails](./building_an_api)
-* [Customizing JSON in your API](./customizing_json)
+** [Faraday and Postman](./faraday_and_postman)
+** [Testing Tools for API Consumption](./testing_tools_for_api_consumption)
+** [Refactoring API Consumption](./refactoring_api_consumption)
+** [Building an API in Rails](./building_a_rails_api)
+** [Customizing your API's JSON Output](./customizing_json)
 
 ## ActiveRecord
 
-* [Advanced ActiveRecord](./advanced_activerecord)
+** Database Planning Workshop for Paired Project
+** [Advanced ActiveRecord](./advanced_activerecord)
 
-## Optimization
+## JavaScript and Front-End Development
 
-* [Intro to Optimization](./optimization)
-  * [Caching](./caching_in_rails)
-  * [Background Workers](./background_workers)
-  * [Optimization Dojo](./performance_dojo)
+** [Introduction to JavaScript](./fundamental_javascript)
+** [jQuery DOM Traversal and Manipulation, HTML Layout in Bootstrap](./jquery_and_bootstrap)
 
-## Authentication
+## Other Topics
 
-* [Basic Authentication Review](./basic_auth_review)
-* [Getting Started with OAuth](./oauth)
-
-## JavaScript
-
-* [Introduction to JavaScript](./fundamental_javascript)
-* [jQuery DOM Traversal and Manipulation, HTML Layout in Bootstrap](./jquery_and_dom)
-
-## Email
-
-* [Sending Email in Rails](./actionmailer)
+** [Sending Email in Rails](./sending_email_in_rails)
+** [Data Structures and Algorithms](./data_structures_and_algorithms)
+** Introduction to Big O Notation
+** Company Research (PD Supplement)
+** README Workshop
 
 ---
 
 ## Additional Exploration Topics & Resources
 
-* [Application Coordination with Message Queues](./application_coordination_with_message_queues)
-* [Hash Functions - MD5 and SHA-256](./hash_functions)
-* [Understanding Namespacing](./namespacing)
-* [Fundamental Rails Security](./fundamental_rails_security)
-* [Environments and Continuous Integration](./environments_and_ci)
-* [Running Production Locally](./running_production_locally)
-* [Presenters and Decorators](./presenters_and_decorators)
-* [Application Coordination with Messaging Queues](./application_coordination_with_message_queues)
-* [Intro to JavaScript AJAX Fetch](./fetch_in_javascript)
+* [Review of Abstraction and Encapsulation](../archive/lessons/abstraction_and_encapsulation)
+* [Application Coordination with Message Queues](../archive/lessons/application_coordination_with_message_queues)
+* [Hash Functions - MD5 and SHA-256](../archive/lessons/hash_functions)
+* [Understanding Namespacing](../archive/lessons/namespacing)
+* [Fundamental Rails Security](../archive/lessons/fundamental_rails_security)
+* [Environments and Continuous Integration](../archive/lessons/environments_and_ci)
+* [Running Production Locally](../archive/lessons/running_production_locally)
+* [Presenters and Decorators](../archive/lessons/presenters_and_decorators)
+* [Application Coordination with Messaging Queues](../archive/lessons/application_coordination_with_message_queues)
+* [Intro to JavaScript AJAX Fetch](../archive/lessons/fetch_in_javascript)
+
+A full archive of lesson plans (not necessarily up to date with Rails 5.2!) can be found [on GitHub](https://github.com/turingschool/backend-curriculum-site/tree/gh-pages/module3/archive/lessons)

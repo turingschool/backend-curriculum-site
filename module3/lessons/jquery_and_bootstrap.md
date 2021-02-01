@@ -1,5 +1,5 @@
 ---
-title: jQuery Intro - DOM Traversal, Manipulation, and Events
+title: jQuery Intro, DOM Traversal, Bootstrap styling
 length: 180
 tags: jquery, javascript
 ---
