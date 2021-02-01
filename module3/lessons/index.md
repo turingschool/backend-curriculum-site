@@ -5,7 +5,7 @@ layout: page
 
 ## Authentication
 
-* [Introduction to Basic Authentication](./_intro_to_basic_auth)
+* [Introduction to Basic Authentication](./intro_to_basic_auth)
 * [Sessions, Cookies, Authorization](./sessions_cookies_authorization)
 * [Introduction to OAuth](./intro_to_oauth)
 
