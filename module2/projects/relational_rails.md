@@ -186,7 +186,7 @@ Then I see the child with that id including the child's attributes:
 ```
 [ ] done
 
-User Story 10, Child Update (x2)
+User Story 9, Child Update (x2)
 
 As a visitor
 When I visit a Child Show page
@@ -202,7 +202,7 @@ and I am redirected to the Child Show page where I see the Child's updated infor
 ```
 [ ] done
 
-User Story 11, Child Delete (x2)
+User Story 10, Child Delete (x2)
 
 As a visitor
 When I visit a child show page
@@ -217,7 +217,7 @@ and I am redirected to the child index page where I no longer see this child
 ```
 [ ] done
 
-User Story 9, Parent Child Creation (x2)
+User Story 11, Parent Child Creation (x2)
 
 As a visitor
 When I visit a Parent Childs Index page
@@ -272,10 +272,10 @@ Then I only see records where the boolean column is `true`
 ```
 [ ] done
 
-User Story 15, Display Records Over a Given Threshold if the Records Have a Numeric Column
+User Story 15, Display Records Over a Given Threshold (x2)
 
 As a visitor
-When I visit the '/parents' or '/child_table_name' index page for any parent or child table that has a numeric column
+When I visit the Parent's children Index Page
 I see a form that allows me to input a number value
 When I input a number value and click the submit button that reads 'Only return records with more than `number` of `column_name`'
 Then I am brought back to the current index page with only the records that meet that threshold shown.
@@ -284,7 +284,7 @@ Then I am brought back to the current index page with only the records that meet
 ```
 [ ] done
 
-User Story 17, Sort Parent's Children in Alphabetical Order by name (x2)
+User Story 16, Sort Parent's Children in Alphabetical Order by name (x2)
 
 As a visitor
 When I visit the Parent's children Index Page
@@ -302,13 +302,13 @@ Users should be able to use the site easily. This means making sure there are li
 ```
 [ ] done
 
-User Story 18, Parent Update From Parent Index Page (x1)
+User Story 18, Parent Update From Parent Index Page (x2)
 
 As a visitor
 When I visit the parent index page
 Next to every parent, I see a link to edit that parent's info
 When I click the link
-I should be taken to that parents edit page where I can update its information just like in User Story 5
+I should be taken to that parents edit page where I can update its information just like in User Story 4
 ```
 
 ```
@@ -349,27 +349,7 @@ I should be taken to the `child_table_name` index page where I no longer see tha
 ```
 [ ] done
 
-User Story 22, Parent Links
-
-As a visitor
-When I click on the name of a parent anywhere on the site
-Then that link takes me to that Parent's show page
-```
-
-```
-[ ] done
-
-User Story 23, Child Links
-
-As a visitor
-When I click on the name a child anywhere on the site
-Then that link takes me to that Child's show page
-```
-
-```
-[ ] done
-
-User Story 24, Child Index Link
+User Story 22, Child Index Link
 
 As a visitor
 When I visit any page on the site
@@ -379,7 +359,7 @@ Then I see a link at the top of the page that takes me to the Child Index
 ```
 [ ] done
 
-User Story 25, Parent Index Link
+User Story 23, Parent Index Link
 
 As a visitor
 When I visit any page on the site
@@ -389,20 +369,18 @@ Then I see a link at the top of the page that takes me to the Parent Index
 ```
 [ ] done
 
-User Story 26, Parent Child Index Link
+User Story 24, Parent Child Index Link
 
 As a visitor
 When I visit a parent show page ('/parents/:id')
 Then I see a link to take me to that parent's `child_table_name` page ('/parents/:id/child_table_name')
 ```
 
-**Usability functionality will be reviewed at your second check-in**
-
 ## Extensions
 ```
 [ ] done
 
-User Story 16, Sort Parents by Number of Children (x2)
+Sort Parents by Number of Children (x2)
 
 As a visitor
 When I visit the Parents Index Page
@@ -414,7 +392,7 @@ I'm taken back to the Parent Index Page where I see all of the parents in order 
 ```
 [ ] done
 
-User Story 27, Search by name (exact match)
+Search by name (exact match)
 
 As a visitor
 When I visit an index page ('/parents') or ('/child_table_name')
@@ -426,7 +404,7 @@ Then I only see records that are an exact match returned on the page
 ```
 [ ] done
 
-User Story 28, Search by name (partial match)
+Search by name (partial match)
 
 As a visitor
 When I visit an index page ('/parents') or ('/child_table_name')
