@@ -36,6 +36,7 @@ Use Postico to do the following:
 * View all `tasks`
 * Add some new rows to your tasks table
 * Change one of the attributes of a task
+* Delete any new rows that you made
 * Execute the following SQL queries
     * Retrieve all Tasks
     * Retrieve all Tasks with a title of "Laundry"
@@ -67,6 +68,7 @@ If you complete the activity and answer the follow up questions, try to execute 
 
 ## Rails Console Activity
 
+1. First, open Postico and double check that you have deleted any tasks you made during the Postico Activity
 1. In TaskManager, open up the Rails console by running `rails c` from the command line (make sure that you navigate to your TaskManager repo first)
 1. Open up your `Tasks` table in Postico. Now run `tasks = Task.all` in your Rails console. Is this what you would expect? What type of object is returned from this method call? What SQL query do you see in the Rails Console after running this command? Now run `Task.all.to_sql`. How does this compare to the SQL command you saw in the Rails Console?
 1. In the Rails Console, run `Task.create(title: "Laundry", description: "Clean the clothes")`. Now open up the Tasks table in Postico. Do you see your new Task? If not, try to refresh your table. What SQL query do you see in the Rails Console after running this command? What does the `create` method do?
