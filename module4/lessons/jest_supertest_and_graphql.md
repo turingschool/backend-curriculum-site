@@ -102,6 +102,38 @@ In Rails, we have RSpec--or less often, MiniTest--, in Node we have...lots of op
 $ npm install --save-dev jest
 $ npm install --save-dev supertest
 ```
-Here, the `save-dev` flag puts these libraries into our development dependencies; that is, they won't be compiled and added to our production JS build.
+Here, the `save-dev` flag puts these libraries into our development dependencies; that is, they won't be compiled and added to our production JS build. We can see this in our `package.json` file:
+```js
+ ...,
+  "devDependencies": {
+    "@babel/cli": "7.11.6",
+    "@babel/core": "7.11.6",
+    "@babel/node": "7.10.5",
+    "@babel/plugin-transform-runtime": "7.11.5",
+    "@babel/preset-env": "7.11.5",
+    "jest": "^26.6.3",
+    "nodemon": "2.0.4",
+    "supertest": "^6.0.1"
+  },
+ ...
+```
+Alright, now we have our testing libraries installed, so let's write a test! In Node applications, you will traditionally see specs nested within the actual code directories themselves, as opposed to a seperated directory like `spec` in Rails. This is all up to you on how you want to structure your spec files, but for this exercise, lets add them directly to our code. Our file structure will end up looking like this:
+```
+ code
+  | api
+    | src
+      | modules
+        | <module_name>
+          | tests
+            | our tests
+```
+Jest will look for any file that ends with `.test.js`, so we can begin with our User model and test there.
 
+```
+ $ cd code/api/src/modules/user
+ $ mkdir tests
+ $ cd tests
+ $ touch query.test.js
+```
+Open that file and we will write a spec for our `getAll` users query.
 
