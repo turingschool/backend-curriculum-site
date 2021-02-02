@@ -75,7 +75,7 @@ Ruby has other methods that allow you to manipulate arrays. We will learn more a
 
 ## Transform Every Element
 
-Often, you will have a collection of objects that you need to transform, or map, into a new collection.  For example, if you had the array `['kat', 'tim', 'mike']` and you needed the array `['Kat', 'Tim', 'Mike']` you could use \#each to accomplish this goal.  Let's open a playground.rb file and take a look:
+Often, you will have a collection of objects that you need to transform, or map, into a new collection.  For example, if you had the array `['mike', 'bob', 'megan']` and you needed the array `['Mike', 'Bob', 'Megan']` you could use \#each to accomplish this goal.  Let's open a playground.rb file and take a look:
 
 ```ruby
 #playground.rb
