@@ -25,7 +25,7 @@ tags: migrations, databases, relationships, rails, activerecord
 
 ## Set Up
 
-This lesson builds off of the [Feature Testing Lesson](https://backend.turing.io/module2/lessons/feature_testing). You can find the completed code from this lesson on the `feature_testing` branch of [this repo](https://github.com/turingschool-examples/set_list/tree/feature_testing)
+This lesson builds off of the [Feature Testing Lesson](./feature_testing). You can find the completed code from this lesson on the `feature_testing` branch of [this repo](https://github.com/turingschool-examples/set_list/tree/feature_testing)
 
 
 ## Models, Migrations, and Databases in Rails
@@ -285,6 +285,44 @@ Now that a `song` **belongs to** an `artist`, a `song` can not exist without an 
   ```
 
 Before we move on, let's make sure to circle back and add a relationship validation to `Song`. You may also need to adjust your setup section of your `song_spec.rb` if you already have one.
+
+## Seeds
+
+Now that our App is getting more complex, it would be good to add some seeds. Seeding your database is when you insert a set of data into the database. It is useful to have some seed data when we are experimenting and developing. You could consider what we've done in the Rails Console so far as a type of seeding, but doing things manually in the Rails Console can get very tedious, so what we will do instead is write a script to seed our database that we can reuse. Rails comes with a file for us to write this script in `db/seeds.rb`. Open up that file and add the following:
+
+```ruby
+Song.destroy_all
+Artist.destroy_all
+
+prince = Artist.create!(name: 'Prince')
+rtj = Artist.create!(name: 'Run The Jewels')
+caamp = Artist.create!(name: 'Caamp')
+jgb = Artist.create!(name: 'Jerry Garcia Band')
+billie = Artist.create!(name: 'Billie Eilish')
+lcd = Artist.create!(name: 'LCD Soundsystem')
+
+prince.songs.create!(title: 'Raspberry Beret', length: 345, play_count: 34)
+prince.songs.create!(title: 'Purple Rain', length: 524, play_count: 19)
+
+rtj.songs.create!(title: 'Legend Has It', length: 2301, play_count: 2300000)
+rtj.songs.create!(title: 'Talk to Me', length: 2301, play_count: 2300000)
+
+caamp.songs.create!(title: '26', length: 940, play_count: 150000)
+caamp.songs.create!(title: 'Vagabond', length: 240, play_count: 120000)
+
+jgb.songs.create!(title: 'Aint No Bread In The Breadbox', length: 540, play_count: 12000)
+jgb.songs.create!(title: 'The Harder They Come', length: 240, play_count: 120000)
+
+billie.songs.create!(title: 'bury a friend', length: 340, play_count: 1200000)
+billie.songs.create!(title: 'bad guy', length: 240, play_count: 100000)
+
+lcd.songs.create!(title: 'Someone Great', length: 500, play_count: 1000000)
+lcd.songs.create!(title: 'I Can Change', length: 640, play_count: 100000)
+```
+
+Now that we have our seeds file, we can run it with `rails db:seed`. Additionally, if we check this file into our version control system, other developers working on this app will be able to easily seed their local databases.
+
+Notice that the first two lines of this seeds file will destroy all Songs and Artists from the database. The reason we want to do this is so that we know we are starting with an empty database every time we want to reseed our database. If we did not have these two lines, this script would create duplicate records every time we reran `rails db:seed`.
 
 ## Adding Behaviors to Models
 
