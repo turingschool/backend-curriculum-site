@@ -25,7 +25,7 @@ tags: migrations, databases, relationships, rails, activerecord
 
 ## Set Up
 
-This lesson builds off of the [Feature Testing Lesson](https://backend.turing.io/module2/lessons/feature_testing). You can find the completed code from this lesson on the `feature_testing` branch of [this repo](https://github.com/turingschool-examples/set_list/tree/feature_testing)
+This lesson builds off of the [Feature Testing Lesson](./feature_testing). You can find the completed code from this lesson on the `feature_testing` branch of [this repo](https://github.com/turingschool-examples/set_list/tree/feature_testing)
 
 
 ## Models, Migrations, and Databases in Rails

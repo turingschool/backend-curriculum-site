@@ -13,7 +13,7 @@ layout: page
 
 ## Setup
 
-This lesson builds off of the [Feature Testing Lesson](https://backend.turing.io/module2/lessons/feature_testing). You can find the completed code from this lesson on the `ar_associations` branch of [this repo](https://github.com/turingschool-examples/set_list/tree/feature_testing)
+This lesson builds off of the [ActiveRecord Associations Lesson](./active_record_associations). You can find the completed code from this lesson on the `ar_associations` branch of [this repo](https://github.com/turingschool-examples/set_list/tree/ar_associations)
 
 ## Gems
 

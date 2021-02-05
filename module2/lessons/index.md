@@ -19,6 +19,7 @@ layout: page
 * [Intro to MVC](./intro_to_mvc)
 * [Handling Requests](./handling_requests)
 * [ActiveRecord Associations](./active_record_associations)
+* [ActiveRecord Associations with TDD](./active_record_associations_tdd)
 * [Passing Data in Rails](./passing_data_in_rails)
 * [MVC in Action](./mvc_in_action)
 * [Nested Resources in Rails](./nested_resources)

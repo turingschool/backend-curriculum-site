@@ -20,7 +20,7 @@ tags: migrations, databases, relationships, rails, activerecord
 
 ## Set Up
 
-This lesson builds off of the [Handling Requests Lessons](https://backend.turing.io/module2/lessons/handling_requests). You can find the completed code from this lesson on the `handling_requests` branch of [this repo](https://github.com/turingschool-examples/set_list/tree/handling_requests)
+This lesson builds off of the [Handling Requests Lessons](./handling_requests). You can find the completed code from this lesson on the `handling_requests` branch of [this repo](https://github.com/turingschool-examples/set_list/tree/handling_requests)
 
 ## TDD Version
 
