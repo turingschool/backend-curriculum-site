@@ -11,6 +11,10 @@ layout: page
     * What do they type?
 * What does a user expect when visiting the Songs index?
 
+## Setup
+
+This lesson builds off of the [Feature Testing Lesson](https://backend.turing.io/module2/lessons/feature_testing). You can find the completed code from this lesson on the `ar_associations` branch of [this repo](https://github.com/turingschool-examples/set_list/tree/feature_testing)
+
 ## Gems
 
 Add the following Gems to your Gemfile. Since these are all testing/debugging tools, we will add them inside the existing `group :development, :test` block:
