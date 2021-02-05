@@ -23,6 +23,10 @@ tags: migrations, databases, relationships, rails, activerecord
 * What are some things that we can do with a migration?
 * What is the relationship between a migration and our database?
 
+## Set Up
+
+This lesson builds off of the [Feature Testing Lesson](https://backend.turing.io/module2/lessons/feature_testing). You can find the completed code from this lesson on the `handling_requests` branch of [this repo](https://github.com/turingschool-examples/set_list/tree/feature_testing)
+
 
 ## Models, Migrations, and Databases in Rails
 
