@@ -187,7 +187,7 @@ What is the height (aka the maximum depth) of the tree?
 
 ```ruby
 tree.height
-# => 3
+# => 4
 ```
 
 
