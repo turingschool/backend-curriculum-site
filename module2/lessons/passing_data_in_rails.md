@@ -26,6 +26,10 @@ When I visit ‘/artists’
 I see a list of all artist names
 ```
 
+## Setup
+
+This lesson builds off of the [Model Testing Lesson](./model_testing). You can find the completed code from this lesson on the `model_testing` branch of [this repo](https://github.com/turingschool-examples/set_list/tree/model_testing)
+
 ## Getting Data from Users
 
 There are three ways that we get information from users in order to manipulate things in our application:
