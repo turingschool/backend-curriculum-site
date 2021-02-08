@@ -84,8 +84,10 @@ CREATE DATABASE
 Great! Now we have a test db, so let's add some data to it:
 
 ```bash
-$ NODE_ENV=test npm setup:db
+$ NODE_ENV=test npm run setup:db
 ```
+*Note*: We use `NODE_ENV=test` here to tell our node runtime that we want this script to exectute in the context of our `TEST ENV`. In Rails, we can accomplish the same thing via:`$ RAILS_ENV=test <SOME TASK>`.
+
 If we look at our `package.json` file, we will notice a `scripts` block. You can think of these like `Rake` commands. So, anything in here we can run via `npm`. Now that we have migrated our test db and added some data to it, we should make sure it worked:
 ```bash
 $ psql crate_testing
@@ -137,7 +139,9 @@ Jest will look for any file that ends with `.test.js`, so we can begin with our 
 ```
 Open that file and we will setup Jest and Supertest with our Mock Server.
 
-In order for Supertest to connect to our `graphql` schema, we will need to set up a mock server. If we look in `code/api/src/setup/graphql.js`, we will see how we are setting up our schema with express:
+In order for Supertest to connect to our `graphql` schema, we will need to set up a mock server. We can basically think of a mock server as a way for us to run our `NODE Api` for our specs. In development, we can do this by running: `$ npm run start server`.
+
+ If we look in `code/api/src/setup/graphql.js`, we will see how we are setting up our schema with express:
 
 ```js
 import graphqlHTTP from 'express-graphql'
@@ -206,7 +210,7 @@ As a final step, we can update our `package.json` file to run a `jest test watch
 ```
 Now, from the command line run:
 ```bash
-$ yarn test
+$ npm run test
 ```
 and jest will watch for changes to our test files, and run the specs each time.
 
