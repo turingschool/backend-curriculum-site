@@ -40,7 +40,7 @@ And I do not see a link to 'Log In'
 
 If the `session` hash and/or how to use it is unclear, revisit this [reading](http://www.theodinproject.com/courses/ruby-on-rails/lessons/sessions-cookies-and-authentication).  Also, remember that you have access to the session information in the view, if you need it (hint hint). If it is still unclear after reading the documentation, ask for help from a cohortmate or staff member.
 
-Also, the form that you will use to 'log in' will not deal with creating or editing resources in our database as we have done previously with `form_for`, so you will need a new tool - `form_tag`.  Explore how to use `form_tag` on the [rails guides](https://guides.rubyonrails.org/form_helpers.html#dealing-with-basic-forms).
+Also, the form that you will use to 'log in' will not deal with creating or editing resources in our database as we have done previously with `form_with`, so you will need a new tool - `form_tag`.  Explore how to use `form_tag` on the [rails guides](https://guides.rubyonrails.org/form_helpers.html#dealing-with-basic-forms).
 
 *Note*: there's not many agreed upon RESTful routing conventions for logging in/logging out. I suggest having a `UsersController` that handles registering a new user (so `new` and `create` actions) and a `SessionsController` to handle logging in and logging out.
 
