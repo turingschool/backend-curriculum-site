@@ -6,19 +6,19 @@ length: 180
 
 ## Learning Goals
 * Understand how a user specifies a particular resource for a show page
-* Implement `form_tag` to create a new resource
-* Implement `form_tag` to update a new resource
+* Implement `form_with` to create a new resource
+* Implement `form_with` to update a new resource
 * Implement `link_to` to destroy a resource
 * Define Query Parameters
 
 ## Vocabulary
-* `form_tag`
+* `form_with`
 * `link_to`
 * query parameters
 
 ## WarmUp
 
-* With a partner, complete the following User Story: 
+* With a partner, complete the following User Story:
 
 ```
 As a visitor
@@ -250,34 +250,32 @@ Looking back at your Task Manager from the intermission work, we see a form that
 </form>
 ```
 
-We could use this same form structure to build out our new artist form; but, wouldn't it be nice if rails gave us some help so we didn't have to build this form by hand?  The good news is, it does!  Rails gives us `form_tag` to help us build forms:
+We could use this same form structure to build out our new artist form; but, wouldn't it be nice if rails gave us some help so we didn't have to build this form by hand?  The good news is, it does!  Rails gives us `form_with` to help us build forms:
 
 
 ```erb
-<%= form_tag '/artists' do %>
-  <%= label_tag :name %>
-  <%= text_field_tag :name %>
-
-  <%= submit_tag 'Create Artist' %>
+<%= form_with url: "/artists", method: :post do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <%= form.submit 'Create Artist' %>
 <% end %>
 ```
 
 Much simpler, right? But do we still have all the information we need? Let's break it down, line by line.
 
-The first line in our HTML form for tasks `<form action="/tasks" method="post">` tells the form the verb and path it should request when the form is submitted.  In `form_tag`, Rails assumes that you are making a `POST` request to the path provided as an argument to the form_for method; in this case, '/artists'.
+The first line in our HTML form for tasks `<form action="/tasks" method="post">` tells the form the verb and path it should request when the form is submitted.  In `form_with`, we use the `url:` and `method:` keyword arguments to tell the form what verb/path to use.
 
-The next line, `<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">`, is a security setting that Rails requires on all forms, and `form_tag` gives us this out of the box.
+The next line, `<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">`, is a security setting that Rails requires on all forms, and `form_with` gives us this out of the box.
 
 The next three lines set up what a user sees in and around an input area, and the button to submit the form.  These three lines are replaced with:
 
 ```erb
-<%= label_tag :name %>
-<%= text_field_tag :name %>
-
-<%= submit_tag 'Create Artist' %>
+<%= form.label :name %>
+<%= form.text_field :name %>
+<%= form.submit 'Create Artist' %>
 ```
 
-Now that we have a better understanding of `form_tag`, let's run our test and we should be getting the following error:
+Now that we have a better understanding of `form_with`, let's run our test and we should be getting the following error:
 
 ```
 Failure/Error: click_on 'Create Artist'
@@ -287,7 +285,7 @@ ActionController::RoutingError:
 # ./spec/features/songs/index_spec.rb:26:in `block (4 levels) in <top (required)>'
 ```
 
-What does this mean?  It means that rails is trying to build a form to post to a route that doesn't exist. So, let's go make that route:
+What does this mean?  It means that we are trying to submit a form to a route that doesn't exist. So, let's go make that route:
 
 ```ruby
 Rails.application.routes.draw do
@@ -335,32 +333,42 @@ class ArtistsController < ApplicationController
   end
 
   def create
-    Artist.create(artist_params)
-  end
-
-  private
-  def artist_params
-    params.permit(:name)
+    Artist.create(name: params[:name])
   end
 end
 ```
 
-Woah, where did this `artist_params` method come from?  Why couldn't we just use `Artist.create(params)`?  Let's try it and see what happens... errors!  Take a closer look at that `params` object, using a `binding.pry` - at the very end, you will see `permitted: false`.  This means that we cannot use the params 'hash' directly to create or update records in our database. Rails is trying to protect us from malicious users by not allowing us to drop our `params[:artist]` sub-hash directly into a new object in our database, so we need to create a method that is often referred to as **strong params** to effectively use the information we are getting from our form to create a new object.
-
-Go ahead and run the test again, and let's see if we've got a passing test. Not yet - we need to tell our create action where to redirect to after creating the artist!  Based on our User Story, we want it to redirect to the artists index page, so let's add the following to make that happen:
+Go ahead and run the test again, and let's see if we've got a passing test. Not yet - we should get an error `Unable to find xpath "/html"`. This is capybara telling us that it's not seeing any HTML. This is because we need to tell our create action where to redirect to after creating the artist!  Based on our User Story, we want it to redirect to the artists index page, so let's add the following to make that happen:
 
 ```ruby
-# app/controllers/artists_controller.rb
-
 class ArtistsController < ApplicationController
-  def index
-  end
-
   def new
   end
 
   def create
-    artist = Artist.create(artist_params)
+    Artist.create(name: params[:name])
+    redirect_to '/artists'
+  end
+end
+```
+
+And now our test should be passing!
+
+Let's do a little bit of refactoring before we call this feature complete. As an experiment try to replace the line in the controller `Artist.create(name: params[:name])` with `Artist.create(params)`. We should get a `ForbiddenAttributesError`. Take a closer look at that `params` object, using a `binding.pry` - at the very end, you will see `permitted: false`.  This means that we cannot use the params 'hash' directly to create or update records in our database. Rails is trying to protect us from malicious users by not allowing us to drop our all of our params directly into a new object that will be saved into our database, so we need to be explicit about which params we are accepting. The syntax `Artist.create(name: params[:name])` will do that, but as our objects get more complex this syntax will get very verbose. Imagine if an artist also had a hometown, years active, genre, etc. The syntax would look like:
+
+```ruby
+Artist.create(name: params[:name], hometown: params[:hometown], years_active: params[:years_active], genre: params[:genre])
+```
+
+Rather than this long syntax, rails gives us a much nicer way to do this called **strong params**:
+
+```ruby
+class ArtistsController < ApplicationController
+  def new
+  end
+
+  def create
+    Artist.create(artist_params)
     redirect_to '/artists'
   end
 
@@ -371,17 +379,8 @@ class ArtistsController < ApplicationController
 end
 ```
 
-```ruby
-# config/routes.rb
-Rails.application.routes.draw do
+Using strong params, we create a new method that will pull out the parameters we need from our params hash. Put a `pry` into the `create` action and call this new `artist_params` method. What does this return? How does this compare with the `params` object?
 
-  get '/songs', to: 'songs#index'
-  get '/songs/:id', to: 'songs#show'
-  get '/artists', to: 'artists#index'
-  get '/artists/new', to: 'artists#new'
-  post '/artists', to: 'artists#create'
-end
-```
 
 We are getting so close!  Run our tests again, and you will see that capybara is unable to find that new artist's information on the index page.  Let's make sure we are displaying that information:
 
@@ -395,7 +394,7 @@ We are getting so close!  Run our tests again, and you will see that capybara is
 
 And since we are iterating over `@artists`, we will need to define that in our `artists#index` action as `@artists = Artist.all`
 
-Your test should now be passing - you have successfully created a new object with `form_tag`!
+Your test should now be passing - you have successfully created a new object with `form_with`!
 
 ## Destroying an Artist
 
@@ -506,7 +505,7 @@ Now, we should have a passing test!
 
 ## Edit Artist Form
 
-Now that we have created an artist with `form_tag`, and used a button to send a `DELETE` request (overriding its default method), we are ready to tackle updating an artist using form_tag.  Thinking back to the explanation of form_tag, we know that it will always default to making a `POST` request, but when updating something in our database, the common verb that we use is `PATCH`.  Keep this in mind as you build out the following user story and test:
+Now that we have created an artist with `form_with`, and used a button to send a `DELETE` request (overriding its default method), we are ready to tackle updating an artist using `form_with`.  Thinking back to the explanation of form_with, we know will have to specify the HTTP verb, and when updating something in our database, the common verb that we use is `PATCH`.  Keep this in mind as you build out the following user story and test:
 
 ```
 As a visitor
@@ -554,7 +553,7 @@ See if you can get this test passing without looking at the hint below.
 <br>
 
 
-Hint: The first line of your form will likely include something like this `form_tag "/artists/#{@artist.id}", method: :patch`
+Hint: The first line of your form will likely include something like this `form_with url: "/artists/#{@artist.id}", method: :patch`
 
 If you haven't quite been able to make this update work, check in with your instructor's repo later today - we will post a solution for updating an artist.
 
@@ -582,5 +581,5 @@ Now, our params include the key/value pair from the query params and we can use 
 ## Checks for Understanding
 
 1. What is the syntax for creating a route for a show page for a `zebra` resource?
-1. How does `form_tag` know what method/path combination to use when submitted?
+1. How does `form_with` know what method/path combination to use when submitted?
 1. What is a query parameter, and how do we identify one within a URL?
