@@ -78,7 +78,7 @@ Type "help" for help.
 <YOUR_NAME_OR_POSTGRES_USER_NAME>=# CREATE DATABASE crate_testing;
 CREATE DATABASE
 \l; # <= Check to make sure the DB was created
-<A LIST OF DATABSES>
+<A LIST OF DATABASES>
 \q # <= Quit psql
 ```
 Great! Now we have a test db, so let's add some data to it:
@@ -129,11 +129,85 @@ Alright, now we have our testing libraries installed, so let's write a test! In 
 ```
 Jest will look for any file that ends with `.test.js`, so we can begin with our User model and test there.
 
-```
+```bash
  $ cd code/api/src/modules/user
  $ mkdir tests
  $ cd tests
  $ touch query.test.js
 ```
-Open that file and we will write a spec for our `getAll` users query.
+Open that file and we will setup Jest and Supertest with our Mock Server.
 
+In order for Supertest to connect to our `graphql` schema, we will need to set up a mock server. If we look in `code/api/src/setup/graphql.js`, we will see how we are setting up our schema with express:
+
+```js
+import graphqlHTTP from 'express-graphql'
+
+// App Imports
+import serverConfig from '../config/server.json'
+import authentication from './authentication'
+import schema from './schema'
+
+// Setup GraphQL
+export default function (server) {
+  console.info('SETUP - GraphQL...')
+
+  server.use(authentication)
+
+  // API (GraphQL on route `/`)
+  server.use(serverConfig.graphql.endpoint, graphqlHTTP(request => ({
+    schema,
+    graphiql: serverConfig.graphql.ide,
+    pretty: serverConfig.graphql.pretty,
+    context: {
+      auth: {
+        user: request.user,
+        isAuthenticated: request.user && request.user.id > 0
+      }
+    }
+  })))
+}
+```
+So, in order for our specs, we need to do something similiar. So, let's do just that in `code/api/src/modules/user/tests/query.test.js`:
+
+```js
+import request from 'supertest'; # import request library from supertest
+import express from 'express'; # import express so we can create a mock server
+import graphqlHTTP from 'express-graphql'; # import graphqlHTTP express library
+import schema from '../../../setup/schema'; # import our graphql schema
+
+# we create describe functions similar to RSpec
+describe('user queries', async (done) => {
+  let server = express();
+  # beforeAll executes before all of our specs
+  beforeAll(() => {
+    server.use(
+      "/",
+      graphqlHTTP({
+        schema: schema,
+        graphiql: false
+      })
+    );
+  })
+  // A quick spec to make sure everything is wired up correctly.
+  it('is true', () => {
+    expect(true).toBe(true)
+  })
+}
+```
+
+As a final step, we can update our `package.json` file to run a `jest test watcher`:
+```js
+  "scripts": {
+    ...
+    "test": "jest --watch"
+},
+ ...
+
+```
+Now, from the command line run:
+```bash
+$ yarn test
+```
+and jest will watch for changes to our test files, and run the specs each time.
+
+Now, we have our test setup complete and should be able to write specs against our `graphql` endpoints!
