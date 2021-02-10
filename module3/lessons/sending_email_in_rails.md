@@ -138,7 +138,7 @@ class FriendNotifierMailer < ApplicationMailer
 end
 ```
 
-Notice that in our call to `mail()` that we're setting a reply-to email address of our user. This allows the recipient to hit 'reply' on an email and their response will go back to our user, not to our "default" email address of "friendly@advice.io"
+Notice that in our call to [mail()](https://apidock.com/rails/ActionMailer/Base/mail) that we're setting a reply-to email address of our user. This allows the recipient to hit 'reply' on an email and their response will go back to our user, not to our "default" email address of "friendly@advice.io"
 
 Next we'll make the views that will have the body of the email that is sent. Similar to controllers, any instance variables you create in your mailer method will be available in your mailer view.
 
