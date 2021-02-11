@@ -247,7 +247,8 @@ This endpoint should:
 {
   "name": "value1",
   "description": "value2",
-  "unit_price": 100.99
+  "unit_price": 100.99,
+  "merchant_id": 14
 }
 ```
 (Note that the unit price is to be sent as a numeric value, not a string.)
@@ -266,6 +267,7 @@ Example JSON response for the Item resource:
       "name": "Widget",
       "description": "High quality widget",
       "unit_price": 100.99,
+      "merchant_id": 14,
       "created_at": "2020-12-18T13:42:56 UTC",
       "updated_at": "2020-12-18T13:42:56 UTC"
     }
@@ -277,7 +279,7 @@ Example JSON response for the Item resource:
 
 This endpoint should:
 
-* update the corresponding Item (if found)
+* update the corresponding Item (if found) with whichever details are provided by the user
 * render a JSON representation of the updated record.
 * follow this pattern: `PATCH /api/v1/items/:id`
 * accept the following JSON body with one or more of the following fields:
@@ -287,7 +289,8 @@ The body should follow this pattern:
 {
   "name": "value1",
   "description": "value2",
-  "unit_price": 100.99
+  "unit_price": 100.99,
+  "merchant_id": 7
 }
 ```
 (Note that the unit price is to be sent as a numeric value, not a string.)
@@ -298,11 +301,12 @@ Example JSON response for the Item resource:
 {
   "data": {
     "id": "1",
-    "type": "merchant",
+    "type": "item",
     "attributes": {
       "name": "New Widget Name",
       "description": "High quality widget, now with more widgety-ness",
       "unit_price": 299.99,
+      "merchant_id": 7,
       "created_at": "2020-12-18T13:42:56 UTC",
       "updated_at": "2020-12-20T18:12:45 UTC"
     }
