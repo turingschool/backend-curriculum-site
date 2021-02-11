@@ -41,7 +41,7 @@ In the end, though, as developers we have a choice to make around our developmen
 
 #### RESTful Wrap-Up
 
-REST is language-agnostics, and is a standard we should continue to build, but we ARE allowed some flexibility.
+REST is language-agnostic, and is a standard we should continue to build, but we ARE allowed some flexibility.
 
 ---
 
