@@ -410,10 +410,6 @@ require 'rails_helper'
 
 RSpec.describe "the Playlist index page" do
   it "should display all playlists" do
-    rock = Playlist.create!(name: "Classic Rock")
-    uplifting_sound = Playlist.create!(name: "Uplifting Sound")
-    jams = Playlist.create!(name: "Jerry Jams")
-
     talking_heads = Artist.create!(name: "Talking Heads")
     jgb = Artist.create!(name: "Jerry Garcia Band")
     prince = Artist.create!(name: "Prince")
@@ -421,14 +417,26 @@ RSpec.describe "the Playlist index page" do
     place = talking_heads.songs.create!(title: "This Must Be The Place", length: 832, play_count: 83209)
     breadbox = jgb.songs.create!(title: "Aint No Bread in the Breadbox", length: 832, play_count: 83209)
     r_and_c = jgb.songs.create!(title: "Reuben and Cherise", length: 832, play_count: 83209)
-    purple = prince.songs.create!(title: "Purple Rain", length: 4378, play_count: 7453689)
 
-    PlaylistSong.create!(song: purple, playlist: uplifting_sound)
+    # Creates a playlist
+    uplifting_sound = Playlist.create!(name: "Uplifting Sound")
+    jams = Playlist.create!(name: "Jerry Jams")
+
+    # Creates playlist and associates it with a song. Under the hood, creates a row in the playlist_songs table
+    rock = breadbox.playlists.create!(name: "Classic Rock")
+
+    # Creates song and associates it with a playlist. Under the hood, creates a row in the playlist_songs table
+    purple = uplifting_sound.songs.create!(title: "Purple Rain", length: 4378, play_count: 7453689, artist: prince)
+
+    # Creates a row in the playlist_songs table. Associates a playlist with a song
     PlaylistSong.create!(song: purple, playlist: jams)
     PlaylistSong.create!(song: place, playlist: jams)
-    PlaylistSong.create!(song: place, playlist: rock)
-    PlaylistSong.create!(song: breadbox, playlist: rock)
-    PlaylistSong.create!(song: r_and_c, playlist: rock)
+
+    # Creates a row in the playlist_songs table. Associates a playlist with a song
+    rock.songs << place
+
+    # Creates a row in the playlist_songs table. Associates a playlist with a song
+    r_and_c.playlists << rock
 
     visit '/playlists'
 
@@ -451,6 +459,7 @@ RSpec.describe "the Playlist index page" do
     end
   end
 end
+
 ```
 
 In the setup portion of the test, we are creating the relationships in a couple different ways. Normally, you would want to be more consistent with your syntax, but in this case we want to show a couple different ways to create relationships. Take a minute to review all these different strategies.
