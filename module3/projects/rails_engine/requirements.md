@@ -432,7 +432,7 @@ This endpoint should return a variable number of merchants ranked by total reven
 
 The URI should follow this pattern: `GET /api/v1/merchants/most_revenue?quantity=x`
 
-where `x` is the number of merchants to be returned. The quantity should default to 5 if not provided, and return an error if it is not an integer greater than 0.
+where `x` is the number of merchants to be returned. The quantity parameter is required, and should return an error if it is missing or if it is not an integer greater than 0.
 
 
 Example JSON response for `GET /api/v1/merchants/most_revenue?quantity=2`
