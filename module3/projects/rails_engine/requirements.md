@@ -348,8 +348,8 @@ These endpoints should:
 * return the first object in the database in case-sensitive alphabetical order if multiple matches are found
   * eg, if "Ring World" and "Turing" exist as merchant names, "Ring World" would be returned, even if "Turing" was created first
 * allow the user to specify a 'text' query parameter:
-  * for merchants, the user can send `?text=ring` and it will search the `name` field in the database table
-  * for items, the user can send `?text=ring` and it will search the `name` AND `description` fields in the database table
+  * for merchants, the user can send `?name=ring` and it will search the `name` field in the database table
+  * for items, the user can send `?name=ring` and it will search the `name` field in the database table
     * this should find a name of 'Titanium Ring' and anything with a description like 'This silver chime will bring you cheer!'
   * the search data in the `text` query parameter should require the database to do a case-insensitive search for text fields
     * eg, searching for 'ring' should find 'Turing' and 'Ring World'
