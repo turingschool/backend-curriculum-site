@@ -267,9 +267,7 @@ Example JSON response for the Item resource:
       "name": "Widget",
       "description": "High quality widget",
       "unit_price": 100.99,
-      "merchant_id": 14,
-      "created_at": "2020-12-18T13:42:56 UTC",
-      "updated_at": "2020-12-18T13:42:56 UTC"
+      "merchant_id": 14
     }
   }
 }
@@ -306,9 +304,7 @@ Example JSON response for the Item resource:
       "name": "New Widget Name",
       "description": "High quality widget, now with more widgety-ness",
       "unit_price": 299.99,
-      "merchant_id": 7,
-      "created_at": "2020-12-18T13:42:56 UTC",
-      "updated_at": "2020-12-20T18:12:45 UTC"
+      "merchant_id": 7
     }
   }
 }
