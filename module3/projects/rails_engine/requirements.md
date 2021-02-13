@@ -347,22 +347,22 @@ These endpoints should:
 * return a single object, if found
 * return the first object in the database in case-sensitive alphabetical order if multiple matches are found
   * eg, if "Ring World" and "Turing" exist as merchant names, "Ring World" would be returned, even if "Turing" was created first
-* allow the user to specify a 'text' query parameter:
+* allow the user to specify a 'name' query parameter:
   * for merchants, the user can send `?name=ring` and it will search the `name` field in the database table
   * for items, the user can send `?name=ring` and it will search the `name` field in the database table
     * this should find a name of 'Titanium Ring' and anything with a description like 'This silver chime will bring you cheer!'
-  * the search data in the `text` query parameter should require the database to do a case-insensitive search for text fields
+  * the search data in the `name` query parameter should require the database to do a case-insensitive search for text fields
     * eg, searching for 'ring' should find 'Turing' and 'Ring World'
 * allow the user to send one or more price-related query parameters, applicable to items only:
   * `min_price=4.99` should look for anything with a price equal to or greater than $4.99
   * `max_price=99.99` should look for anything with a price less than or equal to $99.99
   * both `min_price` and `max_price` can be sent
-* for items, the user will send EITHER the `text` parameter OR either/both of the `price` parameters
-  * users should get an error if `text` and either/both of the `price` parameters are sent
+* for items, the user will send EITHER the `name` parameter OR either/both of the `price` parameters
+  * users should get an error if `name` and either/both of the `price` parameters are sent
   
 Valid examples:
-* `GET /api/v1/merchants/find_one?text=Mart`
-* `GET /api/v1/items/find_one?text=ring`
+* `GET /api/v1/merchants/find_one?name=Mart`
+* `GET /api/v1/items/find_one?name=ring`
 * `GET /api/v1/items/find_one?min_price=50`
 * `GET /api/v1/items/find_one?max_price=150`
 * `GET /api/v1/items/find_one?max_price=150&min_price=50`
@@ -370,16 +370,16 @@ Valid examples:
 Invalid examples:
 * `GET /api/v1/<resource>/find_one`
   * parameter cannot be missing
-* `GET /api/v1/<resource>/find_one?text=`
+* `GET /api/v1/<resource>/find_one?name=`
   * parameter cannot be empty
-* `GET /api/v1/items/find_one?text=ring&min_price=50`
+* `GET /api/v1/items/find_one?name=ring&min_price=50`
   * cannot send both `text` and `min_price`
-* `GET /api/v1/items/find_one?text=ring&max_price=50`
+* `GET /api/v1/items/find_one?name=ring&max_price=50`
   * cannot send both `text` and `max_price`
-* `GET /api/v1/items/find_one?text=ring&min_price=50&max_price=250`
+* `GET /api/v1/items/find_one?name=ring&min_price=50&max_price=250`
   * cannot send both `text` and `min_price` and `max_price`
   
-Example JSON response for `GET /api/v1/merchants/find?text=ring`
+Example JSON response for `GET /api/v1/merchants/find?name=ring`
 
 ```json
 {
