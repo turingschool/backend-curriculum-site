@@ -373,11 +373,11 @@ Invalid examples:
 * `GET /api/v1/<resource>/find_one?name=`
   * parameter cannot be empty
 * `GET /api/v1/items/find_one?name=ring&min_price=50`
-  * cannot send both `text` and `min_price`
+  * cannot send both `name` and `min_price`
 * `GET /api/v1/items/find_one?name=ring&max_price=50`
-  * cannot send both `text` and `max_price`
+  * cannot send both `name` and `max_price`
 * `GET /api/v1/items/find_one?name=ring&min_price=50&max_price=250`
-  * cannot send both `text` and `min_price` and `max_price`
+  * cannot send both `name` and `min_price` and `max_price`
   
 Example JSON response for `GET /api/v1/merchants/find?name=ring`
 
