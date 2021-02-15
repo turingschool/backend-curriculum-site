@@ -12,7 +12,7 @@ title: Sad Path Testing and Flash Messages
 * Flash
 
 ## Set Up
-We will start from the `main` branch of our [Set List Repo](https://github.com/turingschool-examples/set_list)
+We will start from the `many_to_many` branch of our [Set List Repo](https://github.com/turingschool-examples/set_list/many_to_many)
 
 ## Warm Up
 * As developers, how do we know when our application isn't working properly?
@@ -56,7 +56,7 @@ RSpec.describe 'New Artist' do
       end
 
       it 'I can not create an artist without a name' do
-        visit new_artist_path
+        visit '/artists/new'
 
         click_on 'Create Artist'
 
@@ -105,7 +105,7 @@ If we run this new test, we can see the output of trying to create an artist wit
 => #<Artist:0x007fc9f512c480 id: nil, name: "">
 ```
 
-The create method gave us a return value, but the artist object it returned does not have an id - indicating that the artist was not saved in the database.  Why was the artist not saved?  Take a look back at the Artist model and see if you can spot what is causing the artist to not be saved.
+`play -l <line_number>` is a shortcut in pry to run a line of code. In this case, we're running `Artist.create(artist_params)` in pry by telling it to run line 11. The create method gave us a return value, but the artist object it returned does not have an id - indicating that the artist was not saved in the database.  Why was the artist not saved?  Take a look back at the Artist model and see if you can spot what is causing the artist to not be saved.
 
 Now that we are writing tests for our Sad Path, using `.create` isn't really the best choice.  What we would like is to be able to send the user some feedback if the record is not saved in the database; so, let's use a combination of `.new` and `.save`.
 
