@@ -158,7 +158,7 @@ class ArtistsController < ApplicationController
 end
 ```
 
-Let's take a quick moment to talk about **flash** messages.  flash is an object that Rails gives us to help us send information back to a client that will be displayed to a user.  Taking a look at how the flash message is created, what data structure does it look like?  Just like sessions and params, the flash object acts just like a ruby hash!
+Let's take a quick moment to talk about **flash** messages.  flash is an object that Rails gives us to help us send information back to a client that will be displayed to a user.  Taking a look at how the flash message is created, what data structure does it look like?  Just like params, the flash object acts just like a ruby hash!
 
 But, just because we created the flash, doesn't mean a user will automatically see it - we will need to tell our views to display the flash information:
 
@@ -175,11 +175,6 @@ But, just because we created the flash, doesn't mean a user will automatically s
   </head>
 
   <body>
-    <nav class="nav">
-      <a class="nav-link active" href="/artists">Artists</a>
-      <a class="nav-link active">Cart: <%= cart.total %></a>
-    </nav>
-
     <% flash.each do |type, message| %>
       <p><%= message %></p>
     <% end %>
