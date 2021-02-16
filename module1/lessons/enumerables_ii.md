@@ -359,7 +359,7 @@ This would return false.
 
 Given what you just learned about `all?` - can make an educated guess about what `any?`, `none?`, and `one?` do/return?
 
-#### Now you try:
+## Practice
 
 ```ruby
 class Person
@@ -380,7 +380,7 @@ kardashians << Person.new("Kris", 62)
 kardashians << Person.new("Khloe", 33)
 ```
 
-Write code to:
+Write code, without using /#each, to:
 
 1. Get the youngest member
 1. Get the person with the longest name
