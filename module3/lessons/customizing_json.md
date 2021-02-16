@@ -40,19 +40,30 @@ Let's use the [json:api](https://jsonapi.org/) specification for our JSON respon
 
 ### Adding to Our Existing Project
 
-We're going to start where we left off in the building internal APIs lesson. Feel free to use the repository that you created. Otherwise, you can clone [this](https://github.com/turingschool-examples/building-apis) repo. Below are instuctions for getting started.
+You may have created a repo to code-along with the building and API video last Thursday during evals. Feel free to use the repository that you created. Otherwise, you can clone [this](https://github.com/turingschool-examples/building-apis) repo. Below are instructions for getting started from scratch.
 
 ```bash
 git clone https://github.com/turingschool-examples/building-apis.git
+```
+```bash
 bundle
+```
+```bash
 git checkout complete-building-api-exercise
+```
+```bash
+bundle exec rake db:create
 ```
 
 We want to work with objects that have related models, so let's add a `Store` model:
 
 ```bash
 rails g model store name
+```
+```bash
 rails g model store_book store:references book:references book_price:integer quantity:integer
+```
+```bash
 bundle exec rake db:migrate
 ```
 
