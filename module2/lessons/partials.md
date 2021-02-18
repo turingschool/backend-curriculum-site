@@ -8,6 +8,10 @@ title: Using Partials to DRY up Our Views
 * partial
 * locals
 
+## Setup
+
+This lesson builds off of the [Sad Path Testing and Flash Messages lesson](./sad_path_and_flash). You can find the completed code from this lesson on the `sad_path_and_flash` branch of [this repo](https://github.com/turingschool-examples/set_list/tree/sad_path_and_flash)
+
 ## Warm Up
 
 Discuss the following questions with a partner:
@@ -62,12 +66,12 @@ You should now have `artists/_form.html.erb`, `artists/new.html.erb` and `artist
 
 `_form/html.erb`
 
-```
-<%= form_tag path, method: method do %>
-  <%= label_tag :name %>
-  <%= text_field_tag :name %>
+```ruby
+<%= form_with url: path, method: method do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
 
-  <%= submit_tag button_text %>
+  <%= f.submit button_text %>
 <% end %>
 ```
 
@@ -75,20 +79,24 @@ You should now have `artists/_form.html.erb`, `artists/new.html.erb` and `artist
 
 `new.html.erb`
 
-```
-<%= render partial: 'form', locals: {path: '/artists', method: :post, button_text: 'Create Artist'} %>
+```ruby
+<%= render partial: 'form', locals: {
+                                      path: "/artists",
+                                      method: :post,
+                                      button_text: 'Create Artist'} %>
+
 ```
 
 <br/>
 
 `edit.html.erb`
 
-```
+```erb
 <%= render partial: 'form', locals: {
                                       path: "/artists/#{@artist.id}",
                                       method: :patch,
-                                      button_text: 'Update Artist'
-                                    } %>
+                                      button_text: 'Update Artist'} %>
+
 ```
 
 And our tests should still be passing!
