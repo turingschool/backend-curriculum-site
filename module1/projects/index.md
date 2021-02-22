@@ -9,9 +9,9 @@ The following projects will be assigned and their completion is required to be p
 
 * Week 1 (independent): [War or Peace](./war_or_peace)
 * Week 2-3 (paired): [Mastermind](./mastermind)
-* Week 3-5 (group): 
+* Week 3-5 (group): [Futbol](./futbol)
 * Week 5-6 (individual): 
-[Project Reflection Template](./project_reflection_template)
+* [Project Reflection Template](./project_reflection_template)
 
 ## Extension Projects
 
