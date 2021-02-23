@@ -31,7 +31,7 @@ JSON is that format. At its core, JSON is an agreed upon format to represent dat
 Take a look at some examples. What do you notice?
 
 * [Example 1](https://developer.github.com/v3/git/commits)
-* [Example 2](https://birdeck-api.herokuapp.com/api/v1/posts/2).
+* [Example 2](https://api.github.com/orgs/turingschool).
 
 That's right! It looks just like a hash!
 
