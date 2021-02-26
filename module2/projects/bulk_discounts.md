@@ -201,6 +201,8 @@ Then I see that the total revenue includes bulk discounts in the calculation
 * Holiday Discount Extensions
 
 ```
+Create a Holiday Discount
+
 As a merchant,
 when I visit the discounts index page,
 In the Holiday Discounts section, I see a `create discount` button next to each of the 3 upcoming holidays.
@@ -215,6 +217,8 @@ I should be redirected to the discounts index page where I see the newly created
 ```
 
 ```
+View a Holiday Discount
+
 As a merchant (if I have created a holiday discount for a specific holiday),
 when I visit the discount index page,
 within the `Upcoming Holidays` section I should not see the button to 'create a discount' next to that holiday,
