@@ -198,7 +198,8 @@ Then I see that the total revenue includes bulk discounts in the calculation
 * When an invoice is pending, a merchant should not be able to delete or edit a bulk discount that applies to any of their items on that invoice.
 * When an Admin marks an invoice as "completed", then the discount percentage should be stored on the invoice item record so that it can be referenced later
 * Merchants should not be able to create/edit bulk discounts if they already have a discount in the system that would prevent the new discount from being applied (see example 4)
-* Holiday Discount Extension
+* Holiday Discount Extensions
+
 ```
 As a merchant,
 when I visit the discounts index page,
@@ -218,5 +219,5 @@ As a merchant (if I have created a holiday discount for a specific holiday),
 when I visit the discount index page,
 within the `Upcoming Holidays` section I should not see the button to 'create a discount' next to that holiday,
 instead I should see a `view discount` link.
-When I click the link I am taken to the discount show page for that holiday discount. 
+When I click the link I am taken to the discount show page for that holiday discount.
 ```
