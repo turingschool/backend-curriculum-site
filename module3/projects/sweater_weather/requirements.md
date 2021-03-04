@@ -64,8 +64,6 @@ The response data should contain exactly these elements and nothing more:
     - hourly_weather, array of the next 8 hours of hourly weather data:
       - time, in a human-readable format such as "14:00:00"
       - temperature, floating point number indicating the current temperature in Fahrenheit
-      - wind_speed, string, in miles per hour
-      - wind_direction, string, check wikipedia for how to convert this numeric value
       - conditions, the first 'description' field from the weather data as given by OpenWeather
       - icon, string, as given by OpenWeather
 
@@ -93,8 +91,7 @@ Example:
       "hourly_weather": [
         {
           "time": "14:00:00",
-          "wind_speed": "4 mph",
-          "wind_direction": "from NW",
+          "conditions": "cloudy with a chance of meatballs",
           etc
         },
         {...} etc
