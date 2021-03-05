@@ -71,21 +71,17 @@ A couple of things to keep in mind as you're designing your schema:
 
 In these stories, we will refer to the "one" side of the relationship as the "parent" and the "many" side of the relationship as the "children/child". In the Pets/Shelters example, Shelter would be the Parent and Pets would be the Children.
 
+Children can be associated to the Parent. Children belong to a parent. Anywhere you see `child_table_name` think `pets` from our Pets and Shelters example.
+
 Each user story will focus on one of the following:
 
-#### ActiveRecord
+**ActiveRecord**
 
-#### CRUD Functionality
+**CRUD Functionality**
 
-Children can be associated to the Parent. Children belong to a parent.
+**Usability**: Users should be able to use the site easily. This means making sure there are links/buttons to reach all parts of the site and the styling/layout is sensible.
 
-Anywhere you see `child_table_name` think `pets` from our Pets and Shelters example.
-
-#### Usability
-
-Users should be able to use the site easily. This means making sure there are links/buttons to reach all parts of the site and the styling/layout is sensible.
-
-#### Iteration 1
+### Iteration 1
 
 ##### CRUD
 
@@ -141,7 +137,7 @@ When I visit '/parents/:parent_id/child_table_name'
 Then I see each Child that is associated with that Parent with each Child's attributes:
 ```
 
-#### ActiveRecord
+##### ActiveRecord
 
 ```
 [ ] done
@@ -164,7 +160,7 @@ When I visit a parent's show page
 I see a count of the number of children associated with this parent
 ```
 
-#### Usability
+##### Usability
 
 ```
 [ ] done
@@ -198,9 +194,9 @@ Then I see a link to take me to that parent's `child_table_name` page ('/parents
 
 ---
 
-#### Iteration 2
+### Iteration 2
 
-#### CRUD
+##### CRUD
 
 ```
 [ ] done
@@ -270,7 +266,7 @@ the child's data is updated,
 and I am redirected to the Child Show page where I see the Child's updated information
 ```
 
-#### ActiveRecord
+##### ActiveRecord
 
 ```
 [ ] done
@@ -294,7 +290,7 @@ When I click on the link
 I'm taken back to the Parent's children Index Page where I see all of the parent's children in alphabetical order
 ```
 
-#### Usability
+##### Usability
 
 ```
 [ ] done
@@ -324,9 +320,9 @@ I should be taken to that `child_table_name` edit page where I can update its in
 
 ---
 
-## Iteration 3
+### Iteration 3
 
-#### CRUD
+##### CRUD
 
 ```
 [ ] done
@@ -356,7 +352,7 @@ the child is deleted,
 and I am redirected to the child index page where I no longer see this child
 ```
 
-#### ActiveRecord
+##### ActiveRecord
 
 ```
 [ ] done
@@ -370,7 +366,7 @@ When I input a number value and click the submit button that reads 'Only return 
 Then I am brought back to the current index page with only the records that meet that threshold shown.
 ```
 
-#### Usability
+##### Usability
 
 ```
 [ ] done
