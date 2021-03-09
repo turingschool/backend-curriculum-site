@@ -318,7 +318,7 @@ When I click the link
 I should be taken to that `child_table_name` edit page where I can update its information just like in User Story 11
 ```
 
-**Iterations 1 and 2 will be reviewed at your second check-in**
+**Iteration 1 will be reviewed at your second check-in**
 
 ---
 
