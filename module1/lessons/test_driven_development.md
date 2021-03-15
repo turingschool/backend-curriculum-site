@@ -18,15 +18,6 @@ length: 60
 * Feature Tests
 * Acceptance Tests
 
-## Warm Up
-
-With your partner, look over the test file you have printed out, and answer the following questions:
-- For each test (between `def` and `end`), what is the name of the test?
-- For each test (between `def` and `end`), what piece of functionality does that tell you this class has? The first two are answered/annotated for you, it's your job to jot down notes for the remaining tests.
-- Now, look back at your notes and the name of each test. Does the naming appropriately explain what the test tests?
-- How would you explain, in 1-2 sentences, what the House class does?
-- Why do you think you were you able to say so much about this House class without even looking at the actual code?
-
 
 ### Overview
 
@@ -86,20 +77,17 @@ end
 ```
 
 ```ruby
-# round_test.rb
-require 'minitest'
-require 'minitest/autorun'
-require 'minitest/pride'
+# round_spec.rb
+require 'rspec'
 
-class RoundTest < Minitest::Test
-  def setup
-    # cards set up here
-    @deck = Deck.new(@cards)
-    @round = Round.new(@deck)
-  end
-
-  def test_current_card
-     assert_equal @deck.cards.first, @round.current_card
+describe Round do
+  describe '#current_card' do
+    cards = CardSetup.new
+    deck = Deck.new(cards)
+    round = Round.new(deck)
+    it 'can get back current card' do
+      expect(round.current_card), deck.cards.first
+    end
   end
 end
 ```
@@ -119,16 +107,15 @@ end
 ```
 
 ```ruby
-# calculator_test.rb
-require 'minitest'
-require 'minitest/autorun'
-require 'minitest/pride'
+# calculator_spec.rb
+require 'rspec'
 
-class CalculatorTest < Minitest::Test
-  def test_divide
-     calculator = Calculator.new
-
-     assert_equal 2, calculator.divide(8,4)
+describe Calculator do
+  describe '#divide' do
+    calculator = Calculator.new
+    it 'can return the quotient' do
+      expect(calculator.divide(8,4)).to eq 2
+    end
   end
 end
 ```
