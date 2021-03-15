@@ -9,7 +9,7 @@ tags: ruby, testing
 
 * Understand why we use tests
 * Define the stages of a test
-* Define a minitest test
+* Define a rspec test
 * Use a variety of assertion methods
 
 ## Vocabulary
@@ -27,44 +27,42 @@ tags: ruby, testing
 
 ### File Structure
 
-- Test files live in their own `test` directory
+- Spec files live in their own `spec` directory
 - Implementation code files live in a sibling `lib` directory
-- Test files should reflect the class they're testing with `_test` appended to the file name, e.g. `test/name_of_class_test.rb`
+- Spec files should reflect the class they're testing with `_spec` appended to the file name, e.g. `spec/name_of_class_spec.rb`
 - In your test, you'll now `require "./lib/name_of_class.rb"`
-- Run your test files from the root of the project directory, e.g. `ruby test/name_of_class_test.rb`; running the test will invoke your program
+- Run your spec files from the root of the project directory, e.g. `rspec spec`
+- If you want to run a specfic spec file you can append the location of that file to the `rspec spec` command. So `rspec spec spec/name_of_file_spec.rb`
 
 ```
 .
 ├── lib
 |   └── name_of_class.rb
-└── test
-    └── name_of_class_test.rb
+└── spec
+    └── name_of_class_spec.rb
 ```
 
-### minitest Setup
+### rspec Setup
 
-[Minitest](http://docs.seattlerb.org/minitest/) is a framework used for automated testing. It is the testing framework used on many of the homework exercises you've been assigned.
+Rspec is a framework used for automated testing. It is the testing framework used on many of the homework exercises you've been assigned.
+[Rspec Core Documentation](https://rubydoc.info/gems/rspec-core)
 
 ```
-gem install minitest
+gem install rspec
 ```
 
-* Require `minitest/autorun` - the easy and explicit way to run all your tests
-* Require `minitest/pride` - vivid color explosion
+* Require `rspec` - the easy and explicit way to run all your tests
 
-### minitest Convention
+### rspec Convention
 
-- Test Class Name: `class NameOfClassTest`
-* Test class inherits from `Minitest::Test`, e.g. `class NameOfClassTest < Minitest::Test`
-  * `test` is a `minitest` module; `::` is a scope resolution operator
-  * minitest/test is a small and incredibly fast unit testing framework. It provides a rich set of assertions to make your tests clean and readable.
-- `def test_something` for names of methods in test file -- **MUST start with `test_`**
-- It's good practice to reference your method in the test name `test_method_name_does_what_I_want_it_to`
-* assert_equal starts with the **assertion method**, followed by the **expected** value, followed by the **actual** value
+- At the top of every spec file: `describe NameOfClass`
+- describe '#name_of_method'
+  - It is good practice to have another describe block for the name of method. That way we can group all assertions dealing with this method in this describe block.
+- We need to have an assertion at the end of every test
+  - A lot of times we are going to compare if two values are equal to each other
+  - We do that by writing `expect(actual).to eq(expected)` where actual is the result of the method call or object querying, and expected is the value we expect it to be.
+- [Rspec Expectations Documentation](https://rubydoc.info/gems/rspec-expectations)
 
-```ruby
-assert_equal 'expected', 'actual'
-```
 
 ## Code-Along
 
@@ -93,11 +91,10 @@ pry(main)> student.cookies
 Now, let's write tests based on the interaction pattern above.
 
 ```ruby
-# student_test.rb
-require 'minitest/autorun'
-require 'minitest/pride'
+# student_spec.rb
+require 'rspec'
 
-class StudentTest < Minitest::Test
+describe Student
   # test it exists
   # test it has a name
   # test it has cookies
@@ -108,19 +105,16 @@ end
 Let's build out our Student Test!
 
 ```ruby
-# student_test.rb
-require 'minitest'
-require 'minitest/autorun'
-require 'minitest/pride'
+# student_spec.rb
+require 'rspec'
 
-class StudentTest < Minitest::Test
-  def test_it_exists
+describe Student do
+  describe '#initialize' do
     student = Student.new('Penelope')
-    assert_instance_of Student, student
+    it 'is an instance of student' do
+      expect(student).to be_a Student
+    end
   end
-  # test it has a name
-  # test it has cookies
-  # test it can add cookies
 end
 ```
 
@@ -138,23 +132,21 @@ end
 * Do it all again
 
 ```ruby
-# student_test.rb
-require 'minitest'
-require 'minitest/autorun'
-require 'minitest/pride'
+# student_spec.rb
+require 'rspec'
+require './lib/student'
 
-class StudentTest < Minitest::Test
-  def test_it_exists
-    student = Student.new("Penelope")
-    assert_instance_of Student, student
-  end
+describe Student do
+  describe '#initialize' do
+    student = Student.new('Penelope')
+    it 'is an instance of student' do
+      expect(student).to be_a Student
+    end
 
-  def test_student_has_a_name
-    student = Student.new("Penelope")
-    assert_equal "Penelope", student.name
+    it 'has a name' do
+      expect(student.name).to eq 'Penelope'
+    end
   end
-  # test it has cookies
-  # test it can add cookies
 end
 ```
 
@@ -182,67 +174,59 @@ Each test that we create needs 4 components to be a properly built test.
 With a partner, see if you can identify each of the components in the following tests:
 
 ```ruby
-# student_test.rb
-require 'minitest'
-require 'minitest/autorun'
-require 'minitest/pride'
+# student_spec.rb
+require 'rspec'
 require './lib/student'
 
-class StudentTest < Minitest::Test
-  def test_it_exists
-    student = Student.new("Penelope")
+describe Student do
+  describe '#initialize' do
+    student = Student.new('Penelope')
+    it 'is an instance of student' do
+      expect(student).to be_a Student
+    end
 
-    assert_instance_of Student, student
+    it 'has a name' do
+      expect(student.name).to eq 'Penelope'
+    end
+
+    it 'has cookies by default' do
+      expect(student.cookies).to eq []
+    end
   end
 
-  def test_student_has_a_name
-    student = Student.new("Penelope")
+  describe '#add_cookie' do
+    student = Student.new('Penelope')
+    it 'can add chocolate chip' do
+      student.add_cookie('Chocolate Chip')
+      student.add_cookie('Snickerdoodle')
 
-    assert_equal "Penelope", student.name
-  end
-
-  def test_it_has_cookies
-    student = Student.new("Penelope")
-
-    assert_equal [], student.cookies
-  end
-
-  def test_it_can_add_cookies
-    student = Student.new("Penelope")
-
-    student.add_cookies('Chocolate Chunk')
-    student.add_cookies('Snickerdoodle')
-
-    assert_equal ['Chocolate Chunk', 'Snickerdoodle'], student.cookies
+      expect(student.cookies).to eq ['Chocolate Chip', 'Snickerdoodle']
+    end
   end
 end
 ```
 
 # Testing Cont. Warmup
-What do you think the following assertion methods do?
+What do you think the following `.to` methods do?
 
-- `assert_instance_of`
-- `assert_equal`
-- `assert`
-- `assert_nil`
-- `refute`
-- `refute_equal`
+- `.to eq`
+- `.to be_a`
+- `.to be true `
+- `.to be_nil`
+- `.to include`
 
 ## Additional Test Intricacies
-- Tests will overwrite previous tests with the same name; **give each test a new name**
 - Each test is independent of the next; **don't depend on tests to run in order** of how they're written
   - However, it clarifies your code to other humans to write in order of complexity; aim to start from most basic to most complex functionality and keep tests grouped by method
-- You can create a setup method
+- You can `before(:each)` method
+  - This will provide shared test setup run before each individual test
 - Tests will generally return an `E` for error, `F` for failure & `.` for passing
 
 ```ruby
-class StudentTest < Minitest::Test
-  attr_reader :student
-
-  def setup
-    @student = Student.new
+describe Student do
+  before(:each) do
+    @student = Student.new('Penelope')
   end
-  ...
 end
 ```
 
@@ -252,27 +236,26 @@ We should make sure that all of our methods can handle different cases, ensuring
 
 ```ruby
 # student_test.rb
-require 'minitest'
-require 'minitest/autorun'
-require 'minitest/pride'
+require 'rspec'
 
-class StudentTest < Minitest::Test
-  def test_it_exists
-    student = Student.new
-    assert_instance_of Student, student
+describe Student do
+  before(:each) do
+    @student = Student.new('Penelope')
   end
+  describe '#initialize' do
+    it 'is an instance of student' do
+      expect(@student).to be_a Student
+    end
 
-  def test_student_has_a_name
-    student = Student.new("Penelope")
-    assert_equal "Penelope", student.name
-  end
+    it 'has a name' do
+      expect(@student.name).to eq 'Penelope'
+    end
 
-  def test_student_can_have_a_different_name
-    student = Student.new("Hermione")
-    assert_equal "Hermione", student.name
+    it 'has a different name' do
+      student = Student.new('James')
+      expect(student.name).to eq 'James'
+    end
   end
-  # test it has cookies
-  # test it can add cookies
 end
 ```
 
@@ -281,45 +264,33 @@ end
 * Ensure that your implementation code can handle things we might not expect, e.g.:
 
 ```ruby
-# student_test.rb
-require 'minitest'
-require 'minitest/autorun'
-require 'minitest/pride'
-
-class StudentTest < Minitest::Test
-  def test_it_exists
-    student = Student.new
-    assert_instance_of Student, student
+# student_spec.rb
+describe Student do
+  before(:each) do
+    @student = Student.new('Penelope')
   end
+  describe '#initialize' do
+    it 'is an instance of student' do
+      expect(@student).to be_a Student
+    end
 
-  def test_student_has_a_name
-    student = Student.new("Penelope")
-    assert_equal "Penelope", student.name
-  end
+    it 'has a name' do
+      expect(@student.name).to eq 'Penelope'
+    end
 
-  def test_student_can_have_a_different_name
-    student = Student.new("Hermione")
-    assert_equal "Hermione", student.name
+    it 'gives assigns a default name' do
+      student = Student.new(42)
+      expect(student.name).to eq 'Default Name Assigned'
+    end
   end
-
-  def test_student_cant_be_created_with_integer_name
-    student = Student.new(13)
-    assert_equal "Name not Provided", student.name
-  end
-  # test it has cookies
-  # test it can add cookies
 end
 ```
 
 ## Recap
 
 * What 2 directories should we have within our project directory?
-* `minitest` setup
-  * What do you have to require in a test file?
-  * What does your test class inherit from?
-  * What is the syntax for a minitest test? What's the best name for a test?
-  * Do tests need unique names? Should they be written in a particular order? Do they necessarily run in that order?
-* Name 3 assertion methods you learned about today & describe their syntax.
-
-## Resources
-* Explore the minitest gem! [https://github.com/seattlerb/minitest](https://github.com/seattlerb/minitest)
+* `rspec` setup
+  * What do you have to require in a spec file?
+  * What goes in the initial describe block?
+  * What is the syntax for a rspec spec?
+  * Name 3 `.to` methods you learned about today & describe their syntax.
