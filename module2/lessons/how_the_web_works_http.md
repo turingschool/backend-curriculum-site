@@ -93,11 +93,11 @@ The HyperText Transfer Protocol gives us rules about how messages should be sent
 
 ### HTTP Request
 
-When a "client" (like a web browser) retrieves information, it sends a payload of data to a server as a "request". This request has many parts, but for now we are going to focus on the verb and path.
+When a "client" (like a web browser) retrieves information, it sends a payload of data to a server as a "request". This request has many parts, but for now we are going to focus on the **verb** and **path**.
 
 ### Verb and Path
 
-Every request needs to be able to tell a server *what* information is requested and *how* that information is being requested.  The *what* is the **path**, the URI indicating what resource this request is referencing.
+Every request needs to be able to tell a server *what* information is requested and *how* that information is being requested.  The *what* is the **path** (also know as a URI), indicating what resource this request is referencing.
 
 Examples of a path:
 
@@ -114,45 +114,16 @@ The *how* is the **verb**, indicating what actions the server should take regard
 - DELETE - DESTROY a resource, typically indicating that it is removed from the database
 
 With these 5 verbs, we send requests that allow us to perform all CRUD functions (create, read, update, destroy) for resources in a database!
-## What is "URL"?
-
-Users tell a client to ask for information by giving it a **URL**: a Universal Resource Locator.
-
-A URL allows us to send data to, or retrieve, a "resource" on the Internet. A resource could be a page of HTML content, it could be an image or music file, or it could be part of a web application that will save data you send to it.
-
-### URL vs URI
-
-You may also hear the term "URI" when talking about things on the Internet. A "URI", or "Universal Resource Identifier" is not the same as a URL, but it's easy to confuse them.
-
-A URI is part of a URL. See below:
-
-#### Parts of a URL
-
-For the URL
-
-```
-http://task-manager.herokuapp.com/task/new?title=New&task=Task#new_form_anchor
-```
-
-We can split it into distinct parts:
-
-* Protocol: `http://` - Tells us the application protocol we will be using to interact on the web.
-* Domain: `task-manager.herokuapp.com` - Tells us where the resources we are trying to access are located (tied to an IP address using DNS).
-* **URI** or "Path": `/task/new` - The specific path for the resources that we are trying to access at that location.
-* Query String: `?title=New&task=Task` - Params that give our server additional information about what we would like to access.
-* Fragment Identifier: `#new_form_anchor` - An indicator of a specific section of a website we would like to view (e.g. if there is an anchor tag tied to a heading half way down the page). This can be seen by visiting [this](http://guides.rubyonrails.org/active_record_querying.html#array-conditions) link to the rails docs which references the `array-conditions` section of the Query Interface page.
 
 ## Checks for Understanding
 
 * Describe the HTTP request/response cycle. Use each of the following terms:
   * User
-  * URL
   * Client
   * Server
   * Request
   * Response
   * HTTP
-* What are the parts of a URL?
 * What is a path?
 * What is a verb?
 * What are the 5 common http verbs and what do they do?

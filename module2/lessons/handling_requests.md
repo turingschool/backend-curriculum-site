@@ -26,9 +26,78 @@ This lesson plan last updated to use Rails 5.2.4.3 and Ruby 2.5.3
 * route
 * action
 
-# Setup
+# Handling HTTP Requests
+
+Our Rails App's responsibility is to receive HTTP Requests and send back HTTP Responses. When we start our server with `rails server` or `rails s`, we are telling our app to wait patiently for a client to send it a request. When our app receives a request, our app then needs to handle the request. This includes both what should happen in the database (CRUD), and what response (HTML) should be sent back to the client.
+
+### Verb and Path
+
+Every request needs to be able to tell a server *what* information is requested and *how* that information is being requested.  The *what* is the **path** (also known as a **URI**), indicating what resource this request is referencing.
+
+Examples of a path:
+
+* `/tasks`
+* `/tasks/4`
+* `/items/6/reviews`
+
+The *how* is the **verb**, indicating what actions the server should take regarding the requested resource.  While the path can vary greatly based on the application, the verbs follow common patterns.  There are 5 common HTTP verbs:
+
+- GET - retrieve some information to be READ by the client/user
+- POST - CREATE a new resource with information contained in the request
+- PUT - UPDATE an entire resource with information contained in the request
+- PATCH - UPDATE a part of a resource with information contained in the request
+- DELETE - DESTROY a resource, typically indicating that it is removed from the database
+
+With these 5 verbs, a client can send requests that allow our app to perform all CRUD functions (create, read, update, destroy) for resources in the database.
+
+## What is a "URL"?
+
+Users tell a client to ask for information by giving it a **URL**: a Universal Resource Locator.
+
+A URL allows us to send data to, or retrieve, a "resource" on the Internet. A resource could be a page of HTML content, it could be an image or music file, or it could be part of a web application that will save data you send to it.
+
+### URL vs URI/Path
+
+You may also hear the term URI used interchangeably with "path" when talking about things on the Internet. A "URI", or "Universal Resource Identifier" is not the same as a URL, but it's easy to confuse them.
+
+A URI is part of a URL (see below).
+
+#### Parts of a URL
+
+For the URL
+
+```
+http://task-manager.herokuapp.com/task/new?title=New&task=Task#new_form_anchor
+```
+
+We can split it into distinct parts:
+
+* Protocol: `http://` - Tells us the application protocol we will be using to interact on the web.
+* Domain: `task-manager.herokuapp.com` - Tells us where the resources we are trying to access are located (tied to an IP address using DNS).
+* **URI** or "Path": `/task/new` - The specific path for the resources that we are trying to access at that location.
+* Query String: `?title=New&task=Task` - Params that give our server additional information about what we would like to access.
+* Fragment Identifier: `#new_form_anchor` - An indicator of a specific section of a website we would like to view (e.g. if there is an anchor tag tied to a heading half way down the page). This can be seen by visiting [this](http://guides.rubyonrails.org/active_record_querying.html#array-conditions) link to the rails docs which references the `array-conditions` section of the Query Interface page.
+
+# SetList
+
+Now that we have some background in URLs, Paths, and HTTP Request/Responses, let's put it all together to design a feature in a new app we will be developing together, SetList.
+
+In SetList, we want Users to have the ability to manage Songs, so our first task will be to allow users to see (READ) all Songs. Here is the behavior we are looking for:
+
+* A user opens a web browser and types this URL into their address bar: `http://localhost:3000/songs`
+    * Note that we are using the domain `localhost:3000` because we are developing locally. When this app is live on the internet, it will have a different domain. If we are hosting on Heroku, it will have a domain name like `set-list.herokuapp.com`, so the request to that site would be `http://task-manager.herokuapp.com/songs`
+* When the user hits enter, an HTTP request will be sent. That request will have two key pieces of information
+    * An HTTP Verb of `GET` (URLs entered into an address bar will default to GET)
+    * A Path (or URI) of `/songs`
+* Upon receiving that request, our App should send back an HTTP response of an HTML page that shows all of the songs
 
 ## Create your app
+
+<blockquote>  
+"Convention over Configuration"
+</blockquote>  
+
+\- From [The Rails Doctrine](https://rubyonrails.org/doctrine/#convention-over-configuration) by David Heinemeier Hansson (DHH) in January, 2016
 
 Let's create a whole new Rails app. We're going to use this codebase for the rest of the inning in mod 2.
 
@@ -73,22 +142,6 @@ rails db:create
 
 Refresh the page and you should see "Yay! You're on Rails!"
 
-# End of Setup
-
-# Developing the Index Page
-
-<blockquote>  
-"Convention over Configuration"
-</blockquote>  
-
-\- From [The Rails Doctrine](https://rubyonrails.org/doctrine/#convention-over-configuration) by David Heinemeier Hansson (DHH) in January, 2016
-
-Our first feature of our SetList app will be a Songs index page. Using ReST as convention, we want our app to be able to:
-
-* Receive a GET request to /songs
-* Respond with a web page showing all songs
-
-We can simulate a GET request by typing the url into our web browser. Run your Rails server with `rails s` and navigate to `localhost:3000/songs`.
 
 ## Routing the Request
 
