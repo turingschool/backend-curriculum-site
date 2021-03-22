@@ -38,6 +38,8 @@ title: Relational Rails
 
 ### Design your database  
 
+Read [this lesson plan](https://backend.turing.io/module2/lessons/one_to_many_relationships) and use it as a reference when designing your database.
+
 Each person will come up with their own one to many relationship. This should represent a real world example of your choice. An example would be:
 - Shelters and Pets
 - A Shelter has many Pets
@@ -51,7 +53,7 @@ Use [This database design site](https://www.dbdesigner.net/) to design your data
 
 Here is an example diagram:
 
-![Example Design](../misc/images/db_designer.png)
+![Example Design](../misc/images/adopt_dont_shop_db_design.png)
 
 You can create as many columns on each table as you would like, but we need a few columns represented on each table:
 
@@ -71,9 +73,19 @@ A couple of things to keep in mind as you're designing your schema:
 
 In these stories, we will refer to the "one" side of the relationship as the "parent" and the "many" side of the relationship as the "children/child". In the Pets/Shelters example, Shelter would be the Parent and Pets would be the Children.
 
-### CRUD Functionality
+Children can be associated to the Parent. Children belong to a parent. Anywhere you see `child_table_name` think `pets` from our Pets and Shelters example.
 
-#### Parent
+Each user story will focus on one of the following:
+
+**ActiveRecord**
+
+**CRUD Functionality**
+
+**Usability**: Users should be able to use the site easily. This means making sure there are links/buttons to reach all parts of the site and the styling/layout is sensible.
+
+### Iteration 1
+
+##### CRUD
 
 ```
 [ ] done
@@ -100,7 +112,98 @@ Then I see the parent with that id including the parent's attributes:
 ```
 [ ] done
 
-User Story 3, Parent Creation (x2)
+User Story 3, Child Index (x2)
+
+As a visitor
+When I visit '/child_table_name'
+Then I see each Child in the system including the Child's attributes:
+```
+
+```
+[ ] done
+
+User Story 4, Child Show (x2)
+
+As a visitor
+When I visit '/child_table_name/:id'
+Then I see the child with that id including the child's attributes:
+```
+
+```
+[ ] done
+
+User Story 5, Parent Children Index (x2)
+
+As a visitor
+When I visit '/parents/:parent_id/child_table_name'
+Then I see each Child that is associated with that Parent with each Child's attributes:
+```
+
+##### ActiveRecord
+
+```
+[ ] done
+
+User Story 6, Parent Index sorted by Most Recently Created (x2)
+
+As a visitor
+When I visit the parent index,
+I see that records are ordered by most recently created first
+And next to each of the records I see when it was created
+```
+
+```
+[ ] done
+
+User Story 7, Parent Child Count (x2)
+
+As a visitor
+When I visit a parent's show page
+I see a count of the number of children associated with this parent
+```
+
+##### Usability
+
+```
+[ ] done
+
+User Story 8, Child Index Link
+
+As a visitor
+When I visit any page on the site
+Then I see a link at the top of the page that takes me to the Child Index
+```
+
+```
+[ ] done
+
+User Story 9, Parent Index Link
+
+As a visitor
+When I visit any page on the site
+Then I see a link at the top of the page that takes me to the Parent Index
+```
+
+```
+[ ] done
+
+User Story 10, Parent Child Index Link
+
+As a visitor
+When I visit a parent show page ('/parents/:id')
+Then I see a link to take me to that parent's `child_table_name` page ('/parents/:id/child_table_name')
+```
+
+---
+
+### Iteration 2
+
+##### CRUD
+
+```
+[ ] done
+
+User Story 11, Parent Creation (x2)
 
 As a visitor
 When I visit the Parent Index page
@@ -114,10 +217,11 @@ a new parent record is created,
 and I am redirected to the Parent Index page where I see the new Parent displayed.
 ```
 
+
 ```
 [ ] done
 
-User Story 4, Parent Update (x2)
+User Story 12, Parent Update (x2)
 
 As a visitor
 When I visit a parent show page
@@ -134,90 +238,7 @@ and I am redirected to the Parent's Show page where I see the parent's updated i
 ```
 [ ] done
 
-User Story 5, Parent Delete (x2)
-
-As a visitor
-When I visit a parent show page
-Then I see a link to delete the parent
-When I click the link "Delete Parent"
-Then a 'DELETE' request is sent to '/parents/:id',
-the parent is deleted, and all child records are deleted
-and I am redirected to the parent index page where I no longer see this parent
-```
-
----
-
-#### Children
-
-Children can be associated to the Parent. Children belong to a parent.
-
-Anywhere you see `child_table_name` think `pets` from our Pets and Shelters example.
-
-```
-[ ] done
-
-User Story 6, Child Index (x2)
-
-As a visitor
-When I visit '/child_table_name'
-Then I see each Child in the system including the Child's attributes:
-```
-
-```
-[ ] done
-
-User Story 7, Parent Children Index (x2)
-
-As a visitor
-When I visit '/parents/:parent_id/child_table_name'
-Then I see each Child that is associated with that Parent with each Child's attributes:
-```
-
-```
-[ ] done
-
-User Story 8, Child Show (x2)
-
-As a visitor
-When I visit '/child_table_name/:id'
-Then I see the child with that id including the child's attributes:
-```
-
-```
-[ ] done
-
-User Story 9, Child Update (x2)
-
-As a visitor
-When I visit a Child Show page
-Then I see a link to update that Child "Update Child"
-When I click the link
-I am taken to '/child_table_name/:id/edit' where I see a form to edit the child's attributes:
-When I click the button to submit the form "Update Child"
-Then a `PATCH` request is sent to '/child_table_name/:id',
-the child's data is updated,
-and I am redirected to the Child Show page where I see the Child's updated information
-```
-
-```
-[ ] done
-
-User Story 10, Child Delete (x2)
-
-As a visitor
-When I visit a child show page
-Then I see a link to delete the child "Delete Child"
-When I click the link
-Then a 'DELETE' request is sent to '/child_table_name/:id',
-the child is deleted,
-and I am redirected to the child index page where I no longer see this child
-```
-
-
-```
-[ ] done
-
-User Story 11, Parent Child Creation (x2)
+User Story 13, Parent Child Creation (x2)
 
 As a visitor
 When I visit a Parent Childs Index page
@@ -231,54 +252,32 @@ a new child object/row is created for that parent,
 and I am redirected to the Parent Childs Index page where I can see the new child listed
 ```
 
-
-**CRUD functionality will be reviewed at your second check-in**
-
----
-
-## ActiveRecord
-
 ```
 [ ] done
 
-User Story 12, Parent Index sorted by Most Recently Created (x2)
+User Story 14, Child Update (x2)
 
 As a visitor
-When I visit the parent index,
-I see that records are ordered by most recently created first
-And next to each of the records I see when it was created
+When I visit a Child Show page
+Then I see a link to update that Child "Update Child"
+When I click the link
+I am taken to '/child_table_name/:id/edit' where I see a form to edit the child's attributes:
+When I click the button to submit the form "Update Child"
+Then a `PATCH` request is sent to '/child_table_name/:id',
+the child's data is updated,
+and I am redirected to the Child Show page where I see the Child's updated information
 ```
 
-```
-[ ] done
-
-User Story 13, Parent Child Count (x2)
-
-As a visitor
-When I visit a parent's show page
-I see a count of the number of children associated with this parent
-```
+##### ActiveRecord
 
 ```
 [ ] done
 
-User Story 14, Child Index only shows `true` Records (x2)
+User Story 15, Child Index only shows `true` Records (x2)
 
 As a visitor
 When I visit the child index
 Then I only see records where the boolean column is `true`
-```
-
-```
-[ ] done
-
-User Story 15, Display Records Over a Given Threshold (x2)
-
-As a visitor
-When I visit the Parent's children Index Page
-I see a form that allows me to input a number value
-When I input a number value and click the submit button that reads 'Only return records with more than `number` of `column_name`'
-Then I am brought back to the current index page with only the records that meet that threshold shown.
 ```
 
 ```
@@ -293,16 +292,12 @@ When I click on the link
 I'm taken back to the Parent's children Index Page where I see all of the parent's children in alphabetical order
 ```
 
----
-
-## Usability
-
-Users should be able to use the site easily. This means making sure there are links/buttons to reach all parts of the site and the styling/layout is sensible.
+##### Usability
 
 ```
 [ ] done
 
-User Story 18, Parent Update From Parent Index Page (x2)
+User Story 17, Parent Update From Parent Index Page (x2)
 
 As a visitor
 When I visit the parent index page
@@ -314,7 +309,71 @@ I should be taken to that parents edit page where I can update its information j
 ```
 [ ] done
 
-User Story 19, Parent Delete From Parent Index Page (x1)
+User Story 18, Child Update From Childs Index Page (x1)
+
+As a visitor
+When I visit the `child_table_name` index page or a parent `child_table_name` index page
+Next to every child, I see a link to edit that child's info
+When I click the link
+I should be taken to that `child_table_name` edit page where I can update its information just like in User Story 11
+```
+
+**Iteration 1 will be reviewed at your second check-in**
+
+---
+
+### Iteration 3
+
+##### CRUD
+
+```
+[ ] done
+
+User Story 19, Parent Delete (x2)
+
+As a visitor
+When I visit a parent show page
+Then I see a link to delete the parent
+When I click the link "Delete Parent"
+Then a 'DELETE' request is sent to '/parents/:id',
+the parent is deleted, and all child records are deleted
+and I am redirected to the parent index page where I no longer see this parent
+```
+
+```
+[ ] done
+
+User Story 20, Child Delete (x2)
+
+As a visitor
+When I visit a child show page
+Then I see a link to delete the child "Delete Child"
+When I click the link
+Then a 'DELETE' request is sent to '/child_table_name/:id',
+the child is deleted,
+and I am redirected to the child index page where I no longer see this child
+```
+
+##### ActiveRecord
+
+```
+[ ] done
+
+User Story 21, Display Records Over a Given Threshold (x2)
+
+As a visitor
+When I visit the Parent's children Index Page
+I see a form that allows me to input a number value
+When I input a number value and click the submit button that reads 'Only return records with more than `number` of `column_name`'
+Then I am brought back to the current index page with only the records that meet that threshold shown.
+```
+
+##### Usability
+
+```
+[ ] done
+
+User Story 22, Parent Delete From Parent Index Page (x1)
 
 As a visitor
 When I visit the parent index page
@@ -326,18 +385,7 @@ I am returned to the Parent Index Page where I no longer see that parent
 ```
 [ ] done
 
-User Story 20, Child Update From Childs Index Page (x1)
-
-As a visitor
-When I visit the `child_table_name` index page or a parent `child_table_name` index page
-Next to every child, I see a link to edit that child's info
-When I click the link
-I should be taken to that `child_table_name` edit page where I can update its information just like in User Story 11
-```
-```
-[ ] done
-
-User Story 21, Child Delete From Childs Index Page (x1)
+User Story 23, Child Delete From Childs Index Page (x1)
 
 As a visitor
 When I visit the `child_table_name` index page or a parent `child_table_name` index page
@@ -345,38 +393,10 @@ Next to every child, I see a link to delete that child
 When I click the link
 I should be taken to the `child_table_name` index page where I no longer see that child
 ```
-
-```
-[ ] done
-
-User Story 22, Child Index Link
-
-As a visitor
-When I visit any page on the site
-Then I see a link at the top of the page that takes me to the Child Index
-```
-
-```
-[ ] done
-
-User Story 23, Parent Index Link
-
-As a visitor
-When I visit any page on the site
-Then I see a link at the top of the page that takes me to the Parent Index
-```
-
-```
-[ ] done
-
-User Story 24, Parent Child Index Link
-
-As a visitor
-When I visit a parent show page ('/parents/:id')
-Then I see a link to take me to that parent's `child_table_name` page ('/parents/:id/child_table_name')
-```
+---
 
 ## Extensions
+
 ```
 [ ] done
 
