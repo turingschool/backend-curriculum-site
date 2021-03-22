@@ -7,7 +7,7 @@ title: Backend Module 1 Projects
 
 The following projects will be assigned and their completion is required to be promoted to module 2.
 
-* Week 1 (independent): 
+* Week 1 (independent): [Flash Cards](./flashcards)
 * Week 2-3 (paired): 
 * Week 3-5 (group): 
 * Week 5-6 (individual): 
