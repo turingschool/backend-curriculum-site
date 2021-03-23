@@ -1,675 +1,477 @@
 ---
-title: Cart Implementation
+title: Cookies, Sessions and Authorization
 length: 120
-tags: cart, order
+tags: cookies, session, auth, authorization
 ---
 
-## What Are You Allowed to Do?
+## What Are You Allowed to Do Here?
+
+The idea of Authentication in our previous lesson was "Who are you?". Now that you're here, and logged in, we need to explore the idea if "What are you allowed to do?"
 
 ## Learning Goals
 
-* utilize Sessions in a Rails app
-* Utilize `helper_method` in ApplicationController for use in views and controllers
-* learn how cookies are transmitted to/from Rails
-* load an object to be used throughout the app using a `before_action` filter in the ApplicationController
-
-
-## Objectives
-
-* Using a *helper_method* to access *current_user* in views after our user logs in
-* Creating *custom routes* to log out of our application
-* Creating and destroying a *session*
-
-
-
-## Vocabulary
-* Session
-* PORO
-
-
-## Video
-
-* [Cart and Order Lifecycle](https://vimeo.com/126190416)
+* Review of the Session object in Rails, and how it's actually stored
+* Learn how cookies are transmitted to/from Rails
+* Explore different kinds of Cookies
+* Examine different ways of tracking Authorization
+* Load an object to be used throughout the app using a `before_action` filter in the ApplicationController
 
 ## Warm Up
 
-  * How do we make a class in Ruby?
-  * How do we make an instance of a class?
-  * Where does plain old Ruby data (like a class instance) "live"?
+* What is in an HTTP request?
+* What is in an HTTP response?
+* What do you already know about browser Cookies?
+* (optional) What's your favorite kind of cookie?
 
 ## Intro
 
-We'll build out an app where a user should be able to add songs to their cart. The added songs are not saved to the database until the user has decided so.
+Now that we're logged in, how is Rails actually storing our session? Is that something our user can manipulate?
 
-## Code-Along
+How can we have different _kinds_ of users in our application, such as a "regular" user, an "admin" user, etc.?
 
-We are going to use the `SetList` project for this example.
+### Picking up where we left off
 
-### Writing a Test
+In our previous lesson, we built a login form, had a user log in, and remembered them using a Rails `session`. But what is the `session` object all about? How does it get built, managed, stored, etc.?
 
-```ruby
-# spec/features/cart/add_song_spec.rb
+### Session Management, Configuration
 
-require 'rails_helper'
+By default, if we look for session storage in our existing Rails application, we likely won't find any mention of the word `session`. Try it: hit Cmd-Shift-F in Atom or VS Code to search throughout your application for the word "session" and you'll likely only see the bit of code we added to our repo from the previous lesson.
 
-RSpec.describe "When a user adds songs to their cart" do
-  it "displays a message" do
-    artist = Artist.create(name: 'Rick Astley')
-    song = artist.songs.create(title: 'Never Gonna Give You Up', length: 250, play_count: 1000000)
+**By default, Rails stores sessions in a client-side cookie**, and the configuration setting isn't even specified anywhere as a default for Rails 5.
 
-    visit "/songs"
+We CAN override this by implementing `config.session_store` in `config/application.rb` but we don't have to for what we're building. You can read more about deeper configurations at this URL: https://guides.rubyonrails.org/v5.2/configuring.html
 
-    within("#song-#{song.id}") do
-      click_button "Add Song"
-    end
+### Is that really secure?
 
-    expect(page).to have_content("You now have 1 copy of #{song.title} in your cart.")
-  end
-end
-```
+Let's try it out. Go ahead and log into the application that we started in our previous lesson, and look at your cookies in Chrome:
 
-### Creating a Cart and Adding a Flash Message
+Go into the Inspect tool (Cmd-Option-i), click on the Application tab along the top, click on Cookies in the left pane to expand the list of cookies, and we should see an option there for `http://localhost:3000`
 
-Run the test and it complains about not finding the css with the song id. Inside of `views/songs/index.html.erb`, wrap each song in a section with that id:
+When we select the `localhost` option under our cookies, we should see a set of key/value pairs like `_congress_tracker_session` and a `Value` that we can't easily read.
 
-```erb
-<h1>All Songs</h1>
+The `name` of the piece of data is named after our application, plus `_session` at the end of it.
 
-<% @songs.each do |song| %>
-  <ul>
-    <section id="song-<%= song.id %>">
-      <li>
-        <%= link_to song.title, "/songs/#{song.id}" %>
-        Play Count: <%= song.play_count %>
-      </li>
-    </section>
-  </ul>
-<% end %>
-```
+The `value` is unreadable. In our application, all we set in our session was our `user_id` value.
 
-Now the test isn't finding the button. Let's add a button inside our section:
+This is an **encrypted** cookie. Only our Rails application can decrypt this. In fact, if we were to change something in our Chrome browser about this value, we should be immediately logged out when we refresh the page.
 
-```erb
-<%= button_to "Add Song" %>
-```
+Try it now:
 
-Our error now is:
+* alter the Value of the cookie, even changing one character is enough. (right-click or Ctrl-click on the value, select 'Edit Value')
+* hit Cmd-R in your main browser window to reload.
+* notice that you're not logged in any more!
+* notice, also, that your session cookie value has changed in Chrome!
 
-```
-No route matches [POST] "/songs"
-```
+Rails protects itself from tampered cookies.
 
-`button_to`, by default, will send a `POST` request, and since we haven't specified the path, it uses the current path which is `/songs`.
 
-So we need a route to handle adding a song, but what route should it be? We aren't going to store Carts in our database, so there's no ReSTful routing convention to follow in this case. Let's try to make our route look as ReSTful as possible. If you think about every user having an empty cart by default, what we want to do is update that cart, so it would make sense to use a `PATCH` verb. Since we are updating the cart, it also makes sense that our path includes `/cart`. Finally, we need to know what song we are putting in the cart, so we'll include a `:song_id` parameter in our route. Putting this all together, we'll use the route:
+### Session cookies are short-lived
 
-```
-patch '/cart/:song_id'
-```
+Your browser will clean up any cookies that it sees which are too "old". We call this an "expired" cookie.
 
-Our route will also need a controller and action to route to. Since we're updating the cart, it makes sense to create a new `cart` controller with an `update` action. Add this to your routes file:
+By default, session cookies in Rails are set to expire whenever the browser is completely closed. Having a browser open somewhere else isn't enough. If you *completely* close Chrome, for example (Cmd-Q) then any Rails-based session cookies you have in your browser will be cleaned up.
 
-```
-patch '/cart/:song_id', to: 'cart#update'
-```
+### How can we make these last longer?
 
-As always, run `rake routes` and make sure your new route is there.
+Many web sites may have a "remember me for 7 days" or "remember me for 30 days" or sometimes just a "remember me" checkbox when you're logging in on a web site.
 
-Now that we have a route, let's  make our button go to this route:
+How do THOSE work?
 
-```
-<%= button_to "Add Song", "/cart/#{song.id}", method: :patch %>
-```
+That's what we're going to build today.
 
-Now we get a new error:
+But to do that, we need to build a "regular" cookie, not a "session" cookie.
 
-```
-ActionController::RoutingError:
-     uninitialized constant CartController
-```
+And there are different kinds of cookies.
 
-Make a controller: `touch app/controllers/cart_controller.rb` and add the `CartController class`. If you run the test again, it will complain about missing the action `update`. So, inside of the controller file:
+## Cookies in Rails
 
-```ruby
-class CartController < ApplicationController
-  def update
-  end
-end
-```
+Rails 5 Documentation on Cookies:
 
-And now our error is funky, harder to decipher:
+* [https://api.rubyonrails.org/v5.2.1/classes/ActionDispatch/Cookies.html](https://api.rubyonrails.org/v5.2.1/classes/ActionDispatch/Cookies.html)
 
-```terminal
-Unable to find visible xpath "/html"
-```
+Cookies are handled by ActionDispatch, but readable by ActionController. Since ActionController is inherited by our other controllers, we have access to cookies in any of our controller code.
 
-This is because we are sending this action nowhere; Capybara cannot see any HTML to parse. There is no direct view that corresponds with `update` so we need to redirect it somewhere. Let's bring the user back to the songs index.
+Cookies are effectively treated like a hash. It's a key/value storage mechanism. But cookies also have additional configuration around things like an expiration date, which "domain name" it's linked to (ie, "localhost" or "my-awesome-app.com"), whether the cookie should only work for SSL/TLS enabled sites, and more.
 
-```ruby
-class CartController < ApplicationController
-  def update
-    redirect_to '/songs'
-  end
-end
-```
+### Basic Cookie Usage
 
-Does it work? Start up your server, visit the songs index page, and click the "Add Song" button. Does it redirect you back to the same page? Good.
+`cookies` is the name of our storage, which as mentioned previously, is similar to a hash.
 
-When you run the test, it fails looking for the content "You now have 1 of #{@song.title} in your cart." This should be a flash message. Let's update our action to find the requested song and display the message
+We will generally use this code within our Controllers, but we may be able to access them elsewhere in our code as well, such as in our Views.
+
+`cookies[:user_id] = "12"` is all we need to set a cookie with a key of `:user_id` and a value of `"12"`.
+
+It's important to note that keys and values in cookies are always going to be treated as `String` object types.
+
+If you REALLY want to store a different type of object as a value, you will need to use `JSON.generate` like this:
+
+`cookies[:favorite_colors] = JSON.generate(['blue', 'red'])`
+
+We will need to use `JSON.parse` to read this value back into an array in our code:
+
+`fav_colors = JSON.parse(cookies[:favorite_colors])`
+
+Because our `cookies` object isn't JUST a hash, we can set additional settings in this way:
+
+`cookies[:site_theme] = {value: 'dark-mode', expires: 1.day}`
+
+Whoa, cool, we can set a value AND an expiration at the same time!
+
+### Expiration times
+
+If we do NOT specify an expiration, then the cookie becomes "session" based, and deleted when the browser is closed, just like our `session` cookie.
+
+We can use Ruby's date helpers to set our expirations in a very easy way, such as `1.day` or `3.years` etc..
+
+Rails also has a special setting for "permanent" cookies, which will set an expiration date of "20 years from now", which we can set using this syntax:
+
+`cookies.permanent[:greeting] = 'Howdy!'`
+
+### Deleting a Cookie
+
+Deleting a cookie can be helpful if we log out, for example:
 
 ```ruby
-class CartController < ApplicationController
-  def update
-    song = Song.find(params[:song_id])
-    flash[:notice] = "You now have 1 copy of #{song.title} in your cart."
-    redirect_to '/songs'
-  end
-end
+cookies.delete :greeting
+cookies.delete :favorite_colors
 ```
 
-If you don't already have something to render flash messages, you will need to add one. In the `/app/views/layouts/application.html.erb` file, add this code right before the `yield` tag.
+## Wait, we never really talked about security here!
 
-```erb
-<% flash.each do |type, message| %>
-    <section class=<%= type %>>
-      <p><%= message %></p>
-    </section>
-<% end %>
-```
+When we set a cookie in our code, and look at it in our Inspect tool in Chrome, what do we see now?
 
-Because we put this code in `application.html.erb`, we can put a flash message in any controller action and it will appear in any view!
+Let's add some code to a view that prints what's in our cookies:
 
-Great! That test is passing. But what happens if we add two songs?
-
-### Adding Multiple Songs and Updating Our Flash
-
-Let's update our test to check and see.
-
-```ruby
-#spec/features/cart/add_song_spec.rb
-
-RSpec.describe "When a user adds songs to their cart" do
-  it "displays a message" do
-    ...
-  end
-
-  it "the message correctly increments for multiple songs" do
-    artist = Artist.create(name: 'Rick Astley')
-    song_1 = artist.songs.create(title: 'Never Gonna Give You Up', length: 250, play_count: 1000000)
-    song_2 = artist.songs.create(title: "Don't Stop Believin'", length: 300, play_count: 1)
-
-    visit '/songs'
-
-    within("#song-#{song_1.id}") do
-      click_button "Add Song"
-    end
-
-    within("#song-#{song_2.id}") do
-      click_button "Add Song"
-    end
-
-    within("#song-#{song_1.id}") do
-      click_button "Add Song"
-    end
-
-    expect(page).to have_content("You now have 2 copies of #{song_1.title} in your cart.")
-  end
-end
-
-```
-
-If we run this now it fails because even though we've added two songs, our flash message will always say that we have one song. We need a way to store information about how many songs have been added.
-
-Thinking through this a little bit, we could store something in the database every time someone adds a songs to their cart, but there are a few drawbacks to that approach:
-
-* It would require multiple updates (and potentially deletions) while someone makes up their mind about what to actually keep in their cart. That's a lot of extra database work.
-  * It would also require the user to log in before they could add anything to their cart so that we could create that association in our database anyway.
-* It could potentially result in some abandoned database records if a user decides not to finalize their cart contents.
-
-Instead, we need to find a way to store the state of a cart (which songs have been added to our cart and how many of each type). Can we store data in a session?
-
-Let's go back into the CartController:
-
-```ruby
-class CartController < ApplicationController
-  def update
-    song = Song.find(params[:song_id])
-    song_id_str = song.id.to_s
-    session[:cart] ||= Hash.new(0)
-    session[:cart][song_id_str] ||= 0
-    session[:cart][song_id_str] = session[:cart][song_id_str] + 1
-    flash[:notice] = "You now have #{session[:cart][song_id_str]} copy of #{song.title} in your cart."
-    redirect_to "/songs"
-  end
-end
-```
-
-#### Slight Detour
-You might be wondering why we're converting the song's integer ID to a string, and initializing it to 0 even though we're telling `Hash` to initialize all `new` keys with a value of 0. While our code could certainly process the song ID as an integer in memory, when the session is packed up as one big string to store in the client cookie, and read back again after the next request, the song ID is no longer an integer. Also, the `Hash.new(0)` functionality is also lost when we read a cart from the cookie, since `[:cart]` now exists, so on subsequent requests, `Hash.new(0)` is never run.
-
-#### Back to our code ...
-
-This is close. Our test will still fail, but it looks like our number is incrementing correctly. Our error likely looks something like:
-
-```
-  1) User adds a song to their cart the message correctly increments for multiple songs
-     Failure/Error: expect(page).to have_content("You now have 2 copies of Song 1 in your cart.")
-       expected to find text "You now have 2 copies of #{song.title} in your cart." in ""You now have 2 copy of #{song.title} in your cart.""
-     # ./spec/features/user_adds_song_to_cart_spec.rb:25:in `block (2 levels) in <top (required)>'
-```
-
-It's the plural of "copy/copies" that's giving us a hard time. Luckily we have a tool for that with `#pluralize`. This is a view helper method, so in order to use it here in our controller to set a flash message, we'll need to include `ActionView::Helpers::TextHelper` explicitly in our controller.
-
-```ruby
-class CartController < ApplicationController
-  include ActionView::Helpers::TextHelper
-
-  def update
-    song = Song.find(params[:song_id])
-    song_id_str = song.id.to_s
-    session[:cart] ||= Hash.new(0)
-    session[:cart][song_id_str] ||= 0
-    session[:cart][song_id_str] = session[:cart][song_id_str] + 1
-    quantity = session[:cart][song_id_str]
-    flash[:notice] = "You now have #{pluralize(quantity, "copy")} of #{song.title} in your cart."
-    redirect_to "/songs"
-  end
-end
-```
-
-And there we have another passing test.
-
-That's nice, but wouldn't it be better to see how many songs total we have in our cart? Yes. Yes it would.
-
-### Adding a Cart Tracker
-
-First, let's update our feature test.
-
-```ruby
-require 'rails_helper'
-
-RSpec.feature "When a user adds songs to their cart" do
-  it "displays a message" do
-    ...
-  end
-
-  it "the message correctly increments for multiple songs" do
-    ...
-  end
-
-  it "displays the total number of songs in the cart" do
-    artist = Artist.create(name: 'Rick Astley')
-    song_1 = artist.songs.create(title: 'Never Gonna Give You Up', length: 250, play_count: 1000000)
-    song_2 = artist.songs.create(title: "Don't Stop Believin'", length: 300, play_count: 1)
-
-    visit "/songs"
-
-    expect(page).to have_content("Cart: 0")
-
-    within("#song-#{song_1.id}") do
-      click_button "Add Song"
-    end
-
-    expect(page).to have_content("Cart: 1")
-
-    within("#song-#{song_2.id}") do
-      click_button "Add Song"
-    end
-
-    expect(page).to have_content("Cart: 2")
-
-    within("#song-#{song_1.id}") do
-      click_button "Add Song"
-    end
-
-    expect(page).to have_content("Cart: 3")
-  end
-end
-```
-
-If we run our test now, we'll see that we have not included "Cart: 0" in our view or main app layout. It's easy enough to get past that error. Let's open the `app/views/layouts/application.html.erb` file and add a paragraph tag with the cart information just below our flash message. For now let's hardcode it so that we can see what happens, then think through how we want to implement this permanently.
-
-```html
-<p>Cart: 0</p>
-```
-
-Sure enough, that gets us to a new error where now our test is looking for "Cart: 1" and not finding it on our page (because we're still displaying "Cart: 0" since it's hard-coded in our view).
-
-We could potentially pass in a count specifically to use in that slot, but it's starting to feel like we're doing a LOT of logic with this cart. More than should probably just be handled in the controller.
-
-What we *really* want to do here is to have some sort of an object that I can call `#total` on to get the number of objects in the cart. I don't have a model to use since we're not saving the cart in the database, but that doesn't stop me from creating a `Cart` class that doesn't interact with the database. We call these types of classes "POROS" (Plain Old Ruby Objects). The question becomes where to start, and what to refactor.
-
-Since we're thinking of implementing this here in the view, let's start there with how we'd *like* this object to behave. Change the new line that we added to the view to the following:
-
-```
-<p>Cart: <%= @cart.total_count %></p>
-```
-
-Run our test, and ... we've broken everything!!!
-
-```
-  3) User adds a song to their cart the total number of items in the cart increments
-     Failure/Error: <p>Cart: <%= @cart.total_count %></p>
-
-     ActionView::Template::Error:
-       undefined method `total_count' for nil:NilClass`
-```
-
-That's okay! We can fix this!!
-
-In our SongsController, let's go ahead and add the instance variable `@cart`. Let's also assume that we'll need to pass it the contents currently sitting in our session to make it work.
+In our controller:
 
 ```ruby
   def index
-    @songs = Song.all
-    @cart = Cart.new(session[:cart])
+    unless cookies[:greeting]
+      cookies[:greeting] = 'Howdy!'
+    end
   end
 ```
 
-When we run our tests again, we see another failing test telling us that we don't have a Cart class:
-
-```
-      Failure/Error: @cart = Cart.new(session[:cart])
-
-      NameError:
-        uninitialized constant SongsController::Cart
-```
-
-At this point, we're going to have to create our PORO, so let's start with a model test.
-
-### Creating Our Cart PORO
-
-In our `spec/models` folder, add a new test for our Cart class: `spec/models/cart_spec.rb`. Within our new test file, add the following:
+In a view:
 
 ```ruby
-require 'rails_helper'
+<%= cookies[:greeting] %>
+```
 
-RSpec.describe Cart do
+When we load the page for the first time, we'll see our "Howdy!" greeting. If we manipulate our cookie value in our browser, and reload the page, we'll see that the greeting changes to whatever we've found in our cookie.
 
-  describe "#total_count" do
-    it "can calculate the total number of items it holds" do
-      cart = Cart.new({
-        '1' => 2,  # two copies of song 1
-        '2' => 3   # three copies of song 2
-      })
-      expect(cart.total_count).to eq(5)
+THIS is why our typical session cookie is ENCRYPTED. It cannot be tampered with, because we wouldn't want our user to try to become some other user, or access a setting that we don't want them to access.
+
+### Plain, Signed, and Encrypted cookies
+
+By default, cookies are generated with no security at all. Users can view them, manipulate them etc..
+
+It ALSO means that malicious software (eg "malware" and viruses) can sometimes scrape our cookies from our browser and inspect their keys/values, possibly even tamper with the data.
+
+We can "sign" a cookie, which acts as a type of "trust" that Rails will verify, so if data is manipulated in some way we can have Rails take some sort of action.
+
+* we'll need to delete our old 'greeting' cookie first!
+
+```ruby
+cookies.signed[:greeting] = 'Hello there!'
+```
+
+We also need to update our View to use the `.signed` property to read the value as well:
+
+```ruby
+<%= cookies.signed[:greeting] %>
+```
+
+### Wait, can't really read this anyway so what's the difference between Signed and Encrypted??
+
+Well, the "signed" text is still readable with a little extra work.
+
+At the time of writing this lesson, a signed greeting of 'Howdy!' was signed like the following cookie value:
+
+`Ikhvd2R5ISI=--d12208b183689c5f30379f30d149b481d23f1cd2`
+
+If we grab the first portion of the string:
+
+`Ikhvd2R5ISI=`
+
+We can use "base64 decoding" to turn this back into plaintext.
+
+Visit https://www.base64decode.org/ and paste that text above, and it should turn that string into `"Howdy!"` which is our string. The remaining portion after the `--` which included `d12208b...` is the "signature" that our Rails application added to the value which verifies that the data has not been tampered with.
+
+If we use that same site to base64 encode "Howdy" without the exclamation point, we would see it generate this string:
+
+`Ikhvd2R5Ig==`
+
+If we alter our browser cookie so our value is this instead, but keeping the same signature portion:
+
+`Ikhvd2R5Ig==--d12208b183689c5f30379f30d149b481d23f1cd2`
+
+If we reload the page, our cookie greeting is now blank!
+
+This, again, is Rails protecting itself from using tampered data.
+
+But malicious software can still detect that these cookies are "signed" and that a portion of it is still base64 encoded, and still be able to read that data!
+
+### Encrypted cookies
+
+If we really want these cookie values to be as secure as possible, we can encrypt the data, and only our Rails application can decrypt it.
+
+* we'll need to delete our old 'greeting' cookie first!
+
+```ruby
+cookies.encrypted[:greeting] = 'Hello there!'
+```
+
+We also need to update our View to use the `.signed` property to read the value as well:
+
+```ruby
+<%= cookies.encrypted[:greeting] %>
+```
+
+## Lessons learned (so far)
+
+Cookies are a great way to store some data, settings, etc, on the user's browser.
+
+We've looked at plain cookies, signed cookies, and encrypted cookies, and their benefits, and interesting things like expiration dates.
+
+One thing to note, though:
+
+The NAME of the cookie key (ie "greeting") is ALWAYS plaintext-readable in the browser. If you set this to something like "password" or "user_id" it's more likely that malicious software (or users) will attempt to view/tamper with that data. Try to use generic-sounding key names to avoid this problem!
+
+Our "session" cookie just has a name of "appname_session" which malicious users/malware may still try to examine, but since it's encrypted they don't know what's in there anyway.
+
+
+# Remember Me, an Exercise to Build
+
+Okay, so now that we've looked at cookies in-depth, what would be the best way to implement a "Remember Me" cookie that will automatically log in a user when they visit our site, even if the browser is closed?
+
+For starters, we know that setting our own expiration date will be a good way to ensure we don't lose the cookie when we close our browser.
+
+At a high level, we need steps that look like this in our controller:
+
+```
+- when a user logs in, make a 'remember me' cookie with a long expiration date
+
+- if there is a session cookie, use that
+- if not, check if we have a remember-me cookie
+  - if so, check if that value is valid (not tampered with)
+    - if so, look up that user, and set a new session cookie
+```
+
+Note that for strong security practices, if a long-term "remember me" cookie exists, and when you look up that user, they appear to be an 'admin' user, you should probably destroy the cookie and force the user to log in again. In other words, admin users should not get to use a "remember me" cookie and always have to log in to enforce good security.
+
+One other consideration: if our "remember me" is set for, say, 24 hours, do we reset that timer every time the user takes an action within that 24 hours to give them ANOTHER 24 hours? or do we automatically log them out after 24 hours regardless?
+
+## Wrap-Up on Cookies
+
+* what should we store in a session cookie versus a regular cookie?
+* how much data can we store in each cookie?
+* how do cookies even get set in the browser?
+* how does the browser get that cookie information back to Rails?
+
+---
+
+# Authorization -- Are you ALLOWED to do that??
+
+At a high level, we sometimes want to have different "kinds" of users in our application like an "admin" user versus a "regular" user, maybe a "management" user.
+
+We can very specific in our permissions, ie, maybe a regular user can view information, a manager can add new data but not delete things, maybe an admin user can have full CRUD functionality.
+
+At a very high level, the following steps will be needed:
+
+- we need to add a "role" to our user model
+- we need to have different controller code based on the user's role
+  - this means that we need additional routing
+  - this introduces extra "name spacing" in our application
+
+## User Role
+
+We generally would make the user role an integer value so we're not storing a string over and over, and we can tell Ruby to use a lookup table called an "enum" (short for enumerable) to convert that number to a string later.
+
+How we order these values doesn't really matter, but it's important to note that we generally only add to the END of our enumerable list. If we add something in the middle of the list, we might accidentally change other roles, and that can get really confusing.
+
+Rails also has some neat "magic" about using these enum strings to build validation routines that we'll see in a moment.
+
+### Add a new `role` field
+
+Make a migration to add a `role` field for a user, which is an integer field:
+
+`rails g migration AddRoleToUsers role:integer`
+
+The migration should look something like this. Be sure to set the default to 0, which we'll set to be a "default" user, like a regular user with no special access.
+
+```ruby
+class AddRoleToUsers < ActiveRecord::Migration[5.2]
+  def change
+    add_column :users, :role, :integer, default: 0
+  end
+end
+```
+
+Run `rake db:migrate` to apply this change.
+
+In our User model, we need to specify our list of enumerable strings for our Roles:
+
+```ruby
+class User < ApplicationRecord
+  has_secure_password
+
+  enum role: %w(default manager admin)
+end
+```
+
+Now we'll have access to interesting validations about our User model, like this:
+```ruby
+# look up user 1
+user = User.find(1)
+
+# is user a default user?
+if user.default?
+  # default user!
+elsif user.manager?
+  # user is a manager
+elsif user.admin?
+  # user is an admin
+else
+  # we don't know what kind of user they are?!
+end
+```
+
+Be default, our database will set the role to `0` if we do not set the `role` otherwise when the user registers on our site, so we DEFINITELY want to use strong params to make sure we do NOT allow the `role` property to be transferred to us as a form parameter!!
+
+## Logging in differently
+
+Now, when a user logs in, we could redirect them to a different dashboard based on their role. For example:
+
+```ruby
+user = User.find_by_email(params[:email].downcase)
+if user && user.authenticate(params[:password])
+  if user.admin?
+    redirect_to admin_dashboard_path
+  elsif user.manager?
+    redirect_to manager_dashboard_path
+  elsif user.default?
+    redirect_to user_dashboard_path
+  end
+else
+  flash[:error] = "Your credentials are bad and you should feel bad"
+  render :new
+end
+```
+
+Then, of course, we would need to build the correct dashboards.
+
+## What's in a name(space)?
+
+From here, we can route to a new dashboard path, like `/admin/dashboard` where only our admin users can access the controller:
+
+`config/routes.rb`:
+```ruby
+namespace :admin
+  get '/dashboard', to: 'dashboard#index'
+end
+```
+
+Now, inside our `/app/controllers/` path we need to add a new folder called `admin`, and create a dashboard controller in there:
+
+`/app/controllers/admin/dashboard_controller.rb`:
+```ruby
+class Admin::DashboardController < ApplicationController
+#     ^^^^^^^
+#     this is where we note the namespace
+#     this will come up again when we build APIs later
+end 
+```
+
+Now if we write a test where we have an admin user and log in, we can verify that we end up at the correct dashboard:
+
+`spec/features/admin/login_spec.rb`
+
+```ruby
+require "rails_helper"
+
+describe "Admin login" do
+  describe "happy path" do
+    it "I can log in as an admin and get to my dashboard" do
+	    admin = User.create(email: "superuser@awesome-site.com",
+                        password: "super_secret_passw0rd",
+                        role: 1)
+
+      visit login_path
+      fill_in :email, with admin.email
+      fill_in :password, with admin.password
+      click_button 'log in'
+
+      expect(current_path).to eq(admin_dashboard_path)
     end
   end
 end
 ```
 
-Run that test using `rspec spec/models` so we can avoid the distraction of all of our feature tests failing.
-
-And now we see the error that we need to actually go create our Cart class:
-
-```
-NameError:
-  uninitialized constant Cart
-```
-
-In our `app/models` folder, add `cart.rb` and insert the following code:
+Next, we need to make sure that regular users can't access any of our 'admin' paths.
 
 ```ruby
-class Cart
-  attr_reader :contents
+  describe "as default user" do
+    it 'does not allow default user to see admin dashboard index' do
+      user = User.create(username: "fern@gully.com",
+                         password: "password",
+                         role: 0)
 
-  def initialize(initial_contents)
-    @contents = initial_contents
-  end
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
-  def total_count
-    @contents.values.sum
-  end
-end
-```
+      visit "/admin/dashboard"
 
-#### Side note
-
-Our PORO does not inherit from ApplicationRecord (or ActiveRecord::Base) because we don't store PORO's in our database. They're used "in transit" for one request/response life cycle and then discarded.
-
-#### Back to code...
-
-And that makes our model test pass!
-
-Unfortunately, our feature tests still don't pass for us.
-
-```
-  3) User adds a song to their cart the total number of songs in the cart increments
-     Failure/Error: contents.values.sum
-
-     ActionView::Template::Error:
-       undefined method `values' for nil:NilClass`
-```
-
-We're trying to call `#values` on our initial contents, but the first time that we render our `index` our session hasn't been set, so `initial_contents` evaluates to `nil`. Let's fix that by adding some code to ensure that `@contents` is always defined as a hash. In your Cart class:
-
-```ruby
-class Cart
-  attr_reader :contents
-
-  def initialize(initial_contents)
-    @contents = initial_contents || Hash.new(0)
-  end
-
-  def total_count
-    @contents.values.sum
-  end
-end
-```
-
-And now, our newest test passes, but we have more refactoring and cleanup to do so every other test can pass.
-
-### Refactoring CartController
-
-Let's take another look at the current status of our CartController
-
-```ruby
-class CartController < ApplicationController
-  include ActionView::Helpers::TextHelper
-
-  def update
-    song = Song.find(params[:song_id])
-    song_id_str = song.id.to_s
-    session[:cart] ||= Hash.new(0)
-    session[:cart][song_id_str] ||= 0
-    session[:cart][song_id_str] = session[:cart][song_id_str] + 1
-    quantity = session[:cart][song_id_str]
-    flash[:notice] = "You now have #{pluralize(quantity, "copy")} of #{song.title} in your cart."
-    redirect_to "/songs"
-  end
-end
-
-```
-
-Currently we're doing a lot of work in this controller with our cart. Now that we have a Cart PORO, it seems like we could refactor this to have the PORO take on some of that load.
-
-Let's refactor the CartController so that it looks like this:
-
-```ruby
-class CartController < ApplicationController
-  include ActionView::Helpers::TextHelper
-
-  def update
-    song = Song.find(params[:song_id])
-    @cart = Cart.new(session[:cart])
-    @cart.add_song(song.id)
-    session[:cart] = @cart.contents
-    quantity = @cart.count_of(song.id)
-    flash[:notice] = "You now have #{pluralize(quantity, "copy")} of #{song.title} in your cart."
-    redirect_to songs_path
-  end
-end
-```
-
-We're still letting the controller handle getting and setting the session, but we're putting our PORO in charge of managing the hash that we're storing there: both 1) adding songs to it, and 2) reporting on how many of a particular song we have.
-
-Since we've added these methods to our controller, we now have a missing method error when we run our test. Let's add both methods to our model test to see that they do what we expect them to. The `subject` syntax is a nice RSpec feature to use if you're using a similar setup in many tests. In this case, we abstract the logic for creating a `Cart` instance, and can call that return value with `subject`. I like how this reads, but feel free to forego this pattern if you don't like it as much.
-
-```ruby
-require 'rails_helper'
-
-RSpec.describe Cart do
-  subject { Cart.new({'1' => 2, '2' => 3}) }
-
-  describe "#total_count" do
-    it "calculates the total number of songs it holds" do
-      expect(subject.total_count).to eq(5)
+      expect(page).to have_content("The page you were looking for doesn't exist.")
     end
   end
+```
 
-  describe "#add_song" do
-    it "adds a song to its contents" do
-      cart = Cart.new({
-        '1' => 2,  # two copies of song 1
-        '2' => 3   # three copies of song 2
-      })
-      subject.add_song(1)
-      subject.add_song(2)
+In our Admin Dashboard controller, we need to use a "filter" to make sure that before we run any "action method" (ie index, create, etc) that we check that a user is an admin user:
 
-      expect(subject.contents).to eq({'1' => 3, '2' => 4})
+```ruby
+class Admin::DashboardController < ApplicationController
+  before_action :require_admin
+
+  def index
+  end
+
+  private
+    def require_admin
+      render file: "/public/404" unless current_admin?
     end
-  end
 end
 ```
 
-In order to get the Cart PORO tests to pass, add the following method to our Cart PORO.
+## Wait, what is `current_admin?`
 
+We can make another helper method in our primary application_controller:
+
+`/app/controllers/application_controller.rb`:
 ```ruby
-def add_song(id)
-  @contents[id.to_s] = @contents[id.to_s] + 1
+def current_admin?
+  current_user && current_user.admin?
 end
 ```
 
-What if we ask for the count of a non-existent song? Let's add a test:
+This will re-use our `current_user` method, and, if that passes, will check the `admin?` helper from our `enum` to make sure the user is also an admin user.
 
-```ruby
-describe "#count_of" do
-  it "returns the count of all songs in the cart" do
-    cart = Cart.new({})
+But having to build this `before_action` into each admin controller is going to be a nuisance, so we can make this reusable by making an equivalent "application controller" for our admin namespace. Typically you'll see this called a "base controller", like this:
 
-    expect(cart.count_of(5)).to eq(0)
-  end
-end
-```
+`/app/controllers/application_controller.rb`
+* defines `current_user`, `current_admin?` etc
 
-Let's add a `count_of` method that **coerces** `nil` values to `0` with `#to_i`.
+`/app/controllers/admin/base_controller.rb`
+* inherits application_controller
+* uses our `before_action` and defines `require_admin`
 
-```ruby
-class Cart
+`/app/controllers/admin/dashboard_controller.rb`
+* inherits our new `admin/base_controller.rb`
 
-...
+## Wrap-Up
 
-  def count_of(id)
-    @contents[id.to_s].to_i
-  end
-```
+- what are the main differences between authentication and authorization?
+- how can we use both to secure our application?
+- what does `before_action` do?
+- what are good/bad things about using an `enum` for our role?
+- what does `allow_any_instance_of` do?
 
-What if we want to add a song that hasn't been added yet?
-
-```ruby
-describe "#add_song" do
-  it "adds a song to its contents" do
-    ...
-  end
-
-  it "adds a song that hasn't been added yet" do
-    subject.add_song('3')
-
-    expect(subject.contents).to eq({'1' => 2, '2' => 3, '3' => 1})
-  end
-end
-```
-
-We need this test for the case when a user has added some songs and tries to add a new song. Remember, when we initialize a new Cart, we pass it the contents of `session[:cart]`, which acts like a Hash, but it doesn't have a default value. The default value gets lost in translation between our app and the client's cookies.
-
-This test is giving us an `undefined method '+' for nil:NilClass` error because `@contents[id.to_s]` is coming back as nil when a song hasn't been set yet.  Let's use our handy new `count_of` method that coerces `nil`s to 0 to fix this:
-
-```ruby
-def add_song(id)
-  @contents[id.to_s] = count_of(id) + 1
-end
-```
-
-And our PORO tests are all passing!
-
-### Controller Cleanup
-
-Our feature tests are still in bad shape. Our newest test should pass, but if you run all the tests you'll see a lot of failures. It's from the line in our `application.html.erb` where we call `@cart.total_count`. `@cart` is nil because, although we set it in our `SongsController#index` and `CartController#update`, we didn't set it in every action. We *could* go through every action and add the line `@cart = Cart.new(session[:cart])` to each one, but that wouldn't be very DRY. Instead, let's do some refactoring.
-
-Instead of creating an `@cart` all over the place, we'll make a method on our `ApplicationController` that will handle creating the `Cart` object:
-
-```ruby
-  helper_method :cart
-
-  def cart
-    @cart ||= Cart.new(session[:cart])
-  end
-```
-
-If for some reason we access the cart more than once in a given request/response cycle, the cart object is memoized with `||=`.
-
-We make this new method a helper_method so that we can access it in the views.
-
-Now we can delete the following line from both the SongsController and CartController:
-
-```ruby
-  @cart = Cart.new(session[:cart])
-```
-
-And now change all the references from `@cart` to `cart`.
-
-Double check to see that our tests are still passing, and we should be in good shape!
-
-## Checkin and Review
-
-* Why fuss with all of this PORO business?
-* "Where" does PORO data live?
-* How do I add a flash message to a view?
-
-## Extensions
-
-#### Showing the cart
-
-Let's say that you wanted users to be able to click on "View Cart" (similar to "View Cart" on an e-commerce site).
-
-* Which controller?
-* What does the view look like?
-* How can we make the cart have access to Cart objects instead of just iterating through a hash of keys and values?
-
-#### Ending and saving the cart contents
-
-What about allowing users to save their cart songs as a package? You might approach it something like this:
-
-```erb
-  Cart: <%= cart.total_count %>
-  <%= button_to "Save Package", packages_path %>
-```
-
-In your routes:
-
-```ruby
-  resources :packages, only: [:create]
-```
-
-Make a Packages Controller:
-
-```ruby
-class PackagesController < ApplicationController
-  include ActionView::Helpers::TextHelper
-  def create
-    # the four lines below probably would be best delegated to a PackageCreator PORO
-    package = Package.new(user_name: "Rachel")
-    cart.contents.each do |song_id, quantity|
-      package.songs.new(song_id: song_id, quantity: quantity)
-    end
-
-    if package.save
-      session[:cart] = nil
-      flash[:notice] = "Your bag is packed! You packed #{package.songs.count} songs."
-      redirect_to songs_path
-    else
-      # implement if you have validations
-    end
-  end
-end
-```
