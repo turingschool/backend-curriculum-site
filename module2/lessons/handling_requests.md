@@ -85,7 +85,7 @@ Now that we have some background in URLs, Paths, and HTTP Request/Responses, let
 In SetList, we want Users to have the ability to manage Songs, so our first task will be to allow users to see (READ) all Songs. Here is the behavior we are looking for:
 
 * A user opens a web browser and types this URL into their address bar: `http://localhost:3000/songs`
-    * Note that we are using the domain `localhost:3000` because we are developing locally. When this app is live on the internet, it will have a different domain. If we are hosting on Heroku, it will have a domain name like `set-list.herokuapp.com`, so the request to that site would be `http://task-manager.herokuapp.com/songs`
+    * Note that we are using the domain `localhost:3000` because we are developing locally. When this app is live on the internet, it will have a different domain. If we are hosting on Heroku, it will have a domain name like `set-list.herokuapp.com`, so the request to that site would be `http://set-list.herokuapp.com/songs`
 * When the user hits enter, an HTTP request will be sent. That request will have two key pieces of information
     * An HTTP Verb of `GET` (URLs entered into an address bar will default to GET)
     * A Path (or URI) of `/songs`
