@@ -24,10 +24,10 @@ tags: enumerable, ruby, collections, arrays, each,
 * Is there an alternative you could propose?
 
 ```ruby
-characters = ["Phoebe", "Rachel", "Joey"]
-puts characters[0]
-puts characters[1]
-puts characters[2]
+students = ["Megan", "Bob", "Mike"]
+puts students[0]
+puts students[1]
+puts students[2]
 ```
 
 ## Lesson
@@ -40,21 +40,21 @@ A **Collection** in Ruby is an Array or a Hash. For now, we will be focusing on 
 
 **Iterating** is doing something several times.
 
-`each` is a method that iterates over a collection. This means that `each` allows us to do something for every element of an array. An **Iteration** is a single pass over an element. We can use `each` to print all of our Friends characters like this:
+`each` is a method that iterates over a collection. This means that `each` allows us to do something for every element of an array. An **Iteration** is a single pass over an element. We can use `each` to print all of our students like this:
 
 ```ruby
-characters = ["Phoebe", "Rachel", "Joey"]
+students = ["Megan", "Bob", "Mike"]
 
-characters.each do |character|
-  puts character
+students.each do |student|
+  puts student
 end
 ```
 
-Let's break this down. `characters` is our collection. It is an Array of three strings. `.each` is a method that we call on `characters`.
+Let's break this down. `students` is our collection. It is an Array of three strings. `.each` is a method that we call on `students`.
 
 Everything between the `do` and `end` is the **Block**. The **Block** is what runs for each element in the Array. Since we have three elements, this block will run a total of three times.
 
-`character` is the **Block Variable**. For each iteration, this variable will contain the current element we are iterating over. So for the first iteration, `character` holds the value `Phoebe`, the second time it holds the value `Rachel`, and the third time it holds the value `Joey`.
+`student` is the **Block Variable**. For each iteration, this variable will contain the current element we are iterating over. So for the first iteration, `student` holds the value `Megan`, the second time it holds the value `Bob`, and the third time it holds the value `Mike`.
 
 In general, the format for using `.each` looks like this.
 
@@ -162,8 +162,8 @@ The examples we have outlined are by no means a complete list of the ways that \
 You can replace a `do`/`end` with `{`/`}`. This allows you to write `each` on a single line. Our example from before could also be written as:
 
 ```ruby
-characters = ["Phoebe", "Rachel", "Joey"]
-characters.each { |character| puts character }
+students = ["Megan", "Bob", "Mike"]
+students.each { |student| puts student }
 ```
 
 Generally, we avoid using single-line syntax unless the operation inside the block is *very* short. In this example, it is appropriate since we have a short and simple operation.
