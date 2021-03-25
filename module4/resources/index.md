@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Module 4 Lessons
+title: Module 4 Resources
 ---
 ## JavaScript
 
@@ -46,7 +46,4 @@ title: Module 4 Lessons
 * [Project Planning](./project_planning)
 * [Continuous Integration](./continuous_integration)
 * [Project Polish](./project_polish)
-
-## Thanksgiving Break Suggestions
-
 * [Optional Learning Opportunities](./during_module_break_suggestions)
