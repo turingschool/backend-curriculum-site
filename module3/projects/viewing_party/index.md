@@ -52,5 +52,13 @@ Use this [retro guide](../retro_guide) during the scheduled retros for this proj
 Complete the activity [here](../peer_code_share)
 
 ## Evaluation
+For the project evaluation each project team should prepare a 15 minute  presentation that covers the following points:
+
+[ ] Demonstration of functional completeness (Running the spec harness & Rails Driver)
+[ ] Technical quality and organization of the code
+[ ] Identifying code that should be refactored and how it would be refactored
+[ ] Discussion of test coverage (happy and sad path and edge cases)
+
+All team members are expected to participate equally in the presentation. Students should focus on practicing technical communication that is succinct and utilizes appropriate technical vocabulary. Instructors will ask followup questions based on the presentation and rubric. All team members should be prepared to answer questions based on any of the above points. Slides are not required, but encouraged as a way to facilitate the presentation along with sharing specific code examples.
 
 Your project will be evaluated based on [this rubric](./rubric).
