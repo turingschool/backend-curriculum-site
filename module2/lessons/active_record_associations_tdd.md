@@ -25,8 +25,7 @@ tags: migrations, databases, relationships, rails, activerecord
 
 ## Set Up
 
-This lesson builds off of the [Feature Testing Lesson](./feature_testing). You can find the completed code from this lesson on the `feature_testing` branch of [this repo](https://github.com/turingschool-examples/set_list/tree/feature_testing)
-
+You can checkout the `associations_tdd_setup` of [this SetList repo](https://github.com/turingschool-examples/set_list/tree/associations_tdd_setup) as starting point for this lesson. 
 
 ## Models, Migrations, and Databases in Rails
 
@@ -48,7 +47,7 @@ We're going to use the handy dandy gem [shoulda-matchers](https://github.com/tho
 
 - Add `gem 'shoulda-matchers', '~> 3.1'` to `group :development, :test` in your `Gemfile`  
 - run `bundle install`
-- Put the following in `rails_helper.rb`:
+- Put the following at the bottom of `rails_helper.rb`:
 
 ```ruby
 Shoulda::Matchers.configure do |config|
