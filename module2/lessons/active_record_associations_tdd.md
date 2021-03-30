@@ -202,9 +202,18 @@ What's the relationship between song and artist? Draw this out in a diagram to h
 Let's create a test to help us drive this out.  Add the following to your `artist_spec.rb` within the greater describe Artist block, but outside of the validations block.
 
 ```ruby
-describe 'relationships' do
-  it { should have_many :songs }
+require 'rails_helper'
+
+describe Artist, type: :model do
+  describe "validations" do
+    it { should validate_presence_of :name }
+  end
+
+  describe 'relationships' do
+    it { should have_many :songs }
+  end
 end
+
 ```
 
 When we run this test we get an error something like this:
