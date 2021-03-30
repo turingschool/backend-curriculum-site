@@ -246,6 +246,8 @@ end
 
 Run `rails db:migrate` to run this migration. Now open `schema.rb` and make sure that your `songs` table now has the `artist_id` foreign key.
 
+Run the tests again and you'll see that we're still getting `Expected Artist to have a has_many association called songs (no association called songs)`. We've added the foreign key at the database level, but our we still haven't set up our model to make use of that foreign key.
+
 ## Associations
 
 ### One-to-Many Relationships at the Model Level: Song/Artist
