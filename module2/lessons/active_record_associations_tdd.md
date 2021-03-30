@@ -25,7 +25,7 @@ tags: migrations, databases, relationships, rails, activerecord
 
 ## Set Up
 
-You can checkout the `associations_tdd_setup` of [this SetList repo](https://github.com/turingschool-examples/set_list/tree/associations_tdd_setup) as starting point for this lesson. 
+You can checkout the `associations_tdd_setup` of [this SetList repo](https://github.com/turingschool-examples/set_list/tree/associations_tdd_setup) as a starting point for this lesson. 
 
 ## Models, Migrations, and Databases in Rails
 
