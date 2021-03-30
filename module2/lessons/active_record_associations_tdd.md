@@ -71,7 +71,7 @@ end
 
 ```
 
-When we run rspec, we get an error similar to this:
+Run `bundle exec rspec` and we should get an error similar to this:
 
 ```
 Failure/Error:
@@ -90,8 +90,12 @@ There are a few things that have to happen to get this test passing.
 
 First, let's clear this error by creating our `Artist` model:
 
+```
+touch app/models/artist.rb
+```
+
 ```ruby
-# app/models/artist.#!/usr/bin/env ruby -wKU
+# app/models/artist.rb
 
 class Artist < ApplicationRecord
 
