@@ -272,6 +272,8 @@ class Artist < ApplicationRecord
 end
 ```
 
+Run the tests again and now they should be passing!
+
 Why do we need a foreign key at the database level and the `belongs_to` method in the model? What do each of these things allow for?
 
 Let's play around in our development database by dropping in to the rails console `rails console` or `rails c`
