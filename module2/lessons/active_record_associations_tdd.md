@@ -32,8 +32,6 @@ This lesson plan starts at the `associations_tdd_setup` branch of [this SetList 
 * Run `bundle install`
 * Run `rails db:{drop,create,migrate,seed}`
 
-You can checkout the `associations_tdd_setup` of [this SetList repo](https://github.com/turingschool-examples/set_list/tree/associations_tdd_setup) as a starting point for this lesson.
-
 ## Models, Migrations, and Databases in Rails
 
 In this lesson, we'll be adding to our new SetList Rails app to demonstrate a one-to-many relationship.
