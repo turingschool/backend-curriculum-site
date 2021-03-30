@@ -308,7 +308,7 @@ Now that a `song` **belongs to** an `artist`, a `song` can not exist without an 
 
 Since we've added code into our Song model, it would also be a good idea to create a `song_spec.rb` (if you don't already have one) and add a test for the relationship from Songs to Artists:
 
-```
+```ruby
 require 'rails_helper'
 
 RSpec.describe Song do
