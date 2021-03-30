@@ -126,9 +126,9 @@ This error is telling us that we don't have an `artists` table set up in our dat
 
 `rails g migration CreateArtists name:string`
 
-The migration generator creates a migration and if we follow the working convention for rails the migration will be pre-populated.
+The migration generator creates a migration and if we follow the working convention for rails the migration will be pre-populated. Additionally, we can add `t.timestamps` into the `create_table` block inside the migration to create timestamps.
 
-Let's look at the migration inside of `db/migrate`:
+Let's look at the migration inside of `db/migrate`. It should look like this:
 
 ```ruby
 class CreateArtists < ActiveRecord::Migration[5.1]
