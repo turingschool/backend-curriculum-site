@@ -306,7 +306,19 @@ Now that a `song` **belongs to** an `artist`, a `song` can not exist without an 
   song = artist.songs.create(title: 'Raspberry Beret', length: 345, play_count: 34)
   ```
 
-Before we move on, let's make sure to circle back and add a relationship validation to `Song`. You may also need to adjust your setup section of your `song_spec.rb` if you already have one.
+Since we've added code into our Song model, it would also be a good idea to create a `song_spec.rb` (if you don't already have one) and add a test for the relationship from Songs to Artists:
+
+```
+require 'rails_helper'
+
+RSpec.describe Song do
+
+  describe 'relationships' do
+    it {should belong_to :artist}
+  end
+end
+
+```
 
 ## Seeds
 
