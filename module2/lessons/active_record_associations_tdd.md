@@ -131,7 +131,7 @@ The migration generator creates a migration and if we follow the working convent
 Let's look at the migration inside of `db/migrate`. It should look like this:
 
 ```ruby
-class CreateArtists < ActiveRecord::Migration[5.1]
+class CreateArtists < ActiveRecord::Migration[5.2]
   def change
     create_table :artists do |t|
       t.string :name
@@ -237,15 +237,14 @@ rails g migration AddArtistsToSongs artist:references
 Take a look at what this migration creates.
 
 ```ruby
-class AddArtistsToSongs < ActiveRecord::Migration[5.1]
+class AddArtistsToSongs < ActiveRecord::Migration[5.2]
   def change
     add_reference :songs, :artist, foreign_key: true
   end
 end
 ```
 
-What do we need to do to affect this change in our database?
-What else do we need to make this work as expected?
+Run `rails db:migrate` to run this migration. Now open `schema.rb` and make sure that your `songs` table now has the `artist_id` foreign key.
 
 ## Associations
 
