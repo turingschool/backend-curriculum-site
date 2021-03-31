@@ -1,0 +1,1211 @@
+{
+	"info": {
+		"_postman_id": "6a8322b4-b629-4598-a1ba-39ca007e0382",
+		"name": "Rails Engine, Part 2",
+		"description": "Turing School of Software & Design, Backend Module 3 Solo Project\n\n\"Rails Engine\" is a Rails-based API which mimics an e-commerce platform reporting tool as an API. Users can query and store merchants and items, and retrieve information about an item's merchant, or a list of a merchant's items. Users can also run one of several \"business intelligence\" endpoints to do rich reporting using ActiveRecord queries.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "2. Non-RESTful endpoints",
+			"item": [
+				{
+					"name": "2a. Search Items/Merchants by name (choose 1 set)",
+					"item": [
+						{
+							"name": "Set One: Find one merchant, Find all items",
+							"item": [
+								{
+									"name": "Happy Path, Sad Path",
+									"item": [
+										{
+											"name": "Find One Merchant by Name Fragment",
+											"event": [
+												{
+													"listen": "prerequest",
+													"script": {
+														"exec": [
+															"pm.globals.set('merchants', [",
+															"    'Schiller, Barrows and Parker',",
+															"    'Tillman Group',",
+															"    'Williamson Group',",
+															"    'Willms and Sons'",
+															"]);",
+															""
+														],
+														"type": "text/javascript"
+													}
+												},
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															"pm.test(\"happy path, fetch one merchant by fragment\", function () {",
+															"    pm.response.to.not.be.error;",
+															"    pm.response.to.have.status(200);",
+															"",
+															"    const schema = {",
+															"        \"type\": \"object\",",
+															"        \"properties\": {",
+															"            \"data\": {",
+															"                \"type\": \"object\",",
+															"                \"properties\": {",
+															"                    \"id\": { \"type\": \"string\" },",
+															"                    \"type\": { \"type\": \"string\" },",
+															"                    \"attributes\": { ",
+															"                        \"type\": \"object\",",
+															"                        \"properties\": {",
+															"                            \"name\": { \"type\": \"string\"},",
+															"                        },",
+															"                        \"required\": [\"name\"]",
+															"                    }",
+															"                },",
+															"                \"required\": [\"id\", \"type\", \"attributes\"]",
+															"            }",
+															"        },",
+															"        \"required\": ['data']",
+															"    }",
+															"",
+															"    // expect a \"data\" attribute",
+															"    pm.response.to.have.jsonBody('data');",
+															"    var jsonData = pm.response.json();",
+															"    var data = jsonData.data;",
+															"",
+															"    // now check that the whole schema matches by name and data type",
+															"    pm.response.to.have.jsonSchema(schema);",
+															"",
+															"    // expect data has exactly 3 attributes",
+															"    pm.expect(Object.keys(data).length).to.eq(3);",
+															"",
+															"    // expect that our \"attributes\" portion has exactly 1 attribute",
+															"    pm.expect(Object.keys(data.attributes).length).to.eq(1);",
+															"",
+															"    // expect to find our merchant name in our expected list",
+															"    pm.expect(pm.globals.get('merchants')).to.include(data.attributes.name)",
+															"});",
+															"",
+															"pm.sendRequest('http://localhost:3000/api/v1/merchants/find?name=NOMATCH', (error, response) => {",
+															"    if (error) {",
+															"        console.log(error);",
+															"    }",
+															"    pm.test('sad path, no fragment matched', () => {",
+															"        pm.expect(error).to.equal(null);",
+															"        pm.response.to.have.status(200);",
+															"        var payload = response.json();",
+															"        pm.expect(payload).to.have.property('data');",
+															"        pm.expect(payload.data).to.be.an('object');",
+															"        pm.expect(payload.data.keys).to.eq(undefined);",
+															"    });",
+															"});",
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "http://localhost:3000/api/v1/merchants/find?name=iLl",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "3000",
+													"path": [
+														"api",
+														"v1",
+														"merchants",
+														"find"
+													],
+													"query": [
+														{
+															"key": "name",
+															"value": "iLl"
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Find All Items by Name Fragment",
+											"event": [
+												{
+													"listen": "prerequest",
+													"script": {
+														"exec": [
+															"pm.globals.set('items', [",
+															"    'Item At Harum',",
+															"    'Item Aut Harum',",
+															"    'Item Cum Harum',",
+															"    'Item Distinctio Harum',",
+															"    'Item Dolores Harum',",
+															"    'Item Explicabo Harum',",
+															"    'Item Harum Cupiditate',",
+															"    'Item Harum Dolorem',",
+															"    'Item Harum Illo',",
+															"    'Item Harum Ipsam',",
+															"    'Item Harum Molestiae',",
+															"    'Item Harum Omnis',",
+															"    'Item Harum Repellat',",
+															"    'Item Harum Voluptas',",
+															"    'Item Harum Voluptatem',",
+															"    'Item Illum Harum',",
+															"    'Item Praesentium Harum',",
+															"    'Item Repellendus Harum',",
+															"]);",
+															""
+														],
+														"type": "text/javascript"
+													}
+												},
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															"pm.test(\"happy path, fetch all items matching a pattern\", function () {",
+															"    pm.response.to.not.be.error;",
+															"    pm.response.to.have.status(200);",
+															"",
+															"    const item_schema = {",
+															"        \"type\": \"object\",",
+															"        \"properties\": {",
+															"            \"id\": { \"type\": \"string\" },",
+															"            \"type\": { \"type\": \"string\" },",
+															"            \"attributes\": { ",
+															"                \"type\": \"object\",",
+															"                \"properties\": {",
+															"                    \"name\": { \"type\": \"string\"},",
+															"                    \"description\":  { \"type\": \"string\"},",
+															"                    \"unit_price\":  { \"type\": \"number\"},",
+															"                    \"merchant_id\":  { \"type\": \"number\"},",
+															"                },",
+															"                \"required\": [\"name\", \"description\", \"unit_price\", \"merchant_id\"]",
+															"            }",
+															"        },",
+															"        \"required\": [\"id\", \"type\", \"attributes\"]",
+															"    }",
+															"",
+															"    const base_schema = {",
+															"        \"type\": \"object\",",
+															"        \"properties\": {",
+															"            \"data\": {",
+															"                \"type\": \"array\",",
+															"            }",
+															"        },",
+															"        \"required\": ['data']",
+															"    }",
+															"",
+															"    // expect a \"data\" attribute",
+															"    pm.response.to.have.jsonBody('data');",
+															"    var jsonData = pm.response.json();",
+															"    var data = jsonData.data;",
+															"    var first_item = data[0];",
+															"",
+															"    // now check that the whole schema matches and has 2483 items",
+															"    pm.response.to.have.jsonSchema(base_schema);",
+															"    pm.expect(data.length).to.eq(pm.globals.get('items').length);",
+															"",
+															"    // now inspect the first item's schema to ensure it also matches",
+															"    pm.expect(first_item).to.have.jsonSchema(item_schema);",
+															"",
+															"    // expect item data has exactly 3 attributes",
+															"    pm.expect(Object.keys(first_item).length).to.eq(3);",
+															"",
+															"    // expect that our item \"attributes\" portion has exactly 4 attributes",
+															"    pm.expect(Object.keys(first_item.attributes).length).to.eq(4);",
+															"",
+															"    var returnedNames = data.map(itemData => itemData.attributes.name);",
+															"",
+															"    returnedNames.sort();",
+															"    returnedNames.forEach((name,idx) => {",
+															"        pm.expect(returnedNames[idx]).to.eq(pm.globals.get('items')[idx]);",
+															"    });",
+															"});",
+															"",
+															"pm.sendRequest('http://localhost:3000/api/v1/items/find_all?name=NOMATCH', (error, response) => {",
+															"    if (error) {",
+															"        console.log(error);",
+															"    }",
+															"    pm.test('sad path, no fragment matched', () => {",
+															"        pm.expect(error).to.equal(null);",
+															"        pm.response.to.have.status(200);",
+															"        var payload = response.json();",
+															"        pm.expect(payload).to.have.property('data');",
+															"        pm.expect(payload.data).to.be.an('array');",
+															"        pm.expect(payload.data.length).to.eq(0);",
+															"    });",
+															"});",
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "http://localhost:3000/api/v1/items/find_all?name=hArU",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "3000",
+													"path": [
+														"api",
+														"v1",
+														"items",
+														"find_all"
+													],
+													"query": [
+														{
+															"key": "name",
+															"value": "hArU"
+														}
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								},
+								{
+									"name": "Extensions, Edge Cases",
+									"item": [
+										{
+											"name": "Find One Merchant by Fragment",
+											"event": [
+												{
+													"listen": "prerequest",
+													"script": {
+														"exec": [
+															"pm.globals.set('merchants', [",
+															"    'Schiller, Barrows and Parker',",
+															"    'Tillman Group',",
+															"    'Williamson Group',",
+															"    'Willms and Sons'",
+															"]);",
+															""
+														],
+														"type": "text/javascript"
+													}
+												},
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															"pm.sendRequest('http://localhost:3000/api/v1/merchants/find', (error, response) => {",
+															"    if (error) {",
+															"        console.log(error);",
+															"    }",
+															"    pm.test('edge case, no param given', () => {",
+															"        pm.expect(response).to.have.property('code', 400);",
+															"    });",
+															"});",
+															"",
+															"pm.sendRequest('http://localhost:3000/api/v1/merchants/find?name=', (error, response) => {",
+															"    if (error) {",
+															"        console.log(error);",
+															"    }",
+															"    pm.test('edge case, name fragment is empty', () => {",
+															"        pm.expect(response).to.have.property('code', 400);",
+															"    });",
+															"});",
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "http://localhost:3000/api/v1/merchants/find",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "3000",
+													"path": [
+														"api",
+														"v1",
+														"merchants",
+														"find"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Find All Items by Fragment",
+											"event": [
+												{
+													"listen": "prerequest",
+													"script": {
+														"exec": [
+															"pm.globals.set('items', [",
+															"    'Item At Harum',",
+															"    'Item Aut Harum',",
+															"    'Item Cum Harum',",
+															"    'Item Distinctio Harum',",
+															"    'Item Dolores Harum',",
+															"    'Item Explicabo Harum',",
+															"    'Item Harum Cupiditate',",
+															"    'Item Harum Dolorem',",
+															"    'Item Harum Illo',",
+															"    'Item Harum Ipsam',",
+															"    'Item Harum Molestiae',",
+															"    'Item Harum Omnis',",
+															"    'Item Harum Repellat',",
+															"    'Item Harum Voluptas',",
+															"    'Item Harum Voluptatem',",
+															"    'Item Illum Harum',",
+															"    'Item Praesentium Harum',",
+															"    'Item Repellendus Harum',",
+															"]);",
+															""
+														],
+														"type": "text/javascript"
+													}
+												},
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															"pm.sendRequest('http://localhost:3000/api/v1/items/find_all', (error, response) => {",
+															"    if (error) {",
+															"        console.log(error);",
+															"    }",
+															"    pm.test('edge case, no param given', () => {",
+															"        pm.expect(response).to.have.property('code', 400);",
+															"    });",
+															"});",
+															"",
+															"pm.sendRequest('http://localhost:3000/api/v1/items/find_all?name=', (error, response) => {",
+															"    if (error) {",
+															"        console.log(error);",
+															"    }",
+															"    pm.test('edge case, name fragment is empty', () => {",
+															"        pm.expect(response).to.have.property('code', 400);",
+															"    });",
+															"});",
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "http://localhost:3000/api/v1/items/find_all",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "3000",
+													"path": [
+														"api",
+														"v1",
+														"items",
+														"find_all"
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Set Two: Find all merchants, Find one item",
+							"item": [
+								{
+									"name": "Happy Path, Sad Path",
+									"item": [
+										{
+											"name": "Find All Merchants by Name Fragment",
+											"event": [
+												{
+													"listen": "prerequest",
+													"script": {
+														"exec": [
+															"pm.globals.set('merchants', [",
+															"    'Schiller, Barrows and Parker',",
+															"    'Tillman Group',",
+															"    'Williamson Group',",
+															"    'Williamson Group',",
+															"    'Willms and Sons'",
+															"]);",
+															""
+														],
+														"type": "text/javascript"
+													}
+												},
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															"pm.test(\"happy path, fetch all merchants matching a pattern\", function () {",
+															"    pm.response.to.not.be.error;",
+															"    pm.response.to.have.status(200);",
+															"",
+															"    const merchant_schema = {",
+															"        \"type\": \"object\",",
+															"        \"properties\": {",
+															"            \"id\": { \"type\": \"string\" },",
+															"            \"type\": { \"type\": \"string\" },",
+															"            \"attributes\": { ",
+															"                \"type\": \"object\",",
+															"                \"properties\": {",
+															"                    \"name\": { \"type\": \"string\"},",
+															"                },",
+															"                \"required\": [\"name\"]",
+															"            }",
+															"        },",
+															"        \"required\": [\"id\", \"type\", \"attributes\"]",
+															"    }",
+															"",
+															"    const base_schema = {",
+															"        \"type\": \"object\",",
+															"        \"properties\": {",
+															"            \"data\": {",
+															"                \"type\": \"array\",",
+															"            }",
+															"        },",
+															"        \"required\": ['data']",
+															"    }",
+															"",
+															"    // expect a \"data\" attribute",
+															"    pm.response.to.have.jsonBody('data');",
+															"    var jsonData = pm.response.json();",
+															"    var data = jsonData.data;",
+															"    var first_merchant = data[0];",
+															"",
+															"    // now check that the whole schema matches and has 2483 items",
+															"    pm.response.to.have.jsonSchema(base_schema);",
+															"    pm.expect(data.length).to.eq(5);",
+															"",
+															"    // now inspect the first item's schema to ensure it also matches",
+															"    pm.expect(first_merchant).to.have.jsonSchema(merchant_schema);",
+															"",
+															"    // expect item data has exactly 3 attributes",
+															"    pm.expect(Object.keys(first_merchant).length).to.eq(3);",
+															"",
+															"    // expect that our item \"attributes\" portion has exactly 1 attribute",
+															"    pm.expect(Object.keys(first_merchant.attributes).length).to.eq(1);",
+															"",
+															"    var returnedNames = data.map(merchantData => merchantData.attributes.name);",
+															"",
+															"    returnedNames.sort();",
+															"    returnedNames.forEach((name,idx) => {",
+															"        pm.expect(returnedNames[idx]).to.eq(pm.globals.get('merchants')[idx]);",
+															"    });",
+															"});",
+															"",
+															"pm.sendRequest('http://localhost:3000/api/v1/merchants/find_all?name=NOMATCH', (error, response) => {",
+															"    if (error) {",
+															"        console.log(error);",
+															"    }",
+															"    pm.test('sad path, no fragment matched', () => {",
+															"        pm.expect(error).to.equal(null);",
+															"        pm.response.to.have.status(200);",
+															"        var payload = response.json();",
+															"        pm.expect(payload).to.have.property('data');",
+															"        pm.expect(payload.data).to.be.an('array');",
+															"        pm.expect(payload.data.length).to.eq(0);",
+															"    });",
+															"});",
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "http://localhost:3000/api/v1/merchants/find_all?name=ILL",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "3000",
+													"path": [
+														"api",
+														"v1",
+														"merchants",
+														"find_all"
+													],
+													"query": [
+														{
+															"key": "name",
+															"value": "ILL"
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Find One Item by Name Fragment",
+											"event": [
+												{
+													"listen": "prerequest",
+													"script": {
+														"exec": [
+															"pm.globals.set('items', [",
+															"    'Item At Harum',",
+															"    'Item Aut Harum',",
+															"    'Item Cum Harum',",
+															"    'Item Distinctio Harum',",
+															"    'Item Dolores Harum',",
+															"    'Item Explicabo Harum',",
+															"    'Item Harum Cupiditate',",
+															"    'Item Harum Dolorem',",
+															"    'Item Harum Illo',",
+															"    'Item Harum Ipsam',",
+															"    'Item Harum Molestiae',",
+															"    'Item Harum Omnis',",
+															"    'Item Harum Repellat',",
+															"    'Item Harum Voluptas',",
+															"    'Item Harum Voluptatem',",
+															"    'Item Illum Harum',",
+															"    'Item Praesentium Harum',",
+															"    'Item Repellendus Harum',",
+															"]);",
+															""
+														],
+														"type": "text/javascript"
+													}
+												},
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															"pm.test(\"happy path, fetch one item by fragment\", function () {",
+															"    pm.response.to.not.be.error;",
+															"    pm.response.to.have.status(200);",
+															"",
+															"    const schema = {",
+															"        \"type\": \"object\",",
+															"        \"properties\": {",
+															"            \"data\": {",
+															"                \"type\": \"object\",",
+															"                \"properties\": {",
+															"                    \"id\": { \"type\": \"string\" },",
+															"                    \"type\": { \"type\": \"string\" },",
+															"                    \"attributes\": { ",
+															"                        \"type\": \"object\",",
+															"                        \"properties\": {",
+															"                            \"name\": { \"type\": \"string\"},",
+															"                            \"description\":  { \"type\": \"string\"},",
+															"                            \"unit_price\":  { \"type\": \"number\"},",
+															"                            \"merchant_id\":  { \"type\": \"number\"},                        },",
+															"                        \"required\": [\"name\", \"description\", \"unit_price\", \"merchant_id\"]",
+															"                    }",
+															"                },",
+															"                \"required\": [\"id\", \"type\", \"attributes\"]",
+															"            }",
+															"        },",
+															"        \"required\": ['data']",
+															"    }",
+															"",
+															"    // expect a \"data\" attribute",
+															"    pm.response.to.have.jsonBody('data');",
+															"    var jsonData = pm.response.json();",
+															"    var data = jsonData.data;",
+															"",
+															"    // now check that the whole schema matches by name and data type",
+															"    pm.response.to.have.jsonSchema(schema);",
+															"",
+															"    // expect data has exactly 3 attributes",
+															"    pm.expect(Object.keys(data).length).to.eq(3);",
+															"",
+															"    // expect that our \"attributes\" portion has exactly 4 attributes",
+															"    pm.expect(Object.keys(data.attributes).length).to.eq(4);",
+															"",
+															"    // expect to find our merchant name in our expected list",
+															"    pm.expect(pm.globals.get('items')).to.include(data.attributes.name)",
+															"});",
+															"",
+															"pm.sendRequest('http://localhost:3000/api/v1/items/find?name=NOMATCH', (error, response) => {",
+															"    if (error) {",
+															"        console.log(error);",
+															"    }",
+															"    pm.test('sad path, no fragment matched', () => {",
+															"        pm.expect(error).to.equal(null);",
+															"        pm.response.to.have.status(200);",
+															"        var payload = response.json();",
+															"        pm.expect(payload).to.have.property('data');",
+															"        pm.expect(payload.data).to.be.an('object');",
+															"        pm.expect(payload.data.keys).to.eq(undefined);",
+															"    });",
+															"});",
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "http://localhost:3000/api/v1/items/find?name=hArU",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "3000",
+													"path": [
+														"api",
+														"v1",
+														"items",
+														"find"
+													],
+													"query": [
+														{
+															"key": "name",
+															"value": "hArU"
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Find One Item by Prices",
+											"event": [
+												{
+													"listen": "prerequest",
+													"script": {
+														"exec": [
+															"pm.globals.set('items', [",
+															"    'Item At Harum',",
+															"    'Item Aut Harum',",
+															"    'Item Cum Harum',",
+															"    'Item Distinctio Harum',",
+															"    'Item Dolores Harum',",
+															"    'Item Explicabo Harum',",
+															"    'Item Harum Cupiditate',",
+															"    'Item Harum Dolorem',",
+															"    'Item Harum Illo',",
+															"    'Item Harum Ipsam',",
+															"    'Item Harum Molestiae',",
+															"    'Item Harum Omnis',",
+															"    'Item Harum Repellat',",
+															"    'Item Harum Voluptas',",
+															"    'Item Harum Voluptatem',",
+															"    'Item Illum Harum',",
+															"    'Item Praesentium Harum',",
+															"    'Item Repellendus Harum',",
+															"]);",
+															"pm.globals.set('first_item_over_50', 'Item A Error')",
+															"pm.globals.set('first_item_under_150', 'Item A Error')"
+														],
+														"type": "text/javascript"
+													}
+												},
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															"pm.test(\"happy path, fetch one item by min_price\", function () {",
+															"    pm.response.to.not.be.error;",
+															"    pm.response.to.have.status(200);",
+															"",
+															"    const schema = {",
+															"        \"type\": \"object\",",
+															"        \"properties\": {",
+															"            \"data\": {",
+															"                \"type\": \"object\",",
+															"                \"properties\": {",
+															"                    \"id\": { \"type\": \"string\" },",
+															"                    \"type\": { \"type\": \"string\" },",
+															"                    \"attributes\": { ",
+															"                        \"type\": \"object\",",
+															"                        \"properties\": {",
+															"                            \"name\": { \"type\": \"string\"},",
+															"                            \"description\":  { \"type\": \"string\"},",
+															"                            \"unit_price\":  { \"type\": \"number\"},",
+															"                            \"merchant_id\":  { \"type\": \"number\"},",
+															"                        },",
+															"                        \"required\": [\"name\", \"description\", \"unit_price\", \"merchant_id\"]",
+															"                    }",
+															"                },",
+															"                \"required\": [\"id\", \"type\", \"attributes\"]",
+															"            }",
+															"        },",
+															"        \"required\": ['data']",
+															"    }",
+															"",
+															"    // expect a \"data\" attribute",
+															"    pm.response.to.have.jsonBody('data');",
+															"    var jsonData = pm.response.json();",
+															"    var data = jsonData.data;",
+															"",
+															"    // now check that the whole schema matches by name and data type",
+															"    pm.response.to.have.jsonSchema(schema);",
+															"",
+															"    // expect data has exactly 3 attributes",
+															"    pm.expect(Object.keys(data).length).to.eq(3);",
+															"",
+															"    // expect that our \"attributes\" portion has exactly 4 attributes",
+															"    pm.expect(Object.keys(data.attributes).length).to.eq(4);",
+															"",
+															"    // expect to find our item name to match",
+															"    pm.expect(data.attributes.name).to.eq(pm.globals.get('first_item_over_50'));",
+															"});",
+															"",
+															"pm.sendRequest('http://localhost:3000/api/v1/items/find?min_price=500000000', (error, response) => {",
+															"    if (error) {",
+															"        console.log(error);",
+															"    }",
+															"    pm.test('happy path, min_price is so big that nothing matches', () => {",
+															"        pm.expect(error).to.equal(null);",
+															"        pm.response.to.have.status(200);",
+															"        var payload = response.json();",
+															"        pm.expect(payload).to.have.property('data');",
+															"        pm.expect(payload.data).to.be.an('object');",
+															"        pm.expect(payload.data.keys).to.eq(undefined);",
+															"    });",
+															"});",
+															"",
+															"pm.sendRequest('http://localhost:3000/api/v1/items/find?min_price=-5', (error, response) => {",
+															"    if (error) {",
+															"        console.log(error);",
+															"    }",
+															"    pm.test('sad path, min_price less than 0', () => {",
+															"        pm.expect(error).to.equal(null);",
+															"        pm.expect(response.code).to.eq(400);",
+															"        var payload = response.json();",
+															"        pm.expect(payload).to.have.property('error');",
+															"    });",
+															"});",
+															"",
+															"pm.sendRequest('http://localhost:3000/api/v1/items/find?name=ring&min_price=50', (error, response) => {",
+															"    if (error) {",
+															"        console.log(error);",
+															"    }",
+															"    pm.test('sad path, cannot send name and min_price', () => {",
+															"        pm.expect(error).to.equal(null);",
+															"        pm.expect(response.code).to.eq(400);",
+															"    });",
+															"});",
+															"",
+															"pm.sendRequest('http://localhost:3000/api/v1/items/find?max_price=150', (error, response) => {",
+															"    if (error) {",
+															"        console.log(error);",
+															"    }",
+															"    pm.test('happy path, fetch one item by max price', () => {",
+															"        pm.response.to.not.be.error;",
+															"        pm.response.to.have.status(200);",
+															"",
+															"        const schema = {",
+															"            \"type\": \"object\",",
+															"            \"properties\": {",
+															"                \"data\": {",
+															"                    \"type\": \"object\",",
+															"                    \"properties\": {",
+															"                        \"id\": { \"type\": \"string\" },",
+															"                        \"type\": { \"type\": \"string\" },",
+															"                        \"attributes\": { ",
+															"                            \"type\": \"object\",",
+															"                            \"properties\": {",
+															"                                \"name\": { \"type\": \"string\"},",
+															"                                \"description\":  { \"type\": \"string\"},",
+															"                                \"unit_price\":  { \"type\": \"number\"},",
+															"                                \"merchant_id\":  { \"type\": \"number\"},",
+															"                            },",
+															"                            \"required\": [\"name\", \"description\", \"unit_price\", \"merchant_id\"]",
+															"                        }",
+															"                    },",
+															"                    \"required\": [\"id\", \"type\", \"attributes\"]",
+															"                }",
+															"            },",
+															"            \"required\": ['data']",
+															"        }",
+															"",
+															"        // expect a \"data\" attribute",
+															"        pm.response.to.have.jsonBody('data');",
+															"        var jsonData = pm.response.json();",
+															"        var data = jsonData.data;",
+															"",
+															"        // now check that the whole schema matches by name and data type",
+															"        pm.response.to.have.jsonSchema(schema);",
+															"",
+															"        // expect data has exactly 3 attributes",
+															"        pm.expect(Object.keys(data).length).to.eq(3);",
+															"",
+															"        // expect that our \"attributes\" portion has exactly 4 attributes",
+															"        pm.expect(Object.keys(data.attributes).length).to.eq(4);",
+															"",
+															"        // expect to find our merchant name in our expected list",
+															"        pm.expect(data.attributes.name).to.eq(pm.globals.get('first_item_under_150'))",
+															"    });",
+															"});",
+															"",
+															"pm.sendRequest('http://localhost:3000/api/v1/items/find?max_price=1.99', (error, response) => {",
+															"    if (error) {",
+															"        console.log(error);",
+															"    }",
+															"    pm.test('happy path, max_price is so small that nothing matches', () => {",
+															"        pm.expect(error).to.equal(null);",
+															"        pm.response.to.have.status(200);",
+															"        var payload = response.json();",
+															"        pm.expect(payload).to.have.property('data');",
+															"        pm.expect(payload.data).to.be.an('object');",
+															"        pm.expect(payload.data.keys).to.eq(undefined);",
+															"    });",
+															"});",
+															"",
+															"pm.sendRequest('http://localhost:3000/api/v1/items/find?max_price=-5', (error, response) => {",
+															"    if (error) {",
+															"        console.log(error);",
+															"    }",
+															"    pm.test('sad path, max_price less than 0', () => {",
+															"        pm.expect(error).to.equal(null);",
+															"        pm.expect(response.code).to.eq(400);",
+															"        var payload = response.json();",
+															"        pm.expect(payload).to.have.property('error');",
+															"    });",
+															"});",
+															"",
+															"pm.sendRequest('http://localhost:3000/api/v1/items/find?name=ring&max_price=50', (error, response) => {",
+															"    if (error) {",
+															"        console.log(error);",
+															"    }",
+															"    pm.test('sad path, cannot send name and max_price', () => {",
+															"        pm.expect(error).to.equal(null);",
+															"        pm.expect(response.code).to.eq(400);",
+															"    });",
+															"});",
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "http://localhost:3000/api/v1/items/find?min_price=50",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "3000",
+													"path": [
+														"api",
+														"v1",
+														"items",
+														"find"
+													],
+													"query": [
+														{
+															"key": "min_price",
+															"value": "50"
+														}
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								},
+								{
+									"name": "Extensions, Edge Cases",
+									"item": [
+										{
+											"name": "Find All Merchants by Fragment",
+											"event": [
+												{
+													"listen": "prerequest",
+													"script": {
+														"exec": [
+															"pm.globals.set('merchants', [",
+															"    'Schiller, Barrows and Parker',",
+															"    'Tillman Group',",
+															"    'Williamson Group',",
+															"    'Williamson Group',",
+															"    'Willms and Sons'",
+															"]);",
+															""
+														],
+														"type": "text/javascript"
+													}
+												},
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															"pm.sendRequest('http://localhost:3000/api/v1/merchants/find_all?name=', (error, response) => {",
+															"    if (error) {",
+															"        console.log(error);",
+															"    }",
+															"    pm.test('edge case, no name given', () => {",
+															"        pm.response.to.have.status(400);",
+															"    });",
+															"});",
+															"",
+															"pm.sendRequest('http://localhost:3000/api/v1/merchants/find_all', (error, response) => {",
+															"    if (error) {",
+															"        console.log(error);",
+															"    }",
+															"    pm.test('edge case, no query param given', () => {",
+															"        pm.response.to.have.status(400);",
+															"    });",
+															"});",
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "http://localhost:3000/api/v1/merchants/find_all?name=",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "3000",
+													"path": [
+														"api",
+														"v1",
+														"merchants",
+														"find_all"
+													],
+													"query": [
+														{
+															"key": "name",
+															"value": ""
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Find One Item by Fragment",
+											"event": [
+												{
+													"listen": "prerequest",
+													"script": {
+														"exec": [
+															"pm.globals.set('items', [",
+															"    'Item At Harum',",
+															"    'Item Aut Harum',",
+															"    'Item Cum Harum',",
+															"    'Item Distinctio Harum',",
+															"    'Item Dolores Harum',",
+															"    'Item Explicabo Harum',",
+															"    'Item Harum Cupiditate',",
+															"    'Item Harum Dolorem',",
+															"    'Item Harum Illo',",
+															"    'Item Harum Ipsam',",
+															"    'Item Harum Molestiae',",
+															"    'Item Harum Omnis',",
+															"    'Item Harum Repellat',",
+															"    'Item Harum Voluptas',",
+															"    'Item Harum Voluptatem',",
+															"    'Item Illum Harum',",
+															"    'Item Praesentium Harum',",
+															"    'Item Repellendus Harum',",
+															"]);",
+															""
+														],
+														"type": "text/javascript"
+													}
+												},
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															"pm.sendRequest('http://localhost:3000/api/v1/items/find?name=', (error, response) => {",
+															"    if (error) {",
+															"        console.log(error);",
+															"    }",
+															"    pm.test('edge case, no name given', () => {",
+															"        pm.response.to.have.status(400);",
+															"    });",
+															"});",
+															"",
+															"pm.sendRequest('http://localhost:3000/api/v1/items/find', (error, response) => {",
+															"    if (error) {",
+															"        console.log(error);",
+															"    }",
+															"    pm.test('edge case, no param given', () => {",
+															"        pm.response.to.have.status(400);",
+															"    });",
+															"});",
+															"",
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "http://localhost:3000/api/v1/items/find?name=",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "3000",
+													"path": [
+														"api",
+														"v1",
+														"items",
+														"find"
+													],
+													"query": [
+														{
+															"key": "name",
+															"value": ""
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Find One Item by Prices",
+											"event": [
+												{
+													"listen": "prerequest",
+													"script": {
+														"exec": [
+															"pm.globals.set('items', [",
+															"    'Item At Harum',",
+															"    'Item Aut Harum',",
+															"    'Item Cum Harum',",
+															"    'Item Distinctio Harum',",
+															"    'Item Dolores Harum',",
+															"    'Item Explicabo Harum',",
+															"    'Item Harum Cupiditate',",
+															"    'Item Harum Dolorem',",
+															"    'Item Harum Illo',",
+															"    'Item Harum Ipsam',",
+															"    'Item Harum Molestiae',",
+															"    'Item Harum Omnis',",
+															"    'Item Harum Repellat',",
+															"    'Item Harum Voluptas',",
+															"    'Item Harum Voluptatem',",
+															"    'Item Illum Harum',",
+															"    'Item Praesentium Harum',",
+															"    'Item Repellendus Harum',",
+															"]);",
+															"pm.globals.set('first_item_over_50', 'Item A Error')",
+															"pm.globals.set('first_item_under_150', 'Item A Error')"
+														],
+														"type": "text/javascript"
+													}
+												},
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															"pm.sendRequest('http://localhost:3000/api/v1/items/find?min_price=', (error, response) => {",
+															"    if (error) {",
+															"        console.log(error);",
+															"    }",
+															"    pm.test('edge case, min_price is not set', () => {",
+															"        pm.response.to.have.status(400);",
+															"    });",
+															"});",
+															"",
+															"pm.sendRequest('http://localhost:3000/api/v1/items/find?max_price=', (error, response) => {",
+															"    if (error) {",
+															"        console.log(error);",
+															"    }",
+															"    pm.test('edge case, max_price is not set', () => {",
+															"        pm.response.to.have.status(400);",
+															"    });",
+															"});",
+															"",
+															"",
+															"pm.sendRequest('http://localhost:3000/api/v1/items/find?min_price=50&max_price=5', (error, response) => {",
+															"    if (error) {",
+															"        console.log(error);",
+															"    }",
+															"    pm.test('edge case, min_price cannot be more than max_price', () => {",
+															"        pm.expect(response.code).to.eq(400);",
+															"    });",
+															"});",
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "http://localhost:3000/api/v1/items/find?min_price=",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "3000",
+													"path": [
+														"api",
+														"v1",
+														"items",
+														"find"
+													],
+													"query": [
+														{
+															"key": "min_price",
+															"value": ""
+														}
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								}
+							]
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				}
+			]
+		}
+	]
+}

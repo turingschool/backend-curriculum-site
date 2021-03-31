@@ -53,7 +53,14 @@ Note: in order to pass the project, not ALL of the Postman tests will be passing
 
 #### Importing the Test Suite
 
-Download the test suite [from this URL](./RailsEngine.postman_collection.json). In Postman, in the top left corner, click on the "Import" button, and drag the downloaded JSON file over the interface or use the file selector to locate the file on your operating system.
+Download the test suites for Postman:
+* [RailsEngine, Part 1.postman_collection.json](./RailsEngine, Part 1.postman_collection.json)
+* [RailsEngine, Part 2.postman_collection.json](./RailsEngine, Part 2.postman_collection.json)
+* [RailsEngine, Part 3.postman_collection.json](./RailsEngine, Part 3.postman_collection.json)
+
+Click on each link to load it in your browser, then hit Cmd-S to save it to your system.
+
+In Postman, in the top left corner, click on the "Import" button, and drag the downloaded JSON file over the interface or use the file selector to locate the file on your operating system.
 
 Next, you'll "confirm" the import. The test suite should display as a "Postman Collection v2.1" and import as a "Collection". Click the "Import" button to continue.
 
@@ -79,9 +86,9 @@ The error messages aren't that great, but we're here to help you diagnose the pr
 
 #### Running the full test suite
 
-In the top left corner of the Postman interface, you'll see a "Runner" button. Click that and a new Postman window will appear. From here, you can select "Rails Engine" from the list of "All Collections".
+In the bottom right corner of the Postman interface, you'll see a "Runner" button. Click that and a new panel will appear. From here, you can drag one of the three "Rails Engine" collections to the right side of the screen.
 
-Next you can select/deselect which tests you'd like to run. Next, click the "Run Rails Engine" button.
+Next, you can select/deselect which tests you'd like to run. Finally, click the "Run Rails Engine" button.
 
 As it runs, it will show you which tests are passing or failing.
 

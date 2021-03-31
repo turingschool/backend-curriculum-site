@@ -118,7 +118,7 @@ You can customize the value of the `message` element, but the `message` element 
 The `errors` element will always be an array and contain one or more strings of why the user's request was unsuccessful. Examples will include a "ID was invalid" in the case of a 404, or "the 'description' parameter was missing"
 
 
-## RESTful Endpoints, Minimum Requirements:
+## SECTION ONE: RESTful Endpoints, Minimum Requirements:
 
 You will need to expose the following RESTful API endpoints for the following:
 
@@ -134,7 +134,7 @@ You will need to expose the following RESTful API endpoints for the following:
   * delete an item
   * get the merchant data for a given item ID
 
-## Non-RESTful Endpoints, Minimum Requirements:
+## SECTION TWO: Non-RESTful Search Endpoints
 
 You will get to choose from the following list:
 
@@ -143,21 +143,31 @@ You will get to choose from the following list:
   * OR:
   * find one ITEM based on search criteria AND find all MERCHANTS based on search criteria
 
-* FOUR of the following endpoints:
-  * find a quantity of merchants sorted by descending revenue
-  * find a quantity of merchants sorted by descending item quantity sold
-  * total revenue generated in the whole system over a start/end date range
-  * total revenue for a given merchant
-  * find a quantity of items sorted by descending revenue
-  * total revenue of successful invoices which have not yet been shipped
-  * revenue report, broken down by month in ascending date order
+## SECTION THREE: Business Intelligence Endpoints
 
-In total, the MINIMUM requirement will be 15 endpoints.
+Choose any FOUR of the following seven endpoints:
 
-**HINT**: Invoices must have a successful transaction and shipped to the customer to be considered as revenue.
+* find a quantity of merchants sorted by descending revenue
+* find a quantity of merchants sorted by descending item quantity sold
+* total revenue generated in the whole system over a start/end date range
+* total revenue for a given merchant
+* find a quantity of items sorted by descending revenue
+* total revenue of successful invoices which have not yet been shipped
+* revenue report, broken down by month in ascending date order
+
+**HINT**: Invoices must have a successful transaction and be shipped to the customer to be considered as revenue.
+
+## Your Project MVP
+
+In total, the MINIMUM requirement will be 15 endpoints:
+
+* section one has 9 endpoints
+* section two has 2 endpoints
+* section three has 4 endpoints
 
 ---
 
+# SECTION ONE
 ## RESTful: Fetch all Items/Merchants
 
 These "index" endpoints for items and merchants should:
@@ -329,6 +339,8 @@ These endpoints should show related records for a given resource. The relationsh
   * return a 404 if the item is not found
   
 
+---
+# SECTION TWO
 ## Non-RESTful Search Endpoints
 
 In addition to the standard RESTful endpoints described above, you will build the following endpoints which will NOT follow RESTful convention:
@@ -426,6 +438,8 @@ Example JSON response for `GET /api/v1/merchants/find_all?name=ring`
 
 ```
 
+---
+# SECTION THREE
 ## Non-RESTful: Merchants with Most Revenue
 
 This endpoint should return a variable number of merchants ranked by total revenue.
