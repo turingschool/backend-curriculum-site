@@ -47,9 +47,9 @@ We *highly* encourage you to have attempted some of the business intelligence qu
 
 ## Postman
 
-We have adapted this project from previous cohorts and have rewritten a fully functional test suite right within Postman. By importing the JSON file noted below, you can open the Postman "Runner" and execute a large suite of tests.
+We have adapted this project from previous cohorts and have rewritten a fully functional test suite right within Postman. By importing the JSON files noted below, you can open the Postman "Runner" and execute a large suite of tests.
 
-Note: in order to pass the project, not ALL of the Postman tests will be passing. You will need to examine the tests you NEED to run, since we're giving students some choice in how to build the application.
+**Note: not ALL of the Postman tests will be passing in order to pass the project**. You will need to examine the tests you NEED to run, since we're giving students some choice in how to build the application.
 
 #### Importing the Test Suite
 
