@@ -54,9 +54,9 @@ We have adapted this project from previous cohorts and have rewritten a fully fu
 #### Importing the Test Suite
 
 Download the test suites for Postman:
-* [RailsEngine, Part 1.postman_collection.json](./RailsEngine, Part 1.postman_collection.json)
-* [RailsEngine, Part 2.postman_collection.json](./RailsEngine, Part 2.postman_collection.json)
-* [RailsEngine, Part 3.postman_collection.json](./RailsEngine, Part 3.postman_collection.json)
+* [Rails Engine, Section 1](./RailsEngineSection1.postman_collection.json)
+* [Rails Engine, Section 2](./RailsEngineSection2.postman_collection.json)
+* [Rails Engine, Section 3](./RailsEngineSection3.postman_collection.json)
 
 Click on each link to load it in your browser, then hit Cmd-S to save it to your system.
 
