@@ -25,8 +25,12 @@ tags: migrations, databases, relationships, rails, activerecord
 
 ## Set Up
 
-This lesson builds off of the [Feature Testing Lesson](./feature_testing). You can find the completed code from this lesson on the `feature_testing` branch of [this repo](https://github.com/turingschool-examples/set_list/tree/feature_testing)
+This lesson plan starts at the `associations_tdd_setup` branch of [this SetList repo](https://github.com/turingschool-examples/set_list/tree/associations_tdd_setup). In order to set up the app for this lesson:
 
+* Clone the repo
+* Checkout the `associations_tdd_setup` branch
+* Run `bundle install`
+* Run `rails db:{drop,create,migrate,seed}`
 
 ## Models, Migrations, and Databases in Rails
 
@@ -48,7 +52,7 @@ We're going to use the handy dandy gem [shoulda-matchers](https://github.com/tho
 
 - Add `gem 'shoulda-matchers', '~> 3.1'` to `group :development, :test` in your `Gemfile`  
 - run `bundle install`
-- Put the following in `rails_helper.rb`:
+- Put the following at the bottom of `rails_helper.rb`:
 
 ```ruby
 Shoulda::Matchers.configure do |config|
@@ -72,7 +76,7 @@ end
 
 ```
 
-When we run rspec, we get an error similar to this:
+Run `bundle exec rspec` and we should get an error similar to this:
 
 ```
 Failure/Error:
@@ -91,8 +95,12 @@ There are a few things that have to happen to get this test passing.
 
 First, let's clear this error by creating our `Artist` model:
 
+```
+touch app/models/artist.rb
+```
+
 ```ruby
-# app/models/artist.#!/usr/bin/env ruby -wKU
+# app/models/artist.rb
 
 class Artist < ApplicationRecord
 
@@ -116,12 +124,12 @@ This error is telling us that we don't have an `artists` table set up in our dat
 
 `rails g migration CreateArtists name:string`
 
-The migration generator creates a migration and if we follow the working convention for rails the migration will be pre-populated.
+The migration generator creates a migration and if we follow the working convention for rails the migration will be pre-populated. Additionally, we can add `t.timestamps` into the `create_table` block inside the migration to create timestamps.
 
-Let's look at the migration inside of `db/migrate`:
+Let's look at the migration inside of `db/migrate`. It should look like this:
 
 ```ruby
-class CreateArtists < ActiveRecord::Migration[5.1]
+class CreateArtists < ActiveRecord::Migration[5.2]
   def change
     create_table :artists do |t|
       t.string :name
@@ -192,9 +200,18 @@ What's the relationship between song and artist? Draw this out in a diagram to h
 Let's create a test to help us drive this out.  Add the following to your `artist_spec.rb` within the greater describe Artist block, but outside of the validations block.
 
 ```ruby
-describe 'relationships' do
-  it { should have_many :songs }
+require 'rails_helper'
+
+describe Artist, type: :model do
+  describe "validations" do
+    it { should validate_presence_of :name }
+  end
+
+  describe 'relationships' do
+    it { should have_many :songs }
+  end
 end
+
 ```
 
 When we run this test we get an error something like this:
@@ -218,15 +235,16 @@ rails g migration AddArtistsToSongs artist:references
 Take a look at what this migration creates.
 
 ```ruby
-class AddArtistsToSongs < ActiveRecord::Migration[5.1]
+class AddArtistsToSongs < ActiveRecord::Migration[5.2]
   def change
     add_reference :songs, :artist, foreign_key: true
   end
 end
 ```
 
-What do we need to do to affect this change in our database?
-What else do we need to make this work as expected?
+Run `rails db:migrate` to run this migration. Now open `schema.rb` and make sure that your `songs` table now has the `artist_id` foreign key.
+
+Run the tests again and you'll see that we're still getting `Expected Artist to have a has_many association called songs (no association called songs)`. We've added the foreign key at the database level, but our we still haven't set up our model to make use of that foreign key.
 
 ## Associations
 
@@ -251,6 +269,8 @@ class Artist < ApplicationRecord
   validates_presence_of :name
 end
 ```
+
+Run the tests again and now they should be passing!
 
 Why do we need a foreign key at the database level and the `belongs_to` method in the model? What do each of these things allow for?
 
@@ -284,7 +304,19 @@ Now that a `song` **belongs to** an `artist`, a `song` can not exist without an 
   song = artist.songs.create(title: 'Raspberry Beret', length: 345, play_count: 34)
   ```
 
-Before we move on, let's make sure to circle back and add a relationship validation to `Song`. You may also need to adjust your setup section of your `song_spec.rb` if you already have one.
+Since we've added code into our Song model, it would also be a good idea to create a `song_spec.rb` (if you don't already have one) and add a test for the relationship from Songs to Artists:
+
+```ruby
+require 'rails_helper'
+
+RSpec.describe Song do
+
+  describe 'relationships' do
+    it {should belong_to :artist}
+  end
+end
+
+```
 
 ## Seeds
 
