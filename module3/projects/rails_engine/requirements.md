@@ -53,7 +53,7 @@ etc
 
 ---
 
-# 3. API Endpoints
+# 2. API Endpoints, general definitions
 
 You will need to expose the data through a multitude of API endpoints. All of your endpoints should follow these technical expectations:
 
@@ -116,7 +116,11 @@ As an **EXTENSION**, customize the error message to use this format instead:
 You can customize the value of the `message` element, but the `message` element must be present.
 
 The `errors` element will always be an array and contain one or more strings of why the user's request was unsuccessful. Examples will include a "ID was invalid" in the case of a 404, or "the 'description' parameter was missing"
+#### Sad Path vs Edge Case
 
+Sad Path: the user did something which didn't cause an _error_ but didn't work out the way they'd hoped. For example, searching for a merchant by name and getting zero results is a "sad path"
+
+Edge Case: the user did something which broke the functionality of an endpoint. For example, a user searches for an item based on a negative price, or searching between revenue dates where the end date comes before the start date.
 
 ## SECTION ONE: RESTful Endpoints, Minimum Requirements:
 
@@ -167,6 +171,7 @@ In total, the MINIMUM requirement will be 15 endpoints:
 
 ---
 
+# 3. API requests/responses, more detail
 # SECTION ONE
 ## RESTful: Fetch all Items/Merchants
 
