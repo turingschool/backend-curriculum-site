@@ -1,0 +1,1346 @@
+{
+	"info": {
+		"_postman_id": "1d0f75c2-4c1c-49b9-896f-e9a4aa295a66",
+		"name": "Rails Engine, Part 1",
+		"description": "Turing School of Software & Design, Backend Module 3 Solo Project\n\n\"Rails Engine\" is a Rails-based API which mimics an e-commerce platform reporting tool as an API. Users can query and store merchants and items, and retrieve information about an item's merchant, or a list of a merchant's items. Users can also run one of several \"business intelligence\" endpoints to do rich reporting using ActiveRecord queries.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1a. Merchants",
+			"item": [
+				{
+					"name": "Get All Merchants",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"happy path, fetch monthly revenue\", function () {",
+									"    pm.response.to.not.be.error;",
+									"    pm.response.to.have.status(200);",
+									"",
+									"    const merchant_schema = {",
+									"        \"type\": \"object\",",
+									"        \"properties\": {",
+									"            \"id\": { \"type\": \"string\" },",
+									"            \"type\": { \"type\": \"string\" },",
+									"            \"attributes\": { ",
+									"                \"type\": \"object\",",
+									"                \"properties\": {",
+									"                    \"name\": { \"type\": \"string\"},",
+									"                },",
+									"                \"required\": [\"name\"]",
+									"            }",
+									"        },",
+									"        \"required\": [\"id\", \"type\", \"attributes\"]",
+									"    }",
+									"",
+									"    const base_schema = {",
+									"        \"type\": \"object\",",
+									"        \"properties\": {",
+									"            \"data\": {",
+									"                \"type\": \"array\",",
+									"            }",
+									"        },",
+									"        \"required\": ['data']",
+									"    }",
+									"",
+									"    // expect a \"data\" attribute",
+									"    pm.response.to.have.jsonBody('data');",
+									"    var jsonData = pm.response.json();",
+									"    var data = jsonData.data;",
+									"    var first_merchant = data[0];",
+									"",
+									"    // now check that the whole schema matches and has 2483 items",
+									"    pm.response.to.have.jsonSchema(base_schema);",
+									"    pm.expect(data.length).to.eq(20);",
+									"",
+									"    // now inspect the first item's schema to ensure it also matches",
+									"    pm.expect(first_merchant).to.have.jsonSchema(merchant_schema);",
+									"",
+									"    // expect item data has exactly 3 attributes",
+									"    pm.expect(Object.keys(first_merchant).length).to.eq(3);",
+									"",
+									"    // expect that our item \"attributes\" portion has exactly 1 attribute",
+									"    pm.expect(Object.keys(first_merchant.attributes).length).to.eq(1);",
+									"",
+									"    pm.expect(first_merchant.attributes.name).to.eq(pm.globals.get('first_merchant_name'));",
+									"});",
+									"",
+									"pm.sendRequest('http://localhost:3000/api/v1/merchants?page=1', (error, response) => {",
+									"    if (error) {",
+									"        console.log(error);",
+									"    }",
+									"    pm.test('happy path, fetching page 1 is the same list of first 20 in db', () => {",
+									"        pm.expect(error).to.equal(null);",
+									"        pm.response.to.have.status(200);",
+									"        var payload = response.json();",
+									"        pm.expect(payload).to.have.property('data');",
+									"        pm.expect(payload.data).to.be.an('array');",
+									"        pm.expect(payload.data.length).to.eq(20);",
+									"        pm.expect(payload.data[0].attributes.name).to.eq(pm.globals.get('first_merchant_name'));",
+									"    });",
+									"});",
+									"",
+									"pm.sendRequest('http://localhost:3000/api/v1/merchants?page=0', (error, response) => {",
+									"    if (error) {",
+									"        console.log(error);",
+									"    }",
+									"    pm.test('sad path, fetching page 1 if page is 0 or lower', () => {",
+									"        pm.expect(error).to.equal(null);",
+									"        pm.response.to.have.status(200);",
+									"        var payload = response.json();",
+									"        pm.expect(payload).to.have.property('data');",
+									"        pm.expect(payload.data).to.be.an('array');",
+									"        pm.expect(payload.data.length).to.eq(20);",
+									"        pm.expect(payload.data[0].attributes.name).to.eq(pm.globals.get('first_merchant_name'));",
+									"    });",
+									"});",
+									"",
+									"pm.sendRequest('http://localhost:3000/api/v1/merchants?page=2', (error, response) => {",
+									"    if (error) {",
+									"        console.log(error);",
+									"    }",
+									"    pm.test('happy path, fetch second page of 20 merchants', () => {",
+									"        pm.expect(error).to.equal(null);",
+									"        pm.response.to.have.status(200);",
+									"        var payload = response.json();",
+									"        pm.expect(payload).to.have.property('data');",
+									"        pm.expect(payload.data).to.be.an('array');",
+									"        pm.expect(payload.data.length).to.eq(20);",
+									"        pm.expect(payload.data[0].attributes.name).to.eq(pm.globals.get('twenty_first_merchant_name'));",
+									"    });",
+									"});",
+									"",
+									"pm.sendRequest('http://localhost:3000/api/v1/merchants?per_page=50', (error, response) => {",
+									"    if (error) {",
+									"        console.log(error);",
+									"    }",
+									"    pm.test('happy path, fetch first page of 50 merchants', () => {",
+									"        pm.expect(error).to.equal(null);",
+									"        pm.response.to.have.status(200);",
+									"        var payload = response.json();",
+									"        pm.expect(payload).to.have.property('data');",
+									"        pm.expect(payload.data).to.be.an('array');",
+									"        pm.expect(payload.data.length).to.eq(50);",
+									"        pm.expect(payload.data[20].attributes.name).to.eq(pm.globals.get('twenty_first_merchant_name'));",
+									"        pm.expect(payload.data[49].attributes.name).to.eq(pm.globals.get('fiftieth_merchant_name'));",
+									"    });",
+									"});",
+									"",
+									"pm.sendRequest('http://localhost:3000/api/v1/merchants?page=200', (error, response) => {",
+									"    if (error) {",
+									"        console.log(error);",
+									"    }",
+									"    pm.test('happy path, fetch a page of merchants which would contain no data', () => {",
+									"        pm.expect(error).to.equal(null);",
+									"        pm.response.to.have.status(200);",
+									"        var payload = response.json();",
+									"        pm.expect(payload).to.have.property('data');",
+									"        pm.expect(payload.data).to.be.an('array');",
+									"        pm.expect(payload.data.length).to.eq(0);",
+									"    });",
+									"});",
+									"",
+									"pm.sendRequest('http://localhost:3000/api/v1/merchants?per_page=200', (error, response) => {",
+									"    if (error) {",
+									"        console.log(error);",
+									"    }",
+									"    pm.test('happy path, fetch all merchants if per page is really big', () => {",
+									"        pm.expect(error).to.equal(null);",
+									"        pm.response.to.have.status(200);",
+									"        var payload = response.json();",
+									"        pm.expect(payload).to.have.property('data');",
+									"        pm.expect(payload.data).to.be.an('array');",
+									"        pm.expect(payload.data.length).to.eq(100);",
+									"    });",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.globals.set('first_merchant_name', 'Schroeder-Jerde');",
+									"pm.globals.set('twenty_first_merchant_name', 'Leffler, Rice and Leuschke');",
+									"pm.globals.set('fiftieth_merchant_name', 'Paucek Inc');"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/merchants",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"merchants"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One Merchant",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.globals.set('merchant_id', 42);",
+									"",
+									"pm.globals.set('merchant_name', 'Glover Inc');",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"happy path, fetch one merchant by id\", function () {",
+									"    pm.response.to.not.be.error;",
+									"    pm.response.to.have.status(200);",
+									"",
+									"    const schema = {",
+									"        \"type\": \"object\",",
+									"        \"properties\": {",
+									"            \"data\": {",
+									"                \"type\": \"object\",",
+									"                \"properties\": {",
+									"                    \"id\": { \"type\": \"string\" },",
+									"                    \"type\": { \"type\": \"string\" },",
+									"                    \"attributes\": { ",
+									"                        \"type\": \"object\",",
+									"                        \"properties\": {",
+									"                            \"name\": { \"type\": \"string\"},",
+									"                        },",
+									"                        \"required\": [\"name\"]",
+									"                    }",
+									"                },",
+									"                \"required\": [\"id\", \"type\", \"attributes\"]",
+									"            }",
+									"        },",
+									"        \"required\": ['data']",
+									"    }",
+									"",
+									"    // expect a \"data\" attribute",
+									"    pm.response.to.have.jsonBody('data');",
+									"    var jsonData = pm.response.json();",
+									"    var data = jsonData.data;",
+									"",
+									"    // now check that the whole schema matches by name and data type",
+									"    pm.response.to.have.jsonSchema(schema);",
+									"",
+									"    // expect data has exactly 3 attributes",
+									"    pm.expect(Object.keys(data).length).to.eq(3);",
+									"",
+									"    // expect that our \"attributes\" portion has exactly 1 attribute",
+									"    pm.expect(Object.keys(data.attributes).length).to.eq(1);",
+									"",
+									"    // expect our values to match",
+									"    pm.expect(data.id).to.eq(String(pm.globals.get('merchant_id')));",
+									"    pm.expect(data.type).to.eq('merchant');",
+									"    pm.expect(data.attributes.name).to.eq(pm.globals.get('merchant_name'));",
+									"});",
+									"",
+									"pm.sendRequest('http://localhost:3000/api/v1/merchants/8923987297', (error, response) => {",
+									"    pm.test('sad path, bad integer id returns 404', () => {",
+									"        pm.expect(response).to.have.property('code', 404);",
+									"        pm.expect(response).to.have.property('status', 'Not Found');",
+									"    });",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/merchants/{{merchant_id}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"merchants",
+								"{{merchant_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a Merchant's Items",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.globals.set('merchant_id', 99);",
+									"",
+									"pm.globals.set('expected_item_ids', [",
+									"    2397, 2398, 2399, 2400, 2401, 2402, 2403, 2404, 2405, 2406,",
+									"    2407, 2408, 2409, 2410, 2411, 2412, 2413, 2414, 2415, 2416,",
+									"    2417, 2418, 2419, 2420, 2421, 2422, 2423, 2424, 2425, 2426,",
+									"    2427, 2428, 2429, 2430, 2431, 2432, 2433, 2434, 2435, 2436,",
+									"    2437, 2438",
+									"]);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"happy path, fetch all items\", function () {",
+									"    pm.response.to.not.be.error;",
+									"    pm.response.to.have.status(200);",
+									"",
+									"    const item_schema = {",
+									"        \"type\": \"object\",",
+									"        \"properties\": {",
+									"            \"id\": { \"type\": \"string\" },",
+									"            \"type\": { \"type\": \"string\" },",
+									"            \"attributes\": { ",
+									"                \"type\": \"object\",",
+									"                \"properties\": {",
+									"                    \"name\": { \"type\": \"string\"},",
+									"                    \"description\": { \"type\": \"string\"},",
+									"                    \"unit_price\": { \"type\": \"number\"},",
+									"                    \"merchant_id\": { \"type\": \"number\"},",
+									"                },",
+									"                \"required\": [\"name\", \"description\", \"unit_price\", \"merchant_id\"]",
+									"            }",
+									"        },",
+									"        \"required\": [\"id\", \"type\", \"attributes\"]",
+									"    }",
+									"",
+									"    const base_schema = {",
+									"        \"type\": \"object\",",
+									"        \"properties\": {",
+									"            \"data\": {",
+									"                \"type\": \"array\",",
+									"            }",
+									"        },",
+									"        \"required\": ['data']",
+									"    }",
+									"",
+									"    // expect a \"data\" attribute",
+									"    pm.response.to.have.jsonBody('data');",
+									"    var jsonData = pm.response.json();",
+									"    var data = jsonData.data;",
+									"    var first_item = data[0];",
+									"",
+									"    // now check that the whole schema matches and has the right number of items",
+									"    pm.response.to.have.jsonSchema(base_schema);",
+									"    pm.expect(data.length).to.eq(pm.globals.get('expected_item_ids').length);",
+									"",
+									"    // now inspect the first item's schema to ensure it also matches",
+									"    pm.expect(first_item).to.have.jsonSchema(item_schema);",
+									"",
+									"    // expect item data has exactly 3 attributes",
+									"    pm.expect(Object.keys(first_item).length).to.eq(3);",
+									"",
+									"    // expect that our item \"attributes\" portion has exactly 4 attributes",
+									"    pm.expect(Object.keys(first_item.attributes).length).to.eq(4);",
+									"",
+									"    // double check that every ID in our list of expected IDs is in the actual data",
+									"    // we've already matched that the count of elements matched above",
+									"    var ids_in_payload = data.map(data => Number(data.id))",
+									"    ids_in_payload.sort();",
+									"    var expected_ids = pm.globals.get('expected_item_ids');",
+									"    expected_ids.sort();",
+									"    expected_ids.forEach((num,idx) => {",
+									"        pm.expect(expected_ids[idx]).to.eq(ids_in_payload[idx]);",
+									"    })",
+									"});",
+									"",
+									"",
+									"pm.sendRequest('http://localhost:3000/api/v1/merchants/8923987297/items', (error, response) => {",
+									"    pm.test('sad path, bad integer id returns 404', () => {",
+									"        pm.expect(response).to.have.property('code', 404);",
+									"        pm.expect(response).to.have.property('status', 'Not Found');",
+									"    });",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/merchants/{{merchant_id}}/items",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"merchants",
+								"{{merchant_id}}",
+								"items"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "1b. Items",
+			"item": [
+				{
+					"name": "Get All Items",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"happy path, fetch all items\", function () {",
+									"    pm.response.to.not.be.error;",
+									"    pm.response.to.have.status(200);",
+									"",
+									"    const item_schema = {",
+									"        \"type\": \"object\",",
+									"        \"properties\": {",
+									"            \"id\": { \"type\": \"string\" },",
+									"            \"type\": { \"type\": \"string\" },",
+									"            \"attributes\": { ",
+									"                \"type\": \"object\",",
+									"                \"properties\": {",
+									"                    \"name\": { \"type\": \"string\"},",
+									"                    \"description\": { \"type\": \"string\"},",
+									"                    \"unit_price\": { \"type\": \"number\"},",
+									"                    \"merchant_id\": { \"type\": \"number\"},",
+									"                },",
+									"                \"required\": [\"name\", \"description\", \"unit_price\", \"merchant_id\"]",
+									"            }",
+									"        },",
+									"        \"required\": [\"id\", \"type\", \"attributes\"]",
+									"    }",
+									"",
+									"    const base_schema = {",
+									"        \"type\": \"object\",",
+									"        \"properties\": {",
+									"            \"data\": {",
+									"                \"type\": \"array\",",
+									"            }",
+									"        },",
+									"        \"required\": ['data']",
+									"    }",
+									"",
+									"    // expect a \"data\" attribute",
+									"    pm.response.to.have.jsonBody('data');",
+									"    var jsonData = pm.response.json();",
+									"    var data = jsonData.data;",
+									"    var first_item = data[0];",
+									"",
+									"    // now check that the whole schema matches and has 2483 items",
+									"    pm.response.to.have.jsonSchema(base_schema);",
+									"    pm.expect(data.length).to.eq(20);",
+									"",
+									"    // now inspect the first item's schema to ensure it also matches",
+									"    pm.expect(first_item).to.have.jsonSchema(item_schema);",
+									"",
+									"    // expect item data has exactly 3 attributes",
+									"    pm.expect(Object.keys(first_item).length).to.eq(3);",
+									"",
+									"    // expect that our item \"attributes\" portion has exactly 4 attributes",
+									"    pm.expect(Object.keys(first_item.attributes).length).to.eq(4);",
+									"",
+									"    pm.expect(first_item.attributes.name).to.eq(pm.globals.get('first_item_name'));",
+									"});",
+									"",
+									"",
+									"pm.sendRequest('http://localhost:3000/api/v1/items?page=1', (error, response) => {",
+									"    if (error) {",
+									"        console.log(error);",
+									"    }",
+									"    pm.test('happy path, fetching page 1 is the same list of first 20 in db', () => {",
+									"        pm.expect(error).to.equal(null);",
+									"        pm.response.to.have.status(200);",
+									"        var payload = response.json();",
+									"        pm.expect(payload).to.have.property('data');",
+									"        pm.expect(payload.data).to.be.an('array');",
+									"        pm.expect(payload.data.length).to.eq(20);",
+									"        pm.expect(payload.data[0].attributes.name).to.eq(pm.globals.get('first_item_name'));",
+									"    });",
+									"});",
+									"",
+									"pm.sendRequest('http://localhost:3000/api/v1/items?page=1', (error, response) => {",
+									"    if (error) {",
+									"        console.log(error);",
+									"    }",
+									"    pm.test('sad path, fetching page 1 if page is 0 or lower', () => {",
+									"        pm.expect(error).to.equal(null);",
+									"        pm.response.to.have.status(200);",
+									"        var payload = response.json();",
+									"        pm.expect(payload).to.have.property('data');",
+									"        pm.expect(payload.data).to.be.an('array');",
+									"        pm.expect(payload.data.length).to.eq(20);",
+									"        pm.expect(payload.data[0].attributes.name).to.eq(pm.globals.get('first_item_name'));",
+									"    });",
+									"});",
+									"",
+									"pm.sendRequest('http://localhost:3000/api/v1/items?page=2', (error, response) => {",
+									"    if (error) {",
+									"        console.log(error);",
+									"    }",
+									"    pm.test('happy path, fetch second page of 20 items', () => {",
+									"        pm.expect(error).to.equal(null);",
+									"        pm.response.to.have.status(200);",
+									"        var payload = response.json();",
+									"        pm.expect(payload).to.have.property('data');",
+									"        pm.expect(payload.data).to.be.an('array');",
+									"        pm.expect(payload.data.length).to.eq(20);",
+									"        pm.expect(payload.data[0].attributes.name).to.eq(pm.globals.get('twenty_first_item_name'));",
+									"    });",
+									"});",
+									"",
+									"pm.sendRequest('http://localhost:3000/api/v1/items?per_page=50', (error, response) => {",
+									"    if (error) {",
+									"        console.log(error);",
+									"    }",
+									"    pm.test('happy path, fetch first page of 50 items', () => {",
+									"        pm.expect(error).to.equal(null);",
+									"        pm.response.to.have.status(200);",
+									"        var payload = response.json();",
+									"        pm.expect(payload).to.have.property('data');",
+									"        pm.expect(payload.data).to.be.an('array');",
+									"        pm.expect(payload.data.length).to.eq(50);",
+									"        pm.expect(payload.data[20].attributes.name).to.eq(pm.globals.get('twenty_first_item_name'));",
+									"        pm.expect(payload.data[49].attributes.name).to.eq(pm.globals.get('fiftieth_item_name'));",
+									"    });",
+									"});",
+									"",
+									"pm.sendRequest('http://localhost:3000/api/v1/items?page=20000', (error, response) => {",
+									"    if (error) {",
+									"        console.log(error);",
+									"    }",
+									"    pm.test('happy path, fetch a page of items which would contain no data', () => {",
+									"        pm.expect(error).to.equal(null);",
+									"        pm.response.to.have.status(200);",
+									"        var payload = response.json();",
+									"        pm.expect(payload).to.have.property('data');",
+									"        pm.expect(payload.data).to.be.an('array');",
+									"        pm.expect(payload.data.length).to.eq(0);",
+									"    });",
+									"});",
+									"",
+									"pm.sendRequest('http://localhost:3000/api/v1/items?per_page=250000', (error, response) => {",
+									"    if (error) {",
+									"        console.log(error);",
+									"    }",
+									"    pm.test('happy path, fetch all items if per page is really big', () => {",
+									"        pm.expect(error).to.equal(null);",
+									"        pm.response.to.have.status(200);",
+									"        var payload = response.json();",
+									"        pm.expect(payload).to.have.property('data');",
+									"        pm.expect(payload.data).to.be.an('array');",
+									"        pm.expect(payload.data.length).to.eq(pm.globals.get('total_item_count'));",
+									"    });",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.globals.set('first_item_name', 'Item Nemo Facere' );",
+									"pm.globals.set('twenty_first_item_name', 'Item Rerum Ab');",
+									"pm.globals.set('fiftieth_item_name', 'Item Sunt Nesciunt');",
+									"",
+									"pm.globals.set('total_item_count', 2483);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/items",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"items"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One Item",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.globals.set('item_id', 179);",
+									"",
+									"pm.globals.set('item_name', 'Item Qui Veritatis');",
+									"pm.globals.set('item_description', 'Totam labore quia harum dicta eum consequatur qui. Corporis inventore consequatur. Illum facilis tempora nihil placeat rerum sint est. Placeat ut aut. Eligendi perspiciatis unde eum sapiente velit.');",
+									"pm.globals.set('item_price', 906.17);",
+									"pm.globals.set('item_merchant_id', 9);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"happy path, fetch one item by id\", function () {",
+									"    pm.response.to.not.be.error;",
+									"    pm.response.to.have.status(200);",
+									"",
+									"    const schema = {",
+									"        \"type\": \"object\",",
+									"        \"properties\": {",
+									"            \"data\": {",
+									"                \"type\": \"object\",",
+									"                \"properties\": {",
+									"                    \"id\": { \"type\": \"string\" },",
+									"                    \"type\": { \"type\": \"string\" },",
+									"                    \"attributes\": { ",
+									"                        \"type\": \"object\",",
+									"                        \"properties\": {",
+									"                            \"name\": { \"type\": \"string\"},",
+									"                            \"description\": { \"type\": \"string\"},",
+									"                            \"unit_price\": { \"type\": \"number\"},",
+									"                            \"merchant_id\": { \"type\": \"number\"},",
+									"                        },",
+									"                        \"required\": [\"name\", \"description\", \"unit_price\", \"merchant_id\"]",
+									"                    }",
+									"                },",
+									"                \"required\": [\"id\", \"type\", \"attributes\"]",
+									"            }",
+									"        },",
+									"        \"required\": ['data']",
+									"    }",
+									"",
+									"    // expect a \"data\" attribute",
+									"    pm.response.to.have.jsonBody('data');",
+									"    var jsonData = pm.response.json();",
+									"    var data = jsonData.data;",
+									"",
+									"    // now check that the whole schema matches by name and data type",
+									"    pm.response.to.have.jsonSchema(schema);",
+									"",
+									"    // expect data has exactly 3 attributes",
+									"    pm.expect(Object.keys(data).length).to.eq(3);",
+									"",
+									"    // expect that our \"attributes\" portion has exactly 4 attributes",
+									"    pm.expect(Object.keys(data.attributes).length).to.eq(4);",
+									"",
+									"    // expect our values to match",
+									"    pm.expect(data.id).to.eq(String(pm.globals.get('item_id')));",
+									"    pm.expect(data.type).to.eq('item');",
+									"    pm.expect(data.attributes.name).to.eq(pm.globals.get('item_name'));",
+									"    pm.expect(data.attributes.description).to.eq(pm.globals.get('item_description'));",
+									"    pm.expect(data.attributes.unit_price).to.eq(pm.globals.get('item_price'));",
+									"    pm.expect(data.attributes.merchant_id).to.eq(pm.globals.get('item_merchant_id'));",
+									"});",
+									"",
+									"pm.sendRequest('http://localhost:3000/api/v1/items/8923987297', (error, response) => {",
+									"    pm.test('sad path, bad integer id returns 404', () => {",
+									"        pm.expect(response).to.have.property('code', 404);",
+									"        pm.expect(response).to.have.property('status', 'Not Found');",
+									"    });",
+									"});",
+									"",
+									"pm.sendRequest('http://localhost:3000/api/v1/items/string-instead-of-integer', (error, response) => {",
+									"    pm.test('edge case, string id returns 404', () => {",
+									"        pm.expect(response).to.have.property('code', 404);",
+									"        pm.expect(response).to.have.property('status', 'Not Found');",
+									"    });",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/items/{{item_id}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"items",
+								"{{item_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create (then Delete) One Item",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response should be okay to process\", function () {",
+									"    pm.response.to.not.be.error;",
+									"    pm.response.to.have.status(201);",
+									"",
+									"    const schema = {",
+									"        \"type\": \"object\",",
+									"        \"properties\": {",
+									"            \"data\": {",
+									"                \"type\": \"object\",",
+									"                \"properties\": {",
+									"                    \"id\": { \"type\": \"string\" },",
+									"                    \"type\": { \"type\": \"string\" },",
+									"                    \"attributes\": { ",
+									"                        \"type\": \"object\",",
+									"                        \"properties\": {",
+									"                            \"name\": { \"type\": \"string\"},",
+									"                            \"description\": { \"type\": \"string\"},",
+									"                            \"unit_price\": { \"type\": \"number\"},",
+									"                            \"merchant_id\": { \"type\": \"number\"},",
+									"                        },",
+									"                        \"required\": [\"name\", \"description\", \"unit_price\", \"merchant_id\"]",
+									"                    }",
+									"                },",
+									"                \"required\": [\"id\", \"type\", \"attributes\"]",
+									"            }",
+									"        },",
+									"        \"required\": ['data']",
+									"    }",
+									"",
+									"    // expect a \"data\" attribute",
+									"    pm.response.to.have.jsonBody('data');",
+									"    var jsonData = pm.response.json();",
+									"    var data = jsonData.data;",
+									"    var id_to_delete = Number(data.id);",
+									"    var url = `http://localhost:3000/api/v1/items/${id_to_delete}`",
+									"    console.log('calling DELETE for', url)",
+									"    pm.sendRequest({url: url, method: 'DELETE'}, function (err, response) {",
+									"        if (err) {",
+									"            console.log(err);",
+									"        }",
+									"    });",
+									"",
+									"    // now check that the whole schema matches by name and data type",
+									"    pm.response.to.have.jsonSchema(schema);",
+									"",
+									"    // expect data has exactly 3 attributes",
+									"    pm.expect(Object.keys(data).length).to.eq(3);",
+									"",
+									"    // expect that our \"attributes\" portion has exactly 4 attributes",
+									"    pm.expect(Object.keys(data.attributes).length).to.eq(4);",
+									"",
+									"    // expect our values to match",
+									"    pm.expect(data.type).to.eq('item');",
+									"    pm.expect(data.id).to.eq(String(id_to_delete));",
+									"    pm.expect(data.attributes.name).to.eq(pm.globals.get('item_name'));",
+									"    pm.expect(data.attributes.description).to.eq(pm.globals.get('item_description'));",
+									"    pm.expect(data.attributes.unit_price).to.eq(pm.globals.get('item_price'));",
+									"    pm.expect(data.attributes.merchant_id).to.eq(pm.globals.get('item_merchant_id'));",
+									"});",
+									"",
+									"// TODO: sad path where attribute types are not correct",
+									"// TODO: edge case where all attributes are missing",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.globals.set('item_name', 'Shiny Itemy Item');",
+									"pm.globals.set('item_description', 'It does a lot of things real good.');",
+									"pm.globals.set('item_price', 123.45);",
+									"pm.globals.set('item_merchant_id', 43);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"{{item_name}}\",\n  \"description\": \"{{item_description}}\",\n  \"unit_price\": {{item_price}},\n  \"merchant_id\": {{item_merchant_id}}\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/items",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"items"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update One Item",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.globals.set('item_id', 179);",
+									"",
+									"pm.sendRequest(`http://localhost:3000/api/v1/items/${pm.globals.get('item_id')}`, (error, response) => {",
+									"    if (error) {",
+									"        console.log(error);",
+									"    } else {",
+									"        var data = response.json().data;",
+									"console.log(data);",
+									"        pm.globals.set('old_item_name', data.attributes.name);",
+									"        pm.globals.set('old_item_description', data.attributes.description);",
+									"        pm.globals.set('old_item_price', data.attributes.unit_price);",
+									"        pm.globals.set('old_item_merchant_id', data.attributes.merchant_id);",
+									"    }",
+									"});",
+									"",
+									"pm.globals.set('new_item_name', 'Shiny Itemy Item, New and Improved');",
+									"pm.globals.set('new_item_description', 'It does a lot of things even more good than before!');",
+									"pm.globals.set('new_item_price', 65.23);",
+									"pm.globals.set('new_item_merchant_id', 56);"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"happy path, fetch one item by id\", function () {",
+									"    pm.response.to.not.be.error;",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201,202]);",
+									"",
+									"    const schema = {",
+									"        \"type\": \"object\",",
+									"        \"properties\": {",
+									"            \"data\": {",
+									"                \"type\": \"object\",",
+									"                \"properties\": {",
+									"                    \"id\": { \"type\": \"string\" },",
+									"                    \"type\": { \"type\": \"string\" },",
+									"                    \"attributes\": { ",
+									"                        \"type\": \"object\",",
+									"                        \"properties\": {",
+									"                            \"name\": { \"type\": \"string\"},",
+									"                            \"description\": { \"type\": \"string\"},",
+									"                            \"unit_price\": { \"type\": \"number\"},",
+									"                            \"merchant_id\": { \"type\": \"number\"},",
+									"                        },",
+									"                        \"required\": [\"name\", \"description\", \"unit_price\", \"merchant_id\"]",
+									"                    }",
+									"                },",
+									"                \"required\": [\"id\", \"type\", \"attributes\"]",
+									"            }",
+									"        },",
+									"        \"required\": ['data']",
+									"    }",
+									"",
+									"    // restore item to what it used to be",
+									"    if (pm.globals.get('old_item_name') !== null) {",
+									"        const postRequest = {",
+									"            url: `http://localhost:3000/api/v1/items/${pm.globals.get('item_id')}`,",
+									"            method: 'PUT',",
+									"            header: {",
+									"                'Content-Type': 'application/json',",
+									"            },",
+									"            body: JSON.stringify({",
+									"                name: pm.globals.get('old_item_name'),",
+									"                description: pm.globals.get('old_item_description'),",
+									"                unit_price: pm.globals.get('old_item_price'),",
+									"                merchant_id: pm.globals.get('old_item_merchant_id')",
+									"            })",
+									"        };",
+									"        pm.sendRequest(postRequest, (error, response) => {",
+									"            console.log(error ? error : response.json());",
+									"        });",
+									"    }",
+									"",
+									"    // expect a \"data\" attribute",
+									"    pm.response.to.have.jsonBody('data');",
+									"    var jsonData = pm.response.json();",
+									"    var data = jsonData.data;",
+									"",
+									"    // now check that the whole schema matches by name and data type",
+									"    pm.response.to.have.jsonSchema(schema);",
+									"",
+									"    // expect data has exactly 3 attributes",
+									"    pm.expect(Object.keys(data).length).to.eq(3);",
+									"",
+									"    // expect that our \"attributes\" portion has exactly 4 attributes",
+									"    pm.expect(Object.keys(data.attributes).length).to.eq(4);",
+									"",
+									"    // expect our values to match",
+									"    pm.expect(data.id).to.eq(String(pm.globals.get('item_id')));",
+									"    pm.expect(data.type).to.eq('item');",
+									"    pm.expect(data.attributes.name).to.eq(pm.globals.get('new_item_name'));",
+									"    pm.expect(data.attributes.description).to.eq(pm.globals.get('new_item_description'));",
+									"    pm.expect(data.attributes.unit_price).to.eq(pm.globals.get('new_item_price'));",
+									"    pm.expect(data.attributes.merchant_id).to.eq(pm.globals.get('new_item_merchant_id'));",
+									"});",
+									"",
+									"",
+									"var item_url = `http://localhost:3000/api/v1/items/${pm.globals.get('item_id')}`;",
+									"console.log('happy path with partial data', item_url);",
+									"pm.sendRequest({",
+									"    url: item_url,",
+									"    method: 'PUT',",
+									"    header: {",
+									"        'Content-Type': 'application/json',",
+									"    },",
+									"    body: JSON.stringify({",
+									"        unit_price: pm.globals.get('new_item_price'),",
+									"    })",
+									"}, (error, response) => {",
+									"    pm.test('happy path, works with only partial data, too', () => {",
+									"        pm.expect(response.code).to.be.oneOf([200,201,202]);",
+									"",
+									"        // restore the old price immediately",
+									"        if (pm.globals.get('old_item_name') !== null) {",
+									"            const postRequest = {",
+									"                url: `http://localhost:3000/api/v1/items/${pm.globals.get('item_id')}`,",
+									"                method: 'PUT',",
+									"                header: {",
+									"                    'Content-Type': 'application/json',",
+									"                },",
+									"                body: JSON.stringify({",
+									"                    unit_price: pm.globals.get('old_item_price'),",
+									"                })",
+									"            };",
+									"            pm.sendRequest(postRequest, (error, response) => {",
+									"                console.log(error ? error : response.json());",
+									"            });",
+									"        }",
+									"",
+									"        // expect a \"data\" attribute",
+									"        pm.response.to.have.jsonBody('data');",
+									"        var jsonData = pm.response.json();",
+									"        var data = jsonData.data;",
+									"    ",
+									"        pm.expect(data.attributes.unit_price).to.eq(pm.globals.get('new_item_price'));",
+									"    });",
+									"});",
+									"",
+									"",
+									"pm.sendRequest({",
+									"    url: `http://localhost:3000/api/v1/items/12435678912354`,",
+									"    method: 'PUT',",
+									"    header: {",
+									"        'Content-Type': 'application/json',",
+									"    },",
+									"    body: JSON.stringify({",
+									"        name: pm.globals.get('old_item_name'),",
+									"        description: pm.globals.get('old_item_description'),",
+									"        unit_price: pm.globals.get('old_item_price'),",
+									"        merchant_id: pm.globals.get('old_item_merchant_id')",
+									"    })",
+									"}, (error, response) => {",
+									"    pm.test('sad path, bad integer id returns 404', () => {",
+									"        pm.expect(response).to.have.property('code', 404);",
+									"        pm.expect(response).to.have.property('status', 'Not Found');",
+									"    });",
+									"});",
+									"",
+									"",
+									"pm.sendRequest({",
+									"    url: `http://localhost:3000/api/v1/items/${pm.globals.get('item_id')}`,",
+									"    method: 'PUT',",
+									"    header: {",
+									"        'Content-Type': 'application/json',",
+									"    },",
+									"    body: JSON.stringify({",
+									"        merchant_id: 999999999999",
+									"    })",
+									"}, (error, response) => {",
+									"    pm.test('edge case, bad merchant id returns 400 or 404', () => {",
+									"        pm.expect(response.code).to.be.oneOf([400, 404]);",
+									"    });",
+									"});",
+									"",
+									"pm.sendRequest({",
+									"    url: `http://localhost:3000/api/v1/items/string-instead-of-integer`,",
+									"    method: 'PUT',",
+									"    header: {",
+									"        'Content-Type': 'application/json',",
+									"    },",
+									"    body: JSON.stringify({",
+									"        name: pm.globals.get('old_item_name'),",
+									"        description: pm.globals.get('old_item_description'),",
+									"        unit_price: pm.globals.get('old_item_price'),",
+									"        merchant_id: pm.globals.get('old_item_merchant_id')",
+									"    })",
+									"}, (error, response) => {",
+									"    pm.test('edge case, string id returns 404', () => {",
+									"        pm.expect(response).to.have.property('code', 404);",
+									"        pm.expect(response).to.have.property('status', 'Not Found');",
+									"    });",
+									"});",
+									"",
+									"// TODO: edge case where all attributes are missing",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"{{new_item_name}}\",\n    \"description\": \"{{new_item_description}}\",\n    \"unit_price\": {{new_item_price}},\n    \"merchant_id\": {{new_item_merchant_id}}\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/items/{{item_id}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"items",
+								"{{item_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get an Item's Merchant",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.globals.set('item_id', 209);",
+									"",
+									"pm.globals.set('merchant_name', 'Pollich and Sons');",
+									"pm.globals.set('merchant_id', 11);"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"happy path, fetch one merchant by id\", function () {",
+									"    pm.response.to.not.be.error;",
+									"    pm.response.to.have.status(200);",
+									"",
+									"    const schema = {",
+									"        \"type\": \"object\",",
+									"        \"properties\": {",
+									"            \"data\": {",
+									"                \"type\": \"object\",",
+									"                \"properties\": {",
+									"                    \"id\": { \"type\": \"string\" },",
+									"                    \"type\": { \"type\": \"string\" },",
+									"                    \"attributes\": { ",
+									"                        \"type\": \"object\",",
+									"                        \"properties\": {",
+									"                            \"name\": { \"type\": \"string\"},",
+									"                        },",
+									"                        \"required\": [\"name\"]",
+									"                    }",
+									"                },",
+									"                \"required\": [\"id\", \"type\", \"attributes\"]",
+									"            }",
+									"        },",
+									"        \"required\": ['data']",
+									"    }",
+									"",
+									"    // expect a \"data\" attribute",
+									"    pm.response.to.have.jsonBody('data');",
+									"    var jsonData = pm.response.json();",
+									"    var data = jsonData.data;",
+									"",
+									"    // now check that the whole schema matches by name and data type",
+									"    pm.response.to.have.jsonSchema(schema);",
+									"",
+									"    // expect data has exactly 3 attributes",
+									"    pm.expect(Object.keys(data).length).to.eq(3);",
+									"",
+									"    // expect that our \"attributes\" portion has exactly 1 attribute",
+									"    pm.expect(Object.keys(data.attributes).length).to.eq(1);",
+									"",
+									"    // expect our values to match",
+									"    pm.expect(data.id).to.eq(String(pm.globals.get('merchant_id')));",
+									"    pm.expect(data.type).to.eq('merchant');",
+									"    pm.expect(data.attributes.name).to.eq(pm.globals.get('merchant_name'));",
+									"});",
+									"",
+									"",
+									"pm.sendRequest('http://localhost:3000/api/v1/items/8923987297/merchants', (error, response) => {",
+									"    pm.test('sad path, bad integer id returns 404', () => {",
+									"        pm.expect(response).to.have.property('code', 404);",
+									"        pm.expect(response).to.have.property('status', 'Not Found');",
+									"    });",
+									"});",
+									"",
+									"pm.sendRequest('http://localhost:3000/api/v1/items/string-instead-of-integer/merchants', (error, response) => {",
+									"    pm.test('edge case, string id returns 404', () => {",
+									"        pm.expect(response).to.have.property('code', 404);",
+									"        pm.expect(response).to.have.property('status', 'Not Found');",
+									"    });",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/items/{{item_id}}/merchant",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"items",
+								"{{item_id}}",
+								"merchant"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Extensions, Edge Cases",
+			"item": [
+				{
+					"name": "Get a Merchant's Items Edge Case",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.globals.set('merchant_id', 'string-instead-of-integer');",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"happy path, fetch one merchant by id\", function () {",
+									"    pm.response.to.be.error;",
+									"    pm.response.to.have.status(404);",
+									"",
+									"    // expect an \"error\" attribute",
+									"    pm.response.to.have.jsonBody('error');",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/merchants/{{merchant_id}}/items",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"merchants",
+								"{{merchant_id}}",
+								"items"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One Merchant Edge Case Copy",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.globals.set('merchant_id', 42);",
+									"",
+									"pm.globals.set('merchant_name', 'Glover Inc');",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"happy path, fetch one merchant by id\", function () {",
+									"    pm.response.to.not.be.error;",
+									"    pm.response.to.have.status(200);",
+									"",
+									"    const schema = {",
+									"        \"type\": \"object\",",
+									"        \"properties\": {",
+									"            \"data\": {",
+									"                \"type\": \"object\",",
+									"                \"properties\": {",
+									"                    \"id\": { \"type\": \"string\" },",
+									"                    \"type\": { \"type\": \"string\" },",
+									"                    \"attributes\": { ",
+									"                        \"type\": \"object\",",
+									"                        \"properties\": {",
+									"                            \"name\": { \"type\": \"string\"},",
+									"                        },",
+									"                        \"required\": [\"name\"]",
+									"                    }",
+									"                },",
+									"                \"required\": [\"id\", \"type\", \"attributes\"]",
+									"            }",
+									"        },",
+									"        \"required\": ['data']",
+									"    }",
+									"",
+									"    // expect a \"data\" attribute",
+									"    pm.response.to.have.jsonBody('data');",
+									"    var jsonData = pm.response.json();",
+									"    var data = jsonData.data;",
+									"",
+									"    // now check that the whole schema matches by name and data type",
+									"    pm.response.to.have.jsonSchema(schema);",
+									"",
+									"    // expect data has exactly 3 attributes",
+									"    pm.expect(Object.keys(data).length).to.eq(3);",
+									"",
+									"    // expect that our \"attributes\" portion has exactly 1 attribute",
+									"    pm.expect(Object.keys(data.attributes).length).to.eq(1);",
+									"",
+									"    // expect our values to match",
+									"    pm.expect(data.id).to.eq(String(pm.globals.get('merchant_id')));",
+									"    pm.expect(data.type).to.eq('merchant');",
+									"    pm.expect(data.attributes.name).to.eq(pm.globals.get('merchant_name'));",
+									"});",
+									"",
+									"pm.sendRequest('http://localhost:3000/api/v1/merchants/8923987297', (error, response) => {",
+									"    pm.test('sad path, bad integer id returns 404', () => {",
+									"        pm.expect(response).to.have.property('code', 404);",
+									"        pm.expect(response).to.have.property('status', 'Not Found');",
+									"    });",
+									"});",
+									"",
+									"pm.sendRequest('http://localhost:3000/api/v1/merchants/string-instead-of-integer', (error, response) => {",
+									"    pm.test('edge case, string id returns 404', () => {",
+									"        pm.expect(response).to.have.property('code', 404);",
+									"        pm.expect(response).to.have.property('status', 'Not Found');",
+									"    });",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/merchants/{{merchant_id}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"merchants",
+								"{{merchant_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
