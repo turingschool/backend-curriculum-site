@@ -33,12 +33,12 @@ In SetList:
 1. What is the relationship between Songs and Artists?
 1. Diagram the database tables for Songs and Artists.
 
-## Defining Key Terms
+# One-to-Many Relationships
+
+#### Defining Key Terms
 
 * **Primary Key** - a key in a relational database that is unique for each record. This is also known as an `id`. It is a unique identifier, such as a driver's license, or the VIN on a car. You may have one and only one primary key value per table.
 * **Foreign Key** - a foreign key is a field in one table that uniquely identifies a row of another table. A foreign key is defined in a second table, but it refers to the primary key in the first table.
-
-# One-to-Many Relationships
 
 * The relationship between `songs` and `artists` is a one-to-many relationship.
 * `songs` has a column called `artist_id` which refers to the primary key of the `artist` table.
