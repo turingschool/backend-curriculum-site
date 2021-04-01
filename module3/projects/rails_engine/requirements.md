@@ -57,11 +57,11 @@ etc
 
 You will need to expose the data through a multitude of API endpoints. All of your endpoints should follow these technical expectations:
 
-* All endpoints should be fully tested for happy path AND sad path. The Rails Driver Spec Harness is not a substitute for writing your own tests.
+* All endpoints should be fully tested for happy path AND sad path. The Postman tests are not a substitute for writing your own tests.
 * All endpoints will expect to return JSON data only
 * All endpoints should be exposed under an `api` and version (`v1`) namespace (e.g. `/api/v1/items`)
 * API will be compliant to the [JSON API spec](https://jsonapi.org/) and match our requirements below precisely
-  * if your tests pass but the Rails Driver spec harness does not, you have done something wrong.
+  * if your tests pass but the Postman test does not, you have done something wrong.
 * Controller actions should be limited to only the standard Rails actions and follow good RESTful convention.
 * Endpoints such as `GET /api/v1/merchants/find?parameters` will NOT follow RESTful convention, and that's okay:
 
@@ -342,7 +342,7 @@ These endpoints should show related records for a given resource. The relationsh
   * return a 404 if merchant is not found
 * `GET /api/v1/items/:id/merchant` - return the merchant associated with an item
   * return a 404 if the item is not found
-  
+
 
 ---
 # SECTION TWO
@@ -376,7 +376,7 @@ These endpoints should:
   * both `min_price` and `max_price` can be sent
 * for items, the user will send EITHER the `name` parameter OR either/both of the `price` parameters
   * users should get an error if `name` and either/both of the `price` parameters are sent
-  
+
 Valid examples:
 * `GET /api/v1/merchants/find_one?name=Mart`
 * `GET /api/v1/items/find_one?name=ring`
@@ -395,7 +395,7 @@ Invalid examples:
   * cannot send both `name` and `max_price`
 * `GET /api/v1/items/find_one?name=ring&min_price=50&max_price=250`
   * cannot send both `name` and `min_price` and `max_price`
-  
+
 Example JSON response for `GET /api/v1/merchants/find?name=ring`
 
 ```json

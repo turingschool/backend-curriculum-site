@@ -43,8 +43,6 @@ Below are skills that are more general/necessary on the job that are practiced b
 
 The organization of this project spec is by feature type. However, it is encouraged that you work through a little of each feature type rather than trying to complete an entire feature type before moving to the next. We encourage you to use an Agile approach as much as possible to complete this assignment, and to review the work and develop estimated milestones before you begin. **Any good set of milestones will allow for some slippage before the project is due.**
 
-We *highly* encourage you to have attempted some of the business intelligence queries before the Advanced ActiveRecord class.
-
 ## Postman
 
 We have adapted this project from previous cohorts and have rewritten a fully functional test suite right within Postman. By importing the JSON files noted below, you can open the Postman "Runner" and execute a large suite of tests.
