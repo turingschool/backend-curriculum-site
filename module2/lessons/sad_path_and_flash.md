@@ -45,7 +45,7 @@ Before jumping in to TDD, let's check out this functionality as a user would see
 Let's update our existing test for artist creation to include this corresponding test:
 
 ```ruby
-# spec/features/artist/new_spec.rb
+# spec/features/artists/new_spec.rb
 require 'rails_helper'
 
 RSpec.describe 'New Artist' do
