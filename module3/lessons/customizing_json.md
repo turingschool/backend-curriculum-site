@@ -36,11 +36,123 @@ Let's use the [json:api](https://jsonapi.org/) specification for our JSON respon
 - How are the attributes formatted for a resource in a response?
 - How are a resource's relationships formatted?
 
-## Exercise
+## Exercise - Congress Tracker
+[Congress Tracker Repo](https://github.com/turingschool-examples/congress-tracker-2011)
 
-### Adding to Our Existing Project
+Starting on the `refactor` branch
 
-You may have created a repo to code-along with the building and API video last Thursday during evals. Feel free to use the repository that you created. Otherwise, you can clone [this](https://github.com/turingschool-examples/building-apis) repo. Below are instructions for getting started from scratch.
+Add the following to the `search` action in your `PropublicaController` in order to allow us to render our `Member` PORO with its attributes
+
+```ruby
+def search
+  # validations on params
+  @member = GovtFacade.search(params[:search])
+  render json: @member
+end
+```
+
+Use your rails server to view the current JSON response when you search for a member of congress.
+
+So we have our response from our server, but it isn’t JSON API 1.0 - We need to provide some standardization around how we're exposing this data. So what do we do? We need to use a serializer.
+
+### Using FastJSONAPI to modify `as_json`
+
+Add this line to your Gemfile.
+
+```
+gem 'fast_jsonapi'
+```
+
+And then `bundle install`
+
+
+We can now use the built in generator in order to make ourselves a serializer.
+
+```rails g serializer Member id title first_name last_name```
+
+This will add the appropriate attributes from the Member Poro.  And give us only the attributes we decide to showing.
+
+Let’s check out what is in the Serializer.
+
+```ruby
+class MemberSerializer
+  include FastJsonapi::ObjectSerializer
+  attributes :id, :title, :first_name, :last_name
+end
+```
+
+So now that we have this serializer, we need to call it within our controller and pass it our object.
+
+**Note: You can pass a serializer a single object or a collection of objects**
+
+```ruby
+class PropublicaController < ApplicationController
+  def search
+    # validations on params
+    @member = GovtFacade.search(params[:search])
+    render json: MemberSerializer.new(@member)
+  end
+end
+```
+
+Search for a new senator and inspect the response.
+
+So what we are doing is instead of rendering the Poro in json, we are sending it to our custom serializer, where the data gets serialized, and then that data gets rendered as json.
+
+It looks like `id` is showing up twice. Lets ensure it only shows up at the top level. We do this by removing it from the attributes line.
+
+Now our response should be formatted as follows:
+```json
+{
+"data": {
+  "id": "S000033",
+  "type": "member",
+  "attributes": {
+    "title": "Senator, 1st Class",
+    "first_name": "Bernard",
+    "last_name": "Sanders"
+    }
+  }
+}
+```
+
+### Serializing ActiveRecord Objects
+
+Add `faker` to your Gemfile
+
+```bash
+bundle
+```
+
+Add this to your `seeds.rb` file:
+
+```ruby
+
+require 'faker'
+
+5.times do
+  User.create!(
+    email: Faker::Internet.email,
+    password: Faker::Internet.password,
+    role: Faker::Number.within(range: 0..1)
+  )
+end
+```
+
+#### Create the route, action, and controller code to expose the data of all of your users
+- DONT EVER DO THIS IN REAL LIFE - WE ARE LIVING ON THE EDGE TODAY
+- Add a serializer for your Users
+- Ensure your serializer formats your JSON according to [json:api](https://jsonapi.org/)
+- Add a custom attribute that counts all your users in your serializer
+- Add a relationship to your users model (many to many, one to many, etc)
+- expose the data in this relationship within your UserSerializer
+
+
+## Exercise 2 - Stand Alone Repo
+
+### Building APIs Repo
+
+You can clone [this](https://github.com/turingschool-examples/building-apis) repo. Below are instructions for getting started from scratch.
 
 ```bash
 git clone https://github.com/turingschool-examples/building-apis.git
@@ -254,8 +366,6 @@ end
 So what we are doing is instead of rendering the ActiveRecord stuff in json, we are sending it to the serializer, where the stuff gets serialized, and then that gets rendered as json.
 
 But what if we wanted to show some awesome relationship action?
-
-Easy.
 
 ```ruby
 class StoreSerializer
