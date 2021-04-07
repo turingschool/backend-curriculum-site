@@ -563,13 +563,13 @@ Example JSON response for `GET /api/v1/revenue/merchants/1`
 
 The endpoint will return a quantity of items ranked by descending revenue.
 
-The URI should follow this pattern: `GET /api/v1/items/revenue?quantity=x`
+The URI should follow this pattern: `GET /api/v1/revenue/items?quantity=x`
 
 where 'x' is the maximum count of results to return.
 * quantity should default to 10 if not provided
 * endpoint should return an error if it is not an integer greater than 0.
 
-Example JSON response for `GET /api/v1/items/revenue?quantity=1`
+Example JSON response for `GET /api/v1/revenue/items?quantity=1`
 
 
 ```json
