@@ -24,13 +24,7 @@ Project Overview
 1.  Everyone on the team clones the repository
 1.  Setup [SimpleCov](https://github.com/colszowka/simplecov) to monitor test coverage along the way
 1.  Setup [Hound CI](https://houndci.com/)
-1.  Create a Rakefile
 
-#### Special Notes
-
-This project will require you to be running version 2.5.x of Ruby. This will get you used to working in an older version of Ruby and you will learn how to work with different versions of Rubies using rbenv.
-
-Documentation for rbenv can be found [here](https://github.com/rbenv/rbenv/blob/master/README.md)
 
 ### Spec Harness
 
