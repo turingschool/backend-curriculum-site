@@ -16,11 +16,11 @@ In this lesson we'll cover:
 
 ## History of JavaScript
 
-Way back in the early days of the web, Brendan Eich created JavaScript. Legend has it that he wrote it in 10 days in 1995 while was was working as an engineer at Netscape. The language was first released with Netscape 2 in 1996. The name 'JavaScript' was a oh-so-clever marketing push to try to pick up on the momentum of Sun Microsystem's popular language Java, but instead it lead to years of confusion about the names of these two mostly unrelated programming languages. If you'd like to learn more about where JS came from, take a look [here](http://speakingjs.com/es5/ch04.html).
+Way back in the early days of the web, Brendan Eich created JavaScript. Legend has it that he wrote it in 10 days in 1995 while he was working as an engineer at Netscape. The language was first released with Netscape 2 in 1996. The name 'JavaScript' was a oh-so-clever marketing push to try to pick up on the momentum of Sun Microsystem's popular language Java, but instead it led to years of confusion about the names of these two mostly unrelated programming languages. If you'd like to learn more about where JS came from, take a look [at this article](http://speakingjs.com/es5/ch04.html).
 
 ## What is JavaScript and Why?
 
-JavaScript was created to make the web more dynamic. It is an object-oriented scripting language made to run inside a host environment like a web browser and provide programatic control over the objects of that environment. For example, when you click a button and you want something about the webpage to change, you will use JavaScript.
+JavaScript was created to make the web more dynamic. It is an object-oriented scripting language that can also be written functionally and is made to run inside a host environment like a web browser and provide programatic control over the objects of that environment. For example, when you click a button and you want something about the webpage to change, you will use JavaScript.
 
 JavaScript can be _client-side_ and _server-side_, meaning that it can be used to control user-facing interfaces as well as handle the server-side extensions that connect with a database.
 
@@ -40,7 +40,7 @@ This data type handles numbers. In JavaScript, numbers are written without comma
 
 `3475`
 
-Numbers can also be negative and decimals (also called "floats"), so we can write `-3475` and `0.5`
+Numbers can also be negative and/or decimals (also called "floats"), so we can write `-3475` and `0.5`
 
 Note that we _do not_ enclose a number data type in quotes.
 
@@ -203,9 +203,9 @@ const myMath = (var1, var2) => {
 }
 ```
 
-***Warning***: A `debugger` statement will not trigger unless your inspector tools in the browser are open. This is meant to not interrupt a users experience if a developer accidentally commits and deploys a `debugger` statement.
+***Warning***: **A `debugger` statement will not trigger unless your inspector tools in the browser are open.** This is meant to not interrupt a users experience if a developer accidentally commits and deploys a `debugger` statement.
 
-In the browser, if we open up the dev tools, navigate to the console and try to search for something.  The program will freeze on the line `debugger`. This lets us type stuff into our `console` to see what's going on.
+In the browser, if we open up the dev tools, navigate to the console and try to search for something.  The program will freeze on the line `debugger`. This lets us type stuff into our `console` to see what's going on. The console is similar to a pry session in this context.
 
 For a more in-depth lesson on working with DevTools - check out [advanced debugging](http://frontend.turing.io/lessons/debugging-with-devtools.html) or the [Chrome Documentation](https://developer.chrome.com/devtools/docs/javascript-debugging).
 
@@ -361,3 +361,25 @@ if (hoursOfSleep < 6) {
 ### Your Turn
 
 Write a conditional that gives a different alert message based on your favorite kind of animal.
+
+### Challenge 1
+Write a function to convert a name into initials. This kata strictly takes two words with one space in between them.
+
+The output should be two capital letters with a dot separating them.
+It should look like this:
+
+`Sam Harris => S.H`
+`patrick Feeney => P.F`
+
+### Challenge 2
+You probably know the "like" system from Facebook and other pages. People can "like" blog posts, pictures or other items. We want to create the text that should be displayed next to such an item.
+
+Implement a function `likes([String1, String2,...]) => String`, which must take in a single parameter of an array, containing the names of people who like an item. It must return the display text as shown in the examples:
+```
+likes [] -- must be "no one likes this"
+likes ["Peter"] -- must be "Peter likes this"
+likes ["Jacob", "Alex"] -- must be "Jacob and Alex like this"
+likes ["Max", "John", "Mark"] -- must be "Max, John and Mark like this"
+likes ["Alex", "Jacob", "Mark", "Max"] -- must be "Alex, Jacob and 2 others like this"
+```
+For 4 or more names, the number in `and 2 others` simply increases.
