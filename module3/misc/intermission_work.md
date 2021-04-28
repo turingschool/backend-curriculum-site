@@ -11,17 +11,9 @@ You must complete and submit all of these assignments. *It is due the Saturday b
 Submit your work here: [Survey Link](https://forms.gle/1WVzP74v1hUadxwFA)
 
 
-### Professional Development
-
-* Do [this](https://github.com/turingschool/career-development-curriculum/blob/master/module_three/pre_work.md)
-
-### Ruby and Rails Versions
-
-Follow [this guide](./ruby_and_rails_versions) to make sure your versions are correct.
-
 ## Core Learning Goals of Mod 3
 
-* API Development
+* API Development / Consumption
 * Authentication / Authorization systems
 * Managing deeply-nested data collections
 * Refactoring code into new Design Patterns
