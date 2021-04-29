@@ -6,38 +6,38 @@ subheading: Ruby and Rails Versions
 
 ## Ruby 2.5.3
 
-We will use Ruby 2.5.3 in Module 3. You can check your Ruby version by running `ruby -v`.
+We will use Ruby 2.7.2 in Module 2 & 3. You can check your Ruby version by running `ruby -v`.
 
-Using [rbenv](https://github.com/rbenv/rbenv), you can install Ruby 2.5.3 (if you don't have it already) with:
+Using [rbenv](https://github.com/rbenv/rbenv), you can install Ruby 2.7.2 (if you don't have it already) with:
 
 ```
-rbenv install 2.5.3
+rbenv install 2.7.2
 ```
 
 With `rbenv` you can set your Ruby version for a directory and all subdirectories within it. If you have a `3module` directory on your machine, you can set your Ruby version for this directory (and all subdirectories) by first changing into that directory and then running
 
 ```
-rbenv local 2.5.3
+rbenv local 2.7.2
 ```
 
 Always double check that your Ruby version is correct after changing it with `ruby -v`
 
-## Rails 5.2.4.3
+## Rails 5.2.5
 
-We will use Rails version 5.2.4.3 in Module 3.
+We will use Rails version 5.2.5 in Module 2 & 3.
 
-Rails is a Gem, and if you are using `rbenv`, gems are specific to your current Ruby version, so you need to make sure you are on Ruby 2.5.3 before proceeding by following the instructions above.
+Rails is a Gem, and if you are using `rbenv`, gems are specific to your current Ruby version, so you need to make sure you are on Ruby 2.7.2 before proceeding by following the instructions above.
 
-Once you have verified your Ruby version is 2.5.3, check if you have Rails. From the command line:
+Once you have verified your Ruby version is 2.7.2, check if you have Rails. From the command line:
 
 ```bash
 $ rails -v
 ```
 
-If you get a message saying rails is not installed or you do not have version 5.2.4.3, run
+If you get a message saying rails is not installed or you do not have version 5.2.5, run
 
 ```bash
-$ gem install rails --version 5.2.4.3
+$ gem install rails --version 5.2.5
 ```
 
 You may need to quit and restart your terminal session to see these changes show up when you check your rails version with:
@@ -48,4 +48,4 @@ $ rails -v
 
 Be careful not to install the latest version of Rails by only doing `gem install rails` -- our curriculum is not up to date with the latest version and you will need to uninstall it.
 
-If you instead get a version of Rails besides `5.2.4.3`, follow [these instructions](https://github.com/turingschool-examples/task_manager_rails/blob/master/rails_uninstall.md).
+If you instead get a version of Rails besides `5.2.5`, follow [these instructions](https://github.com/turingschool-examples/task_manager_rails/blob/master/rails_uninstall.md).
