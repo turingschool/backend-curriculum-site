@@ -4,7 +4,7 @@ title: Module 3
 subheading: Ruby and Rails Versions
 ---
 
-## Ruby 2.5.3
+## Ruby 2.7.2
 
 We will use Ruby 2.7.2 in Module 2 & 3. You can check your Ruby version by running `ruby -v`.
 
