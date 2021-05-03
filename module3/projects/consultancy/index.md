@@ -53,7 +53,19 @@ Our project will include at least one "micro-services" - a Service API which abs
 
 You will be better prepared to hit the ground running in the workplace having worked on a larger team, in a much larger application base, with lots of moving pieces. Understanding the deeper impact of how a small change can have a cascading effect on other pieces of a system will be crucial.
 
-We'll also examine our end users on a deeper level to install a strong sense of developer empathy. We will do this by focusing time on "user personas" to answer questions like "who is our user", "what age range are we targeting", "how tech-savvy must the user be to use our app" and so on.
+#### Feedback from Previous students:
+
+  * "The complexity added value to the interviewing conversations. I got to speak to pros/cons, and I understood the concepts a lot better."
+  * "Exploring different design patterns was great and being able to speak on different ways to build things PLUS being able to compare was helpful."
+  * "Incredibly helpful in interviewing. It was the biggest project on my resume, and was key to my early interviews. It was more important in my interview for my new role than my Mod 4 capstone because of the multi-app architecture. I could speak to decision-making more because I got to work on each piece. My new company said I reset their expectations for what a bootcamp grad could accomplish."
+  * "It came up in just about every interview I had."
+  * "They were surprised that we got exposure to SOA and speaking about microservices. It helped to understand and speak to Abstraction and Encapsulation a lot more. Working on a larger team definitely helped me get started at my job which was a way bigger team than the 10-person project."
+  * "People seemed most excited/interested about working on a larger team project (10 people). They asked lots of followup questions about how we handled project management, made decisions, etc. It was really helpful to know how SOA/multi-app systems worked."
+  * "It definitely came up in interviews, especially about microservices, and the tradeoffs versus monolith apps."
+
+#### User Empathy, Personas
+
+We'll also examine our end users on a deeper level to instill a strong sense of developer empathy. We will do this by focusing time on "user personas" to answer questions like "who is our user", "what age range are we targeting", "how tech-savvy must the user be to use our app" and so on.
 
 Please see the technical and professional learning goals [here](./project_goals).
 
