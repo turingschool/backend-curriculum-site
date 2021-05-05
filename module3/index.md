@@ -10,9 +10,8 @@ In Module 3, we will look beyond the basics of building Rails web applications w
 
 ## Instructors
 
-* Ian Douglas (Anchor)
-* Alex Robinson
-* Tim Tyrrell
+* Tim Tyrrell (Anchor)
+* Meg Stang (Propeller)
 
 ## Curriculum
 
