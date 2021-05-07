@@ -12,7 +12,7 @@ In Module 1, students will learn to use Ruby and object-oriented programming to 
 
 * Michael Dao (Anchor)
 * Megan McMahon
-* Robert Gu
+* Ian Douglas
 
 ## Curriculum
 
