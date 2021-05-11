@@ -216,39 +216,25 @@ What do you think the following `.to` methods do?
 - `.to include`
 
 ## Additional Test Intricacies
-- Each test is independent of the next; **don't depend on tests to run in order** of how they're written
-  - However, it clarifies your code to other humans to write in order of complexity; aim to start from most basic to most complex functionality and keep tests grouped by method
-- You can `before(:each)` method
-  - This will provide shared test setup run before each individual test
-- Tests will generally return an `E` for error, `F` for failure & `.` for passing
-
-```ruby
-describe Student do
-  before(:each) do
-    @student = Student.new('Penelope')
-  end
-end
-```
 
 ### Ensuring Dynamic Functionality
 
 We should make sure that all of our methods can handle different cases, ensuring that our implementation code is dynamic, e.g.:
 
 ```ruby
-# student_test.rb
+# student_spec.rb
 require 'rspec'
 
 describe Student do
-  before(:each) do
-    @student = Student.new('Penelope')
-  end
   describe '#initialize' do
     it 'is an instance of student' do
-      expect(@student).to be_a Student
+      student = Student.new('Penelope')
+      expect(student).to be_a Student
     end
 
     it 'has a name' do
-      expect(@student.name).to eq 'Penelope'
+      student = Student.new('Penelope')
+      expect(student.name).to eq 'Penelope'
     end
 
     it 'has a different name' do
@@ -266,22 +252,36 @@ end
 ```ruby
 # student_spec.rb
 describe Student do
-  before(:each) do
-    @student = Student.new('Penelope')
-  end
   describe '#initialize' do
     it 'is an instance of student' do
-      expect(@student).to be_a Student
+      student = Student.new('Penelope')
+      expect(student).to be_a Student
     end
 
     it 'has a name' do
-      expect(@student.name).to eq 'Penelope'
+      student = Student.new('Penelope')
+      expect(student.name).to eq 'Penelope'
     end
 
     it 'gives assigns a default name' do
       student = Student.new(42)
       expect(student.name).to eq 'Default Name Assigned'
     end
+  end
+end
+```
+
+### Nice to Know
+- Each test is independent of the next; **don't depend on tests to run in order** of how they're written
+  - However, it clarifies your code to other humans to write in order of complexity; aim to start from most basic to most complex functionality and keep tests grouped by method
+- You can `before(:each)` method
+  - This will provide shared test setup run before each individual test
+- Tests will generally return an `E` for error, `F` for failure & `.` for passing
+
+```ruby
+describe Student do
+  before(:each) do
+    @student = Student.new('Penelope')
   end
 end
 ```
