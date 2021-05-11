@@ -198,7 +198,7 @@ describe Student do
   end
 
   describe '#add_cookie' do
-    it 'can add chocolate chip' do
+    it 'adds cookie to cookies array' do
       student = Student.new('Penelope')
       student.add_cookie('Chocolate Chip')
       student.add_cookie('Snickerdoodle')
