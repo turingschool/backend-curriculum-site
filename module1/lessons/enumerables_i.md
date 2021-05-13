@@ -22,8 +22,10 @@ tags: enumerables, map, find_all, find, each
 ## Warm Up
 
 * What is **iteration** and when do we use it?
-* In your notebook, write the code to that you would use to print each of the letters in this array: `dynasty_1 = ["K", "e", "n", "n", "e", "d", "y"]`.  
-* In your notebook, write the code that you would use to create a new array with capitalized versions of the following names.: `names = ['jack', 'bobby', 'teddy']`
+* In your notebook, write the code to that you would use to print each of the letters in this array:  
+    `bounce_letters = ["K", "a", "n", "g", "a", "r", "o", "o"]`.  
+* In your notebook, write the code that you would use to create a new array with capitalized versions of the following names:  
+    `names = ['megan', 'mike', 'ian']`
 
 
 ## Intro
@@ -71,12 +73,10 @@ end
 p doubles
 ```
 
-Knowing what we do about return values, can you guess what the following code snippet would return? Discuss with your parter, then we'll run the code for the class.
+Knowing what we do about methods and return values, can you guess what the following code snippet would return? Discuss with your parter, then we'll run the code for the class.
 
 ```ruby
-def double
-  numbers = [1, 2, 3, 4, 5]
-
+def double(numbers)
   doubles = []
 
   numbers.each do |number|
@@ -84,7 +84,8 @@ def double
   end
 end
 
-p double
+numbers = [1, 2, 3, 4, 5]
+p double(numbers)
 ```
 
 Even when we wrap an \#each block inside a method, we need a placeholder to keep track of the return value that we want.  This is because the return value of a method will generally be the last line of code that is run, and we can consider the \#each block from `do` to `end` as a single line of code.  Remember that each can be written on a single line like this: `numbers.each { |number| doubles << number * 2 }`
@@ -92,9 +93,7 @@ Even when we wrap an \#each block inside a method, we need a placeholder to keep
 So, we would want to revise the code above to something like this to get the method to return doubles:
 
 ```ruby
-def double
-  numbers = [1, 2, 3, 4, 5]
-
+def double(numbers)
   doubles = []
 
   numbers.each do |number|
@@ -104,7 +103,8 @@ def double
   doubles
 end
 
-p double
+numbers = [1, 2, 3, 4, 5]
+p double(numbers)
 ```
 
 Now, our last line of code is `doubles` instead of the \#each block, and the method will return what we expect.
@@ -158,19 +158,21 @@ p doubles
 Because `#map` returns the new array, we can easily return it from a method like so:
 
 ```ruby
-def double
-  numbers = [1, 2, 3, 4, 5]
+def double(numbers)
   doubles = numbers.map do |number|
     number * 2
   end
 end
 
-p double
+numbers = [1, 2, 3, 4, 5]
+p double(numbers)
 ```
 
 #### Partner Practice
 
-Let's just use one computer between the two of you for these activities. The method below returns an array of the brothers names in all caps using the method `#each`. 
+Let's do some pair programming for these activities - in your break out rooms, one person will be typing code that you both agree on. 
+
+The method below returns an array of the brothers names in all caps using the method `#each`. 
 
 ```ruby
 def kennedy_brothers
@@ -183,7 +185,6 @@ def kennedy_brothers
   end
 
   caps_brothers
-
 end
 ```
 
@@ -191,7 +192,7 @@ end
 Open up a ruby file, and write a method that does the same thing as the code above, but using `#map`. Wait to record this in your notes until we go over it with the group. 
 
 **Turn & Talk**  
-Share your code with the partners next to you. Talk them through it and be specific. What is similar/different? Are there any changes/additions you want to make to your own code?
+Share your code with a small group. Talk them through it and be specific. What is similar/different? Are there any changes/additions you want to make to your own code?
 
 
 ### `find` / `detect`
@@ -249,7 +250,7 @@ end
 Open up a ruby file, and write a method that does the same thing as the code above, but using `#find`. Wait to record this in your notes until we go over it with the group. 
 
 **Turn & Talk**  
-Share your code with the partners next to you. Talk them through it and be specific. What is similar/different? Are there any changes/additions you want to make to your own code?
+Share your code with a small group. Talk them through it and be specific. What is similar/different? Are there any changes/additions you want to make to your own code?
 
 ### `find_all` / `select`
 
@@ -305,7 +306,7 @@ end
 Open up a ruby file, and write a method that does the same thing as the code above, but using `#find_all`. Wait to record this in your notes until we go over it with the group. 
 
 **Turn & Talk**  
-Share your code with the partners next to you. Talk them through it and be specific. What is similar/different? Are there any changes/additions you want to make to your own code?
+Share your code with a small group. Talk them through it and be specific. What is similar/different? Are there any changes/additions you want to make to your own code?
 
 ### Additional Enumerables
 
