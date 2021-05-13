@@ -239,7 +239,7 @@ Oh just look at that, so nice. Remember, it will return the **first** item for w
 Using `#each`, write the code to find the first sister over four letters in length. Wait to move on until we discuss this as a group.
 
 ```ruby
-def find_sisters
+def find_first_long_named_sister
   sisters = ["Rose", "Kathleen", "Eunice", "Patricia", "Jean"]
 
   ### YOUR CODE HERE
@@ -281,7 +281,7 @@ Not bad, but we're stuck with that `result` container that we don't like. Pay at
 def all_the_odds
   numbers = [1,2,3,4,5]
 
-  numbers.select do |num|
+  numbers.find_all do |num|
     num.odd?
   end
 
