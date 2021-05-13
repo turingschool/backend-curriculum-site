@@ -281,7 +281,7 @@ Not bad, but we're stuck with that `result` container that we don't like. Pay at
 def all_the_odds
   numbers = [1,2,3,4,5]
 
-  numbers.select do |num|
+  numbers.find_all do |num|
     num.odd?
   end
 
