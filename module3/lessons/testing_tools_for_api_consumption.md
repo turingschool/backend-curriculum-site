@@ -66,6 +66,7 @@ class CongressController < ApplicationController
 
     found_members = members.find_all {|m| m[:last_name] == params[:search]}
     @member = found_members.first
+    render "welcome/index"
   end
 end
 ```
