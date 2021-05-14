@@ -23,10 +23,7 @@ Available [here](../slides/testing_api_consumption)
 
 ## Optional Manual Setup
 
-<details>
-<summary>Expand this setup section to run through the setup manually...</summary>
-
-* Install figaro (Add to `:development, :test` block in gemfile)
+* Install figaro (Add to :development, :test block in gemfile)
 * Add the faraday gem just below bcrypt in gemfile
 * `bundle`
 * Request a Propublica API key
@@ -107,8 +104,6 @@ RSpec.describe 'Govt Search' do
   end
 end
 ```
-
-</details>
 
 ## Mocking Network Requests
 
