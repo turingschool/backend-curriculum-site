@@ -7,7 +7,8 @@ tags: apis, rails, faraday, refactoring, VCR
 
 ## Resources
 
-* [Video](https://youtu.be/Okck4Fc557o)
+* [Josh Mejia walks through webmock/vcr as testing tools](https://youtu.be/Okck4Fc557o)
+* [2011 Lesson w/ Ian Douglaas](https://youtu.be/dlhgKYtXBoY)
 
 ## Learning Goals
 
@@ -20,9 +21,98 @@ After this class, a student should be able to:
 
 Available [here](../slides/testing_api_consumption)
 
+## Optional Manual Setup
+
+<details>
+<summary>Expand this setup section to run through the setup manually...</summary>
+
+* Install figaro (Add to `:development, :test` block in gemfile)
+* Add the faraday gem just below bcrypt in gemfile
+* `bundle`
+* Request a Propublica API key
+* Add the key to `application.yml` and name it: `govt_api_key`
+
+
+Add this route:
+```ruby
+post '/search', to: 'congress#search'
+```
+
+Add this code to your `welcome/index.html.erb`
+```ruby
+<%= form_with url: search_path, local: true do |form| %>
+  <%= form.label :search, 'Search For Senators By Last Name:' %>
+  <%= form.text_field :search %>
+  <%= form.submit 'Search' %>
+<% end %>
+<% if @member %>
+  <h5>Senator <%= @member[:first_name].concat(" ").concat(@member[:last_name]) %> was found! Their twitter is: <%= @member[:twitter_account] %></h5>
+<% end %>
+
+```
+
+Add this controller named congress_controller.rb:
+
+```ruby
+class CongressController < ApplicationController
+  def search
+    conn = Faraday.new(url: "https://api.propublica.org") do |faraday|
+      faraday.headers["X-API-KEY"] = ENV['govt_api_key']
+    end
+    response = conn.get("/congress/v1/116/senate/members.json")
+
+    data = JSON.parse(response.body, symbolize_names: true)
+
+    members = data[:results][0][:members]
+
+    found_members = members.find_all {|m| m[:last_name] == params[:search]}
+    @member = found_members.first
+  end
+end
+```
+
+You can test this code is working correctly in the browser if you can find a member of congress by last name.
+`@member` will be a hash of that congress members data.
+
+When it exists, we will grab some data from `@member` and display it on the welcome page
+We can test this functionality by adding a test called: `search_congress_members_spec.rb`
+This is what lives in that test file:
+
+```ruby
+require 'rails_helper'
+
+RSpec.describe 'Govt Search' do
+  describe 'happy path' do
+    it 'allows user to search for govt members' do
+      visit root_path
+
+      fill_in :search, with: 'Sanders'
+      click_button 'Search'
+
+      expect(page.status_code).to eq 200
+      expect(page).to have_content("Senator Bernard Sanders was found!")
+      expect(page).to have_content("SenSanders")
+    end
+
+    it 'allows user to search for another govt member' do
+      visit root_path
+
+      fill_in :search, with: 'Booker'
+      click_button 'Search'
+
+      expect(page.status_code).to eq 200
+      expect(page).to have_content("Senator Cory Booker was found!")
+      expect(page).to have_content("SenBooker")
+    end
+  end
+end
+```
+
+</details>
+
 ## Mocking Network Requests
 
-[When last we met](./consuming_an_api), we got our code working, but our test is making a real API call which is not good. There are many reasons we wouldn't want to do this:
+The [setup branch](https://github.com/turingschool-examples/congress-tracker-2102/tree/pre_api_testing_tools_setup) for this class has implemented a test to ensure that we are able to hit our API and display some data from the response. However, our test is actually hitting the Propublica API every time it runs. There are many reasons we wouldn't want to do this:
 
 1. We could hit API rate limits much faster.
 1. Our test suite will be slower.
@@ -45,11 +135,11 @@ Now, when we run our tests we can see a big error message:
 
 ```sh
 WebMock::NetConnectNotAllowedError:
-      Real HTTP connections are disabled. Unregistered request: GET https://api.propublica.org/congress/v1/members/house/CO/current.json with headers {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'User-Agent'=>'Faraday v0.15.4', 'X-Api-Key'=>'opyjcKdEUKllG8P5V15kv3yKKbx1KwkGQwXbfCF3'}
+      Real HTTP connections are disabled. Unregistered request: GET https://api.propublica.org/congress/v1/116/members/senate/members.json with headers {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'User-Agent'=>'Faraday v0.15.4', 'X-Api-Key'=>'opyjcKdEUKllG8P5V15kv3yKKbx1KwkGQwXbfCF3'}
 
       You can stub this request with the following snippet:
 
-      stub_request(:get, "https://api.propublica.org/congress/v1/members/house/CO/current.json").
+      stub_request(:get, "https://api.propublica.org/congress/v1/116/members/senate/members.json").
         with(
           headers: {
          'Accept'=>'*/*',
@@ -70,31 +160,31 @@ Looking at the docs, we can see some examples of how to stub requests. Let's add
 
 ```ruby
 scenario "user submits valid state name" do
-    stub_request(:get, "https://api.propublica.org/congress/v1/members/house/CO/current.json").
+    stub_request(:get, "https://api.propublica.org/congress/v1/116/members/senate/members.json").
         to_return(status: 200, body: "")
     # As a user
     # When I visit "/"
     visit '/'
 ```
 
-Now when we run the tests, we get `JSON::ParserError: 743: unexpected token at ''`. The stack trace points us to the `SearchController` on the line where we do `json = JSON.parse(response.body, symbolize_names: true)`. If we look at the stub we just put in the test, we are returning an empty body, so it makes sense that we're getting an error when trying to parse the response body as JSON.
+Now when we run the tests, we get `JSON::ParserError: 743: unexpected token at ''`. The stack trace points us to the `CongressController` on the line where we do `json = JSON.parse(response.body, symbolize_names: true)`. If we look at the stub we just put in the test, we are returning an empty body, so it makes sense that we're getting an error when trying to parse the response body as JSON.
 
 We need to replace the empty body with an actual JSON response. We *could* copy and paste a body right into this test, but then our test file would get quite messy. What we'll do instead is make a `spec/fixtures` directory with a file that we can read:
 
 ```sh
 mkdir spec/fixtures
-touch spec/fixtures/members_of_the_house.json
+touch spec/fixtures/members_of_the_senate.json
 ```
 
 And update our test:
 
 ```ruby
-json_response = File.read('spec/fixtures/members_of_the_house.json')
-stub_request(:get, "https://api.propublica.org/congress/v1/members/house/CO/current.json").
+json_response = File.read('spec/fixtures/members_of_the_senate.json')
+stub_request(:get, "https://api.propublica.org/congress/v1/116/members/senate/members.json").
   to_return(status: 200, body: json_response)
 ```
 
-We're still returning an empty body because our file is empty, so let's add some actual JSON data to that file. Use Postman to hit the ProPublica API to get a JSON response and copy and paste it in. Your test should be passing once again.
+We're still returning an empty body because our file is empty, so let's add some actual JSON data to that file **That mimics how the JSON Data looks when we hit the real API**. Use Postman to hit the ProPublica API to get a JSON response and copy and paste it in. Your test should be passing once again.
 
 If this is *really* working, we should be able to turn off our WiFi and see the test is still working.
 
@@ -123,8 +213,8 @@ Go back into the test and comment out the lines where we stubbed the request wit
 
 ```ruby
 scenario "user submits valid state name" do
-    # json_response = File.read('spec/fixtures/members_of_the_house.json')
-    # stub_request(:get, "https://api.propublica.org/congress/v1/members/house/CO/current.json").
+    # json_response = File.read('spec/fixtures/members_of_the_senate.json')
+    # stub_request(:get, "https://api.propublica.org/congress/v1/116/members/senate/members.json").
     #   to_return(status: 200, body: json_response)
     # As a user
     # When I visit "/"
@@ -139,13 +229,13 @@ In order to use VCR, we wrap our test in a `VCR.use_cassette` block:
 
 ```ruby
 scenario "user submits valid state name" do
-  # json_response = File.read('spec/fixtures/members_of_the_house.json')
-  # stub_request(:get, "https://api.propublica.org/congress/v1/members/house/CO/current.json").
+  # json_response = File.read('spec/fixtures/members_of_the_senate.json')
+  # stub_request(:get, "https://api.propublica.org/congress/v1/116/members/senate/members.json").
   #   to_return(status: 200, body: json_response)
   # As a user
   # When I visit "/"
 
-  VCR.use_cassette('propublica_members_of_the_house_for_co') do
+  VCR.use_cassette('propublica_members_of_the_senate_for_co') do
     visit '/'
 
     select "Colorado", from: :state
@@ -157,7 +247,7 @@ scenario "user submits valid state name" do
     expect(page).to have_content("7 Results")
     # And I should see a message "7 Results"
     expect(page).to have_css(".member", count: 7)
-    # And I should see a list of 7 the members of the house for Colorado
+    # And I should see a list of 7 the members of the senate for Colorado
 
     within(first(".member")) do
       expect(page).to have_css(".name")
@@ -215,8 +305,8 @@ Now in our tests, we can delete the `VCR.use_cassette` block and tell the test t
 
 ```ruby
 scenario "user submits valid state name", :vcr do
-    # json_response = File.read('spec/fixtures/members_of_the_house.json')
-    # stub_request(:get, "https://api.propublica.org/congress/v1/members/house/CO/current.json").
+    # json_response = File.read('spec/fixtures/members_of_the_senate.json')
+    # stub_request(:get, "https://api.propublica.org/congress/v1/116/members/senate/members.json").
     #   to_return(status: 200, body: json_response)
     # As a user
     # When I visit "/"
@@ -232,7 +322,7 @@ scenario "user submits valid state name", :vcr do
     expect(page).to have_content("7 Results")
     # And I should see a message "7 Results"
     expect(page).to have_css(".member", count: 7)
-    # And I should see a list of 7 the members of the house for Colorado
+    # And I should see a list of 7 the members of the senate for Colorado
 
     within(first(".member")) do
       expect(page).to have_css(".name")
