@@ -268,7 +268,7 @@ If you look closely in that `.yml` file you can see our API key in there. We wil
 VCR.configure do |config|
   config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
   config.hook_into :webmock
-  config.filter_sensitive_data('<PROPUBLICA_API_KEY>') { ENV['PROPUBLICA_API_KEY'] }
+  config.filter_sensitive_data('<govt_api_key>') { ENV['govt_api_key'] }
 end
 ```
 
@@ -278,7 +278,7 @@ Then, delete your VCR cassettes directory:
 rm -rf spec/fixtures/vcr_cassettes
 ```
 
-Run your test suite again, and you should see a new VCR cassette in the `vcr_cassettes` directory. Open it up and confirm that your api key is now being replaced with `<PROPUBLICA_API_KEY>`.
+Run your test suite again, and you should see a new VCR cassette in the `vcr_cassettes` directory. Open it up and confirm that your api key is now being replaced with `<govt_api_key>`.
 
 **You will need to add a `filter_sensitive_data` block for EACH thing you want to filter. If you're building an app using several API keys, make sure you add a filter for each thing in your `config/application.yml` that you want to have hidden!**
 
@@ -291,7 +291,7 @@ VCR has a handy feature that allows us to use the names of our tests to name cas
 VCR.configure do |config|
   config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
   config.hook_into :webmock
-  config.filter_sensitive_data('<PROPUBLICA_API_KEY>') { ENV['PROPUBLICA_API_KEY'] }
+  config.filter_sensitive_data('<govt_api_key>') { ENV['govt_api_key'] }
   config.configure_rspec_metadata!
 end
 ```
