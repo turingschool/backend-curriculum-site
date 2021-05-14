@@ -21,14 +21,16 @@ After this class, a student should be able to:
 
 Available [here](../slides/testing_api_consumption)
 
-## Optional Manual Setup
-
+## Required Setup
 * Install figaro (Add to :development, :test block in gemfile)
-* Add the faraday gem just below bcrypt in gemfile
 * `bundle`
 * Request a Propublica API key
 * Add the key to `application.yml` and name it: `govt_api_key`
 
+## Optional Manual Setup
+The rest of this setup is on [this setup branch](https://github.com/turingschool-examples/congress-tracker-2102/tree/pre_api_testing_tools_setup) if you'd like to pull it down and start from that point instead:
+
+* Add the faraday gem just below bcrypt in gemfile
 
 Add this route:
 ```ruby
