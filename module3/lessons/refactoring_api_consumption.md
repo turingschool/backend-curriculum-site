@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Refactoring API Consumption
-length: 120
+length: 180
 tags: apis, rails, refactoring
 ---
 
@@ -411,7 +411,9 @@ end
 
 And our test is passing again!
 
-You'll notice that we didn't move over the instantiating of the `Member` objects. This is because we want the only job of this service to be to talk to Propublica (SRP). Formatting the data is separate responsibility and should be done elsewhere.
+You'll notice that we didn't move over the instantiating of the `Member` objects. This is because we want the only job of this service to be to talk to Propublica (SRP). Formatting/Massaging the data is separate responsibility and should be done elsewhere. In this design pattern, that should be done in the Facade.
+
+**Keep your service objects simple. Hit an endpoint and pass the facade a response. That's it.**
 
 Let's make one more refactor in our service. If we ever need to hit a different Propublica endpoint, for instance, to get members of the Senate, it would be nice if we could reuse that Faraday connection object. This object sets up the base url for the api and the api key, both things that will be consistent across API calls to Propublica, which makes it the perfect candidate to increase reusability. Since our members_of_house method is a class method, our "conn" method will also need to be a class method.
 
@@ -468,6 +470,10 @@ end
 ```
 
 Notice how we aren't expecting specific data from the API such as the names of the representatives. We don't want our test to be too dependent on an external API where we don't have full control over what data we'll get back. But we NEED to test that the fields of that data match a data type that we expect, such as strings, integers, arrays, etc.
+
+### You Do
+* Apply what you've learned thus far to refactor the `search` action in the `CongressController`
+* Remember to use a declarative approach. Dream Drive the code you wish existed, and then let your tests tell you which steps to take.
 
 ### Checks for Understanding
 
