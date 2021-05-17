@@ -1,0 +1,5 @@
+- [Database Normalization and Optimization](../lessons/database_normalization_and_optimization)
+- [Intro to the Asset Pipeline](../lessons/asset_pipeline)
+- [Capybara (software) - Wikipedia](https://en.wikipedia.org/wiki/Capybara_(software))
+- [The Basics of Capybara and Improving your Tests](https://www.sitepoint.com/basics-capybara-improving-tests/)
+- [CSS Zen Garden](http://www.csszengarden.com/)
