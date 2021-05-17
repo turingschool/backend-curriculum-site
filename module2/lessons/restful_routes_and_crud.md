@@ -69,16 +69,16 @@ What is the URI for this address? `http://www.tatteredcover.com/book/97816267229
 
 ### Seven RESTful Routes
 
-Pull up the routes and TaskController from Task Manager. Let's see if you can create a [table](https://docs.google.com/spreadsheets/d/1AGjUE49UJajPEQHvh3plKjaem5RAGvuv5SNjZzvjD9U/edit?usp=sharing) for seven RESTful routes allowing us to perform all CRUD actions on a Task. Include the following:
+Pull up the routes and TaskController from Task Manager. Let's see if you can create a [table](https://docs.google.com/spreadsheets/d/1QLaehcK8r_uBlmlKNcgGwCb7Mdq3w7Q2B1o7ilKFS0s/edit?usp=sharing) for seven RESTful routes allowing us to perform all CRUD actions on a Task. Include the following:
 
-* What a user wants
 * Method (verb)
-* URI
-* Data Prep/Manipulation
-* Do we want to Redirect or Render erb
-* Name of View
+* Path/URI
+* Controller
+* Controller action
+* What does it do?
 
-**Complete the table. The first 2 examples are done for you, and you should add the remaining RESTful routes. You can either make a copy of the spreadsheet, or diagram this in your notebook. Please post a link to your copy and/or a photo of your diagram at 12:00PM in the code-help thread.**
+
+**Complete the table. You can either make a copy of the spreadsheet, or diagram this in your notebook.**
 
 Is there a command you can run from your terminal to help with the diagram? (HINT)
 
