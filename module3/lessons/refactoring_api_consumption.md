@@ -7,17 +7,17 @@ tags: apis, rails, refactoring
 
 ## Vocabulary
 
-Refactor:
+**Refactor:**
 - to change code in a way that the end functionality still works as intended, but reorganizes it in a way to make it easier to maintain, easier to test, etc
 
-SRP:
+**SRP:**
 - Single Responsibility Principle; the ideal that a piece of code should be responsible for one kind of task
   - this can be at a class level, a method level, etc.
 
-Design Pattern:
+**Design Pattern:**
 - an implementation of code which follows as much "industry standard" as possible to achieve clean organization of our code
 
-MVC:
+**MVC:**
 - Model, View, Controller design pattern; a way of organizing our code into logical portions where our "business logic" is managed by the Controller, the "data logic" is managed by the Models, and the "presentation logic" is managed by the Views
 
 
@@ -26,7 +26,7 @@ MVC:
 By the end of this class, a student should be able to:
 
 * Refactor code that reaches an API from the controller
-  - Refactoring will include the Facade design pattern, the Service design pattern
+  - Refactoring will include the Facade design pattern and the Service design pattern
 
 * Utilize two of the pillars of object oriented programming, abstraction and encapsulation, to guide their refactoring.
 
@@ -52,7 +52,7 @@ We will also be using the Red, Green, Refactor technique. Red refers to a failin
 Right now, our app does what it's supposed to do but there’s a good chance that it doesn’t "feel" right. Specifically, our `index` action in the controller is long, violates SRP and MVC, isn't very abstract, the data isn't well encapsulated, and the logic that lives in it isn’t reusable. Time to refactor.
 
 ```ruby
-class SearchController < ApplicationController
+class CongressController < ApplicationController
   def index
     state = params[:state]
 
@@ -89,7 +89,7 @@ So, what we want to do is create objects that will encapsulate that data and abs
 Let's declare the code we wish existed:
 
 ```ruby
-class SearchController < ApplicationController
+class CongressController < ApplicationController
   def index
     state = params[:state]
 
@@ -189,12 +189,12 @@ RSpec.describe Member do
 end
 ```
 
-### SearchFacade Object
+### CongressFacade Object
 
 Let's look at our Controller in it's current state:
 
 ```ruby
-class SearchController < ApplicationController
+class CongressController < ApplicationController
 
   def index
     state = params[:state]
@@ -214,15 +214,15 @@ class SearchController < ApplicationController
 end
 ```
 
-It's still pretty long, violating SRP, and not abstract. A common refrain when developing rails apps is "Skinny Controllers". Ideally, the controller doesn't do any work itself but rather just coordinates between other parts of the application. Think of it as a CEO: it doesn't actually do anything, it just tells others what to do.
+It's still pretty long, violating SRP, and not abstract. A common refrain when developing rails apps is lightweight controllers. Ideally, the controller doesn't do any work itself but rather just coordinates between other parts of the application. Think of it as a CEO: it doesn't actually do anything, it just tells others what to do.
 
 Let's declare what this might look like:
 
 ```ruby
-class SearchController < ApplicationController
+class CongressController < ApplicationController
 
   def index
-    @members = SearchFacade.members
+    @members = CongressFacade.members
 
     # state = params[:state]
     #
@@ -244,20 +244,20 @@ end
 
 In construction and architecture, a "facade" is like a "faceplate" or something that covers something more complex underneath. In software design, a Facade is a front-facing interface masking more complex underlying or structural code. To use our CEO and "company structure" analogy, a Facade is like "middle management" who knows who to organize to get a job done.
 
-In our code, our Controllers will generally have one Facade, and the Facade should be named similarly to our Controller. In this case, our SearchController will call our SearchFacade.
+In our code, our Controllers will generally have one Facade, and the Facade should be named similarly to our Controller. In this case, our CongressController will call our CongressFacade.
 
 When we make Facades, we will generally not need to instantiate them, and instead call class methods within them. (all methods defined in the class will need to be prefixed with "self." This saves our Ruby interpreter from having to clean up a lot of leftover objects by the time we're done our code today!
 
 ### Back to code:
 
-We are imagining that we have this `SearchFacade` object that can give us all of our members through a single class method, `self.members`. Notice that we've also commented out all the Controller code that we want to abstract away.
+We are imagining that we have this `CongressFacade` object that can give us all of our members through a single class method, `self.members`. Notice that we've also commented out all the Controller code that we want to abstract away.
 
-When we run the tests, it complains about not finding `SearchFacade`, so let's go make it. First, we're going to create a new directory `app/facades`.
+When we run the tests, it complains about not finding `CongressFacade`, so let's go make it. First, we're going to create a new directory `app/facades`.
 
 ```ruby
-# app/facades/search_facade.rb
+# app/facades/congress_facade.rb
 
-class SearchFacade
+class CongressFacade
 
 end
 ```
@@ -267,9 +267,9 @@ Rails will automatically load anything in the `app` directory. However, you will
 When we run the tests, it complains about not having a `members` method:
 
 ```ruby
-# app/facades/search_facades.rb
+# app/facades/congress_facades.rb
 
-class SearchFacade
+class CongressFacade
 
   def self.members
   end
@@ -280,9 +280,9 @@ end
 Now our test says undefined method `size` for `nil`. This makes sense since our members method is return nothing. We want this method to return all of our members. We can accomplish this by moving all that code we commented out before into this members method:
 
 ```ruby
-# app/facades/search_facade.rb
+# app/facades/congress_facade.rb
 
-class SearchFacade
+class CongressFacade
 
   def self.members
     state = params[:state]
@@ -302,21 +302,21 @@ class SearchFacade
 end
 ```
 
-Now our tests give us the error `undefined local variable or method 'params'` for our SearchFacade object. This is a Rails specific error: params are only accessible from the controller. So rather than trying to access them from inside this PORO, let's pass the parameter we want as an argument:
+Now our tests give us the error `undefined local variable or method 'params'` for our CongressFacade object. This is a Rails specific error: params are only accessible from the controller. So rather than trying to access them from inside this PORO, let's pass the parameter we want as an argument:
 
 ```ruby
-class SearchController < ApplicationController
+class CongressController < ApplicationController
 
   def index
-    @members = SearchFacade.members(params[:state])
+    @members = CongressFacade.members(params[:state])
   end
 end
 ```
 
 ```ruby
-# app/facades/search_facade.rb
+# app/facades/congress_facade.rb
 
-class SearchFacade
+class CongressFacade
 
   def self.members(state)
     conn = Faraday.new(url: 'https://api.propublica.org') do |faraday|
@@ -334,18 +334,18 @@ class SearchFacade
 end
 ```
 
-Our tests are back to green! Another refactor down. Our controller is now quite skinny and is truly acting as that CEO.
+Our tests are back to green! Another refactor down. Our controller is now quite lightweight and is truly acting as that CEO.
 
-We're not going to unit test our `SearchFacade` in this lesson, but it would be a really good idea to do so! Since it is a standalone class method which takes a string of input and returns a payload of data, it is very straightforward on how to write this kind of test and set expectations on what our data should look like. The good news is that if you unit test everything that the Facade interacts with, your Facade test can be quite short -- when I call a class method with this input, I expect to get back, in this case, an array of Member objects.
+We're not going to unit test our `CongressFacade` in this lesson, but it would be a really good idea to do so! Since it is a standalone class method which takes a string of input and returns a payload of data, it is very straightforward on how to write this kind of test and set expectations on what our data should look like. The good news is that if you unit test everything that the Facade interacts with, your Facade test can be quite short -- when I call a class method with this input, I expect to get back, in this case, an array of Member objects.
 
 ### Service Objects
 
 Looking at our `.members` method, we can see that it is still quite long, violating SRP because it's also creating Member objects, and not very abstract. Let's separate the responsibility of interacting with the API into a separate class. Let's use declarative programming again:
 
 ```ruby
-# app/facades/search_facade.rb
+# app/facades/congress_facade.rb
 
-class SearchFacade
+class CongressFacade
 
   def self.members(state)
     # conn = Faraday.new(url: 'https://api.propublica.org') do |faraday|
@@ -355,7 +355,7 @@ class SearchFacade
     #
     # response = conn.get("/congress/v1/members/house/#{state}/current.json")
     # json = JSON.parse(response.body, symbolize_names: true)
-    json = PropublicaService.members_of_house(state)
+    json = CongressService.members_of_house(state)
 
     @members = json[:results].map do |member_data|
       Member.new(member_data)
@@ -365,16 +365,16 @@ class SearchFacade
 end
 ```
 
-We're declaring that we have a `PropublicaService` object that has a class method we can call that will give us all the data we need to create our `Member` objects. (Again, we don't have to "new" up an object of our service). That `PropublicaService` method will handle all the details of how to interact with the Propublica API, abstracting away those details. It is convention to call these types of objects "Services".
+We're declaring that we have a `CongressService` object that has a class method we can call that will give us all the data we need to create our `Member` objects. (Again, we don't have to "new" up an object of our service). That `CongressService` method will handle all the details of how to interact with the Propublica API, abstracting away those details. It is convention to call these types of objects "Services".
 
-**Note: It's also good practice to abstract the NAME of the API from which we're gathering data so anything outside of this class doesn't even get a hint of how/where we're getting this data. For example, calling this `GovernmentDataService` might be better, because maybe Propublica goes offline, or gets bought by a giant company and shut down, and now we have a ton of refactoring to do to change the name of our service class.**
+**Note: It's also good practice to abstract the NAME of the API from which we're gathering data so anything outside of this class doesn't even get a hint of how/where we're getting this data. So, calling this `CongressService` is better that PropublicaService, because maybe Propublica goes offline, or gets bought by a giant company and shut down, and now we have a ton of refactoring to do to change the name of our service class.**
 
-When we run the tests, it doesn't know what `PropublicaService` is, so let's go make it. First, we will make a new folder `app/services`:
+When we run the tests, it doesn't know what `CongressService` is, so let's go make it. First, we will make a new folder `app/services`:
 
 ```ruby
-# app/services/propublica_service.rb
+# app/services/congress_service.rb
 
-class PropublicaService
+class CongressService
 
 end
 ```
@@ -382,9 +382,9 @@ end
 Next, we need a `members_of_house` method, which we'll make as a class method:
 
 ```ruby
-# app/services/propublica_service.rb
+# app/services/congress_service.rb
 
-class PropublicaService
+class CongressService
   def self.members_of_house(state)
 
   end
@@ -394,9 +394,9 @@ end
 And finally, we need the code to actually hit the api, which is the code we commented out before:
 
 ```ruby
-# app/services/propublica_service.rb
+# app/services/congress_service.rb
 
-class PropublicaService
+class CongressService
   def self.members_of_house(state)
     conn = Faraday.new(url: 'https://api.propublica.org') do |faraday|
       faraday.headers['X-API-Key'] = ENV["PROPUBLICA_API_KEY"]
@@ -416,9 +416,9 @@ You'll notice that we didn't move over the instantiating of the `Member` objects
 Let's make one more refactor in our service. If we ever need to hit a different Propublica endpoint, for instance, to get members of the Senate, it would be nice if we could reuse that Faraday connection object. This object sets up the base url for the api and the api key, both things that will be consistent across API calls to Propublica, which makes it the perfect candidate to increase reusability. Since our members_of_house method is a class method, our "conn" method will also need to be a class method.
 
 ```ruby
-# app/services/propublica_service.rb
+# app/services/congress_service.rb
 
-class PropublicaService
+class CongressService
   def self.members_of_house(state)
     response = conn.get("/congress/v1/members/house/#{state}/current.json")
     json = JSON.parse(response.body, symbolize_names: true)
@@ -437,15 +437,15 @@ It's also a good idea to unit test the service:
 
 
 ```ruby
-# /spec/services/propublica_service_spec.rb
+# /spec/services/congress_service_spec.rb
 
 require 'rails_helper'
 
-describe PropublicaService do
-  context "instance methods" do
+describe CongressService do
+  context "class methods" do
     context "#members_by_state" do
       it "returns member data" do
-        search = PropublicaService.members_of_house("CO")
+        search = CongressService.members_of_house("CO")
         expect(search).to be_a Hash
         expect(search[:results]).to be_an Array
         member_data = search[:results].first
@@ -467,13 +467,13 @@ describe PropublicaService do
 end
 ```
 
-Notice how we aren't expecting specific data from the API such as the names of the representatives. We don't want our test to be too dependent on an external API where we don't have full control over what data we'll get back. But we SHOULD test that the fields of that data match a data type that we expect, such as strings, integers, arrays, etc.
+Notice how we aren't expecting specific data from the API such as the names of the representatives. We don't want our test to be too dependent on an external API where we don't have full control over what data we'll get back. But we NEED to test that the fields of that data match a data type that we expect, such as strings, integers, arrays, etc.
 
 ### Checks for Understanding
 
 * What is declarative Programming?
 * What is Red, Green, Refactor?
-* For each file we've touched (Controller, SearchFacade, Member, PropublicaService):
+* For each file we've touched (Controller, CongressFacade, Member, CongressService):
     * Is it Single Responsibility? How would you describe its responsibility?
     * Does it achieve Abstraction?
     * Does it achieve Encapsulation?
