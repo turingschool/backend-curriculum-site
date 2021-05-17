@@ -367,7 +367,7 @@ end
 
 We're declaring that we have a `CongressService` object that has a class method we can call that will give us all the data we need to create our `Member` objects. (Again, we don't have to "new" up an object of our service). That `CongressService` method will handle all the details of how to interact with the Propublica API, abstracting away those details. It is convention to call these types of objects "Services".
 
-**Note: It's also good practice to abstract the NAME of the API from which we're gathering data so anything outside of this class doesn't even get a hint of how/where we're getting this data. So, calling this `CongressService` is better that PropublicaService, because maybe Propublica goes offline, or gets bought by a giant company and shut down, and now we have a ton of refactoring to do to change the name of our service class.**
+**Note: It's also good practice to abstract the NAME of the API from which we're gathering data so anything outside of this class doesn't even get a hint of how/where we're getting this data. So, calling this `CongressService` is better than `PropublicaService`, because maybe Propublica goes offline, or gets bought by a giant company and shut down, and now we have a ton of refactoring to do to change the name of our service class.**
 
 When we run the tests, it doesn't know what `CongressService` is, so let's go make it. First, we will make a new folder `app/services`:
 
