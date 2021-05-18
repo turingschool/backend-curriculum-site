@@ -32,7 +32,7 @@ tags: ruby, git, workflow
 * git commit -m "Add message"
 
 **Create and switch to new branch**
-* git checkout -b branch_name
+* git checkout -b branch_name  
 OR
 * git branch branch_name
 * git checkout branch_name
@@ -89,7 +89,10 @@ In order to fix it, you need to change the text of the file to include only the 
 * Make a file
   (`touch filename.rb`)
 * Add some code to the file
-* Commit and push
+* Commit 
+* IF your initial branch is not named 'main', rename it now
+  (`git branch -m main`)
+* and push
   - `git status`
   - `git add filename.rb`
   - `git status`
