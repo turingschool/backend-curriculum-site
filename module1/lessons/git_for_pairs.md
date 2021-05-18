@@ -57,14 +57,14 @@ Sometimes, you want to work on a code base that you do not own or don't have per
 
 ## Merge Conflicts
 
-When you submit a Pull Request, git merges code from one branch into another. Usually, git is merging a feature branch into the master branch. Git has rules that it uses to determine what the code should look like after the merge. However, there are some instances where git can't automatically figure this out using its rules, so it needs you to manually tell it what the code should look like after the merge. This is called a **Merge Conflict**. The easiest way to resolve one is using Github's Merge Conflict Tool. Git represents a merge conflict by inserting some text into the file where the conflict happened. It will look something like this:
+When you submit a Pull Request, git merges code from one branch into another. Usually, git is merging a feature branch into the main branch. Git has rules that it uses to determine what the code should look like after the merge. However, there are some instances where git can't automatically figure this out using its rules, so it needs you to manually tell it what the code should look like after the merge. This is called a **Merge Conflict**. The easiest way to resolve one is using Github's Merge Conflict Tool. Git represents a merge conflict by inserting some text into the file where the conflict happened. It will look something like this:
 
 ```
 <<<<<<<< branch_name
  # Code from the branch_name Branch
 ========
-# Code from the master Branch
->>>>>>>> master
+# Code from the main Branch
+>>>>>>>> main
 ```
 
 In order to fix it, you need to change the text of the file to include only the desired code.
@@ -94,7 +94,7 @@ In order to fix it, you need to change the text of the file to include only the 
   - `git add filename.rb`
   - `git status`
   - `git commit -m "initial commit"`
-  - `git push origin master`
+  - `git push origin main`
 * Add collaborator on github
 
 * Checks out new branch (`git checkout -b new_feature`)
@@ -124,11 +124,11 @@ In order to fix it, you need to change the text of the file to include only the 
 * Review and comment on Person B's Pull Request
 * Merge Person B's Pull Request
 
-Remote master is now updated
+Remote main is now updated
 
 From `new_feature` branch (should already be on this): 
-* pulls origin master into `new_feature`
-  - `git pull origin master`
+* pulls origin main into `new_feature`
+  - `git pull origin main`
 * fixes merge conflict
 * commits and pushes to remote `new_feature`
 * creates pull request on Github
@@ -138,9 +138,9 @@ From `new_feature` branch (should already be on this):
 * Merge Person A's Pull Request
 
 #### Both
-* Checkout local master and pull from master
-  * `git checkout master`
-  * `git pull origin master`
+* Checkout local main and pull from main
+  * `git checkout main`
+  * `git pull origin main`
 
 
 ## Closing
