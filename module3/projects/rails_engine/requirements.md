@@ -40,11 +40,11 @@ etc
 5. Run `rake db:{drop,create,migrate,seed}` and you may see lots of output including some warnings/errors from `pg_restore` that you can ignore. If you're unsure about the errors you're seeing, ask an instructor.
 
 6. Use a tool like Postico to examine the 6 tables that were created, and build migration files for those tables. Pay careful attention to the data types of each field:
-  * items
   * merchants
-  * orders
-  * order_items
+  * items
+  * customers
   * invoices
+  * invoice_items
   * transactions
 
 **NOTE** We updated this process to avoid confusion and taking a significant amount of time; the main learning goals of the project are the Rails API endpoints and business intelligence endpoints in ActiveRecord, not the process of importing CSV data. Avoid starting out with a Rake task to do the import and follow these instructions instead. If in doubt, ask your instructors first.
@@ -350,9 +350,9 @@ These endpoints should show related records for a given resource. The relationsh
 
 In addition to the standard RESTful endpoints described above, you will build the following endpoints which will NOT follow RESTful convention:
 
-* `GET /api/vi/items/find_one`, find a single item which matches a search term
+* `GET /api/vi/items/find`, find a single item which matches a search term
 * `GET /api/vi/items/find_all`, find all items which match a search term
-* `GET /api/vi/merchants/find_one`, find a single merchant which matches a search term
+* `GET /api/vi/merchants/find`, find a single merchant which matches a search term
 * `GET /api/vi/merchants/find_all`, find all merchants which match a search term
 
 These endpoints will make use of query parameters as described below:
@@ -378,22 +378,22 @@ These endpoints should:
   * users should get an error if `name` and either/both of the `price` parameters are sent
 
 Valid examples:
-* `GET /api/v1/merchants/find_one?name=Mart`
-* `GET /api/v1/items/find_one?name=ring`
-* `GET /api/v1/items/find_one?min_price=50`
-* `GET /api/v1/items/find_one?max_price=150`
-* `GET /api/v1/items/find_one?max_price=150&min_price=50`
+* `GET /api/v1/merchants/find?name=Mart`
+* `GET /api/v1/items/find?name=ring`
+* `GET /api/v1/items/find?min_price=50`
+* `GET /api/v1/items/find?max_price=150`
+* `GET /api/v1/items/find?max_price=150&min_price=50`
 
 Invalid examples:
-* `GET /api/v1/<resource>/find_one`
+* `GET /api/v1/<resource>/find`
   * parameter cannot be missing
-* `GET /api/v1/<resource>/find_one?name=`
+* `GET /api/v1/<resource>/find?name=`
   * parameter cannot be empty
-* `GET /api/v1/items/find_one?name=ring&min_price=50`
+* `GET /api/v1/items/find?name=ring&min_price=50`
   * cannot send both `name` and `min_price`
-* `GET /api/v1/items/find_one?name=ring&max_price=50`
+* `GET /api/v1/items/find?name=ring&max_price=50`
   * cannot send both `name` and `max_price`
-* `GET /api/v1/items/find_one?name=ring&min_price=50&max_price=250`
+* `GET /api/v1/items/find?name=ring&min_price=50&max_price=250`
   * cannot send both `name` and `min_price` and `max_price`
 
 Example JSON response for `GET /api/v1/merchants/find?name=ring`
@@ -412,7 +412,7 @@ Example JSON response for `GET /api/v1/merchants/find?name=ring`
 
 #### "Find All" endpoints
 
-These endpoints will follow the same rules as the "find_one" endpoints.
+These endpoints will follow the same rules as the "find" endpoints.
 
 The JSON response will always be an array of objects, even if zero matches or only one match is found.
 
