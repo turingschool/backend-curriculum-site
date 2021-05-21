@@ -39,7 +39,15 @@ etc
 
 5. Run `rake db:{drop,create,migrate,seed}` and you may see lots of output including some warnings/errors from `pg_restore` that you can ignore. If you're unsure about the errors you're seeing, ask an instructor.
 
-6. Use a tool like Postico to examine the 6 tables that were created, and build migration files for those tables. Pay careful attention to the data types of each field:
+6. Run `rails db:schema:dump` - Check to see that your `schema.rb` exists and has the proper tables/attributes that match the data in Postico. You can do the following to check to see if you have set up rails to effectively communicate with the database.
+  * Add a `customer.rb` file to your models directory
+  * Create a `Customer` class that inherits from `ApplicationRecord`
+  * run `rails c` to jump into your rails console.
+  * run `Customer.first` to see the object: `#<Customer id: 1, first_name: "Joey", last_name: "Ondricka", created_at: "2012-03-27 14:54:09", updated_at: "2012-03-27 14:54:09">`
+  * run `Customer.last` to see the object: `#<Customer id: 1000, first_name: "Shawn", last_name: "Langworth", created_at: "2012-03-27 14:58:15", updated_at: "2012-03-27 14:58:15">`
+  * If this all checks out you should be good to go.
+
+7. Use a tool like Postico to examine the 6 tables that were created. Pay careful attention to the data types of each field:
   * merchants
   * items
   * customers
