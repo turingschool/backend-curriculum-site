@@ -435,7 +435,7 @@ class CongressService
 end
 ```
 
-It's also a good idea to unit test the service:
+It's also a necessary to unit test the service:
 
 
 ```ruby
