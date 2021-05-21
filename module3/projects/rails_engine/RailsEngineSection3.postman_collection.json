@@ -782,7 +782,7 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"happy path, fetch top 5 items by revenue\", function () {",
+									"pm.test(\"happy path, fetch top 10 items by revenue\", function () {",
 									"    pm.response.to.not.be.error;",
 									"    pm.response.to.have.status(200);",
 									"",
@@ -855,7 +855,7 @@
 									"    if (error) {",
 									"        console.log(error);",
 									"    }",
-									"    pm.test('happy path, top one merchant by revenue', () => {",
+									"    pm.test('happy path, top one item by revenue', () => {",
 									"        pm.expect(error).to.equal(null);",
 									"        pm.response.to.have.status(200);",
 									"        var payload = response.json();",
@@ -880,7 +880,7 @@
 									"    if (error) {",
 									"        console.log(error);",
 									"    }",
-									"    pm.test('happy path, all items if quantity is too big', () => {",
+									"    pm.test('happy path, return all items if quantity is too big', () => {",
 									"        pm.expect(error).to.equal(null);",
 									"        pm.response.to.have.status(200);",
 									"        var payload = response.json();",
