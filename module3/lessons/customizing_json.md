@@ -39,14 +39,14 @@ Let's use the [json:api](https://jsonapi.org/) specification for our JSON respon
 ## Exercise - Congress Tracker
 [Congress Tracker Repo](https://github.com/turingschool-examples/congress-tracker-2011)
 
-Starting on the `refactor` branch
+Starting on the `refactoring_lesson_complete` branch
 
-Add the following to the `search` action in your `PropublicaController` in order to allow us to render our `Member` PORO with its attributes
+Add the following to the `search` action in your `CongressController` in order to allow us to render our `Member` PORO with its attributes
 
 ```ruby
 def search
-  # validations on params
-  @member = GovtFacade.search(params[:search])
+  # Where should we perform validations/sanitization on params[:search]?
+  @member = CongressFacade.member_by_last_name(params[:search])
   render json: @member
 end
 ```
@@ -68,36 +68,36 @@ And then `bundle install`
 
 We can now use the built in generator in order to make ourselves a serializer.
 
-```rails g serializer Member id title first_name last_name```
+```rails g serializer SenateMember id first_name last_name twitter_account```
 
-This will add the appropriate attributes from the Member Poro.  And give us only the attributes we decide to showing.
+This will add the appropriate attributes from the SenateMember Poro.  And give us only the attributes we decide to show.
 
 Let’s check out what is in the Serializer.
 
 ```ruby
-class MemberSerializer
+class SenateMemberSerializer
   include FastJsonapi::ObjectSerializer
-  attributes :id, :title, :first_name, :last_name
+  attributes :id, :first_name, :last_name, :twitter_account
 end
 ```
 
-So now that we have this serializer, we need to call it within our controller and pass it our object.
+Now that we have this serializer, we need to call it within our controller and pass it our object.
 
 **Note: You can pass a serializer a single object or a collection of objects**
 
 ```ruby
-class PropublicaController < ApplicationController
+class CongressController < ApplicationController
   def search
     # validations on params
-    @member = GovtFacade.search(params[:search])
-    render json: MemberSerializer.new(@member)
+    @member = CongressFacade.search(params[:search])
+    render json: SenateMemberSerializer.new(@member)
   end
 end
 ```
 
 Search for a new senator and inspect the response.
 
-So what we are doing is instead of rendering the Poro in json, we are sending it to our custom serializer, where the data gets serialized, and then that data gets rendered as json.
+What we are doing is instead of rendering the Poro in json, we are sending it to our custom serializer, where the data gets serialized, and then that data gets rendered as json.
 
 It looks like `id` is showing up twice. Lets ensure it only shows up at the top level. We do this by removing it from the attributes line.
 
@@ -106,11 +106,11 @@ Now our response should be formatted as follows:
 {
 "data": {
   "id": "S000033",
-  "type": "member",
+  "type": "senatemember",
   "attributes": {
-    "title": "Senator, 1st Class",
     "first_name": "Bernard",
-    "last_name": "Sanders"
+    "last_name": "Sanders",
+    "twitter_account": "@SenSanders"
     }
   }
 }
@@ -145,10 +145,10 @@ end
 - Ensure your serializer formats your JSON according to [json:api](https://jsonapi.org/)
 - Add a custom attribute that counts all your users in your serializer
 - Add a relationship to your users model (many to many, one to many, etc)
-- expose the data in this relationship within your UserSerializer
+- expose the data of this relationship within your UserSerializer
 
 
-## Exercise 2 - Stand Alone Repo
+## Exercise 2 - Stand Alone Repo - Extra Practice Outside of Class Time
 
 ### Building APIs Repo
 
