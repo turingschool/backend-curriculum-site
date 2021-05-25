@@ -27,7 +27,7 @@ title: Mocks and Stubs
 ### Setup
 
 1. Clone the [Bob Ross repo](https://github.com/turingschool/bob_ross_rspec) onto your local computer.
-2. cd bob_ross
+2. cd bob_ross_rspec
 
 
 ### Mocks
