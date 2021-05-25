@@ -34,6 +34,7 @@ title: Mocks and Stubs
 
 In the test below, we are testing `Bob`'s `paints` method to see that it returns a collection of `Paint` instances.
 
+inside `spec/bob_spec.rb`:
 ```ruby
 it 'can add paint' do
   bob = Bob.new
@@ -53,7 +54,7 @@ Run the test - why is it so slow?
 
 In this particular example, we are relying on creating an object that takes a loooong time to create.  In this example, we have forced the issue by putting a `sleep` in the Paint class; but in the real world, this kind of slow down could be caused by a lengthy API call, or perhaps another team is working on the Paint class, and we don't have the class yet (and it is not our task to create the class).  In order to focus our test more distinctly on the Bob class, we can use a Mock.
 
-**Mocks are objects that stand in for other objects.** The other object might be one that's not implemented yet, doesn't yet have the functionality we need, or maybe we just want to work with a simpler situation. You can think of a mock as fake or a dummy object.
+**Mocks are objects that stand in for other objects.** The other object might be one that's not implemented yet, doesn't yet have the functionality we need, or maybe we just want to work with a simpler situation. You can think of a mock as fake or a dummy object. Since some programming languages call these "doubles", I like to think of Mocks as "stunt doubles" -- they look the same as the original, but act a little different.
 
 In the test above, we are going to use the rspec method `double` to create a mock object to stand in for a Paint object.
 
@@ -61,9 +62,12 @@ In the test above, we are going to use the rspec method `double` to create a moc
 paint_1 = double("paint")
 ```
 
-Remember, a mock is a simple object that stands in for another object. At the base level, a mock is just a "thing" -- a blank canvas that we can use for just about anything.
+The string provided is just a placeholder, it's not actually used, but it can be helpful to differentiate these objects later if you need to.
 
-Let's update this test so that it uses mocks instead of full Paint objects.
+Remember, a mock is a simple object that stands in for another object. At the base level, a mock is just a "thing" -- a blank canvas that we can use for just about anything. (no pun intended to Bob Ross and the painting theme!)
+
+Let's update this test so that it uses mock objects instead of full Paint objects.
+
 
 ### Stubs
 
@@ -72,55 +76,38 @@ In our next test, we are testing that we can get an array of the paint colors (n
 ```ruby
 def test_it_can_return_colors
   bob = Bob.new
-  paint_1 = double("paint")
-  paint_2 = double("paint")
+  paint_1 = double("my first paint")
+  paint_2 = double("my second paint")
   bob.add_paint(paint_1)
   bob.add_paint(paint_2)
 
-  assert_equal ["Alizarin Crimson", "Van Dyke Brown"], bob.paint_colors
+  expect(bob.paint_colors).to eq(["Alizarin Crimson", "Van Dyke Brown"])
 end
 ```
 
-**A stub is a fake method.** It can be added to an object that doesn't have that method, or it can override an existing method. We can add a stub to a mock so our fake object will now have a fake method:
+**A stub is a fake method.** It can be added to an object that doesn't have that method yet, or it can override an existing method on an existing object. We can add a stub to a mock so our fake object will now have a fake method:
 
 ```ruby
 paint_1 = double("paint")
 allow(paint_1).to receive(:color).and_return('Van Dyke Brown')
 ```
-
 Now, whenever we call `paint_1.color` it will return `"Van Dyke Brown"`.
-
 
 Let's update this test so that it stubs out the color method for the Mock objects.
 
-### Mock Expectations
 
-Replace your existing `paint_colors` method with the following:
+> **It's important to note:**
+> You don't HAVE to have a mock object to use stubs. You can stub a method response on a real object too:
+> 
+> ```ruby
+> paint_1 = Paint.new('bad color name')
+> allow(paint_1).to receive(:color).and_return('a better color name!')
+> ```
 
-```ruby
-def paint_colors
-  ["Alizarin Crimson", "Van Dyke Brown"]
-end
-```
 
-Run your test. The tests still pass, but the method is not really doing what we want it to do.
+### **Pair Work:**
 
-So, sometimes we need a stub to do more than just exist - sometimes we need it to **verify that a method has been called**
-
-Update your test with:
-
-```ruby
-paint_1 = double('paint')
-expect(paint_1).to receive(:color).and_return('Alizarin Crimson')
-```
-
-Run your tests and you will notice they now fail. Read the failure carefully.
-
-Change your `paint_colors` method to pass the test.
-
-**Pair Work:**
-
-With that last test, update it to use mocks and stubs so that you can make it pass without invoking the Paint class. (Your tests should run in under 1second)
+With that last test, update it to use mocks and stubs so that you can make it pass without invoking the Paint class. (Your tests should run in under 1 second)
 
 ```ruby
 it 'can calculate total paint amount' do
