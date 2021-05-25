@@ -61,7 +61,7 @@ Run your server and navigate to port 3000 to see what we've already got in our r
 ```
 rails s
 ```  
-⭐ Register as a new user
+⭐ Register as a new user\
 ⭐ Click on "Send Advice" in the nav bar (you should be redirected there upon registration), and inspect(CMD + OPT + i) the Form/Input field, where does this route to?
 
 Make sure the route is in the routes file:
@@ -72,8 +72,8 @@ post '/advice', to: 'advice#create'
 
 Let's follow that route to the Advice Controller's create action. Before updating this action, let's keep familiarizing ourselves with the code. Take a look at what's happening: 
 
-⭐ What is ```ruby @advice = AdviceGenerator.new ```? Explore the AdviceGenerator class. What's going on in there? Take some time to dissect what's happening.
-⭐ Put a `binding.pry` in under ```ruby @advice = AdviceGenerator.new ``` and run your tests. Try some things out-- what methods do you have available to call on ```ruby @advice```? 
+⭐ What is `@advice = AdviceGenerator.new`? Explore the AdviceGenerator class. What's going on in there? Take some time to dissect what's happening.\
+⭐ Put a `binding.pry` in under `@advice = AdviceGenerator.new` and run your tests. Try some things out-- what methods do you have available to call on `@advice`? 
 
 Alright, let's get back to updating the create action to call our mailer! 💌
 
@@ -106,7 +106,7 @@ Run your tests again, and you'll see we now have a different failure. We're drea
 
 ### Exploring the Mailer 
 
-⭐ In your text editor, search the application for files containing the word 'mailer'. (CMD + t in atom, CMD + p in VScode)
+⭐ In your text editor, search the application for files containing the word 'mailer'. (CMD + t in atom, CMD + p in VScode)\
 ⭐ You should see 3 files pop up -- `mailer.html.erb`, `mailer.text.erb`, `application_mailer.rb`. These files come with Rails. Open up the file, and start to speculate what they're used for. Could you see any similarities between these mailer files and other parts of our application?
 
 ### Creating the Mailer
@@ -158,7 +158,7 @@ class FriendNotifierMailer < ApplicationMailer
   end
 end
 ```
-⭐ We have `inform` taking two arguments - `info` and `recipient`. Open your `Advice Controller` to remind yourself what you're passing in.  
+⭐ We have `inform` taking two arguments - `info` and `recipient`. Open your `Advice Controller` to remind yourself what you're passing in.\  
 ⭐ Hmmmm... `mail`? Where did that come from? It came from our `ActionMailer::Base` that `ApplicationMailer` inherits from. Take some time to look at the [ActionMailer::Base#mail](https://apidock.com/rails/ActionMailer/Base/mail) method. Heck, if you have the time, take a look at some other [ActionMailer::Base methods](https://apidock.com/rails/ActionMailer/Base) that ActionMailer provides for our mailers.
 
 Notice that in our call to [ActionMailer::Base#mail](https://apidock.com/rails/ActionMailer/Base/mail) that we're setting a reply-to email address of our user. This allows the recipient to hit 'reply' on an email and their response will go back to our user, not to our "default" email address of "friendly@advice.io"
