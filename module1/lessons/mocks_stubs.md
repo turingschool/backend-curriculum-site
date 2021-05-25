@@ -122,7 +122,19 @@ it 'can calculate total paint amount' do
 end
 ```
 
-### Individiual Practice:
+## Unit Tests and Integration Tests
+
+A "unit" test will test one small "unit" of your code. Most typically, this is a single method, and you test that when you call that method, something happens or something changes or something gets returned. If that method takes parameters, you will usually write a few tests for different kinds of input, and expect different kinds of output.
+
+An "integration" test is usually a bigger test, sometimes called a "feature" test, that checks that multiple "units" are working together as expected. Like unit tests, these can also take various inputs and have much larger impacts of change that we should test for to make sure that all of the pieces we expect to work together are each doing their part to build a successful outcome.
+
+An example in the Bob Ross repo:
+- We have a Paint class with tests. These are unit tests. They take different setups and produce different expectations.
+- We have a Bob class with tests, and some of these are unit tests (can we make a new Bob object, add paints) and some of these are integration tests which rely on the Paint methods working correctly (if we call `bob.paint_colors` we expect that `paint_1.color` works properly.
+
+---
+
+### Individual Practice:
 
 **Setup:**
 
