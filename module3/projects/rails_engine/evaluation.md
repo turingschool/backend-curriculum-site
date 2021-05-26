@@ -8,7 +8,7 @@ type: project
 For the project eval, you should prepare a 10 minute video presentation that clearly demonstrates each category of the below rubric. 
 
 
-The technical presentation portion is outlined below with what points should be covered. If you have questions about the presentation, please let an instructor know before the time you need to submit it.
+The technical presentation portion is outlined below with what points should be covered. If you have questions about the presentation, please let an instructor know before the time it's due.
 
 You should review each section of the rubric and strive to have a 3 in each section before attempting any 4s.
 
@@ -37,7 +37,7 @@ You should review each section of the rubric and strive to have a 3 in each sect
 
 
 
-
+## Rubric
 
 ### Technical Presentation
 
