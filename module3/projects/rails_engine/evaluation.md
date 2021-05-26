@@ -5,11 +5,35 @@ length: 1 week
 type: project
 ---
 
-For the project eval, you should come prepared for a 10 minute presentation of your code to an evaluator.
+For the project eval, you should prepare a 10 minute video presentation that clearly demonstrates each category of the below rubric. 
+
 
 The technical presentation portion is outlined below with what points should be covered. **You should be able to present on all points even if you did not implement in code.**  If you have questions about the presentation, please let an instructor know before the evaluation day.
 
 You should review each section of the rubric and strive to have a 3 in each section before attempting any 4s.
+
+
+
+Presentation points:
+
+[ ] Demonstration of functional completeness 
+ * Run postman suite
+
+[ ] Technical quality and organization of the code
+ * Talk through one endpoint from section 1 and one endpoint from section 2 (routing, controllers, serializers, error handeling, etc.)
+ * Is there a design decision that you made that you're particularly proud of? 
+
+[ ] Identifying code that should be refactored and how it would be refactored
+ * Identify a piece of code that you'd like to refactor. How would you update that code?
+ * Are there any parts of your code that you're unsure/hesitant about? Why?
+
+[ ] Discussion of test coverage 
+ * Show examples of happy and sad path and edge cases
+ * Run your test suite and open coverage report 
+
+[ ] Approach to their ActiveRecord queries
+ * Talk through 1-2 queries from section 3. 
+ * Did you create any queries that used ruby, when they could have used ActiveRecord?
 
 
 ### Technical Presentation
@@ -18,18 +42,6 @@ You should review each section of the rubric and strive to have a 3 in each sect
 * 3: Student presents their code and is able to talk about all the presentation points.
 * 2: Student presents their code and is able to talk about 3-4 of the presentation points.
 * 1: Student is unprepared for the presentation and requires prompts from the instructor to talk about the code.
-
-Presentation points:
-
-[ ] Demonstration of functional completeness (Running the spec harness & Rails Driver)
-
-[ ] Technical quality and organization of the code
-
-[ ] Identifying code that should be refactored and how it would be refactored
-
-[ ] Discussion of test coverage (happy and sad path and edge cases)
-
-[ ] Approach to their ActiveRecord queries
 
 ### Feature Delivery
 
