@@ -70,7 +70,7 @@ Almost never. "After" callbacks can get messy. A PORO is a better option, most o
 
 ### Callbacks Are Often Code Smells
 
-What do we mean by Code Smell? 
+What do we mean by Code Smell?
 Typically this means the code is a symptom that is pointing to a deeper issue.
 Thinking of this metophorically, if we have a leak in our roof and simply use a bucket to catch the water rather than repairing the roof.
 Our bucket solution would be the 'code smell' that is pointing to the deeper issue of a leak in the roof.
@@ -141,7 +141,7 @@ Check our migration and `rails db:migrate`
 
 - How do we create a hyphenated title. Research for a few minutes. Any suggestions? `parameterize`
 
-Running our test we should get an error: 
+Running our test we should get an error:
 
 ![Unmatched Constraints](../misc/images/unmatched_constraints.png)
 
@@ -161,7 +161,7 @@ Step 2: In Our Model
 # app/models/song.rb
 before_save :generate_slug
 
-private 
+private
  def generate_slug
    self.slug = title.parameterize
  end
@@ -192,7 +192,7 @@ end
 
 ### Adding our Show View
 
-Run our test we see this error: 
+Run our test we see this error:
 
 ![Missing Show Template](../misc/images/missing_show_view.png)
 
@@ -245,14 +245,14 @@ def to_param
  slug
 end
 
-private 
+private
  def generate_slug
    self.slug = title.parameterize
  end
 ```
 
 The `to_param` method is allowing us to overwrite the default return value of id to now be slug.
-This allows us to pass just the song object to our path helper instead of `song_path(song_1.slug`.
+This allows us to pass just the song object to our path helper instead of `song_path(song_1.slug)`.
 To read more about `to_param` go [here](https://guides.rubyonrails.org/active_support_core_extensions.html#to-param)
 
 ## WrapUp
