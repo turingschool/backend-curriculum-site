@@ -8,13 +8,13 @@ type: project
 For the project eval, you should prepare a 10 minute video presentation that clearly demonstrates each category of the below rubric. 
 
 
-The technical presentation portion is outlined below with what points should be covered. **You should be able to present on all points even if you did not implement in code.**  If you have questions about the presentation, please let an instructor know before the evaluation day.
+The technical presentation portion is outlined below with what points should be covered. If you have questions about the presentation, please let an instructor know before the time you need to submit it.
 
 You should review each section of the rubric and strive to have a 3 in each section before attempting any 4s.
 
 
 
-Presentation points:
+## Presentation points:
 
 [ ] Demonstration of functional completeness 
  * Run postman suite
@@ -34,6 +34,9 @@ Presentation points:
 [ ] Approach to their ActiveRecord queries
  * Talk through 1-2 queries from section 3. 
  * Did you create any queries that used ruby, when they could have used ActiveRecord?
+
+
+
 
 
 ### Technical Presentation
