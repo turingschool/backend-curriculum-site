@@ -37,7 +37,7 @@ Let's use the [json:api](https://jsonapi.org/) specification for our JSON respon
 - How are a resource's relationships formatted?
 
 ## Exercise - Congress Tracker
-[Congress Tracker Repo](https://github.com/turingschool-examples/congress-tracker-2011)
+[Congress Tracker Repo](https://github.com/turingschool-examples/congress-tracker-2102)
 
 Starting on the `refactoring_lesson_complete` branch
 
