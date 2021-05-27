@@ -33,18 +33,6 @@ From [Sandi Metz's Practical Object Oriented Programming in Ruby](https://www.po
 
 > Inheritance is, at its core, a mechanism for automatic message delegation. It defines a forwarding path for not-understood messages.
 
-You've already seen inheritance in your testing suite:
-
-```ruby
-require 'minitest'
-
-class NodeTest < Minitest::Test
-
-end
-```
-
-In the snippet above, `< Minitest::Test` means `inherit characteristics and behavior from the Test class of the Minitest module`. (Sidenote: It is important to note that this is not the same as mixing in a Module. This is a completely different use of Modules called **namespacing**.)
-
 A couple rules of inheritance in Ruby:
 
 * The objects modeled using inheritance must demonstrate a "generalization–specialization" relationship
