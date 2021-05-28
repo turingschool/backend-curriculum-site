@@ -22,7 +22,7 @@ _Note: See [Learning Goals](../../misc/learning_goals) to see at what level thes
 * Build APIs that return JSON responses ⭐ ⭐ ⭐
 * Use an external OAuth provider to authenticate users ⭐ ⭐
 * Refactor code for better code organization/readability ⭐ ⭐
-* Utilize a Service-Oriented Architecture with a front-end, a back-end, and at least one micro-service ⭐ ⭐
+* Create a project with a separate frontend and backend ⭐ ⭐
 * Implement a production-quality user interface using Bootstrap or other common CSS styling framework ⭐ ⭐
 * Optimize your application using at least one of the following ⭐
   - database indexing
@@ -30,6 +30,7 @@ _Note: See [Learning Goals](../../misc/learning_goals) to see at what level thes
   - caching
   - background workers
   - AJAX requests
+  - memoization
 
 ### Explicit Professional Expectations
 

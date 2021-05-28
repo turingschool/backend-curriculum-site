@@ -26,7 +26,7 @@ In Agile processes, a sprint is a single cycle of development. The most common l
 Your PM will present a pairing schedule every other day, and rotate you to different areas of the project. If you are mid-way through a story, you must figure out how to hand off that work to another pair.
 
 
-#### Sprint 1: User Interface and Microservice Spike
+#### Sprint 1: User Interface and Database Planning Spike
 
 - Begin: Monday of Week 4
 - End: Thursday morning of Week 4
@@ -35,17 +35,15 @@ Day 1:
 - Your PM will split your team up to focus on each area of the project.
   - Front-end team
   - Back-end team
-  - Microservice(s)
-  
+
 - Each team will use a Miro board to brainstorm ideas
-- Each team member will set up [GitHub co-author commits]() for each member on the team (minus their project manager)
-- Your PM may delegate people to set up a GitHub organization, add other members, and set up the initial repos in a way that each team member gets co-author contribution on all repo setups
+- Delegate people to set up a GitHub organization, add other members, and set up the initial repos
 
 - Deliverables:
   - Wireframes of the User Interface
   - Rough implementation and testing of the front-end, mocking out responses from back-end; no authentication expected yet
   - Rough implementation and testing of back-end API, mocking requests from front-end
-  - Initial structure of each microservice in Sinatra (not necessarily working API calls)
+  - Initial structure of each Service (not necessarily working API calls)
   - Travis-CI and Deployment to Heroku for both Rails repositories
 
 #### Sprint 2: Primary Development
@@ -54,9 +52,9 @@ Day 1:
 - End: Monday morning of Week 5
 
 - Deliverables:
-  - Rails front-end has Bootstrap in place, each wireframe is implemented in some amount, implements OAuth, can CRUD data with back-end
+  - Frontend has Bootstrap in place, each wireframe is implemented in some amount, implements OAuth, can CRUD data with back-end
   - Rails back-end can CRUD resources based on front-end requests
-  - Microservices successfully implement their respective API calls
+  - Services successfully implement their respective API calls
 
 #### Sprint 3: Final Product
 
@@ -84,7 +82,7 @@ In addition to the End of Sprint Demos, you will also have some project check in
 * Check In 3
     * Review of near-final work, check for MVP
     * Discuss presentation details
-    
+
 ## GitHub
 
 * Commit Frequently
@@ -94,12 +92,6 @@ In addition to the End of Sprint Demos, you will also have some project check in
     * Your PR should be reviewed by at least one team member before it is merged.
     * Tag your Project Manager if you have questions. DM your Project Manager letting them know you have tagged them.
 
-#### Co-Author Commits
-
-Teams are expected to utilize [co-authored commits](https://gist.github.com/iandouglas/6ff9428ca9e349118095ce7ed4a655bf) to give each other contribution for driver/navigator work.
-
-Your instructors will provide a full co-author commit message to each team. When you implement it, be sure to remove your own name from the list (your commit message should not include yourself).
-
 
 ## Continuous Integration
 
@@ -107,8 +99,7 @@ Your instructors will provide a full co-author commit message to each team. When
 
 ## Continuous Deployment
 
-* Set up Travis-CI in such a way that it automatically deploys its code to Heroku when 'main' branch code is passing
-* Recommend setting up ENV variables for all service-layer hostnames to allow faster/easier deployment of services
+* Set up Travis-CI/Circle-CI in such a way that it automatically deploys its code to Heroku when 'main' branch code is passing
 
 ## Story Grooming
 

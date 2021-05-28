@@ -26,8 +26,6 @@ Conflict and tension tends to arise in groups when there are differing expectati
 
 ## Problem Definition and Idea Sharing (Brainstorm)
 
-* **Time Limit:**
-    * 20 minutes (More ideas will come up throughout the project and that's OK.)
 * **Objectives:**
     * Define the problem you are solving in 2-3 sentences. The solution you come up with later should solve the problem directly.
     * Discuss and debate the technical solution to the problem, thinking through the most important features this application would need in order to solve the problem.
@@ -48,8 +46,6 @@ Conflict and tension tends to arise in groups when there are differing expectati
 
 ## Feature Dump (Brainstorm)
 
-* **Time Limit**
-    * 15 minutes
 * **Objectives**
     * Write out as many potential features as possible
 * **Instructions**
@@ -67,8 +63,6 @@ Conflict and tension tends to arise in groups when there are differing expectati
 
 ## Feature Sharing/Elimination of Duplicates (Decide)
 
-* **Time Limit**
-    * 20 minutes
 * **Objectives**
     * Share what came out of the feature dump
     * Group related ideas into broad categories (EPICs)
@@ -79,39 +73,23 @@ Conflict and tension tends to arise in groups when there are differing expectati
   * After you have described the feature move the sticky note into a category. If it doesn't fit in an existing category, make one.
   * As each person takes a turn you will notice that some of the features will be duplicates of previously shared features. If this is the case, simple delete that sticky note. _Don't spend time describing a feature if it is a duplicate._
   * Come up with a name for each of the categories. These will be referred to as [EPICs](https://www.yodiz.com/blog/what-is-epic-in-agile-methodology-definition-and-template-of-epic/) and will be a way to organize your features in your project management tool.
-* **In-Person Instructions**
-    * Utilize a large blank wall or sheet of chart paper
-    * Each person should present their features one at a time, giving a *brief* description of what that feature is, so it is clear for the whole group.
-    * After you have described the feature stick it on the wall or chart paper.
-    * As each person takes a turn you will notice that some of the features will be duplicates of previously shared features. If this is the case, simple crush the sticky note and throw it on the ground. Don't spend time describing a feature if it is a duplicate.
-    * Once all the features have been shared, group like features into categories. For example the following user stories may be grouped with each other because they both pertain to user authentication.
-        * User can log in
-        * User can log out
-    * Come up with a name for each of the categories. These will be referred to as [EPICs](https://www.yodiz.com/blog/what-is-epic-in-agile-methodology-definition-and-template-of-epic/) and will be a way to organize your features in your project management tool.
 
 ## Feature Prioritization and MVP Definition (Decide)
 
-* **Time Limit**
-    * 30 minutes
 * **Objectives**
     * Define the features that will make up your [**Minimum Viable Product**](https://www.agilealliance.org/glossary/mvp/#q=~(infinite~false~filters~(tags~(~'mvp))~searchTerm~'~sort~false~sortDirection~'asc~page~1))
-* **Instructions**
-    * Using masking or painter's tape, place a large line above the sticky notes. The line should start on the far left side and extend across the entire width of sticky notes to the far right side.
-    * All sticky notes start out **below the line**
-    * The instructor will go through each sticky note one at a time and the team will discuss whether or not this feature should be included in the Minimum Viable Product (MVP) or if the feature should be considered for an extension once the base functionality is built.
-    * If the feature should be included in the MVP, move the sticky note above the line. If not, keep the sticky note below the line.
+* **Instructions (recommended)**
+    * Use labels/colors in your miro board to determine MVP/extension/unsure stories.
     * If you are unsure about a feature, table the feature and come back to it at the end.
-    * Repeat this process until you have gone through all of the sticky notes.
+    * Repeat this process until you have gone through all of the stories.
     * Once you are finished, you have your MVP definition.
 
 
 ## Wireframing (Solve)
 
-* **Time Limit**
-    * 1 hour
 * **Objectives**
     * Decide how users will interact with your application
-* **Instructions**
+* **Instructions (required)**
     * Create a high level [user flow diagram](https://bashooka.com/inspiration/33-excellent-user-flow-examples-for-inspiration/) that lists the steps a user will take when interacting with your application.
     * Make a list of all of the pages required for your application along with what features will exist on each page.
     * For each page, create a [wireframe](https://www.usability.gov/how-to-and-tools/methods/wireframing.html) by sketching out what that user will see when they navigate to that page. Include details such as header text, buttons, drop downs, forms with the specific fields, graphs etc.
@@ -119,11 +97,9 @@ Conflict and tension tends to arise in groups when there are differing expectati
 
 ## Story Writing (Solve)
 
-* **Time Limit**
-    * 1 hour
 * **Objectives**
     * Document technical requirements for the development team
-* **Instructions**
+* **Instructions (required)**
     * Create a project board using Github Projects or Trello.
     * Translate each of the features that were written on sticky notes during the feature dump exercise into a [user story](https://www.atlassian.com/agile/project-management/user-stories) in your project management tool.
     * Every user story should be written from the perspective of the end user and should follow this format:  

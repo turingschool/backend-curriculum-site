@@ -37,29 +37,24 @@ Each Repo's README meets the following:
 - [ ] discusses the purpose of its purpose (how it fits into the project SOA)
 - [ ] discusses how to install and test the repo
 
-Rails front-end README:
+Fronten README:
 - [ ] has screenshots
 - [ ] discusses OAuth
 
-Rails back-end README:
+Rails backend README:
 - [ ] includes database schema
 - [ ] each endpoint is documented with example request & response
-
-Microservice READMEs:
-  - [ ] each endpoint exposed to the back-end
-  - [ ] its use of external service API
 
 ---
 
 __When the above criteria is met, here are additional points to achieve a 4__
 
 Demo or Presentation
-- [ ] ENV variables are changed on Heroku to point to invalid backend/services or API keys, or backend services are somehow taken offline; front-end shows a user-friendly error scenario
+- [ ] ENV variables are changed on Heroku to point to invalid backend/services or API keys, or backend services are somehow taken offline; frontend shows a user-friendly error scenario
 
 Documentation
 - A Postman collection JSON file is included in the following repos(except for any portion which needs OAuth)
-    - [ ] Rails Back End
-    - [ ] Microservice 1
+    - [ ] Rails Backend
 
 - Explains user personas and exhibits user empathy
-    - [ ] Rails Front End
+    - [ ] Frontend

@@ -12,40 +12,31 @@ The goal of this project is to create a successful web application from a studen
 
 This project will focus heavily on Service-Oriented Architecture (SOA), and will include the following components and restrictions:
 
-Our "Front End" application will be built in Rails, but could be substituted later for a JavaScript-based application in React, Angular, etc.
-- Rails "front end"
-  - this is a typical "rails new" project
-  - it will have simple testing, and will mostly focus on View templates, HTML and CSS, maybe some JavaScript, highly recommend Bootstrap
-  - this application is responsible for authentication via OAuth
-    - try to find a way to utilize your user's OAuth token within the application in some way
+Our "Front End" application can be built in Rails, but could be substituted later for a JavaScript-based application in React, Angular, etc.
+- Rails (or another framework of your choice) "front end"
+  - If in Rails, this is a typical `rails new` project
+  - It will have simple feature testing, and will mostly focus on View templates, HTML and CSS. We highly recommend Bootstrap
+  - This application is responsible for authentication via OAuth
+    - Try to find a way to utilize your user's OAuth token within the application in some way
       - eg, if you OAuth with Google, what can we use their OAuth token to do on their behalf at Google?
-  - this application is only allowed to store user data in a local database
-    - this app's data will only have a "users" table
-    - all other database storage must go through a "DatabaseService" that you implement to do any CRUD behavior
-      - this will follow the typical Facade and Service design patterns
-      - you will need HEAVY use of webmock to test expected results until the backend endpoints are finished
-      - once the backend endpoints are finished, consider changing to VCR
-  - Requirement: using Rails caching to cache data retrieved from backend
+  - This application is only allowed to store user data in a local database
+    - This app's database will only have a "users" table
+    - All other database storage must go through a "DatabaseService" that you implement to do any CRUD behavior on your Backend
+      - This will follow the typical Facade and Service design patterns
+      - You will need HEAVY use of webmock to test expected results until the backend endpoints are finished. Planning the structure of your JSON ahead of time will go a long way in allowing both applications to proceed in a decoupled manner asynchronously
+      - Once the backend endpoints are finished, consider changing to VCR
+  - Requirement: using caching to cache responses retrieved from the backend application
 
-Our "Back End" application will be an API built in Rails. It will act as the interface layer to our database
-- Rails "back end"
-  - this is a "rails new --api" project
-    - it will have more thorough testing, follow our Facade and Service design patterns, and use Serializers
-    - there is no ERB, HTML or CSS, JavaScript, or assets, anywhere in this project
-  - all input is received as JSON data; it only responds with JSON data
-  - this layer will serve as our database interface for other applications
-    - we recommend eager loading where possible, and use of the "bullet" gem to detect N+1 queries
-  - we recommend considering the use of GraphQL to reduce the amount of RESTful CRUD endpoints you'll need to build
-  - Requirement: using Rails caching to cache data retrieved from microservices
-
-Our project will include at least one "micro-services" - a Service API which abstracts away a single responsibility.
-- Sinatra "microservice"
-  - no HTML, CSS or ERB, JS, assets, etc of any kind
-  - no database storage of any kind
-  - receives JSON requests from the Rails back end only, responds only in JSON
-  - responsible to talk to an external API to fetch data or do something on the user's behalf using their OAuth token
-  - knows nothing about any other component/service in the system
-  - extension: one micro-service is hosted on an alternate service provider (AWS, Digital Ocean, etc)
+Our "Back End" application will be an API built in Rails. It will act as the interface layer to our database, and it will handle our API consumption.
+- Rails Backend
+  - this is a `rails new --api` project
+    - it will have more thorough testing, follow our Facade and Service design patterns, and make use of Serializers
+    - There is no ERB, HTML or CSS, JavaScript, anywhere in this project
+  - All input is received as JSON data; it only responds with JSON data
+    - we recommend **eager loading** where possible, and use of the "bullet" gem to detect N+1 queries
+  - We recommend considering the use of GraphQL to reduce the amount of RESTful CRUD endpoints you'll need to build
+  - Requirement: using Rails caching and/or memoization to cache/memoize data retrieved from external APIs
+  - extension: Hosted on an alternate service provider (AWS, Digital Ocean, etc)
 
 ---
 
@@ -59,9 +50,7 @@ You will be better prepared to hit the ground running in the workplace having wo
   * "Exploring different design patterns was great and being able to speak on different ways to build things PLUS being able to compare was helpful."
   * "Incredibly helpful in interviewing. It was the biggest project on my resume, and was key to my early interviews. It was more important in my interview for my new role than my Mod 4 capstone because of the multi-app architecture. I could speak to decision-making more because I got to work on each piece. My new company said I reset their expectations for what a bootcamp grad could accomplish."
   * "It came up in just about every interview I had."
-  * "They were surprised that we got exposure to SOA and speaking about microservices. It helped to understand and speak to Abstraction and Encapsulation a lot more. Working on a larger team definitely helped me get started at my job which was a way bigger team than the 10-person project."
-  * "People seemed most excited/interested about working on a larger team project (10 people). They asked lots of followup questions about how we handled project management, made decisions, etc. It was really helpful to know how SOA/multi-app systems worked."
-  * "It definitely came up in interviews, especially about microservices, and the tradeoffs versus monolith apps."
+  * "People seemed most excited/interested about working on a larger team project. They asked lots of followup questions about how we handled project management, made decisions, etc. It was really helpful to know how SOA/multi-app systems worked."
 
 #### User Empathy, Personas
 
