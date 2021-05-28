@@ -54,6 +54,15 @@ You will be better prepared to hit the ground running in the workplace having wo
   * "Incredibly helpful in interviewing. It was the biggest project on my resume, and was key to my early interviews. It was more important in my interview for my new role than my Mod 4 capstone because of the multi-app architecture. I could speak to decision-making more because I got to work on each piece. My new company said I reset their expectations for what a bootcamp grad could accomplish."
   * "It came up in just about every interview I had."
   * "People seemed most excited/interested about working on a larger team project. They asked lots of followup questions about how we handled project management, made decisions, etc. It was really helpful to know how SOA/multi-app systems worked."
+  * "They were surprised that we got exposure to SOA and speaking about microservices.
+  It helped to understand and speak to Abstraction and Encapsulation a lot more. Working o
+  n a larger team definitely helped me get started at my job which was a way bigger team t
+  han the 10-person project."
+  * "People seemed most excited/interested about working on a larger team project (10 p
+  eople). They asked lots of followup questions about how we handled project management, m
+  ade decisions, etc. It was really helpful to know how SOA/multi-app systems worked."
+  * "It definitely came up in interviews, especially about microservices, and the trade
+  offs versus monolith apps."
 
 #### User Empathy, Personas
 
