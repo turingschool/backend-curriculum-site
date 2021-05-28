@@ -26,6 +26,7 @@ Our "Front End" application can be built in Rails, but could be substituted late
       - You will need HEAVY use of webmock to test expected results until the backend endpoints are finished. Planning the structure of your JSON ahead of time will go a long way in allowing both applications to proceed in a decoupled manner asynchronously
       - Once the backend endpoints are finished, consider changing to VCR
   - Requirement: using caching to cache responses retrieved from the backend application
+  - Extension: Using a JS FE framework
 
 Our "Back End" application will be an API built in Rails. It will act as the interface layer to our database, and it will handle our API consumption.
 - Rails Backend
@@ -36,7 +37,9 @@ Our "Back End" application will be an API built in Rails. It will act as the int
     - we recommend **eager loading** where possible, and use of the "bullet" gem to detect N+1 queries
   - We recommend considering the use of GraphQL to reduce the amount of RESTful CRUD endpoints you'll need to build
   - Requirement: using Rails caching and/or memoization to cache/memoize data retrieved from external APIs
-  - extension: Hosted on an alternate service provider (AWS, Digital Ocean, etc)
+  - Extension: Hosted on an alternate service provider (AWS, Digital Ocean, etc)
+
+- Extension: Using a microservice built in Sinatra for API consumption
 
 ---
 
