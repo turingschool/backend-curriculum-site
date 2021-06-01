@@ -23,7 +23,7 @@ In Agile processes, a sprint is a single cycle of development. The most common l
 
 ## Pairing Schedules
 
-Your PM will present a pairing schedule every other day, and rotate you to different areas of the project. If you are mid-way through a story, you must figure out how to hand off that work to another pair.
+Your PM will present a pairing team every sprint, and rotate you to different areas of the project. If you are mid-way through a story, you must figure out how to hand off that work to another pair.
 
 
 #### Sprint 1: User Interface and Database Planning Spike
@@ -35,6 +35,8 @@ Day 1:
 - Your PM will split your team up to focus on each area of the project.
   - Front-end team
   - Back-end team
+  - Documentation/Planning team
+    - For teams of 5 this will be a team of 1. The team of 4 will need to build this into their plans.
 
 - Each team will use a Miro board to brainstorm ideas
 - Delegate people to set up a GitHub organization, add other members, and set up the initial repos
@@ -44,7 +46,7 @@ Day 1:
   - Rough implementation and testing of the front-end, mocking out responses from back-end; no authentication expected yet
   - Rough implementation and testing of back-end API, mocking requests from front-end
   - Initial structure of each Service (not necessarily working API calls)
-  - Travis-CI and Deployment to Heroku for both Rails repositories
+  - Travis-CI/Circle-CI and Deployment to Heroku for both FE/BE repositories
 
 #### Sprint 2: Primary Development
 
@@ -52,7 +54,7 @@ Day 1:
 - End: Monday morning of Week 5
 
 - Deliverables:
-  - Frontend has Bootstrap in place, each wireframe is implemented in some amount, implements OAuth, can CRUD data with back-end
+  - Frontend has Bootstrap in place, each wireframe is implemented in some amount, implements OAuth, can CRUD data with backend
   - Rails back-end can CRUD resources based on front-end requests
   - Services successfully implement their respective API calls
 
@@ -83,19 +85,23 @@ In addition to the End of Sprint Demos, you will also have some project check in
     * Review of near-final work, check for MVP
     * Discuss presentation details
 
-## GitHub
+## git/GitHub
 
 * Commit Frequently
+* Decide on a [git workflow](https://www.atlassian.com/git/tutorials/comparing-workflows)
 * Make branches and submit Pull Requests for each new feature.
     * DO NOT commit directly to main
     * Keep your PRs as small as possible (one feature / user story per PR)
+    * Use screenshots and screencasts to demonstrate functionality.
     * Your PR should be reviewed by at least one team member before it is merged.
     * Tag your Project Manager if you have questions. DM your Project Manager letting them know you have tagged them.
 
 
 ## Continuous Integration
 
-* Set up a [CI Server](http://backend.turing.io/module3/lessons/environments_and_ci)
+* Set up a [CI Server](https://backend.turing.edu/module3/archive/lessons/environments_and_ci)
+* [CircleCI Docs](https://circleci.com/docs/2.0/)
+* [TravisCI Docs](https://docs.travis-ci.com/)
 
 ## Continuous Deployment
 
