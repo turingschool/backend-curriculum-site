@@ -159,71 +159,15 @@ To register a new application, follow these steps:
 9. The page should refresh and show you your application information. Save this
 page so we can reference the `client_id` and `client_secret`.
 
-### Step 2 - Creating a new Rails app
+### Step 2 - Setup the repo for this workshop locally
 
-```ruby
-$ rails _5.2.4.3_ new oauth_workshop -T -d postgresql --skip-spring --skip-turbolinks
-$ cd oauth_workshop
-$ rake db:create
-```
+Set up [this repo](https://github.com/turingschool-examples/oauth_practice).
 
-Let's add the gems we will need. We want to use Faraday for sending our HTTP
-requests to Github, and we also want to use Pry for debugging.
-
-
-**Gemfile**
-
-```rb
-gem 'faraday'
-
-group :development, :test do
-  gem 'pry'
-end
-```
-
-Bundle!
-
-```sh
-$ bundle install
-```
+Once you have the `oauth_practice` repo pulled down, familiarize yourself with the code:
+1. open `routes.rb` to see the path that is already created for you. 
+2. run `rails s`, navigate to `http://localhost:3000`. You should see a message that says "Welcome to your OAuth Practice Repo!!"
 
 ### Step 3 - Authenticating user on Github
-
-Our users will start this entire process by visiting our page. The first thing that we need for them is a landing page of some sort that will give them the opportunity to log in with GitHub.
-
-Let's start by creating a route for our users to visit.
-
-```ruby
-# config/routes.rb
-Rails.application.routes.draw do
-  root "home#index"
-end
-```
-
-Note that assumes that we have a `HomeController` with an `index` action on it. Let's create that now.
-
-```ruby
-# app/controllers/home_controller.rb
-class HomeController < ApplicationController
-  def index
-  end
-end
-```
-
-With that controller action in place we now need a view to display. Start by creating the directory structure/file.
-
-```sh
-$ mkdir app/views/home
-$ touch app/views/home/index.html.erb
-```
-
-In your newly created view, let's start off with the following.
-
-```html
-<h1>Welcome!</h1>
-```
-
-Great! Let's visit that page to see if what we have so far is linking up correctly. Fire up your server with `rails s` and visit `http://localhost:3000`. You should see a page that just says `Welcome!`
 
 Now, the very first step in getting our user authenticated with GitHub is to have them visit GitHub! We can do this by adding a link to GitHub from our homepage.
 
@@ -244,7 +188,7 @@ Adding that to our `index.html.erb` gives us the following:
 **app/views/home/index.html.erb**
 
 ```rb
-<h1>Welcome!</h1>
+<h1>Welcome to your OAuth Practice Repo!!</h1>
 
 <%= link_to "Login",
 "https://github.com/login/oauth/authorize?client_id=YOUR_CLIENT_ID&scope=repo" %>
@@ -570,7 +514,7 @@ New error: missing a template. Let's make one!
 **app/views/dashboard/show.html.erb**
 
 ```html
-<h1>Welcome, <%= current_user.username %></h1>
+<h1>Welcome, <%= current_user.username %> to your OAuth Practice Repo!!</h1>
 ```
 
 Notice that I'm using `current_user` here. We don't actually have a `current_user` method set up coming from our DashboardController or our ApplicationController. That doesn't bother me. I'm writing this view the way that I *want* it to work, in a way that's familiar to me. I have enough faith in myself as a dev that I can go back and make it work. We'll do that next.
