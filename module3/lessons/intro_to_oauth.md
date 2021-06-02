@@ -5,7 +5,7 @@ length: 180
 tags: rails, security, authentication, OAuth
 ---
 
-This lesson plan was last tested to work with Rails 5.2.4.3 and Ruby 2.5.3
+This lesson plan was last tested to work with Rails 5.2.6 and Ruby 2.5.3
 
 
 ## Historical Context for this lesson plan
