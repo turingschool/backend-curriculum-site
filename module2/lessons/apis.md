@@ -3,7 +3,7 @@ title: Intro to APIs
 layout: page
 ---
 
-### What is an API?
+## What is an API?
 
 Read through these articles to get a sense of what an api is:
 
@@ -12,7 +12,7 @@ Read through these articles to get a sense of what an api is:
 
 Then, watch [this video](https://www.youtube.com/watch?v=s7wmiS2mSXY)
 
-### APIs
+## APIs
 
 At a *very* high level, APIs allow web applications to communicate with each other. For example, an app you are building may want to use Twitter's API to show tweets about a specific topic, or you may want to consume the Google Maps API to embed an interactive map into one of your views.
 
@@ -81,7 +81,13 @@ Give it a try. Using this data:
 
 Congratulations! You just consumed an API.
 
-### Checks for Understanding
+### Practice
+
+1. We almost always want our code to be wrapped in classes and/or methods so that we can reuse it. Refactor your code to include at least 1 class and 1 method. Feeling good about that? Try to include 2 or even 3 classes and multiple methods inside each of those classes.
+2. After you've refactored your code to include some classes and methods, write some RSpec tests that test those classes and methods.
+3. APIs are typically rate limited which means there's a limit to how often you can send requests to them. The GitHub API [only allows 60 requests per hour for unauthenticated requests](https://docs.github.com/en/rest/overview/resources-in-the-rest-api#rate-limiting). Implement RSpec mocking/stubbing to avoid sending the HTTP request when you run your tests.
+
+## Checks for Understanding
 
 1. How could you incorporate the GitHub API into a Rails Application? Where should this functionality live?
 
