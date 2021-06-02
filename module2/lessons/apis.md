@@ -14,9 +14,9 @@ Then, watch [this video](https://www.youtube.com/watch?v=s7wmiS2mSXY)
 
 ### APIs
 
-At a *very* high level, APIs are rules that applications use to communicate with each other.
+At a *very* high level, APIs allow web applications to communicate with each other. For example, an app you are building may want to use Twitter's API to show tweets about a specific topic, or you may want to consume the Google Maps API to embed an interactive map into one of your views.
 
-We are focused on building Web applications, so we are mostly concerned with **Web Based APIs**. These types of APIs are so common that this is what most people are talking about when referring to an "API".
+The term "API" is very broad and can have many different meanings depending on the context. We are focused on building Web applications, so we are mostly concerned with **Web Based APIs**. These types of APIs are so common that this is what most people (including us) are talking about when referring to an "API". 
 
 Since web apps communicate in HTTP, an API can be more specifically thought of as the format of HTTP requests an application accepts, and the format of data it returns.
 
