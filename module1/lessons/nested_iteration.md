@@ -33,6 +33,6 @@ Use an enumerable to
 
 We will be using the tools we have already learned (`.each`, `.map`, `pry`, etc...) to tackle some more complex iterations.  Up to now we have focused on iterating over a single collection to get some information, but you will often need to look at multiple collections to get the desired information.  To help us practice, clone [this repo](https://github.com/turingschool-examples/ruby_nested_iteration).
 
-In the repo, you will find 4 skipped tests.  Starting with `course_test.rb`, write the implemenation code to make these tests pass.  The first test will help familiarize you with the code base.  After `course_test`, move on to the skipped tests in `school_test.rb`. We will be stopping and checking in as a group throughout the exercise.
+In the repo, you will find 4 skipped tests.  Starting with `course_spec.rb`, write the implemenation code to make these tests pass.  The first test will help familiarize you with the code base.  After `course_spec`, move on to the skipped tests in `school_spec.rb`. We will be stopping and checking in as a group throughout the exercise.
 
 As you work, use `pry` OFTEN to verify your assumptions and try things out!
