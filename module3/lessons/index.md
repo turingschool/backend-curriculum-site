@@ -32,6 +32,7 @@ layout: page
 * [Sending Email in Rails](./sending_email_in_rails)
 * [Data Structures and Algorithms](./data_structures_and_algorithms)
 * [Intro to Caching](./intro_to_rails_caching)
+* [Error Handling](./error_handling)
 * Introduction to Big O Notation
 * Company Research (PD Supplement)
 * README Workshop
