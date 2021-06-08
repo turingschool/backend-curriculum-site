@@ -140,13 +140,16 @@ First, lets isolate our call to our service.
 
 ```ruby
 def self.call_senate_service
-    CongressService.fetch_senate_members
+  @@service_result ||= CongressService.fetch_senate_members
 end
 
 def self.all_senate_members
-    call_senate_service[:results][0][:members]
+  call_senate_service[:results][0][:members]
 end
 ```
+Isolation helps on a few fronts. It's more SRP. We can properly test this method. And, we can take advantage of memoization to ensure our we only ever make one external API call per request.
+
+Because we are memomizing within a class method, we need a class variable to hold the result of our service call. An instance variable or local variable will not memoize properly.
 
 Now, we can build in some sad path and edge case handling within our facade.
 
@@ -162,7 +165,221 @@ def self.member_by_last_name(last_name)
 end
 
 def self.members_by_last_name(last_name)
-  # By utilizing memoization, the iteration over our all_senate_members array only happens once per request
+  # By utilizing memoization, the iteration over our all_senate_members array only happens once per request.
   @@matches ||= all_senate_members.find_all {|m| m[:last_name] == last_name}
 end
 ```
+
+So, when `::members_by_last_name` finds a match based on our query param, we create a `SenateMember` object to pass back to our controller. But, when the method doesn't find a match we need to find a way to pass an error object back to the controller.
+
+Lets dream drive this a bit.
+
+```ruby
+def self.member_by_last_name(last_name)
+  if !members_by_last_name(last_name).empty?
+    SenateMember.new(members_by_last_name(last_name).first)
+  else
+    ErrorMember.new("No members found with the last name: #{last_name}", "NOT FOUND", 404)
+  end
+end
+```
+
+I've imagined I have an object named `ErrorMember` that takes 3 arguments upon initialization. It takes a helpful message that interpolates the search query param. It takes a status message. And, it takes a status code. This current object is returning a standard [HTTP 404 message](https://en.wikipedia.org/wiki/HTTP_404), but I've created in a way that allows it to be reuseable for other errors that may occur in my program.
+
+
+If I search with a query param that does not match a senator, then I get the error:
+`NameError (uninitialized constant CongressFacade::ErrorMember):`
+
+Lets fix that!
+
+I'll create a file in `app/poros/` called `error_member.rb` with the corresponding class:
+
+```ruby
+class ErrorMember
+
+  attr_reader :error_message, :status, :code
+  def initialize(error_message, status, code)
+    @error_message = error_message
+    @status = status
+    @code = code
+  end
+end
+```
+
+Now, If I search with a query param that does not match a senator, then I get the error:
+`FastJsonapi::MandatoryField (id is a mandatory field in the jsonapi spec):`
+
+This isn't quite as helpful of an error, but it's happening because we're passing the `SenateMemberSerializer` an ErrorMember object without an id. Currently our controller looks like this:
+
+```ruby
+class CongressController < ApplicationController
+  def search
+    @member = CongressFacade.member_by_last_name(params[:search])
+    render json: SenateMemberSerializer.new(@member)
+  end
+
+  def search_state
+    @members = CongressFacade.house_members(params[:state])
+    render "welcome/index"
+  end
+end
+```
+
+Quick tangent: This is currently the same error message if I search for a current Senator with the CORRECT last name. Because we are using FastJsonapi to serialize this object, that library expects the object we pass to our serializer to have an attribute called `id`. I can add a line to my `SenateMember` to take care of this for now:
+
+```ruby
+class SenateMember
+
+  attr_reader :id,
+              :first_name,
+              :last_name,
+              :twitter_account
+  def initialize(attributes)
+    @id = 1
+    @first_name = attributes[:first_name]
+    @last_name = attributes[:last_name]
+    @twitter_account = attributes[:twitter_account]
+  end
+end
+```
+
+We will only ever render one senator, so we can hard code `id` here to be `1`, and it works when you search for a current senator such as `Sanders`. However, we know this isn't best practice, and there are some other approaches we could take for a collection, like say setting the id to `index + 1` within an `each_with_index` block. Lets just say that the fast_jsonapi API is heavily opinionated, and if we're creating workarounds for it to work, then it may not be the best tool for the job.
+
+Moving on...
+
+Lets pry in to ensure we have an `ErrorMember` object being held by `@member`
+
+```ruby
+class CongressController < ApplicationController
+  def search
+    @member = CongressFacade.member_by_last_name(params[:search])
+    require "pry"; binding.pry
+    render json: SenateMemberSerializer.new(@member)
+  end
+
+  ...
+```
+
+```bash_profile
+2: def search
+   3:   @member = CongressFacade.member_by_last_name(params[:search])
+=> 4:   require "pry"; binding.pry
+   5:   render json: SenateMemberSerializer.new(@member)
+   6: end
+
+[1] pry(#<CongressController>)> @member
+=> #<ErrorMember:0x00007fe313dd0ee8 @code=404, @error_message="No members found with the last name: Tuyr", @status="NOT FOUND">
+```
+
+It looks like that's exactly what I have, so now I need to create a path within my controller for this `ErrorMember` to be serialized.
+
+Lets do this:
+
+```ruby
+class CongressController < ApplicationController
+  def search
+    @member = CongressFacade.member_by_last_name(params[:search])
+    if @member.class == SenateMember
+      render json: SenateMemberSerializer.new(@member)
+    else
+      render json: ErrorMemberSerializer.new(@member)
+    end
+  end
+
+  ...
+```
+
+Now, I've dream driven a serializer that I can pass my `ErrorMember` object to.
+
+Lets create that serializer file named `error_member_serializer.rb` and the corresponding class:
+
+```ruby
+
+class ErrorMemberSerializer
+  def initialize(error_object)
+    @error_object = error_object
+  end
+end
+
+```
+
+Notice that we are not using the fast_jsonapi for this serializer. If I search for a senator that doesn't exist with the search parameter "tu" then I'll get some JSON based on my object:
+
+```json
+{
+  "error_object": {
+    "error_message": "No members found with the last name: tu",
+    "status": "NOT FOUND",
+    "code": 404
+  }
+}
+```
+
+Not quite up to the standards of json:api specification. Lets create a custom method in my serailizer to format this properly:
+
+```ruby
+class ErrorMemberSerializer
+  def initialize(error_object)
+    @error_object = error_object
+  end
+
+  def serialized_json
+    {
+      errors: [
+        {
+          status: @error_object.status,
+          messsage: @error_object.error_message,
+          code: @error_object.code
+        }
+      ]
+    }
+  end
+end
+```
+
+Now, I'll add the method call to `#serialized_json` in my controller to get the result that I want:
+
+```ruby
+class CongressController < ApplicationController
+  def search
+    @member = CongressFacade.member_by_last_name(params[:search])
+    if @member.class == SenateMember
+      render json: SenateMemberSerializer.new(@member)
+    else
+      render json: ErrorMemberSerializer.new(@member).serialized_json
+    end
+  end
+
+  ...
+```
+
+Resulting in:
+
+```json
+{
+  "errors": [
+    {
+      "status": "NOT FOUND",
+      "messsage": "No members found with the last name: tu",
+      "code": 404
+    }
+  ]
+}
+```
+
+### Thinking About Patterns
+
+Take a few minutes on your own to answer the following questions:
+
+* What do you like about this approach?
+* What do you not like about this approach?
+* Can you think of a better approach?
+
+Instructor will now drive using a different approach to handling errors using a combination of `raise`, `rescue_from`, and serialization.
+
+
+### Resources
+
+[Rebased on API error handling](https://blog.rebased.pl/2016/11/07/api-error-handling.html)
+[Stackify on rescuing exceptions in ruby](https://stackify.com/rescue-exceptions-ruby/)
+[Geeks for Geeks on hanling exceptions in ruby](https://www.geeksforgeeks.org/ruby-exception-handling/)
