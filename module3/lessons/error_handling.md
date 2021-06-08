@@ -380,6 +380,6 @@ Instructor will now drive using a different approach to handling errors using a 
 
 ### Resources
 
-[Rebased on API error handling](https://blog.rebased.pl/2016/11/07/api-error-handling.html)
-[Stackify on rescuing exceptions in ruby](https://stackify.com/rescue-exceptions-ruby/)
-[Geeks for Geeks on hanling exceptions in ruby](https://www.geeksforgeeks.org/ruby-exception-handling/)
+* [Rebased on API error handling](https://blog.rebased.pl/2016/11/07/api-error-handling.html)
+* [Stackify on rescuing exceptions in ruby](https://stackify.com/rescue-exceptions-ruby/)
+* [Geeks for Geeks on hanling exceptions in ruby](https://www.geeksforgeeks.org/ruby-exception-handling/)
