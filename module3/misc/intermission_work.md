@@ -24,7 +24,7 @@ Submit your work here: [Survey Link](https://forms.gle/1WVzP74v1hUadxwFA)
 
 Everything we build in Mod 3 will focus on the theme of building and consuming APIs.
 
-Here are some helpful videos that you can use to familiarize yourself with both building and consuming APIs.
+Here are some helpful videos and tutorials that you can use to familiarize yourself with both building and consuming APIs.
 
 * [Instructor Dione Wilson demonstrates the process of building an API for 2006](https://vimeo.com/469621034/d0d5febb9d)
 * [Instructor Ian Douglas demonstrates the process of building an API for 2005](https://vimeo.com/452734115/8b3bd1adf0)
