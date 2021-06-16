@@ -26,8 +26,11 @@ Everything we build in Mod 3 will focus on the theme of building and consuming A
 
 Here are some helpful videos and tutorials that you can use to familiarize yourself with both building and consuming APIs.
 
+#### Watch one
 * [Instructor Dione Wilson demonstrates the process of building an API for 2006](https://vimeo.com/469621034/d0d5febb9d)
 * [Instructor Ian Douglas demonstrates the process of building an API for 2005](https://vimeo.com/452734115/8b3bd1adf0)
+
+#### Do both
 * [Build an API in Rails Tutorial](https://www.digitalocean.com/community/tutorials/build-a-restful-json-api-with-rails-5-part-one)
 * [Consume and test an API in Postman Tutorial](https://www.guru99.com/postman-tutorial.html)
 
