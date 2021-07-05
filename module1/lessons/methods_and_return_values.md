@@ -25,7 +25,7 @@ tags: ruby, methods, return, argument
 
 ## Warmup
 
-With your partner define the following terms in your own words:
+With your breakout group, define the following terms in your own words:
 
 * Variable
 * Method
@@ -33,7 +33,7 @@ With your partner define the following terms in your own words:
 * Return Value
 * Object
 
-Then, for each of the terms above, identify examples in the pry snippets below:
+Then, for each of the terms above, identify examples in the pry snippets below (these snippets will also work in irb):
 
 ```ruby
 pry(main)> "Hello World".upcase
@@ -58,7 +58,7 @@ pry(main)> greeting
 
 ## Methods
 
-A **Method** is a group of related instructions that achieves some purpose. If you open up pry and type:
+A **Method** is a group of related instructions that achieves some purpose. If you open up pry (or irb) and type:
 
 ```ruby
 pry(main)> "Hello World".upcase
@@ -72,7 +72,7 @@ You are calling the `upcase` method. It's job is to create a version of the Stri
 <br>
 <br>
 
-**Turn and Talk**: Imagine the `upcase` method didn't exist. How might you recreate this method in Ruby?
+**Breakout Chat**: Imagine the `upcase` method didn't exist. How might you recreate this method in Ruby?
 
 <br>
 <br>
@@ -108,12 +108,12 @@ You are calling the `upcase` **Method** on the string`"Hello World"`. The **Retu
 
 ## Arguments
 
-**Arguments** are the input to a method. When you define a method, they are known as **Parameters**. (In other words, a parameter is a generic placeholder for a specific argument).
+**Arguments** are the input(s) to a method. When you define a method, they are known as **Parameters**. (In other words, a parameter is a generic placeholder for a specific argument).
 
 If you open a pry session and type
 
 ```ruby
-pry(main)> "Hello World".include? "Hello"
+pry(main)> "Hello World".include?("Hello")
 => true
 ```
 
@@ -122,7 +122,7 @@ You are calling the `include?` method on the string `"Hello World"`. You are pas
 **Note**: Parenthesis are optional when passing arguments. The previous code snippet could also be written as:
 
 ```ruby
-pry(main)> "Hello World".include?("Hello")
+pry(main)> "Hello World".include? "Hello"
 => true
 ```
 
@@ -147,7 +147,7 @@ pry(main)> "Hello World".gsub "World", "Turing"
 
 ## Variables
 
-Variables are keywords that we create to hold or point to return values that we want to maintain and re-use.  In the example above, if we want to re-use the return value `"hello world"`, instead of calling `"Hello World".downcase` over and over again, we can assign the return value to a `variabl` to be used at later points in our code.
+Variables are keywords that we create to hold or point to return values that we want to maintain and re-use.  In the example above, if we want to re-use the return value `"hello world"`, instead of calling `"Hello World".downcase` over and over again, we can assign the return value to a `variable` to be used at later points in our code.
 
 ```ruby
 pry(main)> greeting = "Hello World".downcase
@@ -158,6 +158,7 @@ pry(main)> greeting
 
 pry(main)> "This is our greeting: #{greeting}"
 => "This is our greeting: hello world"
+# this is an example of string interpolation, which you learned about in Mod0
 ```
 
 Since *we* define variables, we can also reassign them.  Once reassigned, the original return value is gone - it can not be recalled with that variable.
@@ -185,7 +186,44 @@ pry(main)> greeting == "Hello World".downcase
 
 ## Defining our own Methods
 
-`.upcase`, `.include?`, and `.gsub` are all **Methods** built in to the string class. What if we want to create our own class with its own methods?
+`.upcase`, `.include?`, and `.gsub` are all **Methods** built to work on string objects. But, what if we want to create our own methods? Recall that methods must be called on **objects** like a string (`hello world`) or integer (`13`); so, in order to create our own methods, we need to create our own objects.  We do this with **classes**.  We will go into more detail on **classes** in a later method, but if you want a sneak peak, expand the class exploration below.
+
+<details>
+  <summary>Class Exploration</summary>
+
+  ## String, the class
+
+  Generally, when we create a string, we do so with a string literal (we literally type the string as we want it to exist).  This is sufficient to create an object that is an instance of the class [**String**](https://ruby-doc.org/core-2.7.2/String.html), which will respond to any of the build in string methods. We can see this in the pry snippet below:
+
+  ```ruby
+  [1] pry(main)> greeting = 'hello world'
+  => "hello world"
+  [2] pry(main)> greeting.class
+  => String
+  [3] pry(main)> greeting.upcase
+  => "HELLO WORLD"
+  ```
+
+  This is not the only way to create a string object.  You can also create a string object by calling the method `new` on the string class itself:
+
+  ```ruby
+  [1] pry(main)> some_text = String.new
+  => ""
+  [2] pry(main)> some_text.class
+  => String
+  [3] pry(main)> some_text.upcase
+  => ""
+  [4] pry(main)> greeting = String.new('hello world')
+  => "hello world"
+  [5] pry(main)> greeting.class
+  => String
+  [6] pry(main)> greeting.upcase
+  => "HELLO WORLD"
+  ```
+
+  String objects, as a ruby datatype, have this cool ability to be created both literally, and through the method `new`.  When we create our own classes, we will create those class objects through the `new` method - our classes will not have the literal creation superpower :)
+
+</details>
 
 Let's make a class that calculators values. In a new file called `calculator.rb`, we'll add the following lines of code and run this file from the command line using `ruby calculator.rb`.
 
@@ -426,8 +464,8 @@ class Calculator
   def add(num1, num2)
     num1 + num2
   end
-  
-  
+
+
   def print_sum(first_number, second_number)
     sum = add(first_number, second_number)
     puts "The sum of #{first_number} and #{second_number} is #{sum}."
@@ -447,7 +485,7 @@ Think about how you drive a car. You don't need to know how a combustion engine 
 
 ![](https://camo.githubusercontent.com/07f5ef4748c194ee893c18089a2b6513d473ac37/687474703a2f2f6d696e6573662e636f6d2f7265736f75726365732f6363612f77702d636f6e74656e742f75706c6f6164732f323031302f30312f61627374726163742d6f2d6d65746572312e6a7067)
 
-If we look at our `calculator.rb` file, what we really want to do is take two numbers, print a welcome, and then print the sum of those two numbers. `print_sum` is a method that does exactly that. Bundling methods into more abstract methods can help us to create more complex programs.  Tl;dr- Abstraction is an object-oriented programming concept that means that complexity is being hidden from the user. 
+If we look at our `calculator.rb` file, what we really want to do is take two numbers, print a welcome, and then print the sum of those two numbers. `print_sum` is a method that does exactly that. Bundling methods into more abstract methods can help us to create more complex programs.  Tl;dr- Abstraction is an object-oriented programming concept that means that complexity is being hidden from the user.
 
 
 A note on order: The way you define the order of your _methods_ does not matter.  The way you call them **does**. Ruby will **parse** each method in the class and then when a method is **called** Ruby will **execute** the parsed methods accordingly.
