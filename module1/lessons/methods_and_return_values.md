@@ -184,46 +184,9 @@ pry(main)> greeting == "Hello World".downcase
 ```
 
 
-## Defining our own Methods
+## <a name='define-method'></a>Defining our own Methods
 
-`.upcase`, `.include?`, and `.gsub` are all **Methods** built to work on string objects. But, what if we want to create our own methods? Recall that methods must be called on **objects** like a string (`hello world`) or integer (`13`); so, in order to create our own methods, we need to create our own objects.  We do this with **classes**.  We will go into more detail on **classes** in a later method, but if you want a sneak peak, expand the class exploration below.
-
-<details>
-  <summary>Class Exploration</summary>
-
-  ## String, the class
-
-  Generally, when we create a string, we do so with a string literal (we literally type the string as we want it to exist).  This is sufficient to create an object that is an instance of the class [**String**](https://ruby-doc.org/core-2.7.2/String.html), which will respond to any of the build in string methods. We can see this in the pry snippet below:
-
-  ```ruby
-  [1] pry(main)> greeting = 'hello world'
-  => "hello world"
-  [2] pry(main)> greeting.class
-  => String
-  [3] pry(main)> greeting.upcase
-  => "HELLO WORLD"
-  ```
-
-  This is not the only way to create a string object.  You can also create a string object by calling the method `new` on the string class itself:
-
-  ```ruby
-  [1] pry(main)> some_text = String.new
-  => ""
-  [2] pry(main)> some_text.class
-  => String
-  [3] pry(main)> some_text.upcase
-  => ""
-  [4] pry(main)> greeting = String.new('hello world')
-  => "hello world"
-  [5] pry(main)> greeting.class
-  => String
-  [6] pry(main)> greeting.upcase
-  => "HELLO WORLD"
-  ```
-
-  String objects, as a ruby datatype, have this cool ability to be created both literally, and through the method `new`.  When we create our own classes, we will create those class objects through the `new` method - our classes will not have the literal creation superpower :)
-
-</details>
+`.upcase`, `.include?`, and `.gsub` are all **Methods** built to work on string objects. But, what if we want to create our own methods? Recall that methods must be called on **objects** like a string (`"hello world"`) or integer (`13`); so, in order to create our own methods, we need to create our own objects.  We do this with **classes**.  We will go into more detail on **classes** in a later lesson; if you want a sneak peak, take a look at [this quick class exploration](./strings_as_class).
 
 Let's make a class that calculators values. In a new file called `calculator.rb`, we'll add the following lines of code and run this file from the command line using `ruby calculator.rb`.
 
@@ -235,7 +198,7 @@ class Calculator
 end
 ```
 
-**Turn and Talk**: What will happen when this code runs? What will the return value be?
+**Breakout Chat**: What will happen when this code runs? What will the return value be?
 
 <br>
 <br>
@@ -289,7 +252,7 @@ calculator = Calculator.new
 calculator.add
 ```
 
-**Turn and Talk**: What will happen when we run this code?
+**Breakout Chat**: What will happen when we run this code?
 
 <br>
 <br>
@@ -345,7 +308,24 @@ A return value is either:
 1. defined *explicitly* using the `return` keyword OR
 2. is the last line of code run, if no `return` keyword was used.
 
-Let's create an **Explicit Return** like so:
+Let's create an **Implicit Return** like so:
+
+```ruby
+class Calculator
+  def print_welcome
+    puts "Welcome to Calculator!"
+  end
+
+  def add(num1, num2)
+    num1 + num2
+  end
+end
+
+calculator = Calculator.new
+calculator.add(1,3)
+```
+
+We could write the same method using an **Explicit Return**:
 
 ```ruby
 class Calculator
@@ -356,23 +336,6 @@ class Calculator
   def add(num1, num2)
     sum = num1 + num2
     return sum
-  end
-end
-
-calculator = Calculator.new
-calculator.add(1,3)
-```
-
-We could write the same method using an **Implicit Return**:
-
-```ruby
-class Calculator
-  def print_welcome
-    puts "Welcome to Calculator!"
-  end
-
-  def add(num1, num2)
-    num1 + num2
   end
 end
 
@@ -432,7 +395,7 @@ thing = Thing.new
 thing.some_random_method
 ```
 
-**Turn and Talk**:
+**Breakout Chat**:
 
 Where would you go to find out what the `some_random_method` method does?
 
@@ -443,7 +406,7 @@ Where would you go to find out what the `some_random_method` method does?
 
 Remember, methods run on objects. In order to find where a method is defined, we need to first ask ourselves what type of object it is being called on. Look in the class file for that object's class type, and you might find it there. We say *might* because there's actually a long list of places that Ruby can look for a method. For right now, what you need to know is that when looking for a method, the first thing Ruby will do is look in the class of the object it is being called on.
 
-**Turn and Talk**:
+**Breakout Chat**:
 
 Where would you look to figure out how the slice method works?
 ```ruby
@@ -483,9 +446,9 @@ One of the advantages of using methods is that we can build methods that operate
 
 Think about how you drive a car. You don't need to know how a combustion engine works in order to drive it. All you need to know is that when you put your foot down on the gas pedal, the car moves. The details of how the engine work are *abstracted* away from you. You only need to know how the gas pedal works, the *interface*.
 
-![](https://camo.githubusercontent.com/07f5ef4748c194ee893c18089a2b6513d473ac37/687474703a2f2f6d696e6573662e636f6d2f7265736f75726365732f6363612f77702d636f6e74656e742f75706c6f6164732f323031302f30312f61627374726163742d6f2d6d65746572312e6a7067)
+If we look at our `calculator.rb` file, what we really want to do is take two numbers, print a welcome, and then print the sum of those two numbers. `print_sum` is a method that does exactly that. Bundling methods into more abstract methods can help us to create more complex programs.
 
-If we look at our `calculator.rb` file, what we really want to do is take two numbers, print a welcome, and then print the sum of those two numbers. `print_sum` is a method that does exactly that. Bundling methods into more abstract methods can help us to create more complex programs.  Tl;dr- Abstraction is an object-oriented programming concept that means that complexity is being hidden from the user.
+Abstraction is an object-oriented programming concept that means that complexity is being hidden from the user.
 
 
 A note on order: The way you define the order of your _methods_ does not matter.  The way you call them **does**. Ruby will **parse** each method in the class and then when a method is **called** Ruby will **execute** the parsed methods accordingly.
