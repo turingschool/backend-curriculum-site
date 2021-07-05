@@ -12,7 +12,7 @@ In Module 1, students will learn to use Ruby and object-oriented programming to 
 
 * Michael Dao (Anchor)
 * Megan McMahon
-* Ian Douglas
+* Tim Tyrell
 
 ## Curriculum
 
@@ -30,7 +30,7 @@ In Module 1, students will learn to use Ruby and object-oriented programming to 
 * [Promotion to Module 2](./promotion)
 * [Portfolio](./portfolios)
 * [Syllabus](./syllabus)
-* [Professional Development Curriculum](https://careerdev.turing.io/module_one/)
+* [Professional Development Curriculum](https://careerdev.turing.edu/module_one/)
 
 <br>
 
