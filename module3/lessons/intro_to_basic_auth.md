@@ -68,7 +68,7 @@ RSpec.describe "User registration form" do
 
     click_on "Register as a User"
 
-    expect(current_path).to eq(new_user_path)
+    expect(current_path).to eq("/register")
 
     username = "funbucket13"
     password = "test"
