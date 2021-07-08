@@ -113,7 +113,7 @@ When we run this file, our terminal should open up a pry session when it reads t
 
 ## Attributes in Ruby Classes
 
-Above we created a Unicorn class and then also created specific instances of the unicorn class that we held in the variables `unicorn_1` and `unicorn_2`. Generally the objects we create will come from the same template, but each will be a unique object.
+Above we created a Unicorn class and then also created specific instances of the Unicorn class that we held in the variables `unicorn_1` and `unicorn_2`. Generally the objects we create will come from the same template, but each will be a unique object.
 
 Take a look at these unicorns.
 
@@ -183,12 +183,12 @@ require 'pry'; binding.pry
 
 When we include the arguments to `.new`, Ruby will pass those arguments to the initialize method for us. Note that the arguments that we pass to `new` are order dependent. So, in the first example when we pass `"Sparkle"` as the first argument, we are saying that the name of the Unicorn we are creating is Sparkle. When we pass an empty string (`""`) the second time we call `new` we are saying that the Unicorn that we created doesn't have a name.
 
-What we have just done is a very common pattern. We gave our initialize method some arguments and we saved those arguments to instance variables. While this is a strong pattern, it is not a rule. For instance, you may want to set a variable in your initialize that has a default value that isn't set using an argument:
+What we have just done is a very common pattern. We gave our initialize method some arguments and we saved those arguments to instance variables. While this is a strong pattern, it is not a rule. For instance, you may want to set a variable in your initialize that has a default value that isn't set using an argument. Let's add a new variable, `magical_power`, thats value, by default, is an empty array:
 
 ```ruby
 class Unicorn
   def initialize(name, color)
-    @name            = brand
+    @name            = name
     @color           = color
     @magical_powers  = []
   end
@@ -262,9 +262,9 @@ class Unicorn
 end
 ```
 
-Let's run our runner file again and see if you can still call `unicorn_1.brand` and the other attributes.
+Let's run our runner file again and see if you can still call `unicorn_1.name` and the other attributes.
 
-An important thing to remember is that although there is a special syntax for creating `attr_reader`s, they are still just methods. Remember the error we got earlier was a **no method error** for `name`.
+An important thing to remember is that although there is a special syntax for creating `attr_reader`s, they are still just methods. Recall the error we got earlier was a **no method error** for `name`.
 
 ### Partner Practice
 
@@ -327,17 +327,17 @@ Let's update our runner file to add Power objects to your unicorn.
 
 ### Create a Book Class
 
-Create a book class. Make sure that your book class with `title`, `author`, and `genre` attributes.
+Create a book class. Make sure that your book class has `title`, `author`, and `genre` attributes.
 
 Once you've created your class, create a runner file that creates three separate instances of book and saves them to variables.
 
-**Check in** with your partner that you're in a similar place. Discuss an differences you have in your code.
+**Check in** with your partner that you're in a similar place. Discuss any differences you have in your code.
 
 ### Create a Library Class
 
-Create a Library class. Add attributes as you wish, but the be sure to include a `@collection` instance variable that starts as an empty array.
+Create a Library class. Add attributes as you wish, but be sure to include a `@collection` instance variable that starts as an empty array.
 
-**Check in** with your partner that you're in a similar place. Discuss an differences you have in your code.
+**Check in** with your partner that you're in a similar place. Discuss any differences you have in your code.
 
 If you have time:
 
