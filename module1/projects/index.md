@@ -7,11 +7,11 @@ title: Backend Module 1 Projects
 
 The following projects will be assigned and their completion is required to be promoted to module 2.
 
-* Week 1 (independent): [War or Peace](./war_or_peace)
-* Week 2-3 (paired): [Mastermind](./mastermind)
-* Week 3-5 (group): [Black Thursday](./black_thursday)
+* Week 1 (independent): [Flash Cards](./flashcards)
+* Week 2-3 (paired): 
+* Week 3-5 (group): 
 * Week 5-6 (individual): 
-* [Project Reflection Template](./project_reflection_template)
+
 
 ## Extension Projects
 

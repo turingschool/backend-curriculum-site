@@ -87,6 +87,8 @@ Congratulations! You just consumed an API.
 2. After you've refactored your code to include some classes and methods, write some RSpec tests that test those classes and methods.
 3. APIs are typically rate limited which means there's a limit to how often you can send requests to them. The GitHub API [only allows 60 requests per hour for unauthenticated requests](https://docs.github.com/en/rest/overview/resources-in-the-rest-api#rate-limiting). Implement RSpec mocking/stubbing to avoid sending the HTTP request when you run your tests.
 
+You can find a completed example of these exercises [here](https://github.com/BrianZanti/intro_to_apis)
+
 ## Checks for Understanding
 
 1. How could you incorporate the GitHub API into a Rails Application? Where should this functionality live?

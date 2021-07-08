@@ -6,18 +6,22 @@ subheading: Final Project & Portfolio Presentation
 
 ### Purpose
 
-* **Acknowledging Progress:** This is an opportunity to acknowledge the progress that has been achieved over the course of the mod. The final project should demonstrate their understanding of the learning goals and how to implement them.
-* **Interview Prep:** The presentation of the project combined with a reflection of the mod as a whole provides students the opportunity to practice speaking technically their code implementation and decisions, as well as, tying in their professional narrative.
-* **Direct Feedback:** Instructors will be able to provide direct feedback for the technical and professional presentation, so students can be better prepared for an interview.
+* **Acknowledging Progress:** This is an opportunity to acknowledge the progress that has been achieved over the course of the mod. The final project should demonstrate your understanding of the learning goals and how to implement them.
+* **Interview Prep:** The presentation of the project and the portfolio both provide students the opportunity to practice speaking technically about code implementation and decisions and work on professional storytelling.
+* **Direct Feedback:** Instructors will be able to provide direct feedback for the technical and professional presentations respectively. Students will be better prepared for an interview.
 
 ### Structure
 
-* Student-directed presentation (20 minutes)
-* Instructor questions and feedback (10 mins)
+#### Final Project
+* Student directed presentation (15-20 minutes)
+* Instructor questions and prodding throughout
+* Please see the presentation points listed in this [rubric](../projects/sweater_weather/rubric).
 
-### Requirements
+#### Portfolio Presentation
+* Student directed presentation (5-10 minutes)
+* Instructor feedback (3-5 minutes)
 
-Each student will deliver a 20 minute slide presentation in front of an instructor. The presentation consists of both a professional and final project presentation. If you are repeating the module, see the instructions below for repeaters.
+Each student will deliver a 5-10 minute slide presentation in front of an instructor. The presentation consists of a professional presentation that is a reflection on your growth throughout the mod. If you are repeating the module, see the instructions below for repeaters.
 
 Slides can include images and graphics to illustrate the concepts you plan to discuss. These may include screenshots/animated gifs of an application you created, snippets of code from your projects, diagrams of interesting concepts/structures that you used in your project(s). **Please do not just copy the questions onto the slide with bullet point answers.**
 
@@ -40,11 +44,6 @@ The professional presentation should follow a narrative format and address the f
 
 * What has your learning trajectory looked like over the past 6 weeks?
 
-
-#### Final Project Presentation Expectations
-
-Please see the presentation points listed in this [rubric](../projects/sweater_weather/rubric).
-
 ### Requirements if you will Repeat the Module
 
 * A student who **will repeat the current module** uses their presentation time to explore the following.
@@ -56,8 +55,6 @@ Please see the presentation points listed in this [rubric](../projects/sweater_w
     - What is something you've learned about yourself in receiving project feedback?
     - What has been the most valuable piece of feedback you have received?
     - What specific actions are you planning on taking after receiving the feedback from this inning?
-* If you are repeating, you may or may not have code from your final project. If you would like, you can use some of your presentation time to receive feedback on this code or use it as a starting point for conversation.
-
 
 ### Submittal
 
