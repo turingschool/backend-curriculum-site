@@ -51,34 +51,35 @@ A Stack Trace shows what line of code an error occurred on, and all the method c
 
 ### Reading a Stack Trace
 
-Let's look at an example. If we run the `hobbit_test.rb` test in our erroneous_creatures directory with `ruby test/hobbit_test.rb`, we will see this:
+Let's look at an example. If we run the `hobbit_spec.rb` test in our erroneous_creatures directory with `rspec spec/hobbit_spec.rb`, we will see something like this (you may need to scroll to find this):
 
 ```
-1) Error:
-HobbitTest#test_can_get_tired_if_play_3times:
-NoMethodError: undefined method `>=' for nil:NilClass
-    /Users/timo/staff_turing/lessons/debugging_techniques/erroneous_creatures/lib/hobbit.rb:18:in `adult?'
-    /Users/timo/staff_turing/lessons/debugging_techniques/erroneous_creatures/lib/hobbit.rb:22:in `play'
-    test/hobbit_test.rb:75:in `block in test_can_get_tired_if_play_3times'
-    test/hobbit_test.rb:74:in `times'
-    test/hobbit_test.rb:74:in `test_can_get_tired_if_play_3times'
+4) Hobbit can get tired if play 3times
+   Failure/Error: @agee >= 32
+
+   NoMethodError:
+     undefined method `>=' for nil:NilClass
+   # ./lib/hobbit.rb:18:in `adult?'
+   # ./lib/hobbit.rb:22:in `play'
+   # ./spec/hobbit_spec.rb:79:in `block (3 levels) in <top (required)>'
+   # ./spec/hobbit_spec.rb:78:in `times'
+   # ./spec/hobbit_spec.rb:78:in `block (2 levels) in <top (required)>'
 ```
 
 Let's break this down line by line:
 
-* `HobbitTest#test_can_get_tired_if_play_3times`: This is Minitest telling us what test was running when this error occurred.
+* `4) Hobbit can get tired if play 3times`: This is RSpec telling us what test was running when this error occurred.
 * `NoMethodError: undefined method '>=' for nil:NilClass`: This is the actual error that occurred
 * All of the following lines are part of the **Stack Trace**:
-  * `/Users/timo/staff_turing/lessons/debugging_techniques/erroneous_creatures/lib/hobbit.rb:18:in 'adult?'`: This is the first line of the stack trace, and is the line where the error actually happened. The first part is a big long file path to the file. Generally, we only care about the last part, the file name. In this case, it is `hobbit.rb:18`. This is telling us that the error occurred in the `hobbit.rb` file on line 18. The next part, `in 'adult?'` tells us that this error happened in the `adult?` method. `hobbit.rb:18` is the most important part of the whole stack trace. It tells us the exact location of the error.
-  * `/Users/timo/staff_turing/lessons/debugging_techniques/erroneous_creatures/lib/hobbit.rb:22:in 'play'`: The next line in the stack trace tells us where the `adult?` method was called from. Again, the most important part is the file and line number, `hobbit.rb` line 22. The last part, `in 'play'` is telling us that the `play` method was running when the `adult?` method was called.
-  * `test/hobbit_test.rb:75:in block in test_can_get_tired_if_play_3times`: The next line in the stack trace tells us where the `play` method was called from. It was called from the `hobbit_test.rb` file on line 75 in a block.
-  * `test/hobbit_test.rb:74:in times` is telling us that that block was part of a `times` loop that started on line `74`
-  * `test/hobbit_test.rb:74:in 'test_can_get_tired_if_play_3times'` is telling us that the `times` loop was called from `test_can_get_tired_if_play_3times`.
+  * `./lib/hobbit.rb:18:in 'adult?'`: This is the first line of the stack trace, and is the line where the error actually happened. This is telling us that the error occurred in the `hobbit.rb` file on line 18. The next part, `in 'adult?'` tells us that this error happened in the `adult?` method. `hobbit.rb:18` is the most important part of the whole stack trace. It tells us the exact location of the error.
+  * `./lib/hobbit.rb:22:in 'play'`: The next line in the stack trace tells us where the `adult?` method was called from. Again, the most important part is the file and line number, `hobbit.rb` line 22. The last part, `in 'play'` is telling us that the `play` method was running when the `adult?` method was called.
+  * `./spec/hobbit_spec.rb:79:in 'block (3 levels) in <top (required)>'`: The next line in the stack trace tells us where the `play` method was called from. It was called from the `hobbit_spec.rb` file on line 79 in a block.
+  * `./spec/hobbit_spec.rb:78:in 'times'` and `./spec/hobbit_spec.rb:78:in 'block (2 levels) in <top (required)>'` are telling us that that block was part of a `times` loop that started on line `78`.
 
 If we chart this out as a series of method calls, it looks something like this:
 
 ```
-test_can_get_tired_if_play_3times -> times -> play -> adult?
+it 'Hobbit can get tired if play 3times' -> times -> play -> adult?
 ```
 
 ### Tracing back through our Program
@@ -86,16 +87,6 @@ test_can_get_tired_if_play_3times -> times -> play -> adult?
 When we use the stack trace, we start at the top and work our way down. In this case, we start at `hobbit.rb:18` to see the line where the error occurred. The error was `undefined method '>=' for nil:NilClass`. Looking at that line of code, we can see that the variable `@age` was misspelled, causing it to be `nil`. Fixing the spelling resolves the error.
 
 If we didn't find an error in the `play` method, we could take another step back into the `adult?` method to see if we can find an error there.
-
-When reading a stack trace, you should ignore references to code that you didn't write. For instance, run the `unicorn_test.rb` file and you will see this output:
-
-```
-/Users/timo/.rvm/rubies/ruby-2.4.1/lib/ruby/site_ruby/2.4.0/rubygems/core_ext/kernel_require.rb:120:in `require': cannot load such file -- .lib/unicorn (LoadError)
-	from /Users/timo/.rvm/rubies/ruby-2.4.1/lib/ruby/site_ruby/2.4.0/rubygems/core_ext/kernel_require.rb:120:in `require'
-	from test/unicorn_test.rb:4:in `<main>'
-```
-
-Let's follow our same process for reading the Stack Trace (note that unlike before, Minitest doesn't tell us what test was running). The first line tells us the error is `cannot load such file -- .lib/unicorn (LoadError)`. The next line tells it happened on line 20 of `kernel_require`. Because we didn't write `kernel_require` we can ignore that. The next line tells us that `kernel_require` code was called from `unicorn_test.rb` line 4. Examining this line, we can see a mispelling in our require statement.
 
 ## Errors
 
@@ -118,23 +109,24 @@ When you see an error in your terminal, it can be tempting to read it as "blah b
 
 `syntax error, unexpected end-of-input, expecting keyword_end` - You have an extra `end` or an `end` in the wrong place. Indenting your code properly will make it MUCH easier to hunt down the offensive end.
 
-
 `require': cannot load such file -- file_name (LoadError)` - Ruby cannot load the file `file_name`. Make sure `file_name` is spelled correctly, the path is written correctly i.e. `./lib/file_name`, and that you are running from the root directory of your project.
 
 ## Verifying Your Assumptions
 
 Not verifying your assumptions can be one of the costliest mistakes you make as a dev. It's possible to be *absolutely convinced* that you know exactly what's causing an error, spend hours working to resolve an issue that you're sure exists, only to later find that the error occurred long before the piece of code that held your focus so tightly.
 
-While it's nice to drop into IRB to see if there are methods that exist in Ruby that I can use to solve my problem, it's even better to put a `pry` *into my code* to see exactly what I can do given the other methods and variables I've defined.
+While it's nice to drop into IRB or pry in terminal to see if there are methods that exist in Ruby that I can use to solve my problem, it's even better to put a `pry` *into my code* to see exactly what I can do given the other methods and variables I've defined.
 
-Let's run the Hippogriff test, and review the errors that are generated there:
+Let's run the `hippogriff_spec.rb`, and review the errors that are generated there:
 
 ```
-Error:
-HippogriffTest#test_when_it_flies_it_collects_a_unique_moonrock:
-NoMethodError: undefined method `push' for nil:NilClass
-    /Users/timo/staff_turing/lessons/debugging_techniques/erroneous_creatures/lib/hippogriff.rb:14:in `fly'
-    test/hippogriff_test.rb:37:in `test_when_it_flies_it_collects_a_unique_moonrock'
+2) Hippogriff when it flies it collects a unique moonrock
+   Failure/Error: @moonrocks.push(rock)
+
+   NoMethodError:
+     undefined method `push' for nil:NilClass
+   # ./lib/hippogriff.rb:14:in `fly'
+   # ./spec/hippogriff_spec.rb:38:in `block (2 levels) in <top (required)>'
 ```
 
 Let's start by reading that stack trace, and then answer the following questions with a partner:
@@ -155,9 +147,20 @@ One other thing we can do when we are trying to debug is to use `pry` to try som
 Let's look at an error from our Wizard test suite:
 
 ```
-Failure:
-WizardTest#test_is_not_always_bearded [test/wizard_test.rb:25]:
-Expected {:bearded=>false} to not be truthy.
+2) Wizard is not always bearded
+   Failure/Error: expect(wizard.bearded?).to eq(false)
+
+     expected: false
+          got: {:bearded=>false}
+
+     (compared using ==)
+
+     Diff:
+     @@ -1 +1 @@
+     -false
+     +:bearded => false,
+
+   # ./spec/wizard_spec.rb:25:in `block (2 levels) in <top (required)>'
 ```
 
 With a partner:
