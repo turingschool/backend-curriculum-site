@@ -74,7 +74,7 @@ As you develop your endpoints, run "rails s" and find the appropriate endpoint w
 
 Click the "Send" button in the top right corner.
 
-In the lower portion of the Postman interface, you should see "Body", "Cookies", "Headers" and a spot that says something like "Test Results (7/7)". This would indicate that 7 tests passed out of 7. If you see, for example, 3/7 then 7 tests passed and 4 did not.
+In the lower portion of the Postman interface, you should see "Body", "Cookies", "Headers" and a spot that says something like "Test Results (7/7)". This would indicate that 7 tests passed out of 7. If you see, for example, 3/7 then 3 tests passed and 4 did not.
 
 You can click on the "Test Results (7/7)" to see which tests passed.
 
