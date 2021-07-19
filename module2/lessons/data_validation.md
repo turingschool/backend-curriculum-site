@@ -88,7 +88,7 @@ The following methods trigger validations, and will save the object to the datab
 
 ### Try It
 
-Use [ShouldaMatchers](https://github.com/thoughtbot/shoulda-matchers/blob/master/lib/shoulda/matchers/active_record/validate_uniqueness_of_matcher.rb) and [validation helpers](https://edgeguides.rubyonrails.org/active_record_validations.html) to accomplish the following:
+Use [ShouldaMatchers](https://github.com/thoughtbot/shoulda-matchers) and [validation helpers](https://edgeguides.rubyonrails.org/active_record_validations.html) to accomplish the following:
 
 * Add a validation that validates the uniqueness of an Artist's name
 * Add a validation that validates the presence of a Playlist's name
