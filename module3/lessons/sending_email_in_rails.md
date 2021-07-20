@@ -73,7 +73,7 @@ post '/advice', to: 'advice#create'
 Let's follow that route to the Advice Controller's create action. Before updating this action, let's keep familiarizing ourselves with the code. Take a look at what's happening: 
 
 ⭐ What is `@advice = AdviceGenerator.new`? Explore the AdviceGenerator class. What's going on in there? Take some time to dissect what's happening.\
-⭐ Put a `binding.pry` in under `@advice = AdviceGenerator.new` and run your tests. Try some things out-- what methods do you have available to call on `@advice`? 
+⭐ Put a `binding.pry` in under `@advice = AdviceGenerator.new` and run your tests. Try some things out-- what methods do you have available to call on `@advice`? What happens when you call `@advice.message`? What happens when you run `@advice.message` again?
 
 Alright, let's get back to updating the create action to call our mailer! 💌
 
@@ -107,7 +107,7 @@ Run your tests again, and you'll see we now have a different failure. We're drea
 ### Exploring the Mailer 
 
 ⭐ In your text editor, search the application for files containing the word 'mailer'. (CMD + t in atom, CMD + p in VScode)\
-⭐ You should see 3 files pop up -- `mailer.html.erb`, `mailer.text.erb`, `application_mailer.rb`. These files come with Rails. Open up the file, and start to speculate what they're used for. Could you see any similarities between these mailer files and other parts of our application?
+⭐ You should see 3 files pop up -- `mailer.html.erb`, `mailer.text.erb`, `application_mailer.rb`. These files come with Rails. Open up the files, and start to speculate what they're used for. Does `mailer.html.erb` remind you of any other files you've interacted with in the past? 
 
 ### Creating the Mailer
 
