@@ -34,7 +34,6 @@ Our "Back End" application will be an API built in Rails. It will act as the int
     - There is no ERB, HTML or CSS, JavaScript, anywhere in this project
   - All input is received as JSON data; it only responds with JSON data
     - we recommend **eager loading** where possible, and use of the "bullet" gem to detect N+1 queries
-  - We recommend considering the use of GraphQL to reduce the amount of RESTful CRUD endpoints you'll need to build
   - Extensions: 
      1. using GraphQL to reduce the amount of RESTful CRUD endpoints you'll need to build
      2. using Rails caching and/or memoization to cache/memoize data retrieved from external APIs
