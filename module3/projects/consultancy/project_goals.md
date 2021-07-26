@@ -24,13 +24,7 @@ _Note: See [Learning Goals](../../misc/learning_goals) to see at what level thes
 * Refactor code for better code organization/readability ⭐ ⭐
 * Create a project with a separate frontend and backend ⭐ ⭐
 * Implement a production-quality user interface using Bootstrap or other common CSS styling framework ⭐ ⭐
-* Optimize your application using at least one of the following ⭐
-  - database indexing
-  - eager loading
-  - caching
-  - background workers
-  - AJAX requests
-  - memoization
+
 
 ### Explicit Professional Expectations
 
