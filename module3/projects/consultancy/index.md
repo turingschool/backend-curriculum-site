@@ -25,8 +25,7 @@ Our "Front End" application can be built in Rails, but could be substituted late
       - This will follow the typical Facade and Service design patterns
       - You will need HEAVY use of webmock to test expected results until the backend endpoints are finished. Planning the structure of your JSON ahead of time will go a long way in allowing both applications to proceed in a decoupled manner asynchronously
       - Once the backend endpoints are finished, consider changing to VCR
-  - Requirement: using caching to cache responses retrieved from the backend application
-  - Extension: Using a JS FE framework
+  - Extension: use caching to cache responses retrieved from the backend application
 
 Our "Back End" application will be an API built in Rails. It will act as the interface layer to our database, and it will handle our API consumption.
 - Rails Backend
