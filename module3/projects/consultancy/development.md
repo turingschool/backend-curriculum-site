@@ -23,7 +23,7 @@ In Agile processes, a sprint is a single cycle of development. The most common l
 
 ## Pairing Schedules
 
-Your PM will present a pairing team every sprint, and rotate you to different areas of the project. If you are mid-way through a story, you must figure out how to hand off that work to another pair.
+Your PM will present a pairing team every sprint, and rotate you to different areas of the project. We highly encourage you to switch teams as we announce new ones, but if you feel like for your best learning, you need to stay on a certain team, then discuss with your project group.
 
 
 #### Sprint 1: User Interface and Database Planning Spike
