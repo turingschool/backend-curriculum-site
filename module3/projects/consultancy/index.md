@@ -19,8 +19,8 @@ Our "Front End" application can be built in Rails, but could be substituted late
   - This application is responsible for authentication via OAuth
     - Try to find a way to utilize your user's OAuth token within the application in some way
       - eg, if you OAuth with Google, what can we use their OAuth token to do on their behalf at Google?
-  - This application is only allowed to store user data in a local database
-    - This app's database will only have a "users" table
+  - This application is only allowed to store user data in a local database (although you can choose to store user data on the backend instead)
+    - This app's database can only have a "users" table
     - All other database storage must go through a "DatabaseService" that you implement to do any CRUD behavior on your Backend
       - This will follow the typical Facade and Service design patterns
       - You will need HEAVY use of webmock to test expected results until the backend endpoints are finished. Planning the structure of your JSON ahead of time will go a long way in allowing both applications to proceed in a decoupled manner asynchronously
