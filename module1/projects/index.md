@@ -10,7 +10,7 @@ The following projects will be assigned and their completion is required to be p
 * Week 1 (independent): [Flash Cards](./flashcards)
 * Week 2-3 (paired): [Battleship](./battleship)
 * Week 3-5 (group): [Futbol](./futbol)
-* Week 5-6 (individual): 
+* Week 5-6 (individual): [Enigma](./enigma)
 
 
 ## Extension Projects
