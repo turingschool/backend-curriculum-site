@@ -23,7 +23,7 @@ Students should complete the final project expectations with a passing score.
 
 ### Career Development
 
-The Mod 3 [career development](https://github.com/turingschool/career-development-curriculum/tree/master/module_three) curriculum centers around learning to tell your story and beginning your job hunt.
+The Mod 3 [career development](https://careerdev.turing.edu/module_three) curriculum centers around learning to tell your story and beginning your job hunt.
 
 ### Portfolio
 
