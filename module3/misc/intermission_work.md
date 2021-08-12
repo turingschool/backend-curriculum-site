@@ -8,7 +8,7 @@ subheading: Intermission Work
 
 You must complete and submit all of these assignments. *It is due the Saturday before the start of the inning at 5pm*
 
-Submit your work here: [Survey Link](https://forms.gle/1WVzP74v1hUadxwFA)
+Submit your work here: [Survey Link](https://forms.gle/ZaqUCjK9gbTSjNxQ9)
 
 
 ## Core Learning Goals of Mod 3
@@ -36,7 +36,7 @@ Here are some helpful videos and tutorials that you can use to familiarize yours
 
 ### Authentication / Authorization
 
-Write up some notes and ideas on the following:
+Write up some notes and ideas on the following (We would like you to submit these notes, so you may want to use google docs):
 
 - you need to store a user in a database table; what do we need to know about them (ie, email, password)
 - how can we store a password in a secure way (ie, if our database is compromised, how can we protect their passwords from prying eyes)
@@ -58,7 +58,6 @@ Fork and clone [Here Be Dragons](https://github.com/turingschool-examples/here-b
 * On one piece of paper, write out all of the parts of an example `HTTP GET` request (Diagram the DNS look-up as well as how a Rails Application would handle the request via MVC)
 * On a separate piece of paper, write out an example 200 response to that request with all of the parts
 * **Bonus** write your explanation as a metaphor
-* Bring this to class day 1.
 
 
 ### Rails "params" magic.
