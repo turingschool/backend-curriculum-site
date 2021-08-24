@@ -61,7 +61,7 @@ gem install rspec
 - We need to have an assertion at the end of every test
   - A lot of times we are going to compare if two values are equal to each other
   - We do that by writing `expect(actual).to eq(expected)` where actual is the result of the method call or object querying, and expected is the value we expect it to be.
-- [Rspec Expectations Documentation](https://rubydoc.info/gems/rspec-expectations)
+- [Rspec Expectations Documentation](https://www.rubydoc.info/github/rspec/rspec-expectations/RSpec/Expectations)
 
 
 ## Code-Along
