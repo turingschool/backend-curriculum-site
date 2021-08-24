@@ -45,7 +45,7 @@ tags: ruby, testing
 ### rspec Setup
 
 Rspec is a framework used for automated testing. It is the testing framework used on many of the homework exercises you've been assigned.
-[Rspec Core Documentation](https://rubydoc.info/gems/rspec-core)
+[Rspec Core Documentation](https://rspec.info/documentation/3.9/rspec-core/RSpec/Core/Configuration)
 
 ```
 gem install rspec
