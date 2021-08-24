@@ -9,7 +9,7 @@ tags: ruby, testing
 
 * Understand why we use tests
 * Define the stages of a test
-* Define a rspec test
+* Define a RSpec test
 * Use a variety of assertion methods
 
 ## Vocabulary
@@ -42,10 +42,10 @@ tags: ruby, testing
     └── name_of_class_spec.rb
 ```
 
-### rspec Setup
+### RSpec Setup
 
-Rspec is a framework used for automated testing. It is the testing framework used on many of the homework exercises you've been assigned.
-[Rspec Core Documentation](https://rspec.info/documentation/3.9/rspec-core/RSpec/Core/Configuration)
+RSpec is a framework used for automated testing. It is the testing framework used on many of the homework exercises you've been assigned.
+[RSpec Core Documentation](https://rspec.info/documentation/3.9/rspec-core/RSpec/Core/Configuration)
 
 ```
 gem install rspec
@@ -53,7 +53,7 @@ gem install rspec
 
 * Require `rspec` - the easy and explicit way to run all your tests
 
-### rspec Convention
+### RSpec Convention
 
 - At the top of every spec file: `describe NameOfClass`
 - describe '#name_of_method'
@@ -61,7 +61,7 @@ gem install rspec
 - We need to have an assertion at the end of every test
   - A lot of times we are going to compare if two values are equal to each other
   - We do that by writing `expect(actual).to eq(expected)` where actual is the result of the method call or object querying, and expected is the value we expect it to be.
-- [Rspec Expectations Documentation](https://www.rubydoc.info/github/rspec/rspec-expectations/RSpec/Expectations)
+- [RSpec Expectations Documentation](https://www.rubydoc.info/github/rspec/rspec-expectations/RSpec/Expectations)
 
 
 ## Code-Along
@@ -170,7 +170,7 @@ Each test that we create needs 4 components to be a properly built test.
 * Setup - The setup of a test is all of the lines of code that need to be executed in order to verify some behavior. Because each test is run individually, we often see the same setup being created multiple times.
 * Execution - The execution is the actual running of the method we are testing.  This sometimes happens on the same line as the assertion, and sometimes happens prior to the assertion.
 * Assertion - The verification of the behavior we are expecting.  This is really the main focus of the test; without the assertion, we have no test.
-* Teardown - After we complete a test, we want to delete all of our setup, and clear the scope for our next test.  In minitest this is done automatically! So, you won't need to worry about this in Mod1, but it is important to know for other testing frameworks.
+* Teardown - After we complete a test, we want to delete all of our setup, and clear the scope for our next test.  In RSpec this is done automatically! So, you won't need to worry about this in Mod 1, but it is important to know for other testing frameworks.
 
 With a partner, see if you can identify each of the components in the following tests:
 
@@ -266,7 +266,7 @@ describe Student do
       expect(student.name).to eq 'Penelope'
     end
 
-    it 'gives assigns a default name' do
+    it 'assigns a default name' do
       student = Student.new(42)
       expect(student.name).to eq 'Default Name Assigned'
     end
@@ -295,5 +295,5 @@ end
 * `rspec` setup
   * What do you have to require in a spec file?
   * What goes in the initial describe block?
-  * What is the syntax for a rspec spec?
+  * What is the syntax for a RSpec spec?
   * Name 3 `.to` methods you learned about today & describe their syntax.
