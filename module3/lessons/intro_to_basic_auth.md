@@ -85,19 +85,14 @@ end
 
 Running the test will give us errors to follow about routing and creating a controller.
 
-```ruby
-  #routes.rb
-
-  get "/", to: "welcome#index"
-```
-
-Or we can use the handy `root` method that Rails gives us to create a route for the root path ("/"):
+Let's use the handy `root` method that Rails gives us to create a route for the root path ("/"):
 
 ```ruby
   #routes.rb
 
   root "welcome#index"
 ```
+This is the same as `get "/", to: "welcome#index"`, but now, we'll have the `root` prefix to use as a path helper. Try it! Run `rake routes` and see the routes that get generated for `"/"` when you write the path these two different ways. 
 
 Next, let's create the `WelcomeController` and a method for the `index` action as well. We are going to be rendering some basic content so we don't need to fetch any data or build any instance variables in our controller.
 
@@ -120,6 +115,13 @@ Since this is a new "user" resource, we'll name this as we have in other Rails a
 * Be sure to use path helpers everywhere you can!
 
 We can continue to follow our errors to create a new resources route for our users to point to a controller. We need a "new" path to display the form, and a "create" path to save the form data.
+
+```ruby 
+  #routes.rb
+
+  root "welcome#index"
+  resources :users, only: [:new,:create]
+```
 
 For the "new" page, once we create the route, and the UsersController, and the correct action method, we'll need to create a form.
 
@@ -202,29 +204,7 @@ class User < ApplicationRecord
   validates_presence_of :password, require: true
 end
 ```
-
-Our model test is blowing up because we don't have `shoulda-matchers` installed or set up, let's go do that really quickly.
-
-## Shoulda-Matchers
-
-Add this to our development/test block:
-
-```ruby
-gem 'shoulda-matchers'
-```
-
-Then run `bundle` to install that gem.
-
-And add this at the bottom of our `rails_helper.rb`:
-
-```ruby
-Shoulda::Matchers.configure do |config|
-  config.integrate do |with|
-    with.test_framework :rspec
-    with.library :rails
-  end
-end
-```
+Run your test 
 
 Our model test is complaining that we don't have an attribute called `password`, and it's right! Look at the migration and the schema. We have a field called `password_digest`.
 
@@ -260,7 +240,9 @@ Run the model tests again and they should be passing.
 
 Now that we're past the error about our missing User model, our form is complaining about a missing 'username' field.
 
-If you add the `launchy` gem to your Gemfile (and run `bundle`) then you'll be able to add `save_and_open_page` as a command in your feature test, at some point before the failing line.
+The gem, `launchy` has been added to your Gemfile, which means now, you can add `save_and_open_page` as a command in your feature test, at some point before the failing line. This will open up a static page at the time the `save_and_open_page` method was executed.
+
+Add `save_and_open_page` before the line in your test that's currently failing, and then run your test.
 
 If we examine the HTML on the page in our browser, we see that the form fields aren't called `username` and `password`, they're called `user_username` and `user_password`.
 

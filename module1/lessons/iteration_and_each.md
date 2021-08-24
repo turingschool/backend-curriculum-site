@@ -64,7 +64,7 @@ names = ["Megan", "Brian", "Sal"]
 names.each {|name| puts name }
 ```
 
-Generally, we avoid using single-line syntax unless the operation inside the block is *very* short. In this example, it is appropriate.
+Generally, we avoid using single-line syntax.
 
 
 ### Exercises
