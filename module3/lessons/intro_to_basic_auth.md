@@ -204,29 +204,7 @@ class User < ApplicationRecord
   validates_presence_of :password, require: true
 end
 ```
-
-Our model test is blowing up because we don't have `shoulda-matchers` installed or set up, let's go do that really quickly.
-
-## Shoulda-Matchers
-
-Add this to our development/test block:
-
-```ruby
-gem 'shoulda-matchers'
-```
-
-Then run `bundle` to install that gem.
-
-And add this at the bottom of our `rails_helper.rb`:
-
-```ruby
-Shoulda::Matchers.configure do |config|
-  config.integrate do |with|
-    with.test_framework :rspec
-    with.library :rails
-  end
-end
-```
+Run your test 
 
 Our model test is complaining that we don't have an attribute called `password`, and it's right! Look at the migration and the schema. We have a field called `password_digest`.
 
