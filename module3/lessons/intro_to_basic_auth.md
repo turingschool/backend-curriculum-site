@@ -85,19 +85,14 @@ end
 
 Running the test will give us errors to follow about routing and creating a controller.
 
-```ruby
-  #routes.rb
-
-  get "/", to: "welcome#index"
-```
-
-Or we can use the handy `root` method that Rails gives us to create a route for the root path ("/"):
+Let's use the handy `root` method that Rails gives us to create a route for the root path ("/"):
 
 ```ruby
   #routes.rb
 
   root "welcome#index"
 ```
+This is the same as `get "/", to: "welcome#index"`, but now, we'll have the `root` prefix to use as a path helper. Try it! Run `rake routes` and see the routes that get generated for `"/"` when you write the path these two different ways. 
 
 Next, let's create the `WelcomeController` and a method for the `index` action as well. We are going to be rendering some basic content so we don't need to fetch any data or build any instance variables in our controller.
 
@@ -120,6 +115,13 @@ Since this is a new "user" resource, we'll name this as we have in other Rails a
 * Be sure to use path helpers everywhere you can!
 
 We can continue to follow our errors to create a new resources route for our users to point to a controller. We need a "new" path to display the form, and a "create" path to save the form data.
+
+```ruby 
+  #routes.rb
+
+  root "welcome#index"
+  resources :users, only: [:new,:create]
+```
 
 For the "new" page, once we create the route, and the UsersController, and the correct action method, we'll need to create a form.
 
