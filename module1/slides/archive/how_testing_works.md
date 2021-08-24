@@ -1,6 +1,7 @@
 # How Testing Works
 
 ---
+<!-- Archive uses minitest -->
 
 # Warm Up
 
