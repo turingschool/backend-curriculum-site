@@ -240,7 +240,9 @@ Run the model tests again and they should be passing.
 
 Now that we're past the error about our missing User model, our form is complaining about a missing 'username' field.
 
-If you add the `launchy` gem to your Gemfile (and run `bundle`) then you'll be able to add `save_and_open_page` as a command in your feature test, at some point before the failing line.
+The gem, `launchy` has been added to your Gemfile, which means now, you can add `save_and_open_page` as a command in your feature test, at some point before the failing line. This will open up a static page at the time the `save_and_open_page` method was executed.
+
+Add `save_and_open_page` before the line in your test that's currently failing, and then run your test.
 
 If we examine the HTML on the page in our browser, we see that the form fields aren't called `username` and `password`, they're called `user_username` and `user_password`.
 
