@@ -13,7 +13,7 @@ layout: page
 
 ## Setup
 
-This lesson builds off of the [SetList Tutorial Songs Show](https://youtu.be/oZGZEJWt8qQ) video. You can also begin this lesson on the `feature_testing_practice` branch of [this repo](https://github.com/turingschool-examples/set_list_tutorial)
+You can start this lesson by checking out the `feature_testing_practice` branch of [this repo](https://github.com/turingschool-examples/set_list_tutorial)
 
 # Feature Testing
 
