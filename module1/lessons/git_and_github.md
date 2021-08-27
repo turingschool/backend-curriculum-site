@@ -67,7 +67,7 @@ Commit messages should be a short description of what is being added, changed, o
 
 How to Write a Good Commit Message
 
-Begin the commit message with the <b>type</b> of the commit followed by a <code>:</code> and brief description. 
+<p>Begin the commit message with the <b>type</b> of the commit followed by a <code>:</code> and brief description. </p>
 
 Types of commits include:
     <ul>
