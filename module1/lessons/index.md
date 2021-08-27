@@ -55,3 +55,4 @@ title: Module 1 Lessons
 ### Good Practices & Process
 * [Productive Struggle](./productive_struggle)
 * [Writing Mod 1 READMEs](./writing_a_readme)
+* [Project DTR](https://docs.google.com/document/d/1HFWSZExSWgGJdqLkEH4DXs-z1gZxMNkv4n1NO9U1eJU/edit?usp=sharing)
