@@ -71,9 +71,9 @@ How to Write a Good Commit Message
 
 Types of commits include:
     <ul>
-        <li> <b>fix</b> - use if commited code is fixing a bug(broken code).</li>
-        <li> <b>feat</b> - stands for feature. <i>This will likely be your most common type that you use.</i> It should be used for any new functionality that is commited.</li>
-        <li> <b>test</b> - use if commited code is adding test functionality.</li>
+        <li> <b>fix</b> - use if committed code is fixing a bug(broken code).</li>
+        <li> <b>feat</b> - stands for feature. <i>This will likely be your most common type that you use.</i> It should be used for any new functionality that is committed.</li>
+        <li> <b>test</b> - use if committed code is adding test functionality.</li>
         <li> <b>refactor</b> - use if updating and/or removing existing code.</li>
         <li> <b>docs</b> - use if updating your readme.</li>
     </ul>
