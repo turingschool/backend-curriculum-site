@@ -13,6 +13,7 @@ After this lesson, students should be able to:
 * Create a Git repository locally
 * Create a repository on GitHub
 * Link a local repository to a remote repository
+* Write meaningful commit messages
 * Use a branching workflow with Git and GitHub
 
 ## Warmup
