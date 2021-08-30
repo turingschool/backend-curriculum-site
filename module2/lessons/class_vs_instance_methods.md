@@ -12,7 +12,7 @@ layout: page
 
 ## Set Up
 
-This lesson plan starts at the `class_instance_methods_setup` branch of [this SetList repo](https://github.com/turingschool-examples/set_list/tree/class_instance_methods_setup). In order to set up the app for this lesson:
+This lesson plan starts at the `class_instance_methods_setup` branch of [this SetList repo](https://github.com/turingschool-examples/set_list_tutorial/tree/class_instance_methods_setup). In order to set up the app for this lesson:
 
 * Clone the repo
 * Checkout the `class_instance_methods_setup` branch
