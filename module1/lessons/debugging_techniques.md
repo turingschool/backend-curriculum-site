@@ -129,16 +129,23 @@ Let's run the `hippogriff_spec.rb`, and review the errors that are generated the
    # ./spec/hippogriff_spec.rb:38:in `block (2 levels) in <top (required)>'
 ```
 
-Let's start by reading that stack trace, and then answer the following questions with a partner:
 
-* What test is generating this error?
-* What line in that test is generating the error?
-* Is there any setup involved before we hit that line?
-* If so, can we use pry to confirm that the setup has been completed successfully? Do we have access to the variables that we think we do? Are they holding the objects we expect them to?
-* What about in the Hippogriff class itself? What line is generating an error?
-* Use pry to verify that the variables we are using in that method are holding the objects we expect them to.
-* Can you identify the error?
-* Can you make the test pass?
+
+<section class="checks-for-understanding">
+  
+  <h4> Let's start by reading that stack trace, and then answer the following questions with a partner: </h4>
+  <ul>
+    <li> What test is generating this error?</li>
+    <li> What line in that test is generating the error?</li>
+    <li> Is there any setup involved before we hit that line?</li>
+    <li> If so, can we use pry to confirm that the setup has been completed successfully? Do we have access to the variables that we think we do? Are they holding the objects we expect them to?</li>
+    <li> What about in the Hippogriff class itself? What line is generating an error?</li>
+    <li> Use pry to verify that the variables we are using in </li>that method are holding the objects we expect them to.
+    <li> Can you identify the error?</li>
+    <li> Can you make the test pass?</li>
+  </ul>
+
+</section>
 
 ### Trying Things
 
@@ -163,11 +170,14 @@ Let's look at an error from our Wizard test suite:
    # ./spec/wizard_spec.rb:25:in `block (2 levels) in <top (required)>'
 ```
 
-With a partner:
-
-* Read the stack trace to determine where the error is occurring.
-* Use pry in the test file to verify any assumptions you may have about what's happening.
-* Use pry in the Wizard class to see if you can determine how to implement this method before you enter any code into the Wizard class. Ask yourself: how can I get the return value that I want?
+<section class="checks-for-understanding">
+  <h4>With a partner:</h4>
+  <ul>
+    <li> Read the stack trace to determine where the error is occurring.</li>
+    <li> Use pry in the test file to verify any assumptions you may have about what's happening.</li>
+    <li> Use pry in the Wizard class to see if you can determine how to implement this method before you enter any code into the Wizard class. Ask yourself: how can I get the return value that I want?</li>
+  </ul>
+</section>
 
 ## Exercise - Erroneous Creatures
 
@@ -175,6 +185,8 @@ See if you can finish updating the Erroneous Creatures to make the rest of the t
 
 Use the debugging techniques discussed above to diagnose and fix the bugs, and get your creatures back to passing.
 
-### Addenda / More Material
 
-* http://tutorials.jumpstartlab.com/topics/debugging/debugging.html
+#### Other Resources
+
+* [Older Lesson for Reference](http://tutorials.jumpstartlab.com/topics/debugging/debugging.html)
+      *Note: Some of the content in the older lesson is out of date.*
