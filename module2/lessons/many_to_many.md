@@ -24,7 +24,7 @@ tags: database, schema, relationships
 
 ## Setup
 
-This lesson builds off of the [Passing Data Lesson](./passing_data_in_rails). You can find the completed code from this lesson on the `passing_data` branch of [this repo](https://github.com/turingschool-examples/set_list/tree/passing_data)
+You can begin this lesson on the `many_to_many_practice` branch of [this repo](https://github.com/turingschool-examples/set_list_tutorial).
 
 ## Warm-Up
 
