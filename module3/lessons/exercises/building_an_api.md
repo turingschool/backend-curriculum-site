@@ -683,7 +683,7 @@ Awesome! Now we have our popularity attribute. Before we celebrate too early tho
 
 ```sh
 $ mkdir -p app/serializers
-$ touch app/serailizers/books_serializer.rb
+$ touch app/serializers/books_serializer.rb
 ```
 
 ```rb
