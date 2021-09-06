@@ -10,7 +10,7 @@ title: Using Partials to DRY up Our Views
 
 ## Setup
 
-This lesson builds off of the [Sad Path Testing and Flash Messages lesson](./sad_path_and_flash). You can find the completed code from this lesson on the `sad_path_and_flash` branch of [this repo](https://github.com/turingschool-examples/set_list/tree/sad_path_and_flash)
+This lesson builds off of the [Many to Many lesson](./many_to_many). You can find the completed code from this lesson on the `many_to_many` branch of [this repo](https://github.com/turingschool-examples/set_list_tutorial)
 
 ## Warm Up
 
