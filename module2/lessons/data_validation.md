@@ -11,7 +11,7 @@ layout: page
 
 ## Set Up
 
-This lesson begins on the `validations` branch of our [set list repo](https://github.com/turingschool-examples/set_list/tree/validations)
+This lesson begins on the `validations` branch of our [set list repo](https://github.com/turingschool-examples/set_list_tutorial)
 
 # Lesson
 
