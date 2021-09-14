@@ -16,10 +16,6 @@ Each Repo meets the following:
     - [ ] Frontend, User-facing routes are friendly (not necessarily RESTful)
     - [ ] Rails Backend
 
-- Optimization technique is implemented in one of the following:
-    - [ ] Frontend
-    - [ ] Rails Backend
-
 - Controllers utilize Facades
     - [ ] Frontend
     - [ ] Rails Backend
@@ -61,7 +57,10 @@ Rails Backend
 
 __When the above criteria is met, here are additional points to achieve a 4__
 
-- [ ] Optimization techniques implemented in all repos
+
+- Optimization technique is implemented in one of the following:
+    - [ ] Frontend
+    - [ ] Rails Backend
 
 - Travis-CI deploys to Heroku
     - [ ] Frontend
