@@ -44,7 +44,7 @@ Each Repo meets the following:
 
 Frontend
 
-- [ ] No data storage (models, database schema, etc) is done at this layer; sessions and caching are the exception
+- [ ] No data storage (models, database schema, etc) is done at this layer; user info, sessions and caching are the exception
 - [ ] Application is easy to navigate for non-technical users
 
 
