@@ -5,7 +5,7 @@ title: Rails form_with
 
 ## Warm Up
 
-We'll start today from the [Set List main branch](https://github.com/turingschool-examples/set_list)
+We'll start today from the [Set List main branch](https://github.com/turingschool-examples/set_list_tutorial)
 
 - Thinking about our Set List application, what is the structure of the forms we use to create and update artists? (Share your screen and put them side by side)
     - How do we tell our forms the path and verb it should use when the form is submitted?
@@ -17,7 +17,7 @@ We'll start today from the [Set List main branch](https://github.com/turingschoo
 
 **form_with** is a Rails form helper, similar to `form_tag` and `form_for` which have both been soft deprecated. It is a form helper that allows us to use ruby code to build an HTML form.  `form_with` can bind a form to a model object or it can create a simple form that does not require a model. It uses a number of helper options to make some educated guesses about how the HTML form should be built.
 
-If we were going to use `form_with` without a model (like you've done with `form_tag`) to create a simple search form then we could do it like so:
+If we were going to use `form_with` without a model to create a simple search form then we could do it like so:
 
 ```html
 <%= form_with(url: "/search", method: "get") do %>
@@ -115,9 +115,9 @@ end
 
 ### Strong Params with form_with
 
-Another difference between `form_tag` and `form_with` is how the params gets built when the form is submitted and handled through Rails. With `form_tag`,  all of the fields are inserted directly into the params hash - the params looks like an un-nested hash; in this format, we use `params.permit(:attribute1, :attribute2)` in our strong params method.  
+Another difference between `form_with url` and `form_with model` is how the params gets built when the form is submitted and handled through Rails. When using `url`,  all of the fields are inserted directly into the params hash - the params looks like an un-nested hash; in this format, we use `params.permit(:attribute1, :attribute2)` in our strong params method.  
 
-With `form_with`, the form fields are inserted into the params in a nested hash - the key is the name of the resource, and it points to a collection of key/value pairs representing the field labels and user inputs.  With this nested hash, our strong params will need some additional instructions:
+With `form_with model`, the form fields are inserted into the params in a nested hash - the key is the name of the resource, and it points to a collection of key/value pairs representing the field labels and user inputs.  With this nested hash, our strong params will need some additional instructions:
 
 ```ruby
 def dog_params
@@ -137,10 +137,9 @@ Again, notice the nesting.
 
 ### Practice
 
-In our Set List app or in your project, update a few forms to use the `form_with` instead of `form_tag` - see if you can keep using partials! Can you create another partial using form_with?
+In our Set List app or in your project, update a few forms to use the `form_with model` instead of `form_with url` - see if you can keep using partials!
 
 ## Checks for Understanding
 
-* How does `form_with` know which verb/path combination to submit to?
-* Could we use `form_with` for a log in form?
-* What is a benefit of using `form_with` over `form_tag`? Are there any drawbacks?
+* How does `form_with model` know which verb/path combination to submit to?
+* What is a benefit of using `form_with model` over `form_with url` or `form_tag`? Are there any drawbacks?
