@@ -10,13 +10,13 @@ Projects require students to apply new concepts from class and build on existing
 * **Independent Project** - Begin Monday week 1, due Monday week 2.
   * The goal of this project is for students to practice all of the key concepts of module 1 covered in the prework and week 1.
   * This project is safe to fail, meaning it will not count towards the final promotion decision at the end of the module.
-  * Students will be given feedback on their project, but scores will not be recorded.
+  * Students will be given feedback on their project, but scores will not count towards promotion.
 * **Paired Project** - Begin Monday week 2, due Thursday week 3.
-  * This project will count towards the final promotion decision.
+  * Students must pass either the Paired or Group Project to be promoted.
 * **Group Project** - Begin Monday week 4, due Thursday week 5.
-  * This project will count towards the final promotion decision.
-* **Independent Project** - Begin Friday week 5, due Tuesday week 6.
-  * This project will count towards the final promotion decision.
+  * Students must pass either the Paired or Group Project to be promoted.
+* **Final Independent Project** - Begin Friday week 5, due Tuesday week 6.
+  * Students must pass the Final Independent Project to be promoted.
 
 ## Independent Challenges
 
