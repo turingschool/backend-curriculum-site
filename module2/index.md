@@ -12,6 +12,7 @@ In Module 2, we expand upon fundamental Ruby skills by building database-backed 
 
 * Jamison Ordway (Anchor)
 * Kelly Murray
+* Michael Dao
 
 ## Curriculum
 
