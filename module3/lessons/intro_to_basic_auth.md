@@ -68,7 +68,7 @@ RSpec.describe "User registration form" do
 
     click_on "Register as a User"
 
-    expect(current_path).to eq(new_user_path)
+    expect(current_path).to eq(new_users_path)
 
     username = "funbucket13"
     password = "test"
@@ -109,7 +109,7 @@ But which URI path should we send a user to who clicks on this link?
 Since this is a new "user" resource, we'll name this as we have in other Rails applications.
 
 ```html
-<%= link_to "Register as a User", new_user_path %>
+<%= link_to "Register as a User", new_users_path %>
 ```
 
 * Be sure to use path helpers everywhere you can!
