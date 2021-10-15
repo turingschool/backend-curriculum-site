@@ -28,7 +28,7 @@ Available [here](../slides/testing_api_consumption)
 * Add the key to `application.yml` and name it: `govt_api_key`
 
 ## Optional Manual Setup
-The rest of this setup is on [this setup branch](https://github.com/turingschool-examples/congress-tracker-2102/tree/pre_api_testing_tools_setup) if you'd like to pull it down and start from that point instead:
+The rest of this setup is on [this setup branch](https://github.com/turingschool-examples/congress-tracker-2107/tree/authorization) if you'd like to pull it down and start from that point instead:
 
 * Add the faraday gem just below bcrypt in gemfile
 
