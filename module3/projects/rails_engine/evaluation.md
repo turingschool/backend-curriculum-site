@@ -7,7 +7,7 @@ type: project
 
 For the project eval, you should prepare a 10 minute presentation that clearly demonstrates each category of the below rubric. 
 
-In the past, we had students record their presentation. This is not a requirement anymore. But, if you'd like to get an idea for what a good presentation might entail, you can take a look at these recorded presentations: 
+In the past, we had students record their presentation. This is not a requirement anymore. But, if you'd like to get an idea for what a good presentation might entail, you can take a look at these recorded presentations (these students have given their permission for these to be shared): 
 1. [Example 1](https://www.loom.com/share/44b0adf2a5b54be5bd4d02405e43c98b)
 2. [Example 2](https://www.loom.com/share/765f2cfbf4af49268cdee564e5d995db)
 
