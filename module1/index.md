@@ -10,9 +10,9 @@ In Module 1, students will learn to use Ruby and object-oriented programming to 
 
 ## Instructors
 
-* Michael Dao (Anchor)
-* Dione Wilson
+* Brian Zanti (Anchor)
 * Dani Coleman
+* Richard Tillies
 
 ## Curriculum
 

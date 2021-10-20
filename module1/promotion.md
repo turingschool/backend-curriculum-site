@@ -27,7 +27,7 @@ Students can reference the [Module 1 Syllabus](./syllabus) for more details on t
 
 ## Professional Development
 
-Promoted students will have successfully completed the [Module 1 Professional Development Curriculum](https://github.com/turingschool/career-development-curriculum/tree/master/module_one). This includes attending all sessions, making up any missed sessions, and completing all PD deliverables.
+Promoted students will have successfully completed the [Module 1 Professional Development Curriculum](https://careerdev.turing.edu/module_one/). This includes attending all sessions, making up any missed sessions, and completing all PD deliverables.
 
 ## Portfolio
 

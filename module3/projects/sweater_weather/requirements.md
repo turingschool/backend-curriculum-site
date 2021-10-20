@@ -9,7 +9,7 @@ title: Whether, Sweater? Project Requirements
 
 2. We would like to see a README file included in your project that outlines the learning goals, how someone can clone and set up your application and where they can get their own API keys, and happy path endpoint use.
 
-3. It is __optional__ to use the [Fast JSON API](https://github.com/Netflix/fast_jsonapi) but we strongly recommend it.
+3. It is __optional__ to use a gem for serializing.
 
 
 ## 1. Application Landing Page

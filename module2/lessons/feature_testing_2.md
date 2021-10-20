@@ -13,7 +13,7 @@ layout: page
 
 ## Setup
 
-You can start this lesson by checking out the `feature_testing_practice` branch of [this repo](https://github.com/turingschool-examples/set_list_tutorial)
+You can start this lesson by checking out the `feature_testing_practice` branch of [this repo](https://github.com/turingschool-examples/set_list_tutorial/tree/feature_testing_practice)
 
 # Feature Testing
 

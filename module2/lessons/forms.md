@@ -72,7 +72,7 @@ And click on 'New Artist'
 Then my current path is '/artists/new'
 and I fill in the artist's name
 Then I click 'Create Artist'
-I am redirected to this new artists show page
+I am redirected to the artist index page
 ```
 
 First, a test!

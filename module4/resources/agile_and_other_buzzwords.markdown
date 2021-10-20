@@ -14,7 +14,7 @@ Over the next 30 years, a number of methodologies cropped up advocating a more i
 
 During this period, manufacturing was running into similar, but different, problems. Japanese manufacturing companies, especially Toyota, started developing processes like "kanban" and "continual improvement". Software developers would start to borrow some of these concepts in the 90's.
 
-The complete history of agile developement, and everything that inspired it, is long and messy. [This article has a pretty good summary of the important parts](https://hbr.org/2016/04/the-secret-history-of-agile-innovation).
+The complete history of agile development, and everything that inspired it, is long and messy. [This article has a pretty good summary of the important parts](https://hbr.org/2016/04/the-secret-history-of-agile-innovation).
 
 Agile & Scrum
 ----------

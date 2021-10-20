@@ -5,9 +5,14 @@ length: 1 week
 type: project
 ---
 
-For the project eval, you should come prepared for a 10 minute presentation that clearly demonstrates each category of the below rubric. Practice your presentation before coming to eval's -- make sure ALL points are hit, and you stay at or under 10 minutes. 
+For the project eval, you should prepare a 10 minute presentation that clearly demonstrates each category of the below rubric. 
 
-The technical presentation portion is outlined below with what points should be covered. You should be able to present on all points even if you did not implement in code. If you have questions about the presentation, please let an instructor know before the evaluation day.
+In the past, we had students record their presentation. This is not a requirement anymore. But, if you'd like to get an idea for what a good presentation might entail, you can take a look at these recorded presentations (these students have given their permission for these to be shared): 
+1. [Example 1](https://www.loom.com/share/44b0adf2a5b54be5bd4d02405e43c98b)
+2. [Example 2](https://www.loom.com/share/765f2cfbf4af49268cdee564e5d995db)
+
+
+The technical presentation portion is outlined below with what points should be covered. If you have questions about the presentation, please let an instructor know before the time it's due.
 
 You should review each section of the rubric and strive to have a 3 in each section before attempting any 4s.
 

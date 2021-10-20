@@ -10,19 +10,19 @@ Projects require students to apply new concepts from class and build on existing
 * **Independent Project** - Begin Monday week 1, due Monday week 2.
   * The goal of this project is for students to practice all of the key concepts of module 1 covered in the prework and week 1.
   * This project is safe to fail, meaning it will not count towards the final promotion decision at the end of the module.
-  * Students will be given feedback on their project, but scores will not be recorded.
+  * Students will be given feedback on their project, but scores will not count towards promotion.
 * **Paired Project** - Begin Monday week 2, due Thursday week 3.
-  * This project will count towards the final promotion decision.
+  * Students must pass either the Paired or Group Project to be promoted.
 * **Group Project** - Begin Monday week 4, due Thursday week 5.
-  * This project will count towards the final promotion decision.
-* **Independent Project** - Begin Friday week 5, due Tuesday week 6.
-  * This project will count towards the final promotion decision.
+  * Students must pass either the Paired or Group Project to be promoted.
+* **Final Independent Project** - Begin Friday week 5, due Tuesday week 6.
+  * Students must pass the Final Independent Project to be promoted.
 
 ## Independent Challenges
 
 In week 6, students will participate in the Final Independent Assessment that will count towards the promotion decision. This is a 3 hour code challenge students will complete independently, meaning the student cannot seek help from other students, mentors, etc. Students are allowed to reference notes, other projects, and the internet.
 
-In order to practice for the Final Independent Assessment in week 6, students will be given a weekly practice Independent Challenge starting in week 2. They will be submitted using a Github Pull Request, and instructors will give feedback in the form of comments on the Pull Request. These are not formal assessments, but an opportunity for the student to practice their problem solving skills and receive feedback from instructors. Students are expected to complete the first three iterations.
+In order to practice for the Final Independent Assessment in week 6, students will be given a weekly practice Independent Challenge starting in week 1. They will be submitted using a Github Pull Request, and instructors will give feedback in the form of comments on the Pull Request. These are not formal assessments, but an opportunity for the student to practice their problem solving skills and receive feedback from instructors. Students are expected to complete the first three iterations.
 
 Students can find examples of Independent Challenges [here](./practice_assessments)
 
@@ -30,7 +30,7 @@ Students can find examples of Independent Challenges [here](./practice_assessmen
 
 In week 6, students will participate in the Final Paired Assessment that will count towards the promotion decision. Students will be required to complete a small coding task in advance of the assessment, and then will be given 30 minutes to pair with an instructor on an additional task that builds on their existing code.
 
-In order to practice for the Final Paired Assessment in week 6, students will participate in the Mid Module Paired Assessment in week 4.
+In order to practice for the Final Paired Assessment in week 6, students will participate in the Mid Module Paired Assessment in week 3.
 
 Students can reference [This Example](https://github.com/turingschool-examples/pets_and_customers) of a paired assessment.
 

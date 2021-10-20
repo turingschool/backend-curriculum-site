@@ -432,7 +432,7 @@ end
 private
 
   def book_params
-    params.require(:book).permit(:title, :author, :summary, genere, :number_sold )
+    params.require(:book).permit(:title, :author, :summary, :genre, :number_sold )
   end
 ```
 
@@ -683,11 +683,11 @@ Awesome! Now we have our popularity attribute. Before we celebrate too early tho
 
 ```sh
 $ mkdir -p app/serializers
-$ touch app/serailizers/books_serializer.rb
+$ touch app/serializers/book_serializer.rb
 ```
 
 ```rb
-# app/serializers/books_serializer.rb
+# app/serializers/book_serializer.rb
 class BookSerializer
   def self.format_books(books)
     books.map do |book|
