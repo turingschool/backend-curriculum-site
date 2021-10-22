@@ -45,10 +45,6 @@ Projects, Paired Assessments, and Independent Assessments will be scored on a 4 
 
 Projects, Independent Challenges, and Paired Assessments will be broken into 4 iterations. Students are expected to complete the first 3 iterations to receive a score of 3 (passing), while iteration 4 provides opportunities for further learning and exploration.
 
-## Written CFU (Check for Understanding)
-
-Students will receive a weekly CFU (check for understanding). This CFU will cover the material up to that week. It is to be completed independently, and is closed note, closed internet. Upon completion, you will receive a copy of the 'key' or correct/ideal answers - while there will not be a formal part of class set aside to review this content, use this as a resource to guide your studying/work with mentors.
-
 ## Exercises
 
 - [Ruby Exercises](https://github.com/turingschool/ruby-exercises)
