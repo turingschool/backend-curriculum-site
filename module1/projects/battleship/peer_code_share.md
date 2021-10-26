@@ -13,6 +13,7 @@ First, exchange Github repo links with the other team.
 
 Then, with your project partner, review the other team's code. You should write down answers to the following questions:
 
+1. Can you play the game? Is it easy to figure out how to play the game? Do you find any bugs as you play?
 1. For the `Board#valid_placement` method, is the logic easy to follow? Do the variable names make sense? Could this method be improved by creating additional helper methods?
 1. What classes and methods did the other team include that were not described in the project? How do these classes help organize the code? Are there additional classes or methods they could consider adding that might improve their code?
 1. What other feedback do you have for the other team?
