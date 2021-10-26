@@ -130,7 +130,7 @@ Green Book in days of segregation, written and maintained to let people know whi
 
 
 
-### Ideas from Ian & Dione
+### Ideas from Instructors
 
 #### GitHub Scanner
 
