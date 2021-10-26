@@ -19,6 +19,5 @@ In this project you'll use Ruby to build a command line implementation of the cl
 
 * [Setup](./setup)
 * [Requirements](./requirements)
-* [Submission](./submission)
 * [Peer Code Share](./peer_code_share)
 * [Evaluation Rubric](./rubric)
