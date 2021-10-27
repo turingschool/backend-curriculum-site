@@ -187,8 +187,7 @@ So we have our responses from our server, but it isn’t JSON API 1.0 And it has
       "attributes": {
         "id": 1,
         "name": "Toy, Steuber and Schinner",
-        "num_books": 8,
-        "active": true
+        "num_books": 8
       },
       "relationships": {
         "books": {
