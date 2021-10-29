@@ -32,7 +32,7 @@ end
 <% end %>
 ```
 
-```
+```erb
 <h1><%= @comedian.name %></h1>
 <% if @comedian.specials > 2 && @longest_special > 20 %>
   <p>Average runtime of all this comedian's specials: <%= @average_special_runtime %></p>
