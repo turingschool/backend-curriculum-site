@@ -24,8 +24,7 @@ By the end of this project: <br>
 * Expose an API ⭐ ⭐ ⭐
 * Use serializers to format JSON responses ⭐ ⭐ ⭐
 * Test API exposure ⭐ ⭐ ⭐
-* Compose advanced ActiveRecord queries to analyze information stored in SQL databases ⭐ ⭐
-* Write basic SQL statements without the assistance of an ORM ⭐
+
 
 _Note: See [Learning Goals](../../misc/learning_goals) to see at what level these skills need to be by the final._
 
@@ -54,7 +53,7 @@ We have adapted this project from previous cohorts and have rewritten a fully fu
 Download the test suites for Postman:
 * [Rails Engine, Section 1](./RailsEngineSection1.postman_collection.json)
 * [Rails Engine, Section 2](./RailsEngineSection2.postman_collection.json)
-* [Rails Engine, Section 3](./RailsEngineSection3.postman_collection.json)
+* [Rails Engine, Section 3](./RailsEngineSection3.postman_collection.json) (This section will be used in Week 3 Challenge, you do not need it for the project)
 
 Click on each link to load it in your browser, then hit Cmd-S to save it to your system.
 
