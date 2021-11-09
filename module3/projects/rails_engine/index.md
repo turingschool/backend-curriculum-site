@@ -24,6 +24,7 @@ By the end of this project: <br>
 * Expose an API ⭐ ⭐ ⭐
 * Use serializers to format JSON responses ⭐ ⭐ ⭐
 * Test API exposure ⭐ ⭐ ⭐
+* Use SQL and AR to gather data ⭐ ⭐
 
 
 _Note: See [Learning Goals](../../misc/learning_goals) to see at what level these skills need to be by the final._
