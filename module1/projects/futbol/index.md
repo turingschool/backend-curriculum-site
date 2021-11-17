@@ -7,13 +7,7 @@ Let's build a system to do some analysis on futbol team performance.
 
 ## Learning Goals
 
-* Build classes with single responsibilities.
-* Write organized readable code.
-* Use TDD as a design strategy
-* Design an Object Oriented Solution to a problem
-* Practice algorithmic thinking
-* Work in a group
-* Use Pull Requests to collaborate among multiple partners
+* To model updating the curriculum site
 
 ## Project Description
 
