@@ -7,7 +7,7 @@ type: project
 
 ## Project Description
 
-For this project, you will be building an application to explore movies and create a viewing party event for you and your friends to watch a movie together.
+For this project, you will be building an application to explore movies and create a viewing party event for you and other users of this application.
 
 ## Learning Goals
 
@@ -20,8 +20,8 @@ By the end of this project: <br>
   Student should know of the concept, but need further resources to implement ⭐
 
 * Consume JSON APIs that require authentication ⭐ ⭐ ⭐
+* Test consumption of APIs (facade,service,poros) ⭐ ⭐ ⭐
 * Organize and refactor code to be more maintainable ⭐ ⭐  
-* Implement a self-referential relationship in ActiveRecord ⭐ ⭐
 * Apply RuboCop's style guide for code quality ⭐
 * Deploy to Heroku ⭐
 
