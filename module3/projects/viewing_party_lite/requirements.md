@@ -18,7 +18,7 @@ type: project
 
 
 ### Requirements
-Project specification requirements can be found [here](https://github.com/turingschool-examples/viewing_party/projects/1)
+Project specification requirements can be found [here](https://github.com/turingschool-examples/viewing_party_lite/projects/1)
 
 __One__ member of your team will fill out the conveyor-belt link for the project setup. The conveyor-belt will clone and setup the project board for you.
 
