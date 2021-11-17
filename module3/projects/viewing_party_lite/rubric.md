@@ -21,8 +21,8 @@ title: Viewing Party Project Rubric
 
 ### Code Quality
 
-- **4:** Team can demonstrate how API consumption portions of the project demonstrate all of the four pillars listed below. Team can identify areas where code can be refactored and how they may have created technical debt.
-- **3:** Team can demonstrate how API consumption portions of the project demonstrate 2 of pillars listed below. Team can identify areas where code can be refactored.
+- **4:** Team can demonstrate how API consumption portions of the project demonstrate all of the four pillars listed below. Team can identify areas where code can be refactored and how they may have created technical debt. Team has refactored into facade and service design pattern.
+- **3:** Team can demonstrate how API consumption portions of the project demonstrate 2 of pillars listed below. Team can identify areas where code can be refactored. Team has refactored into facade and service design pattern.
 - **2:** Team can demonstrate how API consumption portions of the project demonstrate 2 of pillars listed below.
 - **1:** Team can demonstrate how API consumption portions of the project demonstrate 1 of the pillars listed below.
 
