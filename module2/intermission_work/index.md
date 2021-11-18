@@ -26,7 +26,7 @@ This Gist will be your submission for your intermission work. Each of the assign
 
 ## Assignments
 
-Work on the following assignments in order. Each assignment will assume that you have completed the previous one and the accompanying Checks for Understanding. **Ruby v2.7.2 and Rails 5.2.5 are required**
+Work on the following assignments in order. Each assignment will assume that you have completed the previous one and the accompanying Checks for Understanding. **Ruby v2.7.2 and Rails 5.2.6 are required**
 
 1. [Ruby and Rails versions installation guide](https://backend.turing.io/module3/misc/ruby_and_rails_versions)
 1. [Get Module 2 Tools](./tools)
