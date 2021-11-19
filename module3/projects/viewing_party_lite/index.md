@@ -50,16 +50,17 @@ Use this [retro guide](../retro_guide) during the scheduled retros for this proj
 Complete the activity [here](../peer_code_share)
 
 ## Evaluation
-For the project evaluation each project team should prepare a 15 minute  presentation that covers the following points:
+For the project evaluation each project team should prepare a 10-12 minute **video** presentation. Presentations longer than 12 minutes will not be reviewed and sent back for revision. Your presentation should cover the following points:
 
  - Demonstration of functionality  
  - Technical quality and organization of the code
  - Identifying code that should be refactored and how it would be refactored
- - Discussion of test coverage (happy and sad path and edge cases)
+ - Running the test suite and a discussion of test coverage (happy and sad path and edge cases)
+ - Identifying the area of code of which you are most proud and an area where you would like specific feedback
 
 All team members are expected to participate equally in the presentation. Students should focus on practicing technical communication that is succinct and utilizes appropriate technical vocabulary.
 
-Instructors will ask followup questions based on the presentation and rubric. All team members should be prepared to answer questions based on any of the above points.
+Instructors will review the video presentation and do a brief code review (so please make sure you identify an area you'd like feedback in your video, so we can focus where you'd like it most). Scores and final comments will be sent to teams via Slack.
 
 Slides are not required, but encouraged as a way to facilitate the presentation along with sharing specific code examples.
 
