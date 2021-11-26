@@ -7,16 +7,25 @@ layout: page
 
 Projects require students to apply new concepts from class and build on existing knowledge. Students will have a total of 4 projects in Module 1:
 
-* **Independent Project** - Begin Monday week 1, due Monday week 2.
+* **Solo Project** - Begin Monday week 1, due Sunday week 2.
   * The goal of this project is for students to practice all of the key concepts of module 1 covered in the prework and week 1.
   * This project is safe to fail, meaning it will not count towards the final promotion decision at the end of the module.
   * Students will be given feedback on their project, but scores will not count towards promotion.
 * **Paired Project** - Begin Monday week 2, due Thursday week 3.
-  * Students must pass either the Paired or Group Project to be promoted.
+  * This project is graded on a scale from 1.0 to 4.0.
+  * A passing score on the Paired Project is 2.5 or greater.
+  * Students must pass either the **Paired Project** or **Group Project** to be promoted.
+* **Winter Project** - Begin Friday week 3, due Sunday week 4.
+  * This project and accompanying assignments are designed to keep your skills sharp over the winter break.
+  * This project is not graded and will not count towards the final promotion decision at the end of the module.
 * **Group Project** - Begin Monday week 4, due Thursday week 5.
-  * Students must pass either the Paired or Group Project to be promoted.
-* **Final Independent Project** - Begin Friday week 5, due Tuesday week 6.
-  * Students must pass the Final Independent Project to be promoted.
+  * This project is graded on a scale from 1.0 to 4.0.
+  * A passing score on the Group Project is 2.5 or greater.
+  * Students must pass either the **Paired Project** or **Group Project** to be promoted.
+* **Final Project** - Begin Friday week 5, due Tuesday week 6.
+  * This project is graded on a scale from 1.0 to 4.0.
+  * A passing score on the Final Project is 2.5 or greater.
+  * Students must pass the **Final Project** to be promoted.
 
 ## Independent Challenges
 
@@ -32,7 +41,7 @@ In week 6, students will participate in the Final Paired Assessment that will co
 
 In order to practice for the Final Paired Assessment in week 6, students will participate in the Mid Module Paired Assessment in week 3.
 
-Students can reference [This Example](https://github.com/turingschool-examples/pets_and_customers) of a paired assessment.
+Students can reference [this Example](https://github.com/turingschool-examples/pets_and_customers) of a paired assessment.
 
 ## Scores
 
@@ -75,4 +84,4 @@ When sending a direct message (DM), students must DM ALL instructors. Exceptions
 
 ## Attendance
 
-Attendance is required at 90% or above to pass Module 1. Attendance will be counted at all scheduled activities from 9:00 am to 4:00 pm . Per the Student Course Catalog, tardiness will be counted as absence.
+Attendance is required at 90% or above to pass Module 1. Attendance will be counted at all scheduled activities from 9:00 am to 4:00 pm. Per the Student Course Catalog, tardiness will be counted as absence.
