@@ -27,6 +27,7 @@ In Module 1, students will learn to use Ruby and object-oriented programming to 
 
 ## Requirements
 
+* [Schedule](./schedule)
 * [Promotion to Module 2](./promotion)
 * [Portfolio](./portfolios)
 * [Syllabus](./syllabus)
