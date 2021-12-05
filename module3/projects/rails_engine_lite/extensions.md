@@ -8,8 +8,8 @@ type: project
 
 Once your Rails Engine project is complete, you may choose any of the following extensions for additional points:
 
-- Complete all of the find_one/find_all endpoints
-- Complete all of the "edge cases" tests and see if you can get the entire test suite to pass!
+- Complete all of the find_one/find_all endpoints (Part 2)
+- Complete all of the "edge cases" tests and see if you can get the entire test suites to pass for both Part 1 and Part 2.
 - Implement pagination for `GET /api/v1/items` and `GET /api/v1/merchants`. 
   These Endpoints should: 
     * render a JSON representation of all records of the requested resource, one "page" of data at a time
