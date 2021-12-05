@@ -55,7 +55,7 @@ etc
   * invoice_items
   * transactions
 
-**NOTE** We updated this process to avoid confusion and taking a significant amount of time; the main learning goals of the project are the Rails API endpoints and business intelligence endpoints in ActiveRecord, not the process of importing CSV data. Avoid starting out with a Rake task to do the import and follow these instructions instead. If in doubt, ask your instructors first.
+**NOTE** We updated this process to avoid confusion and taking a significant amount of time; the main learning goals of the project are the Rails API endpoints, not the process of importing CSV data. Avoid starting out with a Rake task to do the import and follow these instructions instead. If in doubt, ask your instructors first.
 
 **NOTE** If your `rails new ...` project name from above is NOT exactly called "rails-engine" you will need to modify the `cmd` variable below to change the `-d` parameter from `rails-engine_development` to `<YOUR PROJECT NAME>_development` instead. If you have questions, ask your instructors.
 
