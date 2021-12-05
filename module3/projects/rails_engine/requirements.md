@@ -135,11 +135,11 @@ Edge Case: the user did something which broke the functionality of an endpoint. 
 You will need to expose the following RESTful API endpoints for the following:
 
 * Merchants:
-  * get all merchants
+  * get all merchants, a maximum of 20 at a time
   * get one merchant
   * get all items for a given merchant ID
 * Items:
-  * get all items
+  * get all items, a maximum of 20 at a time
   * get one item
   * create an item
   * edit an item
@@ -155,12 +155,27 @@ You will get to choose from the following list:
   * OR:
   * find one ITEM based on search criteria AND find all MERCHANTS based on search criteria
 
+## SECTION THREE: Business Intelligence Endpoints
+
+Choose any FOUR of the following seven endpoints:
+
+* find a quantity of merchants sorted by descending revenue
+* find a quantity of merchants sorted by descending item quantity sold
+* total revenue generated in the whole system over a start/end date range
+* total revenue for a given merchant
+* find a quantity of items sorted by descending revenue
+* total revenue of successful invoices which have not yet been shipped
+* revenue report, broken down by month in ascending date order
+
+**HINT**: Invoices must have a successful transaction and be shipped to the customer to be considered as revenue.
+
 ## Your Project MVP
 
 In total, the MINIMUM requirement will be 15 endpoints:
 
 * section one has 9 endpoints
 * section two has 2 endpoints
+* section three has 4 endpoints
 
 ---
 
@@ -170,10 +185,21 @@ In total, the MINIMUM requirement will be 15 endpoints:
 
 These "index" endpoints for items and merchants should:
 
-* render a JSON representation of all records of the requested resource
+* render a JSON representation of all records of the requested resource, one "page" of data at a time
 * always return an array of data, even if one or zero resources are found
 * NOT include dependent data of the resource (eg, if you're fetching merchants, do not send any data about merchant's items or invoices)
 * follow this pattern: `GET /api/v1/<resource>`
+* allow for the following OPTIONAL query parameters to be sent by the user:
+  * `per_page`, an integer value of how many resources should be in the output; defaults to 20 if not specified by the user
+  * `page`, an integer value of a "page" of resources to skip before returning data; defaults to 1 if not specified by the user
+  * do not use any third-party gems for pagination
+
+Example use of query parameters:
+
+* `GET /api/v1/items?per_page=50&page=2`
+* `GET /api/v1/merchants?per_page=50&page=2`
+
+This should fetch items 51 through 100, since we're returning `50` per "page", and we want "page `2`" of data.
 
 Example JSON response for the Merchant resource:
 
@@ -204,6 +230,7 @@ Example JSON response for the Merchant resource:
   ]
 }
 ```
+If a user tries to fetch a page for which there is no data, then `data` should report an empty array.
 
 ## RESTful: Fetch a single record
 
@@ -424,3 +451,232 @@ Example JSON response for `GET /api/v1/merchants/find_all?name=ring`
 
 ```
 
+---
+# SECTION THREE
+## Non-RESTful: Merchants with Most Revenue
+
+This endpoint should return a variable number of merchants ranked by total revenue.
+
+The URI should follow this pattern: `GET /api/v1/revenue/merchants?quantity=x`
+
+where `x` is the number of merchants to be returned. The quantity parameter is required, and should return an error if it is missing or if it is not an integer greater than 0.
+
+
+Example JSON response for `GET /api/v1/revenue/merchants?quantity=2`
+
+```json
+{
+  "data": [
+    {
+      "id": "1",
+      "type": "merchant_name_revenue",
+      "attributes": {
+        "name": "Turing School",
+        "revenue": 512.256128
+      }
+    },
+    {
+      "id": "4",
+      "type": "merchant_name_revenue",
+      "attributes": {
+        "name": "Ring World",
+        "revenue": 245.130001
+      }
+    }
+  ]
+}
+```
+
+
+## Non-RESTful: Merchants with Most Items Sold
+
+This endpoint should return a variable number of merchants ranked by total number of items sold:
+
+The URI should follow this pattern: `GET /api/v1/merchants/most_items?quantity=x`
+
+where `x` is the number of merchants to be returned. The quantity should default to 5 if not provided, and return an error if it is not an integer greater than 0.
+
+Example JSON response for `GET /api/v1/merchants/most_items?quantity=2`
+
+```json
+{
+  "data": [
+    {
+      "id": "1",
+      "type": "items_sold",
+      "attributes": {
+        "name": "Turing School",
+        "count": 512
+      }
+    },
+    {
+      "id": "4",
+      "type": "items_sold",
+      "attributes": {
+        "name": "Ring World",
+        "count": 128
+      }
+    }
+  ]
+}
+```
+
+
+## Non-RESTful: Revenue across Date Range
+
+This endpoint should return the total revenue across all merchants between the given dates, inclusive of the start and end date.
+
+The URI should follow this pattern: `GET /api/v1/revenue?start_date=<start_date>&end_date=<end_date>`
+
+Assume your users will only send dates in the format YYYY-MM-DD. Revenue must be counted for any invoices on the end_date as well.
+
+An error should be returned if either/both the start date or end date are not provided.
+
+Example JSON response for `GET /api/v1/revenue?start=2012-03-09&end=2012-03-24`
+
+```json
+{
+  "data": {
+    "id": null,
+    "attributes": {
+      "revenue"  : 43201227.8000003
+    }
+  }
+}
+```
+
+
+## Non-RESTful: Total Revenue for a Given Merchant
+
+This endpoint should return the total revenue for a single merchant.
+
+The URI should follow this pattern: `GET /api/v1/revenue/merchants/:id`  
+
+Example JSON response for `GET /api/v1/revenue/merchants/1`
+
+
+```json
+{
+  "data": {
+    "id": "42",
+    "type": "merchant_revenue",
+    "attributes": {
+      "revenue"  : 532613.9800000001
+    }
+  }
+}
+```
+
+## Non-RESTful: Find items ranked by Revenue
+
+The endpoint will return a quantity of items ranked by descending revenue.
+
+The URI should follow this pattern: `GET /api/v1/revenue/items?quantity=x`
+
+where 'x' is the maximum count of results to return.
+* quantity should default to 10 if not provided
+* endpoint should return an error if it is not an integer greater than 0.
+
+Example JSON response for `GET /api/v1/revenue/items?quantity=1`
+
+
+```json
+{
+  "data": [
+    {
+      "id": 4,
+      "type": "item_revenue",
+      "attributes": {
+        "name": "Men's Titanium Ring",
+        "description": "Fine titanium ring",
+        "unit_price": 299.99,
+        "merchant_id": 54,
+        "revenue": 19823.12985
+      }
+    }
+  ]
+}
+```
+
+## Non-RESTful: Potential Revenue of Unshipped Orders, ranked by "potential" Revenue
+
+Imagine that we want to build a report of the orders which have not yet shipped. How much money is being left on the table for these merchants if they just called Federal Package Logistics to come pick up the boxes...
+
+The URI should follow this pattern: `GET /api/v1/revenue/unshipped?quantity=x`
+
+where 'x' is the maximum count of results to return.
+* quantity should default to 10 if not provided
+* should return an error if it is not an integer greater than 0.
+
+Example JSON response for `GET /api/v1/revenue/unshipped?quantity=2`
+
+
+```json
+{
+  "data": [
+    {
+      "id": 834,
+      "type": "unshipped_order",
+      "attributes": {
+        "potential_revenue": 5923.78
+      }
+    },
+    {
+      "id": 28,
+      "type": "unshipped_order",
+      "attributes": {
+        "potential_revenue": 3298.63
+      }
+    }
+  ]
+}
+```
+
+
+## Non-RESTful: Report by Month of Revenue Generated
+
+We would like a full report of all revenue, sorted by week (the database can do this for you!). The dates you get back from PostgreSQL will represent the first day of the week
+
+The URI should follow this pattern: `GET /api/v1/revenue/weekly`
+
+Example JSON response for `GET /api/v1/revenue/weekly`
+
+
+```json
+{
+    "data": [
+        {
+            "id": null,
+            "type": "weekly_revenue",
+            "attributes": {
+                "week": "2012-03-05",
+                "revenue": 14981117.170000013
+            }
+        },
+        {
+            "id": null,
+            "type": "weekly_revenue",
+            "attributes": {
+                "week": "2012-03-12",
+                "revenue": 18778641.380000062
+            }
+        },
+        {
+            "id": null,
+            "type": "weekly_revenue",
+            "attributes": {
+                "week": "2012-03-19",
+                "revenue": 19106531.87999994
+            }
+        },
+        {
+            "id": null,
+            "type": "weekly_revenue",
+            "attributes": {
+                "week": "2012-03-26",
+                "revenue": 4627284.439999996
+            }
+        }
+    ]
+}
+```
