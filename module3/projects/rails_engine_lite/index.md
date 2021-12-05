@@ -57,11 +57,11 @@ Download the test suites for Postman:
 
 Click on each link to load it in your browser, then hit Cmd-S to save it to your system.
 
-In Postman, in the top left corner, click on the "Import" button, and drag the downloaded JSON file over the interface or use the file selector to locate the file on your operating system.
+In Postman, in the top left corner, click on the "Import" button, and use the file selector to locate the two files on your operating system.
 
 Next, you'll "confirm" the import. The test suite should display as a "Postman Collection v2.1" and import as a "Collection". Click the "Import" button to continue.
 
-On the left side of your Postman interface, you should see a "Rails Engine" entry with "19 requests".
+Within your collections in Postman, you should see two collections-- "Rails Engine Lite, Part 1", and "Rails Engine Lite, Part 2". 
 
 #### Running the Tests
 
