@@ -1,16 +1,16 @@
 ---
 layout: page
-title: Rails Engine Evaluation
+title: Rails Engine Lite Evaluation
 length: 1 week
 type: project
 ---
 
 For the project eval, you should prepare a 10 minute presentation that clearly demonstrates each category of the below rubric. 
 
-In the past, we had students record their presentation. This is not a requirement anymore. But, if you'd like to get an idea for what a good presentation might entail, you can take a look at these recorded presentations (these students have given their permission for these to be shared): 
+In the past, we had students record their presentation. This is not a requirement anymore. But, if you'd like to get an idea for what a good presentation might entail, you can take a look at these recorded presentations. Be aware that the project requirements (mainly around # of endpoints) have changed since these students did the project.
 1. [Example 1](https://www.loom.com/share/44b0adf2a5b54be5bd4d02405e43c98b)
 2. [Example 2](https://www.loom.com/share/765f2cfbf4af49268cdee564e5d995db)
-
+*These students have given their permission for these to be shared.
 
 The technical presentation portion is outlined below with what points should be covered. If you have questions about the presentation, please let an instructor know before the time it's due.
 
@@ -35,9 +35,6 @@ You should review each section of the rubric and strive to have a 3 in each sect
  * Show examples of happy and sad path and edge cases
  * Run your test suite and open coverage report 
 
-[ ] Approach to their ActiveRecord queries
- * Talk through 1-2 queries from section 3. 
- * Did you create any queries that used ruby, when they could have used ActiveRecord?
 
 
 
@@ -46,16 +43,16 @@ You should review each section of the rubric and strive to have a 3 in each sect
 ### Technical Presentation
 
 * 4: The student has a well organized presentation that addresses each point directly and uses technical vocabulary correctly throughout the presentation.
-* 3: Student presents their code and is able to talk about all the presentation points.
-* 2: Student presents their code and is able to talk about 3-4 of the presentation points.
+* 3: Student presents their code and is prepared to talk through all the presentation points.
+* 2: Student presents their code and is prepared to talk through 2-3 of the presentation points.
 * 1: Student is unprepared for the presentation and requires prompts from the instructor to talk about the code.
 
 ### Feature Delivery
 
 * 4: Project completes all requirements and at least one extension.
 * 3: Project completes all requirements
-* 2: Project fails to complete 1 - 3 required endpoints
-* 1: Project fails to complete more than 3 endpoints
+* 2: Project fails to complete 1 - 2 required endpoints
+* 1: Project fails to complete more than 3 or more endpoints
 
 ### Test Driven Development
 
@@ -67,13 +64,13 @@ You should review each section of the rubric and strive to have a 3 in each sect
 ### Technical Quality
 
 * 4: Project demonstrates exceptionally well factored code.
-* 3: Project demonstrates solid code quality and MVC principles.
+* 3: Project demonstrates solid code quality, MVC principles, and uses a serializer for formatting JSON responses.
 * 2: Project demonstrates some gaps in code quality and/or application of MVC principles.
 * 1: Project demonstrates poor factoring and/or understanding of MVC.
 
-### ActiveRecord
+### ActiveRecord/SQL
 
-* 4: Project makes good use of an advanced ActiveRecord concept not taught in class
-* 3: Project demonstrates good use of ActiveRecord using no ruby to process data that could otherwise be done by the database
-* 2: Project makes good use of `ActiveRecord`, but drops to ruby enumerables for some query methods.
+* 4: Project makes good use of an advanced ActiveRecord/SQL concept not taught in class
+* 3: Project demonstrates good use of ActiveRecord/SQL using minimal ruby to process data that could otherwise be done by the database.
+* 2: Project makes good use of ActiveRecord, but uses ruby enumerables for more than one query method.
 * 1: Project frequently uses Ruby where ActiveRecord could be used, or fails to use ActiveRecord effectively
