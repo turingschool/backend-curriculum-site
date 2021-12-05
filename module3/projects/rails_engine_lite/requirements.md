@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Rails Engine Requirements
+title: Rails Engine Lite Requirements
 length: 1 week
 tags:
 type: project

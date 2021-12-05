@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Rails Engine Extensions
+title: Rails Engine Lite Extensions
 length: 1 week
 tags:
 type: project

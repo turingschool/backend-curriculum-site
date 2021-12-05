@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Rails Engine
+title: Rails Engine Lite
 length: 1 week
 tags:
 type: project
