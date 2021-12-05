@@ -8,7 +8,7 @@ type: project
 
 # 1. Set Up
 
-1. Create a Rails API project called `rails-engine` (make sure you do not set up a "traditional" Rails project with a frontend, this is an API-only project)
+1. Create a Rails API project called `rails-engine` (make sure you do not set up a "traditional" Rails project with a frontend, this is an API-only project): `rails _5.2.6_ new rails-engine -T -d postgresql --api`
 
 2. Set Up [SimpleCov](https://github.com/colszowka/simplecov) to track test coverage in your rails-engine API project.
 
