@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "1d0f75c2-4c1c-49b9-896f-e9a4aa295a66",
-		"name": "Rails Engine, Part 1",
+		"name": "Rails Engine Lite, Part 1",
 		"description": "Turing School of Software & Design, Backend Module 3 Solo Project\n\n\"Rails Engine\" is a Rails-based API which mimics an e-commerce platform reporting tool as an API. Users can query and store merchants and items, and retrieve information about an item's merchant, or a list of a merchant's items. Users can also run one of several \"business intelligence\" endpoints to do rich reporting using ActiveRecord queries.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
