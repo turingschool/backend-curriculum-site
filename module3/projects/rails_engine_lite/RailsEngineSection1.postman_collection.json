@@ -338,7 +338,6 @@
 									"",
 									"    // now check that the whole schema matches and has 2483 items",
 									"    pm.response.to.have.jsonSchema(base_schema);",
-									"    pm.expect(data.length).to.eq(20);",
 									"",
 									"    // now inspect the first item's schema to ensure it also matches",
 									"    pm.expect(first_item).to.have.jsonSchema(item_schema);",
