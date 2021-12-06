@@ -155,7 +155,7 @@ You will get to choose from the following list:
 
 ## Your Project MVP
 
-In total, the MINIMUM requirement will be 15 endpoints:
+In total, the MINIMUM requirement will be 11 endpoints:
 
 * section one has 9 endpoints
 * section two has 2 endpoints
