@@ -14,10 +14,10 @@
 - [ ] Moderate update -- review from Mod Team requested
 - [ ] Major update -- review from Backend Team requested
 
+### How will we measure the success of this change? 
+
+*Share any hypothesized outcomes we might observe*
+
 ### What questions do you have/what do you want feedback on? (optional)
 
 *List any specific questions and feedback requests*
-
-### How will we measure the success of this change? (optional)
-
-*Share any hypothesized outcomes we might observe*
