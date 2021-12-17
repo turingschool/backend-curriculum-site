@@ -11,6 +11,8 @@ layout: page
 * Week 1 IC: [Venue Challenge](XYZ)
 * Week 2 IC: [Challenge](XYZ)
 * Mid Mod: [Challenge](XYZ)
+  * Iteration 3: [National Park](XYZ)
+  * Iteration 3: [Intersection](XYZ)
 * Solo Project: [Challenge](XYZ)
 * Pair Project: [Challenge](XYZ)
 
