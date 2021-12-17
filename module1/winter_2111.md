@@ -5,7 +5,7 @@ layout: page
 
 ## Required
 * Rest, relax, clear your head.
-* Check in with your accountabilibuddies THRICE.
+* Check in with your accountabilibuddies 3x.
 
 ## Level 1: Refactor
 * Week 1 IC: [Venue Challenge](https://github.com/turingschool-examples/venue_challenge_2111)
