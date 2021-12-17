@@ -8,13 +8,13 @@ layout: page
 * Check in with your accountabilibuddies THRICE.
 
 ## Level 1: Refactor
-* Week 1 IC: [Venue Challenge](XYZ)
-* Week 2 IC: [Challenge](XYZ)
-* Mid Mod: [Challenge](XYZ)
+* Week 1 IC: [Venue Challenge](https://github.com/turingschool-examples/venue_challenge_2111)
+* Week 2 IC: [Car Dealership](https://github.com/turingschool-examples/car_dealership_2111)
+* Mid Mod: [Passengers and Vehicles](https://gist.github.com/dcoleman21/acc38ef2fbf8a66e0d5aae10074060e1)
   * Iteration 3: [National Park](XYZ)
   * Iteration 3: [Intersection](XYZ)
-* Solo Project: [Challenge](XYZ)
-* Pair Project: [Challenge](XYZ)
+* Solo Project: [Flash Cards](./projects/flashcards)
+* Pair Project: [Battleship](./projects/battleship)
 
 ## Level 2: Event Manager
 * [Event Manager](./projects/eventmanager)
