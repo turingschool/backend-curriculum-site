@@ -14,7 +14,7 @@ A bit of context. Imagine that you are working in an app that tracks comedians a
 ```ruby
 class Comedian < ApplicationRecord
   has_many :specials
-  
+
   def self.average_age
     "#{average(:age).round(2)} Years"
   end
@@ -54,6 +54,7 @@ class ComediansController < ApplicationController
   def show
     @comedian = Comedian.find(params[:id])
     @average_special_runtime = @comedian.average_special_runtime.round(2)
+    @longest_special = @comedian.specials.order(runtime: :desc).first
   end
 end
 ```
