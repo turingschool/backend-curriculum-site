@@ -7,6 +7,8 @@ layout: page
 * Rest, relax, clear your head.
 * Check in with your accountabilibuddies 3x.
 
+---
+
 ## Level 1: Refactor
 * Week 1 IC: [Venue Challenge](https://github.com/turingschool-examples/venue_challenge_2111)
 * Week 2 IC: [Car Dealership](https://github.com/turingschool-examples/car_dealership_2111)
@@ -32,7 +34,7 @@ layout: page
 * You likely already have the [Ruby Exercises repo](https://github.com/turingschool/ruby-exercises) cloned to your computer.
 * **Reaching Through Objects** was covered by Jamison in Week 2.
 * We *highly recommend* completing **Mythical Creatures** at some point in your journey.
-* Enumerables are covered across two classes: [Week 2](./lessons/enumerables_i) and [Week 5](./lessons/enumerables_ii)
+* **Enumerables** are covered across two classes: [Week 2](./lessons/enumerables_i) and [Week 5](./lessons/enumerables_ii)
 
 ---
 
@@ -40,7 +42,7 @@ layout: page
 * [Event Manager](./projects/eventmanager)
 
 ### Goals
-* This project will help you work with CSV files. (*hint hint* Group Project)
+* This project will help you work with CSV files. (*hint hint*: Group Project)
 
 ---
 
