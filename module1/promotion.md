@@ -9,7 +9,7 @@ Promoted students will demonstrate proficiency in the material outlined in the [
 
 ## Projects
 
-* Week 1 (independent): [Flash Cards](./projects/battleship) (evaluated, but does not count toward promotion)
+* Week 1 (independent): [Flash Cards](./projects/flashcards) (evaluated, but does not count toward promotion)
 * Week 2 - 3 (paired): [Battleship](./projects/battleship) (either the paired or group project must earn a passing grade)
 * Week 4 - 5 (group): [Futbol](./projects/futbol) (either the paired or group project must earn a passing grade)
 * Week 6 (independent): [Enigma](./projects/enigma) (must earn a passing grade)

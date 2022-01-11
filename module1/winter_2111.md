@@ -48,8 +48,8 @@ layout: page
 
 ## Level 4: Event Reporter
 * [Event Reporter](https://backend.turing.io/module1/projects/event_reporter)
-* This is an extension of the Event Manager project.
 
 ### Goals
+* This is an extension of the **Event Manager** project (Level 3 above).
 * Please consider this project a *stretch goal*, not a requirement.
 * This project, however, is **strongly recommended**.
