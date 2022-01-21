@@ -10,9 +10,9 @@ Promoted students will demonstrate proficiency in the material outlined in the [
 ## Projects
 
 * Week 1 (Solo): [War or Peace](./projects/war_or_peace) (evaluated, but does not count toward promotion)
-* Week 2-3 (Paired): [Mastermind](./projects/mastermind)
-* Week 4-5 (Group): [Futbol](./projects/futbol)
-  * You must earn a passing grade on either the Paired Project or the Group Project
+* Week 2-3 (Paired): [Mastermind](./projects/mastermind.markdown)
+* Week 4-5 (Group): [Black Thursday](./projects/black_thursday)
+  * You must earn a passing grade on EITHER the Paired Project OR the Group Project
 * Week 6 (Final): [Night Writer](./projects/night_writer) (must earn a passing grade)
 
 ## Assessments
