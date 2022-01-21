@@ -23,7 +23,7 @@ layout: page
 
 * **Deliverables**
   * Independent Challenge #1
-  * Start [Solo Project](./projects/flashcards)
+  * Start [Solo Project](./projects/war_or_peace)
 
 ## Week 2
 
@@ -44,9 +44,9 @@ layout: page
     * One on One Instructor Meeting
 
   * **Deliverables**
-    * Submit [Solo Project](./projects/flashcards)
+    * Submit [Solo Project](./projects/war_or_peace)
     * Independent Challenge #2
-    * Start [Pair Project](./projects/battleship)
+    * Start [Pair Project](./projects/mastermind.markdown)
 
 ## Week 3
 
@@ -61,14 +61,17 @@ layout: page
     * Accountabilibuddy Check-In
 
   * **Deliverables**
-    * Submit [Pair Project](./projects/battleship)
+    * Submit [Pair Project](./projects/mastermind.markdown)
     * Mid Mod Diagnostic Assessment
+
+<!--
     * Start [Winter Break Assignments](./winter_2111)
 
 ## Winter Break
 
   * **Deliverables**
     * Submit [Winter Break Assignments](./winter_2111)
+-->
 
 ## Week 4
 
@@ -85,7 +88,7 @@ layout: page
 
   * **Deliverables**
     * Independent Challenge #3
-    * Start [Group Project](./projects/futbol)
+    * Start [Group Project](./projects/black_thursday)
 
 ## Week 5
 
@@ -103,10 +106,10 @@ layout: page
 
   * **Deliverables**
     * Independent Challenge #4
-    * Paired Final Assessment
+    * Instructor Paired Final Assessment
     * Submit PD Survey
-    * Submit [Group Project](./projects/futbol)
-    * Start [Final Project](./projects/enigma)
+    * Submit [Group Project](./projects/black_thursday)
+    * Start [Final Project](./projects/night_writer)
 
 ## Week 6
 
@@ -119,5 +122,5 @@ layout: page
     * Accountabilibuddy Check-In
 
   * **Deliverables**
-    * Submit [Final Project](./projects/enigma)
+    * Submit [Final Project](./projects/night_writer)
     * [Portfolio](./portfolios)
