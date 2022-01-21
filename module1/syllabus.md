@@ -9,37 +9,39 @@ Projects require students to apply new concepts from class and build on existing
 
 * **Solo Project** - Begin Monday week 1, due Sunday week 2.
   * The goal of this project is for students to practice all of the key concepts of module 1 covered in the prework and week 1.
-  * This project is safe to fail, meaning it will not count towards the final promotion decision at the end of the module.
+  * This project is "safe to fail", meaning it will not count towards the final promotion decision at the end of the module.
   * Students will be given feedback on their project, but scores will not count towards promotion.
-* **Paired Project** - Begin Monday week 2, due Thursday week 3.
-  * This project is graded on a scale from 1.0 to 4.0.
+* **Paired Project** - Begin Monday week 2, due Wednesday week 3.
+  * This project is graded on a scale from 0.0 to 4.0.
   * A passing score on the Paired Project is 2.5 or greater.
   * Students must pass either the **Paired Project** or **Group Project** to be promoted.
+<!--
 * **Winter Project** - Begin Friday week 3, due Sunday week 4.
   * This project and accompanying assignments are designed to keep your skills sharp over the winter break.
   * This project is not graded and will not count towards the final promotion decision at the end of the module.
-* **Group Project** - Begin Monday week 4, due Thursday week 5.
-  * This project is graded on a scale from 1.0 to 4.0.
+-->
+* **Group Project** - Begin Monday week 4, due Wednesday week 5.
+  * This project is graded on a scale from 0.0 to 4.0.
   * A passing score on the Group Project is 2.5 or greater.
   * Students must pass either the **Paired Project** or **Group Project** to be promoted.
-* **Final Project** - Begin Friday week 5, due Tuesday week 6.
-  * This project is graded on a scale from 1.0 to 4.0.
+* **Final Project** - Begin Thursday week 5, due Monday week 6.
+  * This project is graded on a scale from 0.0 to 4.0.
   * A passing score on the Final Project is 2.5 or greater.
   * Students must pass the **Final Project** to be promoted.
 
 ## Independent Challenges
 
-In week 6, students will participate in the Final Independent Assessment that will count towards the promotion decision. This is a 3 hour code challenge students will complete independently, meaning the student cannot seek help from other students, mentors, etc. Students are allowed to reference notes, other projects, and the internet.
+In week 6, students will participate in the **Final Independent Challenge** that will count towards the promotion decision. This is a 3 hour code challenge students will complete independently, meaning the student cannot seek help from other students, mentors, etc. Students are allowed to reference notes, other projects, and the internet.
 
-In order to practice for the Final Independent Assessment in week 6, students will be given a weekly practice Independent Challenge starting in week 1. They will be submitted using a Github Pull Request, and instructors will give feedback in the form of comments on the Pull Request. These are not formal assessments, but an opportunity for the student to practice their problem solving skills and receive feedback from instructors. Students are expected to complete the first three iterations.
+In order to practice for the Final Independent Challenge in week 6, students will be given a weekly practice Independent Challenge starting in week 1. They will be submitted using a Github Pull Request, and instructors will give feedback in the form of comments on the Pull Request. These are not formal assessments, but an opportunity for the student to practice their problem solving skills and receive feedback from instructors. Students are expected to complete the first three iterations.
 
 Students can find examples of Independent Challenges [here](./practice_assessments)
 
 ## Paired Assessments
 
-In week 6, students will participate in the Final Paired Assessment that will count towards the promotion decision. Students will be required to complete a small coding task in advance of the assessment, and then will be given 30 minutes to pair with an instructor on an additional task that builds on their existing code.
+In week 5 or 6, students will participate in the **Instructor Paired Final Assessment** that will count towards the promotion decision. Students will be required to complete a small coding task in advance of the assessment, and then will be given 45 minutes to pair with an instructor on an additional task that builds on their existing code.
 
-In order to practice for the Final Paired Assessment in week 6, students will participate in the Mid Module Paired Assessment in week 3.
+In order to practice for the Instructor Paired Final Assessment, students will participate in the **Mid-Module Paired Assessment** in week 3.
 
 Students can reference [this Example](https://github.com/turingschool-examples/pets_and_customers) of a paired assessment.
 
@@ -47,10 +49,10 @@ Students can reference [this Example](https://github.com/turingschool-examples/p
 
 Projects, Paired Assessments, and Independent Assessments will be scored on a 4 point scale:
 
-1. Far Below Expectations
+1. Well Below Expectations
 2. Below Expectations
-3. Passing
-4. Exceptional
+3. Meets Expectations (Passing)
+4. Above Expectations (Exceptional)
 
 Projects, Independent Challenges, and Paired Assessments will be broken into 4 iterations. Students are expected to complete the first 3 iterations to receive a score of 3 (passing), while iteration 4 provides opportunities for further learning and exploration.
 
