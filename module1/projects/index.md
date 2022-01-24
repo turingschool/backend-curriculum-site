@@ -7,10 +7,11 @@ title: Backend Module 1 Projects
 
 The following projects will be assigned and their completion is required to be promoted to module 2.
 
-* Week 1 (solo): [Flash Cards](./flashcards)
-* Week 2-3 (paired): [Battleship](./battleship)
-* Week 4-5 (group): [Futbol](./futbol)
-* Week 6 (final): [Enigma](./enigma)
+* Week 1 (Solo): [War or Peace](./projects/war_or_peace)
+* Week 2-3 (Paired): [Mastermind](./mastermind)
+* Week 4-5 (Group): [Black Thursday](./black_thursday)
+* Week 6 (Final): [Night Writer](./night_writer)
+
 
 ## Extension Projects
 
@@ -28,6 +29,7 @@ The following projects are not required. Students can use these projects as an o
 These projects are listed (roughly) in order of difficulty.
 
 * [FlashCards](./flashcards)
+* [Battleship](./battleship)
 * [Event Manager](./eventmanager)
 * [Event Reporter](./event_reporter)
 * [Wizarding Bank](./wizarding_bank)
@@ -35,8 +37,15 @@ These projects are listed (roughly) in order of difficulty.
 * [Super Sports Games](./super_sports_games)
 * [Sorting Cards](./sorting_cards)
 * [Chisel](./chisel)
-* [Mastermind](./mastermind)
-* [Night Writer](./night_writer)
 * [Connect Four](./connect_four)
+* [Futbol](./futbol)
 * [Head Count](./headcount)
-* [Black Thursday](./black_thursday)
+* [Enigma](./enigma)
+
+<!--
+Projects in Use:
+  * [Mastermind](./mastermind)
+  * [Event Manager](./eventmanager)
+  * [Black Thursday](./black_thursday)
+  * [Night Writer](./night_writer)
+-->
