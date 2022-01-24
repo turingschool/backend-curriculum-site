@@ -10,9 +10,9 @@ In Module 2, we expand upon fundamental Ruby skills by building database-backed 
 
 ## Instructors
 
-* Jamison Ordway (Anchor)
-* Michael Dao
-
+* Michael Dao (Anchor)
+* Dani Coleman
+* 
 ## Curriculum
 
 * [Learning Goals](./success/learning_goals)

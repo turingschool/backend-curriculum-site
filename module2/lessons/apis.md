@@ -44,20 +44,20 @@ That's right! It looks just like a hash!
 Here you go! Make a new ruby file and paste this code in, replacing `<your github username>` with your github username.
 
 ```ruby
-require 'faraday'
+require 'httparty'
 require 'pry'
 require 'json'
 
-response = Faraday.get 'https://api.github.com/users/<your github username>'
+response = HTTParty.get 'https://api.github.com/users/<your github username>'
 
 body = response.body
 
 binding.pry
 ```
 
-Run the code. If you get an error that the faraday gem is missing, run `gem install faraday`. If you get a Bad URI error, double check your github username spelling. It has to be an actual github user.
+Run the code. If you get an error that the httparty gem is missing, run `gem install httparty`. If you get a Bad URI error, double check your github username spelling. It has to be an actual github user.
 
-The Faraday gem allows us to send HTTP requests from our code. We will use it a lot in Mod 3.
+The HTTParty gem allows us to send HTTP requests from our code.
 
 When you hit the pry, check out what the `response` and `body` variables are holding. Notice that the body contains that JSON format we talked about. What type of object is it?
 
@@ -86,8 +86,6 @@ Congratulations! You just consumed an API.
 1. We almost always want our code to be wrapped in classes and/or methods so that we can reuse it. Refactor your code to include at least 1 class and 1 method. Feeling good about that? Try to include 2 or even 3 classes and multiple methods inside each of those classes.
 2. After you've refactored your code to include some classes and methods, write some RSpec tests that test those classes and methods.
 3. APIs are typically rate limited which means there's a limit to how often you can send requests to them. The GitHub API [only allows 60 requests per hour for unauthenticated requests](https://docs.github.com/en/rest/overview/resources-in-the-rest-api#rate-limiting). Implement RSpec mocking/stubbing to avoid sending the HTTP request when you run your tests.
-
-You can find a completed example of these exercises [here](https://github.com/BrianZanti/intro_to_apis)
 
 ## Checks for Understanding
 

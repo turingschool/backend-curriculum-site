@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Rails Engine
+title: Rails Engine Lite
 length: 1 week
 tags:
 type: project
@@ -24,8 +24,8 @@ By the end of this project: <br>
 * Expose an API ⭐ ⭐ ⭐
 * Use serializers to format JSON responses ⭐ ⭐ ⭐
 * Test API exposure ⭐ ⭐ ⭐
-* Compose advanced ActiveRecord queries to analyze information stored in SQL databases ⭐ ⭐
-* Write basic SQL statements without the assistance of an ORM ⭐
+* Use SQL and AR to gather data ⭐ ⭐
+
 
 _Note: See [Learning Goals](../../misc/learning_goals) to see at what level these skills need to be by the final._
 
@@ -54,15 +54,14 @@ We have adapted this project from previous cohorts and have rewritten a fully fu
 Download the test suites for Postman:
 * [Rails Engine, Section 1](./RailsEngineSection1.postman_collection.json)
 * [Rails Engine, Section 2](./RailsEngineSection2.postman_collection.json)
-* [Rails Engine, Section 3](./RailsEngineSection3.postman_collection.json)
 
 Click on each link to load it in your browser, then hit Cmd-S to save it to your system.
 
-In Postman, in the top left corner, click on the "Import" button, and drag the downloaded JSON file over the interface or use the file selector to locate the file on your operating system.
+In Postman, in the top left corner, click on the "Import" button, and use the file selector to locate the two files on your operating system.
 
 Next, you'll "confirm" the import. The test suite should display as a "Postman Collection v2.1" and import as a "Collection". Click the "Import" button to continue.
 
-On the left side of your Postman interface, you should see a "Rails Engine" entry with "19 requests".
+Within your collections in Postman, you should see two collections-- "Rails Engine Lite, Part 1", and "Rails Engine Lite, Part 2". 
 
 #### Running the Tests
 

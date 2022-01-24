@@ -4,20 +4,20 @@ title: Module 3
 subheading: Ruby and Rails Versions
 ---
 
-## Ruby 2.7.2
+## Ruby 2.7.4
 
-We will use Ruby 2.7.2 in Module 2 & 3. You can check your Ruby version by running `ruby -v`.
+We will use Ruby 2.7.4 in Module 2 & 3. You can check your Ruby version by running `ruby -v`.
 
 Using [rbenv](https://github.com/rbenv/rbenv), you can install Ruby 2.7.2 (if you don't have it already) with:
 
 ```
-rbenv install 2.7.2
+rbenv install 2.7.4
 ```
 
 With `rbenv` you can set your Ruby version for a directory and all subdirectories within it. If you have a `3module` directory on your machine, you can set your Ruby version for this directory (and all subdirectories) by first changing into that directory and then running
 
 ```
-rbenv local 2.7.2
+rbenv local 2.7.4
 ```
 
 Always double check that your Ruby version is correct after changing it with `ruby -v`
