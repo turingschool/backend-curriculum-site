@@ -8,7 +8,7 @@ subheading: Intermission Work
 
 You must complete and submit all of these assignments. *It is due the Saturday before the start of the inning at 5pm*
 
-Submit your work here: [Survey Link](https://forms.gle/hQwBZaAjJsEy59Lk9)
+Submit your work here: [Survey Link](https://forms.gle/cwrAAYXmgwR68UXc6)
 
 
 ## Core Learning Goals of Mod 3
@@ -31,7 +31,7 @@ Here are some helpful videos and tutorials that you can use to familiarize yours
 * [Instructor Ian Douglas demonstrates the process of building an API for 2005](https://vimeo.com/452734115/8b3bd1adf0)
 
 #### Do both
-* [Build an API in Rails Tutorial](https://www.digitalocean.com/community/tutorials/build-a-restful-json-api-with-rails-5-part-one)
+* [Build an API in Rails Tutorial-Part 1](https://www.digitalocean.com/community/tutorials/build-a-restful-json-api-with-rails-5-part-one)
 * [Consume and test an API in Postman Tutorial](https://www.guru99.com/postman-tutorial.html)
 
 ### Authentication / Authorization
