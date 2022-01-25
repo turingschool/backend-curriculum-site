@@ -7,7 +7,7 @@ title: Backend Module 1 Projects
 
 The following projects will be assigned and their completion is required to be promoted to module 2.
 
-* Week 1 (Solo): [War or Peace](./projects/war_or_peace)
+* Week 1 (Solo): [War or Peace](./war_or_peace)
 * Week 2-3 (Paired): [Mastermind](./mastermind)
 * Week 4-5 (Group): [Black Thursday](./black_thursday)
 * Week 6 (Final): [Night Writer](./night_writer)
