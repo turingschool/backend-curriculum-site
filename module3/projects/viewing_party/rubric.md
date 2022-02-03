@@ -21,7 +21,7 @@ title: Viewing Party Project Rubric
 
 ### Code Quality
 
-Project should use [RuboCop](https://github.com/rubocop-hq/rubocop) to measure code quality.
+Project may use [RuboCop](https://github.com/rubocop-hq/rubocop) to measure code quality.
 
 - **4:** Team can demonstrate how API consumption portions of the project demonstrate all of the four pillars listed below and RuboCop has no complaints. Team can identify areas where code can be refactored and how they may have created technical debt.
 - **3:** Team can demonstrate how API consumption portions of the project demonstrate 2 of pillars listed below, and RuboCop complains about 3 or less violations. Team can identify areas where code can be refactored.

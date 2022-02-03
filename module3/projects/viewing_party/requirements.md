@@ -8,7 +8,6 @@ type: project
 ## Viewing Party Requirements
 
 ### Requirement Overview
-- Use RuboCop in project to enforce style guide
 - Deploy to Heroku
 - Use TravisCI for Continuous Integration
 - Consume [The Movie DB API](https://developers.themoviedb.org/3/getting-started/introduction)
@@ -37,6 +36,7 @@ As an EXTENSION (once ALL other MVP work is complete):
 
 ### Exploration Topic Ideas
 
+- Use RuboCop in project to enforce style guide
 - Additional API consumption
 - ActionCable
 - ActionMailer
