@@ -20,7 +20,7 @@ Projects require students to apply new concepts from class and build on existing
   * This project and accompanying assignments are designed to keep your skills sharp over the winter break.
   * This project is not graded and will not count towards the final promotion decision at the end of the module.
 -->
-* **Group Project** - Begin Monday week 4, due Wednesday week 5.
+* **Group Project** - Begin Tuesday week 4, due Thursday week 5.
   * This project is graded on a scale from 0.0 to 4.0.
   * A passing score on the Group Project is 2.5 or greater.
   * Students must pass either the **Paired Project** or **Group Project** to be promoted.

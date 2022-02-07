@@ -46,7 +46,7 @@ layout: page
   * **Deliverables**
     * Submit [Solo Project](./projects/war_or_peace)
     * Independent Challenge #2
-    * Start [Pair Project](./projects/mastermind.markdown)
+    * Start [Pair Project](./connect_four)
 
 ## Week 3
 
@@ -61,7 +61,7 @@ layout: page
     * Accountabilibuddy Check-In
 
   * **Deliverables**
-    * Submit [Pair Project](./projects/mastermind.markdown)
+    * Submit [Pair Project](./connect_four)
     * Mid Mod Diagnostic Assessment
 
 <!--

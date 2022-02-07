@@ -13,7 +13,7 @@ You will complete four projects throughout Module 1, each of which have a maximu
 
 * Week 1 (Solo): [War or Peace](./projects/war_or_peace)
   * The Solo Project is evaluated, but does not count toward promotion
-* Week 2-3 (Paired): [Mastermind](./projects/mastermind.markdown)
+* Week 2-3 (Paired): [Connect Four](./connect_four)
 * Week 4-5 (Group): [Black Thursday](./projects/black_thursday)
   * You must earn a passing grade (2.5) on EITHER the Paired Project OR the Group Project
   * You must earn a minimum grade of 2.0 on BOTH the Paired Project AND the Group Project
