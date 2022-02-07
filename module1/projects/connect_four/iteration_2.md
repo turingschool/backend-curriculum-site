@@ -14,8 +14,6 @@ In this iteration, you are required to use TDD to create your classes. Use the i
 
 Update your program to request user input and allow them to place an individual piece.
 
-Your program should ask for the user to enter a letter A - G, update the board so that their piece has been placed in that column, and then display the board again.
-
 Your program should ask the user to enter a letter A-G.
 Update the board to display the player's piece in the lowest available position of the selected column with an 'X'.
 
