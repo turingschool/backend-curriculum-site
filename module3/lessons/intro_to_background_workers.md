@@ -83,7 +83,7 @@ Sidekiq is the tool we will use to manage our background jobs.
 We can add the sidekiq gem to our Gemfile:
 
 ```
-gem 'sidekiq', '<= 6.0.2''
+gem 'sidekiq'
 ```
 
 Note: this gem should live **outside** of the `:development, :test` group.
@@ -153,7 +153,7 @@ In the terminal:
 
 `rails generate sidekiq:job mood_sender`
 
-This will generate your job class within a directory called `jobs`:
+This will generate your job class within a directory called `sidekiq`:
 
 ```
 class MoodSenderJob
@@ -178,10 +178,10 @@ Needs to send an email using the UserNotifier
 Given these constraints, it might look something like:
 
 ```
-class GifSenderJob
+class MoodSenderJob
   include Sidekiq::Job
   def perform(email, thought)
-    UserNotifierMailer.send_randomness_email(email, thought).deliver_now
+    UserNotifierMailer.send_mood_email(email, thought).deliver_now
   end
 end
 ```
@@ -225,3 +225,8 @@ Now you can navigate to `http://localhost:3000/sidekiq/`. This dashboard is very
 - What is a background job?
 - Why would you use a background job?
 - Describe Sidekiq and Redis, and draw a diagram of how they interact with Rails.
+
+### Further practice
+- Create your own Job class which prints a string of your choice to the root page view
+
+I wonder if for "More Practice" we could ask students to create their own worker/job class. I think going through the whole setup would be very complex for a workshop style lesson, but one class with a low lift task might be reasonable. It could even be something very basic like printing some text to the screen so they can "see" it working.
