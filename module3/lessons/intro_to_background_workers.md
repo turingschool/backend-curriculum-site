@@ -127,15 +127,6 @@ end
 
 If your server is running, you must restart it after adding an initializer for it to take effect.
 
-Sidekiq also comes with a handy dashboard UI so we can see what our jobs are doing. We can set this up by adding the following to our routes file:
-
-```
-require 'sidekiq/web'
-Rails.application.routes.draw do
-  mount Sidekiq::Web => "/sidekiq"
-end
-```
-
 We do not need to do this step for the Daily Mood app, however, if you are running an API only application (like your consultancy backend apps) you must enable some sessions middleware that is excluded in API only apps by default:
 
 In config/application.rb add the following to the application class:
@@ -215,7 +206,9 @@ In our routes file, we'll need to mount the Sidekiq dashboard:
 
 ```
 require 'sidekiq/web'
-mount Sidekiq::Web => '/sidekiq'
+Rails.application.routes.draw do
+  mount Sidekiq::Web => '/sidekiq'
+end
 ```
 
 Now you can navigate to `http://localhost:3000/sidekiq/`. This dashboard is very useful for testing out jobs and receiving confirmation that everything is queued according to plan.
