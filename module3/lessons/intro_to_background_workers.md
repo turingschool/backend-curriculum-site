@@ -228,5 +228,3 @@ Now you can navigate to `http://localhost:3000/sidekiq/`. This dashboard is very
 
 ### Further practice
 - Create your own Job class which prints a string of your choice to the root page view
-
-I wonder if for "More Practice" we could ask students to create their own worker/job class. I think going through the whole setup would be very complex for a workshop style lesson, but one class with a low lift task might be reasonable. It could even be something very basic like printing some text to the screen so they can "see" it working.
