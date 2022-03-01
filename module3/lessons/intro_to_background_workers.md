@@ -1,12 +1,12 @@
 ---
 layout: page
-title: Introduction to Background Workers
+title: Introduction to Background Jobs
 ---
 
 ## Learning Goals
 
-- Describe a background worker and when we would want to use one
-- Be able to implement a basic background worker with Sidekiq
+- Describe a background job and when we would want to use one
+- Be able to implement a basic background job with Sidekiq
 
 ### Intro
 
@@ -14,7 +14,9 @@ When building websites, it’s important to keep response times down. Long-runni
 
 There’s a solution to this: return a successful response, and then schedule some computation to happen later, outside the original request/response cycle.
 
-We do this with background workers. A background worker allows you to run process on a separate dedicated thread. We can move tasks that don't have to happen in real time to their own process so that the app can move on, rather than causing a backlog of requests which slows everything down.
+We do this with background job. A background job allows you to run process on a separate dedicated thread. We can move tasks that don't have to happen in real time to their own process so that the app can move on, rather than causing a backlog of requests which slows everything down.
+
+You may also hear 'background jobs' referred to as 'background workers.' These terms are interchangeable, but 'worker' is more common with older versions of Sidekiq.
 
 #### Do you need a job queue?
 
@@ -25,7 +27,7 @@ How do you identify areas of the application that can benefit from a background 
 * Maintenance - expiring old sessions, sweeping caches
 * Email - a request that causes an email to be sent
 
-Applications with good Object Oriented design make it easy to send jobs to workers, while poor OO makes it hard to extract jobs since responsibilities tend to overlap.
+Applications with good Object Oriented design make it easy to queue background jobs, while poor OO makes it hard to extract jobs since responsibilities tend to overlap.
 
 ### App Setup
 
@@ -76,7 +78,7 @@ The need for running our Redis server now is similar to how Postgres must be run
 
 ### Sidekiq Setup
 
-Sidekiq is the tool we will use to manage our background workers.
+Sidekiq is the tool we will use to manage our background jobs.
 
 We can add the sidekiq gem to our Gemfile:
 
@@ -143,19 +145,19 @@ config.middleware.use ActionDispatch::Cookies
 config.middleware.use config.session_store, config.session_options
 ```
 
-### Creating the Worker
+### Creating the Job
 
-Now we have Sidekiq running with our application, but so far it doesn't do anything for us. Let's create a worker to handle our email.
+Now we have Sidekiq running with our application, but so far it doesn't do anything for us. Let's create a job to handle our email.
 
 In the terminal:
 
-`rails generate sidekiq:worker mood_sender`
+`rails generate sidekiq:job mood_sender`
 
-This will generate your worker class within a directory called `workers`:
+This will generate your job class within a directory called `jobs`:
 
 ```
-class MoodSenderWorker
-  include Sidekiq::Worker
+class MoodSenderJob
+  include Sidekiq::Job
 
   def perform(*args)
     # Do something
@@ -163,36 +165,34 @@ class MoodSenderWorker
 end
 ```
 
-It is Sidekiq convention to use the suffix of `_Worker` for your worker classes.
+It is Sidekiq convention to use the suffix of `_Job` for your job classes.
 
-In newer versions of Sidekiq, you may need to use `rails generate sidekiq:job <job_name>`.
+### Defining Sidekiq Job Operations
 
-### Defining Worker Operations
+Within a Sidekiq job, the instance method `#perform` is what gets called whenever a job appears for our job to do. Other methods can live within the job class, but `#perform` is what will be invoked when running the job.
 
-Within a Sidekiq job, the instance method `#perform` is what gets called whenever a job appears for our worker to do. Other methods can live within the job class, but `#perform` is what will be invoked when running the worker.
-
-Let's think about what needs to go in here and about what inputs are required for the worker to do its job:
+Let's think about what needs to go in here and about what inputs are required for the job:
 
 Needs to take in the email address and thought (since these are the parameters needed to send the email)
 Needs to send an email using the UserNotifier
 Given these constraints, it might look something like:
 
 ```
-class GifSenderWorker
-  include Sidekiq::Worker
+class GifSenderJob
+  include Sidekiq::Job
   def perform(email, thought)
     UserNotifierMailer.send_randomness_email(email, thought).deliver_now
   end
 end
 ```
 
-### Queueing Jobs -- Sidekiq::Worker.perform_async
+### Queueing Jobs -- Sidekiq::Job.perform_async
 
-The Sidekiq worker defines what actual work will be done whenever our background process is invoked. Now we just need to actually invoke it.
+The Sidekiq job defines what actual work will be done whenever our background process is invoked. Now we just need to actually invoke it.
 
-With Sidekiq, we dispatch a job for a worker to do later by calling `.perform_async` on our worker and providing it whatever arguments are needed for the job.
+With Sidekiq, we dispatch a job for a job to do later by calling `.perform_async` on our job and providing it whatever arguments are needed for the job.
 
-Under the hood, the .perform_async method writes data into Redis indicating the type of job which needs to be done and the data associated with it. The workers (in a separate process) are monitoring the queue so that whenever new jobs appear, they can spring into action and do them!
+Under the hood, the .perform_async method writes data into Redis indicating the type of job which needs to be done and the data associated with it. The queues are monitored in a separate process so that whenever new jobs appear, they'll be started!
 
 Also commonly used is `.perform_at` which can be reviewed in the Sidekiq docs. This method allows you to specify the date/time a job should execute.
 
@@ -200,10 +200,10 @@ Let's see what it looks like to actually queue the job. Recall that we were prev
 
 
 ```
-MoodSenderWorker.perform_async(params[:mailers][:email], params[:mailers][:mood])
+MoodSenderJob.perform_async(params[:mailers][:email], params[:mailers][:mood])
 ```
 
-Remember -- the arguments passed to the `.perform_async` method here will eventually be handed to your worker's `#perform` method, so make sure they match up.
+Remember -- the arguments passed to the `.perform_async` method here will eventually be handed to your job's `#perform` method, so make sure they match up.
 
 Let's try this out now - hopefully hat painful delay is no more!
 
@@ -222,6 +222,6 @@ Now you can navigate to `http://localhost:3000/sidekiq/`. This dashboard is very
 
 ## Checks for Understanding
 
-- What is a background worker?
-- Why would you use a background worker?
+- What is a background job?
+- Why would you use a background job?
 - Describe Sidekiq and Redis, and draw a diagram of how they interact with Rails.
