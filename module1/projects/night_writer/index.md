@@ -14,6 +14,11 @@ title: Night Writer
 
 The idea of [Night Writing](https://en.wikipedia.org/wiki/Night_writing) was first developed for Napoleon's army so soldiers could communicate silently at night without light. The concept of night writing led to Louis Braille's development of his [Braille tactile writing system](https://en.wikipedia.org/wiki/Braille).
 
+
+## Evaluation Rubric
+
+The evaluation rubric for this project is available [here](./rubric)
+
 ## Project Requirements
 
 In this project we'll implement systems for generating Braille-like text from [English characters](https://en.wikipedia.org/wiki/English_alphabet) and the reverse.
@@ -208,6 +213,6 @@ Note, a Braille character is the full 6 .s or 0s
     .....0...0
     00.000.000
 
-## Evaluation Rubric
+<!-- ## Evaluation Rubric
 
-The evaluation rubric for this project is available [here](./rubric)
+The evaluation rubric for this project is available [here](./rubric) -->
