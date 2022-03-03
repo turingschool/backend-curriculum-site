@@ -82,7 +82,7 @@ Following the same pattern, `hello world` would be represented as follows:
 ```
 
 <!-- You can experiment with [converting other words](http://www.brailletranslator.org/) yourself and share some samples with your classmates. Use the [lowercase letters a-z here from the American Foundation for the Blind](http://braillebug.afb.org/braille_print.asp) for your project. -->
-You can experiment with [converting other words](http://www.brailletranslator.org/) yourself and share some samples with your classmates. Use the [lowercase letters a-z here](./braille_basics) for your project.
+You can experiment with [converting other words](http://www.brailletranslator.org/) yourself and share some samples with your classmates. Use the [lowercase letters a-z here](./braille_basics.pdf) for your project.
 
 Each line of your Braille file should be no wider than 40 Braille characters (80 dots) wide.
 
