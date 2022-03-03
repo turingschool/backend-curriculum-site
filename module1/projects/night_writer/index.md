@@ -27,6 +27,11 @@ Created 'braille.txt' containing 256 characters
 
 That will use the plaintext file `message.txt` to create a Braille simulation file `braille.txt`.
 
+### Project Resources
+
+* [Working with Files](https://backend.turing.edu/module1/lessons/working_with_files): Module 1 Backend lesson
+* [SimpleCov](https://github.com/simplecov-ruby/simplecov): Ruby code coverage analysis tool
+
 ### Iteration 1: Creating a Command Line Interface
 
 Write a Ruby program that prints a line to the terminal like the one below:
