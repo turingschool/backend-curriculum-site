@@ -14,6 +14,11 @@ title: Night Writer
 
 The idea of [Night Writing](https://en.wikipedia.org/wiki/Night_writing) was first developed for Napoleon's army so soldiers could communicate silently at night without light. The concept of night writing led to Louis Braille's development of his [Braille tactile writing system](https://en.wikipedia.org/wiki/Braille).
 
+
+## Evaluation Rubric
+
+The evaluation rubric for this project is available [here](./rubric)
+
 ## Project Requirements
 
 In this project we'll implement systems for generating Braille-like text from [English characters](https://en.wikipedia.org/wiki/English_alphabet) and the reverse.
@@ -26,6 +31,11 @@ Created 'braille.txt' containing 256 characters
 ```
 
 That will use the plaintext file `message.txt` to create a Braille simulation file `braille.txt`.
+
+### Project Resources
+
+* [Working with Files](https://backend.turing.edu/module1/lessons/working_with_files): Module 1 Backend lesson
+* [SimpleCov](https://github.com/simplecov-ruby/simplecov): Ruby code coverage analysis tool
 
 ### Iteration 1: Creating a Command Line Interface
 
@@ -71,7 +81,8 @@ Following the same pattern, `hello world` would be represented as follows:
 ....0.0.0....00.0.0...
 ```
 
-You can experiment with [converting other words](http://www.brailletranslator.org/) yourself and share some samples with your classmates. Use the [lowercase letters a-z here from the American Foundation for the Blind](http://braillebug.afb.org/braille_print.asp) for your project.
+<!-- You can experiment with [converting other words](http://www.brailletranslator.org/) yourself and share some samples with your classmates. Use the [lowercase letters a-z here from the American Foundation for the Blind](http://braillebug.afb.org/braille_print.asp) for your project. -->
+You can experiment with [converting other words](http://www.brailletranslator.org/) yourself and share some samples with your classmates. Use the [lowercase letters a-z here](./braille_basics) for your project.
 
 Each line of your Braille file should be no wider than 40 Braille characters (80 dots) wide.
 
@@ -202,6 +213,6 @@ Note, a Braille character is the full 6 .s or 0s
     .....0...0
     00.000.000
 
-## Evaluation Rubric
+<!-- ## Evaluation Rubric
 
-The evaluation rubric for this project is available [here](./rubric)
+The evaluation rubric for this project is available [here](./rubric) -->
