@@ -80,7 +80,7 @@ Entering Module 3 with a solid understanding of ActiveRecord and SQL is key to g
 
 We will discuss the following on the first day of the inning:
 
-* [Thinking Fast and Slow](https://drive.google.com/file/d/1tBU_FF_kYLHltyvc6ZEPfb3LiYYQRreT/view?usp=sharing)
+* [Learning, Fast and Slow](https://drive.google.com/file/d/1tBU_FF_kYLHltyvc6ZEPfb3LiYYQRreT/view?usp=sharing)
 
 # For further exploration
 
