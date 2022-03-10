@@ -8,7 +8,7 @@ subheading: Ruby and Rails Versions
 
 We will use Ruby 2.7.4 in Module 2 & 3. You can check your Ruby version by running `ruby -v`.
 
-Using [rbenv](https://github.com/rbenv/rbenv), you can install Ruby 2.7.2 (if you don't have it already) with:
+Using [rbenv](https://github.com/rbenv/rbenv), you can install Ruby 2.7.4 (if you don't have it already) with:
 
 ```
 rbenv install 2.7.4
@@ -26,9 +26,9 @@ Always double check that your Ruby version is correct after changing it with `ru
 
 We will use Rails version 5.2.6 in Module 2 & 3.
 
-Rails is a Gem, and if you are using `rbenv`, gems are specific to your current Ruby version, so you need to make sure you are on Ruby 2.7.2 before proceeding by following the instructions above.
+Rails is a Gem, and if you are using `rbenv`, gems are specific to your current Ruby version, so you need to make sure you are on Ruby 2.7.4 before proceeding by following the instructions above.
 
-Once you have verified your Ruby version is 2.7.2, check if you have Rails. From the command line:
+Once you have verified your Ruby version is 2.7.4, check if you have Rails. From the command line:
 
 ```bash
 $ rails -v
