@@ -10,9 +10,9 @@ In Module 1, students will learn to use Ruby and object-oriented programming to 
 
 ## Instructors
 
-* Chris Simmons
+* Chris Simmons (Anchor)
 * Meg Stang
-* Richard Tillies (Anchor)
+* Richard Tillies
 
 ## Curriculum
 
