@@ -15,16 +15,14 @@ Projects require students to apply new concepts from class and build on existing
   * This project is graded on a scale from 0.0 to 4.0.
   * A passing score on the Paired Project is 2.5 or greater.
   * Students must pass either the **Paired Project** or **Group Project** to be promoted.
-<!--
-* **Winter Project** - Begin Friday week 3, due Sunday week 4.
-  * This project and accompanying assignments are designed to keep your skills sharp over the winter break.
-  * This project is not graded and will not count towards the final promotion decision at the end of the module.
--->
+<!-- * **Winter Project** - Begin Friday week 3, due Sunday week 4. -->
+<!--  * This project and accompanying assignments are designed to keep your skills sharp over the winter break. -->
+<!-- * This project is not graded and will not count towards the final promotion decision at the end of the module.  -->
 * **Group Project** - Begin Tuesday week 4, due Thursday week 5.
   * This project is graded on a scale from 0.0 to 4.0.
   * A passing score on the Group Project is 2.5 or greater.
   * Students must pass either the **Paired Project** or **Group Project** to be promoted.
-* **Final Project** - Begin Thursday week 5, due Monday week 6.
+* **Final Project** - Begin Thursday week 5, due Tuesday week 6.
   * This project is graded on a scale from 0.0 to 4.0.
   * A passing score on the Final Project is 2.5 or greater.
   * Students must pass the **Final Project** to be promoted.
@@ -86,4 +84,4 @@ When sending a direct message (DM), students must DM ALL instructors. Exceptions
 
 ## Attendance
 
-Attendance is required at 90% or above to pass Module 1. Attendance will be counted at all scheduled activities from 9:00 am to 4:00 pm. Per the Student Course Catalog, tardiness will be counted as absence.
+Attendance is required at 80% or above to pass Module 1. Attendance will be counted at all scheduled activities from 9:00 am to 4:00 pm. Per the Student Course Catalog, tardiness will be counted as absence.
