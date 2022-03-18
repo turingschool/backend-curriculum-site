@@ -12,6 +12,7 @@ layout: page
   * [#each](./lessons/each)
   * [Flow Control](./lessons/flow_control)
   * [Scope](./lessons/scope)
+  * Intro to Debugging
   * Learning to Pair
 
 * **Non-Technical Responsibilities**
@@ -54,6 +55,7 @@ layout: page
     * [Nested Collections](./lessons/nested_collections)
     * [Boolean Logic](./lessons/boolean_logic)
     * [Modules](./lessons/modules)
+    * [Class Methods](./lessons/class_methods)
 
   * **Non-Technical Responsibilities**
     * Professional Development
@@ -62,7 +64,7 @@ layout: page
 
   * **Deliverables**
     * Submit [Pair Project](./connect_four)
-    * Mid Mod Diagnostic Assessment
+    * Mid-Mod Diagnostic Assessment
 
 <!--
     * Start [Winter Break Assignments](./winter_2111)
@@ -76,7 +78,7 @@ layout: page
 ## Week 4
 
   * **Technical Lessons**
-    * [Class Methods](./lessons/class_methods)
+    * [Event Manager - CSV Exploration](./projects/eventmanager)
     * [Nested Iteration](./lessons/nested_iteration)
     * [Inheritance](./lessons/inheritance)
 
@@ -88,14 +90,14 @@ layout: page
 
   * **Deliverables**
     * Independent Challenge #3
-    * Start [Group Project](./projects/black_thursday)
+    * Start [Group Project](./projects/futbol)
 
 ## Week 5
 
   * **Technical Lessons**
     * [Design Principles](./lessons/design_principles)
     * [Ruby Object Model](./lessons/ruby_object_model)
-    * [Enumerables II](./lessons/enumerables_ii)
+    <!-- * [Enumerables II](./lessons/enumerables_ii) -->
     * [Mocks and Stubs](./lessons/mocks_stubs)
 
   * **Non-Technical Responsibilities**
@@ -108,7 +110,7 @@ layout: page
     * Independent Challenge #4
     * Instructor Paired Final Assessment
     * Submit PD Survey
-    * Submit [Group Project](./projects/black_thursday)
+    * Submit [Group Project](./projects/futbol)
     * Start [Final Project](./projects/night_writer)
 
 ## Week 6

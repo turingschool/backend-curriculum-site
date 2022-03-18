@@ -9,7 +9,7 @@ The following projects will be assigned and their completion is required to be p
 
 * Week 1 (Solo): [War or Peace](./war_or_peace)
 * Week 2-3 (Paired): [Connect Four](./connect_four)
-* Week 4-5 (Group): [Black Thursday](./black_thursday)
+* Week 4-5 (Group): [Futbol](./futbol)
 * Week 6 (Final): [Night Writer](./night_writer)
 
 ## Extension Projects
@@ -37,7 +37,7 @@ These projects are listed (roughly) in order of difficulty.
 * [Super Sports Games](./super_sports_games)
 * [Sorting Cards](./sorting_cards)
 * [Chisel](./chisel)
-* [Futbol](./futbol)
+* [Black Thursday](./black_thursday)
 * [Head Count](./headcount)
 * [Enigma](./enigma)
 
@@ -45,6 +45,6 @@ These projects are listed (roughly) in order of difficulty.
 Projects in Use:
   * [Connect Four](./connect_four)
   * [Event Manager](./eventmanager)
-  * [Black Thursday](./black_thursday)
+  * [Futbol](./futbol)
   * [Night Writer](./night_writer)
 -->
