@@ -19,7 +19,7 @@ title: Relational Rails
 
 ## Permission
 
-- if there is a specific gem you'd like to use in the project that is not mentioned in this project page, please get permission from your instructors first
+- if there is a specific gem you'd like to use in the project that is not mentioned in this project page, you must permission from your instructors first
 
 ## Rubric
 
@@ -90,7 +90,7 @@ Each user story will focus on one of the following:
 ```
 [ ] done
 
-User Story 1, Parent Index (x2)
+User Story 1, Parent Index 
 
 For each parent table
 As a visitor
@@ -101,7 +101,7 @@ Then I see the name of each parent record in the system
 ```
 [ ] done
 
-User Story 2, Parent Show (x2)
+User Story 2, Parent Show 
 
 As a visitor
 When I visit '/parents/:id'
@@ -112,7 +112,7 @@ Then I see the parent with that id including the parent's attributes:
 ```
 [ ] done
 
-User Story 3, Child Index (x2)
+User Story 3, Child Index 
 
 As a visitor
 When I visit '/child_table_name'
@@ -122,7 +122,7 @@ Then I see each Child in the system including the Child's attributes:
 ```
 [ ] done
 
-User Story 4, Child Show (x2)
+User Story 4, Child Show 
 
 As a visitor
 When I visit '/child_table_name/:id'
@@ -132,7 +132,7 @@ Then I see the child with that id including the child's attributes:
 ```
 [ ] done
 
-User Story 5, Parent Children Index (x2)
+User Story 5, Parent Children Index 
 
 As a visitor
 When I visit '/parents/:parent_id/child_table_name'
@@ -144,7 +144,7 @@ Then I see each Child that is associated with that Parent with each Child's attr
 ```
 [ ] done
 
-User Story 6, Parent Index sorted by Most Recently Created (x2)
+User Story 6, Parent Index sorted by Most Recently Created 
 
 As a visitor
 When I visit the parent index,
@@ -155,7 +155,7 @@ And next to each of the records I see when it was created
 ```
 [ ] done
 
-User Story 7, Parent Child Count (x2)
+User Story 7, Parent Child Count
 
 As a visitor
 When I visit a parent's show page
@@ -205,7 +205,7 @@ Then I see a link to take me to that parent's `child_table_name` page ('/parents
 ```
 [ ] done
 
-User Story 11, Parent Creation (x2)
+User Story 11, Parent Creation 
 
 As a visitor
 When I visit the Parent Index page
@@ -223,7 +223,7 @@ and I am redirected to the Parent Index page where I see the new Parent displaye
 ```
 [ ] done
 
-User Story 12, Parent Update (x2)
+User Story 12, Parent Update 
 
 As a visitor
 When I visit a parent show page
@@ -240,7 +240,7 @@ and I am redirected to the Parent's Show page where I see the parent's updated i
 ```
 [ ] done
 
-User Story 13, Parent Child Creation (x2)
+User Story 13, Parent Child Creation 
 
 As a visitor
 When I visit a Parent Childs Index page
@@ -257,7 +257,7 @@ and I am redirected to the Parent Childs Index page where I can see the new chil
 ```
 [ ] done
 
-User Story 14, Child Update (x2)
+User Story 14, Child Update 
 
 As a visitor
 When I visit a Child Show page
@@ -275,7 +275,7 @@ and I am redirected to the Child Show page where I see the Child's updated infor
 ```
 [ ] done
 
-User Story 15, Child Index only shows `true` Records (x2)
+User Story 15, Child Index only shows `true` Records 
 
 As a visitor
 When I visit the child index
@@ -285,7 +285,7 @@ Then I only see records where the boolean column is `true`
 ```
 [ ] done
 
-User Story 16, Sort Parent's Children in Alphabetical Order by name (x2)
+User Story 16, Sort Parent's Children in Alphabetical Order by name 
 
 As a visitor
 When I visit the Parent's children Index Page
@@ -299,7 +299,7 @@ I'm taken back to the Parent's children Index Page where I see all of the parent
 ```
 [ ] done
 
-User Story 17, Parent Update From Parent Index Page (x2)
+User Story 17, Parent Update From Parent Index Page 
 
 As a visitor
 When I visit the parent index page
@@ -311,7 +311,7 @@ I should be taken to that parents edit page where I can update its information j
 ```
 [ ] done
 
-User Story 18, Child Update From Childs Index Page (x1)
+User Story 18, Child Update From Childs Index Page 
 
 As a visitor
 When I visit the `child_table_name` index page or a parent `child_table_name` index page
@@ -329,7 +329,7 @@ I should be taken to that `child_table_name` edit page where I can update its in
 ```
 [ ] done
 
-User Story 19, Parent Delete (x2)
+User Story 19, Parent Delete 
 
 As a visitor
 When I visit a parent show page
@@ -343,7 +343,7 @@ and I am redirected to the parent index page where I no longer see this parent
 ```
 [ ] done
 
-User Story 20, Child Delete (x2)
+User Story 20, Child Delete 
 
 As a visitor
 When I visit a child show page
@@ -359,7 +359,7 @@ and I am redirected to the child index page where I no longer see this child
 ```
 [ ] done
 
-User Story 21, Display Records Over a Given Threshold (x2)
+User Story 21, Display Records Over a Given Threshold 
 
 As a visitor
 When I visit the Parent's children Index Page
@@ -373,7 +373,7 @@ Then I am brought back to the current index page with only the records that meet
 ```
 [ ] done
 
-User Story 22, Parent Delete From Parent Index Page (x1)
+User Story 22, Parent Delete From Parent Index Page 
 
 As a visitor
 When I visit the parent index page
@@ -385,7 +385,7 @@ I am returned to the Parent Index Page where I no longer see that parent
 ```
 [ ] done
 
-User Story 23, Child Delete From Childs Index Page (x1)
+User Story 23, Child Delete From Childs Index Page 
 
 As a visitor
 When I visit the `child_table_name` index page or a parent `child_table_name` index page
@@ -400,7 +400,7 @@ I should be taken to the `child_table_name` index page where I no longer see tha
 ```
 [ ] done
 
-Sort Parents by Number of Children (x2)
+Sort Parents by Number of Children 
 
 As a visitor
 When I visit the Parents Index Page
