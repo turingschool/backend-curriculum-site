@@ -49,7 +49,7 @@ Do not use Parent/Child as your relationship
 
 These relationships are yours to create, but we instructors are happy to provide feedback on the relationships if asked.
 
-Use [This database design site](https://www.dbdesigner.net/) to design your database with **2 one to many relationships.**
+Use [This database design site](https://www.dbdesigner.net/) to design your database with your one to many relationships.
 
 Here is an example diagram:
 
