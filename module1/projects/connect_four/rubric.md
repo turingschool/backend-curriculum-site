@@ -1,9 +1,15 @@
 ---
 layout: page
-title: Connect Four - Evaluation Rubric
+title: Connect Four - Evaluation Requirements
 ---
 
 _[Back to Connect Four Home](./index)_
+
+## Creating a Presentation for Evaluation
+
+Please reference [these instructions](./evaluation), to prepare a video presentation to submit for evaluation.
+
+## Evaluation Rubric
 
 <br> | **Exceptional** | **Meets Expectations** | **Below Expectations** | **Well Below Expectations**
 -- | --- | --- | --- | ---
