@@ -31,5 +31,5 @@ The technical presentation portion is outlined below with what points should be 
 [ ] Discussion of Pairing/version control
  * How did you all work together? Did you use a particular pairing technique? 
  * Walk us through your GitHub insights. How many pull requests did you make? How many commits did you make?
- * Can you identify a PR that was made that demonstrates good commenting/partber review workflow?
+ * Can you identify a PR that was made that demonstrates good commenting/partner review workflow?
 
