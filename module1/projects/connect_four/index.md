@@ -23,6 +23,7 @@ For more information see the [wikipedia page](https://en.wikipedia.org/wiki/Conn
 In this project you'll use Ruby to build a command line implementation of the classic game Connect Four. More detail can be found in the pages below:
 
 * [Setup](./setup)
-* [Requirements](./requirements)
+* [Technical Requirements](./requirements)
 * [Peer Code Share](./peer_code_share)
+* [Evaluation Presentation Requirements](./evaluation)
 * [Evaluation Rubric](./rubric)
