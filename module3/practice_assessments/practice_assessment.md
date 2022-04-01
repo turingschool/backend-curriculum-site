@@ -14,7 +14,7 @@ Good to knows about this practice assessment:
 
 __Optional__
   * Create JSON responses that follow [JSON:API Specs](https://jsonapi.org/format/#document-compound-documents)
-  * Use [fast_jsonapi gem](https://github.com/Netflix/fast_jsonapi) to format responses
+  * Use [jsonapi_serializer gem](https://github.com/jsonapi-serializer/jsonapi-serializer) to format responses
 
 
 ## Preparation
