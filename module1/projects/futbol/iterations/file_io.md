@@ -7,7 +7,7 @@ _[Back to Futbol Home](../index)_
 
 ## Setup
 
-We have provided a starting repository for this project. That repository has the usual `lib` and `test` directories that you have seen in the past, but also includes a `data` directory that includes three `.csv` files. These files are text files that include tables represented as comma separated values (hence `.csv`). The first row includes headers, while every other row includes entries in the table.
+We have provided a starting repository for this project. That repository has the usual `lib` and `spec` directories that you have seen in the past, but also includes a `data` directory that includes three `.csv` files. These files are text files that include tables represented as comma-separated values (hence `.csv`). The first row includes headers, while every other row includes entries in the table.
 
 Begin by picking one team member to fork the project repository [here](https://github.com/turingschool-examples/futbol).
 Once one of you has forked the repository, each of the other team members should clone that repository.
@@ -24,11 +24,11 @@ Note: we have linked the GitHub repository for SimpleCov, but you should not exp
 
 In order to get data into the system we're going to create, we're going to read information from CSV files. At this point, we don't expect that you have determined exactly what you will be doing with the information that you collect, so for now you may just want to print some information to the terminal about each record you read in.
 
-At a high level, if you create a runner file including the code below, you should drop into a pry session with an instance of StatTracker held in the `stat_tracker` variable.
+At a high level, if you create a runner file including the code below, you should drop into a pry session with an instance of `StatTracker` held in the `stat_tracker` variable.
 
-Note that `from_csv` is a method you have defined called directly on the StatTracker class, and not an instance of StatTracker.
+Note that `::from_csv` is a method you have defined called directly on the `StatTracker` class, and not an instance of `StatTracker`.
 
-`::from_csv` returns an instance of StatTracker. That instance of StatTracker will hold all of the information you need for the methods included in the remainder of the project description.
+`::from_csv` returns an instance of StatTracker. That instance of `StatTracker` will hold all of the information you need for the methods included in the remainder of the project description.
 
 ```ruby
 # runner.rb
