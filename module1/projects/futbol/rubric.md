@@ -6,7 +6,7 @@ title: Futbol - Rubric
 _[Back to Futbol Home](./index)_
 
 ## Evaluation Presentation
-Please reference [these instructions](./evaluation) to prepare a video presentation to submit for evaluation.
+Please reference [these instructions](./evaluation) to prepare for your live evaluation.
 
 
 ## Rubric

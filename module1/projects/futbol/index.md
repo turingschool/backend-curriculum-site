@@ -54,5 +54,5 @@ We have separated the methods required for this project into sections below.
 
 Your project will be assessed using [this rubric](./rubric).
 
-### Evaluation Presentation
-Please reference [these instructions](./evaluation) to prepare a video presentation to submit for evaluation.
+### Evaluation Preparation
+Please reference [these instructions](./evaluation) to prepare for your live project evaluation.

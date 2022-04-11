@@ -7,12 +7,12 @@ type: project
 
 _[Back to Futbol Home](./index)_
 
-For the project eval, you should prepare a 10 minute video presentation that clearly demonstrates the presentation points listed below. To create your video presentation, we suggest hopping on a Zoom call with your group partners, sharing your screen, and recording your meeting as you go through the presentation points. Then, upload that video to either Google Drive or YouTube. When submitting, the survey form will ask for a link to your presentation video.
+For this project, you will have a live evaluation over Zoom with an instructor. We may ask you to walk through your code, answer specific questions about your design, or the process you took to arrive at your finished project.
 
-The technical presentation portion is outlined below with what points should be covered. If you have questions about the presentation, please let an instructor know before the submission deadline.
+To prepare for the live evaluation, you and your group should be able to answer the questions in the "sample evaluation" below. If you have any  questions, please let your instructor know before the project submission deadline.
 
 
-## Presentation points:
+## Sample evaluation walkthrough:
 
 [ ] Demonstration of functional completeness
  * Display to the viewer the ability to start the program via the runner file, and demonstrate a few of the statistics that can be calculated.
