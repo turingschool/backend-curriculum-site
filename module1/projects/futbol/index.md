@@ -19,7 +19,7 @@ Let's build a system to do some analysis on futbol team performance.
 
 We will be using data from a fictional soccer league to analyze team performance for specific seasons and across seasons. We want to see who the best and worst performers are, as well as be able to pull statistics for individual teams. To that end we will create a `StatTracker` class that will provide us with the information we need.
 
-The first half of the project will focus on building the base statistics functionality through our `StatTracker`.  As you build out this class, you will quickly realize that there is waaaay too much going on in one class; so, for the second half of the project we will switch our focus to reorganizing our code to practice good SRP!
+The first half of the project will focus on building the base statistics functionality through our `StatTracker`.  As you build out this class, you will quickly realize that there is *waaaay* too much going on in one class; so, for the second half of the project we will switch our focus to reorganizing our code to practice good SRP!
 
 ## Organization
 
@@ -27,7 +27,7 @@ A key goal of this project is to write readable, organized, object-oriented code
 
 We recommend taking a "red, green, refactor" approach. First, write tests, write code that makes the tests pass, and then focus on refactoring and organizing after you have working tests and code. It will be easier to make decisions about new classes, modules, methods, etc. when you have seen working code.
 
-We also encourage you to track your progress by utilizing a project management tool such as GitHub Projects; we will not be requiring a project management tool for the project, but it is a good habit to get into!
+We also encourage you to track your progress by utilizing a project management tool such as GitHub Projects or Trello; we will not be requiring a project management tool for the project, but it is a good habit to get into!
 
 See [the evaluation rubric](./rubric) for more details and what exactly you should accomplish in this project.
 
@@ -39,7 +39,7 @@ A lesson available in Mod 1 is [Mocks and Stubs](../../lessons/mocks_stubs), whi
 
 ### Spec Harness
 
-In addition to your own tests, instructors will use [This Spec Harness](https://github.com/turingschool-examples/futbol_spec_harness) to assess the completion of your project. Prior to your evaluation, follow the direction in the README to set up the spec harness and verify that your code passes the tests. **NOTE: the spec harness is not a replacement for writing your own tests**.
+In addition to your own tests, instructors will use [this Spec Harness](https://github.com/turingschool-examples/futbol_spec_harness) to assess the completion of your project. Prior to your evaluation, follow the direction in the README to set up the spec harness and verify that your code passes the tests. **NOTE: the spec harness is not a replacement for writing your own tests**.
 
 ## Iterations
 
@@ -52,4 +52,7 @@ We have separated the methods required for this project into sections below.
 
 ## Evaluation Rubric
 
-Your project will be assessed using [this rubric](./rubric)
+Your project will be assessed using [this rubric](./rubric).
+
+### Evaluation Preparation
+Please reference [these instructions](./evaluation) to prepare for your live project evaluation.

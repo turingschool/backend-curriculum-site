@@ -5,6 +5,12 @@ title: Futbol - Rubric
 
 _[Back to Futbol Home](./index)_
 
+## Evaluation Presentation
+Please reference [these instructions](./evaluation) to prepare for your live evaluation.
+
+
+## Rubric
+
 | Category | **Exceptional** | **Meets Expectations** | **Below Expectations** | **Well Below Expectations** |
 | -------- | ------------------------------ | ------------------------- | ------------------------- | ------------------------------ |
 | **Functionality** | Completes all 4 iterations | Completes all functionality in iterations 1 through 3; including the [refactoring deliverable](./iterations/reorganization) | Completes all functionality in iterations 1 and 2 | Completes only iteration 1|
@@ -12,4 +18,6 @@ _[Back to Futbol Home](./index)_
 | **Ruby Conventions and Mechanics** | Classes, methods, and variables are well named so that they clearly communicate their purpose. Code is all properly indented and syntax is consistent. No methods are longer than 10 lines long. Most enumerables/data structures chosen are the most efficient tool for a given job, and students can speak as to why those enumerables/data structures were chosen. | Code is mostly properly indented, spaced, and lines are not excessively long. Class, method, variable, and file names follow convention. Some enumerables/data structures chosen are the most efficient tool for a given job, and students can speak as to why those enumerables/data structures were chosen. At least one hash is implemented in a way that makes logical sense. | Code demonstrates some proper indenting and spacing. Class, method, variable, and file names inconsistently follow convention. Few enumerables/data structures chosen are the most efficient tool for a given job. Students may not be able to speak as to why those enumerables/data structures were chosen. No hashes are implemented, or are implemented in an inappropriate use case. | Code is not properly indented and spaced and lines are excessively long. Class, method, variable, and file names do not follow convention |
 | **Test Driven Development** | Mocks and/or stubs are used appropriately to ensure one of the following: testing is more robust (i.e., testing methods that might not otherwise be tested due to factors like randomness or user input), testing is more efficient (i.e., not reading a full CSV file every time you call a method for a test), or that classes can be tested without relying on functionality from other classes. Students are able to speak as to how mocks and/or stubs are fulfilling the above conditions.  Spec harness runs in 5 seconds or less.  | Test coverage is above 95%. Students can indentify unit and integration testing. | Test coverage is above 90%. Students may not be able to identify unit or integration tests. Git history may demonstrate that students are writing implementation code and then writing tests. | Test coverage is below 90%. |
 
-**Required:** Students will document  and implement a code review process throughout the project whereby comments on pull requests are addressed before PRs are merged. Students contributed roughly equally to the project in terms of number of commits and lines of code. Commits are made in small chunks of functionality. Students used pull requests as a collaboration tool by reviewing each other’s PRs, making comments, and never merging their own PRs.
+**Required:** Students will document and implement a code review process throughout the project whereby comments on pull requests are addressed before PRs are merged. Students contributed roughly equally to the project in terms of number of commits and lines of code. Commits are made in small chunks of functionality. Students used pull requests as a collaboration tool by reviewing each other’s PRs, making comments, and never merging their own PRs.
+
+Remember that there are many ways to contribute to a group effort - review the topics we discussed in your [Learning to Pair](https://docs.google.com/presentation/d/1SB65R2PkUBHoNHk3z5Q71D-ZVHPLdQ7wBagGjd6_AUU/edit?usp=sharing) lesson.
