@@ -33,6 +33,7 @@ To prepare for the live evaluation, you and your group should be able to answer 
 [ ] Discussion of test coverage
  * Run your test suite and open the coverage report from SimpleCov.
  * Show examples of unit and integration tests that you wrote.
+ * Run the Spec Harness.
  * What was it like using the Spec Harness for this project? How did it inform your design or testing choices?
 
 
