@@ -9,7 +9,7 @@ _[Back to Futbol Home](./index)_
 
 For this project, you will have a live evaluation over Zoom with an instructor. We may ask you to walk through your code, answer specific questions about your design, or the process you took to arrive at your finished project.
 
-To prepare for the live evaluation, you and your group should be able to answer the questions in the "sample evaluation" below. If you have any  questions, please let your instructor know before the project submission deadline.
+To prepare for the live evaluation, you and your group should be prepared to answer the questions in the "sample evaluation" below. If you have any  questions, please let your instructor know before the project submission deadline.
 
 
 ## Sample evaluation walkthrough:
@@ -20,7 +20,8 @@ To prepare for the live evaluation, you and your group should be able to answer 
 [ ] Technical quality and organization of the code
  * At a high level (not line by line), describe how you broke out this application. What classes did you create? What is the responsibility of each class? Why did you choose to design your code in this way?
  * Is there a design decision that you made that you're particularly proud of?
- * Were there any later parts of the project that were made more difficult by your early design choices?
+ * Did you use inheritence and/or modules in your project? Why did you choose to use one over the other?
+ * Were you able to implement a hash at some point in your project? If so, where? And why did you choose to use a hash instead of another data type?
 
 [ ] Identifying areas of code that you decided to refactor
  * How did you identify areas of code to refactor? At a high level, how did you go about refactoring?
