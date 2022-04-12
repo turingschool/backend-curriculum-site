@@ -21,10 +21,6 @@ We will be using an Agile process during the development of this project. This w
 In Agile processes, a sprint is a single cycle of development. The most common length of a sprint is two weeks. During this cycle, teams will assign features, develop those features, demo their work, get feedback, and retro.
 
 
-## Pairing Schedules
-
-Your PM will present a pairing team every sprint, and rotate you to different areas of the project. We highly encourage you to switch teams as we announce new ones, but if you feel like for your best learning, you need to stay on a certain team, then discuss with your project group.
-
 
 #### Sprint 1: User Interface and Database Planning Spike
 
@@ -32,7 +28,7 @@ Your PM will present a pairing team every sprint, and rotate you to different ar
 - End: Thursday morning of Week 4
 
 Day 1:
-- Your PM will split your team up to focus on each area of the project.
+- Your group should split your team up to focus on each area of the project.
   - Front-end team
   - Back-end team
   - Documentation/Planning team
@@ -101,11 +97,11 @@ In addition to the End of Sprint Demos, you will also have some project check in
 
 * Set up a [CI Server](https://backend.turing.edu/module3/archive/lessons/environments_and_ci)
 * [CircleCI Docs](https://circleci.com/docs/2.0/)
-* [TravisCI Docs](https://docs.travis-ci.com/)
+
 
 ## Continuous Deployment
 
-* Set up Travis-CI/Circle-CI in such a way that it automatically deploys its code to Heroku when 'main' branch code is passing
+* Set up Circle-CI in such a way that it automatically deploys its code to Heroku when 'main' branch code is passing
 
 ## Story Grooming
 
