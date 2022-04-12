@@ -42,7 +42,7 @@ Day 1:
   - Rough implementation and testing of the front-end, mocking out responses from back-end; no authentication expected yet
   - Rough implementation and testing of back-end API, mocking requests from front-end
   - Initial structure of each Service (not necessarily working API calls)
-  - Travis-CI/Circle-CI and Deployment to Heroku for both FE/BE repositories
+  - Circle-CI and Deployment to Heroku for both FE/BE repositories
 
 #### Sprint 2: Primary Development
 
