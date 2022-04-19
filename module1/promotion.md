@@ -14,7 +14,7 @@ You will complete four projects throughout Module 1, each of which have a maximu
 * Week 1 (Solo): [War or Peace](./projects/war_or_peace)
   * The Solo Project is evaluated, but does not count toward promotion
 * Week 2-3 (Paired): [Connect Four](./connect_four)
-* Week 4-5 (Group): [Black Thursday](./projects/black_thursday)
+* Week 4-5 (Group): [Futbol](./projects/futbol)
   * You must earn a passing grade (2.5) on EITHER the Paired Project OR the Group Project
   * You must earn a minimum grade of 2.0 on BOTH the Paired Project AND the Group Project
 * Week 6 (Final): [Night Writer](./projects/night_writer)
@@ -47,4 +47,4 @@ Promoted students will have successfully completed the [Module 1 Professional De
 
 ## Portfolio
 
-Students will complete a Portfolio, and participate in a Portfolio Review. Instructions for the Portfolio can be found [here](./portfolios)
+Students will complete a Portfolio, and participate in a Portfolio Review. Instructions for the Portfolio can be found [here](./portfolios).
