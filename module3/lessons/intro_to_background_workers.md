@@ -220,4 +220,4 @@ Now you can navigate to `http://localhost:3000/sidekiq/`. This dashboard is very
 - Describe Sidekiq and Redis, and draw a diagram of how they interact with Rails.
 
 ### Further practice
-- Create your own Job class which prints a string of your choice to the root page view
+- Create your own Job class which creates an instance of a model asynchronously.
