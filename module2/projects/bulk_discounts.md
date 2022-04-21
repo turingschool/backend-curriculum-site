@@ -114,16 +114,6 @@ And each bulk discount listed includes a link to its show page
 ```
 
 ```
-As a merchant
-When I visit the discounts index page
-I see a section with a header of "Upcoming Holidays"
-In this section the name and date of the next 3 upcoming US holidays are listed.
-
-Use the Next Public Holidays Endpoint in the [Nager.Date API](https://date.nager.at/swagger/index.html)
-
-```
-
-```
 Merchant Bulk Discount Create
 
 As a merchant
@@ -193,6 +183,16 @@ As an admin
 When I visit an admin invoice show page
 Then I see the total revenue from this invoice (not including discounts)
 And I see the total discounted revenue from this invoice which includes bulk discounts in the calculation
+```
+
+```
+As a merchant
+When I visit the discounts index page
+I see a section with a header of "Upcoming Holidays"
+In this section the name and date of the next 3 upcoming US holidays are listed.
+
+Use the Next Public Holidays Endpoint in the [Nager.Date API](https://date.nager.at/swagger/index.html)
+
 ```
 
 ## Extensions
