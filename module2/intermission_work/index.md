@@ -39,4 +39,4 @@ Work on the following assignments in order. Each assignment will assume that you
 
 ## Submission
 
-When you are finished, fill out [this form](https://forms.gle/kKpnVr84r8kVoKSx7)
+When you are finished, fill out this form.
