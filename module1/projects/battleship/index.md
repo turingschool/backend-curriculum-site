@@ -7,6 +7,7 @@ title: BattleShip
 
 ## Background
 Battleship is a classic board game where players place one or more ships on a grid board, and then take turns trying to "sink" the other player's ships by guessing their coordinates. The game ends when one player's ships are all hit and "sunk".
+For more information, see the [Wikipedia page](https://en.wikipedia.org/wiki/Battleship_(game)).
 
 ## Learning Goals
 
@@ -14,8 +15,6 @@ Battleship is a classic board game where players place one or more ships on a gr
 * Practice algorithmic thinking
 * Create an Object-Oriented solution to a problem without being given full specifications
 * Work in a pair, using Pull Requests to collaborate
-
-For more information see the [Wikipedia page](https://en.wikipedia.org/wiki/Battleship_(game))
 
 ## Overview
 

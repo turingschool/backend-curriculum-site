@@ -7,7 +7,8 @@ title: Connect Four
 
 ## Background
 
-Connect Four is a classic board game where players take turns trying to create a line of four of their own pieces without being blocked by their opponent. The game ends when one of the two players successfully lines up four of their pieces horizontally, vertically, or diagonally and wins, or in a draw if the 7-column, 6-row grid is filled without either player successfully connecting four pieces.
+Connect Four is a classic board game where players take turns trying to create a line of four of their own pieces without being blocked by their opponent. The game ends when one of the two players successfully lines up four of their pieces horizontally, vertically, or diagonally and wins, or in a draw if the 7-column, 6-row grid is filled without either player successfully connecting four pieces. For more information, see the [wikipedia page](https://en.wikipedia.org/wiki/Connect_Four).
+
 
 ## Learning Goals / Areas of Focus
 
@@ -16,7 +17,6 @@ Connect Four is a classic board game where players take turns trying to create a
 * Applying Enumerable techniques in a real context
 * Practice implementing a useable REPL interface
 
-For more information see the [wikipedia page](https://en.wikipedia.org/wiki/Connect_Four).
 
 ## Overview
 
