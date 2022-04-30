@@ -1,12 +1,14 @@
 ---
 layout: page
-title: Black Thursday Iteration 2
+title: Black Thursday Iteration 2 - Basic Invoices
 ---
+_[Back to Black Thursday Home](./index)_
 
-I2: Basic Invoices
-========
+Now we'll begin to move a little faster. Let's work with invoices to build up the data access layer and business intelligence in one iteration.
 
-Now we'll begin to move a little faster. Let's work with invoices and build up the data access layer  and business intelligence in one iteration.
+Parts to iteration 3:
+[Data Access Layer](#data-access-layer)
+[Business Intelligence](#business-intelligence)
 
 Data Access Layer
 ----------
@@ -33,6 +35,8 @@ invoice = se.invoices.find_by_id(6)
 # => <invoice>
 ```
 
+---
+
 ### `Invoice`
 
 The invoice has the following data accessible:
@@ -57,14 +61,18 @@ i = Invoice.new({
 })
 ```
 
+---
+
 Business Intelligence
 -------------
 
-Assuming we have a `sales_engine` that's an instance of `SalesEngine` let's initialize a `SalesAnalyst` like this:
+Assuming we have a `SalesEngine` instance called `sales_engine`, let's initialize a `SalesAnalyst` like this:
 
 ```ruby
 sales_analyst = sales_engine.analyst
 ```
+
+Then, using the `sales_analyst` instance, answer the following questions:
 
 ### How many invoices does the average merchant have?
 
@@ -75,7 +83,7 @@ sales_analyst.average_invoices_per_merchant_standard_deviation # => 3.29
 
 ### Who are our top performing merchants?
 
-Which merchants are more than two standard deviations *above* the mean?
+Which merchants are *more than __two__* standard deviations *above* the mean?
 
 ```ruby
 sales_analyst.top_merchants_by_invoice_count # => [merchant, merchant, merchant]
@@ -83,7 +91,7 @@ sales_analyst.top_merchants_by_invoice_count # => [merchant, merchant, merchant]
 
 ### Who are our lowest performing merchants?
 
-Which merchants are more than two standard deviations *below* the mean?
+Which merchants are *more than __two__* standard deviations *below* the mean?
 
 ```ruby
 sales_analyst.bottom_merchants_by_invoice_count # => [merchant, merchant, merchant]
