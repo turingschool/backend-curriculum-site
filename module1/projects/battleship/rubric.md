@@ -5,6 +5,12 @@ title: Battleship - Evaluation Rubric
 
 _[Back to Battleship Home](./index)_
 
+## Creating a Presentation for Evaluation
+
+Please reference [these instructions](./evaluation), to prepare a video presentation to submit for evaluation.
+
+## Evaluation Rubric
+
 <br> | **Exceptional** | **Meets Expectations** | **Below Expectations** | **Well Below Expectations**
 -- | --- | --- | --- | ---
 **Functionality** | 2 of the features in Iteration 4 are complete | All of the functionality in Iteration 3 is complete | Some of the functionality in Iteration 3 is not complete | Game cannot execute ship placement or iteration 2 is not complete |

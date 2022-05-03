@@ -7,10 +7,10 @@ title: Backend Module 1 Projects
 
 The following projects will be assigned and their completion is required to be promoted to module 2.
 
-* Week 1 (Solo): [War or Peace](./war_or_peace)
-* Week 2-3 (Paired): [Connect Four](./connect_four)
-* Week 4-5 (Group): [Futbol](./futbol)
-* Week 6 (Final): [Night Writer](./night_writer)
+* Week 1 (Solo): [FlashCards](./flashcards)
+* Week 2-3 (Paired): [Battleship](./battleship)
+* Week 4-5 (Group): [Black Thursday](./black_thursday)
+* Week 6 (Final): [Enigma](./enigma)
 
 ## Extension Projects
 
@@ -27,8 +27,8 @@ The following projects are not required. Students can use these projects as an o
 
 These projects are listed (roughly) in order of difficulty.
 
-* [FlashCards](./flashcards)
-* [Battleship](./battleship)
+* [War or Peace](./war_or_peace)
+* [Connect Four](./connect_four)
 * [Mastermind](./mastermind)
 * [Event Manager](./eventmanager)
 * [Event Reporter](./event_reporter)
@@ -37,9 +37,9 @@ These projects are listed (roughly) in order of difficulty.
 * [Super Sports Games](./super_sports_games)
 * [Sorting Cards](./sorting_cards)
 * [Chisel](./chisel)
-* [Black Thursday](./black_thursday)
+* [Futbol](./futbol)
 * [Head Count](./headcount)
-* [Enigma](./enigma)
+* [Night Writer](./night_writer)
 
 <!--
 Projects in Use:

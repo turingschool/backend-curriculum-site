@@ -10,9 +10,9 @@ In Module 1, students will learn to use Ruby and object-oriented programming to 
 
 ## Instructors
 
-* Chris Simmons (Anchor)
-* Meg Stang
-* Richard Tillies
+* Abdul Redd
+* Chris Simmons (anchor)
+* Erin Pintozzi
 
 ## Curriculum
 
@@ -28,11 +28,13 @@ In Module 1, students will learn to use Ruby and object-oriented programming to 
 ## Requirements
 
 * [Schedule](./schedule)
-* [Portfolio](./portfolios)
 * [Syllabus](./syllabus)
+* [Portfolio](./portfolios)
 * [Professional Development Curriculum](https://careerdev.turing.edu/module_one/)
 * [Promotion to Module 2](./promotion)
 
 ## Calendar (Mountain Time)
+**NOTE**: Instead of copying events, _add this calendar_ to your own! <br>
+To add this calendar, click the "+ Google Calendar" button on the bottom-right side. Then, click "Add".
 
 <iframe src="https://calendar.google.com/calendar/embed?src=casimircreative.com_59k8msrrc2ddhcv787vubvp0s4@group.calendar.google.com&ctz=America/Denver&mode=week" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>

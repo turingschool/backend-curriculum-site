@@ -24,7 +24,7 @@ layout: page
 
 * **Deliverables**
   * Independent Challenge #1
-  * Start [Solo Project](./projects/war_or_peace)
+  * Start [Solo Project](./projects)
 
 ## Week 2
 
@@ -45,9 +45,9 @@ layout: page
     * One on One Instructor Meeting
 
   * **Deliverables**
-    * Submit [Solo Project](./projects/war_or_peace)
+    * Submit [Solo Project](./projects)
     * Independent Challenge #2
-    * Start [Pair Project](./connect_four)
+    * Start [Pair Project](./projects)
 
 ## Week 3
 
@@ -63,8 +63,12 @@ layout: page
     * Accountabilibuddy Check-In
 
   * **Deliverables**
-    * Submit [Pair Project](./connect_four)
+    * Submit [Pair Project](./projects)
     * Mid-Mod Diagnostic Assessment
+
+  * Free Weekend!
+    * No project or assessment due, and in 2205 we're off on Monday for Memorial Day!
+    * Review & complete all or any of [these suggestions](./week3_weekend)
 
 <!--
     * Start [Winter Break Assignments](./winter_2111)
@@ -90,7 +94,7 @@ layout: page
 
   * **Deliverables**
     * Independent Challenge #3
-    * Start [Group Project](./projects/futbol)
+    * Start [Group Project](./projects)
 
 ## Week 5
 
@@ -110,8 +114,8 @@ layout: page
     * Independent Challenge #4
     * Instructor Paired Final Assessment
     * Submit PD Survey
-    * Submit [Group Project](./projects/futbol)
-    * Start [Final Project](./projects/night_writer)
+    * Submit [Group Project](./projects)
+    * Start [Final Project](./projects)
 
 ## Week 6
 
@@ -124,5 +128,5 @@ layout: page
     * Accountabilibuddy Check-In
 
   * **Deliverables**
-    * Submit [Final Project](./projects/night_writer)
+    * Submit [Final Project](./projects)
     * [Portfolio](./portfolios)
