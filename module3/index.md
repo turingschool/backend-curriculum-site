@@ -10,8 +10,8 @@ In Module 3, we will look beyond the basics of building Rails web applications w
 
 ## Instructors
 
-* Erin Pintozzi (Anchor)
-* Jamison Ordway
+* Jamison Ordway (Anchor)
+* Juliet Eyraud
 
 ## Curriculum
 
