@@ -12,8 +12,8 @@ In Module 2, we expand upon fundamental Ruby skills by building database-backed 
 
 * Michael Dao (Anchor)
 * Dani Coleman
-* Richard Tilles
-* 
+* Richard Tillies
+
 ## Curriculum
 
 * [Learning Goals](./success/learning_goals)
