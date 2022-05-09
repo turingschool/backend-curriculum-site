@@ -38,7 +38,7 @@ title: Relational Rails
 
 ### Design your database  
 
-Read [this lesson plan](https://backend.turing.io/module2/lessons/one_to_many_relationships) and use it as a reference when designing your database.
+Read [this lesson plan](https://backend.turing.edu/module2/lessons/one_to_many_relationships) and use it as a reference when designing your database.
 
 Each person will come up with their own one to many relationship. This should represent a real world example of your choice. An example would be:
 - Shelters and Pets
