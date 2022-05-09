@@ -23,7 +23,7 @@ In Module 2, we expand upon fundamental Ruby skills by building database-backed 
 
 ## Resources
 * [Resources](./resources)
-* [Excercises](./exercises)
+* [Exercises](./exercises)
 
 ## Requirements
 * [Portfolio](./portfolios/portfolio_requirements)
