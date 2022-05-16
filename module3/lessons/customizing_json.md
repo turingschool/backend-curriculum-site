@@ -6,9 +6,9 @@ tags: json, javascript, rails, ruby, api
 
 ## Learning Goals
 
+* Articulate what a serializer is and how to create one in a Rails application.
 * Understand the purpose of serializers and how they support OOP Principles
 * Understand what constitutes presentation logic in the context of serving a JSON API and why formatting in the model is not the right place
-* Articulate what a serializer is and how to create one in a Rails application. 
 
 ## Warmup
 
