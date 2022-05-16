@@ -7,7 +7,6 @@ title: RESTful Routes and CRUD
 
 * Explain CRUD in the context of web applications.
 * Explain what is REST
-* Create a routes reference chart for the seven RESTful routes.
 * Be able to distinguish between a RESTful vs non-RESTful route.
 
 ## Vocabulary
