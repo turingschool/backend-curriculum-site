@@ -282,7 +282,7 @@ Add that to your serializer and refresh.
 
 Since we're trying to serialize book data, our request is telling us that we must create a BookSerializer.
 
-`rails g serializer Book id title author genre summary number_sold`
+`rails g serializer Book title author genre summary number_sold`
 
 Now restart your server and refresh your request. You should see Book data appearing now. 
 
