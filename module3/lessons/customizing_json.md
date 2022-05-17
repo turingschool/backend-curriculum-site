@@ -236,7 +236,7 @@ And then `bundle install`
 
 We can now use the built in generator in order to make ourselves a serializer.
 
-```rails g serializer Store id name```
+```rails g serializer Store name```
 
 This will add the appropriate attributes from the  Store model.  And give us only the id and store name.
 
