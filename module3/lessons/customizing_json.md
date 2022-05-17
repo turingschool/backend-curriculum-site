@@ -6,7 +6,8 @@ tags: json, javascript, rails, ruby, api
 
 ## Learning Goals
 
-* Generate and customize Rails Serializers
+* Articulate what a serializer is and how to create one in a Rails application.
+* Understand the purpose of serializers and how they support OOP Principles
 * Understand what constitutes presentation logic in the context of serving a JSON API and why formatting in the model is not the right place
 
 ## Warmup
@@ -198,7 +199,6 @@ So we have our responses from our server, but it isn’t JSON API 1.0 And it has
       "id": "1",
       "type": "store",
       "attributes": {
-        "id": 1,
         "name": "Toy, Steuber and Schinner",
         "num_books": 8
       },
