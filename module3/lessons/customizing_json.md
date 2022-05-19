@@ -245,7 +245,7 @@ Let’s check out what is in the Serializer.
 ```ruby
 class StoreSerializer
   include JSONAPI::Serializer
-  attributes :id, :name
+  attributes :name
 end
 ```
 
@@ -272,7 +272,7 @@ Easy.
 ```ruby
 class StoreSerializer
   include JSONAPI::Serializer
-  attributes :id, :name
+  attributes :name
 
   has_many :books
 end
@@ -293,7 +293,7 @@ Let’s say we wanted an attribute with the number of books each store has.
 ```ruby
 class StoreSerializer
   include JSONAPI::Serializer
-  attributes :id, :name
+  attributes :name
 
   has_many :books
 
@@ -310,7 +310,7 @@ We can also have a custom static attribute like so:
 ```ruby
 class StoreSerializer
   include JSONAPI::Serializer
-  attributes :id, :name
+  attributes :name
 
   has_many :books
 
@@ -340,7 +340,7 @@ end
 ```ruby
 class StoreSerializer
   include JSONAPI::Serializer
-  attributes :id, :name, :num_books
+  attributes :name, :num_books
 
   has_many :books
   
