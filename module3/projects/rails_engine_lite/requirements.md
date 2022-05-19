@@ -341,7 +341,7 @@ These endpoints will make use of query parameters as described below:
 These endpoints should:
 
 * return a single object, if found
-* return the first object in the database in case-sensitive alphabetical order if multiple matches are found
+* return the first object in the database in case-insensitive alphabetical order if multiple matches are found
   * eg, if "Ring World" and "Turing" exist as merchant names, "Ring World" would be returned, even if "Turing" was created first
 * allow the user to specify a 'name' query parameter:
   * for merchants, the user can send `?name=ring` and it will search the `name` field in the database table
