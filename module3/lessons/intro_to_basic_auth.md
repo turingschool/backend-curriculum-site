@@ -20,7 +20,7 @@ tags: rails, authentication, bcrypt, ruby, sessions, helper_methods
 * hash
 * helper_method
 * "flash" message
-  
+
 
 ## Overview
 
@@ -92,7 +92,7 @@ Let's use the handy `root` method that Rails gives us to create a route for the 
 
   root "welcome#index"
 ```
-This is the same as `get "/", to: "welcome#index"`, but now, we'll have the `root` prefix to use as a path helper. Try it! Run `rake routes` and see the routes that get generated for `"/"` when you write the path these two different ways. 
+This is the same as `get "/", to: "welcome#index"`, but now, we'll have the `root` prefix to use as a path helper. Try it! Run `rake routes` and see the routes that get generated for `"/"` when you write the path these two different ways.
 
 Next, let's create the `WelcomeController` and a method for the `index` action as well. We are going to be rendering some basic content so we don't need to fetch any data or build any instance variables in our controller.
 
@@ -116,7 +116,7 @@ Since this is a new "user" resource, we'll name this as we have in other Rails a
 
 We can continue to follow our errors to create a new resources route for our users to point to a controller. We need a "new" path to display the form, and a "create" path to save the form data.
 
-```ruby 
+```ruby
   #routes.rb
 
   root "welcome#index"
@@ -155,7 +155,7 @@ ActionController::RoutingError:
 
 Our form doesn't know where to send the information!
 
-Let's add this route to our `routes.rb` 
+Let's add this route to our `routes.rb`
 
 But now we're getting an error that the POST route still doesn't exist!
 
@@ -201,10 +201,10 @@ Let's try to make these tests pass with this User model:
 # models/user.rb
 class User < ApplicationRecord
   validates :username, uniqueness: true, presence: true
-  validates_presence_of :password, require: true
+  validates_presence_of :password
 end
 ```
-Run your test 
+Run your test
 
 Our model test is complaining that we don't have an attribute called `password`, and it's right! Look at the migration and the schema. We have a field called `password_digest`.
 
@@ -227,7 +227,7 @@ We now need to tell our model that it will be expecting a field `password` (and 
 # models/user.rb
 class User < ApplicationRecord
   validates :username, uniqueness: true, presence: true
-  validates_presence_of :password, require: true
+  validates_presence_of :password
 
   has_secure_password
 end
