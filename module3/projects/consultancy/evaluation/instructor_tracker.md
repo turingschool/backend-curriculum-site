@@ -105,7 +105,7 @@ __When the above criteria is met, here are additional points to achieve a 4__
 
 - [ ] Optimization techniques implemented in all repos
 
-- Travis-CI deploys to Heroku
+- CircleCI deploys to Heroku
     - [ ] Frontend
     - [ ] Rails Back End
 

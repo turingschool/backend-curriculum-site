@@ -37,13 +37,19 @@ Each Repo's README meets the following:
 - [ ] discusses the purpose of its purpose (how it fits into the project SOA)
 - [ ] discusses how to install and test the repo
 
-Fronten README:
+Frontend README:
 - [ ] has screenshots
 - [ ] discusses OAuth
 
 Rails backend README:
 - [ ] includes database schema
 - [ ] each endpoint is documented with example request & response
+
+---
+
+Resume
+
+Each group member should create a version of their current resume that lists Consultancy in the 'projects' section and highlights their work using appropriate technical terminology. 
 
 ---
 
