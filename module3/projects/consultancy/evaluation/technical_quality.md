@@ -37,7 +37,7 @@ Each Repo meets the following:
     - [ ] Frontend
     - [ ] Rails Backend
 
-- Travis CI is set up
+- CircleCI is set up
     - [ ] Frontend
     - [ ] Rails Backend
 
@@ -62,7 +62,7 @@ __When the above criteria is met, here are additional points to achieve a 4__
     - [ ] Frontend
     - [ ] Rails Backend
 
-- Travis-CI deploys to Heroku
+- CircleCI deploys to Heroku
     - [ ] Frontend
     - [ ] Rails Backend
 
