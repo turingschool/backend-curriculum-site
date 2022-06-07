@@ -37,7 +37,7 @@ Let's look at an example of making a background task using Sidekiq. We'll use th
 git clone git@github.com:turingschool-examples/daily-mood-mailer.git
 cd daily-mood-mailer
 bundle
-rails db:{create, migrate}
+rails db:{create,migrate}
 rails s
 ```
 
@@ -212,6 +212,8 @@ end
 ```
 
 Now you can navigate to `http://localhost:3000/sidekiq/`. This dashboard is very useful for testing out jobs and receiving confirmation that everything is queued according to plan.
+
+Note: if you are getting errors when trying to visit the Sidekiq dashboard, try clearing your browser cookies.
 
 ## Checks for Understanding
 
