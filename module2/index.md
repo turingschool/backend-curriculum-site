@@ -12,7 +12,7 @@ In Module 2, we expand upon fundamental Ruby skills by building database-backed 
 
 * Michael Dao (Anchor)
 * Dani Coleman
-* Richard Tillies
+* Chris Simmons
 
 ## Curriculum
 
