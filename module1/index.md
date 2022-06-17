@@ -11,8 +11,8 @@ In Module 1, students will learn to use Ruby and object-oriented programming to 
 ## Instructors
 
 * Abdul Redd
-* Chris Simmons (anchor)
-* Erin Pintozzi
+* Erin Pintozzi (anchor)
+* Meg Stang
 
 ## Curriculum
 

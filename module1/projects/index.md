@@ -9,7 +9,7 @@ The following projects will be assigned and their completion is required to be p
 
 * Week 1 (Solo): [FlashCards](./flashcards)
 * Week 2-3 (Paired): [Battleship](./battleship)
-* Week 4-5 (Group): [Black Thursday](./black_thursday)
+* Week 4-5 (Group): [Futbol](./futbol)
 * Week 6 (Final): [Enigma](./enigma)
 
 ## Extension Projects
