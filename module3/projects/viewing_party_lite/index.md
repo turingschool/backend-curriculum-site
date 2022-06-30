@@ -50,7 +50,7 @@ Use this [retro guide](../retro_guide) during the scheduled retros for this proj
 Complete the activity [here](../peer_code_share)
 
 ## Evaluation
-For the project evaluation each project team should prepare a 10-12 minute **video** presentation. Presentations longer than 12 minutes will not be reviewed and sent back for revision. Your presentation should cover the following points:
+For the project evaluation each project team should prepare a 10 minute **video** presentation. Presentations longer than 10 minutes will not be reviewed and sent back for revision. Your presentation should cover the following points:
 
  - Demonstration of functionality  
  - Technical quality and organization of the code
@@ -60,7 +60,7 @@ For the project evaluation each project team should prepare a 10-12 minute **vid
 
 All team members are expected to participate equally in the presentation. Students should focus on practicing technical communication that is succinct and utilizes appropriate technical vocabulary.
 
-Instructors will review the video presentation and do a brief code review (so please make sure you identify an area you'd like feedback in your video, so we can focus where you'd like it most). Scores and final comments will be sent to teams via Slack.
+Please open a pull request on the [Turing Viewing Party Repo](https://github.com/turingschool-examples/viewing_party_lite). Instructors will review the video presentation and do a brief code review (so please make sure you identify an area you'd like feedback in your video, so we can focus where you'd like it most). Scores and final comments will be sent to teams via Slack.
 
 Slides are not required, but encouraged as a way to facilitate the presentation along with sharing specific code examples.
 
