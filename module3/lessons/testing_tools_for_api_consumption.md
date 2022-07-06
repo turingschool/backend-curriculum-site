@@ -30,7 +30,7 @@ Available [here](../slides/testing_api_consumption)
 * Add the key to `application.yml` and name it: `govt_api_key`
 
 ## Optional Manual Setup
-The rest of this setup is on [this setup branch](https://github.com/turingschool-examples/congress-tracker-2110/tree/api_testing_tools_setup) if you'd like to pull it down and start from that point instead:
+The rest of this setup is on [this setup branch](https://github.com/turingschool-examples/congress_tracker_2203/testing_tools_setup) if you'd like to pull it down and start from that point instead:
 
 * Add the faraday gem just below bcrypt in gemfile
 
@@ -112,7 +112,7 @@ end
 
 ## Mocking Network Requests
 
-The [setup branch](https://github.com/turingschool-examples/congress-tracker-2110/tree/api_testing_tools_setup) for this class has implemented a test to ensure that we are able to hit our API and display some data from the response. However, our test is actually hitting the Propublica API every time it runs. There are many reasons we wouldn't want to do this:
+The [setup branch](https://github.com/turingschool-examples/congress_tracker_2203/testing_tools_setup) for this class has implemented a test to ensure that we are able to hit our API and display some data from the response. However, our test is actually hitting the Propublica API every time it runs. There are many reasons we wouldn't want to do this:
 
 1. We could hit API rate limits much faster.
 1. Our test suite will be slower.
@@ -135,11 +135,11 @@ Now, when we run our tests we can see a big error message:
 
 ```sh
 WebMock::NetConnectNotAllowedError:
-      Real HTTP connections are disabled. Unregistered request: GET https://api.propublica.org/congress/v1/116/members/senate/members.json with headers {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'User-Agent'=>'Faraday v0.15.4', 'X-Api-Key'=>'opyjcKdEUKllG8P5V15kv3yKKbx1KwkGQwXbfCF3'}
+      Real HTTP connections are disabled. Unregistered request: GET https://api.propublica.org/congress/v1/116/senate/members.json with headers {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'User-Agent'=>'Faraday v0.15.4', 'X-Api-Key'=>'opyjcKdEUKllG8P5V15kv3yKKbx1KwkGQwXbfCF3'}
 
       You can stub this request with the following snippet:
 
-      stub_request(:get, "https://api.propublica.org/congress/v1/116/members/senate/members.json").
+      stub_request(:get, "https://api.propublica.org/congress/v1/116/senate/members.json").
         with(
           headers: {
          'Accept'=>'*/*',
@@ -160,7 +160,7 @@ Looking at the docs, we can see some examples of how to stub requests. Let's add
 
 ```ruby
 scenario "user submits valid state name" do
-    stub_request(:get, "https://api.propublica.org/congress/v1/116/members/senate/members.json").
+    stub_request(:get, "https://api.propublica.org/congress/v1/116/senate/members.json").
         to_return(status: 200, body: "")
     # As a user
     # When I visit "/"
@@ -180,7 +180,7 @@ And update our test:
 
 ```ruby
 json_response = File.read('spec/fixtures/members_of_the_senate.json')
-stub_request(:get, "https://api.propublica.org/congress/v1/116/members/senate/members.json").
+stub_request(:get, "https://api.propublica.org/congress/v1/116/senate/members.json").
   to_return(status: 200, body: json_response)
 ```
 
@@ -214,7 +214,7 @@ Go back into the test and comment out the lines where we stubbed the request wit
 ```ruby
 scenario "user submits valid state name" do
     # json_response = File.read('spec/fixtures/members_of_the_senate.json')
-    # stub_request(:get, "https://api.propublica.org/congress/v1/116/members/senate/members.json").
+    # stub_request(:get, "https://api.propublica.org/congress/v1/116/senate/members.json").
     #   to_return(status: 200, body: json_response)
     # As a user
     # When I visit "/"
@@ -230,7 +230,7 @@ In order to use VCR, we wrap our test in a `VCR.use_cassette` block:
 ```ruby
 scenario "user submits valid state name" do
   # json_response = File.read('spec/fixtures/members_of_the_senate.json')
-  # stub_request(:get, "https://api.propublica.org/congress/v1/116/members/senate/members.json").
+  # stub_request(:get, "https://api.propublica.org/congress/v1/116/senate/members.json").
   #   to_return(status: 200, body: json_response)
   # As a user
   # When I visit "/"
@@ -306,7 +306,7 @@ Now in our tests, we can delete the `VCR.use_cassette` block and tell the test t
 ```ruby
 scenario "user submits valid state name", :vcr do
     # json_response = File.read('spec/fixtures/members_of_the_senate.json')
-    # stub_request(:get, "https://api.propublica.org/congress/v1/116/members/senate/members.json").
+    # stub_request(:get, "https://api.propublica.org/congress/v1/116/senate/members.json").
     #   to_return(status: 200, body: json_response)
     # As a user
     # When I visit "/"
