@@ -3,7 +3,7 @@ layout: page
 title: BattleShip
 ---
 
-![Classic fun for the whole patriarchy!](http://vignette4.wikia.nocookie.net/battleship/images/f/fd/Battleship-1.jpg/revision/latest?cb=20120303020432)
+<img src="https://m.media-amazon.com/images/I/81H1SmquoXL._AC_SL1410_.jpg" alt="game cover art" width="550"/>
 
 ## Background
 Battleship is a classic board game where players place one or more ships on a grid board, and then take turns trying to "sink" the other player's ships by guessing their coordinates. The game ends when one player's ships are all hit and "sunk".
