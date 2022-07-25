@@ -41,7 +41,7 @@ Fill out the following template for your project idea.
 
 ### APIs
 
-Your application **must make good use of at least one external datasets or APIs**. Some examples include:
+Your application **must make good use of at least two external datasets or APIs**. Some examples include:
 
 #### Government Data
 
