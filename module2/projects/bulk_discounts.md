@@ -17,6 +17,8 @@ This project is an extension of Little Esty Shop. Students have two options for 
 
 1. If your Little Esty Shop project is complete, you can use it as a starting point for this project. If you are not the repo owner, fork the project to your account. If you are the repo owner, you can work off the repo without forking, just make sure your teammates have a chance to fork before pushing any commits to your repo
 1. If your Little Esty Shop project is not complete, fork [this repo](https://github.com/turingschool-examples/little_esty_shop_bulk_discounts) as a starting point for this project.
+1. Scaffolding is not permitted for this project.
+1. Additional gems for this project needs to be approved by instructors.
 
 ## Rubric
 
