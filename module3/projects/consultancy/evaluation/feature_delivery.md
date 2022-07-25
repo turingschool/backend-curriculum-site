@@ -8,12 +8,12 @@ type: project
 
 Each Repo meets the following:
 
-- 50% or more MVP stories are completed
+- 90% or more MVP stories are completed
     - [ ] Rails Front End
     - [ ] Rails Back End
+- at least 2 external APIs are consumed
 
 Frontend
-- [ ] 100% or more MVP stories are completed
 - [ ] OAuth works error-free in incognito/private
 
 Rails Backend
