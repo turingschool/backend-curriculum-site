@@ -22,7 +22,7 @@ They need your API to expose two API endpoints in order to populate this page wi
 
 ---
 
-### 1a. Retrieve weather for a city
+### 1. Retrieve weather for a city
 
 **Request:**
 
