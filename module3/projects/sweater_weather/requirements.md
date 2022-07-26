@@ -110,57 +110,6 @@ Example:
 
 ---
 
-### 1b. Background Image for the City
-
-The frontend developers will also call an endpoint to fetch a background image for that page showing the city.
-
-**Request:**
-
-```
-GET /api/v1/backgrounds?location=denver,co
-Content-Type: application/json
-Accept: application/json
-```
-
-**Response:**
-
-* This will return the url of an appropriate background image for a location.
-* An example of a response COULD look something like this:
-
-```
-status: 200
-body:
-
-{
-  "data": {
-    "type": "image",
-    "id": null,
-    "attributes": {
-      "image": {
-        "location": "denver,co",
-        "image_url": "https://pixabay.com/get/54e6d4444f50a814f1dc8460962930761c38d6ed534c704c7c2878dd954dc451_640.jpg",
-        "credit": {
-          "source": "pixabay.com",
-          "author": "quinntheislander",
-          "logo": "https://pixabay.com/static/img/logo_square.png"
-        }
-      }
-    }
-  }
-}
-```
-
-**Requirements:**
-
-* Implement a new API service (Unsplash, Pexels, Microsoft Bing Image search, Wikimedia image search, Flickr and more) to use the name of the city to get the URL of an appropriate background image. (we don't recommend pixabay, it has a very limited image search, it's only for an example above!)
-* Please read the terms of use of your image provider about giving credit for the search results, and put appropriate content in the response!!
-
-**Extension:**
-
-* Determine the time of day and current weather and include that in your search; for example, searching for "denver evening snow" might return a far more interesting result
-
----
-
 ## 2. User Registration
 
 The front-end team has drawn up this wireframe for registration:
@@ -330,7 +279,8 @@ eg:
 - You will use MapQuest's Directions API:  `https://developer.mapquest.com/documentation/directions-api/`
 - The structure of the response should be JSON API 1.0 Compliant.
 - Your code should allow for the following:
-  - Traveling from New York, NY to Los Angeles, CA, with appropriate weather in L.A. when you arrive 40 hours later
+  - Traveling from New York, NY to Los Angeles, CA, with appropriate weather in L.A. when you arrive __40 hours later__
+  - Traveling from New York, NY to Panama City, Panama, with appropriate weather in Panama when you arrive __3 days later__
   - Traveling from New York, NY to London, UK, weather block should be empty and travel time should be "impossible"
    
 
