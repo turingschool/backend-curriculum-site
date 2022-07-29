@@ -36,6 +36,6 @@ Presentation Points:
 ### Testing
 
 * **4:** Project achieves 100% test coverage and includes below expectations.
-* **3:** Project achieves 90% or greater test coverage. In addition to "happy path", project also includes "sad path"/edge case testing. Tests also check payload content a little deeper such as inspecting data type of an attribute. Testing also checks that unnecessary information is NOT present in response data.
+* **3:** Project achieves 90% or greater test coverage. In addition to "happy path", project also includes "sad path"/edge case testing. At least one of the tests that require an external API call make use of VCR and/or Webmock for mocking. Tests check payload content a little deeper such as inspecting data type of an attribute. Testing also checks that unnecessary information is NOT present in response data.
 * **2:** Project achieves 80-90% test coverage. Project may not include "sad path" or edge case testing. Testing only checks for presence of attributes in payloads of data without inspecting further.
 * **1:** Project does not achieve 80% test coverage.
