@@ -111,6 +111,9 @@ pry(main)> board.diagonal_for(e2)
  #<Cell:0x0000000130333f98 @column="E", @filled=false, @placement="E2", @row=2, @value=".">,
  #<Cell:0x0000000130333818 @column="F", @filled=false, @placement="F3", @row=3, @value=".">,
  #<Cell:0x0000000130333098 @column="G", @filled=false, @placement="G4", @row=4, @value=".">]
+
+
+# Check for connect 4 in a column:
 pry(main)> a1 = board.columns[:A][0]
 pry(main)> a2 = board.columns[:A][1]
 pry(main)> a3 = board.columns[:A][2]
@@ -124,6 +127,8 @@ pry(main)> board.check_for_four(column_a)
 pry(main)> a4.fill("X")
 pry(main)> board.check_for_four(column_a)
 # => true
+
+# Check for connect 4 in a row:
 pry(main)> b1 = board.columns[:B][0]
 pry(main)> c1 = board.columns[:C][0]
 pry(main)> d1 = board.columns[:D][0]
@@ -137,6 +142,8 @@ pry(main)> board.check_for_four(row_1)
 pry(main)> e1.fill("O")
 pry(main)> board.check_for_four(row_1)
 # => true
+
+# Check for connect 4 in a diagonal:
 pry(main)> b2 = board.columns[:B][1]
 pry(main)> c3 = board.columns[:C][2]
 pry(main)> d4 = board.columns[:D][3]
