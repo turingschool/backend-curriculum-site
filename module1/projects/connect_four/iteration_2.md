@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Iteration 2 - The Board
+title: Iteration 2 - Placing Chips and Validating Four Across
 ---
 
 _[Back to Connect Four Home](./index)_

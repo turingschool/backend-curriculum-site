@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Iteration 1 - Chip and Cell
+title: Iteration 1 - Cell and Board Render
 ---
 
 _[Back to Connect Four Home](./index)_
