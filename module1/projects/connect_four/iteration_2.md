@@ -52,6 +52,19 @@ pry(main)> board.render_board
 ### Validate 4 Across
 
 ```ruby
+pry(main)> require './lib/cell'
+# => true
+pry(main)> require './lib/board'
+# => true
+pry(main)> a_cells = [Cell.new("A1"),Cell.new("A2"),Cell.new("A3"),Cell.new("A4"),Cell.new("A5"),Cell.new("A6")]
+pry(main)> b_cells = [Cell.new("B1"),Cell.new("B2"),Cell.new("B3"),Cell.new("B4"),Cell.new("B5"),Cell.new("B6")]
+pry(main)> c_cells = [Cell.new("C1"),Cell.new("C2"),Cell.new("C3"),Cell.new("C4"),Cell.new("C5"),Cell.new("C6")]
+pry(main)> d_cells = [Cell.new("D1"),Cell.new("D2"),Cell.new("D3"),Cell.new("D4"),Cell.new("D5"),Cell.new("D6")]
+pry(main)> e_cells = [Cell.new("E1"),Cell.new("E2"),Cell.new("E3"),Cell.new("E4"),Cell.new("E5"),Cell.new("E6")]
+pry(main)> f_cells = [Cell.new("F1"),Cell.new("F2"),Cell.new("F3"),Cell.new("F4"),Cell.new("F5"),Cell.new("F6")]
+pry(main)> g_cells = [Cell.new("G1"),Cell.new("G2"),Cell.new("G3"),Cell.new("G4"),Cell.new("G5"),Cell.new("G6")]
+pry(main)> columns = {A: a_cells, B: b_cells, C: c_cells, D: d_cells, E: e_cells, F: f_cells, G: g_cells}
+pry(main)> board = Board.new(columns)
 pry(main)> c3 = board.columns[:C][2]
 # => #<Cell:0x0000000130333ae8 @column="C", @filled=false, @placement="C3", @row=3, @value=".">
 pry(main)> e2 = board.columns[:E][1]
