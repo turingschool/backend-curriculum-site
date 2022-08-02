@@ -56,24 +56,24 @@ Follow the interaction pattern below to build out the board's display:
 ### Board Display
 
 ```ruby 
-[1] pry(main)> require './lib/chip'
-=> true
-[2] pry(main)> require './lib/cell'
-=> true
-[3] pry(main)> require './lib/board'
-=> true
-[4] pry(main)> a_cells = [Cell.new("A1"),Cell.new("A2"),Cell.new("A3"),Cell.new("A4"),Cell.new("A5"),Cell.new("A6")]
-[5] pry(main)> b_cells = [Cell.new("B1"),Cell.new("B2"),Cell.new("B3"),Cell.new("B4"),Cell.new("B5"),Cell.new("B6")]
-[6] pry(main)> c_cells = [Cell.new("C1"),Cell.new("C2"),Cell.new("C3"),Cell.new("C4"),Cell.new("C5"),Cell.new("C6")]
-[7] pry(main)> d_cells = [Cell.new("D1"),Cell.new("D2"),Cell.new("D3"),Cell.new("D4"),Cell.new("D5"),Cell.new("D6")]
-[8] pry(main)> e_cells = [Cell.new("E1"),Cell.new("E2"),Cell.new("E3"),Cell.new("E4"),Cell.new("E5"),Cell.new("E6")]
-[9] pry(main)> f_cells = [Cell.new("F1"),Cell.new("F2"),Cell.new("F3"),Cell.new("F4"),Cell.new("F5"),Cell.new("F6")]
-[10] pry(main)> g_cells = [Cell.new("G1"),Cell.new("G2"),Cell.new("G3"),Cell.new("G4"),Cell.new("G5"),Cell.new("G6")]
-[11] pry(main)> columns = {A: a_cells, B: b_cells, C: c_cells, D: d_cells, E: e_cells, F: f_cells, G: g_cells}
-[12] pry(main)> board = Board.new(columns)
-=> #<Board:0x0000000138046418 @columns= {.....}>
-[13] pry(main)> board.columns
-=> {:A=>
+pry(main)> require './lib/chip'
+# => true
+pry(main)> require './lib/cell'
+# => true
+pry(main)> require './lib/board'
+# => true
+pry(main)> a_cells = [Cell.new("A1"),Cell.new("A2"),Cell.new("A3"),Cell.new("A4"),Cell.new("A5"),Cell.new("A6")]
+pry(main)> b_cells = [Cell.new("B1"),Cell.new("B2"),Cell.new("B3"),Cell.new("B4"),Cell.new("B5"),Cell.new("B6")]
+pry(main)> c_cells = [Cell.new("C1"),Cell.new("C2"),Cell.new("C3"),Cell.new("C4"),Cell.new("C5"),Cell.new("C6")]
+pry(main)> d_cells = [Cell.new("D1"),Cell.new("D2"),Cell.new("D3"),Cell.new("D4"),Cell.new("D5"),Cell.new("D6")]
+pry(main)> e_cells = [Cell.new("E1"),Cell.new("E2"),Cell.new("E3"),Cell.new("E4"),Cell.new("E5"),Cell.new("E6")]
+pry(main)> f_cells = [Cell.new("F1"),Cell.new("F2"),Cell.new("F3"),Cell.new("F4"),Cell.new("F5"),Cell.new("F6")]
+pry(main)> g_cells = [Cell.new("G1"),Cell.new("G2"),Cell.new("G3"),Cell.new("G4"),Cell.new("G5"),Cell.new("G6")]
+pry(main)> columns = {A: a_cells, B: b_cells, C: c_cells, D: d_cells, E: e_cells, F: f_cells, G: g_cells}
+pry(main)> board = Board.new(columns)
+# => #<Board:0x0000000138046418 @columns= {.....}>
+pry(main)> board.columns
+# => {:A=>
   [#<Cell:0x000000012d347e38 @value=".", @filled=false, @column="A", @placement="A1", @row=1>,
    #<Cell:0x000000012d347d70 @value=".", @filled=false, @column="A", @placement="A2", @row=2>,
    #<Cell:0x000000012d347cd0 @value=".", @filled=false, @column="A", @placement="A3", @row=3>,
@@ -122,6 +122,6 @@ Follow the interaction pattern below to build out the board's display:
    #<Cell:0x000000012d2ce718 @value=".", @filled=false, @column="G", @placement="G4", @row=4>,
    #<Cell:0x000000012d2ce010 @value=".", @filled=false, @column="G", @placement="G5", @row=5>,
    #<Cell:0x000000012d2cda70 @value=".", @filled=false, @column="G", @placement="G6", @row=6>]}
-[16] pry(main)> board.render_board
-=> "A B C D E F G\n. . . . . . .\n. . . . . . .\n. . . . . . .\n. . . . . . .\n. . . . . . .\n. . . . . . ."
+pry(main)> board.render_board
+# => "A B C D E F G\n. . . . . . .\n. . . . . . .\n. . . . . . .\n. . . . . . .\n. . . . . . .\n. . . . . . ."
 ```
