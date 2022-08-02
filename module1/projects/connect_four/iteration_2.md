@@ -66,9 +66,7 @@ pry(main)> g_cells = [Cell.new("G1"),Cell.new("G2"),Cell.new("G3"),Cell.new("G4"
 pry(main)> columns = {A: a_cells, B: b_cells, C: c_cells, D: d_cells, E: e_cells, F: f_cells, G: g_cells}
 pry(main)> board = Board.new(columns)
 pry(main)> c3 = board.columns[:C][2]
-# => #<Cell:0x0000000130333ae8 @column="C", @filled=false, @placement="C3", @row=3, @value=".">
 pry(main)> e2 = board.columns[:E][1]
-# => #<Cell:0x0000000130333f98 @column="E", @filled=false, @placement="E2", @row=2, @value=".">
 pry(main)> board.row_for(c3)
 # => [#<Cell:0x0000000130333cc8 @column="A", @filled=false, @placement="A3", @row=3, @value=".">,
  #<Cell:0x0000000130333bd8 @column="B", @filled=false, @placement="B3", @row=3, @value=".">,
