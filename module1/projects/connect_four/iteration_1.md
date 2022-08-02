@@ -56,8 +56,6 @@ Follow the interaction pattern below to build out the board's display:
 ### Board Display
 
 ```ruby 
-pry(main)> require './lib/chip'
-# => true
 pry(main)> require './lib/cell'
 # => true
 pry(main)> require './lib/board'
