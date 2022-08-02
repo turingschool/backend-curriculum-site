@@ -147,11 +147,11 @@ pry(main)> c3 = board.columns[:C][2]
 pry(main)> d4 = board.columns[:D][3]
 pry(main)> b2.fill("X")
 pry(main)> c3.fill("X")
-pry(main)> diagonal = board.diagonal_for(d4) # we coul dhave also used any cell that woul dhave been on this diagonal.
+pry(main)> diagonal = board.diagonal_for(d4) # we could have also used any cell that would have been on this diagonal.
 pry(main)> board.check_for_four(diagonal)
 # => false
 pry(main)> d4.fill("X")
-pry(main)> board.check_for_four(diagonal)
+pry(main)> board.check_for_four(diagonal) #note: a1 was already filled in with "X" earlier in this interaction pattern
 # => true
 ```
 
