@@ -10,8 +10,7 @@ In Module 2, we expand upon fundamental Ruby skills by building database-backed 
 
 ## Instructors
 
-* Michael Dao (Anchor)
-* Dani Coleman
+* Brian Zanti (Anchor)
 * Chris Simmons
 
 ## Curriculum
@@ -32,5 +31,7 @@ In Module 2, we expand upon fundamental Ruby skills by building database-backed 
 * [Mod 2 Professional Development Curriculum](https://careerdev.turing.edu/module_two/)
 
 <br>
+
+## Calendar
 
 <iframe src="https://calendar.google.com/calendar/embed?mode=week&src=casimircreative.com_rps2hg1nfqjih4rcl3gl6s4lpk%40group.calendar.google.com&ctz=America/Denver" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
