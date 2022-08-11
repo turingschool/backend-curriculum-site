@@ -19,7 +19,7 @@ title: Relational Rails
 
 ## Permission
 
-- if there is a specific gem you'd like to use in the project that is not mentioned in this project page, you must permission from your instructors first
+- If there is a specific gem you'd like to use in the project that is not mentioned in this project page, you must permission from your instructors first
 
 ## Rubric
 
@@ -45,7 +45,7 @@ Each person will come up with their own one to many relationship. This should re
 - A Shelter has many Pets
 - A Pet belongs to one Shelter.
 
-Do not use Parent/Child as your relationship
+Do not use "Parent"/"Child" as your relationship
 
 These relationships are yours to create, but we instructors are happy to provide feedback on the relationships if asked.
 
@@ -65,7 +65,7 @@ You can create as many columns on each table as you would like, but we need a fe
 A couple of things to keep in mind as you're designing your schema:
 
 * Foreign Keys do not count as an integer column
-* You should not create columns that duplicate data. For example, in Pets/Shelters, a Shelter should not store a "pet_count" column since the count of Pets can also be found by counting the number of associated pets
+* You should not create columns that duplicate data. For example, in Pets/Shelters, a Shelter should not store a "pet_count" column since the count of Pets can also be found by counting the number of associated pets.
 
 **Schema Design will be reviewed at our first check-in**
 
@@ -305,7 +305,7 @@ As a visitor
 When I visit the parent index page
 Next to every parent, I see a link to edit that parent's info
 When I click the link
-I should be taken to that parents edit page where I can update its information just like in User Story 4
+I should be taken to that parent's edit page where I can update its information just like in User Story 4
 ```
 
 ```
