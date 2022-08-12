@@ -24,10 +24,9 @@ You will complete four projects throughout Module 1, each of which have a maximu
 
 You will complete two assessments and five weekly Independent Challenges in Module 1, each of which have a maximum score of 4.0. A score of 2.5 or higher is considered a passing grade.
 
-### Assessments
-1. Mid Module Diagnostic Assessment (aka "Mid Mod")
+### Paired Assessments
+1. Mid Module Paired Process Assessment (aka "Mid Mod")
   * The Mid Mod is evaluated, but does not count toward promotion
-1. Instructor Final Paired Assessment (aka "Final Paired")
 
 ### Independent Challenges
 1. Weekly Independent Challenges (ICs)
@@ -36,8 +35,7 @@ You will complete two assessments and five weekly Independent Challenges in Modu
 1. Final Independent Challenge (aka "Final IC", Week 6)
 
 In order to be promoted to Module 2:
-* Scores from the Final Paired and Final IC will be combined out of 8 points. You must earn a total grade of 5.0 on the combined scores for the Final Paired and Final IC.
-* You must earn a _minimum_ grade of 2.0 on BOTH the Final Paired and Final IC.
+* You must earn a _minimum_ score of 2.5 on the Week 6 Final IC to be promoted to Module 2. Students who do not score at least 2.5 will be offered a re-take.
 
 Students can reference the [Module 1 Syllabus](./syllabus) and [Module 1 Schedule](./schedule) for more details on these assessments. Students can reference the [Practice Assessments](./practice_assessments) page for example assessments.
 

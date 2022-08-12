@@ -12,7 +12,7 @@ In Module 1, students will learn to use Ruby and object-oriented programming to 
 
 * Abdul Redd
 * Erin Pintozzi (anchor)
-* Meg Stang
+* Jamison Ordway
 
 ## Curriculum
 

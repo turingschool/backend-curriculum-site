@@ -18,7 +18,7 @@ Projects require students to apply new concepts from class and build on existing
 <!-- * **Winter Project** - Begin Friday week 3, due Sunday week 4. -->
 <!--  * This project and accompanying assignments are designed to keep your skills sharp over the winter break. -->
 <!-- * This project is not graded and will not count towards the final promotion decision at the end of the module.  -->
-* **Group Project** - Begin Tuesday week 4, due Thursday week 5.
+* **Group Project** - Begin Monday week 4, due Wednesday week 5.
   * This project is graded on a scale from 0.0 to 4.0.
   * A passing score on the Group Project is 2.5 or greater.
   * Students must pass either the **Paired Project** or **Group Project** to be promoted.
@@ -37,9 +37,7 @@ Students can find examples of Independent Challenges [here](./practice_assessmen
 
 ## Paired Assessments
 
-In week 5 or 6, students will participate in the **Instructor Paired Final Assessment** that will count towards the promotion decision. Students will be required to complete a small coding task in advance of the assessment, and then will be given 45 minutes to pair with an instructor on an additional task that builds on their existing code.
-
-In order to practice for the Instructor Paired Final Assessment, students will participate in the **Mid-Module Paired Assessment** in week 3.
+In week 3, students will participate in the **Instructor Paired Process Assessment**. Students will be required to complete a small coding task in advance of the assessment, and then will be given 45 minutes to pair with an instructor on an additional task that builds on their existing code. This assessment will not count toward promotion.
 
 Students can reference [this Example](https://github.com/turingschool-examples/pets_and_customers) of a paired assessment.
 
