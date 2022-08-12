@@ -5,9 +5,8 @@ title: Practice Assessments
 
 ## Practice Paired Assessment
 
-There are two paired assessments in Mod 1:
-* **Mid Mod Assessment** (Week 3)
-* **Instructor Final Paired Assessment** (Week 5/6).
+There is one paired assessments in Mod 1:
+* **Mid Mod Paired Process Assessment** (Week 3)
 
 Instructions:
 * You will be given pre-work to complete before arriving at the assessment (Iterations 1 and 2).

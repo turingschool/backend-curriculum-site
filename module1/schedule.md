@@ -66,9 +66,11 @@ layout: page
     * Submit [Pair Project](./projects)
     * Mid-Mod Diagnostic Assessment
 
-  * Free Weekend!
-    * No project or assessment due, and in 2205 we're off on Monday for Memorial Day!
-    * Review & complete all or any of [these suggestions](./week3_weekend)
+
+  * **Other**
+    * No Classes on Monday, September 5th for Labor Day
+    * Free Weekend!
+      * Review & complete all or any of [these suggestions](./week3_weekend)
 
 <!--
     * Start [Winter Break Assignments](./winter_2111)
@@ -85,6 +87,8 @@ layout: page
     * [Event Manager - CSV Exploration](./projects/eventmanager)
     * [Nested Iteration](./lessons/nested_iteration)
     * [Inheritance](./lessons/inheritance)
+    * [Mocks and Stubs](./lessons/mocks_stubs)
+
 
   * **Non-Technical Responsibilities**
     * Professional Development
@@ -102,7 +106,7 @@ layout: page
     * [Design Principles](./lessons/design_principles)
     * [Ruby Object Model](./lessons/ruby_object_model)
     <!-- * [Enumerables II](./lessons/enumerables_ii) -->
-    * [Mocks and Stubs](./lessons/mocks_stubs)
+
 
   * **Non-Technical Responsibilities**
     * Professional Development
@@ -112,7 +116,6 @@ layout: page
 
   * **Deliverables**
     * Independent Challenge #4
-    * Instructor Paired Final Assessment
     * Submit PD Survey
     * Submit [Group Project](./projects)
     * Start [Final Project](./projects)
@@ -127,6 +130,8 @@ layout: page
     * Final Cohort Retro
     * Accountabilibuddy Check-In
 
+
   * **Deliverables**
+    * Final Independent Challenge
     * Submit [Final Project](./projects)
     * [Portfolio](./portfolios)
