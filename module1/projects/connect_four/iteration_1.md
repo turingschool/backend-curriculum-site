@@ -12,7 +12,7 @@ In this iteration, you are required to use TDD to create your classes. Use the i
 
 ## Cell 
 
-A Cell object represents the space where a chip could be placed on the Connect 4 board. We will be able to read it's column letter and row number, as well as it's display value. It will also have behavior to fill in the cell with a new value.
+A Cell object represents the space where a chip could be placed on the Connect 4 board. We will be able to read its column letter and row number, as well as its display value. It will also have behavior to fill in the cell with a new value.
 
 The Cell class should follow this interaction pattern:
 
