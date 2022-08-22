@@ -18,7 +18,7 @@ Use the tests provided to drive the development of your `Card` class. **From the
 rspec spec/card_spec.rb
 ```
 
-If you haven't already, you will need to install minitest:
+If you haven't already, you will need to install rspec:
 
 ```
 gem install rspec
