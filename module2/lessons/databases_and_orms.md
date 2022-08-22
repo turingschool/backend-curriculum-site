@@ -15,19 +15,6 @@ layout: page
 
 # Lesson
 
-## Discussion Questions pt. 1
-
-* What is a database?
-* Compare and contrast a database with a collection of CSV files.
-* How does a DB relate to web applications?
-* Define each of the following terms
-    * Table
-    * Column
-    * Row
-    * Primary Key
-    * Schema
-* What is SQL? How does it relate to the DB?
-
 ## Postico Activity
 
 Use Postico to do the following:
@@ -43,10 +30,17 @@ Use Postico to do the following:
 
 Then, answer the following questions:
 
-* How many databases do you see in Postico?
-* How would you describe your `task_manager_development` database's schema?
-* Why is there a `task_manager_development` database and a `task_manager_test` database?
-* Why isn't there any data in the `task_manager_test` database?
+* What is a database?
+* Compare and contrast a database with a collection of CSV files.
+* How does a DB relate to web applications?
+* Define each of the following terms
+    * Table
+    * Column
+    * Row
+    * Primary Key   
+    * Schema
+* How would you describe your `task_manager_development` database's schema
+* What is SQL? How does it relate to the DB?
 
 **Extensions**
 
@@ -58,24 +52,24 @@ If you complete the activity and answer the follow up questions, try to execute 
 * Delete a task
 * Create a new table called "People". A Person should have a name and an age.
 
-## Discussion Questions pt. 2
-
-* What is an ORM? How does it relate to the DB?
-* Why would you want/need to use an ORM?
-* What is ActiveRecord?
-* What is a Model in a Rails application?
-* What is the Rails Console? Why would you use the Rails console?
-
 ## Rails Console Activity
 
 1. First, open Postico and double check that you have deleted any tasks you made during the Postico Activity
 1. In TaskManager, open up the Rails console by running `rails c` from the command line (make sure that you navigate to your TaskManager repo first)
 1. Open up your `Tasks` table in Postico. Now run `tasks = Task.all` in your Rails console. Is this what you would expect? What type of object is returned from this method call? What SQL query do you see in the Rails Console after running this command? Now run `Task.all.to_sql`. How does this compare to the SQL command you saw in the Rails Console?
 1. In the Rails Console, run `Task.create(title: "Laundry", description: "Clean the clothes")`. Now open up the Tasks table in Postico. Do you see your new Task? If not, try to refresh your table. What SQL query do you see in the Rails Console after running this command? What does the `create` method do?
-1. In the Rails Console, run `task = Task.new(title: "Grocery Shopping", description: "need to eat")`. What `id` do you see stored in the new Task object? Now open up the Tasks table in Postico. Do you see your new Task? In the Rails Console, run `task.save`. Now what `id` do you see for the Task object? Do you see it stored in the Tasks table in Postico? What is the difference between `new` and `create`?
+1. In the Rails Console, run `task = Task.new(title: "Grocery Shopping", description: "need to eat")`. What `id` do you see stored in the new Task object? Now open up the Tasks table in Postico. Do you see your new Task? In the Rails Console, run `task.save`. Now what `id` do you see for the Task object? Do you see it stored in the Tasks table in Postico? If not try to refresh your table. What is the difference between `new` and `create`?
 1. In the Rails Console, run `task.update(description: "go buy food")`. Now check your Tasks table in Postico. Did it change? Is this what you expected?
 1. In the Rails Console, run `task.destroy`. Now check your Tasks table in Postico. Did it change? Is this what you expected?
 1. In the Rails Console, run `Task.find(<id>)` where `<id>` is the `id` of a Task in your database. What does this return? Now run the same command with an `id` that is not in the database. What does this produce?
+
+When you are finished with the activity, answer the following questions:
+
+* What is an ORM? How does it relate to the DB?
+* Why would you want/need to use an ORM?
+* What is ActiveRecord?
+* What is a Model in a Rails application?
+* What is the Rails Console? Why would you use the Rails console?
 
 Key Takeaways:
 
