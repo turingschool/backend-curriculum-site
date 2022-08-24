@@ -243,7 +243,7 @@ and I am redirected to the Parent's Show page where I see the parent's updated i
 User Story 13, Parent Child Creation 
 
 As a visitor
-When I visit a Parent Childs Index page
+When I visit a Parent Children Index page
 Then I see a link to add a new adoptable child for that parent "Create Child"
 When I click the link
 I am taken to '/parents/:parent_id/child_table_name/new' where I see a form to add a new adoptable child
