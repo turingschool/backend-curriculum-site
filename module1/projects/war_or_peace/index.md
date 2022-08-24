@@ -21,4 +21,5 @@ Additional detail is included in the pages below.
 
 * [Setup](./setup)
 * [Project Requirements](./requirements)
+* [Submission](./submission)
 * [Evaluation Rubric](./rubric)
