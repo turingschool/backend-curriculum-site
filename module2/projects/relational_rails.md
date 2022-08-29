@@ -305,7 +305,7 @@ As a visitor
 When I visit the parent index page
 Next to every parent, I see a link to edit that parent's info
 When I click the link
-I should be taken to that parent's edit page where I can update its information just like in User Story 4
+I should be taken to that parent's edit page where I can update its information just like in User Story 12
 ```
 
 ```
@@ -317,7 +317,7 @@ As a visitor
 When I visit the `child_table_name` index page or a parent `child_table_name` index page
 Next to every child, I see a link to edit that child's info
 When I click the link
-I should be taken to that `child_table_name` edit page where I can update its information just like in User Story 11
+I should be taken to that `child_table_name` edit page where I can update its information just like in User Story 14
 ```
 
 ---
