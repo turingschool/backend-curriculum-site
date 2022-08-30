@@ -32,6 +32,10 @@ title: Relational Rails
 | **1: Failing** | Students fail to complete 6 or more User Stories. | Students do not effectively organize code. | Poor diagram design. Relationships do not make sense or not accurately modeled in the database. Many errors in database schema. | Ruby is used to process data more often than ActiveRecord. Many cases where ActiveRecord helpers are not utilized. | Below 90% coverage for either features or models. |
 
 
+## Peer Code Share
+As part of the second check-in, students will be required to complete a peer code share. Instructions can be found [here](./peer_code_share).
+
+
 ---
 
 ## Relationships
