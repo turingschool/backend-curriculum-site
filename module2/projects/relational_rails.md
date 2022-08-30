@@ -33,7 +33,7 @@ title: Relational Rails
 
 
 ## Peer Code Share
-As part of the second check-in, students will be required to complete a peer code share. Instructions can be found [here](./peer_code_share).
+As part of the evaluation, students will be required to complete a peer code share. Instructions can be found [here](./peer_code_share.html).
 
 
 ---
