@@ -22,7 +22,7 @@ Conflict and tension tends to arise in groups when there are differing expectati
 
 ## Tools
 
-- [Miro](www.miro.com) is an online team collaboration board. It will be a space where your team can brainstorm using sticky notes, take notes, wireframe, etc. _Note: There is a Slack integration, but please do NOT attempt to add it to Slack. Staff will deny your request._  
+- [Miro](https://miro.com) is an online team collaboration board. It will be a space where your team can brainstorm using sticky notes, take notes, wireframe, etc. _Note: There is a Slack integration, but please do NOT attempt to add it to Slack. Staff will deny your request._  
 
 ## Problem Definition and Idea Sharing (Brainstorm)
 
