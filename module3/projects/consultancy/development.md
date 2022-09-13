@@ -39,8 +39,8 @@ Day 1:
 
 - Deliverables:
   - Wireframes of the User Interface
-  - Rough implementation and testing of the front-end, mocking out responses from back-end; no authentication expected yet
-  - Rough implementation and testing of back-end API, mocking requests from front-end
+  - Front-end application set up with gems configured. Ideally one or two calls to the backend have been roughly implemented
+  - Backend application set up with gems configured. Ideally one or two CRUD operations for front-end consumption have been roughly implemented. 
   - Initial structure of each Service (not necessarily working API calls)
   - Circle-CI and Deployment to Heroku for both FE/BE repositories
 
@@ -50,7 +50,7 @@ Day 1:
 - End: Monday morning of Week 5
 
 - Deliverables:
-  - Frontend has Bootstrap in place, each wireframe is implemented in some amount, implements OAuth, can CRUD data with backend
+  - Frontend has Bootstrap in place, each wireframe is implemented in some amount, implements OAuth, can CRUD data with backend or is mocking backend responses for any incomplete endpoints
   - Rails back-end can CRUD resources based on front-end requests
   - Services successfully implement their respective API calls
 
