@@ -95,7 +95,7 @@ In addition to the End of Sprint Demos, you will also have some project check in
 
 ## Continuous Integration
 
-* Set up a [CI Server](https://backend.turing.edu/module3/archive/lessons/environments_and_ci)
+* Set up a [CI Server](https://backend.turing.edu/module3/archive/lessons/environments_and_ci) (Optional to create more than 2 environments)
 * [CircleCI Docs](https://circleci.com/docs/2.0/)
 
 
