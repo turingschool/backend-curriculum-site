@@ -5,12 +5,9 @@ length: 180
 tags: rails, security, authentication, OAuth
 ---
 
-This lesson plan was last tested to work with Rails 5.2.6 and Ruby 2.5.3
-
-
 ## Historical Context for this lesson plan
 
-We used to teach this class using a gem since that’s how most of us do it on the job. We saw a big difference in understanding for students who were able to hand roll the handshake and those that used a gem. The other interesting thing we uncovered was many students struggled troubleshooting the gem if they didn’t understand the process. This lesson is built showing how to hand roll the OAuth process. The expectation students should try to use a gem on their projects. The big reason for using a gem is it’s much easier to test and most struggle with testing external APIs.
+We have taught this class many different ways -- hand rolling the handshake and using a gem. While hand rolling the handshake provides the most in-depth learning for the OAuth flow, it is a level of detail that is often not as applicable on the job. However, it's important to understand the OAuth handshake at a high level in order to better troublshoot the gem. This lesson includes a section showing how to hand roll the OAuth process if students are interested. However, performing the handshake manually is not a learning goal for this lesson. The expectation is for students to use a gem on their projects. The big reason for using a gem is it’s much easier to test and most struggle with testing external APIs.
 
 ## Learning Goals
 
@@ -27,7 +24,7 @@ Available [here](../slides/oauth)
 
 Start by watching this [video](https://www.youtube.com/watch?v=tFYrq3d54Dc). Which explains the oauth process at a high level.
 
-Then watch this [video](https://vimeo.com/173947281) which actually demonstrates the process live with Github.
+OPTIONAL: Watch this [video](https://vimeo.com/173947281) which actually demonstrates the process live with Github.
 
 Then draw a diagram of the OAuth handshaking process that takes place between your app and and an external API (Twitter, Facebook, Github etc)
 
@@ -127,7 +124,10 @@ in the params
 6. Github gives us an `access_token` associated with that user and we can use it to get information
 from the API about the user.
 
-## Workshop -- Implementing OAuth with GitHub
+
+## Hand Rolling the Handshake: Workshop -- Implementing OAuth with GitHub
+
+This workshop was last tested to work with Rails 5.2.6 and Ruby 2.5.3
 
 Let's get some practice with handrolling OAuth by implementing it in a simple
 Rails project. While there are gems we can use for OAuth, handrolling will
