@@ -123,10 +123,3 @@ In addition to the End of Sprint Demos, you will also have some project check in
     * What are you going to be working on?
     * Is anything blocking you?
 * Every weekday you should send your PM a summary of the day's stand up.
-
-## Retros
-
-* **End of Week 1**
-    * Students should discuss what went well, what didn't go well, and what they would like to change for the second half of the project. Students should use their DTR as a guideline for this discussion and be willing to reaffirm or change any expectations that weren't met in the first week.
-* **End of Project**
-    * Students should discuss what went well, what didn't go well, and what feedback they have for their team members using [this template](https://docs.google.com/spreadsheets/d/1MDybiSiZLVdbpbwEU-x_VPakyhhX0lD4HhcCjwuxtc4/edit#gid=0). Each group should make a copy of the template and submit to their instructors.
