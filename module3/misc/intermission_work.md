@@ -36,8 +36,7 @@ Here are some helpful videos and tutorials that you can use to familiarize yours
 
 ### Authentication / Authorization
 
-Write up some notes and ideas on the following (We would like you to submit these notes, so you may want to use google docs):
-
+Write up some notes and ideas on the following:
 - you need to store a user in a database table; what do we need to know about them (ie, email, password)
 - how can we store a password in a secure way (ie, if our database is compromised, how can we protect their passwords from prying eyes)
 - how would we store the idea of what a user is allowed to do on a web site
@@ -50,7 +49,7 @@ Write up some notes and ideas on the following (We would like you to submit thes
 
 When consuming APIs, the data is often returned in deeply nested collections, so you will need to tap into your Mod 1 skills to practice digging through them to retrieve the data you need.
 
-Fork and clone [Here Be Dragons](https://github.com/turingschool-examples/here-be-dragons). Get the tests to pass.
+Fork and clone [Here Be Dragons](https://github.com/turingschool-examples/here-be-dragons). Get the tests to pass. This is something you'll turn in with your submission, so make sure you make a forked copy of it. 
 
 
 ### HTTP Request/Response
