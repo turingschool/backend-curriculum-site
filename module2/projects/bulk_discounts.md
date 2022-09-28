@@ -36,6 +36,15 @@ This project is an extension of Little Esty Shop. Students have two options for 
 | **2: Passing with Concerns** | One to two of the completion criteria for Bulk Discount features are not complete | Students utilize MVC to organize code, but cannot defend some of their design decisions. 3 or more infractions are present. RESTful conventions are only sometimes followed. | Ruby is used to process data that could use ActiveRecord instead. Some instances where ActiveRecord helpers are not utilized. Some queries not accurately implemented. | Feature test coverage between 90% and 98%, or model test coverage below 100%, or tests are not meaningfully written or have an unclear objective, or tests do not utilize within blocks. Missing sad path or edge case testing.                                |
 | **1: Failing** | More than two of the completion criteria for Bulk Discount feature is incomplete| Students do not effectively organize code using MVC. | Ruby is used to process data more often than ActiveRecord. Many cases where ActiveRecord helpers are not utilized.| Below 90% coverage for either features or models. TDD was not used.
 
+### Evaluation
+This evaluation will be live with one instructor. 
+
+Please be ready to walk through the front-end of your app, demonstrating how to add a bulk discount, editing that discount, and seeing the overall revenue change between invoice(s). 
+
+Then, we will walk through the same steps in your code and tests. Be ready to answer questions from your instructor about how you came up with your solution, and how you might refactor. 
+
+
+
 ## Bulk Discounts
 
 Bulk Discounts are subject to the following criteria:
@@ -110,7 +119,7 @@ In this example, Item A1 should discounted at 20% off, and Item A2 should discou
 ## User Stories
 
 ```
-Merchant Bulk Discounts Index
+1: Merchant Bulk Discounts Index
 
 As a merchant
 When I visit my merchant dashboard
@@ -123,7 +132,7 @@ And each bulk discount listed includes a link to its show page
 ```
 
 ```
-Merchant Bulk Discount Create
+2: Merchant Bulk Discount Create
 
 As a merchant
 When I visit my bulk discounts index
@@ -136,7 +145,7 @@ And I see my new bulk discount listed
 ```
 
 ```
-Merchant Bulk Discount Delete
+3: Merchant Bulk Discount Delete
 
 As a merchant
 When I visit my bulk discounts index
@@ -147,7 +156,7 @@ And I no longer see the discount listed
 ```
 
 ```
-Merchant Bulk Discount Show
+4: Merchant Bulk Discount Show
 
 As a merchant
 When I visit my bulk discount show page
@@ -155,7 +164,7 @@ Then I see the bulk discount's quantity threshold and percentage discount
 ```
 
 ```
-Merchant Bulk Discount Edit
+5: Merchant Bulk Discount Edit
 
 As a merchant
 When I visit my bulk discount show page
@@ -169,7 +178,7 @@ And I see that the discount's attributes have been updated
 ```
 
 ```
-Merchant Invoice Show Page: Total Revenue and Discounted Revenue
+6: Merchant Invoice Show Page: Total Revenue and Discounted Revenue
 
 As a merchant
 When I visit my merchant invoice show page
@@ -178,7 +187,7 @@ And I see the total discounted revenue for my merchant from this invoice which i
 ```
 
 ```
-Merchant Invoice Show Page: Link to applied discounts
+7: Merchant Invoice Show Page: Link to applied discounts
 
 As a merchant
 When I visit my merchant invoice show page
@@ -186,7 +195,7 @@ Next to each invoice item I see a link to the show page for the bulk discount th
 ```
 
 ```
-Admin Invoice Show Page: Total Revenue and Discounted Revenue
+8: Admin Invoice Show Page: Total Revenue and Discounted Revenue
 
 As an admin
 When I visit an admin invoice show page
@@ -195,6 +204,8 @@ And I see the total discounted revenue from this invoice which includes bulk dis
 ```
 
 ```
+9: Holidays API
+
 As a merchant
 When I visit the discounts index page
 I see a section with a header of "Upcoming Holidays"
@@ -209,7 +220,9 @@ Use the Next Public Holidays Endpoint in the [Nager.Date API](https://date.nager
 * When an invoice is pending, a merchant should not be able to delete or edit a bulk discount that applies to any of their items on that invoice.
 * When an Admin marks an invoice as "completed", then the discount percentage should be stored on the invoice item record so that it can be referenced later
 * Merchants should not be able to create/edit bulk discounts if they already have a discount in the system that would prevent the new discount from being applied (see example 4)
-* Holiday Discount Extensions
+
+
+* Holiday Discount Extensions:
 
 ```
 Create a Holiday Discount
