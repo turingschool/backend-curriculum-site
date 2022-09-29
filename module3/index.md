@@ -10,7 +10,7 @@ In Module 3, we will look beyond the basics of building Rails web applications w
 
 ## Instructors
 
-* Juliet Eyraud (Anchor)
+* Meg Stang (Anchor)
 * Dani Coleman
 
 ## Curriculum
