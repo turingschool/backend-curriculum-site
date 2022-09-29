@@ -404,7 +404,7 @@ I should be taken to the `child_table_name` index page where I no longer see tha
 ```
 [ ] done
 
-Sort Parents by Number of Children 
+Extension 1: Sort Parents by Number of Children 
 
 As a visitor
 When I visit the Parents Index Page
@@ -416,7 +416,7 @@ I'm taken back to the Parent Index Page where I see all of the parents in order 
 ```
 [ ] done
 
-Search by name (exact match)
+Extension 2: Search by name (exact match)
 
 As a visitor
 When I visit an index page ('/parents') or ('/child_table_name')
@@ -428,7 +428,7 @@ Then I only see records that are an exact match returned on the page
 ```
 [ ] done
 
-Search by name (partial match)
+Extension 3: Search by name (partial match)
 
 As a visitor
 When I visit an index page ('/parents') or ('/child_table_name')
