@@ -278,10 +278,10 @@ eg:
 - If no API key is given, or an incorrect key is provided, return 401 (Unauthorized)
 - You will use MapQuest's Directions API:  `https://developer.mapquest.com/documentation/directions-api/`
 - The structure of the response should be JSON API 1.0 Compliant.
-- Your code should allow for the following:
-  - Traveling from New York, NY to Los Angeles, CA, with appropriate weather in L.A. when you arrive __40 hours later__
-  - Traveling from New York, NY to Panama City, Panama, with appropriate weather in Panama when you arrive __3 days later__
-  - Traveling from New York, NY to London, UK, weather block should be empty and travel time should be "impossible"
+- **Your code should allow for the following: (NOTE: These scenarios are expected in your POSTMAN Demo)**
+  - **Traveling from New York, NY to Los Angeles, CA, with appropriate weather in L.A. when you arrive __40 hours later__**
+  - **Traveling from New York, NY to Panama City, Panama, with appropriate weather in Panama when you arrive __3 days later__**
+  - **Traveling from New York, NY to London, UK, weather block should be empty and travel time should be "impossible"**
    
 
 ## Extensions
