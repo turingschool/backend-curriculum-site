@@ -30,7 +30,7 @@ Available [here](../slides/testing_api_consumption)
 * Add the key to `application.yml` and name it: `govt_api_key`
 
 ## Optional Manual Setup
-The rest of this setup is on [this setup branch](https://github.com/turingschool-examples/congress_tracker_2203/testing_tools_setup) if you'd like to pull it down and start from that point instead:
+The rest of this setup is on [this setup branch](https://github.com/turingschool-examples/congress-tracker-2207/tree/testing_lesson_setup) if you'd like to pull it down and start from that point instead:
 
 * Add the faraday gem just below bcrypt in gemfile
 
@@ -112,7 +112,7 @@ end
 
 ## Mocking Network Requests
 
-The [setup branch](https://github.com/turingschool-examples/congress_tracker_2203/testing_tools_setup) for this class has implemented a test to ensure that we are able to hit our API and display some data from the response. However, our test is actually hitting the Propublica API every time it runs. There are many reasons we wouldn't want to do this:
+The [setup branch](https://github.com/turingschool-examples/congress-tracker-2207/tree/testing_lesson_setup) for this class has implemented a test to ensure that we are able to hit our API and display some data from the response. However, our test is actually hitting the Propublica API every time it runs. There are many reasons we wouldn't want to do this:
 
 1. We could hit API rate limits much faster.
 1. Our test suite will be slower.
