@@ -5,11 +5,11 @@ title: Relational Rails
 
 ## Learning Goals
 
-* Design a one to many relationship using a schema designer
+* Design a one-to-many relationship using a schema designer.
 * Write migrations to create tables with columns of varying data types and foreign keys.
-* Use Rails to create web pages that allow users to CRUD resources
-* Create instance and class methods on a Rails model that use ActiveRecord methods and helpers
-* Write model and feature tests that fully cover data logic and user behavior
+* Use Rails to create web pages that allow users to CRUD resources.
+* Create instance and class methods on a Rails model that use ActiveRecord methods and helpers.
+* Write model and feature tests that fully cover data logic and user behavior.
 
 ## Requirements
 
@@ -19,22 +19,15 @@ title: Relational Rails
 
 ## Permission
 
-- If there is a specific gem you'd like to use in the project that is not mentioned in this project page, you must permission from your instructors first
+- If there is a specific gem you'd like to use in this project that is not mentioned on this project page, you must get permission from your instructors first.
 
-## Rubric
+## Setup
+Students should create their own new Rails app for this project. Students can reference the [Task Manager tutorial app](https://github.com/turingschool-examples/task_manager_rails) for how to set up a new Rails project. 
 
+Students must host their code in a new repository on GitHub. 
 
-| | **Feature Completeness** | **Rails** | **Database Design** | **ActiveRecord** | **Testing and Debugging** |
-| --- | --- | --- | --- | --- | --- |
-| **4: Exceptional**  | All User Stories 100% complete including edge cases, and at least one extension story completed | Students use the principles of MVC to effectively organize code. | Clear schema design with detailed and accurate diagram. Migration history reflects table alterations not taught in class. All data types in the schema make logical sense. | Inheritance is utilized to DRY up duplicate queries. | 100% coverage for features and models. Either a gem that enhances testing effectiveness is implemented (orderly, factorybot, faker, etc) or within blocks are used throughout tests. |
-| **3: Passing** | Students complete all User Stories. No more than 2 Stories fail to correctly implement functionality. | Students can defend any of their design decisions. Routing is organized and consistent and demonstrates use of some RESTful principles. Students can describe how data is passed in their application.| Relationships modeled in the database correctly. Appropriate use of foreign keys. Schema design accurately represents actual database schema and design document is linked in the README | ActiveRecord helpers are utilized whenever possible. ActiveRecord is used in a clear and effective way to read/write data. No Ruby is used to process data. All queries functional and accurately implemented.| 100% coverage for models. 98% coverage for features. Tests are well written and meaningful. Students can point to the difference between integration and unit testing. |
-| **2: Passing with Concerns** | Students fail to complete 3-5 User Stories. | Students cannot defend some of their design decisions. Students inaccurately describe how some of their data is passed through their application. Routes don't demonstrate any use of RESTful design. | Some errors in database schema. Schema diagram lacks detail or accurate representation in database. | Ruby is used to process data that could use ActiveRecord instead. Some instances where ActiveRecord helpers are not utilized. Some queries not accurately implemented. | Feature test coverage between 90% and 98%, or model test coverage below 100%, or tests are not meaningfully written or have an unclear objective. |
-| **1: Failing** | Students fail to complete 6 or more User Stories. | Students do not effectively organize code. | Poor diagram design. Relationships do not make sense or not accurately modeled in the database. Many errors in database schema. | Ruby is used to process data more often than ActiveRecord. Many cases where ActiveRecord helpers are not utilized. | Below 90% coverage for either features or models. |
-
-
-## Peer Code Share
-As part of the evaluation, students will be required to complete a peer code share. Instructions can be found [here](./peer_code_share.html).
-
+## Evaluation
+[Peer code share](./peer_code_share), evaluation, and rubric information can be found [here](./evaluation).
 
 ---
 
@@ -44,50 +37,52 @@ As part of the evaluation, students will be required to complete a peer code sha
 
 Read [this lesson plan](https://backend.turing.edu/module2/lessons/one_to_many_relationships) and use it as a reference when designing your database.
 
-Each person will come up with their own one to many relationship. This should represent a real world example of your choice. An example would be:
+Each student will come up with their own one-to-many relationship. This should represent a real world example of your choice. An example would be:
 - Shelters and Pets
 - A Shelter has many Pets
 - A Pet belongs to one Shelter.
 
-Do not use "Parent"/"Child" as your relationship
+Do not use "Parent"/"Child" as your relationship.
 
-These relationships are yours to create, but we instructors are happy to provide feedback on the relationships if asked.
+These relationships are yours to create, but instructors are happy to provide feedback on the relationships if asked.
 
-Use [This database design site](https://www.dbdesigner.net/) to design your database with your one to many relationships.
+Use [This database design site](https://www.dbdesigner.net/) to design your database with your one-to-many relationships.
 
 Here is an example diagram:
 
-![Example Design](../misc/images/adopt_dont_shop_db_design.png)
+![Example Design](../../misc/images/adopt_dont_shop_db_design.png)
 
 You can create as many columns on each table as you would like, but we need a few columns represented on each table:
 
 1. One string column for a 'name'
 1. One boolean column
 1. One numeric column
-1. Two DateTime columns: created_at and updated_at
+1. Two DateTime columns: `created_at` and `updated_at`
 
 A couple of things to keep in mind as you're designing your schema:
 
-* Foreign Keys do not count as an integer column
+* Foreign Keys do not count as an integer column.
 * You should not create columns that duplicate data. For example, in Pets/Shelters, a Shelter should not store a "pet_count" column since the count of Pets can also be found by counting the number of associated pets.
 
-**Schema Design will be reviewed at our first check-in**
+**Schema Design will be reviewed as part of our first check-in.**
+
+--------
 
 ## User Stories
 
-In these stories, we will refer to the "one" side of the relationship as the "parent" and the "many" side of the relationship as the "children/child". In the Pets/Shelters example, Shelter would be the Parent and Pets would be the Children.
+A user story is a concise description of functionality that a specific user should experience while using your application. In these stories, we will refer to the "one" side of the relationship as the "parent" and the "many" side of the relationship as the "children/child". In the Pets/Shelters example, Shelter would be the parent, and Pets would be the children.
 
 Children can be associated to the Parent. Children belong to a parent. Anywhere you see `child_table_name` think `pets` from our Pets and Shelters example.
 
 Each user story will focus on one of the following:
 
-**ActiveRecord**
+* __ActiveRecord__
+* __CRUD Functionality__
+* __Usability__: Users should be able to use the site easily. This means making sure there are links/buttons to reach all parts of the site and the styling/layout is sensible.
 
-**CRUD Functionality**
+_Note_: When writing code for each user story, it is important to go in numerical order; don't jump around. You may notice some later user stories "overwriting" earlier stories - this is intentional and mimics what you may experience on the job when working with real clients. 
 
-**Usability**: Users should be able to use the site easily. This means making sure there are links/buttons to reach all parts of the site and the styling/layout is sensible.
-
-### Iteration 1
+## Iteration 1
 
 ##### CRUD
 
@@ -109,8 +104,8 @@ User Story 2, Parent Show
 
 As a visitor
 When I visit '/parents/:id'
-Then I see the parent with that id including the parent's attributes:
-- data from each column that is on the parent table
+Then I see the parent with that id including the parent's attributes
+(data from each column that is on the parent table)
 ```
 
 ```
@@ -120,7 +115,8 @@ User Story 3, Child Index
 
 As a visitor
 When I visit '/child_table_name'
-Then I see each Child in the system including the Child's attributes:
+Then I see each Child in the system including the Child's attributes
+(data from each column that is on the child table)
 ```
 
 ```
@@ -130,7 +126,8 @@ User Story 4, Child Show
 
 As a visitor
 When I visit '/child_table_name/:id'
-Then I see the child with that id including the child's attributes:
+Then I see the child with that id including the child's attributes
+(data from each column that is on the child table)
 ```
 
 ```
@@ -140,7 +137,8 @@ User Story 5, Parent Children Index
 
 As a visitor
 When I visit '/parents/:parent_id/child_table_name'
-Then I see each Child that is associated with that Parent with each Child's attributes:
+Then I see each Child that is associated with that Parent with each Child's attributes
+(data from each column that is on the child table)
 ```
 
 ##### ActiveRecord
@@ -202,7 +200,7 @@ Then I see a link to take me to that parent's `child_table_name` page ('/parents
 
 ---
 
-### Iteration 2
+## Iteration 2
 
 ##### CRUD
 
@@ -326,7 +324,7 @@ I should be taken to that `child_table_name` edit page where I can update its in
 
 ---
 
-### Iteration 3
+## Iteration 3
 
 ##### CRUD
 
