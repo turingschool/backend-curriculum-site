@@ -13,6 +13,12 @@ layout: page
 * Describe what an ORM is and how it relates to the database
 * Use built in ActiveRecord methods to CRUD resources in the Rails Console  
 
+## Prerequisites
+
+You should have installed Postico as part of the [mod 2 intermission work](../intermission_work/). If not, [download Postico](https://eggerapps.at/postico/) and install it. 
+
+After launching Postico, be sure you can connect to your TaskManager database by filling in the "Database" field with `task_manager_development`. You should be able to leave the other fields as default (other than "Nickname" - this is just an easier way to find this database after connecting to it). 
+
 # Lesson
 
 ## Postico Activity
