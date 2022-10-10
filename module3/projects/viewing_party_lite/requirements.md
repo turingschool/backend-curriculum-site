@@ -20,7 +20,7 @@ type: project
 ### Requirements
 Project specification requirements can be found [here](https://github.com/turingschool-examples/viewing_party_lite/projects/1)
 
-__One__ member of your team will fill out the conveyor-belt link for the project setup. The conveyor-belt will clone and setup the project board for you.
+You will need to create your own project board on your repository. Feel free to copy the cards we have on the above linked board to add to your own project board. 
 
 Wireframes found [here](./wireframes) can be used as an additional reference
 
