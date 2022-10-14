@@ -5,47 +5,43 @@ length: 1 week
 type: project
 ---
 
-For the project eval, you should prepare a 10 minute presentation that clearly demonstrates each category of the below rubric. 
+The 'eval' for this project is going to be a bit different than other projects in the past. We are relying on you to score yourself for this project. To do that, please submit this form. 
 
-In the past, we had students record their presentation. This is not a requirement anymore. But, if you'd like to get an idea for what a good presentation might entail, you can take a look at these recorded presentations. Be aware that the project requirements (mainly around # of endpoints) have changed since these students did the project.
-1. [Example 1](https://www.loom.com/share/44b0adf2a5b54be5bd4d02405e43c98b)
-2. [Example 2](https://www.loom.com/share/765f2cfbf4af49268cdee564e5d995db)
-*These students have given their permission for these to be shared.
+Instead of a traditional eval, you will be meeting in small groups to get feedback from your peers as well as an instructor. The format of this feedback session will be:
 
-The technical presentation portion is outlined below with what points should be covered. If you have questions about the presentation, please let an instructor know before the time it's due.
+### Round Robin
+Everyone will answer these 4 questions:
+1. How were you feeling going into this project, and how are you feeling now?
+2. What was the most difficult part of this project?
+3. What is something you learned while working on this project that you're excited about?
+4. How did you balance writing your tests while still using the postman test suite?
 
-You should review each section of the rubric and strive to have a 3 in each section before attempting any 4s.
+### Individual Question
+Your instructor will ask you to answer one of the following questions. You will not know which question will be asked, so please be prepared to answer any.
+1. Did you account for any sad paths? if you didn’t, what are some sad paths you would want to consider if you had more time?
+2. Can you explain to me what the purpose of a serializer is, and show me an example of how you used one or how you would use one if you had more time?
+3. Is there a design decision that you made that you’re particularly proud of?
+4. Identify a piece of code that you’d like to refactor. How would you update that code?
+5. What are the four pillars of OOP, and can you explain how you used one of those pillars in your code?
+6. If this was a product you were working on on the job, and you were asked to alter the response for an existing endpoint, how could you handle rolling out that change in a way that doesnt affect users of your API?
+7. What value does namespacing give us? Why do we use it?
+8. What is JSON? Why is it used? And where in your project are you converting a hash into json? 
+9. Can you identify any place where you are handling presentation logic, and why you chose to do it in that particular place? 
+10. Can you walk me through a happy path test and/or a sad path test that you're proud of?
 
-
-
-## Presentation points:
-
-[ ] Demonstration of functional completeness 
- * Run postman suite
-
-[ ] Technical quality and organization of the code
- * Talk through one endpoint from section 1 and one endpoint from section 2 (routing, controllers, serializers, error handeling, etc.)
- * Is there a design decision that you made that you're particularly proud of? 
-
-[ ] Identifying code that should be refactored and how it would be refactored
- * Identify a piece of code that you'd like to refactor. How would you update that code?
- * Are there any parts of your code that you're unsure/hesitant about? Why?
-
-[ ] Discussion of test coverage 
- * Show examples of happy and sad path and edge cases
- * Run your test suite and open coverage report 
-
+### Feedback Request
+Choose one part of your project that you’d like specific feedback on. Everyone will be asked to bring this to the feedback session, and you will be able to get feedback from your instructor as well as your peers in the feedback group.
 
 
 
 ## Rubric
 
-### Technical Presentation
+### Feedback Session
 
-* 4: The student has a well organized presentation that addresses each point directly and uses technical vocabulary correctly throughout the presentation.
-* 3: Student presents their code and is prepared to talk through all the presentation points.
-* 2: Student presents their code and is prepared to talk through 2-3 of the presentation points.
-* 1: Student is unprepared for the presentation and requires prompts from the instructor to talk about the code.
+* 4: Student comes prepared to answer all question/tasks outlined in the Feedback Session Format above. Student also participates with other peers to either ask further questions or offer additional feedback. 
+* 3: Student comes prepared to answer all question/tasks outlined in the Feedback Session Format above.
+* 2: Student participates in the feedback session, but does not come prepared to answer all questions/tasks outlined in the Feedback Session Format above. 
+* 1: Student is unprepared for the feedback session, and does not come prepared to participate. 
 
 ### Feature Delivery
 
