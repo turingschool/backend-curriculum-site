@@ -1,11 +1,13 @@
 ---
 layout: page
-title: Rails Engine Lite Evaluation
+title: Rails Engine Lite Feedback Session (Eval)
 length: 1 week
 type: project
 ---
 
 The 'eval' for this project is going to be a bit different than other projects in the past. We are relying on you to score yourself for this project. To do that, please submit this form. 
+
+## Feedback Session Format
 
 Instead of a traditional eval, you will be meeting in small groups to get feedback from your peers as well as an instructor. The format of this feedback session will be:
 
