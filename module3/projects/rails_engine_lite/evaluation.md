@@ -9,14 +9,21 @@ The 'eval' for this project is going to be a bit different than other projects i
 
 Instead of a traditional eval, you will be meeting in small groups to get feedback from your peers as well as an instructor. The format of this feedback session will be:
 
-### Round Robin
+### Part 1: Round Robin
 Everyone will answer these 4 questions:
 1. How were you feeling going into this project, and how are you feeling now?
 2. What was the most difficult part of this project?
 3. What is something you learned while working on this project that you're excited about?
-4. How did you balance writing your tests while still using the postman test suite?
 
-### Individual Question
+### Part 2: Behavioral Question
+Your instructor will ask you to answer one of the following questions. You will not know which question will be asked, so please be prepared to answer any.
+1. Tell me about a time that you found yourself in an unproductive struggle. What did you do to get yourself unblocked? How has that affected your approach to working on tough problems?
+2. How comfortable are you with getting uncomfortable with a new-to-you concept? Can you give me an example of a time when you didn't know how to do something right away, but found a way to get it done?
+3. Did you ever have to switch gears in the middle of this project? How did you react?
+4. Describe your strengths. How have you seen these in practice on this project?
+5. Throughout your time in Mod 3 thus far, have you been able to identify any areas of growth? What's your plan going forward to strengthen that area?
+
+### Part 3: Individual Question
 Your instructor will ask you to answer one of the following questions. You will not know which question will be asked, so please be prepared to answer any.
 1. Did you account for any sad paths? if you didn’t, what are some sad paths you would want to consider if you had more time?
 2. Can you explain to me what the purpose of a serializer is, and show me an example of how you used one or how you would use one if you had more time?
@@ -28,8 +35,9 @@ Your instructor will ask you to answer one of the following questions. You will 
 8. What is JSON? Why is it used? And where in your project are you converting a hash into json? 
 9. Can you identify any place where you are handling presentation logic, and why you chose to do it in that particular place? 
 10. Can you walk me through a happy path test and/or a sad path test that you're proud of?
+11. How did you balance writing your tests while still using the postman test suite?
 
-### Feedback Request
+### Part 4: Feedback Request
 Choose one part of your project that you’d like specific feedback on. Everyone will be asked to bring this to the feedback session, and you will be able to get feedback from your instructor as well as your peers in the feedback group.
 
 
