@@ -78,7 +78,7 @@ Add relationships to your models:
 has_many :store_books
 has_many :stores, through: :store_books
 
-# in stores.rb
+# in store.rb
 has_many :store_books
 has_many :books, through: :store_books
 ```
