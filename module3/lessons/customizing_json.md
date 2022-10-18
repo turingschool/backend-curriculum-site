@@ -56,7 +56,7 @@ bundle
 ```
 
 ```bash
-bundle exec rake db:create
+bundle exec rails db:{drop,create,migrate,seed}
 ```
 
 We want to work with objects that have related models, so let's add a `Store` model:
