@@ -40,7 +40,7 @@ Your instructor will ask you to answer one of the following questions. You will 
 11. How did you balance writing your tests while still using the postman test suite?
 
 ### Part 4: Feedback Request
-Choose one part of your project that you’d like specific feedback on. Everyone will be asked to bring this to the feedback session, and you will be able to get feedback from your instructor as well as your peers in the feedback group.
+Choose at least one part of your project that you’d like specific feedback on. Everyone will be asked to bring this to the feedback session, and you will be able to get feedback from your instructor as well as your peers in the feedback group.
 
 
 
