@@ -3,9 +3,9 @@ layout: page
 title: Module 2 Assessments
 ---
 
-## Remote Inning Assessments
+## Independent Assessments
 
-During remote innings, students will complete the Mid Mod, Final, and Final Retake (if necessary) as independent assessments. Students will have 3 hours to complete and submit the assignment. Additional instructions can be found in the README of [this repo](https://github.com/turingschool-examples/b2-mid-mod).
+Students will complete the Mid Mod, Final, and Final Retake (if necessary) as independent assessments. Students will have 3 hours to complete and submit the assignment. Additional instructions can be found in the README of [this repo](https://github.com/turingschool-examples/b2-mid-mod).
 
 ## Independent Assessment Rubric
 
