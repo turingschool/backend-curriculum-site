@@ -25,7 +25,7 @@ Your instructor will ask you to answer one of the following questions. You will 
 4. Describe your strengths. How have you seen these in practice on this project?
 5. Throughout your time in Mod 3 thus far, have you been able to identify any areas of growth? What's your plan going forward to strengthen that area?
 
-### Part 3: Individual Question
+### Part 3: Technical Question
 Your instructor will ask you to answer one of the following questions. You will not know which question will be asked, so please be prepared to answer any.
 1. Did you account for any sad paths? if you didn’t, what are some sad paths you would want to consider if you had more time?
 2. Can you explain to me what the purpose of a serializer is, and show me an example of how you used one or how you would use one if you had more time?
@@ -40,7 +40,7 @@ Your instructor will ask you to answer one of the following questions. You will 
 11. How did you balance writing your tests while still using the postman test suite?
 
 ### Part 4: Feedback Request
-Choose one part of your project that you’d like specific feedback on. Everyone will be asked to bring this to the feedback session, and you will be able to get feedback from your instructor as well as your peers in the feedback group.
+Choose at least one part of your project that you’d like specific feedback on. Everyone will be asked to bring this to the feedback session, and you will be able to get feedback from your instructor as well as your peers in the feedback group.
 
 
 
