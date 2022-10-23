@@ -86,29 +86,34 @@ The following methods trigger validations, and will save the object to the datab
 
 **The bang versions (e.g. save!) raise an exception if the record is invalid. The non-bang versions don't: save and update return false, and create returns the object.**
 
-### Try It
+## Boolean Gotcha
 
-Use [ShouldaMatchers](https://github.com/thoughtbot/shoulda-matchers) and [validation helpers](https://edgeguides.rubyonrails.org/active_record_validations.html) to accomplish the following:
-
-* Add a validation that validates the uniqueness of an Artist's name
-* Add a validation that validates the presence of a Playlist's name
-* Access validation errors when a validation fails on a model in your console
-* Access validation errors for a specific attribute when a validation fails on a model in your console
-* Add a validation that adds a max length for a Song title
-* Add a validation for the play_count column that validates numericality
-* Add a new column to the playlists table that has a validation that only runs on an `update`
-* Add a custom validation method to assign a default length attribute for a Song when none is provided
-
-### Boolean Got Ya
-
-Since false.blank? is true, if you want to validate the presence of a boolean field you should use one of the following validations:
+Since `false.blank?` is true, if you want to validate the presence of a boolean field, you should use one of the following validations:
 
 ```ruby
 validates :boolean_field_name, inclusion: [true, false]
 validates :boolean_field_name, exclusion: [nil]
 ```
 
-By using one of these validations, you will ensure the value will NOT be nil which would result in a NULL value in most cases.
+By using one of these validations, you will ensure the value will NOT be nil, which would result in a `NULL` value in most cases.
+
+## Try It!
+
+Use [ShouldaMatchers](https://github.com/thoughtbot/shoulda-matchers) and [validation helpers](https://edgeguides.rubyonrails.org/active_record_validations.html) to accomplish the following:
+#### Basics
+
+* Add a validation that validates the uniqueness of an Artist's name
+* Add a validation that validates the presence of a Playlist's name
+* Add a validation for the `play_count` column that validates numericality
+* Add a validation that adds a max length for a Song title
+* Add a validation to check for the presence of a boolean value for one of your models. 
+
+#### Advanced
+
+* Access validation errors when a validation fails on a model in your console
+* Access validation errors for a specific attribute when a validation fails on a model in your console
+* Add a new column to the playlists table that has a validation that only runs on an `update`
+* Add a custom validation method to assign a default length attribute for a Song when none is provided
 
 ## Checks for Understanding
 
