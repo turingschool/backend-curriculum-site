@@ -12,9 +12,9 @@ The goal of this project is to create a successful web application from a studen
 
 This project will focus heavily on Service-Oriented Architecture (SOA), and will include the following components and restrictions:
 
-Our "Front End" application can be built in Rails, but could be substituted later for a JavaScript-based application in React, Angular, etc.
+Our "Front End" application will be built in Rails.
 - Rails "front end"
-  - If in Rails, this is a typical `rails new` project
+  - This is a typical `rails new` project
   - It will have simple feature testing, and will mostly focus on View templates, HTML and CSS. We highly recommend Bootstrap
   - This application is responsible for authentication via OAuth
     - Try to find a way to utilize your user's OAuth token within the application in some way
