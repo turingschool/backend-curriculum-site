@@ -94,6 +94,7 @@ Conflict and tension tends to arise in groups when there are differing expectati
     * Make a list of all of the pages required for your application along with what features will exist on each page.
     * For each page, create a [wireframe](https://www.usability.gov/how-to-and-tools/methods/wireframing.html) by sketching out what that user will see when they navigate to that page. Include details such as header text, buttons, drop downs, forms with the specific fields, graphs etc.
     * Do a few pages together as a group, then divide and conquer the remaining pages.
+    * [Figma](https://www.figma.com/wireframe-tool/?utm_source=google&utm_medium=cpc&utm_campaign=17340391121&utm_term=free%20wireframe%20tools&utm_content=600487515776&gclid=CjwKCAjw5P2aBhAlEiwAAdY7dLtWlIVK0NWWHUXbjj8KMAaBN8P1lO16khOpesJ63utNI5b-cF1e2xoClmoQAvD_BwE) is a great tool for wireframing
 
 ## Story Writing (Solve)
 
