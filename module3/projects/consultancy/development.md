@@ -32,7 +32,7 @@ Day 1:
   - Front-end team
   - Back-end team
   - Documentation/Planning team
-    - For teams of 6 this will be a team of two. The team of 5 will have one person on this.
+    - For teams of 5, one persone will be on this. For teams of 4, all contributors will work on this at any time. 
 
 - Each team will use a Miro board to brainstorm ideas
 - Delegate people to set up a GitHub organization, add other members, and set up the initial repos
