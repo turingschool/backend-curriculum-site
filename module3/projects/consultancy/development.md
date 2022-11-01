@@ -42,7 +42,7 @@ Day 1:
   - Front-end application set up with gems configured. Ideally one or two calls to the backend have been roughly implemented
   - Backend application set up with gems configured. Ideally one or two CRUD operations for front-end consumption have been roughly implemented. 
   - Initial structure of each Service (not necessarily working API calls)
-  - Circle-CI and Deployment to Heroku for both FE/BE repositories
+  - [Circle-CI](https://mod4.turing.edu/lessons/Continuous-Integration-CircleCi.html) and Deployment to Heroku for both FE/BE repositories
 
 #### Sprint 2: Primary Development
 
