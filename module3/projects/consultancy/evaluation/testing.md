@@ -8,14 +8,6 @@ type: project
 
 Each Repo meets the following:
 
-- 50% or more test coverage of happy path expectations
-    - [ ] Frontend
-    - [ ] Rails Backend
-
-- 75% or more test coverage of happy path expectations
-    - [ ] Frontend
-    - [ ] Rails Backend
-
 - 90% or more test coverage, includes happy path and sad path expectations
     - [ ] Frontend
     - [ ] Rails Backend
