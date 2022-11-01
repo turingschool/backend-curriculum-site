@@ -37,10 +37,6 @@ Each Repo meets the following:
     - [ ] Frontend
     - [ ] Rails Backend
 
-- CircleCI is set up
-    - [ ] Frontend
-    - [ ] Rails Backend
-
 
 Frontend
 
