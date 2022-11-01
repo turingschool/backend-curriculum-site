@@ -97,9 +97,10 @@ In addition to the End of Sprint Demos, you will also have some project check in
 
 * Set up a [CI Server](https://backend.turing.edu/module3/archive/lessons/environments_and_ci) (Optional to create more than 2 environments)
 * [CircleCI Docs](https://circleci.com/docs/2.0/)
+* [CircleCI Mod 4 Lesson](https://mod4.turing.edu/lessons/Continuous-Integration-CircleCi.html)
 
 
-## Continuous Deployment
+## Continuous Deployment -- Optional
 
 * Set up Circle-CI in such a way that it automatically deploys its code to Heroku when 'main' branch code is passing
 
