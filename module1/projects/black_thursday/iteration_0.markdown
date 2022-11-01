@@ -87,7 +87,7 @@ i = Item.new({
 # => <Item...>
 
 i.unit_price_to_dollars
-# => 23.48
+# => 10.99
 ```
 
 ---
