@@ -8,7 +8,7 @@ title: Mocks and Stubs
 * Understand what mocking and stubbing is and why we would use it.
   * Understand the difference between a mock and a stub.
 * Learn the syntax for mocks and stubs with rspec.
-* Pracice creating stubs to help with integration tests.
+* Practice creating stubs to help with integration tests.
 
 ## Vocabulary
 
