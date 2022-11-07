@@ -32,7 +32,6 @@ These projects are listed (roughly) in order of difficulty.
 * [Mastermind](./mastermind)
 * [Event Manager](./eventmanager)
 * [Event Reporter](./event_reporter)
-* [Wizarding Bank](./wizarding_bank)
 * [Credit Check](./credit_check)
 * [Super Sports Games](./super_sports_games)
 * [Sorting Cards](./sorting_cards)
