@@ -52,20 +52,20 @@ Example:
             "id": null,
             "type": "recipe",
             "attributes": {
-                "title": "Kentucky Vs. Morocco Cocktail",
-                "url": "http://www.saveur.com/article/Recipes/Kentucky-vs-Morocco-Cocktail",
-                "country": "Morocco",
-                "image": "https://edamam-product-images.s3.amazonaws.com/web..."
+                "title": "Andy Ricker's Naam Cheuam Naam Taan Piip (Palm Sugar Simple Syrup)",
+                "url": "https://www.seriouseats.com/recipes/2013/11/andy-rickers-naam-cheuam-naam-taan-piip-palm-sugar-simple-syrup.html",
+                "country": "thailand",
+                "image": "https://edamam-product-images.s3.amazonaws.com..."
             }
         },
         {
             "id": null,
             "type": "recipe",
             "attributes": {
-                "title": "Niçoise Potato Salad with Tiny Green Beans (and Spinach!)",
-                "url": "https://food52.com/recipes/23169-nicoise-potato-salad-with-tiny-green-beans-and-spinach",
-                "country": "Morocco",
-                "image": "https://edamam-product-images.s3.amazonaws.com/web.."
+                "title": "Sriracha",
+                "url": "http://www.jamieoliver.com/recipes/vegetables-recipes/sriracha/",
+                "country": "thailand",
+                "image": "https://edamam-product-images.s3.amazonaws.com/."
             }
         },
         {...},
@@ -84,6 +84,8 @@ Example:
     - Note: use the `q` parameter to search for recipes related to that country
 * If the country parameter is passed in, but it is an empty string, respond with an appropriate [400-level status code](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#4xx_Client_errors) and a descriptive error message.
 * Testing should look for more than just the presence of attribute fields in the response. Testing should also determine which fields should NOT be present. (don't send back unnecessary data in the response)
+
+
 ---
 
 ## 2. Get Learning Resources for a Particular Country
@@ -163,7 +165,7 @@ Example:
 * Implement a new API service (Unsplash, Pexels, Microsoft Bing Image search, Wikimedia image search, Flickr and more) to use the name of the country to get the URL of up to 10 images for that country search. 
 
 
-## 2. User Registration
+## 3. User Registration
 
 The front-end team has drawn up this wireframe for registration:
 
@@ -319,7 +321,7 @@ body:
 
 **Requirements:**
 
-* Like the previous two endpoings, this `api_key` will be sent in the body of the request.
+* Like the previous two endpoints, this `api_key` will be sent in the body of the request.
 * If the `api_key` is invalid, an appropriate [400-level status code](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#4xx_Client_errors) should be returned, as well as a message explaining what went wrong.
 * If the `api_key` is valid, this response will return all books that the user has favorited.
 * If the user has not favorited any users, the data object should point to an empty array. 
