@@ -21,10 +21,10 @@ Presentation Points:
 
 ### Feature Delivery
 
-* **4:** API completely satisfies the needs of the front-end developers and is very convenient and easy to use showing great developer empathy. Project implements either caching or background workers to optimize API consumption.
+* **4:** API completely satisfies the needs of the front-end developers and is very convenient and easy to use showing great developer empathy. Project implements all 4 of the extensions listed on the requirements page. 
 * **3:** API satisfies the exact needs of the frontend developers. No unnecessary information is sent in a response.
-* **2:** One of the API endpoints does not completely satisfy the needs of the front-end developers per the project requirements.
-* **1:** One or more API endpoints is not functioning per the requirements (such as sending query parameters to a POST endpoint), or multiple endpoints do not satisfy the needs of the front-end developers.
+* **2:** One or Two of the API endpoints does not completely satisfy the needs of the front-end developers per the project requirements.
+* **1:** More than two API endpoints is not functioning per the requirements (such as sending query parameters to a POST endpoint), or multiple endpoints do not satisfy the needs of the front-end developers.
 
 ### Technical Quality
 
