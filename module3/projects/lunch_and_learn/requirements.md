@@ -349,7 +349,7 @@ The response data should contain exactly these elements and nothing more:
     - wireframes:
     ![Log In/Register Page](./images/real-authentication.png)
     - Update registration to require a password and password confirmation.
-    - Use bcrypt to authenticate and encrypt a password for a new user
+    - Use bcrypt to authenticate and encrypt a password for a new user.
     - Implement Log In Functionality.
     - Both of the responses for registering and logging in should return that user's information as well as their api_key.
         ```json
@@ -365,4 +365,6 @@ The response data should contain exactly these elements and nothing more:
           }
         }
         ```
+4. Utilize caching or background workers to optimize API calls.
+
 
