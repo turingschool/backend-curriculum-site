@@ -82,7 +82,13 @@ Example:
 * If country is not sent in by the user, you will need to use the [REST Countries API](https://restcountries.com/#api-endpoints-v3-all) to randomly choose one country's name.
 * For whichever country is either passed in or chosen at random, find recipes using the [Edamam Recipe API](https://developer.edamam.com/edamam-recipe-api)
     - Note: use the `q` parameter to search for recipes related to that country
-* If the country parameter is passed in, but it is an empty string, respond with an appropriate [400-level status code](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#4xx_Client_errors) and a descriptive error message.
+* If the country parameter is either an empty string, or a value that doesn't return any recipes, return an empty array:
+```json
+{
+    "data": []
+}
+```
+* Extension: Use the REST Countries API to validate that the country parameter passed in is in fact a valid country. If it isn't, return an appropriate [400-level status code](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#4xx_Client_errors).
 * Testing should look for more than just the presence of attribute fields in the response. Testing should also determine which fields should NOT be present. (don't send back unnecessary data in the response)
 
 
@@ -159,10 +165,26 @@ Example:
 
 **Requirements:**
 
-* Endpoint needs to use the [video lists](https://developers.google.com/youtube/v3/docs/videos/list) endpoint from the [YouTube API](https://developers.google.com/youtube/v3/getting-started). All videos should be pulled from the [Mr. History YouTube Channel](https://www.youtube.com/channel/UCluQ5yInbeAkkeCndNnUhpw). You only need to return the first match from your search.
-    - Note: You'll need to use the `snippet` part to get more data on your search.
-* If no videos are found, `video` should point to an empty object.
+* Endpoint needs to use the [video lists](https://developers.google.com/youtube/v3/docs/videos/list) endpoint from the [YouTube API](https://developers.google.com/youtube/v3/getting-started). We suggest pulling videos from the [Mr. History YouTube Channel](https://www.youtube.com/channel/UCluQ5yInbeAkkeCndNnUhpw), but if there's another educational channel you'd like to pull from instead, you can. You only need to return one video.
+    - Note: You'll need to use `snippet` to get more data on your search.
 * Implement a new API service (Unsplash, Pexels, Microsoft Bing Image search, Wikimedia image search, Flickr and more) to use the name of the country to get the URL of up to 10 images for that country search. 
+* If no videos or images are found, those keys should point to an empty object:
+```json
+{
+    "data": {
+        "id": null,
+        "type": "learning_resource",
+        "attributes": {
+            "country": "",
+            "video": {
+                "title": "Mr History",
+                "youtube_video_id": null
+            },
+            "images": []
+        }
+    }
+}
+```
 
 
 ## 3. User Registration
@@ -181,23 +203,21 @@ Content-Type: application/json
 Accept: application/json
 
 {
-  "name": "Beyoncé Knowles"
-  "email": "bey@renaissance.com",
+  "name": "Athena Dao"
+  "email": "athenadao@bestgirlever.com",
 }
 ```
 
 **Response:**
 
-```
-status: 201
-body:
-
+```json
 {
   "data": {
     "type": "user",
     "id": "1",
     "attributes": {
-      "email": "bey@renaissance.com",
+      "name": "Athena Dao",
+      "email": "athenadao@bestgirlever.com",
       "api_key": "jgn983hy48thw9begh98h4539h4"
     }
   }
@@ -206,7 +226,7 @@ body:
 
 **Requirements:**
 
-* This POST endpoint should NOT call your endpoint like `/api/v1/users?name=BEyoncé Knowles&email=bey@renaissance.com`. You must send a **JSON payload** in the **body** of the request
+* This POST endpoint should NOT call your endpoint like `/api/v1/users?name=Athena Dao&email=athenadao@bestgirlever.com`. You must send a **JSON payload** in the **body** of the request
   - in Postman, under the address bar, click on "Body", select "raw", which will show a dropdown that probably says "Text" in it, choose "JSON" from the list
   - this is a **hard requirement** to pass this endpoint!
 * A successful request creates a user in your database, and generates a unique api key associated with that user, with a 201 status code. 
@@ -236,10 +256,7 @@ Accept: application/json
 
 **Response:**
 
-```
-status: 201
-body:
-
+```json
 {
     "success": "Favorite added successfully"
 }
@@ -253,7 +270,7 @@ body:
 * If the `api_key` is invalid (no user with that api key), an appropriate [400-level status code](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#4xx_Client_errors) should be returned, as well as a message explaining what went wrong.
 * If the `api_key` is valid, create a favorite for the user with that api key.
 * A successful request creates a Favorite for that user in the database, and returns a 201 status code.
-* Your Favorites Table should store `country`, `recipe_link` and `recipe_title`, as well as a foreign key for `user`. (One to many relationship between User and Favorites)
+* Your Favorites Table can store `country`, `recipe_link` and `recipe_title`, as well as a foreign key for `user`. (One to many relationship between User and Favorites)
 
 ---
 
@@ -290,10 +307,7 @@ The response data should contain exactly these elements and nothing more:
     - country
     - created at date/time
 
-```
-status: 200
-body:
-
+```json
 {
     "data": [
         {
@@ -329,4 +343,26 @@ body:
 
 ## Extensions
 
-Coming Soon
+1. Validate that the country parameter passed in is in fact a valid country. If it isn't, return an appropriate [400-level status code](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#4xx_Client_errors).
+2. Add an endpoint to DELETE a favorite ( DELETE '/api/v1/favorites')
+3. Implement basic authentication:
+    - wireframes:
+    ![Log In/Register Page](./images/real-authentication.png)
+    - Update registration to require a password and password confirmation.
+    - Use bcrypt to authenticate and encrypt a password for a new user
+    - Implement Log In Functionality.
+    - Both of the responses for registering and logging in should return that user's information as well as their api_key.
+        ```json
+        {
+          "data": {
+            "type": "user",
+            "id": "1",
+            "attributes": {
+              "name": "Odell",
+		      "email": "goodboy@ruffruff.com",
+              "api_key": "asjdflkn2lk3nsdjfl4243jk7"
+            }
+          }
+        }
+        ```
+
