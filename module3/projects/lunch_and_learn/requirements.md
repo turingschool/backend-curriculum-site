@@ -106,7 +106,7 @@ They need your API to expose one API endpoint in order to populate this page wit
 **Request:**
 
 ```
-GET /api/v1/learning_resources?country=thailand
+GET /api/v1/learning_resources?country=laos
 Content-Type: application/json
 Accept: application/json
 ```
@@ -134,7 +134,7 @@ Example:
         "id": null,
         "type": "learning_resource",
         "attributes": {
-            "country": "thailand",
+            "country": "laos",
             "video": {
                 "title": "A Super Quick History of Laos",
                 "youtube_video_id": "uw8hjVqxMXw"
