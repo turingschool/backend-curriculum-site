@@ -88,7 +88,6 @@ Example:
     "data": []
 }
 ```
-* Extension: Use the REST Countries API to validate that the country parameter passed in is in fact a valid country. If it isn't, return an appropriate [400-level status code](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#4xx_Client_errors).
 * Testing should look for more than just the presence of attribute fields in the response. Testing should also determine which fields should NOT be present. (don't send back unnecessary data in the response)
 
 
@@ -175,11 +174,8 @@ Example:
         "id": null,
         "type": "learning_resource",
         "attributes": {
-            "country": "",
-            "video": {
-                "title": "Mr History",
-                "youtube_video_id": null
-            },
+            "country": "Nameofcountry", # this value is the value used to search for learning resources
+            "video": [],
             "images": []
         }
     }
@@ -343,7 +339,7 @@ The response data should contain exactly these elements and nothing more:
 
 ## Extensions
 
-1. Validate that the country parameter passed in is in fact a valid country. If it isn't, return an appropriate [400-level status code](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#4xx_Client_errors).
+1. For the recipes and learning resources endpoints, use the REST Countries API to validate that the country parameter passed in is in fact a valid country. If it isn't, return an appropriate [400-level status code](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#4xx_Client_errors).
 2. Add an endpoint to DELETE a favorite ( DELETE '/api/v1/favorites')
 3. Implement basic authentication:
     - wireframes:
@@ -365,6 +361,6 @@ The response data should contain exactly these elements and nothing more:
           }
         }
         ```
-4. Utilize caching or background workers to optimize API calls.
+4. Utilize caching OR background workers to optimize API calls.
 
 
