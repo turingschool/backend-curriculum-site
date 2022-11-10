@@ -327,13 +327,14 @@ The response data should contain exactly these elements and nothing more:
             }
         }
     ]
+ }    
 ```
 
 **Requirements:**
 
 * Like the previous two endpoints, this `api_key` will be sent in the body of the request.
 * If the `api_key` is invalid, an appropriate [400-level status code](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#4xx_Client_errors) should be returned, as well as a message explaining what went wrong.
-* If the `api_key` is valid, this response will return all books that the user has favorited.
+* If the `api_key` is valid, this response will return all recipes that the user has favorited.
 * If the user has not favorited any users, the data object should point to an empty array. 
 
 
