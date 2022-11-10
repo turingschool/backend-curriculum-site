@@ -341,7 +341,8 @@ The response data should contain exactly these elements and nothing more:
 
 1. For the recipes and learning resources endpoints, use the REST Countries API to validate that the country parameter passed in is in fact a valid country. If it isn't, return an appropriate [400-level status code](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#4xx_Client_errors).
 2. Add an endpoint to DELETE a favorite ( DELETE '/api/v1/favorites')
-3. Implement basic authentication:
+3. Utilize caching OR background workers to optimize API calls.
+4. Implement basic authentication:
     - wireframes:
     ![Log In/Register Page](./images/real-authentication.png)
     - Update registration to require a password and password confirmation.
@@ -361,6 +362,5 @@ The response data should contain exactly these elements and nothing more:
           }
         }
         ```
-4. Utilize caching OR background workers to optimize API calls.
 
 
