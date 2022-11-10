@@ -29,7 +29,7 @@ Presentation Points:
 ### Technical Quality
 
 * **4:**  Student can articulate how their project achieves each of the four pillars of OOP. Project meets expectations from number 3 above.
-* **3:**  Project demonstrates abstraction and encapsulation in ways that make it easy to change (example: if an API changes, MapQuest to Google Maps or Yahoo Maps etc, we make changes in as few places as possible. Or POROs can be used in custom API or in standard views). Project shows a solid understanding of MVC principles (this may include but is not limited to: no logic in serializers, clean controllers, serializers and presenters to handle formatting rather than models etc.) and includes all expectations of numbers 1 and 2 above.
+* **3:**  Project demonstrates abstraction and encapsulation in ways that make it easy to change (example: if an API changes, for example, FLickr to Unsplashed, we make changes in as few places as possible.). Project shows a solid understanding of MVC principles (this may include but is not limited to: no logic in serializers, clean controllers, serializers and presenters to handle formatting rather than models etc.) and includes all expectations of numbers 1 and 2 above.
 * **2:**  MVC is overall good but might have 1 or 2 examples of logic or hashes in the serializers, formatting in models, or controllers with complex logic. Project demonstrates some amount of abstraction and encapsulation, but may need additional refactoring to make code easy to change.
 * **1:**  Project has significant gaps in understanding of MVC with several examples of logic or hashes in the serializers, controllers remain un-refactored, and models are used for formatting data.
 
