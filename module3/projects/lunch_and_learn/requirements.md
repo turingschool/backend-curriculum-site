@@ -164,7 +164,7 @@ Example:
 
 **Requirements:**
 
-* Endpoint needs to use the [video lists](https://developers.google.com/youtube/v3/docs/videos/list) endpoint from the [YouTube API](https://developers.google.com/youtube/v3/getting-started). We suggest pulling videos from the [Mr. History YouTube Channel](https://www.youtube.com/channel/UCluQ5yInbeAkkeCndNnUhpw), but if there's another educational channel you'd like to pull from instead, you can. You only need to return one video.
+* Endpoint needs to use the [search lists](https://developers.google.com/youtube/v3/docs/search/list) endpoint from the [YouTube API](https://developers.google.com/youtube/v3/getting-started). We suggest pulling videos from the [Mr. History YouTube Channel](https://www.youtube.com/channel/UCluQ5yInbeAkkeCndNnUhpw), but if there's another educational channel you'd like to pull from instead, you can. You only need to return one video.
     - Note: You'll need to use `snippet` to get more data on your search.
 * Implement a new API service (Unsplash, Pexels, Microsoft Bing Image search, Wikimedia image search, Flickr and more) to use the name of the country to get the URL of up to 10 images for that country search. 
 * If no videos or images are found, those keys should point to an empty object:
