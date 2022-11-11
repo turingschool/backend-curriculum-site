@@ -8,6 +8,7 @@ layout: page
 
 - [ActiveRecord Obstacle Course](https://github.com/turingschool-projects/activerecord-obstacle-course)
 - [Complex SQL Queries Workshop](./misc/complex_queries)
+- [Complex AR Queries Workshop](https://github.com/turingschool-examples/student_enrollments_ar)
 - [PostgreSQL Exercises](https://pgexercises.com/questions/basic/)
 - [SQL Refresher](./lessons/sql_refresher)
 
