@@ -17,7 +17,7 @@ This project is an extension of the Little Esty Shop group project. You will add
 ## Deets
 
 * This is a solo project, to be completed alone without assistance from cohortmates, alumni, mentors, rocks, etc.
-* Additional gems to be added to the project must have instructor approval. (RSpec, Capybara, Shoulda-Matchers, Orderly, HTTParty, Launchy, Faker are pre-approved)
+* Additional gems to be added to the project must have instructor approval. (RSpec, Capybara, Shoulda-Matchers, Orderly, HTTParty, Launchy, Faker and FactoryBot are pre-approved)
 * Scaffolding is not permitted on this project.
 * This project must be deployed to Heroku.
 
