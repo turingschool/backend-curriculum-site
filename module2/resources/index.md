@@ -43,7 +43,6 @@ layout: page
 * [CSS Psuedo-Classes & Psuedo-Elements](http://www.growingwiththeweb.com/2012/08/pseudo-classes-vs-pseudo-elements.html)
 * [Flexbox Guide](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
 * [Flexbox Visualization](https://medium.freecodecamp.org/an-animated-guide-to-flexbox-d280cf6afc35)
-* [Flexbox Tutorial](https://mastery.games/p/flexbox-zombies)
 * [Another Flexbox Tutorial](https://flexboxfroggy.com/)
 * [Grid Guide](https://css-tricks.com/snippets/css/complete-guide-grid/)
 * [Grid Tutorial](https://cssgridgarden.com/)
@@ -53,7 +52,7 @@ layout: page
 
 ## Preparing for Module 3
 
-- Experimenting with APIs: Work through [this tutorial and workshop](http://backend.turing.io/module2/misc/exploring_apis_workshop)
+- Experimenting with APIs: Work through [this tutorial and workshop](http://backend.turing.edu/module2/misc/exploring_apis_workshop)
 
 ## Misc.
 
