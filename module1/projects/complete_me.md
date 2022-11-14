@@ -185,4 +185,4 @@ Can you create a graphical user interface for your code? Something that a "norma
 
 ## Expectations
 
-This project will be evaluated according to the Mod 1 Project [Rubric](../project_rubric)
+This project will be evaluated according to the Mod 1 Project Rubric.
