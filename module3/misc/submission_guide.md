@@ -7,7 +7,7 @@ Below is a general outline of when professional development and technical delive
 
 
 ## Professional Development Resources
-  [Career Development Overview](https://careerdev.turing.io/module_three/)
+  [Career Development Overview](https://careerdev.turing.edu/module_three/)
 
   [Career Journal Prompts](https://github.com/turingschool/career-development-curriculum-site/blob/master/module_three/mod3_career_journal_prompts.md)
 
