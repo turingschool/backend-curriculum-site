@@ -99,7 +99,7 @@ server?
 * What is a request?
 * It is a set of instructions that tells a server what kind of response we
 want.
-* Let's use as our example, turing.io/team
+* Let's use as our example, turing.edu/team
 * We are going to request this. A request is made up of many pieces.
 * The first, a request path.
 * Here, it is /path it tells our server what resource we are looking for.

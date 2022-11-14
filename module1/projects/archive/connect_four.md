@@ -76,7 +76,7 @@ If one of those conditions has been met, the player should be given the option o
 
 ### Iteration 4: HTTP
 
-* Make it so that a player can play over HTTP against a computer opponent. Use [this](http://backend.turing.io/module1/projects/http_tutorial) tutorial as a starting place for creating your server.
+* Make it so that a player can play over HTTP against a computer opponent. Use [this](http://backend.turing.edu/module1/projects/http_tutorial) tutorial as a starting place for creating your server.
 
 ### Additional Features
 

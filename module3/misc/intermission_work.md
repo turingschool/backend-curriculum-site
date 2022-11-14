@@ -87,7 +87,7 @@ If you have time, here are some activities that will be valuable not only in Mod
 
 ### Data Structures And Algorithms
 
-We are going to be covering various data structures to prepare you for the job hunt and technical interviews. Complete this former M1 project, [Jungle Beats](https://backend.turing.io/module1/projects/jungle_beat)
+We are going to be covering various data structures to prepare you for the job hunt and technical interviews. Complete this former M1 project, [Jungle Beats](https://backend.turing.edu/module1/projects/jungle_beat)
 
 ### JavaScript/jQuery (What's this JavaScript I keep hearing about?)
 

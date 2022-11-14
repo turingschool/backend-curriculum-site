@@ -106,7 +106,7 @@ require 'pry'
 
 # Connect to the RabbitMQ Instance
 connection = Bunny.new(
-  :host => "experiments.turing.io",
+  :host => "experiments.turing.edu",
   :port => "5672",
   :user => "replace with correct account",
   :pass => "replace with correct password"

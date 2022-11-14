@@ -47,7 +47,7 @@ layout: page
 
 ### Index.md instead of Readme.md
 
-The system we're using to translate from github to backend.turing.io uses index files instead of readme files. Where you would have created a file called `readme.md`, just use `index.md` instead
+The system we're using to translate from github to backend.turing.edu uses index files instead of readme files. Where you would have created a file called `readme.md`, just use `index.md` instead
 
 ### Links and Paths
 
@@ -55,11 +55,11 @@ When linking to a markdown file, drop the `.md` in your link. Instead of linking
 
 #### Absolute vs Relative paths
 
-Since you're editing on github, and viewing at backend.turing.io, you'll probably want to use *relative* links instead of *absolute* links. I found a primer on the difference. It's in the context of HTML instead of Markdown, but should basically explain the concept: http://www.boogiejack.com/server_paths.html
+Since you're editing on github, and viewing at backend.turing.edu, you'll probably want to use *relative* links instead of *absolute* links. I found a primer on the difference. It's in the context of HTML instead of Markdown, but should basically explain the concept: http://www.boogiejack.com/server_paths.html
 
 ### Your markdown will behave differently
 
-Github uses a slightly different system for translating from Markdown than the engine we use for backend.turing.io. Here's some things that I had to change to get things to look right on the site, even if it looks right on Github.
+Github uses a slightly different system for translating from Markdown than the engine we use for backend.turing.edu. Here's some things that I had to change to get things to look right on the site, even if it looks right on Github.
 
 - Put a space after your `#`'s in headers
 - Put a blank line between your headers and any content below

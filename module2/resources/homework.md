@@ -25,16 +25,16 @@ layout: page
 
 - Finish preparing and sending feedback to your project partners. Be sure to include both encouraging feedback and feedback that will encourage growth. Send your feedback through a group DM on Slack to your partner and instructors.
   - **Feedback is due in Slack by the project due date.**
-- [Flex Box Workshop](http://backend.turing.io/module2/lessons/flexbox_workshop)
+- [Flex Box Workshop](http://backend.turing.edu/module2/lessons/flexbox_workshop)
 - Read about [Routing in Rails](https://www.theodinproject.com/courses/ruby-on-rails/lessons/routing)
 - [DevShed - An Introduction to Database Normalization](http://www.devshed.com/c/a/mysql/an-introduction-to-database-normalization/)
 - [Mike Hillyer's Blog Post - intro to database normalization](http://mikehillyer.com/articles/an-introduction-to-database-normalization/)
-- [Blogger](http://backend.turing.io/module2/misc/blogger) -- very large project
+- [Blogger](http://backend.turing.edu/module2/misc/blogger) -- very large project
 
 
 # Week 3
 
-- [Schema Practice](http://backend.turing.io/module2/misc/schema_practice). Choose 2 or 3.
+- [Schema Practice](http://backend.turing.edu/module2/misc/schema_practice). Choose 2 or 3.
 - [Watch Sharif Ramadan's intro to 1NF, 2NF and 3NF databases. They're only about 4 minutes each.](https://www.youtube.com/watch?v=K7vzLrGCV50&list=PLQ9AAKW8HuJ5m0rmHKL88ZyjOIKejvrj0)
 
 

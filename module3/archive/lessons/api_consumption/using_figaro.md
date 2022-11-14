@@ -20,7 +20,7 @@ tags: apis, testing, rails
 
 ### Introducing Figaro
 
-Start with the repository that you created during [yesterday's lesson](http://backend.turing.io/module3/lessons/getting_started_with_oauth).
+Start with the repository that you created during [yesterday's lesson](http://backend.turing.edu/module3/lessons/getting_started_with_oauth).
 
 Review the [Figaro documentation](https://github.com/laserlemon/figaro), and see if you can answer the following questions:
 

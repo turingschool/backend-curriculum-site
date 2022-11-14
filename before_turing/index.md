@@ -5,7 +5,7 @@ subheading: Introductory Resources
 
 ## Overview
 
-Below are a number of resources organized by topic for you to review once you've finished [Mod 0](http://mod0.turing.io/). Feel free to explore these at your own pace and to focus on those resources where you believe you could use additional practice.
+Below are a number of resources organized by topic for you to review once you've finished [Mod 0](http://mod0.turing.edu/). Feel free to explore these at your own pace and to focus on those resources where you believe you could use additional practice.
 
 ### Terminal
 
@@ -28,4 +28,4 @@ Below are a number of resources organized by topic for you to review once you've
 ### Mod 1 Preview and Sample Projects
 
 * [Module 1 Home Page](../module1)
-* [Credit Check Project](http://backend.turing.io/module1/projects/credit_check)
+* [Credit Check Project](http://backend.turing.edu/module1/projects/credit_check)

@@ -107,7 +107,7 @@ This means that if there is part of a view we want to render on **every** page (
         </div>
       </div>
       <div class="contact-me">
-        <p>email me at <a href="mailto:dione@turing.io"></a></p>
+        <p>email me at <a href="mailto:dione@turing.edu"></a></p>
       </div>
     </body>
   </html>
@@ -174,7 +174,7 @@ Example:
         </article>
       </section>
       <footer class="contact-me">
-        <p>email me at <a href="mailto:dione@turing.io"></a></p>
+        <p>email me at <a href="mailto:dione@turing.edu"></a></p>
       </footer>
     </body>
   </html>

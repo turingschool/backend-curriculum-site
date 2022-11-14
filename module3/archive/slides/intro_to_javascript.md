@@ -192,7 +192,7 @@ window.onunload = function() {
 ## jQuery!
 
 - A javascript library that makes DOM manipulation easier and faster
-- Follow this [tutorial](https://backend.turing.io/module3/lessons/jquery_and_dom) to learn more about jQuery
+- Follow this [tutorial](https://backend.turing.edu/module3/lessons/jquery_and_dom) to learn more about jQuery
 
 ---
 
@@ -213,6 +213,6 @@ For more information: http://railsapps.github.io/rails-javascript-include-extern
 ## Further Learning and Exploration
 
 Intro to Fetch:
-https://backend.turing.io/module3/lessons/fetch_in_javascript
+https://backend.turing.edu/module3/lessons/fetch_in_javascript
 
 ---

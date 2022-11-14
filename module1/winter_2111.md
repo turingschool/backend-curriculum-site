@@ -47,7 +47,7 @@ layout: page
 ---
 
 ## Level 4: Event Reporter
-* [Event Reporter](https://backend.turing.io/module1/projects/event_reporter)
+* [Event Reporter](https://backend.turing.edu/module1/projects/event_reporter)
 
 ### Goals
 * This is an extension of the **Event Manager** project (Level 3 above).

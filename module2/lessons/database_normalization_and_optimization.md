@@ -156,7 +156,7 @@ This view allows us to see how ActiveRecord's schema actually built the table in
 
 We can also see from the output that we have a single `PRIMARY KEY` on our `(id)` field, which uses a `btree` type, and that our `course_id` field also uses a `btree` index type.
 
-A b-tree is like the "prefix" tree that you may have used in the [Complete Me](http://backend.turing.io/module1/projects/complete_me) project in Mod 1, where each node in the tree can have multiple children. We won't dive into the theory of it, but this is the most-used index type within PostgreSQL.
+A b-tree is like the "prefix" tree that you may have used in the [Complete Me](http://backend.turing.edu/module1/projects/complete_me) project in Mod 1, where each node in the tree can have multiple children. We won't dive into the theory of it, but this is the most-used index type within PostgreSQL.
 
 
 ## Additional Resources

@@ -99,8 +99,8 @@ Now that you've fleshed out your story into an easily told format, let's focus o
 #### Research
 Take a look at a few examples before getting started. What do you notice about these resumes?
 
- - [Example 1](https://www.turing.io/sites/default/files/resumes/josh_cass.pdf)
- - [Example 2](https://www.turing.io/sites/default/files/resumes/rose_a_kohn.pdf)
+ - [Example 1](https://www.turing.edu/sites/default/files/resumes/josh_cass.pdf)
+ - [Example 2](https://www.turing.edu/sites/default/files/resumes/rose_a_kohn.pdf)
  - Don't be afraid to think outside of the box...Check out this [epic resume.](http://www.rleonardi.com/interactive-resume/)
 
 #### Layouts
@@ -191,7 +191,7 @@ Here are the must haves:
 * Description -- *how can you tell your story here?*
 * 1 project -- in M4, keep in mind that you'll need to include 3 projects
 
-Check out some examples of how others have created their [portfolios](https://www.turing.io/alumni).
+Check out some examples of how others have created their [portfolios](https://www.turing.edu/alumni).
 
 ### Closing
 Find another person in the room to introduce yourself in a few sentences using the new story you've been developing. The more you practice telling your story, the better you'll get.

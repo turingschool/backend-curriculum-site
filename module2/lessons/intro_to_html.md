@@ -136,7 +136,7 @@ Now instead of needing to repeat the above in every erb/html file we can simply 
           </div>
         </div>
         <div class="contact-me">
-          <p>email me at <a href="mailto:dione@turing.io"></a></p>
+          <p>email me at <a href="mailto:dione@turing.edu"></a></p>
         </div>
       </body>
     </html>
@@ -203,7 +203,7 @@ Now instead of needing to repeat the above in every erb/html file we can simply 
           </article>
         </section>
         <footer class="contact-me">
-          <p>email me at <a href="mailto:dione@turing.io"></a></p>
+          <p>email me at <a href="mailto:dione@turing.edu"></a></p>
         </footer>
       </body>
     </html>

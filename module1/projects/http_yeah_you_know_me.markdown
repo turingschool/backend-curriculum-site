@@ -41,7 +41,7 @@ Imagine that you're requesting information from a penpal (old school with paper,
 
 Metaphor aside, let's run through the protocol as executed by computers:
 
-* You open your browser and type in a web address like `http://turing.io` and hit enter. The URL (or "address") that you entered is the core of the letter.
+* You open your browser and type in a web address like `http://turing.edu` and hit enter. The URL (or "address") that you entered is the core of the letter.
 * The browser takes this address and builds a *request*, the envelope. It uniquely identifies the machine (or *server*) out there on the internet that the message is intended for. It includes a return address and other information about the requestor.
 * The request is handed off to your Internet Service Provider (ISP) (like CenturyLink or Comcast) and they send it through a series of wires and fiber optic cables towards the server
 * The request arrives at the server. The server reads the precisely formatted request to figure out (a) who made the request and (b) what they requested

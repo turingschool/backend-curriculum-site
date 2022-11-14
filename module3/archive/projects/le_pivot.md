@@ -184,17 +184,17 @@ In addition to the pre-populated data, you should add
 * 10 additional categories
 * 5 items per new category
 * 5 additional registered customers, one with the following data:
-  * Username: josh@turing.io
+  * Username: josh@turing.edu
   * Password: password
 * 1-5 orders per new registered customer
 * 1 new business manager per business with the following data:
-  * Username: josh@turing.io
+  * Username: josh@turing.edu
   * Password: password
 * 1 new business admin per business, one with the following data:
-  * Username: ian@turing.io
+  * Username: ian@turing.edu
   * Password: password
 * 1 new platform administrators
-  * Username: cory@turing.io
+  * Username: cory@turing.edu
   * Password: password
 
 It creates a much stronger impression of your site if the data is plausible. We recommend creating a few "template" businesses that have real listings, then replicating those as needed. You could also use the [Faker](https://github.com/stympy/faker) gem.

@@ -27,7 +27,7 @@ Length: 60 minutes
 * Work on updating your LinkedIn profile
 
 ### Deliverable
-You'll submit your LinkedIn, GitHub, Twitter, and Stack Overflow profiles through [Census](https://login.turing.io/).
+You'll submit your LinkedIn, GitHub, Twitter, and Stack Overflow profiles through [Census](https://login.turing.edu/).
 
 ### Opening
 

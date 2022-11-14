@@ -5,7 +5,7 @@ title: Cookies and Sessions in Rails
 
 # Cookies and Sessions in Rails
 
-Through your exploration into [Cookies, Sessions and Flashes](http://backend.turing.io/module2/misc/sessions_cookies_and_flashes), you have started to familiarize yourself with the basics of Cookies and Sessions as they pertain to the HTTP request/response cycle.  Now, we are going to dive into more detail around how Rails implements Cookies and Sessions.
+Through your exploration into [Cookies, Sessions and Flashes](http://backend.turing.edu/module2/misc/sessions_cookies_and_flashes), you have started to familiarize yourself with the basics of Cookies and Sessions as they pertain to the HTTP request/response cycle.  Now, we are going to dive into more detail around how Rails implements Cookies and Sessions.
 
 ## Learning Goals
 * practice implementing cookies and sessions in Rails

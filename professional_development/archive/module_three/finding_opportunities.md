@@ -50,7 +50,7 @@ Let's start with these tools instead:
 There are more tools listed at the bottom of this markdown for you to consider, and we'll also discuss how you can create a system to keep yourself organized through Trello.
 
 ### Set Up Trello
-First, start with a place to track all of your job search research and to-dos. Trello is an easy-to-use project management tool that is perfect for tracking your leads. Make sure to add Meg as a collaborator (mstewart@turing.io).
+First, start with a place to track all of your job search research and to-dos. Trello is an easy-to-use project management tool that is perfect for tracking your leads. Make sure to add Meg as a collaborator (mstewart@turing.edu).
 
 Check out [this post](http://blog.trello.com/using-trello-for-a-job-search-less-stress-more-process) for more on why Trello is a helpful tool for staying on top of your job search and to see an example of a job search board.
 

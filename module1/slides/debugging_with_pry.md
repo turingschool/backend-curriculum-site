@@ -132,4 +132,4 @@ favorite_things.each { puts thing.rjust(40) }
 
 # With a Partner
 
-See [lesson plan](http://backend.turing.io/module1/lessons/primer_on_each)
+See [lesson plan](http://backend.turing.edu/module1/lessons/primer_on_each)

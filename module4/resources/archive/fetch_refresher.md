@@ -22,7 +22,7 @@ Available [here](../slides/fetch_refresher)
 - JS is only asynchronous in the sense that it can perform some asynchronous operations (non-blocking)
 - Tasks that can not be completed immediately are going to complete asynchronously
 
-See the [Async JS lesson](http://backend.turing.io/module4/lessons/asynchronicity-in-javascript) for a deeper dive!
+See the [Async JS lesson](http://backend.turing.edu/module4/lessons/asynchronicity-in-javascript) for a deeper dive!
 
 This means that our code is read and executed line-by-line in the order that it's written:
 

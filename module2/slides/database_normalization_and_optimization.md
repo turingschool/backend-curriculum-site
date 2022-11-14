@@ -61,5 +61,5 @@ Imagine for a moment we did not normalize the database, but instead pursued one 
 
 # What are "btree" indexes?
 
-A b-tree is like the "prefix" tree that you may have used in the [Complete Me](http://backend.turing.io/module1/projects/complete_me) project in Mod 1, where each node in the tree can have multiple children. We won't dive into the theory of it, but this is the most-used index type within PostgreSQL.
+A b-tree is like the "prefix" tree that you may have used in the [Complete Me](http://backend.turing.edu/module1/projects/complete_me) project in Mod 1, where each node in the tree can have multiple children. We won't dive into the theory of it, but this is the most-used index type within PostgreSQL.
 

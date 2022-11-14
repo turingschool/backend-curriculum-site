@@ -207,7 +207,7 @@ const myMath = (var1, var2) => {
 
 In the browser, if we open up the dev tools, navigate to the console and try to search for something.  The program will freeze on the line `debugger`. This lets us type stuff into our `console` to see what's going on. The console is similar to a pry session in this context.
 
-For a more in-depth lesson on working with DevTools - check out [advanced debugging](http://frontend.turing.io/lessons/debugging-with-devtools.html) or the [Chrome Documentation](https://developer.chrome.com/devtools/docs/javascript-debugging).
+For a more in-depth lesson on working with DevTools - check out [advanced debugging](http://frontend.turing.edu/lessons/debugging-with-devtools.html) or the [Chrome Documentation](https://developer.chrome.com/devtools/docs/javascript-debugging).
 
 ---
 

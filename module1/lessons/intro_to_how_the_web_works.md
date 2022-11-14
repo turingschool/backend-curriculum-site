@@ -61,8 +61,8 @@ In this analogy:
 
 Metaphor aside, let's run through the protocol as executed by computers:
 
-1. You open your browser, the Client, and type in a web address like `http://turing.io` and hit enter.
-1. The browser takes this address and builds an **HTTP Request**. It addresses it to the Server located at `http://turing.io`.
+1. You open your browser, the Client, and type in a web address like `http://turing.edu` and hit enter.
+1. The browser takes this address and builds an **HTTP Request**. It addresses it to the Server located at `http://turing.edu`.
 1. The Request is handed off to your Internet Service Provider (ISP) (like CenturyLink or Comcast) and they send it through the Internet, mostly a series of wires and fiber optic cables, to the Server
 1. The Server reads the Request. It knows how to read it because it is formatted as an **HTTP Request**.
 1. The Server generates an **HTTP Response** to that Request.

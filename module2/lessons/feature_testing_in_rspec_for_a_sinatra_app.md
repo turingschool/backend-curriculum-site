@@ -124,7 +124,7 @@ Capybara.save_path = 'tmp/capybara'
 
   c.include Capybara::DSL
 ```
-NOTE: If you do not have a `spec/spec_helper.rb` follow the set up directions found [here](http://backend.turing.io/module2/lessons/model_testing_in_rspec_for_sinatra_app)
+NOTE: If you do not have a `spec/spec_helper.rb` follow the set up directions found [here](http://backend.turing.edu/module2/lessons/model_testing_in_rspec_for_sinatra_app)
 
 ### Writing the Test
 

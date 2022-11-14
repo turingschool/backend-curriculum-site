@@ -106,7 +106,7 @@ Gem::Specification.new do |spec|
   spec.name          = "espinosa2020"
   spec.version       = Espinosa2020::VERSION
   spec.authors       = ["Sal Espinosa"]
-  spec.email         = ["sal@turing.io"]
+  spec.email         = ["sal@turing.edu"]
 
   spec.summary       = %q{TODO: Write a short summary, because RubyGems requires one.}
   spec.description   = %q{TODO: Write a longer description or delete this line.}
@@ -140,7 +140,7 @@ Gem::Specification.new do |spec|
   spec.name          = "espinosa2020"
   spec.version       = Espinosa2020::VERSION
   spec.authors       = ["Sal Espinosa"]
-  spec.email         = ["sal@turing.io"]
+  spec.email         = ["sal@turing.edu"]
 
   spec.summary       = %q{Vote for me!}
   spec.description   = %q{I'm running for prez!}

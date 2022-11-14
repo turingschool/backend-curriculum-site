@@ -15,7 +15,7 @@ Available [here](../slides/organizing_an_express_app)
 
 ## Pre-reqs
 
-We're going to start from the end of the [Building an Express App](http://backend.turing.io/module4/lessons/express_knex)
+We're going to start from the end of the [Building an Express App](http://backend.turing.edu/module4/lessons/express_knex)
 
 If you need it, you can clone [this](https://github.com/turingschool-examples/publications) repo.
 

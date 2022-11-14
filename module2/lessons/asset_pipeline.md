@@ -36,7 +36,7 @@ At a high level, the [Rails Asset Pipeline](http://guides.rubyonrails.org/asset_
 
 ## Asset Exploration
 
-* Visit Turing's [Back-End Curriculum](http://backend.turing.io/) site.
+* Visit Turing's [Back-End Curriculum](http://backend.turing.edu/) site.
 * With a neighbor, estimate how many requests were made to load that site.
 * In Chrome, open the developer tools (cmd-opt-i).
 * Click on the Network tab, and hit reload.

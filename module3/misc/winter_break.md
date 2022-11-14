@@ -34,7 +34,7 @@ Put your work in a gist.
 
 You know the top 4 projects for the upcoming "Consultancy" group project, but you don't know (yet) which team you'll be on.
 
-Over break, revisit [this page](https://backend.turing.io/module3/projects/consultancy/ideation) which outlines several places to read about available APIs, and come up with TWO different APIs that you think could be useful/helpful in each of the project ideas. You will discuss these APIs as a team on the first day back in January. Try hitting a few API endpoints in Postman to see how they act, write up what's good/bad. Ideally, aim for 2-3 APIs per project.
+Over break, revisit [this page](https://backend.turing.edu/module3/projects/consultancy/ideation) which outlines several places to read about available APIs, and come up with TWO different APIs that you think could be useful/helpful in each of the project ideas. You will discuss these APIs as a team on the first day back in January. Try hitting a few API endpoints in Postman to see how they act, write up what's good/bad. Ideally, aim for 2-3 APIs per project.
 
 Put your work in a gist.
 

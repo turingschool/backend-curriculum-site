@@ -60,8 +60,8 @@ Let's see how we can access these storage mechanisms and how to get/set values i
 
 For security reasons, the browser limits you to only sharing local or session data with websites of the same domain, you must match for following:
 
-* Same domain: `turing.io` cannot access data on `github.com/turing`
-* Same subdomain: `today.turing.io` cannot access data on `turing.io`
+* Same domain: `turing.edu` cannot access data on `github.com/turing`
+* Same subdomain: `today.turing.edu` cannot access data on `turing.edu`
 * Same protocol: no mixing http and https
 * Same port: `localhost:3000` cannot access data on `localhost:8080`
 

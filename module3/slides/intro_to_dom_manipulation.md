@@ -124,9 +124,9 @@ Adding Javascript To Rails:
 http://railsapps.github.io/rails-javascript-include-external.html
 
 Intro to jQuery:
-https://backend.turing.io/module3/lessons/jquery_and_dom
+https://backend.turing.edu/module3/lessons/jquery_and_dom
 
 Intro to Fetch:
-https://backend.turing.io/module3/lessons/fetch_in_javascript
+https://backend.turing.edu/module3/lessons/fetch_in_javascript
 
 ---

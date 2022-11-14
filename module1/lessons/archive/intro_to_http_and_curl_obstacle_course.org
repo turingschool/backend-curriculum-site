@@ -86,9 +86,9 @@ curl -d "some_form_param=some_form_value" https://www.google.com
 
 * cURL Obstacle Course
 
-1. What are the contents of the body of https://www.turing.io/
-2. What status code do you get when you fetch https://www.turing.io/
-3. What "Content-Type" header do you get when you fetch https://www.turing.io/
+1. What are the contents of the body of https://www.turing.edu/
+2. What status code do you get when you fetch https://www.turing.edu/
+3. What "Content-Type" header do you get when you fetch https://www.turing.edu/
 4. What status code do you get from https://www.google.com
 5. What status code do you get from https://google.com
 6. What is the "Location" header you get from https://google.com

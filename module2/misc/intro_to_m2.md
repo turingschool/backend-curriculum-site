@@ -14,7 +14,7 @@ subheading: intros
 
 ---
 
-# [Module Home Page](http://backend.turing.io/module2/)
+# [Module Home Page](http://backend.turing.edu/module2/)
 
 ---
 

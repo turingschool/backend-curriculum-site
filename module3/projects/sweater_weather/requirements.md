@@ -290,7 +290,7 @@ eg:
 
 2. Cache the city/state and lat/lng data within Rails for a period of time. Also consider storing it in your database.
 
-3. Check the [Mod 3 Extensions page](https://backend.turing.io/module3/extensions/) for additional things you can add to your project.
+3. Check the [Mod 3 Extensions page](https://backend.turing.edu/module3/extensions/) for additional things you can add to your project.
 4. Add an endpoint that will retrieve a background image for a given city that the frontend team can use on the landing page. Requirements below:
 
 ![Road Trip Mockup](./images/image_extension.png)

@@ -13,7 +13,7 @@ Students must pass each part of the final assessment. The final assessment is co
 
 * JavaScript Assessment
 * [Mock Interview](https://gist.github.com/ameseee/e1bcf257e7bdf2a4a429d7fd12f67306)
-* [Capstone Project](http://backend.turing.io/module4/capstone_project_overview)
+* [Capstone Project](http://backend.turing.edu/module4/capstone_project_overview)
 
 Assessment requirements will be provided during the first week of the module.
 

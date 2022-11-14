@@ -342,5 +342,5 @@ Congrats, you've written your first GraphQL server and tested it out in GraphiQL
 
 Your instructor will assign to you to small group and an "opinion" to pitch. Spend the alotted time to make a poster and develop a pitch you will give you to your engineering team. 
 
-Instructor - see [the instructor guide](http://backend.turing.io/module4/lessons/intro_to_graphql_instructor) for specific directions.
+Instructor - see [the instructor guide](http://backend.turing.edu/module4/lessons/intro_to_graphql_instructor) for specific directions.
 

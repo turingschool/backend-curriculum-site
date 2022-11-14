@@ -113,7 +113,7 @@ targetElement.addEventListener(event, (e) => console.log(e))
 
 ## Practice
 
-Visit the [Mod 4 page](https://backend.turing.io/module4/)
+Visit the [Mod 4 page](https://backend.turing.edu/module4/)
 Open the inspect tools _if in chrome the hot key is cmd+option+i_
 View the HTML elements that are available and in your console try the following:
 
