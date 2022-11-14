@@ -199,8 +199,8 @@ Content-Type: application/json
 Accept: application/json
 
 {
-  "name": "Athena Dao"
-  "email": "athenadao@bestgirlever.com",
+  "name": "Athena Dao",
+  "email": "athenadao@bestgirlever.com"
 }
 ```
 
