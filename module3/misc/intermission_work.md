@@ -89,20 +89,6 @@ If you have time, here are some activities that will be valuable not only in Mod
 
 We are going to be covering various data structures to prepare you for the job hunt and technical interviews. Complete this former M1 project, [Jungle Beats](https://backend.turing.edu/module1/projects/jungle_beat)
 
-### JavaScript/jQuery (What's this JavaScript I keep hearing about?)
-
-[Eloquent JavaScript](http://eloquentjavascript.net/)
-
-JavaScript is the scripting language of web browsers. During Module 3 we'll start getting our first introductions to JS and we'd like you to work through some basic materials as a preparation.
-
-You are to complete Chapters 1-5 of Eloquent Javascript.
-
-We are mainly looking for you to get experience with the syntax, and at a minimumum you should understand the JS Data Types, Conditionals, and Looping.
-
-[jQuery](https://www.tutorialrepublic.com/jquery-tutorial/jquery-syntax.php)
-
-jQuery is a popular javascript library for manipulating the content of web pages. Dip your toes in with this introductory jQuery tutorial.
-
 
 ## Optional Reading on Security topics
 
