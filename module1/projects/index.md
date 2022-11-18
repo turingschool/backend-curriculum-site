@@ -27,7 +27,7 @@ The following projects are not required. Students can use these projects as an o
 
 These projects are listed (roughly) in order of difficulty.
 
-* [War or Peace](./flashcards)
+* [Flashcards](./flashcards)
 * [Connect Four](./connect_four)
 * [Mastermind](./mastermind)
 * [Event Manager](./eventmanager)
