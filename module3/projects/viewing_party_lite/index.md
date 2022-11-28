@@ -23,7 +23,6 @@ By the end of this project: <br>
 * Test consumption of APIs (facade,service,poros) ⭐ ⭐ ⭐
 * Organize and refactor code to be more maintainable ⭐ ⭐  
 * Apply RuboCop's style guide for code quality ⭐
-* Deploy to Fly.io ⭐
 
 _Note: See [Learning Goals](../../misc/learning_goals) to see at what level these skills need to be by the final._
 
