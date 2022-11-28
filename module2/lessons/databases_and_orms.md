@@ -29,7 +29,7 @@ Use Postico to do the following:
 * View all `tasks`
 * Add some new rows to your tasks table
 * Change one of the attributes of a task
-* Delete any new rows that you made
+* Delete a task
 * Execute the following SQL queries
     * Retrieve all Tasks
     * Retrieve all Tasks with a title of "Laundry"
