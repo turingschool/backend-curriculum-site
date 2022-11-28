@@ -9,7 +9,7 @@ type: project
 
 ### Requirement Overview
 - Use RuboCop in project to enforce style guide
-- Deploy to Heroku
+- Deploy to Fly.io
 - Test consumption of your API
 - Consume [The Movie DB API](https://developers.themoviedb.org/3/getting-started/introduction)
 
