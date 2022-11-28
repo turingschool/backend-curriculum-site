@@ -8,8 +8,6 @@ type: project
 ## Viewing Party Requirements
 
 ### Requirement Overview
-- Deploy to Heroku
-- Use TravisCI for Continuous Integration
 - Consume [The Movie DB API](https://developers.themoviedb.org/3/getting-started/introduction)
 - Implement Basic Auth
 - Choose one exploration option to complete
@@ -41,4 +39,4 @@ As an EXTENSION (once ALL other MVP work is complete):
 - ActionCable
 - ActionMailer
 - Front-end JavaScript
-- Deployment with different service
+- Deployment with a service
