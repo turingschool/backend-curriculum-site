@@ -25,7 +25,7 @@ By the end of this project: <br>
 * Implement a self-referential relationship in ActiveRecord ⭐ ⭐
 * Apply RuboCop's style guide for code quality ⭐
 * Utilize Continuous Integration using Travis CI ⭐
-* Deploy to Heroku ⭐
+
 
 _Note: See [Learning Goals](../../misc/learning_goals) to see at what level these skills need to be by the final._
 
