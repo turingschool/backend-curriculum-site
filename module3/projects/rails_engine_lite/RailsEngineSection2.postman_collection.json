@@ -1090,7 +1090,7 @@
 															"    });",
 															"});",
 															"",
-															"pm.sendRequest('http://localhost:3000/api/v1/items/find?max_price=1.99', (error, response) => {",
+															"pm.sendRequest('http://localhost:3000/api/v1/items/find?max_price=0.31', (error, response) => {",
 															"    if (error) {",
 															"        console.log(error);",
 															"    }",
