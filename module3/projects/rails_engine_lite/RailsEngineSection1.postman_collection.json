@@ -983,12 +983,12 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"happy path, fetch one merchant by id\", function () {",
+									"pm.test(\"sad path, fetch one merchant by id\", function () {",
 									"    pm.response.to.be.error;",
 									"    pm.response.to.have.status(404);",
 									"",
-									"    // expect an \"error\" attribute",
-									"    pm.response.to.have.jsonBody('error');",
+									"    // expect an \"errors\" attribute",
+									"    pm.response.to.have.jsonBody('errors');",
 									"});",
 									""
 								],
