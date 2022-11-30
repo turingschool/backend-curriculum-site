@@ -164,7 +164,7 @@ page so we can reference the `client_id` and `client_secret`.
 Set up [this repo](https://github.com/turingschool-examples/oauth_practice).
 
 Once you have the `oauth_practice` repo pulled down, familiarize yourself with the code:
-1. open `routes.rb` to see the path that is already created for you. 
+1. open `routes.rb` to see the path that is already created for you.
 2. run `rails s`, navigate to `http://localhost:3000`. You should see a message that says "Welcome to your OAuth Practice Repo!!"
 
 ### Step 3 - Authenticating user on Github
@@ -586,7 +586,6 @@ See if you can implement oauth in a rails app with the going through this [tutor
 * [OmniAuth](https://github.com/intridea/omniauth) for integration in Ruby web apps
 * [Oauth 1.0 Diagram (from MashApe's oauth bible)](http://puu.sh/2pJ4y)
 * [Oauth Bible](http://oauthbible.com/) - lots of in-depth info about different oauth versions and components
-* [Edge Cases Podcast #36](http://edgecasesshow.com/036-zenos-paradox-of-authentication.html) - Good in-depth discussion of the evolution of Oauth and the pros and cons of using it.
 * [Doorkeeper](https://github.com/doorkeeper-gem/doorkeeper) -- Oauth provider gem
 * OmniAuth core API documentation: https://github.com/intridea/omniauth
 * OmniAuth wiki: https://github.com/intridea/omniauth/wiki

@@ -38,7 +38,7 @@ And I see a message saying 'Welcome <user name>, you are logged in!'
 And I do not see a link to 'Log In'
 ```
 
-If the `session` hash and/or how to use it is unclear, revisit this [reading](http://www.theodinproject.com/courses/ruby-on-rails/lessons/sessions-cookies-and-authentication).  Also, remember that you have access to the session information in the view, if you need it (hint hint). If it is still unclear after reading the documentation, ask for help from a cohortmate or staff member.
+If the `session` hash and/or how to use it is unclear, remember that you have access to the session information in the view, if you need it (hint hint). If it is still unclear after reading the documentation, ask for help from a cohortmate or staff member.
 
 Also, the form that you will use to 'log in' will not deal with creating or editing resources in our database as we have done previously with `form_with`, so you will need a new tool - `form_tag`.  Explore how to use `form_tag` on the [rails guides](https://guides.rubyonrails.org/form_helpers.html#dealing-with-basic-forms).
 

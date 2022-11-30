@@ -561,7 +561,7 @@ If you haven't quite been able to make this update work, check in with your inst
 
 There is one other way that users can send information in that we can access through `params` and that is with **query params**.  In the following URL `http://www.setlist.com/artists?age=32`, `age=32` are the **query params**, and the key value pair contained there (`{age: 32}`) will be included in the `params` for that request.  
 
-To see this in action, put a pry in your `songs#index` action, spin up your SetList with `rails s` and navigate to [http://localhost:3000/songs?artist=prince](http://localhost:3000/songs?artist=prince). Open your terminal, and you should be in a pry session with access to the `params` object:
+To see this in action, put a pry in your `songs#index` action, spin up your SetList with `rails s` and navigate to `http://localhost:3000/songs?artist=prince`. Open your terminal, and you should be in a pry session with access to the `params` object:
 
 ```
 2: def index

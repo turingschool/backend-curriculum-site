@@ -84,7 +84,6 @@ The point of this process is to help us focus on small pieces at a time without 
 Need some help on Linked Lists? You can check out some of the following resources:
 
 * [https://www.youtube.com/watch?v=oiW79L8VYXk](https://www.youtube.com/watch?v=oiW79L8VYXk)
-* [http://www.eternallyconfuzzled.com/tuts/datastructures/jsw_tut_linklist.aspx](http://www.eternallyconfuzzled.com/tuts/datastructures/jsw_tut_linklist.aspx)
 * [http://www.cs.cmu.edu/~adamchik/15-121/lectures/Linked%20Lists/linked%20lists.html](http://www.cs.cmu.edu/~adamchik/15-121/lectures/Linked%20Lists/linked%20lists.html)
 * [http://www.sitepoint.com/rubys-missing-data-structure/
 ](http://www.sitepoint.com/rubys-missing-data-structure/
@@ -113,9 +112,9 @@ The project will be assessed with the following guidelines:
 
 ### 2. Breaking Logic into Components
 
-* Code is effectively broken into methods & classes 
-* Developer writes methods less than 10 lines 
-* No more than 3 methods break the principle of SRP 
+* Code is effectively broken into methods & classes
+* Developer writes methods less than 10 lines
+* No more than 3 methods break the principle of SRP
 
 
 ### 3. Test-Driven Development
@@ -127,5 +126,3 @@ The project will be assessed with the following guidelines:
 ### 4. Functionality
 
 * Application meets all requirements (extension not req'd)
-
-

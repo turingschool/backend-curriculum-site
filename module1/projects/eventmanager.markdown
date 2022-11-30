@@ -714,7 +714,7 @@ make government more transparent and accessible.
 
 ### Accessing the API
 
-[http://congress.api.sunlightfoundation.com/legislators/locate?zip=90201&apikey=e179a6973728c4dd3fb1204283aaccb5](http://congress.api.sunlightfoundation.com/legislators/locate?zip=22182&apikey=e179a6973728c4dd3fb1204283aaccb5)
+`http://congress.api.sunlightfoundation.com/legislators/locate?zip=90201&apikey=e179a6973728c4dd3fb1204283aaccb5`
 
 Take a close look at that address. Here's how it breaks down:
 
