@@ -176,17 +176,17 @@ The project will be assessed with the following guidelines:
 
 ### 2. Breaking Logic into Components
 
-* Code is effectively broken into methods & classes 
-* Developer writes methods less than 6 lines 
-* No more than 3 methods break the principle of SRP 
+* Code is effectively broken into methods & classes
+* Developer writes methods less than 6 lines
+* No more than 3 methods break the principle of SRP
 
 ### 3. Test-Driven Development
 
 * Each method is tested  
 * Functionality is accurately covered
 * Tests implement Ruby syntax & style   
-* Balances unit and integration tests 
-* Evidence of edge cases testing 
+* Balances unit and integration tests
+* Evidence of edge cases testing
 * Test Coverage metrics are present (SimpleCov)
 * A test RakeTask is implemented
 
@@ -202,9 +202,9 @@ The project will be assessed with the following guidelines:
 
 ### 6. Code Sanitation
 
-* The output from `rake sanitation:all` shows five or fewer complaints 
+* The output from `rake sanitation:all` shows five or fewer complaints
 
-
+<!--
 ## Appendix - Data Sources
 
 The original data files and more information about the data can be found here:
@@ -226,4 +226,4 @@ The original data files and more information about the data can be found here:
 * [Pupil Enrollment by Race & Ethnicity](http://datacenter.kidscount.org/data/tables/3736-pupil-enrollment-by-race-ethnicity?loc=7&loct=10#detailed/10/1278-1457/false/869,36,868,867,133/84,87,86,85,88,1849,185,13/11661,7630)
 * [AVERAGE PROFICIENCY ON THE CSAP/TCAP BY RACE/ETHNICITY: READING](http://datacenter.kidscount.org/data/tables/6727-average-proficiency-on-the-csap-tcap-by-race-ethnicity-reading?loc=7&loct=10#detailed/10/1278-1457/false/869,36,868,867/2756,2161,2159,2819,2157,2158,2820,2160/13821)
 * [AVERAGE PROFICIENCY ON THE CSAP/TCAP BY RACE/ETHNICITY: MATH](http://datacenter.kidscount.org/data/tables/6567-average-proficiency-on-the-csap-tcap-by-race-ethnicity-math?loc=7&loct=10#detailed/10/1278-1457/false/869,36,868,867/2756,2161,2159,2819,2157,2158,2820,2160/13563)
-* [AVERAGE PROFICIENCY ON THE CSAP/TCAP BY RACE/ETHNICITY: WRITING](http://datacenter.kidscount.org/data/tables/6729-average-proficiency-on-the-csap-tcap-by-race-ethnicity-writing?loc=7&loct=10#detailed/10/1278-1457/false/869,36,868,867/2756,2161,2159,2819,2157,2158,2820,2160/13823)
+* [AVERAGE PROFICIENCY ON THE CSAP/TCAP BY RACE/ETHNICITY: WRITING](http://datacenter.kidscount.org/data/tables/6729-average-proficiency-on-the-csap-tcap-by-race-ethnicity-writing?loc=7&loct=10#detailed/10/1278-1457/false/869,36,868,867/2756,2161,2159,2819,2157,2158,2820,2160/13823) -->
