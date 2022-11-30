@@ -28,7 +28,7 @@ PostgresSQL comes with some handy built-in aggregate functions. From the [Postgr
 
 Take a minute to look through the [docs](https://www.postgresql.org/docs/9.5/functions-aggregate.html) and see what the DB can do for you.
 
-While we are talking about functions built in to Postgresql, it is important to note that nearly all relational database systems include some form of aggregating, for example [MySQL](https://dev.mysql.com/doc/refman/8.0/en/group-by-functions.html).
+While we are talking about functions built in to Postgresql, it is important to note that nearly all relational database systems include some form of aggregating, for example [MySQL](https://dev.mysql.com/doc/refman/8.0/en/group-by-modifiers.html).
 
 ### SQL Aggregates
 
