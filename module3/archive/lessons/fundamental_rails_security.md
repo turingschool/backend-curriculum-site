@@ -20,10 +20,6 @@ tags: rails, pivot, security
 
 `$ git clone https://github.com/turingschool-examples/store_engine.git fundamental_security`
 
-## Slides
-
-Available [here](../slides/fundamental_rails_security)
-
 ## Structure
 
 * Warmup
@@ -91,4 +87,3 @@ One note: Brakeman is a static analysis tool. At a high level, this means that B
 * [Notes](https://drive.google.com/open?id=0B4C6lfVKu-E7V2F1SzRlQl8wRUk)
 * [Slides](https://drive.google.com/open?id=0B4C6lfVKu-E7UGxzdHYyNFBFTVU)
 * [Video 1502](https://vimeo.com/129022094)
-

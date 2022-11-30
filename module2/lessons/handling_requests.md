@@ -457,7 +457,3 @@ Put a pry in your views at any point to inspect your variables!
 - In a Rails app, what is an "action"?
 - Where does Rails look for a view by default?
 - Which helpful objects can we view in pry in both our views and controllers?
-
-### More Reading
-
-Read [this article](https://www.theodinproject.com/courses/ruby-on-rails/lessons/routing).

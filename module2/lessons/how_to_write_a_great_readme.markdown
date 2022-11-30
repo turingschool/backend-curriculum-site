@@ -41,10 +41,9 @@ Today we'll use a jigsaw technique to explore the topic of READMEs.
 
 * Group 1: [thoughtbot's Blog](https://robots.thoughtbot.com/how-to-write-a-great-readme)
 * Group 2: [Dan Bader How to Write a Great Readme for Your GitHub Project](https://dbader.org/blog/write-a-great-readme-for-your-github-project) *note: you may have to click x on the ad to get to the page*
-* Group 3: [Giacomo Debidda How to Write a Killer Readme](https://www.giacomodebidda.com/how-to-write-a-killer-readme/)
-* Group 4: [TPW's README-Driven-Development](http://tom.preston-werner.com/2010/08/23/readme-driven-development.html)
-* Group 5: [Ponyfoo on README-Driven-Development](https://ponyfoo.com/articles/readme-driven-development)
-* Group 6: [Jesse Luoto's Blog](https://thejunkland.com/blog/how-to-write-good-readme.html)
+* Group 3: [TPW's README-Driven-Development](http://tom.preston-werner.com/2010/08/23/readme-driven-development.html)
+* Group 4: [Ponyfoo on README-Driven-Development](https://ponyfoo.com/articles/readme-driven-development)
+* Group 5: [Jesse Luoto's Blog](https://thejunkland.com/blog/how-to-write-good-readme.html)
 
 [Purple Booth Readme Template](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
 

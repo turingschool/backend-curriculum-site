@@ -253,7 +253,6 @@ We are going to make this color-picker application work! We will need to make tw
 ### Readings
 
 *   [David Walsh Blog - Fetch](https://davidwalsh.name/fetch)
-*   [AJAX: History](http://www.phpasks.com/articles/historyajax.html)
 *   [Client Side vs Server Side](http://www.codeconquest.com/website/client-side-vs-server-side/)
 *   [More Client Side vs Server Side](http://skillcrush.com/2012/07/30/client-side-vs-server-side/)
 
