@@ -585,7 +585,6 @@ See if you can implement oauth in a rails app with the going through this [tutor
 * [Understanding OAuth](http://lifehacker.com/5918086/understanding-oauth-what-happens-when-you-log-into-a-site-with-google-twitter-or-facebook) on LifeHacker
 * [OmniAuth](https://github.com/intridea/omniauth) for integration in Ruby web apps
 * [Oauth 1.0 Diagram (from MashApe's oauth bible)](http://puu.sh/2pJ4y)
-* [Oauth Bible](http://oauthbible.com/) - lots of in-depth info about different oauth versions and components
 * [Doorkeeper](https://github.com/doorkeeper-gem/doorkeeper) -- Oauth provider gem
 * OmniAuth core API documentation: https://github.com/intridea/omniauth
 * OmniAuth wiki: https://github.com/intridea/omniauth/wiki

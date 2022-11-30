@@ -39,7 +39,6 @@ layout: page
 - [CSS Zen Garden](http://www.csszengarden.com/)
 * [Intro to Sass](../lessons/intro_to_sass)
 * [Sass](https://sass-lang.com/guide)
-* [CSS Basics](https://thecssworkshop.com/css-basics)
 * [CSS Psuedo-Classes & Psuedo-Elements](http://www.growingwiththeweb.com/2012/08/pseudo-classes-vs-pseudo-elements.html)
 * [Flexbox Guide](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
 * [Flexbox Visualization](https://medium.freecodecamp.org/an-animated-guide-to-flexbox-d280cf6afc35)
