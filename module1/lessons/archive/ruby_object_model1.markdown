@@ -9,7 +9,6 @@ tags: ruby, classes, objects, methods, instances
 
 * Git: https://github.com/JoshCheek/ruby-object-model
 * Cheatsheet: https://github.com/JoshCheek/ruby-object-model/blob/master/obj-model-cheatsheet.pdf?raw=true
-* Quiz: http://quiz-ruby-object-model.herokuapp.com/
 
 ## Standards (note these are addressed again in the quiz)
 

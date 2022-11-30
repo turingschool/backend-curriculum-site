@@ -264,7 +264,7 @@ end
 
 Write code to print out the names of all People from Studio Ghibili films
 
-Look through the [documentation](https://ghibliapi.herokuapp.com/) to find the new endpoint that will give you the data you need.
+Look through the documentation at https://ghibliapi.herokuapp.com/ to find the new endpoint that will give you the data you need.
 
 ## Extension
 

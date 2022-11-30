@@ -83,5 +83,4 @@ With a partner, see if you can complete each of the tasks below. After each sect
 ## Additional Resources
 
 1. [Fundamental SQL](http://tutorials.jumpstartlab.com/topics/sql/fundamental_sql.html) (review from intermission work)
-1. [SQL by repetition](http://sql-by-repetition.herokuapp.com/)
 1. [Intermediate SQL](https://github.com/turingschool/lesson_plans/blob/master/ruby_03-professional_rails_applications/intermediate_sql.md)
