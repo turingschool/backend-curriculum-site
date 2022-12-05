@@ -74,8 +74,8 @@ APIs provide a means for us to transmit data between web-based applications with
 
 Discuss the examples of JSON linked below with a partner and describe what you notice.
 
-* [Example 1](https://developer.github.com/v3/git/commits)
-* [Example 2](https://birdeck-api.herokuapp.com/api/v1/posts/2).
+* [Example 1](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON#json_structure:~:text=application/json.-,JSON%20structure,-As%20described%20above)
+* [Example 2](https://www.petfinder.com/developers/v2/docs/)
 
 #### More Notes To Read Later
 
