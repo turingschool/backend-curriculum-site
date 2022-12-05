@@ -54,7 +54,7 @@ Using model tests and the corresponding models only, write methods that will:
 * Return a list of songs that have a title that contains the word "love"
 * Return the 3 songs that have the most plays, a length greater than `x` where `x` can be any integer value, and were updated within the last three days
 
-Answers to the practice problems can be found on the `class_instance_methods_complete` branch of [SetList](https://github.com/turingschool-examples/set_list/tree/class_instance_methods_complete)
+Answers to these practice problems can be found on the `class_instance_methods_solutions` branch of [SetList](https://github.com/turingschool-examples/set_list_tutorial/tree/class_instance_methods_solutions).
 
 ## Checks for Understanding
 
