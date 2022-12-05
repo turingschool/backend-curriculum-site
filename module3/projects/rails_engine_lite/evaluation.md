@@ -14,22 +14,7 @@ Instead of a traditional eval, you will be meeting in small groups to get feedba
 ### Part 1: Feedback Request
 Choose at least one part of your project that you’d like specific feedback on. Everyone will be asked to bring this to the feedback session, and you will be able to get feedback from your instructor as well as your peers in the feedback group.
 
-
-### Part 2: Technical Question
-Your instructor will ask you to answer one of the following questions. You will not know which question will be asked, so please be prepared to answer any.
-1. Did you account for any sad paths? if you didn’t, what are some sad paths you would want to consider if you had more time?
-2. Can you explain to me what the purpose of a serializer is, and show me an example of how you used one or how you would use one if you had more time?
-3. Is there a design decision that you made that you’re particularly proud of?
-4. Identify a piece of code that you’d like to refactor. How would you update that code?
-5. What are the four pillars of OOP, and can you explain how you used one of those pillars in your code?
-6. If this was a product you were working on on the job, and you were asked to alter the response for an existing endpoint, how could you handle rolling out that change in a way that doesnt affect users of your API?
-7. What value does namespacing give us? Why do we use it?
-8. What is JSON? Why is it used? And where in your project are you converting a hash into json? 
-9. Can you identify any place where you are handling presentation logic, and why you chose to do it in that particular place? 
-10. Can you walk me through a happy path test and/or a sad path test that you're proud of?
-11. How did you balance writing your tests while still using the postman test suite?
-
-### Part 3: Behavioral Question
+### Part 2: Behavioral Question
 Your instructor will ask you to answer one of the following questions. You will not know which question will be asked, so please be prepared to answer any.
 1. Tell me about a time that you found yourself in an unproductive struggle. What did you do to get yourself unblocked? How has that affected your approach to working on tough problems?
 2. How comfortable are you with getting uncomfortable with a new-to-you concept? Can you give me an example of a time when you didn't know how to do something right away, but found a way to get it done?
