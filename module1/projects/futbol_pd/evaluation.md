@@ -1,41 +1,33 @@
 ---
 layout: page
 title: Futbol Evaluation
-length: 2 week
+length: 1 week
 type: project
 ---
 
 _[Back to Futbol Home](./index)_
 
-For this project, you will have a live evaluation over Zoom with an instructor. We may ask you to walk through your code, answer specific questions about your design, or the process you took to arrive at your finished project.
-
-To prepare for the live evaluation, you and your group should be prepared to answer the questions in the "sample evaluation" below. If you have any  questions, please let your instructor know before the project submission deadline.
+For this project, you will have a live evaluation over Zoom with an instructor. You and your group are expected to prepare a presentation to speak to each of the top-level topics listed below. Every member of the group is expected to speak during the presentation. Each top-level topic (has a check box) should be discussed. The bullet points below each topic are provided for ideas and guidance as things you can talk about. You do NOT need to address every single bullet point, just every topic. If you have any  questions, please let your instructor know before the project submission deadline.
 
 
-## Sample evaluation walkthrough:
+## Presentation Topics:
 
-[ ] Demonstration of functional completeness
- * Display to the viewer the ability to start the program via the runner file, and demonstrate a few of the statistics that can be calculated.
+[ ] Discuss Project Management process
+ * What tool(s) did you use for managing tasks and assignments
+ * What worked well and not so well about this process?
+ * Did anything about this process change mid-project? If so, how did that change come about? For example, how was this issue approached and a change decided upon by the group?
 
-[ ] Technical quality and organization of the code
- * At a high level (not line by line), describe how you broke out this application. What classes did you create? What is the responsibility of each class? Why did you choose to design your code in this way?
- * Is there a design decision that you made that you're particularly proud of?
- * Did you use inheritence and/or modules in your project? Why did you choose to use one over the other?
- * Were you able to implement a hash at some point in your project? If so, where? And why did you choose to use a hash instead of another data type?
+[ ] Review Git Workflow
+  * Show an example of a PR with lots of team collaboration and discussion
+  * Did you have any rules or guidelines in place to ensure effective workflow?
+  * What was challenging about working with 3-5 people on one repository?
 
-[ ] Identifying areas of code that you decided to refactor
- * How did you identify areas of code to refactor? At a high level, how did you go about refactoring?
- * Are there other areas of your code that you still wish to refactor?
+[ ] Collaboration & Communication
+ * Describe how feedback was shared amongst team members.
+ * Did the team ever meet with the intention of solving a non-technical problem? For example, to discuss a change to a process. Were these meetings ad hoc or regularly scheduled? If you could do it over again, would you have changed how you approached non-technical communication with your team?
+ * Were there any pieces of the DTR that needed to be re-visited mid-project due to something not working out as expected?
 
-[ ] Discussion of collaboration/version control
- * What was your collaboration like in this group project? How was it different working in a larger group compared to pairs?
- * Were there any tools that you used to make collaboration easier?
-
-[ ] Discussion of test coverage
- * Run your test suite and open the coverage report from SimpleCov.
- * Show examples of unit and integration tests that you wrote.
- * Run the Spec Harness.
- * What was it like using the Spec Harness for this project? How did it inform your design or testing choices?
-
-
-
+[ ] Technical Review - **All of the list items below are required**, however each talking point can be brief.
+ * Run the test suite and show the coverage report
+ * Demonstrate the functionality of the project (show how it works). You can use a runner file to demonstrate a few of the statistics that can be calculated.
+ * Technical design: At a high level (not line by line), describe how you broke out this application, and describe why you chose to design your code in this way.

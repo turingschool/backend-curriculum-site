@@ -5,9 +5,7 @@ title: Statistics
 
 _[Back to Futbol Home](../index)_
 
-**These Statistics should be done the Monday before the project is due!**
-
-Each of the methods described below should be implemented as instance methods on `StatTracker`.
+Each of the methods described below should be implemented as instance methods on `StatTracker` in order for the spec harness to work properly.
 
 ### Game Statistics
 
@@ -60,6 +58,6 @@ Each of the methods below take a team id as an argument. Using that team id, you
 | `worst_season` | Season with the lowest win percentage for a team. | String |
 | `average_win_percentage` | Average win percentage of all games for a team. | Float |
 | `most_goals_scored` | Highest number of goals a particular team has scored in a single game. | Integer |
-| `fewest_goals_scored` | Lowest numer of goals a particular team has scored in a single game. | Integer |
+| `fewest_goals_scored` | Lowest number of goals a particular team has scored in a single game. | Integer |
 | `favorite_opponent` | Name of the opponent that has the lowest win percentage against the given team. | String |
 | `rival` | Name of the opponent that has the highest win percentage against the given team. | String |
