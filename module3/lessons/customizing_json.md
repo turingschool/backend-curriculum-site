@@ -244,7 +244,7 @@ end
 So now we have this serializer, and we need to modify our controller.
 
 ```ruby
-class Api::V1::OrdersController < ApplicationController
+class Api::V1::StoresController < ApplicationController
   def index
     render json: StoreSerializer.new(Store.all)
   end
