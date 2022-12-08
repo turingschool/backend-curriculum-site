@@ -117,16 +117,16 @@ Not verifying your assumptions can be one of the costliest mistakes you make as 
 
 While it's nice to drop into IRB or pry in terminal to see if there are methods that exist in Ruby that I can use to solve my problem, it's even better to put a `pry` *into my code* to see exactly what I can do given the other methods and variables I've defined.
 
-Let's run the `hippogriff_spec.rb`, and review the errors that are generated there:
+Let's run the `hydra_spec.rb`, and review the errors that are generated there:
 
 ```
-2) Hippogriff when it flies it collects a unique moonrock
-   Failure/Error: @moonrocks.push(rock)
-
-   NoMethodError:
-     undefined method `push' for nil:NilClass
-   # ./lib/hippogriff.rb:14:in `fly'
-   # ./spec/hippogriff_spec.rb:38:in `block (2 levels) in <top (required)>'
+1) Hydra when it regenerates it collects a unique new head
+    Failure/Error: @heads.push(head)
+    
+    NoMethodError:
+      undefined method `push' for nil:NilClass
+    # ./lib/hydra.rb:13:in `regenerate'
+    # ./spec/hydra_spec.rb:39:in `block (2 levels) in <top (required)>'
 ```
 
 
@@ -139,7 +139,7 @@ Let's run the `hippogriff_spec.rb`, and review the errors that are generated the
     <li> What line in that test is generating the error?</li>
     <li> Is there any setup involved before we hit that line?</li>
     <li> If so, can we use pry to confirm that the setup has been completed successfully? Do we have access to the variables that we think we do? Are they holding the objects we expect them to?</li>
-    <li> What about in the Hippogriff class itself? What line is generating an error?</li>
+    <li> What about in the Hydra class itself? What line is generating an error?</li>
     <li> Use pry to verify that the variables we are using in </li>that method are holding the objects we expect them to.
     <li> Can you identify the error?</li>
     <li> Can you make the test pass?</li>
