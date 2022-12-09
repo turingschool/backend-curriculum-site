@@ -11,15 +11,8 @@ Please reference [these instructions](./evaluation) to prepare for your live eva
 
 ## Rubric
 
-***Passing***
-
-- 3/5 of the rubric categories need to be passing (”Meets Expectations”) in order for project to earn a passing grade. No scores can be "Well Below Expectations" for a passing project.
-
-- If 2 categories "Meet Expectations" and 3 categories are "Below Expectations", the project passes with concerns.
-
-
-| Category | **Meets or Exceeds Expectations** | **Below Expectations** | **Well Below Expectations** |
-| -------- | ------------------------- | ------------------------- | ------------------------------ |
+| Category | **Meets Expectations** | **Below Expectations** | **Well Below Expectations** |
+| -------- | ---------------------- | ---------------------- | --------------------------- |
 | **Presentation** | All [list items](./evaluation) are covered in the project presentation. Every group member participates with positive intentions during the retro held during the evaluation. | 3/4 of presentation topics are discussed (can update with actual number when list is updated). Some group members do not participate in the evaluation retro. | 2/4 or fewer presentation topics are discussed.|
 | **Project Organization** | Students document and implement a project organization process throughout the project whereby tasks are broken out and assigned in advance of being worked on. | Students document a project organization process but do not always follow the process by assigning tasks in advance or updating the status of tasks to the team in a timely manner. | Students do not implement any sort of project organization workflow. |
 | **Git Workflow** | Students document and implement a code review process throughout the project whereby comments on pull requests are addressed before PRs are merged. Students used pull requests as a collaboration tool by reviewing each other’s PRs, making comments, and never merging their own PRs. Students contributed roughly equally to the project in terms of number of commits and lines of code. Commits are made in small chunks of functionality.  | Students use branches and PRs but comment infrequently, or comments are of little substance (ex: “nice job!”). | Git workflow is not used. On multiple occasions, code is pushed directly to main. Students merge their own PRs. There is more than 50% discrepancy of lines of code committed between the highest and lowest code contributor. |
