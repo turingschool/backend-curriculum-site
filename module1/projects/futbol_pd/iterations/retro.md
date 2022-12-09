@@ -12,7 +12,7 @@ The group should perform a retrospective (often just called "retro"). There are 
 Here are some links to get you started:
 * [Retrospectives by Atlassian](https://www.atlassian.com/team-playbook/plays/retrospective)
 * [How to run an effective project retrospective meeting](https://www.smarttask.io/blog/project-retrospective-meeting)
-*[ How to run a retrospective by Mural](https://www.mural.co/blog/sprint-retrospective)
+* [ How to run a retrospective by Mural](https://www.mural.co/blog/sprint-retrospective)
 
 For this iteration, research how to run a retro. Collectively decide on a method and then do it!
 
