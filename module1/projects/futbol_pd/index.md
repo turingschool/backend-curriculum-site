@@ -52,7 +52,7 @@ We have separated the methods required for this project into sections below.
 * **Iteration 1:** [Group Norms and Project Design](./iterations/group_norms)
 * **Iteration 2:** [Setup, File I/O, and Statistics](./iterations/file_io_stats)
 * **Iteration 3:** [Retro](./iterations/retro)
-* **Iteration 4:** [More Statistics](./iterations/team_statistics)
+* **Iteration 4:** [Process Change](./iterations/team_statistics)
 
 ## Evaluation Rubric
 

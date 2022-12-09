@@ -1,9 +1,13 @@
 ---
 layout: page
-title: Team Statistics
+title: Process Change
 ---
 
 _[Back to Futbol Home](../index)_
+
+Now that you've completed your first retro, make some changes to your group's process that resulted from retro, and continue working on some more statistics. Document these changes in your README.  Consider how the changes are working. Keep some notes for a future retro of what's going well and what isn't going so well this second time around.
+
+## Team Statistics
 
 Each of the methods below take a team id as an argument. Using that team id, your instance of StatTracker will provide statistics for a specific team.
 
