@@ -162,8 +162,8 @@ Write a test for the following user stories. Then, use TDD to implement the feat
 Practice User Story 1
 
 As a user
-When I visit a Song show page
-Then I see the song's title, length, and play count
+When I visit the songs index ("/songs")
+Then I see a header "All Songs"
 ```
 
 ```
@@ -171,21 +171,18 @@ Practice User Story 2
 
 As a user
 When I visit a Song show page
-I see a link back to the songs index page
-When I click this link
-Then I am taken to the songs index
+Then I see the song's title, length, and play count
 ```
 
 ```
 Practice User Story 3
 
 As a user
-When I visit an Artist's show page
-Then I see the Artist's name
-And I see the Artist's average song lenth
-And I see the Artist's total song count
+When I visit a Song show page
+I see a link back to the songs index page
+When I click this link
+Then I am taken to the songs index
 ```
-
 
 
 ## Checks for Understanding
