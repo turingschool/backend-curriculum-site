@@ -50,9 +50,9 @@ In addition to your own tests, you can use [this Spec Harness](https://github.co
 We have separated the methods required for this project into sections below.
 
 * **Iteration 1:** [Group Norms and Project Design](./iterations/group_norms)
-* **Iteration 2:** [Setup and File I/O](./iterations/file_io)
-* **Iteration 3:** [Statistics](./iterations/statistics)
-* **Iteration 4:** [Retro](./iterations/retro)
+* **Iteration 2:** [Setup, File I/O, and Statistics](./iterations/file_io_stats)
+* **Iteration 3:** [Retro](./iterations/retro)
+* **Iteration 4:** [More Statistics](./iterations/team_statistics)
 
 ## Evaluation Rubric
 

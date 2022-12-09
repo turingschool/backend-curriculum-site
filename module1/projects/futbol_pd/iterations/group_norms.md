@@ -33,8 +33,7 @@ There are a few things to consider when deciding how you want to organization yo
 * How will you determine when something is "good enough" to move on to the next thing (potential to refactor later)?
 
 ## Deliverables
-Your iteration deliverable is to [create a README](https://backend.turing.edu/module1/lessons/writing_a_readme) for your project repo and answer the following:
-
+Your iteration deliverable is to [create a README](https://backend.turing.edu/module1/lessons/writing_a_readme) with the following. As you craft your answers, consider how you might talk about these same topics in a job interview after you graduate.
 
 * A 1-2 summary or bullet points outlining your plan for check-ins throughout the duration of the project.
 
@@ -43,8 +42,6 @@ Your iteration deliverable is to [create a README](https://backend.turing.edu/mo
 * A 2-3 sentence summary describing the different approaches your group discussed for project organization and how you collectively made a decision on which to use.
 
 * A 2-3 sentence summary describing your approach to the code design.
-
-In addition to the questions above:
 
 * Include link to your initial DTR document and the date it was completed. If you do additional DTRs later in the project, you should link the revised versions here as well with the date. New versions should be listed alongside older versions. Do not delete old DTRs.
 
