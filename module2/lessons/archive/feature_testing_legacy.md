@@ -13,14 +13,16 @@ layout: page
 
 ## Setup
 
-Clone down [this repo](https://github.com/turingschool-examples/set_list_tutorial) and check out the `feature_testing` branch.
+This lesson builds off of the [ActiveRecord Associations Lesson](./active_record_associations). You can find the completed code from this lesson on the `ar_associations` branch of [this repo](https://github.com/turingschool-examples/set_list/tree/ar_associations)
 
 ## Gems
 
 Add the following Gems to your Gemfile. Since these are all testing/debugging tools, we will add them inside the existing `group :development, :test` block:
 
+  - `rspec-rails` = our test suite
   - `capybara` = gives us tools for feature testing
   - `launchy` = allows us to save_and_open_page to see a live version on the browser
+  - `simplecov` = track test coverage
 
 Your Gemfile should now have:
 
@@ -35,6 +37,28 @@ end
 ```
 
 Always run `bundle install` whenever you update your Gemfile.
+
+## Install and set up RSpec
+
+```bash
+$ rails g rspec:install
+```
+
+What new files did this generate?
+
+- `./.rspec` file
+- a whole `./spec/` directory
+- `./spec/rails_helper.rb` is the new `spec_helper`, holds Rails-specific configurations
+- `./spec/spec_helper.rb` - where we keep all specs that don't depend on rails
+
+## Configure SimpleCov
+
+At the top of your `rails_helper.rb`, add these lines:
+
+```ruby
+require 'simplecov'
+SimpleCov.start
+```
 
 # Feature Testing
 
