@@ -26,6 +26,7 @@ For this project, you will have a live evaluation over Zoom with an instructor. 
  * Describe how feedback was shared amongst team members.
  * Did the team ever meet with the intention of solving a non-technical problem? For example, to discuss a change to a process. Were these meetings ad hoc or regularly scheduled? If you could do it over again, would you have changed how you approached non-technical communication with your team?
  * Were there any pieces of the DTR that needed to be re-visited mid-project due to something not working out as expected?
+ * Give a summary of your Retro. What formats did the group consider? Why did you choose the format you did? Did this retro feel effective? What might you try differently the next time you run a group retro? Summarize the outcome of the retro.
 
 [ ] Technical Review - **All of the list items below are required**, however each talking point can be brief.
  * Run the test suite and show the coverage report
