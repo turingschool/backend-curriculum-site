@@ -12,7 +12,7 @@ title: Sad Path Testing and Flash Messages
 * Flash
 
 ## Set Up
-We will start from the `validations` branch of our [Set List Repo](https://github.com/turingschool-examples/set_list_tutorial)
+We will start from the [sad_path_setup](https://github.com/turingschool-examples/set_list_tutorial/tree/sad_path_setup) branch of the Set List Tutorial repo.
 
 ## Warm Up
 * As developers, how do we know when our application isn't working properly?
