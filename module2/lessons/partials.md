@@ -10,7 +10,7 @@ title: Using Partials to DRY up Our Views
 
 ## Setup
 
-This lesson builds off of the [Many to Many lesson](./many_to_many). You can find the completed code from this lesson on the `many_to_many` branch of [this repo](https://github.com/turingschool-examples/set_list_tutorial)
+This lesson builds off of the [Many to Many lesson](./many_to_many). You can start the coding practice for this lesson on the `partials` branch of the [Set List Tutorial repo](https://github.com/turingschool-examples/set_list_tutorial), and you can compare your answers to our completed work in the `partials_solutions` branch. 
 
 ## Warm Up
 
