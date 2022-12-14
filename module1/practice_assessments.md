@@ -3,22 +3,19 @@ layout: page
 title: Practice Assessments
 ---
 
-## Practice Paired Assessment
-
-There is one paired assessments in Mod 1:
-* **Mid Mod Paired Process Assessment** (Week 3)
+## Practice Mid Mod
 
 Instructions:
-* You will be given pre-work to complete before arriving at the assessment (Iterations 1 and 2).
-* During the assessment, you will be given an additional coding challenge that builds upon your existing code (Iteration 3).
-* You will be graded based on how much of Iteration 3 you are able to complete successfully.
+* The Mid Mod will follow the same format as other IC's througout the mod. 
+* For the Mid Mod, no tests will be provided. You will be expected to TDD all work (which means creating all `_spec.rb` files and corresponding `.rb` files). 
 
 Example Paired Assessment:
 * [Pets and Customers](https://github.com/turingschool-examples/pets_and_customers): the entire repository
-  * [Pre-work](https://github.com/turingschool-examples/pets_and_customers/blob/master/prework.md)
-  * Option 1: [Groomer](https://github.com/turingschool-examples/pets_and_customers/blob/master/groomer.md)
-  * Option 2: [Day Care](https://github.com/turingschool-examples/pets_and_customers/blob/master/day_care.md)
-  * Option 3: [Veterinary Clinic](https://github.com/turingschool-examples/pets_and_customers/blob/master/veterinary_clinic.md)
+  * [Iterations 1 - 2](https://github.com/turingschool-examples/pets_and_customers/blob/master/prework.md)
+  * Iterations 3 - 4(choose your own adventure):
+    * Option 1: [Groomer](https://github.com/turingschool-examples/pets_and_customers/blob/master/groomer.md)
+    * Option 2: [Day Care](https://github.com/turingschool-examples/pets_and_customers/blob/master/day_care.md)
+    * Option 3: [Veterinary Clinic](https://github.com/turingschool-examples/pets_and_customers/blob/master/veterinary_clinic.md)
 
 ## Practice Independent Challenges
 
