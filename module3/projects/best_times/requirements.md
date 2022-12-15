@@ -197,7 +197,7 @@ Example:
 
 
 
-## 2. User Registration
+## 3. User Registration
 
 The front-end team has drawn up this wireframe for registration:
 
