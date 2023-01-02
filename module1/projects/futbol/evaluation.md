@@ -7,10 +7,11 @@ type: project
 
 _[Back to Futbol Home](./index)_
 
-For this project, you will have a live evaluation over Zoom with an instructor. We may ask you to walk through your code, answer specific questions about your design, or the process you took to arrive at your finished project.
+For this project, you will record a video presentation as a group for an asynchronous evaluation. 
 
-To prepare for the live evaluation, you and your group should be prepared to answer the questions in the "sample evaluation" below. If you have any  questions, please let your instructor know before the project submission deadline.
+To prepare for the evaluation, you and your group should be prepared to answer the questions in the "sample evaluation" below. If you have any  questions, please let your instructor know before the project submission deadline.
 
+Full instructions for submitting your group project can be found [here](https://gist.github.com/jamisonordway/a6fd8e8caaaf1b053dff302cbbaf9e0f).
 
 ## Sample evaluation walkthrough:
 
