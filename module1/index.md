@@ -6,13 +6,13 @@ subheading: Object Oriented Programming with Ruby
 
 ## Overview
 
-In Module 1, students will learn to use Ruby and object-oriented programming to build software. They will develop skills to write automated tests, pseudocode, write implementation code, and refactor code to meet Ruby conventions. Through several large group projects and regular pairing exercises, students will learn skills and procedures for effectively collaborating and pairing with other developers.
+In Module 1, students will learn to build software in teams with Ruby and object-oriented programming. They will develop skills to write automated tests, pseudocode, write implementation code, and refactor code to meet Ruby conventions. Through several large group projects and regular pairing exercises, students will learn skills and procedures for effectively collaborating and pairing with other developers.
 
 ## Instructors
 
-* Abdul Redd
 * Dani Coleman
-* Jamison Ordway (anchor)
+* Jamison Ordway
+* Erin Pintozzi (anchor)
 
 ## Curriculum
 

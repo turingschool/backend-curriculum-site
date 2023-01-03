@@ -18,7 +18,9 @@ To start, we need to make sure we have the appropriate tooling installed.
 
 * [pry](https://github.com/pry/pry) - `gem install pry`
 
-We'll also be using the [Erroneous Creatures](https://github.com/turingschool-examples/erroneous_creatures) respository. Clone that repository so that you have a version that you can work on locally.
+We'll also be using [Erroneous Creatures](https://github.com/turingschool-examples/mod-1-be-exercises/tree/main/lessons/debugging/erroneous_creatures) which is in the Debugging Lesson directory of your mod-1-be-exercises repository.
+
+<!-- We'll also be using the [Erroneous Creatures](https://github.com/turingschool-examples/erroneous_creatures) respository. Clone that repository so that you have a version that you can work on locally. -->
 
 
 ## Warmup
@@ -122,7 +124,7 @@ Let's run the `hydra_spec.rb`, and review the errors that are generated there:
 ```
 1) Hydra when it regenerates it collects a unique new head
     Failure/Error: @heads.push(head)
-    
+
     NoMethodError:
       undefined method `push' for nil:NilClass
     # ./lib/hydra.rb:13:in `regenerate'
@@ -132,7 +134,7 @@ Let's run the `hydra_spec.rb`, and review the errors that are generated there:
 
 
 <section class="checks-for-understanding">
-  
+
   <h4> Let's start by reading that stack trace, and then answer the following questions with a partner: </h4>
   <ul>
     <li> What test is generating this error?</li>

@@ -7,10 +7,11 @@ title: Backend Module 1 Projects
 
 The following projects will be assigned and their completion is required to be promoted to module 2.
 
-* Week 1 (Solo): [War or Peace](./war_or_peace)
-* Week 2-3 (Paired): [Battleship](./battleship) or [Connect Four](./connect_four)
-* Week 4-5 (Group): [Futbol](./futbol)
-* Week 6 (Final): [Night Writer](./night_writer)
+* Week 1 (non-graded): [Flashcards](./flashcards)
+* Week 1-2 (Solo): [Jungle Beat](./jungle_beat)
+* Week 2-3 (Solo): [The DMV](./dmv)
+* Week 3-4 (Paired): [Battleship](./battleship) or [Connect Four](./connect_four)
+* Week 5-6 (Group Final): [Futbol](./futbol_pd)
 
 ## Extension Projects
 
@@ -18,8 +19,6 @@ The following projects are not required. Students can use these projects as an o
 
 * [Date Night](./date_night) (explores the Binary Search Tree data structure)
 * [Complete Me](./complete_me) (explores the Trie data structure)
-* [Jungle Beat](./jungle_beat) (explores the Linked List data structure)
-* [Perilous Journey](./perilous_journey) (explores the Linked List data structure)
 * [HTTP Yeah You Know Me](./http_yeah_you_know_me) (explores HTTP, servers, and clients)
 * [Sorting Suite](./sorting_suite) (explores sorting algorithms)
 
@@ -27,8 +26,8 @@ The following projects are not required. Students can use these projects as an o
 
 These projects are listed (roughly) in order of difficulty.
 
-* [Flashcards](./flashcards)
-* [Connect Four](./connect_four)
+* [War or Peace](./war_or_peace)
+* [Perilous Journey](./perilous_journey)
 * [Mastermind](./mastermind)
 * [Event Manager](./eventmanager)
 * [Event Reporter](./event_reporter)
