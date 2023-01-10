@@ -4,20 +4,33 @@ title: API Consumption in Ruby
 tags: API, APIs, Ruby, refactoring, services
 ---
 
+## Learning Goals
+- Define and describe an API
+- Implement an external API in Ruby with adherence to the single-responsibilty principle
+
+## Vocabulary
+- API
+- JSON
+- Response Object
+- Service (in code)
+
+
+## Intro
+
 Today we are going to consume an API in Ruby.
 
-Through this lesson, we are going to write a bit of code which will get all of the films listed in a Studio Ghibli api, and it will print out information about the films.
+At the end of this lesson, we will have created an application which will list out information about Studio Ghibli films using an external API.
 
 ## Setup
 
-To start, let's create a directory for our code.
+To start, let's create a directory for our code...
 
 ```
 mkdir ghibli
 cd ghibli
 ```
 
-And let's make a lib folder for our code.
+...and let's make a lib folder for our code.
 
 ```
 mkdir lib
@@ -43,7 +56,7 @@ Now that we have our Gemfile in place, let's get the gem and its dependencies.
 bundle install
 ```
 
-Let's now make a file that we can work in... We'll call it `ghibli_films` beacuse wer'e searching for all of the Studio Ghibli films. 
+Let's now make a file that we can work in... We'll call it `ghibli_films` beacuse we're searching for all of the Studio Ghibli films. 
 ```
 touch lib/ghibli_films.rb
 ```
@@ -283,3 +296,8 @@ There are multiple ways to go about this. Here are some tips:
 
 * Don't be afraid to make multiple API calls
 * Try to make the API do as much work for you as possible
+
+## Checks for Understanding
+1. What are some use cases for consuming an API?
+1. What is the difference between a JSON object an an API's response object?
+1. Whwy should we structure/refactor our code into objects and classes when consuming an API? 
