@@ -121,7 +121,7 @@ That's a JSON object, which is fine, but we don't want to work in JSON, we want 
 parsed = JSON.parse(response.body, symbolize_names: true)
 ```
 
-The `symbolize_names: true` converts the keys to symbols so we can use symbols instead of strings. Makes things a little lighter and easier to work with.
+The `symbolize_names: true` parameter converts the keys to symbols so we can use symbols instead of strings. Makes things a little lighter and easier to work with.
 
 So, we now have this:
 
@@ -155,7 +155,7 @@ So, we now have this:
 
 When we look at the structure and shape of this parsed JSON, we see that we are getting an array of hashes, and each hash appears to be information about an individual film.
 
-So now we have an array of hashes. Do we like this? Well hashes are fine, but what we want to really do is create an object to represent our films.
+So now we have an array of hashes. Do we like this? Well, hashes are fine, but what we really want to do is create an object to represent our films.
 
 ```
 class Film
@@ -176,7 +176,7 @@ class Film
 end
 ```
 
-And now we iterate over our array and create our objects.
+Now, we can iterate over our array and create our objects.
 
 ```
 films = parsed.map do |data|
@@ -276,7 +276,7 @@ class GhibliService
 
   def get_url(url)
     response = HTTParty.get(url)
-    JSON.parse(response.body, symoblize_names: true)
+    JSON.parse(response.body, symbolize_names: true)
   end
 end
 ```
@@ -284,7 +284,6 @@ end
 ## Practice
 
 Write code to print out the names of all People from Studio Ghibili films.
-
 
 Look through the rest of the JSON from the base request and figure out other GET requests you could make. 
 
@@ -300,4 +299,4 @@ There are multiple ways to go about this. Here are some tips:
 ## Checks for Understanding
 1. What are some use cases for consuming an API?
 1. What is the difference between a JSON object an an API's response object?
-1. Whwy should we structure/refactor our code into objects and classes when consuming an API? 
+1. Why should we structure/refactor our code into objects and classes when consuming an API? 
