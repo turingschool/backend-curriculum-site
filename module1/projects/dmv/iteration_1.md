@@ -5,7 +5,6 @@ title: Iteration 1 - Learning an Existing Codebase
 
 _[Back to The DMV Home](./index)_
 
-## Iteration 1
 * Explore codebase
 * Fix failing tests
 * Refactor some unhygienic code

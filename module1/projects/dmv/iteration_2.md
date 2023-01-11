@@ -5,7 +5,6 @@ title: Iteration 2 - Adding Features and Creating Objects from Data Sources
 
 _[Back to The DMV Home](./index)_
 
-## Iteration 2
 Now that we have our new `Service` class, let's add some functionality to our `Facility` class so a specific DMV facility can administer services to visitors.
   * Services that can be performed:
     * Register a vehicle

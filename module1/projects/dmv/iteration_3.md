@@ -5,7 +5,6 @@ title: Iteration 3 - Creating Objects from Multiple Data Sets and Analyzing Our 
 
 _[Back to The DMV Home](./index)_
 
-## Iteration 3
 
 Let's do that again with different data! Create DMV `Facility` objects from Oregon State DMV Facility data
 
