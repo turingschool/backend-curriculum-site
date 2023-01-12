@@ -246,14 +246,63 @@ pry(main)> registrant_3.license_data
 #=> {:written=>false, :license=>false, :renewed=>false}
 ```
 
-With the provided data set (Washington State EV Vehicle Registration data), create `Vehicle` objects using your `Vehicle` class.
+## Reading from External Data Sets
 
-Use the following interaction pattern to guide your build:
+You might have noticed a little bit of code in a class called `DmvDataService`. This class is responsible for retrieving data from an API. You do not need to write or change any code in this class. You will only use it as describe below for accessing data. This class will give us a dataset to use with the other classes we have here in our DMV project.
+
+With the provided data set in the `DmVDataService` class (Washington State EV Vehicle Registration data), create `Vehicle` objects using your existing `Vehicle` class. You might choose to build this functionality within `Vehicle` or create a new class. The interaction pattern below demonstrates using a new class.
+
+As detailed in the interaction pattern, you can access the data you need with the following code snippet.
+
 ```ruby
-coming soon...
+DmvDataService.new.wa_ev_registrations
 ```
 
-Let's also do a little analysis of this data to see what kinds of vehicles are being registered.
+This already exists in the starting repository. Spend a little time exploring the data set in a `pry` session. What is the datatype? What information is here? How can we access data that is nested more deeply?
+
+Use TDD and the following interaction pattern to guide your build:
+```ruby
+pry(main)> require './lib/vehicle'
+#=> true
+
+pry(main)> require './lib/vehicle_builder'
+#=> true
+
+pry(main)> require './lib/dmv_data_service'
+#=> true
+
+pry(main)> builder = VehicleBuilder.new
+#=> #<VehicleBuilder:0x000000011c854810>
+
+pry(main)> wa_ev_registrations = DmvDataService.new.wa_ev_registrations
+#  [{:electric_vehicle_type=>"Plug-in Hybrid Electric Vehicle (PHEV)",
+#    :vin_1_10=>"JTDKN3DP8D",
+#    :dol_vehicle_id=>"229686908",
+#    :model_year=>"2013",
+#    :make=>"TOYOTA",
+#    :model=>"Prius Plug-in",
+#    ...},
+#    ...,
+#    {:electric_vehicle_type=>"Plug-in Hybrid Electric Vehicle (PHEV)",
+#     :vin_1_10=>"1G1RD6E47D",
+#     :dol_vehicle_id=>"289314742",
+#     :model_year=>"2013",
+#     :make=>"CHEVROLET",
+#     :model=>"Volt",
+#     ...}]
+
+
+pry(main)> builder.create_vehicles(wa_ev_registrations)
+  #=> [#<Vehicle:0x000000012d3812f0 @engine=:ev, @make="TOYOTA", @model="Prius Plug-in", @plate_type=nil, @registration_date=nil, @vin="JTDKN3DP8D", @year="2013">,
+  #<Vehicle:0x000000012d3812a0 @engine=:ev, @make="TOYOTA", @model="Prius Prime", @plate_type=nil, @registration_date=nil, @vin="JTDKARFP9J", @year="2018">,
+  #<Vehicle:0x000000012d381200 @engine=:ev, @make="NISSAN", @model="Leaf", @plate_type=nil, @registration_date=nil, @vin="1N4AZ1CP0J", @year="2018">,
+  #<Vehicle:0x000000012d381188 @engine=:ev, @make="NISSAN", @model="Leaf", @plate_type=nil, @registration_date=nil, @vin="1N4AZ1CP0J", @year="2018">,
+  #<Vehicle:0x000000012d381138 @engine=:ev, @make="NISSAN", @model="Leaf", @plate_type=nil, @registration_date=nil, @vin="1N4AZ1CP0J", @year="2018">,
+  # ...]
+
+```
+
+<!-- Let's also do a little analysis of this data to see what kinds of vehicles are being registered.
   * Most popular make/model registered
   * Count of registered vehicle for a model year
   * County with most registered vehicles
@@ -261,4 +310,4 @@ Let's also do a little analysis of this data to see what kinds of vehicles are b
 Use the following interaction pattern as a guide:
 ```ruby
 coming soon...
-```
+``` -->
