@@ -26,7 +26,7 @@ In this iteration, you are required to use TDD to create your classes. Use the i
 
 ### Add a Registrant Class
 
-Let's create a `Registrant` class so our visitors can use our services. Your registrant should have a `name`, `age`, and `permit` attributes. If no value is provided for `permit`, it should default to false. We should also be able to change a `permit` from `false` to `true` after a `Registrant` has earned their permit.
+Let's create a `Registrant` class so our visitors can use our services. Your registrant should have a `name`, `age`, `permit`, and `license_data` attributes. If no value is provided for `permit`, it should default to false. We should also be able to change a `permit` from `false` to `true` after a `Registrant` has earned their permit.
 
 Use TDD and the following interaction pattern to build out your `Registrant` class
 
@@ -49,6 +49,9 @@ pry(main)> registrant_1.age
 pry(main)> registrant_1.permit
 #=> true
 
+pry(main)> registrant_1.license_data
+#=> {:written=>false, :license=>false, :renewed=>false}
+
 pry(main)> registrant_2.name
 #=> "Penny"
 
@@ -57,6 +60,9 @@ pry(main)> registrant_2.age
 
 pry(main)> registrant_2.permit
 #=> false
+
+pry(main)> registrant_2.license_data
+#=> {:written=>false, :license=>false, :renewed=>false}
 
 pry(main)> registrant_2.earn_permit
 #=> true
