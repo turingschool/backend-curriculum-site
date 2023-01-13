@@ -16,6 +16,7 @@ Now that we have our new `Registrant` class, let's add some functionality to our
         * Vehicles 25 years old or older are considered antique and cost $25 to register
         * Electric Vehicles (EV) cost $200 to register
         * All other vehicles cost $100 to register
+        * A vehicle's `plate_type` should be set to `:regular`, `:antique`, or `:ev` upon successful registration.
     * Administer a written test
       * A written test can only be administered to registrants with a permit and who are at least 16 years of age
     * Administer a road test
@@ -70,6 +71,9 @@ pry(main)> facility_1.register_vehicle(cruz)
 pry(main)> cruz.registration_date
 #=> #<Date: 2023-01-12 ((2459957j,0s,0n),+0s,2299161j)>
 
+pry(main)> cruz.plate_type
+#=> :regular
+
 pry(main)> facility_1.registered_vehicles
 #=> [#<Vehicle:0x0000000135a48b08...>]
 
@@ -79,8 +83,20 @@ pry(main)> facility_1.collected_fees
 pry(main)> facility_1.register_vehicle(camaro)
 #=> [#<Vehicle:0x0000000135a48b08...>, #<Vehicle:0x0000000135adb610...>]
 
+pry(main)> camaro.registration_date
+#=> #<Date: 2023-01-12 ((2459957j,0s,0n),+0s,2299161j)>
+
+pry(main)> camaro.plate_type
+#=> :antique
+
 pry(main)> facility_1.register_vehicle(bolt)
 #=> [#<Vehicle:0x0000000135a48b08...>, #<Vehicle:0x0000000135adb610...>, #<Vehicle:0x0000000125832180...>]
+
+pry(main)> bolt.registration_date
+#=> #<Date: 2023-01-12 ((2459957j,0s,0n),+0s,2299161j)>
+
+pry(main)> bolt.plate_type
+#=> :ev
 
 pry(main)> facility_1.registered_vehicles
 #=> [#<Vehicle:0x0000000135a48b08...>, #<Vehicle:0x0000000135adb610...>, #<Vehicle:0x0000000125832180...>]

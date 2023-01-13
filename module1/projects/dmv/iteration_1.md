@@ -16,9 +16,14 @@ You should explore:
 ### Debugging
 If you haven't already, run the tests now. You should see some failing tests. Work through fixing the code until the tests pass. You only change the application code, not the tests. It might be helpful to run each test one at a time and fix one by one.
 
-INSERT SCREENSHOT HERE
+_**TIPS**_
 
+* You should not have any failures in `spec/dmv_data_service_spec.rb`. If you do, please notify an instructor.
+* You should not change any of the existing tests for the debugging portion of the project. Change the application code, not the specs.
 
+You should see the following errors:
+
+![Imgur](https://i.imgur.com/nzUB9wG.png)
 
 
 ## Test Driven Development
