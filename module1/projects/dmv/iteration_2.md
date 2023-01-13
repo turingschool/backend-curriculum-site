@@ -16,6 +16,7 @@ Now that we have our new `Registrant` class, let's add some functionality to our
         * Vehicles 25 years old or older are considered antique and cost $25 to register
         * Electric Vehicles (EV) cost $200 to register
         * All other vehicles cost $100 to register
+        * A vehicle's `plate_type` should be set to `:regular`, `:antique`, or `:ev` upon successful registration.
     * Administer a written test
       * A written test can only be administered to registrants with a permit and who are at least 16 years of age
     * Administer a road test
@@ -70,6 +71,9 @@ pry(main)> facility_1.register_vehicle(cruz)
 pry(main)> cruz.registration_date
 #=> #<Date: 2023-01-12 ((2459957j,0s,0n),+0s,2299161j)>
 
+pry(main)> cruz.plate_type
+#=> :regular
+
 pry(main)> facility_1.registered_vehicles
 #=> [#<Vehicle:0x0000000135a48b08...>]
 
@@ -79,8 +83,20 @@ pry(main)> facility_1.collected_fees
 pry(main)> facility_1.register_vehicle(camaro)
 #=> [#<Vehicle:0x0000000135a48b08...>, #<Vehicle:0x0000000135adb610...>]
 
+pry(main)> camaro.registration_date
+#=> #<Date: 2023-01-12 ((2459957j,0s,0n),+0s,2299161j)>
+
+pry(main)> camaro.plate_type
+#=> :antique
+
 pry(main)> facility_1.register_vehicle(bolt)
 #=> [#<Vehicle:0x0000000135a48b08...>, #<Vehicle:0x0000000135adb610...>, #<Vehicle:0x0000000125832180...>]
+
+pry(main)> bolt.registration_date
+#=> #<Date: 2023-01-12 ((2459957j,0s,0n),+0s,2299161j)>
+
+pry(main)> bolt.plate_type
+#=> :ev
 
 pry(main)> facility_1.registered_vehicles
 #=> [#<Vehicle:0x0000000135a48b08...>, #<Vehicle:0x0000000135adb610...>, #<Vehicle:0x0000000125832180...>]
@@ -250,7 +266,7 @@ pry(main)> registrant_3.license_data
 
 You might have noticed a little bit of code in a class called `DmvDataService`. This class is responsible for retrieving data from an API. You do not need to write or change any code in this class. You will only use it as describe below for accessing data. This class will give us a dataset to use with the other classes we have here in our DMV project.
 
-With the provided data set in the `DmVDataService` class (Washington State EV Vehicle Registration data), create `Vehicle` objects using your existing `Vehicle` class. You might choose to build this functionality within `Vehicle` or create a new class. The interaction pattern below demonstrates using a new class.
+With the provided data set in the `DmVDataService` class (Washington State EV Vehicle Registration data), create `Vehicle` objects using your existing `Vehicle` class. You might choose to build this functionality within `Vehicle` or create a new class. The interaction pattern below demonstrates using a new class. Since the provided data set is for Electric Vehicle Registrations in Washington State, you can set the Vehicle's `engine` attribute to `:ev` for every vehicle.
 
 As detailed in the interaction pattern, you can access the data you need with the following code snippet.
 
@@ -265,14 +281,14 @@ Use TDD and the following interaction pattern to guide your build:
 pry(main)> require './lib/vehicle'
 #=> true
 
-pry(main)> require './lib/vehicle_builder'
+pry(main)> require './lib/vehicle_factory'
 #=> true
 
 pry(main)> require './lib/dmv_data_service'
 #=> true
 
-pry(main)> builder = VehicleBuilder.new
-#=> #<VehicleBuilder:0x000000011c854810>
+pry(main)> factory = VehicleFactory.new
+#=> #<VehicleFactory:0x000000011c854810>
 
 pry(main)> wa_ev_registrations = DmvDataService.new.wa_ev_registrations
 #  [{:electric_vehicle_type=>"Plug-in Hybrid Electric Vehicle (PHEV)",
@@ -292,7 +308,7 @@ pry(main)> wa_ev_registrations = DmvDataService.new.wa_ev_registrations
 #     ...}]
 
 
-pry(main)> builder.create_vehicles(wa_ev_registrations)
+pry(main)> factory.create_vehicles(wa_ev_registrations)
   #=> [#<Vehicle:0x000000012d3812f0 @engine=:ev, @make="TOYOTA", @model="Prius Plug-in", @plate_type=nil, @registration_date=nil, @vin="JTDKN3DP8D", @year="2013">,
   #<Vehicle:0x000000012d3812a0 @engine=:ev, @make="TOYOTA", @model="Prius Prime", @plate_type=nil, @registration_date=nil, @vin="JTDKARFP9J", @year="2018">,
   #<Vehicle:0x000000012d381200 @engine=:ev, @make="NISSAN", @model="Leaf", @plate_type=nil, @registration_date=nil, @vin="1N4AZ1CP0J", @year="2018">,
