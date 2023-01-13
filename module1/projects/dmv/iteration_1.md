@@ -4,6 +4,7 @@ title: Iteration 1 - Learning an Existing Codebase
 ---
 
 _[Back to The DMV Home](./index)_
+_[Back to Requirements](./requirements)_
 
 ## Exploring an Existing Codebase
 We'll start this iteration by taking some time to get to know the code we're starting with. You didn't write this code, so take a look around.
@@ -26,14 +27,13 @@ You should see the following errors:
 ![Imgur](https://i.imgur.com/nzUB9wG.png)
 
 
-## Test Driven Development
-In this iteration, you are required to use TDD to create your classes. Use the interaction pattern to determine what a method should do and write one or more tests to verify that expected behavior. Then you can implement the method. You should always write code with the purpose of making a test pass.
-
-### Add a Registrant Class
+## Add a Registrant Class
 
 Let's create a `Registrant` class so our visitors can use our services. Your registrant should have a `name`, `age`, `permit`, and `license_data` attributes. If no value is provided for `permit`, it should default to false. We should also be able to change a `permit` from `false` to `true` after a `Registrant` has earned their permit.
 
-Use TDD and the following interaction pattern to build out your `Registrant` class
+You are required to use TDD to create your class. Use the interaction pattern to determine what a method should do and write one or more tests to verify that expected behavior. Then you can implement the method. You should always write code with the purpose of making a test pass.
+
+Use the following interaction pattern to build out your `Registrant` class
 
 ```ruby
 pry(main)> require './lib/registrant'

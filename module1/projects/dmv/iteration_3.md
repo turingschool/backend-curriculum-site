@@ -4,8 +4,9 @@ title: Iteration 3 - Creating Objects from Multiple Data Sets and Analyzing Our 
 ---
 
 _[Back to The DMV Home](./index)_
+_[Back to Requirements](./requirements)_
 
-## Create Facility Objects from and External Data Source
+## Create Facility Objects from an External Data Source
 
 Let's do that again with different data! Similar to when you created `Vehicle` objects from the data about EV Registrations in Washington, you'll create DMV `Facility` objects with data about DMV Facilities. Let's start with Oregon. You can follow the same pattern as you did for vehicles to access the data.
 
@@ -41,7 +42,7 @@ pry(main)> DmvDataService.new.or_dmv_office_locations
 
 ## Create Facility objects from Multiple Data Sources
 
-Cool! Now you can handle creating `Facility` objects from one data source. But what about another state? The fun thing about data is that everyone has their own rules. Refactor your code to allow for the creation of `Facility` objects from another data source - NY State DMV Facilities. You should be able to create objects from ALL provided data sources. This means that by changing your code to work for the New York dataset, it should also continue to work for the Oregon dataset. Once you have New York working, add in Missouri! We **STRONGLY** recommend doing one at a time. Make sure all your past tests for the previous dataset still pass when you're done adding code for your new dataset.
+Cool! Now you can handle creating `Facility` objects from one data source. But what about another state? The fun thing about data is that every entity that manages a data set has their own rules. Refactor your code to allow for the creation of `Facility` objects from another data source - NY State DMV Facilities. You should be able to create objects from ALL provided data sources. This means that by changing your code to work for the New York dataset, it should also continue to work for the Oregon dataset. Once you have New York working, add in Missouri! We **STRONGLY** recommend doing one at a time. Make sure all your past tests for the previous dataset still pass when you're done adding code for your new dataset.
 
 You can access these data sets with the following code:
 

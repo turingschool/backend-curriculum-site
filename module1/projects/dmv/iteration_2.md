@@ -4,6 +4,7 @@ title: Iteration 2 - Adding Features and Creating Objects from Data Sources
 ---
 
 _[Back to The DMV Home](./index)_
+_[Back to Requirements](./requirements)_
 
 ## Test Driven Development
 
@@ -25,7 +26,7 @@ Now that we have our new `Registrant` class, let's add some functionality to our
     * Renew a driver's license
       * A license can only be renewed if the registrant has already passed the road test and earned a license
 
-**NOTE: A facility must offer a service in order to perform it. Just because the DMV allows facilities to perform certain services, does not mean that every location provides every service.**
+**NOTE: A facility must offer a service in order to perform it. Just because the DMV allows facilities to perform certain services, does not mean that every facility provides every service.**
 
 
 ### Vehicle Registration
@@ -264,9 +265,9 @@ pry(main)> registrant_3.license_data
 
 ## Reading from External Data Sets
 
-You might have noticed a little bit of code in a class called `DmvDataService`. This class is responsible for retrieving data from an API. You do not need to write or change any code in this class. You will only use it as describe below for accessing data. This class will give us a dataset to use with the other classes we have here in our DMV project.
+You might have noticed a little bit of code in a class called `DmvDataService`. This class is responsible for retrieving data from an API. You do not need to write or change any code in this class. You will only use it as described below for accessing data. This class will give us a dataset to use with the other classes we have here in our DMV project.
 
-With the provided data set in the `DmVDataService` class (Washington State EV Vehicle Registration data), create `Vehicle` objects using your existing `Vehicle` class. You might choose to build this functionality within `Vehicle` or create a new class. The interaction pattern below demonstrates using a new class. Since the provided data set is for Electric Vehicle Registrations in Washington State, you can set the Vehicle's `engine` attribute to `:ev` for every vehicle.
+With the provided data set in the `DmvDataService` class (Washington State EV Vehicle Registration data), create `Vehicle` objects using your existing `Vehicle` class. You might choose to build this functionality within `Vehicle` or create a new class. The interaction pattern below demonstrates using a new class. Since the provided data set is for Electric Vehicle Registrations in Washington State, you can set the vehicle's `engine` attribute to `:ev` for every vehicle.
 
 As detailed in the interaction pattern, you can access the data you need with the following code snippet.
 
