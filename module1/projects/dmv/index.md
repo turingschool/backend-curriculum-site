@@ -5,7 +5,7 @@ title: The DMV
 
 
 ## Background
-Recently, the Department of Motor Vehicles hired a software developer to help build a new program to help manage the services they offer and process some data. Unfortunately, they didn't hire a Turing grad and so the job is incomplete. Thankfully, you're here to help carry this project through to the end.
+Recently, the Department of Motor Vehicles hired a software developer to help build a new program to manage the services they offer and process some data. Unfortunately, they didn't hire a Turing grad, and the job is incomplete. Thankfully, you're here to help carry this project through to the end.
 
 ## Learning Goals
 
