@@ -6,11 +6,20 @@ title: Iteration 4 - Extensions
 _[Back to The DMV Home](./index)_
 
 
-### Ideas
-* Find your own data set to read in and do something with it
-* Read data from external source (provided) and calculate more complex things
-According to the given dataset:
-  * Which state has the most licensed drivers over age 16
-  * How many total licensed drivers are in the US
-  * Something else
-  * Something else
+### Extensions
+* Find your own data set to work with and do something interesting with it. If you choose this option, check in with an instructor before starting.
+  * Here's a good place to start your data hunt: [Data.gov](https://catalog.data.gov/dataset)
+
+* Calculate some analytics about your existing data sets:
+  * EV Registrations:
+    * Find the most popular make/model registered
+    * Count of registered vehicle for a model year
+    * County with most registered vehicles
+
+  * Facilities:
+    * Add in a few more helpful attributes.
+      * What are the daily hours for each facility?
+      * For the states that provide (Missouri), which holidays are they closed?
+
+  * Vehicles:
+    * Add in a second data source for vehicles and create some `Vehicle` objects from NY State Registration Data: https://data.ny.gov/resource/w4pv-hbkt.json
