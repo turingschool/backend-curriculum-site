@@ -7,11 +7,14 @@ _[Back to The DMV Home](./index)_
 _[Back to Requirements](./requirements)_
 
 
-### Extensions
-* Find your own data set to work with and do something interesting with it. If you choose this option, check in with an instructor before starting.
+## Extensions
+### Option 1
+Find your own data set to work with and do something interesting with it. If you choose this option, check in with an instructor before starting.
   * Here's a good place to start your data hunt: [Data.gov](https://catalog.data.gov/dataset)
 
-* Calculate some analytics about your existing data sets:
+
+### Option 2
+Calculate some analytics about your existing data sets:
   * EV Registrations:
     * Find the most popular make/model registered
     * Count of registered vehicle for a model year

@@ -17,7 +17,7 @@ Recently, the Department of Motor Vehicles hired a software developer to help bu
 
 ## Overview
 
-In this project you'll use Ruby to build out some functionality for The Department of Motor Vehicles. More detail can be found in the pages below:
+ When we get hired for a new job, the vast majority of us will be working with existing code for a project already in production (which means it's live on the internet for people to use). It will probably have some bugs that need to be fixed, inefficiencies in the code, as well as new features to be built. One of the purposes of this project is to practice the skill of onboarding to an existing project. You'll also practice using Ruby to build out some new functionality for The Department of Motor Vehicles. More detail can be found in the pages below:
 
 * [Setup](./setup)
 * [Requirements](./requirements)

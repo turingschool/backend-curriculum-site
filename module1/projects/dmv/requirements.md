@@ -15,7 +15,6 @@ You are expected to commit frequently and use Pull Requests. Make sure you are d
 
 Please read the [Rubric](./rubric) before getting started so that you know what is expected of you.
 
-* [Overview](./overview)
 * [Iteration 1](./iteration_1)
 * [Iteration 2](./iteration_2)
 * [Iteration 3](./iteration_3)
