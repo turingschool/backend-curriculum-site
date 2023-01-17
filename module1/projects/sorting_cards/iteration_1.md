@@ -12,13 +12,13 @@ A `Card` represents a single card in our deck. It stores a suit and a value.
 Use the tests provided to drive the development of your `Card` class. From the root directory of your project, run the test like this:
 
 ```
-ruby test/card_test.rb
+ruby spec/card_spec.rb
 ```
 
 If you haven't already, you will need to install minitest:
 
 ```
-gem install minitest
+gem install rspec
 ```
 
 If your `Card` class is written properly, you should be able to open a pry session and interact with it like so:
