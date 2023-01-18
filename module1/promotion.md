@@ -9,14 +9,13 @@ Promoted students will demonstrate proficiency in the material outlined in the [
 
 ## Projects
 
-You will complete four projects throughout Module 1, each of which have a maximum score of 4.0. A score of 2.5 or higher is considered a passing grade.
+You will complete four projects throughout Module 1, each of which have a maximum score of 4.0. A score of 2.5 or higher is considered a passing grade. You must submit every project to be eligible for promotion.
 
 * Week 1-2: [Solo Project #1](./projects)
   * The Solo Project is evaluated, but does not count toward promotion
 * Week 2-3: [Solo Project #2](./projects)
 * Week 3-4: [Paired Project](./projects)
   * You must earn a passing grade (2.5) on EITHER the Paired Project OR Solo Project #2
-  * You must earn a minimum grade of 2.0 on BOTH the Paired Project AND Solo Project #2
 * Week 5-6: [Group Project](./projects)
   * You must earn a passing grade (2.5) on the Final Project
   * No rubric category can score Well Below Expectations (1.0)
