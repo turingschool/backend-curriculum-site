@@ -175,7 +175,7 @@ Example:
         "type": "learning_resource",
         "attributes": {
             "country": "Nameofcountry", # this value is the value used to search for learning resources
-            "video": [],
+            "video": {},
             "images": []
         }
     }
@@ -281,13 +281,9 @@ Your api should expose this endpoint:
 **Request:**
 
 ```
-GET /api/v1/favorites
+GET /api/v1/favorites?api_key=jgn983hy48thw9begh98h4539h4
 Content-Type: application/json
 Accept: application/json
-
-{
-    "api_key": "jgn983hy48thw9begh98h4539h4"
-}
 ```
 
 **Response:**
@@ -335,7 +331,7 @@ The response data should contain exactly these elements and nothing more:
 * For this `get` request, `api_key` can be sent as a query parameter.
 * If the `api_key` is invalid, an appropriate [400-level status code](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#4xx_Client_errors) should be returned, as well as a message explaining what went wrong.
 * If the `api_key` is valid, this response will return all recipes that the user has favorited.
-* If the user has not favorited any users, the data object should point to an empty array. 
+* If the user has not favorited any recipes, the data object should point to an empty array. 
 
 
 ## Extensions

@@ -137,7 +137,18 @@ Again, notice the nesting.
 
 ### Practice
 
-In our Set List app or in your project, update a few forms to use the `form_with model` instead of `form_with url` - see if you can keep using partials!
+In our Set List app: 
+1. Update the Artist Edit form to use `form_with model` instead of `form_with url`. 
+2. Using TDD, create a New Song form using `form_with model`. 
+
+In your project, update a few forms to use the `form with model` instead of `form_with url` - see if you can keep using partials! 
+
+
+#### Extra Practice: 
+
+3. Using TDD, create a Edit Song form using `form_with model`. 
+4. Using TDD, creaet a New Playlist form using `form_with model`. 
+
 
 ## Checks for Understanding
 

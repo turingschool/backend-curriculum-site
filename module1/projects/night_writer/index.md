@@ -27,7 +27,7 @@ Unlike previous projects where we may have provided an interaction pattern repre
 
 ```
 $ ruby ./lib/night_writer.rb message.txt braille.txt
-Created 'braille.txt' containing 256 characters
+Created 'braille.txt' containing 11 characters
 ```
 
 That will use the plaintext file `message.txt` to create a Braille simulation file `braille.txt`.
@@ -43,7 +43,7 @@ Write a Ruby program that prints a line to the terminal like the one below:
 
 ```
 $ ruby ./lib/night_writer.rb message.txt braille.txt
-Created 'braille.txt' containing 256 characters
+Created 'braille.txt' containing 11 characters
 ```
 
 In the example above:
@@ -51,7 +51,7 @@ In the example above:
 * `./lib/night_writer.rb` is the path to your Ruby program.
 * `message.txt` is the name of an existing text file in your project directory.
 * `braille.txt` is the name that we would like to give to a file that we will create in iteration 2.
-* 256 is the count of characters in your `message.txt` file.
+* 11 is the count of characters in your `message.txt` file.
 
 In order to break this problem down further, you may wish to work on things in the following order:
 
@@ -100,17 +100,17 @@ Create a NightReader program that will convert Braille back to English text:
 
 ```
 $ ruby ./lib/night_reader.rb braille.txt original_message.txt
-Created 'original_message.txt' containing 256 characters.
+Created 'original_message.txt' containing 11 characters.
 ```
 
 In order to break this problem down further, you may wish to work on things in the following order:
 
 * Using your existing Ruby program as a template, create a new program called NightReader that prints a confirmation message to the terminal that contains the name of the file that the user input as their second argument.
-* Calculate the number of characters in the file provided as input and include that in the confirmation message.
 * Create a dictionary that maps some representation of Braille characters to English characters.
 * Convert a single Braille character contained in your input file into a single English character in your output file.
 * Convert multiple Braille characters into multiple English characters.
 * Convert a file containing multiple lines of Braille into English characters.
+* 11 is the count of characters in your `original_message.txt` file.
 
 ### Iteration 4: Refactor & Support Additional Characters
 
