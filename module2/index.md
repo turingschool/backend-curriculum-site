@@ -10,7 +10,7 @@ In Module 2, we expand upon fundamental Ruby skills by building database-backed 
 
 ## Instructors
 
-* Brian Zanti
+* Abdul Redd
 * Chris Simmons (anchor)
 
 ## Curriculum
