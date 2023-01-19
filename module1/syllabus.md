@@ -5,23 +5,18 @@ layout: page
 
 ## Projects
 
-Projects require students to apply new concepts from class and build on existing knowledge. Students will have a total of 4 projects in Module 1:
+Projects require students to apply new concepts from class and build on existing knowledge. All graded projects will be assesed on a scale of Well Below Expectations, Below Expectations, Meets Expectations, and Exceeds Expectations. Meets Expectations is considered a passing score. Students will have a total of 4 projects in Module 1:
 
 * **Solo Project #1** - Begin Thursday week 1, due Tuesday week 2.
   * The goal of this project is for students to practice all of the key concepts of module 1 covered in the prework and week 1.
   * This project is "safe to fail", meaning it will not count towards the final promotion decision at the end of the module, but you must attempt the project.
   * Students will be given feedback on their project, but scores will not count towards promotion.
 * **Solo Project #2** - Begin Thursday week 2, due Tuesday week 3.
-  * This project is graded on a scale from 0.0 to 4.0.
-  * A passing score on this project is 2.5 or greater.
   * Students must pass either **Solo Project #2** or the **Paired Project** to be promoted.
 * **Paired Project** - Begin Thursday week 3, due Thursday week 4.
-  * This project is graded on a scale from 0.0 to 4.0.
-  * A passing score on the Paired Project is 2.5 or greater.
   * Students must pass either the **Paired Project** or **Solo Project #2** to be promoted.
 * **Group Project** - Begin Monday week 5, due Monday week 6.
-  * This project is graded on a scale from 0.0 to 4.0.
-  * A passing score on the Final Project is 2.5 or greater and cannot score "Well Below Expectations" in any category.
+  * Meets Expectations is considered a passing score and this project cannot score "Well Below Expectations" in any category.
   * Students must pass the **Group Project** to be promoted.
 
 ## Independent Challenges
@@ -38,14 +33,14 @@ In week 3, students will participate in the **MidMod Assessment**. This MidMod i
 
 ## Scores
 
-Projects, Assessments, and Independent Assessments will be scored on a 4 point scale:
+Projects, Assessments, and Independent Assessments will be assessed on the following scale:
 
 1. Well Below Expectations
 2. Below Expectations
 3. Meets Expectations (Passing)
 4. Above Expectations (Exceptional)
 
-Projects, Independent Challenges, and Assessments will be broken into 4 iterations. Students are expected to complete the first 3 iterations to receive a score of 3 (passing), while iteration 4 provides opportunities for further learning and exploration.
+Projects, Independent Challenges, and Assessments will be broken into 4 iterations. Students are expected to complete the first 3 iterations to receive a passing score, while iteration 4 provides opportunities for further learning and exploration.
 
 ## Exercises
 

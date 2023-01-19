@@ -9,20 +9,20 @@ Promoted students will demonstrate proficiency in the material outlined in the [
 
 ## Projects
 
-You will complete four projects throughout Module 1, each of which have a maximum score of 4.0. A score of 2.5 or higher is considered a passing grade. You must submit every project to be eligible for promotion.
+You will complete four projects throughout Module 1, each of which will be assessed according to a rubric. A passing project will "Meet Expectations" (per the rubric) for most categories. You must submit every project to be eligible for promotion.
 
 * Week 1-2: [Solo Project #1](./projects)
   * The Solo Project is evaluated, but does not count toward promotion
 * Week 2-3: [Solo Project #2](./projects)
 * Week 3-4: [Paired Project](./projects)
-  * You must earn a passing grade (2.5) on EITHER the Paired Project OR Solo Project #2
+  * You must pass EITHER the Paired Project OR Solo Project #2
 * Week 5-6: [Group Project](./projects)
-  * You must earn a passing grade (2.5) on the Final Project
-  * No rubric category can score Well Below Expectations (1.0)
+  * You must pass the Final Project
+  * No rubric category can score Well Below Expectations
 
 ## Assessments and Independent Challenges
 
-You will complete two assessments and three weekly Independent Challenges in Module 1, each of which have a maximum score of 4.0. A score of 2.5 or higher is considered a passing grade.
+You will complete two assessments and three weekly Independent Challenges in Module 1, each of which will be assesed on a scale of Well Below Expectations, Below Expectations, Meets Expectations, and Exceeds Expectations. Meets Expectations is considered a passing score.
 
 ### Assessments
 1. Mid Module Assessment (aka "Mid Mod")
@@ -30,7 +30,7 @@ You will complete two assessments and three weekly Independent Challenges in Mod
 
 1. Final Independent Challenge (aka "Final IC", Week 6)
   In order to be promoted to Module 2:
-  * You must earn a _minimum_ score of 2.5 on the Week 6 Final IC to be promoted to Module 2. Students who do not score at least 2.5 will be offered a re-take.
+  * You must earn a _Meets Expectations_ on the Week 6 Final IC to be promoted to Module 2. Students who do not will be offered a re-take.
 
 ### Independent Challenges
 1. Weekly Independent Challenges (ICs)
