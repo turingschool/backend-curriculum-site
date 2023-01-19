@@ -1,5 +1,5 @@
 ---
-title: Intermission Work
+title: Mod 2 Intermission Work
 layout: page
 ---
 
@@ -41,13 +41,13 @@ Time-box recommendations are in each section's instructions, and also included h
 
 ### If you are Repeating
 
-Do a modifided version of the assignments above.
+Do a modified version of the assignments above:
 
 * Complete a timed [Static Challenge](./static_challenge) (2 hrs)
     * If you did Challenge 1 the first time, do Challenge 2, and vice versa.
     * As you work, reference the [W3Schools HTML5 Tutorial](https://www.w3schools.com/html/default.asp) and [W3Schools CSS Tutorial](https://www.w3schools.com/css/default.asp)
 * [Intro to SQL](./sql) (3/4 hrs total, 1 hr each section)
-    * You can skip the Jumpstart Lab tutorial if you like. You can use the Checks for Understanding as a gauge of whether you  need to review it or not
+    * You can skip the Jumpstart Lab tutorial if you like. You can use the Checks for Understanding as a gauge of whether you need to review it or not.
     * Work on the SQL exercises. Spend at least 1 hour in all three sections.
     * Complete the Checks for Understanding
 * [Task Manager](https://github.com/turingschool-examples/task_manager_rails)
@@ -57,4 +57,4 @@ Do a modifided version of the assignments above.
 
 ## Submission
 
-When you are finished, fill out [this form](https://forms.gle/cCWaRcoPer7oXm2K9).
+When you are finished, fill out [this form](https://forms.gle/6Dr4HWJnbqF515zx7).
