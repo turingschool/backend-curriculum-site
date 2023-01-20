@@ -6,11 +6,12 @@ title: Jungle Beat
 # Jungle Beat
 ### Learning Goals
 
-* Practice breaking a program into logical components
+* Follow an interaction pattern
+* Write readable code that adheres to Ruby convention
+* Write tests
 * Distinguishing between classes and instances of those classes
-* Understanding how linked lists work to store and find data
-* Testing components in isolation and in combination
 * Use and implement iteration or recursion techniques
+* Host code on Github
 
 ## Basics
 
@@ -81,14 +82,14 @@ The point of this process is to help us focus on small pieces at a time without 
 
 ### Iteration Base Expectations
 
-* [Iteration 0](jungle_beat_iterations/iteration_0) - Node Basics
-* [Iteration 1](jungle_beat_iterations/iteration_1) - Append, All and Count (Single Node)
-* [Iteration 2](jungle_beat_iterations/iteration_2) - Append, All and Count (Multiple Nodes)
-* [Iteration 3](jungle_beat_iterations/iteration_3) - Insert and Prepend
-* [Iteration 4](jungle_beat_iterations/iteration_4) - Find, Pop, and Includes?
-* [Iteration 5](jungle_beat_iterations/iteration_5) - Creating a Linked List Wrapper
-* [Iteration 6](jungle_beat_iterations/iteration_6) - Playing Beats
-* [Extensions](jungle_beat_iterations/extensions) - Validating Beats, Speed & Voice
+* [Iteration 0](./iteration_0) - Node Basics
+* [Iteration 1](./iteration_1) - Append, All and Count (Single Node)
+* [Iteration 2](./iteration_2) - Append, All and Count (Multiple Nodes)
+* [Iteration 3](./iteration_3) - Insert and Prepend
+* [Iteration 4](./iteration_4) - Find, Pop, and Includes?
+* [Iteration 5](./iteration_5) - Creating a Linked List Wrapper
+* [Iteration 6](./iteration_6) - Playing Beats
+* [Extensions](./extensions) - Validating Beats, Speed & Voice
 
 ## Tips
 
@@ -111,50 +112,8 @@ The point of this process is to help us focus on small pieces at a time without 
 Need some help on Linked Lists? You can check out some of the following resources:
 
 * https://www.youtube.com/watch?v=oiW79L8VYXk
-* http://www.eternallyconfuzzled.com/tuts/datastructures/jsw_tut_linklist.aspx
 * http://www.sitepoint.com/rubys-missing-data-structure/
 
 ## Evaluation Rubric
 
-The project will be assessed with the following guidelines:
-
-* 4: Above expectations
-* 3: Meets expectations
-* 2: Below expectations
-* 1: Well-below expectations
-
-**Expectations:**
-
-### 1. Ruby Syntax & Style
-
-* Applies appropriate attribute encapsulation  
-* Developer creates instance and local variables appropriately
-* Naming follows convention (is idiomatic)
-* Ruby methods used are logical and readable
-* Code is indented properly
-* Code does not exceed 80 characters per line
-* Each class has correctly-named files and corresponding test files in the proper directories
-
-### 2. Breaking Logic into Components
-
-* Code is effectively broken into methods & classes
-* Developer writes methods less than 10 lines
-* No more than 3 methods break the principle of SRP
-
-
-### 3. Test-Driven Development
-
-* Each method is tested  
-* Tests implement Ruby syntax & style  
-
-### 4. Version Control
-
-Expectations:
-
-* Developer commits at a pace of at least 1 commit per hour
-* Developer implements branching and PRs
-* The final submitted version is merged into master
-
-### 5. Functionality
-
-* Application meets all requirements (extension not req'd)
+The project will be assessed with this [rubric](./rubric).

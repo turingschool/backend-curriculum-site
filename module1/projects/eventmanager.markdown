@@ -26,9 +26,10 @@ After completing this tutorial, you will be able to:
 * utilize the data to contact a remote service
 * populate a template with user data
 * manipulate [strings](http://rubydoc.info/stdlib/core/String)
-* access [Sunlight](http://sunlightlabs.github.io/congress/index.html#parameters/api-key)'s Congressional API through
+
+<!-- * access [Sunlight](http://sunlightlabs.github.io/congress/index.html#parameters/api-key)'s Congressional API through
   the [Sunlight Congress gem][repo_sunlight_congress]
-* use [ERB](http://rubydoc.info/stdlib/erb/ERB) (Embedded Ruby) for templating
+* use [ERB](http://rubydoc.info/stdlib/erb/ERB) (Embedded Ruby) for templating -->
 
 <div class="note">
 <p>This tutorial is open source. If you notice errors, typos, or have questions/suggestions,
@@ -695,7 +696,7 @@ def clean_zipcode(zipcode)
 end
 ```
 
-## ~Iteration 3: Using Sunlight~
+<!-- ## ~Iteration 3: Using Sunlight~
 
 ### The Sunlight Foundation has deprecated their API. If you have reached this point and still wish to continue, work on [Event Reporter](https://backend.turing.edu/module1/projects/event_reporter) instead.
 
@@ -1453,4 +1454,4 @@ register?"
 
 * Use [Date#wday](http://rubydoc.info/stdlib/date/Date#wday-instance_method) to find out the day of the week.
 
-[repo_sunlight_congress]: https://github.com/steveklabnik/sunlight-congress
+[repo_sunlight_congress]: https://github.com/steveklabnik/sunlight-congress -->

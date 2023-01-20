@@ -26,8 +26,7 @@ title: Mocks and Stubs
 
 ### Setup
 
-1. Clone the [Bob Ross repo](https://github.com/turingschool/bob_ross_rspec) onto your local computer.
-2. cd bob_ross_rspec
+* Navigate to the [Bob Ross directory](https://github.com/turingschool-examples/mod-1-be-exercises/tree/main/lessons/mocks_stubs/bob_ross) in the Mocks and Stubs folder in the mod-1-be-exercises repo on your local computer.
 
 
 ### Mocks
@@ -98,7 +97,7 @@ Let's update this test so that it stubs out the color method for the Mock object
 
 > **It's important to note:**
 > You don't HAVE to have a mock object to use stubs. You can stub a method response on a real object too:
-> 
+>
 > ```ruby
 > paint_1 = Paint.new('bad color name')
 > allow(paint_1).to receive(:color).and_return('a better color name!')
@@ -138,8 +137,7 @@ An example in the Bob Ross repo:
 
 **Setup:**
 
-1. Clone down the [User Image Generator](https://github.com/turingschool-examples/user_image_generator).
-2. cd user_image_generator
+* Navigate to the [User Image Generator directory](https://github.com/turingschool-examples/mod-1-be-exercises/tree/main/lessons/mocks_stubs/user_image_generator) in the Mocks and Stubs lesson of the mod-1-be-exercises repo.
 
 **Directions:**
 

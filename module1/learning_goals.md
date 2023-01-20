@@ -21,7 +21,6 @@ A student who promotes from this module will be able to do the following:
 * Students will be able to use Integers and Floats and explain the differences between them
 * Students will be able to use Arrays and Hashes and explain the differences between them
 * Students will be able to identify and utilize Symbols
-* Students will be able to appropriately use enumerable methods to iterate over collections
 * Students will be able to use the following Flow Control structures:
     * if
     * elsif
@@ -76,6 +75,7 @@ A student who promotes from this module will be able to do the following:
 
 **Ruby Mechanics:**
 
+* Students will be able to appropriately use enumerable methods to iterate over collections
 * Students will be able to create a class that inherits from a superclass
 * Students will be able to create and mix in a module
 * Students will be able to import/export data to files
@@ -113,10 +113,8 @@ A student who promotes from this module will be able to do the following:
 **Ruby Mechanics:**
 
 * Students will be able to explain the difference between local and instance variable scope
-* Students will be able to explain memory allocation in Ruby
 * Students will be able to explain how the call stack works
 
 **Testing:**
 
 * Students will be able to explain the purpose of Mocks and Stubs
-
