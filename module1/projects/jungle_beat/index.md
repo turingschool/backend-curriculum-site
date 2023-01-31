@@ -3,7 +3,6 @@ layout: page
 title: Jungle Beat
 ---
 
-# Jungle Beat
 ### Learning Goals
 
 * Follow an interaction pattern
@@ -97,6 +96,7 @@ Need some help on Linked Lists? You can check out some of the following resource
 * https://www.youtube.com/watch?v=oiW79L8VYXk
 * http://www.sitepoint.com/rubys-missing-data-structure/
 
+## Requirements
 
 * [Setup](./setup)
 * [Project Requirements](./requirements)
