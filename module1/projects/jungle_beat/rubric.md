@@ -3,7 +3,7 @@ layout: page
 title: Jungle Beat Rubric
 ---
 
-_[Back to Jungle Beat Home](./jungle_beat)_
+_[Back to Jungle Beat Home](./index)_
 
 
 ## Learning Goals
