@@ -26,6 +26,10 @@ Projects:
 
 Students must meet the expectations laid out in the [final assessment info](./final_assessment).
 
+### Week 3 Challenges
+
+In Week 3, students will complete a series of challenges. Completion of these challenges is required for promotion.
+
 ### Career Development
 
 The Mod 3 [career development](https://careerdev.turing.edu/module_three) curriculum centers around learning to tell your story and beginning your job hunt.
