@@ -3,34 +3,55 @@ layout: page
 title: Jungle Beat
 ---
 
-# Iteration 4 - Additional Methods - `find`, `pop`, `includes?`
+# Iteration 4 - Extensions
 
-Perfect, we are almost there! Next is to add `find`, `pop` and `includes?` methods.
+### 1. Validating Beats
 
-`find` takes two parameters, the first indicates the first position to return and the second parameter specifies how many elements to return.
+There are a lot of words which aren't going to work for beats. Like `Mississippi`.
 
-`includes?` gives back true or false whether the supplied value is in the list.
-
-`pop` removes elements the last element from the list.
-
-Expected behavior:
+Add validation to your program such that the input beats must be members of your
+defined list. Insertion of a beat not in the list is rejected. Like this:
 
 ```ruby
-....
-> list.to_string
-=> "deep woo shi shu blop"
-> list.find(2, 1)
-=> "shi"
-> list.find(1, 3)
-=> "woo shi shu"
-> list.includes?("deep")
-=> true
-> list.includes?("dep")
-=> false
-> list.pop
-=> "blop"
-> list.pop
-=> "shu"
-> list.to_string
-=> "deep woo shi"
+> jb = JungleBeat.new("deep")
+> jb.append("Mississippi")
+=> 0
+> jb.all
+=> "deep"
+> jb.prepend("tee tee tee Mississippi")
+=> 3 # number of beats successfully inserted
+> jb.all
+=> "tee tee tee deep"
+```
+
+Here's a starter list of valid beats, but add more if you like:
+
+```
+tee dee deep bop boop la na
+```
+
+### 2. Speed & Voice
+
+Let's make it so the user can control the voice and speed of playback. Originally
+we showed you to use `say -r 500 -v Boing` where `r` is the rate and `v` is the
+voice. Let's setup a usage like this:
+
+```ruby
+> jb = JungleBeat.new("deep dop dop deep")
+> jb.play
+=> 4 # plays the four sounds normal speed with Boing voice
+> jb.rate = 100
+=> 100
+> jb.play
+=> 4 # plays the four sounds slower with Boing voice
+> jb.voice = "Alice"
+=> "Alice"
+> jb.play
+=> 4 # plays the four sounds slower with Alice voice
+> jb.reset_rate
+=> 500
+> jb.reset_voice
+=> "Boing"
+> jb.play
+=> 4 # plays the four sounds normal speed with Boing voice
 ```

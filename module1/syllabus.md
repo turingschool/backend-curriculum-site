@@ -35,10 +35,10 @@ In week 3, students will participate in the **MidMod Assessment**. This MidMod i
 
 Projects, Assessments, and Independent Assessments will be assessed on the following scale:
 
-1. Well Below Expectations
-2. Below Expectations
-3. Meets Expectations (Passing)
-4. Above Expectations (Exceptional)
+* Below Expectations
+* Approaching Expectations
+* Meets Expectations (Passing)
+* Exceeds Expectations (Exceptional)
 
 Projects, Independent Challenges, and Assessments will be broken into 4 iterations. Students are expected to complete the first 3 iterations to receive a passing score, while iteration 4 provides opportunities for further learning and exploration.
 

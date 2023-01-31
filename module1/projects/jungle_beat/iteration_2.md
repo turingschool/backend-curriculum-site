@@ -3,36 +3,70 @@ layout: page
 title: Jungle Beat
 ---
 
-# Iteration 2 - Append, All/To String and Insert (Multiple Nodes)
+# Iteration 2
 
-Now that we can insert the first element of our list (i.e. the Head), let's focus on supporting these operations for multiple elements in the list.
+## Additional Methods - `insert` and `prepend`
 
-This iteration is really where we'll build out the core structure that makes up our linked list -- it will probably take you more time than the previous iterations.
+Now we have nodes and a `LinkedList` class that manages the list. Next step is to add the `insert` and `prepend` methods.
 
-Update your `append`, `count`, and `to_s` methods to support the following interaction pattern:
+`prepend` will add nodes to the beginning of the list.
+
+`insert` will insert one or more elements at a given position in the list. It takes two parameters, the first one is the position at which to insert nodes, the second parameter is the string of data to be inserted.
+
+Expected behavior:
 
 ```ruby
 > require "./lib/linked_list"
 > list = LinkedList.new
-=> <LinkedList head=nil #45678904567>
-> list.head
-=> nil
-> list.append("doop")
-=> "doop"
-> list
-=> <LinkedList head=<Node data="doop" next_node=nil #5678904567890> #45678904567>
-> list.head
-=> <Node data="doop" next_node=nil #5678904567890>
-> list.head.next_node
-=> nil
-> list.append("deep")
-=> "deep"
-> list.head.next_node
-=> <Node data="deep" next_node=nil #5678904567890>
-> list.count
-=> 2
+> list.append("plop")
+=> "plop"
 > list.to_string
-=> "doop deep"
+=> "plop"
+> list.append("suu")
+=> "suu"
+> list.prepend("dop")
+=> "dop"
+> list.to_string
+=> "dop plop suu"
+> list.count
+=> 3
+> list.insert(1, "woo")
+=> "woo"
+list.to_string
+=> "dop woo plop suu"
 ```
 
-Notice the key point here -- the first piece of data we append becomes the Head, while the second becomes the Next Node of that (Head) node.
+
+<br>
+
+## Additional Methods - `find`, `pop`, `includes?`
+
+Perfect, we are almost there! Next is to add `find`, `pop` and `includes?` methods.
+
+`find` takes two parameters, the first indicates the first position to return and the second parameter specifies how many elements to return.
+
+`includes?` gives back true or false whether the supplied value is in the list.
+
+`pop` removes elements the last element from the list.
+
+Expected behavior:
+
+```ruby
+....
+> list.to_string
+=> "deep woo shi shu blop"
+> list.find(2, 1)
+=> "shi"
+> list.find(1, 3)
+=> "woo shi shu"
+> list.includes?("deep")
+=> true
+> list.includes?("dep")
+=> false
+> list.pop
+=> "blop"
+> list.pop
+=> "shu"
+> list.to_string
+=> "deep woo shi"
+```

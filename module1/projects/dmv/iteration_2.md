@@ -105,9 +105,6 @@ pry(main)> facility_1.registered_vehicles
 pry(main)> facility_1.collected_fees
 #=> 325
 
-pry(main)> facility_1.collected_fees
-#=> 325
-
 pry(main)> facility_2.registered_vehicles
 #=> []
 
@@ -159,7 +156,6 @@ pry(main)> registrant_1.permit
 #=> true
 
 pry(main)> facility_1.administer_written_test(registrant_1)
-#=> nil
 
 pry(main)> registrant_1.license_data
 #=> {:written=>false, :license=>false, :renewed=>false}
@@ -180,7 +176,6 @@ pry(main)> registrant_2.permit
 #=> false
 
 pry(main)> facility_1.administer_written_test(registrant_2)
-#=> nil
 
 pry(main)> registrant_2.earn_permit
 #=> true
@@ -198,13 +193,11 @@ pry(main)> registrant_3.permit
 #=> false
 
 pry(main)> facility_1.administer_written_test(registrant_3)
-#=> nil
 
 pry(main)> registrant_3.earn_permit
 #=> true
 
 pry(main)> facility_1.administer_written_test(registrant_3)
-#=> nil
 
 pry(main)> registrant_3.license_data
 #=> {:written=>false, :license=>false, :renewed=>false}
@@ -213,19 +206,16 @@ pry(main)> registrant_3.license_data
 
 
 pry(main)> facility_1.administer_written_test(registrant_3)
-#=> nil
 
 pry(main)> registrant_3.earn_permit
 #=> true
 
 pry(main)> facility_1.administer_written_test(registrant_3)
-#=> nil
 
 pry(main)> registrant_3.license_data
 #=> {:written=>false, :license=>false, :renewed=>false}
 
 pry(main)> facility_1.administer_road_test(registrant_1)
-#=> nil
 
 pry(main)> facility_1.add_service('Road Test')
 #=> ["Written Test", "Road Test"]
@@ -237,7 +227,6 @@ pry(main)> registrant_1.license_data
 #=> {:written=>true, :license=>true, :renewed=>false}
 
 pry(main)> facility_1.administer_road_test(registrant_3)
-#=> nil
 
 pry(main)> registrant_3.license_data
 #=> {:written=>false, :license=>false, :renewed=>false}
@@ -245,7 +234,6 @@ pry(main)> registrant_3.license_data
 # Renew License
 
 pry(main)> facility_1.renew_drivers_license(registrant_1)
-#=> nil
 
 pry(main)> facility_1.add_service('Renew License')
 #=> ["Written Test", "Road Test", "Renew License"]
@@ -257,7 +245,6 @@ pry(main)> registrant_1.license_data
 #=> {:written=>true, :license=>true, :renewed=>true}
 
 pry(main)> facility_1.renew_drivers_license(registrant_3)
-#=> nil
 
 pry(main)> registrant_3.license_data
 #=> {:written=>false, :license=>false, :renewed=>false}
