@@ -11,7 +11,7 @@ Please reference [these instructions](./evaluation), to prepare a video presenta
 
 ## Evaluation Rubric
 
-<br> | **Exceptional** | **Meets Expectations** | **Below Expectations** | **Well Below Expectations**
+<br> | **Exceeds Expectations** | **Meets Expectations** | **Approaching Expectations** | **Below Expectations**
 -- | --- | --- | --- | ---
 **Functionality** | 2 of the features in Iteration 4 are complete | All of the functionality in Iteration 3 is complete | Some of the functionality in Iteration 3 is not complete | Game cannot execute ship placement or iteration 2 is not complete |
 **Object Oriented Programming** | Project includes at least one additional class not outlined in the spec that does no command line input or output, adheres to SRP, and acts as a crucial piece in the function of the program | Project includes at least one additional class not outlined in the spec contained in its own file with no executable code outside the class. The correct number of Board, Cell, and Ship objects are created. Very little code is not contained within a class. | Project includes at least one additional class not outlined in the spec. Ship, Cell, or Board objects may be created unnecessarily. Code that is crucial to the setup, play, or end of a game may not be contained in a class | Project does not include a class not outlined in the spec or does not use Ship, Cell, or Board objects appropriately to accomplish the task |

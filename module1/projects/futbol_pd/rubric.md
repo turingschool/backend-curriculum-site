@@ -11,7 +11,7 @@ Please reference [these instructions](./evaluation) to prepare for your live eva
 
 ## Rubric
 
-| Category | **Meets Expectations** | **Below Expectations** | **Well Below Expectations** |
+| Category | **Meets Expectations** | **Approaching Expectations** | **Below Expectations** |
 | -------- | ---------------------- | ---------------------- | --------------------------- |
 | **Presentation** | All [list items](./evaluation) are covered in the project presentation. Every group member actively participates during the evaluation. | 3/4 of presentation topics are discussed (can update with actual number when list is updated). Some group members do not actively participate in the evaluation. | 2/4 or fewer presentation topics are discussed.|
 | **Project Organization** | Students document and implement a project organization process throughout the project whereby tasks are broken out and assigned in advance of being worked on. | Students document a project organization process but do not always follow the process by assigning tasks in advance or updating the status of tasks to the team in a timely manner. | Students do not implement any sort of project organization workflow. |

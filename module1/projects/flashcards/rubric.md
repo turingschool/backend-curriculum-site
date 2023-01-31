@@ -16,7 +16,7 @@ _[Back to FlashCards Home](./index)_
 
 <br>
 
-<br> | **Exceptional** | **Meets Expectations** | **Below Expectations** | **Well Below Expectations**
+<br> | **Exceeds Expectations** | **Meets Expectations** | **Approaching Expectations** | **Below Expectations**
 -- | --- | --- | --- | ---
 **Functionality** | Application is robust and can handle a variety of inputs including invalid inputs and completes iteration 4 | Application adheres to the flow outlined in the specification and can handle a variety of valid inputs (not just what is outlined in spec). Iteration 3 is complete. | Only up to Iteration 2 is complete or the application does not follow the flow outlined in the specification. | Iteration 2 is not complete. |
 **Ruby Mechanics** | Project includes appropriate uses of hashes and enumerables not covered in class | Appropriately uses Ruby's built in datatypes and methods, flow control, and enumerables. | Does not appropriately use one or two of the following: Ruby's built in datatypes and methods, flow control, and enumerables | Does not appropriately use Ruby's built in datatypes and methods, flow control, and enumerables, or does not build classes |

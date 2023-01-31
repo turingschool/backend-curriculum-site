@@ -18,7 +18,7 @@ _[Back to Jungle Beat Home](./jungle_beat)_
 
 <br>
 
-<br> | **Exceptional** | **Meets Expectations** | **Below Expectations** | **Well Below Expectations**
+<br> | **Exceeds Expectations** | **Meets Expectations** | **Approaching Expectations** | **Below Expectations**
 -- | --- | --- | --- | ---
 **Functionality** | Complete through iteration 6 and both extensions | Complete through Iteration 6 and functions as defined by the project requirements. | Up to Iteration 4 is complete or the application does not exactly follow the requirements outlined in the specification. | Iteration 4 is not complete. |
 **Ruby Mechanics** | Project includes appropriate uses of datatypes and methods not covered in class | Appropriately uses Ruby's built in datatypes and methods and flow control. | Does not appropriately use one or two of the following: Ruby's built in datatypes and methods or flow control | Does not appropriately use Ruby's built in datatypes and methods or flow control, or does not build classes |

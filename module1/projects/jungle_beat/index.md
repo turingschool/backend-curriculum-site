@@ -13,7 +13,7 @@ title: Jungle Beat
 * Use and implement iteration or recursion techniques
 * Host code on Github
 
-## Basics
+## Overview
 
 In this project we're going to do some silly things with sound. Specifically, we're going to make a very basic drum machine program.
 
@@ -74,26 +74,9 @@ A linked list should be able to do the following:
 * Find whether a data element is or is not in the list
 * Find the distance between two nodes
 
-## Iterative Development
-
-As we work through this project, we'll be following an _iterative_ development process. This means we'll aim to build the system out of small but complete chunks which could reasonably stand on their own to perform some required function. The iterations are outlined below. It may be worth reading through them all at first to get a sense of the scope of the entire project, but we encourage you to then forget about later iterations until you get to them.
-
-The point of this process is to help us focus on small pieces at a time without getting overwhelmed by the scope of the entire project.
-
-### Iteration Base Expectations
-
-* [Iteration 0](./iteration_0) - Node Basics
-* [Iteration 1](./iteration_1) - Append, All and Count (Single Node)
-* [Iteration 2](./iteration_2) - Append, All and Count (Multiple Nodes)
-* [Iteration 3](./iteration_3) - Insert and Prepend
-* [Iteration 4](./iteration_4) - Find, Pop, and Includes?
-* [Iteration 5](./iteration_5) - Creating a Linked List Wrapper
-* [Iteration 6](./iteration_6) - Playing Beats
-* [Extensions](./extensions) - Validating Beats, Speed & Voice
-
 ## Tips
 
-* A linked list it not an array. While it may perform many of the same functions as an array, its structure is conceptually very different.
+* A linked list is not an array. While it may perform many of the same functions as an array, its structure is conceptually very different.
 * There are only 3 types of "state" that need to be tracked for a linked list -- the head of the list, the data of each node, and the "next node" of each node.
 * In object-oriented programming, "state" is generally modeled with instance variables
 * There are two main ways to implement Linked Lists: __iteration__ and __recursion__. Iterative solutions use looping structures (`while`, `for`) to walk through the nodes in the list. Recursive solutions use methods which call themselves to walk through nodes. It would be ideal to solve it each way.
@@ -114,6 +97,7 @@ Need some help on Linked Lists? You can check out some of the following resource
 * https://www.youtube.com/watch?v=oiW79L8VYXk
 * http://www.sitepoint.com/rubys-missing-data-structure/
 
-## Evaluation Rubric
 
-The project will be assessed with this [rubric](./rubric).
+* [Setup](./setup)
+* [Project Requirements](./requirements)
+* [Evaluation Rubric](./rubric)

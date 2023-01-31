@@ -7,7 +7,7 @@ _[Back to The DMV Home](./index)_
 
 ## Evaluation Rubric
 
-<br> | **Exceptional** | **Meets Expectations** | **Below Expectations** | **Well Below Expectations**
+<br> | **Exceeds Expectations** | **Meets Expectations** | **Approaching Expectations** | **Below Expectations**
 -- | --- | --- | --- | ---
 **Functionality** | 1 of the options in Iteration 4 is complete | All of the functionality in Iteration 3 is complete | Some of the functionality in Iteration 3 is not complete | Iteration 2 is not complete |
 **Object Oriented Programming** | Project adheres to SRP. Methods are well factored to include the use of helpers and code is DRY, likely through the use of concepts not yet taught in class. | Project correctly uses classes to create `Vehicle` and `Facility` objects from outside data as specified. The same `Facility` class is used for multiple data sources.  | Project uses classes to create `Vehicle` and `Facility` objects from outside data but may rely on unnecessary additional classes. | Project does not use `Vehicle` or `Facility` classes effectively for creating objecst from the provided data sources. |

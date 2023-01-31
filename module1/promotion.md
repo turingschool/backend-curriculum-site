@@ -18,11 +18,11 @@ You will complete four projects throughout Module 1, each of which will be asses
   * You must pass EITHER the Paired Project OR Solo Project #2
 * Week 5-6: [Group Project](./projects)
   * You must pass the Final Project
-  * No rubric category can score Well Below Expectations
+  * No rubric category can score Below Expectations
 
 ## Assessments and Independent Challenges
 
-You will complete two assessments and three weekly Independent Challenges in Module 1, each of which will be assesed on a scale of Well Below Expectations, Below Expectations, Meets Expectations, and Exceeds Expectations. Meets Expectations is considered a passing score.
+You will complete two assessments and three weekly Independent Challenges in Module 1, each of which will be assesed on a scale of Below Expectations, Approaching Expectations, Meets Expectations, and Exceeds Expectations. Meets Expectations is considered a passing score.
 
 ### Assessments
 1. Mid Module Assessment (aka "Mid Mod")
