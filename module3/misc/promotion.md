@@ -9,17 +9,22 @@ Promoted students will demonstrate proficiency in the material outlined in the [
 
 They will demonstrate these proficiencies through their performance on [projects](../projects), and the final assessment.
 
-## Completion Requirements
+## Projects
 
-In order to graduate from Module 3, students must complete each of the following:
+Students will complete four projects throughout Module 3, each of which will be assessed according to a rubric. A passing project will “Meet Expectations” (per the rubric) for most categories. Your instructors will determine if your project is passing during your evaluation. 
+
+In order to promote to module 4, you must submit every project to be eligible for promotion. Additionally, you must pass EITHER the Pair OR Group project, AND you must pass the Final Solo Project.
+
+Projects: 
+
+1. Week 1: Pair Project
+1. Week 2: Solo Project #1
+1. Week 4-5: Group Project
+1. Week 6: Final Solo Project
 
 ### Final Assessment
 
 Students must meet the expectations laid out in the [final assessment info](./final_assessment).
-
-### Final Project
-
-Students should complete the final project expectations with a passing score. 
 
 ### Career Development
 
