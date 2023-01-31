@@ -44,8 +44,8 @@ voice. Let's setup a usage like this:
 => 100
 > jb.play
 => 4 # plays the four sounds slower with Boing voice
-> jb.voice = "Alice"
-=> "Alice"
+> jb.voice = "Daniel"
+=> "Daniel"
 > jb.play
 => 4 # plays the four sounds slower with Alice voice
 > jb.reset_rate
