@@ -69,7 +69,7 @@ $ pry
 
 For this final section, add a `play` method to your JungleBeat class that will generate the string content of the JungleBeat and use it as input to the `say` command.
 
-```
+```ruby
 > require "./lib/jungle_beat"
 > require "./lib/linked_list"
 > require "./lib/node"
