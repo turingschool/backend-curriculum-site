@@ -156,6 +156,7 @@ pry(main)> registrant_1.permit?
 #=> true
 
 pry(main)> facility_1.administer_written_test(registrant_1)
+#=> false
 
 pry(main)> registrant_1.license_data
 #=> {:written=>false, :license=>false, :renewed=>false}
@@ -176,6 +177,7 @@ pry(main)> registrant_2.permit?
 #=> false
 
 pry(main)> facility_1.administer_written_test(registrant_2)
+#=> false
 
 pry(main)> registrant_2.earn_permit
 
@@ -192,16 +194,17 @@ pry(main)> registrant_3.permit?
 #=> false
 
 pry(main)> facility_1.administer_written_test(registrant_3)
+#=> false
 
 pry(main)> registrant_3.earn_permit
 
 pry(main)> facility_1.administer_written_test(registrant_3)
+#=> false
 
 pry(main)> registrant_3.license_data
 #=> {:written=>false, :license=>false, :renewed=>false}
 
 # Road Test
-
 
 pry(main)> facility_1.administer_written_test(registrant_3)
 
