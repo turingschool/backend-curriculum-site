@@ -17,6 +17,8 @@ Expected behavior:
 
 ```ruby
 > require "./lib/linked_list"
+> require "./lib/node"
+
 > list = LinkedList.new
 > list.append("plop")
 => "plop"
