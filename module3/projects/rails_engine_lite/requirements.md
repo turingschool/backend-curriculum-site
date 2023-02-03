@@ -160,6 +160,7 @@ In total, the MINIMUM requirement will be 11 endpoints:
 * section one has 9 endpoints
 * section two has 2 endpoints
 
+You can reference the [Wireframes](./wireframes) to get a better idea of how these endpoints might be used in a frontend application.
 ---
 
 # 3. API requests/responses, more detail

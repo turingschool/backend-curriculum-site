@@ -8,7 +8,9 @@ type: project
 
 ## Project Description
 
-You are working for a company developing an E-Commerce Application. Your team is working in a service-oriented architecture, meaning the front and back ends of this application are separate and communicate via APIs. Your job is to expose the data that powers the site through an API that the front end will consume.
+You are working for a company developing an E-Commerce Application. Your team is working in a service-oriented architecture, meaning the front and back ends of this application are separate and communicate via APIs. 
+
+Your job is to expose the data that powers the site through an API that the front end would consume. You won't be building an actual front end for this project, so you can look at [these Wireframes](./wireframes) to get an idea of how the front end would integrate with your back end.
 
 ## Learning Goals
 
