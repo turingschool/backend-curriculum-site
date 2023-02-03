@@ -37,6 +37,8 @@ Expected behavior:
 
 ```ruby
 > require "./lib/linked_list"
+> require "./lib/node"
+
 > list = LinkedList.new
 => <LinkedList head=nil #45678904567>
 > list.head
@@ -63,6 +65,8 @@ Update your `append`, `count`, and `to_s` methods to support the following inter
 
 ```ruby
 > require "./lib/linked_list"
+> require "./lib/node"
+
 > list = LinkedList.new
 => <LinkedList head=nil #45678904567>
 > list.head
