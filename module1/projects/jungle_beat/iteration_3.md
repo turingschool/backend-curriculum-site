@@ -16,6 +16,9 @@ Expected behavior:
 
 ```ruby
 > require "./lib/jungle_beat"
+> require "./lib/linked_list"
+> require "./lib/node"
+
 > jb = JungleBeat.new
 => <JungleBeat list=<LinkedList head=nil #234567890890> #456789045678>
 > jb.list
@@ -68,6 +71,9 @@ For this final section, add a `play` method to your JungleBeat class that will g
 
 ```
 > require "./lib/jungle_beat"
+> require "./lib/linked_list"
+> require "./lib/node"
+
 > jb = JungleBeat.new
 => <JungleBeat list=<LinkedList head=nil #234567890890> #456789045678>
 > jb.append("deep doo ditt woo hoo shu")
