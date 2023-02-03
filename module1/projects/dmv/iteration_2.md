@@ -152,7 +152,7 @@ pry(main)> facility_2 = Facility.new({name: 'Ashland DMV Office', address: '600 
 pry(main)> registrant_1.license_data
 #=> {:written=>false, :license=>false, :renewed=>false}
 
-pry(main)> registrant_1.permit
+pry(main)> registrant_1.permit?
 #=> true
 
 pry(main)> facility_1.administer_written_test(registrant_1)
@@ -172,13 +172,12 @@ pry(main)> registrant_1.license_data
 pry(main)> registrant_2.age
 #=> 16
 
-pry(main)> registrant_2.permit
+pry(main)> registrant_2.permit?
 #=> false
 
 pry(main)> facility_1.administer_written_test(registrant_2)
 
 pry(main)> registrant_2.earn_permit
-#=> true
 
 pry(main)> facility_1.administer_written_test(registrant_2)
 #=> true
@@ -189,13 +188,12 @@ pry(main)> registrant_2.license_data
 pry(main)> registrant_3.age
 #=> 15
 
-pry(main)> registrant_3.permit
+pry(main)> registrant_3.permit?
 #=> false
 
 pry(main)> facility_1.administer_written_test(registrant_3)
 
 pry(main)> registrant_3.earn_permit
-#=> true
 
 pry(main)> facility_1.administer_written_test(registrant_3)
 
@@ -208,7 +206,6 @@ pry(main)> registrant_3.license_data
 pry(main)> facility_1.administer_written_test(registrant_3)
 
 pry(main)> registrant_3.earn_permit
-#=> true
 
 pry(main)> facility_1.administer_written_test(registrant_3)
 
