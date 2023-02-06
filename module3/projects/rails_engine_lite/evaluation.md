@@ -18,10 +18,10 @@ Choose at least one part of your project that you’d like specific feedback on.
 
 ### Feedback Session
 
-* 4: Student comes prepared to answer all question/tasks outlined in the Feedback Session Format above. Student also participates with other peers to either ask further questions or offer additional feedback. 
-* 3: Student comes prepared to answer all question/tasks outlined in the Feedback Session Format above.
-* 2: Student participates in the feedback session, but does not come prepared to answer all questions/tasks outlined in the Feedback Session Format above. 
-* 1: Student is unprepared for the feedback session, and does not come prepared to participate. 
+* Exceeds Expectations:  Student comes prepared to answer all question/tasks outlined in the Feedback Session Format above. Student also participates with other peers to either ask further questions or offer additional feedback. 
+* Meets Expectations: Student comes prepared to answer all question/tasks outlined in the Feedback Session Format above.
+* Below Expectations: Student participates in the feedback session, but does not come prepared to answer all questions/tasks outlined in the Feedback Session Format above. 
+* Well Below Expectations: Student is unprepared for the feedback session, and does not come prepared to participate. 
 
 ### Feature Delivery
 
