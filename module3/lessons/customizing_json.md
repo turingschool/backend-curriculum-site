@@ -41,7 +41,7 @@ Let's use the [json:api](https://jsonapi.org/) specification for our JSON respon
 
 ### Adding to Our Existing Project
 
-You may have created a repo to code-along with from the [Building an API in Rails](https://backend.turing.edu/module3/lessons/building_a_rails_api) lesson. Feel free to use the repository that you created. Otherwise, you can clone [this](https://github.com/turingschool-examples/building_an_api_2210) repo, and use the `build_api_workshop_complete` branch. Below are instructions for getting started from scratch.
+You may have created a repo to code-along with from the [Building an API in Rails](https://backend.turing.edu/module3/lessons/building_a_rails_api) lesson. Feel free to use the repository that you created. Otherwise, you can clone [this](https://github.com/turingschool-examples/building_an_api_2210) repo, and use the `main` branch. Below are instructions for getting started with this repo.
 
 ```bash
 git clone git@github.com:turingschool-examples/building_an_api_2210.git
