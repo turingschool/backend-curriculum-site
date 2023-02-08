@@ -13,9 +13,10 @@ title: Relational Rails
 
 ## Requirements
 
-- must use Rails 5.2.x
-- must use PostgreSQL
-- must "handroll" all routes (no use of `resources` syntax)
+- Must use Rails 5.2.x
+- Must use PostgreSQL
+- Must "handroll" all routes (no use of `resources` syntax)
+- Use of `scope` syntax is not permitted on this project
 
 ## Permission
 
