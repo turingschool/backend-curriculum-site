@@ -348,7 +348,6 @@ These endpoints should:
 * allow the user to specify a 'name' query parameter:
   * for merchants, the user can send `?name=ring` and it will search the `name` field in the database table
   * for items, the user can send `?name=ring` and it will search the `name` field in the database table
-    * this should find a name of 'Titanium Ring' and anything with a description like 'This silver chime will bring you cheer!'
   * the search data in the `name` query parameter should require the database to do a case-insensitive search for text fields
     * eg, searching for 'ring' should find 'Turing' and 'Ring World'
 * allow the user to send one or more price-related query parameters, applicable to items only:
