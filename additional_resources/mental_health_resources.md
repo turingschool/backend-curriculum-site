@@ -22,9 +22,8 @@ subheading: Mental Health Resources
 
     <h3>Financial stress</h3>
     <p>
-      For financial concerns, you can reach out directly to Darren Smith on
-      Slack; he can connect you with various services (especially in the
-      Colorado area), or help you find services in your area, to help alleviate
+      For financial concerns, you can reach out directly to Tamika Shipp on
+      Slack; she can connect you with various services to help alleviate
       financial stressors.
     </p>
 

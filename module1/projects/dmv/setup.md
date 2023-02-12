@@ -16,6 +16,10 @@ _[Back to The DMV Home](./index)_
   origin	git@github.com:<YOUR_USERNAME>/the_dmv.git (fetch)
   origin	git@github.com:<YOUR_USERNAME>/the_dmv.git (push)
   ```
-
+* After you clone your fork, navigate into the project root directory and run `bundle install`:
+  ```
+  cd the_dmv
+  bundle install
+  ```
 * Complete the iterations included in the project requirements
 * Remember to commit frequently!
