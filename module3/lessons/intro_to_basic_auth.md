@@ -474,7 +474,6 @@ What we're actually storing in the database is a **hash** or **digest** of the u
 def login
   user = User.find_by(username: params[:username])
   if user.authenticate(params[:password])
-    session[:user_id] = user.id
     flash[:success] = "Welcome, #{user.username}!"
     redirect_to root_path
   else
