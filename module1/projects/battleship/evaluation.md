@@ -5,9 +5,7 @@ length: 2 week
 type: project
 ---
 
-For the project eval, you should prepare a 10 minute video presentation that clearly demonstrates the presentation points listed below. To create your video presentation, we suggest hopping on a zoom call with your partner, sharing your screen, and recording your meeting as you go through the presentation points. Then, upload that video to either your Google Drive or YouTube. When submitting, the survey form will ask for your presentation video link.
-
-The technical presentation portion is outlined below with what points should be covered. If you have questions about the presentation, please let an instructor know before the time it's due.
+For the project eval, you should prepare to speak to the presentation points listed below. If you have questions about the presentation, please let an instructor know before the time it's due.
 
 
 ## Presentation points:
