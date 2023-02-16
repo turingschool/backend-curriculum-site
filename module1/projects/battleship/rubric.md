@@ -7,7 +7,7 @@ _[Back to Battleship Home](./index)_
 
 ## Creating a Presentation for Evaluation
 
-Please reference [these instructions](./evaluation), to prepare a video presentation to submit for evaluation.
+Please reference [these instructions](./evaluation), to prepare for your project evaluation.
 
 ## Evaluation Rubric
 
