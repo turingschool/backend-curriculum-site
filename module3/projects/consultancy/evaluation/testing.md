@@ -15,7 +15,7 @@ Each Repo meets the following:
 
 ---
 
-__When the above criteria is met, here are additional points to achieve a 4__
+__When the above criteria is met, here are additional points to Exceed Expectations__
 
 Frontend
 - [ ] API calls to backend, and OAuth, are tested using mocks/stubs
