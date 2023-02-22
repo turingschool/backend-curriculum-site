@@ -53,7 +53,7 @@ Each group member should create a version of their current resume that lists Con
 
 ---
 
-__When the above criteria is met, here are additional points to achieve a 4__
+__When the above criteria is met, here are additional points to Exceed Expectations__
 
 Demo or Presentation
 - [ ] ENV variables are changed on Heroku to point to invalid backend/services or API keys, or backend services are somehow taken offline; frontend shows a user-friendly error scenario
