@@ -4,7 +4,7 @@ title: Consultancy - Evaluation
 type: project
 ---
 
-## Feature Delivery
+## Feature Delivery 
 
 Each Repo meets the following:
 
@@ -21,7 +21,7 @@ Rails Backend
 
 ---
 
-__When the above criteria is met, here are additional points to achieve a 4__
+__When the above criteria is met, here are additional points to Exceed Expectations__
 
 - Additional Stories/Features implemented above MVP
     - [ ] Rails Front End
