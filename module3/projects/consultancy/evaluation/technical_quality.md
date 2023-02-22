@@ -51,7 +51,7 @@ Rails Backend
 
 ---
 
-__When the above criteria is met, here are additional points to achieve a 4__
+__When the above criteria is met, here are additional points to achieve Exceed Expectations__
 
 
 - Optimization technique is implemented in one of the following:
