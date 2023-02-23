@@ -37,13 +37,14 @@ These projects are listed (roughly) in order of difficulty.
 * [Chisel](./chisel)
 * [Head Count](./headcount)
 * [Enigma](./enigma)
+* [Night Writer](./night_writer)
 * [Black Thursday](./black_thursday)
 
 <!--
 Projects in Use:
-  * [War or Peace](./war_or_peace)
+  * [Flashcards](./flashcards)
+  * [Jungle Beat](./jungle_beat)
   * [Connect Four](./connect_four)
   * [Battleship](./battleship)
-  * [Futbol](./futbol)
-  * [Night Writer](./night_writer)
+  * [Futbol](./futbol) - technical version
 -->
