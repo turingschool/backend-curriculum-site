@@ -32,10 +32,10 @@ Time-box recommendations are in each section's instructions, and also included h
 
 1. [Ruby and Rails versions installation guide](https://backend.turing.edu/module3/misc/ruby_and_rails_versions)
 1. [Get Module 2 Tools](./tools)
-1. Styling (2 hrs total)
+1. Styling (4 hrs total)
     * [Intro to HTML](./html)
     * [Intro to CSS](./css)
-    * [Static Challenge](./static_challenge)
+    * [Static Challenge](./static_challenge) (2h)
 1. [Intro to SQL](./sql) (6 hrs total, 2 hrs each section)
 1. [Rails Tutorial: Task Manager](https://github.com/turingschool-examples/task_manager_rails) (Until complete)
 
@@ -46,7 +46,7 @@ Do a modified version of the assignments above:
 * Complete a timed [Static Challenge](./static_challenge) (2 hrs)
     * If you did Challenge 1 the first time, do Challenge 2, and vice versa.
     * As you work, reference the [W3Schools HTML5 Tutorial](https://www.w3schools.com/html/default.asp) and [W3Schools CSS Tutorial](https://www.w3schools.com/css/default.asp)
-* [Intro to SQL](./sql) (3/4 hrs total, 1 hr each section)
+* [Intro to SQL](./sql) (3-4 hrs total, 1 hr each section)
     * You can skip the Jumpstart Lab tutorial if you like. You can use the Checks for Understanding as a gauge of whether you need to review it or not.
     * Work on the SQL exercises. Spend at least 1 hour in all three sections.
     * Complete the Checks for Understanding
@@ -57,4 +57,4 @@ Do a modified version of the assignments above:
 
 ## Submission
 
-When you are finished, fill out [this form](https://forms.gle/6Dr4HWJnbqF515zx7).
+When you are finished, fill out [this form](https://forms.gle/11Zoi4zPsX27utbs6). 
