@@ -32,7 +32,7 @@ Here are some helpful videos and tutorials that you can use to familiarize yours
 * [Instructor Dione Wilson demonstrates the process of building an API for 2006](https://vimeo.com/469621034/d0d5febb9d)
 * [Instructor Ian Douglas demonstrates the process of building an API for 2005](https://vimeo.com/452734115/8b3bd1adf0)
 
-#### Do both
+#### Do all of these
 * [Build an API in Rails Tutorial](https://github.com/turingschool/backend-curriculum-site/blob/gh-pages/module3/lessons/exercises/building_an_api.md)
 * [Play with Postman in order to test the API you built out in the last lesson.](https://learning.postman.com/docs/introduction/overview/)
 * [Consuming an API](https://github.com/turingschool/backend-curriculum-site/blob/gh-pages/module3/lessons/consuming_an_api.md)
