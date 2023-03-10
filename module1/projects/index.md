@@ -7,11 +7,11 @@ title: Backend Module 1 Projects
 
 The following projects will be assigned and their completion is required to be promoted to module 2.
 
-* Week 1 (ungraded): [Flashcards](./flashcards)
+* Week 1 (ungraded): [War or Peace](./war_or_peace)
 * Week 1-2 (Solo): [Jungle Beat](./jungle_beat)
 * Week 2-3 (Solo): [The DMV](./dmv)
 * Week 3-4 (Paired): [Battleship](./battleship) or [Connect Four](./connect_four)
-* Week 5-6 (Group Final): [Futbol](./futbol_pd)
+* Week 5-6 (Group Final): [Futbol PD](./futbol_pd)
 
 ## Extension Projects
 
@@ -26,7 +26,7 @@ The following projects are not required. Students can use these projects as an o
 
 These projects are listed (roughly) in order of difficulty.
 
-* [War or Peace](./war_or_peace)
+* [Flashcards](./flashcards)
 * [Perilous Journey](./perilous_journey)
 * [Mastermind](./mastermind)
 * [Event Manager](./eventmanager)
@@ -42,7 +42,7 @@ These projects are listed (roughly) in order of difficulty.
 
 <!--
 Projects in Use:
-  * [Flashcards](./flashcards)
+  * [War or Peace](./war_or_peace)
   * [Jungle Beat](./jungle_beat)
   * [Connect Four](./connect_four)
   * [Battleship](./battleship)
