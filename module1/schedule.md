@@ -96,8 +96,6 @@ layout: page
     * Submit [Pair Project](./projects)
     * Professional Development: LinkedIn Draft
 
-  * **Other**
-    * No Class Monday, February 20 | President's Day
 
 ## Week 5
 
