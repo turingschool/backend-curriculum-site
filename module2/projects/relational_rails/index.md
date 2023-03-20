@@ -56,16 +56,18 @@ Here is an example diagram:
 You can create as many columns on each table as you would like, but we need a few columns represented on each table:
 
 1. One string column for a 'name'
-1. One boolean column
-1. One numeric column
-1. Two DateTime columns: `created_at` and `updated_at`
+2. One boolean column
+3. One numeric column
+4. Two DateTime columns: `created_at` and `updated_at`
 
 A couple of things to keep in mind as you're designing your schema:
 
 * Foreign Keys do not count as an integer column.
 * You should not create columns that duplicate data. For example, in Pets/Shelters, a Shelter should not store a "pet_count" column since the count of Pets can also be found by counting the number of associated pets.
 
-**Schema Design will be reviewed as part of our first check-in.**
+**Please send your instructors your chosen Parent/Child objects by Tuesday EOD.** We are happy to help you choose your objects if you like! 
+
+**Your schema and any model/feature testing will be reviewed as part of our first check-in.**
 
 --------
 
@@ -81,7 +83,7 @@ Each user story will focus on one of the following:
 * __CRUD Functionality__
 * __Usability__: Users should be able to use the site easily. This means making sure there are links/buttons to reach all parts of the site and the styling/layout is sensible.
 
-_Note_: When writing code for each user story, it is important to go in numerical order; don't jump around. You may notice some later user stories "overwriting" earlier stories - this is intentional and mimics what you may experience on the job when working with real clients. 
+_Note_: When writing code for each user story, it is important to go in **numerical** order; don't jump around. You may notice some later user stories "overwriting" earlier stories - this is intentional and mimics what you may experience on the job when working with real clients. 
 
 ## Iteration 1
 
@@ -196,8 +198,6 @@ As a visitor
 When I visit a parent show page ('/parents/:id')
 Then I see a link to take me to that parent's `child_table_name` page ('/parents/:id/child_table_name')
 ```
-
-**Iteration 1 will be reviewed at your second check-in**
 
 ---
 
