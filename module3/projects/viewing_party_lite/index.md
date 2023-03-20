@@ -59,7 +59,7 @@ For the project evaluation each project team should prepare a 10 minute **video*
 
 All team members are expected to participate equally in the presentation. Students should focus on practicing technical communication that is succinct and utilizes appropriate technical vocabulary.
 
-Please open a pull request on the [Turing Viewing Party Repo](https://github.com/turingschool-examples/viewing_party_lite). Instructors will review the video presentation and do a brief code review (so please make sure you identify an area you'd like feedback in your video, so we can focus where you'd like it most). Scores and final comments will be sent to teams via Slack.
+Please open a pull request on the [Turing Viewing Party Repo](https://github.com/turingschool-examples/viewing_party_lite_7). Instructors will review the video presentation and do a brief code review (so please make sure you identify an area you'd like feedback in your video, so we can focus where you'd like it most). Scores and final comments will be sent to teams via Slack.
 
 Slides are not required, but encouraged as a way to facilitate the presentation along with sharing specific code examples.
 
