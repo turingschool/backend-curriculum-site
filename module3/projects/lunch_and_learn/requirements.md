@@ -187,7 +187,7 @@ Example:
 
 The front-end team has drawn up this wireframe for registration:
 
-![Register Fake](./images/register-fake.png)
+![Register Page](./images/register.png)
 
 Your api should expose this endpoint:
 
@@ -199,8 +199,10 @@ Content-Type: application/json
 Accept: application/json
 
 {
-  "name": "Athena Dao",
-  "email": "athenadao@bestgirlever.com"
+  "name": "Odell",
+  "email": "goodboy@ruffruff.com",
+  "password": "treats4lyf",
+  "password_confirmation": "treats4lyf"
 }
 ```
 
@@ -212,8 +214,8 @@ Accept: application/json
     "type": "user",
     "id": "1",
     "attributes": {
-      "name": "Athena Dao",
-      "email": "athenadao@bestgirlever.com",
+      "name": "Odell",
+      "email": "goodboy@ruffruff.com",
       "api_key": "jgn983hy48thw9begh98h4539h4"
     }
   }
@@ -222,16 +224,68 @@ Accept: application/json
 
 **Requirements:**
 
-* This POST endpoint should NOT call your endpoint like `/api/v1/users?name=Athena Dao&email=athenadao@bestgirlever.com`. You must send a **JSON payload** in the **body** of the request
+* This POST endpoint should NOT call your endpoint like `/api/v1/users?name=Odell&email=goodboy@ruffruff.com&password=treats4lyf&password_confirmation=treats4lyf`. You must send a **JSON payload** in the **body** of the request
   - in Postman, under the address bar, click on "Body", select "raw", which will show a dropdown that probably says "Text" in it, choose "JSON" from the list
   - this is a **hard requirement** to pass this endpoint!
-* A successful request creates a user in your database, and generates a unique api key associated with that user, with a 201 status code. 
-* THIS IS NOT REAL AUTHENTICATION -- Real authentication using bcrypt is an extension. The expectations for this endpoint is that upon creation of this user, a randomly generated code should be stored in the database for that user. This code will be used to add favorites to a particular user's favorite list.
+* A successful request creates a user in your database, creates a password digest, and generates a unique api key associated with that user, with a 201 status code. 
+* Use bcrypt to authenticate and encrypt a password for a new user.
 * Email addresses must be unique. If a unique email address is not used for registration, an appropriate error message should be returned in the response.
+* If passwords do not match, an appropriate error message should be returned in the response.
 
 ---
 
-## 4. Add Favorites
+## 4. Log In User
+
+The front-end team has drawn up this wireframe for registration:
+
+![Log In Page](./images/log_in.png)
+
+Your api should expose this endpoint:
+
+**Request:**
+
+```
+POST /api/v1/sessions
+Content-Type: application/json
+Accept: application/json
+
+{
+  "email": "goodboy@ruffruff.com",
+  "password": "treats4lyf"
+}
+```
+
+**Response:**
+
+```json
+{
+  "data": {
+    "type": "user",
+    "id": "1",
+    "attributes": {
+      "name": "Odell",
+      "email": "goodboy@ruffruff.com",
+      "api_key": "jgn983hy48thw9begh98h4539h4"
+    }
+  }
+}
+```
+
+**Requirements:**
+
+* This POST endpoint should NOT call your endpoint like `/api/v1/sessions?name=Odell&email=goodboy@ruffruff.com&password=treats4lyf&password_confirmation=treats4lyf`. You must send a **JSON payload** in the **body** of the request
+  - in Postman, under the address bar, click on "Body", select "raw", which will show a dropdown that probably says "Text" in it, choose "JSON" from the list
+  - this is a **hard requirement** to pass this endpoint!
+* A successful request returns that user's name, email, and api key. 
+* An unsuccessful request returns an appropriate [400-level status code](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#4xx_Client_errors) and body with a description of why the request wasn't successful.
+* Use bcrypt to authenticate and encrypt a password for a new user.
+  * Potential reasons a request would fail: credentials are bad, etc
+  * **Security tip:** never tell a user which field (email/password) is incorrect, as this alerts malicious users how to attack your site (eg, if they've guessed a correct email address, and you tell them the password is bad, then they don't need to keep guessing email addresses, and can just try to crack the password)
+
+
+---
+
+## 5. Add Favorites
 
 Functionality to add recipes to a favorited list for a particular user can be done with the following request.
 
@@ -270,7 +324,7 @@ Accept: application/json
 
 ---
 
-## 5. Get a User's Favorites
+## 6. Get a User's Favorites
 
 The front-end team has drawn up this wireframe for registration:
 
@@ -339,25 +393,3 @@ The response data should contain exactly these elements and nothing more:
 1. For the recipes and learning resources endpoints, use the REST Countries API to validate that the country parameter passed in is in fact a valid country. If it isn't, return an appropriate [400-level status code](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#4xx_Client_errors).
 2. Add an endpoint to DELETE a favorite ( DELETE '/api/v1/favorites')
 3. Utilize caching OR background workers to optimize API calls.
-4. Implement basic authentication:
-    - wireframes:
-    ![Log In/Register Page](./images/real-authentication.png)
-    - Update registration to require a password and password confirmation.
-    - Use bcrypt to authenticate and encrypt a password for a new user.
-    - Implement Log In Functionality.
-    - Both of the responses for registering and logging in should return that user's information as well as their api_key.
-        ```json
-        {
-          "data": {
-            "type": "user",
-            "id": "1",
-            "attributes": {
-              "name": "Odell",
-		      "email": "goodboy@ruffruff.com",
-              "api_key": "asjdflkn2lk3nsdjfl4243jk7"
-            }
-          }
-        }
-        ```
-
-
