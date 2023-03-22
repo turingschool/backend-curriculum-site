@@ -25,10 +25,10 @@ tags: migrations, databases, relationships, rails, activerecord
 
 ## Set Up
 
-This lesson plan starts at the `associations_tdd_setup` branch of [this SetList repo](https://github.com/turingschool-examples/set_list/tree/associations_tdd_setup). In order to set up the app for this lesson:
+This lesson plan starts at the `songs_show` branch of [this SetList Tutorial repo](https://github.com/turingschool-examples/set_list_tutorial/tree/songs_show). In order to set up the app for this lesson:
 
-* Clone the repo
-* Checkout the `associations_tdd_setup` branch
+* Clone the repo (don't fork!)
+* Checkout the `songs_show` branch
 * Run `bundle install`
 * Run `rails db:{drop,create,migrate,seed}`
 
@@ -195,7 +195,7 @@ Run rspec again and we get passing tests!
 
 ### What about Songs?
 
-What's the relationship between song and artist? Draw this out in a diagram to help visualize the relationship.
+What's the relationship between Song and Artist? Draw this out in a diagram to help visualize the relationship.
 
 Let's create a test to help us drive this out.  Add the following to your `artist_spec.rb` within the greater describe Artist block, but outside of the validations block.
 
@@ -214,7 +214,7 @@ end
 
 ```
 
-When we run this test we get an error something like this:
+When we run this test, we get an error similar to this:
 
 ```
 Failures:
