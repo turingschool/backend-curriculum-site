@@ -1,13 +1,13 @@
 ---
 layout: page
-title: Relational Rails - Peer Code Share
+title: Relational Rails - Evaluation Day Peer Code Share
 ---
 
 _[Back to Relational Rails Home](./)_
 
 ## Peer Code Share
 
-You will be partnered with another student to review each other's code and provide feedback.
+On eval day, you will be partnered with another student to review each other's code and provide feedback.
 
 First, exchange Github repository links with the other student, and clone the repository.
 
@@ -30,4 +30,4 @@ Then, individually, take about 25 minutes to review the other person's code. You
 1. What other feedback do you have for the other person?
 1. What other questions do you have for the other person?
 
-Once both students have finished reviewing code, set up a 40 meeting with each other. During that meeting, both students should share their answers to the questions above.
+Once both students have finished reviewing code, set up a 45-minute meeting with each other. During that meeting, both students should share their answers to the questions above.

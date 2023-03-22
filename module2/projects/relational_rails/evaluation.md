@@ -13,6 +13,8 @@ Students will meet 1:1 with an instructor after the project is turned in. Be pre
 * Run tests (`bundle exec rspec spec/models` and `bundle exec rspec spec/features`)
 * Show your schema & relationships
 * Choose a user story to walk through and explain at a high level how your solution works.
+  * Note: "high level" in this sense doesn't mean *reading* the code out loud. Instead, try to describe what the code you wrote is doing in your own words. 
+* Feel free to ask any remaining questions you have during this evaluation time. 
 
 ## Rubric
 

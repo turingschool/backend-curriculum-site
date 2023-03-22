@@ -10,6 +10,8 @@ You must complete and submit all of these assignments. *It is due the Saturday b
 
 Submit your work here: [Survey Link](https://forms.gle/SzrTxMFjYUQLbqbY8)
 
+You must use Ruby 3.1.1 and Rails 7.0.4.x for all of the work in this module. You can check your version by running `ruby -v` and `rails -v` in your terminal.
+
 
 ## Core Learning Goals of Mod 3
 
@@ -24,15 +26,19 @@ Submit your work here: [Survey Link](https://forms.gle/SzrTxMFjYUQLbqbY8)
 
 Everything we build in Mod 3 will focus on the theme of building and consuming APIs.
 
-Here are some helpful videos and tutorials that you can use to familiarize yourself with both building and consuming APIs.
+Here are some helpful videos and tutorials that you can use to familiarize yourself with both building and consuming APIs. The videos are using Rails 5, but the concepts are the same. The build an API in Rails Tutorial has been updated to use Rails 7.
 
 #### Watch one
 * [Instructor Dione Wilson demonstrates the process of building an API for 2006](https://vimeo.com/469621034/d0d5febb9d)
 * [Instructor Ian Douglas demonstrates the process of building an API for 2005](https://vimeo.com/452734115/8b3bd1adf0)
 
-#### Do both
-* [Build an API in Rails Tutorial-Part 1](https://www.digitalocean.com/community/tutorials/build-a-restful-json-api-with-rails-5-part-one)
-* [Consume and test an API in Postman Tutorial](https://www.guru99.com/postman-tutorial.html)
+#### Do all of these
+* [Build an API in Rails Tutorial](https://github.com/turingschool/backend-curriculum-site/blob/gh-pages/module3/lessons/exercises/building_an_api.md)
+* [Play with Postman in order to test the API you built out in the last lesson.](https://learning.postman.com/docs/introduction/overview/)
+* [Consuming an API](https://github.com/turingschool/backend-curriculum-site/blob/gh-pages/module3/lessons/consuming_an_api.md)
+
+#### Stuff to Read
+* [Sandi Metz' Rules for Developers](https://robots.thoughtbot.com/sandi-metz-rules-for-developers)
 
 ### Authentication / Authorization
 
@@ -76,10 +82,6 @@ Entering Module 3 with a solid understanding of ActiveRecord and SQL is key to g
 
 
 ### Reading
-
-We will discuss the following on the first day of the inning:
-
-* [Learning, Fast and Slow](https://drive.google.com/file/d/1tBU_FF_kYLHltyvc6ZEPfb3LiYYQRreT/view?usp=sharing)
 
 # For further exploration
 
