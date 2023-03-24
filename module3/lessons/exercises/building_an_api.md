@@ -68,7 +68,7 @@ Note that we are namespacing under `/api/v1`. This is how we are going to names
 
 On the first line of our test, we want to set up our data. We configured Factory Bot so let's have it generate some books for us. We then want to make the request that a user would be making. We want a `get` request to `api/v1/books` and we would like to get json back. At the end of the test we want to assert that the response was a success.
 
-**spec/requests/api/v1/books_request_spec.rb**
+*spec/requests/api/v1/books_request_spec.rb*
 
 ```ruby
 require 'rails_helper'
@@ -126,7 +126,7 @@ $ bundle exec rails db:migrate
 
 Before we run our test again, let's take a look at the Book Factory that was generated for us.
 
-**********************************************spec/factories/books.rb**********************************************
+*spec/factories/books.rb*
 
 ```ruby
 FactoryBot.define do
@@ -142,7 +142,7 @@ end
 
 We can see that the attributes are created with auto-populated data using `My` and the attribute data type. BORRRRINNNNNNG. Let’s use Faker to generate data for us.
 
-**********************************************spec/factories/books.rb**********************************************
+*spec/factories/books.rb*
 
 ```ruby
 FactoryBot.define do
@@ -174,7 +174,7 @@ We should get the error:
 
 This is because we haven't yet set up our routing.
 
-********************************config/routes.rb********************************
+*config/routes.rb*
 
 ```ruby
 Rails.application.routes.draw do
@@ -222,7 +222,7 @@ $ touch app/controllers/api/v1/books_controller.rb
 
 We can add the following to the controller we just made:
 
-********************************app/controllers/api/v1/books_controller.rb********************************
+*app/controllers/api/v1/books_controller.rb*
 
 ```ruby
 class Api::V1::BooksController < ApplicationController
@@ -231,7 +231,7 @@ end
 
 And then we also want to add the action to the controller.
 
-********************************app/controllers/api/v1/books_controller.rb********************************
+*app/controllers/api/v1/books_controller.rb*
 
 ```ruby
 class Api::V1::BooksController < ApplicationController
@@ -246,7 +246,7 @@ Now lets see if we can actually get some data.
 
 Let us add more to our test.
 
-************************************************************************************spec/requests/api/v1/books_request_spec.rb************************************************************************************
+*spec/requests/api/v1/books_request_spec.rb*
 
 ```ruby
 require 'rails_helper'
@@ -268,7 +268,7 @@ When we run our tests again, we get a semi-obnoxious `JSON::ParserError`.
 
 Well that makes sense. We aren't actually rendering anything yet. Let's render some JSON from our controller.
 
-************************************************************************************app/controllers/api/v1/books_controller.rb************************************************************************************
+*app/controllers/api/v1/books_controller.rb*
 
 ```ruby
 class Api::V1::BooksController < ApplicationController
@@ -286,7 +286,7 @@ If you just type `response` you can take a look at the entire response object.
 
 The data we got back is json, and we need to parse it to get a Ruby object. Try entering  `JSON.parse(response.body)`. As you see, the data looks a lot more like Ruby after we parse it. Now that we have a Ruby object, we can make assertions about it.
 
-************************spec/requests/api/v1/books_request_spec.rb************************
+*spec/requests/api/v1/books_request_spec.rb*
 
 ```ruby
 require 'rails_helper'
@@ -334,7 +334,7 @@ Now we are going to test drive the `/api/v1/books/:id` endpoint. From the `sh
 
 First, let's add a test to our existing test file. As you can see, we have added a key `id` in the request:
 
-**************************spec/requests/api/v1/books_request_spec.rb**************************
+*spec/requests/api/v1/books_request_spec.rb*
 
 ```ruby
 it "can get one book by its id" do
@@ -381,7 +381,7 @@ Run the tests and the first error we get is:
 
 Let’s update our routes:
 
-************************config/routes.rb************************
+*config/routes.rb*
 
 ```ruby
 Rails.application.routes.draw do
@@ -406,7 +406,7 @@ Let’s run our tests and:
 
 So right now we should add our action and then declare what data should be returned from the endpoint:
 
-************************************************************************************app/controllers/api/v1/books_controller.rb************************************************************************************
+*app/controllers/api/v1/books_controller.rb*
 
 ```ruby
 class Api::V1::BooksController < ApplicationController
@@ -428,7 +428,7 @@ Let's start with adding the test to our test file. Since we are creating a new b
 
 Also note that we aren't parsing the response to access the last book we created, we can simply query for the last Book record created.
 
-******************************************************spec/requests/api/v1/books_request_spec.rb******************************************************
+*spec/requests/api/v1/books_request_spec.rb*
 
 ```ruby
 it "can create a new book" do
@@ -467,7 +467,7 @@ Run the test and you should get:
 
 We have been to this rodeo before. Let’s add a route and an action:
 
-********************************config/routes.rb********************************
+*config/routes.rb*
 
 ```
 namespace :api do
@@ -477,7 +477,7 @@ namespace :api do
 end
 ```
 
-**app/controllers/api/v1/books_controller.rb**
+*app/controllers/api/v1/books_controller.rb*
 
 ```ruby
 def create
@@ -502,7 +502,7 @@ This occurs because we aren’t actually creating anything yet.
 
 We are going to create an book with the incoming params. Let's take advantage of all the niceties Rails gives us and use strong params.
 
-************************************************************************************app/controllers/api/v1/books_controller.rb************************************************************************************
+*app/controllers/api/v1/books_controller.rb*
 
 ```ruby
 def create
@@ -524,7 +524,7 @@ Like before, let's add a test.
 
 This test looks very similar to the previous one we wrote. Note that we aren't making assertions about the response, instead we are accessing the book we updated from the database to make sure it actually updated the record.
 
-********spec/requests/api/v1/books_request_spec.rb********
+*spec/requests/api/v1/books_request_spec.rb*
 
 ```ruby
 it "can update an existing book" do
@@ -545,7 +545,7 @@ end
 
 ### Try to test drive the implementation before you look at the code below.
 
-********************************config/routes.rb********************************
+*config/routes.rb*
 
 ```ruby
 namespace :api do
@@ -555,7 +555,7 @@ namespace :api do
 end
 ```
 
-************************************************************app/controllers/api/v1/books_controller.rb************************************************************
+*app/controllers/api/v1/books_controller.rb*
 
 ```ruby
 def update
@@ -569,7 +569,7 @@ Last one. Finally.
 
 In this test, the last line in this test is refuting the existence of the book we created at the top of this test.
 
-**************************************************************spec/requests/api/v1/books_request_spec.rb**************************************************************
+*spec/requests/api/v1/books_request_spec.rb*
 
 ```ruby
 it "can destroy an book" do
@@ -587,7 +587,7 @@ end
 
 Alternatively, we can also use RSpec's [expect change](https://www.relishapp.com/rspec/rspec-expectations/v/2-0/docs/matchers/expect-change) method as an extra check. In our case, `change` will check that the numeric difference of `Book.count` before and after the block is run is `-1`.
 
-************************************************************************************spec/requests/api/v1/books_request_spec.rb************************************************************************************
+*spec/requests/api/v1/books_request_spec.rb*
 
 ```ruby
 it "can destroy an book" do
@@ -601,7 +601,7 @@ end
 
 Let’s make the test pass.
 
-******************************config/routes.rb******************************
+*config/routes.rb*
 
 ```ruby
 namespace :api do
@@ -611,7 +611,7 @@ namespace :api do
 end
 ```
 
-************************************************************************************app/controllers/api/v1/books_controller.rb************************************************************************************
+*app/controllers/api/v1/books_controller.rb*
 
 ```ruby
 def destroy
@@ -634,7 +634,7 @@ $ touch spec/requests/api/v2/books_request_spec.rb
 
 And let’s add a test.
 
-**spec/requests/api/v2/books_request_spec.rb**
+*spec/requests/api/v2/books_request_spec.rb*
 
 ```ruby
 require 'rails_helper'
@@ -689,7 +689,7 @@ And when we run our tests, we should see an error involving a missing route.
 
 So lets make ourselves an appropriate route:
 
-************config/routes.rb************
+*config/routes.rb*
 
 ```ruby
 Rails.application.routes.draw do
@@ -741,7 +741,7 @@ $ touch app/controllers/api/v2/books_controller.rb
 
 And we also have to add something to the controller, I suppose.
 
-************************************************************************************app/controllers/api/v2/books_controller.rb************************************************************************************
+*app/controllers/api/v2/books_controller.rb*
 
 ```ruby
 class Api::V2::BooksController < ApplicationController
@@ -763,7 +763,7 @@ If we run our tests now, we will get a JSON error because we aren’t actually r
 
 Let’s fix it.
 
-******************app/controllers/api/v2/books_controller.rb******************
+*app/controllers/api/v2/books_controller.rb*
 
 ```ruby
 class Api::V2::BooksController < ApplicationController
@@ -794,7 +794,7 @@ Run the migration.
 
 We need a way to calculate popularity so we are going to use a callback on our model. Check out the [rails docs](https://guides.rubyonrails.org/active_record_callbacks.html) to learn more about callbacks.
 
-******************app/models/book.rb******************
+*app/models/book.rb*
 
 ```ruby
 class Book < ApplicationRecord
@@ -818,7 +818,7 @@ $ mkdir -p app/serializers
 $ touch app/serializers/book_serializer.rb
 ```
 
-************app/serializers/book_serializer.rb************
+*app/serializers/book_serializer.rb*
 
 ```ruby
 class BookSerializer
@@ -839,7 +839,7 @@ end
 
 Now that we have a serializer that formats our books for our json response we can use it in our controller.
 
-**app/controllers/api/v2/books_controller.rb**
+*app/controllers/api/v2/books_controller.rb*
 
 ```ruby
 class Api::V2::BooksController < ApplicationController
