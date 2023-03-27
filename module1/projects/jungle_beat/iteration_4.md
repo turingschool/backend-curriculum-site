@@ -15,11 +15,9 @@ defined list. Insertion of a beat not in the list is rejected. Like this:
 ```ruby
 > jb = JungleBeat.new("deep")
 > jb.append("Mississippi")
-=> 0
 > jb.all
 => "deep"
 > jb.prepend("tee tee tee Mississippi")
-=> 3 # number of beats successfully inserted
 > jb.all
 => "tee tee tee deep"
 ```
@@ -32,7 +30,9 @@ tee dee deep bop boop la na
 
 ### 2. Speed & Voice
 
-Let's make it so the user can control the voice and speed of playback. Originally
+Let's make it so the user can control the voice and speed of playback. You may not have all the voices referenced here available on your machine. You can check which voices you have by following the steps documented [here](https://support.apple.com/guide/mac-help/change-the-voice-your-mac-uses-to-speak-text-mchlp2290/mac).
+
+Originally
 we showed you to use `say -r 500 -v Boing` where `r` is the rate and `v` is the
 voice. Let's setup a usage like this:
 
@@ -47,7 +47,7 @@ voice. Let's setup a usage like this:
 > jb.voice = "Daniel"
 => "Daniel"
 > jb.play
-=> 4 # plays the four sounds slower with Alice voice
+=> 4 # plays the four sounds slower with Daniel voice
 > jb.reset_rate
 => 500
 > jb.reset_voice
