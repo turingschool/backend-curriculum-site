@@ -1,0 +1,79 @@
+<h2> User Story 1: </span> <span class="new_model_name singular"></span> Index</h2>
+
+As a Visitor<br>
+When I visit '/<span class="new_model_name uri"></span>'<br>
+I see all of the <span class="new_model_name plural"></span> listed<br>
+And each of their names links to their proper show page. <br>
+
+
+<h2> User Story 2: <span class="new_model_name singular"></span> Show</h2>
+As a visitor <br>
+When I visit a <span class="new_model_name singular"></span> Show Page ('/<span class="new_model_name uri"></span>/:id')<br>
+I see all of that <span class="new_model_name posessive"></span> attributes<br>
+And I see all of the <span class="parent_model_name plural"></span> associated with that <span class="new_model_name singular"></span><br>
+
+
+<h2>User Story 3: <span class="new_model_name singular"></span> Create</h2>
+As a visitor<br>
+When I visit the <span class="new_model_name singular"></span> Index Page <br> 
+And click on the link to "Add <span class="new_model_name singular"></span>"<br>
+I'm taken to a new page to fill out a form and create a new <span class="new_model_name singular"></span><br>
+When I fill out the form and click submit <br>
+I'm taken back to the <span class="new_model_name singular"></span> Index Page <br>
+Where I can see that new <span class="new_model_name singular"></span> listed <br>
+
+
+<h2>User Story 4: Add <span class="new_model_name singular"></span> to <span class="parent_model_name singular"></span></h2>
+As a visitor<br>
+When I visit a <span class="parent_model_name singular"></span> Show Page <br>
+I see a field to add a <span class="new_model_name singular"></span> for that <span class="parent_model_name singular"></span> <br>
+When I fill in that form with a particular <span class="parent_model_name posessive"></span> id* <br>
+And click the submit button<br>
+I'm taken back to that <span class="parent_model_name posessive"></span> Show page<br>
+Where I see a flash message telling me that the <span class="parent_model_name singular"></span> was added to the <span class="new_model_name singular"></span><br>
+And I can see the newly added <span class="new_model_name singular"></span> listed under that <span class="parent_model_name posessive"></span> <span class="new_model_name plural"></span><br>
+
+* If you'd like, you can use a dropdown to select a <span class="new_model_name singular"></span> instead of inserting the unique id. 
+
+
+<h2> User Story 5: <span class="parent_model_name singular"></span> Show</h2>
+As a visitor<br>
+When I visit a <span class="parent_model_name posessive"></span> show page <br>
+I see a list of <span class="new_model_name plural"></span> associated with that <span class="parent_model_name singular"></span><br>
+Each <span class="new_model_name singular"></span> name links to the proper show page<br>
+
+
+<h2>User Story 6: <span class="new_model_name singular"></span> Update</h2>
+As a visitor<br>
+When I visit a <span class="new_model_name singular"></span> Show Page <br>
+And click on a link to "Update <span class="new_model_name singular"></span>"<br>
+I'm taken to a new page where I can see that <span class="new_model_name posessive"></span> existing attributes prefilled in a form<br>
+When I update any number of the fields and click "Update"<br>
+I'm taken back to that <span class="new_model_name posessive"></span> Show Page<br>
+And I can see that their data has been updated accordingly.<br>
+
+
+<h2>User Story 7: <span class="new_model_name singular"></span> Delete</h2>
+As a visitor<br>
+When I visit a <span class="new_model_name singular"></span> Show Page <br>
+And click on a button to "Delete <span class="new_model_name singular"></span>"<br>
+I'm taken back to the <span class="new_model_name singular"></span> Index Page <br>
+Where I see a flash message telling me that the <span class="new_model_name singular"></span> was deleted<br>
+And I also can see that the <span class="new_model_name singular"></span> is no longer listed on the Index Page. <br>
+
+
+<h2>User Stories 8-9: Advanced ActiveRecord</h2>
+Demonstrate your understanding of Advanced ActiveRecord by coming up with 2 AR Queries that use grouping and/or aggregating to display something within your Web App. <br><br>
+
+For example, if I had the tables of SkiShop(Parent), Employee(Child), and Brand(New Table, many to many relationship with SkiShop), I might come up with the following queries: <br><br>
+<li>US8: On the Employee Show Page, display Brands that the employee has current experience selling.</li>
+<li>US9: On Brands Index Page, list out Brands in order of popularity (number of ski shops carrying that brand).</li>li
+
+
+<h2>User Story 10: Holiday API</h2>
+As a visitor <br>
+When I visit a <span class="parent_model_name posessive"></span> Show Page <br>
+I see a section with a header of "Upcoming Holidays"<br>
+In this section the name and date of the next 3 upcoming US holidays are listed.*<br>
+
+*Use the Next Public Holidays Endpoint in the <a href="https://date.nager.at/swagger/index.html">Nager.Date API</a>
