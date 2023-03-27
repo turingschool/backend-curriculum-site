@@ -21,7 +21,7 @@ Presentation Points:
 
 ### Feature Delivery
 
-* **Exceeds Expectations:** API completely satisfies the needs of the front-end developers and is very convenient and easy to use showing great developer empathy. Project implements at least 3 of the 4 extensions listed on the requirements page. 
+* **Exceeds Expectations:** API completely satisfies the needs of the front-end developers and is very convenient and easy to use showing great developer empathy. Project implements all 3 extensions listed on the requirements page. 
 * **Meets Expectations:** API satisfies the exact needs of the frontend developers. No unnecessary information is sent in a response.
 * **Approaching Expectations:** One or Two of the API endpoints does not completely satisfy the needs of the front-end developers per the project requirements.
 * **Below Expectations:** More than two API endpoints is not functioning per the requirements (such as sending query parameters to a POST endpoint), or multiple endpoints do not satisfy the needs of the front-end developers.
