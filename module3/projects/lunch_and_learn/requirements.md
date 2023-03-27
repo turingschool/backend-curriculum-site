@@ -390,6 +390,8 @@ The response data should contain exactly these elements and nothing more:
 
 ## Extensions
 
+Note: We've come up with 3 extensions. If you have an idea of a different feature/technology you'd like to implement as an alternate extension, run it by your instructors to get confirmation that you can use that idea in place of an extension below. 
+
 1. For the recipes and learning resources endpoints, use the REST Countries API to validate that the country parameter passed in is in fact a valid country. If it isn't, return an appropriate [400-level status code](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#4xx_Client_errors).
 2. Add an endpoint to DELETE a favorite ( DELETE '/api/v1/favorites')
 3. Utilize caching OR background workers to optimize API calls.
