@@ -12,7 +12,7 @@ title: Module 1 Lessons
 * [Methods, Arguments, Return Values](./methods_and_return_values)
 * [Objects, Instances and Classes](./objects_classes_instances)
 * [Enumerables I](./enumerables_i)
-* [Hashes](./introducing_hashes)
+* [Hashes](./hashes)
 * [Scope](./scope)
 * [Working with Files](./working_with_files)
 * [Nested Collections](./nested_collections)
