@@ -228,7 +228,7 @@ Accept: application/json
   - in Postman, under the address bar, click on "Body", select "raw", which will show a dropdown that probably says "Text" in it, choose "JSON" from the list
   - this is a **hard requirement** to pass this endpoint!
 * A successful request creates a user in your database, creates a password digest, and generates a unique api key associated with that user, with a 201 status code. 
-* Use bcrypt to authenticate and encrypt a password for a new user.
+* Use bcrypt to authenticate and create a password digest for a new user.
 * Email addresses must be unique. If a unique email address is not used for registration, an appropriate error message should be returned in the response.
 * If passwords do not match, an appropriate error message should be returned in the response.
 
