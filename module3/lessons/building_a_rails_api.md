@@ -155,7 +155,7 @@ The controller, then, will hand off that data to a Serializer, which can be appr
 
 ## Practice
 
-Complete the exercise [here](https://github.com/turingschool/backend-curriculum-site/blob/gh-pages/module3/lessons/exercises/building_an_api)
+Complete the exercise [here](https://github.com/turingschool/backend-curriculum-site/blob/gh-pages/module3/lessons/exercises/building_an_api.md)
 
 ## Checks for Understanding
 
