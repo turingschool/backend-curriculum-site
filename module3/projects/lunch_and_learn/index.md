@@ -16,6 +16,7 @@ Your team is working in a service-oriented architecture. The front-end will comm
 
 * Expose an API that aggregates data from multiple external APIs
 * Expose an API that requires an authentication token
+* Implement Basic Authentication
 * Expose an API for CRUD functionality
 * Determine completion criteria based on the needs of other developers
 * Test both API consumption and exposure, making use of at least one mocking tool (VCR, Webmock, etc). 
