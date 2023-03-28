@@ -29,11 +29,11 @@ If you have already completed these exercises, delete your work and let's do it 
 
 While working through these exercises, write down any important information you come across. 
 Take note of:
-  - What was challenging? How did you end up solving that challenge?
+  - What was challenging? 
   - What patterns did you observe?
   - What rules did you discover about how hashes work?
   - What syntax did you learn for hashes?
-  - What questions came up?
+  - What questions came up while you were working and how did you get those answered?
   - What questions do you still have?
   - Anything else that seems important.
 
