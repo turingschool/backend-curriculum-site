@@ -58,39 +58,39 @@ Take a minute to look through the questions you still have about Hashes. Add the
 <section class='answer'>
 ### When does it make sense to use a Hash? (As opposed to an array?)
   
-  Hashes (also called Dictionaries in some languages) are great at keeping track of quantities. 
-  They are great when your data can be grouped into key/value pairs.  
+Hashes (also called Dictionaries in some languages) are great at keeping track of quantities. 
+They are great when your data can be grouped into key/value pairs.  
   
 </section>  
   
 <section class='answer'>
 ### How should we name our Hashes?
   
-  Hashes represent a _collection_ of data. It is usually appropriate to call the hash the plural form of what that data represents. 
+Hashes represent a _collection_ of data. It is usually appropriate to call the hash the plural form of what that data represents. 
   
-  Ex:
-  ```ruby
-    toppings: {
-        pepperoni: 5,
-        sausage: 3,
-        pineapple: 500
-   }
-  
-    pets: {
-        cats: 6,
-        dogs: 9
-   }
-  ```
+Ex:
+```ruby
+  toppings: {
+      pepperoni: 5,
+      sausage: 3,
+      pineapple: 500
+ }
+
+  pets: {
+      cats: 6,
+      dogs: 9
+ }
+```
     
 </section>
 
 <section class='answer'>
 ### What data type can a key be?
   
-  Keys of a hash can be any data type. 
-  Often, we see them as symbols.
-  A symbol is an immutable data-type in Ruby. They will start with a `:` (colon).
-  Keys can also be seen commonly as strings, however they can be integers as well.
+Keys of a hash can be any data type. 
+Often, we see them as symbols.
+A symbol is an immutable data-type in Ruby. They will start with a `:` (colon).
+Keys can also be seen commonly as strings, however they can be integers as well.
   
 </section>
 
@@ -109,23 +109,23 @@ For the following questions, let's refer to this code snippet:
 <section class='answer'>
 ### How would we find out how many cookies we have?
   
-  ```ruby
-    grocery_items[:cookies]
-  ```
+```ruby
+  grocery_items[:cookies]
+```
   
-  We call the name of the hash (the variable we stored the hash in), and then use bracket notation to query the key we want.
-  The _return value_ of the above expression will be the value of the key, so in this case: `4`.
+We call the name of the hash (the variable we stored the hash in), and then use bracket notation to query the key we want.
+The _return value_ of the above expression will be the value of the key, so in this case: `4`.
   
 </section>
 
 <section class='answer'>
 ### How would we add a new key of `apples` set to a value of 9?
   
-  ```ruby
-      grocery_items[:apples] = 9
-  ```
+```ruby
+    grocery_items[:apples] = 9
+```
   
-  We call the name of the hash, then use bracket notation to denote the key, then use the assignment operator `=` to set the value of our key to 9. 
+We call the name of the hash, then use bracket notation to denote the key, then use the assignment operator `=` to set the value of our key to 9. 
   
 </section>
 
