@@ -60,7 +60,6 @@ Take a minute to look through the questions you still have about Hashes. Add the
   
 Hashes (also called Dictionaries in some languages) are great at keeping track of quantities. 
 They are great when your data can be grouped into key/value pairs.  
-  
 </section>  
   
 <section class="answer">
@@ -80,8 +79,7 @@ Ex:
       cats: 6,
       dogs: 9
  }
-```
-    
+```  
 </section>
 
 <section class="answer">
@@ -91,7 +89,6 @@ Keys of a hash can be any data type.
 Often, we see them as symbols.
 A symbol is an immutable data-type in Ruby. They will start with a `:` (colon).
 Keys can also be seen commonly as strings, however they can be integers as well.
-  
 </section>
 
 For the following questions, let's refer to this code snippet:
@@ -115,7 +112,6 @@ For the following questions, let's refer to this code snippet:
   
 We call the name of the hash (the variable we stored the hash in), and then use bracket notation to query the key we want.
 The _return value_ of the above expression will be the value of the key, so in this case: `4`.
-  
 </section>
 
 <section class="answer">
@@ -126,7 +122,6 @@ The _return value_ of the above expression will be the value of the key, so in t
 ```
   
 We call the name of the hash, then use bracket notation to denote the key, then use the assignment operator `=` to set the value of our key to 9. 
-  
 </section>
 
 
