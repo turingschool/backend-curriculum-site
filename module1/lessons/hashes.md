@@ -63,7 +63,7 @@ They are great when your data can be grouped into key/value pairs.
 </section>  
   
 <section class="answer">
-### How should we name our Hashes?
+  <h3>How should we name our Hashes?</h3>
   
 Hashes represent a _collection_ of data. It is usually appropriate to call the hash the plural form of what that data represents. 
   
