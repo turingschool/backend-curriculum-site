@@ -55,3 +55,12 @@
 .google-form {
   border: none;
 }
+
+.answer {
+  @extend %call-to-action-shared;
+  border-left: 8px solid #CCC;
+
+  h3 {
+    cursor: pointer;
+  }
+}
