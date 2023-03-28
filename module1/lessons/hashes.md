@@ -55,7 +55,7 @@ Take a minute to look through the questions you still have about Hashes. Add the
 
 ###  Discussion Questions
 
-<section class='answer'>
+<section class="answer">
 ### When does it make sense to use a Hash? (As opposed to an array?)
   
 Hashes (also called Dictionaries in some languages) are great at keeping track of quantities. 
@@ -63,7 +63,7 @@ They are great when your data can be grouped into key/value pairs.
   
 </section>  
   
-<section class='answer'>
+<section class="answer">
 ### How should we name our Hashes?
   
 Hashes represent a _collection_ of data. It is usually appropriate to call the hash the plural form of what that data represents. 
@@ -84,7 +84,7 @@ Ex:
     
 </section>
 
-<section class='answer'>
+<section class="answer">
 ### What data type can a key be?
   
 Keys of a hash can be any data type. 
@@ -106,7 +106,7 @@ For the following questions, let's refer to this code snippet:
   }
 ```
 
-<section class='answer'>
+<section class="answer">
 ### How would we find out how many cookies we have?
   
 ```ruby
@@ -118,7 +118,7 @@ The _return value_ of the above expression will be the value of the key, so in t
   
 </section>
 
-<section class='answer'>
+<section class="answer">
 ### How would we add a new key of `apples` set to a value of 9?
   
 ```ruby
