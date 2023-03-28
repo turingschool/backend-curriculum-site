@@ -1,3 +1,4 @@
+console.log("in expander.js")
 $('.answer > h3').each(function(idx, title) {
   const titleText = $(title).text();
   $(title).replaceWith(`<h3><img class="expander-arrow" src="/assets/images/arrow.svg" alt="expander arrow" /> ${titleText}</h3>`);
