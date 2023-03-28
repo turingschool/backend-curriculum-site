@@ -1,4 +1,7 @@
-# Hashes
+---
+title: Hashes
+layout: page
+---
 
 ### Learning Goals
 - Identify the differences between Hashes and Arrays. 
