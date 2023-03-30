@@ -22,7 +22,7 @@ This project is an extension of the Relational Rails solo project. You will add 
 
 ## Setup
 
-This project is an extension of [Relational Rails](projects/../relational_rails/). Students have two options for setup:
+This project is an extension of [Relational Rails](../projects/../relational_rails/). Students have two options for setup:
 
 1. If you were able to get through Iteration 2 in your Relational Rails project, you can use it as a starting point for this project. 
 1. If you were unable to get through Iteration 1 of Relational Rails project, contact your instructors so they can provide you with a different repo to build off of for this final project. 
@@ -36,6 +36,7 @@ This project is an extension of [Relational Rails](projects/../relational_rails/
 - Must deploy completed application to Heroku
 - Must have 100% coverage in both features and models, including model validations and sad path testing.
 - Must include a README with the project, including a description of the base app and high-level details of the refactoring process (a “change log”). 
+- Use a Project Board (Github Projects, Trello, etc.) to create and track your progress throughout the project.
 - Must use `form_with @model` syntax
 
 
@@ -75,7 +76,7 @@ Once you've decided what your 3rd model will be, and which existing table it wil
 
 Overall, you should have **AT LEAST** 9 User Stories. Those User Stories must contain the following:
 
-- 6 User Stories - CRUD functionality
+- **6 User Stories** - CRUD functionality
     1. New Model Index 
     2. New Model Show 
     3. New Model Create 
@@ -83,16 +84,19 @@ Overall, you should have **AT LEAST** 9 User Stories. Those User Stories must co
     5. New Model Destroy 
     6. Associate New Model with Existing Table
         - Ex: If I had the tables of Schools(Parent), Students(Child), and Clubs(New Model), and my `many-to-many` relationship is between Students and Clubs. I will implement functionality such that a Student can be added to an Existing Club OR a Club can add an existing Student. 
-- 2 User Stories - Advanced ActiveRecord 
+- **2 User Stories** - Advanced ActiveRecord 
     * Demonstrate your understanding of Advanced ActiveRecord by coming up with 2 AR Queries to display within your Web App. 
         - Ex: If I had the tables of SkiShops(Parent), Employees(Child), and Brands(New Model), and my `many-to-many` relationship is between SkiShops and Brands. I might come up with the following functionality to demonstrate my understanding of ActiveRecord:
             1. On the Employee Show Page, display Brands that the employee has current experience selling.
             2. On Brands Index Page, list out Brands in order of popularity (number of ski shops carrying that brand).
-- 1 User Story - API Consumption
+- **1 User Story** - API Consumption
     * Use the Next Public Holidays Endpoint in the [Nager.Date API]("https://date.nager.at/swagger/index.html") to list out upcoming Holidays. This can be displayed on whatever page you choose would be best to display this information.
 
+Requirement: Use a Project Board (Github Projects, Trello, etc.) to create and track your progress on the user stories.
 
+---
 
+### User Story Generator (Optional Resource)
 
 **If you need help coming up with user stories, you can try using the User Story Generator below. Keep in mind, you might need to tweak them to fit your exact scenario, but you might find them useful in at least getting started.** <br>
 
