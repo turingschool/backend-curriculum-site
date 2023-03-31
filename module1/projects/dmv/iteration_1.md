@@ -35,7 +35,7 @@ Before moving on to the next portion of this iteration, reflect on your process 
 
 ## Add a Registrant Class
 
-Let's create a `Registrant` class so our visitors can use our services. Your registrant should have a `name`, `age`, `permit`, and `license_data` attributes. If no value is provided for `permit`, it should [default to false](https://medium.com/@sologoubalex/parameters-with-default-values-in-ruby-74cd0e830681). We should also be able to change a `permit` from `false` to `true` after a `Registrant` has earned their permit.
+Let's create a `Registrant` class so our visitors can use our services. Your registrant should have a `name`, `age`, `permit`, and `license_data` attributes. If no value is provided for `permit`, it should [default to false](https://medium.com/@sologoubalex/parameters-with-default-values-in-ruby-74cd0e830681). We should also be able to change a `permit` from `false` to `true` after a `Registrant` has earned their permit. There is no age limit to when someone can earn their permit.
 
 You are required to use TDD to create your class. Use the interaction pattern to determine what a method should do and write one or more tests to verify that expected behavior. Then you can implement the method. You should always write code with the purpose of making a test pass.
 
