@@ -57,3 +57,4 @@ layout: page
 
 - [How To Write a Great README](../lessons/how_to_write_a_great_readme)
 - [Deploying a Rails App with Fly.io](../misc/deploying_with_fly)
+- [Deploying a Rails App with Render.com](../misc/deploying_with_render)
