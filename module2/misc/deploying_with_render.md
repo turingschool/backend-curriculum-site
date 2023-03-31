@@ -18,8 +18,9 @@ title: Using Render.com to Deploy a Rails App (Student Guide)
 
 2. Locally in the repository you'll be deploying, update the secret key before deploying: 
    1. Delete the existing `config/credentials.yml.enc` file. 
-   2. In Terminal in this repository, run `rails credentials:edit`.
-         - You may need to specify `EDITOR="code" bin/rails credentials:edit` for it to work, otherwise it may give you errors. When successful, it will generate 2 files called `credentials.yml.enc` and `master.key`. The `master.key` file will be ignored by git - this is normal, you do not want to share this key with other teammates. 
+   2. In Terminal in this repository, run `EDITOR="code" bin/rails credentials:edit`.
+         - You do need to specify `EDITOR="code"` for it to work unless it already appears in your Terminal's config file, otherwise it may give you errors. 
+         - When successful, it will generate 2 files called `credentials.yml.enc` and `master.key`. The `master.key` file will be ignored by git - this is normal, you do not want to share this key with other teammates. 
    3. Commit and push the change that added the new `credentials.yml.enc` file to your remote. 
 
 ## Deploying an Existing Rails App
@@ -37,8 +38,9 @@ title: Using Render.com to Deploy a Rails App (Student Guide)
 1. Click the button to Create a New __Web Service__. If you've connected your GitHub account, it will display some of your repositories that you can connect to for this web service. Click `Connect` next to the repo you'd like to deploy. 
 1.  Give the service a name (anything, you can use the same name as the repo)
 1.  In the **Build Command** step, add `rails db:{migrate,seed}` to the end of the string. 
-1.  Make sure your **Instance Type** is **Free**, then click the `Create Web Service` button. 
-1. On the next screen, you'll need to add 2 Environment Variables, so click **Environment**. 
+   - Note that this command will be run each time your application is deployed. As such, your `seeds.rb` file should contain `{Model}.destroy_all` lines at the top so that running the `seed` command in production does not cause duplicate data.
+2.  Make sure your **Instance Type** is **Free**, then click the `Create Web Service` button. 
+3. On the next screen, you'll need to add 2 Environment Variables, so click **Environment**. 
    1. Key = `DATABASE_URL` , Value = your PostgreSQL service's Internal Database URL, from the previous step. 
    2. Key = `RAILS_MASTER_KEY`, Value = your repo's local `master.key` file. 
 
