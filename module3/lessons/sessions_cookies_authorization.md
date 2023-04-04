@@ -32,7 +32,7 @@ How can we have different *kinds* of users in our application, such as a "regu
 
 ### Picking up where we left off
 
-In our previous lesson, we built a login form, had a user log in, but what is the `session` object all about? How does it get built, managed, stored, etc.? (You can start off with this repo [here](https://www.notion.so/Authentication-Repo-71e80f3a01044e6790d5957a9908bb32). You want to use the `authentication-complete` branch).
+In our previous lesson, we built a login form, had a user log in, but what is the `session` object all about? How does it get built, managed, stored, etc.? (You can start off with this repo [here](https://github.com/turingschool-examples/authentication-7/tree/authentication-complete). You want to use the `authentication-complete` branch).
 
 ## Session Management, Configuration
 
