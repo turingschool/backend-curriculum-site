@@ -24,7 +24,8 @@ By the end of this project: <br>
 * Expose an API ⭐ ⭐ ⭐
 * Use serializers to format JSON responses ⭐ ⭐ ⭐
 * Test API exposure ⭐ ⭐ ⭐
-* Use SQL and AR to gather data ⭐ ⭐
+* Error Handling ⭐ ⭐
+* Use SQL and AR to gather data ⭐ 
 * Consume an API ⭐
 
 
@@ -44,3 +45,7 @@ Below are skills that are more general/necessary on the job that are practiced b
 ## Technical Requirements
 
 The Technical Requirements for this project can be found [here](./requirements)
+
+## Evaluation
+
+Evaluation details can be found [here](./evaluation)
