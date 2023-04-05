@@ -73,7 +73,7 @@ RSpec.describe "User registration form" do
     fill_in :username, with: username
     fill_in :password, with: password
 
-    click_on "Create User"
+    click_on "Register as a User"
 
     expect(page).to have_content("Welcome, #{username}!")
   end
@@ -133,7 +133,7 @@ Since this is a new "user" resource, we'll name this as we have in other Rails a
 *app/views/welcome/index.html.erb*
 
 ```html
-<%= link_to "Register as a User", new_users_path %>
+<%= link_to "Register as a User", new_user_path %>
 ```
 
 Be sure to use path helpers wherever you can!
@@ -746,7 +746,7 @@ class UsersController < ApplicationController
   def login
     user = User.find_by(username: params[:username])
     if user.authenticate(params[:password])
-      session[:user_id] = new_user.id
+      session[:user_id] = user.id
       flash[:success] = "Welcome, #{user.username}!"
       redirect_to root_path
     else
