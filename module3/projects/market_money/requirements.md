@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Rails Engine Lite Requirements
+title: Market Money Requirements
 length: 1 week
 tags:
 type: project
