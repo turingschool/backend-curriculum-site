@@ -96,21 +96,20 @@ In total, the MINIMUM requirement will be 12 endpoints:
 <details><summary>1. Get All Markets</summary>
 
   #### Details:
-  1. This endpoint should follow the pattern of `/api/v0/markets` and should return ALL markets in the database.
-  2. In addition to the market's main attributes, the market resource should also list an attribute for `vendor_count`, which is the number of vendors that go to that market. 
+  1. This endpoint should follow the pattern of `GET /api/v0/markets` and should return ALL markets in the database.
+  2. In addition to the market's main attributes, the market resource should also list an attribute for `vendor_count`, which is the number of vendors that are associated with that market. 
   
-  <details><summary>Example Request/Response</summary>
+  <details><summary>Example Request/Response 😁 </summary>
     
   #### Request: 
-
   ```
-    GET /api/v0/vendors/search?name=jelly
+    GET /api/v0/markets
     Content-Type: application/json
     Accept: application/json
   ```
 
   #### Response:
-
+  `status: 200`
   ```json
   {
       "data": [
@@ -160,7 +159,7 @@ In total, the MINIMUM requirement will be 12 endpoints:
   2. If a valid market id is passed in, all market attributes, as well as a `vendor_count` should be returned.  
   3. If an invalid market id is passed in, a 404 status as well as a descriptive error message should be sent back in the response.
 
-  <details><summary>Example Request/Response</summary>
+  <details><summary>Example Request/Response 😁 </summary>
 
   #### Request:
   ```
@@ -170,6 +169,7 @@ In total, the MINIMUM requirement will be 12 endpoints:
   ```
 
   #### Response: 
+  `status: 200`
   ```json
   {
       "data": {
@@ -190,16 +190,38 @@ In total, the MINIMUM requirement will be 12 endpoints:
   }
   ```
 </details>
+
+  <details><summary>Example Request/Response 😭 </summary>
+  
+  #### Request:
+  ```
+    GET /api/v0/markets/123123123123 (where `123123123123` is an invalid Market id)
+    Content-Type: application/json
+    Accept: application/json
+  ```
+
+  #### Response: 
+  `status: 404`
+  ```json
+{
+    "errors": [
+        {
+            "detail": "Couldn't find Market with 'id'=123123123123"
+        }
+    ]
+}
+  ```
+</details>
 </details>
 
 <details><summary>3. Get All Vendors for a Market</summary>
 
 #### Details 
 1. This endpoint should follow the pattern of `GET /api/v0/markets/:id/vendors`
-2. If a valid market id is passed in, a JSON object is sent back with a top-level `data` key that points to a collection of that market's vendors. Each vendor contains all of it's attributes 
+2. If a valid market id is passed in, a JSON object is sent back with a top-level `data` key that points to a collection of that market's vendors. Each vendor contains all of it's attributes.
 3. If an invalid market id is passed in, a 404 status as well as a descriptive error message should be sent back in the response.
 
-<details><summary>Example Request/Response</summary>
+<details><summary>Example Request/Response 😁</summary>
 
 #### Request: 
 ```
@@ -209,6 +231,7 @@ In total, the MINIMUM requirement will be 12 endpoints:
 ```
 
 #### Response: 
+`status: 200`
 ```json
 {
     "data": [
@@ -250,20 +273,48 @@ In total, the MINIMUM requirement will be 12 endpoints:
     ]
 }
 ```
-  </details>
+</details>
+<details><summary>Example Request/Response 😭 </summary>
+  
+  #### Request:
+  ```
+    GET /api/v0/markets/123123123123/vendors (where `123123123123` is an invalid Market id)
+    Content-Type: application/json
+    Accept: application/json
+  ```
+
+  #### Response: 
+  `status: 404`
+  ```json
+{
+    "errors": [
+        {
+            "detail": "Couldn't find Market with 'id'=123123123123"
+        }
+    ]
+}
+  ```
+</details>
 </details>
 
 <details><summary>4. Get One Vendor</summary>
-  <details><summary>Request</summary>
 
+  #### Details
+  1. This endpoint should follow the pattern of `GET /api/v0/vendors/:id`
+  2. If a valid vendor id is passed in, a JSON object is sent back with a top-level `data` key that points to the vendor resource with that id, and all attributes for that vendor.
+  3. If an invalid vendor id is passed in, a 404 status as well as a descriptive error message should be sent back in the response.
+
+<details><summary>Example Request/Response 😁</summary>
+
+#### Request: 
 ```
-  GET /api/v0/vendors/:id
+  GET /api/v0/vendors/1150
   Content-Type: application/json
   Accept: application/json
 ```
-  </details>
-  <details><summary>Response</summary>
 
+#### Response:
+`status: 200`
 ```json 
 {
     "data": {
@@ -279,31 +330,62 @@ In total, the MINIMUM requirement will be 12 endpoints:
     }
 }
 ```
-  </details>
+</details>
+<details><summary>Example Request/Response 😭 </summary>
+  
+  #### Request:
+  ```
+    GET /api/v0/vendors/123123123123 (where `123123123123` is an invalid Vendor id)
+    Content-Type: application/json
+    Accept: application/json
+  ```
+
+  #### Response: 
+  `status: 404`
+  ```json
+{
+    "errors": [
+        {
+            "detail": "Couldn't find Vendor with 'id'=123123123123"
+        }
+    ]
+}
+  ```
+</details>
 </details>
 
 <details><summary>5. Create a Vendor</summary>
-  <details><summary>Request</summary>
 
+  #### Details
+  1. This endpoint should follow the pattern of `POST /api/v0/vendors`, and should pass ALL attributes required to create a vendor (`name`, `description`, `contact_name`, `contact_phone`, and `credit_accepted`) as JSON in the body of the request. (In postman, navigate to `Body` tab, select `raw` and change the format to `JSON` instead of `Text`)
+  2. This endpoint should create a new vendor resource.
+  3. A successful response will return a response with a `201` status code, and return the newly created vendor resource. 
+  4. If any number of attributes are left out in the body of the request, a status code of `400`, as well as a descriptive error message should be sent back in the response.
+  5. Validating the presence of a boolean value can be tricky since `false` is evaluated as `nil`. Validating the presence of a field that could be false will generate some a validation error when we don't mean it to. We'd suggest creating your own [custom validation](https://guides.rubyonrails.org/active_record_validations.html#custom-methods) for validating the presence of a boolean field. 
+  <!-- 5. If the `credit_accepted` parameter is not passed in as a boolean data type, this should also render a status of `400`, and add a descriptive error message as to what went wrong. You may find it helpful to look at [custom validations](https://guides.rubyonrails.org/active_record_validations.html#custom-methods) for this. -->
+
+<details><summary>Example Request/Response 😁</summary>
+
+#### Request:
 ```
   POST /api/v0/vendors
   Content-Type: application/json
   Accept: application/json
 ```
 
-Body: 
+##### Body: 
 ```
 {
     "name": "Buzzy Bees",
     "description": "local honey and wax products",
     "contact_name": "Berly Couwer",
     "contact_phone": "8389928383",
-    "credit_accepted": true
+    "credit_accepted": false
 }
 ```
-  </details>
-  <details><summary>Response</summary>
 
+#### Response:
+`status: 201`
 ```json 
 {
     "data": {
@@ -314,33 +396,70 @@ Body:
             "description": "local honey and wax products",
             "contact_name": "Berly Couwer",
             "contact_phone": "8389928383",
-            "credit_accepted": true
+            "credit_accepted": false
         }
     }
 }
 ```
-  </details>
+</details>
+<details><summary>Example Request/Response 😭 </summary>
+  
+  #### Request:
+  ```
+    POST /api/v0/vendors
+    Content-Type: application/json
+    Accept: application/json
+  ```
+  ##### Body: 
+  ```
+  {
+      "name": "Buzzy Bees",
+      "description": "local honey and wax products",
+      "credit_accepted": false
+  }
+  ```
+
+  #### Response: 
+  `status: 400`
+  ```json
+{
+    "errors": [
+        {
+            "detail": "Validation failed: Contact name can't be blank, Contact phone can't be blank"
+        }
+    ]
+}
+  ```
+</details>
 </details>
 
 <details><summary>6. Update a Vendor</summary>
-  <details><summary>Request</summary>
 
+  #### Details
+  1. This endpoint should follow the pattern of `PATCH /api/v0/vendors/:id`, and can pass any number and combination of attribtues to be updated (`name`, `description`, `contact_name`, `contact_phone`, and `credit_accepted`) as JSON in the body of the request. (In postman, navigate to `Body` tab, select `raw` and change the format to `JSON` instead of `Text`)
+  2. This endpoint should update an existing vendor with any parameters sent in via the body.
+  3. If someone were to try to update a vendor resource to have a `nil` or empty attribute, a proper 400-level status code as well as a descriptive error message should be sent back in the response.
+  4. A successful response will return the newly updated vendor resource. 
+
+<details><summary>Example Request/Response 😁</summary>
+
+#### Request: 
 ```
-  PATCH /api/v0/vendors/:id
+  PATCH /api/v0/vendors/1694
   Content-Type: application/json
   Accept: application/json
 ```
 
-Body: 
+##### Body: 
 ```
 {
     "contact_name": "Kimberly Couwer",
     "credit_accepted": false
 }
 ```
-  </details>
-  <details><summary>Response</summary>
 
+#### Response: 
+`status: 200`
 ```json 
 {
     "data": {
@@ -356,43 +475,128 @@ Body:
     }
 }
 ```
-  </details>
+</details>
+
+<details><summary>Example #1 Request/Response 😭 </summary>
+  
+  #### Request:
+  ```
+    PATCH /api/v0/vendors/123123123123 (where `123123123123` is an invalid Vendor id)
+    Content-Type: application/json
+    Accept: application/json
+  ```
+  ##### Body: 
+  ```
+{
+    "contact_name": "Kimberly Couwer",
+    "credit_accepted": false
+}
+  ```
+
+  #### Response: 
+  `status: 404`
+  ```json
+{
+    "errors": [
+        {
+            "detail": "Couldn't find Vendor with 'id'=123123123123"
+        }
+    ]
+}
+  ```
+</details>
+<details><summary>Example #2 Request/Response 😭 </summary>
+  
+  #### Request:
+  ```
+    PATCH /api/v0/vendors/1694 (where `1694` is an valid Vendor id)
+    Content-Type: application/json
+    Accept: application/json
+  ```
+  ##### Body: 
+  ```
+{
+    "contact_name": "",
+    "credit_accepted": false
+}
+  ```
+
+  #### Response: 
+  `status: 400`
+  ```json
+{
+    "errors": [
+        {
+            "detail": "Validation failed: Contact name can't be blank"
+        }
+    ]
+}
+  ```
+</details>
 </details>
 
 <details><summary>7. Delete a Vendor</summary>
-  <details><summary>Request</summary>
 
+  #### Details
+  1. This endpoint should follow the pattern of `DELETE /api/v0/vendors/:id`
+  2. When a valid id is passed in, that vendor will be destroyed, as well as any associations that vendor had. A status code of `204` should be sent back, without any content in the body. 
+  3. If an invalid id is passed in, a 404 status code as well as a descriptive message should be sent back with the response.
+
+  <details><summary>Example Request/Response 😁</summary>
+
+#### Request: 
 ```
-  DELETE /api/v0/vendors/:id
+  DELETE /api/v0/vendors/70
   Content-Type: application/json
   Accept: application/json
 ```
 
-  </details>
-  <details><summary>Response</summary>
+#### Response: 
+`status: 204`
+</details>
 
-```json 
+<details><summary>Example Request/Response 😭 </summary>
+  
+  #### Request:
+  ```
+    DELETE /api/v0/vendors/123123123123 (where `123123123123` is an invalid Vendor id)
+    Content-Type: application/json
+    Accept: application/json
+  ```
+
+  #### Response: 
+  `status: 404`
+  ```json
 {
-    "message": "Deleted"
+    "errors": [
+        {
+            "detail": "Couldn't find Vendor with 'id'=123123123123"
+        }
+    ]
 }
-```
-  </details>
+  ```
+</details>
 </details>
 
 <details><summary>8. Get Markets for a Vendor</summary>
-  <details><summary>Request</summary>
 
+  #### Details
+  1. This endpoint should follow the pattern of `GET /api/v0/vendors/:id/markets`, and it should return any markets that the vendor is associated with.
+  2. When a valid vendor id is passed in, a response will be sent back that lists out all markets that the vendor is associated with. 
+  3. If a vendor only has one market that they sell at, that market should still be returned in an array. 
+  4. If a vendor doesn't have any markets that they sell at, the `data` top level key should point to an empty array. 
+  3. If an invalid vendor id is passed in, a 404 status code as well as a descriptive message should be sent back with the response.
+
+<details><summary>Example Request/Response 😁</summary>
+
+#### Request: 
 ```
-  DELETE /api/v0/vendors/:id/markets
+  GET /api/v0/vendors/1150/markets
   Content-Type: application/json
   Accept: application/json
 ```
 
-  </details>
-  <details><summary>Response</summary>
-
-The response below is for Vendor with id of `1150`:
-
+#### Response: 
 ```json 
 {
     "data": [
@@ -426,76 +630,150 @@ The response below is for Vendor with id of `1150`:
                 "vendor_count": 39
             }
         },
+        ...,
+        ...,
+    ]
+}
 ```
-  </details>
+</details>
+
+<details><summary>Example Request/Response 😭 </summary>
+  
+  #### Request:
+  ```
+    GET /api/v0/vendors/123123123123/markets (where `123123123123` is an invalid Vendor id)
+    Content-Type: application/json
+    Accept: application/json
+  ```
+
+  #### Response: 
+  `status: 404`
+  ```json
+{
+    "errors": [
+        {
+            "detail": "Couldn't find Vendor with 'id'=123123123123"
+        }
+    ]
+}
+  ```
+</details>
 </details>
 
 <details><summary>9. Create a MarketVendor</summary>
-  <details><summary>Request</summary>
 
+  #### Details
+  1. This endpoint should follow the pattern of `POST /api/v0/market_vendors`, and it should create a new association between a market and a vendor (so then, the vendor has a new market that they sell at).
+  2. When valid ids for vendor and market are passed in, a MarketVendor will be created, and a response will be sent back with a `201` status, detailing that a Vendor was added to a Market. 
+  3. After implementing the happy path for this endpoint, run it, and check that when you call `GET /api/v0/vendors/:id/markets` for the vendor in which you just added to a market, that you see the newly associated market listed. 
+  4. If an invalid vendor id or and invalid market id is passed in, a 404 status code as well as a descriptive message should be sent back with the response.
+  5. If there already exists a MarketVendor with that `market_id` and that `vendor_id`, a response with a `422` status code and a message informing the client that that association already exists, should be sent back. Looking at [custom validation](https://guides.rubyonrails.org/active_record_validations.html#custom-methods) might help to implement a validation for uniqueness of the attributes for this resource. 
+
+<details><summary>Example Request/Response 😁</summary>
+
+#### Request:
 ```
   POST /api/v0/market_vendors
   Content-Type: application/json
   Accept: application/json
 ```
 
-Body: 
+##### Body: 
 ```json
 {
     "market_id": 19,
-    "vendor_id": 1697
+    "vendor_id": 1150
 }
+(where 19 and 1150 are valid market and vendor id's.)
 ```
 
-  </details>
-  <details><summary>Response</summary>
-
-  ```json
+#### Response: 
+```json
   {
     "message": "Successfully added vendor to market"
   }
+```
+</details>
+<details><summary>Example #1 Request/Response 😭 </summary>
+  
+  #### Request:
   ```
-  </details>
+    POST /api/v0/market_vendors
+    Content-Type: application/json
+    Accept: application/json
+  ```
+  ##### Body: 
+  ```json
+  {
+      "market_id": 987654321, 
+      "vendor_id": 1150 
+  }
+  (where 987654321 is an invalid market id)
+  ```
+
+  #### Response: 
+  `status: 404`
+  ```json
+{
+    "errors": [
+        {
+            "detail": "Validation failed: Market must exist"
+        }
+    ]
+}
+  ```
+</details>
+<details><summary>Example #2 Request/Response 😭 </summary>
+  
+  #### Request:
+  ```
+    POST /api/v0/market_vendors
+    Content-Type: application/json
+    Accept: application/json
+  ```
+  ##### Body: 
+  ```json
+  {
+      "market_id": 19, 
+      "vendor_id": 1150 
+  }
+  (where 19 and 1150 are valid market and vendor id's, but an existing MarketVendor with those values already exists.)
+  ```
+
+  #### Response: 
+  `status: 422`
+  ```json
+{
+    "errors": [
+        {
+            "detail": "Validation failed: Market vendor asociation between market with market_id=70 and vendor_id=1150 already exists"
+        }
+    ]
+}
+  ```
+</details>
 </details>
 
 <details><summary>10. Delete a MarketVendor</summary>
-  <details><summary>Request</summary>
 
-```
-  DESTROY /api/v0/market_vendors
-  Content-Type: application/json
-  Accept: application/json
-```
+  #### Details
+  1. This endpoint should follow the pattern of `DELETE /api/v0/market_vendors`, and it should destroy an existing association between a market and a vendor (so that a vendor no longer is listed at a certain market).
+  2. The `market_id` and the `vendor_id` should be passed in via the body. 
+  2. When a MarketVendor resource can be found with the passed in `vendor_id` and `market_id`, that resource should be destroyed, and a response will be sent back with a `204` status, with nothing returned in the body of the request.  
+  3. After implementing the happy path for this endpoint, run it, and check that when you call `GET /api/v0/vendors/:id/markets` for the vendor in which you just deleted an association to a market, that you don't see the recently removed market listed. 
+  4. If a MarketVendor resource can NOT be found with the passed in `vendor_id` and `market_id`, a 404 status code as well as a descriptive message should be sent back with the response.
+  
 
-Body: 
-```json
-{
-    "market_id": 19,
-    "vendor_id": 1697
-}
-```
+<details><summary>Example Request/Response 😁</summary>
 
-  </details>
-  <details><summary>Response</summary>
-
-  ```json
-  {
-    "message": "Successfully removed vendor from market"
-  }
-  ```
-  </details>
-</details>
-
-<details><summary>11. Delete a MarketVendor</summary>
-  <details><summary>Request</summary>
-
+#### Request: 
 ```
   DELETE /api/v0/market_vendors
   Content-Type: application/json
   Accept: application/json
 ```
 
-Body: 
+##### Body: 
 ```json
 {
     "market_id": 19,
@@ -503,18 +781,42 @@ Body:
 }
 ```
 
-  </details>
-  <details><summary>Response</summary>
-
+#### Response: 
+`status: 204`
+</details>
+<details><summary>Example Request/Response 😭 </summary>
+  
+  #### Request:
+  ```
+    DELETE /api/v0/market_vendors
+    Content-Type: application/json
+    Accept: application/json
+  ```
+  ##### Body: 
   ```json
   {
-    "message": "Successfully removed vendor from market"
+      "market_id": 423, 
+      "vendor_id": 1150 
   }
+  (where there is no MarketVendor that has a market_id=423 AND a vendor_id=1150)
   ```
-  </details>
+
+  #### Response: 
+  `status: 404`
+  ```json
+{
+    "errors": [
+        {
+            "detail": "No MarketVendor with market_id=423 AND vendor_id=1150 exists"
+        }
+    ]
+}
+  ```
+</details>
 </details>
 
-<details><summary>12. Search Markets by state, city, and/or name</summary>
+
+<details><summary>11. Search Markets by state, city, and/or name</summary>
 
 #### Details: 
 1. The endpoint should be in the pattern of `GET /api/v0/markets/search`, and can accept `city`, `state`, and `name` parameters.
@@ -529,9 +831,9 @@ Body:
   * `city`, `name`
 4. If an invalid set of parameters are sent in, a proper error message should be sent back, along with a `422` status code. 
 5. In the event that valid parameters are sent in, and only one market is returned from the search, the `data` top level key should still point to an array holding that one market resource data. 
-6. Similar to above, in the event that valid parameters are sent in, and NO markets are returned, the `data` top level key should point to an empty array. And a `200` status code should still be returned
+6. Similar to above, in the event that valid parameters are sent in, and NO markets are returned, the `data` top level key should point to an empty array. And a status code of `200` should still be returned
 
-<details><summary>Example Request/Response</summary>
+<details><summary>Example Request/Response 😁</summary>
 
 #### Request: 
 ```
@@ -541,6 +843,7 @@ Body:
 ```
 
 #### Response:
+`status: 200`
 ```json
 {
     "data": [
@@ -563,9 +866,30 @@ Body:
 }
 ```
 </details>
+<details><summary>Example Request/Response 😭 </summary>
+  
+  #### Request: 
+  ```
+    GET /api/v0/markets/search?city=albququerque
+    Content-Type: application/json
+    Accept: application/json
+  ```
+
+  #### Response: 
+  `status: 422`
+  ```json
+{
+    "errors": [
+        {
+            "detail": "Invalid set of parameters. Please provide a valid set of parameters to perform a search with this endpoint."
+        }
+    ]
+}
+  ```
+</details>
 </details>
 
-<details><summary>13. Get Cash Dispensers Near a Market</summary>
+<details><summary>12. Get Cash Dispensers Near a Market</summary>
 
 #### Details: 
 1. The endpoint should be in the pattern of `GET /api/v0/markets/:id/nearest_atms`
@@ -574,7 +898,7 @@ Body:
 4. If an invalid market id is passed in, a 404 status as well as a descriptive error message should be sent back in the response.
 5. The `data` top level key should always point to an array even if one or zero atms were located near the market location.
 
-<details><summary>Example Request/Response</summary>
+<details><summary>Example Request/Response 😁</summary>
 
 #### Request: 
 ```
@@ -584,6 +908,7 @@ Body:
 ```
 
 #### Response:
+`status: 200`
 ```json
 {
     "data": [
@@ -615,6 +940,27 @@ Body:
     ]
 }
 ```
+</details>
+<details><summary>Example Request/Response 😭 </summary>
+  
+  #### Request:
+  ```
+    GET /api/v0/markets/123123123123/nearest_atm (where `123123123123` is an invalid Market id)
+    Content-Type: application/json
+    Accept: application/json
+  ```
+
+  #### Response: 
+  `status: 404`
+  ```json
+{
+    "errors": [
+        {
+            "detail": "Couldn't find Market with 'id'=123123123123"
+        }
+    ]
+}
+  ```
 </details>
 </details>
 
