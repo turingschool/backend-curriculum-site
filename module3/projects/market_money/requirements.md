@@ -104,7 +104,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
 1. This endpoint should follow the pattern of `GET /api/v0/markets` and should return ALL markets in the database.
 2. In addition to the market's main attributes, the market resource should also list an attribute for `vendor_count`, which is the number of vendors that are associated with that market. 
 
-      <details><summary><h5>Example Request/Response 😁 </h5></summary>
+      <details><summary><h5>Example #1 😁 </h5></summary>
       
       #### Request: 
       ```
@@ -162,7 +162,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
 2. If a valid market id is passed in, all market attributes, as well as a `vendor_count` should be returned.  
 3. If an invalid market id is passed in, a 404 status as well as a descriptive error message should be sent back in the response.
 
-      <details><summary><h5>Example Request/Response 😁 </h5></summary>
+      <details><summary><h5>Example #1 😁 </h5></summary>
 
       #### Request:
       ```
@@ -193,7 +193,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
       }
       ```
       </details>
-      <details><summary><h5>Example Request/Response 😭 </h5></summary>
+      <details><summary><h5>Example #2 😭 </h5></summary>
     
       #### Request:
       ```
@@ -223,7 +223,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
 2. If a valid market id is passed in, a JSON object is sent back with a top-level `data` key that points to a collection of that market's vendors. Each vendor contains all of it's attributes.
 3. If an invalid market id is passed in, a 404 status as well as a descriptive error message should be sent back in the response.
 
-    <details><summary><h5>Example Request/Response 😁</h5></summary>
+    <details><summary><h5>Example #1 😁</h5></summary>
 
     #### Request: 
     ```
@@ -276,7 +276,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
     }
     ```
     </details>
-    <details><summary><h5>Example Request/Response 😭 </h5></summary>
+    <details><summary><h5>Example #2 😭 </h5></summary>
       
       #### Request:
       ```
@@ -306,7 +306,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
 2. If a valid vendor id is passed in, a JSON object is sent back with a top-level `data` key that points to the vendor resource with that id, and all attributes for that vendor.
 3. If an invalid vendor id is passed in, a 404 status as well as a descriptive error message should be sent back in the response.
 
-    <details><summary><h5>Example Request/Response 😁</h5></summary>
+    <details><summary><h5>Example #1 😁</h5></summary>
 
     #### Request: 
     ```
@@ -333,7 +333,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
     }
     ```
     </details>
-    <details><summary><h5>Example Request/Response 😭 </h5></summary>
+    <details><summary><h5>Example #2 😭 </h5></summary>
       
       #### Request:
       ```
@@ -365,7 +365,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
 4. If any number of attributes are left out in the body of the request, a status code of `400`, as well as a descriptive error message should be sent back in the response.
 5. Validating the presence of a boolean value can be tricky since `false` is evaluated as `nil`. Validating the presence of a field that could be false will generate some a validation error when we don't mean it to. We'd suggest creating your own [custom validation](https://guides.rubyonrails.org/active_record_validations.html#custom-methods) for validating the presence of a boolean field. 
 
-    <details><summary><h5>Example Request/Response 😁</h5></summary>
+    <details><summary><h5>Example #1 😁</h5></summary>
 
     #### Request:
     ```
@@ -403,7 +403,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
     }
     ```
     </details>
-    <details><summary><h5>Example Request/Response 😭 </h5></summary>
+    <details><summary><h5>Example #2 😭 </h5></summary>
       
       #### Request:
       ```
@@ -442,7 +442,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
 3. If someone were to try to update a vendor resource to have a `nil` or empty attribute, a proper 400-level status code as well as a descriptive error message should be sent back in the response.
 4. A successful response will return the newly updated vendor resource. 
 
-    <details><summary><h5>Example Request/Response 😁</h5></summary>
+    <details><summary><h5>Example #1 😁</h5></summary>
 
     #### Request: 
     ```
@@ -477,7 +477,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
     }
     ```
     </details>
-    <details><summary><h5>Example #1 Request/Response 😭 </h5></summary>
+    <details><summary><h5>Example #2 😭 </h5></summary>
       
       #### Request:
       ```
@@ -505,7 +505,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
     }
       ```
     </details>
-    <details><summary><h5>Example #2 Request/Response 😭 </h5></summary>
+    <details><summary><h5>Example #3 😭 </h5></summary>
       
       #### Request:
       ```
@@ -542,7 +542,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
 2. When a valid id is passed in, that vendor will be destroyed, as well as any associations that vendor had. A status code of `204` should be sent back, without any content in the body. 
 3. If an invalid id is passed in, a 404 status code as well as a descriptive message should be sent back with the response.
 
-    <details><summary><h5>Example Request/Response 😁 </h5></summary>
+    <details><summary><h5>Example #1 😁 </h5></summary>
 
     #### Request: 
     ```
@@ -555,7 +555,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
     `status: 204`
     </details>
 
-    <details><summary><h5>Example Request/Response 😭 </h5></summary>
+    <details><summary><h5>Example #2 😭 </h5></summary>
       
       #### Request:
       ```
@@ -587,7 +587,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
 4. If a vendor doesn't have any markets that they sell at, the `data` top level key should point to an empty array. 
 3. If an invalid vendor id is passed in, a 404 status code as well as a descriptive message should be sent back with the response.
 
-    <details><summary><h5>Example Request/Response 😁 </h5></summary>
+    <details><summary><h5>Example #1 😁 </h5></summary>
 
     #### Request: 
     ```
@@ -636,7 +636,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
     }
     ```
     </details>
-    <details><summary><h5>Example Request/Response 😭 </h5></summary>
+    <details><summary><h5>Example #2 😭 </h5></summary>
       
       #### Request:
       ```
@@ -667,7 +667,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
 4. If an invalid vendor id or and invalid market id is passed in, a 404 status code as well as a descriptive message should be sent back with the response.
 5. If there already exists a MarketVendor with that `market_id` and that `vendor_id`, a response with a `422` status code and a message informing the client that that association already exists, should be sent back. Looking at [custom validation](https://guides.rubyonrails.org/active_record_validations.html#custom-methods) might help to implement a validation for uniqueness of the attributes for this resource. 
 
-    <details><summary><h5>Example Request/Response 😁 </h5></summary>
+    <details><summary><h5>Example #1 😁 </h5></summary>
 
     #### Request:
     ```
@@ -692,7 +692,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
       }
     ```
     </details>
-    <details><summary><h5>Example #1 Request/Response 😭 </h5></summary>
+    <details><summary><h5>Example #2 😭 </h5></summary>
       
       #### Request:
       ```
@@ -721,7 +721,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
     }
       ```
     </details>
-    <details><summary><h5>Example #2 Request/Response 😭 </h5></summary>
+    <details><summary><h5>Example #3 😭 </h5></summary>
       
       #### Request:
       ```
@@ -761,7 +761,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
 3. After implementing the happy path for this endpoint, run it, and check that when you call `GET /api/v0/vendors/:id/markets` for the vendor in which you just deleted an association to a market, that you don't see the recently removed market listed. 
 4. If a MarketVendor resource can NOT be found with the passed in `vendor_id` and `market_id`, a 404 status code as well as a descriptive message should be sent back with the response.
   
-    <details><summary><h5>Example Request/Response 😁 </h5></summary>
+    <details><summary><h5>Example #1 😁 </h5></summary>
 
     #### Request: 
     ```
@@ -781,7 +781,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
     #### Response: 
     `status: 204`
     </details>
-    <details><summary><h5>Example Request/Response 😭 </h5></summary>
+    <details><summary><h5>Example #2 😭 </h5></summary>
       
       #### Request:
       ```
@@ -828,7 +828,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
 5. In the event that valid parameters are sent in, and only one market is returned from the search, the `data` top level key should still point to an array holding that one market resource data. 
 6. Similar to above, in the event that valid parameters are sent in, and NO markets are returned, the `data` top level key should point to an empty array. And a status code of `200` should still be returned
 
-    <details><summary><h5>Example Request/Response 😁</h5></summary>
+    <details><summary><h5>Example #1 😁</h5></summary>
 
     #### Request: 
     ```
@@ -861,7 +861,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
     }
     ```
     </details>
-    <details><summary><h5>Example Request/Response 😭 </h5></summary>
+    <details><summary><h5>Example #2 😭 </h5></summary>
       
       #### Request: 
       ```
@@ -893,7 +893,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
 4. If an invalid market id is passed in, a 404 status as well as a descriptive error message should be sent back in the response.
 5. The `data` top level key should always point to an array even if one or zero atms were located near the market location.
 
-    <details><summary><h5>Example Request/Response 😁 </h5></summary>
+    <details><summary><h5>Example #1 😁 </h5></summary>
 
     #### Request: 
     ```
@@ -936,7 +936,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
     }
     ```
     </details>
-    <details><summary><h5>Example Request/Response 😭 </h5></summary>
+    <details><summary><h5>Example #2 😭 </h5></summary>
       
       #### Request:
       ```
