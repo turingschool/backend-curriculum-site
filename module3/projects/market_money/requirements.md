@@ -104,7 +104,8 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
   1. This endpoint should follow the pattern of `GET /api/v0/markets` and should return ALL markets in the database.
   2. In addition to the market's main attributes, the market resource should also list an attribute for `vendor_count`, which is the number of vendors that are associated with that market. 
 
-      <details><summary>Example Request/Response 😁 </summary>
+      <details>
+      <summary><h5>Example Request/Response 😁 </h5></summary>
       
       #### Request: 
       ```
@@ -156,14 +157,14 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
       </details>
 </details>
 
-<details><summary>2. Get One Market</summary>
+<details><summary><h3>2. Get One Market</h3></summary>
 
   #### Details:
   1. This endpoint should follow the pattern of `GET /api/v0/markets/:id`.
   2. If a valid market id is passed in, all market attributes, as well as a `vendor_count` should be returned.  
   3. If an invalid market id is passed in, a 404 status as well as a descriptive error message should be sent back in the response.
 
-  <details><summary>Example Request/Response 😁 </summary>
+  <details><summary><h5>Example Request/Response 😁 </h5></summary>
 
   #### Request:
   ```
@@ -195,7 +196,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
   ```
 </details>
 
-  <details><summary>Example Request/Response 😭 </summary>
+  <details><summary><h5>Example Request/Response 😭 </h5></summary>
   
   #### Request:
   ```
@@ -218,14 +219,14 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
 </details>
 </details>
 
-<details><summary>3. Get All Vendors for a Market</summary>
+<details><summary><h3>3. Get All Vendors for a Market</h3></summary>
 
 #### Details 
 1. This endpoint should follow the pattern of `GET /api/v0/markets/:id/vendors`
 2. If a valid market id is passed in, a JSON object is sent back with a top-level `data` key that points to a collection of that market's vendors. Each vendor contains all of it's attributes.
 3. If an invalid market id is passed in, a 404 status as well as a descriptive error message should be sent back in the response.
 
-<details><summary>Example Request/Response 😁</summary>
+<details><summary><h5>Example Request/Response 😁</h5></summary>
 
 #### Request: 
 ```
@@ -278,7 +279,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
 }
 ```
 </details>
-<details><summary>Example Request/Response 😭 </summary>
+<details><summary><h5>Example Request/Response 😭 </h5></summary>
   
   #### Request:
   ```
@@ -301,14 +302,14 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
 </details>
 </details>
 
-<details><summary>4. Get One Vendor</summary>
+<details><summary><h3>4. Get One Vendor</h3></summary>
 
   #### Details
   1. This endpoint should follow the pattern of `GET /api/v0/vendors/:id`
   2. If a valid vendor id is passed in, a JSON object is sent back with a top-level `data` key that points to the vendor resource with that id, and all attributes for that vendor.
   3. If an invalid vendor id is passed in, a 404 status as well as a descriptive error message should be sent back in the response.
 
-<details><summary>Example Request/Response 😁</summary>
+<details><summary><h5>Example Request/Response 😁</h5></summary>
 
 #### Request: 
 ```
@@ -335,7 +336,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
 }
 ```
 </details>
-<details><summary>Example Request/Response 😭 </summary>
+<details><summary><h5>Example Request/Response 😭 </h5></summary>
   
   #### Request:
   ```
@@ -358,7 +359,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
 </details>
 </details>
 
-<details><summary>5. Create a Vendor</summary>
+<details><summary><h3>5. Create a Vendor</h3></summary>
 
   #### Details
   1. This endpoint should follow the pattern of `POST /api/v0/vendors`, and should pass ALL attributes required to create a vendor (`name`, `description`, `contact_name`, `contact_phone`, and `credit_accepted`) as JSON in the body of the request. (In postman, navigate to `Body` tab, select `raw` and change the format to `JSON` instead of `Text`)
@@ -368,7 +369,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
   5. Validating the presence of a boolean value can be tricky since `false` is evaluated as `nil`. Validating the presence of a field that could be false will generate some a validation error when we don't mean it to. We'd suggest creating your own [custom validation](https://guides.rubyonrails.org/active_record_validations.html#custom-methods) for validating the presence of a boolean field. 
   <!-- 5. If the `credit_accepted` parameter is not passed in as a boolean data type, this should also render a status of `400`, and add a descriptive error message as to what went wrong. You may find it helpful to look at [custom validations](https://guides.rubyonrails.org/active_record_validations.html#custom-methods) for this. -->
 
-<details><summary>Example Request/Response 😁</summary>
+<details><summary><h5>Example Request/Response 😁</h5></summary>
 
 #### Request:
 ```
@@ -406,7 +407,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
 }
 ```
 </details>
-<details><summary>Example Request/Response 😭 </summary>
+<details><summary><h5>Example Request/Response 😭 </h5></summary>
   
   #### Request:
   ```
@@ -437,7 +438,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
 </details>
 </details>
 
-<details><summary>6. Update a Vendor</summary>
+<details><summary><h3>6. Update a Vendor</h3></summary>
 
   #### Details
   1. This endpoint should follow the pattern of `PATCH /api/v0/vendors/:id`, and can pass any number and combination of attribtues to be updated (`name`, `description`, `contact_name`, `contact_phone`, and `credit_accepted`) as JSON in the body of the request. (In postman, navigate to `Body` tab, select `raw` and change the format to `JSON` instead of `Text`)
@@ -445,7 +446,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
   3. If someone were to try to update a vendor resource to have a `nil` or empty attribute, a proper 400-level status code as well as a descriptive error message should be sent back in the response.
   4. A successful response will return the newly updated vendor resource. 
 
-<details><summary>Example Request/Response 😁</summary>
+<details><summary><h5>Example Request/Response 😁</h5></summary>
 
 #### Request: 
 ```
@@ -481,7 +482,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
 ```
 </details>
 
-<details><summary>Example #1 Request/Response 😭 </summary>
+<details><summary><h5>Example #1 Request/Response 😭 </h5></summary>
   
   #### Request:
   ```
@@ -509,7 +510,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
 }
   ```
 </details>
-<details><summary>Example #2 Request/Response 😭 </summary>
+<details><summary><h5>Example #2 Request/Response 😭 </h5></summary>
   
   #### Request:
   ```
@@ -539,14 +540,14 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
 </details>
 </details>
 
-<details><summary>7. Delete a Vendor</summary>
+<details><summary><h3>7. Delete a Vendor</h3></summary>
 
   #### Details
   1. This endpoint should follow the pattern of `DELETE /api/v0/vendors/:id`
   2. When a valid id is passed in, that vendor will be destroyed, as well as any associations that vendor had. A status code of `204` should be sent back, without any content in the body. 
   3. If an invalid id is passed in, a 404 status code as well as a descriptive message should be sent back with the response.
 
-  <details><summary>Example Request/Response 😁</summary>
+  <details><summary><h5>Example Request/Response 😁 </h5></summary>
 
 #### Request: 
 ```
@@ -559,7 +560,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
 `status: 204`
 </details>
 
-<details><summary>Example Request/Response 😭 </summary>
+<details><summary><h5>Example Request/Response 😭 </h5></summary>
   
   #### Request:
   ```
