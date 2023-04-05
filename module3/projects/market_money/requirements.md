@@ -1,0 +1,639 @@
+---
+layout: page
+title: Rails Engine Lite Requirements
+length: 1 week
+tags:
+type: project
+---
+
+# 1. Set Up
+
+1. Create a Rails API project called `market_money` (make sure you do not set up a "traditional" Rails project with a frontend, this is an API-only project): `rails _7.0.1_ new market_money -T -d postgresql --api`
+
+2. Set Up [SimpleCov](https://github.com/colszowka/simplecov) to track test coverage in your rails-engine API project.
+
+3. Download [market_money_development.pgdump](https://raw.githubusercontent.com/turingschool/backend-curriculum-site/gh-pages/module3/projects/market_money/market_money_development.pgdump) and move it into the `/db/` folder in another folder called `/data/`, so your project files look like this:
+
+```
+/app
+/bin
+/config
+/db
+  /data                                     <-- create this folder
+    rails-engine-development.pgdump         <-- put the file in the data folder
+  seeds.rb                                  <-- seeds.rb is in `/db/` folder, not `/db/data/`
+/lib
+/log
+etc
+```
+
+  - this file is in a binary format and your browser may try to automatically download the file instead of viewing it
+
+
+4. Set up your `db/seeds.rb` file with the following content:
+```ruby
+cmd = "pg_restore --verbose --clean --no-acl --no-owner -h localhost -U $(whoami) -d market_money_development db/data/market_money_development.pgdump"
+puts "Loading PostgreSQL Data dump into local database with command:"
+puts cmd
+system(cmd)
+```
+
+5. Run `rails db:{drop,create,migrate,seed}` and you may see lots of output including some warnings/errors from `pg_restore` that you can ignore. If you're unsure about the errors you're seeing, ask an instructor.
+
+6. Run `rails db:schema:dump` - Check to see that your `schema.rb` exists and has the proper tables/attributes that match the data in Postico. You can do the following to check to see if you have set up rails to effectively communicate with the database.
+  * Add a `market.rb` file to your models directory
+  * Create a `Market` class that inherits from `ApplicationRecord`
+  * run `rails c` to jump into your rails console.
+  * run `Market.first` to see the object: `##<Market id: 322458, name: "14&U Farmers' Market", street: "1400 U Street NW ", city: "Washington", county: "District of Columbia", state: "District of Columbia", zip: "20009", lat: "38.9169984", lon: "-77.0320505">`
+  * run `Market.last` to see the object: `#<Market id: 331081, name: "Year-Round Cedar City Farmer's Market ", street: "905 South Main Street at IFA", city: "Cedar City", county: nil, state: "Utah", zip: "84720", lat: "37.6619", lon: "-113.069">`
+  * If this all checks out you should be good to go.
+
+7. Use a tool like Postico to examine the 3 tables that were created. Pay careful attention to the data types of each field:
+  * markets
+  * vendors 
+  * market_vendors
+
+
+**NOTE** If your `rails new ...` project name from above is NOT exactly called "market_money" you will need to modify the `cmd` variable below to change the `-d` parameter from `market_money_development` to `<YOUR PROJECT NAME>_development` instead. If you have questions, ask your instructors.
+
+---
+
+# 2. API Endpoints, general definitions
+
+## SECTION ONE: RESTful Endpoints, Minimum Requirements:
+
+* Market Endpoints:
+  * get all markets
+  * get one market
+  * get all vendors for a market
+* Vendor Endpoints:
+  * get one vendor
+  * create a vendor
+  * update a vendor
+  * delete a vendor
+  * get markets for a vendor
+* MarketVendor Endpoints: 
+  * create a market_vendor
+  * delete a market_vendor
+
+## SECTION TWO: Non-RESTful Endpoints
+
+* AR Endpoint:
+  * get all markets within a city or state that's name or description match a string fragment
+
+* Consume API Endpoint:
+  * get cash dispensers (ATMs) close to a market location
+
+## Your Project MVP
+
+In total, the MINIMUM requirement will be 12 endpoints:
+
+* section one has 10 endpoints
+* section two has 2 endpoints
+
+# 3. API requests/responses, more detail
+
+<details><summary>1. Get All Markets</summary>
+
+  #### Details:
+  1. This endpoint should follow the pattern of `/api/v0/markets` and should return ALL markets in the database.
+  2. In addition to the market's main attributes, the market resource should also list an attribute for `vendor_count`, which is the number of vendors that go to that market. 
+  
+  <details><summary>Example Request/Response</summary>
+    
+  #### Request: 
+
+  ```
+    GET /api/v0/vendors/search?name=jelly
+    Content-Type: application/json
+    Accept: application/json
+  ```
+
+  #### Response:
+
+  ```json
+  {
+      "data": [
+          {
+              "id": "17",
+              "type": "market",
+              "attributes": {
+                  "name": "18th Street Farmers Market",
+                  "street": "825 18th Street",
+                  "city": "Charleston",
+                  "county": "Coles",
+                  "state": "Illinois",
+                  "zip": "61920",
+                  "lat": "39.490737",
+                  "lon": "-88.163254",
+                  "vendor_count": 28
+              }
+          },
+          {
+              "id": "18",
+              "type": "market",
+              "attributes": {
+                  "name": "19/27 Community Farmers Market",
+                  "street": "NE 7th Ave",
+                  "city": "Chiefland",
+                  "county": "Levy",
+                  "state": "Florida",
+                  "zip": "32626",
+                  "lat": "29.4848541",
+                  "lon": "-82.8578732",
+                  "vendor_count": 38
+              }
+          },
+          ...,
+          ...,
+      ]
+    }
+  ```
+
+  </details>
+  </details>
+
+  <details><summary>2. Get One Market</summary>
+
+  #### Details:
+  1. This endpoint should follow the pattern of `GET /api/v0/markets/:id`.
+  2. If a valid market id is passed in, all market attributes, as well as a `vendor_count` should be returned.  
+  3. If an invalid market id is passed in, a 404 status as well as a descriptive error message should be sent back in the response.
+
+  <details><summary>Example Request/Response</summary>
+
+  #### Request:
+  ```
+    GET /api/v0/markets/360
+    Content-Type: application/json
+    Accept: application/json
+  ```
+
+  #### Response: 
+  ```json
+  {
+      "data": {
+          "id": "360",
+          "type": "market",
+          "attributes": {
+              "name": "Austintown Farmers Market",
+              "street": "6000 Kirk Road (Austintown Township Park)",
+              "city": "Austintown",
+              "county": "Mahoning",
+              "state": "Ohio",
+              "zip": "44515",
+              "lat": "41.070511",
+              "lon": "-80.774094",
+              "vendor_count": 24
+          }
+      }
+  }
+  ```
+</details>
+</details>
+
+<details><summary>3. Get All Vendors for a Market</summary>
+
+#### Details 
+1. This endpoint should follow the pattern of `GET /api/v0/markets/:id/vendors`
+2. If a valid market id is passed in, a JSON object is sent back with a top-level `data` key that points to a collection of that market's vendors. Each vendor contains all of it's attributes 
+3. If an invalid market id is passed in, a 404 status as well as a descriptive error message should be sent back in the response.
+
+<details><summary>Example Request/Response</summary>
+
+#### Request: 
+```
+  GET /api/v0/markets/360/vendors
+  Content-Type: application/json
+  Accept: application/json
+```
+
+#### Response: 
+```json
+{
+    "data": [
+        {
+            "id": "1150",
+            "type": "vendor",
+            "attributes": {
+                "name": "Jolly Scoops",
+                "description": "Handcrafted ice cream in a variety of festive flavors.",
+                "contact_name": "Kit Romaguera",
+                "contact_phone": "656.318.8117",
+                "credit_accepted": true
+            }
+        },
+        {
+            "id": "1452",
+            "type": "vendor",
+            "attributes": {
+                "name": "The Book Cellar",
+                "description": "A hidden gem of a bookstore, featuring a range of used and rare titles, with a focus on science fiction and fantasy.",
+                "contact_name": "Dorian O'Kon",
+                "contact_phone": "839-874-2562",
+                "credit_accepted": true
+            }
+        },
+        {
+            "id": "318",
+            "type": "vendor",
+            "attributes": {
+                "name": "Hot Diggity Dog",
+                "description": "sells gourmet hot dogs with unique toppings",
+                "contact_name": "Dan Connelly PhD",
+                "contact_phone": "322-239-3558",
+                "credit_accepted": false
+            }
+        },
+        ...,
+        ...,
+    ]
+}
+```
+  </details>
+</details>
+
+<details><summary>4. Get One Vendor</summary>
+  <details><summary>Request</summary>
+
+```
+  GET /api/v0/vendors/:id
+  Content-Type: application/json
+  Accept: application/json
+```
+  </details>
+  <details><summary>Response</summary>
+
+```json 
+{
+    "data": {
+        "id": "1150",
+        "type": "vendor",
+        "attributes": {
+            "name": "Jolly Scoops",
+            "description": "Handcrafted ice cream in a variety of festive flavors.",
+            "contact_name": "Kit Romaguera",
+            "contact_phone": "656.318.8117",
+            "credit_accepted": true
+        }
+    }
+}
+```
+  </details>
+</details>
+
+<details><summary>5. Create a Vendor</summary>
+  <details><summary>Request</summary>
+
+```
+  POST /api/v0/vendors
+  Content-Type: application/json
+  Accept: application/json
+```
+
+Body: 
+```
+{
+    "name": "Buzzy Bees",
+    "description": "local honey and wax products",
+    "contact_name": "Berly Couwer",
+    "contact_phone": "8389928383",
+    "credit_accepted": true
+}
+```
+  </details>
+  <details><summary>Response</summary>
+
+```json 
+{
+    "data": {
+        "id": "1694",
+        "type": "vendor",
+        "attributes": {
+            "name": "Buzzy Bees",
+            "description": "local honey and wax products",
+            "contact_name": "Berly Couwer",
+            "contact_phone": "8389928383",
+            "credit_accepted": true
+        }
+    }
+}
+```
+  </details>
+</details>
+
+<details><summary>6. Update a Vendor</summary>
+  <details><summary>Request</summary>
+
+```
+  PATCH /api/v0/vendors/:id
+  Content-Type: application/json
+  Accept: application/json
+```
+
+Body: 
+```
+{
+    "contact_name": "Kimberly Couwer",
+    "credit_accepted": false
+}
+```
+  </details>
+  <details><summary>Response</summary>
+
+```json 
+{
+    "data": {
+        "id": "1694",
+        "type": "vendor",
+        "attributes": {
+            "name": "Buzzy Bees",
+            "description": "local honey and wax products",
+            "contact_name": "Kimberly Couwer",
+            "contact_phone": "8389928383",
+            "credit_accepted": false
+        }
+    }
+}
+```
+  </details>
+</details>
+
+<details><summary>7. Delete a Vendor</summary>
+  <details><summary>Request</summary>
+
+```
+  DELETE /api/v0/vendors/:id
+  Content-Type: application/json
+  Accept: application/json
+```
+
+  </details>
+  <details><summary>Response</summary>
+
+```json 
+{
+    "message": "Deleted"
+}
+```
+  </details>
+</details>
+
+<details><summary>8. Get Markets for a Vendor</summary>
+  <details><summary>Request</summary>
+
+```
+  DELETE /api/v0/vendors/:id/markets
+  Content-Type: application/json
+  Accept: application/json
+```
+
+  </details>
+  <details><summary>Response</summary>
+
+The response below is for Vendor with id of `1150`:
+
+```json 
+{
+    "data": [
+        {
+            "id": "360",
+            "type": "market",
+            "attributes": {
+                "name": "Austintown Farmers Market",
+                "street": "6000 Kirk Road (Austintown Township Park)",
+                "city": "Austintown",
+                "county": "Mahoning",
+                "state": "Ohio",
+                "zip": "44515",
+                "lat": "41.070511",
+                "lon": "-80.774094",
+                "vendor_count": 24
+            }
+        },
+        {
+            "id": "994",
+            "type": "market",
+            "attributes": {
+                "name": "Canal Fulton Farmers Market ",
+                "street": "2309 Locust Street",
+                "city": "Canal Fulton",
+                "county": null,
+                "state": "Ohio",
+                "zip": "44614",
+                "lat": "40.8822",
+                "lon": "-81.5686",
+                "vendor_count": 39
+            }
+        },
+```
+  </details>
+</details>
+
+<details><summary>9. Create a MarketVendor</summary>
+  <details><summary>Request</summary>
+
+```
+  POST /api/v0/market_vendors
+  Content-Type: application/json
+  Accept: application/json
+```
+
+Body: 
+```json
+{
+    "market_id": 19,
+    "vendor_id": 1697
+}
+```
+
+  </details>
+  <details><summary>Response</summary>
+
+  ```json
+  {
+    "message": "Successfully added vendor to market"
+  }
+  ```
+  </details>
+</details>
+
+<details><summary>10. Delete a MarketVendor</summary>
+  <details><summary>Request</summary>
+
+```
+  DESTROY /api/v0/market_vendors
+  Content-Type: application/json
+  Accept: application/json
+```
+
+Body: 
+```json
+{
+    "market_id": 19,
+    "vendor_id": 1697
+}
+```
+
+  </details>
+  <details><summary>Response</summary>
+
+  ```json
+  {
+    "message": "Successfully removed vendor from market"
+  }
+  ```
+  </details>
+</details>
+
+<details><summary>11. Delete a MarketVendor</summary>
+  <details><summary>Request</summary>
+
+```
+  DELETE /api/v0/market_vendors
+  Content-Type: application/json
+  Accept: application/json
+```
+
+Body: 
+```json
+{
+    "market_id": 19,
+    "vendor_id": 1697
+}
+```
+
+  </details>
+  <details><summary>Response</summary>
+
+  ```json
+  {
+    "message": "Successfully removed vendor from market"
+  }
+  ```
+  </details>
+</details>
+
+<details><summary>12. Search Markets by state, city, and/or name</summary>
+
+#### Details: 
+1. The endpoint should be in the pattern of `GET /api/v0/markets/search`, and can accept `city`, `state`, and `name` parameters.
+2. The following combination of parameters can be sent in at any time: 
+  * `state`
+  * `state`, `city`
+  * `state`, `city`, `name`
+  * `state`, `name`
+  * `name`
+3. The following combination of parameters can NOT be sent in at any time: 
+  * `city`
+  * `city`, `name`
+4. If an invalid set of parameters are sent in, a proper error message should be sent back, along with a `422` status code. 
+5. In the event that valid parameters are sent in, and only one market is returned from the search, the `data` top level key should still point to an array holding that one market resource data. 
+6. Similar to above, in the event that valid parameters are sent in, and NO markets are returned, the `data` top level key should point to an empty array. And a `200` status code should still be returned
+
+<details><summary>Example Request/Response</summary>
+
+#### Request: 
+```
+  GET /api/v0/markets/search?city=albququerque&state=new Mexico&name=uptown
+  Content-Type: application/json
+  Accept: application/json
+```
+
+#### Response:
+```json
+{
+    "data": [
+        {
+            "id": "70",
+            "type": "market",
+            "attributes": {
+                "name": "ABQ Uptown Growers' Market",
+                "street": "NE parking lot of ABQ Uptown shopping center",
+                "city": "Albququerque",
+                "county": "Bernalillo",
+                "state": "New Mexico",
+                "zip": null,
+                "lat": "35.103988",
+                "lon": "-106.565838",
+                "vendor_count": 10
+            }
+        }
+    ]
+}
+```
+</details>
+</details>
+
+<details><summary>13. Get Cash Dispensers Near a Market</summary>
+
+#### Details: 
+1. The endpoint should be in the pattern of `GET /api/v0/markets/:id/nearest_atms`
+2. You will need to utilize the [TomTom API](https://developer.tomtom.com/) for this. Specifically, the category search endpoint. Find a category that would work for ATM's, and use the API to find ATM's near the location of the Farmer's Market. 
+3. The atms that are returned should be in the order of closest to furthest away.
+4. If an invalid market id is passed in, a 404 status as well as a descriptive error message should be sent back in the response.
+5. The `data` top level key should always point to an array even if one or zero atms were located near the market location.
+
+<details><summary>Example Request/Response</summary>
+
+#### Request: 
+```
+  GET /api/v0/markets/70/nearest_atms
+  Content-Type: application/json
+  Accept: application/json
+```
+
+#### Response:
+```json
+{
+    "data": [
+        {
+            "id": null,
+            "type": "atm",
+            "attributes": {
+                "name": "Eds-Pyns",
+                "address": "2200 Louisiana Boulevard Northeast, Albuquerque, NM 87110",
+                "lat": 35.1034,
+                "lon": -106.56745,
+                "distance": 0.09976720439821812
+            }
+        },
+        {
+            "id": null,
+            "type": "atm",
+            "attributes": {
+                "name": "Prosperity Bank",
+                "address": "2240 Q St NE, Albuquerque, NM 87110",
+                "lat": 35.10273,
+                "lon": -106.56691,
+                "distance": 0.10595742641673364
+            }
+        },
+        ...,
+        ...,
+        ...,
+    ]
+}
+```
+</details>
+</details>
+
+
+
+
+
+
+
+
+
+<!-- ## Extra Practice Endpoints
+* Get Vendors that sell at markets in a particular state
+* DELETE a Market
+* UPDATE a Market 
+* CREATE a Market 
+* get all markets within a certain city or state
+* GET Markets for a Vendor 
+* GET all the states the Vendor sells in 
+* GET state w/ least amount of Vendors 
+* GET all Vendors that sell in more than 1 state 
+* If market has a vendor that doesn't accept credit, in market show page, give information about closest cash dispenser.  -->
