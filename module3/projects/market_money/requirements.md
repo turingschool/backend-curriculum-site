@@ -58,38 +58,62 @@ system(cmd)
 
 ---
 
-# 2. API Endpoints, general outline
+# 2. General Requirements
 
-### SECTION ONE: RESTful Endpoints
+### Required Endpoints
 
-- **Market Endpoints**
-  * get all markets
-  * get one market
-  * get all vendors for a market
-- **Vendor Endpoints**
-  * get one vendor
-  * create a vendor
-  * update a vendor
-  * delete a vendor
-  * get markets for a vendor
-- **MarketVendor Endpoints**
-  * create a market_vendor
-  * delete a market_vendor
+You will need to expose the data through a multitude of API endpoints. All of your endpoints should follow these technical expectations:
 
-### SECTION TWO: Non-RESTful Endpoints
+* All endpoints should be fully tested for happy path AND sad path. 
+<!-- The Postman tests are not a substitute for writing your own tests. -->
+* All endpoints that return data will expect to return JSON data only
+* All endpoints should be exposed under an `api` and version (`v0`) namespace (e.g. `/api/v0/markets`)
+* API will be compliant to the [JSON API spec](https://jsonapi.org/) and match our requirements below precisely
+  <!-- * if your tests pass but the Postman test does not, you have done something wrong. -->
+* Controller actions should be limited to only the standard Rails actions and follow good RESTful convention.
+* Endpoints such as `GET /api/v1/markets/search?parameters` will NOT follow RESTful convention, and that's okay. Consider creating an action that *appears* restful.
+* In total, you will create **12 endpoints** (10 ReSTful, 2 non-ReSTful)
 
-- **AR Endpoint**
-  * get all markets within a city or state that's name or description match a string fragment
+    ##### ReSTful Endpoints
 
-- **Consume API Endpoint**
-  * get cash dispensers (ATMs) close to a market location
+    - **Market Endpoints**
+      * get all markets
+      * get one market
+      * get all vendors for a market
+    - **Vendor Endpoints**
+      * get one vendor
+      * create a vendor
+      * update a vendor
+      * delete a vendor
+      * get markets for a vendor
+    - **MarketVendor Endpoints**
+      * create a market_vendor
+      * delete a market_vendor
 
-### Your Project MVP
+    ##### Non-ReSTful Endpoints
 
-In total, the MINIMUM requirement will be 12 endpoints:
+    - **AR Endpoint**
+      * get all markets within a city or state that's name or description match a string fragment
 
-* section one has 10 endpoints
-* section two has 2 endpoints
+    - **Consume API Endpoint**
+      * get cash dispensers (ATMs) close to a market location
+
+### Error Responses
+
+If the user causes an error for which you are sending a 400-series error code, the JSON body of the response should be an error object that contains a detailed description of the error. 
+
+For example, 
+```json
+  {
+      "errors": [
+          {
+              "detail": "Couldn't find Market with 'id'=123123123123"
+          }
+      ]
+  }
+```
+
+You can customize the value of the `detail` element. But, you must always have a top level `errors` key that points to a collection. 
 
 ---
 
