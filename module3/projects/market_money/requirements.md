@@ -583,7 +583,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
 </details>
 </details>
 
-<details><summary>8. Get Markets for a Vendor</summary>
+<details><summary><h3>8. Get Markets for a Vendor</h3></summary>
 
   #### Details
   1. This endpoint should follow the pattern of `GET /api/v0/vendors/:id/markets`, and it should return any markets that the vendor is associated with.
@@ -592,7 +592,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
   4. If a vendor doesn't have any markets that they sell at, the `data` top level key should point to an empty array. 
   3. If an invalid vendor id is passed in, a 404 status code as well as a descriptive message should be sent back with the response.
 
-<details><summary>Example Request/Response 😁</summary>
+<details><summary><h5>Example Request/Response 😁 </h5></summary>
 
 #### Request: 
 ```
@@ -641,8 +641,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
 }
 ```
 </details>
-
-<details><summary>Example Request/Response 😭 </summary>
+<details><summary><h5>Example Request/Response 😭 </h5></summary>
   
   #### Request:
   ```
@@ -664,8 +663,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
   ```
 </details>
 </details>
-
-<details><summary>9. Create a MarketVendor</summary>
+<details><summary><h3>9. Create a MarketVendor</h3></summary>
 
   #### Details
   1. This endpoint should follow the pattern of `POST /api/v0/market_vendors`, and it should create a new association between a market and a vendor (so then, the vendor has a new market that they sell at).
@@ -674,7 +672,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
   4. If an invalid vendor id or and invalid market id is passed in, a 404 status code as well as a descriptive message should be sent back with the response.
   5. If there already exists a MarketVendor with that `market_id` and that `vendor_id`, a response with a `422` status code and a message informing the client that that association already exists, should be sent back. Looking at [custom validation](https://guides.rubyonrails.org/active_record_validations.html#custom-methods) might help to implement a validation for uniqueness of the attributes for this resource. 
 
-<details><summary>Example Request/Response 😁</summary>
+<details><summary><h5>Example Request/Response 😁 </h5></summary>
 
 #### Request:
 ```
@@ -699,7 +697,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
   }
 ```
 </details>
-<details><summary>Example #1 Request/Response 😭 </summary>
+<details><summary><h5>Example #1 Request/Response 😭 </h5></summary>
   
   #### Request:
   ```
@@ -728,7 +726,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
 }
   ```
 </details>
-<details><summary>Example #2 Request/Response 😭 </summary>
+<details><summary><h5>Example #2 Request/Response 😭 </h5></summary>
   
   #### Request:
   ```
@@ -759,7 +757,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
 </details>
 </details>
 
-<details><summary>10. Delete a MarketVendor</summary>
+<details><summary><h3>10. Delete a MarketVendor</h3></summary>
 
   #### Details
   1. This endpoint should follow the pattern of `DELETE /api/v0/market_vendors`, and it should destroy an existing association between a market and a vendor (so that a vendor no longer is listed at a certain market).
@@ -769,7 +767,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
   4. If a MarketVendor resource can NOT be found with the passed in `vendor_id` and `market_id`, a 404 status code as well as a descriptive message should be sent back with the response.
   
 
-<details><summary>Example Request/Response 😁</summary>
+<details><summary><h5>Example Request/Response 😁 </h5></summary>
 
 #### Request: 
 ```
@@ -789,7 +787,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
 #### Response: 
 `status: 204`
 </details>
-<details><summary>Example Request/Response 😭 </summary>
+<details><summary><h5>Example Request/Response 😭 </h5></summary>
   
   #### Request:
   ```
@@ -819,9 +817,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
   ```
 </details>
 </details>
-
-
-<details><summary>11. Search Markets by state, city, and/or name</summary>
+<details><summary><h3>11. Search Markets by state, city, and/or name</h3></summary>
 
 #### Details: 
 1. The endpoint should be in the pattern of `GET /api/v0/markets/search`, and can accept `city`, `state`, and `name` parameters.
@@ -838,7 +834,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
 5. In the event that valid parameters are sent in, and only one market is returned from the search, the `data` top level key should still point to an array holding that one market resource data. 
 6. Similar to above, in the event that valid parameters are sent in, and NO markets are returned, the `data` top level key should point to an empty array. And a status code of `200` should still be returned
 
-<details><summary>Example Request/Response 😁</summary>
+<details><summary><h5>Example Request/Response 😁</h5></summary>
 
 #### Request: 
 ```
@@ -871,7 +867,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
 }
 ```
 </details>
-<details><summary>Example Request/Response 😭 </summary>
+<details><summary><h5>Example Request/Response 😭 </h5></summary>
   
   #### Request: 
   ```
@@ -894,7 +890,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
 </details>
 </details>
 
-<details><summary>12. Get Cash Dispensers Near a Market</summary>
+<details><summary><h3>12. Get Cash Dispensers Near a Market</h3></summary>
 
 #### Details: 
 1. The endpoint should be in the pattern of `GET /api/v0/markets/:id/nearest_atms`
@@ -903,7 +899,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
 4. If an invalid market id is passed in, a 404 status as well as a descriptive error message should be sent back in the response.
 5. The `data` top level key should always point to an array even if one or zero atms were located near the market location.
 
-<details><summary>Example Request/Response 😁</summary>
+<details><summary><h5>Example Request/Response 😁 </h5></summary>
 
 #### Request: 
 ```
@@ -946,7 +942,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
 }
 ```
 </details>
-<details><summary>Example Request/Response 😭 </summary>
+<details><summary><h5>Example Request/Response 😭 </h5></summary>
   
   #### Request:
   ```
