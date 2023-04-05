@@ -73,7 +73,7 @@ RSpec.describe "User registration form" do
     fill_in :username, with: username
     fill_in :password, with: password
 
-    click_on "Register as a User"
+    click_on "Create User"
 
     expect(page).to have_content("Welcome, #{username}!")
   end
@@ -178,7 +178,7 @@ end
   <%= form.text_field :username %>
   <%= form.label :password, 'Password:' %>
   <%= form.password_field :password %>
-  <%= form.submit 'Register as a User' %>
+  <%= form.submit 'Create User' %>
 <% end %>
 ```
 
