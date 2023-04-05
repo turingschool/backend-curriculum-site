@@ -58,101 +58,105 @@ system(cmd)
 
 ---
 
-# 2. API Endpoints, general definitions
+# 2. API Endpoints, general outline
 
-## SECTION ONE: RESTful Endpoints, Minimum Requirements:
+### SECTION ONE: RESTful Endpoints
 
-* Market Endpoints:
+- **Market Endpoints**
   * get all markets
   * get one market
   * get all vendors for a market
-* Vendor Endpoints:
+- **Vendor Endpoints**
   * get one vendor
   * create a vendor
   * update a vendor
   * delete a vendor
   * get markets for a vendor
-* MarketVendor Endpoints: 
+- **MarketVendor Endpoints**
   * create a market_vendor
   * delete a market_vendor
 
-## SECTION TWO: Non-RESTful Endpoints
+### SECTION TWO: Non-RESTful Endpoints
 
-* AR Endpoint:
+- **AR Endpoint**
   * get all markets within a city or state that's name or description match a string fragment
 
-* Consume API Endpoint:
+- **Consume API Endpoint**
   * get cash dispensers (ATMs) close to a market location
 
-## Your Project MVP
+### Your Project MVP
 
 In total, the MINIMUM requirement will be 12 endpoints:
 
 * section one has 10 endpoints
 * section two has 2 endpoints
 
-# 3. API requests/responses, more detail
+---
 
-<details><summary>1. Get All Markets</summary>
+# 3. API requests/responses, more details
+
+Below, you will see 12 dropdowns that correspond to the core endpoint requirements of this project. Each dropdown gives you more details on what each endpoint should be doing, returning, and considering. Each endpoing also has some example request/responses to help you understand the requirements of the endpoint. Happy Path examples are denoted with a 😁  . Sad Path examples are denoted with a 😭  . 
+
+<details>
+<summary><h3>1. Get All Markets</h3></summary>
 
   #### Details:
   1. This endpoint should follow the pattern of `GET /api/v0/markets` and should return ALL markets in the database.
   2. In addition to the market's main attributes, the market resource should also list an attribute for `vendor_count`, which is the number of vendors that are associated with that market. 
-  
-  <details><summary>Example Request/Response 😁 </summary>
-    
-  #### Request: 
-  ```
-    GET /api/v0/markets
-    Content-Type: application/json
-    Accept: application/json
-  ```
 
-  #### Response:
-  `status: 200`
-  ```json
-  {
-      "data": [
-          {
-              "id": "17",
-              "type": "market",
-              "attributes": {
-                  "name": "18th Street Farmers Market",
-                  "street": "825 18th Street",
-                  "city": "Charleston",
-                  "county": "Coles",
-                  "state": "Illinois",
-                  "zip": "61920",
-                  "lat": "39.490737",
-                  "lon": "-88.163254",
-                  "vendor_count": 28
-              }
-          },
-          {
-              "id": "18",
-              "type": "market",
-              "attributes": {
-                  "name": "19/27 Community Farmers Market",
-                  "street": "NE 7th Ave",
-                  "city": "Chiefland",
-                  "county": "Levy",
-                  "state": "Florida",
-                  "zip": "32626",
-                  "lat": "29.4848541",
-                  "lon": "-82.8578732",
-                  "vendor_count": 38
-              }
-          },
-          ...,
-          ...,
-      ]
-    }
-  ```
+      <details><summary>Example Request/Response 😁 </summary>
+      
+      #### Request: 
+      ```
+        GET /api/v0/markets
+        Content-Type: application/json
+        Accept: application/json
+      ```
 
-  </details>
-  </details>
+      #### Response:
+      `status: 200`
+      ```json
+      {
+          "data": [
+              {
+                  "id": "17",
+                  "type": "market",
+                  "attributes": {
+                      "name": "18th Street Farmers Market",
+                      "street": "825 18th Street",
+                      "city": "Charleston",
+                      "county": "Coles",
+                      "state": "Illinois",
+                      "zip": "61920",
+                      "lat": "39.490737",
+                      "lon": "-88.163254",
+                      "vendor_count": 28
+                  }
+              },
+              {
+                  "id": "18",
+                  "type": "market",
+                  "attributes": {
+                      "name": "19/27 Community Farmers Market",
+                      "street": "NE 7th Ave",
+                      "city": "Chiefland",
+                      "county": "Levy",
+                      "state": "Florida",
+                      "zip": "32626",
+                      "lat": "29.4848541",
+                      "lon": "-82.8578732",
+                      "vendor_count": 38
+                  }
+              },
+              ...,
+              ...,
+          ]
+      }
+      ```
+      </details>
+</details>
 
-  <details><summary>2. Get One Market</summary>
+<details><summary>2. Get One Market</summary>
 
   #### Details:
   1. This endpoint should follow the pattern of `GET /api/v0/markets/:id`.
