@@ -12,7 +12,7 @@ type: project
 
 2. Set Up [SimpleCov](https://github.com/colszowka/simplecov) to track test coverage in your rails-engine API project.
 
-3. Download [market_money_development.pgdump](https://raw.githubusercontent.com/turingschool/backend-curriculum-site/gh-pages/module3/projects/market_money/market_money_development.pgdump) and move it into the `/db/` folder in another folder called `/data/`, so your project files look like this:
+3. Download [market_money_development.pgdump](https://github.com/turingschool/backend-curriculum-site/blob/market_money_project/module3/projects/market_money/market_money_development.pgdump) and move it into the `/db/` folder in another folder called `/data/`, so your project files look like this:
 
 ```
 /app
