@@ -20,7 +20,7 @@ type: project
 /config
 /db
   /data                                     <-- create this folder
-    rails-engine-development.pgdump         <-- put the file in the data folder
+    market_money_development.pgdump         <-- put the file in the data folder
   seeds.rb                                  <-- seeds.rb is in `/db/` folder, not `/db/data/`
 /lib
 /log
