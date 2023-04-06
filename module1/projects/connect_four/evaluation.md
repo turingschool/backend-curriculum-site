@@ -5,7 +5,15 @@ length: 2 week
 type: project
 ---
 
-For the project eval, you should prepare to speak to the presentation points listed below. If you have questions about the presentation, please let an instructor know before the time it's due.
+For the project eval, you should prepare to speak to the presentation points listed below. You are also required to provide some written reflections as well. There is some overlap between the written reflection and oral presentation. This is intentional.  If you have questions about the presentation or written reflection, please let an instructor know before the time it's due.
+
+## Written reflection:
+In your README reflect on the following:
+
+1. This project did not provide an interaction pattern. How did you approach the design and problem solving process for this project?
+2. If you had one more day to work on this project, what would you work on?
+3. Describe the pairing techniques you used while working on this project.
+4. Describe how feedback was shared over the course of this project.
 
 ## Presentation points:
 
