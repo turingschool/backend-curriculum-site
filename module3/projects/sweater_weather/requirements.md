@@ -119,7 +119,7 @@ Your api should expose this endpoint:
 **Request:**
 
 ```
-POST /api/v1/users
+POST /api/v0/users
 Content-Type: application/json
 Accept: application/json
 
@@ -150,7 +150,7 @@ body:
 
 **Requirements:**
 
-* This POST endpoint should NOT call your endpoint like `/api/v1/users?email=person@woohoo.com&password=abc123&password_confirmation=abc123`, and should NOT send as form data either. You must send a **JSON payload** in the **body** of the request
+* This POST endpoint should NOT call your endpoint like `/api/v0/users?email=person@woohoo.com&password=abc123&password_confirmation=abc123`, and should NOT send as form data either. You must send a **JSON payload** in the **body** of the request
   - in Postman, under the address bar, click on "Body", select "raw", which will show a dropdown that probably says "Text" in it, choose "JSON" from the list
   - this is a **hard requirement** to pass this endpoint!
 * A successful request creates a user in your database, and generates a unique api key associated with that user, with a 201 status code. The response should NOT include the password in any form
@@ -170,7 +170,7 @@ Your api should expose this endpoint:
 **Request:**
 
 ```
-POST /api/v1/sessions
+POST /api/v0/sessions
 Content-Type: application/json
 Accept: application/json
 
@@ -200,7 +200,7 @@ body:
 
 **Requirements:**
 
-* This POST endpoint should NOT call your endpoint like `/api/v1/sessions?email=person@woohoo.com&password=abc123`, and should NOT send as form data either. You must send a **JSON payload** in the **body** of the request
+* This POST endpoint should NOT call your endpoint like `/api/v0/sessions?email=person@woohoo.com&password=abc123`, and should NOT send as form data either. You must send a **JSON payload** in the **body** of the request
   - in Postman, under the address bar, click on "Body", select "raw", which will show a dropdown that probably says "Text" in it, choose "JSON" from the list
   - this is a **hard requirement** to pass this endpoint!
 * A successful request returns the user's api key.
@@ -269,7 +269,7 @@ eg:
 
 **Requirements:**
 
-* This POST endpoint should NOT call your endpoint like `/api/v1/road_trip?origin=Cincinatti,OH&destination=Chicago,IL&api_key=abc123`, and should NOT send as form data either. You must send a **JSON payload** in the **body** of the request
+* This POST endpoint should NOT call your endpoint like `/api/v0/road_trip?origin=Cincinatti,OH&destination=Chicago,IL&api_key=abc123`, and should NOT send as form data either. You must send a **JSON payload** in the **body** of the request
   - in Postman, under the address bar, click on "Body", select "raw", which will show a dropdown that probably says "Text" in it, choose "JSON" from the list
   - this is a **hard requirement** to pass this endpoint!
 - API key must be sent
@@ -295,7 +295,7 @@ eg:
 **Request:**
 
 ```
-GET /api/v1/backgrounds?location=denver,co
+GET /api/v0/backgrounds?location=denver,co
 Content-Type: application/json
 Accept: application/json
 ```
