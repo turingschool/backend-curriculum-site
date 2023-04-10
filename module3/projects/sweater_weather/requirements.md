@@ -244,6 +244,7 @@ Your response should have the following information for the front-end:
     - end_city, string, such as "Chicaco, IL"
     - travel_time, string, something user-friendly like "2 hours, 13 minutes" or "2h13m" or "02:13:00" or something of that nature (you don't have to include seconds); set this string to "impossible route" if there is no route between your cities
     - weather_at_eta, conditions at end_city when you arrive (not CURRENT weather), object containing:
+      - datetime, date and time for the reported weather at the destination at the approximate hour of arrival
       - temperature, numeric value in Fahrenheit
       - condition, the text description for the weather condition at that hour
       - note: this object will be blank if the travel time is impossible
@@ -259,6 +260,7 @@ eg:
             "end_city": "Chicago, IL",
             "travel_time": "04:40:45",
             "weather_at_eta": {
+                "datetime": "2023-04-07 23:00",
                 "temperature": 44.2,
                 "condition": "Cloudy with a chance of meatballs"
             }
