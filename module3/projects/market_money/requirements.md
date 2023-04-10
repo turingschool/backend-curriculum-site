@@ -688,7 +688,8 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
 1. This endpoint should follow the pattern of `POST /api/v0/market_vendors`, and it should create a new association between a market and a vendor (so then, the vendor has a new market that they sell at).
 2. When valid ids for vendor and market are passed in, a MarketVendor will be created, and a response will be sent back with a `201` status, detailing that a Vendor was added to a Market. 
 3. After implementing the happy path for this endpoint, run it, and check that when you call `GET /api/v0/vendors/:id/markets` for the vendor in which you just added to a market, that you see the newly associated market listed. 
-4. If an invalid vendor id or and invalid market id is passed in, a 404 status code as well as a descriptive message should be sent back with the response.
+4. If an invalid vendor id or and invalid market id is passed in, a `404` status code as well as a descriptive message should be sent back with the response.
+4. If an either a vendor id or a market id are not passed in, a `400` status code as well as a descriptive message should be sent back with the response.
 5. If there already exists a MarketVendor with that `market_id` and that `vendor_id`, a response with a `422` status code and a message informing the client that that association already exists, should be sent back. Looking at [custom validation](https://guides.rubyonrails.org/active_record_validations.html#custom-methods) might help to implement a validation for uniqueness of the attributes for this resource. 
 
     <details><summary><h5>Example #1 😁 </h5></summary>
@@ -710,6 +711,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
     ```
 
     #### Response: 
+    `status: 201`
     ```json
       {
         "message": "Successfully added vendor to market"
