@@ -40,7 +40,7 @@ _Note: See [Learning Goals](../../misc/learning_goals) to see at what level thes
 
 * Practice good project management by using project boards, participating in daily stand-ups and team retros ⭐ ⭐ ⭐
 * Utilize quality workflow practices: small commits, descriptive pull requests, and code reviews ⭐ ⭐
-* Write thorough, understandable documentation ⭐ ⭐ (consider using [Swagger](https://swagger.io/tools/swaggerhub/)
+* Write thorough, understandable documentation ⭐ ⭐ (consider using [Swagger](https://swagger.io/tools/swaggerhub/))
 
 
 ### Implicit Learning Goals
