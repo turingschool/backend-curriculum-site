@@ -143,33 +143,33 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
       {
           "data": [
               {
-                  "id": "17",
+                  "id": "322458",
                   "type": "market",
                   "attributes": {
-                      "name": "18th Street Farmers Market",
-                      "street": "825 18th Street",
-                      "city": "Charleston",
-                      "county": "Coles",
-                      "state": "Illinois",
-                      "zip": "61920",
-                      "lat": "39.490737",
-                      "lon": "-88.163254",
-                      "vendor_count": 28
+                      "name": "14&U Farmers' Market",
+                      "street": "1400 U Street NW ",
+                      "city": "Washington",
+                      "county": "District of Columbia",
+                      "state": "District of Columbia",
+                      "zip": "20009",
+                      "lat": "38.9169984",
+                      "lon": "-77.0320505",
+                      "vendor_count": 1
                   }
               },
               {
-                  "id": "18",
+                  "id": "322474",
                   "type": "market",
                   "attributes": {
-                      "name": "19/27 Community Farmers Market",
-                      "street": "NE 7th Ave",
-                      "city": "Chiefland",
-                      "county": "Levy",
-                      "state": "Florida",
-                      "zip": "32626",
-                      "lat": "29.4848541",
-                      "lon": "-82.8578732",
-                      "vendor_count": 38
+                      "name": "2nd Street Farmers' Market",
+                      "street": "194 second street",
+                      "city": "Amherst",
+                      "county": "Amherst",
+                      "state": "Virginia",
+                      "zip": "24521",
+                      "lat": "37.583311",
+                      "lon": "-79.048573",
+                      "vendor_count": 35
                   }
               },
               ...,
@@ -190,7 +190,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
 
       #### Request:
       ```
-        GET /api/v0/markets/360
+        GET /api/v0/markets/322458
         Content-Type: application/json
         Accept: application/json
       ```
@@ -200,18 +200,18 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
       ```json
       {
           "data": {
-              "id": "360",
+              "id": "322458",
               "type": "market",
               "attributes": {
-                  "name": "Austintown Farmers Market",
-                  "street": "6000 Kirk Road (Austintown Township Park)",
-                  "city": "Austintown",
-                  "county": "Mahoning",
-                  "state": "Ohio",
-                  "zip": "44515",
-                  "lat": "41.070511",
-                  "lon": "-80.774094",
-                  "vendor_count": 24
+                  "name": "14&U Farmers' Market",
+                  "street": "1400 U Street NW ",
+                  "city": "Washington",
+                  "county": "District of Columbia",
+                  "state": "District of Columbia",
+                  "zip": "20009",
+                  "lat": "38.9169984",
+                  "lon": "-77.0320505",
+                  "vendor_count": 1
               }
           }
       }
@@ -251,7 +251,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
 
     #### Request: 
     ```
-      GET /api/v0/markets/360/vendors
+      GET /api/v0/markets/322474/vendors
       Content-Type: application/json
       Accept: application/json
     ```
@@ -262,36 +262,25 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
     {
         "data": [
             {
-                "id": "1150",
+                "id": "55297",
                 "type": "vendor",
                 "attributes": {
-                    "name": "Jolly Scoops",
-                    "description": "Handcrafted ice cream in a variety of festive flavors.",
-                    "contact_name": "Kit Romaguera",
-                    "contact_phone": "656.318.8117",
-                    "credit_accepted": true
-                }
-            },
-            {
-                "id": "1452",
-                "type": "vendor",
-                "attributes": {
-                    "name": "The Book Cellar",
-                    "description": "A hidden gem of a bookstore, featuring a range of used and rare titles, with a focus on science fiction and fantasy.",
-                    "contact_name": "Dorian O'Kon",
-                    "contact_phone": "839-874-2562",
-                    "credit_accepted": true
-                }
-            },
-            {
-                "id": "318",
-                "type": "vendor",
-                "attributes": {
-                    "name": "Hot Diggity Dog",
-                    "description": "sells gourmet hot dogs with unique toppings",
-                    "contact_name": "Dan Connelly PhD",
-                    "contact_phone": "322-239-3558",
+                    "name": "Orange County Olive Oil",
+                    "description": "Handcrafted olive oil made from locally grown olives",
+                    "contact_name": "Syble Hamill",
+                    "contact_phone": "1-276-593-3530",
                     "credit_accepted": false
+                }
+            },
+            {
+                "id": "56227",
+                "type": "vendor",
+                "attributes": {
+                    "name": "The Vodka Vault",
+                    "description": "Handcrafted vodka with a focus on unique and unusual flavors",
+                    "contact_name": "Rueben Parker DVM",
+                    "contact_phone": "1-140-885-8633",
+                    "credit_accepted": true
                 }
             },
             ...,
@@ -334,7 +323,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
 
     #### Request: 
     ```
-      GET /api/v0/vendors/1150
+      GET /api/v0/vendors/55297
       Content-Type: application/json
       Accept: application/json
     ```
@@ -344,14 +333,14 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
     ```json 
     {
         "data": {
-            "id": "1150",
+            "id": "55297",
             "type": "vendor",
             "attributes": {
-                "name": "Jolly Scoops",
-                "description": "Handcrafted ice cream in a variety of festive flavors.",
-                "contact_name": "Kit Romaguera",
-                "contact_phone": "656.318.8117",
-                "credit_accepted": true
+                "name": "Orange County Olive Oil",
+                "description": "Handcrafted olive oil made from locally grown olives",
+                "contact_name": "Syble Hamill",
+                "contact_phone": "1-276-593-3530",
+                "credit_accepted": false
             }
         }
     }
@@ -414,7 +403,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
     ```json 
     {
         "data": {
-            "id": "1694",
+            "id": "56542",
             "type": "vendor",
             "attributes": {
                 "name": "Buzzy Bees",
@@ -470,7 +459,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
 
     #### Request: 
     ```
-      PATCH /api/v0/vendors/1694
+      PATCH /api/v0/vendors/56542
       Content-Type: application/json
       Accept: application/json
     ```
@@ -488,7 +477,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
     ```json 
     {
         "data": {
-            "id": "1694",
+            "id": "56542",
             "type": "vendor",
             "attributes": {
                 "name": "Buzzy Bees",
@@ -533,7 +522,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
       
       #### Request:
       ```
-        PATCH /api/v0/vendors/1694 (where `1694` is an valid Vendor id)
+        PATCH /api/v0/vendors/56542 (where `56542` is a valid Vendor id)
         Content-Type: application/json
         Accept: application/json
       ```
@@ -570,7 +559,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
 
     #### Request: 
     ```
-      DELETE /api/v0/vendors/70
+      DELETE /api/v0/vendors/56542
       Content-Type: application/json
       Accept: application/json
     ```
@@ -615,7 +604,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
 
     #### Request: 
     ```
-      GET /api/v0/vendors/1150/markets
+      GET /api/v0/vendors/56542/markets
       Content-Type: application/json
       Accept: application/json
     ```
@@ -625,33 +614,33 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
     {
         "data": [
             {
-                "id": "360",
+                "id": "322474",
                 "type": "market",
                 "attributes": {
-                    "name": "Austintown Farmers Market",
-                    "street": "6000 Kirk Road (Austintown Township Park)",
-                    "city": "Austintown",
-                    "county": "Mahoning",
-                    "state": "Ohio",
-                    "zip": "44515",
-                    "lat": "41.070511",
-                    "lon": "-80.774094",
-                    "vendor_count": 24
+                    "name": "2nd Street Farmers' Market",
+                    "street": "194 second street",
+                    "city": "Amherst",
+                    "county": "Amherst",
+                    "state": "Virginia",
+                    "zip": "24521",
+                    "lat": "37.583311",
+                    "lon": "-79.048573",
+                    "vendor_count": 35
                 }
             },
             {
-                "id": "994",
+                "id": "323664",
                 "type": "market",
                 "attributes": {
-                    "name": "Canal Fulton Farmers Market ",
-                    "street": "2309 Locust Street",
-                    "city": "Canal Fulton",
-                    "county": null,
-                    "state": "Ohio",
-                    "zip": "44614",
-                    "lat": "40.8822",
-                    "lon": "-81.5686",
-                    "vendor_count": 39
+                    "name": "Charlottesville City Market",
+                    "street": "100 Water Street",
+                    "city": "Charlottesville",
+                    "county": "Albemarle",
+                    "state": "Virginia",
+                    "zip": "22902",
+                    "lat": "38.0295810",
+                    "lon": "-78.4816540",
+                    "vendor_count": 35
                 }
             },
             ...,
@@ -704,10 +693,10 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
     ##### Body: 
     ```json
     {
-        "market_id": 19,
-        "vendor_id": 1150
+        "market_id": 322474,
+        "vendor_id": 54861
     }
-    (where 19 and 1150 are valid market and vendor id's.)
+    (where 322474 and 54861 are valid market and vendor id's.)
     ```
 
     #### Response: 
@@ -730,7 +719,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
       ```json
       {
           "market_id": 987654321, 
-          "vendor_id": 1150 
+          "vendor_id": 54861 
       }
       (where 987654321 is an invalid market id)
       ```
@@ -758,10 +747,10 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
       ##### Body: 
       ```json
       {
-          "market_id": 19, 
-          "vendor_id": 1150 
+          "market_id": 322474, 
+          "vendor_id": 54861 
       }
-      (where 19 and 1150 are valid market and vendor id's, but an existing MarketVendor with those values already exists.)
+      (where 322474 and 54861 are valid market and vendor id's, but an existing MarketVendor with those values already exists.)
       ```
 
       #### Response: 
@@ -799,8 +788,8 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
     ##### Body: 
     ```json
     {
-        "market_id": 19,
-        "vendor_id": 1697
+        "market_id": 322474,
+        "vendor_id": 54861
     }
     ```
 
@@ -818,10 +807,10 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
       ##### Body: 
       ```json
       {
-          "market_id": 423, 
-          "vendor_id": 1150 
+          "market_id": 4233, 
+          "vendor_id": 11520 
       }
-      (where there is no MarketVendor that has a market_id=423 AND a vendor_id=1150)
+      (where there is no MarketVendor that has a market_id=4233 AND a vendor_id=11520)
       ```
 
       #### Response: 
@@ -830,7 +819,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
     {
         "errors": [
             {
-                "detail": "No MarketVendor with market_id=423 AND vendor_id=1150 exists"
+                "detail": "No MarketVendor with market_id=4233 AND vendor_id=11520 exists"
             }
         ]
     }
@@ -858,7 +847,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
 
     #### Request: 
     ```
-      GET /api/v0/markets/search?city=albququerque&state=new Mexico&name=uptown
+      GET /api/v0/markets/search?city=albuquerque&state=new Mexico&name=Nob hill
       Content-Type: application/json
       Accept: application/json
     ```
@@ -869,18 +858,18 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
     {
         "data": [
             {
-                "id": "70",
+                "id": "327794",
                 "type": "market",
                 "attributes": {
-                    "name": "ABQ Uptown Growers' Market",
-                    "street": "NE parking lot of ABQ Uptown shopping center",
-                    "city": "Albququerque",
+                    "name": "Nob Hill Growers' Market",
+                    "street": "Lead & Morningside SE",
+                    "city": "Albuquerque",
                     "county": "Bernalillo",
                     "state": "New Mexico",
                     "zip": null,
-                    "lat": "35.103988",
-                    "lon": "-106.565838",
-                    "vendor_count": 10
+                    "lat": "35.077529",
+                    "lon": "-106.600449",
+                    "vendor_count": 5
                 }
             }
         ]
@@ -891,7 +880,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
       
       #### Request: 
       ```
-        GET /api/v0/markets/search?city=albququerque
+        GET /api/v0/markets/search?city=albuquerque
         Content-Type: application/json
         Accept: application/json
       ```
@@ -923,7 +912,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
 
     #### Request: 
     ```
-      GET /api/v0/markets/70/nearest_atms
+      GET /api/v0/markets/327794/nearest_atms
       Content-Type: application/json
       Accept: application/json
     ```
@@ -937,22 +926,22 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
                 "id": null,
                 "type": "atm",
                 "attributes": {
-                    "name": "Eds-Pyns",
-                    "address": "2200 Louisiana Boulevard Northeast, Albuquerque, NM 87110",
-                    "lat": 35.1034,
-                    "lon": -106.56745,
-                    "distance": 0.09976720439821812
+                    "name": "ATM",
+                    "address": "3902 Central Avenue Southeast, Albuquerque, NM 87108",
+                    "lat": 35.07904,
+                    "lon": -106.60068,
+                    "distance": 0.10521432030421865
                 }
             },
             {
                 "id": null,
                 "type": "atm",
                 "attributes": {
-                    "name": "Prosperity Bank",
-                    "address": "2240 Q St NE, Albuquerque, NM 87110",
-                    "lat": 35.10273,
-                    "lon": -106.56691,
-                    "distance": 0.10595742641673364
+                    "name": "ATM",
+                    "address": "4100 Central Avenue Southeast, Albuquerque, NM 87108",
+                    "lat": 35.0788,
+                    "lon": -106.59842,
+                    "distance": 0.14448001321588486
                 }
             },
             ...,
