@@ -260,7 +260,7 @@ eg:
             "travel_time": "04:40:45",
             "weather_at_eta": {
                 "temperature": 44.2,
-                "conditions": "Cloudy with a chance of meatballs"
+                "condition": "Cloudy with a chance of meatballs"
             }
         }
     }
@@ -269,7 +269,7 @@ eg:
 
 **Requirements:**
 
-* This POST endpoint should NOT call your endpoint like `/api/v0/road_trip?origin=Cincinatti,OH&destination=Chicago,IL&api_key=abc123`, and should NOT send as form data either. You must send a **JSON payload** in the **body** of the request
+* This POST endpoint should NOT call your endpoint like `/api/v0/road_trip?origin=Cincinatti,OH&destination=Chicago,IL&api_key=t1h2i3s4_i5s6_l7e8g9i10t11`, and should NOT send as form data either. You must send a **JSON payload** in the **body** of the request
   - in Postman, under the address bar, click on "Body", select "raw", which will show a dropdown that probably says "Text" in it, choose "JSON" from the list
   - this is a **hard requirement** to pass this endpoint!
 - API key must be sent
@@ -284,7 +284,7 @@ eg:
 
 ## Extensions
 
-1. Add a query parameter to applicable endpoints called "units", and allow the user to pass "metric" or "imperial" as a value (ie, units=metric or units=imperial) and convert temperatures to Celcius for metric, and Fahrenheit for imperial.
+1. Add a query parameter to applicable endpoints called "units", and allow the user to pass "metric" or "imperial" as a value (ie, units=metric or units=imperial) and return temperatures in Celcius for metric, and Fahrenheit for imperial.
 
 2. Cache the city/state and lat/lng data within Rails for a period of time. Also consider storing it in your database.
 
