@@ -27,7 +27,7 @@ They need your API to expose two API endpoints in order to populate this page wi
 **Request:**
 
 ```
-GET /api/v1/forecast?location=denver,co
+GET /api/v0/forecast?location=cincinatti,oh
 Content-Type: application/json
 Accept: application/json
 ```
@@ -41,31 +41,29 @@ The response data should contain exactly these elements and nothing more:
   - type, always set to "forecast"
   - attributes, an object containing weather information:
     - current_weather, holds current weather data:
-      - datetime, in a human-readable format such as "2020-09-30 13:27:03 -0600"
-      - sunrise, in a human-readable format such as "2020-09-30 06:27:03 -0600"
-      - sunset, in a human-readable format such as "2020-09-30 18:27:03 -0600"
+      - last_updated, in a human-readable format such as "2023-04-07 16:30"
       - temperature, floating point number indicating the current temperature in Fahrenheit
       - feels_like, floating point number indicating a temperature in Fahrenheit
-      - humidity, numeric (int or float), as given by OpenWeather
-      - uvi, numeric (int or float), as given by OpenWeather
-      - visibility, numeric (int or float), as given by OpenWeather
-      - conditions, the first 'description' field from the weather data as given by OpenWeather
-      - icon, string, as given by OpenWeather
+      - humidity, numeric (int or float)
+      - uvi, numeric (int or float)
+      - visibility, numeric (int or float)
+      - condition, the text description for the current weather condition
+      - icon, png string for current weather condition
       
     - daily_weather, array of the next 5 days of daily weather data:
-      - date, in a human-readable format such as "2020-09-30"
-      - sunrise, in a human-readable format such as "2020-09-30 06:27:03 -0600"
-      - sunset, in a human-readable format such as "2020-09-30 18:27:03 -0600"
+      - date, in a human-readable format such as "2023-04-07"
+      - sunrise, in a human-readable format such as "07:13 AM"
+      - sunset, in a human-readable format such as "08:07 PM"
       - max_temp, floating point number indicating the maximum expected temperature in Fahrenheit
       - min_temp, floating point number indicating the minimum expected temperature in Fahrenheit
-      - conditions, the first 'description' field from the weather data as given by OpenWeather
-      - icon, string, as given by OpenWeather
+      - condition, the text description for the weather condition
+      - icon, png string for weather condition
       
-    - hourly_weather, array of the next 8 hours of hourly weather data:
-      - time, in a human-readable format such as "14:00:00"
-      - temperature, floating point number indicating the current temperature in Fahrenheit
-      - conditions, the first 'description' field from the weather data as given by OpenWeather
-      - icon, string, as given by OpenWeather
+    - hourly_weather, array of all 24 hour's hour data for the current day:
+      - time, in a human-readable format such as "22:00"
+      - temperature, floating point number indicating the temperature in Fahrenheit for that hour
+      - conditions, the text description for the weather condition at that hour
+      - icon, string, png string for weather condition at that hour
 
 
 Example:
@@ -76,22 +74,22 @@ Example:
     "type": "forecast",
     "attributes": {
       "current_weather": {
-        "datetime": "2020-09-30 13:27:03 -0600",
-        "temperature": 79.4,
+        "last_updated": "2023-04-07 16:30",
+        "temperature": 55.0,
         etc
       },
       "daily_weather": [
         {
-          "date": "2020-10-01",
-          "sunrise": "2020-10-01 06:10:43 -0600",
+          "date": "2023-04-07",
+          "sunrise": "07:13 AM",
           etc
         },
         {...} etc
       ],
       "hourly_weather": [
         {
-          "time": "14:00:00",
-          "conditions": "cloudy with a chance of meatballs",
+          "time": "14:00",
+          "temperature": 54.5,
           etc
         },
         {...} etc
@@ -105,7 +103,7 @@ Example:
 **Requirements:**
 
 * Endpoint needs to use the city and state from the GET request's query parameter and send it to [MapQuest's Geocoding API](https://developer.mapquest.com/documentation/geocoding-api/) to retrieve the latitude and longitude for the city. Use of the MapQuest's Geocoding API is a hard requirement.
-* Retrieve forecast data from the [OpenWeather One Call API](https://openweathermap.org/api/one-call-api) using the latitude and longitude from MapQuest.
+* Retrieve forecast data from the [Weather API](https://www.weatherapi.com/) using the latitude and longitude from MapQuest. 
 * Testing should look for more than just the presence of attribute fields in the response. Testing should also determine which fields should NOT be present. (don't send unnecessary data)
 
 ---
@@ -121,7 +119,7 @@ Your api should expose this endpoint:
 **Request:**
 
 ```
-POST /api/v1/users
+POST /api/v0/users
 Content-Type: application/json
 Accept: application/json
 
@@ -144,7 +142,7 @@ body:
     "id": "1",
     "attributes": {
       "email": "whatever@example.com",
-      "api_key": "jgn983hy48thw9begh98h4539h4"
+      "api_key": "t1h2i3s4_i5s6_l7e8g9i10t11"
     }
   }
 }
@@ -152,7 +150,7 @@ body:
 
 **Requirements:**
 
-* This POST endpoint should NOT call your endpoint like `/api/v1/users?email=person@woohoo.com&password=abc123&password_confirmation=abc123`, and should NOT send as form data either. You must send a **JSON payload** in the **body** of the request
+* This POST endpoint should NOT call your endpoint like `/api/v0/users?email=person@woohoo.com&password=abc123&password_confirmation=abc123`, and should NOT send as form data either. You must send a **JSON payload** in the **body** of the request
   - in Postman, under the address bar, click on "Body", select "raw", which will show a dropdown that probably says "Text" in it, choose "JSON" from the list
   - this is a **hard requirement** to pass this endpoint!
 * A successful request creates a user in your database, and generates a unique api key associated with that user, with a 201 status code. The response should NOT include the password in any form
@@ -172,7 +170,7 @@ Your api should expose this endpoint:
 **Request:**
 
 ```
-POST /api/v1/sessions
+POST /api/v0/sessions
 Content-Type: application/json
 Accept: application/json
 
@@ -194,7 +192,7 @@ body:
     "id": "1",
     "attributes": {
       "email": "whatever@example.com",
-      "api_key": "jgn983hy48thw9begh98h4539h4"
+      "api_key": "t1h2i3s4_i5s6_l7e8g9i10t11"
     }
   }
 }
@@ -202,7 +200,7 @@ body:
 
 **Requirements:**
 
-* This POST endpoint should NOT call your endpoint like `/api/v1/sessions?email=person@woohoo.com&password=abc123`, and should NOT send as form data either. You must send a **JSON payload** in the **body** of the request
+* This POST endpoint should NOT call your endpoint like `/api/v0/sessions?email=person@woohoo.com&password=abc123`, and should NOT send as form data either. You must send a **JSON payload** in the **body** of the request
   - in Postman, under the address bar, click on "Body", select "raw", which will show a dropdown that probably says "Text" in it, choose "JSON" from the list
   - this is a **hard requirement** to pass this endpoint!
 * A successful request returns the user's api key.
@@ -221,16 +219,16 @@ The front-end team has drawn up these wireframes for a feature where users can p
 **Request:**
 
 ```
-POST /api/v1/road_trip
+POST /api/v0/road_trip
 Content-Type: application/json
 Accept: application/json
 
 body:
 
 {
-  "origin": "Denver,CO",
-  "destination": "Pueblo,CO",
-  "api_key": "jgn983hy48thw9begh98h4539h4"
+  "origin": "Cincinatti,OH",
+  "destination": "Chicago,IL",
+  "api_key": "t1h2i3s4_i5s6_l7e8g9i10t11"
 }
 ```
 
@@ -242,36 +240,38 @@ Your response should have the following information for the front-end:
   - id, always set to null
   - type, always set to "roadtrip"
   - attributes, an object containing road trip information:
-    - start_city, string, such as "Denver, CO"
-    - end_city, string, such as "Estes Park, CO"
+    - start_city, string, such as "Cincinatti, OH"
+    - end_city, string, such as "Chicaco, IL"
     - travel_time, string, something user-friendly like "2 hours, 13 minutes" or "2h13m" or "02:13:00" or something of that nature (you don't have to include seconds); set this string to "impossible route" if there is no route between your cities
     - weather_at_eta, conditions at end_city when you arrive (not CURRENT weather), object containing:
+      - datetime, date and time for the reported weather at the destination at the approximate hour of arrival
       - temperature, numeric value in Fahrenheit
-      - conditions, string, as given by OpenWeather
+      - condition, the text description for the weather condition at that hour
       - note: this object will be blank if the travel time is impossible
 
 eg:
 ```json
 {
-  "data": {
-    "id": null,
-    "type": "roadtrip",
-    "attributes": {
-      "start_city": "Denver, CO",
-      "end_city": "Estes Park, CO",
-      "travel_time": "2 hours, 13 minutes"
-      "weather_at_eta": {
-        "temperature": 59.4,
-        "conditions": "partly cloudy with a chance of meatballs"
-      }
+    "data": {
+        "id": "null",
+        "type": "road_trip",
+        "attributes": {
+            "start_city": "Cincinatti, OH",
+            "end_city": "Chicago, IL",
+            "travel_time": "04:40:45",
+            "weather_at_eta": {
+                "datetime": "2023-04-07 23:00",
+                "temperature": 44.2,
+                "condition": "Cloudy with a chance of meatballs"
+            }
+        }
     }
-  }
 }
 ```
 
 **Requirements:**
 
-* This POST endpoint should NOT call your endpoint like `/api/v1/road_trip?origin=Denver,CO&destination=Pueblo,CO&api_key=abc123`, and should NOT send as form data either. You must send a **JSON payload** in the **body** of the request
+* This POST endpoint should NOT call your endpoint like `/api/v0/road_trip?origin=Cincinatti,OH&destination=Chicago,IL&api_key=t1h2i3s4_i5s6_l7e8g9i10t11`, and should NOT send as form data either. You must send a **JSON payload** in the **body** of the request
   - in Postman, under the address bar, click on "Body", select "raw", which will show a dropdown that probably says "Text" in it, choose "JSON" from the list
   - this is a **hard requirement** to pass this endpoint!
 - API key must be sent
@@ -286,7 +286,7 @@ eg:
 
 ## Extensions
 
-1. Add a query parameter to applicable endpoints called "units", and allow the user to pass "metric" or "imperial" as a value (ie, units=metric or units=imperial) and convert temperatures to Celcius for metric, and Fahrenheit for imperial.
+1. Add a query parameter to applicable endpoints called "units", and allow the user to pass "metric" or "imperial" as a value (ie, units=metric or units=imperial) and return temperatures in Celcius for metric, and Fahrenheit for imperial.
 
 2. Cache the city/state and lat/lng data within Rails for a period of time. Also consider storing it in your database.
 
@@ -297,7 +297,7 @@ eg:
 **Request:**
 
 ```
-GET /api/v1/backgrounds?location=denver,co
+GET /api/v0/backgrounds?location=denver,co
 Content-Type: application/json
 Accept: application/json
 ```
