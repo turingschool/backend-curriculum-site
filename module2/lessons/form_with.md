@@ -5,7 +5,7 @@ title: Rails form_with
 
 ## Warm Up
 
-We'll start today from the [Set List main branch](https://github.com/turingschool-examples/set_list_tutorial)
+We'll start today from the [Set List `advanced_routing` branch](https://github.com/turingschool-examples/set_list_tutorial/tree/advanced_routing)
 
 - Thinking about our Set List application, what is the structure of the forms we use to create and update artists? (Share your screen and put them side by side)
     - How do we tell our forms the path and verb it should use when the form is submitted?
@@ -19,11 +19,11 @@ We'll start today from the [Set List main branch](https://github.com/turingschoo
 
 If we were going to use `form_with` without a model to create a simple search form then we could do it like so:
 
-```html
-<%= form_with(url: "/search", method: "get") do %>
-  <%= label_tag(:q, "Search for:") %>
-  <%= text_field_tag(:q) %>
-  <%= submit_tag("Search") %>
+```erb
+<%= form_with url: "/search", method: :get, local: true do |form| %>
+  <%= form.label "Search for:"  %>
+  <%= form.text_field :q %>
+  <%= form.submit "Search" %>
 <% end %>
 ```
 
@@ -93,13 +93,13 @@ end
 
 `form_with` figures out where the browser should submit the form, and which HTTP verb to use, based on the object we pass:
 
-* if the object does not have an `id`:
-  * form_with will use a POST verb and the action path will be `/resources`
+* If the object does not have an `id`:
+  * form_with will use a `POST` verb and the action path will be `/resources`
   * the form will start out empty
   * the submit button will say 'Create (resource name)'
   * the action method we need to process the form data will be called `create`
-* if the object has an `id`:
-  * form_with will use a PUT verb and the action path will be something like `/resources/:id`
+* If the object has an `id`:
+  * form_with will use a `PUT` verb and the action path will be something like `/resources/:id`
   * the form will pre-populate the fields with the data from the database
   * the submit button will say 'Update (resource name)'
   * the action method we need to to process the form data will be called `update`
@@ -135,7 +135,7 @@ from the controller action that the form submits to.
 Again, notice the nesting.
 
 
-### Practice
+## Practice
 
 In our Set List app: 
 1. Update the Artist Edit form to use `form_with model` instead of `form_with url`. 
@@ -144,7 +144,7 @@ In our Set List app:
 In your project, update a few forms to use the `form with model` instead of `form_with url` - see if you can keep using partials! 
 
 
-#### Extra Practice: 
+### Extra Practice: 
 
 3. Using TDD, create a Edit Song form using `form_with model`. 
 4. Using TDD, creaet a New Playlist form using `form_with model`. 
