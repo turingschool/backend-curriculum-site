@@ -184,6 +184,8 @@ Now, we can iterate over our array and create our objects.
 
 ```ruby
 # lib/ghibli_films.rb
+require "./lib/film"
+
 films = parsed.map do |data|
   Film.new(data)
 end
