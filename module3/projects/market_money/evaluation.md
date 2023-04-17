@@ -5,14 +5,17 @@ length: 1 week
 type: project
 ---
 
-The 'eval' for this project is going to be a bit different than other projects in the past. We are relying on you to score yourself for this project. To do that, please submit this form. 
+The 'eval' for this project is going to be a bit different than other projects in the past. We are relying on you to score yourself for this project. To do that, please submit the form provided to you from your instructors. 
 
 ## Feedback Session Format
 
 Instead of a traditional eval, you will be meeting in small groups to get feedback from your peers as well as an instructor. The format of this feedback session will be:
 
-Feedback Request:
+1. **Feedback Request:**
 Choose at least one part of your project that you’d like specific feedback on. Everyone will be asked to bring this to the feedback session, and you will be able to get feedback from your instructor as well as your peers in the feedback group.
+
+2. **Behavioral Question**
+After you're done getting feedback on your code, your instructor will pull up the [Behavioral Interview Questions](https://spinthewheel.io//en/wheels/oF5ZfO1oCmBmrZCe45Jecz0xJmU9MQ==), and spin it to select a question for you to answer. This is meant to emulate an interview experience. So, as funny as it may feel, answer it as if you were talking to an interviewer. After answering, your instructor (and any cohort-mates!) will give you feedback on your answer. Remember, this is a safe place to practice!
 
 ## Rubric
 
