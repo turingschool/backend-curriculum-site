@@ -89,6 +89,9 @@ As it runs, it will show you which tests are passing or failing. Remember, that 
 
 The Technical Requirements for this project can be found [here](./requirements)
 
+## Extensions
+
+After you've completed ALL 11 endpoints, you can find some extra practice ideas [here](./extensions)
 ## Evaluation
 
 Evaluation details can be found [here](./evaluation)
