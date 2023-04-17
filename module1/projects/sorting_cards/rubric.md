@@ -47,7 +47,7 @@ If a student does not complete a significant portion of iteration 3, then it is 
     * Includes methods that are well named and clearly have a single responsibility that can be described concisely,
     * Implements methods at different levels of abstraction allowing students to separate high level logic from low level implementation details.
     * Additionally, methods are easy to read and a person unfamiliar with the project can determine what they do fairly quickly. In order to facilitate this, methods are generally less than 7 lines long and lines of code are generally no longer than 80 characters.
-    * A project at this level includes a `lib` and a `test` directory and the files that a student has included in both places adhere to convention in both their name and content.
+    * A project at this level includes a `lib` and a `spec` directory and the files that a student has included in both places adhere to convention in both their name and content.
 
 * **`Below Expectations`** - Projects at this level
 
