@@ -74,7 +74,7 @@ You will need to expose the data through a multitude of API endpoints. All of yo
 * Endpoints such as `GET /api/v1/markets/search?parameters` will NOT follow RESTful convention, and that's okay. Consider creating an action that *appears* restful.
 * In total, you will create **11 endpoints** (9 ReSTful, 2 non-ReSTful)
 
-    ##### ReSTful Endpoints
+  #### ReSTful Endpoints:
 
     - **Market Endpoints**
       * get all markets
@@ -89,7 +89,7 @@ You will need to expose the data through a multitude of API endpoints. All of yo
       * create a market_vendor
       * delete a market_vendor
 
-    ##### Non-ReSTful Endpoints
+  #### Non-ReSTful Endpoints:
 
     - **AR Endpoint**
       * get all markets within a city or state that's name or description match a string fragment
