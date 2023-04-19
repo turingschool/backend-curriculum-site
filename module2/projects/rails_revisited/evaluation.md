@@ -22,9 +22,9 @@ It is ultimately up to you how you'd like to present your project, but we've pro
 * Talk through the tables/relationship that you started with.
 * Explain the new tables/relationships that you added for this project, and how they relate to one (or both) of your original two tables you had when starting this project.
 </details>
-<details markdown="1"><summary><h3> 💁🏿 3. Demo your app (3 minutes)</h3></summary>
+<details markdown="1"><summary><h3> 💁🏿 3. Demo your app (2 minutes)</h3></summary>
 
-* Pull up your app in the browser and demonstrate your new functionality.
+* Pull up your app in the browser and demonstrate your **new** functionality.
     * **THIS IS SOMETHING YOU NEED TO PRACTICE!**
         - Plan out a flow for how you want to demonstrate the user's experience for your application. You want this to be as seamless and efficient as possible. 
         - You do not need to talk about your code at this point, you should just be demoing the user experience. 
@@ -35,14 +35,14 @@ It is ultimately up to you how you'd like to present your project, but we've pro
  * Switch back to your code, pull up your `routes.rb` file, an example of a form refactor, and 1 other area of code where you made a MVC refactor.
 * For each instance that you show above, give a brief explanation as to why you made that refactor. For example, did that refactor better align with a particular pillar of OOP, or maybe better rails/ruby convention?
 </details>
-<details markdown="1"><summary><h3> 💯 5. Show your testing coverage</h3>(1 minute)</summary>
+<details markdown="1"><summary><h3> 💯 5. Show your testing coverage (1 minute)</h3></summary>
 
 * Run `bundle exec rspec spec/models` to show your coverage percentage for your models.
 * Run `bundle exec rspec spec/features` to show your coverage percentage for your features.
 * If either of the percentages are below 100%, pull up your coverage report to show what was not tested. (`open coverage/index.html`)
 </details>
 
-<details markdown="1"><summary><h3> 🗣 6. Talk through 1 CRUD user story (4 minutes)</h3></summary>
+<details markdown="1"><summary><h3> 🗣 6. Talk through 1 CRUD user story (3 minutes)</h3></summary>
 
  * Choose a CRUD user story that you are most proud of. 
     - Talk through the test(s) and the code for that feature.
@@ -73,12 +73,12 @@ It is ultimately up to you how you'd like to present your project, but we've pro
         </details>
 
 </details>
-<details markdown="1"><summary><h3> 🤯 7. Talk through 1 Advanced ActiveRecord query (2 minutes)</h3></summary>
+<details markdown="1"><summary><h3> 🤯 7. Talk through 1 Advanced ActiveRecord query (1 minute)</h3></summary>
 
 * Describe the functionality you needed the query for.
 * Pull up your code for the query, and talk about what it's doing.
 </details>
-<details markdown="1"><summary><h3> 🎉 8. Talk through your implementation of the API story (3 minutes)</h3></summary>
+<details markdown="1"><summary><h3> 🎉 8. Talk through your implementation of the API story (2 minutes)</h3></summary>
 
 * This should also be explained at a high level, just like the CRUD user story. 
 </details>
