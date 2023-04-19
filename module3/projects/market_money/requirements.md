@@ -53,6 +53,8 @@ system(cmd)
   * vendors 
   * market_vendors
 
+8. `Market` and `Vendor` have a `many-to-many` relationship through `MarketVendor`. You will need to set up the relationships in your model on your own. 
+
 
 **NOTE** If your `rails new ...` project name from above is NOT exactly called "market_money" you will need to modify the `cmd` variable below to change the `-d` parameter from `market_money_development` to `<YOUR PROJECT NAME>_development` instead. If you have questions, ask your instructors.
 
