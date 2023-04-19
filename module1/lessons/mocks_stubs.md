@@ -47,7 +47,7 @@ it 'can add paint' do
 end
 ```
 
-**Turn and Talk:**
+**Discussion:**
 
 Run the test - why is it so slow?
 
