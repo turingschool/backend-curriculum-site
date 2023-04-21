@@ -30,7 +30,7 @@ Each Repo meets the following:
 - Exposed API routes are versioned well
     - [ ] Rails Backend
 
-- Facades, Services, and/or Serializers use 100% class methods so instantiation is unnecessary
+- Facades, Services, and/or Serializers are used.
     - [ ] Rails Backend
 
 - Deploy to Heroku
