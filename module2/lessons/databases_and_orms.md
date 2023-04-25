@@ -15,7 +15,7 @@ layout: page
 
 ## Prerequisites
 
-You should have installed Postico as part of the [mod 2 intermission work](https://github.com/turingschool/backend-curriculum-site/blob/gh-pages/module2/intermission_work). If not, [download Postico](https://eggerapps.at/postico/) and install it. 
+You should have installed Postico as part of the [mod 2 intermission work](../intermission_work). If not, [download Postico](https://eggerapps.at/postico/) and install it. 
 
 Setup instructions for Postico can be found [here](./setting_up_postico).
 
