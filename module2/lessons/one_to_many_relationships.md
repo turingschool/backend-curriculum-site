@@ -4,11 +4,11 @@ length: 60 minutes
 title: One to Many Relationships
 ---
 
-There are many ways that objects can relate to each other.  There can be a *one to one* relatioship as in a person and their social security number, or a *one to many* relationship as in an author and their books, or even a *many to many* relationship is in instructors and their students.  In this lesson, we will be focusing on the **one to many** relationship and how that relationship is set up in a normalized database.
+There are many ways that objects can relate to each other. There can be a *one to one* relationship as in a person and their social security number, or a *one to many* relationship as in an author and their books, or even a *many to many* relationship is in instructors and their students. In this lesson, we will be focusing on the **one to many** relationship and how that relationship is set up in a normalized database.
 
 ## Learning Goals
 * Define Primary Key and Foreign Key
-* Visualize One to many relationships
+* Visualize One to Many relationships
 * Define ORM
 
 ## Vocab
@@ -25,21 +25,21 @@ There are many ways that objects can relate to each other.  There can be a *one 
 
 ## What is a database?
 
-Before we jump into how we might relate a song to a specific artist, let's take a step back to review what a database _is_.  At the highest level, a database is a location where we can store information and allow that information to persist in our application.  Right now, in our app, we have a database that is storing song information.  More specifically, we have a `database` that has a songs `table` and that table has columns that store each song's `attributes`; we could visualize this configuration like this:
+Before we jump into how we might relate a song to a specific artist, let's take a step back to review what a database *is*. At the highest level, a database is a location where we can store information and allow that information to persist in our application. Right now, in our app, we have a database that is storing song information. More specifically, we have a `database` that has a songs `table` and that table has columns that store each song's `attributes`; we could visualize this configuration like this:
 
 <p align='center'>
   <img src='./images/1_to_many_db_image_1.png'>
 </p>
 
-In our database, we have a table that looks similar to an excel sheet where each row of this table is one song entry or record in our database. So far, this is a fairly simple database, holding on to only a few attributes.  Without much difficulty, we could update our database to hold additional song attributes by adding additional columns to our songs table.
+In our database, we have a table that looks similar to an excel sheet where each row of this table is one song entry or record in our database. So far, this is a fairly simple database, holding on to only a few attributes. Without much difficulty, we could update our database to hold additional song attributes by adding additional columns to our songs table.
 
-But, what if we want to keep track of the artist that wrote each song?  We _could_ add a column to our database called `artist` and store the artist directly on a song, like this:
+But, what if we want to keep track of the artist that wrote each song? We *could* add a column to our database called `artist` and store the artist directly on a song, like this:
 
 <p align='center'>
   <img src='./images/1_to_many_db_image_2.png'>
 </p>
 
-Seems like it works, right? Well... not exactly.  What if we wanted to also store information about specific artists, like their hometown or years active.  If we imagine what that might look like, we would see more columns on our `songs` table and many of those columns would be storing the exact same information - every Prince song would be storing 'Minneapolis' and '1975-2016':
+Seems like it works, right? Well... not exactly. What if we wanted to also store information about specific artists, like their hometown or years active. If we imagine what that might look like, we would see more columns on our `songs` table and many of those columns would be storing the exact same information - every Prince song would be storing 'Minneapolis' and '1975-2016':
 
 <p align='center'>
   <img src='./images/1_to_many_db_image_3.png'>
@@ -51,9 +51,9 @@ Let's explore a better way to store this information using **database normalizat
 
 ## Normalizing our Database
 
-In order to cut down on redundant data on a specific table in our database, we can rely on **normalization**.  Normalization is a process by which we break down tables in our database so that each table relates only to one resource.  In the example we are working with, when we look at our songs table, we are storing information about songs and about artists. Really, we are trying to store information about two resources on one table - let's fix that.
+In order to cut down on redundant data on a specific table in our database, we can rely on **normalization**. Normalization is a process by which we break down tables in our database so that each table relates only to one resource. In the example we are working with, when we look at our songs table, we are storing information about songs and about artists. Really, we are trying to store information about two resources on one table - let's fix that.
 
-In a normalized database, we can break this one table into two: songs and artists.  Then we can separate the attributes of each resource to their appropriate table:
+In a normalized database, we can break this one table into two: songs and artists. Then we can separate the attributes of each resource to their appropriate table:
 
 <p align='center'>
   <img src='./images/1_to_many_db_image_4.png'>
@@ -61,7 +61,7 @@ In a normalized database, we can break this one table into two: songs and artist
 
 Great! Now, our database has tables that relate to only one resource each, and we have eliminated redundant data. But, we have lost something - we no longer know which artist wrote each song.
 
-When we normalize our database, we need to include some sort of marker for ourselves to know how to relate the tables to one another.  We do this with **primary keys** and **foreign keys**.  As our database exists now, every record has an `id`.  We can use these ids to relate information in one table, to information in the other (or give each of our songs an artist).  For each song in our database, we will add an attribute `artist_id` that will hold the `id` of the artist that song belongs to.
+When we normalize our database, we need to include some sort of marker for ourselves to know how to relate the tables to one another. We do this with **primary keys** and **foreign keys**. As our database exists now, every record has an `id`. We can use these ids to relate information in one table, to information in the other (or give each of our songs an artist). For each song in our database, we will add an attribute `artist_id` that will hold the `id` of the artist that song belongs to.
 
 <p align='center'>
   <img src='./images/1_to_many_db_image_5.png'>
