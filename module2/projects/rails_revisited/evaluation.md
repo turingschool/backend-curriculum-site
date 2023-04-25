@@ -3,7 +3,7 @@ layout: page
 title: Rails Revisited - Evaluations
 ---
 
-<script>
+
 <style>
 summary:hover {
   background-color: #bbe5fa;
