@@ -61,7 +61,7 @@ What new files did this generate?
 
 At the top of your `rails_helper.rb`, add these lines to configure SimpleCov:
 
-****spec/rails_helper.rb****
+**spec/rails_helper.rb**
 
 ```ruby
 require 'simplecov'
@@ -232,7 +232,7 @@ class Task < ApplicationRecord
 end
 ```
 
-And now we should have two passing tests.****
+And now we should have two passing tests.
 
 ## Test Coverage
 
