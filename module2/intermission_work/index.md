@@ -57,4 +57,4 @@ Do a modified version of the assignments above:
 
 ## Submission
 
-When you are finished, fill out [this form](https://forms.gle/11Zoi4zPsX27utbs6). 
+When you are finished, fill out [this form](https://docs.google.com/forms/d/e/1FAIpQLSd57tT9pbt5kJxE237Ch6Tt5R4t2nIVWssarYF3WMFshK0nDQ/viewform). 
