@@ -6,53 +6,55 @@ tags: migrations, databases, relationships, rails, activerecord
 
 ## Learning Goals
 
-* Write migrations in Rails.
-* Define Schema.
-* Explain what a migration is, and how it relates to our schema.
-* Create one-to-many relationships at the database level using foreign keys.
-* Use `has_many` and `belongs_to` to create one-to-many relationship at the model level.
+- Write migrations in Rails.
+- Define Schema.
+- Explain what a migration is, and how it relates to our schema.
+- Create one-to-many relationships at the database level using foreign keys.
+- Use `has_many` and `belongs_to` to create one-to-many relationship at the model level.
 
-## Vocab
-* Migration
-* Schema
-* Relationships
+## Vocabulary
 
-## WarmUp
+- Migration
+- Schema
+- Relationships
 
-* In your own words, what is a migration?
-* What are some things that we can do with a migration?
-* What is the relationship between a migration and our database?
+## Warm Up
 
-## Set Up
+- In your own words, what is a migration?
+- What are some things that we can do with a migration?
+- What is the relationship between a migration and our database?
 
-This lesson plan starts at the `songs_show` branch of [this SetList Tutorial repo](https://github.com/turingschool-examples/set_list_tutorial/tree/songs_show). In order to set up the app for this lesson:
+## Setup
 
-* Clone the repo (don't fork!)
-* Checkout the `songs_show` branch
-* Run `bundle install`
-* Run `rails db:{drop,create,migrate,seed}`
+This lesson plan starts at the `songs-show` branch of [this SetList repo](https://github.com/turingschool-examples/set-list-7/tree/songs-show). In order to set up the app for this lesson:
+
+- Clone the repo
+- Checkout the `associations_tdd_setup` branch
+- Run `bundle install`
+- Run `rails db:{drop,create,migrate,seed}`
 
 ## Models, Migrations, and Databases in Rails
 
 In this lesson, we'll be adding to our new SetList Rails app to demonstrate a one-to-many relationship.
 
-We'll add a table `artists` to our database, and connect them to our existing `songs` table. What might the relationships look like?
+We'll add a table `artists` to our database, and connect them to our existing `songs` table. What might the relationships look like?
 
 ## One-to-Many Relationships
 
 ### At the Database Level: Artist
 
-We want to create some artists with a name. Let's add a test for that! Since this will be a model test, we need to first make a `/models` directory nested under `/spec` then create a `artist_spec.rb`
+We want to create some artists with a name. Let's add a test for that! Since this will be a model test, we need to first make a `/models` directory nested under `/spec` then create an `artist_spec.rb` file: 
 
-`mkdir spec/models`  
-`touch spec/models/artist_spec.rb`
+```bash
+$ mkdir spec/models
+$ touch spec/models/artist_spec.rb
+```
 
+We're going to use the handy dandy gem [shoulda-matchers](https://github.com/thoughtbot/shoulda-matchers) to give us some streamlined syntax to use in testing our validations and relationships.
 
-We're going to use the handy dandy gem [shoulda-matchers](https://github.com/thoughtbot/shoulda-matchers) to give us some streamlined syntax to use in testing our validations and relationships.
-
-- Add `gem 'shoulda-matchers', '~> 3.1'` to `group :development, :test` in your `Gemfile`  
-- run `bundle install`
-- Put the following at the bottom of `rails_helper.rb`:
+- Add `gem "shoulda-matchers"` to `group :development, :test` in your `Gemfile`
+- run `bundle install`
+- Put the following at the bottom of `rails_helper.rb`:
 
 ```ruby
 Shoulda::Matchers.configure do |config|
@@ -63,7 +65,7 @@ Shoulda::Matchers.configure do |config|
 end
 ```
 
-In `artist_spec.rb`
+**spec/models/artist_spec.rb**
 
 ```ruby
 require 'rails_helper'
@@ -73,63 +75,67 @@ describe Artist, type: :model do
     it { should validate_presence_of :name }
   end
 end
-
 ```
 
-Run `bundle exec rspec` and we should get an error similar to this:
+Run `bundle exec rspec` and we should get an error similar to this:
 
-```
+```bash
 Failure/Error:
-  RSpec.describe Artist, type: :model do
-    describe 'validations' do
-      it {should validate_presence_of :name}
+  describe Artist, type: :model do
+    describe "validations" do
+      it { should validate_presence_of :name }
     end
   end
 
 NameError:
   uninitialized constant Artist
-# ./spec/models/artist_spec.rb:3:in `<top (required)>'
 ```
 
 There are a few things that have to happen to get this test passing.
 
-First, let's clear this error by creating our `Artist` model:
+First, let's clear this error by creating our `Artist` model:
 
+```bash
+$ touch app/models/artist.rb
 ```
-touch app/models/artist.rb
-```
+
+**app/models/artist.rb**
 
 ```ruby
-# app/models/artist.rb
-
 class Artist < ApplicationRecord
 
 end
 ```
 
-Now, let's run our test again.  We should see an error like this:
+Now, let's run our test again. We should see an error like this:
 
+```bash
+ActiveRecord::StatementInvalid:
+       PG::UndefinedTable: ERROR:  relation "artists" does not exist
+       LINE 9:  WHERE a.attrelid = '"artists"'::regclass
+                                   ^
+     # ./spec/models/artist_spec.rb:5:in `block (3 levels) in <top (required)>'
+     # ------------------
+     # --- Caused by: ---
+     # PG::UndefinedTable:
+     #   ERROR:  relation "artists" does not exist
+     #   LINE 9:  WHERE a.attrelid = '"artists"'::regclass
+     #                               ^
+     #   ./spec/models/artist_spec.rb:5:in `block (3 levels) in <top (required)>
 ```
-# ./spec/models/artist_spec.rb:5:in `block (3 levels) in <top (required)>'
-    # ------------------
-    # --- Caused by: ---
-    # PG::UndefinedTable:
-    #   ERROR:  relation "artists" does not exist
-    #   LINE 8:                WHERE a.attrelid = '"artists"'::regclass
-    #                                             ^
-    #   ./spec/models/artist_spec.rb:5:in `block (3 levels) in <top (required)>'
+
+This error is telling us that we don't have an `artists` table set up in our database, so let's create that with a migration:
+
+```bash
+$ rails g migration CreateArtists name:string
 ```
 
-This error is telling us that we don't have an `artists` table set up in our database, so let's create that with a migration:
+The migration generator creates a migration for us. If we follow the working convention for Rails (e.g. the `name:string`), the migration will be pre-populated. 
 
-`rails g migration CreateArtists name:string`
-
-The migration generator creates a migration and if we follow the working convention for rails the migration will be pre-populated. Additionally, we can add `t.timestamps` into the `create_table` block inside the migration to create timestamps.
-
-Let's look at the migration inside of `db/migrate`. It should look like this:
+Let's look at the migration inside of `db/migrate`. It should look like this:
 
 ```ruby
-class CreateArtists < ActiveRecord::Migration[5.2]
+class CreateArtists < ActiveRecord::Migration[7.0]
   def change
     create_table :artists do |t|
       t.string :name
@@ -140,13 +146,14 @@ class CreateArtists < ActiveRecord::Migration[5.2]
 end
 ```
 
-Will this fix our tests? Discuss with the person next to you why or why not.
+Will this fix our tests?
 
-Take a look at our `db/schema.rb`; at this point, it should look something like this:
+Take a look at our `db/schema.rb`; at this point, it should look something like this:
+
+**db/schema.rb**
 
 ```ruby
-ActiveRecord::Schema.define(version: 20190430171832) do
-
+ActiveRecord::Schema[7.0].define(version: 2023_02_22_180629) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -157,47 +164,54 @@ ActiveRecord::Schema.define(version: 20190430171832) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
 end
 ```
 
-There are two things to focus on here. First, we only see a `create_table 'songs'` command, which means that our database only has a `songs` table. Second, take a look at the `version: 20190430171832` - this version number _should_ match the version of our latest migration file, but it doesn't!  That means that we have migrations that have not been run yet.  Let's do that now:
+There are two things to focus on here. First, we only see a `create_table 'songs'` command, which means that our database only has a `songs` table. Second, take a look at the `version: 2023_02_22_180629` - this version number *should* match the version of our latest migration file, but it doesn't! That means that we have migrations that have not been run yet. Let's do that now:
 
-`rails db:migrate`
-
-Now, if we go back to our schema, we should see a command to `create_table 'artists'`, and when we run our tests again, we should be getting a new error!
-
-Let's run rspec again.  
-
+```bash
+$ rails db:migrate
 ```
+
+Now, if we go back to our schema, we should see a command to `create_table 'artists'`, and when we run our tests again, we should be getting a new error!
+
+Let's run RSpec again.
+
+```bash
 Failures:
 
-  1) Artist should validate that :name cannot be empty/falsy
-     Failure/Error: it {should validate_presence_of(:name)}
+  1) Artist validations is expected to validate that :name cannot be empty/falsy
+     Failure/Error: it { should validate_presence_of :name }
 
-       Artist did not properly validate that :name cannot be empty/falsy.
-         After setting :name to ‹nil›, the matcher expected the Artist to be
+       Expected Artist to validate that :name cannot be empty/falsy, but this
+       could not be proved.
+         After setting :name to ‹""›, the matcher expected the Artist to be
          invalid, but it was valid instead.
-     # ./spec/models/artist_spec.rb:4:in `block (2 levels) in <top (required)>'
+     # ./spec/models/artist_spec.rb:5:in `block (3 levels) in <top (required)>'
 ```
 
-The important part to read here is `Artist did not properly validate that :name cannot be empty/false.`
+The important part to read here is `Expected Artist to validate that :name cannot be empty/falsy`
 
-Let's add a validation to Artist!
+Let’s add a validation to Artist!
+
+**app/models/artist.rb**
 
 ```ruby
 class Artist < ApplicationRecord
- validates_presence_of :name
+  validates_presence_of :name
 end
 ```
 
-Run rspec again and we get passing tests!
-
+Run RSpec again and we get passing tests.
 
 ### What about Songs?
 
-What's the relationship between Song and Artist? Draw this out in a diagram to help visualize the relationship.
+What's the relationship between song and artist? Draw this out in a diagram to help visualize the relationship.
 
-Let's create a test to help us drive this out.  Add the following to your `artist_spec.rb` within the greater describe Artist block, but outside of the validations block.
+Let's create a test to help us drive this out. Add the following to your `artist_spec.rb` within the greater describe Artist block, but outside of the validations block.
+
+**spec/models/artist_spec.rb**
 
 ```ruby
 require 'rails_helper'
@@ -211,40 +225,38 @@ describe Artist, type: :model do
     it { should have_many :songs }
   end
 end
-
 ```
 
-When we run this test, we get an error similar to this:
+When we run this test we get an error something like this:
 
-```
-Failures:
-
-  1) Artist relationships should have many songs
-     Failure/Error: it {should have_many(:songs)}
+```bash
+1) Artist relationships is expected to have many songs
+     Failure/Error: it { should have_many :songs }
        Expected Artist to have a has_many association called songs (no association called songs)
      # ./spec/models/artist_spec.rb:9:in `block (3 levels) in <top (required)>'
 ```
 
-The important part to read here `Expected Artist to have a has_many association called songs (no association called songs)` Tells us we are missing a relationship. Let's go make one!
-
+The important part here is `Expected Artist to have a has_many association called songs (no association called songs)`. This tells us that we are missing a relationship. We need to make one.
 
 ```bash
-rails g migration AddArtistsToSongs artist:references
+$ rails g migration AddArtistsToSongs artist:references
 ```
+
+(It helps me to remember that the thing that gets put in the migration is the thing that is the one in the one to many relationship, in this case, the `Artist` has many `Songs`.)
 
 Take a look at what this migration creates.
 
 ```ruby
-class AddArtistsToSongs < ActiveRecord::Migration[5.2]
+class AddArtistsToSongs < ActiveRecord::Migration[7.0]
   def change
-    add_reference :songs, :artist, foreign_key: true
+    add_reference :songs, :artist, null: false, foreign_key: true
   end
 end
 ```
 
-Run `rails db:migrate` to run this migration. Now open `schema.rb` and make sure that your `songs` table now has the `artist_id` foreign key.
+Run `rails db:migrate` to run this migration. Now open `schema.rb` and make sure that your `songs` table now has the `artist_id` foreign key.
 
-Run the tests again and you'll see that we're still getting `Expected Artist to have a has_many association called songs (no association called songs)`. We've added the foreign key at the database level, but our we still haven't set up our model to make use of that foreign key.
+Run the tests again and you'll see that we're still getting `Expected Artist to have a has_many association called songs (no association called songs)`. We've added the foreign key at the database level, but our we still haven't set up our model to make use of that foreign key.
 
 ## Associations
 
@@ -252,8 +264,10 @@ Run the tests again and you'll see that we're still getting `Expected Artist to 
 
 We have set up our database level relationships, now let's implement some model-level associations using some handy ActiveRecord methods.
 
-* `has_many`
-* `belongs_to`
+- `has_many`
+- `belongs_to`
+
+**app/models/song.rb**
 
 ```ruby
 class Song < ApplicationRecord
@@ -261,6 +275,8 @@ class Song < ApplicationRecord
 
 end
 ```
+
+**app/models/artist.rb**
 
 ```ruby
 class Artist < ApplicationRecord
@@ -272,41 +288,47 @@ end
 
 Run the tests again and now they should be passing!
 
-Why do we need a foreign key at the database level and the `belongs_to` method in the model? What do each of these things allow for?
+Why do we need a foreign key at the database level and the `belongs_to` method in the model? What do each of these things allow for?
 
-Let's play around in our development database by dropping in to the rails console `rails console` or `rails c`
+Let's play around in our development database by dropping in to the rails console `rails console` or `rails c`
 
 *In the console*:
 
-- Create a artist `Artist.create!(name: 'Prince')`
-- Create a song `Song.create!(title: 'Raspberry Beret', length: 345, play_count: 34)`
+- Create a artist `Artist.create!(name: 'Prince')`
+- Create a song `Song.create!(title: 'Raspberry Beret', length: 345, play_count: 34)`
 
 Did you get an error?
 
 - Why are we getting this error?
 - What do we need to do to fix this error?
 
-Now that a `song` **belongs to** an `artist`, a `song` can not exist without an `artist`
+Now that a `song` **belongs to** an `artist`, a `song` can not exist without an `artist`
 
 - What are different ways to associate songs with artists?
 
-  ```ruby
-  artist = Artist.create(name: 'Prince')
-  song = Song.create(title: 'Raspberry Beret', length: 345, play_count: 34, artist: artist)
-
-  # OR
-
-  artist = Artist.create(name: 'Prince')
-  song = Song.create(title: 'Raspberry Beret', length: 345, play_count: 34, artist_id: artist.id)
-  # OR
-
-  artist = Artist.create(name: 'Prince')
-  song = artist.songs.create(title: 'Raspberry Beret', length: 345, play_count: 34)
-  ```
-
-Since we've added code into our Song model, it would also be a good idea to create a `song_spec.rb` (if you don't already have one) and add a test for the relationship from Songs to Artists:
-
 ```ruby
+artist = Artist.create(name: 'Prince')
+song = Song.create(title: 'Raspberry Beret', length: 345, play_count: 34, artist: artist)
+
+# OR
+
+artist = Artist.create(name: 'Prince')
+song = Song.create(title: 'Raspberry Beret', length: 345, play_count: 34, artist_id: artist.id)
+# OR
+
+artist = Artist.create(name: 'Prince')
+song = artist.songs.create(title: 'Raspberry Beret', length: 345, play_count: 34)
+```
+
+Since we've added code into our Song model, it would also be a good idea to create a `song_spec.rb` (if you don't already have one) and add a test for the relationship from Songs to Artists:
+
+```bash
+$ touch spec/models/song_spec.rb
+```
+
+**spec/models/song_spec.rb**
+
+```bash
 require 'rails_helper'
 
 RSpec.describe Song do
@@ -315,12 +337,13 @@ RSpec.describe Song do
     it {should belong_to :artist}
   end
 end
-
 ```
 
 ## Seeds
 
-Now that our App is getting more complex, it would be good to add some seeds. Seeding your database is when you insert a set of data into the database. It is useful to have some seed data when we are experimenting and developing. You could consider what we've done in the Rails Console so far as a type of seeding, but doing things manually in the Rails Console can get very tedious, so what we will do instead is write a script to seed our database that we can reuse. Rails comes with a file for us to write this script in `db/seeds.rb`. Open up that file and add the following:
+Now that our App is getting more complex, it would be good to add some seeds. Seeding your database is when you insert a set of data into the database. It is useful to have some seed data when we are experimenting and developing. You could consider what we've done in the Rails Console so far as a type of seeding, but doing things manually in the Rails Console can get very tedious, so what we will do instead is write a script to seed our database that we can reuse. Rails comes with a file for us to write this script in `db/seeds.rb`. Open up that file and add the following:
+
+**db/seeds.rb**
 
 ```ruby
 Song.destroy_all
@@ -352,19 +375,19 @@ lcd.songs.create!(title: 'Someone Great', length: 500, play_count: 1000000)
 lcd.songs.create!(title: 'I Can Change', length: 640, play_count: 100000)
 ```
 
-Now that we have our seeds file, we can run it with `rails db:seed`. Additionally, if we check this file into our version control system, other developers working on this app will be able to easily seed their local databases.
+Now that we have our seeds file, we can run it with `rails db:seed`. Additionally, if we check this file into our version control system, other developers working on this app will be able to easily seed their local databases.
 
-Notice that the first two lines of this seeds file will destroy all Songs and Artists from the database. The reason we want to do this is so that we know we are starting with an empty database every time we want to reseed our database. If we did not have these two lines, this script would create duplicate records every time we reran `rails db:seed`.
+Notice that the first two lines of this seeds file will destroy all Songs and Artists from the database. The reason we want to do this is so that we know we are starting with an empty database every time we want to reseed our database. If we did not have these two lines, this script would create duplicate records every time we reran `rails db:seed`.
 
 ## Adding Behaviors to Models
 
-Now, we have two models that are related to each other with **has_many** and **belongs_to**, and these models can handle basic CRUD functionality through the methods that they inherit from ActiveRecord - but what if we need our models to be customized to perform behaviors related to our application? For example, what if we want our `Song` model to be able to tell us how many songs exist in our database, and we want an `artist` to be able to tell us the average length of all their songs.
+Now, we have two models that are related to each other with **has_many** and **belongs_to**, and these models can handle basic CRUD functionality through the methods that they inherit from ActiveRecord - but what if we need our models to be customized to perform behaviors related to our application? For example, what if we want our `Song` model to be able to tell us how many songs exist in our database, and we want an `artist` to be able to tell us the average length of all their songs.
 
 First - Test!
 
-```ruby
-# spec/models/song_spec.rb
+**spec/models/song_spec.rb**
 
+```ruby
 require 'rails_helper'
 
 RSpec.describe Song do
@@ -385,9 +408,11 @@ RSpec.describe Song do
 end
 ```
 
-Use TDD to create a class method on our `Song` model that returns a count of the songs in our database. As you build out this method, remember to use `pry` and `self` to help debug and guide your implementations!
+Use TDD to create a class method on our `Song` model that returns a count of the songs in our database. As you build out this method, remember to use `pry` and `self` to help debug and guide your implementations!
 
-And, for our next method - a test!
+And for our next method - a test!
+
+**spec/models/artist_spec.rb**
 
 ```ruby
 require 'rails_helper'
@@ -413,14 +438,15 @@ RSpec.describe Artist do
 end
 ```
 
-Use TDD to create an instance method on our `Artist` model that returns the average of a single artist's songs. As you build out this method, remember to use `pry` and `self` to help debug and guide your implementations!
+Use TDD to create an instance method on our `Artist` model that returns the average of a single artist's songs. As you build out this method, remember to use `pry` and `self` to help debug and guide your implementations!
 
----
+## Wrap Up
 
-## WrapUp
+- What are two different types of table relationships that you might need to implement? In what scenario would you use each?
+- What is the syntax for the following migrations in Rails?
+    - Create a table
+    - Add a column to a table, with or without a data type
+    - Add a reference from one table to another
+    
 
-* What are two different types of table relationships that you might need to implement? In what scenario would you use each?
-* What is the syntax for the following migrations in Rails?
-  * Create a table
-  * Add a column to a table, with or without a data type
-  * Add a reference from one table to another
+Completed code from this lesson plan can be found on this branch [here](https://github.com/turingschool-examples/set-list-7/tree/associations-practice-solutions\).

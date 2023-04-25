@@ -26,18 +26,18 @@ This Gist will be your submission for your intermission work. Each of the assign
 
 ## Assignments
 
-Work on the following assignments in order. Each assignment will assume that you have completed the previous one and the accompanying Checks for Understanding. **Ruby v2.7.4 and Rails 5.2.8 are required.**
+Work on the following assignments in order. Each assignment will assume that you have completed the previous one and the accompanying Checks for Understanding. **Ruby 3.1.1 and Rails 7.0.4.x are required.**
 
 Time-box recommendations are in each section's instructions, and also included here for convenience. 
 
 1. [Ruby and Rails versions installation guide](https://backend.turing.edu/module3/misc/ruby_and_rails_versions)
-1. [Get Module 2 Tools](./tools)
-1. Styling (4 hrs total)
+2. [Get Module 2 Tools](./tools)
+3. Styling (4 hrs total)
     * [Intro to HTML](./html)
     * [Intro to CSS](./css)
     * [Static Challenge](./static_challenge) (2h)
-1. [Intro to SQL](./sql) (6 hrs total, 2 hrs each section)
-1. [Rails Tutorial: Task Manager](https://github.com/turingschool-examples/task_manager_rails) (Until complete)
+4. [Intro to SQL](./sql) (6 hrs total, 2 hrs each section)
+5. [Rails Tutorial: Task Manager](https://github.com/turingschool-examples/task_manager_rails) (Until complete)
 
 ### If you are Repeating
 
@@ -57,4 +57,4 @@ Do a modified version of the assignments above:
 
 ## Submission
 
-When you are finished, fill out [this form](https://forms.gle/11Zoi4zPsX27utbs6). 
+When you are finished, fill out [this form](https://docs.google.com/forms/d/e/1FAIpQLSd57tT9pbt5kJxE237Ch6Tt5R4t2nIVWssarYF3WMFshK0nDQ/viewform). 
