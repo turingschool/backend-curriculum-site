@@ -2,7 +2,11 @@
 layout: page
 title: Rails Revisited - Evaluations
 ---
-
+<style>
+summary:hover {
+  background-color: #bbe5fa;
+}
+</style>
 
 ## Evaluation
 
