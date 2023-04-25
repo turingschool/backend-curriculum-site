@@ -72,9 +72,9 @@ You will need to expose the data through a multitude of API endpoints. All of yo
   <!-- * if your tests pass but the Postman test does not, you have done something wrong. -->
 * Controller actions should be limited to only the standard Rails actions and follow good RESTful convention.
 * Endpoints such as `GET /api/v1/markets/search?parameters` will NOT follow RESTful convention, and that's okay. Consider creating an action that *appears* restful.
-* In total, you will create **12 endpoints** (10 ReSTful, 2 non-ReSTful)
+* In total, you will create **11 endpoints** (9 ReSTful, 2 non-ReSTful)
 
-    ##### ReSTful Endpoints
+  #### ReSTful Endpoints:
 
     - **Market Endpoints**
       * get all markets
@@ -85,12 +85,11 @@ You will need to expose the data through a multitude of API endpoints. All of yo
       * create a vendor
       * update a vendor
       * delete a vendor
-      * get markets for a vendor
     - **MarketVendor Endpoints**
       * create a market_vendor
       * delete a market_vendor
 
-    ##### Non-ReSTful Endpoints
+  #### Non-ReSTful Endpoints:
 
     - **AR Endpoint**
       * get all markets within a city or state that's name or description match a string fragment
@@ -119,7 +118,7 @@ You can customize the value of the `detail` element. But, you must always have a
 
 # 3. API requests/responses, more details
 
-Below, you will see 12 dropdowns that correspond to the core endpoint requirements of this project. Each dropdown gives you more details on what each endpoint should be doing, returning, and considering. Each endpoing also has some example request/responses to help you understand the requirements of the endpoint. Happy Path examples are denoted with a 😁  . Sad Path examples are denoted with a 😭  . 
+Below, you will see the 11 required endpoints for this project. Click on each endpoint to get more details on what each endpoint should be doing, returning, and considering. Each endpoint also has some example request/responses to help you understand the requirements of the endpoint. Happy Path examples are denoted with a 😁  . Sad Path examples are denoted with a 😭  . 
 
 <details>
 <summary><h3>1. Get All Markets</h3></summary>
@@ -128,48 +127,48 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
 1. This endpoint should follow the pattern of `GET /api/v0/markets` and should return ALL markets in the database.
 2. In addition to the market's main attributes, the market resource should also list an attribute for `vendor_count`, which is the number of vendors that are associated with that market. 
 
-      <details><summary><h5>Example #1 😁 </h5></summary>
+    <details><summary><h5>Example #1 😁 </h5></summary>
       
-      #### Request: 
+      **Request:**
       ```
         GET /api/v0/markets
         Content-Type: application/json
         Accept: application/json
       ```
 
-      #### Response:
+      **Response:**
       `status: 200`
       ```json
       {
           "data": [
               {
-                  "id": "17",
+                  "id": "322458",
                   "type": "market",
                   "attributes": {
-                      "name": "18th Street Farmers Market",
-                      "street": "825 18th Street",
-                      "city": "Charleston",
-                      "county": "Coles",
-                      "state": "Illinois",
-                      "zip": "61920",
-                      "lat": "39.490737",
-                      "lon": "-88.163254",
-                      "vendor_count": 28
+                      "name": "14&U Farmers' Market",
+                      "street": "1400 U Street NW ",
+                      "city": "Washington",
+                      "county": "District of Columbia",
+                      "state": "District of Columbia",
+                      "zip": "20009",
+                      "lat": "38.9169984",
+                      "lon": "-77.0320505",
+                      "vendor_count": 1
                   }
               },
               {
-                  "id": "18",
+                  "id": "322474",
                   "type": "market",
                   "attributes": {
-                      "name": "19/27 Community Farmers Market",
-                      "street": "NE 7th Ave",
-                      "city": "Chiefland",
-                      "county": "Levy",
-                      "state": "Florida",
-                      "zip": "32626",
-                      "lat": "29.4848541",
-                      "lon": "-82.8578732",
-                      "vendor_count": 38
+                      "name": "2nd Street Farmers' Market",
+                      "street": "194 second street",
+                      "city": "Amherst",
+                      "county": "Amherst",
+                      "state": "Virginia",
+                      "zip": "24521",
+                      "lat": "37.583311",
+                      "lon": "-79.048573",
+                      "vendor_count": 35
                   }
               },
               ...,
@@ -177,7 +176,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
           ]
       }
       ```
-      </details>
+    </details>
 </details>
 <details><summary><h3>2. Get One Market</h3></summary>
 
@@ -188,30 +187,30 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
 
       <details><summary><h5>Example #1 😁 </h5></summary>
 
-      #### Request:
+      **Request:**
       ```
-        GET /api/v0/markets/360
+        GET /api/v0/markets/322458
         Content-Type: application/json
         Accept: application/json
       ```
 
-      #### Response: 
+      **Response:** 
       `status: 200`
       ```json
       {
           "data": {
-              "id": "360",
+              "id": "322458",
               "type": "market",
               "attributes": {
-                  "name": "Austintown Farmers Market",
-                  "street": "6000 Kirk Road (Austintown Township Park)",
-                  "city": "Austintown",
-                  "county": "Mahoning",
-                  "state": "Ohio",
-                  "zip": "44515",
-                  "lat": "41.070511",
-                  "lon": "-80.774094",
-                  "vendor_count": 24
+                  "name": "14&U Farmers' Market",
+                  "street": "1400 U Street NW ",
+                  "city": "Washington",
+                  "county": "District of Columbia",
+                  "state": "District of Columbia",
+                  "zip": "20009",
+                  "lat": "38.9169984",
+                  "lon": "-77.0320505",
+                  "vendor_count": 1
               }
           }
       }
@@ -219,14 +218,14 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
       </details>
       <details><summary><h5>Example #2 😭 </h5></summary>
     
-      #### Request:
+      **Request:**
       ```
         GET /api/v0/markets/123123123123 (where `123123123123` is an invalid Market id)
         Content-Type: application/json
         Accept: application/json
       ```
 
-      #### Response: 
+      **Response:** 
       `status: 404`
       ```json
       {
@@ -249,49 +248,38 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
 
     <details><summary><h5>Example #1 😁</h5></summary>
 
-    #### Request: 
+    **Request:**
     ```
-      GET /api/v0/markets/360/vendors
+      GET /api/v0/markets/322474/vendors
       Content-Type: application/json
       Accept: application/json
     ```
 
-    #### Response: 
+    **Response:** 
     `status: 200`
     ```json
     {
         "data": [
             {
-                "id": "1150",
+                "id": "55297",
                 "type": "vendor",
                 "attributes": {
-                    "name": "Jolly Scoops",
-                    "description": "Handcrafted ice cream in a variety of festive flavors.",
-                    "contact_name": "Kit Romaguera",
-                    "contact_phone": "656.318.8117",
-                    "credit_accepted": true
-                }
-            },
-            {
-                "id": "1452",
-                "type": "vendor",
-                "attributes": {
-                    "name": "The Book Cellar",
-                    "description": "A hidden gem of a bookstore, featuring a range of used and rare titles, with a focus on science fiction and fantasy.",
-                    "contact_name": "Dorian O'Kon",
-                    "contact_phone": "839-874-2562",
-                    "credit_accepted": true
-                }
-            },
-            {
-                "id": "318",
-                "type": "vendor",
-                "attributes": {
-                    "name": "Hot Diggity Dog",
-                    "description": "sells gourmet hot dogs with unique toppings",
-                    "contact_name": "Dan Connelly PhD",
-                    "contact_phone": "322-239-3558",
+                    "name": "Orange County Olive Oil",
+                    "description": "Handcrafted olive oil made from locally grown olives",
+                    "contact_name": "Syble Hamill",
+                    "contact_phone": "1-276-593-3530",
                     "credit_accepted": false
+                }
+            },
+            {
+                "id": "56227",
+                "type": "vendor",
+                "attributes": {
+                    "name": "The Vodka Vault",
+                    "description": "Handcrafted vodka with a focus on unique and unusual flavors",
+                    "contact_name": "Rueben Parker DVM",
+                    "contact_phone": "1-140-885-8633",
+                    "credit_accepted": true
                 }
             },
             ...,
@@ -302,14 +290,14 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
     </details>
     <details><summary><h5>Example #2 😭 </h5></summary>
       
-      #### Request:
+      **Request:**
       ```
         GET /api/v0/markets/123123123123/vendors (where `123123123123` is an invalid Market id)
         Content-Type: application/json
         Accept: application/json
       ```
 
-      #### Response: 
+      **Response:** 
       `status: 404`
       ```json
     {
@@ -332,26 +320,26 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
 
     <details><summary><h5>Example #1 😁</h5></summary>
 
-    #### Request: 
+    **Request:**
     ```
-      GET /api/v0/vendors/1150
+      GET /api/v0/vendors/55297
       Content-Type: application/json
       Accept: application/json
     ```
 
-    #### Response:
+    **Response:**
     `status: 200`
     ```json 
     {
         "data": {
-            "id": "1150",
+            "id": "55297",
             "type": "vendor",
             "attributes": {
-                "name": "Jolly Scoops",
-                "description": "Handcrafted ice cream in a variety of festive flavors.",
-                "contact_name": "Kit Romaguera",
-                "contact_phone": "656.318.8117",
-                "credit_accepted": true
+                "name": "Orange County Olive Oil",
+                "description": "Handcrafted olive oil made from locally grown olives",
+                "contact_name": "Syble Hamill",
+                "contact_phone": "1-276-593-3530",
+                "credit_accepted": false
             }
         }
     }
@@ -359,14 +347,14 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
     </details>
     <details><summary><h5>Example #2 😭 </h5></summary>
       
-      #### Request:
+      **Request:**
       ```
         GET /api/v0/vendors/123123123123 (where `123123123123` is an invalid Vendor id)
         Content-Type: application/json
         Accept: application/json
       ```
 
-      #### Response: 
+      **Response:** 
       `status: 404`
       ```json
     {
@@ -391,14 +379,14 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
 
     <details><summary><h5>Example #1 😁</h5></summary>
 
-    #### Request:
+    **Request:**
     ```
       POST /api/v0/vendors
       Content-Type: application/json
       Accept: application/json
     ```
 
-    ##### Body: 
+    **Body:** 
     ```
     {
         "name": "Buzzy Bees",
@@ -409,12 +397,12 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
     }
     ```
 
-    #### Response:
+    **Response:**
     `status: 201`
     ```json 
     {
         "data": {
-            "id": "1694",
+            "id": "56542",
             "type": "vendor",
             "attributes": {
                 "name": "Buzzy Bees",
@@ -429,13 +417,13 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
     </details>
     <details><summary><h5>Example #2 😭 </h5></summary>
       
-      #### Request:
+      **Request:**
       ```
         POST /api/v0/vendors
         Content-Type: application/json
         Accept: application/json
       ```
-      ##### Body: 
+      **Body:** 
       ```
       {
           "name": "Buzzy Bees",
@@ -444,7 +432,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
       }
       ```
 
-      #### Response: 
+      **Response:** 
       `status: 400`
       ```json
     {
@@ -468,14 +456,14 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
 
     <details><summary><h5>Example #1 😁</h5></summary>
 
-    #### Request: 
+    **Request:**
     ```
-      PATCH /api/v0/vendors/1694
+      PATCH /api/v0/vendors/56542
       Content-Type: application/json
       Accept: application/json
     ```
 
-    ##### Body: 
+    **Body:** 
     ```
     {
         "contact_name": "Kimberly Couwer",
@@ -483,12 +471,12 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
     }
     ```
 
-    #### Response: 
+    **Response:** 
     `status: 200`
     ```json 
     {
         "data": {
-            "id": "1694",
+            "id": "56542",
             "type": "vendor",
             "attributes": {
                 "name": "Buzzy Bees",
@@ -503,13 +491,13 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
     </details>
     <details><summary><h5>Example #2 😭 </h5></summary>
       
-      #### Request:
+      **Request:**
       ```
         PATCH /api/v0/vendors/123123123123 (where `123123123123` is an invalid Vendor id)
         Content-Type: application/json
         Accept: application/json
       ```
-      ##### Body: 
+      **Body:** 
       ```
     {
         "contact_name": "Kimberly Couwer",
@@ -517,7 +505,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
     }
       ```
 
-      #### Response: 
+      **Response:** 
       `status: 404`
       ```json
     {
@@ -531,13 +519,13 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
     </details>
     <details><summary><h5>Example #3 😭 </h5></summary>
       
-      #### Request:
+      **Request:**
       ```
-        PATCH /api/v0/vendors/1694 (where `1694` is an valid Vendor id)
+        PATCH /api/v0/vendors/56542 (where `56542` is a valid Vendor id)
         Content-Type: application/json
         Accept: application/json
       ```
-      ##### Body: 
+      **Body:** 
       ```
     {
         "contact_name": "",
@@ -545,7 +533,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
     }
       ```
 
-      #### Response: 
+      **Response:** 
       `status: 400`
       ```json
     {
@@ -568,27 +556,27 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
 
     <details><summary><h5>Example #1 😁 </h5></summary>
 
-    #### Request: 
+    **Request:**
     ```
-      DELETE /api/v0/vendors/70
+      DELETE /api/v0/vendors/56542
       Content-Type: application/json
       Accept: application/json
     ```
 
-    #### Response: 
+    **Response:** 
     `status: 204`
     </details>
 
     <details><summary><h5>Example #2 😭 </h5></summary>
       
-      #### Request:
+      **Request:**
       ```
         DELETE /api/v0/vendors/123123123123 (where `123123123123` is an invalid Vendor id)
         Content-Type: application/json
         Accept: application/json
       ```
 
-      #### Response: 
+      **Response:** 
       `status: 404`
       ```json
     {
@@ -601,115 +589,36 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
       ```
     </details>
 </details>
-
-<details><summary><h3>8. Get Markets for a Vendor</h3></summary>
-
-#### Details
-1. This endpoint should follow the pattern of `GET /api/v0/vendors/:id/markets`, and it should return any markets that the vendor is associated with.
-2. When a valid vendor id is passed in, a response will be sent back that lists out all markets that the vendor is associated with. 
-3. If a vendor only has one market that they sell at, that market should still be returned in an array. 
-4. If a vendor doesn't have any markets that they sell at, the `data` top level key should point to an empty array. 
-3. If an invalid vendor id is passed in, a 404 status code as well as a descriptive message should be sent back with the response.
-
-    <details><summary><h5>Example #1 😁 </h5></summary>
-
-    #### Request: 
-    ```
-      GET /api/v0/vendors/1150/markets
-      Content-Type: application/json
-      Accept: application/json
-    ```
-
-    #### Response: 
-    ```json 
-    {
-        "data": [
-            {
-                "id": "360",
-                "type": "market",
-                "attributes": {
-                    "name": "Austintown Farmers Market",
-                    "street": "6000 Kirk Road (Austintown Township Park)",
-                    "city": "Austintown",
-                    "county": "Mahoning",
-                    "state": "Ohio",
-                    "zip": "44515",
-                    "lat": "41.070511",
-                    "lon": "-80.774094",
-                    "vendor_count": 24
-                }
-            },
-            {
-                "id": "994",
-                "type": "market",
-                "attributes": {
-                    "name": "Canal Fulton Farmers Market ",
-                    "street": "2309 Locust Street",
-                    "city": "Canal Fulton",
-                    "county": null,
-                    "state": "Ohio",
-                    "zip": "44614",
-                    "lat": "40.8822",
-                    "lon": "-81.5686",
-                    "vendor_count": 39
-                }
-            },
-            ...,
-            ...,
-        ]
-    }
-    ```
-    </details>
-    <details><summary><h5>Example #2 😭 </h5></summary>
-      
-      #### Request:
-      ```
-        GET /api/v0/vendors/123123123123/markets (where `123123123123` is an invalid Vendor id)
-        Content-Type: application/json
-        Accept: application/json
-      ```
-
-      #### Response: 
-      `status: 404`
-      ```json
-    {
-        "errors": [
-            {
-                "detail": "Couldn't find Vendor with 'id'=123123123123"
-            }
-        ]
-    }
-      ```
-    </details>
-</details>
-<details><summary><h3>9. Create a MarketVendor</h3></summary>
+<details><summary><h3>8. Create a MarketVendor</h3></summary>
 
 #### Details
 1. This endpoint should follow the pattern of `POST /api/v0/market_vendors`, and it should create a new association between a market and a vendor (so then, the vendor has a new market that they sell at).
 2. When valid ids for vendor and market are passed in, a MarketVendor will be created, and a response will be sent back with a `201` status, detailing that a Vendor was added to a Market. 
 3. After implementing the happy path for this endpoint, run it, and check that when you call `GET /api/v0/vendors/:id/markets` for the vendor in which you just added to a market, that you see the newly associated market listed. 
-4. If an invalid vendor id or and invalid market id is passed in, a 404 status code as well as a descriptive message should be sent back with the response.
+4. If an invalid vendor id or and invalid market id is passed in, a `404` status code as well as a descriptive message should be sent back with the response.
+4. If a vendor id and/or a market id are not passed in, a `400` status code as well as a descriptive message should be sent back with the response.
 5. If there already exists a MarketVendor with that `market_id` and that `vendor_id`, a response with a `422` status code and a message informing the client that that association already exists, should be sent back. Looking at [custom validation](https://guides.rubyonrails.org/active_record_validations.html#custom-methods) might help to implement a validation for uniqueness of the attributes for this resource. 
 
     <details><summary><h5>Example #1 😁 </h5></summary>
 
-    #### Request:
+    **Request:**
     ```
       POST /api/v0/market_vendors
       Content-Type: application/json
       Accept: application/json
     ```
 
-    ##### Body: 
+    **Body:** 
     ```json
     {
-        "market_id": 19,
-        "vendor_id": 1150
+        "market_id": 322474,
+        "vendor_id": 54861
     }
-    (where 19 and 1150 are valid market and vendor id's.)
+    (where 322474 and 54861 are valid market and vendor id's.)
     ```
 
-    #### Response: 
+    **Response:** 
+    `status: 201`
     ```json
       {
         "message": "Successfully added vendor to market"
@@ -718,22 +627,22 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
     </details>
     <details><summary><h5>Example #2 😭 </h5></summary>
       
-      #### Request:
+      **Request:**
       ```
         POST /api/v0/market_vendors
         Content-Type: application/json
         Accept: application/json
       ```
-      ##### Body: 
+      **Body:** 
       ```json
       {
           "market_id": 987654321, 
-          "vendor_id": 1150 
+          "vendor_id": 54861 
       }
       (where 987654321 is an invalid market id)
       ```
 
-      #### Response: 
+      **Response:** 
       `status: 404`
       ```json
     {
@@ -747,22 +656,22 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
     </details>
     <details><summary><h5>Example #3 😭 </h5></summary>
       
-      #### Request:
+      **Request:**
       ```
         POST /api/v0/market_vendors
         Content-Type: application/json
         Accept: application/json
       ```
-      ##### Body: 
+      **Body:** 
       ```json
       {
-          "market_id": 19, 
-          "vendor_id": 1150 
+          "market_id": 322474, 
+          "vendor_id": 54861 
       }
-      (where 19 and 1150 are valid market and vendor id's, but an existing MarketVendor with those values already exists.)
+      (where 322474 and 54861 are valid market and vendor id's, but an existing MarketVendor with those values already exists.)
       ```
 
-      #### Response: 
+      **Response:** 
       `status: 422`
       ```json
     {
@@ -776,7 +685,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
     </details>
 </details>
 
-<details><summary><h3>10. Delete a MarketVendor</h3></summary>
+<details><summary><h3>9. Delete a MarketVendor</h3></summary>
 
 #### Details
 1. This endpoint should follow the pattern of `DELETE /api/v0/market_vendors`, and it should destroy an existing association between a market and a vendor (so that a vendor no longer is listed at a certain market).
@@ -787,55 +696,55 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
   
     <details><summary><h5>Example #1 😁 </h5></summary>
 
-    #### Request: 
+    **Request:**
     ```
       DELETE /api/v0/market_vendors
       Content-Type: application/json
       Accept: application/json
     ```
 
-    ##### Body: 
+    **Body:** 
     ```json
     {
-        "market_id": 19,
-        "vendor_id": 1697
+        "market_id": 322474,
+        "vendor_id": 54861
     }
     ```
 
-    #### Response: 
+    **Response:** 
     `status: 204`
     </details>
     <details><summary><h5>Example #2 😭 </h5></summary>
       
-      #### Request:
+      **Request:**
       ```
         DELETE /api/v0/market_vendors
         Content-Type: application/json
         Accept: application/json
       ```
-      ##### Body: 
+      **Body:** 
       ```json
       {
-          "market_id": 423, 
-          "vendor_id": 1150 
+          "market_id": 4233, 
+          "vendor_id": 11520 
       }
-      (where there is no MarketVendor that has a market_id=423 AND a vendor_id=1150)
+      (where there is no MarketVendor that has a market_id=4233 AND a vendor_id=11520)
       ```
 
-      #### Response: 
+      **Response:** 
       `status: 404`
       ```json
     {
         "errors": [
             {
-                "detail": "No MarketVendor with market_id=423 AND vendor_id=1150 exists"
+                "detail": "No MarketVendor with market_id=4233 AND vendor_id=11520 exists"
             }
         ]
     }
       ```
     </details>
 </details>
-<details><summary><h3>11. Search Markets by state, city, and/or name</h3></summary>
+<details><summary><h3>10. Search Markets by state, city, and/or name</h3></summary>
 
 #### Details: 
 1. The endpoint should be in the pattern of `GET /api/v0/markets/search`, and can accept `city`, `state`, and `name` parameters.
@@ -854,31 +763,31 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
 
     <details><summary><h5>Example #1 😁</h5></summary>
 
-    #### Request: 
+    **Request:**
     ```
-      GET /api/v0/markets/search?city=albququerque&state=new Mexico&name=uptown
+      GET /api/v0/markets/search?city=albuquerque&state=new Mexico&name=Nob hill
       Content-Type: application/json
       Accept: application/json
     ```
 
-    #### Response:
+    **Response:**
     `status: 200`
     ```json
     {
         "data": [
             {
-                "id": "70",
+                "id": "327794",
                 "type": "market",
                 "attributes": {
-                    "name": "ABQ Uptown Growers' Market",
-                    "street": "NE parking lot of ABQ Uptown shopping center",
-                    "city": "Albququerque",
+                    "name": "Nob Hill Growers' Market",
+                    "street": "Lead & Morningside SE",
+                    "city": "Albuquerque",
                     "county": "Bernalillo",
                     "state": "New Mexico",
                     "zip": null,
-                    "lat": "35.103988",
-                    "lon": "-106.565838",
-                    "vendor_count": 10
+                    "lat": "35.077529",
+                    "lon": "-106.600449",
+                    "vendor_count": 5
                 }
             }
         ]
@@ -887,14 +796,14 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
     </details>
     <details><summary><h5>Example #2 😭 </h5></summary>
       
-      #### Request: 
+      **Request:**
       ```
-        GET /api/v0/markets/search?city=albququerque
+        GET /api/v0/markets/search?city=albuquerque
         Content-Type: application/json
         Accept: application/json
       ```
 
-      #### Response: 
+      **Response:** 
       `status: 422`
       ```json
     {
@@ -908,7 +817,7 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
     </details>
 </details>
 
-<details><summary><h3>12. Get Cash Dispensers Near a Market</h3></summary>
+<details><summary><h3>11. Get Cash Dispensers Near a Market</h3></summary>
 
 #### Details: 
 1. The endpoint should be in the pattern of `GET /api/v0/markets/:id/nearest_atms`
@@ -919,14 +828,14 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
 
     <details><summary><h5>Example #1 😁 </h5></summary>
 
-    #### Request: 
+    **Request:**
     ```
-      GET /api/v0/markets/70/nearest_atms
+      GET /api/v0/markets/327794/nearest_atms
       Content-Type: application/json
       Accept: application/json
     ```
 
-    #### Response:
+    **Response:**
     `status: 200`
     ```json
     {
@@ -935,22 +844,22 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
                 "id": null,
                 "type": "atm",
                 "attributes": {
-                    "name": "Eds-Pyns",
-                    "address": "2200 Louisiana Boulevard Northeast, Albuquerque, NM 87110",
-                    "lat": 35.1034,
-                    "lon": -106.56745,
-                    "distance": 0.09976720439821812
+                    "name": "ATM",
+                    "address": "3902 Central Avenue Southeast, Albuquerque, NM 87108",
+                    "lat": 35.07904,
+                    "lon": -106.60068,
+                    "distance": 0.10521432030421865
                 }
             },
             {
                 "id": null,
                 "type": "atm",
                 "attributes": {
-                    "name": "Prosperity Bank",
-                    "address": "2240 Q St NE, Albuquerque, NM 87110",
-                    "lat": 35.10273,
-                    "lon": -106.56691,
-                    "distance": 0.10595742641673364
+                    "name": "ATM",
+                    "address": "4100 Central Avenue Southeast, Albuquerque, NM 87108",
+                    "lat": 35.0788,
+                    "lon": -106.59842,
+                    "distance": 0.14448001321588486
                 }
             },
             ...,
@@ -962,14 +871,14 @@ Below, you will see 12 dropdowns that correspond to the core endpoint requiremen
     </details>
     <details><summary><h5>Example #2 😭 </h5></summary>
       
-      #### Request:
+      **Request:**
       ```
         GET /api/v0/markets/123123123123/nearest_atm (where `123123123123` is an invalid Market id)
         Content-Type: application/json
         Accept: application/json
       ```
 
-      #### Response: 
+      **Response:** 
       `status: 404`
       ```json
     {

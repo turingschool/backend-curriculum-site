@@ -1,0 +1,956 @@
+{
+	"info": {
+		"_postman_id": "65025779-b419-4127-9661-d336e05efacc",
+		"name": "Market Money",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET all Markets",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.globals.set('first_market_name', \"14&U Farmers' Market\");",
+							"pm.globals.set('third_market_name', '39 North Marketplace');",
+							"pm.globals.set('twentieth_market_name', 'Appalachian (Newport) Farmers Market, Cocke County TN');"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('happy path, all markets returned are same as in db', () => {",
+							"    pm.response.to.have.status(200);",
+							"    var payload = pm.response.json();",
+							"    pm.expect(payload).to.have.property('data');",
+							"    pm.expect(payload.data).to.be.an('array');",
+							"    pm.expect(payload.data[0].attributes.name).to.eq(pm.globals.get('first_market_name'));",
+							"    pm.expect(payload.data[2].attributes.name).to.eq(pm.globals.get('third_market_name'));",
+							"    pm.expect(payload.data[19].attributes.name).to.eq(pm.globals.get('twentieth_market_name'));",
+							"});",
+							"pm.test('happy path, all markets returned have correct type and attributes', () => {",
+							"    var payload = pm.response.json();",
+							"    pm.expect(payload.data[0].type).to.eq('market');",
+							"    pm.expect(payload.data[0].attributes).to.have.property('street');",
+							"    pm.expect(payload.data[0].attributes).to.have.property('city');",
+							"    pm.expect(payload.data[0].attributes).to.have.property('county');",
+							"    pm.expect(payload.data[0].attributes).to.have.property('state');",
+							"    pm.expect(payload.data[0].attributes).to.have.property('zip');",
+							"    pm.expect(payload.data[0].attributes).to.have.property('lat');",
+							"    pm.expect(payload.data[0].attributes).to.have.property('lon');",
+							"    pm.expect(payload.data[0].attributes).to.have.property('vendor_count');",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v0/markets",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v0",
+						"markets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get market by id",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.globals.set('market_id', 322474);",
+							"pm.globals.set('market_name', \"2nd Street Farmers' Market\");"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('happy path, response has proper status code', () => {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test('happy path, market returned with proper type and attributes', () => {",
+							"    var payload = pm.response.json();",
+							"",
+							"    // test structure, id and type",
+							"    pm.expect(payload).to.have.property('data');",
+							"    pm.expect(payload.data.id).to.eq(pm.globals.get('market_id').toString());",
+							"    pm.expect(payload.data.type).to.eq(\"market\")",
+							"",
+							"    // test attributes",
+							"    pm.expect(payload.data.attributes.name).to.eq(pm.globals.get('market_name'));",
+							"    pm.expect(payload.data.attributes).to.have.property(\"street\")",
+							"    pm.expect(payload.data.attributes).to.have.property(\"city\")",
+							"    pm.expect(payload.data.attributes).to.have.property(\"county\")",
+							"    pm.expect(payload.data.attributes).to.have.property(\"state\")",
+							"    pm.expect(payload.data.attributes).to.have.property(\"zip\")",
+							"    pm.expect(payload.data.attributes).to.have.property(\"lat\")",
+							"    pm.expect(payload.data.attributes).to.have.property(\"lon\")",
+							"    pm.expect(payload.data.attributes).to.have.property(\"vendor_count\")",
+							"    pm.expect(payload.data.attributes.vendor_count).to.eq(35)",
+							"    pm.expect(Object.keys(payload.data.attributes).length).to.eq(9)",
+							"});",
+							"",
+							"pm.sendRequest('http://localhost:3000/api/v0/markets/123123123123123', (error, response) => {",
+							"    pm.test('sad path, bad integer id returns 404', () => {",
+							"        // test status",
+							"        pm.expect(response).to.have.property('code', 404);",
+							"        pm.expect(response).to.have.property('status', 'Not Found');",
+							"",
+							"        // test payload",
+							"        pm.expect(response).to.have.jsonBody('errors');",
+							"    });",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v0/markets/{{market_id}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v0",
+						"markets",
+						"{{market_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET vendors for a market",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.globals.set('market_id', 322474);",
+							"pm.globals.set('vendor_name', \"Orange County Olive Oil\");",
+							"pm.globals.set('vendor_description', \"Handcrafted olive oil made from locally grown olives\");",
+							"pm.globals.set('vendor_contact_name', \"Syble Hamill\");",
+							"pm.globals.set('vendor_contact_phone', \"1-276-593-3530\");",
+							"pm.globals.set('vendor_credit_accepted', false);",
+							"pm.globals.set('vendor_count', 35);",
+							"pm.globals.set('first_vendor_id', 55297)"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('happy path, response has proper status code', () => {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test('happy path, vendors that sell at the market are returned with proper type and attributes', () => {",
+							"    var payload = pm.response.json();",
+							"",
+							"    // test structure",
+							"    pm.expect(payload).to.have.property('data');",
+							"    pm.expect(payload.data).to.be.an('array')",
+							"    pm.expect(payload.data[0].attributes).to.have.property(\"name\")",
+							"    pm.expect(payload.data[0].attributes).to.have.property(\"description\")",
+							"    pm.expect(payload.data[0].attributes).to.have.property(\"contact_name\")",
+							"    pm.expect(payload.data[0].attributes).to.have.property(\"contact_phone\")",
+							"    pm.expect(payload.data[0].attributes).to.have.property(\"credit_accepted\")",
+							"    pm.expect(Object.keys(payload.data[0].attributes).length).to.eq(5);",
+							"",
+							"    // test values",
+							"    pm.expect(payload.data[0].type).to.eq(\"vendor\")",
+							"    pm.expect(payload.data[0].id).to.eq(pm.globals.get('first_vendor_id').toString())",
+							"    pm.expect(payload.data.length).to.eq(pm.globals.get('vendor_count'));",
+							"    pm.expect(payload.data[0].attributes.name).to.eq(pm.globals.get('vendor_name'))",
+							"    pm.expect(payload.data[0].attributes.description).to.eq(pm.globals.get('vendor_description'))",
+							"    pm.expect(payload.data[0].attributes.contact_name).to.eq(pm.globals.get('vendor_contact_name'))",
+							"    pm.expect(payload.data[0].attributes.contact_phone).to.eq(pm.globals.get('vendor_contact_phone'))",
+							"    pm.expect(payload.data[0].attributes.credit_accepted).to.eq(pm.globals.get('vendor_credit_accepted'))",
+							"});",
+							"",
+							"pm.sendRequest('http://localhost:3000/api/v0/markets/123123123123123/vendors', (error, response) => {",
+							"    pm.test('sad path, bad integer id returns 404', () => {",
+							"        // test status",
+							"        pm.expect(response).to.have.property('code', 404);",
+							"        pm.expect(response).to.have.property('status', 'Not Found');",
+							"",
+							"        // test payload",
+							"        pm.expect(response).to.have.jsonBody('errors');",
+							"    });",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v0/markets/{{market_id}}/vendors",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v0",
+						"markets",
+						"{{market_id}}",
+						"vendors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Vendor by id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('happy path, response has proper status code', () => {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test('happy path, vendor is returned with proper type and attributes', () => {",
+							"    var payload = pm.response.json();",
+							"",
+							"    // test structure",
+							"    pm.expect(payload).to.have.property('data');",
+							"    pm.expect(payload.data).to.have.property('type');",
+							"    pm.expect(payload.data).to.have.property('id');",
+							"    pm.expect(payload.data.attributes).to.have.property(\"name\")",
+							"    pm.expect(payload.data.attributes).to.have.property(\"description\")",
+							"    pm.expect(payload.data.attributes).to.have.property(\"contact_name\")",
+							"    pm.expect(payload.data.attributes).to.have.property(\"contact_phone\")",
+							"    pm.expect(payload.data.attributes).to.have.property(\"credit_accepted\")",
+							"    pm.expect(Object.keys(payload.data.attributes).length).to.eq(5);",
+							"",
+							"    // test values",
+							"    pm.expect(payload.data.type).to.eq(\"vendor\")",
+							"    pm.expect(payload.data.id).to.eq(pm.globals.get('first_vendor_id').toString())",
+							"    pm.expect(payload.data.attributes.name).to.eq(pm.globals.get('vendor_name'))",
+							"    pm.expect(payload.data.attributes.description).to.eq(pm.globals.get('vendor_description'))",
+							"    pm.expect(payload.data.attributes.contact_name).to.eq(pm.globals.get('vendor_contact_name'))",
+							"    pm.expect(payload.data.attributes.contact_phone).to.eq(pm.globals.get('vendor_contact_phone'))",
+							"    pm.expect(payload.data.attributes.credit_accepted).to.eq(pm.globals.get('vendor_credit_accepted'))",
+							"});",
+							"",
+							"pm.sendRequest('http://localhost:3000/api/v0/vendors/123123123123123', (error, response) => {",
+							"    pm.test('sad path, bad integer id returns 404', () => {",
+							"        // test status",
+							"        pm.expect(response).to.have.property('code', 404);",
+							"        pm.expect(response).to.have.property('status', 'Not Found');",
+							"",
+							"        // test payload",
+							"        pm.expect(response).to.have.jsonBody('errors');",
+							"    });",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.globals.set('vendor_name', \"Orange County Olive Oil\");",
+							"pm.globals.set('vendor_description', \"Handcrafted olive oil made from locally grown olives\");",
+							"pm.globals.set('vendor_contact_name', \"Syble Hamill\");",
+							"pm.globals.set('vendor_contact_phone', \"1-276-593-3530\");",
+							"pm.globals.set('vendor_credit_accepted', false);",
+							"pm.globals.set('vendor_count', 35);",
+							"pm.globals.set('vendor_id', 55297)"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v0/vendors/{{vendor_id}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v0",
+						"vendors",
+						"{{vendor_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE (and DELETE) a Vendor",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('happy path, response has proper status code', () => {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"pm.test('happy path, new vendor is returned in response', () => {",
+							"    var payload = pm.response.json();",
+							"",
+							"    // test structure",
+							"    pm.expect(payload).to.have.property('data');",
+							"    pm.expect(payload.data).to.have.property('type');",
+							"    pm.expect(payload.data).to.have.property('id');",
+							"    pm.expect(payload.data.attributes).to.have.property(\"name\")",
+							"    pm.expect(payload.data.attributes).to.have.property(\"description\")",
+							"    pm.expect(payload.data.attributes).to.have.property(\"contact_name\")",
+							"    pm.expect(payload.data.attributes).to.have.property(\"contact_phone\")",
+							"    pm.expect(payload.data.attributes).to.have.property(\"credit_accepted\")",
+							"    pm.expect(Object.keys(payload.data.attributes).length).to.eq(5);",
+							"",
+							"    // test values",
+							"    pm.expect(payload.data.type).to.eq(\"vendor\")",
+							"    pm.expect(payload.data.attributes.name).to.eq(pm.globals.get('vendor_name'))",
+							"    pm.expect(payload.data.attributes.description).to.eq(pm.globals.get('vendor_description'))",
+							"    pm.expect(payload.data.attributes.contact_name).to.eq(pm.globals.get('vendor_contact_name'))",
+							"    pm.expect(payload.data.attributes.contact_phone).to.eq(pm.globals.get('vendor_contact_phone'))",
+							"    pm.expect(payload.data.attributes.credit_accepted).to.eq(pm.globals.get('vendor_credit_accepted'))",
+							"",
+							"    var newlyCreatedVendorId = payload.data.id",
+							"",
+							"    pm.test('sad path, required parameters not sent', () => {",
+							"        var url = `http://localhost:3000/api/v0/vendors`",
+							"        console.log(pm.globals.get('improper_parameters_1'))",
+							"        pm.sendRequest({url: url, method: 'POST', header: {'Content-Type': 'application/json'}, body: JSON.stringify(pm.globals.get('improper_parameters_1'))}, function (err, response) {",
+							"            if (err) {",
+							"                console.log(err);",
+							"            }",
+							"            pm.expect(response.code).to.eq(400)",
+							"            var payload = response.json();",
+							"            console.log(payload)",
+							"            pm.expect(payload).to.have.property(\"errors\")",
+							"        });",
+							"    });",
+							"    var url = `http://localhost:3000/api/v0/vendors/${newlyCreatedVendorId}`",
+							"    pm.sendRequest({url: url, method: 'DELETE'}, function (err, response) {",
+							"        if (err) {",
+							"            console.log(err);",
+							"        }",
+							"        pm.test('happy path, deleting vendor returns 204 status', () => {",
+							"            pm.expect(response).to.have.status(204)",
+							"        });",
+							"        pm.test('happy path, deleting vendor deletes record in database', () => {",
+							"            pm.sendRequest({url: url, method: 'GET'}, function (err, response) {",
+							"                pm.expect(response).to.have.status(404)",
+							"            });",
+							"        });",
+							"    });",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.globals.set('vendor_name', \"Buzzy Bees\");",
+							"pm.globals.set('vendor_description', \"local honey and wax products\");",
+							"pm.globals.set('vendor_contact_name', \"Berly Couwer\");",
+							"pm.globals.set('vendor_contact_phone', \"8389928383\");",
+							"pm.globals.set('vendor_credit_accepted', false);",
+							"pm.globals.set('improper_parameters_1', {\"name\": \"Buzzy Bees\", \"description\": \"local honey and was products\"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"{{vendor_name}}\",\n    \"description\": \"{{vendor_description}}\",\n    \"contact_name\": \"{{vendor_contact_name}}\",\n    \"contact_phone\": \"{{vendor_contact_phone}}\",\n    \"credit_accepted\": \"{{vendor_credit_accepted}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v0/vendors",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v0",
+						"vendors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE a Vendor",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('happy path, response has proper status code', () => {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200,201,202]);",
+							"});",
+							"",
+							"pm.test('happy path, vendor updated successfully', () => {",
+							"    var payload = pm.response.json();",
+							"    // test structure",
+							"    pm.expect(payload).to.have.property('data')",
+							"    pm.expect(payload.data).to.have.property('attributes')",
+							"    pm.expect(payload.data).to.have.property('id')",
+							"    pm.expect(payload.data).to.have.property('type')",
+							"    pm.expect(payload.data.attributes).to.have.property('name')",
+							"    pm.expect(payload.data.attributes).to.have.property('description')",
+							"    pm.expect(payload.data.attributes).to.have.property('contact_phone')",
+							"    pm.expect(payload.data.attributes).to.have.property('contact_name')",
+							"    pm.expect(payload.data.attributes).to.have.property('credit_accepted')",
+							"    pm.expect(Object.keys(payload.data.attributes).length).to.eq(5);",
+							"",
+							"    // test value",
+							"    pm.expect(payload.data.attributes.name).to.eq(pm.globals.get('original_name'))",
+							"    pm.expect(payload.data.attributes.contact_name).to.eq(pm.globals.get('new_contact_name'))",
+							"    pm.expect(payload.data.attributes.contact_phone).to.eq(pm.globals.get('new_contact_phone'))",
+							"})",
+							"",
+							"pm.test('sad path, bad params passed in', () => {",
+							"    pm.sendRequest({",
+							"        url: `http://localhost:3000/api/v0/vendors/${pm.globals.get('vendor_id')}`, ",
+							"        method: 'PATCH', ",
+							"        header: {'Content-Type': 'application/json'}, ",
+							"        body: JSON.stringify(pm.globals.get('improper_parameters_1'))",
+							"    }, function (error, response) {",
+							"        if (error) {",
+							"            console.log(error);",
+							"        } else {",
+							"            console.log(response.json())",
+							"            pm.expect(response.json()).to.have.property('errors')",
+							"        }",
+							"    });",
+							"",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.globals.set('original_name', \"Buzzy Bees\");",
+							"pm.globals.set('original_description', \"local honey and wax products\");",
+							"pm.globals.set('original_contact_name', \"Berly Couwer\");",
+							"pm.globals.set('original_contact_phone', \"8389928383\");",
+							"pm.globals.set('original_credit_accepted', false);",
+							"",
+							"pm.globals.set('new_contact_name', \"Kimberly Couwer\")",
+							"pm.globals.set('new_contact_phone', \"8389928384\")",
+							"",
+							"pm.globals.set('improper_parameters_1', {\"name\": \"\", \"description\": null});",
+							"",
+							"",
+							"pm.globals.set('new_vendor_params', {",
+							"        \"name\": pm.globals.get('original_name'),",
+							"        \"description\":  pm.globals.get('original_description'),",
+							"        \"contact_name\":  pm.globals.get('original_contact_name'),",
+							"        \"contact_phone\":  pm.globals.get('original_contact_phone'),",
+							"        \"credit_accepted\": pm.globals.get('original_credit_accepted')",
+							"})",
+							"console.log(pm.globals.get('new_vendor_params'))",
+							"pm.sendRequest({",
+							"        url: 'http://localhost:3000/api/v0/vendors', ",
+							"        method: 'POST', ",
+							"        header: {'Content-Type': 'application/json'}, ",
+							"        body: JSON.stringify(pm.globals.get('new_vendor_params'))",
+							"    }, function (error, response) {",
+							"    if (error) {",
+							"        console.log(error);",
+							"    } else {",
+							"        var data = response.json().data",
+							"        pm.globals.set('vendor_id', data.id)",
+							"    }",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"contact_name\": \"{{new_contact_name}}\",\n    \"contact_phone\": \"{{new_contact_phone}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v0/vendors/{{vendor_id}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v0",
+						"vendors",
+						"{{vendor_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE (and DELETE) a MarketVendor",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.globals.set('market_id', 322925)",
+							"",
+							"pm.globals.set('name', \"Super Cool New Vendor\");",
+							"pm.globals.set('description', \"We sell the coolest things\");",
+							"pm.globals.set('contact_name', \"Cool Guy\");",
+							"pm.globals.set('contact_phone', \"1231112222\");",
+							"pm.globals.set('credit_accepted', true);",
+							"",
+							"pm.globals.set('new_vendor_params', {",
+							"        \"name\": pm.globals.get('name'),",
+							"        \"description\":  pm.globals.get('description'),",
+							"        \"contact_name\":  pm.globals.get('contact_name'),",
+							"        \"contact_phone\":  pm.globals.get('contact_phone'),",
+							"        \"credit_accepted\": pm.globals.get('credit_accepted')",
+							"})",
+							"",
+							"pm.sendRequest({",
+							"        url: 'http://localhost:3000/api/v0/vendors', ",
+							"        method: 'POST', ",
+							"        header: {'Content-Type': 'application/json'}, ",
+							"        body: JSON.stringify(pm.globals.get('new_vendor_params'))",
+							"    }, function (error, response) {",
+							"    if (error) {",
+							"        console.log(error);",
+							"    } else {",
+							"        var data = response.json().data",
+							"        console.log(data)",
+							"        pm.globals.set('vendor_id', data.id)",
+							"    }",
+							"});",
+							"",
+							"",
+							"pm.globals.set('params_for_removal', {",
+							"                    \"market_id\": pm.globals.get('market_id'), ",
+							"                    \"vendor_id\": pm.globals.get('vendor_id') ",
+							"                })",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('happy path, response has proper status code', () => {",
+							"    pm.expect(pm.response.code).to.eq(201);",
+							"});",
+							"console.log(pm.globals.get('params_for_removal'))",
+							"pm.test('happy path, vendor successfully added to market', () => {",
+							"    pm.sendRequest({",
+							"        url: `http://localhost:3000/api/v0/markets/${pm.globals.get('market_id')}/vendors`, ",
+							"        method: 'GET', ",
+							"        header: {'Content-Type': 'application/json'}",
+							"    }, function (error, response) {",
+							"        if (error) {",
+							"            console.log(error);",
+							"        } else {",
+							"            var data = response.json().data",
+							"            var most_recently_added_vendor = data.at(-1)",
+							"            pm.expect(most_recently_added_vendor.id).to.eq(pm.globals.get('vendor_id'))",
+							"        }",
+							"    });",
+							"    pm.test('happy path, vendor successfully removed from market', () => {",
+							"        var url = `http://localhost:3000/api/v0/market_vendors`",
+							"        pm.sendRequest({",
+							"            url: url, ",
+							"            method: 'DELETE',",
+							"            header: {'Content-Type': 'application/json'},",
+							"            body: JSON.stringify(pm.globals.get('params_for_removal'))",
+							"            }, function (err, response) {",
+							"            if (err) {",
+							"                console.log(err);",
+							"            }",
+							"            pm.test('happy path, deleting MarketVendor returns 204 status', () => {",
+							"                pm.expect(response).to.have.status(204)",
+							"            });",
+							"        });",
+							"    });",
+							"})",
+							"",
+							"pm.test('sad path, association between market and vendor already exists', () => {",
+							"    pm.sendRequest({",
+							"        url: `http://localhost:3000/api/v0/market_vendors`, ",
+							"        method: 'POST', ",
+							"        header: {'Content-Type': 'application/json'},",
+							"        body: JSON.stringify({",
+							"            \"market_id\": pm.globals.get('market_id'),",
+							"            \"vendor_id\": pm.globals.get('vendor_id')",
+							"        })",
+							"    }, function (error, response) {",
+							"        if (error) {",
+							"            console.log(error);",
+							"        } else {",
+							"            var json_response = response.json()",
+							"            pm.expect(json_response).to.have.property(\"errors\")",
+							"            pm.expect(response).to.have.status(422)",
+							"        }",
+							"    });",
+							"})",
+							"",
+							"pm.test('sad path, market and/or vendor passed in does not exists', () => {",
+							"    pm.sendRequest({",
+							"        url: `http://localhost:3000/api/v0/market_vendors`, ",
+							"        method: 'POST', ",
+							"        header: {'Content-Type': 'application/json'},",
+							"        body: JSON.stringify({",
+							"            \"market_id\": 123123123123123123123,",
+							"            \"vendor_id\": pm.globals.get('vendor_id')",
+							"        })",
+							"    }, function (error, response) {",
+							"        if (error) {",
+							"            console.log(error);",
+							"        } else {",
+							"            var json_response = response.json()",
+							"            pm.expect(json_response).to.have.property(\"errors\")",
+							"            pm.expect(response).to.have.status(404)",
+							"        }",
+							"    });",
+							"})",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\n      \"market_id\": {{market_id}}, \n      \"vendor_id\": {{vendor_id}} \n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v0/market_vendors",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v0",
+						"market_vendors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get atm near market",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.globals.set('market_id', 330318)"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('happy path, response has proper status code', () => {",
+							"    pm.expect(pm.response.code).to.eq(200);",
+							"});",
+							"pm.test('happy path, get cash dispensers near market response', () => {",
+							"    var response = pm.response.json()",
+							"    pm.expect(response).to.have.property(\"data\")",
+							"    var first_atm = response.data[0]",
+							"    pm.expect(first_atm.id).to.eq(null)",
+							"    pm.expect(first_atm.type).to.eq('atm')",
+							"    pm.expect(first_atm).to.have.property(\"attributes\")",
+							"    pm.expect(first_atm.attributes).to.have.property(\"name\")",
+							"    pm.expect(first_atm.attributes).to.have.property(\"address\")",
+							"    pm.expect(first_atm.attributes).to.have.property(\"lat\")",
+							"    pm.expect(first_atm.attributes).to.have.property(\"lon\")",
+							"    pm.expect(first_atm.attributes).to.have.property(\"distance\")",
+							"    pm.expect(Object.keys(first_atm.attributes).length).to.eq(5)",
+							"})",
+							"",
+							"pm.test('sad path, market id is invalid', () => {",
+							"    pm.sendRequest({",
+							"        url: `http://localhost:3000/api/v0/markets/123123123123123/nearest_atm`, ",
+							"        method: 'GET'",
+							"    }, function (error, response) {",
+							"        if (error) {",
+							"            console.log(error);",
+							"        } else {",
+							"            console.log(response)",
+							"            pm.expect(response).to.have.status(404)",
+							"            pm.expect(response.json()).to.have.property('errors')",
+							"        }",
+							"    });",
+							"",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v0/markets/{{market_id}}/nearest_atm",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v0",
+						"markets",
+						"{{market_id}}",
+						"nearest_atm"
+					],
+					"query": [
+						{
+							"key": "lat",
+							"value": "35.103988",
+							"disabled": true
+						},
+						{
+							"key": "lon",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get markets by name fragment",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.globals.set('city', \"GasSaway\")",
+							"pm.globals.set('state', \"west Virginia\")",
+							"pm.globals.set('name', \"county\")",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('happy path, response has proper status code', () => {",
+							"    pm.expect(pm.response.code).to.eq(200);",
+							"});",
+							"pm.test('happy path, get markets by just state', () => {",
+							"    pm.sendRequest({",
+							"        url: `http://localhost:3000/api/v0/markets/search?state=${pm.globals.get('state')}`, ",
+							"        method: 'GET', ",
+							"        header: {'Content-Type': 'application/json'}",
+							"    }, function (error, response) {",
+							"        if (error) {",
+							"            console.log(error);",
+							"        } else {",
+							"            pm.expect(response.json().data.length).to.eq(9)",
+							"            pm.expect(response).to.have.status(200)",
+							"        }",
+							"    });",
+							"})",
+							"pm.test('happy path, get markets by city and state', () => {",
+							"    pm.sendRequest({",
+							"        url: `http://localhost:3000/api/v0/markets/search?state=${pm.globals.get('state')}&city=${pm.globals.get('city')}`, ",
+							"        method: 'GET', ",
+							"        header: {'Content-Type': 'application/json'}",
+							"    }, function (error, response) {",
+							"        if (error) {",
+							"            console.log(error);",
+							"        } else {",
+							"            pm.expect(response.json().data.length).to.eq(1)",
+							"            pm.expect(response).to.have.status(200)",
+							"        }",
+							"    });",
+							"})",
+							"pm.test('happy path, get markets by state and name', () => {",
+							"    pm.sendRequest({",
+							"        url: `http://localhost:3000/api/v0/markets/search?state=${pm.globals.get('state')}&name=${pm.globals.get('name')}`, ",
+							"        method: 'GET', ",
+							"        header: {'Content-Type': 'application/json'}",
+							"    }, function (error, response) {",
+							"        if (error) {",
+							"            console.log(error);",
+							"        } else {",
+							"            pm.expect(response.json().data.length).to.eq(2)",
+							"            pm.expect(response).to.have.status(200)",
+							"        }",
+							"    });",
+							"})",
+							"pm.test('happy path, get markets by just name', () => {",
+							"    pm.sendRequest({",
+							"        url: `http://localhost:3000/api/v0/markets/search?name=${pm.globals.get('name')}`, ",
+							"        method: 'GET', ",
+							"        header: {'Content-Type': 'application/json'}",
+							"    }, function (error, response) {",
+							"        if (error) {",
+							"            console.log(error);",
+							"        } else {",
+							"            pm.expect(response.json().data.length).to.eq(53)",
+							"            pm.expect(response).to.have.status(200)",
+							"        }",
+							"    });",
+							"})",
+							"pm.test('sad path, cant get markets with just city', () => {",
+							"    pm.sendRequest({",
+							"        url: `http://localhost:3000/api/v0/markets/search?city=${pm.globals.get('city')}`, ",
+							"        method: 'GET', ",
+							"        header: {'Content-Type': 'application/json'}",
+							"    }, function (error, response) {",
+							"        if (error) {",
+							"            console.log(error);",
+							"        } else {",
+							"            pm.expect(response).to.have.status(422)",
+							"        }",
+							"    });",
+							"})",
+							"pm.test('sad path, cant get markets with just name and city', () => {",
+							"    pm.sendRequest({",
+							"        url: `http://localhost:3000/api/v0/markets/search?city=${pm.globals.get('city')}&name=${pm.globals.get('name')}`, ",
+							"        method: 'GET', ",
+							"        header: {'Content-Type': 'application/json'}",
+							"    }, function (error, response) {",
+							"        if (error) {",
+							"            console.log(error);",
+							"        } else {",
+							"            pm.expect(response).to.have.status(422)",
+							"        }",
+							"    });",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v0/markets/search?state={{state}}&name={{name}}&city={{city}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v0",
+						"markets",
+						"search"
+					],
+					"query": [
+						{
+							"key": "state",
+							"value": "{{state}}"
+						},
+						{
+							"key": "name",
+							"value": "{{name}}"
+						},
+						{
+							"key": "city",
+							"value": "{{city}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

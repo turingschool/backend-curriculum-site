@@ -25,20 +25,20 @@ At the end of this lesson, we will have created an application which will list o
 
 To start, let's create a directory for our code...
 
-```
+```bash
 mkdir ghibli
 cd ghibli
 ```
 
 ...and let's make a lib folder for our code.
 
-```
+```bash
 mkdir lib
 ```
 
 To consume an API, we are going to have to bring in some gems. Let's create a `Gemfile` in our root directory and fill it with what we need.
 
-```
+```ruby
 source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
@@ -52,33 +52,35 @@ gem 'pry'
 
 Now that we have our Gemfile in place, let's get the gem and its dependencies.
 
-```
+```bash
 bundle install
 ```
 
 Let's now make a file that we can work in... We'll call it `ghibli_films` beacuse we're searching for all of the Studio Ghibli films. 
-```
+```bash
 touch lib/ghibli_films.rb
 ```
 
 
 At the top of our new file, let's require the gems we'll need: 
-```
+```ruby
+# lib/ghibli_films.rb
 require 'httparty'
 require 'json'
 require 'pry'
 ```
 
-We are going to use HTTParty in order to reach out to our API and get the results. The endpoint we have to hit is `https://limitless-castle-00011.herokuapp.com/films`. (As of January 2023, an older service is no longer working, so there's no documentation for this new API yet.)
+We are going to use a gem called **HTTParty** to reach out to our API and get the results. The endpoint we have to hit is `https://limitless-castle-00011.herokuapp.com/films`. (As of January 2023, an older service is no longer working, so there's no documentation for this new API yet.)
 
-The basic syntax for how we can get a response from an API is `HTTParty.get()`, where we pass the URL for the endpoint as an argument as a string.
+The basic syntax for how we can get a response from an API is `HTTParty.get()`, where we pass the URL for the endpoint as a string argument.
 
-```
+```ruby
+# lib/ghibli_films.rb
 response = HTTParty.get("https://limitless-castle-00011.herokuapp.com/films")
 ```
 
 The get method from HTTParty returns us a special **response object**. Let's throw a `binding.pry` in there and see what we get.
-```
+```ruby
 [{"id"=>"2baf70d1-42bb-4437-b551-e5fed5a87abe",
   "title"=>"Castle in the Sky",
   "original_title"=>"天空の城ラピュタ",
@@ -117,7 +119,8 @@ So we look at what `response.body` will return.
 
 That's a JSON object, which is fine, but we don't want to work in JSON, we want to work in something we are familiar with and easier to handle, like a Ruby hash. So, how can we convert one to the other?
 
-```
+```ruby 
+# lib/ghibli_films.rb
 parsed = JSON.parse(response.body, symbolize_names: true)
 ```
 
@@ -125,7 +128,7 @@ The `symbolize_names: true` parameter converts the keys to symbols so we can use
 
 So, we now have this:
 
-```
+```ruby
 [{:id=>"2baf70d1-42bb-4437-b551-e5fed5a87abe",
   :title=>"Castle in the Sky",
   :description=>
@@ -155,9 +158,10 @@ So, we now have this:
 
 When we look at the structure and shape of this parsed JSON, we see that we are getting an array of hashes, and each hash appears to be information about an individual film.
 
-So now we have an array of hashes. Do we like this? Well, hashes are fine, but what we really want to do is create an object to represent our films.
+So now we have an array of hashes. Do we like this? Well, hashes are fine, but what we really want to do is create an object to represent our films. Let's make a new file called `film.rb` and create our class: 
 
-```
+```ruby
+# lib/film.rb
 class Film
   attr_reader :title,
               :description,
@@ -178,7 +182,10 @@ end
 
 Now, we can iterate over our array and create our objects.
 
-```
+```ruby
+# lib/ghibli_films.rb
+require "./lib/film"
+
 films = parsed.map do |data|
   Film.new(data)
 end
@@ -186,7 +193,8 @@ end
 
 And we can loop through our collection of films, and print out the name and crew count of each.
 
-```
+```ruby 
+# lib/ghibli_films.rb
 films.each do |film|
   puts film.title
   puts "Directed By: #{film.director}"
@@ -196,21 +204,28 @@ films.each do |film|
 end
 ```
 
-Run the base file and look at the output. Success! 
+Run the base file and look at the output. __🎉 Success!__
+
+### API Practice #1
+1. Write code to print out the names of all People from Studio Ghibli films
+2. Look through the rest of the JSON from the base request and figure out other GET requests you could make from this data. 
+
+----
 
 ## Refactoring
-Are we happy with the code that we've written here?
+Are we happy with the code that we've written here? 🤔
 
 How do you think it could be improved?
 
 Right now, we can think of the work that is being done by this code as divided into three pieces: 
-1. display of the data, 
-1. creation of the `Film` objects, 
-1. talking to the API.
+1. Displaying the data, 
+1. Creating the `Film` objects, and
+1. Talking to the API.
 
-The first refactoring step would be to move everything into an **object** that will give us the results that we want.
+The first refactoring step would be to move everything into an **object** that will give us the results that we want. Let's call it `FilmSearch`:
 
-```
+```ruby
+# lib/film_search.rb
 class FilmSearch
   def film_information
     response = HTTParty.get("https://limitless-castle-00011.herokuapp.com/films")
@@ -222,11 +237,12 @@ class FilmSearch
 end
 ```
 
-This is a step in the right direction. But, if we were to describe the `film_information` method, it is still doing too much. The FilmSearch class should be responsible for taking information and formatting it, not reaching out to the API to get the appropriate information. What should be in charge of talking to API is what we call a **service**. We want to move the API specific bits to a service, because we might want to contact the API to get other information later.
+This is a step in the right direction. But, if we were to describe the `film_information` method, it is still doing too much. The FilmSearch class should be responsible for taking information and formatting it, not reaching out to the API to get the appropriate information. What should be in charge of talking to API is what we call a **service**. We want to move the API-specific bits to a service, because we might want to contact the API to get other information later.
 
-Let's dream-drive our Search object a bit to make the code look like how we would want it to look.
+Let's dream-drive our FilmSearch object a bit to make the code look like how we would want it to look.
 
-```
+```ruby
+# lib/film_search.rb
 class FilmSearch
   def film_information
    service = GhibliService.new
@@ -237,9 +253,10 @@ class FilmSearch
 end
 ```
 
-This looks so much better. We're just instantiating a service and asking the service, "hey, get me the films." We can even take it one step further:
+This looks so much better. We're just instantiating a service and asking the service, "Hey, get me the films." We can even take it one step further:
 
-```
+```ruby
+# lib/film_search.rb
 class FilmSearch
   def films
     service.films.map do |data|
@@ -253,11 +270,12 @@ class FilmSearch
 end
 ```
 
-This is a little more reusable.
+This is a little more reusable because we have one method responsible for accesing the service, and another method for creating & returning all the films from that service; and we only need to call the `films` method to do it! 
 
-So now, let's move onto the service:
+So now, let's move onto the service. In our dream-driving in the last step, we called it `GhibliService` because it's only going to be responsible for asking this specific API for information:
 
-```
+```ruby
+# lib/ghibli_service.rb
 class GhibliService
   def films
     response = HTTParty.get("https://limitless-castle-00011.herokuapp.com/films")
@@ -266,9 +284,10 @@ class GhibliService
 end
 ```
 
-This is good so far, but if we want to reuse the service, we want to refactor this code even further so we can make this a bit more flexible:
+This is good so far, but this one method is still doing too many things - both getting the data and parsing it into JSON. If we want to reuse the service for different endpoints, we want to refactor this code even further to be more flexible:
 
-```
+```ruby
+# lib/ghibli_service.rb
 class GhibliService
   def films
     get_url("https://limitless-castle-00011.herokuapp.com/films")
@@ -281,11 +300,21 @@ class GhibliService
 end
 ```
 
-## Practice
+In the end, we refactored our application by adhering to SRP: no one class or method within a class does more than it should. 
 
-Write code to print out the names of all People from Studio Ghibili films.
+## API Practice #2
 
-Look through the rest of the JSON from the base request and figure out other GET requests you could make. 
+Using our refactored code, re-write your earlier practice code to print out the names of all People from Studio Ghibili films.
+
+Remember, look through the rest of the JSON from the base request and figure out other GET requests you could make. 
+
+---
+## Checks for Understanding
+1. What are some use cases for consuming an API?
+1. What is the difference between a JSON object an an API's response object?
+1. Why should we structure/refactor our code into objects and classes when consuming an API? 
+
+---
 
 ## Extension
 
@@ -296,7 +325,5 @@ There are multiple ways to go about this. Here are some tips:
 * Don't be afraid to make multiple API calls
 * Try to make the API do as much work for you as possible
 
-## Checks for Understanding
-1. What are some use cases for consuming an API?
-1. What is the difference between a JSON object an an API's response object?
-1. Why should we structure/refactor our code into objects and classes when consuming an API? 
+### Further Reading
+This lesson is a good basic introduction to the principles of [Refactoring API Consumption in Rails](https://backend.turing.edu/module3/lessons/refactoring_api_consumption), which we will go over in module 3. 

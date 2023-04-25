@@ -25,12 +25,22 @@ _Note: See [Learning Goals](../../misc/learning_goals) to see at what level thes
 * Create a project with a separate frontend and backend ⭐ ⭐
 * Implement a production-quality user interface using Bootstrap or other common CSS styling framework ⭐ ⭐
 
+### Project must choose at least one of the following
+* Use a decorator. (Draper or something else)
+* Use ActionCable
+* Incorporate a microservice using either Sinatra or other technology.
+* Use background workers
+* Use pub/sub with a message queue
+* Use a browser API, such as the camera or local storage
+* Implement API/view caching
+* Implement observability - New Relic/Skylight/Honeybadger
+
 
 ### Explicit Professional Expectations
 
 * Practice good project management by using project boards, participating in daily stand-ups and team retros ⭐ ⭐ ⭐
 * Utilize quality workflow practices: small commits, descriptive pull requests, and code reviews ⭐ ⭐
-* Write thorough, understandable documentation ⭐ ⭐
+* Write thorough, understandable documentation ⭐ ⭐ (consider using [Swagger](https://swagger.io/tools/swaggerhub/))
 
 
 ### Implicit Learning Goals
