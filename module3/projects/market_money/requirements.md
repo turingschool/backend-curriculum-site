@@ -5,7 +5,11 @@ length: 1 week
 tags:
 type: project
 ---
-
+<style>
+summary:hover {
+  background-color: #bbe5fa;
+}
+</style>
 # 1. Set Up
 
 1. Create a Rails API project called `market_money` (make sure you do not set up a "traditional" Rails project with a frontend, this is an API-only project): `rails _7.0.1_ new market_money -T -d postgresql --api`
