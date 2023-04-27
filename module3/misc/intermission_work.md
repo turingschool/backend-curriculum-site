@@ -10,7 +10,7 @@ You must complete and submit all of these assignments. *It is due the Saturday b
 
 Submit your work here: [Survey Link](https://forms.gle/SzrTxMFjYUQLbqbY8)
 
-You must use Ruby 3.1.1 and Rails 7.0.4.x for all of the work in this module. You can check your version by running `ruby -v` and `rails -v` in your terminal.
+You must use Ruby 3.1.x and Rails 7.0.x for all of the work in this module. You can check your version by running `ruby -v` and `rails -v` in your terminal.
 
 
 ## Core Learning Goals of Mod 3
@@ -37,7 +37,7 @@ Here are some helpful videos and tutorials that you can use to familiarize yours
 * [Play with Postman in order to test the API you built out in the last lesson.](https://learning.postman.com/docs/introduction/overview/)
 * [Consuming an API](https://github.com/turingschool/backend-curriculum-site/blob/gh-pages/module3/lessons/consuming_an_api.md)
 
-#### Stuff to Read
+#### Stuff to Read and internalize
 * [Sandi Metz' Rules for Developers](https://robots.thoughtbot.com/sandi-metz-rules-for-developers)
 
 ### Authentication / Authorization
