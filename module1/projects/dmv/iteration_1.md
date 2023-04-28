@@ -27,7 +27,7 @@ You should see the following errors:
 ![Imgur](https://i.imgur.com/nzUB9wG.png)
 
 ### Reflection
-Before moving on to the next portion of this iteration, reflect on your process of learning a new codebase. In your project's README, reflect on the following:
+Before moving on to the next portion of this iteration, reflect on your process of learning a new codebase. Take notes on the following questions so that you can speak to these themes at the end of the project:
 
 1. Describe the steps you took to dig in to this code base. What was your process? If you don't feel you had a process, define one that you might like to try next time.
 2. What was hard about working with code you did not write?
