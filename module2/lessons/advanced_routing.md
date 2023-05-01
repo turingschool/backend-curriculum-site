@@ -11,7 +11,7 @@ tags: router, routing, rails
 
 ## Lesson
 
-Use [this video](https://www.loom.com/share/604d8bb6a2dc41f6b97dd9a0dc01272f) and the [Rails guides on routing](https://guides.rubyonrails.org/v5.2/routing.html#resource-routing-the-rails-default) to answer some questions
+Use [this video](https://www.loom.com/share/604d8bb6a2dc41f6b97dd9a0dc01272f) and the [Rails guides on routing](https://guides.rubyonrails.org/v7.0.4/routing.html#resource-routing-the-rails-default) to answer some questions
 
 
 ## To Do
