@@ -68,7 +68,7 @@ require "simplecov"
 SimpleCov.start
 ```
 
-We'll also add a line for `coverage` to the `.gitignore` file so that our SimpleCov reports aren"t pushed to GitHub.
+We'll also add a line for `coverage` to the `.gitignore` file so that our SimpleCov reports aren't pushed to GitHub.
 
 ## Testing the Task Model
 
