@@ -57,7 +57,7 @@ What new files did this generate?
 - `./.rspec` file
 - a whole `./spec/` directory
 - `./spec/rails_helper.rb` is the new `spec_helper`, holds Rails-specific configurations
-- `./spec/spec_helper.rb` - where we keep all specs that don"t depend on rails
+- `./spec/spec_helper.rb` - where we keep all specs that don't depend on rails
 
 At the top of your `rails_helper.rb`, add these lines to configure SimpleCov:
 
@@ -68,7 +68,7 @@ require "simplecov"
 SimpleCov.start
 ```
 
-We"ll also add a line for `coverage` to the `.gitignore` file so that our SimpleCov reports aren"t pushed to GitHub.
+We'll also add a line for `coverage` to the `.gitignore` file so that our SimpleCov reports aren"t pushed to GitHub.
 
 ## Testing the Task Model
 
