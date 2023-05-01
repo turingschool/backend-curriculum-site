@@ -12,7 +12,7 @@ tags: rails, models, testing
 
 ## Setup
 
-This lesson builds off of the [Task Manager Tutorial](https://www.notion.so/Task-Manager-ff223934154742f8aef3ff34b82fa099). You can find the completed code from this tutorial [here](https://github.com/turingschool-examples/task_manager_rails_complete).
+This lesson builds off of the [Task Manager Tutorial](https://github.com/turingschool-examples/task_manager_rails). You can find the completed code from this tutorial [here](https://github.com/turingschool-examples/task-manager-7-complete).
 
 ## Why Model Test?
 
@@ -28,9 +28,9 @@ We are going to use RSpec as our testing framework, so first thing is to install
 
 In your `Gemfile` Inside the existing `group :development, :test` block, add
 
-- `gem 'rspec-rails'`
-- `gem 'pry'`
-- `gem 'simplecov'`
+- `gem "rspec-rails"`
+- `gem "pry"`
+- `gem "simplecov"`
 
 Your Gemfile should now have this:
 
@@ -57,18 +57,18 @@ What new files did this generate?
 - `./.rspec` file
 - a whole `./spec/` directory
 - `./spec/rails_helper.rb` is the new `spec_helper`, holds Rails-specific configurations
-- `./spec/spec_helper.rb` - where we keep all specs that don't depend on rails
+- `./spec/spec_helper.rb` - where we keep all specs that don"t depend on rails
 
 At the top of your `rails_helper.rb`, add these lines to configure SimpleCov:
 
 **spec/rails_helper.rb**
 
 ```ruby
-require 'simplecov'
+require "simplecov"
 SimpleCov.start
 ```
 
-We'll also add a line for `coverage` to the `.gitignore` file so that our SimpleCov reports aren't pushed to GitHub.
+We"ll also add a line for `coverage` to the `.gitignore` file so that our SimpleCov reports aren"t pushed to GitHub.
 
 ## Testing the Task Model
 
@@ -86,7 +86,7 @@ In our new test file, add the following:
 **spec/models/task_spec.rb**
 
 ```ruby
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Task, type: :model do
 
@@ -100,10 +100,10 @@ Inside our model test, let's add a section for instance method tests:
 **spec/models/task_spec.rb**
 
 ```ruby
-require 'rails_helper'
+require "rails_helper"
 
 describe Task, type: :model do
-  describe 'instance methods' do
+  describe "instance methods" do
 
   end
 end
@@ -114,31 +114,31 @@ And inside that section, let's add another section for a test for a specific met
 **spec/models/task_spec.rb**
 
 ```ruby
-require 'rails_helper'
+require "rails_helper"
 
 describe Task, type: :model do
-  describe 'instance methods' do
-    describe '#laundry?' do
+  describe "instance methods" do
+    describe "#laundry?" do
 
     end
   end
 end
 ```
 
-The idea of this `laundry?` method is that it will return a boolean if the Task's title or description contains the word "laundry". Notice that we are using the `#` symbol to indicate that this is an instance method test in addition to our `describe 'instance methods'` block.
+The idea of this `laundry?` method is that it will return a boolean if the Task's title or description contains the word "laundry". Notice that we are using the `#` symbol to indicate that this is an instance method test in addition to our `describe "instance methods"` block.
 
 We're now ready to write our first test! Let's start with a simple test case:
 
 **spec/models/task_spec.rb**
 
 ```ruby
-require 'rails_helper'
+require "rails_helper"
 
 describe Task, type: :model do
-  describe 'instance methods' do
-    describe '#laundry?' do
-      it 'returns true when the title is laundry' do
-        task = Task.create!(title: 'laundry', description: 'clean clothes')
+  describe "instance methods" do
+    describe "#laundry?" do
+      it "returns true when the title is laundry" do
+        task = Task.create!(title: "laundry", description: "clean clothes")
 
         expect(task.laundry?).to be(true)
       end
@@ -156,7 +156,7 @@ Now let's run this test and TDD our way to a passing test. From the command line
 
 ```ruby
 NoMethodError:
-       undefined method 'laundry?' for #<Task id: 1, title: "laundry", description: "clean clothes">
+       undefined method "laundry?" for #<Task id: 1, title: "laundry", description: "clean clothes">
 ```
 
 Let’s go make the method in our Task model:
@@ -177,7 +177,7 @@ Running the test again gives us `expected true, got nil`, which makes sense sin
 ```ruby
 class Task < ApplicationRecord
   def laundry?
-    if title == 'laundry'
+    if title == "laundry"
       return true
     else
       return false
@@ -193,19 +193,19 @@ Let's add some more test cases:
 ***spec/models/task_spec.rb**
 
 ```ruby
-require 'rails_helper'
+require "rails_helper"
 
 describe Task, type: :model do
-  describe 'instance methods' do
-    describe '#laundry?' do
-      it 'returns true when the title is laundry' do
-        task = Task.create!(title: 'laundry', description: 'clean clothes')
+  describe "instance methods" do
+    describe "#laundry?" do
+      it "returns true when the title is laundry" do
+        task = Task.create!(title: "laundry", description: "clean clothes")
 
         expect(task.laundry?).to be(true)
       end
 
-      it 'returns true when the description is laundry' do
-        task = Task.create!(title: 'Clean my clothes', description: 'laundry')
+      it "returns true when the description is laundry" do
+        task = Task.create!(title: "Clean my clothes", description: "laundry")
     
         expect(task.laundry?).to be(true)
       end
@@ -221,9 +221,9 @@ Run this test and you should get a failure `expected true, got false`. Let's up
 ```ruby
 class Task < ApplicationRecord
   def laundry?
-    if title == 'laundry'
+    if title == "laundry"
       return true
-    elsif description == 'laundry'
+    elsif description == "laundry"
       return true
     else
       return false
@@ -255,28 +255,28 @@ Let’s create some pending tests for practice:
 **spec/models/task_spec.rb**
 
 ```ruby
-describe '#laundry?' do
-  it 'returns true when the title is laundry' do
-    task = Task.create!(title: 'laundry', description: 'clean clothes')
+describe "#laundry?" do
+  it "returns true when the title is laundry" do
+    task = Task.create!(title: "laundry", description: "clean clothes")
 
     expect(task.laundry?).to be(true)
   end
 
-  it 'returns true when the description is laundry' do
-    task = Task.create!(title: 'Clean my clothes', description: 'laundry')
+  it "returns true when the description is laundry" do
+    task = Task.create!(title: "Clean my clothes", description: "laundry")
 
     expect(task.laundry?).to be(true)
   end
 
-  it 'returns false when neither the description nor title is laundry'
+  it "returns false when neither the description nor title is laundry"
 
-  it 'returns true when the title contains the word laundry'
+  it "returns true when the title contains the word laundry"
 
-  it 'is case insensitive when checking if the title contains the word laundry'
+  it "is case insensitive when checking if the title contains the word laundry"
 
-  it 'returns true when the description contains the word laundry'
+  it "returns true when the description contains the word laundry"
 
-  it 'is case insensitive when checking if the description contains the word laundry'
+  it "is case insensitive when checking if the description contains the word laundry"
 end
 ```
 
