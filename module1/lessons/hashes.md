@@ -55,17 +55,14 @@ Take a minute to look through the questions you still have about Hashes. Add the
 
 ###  Discussion Questions
 
-<section class="answer">
 ### When does it make sense to use a Hash? (As opposed to an array?)
   
 Hashes (also called Dictionaries in some languages) are great at keeping track of quantities. 
 They are great when your data can be grouped into key/value pairs.  
-</section>  
+
+### How should we name our Hashes?
   
-<section class="answer">
-  <h3>How should we name our Hashes?</h3>
-  
-  <p>Hashes represent a _collection_ of data. It is usually appropriate to call the hash the plural form of what that data represents. 
+Hashes represent a _collection_ of data. It is usually appropriate to call the hash the plural form of what that data represents. 
   
 Ex:
 ```ruby
@@ -80,17 +77,16 @@ Ex:
       dogs: 9
  }
 ```  
-  </p>
-</section>
 
-<section class="answer">
+
 ### What data type can a key be?
   
 Keys of a hash can be any data type. 
 Often, we see them as symbols.
 A symbol is an immutable data-type in Ruby. They will start with a `:` (colon).
 Keys can also be seen commonly as strings, however they can be integers as well.
-</section>
+
+------------------
 
 For the following questions, let's refer to this code snippet:
 
@@ -104,7 +100,7 @@ For the following questions, let's refer to this code snippet:
   }
 ```
 
-<section class="answer">
+
 ### How would we find out how many cookies we have?
   
 ```ruby
@@ -113,9 +109,9 @@ For the following questions, let's refer to this code snippet:
   
 We call the name of the hash (the variable we stored the hash in), and then use bracket notation to query the key we want.
 The _return value_ of the above expression will be the value of the key, so in this case: `4`.
-</section>
 
-<section class="answer">
+
+
 ### How would we add a new key of `apples` set to a value of 9?
   
 ```ruby
@@ -123,7 +119,7 @@ The _return value_ of the above expression will be the value of the key, so in t
 ```
   
 We call the name of the hash, then use bracket notation to denote the key, then use the assignment operator `=` to set the value of our key to 9. 
-</section>
+
 
 
 ## Practice
