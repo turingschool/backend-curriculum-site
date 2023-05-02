@@ -10,10 +10,11 @@ In Module 1, students will learn to build software in teams with Ruby and object
 
 ## Instructors
 
-* Kat Brandt (anchor)
+* Kat Brandt 
 * Dani Coleman
 * Meg Stang
-* Juliet Eyraud (float)
+* Allison Reu Singer
+* Juliet Eyraud 
 
 ## Curriculum
 
