@@ -12,7 +12,7 @@ tags: rails, models, testing
 
 ## Setup
 
-This lesson builds off of the [Task Manager Tutorial](https://github.com/turingschool-examples/task_manager_rails). You can find the completed code from this tutorial [here](https://github.com/turingschool-examples/task_manager_rails_complete).
+This lesson builds off of the [Task Manager Tutorial](https://github.com/turingschool-examples/task_manager_rails). You can find the completed code from this tutorial [here](https://github.com/turingschool-examples/task-manager-7-complete).
 
 ## Why Model Test?
 
@@ -248,7 +248,7 @@ See if you can fill in the test bodies and update our `laundry?` method to handl
 
 If you finish, try to come up with another test case on your own.
 
-You can find a completed version of this practice exercise on the `model_testing` branch of [Task Manager](https://github.com/turingschool-examples/task_manager_rails_complete/tree/model_testing)
+You can find a completed version of this practice exercise on the `model_testing` branch of [Task Manager](https://github.com/turingschool-examples/task-manager-7-complete/tree/model-testing-complete)
 
 
 ## Checks for Understanding
