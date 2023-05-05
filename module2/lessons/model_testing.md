@@ -12,7 +12,7 @@ tags: rails, models, testing
 
 ## Setup
 
-This lesson builds off of the [Task Manager Tutorial](https://www.notion.so/Task-Manager-ff223934154742f8aef3ff34b82fa099). You can find the completed code from this tutorial [here](https://github.com/turingschool-examples/task_manager_rails_complete).
+This lesson builds off of the [Task Manager Tutorial](https://www.notion.so/Task-Manager-ff223934154742f8aef3ff34b82fa099). You can find the completed code from this tutorial [here](https://github.com/turingschool-examples/task-manager-7-complete/tree/main).
 
 ## Why Model Test?
 
