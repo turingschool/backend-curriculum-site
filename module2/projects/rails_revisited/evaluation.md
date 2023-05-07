@@ -4,6 +4,13 @@ title: Rails Revisited - Evaluations
 ---
 
 
+<style>
+summary:hover {
+  background-color: #bbe5fa;
+}
+</style>
+  
+
 ## Evaluation
 
 This evaluation will be live with one instructor. It is a requirement that you come prepared to give a presentation that demonstrates your understanding and competancy of the learning goals for this project. We suggest spending about **1 hour** to prep for this evaluation. 

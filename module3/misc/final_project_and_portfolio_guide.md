@@ -47,9 +47,10 @@ The professional presentation should follow a narrative format and address the f
 ### Requirements if you will Repeat the Module
 
 * A student who **will repeat the current module** uses their presentation time to explore the following.
-  * Why did you struggle?
+
   * What lessons did you learn?
   * What will be different next time?
+  * Why did you struggle?
   * How has feedback impacted your development in this module?
     - How has feedback conversations with peers helped prepare you for your job/career?
     - What is something you've learned about yourself in receiving project feedback?

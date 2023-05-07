@@ -78,6 +78,8 @@ layout: page
 
 ## Week 4
 
+**Note:** Monday, May 29th - Memorial Day - No classes.
+
   * **Lessons**
     * [Inheritance](./lessons/inheritance)
     * [Nested Iteration](./lessons/nested_iteration)

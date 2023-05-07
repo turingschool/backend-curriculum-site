@@ -14,13 +14,17 @@ Using [rbenv](https://github.com/rbenv/rbenv), you can install Ruby 3.1.1 (if yo
 rbenv install 3.1.1
 ```
 
-With `rbenv` you can set your Ruby version for a directory and all subdirectories within it. If you have a `2module` or `3module` directory on your machine, you can set your Ruby version for this directory (and all subdirectories) by first changing into that directory and then running
+With `rbenv` you can set your Ruby version to a default globally, or for a specific directory and all subdirectories within it. If you have a `2module` or `3module` directory on your machine, you can set your Ruby version for this directory (and all subdirectories) by first changing into that directory and then running
 
 ```
 rbenv local 3.1.1
 ```
+Or, if you wanted to set it globally for your machine, you can run 
+```
+rbenv global 3.1.1
+```
 
-Always double check that your Ruby version is correct after changing it with `ruby -v`
+Always double check that your Ruby version is correct after changing it with `ruby -v`.
 
 ## Rails 7.0.4
 
@@ -34,7 +38,7 @@ Once you have verified your Ruby version is 3.1.1, check if you have Rails. From
 $ rails -v
 ```
 
-If you get a message saying rails is not installed or you do not have version 5.2.8, run
+If you get a message saying rails is not installed or you do not have version 7.0.4, run
 
 ```bash
 $ gem install rails --version 7.0.4
