@@ -137,7 +137,7 @@ Prefix Verb URI Pattern         Controller#Action
    dog GET  /dogs/:id(.:format) dogs#show
 ```
 
-You can’t generate the path using `dog_path`  because it is expecting to be passed an `:id`. Any time a route helper needs a dynamic parameter like `:id`, we MUST pass a value to the route helper. For example, `dog_path(29)` will generate `/cats/29`.
+You can’t generate the path using `dog_path`  because it is expecting to be passed an `:id`. Any time a route helper needs a dynamic parameter like `:id`, we MUST pass a value to the route helper. For example, `dog_path(29)` will generate `/dogs/29`.
 
 We can also pass an object rather than the actual value of the parameter and Rails is smart enough to extract that object's id. This below, is considered best practice.
 
