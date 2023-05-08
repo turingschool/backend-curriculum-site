@@ -21,6 +21,8 @@ Project specification requirements can be found [here](https://github.com/turing
 
 You will need to create your own project board on your repository. Feel free to copy the cards we have on the above linked board to add to your own project board. 
 
+Fork from [THIS REPO](https://github.com/turingschool-examples/viewing_party_lite_7)
+
 Wireframes found [here](./wireframes) can be used as an additional reference
 
 
