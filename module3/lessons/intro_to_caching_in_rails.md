@@ -123,11 +123,14 @@ Looks like we got some issues in the `Items#index` action. Let's cache it
 
 (by default rails turns off caching in development, so let's turn that on)
 
-In `config/environments/development.rb`:
-
-Change this:
-
 ```bash
+$ rails dev:cache
+```
+What this does, is that it creates an empty file called `caching-dev.txt` and puts it in your `tmp/` directory.
+
+So let’s look at `config/environments/development.rb` and look for this section in particular.
+
+```ruby
 if Rails.root.join('tmp/caching-dev.txt').exist?
     config.action_controller.perform_caching = true
 
@@ -142,16 +145,7 @@ if Rails.root.join('tmp/caching-dev.txt').exist?
   end
 ```
 
-to: 
-
-```ruby
-config.action_controller.perform_caching = true
-config.action_controller.enable_fragment_cache_logging = true
-config.cache_store = :memory_store
-config.public_file_server.headers = {
-  'Cache-Control' => "public, max-age=#{2.days.to_i}"
-}
-```
+In our development environment, this means what rails will look to see if there is a caching-dev.txt file in our tmp/ directory. If that file exists, it will enable caching. If it does not, no caching. So you can turn off caching either by running rails dev:cache again or you can just delete the file. 
 
 What does `'Cache-Control' => "public, max-age=#{2.days.seconds.to_i}"` do?
 
@@ -417,13 +411,37 @@ end
 </div>
 ```
 
-## Your Turn: Key-Based Expiration for Orders
+## Step 7 - Let Rails Do It For You
 
-Take the techniques we just used to move Items#index from manual expiration to key-based expiration. Additionally, tidy up the remaining bits of code we left around from `Item`:
+*app/views/items/index.html.erb* 
+```html
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <% cache @items.count do %>
+        <h1><%= @items.count %> Items</h1>
+      <% end %>
+    </div>
+  </div>
+  <div class="row"></div>
+  <% cache @items do %>
+    <% @items.each do |item| %>
+      <% cache item do %>
+        <div class="col-sm-3">
+          <h5><%= item.name %></h5>
+          <%= link_to(image_tag(item.image_url), item_path(item)) %>
+          <p>
+            <%= item.description %>
+          </p>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
+```
 
-- Use the `cache_key_for` helper to generate explicit cache keys for the 2 cached fragments in Orders#index
-- Remove the associated cache callbacks from `Item` and `Order`
-- Make sure that things are still updating properly when you create or update an order.
+Note here that on our first load, we are writing all of these fragments, and that when are refreshing, we are doing a much smaller hit to the database.
+
 
 ## Next Steps — If you finish all of the steps above, consider the following challenges
 
