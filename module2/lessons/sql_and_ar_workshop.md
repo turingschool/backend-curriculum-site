@@ -2,41 +2,44 @@
 layout: page
 title: SQL and ActiveRecord Workshop
 ---
-
 ## Learning Goals
+
 1. Get more practice using the more advanced SQL techniques like joins, grouping, and aggregating
-1. Use ActiveRecord, SQL, or both to implement queries
+2. Use ActiveRecord, SQL, or both to implement queries
 
-## Instructions
+## Setup
+You’ll start on the `sql-and-ar-workshop` branch [here](https://github.com/turingschool-examples/set-list-7/tree/sql-and-ar-workshop).
 
-Choose one of the following problem sets to work on. You will group up with students who are working on the same problem set.
+## Warm Up
+In Set List, write a method that will return all Artists with Songs with at least 1,000,000 plays.
 
-With your group, work on the problem set. Try to pseudocode the problem first, then check your solution using `rails dbconsole` or `rails c`. You will all have the same data sets, so you should be able to reliably check your query on two different development environments and attain the same results.
+* Use TDD to write this method. First, decide which model you'd like to define the method in and whether it is a class or instance method.
 
-### Testing is optional. Say What? If you do decide to test...
+* Then, start writing your test. Call the method defined in `spec/helper_methods.rb` to populate your test with data.
 
-Work together to create the feature test and then the queries. Based on how you set up the data/objects in the test, you should be able to reasonably expect a desired result.
+* Once you have your test, start writing the method.
 
-## Problem Set 1 (Spicy)
+## Practice Problems
 
-As a merchant
-When I visit my dashboard, I see an area with statistics:
+Each of these problems has tests created for you. You will need to define the method.
 
-1. Top 5 items I have sold by quantity, and the quantity of each that I've sold. Only items on "shipped" orders should be considered sold.
-1. Top 3 customers by morning revenue (Orders before 12:00PM)
-1. All customers with failed transactions ordered by name
-1. Top 3 merchants that have lost the most revenue because of failed transactions
-1. Top 3 customers who have spent the most money on my items, and the total amount they've spent.
+### Set 1 - As a Class
 
-## Problem Set 2 (Less Spicy)
+We will work on these problems in Breakout Rooms. Then we will come together and discuss as a class.
 
-As an admin
-When I visit the items index page ("/items")
+1. `spec/models/song_spec.rb:8` - Get a unique list of all Songs on all playlists.
+2. `spec/models/artist_spec.rb:38` - Get a unique list of all the Artists on all Playlists created after Jan 1, 2020.
+3. `spec/models/artist_spec.rb:23` - Get a list of all Playlist that have songs from a specific Artist ordered alphabetically by the Playlist name
 
-I see an area with statistics:
+### Set 2 - Choose your own Adventure
 
-1. The 5 most expensive items.
-1. The top 5 merchants by count of items.
-1. The 5 best selling items. This is determined by the total revenue the item has generated. Revenue should only be counted for "shipped" orders.
-1. The names of the 5 customers who have placed the most orders.
-1. The top 5 merchants by number of items sold.
+Pick one of the following problems to work on. You will split in to groups to work on your chosen problem. Then we will review each problem as a class. They are listed from least to most difficult.
+
+1. `spec/models/artist_spec.rb:44` - Get the 3 Artists with the highest total play_counts of all of their songs. This problem will require you to use joining, grouping, and aggregating.
+2. `spec/models/playlist_spec.rb:10` - Get the Playlist with the longest total length. This problem will also require you to use joining, grouping, and aggregating. It may be slightly more challenging than the previous problem since it starts from the Playlist model which we haven't seen yet.
+3. `spec/models/artist_spec.rb:54` - Get all Artists with Songs on 3 different Playlists. This problem is a step up in difficulty and may require you to use concepts that we haven't discussed in class.
+
+
+## Solutions
+You can compare your work to our `sql-and-ar-workshop-solutions` branch [here](https://github.com/turingschool-examples/set-list-7/tree/sql-and-ar-workshop-solutions). 
+Note, however, that the solutions we found are ___not the only___ correct solutions - yours may be strucutrally different especially when writing in AR, and that is ok! As long as the tests for each method pass, your query is likely good. 
