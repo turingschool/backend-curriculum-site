@@ -8,7 +8,7 @@ This project is an extension of the Little Esty Shop group project. You will add
 ## Learning Goals
 
 * Write migrations to create tables and relationships between tables
-* Implement CRUD functionality for a resource using forms (form_tag or form_with), buttons, and links
+* Implement CRUD functionality for a resource using forms, buttons, and links, and associated view helpers (`form_with`, `button_to`, etc)
 * Use MVC to organize code effectively, limiting the amount of logic included in views and controllers
 * Use built-in ActiveRecord methods to join multiple tables of data, make calculations, and group data based on one or more attributes
 * Write model tests that fully cover the data logic of the application
@@ -19,16 +19,14 @@ This project is an extension of the Little Esty Shop group project. You will add
 * This is a solo project, to be completed alone without assistance from cohortmates, alumni, mentors, rocks, etc.
 * Additional gems to be added to the project must have instructor approval. (RSpec, Capybara, Shoulda-Matchers, Orderly, HTTParty, Launchy, Faker and FactoryBot are pre-approved)
 * Scaffolding is not permitted on this project.
-* This project must be deployed to Heroku.
+* This project must be deployed to the internet.
 
 ## Setup
 
 This project is an extension of Little Esty Shop. Students have two options for setup:
 
 1. If your Little Esty Shop project is complete, you can use it as a starting point for this project. If you are not the repo owner, fork the project to your account. If you are the repo owner, you can work off the repo without forking, just make sure your teammates have a chance to fork before pushing any commits to your repo
-1. If your Little Esty Shop project is not complete, fork [this repo](https://github.com/turingschool-examples/little_esty_shop_bulk_discounts) as a starting point for this project.
-1. Scaffolding is not permitted for this project.
-1. Additional gems for this project needs to be approved by instructors.
+1. If your Little Esty Shop project is not complete, fork [this repo](https://github.com/turingschool-examples/b2-final-starter-7) as a starting point for this project.
 
 ## Evaluation
 Evaluation information for this project can be found [here](./evaluation).
