@@ -1,9 +1,9 @@
 ---
 layout: page
-title: Jungle Beat Rubric
+title: Beat Box Rubric
 ---
 
-_[Back to Jungle Beat Home](./index)_
+_[Back to Beat Box Home](./index)_
 
 
 ## Learning Goals

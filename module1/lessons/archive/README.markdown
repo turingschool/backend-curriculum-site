@@ -52,7 +52,7 @@ Exercises you'll want to use throughout module. Specific assignments listed on t
 * [Mastermind](https://github.com/turingschool/curriculum/blob/master/source/projects/mastermind.markdown)
 * [Flashcards](https://github.com/turingschool/curriculum/blob/master/source/projects/flashcards.markdown)
 * [Date Night](https://github.com/turingschool/curriculum/blob/master/source/projects/date_night.markdown)
-* [Jungle Beats](https://github.com/turingschool/curriculum/blob/master/source/projects/jungle_beat.markdown)
+* [Beat Box](https://github.com/turingschool/curriculum/blob/master/source/projects/beat_box.markdown)
 
 #### Lessons
 * [How Testing Works / Intro to TDD](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/how_testing_works.markdown)

@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Jungle Beat
+title: Beat Box
 ---
 
 # Iteration 4 - Extensions
@@ -13,12 +13,12 @@ Add validation to your program such that the input beats must be members of your
 defined list. Insertion of a beat not in the list is rejected. Like this:
 
 ```ruby
-> jb = JungleBeat.new("deep")
-> jb.append("Mississippi")
-> jb.all
+> bb = BeatBox.new("deep")
+> bb.append("Mississippi")
+> bb.all
 => "deep"
-> jb.prepend("tee tee tee Mississippi")
-> jb.all
+> bb.prepend("tee tee tee Mississippi")
+> bb.all
 => "tee tee tee deep"
 ```
 
@@ -37,21 +37,21 @@ we showed you to use `say -r 500 -v Boing` where `r` is the rate and `v` is the
 voice. Let's setup a usage like this:
 
 ```ruby
-> jb = JungleBeat.new("deep dop dop deep")
-> jb.play
+> bb = BeatBox.new("deep dop dop deep")
+> bb.play
 => 4 # plays the four sounds normal speed with Boing voice
-> jb.rate = 100
+> bb.rate = 100
 => 100
-> jb.play
+> bb.play
 => 4 # plays the four sounds slower with Boing voice
-> jb.voice = "Daniel"
+> bb.voice = "Daniel"
 => "Daniel"
-> jb.play
+> bb.play
 => 4 # plays the four sounds slower with Daniel voice
-> jb.reset_rate
+> bb.reset_rate
 => 500
-> jb.reset_voice
+> bb.reset_voice
 => "Boing"
-> jb.play
+> bb.play
 => 4 # plays the four sounds normal speed with Boing voice
 ```

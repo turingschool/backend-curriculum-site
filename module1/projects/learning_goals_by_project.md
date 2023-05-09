@@ -16,7 +16,7 @@ None Listed
 *   Learn to implement a REPL interface
 *   Apply Enumerable techniques in a real context
 
-### Jungle Beat 
+### Beat Box 
 #### Learning Goals / Areas of Focus
 * Practice breaking a program into logical components
 * Distinguishing between classes and instances of those classes
