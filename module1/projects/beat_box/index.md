@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Jungle Beat
+title: Beat Box
 ---
 
 ### Learning Goals

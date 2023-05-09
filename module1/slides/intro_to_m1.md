@@ -54,7 +54,7 @@ Gradual release of responsibility
 # Projects
 
 * Credit Check
-* Jungle Beats/Date Night
+* Beat Box/Date Night
 * Complete Me/Enigma (paired)
 * Battleship
 * Black Thursday (paired)

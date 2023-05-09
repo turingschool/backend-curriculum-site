@@ -1,9 +1,9 @@
 ---
 layout: page
-title: Jungle Beat - Setup
+title: Beat Box - Setup
 ---
 
-_[Back to Jungle Beat Home](./index)_
+_[Back to Beat Box Home](./index)_
 
 ## Repository Setup
 

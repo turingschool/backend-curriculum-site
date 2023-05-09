@@ -35,8 +35,8 @@
 - Move project kick-offs to Fridays from Thursdays
 - Move Mix-in lesson closer to Inheritance lesson to compare and contrast
 - Remove `cat` and `echo` from File/IO lesson
-- Add instructions to download voices to JungleBeat
-- Add note about looping/recursion to JungleBeat and CompleteMe
+- Add instructions to download voices to BeatBox
+- Add note about looping/recursion to BeatBox and CompleteMe
 - Add lesson on Four Principles of OOP
 - Start independent diagnostics earlier in the module
 - Consider meeting with students currently repeating the module early in the module to offer/discuss support.
