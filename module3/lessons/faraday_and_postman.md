@@ -129,24 +129,42 @@ Example Response:
 }
 ```
 
-__Request `POST https://pets-api.turingschool-examples.com/api/v1/pets`__
-TODO
+__Request `POST https://pets-api.turingschool-examples.com/api/v1/pets?name=Bugs&animal_type=bunny&age=5`__
 
 Example Response:
 ```json
+{
+    "id": 6,
+    "name": "Bugs",
+    "animal_type": "bunny",
+    "age": 5,
+    "created_at": "2023-05-11T17:11:43.883Z",
+    "updated_at": "2023-05-11T17:11:43.883Z"
+}
 ```
+
+SPICY DIFFICULTY: Try sending the data for the new pet via the request body.
 
 __Request `DELETE https://pets-api.turingschool-examples.com/api/v1/pets/:id`__
 
 Example Response:
 `204 No Content`
 
-__Request `PUT https://pets-api.turingschool-examples.com/api/v1/pets/:id`__
-TODO
+__Request `PUT https://pets-api.turingschool-examples.com/api/v1/pets/:id?animal_type=doggo`__
 
 Example Response:
 ```json
+{
+    "id": 8,
+    "animal_type": "doggo",
+    "name": "Athena",
+    "age": 3,
+    "created_at": "2023-05-11T17:12:20.345Z",
+    "updated_at": "2023-05-11T17:12:56.662Z"
+}
 ```
+
+SPICY DIFFICULTY: Try sending the data for the update via the request body.
 
 ### Check for Understanding
 
