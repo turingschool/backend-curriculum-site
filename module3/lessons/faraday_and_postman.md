@@ -10,34 +10,27 @@ tags: apis, rails, faraday
 - Understand how to consume API endpoints
 - Gain familiarity with the Faraday and Postman HTTP clients
 
-### Vocabulary Bank
+### Vocabulary
 
-* __API__: Application Programming Interface
 * __API Endpoint__: An address to which a client can request information
 * __JSON__: JavaScript Object Notation
 * __Client__: A program that relies on requesting information from a server
-* __HTTP__: Hypertext Transfer Protocol
-* __HTTP Verb__: methods that define the intended action to be performed on a resource
-* __HTTP request__: A standard way to communicate information between a client _ex. Browser_ and a server
-* __HTTP response__: A standard way to return information from a server to a client based on the client's request
 * __Postman__: A tool that allows developers to visualize the parts of HTTP requests and responses
 * __Faraday Gem__: An HTTP client library that allows developers to more easily write requests and handle responses in Ruby
-* __Response Status__: A numerical code provided by a server to indicate the result of a request
 
-### Warmup
+### Warm Up
 
-- What is the purpose of an API?
-- Why do we expose data through APIs?
-- What format is the data in when it is exposed through an API endpoint?
-
+* What is the purpose of an API?
+* Why do we expose data through APIs?
+* What format is the data in when it is exposed through an API endpoint?
 
 ### Overview
 
-In this lesson, we will review the anatomy of a HTTP request and response. In the intermission work, you were asked to write this out, so feel free to reference your diagram or create a new one from today's review. We will be looking at the types of requests & responses you made in Mod 2 for HTML and how they compare to the requests and responses from APIs.
+In the intermission work, you were asked to write out the anatomy of a HTTP request and response. Feel free to reference your diagram or create a new one from today's review. We will be looking at the types of requests & responses you made in Mod 2 for HTML and how they compare to the requests and responses from APIs.
 
 Throughout the lesson you will have the opportunity to explore how to make a `GET` request to an API using different clients: the browser, Postman, and a Ruby file using the Faraday gem. For each of these, we will look at how to make the request and how to understand the response that is returned. We will also discuss some of the benefits to using these tools and explore documentation.
 
-#### HTTP Request and Response Review
+### HTTP Request and Response Review
 
 List out the parts of a generic HTTP GET request and response
 
@@ -72,13 +65,96 @@ Explore the [Faraday Gem Docs](https://lostisland.github.io/faraday/). Then crea
 * What is the return of the of the request?
 * How can you access just the body of the response?
 
-
-### Practice with Postman and Faraday
+### Practice with Postman
 
 We've practiced making a `GET` request, so now let's try making requests using other HTTP verbs.
-Complete the exercises included in this [README](https://github.com/turingschool-examples/pets_api)
+
+Using Postman, try to get a successful response from each of the endpoints below. If you haven't installed Postman you can do so [here](https://www.postman.com/product/api-client/). 
+
+Then, use Faraday to get a successful response from each of the endpoints below. You'll need to install the [Faraday gem](https://github.com/lostisland/faraday), create a Ruby file and require the Faraday library along with a debugger such as [pry](https://github.com/pry/pry). In this new Ruby file, write requests for each endpoint and use your debugger to check the response body.
+
+#### Endpoints
+
+__Request `GET https://pets-api.turingschool-examples.com/api/v1/pets`__
+
+Example Response:
+```json
+[
+  {
+    "id": 1,
+    "name": "Wile E.",
+    "animal_type": "coyote",
+    "age": 4,
+    "created_at": "2020-05-05T14:41:55.013Z",
+    "updated_at": "2020-05-05T14:41:55.013Z"
+  },
+  {
+    "id": 2,
+    "name": "Road Runner",
+    "animal_type": "bird",
+    "age": 1,
+    "created_at": "2020-05-05T14:41:55.021Z",
+    "updated_at": "2020-05-05T14:41:55.021Z"
+  },
+  {
+    "id": 3,
+    "name": "Tweety",
+    "animal_type": "bird",
+    "age": 15,
+    "created_at": "2020-05-05T14:41:55.028Z",
+    "updated_at": "2020-05-05T14:41:55.028Z"
+  },
+  {
+    "id": 4,
+    "name": "Sylvester",
+    "animal_type": "cat",
+    "age": 2,
+    "created_at": "2020-05-05T14:41:55.037Z",
+    "updated_at": "2020-05-05T14:41:55.037Z"
+  }
+]
+```
+
+__Request `GET https://pets-api.turingschool-examples.com/api/v1/pets/:id`__
+
+Example Response: 
+```json
+{
+  "id": 1,
+  "name": "Wile E.",
+  "animal_type": "coyote",
+  "age": 4,
+  "created_at": "2020-05-05T14:41:55.013Z",
+  "updated_at": "2020-05-05T14:41:55.013Z"
+}
+```
+
+__Request `POST https://pets-api.turingschool-examples.com/api/v1/pets`__
+TODO
+
+Example Response:
+```json
+```
+
+__Request `DELETE https://pets-api.turingschool-examples.com/api/v1/pets/:id`__
+
+Example Response:
+`204 No Content`
+
+__Request `PUT https://pets-api.turingschool-examples.com/api/v1/pets/:id`__
+TODO
+
+Example Response:
+```json
+```
+
+### Check for Understanding
+
+* What is a limitation of using a browser as an HTTP client?
+* How can we use Faraday to pass a body or header information in an HTTP Request?
+* Describe the way you might use Postman during the development process.
 
 
 ---
 
-Looking for more practice. Try [here](./exercises/additional_api_consumption_practice)
+Looking for more practice? Try [here](./exercises/additional_api_consumption_practice)
