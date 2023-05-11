@@ -143,7 +143,7 @@ Example Response:
 }
 ```
 
-SPICY DIFFICULTY: Try sending the data for the new pet via the request body.
+SPICY DIFFICULTY: This API will accept data via query params, but some providers will require you to send information in the _body_ of your HTTP requests. Try sending the data for a new pet via the request body.
 
 __Request `DELETE https://pets-api.turingschool-examples.com/api/v1/pets/:id`__
 
