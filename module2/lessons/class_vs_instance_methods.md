@@ -12,18 +12,14 @@ layout: page
 
 ## Set Up
 
-This lesson plan starts with the `class-vs-instance-setup` branch of our good old Set List Tutorial Repo. Get it [here](https://github.com/turingschool-examples/set-list-7/tree/class-vs-instance-setup).
+This lesson plan starts with the `class-vs-instance-setup` branch of our good old Set List Tutorial Repo. Get it [here](https://github.com/turingschool-examples/set-list-7/tree/class-vs-instance-setup). Then, follow the normal setup tasks:
 
-In order to set up the app for this lesson:
-
-- Clone the repo
-- Checkout the `class_instance_methods_setup` branch
 - Run `bundle install`
 - Run `rails db:{drop,create,migrate,seed}`
 
 ## Exploration
 
-Open up `artist.rb` and `artist_spec.rb` side by side in your code editor. You'll notice a `pry` in each of the methods defined in the Artist class. You can run the spec with `bundle exec rspec spec/models/artist_spec.rb` to hit the first pry. You can enter `exit` into pry to continue on to the next pry. Use the code, test, and each of the `prys` to answer the following:
+Open up `artist.rb` and `artist_spec.rb` side-by-side in your code editor. You'll notice a `pry` in some of the methods defined in the Artist class. You can run the spec with `bundle exec rspec spec/models/artist_spec.rb` to hit the first pry. You can enter `exit` into pry to continue on to the next pry. Use the code, test, and each of the `prys` to answer the following questions:
 
 For each of the methods defined in the Artist class:
 
@@ -56,9 +52,10 @@ Using model tests and the corresponding models only, write methods that will:
 - Return a list of songs that have a title that contains the word "love"
 - Return the 3 songs that have the most plays, a length greater than `x` where `x` can be any integer value, and were updated within the last three days
 
-Answers to these practice problems can be found on this branch [here](https://github.com/turingschool-examples/set-list-7/tree/class-vs-instance-solutions).
+Answers to these practice problems can be found on the `class-vs-instance-solutions` branch [here](https://github.com/turingschool-examples/set-list-7/tree/class-vs-instance-solutions).
 
 ## Checks for Understanding
+Answer the following questions either in your notebook or by taking [this review quiz](https://forms.gle/BG6JfUSAhSioYero6).
 
 - How do you know whether a task requires a class or an instance method?
 - What are some common error messages we might see if we confuse a class method with an instance method and vice versa?
