@@ -237,3 +237,6 @@ irb(main):001:0> Artist.joins(:songs).where('songs.length > ?', 400)
 1. What are the three types of joins covered today? And, what do they return?
 2. What is the SQL query to get a list of Artists who have songs that have been played more than 20 times?
 3. What is the ActiveRecord query to get a list of Artists who have songs that have been played more than 20 times?
+
+## Further Reading
+For an exploration of how to join multiple tables together, and advanced joining techniques, review the lesson [here](./joins_2).
