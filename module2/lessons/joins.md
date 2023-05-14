@@ -11,7 +11,7 @@ title: Joins in SQL and Active Record
 
 ## Homework & Warm Up
 
-Before this class, try working through the directions in the README file of the [joins-homework](https://github.com/turingschool-examples/set-list-7/tree/generic-start) branch in  Set List Tutorial. 
+Before this class, try working through the directions in the README file of the [joins-homework](https://github.com/turingschool-examples/set-list-7/tree/joins-homework) branch in  Set List Tutorial. 
 
 The 2nd part of the `joins-homework` exercises is to try some Join queries on your own, in the `spec/models/playlist_spec.rb` file. Reference this lesson for help writing AR Joins queries. 
 
