@@ -41,7 +41,6 @@ Git is a **Version Control System** (VCS). It allows you to save work on your pr
 Saving your work in git is known as **committing**. Even though you may change a file and hit save, you don't actually save it to your git repository until you use the `commit` command. 
 
 <section class="note">
-
 Changes can be in 3 different states:
     <ol>
        <li><b>Unstaged</b>: we have made changes but not told git that we would like to commit them</li>
