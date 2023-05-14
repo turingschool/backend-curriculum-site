@@ -44,9 +44,9 @@ Saving your work in git is known as **committing**. Even though you may change a
 
 Changes can be in 3 different states:
     <ol>
-       <li><b>Unstaged</b>: we have made changes but not told git that we would like to commit them </li>
-        <li><b>Staged</b>: we have made changes and told git that we are getting ready to commit them</li>
-        <li> <b>Committed</b>: we have committed our changes to the repository's log of commits. Our work is saved.</li>
+       <li><b>Unstaged</b>: we have made changes but not told git that we would like to commit them</li>
+       <li><b>Staged</b>: we have made changes and told git that we are getting ready to commit them</li>
+       <li><b>Committed</b>: we have committed our changes to the repository's log of commits. Our work is saved.</li>
     </ol>
 </section>
 
@@ -67,22 +67,22 @@ Commit messages should be a short description of what is being added, changed, o
 
 How to Write a Good Commit Message
 
-<p>Begin the commit message with the <b>type</b> of the commit followed by a <code>:</code> and brief description. </p>
+<p>Begin the commit message with the <b>type</b> of the commit followed by a <code>:</code> and brief description.</p>
 
 Types of commits include:
     <ul>
-        <li> <b>fix</b> - use if committed code is fixing a bug(broken code).</li>
-        <li> <b>feat</b> - stands for feature. <i>This will likely be your most common type that you use.</i> It should be used for any new functionality that is committed.</li>
-        <li> <b>test</b> - use if committed code is adding test functionality.</li>
-        <li> <b>refactor</b> - use if updating and/or removing existing code.</li>
-        <li> <b>docs</b> - use if updating your readme.</li>
+        <li><b>fix</b> - use if committed code is fixing a bug(broken code).</li>
+        <li><b>feat</b> - stands for feature. <i>This will likely be your most common type that you use.</i> It should be used for any new functionality that is committed.</li>
+        <li><b>test</b> - use if committed code is adding test functionality.</li>
+        <li><b>refactor</b> - use if updating and/or removing existing code.</li>
+        <li><b>docs</b> - use if updating your readme.</li>
     </ul>
 
 Examples of good commit messages:
     <ul>
-        <li> <code>fix: broken calculation for percent high ranking cards</code></li>
-        <li> <code>feat: add shuffle to deck</code></li>
-        <li> <code>test: add test for shuffle</code></li>
+        <li><code>fix: broken calculation for percent high ranking cards</code></li>
+        <li><code>feat: add shuffle to deck</code></li>
+        <li><code>test: add test for shuffle</code></li>
     </ul>
 </section>
 
