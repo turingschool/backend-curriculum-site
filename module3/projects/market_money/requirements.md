@@ -12,7 +12,7 @@ summary:hover {
 </style>
 # 1. Set Up
 
-1. Create a Rails API project called `market_money` (make sure you do not set up a "traditional" Rails project with a frontend, this is an API-only project): `rails _7.0.1_ new market_money -T -d postgresql --api`
+1. Create a Rails API project called `market_money` (make sure you do not set up a "traditional" Rails project with a frontend, this is an API-only project): `rails new market_money -T -d postgresql --api`
 
 2. Set Up [SimpleCov](https://github.com/colszowka/simplecov) to track test coverage in your rails-engine API project.
 
