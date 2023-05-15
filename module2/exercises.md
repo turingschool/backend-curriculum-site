@@ -8,10 +8,10 @@ layout: page
 
 - [ActiveRecord Obstacle Course](https://github.com/turingschool-projects/activerecord-obstacle-course)
 - [Complex SQL Queries Workshop](./misc/complex_queries)
-- [Complex AR Queries Workshop](https://github.com/turingschool-examples/student_enrollments_ar)
+- [Complex AR Queries Workshop](https://github.com/turingschool-examples/student_enrollments_ar) - same as Complex SQL Queries but in a Rails app with AR
 - [PostgreSQL Exercises](https://pgexercises.com/questions/basic/)
 - [SQL Refresher](./lessons/sql_refresher)
-
+- [Election](https://github.com/turingschool-examples/election) - writing methods solving for class vs. instance methods
 
 ## Rails Practice
 - [Debugging Exercise](https://github.com/turingschool-examples/debug_shop)
@@ -25,7 +25,7 @@ layout: page
 - [Cabot Cove College](https://github.com/turingschool-examples/cabot-cove-college-b2) (Week 2)
 - [Apollo 14](https://github.com/turingschool-projects/apollo_14) (Week 2)
 - [Ticket, Please](https://github.com/turingschool-examples/b2-mid-mod) (Mid-Mod practice)
-- [Vending Machine Tracker](https://github.com/turingschool-examples/vending-machine-tracker/tree/master) (Week 4)
+- [Vending Machine Tracker](https://github.com/turingschool-examples/vending-machine-tracker) (Week 4)
 - [The Final Rose](https://github.com/turingschool-examples/the_final_rose) - Longer than an actual in class challenge, but could be good preparation before Week 4 challenge, or prep for the final. 
 
 ## Ruby
