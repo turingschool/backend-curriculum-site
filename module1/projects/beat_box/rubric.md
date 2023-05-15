@@ -16,6 +16,13 @@ _[Back to Beat Box Home](./index)_
 * Host code on Github
 
 
+## Evaluation Preparation
+1. Be prepared to share your screen with your Beat Box project open in your text editor.
+2. Be prepared to share your tests.
+3. Be prepared to talk about parts of your code you're proud of, and parts of your code you would like to refactor if you had more time.
+4. Be prepared to ask any questions you might have.
+
+
 <br>
 
 <br> | **Exceeds Expectations** | **Meets Expectations** | **Approaching Expectations** | **Below Expectations**
