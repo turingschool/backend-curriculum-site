@@ -40,11 +40,12 @@ Evaluation information for this project can be found [here](./evaluation).
    - Merchants can have a maximum of 5 coupons enabled in the system at one time.
    - Merchants cannot delete a coupon, but rather activate/inactivate them.
    - A coupon has a name, unique code, and either percent-off or dollar-off value. The code must be unique in the whole database.
-1. Coupons will be added to Invoices. 
-   - Only one coupon code can be used on an invoice
-1. If a coupon's dollar value (ex. "$10 off") exceeds the total cost of that merchant's items on the invoice, the discounted total for that merchant's items is $0. (In other words, the merchant will never *owe* money to a customer.)
-1. A coupon code from a Merchant only applies to Items sold by that Merchant.
-1. The Merchant and Admin Invoice Show Pages should show the coupon code used, the amount that was discounted, the subtotal (as you had it originally), and finally the "grand total" with discount applied. 
+1. A Coupon should belong to one Invoice. 
+   - Only one coupon code can be used on an invoice.
+     - *Note:* When creating this new association, your existing tests will fail unless the association is *optional*. Use [these guides](https://guides.rubyonrails.org/association_basics.html#optional) as a reference. 
+2. If a coupon's dollar value (ex. "$10 off") exceeds the total cost of that merchant's items on the invoice, the discounted total for that merchant's items is $0. (In other words, the merchant will never *owe* money to a customer.)
+3. A coupon code from a Merchant only applies to Items sold by that Merchant.
+4. The Merchant and Admin Invoice Show Pages should show the coupon code used, the amount that was discounted, the subtotal (as you had it originally), and finally the "grand total" with discount applied. 
 
 ​
 ## User Stories
@@ -165,6 +166,7 @@ Use the Next Public Holidays Endpoint in the [Nager.Date API](https://date.nager
 
 * Coupons can be used by multiple customers, but may only be used one time per customer. (Validation for Invoice Model)
 * Inactive coupons cannot be added to an Invoice. (Validation for Invoice Model)
+* A Coupon has a maximum number of uses before it is automatically deactivated. When implemented, prove that the number of times used on the Merchant Coupon Show Page is updated accordingly. 
 * Holiday Coupons can be used up to 1 week from the actual holiday date. The coupon should automatically inactivate once someone tries to create an Invoice with that Coupon after a week of the holiday.
 * Generate unique coupon codes as suggestions when creating a new coupon.
 
