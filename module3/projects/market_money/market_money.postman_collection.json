@@ -14,7 +14,7 @@
 						"exec": [
 							"pm.globals.set('first_market_name', \"14&U Farmers' Market\");",
 							"pm.globals.set('third_market_name', '39 North Marketplace');",
-							"pm.globals.set('twentieth_market_name', 'Appalachian (Newport) Farmers Market, Cocke County TN');"
+							"pm.globals.set('twentieth_market_name', 'Appleton Downtown Farm Market');"
 						],
 						"type": "text/javascript"
 					}
