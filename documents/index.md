@@ -11,3 +11,4 @@ title: Documents
 * [Leave of Absence Guidelines](./leave_of_absence_guidelines_2022.pdf)
 * [Turing Laptop Policy](./laptop_policy.pdf)
 * [Reasonable Accommodation Request Form](./reasonable_accommodation_request_form.pdf)
+* [ACCET Compliant Procedure](./accet_compliant_procedure.pdf)
