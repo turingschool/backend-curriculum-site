@@ -58,13 +58,9 @@ Academic success in B3 means that students demonstrate proficiency and comfort w
 * Students are able to authenticate users via OAuth
 * Students are able to access the private resources of an OAuth-authenticated User
 
-### Advanced Rails
-
-* Students are able to send email from a Rails app.
-
 ### Testing
 
-* Students are able to mock external HTTP requests using Webmock & VCR
+* Students are able to mock external HTTP requests using tools such as Webmock & VCR
 
 ### Databases
 
@@ -77,10 +73,3 @@ Academic success in B3 means that students demonstrate proficiency and comfort w
 
 * Students are able to explain when to use caching strategies to improve performance in Rails.
 * Students are able to explain the scenarios that would benefit from using background workers in Rails.
-* Students are able to explain how indexes address slow queries.
-* Students are able to avoid N + 1 queries
-
-### Front End Javascript
-
-* Students are able to make API calls using `fetch` calls.
-* Students are able to use jQuery to traverse and manipulate the DOM.

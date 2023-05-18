@@ -14,7 +14,7 @@
 						"exec": [
 							"pm.globals.set('first_market_name', \"14&U Farmers' Market\");",
 							"pm.globals.set('third_market_name', '39 North Marketplace');",
-							"pm.globals.set('twentieth_market_name', 'Appalachian (Newport) Farmers Market, Cocke County TN');"
+							"pm.globals.set('twentieth_market_name', 'Appleton Downtown Farm Market');"
 						],
 						"type": "text/javascript"
 					}
@@ -757,7 +757,7 @@
 							"",
 							"pm.test('sad path, market id is invalid', () => {",
 							"    pm.sendRequest({",
-							"        url: `http://localhost:3000/api/v0/markets/123123123123123/nearest_atm`, ",
+							"        url: `http://localhost:3000/api/v0/markets/123123123123123/nearest_atms`, ",
 							"        method: 'GET'",
 							"    }, function (error, response) {",
 							"        if (error) {",
@@ -779,7 +779,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/api/v0/markets/{{market_id}}/nearest_atm",
+					"raw": "http://localhost:3000/api/v0/markets/{{market_id}}/nearest_atms",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -790,7 +790,7 @@
 						"v0",
 						"markets",
 						"{{market_id}}",
-						"nearest_atm"
+						"nearest_atms"
 					],
 					"query": [
 						{

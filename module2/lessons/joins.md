@@ -5,22 +5,25 @@ title: Joins in SQL and Active Record
 
 ## Learning Goals
 
-- Understand and Visualize a SQL join query
-- Implement an active record query using join
+- Understand and visualize a SQL join query
+- Implement an ActiveRecord query using `.joins`
 
-## Warm Up
 
-For each of the following, what are the SQL and ActiveRecord commands we would use to get this information (in our SetList app):
+## Homework & Warm Up
 
-- Get all songs
-- Get the lengths of all songs
-- Get the songs with a play count greater than 0
-- Get the titles of the songs with a play count greater than zero, sorted alphabetically
-- Get the length of the song with the most plays
+Before this class, try working through the directions in the README file of the [joins-homework](https://github.com/turingschool-examples/set-list-7/tree/joins-homework) branch in  Set List Tutorial. 
+
+The 2nd part of the `joins-homework` exercises is to try some Join queries on your own, in the `spec/models/playlist_spec.rb` file. Reference this lesson for help writing AR Joins queries. 
 
 ## Set Up
 
-You can start work from [this branch](https://github.com/turingschool-examples/set-list-7/tree/generic-start) of Set List.
+For this lesson's code-along, you can start work from [this branch](https://github.com/turingschool-examples/set-list-7/tree/generic-start) of the Set List Tutorial.
+```bash
+bundle install
+rails db:{drop,create,migrate,seed}
+```
+
+---
 
 ## Joining Tables
 
@@ -234,4 +237,6 @@ irb(main):001:0> Artist.joins(:songs).where('songs.length > ?', 400)
 1. What are the three types of joins covered today? And, what do they return?
 2. What is the SQL query to get a list of Artists who have songs that have been played more than 20 times?
 3. What is the ActiveRecord query to get a list of Artists who have songs that have been played more than 20 times?
-4. Looking back at your LaughTracks project, what would be the SQL and ActiveRecord queries to get a count of specials for comedians of a certain age?
+
+## Further Reading
+For an exploration of how to join multiple tables together, and advanced joining techniques, review the lesson [here](./joins_2).
