@@ -167,6 +167,18 @@ class ArtistsController < ApplicationController
   end
 end
 ```
+## `Turbo` gotcha
+As of Rails 7, Rails includes [Turbo](https://github.com/hotwired/turbo-rails) to help make pages load faster. Turbo and Rails' ActionView Helpers can sometimes get *too* eager to help, and end up causing a JavaScript error. You'll know you're having this error if your flash message doesn't show up on the screen when it's supposed to.
+
+
+To fix this issue, add `data: {turbo: false}` to your `form_with` tag. Example: 
+
+```erb
+<%= form_with url: "/my-path", method: :post, data: {turbo: false}, local: true do |form| %>
+```
+
+You can read more about this issue [here](https://www.hotrails.dev/turbo-rails/flash-messages-hotwire). 
+
 
 ## `flash` Objects
 
