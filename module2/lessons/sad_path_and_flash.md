@@ -177,6 +177,8 @@ To fix this issue, add `data: {turbo: false}` to your `form_with` tag. Example:
 <%= form_with url: "/my-path", method: :post, data: {turbo: false}, local: true do |form| %>
 ```
 
+You can read more about this issue [here](https://www.hotrails.dev/turbo-rails/flash-messages-hotwire). 
+
 
 ## `flash` Objects
 
