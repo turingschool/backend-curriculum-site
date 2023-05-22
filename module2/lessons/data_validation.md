@@ -12,7 +12,7 @@ layout: page
 
 ## Set Up
 
-We'll start this lesson using [this branch](https://github.com/turingschool-examples/set-list-7/tree/generic-start) of our Set List repo.
+We'll start this lesson using [this branch](https://github.com/turingschool-examples/set-list-7/tree/data-validations-setup) of our Set List repo.
 
 ## Consider This
 
@@ -104,9 +104,11 @@ Use [ShouldaMatchers](https://github.com/thoughtbot/shoulda-matchers) and [va
 **Basics**
 - Add a validation that validates the uniqueness of an Artist's name
 - Add a validation that validates the presence of a Playlist's name
-- Add a validation for the `play_count` column that validates numericality
+- Add a validation for the Song's `play_count` column that validates numericality
 - Add a validation that adds a max length for a Song title
 - Add a validation to check for the presence of a boolean value for one of your models.
+
+You can find a completed set of these basic examples in [this branch](https://github.com/turingschool-examples/set-list-7/tree/data-validations-complete). 
 
 **Advanced**
 - Access validation errors when a validation fails on a model in your console
