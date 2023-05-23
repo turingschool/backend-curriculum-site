@@ -123,6 +123,8 @@ In order to fix it, you need to change the text of the file to include only the 
   - `git push origin add_content`
 * Creates a Pull Request on Github
 
+ -**Stop Here until your next break out room session**-
+
 #### Person A
 * Review and comment on Person B's Pull Request
 * Merge Person B's Pull Request
