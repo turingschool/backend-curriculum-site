@@ -11,7 +11,6 @@ In Module 2, we expand upon fundamental Ruby skills by building database-backed 
 ## Instructors
 * Chris Simmons (anchor)
 * Erin Pintozzi
-* Allison Reu Singer (Professional Development)
 
 ## Curriculum
 
