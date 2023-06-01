@@ -161,7 +161,7 @@ page so we can reference the `client_id` and `client_secret`.
 
 ### Step 2 - Setup the repo for this workshop locally
 
-Set up [this repo](https://github.com/turingschool-examples/oauth_practice).
+Set up [this repo](https://github.com/turingschool-examples/oauth-practice-7).
 
 Once you have the `oauth_practice` repo pulled down, familiarize yourself with the code:
 1. open `routes.rb` to see the path that is already created for you.
