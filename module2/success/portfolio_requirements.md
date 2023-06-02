@@ -27,9 +27,6 @@ Each student will deliver a 5 minute slide presentation in front of your instruc
    - What makes for a successful team? What derails a well-intentioned team?
    - What factors determined the success and quality of your pair and group projects?
    - How will your experience in team projects influence your professional work in the industry?
-<!-- * **Reflection on Gear Up (Gender Bias, Technology in Voting, Mod 4 Lightning Talks)**
-    - How will your Gear Up sessions impact you as a software developer?
-    - What practical lessons are you taking away from Gear Up sessions that you will use on the job? (use your gists to help reflect on this question) -->
 * **Reflection on Feedback**
     - How has feedback conversations with peers helped prepare you for your job/career?
     - What is something you've learned about yourself in receiving project feedback?
