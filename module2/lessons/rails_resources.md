@@ -6,7 +6,7 @@ layout: page
 
 - Understand what the `resources` syntax in `routes.rb` generates for us.
 - Understand what nesting `resoures` in `routes.rb` generates for us.
-- Understand the 5 pieces of information `rake routes` gives us.
+- Understand the 5 pieces of information `rails routes` gives us.
 - Use route helpers
 
 ## Vocabulary
@@ -37,7 +37,7 @@ Rails gives us a handy shortcut for generating the 8 ReSTful routes in our route
 resources :dogs
 ```
 
-Run `rake routes -c dogs` from the command line. The `-c` stands for controller, so it will only show you routes for the cats.
+Run `rails routes -c dogs` from the command line. The `-c` stands for controller, so it will only show you routes for the dogs.
 
 With a partner, explore what this output gives you.
 
@@ -103,7 +103,7 @@ With a partner, refactor the nested routes in SetList to use the `resources` s
 
 ## Route Helpers
 
-If you run `rake routes`, you'll notice the first column is called "prefix". Rails will use the "prefix" column to build route helpers.
+If you run `rails routes`, you'll notice the first column is called "prefix". Rails will use the "prefix" column to build route helpers.
 
 Route helpers will generate a path for you (note: just the path, not the VERB). All you have to do is append `_path` to the end of the prefix name. For example, if you have this in your routes:
 
@@ -111,7 +111,7 @@ Route helpers will generate a path for you (note: just the path, not the VERB). 
 resources :dogs, only: [:index]
 ```
 
-Then `rake routes -c dogs` should give you:
+Then `rails routes -c dogs` should give you:
 
 ```bash
 Prefix Verb URI Pattern     Controller#Action
@@ -165,7 +165,7 @@ end
 ```
 
 - Why should you use `only`/`except`?
-- How can you use the prefix column from `rake routes`?
+- How can you use the prefix column from `rails routes`?
 
 
 
