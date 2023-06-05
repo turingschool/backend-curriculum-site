@@ -6,7 +6,7 @@ tags: API, APIs, Ruby, refactoring, services
 ## Learning Goals
 
 - Define and describe an API
-- Implement an external API in Ruby with adherence to the single-responsibilty principle
+- Implement an external API in Ruby with adherence to the single-responsibility principle
 
 ## Vocabulary
 
@@ -57,7 +57,7 @@ Now that we have our Gemfile in place, let's get the gems and and all of their d
 $ bundle install
 ```
 
-Let's now make a file that we can work in... We'll call it `ghibli_films` beacuse we're searching for all of the Studio Ghibli films.
+Let's now make a file that we can work in... We'll call it `ghibli_films` because we're searching for all of the Studio Ghibli films.
 
 ```bash
 $ touch lib/ghibli_films.rb
