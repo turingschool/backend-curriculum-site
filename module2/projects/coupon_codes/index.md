@@ -162,6 +162,7 @@ Use the Next Public Holidays Endpoint in the [Nager.Date API](https://date.nager
 ## Extensions
 Students can pick one or more of these extension features/stories to add to their project: 
 
+* On the Merchant Coupon Index page, active and inactive coupons are sorted in order of popularity, from most to least. 
 * Coupons can be used by multiple customers, but may only be used one time per customer.
 * Inactive coupons cannot be added to an Invoice. 
 * A Coupon has a maximum number of uses before it is automatically deactivated. When implemented, prove that the number of times used on the Merchant Coupon Show Page is updated accordingly. 
