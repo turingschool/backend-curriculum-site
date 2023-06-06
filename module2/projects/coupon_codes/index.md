@@ -34,19 +34,19 @@ Evaluation information for this project can be found [here](./evaluation).
 -----
 
 ## Functionality Overview
-​
-1. Merchants have a link on their dashboard to manage their coupons.
-1. Merchants have full CRUD functionality over their coupons with criteria/restrictions defined below:
-   - Merchants can have a maximum of 5 coupons enabled in the system at one time.
-   - Merchants cannot delete a coupon, but rather activate/inactivate them.
-   - A coupon has a name, unique code, and either percent-off or dollar-off value. The code must be unique in the whole database.
-1. A Coupon should belong to one Invoice. 
-   - Only one coupon code can be used on an invoice.
-     - *Note:* When creating this new association, your existing tests will fail unless the association is *optional*. Use [these guides](https://guides.rubyonrails.org/association_basics.html#optional) as a reference. 
-2. If a coupon's dollar value (ex. "$10 off") exceeds the total cost of that merchant's items on the invoice, the discounted total for that merchant's items is $0. (In other words, the merchant will never *owe* money to a customer.)
-3. A coupon code from a Merchant only applies to Items sold by that Merchant.
-4. The Merchant and Admin Invoice Show Pages should show the coupon code used, the amount that was discounted, the subtotal (as you had it originally), and finally the "grand total" with discount applied. 
 
+* A Coupon belongs to a Merchant
+* An Invoice _optionally_ belongs to a Coupon. An invoice may only have one coupon. 
+  * *Note:* When creating this new association on Invoice, your existing tests will fail unless the association is *optional*. Use [these guides](https://guides.rubyonrails.org/association_basics.html#optional) as a reference. 
+​
+* Merchants have full CRUD functionality over their coupons with criteria/restrictions defined below:
+   - A merchant can have a maximum of 5 coupons enabled in the system at one time.
+   - A merchant cannot delete a coupon, rather they can activate/deactivate them.
+   - A Coupon has a name, unique code (e.g. "BOGO50"), and either percent-off or dollar-off value. The coupon's code must be unique in the whole database.
+* If a coupon's dollar value (ex. "$10 off") exceeds the total cost of that merchant's items on the invoice, the grand total for that merchant's items should then be $0. (In other words, the merchant will never *owe* money to a customer.)
+* A coupon code from a Merchant only applies to Items sold by that Merchant.
+
+In the user stories below, we have outlined a few examples of Sad Paths you may consider adding in. Your sad paths are not limited to these examples, but you should take time to implement at least 2 sad paths total. 
 ​
 ## User Stories
 
@@ -59,7 +59,7 @@ I see a link to view all of my coupons
 When I click this link
 I'm taken to my coupons index page
 Where I see all of my coupon names including their amount off 
-And each name listed links to its show page
+And each name listed links to its show page.
 ```
 
 ```
@@ -67,17 +67,17 @@ And each name listed links to its show page
 
 As a merchant
 When I visit my coupon index page 
-I see a link to create a new coupon
+I see a link to create a new coupon.
 When I click that link 
-I am taken to a new page where I see a form to add a new coupon
+I am taken to a new page where I see a form to add a new coupon.
 When I fill in that form with a name, unique code, an amount, and whether that amount is a percent or a dollar amount
 And click the Submit button
 I'm taken back to the coupon index page 
-And I can see my new coupon listed
+And I can see my new coupon listed.
 
 
 * Sad Paths to consider: 
-1. Merchant already has 5 enabled coupons
+1. Merchant already has 5 active coupons
 2. Coupon code entered is NOT unique
 ```
 
@@ -85,22 +85,24 @@ And I can see my new coupon listed
 3. Merchant Coupon Show Page 
 
 As a merchant 
-When I visit a merchant coupon's show page 
+When I visit a merchant's coupon show page 
 I see that coupon's name and code 
-As well as the percent/dollar off 
-As well as it's status (active or inactive)
-And I see a count of how many times that coupon has been used
+As well as the percent/dollar off value
+As well as its status (active or inactive)
+And I see a count of how many times that coupon has been used.
+
+(Note: "use" of a coupon should be limited to successful transactions.)
 ```
 
 ```
 4. Merchant Coupon Deactivate
 
 As a merchant 
-When I visit one of my activated coupons show pages
-I see a link to deactivate that coupon
-When I click that link
+When I visit one of my active coupon's show pages
+I see a button to deactivate that coupon
+When I click that button
 I'm taken back to the coupon show page 
-And I can see that its status is now listed as 'inactive'
+And I can see that its status is now listed as 'inactive'.
 
 * Sad Paths to consider: 
 1. A coupon cannot be deactivated if there are any pending invoices with that coupon.
@@ -111,10 +113,10 @@ And I can see that its status is now listed as 'inactive'
 
 As a merchant 
 When I visit one of my inactive coupon show pages
-I see a link to activate that coupon
-When I click that link
+I see a button to activate that coupon
+When I click that button
 I'm taken back to the coupon show page 
-And I can see that its status is now listed as 'active'
+And I can see that its status is now listed as 'active'.
 ```
 
 ```
@@ -122,31 +124,26 @@ And I can see that its status is now listed as 'active'
 
 As a merchant
 When I visit my coupon index page
-I can see that my coupons are separated between active and inactive coupons
-And within those sections
-I see that the coupons are ordered by popularity
-
-(Popularity is defined as how many non-cancelled invoices have used a particular coupon.)
+I can see that my coupons are separated between active and inactive coupons. 
 ```
 
 ```
-7. Merchant Invoice Show Page: Total Revenue and Discounted Revenue 
+7. Merchant Invoice Show Page: Subtotal and Grand Total Revenues
 
 As a merchant
 When I visit one of my merchant invoice show pages
-I see the total revenue for my merchant from this invoice (not including coupon discounts)
-And I see the name and code of the coupon used
-And I see the total revenue before and after the coupon was applied
-And the name of the coupon is a link to that coupon's show page
+I see the subtotal for my merchant from this invoice (that is, the total that does not including coupon discounts)
+And I see the grand total revenue after the discount was applied
+And I see the name and code of the coupon used as a link to that coupon's show page.
 ```
 
 ```
-8. Admin Invoice Show Page: Total Revenue and Discounted Revenue 
+8. Admin Invoice Show Page: Subtotal and Grand Total Revenues
 
 As an admin
 When I visit one of my admin invoice show pages
 I see the name and code of the coupon that was used (if there was a coupon applied)
-And I see the total revenue from that invoice both before and after the coupon was applied.
+And I see both the subtotal revenue from that invoice (before coupon) and the grand total revenue (after coupon) for this invoice.
 ```
 
 ```
@@ -163,9 +160,11 @@ Use the Next Public Holidays Endpoint in the [Nager.Date API](https://date.nager
 
 
 ## Extensions
+Students can pick one or more of these extension features/stories to add to their project: 
 
-* Coupons can be used by multiple customers, but may only be used one time per customer. (Validation for Invoice Model)
-* Inactive coupons cannot be added to an Invoice. (Validation for Invoice Model)
+* On the Merchant Coupon Index page, active and inactive coupons are sorted in order of popularity, from most to least. 
+* Coupons can be used by multiple customers, but may only be used one time per customer.
+* Inactive coupons cannot be added to an Invoice. 
 * A Coupon has a maximum number of uses before it is automatically deactivated. When implemented, prove that the number of times used on the Merchant Coupon Show Page is updated accordingly. 
 * Holiday Coupons can be used up to 1 week from the actual holiday date. The coupon should automatically inactivate once someone tries to create an Invoice with that Coupon after a week of the holiday.
 * Generate unique coupon codes as suggestions when creating a new coupon.
@@ -180,11 +179,12 @@ In the Holiday Coupons section, I see a `Create Coupon` button next to each of t
 When I click on the button I am taken to the new coupon page where I see a pre-filled name in the form, similar to:
 
    Name: <name of holiday> coupon
-   Code: <uniquely generated code>
+   Code: <uniquely generated code suggestion>
 
 All other fields, I will need to fill out myself
 I can leave the information as-is, or modify it before saving.
-Then, I should be redirected to my coupon index page where I see the newly created coupon added to the list.
+When I click save, 
+I am redirected to my coupon index page where I see the newly-created coupon added to the list.
 ```
 
 ```
@@ -192,8 +192,8 @@ View a Holiday Coupon
 
 As a merchant (if I have created a holiday coupon for a specific holiday),
 when I visit my coupon index page,
-within the `Upcoming Holidays` section I should not see the button to 'create a coupon' next to that holiday,
-instead I should see a `view coupon` link.
+within the `Upcoming Holidays` section I should not see the button to 'Create a Coupon' next to that holiday,
+instead I should see a `View coupon` link.
 When I click the link 
 I am taken to the coupon show page for that holiday coupon.
 ```

@@ -18,7 +18,7 @@ title: M2 Portfolio Requirements
 
 Each student will deliver a 5 minute slide presentation in front of your instructors.
 
-* A student who **will repeat the current module** uses their presentation time to explore why they struggled, discuss the lessons learned, and lay out a plan for what will be different next time.
+* A student who **will repeat the current module** should use their presentation time to explore why they struggled, discuss the lessons learned, and lay out a plan for what will be different next time.
 * A student who is **repeating unsuccessfully** and will leave the program is excused from the presentation and can use the entire portfolio time for feedback and discussion.
 * A student who **passes the module** will present the following:
 * **Reflection on working in Teams:**
