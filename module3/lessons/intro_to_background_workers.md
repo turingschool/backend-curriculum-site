@@ -47,7 +47,12 @@ Check out our `UserNotifierMailer` mailer. A 5 second delay has been hard-code
 
 Notice that this process takes a very long time. What we have here is a perfect candidate for a background process:
 
-Operation is slow User's interaction with the process is already asynchronous (submit the form then go check their email) Operation is well-encapsulated behind the UserNotifier interface Operation requires relatively little data as inputs (email address and mood). Sidekiq and Resque are the 2 most popular queuing libraries for Ruby. For this application, we'll use Sidekiq.
+- Operation is slow 
+- User's interaction with the process is already asynchronous (submit the form then go check their email) 
+- Operation is well-encapsulated behind the UserNotifier interface 
+- Operation requires relatively little data as inputs (email address and mood). 
+
+Sidekiq and Resque are the 2 most popular queuing libraries for Ruby. For this application, we'll use Sidekiq.
 
 ## Dependency — Redis
 
@@ -169,7 +174,10 @@ Within a Sidekiq job, the instance method `#perform` is what gets called whene
 
 Let's think about what needs to go in here and about what inputs are required for the job:
 
-Needs to take in the email address and thought (since these are the parameters needed to send the email) Needs to send an email using the UserNotifier Given these constraints, it might look something like:
+- Needs to take in the email address and 'mood' (since these are the parameters needed to send the email) 
+- Needs to send an email using the UserNotifier 
+
+Given these constraints, it might look something like:
 
 *app/sidekiq/mood_sender_job.rb*
 
@@ -177,8 +185,8 @@ Needs to take in the email address and thought (since these are the parameters n
 class MoodSenderJob
   include Sidekiq::Job
 
-  def perform(email, thought)
-    UserNotifierMailer.send_mood_email(email, thought).deliver_now
+  def perform(email, mood)
+    UserNotifierMailer.send_mood_email(email, mood).deliver_now
   end
 end
 ```
@@ -189,7 +197,7 @@ The Sidekiq job defines what actual work will be done whenever our background pr
 
 With Sidekiq, we dispatch a job for a job to do later by calling `.perform_async` on our job and providing it whatever arguments are needed for the job.
 
-Under the hood, the .perform_async method writes data into Redis indicating the type of job which needs to be done and the data associated with it. The queues are monitored in a separate process so that whenever new jobs appear, they'll be started!
+Under the hood, the `.perform_async` method writes data into Redis indicating the type of job which needs to be done and the data associated with it. The queues are monitored in a separate process so that whenever new jobs appear, they'll be started!
 
 Also commonly used is `.perform_at` which can be reviewed in the Sidekiq docs. This method allows you to specify the date/time a job should execute.
 
