@@ -128,7 +128,7 @@ I can see that my coupons are separated between active and inactive coupons
 And within those sections
 I see that the coupons are ordered by popularity. 
 
-(Popularity is defined as how many non-cancelled invoices have used a particular coupon.)
+(Popularity is defined as how many non-cancelled invoices have used this coupon.)
 ```
 
 ```
