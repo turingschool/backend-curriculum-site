@@ -36,7 +36,7 @@ Evaluation information for this project can be found [here](./evaluation).
 ## Functionality Overview
 
 * A Coupon belongs to a Merchant
-* A Coupon belongs to an Invoice, but only one coupon can be used on an Invoice. 
+* An Invoice _optionally_ belongs to a Coupon. An invoice may only have one coupon. 
   * *Note:* When creating this new association on Invoice, your existing tests will fail unless the association is *optional*. Use [these guides](https://guides.rubyonrails.org/association_basics.html#optional) as a reference. 
 ​
 * Merchants have full CRUD functionality over their coupons with criteria/restrictions defined below:
@@ -45,6 +45,8 @@ Evaluation information for this project can be found [here](./evaluation).
    - A Coupon has a name, unique code (e.g. "BOGO50"), and either percent-off or dollar-off value. The coupon's code must be unique in the whole database.
 * If a coupon's dollar value (ex. "$10 off") exceeds the total cost of that merchant's items on the invoice, the grand total for that merchant's items should then be $0. (In other words, the merchant will never *owe* money to a customer.)
 * A coupon code from a Merchant only applies to Items sold by that Merchant.
+
+In the user stories below, we have outlined a few examples of Sad Paths you may consider adding in. Your sad paths are not limited to these examples, but you should take time to implement at least 2 sad paths total. 
 ​
 ## User Stories
 
