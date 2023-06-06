@@ -99,8 +99,8 @@ And I see a count of how many times that coupon has been used.
 
 As a merchant 
 When I visit one of my active coupon's show pages
-I see a link to deactivate that coupon
-When I click that link
+I see a button to deactivate that coupon
+When I click that button
 I'm taken back to the coupon show page 
 And I can see that its status is now listed as 'inactive'.
 
@@ -113,8 +113,8 @@ And I can see that its status is now listed as 'inactive'.
 
 As a merchant 
 When I visit one of my inactive coupon show pages
-I see a link to activate that coupon
-When I click that link
+I see a button to activate that coupon
+When I click that button
 I'm taken back to the coupon show page 
 And I can see that its status is now listed as 'active'.
 ```
