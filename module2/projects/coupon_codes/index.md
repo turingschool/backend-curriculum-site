@@ -124,11 +124,7 @@ And I can see that its status is now listed as 'active'.
 
 As a merchant
 When I visit my coupon index page
-I can see that my coupons are separated between active and inactive coupons
-And within those sections
-I see that the coupons are ordered by popularity. 
-
-(Popularity is defined as how many non-cancelled invoices have used this coupon.)
+I can see that my coupons are separated between active and inactive coupons. 
 ```
 
 ```
