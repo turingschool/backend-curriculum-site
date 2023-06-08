@@ -7,7 +7,9 @@ title: Coupon Codes - Evaluations
 ## Evaluation
 This evaluation will be live with one instructor. 
 
-Please be ready to walk through the front-end of your app, demonstrating coupon CRUD functionality, and seeing the overall revenue change between on the merchant and admin invoice show pages. 
+Please be ready to walk through the front-end of your app, demonstrating coupon CRUD functionality, and seeing the overall revenue change on the merchant and admin invoice show pages. 
+
+* Note - if your deployment is not working at the time your project is turned in, please notify your instructors what you've tried so far, and be prepared to demo on localhost.
 
 Then, we will walk through the same steps in your code and tests. Be ready to answer questions from your instructor about how you came up with your solution, and how you might refactor. 
 
