@@ -57,6 +57,7 @@ At any time, you can see your applications on Render from a high-level by going 
 
 ## Troubleshooting
 - If the build fails, you will see a message like `==> Build failed 😞` in the dashboard terminal, and it will send you an e-mail notification. Any build errors or deployment issues will be listed in the terminal above this message. 
+- If during your deploy you see a message in Render's console that says `rails: command not found`, run the following command in your local terminal: `bundle lock --add-platform x86_64-linux`. This will allow Render's server architecture to run your application. 
 - Note that the Free tier of the Web Service does not allow for SSH console, so you can't use `rails c` on the dashboard unfortunately.  
 - You can [read more about the Free tier limitations](https://render.com/docs/free#free-web-services) if you encounter other issues. 
 - Further troubleshooting documentation can be found on [Render's website](https://render.com/docs/deploy-rails).  
