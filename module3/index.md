@@ -37,7 +37,6 @@ In Module 3, we will look beyond the basics of building Rails web applications w
 * [Promotion](./misc/promotion)
 * [Final Assessment](./misc/final_assessment)
 * [Mod 3 Professional Development Curriculum](https://careerdev.turing.edu/module_three/)
-* [Submission Guide](./misc/submission_guide)
 
 <br>
 
