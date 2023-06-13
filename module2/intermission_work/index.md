@@ -31,7 +31,7 @@ Work on the following assignments in order. Each assignment will assume that you
 Time-box recommendations are in each section's instructions, and also included here for convenience. 
 1. Sign up for the [GitHub Student Developer Pack](https://education.github.com/pack), using your `@turing.edu` email address. 
    - This step sometimes takes a few days for GitHub to complete, but once you sign up for your credits you'll be able to take advantage of their benefits! 
-   - Follow [these instructions](https://mod4.turing.edu/lessons/intermission/gh-student-instructions.html) to get the info you require to complete registration. Ask in #codehelp if you get stuck. 
+   - Follow [these instructions](https://mod4.turing.edu/lessons/intermission/gh-student-instructions.html) to get the info you require to complete registration. **You do NOT need to complete the Heroku steps at this time!** Ask in #codehelp if you get stuck. 
 2. [Ruby and Rails versions installation guide](https://backend.turing.edu/module3/misc/ruby_and_rails_versions)
 3. [Get Module 2 Tools](./tools)
 4. Styling (4 hrs total)
