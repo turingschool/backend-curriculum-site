@@ -75,7 +75,7 @@ Fork and clone [Here Be Dragons](https://github.com/turingschool-examples/here-b
 How does "params" get built in Rails, and what precidence is given for query parameters (ie `?id=5` in a URL) versus dynamic placeholders (ie `/book/:id`) versus data sent in the body of a request from a form.
 
 Start writing up some notes based on the Rails documentation:
-* [Rails Docs - Parameters](https://backend.turing.edu/module3/misc/ruby_and_rails_versions)
+* [Rails Docs - Parameters](https://guides.rubyonrails.org/action_controller_overview.html#parameters)
 
 
 ### SQL/ActiveRecord
