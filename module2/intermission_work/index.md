@@ -26,7 +26,7 @@ This Gist will be your submission for your intermission work. Each of the assign
 
 ## Assignments
 
-Work on the following assignments in order. Each assignment will assume that you have completed the previous one and the accompanying Checks for Understanding. **Ruby 3.1.1 and Rails 7.0.4.x are required.**
+Work on the following assignments in order. Each assignment will assume that you have completed the previous one and the accompanying Checks for Understanding. **Ruby 3.2.2 and Rails 7.0.5.x are required.**
 
 Time-box recommendations are in each section's instructions, and also included here for convenience. 
 
