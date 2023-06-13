@@ -16,11 +16,12 @@ title: M1 Portfolio Requirements
 
 ## Requirements
 
-Each student will deliver a 5 minute slide presentation in front of your instructors.
+Each student will deliver a 5 minute **slide presentation** in front of your instructors. Students might find it helpful to review their Project Reflection Journal to prepare to answer the following prompts.
 
 * All students will respond to the following prompt:
   * How has feedback impacted your development in this module?
   * How has feedback conversations with peers helped prepare you for your job/career?
+  * Which project produced the most growth in you? Technically or Personally. Why?
   * What is something you've learned about yourself in receiving project feedback?
   * What has been the most valuable piece of feedback you have received?
   * What specific actions are you planning on taking after receiving the feedback from this inning?
