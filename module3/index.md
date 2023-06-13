@@ -12,7 +12,6 @@ In Module 3, we will look beyond the basics of building Rails web applications w
 
 * Mike Dao (Anchor)
 * Jamison Ordway
-* Allison Reu Singer
 * Tracey Monteiro
 
 ## Curriculum
