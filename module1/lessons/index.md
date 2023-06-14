@@ -30,30 +30,37 @@ title: Module 1 Lessons
 * [Intro to How the Web Works](./intro_to_how_the_web_works)
 
 ### Design
+
 * [Ruby Project Etiquette](./project_etiquette)
 * [Design Principles](design_principles)
 * [Problem Solving](./problems_solutions_algorithms)
 * [Programming with Values](./programming_with_values)
 
 ### Testing
+
 * [Intro to Testing](./intro_to_testing)
 * [Test Driven Development](./test_driven_development)
 * [Mocks and Stubs](./mocks_stubs)
 
 ### Debugging
+
 * [Debugging with Pry](./debugging_with_pry)
 * [Debugging Techniques](./debugging_techniques)
 
 ### Version Control
+
 * [Git and Github](./git_and_github)
 * [Git Review](./git_review)
 * [Git for Pairs](./git_for_pairs)
 
 ### Exploration
+
 * [CSV Exploration](./csv_exploration)
 
-### Good Practices & Process
+### Professional Development
+
 * [Learning to Pair](./learning_to_pair)
+* [Giving and Receiving Feedback](https://docs.google.com/presentation/d/15nsWGfh8_zyF1oxsFDbCVKKTjmQnP3XLSgPVWTWx0xA/edit#slide=id.g383edf95c1_0_76)
 * [Productive Struggle](./productive_struggle)
 * [Writing Mod 1 READMEs](./writing_a_readme)
 * [Project DTR](https://docs.google.com/document/d/1HFWSZExSWgGJdqLkEH4DXs-z1gZxMNkv4n1NO9U1eJU/edit?usp=sharing)
