@@ -26,7 +26,7 @@ The following projects are not required. Students can use these projects as an o
 
 These projects are listed (roughly) in order of difficulty.
 
-* [Flashcards](./Flashcards)
+* [Flashcards](./flashcards)
 * [Perilous Journey](./perilous_journey)
 * [Mastermind](./mastermind)
 * [Event Manager](./eventmanager)
