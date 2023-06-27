@@ -8,7 +8,7 @@ By the end of this class, a student will be able to:
 - Use Faraday to connect and retrieve information from third party external APIs.
 - Parse the information retrieved from a third party API.
 
-This lesson was built on Ruby 3.1.1 and Rails 7.0.4
+This lesson was built on Ruby 3.2.2 and Rails 7.0.5.1
 
 ## Warm Up
 
