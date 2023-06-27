@@ -80,11 +80,11 @@ feature "user can search for house members" do
     select "Colorado", from: :state
     # And I select "Colorado" from the dropdown
     click_on "Locate Members of the House"
-    # And I click on "Locate Members from the House"
+    # And I click on "Locate Members of the House"
     expect(current_path).to eq(search_path)
     # Then my path should be "/search" with "state=CO" in the parameters
-    expect(page).to have_content("7 Results")
-    # And I should see a message "7 Results"
+    expect(page).to have_content("8 Results")
+    # And I should see a message "8 Results"
     expect(page).to have_css(".member", count: 8)
     # And I should see a list of 8 the members of the house for Colorado
 
