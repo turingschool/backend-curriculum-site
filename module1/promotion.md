@@ -42,7 +42,7 @@ Students can reference the [Module 1 Syllabus](./syllabus) and [Module 1 Schedul
 
 ## Professional Development
 
-Promoted students will have successfully completed the [Module 1 Professional Development Curriculum](https://careerdev.turing.edu/module_one/). This includes attending all sessions, making up any missed sessions, and completing all PD deliverables.
+Promoted students will have attended and actively engaged in all PD sessions. They will present a polished and well thought-out answer to "Tell me about yourself", something that instruction and feedback will be given on during the live sessions.
 
 ## Portfolio
 
