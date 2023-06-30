@@ -24,7 +24,7 @@ Additional information on assessments can be found [here](./assessments).
 
 ## Professional Development
 
-Promoted students will have successfully completed the [Module 2 Professional Development Curriculum](https://careerdev.turing.edu/module_two/). This includes attending all sessions, making up any missed sessions, and completing all PD deliverables.
+In order to show readiness for Module 3, students are required to attend and engage in all Professional Development sessions in Module 2. They are required to setup and have at least one coffee chat with an industry professional and update their LinkedIn based on learnings in Mod 2 - both will be evident in Final Portfolio Presentation.
 
 ## Portfolio
 
