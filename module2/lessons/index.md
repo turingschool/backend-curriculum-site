@@ -3,6 +3,11 @@ title: Lessons
 layout: page
 ---
 
+## Professional Development
+* [Netwokring](https://docs.google.com/presentation/d/e/2PACX-1vQa672IV-XwWG9q-ujEJ0w72QCBzf4jVMNI-trwLuKt9kk_ewe0l6Mk6YSWoo9UYMETbJ5RZ3akKyux/pub?start=false&loop=false&delayms=3000)
+* [Career Roadmapping](https://docs.google.com/presentation/d/e/2PACX-1vQMrVf9CxTlQPhJtvX7_vwU8hA-aovO-OOVHT8hN_T7Ae_Syz4dB_70myq03ReiayBPIBtTkjg0KnWk/pub?start=false&loop=false&delayms=3000)
+* [Getting Job Hunt Ready]()
+
 ## Web Applications
 
 * [How the Web Works I: HTTP Request/Response Cycle](./how_the_web_works_http)
