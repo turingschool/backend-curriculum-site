@@ -29,7 +29,6 @@ In Module 1, students will learn to build software in teams with Ruby and object
 * [Schedule](./schedule)
 * [Syllabus](./syllabus)
 * [Portfolio](./portfolios)
-* [Professional Development Curriculum](https://careerdev.turing.edu/module_one/)
 * [Promotion to Module 2](./promotion)
 
 ## Calendar (Mountain Time)
