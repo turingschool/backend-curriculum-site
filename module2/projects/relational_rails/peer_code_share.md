@@ -11,8 +11,8 @@ On eval day, you will be partnered with another student to review each other's c
 
 First, exchange Github repository links with the other student, and clone the repository.
 
-Then, in your Terminal, run the following:
-```ruby
+Next, in your Terminal, run the following:
+```bash
 bundle install
 rails db:{drop,create,migrate,seed}
 rails s
