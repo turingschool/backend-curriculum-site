@@ -11,6 +11,7 @@ type: project
 - Use RuboCop in project to enforce style guide
 - Test consumption of your API
 - Consume [The Movie DB API](https://developers.themoviedb.org/3/getting-started/introduction)
+- Do [Individual Retrospective](https://github.com/jamisonordway/individual_retrospective/blob/main/module_3/viewing_party.md)
 
 **OPTIONAL**
 - Use [co-authored commits](https://gist.github.com/iandouglas/6ff9428ca9e349118095ce7ed4a655bf) when doing driver/navigator pairing.
