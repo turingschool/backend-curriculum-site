@@ -18,7 +18,7 @@ layout: page
 - [Rails Exercises](https://github.com/turingschool/rails_exercises)
 - [Day Hike](https://github.com/turingschool-projects/day_hike)
 - [Blogger](http://backend.turing.edu/module2/misc/blogger)
-- [Bakery](https://github.com/earl-stephens/bakery)
+- [Bakery](https://github.com/turingschool-examples/bakery-b2)
 - [Routes and controllers](https://github.com/turingschool/challenges/blob/master/routes_controllers_rails.markdown).
 
 ## Independent Challenge Practices
