@@ -16,26 +16,37 @@ Now we have nodes and a `LinkedList` class that manages the list. Next step is t
 Expected behavior:
 
 ```ruby
-> require "./lib/linked_list"
-> require "./lib/node"
+pry(main)> require "./lib/linked_list"
+#=> true
 
-> list = LinkedList.new
-> list.append("plop")
-=> "plop"
-> list.to_string
-=> "plop"
-> list.append("suu")
-=> "suu"
-> list.prepend("dop")
-=> "dop"
-> list.to_string
-=> "dop plop suu"
-> list.count
-=> 3
-> list.insert(1, "woo")
-=> "woo"
-list.to_string
-=> "dop woo plop suu"
+pry(main)> require "./lib/node"
+#=> true
+
+pry(main)> list = LinkedList.new
+#=> #<LinkedList:0x000000010d670c88 @head=nil>
+
+pry(main)> list.append("plop")
+
+pry(main)> list.to_string
+#=> "plop"
+
+pry(main)> list.append("suu")
+
+pry(main)> list.to_string
+# "plop suu"
+
+pry(main)> list.prepend("dop")
+
+pry(main)> list.to_string
+#=> "dop plop suu"
+
+pry(main)> list.count
+#=> 3
+
+pry(main)> list.insert(1, "woo")
+
+pry(main)> list.to_string
+#=> "dop woo plop suu"
 ```
 
 
@@ -55,20 +66,27 @@ Expected behavior:
 
 ```ruby
 ....
-> list.to_string
-=> "deep woo shi shu blop"
-> list.find(2, 1)
-=> "shi"
-> list.find(1, 3)
-=> "woo shi shu"
-> list.includes?("deep")
-=> true
-> list.includes?("dep")
-=> false
-> list.pop
-=> "blop"
-> list.pop
-=> "shu"
-> list.to_string
-=> "deep woo shi"
+pry(main)> list.to_string
+#=> "deep woo shi shu blop"
+
+pry(main)> list.find(2, 1)
+#=> "shi" 
+
+pry(main)> list.find(1, 3)
+#=> "woo shi shu"
+
+pry(main)> list.includes?("deep")
+#=> true
+
+pry(main)> list.includes?("dep")
+#=> false
+
+pry(main)> list.pop
+#=> "blop"
+
+pry(main)> list.pop
+#=> "shu"
+
+pry(main)> list.to_string
+#=> "deep woo shi"
 ```
