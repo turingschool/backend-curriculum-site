@@ -13,13 +13,18 @@ Add validation to your program such that the input beats must be members of your
 defined list. Insertion of a beat not in the list is rejected. Like this:
 
 ```ruby
-> bb = BeatBox.new("deep")
-> bb.append("Mississippi")
-> bb.all
-=> "deep"
-> bb.prepend("tee tee tee Mississippi")
-> bb.all
-=> "tee tee tee deep"
+pry(main)> bb = BeatBox.new("deep")
+#=> #<BeatBox:0x000000010f500108 @list=#<LinkedList:0x000000010f4e3ee0 @head=#<Node:0x000000010d179d88 @data="deep", @next_node=nil>
+
+pry(main)> bb.append("Mississippi")
+
+pry(main)> bb.all
+#=> "deep"
+
+pry(main)> bb.prepend("tee tee tee Mississippi")
+
+pry(main)> bb.all
+#=> "tee tee tee deep"
 ```
 
 Here's a starter list of valid beats, but add more if you like:
@@ -37,21 +42,30 @@ we showed you to use `say -r 500 -v Boing` where `r` is the rate and `v` is the
 voice. Let's setup a usage like this:
 
 ```ruby
-> bb = BeatBox.new("deep dop dop deep")
-> bb.play
-=> 4 # plays the four sounds normal speed with Boing voice
-> bb.rate = 100
-=> 100
-> bb.play
-=> 4 # plays the four sounds slower with Boing voice
-> bb.voice = "Daniel"
-=> "Daniel"
-> bb.play
-=> 4 # plays the four sounds slower with Daniel voice
-> bb.reset_rate
-=> 500
-> bb.reset_voice
-=> "Boing"
-> bb.play
-=> 4 # plays the four sounds normal speed with Boing voice
+pry(main)> bb = BeatBox.new("deep dop dop deep")
+#=> #<BeatBox:0x000000010f500108 @list=#<LinkedList:0x000000010f4e3ee0 @head=#<Node:0x000000010d179d88 @data="deep", @next_node=#<Node:0x000000010d179d38 @data="dop", @next_node=#<Node:0x000000010d179c70 @data="dop", @next_node=#<Node:0x000000010d179d38 @data="deep", @next_node=nil>
+
+pry(main)> bb.play
+#=> 4 # plays the four sounds normal speed with Boing voice
+
+pry(main)> bb.rate = 100
+#=> 100
+
+pry(main)> bb.play
+#=> 4 # plays the four sounds slower with Boing voice
+
+pry(main)> bb.voice = "Daniel"
+#=> "Daniel"
+
+pry(main)> bb.play
+#=> 4 # plays the four sounds slower with Daniel voice
+
+pry(main)> bb.reset_rate
+#=> 500
+
+pry(main)> bb.reset_voice
+#=> "Boing"
+
+pry(main)> bb.play
+#=> 4 # plays the four sounds normal speed with Boing voice
 ```
