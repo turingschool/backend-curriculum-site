@@ -15,26 +15,36 @@ Up until now, we have only been able to `append` and `prepend` a single node at 
 Expected behavior:
 
 ```ruby
-> require "./lib/beat_box"
-> require "./lib/linked_list"
-> require "./lib/node"
+pry(main)> require "./lib/beat_box"
+#=> true
 
-> bb = BeatBox.new
-=> <BeatBox list=<LinkedList head=nil #234567890890> #456789045678>
-> bb.list
-=> <LinkedList head=nil #234567890890>
-> bb.list.head
-=> nil
-> bb.append("deep doo ditt")
-=> "deep doo ditt"
-> bb.list.head.data
-=> "deep"
-> bb.list.head.next_node.data
-=> "doo"
-> bb.append("woo hoo shu")
-=> "woo hoo shu"
-> bb.count
-6
+pry(main)> require "./lib/linked_list"
+#=> true
+
+pry(main)> require "./lib/node"
+#=> true
+
+pry(main)> bb = BeatBox.new
+#=> #<BeatBox:0x000000010f500108 @list=#<LinkedList:0x000000010f4e3ee0 @head=nil>
+
+pry(main)> bb.list
+#=> #<LinkedList:0x000000010f4e3ee0 @head=nil>
+
+pry(main)> bb.list.head
+#=> nil 
+
+pry(main)> bb.append("deep doo ditt")
+
+pry(main)> bb.list.head.data
+#=> "deep"
+
+pry(main)> bb.list.head.next_node.data
+#=> "doo"
+
+pry(main)> bb.append("woo hoo shu")
+
+pry(main)> bb.count
+#=> 6
 ```
 
 <br>
@@ -70,18 +80,26 @@ $ pry
 For this final section, add a `play` method to your BeatBox class that will generate the string content of the Beat and use it as input to the `say` command.
 
 ```ruby
-> require "./lib/beat_box"
-> require "./lib/linked_list"
-> require "./lib/node"
+pry(main)> require "./lib/beat_box"
+#=> true
 
-> bb = BeatBox.new
-=> <BeatBox list=<LinkedList head=nil #234567890890> #456789045678>
-> bb.append("deep doo ditt woo hoo shu")
-=> "deep doo ditt woo hoo shu"
-> bb.count
-=> 6
-> bb.list.count
-=> 6
-> bb.play
-=> # plays the sounds deep doo ditt woo hoo shu
+pry(main)> require "./lib/linked_list"
+#=> true
+
+pry(main)> require "./lib/node"
+#=> true
+
+pry(main)> bb = BeatBox.new
+#=> #<BeatBox:0x000000010f500108 @list=#<LinkedList:0x000000010f4e3ee0 @head=nil>
+
+pry(main)> bb.append("deep doo ditt woo hoo shu")
+
+pry(main)> bb.count
+#=> 6
+
+pry(main)> bb.list.count
+#=> 6
+
+pry(main)> bb.play
+#=> # plays the sounds deep doo ditt woo hoo shu
 ```
