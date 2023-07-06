@@ -7,6 +7,9 @@ tags: apis, rails, refactoring
 
 # Refactoring API Consumption
 
+## Setup
+We will start with the house-salad-7 app [api-consumption-complete](https://github.com/turingschool-examples/house-salad-7/tree/api-consumption-complete) branch for this lesson.
+
 ## Vocabulary
 
 ### Refactor
