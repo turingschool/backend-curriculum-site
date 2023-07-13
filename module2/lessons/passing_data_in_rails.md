@@ -8,12 +8,13 @@ length: 180
 * Understand how a user specifies a particular resource for a show page
 * Implement `form_with` to create a new resource
 * Implement `form_with` to update a new resource
-* Implement `link_to` to destroy a resource
+* Implement `button_to` to destroy a resource
 * Define Query Parameters
 
 ## Vocabulary
 * `form_with`
 * `link_to`
+* `button_to`
 * query parameters
 
 ## WarmUp
@@ -440,7 +441,7 @@ Run your tests, were you right?  Capybara can't find a button called 'Delete'.  
 <% end %>
 ```
 
-Now, we have a button that indicates which artist we are going to delete by giving our path an artist id.
+Now, we have a button that indicates which artist we are going to delete by giving our path an artist id. **Note**: It's possible to use `link_to` to create a button to delete a resource, but as of Rails 7, it's a little trickier to set the method to `delete`. Rails uses a tool called Turbo to optimize form and link creation, so when you create a link that must use the `delete` method, you indicate the method in a different way: `data: { turbo_method: :delete }`. To learn more about deleting a resource with `link_to`, check out the docs [here](https://guides.rubyonrails.org/getting_started.html#deleting-an-article).
 
 Can you guess what our next error is going to be?
 
