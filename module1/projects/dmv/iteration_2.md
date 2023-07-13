@@ -39,11 +39,11 @@ pry(main)> require './lib/facility'
 pry(main)> require './lib/vehicle'
 #=> true
 
-pry(main)> facility_1 = Facility.new({name: 'Albany DMV Office', address: '2242 Santiam Hwy SE Albany OR 97321', phone: '541-967-2014' })
-#=> #<Facility:0x00000001258a3d80 @address="2242 Santiam Hwy SE Albany OR 97321", @collected_fees=0, @name="Albany DMV Office", @phone="541-967-2014", @registered_vehicles=[], @services=[]>
+pry(main)> facility_1 = Facility.new({name: 'DMV Tremont Branch', address: '2855 Tremont Place Suite 118 Denver CO 80205', phone: '(720) 865-4600'})
+#=> #<Facility:0x000000010e5ad5e8 @address="2855 Tremont Place Suite 118 Denver CO 80205", @name="DMV Tremont Branch", @phone="(720) 865-4600", @services=[]>
 
-pry(main)> facility_2 = Facility.new({name: 'Ashland DMV Office', address: '600 Tolman Creek Rd Ashland OR 97520', phone: '541-776-6092' })
-#=> #<Facility:0x000000012581e3d8 @address="600 Tolman Creek Rd Ashland OR 97520", @collected_fees=0, @name="Ashland DMV Office", @phone="541-776-6092", @registered_vehicles=[], @services=[]>
+pry(main)> facility_2 = Facility.new({name: 'DMV Northeast Branch', address: '4685 Peoria Street Suite 101 Denver CO 80239', phone: '(720) 865-4600'})
+#=> #<Facility:0x000000010e5ad480 @address="4685 Peoria Street Suite 101 Denver CO 80239", @name="DMV Northeast Branch", @phone="(720) 865-4600", @services=[]>
 
 pry(main)> cruz = Vehicle.new({vin: '123456789abcdefgh', year: 2012, make: 'Chevrolet', model: 'Cruz', engine: :ice} )
 #=> #<Vehicle:0x0000000135a48b08 @engine=:ice, @make="Chevrolet", @model="Cruz", @plate_type=nil, @registration_date=nil, @vin="123456789abcdefgh", @year=2012>
@@ -141,11 +141,11 @@ pry(main)> registrant_2 = Registrant.new('Penny', 16 )
 pry(main)> registrant_3 = Registrant.new('Tucker', 15 )
 #=> #<Registrant:0x000000012d8b0e38 @age=15, @license_data={:written=>false, :license=>false, :renewed=>false}, @name="Tucker", @permit=false>
 
-pry(main)> facility_1 = Facility.new({name: 'Albany DMV Office', address: '2242 Santiam Hwy SE Albany OR 97321', phone: '541-967-2014' })
-#=> #<Facility:0x000000012d817f58 @address="2242 Santiam Hwy SE Albany OR 97321", @collected_fees=0, @name="Albany DMV Office", @phone="541-967-2014", @registered_vehicles=[], @services=[]>
+pry(main)> facility_1 = Facility.new({name: 'DMV Tremont Branch', address: '2855 Tremont Place Suite 118 Denver CO 80205', phone: '(720) 865-4600'})
+#=> #<Facility:0x000000010e5ad5e8 @address="2855 Tremont Place Suite 118 Denver CO 80205", @name="DMV Tremont Branch", @phone="(720) 865-4600", @services=[]>
 
-pry(main)> facility_2 = Facility.new({name: 'Ashland DMV Office', address: '600 Tolman Creek Rd Ashland OR 97520', phone: '541-776-6092' })
-#=> #<Facility:0x000000012d9138a8 @address="600 Tolman Creek Rd Ashland OR 97520", @collected_fees=0, @name="Ashland DMV Office", @phone="541-776-6092", @registered_vehicles=[], @services=[]>
+pry(main)> facility_2 = Facility.new({name: 'DMV Northeast Branch', address: '4685 Peoria Street Suite 101 Denver CO 80239', phone: '(720) 865-4600'})
+#=> #<Facility:0x000000010e5ad480 @address="4685 Peoria Street Suite 101 Denver CO 80239", @name="DMV Northeast Branch", @phone="(720) 865-4600", @services=[]>
 
 #Written Test
 
