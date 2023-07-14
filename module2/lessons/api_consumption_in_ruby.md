@@ -73,7 +73,7 @@ require "json"
 require "pry"
 ```
 
-We are going to use HTTParty in order to reach out to our API and get the results. The endpoint we have to hit is `https://ghibliapi.vercel.app/films`. (As of January 2023, an older service is no longer working, so there's no documentation for this new API yet.)
+We are going to use HTTParty in order to reach out to our API and get the results. The endpoint we have to hit is `https://ghibliapi.vercel.app/films`. You can find full documentation on this API [here](https://ghibliapi.vercel.app). 
 
 The basic syntax for how we can get a response from an API is `HTTParty.get()`, where we pass the URL for the endpoint as an argument as a string.
 
