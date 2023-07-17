@@ -14,7 +14,7 @@ layout: page
 - [Election](https://github.com/turingschool-examples/election) - writing methods solving for class vs. instance methods
 
 ## Rails Practice
-- [Debugging Exercise](https://github.com/turingschool-examples/debug_shop)
+- [Debugging Exercise](https://github.com/turingschool-examples/debug-shop-7)
 - [Rails Exercises](https://github.com/turingschool/rails_exercises)
 - [Day Hike](https://github.com/turingschool-projects/day_hike)
 - [Blogger](http://backend.turing.edu/module2/misc/blogger)
