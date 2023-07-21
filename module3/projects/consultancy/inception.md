@@ -3,7 +3,7 @@ layout: page
 title: Consultancy - Inception
 type: project
 ---
-
+_[Back to Consultancy Home](./index)_ 
 ## Background
 
 An Inception is a process used by many companies in the Software Industry to design a solution to a problem. It is tempting to take a problem and immediately start coding, however this will often result in an incoherent solution, or even worse, a solution to the **wrong** problem.

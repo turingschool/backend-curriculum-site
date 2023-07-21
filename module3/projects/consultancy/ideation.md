@@ -3,7 +3,7 @@ layout: page
 title: Consultancy - Ideation
 type: project
 ---
-
+_[Back to Consultancy Home](./index)_ 
 ## Timeline
 
 * End of Week 2: Students begin brainstorming project ideas individually using the following guidelines.
