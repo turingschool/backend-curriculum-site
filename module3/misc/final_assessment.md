@@ -64,7 +64,7 @@ Students will be evaluated on 3 main criteria: feature completion, testing, and 
 
 ### Testing
 
-1. No testing
+1. No testing / significant portions of untested code
 2. Testing, but is not robust to cover expected functionality __OR__ has failing tests
 3. Robust testing to cover happy path functionality
 4. Tests include sad path coverage
