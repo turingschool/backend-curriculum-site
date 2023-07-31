@@ -29,7 +29,7 @@ Applications with good Object Oriented design make it easy to queue background j
 ## App Setup
 
 Let's look at an example of making a background task using Sidekiq. We'll use the `main`
- branch of the ["Daily Mood" application](https://github.com/turingschool-examples/daily-mood-mailer).
+ branch of the ["Daily Mood" application](https://github.com/turingschool-examples/daily-mood-mailer-7).
 
 ```bash
 $ git clone git@github.com:turingschool-examples/daily-mood-mailer.git
