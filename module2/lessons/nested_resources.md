@@ -102,7 +102,7 @@ Now the tests are telling us that it can't find the form fields.
 First, let's think about where we want this path to submit. Thinking back to our discussion at the beginning, what verb/path combo should we use?
 
 ```erb
-<%= form_tag("/artists/#{@artist_id}/songs", method: :post) do %>
+<%= form_with url: "/artists/#{@artist_id}/songs", method: :post, data: {turbo: false} do |form| %>
 <% end %>
 ```
 
@@ -117,16 +117,16 @@ end
 If we run the test again, we'll still get our error for missing fields, so let's add those fields:
 
 ```erb
-<%= label_tag "Title" %>
-<%= text_field_tag :title %>
+<%= f.label :title %>
+<%= f.text_field :title %>
 
-<%= label_tag "Length" %>
-<%= number_field_tag :length %>
+<%= f.label :length %>
+<%= f.text_field :length %>
 
-<%= label_tag "Play Count" %>
-<%= number_field_tag :play_count %>
+<%= f.label :play_count, "Play Count" %>
+<%= f.number_field :play_count %>
 
-<%= submit_tag "Create Song"%>
+<%= f.submit "Create Song"%>
 ```
 
 Now when we run the test, we'll see no route matches when we submit the form.
