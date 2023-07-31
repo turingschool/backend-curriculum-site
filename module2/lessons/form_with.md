@@ -17,7 +17,7 @@ Let’s pick up where we left off having just finished Advanced Routing. For thi
 If we were going to use `form_with` without a model to create a simple search form, then we could do it like so:
 
 ```html
-<%= form_with url: "/search", method: :get, local: true do |form| %>
+<%= form_with url: "/search", method: :get, data: {turbo: false} do |form| %>
   <%= form.label "Search for:"  %>
   <%= form.text_field :q %>
   <%= form.submit "Search" %>
@@ -40,7 +40,7 @@ If we were going to use `form_with` to create a Dog object with name, breed, a
 
 ```html
 <!-- app/views/dogs/new.html.erb -->
-<%= form_with model: Dog.new, local: true do |f| %>
+<%= form_with model: Dog.new, data: {turbo: false} do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
 
@@ -54,9 +54,9 @@ If we were going to use `form_with` to create a Dog object with name, breed, a
 <% end %>
 ```
 
-Notice the **`local: true`** option. **You must include this option for your form to work properly with the `form_with` helper!**
+Notice the **`data: {turbo: false}`** option. **You must include this option for your form to work properly with the `form_with` helper!**
 
-This helper is set to false by default when using the `form_with` helper. This is because `form_with` was built with performance improvements in mind. Within professional rails applications, this helper defaults to taking advantage of AJAX (Asynchronous JavaScript And XML) to send requests. We won't dive into the advantages and disadvantages of this just yet, but know that this option expects a JavaScript response as opposed to an HTML response. We aren't implementing JavaScript in our applications, so we want our request to be sent expecting an HTML response.
+As of Rails 7, Rails uses Turbo as a form optimization tool. Turbo has many benefits, but it also introduces some quirks that are tricky to troubleshoot, especially when you're just starting to learn about forms. For simplicity, we are going to disabe Turbo whenever making a form in order to avoid these pesky issues. 
 
 In the above example, we are binding our form to a new Dog object `Dog.new`. While this works from a functionality standpoint, we don't ever want to be reaching from our views into our database, so, we would want our controller to send this object to our views:
 
@@ -72,7 +72,7 @@ end
 
 ```ruby
 <!-- app/views/dogs/new.html.erb -->
-<%= form_with model: @dog, class: "doggos_form" do |f| %>
+<%= form_with model: @dog, class: "doggos_form", data: {turbo: false} do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
 
