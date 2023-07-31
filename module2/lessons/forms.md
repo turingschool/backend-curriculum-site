@@ -159,14 +159,14 @@ We could use this same form structure to build out our new artist form; but, wou
 **app/views/artists/new.html.erb**
 
 ```html
-<%= form_with url: "/artists", method: :post, local: true do |form| %>
+<%= form_with url: "/artists", method: :post, data: { turbo: false } do |form| %>
   <%= form.label :name %>
   <%= form.text_field :name %>
   <%= form.submit 'Create Artist' %>
 <% end %>
 ```
 
-The first line in our HTML form for tasks `<form action="/tasks" method="post">` tells the form the verb and path it should request when the form is submitted. In `form_with`, we use the `url:` and `method:` keyword arguments to tell the form what verb/path to use.
+The first line in our HTML form for tasks `<form action="/tasks" method="post">` tells the form the verb and path it should request when the form is submitted. In `form_with`, we use the `url:` and `method:` keyword arguments to tell the form what verb/path to use. As of Rails 7, Rails defaults to using a tool called Turbo to optimize forms. Turbo has some quirks that we don't need to deal with, so we are generally going to disable it to ensure Rails creates a regular HTML form. That's why we pass `turbo: false` as an additional data parameter. 
 
 The next line, `<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">`, is a security setting that Rails requires on all forms, and `form_with` gives us this out of the box.
 
