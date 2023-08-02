@@ -33,7 +33,7 @@ However, when you go to your web browser, you don't type in "142.811.0.1", you t
 
 DNS is the Domain Name System. Its entire job is to take a domain, like `google.com`, and translate it to an IP address, like 142.811.0.1.
 
-You can think of DNS as the phonebook (or, in more modern terms a *contact list*) of the internet. While you might click "Juliet" in your contact list to call Juliet's phone, the phone company actually connects to `1-123-555-1234` since that's Juliet's phone number. 
+You can think of DNS as the phonebook (or, in more modern terms a *contact list*) of the internet. While you might click "Juliet" in your contact list to call Juliet's phone, the phone actually connects to `1-123-555-1234` since that's Juliet's phone number. 
 
 Similarly, when we go to `https://google.com`, DNS is the translation between what that website is *called* and what it actually *is* to the internet. So, if we were to express this correlation as an analogy: 
 
