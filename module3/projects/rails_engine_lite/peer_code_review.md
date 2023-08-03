@@ -5,6 +5,7 @@ length: 1 week
 tags:
 type: project
 ---
+_[Back to Rails Engine Lite Home](./index)_
 
 You will be given a code review partner. Exchange links for the repo and then independently walk through the sections below. You should answer the review questions from each section in a notebook or in a gist. Once both partners have completed the review of **all** sections, meet with your partner to discuss the feedback from notes you've taken. *Remember that feedback should be actionable and kind.*
 
