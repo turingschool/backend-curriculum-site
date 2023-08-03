@@ -5,6 +5,7 @@ length: 1 week
 tags:
 type: project
 ---
+_[Back to Market Money Home](./index)_
 
 Once your Market Money project is complete, you may choose any of the following extensions for additional practice:
 

@@ -2,7 +2,7 @@
 layout: page
 title: Whether, Sweater? Project Requirements
 ---
-
+_[Back to Sweater Weather Home](./index)_
 # Important Note about Getting Started
 
 1. This project is an API based application. __Use__ the `rails new --api and other flags` when creating your application. _Doing `rails new` which includes views, etc is NOT a correct project structure._

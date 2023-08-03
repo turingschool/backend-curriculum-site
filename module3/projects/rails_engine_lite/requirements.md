@@ -5,7 +5,7 @@ length: 1 week
 tags:
 type: project
 ---
-
+_[Back to Rails Engine Lite Home](./index)_
 # 1. Set Up
 
 1. Create a Rails API project called `rails-engine` (make sure you do not set up a "traditional" Rails project with a frontend, this is an API-only project).
