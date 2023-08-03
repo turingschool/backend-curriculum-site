@@ -33,7 +33,8 @@ Each student will deliver a 5 minute slide presentation in front of your instruc
     - What has been the most valuable piece of feedback you have received?
     - What specific actions are you planning on taking after receiving the feedback from this inning?
 * **Reflection on PD**
-    - Reflecting on your career journal from the module, what is your current vision for your career in the software industry? How has this vision changed since you started at Turing?
+    - What was your experience like with networking this inning? Who did you reach out to, and what insights did you glean? How have these conversations shaped your strategy going forward?
+    - Reflecting on your career journal from the module, what is your current vision for your career in the software industry? How has this vision changed since you started at Turing? (Reminder: it's very okay for this vision to shift a lot while you're at Turing, and to keep shifting afterward too!).
 
 #### The presentation should not be a series of slides that directly answers each of these questions with bullet points, but instead should:
 
