@@ -138,8 +138,8 @@ And I see my new bulk discount listed
 
 As a merchant
 When I visit my bulk discounts index
-Then next to each bulk discount I see a link to delete it
-When I click this link
+Then next to each bulk discount I see a button to delete it
+When I click this button
 Then I am redirected back to the bulk discounts index page
 And I no longer see the discount listed
 ```
