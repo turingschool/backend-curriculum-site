@@ -18,13 +18,11 @@ tags: ruby, hashes, data structures
 * Nested Array: an array that exists as an element within another (outer) array
 * Nested Hash: a hash that exists as either an element in an array OR the value of a key within another hash
 
-## Slides
-
-Available [here](../slides/nested_collections)
 
 ## WarmUp
 
-With a partner find answers to the following.
+Using [mod-1-be-exercises](https://github.com/turingschool-examples/mod-1-be-exercises/tree/main/lessons/nested_collections/Examples), find answers to the following: 
+
 First, try to answer without using pry, then use pry to verify.
 
 `animals = {"dogs" => 3, "cats" => 5, "iguanas" => 2}`
@@ -49,7 +47,7 @@ As our programs get more complex, we'll sometimes encounter more sophisticated c
 ```ruby
 numbers = [[1, 2, 3], [4, 5, 6]]
 ```
-**Turn and Talk**
+**Reflection**
 * what is `numbers.count`
 * what is `numbers.first.count`
 * how can I access the element `5`
@@ -60,7 +58,7 @@ numbers = [[1, 2, 3], [4, 5, 6]]
 ```
 food_feelings = [{:pizza => "tasty"}, {:calzone => "also tasty"}]
 ```
-**Turn and Talk**
+**Reflection**
 * what is `food_feelings.count`
 * what is `food_feelings.first.count`
 * how can I access the element `"also tasty"`
@@ -72,7 +70,7 @@ food_feelings = [{:pizza => "tasty"}, {:calzone => "also tasty"}]
 pets = {:dog => {:name => "Chance", :weight => "45 pounds"},
         :cat => {:name => "Sassy", :weight => "15 pounds"}}
 ```
-**Turn and Talk**
+**Reflection**
 * what is `pets.count`
 * what is `pets.keys`
 * what is `pets.values`
@@ -86,13 +84,24 @@ pizza_toppings = {veggies: ["green peppers", "jalapeño", "mushrooms"],
                   fruit: ["pineapple"]}
 ```
 
-**Turn and Talk**
+**Reflection**
 * What is `pizza_toppings.count`
 * What is `pizza_toppings.values`
 * How can I access the element `"pineapple"`
 * How can I add the element `"olives"` to the key `"veggies"`
 
-## Practice
+## Checks for Understanding
+
+1. Name one common hash method and one common array method
+2. What can you ask yourself while working on nested collections to help you strategize navigating nested collections? 
+
+
+## Challenge
+
+Using the [mod-1-be-exercises](https://github.com/turingschool-examples/mod-1-be-exercises/tree/main/lessons/nested_collections) repo, navigate to the `challenges` directory. Follow the instructions and work through the Denver Biscuit Company API response.
+
+
+## Extra Practice
 
 ### 1: State Capitals
 
@@ -154,16 +163,4 @@ e.g. `{24 => ['Juan', 'Steve', 'Jill']...}`
 
 ## More Practice
 
-Break into small groups based on how far you've worked on the "collections" exercises from the [ruby-exercises](https://github.com/turingschool/ruby-exercises):
-
-1. Finished all exercises
-1. Finished "nested_collections"
-1. Finished "arrays" and "hashes"
-1. Working on "arrays" and "hashes"
-
-Find a partner in your group and work on the exercises.
-
-
-## Homework
-
-* Complete the `data-types/collections` exercises in [ruby-exercises](https://github.com/turingschool/ruby-exercises)
+You can also work through the `data-types/collections` exercises in [ruby-exercises](https://github.com/turingschool/ruby-exercises)
