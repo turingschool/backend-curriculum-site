@@ -13,9 +13,6 @@ tags: ruby, object-oriented programming
 * Use methods to provide behaviors to instances of a class
 * Create a new instance of a class and call methods on that instance
 
-## Slides
-
-Available [here](../slides/objects_classes_instances)
 
 ## Vocabulary
 
@@ -106,7 +103,7 @@ We can run the `runner.rb` file from the command line if we are inside of our `o
 
 When we run this file, our terminal should open up a pry session when it reads the line: `binding.pry`. Inside of that pry session, we'll type `unicorn_1` and hit return to see what the variable `unicorn_1` is holding. Then, we'll type `unicorn_2` to see what that variable is holding.
 
-## Turn & Talk
+## Reflection
 
 - How are those two things the same?
 - How are they different?
@@ -195,9 +192,9 @@ class Unicorn
 end
 ```
 
-### Partner Practice
+### Practice
 
-With your pair, create an `objects_classes_and_instances` directory, then touch a `person.rb` file and a `runner.rb` file. Define a Person class in it and create instances of that class in your runner file.
+Create an `objects_classes_and_instances` directory, then touch a `person.rb` file and a `runner.rb` file. Define a Person class in it and create instances of that class in your runner file.
 
 Now, give your Person class some attributes that are set using arguments to initialize and some attributes that have default values. Make some instances of your Person class, and run you runner file.
 
@@ -266,10 +263,10 @@ Let's run our runner file again and see if you can still call `unicorn_1.brand` 
 
 An important thing to remember is that although there is a special syntax for creating `attr_reader`s, they are still just methods. Remember the error we got earlier was a **no method error** for `name`.
 
-### Partner Practice
+### Practice
 
-- With your pair, create `attr_reader`s for the attributes in your `Person` class.
-- Practice explaining to your partner what is happening _under the hood_ with the `attr_reader`s
+- Create `attr_reader`s for the attributes in your `Person` class.
+- Practice explaining to your what is happening _under the hood_ with the `attr_reader`s
 
 ## Other Methods
 
@@ -295,9 +292,9 @@ Let's update our runner file so that you:
 3. Add a power for that Unicorn, using the method you just created. You can represent a power as a String.
 4. Print the new powers of the Unicorn.
 
-### Partner Practice
+### Practice
 
-- With your pair, create a `have_birthday` method for your Person class. This should increase the age of that person by 1.
+- Create a `have_birthday` method for your Person class. This should increase the age of that person by 1.
 - Update your runner file in a similar fashion to steps 1-4 for your Person class.
 
 ## Object Interaction
@@ -323,7 +320,7 @@ end
 Let's update our runner file to add Power objects to your unicorn.
 
 
-## Solo Practice
+## Practice
 
 ### Create a Book Class
 
