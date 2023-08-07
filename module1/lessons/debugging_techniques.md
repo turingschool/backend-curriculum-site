@@ -181,6 +181,15 @@ Let's look at an error from our Wizard test suite:
   </ul>
 </section>
 
+## Checks For Understanding
+
+How does the stack trace read to tell you what's going on?
+
+What is one common error message?
+
+What does it mean if you don't hit your pry when you palce it?
+
+
 ## Exercise - Erroneous Creatures
 
 See if you can finish updating the Erroneous Creatures to make the rest of the test suite pass.
