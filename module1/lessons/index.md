@@ -23,10 +23,7 @@ title: Module 1 Lessons
 * [Inheritance](./inheritance)
 * [Class Methods](class_methods)
 * [Ruby Object Model](./ruby_object_model)
-* [Enumerables Review](./enumerables_review)
-* [Memory Allocation](./memory_allocation)
-* [The Call Stack](./call_stack)
-* [Intro to How the Web Works](./intro_to_how_the_web_works)
+
 
 ### Design
 
@@ -68,4 +65,7 @@ title: Module 1 Lessons
 
 ### Additional Exploration Topics & Resources
 * [Intermediate Enumerables](./intermediate_enumerables)
-
+* [Advanced Enumerables](./advanced_enumerables)
+* [Memory Allocation](./memory_allocation)
+* [The Call Stack](./call_stack)
+* [Intro to How the Web Works](./intro_to_how_the_web_works)
