@@ -191,7 +191,7 @@ end
 **Your Task**
 Open up a ruby file, and write a method that does the same thing as the code above, but using `#map`. Wait to record this in your notes until we go over it with the group. 
 
-**Turn & Talk**  
+**Reflection**  
 Share your code with a small group. Talk them through it and be specific. What is similar/different? Are there any changes/additions you want to make to your own code?
 
 
@@ -249,7 +249,7 @@ end
 **Your Task**
 Open up a ruby file, and write a method that does the same thing as the code above, but using `#find`. Wait to record this in your notes until we go over it with the group. 
 
-**Turn & Talk**  
+**Reflection**  
 Share your code with a small group. Talk them through it and be specific. What is similar/different? Are there any changes/additions you want to make to your own code?
 
 ### `find_all` / `select`
@@ -305,7 +305,7 @@ end
 **Your Task**
 Open up a ruby file, and write a method that does the same thing as the code above, but using `#find_all`. Wait to record this in your notes until we go over it with the group. 
 
-**Turn & Talk**  
+**Reflection**  
 Share your code with a small group. Talk them through it and be specific. What is similar/different? Are there any changes/additions you want to make to your own code?
 
 ### Additional Enumerables
