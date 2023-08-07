@@ -1,5 +1,5 @@
 ---
-title: Debugging with Pry
+title: Intro to Debugging
 tags: debugging, pry
 layout: page
 ---

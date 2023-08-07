@@ -5,23 +5,17 @@ title: Module 1 Lessons
 
 ### Ruby Mechanics
 
-* [Pre-Work Code Share](./code_share)
-* [Ruby Data Types](./datatypes)
 * [Flow Control](./flow_control)
-* [#each](./each)
-* [Methods, Arguments, Return Values](./methods_and_return_values)
 * [Objects, Instances and Classes](./objects_classes_instances)
+* [Scope](./scope)
 * [Beginner Enumerables](./beginner_enumerables)
 * [Hashes](./hashes)
-* [Scope](./scope)
-* [Working with Files](./working_with_files)
 * [Nested Collections](./nested_collections)
-* [Nested Iteration](./nested_iteration)
 * [Boolean Logic](./boolean_logic)
-* [Object Oriented Programming](./object_oriented_programming)
 * [Modules](./modules)
-* [Inheritance](./inheritance)
+* [Nested Iteration](./nested_iteration)
 * [Class Methods](class_methods)
+* [Inheritance](./inheritance)
 * [Ruby Object Model](./ruby_object_model)
 
 
@@ -35,23 +29,27 @@ title: Module 1 Lessons
 ### Testing
 
 * [Intro to Testing](./intro_to_testing)
-* [Test Driven Development](./test_driven_development)
 * [Mocks and Stubs](./mocks_stubs)
+* [Test Driven Development](./test_driven_development)
+
 
 ### Debugging
 
-* [Debugging with Pry](./debugging_with_pry)
+* [Intro to Debugging](./into_to_debugging)
 * [Debugging Techniques](./debugging_techniques)
+
 
 ### Version Control
 
 * [Git and Github](./git_and_github)
-* [Git Review](./git_review)
 * [Git for Pairs](./git_for_pairs)
+* [Git Review](./git_review)
+
 
 ### Exploration
 
 * [CSV Exploration](./csv_exploration)
+* [Working with Files](./working_with_files)
 
 ### Professional Development
 
@@ -64,6 +62,12 @@ title: Module 1 Lessons
 * [Project DTR](https://docs.google.com/document/d/1HFWSZExSWgGJdqLkEH4DXs-z1gZxMNkv4n1NO9U1eJU/edit?usp=sharing)
 
 ### Additional Exploration Topics & Resources
+
+* [Pre-Work Code Share](./code_share)
+* [Ruby Data Types](./datatypes)
+* [Object Oriented Programming](./object_oriented_programming)
+* [Methods, Arguments, Return Values](./methods_and_return_values)
+* [#each](./each)
 * [Intermediate Enumerables](./intermediate_enumerables)
 * [Advanced Enumerables](./advanced_enumerables)
 * [Memory Allocation](./memory_allocation)
