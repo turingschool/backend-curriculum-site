@@ -290,7 +290,7 @@ p @name
 
 Notice that unlike local variables and methods, when an instance variable is out of scope, Ruby won't give you an error. Instead, that instance variable will default to `nil`. This can be very dangerous.
 
-## Turn & Talk
+## Check for Understanding
 
 * What is scope?
 * For each of the following types of scope, what are the Ruby keywords that begin and end the scope?
@@ -301,13 +301,10 @@ Notice that unlike local variables and methods, when an instance variable is out
 
 ## Activity
 
-Clone [this repository](https://github.com/turingschool-examples/scope_exercise)
+Clone [this repository](https://github.com/turingschool-examples/mod-1-be-exercises/tree/main/lessons/scope)
 
 Follow the instructions in the README.
 
-### Exit Ticket
-
-You'll have 10 minutes to complete the exit ticket independently.
 
 ## Conclusion
 
