@@ -11,12 +11,11 @@ title: Module 1 Lessons
 * [#each](./each)
 * [Methods, Arguments, Return Values](./methods_and_return_values)
 * [Objects, Instances and Classes](./objects_classes_instances)
-* [Enumerables I](./enumerables_i)
+* [Beginner Enumerables](./beginner_enumerables)
 * [Hashes](./hashes)
 * [Scope](./scope)
 * [Working with Files](./working_with_files)
 * [Nested Collections](./nested_collections)
-* [Enumerables II](./enumerables_ii)
 * [Nested Iteration](./nested_iteration)
 * [Boolean Logic](./boolean_logic)
 * [Object Oriented Programming](./object_oriented_programming)
@@ -66,3 +65,7 @@ title: Module 1 Lessons
 * [Productive Struggle](./productive_struggle)
 * [Writing Mod 1 READMEs](./writing_a_readme)
 * [Project DTR](https://docs.google.com/document/d/1HFWSZExSWgGJdqLkEH4DXs-z1gZxMNkv4n1NO9U1eJU/edit?usp=sharing)
+
+### Additional Exploration Topics & Resources
+* [Intermediate Enumerables](./intermediate_enumerables)
+
