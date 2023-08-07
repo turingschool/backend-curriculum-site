@@ -80,5 +80,7 @@ For additional guidance, consider the following rules:
 - No query logic in your Controllers or Views; this should live in your Models.
 - No data formatting in your Models or Controllers; this should live in your Views.
 
-### Further Learning
+### Further Learning and Review
 A completed version of this lesson can be found [here](https://github.com/turingschool-examples/mvc-in-action-7/tree/refactor).
+
+You can review the basics of MVC while completing this exercise using [this lesson](https://backend.turing.edu/module2/lessons/intro_to_mvc).
