@@ -21,10 +21,11 @@ title: Module 1 Lessons
 
 ### Design
 
-* [Ruby Project Etiquette](./project_etiquette)
 * [Design Principles](design_principles)
+* [Ruby Project Etiquette](./project_etiquette)
 * [Problem Solving](./problems_solutions_algorithms)
 * [Programming with Values](./programming_with_values)
+
 
 ### Testing
 
@@ -35,7 +36,7 @@ title: Module 1 Lessons
 
 ### Debugging
 
-* [Intro to Debugging](./into_to_debugging)
+* [Intro to Debugging](./intro_to_debugging)
 * [Debugging Techniques](./debugging_techniques)
 
 
@@ -43,13 +44,21 @@ title: Module 1 Lessons
 
 * [Git and Github](./git_and_github)
 * [Git for Pairs](./git_for_pairs)
-* [Git Review](./git_review)
 
 
 ### Exploration
 
+* [Pre-Work Code Share](./code_share)
+* [Ruby Data Types](./datatypes)
+* [Object Oriented Programming](./object_oriented_programming)
+* [Methods, Arguments, Return Values](./methods_and_return_values)
+* [#each](./each)
+* [Intermediate Enumerables](./intermediate_enumerables)
+* [Advanced Enumerables](./advanced_enumerables)
+* [Git Review](./git_review)
 * [CSV Exploration](./csv_exploration)
 * [Working with Files](./working_with_files)
+
 
 ### Professional Development
 
@@ -61,15 +70,9 @@ title: Module 1 Lessons
 * [Writing Mod 1 READMEs](./writing_a_readme)
 * [Project DTR](https://docs.google.com/document/d/1HFWSZExSWgGJdqLkEH4DXs-z1gZxMNkv4n1NO9U1eJU/edit?usp=sharing)
 
+
 ### Additional Exploration Topics & Resources
 
-* [Pre-Work Code Share](./code_share)
-* [Ruby Data Types](./datatypes)
-* [Object Oriented Programming](./object_oriented_programming)
-* [Methods, Arguments, Return Values](./methods_and_return_values)
-* [#each](./each)
-* [Intermediate Enumerables](./intermediate_enumerables)
-* [Advanced Enumerables](./advanced_enumerables)
 * [Memory Allocation](./memory_allocation)
 * [The Call Stack](./call_stack)
 * [Intro to How the Web Works](./intro_to_how_the_web_works)

@@ -6,6 +6,15 @@ layout: page
 
 # Pry
 
+## Learning Goals
+
+- How to set up/install `pry`
+- How to use `pry` as a tool in your terminal
+- How to use `pry` as a debugging tool in your code
+- How to use `pry` to pause your code
+- How to use `pry` in a loop
+
+
 ## Installing Pry
 
 If you haven't already, in your terminal, enter the command:
@@ -89,6 +98,12 @@ end
 ```
 
 Now our `binding.pry` is inside a loop that happens 25 times. Run this code and type `exit` a couple times. You'll notice that you continue to hit the same pry statement. If we have a loop that runs many times, it can be a pain to type `exit` over and over to get to the end of the program. You can instead force the program to end by typing `exit!` or `!!!`.
+
+
+## Check for Understanding
+
+Please take a moment to fill out this [Self-Assessment Quiz](https://docs.google.com/forms/d/e/1FAIpQLSfpk4BtYsSRBxoPQP2wRoRTSnqDzwlnGHPpCtWfcADS28yYXg/viewform)
+
 
 ### Summary
 
