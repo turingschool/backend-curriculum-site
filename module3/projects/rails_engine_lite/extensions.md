@@ -5,6 +5,7 @@ length: 1 week
 tags:
 type: project
 ---
+_[Back to Rails Engine Lite Home](./index)_
 
 Once your Rails Engine project is complete, you may choose any of the following extensions for additional points:
 

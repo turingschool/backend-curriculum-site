@@ -1,6 +1,6 @@
 # Intro to Caching in Rails
 
-This lesson plan last updated to work with Rails 7.0.4 and Ruby 3.1.1.
+This lesson plan last updated to work with Rails 7.0.6 and Ruby 3.2.2.
 
 ## Learning Goals
 

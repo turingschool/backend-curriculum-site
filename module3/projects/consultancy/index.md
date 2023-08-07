@@ -68,6 +68,8 @@ We'll also examine our end users on a deeper level to instill a strong sense of 
 
 Please see the technical and professional learning goals [here](./project_goals).
 
+The List of Glory can be found [here](https://www.notion.so/turingschool/722fa9eb60b44614996e6633712eca4d?v=c2935aed98ea4fd99747a636001ed3fe&pvs=4) 
+
 ---
 
 ## Phases

@@ -255,7 +255,7 @@ We could use this same form structure to build out our new artist form; but, wou
 
 
 ```erb
-<%= form_with url: "/artists", method: :post do |form| %>
+<%= form_with url: "/artists", method: :post, data: {turbo: false} do |form| %>
   <%= form.label :name %>
   <%= form.text_field :name %>
   <%= form.submit 'Create Artist' %>

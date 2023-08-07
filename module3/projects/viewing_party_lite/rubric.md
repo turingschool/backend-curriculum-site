@@ -2,7 +2,7 @@
 layout: page
 title: Viewing Party Project Rubric
 ---
-
+_[Back to Viewing Party Home](./index)_
 ## Viewing Party Rubric
 
 ### Completion
