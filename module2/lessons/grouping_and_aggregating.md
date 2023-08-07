@@ -569,6 +569,14 @@ Test your understanding by writing queries for the following in ActiveRecord:
 1. Write a query to return each artist's name and a comma separated list of all their songs, for example "Talking Heads" would have "This must be the Place, Heaven"
 
 
+## Checks for Understanding
+
+- What are aggregate functions? Where do they appear in SQL statements?
+- What do calculation methods in AR return?
+- What does the `group by` statement do in sql?
+- Why do we need to include an aggregate function when using `group by`?
+- When do we need to join?
+
 ### Solutions
 Only use these as references after you've tried the above practice queries on your own! Keep in mind that there are multiple ways to arrive at these soultions, so if your query returns the expected output but is different than the query listed below, it's still probably good! 
 
@@ -635,11 +643,3 @@ Only use these as references after you've tried the above practice queries on yo
 ```
 </section>
 
-
-## Checks for Understanding
-
-- What are aggregate functions? Where do they appear in SQL statements?
-- What do calculation methods in AR return?
-- What does the `group by` statement do in sql?
-- Why do we need to include an aggregate function when using `group by`?
-- When do we need to join?
