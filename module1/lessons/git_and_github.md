@@ -41,13 +41,13 @@ Git is a **Version Control System** (VCS). It allows you to save work on your pr
 Saving your work in git is known as **committing**. Even though you may change a file and hit save, you don't actually save it to your git repository until you use the `commit` command. 
 
 <section class="note">
-       
 Changes can be in 3 different states:
-    <dl>
-       <li><b>Unstaged</b>: we have made changes but not told git that we would like to commit them</li>
-       <li><b>Staged</b>: we have made changes and told git that we are getting ready to commit them</li>
-       <li><b>Committed</b>: we have committed our changes to the repository's log of commits. Our work is saved.</li>
-    </dl>
+
+<b>Unstaged</b>: we have made changes but not told git that we would like to commit them
+
+<b>Staged</b>: we have made changes and told git that we are getting ready to commit them
+
+<b>Committed</b>: we have committed our changes to the repository's log of commits. Our work is saved.
 </section>
 
 ### Important Git Commands
@@ -70,20 +70,20 @@ How to Write a Good Commit Message
 <p>Begin the commit message with the <b>type</b> of the commit followed by a <code>:</code> and brief description.</p>
 
 Types of commits include:
-    <ul>
-        <li><b>fix</b> - use if committed code is fixing a bug(broken code).</li>
-        <li><b>feat</b> - stands for feature. <i>This will likely be your most common type that you use.</i> It should be used for any new functionality that is committed.</li>
-        <li><b>test</b> - use if committed code is adding test functionality.</li>
-        <li><b>refactor</b> - use if updating and/or removing existing code.</li>
-        <li><b>docs</b> - use if updating your readme.</li>
-    </ul>
+<ul>
+<li><b>fix</b> - use if committed code is fixing a bug(broken code).</li>
+<li><b>feat</b> - stands for feature. <i>This will likely be your most common type that you use.</i> It should be used for any new functionality that is committed.</li>
+<li><b>test</b> - use if committed code is adding test functionality.</li>
+<li><b>refactor</b> - use if updating and/or removing existing code.</li>
+<li><b>docs</b> - use if updating your readme.</li>
+</ul>
 
 Examples of good commit messages:
-    <ul>
-        <li><code>fix: broken calculation for percent high ranking cards</code></li>
-        <li><code>feat: add shuffle to deck</code></li>
-        <li><code>test: add test for shuffle</code></li>
-    </ul>
+<ul>
+<li><code>fix: broken calculation for percent high ranking cards</code></li>
+<li><code>feat: add shuffle to deck</code></li>
+<li><code>test: add test for shuffle</code></li>
+</ul>
 </section>
 
 ### Git Workflow
@@ -100,14 +100,14 @@ Examples of good commit messages:
 These are the steps you should take to make changes and save them to your repository.
 
 <section class="note">
-    <ol>
-        <li> <code>git status</code> - make sure our working directory is clean, which means there are no changes. If there are changes, we need to figure out what to do with them, either commit them or stash them.</li>
-        <li> Make changes - e.g. create or update files</li>
-        <li> <code>git status</code> - we should see the files we changed as unstaged.</li>
-        <li> <code>git add <i>name of file we changed</i></code> - stage those changes for commit. We need to do this for each file we changed.</li>
-        <li> <code>git status</code> -  we should see the files we changed as staged for commit.</li>
-        <li> <code>git commit -m "feat: add new method"</code> - commit the changes.</li>
-    </ol>
+<ol>
+<li> <code>git status</code> - make sure our working directory is clean, which means there are no changes. If there are changes, we need to figure out what to do with them, either commit them or stash them.</li>
+<li> Make changes - e.g. create or update files</li>
+<li> <code>git status</code> - we should see the files we changed as unstaged.</li>
+<li> <code>git add <i>name of file we changed</i></code> - stage those changes for commit. We need to do this for each file we changed.</li>
+<li> <code>git status</code> -  we should see the files we changed as staged for commit.</li>
+<li> <code>git commit -m "feat: add new method"</code> - commit the changes.</li>
+</ol>
 </section>
 
 
@@ -145,18 +145,18 @@ Name the new repository the same as what you have named the directory that you'r
 Once you've created a new repository on GitHub, you need to link that repository to your local repository. We need to add a remote.
 
 <section class="note">
-    <ul>
-        <li> <code>remote -v</code> - this will show you what your remote repository is configured as. This is helpful for debugging.</li>
-        <li> <code>remote add <i>remote_name</i> <i>remote url</i></code> - This adds a new remote. If you type <code>remote -v</code> and nothing shows up, it means you have no remotes and you will need to use this command to add one. Usually, you only need to do this once when you are setting up a project.</li>
-        <li> <code>push <i>remote_name</i> <i>branch_name</i></code> - Update your remote repository to match your local repository. The remote name is almost always <code>origin</code>. The branch name is whatever branch you want to push to (more on branching further down). For instance, if you are working on the <code>main</code> branch, which is the default branch, the command would be:</li>
-        <ul>
-            <li> <code>git push origin main</code></li>
-        </ul>
-        <li> <code>pull <i>remote_name</i> <i>branch_name</i></code> - update your local repository with the changes made to the remote. This will be important when you are working with someone else, and you want to get the changes they made. Similar to pushing, remote name will almost always be <code>origin</code>. Branch name is whatever branch you want to pull from. So if you wanted to get the recent changes to <code>main</code>, the command would be:</li>
-        <ul>
-            <li> <code>git pull origin main</code> <b>note</b>: This will pull the changes in to whatever branch you are currently working in </li>
-        </ul>
-    </ul>
+<ul>
+<li> <code>remote -v</code> - this will show you what your remote repository is configured as. This is helpful for debugging.</li>
+<li> <code>remote add <i>remote_name</i> <i>remote url</i></code> - This adds a new remote. If you type <code>remote -v</code> and nothing shows up, it means you have no remotes and you will need to use this command to add one. Usually, you only need to do this once when you are setting up a project.</li>
+<li> <code>push <i>remote_name</i> <i>branch_name</i></code> - Update your remote repository to match your local repository. The remote name is almost always <code>origin</code>. The branch name is whatever branch you want to push to (more on branching further down). For instance, if you are working on the <code>main</code> branch, which is the default branch, the command would be:</li>
+<ul>
+<li> <code>git push origin main</code></li>
+</ul>
+<li> <code>pull <i>remote_name</i> <i>branch_name</i></code> - update your local repository with the changes made to the remote. This will be important when you are working with someone else, and you want to get the changes they made. Similar to pushing, remote name will almost always be <code>origin</code>. Branch name is whatever branch you want to pull from. So if you wanted to get the recent changes to <code>main</code>, the command would be:</li>
+<ul>
+<li> <code>git pull origin main</code> <b>note</b>: This will pull the changes in to whatever branch you are currently working in </li>
+</ul>
+</ul>
 </section>
 
 ### Git workflow with Github
@@ -205,26 +205,26 @@ Switching to a branch is called a **checkout**. When you checkout a new branch, 
 <section class="call-to-action">
     
 Branching commands
-    <ul>
-        <li><code>branch</code> - view a list of branches</li>
-        <li><code>branch branch_name</code> - create a new branch</li>
-        <ul>
-            <li>ex: <code>git branch new_feature</code></li>
-        </ul>
-        <li><code>checkout branch_name</code> - switch to a branch</li>
-        <ul>
-            <li>ex: <code>git checkout main</code></li>
-        </ul>
-        <li><code>checkout -b branch_name></code> - create and switch to a branch in one command</li>
-        <ul>
-            <li>ex: <code>git checkout -b new_feature</code></li>
-        </ul>
-        <li><code>push remote_name branch_name</code> - push to a branch. If the branch doesn't exist in your remote, Github will create a new one for you.</li>
-        <ul>
-            <li>ex: <code>git push origin new_feature</code></li>
-        </ul>
-        <li><code>pull remote_name branch_name</code> - pull from a branch. Generally you want to be pushing to feature branches (branches where you're working on code) and pulling from main.</li>
-    </ul>
+<ul>
+<li><code>branch</code> - view a list of branches</li>
+<li><code>branch branch_name</code> - create a new branch</li>
+<ul>
+<li>ex: <code>git branch new_feature</code></li>
+</ul>
+<li><code>checkout branch_name</code> - switch to a branch</li>
+<ul>
+<li>ex: <code>git checkout main</code></li>
+</ul>
+<li><code>checkout -b branch_name></code> - create and switch to a branch in one command</li>
+<ul>
+<li>ex: <code>git checkout -b new_feature</code></li>
+</ul>
+<li><code>push remote_name branch_name</code> - push to a branch. If the branch doesn't exist in your remote, Github will create a new one for you.</li>
+<ul>
+<li>ex: <code>git push origin new_feature</code></li>
+</ul>
+<li><code>pull remote_name branch_name</code> - pull from a branch. Generally you want to be pushing to feature branches (branches where you're working on code) and pulling from main.</li>
+</ul>
 </section>
 
 ### Pull Requests
@@ -240,23 +240,23 @@ Not only do Pull Requests allow you to merge branches, they allow other collabor
 This is the final version of our workflow, and is what you should be doing on every project, partner or solo.
 
 <section class="call-to-action">
-    <ol>
-        <li><code>git status</code> - make sure our working directory is clean. If there are changes, we need to figure out what to do with them, either commit them or stash them.</li>
-        <li><code>git pull origin main</code> - Make sure you are up to date with the latest version of main.</li>
-        <li><code>git branch feature_name</code> - make a new branch based on a feature you want to add. Alternatively, you can use <code>git checkout -b feature_name</code> to create and checkout the branch in one command.</li>
-        <li><code>git checkout feature_name</code> - Checkout the branch</li>
-        <li>Make changes</li>
-        <li><code>git status</code> - we should see the files we changed as unstaged.</li>
-        <li><code>git add name_of_file_we_changed></code> - stage those changes for commit. We need to do this for each file we changed.</li>
-        <li><code>git status</code> -  we should see the files we changed as staged for commit.</li>
-        <li><code>git commit -m "short message about the changes we made"</code> - commit the changes.</li>
-        <li><code>git push origin feature_name</code> - Push your branch to Github.</li>
-        <li>Repeat steps 4 - 10 until the feature is complete</li>
-        <li>Put in a Pull Request (PR) to merge your branch into main.</li>
-        <li>Visit GitHub and merge your pull request into main.</li>
-        <li><code>git checkout main</code> - Switch back to the main branch.</li>
-        <li><code>git pull origin main</code> - Make sure that you have the most recent changes that you made on your local main branch.</li>
-    </ol>
+<ol>
+<li><code>git status</code> - make sure our working directory is clean. If there are changes, we need to figure out what to do with them, either commit them or stash them.</li>
+<li><code>git pull origin main</code> - Make sure you are up to date with the latest version of main.</li>
+<li><code>git branch feature_name</code> - make a new branch based on a feature you want to add. Alternatively, you can use <code>git checkout -b feature_name</code> to create and checkout the branch in one command.</li>
+<li><code>git checkout feature_name</code> - Checkout the branch</li>
+<li>Make changes</li>
+<li><code>git status</code> - we should see the files we changed as unstaged.</li>
+<li><code>git add name_of_file_we_changed></code> - stage those changes for commit. We need to do this for each file we changed.</li>
+<li><code>git status</code> -  we should see the files we changed as staged for commit.</li>
+<li><code>git commit -m "short message about the changes we made"</code> - commit the changes.</li>
+<li><code>git push origin feature_name</code> - Push your branch to Github.</li>
+<li>Repeat steps 4 - 10 until the feature is complete</li>
+<li>Put in a Pull Request (PR) to merge your branch into main.</li>
+<li>Visit GitHub and merge your pull request into main.</li>
+<li><code>git checkout main</code> - Switch back to the main branch.</li>
+<li><code>git pull origin main</code> - Make sure that you have the most recent changes that you made on your local main branch.</li>
+</ol>
 </section>
 
 ### Practice
