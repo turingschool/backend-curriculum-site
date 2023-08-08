@@ -26,7 +26,7 @@ This Gist will be your submission for your intermission work. Each of the assign
 
 ## Assignments
 
-Work on the following assignments in order. Each assignment will assume that you have completed the previous one and the accompanying Checks for Understanding. **Ruby 3.2.2 and Rails 7.0.5.x are required.**
+Work on the following assignments in order. Each assignment will assume that you have completed the previous one and the accompanying Checks for Understanding. **Ruby 3.2.2 and Rails 7.0.6.x are required.**
 
 Time-box recommendations are in each section's instructions, and also included here for convenience. 
 1. Sign up for the [GitHub Student Developer Pack](https://education.github.com/pack), using your `@turing.edu` email address. 
@@ -34,12 +34,13 @@ Time-box recommendations are in each section's instructions, and also included h
    - Follow [these instructions](https://mod4.turing.edu/lessons/intermission/gh-student-instructions.html) to get the info you require to complete registration. **You do NOT need to complete the Heroku steps at this time!** Ask in #codehelp if you get stuck. 
 2. [Ruby and Rails versions installation guide](https://backend.turing.edu/module3/misc/ruby_and_rails_versions)
 3. [Get Module 2 Tools](./tools)
-4. Styling (4 hrs total)
+4. [Intro to LinkedIn](./linkedin)
+5. Styling (4 hrs total)
     * [Intro to HTML](./html)
     * [Intro to CSS](./css)
     * [Static Challenge](./static_challenge) (2h)
-5. [Intro to SQL](./sql) (6 hrs total, 2 hrs each section)
-6. [Rails Tutorial: Task Manager](https://github.com/turingschool-examples/task_manager_rails) (Until complete)
+6. [Intro to SQL](./sql) (6 hrs total, 2 hrs each section)
+7. [Rails Tutorial: Task Manager](https://github.com/turingschool-examples/task_manager_rails) (Until complete)
 
 ### If you are Repeating
 
