@@ -6,7 +6,7 @@ title: Module 1 Lessons
 ### Ruby Mechanics
 
 * [Flow Control](./flow_control)
-* [Objects, Instances and Classes](./objects_classes_instances)
+* [Objects, Classes, and Instances](./objects_classes_instances)
 * [Scope](./scope)
 * [Beginner Enumerables](./beginner_enumerables)
 * [Hashes](./hashes)
