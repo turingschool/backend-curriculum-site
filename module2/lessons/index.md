@@ -17,8 +17,8 @@ layout: page
 * [How the Web Works IV: HTTP Yeah You Know Me Part II](./http_yykm_2)
 * [How the Web Works, DNS Edition](./how_the_web_works_dns)
 * [Representational State Transfer](./restful_routes_and_crud)
-* [Intro to APIs part I](./apis)
-* [Intro to APIs part II](./api_consumption_in_ruby)
+* [Intro to APIs I](./apis)
+* [Intro to APIs II](./api_consumption_in_ruby)
 
 ## Rails Application Development
 
