@@ -118,9 +118,21 @@ Controllers should limit their database actions to very simple lookups, or creat
 
 NOTE: For task 2, You should not have to create a new view.
 
-**Let’s also quickly talk about why the 2nd path isn’t a good idea.**
 
-### Recap
+
+<section class="answer">
+<h3>
+<img class="expander-arrow" src="/assets/images/arrow.svg" alt="expander arrow">Let’s explore about why the 2nd path above isn’t a good idea.
+</h3>
+
+When you expose an endpoint (a path / URI) for a given resource, it is a good idea to ensure that path is fully fleshed out and functional. A second endpoint can sometimes be confusing for the end user - they may be left asking, _"Which route is the correct one?"_ 
+
+Also, if the page that is meant to be served needs to change or the paths need updating, now you have not one path but __two__ to remember to update. 
+
+Can you think of any other reasons to limit paths to specific resources in web applications?
+</section>
+
+## Checks for Understanding
 
 - What does MVC stand for?
 - What are the "logic responsibilities" for each part of the MVC pattern?

@@ -60,6 +60,7 @@ layout: page
 - [Many to Many Relationships](./many_to_many)
 - [SQL and ActiveRecord](./sql_and_active_record)
 - [Joins](./joins)
+- [Multiple Joins / Advanced AR](./joins_2)
 - [Grouping and Aggregating](./grouping_and_aggregating)
 
 ## Testing and Debugging

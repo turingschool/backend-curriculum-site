@@ -568,6 +568,7 @@ Test your understanding by writing queries for the following in ActiveRecord:
 
 1. Write a query to return each artist's name and a comma separated list of all their songs, for example "Talking Heads" would have "This must be the Place, Heaven"
 
+
 ## Checks for Understanding
 
 - What are aggregate functions? Where do they appear in SQL statements?
@@ -575,3 +576,70 @@ Test your understanding by writing queries for the following in ActiveRecord:
 - What does the `group by` statement do in sql?
 - Why do we need to include an aggregate function when using `group by`?
 - When do we need to join?
+
+### Solutions
+Only use these as references after you've tried the above practice queries on your own! Keep in mind that there are multiple ways to arrive at these soultions, so if your query returns the expected output but is different than the query listed below, it's still probably good! 
+
+<section class="answer">
+<h3>#1: Length of the longest song</h3>
+```ruby
+   Song.maximum(:length)
+```
+</section>
+
+<section class="answer">
+<h3>#2: Length of each artist's longest song</h3>
+```ruby
+   Artist.select("artists.*, max(length)")
+      .joins(:songs)
+      .group("artists.id")
+```
+</section>
+
+<section class="answer">
+<h3>#3: Name of the artist with the longest song</h3>
+```ruby
+   Artist.joins(:songs)
+      .select("artists.name, max(length)")
+      .group(:name)
+      .order("max desc")
+      .limit(1)
+      .first
+      .name
+```
+</section>
+
+<section class="answer">
+<h3>#4: Average length of each artist's songs</h3>
+```ruby
+   Artist.select("artists.*, avg(length)")
+      .joins(:songs)
+      .group(:id)
+```
+</section>
+
+<section class="answer">
+<h3>#5: Name of the artist with the longest average length of song</h3>
+```ruby
+   Artist.select("artists.name, avg(length)")
+      .joins(:songs)
+      .group(:id)
+      .order("avg desc")
+      .limit(1)
+      .first
+      .name
+```
+</section>
+
+<section class="answer">
+<h3>#6: Names of the three artists with the least amount of total plays for all of their songs</h3>
+```ruby
+   Artist.select("artists.name, min(play_count)")
+      .joins(:songs)
+      .group(:id)
+      .order("min asc")
+      .limit(3)
+      .pluck(:name)
+```
+</section>
+

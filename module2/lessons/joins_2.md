@@ -6,6 +6,11 @@ title: Multiple Joins
 ## Prerequisites
 For success in this lesson, be sure you have reviewed the [Joins](./joins) lesson first. 
 
+## Learning Goals
+* Identify scenarios requiring multiple `join` statements in a query
+* Write ActiveRecord queries that join multiple tables utilizing AR associations
+* Explore some drawbacks of using AR associations across multiple joins
+
 ## Set Up
 Clone and check out the `joins-homework` branch of the [Set List Tutorial](https://github.com/turingschool-examples/set-list-7/tree/joins-homework). 
 
@@ -152,11 +157,69 @@ The takeaway here is, if we're not careful with our joins, it may result in some
 ## Further Practice
 Try implementing some of these queries on your own. You may want to try writing them out in SQL first, before translating them to ActiveRecord. 
 
-* Return a unique list of songs that appear on at least 1 playlist. 
-* Return the names of playlists that have at least 3 distinct artists. 
-* Return the names of artists that appear on at least 3 different playlists. 
+_NOTE_: We recommend adding more songs to your playlists to order to work with a larger dataset! You can try the following: 
+```ruby
+Playlist.first.songs << Song.first
+Playlist.first.songs << Song.second
+
+Playlist.second.songs << Song.first
+# etc., or feel free to create your own songs and Playlist relationships in your seeds.rb
+```
+
+1. Return a unique list of songs that appear on at least 1 playlist. 
+2. Return the names of playlists that have at least 3 different artists. 
+3. Return the names of artists that appear on at least 3 different playlists. 
+
+
+### Solutions
+Try the above queries in `rails c` or in a project first before comparing against these solutions. 
+
+<section class="answer">
+<h3>#1: Unique list of songs that appear on at least 1 playlist</h3>
+```ruby
+Song
+   .joins(:playlists)
+   .distinct
+```
+<p>This query works because of the association on `Song` to `playlists, through: :playlist_songs`. Without this association, the query would look like: </p>
+```ruby
+Song
+   .joins(playlist_songs: :playlist)
+   .distinct
+```
+<p>Note the multiple joins of `playlist_songs: :playlist` where `playlist` is singular on the right-hand side; this is because within the `PlaylistSong` model, we have one association of `belongs_to :playlist`.</p>
+</section>
+
+<section class="answer">
+<h3>#2: Names of playlists that have at least 3 distinct artists</h3>
+```ruby
+Playlist
+   .joins(songs: :artist)
+   .select("DISTINCT artists.*, playlists.name")
+   .group("artists.id, playlists.name")
+   .having("COUNT(songs.artist_id) >= 3")
+   .pluck("playlists.name")
+```
+<p>There are probably other ways to do this query! Remember that AR will order your clauses in the appropriate order for SQL, other than when you're using grouping and aggregating and want to return objetcts instead of hashes. </p>
+</section>
+
+<section class="answer">
+<h3>#3: Names of artists that appear on at least 3 different playlists</h3>
+
+<p>This query becomes easier to visualize when you have more data.</p>
+```ruby
+Artist
+   .joins(songs: :playlists)
+   .having("COUNT(playlists.id) >= 3")
+   .group(:id)
+   .pluck("artists.name")
+```
+</section>
 
 ## Checks for Understanding
+
+You can also answer these questions using [this form](https://forms.gle/PvtCtLcVx7CF2mCWA). 
+
 1. When would we want to use multiple joins in a query?
 2. What is one hazard of potential over-joining? 
 3. In your own words, describe the process for creating a multiple-join query. 

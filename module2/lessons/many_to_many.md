@@ -64,6 +64,12 @@ Think about the relationship between students and modules (i.e. "Mod 1: Object O
 
 Diagram what the database would look like.
 
+<section class="answer">
+<h3>Activity: Diagramming students to modules</h3>
+<img src="images/one-to-many-answer.png" alt="Diagramming students to modules" >
+<p>In this example, Modules are the "one" / "parent", and students would be the "many" / "children", since many students can be in only one module at a time. </p>
+</section>
+
 # Many-to-Many Relationships
 
 Now, we're going to add playlists to our app.
@@ -146,6 +152,12 @@ When you're thinking about what to call this table, think about how you're likel
 ### Independent Practice
 
 Diagram the DB tables you would need to create a many-to-many relationship between two tables that you think up on your own. Include some example data in your tables. If you can't come up with an example on your own, use Photographs and Albums.
+
+<section class="answer">
+<h3>Activity: Diagramming a many-to-many example (albums to photos)</h3>
+<img src="images/m2m-albums-photos-joined.png" alt="Diagramming albums to photos in a many-to-many relationship" >
+<p>In this example, Albums and Photos are joined by the PhotoAlbums join table.</p>
+</section>
 
 # Many-to-Many Relationships in Rails
 
@@ -548,6 +560,8 @@ Running the tests now will give us a missing template error, so go create `app/v
 We should now have a passing test. Check your work in development by adding some playlists to the seeds file, seeding the db with `rake db:seed`, and running your server.
 
 ## Checks for Understanding
+
+You can also answer these questions using [this form](https://forms.gle/odXSt3MqgVqq1R9RA). 
 
 - How is a one-to-many relationship set up in a database?
 - What does a join table do? Why would we need one?

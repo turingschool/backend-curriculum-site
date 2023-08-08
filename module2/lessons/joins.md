@@ -233,6 +233,7 @@ irb(main):001:0> Artist.joins(:songs).where('songs.length > ?', 400)
 ```
 
 ## Checks for Understanding
+You can also answer these questions using [this form](https://forms.gle/iTQ8T9FX86uAuq6aA). 
 
 1. What are the three types of joins covered today? And, what do they return?
 2. What is the SQL query to get a list of Artists who have songs that have been played more than 20 times?
