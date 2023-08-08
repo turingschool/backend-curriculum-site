@@ -272,13 +272,14 @@ class Employee
 end  
 ```
 
-## Discussion
+## Check for Understanding
 
 * Why might we decide to use inheritance?
 * Can you think of times that inheritance might not be the right choice?
 * What is the syntax for creating a class that inherits from another class? How many classes can you inherit from and how do you decide which should inherit from which?
 * What does `super` do, and what are the differences between the three different ways you can call it?
 * What does it mean to override a method in Ruby?
+
 
 ## Optional Next Steps
 
