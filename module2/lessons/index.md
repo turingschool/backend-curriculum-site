@@ -27,8 +27,7 @@ layout: page
 * [ActiveRecord Associations](./active_record_associations)
 * [ActiveRecord Associations with TDD](./active_record_associations_tdd)
 * [Dynamic Routing](./dynamic_routing)
-* [Forms](./forms)
-* [Passing Data in Rails](./passing_data_in_rails)
+* [Forms: Passing Data](./forms)
 * [MVC in Action](./mvc_in_action)
 * [Nested Resources in Rails](./nested_resources)
 * [Exploration: Sessions, Cookies and Flash Messages](../misc/sessions_cookies_and_flashes)
@@ -77,3 +76,6 @@ layout: page
 ## Styling
 
 * [HTML and CSS](./html_and_css)
+
+## Additional Exploration Topics & Resources
+* [Passing Data in Rails](./passing_data_in_rails)
