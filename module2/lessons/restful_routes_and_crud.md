@@ -1,6 +1,6 @@
 ---
 layout: page
-title: RESTful Routes and CRUD
+title: Representational State Transfer
 ---
 
 ## Learning Goals
