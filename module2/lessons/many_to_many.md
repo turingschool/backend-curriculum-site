@@ -561,6 +561,8 @@ We should now have a passing test. Check your work in development by adding some
 
 ## Checks for Understanding
 
+You can also answer these questions using [this form](https://forms.gle/odXSt3MqgVqq1R9RA). 
+
 - How is a one-to-many relationship set up in a database?
 - What does a join table do? Why would we need one?
 - How do we test many-to-many relationships?
