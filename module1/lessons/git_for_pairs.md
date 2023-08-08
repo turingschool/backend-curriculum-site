@@ -6,7 +6,7 @@ tags: ruby, git, workflow
 
 ## Learning Goals
 
-* Describe flow integrating git and github
+* Describe the flow integrating git and github
 * Describe how two people might work off the same repository
 * Describe steps to resolving a merge conflict
 
@@ -19,9 +19,7 @@ tags: ruby, git, workflow
 
 ## WarmUp
 
-* Diagram git workflow. Include any relevant git commands.
-
-## Review: Git Commands
+### Review: Git Commands
 
 **Create a local repository>**
 * git init
@@ -148,9 +146,8 @@ From `new_feature` branch (should already be on this):
   * `git pull origin main`
 
 
-## Closing
+## Checks for Understanding
 
-Talk with partner
 * What is the git workflow when working with a partner on a separate computer?
 * What is a merge conflict? How might you resolve a merge conflict?
 
