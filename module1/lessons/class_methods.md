@@ -10,9 +10,6 @@ tags: ruby, class methods, OOP
 * Use a class method to create instances of that class.
 * Distinguish between class and instance methods with the same name.
 
-## Agenda
-
-
 
 ## Vocabulary
 
@@ -115,12 +112,7 @@ User.create_multiple(users)
 ```
 
 
-### Exploration / CFU
 
-* What happens if you create a class method and an instance method with the same name?
-* What happens if you call an instance method from within a class method?
-* What about a class method from within another class method?
-* How would you explain the difference between class and instance methods to someone else?
 
 ## Practical Use, Experimentation
 
@@ -203,6 +195,15 @@ p result.first
 - average: takes a field name to average, returns a float, eg `Name.average("rank")`
 
 **The `ActiveRecord` library will also build methods on-the-fly based on the attribute names.** If there is a field called "name" it will build a method called "find_by_name". If there is a field called "ethnicity", it will build a method called "find_by_ethnicity" and so on.
+
+
+## Check for Understanding
+
+* What happens if you create a class method and an instance method with the same name?
+* What happens if you call an instance method from within a class method?
+* What about a class method from within another class method?
+* How would you explain the difference between class and instance methods to someone else?
+
 
 ## Additional Resources
 
