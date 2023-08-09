@@ -17,6 +17,7 @@ title: Module 1 Lessons
 * [Nested Iteration Workshop](./nested_iteration)
 * [Class Methods](class_methods)
 * [Inheritance](./inheritance)
+* [Event Manager](https://backend.turing.edu/module1/projects/eventmanager)
 * [Ruby Object Model](./ruby_object_model)
 
 
