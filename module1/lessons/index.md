@@ -14,7 +14,7 @@ title: Module 1 Lessons
 * [Nested Collections](./nested_collections)
 * [Boolean Logic](./boolean_logic)
 * [Modules](./modules)
-* [Nested Iteration](./nested_iteration)
+* [Nested Iteration Workshop](./nested_iteration)
 * [Class Methods](class_methods)
 * [Inheritance](./inheritance)
 * [Ruby Object Model](./ruby_object_model)

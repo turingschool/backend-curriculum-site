@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Nested Iteration
+title: Nested Iteration Workshop
 length: 90
 tags: enumerables, ruby
 ---
