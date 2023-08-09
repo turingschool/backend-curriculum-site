@@ -383,3 +383,99 @@ In your own words, what do each of the following ActiveRecord methods do?
 - limit
 - distinct
 - last
+
+## Solutions to Practice Problems
+Don't look at these until you've attempted the practice problems! 
+
+<section class="answer">
+<h3>#1: Get all songs</h3>
+```ruby
+   #SQL
+   SELECT * FROM songs;
+
+   #AR
+   Song.all
+```
+</section>
+
+<section class="answer">
+<h3>#2: Get all song lengths</h3>
+```ruby
+   #SQL
+   SELECT length FROM songs;
+   
+   #AR
+   Song.select(:length) 
+   # OR - Song.pluck(:length)
+```
+</section>
+
+<section class="answer">
+<h3>#3: Get the songs with a play count greater than zero</h3>
+```ruby
+   #SQL
+   SELECT * FROM songs WHERE play_count > 0;
+   
+   #AR
+   Song.where("play_count > 0")
+```
+</section>
+
+<section class="answer">
+<h3>#4: Get the titles of songs with a play count greater than zero</h3>
+```ruby
+   #SQL
+   SELECT title FROM songs WHERE play_count > 0;
+   
+   #AR
+   Song.select(:title).where("play_count > 0")
+   # OR - Song.where("play_count > 0").pluck(:title)
+```
+</section>
+
+<section class="answer">
+<h3>#5: Get the titles of the songs with a play count greater than zero, sorted alphabetically</h3>
+```ruby
+   #SQL
+   SELECT title FROM songs WHERE play_count > 0 ORDER BY title;
+   
+   #AR
+   Song.select(:title).where("play_count > 0").order(:title)
+   # OR - Song.where("play_count > 0").order(:title).pluck(:title)
+```
+</section>
+
+<section class="answer">
+<h3>#6: Get the titles of the songs with a play count greater than zero, sorted reverse alphabetically</h3>
+```ruby
+   #SQL
+   SELECT title FROM songs WHERE play_count > 0 ORDER BY title DESC;
+   
+   #AR
+   Song.select(:title).where("play_count > 0").order(title: :desc)
+   # OR - Song.where("play_count > 0").order(title: :desc).pluck(:title)
+```
+</section>
+
+<section class="answer">
+<h3>#7: Get the titles of the TWO songs with a play count greater than zero, sorted reverse alphabetically</h3>
+```ruby
+   #SQL
+   SELECT title FROM songs WHERE play_count > 0 ORDER BY title DESC LIMIT 2;
+   
+   #AR
+   Song.select(:title).where("play_count > 0").order(title: :desc).limit(2)
+```
+</section>
+
+<section class="answer">
+<h3>#8: Get the length of the song with the most plays</h3>
+```ruby
+   #SQL
+   SELECT length FROM songs ORDER BY play_count DESC LIMIT 1;
+   
+   #AR
+   Song.order(play_count: :desc).first.length
+```
+</section>
+

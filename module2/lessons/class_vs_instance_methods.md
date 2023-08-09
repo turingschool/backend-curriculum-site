@@ -19,7 +19,7 @@ This lesson plan starts with the `class-vs-instance-setup` branch of our good ol
 
 ## Exploration
 
-Open up `artist.rb` and `artist_spec.rb` side-by-side in your code editor. You'll notice a `pry` in some of the methods defined in the Artist class. You can run the spec with `bundle exec rspec spec/models/artist_spec.rb` to hit the first pry. You can enter `exit` into pry to continue on to the next pry. Use the code, test, and each of the `prys` to answer the following questions:
+Open up `artist.rb` and `artist_spec.rb` side-by-side in your code editor. You'll notice a `pry` in some of the methods defined in the Artist class. You can run the spec with `bundle exec rspec spec/models/artist_spec.rb` to hit the first pry. You can enter `exit` into pry to continue on to the next pry. Use the code, test, and each of the `prys` to answer the following questions with your group in a break out room:
 
 For each of the methods defined in the Artist class:
 
@@ -35,6 +35,13 @@ For each of the methods defined in the Artist class:
 - What is self in each context?
 - What does an instance of a model represent in our DB?
 - What does the class of a model represent in our DB?
+
+## Takeaways
+<section class="answer">
+<h3>Review these after your discussion</h3>
+  * In a Rails app, a class method allows you to perform actions on or query data from an entire database table rather than one specific row (or instance) of the data. `self` refers to the entire class or table. 
+  * In an instance method, you can perform actions or retrieve information about one instance of the class, which represents one row of data in a database table. `self` in these methods refers to the single model object. 
+</section>
 
 ## Practice Problems
 
