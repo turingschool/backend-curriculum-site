@@ -44,6 +44,7 @@ title: Module 1 Lessons
 
 * [Git and Github](./git_and_github)
 * [Git for Pairs](./git_for_pairs)
+* [Git Review](./git_review)
 
 
 ### Exploration
@@ -55,7 +56,6 @@ title: Module 1 Lessons
 * [#each](./each)
 * [Intermediate Enumerables](./intermediate_enumerables)
 * [Advanced Enumerables](./advanced_enumerables)
-* [Git Review](./git_review)
 * [CSV Exploration](./csv_exploration)
 * [Working with Files](./working_with_files)
 
