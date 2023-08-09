@@ -10,6 +10,7 @@ title: Module 1 Lessons
 * [Scope](./scope)
 * [Beginner Enumerables](./beginner_enumerables)
 * [Hashes](./hashes)
+* [Reaching Through Objects Workshop](https://github.com/turingschool-examples/mod-1-be-exercises/tree/main/lessons/reaching_through_objects)
 * [Nested Collections](./nested_collections)
 * [Boolean Logic](./boolean_logic)
 * [Modules](./modules)
