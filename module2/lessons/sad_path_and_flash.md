@@ -1,12 +1,12 @@
 ---
 layout: page
-title: Sad Path Testing and Flash Messages
+title: Sad Path Testing
 ---
 
 ## Learning Goals
 
 - Describe sad path testing, and why it is necessary
-- Implement a sad path user story
+- Implement a sad path user story utilizing flash messages
 
 ## Vocabulary
 

@@ -75,11 +75,15 @@ When you are finished with the activity, answer the following questions:
 - What is a Model in a Rails application?
 - What is the Rails Console? Why would you use the Rails console?
 
-Key Takeaways:
+Key Takeaways (Read these after answering the questions above!):
 
-- ActiveRecord objects are a representation of what is stored in the database
+- ActiveRecord as an ORM is the "middleman" between our Rails application and our database. It encapsulates access to the database and allows us to easily query and mutate data.
 - ActiveRecord has many built in methods for querying the database
 - All ActiveRecord commands execute SQL under the hood.
+- ActiveRecord objects are a representation of what is stored in the database, and they are called Models
+- We can use the Rails Console to execute ActiveRecord queries. This is a great option for testing out ActiveRecord you are going to add to your application.
+- We can use the Rails dbconsole to execute raw SQL queries as an alternative to the Rails Console. 
+
 
 ## Checks for Understanding
 

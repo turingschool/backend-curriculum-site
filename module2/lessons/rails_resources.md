@@ -1,18 +1,20 @@
 ---
-title: Rails Resources
+title: Advanced Routing
 layout: page
 ---
 ## Learning Goals
 
 - Understand what the `resources` syntax in `routes.rb` generates for us.
-- Understand what nesting `resoures` in `routes.rb` generates for us.
+- Understand what nesting `resources` in `routes.rb` generates for us.
 - Understand the 5 pieces of information `rails routes` gives us.
 - Use route helpers
+- Understand the difference between namespacing and nested `resources``
 
 ## Vocabulary
 
 - routes
 - route helper
+- namespace
 
 ## Set Up
 For part of this lesson we'll use the `advanced-routing` branch of the Set List Tutorial [here](https://github.com/turingschool-examples/set-list-7/tree/advanced-routing). 
@@ -100,6 +102,32 @@ end
 Just like before, we only want to create the routes we need.
 
 With a partner, refactor the nested routes in SetList to use the `resources` sytnax.
+
+## What's the difference between Nested Resources and Namespacing?
+
+Namespacing a route is an organizational tool that helps us categorize routes. Take a look at this routes file:
+
+```ruby
+	    resources :songs, only: [:index]
+	    namespace :admin do
+	      resources :songs, only: [:index, :show]
+	    end
+```
+
+While this might look similar to nested resources, the routes it will produce are different. The paths listed under `namespace` will have `/admin/` tacked on the beginning of them, but `admin` itself is not a resource. It does not map to a database table like `artists` and it does not have associated IDs. In this case, prepending the routes with `admin` is purely for organization and categorization. Using namespacing is akin to putting existing routes in a folder called `admin`. Take a look at what `rails routes` will output for these routes. 
+
+```ruby 
+         Prefix 	Verb   	URI Pattern                	Controller#Action
+           songs 	GET    	/songs(.:format)            songs#index
+     admin_songs 	GET  		/admin/songs(.:format)      admin/songs#index
+			admin_song 	GET    	/admin/songs/:id(.:format) 	admin/songs#show
+```
+
+When creating a controller for actions that come from namespaced routes, it's conventional to declare the namespace title as a module, like so:
+
+`class Admin::SongsController < ApplicationController`
+
+The path for the above controller in the application's file directory would likely be `controllers/admin/songs_controller.rb`. Note the `admin` sub-directory. 
 
 ## Route Helpers
 
