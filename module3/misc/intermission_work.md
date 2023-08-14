@@ -10,7 +10,7 @@ You must complete and submit all of these assignments. *It is due the Saturday b
 
 Submit your work here: [Survey Link](https://forms.gle/SzrTxMFjYUQLbqbY8)
 
-You must use Ruby 3.2.2 and Rails 7.0.5 for all of the work in this module. You can check your version by running `ruby -v` and `rails -v` in your terminal.
+You must use Ruby 3.2.2 and Rails 7.0.x for all of the work in this module. You can check your version by running `ruby -v` and `rails -v` in your terminal.
 
 Note: If you are installing Ruby 3.2.2 for the first time, you WILL have to reinstall all of your gems. Gems reside on your computer per version of Ruby, and every time you add a new version of Ruby, you will have to reinstall all of your gems for that version of ruby.
 
