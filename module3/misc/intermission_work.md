@@ -26,6 +26,10 @@ If you need a guide on how to upgrade [check this out](https://backend.turing.ed
 
 ---
 
+### Professional Development
+
+[Complete the tasks outlined in this document](https://docs.google.com/document/d/1i6O5-l6RS1I6dlM-uL-xAtYohrOENj1DR0YsqCl2gwE) to have the foundations for a technically rich resume.
+
 ### Intro to APIs
 
 Everything we build in Mod 3 will focus on the theme of building and consuming APIs.
