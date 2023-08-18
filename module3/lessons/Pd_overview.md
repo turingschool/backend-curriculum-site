@@ -1,5 +1,5 @@
 ---
-layout: page
+layout:page
 title: PD Overview 
 ---
 During Mod 3, students will develop employer-ready application materials and interview skills based on networking conversations, guided reflections, and feedback from earlier modules. Using portfolios, resumes, cover letters, and behavioral interview lessons, students will learn how to effectively communicate accomplishments, transferrable skills, and technical expertise. 
