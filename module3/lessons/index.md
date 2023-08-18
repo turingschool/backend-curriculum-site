@@ -2,7 +2,7 @@
 title: Module 3 Curriculum
 layout: page
 ---
-Professional Development
+## Professional Development
 
 ## Authentication
 
