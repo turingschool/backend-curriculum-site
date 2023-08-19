@@ -109,3 +109,16 @@ Bonus Content (if you want to know more)
 * [6 Pro Tips for Cutting Your Resume Down to One Page](https://www.themuse.com/advice/6-pro-tips-for-cutting-your-resume-down-to-one-page)
 
 **NOTE: None of these will make or break your resume, so don’t feel like you have to look at them! They are just here as additional resources if you’d like them/find a need for them
+
+
+## Turing Alumni Portfolio 
+
+What it is:
+* Terminal is our joint job board and graduate portfolio site
+* How we showcase our job-seeking graduates and soon-to-be graduates
+* How it’s used:
+  * Employers come here to look for candidates
+  * We also send these to employers
+
+## Setting up your Portfolio
+* [Learn how to set up and publish your portfolio, including tips for writing summaries and project descriptions](https://careerdev.turing.edu/resources/terminal_directions). 
