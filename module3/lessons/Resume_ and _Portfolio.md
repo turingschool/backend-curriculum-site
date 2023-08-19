@@ -3,8 +3,6 @@ layout: page
 title:  Crafting A Technically Focused Resume and Portfolio 
 ---
 
-Slides
-
 ## Learning Goals
 * Understand how to tell your professional story through your resume
 * Learn how to tailor your resume to the Tech Industry
@@ -120,6 +118,7 @@ What it is:
   * Employers come here to look for candidates
   * We also send these to employers
 
+## Deliverable
 ## Setting up your Portfolio
 * [Learn how to set up and publish your portfolio, including tips for writing summaries and project descriptions](https://careerdev.turing.edu/resources/terminal_directions).
 * [Discover more detailed information on how to effectively write your project descriptions](https://docs.google.com/document/d/1zKePxhD-xQdLRPeLI21E71ET_U88ZZ-SKTQjRVzs8tM/edit)
