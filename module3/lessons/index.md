@@ -5,6 +5,7 @@ layout: page
 ## Professional Development
 
 * [PD Overview](/module3/lessons/Pd_overview)
+* [Crafting Your Technically Focused Resume and Portfolio](/module3/lessons/Resume_%20and%20_Portfolio.md)
 
 ## Authentication
 
