@@ -20,7 +20,7 @@ Name
 * Phone number
 * City & State (optional - helpful if you’re targeting a specific area) 
 * TITLE - THIS IS IMPORTANT 
-* Software Developer; Front-End Software Developer, etc. 
+  * Software Developer; Front-End Software Developer, etc. 
 * Hyperlinks to your LinkedIn and Github
 
 Summary Statement
@@ -41,8 +41,8 @@ ESSENTIAL - arguably the most important part!
 * Specify solo, paired, or group project
 * How to describe the projects 
 * Help the reader understand what the project was, what problem it solved or what it was built for, and the technologies that were used 
-* HOWEVER, it’s extra important to show what YOU contributed to the project - not just a description of what the project was
-* Think about answering the questions: What was your role in the project? What specific metrics or goals did you meet? What was the result/impact of your project/work? 
+  * HOWEVER, it’s extra important to show what YOU contributed to the project - not just a description of what the project was
+  * Think about answering the questions: What was your role in the project? What specific metrics or goals did you meet? What was     the result/impact of your project/work? 
 
 Work Experience
 * Shorter than projects section - select the most relevant experiences and bullets
@@ -67,15 +67,15 @@ What’s an ATS-Friendly Resume?
 * It’s not just a job search buzzword! 
 * It’s a human resource software that helps automate the hiring process and speed it up for recruitment teams 
 * An ATS can: 
-* Store candidate information easily 
-* Track candidates through the hiring pipeline 
-* Weed out unqualified candidates based on the parameters set by HR 
-* Automate tasks like screening applicants, reading resumes, sending status updates, etc. 
+  * Store candidate information easily 
+  * Track candidates through the hiring pipeline 
+  * Weed out unqualified candidates based on the parameters set by HR 
+  * Automate tasks like screening applicants, reading resumes, sending status updates, etc. 
 
 ATS has very specific ways of reading resumes!
 So, there are certain things that are very important to consider when creating a technically-focused resume. The first is that an ATS parses your resume for specific keywords and qualifications set by HR pertaining to the job description. This impacts you in two ways: 
-* Resume Format
-* Relevant Sections and Keywords
+  * Resume Format
+  * Relevant Sections and Keywords
 
 ATS Resume Formatting
 Some things to know about how an ATS reads a resume: 
@@ -92,22 +92,20 @@ Relevant Sections & Keywords
 
 Important Links
 * Turing specific (make a copy and edit)
-* [Other ATS-friendly options via]((https://www.jobscan.co/resume-templatesJobscan templates)
+* [Other ATS-friendly options via](https://www.jobscan.co/resume-templates)
 
 Getting organized
-* Resume worksheet 
-* LinkedIn Resume Builder - you can use your LinkedIn profile summary to copy/paste the info into a template
+* [Resume worksheet](https://docs.google.com/document/d/1870HMMJQfTDzRLR-xzee2YGAX1GW5KwSp73mtFsF_Do/edit)
+* [LinkedIn Resume Builder](https://www.linkedin.com/help/linkedin/answer/a551182/linkedin-resume-builder?lang=en-us&intendedLocale=en) - you can use your LinkedIn profile summary to copy/paste the info into a template
 
 Creating the content
-* Action verb list
-* Technical skills guide
+* [Action verb list](https://www.themuse.com/advice/185-powerful-verbs-that-will-make-your-resume-awesome)
+* [Turing Technical skills guide for resumes](https://docs.google.com/document/d/1Q-ZSAlXadWmYK48UyO7W3O9zHFQxhnLAWh7wKVdV48o/edit#heading=h.7w3obvv4smu2)
 * Resume checklist to guide your draft development
 
 Bonus Content (if you want to know more)
-
 * [Applicant Tracking Systems: A Guide for Job Seekers](https://www.jobscan.co/applicant-tracking-systems)
-* Advice for Writing a Technical Resume
-* How to Make the Perfect Resume
-* 6 Pro Tips for Cutting Your Resume Down to One Page
+* [How to make the Perfect Resume by the Muse](https://www.themuse.com/advice/how-to-make-a-resume-examples)
+* [6 Pro Tips for Cutting Your Resume Down to One Page](https://www.themuse.com/advice/6-pro-tips-for-cutting-your-resume-down-to-one-page)
 
 **NOTE: None of these will make or break your resume, so don’t feel like you have to look at them! They are just here as additional resources if you’d like them/find a need for them
