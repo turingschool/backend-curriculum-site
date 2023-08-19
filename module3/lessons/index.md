@@ -3,7 +3,10 @@ title: Module 3 Curriculum
 layout: page
 ---
 ## Professional Development
-* [PD Overview](/module3/lessons/Pd_overview.)
+
+* [PD Overview](/module3/lessons/Pd_overview)
+
+## Authentication
 
 * [Introduction to Basic Authentication](./intro_to_basic_auth)
 * [Sessions, Cookies, Authorization](./sessions_cookies_authorization)
