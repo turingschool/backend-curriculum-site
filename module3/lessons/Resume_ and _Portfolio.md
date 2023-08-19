@@ -92,7 +92,7 @@ Relevant Sections & Keywords
 
 Important Links
 * Turing specific (make a copy and edit)
-* [Other ATS-friendly options via](https://www.jobscan.co/resume-templatesJobscan templates)
+* [Other ATS-friendly options via]((https://www.jobscan.co/resume-templatesJobscan templates)
 
 Getting organized
 * Resume worksheet 
