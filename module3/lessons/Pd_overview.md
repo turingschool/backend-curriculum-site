@@ -41,6 +41,7 @@ Week 5:
 
 Week 6: 
 * Final Draft of Resume and Turing Alumni Portfolio due by 9 a.m. Monday of Week 6.
+* Submit Self Eval & Career Reflections Survey
 
 ## Ongoing PD Work
 Throughout Mod 3: Update your LinkedIn profile, join professional groups, and interact with professionals.
