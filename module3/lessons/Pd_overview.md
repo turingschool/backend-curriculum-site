@@ -30,18 +30,14 @@ Students will demonstrate professional readiness to move to Mod 4 with the submi
 
 ## Deliverables 
 Week 2:
-* Draft of Your Resume due by 5 pm Friday of Week 2.
-* Submit an ATS-ready resume with one column vs. two or more columns. 
-* It should be a one-page resume including at least two software projects.
-* Include a list of your technical skills.
-
+* Submit a Draft of Your Resume due by 5 pm Friday of Week 2.
+  
 Week 4:
-* Draft of Your Turing Alumni Portfolio due by 9 a.m. Friday of Week 4.
-* Build the bio section of your portfolio.
+* Submit a draft of Your Turing Alumni Portfolio by 9 a.m. Friday of Week 4.
 
-Week 5: Resume Consultancy Project Submission
-* Update your resume with your consultancy project by Tuesday at 9 a.m. MT.
-* Cover Letter Drafts: Peer review opportunities are available; career specialists can also review.
+Week 5: 
+* Resume Consultancy Project Submission
+* Update your resume with your consultancy project by Tuesday at 9 a.m. MT
 
 Week 6: 
 * Final Draft of Resume and Turing Alumni Portfolio due by 9 a.m. Monday of Week 6.
