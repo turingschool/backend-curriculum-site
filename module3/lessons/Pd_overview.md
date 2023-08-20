@@ -18,7 +18,7 @@ By the end of Mod 3, students will have developed the following:
 Students will demonstrate professional readiness to move to Mod 4 with the submission of  an ATS-friendly resume, terminal portfolio bio,  a master cover letter draft  that meets expectations, and thoughtful reflections on their job search blueprint during their Final Portfolio Review. 
 
 
-## Weekly breakdown of the Professional Development (PD) lessons, including other events:
+## Weekly PD Focus including other events:
 * Week 1: Crafting Your Technically Focused Resume
 * Week 2: Resume Storytelling for Your Transferable Experience (Live)  + Set Up Your Terminal Portfolio
 * Week 3: Cover Letter Lesson  (async) + Lightning Talks
