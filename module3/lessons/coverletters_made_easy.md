@@ -37,7 +37,6 @@ Now, create a connection between you and the company:
 * What can we do together?
 * It’s not about what you can *get* from them; it’s about what you can *give* to them
 
-
 #### But, how do I format the cover letter? 
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/lW0JbWwrj_0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
