@@ -9,6 +9,9 @@ title:  Crafting A Technically Focused Resume and Portfolio
 * Build a working draft of your resume that is both technically focused and ATS-Friendly
 * Learn how a portfolio can showcase your skills, projects, and personal brand to potential employers. Set up your Turing portfolio
 
+This is a self-paced lesson that will help you build your réume draft 
+It is designed to take between 60 and 90 minutes to complete but feel free to move through it at your own pace.
+
 ## Important Sections in a Technical Resume
 ### Header
 
@@ -19,7 +22,7 @@ Name
 * City & State (optional - helpful if you’re targeting a specific area) 
 * TITLE - THIS IS IMPORTANT 
   * Software Developer; Front-End Software Developer, etc. 
-* Hyperlinks to your LinkedIn and Github
+* Hyperlinks to your LinkedIn and GitHub
 
 Summary Statement
 * Optional, but helpful to “connect the dots” as a career changer 
@@ -71,7 +74,7 @@ What’s an ATS-Friendly Resume?
   * Automate tasks like screening applicants, reading resumes, sending status updates, etc. 
 
 ATS has very specific ways of reading resumes!
-So, there are certain things that are very important to consider when creating a technically-focused resume. The first is that an ATS parses your resume for specific keywords and qualifications set by HR pertaining to the job description. This impacts you in two ways: 
+So, certain things are very important to consider when creating a technically-focused resume. The first is that an ATS parses your resume for specific keywords and qualifications set by HR about the job description. This impacts you in two ways: 
   * Resume Format
   * Relevant Sections and Keywords
 
@@ -82,15 +85,25 @@ Some things to know about how an ATS reads a resume:
 * As a result, you should not use columns, tables, or graphics on your resume! 
 
 Relevant Sections & Keywords
-* ATS also look for sections & keywords specific to the job description. So, it’s important to:
+* ATS also looks for sections & keywords specific to the job description. So, it’s important to:
 * Tailor your resume to the job you’re applying for rather than submitting the same resume everywhere 
 * Make sure your sections have standard titles so as not to confuse an ATS. For example: 
 * “Skills” instead of “What I Can Do” 
 * “Work Experience” instead of “Where I’ve Been”
+* Check out this short video on [how to optimize your resume for ATS](https://www.youtube.com/watch?v=ouxQF9G2hAg)
+  
 
-Important Links
-* Turing specific (make a copy and edit)
-* [Other ATS-friendly options via](https://www.jobscan.co/resume-templates)
+## Next Steps
+* Draft of Your Resume due by 5 pm Friday of Week 2.
+* Submit an ATS-ready resume with one column vs. two or more columns. 
+* It should be a one-page resume including at least two software projects.
+
+Choose a Template
+ Turing Specific Resume Template (make a copy and edit) 
+ * [ATS Resume Template1 ](https://docs.google.com/document/d/1HDyIbiXsJsD2iIPDAG8Nn3CDwPWibhNek9I4kqnRzKg/edit#heading=h.dtkb7uw4xb1g)
+ * [ATS Resume Template2](https://docs.google.com/document/d/19C29WwHcapfoT3xilf8ipcKoxcVqUi4BElqERUIb_8I/edit)
+ * [ATS Resume Template3](https://docs.google.com/document/d/1BqBGpPW-wxPTlyZS5fe7cO8g99fE-teKYjG6f8b-p8Y/edit)
+ * [Other ATS-friendly options via](https://www.jobscan.co/resume-templates)
 
 Getting organized
 * [Resume worksheet](https://docs.google.com/document/d/1870HMMJQfTDzRLR-xzee2YGAX1GW5KwSp73mtFsF_Do/edit)
@@ -110,7 +123,6 @@ Bonus Content (if you want to know more)
 
 
 ## Turing Alumni Portfolio 
-
 What it is:
 * Terminal is our joint job board and graduate portfolio site
 * How we showcase our job-seeking graduates and soon-to-be graduates
@@ -118,7 +130,55 @@ What it is:
   * Employers come here to look for candidates
   * We also send these to employers
 
-## Deliverable
-## Setting up your Portfolio
-* [Learn how to set up and publish your portfolio, including tips for writing summaries and project descriptions](https://careerdev.turing.edu/resources/terminal_directions).
+## Set up your Terminal Profile Bio! 
+1. You will receive an email invitation from Tracey at the beginning of Mod 3.
+2. Your terminal draft is due by Friday of Week 4, 9/14 by 9 a.m. 
+3. Use [this form](https://docs.google.com/forms/d/e/1FAIpQLSfKXVnpYdlwE4FpsAcG2tKfxTu4K4m7cpsgldbpIC03ZLCL6A/viewform) to submit your draft.
+
+##  How to set up your profile:
+[Log into Terminal at](https://terminal.turing.edu/developers/sign_in)
+* Go to Edit Profile from the account menu
+* Fill out the profile until all sections are complete. Here is a [checklist](https://careerdev.turing.edu/resources/terminal_directions)of what needs to be completed before we publish a terminal account.
+* Only click "Request Review" when your portfolio is fully set up with projects. Until then, staff members can see your updates.
+* Staff members will review your profile and approve it for publishing or request additional changes.
+* For more info on how to set this up, [Watch this Terminal profiles walkthrough with Tanner!](https://drive.google.com/file/d/1NqHrdkr0B5wEvEaH9Z8dJK56TcSJoV_t/view)
+
+## If you have set your terminal profile now it's time to customize it.
+What needs to be included in order for your portfolio to be published? Here is what the team is looking for:
+Title
+* Professional-looking photo
+  *  This should be a photo of just you (no kids or animals, sorry!)
+  * Use the same photo as your LinkedIn and GitHub profiles if possible
+  * Dont have a professional-looking photo? [Check out this post](https://writing.turing.edu/how-to-take-your-own-linkedin-headshot/) for tips on how to take one at home
+
+About Me Description
+
+* Tell your professional story- What is your story about your past, present, and future that you want to share with employers? Make sure to answer these questions: who am I? Why am 
+  I in this field? What next for me?
+    * Email address
+    * GitHub profile
+    * LinkedIn profile
+    * Polished draft of resume
+    * Preferred Locations
+
+ Previous Industries
+    * Limit to 5 previous industries. If you are concerned about this, please reach out to your Career Specialists.
+    * At least 2 projects
+    * Show variety: paired, team, individual
+    * Include an estimation of project contribution hours
+    * Include screenshots
+    * Tools Used
+    * Code Repository Link
+
+Nice to have but not required for initial publication:
+   * Pronouns
+   * Skills you are currently learning
+   * Twitter profile
+   * Project collaborators
+   * Deployed Project link
+
+## Important Resources
+* [Learn how to set up and publish your portfolio, including tips for writing summaries and project descriptions]().
 * [Discover more detailed information on how to effectively write your project descriptions](https://docs.google.com/document/d/1zKePxhD-xQdLRPeLI21E71ET_U88ZZ-SKTQjRVzs8tM/edit)
+
+If you have questions about the information on this page, please contact the Career Specialist. 
