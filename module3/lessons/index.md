@@ -6,7 +6,7 @@ layout: page
 
 * [PD Overview](/module3/lessons/Pd_overview)
 * [Crafting Your Technically Focused Resume and Portfolio](https://github.com/turingschool/backend-curriculum-site/blob/0444fff609f75aa7f78ad8f04b9f3eb58917c974/module3/lessons/resume_%20and%20_portfolio.md)
-* [Cover Letters Made Easy](https://github.com/turingschool/backend-curriculum-site/blob/6f9a9722f4e4b140ad41ee15798ec22c7da76575/module3/lessons/coverletters_made_easy.md)  
+* [Cover Letters Made Easy](.module3/lessons/coverletters_made_easy.md)  
 
 ## Authentication
 
