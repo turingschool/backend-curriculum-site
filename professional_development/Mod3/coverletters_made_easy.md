@@ -5,7 +5,7 @@ page: Cover Letters Made Easy
 
 ## Overview
 
-This lesson will provide an overview of the purpose of cover letters during the application process. Additionally, we'll delve into the essential components of writing effective cover letters. 
+In this lesson, you'll gain a clear understanding of the role that cover letters play in the job application process. We'll explore the key elements of crafting impactful cover letters that effectively showcase your qualifications and enthusiasm for the position.
 
 ### Learning Goals
 
@@ -29,8 +29,8 @@ Start with this frame in your mind -- the cover letter is a love letter to the c
 
 Then, talk about yourself, but remember -- this still isn't really about you. Talk about yourself in relation to the company. First, provide an introductory hook. Show what you know about the company and *why* you're interested in the position. Then, show why you're qualified for the job. A great way to template out your story is by a quick summary: "Merging my background in X and Y, I now help [industry] improve [these outcomes]." You can also break your story into parts:
 
-* 1. Here's what I did in the previous phase of my career + what I learned from that...
-* 2. And here's what I can do for you based on what I've learned...
+1. Here's what I did in the previous phase of my career + what I learned from that...
+2. And here's what I can do for you based on what I've learned...
 
 Now, create a connection between you and the company:
 
