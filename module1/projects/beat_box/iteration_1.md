@@ -56,7 +56,7 @@ pry(main)> list.head
 pry(main)> list.append("doop")
 
 pry(main)> list
-#=> #<LinkedList:0x0000000110e383a0 @head=#<Node:0x0000000110e382d8 @data="doop", @next_node=nil>
+#=> #<LinkedList:0x0000000110e383a0 @head=#<Node:0x0000000110e382d8 @data="doop", @next_node=nil>>
 
 pry(main)> list.head.data
 #=> "doop"

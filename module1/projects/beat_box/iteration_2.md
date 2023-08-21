@@ -60,7 +60,7 @@ Perfect, we are almost there! Next is to add `find`, `pop` and `includes?` metho
 
 `includes?` gives back true or false whether the supplied value is in the list.
 
-`pop` removes elements the last element from the list.
+`pop` removes the last element from the list and returns it.
 
 Expected behavior:
 

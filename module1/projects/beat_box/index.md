@@ -66,7 +66,7 @@ A linked list should be able to do the following:
 * Insert elements
 * Pop an element from the end
 * Push an element onto the beginning
-* Remove the (first occurance | all occurances) of an element by data content
+* Remove the (first occurrence | all occurrences) of an element by data content
 * Remove an element by position
 * Add an element at an arbitrary position
 * Add an element after a known node
