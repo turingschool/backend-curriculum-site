@@ -12,7 +12,7 @@ title: Crafting A Technically Focused Resume and Portfolio
 This is a self-paced lesson that will help you build your réume draft 
 It is designed to take between 60 and 90 minutes to complete but feel free to move through it at your own pace.
 
-## Important Sections in a Technical Resume
+### Important Sections in a Technical Resume
 ### Header
 
 Name
@@ -93,12 +93,12 @@ Relevant Sections & Keywords
 * Check out this short video on [how to optimize your resume for ATS](https://www.youtube.com/watch?v=ouxQF9G2hAg)
   
 
-## Next Steps
+### Next Steps
 * Draft of Your Resume due by 5 pm Friday of Week 2.
 * Submit an ATS-ready resume with one column vs. two or more columns. 
 * It should be a one-page resume including at least two software projects.
 
-Choose a Template
+**Choose a Template**
  Turing Specific Resume Template (make a copy and edit) 
  * [ATS Resume Template1 ](https://docs.google.com/document/d/1HDyIbiXsJsD2iIPDAG8Nn3CDwPWibhNek9I4kqnRzKg/edit#heading=h.dtkb7uw4xb1g)
  * [ATS Resume Template2](https://docs.google.com/document/d/19C29WwHcapfoT3xilf8ipcKoxcVqUi4BElqERUIb_8I/edit)
@@ -130,20 +130,21 @@ What it is:
   * Employers come here to look for candidates
   * We also send these to employers
 
-## Set up your Terminal Profile Bio! 
+### Getting Started! 
 1. You will receive an email invitation from Tracey at the beginning of Mod 3.
 2. Your terminal draft is due by Friday of Week 4, 9/14 by 9 a.m. 
 3. Use [this form](https://docs.google.com/forms/d/e/1FAIpQLSfKXVnpYdlwE4FpsAcG2tKfxTu4K4m7cpsgldbpIC03ZLCL6A/viewform) to submit your draft.
 
-##  How to set up your profile:
+###  How to set up your profile:
 [Log into Terminal at](https://terminal.turing.edu/developers/sign_in)
+
 * Go to Edit Profile from the account menu
 * Fill out the profile until all sections are complete. Here is a [checklist](https://careerdev.turing.edu/resources/terminal_directions)of what needs to be completed before we publish a terminal account.
 * Only click "Request Review" when your portfolio is fully set up with projects. Until then, staff members can see your updates.
 * Staff members will review your profile and approve it for publishing or request additional changes.
 * For more info on how to set this up, [Watch this Terminal profiles walkthrough with Tanner!](https://drive.google.com/file/d/1NqHrdkr0B5wEvEaH9Z8dJK56TcSJoV_t/view)
 
-## If you have set your terminal profile now it's time to customize it.
+### If you have set your terminal profile now it's time to customize it.
 What needs to be included in order for your portfolio to be published? Here is what the team is looking for:
 Title
 * Professional-looking photo
@@ -177,7 +178,7 @@ Nice to have but not required for initial publication:
    * Project collaborators
    * Deployed Project link
 
-## Important Resources
+### Important Resources
 * [Learn how to set up and publish your portfolio, including tips for writing summaries and project descriptions]().
 * [Discover more detailed information on how to effectively write your project descriptions](https://docs.google.com/document/d/1zKePxhD-xQdLRPeLI21E71ET_U88ZZ-SKTQjRVzs8tM/edit)
 
