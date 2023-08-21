@@ -4,9 +4,7 @@ layout: page
 ---
 ## Professional Development
 
-* [PD Overview](/module3/lessons/Pd_overview)
-* [Crafting Your Technically Focused Resume and Portfolio](/module3/lessons/resume_and_portfolio.md)
-* [Cover Letters Made Easy]  
+* [Mod 3 PD Curriculum](/professional_development/Mod3/index)
 
 ## Authentication
 
