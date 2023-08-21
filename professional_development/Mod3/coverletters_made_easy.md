@@ -86,4 +86,4 @@ If you find yourself with:
 4. Have the cover letter ready by Monday of Week 5.
 
 ### Resources:
-* Here are [additional resources](/resources/cover_letter_resources) for cover letters.
+* Here are [additional resources](/resources/cover_letter_resources) and a general checklist to guide your draft. 
