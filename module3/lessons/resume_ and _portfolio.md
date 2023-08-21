@@ -1,6 +1,6 @@
 ---
 layout: page
-title:  Crafting A Technically Focused Resume and Portfolio 
+title: Crafting A Technically Focused Resume and Portfolio 
 ---
 
 ## Learning Goals
