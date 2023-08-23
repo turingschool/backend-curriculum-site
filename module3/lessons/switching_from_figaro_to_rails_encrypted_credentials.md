@@ -5,7 +5,7 @@ So this is a great opportunity to start using Rails Encrypted Credentials.
 
 First, with VS Code, you have to be able to launch it from the command line, instructions on how to do so available here:
 
-[https://code.visualstudio.com/docs/setup/mac#:~:text=Keep in Dock.-,Launching from the command line,code](https://code.visualstudio.com/docs/setup/mac#:~:text=Keep%20in%20Dock.-,Launching%20from%20the%20command%20line,code)'%20command%20in%20PATH%20command.
+[https://code.visualstudio.com/docs/setup/mac](https://code.visualstudio.com/docs/setup/mac)
 
 Rails will encrypt our credentials for us. It encrypts with a master key that is generated. This key allows us to check the encrypted credentials we may be using to a VCS such as GitHub without the fear of having them compromised. Without the key, it is useless. 
 
