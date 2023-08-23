@@ -10,6 +10,7 @@ By the end of this class, a student will be able to:
 
 This lesson was built on Ruby 3.2.2 and Rails 7.0.5.1
 
+Instructions on how to switch from Figaro to Rails Encrypted Credentials can be found [here](switching_from_figaro_to_rails_encrypted_credentials)
 ## Warm Up
 
 - How does a developer interact with an API?
