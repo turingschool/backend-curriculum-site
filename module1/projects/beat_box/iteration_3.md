@@ -25,7 +25,7 @@ pry(main)> require "./lib/node"
 #=> true
 
 pry(main)> bb = BeatBox.new
-#=> #<BeatBox:0x000000010f500108 @list=#<LinkedList:0x000000010f4e3ee0 @head=nil>
+#=> #<BeatBox:0x000000010f500108 @list=#<LinkedList:0x000000010f4e3ee0 @head=nil>>
 
 pry(main)> bb.list
 #=> #<LinkedList:0x000000010f4e3ee0 @head=nil>
@@ -90,7 +90,7 @@ pry(main)> require "./lib/node"
 #=> true
 
 pry(main)> bb = BeatBox.new
-#=> #<BeatBox:0x000000010f500108 @list=#<LinkedList:0x000000010f4e3ee0 @head=nil>
+#=> #<BeatBox:0x000000010f500108 @list=#<LinkedList:0x000000010f4e3ee0 @head=nil>>
 
 pry(main)> bb.append("deep doo ditt woo hoo shu")
 

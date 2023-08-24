@@ -17,7 +17,7 @@ pry(main)> require "./lib/node"
 #=> true
 
 pry(main)> node = Node.new("plop")
-#=> #<Node:0x007fbda8a88348 @data="plop">
+#=> #<Node:0x007fbda8a88348 @data="plop", @next_node=nil>
 
 pry(main)> node.data
 #=> "plop"
@@ -96,7 +96,7 @@ pry(main)> list.append("doop")
 #=> "doop"
 
 pry(main)> list
-#=> #<LinkedList:0x0000000110e383a0 @head=#<Node:0x0000000110e382d8 @data="doop", @next_node=nil>
+#=> #<LinkedList:0x0000000110e383a0 @head=#<Node:0x0000000110e382d8 @data="doop", @next_node=nil>>
 
 pry(main)> list.head
 #=> #<Node:0x0000000110e382d8 @data="doop", @next_node=nil>
@@ -107,7 +107,7 @@ pry(main)> list.head.next_node
 pry(main)> list.append("deep")
 
 pry(main)> list
-#=> #<LinkedList:0x00000001116213a0 @head=#<Node:0x00000001116212b0 @data="doop" @next_node=#<Node:0x00000001116210f8 @data="deep", @next_node=nil>
+#=> #<LinkedList:0x00000001116213a0 @head=#<Node:0x00000001116212b0 @data="doop" @next_node=#<Node:0x00000001116210f8 @data="deep", @next_node=nil>>>
 
 pry(main)> list.head.next_node
 #=> #<Node:0x00000001116210f8 @data="deep", @next_node=nil>
