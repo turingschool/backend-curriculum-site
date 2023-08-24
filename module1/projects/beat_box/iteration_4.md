@@ -14,7 +14,7 @@ defined list. Insertion of a beat not in the list is rejected. Like this:
 
 ```ruby
 pry(main)> bb = BeatBox.new("deep")
-#=> #<BeatBox:0x000000010f500108 @list=#<LinkedList:0x000000010f4e3ee0 @head=#<Node:0x000000010d179d88 @data="deep", @next_node=nil>
+#=> #<BeatBox:0x000000010f500108 @list=#<LinkedList:0x000000010f4e3ee0 @head=#<Node:0x000000010d179d88 @data="deep", @next_node=nil>>>
 
 pry(main)> bb.append("Mississippi")
 
@@ -43,7 +43,7 @@ voice. Let's setup a usage like this:
 
 ```ruby
 pry(main)> bb = BeatBox.new("deep dop dop deep")
-#=> #<BeatBox:0x000000010f500108 @list=#<LinkedList:0x000000010f4e3ee0 @head=#<Node:0x000000010d179d88 @data="deep", @next_node=#<Node:0x000000010d179d38 @data="dop", @next_node=#<Node:0x000000010d179c70 @data="dop", @next_node=#<Node:0x000000010d179d38 @data="deep", @next_node=nil>
+#=> #<BeatBox:0x000000010f500108 @list=#<LinkedList:0x000000010f4e3ee0 @head=#<Node:0x000000010d179d88 @data="deep", @next_node=#<Node:0x000000010d179d38 @data="dop", @next_node=#<Node:0x000000010d179c70 @data="dop", @next_node=#<Node:0x000000010d179d38 @data="deep", @next_node=nil>>>>>>
 
 pry(main)> bb.play
 #=> 4 # plays the four sounds normal speed with Boing voice
