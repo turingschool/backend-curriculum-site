@@ -14,15 +14,17 @@ layout: page
 * [How the Web Works I: HTTP Request/Response Cycle](./how_the_web_works_http)
 * [How the Web Works II: Request/Response Anatomy](./request_response_anatomy)
 * [How the Web Works, DNS Edition](./how_the_web_works_dns)
-* [REST & CRUD](./restful_routes_and_crud)
-* [Intro to APIs part I](./apis)
-* [Intro to APIs part II](./api_consumption_in_ruby)
+* [Representational State Transfer](./restful_routes_and_crud)
+* [Intro to APIs I](./apis)
+* [Intro to APIs II](./api_consumption_in_ruby)
 
 ## Rails Application Development
 
 * [Intro to MVC](./intro_to_mvc)
 * [ActiveRecord Associations with TDD](./active_record_associations_tdd)
-* [Forms](./forms)
+* [Dynamic Routing](./dynamic_routing)
+* [Forms: Passing Data](./forms)
+* [Passing Data in Rails](./passing_data_in_rails)
 * [MVC in Action](./mvc_in_action)
 * [Partials](./partials)
 * [Advanced Routing](./rails_resources)

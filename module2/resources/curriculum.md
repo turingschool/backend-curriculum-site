@@ -37,7 +37,7 @@ layout: page
 
 ## Application Basics
 
-- [Intro to REST & CRUD](http://backend.turing.edu/module2/lessons/restful_routes_and_crud)
+- [Representational State Transfer](http://backend.turing.edu/module2/lessons/restful_routes_and_crud)
 - [Intro to MVC](http://backend.turing.edu/module2/lessons/intro_to_mvc)
 - [REST, Controllers & Routing in Rails](http://backend.turing.edu/module2/lessons/rest_routing_and_controllers_in_rails)
 - [Route Helpers in Rails](http://backend.turing.edu/module2/lessons/route_helpers)

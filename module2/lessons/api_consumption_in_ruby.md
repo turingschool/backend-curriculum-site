@@ -1,6 +1,6 @@
 ---
 layout: page
-title: API Consumption in Ruby
+title: Intro to APIs II
 tags: API, APIs, Ruby, refactoring, services
 ---
 ## Learning Goals

@@ -1,6 +1,6 @@
 ---
 layout: page
-title: RESTful Routes and CRUD
+title: Representational State Transfer
 ---
 
 ## Learning Goals
@@ -89,7 +89,7 @@ Is there a command you can run from your terminal to help with the diagram? (HIN
     - etc
     
 
-## Wrap Up
+## CFU
 
 - What is each part of CRUD?
 - What is REST?
