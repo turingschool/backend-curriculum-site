@@ -11,7 +11,7 @@ In Module 3, we will look beyond the basics of building Rails web applications w
 ## Instructors
 
 * Mike Dao (Anchor)
-* Erin Pintozzi
+* Chris Simmons
 * Tracey Monteiro
 
 ## Curriculum

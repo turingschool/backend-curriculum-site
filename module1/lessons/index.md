@@ -10,12 +10,14 @@ title: Module 1 Lessons
 * [Scope](./scope)
 * [Beginner Enumerables](./beginner_enumerables)
 * [Hashes](./hashes)
+* [Reaching Through Objects Workshop](https://github.com/turingschool-examples/mod-1-be-exercises/tree/main/lessons/reaching_through_objects)
 * [Nested Collections](./nested_collections)
 * [Boolean Logic](./boolean_logic)
 * [Modules](./modules)
-* [Nested Iteration](./nested_iteration)
+* [Nested Iteration Workshop](./nested_iteration)
 * [Class Methods](class_methods)
 * [Inheritance](./inheritance)
+* [Event Manager](https://backend.turing.edu/module1/projects/eventmanager)
 * [Ruby Object Model](./ruby_object_model)
 
 
@@ -44,6 +46,7 @@ title: Module 1 Lessons
 
 * [Git and Github](./git_and_github)
 * [Git for Pairs](./git_for_pairs)
+* [Git Review](./git_review)
 
 
 ### Exploration
@@ -55,7 +58,6 @@ title: Module 1 Lessons
 * [#each](./each)
 * [Intermediate Enumerables](./intermediate_enumerables)
 * [Advanced Enumerables](./advanced_enumerables)
-* [Git Review](./git_review)
 * [CSV Exploration](./csv_exploration)
 * [Working with Files](./working_with_files)
 
@@ -63,6 +65,7 @@ title: Module 1 Lessons
 ### Professional Development
 
 * [Overview](./pd_overview)
+* [Asking Good Questions](https://docs.google.com/presentation/d/e/2PACX-1vQEDGBpYDQA6_hBHfWcjk4pUheFe2_bkYRPXF9b-YhNlua-oq4Y7WZCcIpOAuQfeaswRp414TIvIOXA/pub?start=false&loop=false&delayms=3000)
 * [Learning to Pair](./learning_to_pair)
 * [Giving and Receiving Feedback](https://docs.google.com/presentation/d/e/2PACX-1vQvHkaNO1HTKSrk7kCVhPftCu4vaBlWMEFVuej6LsAA7ICN2_QkO-GTAWNOwYDG0cepSSEBmHNcb8Ry/pub?start=false&loop=false&delayms=3000&slide=id.g1c505a3b55_0_0)
 * [Professional Storytelling](https://docs.google.com/presentation/d/e/2PACX-1vT6pK3pGHy9HrnvW4FCwRGJXqbuDM76LRcA-a26mOo5t7wi2WXLy4T8VE3R7fM3wYgxS4uLZ4f1RtXu/pub?start=false&loop=false&delayms=3000)

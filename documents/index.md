@@ -5,10 +5,7 @@ title: Documents
 
 ## Program Documents
 
-* [Turing School of Software Catalog](./catalog_07_2021.pdf)
-* [Turing Student Handbook](./turing_student_handbook_nov_2022.pdf)
-* [Repeating a Module Guidelines](./repeat_guidelines_student_2020.pdf)
-* [Leave of Absence Guidelines](./LOA_Guidelines.pdf)
-* [Turing Laptop Policy](./laptop_policy.pdf)
-* [Reasonable Accommodation Request Form](./reasonable_accommodation_request_form.pdf)
-* [ACCET Compliant Procedure](./accet_compliant_procedure.pdf)
+* [Turing Student Catalog](https://docs.google.com/document/d/1GXQ_ddaM8iwtcyv9GoIJGP4acjOuSzTF1oEMCHAFSEw/edit)
+* [Turing Student Handbook](https://docs.google.com/document/d/1B84KoDHytY1yVLxRK9CTc1eipCx2XOS7PVkxYU0p2zA/edit#heading=h.jqpuisdw6ti1)
+* [Reasonable Accommodation Request Form](https://docs.google.com/document/d/1uTa_LFW_Wphc8O7SmJN3EVcfGM7DZrcT0qSa3TuSxV4/edit)
+* [Accet Compliant Procedure](./accet_compliant_procedure.pdf)
