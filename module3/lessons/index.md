@@ -2,6 +2,9 @@
 title: Module 3 Curriculum
 layout: page
 ---
+## Professional Development
+
+* [Mod 3 PD Curriculum](/professional_development/Mod3/index)
 
 ## Authentication
 

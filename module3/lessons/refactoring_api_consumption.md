@@ -10,6 +10,8 @@ tags: apis, rails, refactoring
 ## Setup
 We will start with the house-salad-7 app [api-consumption-complete](https://github.com/turingschool-examples/house-salad-7/tree/api-consumption-complete) branch for this lesson.
 
+Instructions on how to switch from Figaro to Rails Encrypted Credentials can be found [here](switching_from_figaro_to_rails_encrypted_credentials)
+
 ## Vocabulary
 
 ### Refactor
