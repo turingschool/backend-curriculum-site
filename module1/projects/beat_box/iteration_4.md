@@ -46,19 +46,19 @@ pry(main)> bb = BeatBox.new("deep dop dop deep")
 #=> #<BeatBox:0x000000010f500108 @list=#<LinkedList:0x000000010f4e3ee0 @head=#<Node:0x000000010d179d88 @data="deep", @next_node=#<Node:0x000000010d179d38 @data="dop", @next_node=#<Node:0x000000010d179c70 @data="dop", @next_node=#<Node:0x000000010d179d38 @data="deep", @next_node=nil>>>>>>
 
 pry(main)> bb.play
-#=> 4 # plays the four sounds normal speed with Boing voice
+#=> # plays the four sounds normal speed with Boing voice
 
 pry(main)> bb.rate = 100
 #=> 100
 
 pry(main)> bb.play
-#=> 4 # plays the four sounds slower with Boing voice
+#=> # plays the four sounds slower with Boing voice
 
 pry(main)> bb.voice = "Daniel"
 #=> "Daniel"
 
 pry(main)> bb.play
-#=> 4 # plays the four sounds slower with Daniel voice
+#=> # plays the four sounds slower with Daniel voice
 
 pry(main)> bb.reset_rate
 #=> 500
@@ -67,5 +67,5 @@ pry(main)> bb.reset_voice
 #=> "Boing"
 
 pry(main)> bb.play
-#=> 4 # plays the four sounds normal speed with Boing voice
+#=> # plays the four sounds normal speed with Boing voice
 ```

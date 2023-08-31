@@ -77,7 +77,7 @@ $ pry
 > `say -r 500 -v Boing #{beats}`
 ```
 
-For this final section, add a `play` method to your BeatBox class that will generate the string content of the Beat and use it as input to the `say` command.
+For this final section, add a `play` method to your BeatBox class that will generate the string content of the Beat and use it as input to the `say` command. (Note: You do not need to test the `play` method, but are welcome to give it a shot)
 
 ```ruby
 pry(main)> require "./lib/beat_box"
