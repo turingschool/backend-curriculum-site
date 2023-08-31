@@ -69,3 +69,5 @@ pry(main)> bb.reset_voice
 pry(main)> bb.play
 #=> # plays the four sounds normal speed with Boing voice
 ```
+
+Note: You do not need to test the `play` method, but are welcome to give it a shot
