@@ -26,7 +26,7 @@ In Module 3, we will look beyond the basics of building Rails web applications w
 
 * [Additional Notes, Helpful Links, etc](./notes)
 * [Suggested Practice](https://github.com/turingschool-examples/M3_weekend_practice) - Broken down by week
-* [Mid Mod Practice Assessment](https://github.com/turingschool-examples/parks_finder)
+* [Mid Mod Practice Assessment](https://github.com/turingschool-examples/parks-finder-7)
 * [Final Practice Assessment](./practice_assessments/practice_assessment)
 * [Code Fair Guide](./misc/code_fair_guide)
 
