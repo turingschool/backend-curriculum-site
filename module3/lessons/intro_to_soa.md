@@ -1,7 +1,6 @@
 ---
 layout: page
 title: Intro to Service-Oriented Architecture
-subtitle: Thing
 length: 120min
 tags: rails, apis, services, architecture, monolith, microservice
 ---
