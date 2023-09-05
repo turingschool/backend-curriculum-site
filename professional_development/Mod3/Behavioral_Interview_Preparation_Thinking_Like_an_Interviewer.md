@@ -44,7 +44,7 @@ First, take 15 minutes to complete part A of this activity in breakout rooms. No
 
 Next, take 15 minutes to complete part B of the same activity independently.
 
-### Activity 2: Mini Mock Interview**
+### Activity 2: Mini Mock Interview
 **Solo Reflection**
 Consider the following questions about your group project from mod 2.
 
