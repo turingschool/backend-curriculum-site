@@ -13,10 +13,9 @@ Overview
 * Ideate and try out solutions to improve your current interviewing strategy
 * Understand how to answer interview questions through specific strategies
 
-After you complete this lesson, you'll synthesize your learning in this [Exit Ticket](https://forms.gle/1WHVG6iiHX6bkfS97).
+* [Slides for this lesson](https://docs.google.com/presentation/d/19v08-f77qv6HTMR3teiuv_SmXMHzpydHrdo144WYG_8/edit?usp=sharing)
+* After you complete this lesson, you'll synthesize your learning in this [Exit Ticket](https://forms.gle/1WHVG6iiHX6bkfS97) by Thursday of Week 4.
 
-### Overview
-Review how you've been spending your time. Where are you right now in regard to the deliverables for this mod? What habits are effective for you? What changes should you make in how you spend your time? 
 
 #### Starting off Strong: Tell me about Yourself
 This request for information is typically at the very beginning of an interview. It's an opportunity to provide the interviewer with insights into your qualifications and fit for the role.
@@ -31,7 +30,6 @@ There are many ways to prepare for interviews. The key to all interviews is **kn
 3. Know how to talk about your experience
 4. Research & prep
 
-[Slides for this lesson](https://docs.google.com/presentation/d/19v08-f77qv6HTMR3teiuv_SmXMHzpydHrdo144WYG_8/edit?usp=sharing)
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/w1ncXtkOqOo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -116,4 +114,4 @@ To continue preparing for interviews, create an interview prep document to write
 * Using this [interview prep resource guide](/resources/interview_prep_resources), pick out at least 3 resources you will use to prepare for interviews as well as 3 behavioral questions you could practice.
 
 ## Check for Understanding
-After you've completed this lesson, submit this [exit ticket](https://forms.gle/1WHVG6iiHX6bkfS97) by **EOD Friday of Week 4.**
+After you've completed this lesson, submit this [exit ticket](https://forms.gle/1WHVG6iiHX6bkfS97) by **EOD Thursday of Week 4.**
