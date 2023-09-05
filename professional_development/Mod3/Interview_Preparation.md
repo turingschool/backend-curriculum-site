@@ -6,7 +6,8 @@ page: Interview Preparation- Putting It All Together
 ## Interview Preparation
   Putting It All Together
 
-Overview
+### Overview
+You've done the groundwork to prepare for your job search: refining your story, crafting your resume, and building your portfolio. Now is the time to put all of these things into motion and talk about why you're the right person for the job.
 
 ### Learning Goals
  Identify how to prepare and research prior to an interview
@@ -113,5 +114,21 @@ To continue preparing for interviews, create an interview prep document to write
 * Do some research into your top companies' tech stacks; what do you already know? What can you compare to your own learning? What do you need to learn more about?
 * Using this [interview prep resource guide](/resources/interview_prep_resources), pick out at least 3 resources you will use to prepare for interviews as well as 3 behavioral questions you could practice.
 
+**Other Tips:**
+* Create a doc to keep track of technical concepts you're practicing, behavioral answers, and feedback
+* Review:
+  * Your professional story
+  * Feedback you've received
+  * Your projects; Go through your projects to reflect on:
+    * One specific bug
+    * Something that was really hard
+    * Something that was rewarding
+    * Any interesting struggles/insights about the collaboration process
+  * Your Flower Exercise
+  * Your strengths
+  * Your areas of growth
+  * DTR Memos
+  * Retro notes
+  * Eval notes
 ## Check for Understanding
 After you've completed this lesson, submit this [exit ticket](https://forms.gle/1WHVG6iiHX6bkfS97) by **EOD Thursday of Week 4.**
