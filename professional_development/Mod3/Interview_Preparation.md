@@ -102,20 +102,24 @@ For your previous professional experiences and background, unpack the transferab
 ### [Do you have any questions for me?](https://www.keyvalues.com/culture-queries)
 <iframe width="560" height="315" src="https://www.youtube.com/embed/qP0Sl7qs6Jc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-At the end of almost every interview, you'll be given an opportunity to ask questions. Use this time to get a better understanding of the company,what it would be like to work there, and gauge whether this role is a good fit for you. 
+At the end of almost every interview, you'll be given an opportunity to ask questions. Use this time to get a better understanding of the company, what it would be like to work there, and gauge whether this role is a good fit for you. 
 
 ### Putting it into Practice
-To continue preparing for interviews, create an interview prep document to write out answers by telling stories about various experiences. Here are some starting prompts:
+1. To continue preparing for interviews, create an interview prep document or story bank to write out answers by telling stories about various experiences.
+2. Review this Story bank doc that includes templates, examples, and interview tips.
+3. Use prompts below or from the story bank doc and write about one behavioral and one project question to start with and the STAR method:  
 
-* Pick a successful project and write about it with the STAR method (What was the situation/scenario of the project? What was the task/target of the project? What action steps did you take? What were the results?):
-* Write about a time you failed and what you learned from that experience:
-* Write about how you've approached working with a team using a specific example:
-* What other stories will you prepare to share?
-* Do some research into your top companies' tech stacks; what do you already know? What can you compare to your own learning? What do you need to learn more about?
-* Using this [interview prep resource guide](/resources/interview_prep_resources), pick out at least 3 resources you will use to prepare for interviews as well as 3 behavioral questions you could practice.
+ *  Pick a successful project and write about it with the STAR method (What was the situation/scenario of the project? What was the task/target of the project? What action 
+    steps did you take? What were the results?):
+  * Write about a time you failed and what you learned from that experience:
+  * Write about how you've approached working with a team using a specific example:
+  * What other stories will you prepare to share?
+  * Do some research into your top companies' tech stacks; what do you already know? What can you compare to your own learning? What do you need to learn more about?
+  * Using this [interview prep resource guide](/resources/interview_prep_resources), pick out at least 3 resources you will use to prepare for interviews as well as 3     
+    behavioral questions you could practice.
 
 **Other Tips:**
-* Create a doc to keep track of technical concepts you're practicing, behavioral answers, and feedback
+* In your interview pre doc keep track of technical concepts you're practicing, behavioral answers, and feedback.
 * Review:
   * Your professional story
   * Feedback you've received
