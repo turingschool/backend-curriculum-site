@@ -36,7 +36,7 @@ layout: page
 * [Data Structures and Algorithms](./data_structures_and_algorithms)
 * [Intro to Caching](./intro_to_caching_in_rails)
 * [Error Handling](./error_handling)
-* [Intro to Service Orietned Architecture](./intro_to_soa)
+* [Intro to Service Oriented Architecture](./intro_to_soa)
 * Introduction to Big O Notation
 * Company Research (PD Supplement)
 * README Workshop

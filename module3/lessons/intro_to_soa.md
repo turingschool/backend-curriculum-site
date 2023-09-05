@@ -67,7 +67,7 @@ Assuming the main application has an error that it doesn't send to the microserv
 </div>
 </section>
 <section class="answer">
-<h3>4. Who is responsible for making updates/changes/general maintinance on the microservice(s)?</h3>
+<h3>4. Who is responsible for making updates/changes/general maintenance on the microservice(s)?</h3>
 <div>
 If you answered "developers", you'd be correct - but think harder. What happens when you, or another developer on your team, leaves the company? What happens when a new developer gets hired & onboarded onto your team? How easy will it be to transfer the knowledge or train a new developer to use that service? Again, it does all depend on the application's level of complexity, but that complexity can make decision-making both at the higher- and lower-levels much more important than it seems. In other words, decisions regarding software architecture _matter_, regardless of the size of the company. 
 </div>
