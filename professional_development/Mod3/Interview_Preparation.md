@@ -106,10 +106,10 @@ At the end of almost every interview, you'll be given an opportunity to ask ques
 
 ### Putting it into Practice
 1. To continue preparing for interviews, create an interview prep document or story bank to write out answers by telling stories about various experiences.
-2. Review this Story bank doc that includes templates, examples, and interview tips.
-3. Use prompts below or from the story bank doc and write about one behavioral and one project question to start with and the STAR method:  
+2. Review this [Story bank doc](https://docs.google.com/spreadsheets/d/16aempR55Tej8pPr-l9qq6vBnL4bax9kbGEXA9nO7oVo/edit#gid=882531233)that includes templates, project examples, and interview tips.
+3. Next, use the prompts below or from the story bank doc and write about at least one behavioral and one project question using the STAR method:  
 
- *  Pick a successful project and write about it with the STAR method (What was the situation/scenario of the project? What was the task/target of the project? What action 
+ *  Pick a successful project(What was the situation/scenario of the project? What was the task/target of the project? What action 
     steps did you take? What were the results?):
   * Write about a time you failed and what you learned from that experience:
   * Write about how you've approached working with a team using a specific example:
