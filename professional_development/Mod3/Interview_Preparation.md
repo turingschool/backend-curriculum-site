@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: title
 page: Interview Preparation- Putting It All Together
 ---
 
