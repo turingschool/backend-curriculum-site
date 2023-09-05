@@ -7,5 +7,5 @@ title: Module 3 Professional Development
 * [Resumes and Portfolios](./resume_and_portfolio)
 * [Cover Letters Made Easy](./coverletters_made_easy)
 * [Interview Preparation- Putting It All Together](./Mod3/Interview_Preparation)
-* [Behavioral Interview Preparation](./Mod3/Behavioral_Interview_Preparation_Thinking_Like_an_Interviewer)
+* [Behavioral Interview Preparation](./Mod3/Behavioral_Interview_Preparation)
 
