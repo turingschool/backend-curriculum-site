@@ -1,4 +1,4 @@
 ---
-layout	title
-page Behavioral Interview Preparation- Thinking Like An Interviewer
+layout:	page
+title: Behavioral Interview Preparation- Thinking Like An Interviewer
 ---
