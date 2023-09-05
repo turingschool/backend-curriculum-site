@@ -1,6 +1,6 @@
 ---
-layout: title
-page: Interview Preparation- Putting It All Together
+layout: page
+title: Interview Preparation- Putting It All Together
 ---
 
 ## Interview Preparation
