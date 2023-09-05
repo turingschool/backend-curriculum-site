@@ -1,6 +1,6 @@
 ---
-layout:	page
-title: Behavioral Interview Preparation
+layout:page
+title:Behavioral Interview Preparation
 ---
 
 ### Behavioral Interview Preparation
