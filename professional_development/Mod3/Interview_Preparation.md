@@ -15,7 +15,7 @@ You've done the groundwork to prepare for your job search: refining your story, 
 * Understand how to answer interview questions through specific strategies
 
 * [Slides for this lesson](https://docs.google.com/presentation/d/19v08-f77qv6HTMR3teiuv_SmXMHzpydHrdo144WYG_8/edit?usp=sharing)
-* After you complete this lesson, you'll synthesize your learning in this [Exit Ticket](https://forms.gle/1WHVG6iiHX6bkfS97) by Thursday of Week 4.
+* After you complete this lesson, you'll synthesize your learning in this [Exit Ticket](https://forms.gle/1WHVG6iiHX6bkfS97) by Tuesday of Week 5.
 
 
 #### Starting off Strong: Tell me about Yourself
@@ -135,4 +135,4 @@ At the end of almost every interview, you'll be given an opportunity to ask ques
   * Retro notes
   * Eval notes
 ## Check for Understanding
-After you've completed this lesson, submit this [exit ticket](https://forms.gle/1WHVG6iiHX6bkfS97) by **EOD Thursday of Week 4.**
+After you've completed this lesson, submit this [exit ticket](https://forms.gle/1WHVG6iiHX6bkfS97) by **EOD Tuesday of Week 5.**
