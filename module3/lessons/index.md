@@ -39,7 +39,7 @@ layout: page
 * [Intro to Service Oriented Architecture](./intro_to_soa)
 * Introduction to Big O Notation
 * Company Research (PD Supplement)
-* README Workshop
+* [README Workshop](../misc/readme_workshop)
 * [Interpreting Interview Questions](https://frontend.turing.edu/lessons/module-3/interpreting-interviews.html)
 
 ---
