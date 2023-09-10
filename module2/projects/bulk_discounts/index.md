@@ -192,8 +192,16 @@ Then I see the total revenue from this invoice (not including discounts)
 And I see the total discounted revenue from this invoice which includes bulk discounts in the calculation
 ```
 
+
+## Extensions
+
+* When an invoice is pending, a merchant should not be able to delete or edit a bulk discount that applies to any of their items on that invoice.
+* When an Admin marks an invoice as "completed", then the discount percentage should be stored on the invoice item record so that it can be referenced later
+* Merchants should not be able to create/edit bulk discounts if they already have a discount in the system that would prevent the new discount from being applied (see example 4)
+
+* API Consumption Extensions:
 ```
-9: Holidays API
+Holidays API
 
 As a merchant
 When I visit the discounts index page
@@ -203,14 +211,6 @@ In this section the name and date of the next 3 upcoming US holidays are listed.
 Use the Next Public Holidays Endpoint in the [Nager.Date API](https://date.nager.at/swagger/index.html)
 
 ```
-
-## Extensions
-
-* When an invoice is pending, a merchant should not be able to delete or edit a bulk discount that applies to any of their items on that invoice.
-* When an Admin marks an invoice as "completed", then the discount percentage should be stored on the invoice item record so that it can be referenced later
-* Merchants should not be able to create/edit bulk discounts if they already have a discount in the system that would prevent the new discount from being applied (see example 4)
-
-
 * Holiday Discount Extensions:
 
 ```
