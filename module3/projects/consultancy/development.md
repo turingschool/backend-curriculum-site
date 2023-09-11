@@ -16,6 +16,8 @@ We will be using an Agile process during the development of this project. This w
 * Demoing your project to your Project Manager
 * Holding Team Retros
 
+Note: Additional non standard gems must be approved by your project manager.
+
 
 ## Sprints
 
