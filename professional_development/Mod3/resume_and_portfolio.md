@@ -101,8 +101,7 @@ Relevant Sections & Keywords
 **Choose a Template**
  Turing Specific Resume Template (make a copy and edit) 
  * [ATS Resume Template1 ](https://docs.google.com/document/d/1HDyIbiXsJsD2iIPDAG8Nn3CDwPWibhNek9I4kqnRzKg/edit#heading=h.dtkb7uw4xb1g)
- * [ATS Resume Template2](https://docs.google.com/document/d/19C29WwHcapfoT3xilf8ipcKoxcVqUi4BElqERUIb_8I/edit)
- * [ATS Resume Template3](https://docs.google.com/document/d/1BqBGpPW-wxPTlyZS5fe7cO8g99fE-teKYjG6f8b-p8Y/edit)
+ * [ATS Resume Template2](https://docs.google.com/document/d/1BqBGpPW-wxPTlyZS5fe7cO8g99fE-teKYjG6f8b-p8Y/edit)
  * [Other ATS-friendly options via](https://www.jobscan.co/resume-templates)
 
 Getting organized
