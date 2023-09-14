@@ -19,11 +19,11 @@ __Optional__
 
 ## Preparation
 
-We'll be working off of [`Destination Planner`](https://github.com/turingschool-examples/destination-planner)
+We'll be working off of [`Destination Planner 7`](https://github.com/turingschool-examples/destination-planner-7)
 
 ```
-git clone git@github.com:turingschool-examples/destination-planner.git
-cd destination-planner
+git clone git@github.com:turingschool-examples/destination-planner-7.git
+cd destination-planner-7
 bundle install
 bundle exec rake db:{create,migrate,seed}
 bundle exec rails server
