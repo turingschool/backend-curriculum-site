@@ -33,7 +33,7 @@ Week 2:
 * Submit a Draft of Your Resume due by 5 pm Friday of Week 2. 
 
 Week 4:
-* Submit a draft of Your Turing Alumni Portfolio by 9 a.m. Friday of Week 4.
+* Submit a draft of Your Turing Alumni Portfolio by 5 pm Friday of Week 4.
 
 Week 5: 
 * Resume Consultancy Project Submission
