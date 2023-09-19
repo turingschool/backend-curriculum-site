@@ -10,12 +10,13 @@ title: Interview Preparation- Putting It All Together
 You've done the groundwork to prepare for your job search: refining your story, crafting your resume, and building your portfolio. Now is the time to put all of these things into motion and talk about why you're the right person for the job.
 
 ### Learning Goals
- Identify how to prepare and research prior to an interview
+* Identify how to prepare and research prior to an interview
 * Ideate and try out solutions to improve your current interviewing strategy
 * Understand how to answer interview questions through specific strategies
 
-* [Slides for this lesson](https://docs.google.com/presentation/d/19v08-f77qv6HTMR3teiuv_SmXMHzpydHrdo144WYG_8/edit?usp=sharing)
-* After you complete this lesson, you'll synthesize your learning in this [Exit Ticket](https://forms.gle/1WHVG6iiHX6bkfS97) by Tuesday of Week 5.
+[Slides for this lesson](https://docs.google.com/presentation/d/19v08-f77qv6HTMR3teiuv_SmXMHzpydHrdo144WYG_8/edit?usp=sharing)
+
+After you complete this lesson, you'll synthesize your learning in this [Exit Ticket](https://forms.gle/1WHVG6iiHX6bkfS97) by Tuesday of Week 5.
 
 
 #### Starting off Strong: Tell me about Yourself
@@ -106,7 +107,7 @@ At the end of almost every interview, you'll be given an opportunity to ask ques
 
 ### Putting it into Practice
 1. To continue preparing for interviews, create an interview prep document or story bank to write out answers by telling stories about various experiences.
-2. Review this [Story bank doc](https://docs.google.com/spreadsheets/d/16aempR55Tej8pPr-l9qq6vBnL4bax9kbGEXA9nO7oVo/edit#gid=882531233)that includes templates, project examples, and interview tips.
+2. Review this [Story bank doc](https://docs.google.com/spreadsheets/d/16aempR55Tej8pPr-l9qq6vBnL4bax9kbGEXA9nO7oVo/edit#gid=882531233) that includes templates, project examples, and interview tips.
 3. Next, use the prompts below or from the story bank doc and write about at least one behavioral and one project question using the STAR method:  
 
  *  Pick a successful project(What was the situation/scenario of the project? What was the task/target of the project? What action 
@@ -115,7 +116,7 @@ At the end of almost every interview, you'll be given an opportunity to ask ques
   * Write about how you've approached working with a team using a specific example:
   * What other stories will you prepare to share?
   * Do some research into your top companies' tech stacks; what do you already know? What can you compare to your own learning? What do you need to learn more about?
-  * Using this [interview prep resource guide](/resources/interview_prep_resources), pick out at least 3 resources you will use to prepare for interviews as well as 3     
+  * Using this [interview prep resource guide](https://careerdev.turing.edu/resources/interview_prep_resources), pick out at least 3 resources you will use to prepare for interviews as well as 3     
     behavioral questions you could practice.
 
 **Other Tips:**
