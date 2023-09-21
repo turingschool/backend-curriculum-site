@@ -24,8 +24,8 @@ financial stressors.
 
 ### Additional Resources
 
-* [For immediate crisis intervention in Colorado:](href="https://coloradocrisisservices.org/?utm_source=GOOGLE&amp;utm_medium=cpc&amp;utm_term=crisis%20support&amp;utm_campaign=Services&amp;_vsrefdom=p.1188"
-  >Colorado Crisis Services)
+* For immediate crisis intervention in Colorado:[Colorado Crisis Services](href="https://coloradocrisisservices.org/?utm_source=GOOGLE&amp;utm_medium=cpc&amp;utm_term=crisis%20support&amp;utm_campaign=Services&amp;_vsrefdom=p.1188")
+
 * [List of national crisis intervention hotlines:]("https://mhanational.org/crisisresources")
 
       
