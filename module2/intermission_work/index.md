@@ -35,20 +35,18 @@ Time-box recommendations are in each section's instructions, and also included h
 2. [Ruby and Rails versions installation guide](https://backend.turing.edu/module3/misc/ruby_and_rails_versions)
 3. [Get Module 2 Tools](./tools)
 4. [Intro to LinkedIn](./linkedin)
-5. Styling (4 hrs total)
-    * [Intro to HTML](./html)
-    * [Intro to CSS](./css)
-    * [Static Challenge](./static_challenge) (2h)
+5. Styling (2 hrs total)
+    * [Intro to HTML](./html) (1h)
+    * [Intro to CSS](./css) (1h)
+    * STRICTLY TIME BOX THESE EXPLORATIONS. You will only need to know extremely basic HTML and CSS in this mod.
 6. [Intro to SQL](./sql) (6 hrs total, 2 hrs each section)
 7. [Rails Tutorial: Task Manager](https://github.com/turingschool-examples/task_manager_rails) (Until complete)
+8. [Optional: Static Challenge](./static_challenge) (2h - strict timebox. Focus on process/problem-solving rather than completion)
 
 ### If you are Repeating
 
 Do a modified version of the assignments above:
 
-* Complete a timed [Static Challenge](./static_challenge) (2 hrs)
-    * If you did Challenge 1 the first time, do Challenge 2, and vice versa.
-    * As you work, reference the [W3Schools HTML5 Tutorial](https://www.w3schools.com/html/default.asp) and [W3Schools CSS Tutorial](https://www.w3schools.com/css/default.asp)
 * [Intro to SQL](./sql) (3-4 hrs total, 1 hr each section)
     * You can skip the Jumpstart Lab tutorial if you like. You can use the Checks for Understanding as a gauge of whether you need to review it or not.
     * Work on the SQL exercises. Spend at least 1 hour in all three sections.
@@ -56,6 +54,10 @@ Do a modified version of the assignments above:
 * [Task Manager](https://github.com/turingschool-examples/task_manager_rails)
     * Review your code. If you do not have a copy, use the completed repo linked at the bottom of the README.
     * Answer the Checks for Understanding at the end of the README.
+* Complete a timed [Static Challenge](./static_challenge) (2 hrs)
+    * If you did Challenge 1 the first time, do Challenge 2, and vice versa.
+    * STRICTLY TIMEBOX THIS ACTIVITY. DO NOT EXCEED 2 HOURS. Focus on your process and specific HTML/CSS troubleshooting skills. We do not care if you complete this challenge. 
+    * As you work, reference the [W3Schools HTML5 Tutorial](https://www.w3schools.com/html/default.asp) and [W3Schools CSS Tutorial](https://www.w3schools.com/css/default.asp)
 
 
 ## Submission
