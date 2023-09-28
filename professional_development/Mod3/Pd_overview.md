@@ -22,7 +22,7 @@ Students will demonstrate professional readiness to move to Mod 4 with the submi
 * Week 1: Crafting Your Technically Focused Resume
 * Week 2: Resume Storytelling for Your Transferable Experience (Live) 
 * Week 3: Cover Letter Lesson  (async) + Lightning Talks
-* Week 4: Cover Letters & the Application Process (live) + Behavioral Interview Session (Live) + Job Shadow
+* Week 4: The Application Process (live) + Behavioral Interview Session (Live) + Job Shadow
 * Week 5: Peer Review of Career Materials (Live)
 * Week 6: Submit Self Eval & Career Reflections
 
