@@ -6,7 +6,7 @@ subheading: Intermission Work
 
 # Required
 
-You must complete and submit all of these assignments. *It is due the Saturday before the start of the inning at 5pm*
+You must complete and submit all of these assignments. *It is due the Saturday before the start of the inning at 5pm.*
 
 Submit your work here: [Survey Link](https://forms.gle/SzrTxMFjYUQLbqbY8)
 
@@ -14,7 +14,7 @@ You must use Ruby 3.2.2 and Rails 7.0.x for all of the work in this module. You 
 
 Note: If you are installing Ruby 3.2.2 for the first time, you WILL have to reinstall all of your gems. Gems reside on your computer per version of Ruby, and every time you add a new version of Ruby, you will have to reinstall all of your gems for that version of ruby.
 
-If you need a guide on how to upgrade [check this out](https://backend.turing.edu/module3/misc/ruby_and_rails_versions)
+If you need a guide on how to upgrade [check this out](https://backend.turing.edu/module3/misc/ruby_and_rails_versions).
 
 
 ## Core Learning Goals of Mod 3
@@ -28,7 +28,7 @@ If you need a guide on how to upgrade [check this out](https://backend.turing.ed
 
 ### Professional Development
 
-[Complete the tasks outlined in this document](https://docs.google.com/document/d/1i6O5-l6RS1I6dlM-uL-xAtYohrOENj1DR0YsqCl2gwE) to have the foundations for a technically rich resume.
+To start your Professional Development work in mod 3, plan to spend 60-90 minutes completing [this async lesson on crafting your Resume](https://docs.google.com/presentation/d/13IGrf4TKWQ47tIuP0Ls8YjHjjpXuGJ3S6DEHT26wkgE/edit#slide=id.p1). 
 
 ### Intro to APIs
 
@@ -42,7 +42,7 @@ Here are some helpful videos and tutorials that you can use to familiarize yours
 
 #### Do all of these
 * [Build an API in Rails Tutorial](https://github.com/turingschool/backend-curriculum-site/blob/gh-pages/module3/lessons/exercises/building_an_api.md)
-* [Play with Postman in order to test the API you built out in the last lesson.](https://learning.postman.com/docs/introduction/overview/)
+* [Play with Postman in order to use the API you built out in the previous lesson.](https://learning.postman.com/docs/introduction/overview/)
 * [Consuming an API](https://github.com/turingschool/backend-curriculum-site/blob/gh-pages/module3/lessons/consuming_an_api.md)
 * Review your reflections on your M2 projects, and revise / add onto them.
 
