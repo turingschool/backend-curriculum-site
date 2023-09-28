@@ -237,7 +237,9 @@ There's one more improvement we should make to our code. If you look in the cont
 
 What we really want is to put our environment configuration somewhere that is specific to this project. Luckily there is a handy gem called [Figaro](https://github.com/laserlemon/figaro) that allows us to do just that. Read through the docs to figure out how it works.
 
-First we will need to add the Figaro gem to our Gemfile outside of the `:development`/`:test` blocks. Then, run `bundle exec figaro install` from the command line. This will create a file `config/application.yml`. This file will contain our keys. We don't want to push this file to GitHub for the same reason we don't want the keys hard coded in our program, so this file should be added to the `gitignore`. Luckily, Figaro automatically adds this file to the gitignore for us. 
+First we will need to add the Figaro gem to our Gemfile outside of the `:development`/`:test` blocks. Then, run `bundle exec figaro install` from the command line. This will create a file `config/application.yml`. This file will contain our keys. We don't want to push this file to GitHub for the same reason we don't want the keys hard coded in our program, so this file should be added to the `gitignore`.
+
+🚨 **NOTE:** Figaro is _supposed_ to add this new config file to your .gitignore automatically, but there is a bug that may produce an error and prevent it from adding it for you. **Before proceeding, manually check your `.gitignore` file and add `config/application.yml` if it is not there!**
 
 Inside the `application.yml` file, add your API key:
 

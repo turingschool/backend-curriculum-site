@@ -32,8 +32,8 @@ In Week 3, students will complete a series of challenges. Completion of these ch
 
 ### Career Development
 
-The Mod 3 [career development](https://careerdev.turing.edu/module_three) curriculum centers around learning to tell your story and beginning your job hunt.
+The Mod 3 [career development](https://backend.turing.edu/professional_development/Mod3/index) curriculum centers around learning to tell your story and beginning your job hunt.
 
 ### Portfolio
 
-Each student will prepare a presentation following the requirements outlined in the [Mod 3 Portfolio](./portfolio_requirements).
+Each student will prepare a presentation following the requirements outlined in the [Mod 3 Portfolio](./final_project_and_portfolio_guide).

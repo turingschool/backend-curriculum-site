@@ -10,9 +10,9 @@ In Module 3, we will look beyond the basics of building Rails web applications w
 
 ## Instructors
 
-* Mike Dao (Anchor)
-* Chris Simmons
 * Tracey Monteiro
+* Jamison Ordway
+* Chris Simmons (anchor)
 
 ## Curriculum
 
