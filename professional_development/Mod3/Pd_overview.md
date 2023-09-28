@@ -21,7 +21,7 @@ Students will demonstrate professional readiness to move to Mod 4 with the submi
 ## Weekly PD Focus including other events:
 * Week 1: Crafting Your Technically Focused Resume
 * Week 2: Behavioral Interview Prep. Async Lesson
-*  Resume Storytelling for Your Transferable Experience (Live) 
+  * Resume Storytelling for Your Transferable Experience (Live) 
 * Week 3: Cover Letter Lesson  (async) + Lightning Talks
 * Week 4: The Application Process (live) + Behavioral Interview Session (Live) + Job Shadow
 * Week 5: Peer Review of Career Materials (Live)
@@ -32,6 +32,7 @@ Students will demonstrate professional readiness to move to Mod 4 with the submi
 ## Deliverables 
 Week 2:
 * Submit a Draft of Your Resume due by 5 pm Friday of Week 2.
+
 Week 4:
 * Cover Letter Drafts are due by 5 p.m. Friday of Week 4.
 
