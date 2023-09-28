@@ -20,7 +20,7 @@ Students will demonstrate professional readiness to move to Mod 4 with the submi
 
 ## Weekly PD Focus including other events:
 * Week 1: Crafting Your Technically Focused Resume
-* Week 2: Resume Storytelling for Your Transferable Experience (Live)  + Set Up Your Terminal Portfolio
+* Week 2: Resume Storytelling for Your Transferable Experience (Live) 
 * Week 3: Cover Letter Lesson  (async) + Lightning Talks
 * Week 4: Cover Letters & the Application Process (live) + Behavioral Interview Session (Live) + Job Shadow
 * Week 5: Peer Review of Career Materials (Live)
@@ -33,14 +33,14 @@ Week 2:
 * Submit a Draft of Your Resume due by 5 pm Friday of Week 2. 
 
 Week 4:
-* Submit a draft of Your Turing Alumni Portfolio by 5 pm Friday of Week 4.
+
 
 Week 5: 
 * Resume Consultancy Project Submission
 * Update your resume with your consultancy project by Tuesday at 9 a.m. MT, Week 5. 
 
 Week 6: 
-* Final Draft of Resume and Turing Alumni Portfolio due by 9 a.m. Monday of Week 6.
+* Final Draft of Resume and Turing Alumni Portfolio due Monday of Week 6.
 * Submit Self Eval & Career Reflections Survey
 
 ## Ongoing PD Work
