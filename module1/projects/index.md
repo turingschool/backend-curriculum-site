@@ -7,11 +7,11 @@ title: Backend Module 1 Projects
 
 The following projects will be assigned and their completion is required to be promoted to module 2.
 
-* Week 1 (ungraded): [Flashcards](./flashcards)
-* Week 1-2 (Solo): [Beat Box](./beat_box)
-* Week 2-3 (Solo): [The DMV](./dmv)
-* Week 3-4 (Paired): [Battleship](./battleship) or [Connect Four](./connect_four)
-* Week 5-6 (Group Final): [Futbol PD](./futbol_pd)
+* Week 1 (ungraded): TBD
+* Week 1-2 (Solo): TBD
+* Week 2-3 (Solo): TBD
+* Week 3-4 (Paired): TBD
+* Week 5-6 (Group Final): TBD
 
 ## Extension Projects
 
