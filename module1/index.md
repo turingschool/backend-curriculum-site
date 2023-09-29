@@ -10,9 +10,8 @@ In Module 1, students will learn to build software in teams with Ruby and object
 
 ## Instructors
 
-* Abdul Redd
-* Jamison Ordway
 * Meg Stang
+* Kat Brandt
 
 ## Curriculum
 
