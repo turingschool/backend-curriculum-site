@@ -34,6 +34,7 @@ Slides are available [here](https://github.com/turingschool/backend-curriculum-s
 - Generate what is called a 'master key' by running `EDITOR="code --wait" rails credentials:edit` in the command line
   - This will create a new key in `config/master.key` and a temporary YAML file which will open in your text editor.
 - Add your Propublica API Key to the opened file
+
 ```
 propublica:
   key: asdsa3498serghjirteg978ertertwhter
@@ -41,6 +42,7 @@ propublica:
 # Used as the base secret for all MessageVerifiers in Rails, including the one protecting cookies.
 secret_key_base: ugsdfeadsfg98a7sd987asjkas98asd87asdkdwfdg876fgd
 ```
+
 - Save and close the file, and you should see in your terminal that the file was encrypted and saved.
 - Note: To use these credentials and environment variables with a team you'll need to share the contents of the `config/master.key` file with your teammates securely, and they'll need to create this file with that key as the contents. 
 
