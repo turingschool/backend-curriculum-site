@@ -21,16 +21,28 @@ After this class, a student should be able to:
 
 ## Optional
 
-Slides are available [here](https://github.com/turingschool/backend-curriculum-site/blob/gh-pages/module3/slides/testing_api_consumption).
+Slides are available [here](https://github.com/turingschool/backend-curriculum-site/blob/gh-pages/module3/slides/testing_api_consumption.md).
 
 ## Required Setup
 
-- Install figaro (Add to :development, :test block in Gemfile)
 - `bundle`
-- `bundle exec figaro install`
 - `rails db:{create, migrate}`
-- Request a Propublica API Key
-- Add the key to your `application.yml` and name it: `PROPUBLICA_API_KEY`
+- [Request a Propublica API Key](https://www.propublica.org/datastore/api/propublica-congress-api)
+- Clone [this repo](https://github.com/turingschool-examples/house-salad-7/tree/testing-setup) (forking is optional since we won't ask you to push up any changes)
+- Verify that you are able to launch VS Code from the command line. 
+  - If the following steps don't work, you'll need to follow [these 'Launching From the Command Line' steps](https://code.visualstudio.com/docs/setup/mac#:~:text=Keep%20in%20Dock.-,Launching%20from%20the%20command%20line,code) to configure the command
+- Generate what is called a 'master key' by running `EDITOR="code --wait" rails credentials:edit` in the command line
+  - This will create a new key in `config/master.key` and a temporary YAML file which will open in your text editor.
+- Add your Propublica API Key to the opened file
+```
+propublica:
+  key: asdsa3498serghjirteg978ertertwhter
+
+# Used as the base secret for all MessageVerifiers in Rails, including the one protecting cookies.
+secret_key_base: ugsdfeadsfg98a7sd987asjkas98asd87asdkdwfdg876fgd
+```
+- Save and close the file, and you should see in your terminal that the file was encrypted and saved.
+- Note: To use these credentials and environment variables with a team you'll need to share the contents of the `config/master.key` file with your teammates securely, and they'll need to create this file with that key as the contents. 
 
 ## Optional Manual Setup
 
@@ -66,7 +78,7 @@ And let’s add a search method for our search controller:
 ```ruby
 def search
     conn = Faraday.new(url: "https://api.propublica.org") do |faraday|
-      faraday.headers["X-API-KEY"] = ENV["PROPUBLICA_API_KEY"]
+      faraday.headers["X-API-KEY"] = Rails.application.credentials.propublica[:key]
     end
     response = conn.get("/congress/v1/116/senate/members.json")
 
