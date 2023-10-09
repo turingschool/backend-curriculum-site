@@ -11,6 +11,7 @@ _[Back to Viewing Party Home](./index)_
 - Use RuboCop in project to enforce style guide
 - Test consumption of your API
 - Consume [The Movie DB API](https://developers.themoviedb.org/3/getting-started/introduction)
+  - NOTE: You must first register an account with this service and request an API key. 
 - Do [Individual Retrospective](https://github.com/jamisonordway/individual_retrospective/blob/main/module_3/viewing_party.md)
 
 **OPTIONAL**
@@ -18,21 +19,20 @@ _[Back to Viewing Party Home](./index)_
 
 
 ### Requirements
-Project specification requirements can be found [here](https://github.com/turingschool-examples/viewing_party_lite/projects/1)
+Fork from [THIS REPO](https://github.com/turingschool-examples/viewing_party_lite_7).
+
+Project specification requirements can be found [here](https://github.com/orgs/turingschool-examples/projects/3), within the base repo's Projects tab.
 
 You will need to create your own project board on your repository. Feel free to copy the cards we have on the above linked board to add to your own project board. 
 
-Fork from [THIS REPO](https://github.com/turingschool-examples/viewing_party_lite_7)
-
-Wireframes found [here](./wireframes) can be used as an additional reference
-
+Wireframes found [here](./wireframes) can be used as an additional reference for the front-end.
 
 ### Exploration Topic Ideas
 
 - Additional API consumption
-- Add functionality such that a user must accept an invite to a movie party
-- Implement basic authentication for a user 
-    * require a password field to user registration, and create log in and loggin out functionality 
+- Add functionality such that a user must accept an invite to a movie party.
+- Implement basic authentication for a user.
+    * require a password field to user registration, and create log-in/log-out functionality 
     * utilize sessions/cookies to remember a logged in user
-- Implement low level, server side caching for API calls
+- Implement low-level server-side caching for API calls.
 

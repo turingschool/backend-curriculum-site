@@ -1,5 +1,5 @@
 ---
-title: Viewing Party
+title: Viewing Party Lite
 length: 1 week
 tags: API consumption, paired project
 type: project
