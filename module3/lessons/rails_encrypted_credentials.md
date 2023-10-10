@@ -1,4 +1,9 @@
-# Rails Encrypted Credentials
+---
+layout: page
+title: Rails Encrypted Credentials
+length: 180
+tags: apis, rails, refactoring
+---
 
 ## Introduction
 

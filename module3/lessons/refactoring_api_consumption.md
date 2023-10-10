@@ -1,35 +1,18 @@
 ---
 layout: page
-title: Refactoring API Consumption
+title: Consuming APIs and Refactoring Patterns
 length: 180
 tags: apis, rails, refactoring
 ---
 
-# Refactoring API Consumption
-
 ## Setup
-We will start with the house-salad-7 app [api-consumption-complete](https://github.com/turingschool-examples/house-salad-7/tree/api-consumption-complete) branch for this lesson.
+We will start with the house-salad-7 app's [`api-consumption-complete` branch](https://github.com/turingschool-examples/house-salad-7/tree/api-consumption-complete) for this lesson.
 
-Instructions on how to switch from Figaro to Rails Encrypted Credentials can be found [here](switching_from_figaro_to_rails_encrypted_credentials)
+Instructions on using Rails Encrypted Credentials can be found [here](./rails_encrypted_credentials.md).  
 
-## Vocabulary
-
-### Refactor
-
-• to change code in a way that the end functionality still works as intended, but reorganizes it in a way to make it easier to maintain, easier to test, etc
-
-### SRP
-
-- Single Responsibility Principle; the ideal that a piece of code should be responsible for one kind of task
-    - this can be at a class level, a method level, etc.
-
-### Design Pattern
-
-• an implementation of code which follows as much "industry standard" as possible to achieve clean organization of our code
-
-### MVC
-
-• Model, View, Controller design pattern; a way of organizing our code into logical portions where our "business logic" is managed by the Controller, the "data logic" is managed by the Models, and the "presentation logic" is managed by the Views
+<section class="call-to-action">
+NOTE: This lesson assumes that Rails Encrypted Credentials have already been set up with a `propublica[:key]` ready to go. If you haven't already done so, get a Propublica API Key [here](https://www.propublica.org/datastore/api/propublica-congress-api). 
+</section>
 
 ## Learning Goals
 
@@ -39,9 +22,23 @@ By the end of this class, a student should be able to:
     - Refactoring will include the Facade design pattern and the Service design pattern
 - Utilize two of the pillars of object oriented programming, abstraction and encapsulation, to guide their refactoring.
 
-### Declarative Programming
+## Vocabulary
 
-Throughout this refactor, we will use a technique called [Declarative Programming](https://vimeo.com/131588133). This is also referred to as dream driven development. Simply put, we write the code we wish existed and worry about implementation details later.
+**Refactor** - to change code in a way that the end functionality still works as intended, but reorganizes it in a way to make it easier to maintain, easier to test, etc.
+
+**SRP** - Single Responsibility Principle; the ideal that a piece of code should be responsible for one kind of task (this can be at a class level, a method level, etc.).
+
+**Design Pattern** - an implementation of code which follows as much "industry standard" as possible to achieve clean organization of our code.
+
+**MVC** - "Model, View, Controller" design pattern; a way of organizing our code into logical portions where our "business logic" is managed by the Controller, the "data logic" is managed by the Models, and the "presentation logic" is managed by the Views.
+
+---
+
+## How do we refactor? 
+
+### 1. Declarative Programming
+
+Throughout this refactor, we will use a technique called [Declarative Programming](https://vimeo.com/131588133). This is also referred to as "dream-driven development". Simply put, we write the code we *wish* existed and worry about implementation details later.
 
 We use this strategy in life all the time. A statement such as "I need to travel to New York City." is an example. There is no mention of *how* we plan to get there. We could take a train, car, plane, bicycle, or some combination but those are details we will worry about later. Depending on your origin different strategies make more sense than others.
 
@@ -49,13 +46,13 @@ It's less likely, although perhaps more exciting, to select a means of travel wi
 
 Writing code this way makes it more likely that we'll end up with abstractions that aren't vulnerable to breaking if implementation changes.
 
-For example, currently we are using Propublica to retrieve this data but this data used to be provided by an API called The Sunlight Foundation. Google also makes some of this data available through their Civics API. By deciding how we want to interface with these objects and classes (picking our destination) prior to implementing API calls (how we are going to get there) we make this view more robust and less brittle. Imagine if we were parsing hashes here instead of objects. If the API changes, the keys of that hash likely change and this view suddenly stops working. We want to minimize the number of layers that need to change if we switch out our API.
+For example, currently we are using Propublica to retrieve this data. But this data used to be provided by an API called "The Sunlight Foundation". Google also makes some of this data available through their Civics API. By deciding how we want to interface with these objects and classes (picking our destination) prior to implementing API calls (how we are going to get there), we make this view more robust and less brittle. Imagine if we were parsing hashes here instead of objects. If the API changes, the keys of that hash likely change and this view suddenly stops working. We want to minimize the number of layers that need to change if we switch out our API.
 
-### Red, Green, Refactor
+### 2. Red, Green, Refactor
 
 We will also be using the Red, Green, Refactor technique. Red refers to a failing test, green refers to a passing test, and refactoring refers to making changes to improve code. We want to start with a failing test and then make it pass (red to green). We already did that step in the previous lesson. Then we make a refactor to improve the code. As we make that refactor, our test will most likely break, so our goal is for that refactor to end with our tests passing again. This way, we can use our tests to check our work every step along the way. We want to try to keep our refactors small and get back to green as often as possible to maintain our functionality.
 
-### Member Objects
+## Refactor: Member Objects
 
 Right now, our app does what it's supposed to do but it doesn’t FEEL GOOD. Specifically, our `index`action in the controller is long, violates SRP and MVC, isn't very abstract, the data isn't well encapsulated, and the logic that lives in it isn’t reusable. Time to refactor.
 
@@ -67,7 +64,7 @@ class SearchController < ApplicationController
     state = params[:state]
 
     conn = Faraday.new(url: "https://api.propublica.org") do |faraday|
-      faraday.headers["X-API-Key"] = ENV["PROPUBLICA_API_KEY"]
+      faraday.headers["X-API-Key"] = Rails.application.credentials.propublica[:key]
     end
 
     response = conn.get("/congress/v1/members/house/#{state}/current.json")
@@ -108,7 +105,7 @@ class SearchController < ApplicationController
     state = params[:state]
 
     conn = Faraday.new(url: "https://api.propublica.org") do |faraday|
-      faraday.headers["X-API-KEY"] = ENV["PROPUBLICA_API_KEY"]
+      faraday.headers["X-API-KEY"] = Rails.application.credentials.propublica[:key]
     end
 
     response = conn.get("/congress/v1/members/house/#{state}/current.json")
@@ -206,7 +203,11 @@ RSpec.describe Member do
 end
 ```
 
-### SearchFacade Object
+
+--- 
+
+## Facades
+### Refactor: The `SearchFacade` Object
 
 Let's look at our Controller in it's current state:
 
@@ -218,7 +219,7 @@ class SearchController < ApplicationController
     state = params[:state]
 
     conn = Faraday.new(url: "https://api.propublica.org") do |faraday|
-      faraday.headers["X-API-Key"] = ENV["PROPUBLICA_API_KEY"]
+      faraday.headers["X-API-Key"] = Rails.application.credentials.propublica[:key]
     end
 
     response = conn.get("/congress/v1/members/house/#{state}/current.json")
@@ -231,7 +232,7 @@ class SearchController < ApplicationController
 end
 ```
 
-It's still pretty long, violating SRP, and not abstract. A common refrain when developing rails apps is lightweight controllers. Ideally, the controller doesn't do any work itself but rather just coordinates between other parts of the application. Think of it as a CEO: it doesn't actually do anything, it just tells others what to do.
+It's still pretty long, violating SRP, and not abstract. A common refrain when developing rails apps is "lightweight controllers". Ideally, the controller doesn't do any work itself, rather it just coordinates between other parts of the application. Think of it as a CEO: it doesn't actually do anything, it just tells others what to do.
 
 Let's do a little bit of declarative programming and write code that represents what we want it to look like. 
 
@@ -244,7 +245,7 @@ class SearchController < ApplicationController
     # state = params[:state]
 
     # conn = Faraday.new(url: "https://api.propublica.org") do |faraday|
-    #   faraday.headers["X-API-Key"] = ENV["PROPUBLICA_API_KEY"]
+    #   faraday.headers["X-API-Key"] = Rails.application.credentials.propublica[:key]
     # end
 
     # response = conn.get("/congress/v1/members/house/#{state}/current.json")
@@ -259,15 +260,15 @@ end
 
 ### What is a Facade?
 
-In construction and architecture, a "facade" is like a "faceplate" or something that covers something more complex underneath. In software design, a Facade is a front-facing interface masking more complex underlying or structural code. To use our CEO and "company structure" analogy, a Facade is like "middle management" who knows who to organize to get a job done.
+In construction and architecture, a "facade" is like a "faceplate" or something that covers something more complex underneath. In software design, **a Facade is a front-facing interface masking more complex underlying or structural code**. To use our CEO and "company structure" analogy, a Facade is like "middle management" who knows who to organize to get a job done.
 
 In our code, our Controllers will generally have one Facade, and the Facade should be named similarly to our Controller. In this case, our SearchController will call our SearchFacade.
 
-When we create Facades, we generally want to instantiate them because this will make things easier for us when our views may need to make multiple API calls. We can continue to only send one object to the view, as per the [Rules for Developers](https://thoughtbot.com/blog/sandi-metz-rules-for-developers).
+When we create Facades, we generally want to **instantiate** them (instead of using all class methods) because this will make things easier for us when our views may need to make multiple API calls. We can continue to only send one object to the view, as per the [Rules for Developers](https://thoughtbot.com/blog/sandi-metz-rules-for-developers). 
 
-### Back to Code:
+### Back to Code...
 
-So our long term goal is that we are going to send an Facade object to the view and this object will have a method called members, which will give us the members we need. Note that we’ve commented out all of the code in our controller that we are going to abstract away
+Our long term goal is to be able to send an Facade object to the view that will have a method called `members`, which will give us the members we need. Note that we’ve commented out all of the code in our controller that we are going to abstract away.
 
 When we run the tests here, we will get an error saying that it doesn’t know anything about a SearchFacade, so we are going to make it. First we are going to make a directory, `app/facades`
 
@@ -284,7 +285,7 @@ class SearchFacade
 end
 ```
 
-We’ve made some changes now and since we are now sending a facade object to the view, we need to change our view to reflect this.
+We’ve made some changes now, and since we are now sending a facade object to the view, we need to update our view to reflect this.
 
 *app/views/search/index.html.erb*
 
@@ -300,11 +301,11 @@ We’ve made some changes now and since we are now sending a facade object to th
 <% end %>
 ```
 
-This is a little bit more of that dream driving. We are going to have the facade be in charge of all of the things. The members method will give us an array of member objects and we can also count that collection.
+This is a little bit more of that dream driving. We are going to give the facade the responsibility of coordinating the actual API request, instead of the controller. The members method will give us an array of member objects and we can also count that collection.
 
-So if we run our tests now, it’s going to complain because we have nothing in our members method, so its going to return us a `nil`. We don’t wait a `nil`. 
+If we run our tests now, it’s going to complain because we have nothing in our members method, so its going to return us a `nil`. We don’t want a `nil`. 
 
-We get rid of that nil by moving the code we commented out in our controller and adapting it to the structure we’ve built here.
+We get rid of that `nil` by moving the code we commented out in our controller and adapting it to the structure we’ve built here in our facade.
 
 *app/facades/search_facade.rb*
 
@@ -316,7 +317,7 @@ class SearchFacade
 
   def members
     conn = Faraday.new(url: "https://api.propublica.org") do |faraday|
-      faraday.headers["X-API-Key"] = ENV["PROPUBLICA_API_KEY"]
+      faraday.headers["X-API-Key"] = Rails.application.credentials.propublica[:key]
     end
 
     response = conn.get("/congress/v1/members/house/#{@state}/current.json")
@@ -331,13 +332,21 @@ end
 
 The big adaptation we are making here is that we aren’t setting the state that is coming in from the params to a local variable. That information is coming in when we instantiate the facade and stored in an instance variable, so when we run that GET request, we’re just going to interpolate. 
 
-So now if we run our tests we’re all GREEN. 
+At this point, if we run our tests we’re all GREEN! ✅
 
-Our controller is now quite lightweight and is truly acting as that CEO.
+Our controller is now quite lightweight and is truly acting as that CEO. ✅
 
-We're not going to unit test our `SearchFacade` in this lesson, but you should absolutely do so. It is straight forward to test this facade object, because all we have to do is instantiate it with a string as an argument, and its member method should just return us an array of Member objects, making testing very straightforward.
+We're not going to unit test our `SearchFacade` in this lesson, but you should absolutely do so. It is straight-forward to test this facade object, because all we have to do is instantiate it with a string as an argument, and its member method should just return us an array of Member objects, making testing very straightforward.
 
-### Service Objects
+<section class="call-to-action">
+On your own, take some time now to create a test for your newly-created SearchFacade class. Remember that it will be making at least one API call, so you should mock the API call using fixture files or VCR, and have your test prove that we can instantiate & call the methods in the facade. 
+</section>
+
+
+--- 
+
+
+## Refactor: Service Objects
 
 Looking at our members method, we can see that it is still quite long. It’s violating SRP because it’s both reaching out to the API to get that information we need AND it’s also creating Member objects for us. Our goal here is that we want to take out the code that interacts with the API into a separate class. Lets do some more of that declarative programming, or what I like to call it, Dream Driven Development. We dream about how we’d like our code to work and we make it happen.
 
@@ -351,7 +360,7 @@ class SearchFacade
 
 	def members
     # conn = Faraday.new(url: "https://api.propublica.org") do |faraday|
-    #   faraday.headers["X-API-Key"] = ENV["PROPUBLICA_API_KEY"]
+    #   faraday.headers["X-API-Key"] = Rails.application.credentials.propublica[:key]
     # end
 
     # response = conn.get("/congress/v1/members/house/#{@state}/current.json")
@@ -402,7 +411,7 @@ And now let’s move the code we had previously implemented in our facade here i
 class CongressService
   def members_by_state(state)
     conn = Faraday.new(url: "https://api.propublica.org") do |faraday|
-      faraday.headers["X-API-Key"] = ENV["PROPUBLICA_API_KEY"]
+      faraday.headers["X-API-Key"] = Rails.application.credentials.propublica[:key]
     end
 
     response = conn.get("/congress/v1/members/house/#{state}/current.json")
@@ -416,7 +425,7 @@ We do have to make some changes to get this to work. We have to change `@state` 
 
 We also are not going to set the parsed JSON to a variable. Remember that the last line of the method is what gets returned, so no need to store it in a local variable either.
 
-If we run our tests, everything is passing again!
+If we run our tests, everything is passing again! ✅
 
 It’s important to note that we did not move over the creation of the `Member` objects. The ONLY job of this service is to talk to the Propublica API. The formatting and massaging of the data is a different responsibility to what happens in the service - it is the job of the facade.
 
@@ -436,7 +445,7 @@ class CongressService
 
   def conn
     Faraday.new(url: "https://api.propublica.org") do |faraday|
-      faraday.headers["X-API-Key"] = ENV["PROPUBLICA_API_KEY"]
+      faraday.headers["X-API-Key"] = Rails.application.credentials.propublica[:key]
     end
   end
 end
@@ -459,7 +468,7 @@ class CongressService
 
   def conn
     Faraday.new(url: "https://api.propublica.org") do |faraday|
-      faraday.headers["X-API-Key"] = ENV["PROPUBLICA_API_KEY"]
+      faraday.headers["X-API-Key"] = Rails.application.credentials.propublica[:key]
     end
   end
 end 
@@ -500,7 +509,23 @@ end
 
 Note that we aren’t checking for specific data, such as the names of the members of Congress. This is important because API results can change, and having to investigate your tests whenever the API results change is a bad time. We don’t need to check the exact contents of the API results, but we do need to check that it’s giving us the data types we expect to get back.
 
-### Checks for Understanding
+## A Note on Testing
+To reiterate, we *should* create tests for: 
+
+* Facades - A facade should be able to: 
+  * be instantiated, 
+  * potentially use data via argument (if required), 
+  * return data through one or more methods. 
+
+* Services - A service should be able to: 
+  * potentially use data via argument (if required),
+  * return a specific *structure* of data - e.g. `expect(data[:name]).to be_a String`, etc. Specific values can be tested in a feature/integration test. 
+
+* POROs - A PORO should look and behave like a normal Ruby class test / a unit test. 
+ 
+We do *not* necessarily need to create a test for our Controller, since most of the logic is abstracted away by the facade & service design patterns. 
+
+## Checks for Understanding
 
 - What is declarative Programming?
 - What is Red, Green, Refactor?
@@ -510,4 +535,4 @@ Note that we aren’t checking for specific data, such as the names of the membe
     - Does it achieve Encapsulation?
     
 
-You can find functioning completed code here: [https://github.com/turingschool-examples/house-salad-7/tree/refactoring-api-consumption](https://github.com/turingschool-examples/house-salad-7/tree/refactoring-api-consumption)
+You can find functioning completed code here: [https://github.com/turingschool-examples/house-salad-7/tree/refactoring-api-consumption](https://github.com/turingschool-examples/house-salad-7/tree/refactoring-api-consumption).
