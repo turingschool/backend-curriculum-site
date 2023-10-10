@@ -355,7 +355,7 @@ If you look closely in that `.yml` file you can see our API key in there. We wi
 VCR.configure do |config|
   config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
   config.hook_into :webmock
-  config.filter_sensitive_data('<PROPUBLICA_API_KEY>') { ENV["PROPUBLICA_API_KEY"] }
+  config.filter_sensitive_data('<PROPUBLICA_API_KEY>') { Rails.application.credentials.propublica[:key] }
 end
 ```
 
@@ -379,7 +379,7 @@ VCR has a handy feature that allows us to use the names of our tests to name cas
 VCR.configure do |config|
   config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
   config.hook_into :webmock
-  config.filter_sensitive_data('<PROPUBLICA_API_KEY>') { ENV["PROPUBLICA_API_KEY"] }
+  config.filter_sensitive_data('<PROPUBLICA_API_KEY>') { Rails.application.credentials.propublica[:key] }
   config.configure_rspec_metadata!
 end
 ```
@@ -441,7 +441,7 @@ We can also set a global configuration which will apply to all VCR-enabled tests
 VCR.configure do |config|
   config.cassette_library_dir = 'spec/fixtures/vcr_cassettes'
   config.hook_into :webmock
-  config.filter_sensitive_data('DONT_SHARE_MY_PROPUBLIC_SECRET_KEY') { ENV['PROPUBLICA_KEY'] }
+  config.filter_sensitive_data('DONT_SHARE_MY_PROPUBLIC_SECRET_KEY') { Rails.application.credentials.propublica[:key] }
   config.default_cassette_options = { re_record_interval: 7.days }
   config.configure_rspec_metadata!
 end
