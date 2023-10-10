@@ -20,7 +20,7 @@ tags: ruby, testing
 
 ## Warm Up
 
-* Thinking back to your capstone work; how did you know if your program was working?
+* Thinking on your workso far, how did you know if your code/program was working?
 * What are some potential drawbacks to this approach?
 
 ## Test Etiquette
