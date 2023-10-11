@@ -20,7 +20,7 @@ tags: ruby, testing
 
 ## Warm Up
 
-* Thinking on your workso far, how did you know if your code/program was working?
+* Thinking on your work so far, how did you know if your code/program was working?
 * What are some potential drawbacks to this approach?
 
 ## Test Etiquette
