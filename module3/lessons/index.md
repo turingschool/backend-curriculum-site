@@ -16,7 +16,7 @@ layout: page
 
 * [Faraday and Postman](./faraday_and_postman)
 * [Testing Tools for API Consumption](./testing_tools_for_api_consumption)
-* [Refactoring API Consumption](./refactoring_api_consumption)
+* [Consuming APIs and Refactoring Patterns](./refactoring_api_consumption)
 * [Building an API in Rails](./building_a_rails_api)
 * [Customizing your API's JSON Output](./customizing_json)
 
