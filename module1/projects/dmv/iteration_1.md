@@ -15,12 +15,13 @@ You should explore:
 * Take note of the project folder structure. Is there anything you haven't seen before?
 
 ### Debugging
-If you haven't already, run the tests now. You should see some failing tests. Work through fixing the code until the tests pass. You only change the application code, not the tests. It might be helpful to run each test one at a time and fix one by one.
+If you haven't already, run the tests now. You should see some failing tests. Work through fixing the code until the tests pass. You will only change the application code in `spec/dmv_spec.rb`, not the tests. You will make updates to the tests in `spec/dmv_data_service_spec.rb`, not the application code. It might be helpful to run each test one at a time and fix one by one.
 
 _**TIPS**_
 
-* You should not have any failures in `spec/dmv_data_service_spec.rb`. If you do, please notify an instructor.
-* You should not change any of the existing tests for the debugging portion of the project. Change the application code, not the specs.
+* You may have some failures in `spec/dmv_data_service_spec.rb`. Read the failure/error and make the suggested updates to the tests that are failing. Make some reflections on why writing more dynamic test could prove more beneficial on an application that is pulling data from an external source.
+
+* For the debugging portion of the project, you should not change any of the existing tests in the `spec/dmv_spec.rb`. Change the application code, not the specs.
 
 You should see the following errors:
 
