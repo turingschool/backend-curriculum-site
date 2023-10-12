@@ -16,9 +16,9 @@ title: M1 Portfolio Requirements
 
 ## Requirements
 
-Each student will deliver a 5 minute **slide presentation** in front of your instructors. Students might find it helpful to review their Project Reflection Journal to prepare to answer the following prompts.
+Each student will deliver a 5 minute **slide presentation** in front of your instructors. Students might find it helpful to review their Interview Prep - Project Log to prepare for the following prompts.
 
-* All students will respond to the following prompt:
+* All students will respond to the following prompts:
   * How has feedback impacted your development in this module and helped prepare you for your job/career?
   * Which project produced the most growth in you? Technically or Personally. Why?
   * What is something you've learned about yourself in receiving project feedback?
