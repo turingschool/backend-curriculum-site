@@ -32,9 +32,9 @@ Great! We have nodes. In this iteration we'll create the `LinkedList` class and 
 
 We'll be adding the following methods:
 
-1. `append` - adds a new piece of data (data can really be anything) to the list
-2. `count` - tells us how many things are in the list
-3. `to_string` - generates a string of all the elements in the list, separated by spaces
+1. `append` - creates a new node with the data that we pass into this method and adds it to the end of the linked list
+2. `count` - tells us how many nodes are in the list
+3. `to_string` - generates a string containing the data from every node in the list, separated by spaces
 
 But for now, focus on building these functions so they work for just the __first__ element of data appended to the list (we'll handle multiple elements in the next iteration).
 
