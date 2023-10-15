@@ -136,4 +136,4 @@ At the end of almost every interview, you'll be given an opportunity to ask ques
   * Retro notes
   * Eval notes
 ## Check for Understanding
-After you've completed this lesson, submit this [exit ticket](https://forms.gle/1WHVG6iiHX6bkfS97) by **EOD Tuesday of Week 5.**
+After you've completed this lesson, submit this [exit ticket](https://forms.gle/1WHVG6iiHX6bkfS97) by **EOD Wednesday, 10/18, 5 pm MT **
