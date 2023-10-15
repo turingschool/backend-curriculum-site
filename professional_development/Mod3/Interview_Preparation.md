@@ -16,8 +16,6 @@ You've done the groundwork to prepare for your job search: refining your story, 
 
 [Slides for this lesson](https://docs.google.com/presentation/d/19v08-f77qv6HTMR3teiuv_SmXMHzpydHrdo144WYG_8/edit?usp=sharing)
 
-After you complete this lesson, you'll synthesize your learning in this [Exit Ticket](https://forms.gle/1WHVG6iiHX6bkfS97) by Tuesday of Week 5.
-
 
 #### Starting off Strong: Tell me about Yourself
 This request for information is typically at the very beginning of an interview. It's an opportunity to provide the interviewer with insights into your qualifications and fit for the role.
@@ -135,5 +133,6 @@ At the end of almost every interview, you'll be given an opportunity to ask ques
   * DTR Memos
   * Retro notes
   * Eval notes
+
 ## Check for Understanding
 After you've completed this lesson, submit this [exit ticket](https://forms.gle/1WHVG6iiHX6bkfS97) by **EOD Wednesday, 10/18, 5 pm MT **
