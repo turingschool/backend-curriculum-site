@@ -11,7 +11,7 @@ subheading: At-A-Glance
 ### Week 2:
   * [Interview Preparation- Putting It All Together](./Interview_Preparation)
   * [ ] **Deliverable #1:** Submit [Exit Ticket](https://www.google.com/url?q=https://forms.gle/1WHVG6iiHX6bkfS97&sa=D&source=calendar&ust=1696369633966175&usg=AOvVaw1jc9wNuKyOBWJnI12aUW9u) by Wednesday
-  * [ ] **Deliverable #2:** Submit [Resume Draft](https://www.google.com/url?q=https://airtable.com/appl0fblUIvOotJko/shrVR0utYqKkpVnvm&sa=D&source=calendar&ust=1696367648368825&usg=AOvVaw2meaP36KZZKSfmY_erPEKQ) by Friday
+  * [ ] **Deliverable #2:** Submit [Resume Draft](https://airtable.com/appl0fblUIvOotJko/shrVR0utYqKkpVnvm)by Friday
 
 ### Week 3: 
   * [Cover Letters Made Easy](./coverletters_made_easy)  
