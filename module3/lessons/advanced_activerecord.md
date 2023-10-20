@@ -10,11 +10,12 @@ tags: rails, active record
 * Diagram database relationships.
 * Identify the tables in a database that hold information required to complete complex queries.
 * Generate complex ActiveRecord queries using joins, group, order, select, and merge.
-* Use the rails dbconsole  and rails console to generate ActiveRecord queries.
+* Use the `rails dbconsole` and `rails console` to generate ActiveRecord queries.
 
 ## Resources
 
 * [Video](https://www.youtube.com/watch?v=OccKyvGvLKE&t=1329s) from a past class and the core ideas
+* [Repository](https://github.com/turingschool-examples/b2-final-starter-7) - fork & clone, then run `bundle install` and `rails db:{drop,create,migrate,seed}` to set up the application. 
 
 ## Objective
 
