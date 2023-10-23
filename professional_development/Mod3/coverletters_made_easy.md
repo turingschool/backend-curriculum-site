@@ -83,7 +83,7 @@ If you find yourself with:
 1. Look for a job description that interests you.
 2. Create a cover letter based on a job description. 
 3. Format, structure, and create your cover letter using the [Cover letter guide and template](https://docs.google.com/document/d/1ctPSIEcZ5nrnfD4y0HlTUH9tdYRscbIjXhMQLjMPzPA/edit)
-4. Have the cover letter ready by Monday of Week 5.
+ 
 
 ### Resources:
 * Here are [additional resources](https://careerdev.turing.edu/resources/cover_letter_resources) and a general checklist to guide your draft. 
