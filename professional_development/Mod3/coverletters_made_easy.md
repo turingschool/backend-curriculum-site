@@ -83,6 +83,7 @@ If you find yourself with:
 1. Look for a job description that interests you.
 2. Create a cover letter based on a job description. 
 3. Format, structure, and create your cover letter using the [Cover letter guide and template](https://docs.google.com/document/d/1ctPSIEcZ5nrnfD4y0HlTUH9tdYRscbIjXhMQLjMPzPA/edit)
+4. It's optional to complete the [cover letter exit ticket](https://docs.google.com/forms/d/e/1FAIpQLSfPkAkTdqtehtWydhdTP8RwEm7t-huLwQs8U201r92rDuRsfw/viewform) but it is recommended as a check for understanding. 
  
 
 ### Resources:
