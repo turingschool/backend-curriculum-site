@@ -18,14 +18,16 @@ By the end of this project:
 _Note: See [Learning Goals](../../misc/learning_goals) to see at what level these skills need to be by the final._
 
 ### Explicit Technical Expectations
-* Consume two or more external APIs ⭐ ⭐ ⭐
+* Consume one or more external APIs ⭐ ⭐ ⭐
 * Build APIs that return JSON responses ⭐ ⭐ ⭐
 * Use an external OAuth provider to authenticate users ⭐ ⭐
 * Refactor code for better code organization/readability ⭐ ⭐
 * Create a project with a separate frontend and backend ⭐ ⭐
 * Implement a production-quality user interface using Bootstrap or other common CSS styling framework ⭐ ⭐
 
-### Project must choose at least one of the following
+### Project must include at least *5* points from the List of Glory, including but not limited to...
+Reference: [List of Glory](https://turingschool.notion.site/722fa9eb60b44614996e6633712eca4d?v=c2935aed98ea4fd99747a636001ed3fe)
+
 * Use a decorator. (Draper or something else)
 * Use ActionCable
 * Incorporate a microservice using either Sinatra or other technology.
@@ -33,8 +35,8 @@ _Note: See [Learning Goals](../../misc/learning_goals) to see at what level thes
 * Use pub/sub with a message queue
 * Use a browser API, such as the camera or local storage
 * Implement API/view caching
-* Implement observability - New Relic/Skylight/Honeybadger
-
+* Implement observability - (a service like New Relic/Skylight/Honeybadger, or a performance measurement gem like `rails_performance`. Must include before + after measurements to illustrate & discuss value added.)
+* etc. 
 
 ### Explicit Professional Expectations
 
