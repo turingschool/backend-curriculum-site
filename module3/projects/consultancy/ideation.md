@@ -33,6 +33,14 @@ Fill out the following template for your project idea.
 
 * What features will your app include?
 
+### Equity Anaylsis
+* Features or tools you plan on building into the project to be sure it promotes inclusion. Questions to consider (should include one or more of these): 
+   * Are any of the following marginalized identity groups (or others) likely to experience harm or exclusion as a result of this project? 
+      * E.g., immigrants, people of color, people with (dis)/Abilities, justice impacted (formerly incarcerated) people, elderly people, women, gender expansive people, people with limited incomes, etc.
+   * Which factors may impact any individual or group’s access to the proposed project?
+   * If you were given more time to design this product, how would you want to work with your intended users to ensure relevance?
+   * What happens if someone uses this product with bad/evil intent in mind?
+
 ### Integrations
 
 * Which APIs will you use?
@@ -41,7 +49,7 @@ Fill out the following template for your project idea.
 
 ### APIs
 
-Your application **must make good use of at least two external datasets or APIs**. Some examples include:
+Your application **must make good use of at least one external dataset or API**. Some examples include:
 
 #### Government Data
 
@@ -67,6 +75,7 @@ Your application **must make good use of at least two external datasets or APIs*
 * [Google Maps](https://developers.google.com/maps)
 
 #### Features/Technologies
+Please reference the [List of Glory](https://turingschool.notion.site/722fa9eb60b44614996e6633712eca4d?v=c2935aed98ea4fd99747a636001ed3fe) for technologies & points for your project, including but not limited to: 
 
 * SMS messaging
 * Email
@@ -79,6 +88,7 @@ Your application **must make good use of at least two external datasets or APIs*
 * Data Visualization
 * Location Services (Google Maps/Directions)
 * IOT Hardware (ex: Raspberry PI)
+* etc....
 
 
 The following links are catalogs of APIs on rapidapi.com. You will not implement RapidAPI, it's just a great place to find other APIs.
