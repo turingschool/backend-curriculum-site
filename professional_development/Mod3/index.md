@@ -14,12 +14,13 @@ subheading: At-A-Glance
   * [ ] **Deliverable #2:** Submit [Resume Draft](https://airtable.com/appl0fblUIvOotJko/shrVR0utYqKkpVnvm)by Friday
 
 ### Week 3: 
-  * [Cover Letters Made Easy](./coverletters_made_easy)  
+  * [Cover Letters Made Easy](./coverletters_made_easy)
+  * [ ] **Deliverable #3:** Submit [Cover Letter Draf](https://docs.google.com/forms/d/e/1FAIpQLSfPkAkTdqtehtWydhdTP8RwEm7t-huLwQs8U201r92rDuRsfw/viewform) by Friday of Week 3. 
 
 ### Week 4: 
   * [The Application Process + Cover Letters](https://docs.google.com/presentation/d/e/2PACX-1vQQb_NqtACy5ea-EbE8KJX7QA62bpOC_YMB6tzsyL_dRuZqyVLKfAIZkFcLRj9MefGUuvT-WbRUzTQS/pub?start=false&loop=false&delayms=3000)
   * [Behavioral Interview Preparation](./Behavioral_Interview_Preparation_Thinking_Like_an_Interviewer)
-  * [ ] **Deliverable #3:** Submit [Cover Letter Draf](https://docs.google.com/forms/d/e/1FAIpQLSfPkAkTdqtehtWydhdTP8RwEm7t-huLwQs8U201r92rDuRsfw/viewform) by Friday of Week 3. 
+ 
 ### Week 5:
   * Review Roundtable of Career Materials 
 
