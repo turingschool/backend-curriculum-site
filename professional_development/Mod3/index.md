@@ -15,7 +15,7 @@ subheading: At-A-Glance
 
 ### Week 3: 
   * [Cover Letters Made Easy](./coverletters_made_easy)
-  * [ ] **Deliverable #3:** Submit [Cover Letter Draf](https://docs.google.com/forms/d/e/1FAIpQLSfPkAkTdqtehtWydhdTP8RwEm7t-huLwQs8U201r92rDuRsfw/viewform) by Friday of Week 3. 
+  * [ ] **Deliverable #3:** Submit [Cover Letter Draf](https://airtable.com/appl0fblUIvOotJko/shrEsPjtXkchoq1tn) by Friday of Week 3. 
 
 ### Week 4: 
   * [The Application Process + Cover Letters](https://docs.google.com/presentation/d/e/2PACX-1vQQb_NqtACy5ea-EbE8KJX7QA62bpOC_YMB6tzsyL_dRuZqyVLKfAIZkFcLRj9MefGUuvT-WbRUzTQS/pub?start=false&loop=false&delayms=3000)
