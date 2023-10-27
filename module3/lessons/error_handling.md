@@ -255,7 +255,7 @@ end
 
 When you run the sad path test, it should still be passing! This is awesome, but what if we want to rescue from the `ActiveRecord::RecordNotFound` exception in other controller actions? Adding a `rescue` block to every action that uses `Book.find(params[:id])` isn't very DRY.
 
-Enter the Rails `rescue_from` syntax. Add the following line to the top of your controller:
+That's where the Rails `rescue_from` syntax comes in! `rescue_from` behaves as a Rails filter that creates a rescue for each action in this controller. 
 
 ```ruby
 class Api::V1::BooksController < ApplicationController
