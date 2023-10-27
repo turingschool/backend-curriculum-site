@@ -47,6 +47,7 @@ layout: page
 ## Additional Exploration Topics & Resources
 
 * [Review of Abstraction and Encapsulation](../archive/lessons/abstraction_and_encapsulation)
+* [Review of Error Handling](../lessons/error_handling_review)
 * [Application Coordination with Message Queues](../archive/lessons/application_coordination_with_message_queues)
 * [Hash Functions - MD5 and SHA-256](../archive/lessons/hash_functions)
 * [Understanding Namespacing](../archive/lessons/namespacing)

@@ -56,23 +56,6 @@ class SearchFacade
 end
 ```
 
-First, lets isolate our call to our service.
-
-```ruby
-def senate_service
-  @@service_result ||= CongressService.senate_members
-end
-
-def all_senate_members
-  senate_service[:results][0][:members]
-end
-```
-Isolation helps on a few fronts. It adheres more closely to SRP, and we can properly test this method. We can also take advantage of memoization to ensure our we only ever make one external API call per request.
-
-Because we are memomizing within a class method, we need a class variable to hold the result of our service call. An instance variable or local variable will not memoize properly.
-
-Now, we can build in some sad path and edge case handling within our facade.
-
 We need to build in a condition that checks if the method `#members_by_last_name` returns an empty array. We can do that by changing our code:
 
 ```ruby
@@ -85,9 +68,8 @@ def senate_member_by_last_name
 end
 
 def members_by_last_name(last_name)
-  # By utilizing memoization, the iteration over our all_senate_members array only happens once per request.
-  @@matches ||= all_senate_members.find_all do |member|
-    member.last_name == last_name
+  all_senate_members.find_all do |member|
+    member[:last_name] == last_name
   end
 end
 ```
@@ -314,9 +296,10 @@ Take a few minutes on your own to answer the following questions:
 * What do you not like about this approach?
 * Can you think of a better approach?
 
+The completed code for this lesson is available [here](https://github.com/turingschool-examples/house-salad-7) on the `error_handling_complete` branch.
 
 ### Resources
 
 * [Rebased on API error handling](https://blog.rebased.pl/2016/11/07/api-error-handling.html)
 * [Stackify on rescuing exceptions in ruby](https://stackify.com/rescue-exceptions-ruby/)
-* [Geeks for Geeks on hanling exceptions in ruby](https://www.geeksforgeeks.org/ruby-exception-handling/)
+* [Geeks for Geeks on handling exceptions in ruby](https://www.geeksforgeeks.org/ruby-exception-handling/)
