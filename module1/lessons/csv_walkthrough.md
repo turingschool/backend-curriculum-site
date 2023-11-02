@@ -23,7 +23,7 @@ In Ruby, there are classes already defined for us that will allow us to read and
 
 The `./lib/runner.rb` file is where we will be writing out code to read our files and create objects. To start, we are going to `require 'CSV'` so that we will have access to its methods. Next, we want to use the `foreach` method from `CSV` and pass it an argument of the file that we want to read. Similar to the `each` enumerable the `foreach` creates a block where the block variable will be a single row in the file. Now add a `pry` within the block so we can see what a row looks like in our block.
 
-```Ruby
+```ruby
 require 'CSV'
 
 CSV.foreach('./data/animal_lovers.csv') do |row|
@@ -33,7 +33,7 @@ end
 
 Congrats, you are reading a csv! Since, we know we have access to the information in the file a row at a time we now just need to create objects using that information. As you noticed our first row is the headers row and doesn't contain any data to create an object. Let's update the `foreach` arguments to include the following:
 
-```Ruby
+```ruby
 require 'CSV'
 # headers: true & header_converter: :symbol are optional arguments
 CSV.foreach('./data/animal_lovers.csv', headers: true, header_converters: :symbol) do |row|
