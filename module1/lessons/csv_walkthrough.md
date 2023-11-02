@@ -50,7 +50,7 @@ These optional arguments help format the row information to be more manageable t
 
 With a partner see if you can explain what is happening in the code below and use `pry` to confirm your assumptions.
 
-```Ruby
+```ruby
 require 'CSV'
 require './lib/animal_lover'
 # headers: true & header_converter: :symbol are optional arguments
