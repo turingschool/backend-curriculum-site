@@ -7,7 +7,16 @@ tags: ruby, csv tutorial
 
 ### Introduction
 
-Think back to your first two projects. How have you currently been making instances of objects in those projects? Likely you have been creating an instance of the objects you need in the `runner` file or having the user input information that was then used to create the object. What if there was a larger set of data that you wanted to use to create objects?
+Thinking back on projects and class lessons, how have you been making instances of objects so far? 
+
+Likely you have been creating an instance of the object you need:
+1. Directly in a `runner.rb` file.
+1. In your setup in spec files. 
+1. Collecting user input and using that information to instantiate.
+1. Receiving API data (DMV Project), using that data to instantiate in a "factory".
+1. Creating a Class Method that takes data and turns creates instances with the data sent into the arguments.
+
+What if there was a larger set of data that you wanted to use to create objects?
 
 ### Using files to create objects
 
