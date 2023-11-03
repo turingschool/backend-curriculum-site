@@ -9,8 +9,9 @@ subheading: Web Applications with Ruby
 In Module 2, we expand upon fundamental Ruby skills by building database-backed web applications in Rails. Through group projects, we explore best practices in agile project management and collaboration. By the end of this module, students will be comfortable creating basic Rails web applications.
 
 ## Instructors
-* Dani Coleman
-* Juliet Eyraud (anchor)
+
+* Juliet Eyraud
+* Abdul Redd
   
 ## Curriculum
 
