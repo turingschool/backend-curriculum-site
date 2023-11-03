@@ -25,9 +25,13 @@ In Module 3, we will look beyond the basics of building Rails web applications w
 ## Resources
 
 * [Additional Notes, Helpful Links, etc](./notes)
-* [Suggested Practice](https://github.com/turingschool-examples/M3_weekend_practice) - Broken down by week
+* [Suggested Weekly Practice](https://github.com/turingschool-examples/M3_weekend_practice) - Broken down by week
+
+### Practice Assessments
+* [API Consumption Practice - Fruits](https://github.com/turingschool-examples/fruit-api-7)
 * [Mid Mod Practice Assessment](https://github.com/turingschool-examples/parks-finder-7)
-* [Final Practice Assessment](./practice_assessments/practice_assessment)
+* [Final Practice - Nearest Fuel Station](https://github.com/turingschool-examples/nearest-fuel-station-7)
+* [Final Practice - Destination Planner](./practice_assessments/practice_assessment)
 
 ## Requirements
 
