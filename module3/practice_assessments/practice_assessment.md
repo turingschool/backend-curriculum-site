@@ -25,7 +25,7 @@ We'll be working off of [`Destination Planner 7`](https://github.com/turingschoo
 git clone git@github.com:turingschool-examples/destination-planner-7.git
 cd destination-planner-7
 bundle install
-bundle exec rake db:{create,migrate,seed}
+bundle exec rails db:{create,migrate,seed}
 bundle exec rails server
 ```
 
