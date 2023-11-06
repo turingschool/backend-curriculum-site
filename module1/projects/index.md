@@ -11,7 +11,7 @@ The following projects will be assigned and their completion is required to be p
 * Week 1-2 (Solo): [Beat Box](./beat_box)
 * Week 2-3 (Solo): [DMV](./dmv)
 * Week 3-4 (Paired): [Connect Four](./connect_four/) or [Battleship](./battleship/)
-* Week 5-6 (Group Final): [Futbol](./futbol_pd/)
+* Week 5-6 (Group Final): [Futbol](./futbol_pd/) or [War or Peace](./war_or_peace/)
 
 ## Extension Projects
 
