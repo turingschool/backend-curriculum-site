@@ -21,7 +21,7 @@ We will be using data from a fictional soccer league to analyze team performance
 
 The first step of the project will focus on establishing norms for your group. This should include the following: project organization process, git workflow expectations, and DTR *at a minimum*.
 
-Next you, will plan and design your solution with your group. This probably doesn't actually involve writing any code yet. Remember, the primary purpose of this project is to practice building software in a team setting. You need a good design and plan before folks can break off and do their own thing.
+Next, you will plan and design your solution with your group. This probably doesn't actually involve writing any code yet. Remember, the primary purpose of this project is to practice building software in a team setting. You need a good design and plan before folks can break off and do their own thing.
 
 Finally, once you have strong processes and a plan in place, the project can begin focusing on building the base statistics functionality through our `StatTracker`.
 
