@@ -45,7 +45,7 @@ Day 1:
   - Front-end application set up with gems configured. Ideally one or two calls to the backend have been roughly implemented
   - Backend application set up with gems configured. Ideally one or two CRUD operations for front-end consumption have been roughly implemented. 
   - Initial structure of each Service (not necessarily working API calls)
-  - [Circle-CI](https://mod4.turing.edu/lessons/Continuous-Integration-CircleCi.html) and Deployment to Heroku for both FE/BE repositories
+  - [Circle-CI](https://mod4.turing.edu/lessons/Continuous-Integration.html) and Deployment to the internet (using Heroku, Render, etc.) for both FE/BE repositories
 
 #### Sprint 2: Primary Development
 
@@ -98,14 +98,13 @@ In addition to the End of Sprint Demos, you will also have some project check in
 
 ## Continuous Integration
 
-* Set up a [CI Server](https://backend.turing.edu/module3/archive/lessons/environments_and_ci) (Optional to create more than 2 environments)
-* [CircleCI Docs](https://circleci.com/docs/2.0/)
-* [CircleCI Mod 4 Lesson](https://mod4.turing.edu/lessons/Continuous-Integration-CircleCi.html)
+* [CircleCI Docs](https://circleci.com/docs/)
+* [CircleCI Mod 4 Lesson](https://mod4.turing.edu/lessons/Continuous-Integration.html)
+* Optionally, set up a [CI Server](https://backend.turing.edu/module3/archive/lessons/environments_and_ci) (Optional to create more than 2 environments)
 
+### Continuous Deployment -- Optional
 
-## Continuous Deployment -- Optional
-
-* Set up Circle-CI in such a way that it automatically deploys its code to Heroku when 'main' branch code is passing
+* Set up Circle-CI in such a way that it automatically deploys its code to the internet (Heroku, Render, etc.) when 'main' branch code is passing.
 
 ## Story Grooming
 
