@@ -200,6 +200,7 @@ And I see the total discounted revenue from this invoice which includes bulk dis
 * Merchants should not be able to create/edit bulk discounts if they already have a discount in the system that would prevent the new discount from being applied (see example 4)
 
 * API Consumption Extensions:
+
 ```
 Holidays API
 
@@ -209,8 +210,8 @@ I see a section with a header of "Upcoming Holidays"
 In this section the name and date of the next 3 upcoming US holidays are listed.
 
 Use the Next Public Holidays Endpoint in the [Nager.Date API](https://date.nager.at/swagger/index.html)
-
 ```
+
 * Holiday Discount Extensions:
 
 ```
