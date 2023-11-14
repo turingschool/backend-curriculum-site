@@ -14,6 +14,10 @@ Each Repo meets the following:
     - [ ] Frontend
     - [ ] Rails Backend
 
+- API calls to external services are tested using mocks/stubs in *at least one* application (using tools like Webmock, VCR, etc.)
+    - [ ] Frontend 
+    - [ ] Rails Backend
+
 
 ---
 
@@ -24,8 +28,4 @@ Frontend
 - [ ] 95% or more test coverage, every application feature has at least one sad path test
 
 - 95% or more test coverage, every exposed API endpoint and service call has at least one sad path test
-    - [ ] Rails Backend
-
-
-- API calls to external services are tested using mocks/stubs
     - [ ] Rails Backend

@@ -36,7 +36,7 @@ Each Repo meets the following:
 - Facades, Services, and/or Serializers are used.
     - [ ] Rails Backend
 
-- Deploy to Heroku
+- Deploy to the internet (using Render, Heroku, etc)
     - [ ] Frontend
     - [ ] Rails Backend
 
@@ -61,7 +61,7 @@ __When the above criteria is met, here are additional points to achieve Exceed E
     - [ ] Frontend
     - [ ] Rails Backend
 
-- CircleCI deploys to Heroku
+- CircleCI deploys to the internet (Heroku, Render, etc.)
     - [ ] Frontend
     - [ ] Rails Backend
 
