@@ -5,10 +5,11 @@ title: Module 1 Lessons
 
 ### Ruby Mechanics
 
-* [Flow Control](./flow_control)
+* [Methods, Arguments, Return Values](./methods_and_return_values)
 * [Objects, Classes, and Instances](./objects_classes_instances)
 * [Scope](./scope)
 * [Beginner Enumerables](./beginner_enumerables)
+* [Flow Control](./flow_control)
 * [Hashes](./hashes)
 * [Reaching Through Objects Workshop](https://github.com/turingschool-examples/mod-1-be-exercises/tree/main/lessons/reaching_through_objects)
 * [Nested Collections](./nested_collections)
@@ -54,7 +55,6 @@ title: Module 1 Lessons
 * [Pre-Work Code Share](./code_share)
 * [Ruby Data Types](./datatypes)
 * [Object Oriented Programming](./object_oriented_programming)
-* [Methods, Arguments, Return Values](./methods_and_return_values)
 * [#each](./each)
 * [Intermediate Enumerables](./intermediate_enumerables)
 * [Advanced Enumerables](./advanced_enumerables)
