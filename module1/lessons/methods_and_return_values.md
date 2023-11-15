@@ -25,7 +25,7 @@ tags: ruby, methods, return, argument
 
 ## Warmup
 
-With your breakout group, define the following terms in your own words:
+Define the following terms in your own words:
 
 * Variable
 * Method
@@ -34,6 +34,10 @@ With your breakout group, define the following terms in your own words:
 * Object
 
 Then, for each of the terms above, identify examples in the pry snippets below (these snippets will also work in irb):
+
+* To install pry, type `gem install pry` in your terminal. 
+* To use pry, type `pry` into your terminal to open up a _pry session_. 
+* You can then use this to type Ruby code.
 
 ```ruby
 pry(main)> "Hello World".upcase
@@ -72,16 +76,10 @@ You are calling the `upcase` method. It's job is to create a version of the Stri
 <br>
 <br>
 
-**Breakout Chat**: Imagine the `upcase` method didn't exist. How might you recreate this method in Ruby?
-
-<br>
-<br>
-<br>
-<br>
 
 One of the most important reasons we need methods is to **reuse code**. Instead of rewriting all those lines of code for creating an upcased string, we simply call the `upcase` method.
 
-The example illustrates another key point: **methods run on objects**. In the example above, the `upcase` method is running on `"Hello World"`, which is a String object. You can think of methods like they are messages to an object. The above code is like saying, "Hey string, give me an upcased version of yourself."
+The example illustrates another key point: **methods run on objects**. In the example above, the `upcase` method is running on `"Hello World"`, which is a **String object**. You can think of methods like they are messages to an object. The above code is saying, "Hey string, give me an upcased version of yourself."
 
 To recap the Key Points from this section:
 - We use methods so we can reuse code
