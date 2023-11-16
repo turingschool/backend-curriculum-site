@@ -21,6 +21,10 @@ Frontend
 Rails Backend
 - [ ] Proxy for Rails Front End and Micro-Services
 
+Technologies from List of Glory
+- [ ] Students can explain in-depth what features use their chosen technologies, either FE or BE
+- [ ] Project meets point threshold
+
 ---
 
 __When the above criteria is met, here are additional points to Exceed Expectations__

@@ -69,5 +69,3 @@ __When the above criteria is met, here are additional points to achieve Exceed E
     - [ ] Frontend
     - [ ] Rails Backend
 
-- Bootstrap is utilized well for layout and styling
-    - [ ] Frontend
