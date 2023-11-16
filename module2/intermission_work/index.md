@@ -7,7 +7,6 @@ layout: page
 
 * Understand basic HTML elements and attributes
 * Understand basic CSS styling
-* Create a static webpage using HTML/CSS
 * Understand what a relational database is
 * Interact with a relational database by writing SQL
 * Explore the basics of Web Development
