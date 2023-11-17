@@ -25,11 +25,15 @@ Slides are available [here](https://github.com/turingschool/backend-curriculum-s
 
 ## Required Setup
 
-- `bundle`
-- `rails db:{create, migrate}`
 - [Request a Propublica API Key](https://www.propublica.org/datastore/api/propublica-congress-api)
-- Clone [this repo](https://github.com/turingschool-examples/house-salad-7/tree/testing-setup) (forking is optional since we won't ask you to push up any changes)
-- Verify that you are able to launch VS Code from the command line. 
+- Clone [the House Salad 7](https://github.com/turingschool-examples/house-salad-7/tree/testing-setup) 
+  - (forking is optional since we won't ask you to push up any changes)
+- In the `testing-setup` branch, run setup steps:
+```bash
+bundle
+rails db:{create, migrate}
+```
+- Verify that you are able to launch VS Code from the command line. `code`
   - If the following steps don't work, you'll need to follow [these 'Launching From the Command Line' steps](https://code.visualstudio.com/docs/setup/mac#:~:text=Keep%20in%20Dock.-,Launching%20from%20the%20command%20line,code) to configure the command
 - Generate what is called a 'master key' by running `EDITOR="code --wait" rails credentials:edit` in the command line
   - This will create a new key in `config/master.key` and a temporary YAML file which will open in your text editor.
