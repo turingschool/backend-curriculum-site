@@ -25,6 +25,8 @@ Slides are available [here](https://github.com/turingschool/backend-curriculum-s
 
 ## Required Setup
 
+[📺 Here is a walkthrough video to help you set up your Rails Application Credentials.](https://drive.google.com/file/d/1Cy598b1W1d7nZ-gv6ur_gPmAGOmaD3Gi/view?usp=sharing)
+
 - [Request a Propublica API Key](https://www.propublica.org/datastore/api/propublica-congress-api)
 - Clone [the House Salad 7](https://github.com/turingschool-examples/house-salad-7/tree/testing-setup) 
   - (forking is optional since we won't ask you to push up any changes)
@@ -128,6 +130,8 @@ RSpec.describe 'Senator Search' do
   end
 end
 ```
+
+---
 
 ## Mocking Network Requests
 
