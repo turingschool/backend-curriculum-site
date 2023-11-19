@@ -585,7 +585,7 @@ it "can destroy an book" do
 end
 ```
 
-Alternatively, we can also use RSpec's [expect change](https://www.relishapp.com/rspec/rspec-expectations/v/2-0/docs/matchers/expect-change) method as an extra check. In our case, `change` will check that the numeric difference of `Book.count` before and after the block is run is `-1`.
+Alternatively, we can also use RSpec's [expect change](https://rubydoc.info/gems/rspec-expectations/RSpec%2FMatchers:change) method as an extra check. In our case, `change` will check that the numeric difference of `Book.count` before and after the block is run is `-1`.
 
 *spec/requests/api/v1/books_request_spec.rb*
 
@@ -619,7 +619,7 @@ def destroy
 end
 ```
 
-Congratulations you have done the thing. 
+Congratulations - you have done the thing. 
 
 ### One Step Further
 
