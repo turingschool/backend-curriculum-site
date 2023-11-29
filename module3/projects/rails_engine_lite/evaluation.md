@@ -6,7 +6,7 @@ type: project
 ---
 _[Back to Rails Engine Lite Home](./index)_
 
-The 'eval' for this project is going to be a bit different than other projects in the past. We are relying on you to score yourself for this project. To do that, please submit this form. 
+The 'eval' for this project is going to be a bit different than other projects in the past. We are relying on you to score yourself for this project. To do that, please submit [this form](https://forms.gle/1o1u5Ai2UYifwY9cA). 
 
 ## Feedback Session Format
 

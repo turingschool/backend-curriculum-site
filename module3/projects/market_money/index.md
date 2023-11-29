@@ -60,7 +60,7 @@ Next, you'll "confirm" the import. The test suite should display as a "Postman C
 
 Within your collections in Postman, you should see one collection-- "Market Money".
 
-#### Running the Tests
+### Running the Tests
 
 There are two ways to run the test suite: one endpoint at a time, or the whole suite.
 
@@ -87,11 +87,12 @@ As it runs, it will show you which tests are passing or failing. Remember, that 
 
 ## Technical Requirements
 
-The Technical Requirements for this project can be found [here](./requirements)
+The Technical Requirements for this project can be found [here](./requirements).
 
 ## Extensions
 
-After you've completed ALL 11 endpoints, you can find some extra practice ideas [here](./extensions)
+After you've completed ALL 11 endpoints, you can find some extra practice ideas [here](./extensions).
+
 ## Evaluation
 
-Evaluation details can be found [here](./evaluation)
+Evaluation details can be found [here](./evaluation).

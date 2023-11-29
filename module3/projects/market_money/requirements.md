@@ -25,15 +25,15 @@ _[Back to Market Money Home](./index)_
 /bin
 /config
 /db
-  /data                                     <-- create this folder
-    market_money_development.pgdump         <-- put the file in the data folder
-  seeds.rb                                  <-- seeds.rb is in `/db/` folder, not `/db/data/`
+  /data # <-- create this folder
+    market_money_development.pgdump # <-- put the .pgdump file in the data folder
+  seeds.rb  # <-- seeds.rb is in `/db/` folder, not `/db/data/`
 /lib
 /log
 etc
 ```
 
-  - this file is in a binary format and your browser may try to automatically download the file instead of viewing it
+  - Note that this file is in a **binary format** and your browser may try to automatically download the file instead of viewing it. Also, opening this file in VSCode directly will produce a warning, and a lot of garbled text. It is NOT meant to be human-readable. 
 
 
 4. Set up your `db/seeds.rb` file with the following content:
@@ -46,7 +46,7 @@ system(cmd)
 
 5. Run `rails db:{drop,create,migrate,seed}` and you may see lots of output including some warnings/errors from `pg_restore` that you can ignore. If you're unsure about the errors you're seeing, ask an instructor.
 
-6. Run `rails db:schema:dump` - Check to see that your `schema.rb` exists and has the proper tables/attributes that match the data in Postico. You can do the following to check to see if you have set up rails to effectively communicate with the database.
+6. Run `rails db:schema:dump` . Then, check to see that your `schema.rb` exists and has the proper tables/attributes that match the data in Postico. You can do the following to check to see if you have set up rails to effectively communicate with the database.
   * Add a `market.rb` file to your models directory
   * Create a `Market` class that inherits from `ApplicationRecord`
   * run `rails c` to jump into your rails console.
@@ -60,7 +60,7 @@ system(cmd)
   * market_vendors
 
 
-**NOTE** If your `rails new ...` project name from above is NOT exactly called "market_money" you will need to modify the `cmd` variable below to change the `-d` parameter from `market_money_development` to `<YOUR PROJECT NAME>_development` instead. If you have questions, ask your instructors.
+**NOTE** If your `rails new ...` project name from above is NOT exactly called "market_money" you will need to modify the `cmd` variable to change the `-d` parameter from `market_money_development` to `<YOUR PROJECT NAME>_development` instead. If you have questions, ask your instructors.
 
 ---
 
