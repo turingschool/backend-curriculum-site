@@ -86,7 +86,7 @@ describe Round do
     deck = Deck.new(cards)
     round = Round.new(deck)
     it 'can get back current card' do
-      expect(round.current_card), deck.cards.first
+      expect(round.current_card).to eq(deck.cards.first)
     end
   end
 end
