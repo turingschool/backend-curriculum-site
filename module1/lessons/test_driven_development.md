@@ -225,6 +225,30 @@ student.say_mod
 => "I'm in Mod 2"
 
 ```
+
+Next, add to your code above by creating a Locker class that follows the following interaction pattern.
+
+```ruby
+
+> student1 = Student.new("Jerry", 1)
+=> #<Student:0x007fa2e9acd711>
+
+locker1 = Locker.new(233, student1)
+=> #<Locker:0x007fa3e55a82372>
+
+locker1.number
+=> 233
+
+locker1.student
+=> #<Student:0x007fa2e9acd711>
+
+locker1.student_name
+=> "Jerry"
+
+```
+
+
+
 Be ready to share your code with the rest of class!
 
 ### With a Partner
