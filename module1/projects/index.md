@@ -8,7 +8,7 @@ title: Backend Module 1 Projects
 The following projects will be assigned and their completion is required to be promoted to module 2.
 
 * Week 1 (ungraded): [Credit Check](./credit_check.markdown)
-* Week 1-2 (Solo): TBD
+* Week 1-2 (Solo): [Flash Cards](./flashcards/)
 * Week 2-3 (Solo): TBD
 * Week 3-4 (Paired): TBD
 * Week 5-6 (Group Final): TBD
