@@ -44,10 +44,3 @@ Choose at least one part of your project that you’d like specific feedback on.
 * Meets Expectations: Project demonstrates solid code quality, MVC principles, and uses a serializer for formatting JSON responses.
 * Below Expectations: Project demonstrates some gaps in code quality and/or application of MVC principles.
 * Well Below Expectations: Project demonstrates poor factoring and/or understanding of MVC.
-
-### ActiveRecord/SQL
-
-* Exceeds Expectations: Project makes good use of an advanced ActiveRecord/SQL concept not taught in class
-* Meets Expectations: Project demonstrates good use of ActiveRecord/SQL using minimal ruby to process data that could otherwise be done by the database.
-* Below Expectations: Project makes good use of ActiveRecord, but uses ruby enumerables for more than one query method.
-* Well Below Expectations: Project frequently uses Ruby where ActiveRecord could be used, or fails to use ActiveRecord effectively
