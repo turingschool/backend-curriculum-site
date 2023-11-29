@@ -24,6 +24,30 @@ Your team is working in a service-oriented architecture. The front-end will comm
 
 The project must expose all of the endpoints [listed here](./requirements)
 
+### Pre-Approved Gems
+
+This project will have you to consume multiple APIs - you should do so manually, without the use of SDKs/gems that may make it faster/easier. This is an assessment in part of your ability to read documentation, implement tooling required to test & consume one or more APIs manually, traverse complex external datasets, and refactor your application to do these things as efficiently as possible. 
+
+Here is a list of pre-approved gems you can use on this project: 
+```
+pry, debug, byebug
+simplecov # required
+rspec-rails
+capybara
+launchy
+webmock
+vcr 
+faraday
+jsonapi-serializer # optional
+factorybot
+faker
+bcrypt
+shoulda-matchers
+orderly
+```
+
+If you have questions about a gem that is not on this list, please reach out to your instructors *first*.
+
 ## Evaluation
 
 Your project will be evaluated based on [this rubric](./rubric)
