@@ -12,6 +12,7 @@ layout: page
 
 ## Rails
 
+- [Ruby on Rails Documentation](https://guides.rubyonrails.org/v7.0/)
 - [Callbacks & Refactoring](../lessons/callbacks_and_refactoring)
 - [Intro to the Asset Pipeline](../lessons/asset_pipeline)
 - [Exploration: Authentication/Autorization](../explorations/auth_exploration)
