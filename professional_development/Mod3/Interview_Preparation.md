@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Interview Preparation- Putting It All Together
+title: Interview Preparation - Putting It All Together
 ---
 
 ## Interview Preparation
@@ -135,4 +135,4 @@ At the end of almost every interview, you'll be given an opportunity to ask ques
   * Eval notes
 
 ## Check for Understanding
-After you've completed this lesson, submit this [exit ticket](https://forms.gle/1WHVG6iiHX6bkfS97) by **EOD Wednesday, 10/18, 5 pm MT **
+After you've completed this lesson, submit this [exit ticket](https://forms.gle/1WHVG6iiHX6bkfS97), due by Wednesday of Week 2 EOD.
