@@ -26,6 +26,7 @@ layout: page
 ## Testing
 
 - [Factory Bot](../lessons/factory_bot)
+- [ShouldaMatchers Documentation](https://github.com/thoughtbot/shoulda-matchers#matchers)
 - [Capybara Documentation](https://github.com/teamcapybara/capybara#table-of-contents)
 - [FactoryBot Cheatsheet](https://devhints.io/factory_bot)
 - [Faker Documentation](https://github.com/faker-ruby/faker#default)
