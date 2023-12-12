@@ -1,9 +1,8 @@
 ---
-title: Cookies, Sessions and Authorization
+title: Sessions, Cookies, and Authorization
 length: 120
 tags: cookies, session, auth, authorization
 ---
-# Sessions, Cookies, Authorization
 
 ## What Are You Allowed to Do Here?
 
@@ -428,13 +427,11 @@ describe "Admin login" do
   describe "happy path" do
     it "I can log in as an admin and get to my dashboard" do
 	    admin = User.create(username: "superuser@awesome-site.com",
-			name: "Superuser",
                         password: "super_secret_passw0rd",
                         role: 2)
 
       visit login_path
       fill_in :username, with: admin.username
-      fill_in :name, with: admin.name
       fill_in :password, with: admin.password
       click_button 'Log In'
 
@@ -446,7 +443,6 @@ end
 describe "as default user" do
   it 'does not allow default user to see admin dashboard index' do
     user = User.create(username: "fern@gully.com",
-                       name: "Default",
                        password: "password",
                        role: 0)
 
