@@ -19,7 +19,7 @@ We can start on this branch of our Set List Repo [here](https://github.com/turin
 
 ## Warm Up
 
-Discuss the following questions with a partner:
+Reflect on the following questions:
 
 - Thinking about plain Ruby, What are some strategies we use to DRY up our code within a class?
 - What about strategies to DRY up code from multiple classes (where there might be shared behavior)?
