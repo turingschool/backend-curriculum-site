@@ -3,24 +3,32 @@ title: Module 2 Resources
 layout: page
 ---
 
-## Databases
-
-- [1 of 8 Intro to Database Series. by Dr. Daniel Soper](https://www.youtube.com/watch?v=4Z9KEBexzcM)
-- [Advanced SQL practice](https://github.com/turingschool/lesson_plans/blob/master/ruby_03-professional_rails_applications/intermediate_sql.md)
-- [Database Normalization and Optimization](../lessons/database_normalization_and_optimization)
-- [Intermediate ActiveRecord](../lessons/intermediate_active_record)
-
 ## Rails
 
 - [Ruby on Rails Documentation](https://guides.rubyonrails.org/v7.0/)
+- [Rails 7 Cheatsheet](https://gist.github.com/cjsim89/1fc426166885bae39929602180d3f7aa)
+- [Build your "rails new" command](https://rails7igniter.vercel.app/)
 - [Callbacks & Refactoring](../lessons/callbacks_and_refactoring)
 - [Intro to the Asset Pipeline](../lessons/asset_pipeline)
 - [Exploration: Authentication/Autorization](../explorations/auth_exploration)
 - [Rack Tutorial](https://github.com/turingschool-examples/rack_server)
 
+
+## Databases
+
+- [ActiveRecord Querying Docs](https://guides.rubyonrails.org/v5.0/active_record_querying.html#joins)
+- [Advanced SQL practice](https://github.com/turingschool/lesson_plans/blob/master/ruby_03-professional_rails_applications/intermediate_sql.md)
+- [1 of 8 Intro to Database Series. by Dr. Daniel Soper](https://www.youtube.com/watch?v=4Z9KEBexzcM)
+- [Database Normalization and Optimization](../lessons/database_normalization_and_optimization)
+- [Intermediate ActiveRecord](../lessons/intermediate_active_record)
+
+
 ## Testing
 
 - [Factory Bot](../lessons/factory_bot)
+- [Capybara Documentation](https://github.com/teamcapybara/capybara#table-of-contents)
+- [FactoryBot Cheatsheet](https://devhints.io/factory_bot)
+- [Faker Documentation](https://github.com/faker-ruby/faker#default)
 - [Capybara (software) - Wikipedia](https://en.wikipedia.org/wiki/Capybara_(software))
 - [The Basics of Capybara and Improving your Tests](https://www.sitepoint.com/basics-capybara-improving-tests/)
 - [Testing your App with Capybara](https://github.com/teamcapybara/capybara)
