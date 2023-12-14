@@ -6,23 +6,8 @@ type: project
 ---
 _[Back to Rails Engine Lite Home](./index)_
 
-The 'eval' for this project is going to be a bit different than other projects in the past. We are relying on you to score yourself for this project. To do that, please submit [this form](https://forms.gle/1o1u5Ai2UYifwY9cA). 
-
-## Feedback Session Format
-
-Instead of a traditional eval, you will be meeting in small groups to get feedback from your peers as well as an instructor. The format of this feedback session will be:
-
-Feedback Request:
-Choose at least one part of your project that you’d like specific feedback on. Everyone will be asked to bring this to the feedback session, and you will be able to get feedback from your instructor as well as your peers in the feedback group.
-
 ## Rubric
 
-### Feedback Session
-
-* Exceeds Expectations:  Student comes prepared to answer all question/tasks outlined in the Feedback Session Format above. Student also participates with other peers to either ask further questions or offer additional feedback. 
-* Meets Expectations: Student comes prepared to answer all question/tasks outlined in the Feedback Session Format above.
-* Below Expectations: Student participates in the feedback session, but does not come prepared to answer all questions/tasks outlined in the Feedback Session Format above. 
-* Well Below Expectations: Student is unprepared for the feedback session, and does not come prepared to participate. 
 
 ### Feature Delivery
 
