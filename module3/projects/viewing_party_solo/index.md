@@ -42,6 +42,6 @@ Project requirements can be found [here](./requirements).
 
 ## Evaluation
 
-Instead of a typical evaluation session with an instructor, you will be grouped together with 2-3 other students and will display your application & walk through your solution one by one. Your cohort-mates as well as your instructor will provide feedback and ask questions about your code. 
+Instead of a typical evaluation session with an instructor, you will be grouped together with 2-3 other students and will display your application & walk through your solution one by one. Your cohort-mates as well as your instructor will provide feedback and ask questions about your code during this [evaluation/feedback session](./evaluation).
 
 Your project will be evaluated based on [this rubric](./rubric).
