@@ -8,14 +8,14 @@ type: project
 
 ## Project Description
 
-The goal of this project is to create a successful web application from a student-led project idea. Your team will create an app that will solve a real world problem, and allow users to authenticate with a third-party service, and consume at least two other apis.
+The goal of this project is to create a successful web application from a student-led project idea. Your team will create an app that will solve a real world problem, and allow users to authenticate with a third-party service, and consume at least one other API.
 
 This project will focus heavily on Service-Oriented Architecture (SOA), and will include the following components and restrictions:
 
 Our "Front End" application will be built in Rails.
 - Rails "front end"
   - This is a typical `rails new` project
-  - It will have simple feature testing, and will mostly focus on View templates, HTML and CSS. We highly recommend Bootstrap
+  - It will have simple feature testing, and will mostly focus on View templates, HTML and CSS. We highly recommend Bootstrap or Tailwind as a CSS framework to aid with responsiveness. 
   - This application is responsible for authentication via OAuth
     - Try to find a way to utilize your user's OAuth token within the application in some way
       - eg, if you OAuth with Google, what can we use their OAuth token to do on their behalf at Google?
@@ -34,10 +34,10 @@ Our "Back End" application will be an API built in Rails. It will act as the int
     - There is no ERB, HTML or CSS, JavaScript, anywhere in this project
   - All input is received as JSON data; it only responds with JSON data
     - we recommend [**eager loading**](https://dev.to/johncip/understanding-rails-eager-loading-3n6j) where possible, and use of the "bullet" gem to detect N+1 queries
-  - Extensions: 
+  - Other good ideas include (though are not limited to): 
      1. using Rails caching and/or memoization to cache/memoize data retrieved from external APIs
      2. hosted on an alternate service provider (AWS, Digital Ocean, etc)
-     3. use background worker
+     3. other ideas found in the [List of Glory](https://www.notion.so/turingschool/722fa9eb60b44614996e6633712eca4d?v=c2935aed98ea4fd99747a636001ed3fe&pvs=4)
 
 ---
 
