@@ -153,8 +153,8 @@ The takeaway here is, if we're not careful with our joins, it may result in some
 Try implementing some of these queries on your own. You may want to try writing them out in SQL first, before translating them to ActiveRecord. 
 
 * Return a unique list of songs that appear on at least 1 playlist. 
-* Return the names of playlists that have at least 3 distinct artists. 
-* Return the names of artists that appear on at least 3 different playlists. 
+* Return the names of the artists with songs on the "summer rewind" playlist. Use an additional association in the Artist model (i.e. join the "Easy Way"). 
+* Return the names of the artists with songs on the "summer rewind" playlist, but this time don't use an additional association (try it the "Hard Way").
 
 ## Checks for Understanding
 1. When would we want to use multiple joins in a query?
