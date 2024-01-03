@@ -59,6 +59,7 @@ title: Module 1 Lessons
 * [Intermediate Enumerables](./intermediate_enumerables)
 * [Advanced Enumerables](./advanced_enumerables)
 * [CSV Exploration](./csv_exploration)
+* [Event Manager](../projects/eventmanager.markdown)
 * [Working with Files](./working_with_files)
 
 
