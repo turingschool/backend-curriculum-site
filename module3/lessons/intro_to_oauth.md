@@ -575,9 +575,10 @@ Now you should be able to see an array of hashes of your repo data.
 ## WORKSHOP - Implement Twitter OAuth with the Twitter gem
 
 Now that you understand how oauth works behind the scenes, implementing oauth with a gem should seem a lot easier.
-See if you can implement oauth in a rails app with the going through this [tutorial](https://github.com/turingschool/lesson_plans/blob/master/ruby_03-professional_rails_applications/archive/getting_started_with_oauth.md#user-content-workshop----implementing-oauth-with-twitter).
+See if you can implement oauth in a rails app with the going through this [example tutorial](https://github.com/turingschool/lesson_plans/blob/master/ruby_03-professional_rails_applications/archive/getting_started_with_oauth.md#user-content-workshop----implementing-oauth-with-twitter).
 
 [Twitter gem](https://github.com/arunagw/omniauth-twitter)
+[Google gem](https://github.com/zquestz/omniauth-google-oauth2)
 
 ## Resources for Further Study
 
@@ -585,8 +586,10 @@ See if you can implement oauth in a rails app with the going through this [tutor
 * [Understanding OAuth](http://lifehacker.com/5918086/understanding-oauth-what-happens-when-you-log-into-a-site-with-google-twitter-or-facebook) on LifeHacker
 * [OmniAuth](https://github.com/intridea/omniauth) for integration in Ruby web apps
 * [Oauth 1.0 Diagram (from MashApe's oauth bible)](http://puu.sh/2pJ4y)
-* [Doorkeeper](https://github.com/doorkeeper-gem/doorkeeper) -- Oauth provider gem
-* OmniAuth core API documentation: https://github.com/intridea/omniauth
-* OmniAuth wiki: https://github.com/intridea/omniauth/wiki
-* A Devise and OmniAuth powered Single-Sign-On implementation: https://github.com/joshsoftware/sso-devise-omniauth-provider
+* [Doorkeeper](https://github.com/doorkeeper-gem/doorkeeper) -- OAuth provider gem
+* [OmniAuth core API documentation](https://github.com/intridea/omniauth)
+* [OmniAuth wiki](https://github.com/intridea/omniauth/wiki)
+* A Devise and OmniAuth powered Single-Sign-On implementation: [https://github.com/joshsoftware/sso-devise-omniauth-provider](https://github.com/joshsoftware/sso-devise-omniauth-provider)
 * [RailsCast on combining Devise and OmniAuth](http://railscasts.com/episodes/235-devise-and-omniauth-revised)
+* [Google OAuth2 for Rails without Devise: Blog](https://medium.com/@jenn.leigh.hansen/google-oauth2-for-rails-ba1bcfd1b863)
+* [Gem: OmniAuth Google OAuth2](https://github.com/zquestz/omniauth-google-oauth2)
