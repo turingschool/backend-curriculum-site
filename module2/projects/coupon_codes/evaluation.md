@@ -13,6 +13,8 @@ Please be ready to walk through the front-end of your app, demonstrating coupon 
 
 Then, we will walk through the same steps in your code and tests. Be ready to answer questions from your instructor about how you came up with your solution, and how you might refactor. 
 
+*Please prepare the flow of your presentation in advance.*
+
 
 
 ## Rubric
