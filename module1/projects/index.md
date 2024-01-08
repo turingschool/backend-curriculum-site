@@ -28,6 +28,7 @@ The following projects are not required. Students can use these projects as an o
 These projects are listed (roughly) in order of difficulty.
 
 * [Perilous Journey](./perilous_journey)
+* [War or Peace](./war_or_peace/)
 * [Mastermind](./mastermind)
 * [Event Manager](./eventmanager)
 * [Event Reporter](./event_reporter)
