@@ -147,7 +147,29 @@ As an admin
 When I visit one of my admin invoice show pages
 I see the name and code of the coupon that was used (if there was a coupon applied)
 And I see both the subtotal revenue from that invoice (before coupon) and the grand total revenue (after coupon) for this invoice.
+
+* Alternate Paths to consider: 
+1. There may be invoices with items from more than 1 merchant. Coupons for a merchant only apply to items from that merchant.
+2. When a coupon with a dollar-off value is used with an invoice with multiple merchants' items, the dollar-off amount applies to the total amount even though there may be items present from another merchant.
 ```
+
+
+
+----
+
+
+## Extensions
+
+Students can pick one or more of these extension features/stories to add to their project: 
+
+1. On the Merchant Coupon Index page, active and inactive coupons are sorted in order of popularity, from most to least. 
+2. Coupons can be used by multiple customers, but may only be used one time per customer.
+3. Inactive coupons cannot be added to an Invoice. 
+4. A Coupon has a maximum number of uses before it is automatically deactivated. When implemented, prove that the number of times used on the Merchant Coupon Show Page is updated accordingly. 
+5. Holiday Coupons can be used up to 1 week from the actual holiday date. The coupon should automatically inactivate once someone tries to create an Invoice with that Coupon after a week of the holiday.
+6. Generate unique coupon codes as suggestions when creating a new coupon.
+
+API Consumption is available for this project as an extension as well. 
 
 ```
 9: Holidays API
@@ -160,23 +182,8 @@ In this section the name and date of the next 3 upcoming US holidays are listed.
 Use the Next Public Holidays Endpoint in the [Nager.Date API](https://date.nager.at/swagger/index.html)
 ```
 
-
-----
-
-
-## Extensions
-Students can pick one or more of these extension features/stories to add to their project: 
-
-1. On the Merchant Coupon Index page, active and inactive coupons are sorted in order of popularity, from most to least. 
-2. Coupons can be used by multiple customers, but may only be used one time per customer.
-3. Inactive coupons cannot be added to an Invoice. 
-4. A Coupon has a maximum number of uses before it is automatically deactivated. When implemented, prove that the number of times used on the Merchant Coupon Show Page is updated accordingly. 
-5. Holiday Coupons can be used up to 1 week from the actual holiday date. The coupon should automatically inactivate once someone tries to create an Invoice with that Coupon after a week of the holiday.
-6. Generate unique coupon codes as suggestions when creating a new coupon.
-
-
 ```
-7. Create a Holiday Coupon
+10. Create a Holiday Coupon
 
 As a merchant,
 when I visit my coupons index page,
@@ -193,7 +200,7 @@ I am redirected to my coupon index page where I see the newly-created coupon add
 ```
 
 ```
-8. View a Holiday Coupon
+11. View a Holiday Coupon
 
 As a merchant (if I have created a holiday coupon for a specific holiday),
 when I visit my coupon index page,
