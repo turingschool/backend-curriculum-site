@@ -11,7 +11,7 @@ The following projects will be assigned and their completion is required to be p
 * Week 1-2 (Solo): [Flash Cards](./flashcards/)
 * Week 2-3 (Solo): [DMV](./dmv/)
 * Week 3-4 (Paired): [Battleship](./battleship/) or [Connect Four](./connect_four/)
-* Week 5-6 (Group Final): TBD
+* Week 5-6 (Group Final): [Futbol](./futbol/)
 
 ## Extension Projects
 
