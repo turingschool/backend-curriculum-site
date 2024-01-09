@@ -111,6 +111,7 @@ I should see the name of the movie title rendered above a form with the followin
 * When the party is created, the user should be redirected back to the dashboard where the new event is shown.
 * The user who created the event should be designated the **host**. There should only ever be 1 host of the party. *(Hint: check your `schema.rb`)*
 * The event should also be listed on any other user's dashboards that were also invited to the party.
+* Optionally, you can create a [custom validation](https://guides.rubyonrails.org/active_record_validations.html#custom-methods) to help with the duration attribute. 
 
 <hr/>
 </details>
