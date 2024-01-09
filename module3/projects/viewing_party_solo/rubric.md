@@ -4,9 +4,9 @@ title: Viewing Party Solo - Rubric
 ---
 _[Back to Project Home](./index)_
 
-### Completion
+### Feature Delivery
 
-- **Exceeds Expectations:** All core requirements are complete and at least one exploration.
+- **Exceeds Expectations:** All core requirements are complete and at least one extension.
 - **Meets Expectations:** All core requirements are complete.
 - **Approaching Expectations:** All core requirements are complete but not functioning exactly as intended.
 - **Below Expectations:** Core requirements are incomplete or non-functional.
@@ -22,8 +22,8 @@ _[Back to Project Home](./index)_
 
 - **Exceeds Expectations:** Student can demonstrate how API consumption portions of the project demonstrate all of the four pillars listed below. Student can identify areas where code can be refactored and how they may have created technical debt. Student has refactored into facade and service design pattern.
 - **Meets Expectations:** Student can demonstrate how API consumption portions of the project demonstrate 2 of pillars listed below. Student can identify areas where code can be refactored. Student has refactored into facade and service design pattern.
-- **Approaching Expectations:** Student can demonstrate how API consumption portions of the project demonstrate 2 of pillars listed below.
-- **Below Expectations:** Student can demonstrate how API consumption portions of the project demonstrate 1 of the pillars listed below.
+- **Approaching Expectations:** Project demonstrates some gaps in code quality and/or application of MVC principles.  Student can demonstrate how API consumption portions of the project demonstrate 2 of pillars listed below. 
+- **Below Expectations:** Project demonstrates poor factoring and/or understanding of MVC. Student can demonstrate how API consumption portions of the project demonstrate 1 of the pillars listed below.
 
 **4 Pillars of OO**
 

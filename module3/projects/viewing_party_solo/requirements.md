@@ -184,18 +184,13 @@ I should also see the viewing parties that the user has created (hosting) with t
 
 ## Extension Ideas
 
-**Provide Genres for each Movie**
 
-Each `movie` object that is returned from the TMDB api has a `"genre_ids"` key whose value is an array of IDs that correspond to a genre. Wherever the API is able to provide this data, you should provide the appropriate `name` for that genre, based on the TMDB "Genres: Movie List" API. 
-(Consider - is it possible to store this data? Do you have to make an API call *every* time a Movie endpoint is called?)
+1. **Provide genres for each movie:** Each `movie` object that is returned from the TMDB api has a `"genre_ids"` key whose value is an array of IDs that correspond to a genre. Wherever the API is able to provide this data, you should provide the appropriate `name` for that genre, based on the TMDB "Genres: Movie List" API. 
+  - (Consider - is it possible to store this data? Do you have to make an API call *every* time a Movie endpoint is called?)
 
-
-Other Ideas: 
-
-
-- Additional API consumption (find another API you want to consume that could provide more data on one or more pages)
-- Add functionality such that a user must accept an invite to a movie party.
-- Implement basic authentication for a user.
-    * require a password field to user registration, and create log-in/log-out functionality 
-    * utilize sessions/cookies to remember a logged in user
-- Implement low-level server-side caching for API calls.
+1. Additional API consumption (find another API you want to consume that could provide more data on one or more pages)
+2. Add functionality such that a user must _accept_ an invite to a movie party.
+3. Implement basic authentication for a user.
+ * require a password field to user registration, and create log-in/log-out functionality 
+ * utilize sessions/cookies to remember a logged in user
+4. Implement low-level server-side caching for API calls.
