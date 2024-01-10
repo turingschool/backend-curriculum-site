@@ -19,9 +19,6 @@ tags: ruby, OOP, CS, inheritance
 * Look Up Chain
 
 
-## Slides
-
-* Available [here](../slides/ruby_object_model)
 
 ## WarmUp
 
@@ -35,9 +32,9 @@ tags: ruby, OOP, CS, inheritance
 
 These three methods can help you investigate the relationships between classes and modules. All methods are run on the class (i.e. `String`, `Hash`)
 
-* `.ancestors`: lists all classes along the inheritance chain, and any modules included by those classes. See [docs](https://ruby-doc.org/core-2.4.1/Module.html#method-i-ancestors).
-* `.included_modules`: returns a list of all modules included by any class along the inheritance chain. See [docs](https://ruby-doc.org/core-2.4.1/Module.html#method-i-included_modules).
-* `.superclass`: returns the superclass of the class. See [docs](https://ruby-doc.org/core-2.4.1/Class.html#method-i-superclass).
+* `.ancestors`: lists all classes along the inheritance chain, and any modules included by those classes. See [docs](https://ruby-doc.org/core-3.0.0/Module.html#method-i-ancestors).
+* `.included_modules`: returns a list of all modules included by any class along the inheritance chain. See [docs](https://ruby-doc.org/core-3.0.0/Module.html#method-i-included_modules).
+* `.superclass`: returns the superclass of the class. See [docs](https://ruby-doc.org/core-3.0.0/Class.html#method-i-superclass).
 
 ## Mapping Ruby's Object Model
 
@@ -139,9 +136,9 @@ Our updated diagram:
 
 ![Imgur](https://i.imgur.com/f4pszOG.png)
 
-## Chart Paper Exercise
+## Chart Exercise
 
-Break into small groups. Grab a chart paper and markers.
+Break into small groups. 
 
 Using `.class`, `.ancestors`, `.included_modules`, and `.superclass`, diagram the Object Model of these several commonly-used Ruby classes: Hash, Array, String, Integer, and Float.
 
@@ -173,6 +170,6 @@ Once you have finished the activity, write out the order of the Lookup Chain as 
 
 ## Additional Resources
 
-* Test your understanding of this material with this quiz: [http://quiz-ruby-object-model.herokuapp.com/](http://quiz-ruby-object-model.herokuapp.com/).
+* [Additional Info](../slides/ruby_object_model)
 * Read Camilo Reyes' ["Understanding the Object Model."](https://www.sitepoint.com/understanding-object-model/)
 * [Ruby Object Model Video](https://vimeo.com/160952993)
