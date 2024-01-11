@@ -38,7 +38,8 @@ Evaluation information for this project can be found [here](./evaluation).
 
 * A Coupon belongs to a Merchant
 * An Invoice _optionally_ belongs to a Coupon. An invoice may only have one coupon. 
-  * *Note:* When creating this new association on Invoice, your existing tests will fail unless the association is *optional*. Use [these guides](https://guides.rubyonrails.org/association_basics.html#optional) as a reference. 
+  * *Note:* When creating this new association on Invoice, your existing tests will fail unless the association is *optional*. Use [these guides](https://guides.rubyonrails.org/association_basics.html#optional) as a reference.
+  * You are not required to build functionality for a user applying a coupon to an invoice, but can instead use test data, Rails console or seed data to add coupons to existing invoices to verify behavior.
 ​
 * Merchants have full CRUD functionality over their coupons with criteria/restrictions defined below:
    - A merchant can have a maximum of 5 activated coupons in the system at one time.
