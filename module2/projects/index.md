@@ -6,4 +6,4 @@ title: Module 2 - Projects
 *  [Relational Rails](./relational_rails/) - Solo project, weeks 1-2
 *  [Adopt Don't Shop](https://github.com/turingschool-examples/adopt-dont-shop-7) - week 2-3
 *  [Little Esty Shop](https://github.com/turingschool-examples/little-shop-7) - weeks 4-5
-*  Final solo project, week 6
+*  [Coupon Codes](https://backend.turing.edu/module2/projects/coupon_codes/) - Final solo project, week 6
