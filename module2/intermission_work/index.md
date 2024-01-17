@@ -25,7 +25,7 @@ This Gist will be your submission for your intermission work. Each of the assign
 
 ## Assignments
 
-Work on the following assignments in order. Each assignment will assume that you have completed the previous one and the accompanying Checks for Understanding. **Ruby 3.2.2 and Rails 7.0.6.x are required.**
+Work on the following assignments in order. Each assignment will assume that you have completed the previous one and the accompanying Checks for Understanding. **Ruby 3.2.2 and Rails 7.1.2 are required.**
 
 Time-box recommendations are in each section's instructions, and also included here for convenience. 
 1. Sign up for the [GitHub Student Developer Pack](https://education.github.com/pack), using your `@turing.edu` email address. 

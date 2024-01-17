@@ -11,18 +11,18 @@ title: M1 Portfolio Requirements
 
 ## Structure
 
-* Student-directed presentation (5 minutes)
-* Instructor feedback (5 minutes)
+* Student-directed presentation (5-7 minutes)
+* Instructor feedback (3-5 minutes)
 
 ## Requirements
 
-Each student will deliver a 5 minute **slide presentation** in front of your instructors. Students might find it helpful to review their Interview Prep - Project Log to prepare for the following prompts.
+Each student will deliver a 5 minute **slide presentation** in front of your instructor(s). Students might find it helpful to review their Interview Prep - Project Log to prepare for the following prompts.
 
 * All students will respond to the following prompts:
+  * What is your response to "Tell me about yourself"?
   * How has feedback impacted your development in this module and helped prepare you for your job/career?
   * Which project produced the most growth in you? Technically or Personally. Why?
   * What is something you've learned about yourself in receiving project feedback?
-  * What is your answer to "Tell me about yourself"?
 
 * In addition to the above, a student who **will repeat the current module** uses their presentation time to explore why they struggled, discuss the lessons learned, and lay out a plan for what will be different next time.
 
@@ -33,10 +33,10 @@ Each student will deliver a 5 minute **slide presentation** in front of your ins
 
 ## Submittal
 
-* Students are not required to submit any documents but instead should be prepared to give their presentation to their instructors and engage in a follow up conversation.
+* Students are not required to submit any documents but instead should be prepared to give their presentation to their instructors and engage in a follow up conversation. Please practice and ensure your presentation is no more than 5-7 minutes long. 
 
 ## Potential Outcomes
 
 * If everything goes to plan: good luck in next mod!
-* If a student fails to present a portfolio (due to illness, etc): need to present it in Week 1 of the next inning
+* If a student fails to present a portfolio (due to illness, etc): they will need to present it in Week 1 of the next inning
 * If a student delivers an exceptionally poor portfolio: we'll determine next steps, possible PIP, etc
