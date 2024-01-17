@@ -18,19 +18,16 @@ title: M2 Portfolio Requirements
 
 Each student will deliver a 5 minute slide presentation in front of your instructors.
 
-* A student who **will repeat the current module** should use their presentation time to explore why they struggled, discuss the lessons learned, and lay out a plan for what will be different next time.
+* A student who **will repeat the current module** should use their presentation time to explore why they struggled, discuss the lessons learned, and lay out a plan for what will be different next time. They should also share reflections on PD.
 * A student who is **repeating unsuccessfully** and will leave the program is excused from the presentation and can use the entire portfolio time for feedback and discussion.
 * A student who **passes the module** will present the following:
 * **Reflection on working in Teams:**
    - What particular skills, talent, or perspectives do you bring to a team?
-   - What have you learned about building software in pairs and teams?
-   - What makes for a successful team? What derails a well-intentioned team?
    - What factors determined the success and quality of your pair and group projects?
    - How will your experience in team projects influence your professional work in the industry?
 * **Reflection on Feedback**
     - How has feedback conversations with peers helped prepare you for your job/career?
     - What is something you've learned about yourself in receiving project feedback?
-    - What has been the most valuable piece of feedback you have received?
     - What specific actions are you planning on taking after receiving the feedback from this inning?
 * **Reflection on PD**
     - What was your experience like with networking this inning? Who did you reach out to, and what insights did you glean? How have these conversations shaped your strategy going forward?
