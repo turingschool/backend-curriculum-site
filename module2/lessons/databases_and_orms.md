@@ -8,7 +8,9 @@ layout: page
 
 - Describe what a database is and how it relates to web applications
 - Describe what SQL is
-- Define key database vocabulary including "table", "column", "row", "primary key", and "schema"
+- Define key database vocabulary including "table", "column", "row", "primary key", "migration", and "schema"
+- Describe the purpose of database migrations
+- Write a simple database migration
 - Use Postico to visualize the Database
 - Describe what an ORM is and how it relates to the database
 - Use built in ActiveRecord methods to CRUD resources in the Rails Console
@@ -19,7 +21,48 @@ You should have installed Postico as part of the [mod 2 intermission work](../i
 
 Setup instructions for Postico can be found [here](./setting_up_postico).
 
-## Lesson
+## Database Exploration
+
+### Part 1: Migrations
+
+To reset your database and start from a blank slate, run `rails db:drop` in your terminal at the root director of your Task Manager repo. This will delete the local task manager database. Then, run `rails db:create` to recreate the database. You can also run these two tasks together by writing `rails db:{drop,create}`. 
+
+At this point, you have a local database running, and memory allocated on your machine to hold data, but your database is completely blank. Consider it like an empty lot before a house gets built. Your database, however, is not yet ready to hold records though, because there is no structure for the data to follow. There are no tables, with no columns to indicate the data's shape and attributes. That's where migrations come in. 
+
+Migrations are files that define changes that are made to your database in order to alter its structure, or schema. Migrations are written in order to create tables, add columns, delete columns, create relationships, etc. In your task manager tutorial, you created a migration to create the tasks table by running:
+
+```
+$ rails generate migration CreateTask title:string description:string
+```
+
+This command generated a migration file in the `db/migrate` directory that looked something like this:
+
+```
+class CreateTask < ActiveRecord::Migration[7.0]
+  def change
+    create_table :tasks do |t|
+      t.string :title
+      t.string :description
+
+      t.timestamps
+    end
+  end
+end
+```
+
+This file indicates that you want to create a table in your database, and it will contain the attributes `title` and `description`, as well as timestamp columns which will be added automatically, `created_at` and `updated_at`. 
+
+If you now run `rails db:migrate`, you are telling your local database to execute this migration file in order to make this change. Once you've migrated your databsae, it's ready to hold task records. 
+
+### Migrations and Fixing Forward
+
+Creating a migration file and running it might seem overkill when you could just go into your database and run a SQL `create` command. However, migrations are very important when working on collaborative software. Migration files are like version control for your database because they track every change that's been made. Therefore, you can make sure every computer that is running your Rails application has a corresponding database that is in the same state. 
+
+The alternative to migrations is an onerous and annoying process. Imagine, every time you pulled changes from a group project, you had to ask your project mates if they made any changes to the database, and if they did, you would have to go in and manually make those same changes. Instead, migrations make it easy to track all of these changes and running the `rails db:migrate` command will execute any migration files you haven't yet made on your local machine. 
+
+When you create a migration file, the file name will contain a timestamp (something like `db/migrate/20190414173402_create_task.rb`). This timestamp is used by Rails to determine whether it has run that migration yet. Therefore, when you need to make another change to the database, it's best practice to create a new migration file rather than updating an existing migration file (which your machine has already run). This is called fixing-forward. 
+
+### Part 2: Postico
 
 Use Postico to do the following:
 
