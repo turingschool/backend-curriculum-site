@@ -20,8 +20,7 @@ There are many ways that objects can relate to each other. There can be a *one 
 
 ## Warmup
 
-* In our in-class rails app, where are we storing songs? In your notebooks, diagram or sketch what that song storage looks like.
-* Turn and Talk to your neighbor - If we wanted to store and relate songs to an artist (for example, the artist Prince has two songs in our app: 'Purple Rain' and 'Raspberry Beret') how might that change the diagram or sketch you created above?
+* During this week, we will start using an application called Set List in class, which will have a songs database table. The table will store songs' title, length and seconds, and its play count. If we wanted to store and relate songs to an artist (for example, the artist Prince has two songs in our app: 'Purple Rain' and 'Raspberry Beret') how might you try to incorporate that data into the Set List database? Sketch out an example. 
 
 ## What is a database?
 
