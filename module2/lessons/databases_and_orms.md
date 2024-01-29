@@ -7,7 +7,6 @@ layout: page
 ## Learning Goals
 
 - Describe what a database is and how it relates to web applications
-- Describe what SQL is
 - Define key database vocabulary including "table", "column", "row", "primary key", "migration", and "schema"
 - Describe the purpose of database migrations
 - Write a simple database migration
