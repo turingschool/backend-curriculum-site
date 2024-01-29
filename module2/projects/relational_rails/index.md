@@ -13,7 +13,7 @@ title: Relational Rails
 
 ## Requirements
 
-- Must use Rails 7.0.x, Ruby 3.2.2
+- Must use Rails 7.1.x, Ruby 3.2.2
 - Must use PostgreSQL
 - Must "handroll" all routes (no use of `resources` syntax)
 - Use of `scope` syntax is not permitted on this project
