@@ -3,8 +3,8 @@ layout: page
 title: Module 3 - Projects
 ---
 
-* paired project, week 1
-* solo project, week 2
+* [Viewing Party Solo](./viewing_party_solo) - solo project, week 1
+* paired project, week 2
 * [Consultancy Project](./consultancy) - group project, weeks 4 and 5
 * final solo project, week 6
 
