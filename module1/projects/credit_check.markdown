@@ -4,9 +4,9 @@ title: Credit Check
 ---
 
 ### Learning Goals
-* Break a problem into logical components.
-* Implement appropriate Ruby syntax.
-* Utilize methods and classes.
+* Break a problem into logical components
+* Implement appropriate Ruby syntax
+* Utilize methods and classes
 
 Let's write a program that can detect mistakes in a credit card number.
 
@@ -23,7 +23,7 @@ You can checkout the full description on Wikipedia: http://en.wikipedia.org/wiki
 The formula verifies a number against its included check digit, which is usually appended to a partial account number to generate the full account number. This full account number must pass the following test:
 
 * starting with the first digit, double the value of every other digit
-* if product of this doubling operation is greater than 9 (e.g., 7 * 2 = 14), then sum the digits of the products (e.g., 10: 1 + 0 = 1, 14: 1 + 4 = 5).
+* if the product of this doubling operation is greater than 9 (e.g., 7 * 2 = 14), then sum the digits of the products (e.g., 10: 1 + 0 = 1, 14: 1 + 4 = 5).
 * take the sum of all the digits
 * if the sum is divisible by ten, the number is valid
 
@@ -52,7 +52,7 @@ Since the summed results modulo 10 is zero, the account number is valid accordin
 
 ### Iteration 1 - The Luhn Algorithm
 
-Open `credit_check.rb` in your `lib` directory. You should should this template:
+Open `credit_check.rb` in your `lib` directory. You should see this template:
 
 ```ruby
 card_number = "5541808923795240"
@@ -75,40 +75,48 @@ If helpful, you can use the following sample data:
 
 ### Iteration 2 - Credit Card Class
 
-Create a `CreditCard` class based on the following criteria:
+Create a `CreditCheck` class based on the following criteria:
 
-* A `CreditCard` is passed two arguments upon initialization
+* A `CreditCheck` is passed two arguments upon initialization
   * The first argument is a String representing the card number
-  * The second argument is an Integer representing the `CreditCard`'s limit
-* A `CreditCard` has getter methods called `card_number` and `limit` for reading the card number and limit
-* A `CreditCard` has a method called `is_valid?` that takes no arguments and returns either true or false based on whether or not the card number is valid.
-* A `CreditCard` has a method called `last_four` that returns a String of the last four digits of the card number
+  * The second argument is an Integer representing the `CreditCheck`'s limit
+* A `CreditCheck` has getter methods called `card_number` and `limit` for reading the card number and limit
+* A `CreditCheck` has a method called `is_valid?` that takes no arguments and returns either true or false based on whether or not the card number is valid.
+* A `CreditCheck` has a method called `last_four` that returns a String of the last four digits of the card number
 
-If the previous criteria are met, you should be able to interact with the `CreditCard` class from a Pry session like so:
+If the previous criteria are met, you should be able to interact with the `CreditCheck` class from a Pry session like so:
 
 ```ruby
-pry(main)> require './lib/credit_card'
+
+pry(main)> require './lib/credit_check'
 #=> true
 
-pry(main)> credit_card = CreditCard.new("5541808923795240", 15000)
-#=> #<CreditCard:0x00007fbb1ca5f698 @card_number="5541808923795240", @limit=15000>
+pry(main)> credit_check = CreditCheck.new("5541808923795240", 15000)
+#=> #<CreditCheck:0x00007fbb1ca5f698 @card_number="5541808923795240", @limit=15000>
 
-pry(main)> credit_card.card_number
+pry(main)> credit_check.card_number
 #=> "5541808923795240"
 
-pry(main)> credit_card.limit
+pry(main)> credit_check.limit
 #=> 15000
 
-pry(main)> credit_card.last_four
+pry(main)> credit_check.last_four
 #=> "5240"
 
-pry(main)> credit_card.is_valid?
+pry(main)> credit_check.is_valid?
 #=> true
 ```
 
+Also, if the previous criteria are met, the `bank_test.rb` test should pass.
+
 ### Iteration 3 - Testing
 
-Write tests for your `CreditCard` class that cover that expected behavior described in the previous iteration. If done correctly, the `bank_test.rb` test should also pass.
+Write tests for your `CreditCheck` class that cover that expected behavior described in the previous iteration.
+
+To run the tests already written, you'll need to first install RSpec, our testing gem, by running this in your terminal:
+`gem instal rspec`
+
+Then to run the tests, you'll type: `rspec spec/bank_spec.rb` in your terminal.
 
 ### Iteration 4 - Extensions
 
