@@ -19,7 +19,7 @@ title: Introduction to MVC
 
 ## Warmup
 
-- Open the Task Manager app you completed during intermission. If you need a fresh copy of that application for any reason, a complete version can be found [here](https://github.com/turingschool-examples/task_manager_rails_complete).
+- Open the Task Manager app you completed during intermission. If you need a fresh copy of that application for any reason, a complete version can be found [here](https://github.com/turingschool-examples/task-manager-7-complete).
 - In your own words, what are the primary responsibilities of the models, views, and controllers in Task Manager?
 
 ## Overview
