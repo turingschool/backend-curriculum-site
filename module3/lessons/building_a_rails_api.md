@@ -68,7 +68,7 @@ Discuss the examples of JSON linked below with a partner and describe what you n
 
 ### More Notes To Read Later
 
-[Here are more notes about JSON for API Development](https://github.com/turingschool/backend-curriculum-site/blob/gh-pages/module3/notes/json_for_api_development.html)
+[Here are more notes about JSON for API Development](https://backend.turing.edu/module3/notes/json_for_api_development.html)
 
 ## New Tools
 
