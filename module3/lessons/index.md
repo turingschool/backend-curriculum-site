@@ -28,6 +28,7 @@ layout: page
 ## JavaScript and Front-End Development
 
 * [Introduction to JavaScript](./fundamental_javascript)
+* [Mobile-Friendly Design using Bootstrap](./mobile_friendly_design_bootstrap)
 * [jQuery DOM Traversal and Manipulation, HTML Layout in Bootstrap](./jquery_and_bootstrap)
 
 ## Other Topics
