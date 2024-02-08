@@ -26,10 +26,10 @@ tags: migrations, databases, relationships, rails, activerecord
 
 ## Setup
 
-This lesson plan starts at the `songs-show` branch of [this SetList repo](https://github.com/turingschool-examples/set-list-7/tree/songs-show). In order to set up the app for this lesson:
+This lesson plan starts at the `associations-practice` branch of [this SetList repo](https://github.com/turingschool-examples/set-list-7/). In order to set up the app for this lesson:
 
 - Clone the repo
-- Checkout the `associations_tdd_setup` branch
+- Checkout the `associations-practice` branch
 - Run `bundle install`
 - Run `rails db:{drop,create,migrate,seed}`
 

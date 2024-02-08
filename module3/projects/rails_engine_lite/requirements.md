@@ -19,7 +19,7 @@ _[Back to Rails Engine Lite Home](./index)_
 
 2. Set Up [SimpleCov](https://github.com/colszowka/simplecov) to track test coverage in your rails_engine API project.
 
-3. Download [rails_engine_development.pgdump](https://raw.githubusercontent.com/turingschool/backend-curriculum-site/gh-pages/module3/projects/rails_engine/rails_engine_development.pgdump) and move it into the `/db/` folder in another folder called `/data/`, so your project files look like this:
+3. Download [rails_engine_development.pgdump](https://raw.githubusercontent.com/turingschool/backend-curriculum-site/gh-pages/module3/projects/rails_engine_lite/rails_engine_development.pgdump) and move it into the `/db/` folder in another folder called `/data/`, so your project files look like this:
 ```
 /app
 /bin

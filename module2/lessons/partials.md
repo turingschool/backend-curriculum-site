@@ -55,6 +55,34 @@ When rendering a partial, you will regularly need to send the partial some actio
 
 Now, we are sending our render method some additional information, we need to be a bit more specific - we are telling it to render a partial, called `_form`, and to send that partial 3 local variables: `path`, `method`, and `button_text`
 
+### Restricting Local Variables
+
+As of Rails 7.1, there is some additional functionality for local variables. If you'd like to be explicit when defining what local variables your partial will accept, you can add a magic comment in your partial. You'll need to use the `#` and `-` characters at the beginning and end, respectively, of your comment in order to use a comment in an ERB tag. Notice how we refer to these comments as "magic comments." This is because most comments are not interpreted by Ruby and are just ignored. However, there are cases when comments will be interpreted and affect the processing of the code, and this is one of those cases. 
+
+Inside the comment, you'll list the name of the partials you expect. If another view template tries to render your partial with any other variables that are not listed in your comment, Rails will raise an exception. If another view template renders a partial and doesn't pass one of the expected local variables, Rails will again raise an exception.
+
+```html
+# app/views/shared/_form.html.erb
+
+<$# locals: (path:, method:, button_text:) -%>
+```
+In the example above, this magic comment in the partial file indicates that only locals called `path`, `method` and `button_text` should be passed to the partial and no others. If you want to ensure that no locals will be passed to your partial, you can add a magic comment to indicate that locals should be empty.
+
+```html
+# app/views/shared/_form.html.erb
+
+<$# locals: () -%>
+```
+You also have the choice to set default values for local variables when you define them in the magic comment in your partial file. 
+
+```html
+# app/views/shared/_form.html.erb
+
+<$# locals: (path: "/artists", method: :post, button_text: "Create Artist") -%>
+```
+
+Using these magic comments to indicate what local variables are expected is optional.
+
 ### Implementing a Partial in Set List
 
 Let's see if we can put all this together to DRY up our `artists/edit` and `artists/new` views in our SetList app. Before peeking at the code snippets below, see if you and your partner can implement a partial, maintaining our passing tests!
@@ -66,6 +94,8 @@ You should now have `artists/_form.html.erb`, `artists/new.html.erb`  and  `
 **app/views/artists/_form.html.erb**
 
 ```html
+<$# locals: (path:, method:, button_text:) -%>
+
 <%= form_with url: path, method: method do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
