@@ -294,6 +294,8 @@ Don't forget to write unit tests for `topping_list.rb`! Those tests won't intera
 
 ## Sinatra for microservices
 
+**Discuss: why are you considering Sinatra for your microservices in your project?**
+
 As you've seen, Sinatra is a powerful but simple tool for quickly putting together web applications in Ruby. Because it's so flexible, there are many ways you could choose to utilize it in your application architechture, all of which have their own advantages and disadvantages. 
 
 In our Pizza Shop example today, we built a microservice which would return html views with pizza topping suggestions. We did not connect to a database or set up routes to create/update/delete resources, but we certainly could. Take 5-10 minutes to brainstorm other ways we could abstract Pizza Shop App functionality into a Sinatra microservice (consider diagramming these ideas with a peer).
