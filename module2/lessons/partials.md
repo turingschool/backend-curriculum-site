@@ -64,21 +64,21 @@ Inside the comment, you'll list the name of the partials you expect. If another 
 ```html
 # app/views/shared/_form.html.erb
 
-<$# locals: (path:, method:, button_text:) -%>
+<%# locals: (path:, method:, button_text:) -%>
 ```
 In the example above, this magic comment in the partial file indicates that only locals called `path`, `method` and `button_text` should be passed to the partial and no others. If you want to ensure that no locals will be passed to your partial, you can add a magic comment to indicate that locals should be empty.
 
 ```html
 # app/views/shared/_form.html.erb
 
-<$# locals: () -%>
+<%# locals: () -%>
 ```
 You also have the choice to set default values for local variables when you define them in the magic comment in your partial file. 
 
 ```html
 # app/views/shared/_form.html.erb
 
-<$# locals: (path: "/artists", method: :post, button_text: "Create Artist") -%>
+<%# locals: (path: "/artists", method: :post, button_text: "Create Artist") -%>
 ```
 
 Using these magic comments to indicate what local variables are expected is optional.
@@ -94,7 +94,7 @@ You should now have `artists/_form.html.erb`, `artists/new.html.erb`  and  `
 **app/views/artists/_form.html.erb**
 
 ```html
-<$# locals: (path:, method:, button_text:) -%>
+<%# locals: (path:, method:, button_text:) -%>
 
 <%= form_with url: path, method: method do |f| %>
   <%= f.label :name %>
