@@ -33,6 +33,7 @@ layout: page
 
 ## Other Topics
 
+* [Intro to Sinatra](./intro_to_sinatra)
 * [Sending Email in Rails](./sending_email_in_rails)
 * [Data Structures and Algorithms](./data_structures_and_algorithms)
 * [Intro to Caching](./intro_to_caching_in_rails)

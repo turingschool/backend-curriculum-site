@@ -39,7 +39,7 @@ OR
 * git pull origin branch_name
 * git push origin branch_name
 * git remote -v
-* git remote add <ssh key>
+* git remote add origin <ssh key>
 
 ## Clone vs. Fork and Clone
 
@@ -71,7 +71,7 @@ In order to fix it, you need to change the text of the file to include only the 
 
 #### Person A
 
-* Make a directory and CD into it
+* Make a new directory and `cd` into it
 * Check that repo is not already inited
   (`git status`)
 * Initialize repo locally
@@ -84,12 +84,10 @@ In order to fix it, you need to change the text of the file to include only the 
   (`git remote -v`)
 * Check git status
   (`git status`)
-* Make a file
+* Make a file (create a class)
   (`touch filename.rb`)
-* Add some code to the file
+* Add some code to the file (Add an initialize method, some attributes, and attr_readers.)
 * Commit 
-* IF your initial branch is not named 'main', rename it now
-  (`git branch -m main`)
 * and push
   - `git status`
   - `git add filename.rb`
@@ -98,21 +96,22 @@ In order to fix it, you need to change the text of the file to include only the 
   - `git push origin main`
 * Add collaborator on github
 
-* Checks out new branch (`git checkout -b new_feature`)
-* Changes first line of file
+* Check out new branch (`git checkout -b new_feature`)
+* Changes the existing file (the name of the class and some of the attributes - don't change the filename)
 * Commits and pushes to branch
   - `git status`
   - `git add filename.rb`
   - `git status`
   - `git commit -m "change to first line"`
   - `git push origin new_feature`
+  - Do NOT do anything on GitHub, switch to Person B
 
 #### Person B
 * accepts invitation
 * clones repo (`git clone <ssh key to repo>`)
 * cds into cloned repo
 * checks out a new branch (`git checkout -b add_content`)
-* changes first line of file
+* changes the existing file (change class name and the attributes to something different than person A did)
 * commits and pushes to branch
   - `git status`
   - `git add filename.rb`
@@ -127,7 +126,7 @@ In order to fix it, you need to change the text of the file to include only the 
 * Review and comment on Person B's Pull Request
 * Merge Person B's Pull Request
 
-Remote main is now updated
+Remote main is now updated.
 
 From `new_feature` branch (should already be on this): 
 * pulls origin main into `new_feature`
