@@ -195,8 +195,14 @@ In general, keep your layouts as clean & uncomplicated as possible - your users 
 1. Go to [the BBC.com news website](https://bbc.co.uk). On a piece of paper, sketch out the general _rows & columns_ that fit this site's design the best. (Note: news changes often, you may want to take a screenshot as reference.)
 2. Bootstrap's classes can be implemented even in a simple HTML document - Rails not required. 
    1. Create a file called `bootstrap_practice.html`. Include the CDN files via the Bootstrap [Quick Start](https://getbootstrap.com/docs/5.3/getting-started/introduction/#quick-start) instructions. 
-   2. Take your sketched-out design from before and implement basic areas with basic content. 
+   2. Take your sketched-out design from before and implement basic areas with basic content (such as some placeholder text inside of a `div` element). 
    3. Shrink & expand the view in your browser. Does it behave like you expect? 
+
+
+## Further Reading
+* [W3 Accessibility Standards](https://www.w3.org/WAI/standards-guidelines/)
+
+Don't forget to make sure your design is accessible, as well as mobile-friendly. [This front-end lesson plan](https://frontend.turing.edu/lessons/module-2/intro-to-accessibility) includes instructions on conducting a basic accessibility audit using the chrome devtools.
 
 
 ## Checks for Understanding
