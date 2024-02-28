@@ -5,9 +5,9 @@ title: Lunch and Learn Project Requirements
 _[Back to Lunch and Learn Home](./index)_
 # Important Note about Getting Started
 
-1. This project is an API based application. __Use__ the `rails new --api and other flags` when creating your application. _Doing `rails new` which includes views, etc is NOT a correct project structure._
+1. This project is an API based application. __Use__ the `rails new --api` flag (among others as necessary) when creating your application. _Doing `rails new` which includes views, etc is NOT a correct project structure._
 
-2. We would like to see a README file included in your project that outlines the learning goals, how someone can clone and set up your application and where they can get their own API keys, and happy path endpoint use.
+2. Your project should also include a README file that outlines the learning goals, how someone can clone and set up your application, where they can get their own API keys, and happy path endpoint use.
 
 3. It is __optional__ to use a gem for serializing.
 
@@ -18,7 +18,7 @@ The front-end team has drawn up these wireframe for the application's functional
 
 ![Recipes Show Page](./images/recipes-show.png)
 
-They need your API to expose one API endpoint in order to populate this page with the necessary data.
+They need your API to expose one endpoint in order to populate this page with the necessary data.
 
 ---
 
@@ -166,7 +166,7 @@ Example:
 
 * Endpoint needs to use the [search lists](https://developers.google.com/youtube/v3/docs/search/list) endpoint from the [YouTube API](https://developers.google.com/youtube/v3/getting-started). We suggest pulling videos from the [Mr. History YouTube Channel](https://www.youtube.com/channel/UCluQ5yInbeAkkeCndNnUhpw), but if there's another educational channel you'd like to pull from instead, you can. You only need to return one video.
     - Note: You'll need to use `snippet` to get more data on your search.
-* Implement a new API service (Unsplash, Pexels, Microsoft Bing Image search, Wikimedia image search, Flickr and more) to use the name of the country to get the URL of up to 10 images for that country search. 
+* Implement a new API service (choose from Unsplash, Pexels, Microsoft Bing Image search, Wikimedia image search, Flickr or others) to use the name of the country to get the URL of up to 10 images for that country search. 
 * If no videos or images are found, those keys should point to an empty object:
 ```json
 {
@@ -189,7 +189,7 @@ The front-end team has drawn up this wireframe for registration:
 
 ![Register Page](./images/register.png)
 
-Your api should expose this endpoint:
+Your API should expose this endpoint:
 
 **Request:**
 
@@ -205,6 +205,8 @@ Accept: application/json
   "password_confirmation": "treats4lyf"
 }
 ```
+
+**NOTE:** The above JSON object should be sent in the **body** of the request, not in query params. 
 
 **Response:**
 
@@ -225,10 +227,10 @@ Accept: application/json
 **Requirements:**
 
 * This POST endpoint should NOT call your endpoint like `/api/v1/users?name=Odell&email=goodboy@ruffruff.com&password=treats4lyf&password_confirmation=treats4lyf`. You must send a **JSON payload** in the **body** of the request
-  - in Postman, under the address bar, click on "Body", select "raw", which will show a dropdown that probably says "Text" in it, choose "JSON" from the list
-  - this is a **hard requirement** to pass this endpoint!
-* A successful request creates a user in your database, creates a password digest, and generates a unique api key associated with that user, with a 201 status code. 
-* Use bcrypt to authenticate and create a password digest for a new user.
+  - in Postman, under the address bar, click on "Body", select "raw", which will show a dropdown that probably says "Text" in it, choose "JSON" from the list.
+  - This is a **hard requirement** to pass this endpoint!
+* A successful request creates a user in your database, creates a password digest, and generates a unique API key associated with that user, with a 201 status code. 
+* Use `bcrypt` to authenticate and create a password digest for a new user.
 * Email addresses must be unique. If a unique email address is not used for registration, an appropriate error message should be returned in the response.
 * If passwords do not match, an appropriate error message should be returned in the response.
 
