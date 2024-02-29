@@ -18,26 +18,26 @@ title: M2 Portfolio Requirements
 
 Each student will deliver a 5 minute slide presentation in front of your instructors.
 
-* A student who **will repeat the current module** should use their presentation time to explore why they struggled, discuss the lessons learned, and lay out a plan for what will be different next time. They should also share reflections on PD.
-* A student who is **repeating unsuccessfully** and will leave the program is excused from the presentation and can use the entire portfolio time for feedback and discussion.
-* A student who **passes the module** will present the following:
-* **Reflection on working in Teams:**
-   - What particular skills, talent, or perspectives do you bring to a team?
-   - What factors determined the success and quality of your pair and group projects?
-   - How will your experience in team projects influence your professional work in the industry?
-* **Reflection on Feedback**
-    - How has feedback conversations with peers helped prepare you for your job/career?
-    - What is something you've learned about yourself in receiving project feedback?
-    - What specific actions are you planning on taking after receiving the feedback from this inning?
-* **Reflection on PD**
-    - What was your experience like with networking this inning? Who did you reach out to, and what insights did you glean? How have these conversations shaped your strategy going forward?
-    - Reflecting on your career journal from the module, what is your current vision for your career in the software industry? How has this vision changed since you started at Turing? (Reminder: it's very okay for this vision to shift a lot while you're at Turing, and to keep shifting afterward too!).
+### Answer the following questions in your presentation:
 
-#### The presentation should not be a series of slides that directly answers each of these questions with bullet points, but instead should:
+* What has been some of the most powerful feedback you have received this inning?
+* What skills, talents, or perspectives do you bring to a team?
+* What factors determined the success and quality of your pair and group projects?
+* What was your experience like with networking this inning? Who did you reach out to, and what insights did you glean? How have these conversations shaped your strategy going forward?
 
-* Follow a narrative format -- this is an opportunity to fine tune your story and how you speak about your work. Slides should flow naturally from one to the next.
-* Include images and graphics to illustrate the concepts you plan to discuss. These may include screenshots/animated gifs of an application you created, snippets of code from your projects, diagrams of interesting concepts/structures that you used in your project(s).
+#### If you are repeating the module, please answer this additional question:
 
+* What was most challenging this inning? How do you plan to tackle this during your repeat?
+
+#### If you are moving on to Module 3, please answer this additional question:
+
+* Reflecting on your career journal from the module, what is your current vision for your career in the software industry? How has this vision changed since you started at Turing? (Reminder: it's very okay for this vision to shift a lot while you're at Turing, and to keep shifting afterward too!).
+
+### The presentation should not be a series of slides that directly answers each of these questions with bullet points, but instead should:
+
+* Follow a narrative format -- this is an opportunity to fine tune your story and how you speak about your work. Slides/visuals should flow naturally from one to the next.
+* If you'd rather skip slides, you're welcome to do so. Regardless of whether you use slides as a visual, your presentation should follow a logical structure and answer all of the relevant questions. 
+  
 ## Submittal
 
 * Students are not required to submit any documents but instead should be prepared to give their presentation to their instructors and engage in a follow up conversation.
