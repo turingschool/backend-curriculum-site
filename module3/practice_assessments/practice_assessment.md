@@ -31,6 +31,8 @@ bundle exec rails server
 
 ## Practice Challenges
 
+*NOTE*: The actual final assessment will equal stories 1 & 2 of this practice assessment. Stories 3 & 4 would be extensions, or another set of practice you could do optionally.
+
 ### 1. Current Weather
 
 For this story, we will be using the [OpenWeatherMap API](https://openweathermap.org/api). Sign up for an api key and familiarize yourself with the documentation. Please note that it may take a while for your api key to be activated.
@@ -58,6 +60,9 @@ Then I should see an image related to the current weather at the destination
 ```
 
 **Note**: you have some flexibility here to determine what a "related" image might be.
+
+
+*REMINDER*: Stories 3 and 4 below would be considered extensions, or extra practice for you to hone your API consumption/Rails skills. 
 
 ### 3. Create an External API for the `Destination` resource
 
