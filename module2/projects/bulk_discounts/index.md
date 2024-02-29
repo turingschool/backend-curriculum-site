@@ -17,7 +17,7 @@ This project is an extension of the Little Esty Shop group project. You will add
 ## Deets
 
 * This is a solo project, to be completed alone without assistance from cohortmates, alumni, mentors, rocks, etc.
-* Must use Rails 7.0.x and Ruby 3.2.2. 
+* Must use Rails 7.1.x and Ruby 3.2.2. 
 * Additional gems to be added to the project must have instructor approval. (RSpec, Capybara, Shoulda-Matchers, Orderly, HTTParty, Launchy, Faker and FactoryBot are pre-approved)
 * Scaffolding is not permitted on this project.
 * This project must be deployed to the internet.
@@ -173,6 +173,8 @@ As a merchant
 When I visit my merchant invoice show page
 Then I see the total revenue for my merchant from this invoice (not including discounts)
 And I see the total discounted revenue for my merchant from this invoice which includes bulk discounts in the calculation
+
+Note: We encourage you to use as much ActiveRecord as you can, but some Ruby is okay. Instead of a single query that sums the revenue of discounted items and the revenue of non-discounted items, we recommend creating a query to find the total discount amount, and then using Ruby to subtract that discount from the total revenue. 
 ```
 
 ```
