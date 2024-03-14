@@ -153,6 +153,35 @@ RSpec.describe "songs index page", type: :feature do
 end
 ```
 
+## Routing Exceptions: Failing Loudly
+
+As of Rails 7.1, testing configuration has changed a bit in a default Rails application. In the above example, we visit the `/songs` path. If we don't have that route created yet, we would expect that test to fail at that line to indicate to us that we need to create that route. However, with the new default Rails settings, that test wouldn't fail until it gets to the expectation below it to assert that the `song_1` title appears on the page. 
+
+Especially as you're learning about Rails, this configuration can cause a bit of confusion. How can we successfully visit a path that doesn't yet exist?! If you, like us, would rather see your test fail when Capybara tries to visit a route that doesn't exist, you can make a quick fix in your configuration!
+
+In your `config/environments/test.rb` file, you should see this line at about line 32: 
+```
+config.action_dispatch.show_exceptions = :rescuable
+```
+
+In order to see your route issue fail loudly and more clearly, change that line to:
+```
+config.action_dispatch.show_exceptions = :none
+```
+
+Now, if you run the above test and have not yet made that route, you should see this failure:
+```
+Failures:
+
+  1) songs index page can see all songs titles and play count
+     Failure/Error: visit "/songs"
+     
+     ActionController::RoutingError:
+       No route matches [GET] "/songs"
+```
+
+You are not required to make this change, but we think this setting allows for better understanding of the error, and a clearer indication of the next step in the TDD flow. 
+
 ## Practice
 
 Write a test for the following user stories. Then, use TDD to implement the feature.
