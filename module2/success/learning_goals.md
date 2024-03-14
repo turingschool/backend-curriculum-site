@@ -79,15 +79,12 @@ The expected mastery level can be understood with the following scale:
 
 * Describe the HTTP request/response cycle
 * Describe the different parts of HTTP requests and responses
-* Describe web APIs
 
 ### Rails Application Development
 
 * Implement partials to break a view into reusable components
 * Use flash messages
 * Use Inheritance to share behavior across classes
-* Use POROs to logically organize code for objects not stored in the database
-* Use `Faraday` to consume an API
 
 ### Databases
 
@@ -98,7 +95,7 @@ The expected mastery level can be understood with the following scale:
 
 ### Testing & Debugging
 
-* Use WebMock to mock API calls
+* Describe the difference between unit and integration testing. 
 
 ### Styling
 
