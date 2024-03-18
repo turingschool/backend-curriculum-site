@@ -104,13 +104,13 @@ I should see the name of the movie title rendered above a form with the followin
 - Duration of Party with a default value of movie runtime in minutes; a viewing party should NOT be created if set to a value less than the duration of the movie
 - When: field to select date
 - Start Time: field to select time
-- Checkboxes next to each existing user in the system
+- Guests: three (optional) text fields for guest email addresses 
 - Button to create a party
 ```
 **Notes:**
 * When the party is created, the user should be redirected back to the dashboard where the new event is shown.
 * The user who created the event should be designated the **host**. There should only ever be 1 host of the party. *(Hint: check your `schema.rb`)*
-* The event should also be listed on any other user's dashboards that were also invited to the party.
+* The event should also be listed on any other existing user's dashboards that were also invited to the party. 
 * Optionally, you can create a [custom validation](https://guides.rubyonrails.org/active_record_validations.html#custom-methods) to help with the duration attribute. 
 
 <hr/>
@@ -188,9 +188,10 @@ I should also see the viewing parties that the user has created (hosting) with t
 1. **Provide genres for each movie:** Each `movie` object that is returned from the TMDB api has a `"genre_ids"` key whose value is an array of IDs that correspond to a genre. Wherever the API is able to provide this data, you should provide the appropriate `name` for that genre, based on the TMDB "Genres: Movie List" API. 
   - (Consider - is it possible to store this data? Do you have to make an API call *every* time a Movie endpoint is called?)
 
-1. Additional API consumption (find another API you want to consume that could provide more data on one or more pages)
-2. Add functionality such that a user must _accept_ an invite to a movie party.
-3. Implement basic authentication for a user.
+2. Additional API consumption (find another API you want to consume that could provide more data on one or more pages)
+3. Update the New Viewing Party form to display all users and allows any number of them to be invited to a party using [check boxes](https://apidock.com/rails/ActionView/Helpers/FormHelper/check_box) instead of text fields.
+4. Add functionality such that a user must _accept_ an invite to a movie party.
+5. Implement basic authentication for a user.
  * require a password field to user registration, and create log-in/log-out functionality 
  * utilize sessions/cookies to remember a logged in user
-4. Implement low-level server-side caching for API calls.
+6. Implement low-level server-side caching for API calls.
