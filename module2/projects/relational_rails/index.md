@@ -22,7 +22,7 @@ title: Relational Rails
 ## Permission
 
 - If there is a specific gem you'd like to use in this project that is not mentioned on this project page, you must get permission from your instructors first.
-  - Pre-approved gems are `pry, capybara, orderly, launchy, simplecov, shoulda-matchers, factory_bot_rails, faker`
+  - Pre-approved gems are `rspec-rails, pry, capybara, orderly, launchy, simplecov, shoulda-matchers, factory_bot_rails, faker`
 
 ## Setup
 Students should create their own new Rails app for this project. Students can reference the [Task Manager tutorial app](https://github.com/turingschool-examples/task_manager_rails) for how to set up a new Rails project. 
