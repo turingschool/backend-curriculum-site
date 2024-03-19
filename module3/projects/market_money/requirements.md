@@ -12,7 +12,7 @@ summary:hover {
 </style>
 
 _[Back to Market Money Home](./index)_
-# 1. Set Up
+# 1. Setup
 
 1. Create a Rails API project called `market_money` (make sure you do not set up a "traditional" Rails project with a frontend, this is an API-only project): `rails new market_money -T -d postgresql --api`
 
@@ -62,6 +62,8 @@ system(cmd)
 
 **NOTE** If your `rails new ...` project name from above is NOT exactly called "market_money" you will need to modify the `cmd` variable to change the `-d` parameter from `market_money_development` to `<YOUR PROJECT NAME>_development` instead. If you have questions, ask your instructors.
 
+Finally, commit your setup steps and push to a new repo. Share that new repo with your project partner(s). Be sure to add them as a collaborator.
+
 ---
 
 # 2. General Requirements
@@ -70,8 +72,7 @@ system(cmd)
 
 You will need to expose the data through a multitude of API endpoints. All of your endpoints should follow these technical expectations:
 
-* All endpoints should be fully tested for happy path AND sad path. 
-<!-- The Postman tests are not a substitute for writing your own tests. -->
+* All endpoints should be fully tested for happy path AND sad path. **The Postman tests are not a substitute for writing your own tests.**
 * All endpoints that return data will expect to return JSON data only
 * All endpoints should be exposed under an `api` and version (`v0`) namespace (e.g. `/api/v0/markets`)
 * API will be compliant to the [JSON API spec](https://jsonapi.org/) and match our requirements below precisely
@@ -898,9 +899,74 @@ Below, you will see the 11 required endpoints for this project. Click on each en
     </details>
 </details>
 
+# 3. Extension - Images
 
+## External API Consumption
 
+<br>
 
+<details><summary><h3>12. Get State Images</h3></summary>
+
+#### Details
+1. The endpoint should be in the pattern of `GET /api/v0/markets/:id`, to add onto the "Get One Market" endpoint (#2 above).
+2. You will need to utilize the [Unsplash API](https://unsplash.com/documentation) for this - specifically, the [Search Photos](https://unsplash.com/documentation#search-photos) endpoint. Supply a query that would work for this market's location (state), and use the API to retrieve an image. 
+3. If an invalid image id is passed in, a 404 status as well as a descriptive error message should be sent back in the response.
+4. The `data` top level key should always point to an array even if one or zero images were found for this image. 
+5. If no image is found, a link to a placeholder image URL can be used (see [placehold.co](https://placehold.co/)), using the `Text` option to include a URL-encoded string representing the Item's name in the placeholder image. 
+
+<details><summary><h5>Example #1 😁 </h5></summary>
+
+      **Request:**
+      ```
+        GET /api/v0/markets/322458
+        Content-Type: application/json
+        Accept: application/json
+      ```
+
+      **Response:** 
+      `status: 200`
+      ```json
+      {
+          "data": {
+              "id": "322458",
+              "type": "market",
+              "attributes": {
+                  "name": "14&U Farmers' Market",
+                  "street": "1400 U Street NW ",
+                  "city": "Washington",
+                  "county": "District of Columbia",
+                  "state": "District of Columbia",
+                  "zip": "20009",
+                  "lat": "38.9169984",
+                  "lon": "-77.0320505",
+                  "vendor_count": 1,
+                  "image_url": "https://api.unsplash.com/photos/eOLpJytrbsQ" //or, https://placehold.co/600x400?text=Super+Widget
+              }
+          }
+      }
+      ```
+      </details>
+      <details><summary><h5>Example #2 😭 </h5></summary>
+    
+      **Request:**
+      ```
+        GET /api/v0/markets/123123123123 (where `123123123123` is an invalid Market id)
+        Content-Type: application/json
+        Accept: application/json
+      ```
+
+      **Response:** 
+      `status: 404`
+      ```json
+      {
+          "errors": [
+              {
+                  "detail": "Couldn't find Market with 'id'=123123123123"
+              }
+          ]
+      }
+      ```
+      </details>
 
 
 

@@ -66,7 +66,7 @@ There are two ways to run the test suite: one endpoint at a time, or the whole s
 
 #### Running one endpoint at a time
 
-As you develop your endpoints, run "rails s" and find the appropriate endpoint within the Postman collection you imported. For example, "Get All Markets". When you select "Get All Markets" from the list, you should see a Postman tab open, pre-populated with everything you need to connect to the endpoint in your code and see if it works correctly.
+As you develop your endpoints, run `rails s` and find the appropriate endpoint within the Postman collection you imported. For example, "Get All Markets". When you select "Get All Markets" from the list, you should see a Postman tab open, pre-populated with everything you need to connect to the endpoint in your code and see if it works correctly.
 
 Click the "Send" button in the top right corner. **Note: Due to the large sum of Markets in the database, this request will take some time, and it will be the most time consuming request you have.**
 
