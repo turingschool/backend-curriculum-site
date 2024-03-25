@@ -45,6 +45,21 @@ $ bundle
 $ rails g rspec:install
 ```
 
+By default, the Rails 7 test environment renders exception templates for rescuable exceptions. You can find this configuration in `config/environments/test.rb`:
+
+```ruby
+# Render exception templates for rescuable exceptions and raise for other exceptions.
+  config.action_dispatch.show_exceptions = :rescuable
+```
+
+Since we want the raised exception to print to our terminal in the case of failing tests, change this line to the following:
+
+```ruby
+  config.action_dispatch.show_exceptions = :none
+```
+
+The wording here is a bit misleading, but don't worry. This change makes it so that RSpec will show us any raised exceptions instead of trying to render an HTML document for the ones that are rescuable.
+
 Now let's get our factories set up!
 
 add `gem "factory_bot_rails"`, `gem "faker"` to your :development, :test block in your Gemfile. Remember to bundle afterwards.
