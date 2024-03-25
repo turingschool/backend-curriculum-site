@@ -6,26 +6,22 @@ type: project
 ---
 _[Back to Market Money Home](./index)_
 
-The 'eval' for this project is going to be a bit different than other projects in the past. We are relying on you to score yourself for this project. To do that, please fill out and submit [this form](https://forms.gle/1o1u5Ai2UYifwY9cA) individually. 
+## Presentation
+For the project evaluation, each project team should prepare a **10 minute video presentation**. Presentations longer than 10 minutes will not be reviewed and sent back for revision. Your presentation should cover the following points:
 
-## Feedback Session Format
+* Demonstration of functionality via Postman suites
+* Technical quality and organization of the code, identifying code that should be refactored and how it would be refactored
+* Running your application's test suite and a discussion of test coverage (happy/sad paths and any edge cases)
+* Identifying the area(s) of code of which you are most proud, and an area where you would like specific feedback
 
-Instead of a traditional eval, you will be meeting in small groups to get feedback from your peers as well as an instructor. The format of this feedback session will be:
+_All_ team members are expected to participate equally in the presentation. Students should focus on practicing technical communication that is succinct and utilizes appropriate technical vocabulary.
 
-1. **Feedback Request:**
-Choose at least one part of your project that you’d like specific feedback on. Everyone will be asked to bring this to the feedback session, and you will be able to get feedback from your instructor as well as your peers in the feedback group.
+Slides are not required, but encouraged as a way to facilitate the presentation along with sharing specific code examples.
 
-2. **Behavioral Question:**
-After you're done getting feedback on your code, your instructor will pull up the [Behavioral Interview Questions](https://spinthewheel.io//en/wheels/oF5ZfO1oCmBmrZCe45Jecz0xJmU9MQ==), and spin it to select a question for you to answer. This is meant to emulate an interview experience. So, as funny as it may feel, answer it as if you were talking to an interviewer. After answering, your instructor (and any cohort-mates!) will give you feedback on your answer. Remember, this is a safe place to practice!
+Instructors will review the video presentation and do a brief code review (so please make sure you identify an area you’d like feedback in your video, so we can focus where you’d like it most). Scores and final comments will be sent to teams via Slack.
 
 ## Rubric
-
-### Feedback Session
-
-* Exceeds Expectations:  Student comes prepared to answer all question/tasks outlined in the Feedback Session Format above. Student also participates with other peers to either ask further questions or offer additional feedback. 
-* Meets Expectations: Student comes prepared to answer all question/tasks outlined in the Feedback Session Format above.
-* Below Expectations: Student participates in the feedback session, but does not come prepared to answer all questions/tasks outlined in the Feedback Session Format above. 
-* Well Below Expectations: Student is unprepared for the feedback session, and does not come prepared to participate. 
+Your project will be evaluated based on the following rubric: 
 
 ### Feature Delivery
 
@@ -47,5 +43,3 @@ After you're done getting feedback on your code, your instructor will pull up th
 * Meets Expectations: Project demonstrates solid code quality, MVC principles, and uses a serializer for formatting JSON responses.
 * Below Expectations: Project demonstrates some gaps in code quality and/or application of MVC principles.
 * Well Below Expectations: Project demonstrates poor factoring and/or understanding of MVC.
-
-<!-- ive removed the AR rubric section since it's not a core focus of this project, and there's only one api endoint that students use advanced AR -->

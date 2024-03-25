@@ -12,7 +12,7 @@ summary:hover {
 </style>
 
 _[Back to Market Money Home](./index)_
-# 1. Set Up
+# 1. Setup
 
 1. Create a Rails API project called `market_money` (make sure you do not set up a "traditional" Rails project with a frontend, this is an API-only project): `rails new market_money -T -d postgresql --api`
 
@@ -62,6 +62,8 @@ system(cmd)
 
 **NOTE** If your `rails new ...` project name from above is NOT exactly called "market_money" you will need to modify the `cmd` variable to change the `-d` parameter from `market_money_development` to `<YOUR PROJECT NAME>_development` instead. If you have questions, ask your instructors.
 
+Finally, commit your setup steps and push to a new repo. Share that new repo with your project partner(s). Be sure to add them as a collaborator.
+
 ---
 
 # 2. General Requirements
@@ -70,8 +72,7 @@ system(cmd)
 
 You will need to expose the data through a multitude of API endpoints. All of your endpoints should follow these technical expectations:
 
-* All endpoints should be fully tested for happy path AND sad path. 
-<!-- The Postman tests are not a substitute for writing your own tests. -->
+* All endpoints should be fully tested for happy path AND sad path. **The Postman tests are not a substitute for writing your own tests.**
 * All endpoints that return data will expect to return JSON data only
 * All endpoints should be exposed under an `api` and version (`v0`) namespace (e.g. `/api/v0/markets`)
 * API will be compliant to the [JSON API spec](https://jsonapi.org/) and match our requirements below precisely
@@ -897,10 +898,6 @@ Below, you will see the 11 required endpoints for this project. Click on each en
       ```
     </details>
 </details>
-
-
-
-
 
 
 

@@ -40,3 +40,59 @@ Once your Market Money project is complete, you may choose any of the following 
 
     This should fetch items 51 through 100, since we're returning `50` per "page", and we want "page `2`" of data.
     If a user tries to fetch a page for which there is no data, then `data` should report an empty array.
+
+
+- Utilize the [Unsplash API](https://unsplash.com/documentation) - specifically, the [Search Photos](https://unsplash.com/documentation#search-photos) endpoint. Supply a query that would work for this market's location (state), and use the API to retrieve an image. 
+  * If an invalid image id is passed in, a 404 status as well as a descriptive error message should be sent back in the response.
+  * If no image is found, a link to a placeholder image URL can be used (see [placehold.co](https://placehold.co/)), using the `Text` option to include a URL-encoded string representing the Item's name in the placeholder image. 
+
+
+      **Request:**
+      ```
+        GET /api/v0/markets/322458
+        Content-Type: application/json
+        Accept: application/json
+      ```
+
+      **Response:** 
+      `status: 200`
+      ```json
+      {
+          "data": {
+              "id": "322458",
+              "type": "market",
+              "attributes": {
+                  "name": "14&U Farmers' Market",
+                  "street": "1400 U Street NW ",
+                  "city": "Washington",
+                  "county": "District of Columbia",
+                  "state": "District of Columbia",
+                  "zip": "20009",
+                  "lat": "38.9169984",
+                  "lon": "-77.0320505",
+                  "vendor_count": 1,
+                  "image_url": "https://api.unsplash.com/photos/eOLpJytrbsQ" //or, https://placehold.co/600x400?text=Super+Widget
+              }
+          }
+      }
+      ```
+    
+      **Request:**
+      ```
+        GET /api/v0/markets/123123123123 (where `123123123123` is an invalid Market id)
+        Content-Type: application/json
+        Accept: application/json
+      ```
+
+      **Response:** 
+      `status: 404`
+      ```json
+      {
+          "errors": [
+              {
+                  "detail": "Couldn't find Market with 'id'=123123123123"
+              }
+          ]
+      }
+      ```
+<br>
