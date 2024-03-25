@@ -9,6 +9,7 @@ tags: enumerables, map, find_all, find, each
 * Learn how to use & recreate the functionality of `.map`, `.find_all` and `.find` using `.each`
 * Understand when to use `.map`, `.find_all` and `.find` appropriately.
 * Learn how to explore new enumerables using Ruby docs.
+* Discuss *block scope*
 
 
 ## Vocabulary  
@@ -17,6 +18,7 @@ tags: enumerables, map, find_all, find, each
 * iterate  
 * map, find, find_all
 * return value
+* block scope
 
 
 ## Warm Up
@@ -123,6 +125,25 @@ end
 p doubles
 p original
 ```
+
+### Block Scope
+**Block Scope** refers to what is available inside a block (everything between the `do` and `end`). Remember what we've been saying: **local variables** are local to wherever you define them. But blocks are special. Blocks *DO* allow you to access variables created outside of them, however, they work the same as methods in that any local variable created *inside* the block is local to the block. This applies to the block variable as well. You can think of a block variable like an argument to the block.
+
+```ruby
+numbers = [1,2,3]
+total = 0
+numbers.each do |number|
+  greeting = "hello"
+  total += number
+end
+
+p total
+```
+
+In this example, we'll see that even though we created `total` outside the block, it is still available inside the block. However, if we try to print the variable `greeting` or the block variable `number` after the block we will get an error.
+
+A block is a type of **closure**. It encloses the surrounding variables. 
+
 
 ### `map` / `collect`
 
