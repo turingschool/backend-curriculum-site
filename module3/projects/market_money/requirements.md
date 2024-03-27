@@ -601,7 +601,7 @@ Below, you will see the 11 required endpoints for this project. Click on each en
 #### Details
 1. This endpoint should follow the pattern of `POST /api/v0/market_vendors`, and it should create a new association between a market and a vendor (so then, the vendor has a new market that they sell at).
 2. When valid ids for vendor and market are passed in, a MarketVendor will be created, and a response will be sent back with a `201` status, detailing that a Vendor was added to a Market. 
-3. After implementing the happy path for this endpoint, run it, and check that when you call `GET /api/v0/markets/:id/vendors` for the vendor in which you just added to a market, that you see the newly associated market listed. 
+3. After implementing the happy path for this endpoint, run it, and check that when you call `GET /api/v0/markets/:id/vendors` for the market to which you just added a vendor, that you see the newly associated vendor listed.
 4. If an invalid vendor id or and invalid market id is passed in, a `404` status code as well as a descriptive message should be sent back with the response.
 4. If a vendor id and/or a market id are not passed in, a `400` status code as well as a descriptive message should be sent back with the response.
 5. If there already exists a MarketVendor with that `market_id` and that `vendor_id`, a response with a `422` status code and a message informing the client that that association already exists, should be sent back. Looking at [custom validation](https://guides.rubyonrails.org/active_record_validations.html#custom-methods) might help to implement a validation for uniqueness of the attributes for this resource. 
@@ -698,7 +698,7 @@ Below, you will see the 11 required endpoints for this project. Click on each en
 1. This endpoint should follow the pattern of `DELETE /api/v0/market_vendors`, and it should destroy an existing association between a market and a vendor (so that a vendor no longer is listed at a certain market).
 2. The `market_id` and the `vendor_id` should be passed in via the body. 
 2. When a MarketVendor resource can be found with the passed in `vendor_id` and `market_id`, that resource should be destroyed, and a response will be sent back with a `204` status, with nothing returned in the body of the request.  
-3. After implementing the happy path for this endpoint, run it, and check that when you call `GET /api/v0/vendors/:id/markets` for the vendor in which you just deleted an association to a market, that you don't see the recently removed market listed. 
+3. After implementing the happy path for this endpoint, run it, and check that when you call `GET /api/v0/markets/:id/vendors` for the market in which you just deleted an association to a vendor, that you don't see the recently removed vendor listed. 
 4. If a MarketVendor resource can NOT be found with the passed in `vendor_id` and `market_id`, a 404 status code as well as a descriptive message should be sent back with the response.
   
     <details><summary><h5>Example #1 😁 </h5></summary>
