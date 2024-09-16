@@ -25,6 +25,27 @@
   max-width: 700px;
   z-index: 2;
 
+  span {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 1.1em;
+    }
+  
+    .text-wrapper {
+      display: flex;
+      flex-direction: column;
+      margin: 0px 0px 0px 90px;
+    }
+  
+    a {
+      color: white;
+      border-color: white;
+    }
+  
+    a:hover {
+      color: #F9AE04;
+      border-color: #F9AE04;
+    }
+
   h1 {
     font-family: 'Helvetica Neue Heavy', sans-serif;
     font-size: 7em;
