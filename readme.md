@@ -1,6 +1,15 @@
-# Turing School of Software and Design
+# 🌟 Update 🌟
+Turing School of Software and Design has a new Software Engineering curriculum. This repo will no longer receive updates and all further updates will be at https://github.com/turingschool/curriculum-site. To view our current curriculum please visit https://curriculum.turing.edu/.
 
-## License
+For more information on courses and how to apply visit [Turing.edu](www.turing.edu) 🤓
+
+
+___
+___
+
+## Turing School of Software and Design
+
+### License
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
 
