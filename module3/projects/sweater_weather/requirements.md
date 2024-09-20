@@ -5,7 +5,7 @@ title: Whether, Sweater? Project Requirements
 _[Back to Sweater Weather Home](./index)_
 # Important Note about Getting Started
 
-1. This project is an API based application. __Use__ the `rails new --api and other flags` when creating your application. _Doing `rails new` which includes views, etc is NOT a correct project structure._
+1. This project is an API based application. __Use__ the `rails new --api and other flags (-t -d=postgresql)` when creating your application. _Doing `rails new` which includes views, etc is NOT a correct project structure._
 
 2. We would like to see a README file included in your project that outlines the learning goals, how someone can clone and set up your application and where they can get their own API keys, and happy path endpoint use.
 
