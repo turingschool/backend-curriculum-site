@@ -6,7 +6,7 @@ title: Iteration 3 - Playing the Game
 _[Back to Connect Four Home](./index)_
 _[Back to Requirements](./requirements)_
 
-Now it's time to put together the components you've built in the last two iterations to make a working game. You are allowed to build any additional classes or methods you think may be useful to accomplish this. However, this project will be assessed on the spec outlined in the last two iterations, so don't remove any of the functionality from previously built classes.
+Now it's time to put together the components you've built in the last two iterations to make a working game. You are allowed to build any additional classes or methods you think may be useful to accomplish this. You might also run into instances where it would make sense to refactor some methods that you already built in the first two iterations.
 
 You are not expected to test anything related to user input and output in this iteration, but try to use TDD as much as possible to help you design your solution.
 
@@ -29,7 +29,18 @@ Once the User has chosen to play, display a new game board and ask the player to
 
 ### Placing Pieces
 
-The player starts the game by placing their first piece in a valid column. The computer then places their first piece in a randomly selected valid column. The player and computer should repeat this sequence and continue taking turns until an endgame condition is met.
+Your program will request user input and allow them to place an individual piece.
+
+Your program should ask the user to enter a letter A-G.
+Update the board to display the player's piece in the lowest available position of the selected column with an 'X'.
+
+The computer takes its turn by selecting one of the 7 columns at random. Update the board to display the computer's piece in the lowest available position of the selected column with an 'O'.
+
+The player and computer should be able to repeat this sequence and continue taking turns.
+
+If an invalid column is selected by the player, the program should display an error message and ask the player to select a valid column. The program should repeat this process until a valid column is selected.
+
+If an invalid column is selected by the computer, the program should repeat until a valid column is selected. No error message should display to the user when the computer selects an invalid column.
 
 ### End of Game
 
@@ -75,3 +86,4 @@ This checklist summarizes all of the functionality you are expected to build. Th
 * The player cannot select a valid column.
 * The program reports the appropriate endgame status
 * Game returns user back to the Main Menu
+
